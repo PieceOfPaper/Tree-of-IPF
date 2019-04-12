@@ -302,6 +302,10 @@
 		<Class ClassID="2280" ClassName="IfUDoCannotExchangeWeaponType" Data="계열 변경이 가능한 아이템에 변경이 생기는 경우 {#ff0000}{ol}계열 변경의 기회는 사라집니다.{/}{/} {nl} {nl}{@st66d_y}(강화, 초월, 마켓 판매, 개인 거래, 소켓 추가, 각성, 아이커 장착 및 추출, 무기 외형 변환){/}{nl} {nl}계속 하시겠습니까?"/>
 		<Class ClassID="2281" ClassName="TranscendScrollWarning{Before}To{After}100Percent" Data="아이템 변경사항 안내{nl} {nl} - 아이템이 {Before}초월에서{#62100c}{After}초월{/}로 변경 {nl} - 초월 성공시{#62100c}1:1거래가 불가능{/} 합니다."/>
 		<Class ClassID="2282" ClassName="OverLength" Data="내용이 길어 등록할 수 없습니다."/>
+		<Class ClassID="2284" ClassName="YOU_ALREADY_TRANSCEND_NEWYEAR_WEAPON" Data="이미 인벤토리에 5초월을 한 [까치까치 설날] 무기가 있습니다."/>
+		<Class ClassID="2285" ClassName="YOU_ALREADY_REINFORCE_NEWYEAR_WEAPON" Data="이미 인벤토리에 강화가 11단계인 [까치까치 설날] 무기가 있습니다."/>
+		<Class ClassID="2286" ClassName="YOU_HAVE_ONE_NEWYEAR_WEAPON_IN_INVENTORY" Data="인벤토리에 [까치까치 설날] 무기가 하나만 있어야 합니다."/>
+		<Class ClassID="2287" ClassName="YOU_HAVE_NOT_NEWYEAR_WEAPON_IN_INVENTORY" Data="인벤토리에 [까치까치 설날] 무기가 없습니다."/>
 	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
@@ -7355,6 +7359,8 @@
 		<Class ClassID="70415" ClassName="LETIARII_MASTER_TALK_ABOUT_TRAINING" Data="레티아리이의 훈련에 관해 이야기한다"/>
 		<Class ClassID="70416" ClassName="WEAPON_AFFILIATION_CHANGE" Data="무기 계열의 변경을 진행한다"/>
 		<Class ClassID="70417" ClassName="NOT_NEED_WEAPON_AFFILIATION" Data="진행하지 않는다"/>
+		<Class ClassID="70418" ClassName="GIVE_THIS" Data="건네준다"/>
+		<Class ClassID="70419" ClassName="NEWYEAR_PACKAGE_1902_COUNT" Data="위드니움 조각 교환까지 남은 일수"/>
 		<Class ClassID="80001" ClassName="LIMESTONE_52_1_CRYSTAL_ING" Data="불안정한 마력핵 설치 중"/>
 		<Class ClassID="80002" ClassName="LIMESTONE_52_1_SQ_1_TAKE" Data="목걸이 빼앗는 중"/>
 		<Class ClassID="80003" ClassName="LIMESTONE_52_2_MQ_7_SUCC_MSG" Data="구속장치가 요동치기 시작합니다!"/>
@@ -11889,7 +11895,7 @@
 		<Class ClassID="138404" ClassName="ReallyDestroy{ITEM}{COUNT}" Data="정말 {#fe7e00}[{ITEM}]{/}을/를 {#fe7e00}[{COUNT}]{/}개 버리시겠습니까?"/>
 		<Class ClassID="138405" ClassName="ReallyDestroy{ITEM}" Data="정말 {#fe7e00}[{ITEM}]{/}을/를 버리시겠습니까?"/>
 		<Class ClassID="138406" ClassName="ChallengeMode_InvalidPos_CantCreateWarp" Data="공간이 협소하여 포탈을 생성할 수 없습니다."/>
-		</Category>
+	</Category>
 	<Category Name="SkillMsg">
 		<Class ClassID="200001" ClassName="DontBuildCampThisAria" Data="해당 지역에서는 거점을 설치할 수 없습니다."/>
 		<Class ClassID="200002" ClassName="WithdrawToCamp" Data="님께서 꺼내가셨습니다."/>
@@ -13211,5 +13217,5 @@
 		<Class ClassID="516023" ClassName="WebDataExtraction_Abil_AlwaysActive_YES" Data="토글 불가"/>
 		<Class ClassID="516024" ClassName="WebDataExtraction_Abil_AlwaysActive_NO" Data="토글 가능"/>
 		<Class ClassID="516025" ClassName="WebDataExtraction_Abil_AlwaysActive_None" Data="없음"/>
-		</Category>
+	</Category>
 </idspace>

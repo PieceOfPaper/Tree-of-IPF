@@ -29,7 +29,7 @@ function DROP_SKILLITEM_MAKER(frame, icon, argStr, argNum)
 	local toFrame = frame:GetTopParentFrame();
 	local iconInfo = liftIcon:GetInfo();
 
-	if iconInfo.category == "Skill" then
+	if iconInfo:GetCategory() == "Skill" then
 		SKILLITEMMAKER_REGISTER(toFrame, iconInfo.type);
 	end
 end

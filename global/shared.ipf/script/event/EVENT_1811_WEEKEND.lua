@@ -49,3 +49,23 @@ function SCR_EVENT_1811_WEEKEND_LOOTINGCHANCE_BUFF_CHECK(self)
         end
     end
 end
+
+
+function SCR_RAID_EVENT_20190102(pc, isServer)
+    local sysTime
+
+    if isServer == true then
+        sysTime = GetDBTime()
+    else
+        sysTime = geTime.GetServerSystemTime();
+    end
+    
+    local month = sysTime.wMonth
+    local day = sysTime.wDay
+   
+    if (month == 2 and day >= 19 ) or (month == 3 and day <= 19) then
+        return true
+    else
+        return false
+    end
+end

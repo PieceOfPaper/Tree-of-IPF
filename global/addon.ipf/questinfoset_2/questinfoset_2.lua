@@ -1,4 +1,4 @@
-﻿QUEST_TITLE_FONT = "{@st41b}";
+QUEST_TITLE_FONT = "{@st41b}";
 QUEST_GROUP_TITLE_FONT = "{@st42b}";
 QUEST_NORMAL_FONT = "{@st42b}";
 ABANDON_TEXT = ScpArgMsg("Auto_{@st45tw}PoKiHaKi");
@@ -206,7 +206,10 @@ function UPDATE_QUESTINFOSET_2(frame, msg, check, updateQuestID)
 --	for i=0, QUESTWARP_MAX_BTN-1 do
 --		warpFrame:SetUserValue("QUEST_WARP_CLASSNAME_"..i, "None");
 --	end
-
+    if UI_CHECK_NOT_PVP_MAP() == 0 then
+        frame:ShowWindow(0);
+        return;
+    end
 
 	local cnt = quest.GetCheckQuestCount();
 	local customCnt = geQuest.GetCustomQuestCount();
@@ -309,7 +312,7 @@ function CHEAK_QUEST_MONSTER(questIES)
     	    if quest_sObj ~= nil then
     	        if quest_sObj.SSNMonKill ~= 'None' then
     	            local monInfo = SCR_STRING_CUT(quest_sObj.SSNMonKill, ":")
-                    if #monInfo >= 3 and #monInfo % 3 == 0 then
+                    if #monInfo >= 3 and #monInfo % 3 == 0 and monInfo[1] ~= 'ZONEMONKILL' then
                         local ssnMonListCount = #monInfo / 3
                         local flag = 0
                         for i = 1, QUEST_MAX_MON_CHECK do
@@ -318,6 +321,23 @@ function CHEAK_QUEST_MONSTER(questIES)
                                 local nowCount = quest_sObj['KillMonster'..i]
                                 if nowCount < needCount and GetZoneName(pc) == monInfo[i*3] then
                                     ADD_QUEST_CHECK_MONSTER(questIES.ClassID, monInfo[i*3 - 2]);
+                                end
+                            else
+                                break
+                            end
+                        end
+                    elseif monInfo[1] == 'ZONEMONKILL'  then
+                        for i = 1, QUEST_MAX_MON_CHECK do
+                            if #monInfo - 1 >= i then
+                                local index = i + 1
+                                local zoneMonInfo = SCR_STRING_CUT(monInfo[index])
+                                local needCount = tonumber(zoneMonInfo[2])
+                                local nowCount = quest_sObj['KillMonster'..i]
+                                if nowCount < needCount and GetZoneName(pc) == zoneMonInfo[1] then
+                                    local targetMonList = SCR_GET_ZONE_FACTION_OBJECT(zoneMonInfo[1], 'Monster', 'Normal/Material/Elite', 120000)
+                                    for i2 = 1, #targetMonList do
+                                        ADD_QUEST_CHECK_MONSTER(questIES.ClassID, targetMonList[i2][1]);
+                                    end
                                 end
                             else
                                 break
@@ -337,10 +357,11 @@ function CHEAK_QUEST_MONSTER(questIES)
 		end
 		
 		if GetPropType(questIES, 'Succ_Journal_MonKillName'..i) ~= nil and questIES["Succ_Journal_MonKillName" .. i] ~= 'None' then
-		    local wiki = GetWikiByName(questIES['Succ_Journal_MonKillName'..i])
+		    local monCls = GetClass('Monster', questIES['Succ_Journal_MonKillName'..i]);
+            local monID = TryGetProp(monCls, 'ClassID');
 		    local killCount
-            if wiki ~= nil then
-                killCount = GetWikiIntProp(wiki, "KillCount");
+            if monID ~= nil and IsExistMonsterInAdevntureBook(pc, monID) == 'YES' then
+                killCount = GetMonKillCount(pc, monID);
             end
             if killCount ~= nil and killCount < questIES["Succ_Journal_MonKillCount" .. i] then
                 ADD_QUEST_CHECK_MONSTER(questIES.ClassID, monname);
@@ -554,7 +575,7 @@ function ATTACH_QUEST_ITEM_INFO(ctrlset, QuestIES, result, titleWidth)
 	local icon = slot:GetIcon();
 	local iconInfo = icon:GetInfo();
 	ICON_SET_ITEM_COOLDOWN(icon, invItem.type);
-	icon:Set(iconInfo.imageName, 'Item', invItem.type, invItem.invIndex, invItem:GetIESID(), invItem.count);
+	icon:Set(iconInfo:GetImageName(), 'Item', invItem.type, invItem.invIndex, invItem:GetIESID(), invItem.count);
 	slot:EnableDrag(0);
 	slot:EnableHitTest(1);
 	ctrlset:EnableHitTest(1);
@@ -696,6 +717,7 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg, progVal) -- progVal이 nil이
 	tolua.cast(ctrlset, 'ui::CControlSet');
 	ctrlset:SetValue2(questIES.ClassID);
 	ctrlset:SetSValue(result);
+	ctrlset:Resize(GroupCtrl:GetWidth(), ctrlset:GetHeight());
 	--ctrlset:Resize(350, ctrlset:GetHeight());
 
 	local titleWidth = ctrlset:GetWidth() - 10;
@@ -738,13 +760,14 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg, progVal) -- progVal이 nil이
 	elseif questIES.QuestMode == 'PARTY' then
 	    local sObj = GetSessionObject(pc, 'ssn_klapeda')
 	    if sObj ~= nil then
-	        questName = questIES.Name..ScpArgMsg("Auto__-_BanBog({Auto_1}/{Auto_2})","Auto_1", sObj.PARTY_Q_COUNT1 + 1, "Auto_2",CON_PARTYQUEST_DAYMAX1)
+	    	local curCnt = math.min(sObj.PARTY_Q_COUNT1 + 1, CON_PARTYQUEST_DAYMAX1);
+	        questName = questIES.Name..ScpArgMsg("Auto__-_BanBog({Auto_1}/{Auto_2})","Auto_1", curCnt, "Auto_2",CON_PARTYQUEST_DAYMAX1);
 	    end
 	end
 	if questName == nil then
 	    questName = questIES.Name
 	end
-	content:SetTextFixWidth(0);
+	content:SetTextFixWidth(1);
 	content:SetText(QUEST_TITLE_FONT..questName);
 	content:EnableHitTest(0);
 	y = y + content:GetHeight();
@@ -866,7 +889,7 @@ function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg, progVal)
 	elseif result == 'POSSIBLE' and questIES.QuestStartMode ~= 'NPCDIALOG' then
 	    return nil;
 	end
-    
+	
 	if questIES.ClassName ~= 'None' and result == 'PROGRESS' then
 		CHEAK_QUEST_MONSTER(questIES);
 	end
@@ -1031,9 +1054,12 @@ function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg, progVal)
 end
 
 function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
-	if GetLayer(pc) == 0 and ( (result == 'POSSIBLE' and questIES.POSSI_WARP == 'YES') or (result == 'PROGRESS' and questIES.PROG_WARP == 'YES') or (result == 'SUCCESS' and questIES.SUCC_WARP == 'YES')) then
-        local questnpc_state = GET_QUEST_NPC_STATE(questIES, result);
-
+    local banQuestWarpZone = {'d_prison_62_1_event'}
+    
+	if table.find(banQuestWarpZone,GetZoneName(pc)) == 0 and GetLayer(pc) == 0 and ( (result == 'POSSIBLE' and questIES.POSSI_WARP == 'YES') or (result == 'PROGRESS' and questIES.PROG_WARP == 'YES') or (result == 'SUCCESS' and questIES.SUCC_WARP == 'YES') or SCR_MAIN_QUEST_WARP_CHECK(pc, result, questIES, questIES.ClassName) == 'YES') then
+	    
+        local questnpc_state = GET_QUEST_NPC_STATE(questIES, result, pc);
+        
         if questnpc_state ~= nil then
     		local mapProp = geMapTable.GetMapProp(questIES[questnpc_state..'Map']);
     		if mapProp ~= nil then
@@ -1042,9 +1068,7 @@ function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
     				local genList = npcProp.GenList;
     				if genList ~= nil then
         				local genPos = genList:Element(0);
-    
-    					JANSORI_SET_VALUE("Quest_Returnable", 1);
-    
+       
         				picture:SetImage("questinfo_return");
         				picture:SetEventScript(ui.LBUTTONUP, "QUESTION_QUEST_WARP");
 						picture:SetUserValue("PC_FID", GET_QUESTINFO_PC_FID());
@@ -1067,6 +1091,17 @@ function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
 end
 
 function QUESTION_QUEST_WARP(frame, ctrl, argStr, questID)
+--    local pc = GetMyPCObject()
+--    local ZoneClassName = GetZoneName(pc) -- event V I V I D CICY --
+--	if ZoneClassName == 'VIVID_c_Klaipe' or ZoneClassName == 'VIVID_c_orsha' or ZoneClassName == 'VIVID_c_fedimian' then
+--        ui.SysMsg(ClMsg('ThisLocalUseNot'));
+--        return 0;
+--    end -- event V I V I D CICY --
+    
+    if session.colonywar.GetIsColonyWarMap() == true then
+        ui.SysMsg(ClMsg('ThisLocalUseNot'));
+        return 0;
+    end
 
 	if control.IsRestSit() == true then
 		ui.SysMsg(ClMsg('DontQuestWarpForSit'));
@@ -1092,19 +1127,20 @@ function QUESTION_QUEST_WARP(frame, ctrl, argStr, questID)
 	local pc = GetMyPCObject();
 	if ctrl ~= nil then
 		local fid = ctrl:GetUserValue("PC_FID");
-		if fid ~= "None" then
-			local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, fid);	
+		if fid ~= "None" then -- 파티원 공유 퀘스트 돌아가기 누른 경우
+			local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, fid);
 			if memberInfo ~= nil then
-				pc = GetIES(memberInfo:GetPCObj());
+				local memberObj = GetIES(memberInfo:GetObject());
 				g_questCheckFunc = SCR_QUEST_CHECK;
-				local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
-				local questnpc_state = GET_QUEST_NPC_STATE(questIES, result);
-				g_questCheckFunc = nil;
-				local cheat = string.format("/reqpartyquest %s %d %s", fid, questID, questnpc_state);
-				movie.QuestWarp(session.GetMyHandle(), cheat, 0);
-				packet.ClientDirect("QuestWarp");
-			
-				return;
+				local result = TryGetProp(memberObj, 'Shared_Progress');
+				local progressStr = quest.GetQuestStateString(result);
+				if progressStr == 'POSSIBLE' or progressStr == 'PROGRESS' or progressStr == 'SUCCESS' then					
+					g_questCheckFunc = nil;
+					local cheat = string.format("/reqpartyquest %s %d %s", fid, questID, memberInfo:GetName());
+					movie.QuestWarp(session.GetMyHandle(), cheat, 0);
+					packet.ClientDirect("QuestWarp");
+					return;
+				end			
 			end
 		end
 	end
@@ -1113,7 +1149,7 @@ function QUESTION_QUEST_WARP(frame, ctrl, argStr, questID)
     local mapClassName = session.GetMapName();
 	local questIES = GetClassByType("QuestProgressCheck", questID);
 	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
-	local questnpc_state = GET_QUEST_NPC_STATE(questIES, result);
+	local questnpc_state = GET_QUEST_NPC_STATE(questIES, result, pc);
 
     if mapClassName ~= questIES[questnpc_state..'Map'] then
 		isMoveMap = 1;
@@ -1127,8 +1163,6 @@ function QUESTION_QUEST_WARP(frame, ctrl, argStr, questID)
 
 	movie.QuestWarp(session.GetMyHandle(), cheat, isMoveMap);
 	packet.ClientDirect("QuestWarp");
-	_JANSORI_SET_NOTIFIED("Quest_Returnable");
-    
 end
 
 function MAKE_COMPLETE_QUEST_GROUP_CTRL_CHILD(ctrlSet, questCls, beforeQuestCls, xPos, yPos, width, height, line_count, line_maxcount)
@@ -1199,6 +1233,7 @@ function MAKE_QUESTINFO_BY_IES(ctrlset, questIES, startx, y, s_obj, result, isQu
     
     if result ~= 'POSSIBLE' and result ~= 'IMPOSSIBLE' and flag == 'YES' then
     	local starty = y;
+    	y = MAKE_QUESTINFO_STEP_REWARD_BY_IES(ctrlset, questIES, startx, y, result);
     	y = MAKE_QUESTINFO_BASIC_BY_IES(ctrlset, questIES, startx, y, result);
     	y = MAKE_QUESTINFO_BUFF_BY_IES(ctrlset, questIES, startx, y);
     	y = MAKE_QUESTINFO_EQUIP_BY_IES(ctrlset, questIES, startx, y);
@@ -1234,6 +1269,39 @@ function MAKE_QUESTINFO_BY_IES(ctrlset, questIES, startx, y, s_obj, result, isQu
         return y;
     end
 
+end
+function MAKE_QUESTINFO_STEP_REWARD_BY_IES(ctrlset, questIES, startx, y, result)
+
+	--local pc = SCR_QUESTINFO_GET_PC();
+	--local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
+	local quest_auto = GetClass('QuestProgressCheck_Auto',questIES.ClassName)
+	if TryGetProp(quest_auto , 'StepRewardList1') ~= nil and TryGetProp(quest_auto , 'StepRewardList1') ~= 'None' then
+    	local pc = GetMyPCObject();
+    	local maxRewardIndex
+        for index = 1, 10 do
+            local stepRewardList = TryGetProp(quest_auto , 'StepRewardList'..index)
+            local stepRewardFuncList = TryGetProp(quest_auto, 'StepRewardFunc'..index)
+            if stepRewardList ~= nil and stepRewardList ~= 'None' and stepRewardFuncList ~= nil and stepRewardFuncList ~= 'None' then
+                stepRewardFuncList = SCR_STRING_CUT(stepRewardFuncList)
+                local stepRewardFunc = _G[stepRewardFuncList[1]]
+                if stepRewardFunc ~= nil then
+                    local result = stepRewardFunc(pc, stepRewardFuncList)
+                    if result == 'YES' then
+                        maxRewardIndex = index
+                    end
+                end
+            end
+        end
+        if maxRewardIndex ~= nil and maxRewardIndex > 0 then
+    		local content = ctrlset:CreateOrGetControl('richtext', "Succ_StepReward", startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
+    		content:EnableHitTest(0);
+    		content:SetTextFixWidth(0);
+    		content:SetText('{@st42b}'..ScpArgMsg('QUEST_STEPREWARD_MSG3','STEP',maxRewardIndex));
+    		y = y + content:GetHeight();
+        end
+    end
+	
+	return y;
 end
 
 function MAKE_QUESTINFO_BASIC_BY_IES(ctrlset, questIES, startx, y, result)
@@ -1504,11 +1572,12 @@ function MAKE_QUESTINFO_JOURNALMONSTER_BY_IES(ctrlset, questIES, startx, y, s_ob
     	    if GetPropType(questIES, "Succ_Journal_MonKillName" .. i) == nil or questIES["Succ_Journal_MonKillName" .. i] == 'None' or questIES["Succ_Journal_MonKillName" .. i] == '' then
     	        break
     	    end
-    		local monname = GetClassString('Monster',questIES["Succ_Journal_MonKillName" .. i], 'Name');
-            local wiki = GetWikiByName(questIES['Succ_Journal_MonKillName'..i])
+    		local monname = GetClassString('Monster',questIES["Succ_Journal_MonKillName" .. i], 'Name');            
+            local monCls = GetClass('Monster', questIES['Succ_Journal_MonKillName'..i]);
+            local monID = TryGetProp(monCls, 'ClassID');
             local curcnt = 0
-            if wiki ~= nil then
-                curcnt = GetWikiIntProp(wiki, "KillCount");
+            if monID ~= nil and IsExistMonsterInAdevntureBook(pc, monID) == 'YES' then
+                curcnt = GetMonKillCount(pc, monID);
             end
             
             if GetPropType(questIES, "Succ_Journal_MonKillCount" .. i) == nil or questIES["Succ_Journal_MonKillCount" .. i] > 0 then
@@ -1639,7 +1708,7 @@ function MAKE_QUESTINFO_MONSTER_BY_IES(ctrlset, questIES, startx, y, s_obj, ssni
         	    if quest_sObj ~= nil then
         	        if quest_sObj.SSNMonKill ~= 'None' then
         	            local monInfo = SCR_STRING_CUT(quest_sObj.SSNMonKill, ":")
-                        if #monInfo >= 3 and #monInfo % 3 == 0 then
+                        if #monInfo >= 3 and #monInfo % 3 == 0 and monInfo[1] ~= 'ZONEMONKILL' then
                             local ssnMonListCount = #monInfo / 3
                             local flag = 0
                             for i = 1, QUEST_MAX_MON_CHECK do
@@ -1657,13 +1726,29 @@ function MAKE_QUESTINFO_MONSTER_BY_IES(ctrlset, questIES, startx, y, s_obj, ssni
                                 			content:SetTextFixWidth(1);
                                 			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
                                 			y = y + content:GetHeight();
-                                            
-    --                            			local pictureCtrl = GET_CHILD(ctrlset, "statepicture", "ui::CPicture");
-    --                            			if pictureCtrl ~= nil then
-    --                            				pictureCtrl:SetPartitionImage("quest_count");
-    --                            				pictureCtrl:SetPartitionRate(curcnt / needcnt);
-    --                            				--pictureCtrl:Invalidate();
-    --                            			end
+                            			end
+                                    end
+                                else
+                                    break
+                                end
+                            end
+                        elseif monInfo[1] == 'ZONEMONKILL'  then
+                            for i = 1, QUEST_MAX_MON_CHECK do
+                                if #monInfo - 1 >= i then
+                                    local index = i + 1
+                                    local zoneMonInfo = SCR_STRING_CUT(monInfo[index])
+                                    local needCount = tonumber(zoneMonInfo[2])
+                                    local nowCount = quest_sObj['KillMonster'..i]
+                                    if nowCount < needCount then
+                                        local zoneName = GetClassString("Map", zoneMonInfo[1], "Name")
+                                        if zoneName ~= "None" then
+                            			    itemtxt = string.format(ScpArgMsg("QUEST_KILL_MON_UI_MSG2","ZONE", zoneName).." (%d/%d)", nowCount, needCount);
+                            			    
+                            			    local content = ctrlset:CreateOrGetControl('richtext', "MON_" .. (monUIIndex + i), startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
+                                			content:EnableHitTest(0);
+                                			content:SetTextFixWidth(1);
+                                			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
+                                			y = y + content:GetHeight();
                             			end
                                     end
                                 else
@@ -1858,7 +1943,7 @@ function MAKE_QUESTINFO_COUNT_GAUGE(sObj, ctrlset, i, startx, y)
 	gauge:AddStat('%v/%m');
 	gauge:SetStatFont(0, 'white_12_ol');
 	gauge:SetStatOffset(0, -3, -2);
-	gauge:SetStatAlign(0, 'center', 'center');
+	gauge:SetStatAlign(0, ui.CENTER_HORZ, ui.CENTER_VERT);
 	y = y + gauge:GetHeight();
 	return y;
 end
@@ -1959,80 +2044,122 @@ function MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y)
         local Succ_req_quest_check = 0;
         local i
         local flag = false
+        local addIndex = 0
+        local tempList = {}
         for i = 1, 10 do
             if questIES['Succ_QuestName'..i] ~= 'None' then
                 local ret = SCR_QUEST_SUCC_CHECK_MODULE_QUEST_SUB(pc, questIES, sObj_main, i)
                 if ret == 'NO' then
-                    local msg
-                    if questIES['Succ_QuestCount'..i] <= 0 then
-                        msg = '{#ffff00}'..ScpArgMsg('Quest_POSSIBLE')..'{/}'
-                    elseif questIES['Succ_QuestCount'..i] == 1 then
-                        msg = '{#44ccff}'..ScpArgMsg('Quest_PROGRESS')..'{/}'
-                    elseif questIES['Succ_QuestCount'..i] == 200 then
-                        msg = '{#00ffff}'..ScpArgMsg('Quest_SUCCESS')..'{/}'
-                    elseif questIES['Succ_QuestCount'..i] == 300 then
-                        msg = '{#00ff00}'..ScpArgMsg('Quest_COMPLETE')..'{/}'
+                    local t1, t2, t3 = SCR_QUEST_LINK_FIRST(pc,questIES['Succ_QuestName'..i])
+                    for i2 = 1, #t2 do
+                        if table.find(tempList, t2[i2]) == 0 then
+                            local questCount, questTerms
+                            for i3 = 1, #t3 do
+                                if t2[i2] == t3[i3][1] then
+                                    questCount = t3[i3][2]
+                                    questTerms = t3[i3][3]
+                                end
+                            end
+                            
+                            if questIES['Succ_QuestName'..i] == t2[i2] then
+                                questCount = questIES['Succ_QuestCount'..i]
+                            end
+                            
+                            local msg
+                            if questCount <= 0 then
+                                msg = '{#ffff00}'..ScpArgMsg('Quest_POSSIBLE')..'{/}'
+                            elseif questCount == 1 then
+                                msg = '{#44ccff}'..ScpArgMsg('Quest_PROGRESS')..'{/}'
+                            elseif questCount == 200 then
+                                msg = '{#00ffff}'..ScpArgMsg('Quest_SUCCESS')..'{/}'
+                            elseif questCount == 300 then
+                                msg = '{#00ff00}'..ScpArgMsg('Quest_COMPLETE')..'{/}'
+                            end
+                            
+                            local itemtxt = ''
+                            if flag == false then
+                                flag = true
+                                itemtxt = ScpArgMsg('QUESTINFO_QUEST')
+                            end
+                            local succQuestIES = GetClass('QuestProgressCheck',t2[i2])
+                            if succQuestIES ~= nil then
+                    			itemtxt = itemtxt..msg..' '..succQuestIES.Name
+                    		else
+                    		    itemtxt = itemtxt..t2[i2]
+                            end
+                            
+                            if itemtxt ~= nil then
+                                tempList[#tempList + 1] = t2[i2]
+                                addIndex = addIndex + 1
+                    			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. addIndex, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
+                				content:EnableHitTest(0);
+                    			content:SetTextFixWidth(0);
+                    			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
+                    			y = y + content:GetHeight();
+                    		end
+                    	end
                     end
-                    
-                    local itemtxt = ''
-                    if flag == false then
-                        flag = true
-                        itemtxt = ScpArgMsg('QUESTINFO_QUEST')
-                    end
-                    local succQuestIES = GetClass('QuestProgressCheck',questIES['Succ_QuestName'..i])
-                    if succQuestIES ~= nil then
-            			itemtxt = itemtxt..msg..' '..succQuestIES.Name
-            		else
-            		    itemtxt = itemtxt..questIES['Succ_QuestName'..i]
-                    end
-                    
-                    if itemtxt ~= nil then
-            			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
-        				content:EnableHitTest(0);
-            			content:SetTextFixWidth(0);
-            			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
-            			y = y + content:GetHeight();
-            		end
                 end
             end
         end
     elseif questIES.Succ_Quest_Condition == 'OR' then
         local i
         local flag = false
+        local addIndex = 0
+        local tempList = {}
         for i = 1, 10 do
             if questIES['Succ_QuestName'..i] ~= 'None' then
                 local ret = SCR_QUEST_SUCC_CHECK_MODULE_QUEST_SUB(pc, questIES, sObj_main, i)
                 if ret == 'NO' then
-                    local msg
-                    if questIES['Succ_QuestCount'..i] <= 0 then
-                        msg = '{#ffff00}'..ScpArgMsg('Quest_POSSIBLE')..'{/}'
-                    elseif questIES['Succ_QuestCount'..i] == 1 then
-                        msg = '{#44ccff}'..ScpArgMsg('Quest_PROGRESS')..'{/}'
-                    elseif questIES['Succ_QuestCount'..i] == 200 then
-                        msg = '{#00ffff}'..ScpArgMsg('Quest_SUCCESS')..'{/}'
-                    elseif questIES['Succ_QuestCount'..i] == 300 then
-                        msg = '{#00ff00}'..ScpArgMsg('Quest_COMPLETE')..'{/}'
+                    local t1, t2, t3 = SCR_QUEST_LINK_FIRST(pc,questIES['Succ_QuestName'..i])
+                    for i2 = 1, #t2 do
+                        if table.find(tempList, t2[i2]) == 0 then
+                            local questCount, questTerms
+                            for i3 = 1, #t3 do
+                                if t2[i2] == t3[i3][1] then
+                                    questCount = t3[i3][2]
+                                    questTerms = t3[i3][3]
+                                end
+                            end
+                            
+                            if questIES['Succ_QuestName'..i] == t2[i2] then
+                                questCount = questIES['Succ_QuestCount'..i]
+                            end
+                            
+                            local msg
+                            if questCount <= 0 then
+                                msg = '{#ffff00}'..ScpArgMsg('Quest_POSSIBLE')..'{/}'
+                            elseif questCount == 1 then
+                                msg = '{#44ccff}'..ScpArgMsg('Quest_PROGRESS')..'{/}'
+                            elseif questCount == 200 then
+                                msg = '{#00ffff}'..ScpArgMsg('Quest_SUCCESS')..'{/}'
+                            elseif questCount == 300 then
+                                msg = '{#00ff00}'..ScpArgMsg('Quest_COMPLETE')..'{/}'
+                            end
+                            
+                            local itemtxt = ''
+                            if flag == false then
+                                flag = true
+                                itemtxt = ScpArgMsg('QUESTINFO_QUEST')
+                            end
+                            local succQuestIES = GetClass('QuestProgressCheck',t2[i2])
+                            if succQuestIES ~= nil then
+                    			itemtxt = itemtxt..msg..' '..succQuestIES.Name
+                    		else
+                    		    itemtxt = itemtxt..t2[i2]
+                            end
+                            
+                            if itemtxt ~= nil then
+                                tempList[#tempList + 1] = t2[i2]
+                                addIndex = addIndex + 1
+                    			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. addIndex, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
+                				content:EnableHitTest(0);
+                    			content:SetTextFixWidth(0);
+                    			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
+                    			y = y + content:GetHeight();
+                    		end
+                    	end
                     end
-                    
-                    local itemtxt = ''
-                    if flag == false then
-                        flag = true
-                        itemtxt = ScpArgMsg('QUESTINFO_QUEST')
-                    end
-                    local succQuestIES = GetClass('QuestProgressCheck',questIES['Succ_QuestName'..i])
-                    if succQuestIES ~= nil then
-            			itemtxt = itemtxt..msg..' '..succQuestIES.Name
-            		else
-            		    itemtxt = itemtxt..questIES['Succ_QuestName'..i]
-                    end
-                    
-                    if itemtxt ~= nil then
-            			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
-        				content:EnableHitTest(0);
-            			content:SetTextFixWidth(0);
-            			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
-            			y = y + content:GetHeight();
-            		end
                 end
             end
         end
@@ -2041,8 +2168,18 @@ function MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y)
 	return y;
 end
 
-function MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y)
+function MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y, font)
     local pc = SCR_QUESTINFO_GET_PC();
+    local nextPCLvIES = GetClass('Xp', pc.Lv + 1)
+    
+    if nextPCLvIES == nil then
+        return y
+    end
+    
+    if GET_QUESTINFO_PC_FID() ~= 0 then
+        return y
+    end
+    
     local quest_auto = GetClassByType("QuestProgressCheck_Auto", questIES.ClassID);
     
     local repeat_reward_item = {}
@@ -2065,15 +2202,25 @@ function MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y)
         qRewardExp = qRewardExp + repeat_reward_exp
     end
     
-    if quest_auto.Success_Lv_Exp > 0 then
-        qRewardExp = qRewardExp + quest_auto.Success_Lv_Exp
+    if quest_auto.Success_Lv_Exp > 0 and pc.Lv < PC_MAX_LEVEL then
+        local xpIES = GetClass('Xp', pc.Lv)
+        if xpIES ~= nil then
+            local lvexpvalue =  math.floor(xpIES.QuestStandardExp * quest_auto.Success_Lv_Exp)
+            if lvexpvalue ~= nil and lvexpvalue > 0 then
+	            qRewardExp = qRewardExp + lvexpvalue
+            end
+        end
     end
     
-    if qRewardExp > 0 and session.GetMaxEXP() - session.GetEXP() - qRewardExp <= 0 then
+    if font == nil then
+        font = '{@st42b}'
+    end
+    
+    if pc.Lv < PC_MAX_LEVEL and qRewardExp > 0 and session.GetMaxEXP() - session.GetEXP() - qRewardExp <= 0 then
         local content = ctrlset:CreateOrGetControl('richtext', 'QUESTINFOREWARDLVUP', startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
     	content:EnableHitTest(0);
     	content:SetTextFixWidth(0);
-    	content:SetText(ScpArgMsg('QUESTINFOREWARDLVUP','Auto_1',pc.Lv + 1));
+    	content:SetText(font..ScpArgMsg('QUESTINFOREWARDLVUP','Auto_1',pc.Lv + 1));
     	y = y + content:GetHeight()+5;
     end
     
@@ -2156,18 +2303,39 @@ function MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj, sharedProgress)
         
         if sObj_quest ~= nil and sObj_quest.SSNMonKill ~= 'None' then
             local monList = SCR_STRING_CUT(sObj_quest.SSNMonKill, ':')
-            local maxCount = math.floor(#monList/3)
-            for i = 1, maxCount do
-                local zoneTemp = monList[i*3]
-                local zoneName = GetClassString('Map', zoneTemp, 'Name')
-                if table.find(txtList, zoneName) == 0 then
-                    if txt == '' then
-                        txt = txt..zoneName
-                        firstInpu = true
-                    else
-                        txt = txt..'{nl}'..zoneName
+            if #monList >= 3 and #monList % 3 == 0 and monList[1] ~= 'ZONEMONKILL' then
+                local maxCount = math.floor(#monList/3)
+                for i = 1, maxCount do
+                    local zoneTemp = monList[i*3]
+                    local zoneName = GetClassString('Map', zoneTemp, 'Name')
+                    if table.find(txtList, zoneName) == 0 then
+                        if txt == '' then
+                            txt = txt..zoneName
+                            firstInpu = true
+                        else
+                            txt = txt..'{nl}'..zoneName
+                        end
+                        txtList[#txtList + 1] = zoneName
                     end
-                    txtList[#txtList + 1] = zoneName
+                end
+            elseif monList[1] == 'ZONEMONKILL'  then
+                for i = 1, QUEST_MAX_MON_CHECK do
+                    if #monList - 1 >= i then
+                        local index = i + 1
+                        local zoneMonInfo = SCR_STRING_CUT(monList[index])
+                        local zoneName = GetClassString("Map", zoneMonInfo[1], "Name")
+                        if zoneName ~= "None" then
+                            if table.find(txtList, zoneName) == 0 then
+                                if txt == '' then
+                                    txt = txt..zoneName
+                                    firstInpu = true
+                                else
+                                    txt = txt..'{nl}'..zoneName
+                                end
+                                txtList[#txtList + 1] = zoneName
+                            end
+            			end
+                    end
                 end
             end
         end
@@ -2438,7 +2606,7 @@ function QUESTINFOSET_2_QUEST_ANGLE(frame, msg, argStr, argNum)
 			local questProperty = geQuestTable.GetPropByType(childObj:GetValue2());
 			local result = childObj:GetSValue();
 			local questIES = GetClassByType("QuestProgressCheck", childObj:GetValue2());
-			if (result == 'POSSIBLE' and questIES.POSSI_WARP == 'YES') or (result == 'PROGRESS' and questIES.PROG_WARP == 'YES') or (result == 'SUCCESS' and questIES.SUCC_WARP == 'YES') then
+			if (result == 'POSSIBLE' and questIES.POSSI_WARP == 'YES') or (result == 'PROGRESS' and questIES.PROG_WARP == 'YES') or (result == 'SUCCESS' and questIES.SUCC_WARP == 'YES') or SCR_MAIN_QUEST_WARP_CHECK(pc, result, questIES, questIES.ClassName) == 'YES' then
 			else
 				local stateIndex = STATE_NUMBER(result);
 				if stateIndex ~= -1 then
@@ -2664,28 +2832,6 @@ function QUEST_PARTY_MEMBER_PROP_UPDATE(frame)
 					MAKE_QUEST_INFO_C(bg, questIES, nil, TryGetProp(memberObj, 'Shared_Progress'))
 				end
 
-				--[[	공유설정한 퀘스트 UI에서 이전 퀘스트 워프 안보여주게 함.
-						만약 이전 퀘스트 완료 여부를 보여주게 하고 싶으면 주석을 풀면 됨.(가장 최근의 완료된 퀘스트가 계속 떠있게됨)
-						이전 퀘스트가 보이면 혼선만 줘서 없앤다는 로그있길래 주석처리함
-				if beforeQuest > 0 then
-					local questIES = GetClassByType("QuestProgressCheck", beforeQuest);
-					local returnSet = bg:CreateOrGetControlSet("beforereturnbtn", "RETURN_CTRL", ui.LEFT, ui.TOP, 30, 0, 0, 0);
-					local name = GET_CHILD(returnSet, "name", "ui::CRichText");
-					local ctrlSetWidth = bg:GetWidth() - returnSet:GetX();
-					local textWidth = ctrlSetWidth - name:GetX();
-					name:SetMaxWidth(textWidth);
-					name:SetTextByKey("value", ClMsg("WarpToCompleteArea") .. " : " .. questIES.Name);
-					local pic = GET_CHILD(returnSet, "pic", "ui::CPicture");
-       				pic:SetEventScript(ui.LBUTTONUP, "BEFORE_QUEST_WARP");
-					pic:SetUserValue("QUEST_ID", beforeQuest);
-					pic:SetUserValue("AID", pcInfo:GetAID());
-					pic:SetUserValue("STATE_ID", memberObj.Before_Quest_State);
-        			pic:SetTextTooltip(ClMsg("QuestWarp"));
-					pic:SetAngleLoop(-3);
-					returnSet:Resize(ctrlSetWidth, name:GetY() + name:GetHeight() + 10);
-				end
-				]]--
-
 				g_currentPartyMemberInfo = nil;
 				g_questCheckPC = nil;
 			end
@@ -2705,26 +2851,13 @@ function QUEST_PARTY_MEMBER_PROP_UPDATE(frame)
 	end
 	
 	QUESTINFOSET_2_AUTO_ALIGN(groupCtrl:GetTopParentFrame(), groupCtrl);	
-	if drawCount > 0 then
-		frame:ShowWindow(1);
+	if drawCount > 0 then        
+		frame:ShowWindow(UI_CHECK_NOT_PVP_MAP());
 	end
 end
 
 function QUEST_PARTY_SOBJ_UPDATE(frame)
 	QUEST_PARTY_MEMBER_PROP_UPDATE(frame);
-end
-
-
-function BEFORE_QUEST_WARP(parent, pic)
-	local beforeQuest = pic:GetUserIValue("QUEST_ID");
-	local stateID = pic:GetUserIValue("STATE_ID");
-	local fid = pic:GetUserValue("AID");
-	
-	local stateStr = IntKeyToString(stateID);
-	local cheat = string.format("/reqpartyquest %s %d %s", fid, beforeQuest, stateStr);
-	movie.QuestWarp(session.GetMyHandle(), cheat, 0);
-	packet.ClientDirect("QuestWarp");
-
 end
 
 function TOGGLE_PARTY_QUEST_FOLDER(parent, ctrl)

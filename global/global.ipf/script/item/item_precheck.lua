@@ -61,3 +61,10 @@ function SCR_PRE_CS_IndunReset_M_Past_FantasyLibrary_1(self)
     return 0
 end
 
+function SCR_PRECHECK_CONSUME_Steam_Popo_Point(self, strArg, argnum1, arg2, itemClassID)
+    if ENABLE_USE_PCBANG_POINT_SHOP_EVERYBODY ~= 1 then -- 열려 있지 않으면 return -- -- 현재 포포샵이 열려 있는지 (1이면 열림 0이면 닫힘) --
+        SendAddOnMsg(self, 'NOTICE_Dm_!', ScpArgMsg("EVENT_STEAM_POPOSHOP_POINT_RETURN_1"), 5) -- 포포샵 이벤트 기간 중에만 사용 가능합니다. --
+        return 0
+    end
+    RunScript('SCR_USE_Event_Steam_Popo_Point', self, strArg, argnum1, arg2, itemClassID)
+end

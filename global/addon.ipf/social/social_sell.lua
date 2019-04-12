@@ -25,7 +25,7 @@ function SOCIAL_SELL_ON_DROP(sellGbox, itemGbox, argStr, argNum)
 		return;
 	end
 	
-	if dropIconInfo.category ~= "Item" then
+	if dropIconInfo:GetCategory() ~= "Item" then
 		return;
 	end
 

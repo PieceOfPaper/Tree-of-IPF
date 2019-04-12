@@ -28,7 +28,7 @@ function QUESTITEMUSE_ON_MSG(frame, msg, argStr, argNum)
 				local beforeIcon = slot:GetIcon();
 				local needToCreateIcon = true;
 				if beforeIcon ~= nil then
-					if slot:GetValue() == argNum and beforeIcon:GetInfo().imageName == itemClass.Icon then
+					if slot:GetValue() == argNum and beforeIcon:GetInfo():GetImageName() == itemClass.Icon then
 						needToCreateIcon = false;
 					end
 				end

@@ -9,7 +9,7 @@ function GET_HOTKEY(category, type)
 		local icon = slot:GetIcon();
 		if icon ~= nil then
 			local info = icon:GetInfo();
-			if info.category == category and type == info.type then
+			if info:GetCategory() == category and type == info.type then
 				local slotString 	= 'QuickSlotExecute'..(i+1);
 				return hotKeyTable.GetHotKeyString(slotString);	
 			end

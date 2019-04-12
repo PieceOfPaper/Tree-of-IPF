@@ -103,6 +103,39 @@
 		<Class ClassID="501148" OverrideType="ADD" ClassName="EVENT_COOPERATION_DLG4" Data="길드 출석 및 보상 받기"/>
 		<Class ClassID="501149" OverrideType="ADD" ClassName="EVENT_WITH_GUILD_DLG1" Data="{GUILD} 길드{nl} {nl}어제 출석인원 수 : {COUNT1}{nl}오늘 출석인원 수 : {COUNT2}"/>
 		<Class ClassID="501150" OverrideType="ADD" ClassName="EVENT_WITH_GUILD_DLG2" Data="길드 출석 체크 및 보상이 지급되었습니다."/>
+		<Class ClassID="501151" OverrideType="ADD" ClassName="NPC_EVENT_MAGAZINE_NUM1_SEL1" Data="칭호 받기"/>
+		<Class ClassID="501152" OverrideType="ADD" ClassName="NPC_EVENT_MAGAZINE_NUM1_SEL2" Data="버프 받기"/>
+		<Class ClassID="501153" OverrideType="ADD" ClassName="NPC_EVENT_MAGAZINE_NUM1_SEL3" Data="첫 번째 세계관 이벤트 : 수정광산"/>
+		<Class ClassID="501155" OverrideType="ADD" ClassName="NPC_EVENT_VIVID_CITY_SEL1" Data="비비드 시티 이벤트"/>
+		<Class ClassID="501156" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL1" Data="신규"/>
+		<Class ClassID="501157" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL2" Data="복귀"/>
+		<Class ClassID="501158" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL3" Data="기존"/>
+		<Class ClassID="501159" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL4" Data="친구의 추천"/>
+		<Class ClassID="501160" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL5" Data="스팀 스토어 노출"/>
+		<Class ClassID="501161" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL6" Data="스팀 커뮤니티 게시글"/>
+		<Class ClassID="501162" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL7" Data="페이스북 게시글"/>
+		<Class ClassID="501163" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL8" Data="페이스북 광고"/>
+		<Class ClassID="501164" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL9" Data="유저의 유튜브 채널"/>
+		<Class ClassID="501165" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL10" Data="imc의 유튜브 채널"/>
+		<Class ClassID="501166" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL11" Data="유튜브 광고"/>
+		<Class ClassID="501167" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL12" Data="구글 광고"/>
+		<Class ClassID="501168" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL13" Data="imc의 홍보 메일"/>
+		<Class ClassID="501169" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL14" Data="웹진 기사"/>
+		<Class ClassID="501170" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL15" Data="인스타그램 광고"/>
+		<Class ClassID="501171" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL16" Data="기타"/>
+		<Class ClassID="501174" OverrideType="ADD" ClassName="EVENT_VIVID_TIME_CHECK_SEL1" Data="클리어 시간 : {MIN}분 {SEC}초 입니다."/>
+		<Class ClassID="501181" OverrideType="ADD" ClassName="EVENT_CURSED_COAST_NPC_SEL1" Data="저주받은 혼을 보여준다."/>
+		<Class ClassID="501182" OverrideType="ADD" ClassName="EVENT_CURSED_COAST_NPC_SEL2" Data="{Name}님이 저주받은 석화 고래를 깨웠습니다."/>
+		<Class ClassID="501183" OverrideType="ADD" ClassName="EVENT_STEAM_SOCCER_NPC_SEL1" Data="응원 도구 받기"/>
+		<Class ClassID="501184" OverrideType="ADD" ClassName="EVENT_STEAM_SOCCER_NPC_SEL2" Data="트로피 받기"/>
+		<Class ClassID="501186" OverrideType="ADD" ClassName="EVENT_STEAM_EVENT_INVITE_FRIEND_SEL1" Data="이벤트 참여 대상이 아닙니다."/>
+		<Class ClassID="501187" OverrideType="ADD" ClassName="EVENT_STEAM_EVENT_INVITE_FRIEND_SEL2" Data="{#003399}{team}{/}팀 내에 50레벨 이상인 캐릭터가 없습니다."/>
+		<Class ClassID="501188" OverrideType="ADD" ClassName="EVENT_STEAM_EVENT_INVITE_FRIEND_SEL3" Data="{#003399}{team}{/}의 성장 지원 받기"/>
+		<Class ClassID="501189" OverrideType="ADD" ClassName="EVENT_STEAM_EVENT_INVITE_FRIEND_SEL4" Data="{#003399}{team}{/}님이 접속 중입니다.{nl}버프가 부여됩니다."/>
+		<Class ClassID="501190" OverrideType="ADD" ClassName="EV161124_DAYCHECK_SEL1_STEAM" Data="스킬 초기화 포션 (14일), 거품 토끼"/>
+		<Class ClassID="501191" OverrideType="ADD" ClassName="EV161124_DAYCHECK_SEL2_STEAM" Data="스킬 초기화 포션 (14일), 거품 고양이"/>
+		<Class ClassID="501194" OverrideType="ADD" ClassName="EVENT_STEAM_POPOSHOP_POINT_RETURN_1" Data="포포샵 이벤트 기간에만 사용 가능합니다."/>
+		<Class ClassID="501195" OverrideType="ADD" ClassName="EVENT_STEAM_POPOSHOP_POINT_RETURN_2" Data="{MAX}포인트를 초과할 수 없습니다."/>
 	</Category>
 	<Category Name="Premium">
 		<Class ClassID="300174" OverrideType="ADD" ClassName="Ability_Point_Stone" Data="특성 포인트 1,000"/>
@@ -132,5 +165,14 @@
 		<Class ClassID="501145" OverrideType="ADD" ClassName="EVENT_STEAM_2YEARS_MASTER_CHECK" Data="2주년 이벤트 - 마스터 명단 리스트 받기"/>
 		<Class ClassID="501146" OverrideType="ADD" ClassName="EVENT_STEAM_2YEARS_MASTER_CHECK_2" Data="이벤트 진행 상황 : {COUNT}/55{nl}오늘의 초대장을 확인할 마스터는{nl}{JOB} 마스터입니다."/>
 		<Class ClassID="501147" OverrideType="ADD" ClassName="EVENT_STEAM_2YEARS_MASTER_CHECK_3" Data="이벤트 진행 상황 : {COUNT}/55{nl}오늘의 초대장은 이미 확인했습니다."/>
+	</Category>
+	<Category Name="ColonyWar">
+		<Class ClassID="801047" OverrideType="ADD" ClassName="STEAM_COLONY_WAR_ONEDAY_REWARD_MSG{itemName}{itemCount}{nowCount}{limitCount}" Data="길드 콜로니전 참여 보상으로  [{itemName}] x {itemCount} 개 지급{nl}(일일 지급 횟수 : {nowCount}/{limitCount} 회)"/>
+	</Category>
+	<Category Name="UIText">
+		<Class ClassID="21293" ClassName="pcbang_shop" Data="Popo Shop"/>
+		<Class ClassID="21294" ClassName="PCBangPointShopPurchasePleaseRefresh" Data="Popo Shop의 재시도 버튼을 클릭해주세요"/>
+		<Class ClassID="21298" ClassName="PCBangPointShopPurchaseFailed" Data="Popo Shop 아이템 구매에 실패했습니다. 다시 시도해 주세요."/>
+		<Class ClassID="21302" ClassName="PCBangLackOfPoint" Data="Popo Shop 포인트가 부족합니다."/>
 	</Category>
 </idspace>

@@ -27,6 +27,7 @@
 		<groupbox name="countBox" parent="infoBox" rect="0 0 412 60" margin="0 44 0 0" layout_gravity="right top" draw="false" hittestbox="false"/>
 		<picture name="countPic" parent="countBox" rect="0 0 27 27" margin="0 0 0 0" layout_gravity="left center" image="indun_entrance"/>
 		<picture name="cyclePic" parent="countBox" rect="0 0 41 27" margin="110 2 0 0" layout_gravity="left center" image="indun_icon_week_l"/>
+		<picture name="cycleCtrlPic" parent="countBox" rect="0 0 41 27" margin="0 3 70 0" layout_gravity="right center" image="indun_icon_event_s_eng"/>
 		<richtext name="countText" parent="countBox" rect="0 0 190 30" margin="30 0 0 0" layout_gravity="left center" fontname="brown_18_b" caption="입장 횟수"/>
 		<richtext name="countData" parent="countBox" rect="0 0 190 30" margin="0 0 0 0" layout_gravity="right center" textalign="right center" fontname="brown_18_b" format="%s/%s회" param1="now" param1_def="0" param2="max" param2_def="3"/>
 		<richtext name="countItemData" parent="countBox" rect="0 0 190 30" margin="0 0 0 0" layout_gravity="right center" textalign="right center" fontname="brown_18_b" format="%s개" param1="admissionitem" param1_def="0"/>

@@ -10,6 +10,6 @@
 	</Category>
 	<Category Name="PCBang">
 		<Class ClassID="10400" ClassName="PCBANG_POINT_TIME_EXCHANGE_RATE" Value="10" Desc="모인 시간과 몇 PC방 포인트를 교환할지" UseInScript="YES"/>
-		<Class ClassID="10403" ClassName="ENABLE_USE_PCBANG_POINT_SHOP_EVERYBODY" Value="0" Desc="PC방 포인트샵을 모든 유저가 사용 가능하게 할지." UseInScript="YES"/>
+		<Class ClassID="10403" ClassName="ENABLE_USE_PCBANG_POINT_SHOP_EVERYBODY" Value="1" Desc="PC방 포인트샵을 모든 유저가 사용 가능하게 할지." UseInScript="YES"/>
 	</Category>
 </idspace>
