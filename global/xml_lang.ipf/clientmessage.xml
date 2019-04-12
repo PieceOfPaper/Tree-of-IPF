@@ -7242,6 +7242,12 @@
 		<Class ClassID="102301" ClassName="SuccessDeleteGuildEmblem" Data="길드 엠블럼이 삭제되었습니다."/>
 		<Class ClassID="102302" ClassName="NotExistGuildEmblem" Data="길드 엠블럼이 존재하지 않습니다."/>
 		<Class ClassID="102303" ClassName="CantExecInThisArea" Data="현재 지역에서는 사용하실 수 없습니다."/>
+    <Class ClassID="102309" ClassName="InvalidGuildName" Data="사용할 수 없는 길드명입니다."/>
+    <Class ClassID="102310" ClassName="NotExistChangeGuildNameItem" Data="길드명 변경권이 존재하지 않습니다."/>
+    <Class ClassID="102311" ClassName="SuccessChangeGuildName" Data="길드명이 성공적으로 변경되었습니다."/>
+    <Class ClassID="102309" ClassName="InvalidGuildName" Data="사용할 수 없는 길드명입니다."/>
+    <Class ClassID="102310" ClassName="NotExistChangeGuildNameItem" Data="길드명 변경권이 존재하지 않습니다."/>
+    <Class ClassID="102311" ClassName="SuccessChangeGuildName" Data="길드명이 성공적으로 변경되었습니다."/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>
@@ -7875,13 +7881,13 @@
 		<Class ClassID="124030" ClassName="CANCEL_LEARING_ABIL" Data="특성배우기가 취소되었습니다."/>
 		<Class ClassID="124031" ClassName="CanNotItemEquip" Data="착용 할 수 있는 아이템이 아닙니다."/>
 		<Class ClassID="124032" ClassName="CanNotLikeIte" Data="해당 캐릭터는 좋아요를 받을 수 있는 상태가 아닙니다."/>
-		<Class ClassID="124033" ClassName="DeathPenaltyGem" Data="현재 지역에서 전투 불능 시, 소지 중인 젬 일부를 유실할 수 있습니다."/>
-		<Class ClassID="124034" ClassName="DeathPenaltyGemSilver" Data="현재 지역에서 전투 불능 시, 소지 중인 젬 일부와 실버를 유실할 수 있습니다."/>
+		<Class ClassID="124033" ClassName="DeathPenaltyGem" Data="현재 지역에서 전투 불능 시 소지 중인 젬 일부를 유실할 수 있으며, 잠금된 아이템의 경우 잠금이 해제됩니다."/>
+		<Class ClassID="124034" ClassName="DeathPenaltyGemSilver" Data="현재 지역에서 전투 불능 시 소지 중인 젬 일부와 실버를 유실할 수 있으며, 잠금된 아이템의 경우 잠금이 해제됩니다."/>
 		<Class ClassID="124035" ClassName="CanNotEquipLow{Job}{Grade}" Data="{Job} {Grade}서클만 구매 가능합니다."/>
 		<Class ClassID="124036" ClassName="CanNotItemCraftInDialog" Data="아이템 제작중 입니다."/>
 		<Class ClassID="124037" ClassName="CardLvisMax" Data="카드 레벨이 한계치에 도달했습니다."/>
 		<Class ClassID="124038" ClassName="DonotUseMySelf" Data="자신에게 사용할 수 없습니다."/>
-		<Class ClassID="124039" ClassName="DeathPenaltyGemSilverETC" Data="현재 지역에서 전투 불능 시, 소지 중인 젬, 축복받은 조각, 실버등의 일부를 유실할 수 있습니다."/>
+		<Class ClassID="124039" ClassName="DeathPenaltyGemSilverETC" Data="현재 지역에서 전투 불능 시 소지 중인 젬, 축복받은 조각, 실버등의 일부를 유실할 수 있으며, 잠금된 아이템의 경우 잠금이 해제됩니다."/>
 		<Class ClassID="124040" ClassName="ServerIsEnd" Data="유라테 서버에 오신 것을 환영합니다.{nl} {nl}유라테 서버는 7/28~10/20까지 운영되는 시즌 서버로 10/20 이후부터는{nl}더 이상 유라테 서버 이용이 불가합니다.{nl} {nl}서버의 캐릭터 통합에 대한 자세한 내용은 {nl}홈페이지 공지사항을 참고해주세요.{/}"/>
 		<Class ClassID="124041" ClassName="AlertDuplicatedKeys{Key1}And{Key2}Are{Key}" Data="[{Key1}]키와 [{Key2}]키가 동일한 키 [{Key}]로 설정되었습니다."/>
 		<Class ClassID="124042" ClassName="NotClearChar" Data="대지의 탑을 클리어 하지 않은 캐릭터는 보상을 받을 수 없습니다."/>

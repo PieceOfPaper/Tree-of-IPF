@@ -429,6 +429,12 @@ function DROP_PET_EQUIP(parent, slot, str, num)
 	else
 		return;
 	end
+
+    if invItem.isLockState == true then
+        ui.SysMsg(ClMsg('MaterialItemIsLock'));
+        return;
+    end
+
 	local itemEnum = PET_EQUIP_PARTS_COUNT;
 	local group = TryGetProp(itemObj, "GroupName");
 	if group == "Weapon" or group == "SubWeapon" then
