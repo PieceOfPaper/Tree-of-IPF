@@ -1,26 +1,17 @@
-function STATUS_HIDDEN_JOB_UNLOCK_VIEW(pc, opc, frame, gboxctrl, y)
-    local jobList, jobListCnt = GetClassList('Job');
-    local etcObj = GetMyEtcObject();
-   	for i = 0, jobListCnt-1 do
-		local jobIES = GetClassByIndexFromList(jobList, i);
-		if jobIES ~= nil then
-		    if jobIES.HiddenJob == 'YES' then
-		        local flag = false
-		        if jobIES.ClassName == 'Char4_12' then
-		            local jobCircle = session.GetJobGrade(GetClassNumber('Job','Char4_2','ClassID'))
-		            if jobCircle >= 3 then
-		                flag = true
-		            end
-		        else
-		            flag = true
-		        end
-		        if flag == true and ((etcObj["HiddenJob_" .. jobIES.ClassName] == 300 and jobIES.PreFunction ~= 'None' ) or IS_KOR_TEST_SERVER()) then
-                    local hidden_job = gboxctrl:CreateControl('richtext', 'HIDDEN_JOB_'..jobIES.ClassName, 10, y, 100, 25);
-                    hidden_job:SetText('{@sti8}'..ScpArgMsg("HIDDEN_JOB_UNLOCK_VIEW_MSG1","JOBNAME",jobIES.EngName))
-                    y = y + 25
-                end
-		    end
-		end
-	end
-    return y
+
+function STATUS_OVERRIDE_NEWCONTROLSET1(tokenList)
+	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 9,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img 1plus_image %d %d}", 55, 45) 
+    prop:SetTextByKey("value", imag..ClMsg("Moreindunmission")); 
+    local value = ctrlSet:GetChild("value");
+    value:ShowWindow(0);
+end
+
+function STATUS_OVERRIDE_GET_IMGNAME1()
+	return "{img 30percent_image %d %d}"
+end
+
+function STATUS_OVERRIDE_GET_IMGNAME2()
+	return "{img 30percent_image2 %d %d}"
 end
