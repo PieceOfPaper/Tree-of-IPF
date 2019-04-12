@@ -3,7 +3,7 @@ function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
     local year, month, day, hour, min = GetAccountCreateTime(pc)
     local aObj = GetAccountObj(pc)
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
-    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("EVENT_SURVIVAL_NAME"), ScpArgMsg("EVENT_SELECT_BOSSLV_SEL5"), ScpArgMsg("Event_Nru2_Guide_1"), ScpArgMsg("Event_CB_1"), ScpArgMsg("Event_Today_Number_1"), ScpArgMsg("Cancel")) 
+    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("EVENT_SELECT_BOSSLV_SEL5"), ScpArgMsg("Event_Nru2_Guide_1"), ScpArgMsg("Event_CB_1"), ScpArgMsg("Event_Today_Number_1"), ScpArgMsg("Cancel")) 
     local TeamLevel = GetTeamLevel(pc);
 
     if TeamLevel == 1 then
@@ -13,14 +13,12 @@ function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
     end
     
     if select == 1 then
-        SCR_CURSE_DOOR_DIALOG(self,pc)
-    elseif select == 2 then
         SCR_BLUEORB_MONLVUP_DIALOG(self,pc)
-    elseif select == 3 then
+    elseif select == 2 then
         SCR_EVENT_NRU2_315GUIDE_DIALOG(self,pc)
-    elseif select == 4 then
+    elseif select == 3 then
         SCR_EVENT_CB_DIALOG(self,pc)
-    elseif select == 5 then
+    elseif select == 4 then
         SCR_EV171017_STEAM_REWARD_DIALOG(self, pc)
     end
 end

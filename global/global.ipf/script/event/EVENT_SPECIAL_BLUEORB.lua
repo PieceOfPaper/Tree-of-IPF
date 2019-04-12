@@ -2,8 +2,14 @@
 function SCR_PRECHECK_CONSUME_EMISSION(self)
     local curMap = GetZoneName(self);
     local mapCls = GetClass("Map", curMap);
-    
-    if mapCls.ClassName == 'c_firemage_event' then
+    local now_time = os.date('*t')
+    local yday = now_time['yday']
+    local hour = now_time['hour']
+    local min = now_time['min']
+    local ymin = (yday * 24 * 60) + hour * 60 + min
+    local aObj = GetAccountObj(self)
+
+    if mapCls.ClassName == 'c_firemage_event' and aObj.EVENT_VALUE_AOBJ03 < ymin then
         return 1;
     end
     
@@ -31,7 +37,16 @@ function SCR_USE_SPECIAL_BLUEORB(pc)
         {'EVENT_MYMON02', 'EVENT_MYMON02_LV'},
         {'EVENT_MYMON03', 'EVENT_MYMON03_LV'}
     }
+    local now_time = os.date('*t')
+    local yday = now_time['yday']
+    local hour = now_time['hour']
+    local min = now_time['min']
+    local ymin = (yday * 24 * 60) + hour * 60 + min
     local aObj = GetAccountObj(pc)
+    
+    if aObj.EVENT_VALUE_AOBJ03 < ymin then
+        return;
+    end
     
     for i = 1, table.getn(moncls_info) do
         if aObj[moncls_info[i][1]] ~= 'None' then
@@ -48,6 +63,12 @@ function SCR_USE_SPECIAL_BLUEORB(pc)
         		SetLifeTime(mon, 600);
                 ChangeScale(mon, 0.8, 0);
         		RunSimpleAI(iesObj, 'alche_summon');
+
+                if mon ~= nil then
+                    local tx = TxBegin(pc)
+                    TxSetIESProp(tx, aObj, 'EVENT_VALUE_AOBJ03', ymin);
+                    local ret = TxCommit(tx)
+                end
         	end
     	end
 	end
@@ -275,6 +296,13 @@ function SCR_BLUEORB_MONLVUP_DIALOG(self,pc)
     	local ret = TxCommit(tx)
     end
 
+    if aObj.EVENT_VALEN_R1 ~= 171123 then
+        local tx = TxBegin(pc)
+        TxSetIESProp(tx, aObj, 'EVENT_VALEN_R1', 171123);
+        TxSetIESProp(tx, aObj, 'EVENT_VALEN_R2', 3);
+    	local ret = TxCommit(tx)
+    end
+
     local now_time = os.date('*t')
     local yday = now_time['yday']
     
@@ -436,12 +464,32 @@ function SCR_BLUEORB_REWARD(cmd, curStage, eventInst, obj)
 	-- end
     local list, cnt = GetCmdPCList(cmd:GetThisPointer());
 	for i = 1 , cnt do
-	    RunScript('SCR_BLUEORB_REWARD_PLAY', list[i])
+        local zoneObj = GetLayerObject(list[i]);
+        local aObj = GetAccountObj(list[i])
+        local bossLV = GetExProp(zoneObj, "bossLV");
+	    RunScript('SCR_BLUEORB_REWARD_PLAY', list[i], zoneObj, aObj, bossLV)
 	end
 end
 
 function SCR_BLUEORB_REWARD_PLAY(pc, zoneObj, aObj, bossLV)
-    local reward_blueorb_piece = math.floor(bossLV / 10)
+    local moncls_info = {
+        {'EVENT_MYMON01', 'EVENT_MYMON01_LV'},
+        {'EVENT_MYMON02', 'EVENT_MYMON02_LV'},
+        {'EVENT_MYMON03', 'EVENT_MYMON03_LV'}
+    }
+    local mymon_maxlv = 0;
+
+    for a = 1, 3 do -- 1
+        if aObj[moncls_info[a][2]] > mymon_maxlv then
+            mymon_maxlv = aObj[moncls_info[a][2]]
+        end
+    end
+
+    if mymon_maxlv > bossLV then -- 2
+        mymon_maxlv = bossLV
+    end
+
+    local reward_blueorb_piece = math.floor(mymon_maxlv / 10)
     
     if reward_blueorb_piece <= 0 then
         reward_blueorb_piece = 1
@@ -494,7 +542,7 @@ function SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum)
         local curMap = GetZoneName(self);
         local mapCls = GetClass("Map", curMap);
         
-        if self.Lv >= 50 and (mapCls.WorldMap ~= 'None' and mapCls.MapType ~= 'City') and argObj.MonRank == 'Normal' then
+        if self.Lv >= 100 and (mapCls.WorldMap ~= 'None' and mapCls.MapType ~= 'City') and argObj.MonRank == 'Normal' then
             if self.Lv <= argObj.Lv + 20 then
                 local x, y, z = GetPos(argObj);
                 local itemObj = CreateGCIES('Monster', 'Event_Special_Etcitem');

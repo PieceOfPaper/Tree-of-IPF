@@ -361,7 +361,7 @@
 	<Code Code="INFO_PATCHMAKER_LOG" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
 	<Code Code="WARNING_INVALID_LOG_PROPERTY" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="로그 프로퍼티 형식 오류 입니다."/>
 	<Code Code="NOTICE_PACKET_INFO" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="패킷 정보 입니다"/>
-	<Code Code="ALERT_Machine_CPU" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 머신의 CPU 사용율"/>
+	<Code Code="INFO_ADVENTURE_BOOK" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="모험일지 관련 정보"/>	<Code Code="ALERT_Machine_CPU" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 머신의 CPU 사용율"/>
 	<Code Code="ALERT_Machine_FreeDisk" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="드라이브의 남은 용량(MB)"/>
 	<Code Code="ALERT_Machine_DiskTime" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="초당 디스크 엑세스 비율(100% = 1초)"/>
 	<Code Code="ALERT_Machine_Network" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="초당 네트워크 사용량(Bytes)"/>
@@ -503,6 +503,7 @@ Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root"
 CallStack="NO" Desc="런처 커맨드라인으로 온 정보의 파싱이 실패했습니다."/>
 		<Code Code="ERRCODE_LOGIC_CHN_MACHINECODE_GAIN_FAIL" 
 Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc="머신코드 획득 실패."/>
+	<Code Code="ERROR_ADVENTURE_BOOK_LOG" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="모험일지 관련 에러"/>
 		<Code Code="ERRCODE_LOGIC_CYOU_LOGIN_FAIL" 
 Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc="AID 획득 실패."/>
 	<Code Code="ERROR_FAIL_DLL_LOAD" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DLL 을 로드하지 못했습니다."/>

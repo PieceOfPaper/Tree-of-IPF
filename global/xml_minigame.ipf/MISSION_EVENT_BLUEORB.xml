@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="MISSION_EVENT_BLUEORB" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="c_firemage_event" startWaitSec="5177402">
+    <Game Name="MISSION_EVENT_BLUEORB" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="c_firemage_event" playerCountCheckDestroy="1" startWaitSec="5177402">
         <StageList>
             <Stage Name="DefGroup">
                 <ObjList/>
@@ -254,6 +254,9 @@
             </Stage>
         </StageList>
         <EnterList>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="c_firemage_event"/>
+            </ToolScp>
             <ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
                 <Str Str="INIT_PCDEBUFF_EVENT_STAT"/>
