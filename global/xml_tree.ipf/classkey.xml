@@ -508,6 +508,9 @@
         <Key Name="SlashDefFactor_PC_NT" Value="11480"/>
         <Key Name="StrikeAtkFactor_PC_NT" Value="11472"/>
         <Key Name="StrikeDefFactor_PC_NT" Value="11481"/>
+        <Key Name="HEAL_PWR" Value="102377"/>
+        <Key Name="HEAL_PWR_BM" Value="102378"/>
+        <Key Name="HEAL_PWR_RATE_BM" Value="102379"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Item">
         <Key Name="PackTradeAble" Value="34271"/>
@@ -8213,6 +8216,24 @@
         <Key Name="Hide_2774" Value="102312"/>
         <Key Name="IndunWeeklyEnteredCount_500" Value="102307"/>
         <Key Name="StartHairColorName" Value="102319"/>
+        <Key Name="HadVisited_527" Value="102402"/>
+        <Key Name="HadVisited_528" Value="102404"/>
+        <Key Name="HadVisited_529" Value="102403"/>
+        <Key Name="HadVisited_701" Value="102374"/>
+        <Key Name="HiddenJob_Char3_12" Value="102345"/>
+        <Key Name="HiddenJob_Char4_20" Value="102362"/>
+        <Key Name="Hide_2682" Value="102364"/>
+        <Key Name="Hide_2683" Value="102367"/>
+        <Key Name="Hide_2684" Value="102359"/>
+        <Key Name="Hide_2685" Value="102365"/>
+        <Key Name="Hide_2686" Value="102368"/>
+        <Key Name="Hide_2687" Value="102360"/>
+        <Key Name="Hide_2688" Value="102366"/>
+        <Key Name="Hide_2689" Value="102363"/>
+        <Key Name="Hide_2690" Value="102342"/>
+        <Key Name="Hide_2691" Value="102343"/>
+        <Key Name="JOB_EXORCIST1_TRACK" Value="102361"/>
+        <Key Name="JOB_PIED_PIPER_Q1_TRACK" Value="102344"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Ability">
         <Key Name="SkillCategory" Value="136"/>
@@ -9099,6 +9120,25 @@
         <Key Name="TeamBattleLeague_Penalty_LeftPenaltyTime" Value="102325"/>
         <Key Name="TeamBattleLeague_Penalty_PenaltyLevel" Value="102331"/>
         <Key Name="STEAM_USER_ROUTE_Returning_CHECK" Value="102332"/>
+        <Key Name="EVENT_1805_GUILD_CARD_COUNT" Value="102355"/>
+        <Key Name="EVENT_1805_GUILD_DAY_MIC_REWARD_DATE" Value="102358"/>
+        <Key Name="EVENT_1805_GUILD_QUEST_SUCCESS_COUNT" Value="102354"/>
+        <Key Name="EVENT_1805_GUILD_WEEK_REWARD_COUNT" Value="102356"/>
+        <Key Name="EVENT_1805_GUILD_WEEK_REWARD_DATE" Value="102352"/>
+        <Key Name="EVENT_1805_NEWCHARACTER_REWARD_COUNT" Value="102348"/>
+        <Key Name="EVENT_1805_NEWCLASS_EXO_TEAM_COUNT" Value="102353"/>
+        <Key Name="EVENT_1805_NEWCLASS_PDP_TEAM_COUNT" Value="102357"/>
+        <Key Name="EVENT_1805_NEWUSER_REWARD_COUNT" Value="102347"/>
+        <Key Name="EVENT_1805_WEDDING2_ACC_COUNT" Value="102381"/>
+        <Key Name="EVENT_1805_WEDDING2_ACC_REWARD" Value="102382"/>
+        <Key Name="EVENT_1805_WEDDING2_REWARD_COUNT" Value="102383"/>
+        <Key Name="EVENT_1805_WEDDING2_REWARD_DATE" Value="102380"/>
+        <Key Name="ExistingUserFlag" Value="102346"/>
+        <Key Name="HadVisited_527" Value="102385"/>
+        <Key Name="HadVisited_528" Value="102386"/>
+        <Key Name="HadVisited_529" Value="102387"/>
+        <Key Name="HadVisited_701" Value="102384"/>
+        <Key Name="PVP_MINE_Kill" Value="102349"/>
     </KeyIDSpc>
     <KeyIDSpc Name="SessionObject">
         <Key Name="HT2_TABLELAND_70_BOOK03" Value="100020"/>
@@ -15662,6 +15702,38 @@
         <Key Name="EVENT_1805_BEAUTY_NPC_2" Value="102321"/>
         <Key Name="EVENT_1805_BEAUTY_NPC_3" Value="102320"/>
         <Key Name="MG_Last_GM_WHITETREES_56_1" Value="102310"/>
+        <Key Name="EVENT_1804_CLR_DATE" Value="102333"/>
+        <Key Name="EVENT_1805_NEWCHARACTER_ABILITY_BOX_DATE" Value="102376"/>
+        <Key Name="EVENT_1805_NEWCHARACTER_CHECK" Value="102334"/>
+        <Key Name="EVENT_1805_NEWCLASS_EXO_PC_COUNT" Value="102351"/>
+        <Key Name="EVENT_1805_NEWCLASS_PDP_PC_COUNT" Value="102350"/>
+        <Key Name="EVENT_1805_NEWCLASS_RESET_ACC_COUNT" Value="102341"/>
+        <Key Name="EVENT_1805_NEWCLASS_RESET_DATE" Value="102335"/>
+        <Key Name="EVENT_VIVID_FEDIMIAN_POINT1" Value="102392"/>
+        <Key Name="EVENT_VIVID_FEDIMIAN_POINT2" Value="102393"/>
+        <Key Name="EVENT_VIVID_FEDIMIAN_POINT3" Value="102398"/>
+        <Key Name="EVENT_VIVID_FEDIMIAN_POINT4" Value="102399"/>
+        <Key Name="EVENT_VIVID_KLAIPE_POINT1" Value="102389"/>
+        <Key Name="EVENT_VIVID_KLAIPE_POINT2" Value="102401"/>
+        <Key Name="EVENT_VIVID_KLAIPE_POINT3" Value="102400"/>
+        <Key Name="EVENT_VIVID_KLAIPE_POINT4" Value="102395"/>
+        <Key Name="EVENT_VIVID_ORSHA_POINT1" Value="102390"/>
+        <Key Name="EVENT_VIVID_ORSHA_POINT2" Value="102394"/>
+        <Key Name="EVENT_VIVID_ORSHA_POINT3" Value="102396"/>
+        <Key Name="EVENT_VIVID_ORSHA_POINT4" Value="102397"/>
+        <Key Name="JOB_EXORCIST1" Value="102369"/>
+        <Key Name="JOB_EXORCIST1_FC" Value="102371"/>
+        <Key Name="JOB_EXORCIST1_PI" Value="102372"/>
+        <Key Name="JOB_EXORCIST1_R" Value="102370"/>
+        <Key Name="JOB_EXORCIST1_SRL" Value="102373"/>
+        <Key Name="JOB_PIED_PIPER_Q1" Value="102336"/>
+        <Key Name="JOB_PIED_PIPER_Q1_FC" Value="102337"/>
+        <Key Name="JOB_PIED_PIPER_Q1_PI" Value="102340"/>
+        <Key Name="JOB_PIED_PIPER_Q1_R" Value="102339"/>
+        <Key Name="JOB_PIED_PIPER_Q1_SRL" Value="102338"/>
+        <Key Name="MG_Last_GUILD_COLONY_F_FARM_47_2" Value="102388"/>
+        <Key Name="MG_Last_GUILD_COLONY_F_SIAULIAI_47_4" Value="102391"/>
+        <Key Name="MG_Last_MISSION_EVENT_1805_WEDDING2" Value="102375"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PartyMember">
         <Key Name="Shared_Progress" Value="34270"/>

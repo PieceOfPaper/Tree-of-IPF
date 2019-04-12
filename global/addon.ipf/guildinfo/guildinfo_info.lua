@@ -237,3 +237,17 @@ function IS_EXIST_JOB_IN_HISTORY(jobID)
     end
     return false;
 end
+
+function IS_EXIST_GUILD_TOWER()
+    local guildObj = GET_MY_GUILD_OBJECT();    
+    if guildObj == nil then
+        return false;
+    end
+
+    local towerPosition = guildObj.HousePosition;
+    local sList = StringSplit(towerPosition, '#');
+    if #sList ~= 6 then
+        return false;
+    end
+    return true;
+end

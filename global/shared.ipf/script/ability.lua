@@ -182,7 +182,10 @@ function SCR_ABIL_MOVINGSHOT_INACTIVE(self, ability)
 end
 
 function SCR_ABIL_HIGHLANDER9_ACTIVE(self, ability)
-
+    if GetExProp(self, "BUNSIN") == 1 then
+        return
+    end
+    
     local rItem  = GetEquipItem(self, 'RH');
     local addValue = 0;
     
@@ -197,7 +200,7 @@ function SCR_ABIL_HIGHLANDER9_ACTIVE(self, ability)
 end
 
 function SCR_ABIL_HIGHLANDER9_INACTIVE(self, ability)
-
+    
     local addValue = GetExProp(ability, "ADD_CRTATK");  
     self.CRTATK_BM = self.CRTATK_BM - addValue;
 

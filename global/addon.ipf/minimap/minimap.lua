@@ -195,7 +195,7 @@ function UPDATE_MINIMAP(frame)
 					end
 
                     if isColonyMap == true then
-                        if MonProp:GetClassName() == 'Warp_arrow' then
+                        if MonProp:GetClassName() == 'Warp_arrow' or MonProp:GetClassName() == 'dialog_warp_npc_1' then
                         PictureC:ShowWindow(1);
                         else
                             PictureC:ShowWindow(0);
@@ -527,6 +527,11 @@ end
 
 function UPDATE_QUEST_INDICATOR(frame)
 
+    local isColonyMap = session.colonywar.GetIsColonyWarMap();
+    if isColonyMap == true then
+        return;
+    end
+    
 	local myPcX = mini_pos:GetGlobalX() - mini_frame_g_x - mini_frame_hw;
 	local myPcY = mini_pos:GetGlobalY() - mini_frame_g_y - mini_frame_hh;
 

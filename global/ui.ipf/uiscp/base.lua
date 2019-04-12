@@ -120,6 +120,12 @@ function ICON_ON_ENABLE(frame, object, argStr, argNum)
  
   function SCR_DISPEL_DEBUFF_TOGGLE(invItem)
 	-- debuff dispel on/off 토글
+    local isColonyMap = session.colonywar.GetIsColonyWarMap();
+    if isColonyMap == true then
+        if IsBuffApplied(GetMyPCObject(), 'Safe') == 'YES' then
+            return
+        end
+    end
 	if invItem ~= nil then
 		local itemobj = GetIES(invItem:GetObject());
 		item.ToggleDispelDebuff(itemobj.ClassID);
