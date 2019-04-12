@@ -72,6 +72,8 @@ function GUILDINFO_COLONY_UPDATE_OCCUPY_INFO(frame, msg, argStr, argNum)
     if guild == nil then
         return;
     end
+
+    GUILDINFO_COLONY_CHECK_COLUMN_NAME(frame)
 	local cls = GetClass("SharedConst", "COLONY_WAR_OPEN");
 	local curValue = TryGetProp(cls, "Value")
 	if curValue == 0 then

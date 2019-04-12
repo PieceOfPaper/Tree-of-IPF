@@ -1,7 +1,9 @@
 --- trigger_pc.lua --
 
 function TRIGGER_PC(handle)
-
+    if session.colonywar.GetIsColonyWarMap() == true then
+		return;
+	end
 	local targetInfo= info.GetTargetInfo(handle);
 	if targetInfo.IsDummyPC == 1 then
 		packet.DummyPCDialog(handle);

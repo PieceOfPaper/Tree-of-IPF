@@ -429,17 +429,17 @@
 																<layoutsection name="colonizedHeaderSection" size="22%">
 																	<richtext name="colonizedAreaText" margin="40 0 0 0" textalign="left center" caption="점령 지역" fontname="black_18"/>
 																</layoutsection>
-																<layoutsection name="colonizedCitySection" size="20%">
+																<layoutsection name="colonizedCitySection" size="15%">
 																	<richtext name="colonizedCityText" textalign="left center" caption="" fontname="black_18" hittest="true"/>
 																</layoutsection>
-																<layoutsection name="colonizedTaxRateSection" size="7%">
-																	<richtext name="colonizedTaxRateText" textalign="left center" caption="도시 세율" fontname="black_18"/>
+																<layoutsection name="colonizedTaxRateSection" size="14%">
+																	<richtext name="colonizedTaxRateText" textalign="left center" caption="도시 적립요율" fontname="black_18"/>
 																</layoutsection>
-																<layoutsection name="colonizedCityTaxSection" size="18%">
-																	<richtext name="colonizedCityTaxText" textalign="center center" caption="징수될 도시 세금{img tip_questionmark 20 20}" fontname="black_18" hittest="true"/>
+																<layoutsection name="colonizedCityTaxSection" size="15%">
+																	<richtext name="colonizedCityTaxText" textalign="center center" caption="도시 적립금{img tip_questionmark 20 20}" fontname="black_18" hittest="true"/>
 																</layoutsection>
-																<layoutsection name="colonizedMarketTaxSection" size="22%">
-																	<richtext name="colonizedMarketTaxText" textalign="center center" caption="징수될 마켓 세금{img tip_questionmark 20 20}" fontname="black_18" hittest="true"/>
+																<layoutsection name="colonizedMarketTaxSection" size="20%">
+																	<richtext name="colonizedMarketTaxText" textalign="center center" caption="마켓 적립금{img tip_questionmark 20 20}" fontname="black_18" hittest="true"/>
 																</layoutsection>
 																<layoutsection name="colonizedSpace" size="12%"/>
 															</layout>
@@ -452,7 +452,7 @@
 											</overlap>
 										</layoutsection>
 										<layoutsection name="colonyBetaTextSection" size="35">
-											<richtext name="colonyInfoText" caption="ⓘ 점령 길드는 점령 혜택 버튼을 통해 도시의 세율 조정 및 세금 징수가 가능합니다" fixwidth="true" fontname="black_16"/>
+											<richtext name="colonyInfoText" caption="ⓘ 점령 길드는 점령 혜택 버튼을 통해 도시의 적립요율 조정 및 적립금 수령이 가능합니다" fixwidth="true" fontname="black_16"/>
 										</layoutsection>
 									</layout>
 								</layoutsection>

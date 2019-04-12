@@ -1325,7 +1325,7 @@
 	<controlset name="jobinfo" toggle="false" width="317" height="109" skin="bg" draw="false" updateparent="true" stateskin="false">
 		<controls>
 			<button rect="0 0 200 134" layout_gravity="left top" clicksound="button_click_big" oversound="button_over" name="button"/>
-			<richtext name="jobname" rect="0 0 200 50" format="{@sti7}{s22}{ds}%s{/}" param1="param_jobcname" param1_def="DefVal" layout_gravity="center center" margin="0 0 0 0" textalign="center top" fixwidth="true" resizebytext="true" hittest="false"/>
+			<richtext name="jobname" autofontsizebywidth="true" rect="0 0 220 50" format="{@sti7}{s22}{ds}%s{/}" param1="param_jobcname" param1_def="DefVal" layout_gravity="center center" margin="0 0 0 0" textalign="center top" fixwidth="true" resizebytext="true" hittest="false"/>
 			<picture name="hotimg" layout_gravity="left top" rect="0 0 69 73" margin="0 0 0 0" hittest="false" image="class_tree_hot_icon"/>
 		</controls>
 	</controlset>
@@ -3327,7 +3327,7 @@
 			<picture name="newicon" layout_gravity="left top" rect="0 0 30 30" margin="5 5 0 0" stretch="true" image="collection_new"/>
 			<picture name="compicon" layout_gravity="left top" rect="0 0 30 30" margin="5 5 0 0" stretch="true" image="collection_com"/>
 			<richtext name="collec_num" layout_gravity="left top" rect="0 0 30 30" margin="5 10 0 0" textalign="center center" resizebytext="true" fixwidth="true" fontname="white_18_b" format="%s" param1="value" param1_def="9"/>
-			<richtext name="collec_name" layout_gravity="left top" rect="0 0 260 20" margin="35 10 0 0" textalign="left center" resizebytext="true" fixwidth="true" fontname="black_18" format="%s" param1="name" param1_def="Collection_Name"/>
+			<richtext name="collec_name" layout_gravity="left top" rect="0 0 460 20" margin="35 10 0 0" textalign="left center" resizebytext="true" fixwidth="true" fontname="black_18" format="%s" param1="name" param1_def="Collection_Name"/>
 			<richtext name="collec_count" layout_gravity="right top" rect="0 0 260 20" margin="0 10 10 0" textalign="right center" resizebytext="true" fixwidth="true" fontname="black_16_b" format="(%s/%s)" param1="curcount" param1_def="1" param2="maxcount" param2_def="9"/>
 			<groupbox name="gb_magic" layout_gravity="left top" rect="0 0 510 50" margin="0 40 0 0" draw="false" skin="test_skin_01_btn" resizebyparent="false" scrollbar="false"/>
 			<picture name="iconMagic" parent="gb_magic" layout_gravity="left top" rect="0 0 80 20" margin="50 0 0 0" stretch="true" image="collection_magic"/>
@@ -3893,8 +3893,8 @@
 			<richtext name="mapNameText" rect="0 0 250 30" margin="35 0 0 0" layout_gravity="left center" textalign="left center" fixwidth="true" omitbywidth="true" caption="점령지역이름" fontname="white_16_b_ol" hittest="false"/>
 			<richtext name="gradeText" rect="0 0 0 30" margin="-230 0 0 0" layout_gravity="left center" textalign="left center" fixwidth="true" omitbywidth="true" caption="Grade" fontname="white_16_b_ol" hittest="false"/>
 			<richtext name="cityText" rect="0 0 250 30" margin="300 0 0 0" layout_gravity="left center" textalign="left center" fixwidth="true" omitbywidth="true" caption="도시이름" fontname="white_16_b_ol" hittest="false"/>
-			<richtext name="taxRateText" rect="0 0 100 30" margin="580 0 0 0" layout_gravity="left center" textalign="left center" fixwidth="true" omitbywidth="true" format="%s%s%s" param1="icon" param2="value" param3="percent" fontname="white_16_b_ol" hittest="false"/>
-			<richtext name="cityTaxText" rect="0 0 350 30" margin="720 0 0 0" layout_gravity="left center" textalign="left center" fixwidth="true" omitbywidth="true" format="%s%s" param1="icon" param2="value" fontname="white_16_b_ol" hittest="false"/>
+			<richtext name="taxRateText" rect="0 0 100 30" margin="510 0 0 0" layout_gravity="left center" textalign="left center" fixwidth="true" omitbywidth="true" format="%s%s%s" param1="icon" param2="value" param3="percent" fontname="white_16_b_ol" hittest="false"/>
+			<richtext name="cityTaxText" rect="0 0 350 30" margin="750 0 0 0" layout_gravity="left center" textalign="left center" fixwidth="true" omitbywidth="true" format="%s%s" param1="icon" param2="value" fontname="white_16_b_ol" hittest="false"/>
 			<richtext name="marketTaxText" rect="0 0 350 30" margin="995 0 0 0" layout_gravity="left center" textalign="left center" fixwidth="true" omitbywidth="true" format="%s" param1="value" fontname="white_16_b_ol" hittest="false"/>
 		</controls>
 	</controlset>
@@ -3977,8 +3977,8 @@
 		<controls>
 			<picture name="guildLinePicture" rect="0 0 1320 2" layout_gravity="center bottom" stretch="true" image="guild_line_h2"/>
 			<richtext name="commentAuthorText" fixwidth="true" margin="50 0 0 0" rect="0 0 140 40" layout_gravity="left center" textalign="left center" fontname="black_18_b" hittest="true" omitbywidth="true"/>
-			<richtext name="replyText" rect="0 0 960 40" margin="200 0 0 0" layout_gravity="left center" format="{@st66b}%s     {/}" param1="text" fontname="white_18" hittest="true" omitbywidth="true" fixwidth="true" resizebytext="true"/>
-			<button name="deleteCommentBtn" rect="0 0 20 20" format="X" skin="None" fontname="white_18" layout_gravity="right bottom" parent="replyText" LBtnUpScp="DELETE_ONELINE_COMMENT"/>
+			<richtext name="replyText" rect="0 0 950 40" margin="200 0 0 0" layout_gravity="left center" format="{@st66b}%s     {/}" param1="text" fontname="white_18" hittest="true" omitbywidth="true" fixwidth="true" resizebytext="true"/>
+			<button name="deleteCommentBtn" rect="0 0 20 20" caption="{s18}{b}{#d00000}X" draw="true" skin="none" layout_gravity="right bottom" parent="replyText" LBtnUpScp="DELETE_ONELINE_COMMENT"/>
 			<richtext name="dateText" rect="0 0 400 40" layout_gravity="right center" format="{@st66b}%s{/}" param1="text" fontname="black_18_b" textalign="right center" hittest="false"/>
 		</controls>
 	</controlset>
@@ -4436,7 +4436,7 @@
 	</controlset>
 	<controlset name="changejob_class_info" hittest="true" width="150" height="285" hittestset="true" draw="false">
 		<controls>
-			<richtext name="jobNameText" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center top" format="{@sti7}{s24}{ds}%s%s" param1="style" param1_def="{@st43}" param2="name" param2_def="직업 이름"/>
+			<richtext name="jobNameText" rect="0 0 120 30" autofontsizebywidth="true" margin="0 0 0 0" layout_gravity="center top" format="{@sti7}{ds}{s22}%s%s" param1="style" param1_def="{@st43}" param2="name" param2_def="직업 이름"/>
 			<picture name="jobEmblemPic" rect="0 0 120 120" margin="0 -33 0 0" layout_gravity="center center" image="c_cleric_pardoner" stretch="true"/>
 			<button name="rankRollBackBtn" rect="0 0 50 50" margin="0 0 0 50" layout_gravity="center bottom" image="class_tree_job_reset_btn" texttooltip="해당 클래스를 변경합니다."/>
 			<picture name="infoPic" rect="0 0 45 45" margin="40 0 0 70" layout_gravity="center bottom" image="NOTICE_Dm_!" texttooltip="특정 클래스의 선행 직업인 경우 변경할 수 없습니다." stretch="true"/>

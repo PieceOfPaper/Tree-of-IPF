@@ -14,7 +14,7 @@ function SCR_ITEM_GACHA_TP(pc, rewGroup, gachaClassName, gachacnt, gachaLog, gac
 	if gachaClassName == nil then
 	    return;
 	end
-	
+
 	if isSkipAnimation == nil then
 		isSkipAnimation = "NO";
 	end
@@ -41,7 +41,7 @@ function SCR_ITEM_GACHA_TP(pc, rewGroup, gachaClassName, gachacnt, gachaLog, gac
 	local sendrewardcntlist = {}
 
 	for i = 1, gachacnt do 
-		local reward, rewardCount, rewardGroup = GET_HAIR_GACHA_REWARD(rewGroup, rewardID, gachaClassName)
+		local reward, rewardCount, rewardGroup = GET_HAIR_GACHA_REWARD(rewGroup, rewardID)
 		if reward == nil then		
 			TxRollBack(tx)
 			return;
@@ -76,26 +76,27 @@ function SCR_ITEM_GACHA_TP(pc, rewGroup, gachaClassName, gachacnt, gachaLog, gac
 		local sleeptime = 1
 		
 		if isSkipAnimation == "NO" then
-		    if (gachacnt == 1 and gachaType == "hair") or (gachacnt == 1 and gachaType == "costume") then
-			    sleeptime = 105
-			    PlayAnim(pc, "gacha", 1)
-		    elseif (gachacnt == 11 and gachaType == "hair") or (gachacnt == 11 and gachaType == "costume") then -- 10 연차 애니 여기임
-			    sleeptime = 120
-			    PlayAnim(pc, "gacha2", 1)
-		    else
-			sleeptime = 30
-			PlayAnim(pc, "gacha_box", 1) -- 랜덤박스
-		    end
+			if (gachacnt == 1 and gachaType == "hair") or (gachacnt == 1 and gachaType == "costume") then
+				sleeptime = 105
+				PlayAnim(pc, "gacha", 1)
+			elseif (gachacnt == 11 and gachaType == "hair") or (gachacnt == 11 and gachaType == "costume") then -- 10 연차 애니 여기임
+				sleeptime = 120
+				PlayAnim(pc, "gacha2", 1)
+			else
+				sleeptime = 30
+				PlayAnim(pc, "gacha_box", 1) -- 랜덤박스
+			end
+		end
 
-		    for i = 1 , sleeptime do
-			    sleep(100)
-			    if nowhp ~= pc.HP then -- 애니 하다가 몹한테 맞으면 스킵한다. 전투로직에 밝으신 분 이거 좀 더 좋은 로직 없으려나?
-				    break;
-			    end
-		    end
-		end    
+		for i = 1 , sleeptime do
+			sleep(100)
+			if nowhp ~= pc.HP then -- 애니 하다가 몹한테 맞으면 스킵한다. 전투로직에 밝으신 분 이거 좀 더 좋은 로직 없으려나?
+				break;
+			end
+		end
+
 		if isSkipAnimation == "NO" then
-		    PlayAnim(pc, "std", 1)
+			PlayAnim(pc, "std", 1)
 		end
 		EnableControl(pc, 1, "ITEM_GACHA_TP");
 		--break end
