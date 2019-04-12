@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
@@ -52,7 +52,7 @@
 		<Class ClassID="1100" ClassName="ValidTime" Data="지속 시간"/>
 		<Class ClassID="1101" ClassName="Caster" Data="시전자"/>
 		<Class ClassID="1102" ClassName="RemainTime" Data="남은 시간"/>
-	<Class ClassID="1103" ClassName="Kannushi" Data="칸누시"/>
+		<Class ClassID="1103" ClassName="Kannushi" Data="칸누시"/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="2001" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -115,7 +115,7 @@
 		<Class ClassID="2058" ClassName="ITEMTRANSCEND_MTRL_NUM_TOOLTIP{font}" Data="{font}{#00D8FF}Shift키{/}{font}+ {#00D8FF}클릭{/}{font} : 5개씩{/}{nl}{font}{#00D8FF}Alt키{/}{font}+ {#00D8FF}클릭{/}{font} : 모두 한번에{/}  "/>
 		<Class ClassID="2059" ClassName="ITEMTRANSCEND_BREAK_GUIDE_FIRST" Data="축복석 추출을 하시려면 먼저 위의 원 안에 {nl}장비를 올려둬야 합니다. 축복석 추출은 초월 아이템에서 축복석을 추출하고 아이템이 제거됩니다."/>
 		<Class ClassID="2060" ClassName="ITEMTRANSCEND_REMOVE_GUIDE_FIRST" Data="아이템 추출을 하시려면 먼저 위의 원 안에 {nl}장비를 올려둬야 합니다. 아이템 추출은 초월 아이템에서 아이템을 추출하고 초월효과는 제거됩니다."/>
-	<Class ClassID="2061" ClassName="GOLDMORUdontbrokenitemProcessReinforce?" Data="현재 사용한 모루로 강화를 시도하는 경우, 장비가 파괴되지 않습니다. 실패시 강화 단계가 하락 할 수 있습니다. 강화를 진행하시겠습니까?"/>
+		<Class ClassID="2061" ClassName="GOLDMORUdontbrokenitemProcessReinforce?" Data="현재 사용한 모루로 강화를 시도하는 경우, 장비가 파괴되지 않습니다. 실패시 강화 단계가 하락 할 수 있습니다. 강화를 진행하시겠습니까?"/>
 		<Class ClassID="2062" ClassName="ReallyExecTranscend" Data="정말 초월을 시작하시겠습니까?"/>
 		<Class ClassID="2063" ClassName="GemHasPenaltyLater" Data="한번 장착한 젬을 추출할 때에는 레벨이 하락하며, 몬스터젬과 1레벨 젬의 경우 소멸됩니다. 정말 장착하시겠습니까?"/>
 	</Category>
@@ -287,9 +287,9 @@
 		<Class ClassID="4115" ClassName="ThisLocalUseNot" Data="해당 지역에서는 사용이 불가능 합니다."/>
 		<Class ClassID="4116" ClassName="ThisWorldExistIndunClear" Data="이미 해당 지역에서는 인스턴스 소탕권이 사용중입니다."/>
 		<Class ClassID="4117" ClassName="Cube" Data="큐브"/>
-	        <Class ClassID="4118" ClassName="ETC" Data="기타"/>
+		<Class ClassID="4118" ClassName="ETC" Data="기타"/>
 		<Class ClassID="4119" ClassName="Accessory" Data="장신구"/>
-	<Class ClassID="4120" ClassName="Appraisal" Data="감정하기"/>
+		<Class ClassID="4120" ClassName="Appraisal" Data="감정하기"/>
 		<Class ClassID="4121" ClassName="NeedAppraisd" Data="미감정된 아이템은 사용하실 수 없습니다."/>
 		<Class ClassID="4122" ClassName="AppraisalSuccess" Data="감정 성공!"/>
 		<Class ClassID="4123" ClassName="AppraisalPrice" Data="감정 비용 : {Price}{nl}감정하시겠습니까?"/>
@@ -334,7 +334,7 @@
 		<Class ClassID="5035" ClassName="MHPTranscendBy{Count}" Data="초월 {Count}단계 체력 증가"/>
 		<Class ClassID="5036" ClassName="MDEFTranscendBy{Count}" Data="초월 {Count}단계 마법 방어력 증가"/>
 		<Class ClassID="5037" ClassName="CanNotTradeTranscendedItem" Data="초월된 아이템은 거래할 수 없습니다."/>
-	<Class ClassID="5038" ClassName="Soul_Atk_BM" Data="염속성 공격력"/>
+		<Class ClassID="5038" ClassName="Soul_Atk_BM" Data="염속성 공격력"/>
 	</Category>
 	<Category Name="PeriodicTitle">
 		<Class ClassID="6001" ClassName="TournamentChampion" Data="토너먼트 챔피언"/>
@@ -439,7 +439,7 @@
 		<Class ClassID="8090" ClassName="CantUseThisEgg" Data="해당 캐릭터는 이 컴패니언의 알을 사용할 수 있는 직업이 아닙니다."/>
 		<Class ClassID="8091" ClassName="MoveBarrackLayer" Data="숙소를 이동합니다."/>
 		<Class ClassID="8092" ClassName="Auto_{/}{nl}{s22}MoveBarrackLayer?" Data="{/}{nl}{s22}숙소를 이동하겠습니까?"/>
-	<Class ClassID="8093" ClassName="Pet_ADD_SOUL" Data="염 속성 공격력"/>
+		<Class ClassID="8093" ClassName="Pet_ADD_SOUL" Data="염 속성 공격력"/>
 		<Class ClassID="8094" ClassName="Pet_Soul_Def" Data="염 속성 저항력"/>
 		<Class ClassID="8095" ClassName="HaveToPutPetAtBarrack" Data="컴패니언과 함께하는 중에는 사용할 수 없습니다."/>
 	</Category>
@@ -1026,7 +1026,7 @@
 		<Class ClassID="21229" ClassName="ITEM_IsPurchased_CAUTION_TRADEABLE_1" Data="{#0054FF}※ 패키지 포함 구성물은 모두 거래가 가능합니다.{/}"/>
 		<Class ClassID="21231" ClassName="ITEM_IsPurchased_CAUTION_TRADECNT1" Data="{#FF0000}※ 본 상품은 계정 당 1회만 구매 가능합니다.{/}"/>
 		<Class ClassID="21232" ClassName="MAX_CASHINVAN" Data="캐시 인벤토리에 여유 공간이 없습니다. "/>
-	<Class ClassID="21233" ClassName="GHACHA1" Data="1개 열기"/>
+		<Class ClassID="21233" ClassName="GHACHA1" Data="1개 열기"/>
 		<Class ClassID="21234" ClassName="GHACHA10" Data="10개 열기"/>
 		<Class ClassID="21235" ClassName="ItemNameNCnt" Data="{Name} {#FFCC00}x{Cnt}{/}"/>
 		<Class ClassID="21236" ClassName="CantEquipItem" Data="장착할 수 없는 아이템입니다."/>
@@ -5105,7 +5105,8 @@
 		<Class ClassID="106046" ClassName="CantReceiveItem" Data="아이템 수령에 실패하였습니다. 잠시 후 다시 시도해주세요."/>
 		<Class ClassID="106047" ClassName="IsBlackItem" Data="비정상 거래로 확인된 아이템입니다. 구매하실 수 없습니다."/>
 		<Class ClassID="106049" ClassName="InvalidFindItemQueryMin" Data="Search terms must be longer than 1 character."/>
-		<Class ClassID="106050" ClassName="InvalidFindItemQueryMax" Data="Search terms cannot exceed 20 characters."/>	</Category>
+		<Class ClassID="106050" ClassName="InvalidFindItemQueryMax" Data="Search terms cannot exceed 20 characters."/>
+	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="107001" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
 		<Class ClassID="107002" ClassName="OnlySkillWithSpendItemIsAble" Data="해당 스킬은 등록할 수 없습니다."/>
@@ -8677,7 +8678,7 @@
 		<Class ClassID="300118" ClassName="SUMMERHAIR8" Data="알로하 화관"/>
 		<Class ClassID="300122" ClassName="FAILED_PURCHASED_1001100" Data="구매 조건이 맞지 않습니다."/>
 		<Class ClassID="300123" ClassName="FAILED_PURCHASED_1002002" Data="응답 시간이 초과되었습니다. {/}나중에 다시 시도해주시기 바랍니다."/>
-		<Class ClassID="300124" ClassName="FAILED_REFUND_10" Data="응답 시간이 초과되었습니다. {/}나중에 다시 시도해주시기 바랍니다."/>	
+		<Class ClassID="300124" ClassName="FAILED_REFUND_10" Data="응답 시간이 초과되었습니다. {/}나중에 다시 시도해주시기 바랍니다."/>
 <Class ClassID="300127" ClassName="ALICEHAIRACC01" Data="나비 모양 관모"/>
 		<Class ClassID="300128" ClassName="ALICEHAIRACC02" Data="연꽃 컵 머리장식"/>
 		<Class ClassID="300129" ClassName="ALICEHAIRACC03" Data="모자장수 케이크모자"/>
@@ -8686,6 +8687,11 @@
 		<Class ClassID="300132" ClassName="ALICEHAIRACC06" Data="채셔캣 머리장식"/>
 		<Class ClassID="300133" ClassName="ALICEHAIRACC07" Data="시계토끼 머리장식"/>
 		<Class ClassID="300134" ClassName="ALICEHAIRACC08" Data="앨리스 열쇠 머리장식"/>
+		<Class ClassID="300139" ClassName="Premium_indunReset_1add_14d" Data="인던 입장 1회 입장권(14일)"/>
+		<Class ClassID="300140" ClassName="PremiumToken_3d_Steam" Data="토큰:3일[증정용]"/>
+		<Class ClassID="300141" ClassName="PremiumToken_5d_Steam" Data="토큰:5일[증정용]"/>
+		<Class ClassID="300142" ClassName="PremiumToken_7d_Steam" Data="토큰:7일[증정용]"/>
+		<Class ClassID="300143" ClassName="PremiumToken_15d_Steam" Data="토큰:15일[증정용]"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
@@ -8717,11 +8723,13 @@
 		<Class ClassID="302007" ClassName="JP_Event_Daily" Data="이벤트 보상을 받았습니다. 인벤토리를 확인해 주세요."/>
 		<Class ClassID="302008" ClassName="Steam_Event_Number" Data="숫자 맞추기"/>
 		<Class ClassID="302009" ClassName="Steam_Event_SongPyeon" Data="송편 제작하기"/>
+		<Class ClassID="302011" ClassName="Get_RedSeed" Data="씨앗 획득하기"/>
+		<Class ClassID="302012" ClassName="Get_RedSeed_Time" Data=" {nl}성장 완료 시간 : {TIME} 분{nl}{nl}성장이 완료되면 수확할 수 있습니다."/>
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>
 		<Class ClassID="303002" ClassName="AccountUse2MoreRank" Data="실버 입금 및 출금은 2랭크 이상 가능합니다."/>
-	<Class ClassID="303003" ClassName="YouHaveWrongJob" Data="등록되지 않은 직업을 가지고 있습니다. 운영팀에 문의해주세요."/>
+		<Class ClassID="303003" ClassName="YouHaveWrongJob" Data="등록되지 않은 직업을 가지고 있습니다. 운영팀에 문의해주세요."/>
 	</Category>
 	<Category Name="Notice">
 		<Class ClassID="304001" ClassName="NoticeFrameName" Data="공지사항"/>

@@ -109,21 +109,21 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	local arg1 = itemobj.NumberArg1;
 	if itemobj.ClassName == "PremiumToken" then
 		arg1 = 2592000 --30O
-	elseif itemobj.ClassName == "PremiumToken_5d" then
+	elseif itemobj.ClassName == "PremiumToken_5d" or itemobj.ClassName == "PremiumToken_5d_Steam" then
 		arg1 = 432000 -- 5O
-	elseif itemobj.ClassName == "PremiumToken_1d" then
+	elseif itemobj.ClassName == "PremiumToken_1d" or itemobj.ClassName == "PremiumToken_7d_Steam" then
 		arg1 = 604800 -- 7O
 	elseif itemobj.ClassName == "PremiumToken_24h" then
 		arg1 = 86400 -- 1O
-	elseif itemobj.ClassName == "PremiumToken_3d" then
+	elseif itemobj.ClassName == "PremiumToken_3d" or itemobj.ClassName == "PremiumToken_3d_Steam" then
 		arg1 = 259200 -- 3O
 	elseif itemobj.ClassName == "PremiumToken_12h" then
-		arg1 = 43200 -- 12½ð￡
+		arg1 = 43200 -- 12½ð�?
 	elseif itemobj.ClassName == "PremiumToken_6h" then
-		arg1 = 21600 -- 6½ð￡
+		arg1 = 21600 -- 6½ð�?
 	elseif itemobj.ClassName == "PremiumToken_3h" then
-		arg1 = 10800 -- 3½ð￡
-	elseif itemobj.ClassName == "PremiumToken_15d" then
+		arg1 = 10800 -- 3½ð�
+	elseif itemobj.ClassName == "PremiumToken_15d" or itemobj.ClassName == "PremiumToken_15d_Steam" then
 		arg1 = 1296000 -- 15O
 	elseif itemobj.ClassName == "PremiumToken_30d" then
 		arg1 = 2592000 -- 30O

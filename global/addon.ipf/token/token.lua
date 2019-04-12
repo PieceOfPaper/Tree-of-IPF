@@ -91,13 +91,13 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	local arg1 = itemobj.NumberArg1;
 	if itemobj.ClassName == "PremiumToken" then
 		arg1 = 2592000 --30일
-	elseif itemobj.ClassName == "PremiumToken_5d" then
+	elseif itemobj.ClassName == "PremiumToken_5d" or itemobj.ClassName == "PremiumToken_5d_Steam" then
 		arg1 = 432000 -- 5일
-	elseif itemobj.ClassName == "PremiumToken_1d" then
+	elseif itemobj.ClassName == "PremiumToken_1d" or itemobj.ClassName == "PremiumToken_7d_Steam" then
 		arg1 = 604800 -- 7일
 	elseif itemobj.ClassName == "PremiumToken_24h" then
 		arg1 = 86400 -- 1일
-	elseif itemobj.ClassName == "PremiumToken_3d" then
+	elseif itemobj.ClassName == "PremiumToken_3d" or itemobj.ClassName == "PremiumToken_3d_Steam" then
 		arg1 = 259200 -- 3일
 	elseif itemobj.ClassName == "PremiumToken_12h" then
 		arg1 = 43200 -- 12시간
@@ -105,7 +105,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 		arg1 = 21600 -- 6시간
 	elseif itemobj.ClassName == "PremiumToken_3h" then
 		arg1 = 10800 -- 3시간
-	elseif itemobj.ClassName == "PremiumToken_15d" then
+	elseif itemobj.ClassName == "PremiumToken_15d" or itemobj.ClassName == "PremiumToken_15d_Steam" then
 		arg1 = 1296000 -- 15일
 	end
 	local endTime = GET_TIME_TXT(arg1, 1)
@@ -281,7 +281,13 @@ function BEFORE_APPLIED_INDUNRESET_OPEN(invItem)
 	
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_INDUNFREE",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
-	prop:SetTextByKey("value", ClMsg('IndunRestText'));
+
+	if obj.ClassName == 'Premium_indunReset_1add' or obj.ClassName == 'Premium_indunReset_1add_14d' then
+	    prop:SetTextByKey("value", ClMsg('Indun1AddText'));
+	else
+	    prop:SetTextByKey("value", ClMsg('IndunRestText'));
+	end
+	
 	local value = ctrlSet:GetChild("value");
 	value:ShowWindow(0);
 	
@@ -386,7 +392,7 @@ function REQ_TOKEN_ITEM(parent, ctrl)
 		return;
 	end
 	
-	if argList == 'Premium_indunReset' or argList == 'Premium_indunReset_14d' or argList == 'Premium_indunReset_14d_test' then
+	if argList == 'Premium_indunReset' or argList == 'Premium_indunReset_14d' or argList == 'Premium_indunReset_14d_test' or argList == 'Premium_indunReset_1add' or argList == 'Premium_indunReset_1h' or argList == 'Premium_indunReset_1add_14d' then
 
 		local etcObj = GetMyEtcObject();
 		-- 2개뿐이여서 고정으로 넣어둠

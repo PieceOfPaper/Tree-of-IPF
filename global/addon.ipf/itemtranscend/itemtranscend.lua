@@ -198,9 +198,12 @@ function REMOVE_TRANSCEND_MTRL_ITEM(frame, slot)
 	if materialItem == nil then
 		return;
 	end
-	local count = slot:GetUserIValue("MTRL_COUNT");			if keyboard.IsPressed(KEY_SHIFT) == 1 then
-		count = count - 5;	elseif keyboard.IsPressed(KEY_ALT) == 1 then
-		count = 0;	else
+	local count = slot:GetUserIValue("MTRL_COUNT");		
+	if keyboard.IsPressed(KEY_SHIFT) == 1 then
+		count = count - 5;
+	elseif keyboard.IsPressed(KEY_ALT) == 1 then
+		count = 0;
+	else
 		count = count - 1;
 	end
 	
@@ -344,7 +347,8 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 		end;
 		ui.MsgBox_NonNested(ScpArgMsg("ITEMTRANSCEND_TOO_MANY"), frame:GetName(), nil, nil);		
 		return;
-	end;
+	end;
+
 	local invframe = ui.GetFrame("inventory");
 	if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
@@ -352,7 +356,10 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 	end		
 
 	if keyboard.IsPressed(KEY_SHIFT) == 1 then
-		count = count + 5;	elseif keyboard.IsPressed(KEY_ALT) == 1 then		count = maxItemCount;	else
+		count = count + 5;
+	elseif keyboard.IsPressed(KEY_ALT) == 1 then
+		count = maxItemCount;
+	else
 		count = count + 1;
 	end
 	
@@ -449,7 +456,7 @@ function ITEMTRANSCEND_EXEC(frame)
 	end
 	
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_BTN_OK_SOUND"));
-	ui.MsgBox_NonNested(ScpArgMsg("ReallyExecTranscend?"), frame:GetName(), "_ITEMTRANSCEND_EXEC", "_ITEMTRANSCEND_CANCEL");			
+	ui.MsgBox_NonNested(ScpArgMsg("ReallyExecTranscend_PR_ZERO"), frame:GetName(), "_ITEMTRANSCEND_EXEC", "_ITEMTRANSCEND_CANCEL");			
 end
 
 function _ITEMTRANSCEND_CANCEL()
