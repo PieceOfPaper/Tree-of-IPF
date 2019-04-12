@@ -596,3 +596,185 @@ function JOURNAL_UPDATE_RANK_INFO(frame, msg)
 	
 end
 
+function GET_WIKI_SORT_LIST(wiki, nameHead, maxCnt, sortList)
+
+	local tmpList = {};
+	local idx = 1;
+		for i = 1 , maxCnt do
+		local propName = nameHead .. i;
+		local propValue, count = GetWikiProp(wiki, propName);
+		if propValue > 0 then
+			tmpList[idx] = {};
+			tmpList[idx]["Value"] = propValue;
+			tmpList[idx]["Count"] = count;
+			idx = idx + 1;
+		end
+	end
+
+	if idx == 1 then
+		return;
+	end
+
+	for i = 1, idx - 1 do
+		sortList[i] = GET_MAXPROP_FROM_LIST(tmpList);
+	end
+
+end
+
+function GET_MAXPROP_FROM_LIST(tmpList)
+
+	local maxIdx = -1;
+	local maxProp = nil;
+	local cnt = #tmpList;
+	for i = 1 , cnt do
+		local prop = tmpList[i];
+		if prop ~= nil and (maxProp == nil or prop["Count"] > maxProp["Count"]) then
+			maxIdx = i;
+			maxProp = prop;
+		end
+	end
+
+	tmpList[maxIdx] = nil;
+	return maxProp;
+
+end
+
+
+function UPDATE_WIKI_TOOLTIP(frame, funcName, datatype, typeInt)
+
+	typeInt = tonumber(typeInt);
+	local wikiType = math.floor(typeInt / 1000);
+	local propType = typeInt % 1000;
+
+	local wiki = GetWiki(wikiType);
+	if wiki == nil then
+		frame:ShowWindow(0);
+		return;
+	end
+
+	local rankList = nil;
+	if datatype == 0 then
+		rankList = session.GetPairWikiRank(wikiType);
+	else
+		rankList = session.GetIntWikiRank(wikiType);
+	end
+
+	local sortList = rankList:FindAndGet(propType);
+	if sortList == nil then
+		packet.ReqWikiRank(wikiType, 1);
+		return;
+	end
+
+	local cnt = sortList:Count();
+	if cnt == 1 then
+		packet.ReqWikiPropRank(wikiType, datatype, propType);
+	end
+
+	local advBox = GET_CHILD(frame, "AdvBox", "ui::CAdvListBox");
+	advBox:ClearUserItems();
+	advBox:SetColWidth(2, 500);
+
+	local height = 0;
+	local maxWidth = 0;
+	local rank = 1;
+	for i = 0 , cnt - 1 do
+		local rankInfo = sortList:PtrAt(i);
+		maxWidth, height = SET_WIKIRANK_BOX_INT(advBox, rankInfo, rank, funcName, datatype, maxWidth);
+		rank = rank + 1;
+	end
+
+	advBox:SetColWidth(2, maxWidth);
+	advBox:Resize(maxWidth + 150, advBox:GetHeight());
+
+	for i = 1 , cnt  do
+		local item = advBox:GetObjectXY(i, 2);
+        if item ~= nil then
+		    item:Resize(maxWidth, item:GetHeight());
+        end
+	end
+
+	advBox:UpdateAdvBox();
+
+	frame:Resize(advBox:GetWidth() + 20, advBox:GetY() + height + 10);
+
+end
+
+function SET_WIKIRANK_BOX_INT(advBox, rankInfo, rank, funcName, datatype, maxWidth)
+
+	local key = rank;
+	SET_ADVBOX_ITEM_C(advBox, key, 0, rank, "white_20_ol");
+	SET_ADVBOX_ITEM_C(advBox, key, 1, rankInfo.charName, "white_20_ol");
+
+	local item;
+	if datatype == 1 then
+		item = SET_ADVBOX_ITEM_C(advBox, key, 2, rankInfo.count, "white_20_ol");
+	else
+		local func = _G[funcName];
+		local rankTxt = func(nil, rankInfo);
+		rankTxt = string.sub(rankTxt, 5, string.len(rankTxt));
+		item = SET_ADVBOX_ITEM_C(advBox, key, 2, rankTxt, "white_20_ol");
+	end
+
+    if item ~= nil then
+	    tolua.cast(item, "ui::CRichText");
+	    local width = item:GetTextWidth() + 100;
+	    if width > maxWidth then
+		    maxWidth = width;
+	    end
+    end
+
+	return maxWidth, item:GetY() + item:GetHeight();
+
+end
+
+function GET_RECIPE_MATERIAL_INFO(recipeCls, index)
+    local clsName = "Item_"..index.."_1";
+	local itemName = recipeCls[clsName];
+	if itemName == "None" then
+		return nil;
+	end
+		
+	local dragRecipeItem = GetClass('Item', itemName);
+	local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipeCls, clsName);
+
+	local invItem = nil;
+	local invItemlist = nil;
+    local ignoreType = false;
+    local getMaterialScript = TryGetProp(recipeCls, 'GetMaterialScript');
+    -- itemtradeshop.xml처럼 GetMaterialScript 칼럼이 추가될 필요 없는 레시피 클래스를 위해 디폴트 값 입력
+    if getMaterialScript == nil then
+        getMaterialScript = 'SCR_GET_RECIPE_ITEM';
+    end
+    local GetMaterialItemListFunc = _G[getMaterialScript];
+
+	if dragRecipeItem.MaxStack > 1 then
+		invItem = session.GetInvItemByType(dragRecipeItem.ClassID);
+	else
+		invItemlist = GetMaterialItemListFunc(dragRecipeItem); -- 기간제는 스택형 ㄴㄴ라서 비스택형만 대체
+        ignoreType = true; -- 개수 셀 때 type만 검사하지 않도록 함
+	end
+
+	local invItemCnt = GET_PC_ITEM_COUNT_BY_LEVEL(dragRecipeItem.ClassID, recipeItemLv);
+    if ignoreType then
+        invItemCnt = #invItemlist;
+    end
+
+	return recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist;
+
+end
+
+function IS_WIKI_RECIPE_PROP(recipeType, propname, propType)
+
+	if recipeType == "Anvil" or recipeType == 'Grill' then
+		if string.find(propname, "Item_") ~= nil and string.find(propname, "_Cnt") == nil and string.find(propname, "_Level") == nil or string.find(propname, "FromItem") ~= nil then
+			return 1;
+		end
+	elseif recipeType == "Drag" or recipeType == "Upgrade" then
+		if string.find(propname, "Item_") ~= nil and string.find(propname, "_Cnt") == nil and string.find(propname, "_Level") == nil then
+			return 1;
+		end
+	end
+
+	return 0;
+
+end

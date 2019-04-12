@@ -39,8 +39,6 @@ function CHAT_TYPE_LISTSET(selected)
 	local frame = ui.GetFrame('chat');		
 	frame:SetUserValue("CHAT_TYPE_SELECTED_VALUE", selected);
 	local chattype_frame = ui.GetFrame('chattypelist');
-    local chattype_frame_width = chattype_frame:GetWidth();
-
 	local j = 1;
 	for i = 1, 6 do
 
@@ -52,9 +50,6 @@ function CHAT_TYPE_LISTSET(selected)
 			if btn_Chattype == nil then
 				return;
 			end			
-
-            -- 버튼 크기를 rect의 width height 값으로 고정
-			btn_Chattype:Resize(btn_Chattype:GetOriginalWidth(), btn_Chattype:GetOriginalHeight()); -- SetText 전에 해줘야 정렬됨.
 			
 			local msg = "{@st60}".. ScpArgMsg("ChatType_" .. i)  .. "{/}";
 			btn_Chattype:SetText(msg);	
@@ -76,11 +71,7 @@ function CHAT_TYPE_LISTSET(selected)
 			local btn_type = GET_CHILD(frame, "button_type");
 			if btn_type == nil then
 				return;
-			end	
-            
-            -- 버튼 크기를 rect의 width height 값으로 고정
-			btn_type:Resize(btn_type:GetOriginalWidth(), btn_type:GetOriginalHeight());
-            		
+			end			
 			local msg = "{@st60}".. ScpArgMsg("ChatType_" .. i) .. "{/}";
 			btn_type:SetText(msg);	
 			btn_type:SetColorTone("FF".. color);

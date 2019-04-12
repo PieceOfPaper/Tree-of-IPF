@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="fishing_item_bag" x="0" y="0" width="700" height="350" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin="test_frame_low"/>
+	<frame title="" fullheight="false" fasthide="true" layout_gravity="left top" margin="100 100 0 0"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<controls>
+		<picture name="fishingPic" rect="0 0 400 50" margin="0 8 0 0" layout_gravity="center top" image="testfishing_image" stretch="true" hittest="false"/>
+		<groupbox name="headerBox" rect="0 0 700 55" margin="0 36 0 0" layout_gravity="center top" skin="test_socket_topskin" hittest="false"/>
+		<button name="xBtn" rect="0 0 40 40" margin="0 50 25 0" layout_gravity="right top" image="testclose_button" texttooltip="살림통을 닫습니다." LBtnUpScp="FISHING_ITEM_BAG_CLOSE_UI"/>
+		<richtext name="headerText" rect="0 0 500 50" parent="headerBox" margin="0 5 0 0" layout_gravity="center center" caption="{@st43}살림통{/}" hittest="false"/>
+		<richtext name="itemText" rect="0 0 100 30" margin="15 100 0 0" layout_gravity="left top" caption="{@sti1}아이템{/}" hittest="false"/>
+		<richtext name="slotCountText" rect="0 0 100 30" margin="0 100 15 0" layout_gravity="right top" format="{@sti1}%s/%s{/}" param1="current" param1_def="0" param2="max" param2_def="50" hittest="false"/>
+		<slotset name="itemSlotset" rect="0 0 480 500" margin="0 130 0 0" layout_gravity="center top" row="5" col="10" size="65 65" skin="invenslot2" spc="2 2" enabledrop="false" enablepop="false"/>
+		<button name="getItemBtn" rect="0 0 150 50" margin="-80 0 0 20" layout_gravity="center bottom" skin="test_red_button" caption="{@st42b}아이템 수령{/}" LBtnUpScp="FISHING_ITEM_BAG_GET_ITEM_BTN"/>
+		<button name="exitBtn" rect="0 0 150 50" margin="80 0 0 20" layout_gravity="center bottom" skin="test_gray_button" caption="{@st42b}낚시 종료{/}" LBtnUpScp="FISHING_ITEM_BAG_EXIT_BTN"/>
+		<groupbox name="countBox" rect="0 0 200 30" margin="0 0 15 80" layout_gravity="right bottom" draw="false"/>
+		<richtext name="countInfoText" parent="countBox" rect="0 0 150 30" margin="0 0 0 0" layout_gravity="left center" caption="{@sti1}낚시 횟수{/}"/>
+		<richtext name="countText" rect="0 0 150 30" parent="countBox" margin="0 0 0 0" layout_gravity="right center" format="{@sti1}%s/%s{/}" param1="current" param1_def="0" param2="max" param2_def="10"/>
+	</controls>
+</uiframe>

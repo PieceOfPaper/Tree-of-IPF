@@ -2,13 +2,14 @@
 
 function WEAPONSWAP_ON_INIT(addon, frame)
 
+	addon:RegisterMsg('WEAPONSWAP_ENTERED', 'WEAPONSWAP_SWAP_UPDATE_ENTERED');
 	addon:RegisterMsg('WEAPONSWAP', 'WEAPONSWAP_SWAP_UPDATE');
 	addon:RegisterMsg('WEAPONSWAP_FAIL', 'WEAPONSWAP_FAIL');
 	addon:RegisterMsg('WEAPONSWAP_SUCCESS', 'WEAPONSWAP_SLOT_SUCCESS');
 	addon:RegisterMsg('ABILITY_LIST_GET', 'WEAPONSWAP_SHOW_UI');
 	addon:RegisterMsg('GAME_START', 'WEAPONSWAP_SHOW_UI');
 
-	WEAPONSWAP_SLOT_UPDATE();
+--	WEAPONSWAP_SLOT_UPDATE();
 end 
 
 function TH_WEAPON_CHECK(obj, bodyGbox, slotIndex)
@@ -127,7 +128,7 @@ function WEAPONSWAP_ITEM_DROP(parent, ctrl, argStr, argNum)
 		-- 양손무기를 체크하자
 		TH_WEAPON_CHECK(obj, bodyGbox, slot:GetSlotIndex());
 		session.SetWeaponQuicSlot(slot:GetSlotIndex(), invItem:GetIESID());
-		SET_SLOT_ITEM_IMANGE(slot, invItem);
+		SET_SLOT_ITEM_IMAGE(slot, invItem);
 	end
 end
 
@@ -137,7 +138,7 @@ function WEAPONSWAP_ITEM_POP(parent, ctrl)
 	session.SetWeaponQuicSlot(slot:GetSlotIndex(), "");
 end
 
-function WEAPONSWAP_SWAP_EQUIP(update)
+function WEAPONSWAP_SWAP_EQUIP()
 
 	--제작시에는 무기스왑 안되게 끔..
 	if GetCraftState() == 1 then
@@ -148,13 +149,13 @@ function WEAPONSWAP_SWAP_EQUIP(update)
 	-- 단축키로 누르면 call은 nil,
 	-- 클라에서 add온으로 부르면 frame이 들어감
 	-- 즉, nil이 아님
-	if nil == update then
+--	if nil == update then
 		-- 줄이 바뀌엇다고 알리자
 		session.SetWeaponSwap(1);
-	else
+--	else
 		-- 사이즈는 변경해줘야함
-		WEAPONSWAP_SLOT_UPDATE();
-	end
+--		WEAPONSWAP_SLOT_UPDATE();
+--	end
 
 end
 
@@ -182,7 +183,30 @@ function WEAPONSWAP_UI_UPDATE()
 		if nil ~= guid then 
 			local item = GET_ITEM_BY_GUID(guid, 1);
 			if nil ~= item then
-				SET_SLOT_ITEM_IMANGE(etcSlot, item);
+				SET_SLOT_ITEM_IMAGE(etcSlot, item);
+			else
+				etcSlot:ClearIcon();
+			end
+		else
+			etcSlot:ClearIcon();
+		end;
+	end
+end
+
+function WEAPONSWAP_SWAP_UPDATE_ENTERED(frame)
+	local bodyGbox = frame:GetChild("bodyGbox");
+	for i=0, 3 do
+		local etcSlot = bodyGbox:GetChild("slot"..i);
+		if nil== etcSlot then
+			return;
+		end
+
+		etcSlot 	= tolua.cast(etcSlot, 'ui::CSlot');
+		local guid = session.GetWeaponQuicSlot(i);
+		if nil ~= guid then 
+			local item = GET_ITEM_BY_GUID(guid, 1);
+			if nil ~= item then
+				SET_SLOT_ITEM_IMAGE(etcSlot, item);
 			else
 				etcSlot:ClearIcon();
 			end
@@ -205,7 +229,7 @@ function WEAPONSWAP_SWAP_UPDATE(frame)
 		if nil ~= guid then 
 			local item = GET_ITEM_BY_GUID(guid, 1);
 			if nil ~= item then
-				SET_SLOT_ITEM_IMANGE(etcSlot, item);
+				SET_SLOT_ITEM_IMAGE(etcSlot, item);
 			else
 				etcSlot:ClearIcon();
 			end
@@ -241,13 +265,13 @@ function WEAPONSWAP_FAIL()
 	session.SetWeaponSwap(0);
 	if 0 == lowDur then
 		ui.SysMsg(ClMsg("TryLater"));
-		WEAPONSWAP_SLOT_UPDATE();
+	--	WEAPONSWAP_SLOT_UPDATE();
 	end;
 end
 
 function WEAPONSWAP_SLOT_SUCCESS()
 	imcSound.PlaySoundEvent("sys_weapon_swap");
-	WEAPONSWAP_SLOT_UPDATE()
+--	WEAPONSWAP_SLOT_UPDATE()
 end
 
 function WEAPONSWAP_SLOT_UPDATE()
@@ -307,15 +331,15 @@ end
 
 function WEAPONSWAP_SHOW_UI(frame)
 
-	local pc = GetMyPCObject();
-	if pc == nil then
-		return;
-	end
-	local abil = GetAbility(pc, "SwapWeapon");
+--	local pc = GetMyPCObject();
+--	if pc == nil then
+--		return;
+--	end
+--	local abil = GetAbility(pc, "SwapWeapon");
 	
-	if abil ~= nil then
-		frame:ShowWindow(1)
-	else
+--	if abil ~= nil then
+--		frame:ShowWindow(1)
+--	else
 		frame:ShowWindow(0)
-	end
+--	end
 end

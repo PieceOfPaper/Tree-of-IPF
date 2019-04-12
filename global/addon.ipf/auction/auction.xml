@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="auction" x="0" y="0" width="470" height="609" create="open">
-    <draw drawnotitlebar="false" drawtitlebar="false"/>
-    <skin frameskin=" "/>
-    <frame title="{@st43}모험일지{/}" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
-    <input maxwidth="1280" moveable="false"/>
-    <layer layerlevel="80"/>
-    <option closebutton="false"/>
-    <script OpenScp=""/>
-    <sound opensound="window_open" closesound="window_close"/>
-    <effect open="auctionOpen" close="auctionClose"/>
-    <controls>
-        <groupbox name="bg" rect="0 0 470 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
-        <groupbox name="questGbox" rect="0 0 470 930" margin="0 90 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>
-        <groupbox name="questGbox2" rect="0 0 450 800" margin="0 140 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
-        <groupbox name="gbox" rect="0 0 470 800" margin="0 120 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyresolution="true" scrollbar="true" skin=""/>
-        <groupbox name="pipwin_top" rect="0 0 470 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
-        <richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}경매장{/}"/>
-        <button name="close" rect="0 0 44 44" margin="0 20 20 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;auction&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}경매장을 닫습니다{/}"/>
-        <picture name="titlepicture" rect="0 0 44 44" margin="10 -500 0 0" layout_gravity="left top" image="button_wiki"/>
-        <button name="mode" rect="0 0 200 50" margin="0 0 0 80" layout_gravity="center bottom" LBtnUpScp="AUCTION_TOGGLE_MODE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" format="{@st41b}%s" param1="text" param1_def="낙찰물품 보관함" skin="test_red_button"/>
-        <richtext name="text" rect="0 0 220 30" margin="0 100 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_20_ol" format="{@st66b}낙찰물품 : %s개 / 유찰물품 : %s개{/}" maxwidth="0" param1="winCount" param1_def="0" param2="loseMoney" param2_def="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
-    </controls>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame title="{@st43}모험일지{/}" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<script OpenScp=""/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<effect open="auctionOpen" close="auctionClose"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 470 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="questGbox" rect="0 0 470 930" margin="0 90 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>
+		<groupbox name="questGbox2" rect="0 0 450 800" margin="0 140 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
+		<groupbox name="gbox" rect="0 0 470 800" margin="0 120 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyresolution="true" scrollbar="true" skin=""/>
+		<groupbox name="pipwin_top" rect="0 0 470 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}경매장{/}"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 20 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;auction&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}경매장을 닫습니다{/}"/>
+		<button name="mode" rect="0 0 200 50" margin="0 0 0 80" layout_gravity="center bottom" LBtnUpScp="AUCTION_TOGGLE_MODE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" format="{@st41b}%s" param1="text" param1_def="낙찰물품 보관함" skin="test_red_button"/>
+		<richtext name="text" rect="0 0 220 30" margin="0 100 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_20_ol" format="{@st66b}낙찰물품 : %s개 / 유찰물품 : %s개{/}" maxwidth="0" param1="winCount" param1_def="0" param2="loseMoney" param2_def="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+	</controls>
 </uiframe>

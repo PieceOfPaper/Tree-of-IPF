@@ -11,6 +11,9 @@ function ITEMBUFFGEMROASTING_UI_COMMON(groupName, sellType, handle)
 	frame:SetUserValue("GroupName", groupName);
 	GEMROASTING_VIEW(frame);
 
+	local tabCtrl = frame:GetChild('statusTab');
+	ITEMBUFF_SHOW_TAB(tabCtrl, handle);
+
 	local groupInfo = session.autoSeller.GetByIndex(groupName, 0);
 	local sklName = GetClassByType("Skill", groupInfo.classID).ClassName;
 	frame:SetUserValue("SKILLNAME", sklName)
@@ -101,7 +104,7 @@ function GEMROASTING_SLOT_DROP(parent, ctrl)
 	local checkFunc = _G["ITEMBUFF_NEEDITEM_" .. frame:GetUserValue("SKILLNAME")];
 	local name, cnt = checkFunc(pc, obj);
 
-	SET_SLOT_ITEM_IMANGE(slot, invItem);
+	SET_SLOT_ITEM_IMAGE(slot, invItem);
 	slot:SetUserValue("GEM_IESID", iconInfo:GetIESID());
 	local roastingbox = frame:GetChild("roasting");
 	local slotNametext = roastingbox:GetChild("slotName");

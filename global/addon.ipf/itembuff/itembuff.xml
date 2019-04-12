@@ -15,8 +15,7 @@
 		<groupbox name="reqitem_slot" parent="bodyGbox" rect="0 0 70 70" margin="35 460 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
 		<picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" layout_gravity="center top" DropScp="MANAGEGEM_DROP" changecursor="false" hittest="true" image="test_socket_top" stretch="true"/>
 		<groupbox name="pip" rect="0 0 450 61" margin="0 45 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_socket_topskin"/>
-		<richtext name="title" rect="0 0 200 80" margin="0 63 0 0" layout_gravity="center top" format="{@st43}%s 상점 개설{/}" param1="txt" textalign="left top"/>
-		<picture name="titlepicture" rect="0 0 44 44" margin="0 -100 8 0" layout_gravity="right top" image="button_property"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 63 0 0" layout_gravity="center top" format="{@st43}%s 상점 개설{/}" param1="txt" textalign="left top"/>		
 		<button name="close" rect="10 0 44 44" margin="0 40 40 0" layout_gravity="right top" LBtnUpScp="ITEM_BUFF_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}상점을 닫습니다{/}"/>
 		<groupbox name="OptionBox" rect="0 0 439 400" margin="0 69 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
 		<richtext name="needlisttxt" parent="OptionBox" rect="0 0 200 30" margin="20 50 0 0" layout_gravity="left top" resizebytext="false" caption="설정" fontname="brown_20_b" textalign="left center"/>

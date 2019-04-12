@@ -22,7 +22,7 @@ function MAP_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('GET_NEW_QUEST', 'UPDATE_MAP');
 	addon:RegisterMsg('REVEAL_ALL', 'UPDATE_MAP');
 
-	addon:RegisterOpenOnlyMsg('PC_PROPERTY_UPDATE', 'UPDATE_MAP');
+	-- addon:RegisterOpenOnlyMsg('PC_PROPERTY_UPDATE', 'UPDATE_MAP');
 	addon:RegisterMsg('NPC_STATE_UPDATE', 'UPDATE_MAP_NPC_STATE');
 
 	addon:RegisterOpenOnlyMsg('PARTY_INST_UPDATE', 'MAP_UPDATE_PARTY_INST');
@@ -387,7 +387,7 @@ end
 function UPDATE_MAP_BY_NAME(frame, mapname, pic, mapWidth, mapHeight, offsetX, offsetY)
 	INIT_MAPUI_PTR(frame);
 
-	MAKE_MAP_FOG_PICTURE(mapname, pic)
+	MAKE_MAP_FOG_PICTURE(mapname, pic, true)
 	UPDATE_MAP_FOG_RATE(frame, mapname);
 	MAKE_MAP_NPC_ICONS(frame, mapname, mapWidth, mapHeight, offsetX, offsetY)
 end

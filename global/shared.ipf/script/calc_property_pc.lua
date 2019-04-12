@@ -181,7 +181,12 @@ function SCR_GET_ADDSTR(self)
         byBuff = 0
     end
     
-    local value = byItem + byBuff;
+    local byItemBuff = TryGetProp(self, statString.."_ITEM_BM");
+    if byItemBuff == nil then
+        byItemBuff = 0
+    end
+    
+    local value = byItem + byBuff + byItemBuff;
     
     return math.floor(value);
 end
@@ -238,7 +243,12 @@ function SCR_GET_ADDDEX(self)
         byBuff = 0
     end
     
-    local value = byItem + byBuff;
+    local byItemBuff = TryGetProp(self, statString.."_ITEM_BM");
+    if byItemBuff == nil then
+        byItemBuff = 0
+    end
+    
+    local value = byItem + byBuff + byItemBuff;
     
     return math.floor(value);
 end
@@ -310,7 +320,12 @@ function SCR_GET_ADDCON(self)
         byBuff = 0
     end
     
-    local value = byItem + byBuff;
+    local byItemBuff = TryGetProp(self, statString.."_ITEM_BM");
+    if byItemBuff == nil then
+        byItemBuff = 0
+    end
+    
+    local value = byItem + byBuff + byItemBuff;
     
     return math.floor(value);
 end
@@ -367,7 +382,12 @@ function SCR_GET_ADDINT(self)
         byBuff = 0
     end
     
-    local value = byItem + byBuff;
+    local byItemBuff = TryGetProp(self, statString.."_ITEM_BM");
+    if byItemBuff == nil then
+        byItemBuff = 0
+    end
+    
+    local value = byItem + byBuff + byItemBuff;
     
     return math.floor(value);
 end
@@ -424,7 +444,12 @@ function SCR_GET_ADDMNA(self)
         byBuff = 0
     end
     
-    local value = byItem + byBuff;
+    local byItemBuff = TryGetProp(self, statString.."_ITEM_BM");
+    if byItemBuff == nil then
+        byItemBuff = 0
+    end
+    
+    local value = byItem + byBuff + byItemBuff;
     
     return math.floor(value);
 end
@@ -457,7 +482,12 @@ function SCR_GET_ADDLUCK(self)
     local byItem = GetSumOfEquipItem(self, statString);
     local byBuff = TryGetProp(self, statString.."_BM");
     
-    local value = byItem + byBuff;
+    local byItemBuff = TryGetProp(self, statString.."_ITEM_BM");
+    if byItemBuff == nil then
+        byItemBuff = 0
+    end
+    
+    local value = byItem + byBuff + byItemBuff;
     
     return math.floor(value);
 end

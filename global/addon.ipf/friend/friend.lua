@@ -134,10 +134,14 @@ function CHECK_FRIEND_NEW_INVITE(frame)
 		helpBalloon:ShowWindow(1);
 		local sysFrame = ui.GetFrame("sysmenu");
 		local friendBtn = sysFrame:GetChild("friend");
-		local x, y = GET_GLOBAL_XY(friendBtn);
-		x = x - (helpBalloon:GetWidth()/2);
-		y = y;
-		helpBalloon:SetOffset(x, y);
+        local margin = friendBtn:GetMargin();
+        local x = margin.right;
+        local y = margin.bottom;        
+		x = x + (friendBtn:GetWidth() / 2);
+		y = y + friendBtn:GetHeight() + 5;
+        helpBalloon:SetGravity(ui.RIGHT, ui.BOTTOM);
+        helpBalloon:SetMargin(0, 0, x, y);
+
 		helpBalloon:SetDuration(5);
 	else
 		ui.CloseFrame("new_friend_msg");
@@ -330,10 +334,11 @@ function BUILD_FRIEND_LIST(frame, listType, groupName, iscustom)
 	page:RemoveAllChild();
 	page:SetFocusedRow(-1);
 
+    local showCnt = 0;
 	local cnt = session.friends.GetFriendCount(listType);
 	for i = 0 , cnt - 1 do
 		local friendInfo = session.friends.GetFriendByIndex(listType, i);        	
-        if isNormalTree == false or i < visibleInfoCnt then
+        if isNormalTree == false or showCnt < visibleInfoCnt then
 		    if (showOnlyOnline == 0) or 
             (showOnlyOnline == 1 and friendInfo.mapID ~= 0) or
             (showOnlyOnline == 1 and FRIEND_LIST_COMPLETE ~= listType) then
@@ -374,6 +379,7 @@ function BUILD_FRIEND_LIST(frame, listType, groupName, iscustom)
 					    ctrlSet:Resize(ctrlSet:GetOriginalWidth(), FRIEND_MINIMIZE_HEIGHT);
 				    end                    
 				    UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, friendInfo);
+                    showCnt = showCnt + 1;
 			    end
 		    end
         end

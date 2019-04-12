@@ -1,4 +1,4 @@
-function IS_KOR_TEST_SERVER()
+﻿function IS_KOR_TEST_SERVER()
     if GetServerNation() == 'KOR' and GetServerGroupID() == 9001 then
         return true
     end
@@ -187,7 +187,7 @@ function GET_LAST_UI_OPEN_POS(etc)
 end
 
 
-function IS_NO_EQUIPITEM(equipItem) -- No_~ ?�리�??�이?�인지.
+function IS_NO_EQUIPITEM(equipItem) -- No_~ 시리즈 아이템인지.
 
     local clsName = equipItem.ClassName;
 
@@ -264,7 +264,7 @@ function GET_GEM_TYPE_NUMBER(GemType)
     return -1;
 end
 
--- ?�정 �??�커 �??�덤?�로 1�?IES�?리턴?��???
+-- 특정 존 앵커 중 랜덤으로 1개 IES를 리턴해준다
 function SCR_RANDOM_ZONE_ANCHORIES(zoneName)
     local idspace = 'Anchor_'..zoneName
     local class_count = GetClassCount(idspace)
@@ -283,7 +283,7 @@ function SCR_RANDOM_ZONE_ANCHORIES(zoneName)
     
 end
 
--- ?�이블에???�정 컬럼??검?�해??리턴?��???
+-- 테이블에서 특정 컬럼을 검색해서 리턴해준다
 function SCR_TABLE_SEARCH_ITEM(list, target)
     local result = 'NO'
     local keyList = {}
@@ -373,7 +373,7 @@ function SCR_Q_SUCCESS_REWARD_JOB_GENDER_CHECK(pc, list, target1, target2, targe
 end
 
 
--- ?�개??IES 리스?��? ?�쳐준??
+-- 두개의 IES 리스트를 합쳐준다
 function SCR_IES_ADD_IES(IES_list1, IES_list2)
     if IES_list1 == nil and IES_list2 == nil then
         return nil
@@ -394,7 +394,7 @@ function SCR_IES_ADD_IES(IES_list1, IES_list2)
     return IES_list1
 end
 
--- ?�정 ?�스???�션?�브?�트 ?�료 조건 �?index 번째 조건 만족 ?�인
+-- 특정 퀘스트 세션오브젝트 완료 조건 중 index 번째 조건 만족 확인
 function SCR_QUEST_SOBJ_TERMS(pc, sObj_name, index)
     local sObj_quest = GetSessionObject(pc, sObj_name)
     if sObj_quest ~= nil then
@@ -410,7 +410,7 @@ function SCR_QUEST_SOBJ_TERMS(pc, sObj_name, index)
     end
 end
 
--- ?�정 존에 ?�는 ?�브?�트??좌표 IES 리스?��? 찾아�?
+-- 특정 존에 있는 오브젝트의 좌표 IES 리스트를 찾아줌
 function SCR_GET_MONGEN_ANCHOR(zone_name, column, value)
     local result2 = SCR_GET_XML_IES('GenType_'..zone_name, column, value)
     if  result2 ~= nil and #result2 > 0 then
@@ -422,7 +422,7 @@ function SCR_GET_MONGEN_ANCHOR(zone_name, column, value)
 end
 
 
--- xml �??�정 컬럼??값과 ?�치/?�사 ??IES 리스?��? 찾아�?(option 1?�면 ?�사 �? ?�니�??�치)
+-- xml 중 특정 컬럼의 값과 일치/유사 한 IES 리스트를 찾아줌 (option 1이면 유사 값, 아니면 일치)
 function SCR_GET_XML_IES(idspace, column_name, target_value, option)
     if idspace == nil then
         return;
@@ -1063,13 +1063,13 @@ function GET_MAP_ACHI_NAME(mapCls)
 
     local name = ScpArgMsg("Auto_{Auto_1}_TamSaJa","Auto_1", mapCls.Name);
     local desc = ScpArgMsg("Auto_{Auto_1}_Jiyeogeul_MoDu_TamSaHayeossSeupNiDa.","Auto_1", mapCls.Name);
-    local desctitle = name -- ?�시. ?�중??�??�적 ?�성??보상�?�?��???�???�이???�팅 ?�루??지�?바꾸??
+    local desctitle = name -- 임시. 나중에 맵 업적 달성시 보상및 칭호에 대한 데이터 세팅 이루어 지면 바꾸자.
     local reward = "None"
     return desc, name, desctitle, reward;
 
 end
 
--- hgihLv : ?�티?�중 가???��? ?�벨, ?�티가 ?�니거나 1???�티�?0??
+-- hgihLv : 파티원중 가장 높은 레벨, 파티가 아니거나 1인 파티면 0임
 function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
     local pcLv = myLevel;
     local monLv = monLevel;
@@ -1294,9 +1294,9 @@ function SCR_DIALOG_NPC_ANIM(animName)
 
 end
 
-                                    -- 공용 ?�이브러�?
+                                    -- 공용 라이브러리
 --------------------------------------------------------------------------------------
--- ?�정 문자�?기�??�로 문자?�을 ?�라 ?�이블로 반환
+-- 특정 문자를 기준으로 문자열을 잘라 테이블로 반환
 function StringSplit(str, delimStr)
     local _tempStr = str;
     local _result = {};
@@ -1364,13 +1364,13 @@ function IsEnableEffigy(self, skill)
         return 0;
     end
 
-    -- 거리 체크?�는�?추�??�야?�듯?
-    -- 근데 그럼 ?�능??��?�디???
+    -- 거리 체크하는거 추가해야할듯?
+    -- 근데 그럼 성능낭비인디???
     return 1;
 end
 
 
--- 보스 ?�랍 리스??교체 바인???�수
+-- 보스 드랍 리스트 교체 바인딩 함수
 function CHANGE_BOSSDROPLIST(self, equipDropList)
     ChangeClassValue(self, 'EquipDropType', equipDropList);
 end
@@ -1388,10 +1388,10 @@ function GET_RECIPE_REQITEM_CNT(cls, propname)
 
 end
 
--- ?�직가??조건체크?�는 ?�수. skilltree.lua ui?�드?�에???�용?�고 ?�버?�서??조건체크?�때 ?�용.
+-- 전직가능 조건체크하는 함수. skilltree.lua ui애드온에서 사용하고 서버에서도 조건체크할때 사용.
 function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
     
-    -- ?��? 가지고있??직업?�면 바로 true리턴
+    -- 이미 가지고있는 직업이면 바로 true리턴
     for i = 0, #haveJobNameList do      
         if haveJobNameList[i] ~= nil then
             if haveJobNameList[i] == cls.ClassName then
@@ -1400,29 +1400,29 @@ function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
         end
     end
     
-    -- ?�래???�로??직업?��???조건 체크
+    -- 아래는 새로운 직업에대한 조건 체크
     local i = 1;
     
     while 1 do
     
-            -- 조건체크?�는 칼럼?????�요?�면 xml?�서 �??�리면됨. ?�ㅋ?   
+            -- 조건체크하는 칼럼이 더 필요하면 xml에서 걍 늘리면됨. ㅇㅋ?   
         if GetPropType(cls, "ChangeJobCondition" .. i) == nil then
             break;
         end
 
 
-        -- ChangeJobCondition???��? 'None'?�면 ?�스?��? ?�해???�직?�는거임. UI?�서???�보?�줌.
+        -- ChangeJobCondition이 전부 'None'이면 퀘스트를 통해서 전직하는거임. UI에서는 안보여줌.
         if cls["ChangeJobCondition" .. i] == 'None' then
             return false;
         end
         
 
         local sList = StringSplit(cls["ChangeJobCondition" .. i], ";");
-        local conditionCount = #sList / 2;  -- ?�당직업 ?�직조건 체크�?��
+        local conditionCount = #sList / 2;  -- 해당직업 전직조건 체크갯수
         
-        local completeCount = 0;            -- ?�직조건??몇개??만족?�는지
+        local completeCount = 0;            -- 전직조건에 몇개나 만족하는지
         for j = 1, conditionCount do
-            -- 직업가지고있�??�구?�벨보다 ?��?지 체크
+            -- 직업가지고있고 요구레벨보다 높은지 체크
             for n=0, #haveJobNameList do
                             
                 if sList[j*2-1] == haveJobNameList[n] and tonumber(sList[j*2]) <= tonumber(haveJobGradeList[n]) then
@@ -1431,7 +1431,7 @@ function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
             end
         end
 
-            -- ?�직조건??모두 만족?�면 ?�직가?�하?�고 ?�팅?�줌
+            -- 전직조건에 모두 만족하면 전직가능하다고 셋팅해줌
         if conditionCount == completeCount then
             return true;
         end
@@ -1615,7 +1615,7 @@ function SCR_GET_ZONE_FACTION_OBJECT(zoneClassName, factionList, monRankList, re
     return monList
 end
 
-function GET_COMMAED_STRING(num) -- unsigned long 범위?�에??가?�하�??�정??
+function GET_COMMAED_STRING(num) -- unsigned long 범위내에서 가능하게 수정함
     if num == nil then
         return "0";
     end
@@ -1642,7 +1642,7 @@ function GET_NOT_COMMAED_NUMBER(commaedString)
         startIndex, endIndex = string.find(tempStr, ',');
         noInfinite = noInfinite + 1;
 
-        -- ?�시 모�? 무한루프 방�?
+        -- 혹시 모를 무한루프 방지
         if noInfinite >= 10000 then
             break;
         end
@@ -1713,4 +1713,32 @@ function PUSH_BACK_IF_NOT_EXIST(list, element)
 
     list[#list + 1] = element;
     return list;
+end
+
+
+function SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc)
+    if GetServerNation() ~= "KOR" then
+        return 'NO'
+    end
+    
+    local now_time = os.date('*t')
+--    local year = now_time['year']
+    local month = now_time['month']
+    local day = now_time['day']
+    
+    if IsServerSection(pc) ~= 1 then
+        local serverTime = imcTime.GetCurdateNumber()
+        month = tonumber(string.sub(serverTime,3, 4))
+        day = tonumber(string.sub(serverTime,5, 6))
+    end
+    
+    local dateList = {{7,1},{7,2},{7,8},{7,9},{7,15},{7,16},{7,22},{7,23},{7,29},{7,30}}
+    
+    for i = 1, #dateList do
+        if month == dateList[i][1] and day == dateList[i][2] then
+            return 'YES'
+        end
+    end
+    
+    return 'NO'
 end

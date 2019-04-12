@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-	<Shockwave frame="95" type="2" intensity="10" frequency="120" duration="0.3" range="1000"/>
-	<Sound frame="0.00" soundFile="m_kerberos_atk"/>
-	<Sound frame="22.00" soundFile="m_kerberos_skl_1"/>
-	<Sound frame="66.00" soundFile="m_kerberos_atk"/>
-	<Sound frame="85.00" soundFile="mon_molich_skl_shot"/>
+    <Sound frame="0.00" soundFile="m_kerberos_atk"/>
+    <Sound frame="0.00" soundFile="skl_eff_small_bowl"/>
+    <Sound frame="22.00" soundFile="m_kerberos_skl_1"/>
+    <Sound frame="64.00" soundFile="m_kerberos_atk"/>
+    <Sound frame="85.00" soundFile="mon_molich_skl_shot"/>
+    <Shockwave frame="95" type="2" intensity="10" frequency="120" duration="0.3" range="1000"/>
 </ActionDesc>

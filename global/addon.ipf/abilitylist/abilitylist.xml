@@ -14,8 +14,7 @@
         <richtext name="get_desc" rect="0 0 300 60" margin="0 200 0" layout_gravity="center top" caption="{@st41b}각 클래스 마스터들에게서{nl}특성을 배울 수 있습니다.{/}" fixwidth="false" resizebytext="false" textalign="center center"/>
         <groupbox name="bg" rect="0 0 500 930" margin="0 90 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
         <grid name="ability" rect="0 0 500 860" margin="0 140 0 0" layout_gravity="center top" border="0 0 0 0" resizebyresolution="true" scrollbar="true" skin=" " slotscp="0 0" slotsize="430 155"/>
-        <richtext name="title" rect="0 0 200 80" margin="0 27 0 0" layout_gravity="center top" caption="{@st43}특성 목록{/}" textalign="left top"/>
-        <picture name="titlepicture" rect="0 0 44 44" margin="0 -100 8 0" layout_gravity="right top" image="button_property"/>
+        <richtext name="title" rect="0 0 200 80" margin="0 27 0 0" layout_gravity="center top" caption="{@st43}특성 목록{/}" textalign="left top"/>        
         <button name="close" rect="10 0 44 44" margin="0 0 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;abilitylist&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}특성리스트를 닫습니다{/}"/>
         <timer name="addontimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
     </controls>

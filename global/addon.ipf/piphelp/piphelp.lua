@@ -109,8 +109,8 @@ function PIPHELP_DETAIL_ADD_POPUP(groupBox, helpCls, index, yPos)
 	end
 
 	local xPos = 5;
-	DESTROY_CHILD_BYNAME(groupBox, "detail"..helpCls["DetailExplain_"..index]);
-local detailCtrlSet = groupBox:CreateControlSet("helpCtrlSet", "detail"..helpCls["DetailExplain_"..index], xPos + 10, yPos);
+	DESTROY_CHILD_BYNAME(groupBox, "detail_"..index);
+local detailCtrlSet = groupBox:CreateControlSet("helpCtrlSet", "detail_"..index, xPos + 10, yPos);
 
 	local detailExplainCtrl = GET_CHILD(detailCtrlSet, "detailText", "ui::CRichText");
 	local detailExplain = helpCls["DetailExplain_"..index];

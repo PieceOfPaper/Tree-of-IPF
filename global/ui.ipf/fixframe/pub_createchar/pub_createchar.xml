@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="pub_createchar" x="0" y="0" width="1920" height="1080">
 	<draw drawtitlebar="false"/>
 	<skin frameskin="22"/>
@@ -51,10 +51,10 @@
 		<button name="btn_hair_next" margin="460 20 0 0" rect="0 0 40 50" clickrgn="-40 -40 100 100" layout_gravity="left top" parent="customgroup" image="button_right_select2" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="PUB_NEXT_HEAD"/>
 		<button name="btn_dir_prev" margin="200 90 0 0" rect="0 0 40 50" clickrgn="-40 -40 100 100" layout_gravity="left top" parent="customgroup" image="button_left_select2" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="PUB_PREV_DIRECTION"/>
 		<button name="btn_dir_next" margin="460 90 0 0" rect="0 0 40 50" clickrgn="-40 -40 100 100" layout_gravity="left top" parent="customgroup" image="button_right_select2" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="PUB_NEXT_DIRECTION"/>
-		<richtext name="job_title_1" margin="1 47 0 200" rect="0 0 120 24" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" format="{@st41b}%s{/}" param1="value" param1_def="캐릭터 이름"/>
-		<groupbox name="input_name_skin" margin="0 0 0 145" rect="0 0 300 50" skin="barrack_creat_win" draw="true" hittestbox="true" layout_gravity="center bottom" scrollbar="false" resizebyparent="false"/>
+		<richtext name="job_title_1" margin="1 47 0 205" rect="0 0 120 24" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" format="{@st41b}%s{/}" param1="value" param1_def="캐릭터 이름"/>
+		<groupbox name="input_name_skin" margin="0 0 0 150" rect="0 0 300 50" skin="barrack_creat_win" draw="true" hittestbox="true" layout_gravity="center bottom" scrollbar="false" resizebyparent="false"/>
 		<edit name="input_name" margin="0 0 0 155" rect="0 0 290 36" textalign="center center" fontname="white_22_ol" EnterKeyScp="None" numbermode="false" OffsetForDraw="0 0" layout_gravity="center bottom" skin="None" maxlen="16" drawbackground="false" clicksound="button_click_big" oversound="button_over"/>
-		<button name="button_1_1" margin="0 0 0 20" skin="barrack_gamestart" rect="0 0 280 100" layout_gravity="center bottom" caption="{@st43}캐릭터 생성" texttooltip="{@st59}설정대로 캐릭터를 생성합니다{/}" clicksound="button_click_big" oversound="button_over" frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end3" MouseOnAnim="btn_mouseover_3" MouseOffAnim="btn_mouseoff_3" LBtnUpScp="PUB_EXEC_CREATECHAR">
+		<button name="button_1_1" margin="0 0 0 20" image="login_test_button" rect="0 0 280 100" layout_gravity="center bottom" caption="{@st43}캐릭터 생성" texttooltip="{@st59}설정대로 캐릭터를 생성합니다{/}" clicksound="button_click_big" oversound="button_over" frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end3" MouseOnAnim="btn_mouseover_3" MouseOffAnim="btn_mouseoff_3" LBtnUpScp="PUB_EXEC_CREATECHAR">
 			<uieffect effect="I_sys_item_slot2" scale="9.6" overlab="No" sound="None" offset="0 -2" playtime="1" duration="0.4" conditon="active" event="LBUTTONDOWN" layout_gravity="left top"/>
 		</button>
 		<button name="button_1_1_1" margin="1530 0 0 25" skin="test_gray_button" rect="0 0 160 55" layout_gravity="left bottom" caption="{@st41b}선택 취소" texttooltip="{@st59}캐릭터 선택을 취소합니다{/}" clicksound="button_click_big" oversound="button_over" frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end3" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="PUB_CANCEL_CREATECHAR"/>

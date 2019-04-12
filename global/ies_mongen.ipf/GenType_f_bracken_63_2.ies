@@ -1,7 +1,7 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P_MaxDialog,UP_ReturnRange,AnchorCount,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 1,1,1,40,1,60000,1,2,0,0,0,0,0,"Warp_arrow","코루 숲","","","","","","","","BRACKEN_63_2_BRACKEN_63_1","","NO","YES","NO","Neutral","","","",""
-2,2,1,40,1,60000,1,3,0,0,0,0,0,"Warp_arrow","다단 숲","","","","","","","","BRACKEN_63_2_BRACKEN_63_3","","NO","YES","NO","Neutral","","","",""
-3,3,1,40,1,60000,1,3,0,0,0,0,0,"Warp_arrow","코노트 숲","","","","","","","","BRACKEN_63_2_BRACKEN_42_1","","NO","YES","NO","Neutral","","","",""
+2,2,1,40,1,60000,1,2,0,0,0,0,0,"Warp_arrow","다단 숲","","","","","","","","BRACKEN_63_2_BRACKEN_63_3","","NO","YES","NO","Neutral","","","",""
+3,3,1,40,1,60000,1,2,0,0,0,0,0,"Warp_arrow","코노트 숲","","","","","","","","BRACKEN_63_2_BRACKEN_42_1","","NO","YES","NO","Neutral","","","",""
 4,4,1,40,1,60000,1,1,0,0,0,0,0,"npc_roze","행상인 로제","","","","","","","BRACKEN632_ROZE01","","","NO","YES","NO","Neutral","","","",""
 5,5,1,40,1,60000,1,1,0,0,0,0,0,"npc_roze","행상인 로제","","","","","","","BRACKEN632_ROZE02","","","NO","YES","NO","Neutral","","","",""
 6,6,1,40,1,60000,1,1,0,0,0,0,0,"npc_beekeeper4","약초꾼 아스","","","","","","","BRACKEN632_PEAPLE01","","","NO","YES","NO","Neutral","","","",""
@@ -47,4 +47,3 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P
 321,321,1,200,1,60000,1,0,0,0,0,0,0,"HiddenTrigger5","UnvisibleName","","","","","","","","LOWLV_GREEN_SQ_30","","NO","YES","NO","Neutral","","","",""
 322,322,1,40,1,60000,1,0,0,0,0,0,0,"boxes_01","UnvisibleName","","","","","","","LOWLV_GREEN_SQ_40_BOX","","","NO","YES","NO","Neutral","","","",""
 323,323,1,40,1,60000,1,0,0,0,0,0,0,"flash_detector","질병 탐지기","","","","","","","JOB_PLAGUEDOCTOR71_NPC4","","","NO","YES","NO","Neutral","","","",""
-324,324,1,40,1,60000,1,1,0,1,1,0,0,"alter_sacrifice","황금 고래 제단","","","","","","","CREATE_GOLDEN_WHALE","","","NO","YES","NO","Neutral","","","",""

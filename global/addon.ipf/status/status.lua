@@ -15,6 +15,7 @@ function STATUS_ON_INIT(addon, frame)
 	addon:RegisterMsg("JOB_CHANGE", "STATUS_JOB_CHANGE");
 	addon:RegisterMsg("LIKEIT_WHO_LIKE_ME", "STATUS_INFO");
 	addon:RegisterMsg("TOKEN_STATE", "TOKEN_ON_MSG");
+    addon:RegisterMsg('UPDATE_EXP_UP', 'STATUS_UPDATE_EXP_UP_BOX');
 	
 	STATUS_INFO_VIEW(frame);
 end
@@ -190,7 +191,6 @@ end
 
 
 function STATUS_ON_PC_COMMENT_CHANGE(frame)
-
 	local socialInfo = session.social.GetMySocialInfo();
 	local logoutGBox = frame:GetChild("logoutGBox");
 	local logoutInternal = logoutGBox:GetChild("logoutInternal");
@@ -240,9 +240,7 @@ function STATUS_ONLOAD(frame, obj, argStr, argNum)
 
 	STATUS_TAB_CHANGE(frame);
 	STATUS_INFO();
-
-	--local invenFrame = ui.GetFrame('inventory');
-	--invenFrame:ShowWindow(1);
+    STATUS_UPDATE_EXP_UP_BOX(frame);
 end
 
 function STATUS_CLOSE(frame, obj, argStr, argNum)
@@ -668,7 +666,7 @@ function SETEXP_SLOT_PARTY(expupBuffBox, addValue, index, entireSum)
 end
 
 --F1 경험치 계산부분
-function SETEXP_SLOT(gbox)
+function SETEXP_SLOT(gbox, addBuffClsName, isAdd)
 	local expupBuffBox = gbox:GetChild('expupBuffBox');
     expupBuffBox:RemoveAllChild();
         
@@ -728,13 +726,24 @@ function SETEXP_SLOT(gbox)
         totalExpUpValue = totalExpUpValue + expupValue; 
     end
 
+    -- worldevent
+    if addBuffClsName == 'GoldenFishEvent' and isAdd == 1 then
+        local expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, 'GoldenFishEvent', GOLDEN_FISH_EXP_RATE);
+        totalExpUpValue = totalExpUpValue + expupValue;
+    end
+
     -- exp buffs
     local buffCount = info.GetBuffCount(handle);
 	for i = 0, buffCount - 1 do
 		local buff = info.GetBuffIndexed(handle, i);
         local buffCls = GetClassByType('Buff', buff.buffID);
         if buffCls ~= nil then
-            local expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName);
+            local expupValue = 0;
+            if buffCls.ClassName == 'GoldenFishEvent' then
+                expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName, GOLDEN_FISH_EXP_RATE);
+            else
+                expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName);
+            end
             totalExpUpValue = totalExpUpValue + expupValue;
         end
 	end
@@ -1291,6 +1300,9 @@ function STATUS_ATTRIBUTE_VALUE_RANGE_NEW(pc, opc, frame, gboxctrl, attibuteName
 		
 	local title = GET_CHILD(controlSet, "title", "ui::CRichText");
 	title:SetText(ScpArgMsg(attibuteName));
+	if attibuteName == 'PATK_SUB' then
+    	title:SetTextTooltip(ScpArgMsg("StatusTooltipMsg1"))
+    end
 
 	local stat = GET_CHILD(controlSet, "stat", "ui::CRichText");
 
@@ -1361,6 +1373,11 @@ function STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, attibuteName, y)
 	tolua.cast(controlSet, "ui::CControlSet");
 	local title = GET_CHILD(controlSet, "title", "ui::CRichText");
 	title:SetText(ScpArgMsg(attibuteName));
+	if attibuteName == 'SR' then
+    	title:SetTextTooltip(ScpArgMsg("StatusTooltipMsg2"))
+	elseif attibuteName == 'SDR' then
+    	title:SetTextTooltip(ScpArgMsg("StatusTooltipMsg3"))
+    end
 
 	local stat = GET_CHILD(controlSet, "stat", "ui::CRichText");
 	title:SetUseOrifaceRect(true)
@@ -1672,7 +1689,12 @@ function STATUS_ACHIEVE_INIT(frame)
 			eachAchiveGauge:Resize(eachAchiveGBox:GetWidth() - eachAchiveStaticDesc:GetWidth() - 50, eachAchiveGauge:GetHeight() )
 			eachAchiveGauge:SetTextTooltip("(" .. nowpoint .. "/" .. cls.NeedCount ..")")
 
-			if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 then
+			local isHasAchieve = 0;
+			if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 and nowpoint >= cls.NeedCount then
+				isHasAchieve = 1;
+			end
+
+			if isHasAchieve == 1 then
 				if equipAchieveName ~= 'None' and equipAchieveName == cls.Name then
 					eachAchiveDescTitle:SetText('{@stx2}'..cls.DescTitle..ScpArgMsg('Auto__(SayongJung)'));
 				else
@@ -1689,7 +1711,7 @@ function STATUS_ACHIEVE_INIT(frame)
 			eachAchiveName:SetTextByKey('name', cls.Name);
         		eachAchiveReward:SetTextByKey('reward', cls.Reward);
 
-			if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 then
+			if isHasAchieve == 1 then
 				eachAchiveGauge:ShowWindow(0)
 				--eachAchiveCSet:SetEventScript(ui.LBUTTONDOWN, "ACHIEVE_EQUIP");
 				--eachAchiveCSet:SetEventScriptArgNumber(ui.LBUTTONDOWN, cls.ClassID);
@@ -1802,7 +1824,14 @@ function STATUS_ACHIEVE_INIT(frame)
 			break;
 		end
 
-		if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 and cls.Name ~= "None" then
+		local nowpoint = GetAchievePoint(GetMyPCObject(), cls.NeedPoint)
+		
+		local isHasAchieve = 0;
+		if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 and nowpoint >= cls.NeedCount then
+			isHasAchieve = 1;
+		end
+
+		if isHasAchieve == 1 and cls.Name ~= "None" then
 
 			local achiveRichCtrl = customizingGBox:CreateOrGetControl('richtext', 'ACHIEVE_RICHTEXT_'..i, x, y, frame:GetWidth() - 5, 20);
 			
@@ -2005,4 +2034,9 @@ function EXEC_CHANGE_NAME_BY_ITEM(inputframe, ctrl)
 	end
 
 	OPEN_CHECK_USER_MIND_BEFOR_YES_BY_ITEM(inputframe, changedName, itemIES, itemType);
+end
+
+function STATUS_UPDATE_EXP_UP_BOX(frame, msg, argStr, argNum)
+    local expupGBox = GET_CHILD_RECURSIVELY(frame, 'expupGBox');
+    SETEXP_SLOT(expupGBox, argStr, argNum);
 end

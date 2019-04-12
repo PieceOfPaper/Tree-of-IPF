@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="weaponswap" x="200" y="0" width="180" height="120" create="open">
-    <frame title="weaponswap" layout_gravity="center bottom" margin="-370 0 0 20"/>
-    <option visible="true" alwaysVisible="false" hideable="false" closebutton="false"/>
-    <input hittestframe="false" moveable="false"/>
-    <draw drawtitlebar="false" drawframe="false"/>
-    <layer layerlevel="70"/>
-    <controls>
-        <groupbox name="bodyGbox" rect="0 0 180 120" margin="3 1 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false"/>
-        <groupbox name="readyWeapon" parent="bodyGbox" rect="0 0 90 45" margin="75 4 0 0" layout_gravity="left top" draw="false" hittestbox="false" scrollbar="false"/>
-        <groupbox name="currWeapon" parent="bodyGbox" rect="0 0 120 60" margin="16 48 0 0" layout_gravity="left top" draw="false" hittestbox="false" scrollbar="false"/>
-        <slot name="slot2" parent="bodyGbox" rect="0 0 40 40" margin="0 36 0 0" layout_gravity="left top" DropScp="WEAPONSWAP_ITEM_DROP" PopScp="WEAPONSWAP_ITEM_POP" RBtnDownScp="WEAPONSWAP_RBTN_DOWN" dropsound="icon_get_down" index="2" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="swap_slot1" texttooltip="{@st59}아이템을 올려주세요{/}"/>
-        <slot name="slot3" parent="bodyGbox" rect="0 0 40 40" margin="40 36 0 0" layout_gravity="left top" DropScp="WEAPONSWAP_ITEM_DROP" PopScp="WEAPONSWAP_ITEM_POP" RBtnDownScp="WEAPONSWAP_RBTN_DOWN" dropsound="icon_get_down" index="3" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="swap_slot2" texttooltip="{@st59}아이템을 올려주세요{/}"/>
-        <slot name="slot0" parent="bodyGbox" rect="0 0 40 40" margin="0 -4 0 0" layout_gravity="left top" DropScp="WEAPONSWAP_ITEM_DROP" PopScp="WEAPONSWAP_ITEM_POP" RBtnDownScp="WEAPONSWAP_RBTN_DOWN" dropsound="icon_get_down" index="0" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="swap_slot1" texttooltip="{@st59}아이템을 올려주세요{/}"/>
-        <slot name="slot1" parent="bodyGbox" rect="0 0 40 40" margin="40 -4 0 0" layout_gravity="left top" DropScp="WEAPONSWAP_ITEM_DROP" PopScp="WEAPONSWAP_ITEM_POP" RBtnDownScp="WEAPONSWAP_RBTN_DOWN" dropsound="icon_get_down" index="1" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="swap_slot2" texttooltip="{@st59}아이템을 올려주세요{/}"/>
+<uiframe name="weaponswap" x="200" y="0" width="180" height="120" create="open" moveable="false">
+	<frame title="weaponswap" layout_gravity="center top" margin="-370 0 0 20"/>
+	<option visible="true" alwaysVisible="false" hideable="false" closebutton="false"/>
+	<input hittestframe="false"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<layer layerlevel="70"/>
+	<controls>
+		<groupbox name="bodyGbox" rect="0 0 180 120" margin="3 1 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false"/>
+		<groupbox name="readyWeapon" parent="bodyGbox" rect="0 0 90 45" margin="75 4 0 0" layout_gravity="left top" draw="false" hittestbox="false" scrollbar="false"/>
+		<groupbox name="currWeapon" parent="bodyGbox" rect="0 0 120 60" margin="16 48 0 0" layout_gravity="left top" draw="false" hittestbox="false" scrollbar="false"/>
+		<slot name="slot2" parent="bodyGbox" rect="0 0 40 40" margin="0 36 0 0" layout_gravity="left top" DropScp="WEAPONSWAP_ITEM_DROP" PopScp="WEAPONSWAP_ITEM_POP" RBtnDownScp="WEAPONSWAP_RBTN_DOWN" dropsound="icon_get_down" index="2" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="swap_slot1" texttooltip="{@st59}아이템을 올려주세요{/}"/>
+		<slot name="slot3" parent="bodyGbox" rect="0 0 40 40" margin="40 36 0 0" layout_gravity="left top" DropScp="WEAPONSWAP_ITEM_DROP" PopScp="WEAPONSWAP_ITEM_POP" RBtnDownScp="WEAPONSWAP_RBTN_DOWN" dropsound="icon_get_down" index="3" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="swap_slot2" texttooltip="{@st59}아이템을 올려주세요{/}"/>
+		<slot name="slot0" parent="bodyGbox" rect="0 0 40 40" margin="0 -4 0 0" layout_gravity="left top" DropScp="WEAPONSWAP_ITEM_DROP" PopScp="WEAPONSWAP_ITEM_POP" RBtnDownScp="WEAPONSWAP_RBTN_DOWN" dropsound="icon_get_down" index="0" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="swap_slot1" texttooltip="{@st59}아이템을 올려주세요{/}"/>
+		<slot name="slot1" parent="bodyGbox" rect="0 0 40 40" margin="40 -4 0 0" layout_gravity="left top" DropScp="WEAPONSWAP_ITEM_DROP" PopScp="WEAPONSWAP_ITEM_POP" RBtnDownScp="WEAPONSWAP_RBTN_DOWN" dropsound="icon_get_down" index="1" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="swap_slot2" texttooltip="{@st59}아이템을 올려주세요{/}"/>
 		<picture name="titlepicture" parent="bodyGbox" rect="0 0 30 30" margin="45 32 0 0" layout_gravity="left top" image="weaponswap_mark" stretch="true" texttooltip="{@st59}슬롯에 무기 장착{nl}Alt+Z로 무기 전환{/}"/>
-    </controls>
+	</controls>
 </uiframe>

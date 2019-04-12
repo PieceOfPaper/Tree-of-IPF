@@ -56,8 +56,7 @@
 		<groupbox name="achieve" rect="0 0 0 0" margin="30 243 30 30" layout_gravity="none none" scrollbar="false"/>
 		<controlset name="ctrlset" parent="achieve" rect="0 0 570 120" margin="5 0 0 0" layout_gravity="center top" hittest="true" type="journal_achieve_set"/>
 		<groupbox name="Recipe" rect="0 0 590 780" margin="5 240 0 0" layout_gravity="left top" draw="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
-		<controlset name="ctrlset" parent="Recipe" rect="0 0 560 120" margin="0 0 0 0" layout_gravity="left top" hittest="true" type="journal_recipe_set"/>
-		<picture name="titlepicture" rect="0 0 44 44" margin="10 -500 0 0" layout_gravity="left top" image="button_wiki"/>
+		<controlset name="ctrlset" parent="Recipe" rect="0 0 560 120" margin="0 0 0 0" layout_gravity="left top" hittest="true" type="journal_recipe_set"/>		
 		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;journal&apos;)" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}모험일지를 닫습니다{/}"/>
 	</controls>
 </uiframe>

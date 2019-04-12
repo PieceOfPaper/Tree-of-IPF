@@ -24,10 +24,7 @@
 		<richtext name="title" rect="0 0 100 30" margin="0 18 0 0" layout_gravity="center top" caption="{@st43}퀘스트{/}" fontname="default" spacey="0"/>
 		<tab name="questBox" rect="0 0 300 40" margin="125 90 0 0 " layout_gravity="left top" LBtnDownScp="QUEST_TAB_CHANGE" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
 		<tabitem name="box1" parent="questBox" caption="{@st66b}  진행  {/}" width="140"/>
-		<tabitem name="box2" parent="questBox" caption="{@st66b}  포기  {/}" width="140"/>
-		<!--labelline name="boardLine2" parent="questGbox" rect="0 0 500 2" margin="0 44 0 0" layout_gravity="center top" visible="true" skin="Nene"/-->
-		<richtext name="desc" rect="0 0 250 95" margin="5 60 0 0" layout_gravity="left top" autowiki="true" fixwidth="false" fontname="white_20_ol"/>
-		<!--<page name="list" rect="0 0 350 0" margin="90 10 0 50" layout_gravity="left none"/>-->
+		<tabitem name="box2" parent="questBox" caption="{@st66b}  포기  {/}" width="140"/>		
 		<picture name="titlepicture" rect="0 0 44 44" margin="10 -600 0 0" layout_gravity="left top" image="button_quest"/>
 	</controls>
 </uiframe>

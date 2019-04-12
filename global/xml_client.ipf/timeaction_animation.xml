@@ -99,4 +99,10 @@
 	<TimeAction Name="Monster_Orgel2" RandomLoop="0" StartAnim="rotate_cast" StartAnimCount="1" NextStart="NONE" NextStartCount="0" BeforEnd="NONE" BeforEndCount="0" EndAniTime="0" EndAnim="NONE">
 		<LoopAnim Anim="rotate_loop" AnimCount="1"/>
 	</TimeAction>
+	<TimeAction Name="PC_Fishing" RandomLoop="0" StartAnim="fishing_ready" StartAnimCount="1" NextStart="NONE" NextStartCount="0" BeforEnd="NONE" BeforEndCount="0" EndAniTime="0" EndAnim="fishing_end">
+		<LoopAnim Anim="fishing_loop" AnimCount="1"/>
+	</TimeAction>
+	<TimeAction Name="Monster_Fishing" RandomLoop="0" StartAnim="ready" StartAnimCount="1" NextStart="NONE" NextStartCount="0" BeforEnd="NONE" BeforEndCount="0" EndAniTime="0" EndAnim="end">
+		<LoopAnim Anim="loop" AnimCount="1"/>
+	</TimeAction>
 </TimeActionAnim>

@@ -177,7 +177,7 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 		icon:SetTooltipArg(handle, buffType, buff.arg1);
 	else
 	icon:SetTooltipType('buff');
-	icon:SetTooltipArg(handle, buffType, "");
+	icon:SetTooltipArg(handle, buffType, buffIndex);
 	end
 
 	--slot:SetSkinName(class.SlotType);
@@ -295,7 +295,7 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 		for j = 0, slotcount - 1 do
 			local i = GET_BUFF_SLOT_INDEX(j, colcnt);
 			local slot				= slotlist[i];
-
+           
 			if slot:IsVisible() == 0 then
 				SET_BUFF_SLOT(slot, captionlist[i], class, buffType, handle, slotlist, buffIndex);
 				break;
@@ -312,7 +312,8 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 			if slot:IsVisible() == 1 then
 				local oldBuffIndex = oldIcon:GetUserIValue("BuffIndex");			
 				local iconInfo = oldIcon:GetInfo();
-				if iconInfo.type == buffType then
+                local isBuffIndexSame = oldBuffIndex - buffIndex;
+				if iconInfo.type == buffType and isBuffIndexSame == 0 then
 					CLEAR_BUFF_SLOT(slot, text);
 					local j = GET_BUFF_ARRAY_INDEX(i, colcnt);
 					PULL_BUFF_SLOT_LIST(slotlist, captionlist, j, slotcount, colcnt, ApplyLimitCountBuff);
@@ -332,7 +333,7 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 
 			if slot:IsVisible() == 1 then
 				local iconInfo = oldIcon:GetInfo();
-				if iconInfo.type == buffType then
+				if iconInfo.type == buffType and oldIcon:GetUserIValue("BuffIndex") == buffIndex then
 					SET_BUFF_SLOT(slot, captionlist[i], class, buffType, handle, slotlist, buffIndex);
 					break;
 				end

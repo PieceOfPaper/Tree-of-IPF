@@ -41,7 +41,7 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 	local name, cnt = checkFunc(pc, obj);
 
 	-- 이미지를 넣고
-	SET_SLOT_ITEM_IMANGE(slot, invItem);
+	SET_SLOT_ITEM_IMAGE(slot, invItem);
 	
 	local repairbox = frame:GetChild("repair");
 	local slotNametext = repairbox:GetChild("slotName");

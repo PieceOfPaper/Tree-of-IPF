@@ -42,6 +42,12 @@ function CLIENT_MORU(invItem)
 		return;
 	end
 
+	local rankresetFrame = ui.GetFrame("rankreset");
+	if 1 == rankresetFrame:IsVisible() then
+		ui.SysMsg(ScpArgMsg('CannotDoAction'));
+		return;
+	end
+	
 	local frame = ui.GetFrame("reinforce_131014");
 	local fromMoruSlot = GET_CHILD(frame, "fromMoruSlot", "ui::CSlot");
 
@@ -83,7 +89,7 @@ function CURSOR_CHECK_REINF(slot)
 	local fromItem, fromMoru = REINFORCE_131014_GET_ITEM(upgradeitem_2);
 	local moruObj = GetIES(fromMoru:GetObject());
 	local obj = GetIES(item:GetObject());
-	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" then
+	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR"then
 		if 1 == REINFORCE_ABLE_131014(obj) 
 			and obj.PR == 0 then
 			return 1;
@@ -126,7 +132,7 @@ function MORU_LBTN_CLICK(frame, invItem)
 		return;
 	end
 
-	CANCEL_MORU();
+	   CANCEL_MORU();
 	
 	local upgradeitem_2 = ui.GetFrame("reinforce_131014");
 	local fromItemSlot = GET_CHILD(upgradeitem_2, "fromItemSlot", "ui::CSlot");
@@ -134,10 +140,10 @@ function MORU_LBTN_CLICK(frame, invItem)
 
 	local fromItem, fromMoru = REINFORCE_131014_GET_ITEM(upgradeitem_2);
 	local moruObj = GetIES(fromMoru:GetObject());
-	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" then 
+	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR" then 
 		if obj.PR > 0 then
-		return;
-	end
+		    return;
+	    end
 	elseif moruObj.ClassName == "Moru_Potential" or moruObj.ClassName == "Moru_Potential14d" then
 		local itemObj = GetIES(fromItem:GetObject());
 		local itemCls = GetClass("Item",itemObj.ClassName);
@@ -175,7 +181,7 @@ function _CHECK_MORU_TARGET_ITEM(slot)
 	local moruObj = GetIES(fromMoru:GetObject());
 	local obj = GetIES(item:GetObject());
 	local CanReinforceItem = 0;
-	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" then 
+	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR"then 
 		if REINFORCE_ABLE_131014(obj) == 1 and obj.PR == 0 then
 			CanReinforceItem = 1;
 		end
@@ -207,7 +213,6 @@ end
 
 function MORU_SET_SLOT_ITEM(slot, invItem, count)
 
-	print("MORU_SET_SLOT_ITEM",invItem.type);
 	local itemCls = GetClassByType("Item", invItem.type);
 
 	local type = itemCls.ClassID;

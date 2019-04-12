@@ -13,8 +13,7 @@
         <groupbox name="bg" rect="0 0 470 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
         <groupbox name="pipwin_top" rect="0 0 470 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
         <richtext name="title" rect="0 0 100 30" margin="0 17 0 0" layout_gravity="center top" format="{@st43}%s" param1="value" param1_def="매입의뢰"/>
-        <button name="close" rect="0 0 44 44" margin="0 20 27 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}매입의뢰상점을 닫습니다"/>
-        <picture name="titlepicture" rect="0 0 44 44" margin="0 -500 8 0" layout_gravity="right top" image="button_portal"/>
+        <button name="close" rect="0 0 44 44" margin="0 20 27 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}매입의뢰상점을 닫습니다"/>        
         <picture name="question" rect="0 0 44 44" margin="27 20 0 0" layout_gravity="left top" image="testquesten_button" texttooltip="{@st59b}매입의뢰상점{nl}{@st59s} - 내가 가진 물건을 실버로 교환할 수 있습니다"/>
         <groupbox name="gbox" rect="0 0 470 570" margin="0 90 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
         <groupbox name="items" parent="gbox" rect="0 0 460 510" margin="5 50 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>

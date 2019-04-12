@@ -252,7 +252,7 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 	local isMax = IS_ABILITY_MAX(pc, groupClass, abilClass);	
 	local onlyShowLearnable = GET_CHILD_RECURSIVELY(frame,"onlyShowLearnable")
 
-	-- 배울 ???�는 ?�성�??�시
+	-- 배울 ????는 ??성????시
 	if onlyShowLearnable:IsChecked() == 1 then
 	
 		if isMax == 1 and runCnt + 1 > maxCount then

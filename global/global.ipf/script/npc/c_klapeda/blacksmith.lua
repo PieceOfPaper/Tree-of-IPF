@@ -28,8 +28,14 @@ function SCR_PETSHOP_KLAIPE_DIALOG(self,pc)
         	end
         end
     end
-
-    local select = ShowSelDlg(pc, 0, 'PETSHOP_KLAIPE_basic1', vel, hawk, hoglan, ScpArgMsg('shop_companion'), ScpArgMsg('shop_companion_learnabil'), ScpArgMsg('shop_companion_info'), ScpArgMsg('Auto_DaeHwa_JongLyo'));
+    
+    local eventSelect
+    local ret = EVENT_1705_SCHWARZEREITER_BLACKSMITH_PRECHECK(pc,{'',1})
+    if ret == 'YES' then
+        eventSelect = ScpArgMsg('EVENT_1705_SCHWARZEREITER_MSG1')
+    end
+    local select = ShowSelDlg(pc, 0, 'PETSHOP_KLAIPE_basic1', vel, hawk, hoglan, ScpArgMsg('shop_companion'), ScpArgMsg('shop_companion_learnabil'), ScpArgMsg('shop_companion_info'), eventSelect , ScpArgMsg('Auto_DaeHwa_JongLyo'));
+--    local select = ShowSelDlg(pc, 0, 'PETSHOP_KLAIPE_basic1', vel, hawk, hoglan, ScpArgMsg('shop_companion'), ScpArgMsg('shop_companion_learnabil'), ScpArgMsg('shop_companion_info'), ScpArgMsg('Auto_DaeHwa_JongLyo'));
     if select == 1 or select == 2 or select == 3 then
 		local scp = string.format("TRY_CECK_BARRACK_SLOT_BY_COMPANION_EXCHANGE(%d)", select);
 		ExecClientScp(pc, scp);
@@ -41,8 +47,7 @@ function SCR_PETSHOP_KLAIPE_DIALOG(self,pc)
     elseif select == 6 then -- 좋은 점에 대하여
         ShowOkDlg(pc, 'PETSHOP_KLAIPE_basic2', 1)
     elseif select == 7 then
-        return 0
-        
+        EVENT_1705_SCHWARZEREITER_NPC(self,pc)
     end
     
 end

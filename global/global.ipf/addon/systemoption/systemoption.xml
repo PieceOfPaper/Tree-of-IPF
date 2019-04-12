@@ -4,6 +4,5 @@
 	<controls>
 		<richtext name="language_title" parent="pipwin_low" rect="0 0 120 24" margin="30 890 0 0" layout_gravity="left top" format="{@st43}언어 선택{/}"/>
 		<droplist name="languageList" parent="pipwin_low" rect="0 0 200 40" margin="240 900 0 0" layout_gravity="left top" SelectScp="APPLY_LANGUAGE" font="white_20_ol" frametextalign="left" skin="droplist_normal" textalign="left center" textoffset="10 0" visibleline="11"/>
-		<checkbox OverrideType="ADD" name="check_optimization" parent="pipwin_low" rect="0 0 200 24" margin="337 510 0 0" layout_gravity="left top" LBtnDownScp="APPLY_OPTIMIZATION" caption="{@st66b}최적화(Beta){/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}최적화(Beta) 를 적용합니다.{/}"/>
 	</controls>
 </uiframe>

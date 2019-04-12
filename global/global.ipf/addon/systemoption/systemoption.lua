@@ -1,8 +1,8 @@
 function INIT_SCREEN_CONFIG(frame)
 
-	local getGroup = GET_CHILD(frame, "pipwin_low", "ui::CGroupBox")
-	local getPipwin_low = GET_CHILD(frame, "pipwin_low", "ui::CGroupBox")
-	local catelist = GET_CHILD(getPipwin_low, "resolutionList", "ui::CDropList");
+	local getGroup = GET_CHILD_RECURSIVELY(frame, "pipwin_low", "ui::CGroupBox")
+	local getPipwin_low = GET_CHILD_RECURSIVELY(frame, "pipwin_low", "ui::CGroupBox")
+	local catelist = GET_CHILD_RECURSIVELY(frame, "resolutionList", "ui::CDropList");
 	catelist:ClearItems();
 
 	local curWidth = option.GetClientWidth();

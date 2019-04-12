@@ -149,6 +149,7 @@ function INDUNENTER_MAKE_MONLIST(frame, indunCls)
 	-- init
 	monSlotSet:ClearIconAll();
     monSlotSet:SetUserValue('CURRENT_SLOT', 1);
+    monSlotSet:SetOffset(monSlotSet:GetOriginalX(), monSlotSet:GetY());
 
 	-- data set
 	local bossList = TryGetProp(indunCls, 'BossList');
@@ -203,6 +204,7 @@ function INDUNENTER_MAKE_REWARDLIST(frame, indunCls)
 
 	-- init	
 	rewardSlotSet:ClearIconAll();
+    rewardSlotSet:SetOffset(rewardSlotSet:GetOriginalX(), rewardSlotSet:GetY());
 	
 
 	-- data set	
@@ -341,11 +343,20 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable, understaffCount)
 
 	local prevPcCnt = frame:GetUserIValue('UI_PC_COUNT');
 	frame:SetUserValue('UI_PC_COUNT', pcCount);
+    
 	if prevPcCnt < pcCount then
 		local MEMBER_FINDED_SOUND = frame:GetUserConfig('MEMBER_FINDED_SOUND');
 		imcSound.PlaySoundEvent(MEMBER_FINDED_SOUND);
 	end
 
+    local previousUnderstaffCount = frame:GetUserIValue('UI_UNDERSTAFF_COUNT');
+    frame:SetUserValue('UI_UNDERSTAFF_COUNT', understaffCount);
+    
+    if previousUnderstaffCount < understaffCount then
+        local UNDERSTAFF_CHECK_SOUND = frame:GetUserConfig('UNDERSTAFF_CHECK_SOUND');
+        imcSound.PlaySoundEvent(UNDERSTAFF_CHECK_SOUND);
+    end
+    
 	if memberCnt > 1 then 
 		partyLine:Resize(58 * (memberCnt - 1), 15);
 		partyLine:ShowWindow(1);

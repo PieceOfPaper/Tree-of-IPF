@@ -327,6 +327,16 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 		local eqpObj = bpc:GetEquipObj(i);
 		local esName = item.GetEquipSpotName(i);
 		
+		if eqpObj ~= nil then
+			local obj = GetIES(eqpObj);
+			local eqpType = TryGet_Str(obj, "EqpType");
+			if eqpType == "HELMET" then 
+				if item.IsNoneItem(obj.ClassID) == 0 then
+					esName = "HAIR";
+				end
+			end
+		end
+		
 		local eqpSlot = GET_CHILD(detail, esName, "ui::CSlot");
 		if eqpSlot ~= nil then
 			eqpSlot:EnableDrag(0);

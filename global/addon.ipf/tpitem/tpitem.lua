@@ -1,11 +1,8 @@
-
 -- tpitem.lua : (tp shop)
-
 function TPITEM_ON_INIT(addon, frame)
-
+   
 	addon:RegisterMsg('TP_SHOP_UI_OPEN', 'TP_SHOP_DO_OPEN');
 	addon:RegisterMsg("TPSHOP_BUY_SUCCESS", "ON_TPSHOP_BUY_SUCCESS");
-	addon:RegisterMsg("TPSHOP_BUY_FAILED", "ON_TPSHOP_BUY_FAILED");
 	addon:RegisterMsg("SHOP_BUY_LIMIT_INFO", "ON_SHOP_BUY_LIMIT_INFO");
 	
 	if (config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP") then
@@ -217,8 +214,8 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	--session.shop.RequestLoadShopBuyLimit();
 	SET_TOPMOST_FRAME_SHOWFRAME(0);	
 	
-	itembox_tab:SelectTab(0);
-	TPSHOP_TAB_VIEW(frame, 0);
+	itembox_tab:SelectTab(1);
+	TPSHOP_TAB_VIEW(frame, 1);
 	
 	local input = GET_CHILD_RECURSIVELY(frame, "input");
 	local editDiff = GET_CHILD_RECURSIVELY(frame, "editDiff");
@@ -336,20 +333,40 @@ function ON_TPSHOP_RESET_PREVIEWMODEL()
 
 end
 
+function TPITEM_ADD_CONTROL(obj, tpitemtree)
+    local category  = obj.Category;
+    local subcategory  = obj.SubCategory;
+	local categoryCset = nil;
+	categoryCset = GET_CHILD(tpitemtree, "TPSHOP_CT_" .. category )
+	if categoryCset == nil then -- is equal tpitemtree:FindByName(ctrlSet:GetName()) == nil
+	    categoryCset = tpitemtree:CreateControlSet("tpshop_tree", "TPSHOP_CT_" .. category, ui.LEFT, 0, 0, 0, 0, 0);
+        local part = GET_CHILD(categoryCset, "part");
+		part:SetTextByKey("value", ScpArgMsg(category));
+		local foldimg = GET_CHILD(categoryCset,"foldimg");
+		foldimg:ShowWindow(0);
+    end
 
-function ON_TPSHOP_BUY_FAILED(frame, msg, argStr, argNum)
-	local tpitem = GetClassByType("TPitem", argNum);
-	if tpitem == nil then
-		return
-	end
+	local htreeitem = tpitemtree:FindByValue(category);
+	local tempFirstValue = nil
+
+	if tpitemtree:IsExist(htreeitem) == 0 then
+	    htreeitem = tpitemtree:Add(categoryCset, category);
+		tempFirstValue = tpitemtree:GetItemValue(htreeitem)	
+    end
 		
-	local needJobClassName = TryGetProp(tpitem, "Job");
-	local needJobGrade = TryGetProp(tpitem, "JobGrade");
+	local hsubtreeitem = tpitemtree:FindByCaption("{@st42b}"..ScpArgMsg(subcategory));
+		
+	if tpitemtree:IsExist(hsubtreeitem) == 0 and subcategory ~= "None" then
 
-	if needJobGrade ~= nil and needJobClassName ~= nil then
-		local jobinfoclass = GetClass('Job', needJobClassName);
-		ui.MsgBox(ScpArgMsg("CanNotEquipLow{Job}{Grade}", "Job", GET_JOB_NAME(jobinfoclass), "Grade", needJobGrade));
-		return;
+	    local added = tpitemtree:Add(htreeitem, "{@st66}"..ScpArgMsg(subcategory), category.."#"..subcategory, "{#000000}");
+			
+	    tpitemtree:SetFitToChild(true,10);
+	    tpitemtree:SetFoldingScript(htreeitem, "KEYCONFIG_UPDATE_FOLDING");
+	    local foldimg = GET_CHILD(categoryCset,"foldimg");
+	    foldimg:ShowWindow(1);
+
+	    tempFirstValue = tpitemtree:GetItemValue(added)
+			
 	end
 end
 
@@ -369,62 +386,67 @@ function MAKE_CATEGORY_TREE()
 	end
 
 	local firstTreeItem = nil;
+    local itemOnSale= {};
 	for i = 0, cnt - 1 do
-	
 		local obj = GetClassByIndexFromList(clsList, i);
 
-		local category  = obj.Category;
-		local subcategory  = obj.SubCategory;
-		local categoryCset = nil;
-		categoryCset = GET_CHILD(tpitemtree, "TPSHOP_CT_" .. category )
-		
-		if categoryCset == nil then -- is equal tpitemtree:FindByName(ctrlSet:GetName()) == nil
-
-			categoryCset = tpitemtree:CreateControlSet("tpshop_tree", "TPSHOP_CT_" .. category, ui.LEFT, 0, 0, 0, 0, 0);
-			local part = GET_CHILD(categoryCset, "part");
-			part:SetTextByKey("value", ScpArgMsg(category));
-			local foldimg = GET_CHILD(categoryCset,"foldimg");
-			foldimg:ShowWindow(0);
-		end
-	
-	
-		local htreeitem = tpitemtree:FindByValue(category);
-				
-	
-		local tempFirstValue = nil
-
-		if tpitemtree:IsExist(htreeitem) == 0 then
-			htreeitem = tpitemtree:Add(categoryCset, category);
-			tempFirstValue = tpitemtree:GetItemValue(htreeitem)	
-		end
-		
-		local hsubtreeitem = tpitemtree:FindByCaption("{@st42b}"..ScpArgMsg(subcategory));
-		
-		if tpitemtree:IsExist(hsubtreeitem) == 0 and subcategory ~= "None" then
-
-			local added = tpitemtree:Add(htreeitem, "{@st66}"..ScpArgMsg(subcategory), category.."#"..subcategory, "{#000000}");
-			
-			tpitemtree:SetFitToChild(true,10);
-			tpitemtree:SetFoldingScript(htreeitem, "KEYCONFIG_UPDATE_FOLDING");
-			local foldimg = GET_CHILD(categoryCset,"foldimg");
-			foldimg:ShowWindow(1);
-
-			tempFirstValue = tpitemtree:GetItemValue(added)
-			
-		end
-		
-		if i == 0 then
-			firstTreeItem = htreeitem;
-		end
-
-			
-		end
-
+		if obj.Category == 'TP_Premium_Sale' then
+            itemOnSale[#itemOnSale + 1] = obj;
+	    else
+            
+            firstTreeItem = CREATE_TPITEM_TREE(obj, tpitemtree, i, firstTreeItem);
+        end
+	end
+    --할인카테고리 추가
+    for i = 1, #itemOnSale do
+        firstTreeItem = CREATE_TPITEM_TREE(itemOnSale[i], tpitemtree, i, firstTreeItem);
+    end
 	tpitemtree:Select(firstTreeItem);
 	local tnode = tpitemtree:GetLastSelectedNode();
 	TPITEM_SELECT_TREENODE(tnode);	
 end
 
+function CREATE_TPITEM_TREE(obj, tpitemtree, i, firstTreeItem)
+    local category  = obj.Category;
+	local subcategory  = obj.SubCategory;
+	local categoryCset = nil;
+	categoryCset = GET_CHILD(tpitemtree, "TPSHOP_CT_" .. category )
+	if categoryCset == nil then -- is equal tpitemtree:FindByName(ctrlSet:GetName()) == nil
+	    categoryCset = tpitemtree:CreateControlSet("tpshop_tree", "TPSHOP_CT_" .. category, ui.LEFT, 0, 0, 0, 0, 0);
+        local part = GET_CHILD(categoryCset, "part");
+		part:SetTextByKey("value", ScpArgMsg(category));
+		local foldimg = GET_CHILD(categoryCset,"foldimg");
+		foldimg:ShowWindow(0);
+    end
+
+	local htreeitem = tpitemtree:FindByValue(category);
+	local tempFirstValue = nil
+
+	if tpitemtree:IsExist(htreeitem) == 0 then
+	    htreeitem = tpitemtree:Add(categoryCset, category);
+		tempFirstValue = tpitemtree:GetItemValue(htreeitem)	
+    end
+	
+	local hsubtreeitem = tpitemtree:FindByCaption("{@st42b}"..ScpArgMsg(subcategory));
+		
+	if tpitemtree:IsExist(hsubtreeitem) == 0 and subcategory ~= "None" then
+
+		local added = tpitemtree:Add(htreeitem, "{@st66}"..ScpArgMsg(subcategory), category.."#"..subcategory, "{#000000}");
+			
+		tpitemtree:SetFitToChild(true,10);
+		tpitemtree:SetFoldingScript(htreeitem, "KEYCONFIG_UPDATE_FOLDING");
+		local foldimg = GET_CHILD(categoryCset,"foldimg");
+		foldimg:ShowWindow(1);
+
+		tempFirstValue = tpitemtree:GetItemValue(added)
+			
+    end
+		
+	if i == 0 then
+        return htreeitem;
+    end
+    return firstTreeItem;
+end
 
 function TPITEM_CLOSE(frame)
 	
@@ -582,7 +604,6 @@ end
 
 --tp상점의 아이템들을 그리는 함수  
 function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, isSub, filter, allFlag)
-	
 	local mainText = GET_CHILD_RECURSIVELY(frame,"mainText");
 	local mainSubGbox = GET_CHILD_RECURSIVELY(frame,"mainSubGbox");
 	local leftgFrame = frame:GetChild("leftgFrame");	
@@ -634,49 +655,53 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 
 	local x, y;
 	local alignmentgbox = GET_CHILD(leftgbox,"alignmentgbox");	
-	
 	-- 해당 카테고리의 노드들의 프레임을 만들기.
 	for i = 0, cnt - 1 do
 		local obj = GetClassByIndexFromList(clsList, i);
-
 		local itemobj = GetClass("Item", obj.ItemClassName)
 		local isFounded = false;
-		
-		if filter ~= nil then
-			local targetItemName = itemobj.Name;			
-			if config.GetServiceNation() ~= "KOR" then
-				targetItemName = dic.getTranslatedStr(targetItemName);				
-			end
-			local startNum, endNum = string.find(targetItemName, filter);
-			if (startNum ~= nil) or (endNum ~= nil) then
-				isFounded = true;					
-			end
-		end
+    if itemobj == nil then
+      IMC_LOG("INFO_NORMAL", "ItemClassName not found in item.xml:TPITEM_DRAW_ITEM_WITH_CATEGORY. obj.ItemClassName:" ..obj.ItemClassName);
+    else
+		  if filter ~= nil then
+			  local targetItemName = itemobj.Name;			
+			  if config.GetServiceNation() ~= "KOR" then
+				  targetItemName = dic.getTranslatedStr(targetItemName);				
+			  end
+			  local startNum, endNum = string.find(targetItemName, filter);
+			  if (startNum ~= nil) or (endNum ~= nil) then
+			  	isFounded = true;					
+			  end
+		  end
+      local itemcset = nil;
+		  if (allFlag == nil) then	
+			  if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
+				  if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
+					  if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then
+					    index = index + 1
+					    x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
+						  y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
+              itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
+						  TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+					  end
+				  end
+			  end
+		  else
+			  if (obj.Category == category) then
+				  if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
+					  if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
+						  index = index + 1
+						  x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
+						  y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
+						  itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
+						  TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+					  end
+				  end
+			  end
+		  end
+    end
+	end
 
-		
-		if (allFlag == nil) then	
-				if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
-					if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
-						index = index + 1
-						x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
-						y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
-						local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
-						TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
-					end
-				end
-		
-		else
-			if (obj.Category == category) then
-					if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
-						index = index + 1
-						x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
-						y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
-						local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
-						TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
-					end
-				end
-			end
-		end
 	--mainSubGbox:Resize(mainSubGbox:GetOriginalWidth(), y + ui.GetControlSetAttribute("tpshop_item", 'height'))
 	
 	--모든 아이템을 출력할때에 컨트롤셋 인덱스를 기억해냄.
@@ -684,6 +709,88 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 	TPSHOP_TPITEM_ALIGN_LIST(index);
 	mainSubGbox:Invalidate()
 	frame:Invalidate()
+end
+
+
+function CHECK_TPITEM_ENABLE_VIEW(itemObj)
+
+	local startProp = TryGetProp(itemObj, "SellStartTime")
+	local endProp = TryGetProp(itemObj, "SellEndTime")
+
+	if startProp == nil or endProp == nil then
+		return true;
+	end
+
+	if startProp == "None" or endProp == "None" then
+		return true;
+	end
+
+	local startTime = tonumber(startProp);
+	local endTime = tonumber(endProp);
+	if startTime > endTime then
+		endTime = endTime + 120000000
+	end
+	
+	local curTime = geTime.GetServerSystemTime();
+	local nowTime = tonumber(string.format("%02d%01d%02d%02d%02d", curTime.wMonth, '0', curTime.wDay, curTime.wHour, curTime.wMinute))
+		
+	if nowTime >= startTime and endTime > nowTime then
+		return true;
+	end
+
+	return false;
+
+end
+
+function IS_TIME_SALE_ITEM(classID)
+	local tpitemframe = ui.GetFrame("tpitem");
+	local itemObj = GetClassByType("TPitem", classID);
+
+	local startProp = TryGetProp(itemObj, "SellStartTime");
+	local endProp = TryGetProp(itemObj, "SellEndTime");
+
+	if startProp == nil or endProp == nil then
+		return false;
+	end
+
+	if startProp == "None" or endProp == "None" then
+		return false;
+	else
+		return true;
+	end
+end
+
+function SHOW_REMAIN_SALE_TIME(ctrl)
+	local curTime = geTime.GetServerSystemTime()
+	local curSysTimeStr = string.format("%04d%02d%01d%02d%02d%02d%02d", curTime.wYear, curTime.wMonth, '0', curTime.wDay, curTime.wHour, curTime.wMinute, curTime.wSecond)
+	local startTime = ctrl:GetUserIValue("SELL_START_TIME")
+	local endTime = ctrl : GetUserIValue("SELL_END_TIME")
+	
+	local curYear = curTime.wYear
+	if startTime > endTime then
+		curYear = curYear + 1
+	end
+
+	local endSysTimeStr = string.format("%04d%09d%02d", curYear, endTime, '00')
+	local curSysTime = imcTime.GetSysTimeByStr(curSysTimeStr)
+	local endSysTime = imcTime.GetSysTimeByStr(endSysTimeStr)
+	local difSec = imcTime.GetDifSec(endSysTime, curSysTime);
+
+	local remainSec = difSec
+
+	if 0 > remainSec then
+		
+		ctrl:SetTextByKey("remainTime", ScpArgMsg("LessThanItemLifeTime"));
+		ctrl:SetFontName("red_18");
+		ctrl: StopUpdateScript("SHOW_REMAIN_SALE_TIME");
+	
+		return 0;
+	end
+
+	local timeTxt = GET_TIME_TXT_DHM(remainSec);
+	ctrl:SetTextByKey("remainTime", timeTxt);
+
+	return 1;
 end
 
 function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
@@ -699,11 +806,19 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 	local nxp = GET_CHILD_RECURSIVELY(itemcset,"nxp")
 	local slot = GET_CHILD_RECURSIVELY(itemcset, "icon");
 	local pre_Line = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_1");
+	local limited_line = GET_CHILD_RECURSIVELY(itemcset, "titleLine_limited");
+	local limited_case = GET_CHILD_RECURSIVELY(itemcset, "case_limited");
+	local limited_bg = GET_CHILD_RECURSIVELY(itemcset, "bg_limited");
+	local time_limited_bg = GET_CHILD_RECURSIVELY(itemcset, "time_limited_bg");
+	local time_limited_text = GET_CHILD_RECURSIVELY(itemcset, "time_limited_text");
 	local pre_Box = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_2");
 	local pre_Text = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_3");
 	local isNew_mark = GET_CHILD_RECURSIVELY(itemcset,"isNew_mark");
+	local isLimit_mark = GET_CHILD_RECURSIVELY(itemcset,"isLimit_mark");
 	local isHot_mark = GET_CHILD_RECURSIVELY(itemcset,"isHot_mark");
 	local isEvent_mark = GET_CHILD_RECURSIVELY(itemcset,"isEvent_mark");
+    local isSale_mark = GET_CHILD_RECURSIVELY(itemcset,"isSale_mark");
+    isSale_mark:SetVisible(0);
 
 	local itemName = itemobj.Name;
 	local itemclsID = itemobj.ClassID;
@@ -725,7 +840,44 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 
 	-- 구매 여부와 착용 여부를 검사한다.
 	itemcset:SetUserValue("TPITEM_CLSID", tpitem_clsID);
-	TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, tpitem_clsID);
+	TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, isLimit_mark, tpitem_clsID);
+
+	if IS_TIME_SALE_ITEM(tpitem_clsID) == true then
+
+		local curTime = geTime.GetServerSystemTime()
+		local curSysTimeStr = string.format("%04d%02d%01d%02d%02d%02d%02d", curTime.wYear, curTime.wMonth, '0', curTime.wDay, curTime.wHour, curTime.wMinute, curTime.wSecond)
+		local startTime = TryGetProp(obj, "SellStartTime");
+		local endTime = TryGetProp(obj, "SellEndTime");
+	
+		local curYear = curTime.wYear
+		if startTime > endTime then
+			curYear = curYear + 1
+		end
+		
+		local endSysTimeStr = string.format("%04d%09d%02d", curYear, endTime, '00')
+		local curSysTime = imcTime.GetSysTimeByStr(curSysTimeStr)
+		local endSysTime = imcTime.GetSysTimeByStr(endSysTimeStr)
+		local difSec = imcTime.GetDifSec(endSysTime, curSysTime);
+		
+		time_limited_text:SetUserValue("REMAINMIN", difSec);
+		time_limited_text:SetUserValue("SELL_START_TIME", startTime);
+		time_limited_text:SetUserValue("SELL_END_TIME", endTime);
+		time_limited_text:RunUpdateScript("SHOW_REMAIN_SALE_TIME");
+		
+		title:SetFontName('white_18_ol')
+		limited_bg : SetVisible(1);
+		limited_case: SetVisible(1);
+		limited_line:SetVisible(1);
+		time_limited_bg:SetVisible(1);
+		time_limited_text:SetVisible(1);
+	else		
+		itemcset:SetSkinName('test_skin_01_btn')
+		limited_bg : SetVisible(0);
+		limited_case: SetVisible(0);
+		limited_line:SetVisible(0);
+		time_limited_bg:SetVisible(0);
+		time_limited_text:SetVisible(0);
+	end
 			
 	nxp:SetText("{@st43}{s18}"..obj.Price.."{/}");
 	--[[
@@ -862,7 +1014,11 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 			['TP_Costume_M'] = function()
 				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased".. isPreviewPossible));	
 			end,
+            ['TP_Premium_Sale'] = function()
+                isSale_mark:SetVisible(1);
 
+				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased".. isPreviewPossible));	
+            end,
 			--[[		--미리보기 버그 수정 보류
 			['TP_Premium'] = function() 
 				SWITCH(subCategory) {
@@ -1032,7 +1188,8 @@ function TPSHOP_SORT_LIST(a, b)
 	return false;
 end
 
-function TPSHOP_TPITEM_ALIGN_LIST(cnt)	
+--정렬
+function TPSHOP_TPITEM_ALIGN_LIST(cnt)
 	local srcTable = {};
 	for i = 1, cnt do
 		srcTable[#srcTable + 1] = i;
@@ -1076,20 +1233,23 @@ function _TPSHOP_TPITEM_SET_SPECIAL()
 		local isEvent_mark = GET_CHILD_RECURSIVELY(itemcset,"isEvent_mark");
 		local isHot_mark = GET_CHILD_RECURSIVELY(itemcset,"isHot_mark");
 		local isNew_mark = GET_CHILD_RECURSIVELY(itemcset,"isNew_mark");
+		local isLimit_mark = GET_CHILD_RECURSIVELY(itemcset,"isLimit_mark");
 
-		TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, classID);
+		TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, isLimit_mark, classID);
 	end	
 	
 	DebounceScript("TPSHOP_CREATE_TOP5_CTRLSET", 1);
 end
 
-function TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, classID)
+function TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, isLimit_mark, classID)
 	local founded_info = session.ui.Getlistitem_TPITEM_ADDITIONAL_INFO_Map_byID(classID);
 	local bisNew = 0;
 	local bisHot = 0;
 	local bisEvent = 0;
-		
-	if TPSHOP_ISNEW_CHECK(classID) == true then
+	local bisLimit = 0;
+	if IS_TIME_SALE_ITEM(classID) == true then
+	 	bisLimit = 1;
+	elseif TPSHOP_ISNEW_CHECK(classID) == true then
 		bisNew = 1;
 	end
   
@@ -1105,6 +1265,7 @@ function TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, classID)
 	isNew_mark:SetVisible(bisNew);
 	isHot_mark:SetVisible(bisHot);		
 	isEvent_mark:SetVisible(bisEvent);
+	isLimit_mark:SetVisible(bisLimit);
 end
 
 function TPSHOP_CREATE_TOP5_CTRLSET()
@@ -1212,7 +1373,7 @@ function TPSHOP_ITEMSEARCH_CLICK(parent, control, strArg, intArg)
 	control:ClearText();
 end
 
-function TPSHOP_ITEMSEARCH_ENTER(parent, control, strArg, intArg)	
+function TPSHOP_ITEMSEARCH_ENTER(parent, control, strArg, intArg)
 	local frame = ui.GetFrame("tpitem");
 	local input = GET_CHILD_RECURSIVELY(frame, "input");
 
@@ -1232,7 +1393,6 @@ end
 
 --///////////////////////////////////////////////////////////////////////////////////////////미리보기 Code start
 function TPSHOP_ITEM_PREVIEW_PREPROCESSOR(parent, control, tpitemname, tpitem_clsID)
-	
 	local frame = ui.GetFrame("tpitem");
 	local slotset = nil;
 	
@@ -1255,42 +1415,30 @@ function TPSHOP_ITEM_PREVIEW_PREPROCESSOR(parent, control, tpitemname, tpitem_cl
 	if subCategory == nil then
 		return;
 	end
-	SWITCH (category)
-	{
-		['TP_Character'] = function() 
-			SWITCH (subCategory)
-			{
-				['TP_Costume_Color'] = function() 
-					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 1, tpitemname, itemobj); -- 염색약	(보류시 주석처리할 곳)
-				end,
-		
-				['TP_Costume_Hairacc'] = function() 
-					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 0, tpitemname, itemobj); -- 헤어악세	(보류시 주석처리할 곳)
-				end,
 
-				['TP_Costume_Lens'] = function() 
-					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 2, tpitemname, itemobj); -- 렌즈
-				end,
-
-				default = function() 
-					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 0, tpitemname, itemobj); -- 헤어
-				end,
-			}
-		end,
-	
-		['TP_Premium'] = function() 
-			SWITCH (itemobj.EqpType)
-			{
-				['OUTER'] = function()
-					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 1, tpitemname, itemobj);	-- 옷
-				end,
-			}
-			--TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 2, tpitemname, itemobj);	-- 컴페니언	(보류시 주석처리할 곳)
-		end,
-		default = function() 
-			TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 1, tpitemname, itemobj);	-- 옷
-		end,
-	}	
+    if subCategory == 'TP_Costume_Color' then -- EqpType이 nil인 경우는 염색약 말곤 없었다. 
+        TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 1, tpitemname, itemobj); -- 염색약	(보류시 주석처리할 곳)
+    else
+        SWITCH (itemobj.EqpType)
+        {
+            ['OUTER'] = function()
+			    TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 1, tpitemname, itemobj);	-- 옷
+			end,
+            ['HAIR'] = function()
+                TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 0, tpitemname, itemobj);	-- 헤어
+            end,
+            ['HAT'] = function()
+                TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 0, tpitemname, itemobj);	-- 헤어악세
+            end,
+            ['LENS'] = function()
+                TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 2, tpitemname, itemobj); -- 렌즈
+            end,
+            default = function() 
+                IMC_LOG("INFO_NORMAL", "EqpType not defined in tpitem.lua:TPSHOP_ITEM_PREVIEW_PREPROCESSOR. item.EqpType:" .. itemobj.EqpType);
+			    TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 0, tpitemname, itemobj); -- 디폴트 헤어
+            end,
+	    }
+    end	
 end
 
 -- 미리보기에서 해당 슬롯에 장착
@@ -1367,6 +1515,9 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 		[ES_BOOTS] = function() 
 				invSlot = invframe:GetChild("BOOTS");	
 		end,
+		[ES_HELMET] = function()
+				invSlot = invframe:GetChild("HAIR");	
+		end,
 		[ES_ARMBAND] = function() 
 				invSlot = invframe:GetChild("ARMBAND");	
 		end,
@@ -1413,7 +1564,12 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 				if invIteminfo ~= nil then
 					local obj = GetIES(invIteminfo:GetObject());
 					if obj ~= nil then
-						apc:SetEquipItem(i, obj.ClassID);	
+						local spotName = item.GetEquipSpotName(i);
+						if spotName == obj.EqpType then
+							apc:SetEquipItem(i, obj.ClassID);
+						else
+							apc:SetEquipItem(i, 0);	
+						end
 					else
 						apc:SetEquipItem(i, 0);	
 					end
@@ -1422,7 +1578,7 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 				end			
 			else	
 				apc:SetEquipItem(i, 0);							
-			end	
+			end		
 		end	
 	end
 	
@@ -1478,10 +1634,12 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 		if hairslotset ~= nil then
 			local hairslot = hairslotset:GetSlotByIndex(0);
 			if hairslot ~= nil then
+				
 				local classname = hairslot:GetUserValue("CLASSNAME");
 		
-				local itemobj = GetClass("Item", classname)
+				local itemobj = GetClass("Item", classname);
 				if itemobj ~= nil then
+					apc:SetEquipItem(ES_HELMET , 0);
 					hairName = itemobj.StringArg;
 				end
 			end
@@ -1967,8 +2125,39 @@ function EXEC_BUY_MARKET_ITEM()
 			local tpitemname = slot:GetUserValue("TPITEMNAME");
 			local tpitem = GetClass("TPitem",tpitemname)
 				
+
 			if tpitem ~= nil then
 							
+				local startProp = TryGetProp(tpitem, "SellStartTime");
+				local endProp = TryGetProp(tpitem, "SellEndTime");
+
+				if startProp ~= nil and endProp ~= nil then
+					if startProp ~= "None" and endProp ~= "None" then
+						local curTime = geTime.GetServerSystemTime()
+						local curSysTimeStr = string.format("%04d%02d%01d%02d%02d%02d%02d", curTime.wYear, curTime.wMonth, '0', curTime.wDay, curTime.wHour, curTime.wMinute, curTime.wSecond)
+						local startTime = TryGetProp(tpitem, "SellStartTime")
+						local endTime = TryGetProp(tpitem, "SellEndTime");
+						
+						local curYear = curTime.wYear
+						if startTime > endTime then
+							curYear = curYear + 1
+						end
+
+						local endSysTimeStr = string.format("%04d%09d%02d", curYear, endTime, '00')
+
+						local curSysTime = imcTime.GetSysTimeByStr(curSysTimeStr)
+						local endSysTime = imcTime.GetSysTimeByStr(endSysTimeStr)
+
+						local difSec = imcTime.GetDifSec(endSysTime, curSysTime);
+						if 0 >= difSec then
+							ui.SysMsg(ScpArgMsg("ExistSaleTimeExpiredItem"))
+							btn:SetEnable(1);
+							ui.CloseFrame(frame:GetName())
+							return
+						end
+					end
+				end
+
 				allprice = allprice + tpitem.Price
 
 				if itemListStr == "" then

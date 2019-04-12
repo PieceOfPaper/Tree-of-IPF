@@ -221,6 +221,18 @@ function GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinf, reinfBonusValue, basicTo
     reinforceValue = reinforceValue + reinfBonusValue
     
     value = math.floor((reinforceValue + (lv * (reinforceValue * (0.08 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.015 ))))));
+    
+    local itemOwner = GetItemOwner(item)
+    local checkPvp = IsPVPServer(itemOwner)
+    
+    if checkPvp == nil then
+        checkPvp = 0;
+    end
+    
+    if checkPvp == 1 then
+        value = value * 0.5
+    end
+
     value = value * (reinforceRatio / 100) * gradeRatio + buffValue;
     value = SyncFloor(value);
     return math.floor(value);
@@ -487,6 +499,7 @@ function GET_BASIC_MATK(item)
 end
 
 function SCR_REFRESH_WEAPON(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
+
     if nil == enchantUpdate then
         enchantUpdate = 0;
     end
@@ -507,6 +520,7 @@ function SCR_REFRESH_WEAPON(item, enchantUpdate, ignoreReinfAndTranscend, reinfB
     local basicTooltipPropList = StringSplit(item.BasicTooltipProp, ';');
     for i = 1, #basicTooltipPropList do
         local basicProp = basicTooltipPropList[i];
+
         local upgradeRatio = 1 + GET_UPGRADE_ADD_ATK_RATIO(item, ignoreReinfAndTranscend) / 100;
         local zero = 0;
         local buffarg = 0;
@@ -655,7 +669,7 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
             elseif equipMaterial == 'Iron' then
                 def = def * 1.0;
             end
-        
+           
             if def < 1 then
                 def = 1;
             end
@@ -1163,16 +1177,23 @@ function GET_REINFORCE_PR(obj)
     
 end
 
-function GET_APPRAISAL_PRICE(item, sellPrice)
-    -- ???????캿추촿?¸??μ???
+function GET_APPRAISAL_PRICE(item, SellPrice)
+    -- ???????캿추�?¸??μ???
     local lv = TryGetProp(item,"UseLv");
+    local grade = TryGetProp(item,"ItemGrade")
+    local priceRatio = 100;
     if lv == nil then
         return 0;
     end
-    if sellPrice == nil then
-        return GET_MAKE_SOCKET_PRICE(lv, 0);
+
+    if SellPrice == nil then
+        if grade == 2 then
+            SellPrice = lv * priceRatio
+        else
+            SellPrice = (lv * priceRatio) * 1.5
+        end
     end
-    return sellPrice;
+    return SellPrice;
 end
 
 function GET_REPAIR_PRICE(item, fillValue)
@@ -1791,7 +1812,7 @@ function SCR_GET_MAX_SOKET(item)
 end
 
 function SRC_KUPOLE_GROWTH_ITEM(item, Reinforce)
-    -- 큐폴 서버 아이템을 성장형으로 제작하기 위한 스크립트 --
+    -- ?�폴 ?�버 ?�이?�을 ?�장?�으�??�작?�기 ?�한 ?�크립트 --
     local itemName = TryGetProp(item,"ClassName");
     if itemName == nil then
         return 0;

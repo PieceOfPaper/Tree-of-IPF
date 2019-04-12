@@ -1,7 +1,7 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 2,2,1,35,1,60000,1,1,0,0,0,100,0,"npc_intermediate_officer_men2","기사 아라스","","","","MON_DUMMY","","","SIAUL_EAST_MANAGER","","","NO","YES","NO","Neutral","","","COPY_NPC",""
 3,3,1,30,1,60000,1,2,0,0,0,0,0,"Warp_arrow","클라페다","","","","MON_DUMMY","","","","WS_SIAULST2_KLAPEDA","","NO","YES","NO","Neutral","","","",""
-4,4,1,30,1,60000,1,3,0,0,0,0,0,"Warp_arrow","샤울레이 광산 마을","","","","MON_DUMMY","","","","WS_SIAULST2_SIAULST3","","NO","YES","NO","Neutral","","","",""
+4,4,1,30,1,60000,1,2,0,0,0,0,0,"Warp_arrow","샤울레이 광산 마을","","","","MON_DUMMY","","","","WS_SIAULST2_SIAULST3","","NO","YES","NO","Neutral","","","",""
 9,9,0,30,30,0,8,0,0,0,0,0,0,"Pokubu","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
 11,11,0,30,30,0,20,0,0,0,0,0,0,"Chupacabra_Blue","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
 12,12,0,30,10,30000,17,0,0,0,1,0,0,"rootcrystal_01","나무뿌리 수정","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
@@ -30,7 +30,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 47,47,1,40,1,100,1,0,0,0,0,0,0,"HiddenTrigger2","동쪽 숲 탈환(7)","","","","MON_DUMMY","","","","SIAUL_EAST_RECLAIM7","","NO","YES","NO","Neutral","","","",""
 48,48,1,150,1,100,2,0,0,0,1,0,0,"HiddenTrigger2","아라스의 의뢰(2)","","","","MON_DUMMY","","","","SIAUL_EAST_REQUEST2","","NO","YES","NO","Neutral","","","",""
 49,49,1,60,1,100,1,0,0,0,0,0,0,"HiddenTrigger2","아라스의 의뢰(3)","","","","MON_DUMMY","","","","SIAUL_EAST_REQUEST3","","NO","YES","NO","Neutral","","","",""
-50,50,1,200,1,60000,1,3,0,0,0,100,0,"Silvertransporter_m","동쪽 숲 수색병","","","","MON_DUMMY","","","SIAUL_EAST_SOLDIER8","","","NO","YES","NO","Neutral","","","",""
+50,50,1,200,1,60000,1,2,0,0,0,100,0,"Silvertransporter_m","동쪽 숲 수색병","","","","MON_DUMMY","","","SIAUL_EAST_SOLDIER8","","","NO","YES","NO","Neutral","","","",""
 51,51,1,100,1,100,1,0,0,0,0,0,0,"HiddenTrigger2","아라스의 의뢰(6)","","","","MON_DUMMY","","","","SIAUL_EAST_REQUEST6","","NO","YES","NO","Neutral","","","",""
 52,52,1,200,1,60000,1,1,0,0,0,100,0,"Silvertransporter_m","전초기지 경계병","","","","MON_DUMMY","","","SIAUL_EAST_SOLDIER9","","","NO","YES","NO","Neutral","","","COPY_NPC",""
 53,53,1,200,1,60000,1,1,0,0,0,100,0,"Silvertransporter_m","전초기지 경계병","","","","MON_DUMMY","","","SIAUL_EAST_SOLDIER10","","","NO","YES","NO","Neutral","","","COPY_NPC",""

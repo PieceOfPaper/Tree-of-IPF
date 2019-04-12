@@ -37,6 +37,7 @@ function GET_MORE_EVENT_EXP(pc)
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Moru_King'); --모루왕 이벤트
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Wedding'); --스팀 웨딩 이벤트
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Golden_Whale_1'); --황금 석화 고래 이벤트
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Fishing_1'); --스팀 낚시 고양이 은혜 버프 이벤트
 	return sumExp; 
 end
 

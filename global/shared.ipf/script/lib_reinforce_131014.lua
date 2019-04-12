@@ -22,7 +22,7 @@ function REINFORCE_ABLE_131014(item)
     return 1;
 end
 
-function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
+function GET_REINFORCE_131014_PRICE(fromItem, moruItem, pc)
     if moruItem.ClassName == "Moru_Potential" or moruItem.ClassName == "Moru_Potential14d" then
         return 0;
     end
@@ -64,7 +64,7 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
         end
     end
     
-    local value, value_diamond = 0, 0;
+    local value = 0;
 
     local priceRatio = 1;
 
@@ -100,7 +100,7 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
         value = 0;
     end
 
-    if moruItem.ClassName == "Moru_Gold_TA" then 
+    if moruItem.ClassName == "Moru_Gold_TA" or moruItem.ClassName == "Moru_Gold_TA_NR"then 
         value = 0;
     end
     
@@ -114,7 +114,10 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
     if moruItem.StringArg == 'DIAMOND' and reinforcecount > 1 then
         value = value + (value_diamond * 2.1)
     end
-  
+    
+    if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
+        value = value/2
+    end
     return SyncFloor(value);
 
 end

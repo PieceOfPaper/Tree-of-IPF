@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="changejob" x="0" y="0" width="1920" height="1080" create="open">
 	<frame stretch="true" fullwidth="true" fullheight="true" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true"/>
 	<skin frameskin="property_screenbg"/>
@@ -15,12 +15,10 @@
 		<richtext name="title" parent="mbg" rect="0 0 200 30" margin="0 22 60 0" layout_gravity="right top" caption="{@st43}전직 정보{/}"/>
 		<groupbox name="cjgroupbox_main" rect="0 0 1340 1080" margin="-290 0 0 0" layout_gravity="center center" hittestbox="true" leftscroll="true" skin=""/>
 		<picture name="class_image" rect="0 0 250 438" margin="510 -300 0 0" layout_gravity="center center" hittest="false" image="mainpc_crown" stretch="true"/>
-		<button name="class_select" parent="mbg" rect="0 0 240 80" margin="0 0 0 30" layout_gravity="center bottom" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st43}클래스 선택" clicksound="button_click_skill_up" oversound="button_over" skin="btn_lv3">
-			<uieffect effect="I_screen_button" scale="63" overlab="No" sound="None" offset="0 0" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"/>
-		</button>
+		<button name="class_select" parent="mbg" rect="0 0 226 78" margin="0 0 0 30" layout_gravity="center bottom" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st43}클래스 선택" clicksound="button_click_skill_up" oversound="button_over" image="btn_lv3"/>
 		<groupbox name="groupbox_infotext" rect="0 0 300 40" margin="780 -410 0 0" layout_gravity="center center" hittestbox="false" scrollbar="false" skin=""/>
-        <richtext name="classCircle" parent="groupbox_infotext" rect="0 0 160 30" margin="0 0 0 0" layout_gravity="right top" drawbackground="false" fixwidth="true" format="{@st43}[%s서클]{/}" maxwidth="0" param1="param_circle" param1_def="DefVal" resizebytext="false" slideshow="false" spacey="0" textalign="right center" updateparent="false"/>
-        <richtext name="className" parent="groupbox_infotext" rect="0 0 200 30" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" format="{@st43}%s{/}" maxwidth="0" param1="param_name" param1_def="DefVal" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+		<richtext name="classCircle" parent="groupbox_infotext" rect="0 0 160 30" margin="0 0 0 0" layout_gravity="right top" drawbackground="false" fixwidth="true" format="{@st43}[%s서클]{/}" maxwidth="0" param1="param_circle" param1_def="DefVal" resizebytext="false" slideshow="false" spacey="0" textalign="right center" updateparent="false"/>
+		<richtext name="className" parent="groupbox_infotext" rect="0 0 200 30" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" format="{@st43}%s{/}" maxwidth="0" param1="param_name" param1_def="DefVal" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
 		<richtext name="classExplain" rect="0 0 300 250" margin="780 -330 0 0" layout_gravity="center center" drawbackground="false" fixwidth="true" format="{@st42b} %s{/}" maxwidth="0" param1="param_explain" param1_def="클래스에 대한 간단한 설명을 이곳에 표시합니다." resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<richtext name="classRating1" rect="0 0 300 30" margin="780 -220 0 0" layout_gravity="center center" drawbackground="false" fixwidth="true" format="{@st41b}타입 : {@sti7}%s{/}" maxwidth="0" param1="rating" param1_def="★★★★★" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<richtext name="classRating2" rect="0 0 300 30" margin="780 -190 0 0" layout_gravity="center center" drawbackground="false" fixwidth="true" format="{@st41b}조작난이도 : {@sti7}%s{/}" maxwidth="0" param1="rating" param1_def="★★★★★" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>

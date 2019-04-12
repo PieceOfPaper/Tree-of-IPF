@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <packeteffects>
+    <Category ID="214">
+        <Effect Name="warrior_f_rap_skl_Muleta_loop"/>
+        <Effect Name="skl_Muleta_loop"/>
+        <Effect Name="skl_Muleta_shot"/>
+        <Effect Name="skl_Muleta_cast"/>
+        <Effect Name="skl_Ole"/>
+        <Effect Name="skl_capote"/>
+        <Effect Name="ticket"/>
+    </Category>
     <Category ID="176">
         <Effect Name="Dummy_wing"/>
         <Effect Name="artefact_balloon"/>
-        <Effect Name="Dummy_balloon"/>
+    <Effect Name="Dummy_balloon"/>
         <Effect Name="artefact_balloon_T"/>
         <Effect Name="artefact_balloon_O"/>
         <Effect Name="artefact_balloon_S"/>
@@ -42,6 +51,23 @@
         <Effect Name="I_light019_green_spark"/>
         <Effect Name="I_light019_green_spark"/>
         <Effect Name="I_light019_orane_spark"/>
+    <Effect Name="MISSION_THORN_01"/>
+        <Effect Name="BBTAN"/>
+        <Effect Name="1ST_BEFORE"/>
+        <Effect Name="1ST_02"/>
+        <Effect Name="1ST_01"/>
+        <Effect Name="4TH"/>
+        <Effect Name="2ND_02"/>
+        <Effect Name="2ND_01"/>
+        <Effect Name="3RD_01"/>
+        <Effect Name="3RD_02"/>
+        <Effect Name="2ND_BEFORE"/>
+        <Effect Name="3RD_BEFORE"/>
+        <Effect Name="4TH_BEFORE"/>
+        <Effect Name="TIMEOUT"/>
+        <Effect Name="born_event_3"/>
+        <Effect Name="MISSION_THORN_02"/>
+        <Effect Name="F_burstup004_dark_loop"/>
     </Category>
     <Category ID="83">
         <Effect Name="SKL_ARIES"/>
@@ -293,6 +319,12 @@
         <Effect Name="MISSION_PRISON_EVENT2"/>
         <Effect Name="F_cleric_Hurling_shot_ground"/>
         <Effect Name="Cleric_Barrier_Abil"/>
+    <Effect Name="F_Fire01"/>
+        <Effect Name="F_Fire1"/>
+        <Effect Name="F_Fire_1"/>
+        <Effect Name="f_cleric_heal_loop_ground"/>
+        <Effect Name="skl_eff_partscapture_finish"/>
+        <Effect Name="skl_eff_gathercorpse_whoosh"/>
     </Category>
     <Category ID="197">
         <Effect Name="F_burstup030_fire1"/>
@@ -386,6 +418,14 @@
         <Effect Name="I_force006_fire#Dummy_effect_hand_R"/>
         <Effect Name="I_force096_orange#Dummy_effect_hand_R"/>
         <Effect Name="I_explosion002_orange"/>
+    <Effect Name="F_scratch001_blue"/>
+        <Effect Name="I_wizard_evocation_light#Dummy_effect_hand_R"/>
+        <Effect Name="F_ground026_rize2##0.5"/>
+        <Effect Name="F_explosion98_blood2"/>
+        <Effect Name="F_ground026_rize2##0.7"/>
+        <Effect Name="F_ground026_rize2##1"/>
+        <Effect Name="F_light055_white"/>
+        <Effect Name="I_light004_red3#Dummy_effect_hand_R"/>
     </Category>
     <Category ID="197">
         <Effect Name="F_burstup030_fire1"/>
@@ -1748,6 +1788,10 @@
         <Effect Name="F_cleric_HengeStone_ground_loop"/>
         <Effect Name="F_cleric_laima_shot_ground"/>
         <Effect Name="SKL_ASSISTATTACK_SHOVEL"/>
+    <Effect Name="MISSION_EVENT_1706_DOPPELSOELDNER"/>
+        <Effect Name="artefact_balloon_t"/>
+        <Effect Name="artefact_balloon_o"/>
+        <Effect Name="I_force071_dark2"/>
     </Category>
     <Category ID="61">
         <Effect Name="F_ground083_smoke"/>
@@ -3527,6 +3571,7 @@
         <Effect Name="I_rize009_4"/>
         <Effect Name="F_ground170_dark"/>
         <Effect Name="musicbox_main"/>
+    <Effect Name="I_smoke001_dark_loop"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
@@ -3975,6 +4020,22 @@
         <Effect Name="BLANK"/>
         <Effect Name="fishing_shot"/>
         <Effect Name="fishing_ready"/>
+        <Effect Name="PUB_IDLE2"/>
+        <Effect Name="PUB_IDLE3"/>
+        <Effect Name="PUB_IDLE"/>
+        <Effect Name="sys_event_window_open_1"/>
+        <Effect Name="inven_equip"/>
+        <Effect Name="button_click_big"/>
+        <Effect Name="sys_event_start_1"/>
+        <Effect Name="F_fish01"/>
+        <Effect Name="F_fish02"/>
+        <Effect Name="F_fish03"/>
+        <Effect Name="F_goldenfish"/>
+        <Effect Name="F_fish_fire01"/>
+        <Effect Name="fishing_BBQ"/>
+        <Effect Name="fishingrod_event_01"/>
+        <Effect Name="F_pc_FirstBlow"/>
+        <Effect Name="Teaset"/>
     </Category>
     <Category ID="23">
         <Effect Name="I_force004_pink#Bip01 R Finger0"/>
@@ -4195,7 +4256,8 @@
         <Effect Name="F_rize001##0.5"/>
         <Effect Name="MISSION_CATACOMB_HALLOWEEN"/>
         <Effect Name="MISSION_CASTLE_01_RN"/>
-        <Effect Name="Appraise"/>    
+        <Effect Name="Appraise"/>
+    
         <Effect Name="Monster_Orgel"/>
         <Effect Name="PC_Orgel"/>
         <Effect Name="#Monster_Orgel"/>
@@ -4211,6 +4273,8 @@
         <Effect Name="musicbox_wedding_m"/>
         <Effect Name="#PC_Orgel2"/>
         <Effect Name="musicbox_bear"/>
+        <Effect Name="GoldenFish"/>
+    <Effect Name="F_spread_out051"/>
     </Category>
     <Category ID="57">
         <Effect Name="SKL_TELEKINESIS_THROW"/>

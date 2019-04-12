@@ -118,7 +118,7 @@ function HAIRENCHANT_DRAW_HIRE_ITEM(slot, invItem)
 	local frame = ui.GetFrame("hairenchant");
 	frame:SetUserValue("itemIES", itemIES);
 	local slot  = frame:GetChild("slot");
-	SET_SLOT_ITEM_IMANGE(slot, invItem);
+	SET_SLOT_ITEM_IMAGE(slot, invItem);
 
 	local itemName = frame:GetChild("itemName")
 	itemName:SetTextByKey("value", obj.Name);

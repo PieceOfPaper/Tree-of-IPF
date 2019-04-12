@@ -9,8 +9,7 @@
 	<effect open="barrackupgradeOpen" close="barrackupgradeClose"/>
 	<controls>
 		<groupbox name="pip4" rect="0 0 500 50" margin="0 60 0 0" skin="pipwin_bartest" draw="true" hittestbox="false" layout_gravity="center top" scrollbar="false" resizebyparent="false"/>
-		<button name="close" image="btn_close" rect="0 0 44 44" margin="0 50 0 0" layout_gravity="left top" caption="" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" texttooltip="{@st59}숙소 꾸미기를 닫습니다{/}" LBtnUpScp="ui.CloseFrame('barrackupgrade')" LBtnUpArgNum=""/>
-		<picture name="titlepicture" rect="0 0 44 44" margin="0 -600 8 0" image="button_inven" layout_gravity="right top"/>
+		<button name="close" image="btn_close" rect="0 0 44 44" margin="0 50 0 0" layout_gravity="left top" caption="" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" texttooltip="{@st59}숙소 꾸미기를 닫습니다{/}" LBtnUpScp="ui.CloseFrame('barrackupgrade')" LBtnUpArgNum=""/>		
 		<richtext name="title" rect="0 70 200 30" caption="{@st43}숙소 꾸미기{/}" layout_gravity="center top"/>
 		<tab name="itembox" rect="50 120 370 30" imagetype="false" itemspc="2" LBtnDownScp="BAR_UPGRADE_TAB_CHANGE"/>
 		<tabitem parent="itembox" name="thema" width="40" caption="{@st41b}   테마   {/}"/>

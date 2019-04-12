@@ -1,7 +1,7 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 1,1,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","에메트 숲","","","","","","","","MAPLE23_2_TO_WHITETREES23_1","","NO","YES","NO","Neutral","","","",""
-2,2,1,40,-1,60000,1,3,0,0,0,0,0,"Warp_arrow","라다르 숲","","","","","","","","MAPLE23_2_TO_MAPLE25_3","","NO","YES","NO","Neutral","","","",""
-3,3,1,40,-1,60000,1,3,0,0,0,0,0,"Warp_arrow","실라 숲","","","","","","","","MAPLE23_2_TO_WHITETREES23_3","","NO","YES","NO","Neutral","","","",""
+2,2,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","라다르 숲","","","","","","","","MAPLE23_2_TO_MAPLE25_3","","NO","YES","NO","Neutral","","","",""
+3,3,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","실라 숲","","","","","","","","MAPLE23_2_TO_WHITETREES23_3","","NO","YES","NO","Neutral","","","",""
 4,4,1,40,-1,60000,0,0,0,0,0,0,0,"Warp_arrow","단풍숲 24_3","","","","","","","","MAPLE23_2_TO_MAPLE24_3","","NO","YES","NO","Neutral","","","",""
 5,5,1,40,50,5000,13,0,0,0,1,0,0,"rootcrystal_05","","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
 6,6,1,100,-1,60000,4,0,0,0,1,0,0,"HiddenTrigger_CantGen100","FieldCantGen","","","","","","","","","","NO","YES","NO","Neutral","","","",""
@@ -34,3 +34,4 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 110,110,0,40,9999,0,40,0,0,0,0,0,0,"Caro_yellow","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 111,111,0,40,40,0,12,0,0,0,0,0,0,"Caro_yellow","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
 112,1000,1,0,1,1,1,0,0,0,0,0,0,"treasure_box1","보물 상자 LV1","","","","","","","TREASUREBOX_LV","","","NO","YES","NO","Neutral","LV1","ITEM:COLLECT_302:1","",""
+113,1001,1,0,1,1000,1,0,0,0,1,0,0,"KQ_poison_crystal_01","변형된 나무뿌리 수정","","","","","","","MAPLE232_KQ_1_NPC","","","NO","YES","NO","Neutral","","","",""

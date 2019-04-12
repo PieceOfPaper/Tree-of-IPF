@@ -1,6 +1,6 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
-1,1,1,20,-1,60000,1,3,0,0,0,0,0,"Warp_arrow","테브린 종유동 1구역","","","","MON_DUMMY","","","","LIMESTONECAVE_52_2_LIMESTONECAVE_52_1","","NO","YES","NO","Neutral","","","",""
-2,2,1,20,1,60000,1,3,0,0,0,0,0,"Warp_arrow","테브린 종유동 3구역","","","","MON_DUMMY","","","","LIMESTONECAVE_52_2_LIMESTONECAVE_52_3","","NO","YES","NO","Neutral","","","",""
+1,1,1,20,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","테브린 종유동 1구역","","","","MON_DUMMY","","","","LIMESTONECAVE_52_2_LIMESTONECAVE_52_1","","NO","YES","NO","Neutral","","","",""
+2,2,1,20,1,60000,1,2,0,0,0,0,0,"Warp_arrow","테브린 종유동 3구역","","","","MON_DUMMY","","","","LIMESTONECAVE_52_2_LIMESTONECAVE_52_3","","NO","YES","NO","Neutral","","","",""
 3,3,1,40,-1,60000,1,1,0,0,0,0,0,"npc_kupole_5","큐폴 알레나","","","","MON_DUMMY","","","LIMESTONE_52_2_ALLENA","","","NO","YES","NO","Neutral","AttachAnimLocal/0:event_sit_idle/5:std","NPCStateLocal/0:LIMESTONE_52_2_MQ_2:IMPOSSIBLE:POSSIBLE:PROGRESS:SUCCESS/5:LIMESTONE_52_2_MQ_2:COMPLETE","ChangeDialogRotate/0",""
 4,4,1,40,-1,60000,1,1,0,0,0,0,0,"npc_kupole_2","큐폴 세리야","","","","","","","LIMESTONE_52_2_SERIJA","","","NO","YES","NO","Neutral","AttachAnimLocal/0:event_sit_idle/5:std","NPCStateLocal/0:LIMESTONE_52_2_MQ_8:IMPOSSIBLE:POSSIBLE:PROGRESS:SUCCESS/5:LIMESTONE_52_2_MQ_8:COMPLETE","ChangeDialogRotate/0",""
 10,10,1,40,-1,60000,1,0,0,0,0,0,0,"npc_gele_sanctuary_1","회복의 성소","","","","","","","LIMESTONE_52_2_HEALING","","","NO","YES","NO","Neutral","","","Anim/on",""

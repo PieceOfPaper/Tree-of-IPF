@@ -1,6 +1,6 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P_MaxDialog,AnchorCount,UP_ReturnRange,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 1,1,1,40,1,60000,1,2,0,0,0,0,0,"Warp_arrow","내성곽지구","","","","","","","","UNDERFORTRESS65_FLASH64","","NO","YES","NO","Neutral","","","",""
-2,2,1,40,1,60000,1,3,0,0,0,0,0,"Warp_arrow","대지의 요새 대립의 훈련장","","","","","","","","UNDERFORTRESS65_UNDERFORTRESS66","","NO","YES","NO","Neutral","","","",""
+2,2,1,40,1,60000,1,2,0,0,0,0,0,"Warp_arrow","대지의 요새 대립의 훈련장","","","","","","","","UNDERFORTRESS65_UNDERFORTRESS66","","NO","YES","NO","Neutral","","","",""
 3,3,1,40,1,60000,1,1,0,0,0,0,150,"npc_historian_odel_2","[아만다 도굴단]{nl}      아만다","","","","","","","AMANDA_65_1","","","NO","YES","NO","Neutral","","","",""
 4,4,1,40,1,60000,1,1,0,0,0,0,150,"npc_historian_odel_2","[아만다 도굴단]{nl}      아만다","","","","","","","AMANDA_65_2","","","NO","YES","NO","Neutral","","","",""
 5,5,1,40,1,60000,1,1,0,0,0,0,150,"npc_historian_odel_2","[아만다 도굴단]{nl}      아만다","","","","","","","AMANDA_65_3","","","NO","YES","NO","Neutral","","","",""
@@ -31,5 +31,5 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P
 35,35,1,100,-1,60000,1,2,0,0,0,1,0,"statue_vakarine","여신 바카리네의 상","","","","STOUP_CAMP","","","WARP_D_UNDERFORTRESS_65","STOUP_CAMP","STOUP_CAMP","NO","YES","NO","Neutral","","","",""
 36,36,1,200,-1,60000,1,0,0,0,0,0,0,"HiddenTrigger_CantGen200","FieldCantGen","","","","","","","","","","NO","YES","NO","Neutral","","","",""
 37,37,1,40,40,20000,14,0,0,0,0,1,0,"rootcrystal_05","","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
-38,38,1,40,-1,60000,1,3,0,0,0,1,0,"Warp_arrow","스벤티마스 유형지","","","","MON_DUMMY","","","","UNDERFORTRESS65_TABLELAND72","","NO","YES","NO","Neutral","","","",""
+38,38,1,40,-1,60000,1,2,0,0,0,1,0,"Warp_arrow","스벤티마스 유형지","","","","MON_DUMMY","","","","UNDERFORTRESS65_TABLELAND72","","NO","YES","NO","Neutral","","","",""
 39,39,1,160,1,60000,1,0,0,0,0,0,0,"Hiddennpc_move","","","","","","","","","UNDER67_HIDDENQ1_AREA1","","NO","YES","NO","Neutral","","","",""
