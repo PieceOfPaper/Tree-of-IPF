@@ -270,7 +270,7 @@ end
 
 function C_SHOW_PARTS_MODEL(actor, obj, parts, isShow, refreshSklEnd)
 	if refreshSklEnd == nil then
-		refreshSklEnd = 1;
+	    refreshSklEnd = 1;
 	end
 	actor:ShowModelByPart(parts, isShow, refreshSklEnd);
 end
@@ -284,7 +284,9 @@ function C_SET_CAM_FIXHEIGHT(actor, obj, height)
 end
 
 function C_FIX_CAM_POSY(actor, obj, holdTime)
-	view.SetLockCamPosY(holdTime);
+    if GetMyActor() == actor then
+    	view.SetLockCamPosY(holdTime);
+    end
 end
 
 function C_CAM_NOWAT_TIMERATIO(actor, obj, ratio)

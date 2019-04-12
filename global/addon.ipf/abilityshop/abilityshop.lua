@@ -180,6 +180,9 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 	local priceCtrl = GET_CHILD(classCtrl, "abilPrice", "ui::CRichText");	
 	priceCtrl:SetText("{img Silver 24 24} {@st42b}{s16}".. price ..ScpArgMsg("Auto__{@st42b}SilBeo"));
 	classCtrl:SetUserValue("PRICE_"..abilClass.ClassName, price);
+	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+	totalTime = 0;
+	end
 	
 	local timeCtrl = GET_CHILD(classCtrl, "abilTime", "ui::CRichText");	
 	local hour = math.floor( totalTime / 60 );

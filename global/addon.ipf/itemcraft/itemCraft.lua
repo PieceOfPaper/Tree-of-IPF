@@ -1023,10 +1023,14 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 	local startY = 80;
 	local y = startY;
 	local labelBox = ctrlset:CreateOrGetControl("groupbox", "LABEL", 0, startY, ctrlset:GetWidth() , 30);	
+	local cRicon = ctrlset:GetChild("icon");
+	local minHeight = cRicon:GetHeight() + startY + 10;
+
 	CRAFT_DETAIL_CTRL_INIT(labelBox);
 	labelBox:SetSkinName("None");
 	labelBox:ShowWindow(1);
 	y = y + 10;
+
 	local itemHeight = ui.GetControlSetAttribute(g_craftRecipe_detail_item, 'height');
 
 	for i = 1 , 5 do --스택 아니면 컨트롤셋을 더 늘려줘야 한다 자동으로. 5에서 끝나면 안됨.
@@ -1079,6 +1083,10 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 			end
 		end
 	end
+
+	if y < minHeight then
+		y = minHeight;
+	end;
 
 	local verticalLine = GET_CHILD(ctrlset,'verticalLine','ui::CPicture')
 	verticalLine:Resize(verticalLine:GetWidth(), y - verticalLine:GetY());

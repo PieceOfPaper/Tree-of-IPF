@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <tooltipset>
-	<tooltip name="premium" width="300" height="280">
+	<tooltip name="premium" width="400" height="280">
 		<controls>
-			<groupbox name="gbox" rect="0 0 300 270"/>
+			<groupbox name="gbox" rect="0 0 400 270"/>
 			<richtext name="token_moremission" OverrideType="ADD" margin="10 195 0 0" rect="0 0 120 24" fontname="brown_16" format="인던,미션 1회 추가입장"/>
+		    <labelline name="labelline_1" margin="10 35 0 0" rect="0 0 385 2" skin="labelline_def" layout_gravity="left top"/>
 		</controls>
 	</tooltip>
 </tooltipset>

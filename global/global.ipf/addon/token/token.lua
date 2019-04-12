@@ -45,7 +45,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 			prop:SetTextByKey("value", img..ClMsg(str)); 
 			txt = string.format("{img 67percent_image2 %d %d}", 100, 45) 
 		elseif str =="abilityMax" then
-			local img = string.format("{img 1plus_image %d %d}", 55, 45) 
+				local img = string.format("{img paid_immed_image %d %d}", 55, 45)
 			prop:SetTextByKey("value", img..ClMsg(str)); 
 			txt = string.format("{img 2plus_image2 %d %d}", 100, 45) 
 		elseif str == "speedUp"then
@@ -53,13 +53,17 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 			prop:SetTextByKey("value",img.. ClMsg(str)); 
 			txt = string.format("{img 3plus_image2 %d %d}", 100, 45) 
 		else
-			local img = string.format("{img 4plus_image %d %d}", 55, 45) 
+			local img = string.format("{img 9plus_image %d %d}", 55, 45) 
 			prop:SetTextByKey("value", img..ClMsg(str)); 
-			txt = string.format("{img 4plus_image2 %d %d}", 100, 45) 
+			txt = string.format("{img 9plus_image2 %d %d}", 100, 45) 
 		end
 
-		local value = ctrlSet:GetChild("value");
-		value:SetTextByKey("value", txt); 
+			local value = ctrlSet:GetChild("value");
+		if str =="abilityMax" then
+			value:ShowWindow(0);
+		else
+			value:SetTextByKey("value", txt); 
+		end
 	end
 
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 4,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
@@ -152,7 +156,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	indunStr:ShowWindow(0);
 
 	local forToken = bg2:GetChild("forToken");
-	forToken:ShowWindow(1);
+	forToken:ShowWindow(0);
 
 	frame:SetUserValue("itemIES", invItem:GetIESID());
 	frame:SetUserValue("ClassName", itemobj.ClassName);

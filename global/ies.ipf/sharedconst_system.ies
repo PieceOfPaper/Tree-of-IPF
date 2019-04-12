@@ -209,3 +209,5 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 270001,10,0,"CHAT_MSG_MAX_COUNT_IN_CLUSTER","몇개의 메시지 까지 하나의 말풍선에 묶일 것인지","NO"
 270002,0,0,"TEST_CHAT_ADD_SEC","채팅 테스트용. 현재 시간에 add하여 메시지 출력 가능","NO"
 280000,0,0,"USE_INTEG_INDUN","1일 경우 통합인던. 0이라면 서버별 인던","NO"
+290000,0,0,"USE_REPORT_BOT_TO_STEAM","1일 경우 스팀 VAC에 봇 신고 기능 사용","NO"
+290001,0,0,"USE_REPORT_BOT_TO_CLASSIFIER","1일 경우 분류기를 통한 봇 검출 기능 사용","NO"

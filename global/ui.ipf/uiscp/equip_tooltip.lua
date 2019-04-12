@@ -136,7 +136,12 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 	-- 거래불가 아이콘 (일단 거래불가 아이콘 표시하지 않음)
 	local itemCantSoldPicture = GET_CHILD(equipCommonCSet, "cantsold", "ui::CPicture");
 	local itemCantSoldText = GET_CHILD(equipCommonCSet, "cantsold_text", "ui::CRichText");
-	if invitem.UserTrade == "NO" then
+	local blongProp = TryGetProp(invitem, "BelongingCount");
+	local blongCnt = 0;
+	if blongProp ~= nil then
+		blongCnt = tonumber(blongProp);
+	end
+	if invitem.UserTrade == "NO" or 0 <  blongCnt then
 		itemCantSoldPicture:ShowWindow(1);
 		itemCantSoldText:ShowWindow(1);
 	else

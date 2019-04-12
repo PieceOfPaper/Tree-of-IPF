@@ -47,4 +47,14 @@ function UPDATE_OTHER_PC_EFFECT(value)
 	config.EnableOtherPCEffect(tonumber(value));
 end
 
+function UPDATE_NATURAL_EFFECT(value)
+	config.EnableNaturalEffect(tonumber(value));
+end
 
+function UPDATE_DEAD_PARTS(value)
+	config.EnableDeadParts(tonumber(value));
+end
+
+function UPDATE_SILHOUETTE(value)
+	config.EnableCharSilhouette(tonumber(value));
+end

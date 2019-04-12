@@ -2084,6 +2084,30 @@
 			<img name="bottomleft" imgrect="0 124 180 1"/>
 			<img name="bottomcore" imgrect="181 124 40 1"/>
 			<img name="bottomright" imgrect="222 124 180 1"/>
+			<skin name="test_win_lastpopup" texture="\skin\last_popup_skin.tga">
+			<img name="topleft" imgrect="0 0 100 110"/>
+			<img name="topcore" imgrect="101 0 100 110"/>
+			<img name="topmiddle" imgrect="303 0 140 110"/>
+			<img name="topright" imgrect="202 0 100 110"/>
+			<img name="bodyleft" imgrect="0 111 100 55"/>
+			<img name="bodycore" imgrect="101 111 100 55"/>
+			<img name="bodyright" imgrect="202 111 100 55"/>
+			<img name="bottomleft" imgrect="0 167 100 70"/>
+			<img name="bottomcore" imgrect="101 167 100 70"/>
+			<img name="bottomright" imgrect="202 167 100 70"/>
+		</skin>
+		<skin name="test_win_lastpopup2" texture="\skin\last_popup_skin.tga">
+			<img name="topleft" imgrect="0 238 100 110"/>
+			<img name="topcore" imgrect="101 238 100 110"/>
+			<img name="topmiddle" imgrect="303 238 140 110"/>
+			<img name="topright" imgrect="202 238 100 110"/>
+			<img name="bodyleft" imgrect="0 349 100 55"/>
+			<img name="bodycore" imgrect="101 349 100 55"/>
+			<img name="bodyright" imgrect="202 349 100 55"/>
+			<img name="bottomleft" imgrect="0 405 100 70"/>
+			<img name="bottomcore" imgrect="101 405 100 70"/>
+			<img name="bottomright" imgrect="202 405 100 70"/>
+		</skin>
 		</skin>
 		<skin name="test_frame_topf1" texture="\skin\pip_test.tga">
 			<img name="topleft" imgrect="0 126 180 125"/>
@@ -2139,6 +2163,30 @@
 			<img name="bottomleft" imgrect="958 884 50 50"/>
 			<img name="bottomcore" imgrect="1009 884 100 50"/>
 			<img name="bottomright" imgrect="1110 884 50 50"/>
+		</skin>
+		<skin name="test_win_lastpopup" texture="\skin\last_popup_skin.tga">
+			<img name="topleft" imgrect="0 0 100 110"/>
+			<img name="topcore" imgrect="101 0 100 110"/>
+			<img name="topmiddle" imgrect="303 0 140 110"/>
+			<img name="topright" imgrect="202 0 100 110"/>
+			<img name="bodyleft" imgrect="0 111 100 55"/>
+			<img name="bodycore" imgrect="101 111 100 55"/>
+			<img name="bodyright" imgrect="202 111 100 55"/>
+			<img name="bottomleft" imgrect="0 167 100 70"/>
+			<img name="bottomcore" imgrect="101 167 100 70"/>
+			<img name="bottomright" imgrect="202 167 100 70"/>
+		</skin>
+		<skin name="test_win_lastpopup2" texture="\skin\last_popup_skin.tga">
+			<img name="topleft" imgrect="0 238 100 110"/>
+			<img name="topcore" imgrect="101 238 100 110"/>
+			<img name="topmiddle" imgrect="303 238 140 110"/>
+			<img name="topright" imgrect="202 238 100 110"/>
+			<img name="bodyleft" imgrect="0 349 100 55"/>
+			<img name="bodycore" imgrect="101 349 100 55"/>
+			<img name="bodyright" imgrect="202 349 100 55"/>
+			<img name="bottomleft" imgrect="0 405 100 70"/>
+			<img name="bottomcore" imgrect="101 405 100 70"/>
+			<img name="bottomright" imgrect="202 405 100 70"/>
 		</skin>
 		<skin name="test_win_pvp" texture="\skin\pip_test.tga">
 			<img name="topleft" imgrect="958 306 50 65"/>
@@ -4006,6 +4054,30 @@
 			<img name="mouseon" imgrect="1659 1328 200 200"/>
 			<img name="cooltime" imgrect="1659 1328 200 200"/>
 			<img name="selected" imgrect="1659 1328 200 200"/>
+			<skin name="lens_slot" texture="\skin\pip_test.tga">
+			<img name="slot" imgrect="1518 245 50 51"/>
+			<img name="mouseon" imgrect="1163 801 100 100"/>
+			<img name="cooltime" imgrect="1163 801 100 100"/>
+			<img name="selected" imgrect="1163 801 100 100"/>
+		</skin>
+		<skin name="decal_slot" texture="\skin\pip_test.tga">
+			<img name="slot" imgrect="1569 245 50 51"/>
+			<img name="mouseon" imgrect="1163 801 100 100"/>
+			<img name="cooltime" imgrect="1163 801 100 100"/>
+			<img name="selected" imgrect="1163 801 100 100"/>
+		</skin>
+		<skin name="lens_slot" texture="\skin\pip_test.tga">
+			<img name="slot" imgrect="1518 245 50 51"/>
+			<img name="mouseon" imgrect="1163 801 100 100"/>
+			<img name="cooltime" imgrect="1163 801 100 100"/>
+			<img name="selected" imgrect="1163 801 100 100"/>
+		</skin>
+		<skin name="decal_slot" texture="\skin\pip_test.tga">
+			<img name="slot" imgrect="1569 245 50 51"/>
+			<img name="mouseon" imgrect="1163 801 100 100"/>
+			<img name="cooltime" imgrect="1163 801 100 100"/>
+			<img name="selected" imgrect="1163 801 100 100"/>
+		</skin>
 		</skin>
 	</skinlist>
 	<imagelist category="wearing_weapon">
@@ -4223,8 +4295,10 @@
 		<image name="dealok_image" file="\skin\paid_skin.tga" imgrect="187 230 55 45" CMM_Caption="거래OK"/>
 		<image name="1plus_image" file="\skin\paid_skin.tga" imgrect="747 166 55 45" CMM_Caption="+1"/>
 		<image name="2multiply_image" file="\skin\paid_skin.tga" imgrect="524 590 55 45" CMM_Caption="x2"/>
+		<image name="9plus_image" file="\skin\paid_skin.tga" imgrect="419 968 55 45" CMM_Caption="+9"/>
 		<image name="30percent_image" file="\skin\paid_skin.tga" imgrect="747 212 55 45" CMM_Caption="30%"/>
 		<image name="paid_pose_image" file="\skin\paid_skin.tga" imgrect="922 0 55 45" CMM_Caption="유료포즈"/>
+		<image name="paid_immed_image" file="\skin\paid_skin.tga" imgrect="475 968 55 45" CMM_Caption="즉시습득"/>
 		<image name="20percent_image" file="\skin\paid_skin.tga" imgrect="922 92 55 45" CMM_Caption="20%"/>
 		<image name="2plus_image" file="\skin\paid_skin.tga" imgrect="681 590 55 45" CMM_Caption="+2"/>
 		<image name="67percent_image2" file="\skin\paid_skin.tga" imgrect="187 0 100 45"/>
@@ -4237,6 +4311,7 @@
 		<image name="30percent_image2" file="\skin\paid_skin.tga" imgrect="803 212 100 45"/>
 		<image name="20percent_image2" file="\skin\paid_skin.tga" imgrect="922 46 100 45"/>
 		<image name="dealok30_image2" file="\skin\paid_skin.tga" imgrect="904 166 100 45"/>
+		<image name="9plus_image2" file="\skin\paid_skin.tga" imgrect="904 212 100 45"/>		
 		<image name="arrow_red_image" file="\skin\paid_skin.tga" imgrect="131 230 55 15" CMM_Caption="빨간화살표"/>
 		<image name="token_middle" file="\skin\paid_skin.tga" imgrect="288 0 316 165" CMM_Caption="토큰중간이미지"/>
 		<image name="expup_middle" file="\skin\paid_skin.tga" imgrect="605 0 316 165" CMM_Caption="경험의서이미지"/>

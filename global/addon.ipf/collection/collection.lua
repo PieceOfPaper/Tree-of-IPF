@@ -340,12 +340,25 @@ function GET_COLLECTION_EFFECT_DESC(type)
 	local info = geCollectionTable.Get(type);
 	local ret = "";
 	local propCnt = info:GetPropCount();
+	local isAccountColl = false;
+	if 0 == propCnt then
+		 propCnt = info:GetAccPropCount();
+		isAccountColl = true;
+	end
+
 	for i = 0 , propCnt - 1 do
-		local prop = info:GetProp(i);
+		local prop = nil;
+		if false == isAccountColl then
+			prop = info:GetProp(i);
+		else
+			prop = info:GetAccProp(i);
+		end
+
 		if i >= 1 then
 			ret = ret .. " ";
 		end
 
+		if nil ~= prop then
 		if prop.value > 0 then
 			ret = ret ..  string.format("%s +%d", ClMsg(prop:GetPropName()), prop.value);
 		elseif prop.value == 0 then
@@ -354,7 +367,7 @@ function GET_COLLECTION_EFFECT_DESC(type)
 			ret = ret ..  string.format("%s %d", ClMsg(prop:GetPropName()), prop.value);
 		end
 	end
-
+	end
 	return ret;
 end
 

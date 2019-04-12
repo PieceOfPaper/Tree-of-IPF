@@ -93,7 +93,7 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 				prop:SetTextByKey("value", img..ClMsg(str)); 
 				txt = string.format("{img 67percent_image2 %d %d}", 100, 45) 
 			elseif str =="abilityMax" then
-				local img = string.format("{img 1plus_image %d %d}", 55, 45) 
+				local img = string.format("{img paid_immed_image %d %d}", 55, 45)
 				prop:SetTextByKey("value", img..ClMsg(str)); 
 				txt = string.format("{img 2plus_image2 %d %d}", 100, 45) 
 			elseif str == "speedUp"then
@@ -101,15 +101,19 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 				prop:SetTextByKey("value",img.. ClMsg(str)); 
 				txt = string.format("{img 3plus_image2 %d %d}", 100, 45) 
 			else
-				local img = string.format("{img 4plus_image %d %d}", 55, 45) 
+				local img = string.format("{img 9plus_image %d %d}", 55, 45) 
 				prop:SetTextByKey("value", img..ClMsg(str)); 
-				txt = string.format("{img 4plus_image2 %d %d}", 100, 45) 
+				txt = string.format("{img 9plus_image2 %d %d}", 100, 45) 
 			end
 
-			local value = ctrlSet:GetChild("value");
-			value:SetTextByKey("value", txt); 
+	local value = ctrlSet:GetChild("value");
+			if str =="abilityMax" then
+				value:ShowWindow(0);
+			else
+		value:SetTextByKey("value", txt); 
+			end
 		else
-			return; -- 패킷이 안온 상태
+			return;
 		end
 	end
 

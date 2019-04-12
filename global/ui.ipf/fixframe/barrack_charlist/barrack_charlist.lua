@@ -65,6 +65,7 @@ function INIT_BARRACK_NAME(frame)
 	richtext:SetTextByKey("value", accountObj.GiftMedal);
 	richtext = frame:GetChild("tp");
 	richtext:SetTextByKey("value", accountObj.PremiumMedal);
+	CHAR_N_PET_LIST_LOCKMANGED(1);
 end
 
 function SET_CHILD_USER_VALUE(frame, childName, name, value)
@@ -878,23 +879,19 @@ function GIVE_PET_REVIVE_ITEM(pcName)
 end
 
 function REQUEST_DELETE_PET(parent, ctrl)
-
 	local mainBox = parent:GetParent();
 	local petGuid = mainBox:GetUserValue("PET_ID");
-	local pet = barrack.GetPet(petGuid);
-	local brkSystem = GetBarrackSystem(pet);
-	local petInfo = brkSystem:GetPetInfo();
-	local monCls = GetClassByType("Monster", petInfo:GetPetType());
-	
-	local nameStr = string.format("%s (%s)", petInfo:GetName(), monCls.Name);
-	local msg = ScpArgMsg("ReallyDelete{Name}", "Name", nameStr);
-	local execScript = string.format("_EXEC_DELETE_PET(\"%s\", \"%s\")", petGuid, brkSystem:GetCID());
-	ui.MsgBox(msg, execScript, "None");
-
+	DELETE_WARNING_BOX_ON_INIT(11, petGuid);
+	CHAR_N_PET_LIST_LOCKMANGED(0);
 end
 
 function _EXEC_DELETE_PET(petGuid, charCID)
 	barrack.RequestDeletePet(petGuid, charCID);
 end
 
-
+function CHAR_N_PET_LIST_LOCKMANGED(unlock)
+	local charFrame = ui.GetFrame("barrack_charlist");
+	local petFrame = ui.GetFrame("barrack_petlist");
+	charFrame:SetEnable(unlock);
+	petFrame:SetEnable(unlock);
+end

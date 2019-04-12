@@ -15,7 +15,7 @@
         <button name="colse" rect="0 0 44 44" margin="0 20 23 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;exchange&apos;)" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}거래를취소합니다{/}"/>
         <richtext name="title" rect="0 0 200 30" layout_gravity="center top" caption="{@st43}개인 거래{/}" textalign="center center" margin="0 17 0 0"/>
         <groupbox name="mybgGbox" rect="0 0 450 485" margin="0 90 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_low"/>
-        <richtext name="myname" parent="mybgGbox" rect="0 0 250 30" margin="30 30 0 0" layout_gravity="left top" caption="내 거래 목록" fontname="brown_18_b" textalign="left top"/>
+        <richtext name="myname" parent="mybgGbox" rect="0 0 250 30" margin="30 4 0 0" layout_gravity="left top" caption="내 거래 목록" fontname="brown_18_b" textalign="left top"/>
         <slotset name="myslot" parent="mybgGbox" rect="0 0 210 110" margin="40 60 0 0" DropScp="EXCHANGE_ON_DROP" col="6" row="4" size="60 60" skin="invenslot2" layout_gravity="left top"/>
         <richtext name="myVis" parent="mybgGbox" rect="0 0 300 35" margin="50 360 0 0 " layout_gravity="left top" fontname="brown_16_b" format="실버 : %s" param1="money" param1_def="-1" textalign="left top"/>
         <groupbox name="editbox" parent="mybgGbox" rect="0 0 250 40" margin="40 310 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" skin="test_weight_skin"/>
@@ -24,10 +24,13 @@
         <button name="myagree" parent="mybgGbox" rect="0 0 150 50" margin="-80 0 0 107" layout_gravity="center bottom" LBtnUpScp="EXCHANGE_ON_AGREE" caption="{@st41}수락" clicksound="button_click" oversound="button_over" skin="test_red_button" textalign="center center"/>
         <button name="myfinalagree" parent="mybgGbox" rect="0 0 150 50" margin="80 0 0 107" layout_gravity="center bottom" LBtnUpScp="EXCHANGE_ON_FINALAGREE" caption="{@st41}최종확인" clicksound="button_click" oversound="button_over" skin="test_red_button" textalign="center center"/>
         <groupbox name="opbgGbox" rect="0 0 450 445" margin="0 575 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
-        <richtext name="opponentname" parent="opbgGbox" rect="0 0 250 30" margin="30 30 0 0" layout_gravity="left top" fontname="brown_18_b" format="상대방(%s) 거래 목록" param1="oppName" param1_def="None" textalign="left top"/>
+        <richtext name="opponentname" parent="opbgGbox" rect="0 0 250 30" margin="30 9 0 0" layout_gravity="left top" fontname="brown_18_b" format="상대방(%s) 거래 목록" param1="oppName" param1_def="None" textalign="left top"/>
         <slotset name="opponentslot" parent="opbgGbox" rect="0 0 210 110" margin="40 60 0 0" col="6" row="4" size="60 60" skin="invenslot2" layout_gravity="left top"/>
         <richtext name="opponentVis" parent="opbgGbox" rect="0 0 250 35" margin="50 315 0 0" layout_gravity="left top" fontname="brown_16_b" format="실버 : %s" param1="money" param1_def="-1" textalign="left top"/>
         <button name="opponentagree" parent="opbgGbox" rect="0 0 150 50" margin="-80 329 0 30" layout_gravity="center top" caption="{@st41}수락" clicksound="button_click" hittest="false" oversound="button_over" skin="test_red_button" textalign="center center"/>
         <button name="opponentfinalagree" parent="opbgGbox" rect="0 0 150 50" margin="80 329 0 30" layout_gravity="center top" caption="{@st41}최종확인" clicksound="button_click" hittest="false" oversound="button_over" skin="test_red_button" textalign="center center"/>
+        <richtext name="opponentState" parent="opbgGbox" rect="0 0 250 30" margin="30 35 0 0" layout_gravity="left top" fontname="brown_18_b" format="%s" param1="state" param1_def="None" textalign="left top"/>
+        <richtext name="myState" parent="mybgGbox" rect="0 0 250 30" margin="30 30 0 0" param1="state" layout_gravity="left top" format="%s" fontname="brown_18_b" textalign="right top"/>
+        <richtext name="richtext_1" margin="-8 -138 0 12" rect="0 0 120 400" caption="{@st42}양쪽 모두 토큰 혜택을 적용받는다면{nl}무기 아이템의 거래 속성은{nl}변경되지 않습니다.{/}" textalign="center center" spacey="0" fontname="brown_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="mybgGbox"/>
     </controls>
 </uiframe>

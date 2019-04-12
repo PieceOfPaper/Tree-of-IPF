@@ -50,54 +50,48 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 		return;
 	end
 	
-	if fromFrame:GetName() == "inventory" then
-		local accountObj = GetMyAccountObj();
-		local remainTardeCnt = accountObj.TradeCount
-		if 0 >= remainTardeCnt then
-			ui.MsgBox(ScpArgMsg("RemainTradeCountDoesNotExist"));
-			return;
-		end
+		if fromFrame:GetName() == "inventory" then
+	--local accountObj = GetMyAccountObj();
+	--local remainTardeCnt = accountObj.TradeCount
+	--if 0 >= remainTardeCnt then
+	--	ui.MsgBox(ScpArgMsg("RemainTradeCountDoesNotExist"));
+	--	return;
+	--end
+	--
+	--if geItemTable.IsHavePotential(itemCls.ClassID) == 1 then
+	--	if obj.PR <= 0 then
+	--		ui.MsgBox(ScpArgMsg("NoMorePotential"));
+	--		return;
+	--	end
+	--
+	--	local msg = "";
+	--	if 5 < remainTardeCnt then
+	--		msg = ScpArgMsg('DecreasePotaionWhenPutItToAccountWareHouse_Continue?', 'COUNT', remainTardeCnt)
+	--	else
+	--		msg = ScpArgMsg('WANNING_DecreasePotaionWhenPutItToAccountWareHouse_Continue?', 'COUNT', remainTardeCnt)
+	--	end
+	--
+	--	local yesScp = string.format("EXEC_PUT_TO_ACCOUNT_WAREHOUSE(\"%s\", %d, %d)", invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
+	--	ui.MsgBox(msg, yesScp, "None");
+	--	return;
+	--end
+	--
 
-		if geItemTable.IsHavePotential(itemCls.ClassID) == 1 then
-			if obj.PR <= 0 then
-				ui.MsgBox(ScpArgMsg("NoMorePotential"));
-				return;
-			end
-
-			local msg = "";
-			if 5 < remainTardeCnt then
-				msg = ScpArgMsg('DecreasePotaionWhenPutItToAccountWareHouse_Continue?', 'COUNT', remainTardeCnt)
-			else
-				msg = ScpArgMsg('WANNING_DecreasePotaionWhenPutItToAccountWareHouse_Continue?', 'COUNT', remainTardeCnt)
-			end
-
-			local yesScp = string.format("EXEC_PUT_TO_ACCOUNT_WAREHOUSE(\"%s\", %d, %d)", invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
-			ui.MsgBox(msg, yesScp, "None");
-			return;
-		end
-
+	local maxCnt = invItem.count;
 		if TryGetProp(obj, "BelongingCount") ~= nil then
-			local remainBelongCount = invItem.count - obj.BelongingCount;
-			if remainBelongCount <= 0 then
-				ui.MsgBox(ScpArgMsg("NotEnoughTradePossibleCount"));
-				return;
+			maxCnt = invItem.count - obj.BelongingCount;
+			if maxCnt <= 0 then
+				maxCnt = 0;
 			end
-			local msg = "";
-			if 5 < remainTardeCnt then
-				msg = ScpArgMsg('IfPutItemToWareHouse_TradePossibleItemWillBePut_Continue?', 'COUNT', remainTardeCnt)
-			else
-				msg = ScpArgMsg('WANNING_IfPutItemToWareHouse_TradePossibleItemWillBePut_Continue?', 'COUNT', remainTardeCnt)
-			end
-
-			local yesScp = string.format("MSG_PUTITEM_ACCOUNT_WAREHOUSE(\"%s\", %d, %d)", invItem:GetIESID(), remainBelongCount, frame:GetUserIValue("HANDLE"));
-			ui.MsgBox(msg, yesScp, "None");
-			return;
 		end
-
 
 		if invItem.count > 1 then
-			INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE", invItem.count, 1, invItem.count, nil, tostring(invItem:GetIESID()));
+			INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE", maxCnt, 1, maxCnt, nil, tostring(invItem:GetIESID()));
 		else
+			if maxCnt <= 0 then
+				ui.SysMsg(ClMsg("ItemIsNotTradable"));	
+				return;
+			end
 			item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
 		end
 	else
@@ -113,22 +107,6 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 
 end
 
-function PUT_ACCOUNT_ITEM_TO_WAREHOUSE(parent, slot)
-
-	local frame = parent:GetTopParentFrame();
-
-	local liftIcon 			= ui.GetLiftIcon();
-	local iconInfo			= liftIcon:GetInfo();
-	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
-
-	if invItem == nil then
-		return;
-	end
-
-	local fromFrame = liftIcon:GetTopParentFrame();
-	PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFrame);
-
-end
 
 function MSG_PUTITEM_ACCOUNT_WAREHOUSE(iesID, count, handle)
 	local frame = ui.GetFrame("accountwarehouse");	

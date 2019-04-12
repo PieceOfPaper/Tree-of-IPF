@@ -41,6 +41,9 @@ end
 
 function EXCHANGE_ON_CANCEL(frame)
  
+	local nameRichText = GET_CHILD_RECURSIVELY(frame,'opponentState','ui::CRichText');
+	nameRichText:SetUserValue("CHECK_TOKENSTATE_OPPO", 0);
+
 	exchange.SendCancelExchangeMsg();
 
 	exchange.ResetExchangeItem();
@@ -69,8 +72,24 @@ function EXCHANGE_ON_AGREE(frame)
 end 
 
 function EXCHANGE_ON_FINALAGREE(frame)
- 
+	local oppoTokenState = frame:GetUserIValue("CHECK_TOKENSTATE_OPPO");	
+	if (0 == oppoTokenState) or (false == session.loginInfo.IsPremiumState(ITEM_TOKEN) ) then	
+ 		local itemCount = exchange.GetExchangeItemCount(1);	
+		local listStr = "";
+		for i = 0, itemCount-1 do
+			local itemData = exchange.GetExchangeItemInfo(1,i);
+			local class = GetClassByType('Item', itemData.type);
+			if class.ItemType == 'Equip' then
+				listStr = listStr .. string.format("%s",class.Name) .. "{nl}";
+			end
+		end
+		local msg = ScpArgMsg("NoTOKEN_USER_Trade_Warnning") .. " {nl} {nl}{#ff0000}" .. ScpArgMsg("NoTOKEN_USER_Trade_Warnning_ItemList") .. "{nl}" .. listStr;
+		msg = msg .. "{/}";
+		local execScript = string.format("exchange.SendFinalAgreeExchangeMsg()");
+		ui.MsgBox(msg, execScript, "None");
+	else
    exchange.SendFinalAgreeExchangeMsg();
+end 
 end 
 
 function EXCHANGE_MSG_REQUEST(frame)
@@ -118,7 +137,11 @@ function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
 					tradeCount = invItem.count;
 				end
 				if 0 >= tradeCount then
+					if IS_EQUIP(obj) == true then
+						ui.SysMsg(ClMsg("ItemIsNotTradable"));	
+					else
 					ui.SysMsg(ClMsg("ItemOverCount"));	
+					end
 					return;
 				end
 			end
@@ -207,7 +230,11 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 			end
 
 			if 0 >= tradeCount then
+				if IS_EQUIP(obj) == true then
+					ui.SysMsg(ClMsg("ItemIsNotTradable"));	
+				else
 				ui.SysMsg(ClMsg("ItemOverCount"));	
+				end
 				return;
 			end
 		end
@@ -267,7 +294,11 @@ function EXCHANGE_ON_DROP(frame, control, argStr, argNum)
 		end
 		
 			if 0 >= tradeCount then
+				if IS_EQUIP(obj) == true then
+					ui.SysMsg(ClMsg("ItemIsNotTradable"));	
+				else
 				ui.SysMsg(ClMsg("ItemOverCount"));	
+				end
 				return;
 			end
 		end
@@ -292,8 +323,6 @@ function EXCHANGE_MSG_END(frame, msg, argStr, argNum)
 
 	local nameRichText = GET_CHILD_RECURSIVELY(frame,'opponentname','ui::CRichText');
 	nameRichText:SetTextByKey('oppName',argStr)
-	
-
 	frame:ShowWindow(0);		
 end 
 
@@ -335,9 +364,24 @@ function EXCHANGE_MSG_START(frame, msg, argStr, argNum)
 	local nameRichText = GET_CHILD_RECURSIVELY(frame,'myname','ui::CRichText');
 	local Name = info.GetName(session.GetMyHandle());
 	
+	nameRichText = GET_CHILD_RECURSIVELY(frame,'myState','ui::CRichText');
+	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+		nameRichText:SetTextByKey('state',ScpArgMsg("TokenState"))
+	else
+		nameRichText:SetTextByKey('state',ScpArgMsg("NoneTokenState"))
+	end
+
 	nameRichText = GET_CHILD_RECURSIVELY(frame,'opponentname','ui::CRichText');
 	nameRichText:SetTextByKey('oppName',argStr)
 	
+	nameRichText = GET_CHILD_RECURSIVELY(frame,'opponentState','ui::CRichText');
+	if 0 ~= argNum then
+		nameRichText:SetTextByKey('state',ScpArgMsg("TokenState"))
+	else
+		nameRichText:SetTextByKey('state',ScpArgMsg("NoneTokenState"))
+	end
+	nameRichText:SetUserValue("CHECK_TOKENSTATE_OPPO", argNum);
+
 	frame:ShowWindow(1);
 	ui.OpenFrame('inventory');
 	

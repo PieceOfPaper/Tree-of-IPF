@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="deleteWarningBox" x="0" y="0" width="400" height="140">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 60"/>
+	<draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="100"/>
+	<input moveable="false"/>
+	<script CloseScp="CANCEL_DELETE_WARNING_BOX"/>
+	<controls>
+		<button name="SkinFrame" margin="0 0 0 0" rect="0 0 400 140" layout_gravity="left top" skin="test_win_lastpopup" hittest="false"/>
+		<button name="SkinFrame2" margin="0 0 0 0" rect="0 0 400 140" layout_gravity="left top" skin="test_win_lastpopup2" hittest="false"/>
+		<richtext name="richtext_1" margin="0 100 0 0" rect="0 0 10 50" format="{/}{b}{s20}컴패니언{/}{s43}{@st43}%s{/}{/}{b}{s20}을 정말 삭제하시겠습니까?{/}" fontname="white_16_ol" param1="Name" textalign="left center" resizebytext="true" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<richtext name="richtext_2" margin="0 135 0 0" rect="0 0 10 50" format="{/}{b}{s20}삭제가 완료된 이후엔 복구되지 않습니다.{/}" fontname="white_16_ol" textalign="left center" resizebytext="true" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<richtext name="richtext_3" margin="0 100 0 0" rect="0 0 10 50" format="{/}{b}{s20}컴패니언{/}{s43}{@st43}%s{/}" fontname="white_16_ol" param1="Name" param2="Time" textalign="left center" resizebytext="true" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<richtext name="richtext_4" margin="0 135 0 0" rect="0 0 10 50" format="{/}{b}{s20}%s초후 삭제 됩니다.{/}" fontname="white_16_ol" param1="Time" textalign="left center" resizebytext="true" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<gauge name="progressTime" rect="0 0 400 30" margin="0 0 0 0" skin="gauge_exp" layout_gravity="center top" hittest="false"/>
+		<button name="button_yes" margin="0 0 20 0" rect="0 0 240 45" caption="asd" fontname="white_18_ol" layout_gravity="left top" oversound="button_over" LBtnUpScp="DELETE_NOTICE_WARNING_BOX_YES_BTN" skin="test_pvp_btn" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
+		<button name="button_no" margin="0 0 20 0" rect="0 0 240 45" caption="{s18}{ol}{#ffffcc}아니오{/}" fontname="white_18_ol" layout_gravity="left top" oversound="button_over" LBtnUpScp="CANCEL_DELETE_WARNING_BOX" skin="test_pvp_btn" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
+		<button name="button_cancel" margin="0 0 20 0" rect="0 0 240 45" caption="{s18}{ol}{#ffffcc}취소{/}" fontname="white_18_ol" layout_gravity="left top" oversound="button_over" LBtnUpScp="CANCEL_DELETE_WARNING_BOX_TIME" skin="test_pvp_btn" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
+	</controls>
+</uiframe>

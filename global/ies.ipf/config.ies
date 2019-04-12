@@ -48,4 +48,7 @@ ClassID,DefNumValue,ClassName,Type,DefStrValue,ClientScp
 49,0,"Guild_ShowOnlyConnected","Number","",""
 50,500,"ChatFrameSizeWidth","Number","",""
 51,230,"ChatFrameSizeHeight","Number","",""
-52,1,"UseCamShockWave","Number","",""
+52,1,"EnableNaturalEffect","Number","","UPDATE_NATURAL_EFFECT"
+53,1,"UseCamShockWave","Number","",""
+54,1,"EnableDeadParts","Number","","UPDATE_DEAD_PARTS"
+55,1,"EnableCharSilhouette","Number","","UPDATE_SILHOUETTE"

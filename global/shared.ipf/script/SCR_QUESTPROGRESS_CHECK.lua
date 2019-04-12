@@ -79,6 +79,10 @@ function SCR_QUESTPROGRESS_CHECK( pc, quest_list, quest_name, npcquestcount_list
 end
 
 function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
+	if pc == nil then
+		return;
+	end
+
     if pc.ClassName ~= 'PC' then
         if IsServerSection(pc) == 1 then
             print(ScpArgMsg("Auto_{Auto_1}_KweSeuTeuui_CheKeuSi_PCKa_aNin_{Auto_2}_ui_aegTeoJeongBoKa_NeomeooKo_issSeupNiDa.","Auto_1",questname,"Auto_2",pc.Name))
