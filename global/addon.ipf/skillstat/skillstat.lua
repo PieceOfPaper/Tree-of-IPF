@@ -9,6 +9,12 @@ function BEFORE_APPLIED_SKILLSTAT_OPEN(invItem)
 		frame:ShowWindow(0)
 		return;
 	end
+	
+	local obj = GetIES(invItem:GetObject());
+	if obj.ItemLifeTimeOver > 0 then
+		ui.SysMsg(ScpArgMsg('LessThanItemLifeTime'));
+		return;
+	end
 
 	if 0 == frame:IsVisible() then
 		frame:ShowWindow(1)
@@ -44,7 +50,7 @@ function BEFORE_APPLIED_SKILLSTAT_OPEN(invItem)
 
     local prop = ctrlSet:GetChild("prop");
     prop:SetTextByKey("value", ClMsg("Premium_SkillResetLng")); 
-    local value = ctrlSet:GetChild("value");
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
 	frame:SetUserValue("itemIES", invItem:GetIESID());
@@ -59,8 +65,8 @@ function REQ_SKILLSTAT_ITEM(frame, ctrl)
 	local itemIES = frame:GetUserValue("itemIES");
 	local argList = string.format("%s", frame:GetUserValue("ClassName"));
 
-	if argList == 'Premium_SkillReset' then
-	pc.ReqExecuteTx_Item("SCR_USE_SKILL_STAT_RESET", itemIES, argList);
+	if argList == 'Premium_SkillReset' or argList == 'Premium_SkillReset_14d' then
+		pc.ReqExecuteTx_Item("SCR_USE_SKILL_STAT_RESET", itemIES, argList);
 	else
 		pc.ReqExecuteTx_Item("SCR_USE_STAT_RESET", itemIES, argList);
 	end
@@ -78,7 +84,7 @@ function BEFORE_APPLIED_STATRESET_OPEN(invItem)
 		frame:ShowWindow(0)
 		return;
 	end
-
+	
 	local itemobj = GetIES(invItem:GetObject());
 
 	if itemobj.ItemLifeTimeOver == 1 then
@@ -120,7 +126,7 @@ function BEFORE_APPLIED_STATRESET_OPEN(invItem)
 
     local prop = ctrlSet:GetChild("prop");
     prop:SetTextByKey("value", ClMsg("Premium_StatResetLng")); 
-    local value = ctrlSet:GetChild("value");
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
 	frame:SetUserValue("itemIES", invItem:GetIESID());

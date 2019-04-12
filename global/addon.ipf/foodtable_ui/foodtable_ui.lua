@@ -1,10 +1,8 @@
 
 function FOODTABLE_UI_ON_INIT(addon, frame)
-
 	addon:RegisterMsg("OPEN_FOOD_TABLE_UI", "ON_OPEN_FOOD_TABLE_UI");
 	addon:RegisterMsg("FOOD_ADD_SUCCESS", "ON_FOOD_ADD_SUCCESS");
-	addon:RegisterMsg("FOODTABLE_HISTORY_UI", "ON_FOODTABLE_HISTORY_UI");
-		
+	addon:RegisterMsg("FOODTABLE_HISTORY_UI", "ON_FOODTABLE_HISTORY_UI");		
 end
 
 function ON_FOODTABLE_HISTORY_UI(frame, msg, handle)
@@ -47,60 +45,6 @@ function SET_FOOD_TABLE_BASE_INFO(ctrlSet, cls, tableInfo)
 		ctrlSet:SetUserValue("FOOD_TYPE", cls.ClassID);
 end
 
-function FOODTABLE_CHECK_BOX(parent, ctrl)
-	local tableInfo = session.camp.GetCurrentTableInfo();
-
-	local isMyFoodTable = false;
-	if session.loginInfo.GetAID() == tableInfo:GetAID() then
-		isMyFoodTable = true;
-	end
-
-	if false == isMyFoodTable then
-		return;
-	end
-
-	-- ÔøΩœ¥ÔøΩ ÔøΩÔøΩÔø?ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩœ∞ÔøΩ,
-	tableInfo:SetSharedFood();
-
-	local titleBox = GET_CHILD(parent, "gBox", "ui::CGroupBox");
-	titleBox:SetVisible(tableInfo:GetSharedFood());
-
-	if 0 == tableInfo:GetSharedFood() then
-		local frame = parent:GetTopParentFrame();
-		local handle = frame:GetUserIValue("HANDLE");	
-		packet.ReqFoodTableTitle(handle, tableInfo:GetSharedFood(), "None");
-	end
-
-end
-
-function CHANGE_FOOD_TABE_TITLE(parent, ctrl)
-	local tableInfo = session.camp.GetCurrentTableInfo();
-
-	local isMyFoodTable = false;
-	if session.loginInfo.GetAID() == tableInfo:GetAID() then
-		isMyFoodTable = true;
-	end
-
-	if false == isMyFoodTable then
-		return;
-	end
-
-	local frame = parent:GetTopParentFrame();
-	local handle = frame:GetUserIValue("HANDLE");	
-	if 0 == tableInfo:GetSharedFood() then
-		packet.ReqFoodTableTitle(handle, tableInfo:GetSharedFood(), "None");
-		return;
-	end
-
-	local edit =  GET_CHILD(parent, "TitleInput")
-	if nil == edit then
-		return;
-	end
-
-	packet.ReqFoodTableTitle(handle, tableInfo:GetSharedFood(), edit:GetText());
-end
-
-
 function ON_OPEN_FOOD_TABLE_UI(frame, msg, handle, forceOpenUI)
 	
 	if forceOpenUI == 1 then
@@ -126,18 +70,6 @@ function ON_OPEN_FOOD_TABLE_UI(frame, msg, handle, forceOpenUI)
 		isMyFoodTable = true;
 	end
 
-	if true == isMyFoodTable then
-		local ctrlSet = gbox_table:CreateControlSet('food_check_party', "check_Party", 15 , 0);
-		local checkBox = GET_CHILD(ctrlSet, "check_party", "ui::CCheckBox");
-		checkBox:SetCheck(tableInfo:GetSharedFood());
-		local titleBox = GET_CHILD(ctrlSet, "gBox", "ui::CGroupBox");
-		if 0 == tableInfo:GetSharedFood() then
-			titleBox:SetVisible(0);
-		else
-			titleBox:SetVisible(1);
-		end
-	end
-
 	for i = 0 , cnt - 1 do
 		local foodItem = tableInfo:GetFoodItem(i);
 		local ctrlSet = gbox_table:CreateControlSet('camp_food_item', "FOOD" .. i, 0, 0);
@@ -158,7 +90,7 @@ function ON_OPEN_FOOD_TABLE_UI(frame, msg, handle, forceOpenUI)
 		for i = 0 , cnt - 1 do
 			local cls = GetClassByIndexFromList(clslist, i);
 			
-			-- ¿ΩΩƒ ¡¶¿€¿« « ø‰ Ω∫≈≥∑π∫ß¿Ã pc¿« Ω∫≈≥ ∑π∫ß ¿Ã«œ¿œ∂ß √‚∑¬
+			-- ÏùåÏãù Ï†úÏûëÏùò ÌïÑÏöî Ïä§ÌÇ¨Î†àÎ≤®Ïù¥ pcÏùò Ïä§ÌÇ¨ Î†àÎ≤® Ïù¥ÌïòÏùºÎïå Ï∂úÎ†•
 			if cls.SkillLevel <= tableInfo:GetSkillLevel() then
 				local ctrlSet = gbox_make:CreateControlSet('camp_food_register', "FOOD_" .. cls.ClassName, 0, 0);
 				SET_FOOD_TABLE_BASE_INFO(ctrlSet, cls, tableInfo);
@@ -177,10 +109,8 @@ function ON_OPEN_FOOD_TABLE_UI(frame, msg, handle, forceOpenUI)
 		local index = tab:GetIndexByName("tab_normal")
 		tab:SetTabVisible(2, false);
 		tab:SelectTab(index);
-		tab:ShowWindow(1);
-		
+		tab:ShowWindow(1);		
 	end
-	
 end
 
 function SET_FOOD_TABLE_MATAERIAL_INFO(ctrlSet, cls)
@@ -261,7 +191,8 @@ function REMOVE_FOOD_TABLE(parent, ctrl)
 
 	local frame = parent:GetTopParentFrame();
 	local handle = frame:GetUserIValue("HANDLE");
-	control.CustomCommand("REMOVE_FOODTABLE", handle);	
+	control.CustomCommand("REMOVE_FOODTABLE", handle);
+	ui.CloseFrame(frame:GetName());
 
 end
 
@@ -295,4 +226,11 @@ function DESC_FOOD_champagne(skillType, skillLevel)
     local value = 0.5 + (skillLevel - 5) * 0.5;
     value = math.floor(value)
 	return ScpArgMsg("IncreaseSDR{Value}For{Time}Minute", "Value", value, "Time", 30);
+end
+
+function FOODTABLE_UI_CLOSE_FRAME(handle)
+    local frame = ui.GetFrame('foodtable_ui');
+    if handle == frame:GetUserIValue('HANDLE') then
+        ui.CloseFrame('foodtable_ui');
+    end
 end

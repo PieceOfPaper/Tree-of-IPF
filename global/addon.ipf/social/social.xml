@@ -30,14 +30,14 @@
         <groupbox name="mypageGbox" rect="35 105 520 940" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
         <groupbox name="commentGbox" parent="mypageGbox" rect="5 150 500 615" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>
         <richtext name="writeText" parent="mypageGbox" rect="15 -63 50 30" layout_gravity="left bottom" caption="{@st41b}글쓰기{/}" textalign="center center"/>
-        <edit name="writeEdit" parent="mypageGbox" rect="80 -55 350 40" layout_gravity="left bottom" OffsetForDraw="10 7" fontname="white_20" maxlen="128" resizeheightbytext="true" tag_color="true" tag_img="true" tag_link="true" tag_size="true" tag_ul="true" usetag="true"/>
+        <edit name="writeEdit" parent="mypageGbox" rect="80 -55 350 40" layout_gravity="left bottom" OffsetForDraw="10 7" fontname="white_20" maxlen="128" resizeheightbytext="true" allowtag="color img link size ul"/>
         <button name="writeReg" parent="mypageGbox" rect="-15 -60 70 30" layout_gravity="right bottom" LBtnUpArgNum="" LBtnUpScp="MYPAGE_COMMENT_REGISTER" caption="{@st41}등록{/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}글을 등록합니다{/}"/>
         <button name="boardModeOn" parent="mypageGbox" rect="0 -15 200 30" layout_gravity="center bottom" LBtnUpArgNum="" LBtnUpScp="MYPAGE_MODE_START" caption="{@st41}마이페이지 시작{/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}마이페이지를 외부에 게시합니다{/}"/>
         <!--  GuestBook -->
         <groupbox name="guestbookGbox" rect="35 105 520 940" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low" visible="false"/>
         <groupbox name="commentGbox" parent="guestbookGbox" rect="5 5 510 870" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>
         <richtext name="writeText" parent="guestbookGbox" rect="15 -23 50 30" layout_gravity="left bottom" caption="{@st41b}글쓰기{/}" textalign="center center"/>
-        <edit name="writeEdit" parent="guestbookGbox" rect="80 -15 350 40" layout_gravity="left bottom" OffsetForDraw="10 7" fontname="white_20" maxlen="128" resizeheightbytext="true" tag_color="true" tag_img="true" tag_link="true" tag_size="true" tag_ul="true" usetag="true"/>
+        <edit name="writeEdit" parent="guestbookGbox" rect="80 -15 350 40" layout_gravity="left bottom" OffsetForDraw="10 7" fontname="white_20" maxlen="128" resizeheightbytext="true" allowtag="color img link size ul"/>
         <button name="writeReg" parent="guestbookGbox" rect="-15 -20 70 30" layout_gravity="right bottom" LBtnUpArgNum="" LBtnUpScp="QUESTBOOK_COMMENT_REGISTER" caption="{@st41}등록{/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}안부를 등록합니다{/}"/>
         <!--  Friend  -->
         <groupbox name="friendGbox" rect="35 105 520 940" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
@@ -46,13 +46,13 @@
         <!--
 		<groupbox name="sellGbox" rect="35 105 520 940" skin="bg" draw="true" hittestbox="false" layout_gravity="left top" scrollbar="false" resizebyparent="false"/>
 		<richtext name="sellMenu_1" parent="sellGbox" rect="10 10 500 30" caption="{@st41b}1. 메뉴{/}" layout_gravity="left top"/>
-		<edit name="sellMent" parent="sellGbox" rect="10 40 500 150" layout_gravity="left top" fontname="white_20" multiline="true" OffsetForDraw="10 7" maxlen="256" usetag="true" tag_color="true" tag_size="true" tag_link="true" tag_img="true" tag_ul="true"/>
+		<edit name="sellMent" parent="sellGbox" rect="10 40 500 150" layout_gravity="left top" fontname="white_20" multiline="true" OffsetForDraw="10 7" maxlen="256" allowtag="color size link img ul"/>
 		<richtext name="sellMenu_2" parent="sellGbox" rect="10 200 500 30" caption="{@st41b}2. 메뉴{/}" layout_gravity="left top"/>
 		<groupbox name="sellItemGbox" parent="sellGbox" rect="10 230 500 570" skin="bg" draw="true" visible="true" hittestbox="true" layout_gravity="left top" scrollbar="true" resizebyparent="false" DropScp="SOCIAL_SELL_ON_DROP"/>
 		<button name="sellModeOn" parent="sellGbox" rect="0 -15 200 30" layout_gravity="center bottom" caption="{@st41}개인상점 시작{/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}개인상점을 시작합니다{/}" LBtnUpScp="SELL_MODE_START" LBtnUpArgNum=""/>
 		<groupbox name="buyGbox" rect="35 105 520 940" skin="bg" draw="true" hittestbox="false" layout_gravity="left top" scrollbar="false" resizebyparent="false"/>
 		<richtext name="buyMenu_1" parent="buyGbox" rect="10 10 500 30" caption="{@st41b}1. 메뉴{/}" layout_gravity="left top"/>
-		<edit name="buyMent" parent="buyGbox" rect="10 40 500 150" layout_gravity="left top" fontname="white_20" multiline="true" OffsetForDraw="10 7" maxlen="256" usetag="true" tag_color="true" tag_size="true" tag_link="true" tag_img="true" tag_ul="true"/>
+		<edit name="buyMent" parent="buyGbox" rect="10 40 500 150" layout_gravity="left top" fontname="white_20" multiline="true" OffsetForDraw="10 7" maxlen="256" allowtag="color size link img ul"/>
 		<richtext name="buyMenu_2" parent="buyGbox" rect="10 200 500 30" caption="{@st41b}2. 메뉴{/}" layout_gravity="left top"/>
 		<groupbox name="buyItemGbox" parent="buyGbox" rect="10 230 500 570" skin="bg" draw="true" visible="true" hittestbox="true" layout_gravity="left top" scrollbar="true" resizebyparent="false" DropScp="SOCIAL_BUY_ON_DROP"/>
 		<button name="buyModeOn" parent="buyGbox" rect="0 -15 200 30" layout_gravity="center bottom" caption="{@st41}구매요청 시작{/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}구매요청을 시작합니다{/}" LBtnUpScp="BUY_MODE_START" LBtnUpArgNum=""/>

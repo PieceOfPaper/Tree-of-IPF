@@ -385,6 +385,12 @@ function DROP_CARDBATTLE_CARD(frame)
 		ui.SysMsg(ClMsg("PutOnlyCardItem"));
 		return;
 	end
+
+    if obj.BelongingCount > 0 then
+        ui.SysMsg(ClMsg('ItemIsNotTradable'));
+        return;
+    end
+
 	imcSound.PlaySoundEvent("sys_card_battle_icon_equip");
 	local ownerHandle = frame:GetUserIValue("OWNER_HANDLE");
 	

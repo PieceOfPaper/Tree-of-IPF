@@ -666,6 +666,21 @@ function SSN_CLIENT_UPDATE_QUEST_POSSIBLE(sObj, list, questPossible)
                    	control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 2);
             end
 
+            -- Possible Add NPC Unhide Check
+			if GetPropType(questIES, 'PossibleUnHideNPC') ~= nil and questIES.PossibleUnHideNPC ~= 'None' then
+			    local npcList = SCR_STRING_CUT(questIES.PossibleUnHideNPC)
+			    local flag = 0
+			    for index = 1, #npcList do
+			        if IsHideNPC_C(self, npcList[index]) == 'YES' then
+			            flag = 1
+			            break
+			        end
+			    end
+			    if flag == 1 then
+    	            control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 7);
+			    end
+            end
+
 			-- QUEST MAP INFO CHECK
 			if questIES.QuestMode == 'MAIN' then
                 if questIES.StartMap ~= 'None' then
@@ -692,7 +707,8 @@ function SSN_CLIENT_UPDATE_QUEST_POSSIBLE(sObj, list, questPossible)
                     
                 if questIES.StartMap ~= 'None' and questIES.StartNPC ~= 'None' and GetZoneName(self) == questIES.StartMap then
                     local result2
-                    result2, subQuestCount = SCR_POSSIBLE_UI_OPEN_CHECK(self, questIES, subQuestCount, 'ZoneMap')
+                    local subQuestZoneList = {}
+                    result2, subQuestZoneList = SCR_POSSIBLE_UI_OPEN_CHECK(self, questIES, subQuestZoneList, 'ZoneMap')
                             
                     if result2 == 'OPEN' then
                         local genDlgIESList = SCR_GET_XML_IES('GenType_'..questIES.StartMap, 'Dialog', questIES.StartNPC)
@@ -752,6 +768,38 @@ function SSN_CLIENT_UPDATE_QUEST_SUCCESS(sObj, list)
 				control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 4);
 			end
 
+			
+            -- Success Add NPC Unhide Check
+        	if GetPropType(questIES, 'SuccessUnHideNPC') ~= nil and questIES.SuccessUnHideNPC ~= 'None' then
+        	    local npcList = SCR_STRING_CUT(questIES.SuccessUnHideNPC)
+        	    local flag = 0
+        	    for index = 1, #npcList do
+        	        if IsHideNPC_C(self, npcList[index]) == 'YES' then
+        	            flag = 1
+        	            break
+        	        end
+        	    end
+        	    if flag == 1 then
+                    control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 9);
+        	    end
+            end
+            
+            if GetLayer(self) > 0 and questIES.QuestEndMode ~= 'SYSTEM' then
+                local zoneLayerObj = GetClientZoneObject()
+                if zoneLayerObj ~= nil and zoneLayerObj.EventName == questIES.ClassName then
+                    local questIES_auto = GetClass('QuestProgressCheck_Auto', questIES.ClassName)
+                    if questIES_auto.Track1 ~= 'None' and questIES_auto.Track_Auto_Complete ~= 'NO' then
+                        local nowSec = math.floor(os.clock())
+                        if sObj.TRACK_AUTO_COMPLETE_LAST_QUEST == questIES.ClassName and sObj.TRACK_AUTO_COMPLETE_LAST_TIME + 15 > nowSec then
+                        else
+                            sObj.TRACK_AUTO_COMPLETE_LAST_QUEST = questIES.ClassName
+                            sObj.TRACK_AUTO_COMPLETE_LAST_TIME = nowSec
+            				control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 10);
+            			end
+                    end
+                end
+            end
+
 		end
 	end
 end
@@ -766,7 +814,7 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 	
 	s_nextTime = now + 2;
 
-	--QA Test ¿ëµµ
+	--QA Test ï¿½ëµµ
 	if imcperfOnOff.IsEnableOptQuestLoop() == 0 then
 		PREV_SSN_CLIENT_UPDATE_FOR_QA(pc);
 		return;
@@ -805,7 +853,7 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 			control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 4);
 		end
 	end
-	
+
 	for i = 1, #possibleQuestList do
 		local questIES = possibleQuestList[i];
 		local prop = TryGetProp(sObj, questIES.QuestPropertyName);
@@ -824,8 +872,10 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 		end
 	end
 	
-	-- Session Object°¡ ÀÖ´Â °æ¿ì Progress »óÅÂÀÎ Äù½ºÆ®´Â ÀçºÐ·ùÇÑ´Ù. 
+	-- Session Objectï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ Progress ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Ð·ï¿½ï¿½Ñ´ï¿½. 
+	local progressQuestListArrange = {}
 	for i = 1, #progressQuestList do
+	    local flag = 0
 		local questIES = progressQuestList[i];
 		local prop = TryGetProp(sObj, questIES.QuestPropertyName);
 		if nil ~= prop and TryGetProp(questIES,'Quest_SSN') ~= nil and questIES.Quest_SSN ~= 'None' then
@@ -834,149 +884,38 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 				local state = SCR_QUEST_CHECK_C(pc, questIES.ClassName);
 				if state == "SUCEESS" then
 					successQuestList[#successQuestList + 1] = progressQuestList[i];
+					flag = 1
 				elseif state == "POSSIBLE" then
 					possibleQuestList[#possibleQuestList + 1] = progressQuestList[i];
+					flag = 2
 				end
 			end
 		end
+		if flag == 0 then
+		    progressQuestListArrange[#progressQuestListArrange + 1] = progressQuestList[i]
+				end
+			end
+	
+    -- Progress Add NPC Unhide Check
+	for i = 1, #progressQuestListArrange do
+		local questIES = progressQuestListArrange[i];
+    	if GetPropType(questIES, 'ProgressUnHideNPC') ~= nil and questIES.ProgressUnHideNPC ~= 'None' then
+    	    local npcList = SCR_STRING_CUT(questIES.ProgressUnHideNPC)
+    	    local flag = 0
+    	    for index = 1, #npcList do
+    	        if IsHideNPC_C(pc, npcList[index]) == 'YES' then
+    	            flag = 1
+    	            break
+    	        end
+    	    end
+    	    if flag == 1 then
+                control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 8);
+    	    end
+		end
 	end
 
-		if questIES ~= nil then
-    		if questIES.QuestPropertyName ~= 'None' then
-    		    local result
-				local prop = TryGetProp(sObj, questIES.QuestPropertyName);
-                if nil ~= prop and TryGetProp(questIES,'Quest_SSN') ~= nil and questIES.Quest_SSN ~= 'None' and sObj[questIES.QuestPropertyName] >= CON_QUESTPROPERTY_MIN and sObj[questIES.QuestPropertyName] < CON_QUESTPROPERTY_END then
-                    local sObj2 = session.GetSessionObjectByName(questIES.Quest_SSN);
-                    if sObj2 == nil then
-        				control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 0);
-                        --CreateSessionObject(self,questIES.Quest_SSN, 1);
-                    end
-                end
-            
-    
-        		-- questIES.QuestStartMode == 'SYSTEM' 
-        		
-                if questIES.QuestStartMode == 'SYSTEM' then
-                    if sObj[questIES.QuestPropertyName] == 0 then
-                        if result == nil then
-                            result = SCR_QUEST_CHECK_C(self, questIES.ClassName)
-                        end
-                        if result == 'POSSIBLE' then
-        					control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 1);
-                        end
-                    end
-                end
-            
-    		
-                if questIES.StartNPC ~= 'None' and IsHideNPC_C(self, questIES.StartNPC) == 'YES' then
-                    if result == nil then
-                        result = SCR_QUEST_CHECK_C(self, questIES.ClassName)
-                    end
-                    if result == 'POSSIBLE' then
-        				control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 2);
-                        -- UnHideNPC(self, questIES.StartNPC)
-                    end
-                end
-            
-        		if questIES.EndNPC ~= 'None' and IsHideNPC_C(self, questIES.EndNPC) == 'YES' then
-        		    if questIES.ClassName ~= 'FTOWER41_MQ_02' and questIES.ClassName ~= 'FTOWER41_MQ_03' and questIES.ClassName ~= 'FTOWER43_MQ_02' and questIES.ClassName ~= 'FTOWER43_MQ_06' then
-        		        if result == nil then
-                            result = SCR_QUEST_CHECK_C(self, questIES.ClassName)
-                        end
-                        if result == 'SUCCESS' then
-            				control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 3);
-                            --UnHideNPC(self, questIES.EndNPC)
-                        end
-                    end
-                end
-            
-                if questIES.QuestEndMode == 'SYSTEM' then
-                    local flag = false
-					local prop = TryGetProp(sObj, questIES.QuestPropertyName);
-                    if prop ~= nil and sObj[questIES.QuestPropertyName] == 200 then
-                        flag = true
-                    else
-                        if result == nil then
-                            result = SCR_QUEST_CHECK_C(self, questIES.ClassName)
-                        end
-                        if result == 'SUCCESS' then
-        					flag = true
-                        end
-                    end
-                    
-                    if flag == true then
-                        control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 4);
-                    end
-                end
-                
-                if questIES.QuestMode == 'MAIN' then
-                    if result == nil then
-                        result = SCR_QUEST_CHECK_C(self, questIES.ClassName)
-                    end
-                    if result == 'POSSIBLE' then
-                        if questIES.StartMap ~= 'None' then
-                            if pc.Lv < 100 and questIES.QStartZone ~= 'None' and sObj.QSTARTZONETYPE ~= 'None' and questIES.QStartZone ~=  sObj.QSTARTZONETYPE then
-                            else
-                                local mapCls = GetClass('Map', questIES.StartMap)
-                                if mapCls ~= nil and GetPropType(mapCls, 'WorldMapPreOpen') ~= nil and mapCls.WorldMapPreOpen == 'YES' then
-                                    local etc = GetMyEtcObject();
-                                    if table.find(questPossible,mapCls.ClassID) == 0 then
-                                        questPossible[#questPossible + 1] = mapCls.ClassID
-                                    end
-                                    
-                        			if etc['HadVisited_' .. mapCls.ClassID] ~= 1 then
-                        			    control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 5);
-                        			end
-                        		end
-                        	end
-                        end
-                    end
-                end
-                
-                if questIES.QuestMode ~= 'MAIN' then
-                    if result == nil then
-                        result = SCR_QUEST_CHECK_C(self, questIES.ClassName)
-                    end
-                    if result == 'POSSIBLE' then
-                        if questIES.StartMap ~= 'None' and questIES.StartNPC ~= 'None' and GetZoneName(self) == questIES.StartMap then
-                            local result2
-                            result2, subQuestCount = SCR_POSSIBLE_UI_OPEN_CHECK(self, questIES, subQuestCount, 'ZoneMap')
-                            
-                            if result2 == 'OPEN' then
-                            	local genDlgIESList = SCR_GET_XML_IES('GenType_'..questIES.StartMap, 'Dialog', questIES.StartNPC)
-                            	local genEntIESList = SCR_GET_XML_IES('GenType_'..questIES.StartMap, 'Enter', questIES.StartNPC)
-                            	local genLevIESList = SCR_GET_XML_IES('GenType_'..questIES.StartMap, 'Leave', questIES.StartNPC)
-                            	
-                            	if #genDlgIESList > 0 or #genEntIESList > 0 or #genLevIESList > 0 then
-                            	    local genType
-                            	    local genIES
-                            	    if #genDlgIESList > 0 then
-                            	        genIES = genDlgIESList[1]
-                            	        genType = genDlgIESList[1].GenType
-                            	    elseif  #genEntIESList > 0 then
-                            	        genIES = genEntIESList[1]
-                            	        genType = genEntIESList[1].GenType
-                           	        elseif  #genLevIESList > 0 then
-                            	        genIES = genLevIESList[1]
-                            	        genType = genLevIESList[1].GenType
-                           	        end
-                           	        
-                           	        if genType ~= nil and ( genIES.Minimap == 1 or genIES.Minimap == 3) and string.find(genIES.ArgStr1, 'NPCStateLocal/') == nil and string.find(genIES.ArgStr2, 'NPCStateLocal/') == nil and string.find(genIES.ArgStr3, 'NPCStateLocal/') == nil  then
-                           	            local mapprop = session.GetCurrentMapProp();
-                                    	local mapNpcState = session.GetMapNPCState(mapprop:GetClassName());
-                                    	local curState = mapNpcState:FindAndGet(genType);
-                                    	if curState < 1 then
-                                    	    control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 6);
-                                    	end
-                           	        end
-                            	end
-                            end
-                        end
-                    end
-                end
-            end
-        end
-    end
+	SSN_CLIENT_UPDATE_QUEST_POSSIBLE(sObj, possibleQuestList, questPossible);
+	SSN_CLIENT_UPDATE_QUEST_SUCCESS(sObj, successQuestList);
     
     if #questPossible > 0 then
         sObj.MQ_POSSIBLE_LIST = 'None'
@@ -995,7 +934,7 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 
 end
 
--- QA TEST ¿ëµµ
+-- QA TEST ï¿½ëµµ
 function PREV_SSN_CLIENT_UPDATE_FOR_QA(pc)
     local questPossible = {}
 	
@@ -1014,7 +953,7 @@ function PREV_SSN_CLIENT_UPDATE_FOR_QA(pc)
 		return;
 	end
 	
-	local subQuestCount = 0
+	local subQuestZoneList = {}
 	
     for i = 0, class_count-1 do
         local questIES = GetClassByIndex('QuestProgressCheck', i);
@@ -1118,7 +1057,7 @@ function PREV_SSN_CLIENT_UPDATE_FOR_QA(pc)
                     if result == 'POSSIBLE' then
                         if questIES.StartMap ~= 'None' and questIES.StartNPC ~= 'None' and GetZoneName(self) == questIES.StartMap then
                             local result2
-                            result2, subQuestCount = SCR_POSSIBLE_UI_OPEN_CHECK(self, questIES, subQuestCount, 'ZoneMap')
+                            result2, subQuestZoneList = SCR_POSSIBLE_UI_OPEN_CHECK(self, questIES, subQuestZoneList, 'ZoneMap')
                             
                             if result2 == 'OPEN' then
                             	local genDlgIESList = SCR_GET_XML_IES('GenType_'..questIES.StartMap, 'Dialog', questIES.StartNPC)

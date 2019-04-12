@@ -19,11 +19,11 @@
 		<groupbox name="moneyGbox" parent="repair" rect="0 0 405 35" margin="0 43 18 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
 		<richtext name="moneyStr" parent="moneyGbox" rect="0 0 200 80" margin="10 8 0 0" layout_gravity="left top" caption="받는 가격{img silver 20 20}" textalign="left top" fontname="brown_16_b"/>
 		<richtext name="money" parent="moneyGbox" rect="0 0 343 48" margin="0 8 4 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="brown_18_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
-		<edit name="moneyInput" margin="120 5 0 0" rect="0 0 405 35" fontname="brown_16_b" maxlen="16" usetag="true" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="moneyGbox" skin=""/>
+		<edit name="moneyInput" margin="120 5 0 0" rect="0 0 405 35" fontname="brown_16_b" maxlen="16" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="moneyGbox" skin=""/>
 		<groupbox name="titleGbox" parent="repair" rect="0 0 405 35" margin="0 4 19 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
 		<richtext name="titleStr" parent="titleGbox" rect="0 0 200 80" margin="10 8 0 0" layout_gravity="left top" caption=" 상점 이름" textalign="left top" fontname="brown_16_b"/>
 		<richtext name="title_1" parent="titleGbox" rect="0 0 343 48" margin="10 7 3 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="brown_18_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
-		<edit name="titleInput" margin="120 5 0 0" rect="0 0 405 35" fontname="brown_16_b" maxlen="16" usetag="true" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="titleGbox" skin=""/>
+		<edit name="titleInput" margin="120 5 0 0" rect="0 0 405 35" fontname="brown_16_b" maxlen="32" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="titleGbox" skin=""/>
 		<groupbox name="materialGbox" parent="repair" rect="0 0 439 300" margin="0 700 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
 		<labelline name="line" parent="materialGbox" rect="0 0 400 4" margin="0 0 0 225" layout_gravity="center bottom" skin="None"/>
 		<richtext name="material" parent="materialGbox" rect="0 0 200 80" margin="30 50 0 0" layout_gravity="left top" caption="{@st41b}소비재료" textalign="left top"/>

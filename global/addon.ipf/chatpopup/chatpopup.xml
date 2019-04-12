@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
-<uiframe name="chatpopup" x="0" y="0" width="450" height="280" create="open">
+<uiframe name="chatpopup" x="0" y="0" width="400" height="90" create="open">
 	<frame title="{@st41}일반 대화{/}" fasthide="true" layout_gravity="left top" margin="50 200 0 0" scale_align="center bottom"/>
 	<draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
-	<input moveable="true" minwidth="450" minheight="150" hittestframe="false" resizerange="450 150 800 600"/>
+	<input moveable="true" minwidth="400" minheight="90" hittestframe="false" resizerange="400 90 800 600"/>
 	<option visible="false" hideable="false" useimageitem="true" closebutton="false"/>
 	<layer layerlevel="79"/>
-	<userconfig GBOX_LEFT_MARGIN="0" GBOX_RIGHT_MARGIN="10" GBOX_TOP_MARGIN="29" GBOX_BOTTOM_MARGIN="37" CTRLSET_OFFSETX="30"/>
+	<userconfig GBOX_LEFT_MARGIN="0" GBOX_RIGHT_MARGIN="0" GBOX_TOP_MARGIN="29" GBOX_BOTTOM_MARGIN="37" CTRLSET_OFFSETX="30"/>
+  <script CloseScp="CHATPOPUP_CLOSE" OpenScp="CHATPOPUP_OPEN"/>
 	<controls>
-		<richtext name="name" hittest="false" rect="0 0 400 24" margin="25 0 0 0" layout_gravity="left top" fixheight="true" fixwidth="true" format="{@st42}%s{/}" param1="title" param1_def="전체" resizebytext="false" textalign="left center"/>
-		<groupbox name="group_titlebar" rect="0 0 440 30" margin="0 0 0 0" layout_gravity="left top" LBtnDownScp="MOVE_FRAME_POPUP_CHAT_START" LBtnUpScp="MOVE_FRAME_POPUP_CHAT_END" autoresize="1 0" border="0 0 0 0" draw="true" skin="chat_window" visiblevector="false" hittest="true"/>
-		<button name="reheight" rect="0 0 57 40" margin="0 0 10 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="button_chat_scale" oversound="button_over" texttooltip="{@st59}채팅창 크기 조절{/}" LBtnDownScp="RESIZE_FRAME_POPUP_CHAT_START" LBtnUpScp="RESIZE_FRAME_POPUP_CHAT_END"/>
-		<groupbox name="edit_bg" rect="0 0 440 36" margin="0 0 0 0" layout_gravity="left bottom" draw="true" frameOpenAnim="pip_simbol_ani_3" hittestbox="false" scrollbar="false" skin="inventory_serch" autoresize="1 0"/>
-		<edit name="mainchat" rect="0 0 440 30" margin="0 0 0 0" layout_gravity="left bottom" OffsetForDraw="0 0" border="0 0 0 0" drawbackground="false" fontname="white_20" maxlen="512" maxlenfunc="CHAT_MAXLEN_MSG" resizebytext="false" skin="None" tag_color="true" tag_img="true" tag_link="true" tag_size="true" tag_ul="true" typingsound="chat_typing" usetag="true" autoresize="1 0" EnterKeyScp="SEND_POPUP_FRAME_CHAT" LBtnDownScp="ui.CloseFrame('chat')"/>
-		<button name="btn_exit" margin="2 2 0 0" rect="0 0 30 30" texttooltip="{@59}닫기{/}" layout_gravity="left top" image="button_whisper_talk_exit" LBtnUpScp="CLOSE_CHAT_POPUP"/>
+		<groupbox name="group_titlebar" rect="0 0 400 30" margin="0 0 0 0" layout_gravity="left top" LBtnDblClickScp="MOVE_FRAME_POPUP_CHAT_LBTNDBLCLICK" LBtnDownScp="MOVE_FRAME_POPUP_CHAT_START" LBtnUpScp="MOVE_FRAME_POPUP_CHAT_END" autoresize="1 0" border="0 0 0 0" draw="true" skin="chat_window" visiblevector="false" hittest="true" texttooltip="{@st59}더블클릭으로 접기/펴기{/}"/>
+		<button name="reheight" rect="0 0 57 40" margin="0 0 0 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" image="button_chat_scale" oversound="button_over" texttooltip="{@st59}채팅창 크기 조절{/}" LBtnDownScp="RESIZE_FRAME_POPUP_CHAT_START" LBtnUpScp="RESIZE_FRAME_POPUP_CHAT_END"/>
+		<richtext name="name" hittest="false" rect="0 0 350 24" margin="25 2 0 0" layout_gravity="left top" fixheight="true" fixwidth="true" format="{@st42b}%s{/}" param1="title" param1_def="전체" resizebytext="false" textalign="left center"/>
+		<groupbox name="edit_bg" rect="0 0 400 36" margin="0 0 0 0" layout_gravity="left bottom" draw="true" frameOpenAnim="pip_simbol_ani_3" hittestbox="false" scrollbar="false" skin="inventory_serch" autoresize="1 0"/>
+		<edit name="mainchat" rect="0 0 400 30" margin="0 0 0 0" layout_gravity="left bottom" OffsetForDraw="0 0" border="0 0 0 0" drawbackground="false" fontname="white_20" maxlen="512" maxlenfunc="CHAT_MAXLEN_MSG" resizebytext="false" skin="None" tag_color="true" tag_img="true" tag_link="true" tag_size="true" tag_ul="true" typingsound="chat_typing" usetag="true" autoresize="1 0" EnterKeyScp="SEND_POPUP_FRAME_CHAT" LBtnDownScp="POPUPCHAT_EDITCTRL_LDOWN"/>
+		<button name="btn_close" margin="2 3 0 0" rect="0 0 30 30" texttooltip="{@59}닫기{/}" layout_gravity="left top" image="chat_close_btn" LBtnUpScp="DO_CLOSE_CHATPOPUP"/>
+    <button name="btn_invite" margin="0 3 68 0" rect="0 0 24 24" texttooltip="{@59}초대{/}" layout_gravity="right top" image="chat_friend_btn" LBtnUpScp="GROUPCHAT_ADD_MEMBER" />
+    <button name="btn_config" margin="0 3 44 0" rect="0 0 24 24" texttooltip="{@59}설정{/}" layout_gravity="right top" image="chat_option_btn"/>
+    <button name="btn_memlist" margin="0 3 20 0" rect="0 0 24 24" texttooltip="{@59}참여자 목록{/}" layout_gravity="right top" image="chat_memberlist_btn" LBtnUpScp="GROUPCHAT_SHOW_MEMBER_LIST" />
 	</controls>
 </uiframe>

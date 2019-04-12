@@ -26,13 +26,15 @@ function OPEN_EXCHANGE_FILNAL_BOX(oppoTokenState)
 		for i = 0, itemCount-1 do
 			local itemData = exchange.GetExchangeItemInfo(1,i);
 			local class = GetClassByType('Item', itemData.type);
-			if class.ItemType == 'Equip' and class.ClassType ~= "Outer" then -- 코스튬은 비토큰 거래시에도 귀속되지 않도록
+			--if class.ItemType == 'Equip' and class.ClassType ~= "Outer" then -- 코스튬은 비토큰 거래시에도 귀속되지 않도록
 				listStr = listStr .. string.format("%s",class.Name) .. "{nl}";
-			end
+			--end
 		end
 
 		local list = itemList:GetChild('list');
+		list:Resize(list : GetOriginalWidth(), list : GetHeight());
 		list:SetTextByKey("value", listStr);
+	
 		local tokenState = bg2:GetChild('tokenState');
 		tokenState:ShowWindow(0);
 		local NotokenState = bg2:GetChild('NotokenState');

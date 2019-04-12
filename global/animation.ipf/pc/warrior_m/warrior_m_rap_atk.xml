@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 11 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="5.00" soundFile="rap_attack"/>
-    <Particle frame="8" attachNode="Dummy_trail" particleName="WeaponTrail_rap_atk" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" targetPos="false"/>
-    <Sound frame="9" soundFile="voice_war_atk_short"/>
+	<Sound frame="5.00" soundFile="rap_attack"/>
+	<Particle frame="4" attachNode="Dummy_trail" particleName="WeaponTrail_rap_atk" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" targetPos="false"/>
+	<Sound frame="9" soundFile="voice_war_atk_short"/>
 </ActionDesc>

@@ -10,7 +10,7 @@
 	<input resize="false" minwidth="128" minheight="128" hittestframe="false" hittesttitlebar="false"/>
 	<sound opensound="sys_map_open" closesound="sys_map_close"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
-  <userconfig GACHA_EFT_1="I_cardbattle_end_win" GACHA_EFT_SCALE_1="7.0" GACHA_EFT_2="I_cardbattle_end_win" GACHA_EFT_SCALE_2="7.0" GACHA_EFT_3="I_cardbattle_end_win" GACHA_EFT_SCALE_3="7.0"/>
+  <userconfig GACHA_EFT_1="I_gacha_end01" GACHA_EFT_SCALE_1="7.0" GACHA_EFT_2="I_gacha_end02" GACHA_EFT_SCALE_2="7.0" GACHA_EFT_3="I_gacha_end03" GACHA_EFT_SCALE_3="7.0"/>
   <script OpenScp="HAIR_GACHA_FULLSCREEN_OPEN" CloseScp="HAIR_GACHA_FULLSCREEN_CLOSE"/>
 	<controls>
     <picture name="bigitembgimg" rect="0 0 758 508" margin="0 0 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="gacha_big_01" stretch="true"/>

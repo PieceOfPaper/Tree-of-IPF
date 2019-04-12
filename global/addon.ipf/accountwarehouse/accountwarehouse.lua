@@ -6,12 +6,7 @@ function ACCOUNTWAREHOUSE_ON_INIT(addon, frame)
 	addon:RegisterMsg("ACCOUNT_WAREHOUSE_ITEM_REMOVE", "ON_ACCOUNT_WAREHOUSE_ITEM_LIST");
 	addon:RegisterMsg("ACCOUNT_WAREHOUSE_ITEM_CHANGE_COUNT", "ON_ACCOUNT_WAREHOUSE_ITEM_LIST");
 	addon:RegisterMsg("ACCOUNT_WAREHOUSE_ITEM_IN", "ON_ACCOUNT_WAREHOUSE_ITEM_LIST");
-
-	frame = ui.GetFrame("accountwarehouse");
-	local gbox = frame:GetChild("gbox");
-	local moneyInput = gbox:GetChild('moneyInput');
-	AUTO_CAST(moneyInput);
-	moneyInput:SetNumberMode(1);
+	addon:RegisterOpenOnlyMsg("ACCOUNT_WAREHOUSE_VIS", "ACCOUNT_WAREHOUSE_UPDATE_VIS_LOG");
 end
 
 function ON_OPEN_ACCOUNTWAREHOUSE(frame)
@@ -25,7 +20,7 @@ function ACCOUNTWAREHOUSE_OPEN(frame)
 	packet.RequestItemList(IT_ACCOUNT_WAREHOUSE);
 	ui.EnableSlotMultiSelect(1);
 	INVENTORY_SET_CUSTOM_RBTNDOWN("ACCOUNT_WAREHOUSE_INV_RBTN")	
-
+	packet.RequestAccountWareVisLog();
 end
    
 function ACCOUNTWAREHOUSE_CLOSE(frame)
@@ -36,7 +31,6 @@ function ACCOUNTWAREHOUSE_CLOSE(frame)
 end
 
 function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFrame)
-
 	local obj = GetIES(invItem:GetObject());
 	
 	if CHECK_EMPTYSLOT(frame, obj) == 1 then
@@ -51,6 +45,12 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 	local itemCls = GetClassByType("Item", invItem.type);
 	if itemCls.ItemType == 'Quest' then
 		ui.MsgBox(ScpArgMsg("IT_ISNT_REINFORCEABLE_ITEM"));
+		return;
+	end
+
+	local enableTeamTrade = TryGetProp(itemCls, "TeamTrade");
+	if enableTeamTrade ~= nil and enableTeamTrade == "NO" then
+		ui.SysMsg(ClMsg("ItemIsNotTradable"));	
 		return;
 	end
 	
@@ -137,13 +137,11 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 		return;
 	end
 
-	local gbox = frame:GetChild("gbox");
-	local slotset = gbox:GetChild("slotset");
+	local slotset = GET_CHILD_RECURSIVELY(frame, 'slotset');
 	if slotset == nil then
-		local gbox_warehouse = gbox:GetChild("gbox_warehouse");
-			slotset = gbox_warehouse:GetChild("slotset");
+		local gbox_warehouse = GET_CHILD_RECURSIVELY(frame, "gbox_warehouse");
+		slotset = GET_CHILD_RECURSIVELY(frame, "slotset");
 		end
-
 	AUTO_CAST(slotset);
 	slotset:ClearIconAll();
 
@@ -159,7 +157,7 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 	local itemList = session.GetEtcItemList(IT_ACCOUNT_WAREHOUSE);
 	local index = itemList:Head();
 	local itemCnt = itemList:Count();
-	local saveMoney = gbox:GetChild("saveMoney");
+	local saveMoney = GET_CHILD_RECURSIVELY(frame, "saveMoney");
 	saveMoney:SetTextByKey('value',0)
 	local slotIndx = 0;
 	while itemList:InvalidIndex() ~= index do
@@ -181,6 +179,7 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 			SET_SLOT_COUNT(slot, invItem.count)
 			SET_SLOT_COUNT_TEXT(slot, invItem.count);
 			SET_SLOT_IESID(slot, invItem:GetIESID())
+            SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, nil)
 			slot:SetMaxSelectCount(invItem.count);
 			local icon = slot:GetIcon();
 			icon:SetTooltipArg("accountwarehouse", invItem.type, invItem:GetIESID());
@@ -191,7 +190,7 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 	end
 
 
-	local itemcnt = gbox:GetChild("itemcnt");
+	local itemcnt = GET_CHILD_RECURSIVELY(frame, "itemcnt");
 	itemcnt:SetTextByKey('cnt',itemCnt)
 	itemcnt:SetTextByKey('slotmax',slotCount)
 
@@ -201,18 +200,49 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 		gbox_warehouse:InvalidateScrollBar();
 		frame:Invalidate();
 	end
+
+	ACCOUNT_WAREHOUSE_UPDATE_VIS_LOG(frame)
+end
+
+function ACCOUNT_WAREHOUSE_UPDATE_VIS_LOG(frame)
+	local gbox = GET_CHILD_RECURSIVELY(frame, 'visgBox')
+	gbox:RemoveAllChild();
+	local cnt = session.AccountWarehouse.GetCount();
+
+	for i = cnt-1, 0, -1 do
+		local log = session.AccountWarehouse.GetByIndex(i);
+		local ctrlSet = gbox:CreateControlSet("AccountVisLog", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+		local sTime = imcTime.GetStringSysTimeYYMMDD(log.regTime);
+		local regTime = ctrlSet:GetChild('regTime')
+		regTime:SetTextByKey('value', sTime);
+		local withdrawVis = ctrlSet:GetChild('withdrawVis')
+		local inputVis = ctrlSet:GetChild('inputVis')
+		local inputPic = GET_CHILD(ctrlSet, "input", "ui::CPicture");
+		if log.takeout == false then
+			withdrawVis:ShowWindow(0);
+			inputVis:SetTextByKey('value', log:GetAmount());
+			inputPic:SetImage('in_arrow');
+		else
+			inputVis:ShowWindow(0);
+			withdrawVis:SetTextByKey('value', log:GetAmount());
+			inputPic:SetImage('chul_arrow');
+		end
+
+		local result = ctrlSet:GetChild('result')
+		result:SetTextByKey('value', log:GetTotalAmount());
+	end
+
+	GBOX_AUTO_ALIGN(gbox, 0, 3, 10, true, false);
 end
 
 function ACCOUNT_WAREHOUSE_RECEIVE_ITEM(parent, slot)
 	
 	local frame = parent:GetTopParentFrame();
-	local gbox = frame:GetChild("gbox");
-	local slotset = gbox:GetChild("slotset");
+	local slotset = GET_CHILD_RECURSIVELY(frame, "slotset");
 	if slotset == nil then
-	local gbox_warehouse = gbox:GetChild("gbox_warehouse");
-		slotset = gbox_warehouse:GetChild("slotset");
+	local gbox_warehouse = GET_CHILD_RECURSIVELY(frame, "gbox_warehouse");
+		slotset = GET_CHILD_RECURSIVELY(frame, "slotset");
 	end
-
 	session.ResetItemList();
 	AUTO_CAST(slotset);
 	for i = 0, slotset:GetSelectedSlotCount() -1 do
@@ -243,8 +273,7 @@ end
 
 function ACCOUNT_WAREHOUSE_WITHDRAW(frame, slot)
 	frame = frame:GetTopParentFrame();
-	local gbox = frame:GetChild("gbox");
-	local moneyInput = gbox:GetChild('moneyInput');
+	local moneyInput = GET_CHILD_RECURSIVELY(frame, 'moneyInput');
 	local price = moneyInput:GetNumber();
 	AUTO_CAST(moneyInput);
 	if price <= 0 then
@@ -287,8 +316,7 @@ end
 
 function ACCOUNT_WAREHOUSE_DEPOSIT(frame, slot)
 	frame = frame:GetTopParentFrame();
-	local gbox = frame:GetChild("gbox");
-	local moneyInput = gbox:GetChild('moneyInput');
+	local moneyInput = GET_CHILD_RECURSIVELY(frame, 'moneyInput');
 	local price = moneyInput:GetNumber();
 	AUTO_CAST(moneyInput);
 	if price <= 0 then

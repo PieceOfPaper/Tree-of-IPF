@@ -13,7 +13,7 @@ function SOCIAL_BUY_ON_DROP(buyGbox, itemGbox, argStr, argNum)
 	local liftIcon 					= ui.GetLiftIcon();
 	local iconParentFrame 			= liftIcon:GetTopParentFrame();
 
-	local searchCount = GET_CHILD_BYNAME(itemGbox, "buyItem_");
+	local searchCount = GET_CHILD_CNT_BYNAME(itemGbox, "buyItem_");
 	local yPos = searchCount * 70;
 	local buyItemCtrlSet = itemGbox:CreateOrGetControlSet("socialitemset_Type", "buyItem_"..searchCount, 5, 5+yPos);
 
@@ -25,7 +25,7 @@ function SOCIAL_BUY_ITEM_SET_FROM_WIKI(frame, itemCls)
 	local buyGbox = GET_CHILD(frame, "buyGbox", "ui::CGroupBox");
 	local buyItemGbox = GET_CHILD(buyGbox, "buyItemGbox", "ui::CGroupBox");
 
-	local searchCount = GET_CHILD_BYNAME(buyItemGbox, "buyItem_");
+	local searchCount = GET_CHILD_CNT_BYNAME(buyItemGbox, "buyItem_");
 	local yPos = searchCount * 62;
 	local buyItemCtrlSet = buyItemGbox:CreateOrGetControlSet("socialitemset_Type", "buyItem_"..searchCount, 5, yPos);
 

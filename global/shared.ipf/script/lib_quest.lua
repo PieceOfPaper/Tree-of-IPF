@@ -29,6 +29,8 @@ function GET_ICON_BY_STATE_MODE(state, questIES)
         modeicon = 'PERIOD'
     elseif tail == '_party' then
         modeicon = 'PARTY'
+    elseif tail == '_key' then
+        modeicon = 'KEYQUEST'
     end
     
 	if state == 'SUCCESS' then
@@ -60,8 +62,36 @@ function GET_MARK_TAIL(questies)
 	    return "_sub", 0;
 	elseif questies.QuestMode == "PARTY" then
 	    return "_party", 0;
+	elseif questies.QuestMode == "KEYITEM" then
+	    return "_key", 0;
 	end
 	
 	return "_sub", 0;
 
+end
+
+function GET_PROGRESS_VALUE_BY_STRING(progressStr)
+	if progressStr == 'POSSIBLE' then
+		return 1;
+	elseif progressStr == 'SUCCESS' then
+		return 2;
+	elseif progressStr == 'PROGRESS' then
+		return 3;
+	elseif progressStr == 'COMPLETE' then
+		return 4;
+	end
+	return 0;
+end
+
+function GET_PROGRESS_STRING_BY_VALUE(progressValue)
+	if progressValue == 1 then
+		return 'POSSIBLE';
+	elseif progressValue == 2 then
+		return 'SUCCESS';
+	elseif progressValue == 3 then
+		return 'PROGRESS';
+	elseif progressValue == 4 then
+		return 'COMPLETE';
+	end
+	return 'IMPOSSIBLE';
 end

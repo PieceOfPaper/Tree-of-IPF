@@ -11,7 +11,7 @@ end
 function UPDATE_QUESTMARK(frame, msg, argStr, argNum)
 	local pc = GetMyPCObject();
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
-    local subQuestCount = 0
+    local subQuestZoneList = {}
     if sObj == nil then
 		return;
 	end
@@ -65,9 +65,9 @@ function UPDATE_QUESTMARK(frame, msg, argStr, argNum)
     		end   		
     		-- ����Ʈ ���� �Ұ���
     		if result == 'IMPOSSIBLE' then			
-    			-- ����Ʈ ���� �Ұ����ϰ�쿡��?����Ʈ ��ũ�� �������� �ʴ´�.
+    			-- ����Ʈ ���� �Ұ����ϰ�쿡��?����Ʈ ��ũ�� �������� �ʴ´�.
 				
-    		-- ����Ʈ ���� ���������� ���� ���̿� ���� ��ũ�� �����?
+    		-- ����Ʈ ���� ���������� ���� ���̿� ���� ��ũ�� �����?
     		elseif result == 'POSSIBLE' then
     		    local flag = 0
     		    if questIES.PossibleUI_Notify == 'UNCOND' then
@@ -75,7 +75,7 @@ function UPDATE_QUESTMARK(frame, msg, argStr, argNum)
     		    end
     		    if flag == 0 then
     		        local result
-    		        result, subQuestCount = SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestCount, 'NPCMark')
+    		        result, subQuestZoneList = SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, 'NPCMark')
     		        if result == "HIDE"
     		        or questIES.QuestStartMode == 'NPCENTER_HIDE'
     		        or questIES.QuestStartMode == 'GETITEM'

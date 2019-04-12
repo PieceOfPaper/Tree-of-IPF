@@ -6,7 +6,7 @@ end
 
 function RUN_GAMEEXIT_TIMER(type, channel)
 	local frame = ui.GetFrame("gameexitpopup");
-	RunGameExitTimer();
+	RunGameExitTimer(type);
 
 	frame:SetUserValue("EXIT_TYPE", type);
 	if type == "Channel" and channel ~= nil then
@@ -57,7 +57,7 @@ end
 function DO_QUIT_GAME()
 	session.SaveQuickSlot(true);
 	for i = 0, AUTO_SELL_COUNT-1 do
-	-- ¹¹ÇÏ³ª¶óµµ true¸é
+	-- ï¿½ï¿½ï¿½Ï³ï¿½ï¿½ï¿½ trueï¿½ï¿½
 		if session.autoSeller.GetMyAutoSellerShopState(i) == true then
 			app.Quit(true)
 			return;
@@ -69,7 +69,7 @@ end
 function GAME_TO_LOGIN()
 	session.SaveQuickSlot(true);
 	for i = 0, AUTO_SELL_COUNT-1 do
-	-- ¹¹ÇÏ³ª¶óµµ true¸é
+	-- ï¿½ï¿½ï¿½Ï³ï¿½ï¿½ï¿½ trueï¿½ï¿½
 		if session.autoSeller.GetMyAutoSellerShopState(i) == true then
 			app.GameToLogin(true)
 			return;
@@ -81,7 +81,7 @@ end
 function GAME_TO_BARRACK()
 	session.SaveQuickSlot(true);
 	for i = 0, AUTO_SELL_COUNT-1 do
-	-- ¹¹ÇÏ³ª¶óµµ true¸é
+	-- ï¿½ï¿½ï¿½Ï³ï¿½ï¿½ï¿½ trueï¿½ï¿½
 		if session.autoSeller.GetMyAutoSellerShopState(i) == true then
 			app.GameToBarrack(true)
 			return;

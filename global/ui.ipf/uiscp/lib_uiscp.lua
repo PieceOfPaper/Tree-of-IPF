@@ -469,7 +469,7 @@ function GET_QUEST_NPC_NAMES(mapname, npclist, statelist, questIESList, questPro
 	local pc = GetMyPCObject();
 	local questIES = nil;
 	local cnt = GetClassCount('QuestProgressCheck')
-	local subQuestCount = 0
+	local subQuestZoneList = {}
 	for i = 0, cnt - 1 do
 		questIES = GetClassByIndex('QuestProgressCheck', i);
 		if questIES.ClassName ~= 'None' then
@@ -492,7 +492,7 @@ function GET_QUEST_NPC_NAMES(mapname, npclist, statelist, questIESList, questPro
     				end
     		    end
     		    local result2
-    		    result2, subQuestCount = SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestCount, 'ZoneMap')
+    		    result2, subQuestZoneList = SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, 'ZoneMap')
     		    if result == "POSSIBLE" and result2 == "HIDE" then
     		        flag = 0
     		    end

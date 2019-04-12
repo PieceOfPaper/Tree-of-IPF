@@ -5,7 +5,19 @@
 		<controls>
 			<groupbox name="gbox" rect="0 0 400 270"/>
 			<richtext name="token_moremission" OverrideType="ADD" margin="10 195 0 0" rect="0 0 120 24" fontname="brown_16" format="인던,미션 1회 추가입장"/>
-		    <labelline name="labelline_1" margin="10 35 0 0" rect="0 0 385 2" skin="labelline_def" layout_gravity="left top"/>
+			<labelline name="labelline_1" margin="10 35 0 0" rect="0 0 385 2" skin="labelline_def" layout_gravity="left top"/>
+		</controls>
+	</tooltip>
+	<tooltip name="status_detail" x="0" y="0" fixwidth="false" width="350" height="155" moveable="false" frameskin="test_tooltipskin_tj" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_STATUS_DETAIL_TOOLTIP">
+		<controls>
+			<richtext name="base_txt" rect="0 0 60 30" margin="84 9 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41b}{s16}%s{/}{/}" maxwidth="0" param1="value" param1_def="기본" resizebytext="false" slideshow="false" spacey="0" textalign="center top"/>
+			<richtext name="point_txt" rect="0 0 60 30" margin="164 9 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41b}{s16}%s{/}{/}" maxwidth="0" param1="value" param1_def="투자" resizebytext="false" slideshow="false" spacey="0" textalign="center top"/>
+			<richtext name="add_txt" rect="0 0 60 30" margin="244 9 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41b}{s16}%s{/}{/}" maxwidth="0" param1="value" param1_def="기타" resizebytext="false" slideshow="false" spacey="0" textalign="center top"/>
+			<richtext name="base_value" rect="0 0 60 30" margin="84 36 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st66b}%s{/}" maxwidth="0" param1="value" param1_def="0" resizebytext="false" slideshow="false" spacey="0" textalign="center top"/>
+			<richtext name="point_value" rect="0 0 60 30" margin="164 36 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st66b}%s{/}" maxwidth="0" param1="value" param1_def="0" resizebytext="false" slideshow="false" spacey="0" textalign="center top"/>
+			<richtext name="add_value" rect="0 0 60 30" margin="244 36 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st66b}%s{/}" maxwidth="0" param1="value" param1_def="0" resizebytext="false" slideshow="false" spacey="0" textalign="center top"/>
+			<labelline name="label" margin="0 60 0 0" rect="0 0 320 3" skin="None" layout_gravity="center top"/>
+			<richtext name="desc" rect="0 0 300 40" margin="1 0 0 17" layout_gravity="center bottom" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st66}{s14}%s{/}" maxwidth="0" param1="value" param1_def="Description" resizebytext="true" slideshow="false" spacey="0" textalign="left bottom"/>
 		</controls>
 	</tooltip>
 </tooltipset>

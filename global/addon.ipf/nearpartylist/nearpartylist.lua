@@ -11,78 +11,6 @@ function NEARPARTYLIST_ON_INIT(addon, frame)
 	
 end
 
-function IS_JOINABLE_PARTY(eachpartyinfo, eachpartymemberlist)
-
-
-	local memcount = eachpartymemberlist:Count()
-	if memcount >= 5 then
-		return false
-	end
-	
-	local ppartyobj = eachpartyinfo:GetObject();
-	local partyObj = GetIES(ppartyobj);
-
-	if partyObj["IsPrivate"] == 1 then
-		return false;
-	end
-
-	if partyObj["UseLevelLimit"] == 1 then
-		if partyObj["MinLv"] > GETMYPCLEVEL() then
-			return false
-		end
-		if partyObj["MaxLv"] < GETMYPCLEVEL() then
-			return false
-		end
-	end
-
-
-	local curClassType = partyObj["RecruitClassType"];
-
-	local num = curClassType
-	local calcresult={}
-	local i = 0
-	
-	while num > 0 do
-		
-		calcresult[i] = num%2
-		num = math.floor(num/2)
-		i = i + 1
-		if num < 1 then
-			break;
-		end
-	end
-
-	
-	local pc = GetMyPCObject();
-	local pcjobinfo = GetClass('Job', pc.JobName)
-
-	if pcjobinfo.CtrlType == 'Warrior' then
-		if calcresult[0] ~= 1 then
-			return false;
-		end
-	end
-
-	if pcjobinfo.CtrlType == 'Wizard' then
-		if calcresult[1] ~= 1 then
-			return false;
-		end
-	end
-
-	if pcjobinfo.CtrlType == 'Archer' then
-		if calcresult[2] ~= 1 then
-			return false;
-		end
-	end
-
-	if pcjobinfo.CtrlType == 'Cleric' then
-		if calcresult[3] ~= 1 then
-			return false;
-		end
-	end
-
-	return true
-end
-
 function OPEN_NEARPARTYLIST(frame)
 	
 end
@@ -115,19 +43,21 @@ function UPDATE_NEAR_PARTY_LIST(frame, msg, str, page)
 	
 		if listcount > 5 then
 			listcount = 5;
-		end
+        end
 	
 		for i = 0, listcount-1 do
 
-			local ctrlheight = ui.GetControlSetAttribute('nearpartyinfo', 'height') + 3
+            if nearPartyList:Element(i) == nil then
+			    break;
+			end
+
+			local eachpartyinfo = nearPartyList:Element(i).partyInfo
+			local eachpartymemberlist = nearPartyList:Element(i):GetMemberList()
+
+         
+            local ctrlheight = ui.GetControlSetAttribute('nearpartyinfo', 'height') + 3
 			local set = mainGbox:CreateOrGetControlSet('nearpartyinfo', 'nearpartylist_'..i, 0, startYmargin + ctrlheight*i);
 			local bgbox = GET_CHILD_RECURSIVELY(set,"neainfo_bg")
-			if nearPartyList:Element(i) == nil then
-				break;
-			end
-			local eachpartyinfo = nearPartyList:Element(i).partyInfo
-
-			local eachpartymemberlist = nearPartyList:Element(i):GetMemberList()
 		
 			-- 파티 이름
 			local nameTxt = GET_CHILD_RECURSIVELY(set,'partyName')
@@ -138,22 +68,10 @@ function UPDATE_NEAR_PARTY_LIST(frame, msg, str, page)
 			local leaderName = GET_CHILD_RECURSIVELY(set,'leaderName')
 			leaderName:SetTextByKey("leadername",eachpartyinfo.info.leaderName)
 
-			-- 파티 멤버 수
-			if IS_JOINABLE_PARTY(eachpartyinfo, eachpartymemberlist) == true then
-				bgbox:EnableHitTest(1)
-				bgbox:SetColorTone("FFFFFFFF");
-				bgbox:SetEventScript(ui.LBUTTONDOWN, "LCLICK_PARTY_LIST");
-				bgbox:SetEventScriptArgString(ui.LBUTTONDOWN, eachpartyinfo.info.leaderName );
-				bgbox:SetTooltipType("partyinfotooltip");
-				bgbox:SetTooltipArg("", i)
-			else
-				bgbox:EnableHitTest(0)
-				bgbox:SetColorTone("FF444444");
-				bgbox:SetEventScript(ui.LBUTTONDOWN, "None");
-				set:SetTooltipType("partyinfotooltip");
-				set:SetTooltipArg("", i)
-				
-			end
+			bgbox:EnableHitTest(1)
+			bgbox:SetColorTone("FFFFFFFF");
+			bgbox:SetEventScript(ui.LBUTTONDOWN, "NEAR_PARTY_INFO_DO_OPEN");
+			bgbox:SetEventScriptArgNumber(ui.LBUTTONDOWN, i );
 
 		end
 

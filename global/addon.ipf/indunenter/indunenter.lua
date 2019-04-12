@@ -1,12 +1,11 @@
 ﻿function INDUNENTER_ON_INIT(addon, frame)
 	addon:RegisterMsg('MOVE_ZONE', 'INDUNENTER_CLOSE');
-	addon:RegisterMsg('UPDATE_PC_COUNT', 'INDUNENTER_UPDATE_PC_COUNT');
 	addon:RegisterMsg('ESCAPE_PRESSED', 'INDUNENTER_ON_ESCAPE_PRESSED');
 
 	g_indunMultipleItem = "Premium_dungeoncount_01";
 	g_indunMultipleItem2 = "Premium_dungeoncount_Event";
 
-	PC_INFO_COUNT = 4;
+	PC_INFO_COUNT = 5;
 end
 
 function INDUNENTER_ON_ESCAPE_PRESSED(frame, msg, argStr, argNum)
@@ -43,7 +42,6 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 	local smallmode = frame:GetChild('smallmode');
 	local noPicBox = GET_CHILD_RECURSIVELY(bigmode, 'noPicBox');
 	local smallBtn = GET_CHILD_RECURSIVELY(frame, 'smallBtn');
-	local reEnterBtn = GET_CHILD_RECURSIVELY(frame, 'reEnterBtn');
 	local withBtn = GET_CHILD_RECURSIVELY(frame, 'withBtn');
 
 	if frame:IsVisible() == 1 then
@@ -78,10 +76,9 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 	INDUNENTER_AUTOMATCH_TYPE(0);
 	INDUNENTER_AUTOMATCH_PARTY(0);
 	INDUNENTER_SET_MEMBERCNTBOX();
+	INDUNENTER_INIT_REENTER_UNDERSTAFF_BUTTON(frame, isAlreadyPlaying)
 	withBtn:SetTextTooltip(ClMsg("PartyMatchInfo_Req"));
 
-
-	reEnterBtn:ShowWindow(isAlreadyPlaying);
 	if enableAutoMatch == 0 then
 		INDUNENTER_SET_ENABLE(1, 0, 0, 0);
 	end
@@ -92,7 +89,31 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 	smallmode:ShowWindow(0);
 end
 
+function INDUNENTER_INIT_REENTER_UNDERSTAFF_BUTTON(frame, enableReenter)
+    if enableReenter == nil then
+        enableReenter = frame:GetUserIValue('ENABLE_REENTER');
+    end
+	local reEnterBtn = GET_CHILD_RECURSIVELY(frame, 'reEnterBtn');
+    local understaffEnterAllowBtn = GET_CHILD_RECURSIVELY(frame, 'understaffEnterAllowBtn');
+    local smallUnderstaffEnterAllowBtn = GET_CHILD_RECURSIVELY(frame, 'smallUnderstaffEnterAllowBtn');
+    
+    reEnterBtn:ShowWindow(enableReenter);
+    if enableReenter == 1 then
+        understaffEnterAllowBtn:ShowWindow(0);
+    else
+        understaffEnterAllowBtn:ShowWindow(1);
+        understaffEnterAllowBtn:SetEnable(0);
+    end
+    smallUnderstaffEnterAllowBtn:ShowWindow(1);
+    frame:SetUserValue('ENABLE_REENTER', enableReenter);
+end
+
 function INDUNENTER_INIT_MEMBERBOX(frame)
+	INDUNENTER_INIT_MY_INFO(frame, 'NO');
+	INDUNENTER_UPDATE_PC_COUNT(frame, nil, "None", 0);
+end
+
+function INDUNENTER_INIT_MY_INFO(frame, understaff)
     local pc = GetMyPCObject();
 	local aid = session.loginInfo.GetAID();
 	local mySession = session.GetMySession();
@@ -103,8 +124,7 @@ function INDUNENTER_INIT_MEMBERBOX(frame)
 	end
 	local cid = mySession:GetCID();
 
-	frame:SetUserValue('MEMBER_INFO', aid..'/'..tostring(jobID)..'/'..tostring(lv)..'/'..cid);
-	INDUNENTER_UPDATE_PC_COUNT(frame, nil, "None", 0);
+	frame:SetUserValue('MEMBER_INFO', aid..'/'..tostring(jobID)..'/'..tostring(lv)..'/'..cid..'/'..understaff);
 end
 
 function INDUNENTER_MAKE_PICTURE(frame, indunCls)
@@ -308,7 +328,7 @@ function INDUNENTER_MAKE_LEVEL_BOX(frame, noPicBox, indunCls)
 	lvData:SetText(TryGetProp(indunCls, 'Level'));
 end
 
-function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable)
+function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable, understaffCount)
 	local frame = ui.GetFrame('indunenter');
 	local partyLine = GET_CHILD_RECURSIVELY(frame, 'partyLine');
 	local memberBox = GET_CHILD_RECURSIVELY(frame, 'memberBox');
@@ -332,7 +352,8 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable)
 		partyLine:ShowWindow(0);
 	end
 	DESTROY_CHILD_BYNAME(memberBox, 'MEMBER_');
-
+    
+    local understaffShowCount = 0;
 	for i = 1, INDUN_AUTOMATCHING_PCCOUNT do
 		local memberCtrlSet = memberBox:CreateOrGetControlSet('indunMember', 'MEMBER_'..tostring(i), 10 * i + 58 * (i - 1), 0);
 		memberCtrlSet:ShowWindow(1);
@@ -343,11 +364,13 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable)
 		local jobIcon = GET_CHILD_RECURSIVELY(memberCtrlSet, 'jobportrait');
 		local matchedIcon = GET_CHILD_RECURSIVELY(memberCtrlSet, 'matchedIcon');
 		local NO_MATCH_SKIN = frame:GetUserConfig('NO_MATCH_SKIN');
+        local understaffAllowImg = memberCtrlSet:GetChild('understaffAllowImg');
 
 		levelText:ShowWindow(0);
 		leaderImg:ShowWindow(0);
 		jobIcon:SetImage(NO_MATCH_SKIN);
 		matchedIcon:ShowWindow(0);
+        understaffAllowImg:ShowWindow(0);
 
 		if i <= pcCount then -- 참여한 인원만큼 보여주는 부분
 			if i * PC_INFO_COUNT <= #memberTable then -- 파티원인 경우		
@@ -374,11 +397,24 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable)
 				local cid = memberTable[i * PC_INFO_COUNT - (PC_INFO_COUNT - 4)];
 				PARTY_JOB_TOOLTIP_BY_CID(cid, jobIcon, jobCls);
 
+                -- show understaff
+                local understaffAllowMember = memberTable[i * PC_INFO_COUNT - (PC_INFO_COUNT - 5)];
+                if understaffAllowMember == 'YES' then
+                    understaffAllowImg:ShowWindow(1);
+                    understaffShowCount = understaffShowCount + 1;
+                end
 			else -- 파티원은 아닌데 매칭된 사람
 				jobIcon:ShowWindow(0);
 				matchedIcon:ShowWindow(1);
+
+                -- show understaff
+                if understaffShowCount < understaffCount then
+                    understaffAllowImg:ShowWindow(1);
+                    understaffShowCount = understaffShowCount + 1;
                 end
 			end
+            
+		end
 	end
 end
 
@@ -537,10 +573,12 @@ function INDUNENTER_PARTYMATCH(frame, ctrl)
 	local topFrame = frame:GetTopParentFrame();
 	local textCount = topFrame:GetUserIValue("multipleCount");
 	local partyAskText = GET_CHILD_RECURSIVELY(topFrame, "partyAskText");
+    local understaffEnterAllowBtn = GET_CHILD_RECURSIVELY(topFrame, 'understaffEnterAllowBtn');
 
 	if topFrame:GetUserValue('WITHMATCH_MODE') == 'NO' then
 		ReqMoveToIndun(3, textCount);
 		ctrl:SetTextTooltip(ClMsg("PartyMatchInfo_Go"));
+        understaffEnterAllowBtn:ShowWindow(1);
 		INDUNENTER_SET_ENABLE(0, 0, 1, 0);
 	else
 		ReqRegisterToIndun(topFrame:GetUserIValue('INDUN_TYPE'));
@@ -588,7 +626,10 @@ function INDUNENTER_SET_MEMBERCNTBOX()
 	memberCntBox:ShowWindow(1);
 end
 
-function INDUNENTER_AUTOMATCH_TYPE(indunType)
+function INDUNENTER_AUTOMATCH_TYPE(indunType, needUnderstaffAllow)
+    if needUnderstaffAllow == nil then
+        needUnderstaffAllow = 1;
+    end
 	local frame = ui.GetFrame("indunenter");
 	local memberCntBox = GET_CHILD_RECURSIVELY(frame, 'memberCntBox');
 	local autoMatchText = GET_CHILD_RECURSIVELY(frame, 'autoMatchText');
@@ -597,6 +638,7 @@ function INDUNENTER_AUTOMATCH_TYPE(indunType)
 	local smallBtn = GET_CHILD_RECURSIVELY(frame, 'smallBtn');
 	local smallmode = GET_CHILD_RECURSIVELY(frame, 'smallmode');
 	local cancelAutoMatch = GET_CHILD_RECURSIVELY(frame, 'cancelAutoMatch');
+    local understaffEnterAllowBtn = GET_CHILD_RECURSIVELY(frame, 'understaffEnterAllowBtn');
 
 	if indunType == 0 then
 		frame:SetUserValue('AUTOMATCH_MODE', 'NO');
@@ -606,6 +648,7 @@ function INDUNENTER_AUTOMATCH_TYPE(indunType)
 
 		INDUNENTER_SET_ENABLE(1, 1, 1, 1);
 		INDUNENTER_INIT_MEMBERBOX(frame);
+        INDUNENTER_INIT_REENTER_UNDERSTAFF_BUTTON(frame);
 
 		if frame:GetUserValue('FRAME_MODE') == "SMALL" then
 			INDUNENTER_SMALL(frame, smallBtn);
@@ -615,7 +658,9 @@ function INDUNENTER_AUTOMATCH_TYPE(indunType)
 		frame:SetUserValue('EXCEPT_CLOSE_TARGET', 'YES');
 		autoMatchText:ShowWindow(0);
 		cancelAutoMatch:SetEnable(1);
+        understaffEnterAllowBtn:ShowWindow(1);
 
+        INDUNENTER_UNDERSTAFF_BTN_ENABLE(frame, needUnderstaffAllow);
 		INDUNENTER_AUTOMATCH_TIMER_START(frame);
 		INDUNENTER_SET_ENABLE(0, 1, 0, 0);
 		INDUNENTER_MAKE_SMALLMODE(frame, false);
@@ -684,6 +729,7 @@ function INDUNENTER_AUTOMATCH_PARTY(numWaiting, level, limit, indunLv, indunName
 		withText:ShowWindow(0);
 		withTime:ShowWindow(1);
 		INDUNENTER_SET_ENABLE(0, 0, 1, 0);
+        INDUNENTER_UNDERSTAFF_BTN_ENABLE(frame, 1);
 	end
 
 	INDUNENTER_SET_MEMBERCNTBOX();
@@ -726,28 +772,36 @@ function INDUNENTER_SET_ENABLE(enter, autoMatch, withParty, multi)
 	end
 end
 
-function INDUNENTER_UPDATE_PC_COUNT(frame, msg, argStr, argNum) -- argNum: pcCount, argStr: aid/jobID/lv
+function INDUNENTER_UPDATE_PC_COUNT(frame, msg, infoStr, pcCount, understaffCount) -- infoStr: aid/jobID/level/CID/understaffAllow(YES/NO)
 	if frame == nil then
 		return;
 	end
-		
+    if understaffCount == nil then
+        understaffCount = 0;
+    end
+	
+	-- enable auto match, with match mode; except initialize
+	if frame:GetUserValue('AUTOMATCH_MODE') == 'NO' and frame:GetUserValue('WITHMATCH_MODE') == 'NO' and pcCount > 0 then
+		return;
+	end
+
 	-- update pc count
-	if argStr == nil then
-		argStr = "None";
+	if infoStr == nil then
+		infoStr = "None";
 	end
 
 	local memberInfo = frame:GetUserValue('MEMBER_INFO');
-	if argStr ~= "None" then -- update party member info
-		memberInfo = argStr;
+	if infoStr ~= "None" then -- update party member info
+		memberInfo = infoStr;
 		frame:SetUserValue('MEMBER_INFO', memberInfo);
 	end
 
 	local memberTable = StringSplit(memberInfo, '/');
-	INDUNENTER_MAKE_PARTY_CONTROLSET(argNum, memberTable);
-	INDUNENTER_UPDATE_SMALLMODE_PC(argNum);
+	INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable, understaffCount);
+	INDUNENTER_UPDATE_SMALLMODE_PC(pcCount, understaffCount);
 end
 
-function INDUNENTER_UPDATE_SMALLMODE_PC(pcCount)
+function INDUNENTER_UPDATE_SMALLMODE_PC(pcCount, understaffCount)
 	local frame = ui.GetFrame("indunenter");
 	local YES_MATCH_SKIN = frame:GetUserConfig('YES_MATCH_SKIN');
 
@@ -756,20 +810,34 @@ function INDUNENTER_UPDATE_SMALLMODE_PC(pcCount)
 	local notWaitingCount = INDUN_AUTOMATCHING_PCCOUNT - pcCount;
 
 	local pictureIndex = 0;
+    local understaffShowCount = 0;
 	for i = 0 , pcCount - 1 do
-		local pic = matchPCBox:CreateControl("picture", "MAN_PICTURE_" .. pictureIndex, 25, 40, ui.LEFT, ui.CENTER_VERT, 0, 0, 0, 0);
+		local ctrlset = matchPCBox:CreateOrGetControlSet("smallIndunMember", "MAN_PICTURE_" .. pictureIndex, 0, 0);
+        ctrlset:SetGravity(ui.LEFT, ui.CENTER_VERT);
+        local pic = ctrlset:GetChild('pcImg');
+        local understaffAllowPic = ctrlset:GetChild('understaffAllowImg');
 		AUTO_CAST(pic);
 		pic:SetEnableStretch(1);
 		pic:SetImage(YES_MATCH_SKIN);
+        if understaffShowCount < understaffCount then
+            understaffAllowPic:ShowWindow(1);
+            understaffShowCount = understaffShowCount + 1;
+        else
+            understaffAllowPic:ShowWindow(0);
+        end
 		pictureIndex = pictureIndex + 1;
 	end
 
 	for i = 0 , notWaitingCount - 1 do
-		local pic = matchPCBox:CreateControl("picture", "MAN_PICTURE_" .. pictureIndex, 25, 40, ui.LEFT, ui.CENTER_VERT, 0, 0, 0, 0);
+		local ctrlset = matchPCBox:CreateOrGetControlSet("smallIndunMember", "MAN_PICTURE_" .. pictureIndex, 0, 0);
+        ctrlset:SetGravity(ui.LEFT, ui.CENTER_VERT);
+        local pic = ctrlset:GetChild('pcImg');
+        local understaffAllowPic = ctrlset:GetChild('understaffAllowImg');
 		AUTO_CAST(pic);
 		pic:SetEnableStretch(1);
 		pic:SetColorTone("FF222222");
 		pic:SetImage(YES_MATCH_SKIN);
+        understaffAllowPic:ShowWindow(0);
 		pictureIndex = pictureIndex + 1;
 	end
 	
@@ -831,9 +899,9 @@ function _INDUNENTER_AUTOMATCH_FIND_UPDATE_TIME(frame)
 	return 1;	
 end
 
-function INDUNENTER_AUTOMATCH_PARTY_SET_COUNT(memberCnt, memberInfo)
+function INDUNENTER_AUTOMATCH_PARTY_SET_COUNT(memberCnt, memberInfo, understaffCount)
 	local frame = ui.GetFrame('indunenter');
-	INDUNENTER_UPDATE_PC_COUNT(frame, nil, memberInfo, memberCnt);
+	INDUNENTER_UPDATE_PC_COUNT(frame, nil, memberInfo, memberCnt, understaffCount);
 end
 
 function INDUNENTER_REENTER(frame, ctrl)
@@ -1040,4 +1108,48 @@ function INDUNENTER_AMEND_OFFSET(frame)
 	end
 
 	frame:SetOffset(left, top);	
+end
+
+function INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW(parent, ctrl)
+    local topFrame = parent:GetTopParentFrame();
+    local withMatchMode = topFrame:GetUserValue('WITHMATCH_MODE');
+    if topFrame:GetUserValue('AUTOMATCH_MODE') ~= 'YES' and withMatchMode == 'NO' then
+		ui.SysMsg(ScpArgMsg('EnableWhenAutoMatching'));
+        return;
+    end
+
+    local indunType = topFrame:GetUserIValue('INDUN_TYPE');
+    local indunCls = GetClassByType('Indun', indunType);
+    local UnderstaffEnterAllowMinMember = TryGetProp(indunCls, 'UnderstaffEnterAllowMinMember');
+    if UnderstaffEnterAllowMinMember == nil then
+        return;
+    end
+        
+    -- 파티원과 자동매칭인 경우 처리
+    local yesScpStr = '_INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW()';
+    if withMatchMode == 'YES' then
+        yesScpStr = 'ReqUnderstaffEnterAllowModeWithParty('..indunType..')';
+    end
+    ui.MsgBox(ScpArgMsg('ReallyAllowUnderstaffMatchingWith{MIN_MEMBER}?', 'MIN_MEMBER', UnderstaffEnterAllowMinMember), yesScpStr, "None");
+end
+
+function _INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW()
+    local frame = ui.GetFrame('indunenter');
+
+    ReqUnderstaffEnterAllowMode();
+    INDUNENTER_INIT_MY_INFO(frame, 'YES');
+    INDUNENTER_UNDERSTAFF_BTN_ENABLE(frame, 0);
+end
+
+function INDUNENTER_UNDERSTAFF_BTN_ENABLE(frame, enable)
+    local understaffEnterAllowBtn = GET_CHILD_RECURSIVELY(frame, 'understaffEnterAllowBtn');
+    local smallUnderstaffEnterAllowBtn = GET_CHILD_RECURSIVELY(frame, 'smallUnderstaffEnterAllowBtn');
+
+    understaffEnterAllowBtn:SetEnable(enable);
+    smallUnderstaffEnterAllowBtn:SetEnable(enable);
+
+    local reEnterBtn = GET_CHILD_RECURSIVELY(frame, 'reEnterBtn');
+    if understaffEnterAllowBtn:IsVisible() == 1 then
+        reEnterBtn:ShowWindow(0);
+    end
 end

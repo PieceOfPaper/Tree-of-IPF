@@ -133,17 +133,6 @@ function SCR_USE_ITEM_Guide_Cube_1(pc)
             SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("Retention_Select2", "LEVELCOUNT", CheckList[i+1][1]), 5)
         end
     end
-    if 15 <= pc.Lv and aObj.EVENT_WHITE_R1 == 0 and i >= 2 then
-        local tx = TxBegin(pc) 
-        TxGiveItem(tx, "PremiumToken_1d", 1, "Retention_Event")
-        TxSetIESProp(tx, aObj, 'EVENT_WHITE_R1', aObj.EVENT_WHITE_R1 + 1) 
-        local ret = TxCommit(tx)   
-    elseif 110 <= pc.Lv and aObj.EVENT_WHITE_R2 == 0 and i >= 7 then
-        local tx = TxBegin(pc)
-        TxGiveItem(tx, "PremiumToken_1d", 1, "Retention_Event")
-        TxSetIESProp(tx, aObj, 'EVENT_WHITE_R2', aObj.EVENT_WHITE_R2 + 1) 
-        local ret = TxCommit(tx)
-    end
 end
 
 function SCR_NPC_RETENTION_DIALOG(self, pc)

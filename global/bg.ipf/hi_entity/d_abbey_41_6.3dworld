@@ -1,13 +1,13 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 1 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\dungeon\d_abbey_41_6\"/>
+	<ModelDir IpfName="bg_hi2" Path="\dungeon\d_abbey_41_6\"/>
 	<LightMap File="d_abbey_41_6_lightmap.jpg" Length="4600 4600" Offset="483.783 -82.794" Size="1024 1024"/>
 	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
 	<AnimationDir IpfName="bg_hi2" Path="\dungeon\d_abbey_41_6\"/>
 	<AutoHeightMap Length="6000.0 6000.0" Offset="-65 900" Height="1000 -2000"/>
 	<TexDir IpfName="bg_texture" Path="\abbey\"/>
-	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_abbey_41_6\"/>
+	<ShaTexDir IpfName="bg_hi2" Path="\dungeon\d_abbey_41_6\"/>
 	<Model File="d_abbey_41_6_2area_model.xac" Model="d_abbey_41_6_2area_model" ShadowMap="d_abbey_41_6_2area_model" pos="106.7036 4.1515 -1001.933" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_abbey_41_6_ground.xac" Model="d_abbey_41_6_ground" ShadowMap="d_abbey_41_6_ground" pos="87.2679 -29.7094 -67.3872" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_abbey_41_6_light.xac" Model="d_abbey_41_6_light" ShadowMap="d_abbey_41_6_light" pos="345.096 118.267 539.187" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>

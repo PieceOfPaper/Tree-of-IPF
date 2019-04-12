@@ -16,8 +16,6 @@ function STATUS_ON_INIT(addon, frame)
 	addon:RegisterMsg("LIKEIT_WHO_LIKE_ME", "STATUS_INFO");
 	addon:RegisterMsg("TOKEN_STATE", "TOKEN_ON_MSG");
 	
-	
-	
 	STATUS_INFO_VIEW(frame);
 end
 
@@ -49,7 +47,6 @@ function SHOW_TOKEN_REMAIN_TIME(ctrl)
 end
 
 function TOKEN_ON_MSG(frame, msg, argStr, argNum)
-
 	local logoutGBox = frame:GetChild("logoutGBox");
 	local logoutInternal = logoutGBox:GetChild("logoutInternal");
 	local gToken = logoutInternal:GetChild("gToken");
@@ -105,7 +102,7 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 				txt = string.format("{img 9plus_image2 %d %d}", 100, 45) 
 			end
 
-			local value = ctrlSet:GetChild("value");
+			local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 			if str =="abilityMax" then
 				value:ShowWindow(0);
 			else
@@ -120,19 +117,21 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 	local prop = ctrlSet:GetChild("prop");
     local imag = string.format(STATUS_OVERRIDE_GET_IMGNAME1(), 55, 45) 
 	prop:SetTextByKey("value", imag.. ScpArgMsg("Token_ExpUp{PER}", "PER", " ")); 
-    local value = ctrlSet:GetChild("value");
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 	imag = string.format(STATUS_OVERRIDE_GET_IMGNAME2(), 100, 45) 
     value:SetTextByKey("value", imag);
 
 	local itemClassID = session.loginInfo.GetPremiumStateArg(ITEM_TOKEN)
 	local itemCls = GetClassByType("Item", itemClassID);
-	if nil ~= itemCls and itemCls.NumberArg2 > 0 then
+    local accountObj = GetMyAccountObj();
+    local tradeCount = TryGetProp(accountObj, 'TradeCount');
+	if tradeCount ~= nil and tradeCount > 0 then
 		local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 6,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 		local prop = ctrlSet:GetChild("prop");
 		local img = string.format("{img dealok_image %d %d}", 55, 45) 
 		prop:SetTextByKey("value", img .. ScpArgMsg("AllowTradeByCount"));
 
-		local value = ctrlSet:GetChild("value");
+		local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 		img = string.format("{img dealok30_image2 %d %d}", 100, 45) 
 		value:SetTextByKey("value", img);
 	end
@@ -141,14 +140,35 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img 1plus_image %d %d}", 55, 45) 
     prop:SetTextByKey("value", imag..ClMsg("CanGetMoreBuff")); 
-    local value = ctrlSet:GetChild("value");
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
 	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 8,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img paid_pose_image %d %d}", 55, 45) 
     prop:SetTextByKey("value", imag..ClMsg("AllowPremiumPose")); 
-    local value = ctrlSet:GetChild("value");
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+    value:ShowWindow(0);
+
+	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 9,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img paid_pose_image %d %d}", 55, 45) 
+    prop:SetTextByKey("value", imag..ClMsg("CanGetMoneyByMarketImmediately")); 
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+    value:ShowWindow(0);
+
+	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 10,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img MarketLimitedRM_image %d %d}", 55, 45) 
+    prop:SetTextByKey("value", imag..ClMsg("CanRegisterMarketRegradlessOfLimit")); 
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+    value:ShowWindow(0);
+
+local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 11,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img teamcabinet_image %d %d}", 55, 45) 
+    prop:SetTextByKey("value", imag..ClMsg("TeamWarehouseEnable")); 
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
 	STATUS_OVERRIDE_NEWCONTROLSET1(tokenList)
@@ -299,12 +319,14 @@ function ACHIEVE_RESET(frame)
 	STATUS_ACHIEVE_INIT(frame);
 end
 
-function SET_STAT_TEXT(frame, ctrlname, pc, propname, addprop, consumed, vpc, xpos, ypos, totalValue, argValue)
+function SET_STAT_TEXT(frame, ctrlname, pc, propname, pointprop, addprop, consumed, vpc, xpos, ypos, totalValue, argValue)
 
 	local configName = propname .. "_UP";
 	local statup = session.GetUserConfig(configName);
 	local add = pc[addprop];
 	local total = pc[propname];
+	local point = pc[pointprop];
+	local base = total - add - point;
 
 	local value = (total + statup) / totalValue;
 	local percValue = math.floor(value * 100);
@@ -329,9 +351,13 @@ function SET_STAT_TEXT(frame, ctrlname, pc, propname, addprop, consumed, vpc, xp
 	local thopic = GET_CHILD(statusUpControlSet, "tho", "ui::CPicture");
 
 	onepic:ShowWindow(0);
+	onepic:EnableHitTest(0);
 	tenpic:ShowWindow(0);
+	tenpic:EnableHitTest(0);
 	hunpic:ShowWindow(0);
+	hunpic:EnableHitTest(0);
 	thopic:ShowWindow(0);
+	thopic:EnableHitTest(0);
 
 	local statupValue = total + statup;
 
@@ -389,24 +415,23 @@ function SET_STAT_TEXT(frame, ctrlname, pc, propname, addprop, consumed, vpc, xp
 	if ctrlname == "STR" then
 	    name:EnableHitTest(1);
         name:SetTextTooltip(ScpArgMsg("Auto_{@st59}KongKyeogLyeoge_yeongHyangeul_Jum{/}"));
-        btnUp:SetTextTooltip(ScpArgMsg("Auto_{@st59}KongKyeogLyeogeul_JeungKa_SiKinDa{/}"));
 	elseif ctrlname == "CON" then
 	    name:EnableHitTest(1);
         name:SetTextTooltip(ScpArgMsg("Auto_{@st59}ChoeDae_HPe_yeongHyangeul_Jum{/}"));
-        btnUp:SetTextTooltip(ScpArgMsg("Auto_{@st59}ChoeDae_HPLeul_JeungKa_SiKinDa{/}"));
 	elseif ctrlname == "INT" then
 	    name:EnableHitTest(1);
         name:SetTextTooltip(ScpArgMsg("Auto_{@st59}ChoeDae_SPe_yeongHyangeul_Jum{/}"));
-        btnUp:SetTextTooltip(ScpArgMsg("Auto_{@st59}ChoeDae_SPLeul_JeungKa_SiKinDa{/}"));
     elseif ctrlname == "MNA" then
 	    name:EnableHitTest(1);
         name:SetTextTooltip(ScpArgMsg("MNA_UI_MSG1"));
-        btnUp:SetTextTooltip(ScpArgMsg("MNA_UI_MSG2"));
 	elseif ctrlname == "DEX" then
 	    name:EnableHitTest(1);
         name:SetTextTooltip(ScpArgMsg("Auto_{@st59}ChiMyeongTa_Mich_HoePie_yeongHyangeul_Jum{/}"));
-        btnUp:SetTextTooltip(ScpArgMsg("Auto_{@st59}ChiMyeongTa_Mich_HoePiLeul_JeungKa_SiKinDa{/}"));
 	end
+	
+	bgPic:SetTooltipType("status_detail");
+	bgPic:SetTooltipArg(base, point, add);
+		
 	btnUp:SetEventScript(ui.LBUTTONUP, "REQ_STAT_UP");
 	btnUp:SetEventScriptArgString(ui.LBUTTONUP, propname);
 	btnUp:SetClickSound("button_click_stats");
@@ -426,6 +451,18 @@ function SET_STAT_TEXT(frame, ctrlname, pc, propname, addprop, consumed, vpc, xp
 	return consumed + statup, vpc;
 end
 
+function UPDATE_STATUS_DETAIL_TOOLTIP(frame, base, point, add)
+	local baseValue = GET_CHILD(frame, "base_value", "ui::CRichText");
+	local pointValue = GET_CHILD(frame, "point_value", "ui::CRichText");
+	local addValue = GET_CHILD(frame, "add_value", "ui::CRichText");
+	
+	baseValue:SetTextByKey("value", base);
+	pointValue:SetTextByKey("value", point);
+	addValue:SetTextByKey("value", add);
+
+	local desc = GET_CHILD(frame, "desc", "ui::CRichText");
+	desc:SetTextByKey("value", ScpArgMsg("StatusTooltipDesc"));
+end
 
 function REQ_STAT_UP(frame, control, argstr, argnum)
 
@@ -495,7 +532,7 @@ function UPDATE_STATUS_STAT(frame, gboxctrl, pc)
 		local typeStr = GetStatTypeStr(i);
 		local x = tonumber(frame:GetUserConfig("StatIconStartX")) + i * 85;
 		local avg = session.GetStatAvg(i) + pc[typeStr];
-		consumed, vpc = SET_STAT_TEXT(frame, typeStr, pc, typeStr, typeStr .. "_ADD", consumed, vpc, x, 60, totalValue, avg);
+		consumed, vpc = SET_STAT_TEXT(frame, typeStr, pc, typeStr, typeStr.."_STAT", typeStr .. "_ADD", consumed, vpc, x, 60, totalValue, avg);
 	end
 
 
@@ -630,6 +667,7 @@ function SETEXP_SLOT_PARTY(expupBuffBox, addValue, index, entireSum)
 		return false, percSum;
 end
 
+--F1 경험치 계산부분
 function SETEXP_SLOT(gbox)
 	local expupBuffBox = gbox:GetChild('expupBuffBox');	
 	DESTROY_CHILD_BYNAME(expupBuffBox, "expBuffslot_");			--EXP_Rate
@@ -642,40 +680,61 @@ function SETEXP_SLOT(gbox)
 	local index = 0;
 	local percSum = 0;
 	
-	--[[
-	if IS_SEASON_SERVER(nil) == "YES" then
-		local cls1 = GetClass("SharedConst","JAEDDURY_MON_EXP_RATE");
-		local val1 = cls1.Value;
-	if val1 ~= nil then
-	if val1 > 0.0 then
-		local class  = GetClassByType('Buff', 4540);	
-		percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val1 * 100);
-		index = index + 1;
+    local cls1 = nil;
+    local val1 = nil;
+
+    if session.world.IsIntegrateServer() == true then
+        local pcEtc = GetMyEtcObject();
+        if pcEtc then
+           val1 = pcEtc.MyWorldExpRate;
+        end
+    else
+        cls1 = GetClass("SharedConst","JAEDDURY_MON_EXP_RATE");
+        if cls1 ~= nil then
+            if TryGetProp(cls1, "Value") ~= nil then
+                val1 = cls1.Value;
+            end  
+        end
+    end
+
+		if val1 ~= nil then
+			if val1 > 0.0 then
+				local class  = GetClassByType('Buff', 4540);	
+				percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val1 * 100);
+				index = index + 1;
+			end
 		end
-	end
-	end
-	]]--
 
 	if 1 == session.loginInfo.GetPremiumState() then	
 		local cls2 = GetClass("SharedConst","JAEDDURY_NEXON_PC_EXP_RATE");
 		local val2 = cls2.Value;	
 		if val2 ~= nil then
-	if val2 > 0.0 then
-		local class  = GetClassByType('Buff', 4541);	
-		percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val2 * 100);
-		index = index + 1;
+			if val2 > 0.0 then
+				local class  = GetClassByType('Buff', 4541);	
+				percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val2 * 100);
+				index = index + 1;
 			end
-	end
+		end
 	end
 	
+	local class  = GetClass("Buff", "Event_CharExpRate");	
+	if class ~= nil then	
+		local handle = session.GetMyHandle();		
+		local charexpbuff = info.GetBuff(tonumber(handle), class.ClassID);				
+		if charexpbuff ~= nil then	
+			percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, charexpbuff.arg1);						
+			index = index + 1;
+		end
+	end
+		
 		--[[
-	--?¼반 ??티 경험췿계산
+	--일반 파티 경험치 계산
 	local retParty = false;
 	local partyMember, addValue1 =	GET_ONLINE_PARTY_MEMBER_N_ADDEXP();	
 	SWITCH(math.floor(partyMember)) {				
 		[0] = function() end,
 		[1] = function() end,	
-		[4] = function() -- 4??260 -> 280
+		[4] = function() -- 4인 260 -> 280
 			local addValue2 = 0;
 			local cls = GetClass("SharedConst","PARTY_EXP_BONUS_MEMBER_COUNT_FOUR");
 			local val = cls.Value;	
@@ -684,7 +743,7 @@ function SETEXP_SLOT(gbox)
 			end	
 			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue2 + addValue1, index, percSum);
 		end,
-		[5] = function() -- 5??300 -> 350
+		[5] = function() -- 5인 300 -> 350
 			local addValue2 = 0;
 			local cls = GetClass("SharedConst","PARTY_EXP_BONUS_MEMBER_COUNT_FIVE");
 			local val = cls.Value;	
@@ -693,7 +752,7 @@ function SETEXP_SLOT(gbox)
 			end	
 			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue2 + addValue1, index, percSum);
 		end,
-		default = function() --		1??100. 2??180, 3??220
+		default = function() --		1인 100. 2인 180, 3인 220
 			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue1, index, percSum);
 		end,
 		}	
@@ -766,7 +825,7 @@ function SETSLOTCTRL_EXP(cls, strIcon, parent, index, sum, perc)
 	tolua.cast(slotbox, "ui::CGroupBox");	
 	slotbox:EnableDrawFrame(0);
 
-	local newslot = slotbox:CreateOrGetControl('slot', 'slotExp_'..index, 42, 42, ui.LEFT, ui.TOP, 0, 0, 0, 0);	
+	local newslot = slotbox:CreateOrGetControl('slot', 'slotExp_'..index, 42, 42, ui.LEFT, ui.TOP, 0, 0, 0, 0);
 	tolua.cast(newslot, "ui::CSlot");	
 	if cls ~= nil then
 		newslot:SetEventScriptArgNumber(ui.RBUTTONUP, cls.ClassID);
@@ -1650,7 +1709,7 @@ function STATUS_ACHIEVE_INIT(frame)
 			eachAchiveGauge:SetTextTooltip("(" .. nowpoint .. "/" .. cls.NeedCount ..")")
 
 			if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 then
-				if equipAchieveName == cls.Name then
+				if equipAchieveName ~= 'None' and equipAchieveName == cls.Name then
 					eachAchiveDescTitle:SetText('{@stx2}'..cls.DescTitle..ScpArgMsg('Auto__(SayongJung)'));
 				else
 					eachAchiveDescTitle:SetText('{@stx2}'..cls.DescTitle);
@@ -1743,8 +1802,8 @@ function STATUS_ACHIEVE_INIT(frame)
 				local eachColor = imcIES.GetString(eachcls, 'Color') 
 				eachColorE = string.lower(eachColorE)
 
-				-- ??적 받으맿?¤어 컬러 ?￢라지????상????다걿?´서 HairColor ??로?¼티 값으로도 ??인
-				if string.find(nowAllowedColor, eachColorE) ~= nil or TryGetProp(etc, "HairColor_"..eachColorE) == 1 then
+				-- 업적 받으면 헤어 컬러 사라지는 현상이 있다고 해서 HairColor 프로퍼티 값으로도 확인
+				if TryGetProp(etc, "HairColor_"..eachColorE) == 1 then
 				
 					local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_'..eachColorE, 30 + 35 * haircount, 55, 35, 35);
 					tolua.cast(eachhairimg, "ui::CPicture");
@@ -1857,6 +1916,10 @@ function GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(engname)
 	if engname == 'orange' then
 		return "orange_color"
 	end
+	
+	if engname == 'midnightblue' then
+		return "midnightblue_color"
+	end
 	return "basic_color"
 
 end
@@ -1902,7 +1965,7 @@ function STATUS_JOB_CHANGE(frame)
 end
 
 
---캐릭???´름 변갿
+--캐릭터 이름 변경
 function CHANGE_MYPC_NAME_BY_ITEM(invItem)
 	local newframe = ui.GetFrame("inputstring");
 
@@ -1919,7 +1982,7 @@ function CHANGE_MYPC_NAME_BY_ITEM(invItem)
 	INPUT_STRING_BOX(ClMsg("InputNameForChange"), "EXEC_CHANGE_NAME_BY_ITEM", charName, 0, 16);
 end
 
---? ?´름 변갿
+--팀 이름 변경
 function CHANGE_TEAM_NAME_BY_ITEM(invItem)
 	local newframe = ui.GetFrame("inputstring");
 
@@ -1936,7 +1999,7 @@ function CHANGE_TEAM_NAME_BY_ITEM(invItem)
 	INPUT_STRING_BOX(ClMsg("ChangeFamilyName"), "EXEC_CHANGE_NAME_BY_ITEM", charName, 0, 16);
 end
 
---길드 ?´름 변갿
+--길드 이름 변경
 function CHANGE_GUILD_NAME_BY_ITEM(invItem)
 	local newframe = ui.GetFrame("inputstring");
 

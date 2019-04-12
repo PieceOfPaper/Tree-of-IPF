@@ -110,7 +110,16 @@ function SWITCHGENDER_DRAW_CHANGE_STATE(frame)
 	local pc = GetMyPCObject();
 	local pcjobinfo = GetClass('Job', pc.JobName)
 
-	local charimgName = ui.CaptureFullStdImage(pcjobinfo.ClassID, changeGender, headIndex, 1);
+    local changeHeadIndex = headIndex;
+    if changeGender == 2 then -- 여자로 바꾸는 경우는, 기본헤어가 다를 수도 있어
+        local etc = GetMyEtcObject();
+        local startFemaleHairType = TryGetProp(etc, 'StartFemaleHairType');
+        if startFemaleHairType ~= nil and startFemaleHairType > 0 then
+            changeHeadIndex = startFemaleHairType + 1;
+        end
+    end
+
+	local charimgName = ui.CaptureFullStdImage(pcjobinfo.ClassID, changeGender, changeHeadIndex, 1);
 	local changepic = GET_CHILD(repair, "changepic");
 	changepic:SetImage(charimgName);
 

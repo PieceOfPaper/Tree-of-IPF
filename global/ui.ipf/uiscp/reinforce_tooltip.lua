@@ -76,7 +76,6 @@ function REINFORCE_ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe
 
 	local mainframename = 'equip_main'
 	local addinfoframename = 'equip_main_addinfo'
-	local drawnowequip = 'false'
 	
 	if usesubframe == "usesubframe" then
 		mainframename = 'equip_sub'
@@ -86,7 +85,7 @@ function REINFORCE_ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe
 		addinfoframename = 'equip_sub_addinfo'
 	end
 
-	local ypos = DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnowequip); -- 장비라면 공통적으로 그리는 툴팁들
+	local ypos = DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename); -- 장비라면 공통적으로 그리는 툴팁들
 	
 	ypos = DRAW_ITEM_TYPE_N_WEIGHT(tooltipframe, invitem, ypos, mainframename) -- 타입, 무게.
 

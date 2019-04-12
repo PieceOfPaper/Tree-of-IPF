@@ -10,6 +10,7 @@ function ITEM_TOOLTIP_BOSSCARD(tooltipframe, invitem, strarg)
 	local ypos = DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename); -- 보스 카드라면 공통적으로 그리는 툴팁들
 	ypos = DRAW_BOSSCARD_ADDSTAT_TOOLTIP(tooltipframe, invitem, ypos, mainframename);
 	ypos = DRAW_BOSSCARD_EXP_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 경험치 바
+    ypos = DRAW_BOSSCARD_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 
 	ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
 end
 
@@ -40,8 +41,7 @@ function DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 	local bossCls = GetClassByType('Monster', invitem.NumberArg1);
 	local typeRichtext = GET_CHILD(CSet, "type_text");
 	typeRichtext:SetText(ScpArgMsg(bossCls.RaceType));
-
-
+    
 	local BOTTOM_MARGIN = CSet:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
 	CSet:Resize(CSet:GetWidth(),typeRichtext:GetY() + typeRichtext:GetHeight() + BOTTOM_MARGIN);
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+CSet:GetHeight())
@@ -96,4 +96,19 @@ function DRAW_BOSSCARD_ADDSTAT_TOOLTIP(tooltipframe, invitem, yPos, mainframenam
 	
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + CSet:GetHeight() + 10)
 	return CSet:GetHeight() + CSet:GetY() + 10;
+end
+
+function DRAW_BOSSCARD_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, mainframename)
+	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
+	gBox:RemoveChild('tooltip_bosscard_tradability');
+
+	local CSet = gBox:CreateControlSet('tooltip_bosscard_tradability', 'tooltip_bosscard_tradability', 0, ypos);
+	tolua.cast(CSet, "ui::CControlSet");
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_npc', 'option_npc_text', 'ShopTrade')
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_market', 'option_market_text', 'MarketTrade')
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_teamware', 'option_teamware_text', 'TeamTrade')
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_trade', 'option_trade_text', 'UserTrade')
+
+	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+CSet:GetHeight())
+    return ypos + CSet:GetHeight();
 end

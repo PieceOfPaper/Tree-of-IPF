@@ -147,9 +147,11 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 	else
 		slot:SetText("");
 	end
-
-	slot:SetEventScript(ui.RBUTTONUP, 'REMOVE_BUF');
-	slot:SetEventScriptArgNumber(ui.RBUTTONUP, buffType);
+	
+    if slot:GetTopParentFrame():GetName() ~= "targetbuff" then
+    	slot:SetEventScript(ui.RBUTTONUP, 'REMOVE_BUF');
+    	slot:SetEventScriptArgNumber(ui.RBUTTONUP, buffType);
+	end
 	slot:EnableDrop(0);
 	slot:EnableDrag(0);
 
@@ -184,6 +186,20 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 
 end
 
+function SET_DEBUFF_CAPTION_OFFSET(slotset, buff_ui)
+    if slotset:GetName() ~= 'debuffslot' then
+        return;
+    end
+    local captionList = buff_ui["captionlist"][2];
+    local totalDebuffSlotCount = slotset:GetRow() * slotset:GetCol();
+    for i = 0, totalDebuffSlotCount - 1 do
+        local slot = slotset:GetSlotByIndex(i);
+        local slotHeight = slot:GetHeight();
+        local caption = captionList[i];
+        caption:SetOffset(caption:GetX(), slotset:GetY() + slotHeight);
+    end
+end
+
 function GET_BUFF_ARRAY_INDEX(i, colcnt)
 	return GET_BUFF_SLOT_INDEX(i, colcnt);
 end
@@ -196,7 +212,7 @@ function GET_BUFF_SLOT_INDEX(j, colcnt)
 	local i = row * colcnt + (colcnt - col) - 1;
 	return i;
 end
-]]
+]]--
 
 -- 순방향 버젼
 function GET_BUFF_SLOT_INDEX(j, colcnt)
@@ -301,7 +317,7 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 					local j = GET_BUFF_ARRAY_INDEX(i, colcnt);
 					PULL_BUFF_SLOT_LIST(slotlist, captionlist, j, slotcount, colcnt, ApplyLimitCountBuff);
 					frame:Invalidate();
-					return;
+					break;
 				end
 			end
 		end
@@ -324,6 +340,41 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 		end
 	end
 
+    ARRANGE_DEBUFF_SLOT(frame, buff_ui);
+end
+
+function ARRANGE_DEBUFF_SLOT(frame, buff_ui)
+    if frame:GetName() ~= 'buff' then
+        return;
+    end
+
+    -- get visible row of unlimitedBuffSlotset
+    local unlimitedBuffSlotset = frame:GetChild('buffslot');
+    local unlimitedBuffSlotCol = unlimitedBuffSlotset:GetCol();
+    local totalUnlimitBuffSlotCount = unlimitedBuffSlotset:GetRow() * unlimitedBuffSlotCol;
+
+    local visibleSlotCount = 0;
+    for i = 0, totalUnlimitBuffSlotCount - 1 do
+        local unlimitedSlot = unlimitedBuffSlotset:GetSlotByIndex(i);
+        if unlimitedSlot == nil or unlimitedSlot:IsVisible() == 0 then
+            visibleSlotCount = i;
+            break;
+        end
+    end
+    local visibleRowCount = math.floor(visibleSlotCount / unlimitedBuffSlotCol);
+    if visibleRowCount > 0 and visibleRowCount % unlimitedBuffSlotCol == 0 then
+        visibleRowCount = visibleRowCount + 1;
+    end
+    visibleRowCount = visibleRowCount + 1;
+
+    -- set offset debuff slotset
+    local debuffSlotset = frame:GetChild('debuffslot');
+    local DEFAULT_SLOT_Y_OFFSET = tonumber(frame:GetUserConfig('DEFAULT_SLOT_Y_OFFSET'));
+    unlimitedBuffSlotset:Resize(unlimitedBuffSlotset:GetWidth(), DEFAULT_SLOT_Y_OFFSET * (visibleRowCount));
+    debuffSlotset:SetOffset(debuffSlotset:GetX(), unlimitedBuffSlotset:GetY() + DEFAULT_SLOT_Y_OFFSET * visibleRowCount);
+
+    -- set offset caption
+    SET_DEBUFF_CAPTION_OFFSET(debuffSlotset, buff_ui);
 end
 
 function PULL_BUFF_SLOT_LIST(slotlist, captionlist, index, slotcount, colcnt, ApplyLimitCountBuff)

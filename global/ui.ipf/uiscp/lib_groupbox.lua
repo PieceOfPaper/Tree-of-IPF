@@ -16,13 +16,19 @@ function QUEST_GBOX_AUTO_ALIGN(frame, GroupCtrl, starty, spacey, gboxaddy) -- qu
 	end
 end
 
-function GBOX_AUTO_ALIGN(gbox, starty, spacey, gboxaddy, alignByMargin, autoResizeGroupBox)
-
+function GBOX_AUTO_ALIGN(gbox, starty, spacey, gboxaddy, alignByMargin, autoResizeGroupBox, onlyAlignVisible)
+    if onlyAlignVisible == nil then
+        onlyAlignVisible = false;
+    end
 	local cnt = gbox:GetChildCount();
 	local y = starty;
 	for i = 0, cnt - 1 do
 		local ctrl = gbox:GetChildByIndex(i);
-		if ctrl:GetName() ~= "_SCR" then
+        local needToAlign = true;
+        if onlyAlignVisible and ctrl:IsVisible() == 0 then
+            needToAlign = false
+        end
+		if ctrl:GetName() ~= "_SCR" and needToAlign then
 			
 			if alignByMargin == true then
 				local rect = ctrl:GetMargin();

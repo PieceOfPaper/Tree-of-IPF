@@ -359,7 +359,7 @@ function SHOP_SELL(invitem, sellCount, frame, setTotalCount)
 
 	local itemobj = GetIES(invitem:GetObject());
 	local itemProp = geItemTable.GetPropByName(itemobj.ClassName);
-	if itemProp:IsTradable() == false then
+	if itemProp:IsEnableShopTrade() == false then
 		ui.SysMsg(ClMsg("CannoTradeToNPC"));
 		return;
 	end

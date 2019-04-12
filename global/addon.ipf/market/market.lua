@@ -193,6 +193,7 @@ function MARKET_FIRST_OPEN(frame)
 	end
 	end
 
+	tree:SetFitToChild(true, 5);
 	frame:SetUserValue("Group", "ShowAll");
 	frame:SetUserValue("ClassType", "ShowAll");
 
@@ -251,6 +252,12 @@ function GET_CHILD_NUMBER_VALUE(parent, childName)
 end
 
 function MARKET_REQ_LIST(frame)
+	-- 마켓 이용 중에는 자동매칭중이면 간소화!
+	local indunenter = ui.GetFrame('indunenter');
+	if indunenter ~= nil and indunenter:IsVisible() == 1 then
+		INDUNENTER_SMALL(indunenter, nil, true);
+	end
+
 	frame = frame:GetTopParentFrame();
 	frame:SetUserValue("Group", 'ShowAll');
 	frame:SetUserValue("ClassType", 'ShowAll');
@@ -376,6 +383,10 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 	local maxPage = math.ceil(session.market.GetTotalCount() / MARKET_ITEM_PER_PAGE);
 	local curPage = session.market.GetCurPage();
 	local pagecontrol = GET_CHILD(frame, 'pagecontrol', 'ui::CPageController')
+    if maxPage < 1 then
+        maxPage = 1;
+    end
+
 	pagecontrol:SetMaxPage(maxPage);
 	pagecontrol:SetCurPage(curPage);
 

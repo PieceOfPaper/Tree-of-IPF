@@ -82,12 +82,7 @@ function JOURNAL_INSERT_CRAFT(cls, tree, slotHeight)
 	icon:SetImage(item.Icon);
 	icon:SetEnableStretch(1)
 
-	icon:SetEventScript(ui.RBUTTONUP, 'JOURNAL_START_CRAFT');
-	icon:SetEventScriptArgString(ui.RBUTTONUP, cls.ClassName);
-
 	SET_ITEM_TOOLTIP_ALL_TYPE(icon, item, item.ClassName, '', item.ClassID, 0);
---SET_ITEM_TOOLTIP_TYPE(icon, item.ClassID, item);
---icon:SetTooltipArg('', item.ClassID, 0);
 
 	local titleText = GET_CHILD(app, "count", "ui::CRichText");
 	titleText:SetText('');
@@ -352,32 +347,7 @@ function JOURNAL_UPDATE_RECIPE_TOOLTIP(frame, recipeID, targetItemID)
 		end
 	end
 
-	--[[
-	local textWidth = 0
-	for i = 1 , 5 do
-		if recipecls["Item_"..i.."_1"] ~= "None" then
-
-			local recipeItemCnt, invItemCnt, dragRecipeItem = GET_RECIPE_MATERIAL_INFO(recipecls, i);
-			local text = queue:CreateOrGetControl('richtext', dragRecipeItem.ClassName, 200, 30, ui.LEFT, ui.TOP, 0, 0, 0, 0)
-
-			if recipeItemCnt > invItemCnt then
-				text:SetText('{@st50}{#f00000}'..dragRecipeItem.Name..'  [ '..invItemCnt..' / '..recipeItemCnt..' ]');
-			else
-				text:SetText('{@st50}{#00f00F}'..dragRecipeItem.Name..'  [ '..invItemCnt..' / '..recipeItemCnt..' ]');
-			end
-
-			if textWidth < text:GetWidth() then
-				textWidth = text:GetWidth()
-			end
-
-		end
-	end
-
-	]]
-	frame:Resize(frame:GetWidth(), queue:GetY() + queue:GetHeight() + 10)
-
-
-
+	frame:Resize(frame:GetWidth(), queue:GetY() + queue:GetHeight() + 10);
 end
 
 
@@ -405,110 +375,6 @@ function JOURNAL_OPEN_CRAFT_ARTICLE(frame)
 	JOURNAL_OPEN_ARTICLE(f, 'Recipe')
 	imcSound.PlaySoundEvent('button_click_3');
 
-end
-
-function JOURNAL_START_CRAFT(ctrl, ctrlset, argStr, artNum)
-
-	local recipecls = GetClass('Recipe', argStr);
-
-	local TargetItemCnt = recipecls.TargetItemCnt
-
-	if recipecls == nil then
-		ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
-		return;
-	end
-
-	session.ResetItemList();
-
-	local ItisOk = true;
-
-	for i = 1 , 5 do
-		if recipecls["Item_"..i.."_1"] ~= "None" then
-
-			local recipeItemCnt, invItemCnt, dragRecipeItem, invItem = GET_RECIPE_MATERIAL_INFO(recipecls, i);
-
-			if recipeItemCnt > invItemCnt then
-				ItisOk = false;
-				session.ResetItemList();
-				break;
-			else
-
-				session.AddItemID(invItem:GetIESID());
-			end
-		end
-	end
-
-	if ItisOk == false then
-		ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
-		session.ResetItemList();
-		return
-	end
-
-	local nameList = nil;
-	local targetItem = GetClass("Item", recipecls.TargetItem);
-	if IS_EQUIP(targetItem) then
-
-		local memoSet = ctrl:GetChild("MEMO");
-		if memoSet ~= nil then
-
-			local name = memoSet:GetChild("name"):GetText();
-			local memo = memoSet:GetChild("memo"):GetText();
-			nameList = NewStringList();
-			if string.len(name) > RECIPE_ITEM_NAME_LEN then
-				ui.SysMsg(ScpArgMsg("RecipeItemNameCantExceed{Auto_1}Byte", "Auto_1", RECIPE_ITEM_NAME_LEN));
-				return;
-			end
-
-			if string.len(memo) > ITEM_MEMO_LEN then
-				ui.SysMsg(ScpArgMsg("RecipeMemoCantExceed{Auto_1}Byte", "Auto_1", ITEM_MEMO_LEN));
-				return;
-			end
-
-			nameList:Add(name);
-			nameList:Add(memo);
-
-		end
-	end
-
-	local resultlist = session.GetItemIDList();
-	local cntText = string.format("%d %d", recipecls.ClassID, TargetItemCnt);
-	item.DialogTransaction("SCR_ITEM_MANUFACTURE", resultlist, cntText, nameList);
-
-
-
-end
-
-function JOURNAL_DETAIL_CRAFT_EXEC_ON_START(frame, msg, str, time)
-
-	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
-	local page = GET_CHILD(group, 'page', 'ui::CPage')
-	local ctrlset = GET_CHILD(page, str, "ui::CControlSet");
-	local gauge = GET_CHILD(ctrlset, 'progress', "ui::CGauge");
-
-
-	gauge:ShowWindow(1);
-	gauge:SetProgressStyle(ui.GAUGE_PROGRESS_RANDOM);
-	gauge:SetPoint(0, time);
-	gauge:SetPointWithTime(time, time);
-end
-
-
-function JOURNAL_DETAIL_CRAFT_EXEC_ON_FAIL(frame, msg, str, time)
-	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
-	local page = GET_CHILD(group, 'page', 'ui::CPage')
-	local ctrlset = GET_CHILD(page, str, "ui::CControlSet");
-	local gauge = GET_CHILD(ctrlset, 'progress', "ui::CGauge");
-	gauge:StopTimeProcess();
-	gauge:ShowWindow(0);
-end
-
-function JOURNAL_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
-	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
-	local page = GET_CHILD(group, 'page', 'ui::CPage')
-	local ctrlset = GET_CHILD(page, str, "ui::CControlSet");
-	local gauge = GET_CHILD(ctrlset, 'progress', "ui::CGauge");
-	gauge:StopTimeProcess();
-	gauge:ShowWindow(0);
 end
 
 --- about detail controlset
@@ -625,9 +491,7 @@ function MAKE_DETAIL_REQITEMS(ctrlset)
 	RUNFUNC_TO_MERGED_CTRLSET(ctrlset, "journalRecipe_makeBtn", JOURNAL_DETAIL_CTRL_INIT);
 	y = y + ui.GetControlSetAttribute("journalRecipe_makeBtn", 'height') + 0;
 	local make = GET_CHILD(ctrlset, "make", "ui::CButton");
-	make:SetEventScript(ui.LBUTTONUP, 'JOURNAL_START_CRAFT');
-	make:SetEventScriptArgString(ui.LBUTTONUP, recipecls.ClassName);
-
+	
 	local myActor = GetMyActor();
 
 	if myActor:IsSit() == 1 then -- ¾?? UI°¡ ¹?? ¶§¹®¿¡(¸¸??´?½þ? [μ¿ ¾?? ¹??°¡·s??? ±??f[: ?½ĸ???§¸¸ ?¸???sª 140922.
@@ -684,26 +548,5 @@ end
 
 
 function JORNAL_CRAFT_UPDATE_INV(frame)
---[[
-	local craftGroup = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox');
-	local page = GET_CHILD(craftGroup, 'page', 'ui::CPage')
-	local curFocus = page:GetFocusedRow();
-
-	local showonlyhavemat = GET_CHILD(craftGroup, "showonlyhavemat", "ui::CCheckBox");
-	if 1 == showonlyhavemat:IsChecked() then
-		JOURNAL_REMAKE_CRAFT(frame);
-		local beforeFocus = page:GetObjectByRow(curFocus);
-		local resultHeight = JOURNAL_CRAFT_SET_DETAIL(beforeFocus, 1);
-		if resultHeight ~= 0 then
-			local slotHeight = ui.GetControlSetAttribute("journalRecipe", 'height') + 0;
-			page:SetFocusedRowHeight(slotHeight, resultHeight, 0, 1, 20);
-		end
-	else
-		if curFocus ~= - 1 then
-			local beforeFocus = page:GetObjectByRow(curFocus);
-			JOURNAL_CRAFT_SET_DETAIL(beforeFocus, 1, 1);
-		end
-	end]]
-
 	frame:Invalidate();
 end

@@ -5,18 +5,19 @@ function ITEM_TOOLTIP_WEAPON(tooltipframe, invitem, strarg, usesubframe)
 	ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
 end
 
-function ITEM_TOOLTIP_ARMOR(tooltipframe, invitem, strarg, usesubframe)
-
-	ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe) 
+function ITEM_TOOLTIP_ARMOR(tooltipframe, invitem, strarg, usesubframe, isForgery)
+	ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForgery) ;
 end
 
-function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
+function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForgery)
+	if isForgery == nil then
+		isForgery = false;
+	end
 
 	tolua.cast(tooltipframe, "ui::CTooltipFrame");
 
 	local mainframename = 'equip_main'
 	local addinfoframename = 'equip_main_addinfo'
-	local drawnowequip = 'true'
 	
 	if usesubframe == "usesubframe" then
 		mainframename = 'equip_sub'
@@ -24,10 +25,9 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
 	elseif usesubframe == "usesubframe_recipe" then
 		mainframename = 'equip_sub'
 		addinfoframename = 'equip_sub_addinfo'
-		drawnowequip = 'false'
 	end
-
-	local ypos = DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnowequip); -- 장비라면 공통적으로 그리는 툴팁들
+    
+	local ypos = DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, isForgery); -- 장비라면 공통적으로 그리는 툴팁들
 	
 	ypos = DRAW_ITEM_TYPE_N_WEIGHT(tooltipframe, invitem, ypos, mainframename) -- 타입, 무게.
 
@@ -42,8 +42,9 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
 	ypos = DRAW_EQUIP_PROPERTY(tooltipframe, invitem, ypos, mainframename) -- 각종 프로퍼티
 	ypos = DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename) -- 세트아이템
 	ypos = DRAW_EQUIP_MEMO(tooltipframe, invitem, ypos, mainframename) -- 제작 템 시 들어간 메모
-	ypos = DRAW_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename) -- 각종 프로퍼티
+	ypos = DRAW_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename) -- 각종 설명문
 	ypos = DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, ypos, mainframename) -- 장착제한, 거래제한, 소켓, 레벨 제한 등등
+    ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename) -- 거래 제한
 	ypos = DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, ypos, mainframename) -- 포텐셜 및 내구도
 	ypos = DRAW_EQUIP_ONLY_PR(tooltipframe, invitem, ypos, mainframename) -- 포텐셜 만 있는 애들은 여기서 그림 (그릴 아이템인지 검사는 내부에서)
 	
@@ -53,9 +54,11 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
 	else
 		ypos = DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, ypos, mainframename);
 	end
+    
+    ypos = DRAW_TOGGLE_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename); -- 설명문 토글 여부
 
 	local subframeypos = 0
-
+    
 	--서브프레임쪽.
 	if IS_NEED_DRAW_GEM_TOOLTIP(invitem) == true then
 		subframeypos = DRAW_EQUIP_SOCKET(tooltipframe, invitem, subframeypos, addinfoframename) -- 소켓 및 옵션
@@ -70,8 +73,7 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
 end
 
 -- 기본 정보
-function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnowequip)
-
+function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, isForgery)
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveAllChild()
 	
@@ -115,6 +117,12 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
                 gender = barrack.GetSelectedCharacterGender();
             end
 
+			-- 살펴보기 중에는 살펴보기 중인 아이의 성별을 보자
+			if tooltipframe:GetTopParentFrameName() == 'compare' then
+				local compare = ui.GetFrame('compare');
+				gender = compare:GetUserIValue('COMPARE_PC_GENDER');
+			end
+
 			local tempiconname = string.sub(invitem.TooltipImage,string.len(invitem.TooltipImage)-1);
 
 			if tempiconname ~= "_m" and tempiconname ~= "_f" then
@@ -138,31 +146,22 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 
 	-- 장착중 아이콘 
 	local itemNowEquip = GET_CHILD(equipCommonCSet, "nowequip");
-	if mainframename == 'equip_sub' and drawnowequip == 'true' then
+	if IsEquiped(invitem) == 1 then
 		itemNowEquip:ShowWindow(1)
 	else
 		itemNowEquip:ShowWindow(0)
 	end
 
-	
-	-- 거래불가 아이콘 (일단 거래불가 아이콘 표시하지 않음)
-	local itemCantSoldPicture = GET_CHILD(equipCommonCSet, "cantsold", "ui::CPicture");
-	local itemCantSoldText = GET_CHILD(equipCommonCSet, "cantsold_text", "ui::CRichText");
-
-	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
-	local blongProp = TryGetProp(invitem, "BelongingCount");
-	local blongCnt = 0;
-	if blongProp ~= nil then
-		blongCnt = tonumber(blongProp);
-	end
-	if itemProp:IsExchangeable() == false or GetTradeLockByProperty(invitem) ~= "None" or 0 <  blongCnt then
-		itemCantSoldPicture:ShowWindow(1);
-		itemCantSoldText:ShowWindow(1);
+	-- 모조품
+	local forgeryEquip = GET_CHILD_RECURSIVELY(equipCommonCSet, 'forgeryequip');
+	if mainframename == 'equip_main' and isForgery == true and tooltipframe:GetTopParentFrameName() == 'inventory' then
+		forgeryEquip:ShowWindow(1);
+		itemNowEquip:ShowWindow(0);
+		APPRAISER_FORGERY_TOOLTIP_SET_BUFFTIME(forgeryEquip:GetChild('forgeryequip_text'));
 	else
-		itemCantSoldPicture:ShowWindow(0);
-		itemCantSoldText:ShowWindow(0);
+		forgeryEquip:ShowWindow(0);
 	end
-
+	
 	-- 강화불가 
 	local itemCantRFPicture = GET_CHILD(equipCommonCSet, "cantreinforce", "ui::CPicture");
 	local itemCantRFText = GET_CHILD(equipCommonCSet, "cantrf_text", "ui::CPicture");
@@ -178,10 +177,14 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 	SET_GRADE_TOOLTIP(equipCommonCSet, invitem, GRADE_FONT_SIZE);
 
 	-- 아이템 이름 세팅
-	local fullname = GET_FULL_NAME(invitem, true);
+	local itemGuid = tooltipframe:GetUserValue('TOOLTIP_ITEM_GUID');
+	local isEquipedItem = 0;
+	if session.GetEquipItemByGuid(itemGuid) ~= nil then
+		isEquipedItem = 1;
+	end
+	local fullname = GET_FULL_NAME(invitem, true, isEquipedItem);
 	local nameChild = GET_CHILD(equipCommonCSet, "name", "ui::CRichText");
 	nameChild:SetText(fullname);
-
 	nameChild:AdjustFontSizeByWidth(gBox:GetWidth());		-- 폰트 사이즈를 조정
 	nameChild:SetTextAlign("center","center");				-- 중앙 정렬
 	
@@ -191,7 +194,6 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 
 	return retypos;
 end
-
 
 --아이템 타입 및 무게
 function DRAW_ITEM_TYPE_N_WEIGHT(tooltipframe, invitem, yPos, mainframename)
@@ -235,22 +237,44 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 	local arg1 = nil
 	local arg2 = nil
 	local reinforceaddvalue = 0
+	local socketaddvalue = 0
 	
 	-- 무기 타입 아이콘
 	local basicProp = invitem.BasicTooltipProp;
+	local pc = GetMyPCObject();
+	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce');
+	local bonusReinf = TryGetProp(pc, 'BonusReinforce');
+	local itemGuid = tooltipframe:GetUserValue('TOOLTIP_ITEM_GUID');
+	local isEquiped = 1;
+	if session.GetEquipItemByGuid(itemGuid) == nil then
+		isEquiped = 0
+	end
+	if TryGetProp(invitem, 'EquipGroup') ~= 'SubWeapon' or isEquiped == 0 then
+		bonusReinf = 0;
+	end
+	if isEquiped == 0 then
+		ignoreReinf = 0;
+	end
+	local refreshScpStr = TryGetProp(invitem, 'RefreshScp');
+	if refreshScpStr ~= nil and refreshScpStr ~= 'None' then
+		local refreshScp = _G[refreshScpStr];
+		refreshScp(invitem, nil, ignoreReinf);
+	end
 	
 	if basicProp == 'ATK' then
 	    typeiconname = 'test_sword_icon'
 		typestring = ScpArgMsg("Melee_Atk")
-		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem) )
-		arg1 = invitem.MINATK - reinforceaddvalue
-		arg2 = invitem.MAXATK - reinforceaddvalue
+		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf) )
+		socketaddvalue =  GET_ITEM_SOCKET_ADD_VALUE(basicProp, invitem)
+		arg1 = invitem.MINATK - reinforceaddvalue - socketaddvalue;
+		arg2 = invitem.MAXATK - reinforceaddvalue - socketaddvalue;
 	elseif basicProp == 'MATK' then
 	    typeiconname = 'test_sword_icon'
 		typestring = ScpArgMsg("Magic_Atk")
-		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem) )
-		arg1 = invitem.MATK - reinforceaddvalue
-		arg2 = invitem.MATK - reinforceaddvalue
+		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf) )
+		socketaddvalue =  GET_ITEM_SOCKET_ADD_VALUE(basicProp, invitem)
+		arg1 = invitem.MATK - reinforceaddvalue - socketaddvalue;
+		arg2 = invitem.MATK - reinforceaddvalue - socketaddvalue;
 	else
 		typeiconname = 'test_shield_icon'
 		typestring = ScpArgMsg(basicProp);
@@ -261,9 +285,10 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 			end
 		end
 		
-		reinforceaddvalue = GET_REINFORCE_ADD_VALUE(basicProp, invitem);
-		arg1 = TryGetProp(invitem, basicProp) - reinforceaddvalue;
-	    arg2 = TryGetProp(invitem, basicProp) - reinforceaddvalue;
+		reinforceaddvalue = GET_REINFORCE_ADD_VALUE(basicProp, invitem, ignoreReinf, bonusReinf);
+		socketaddvalue =  GET_ITEM_SOCKET_ADD_VALUE(basicProp, invitem)
+		arg1 = TryGetProp(invitem, basicProp) - reinforceaddvalue - socketaddvalue;
+		arg2 = TryGetProp(invitem, basicProp) - reinforceaddvalue - socketaddvalue;
 	end
 	
 	SET_DAMAGE_TEXT(tooltip_equip_atk_n_def_Cset, typestring, typeiconname, arg1, arg2, 1, reinforceaddvalue);
@@ -271,9 +296,9 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 	
 	yPos = SET_BUFF_TEXT(gBox, invitem, yPos, strarg);
 	
-	yPos = SET_REINFORCE_TEXT(gBox, invitem, yPos);
+	yPos = SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped);
 
-	yPos = SET_TRANSCEND_TEXT(gBox, invitem, yPos);
+	yPos = SET_TRANSCEND_TEXT(gBox, invitem, yPos, ignoreReinf);
 
 	yPos = SET_REINFORCE_BUFF_TEXT(gBox, invitem, yPos);
 	
@@ -460,9 +485,13 @@ function DRAW_EQUIP_DESC(tooltipframe, invitem, yPos, mainframename)
 	gBox:RemoveChild('tooltip_equip_desc');
 
 	local desc = GET_ITEM_TOOLTIP_DESC(invitem);
-	if desc == "" then -- 일단 그릴 소켓이 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
+	if desc == "" then -- 일단 그릴 설명이 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
 		return yPos
 	end
+    local value = IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC()
+    if value ~= 1 then
+        return yPos
+    end
 	
 	local tooltip_equip_property_CSet = gBox:CreateOrGetControlSet('tooltip_equip_desc', 'tooltip_equip_desc', 0, yPos);
 	local property_gbox = GET_CHILD(tooltip_equip_property_CSet,'property_gbox','ui::CGroupBox')
@@ -488,7 +517,7 @@ function DRAW_EQUIP_SOCKET(tooltipframe, invitem, yPos, addinfoframename)
 	local inner_yPos = 0;
 
 
-	for i=0, invitem.MaxSocket_COUNT-1 do
+	for i=0, invitem.MaxSocket-1 do
 		if invitem['Socket_' .. i] > 0 then
 			inner_yPos = ADD_ITEM_SOCKET_PROP(socket_gbox, invitem, 
 												invitem['Socket_' .. i], 
@@ -702,7 +731,7 @@ function DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, yPos,mainframename)
 	local itemClass = GetClassByType("Item", invitem.ClassID);
 
 	--소켓제한 표시
-	if invitem.MaxSocket_COUNT <= 0 then
+	if invitem.MaxSocket <= 0 then
 		maxSocekt_text:SetText(ScpArgMsg("CantAddSocket"))
 	else
 		if itemClass.NeedAppraisal == 1 then
@@ -713,7 +742,7 @@ function DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, yPos,mainframename)
 				maxSocekt_text:SetTextByKey("socketcount","{@st66d_y}"..invitem.MaxSocket.."{/}");
 			end
 		else
-			maxSocekt_text:SetTextByKey("socketcount",invitem.MaxSocket_COUNT);
+			maxSocekt_text:SetTextByKey("socketcount",invitem.MaxSocket);
 		end
 	end
 
@@ -745,6 +774,23 @@ function DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, yPos,mainframename)
 	return tooltip_available_property_CSet:GetHeight() + tooltip_available_property_CSet:GetY();
 end
 
+function DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, yPos, mainframename)
+	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
+	gBox:RemoveChild('tooltip_equip_tradability');
+	
+	local CSet = gBox:CreateControlSet('tooltip_equip_tradability', 'tooltip_equip_tradability', 0, yPos);
+	tolua.cast(CSet, "ui::CControlSet");
+
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_npc', 'option_npc_text', 'ShopTrade')
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_market', 'option_market_text', 'MarketTrade')
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_teamware', 'option_teamware_text', 'TeamTrade')
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_trade', 'option_trade_text', 'UserTrade')
+    
+    local bottomMargin = CSet:GetUserConfig("BOTTOM_MARGIN");
+	CSet:Resize(CSet:GetWidth(), CSet:GetHeight() + bottomMargin)
+	gBox:Resize(gBox:GetWidth(), gBox:GetHeight() + CSet:GetHeight())
+	return yPos + CSet:GetHeight();
+end
 
 --포텐 및 내구도
 function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
@@ -886,4 +932,23 @@ function DRAW_EQUIP_ONLY_PR(tooltipframe, invitem, yPos, mainframename)
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + CSet:GetHeight())
 	return CSet:GetHeight() + CSet:GetY();
+end
+
+-- 설명문 토글
+function DRAW_TOGGLE_EQUIP_DESC(tooltipframe, invitem, yPos, mainframename)
+	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
+	gBox:RemoveChild('tooltip_toggle_desc');
+
+	local tooltip_toggle_CSet = gBox:CreateControlSet('tooltip_toggle_desc', 'tooltip_toggle_desc', 0, yPos);
+	tolua.cast(tooltip_toggle_CSet, "ui::CControlSet");
+	local toggle_desc_text = GET_CHILD(tooltip_toggle_CSet, 'toggle_desc_text', 'ui::CRichText');
+
+    local toggleText = ClMsg('Show');
+    if IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC() == 1 then
+        toggleText = ClMsg('Close');
+	end
+    toggle_desc_text:SetTextByKey('Toggle', toggleText);
+
+	gBox:Resize(gBox:GetWidth(), gBox:GetHeight() + tooltip_toggle_CSet:GetHeight())
+	return tooltip_toggle_CSet:GetHeight() + tooltip_toggle_CSet:GetY();
 end

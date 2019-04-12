@@ -262,7 +262,7 @@ function EpeeGarde_LEAVE(actor, obj, buff)
 	
 	actor:GetAnimation():ResetSTDAnim();
 	actor:ShowModelByPart('LH', 1, 0);
-	actor:GetAnimation():PlayFixAnim("ASTD", 1, 1);
+	actor:GetAnimation():UpdateFixAnim();
 	
 end
 
@@ -504,6 +504,7 @@ end
 
 function EliteMonster_ENTER(actor, obj, buff)
 	actor:SetAuraInfo("EliteBuff");
+	actor:GetTitle():UpdateCaption();
 end
 
 function EliteMonster_LEAVE(actor, obj, buff)

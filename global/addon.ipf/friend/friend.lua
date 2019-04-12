@@ -87,10 +87,9 @@ function FRIEND_GAME_START(frame)
 	local requesttree = GET_CHILD_RECURSIVELY(frame, 'friendtree_request','ui::CTreeControl')
 
 	normaltree:Clear();
-	normaltree:EnableDrawTreeLine(false);
-	normaltree:EnableDrawFrame(false);
-    normaltree:EnableScrollBar(0);
-	normaltree:SetFitToChild(true,100);
+	normaltree:EnableDrawTreeLine(false)
+	normaltree:EnableDrawFrame(false)
+	normaltree:SetFitToChild(true,100)
 	normaltree:SetFontName("brown_18_b");
 	normaltree:SetTabWidth(0);
 	normaltree:OpenNodeAll();
@@ -100,10 +99,9 @@ function FRIEND_GAME_START(frame)
     moreFriendBtn:SetEnable(1);
 
 	requesttree:Clear();
-	requesttree:EnableDrawTreeLine(false);
-	requesttree:EnableDrawFrame(false);
-    requesttree:EnableScrollBar(0);
-	requesttree:SetFitToChild(true,100);
+	requesttree:EnableDrawTreeLine(false)
+	requesttree:EnableDrawFrame(false)
+	requesttree:SetFitToChild(true,100)
 	requesttree:SetFontName("brown_18_b");
 	requesttree:SetTabWidth(0);
 	requesttree:OpenNodeAll();

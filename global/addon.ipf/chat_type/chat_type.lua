@@ -1,47 +1,61 @@
 
 
 function CHAT_TYPE_INIT(addon, frame)	
-	CHAT_TYPE_LISTSET(config.GetConfigInt("ChatTypeNumber"));
+	
 end
 
 function CHAT_TYPE_CLOSE(frame)
-	local chattype_frame = ui.GetFrame('chattypelist');	chattype_frame:ShowWindow(0);end
+	local chattype_frame = ui.GetFrame('chattypelist');
+	chattype_frame:ShowWindow(0);
+end
 
 --채팅 타입 목록에서 선택시 채팅타입을 바꿔주고 목록을 닫아준다. 
 function CHAT_TYPE_SELECTION(frame, ctrl)
 	-- 설정된 심볼로 선택된 타입을 알아본다.
 	local typeIvalue = ctrl:GetUserIValue("CHAT_TYPE_CONFIG_VALUE");
-	if (nil == typeIvalue) or (0 == typeIvalue) or (typeIvalue > 5) then
+	if (nil == typeIvalue) or (0 == typeIvalue) or (typeIvalue > 6) then
 		return;
 	end;
-	
+
 	ui.SetChatType(typeIvalue-1);
-	CHAT_TYPE_LISTSET(typeIvalue);
 	CHAT_TYPE_CLOSE(frame);
 end;
 
---채팅 타입 목록에서 5가지 타입들에 대하여 버튼목록들을 만들어준다. 
+--채팅 타입 목록에서 6가지 타입들에 대하여 버튼목록들을 만들어준다. 
 function CHAT_TYPE_LISTSET(selected)
 	if selected == 0 then
 		return;
 	end;
 
+	if ui.GetWhisperTargetName() == nil and selected == 5 then
+		return;
+	end
+
+	if (ui.GetGroupChatTargetID() == nil or ui.GetGroupChatTargetID() == "") and selected == 6 then
+		return;
+	end
 
 
 	local frame = ui.GetFrame('chat');		
 	frame:SetUserValue("CHAT_TYPE_SELECTED_VALUE", selected);
 	local chattype_frame = ui.GetFrame('chattypelist');
+    local chattype_frame_width = chattype_frame:GetWidth();
+
 	local j = 1;
-	for i = 1, 5 do
+	for i = 1, 6 do
 
 		local color = frame:GetUserConfig("COLOR_BTN_" .. i);	
 		if selected ~= i then	
 			
-		-- 선택되지 않은 타입들은 목록화
-		local btn_Chattype = GET_CHILD(chattype_frame, "button_type" .. j);
+			-- 선택되지 않은 타입들은 목록화
+			local btn_Chattype = GET_CHILD(chattype_frame, "button_type" .. j);
 			if btn_Chattype == nil then
 				return;
-			end						
+			end			
+
+            -- 버튼 크기를 rect의 width height 값으로 고정
+			btn_Chattype:Resize(btn_Chattype:GetOriginalWidth(), btn_Chattype:GetOriginalHeight()); -- SetText 전에 해줘야 정렬됨.
+			
 			local msg = "{@st60}".. ScpArgMsg("ChatType_" .. i)  .. "{/}";
 			btn_Chattype:SetText(msg);	
 			btn_Chattype:SetTextTooltip( ScpArgMsg("ChatType_" .. i .. "_ToolTip") );
@@ -62,30 +76,17 @@ function CHAT_TYPE_LISTSET(selected)
 			local btn_type = GET_CHILD(frame, "button_type");
 			if btn_type == nil then
 				return;
-			end			
+			end	
+            
+            -- 버튼 크기를 rect의 width height 값으로 고정
+			btn_type:Resize(btn_type:GetOriginalWidth(), btn_type:GetOriginalHeight());
+            		
 			local msg = "{@st60}".. ScpArgMsg("ChatType_" .. i) .. "{/}";
 			btn_type:SetText(msg);	
 			btn_type:SetColorTone("FF".. color);
-			config.SetConfig("ChatTypeNumber", i);
+			
 		end;
 	end;
 end;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

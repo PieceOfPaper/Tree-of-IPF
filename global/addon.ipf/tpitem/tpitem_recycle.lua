@@ -198,7 +198,7 @@ function RECYCLE_DRAW_ITEM_DETAIL(obj, itemobj, itemcset, type, itemguid)
 
 		
 		local itemProp = geItemTable.GetPropByName(itemobj.ClassName);
-		if itemProp:IsExchangeable() == true then
+		if itemProp:IsEnableUserTrade() == true then
 			tradeable:ShowWindow(0)
 		else
 			tradeable:ShowWindow(1)

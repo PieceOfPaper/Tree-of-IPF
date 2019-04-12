@@ -1,15 +1,16 @@
 ﻿
 function GUILD_ON_INIT(addon, frame)
-	
-	addon:RegisterOpenOnlyMsg("GUILD_PROPERTY_UPDATE", "ON_GUILD_PROPERTY_UPDATE");
+	-- guild info update msg
+	addon:RegisterOpenOnlyMsg("GUILD_PROPERTY_UPDATE", "ON_GUILD_INFO_UPDATE");
 	addon:RegisterOpenOnlyMsg("GUILD_INFO_UPDATE", "ON_GUILD_INFO_UPDATE");
+	addon:RegisterMsg("GUILD_EVENT_UPDATE", "ON_GUILD_INFO_UPDATE");
+
 	addon:RegisterMsg("GUILD_NEUTRALITY_UPDATE", "ON_GUILD_NEUTRALITY_UPDATE");
 	addon:RegisterMsg("GAME_START_3SEC", "GUILD_GAME_START_3SEC");	
 	addon:RegisterMsg("MYPC_GUILD_JOIN", "ON_MYPC_GUILD_JOIN");
 	addon:RegisterMsg("GUILD_ENTER", "ON_GUILD_ENTER");
 	addon:RegisterMsg("GUILD_OUT", "ON_GUILD_OUT");
 	addon:RegisterMsg("GUILD_MASTER_REQUEST", "ON_GUILD_MASTER_REQUEST");
-	addon:RegisterMsg("GUILD_EVENT_UPDATE", "ON_GUILD_INFO_UPDATE");
 	addon:RegisterMsg("UPDATE_GUILD_ONE_SAY", "ON_GUILD_ONE_SAY");
 	
 	AUTHORITY_GUILD_INVITE = 1
@@ -172,7 +173,7 @@ end
 
 
 function ON_GUILD_ENTER(frame, msg, str, isEnter)
-	UPDATE_GUILDINFO(frame);	
+	ThrottleScript("UPDATE_GUILDINFO", 5.0);	
 end
 
 function ON_MYPC_GUILD_JOIN(frame)
@@ -190,14 +191,7 @@ function GUILD_TAB_CHANGE(parent, ctrl)
 end
 
 function ON_GUILD_INFO_UPDATE(frame, msg)
-
-	UPDATE_GUILDINFO(frame);
-
-end
-
-function ON_GUILD_PROPERTY_UPDATE(frame, msg)
-	UPDATE_GUILDINFO(frame);
-
+	ThrottleScript("UPDATE_GUILDINFO", 5.0);
 end
 
 function GUILD_UI_CLOSE(frame)
@@ -317,6 +311,11 @@ function GUILD_UPDATE_SKL_OBJ_INFO(frame, guildObj)
 end
 
 function UPDATE_GUILDINFO(frame)
+	
+	if frame == nil then
+		frame = ui.GetFrame("guild");
+	end
+
 	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
 	if pcparty == nil then
 		frame:ShowWindow(0);
@@ -359,6 +358,8 @@ function UPDATE_GUILDINFO(frame)
 
 	local showOnlyConnected = config.GetXMLConfig("Guild_ShowOnlyConnected");
 
+    IMC_WARNING("ERRCODE_INFO_NORMAL", "[count:"..tostring(count));
+
 	local connectionCount = 0;
 	for i = 0 , count - 1 do
 		local partyMemberInfo = list:Element(i);
@@ -372,6 +373,8 @@ function UPDATE_GUILDINFO(frame)
 			local txt_location = ctrlSet:GetChild("txt_location");
 			txt_teamname:SetTextByKey("value", partyMemberInfo:GetName());
 			txt_teamname:SetTextTooltip(partyMemberInfo:GetName());
+
+            IMC_WARNING("ERRCODE_INFO_NORMAL", "[name:"..partyMemberInfo:GetName());
 
 			local grade = partyMemberInfo.grade;
 			if leaderAID == partyMemberInfo:GetAID() then
@@ -394,6 +397,12 @@ function UPDATE_GUILDINFO(frame)
 
 				pic_online:SetImage("guild_online");
 			else
+				local logoutSec = partyMemberInfo:GetLogoutSec();
+				if logoutSec >= 0 then
+					locationText = GET_DIFF_TIME_TXT(logoutSec);
+				else				
+					locationText = ScpArgMsg("Logout");
+				end
 				pic_online:SetImage("guild_offline");
 			end
 
@@ -421,7 +430,7 @@ function UPDATE_GUILDINFO(frame)
 
 	local text_memberinfo = gbox_member:GetChild("text_memberinfo");
 	
-	local memberStateText = ScpArgMsg("GuildMember{Cur}/{Max}People,OnLine{On}People", "Cur", count, "Max", GUILD_BASIC_MAX_MEMBER + partyObj.AbilLevel_MemberExtend, "On", connectionCount);
+	local memberStateText = ScpArgMsg("GuildMember{Cur}/{Max}People,OnLine{On}People", "Cur", count, "Max", pcparty:GetMaxGuildMemberCount(), "On", connectionCount);
 	text_memberinfo:SetTextByKey("value", memberStateText);
 	
 	local chk_showonlyconnected = GET_CHILD(gbox_member, "chk_showonlyconnected");
@@ -432,6 +441,8 @@ function UPDATE_GUILDINFO(frame)
 	UPDATE_GUILD_WAR_INFO(frame, pcparty, partyObj);
 	
 	UPDATE_GUILD_EVENT_INFO(frame, pcparty, partyObj);
+
+    SendSystemLog()
 end
 
 function GUILD_UPDATE_TOWERINFO(frame, pcparty, partyObj)
@@ -752,7 +763,7 @@ end
 function GUILD_SHOW_ONLY_CONNECTED(parent, ctrl)
 
 	local frame = parent:GetTopParentFrame();
-	UPDATE_GUILDINFO(frame);
+	ThrottleScript("UPDATE_GUILDINFO", 5.0);
 
 	local guild_authority_popup = ui.GetFrame("guild_authority_popup");	
 	guild_authority_popup:ShowWindow(0);
@@ -761,7 +772,19 @@ end
 function CHANGE_AGIT_ENTER_OPTION(parnet, ctrl)
 
 	ctrl = AUTO_CAST(ctrl);
-	
+    
+    local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+	local partyObj = GetIES(pcparty:GetObject());
+
+    local isLeader = AM_I_LEADER(PARTY_GUILD);
+	if 0 == isLeader then
+		ui.SysMsg(ScpArgMsg("OnlyLeaderAbleToDoThis"));
+        print(ctrl:IsChecked())
+        ctrl:SetCheckWhenClicked(0);
+        ctrl:SetCheck(partyObj.GuildOnlyAgit);
+		return;
+	end
+    	
 	party.ReqChangeProperty(PARTY_GUILD, "GuildOnlyAgit", ctrl:IsChecked());
 
 end

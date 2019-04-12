@@ -33,6 +33,6 @@
         <button name="searchbutton" rect="180 -30 100 30" layout_gravity="center bottom" LBtnUpScp="FIND_FAME_BY_NAME" caption="{@st42}ID 검색{/}" clicksound="ui_click_button_4" oversound="button_over" texttooltip="입력한 ID를 검색합니다"/>
         <button name="colse" rect="25 5 40 40" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;halloffame&apos;)" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="명예의 전당을 닫습니다"/>
         <picture name="titlepicture" rect="170 70 44 44" layout_gravity="left top" image="button_ranking"/>
-        <edit name="searchinput" rect="45 -25 160 40" layout_gravity="center bottom" EnterKeyScp="FIND_FAME_BY_NAME" OffsetForDraw="10 3" fontname="white_14_ol" maxlen="128" texttooltip="검색할 ID를 입력합니다" usetag="true"/>
+        <edit name="searchinput" rect="45 -25 160 40" layout_gravity="center bottom" EnterKeyScp="FIND_FAME_BY_NAME" OffsetForDraw="10 3" fontname="white_14_ol" maxlen="128" texttooltip="검색할 ID를 입력합니다"/>
     </controls>
 </uitile>

@@ -16,15 +16,27 @@ function _PUMP_RECIPE_OPEN(frame, recipeType, itemName)
 	end
 
 	frame = tolua.cast(frame, "ui::CFrame");
-	frame:Resize(frame:GetOriginalWidth(),frame:GetOriginalHeight())
+
+	
+	-- 콜렉션 알람 UI 검사 (콜렉션 알람 UI랑 겹쳐서 여기서 검사한다)
+	local isOpenCollectionUI = false;
+	local frame_collection = ui.GetFrame("pump_collection");
+	if frame_collection ~= nil then
+		if frame_collection:IsVisible() == 1 then
+			isOpenCollectionUI = true;
+		end
+	end
+
+	--- 레시피알람 UI검사 
 	local beforeRecipeType = frame:GetUserIValue("RECIPETYPE");
-	if frame:IsVisible() == 1 and beforeRecipeType ~= recipeType then
+	if frame:IsVisible() == 1 and beforeRecipeType ~= recipeType or isOpenCollectionUI == true then
 		local duration = frame:GetDuration();
 		frame:ReserveScript("_PUMP_RECIPE_OPEN", duration + 1, recipeType, itemName);
 		frame:EnableHideProcess(1);
 		return;
 	end
-	
+	-- 이 함수가 위쪽에 있었는데 연속으로 알람 나올때 리사이즈로 인해 아래가짤려서 여기로 내림
+	frame:Resize(frame:GetOriginalWidth(),frame:GetOriginalHeight()) 
 	frame:SetUserValue("RECIPETYPE", recipeType);
 	local tgtItem = GetClass("Item", recipeCls.TargetItem);
 	local itemname = GET_CHILD(frame, "itemname", "ui::CRichText");
@@ -93,7 +105,10 @@ function _PUMP_RECIPE_OPEN(frame, recipeType, itemName)
 	frame:Invalidate();
 end
 
-function PUMP_RECIPE_OPEN(recipeType, itemName)
+function PUMP_RECIPE_OPEN(recipeType, itemName, addType)
+    if addType == 4 then -- ADD_ITEM_UNEQUIP = 4: 장비 해제로 인벤에 들어올 때에는 안해줌
+        return;
+    end
 	local frame = ui.GetFrame("pump_recipe");
 	_PUMP_RECIPE_OPEN(frame, recipeType, itemName);
 

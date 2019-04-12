@@ -1,62 +1,57 @@
-
---ì±„íŒ… íƒ€ì… ëª©ë¡ì—ì„œ 5ê°€ì§€ íƒ€ì…ë“¤ì— ëŒ€í•˜ì—¬ ë²„íŠ¼ëª©ë¡ë“¤ì„ ë§Œë“¤ì–´ì¤€ë‹¤. 
-function CHAT_TYPE_LISTSET(selected)
-	if selected == 0 then
-		return;
-	end;
-	
-	local frame = ui.GetFrame('chat');		
-	frame:SetUserValue("CHAT_TYPE_SELECTED_VALUE", selected);
-	local chattype_frame = ui.GetFrame('chattypelist');
-	local chattype_frame_width = chattype_frame:GetWidth();
-	
-	local j = 1;
-	for i = 1, 5 do
-
-		local color = frame:GetUserConfig("COLOR_BTN_" .. i);	
-		if selected ~= i then	
-			
-		-- ì„ íƒë˜ì§€ ì•Šì€ íƒ€ì…ë“¤ì€ ëª©ë¡í™”
-		local btn_Chattype = GET_CHILD(chattype_frame, "button_type" .. j);
-			if btn_Chattype == nil then
-				return;
-			end						
-			-- ë²„íŠ¼ í¬ê¸°ë¥¼ rectì˜ width height ê°’ìœ¼ë¡œ ê³ ì •
-			btn_Chattype:Resize(btn_Chattype:GetOriginalWidth(), btn_Chattype:GetOriginalHeight()); -- SetText ì „ì— í•´ì¤˜ì•¼ ì •ë ¬ë¨.
-
-			local msg = "{@st60}".. ScpArgMsg("ChatType_" .. i)  .. "{/}";
-			btn_Chattype:SetText(msg);	
-			btn_Chattype:SetTextTooltip( ScpArgMsg("ChatType_" .. i .. "_ToolTip") );
-			btn_Chattype:SetPosTooltip(btn_Chattype:GetWidth() + 10 , (btn_Chattype:GetHeight() /2));
-			btn_Chattype:SetColorTone( "FF".. color);
-
-			--ë‹¤ë¥¸ í”„ë ˆì„ì—ì„œì˜ ë²„íŠ¼ë‹¤ìš´ì´ ë˜ì—ˆì„ë•Œë„ ë¹„ì£¼ì–¼ìƒ ë°˜ì‘í•˜ëŠ” ê²ƒì²˜ëŸ¼ ë³´ì´ê²Œ í•˜ê¸° ìœ„í•œ ì„¤ì •
-			btn_Chattype:SetIsUpCheckBtn(true);
-
-			--ë‚˜ì¤‘ì— ëª©ë¡ ì¤‘ì—ì„œ ì„ íƒë˜ì—ˆì„ë•Œì— í•´ë‹¹ íƒ€ì…ì„ ì „ë‹¬í•˜ê¸° ìœ„í•œ ì‹¬ë³¼ ì„¤ì •. 
-			btn_Chattype:SetUserValue("CHAT_TYPE_CONFIG_VALUE", i);
-
-			--ì±„íŒ…ì°½ì˜ ë²„íŠ¼ê³¼ ëª©ë¡ë“¤ì€ ì„œë¡œ ë‹¤ë¥¸ í”„ë ˆì„ìœ¼ë¡œì„œ í•´ë‹¹ ë²ˆí˜¸ëŠ” ì„œë¡œ ë‹¬ë¦¬ ì¹´ìš´íŠ¸ëœë‹¤.
-			j = j + 1;
-
-			
-			
-		else
-
-		--ì„ íƒëœ íƒ€ì…ì€ ì±„íŒ…ë°”ì˜ ë²„íŠ¼ìœ¼ë¡œ
-			local btn_type = GET_CHILD(frame, "button_type");
-			if btn_type == nil then
-				return;
-			end			
-
-			-- ë²„íŠ¼ í¬ê¸°ë¥¼ rectì˜ width height ê°’ìœ¼ë¡œ ê³ ì •
-			btn_type:Resize(btn_type:GetOriginalWidth(), btn_type:GetOriginalHeight());
-
-			local msg = "{@st60}".. ScpArgMsg("ChatType_" .. i) .. "{/}";
-			btn_type:SetText(msg);	
-			btn_type:SetColorTone("FF".. color);
-			config.SetConfig("ChatTypeNumber", i);
-			
-		end;
-	end;
-end;
+--function CHAT_TYPE_LISTSET(selected)
+--	if selected == 0 then
+--		return;
+--	end;
+--
+--	if ui.GetWhisperTargetName() == nil and selected == 5 then
+--		return;
+--	end
+--
+--	if (ui.GetGroupChatTargetID() == nil or ui.GetGroupChatTargetID() == "") and selected == 6 then
+--		return;
+--	end
+--
+--
+--	local frame = ui.GetFrame('chat');		
+--	frame:SetUserValue("CHAT_TYPE_SELECTED_VALUE", selected);
+--	local chattype_frame = ui.GetFrame('chattypelist');
+--	local j = 1;
+--	for i = 1, 6 do
+--
+--		local color = frame:GetUserConfig("COLOR_BTN_" .. i);	
+--		if selected ~= i then	
+--			
+--			-- ¼±ÅÃµÇÁö ¾ÊÀº Å¸ÀÔµéÀº ¸ñ·ÏÈ­
+--			local btn_Chattype = GET_CHILD(chattype_frame, "button_type" .. j);
+--			if btn_Chattype == nil then
+--				return;
+--			end			
+--			
+--			local msg = "{@st60}".. ScpArgMsg("ChatType_" .. i)  .. "{/}";
+--			btn_Chattype:SetText(msg);	
+--			btn_Chattype:SetTextTooltip( ScpArgMsg("ChatType_" .. i .. "_ToolTip") );
+--			btn_Chattype:SetPosTooltip(btn_Chattype:GetWidth() + 10 , (btn_Chattype:GetHeight() /2));
+--			btn_Chattype:SetColorTone( "FF".. color);
+--
+--			--´Ù¸¥ ÇÁ·¹ÀÓ¿¡¼­ÀÇ ¹öÆ°´Ù¿îÀÌ µÇ¾úÀ»¶§µµ ºñÁÖ¾ó»ó ¹İÀÀÇÏ´Â °ÍÃ³·³ º¸ÀÌ°Ô ÇÏ±â À§ÇÑ ¼³Á¤
+--			btn_Chattype:SetIsUpCheckBtn(true);
+--
+--			--³ªÁß¿¡ ¸ñ·Ï Áß¿¡¼­ ¼±ÅÃµÇ¾úÀ»¶§¿¡ ÇØ´ç Å¸ÀÔÀ» Àü´ŞÇÏ±â À§ÇÑ ½Éº¼ ¼³Á¤. 
+--			btn_Chattype:SetUserValue("CHAT_TYPE_CONFIG_VALUE", i);
+--
+--			--Ã¤ÆÃÃ¢ÀÇ ¹öÆ°°ú ¸ñ·ÏµéÀº ¼­·Î ´Ù¸¥ ÇÁ·¹ÀÓÀ¸·Î¼­ ÇØ´ç ¹øÈ£´Â ¼­·Î ´Ş¸® Ä«¿îÆ®µÈ´Ù.
+--			j = j + 1;
+--		else
+--
+--		--¼±ÅÃµÈ Å¸ÀÔÀº Ã¤ÆÃ¹ÙÀÇ ¹öÆ°À¸·Î
+--			local btn_type = GET_CHILD(frame, "button_type");
+--			if btn_type == nil then
+--				return;
+--			end			
+--			local msg = "{@st60}".. ScpArgMsg("ChatType_" .. i) .. "{/}";
+--			btn_type:SetText(msg);	
+--			btn_type:SetColorTone("FF".. color);
+--			
+--		end;
+--	end;
+--end;

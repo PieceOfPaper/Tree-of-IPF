@@ -52,7 +52,7 @@ function CREATE_JOURNAL_ARTICLE_MAP(frame, grid, key, text, iconImage, callback)
 			recoverRate = GetWikiIntProp(wiki, "RevealRate");
 		end
 
-		--¸¶À» °°Àº °æ¿ì¿¡´Â ¸ðµÎ Å½»ö·ü 100ÇÁ·Î·Î º¸¿©ÁÖÀÚ
+		--ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ Å½ï¿½ï¿½ï¿½ï¿½ 100ï¿½ï¿½ï¿½Î·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if cls.Journal == "TRUE" and cls.UseMapFog == 0 then
 			recoverRate = 100
 		else
@@ -115,7 +115,7 @@ function CREATE_JOURNAL_ARTICLE_MAP(frame, grid, key, text, iconImage, callback)
 	end
 
 	JOURNAL_MAP_UPDATE_SCORE(frame, group, totalScore * 0.1);
-
+    
 	tolua.cast(page, 'ui::CGroupBox')
 	--page:SetCurLine(0);
 	page:Invalidate();
@@ -123,15 +123,14 @@ function CREATE_JOURNAL_ARTICLE_MAP(frame, grid, key, text, iconImage, callback)
 end
 
 function JOURNAL_MAP_UPDATE_SCORE(frame, group, totalScore)
-
 	local ctrlset = group:GetChild("ctrlset");
 	local rationText = ctrlset:GetChild("rationText");
 	local scoreText = ctrlset:GetChild("scoreText");
 	local allCount = GetCategoryWikiListCount("Map");
 
-	if rationText ~= nil then
-		rationText:SetTextByKey("rate", math.floor(totalScore / allCount));
-		scoreText:SetTextByKey("score2", math.floor(totalScore));
+	if rationText ~= nil then        
+        rationText:SetTextByKey("rate", string.format("%.2f", totalScore / allCount * 100))	
+		scoreText:SetTextByKey("score2", math.floor(totalScore));        
 	end
 	
 end

@@ -38,7 +38,7 @@ function DIALOGSELECT_ITEM_ADD(frame, msg, argStr, argNum)
 	local ItemBtn		= frame:GetChild(controlName);
 	local ItemBtnCtrl	= tolua.cast(ItemBtn, 'ui::CButton');
 	local locationUI = DialogSelect_offsetY - argNum * 37 - 10;
-
+	
 	ItemBtnCtrl:SetGravity(ui.CENTER_HORZ, ui.TOP);
     
 	if questRewardBox ~= nil then
@@ -78,20 +78,21 @@ function DIALOGSELECT_ITEM_ADD(frame, msg, argStr, argNum)
 				frameHeight = height + offsetEx + 50;	
 				ItemBtnCtrl:SetOffset(0, height + offsetEx);
 			end
-		end;		
+		end
+
 		frame:Resize(600, frameHeight + 10);			
 		frame:ShowWindow(1);	
 		
 	else
 		ItemBtnCtrl:SetOffset(0, (argNum-1) * 40 + 40);
-		frame:Resize(600, argNum * 40 + 90);
+		frame:Resize(600, (argNum + 1) * 40 + 10);		
         frame:SetOffset(frame:GetX(),  locationUI);
 	end
 
 	ItemBtnCtrl:SetEventScript(ui.LBUTTONDOWN, 'control.DialogSelect(' .. argNum .. ')');
 	ItemBtnCtrl:ShowWindow(1);
 	ItemBtnCtrl:SetText('{s18}{b}{#2f1803}'..argStr);
-  frame:Update()
+	frame:Update();
 end
 
 
@@ -171,24 +172,36 @@ function DIALOGSELECT_QUEST_REWARD_ADD(frame, argStr)
     end
     
 	local succExp = cls.Success_Exp;
+	local succJobExp = 0;
 	if repeat_reward_exp > 0 then
 	    succExp = succExp + repeat_reward_exp
 	end
 	
 	if cls.Success_Lv_Exp > 0 then
-        local xpIES = GetClass('Xp', questCls.Level)
+        local xpIES = GetClass('Xp', pc.Lv)
         if xpIES ~= nil then
             local lvexpvalue =  math.floor(xpIES.QuestStandardExp * cls.Success_Lv_Exp)
             if lvexpvalue ~= nil and lvexpvalue > 0 then
 	            succExp = succExp + lvexpvalue
             end
+            local lvjobexpvalue =  math.floor(xpIES.QuestStandardJobExp * cls.Success_Lv_Exp)
+            if lvjobexpvalue ~= nil and lvjobexpvalue > 0 then
+	            succJobExp = succJobExp + lvjobexpvalue
+            end
         end
     end
     
 	if succExp > 0 then
-		y = BOX_CREATE_RICHTEXT(questRewardBox, "t_successExp", y, 50, ScpArgMsg("Auto_{@st41}KyeongHeomChi_:_") .."{s20}{#FFFF00}"..  succExp.."{/}");
-		
-		y = MAKE_QUESTINFO_REWARD_LVUP(questRewardBox, questCls, 10, y)
+	    y = y + 5
+		y = BOX_CREATE_RICHTEXT(questRewardBox, "t_successExp", y, 50, ScpArgMsg("Auto_{@st41}KyeongHeomChi_:_") .."{s18}{#FFFF00}"..  succExp.."{/}", 10);
+		local tempY = y
+		y = MAKE_QUESTINFO_REWARD_LVUP(questRewardBox, questCls, 20, y, '{@st41b}')
+		if tempY ~= y then
+		    y = y - 5
+		end
+	end
+	if succJobExp > 0 then
+		y = BOX_CREATE_RICHTEXT(questRewardBox, "t_successJobExp", y , 50, ScpArgMsg("SuccessJobExpGiveMSG1") .."{s18}{#FFFF00}"..  succJobExp.."{/}", 10);
 	end
 
 	y = MAKE_REWARD_ITEM_CTRL(questRewardBox, cls, y);
@@ -203,6 +216,7 @@ end
 function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
 	frame:Invalidate();
 	frame:SetOffset(frame:GetX(),frame:GetY())
+
     if  msg == 'DIALOG_CHANGE_SELECT'  then
 		for i = 1, 11 do
 			local childName = 'item' .. i .. 'Btn'
@@ -277,7 +291,7 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
 		ui.CloseFrame(frame:GetName());
 		DialogSelect_index = 0;
 		DialogSelect_count = 0;
-		mouse.SetHidable(1);
+		mouse.SetHidable(1);	
 
 	elseif msg == 'DIALOGSELECT_UP' then
 		DialogSelect_index = DialogSelect_index - 1;
@@ -349,7 +363,7 @@ function MAKE_REWARD_ITEM_CTRL(box, cls, y)
 	local job = SCR_JOBNAME_MATCHING(JobName)
 	local index = 0
 	local pc = GetMyPCObject();
-
+	
 
 	local isItem = 0;
 

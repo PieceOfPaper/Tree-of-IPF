@@ -13,6 +13,28 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="BOW03_303">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_RunningShot"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_RunningShot"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="BRC03_109">
 		<TriggerList Act="UnEquip">
 			<Trigger>
@@ -664,6 +686,76 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="PST04_103">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_ConcentratedFire"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_Caracole"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_Limacon"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_RetreatShot"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_WildShot"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_AssaultFire"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_EvasiveAction"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_ConcentratedFire"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_Caracole"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_Limacon"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_RetreatShot"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_WildShot"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_AssaultFire"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_EvasiveAction"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="HAND01_202">
 		<TriggerList Act="BeforeAttack">
 			<Trigger>
@@ -745,7 +837,7 @@
 				<CondList>
 					<ToolScp Scp="SPCI_CHECK_ATTACKTYPE" Client="NO" UseSleep="NO">
 						<Str Str="Slash"/>
-						<Str Str="NotCheck"/>
+						<Str Str="Slash"/>
 						<Str Str="NotCheck"/>
 						<Str Str="None"/>
 						<Str Str="NotCheck"/>
@@ -753,7 +845,7 @@
 				</CondList>
 				<ExecList>
 					<ToolScp Scp="SPCI_DAM_RATE" Client="NO" UseSleep="NO">
-						<Num Num="0.20"/>
+						<Num Num="0.2"/>
 					</ToolScp>
 				</ExecList>
 				<TgtCondList>
@@ -929,7 +1021,7 @@
 						<Str Str="None"/>
 						<Str Str="NotCheck"/>
 					</ToolScp>
-				<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
 						<Str Str="Melee"/>
 					</ToolScp>
 				</CondList>
@@ -948,6 +1040,44 @@
 		</TriggerList>
 	</SpcItem>
 	<SpcItem Name="MUS04_102">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_CoveringFire"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_HeadShot"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_Snipe"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_PenetrationShot"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_ButtStroke"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_BayonetThrust"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_Volleyfire"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_Birdfall"/>
+						<Num Num="2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
 		<TriggerList Act="UnEquip">
 			<Trigger>
 				<ExecList>
@@ -975,41 +1105,57 @@
 						<Str Str="Musketeer_BayonetThrust"/>
 						<Num Num="-2"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_CoveringFire"/>
-						<Num Num="2"/>
+						<Str Str="Musketeer_Volleyfire"/>
+						<Num Num="-2"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_HeadShot"/>
-						<Num Num="2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_Snipe"/>
-						<Num Num="2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_PenetrationShot"/>
-						<Num Num="2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_ButtStroke"/>
-						<Num Num="2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_BayonetThrust"/>
-						<Num Num="2"/>
+						<Str Str="Musketeer_Birdfall"/>
+						<Num Num="-2"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
 	<SpcItem Name="MUS04_101">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_CoveringFire"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_HeadShot"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_Snipe"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_PenetrationShot"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_ButtStroke"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_BayonetThrust"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_Volleyfire"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer_Birdfall"/>
+						<Num Num="2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
 		<TriggerList Act="UnEquip">
 			<Trigger>
 				<ExecList>
@@ -1037,35 +1183,13 @@
 						<Str Str="Musketeer_BayonetThrust"/>
 						<Num Num="-2"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_CoveringFire"/>
-						<Num Num="2"/>
+						<Str Str="Musketeer_Volleyfire"/>
+						<Num Num="-2"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_HeadShot"/>
-						<Num Num="2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_Snipe"/>
-						<Num Num="2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_PenetrationShot"/>
-						<Num Num="2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_ButtStroke"/>
-						<Num Num="2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_BayonetThrust"/>
-						<Num Num="2"/>
+						<Str Str="Musketeer_Birdfall"/>
+						<Num Num="-2"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -1250,7 +1374,7 @@
 						<Str Str="Fencer_Preparation"/>
 						<Num Num="-2"/>
 					</ToolScp>
-				<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Fencer_BalestraFente"/>
 						<Num Num="-2"/>
 					</ToolScp>
@@ -1319,7 +1443,7 @@ end"/>
 						<Str Str="Fencer_Preparation"/>
 						<Num Num="2"/>
 					</ToolScp>
-				<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Fencer_BalestraFente"/>
 						<Num Num="2"/>
 					</ToolScp>
@@ -1733,6 +1857,14 @@ end"/>
 						<Str Str="Schwarzereiter_WildShot"/>
 						<Num Num="-1"/>
 					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_AssaultFire"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_EvasiveAction"/>
+						<Num Num="-1"/>
+					</ToolScp>
 				</ExecList>
 			</Trigger>
 		</TriggerList>
@@ -1757,6 +1889,14 @@ end"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Schwarzereiter_WildShot"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_AssaultFire"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_EvasiveAction"/>
 						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>
@@ -1858,6 +1998,40 @@ end"/>
 		</TriggerList>
 	</SpcItem>
 	<SpcItem Name="PST04_102">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_ConcentratedFire"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_Caracole"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_Limacon"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_RetreatShot"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_WildShot"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_EvasiveAction"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_AssaultFire"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
 		<TriggerList Act="UnEquip">
 			<Trigger>
 				<ExecList>
@@ -1881,31 +2055,13 @@ end"/>
 						<Str Str="Schwarzereiter_WildShot"/>
 						<Num Num="-1"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_ConcentratedFire"/>
-						<Num Num="1"/>
+						<Str Str="Schwarzereiter_EvasiveAction"/>
+						<Num Num="-1"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_Caracole"/>
-						<Num Num="1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_Limacon"/>
-						<Num Num="1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_RetreatShot"/>
-						<Num Num="1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_WildShot"/>
-						<Num Num="1"/>
+						<Str Str="Schwarzereiter_AssaultFire"/>
+						<Num Num="-1"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
