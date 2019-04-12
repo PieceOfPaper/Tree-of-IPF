@@ -11758,13 +11758,17 @@
 		<Class ClassID="801051" ClassName="STEAM_COLONY_WAR_FIRST_ENTRY_REWARD_MSG" Data="길드 콜로니전 첫 참여 보상으로 다양한 아이템이 지급됩니다.{nl}[F2]키를 눌러 현재 캐릭터의 인벤토리를 확인해 주세요.{nl}(길드 단위로 지급되는 아이템은 [길드 보관함]을 확인해 주세요.)"/>
 		<Class ClassID="801052" ClassName="STEAM_COLONY_WAR_FIRST_VICTORY_REWARD_MSG{itemName}{itemCount}" Data="길드 콜로니전 첫 승리 보상으로  [{itemName}] x {itemCount} 개 지급{nl}(지급된 아이템은 길드 단위로 지급됩니다. [길드 보관함]을 확인해 주세요.)"/>
 		<Class ClassID="801053" ClassName="STEAM_COLONY_WAR_FIRST_VICTORY_REWARD_MSG1" Data="콜로니전에서 첫 승리한 길드의 길드마스터만 이용할 수 있습니다."/>
-		<Class ClassID="801054" ClassName="STEAM_COLONY_WAR_FIRST_VICTORY_REWARD_MSG2" Data="이미 첫 승리 보상을 받았습니다.{nl}길드 보관함을 확인해 주세요."/>
+		<Class ClassID="801054" ClassName="STEAM_COLONY_WAR_FIRST_VICTORY_REWARD_MSG2" Data="이미 첫 승리 보상을 받았습니다."/>
 		<Class ClassID="801055" ClassName="GUILD_COLONY_MSG_BOSSMONSTER_KILL2{name}" Data="길드 내 [{name}] 유저가 몬스터를 마지막으로 타격하는데 성공했습니다!{nl}(현재 해당 지역을 점령중이므로 처치 보상을 받을 수 없습니다.)"/>
 		<Class ClassID="801056" ClassName="GUILD_COLONY_MSG_ENHANCER_DESTROY_BUFF2{name}{buff}" Data="길드 내 [{name}] 유저가 증폭기를 마지막으로 타격하는데 성공했습니다!{nl}([{buff}] 버프의 중첩이 현재 최대치 입니다.)"/>
 		<Class ClassID="801057" ClassName="COLONY_ROOTCRYSTAL_NAME_1" Data="나무뿌리 수정(속도)"/>
 		<Class ClassID="801058" ClassName="COLONY_ROOTCRYSTAL_NAME_2" Data="나무뿌리 수정(재생)"/>
 		<Class ClassID="801059" ClassName="COLONY_ROOTCRYSTAL_NAME_3" Data="나무뿌리 수정(공격)"/>
 		<Class ClassID="801060" ClassName="COLONY_ROOTCRYSTAL_NAME_4" Data="나무뿌리 수정(방어)"/>
+		<Class ClassID="801061" ClassName="STEAM_COLONY_WAR_ONEDAY_REWARD_MSG2" Data="길드 콜로니전 일일 참여 보상으로 여러 아이템이 지급됩니다."/>
+		<Class ClassID="801062" ClassName="STEAM_COLONY_WAR_FIVE_TIME_REWARD_MSG2" Data="길드 콜로니전 5회 참여 보상으로 특별한 아이템이 지급됩니다."/>
+		<Class ClassID="801063" ClassName="STEAM_COLONY_WAR_FIRST_VICTORY_REWARD_MSG3" Data="이전 콜로니전에서 승리한 길드가 아닙니다."/>
+		<Class ClassID="801064" ClassName="STEAM_COLONY_WAR_FIRST_VICTORY_REWARD_MSG4" Data="길드 콜로니전 첫 승리 보상이 지급됩니다."/>
 	</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="การซื้อสำเร็จ"/>
