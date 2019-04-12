@@ -378,7 +378,7 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 
             local warpcost;
             warpcost = 0
-
+			
             set:SetTooltipType('warpminimap');
             if warpInfo ~= nil then
                 set:SetTooltipStrArg(warpInfo.ClassName);
@@ -1291,7 +1291,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 
 		for i = 0,  genCnt - 1 do
 			local element = genList:Element(i)
-			if	string.find(element:GetClassName(), "statue") ~= nil then
+			if	string.find(element:GetClassName(), "statue_vakarine") ~= nil then
 				local genPointlist = element.GenList;
 				worldPos = genPointlist:Element(0)
 				break;
@@ -1299,6 +1299,8 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 		end
 
 		if worldPos == nil then
+			local statuePic = GET_CHILD(tooltipframe, "picture_statue");
+			statuePic:ShowWindow(0);
 			return;
 		end
 
@@ -1310,8 +1312,8 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 
 		local mapPos = mapprop:WorldPosToMinimapPos(worldPos.x, worldPos.z, width, height);
 	
-		local XC = offsetX + mapPos.x - iconW/2;	
-		local YC = offsetY + mapPos.y - iconH/2;
+		local XC = offsetX + mapPos.x - iconW / 2;	
+		local YC = offsetY + mapPos.y - iconH / 2;
 
 		local statuePic = tooltipframe:CreateOrGetControl('picture', "picture_statue", XC, YC, iconW, iconH);
 		tolua.cast(statuePic, "ui::CPicture");

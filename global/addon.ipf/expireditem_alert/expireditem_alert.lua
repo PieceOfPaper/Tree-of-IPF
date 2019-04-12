@@ -1,15 +1,11 @@
 
 function EXPIREDITEM_ALERT_ON_INIT(addon, frame)
-	addon:RegisterMsg('EXPIREDITEM_ALERT_INIT', 'EXPIREDITEM_ALERT_ON_MSG');
 	addon:RegisterMsg('EXPIREDITEM_ALERT_OPEN', 'EXPIREDITEM_ALERT_ON_MSG');
 
 end
 
 function EXPIREDITEM_ALERT_ON_MSG(frame, msg, argStr, argNum)
-	if msg == "EXPIREDITEM_ALERT_INIT" then
-		frame:ShowWindow(0);
-		return;
-	elseif msg == "EXPIREDITEM_ALERT_OPEN" then
+	if msg == "EXPIREDITEM_ALERT_OPEN" then
         EXPIREDITEM_ALERT_OPEN(frame, argStr)
 		return;
 	end
@@ -18,21 +14,12 @@ end
 function EXPIREDITEM_ALERT_OPEN(frame, argStr)
     frame:SetUserValue("TimerType", argStr);
 
-    local gameexitpopup = ui.GetFrame('gameexitpopup');
-    if gameexitpopup ~= nil and gameexitpopup:IsVisible() == 1 then
-        gameexitpopup:ShowWindow(0);
-    end
-    if argStr == 'Channel' then
-        ON_GAMEEXIT_TIMER_END(gameexitpopup);
-        return;
-    end
-
     local itemlist = GET_CHILD(frame, 'itemlist', 'ui::CGroupBox');
     itemlist:RemoveAllChild();
     local nearFutureSec = frame:GetUserConfig("NearFutureSec");
     local list = GET_SCHEDULED_TO_EXPIRED_ITEM_LIST(nearFutureSec);
     if #list < 1 then        
-        ON_GAMEEXIT_TIMER_END(gameexitpopup);
+        APPS_TRY_LEAVE(argStr)
         return;
     end
 
@@ -53,11 +40,7 @@ end
 
 function EXPIREDITEM_ALERT_OK_BTN(frame)
     local timerType = frame:GetUserValue("TimerType");
-    local gameexitpopup = ui.GetFrame('gameexitpopup');
-    if timerType ~= "None" then
-        gameexitpopup:SetUserValue('EXIT_TYPE', timerType);
-    end
-    ON_GAMEEXIT_TIMER_END(gameexitpopup);
+    RUN_GAMEEXIT_TIMER(timerType)
 
 	frame:ShowWindow(0);
 end

@@ -141,15 +141,18 @@ function HEADSUPDISPLAY_ON_MSG(frame, msg, argStr, argNum)
 		if beforeVal > 0 and stat.HP < beforeVal then
 			UI_PLAYFORCE(hpGauge, "gauge_damage");
 		end		
+
 		hpGauge:SetMaxPointWithTime(stat.HP, stat.maxHP, 0.1, 0.5);
 		spGauge:SetMaxPointWithTime(stat.SP, stat.maxSP, 0.1, 0.5);
-        
+
 		local hpRatio = stat.HP / stat.maxHP;
-		if  hpRatio <= 0.3 and hpRatio > 0 then
+		if hpRatio <= 0.3 and hpRatio > 0 then
             --hpGauge:SetBlink(0.0, 1.0, 0xffff3333); -- (duration, 주기, 색상) -- 게이지 양 끝에 점멸되는 버그 잡고 써야함.
 		else
 			hpGauge:ReleaseBlink();
 		end
+
+		frame:Invalidate();
 	end
 
 	if msg == 'CAUTION_DAMAGE_INFO' then
@@ -168,8 +171,7 @@ function HUD_SET_EMBLEM(frame, jobClassID)
     local mySession = session.GetMySession();
     local jobPic = GET_CHILD_RECURSIVELY(frame, 'jobPic');
     jobPic:SetImage(jobIcon);
-    PARTY_JOB_TOOLTIP_BY_CID(mySession:GetCID(), jobPic, jobCls);
-
+    UPDATE_MY_JOB_TOOLTIP(jobClassID, jobPic, jobCls)
     local jobStarText = GET_CHILD_RECURSIVELY(frame, 'jobStarText');
     local STAR_SIZE = frame:GetUserConfig('STAR_SIZE');
     local pcJobInfo = mySession.pcJobInfo;

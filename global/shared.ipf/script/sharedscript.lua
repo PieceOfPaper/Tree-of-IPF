@@ -348,7 +348,7 @@ function GET_LAST_UI_OPEN_POS(etc)
 end
 
 
-function IS_NO_EQUIPITEM(equipItem) -- No_~ 시리즈 아이템인지.
+function IS_NO_EQUIPITEM(equipItem) -- No_~ ?�리�??�이?�인지.
 
     local clsName = equipItem.ClassName;
 
@@ -432,7 +432,7 @@ function GET_GEM_TYPE_NUMBER(GemType)
     return -1;
 end
 
--- 특정 존 앵커 중 랜덤으로 1개 IES를 리턴해준다
+-- ?�정 �??�커 �??�덤?�로 1�?IES�?리턴?��???
 function SCR_RANDOM_ZONE_ANCHORIES(zoneName)
     local idspace = 'Anchor_'..zoneName
     local class_count = GetClassCount(idspace)
@@ -451,7 +451,7 @@ function SCR_RANDOM_ZONE_ANCHORIES(zoneName)
     
 end
 
--- 테이블에서 특정 컬럼을 검색해서 리턴해준다
+-- ?�이블에???�정 컬럼??검?�해??리턴?��???
 function SCR_TABLE_SEARCH_ITEM(list, target)
     local result = 'NO'
     local keyList = {}
@@ -541,7 +541,7 @@ function SCR_Q_SUCCESS_REWARD_JOB_GENDER_CHECK(pc, list, target1, target2, targe
 end
 
 
--- 두개의 IES 리스트를 합쳐준다
+-- ?�개??IES 리스?��? ?�쳐준??
 function SCR_IES_ADD_IES(IES_list1, IES_list2)
     if IES_list1 == nil and IES_list2 == nil then
         return nil
@@ -562,7 +562,7 @@ function SCR_IES_ADD_IES(IES_list1, IES_list2)
     return IES_list1
 end
 
--- 특정 퀘스트 세션오브젝트 완료 조건 중 index 번째 조건 만족 확인
+-- ?�정 ?�스???�션?�브?�트 ?�료 조건 �?index 번째 조건 만족 ?�인
 function SCR_QUEST_SOBJ_TERMS(pc, sObj_name, index)
     local sObj_quest = GetSessionObject(pc, sObj_name)
     if sObj_quest ~= nil then
@@ -578,7 +578,7 @@ function SCR_QUEST_SOBJ_TERMS(pc, sObj_name, index)
     end
 end
 
--- 특정 존에 있는 오브젝트의 좌표 IES 리스트를 찾아줌
+-- ?�정 존에 ?�는 ?�브?�트??좌표 IES 리스?��? 찾아�?
 function SCR_GET_MONGEN_ANCHOR(zone_name, column, value)
     local result2 = SCR_GET_XML_IES('GenType_'..zone_name, column, value)
     if  result2 ~= nil and #result2 > 0 then
@@ -590,7 +590,7 @@ function SCR_GET_MONGEN_ANCHOR(zone_name, column, value)
 end
 
 
--- xml 중 특정 컬럼의 값과 일치/유사 한 IES 리스트를 찾아줌 (option 1이면 유사 값, 아니면 일치)
+-- xml �??�정 컬럼??값과 ?�치/?�사 ??IES 리스?��? 찾아�?(option 1?�면 ?�사 �? ?�니�??�치)
 function SCR_GET_XML_IES(idspace, column_name, target_value, option)
     local return_list = {}
     if idspace == nil then
@@ -1055,7 +1055,11 @@ function SCR_DATE_TO_YDAY_BASIC_2000_REVERSE(yday)
     
     return yy,mm,dd
 end
-
+function SCR_DATE_TO_YWEEK_BASIC_2000(yy, mm, dd, firstWday)
+    local yday2000 = SCR_DATE_TO_YDAY_BASIC_2000(yy, mm, dd)
+    local result = math.floor((yday2000+6-firstWday)/7) + 1
+    return result
+end
 function SCR_DATE_TO_YDAY_BASIC_2000(yy, mm, dd)
     local days, monthdays, leapyears, nonleapyears, nonnonleapyears
 
@@ -1308,13 +1312,13 @@ function GET_MAP_ACHI_NAME(mapCls)
 
     local name = ScpArgMsg("Auto_{Auto_1}_TamSaJa","Auto_1", mapCls.Name);
     local desc = ScpArgMsg("Auto_{Auto_1}_Jiyeogeul_MoDu_TamSaHayeossSeupNiDa.","Auto_1", mapCls.Name);
-    local desctitle = name -- 임시. 나중에 맵 업적 달성시 보상및 칭호에 대한 데이터 세팅 이루어 지면 바꾸자.
+    local desctitle = name -- ?�시. ?�중??�??�적 ?�성??보상�?�?��???�???�이???�팅 ?�루??지�?바꾸??
     local reward = "None"
     return desc, name, desctitle, reward;
 
 end
 
--- hgihLv : 파티원중 가장 높은 레벨, 파티가 아니거나 1인 파티면 0임
+-- hgihLv : ?�티?�중 가???��? ?�벨, ?�티가 ?�니거나 1???�티�?0??
 function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
     local pcLv = myLevel;
     local monLv = monLevel;
@@ -1333,9 +1337,9 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
     if levelGap > standardLevel then
     	local penaltyRatio = 0.0;
     	if pcLv < monLv then
-	        penaltyRatio = 0.05;	-- 고레벨 몬스터 사냥 시 페널티
+	        penaltyRatio = 0.05;	-- 고레�?몬스???�냥 ???�널??
 	    else
-	    	penaltyRatio = 0.02;	-- 저레벨 몬스터 사냥 시 페널티
+	    	penaltyRatio = 0.02;	-- ?�?�벨 몬스???�냥 ???�널??
 	    end
 	    
 	    local lvRatio = 1 - ((levelGap - standardLevel) * penaltyRatio);
@@ -1534,9 +1538,9 @@ function SCR_DIALOG_NPC_ANIM(animName)
 
 end
 
-                                    -- 공용 라이브러리
+                                    -- 공용 ?�이브러�?
 --------------------------------------------------------------------------------------
--- 특정 문자를 기준으로 문자열을 잘라 테이블로 반환
+-- ?�정 문자�?기�??�로 문자?�을 ?�라 ?�이블로 반환
 function StringSplit(str, delimStr)
     local _tempStr = str;
     local _result = {};
@@ -1620,13 +1624,13 @@ function IsEnableEffigy(self, skill)
         return 0;
     end
 
-    -- 거리 체크하는거 추가해야할듯?
-    -- 근데 그럼 성능낭비인디???
+    -- 거리 체크?�는�?추�??�야?�듯?
+    -- 근데 그럼 ?�능??��?�디???
     return 1;
 end
 
 
--- 보스 드랍 리스트 교체 바인딩 함수
+-- 보스 ?�랍 리스??교체 바인???�수
 function CHANGE_BOSSDROPLIST(self, equipDropList)
     ChangeClassValue(self, 'EquipDropType', equipDropList);
 end
@@ -1644,10 +1648,10 @@ function GET_RECIPE_REQITEM_CNT(cls, propname)
 
 end
 
--- 전직가능 조건체크하는 함수. skilltree.lua ui애드온에서 사용하고 서버에서도 조건체크할때 사용.
+-- ?�직가??조건체크?�는 ?�수. skilltree.lua ui?�드?�에???�용?�고 ?�버?�서??조건체크?�때 ?�용.
 function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
     
-    -- 이미 가지고있는 직업이면 바로 true리턴
+    -- ?��? 가지고있??직업?�면 바로 true리턴
     for i = 0, #haveJobNameList do      
         if haveJobNameList[i] ~= nil then
             if haveJobNameList[i] == cls.ClassName then
@@ -1656,29 +1660,29 @@ function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
         end
     end
     
-    -- 아래는 새로운 직업에대한 조건 체크
+    -- ?�래???�로??직업?��???조건 체크
     local i = 1;
     
     while 1 do
     
-            -- 조건체크하는 칼럼이 더 필요하면 xml에서 걍 늘리면됨. ㅇㅋ?   
+            -- 조건체크?�는 칼럼?????�요?�면 xml?�서 �??�리면됨. ?�ㅋ?   
         if GetPropType(cls, "ChangeJobCondition" .. i) == nil then
             break;
         end
 
 
-        -- ChangeJobCondition이 전부 'None'이면 퀘스트를 통해서 전직하는거임. UI에서는 안보여줌.
+        -- ChangeJobCondition???��? 'None'?�면 ?�스?��? ?�해???�직?�는거임. UI?�서???�보?�줌.
         if cls["ChangeJobCondition" .. i] == 'None' then
             return false;
         end
         
 
         local sList = StringSplit(cls["ChangeJobCondition" .. i], ";");
-        local conditionCount = #sList / 2;  -- 해당직업 전직조건 체크갯수
+        local conditionCount = #sList / 2;  -- ?�당직업 ?�직조건 체크�?��
         
-        local completeCount = 0;            -- 전직조건에 몇개나 만족하는지
+        local completeCount = 0;            -- ?�직조건??몇개??만족?�는지
         for j = 1, conditionCount do
-            -- 직업가지고있고 요구레벨보다 높은지 체크
+            -- 직업가지고있�??�구?�벨보다 ?��?지 체크
             for n=0, #haveJobNameList do
                             
                 if sList[j*2-1] == haveJobNameList[n] and tonumber(sList[j*2]) <= tonumber(haveJobGradeList[n]) then
@@ -1687,7 +1691,7 @@ function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
             end
         end
 
-            -- 전직조건에 모두 만족하면 전직가능하다고 셋팅해줌
+            -- ?�직조건??모두 만족?�면 ?�직가?�하?�고 ?�팅?�줌
         if conditionCount == completeCount then
             return true;
         end
@@ -1903,7 +1907,7 @@ function GET_COMMA_SEPARATED_STRING_FOR_HIGH_VALUE(num)
 	local retStr = "";
 	local numValue = num;
 	
-	for i = 1, 1000 do	-- 무한루프 방지용 --
+	for i = 1, 1000 do	-- 무한루프 방�???--
 		local tempValue = numValue % 1000;
 		if string.len(tempValue) < 3 then
 			for j = 1, 3 - string.len(tempValue) do
@@ -1932,9 +1936,9 @@ function GET_COMMA_SEPARATED_STRING_FOR_HIGH_VALUE(num)
 	return retStr, "SUCCESS";
 end
 
--- 이 함수는 이제 사용하지 말 것 --
--- 그래도 혹시 어디서 참조할지 몰라서 남겨두긴 함 --
-function GET_COMMAED_STRING(num) -- unsigned long 범위내에서 가능하게 수정함
+-- ???�수???�제 ?�용?��? �?�?--
+-- 그래???�시 ?�디??참조?��? 몰라???�겨?�긴 ??--
+function GET_COMMAED_STRING(num) -- unsigned long 범위?�에??가?�하�??�정??
     if num == nil then
         return "0";
     end
@@ -1961,7 +1965,7 @@ function GET_NOT_COMMAED_NUMBER(commaedString)
         startIndex, endIndex = string.find(tempStr, ',');
         noInfinite = noInfinite + 1;
 
-        -- 혹시 모를 무한루프 방지
+        -- ?�시 모�? 무한루프 방�?
         if noInfinite >= 10000 then
             break;
         end
@@ -2156,13 +2160,13 @@ function IS_IN_EVENT_MAP(pc)
     return false;
 end
 
---일반 파티 경험치 계산
+--?�반 ?�티 경험�?계산
 function NORMAL_PARTY_EXP_BOUNS_RATE(partyMemberCount, pc)
-	--1인 100. 2인 190(95), 3인 270(90), 4인 340(85), 5인 400(80)
-	--대문자로 선언되어있는 변수는 다 sharedconst_system.xml에 있는 값임.
+	--1??100. 2??190(95), 3??270(90), 4??340(85), 5??400(80)
+	--?�문자�??�언?�어?�는 변?�는 ??sharedconst_system.xml???�는 값임.
 	local expUpRatio = 1;
 	
-	--파티인원수에 대한 계산
+	--?�티?�원?�에 ?�??계산
 	if partyMemberCount > 1 then
 		expUpRatio = expUpRatio + ((1 - (partyMemberCount * PARTY_EXP_BONUS)) * (partyMemberCount - 1));
 	end
@@ -2170,9 +2174,9 @@ function NORMAL_PARTY_EXP_BOUNS_RATE(partyMemberCount, pc)
 	return expUpRatio;
 end
 
---인던 자동매칭 경험치 계산
+--?�던 ?�동매칭 경험�?계산
 function INDUN_AUTO_MATCHING_PARTY_EXP_BOUNS_RATE(partyMemberCount)
-	--한명당 120프로씩 더 준다. 단! 1명일 땐, 경험치 보너스 없다.
+	--?�명??120?�로????준?? ?? 1명일 ?? 경험�?보너???�다.
 	local expUpRatio = NORMAL_PARTY_EXP_BOUNS_RATE(partyMemberCount);
 	
 	if partyMemberCount > 1 then
@@ -2191,7 +2195,7 @@ function GET_INDUN_SILVER_RATIO(myLevel, indunLevel)
     local levelGap = math.abs(pcLv - dungeonLv);
     
     if levelGap > standardLevel then
-    	local penaltyRatio = 0.02;	-- 저레벨 인던 사냥 시 실버 페널티--
+    	local penaltyRatio = 0.02;	-- ?�?�벨 ?�던 ?�냥 ???�버 ?�널??-
 	    local lvRatio = 1 - ((levelGap - standardLevel) * penaltyRatio);
         value = value * lvRatio;        
     end
@@ -2201,6 +2205,15 @@ function GET_INDUN_SILVER_RATIO(myLevel, indunLevel)
     end
     
     return value;
+end
+
+function IMCLOG_CONTENT_SPACING(tag, ...)
+    local logMsg = "";
+    for i, v in ipairs{...} do
+        logMsg = logMsg.." "..tostring(v);
+    end
+
+    ImcContentLog(tag,logMsg)
 end
 
 function SCR_TEXT_HIGHLIGHT(dialogClassName, text)
@@ -2328,4 +2341,26 @@ function SCR_TEXT_HIGHLIGHT(dialogClassName, text)
     end
     
     return text
+end
+
+function GET_DATE_BY_DATE_STRING(dateString) -- yyyy-mm-dd hh:mm:ss
+    local tIndex = string.find(dateString, ' ');
+    if tIndex == nil then
+        return -1;
+    end
+    local dateStr = string.sub(dateString, 0, tIndex - 1);
+    local firstHipenIndex = string.find(dateString, '-');
+    local secondHipenIndex = string.find(dateString, '-', firstHipenIndex + 1);
+    local year = tonumber(string.sub(dateStr, 0, firstHipenIndex - 1));
+    local month = tonumber(string.sub(dateStr, firstHipenIndex + 1, secondHipenIndex - 1));
+    local day = tonumber(string.sub(dateStr, secondHipenIndex + 1));
+
+    local hourStr = string.sub(dateString, tIndex + 1);
+    local firstColonIndex = string.find(hourStr, ':');
+    local secondColonIndex = string.find(hourStr, ':', firstColonIndex + 1);
+    local hour = tonumber(string.sub(hourStr, 0, firstColonIndex - 1));
+    local minute = tonumber(string.sub(hourStr, firstColonIndex + 1, secondColonIndex - 1));
+    local second = tonumber(string.sub(hourStr, secondColonIndex + 1));
+
+    return year, month, day, hour, minute, second;
 end

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe>
+	<controls>
+		<!-- default frame -->
+		<!-- title -->
+		<!-- purchase -->
+		<button name="btnColorCouponlist" margin="160 80 0  0" parent="gbPurchase" rect="0 0 24 24" texttooltip="{ol}쿠폰 리스트를 엽니다." stretch="true" image="ticket_menu_btn" layout_gravity="left top" LBtnUpScp="BEAUTYSHOP_SIMPLELIST_OPEN_COLOR_COUPON"/>
+		<button name="btnHairCouponlist" margin="160 56 0  0" parent="gbPurchase" rect="0 0 24 24" texttooltip="{ol}쿠폰 리스트를 엽니다." stretch="true" image="ticket_menu_btn" layout_gravity="left top" LBtnUpScp="BEAUTYSHOP_SIMPLELIST_OPEN_HAIR_COUPON"/>
+	</controls>
+</uiframe>

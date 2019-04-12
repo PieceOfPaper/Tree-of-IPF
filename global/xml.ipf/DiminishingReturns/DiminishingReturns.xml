@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- CC(Crowd Control) 점감관련 상수들, 점감 관련 상수를 세팅할 시에, Name에 RefleshTime, ApplyingCount, Ratio 을 사용하여야 한다. -->
 <!-- 상수 관련 Name은 RefleshTime, ApplyingCount, Ratio 을 반드시 사용하여야 한다. -->
 <!-- 그룹 구분은 반드시 [Group_숫자] 형식을 따라야 한다.-->
@@ -53,6 +53,9 @@
 			<Class Name="IronMaiden_Debuff" BuffID="2016" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="FishingNetsDraw_Debuff" BuffID="2142" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="ThrowingFishingNet_Debuff" BuffID="2152" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Dissonanz_Stun_Debuff" BuffID="2182" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Friedenslied_Debuff" BuffID="2170" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Fluting_DeBuff" BuffID="206" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 		</Category>
 		<Category Name="Skill">
 			<Class Name="Psychokino_MagneticForce" SkillID="20305" Desc="넉다운은 스킬이 아니기 때문에, 900000번으로 할당하기로 정한다."/>
@@ -92,6 +95,7 @@
 		</Category>
 		<Category Name="Buff">
 			<Class Name="Sleep_Debuff" BuffID="152" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Lullaby_Debuff" BuffID="2165" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 		</Category>
 	</Category>
 	<!-- ############################################################################################################################################################### -->

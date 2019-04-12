@@ -530,10 +530,22 @@ function GET_ITEM_ICON_IMAGE(itemCls, gender)
 	local iconImg = itemCls.Icon;
 		
 	-- costume icon is decided by PC's gender
-    if itemCls.ItemType == 'Equip' and (itemCls.ClassType == 'Outer' or  itemCls.ClassType  == 'SpecialCostume') then    
-    	local tempiconname = string.sub(itemCls.Icon, string.len(itemCls.Icon) - 1 );
-    
-    	if tempiconname ~= "_m" and tempiconname ~= "_f" then
+    if itemCls.ItemType == 'Equip' and (itemCls.ClassType == 'Outer' or  itemCls.ClassType  == 'SpecialCostume') then
+    	local tempiconname =  ' ';
+    	local origin = itemCls.TooltipImage;
+    	local reverseIconName = origin:reverse();
+    	local underBarIndex = string.find(reverseIconName, '_');
+    	
+    	if underBarIndex ~= nil then
+            tempiconname = string.sub(reverseIconName, 0, underBarIndex-1);
+    		tempiconname = tempiconname:reverse();
+    	end
+
+        if tempiconname == "both" then
+                local bothIndex = string.find(origin, '_both');
+                iconImg = string.sub(itemCls.TooltipImage, 0, bothIndex - 1);
+
+    	elseif tempiconname ~= "m" and tempiconname ~= "f" then
     		if gender == nil then
     			gender = GETMYPCGENDER();
     		end
@@ -565,13 +577,20 @@ function GET_ITEM_ICON_IMAGE(itemCls, gender)
 end
 
 function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
+	local slotCnt = slotset:GetSlotCount();
+	for i = 0, slotCnt - 1 do
+		local tempSlot = slotset:GetSlotByIndex(i)
+		DESTROY_CHILD_BYNAME(tempSlot, "styleset_")		
+	end
 
 	slotset:ClearIconAll();
+    slotset:SetSkinName("invenslot2")
 
 	local itemList = session.GetEtcItemList(etcType);
 	local index = itemList:Head();
-			
+
 	while itemList:InvalidIndex() ~= index do
+		
 		local invItem = itemList:Element(index);
 		local slot = slotset:GetSlotByIndex(invItem.invIndex);
 		if slot == nil then
@@ -580,14 +599,31 @@ function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
 
 		local itemCls = GetIES(invItem:GetObject());
 		local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
-		
+
 		SET_SLOT_IMG(slot, iconImg)
-		SET_SLOT_COUNT(slot, invItem.count)
-		SET_SLOT_COUNT_TEXT(slot, invItem.count);
+
+		if itemCls.ItemType ~= "Equip" then
+			SET_SLOT_COUNT(slot, invItem.count)
+			SET_SLOT_COUNT_TEXT(slot, invItem.count);
+		end
+        local icon = slot:GetIcon();
+
+        if itemCls.ItemType == 'Equip' then
+		    local resultLifeTimeOver = IS_LIFETIME_OVER(itemCls)
+		    local result = CHECK_EQUIPABLE(invItem.type);        
+		    if (result ~= "OK") or (resultLifeTimeOver == 1) then
+			    icon:SetColorTone("FFFF0000");		
+		end	    
+		    if IS_NEED_APPRAISED_ITEM(invItem:GetIESID()) or IS_NEED_RANDOM_OPTION_ITEM(invItem:GetIESID()) then
+			    icon:SetColorTone("FFFF0000");		
+		    end
+	    end	
+
 		SET_SLOT_IESID(slot, invItem:GetIESID())
         SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemCls, nil)
+		SET_SLOT_STYLESET(slot, itemCls)
 		slot:SetMaxSelectCount(invItem.count);
-		local icon = slot:GetIcon();
+		
 		icon:SetTooltipArg(tooltipType, invItem.type, invItem:GetIESID());
 		SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, tooltipType);		
 
@@ -603,4 +639,35 @@ function GET_DRAG_INVITEM_INFO()
 	local iconInfo = liftIcon:GetInfo();
 	local invenItemInfo = session.GetInvItemByGuid(iconInfo:GetIESID());
 	return invenItemInfo;
+end
+
+function SET_SLOT_INFO_FOR_WAREHOUSE(slot, invItem, tooltipType)    
+    local itemCls = GetIES(invItem:GetObject());
+	local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
+    SET_SLOT_IMG(slot, iconImg)
+
+	if itemCls.ItemType ~= "Equip" then
+		SET_SLOT_COUNT(slot, invItem.count)
+		SET_SLOT_COUNT_TEXT(slot, invItem.count);
+	end
+    local icon = slot:GetIcon();
+    
+    if itemCls.ItemType == 'Equip' then
+		local resultLifeTimeOver = IS_LIFETIME_OVER(itemCls)
+		local result = CHECK_EQUIPABLE(invItem.type);        
+		if (result ~= "OK") or (resultLifeTimeOver == 1) then
+			icon:SetColorTone("FFFF0000");		
+		end	    
+		if IS_NEED_APPRAISED_ITEM(invItem:GetIESID()) or IS_NEED_RANDOM_OPTION_ITEM(invItem:GetIESID()) then
+			icon:SetColorTone("FFFF0000");		
+		end
+	end	
+
+	SET_SLOT_IESID(slot, invItem:GetIESID())
+    SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemCls, nil)
+	SET_SLOT_STYLESET(slot, itemCls)
+	slot:SetMaxSelectCount(invItem.count);
+	
+	icon:SetTooltipArg(tooltipType, invItem.type, invItem:GetIESID());
+	SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, tooltipType);		
 end

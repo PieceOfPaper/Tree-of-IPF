@@ -37,6 +37,11 @@ end
 ----- reinforce_131014
 
 function CLIENT_MORU(invItem)
+    local zoneCheck = GetZoneName(pc)
+    if zoneCheck == "c_barber_dress" then
+        ui.SysMsg(ClMsg('ThisLocalUseNot'));
+        return;
+    end
     if session.colonywar.GetIsColonyWarMap() == true then
         ui.SysMsg(ClMsg('CannotUseInPVPZone'));
         return;
@@ -46,7 +51,7 @@ function CLIENT_MORU(invItem)
 		ui.SysMsg(ScpArgMsg('CantUseThisInIntegrateServer'));
 		return;
 	end
-
+    
 	local rankresetFrame = ui.GetFrame("rankreset");
 	if 1 == rankresetFrame:IsVisible() then
 		ui.SysMsg(ScpArgMsg('CannotDoAction'));

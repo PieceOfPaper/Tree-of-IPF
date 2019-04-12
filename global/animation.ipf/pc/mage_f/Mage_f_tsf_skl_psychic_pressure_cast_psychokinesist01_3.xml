@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="6.00" soundFile="skl_eff_poison_3"/>
+	<Sound frame="12.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="12.00" soundFile="voice_atk_short_war_f"/>
+	<Particle frame="0" attachNode="Dummy_effect_hand_R" particleName="I_wizard_psyckicpressure_cast_white2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

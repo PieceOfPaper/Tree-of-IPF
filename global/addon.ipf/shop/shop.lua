@@ -7,7 +7,7 @@ function SHOP_ON_INIT(addon, frame)
 	addon:RegisterMsg('ESCAPE_PRESSED', 'SHOP_ON_MSG');
 	addon:RegisterMsg('SOLD_ITEM_LIST', 'ON_SOLD_ITEM_LIST');
 	addon:RegisterMsg('FAIL_SHOP_BUY', 'ON_FAIL_SHOP_BUY');
-
+	addon:RegisterOpenOnlyMsg('NOTICE_Dm_invenfull', 'INVENTORY_DM_INVENFULL');
 	addon:RegisterMsg('COMMON_SHOP_ITEM_LIST_GET', 'SHOP_ON_MSG');
 
 	FINALPRICE = GET_TOTAL_MONEY();
@@ -29,6 +29,10 @@ function SHOP_UI_OPEN(frame)
 	return 1;
 end
 
+function INVENTORY_DM_INVENFULL(frame, msg, argStr, argNum)
+	FINALPRICE = GET_TOTAL_MONEY();
+	SHOP_UPDATE_BUY_PRICE(frame);
+end
 
 function HIDE_OR_SHOW_REPAIR_BUTTON(frame)
 	if frame == nil then
@@ -179,8 +183,7 @@ function SHOP_BUTTON_BUYSELL(frame, slot, argStr, argNum)
 	elseif isSellSound == true then
 		imcSound.PlaySoundEvent("market_sell");
 	end
-
-	FINALPRICE = MyMoney + TotalPrice;
+	FINALPRICE = SumForBigNumber(MyMoney, TotalPrice);
 	SHOP_UPDATE_BUY_PRICE(frame);
 
 	SHOP_SELECT_ITEM_LIST = {}
@@ -236,9 +239,20 @@ function SHOP_BUTTON_SELL(frame, slot, argStr, argNum)
 		if slotIcon ~= nil then
 			local slot  = sellslotSet:GetSlotByIndex(i);
 			local itemID = slot:GetUserValue("SLOT_ITEM_ID");
+
+			--판매된 아이템의 체크 이미지를 없앤다
+			local invItem = session.GetInvItemByGuid(itemID);
+			if invItem ~= nil then
+				local invSlot = GET_SLOT_BY_ITEMID(nil, itemID);
+				invSlot:Select(0);
+				local invSlot_All = GET_SLOT_BY_ITEMID(nil, itemID, 1);
+				invSlot_All:Select(0);
+			end
+
 			item.AddToSellList(itemID, slot:GetUserIValue("SELL_CNT"));
 			CLEAR_SELL_SLOT(slot);
 			isSound = true;
+
 		end
 	end
 	item.SellList();
@@ -709,8 +723,7 @@ function SHOP_UPDATE_BUY_PRICE(frame)
 
 	local invenZeny = FINALPRICE;
 	local totaltext = frame:GetChild("finalprice");
-	local totalprice = invenZeny + price;
-
+	local totalprice = SumForBigNumber(invenZeny, price);
 	totaltext:SetTextByKey("text", totalprice);
 	frame:SetUserValue("EXPECTED_REMAIN_ZENY", totalprice);
 

@@ -13,7 +13,7 @@ function QUEST_ON_INIT(addon, frame)
 	addon:RegisterMsg("PARTY_PROPERTY_UPDATE", "QUEST_PARTY_PROPERTY_UPDATE");
 
 	addon:RegisterMsg('PARTY_UPDATE', "ON_PARTY_UPDATE_SHARED_QUEST")
-	
+	addon:RegisterMsg('QUEST_UPDATE_', "UPDATE_ALLQUEST_")
 end
 
 function UI_TOGGLE_QUEST()
@@ -145,9 +145,13 @@ function UPDATE_ALLQUEST_ABANDONLIST(frame)
     		end
 		end
 	end
-	
+
 	ALIGN_QUEST_CTRLS(questGbox);
 	frame:Invalidate();
+end
+
+function UPDATE_ALLQUEST_(frame)
+	UPDATE_ALLQUEST(frame, nil, nil, nil, nil)
 end
 
 function UPDATE_ALLQUEST(frame, msg, isNew, questID, isNewQuest)
@@ -202,7 +206,7 @@ function UPDATE_ALLQUEST(frame, msg, isNew, questID, isNewQuest)
     			end
     		end
 		end
-		
+
 		
 		local subQuestZoneList = {}
 		for i = 0, cnt -1 do
@@ -305,7 +309,7 @@ function HIDE_IN_QUEST_LIST(pc, questIES, abandonResult, subQuestZoneList)
     local result1
     
     result1, subQuestZoneList = SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList)
-    
+
 	if abandonResult == 'ABANDON/LIST' or questIES.PossibleUI_Notify == 'UNCOND' then
 	elseif result1 == "HIDE" then
 	    return 1, subQuestZoneList
@@ -446,7 +450,7 @@ function ADD_QUEST_DETAIL(frame, ctrl, argStr, questClassID, notUpdateRightUI)
 end
 
 function UPDATE_QUEST_DETAIL(frame, questID)
-    
+
 	local questframe2 = ui.GetFrame("questinfoset_2");
 
 	frame = frame:GetTopParentFrame();
@@ -488,7 +492,7 @@ function UPDATE_QUEST_DETAIL(frame, questID)
 			else
 				questexist = 0;
 			end
-
+			
 			if questexist == 1 then
 				local checkBox = GET_CHILD(Quest_Ctrl, "save", "ui::CCheckBox");
 				checkBox:SetCheck(1);

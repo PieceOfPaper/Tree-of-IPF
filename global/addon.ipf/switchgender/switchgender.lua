@@ -1,6 +1,7 @@
 ﻿-- switchgender.lua
 
 function SWITCHGENDER_ON_INIT(addon, frame)
+	addon:RegisterMsg('UPDATE_MATERIAL_COUNT', 'ON_UPDATE_MATERIAL_COUNT');
 end
 
 function IS_OPENED_SWITCHGENDER(frame)
@@ -15,11 +16,7 @@ end
 
 function SWITCHGENDER_RESET_UI(frame)
 	local bg_mid = frame:GetChild("bg_mid");
-	local materialGbox = bg_mid:GetChild("materialGbox");
-	local reqitemIamge = materialGbox:GetChild("reqitemImage");
-	reqitemIamge:SetTextByKey("txt", "");
-	reqitemIamge:SetUserValue("guid", "None");
-
+	local materialGbox = bg_mid:GetChild("materialGbox");	
 	local reqitemName = materialGbox:GetChild("reqitemNameStr");
 	reqitemName:SetTextByKey("txt", "");
 	local reqitemtext = materialGbox:GetChild("reqitemCount");
@@ -36,13 +33,13 @@ function SWITCHGENDER_STORE_OPEN(groupName, sellType, handle)
 		return;
 	end
 
-	local tabObj		    = frame:GetChild('statusTab');
-	local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
+	local tabObj = frame:GetChild('statusTab');
+	local itembox_tab = tolua.cast(tabObj, "ui::CTabControl");
 	itembox_tab:SelectTab(0);
 	SWITCHGENDER_VIEW_OPEN(frame, 0);
 	SWITCHGENDER_UI_OPEN(frame, 1);
 
-	if session.GetMyHandle() == handle then	
+	if session.GetMyHandle() == handle then
 		if 0 == IS_OPENED_SWITCHGENDER(frame) then
 			return;
 		end
@@ -57,41 +54,22 @@ function SWITCHGENDER_STORE_OPEN(groupName, sellType, handle)
 	frame:ShowWindow(1);
 end
 
-function SWITCHGENDER_DRAW_MATERAIL(frame, isTragetMode)
-	if nil == isTragetMode then
-		isTragetMode = 0;
+function SWITCHGENDER_DRAW_MATERAIL(frame, isTargetMode)
+	if nil == isTargetMode then
+		isTargetMode = 0;
 	end
 
 	local bg_mid = frame:GetChild("bg_mid");
 	local targetgBox = bg_mid:GetChild("targetgBox");
-	targetgBox:ShowWindow(isTragetMode);
+	targetgBox:ShowWindow(isTargetMode);
 
 	local materialGbox = bg_mid:GetChild("materialGbox");
-	if 0 ~= isTragetMode then
-		materialGbox:ShowWindow(0);
-		return;
+	if isTargetMode == 1 then
+		local countText = GET_CHILD_RECURSIVELY(frame, 'count');
+		countText:ShowWindow(0);
 	end
 
-	materialGbox:ShowWindow(1);
-	
-	local skl = GetClass("Skill", 'Oracle_SwitchGender');
-	if nil == skl then
-		return;
-	end
-
-	local cls = GetClass("Item", skl.SpendItem);
-	if nil == cls then
-		return;
-	end
-
-	local reqitemImage = materialGbox:GetChild('reqitemImage');
-	reqitemImage:SetTextByKey("txt", GET_ITEM_IMG_BY_CLS(cls, 60));
-	local reqitemNameStr = materialGbox:GetChild('reqitemNameStr');
-	reqitemNameStr:SetTextByKey("txt", cls.Name);
-	
-	local reqitemCount = materialGbox:GetChild('reqitemCount');
-	local text = session.GetInvItemCountByType(cls.ClassID) .. " " .. ClMsg("CountOfThings");
-	reqitemCount:SetTextByKey("txt", text);
+	SWITCHGENDER_UPDATE_NEED_MATERIAL_CNT(frame, isTargetMode);
 end
 
 function SWITCHGENDER_DRAW_CHANGE_STATE(frame)
@@ -111,12 +89,16 @@ function SWITCHGENDER_DRAW_CHANGE_STATE(frame)
 	local pcjobinfo = GetClass('Job', pc.JobName)
 
     local changeHeadIndex = headIndex;
+    local etc = GetMyEtcObject();
     if changeGender == 2 then -- 여자로 바꾸는 경우는, 기본헤어가 다를 수도 있어
-        local etc = GetMyEtcObject();
         local startFemaleHairType = TryGetProp(etc, 'StartFemaleHairType');
         if startFemaleHairType ~= nil and startFemaleHairType > 0 then
             changeHeadIndex = startFemaleHairType + 1;
         end
+    end
+
+    if etc.BeautyshopStartHair == 'Yes' then
+    	changeHeadIndex = 1; -- ShortCut
     end
 
 	local charimgName = ui.CaptureFullStdImage(pcjobinfo.ClassID, changeGender, changeHeadIndex, 1);
@@ -138,7 +120,7 @@ function SWITCHGENDER_UI_OPEN(frame, showWindow)
 	local checkbox = frame:GetChild('checkbox');
 	local repair = frame:GetChild('repair');
 	local moneyGbox = frame:GetChild('moneyGbox');
-	local titleGbox = frame:GetChild('titleGbox');
+	local titleGbox = frame:GetChild('titleGbox');	
 	if 0 == showWindow then -- 아직 상점 열기 전
 		checkbox:ShowWindow(1);
 		local btn_excute = repair:GetChild('btn_excute');
@@ -203,13 +185,13 @@ function SWITCHGENDER_UI_OPEN(frame, showWindow)
 end
 
 function SWITCHGENDER_TAP_CHANGE(frame)
-	local tabObj		    = frame:GetChild('statusTab');
-	local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
+	local tabObj = frame:GetChild('statusTab');
+	local itembox_tab = tolua.cast(tabObj, "ui::CTabControl");
 	if nil == itembox_tab then
 		return;
 	end
 	
-	local curtabIndex	    = itembox_tab:GetSelectItemIndex();
+	local curtabIndex = itembox_tab:GetSelectItemIndex();
 
 	if IS_OPENED_SWITCHGENDER(frame) == 0 and curtabIndex == 1 then
 		ui.SysMsg(ClMsg("DonnotOpenautoseller"));
@@ -241,10 +223,42 @@ function SWITCHGENDER_VIEW_OPEN(frame, index)
 		log:ShowWindow(1);
 	end
 end
-function SWITCHGENDER_OPEN_UI_SET(frame, sklName)
-	SWITCHGENDER_UI_OPEN(frame, IS_OPENED_SWITCHGENDER(frame));
+function SWITCHGENDER_OPEN_UI_SET(frame, sklName, isSellerOpen)
+    local isOpened = IS_OPENED_SWITCHGENDER(frame);
+    if isSellerOpen == true then
+        isOpened = 0;
+    end
+	SWITCHGENDER_UI_OPEN(frame, isOpened);
 	SWITCHGENDER_VIEW_OPEN(frame, 0);
 	frame:SetUserValue("GroupName", sklName)
+	
+	local moneyInput = GET_CHILD_RECURSIVELY(frame, 'moneyInput');
+	if moneyInput ~= nil then
+		SWITCHGENDER_USER_SHOP_PRICE(sklName, moneyInput);
+	end
+end
+
+function SWITCHGENDER_USER_SHOP_PRICE(sklClassName, editCtrl)
+	local userPriceCls = GetClass('UserShopPrice', sklClassName);	
+	if userPriceCls ~= nil then
+		local priceType = userPriceCls.PriceType;
+		local price = 0;
+		if priceType == 'UnitPrice' then
+			price = userPriceCls.DefaultPrice;
+		elseif priceType == 'ConstantPrice' then
+			local GetPriceScp = _G[TryGetProp(userPriceCls, 'Price', 'None')];
+			if GetPriceScp ~= nil then
+				price = GetPriceScp(sklClassName);
+				if price < 1 then
+					IMC_LOG('ERROR_LOGIC', 'PROCESS_USER_SHOP_PRICE: price error- shop['..sklClassName..'], argStr['..argStr..']');
+				end
+			end	
+		end
+		editCtrl:SetText(price);
+		editCtrl:EnableHitTest(0);
+		return;
+	end
+	editCtrl:EnableHitTest(1);
 end
 
 function SWITCHGENDER_TRY_UI_CLOSE(frame, ctrl)
@@ -263,9 +277,37 @@ function SWITCHGENDER_BUFF_EXCUTE_BTN(frame, ctrl)
 		return;
 	end
 
+	local frame = ui.GetFrame('switchgender');
 	local skillName = frame:GetUserValue("GroupName");
-	session.autoSeller.Buy(handle, 1, 1, AUTO_SELL_ORACLE_SWITCHGENDER);
+	local sklCls = GetClass('Skill', 'Oracle_SwitchGender');
+	local reqitem_slot = GET_CHILD_RECURSIVELY(frame, 'reqitem_slot');
+	local icon = reqitem_slot:GetIcon();	
+	if icon == nil then
+		local needItemCls = GetClass('Item', GET_SWITCHGENDER_MATERIAL_ITEM_NAME());
+		ui.SysMsg(ScpArgMsg('SwitchGenderNeed{ITEM}', 'ITEM', needItemCls.Name));
+		return;
+	end
+
+	local etc = GetMyEtcObject();
+	if etc.BeautyshopStartHair == 'Yes' then
+		local yesscp = string.format('_SWITCHGENDER_BUFF_EXCUTE_BTN(%d, "%s", "%s")', handle, ctrl:GetName(), icon:GetInfo():GetIESID());
+		ui.MsgBox(ClMsg('ChangeHairForcelyIfYouSwitchGender'), yesscp, 'None');
+		return;
+	end
+
+	session.autoSeller.BuyWithMaterialItem(handle, sklCls.ClassID, AUTO_SELL_ORACLE_SWITCHGENDER, icon:GetInfo():GetIESID(), '0');
+
 	DISABLE_BUTTON_DOUBLECLICK("switchgender", ctrl:GetName())
+	DISABLE_BUTTON_DOUBLECLICK("switchgender", 'btn_cencel')
+end
+
+function _SWITCHGENDER_BUFF_EXCUTE_BTN(handle, ctrlName, matItemGuid)
+	local frame = ui.GetFrame('switchgender');
+	local skillName = frame:GetUserValue("GroupName");
+	local sklCls = GetClass('Skill', 'Oracle_SwitchGender');
+	session.autoSeller.BuyWithMaterialItem(handle, sklCls.ClassID, AUTO_SELL_ORACLE_SWITCHGENDER, matItemGuid, '0');
+
+	DISABLE_BUTTON_DOUBLECLICK("switchgender", ctrlName)
 	DISABLE_BUTTON_DOUBLECLICK("switchgender", 'btn_cencel')
 end
 
@@ -307,9 +349,15 @@ function SWITCHGENDER_STORE_OPEN_EXCUTE(frame, ctrl)
 		return
 	end
 
+	local needItemName = GET_SWITCHGENDER_SELLER_SPEND_ITEM();
+	local cls = GetClass("Item", needItemName);
+	if session.GetInvItemCountByType(cls.ClassID) < 1 then
+		ui.SysMsg(ClMsg('NotEnoughMaterial'));
+		return;
+	end
+
 	local dummyInfo = session.autoSeller.CreateToGroup(groupName);
 	dummyInfo.classID = GetClass("Skill", groupName).ClassID;
-
 	dummyInfo.price = price;
 	local obj = GetIES(skill:GetObject());
 	dummyInfo.level = obj.Level;
@@ -344,4 +392,60 @@ function SWITCHGENDER_UPDATE_HISTORY(frame)
 	end
 
 	GBOX_AUTO_ALIGN(log_gbox, 20, 3, 10, true, false);
+end
+
+function SWITCHGENDER_UPDATE_NEED_MATERIAL_CNT(frame, isTargetMode)
+	local needCntText = GET_CHILD_RECURSIVELY(frame, 'needCntText');
+	local reqitemCount = GET_CHILD_RECURSIVELY(frame, 'reqitemCount');
+	local reqitem_slot = GET_CHILD_RECURSIVELY(frame, 'reqitem_slot');
+	needCntText:ShowWindow(isTargetMode);
+
+	if isTargetMode == 1 then
+		local needItemName = GET_SWITCHGENDER_MATERIAL_ITEM_NAME();		
+		local cls = GetClass('Item', needItemName);
+		local needItemCnt = session.GetInvItemCountByType(cls.ClassID);		
+		local countText = tostring(needItemCnt);
+		if needItemCnt < 1 then
+			countText = '{#FF0000}'..countText..'{/}'
+		end
+		countText = countText..'/1 '..ClMsg("CountOfThings");
+
+		reqitemCount:SetTextByKey('txt', countText);
+		reqitem_slot:ClearIcon();
+	else
+		local needItemName = GET_SWITCHGENDER_SELLER_SPEND_ITEM();
+		local cls = GetClass("Item", needItemName);
+		SET_SLOT_ITEM_CLS(reqitem_slot, cls);
+
+		local text = session.GetInvItemCountByType(cls.ClassID) .. " " .. ClMsg("CountOfThings");
+		reqitemCount:SetTextByKey("txt", text);
+	end
+end
+
+function SWITCHGENDER_DROP_ITEM(parent, ctrl)
+	local liftIcon = ui.GetLiftIcon();
+	local slot = tolua.cast(ctrl, ctrl:GetClassString());
+	local iconInfo = liftIcon:GetInfo();
+	local invItem, isEquip = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());	
+	if invItem == nil or invItem:GetObject() == nil then
+		return;
+	end
+
+	if true == invItem.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return;
+	end
+
+	local itemObj = GetIES(invItem:GetObject());
+	local needItemCls = GetClass('Item', GET_SWITCHGENDER_MATERIAL_ITEM_NAME());
+	if itemObj.ClassName ~= needItemCls.ClassName then
+		ui.SysMsg(ScpArgMsg('SwitchGenderNeed{ITEM}', 'ITEM', needItemCls.Name));
+		return;
+	end
+
+	SET_SLOT_ITEM(slot, invItem, invItem.count);	
+end
+
+function ON_UPDATE_MATERIAL_COUNT(frame, msg, argStr, argNum)
+	SWITCHGENDER_UPDATE_NEED_MATERIAL_CNT(frame, 1);
 end

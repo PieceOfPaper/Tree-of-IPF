@@ -721,6 +721,11 @@ function SET_BUFF_TEXT(gBox, invitem, yPos, strarg)
 		local sysTime = geTime.GetServerSystemTime();
 		local endTime = imcTime.GetSysTimeByStr(invitem.BuffEndTime);
 		local difSec = imcTime.GetDifSec(endTime, sysTime);
+
+		if difSec < 0 then
+			return yPos;
+		end
+
 		content:SetUserValue("REMAINSEC", difSec);
 		content:SetUserValue("STARTSEC", imcTime.GetAppTime());
 		SHOW_REMAIN_BUFF_TIME(content);
@@ -780,6 +785,11 @@ function SET_BUFF_TEXT(gBox, invitem, yPos, strarg)
 		local sysTime = geTime.GetServerSystemTime();
 		local endTime = imcTime.GetSysTimeByStr(invitem.EnchanterBuffEndTime);
 		local difSec = imcTime.GetDifSec(endTime, sysTime);
+
+		if difSec < 0 then
+			return yPos;
+		end
+
 		content:SetUserValue("REMAINSEC", difSec);
 		content:SetUserValue("STARTSEC", imcTime.GetAppTime());
 		content:SetUserValue("ENCHANT", 1);

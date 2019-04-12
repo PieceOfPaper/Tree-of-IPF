@@ -1,7 +1,7 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 101,101,30,30,1,100,1,2,0,0,0,0,0,"Warp_arrow","스라우타스 협곡","","","","MON_DUMMY","","","","GELE572_GELE571","","NO","YES","NO","Neutral","","","",""
 102,102,30,30,1,100,1,2,0,0,0,0,0,"Warp_arrow","네프리타스 벼랑","","","","MON_DUMMY","","","","GELE572_GELE573","","NO","YES","NO","Neutral","","","",""
-104,104,1,40,1,60000,1,1,0,0,0,100,0,"npc_paladin_follower2_3","파수꾼 바질","","","RETURNMONSTER_100","","","","GELE572_NPC_BASIL","","","NO","YES","NO","Neutral","","","",""
+104,104,1,40,1,60000,1,1,0,0,0,100,0,"npc_paladin_follower2_3","파수꾼 바질","","","","","","","GELE572_NPC_BASIL","","","NO","YES","NO","Neutral","","","",""
 105,105,1,200,1,60000,1,0,0,0,0,0,0,"HiddenTrigger6","Q팔라딘 마스터의 임무","","","","","","","","GELE572_MQ_01","","NO","YES","NO","Neutral","","","",""
 115,115,1,1,100,20000,20,0,0,0,1,0,0,"HiddenTrigger4","마족 오염지","","","","","","SET_GELE572_MQ_06_KILL","","","","NO","YES","NO","Neutral","","","",""
 120,120,0,40,9999,0,15,0,0,0,0,0,0,"Leafly","","","","","","","","","","","NO","YES","NO","Monster","","","",""

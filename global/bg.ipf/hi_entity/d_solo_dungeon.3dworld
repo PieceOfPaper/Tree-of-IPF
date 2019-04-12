@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi2" Path="\dungeon\d_solo_dungeon\"/>
+	<LightMap File="d_solo_dungeon_lightmap.jpg" Length="1200.0 1200.0" Offset="-35.406 -17.834" Size="512 512"/>
+	<ShaTexDir IpfName="bg_hi2" Path="\dungeon\d_solo_dungeon\"/>
+	<TexDir IpfName="bg_texture" Path="\zachariel\"/>
+	<SubTexDir IpfName="bg_texture" Path="\cathedral\"/>
+	<SubTexDir IpfName="bg_texture" Path="\velniasprison\"/>
+	<Model File="d_solo_dungeon_model_01.xac" Model="d_solo_dungeon_model_01" ShadowMap="d_solo_dungeon_model_01" pos="-226.6956 -637.6721 458.7381" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_solo_dungeon_ground_02.xac" Model="d_solo_dungeon_ground_02" ShadowMap="d_solo_dungeon_ground_02" pos="-46.5653 58.0605 0.4720" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_solo_dungeon_light.xac" Model="d_solo_dungeon_light" pos="-473.4193 -547.6233 553.8959" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_solo_dungeon_b_model.xac" Model="d_solo_dungeon_b_model" ShadowMap="d_solo_dungeon_b_model" pos="-406.8324 -1203.3057 375.5767" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_solo_dungeon_ground_01.xac" Model="d_solo_dungeon_ground_01" ShadowMap="d_solo_dungeon_ground_01" pos="-33.2932 -9.3624 -10.9883" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_solo_dungeon_model_bloom.xac" Model="d_solo_dungeon_model_bloom" pos="-352.3751 -213.8232 341.3960" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

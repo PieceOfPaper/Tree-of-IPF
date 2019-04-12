@@ -12,6 +12,11 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
 	local rcycle_basketgbox = GET_CHILD_RECURSIVELY(frame,'rcycle_basketgbox');
 	
+	local rcycle_toitemBtn = GET_CHILD_RECURSIVELY(frame, 'rcycle_toitemBtn');
+	local basketBuyBtn = GET_CHILD_RECURSIVELY(frame, 'basketBuyBtn');
+	basketBuyBtn:SetEnable(1);
+	rcycle_toitemBtn:SetEnable(1);
+		
 	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
 	if curtabIndex == 0 then	
 		TPITEM_DRAW_NC_TP();
@@ -36,6 +41,9 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 		basketgbox:SetVisible(0);
 		cashInvGbox:SetVisible(0);
 		RECYCLE_SHOW_TO_ITEM()
+	elseif curtabIndex == 3 then
+		basketBuyBtn:SetEnable(0);
+		rcycle_toitemBtn:SetEnable(0);
 	end
 	else
 	if curtabIndex == 0 then
@@ -90,7 +98,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		local ncReflashbtn = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn");	
 		ncReflashbtn:ShowWindow(0);
 		
-		if itembox_tab:GetItemCount() == 3 then
+		if itembox_tab:GetItemCount() == 4 then
 			itembox_tab:DeleteTab(0);
 			itembox_tab:SetItemsFixWidth(170);
 		end

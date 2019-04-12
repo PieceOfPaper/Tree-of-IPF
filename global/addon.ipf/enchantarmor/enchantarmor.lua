@@ -1,6 +1,5 @@
 -- enchantcostum.lua
-
-function ENCHANTAMOR_ON_INIT(addon, frame)
+function ENCHANTARMOR_ON_INIT(addon, frame)	
 end
 
 function AUTOSELLER_REGISTER_FRAME_INIT(frame, obj)
@@ -10,7 +9,11 @@ end
 
 function ENCHANTARMOR_OPEN_UI_SET(frame, obj)
 	AUTOSELLER_REGISTER_FRAME_INIT(frame, obj);
-	
+	ENCHATARMOR_INIT_SPEND_ITEM(frame);
+	ENCHANTARMOR_INIT_USER_PRICE(frame);
+end
+
+function ENCHATARMOR_INIT_SPEND_ITEM(frame)		
 	local repair = frame:GetChild('repair');
 	local materialGbox = repair:GetChild('materialGbox');
 	local reqitemNameStr = materialGbox:GetChild("reqitemNameStr");
@@ -18,9 +21,8 @@ function ENCHANTARMOR_OPEN_UI_SET(frame, obj)
 	local reqitemImage = materialGbox:GetChild("reqitemImage");
 
 	local invItemList = session.GetInvItemList();
-	local checkFunc = _G["ITEMBUFF_STONECOUNT_" .. obj.ClassName];
+	local checkFunc = _G["ITEMBUFF_STONECOUNT_" .. frame:GetUserValue('SKILLNAME')];
 	local name, cnt = checkFunc(invItemList, frame);
-
 	local cls = GetClass("Item", name);
 	local txt = GET_ITEM_IMG_BY_CLS(cls, 60);
 	reqitemImage:SetTextByKey("txt", txt);
@@ -76,4 +78,8 @@ function ENCHANTARMOR_BUFF_EXCUTE_BTN(frame, ctrl)
 	end
 
 	session.autoSeller.RequestRegister(sklName, sklName, titleInput:GetText(), sklName);
+end
+
+function ENCHANTARMOR_INIT_USER_PRICE(frame)
+	PROCESS_USER_SHOP_PRICE('Enchanter_EnchantArmor', GET_CHILD_RECURSIVELY(frame, 'moneyInput'));
 end

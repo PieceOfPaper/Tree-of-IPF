@@ -143,6 +143,10 @@ function MY_AUTOSELL_HISTORY(groupName, sellType)
         local portal_seller = ui.GetFrame('portal_seller');
         PORTAL_SELLER_UPDATE_HISTORY(portal_seller);
         return;
+    elseif sellType == AUTO_SELL_AWAKENING then
+        local itemdungeon = ui.GetFrame('itemdungeon');
+        ITEMDUNGEON_UPDATE_HISTORY(itemdungeon);
+        return;
 	end
 
 	local frame = ui.GetFrame("buffseller_my");

@@ -1346,6 +1346,10 @@ function SCR_Get_HR(self)
     
     local value = byLevel + byStat + byItem + byBuff;
     
+    if value < 0 then
+    	value = 0
+    end
+    
     return math.floor(value);
 end
 
@@ -1872,9 +1876,13 @@ function SCR_Get_MSPD(self)
     end
     
     local value = 30.0;
-    
+    local zone = GetZoneName(self);
     if IsBuffApplied(self, "BattleOrders_Buff") == "YES" then
-        value =  60;
+    	if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or zone == 'pvp_Mine' then
+        	value = 45;
+        else
+        	value = 60;
+        end
     end
     
     if self.ClassName == 'PC' then
@@ -1887,7 +1895,8 @@ function SCR_Get_MSPD(self)
         if byBuff == nil then
             byBuff = 0;
         end
-        if IsPVPServer(self) == 1 then
+        
+        if IsPVPServer(self) == 1 or zone == "pvp_Mine" then
             byBuff = byBuff * 0.5
         end
         
@@ -1944,7 +1953,7 @@ function SCR_Get_MSPD(self)
     
     if isDashRun > 0 then    -- 대시 런 --
         local dashRunAddValue = 10
-        if IsPVPServer(self) == 1 then
+        if IsPVPServer(self) == 1 or zone == "pvp_Mine" then
             dashRunAddValue = 5
         end
         
@@ -3643,6 +3652,63 @@ function SCR_GET_LOOTINGCHANCE(self)
     
     if value > 4000 then
     	value = 4000;
+    end
+    
+    return math.floor(value);
+end
+
+function SCR_Get_HEAL_PWR(self)
+    local defaultValue = 50;
+    
+    local lv = TryGetProp(self, "Lv");
+    if lv == nil then
+        lv = 1;
+    end
+    
+    local byLevel = lv;
+    
+    local mnaStat = TryGetProp(self, "MNA");
+    if mnaStat == nil then
+        mnaStat = 1;
+    end
+    
+    local intStat = TryGetProp(self, "INT");
+    if intStat == nil then
+        intStat = 1;
+    end
+    
+    local stat = mnaStat * 0.7 + intStat * 0.3
+    local byStat = (stat * 4) + (math.floor(stat / 10) * 10);
+    
+    local value = defaultValue + byLevel + byStat;
+    
+    local byBuff = 0;
+    
+    local byBuffTemp = TryGetProp(self, "HEAL_PWR_BM");
+    if byBuffTemp ~= nil then
+        byBuff = byBuff + byBuffTemp;
+    end
+    
+    local byRateBuff = 0;
+
+    local byRateBuffTemp = TryGetProp(self, "HEAL_PWR_RATE_BM");
+    if byRateBuffTemp ~= nil then
+        byRateBuff = byRateBuff + byRateBuffTemp;
+    end
+    
+    byRateBuff = math.floor(value * byRateBuffTemp);
+    
+    value = value + byBuff + byRateBuff;
+    
+    local byAbil = GetExProp(self, "ABIL_MACE_ADDHEAL")
+    if byAbil == nil then
+        byAbil = 0
+    end
+--    print(byAbil)
+    value = value * (1 + byAbil) 
+    
+    if value < 1 then
+    	value = 1;
     end
     
     return math.floor(value);

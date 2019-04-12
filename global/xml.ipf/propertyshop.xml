@@ -2,16 +2,19 @@
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <PropertyShop>
 	<Shop Name="PVPShop" PointScript="GET_PVP_POINT">
-		<Item Script="PVP_CARD" Name="expCard1" Count="1" Price="50" DailyBuyLimit="1"/>
-		<Item Script="None" Name="egg_007" Count="1" Price="20000" DailyBuyLimit="1"/>
+		<Item Script="None" Name="egg_007" Count="1" Price="18000" DailyBuyLimit="1"/>
 		<Item Script="None" Name="Hat_628134" Count="1" Price="3500" DailyBuyLimit="1"/>
 		<Item Script="None" Name="Hat_628135" Count="1" Price="3500" DailyBuyLimit="1"/>
-		<Item Script="None" Name="misc_gemExpStone02" Count="1" Price="180" DailyBuyLimit="1"/>
-		<Item Script="None" Name="Drug_PvP_MSPD3" Count="1" Price="60" DailyBuyLimit="1"/>
 		<Item Script="None" Name="Hat_628025" Count="1" Price="3500" DailyBuyLimit="1"/>
 		<Item Script="None" Name="Hat_628092" Count="1" Price="3500" DailyBuyLimit="1"/>
 		<Item Script="None" Name="Hat_628111" Count="1" Price="3500" DailyBuyLimit="1"/>
 		<Item Script="None" Name="Hat_628119" Count="1" Price="3500" DailyBuyLimit="1"/>
+		<Item Script="None" Name="Moru_Silver" Count="1" Price="400" DailyBuyLimit="1"/>
+		<Item Script="None" Name="GIMMICK_Drug_PMATK2" Count="5" Price="80" DailyBuyLimit="3"/>
+		<Item Script="None" Name="GIMMICK_Drug_Restore01" Count="5" Price="80" DailyBuyLimit="3"/>
+		<Item Script="None" Name="GIMMICK_Drug_PMDEF2" Count="5" Price="80" DailyBuyLimit="3"/>
+		<Item Script="None" Name="misc_gemExpStone_randomQuest5" Count="1" Price="1200" DailyBuyLimit="1"/>
+		<Item Script="None" Name="legend_reinforce_card_lv1" Count="1" Price="8000" DailyBuyLimit="1"/>
 	</Shop>
 	<Shop Name="MINEShop" PointScript="GET_PVP_MINE_POINT">
 		<Item Script="None" Name="Point_Stone_100" Count="1" Price="200" DailyBuyLimit="0"/>

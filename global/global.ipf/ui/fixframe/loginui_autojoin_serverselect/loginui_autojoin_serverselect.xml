@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="loginui_autojoin_serverselect" x="0" y="0" width="300" height="290">
+	<frame title="로그인" margin="0 0 0 190" layout_gravity="center bottom" scale_align="center bottom"/>
+	<layer layerlevel="12"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<script fadeinScp="None" fadeoutScp="None"/>
+	<animation frameOpenAnim="dialog_select_start" frameCloseAnim="dialog_select_end"/>
+	<option hideable="false" closebutton="false"/>
+	<controls>
+		<!--text name="SERVERLIST" rect="0 0 200 30" layout_gravity="right top" margin="0 240 25 0" textalign="center center" caption="서버 리스트" fontname="white_login_text"/-->
+		<text name="SERVERLIST" rect="0 0 200 26" margin="0 0 0 0" layout_gravity="center top" textalign="center center" caption="서버 목록" fontname="white_20_ol"/>
+		<listbox name="select server" rect="0 0 230 230" skin="bg2" layout_gravity="center top" margin="0 35 0 0" selectionimage="bar_selection" cursoronimage="bar_cursoron" columnsort="true" showtitle="false" clicksound="button_click" oversound="button_cursor_over_3" horzgrid="false" tooltipcaption="{@st59}접속을 원하는 서버를 선택하여 주세요{/}" tooltipwidth="512"/>
+	</controls>
+</uiframe>

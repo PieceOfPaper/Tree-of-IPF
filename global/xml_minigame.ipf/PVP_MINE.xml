@@ -8,13 +8,19 @@
                     <Obj Type="Monster" MonType="2000101" Pos="926.66#0.10#165.11" range="400" maxStackCount="20" genTime="10000" objectKey="3" propList="&apos;BornScript&apos; &apos;@PVP_MINE_RANDOM_MON&apos; "/>
                     <Obj Type="Monster" MonType="2000101" Pos="-24.09#0.10#963.41" range="400" maxStackCount="20" genTime="10000" objectKey="4" propList="&apos;BornScript&apos; &apos;@PVP_MINE_RANDOM_MON&apos; "/>
                     <Obj Type="Monster" MonType="2000101" Pos="73.44#0.10#-810.36" range="400" maxStackCount="20" genTime="10000" objectKey="7" propList="&apos;BornScript&apos; &apos;@PVP_MINE_RANDOM_MON&apos; "/>
-                    <Obj Type="Monster" MonType="20040" Pos="1533.23#149.14#1488.89" range="1" genCount="1" maxStackCount="1" genTime="20000" objectKey="8" propList="&apos;Tactics&apos; &apos;PVP_MINE_SAFEZONE_B&apos; "/>
-                    <Obj Type="Monster" MonType="20040" Pos="-1395.50#149.14#-1461.40" range="1" genCount="1" maxStackCount="1" genTime="20000" objectKey="11" propList="&apos;Tactics&apos; &apos;PVP_MINE_SAFEZONE_A&apos; "/>
-                    <Obj Type="Monster" MonType="2000107" Pos="-837.39#0.10#865.09" range="200" genCount="1" maxStackCount="5" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="20040" Pos="1053.94#0.10#991.36" range="1" genCount="1" maxStackCount="1" genTime="20000" objectKey="8" propList="&apos;Tactics&apos; &apos;PVP_MINE_SAFEZONE_B&apos; "/>
+                    <Obj Type="Monster" MonType="20040" Pos="-893.40#0.10#-942.81" range="1" genCount="1" maxStackCount="1" genTime="20000" objectKey="11" propList="&apos;Tactics&apos; &apos;PVP_MINE_SAFEZONE_A&apos; "/>
+                    <Obj Type="Monster" MonType="2000107" Pos="-851.15#0.10#777.82" range="200" genCount="1" maxStackCount="5" genTime="20000" objectKey="1"/>
                     <Obj Type="Monster" MonType="2000107" Pos="620.07#0.10#-423.29" range="200" genCount="1" maxStackCount="5" genTime="20000" objectKey="2"/>
-                    <Obj Type="Monster" MonType="2000107" Pos="1006.92#0.10#-854.91" range="200" genCount="1" maxStackCount="5" genTime="20000" objectKey="14"/>
+                    <Obj Type="Monster" MonType="2000107" Pos="933.31#0.10#-807.91" range="200" genCount="1" maxStackCount="5" genTime="20000" objectKey="14"/>
                     <Obj Type="Monster" MonType="2000107" Pos="-452.79#0.10#468.54" range="200" genCount="1" maxStackCount="5" genTime="20000" objectKey="15"/>
                     <Obj Type="Monster" MonType="2000108" Pos="60.70#5.00#30.73" range="240" genCount="1" maxStackCount="2" genTime="20000" objectKey="5"/>
+                    <Obj Type="Monster" MonType="2000111" Pos="-987.80#0.20#-859.70" genCount="1" genTime="20000" objectKey="6"/>
+                    <Obj Type="Monster" MonType="2000111" Pos="-807.60#0.20#-1025.20" genCount="1" genTime="20000" objectKey="9"/>
+                    <Obj Type="Monster" MonType="2000112" Pos="1137.40#0.20#905.20" genCount="1" genTime="20000" objectKey="10"/>
+                    <Obj Type="Monster" MonType="2000112" Pos="972.00#0.20#1070.60" genCount="1" genTime="20000" objectKey="12"/>
+                    <Obj Type="Monster" MonType="40001" Pos="-1472.32#149.14#-1539.54" angle="-150" genCount="1" genTime="20000" objectKey="13" propList="&apos;Dialog&apos; &apos;PVP_MINE_CITY&apos; &apos;Name&apos; &apos;출구&apos; "/>
+                    <Obj Type="Monster" MonType="40001" Pos="1631.12#149.14#1578.99" angle="55" genCount="1" genTime="20000" objectKey="16" propList="&apos;Dialog&apos; &apos;PVP_MINE_CITY&apos; &apos;Name&apos; &apos;출구&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="MonGen_0">
@@ -304,13 +310,14 @@
                                 <Num Num="1"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
+                                <Num Num="5"/>
                             </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_PVP_MINE_TEAM_CHECK"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_SEND_SAME_FACTION_PC_POSITION" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -342,9 +349,6 @@
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_PVP_MINE_END_UI_OPEN"/>
-                            </ToolScp>
                             <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_PVP_MINE_REWARD"/>
                             </ToolScp>
@@ -352,6 +356,9 @@
                                 <Str Str="1분후 수정 광산 밖으로 이동합니다"/>
                                 <Str Str="!"/>
                                 <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_PVP_MINE_END_UI_OPEN"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>

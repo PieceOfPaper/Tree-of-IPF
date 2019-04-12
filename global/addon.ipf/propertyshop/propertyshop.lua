@@ -167,10 +167,6 @@ function PROPERTY_SHOP_BUY(parent, ctrl)
 	end
 
 	propertyShop.ReqBuyPropertyShopItem(shopName);
-	-- 연타 방지용 시간 제한 걸기
---	ReserveScript("REFRESH_PROPERTY_SHOP_BUY_BTN_SET_ENABLE()", 1);
-	-- ctrl:SetEnable(0)
-
 end
 
 function REFRESH_PROPERTY_SHOP_BUY_BTN_SET_ENABLE()

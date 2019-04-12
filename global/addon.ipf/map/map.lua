@@ -28,6 +28,7 @@ function MAP_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('PARTY_INST_UPDATE', 'MAP_UPDATE_PARTY_INST');
 	addon:RegisterOpenOnlyMsg('PARTY_UPDATE', 'MAP_UPDATE_PARTY');
 	addon:RegisterOpenOnlyMsg('GUILD_INFO_UPDATE', 'MAP_UPDATE_GUILD');
+    addon:RegisterMsg('DESTROY_GUILD_MEMBER_ICON', 'DESTROY_GUILD_MEMBER_ICON')
 
 	addon:RegisterMsg('MON_MINIMAP_START', 'MAP_MON_MINIMAP_START');
 	addon:RegisterMsg('MON_MINIMAP', 'MAP_MON_MINIMAP');
@@ -37,7 +38,7 @@ function MAP_ON_INIT(addon, frame)
     addon:RegisterMsg('COLONY_MONSTER', 'MAP_COLONY_MONSTER');
     addon:RegisterMsg('OPEN_COLONY_POINT', 'UPDATE_MAP');
     addon:RegisterMsg('REMOVE_COLONY_MONSTER', 'ON_REMOVE_COLONY_MONSTER');
-
+	addon:RegisterOpenOnlyMsg('UPDATE_MGAME_POSITION', 'ON_UPDATE_MAP_MGAME_POSITION');
 	frame = ui.GetFrame("map");
 	INIT_MAPUI_INFO(frame);
 	local mapClassName = session.GetMapName();
@@ -1011,12 +1012,12 @@ function SET_MAP_CIRCLE_MARK_UI(PictureC)
 end
 
 
-function CREATE_PM_PICTURE(frame, pcInfo, type, mapprop)
-
-	local myInfo = session.party.GetMyPartyObj(type);
+function CREATE_PM_PICTURE(frame, pcInfo, type, mapprop)    
+	local myInfo = session.party.GetMyPartyObj(type);    
 	if nil == myInfo then
 		return;
 	end
+    
 	if myInfo == pcInfo then
 		return;
 	end
@@ -1028,59 +1029,55 @@ function CREATE_PM_PICTURE(frame, pcInfo, type, mapprop)
 	local header = "PM_";
 	if type == PARTY_GUILD then
 		header = "GM_";
-	end
-
-	local name = header .. pcInfo:GetAID();
+	end    
+	local name = header .. pcInfo:GetAID()
 	if pcInfo:GetMapID() == 0 then
 		frame:RemoveChild(name);
-		return;
+		return
 	end
-
-	if type == PARTY_GUILD then
-		if frame:GetChild("PM_" .. pcInfo:GetAID()) ~= nil then
-			return;
-		end
-	else
+    
+    if type == PARTY_GUILD then        
 		if frame:GetChild("GM_" .. pcInfo:GetAID()) ~= nil then
 			return;
 		end
+	else
+		if frame:GetChild("PM_" .. pcInfo:GetAID()) ~= nil then
+			return;
+		end
 	end
-
+        
 	local instInfo = pcInfo:GetInst();
-	local map_partymember_iconset = frame:CreateOrGetControlSet('map_partymember_iconset', name, 0, 0);
+	local map_partymember_iconset = frame:CreateOrGetControlSet('map_partymember_iconset', name, 0, 0);    
 	map_partymember_iconset:SetTooltipType("partymap");
 	map_partymember_iconset:SetTooltipArg(pcInfo:GetName(), type);
 
 	local pm_name_rtext = GET_CHILD_RECURSIVELY(map_partymember_iconset,"pm_name","ui::CRichText")
-	pm_name_rtext:SetTextByKey("pm_fname",pcInfo:GetName())
-
-	local iconinfo = pcInfo:GetIconInfo();
-	SET_PM_MINIMAP_ICON(map_partymember_iconset, instInfo.hp, iconinfo.job);
-	SET_PM_MAPPOS(frame, map_partymember_iconset, instInfo, mapprop);
-
+	pm_name_rtext:SetTextByKey("pm_fname",pcInfo:GetName())    
+	local iconinfo = pcInfo:GetIconInfo();    
+	SET_PM_MINIMAP_ICON(map_partymember_iconset, instInfo.hp, iconinfo.job)
+	SET_PM_MAPPOS(frame, map_partymember_iconset, instInfo, mapprop)    
 end
 
 function SET_PM_MINIMAP_ICON(map_partymember_iconset, pcHP, pcJobID)
 	local jobCls = GetClassByType("Job", pcJobID);
 	local pm_icon = GET_CHILD_RECURSIVELY(map_partymember_iconset,"pm_icon","ui::CPicture")
 	if pcHP > 0 then
-		if nil ~= jobCls then
+		if nil ~= jobCls then            
 			pm_icon:SetImage(jobCls.CtrlType.."_party");
-		else
+		else        
 			pm_icon:SetImage('die_party');
 		end
-	else
+	else    
 		pm_icon:SetImage('die_party');
 	end
 end
-function SET_PM_MAPPOS(frame, controlset, instInfo, mapprop)
+function SET_PM_MAPPOS(frame, controlset, instInfo, mapprop)    	
 	local worldPos = instInfo:GetPos();
 	SET_MINIMAP_CTRLSET_POS(frame, controlset, worldPos, mapprop);
 end
 
 
 function MAP_UPDATE_PARTY_INST(frame, msg, str, partyType)
-
 	local mapprop = session.GetCurrentMapProp();
 	local myInfo = session.party.GetMyPartyObj(partyType);
 
@@ -1090,27 +1087,22 @@ function MAP_UPDATE_PARTY_INST(frame, msg, str, partyType)
 	local header = "PM_";
 	if partyType == PARTY_GUILD then
 		header = "GM_";
-	end
-
+	end    
 	for i = 0 , count - 1 do
 		local pcInfo = list:Element(i);
 		if myInfo ~= pcInfo then
-			local instInfo = pcInfo:GetInst();
+			local instInfo = pcInfo:GetInst();            
 			local name = header .. pcInfo:GetAID();
-			local pic = GET_CHILD_RECURSIVELY(frame, name);
+			local pic = GET_CHILD_RECURSIVELY(frame, name);            
 			if pic ~= nil then
-				local iconinfo = pcInfo:GetIconInfo();
-				SET_PM_MINIMAP_ICON(pic, instInfo.hp, iconinfo.job);
-				tolua.cast(pic, "ui::CControlSet");
-				SET_PM_MAPPOS(frame, pic, instInfo, mapprop);
+				local iconinfo = pcInfo:GetIconInfo()
+				SET_PM_MINIMAP_ICON(pic, instInfo.hp, iconinfo.job)
+				tolua.cast(pic, "ui::CControlSet")
+				SET_PM_MAPPOS(frame, pic, instInfo, mapprop)
 			else
 				local mapFrame = ui.GetFrame('map');
-				if partyType == PARTY_GUILD then
-					MAP_UPDATE_GUILD(mapFrame, "GUILD_UPDATE", nil, 0);
-				else
-					MAP_UPDATE_PARTY(mapFrame, "PARTY_UPDATE", nil, 0);
-				end
-				return;							
+                MAP_UPDATE_PARTY(mapFrame, "PARTY_UPDATE", nil, 0);
+				return;
 			end
 		end
 	end
@@ -1172,22 +1164,19 @@ function MINIMAP_ICON_ADD(key, info)
 
 	frame = ui.GetFrame("minimap");
 	local npcList = frame:GetChild('npclist');
-	_MINIMAP_ICON_ADD(npcList, key, info);
-	
+	_MINIMAP_ICON_ADD(npcList, key, info);	
 end
 
 function MINIMAP_ICON_UPDATE(key, info)
 	MINIMAP_ICON_ADD(key, info);
 end
 
-function SET_MINIMAP_CTRLSET_POS(parent, ctrlSet, worldPos, mapprop)
-
-	if parent:GetValue2() == 1 then
+function SET_MINIMAP_CTRLSET_POS(parent, ctrlSet, worldPos, mapprop)    
+	if parent:GetValue2() == 1 then        
 		local cursize = GET_MINIMAPSIZE();
 		local minimapw = m_mapWidth * (100 + cursize) / 100;
 		local minimaph = m_mapHeight * (100 + cursize) / 100;
-		local pos = mapprop:WorldPosToMinimapPos(worldPos, minimapw, minimaph);
-
+		local pos = mapprop:WorldPosToMinimapPos(worldPos, minimapw, minimaph);        
 		pos.x = pos.x - ctrlSet:GetWidth() / 2;
 		pos.y = pos.y - ctrlSet:GetHeight() / 2 + 10;
 		ctrlSet:SetOffset(pos.x, pos.y);
@@ -1325,4 +1314,82 @@ end
 function ON_REMOVE_COLONY_MONSTER(frame, msg, argStr, monID)
    frame:RemoveChild('colonyMonPic_'..monID);
    frame:RemoveChild('colonyMonEffectPic'); 
+end
+
+function DESTROY_GUILD_MEMBER_ICON(frame, msg, guild_member_aid)    
+    local frame = ui.GetFrame('map')
+    if frame == nil then return end
+    local searchname = 'GM_'
+    if guild_member_aid ~= nil then
+        searchname = searchname .. tostring(guild_member_aid)        
+    end
+    local index = 0;
+    
+    index = 0
+	while 1 do
+		if index >= frame:GetChildCount() then
+			break
+		end
+		local childObj = frame:GetChildByIndex(index);
+		local name = childObj:GetName()
+		if string.find(name, searchname) ~= nil then            
+			frame:RemoveChildByIndex(index)
+            break
+		else
+			index = index + 1;
+		end
+	end
+
+    local mini = ui.GetFrame('minimap')
+    if mini == nil then return end
+    npclist = mini:GetChild('npclist')
+    if npclist == nil then return end
+    
+    index = 0
+	while 1 do
+		if index >= npclist:GetChildCount() then
+			break
+		end
+		local childObj = npclist:GetChildByIndex(index);
+		local name = childObj:GetName()
+		if string.find(name, searchname) ~= nil then            
+			npclist:RemoveChildByIndex(index)
+		else
+			index = index + 1;
+		end
+	end
+    frame:Invalidate()
+end
+
+function ON_UPDATE_MAP_MGAME_POSITION(frame, msg, argstr, argnum)
+	UPDATE_MGAME_POSITION(frame)
+end
+
+function ON_UPDATE_MINIMAP_MGAME_POSITION(frame, msg, argstr, argnum)
+	local npclist = frame:GetChild('npclist');
+	UPDATE_MGAME_POSITION(npclist)
+end
+
+function UPDATE_MGAME_POSITION(parent)
+	local key = "MGAME_POSITION";
+	local frame = parent:GetTopParentFrame();
+	local iconName = frame:GetUserConfig("MGAME_POSITION_ICON");
+	DESTROY_CHILD_BYNAME(parent, "CUSTOM_ICON_" .. key);
+
+	local mapprop = session.GetCurrentMapProp();
+	local cnt = session.mgame.GetMGamePositionCount();
+	for i=0, cnt-1 do
+		local elem = session.mgame.GetMGamePositionByIndex(i);
+		local ismypc = elem:GetAID() == session.loginInfo.GetAID();
+		local ispartymember = session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, elem:GetAID()) ~= nil;
+		if ismypc == false and ispartymember == false then
+			local ctrlName = "CUSTOM_ICON_" .. key ..  tostring(elem:GetAID());
+			local controlset = parent:CreateOrGetControlSet("map_partymember_iconset", ctrlName, 0, 0);
+			SET_MINIMAP_CTRLSET_POS(parent, controlset, elem.pos, mapprop);
+			local pm_name = GET_CHILD(controlset, "pm_name");
+			pm_name:SetText(elem.familyName);
+			local pm_icon = GET_CHILD(controlset, "pm_icon");
+			pm_icon:SetImage(iconName);
+		end
+	end
 end

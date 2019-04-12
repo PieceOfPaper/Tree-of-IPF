@@ -1,6 +1,5 @@
 
-
-local json = require "json"
+local json = require "json_imc"
 local applicant_list = {}
 local selected_applicant = nil
 function GUILD_APPLICANT_INIT(addon, frame)

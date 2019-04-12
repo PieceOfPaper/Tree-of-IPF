@@ -7,32 +7,58 @@
 	<layer layerlevel="80"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<effect open="skilltreeOpen" close="skilltreeClose"/>
-	<script OpenScp="OPEN_ITEMDUNGEON"/>
 	<controls>
-		<groupbox name="bg2" rect="0 0 450 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_low"/>
-		<groupbox name="bg3" rect="0 0 430 600" margin="0 340 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_midle"/>
+		<!-- history -->
+		<groupbox name="historyBox" rect="0 0 450 1000" margin="0 30 0 0" layout_gravity="left top" skin="test_frame_low" tabname="historyTabItem" tabchangescp="ITEMDUNGEON_UPDATE_HISTORY"/>
+		<groupbox name="historyListBox" rect="0 0 430 800" margin="0 130 0 0" layout_gravity="center top" skin="test_frame_midle"/>
+		<!-- seller box -->
+		<groupbox name="mainBox" rect="0 0 450 1200" margin="0 0 0 0" layout_gravity="left top" draw="false" tabname="sellerTabItem"/>
+		<groupbox name="bg2" parent="mainBox" rect="0 0 450 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_low"/>
+		<groupbox name="bg3" parent="mainBox" rect="0 0 430 480" margin="0 450 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_midle"/>
 		<groupbox name="pip4" rect="0 0 450 61" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_wizard"/>
-		<groupbox name="bodyGbox" rect="0 0 453 960" margin="0 61 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
-		<richtext name="slotName" rect="0 0 343 48" margin="0 310 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="" format="{@st41}%s" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0"/>
-		<richtext name="SkillLevel" rect="0 0 343 48" margin="115 908 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="" format="{@st41}%s" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0"/>
-		<richtext name="partyCount" rect="0 0 343 48" margin="143 908 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" format="{@st41}%s" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0"/>
-		<richtext name="nowPotentialStr" rect="0 0 343 48" margin="30 360 0 0" layout_gravity="left top" caption="현재 포텐셜" drawbackground="false" fixwidth="false" fontname="white_16_ol" resizebytext="true" slideshow="false" textalign="left top"/>
-		<richtext name="SkillLevelStr" rect="0 0 343 48" margin="40 908 0 0" layout_gravity="left top" caption="{@st41}스킬레벨" drawbackground="false" fixwidth="false" fontname="white_16_ol" resizebytext="true" slideshow="false" textalign="left top"/>
-		<richtext name="partyTitleStr" rect="0 0 343 48" margin="26 872 0 548" layout_gravity="left top" caption="{@st41}입장가능 인원" drawbackground="false" fixwidth="false" fontname="white_16_ol" resizebytext="true" slideshow="false" textalign="left top"/>
-		<richtext name="Squire_ArmorTouchUp" rect="0 0 200 80" margin="0 13 0 0" layout_gravity="center top" caption="{@st43}아이템 각성 던전" resizebytext="false" textalign="left top"/>
-		<richtext name="richtext_1" rect="0 0 160 24" margin="30 480 0 0" layout_gravity="left top" caption="{@st41}필요 재료" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-		<richtext name="needitemcount" rect="0 0 269 62" margin="130 520 0 0" layout_gravity="left top" fontname="white_16_ol" format="{@st42}%s{/}" maxwidth="true" param1="value" resizebytext="true" slideshow="false" textalign="left center"/>
+		<groupbox name="bodyGbox" parent="mainBox" rect="0 0 453 960" margin="0 61 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
+		<richtext name="slotName" parent="mainBox" rect="0 0 343 48" margin="0 350 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="" format="{@st41}%s" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0"/>
+		<richtext name="titleText" rect="0 0 200 80" margin="0 13 0 0" layout_gravity="center top" format="{@st43}%s" param1="title" param1_def="각성 상점 개설"/>
 		<button name="close" rect="10 0 44 44" margin="0 12 23 0" layout_gravity="right top" LBtnUpScp="ITEMDUNGEN_UI_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59} UI를 닫습니다{/}"/>
-		<button name="btn_cencel" rect="10 10 140 50" margin="80 0 0 90" layout_gravity="center bottom" LBtnUpScp="ITEMDUNGEN_UI_CLOSE" caption="{@st42}취 소" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_gray_button"/>
-		<button name="btn_excute" rect="10 10 140 50" margin="-90 0 0 90" layout_gravity="center bottom" LBtnUpScp="EXEC_ITEM_DUNGEON" caption="{@st42}확 인" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>
-		<picture name="titlepicture" rect="0 0 440 240" margin="5 75 0 0" layout_gravity="center top" image="alch_item_dungeon"/>
-		<slot name="targetSlot" rect="0 0 200 200" margin="0 100 0 0" layout_gravity="center top" DropScp="ITEMDUNGEON_DROP_ITEM" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="skill_squaier_slot" texttooltip="{@st59}아이템을 올려주세요{/}"/>
-		<slot name="slot_needitem" rect="0 0 70 70" margin="40 515 0 0" layout_gravity="left top" DropScp="None" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}필요재료{/}"/>
-		<labelline name="Optionline" parent="bodyGbox" rect="0 0 420 1" margin="0 0 0 515" layout_gravity="center bottom" skin="None"/>
-		<labelline name="Optionline2" parent="bodyGbox" rect="0 0 420 1" margin="0 0 0 120" layout_gravity="center bottom" skin="None"/>
-		<richtext name="richtext_1_1" rect="0 0 160 24" margin="30 641 0 0" layout_gravity="left top" caption="{@st41}제물 재료" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-		<labelline name="Optionline2_1" parent="bodyGbox" rect="0 0 420 1" margin="0 0 0 350" layout_gravity="center bottom" skin="None"/>
-		<slot name="stoneSlot" rect="0 0 70 70" margin="40 680 0 0" layout_gravity="left top" DropScp="ITEMDUNGEON_DROP_WEALTH_ITEM" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}아이템을 올려주세요{/}"/>
-		<slot name="partySlot" rect="0 0 220 30" margin="170 908 0 0" layout_gravity="left top" DropScp="None" movepop="false"/>
+		<picture name="titlepicture" parent="mainBox" rect="0 0 440 240" margin="5 105 0 0" layout_gravity="center top" image="alch_item_dungeon"/>
+		<slot name="targetSlot" parent="mainBox" rect="0 0 200 200" margin="0 130 0 0" layout_gravity="center top" DropScp="ITEMDUNGEON_DROP_ITEM" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="skill_squaier_slot" texttooltip="{@st59}아이템을 올려주세요{/}" RBtnUpScp="ITEMDUNGEON_CLEAR_TARGET"/>
+		<!-- buyer -->
+		<groupbox name="goodsInfoBox" parent="mainBox" rect="0 0 450 1000" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="false"/>
+		<richtext name="nowPotentialStr" parent="" rect="0 0 343 48" margin="30 410 0 0" layout_gravity="left top" caption="{@st66b}현재 포텐셜" drawbackground="false" fixwidth="false" fontname="white_16_ol" resizebytext="true" slideshow="false" textalign="left top"/>
+		<richtext name="priceText" parent="bg3" rect="0 0 200 30" margin="25 0 0 20" layout_gravity="left bottom" caption="가격" fontname="white_16_ol"/>
+		<richtext name="priceValueText" parent="bg3" rect="0 0 200 30" margin="370 0 0 20" layout_gravity="left bottom" caption="0" fontname="white_16_ol"/>
+		<groupbox name="buyerBox" parent="bg3" rect="0 0 430 130" margin="0 0 0 180" layout_gravity="left bottom" draw="false"/>
+
+
+		<richtext name="richtext_1_1" parent="buyerBox" rect="0 0 160 24" margin="20 0 0 0" layout_gravity="left top" caption="{@st41}제물 재료" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<labelline name="Optionline2_1" parent="buyerBox" rect="0 0 420 1" margin="0 30 0 0" layout_gravity="center top" skin="None"/>
+		<slot name="stoneSlot" parent="buyerBox" rect="0 0 70 70" margin="20 40 0 0" layout_gravity="left top" DropScp="ITEMDUNGEON_DROP_WEALTH_ITEM" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}아이템을 올려주세요{/}"/>
+		<groupbox name="buyerBtnBox" rect="0 0 450 90" margin="0 0 0 50" layout_gravity="center bottom" draw="false"/>
+		<button name="closeShopBtn" parent="buyerBtnBox" rect="0 0 140 50" margin="0 0 75 0" layout_gravity="right center" LBtnUpScp="ITEMDUNGEON_CLOSE_SHOP" caption="{@st42}폐 점" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_gray_button"/>
+		<button name="buyBtn" parent="buyerBtnBox" rect="0 0 140 50" margin="65 20 0 0" layout_gravity="left top" LBtnUpScp="ITEMDUNGEON_BUY_ITEM" caption="{@st42}각 성" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>
+		<!-- seller -->
+		<groupbox name="sellerBox" parent="mainBox" rect="0 0 450 75" margin="0 120 0 0" layout_gravity="left top" draw="false"/>
+		<groupbox name="moneyGbox" parent="sellerBox" rect="0 0 430 35" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<richtext name="moneyStr" parent="moneyGbox" rect="0 0 200 80" margin="10 8 0 0" layout_gravity="left top" caption="받는 가격{img silver 20 20}" textalign="left top" fontname="brown_16_b"/>
+		<richtext name="money" parent="moneyGbox" rect="0 0 343 48" margin="0 8 4 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="brown_18_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
+		<edit name="moneyInput" margin="120 5 0 0" rect="0 0 405 35" fontname="brown_16_b" maxlen="16" EnterKeyScp="None" numbermode="true" OffsetForDraw="10 3" layout_gravity="left top" parent="moneyGbox" skin="" typingscp="UPDATE_MONEY_COMMAED_STRING"/>
+		<groupbox name="titleGbox" parent="sellerBox" rect="0 0 430 35" margin="0 0 0 0" layout_gravity="center bottom" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<richtext name="titleStr" parent="titleGbox" rect="0 0 200 80" margin="10 8 0 0" layout_gravity="left top" caption=" 상점 이름" textalign="left top" fontname="brown_16_b"/>
+		<richtext name="title_1" parent="titleGbox" rect="0 0 343 48" margin="10 7 3 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="brown_18_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
+		<edit name="titleInput" margin="120 5 0 0" rect="0 0 405 35" fontname="brown_16_b" maxlen="32" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="titleGbox" skin=""/>
+		<groupbox name="needBox" parent="bg3" rect="0 0 430 130" margin="0 0 0 40" layout_gravity="left bottom" draw="false"/>
+		<richtext name="richtext_1" parent="needBox" rect="0 0 160 24" margin="20 0 0 0" layout_gravity="left top" caption="{@st41}필요 재료" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<slot name="slot_needitem" parent="needBox" rect="0 0 70 70" margin="20 40 0 0" layout_gravity="left top" DropScp="None" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}필요재료{/}"/>
+		<labelline name="Optionline" parent="needBox" rect="0 0 420 1" margin="0 30 0 0" layout_gravity="center top" skin="None"/>
+		<richtext name="reqitemNameStr" parent="needBox" rect="0 0 343 48" margin="110 50 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" format="{@st66e}%s" maxwidth="0" param1="txt" param1_def="재료이름" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="count" parent="needBox" rect="0 0 200 80" margin="110 80 0 0" layout_gravity="left top" caption="보유 개수" fontname="black_16" textalign="left top"/>
+		<richtext name="reqitemCount" parent="needBox" rect="0 0 343 48" margin="0 80 20 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="black_16" format="%s" maxwidth="0" param1="txt" param1_def="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<groupbox name="sellerBtnBox" rect="0 0 450 90" margin="0 0 0 50" layout_gravity="center bottom" draw="false"/>
+		<button name="btn_cencel" parent="sellerBtnBox" rect="0 0 140 50" margin="80 0 0 0" layout_gravity="center center" LBtnUpScp="ITEMDUNGEN_UI_CLOSE" caption="{@st42}취 소" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_gray_button"/>
+		<button name="btn_excute" parent="sellerBtnBox" rect="0 0 140 50" margin="-90 0 0 0" layout_gravity="center center" LBtnUpScp="EXEC_ITEM_DUNGEON" caption="{@st42}개 설" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>
+		<!-- Main Tab -->
+		<tab name="sellerTab" rect="0 0 500 40" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="70 70 0 0"/>
+		<tabitem name="sellerTabItem" parent="sellerTab" caption="{@st66b}상점{/}" width="160" layout_gravity="left top"/>
+		<tabitem name="historyTabItem" parent="sellerTab" caption="{@st66b}기록{/}" width="160" layout_gravity="left top"/>
 	</controls>
 </uiframe>

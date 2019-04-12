@@ -78,11 +78,17 @@ function ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
 	itemSlotSet:ClearIconAll();
 	miscSlotSet:ClearIconAll();
 	
+	local itemSlotSetCnt = itemSlotSet:GetSlotCount();
+	itemSlotSet:SetSkinName("invenslot2")
+	for i = 0, itemSlotSetCnt - 1 do
+		local tempSlot = itemSlotSet:GetSlotByIndex(i)
+		DESTROY_CHILD_BYNAME(tempSlot, "styleset_")		
+	end
+	
 	local itemSlotCnt = 0
 	
 	local invItemList = session.GetInvItemList();
     local itemCount = session.GetInvItemList():Count();
-    
     local index = invItemList:Head();
 	for i = 0, itemCount - 1 do
     	local invItem = invItemList:Element(index);
@@ -116,6 +122,7 @@ function ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
     			local icon = CreateIcon(itemSlot);
     			icon:Set(itemobj.Icon, 'Item', invItem.type, itemSlotCnt, invItem:GetIESID());
     			local class = GetClassByType('Item', invItem.type);
+	    			SET_SLOT_STYLESET(itemSlot, itemobj)
     			ICON_SET_INVENTORY_TOOLTIP(icon, invItem, nil, class);
                 
     			itemSlotCnt = itemSlotCnt + 1;

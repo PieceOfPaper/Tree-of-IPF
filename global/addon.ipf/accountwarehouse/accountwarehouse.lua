@@ -1,5 +1,4 @@
 function ACCOUNTWAREHOUSE_ON_INIT(addon, frame)
-
 	addon:RegisterMsg("OPEN_DLG_ACCOUNTWAREHOUSE", "ON_OPEN_ACCOUNTWAREHOUSE");
 	addon:RegisterMsg("ACCOUNT_WAREHOUSE_ITEM_LIST", "ON_ACCOUNT_WAREHOUSE_ITEM_LIST");
 	addon:RegisterMsg("ACCOUNT_WAREHOUSE_ITEM_ADD", "ON_ACCOUNT_WAREHOUSE_ITEM_LIST");
@@ -9,18 +8,41 @@ function ACCOUNTWAREHOUSE_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg("ACCOUNT_WAREHOUSE_VIS", "ACCOUNT_WAREHOUSE_UPDATE_VIS_LOG");
 end
 
-function ON_OPEN_ACCOUNTWAREHOUSE(frame)
+local new_add_item = {}
+local new_stack_add_item = {}
 
+local function is_new_item(id)    
+    for k, v in pairs(new_add_item) do
+        if v == id then
+            return true
+        end
+    end    
+    return false
+end
+
+local function is_stack_new_item(class_id)
+    for k, v in pairs(new_stack_add_item) do
+        if v == class_id then
+            return true
+        end
+    end
+    return false
+end
+
+function ON_OPEN_ACCOUNTWAREHOUSE(frame)
+    new_add_item = {}
+    new_stack_add_item = {}
 	ui.OpenFrame("accountwarehouse");
 end
 
 function ACCOUNTWAREHOUSE_OPEN(frame)
-	
 	ui.OpenFrame("inventory");
 	packet.RequestItemList(IT_ACCOUNT_WAREHOUSE);
 	ui.EnableSlotMultiSelect(1);
 	INVENTORY_SET_CUSTOM_RBTNDOWN("ACCOUNT_WAREHOUSE_INV_RBTN")	
 	packet.RequestAccountWareVisLog();
+    new_add_item = {}
+    new_stack_add_item = {}
 end
    
 function ACCOUNTWAREHOUSE_CLOSE(frame)
@@ -28,10 +50,12 @@ function ACCOUNTWAREHOUSE_CLOSE(frame)
 	ui.CloseFrame("inventory");
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 	TRADE_DIALOG_CLOSE();
+    new_add_item = {}
+    new_stack_add_item = {}
 end
 
 function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFrame)
-	local obj = GetIES(invItem:GetObject());	
+    local obj = GetIES(invItem:GetObject())
     if CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT(obj) == false then
         return;
     end
@@ -66,7 +90,7 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 			end
 		end
 
-		if invItem.count > 1 then
+		if invItem.count > 1 then            
 			INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE", maxCnt, 1, maxCnt, nil, tostring(invItem:GetIESID()));
 		else
 			if maxCnt <= 0 then
@@ -74,6 +98,11 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 				return;
 			end
 			item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
+            new_add_item[#new_add_item + 1] = invItem:GetIESID()
+            
+            if geItemTable.IsStack(obj.ClassID) == 1 then
+                 new_stack_add_item[#new_stack_add_item + 1] = obj.ClassID
+            end
 		end
 	else
 		if slot ~= nil then
@@ -115,6 +144,7 @@ function MSG_PUTITEM_ACCOUNT_WAREHOUSE(iesID, count, handle)
 		INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE", count, 1, count, nil, iesID);
 	else
 		item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, iesID, count, handle);
+        new_add_item[#new_add_item + 1] = iesID
 	end
 end
 
@@ -123,9 +153,10 @@ function EXEC_PUT_TO_ACCOUNT_WAREHOUSE(iesID, count, handle)
         return;
     end
 	item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, iesID, count, handle);
+    new_add_item[#new_add_item + 1] = iesID
 end
 
-function EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE(frame, count, inputframe)
+function EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE(frame, count, inputframe)    
 	inputframe:ShowWindow(0);
 	local iesid = inputframe:GetUserValue("ArgString");
 	local insertItem = GetObjectByGuid(iesid);
@@ -133,6 +164,10 @@ function EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE(frame, count, inputframe)
         return;
     end
 	item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, iesid, tonumber(count), frame:GetUserIValue("HANDLE"));
+    new_add_item[#new_add_item + 1] = iesid
+    if geItemTable.IsStack(insertItem.ClassID) == 1 then
+        new_stack_add_item[#new_stack_add_item + 1] = insertItem.ClassID
+    end
 end
 
 function ACCOUNT_WAREHOUSE_SLOT_RESET(frame, slot)
@@ -141,6 +176,8 @@ end
 
 function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 	if frame:IsVisible() == 0 then
+        new_add_item = {}
+        new_stack_add_item = {}
 		return;
 	end
 
@@ -166,15 +203,21 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 			saveMoney:SetTextByKey('value',GetCommaedText(invItem.count))
 			itemCnt = itemCnt - 1;
 		else
-			local slot = slotset:GetSlotByIndex(slotIndx);
+			local slot = slotset:GetSlotByIndex(slotIndx)            
 			if slot == nil then
 				slot = GET_EMPTY_SLOT(slotset);
 			end
+
 			slot:SetSkinName('invenslot2')
 			local itemCls = GetIES(invItem : GetObject());
 			local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
 
 
+            if is_new_item(invItem:GetIESID()) == true or is_stack_new_item(obj.ClassID) then
+                slot:SetHeaderImage('new_inventory_icon')
+            else
+                slot:SetHeaderImage('None')
+            end
 
 			SET_SLOT_IMG(slot, iconImg)
 		--	SET_SLOT_BG_BY_ITEMGRADE(slot, itemCls.ItemGrade, index)
@@ -184,16 +227,6 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 				SET_SLOT_COUNT_TEXT(slot, invItem.count);
 			end
 
-		--	SET_SLOT_TRANSCEND_LEVEL(slot, TryGetProp(obj, 'Transcend'), index);
-		--	local needAppraisal = nil
-		--	local needRandomOption = nil
-		--	if obj ~= nil then
-		--		needAppraisal = TryGetProp(obj, "NeedAppraisal");
-		--		needRandomOption = TryGetProp(obj, "NeedRandomOption");
-		--	end
-
-		--	SET_SLOT_NEED_APPRAISAL(slot, needAppraisal, needRandomOption, index)
-		--	SET_SLOT_REINFORCE_LEVEL(slot, TryGetProp(obj, 'Reinforce_2'), index)
 			SET_SLOT_STYLESET(slot, itemCls)
 			SET_SLOT_IESID(slot, invItem:GetIESID())
             SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, nil)
@@ -206,7 +239,7 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 		index = itemList:Next(index);
 	end
 
-    -- 아이템이 없어도 사용가능한 슬롯이면 스킨 변경
+    -- ?�이?�이 ?�어???�용가?�한 ?�롯?�면 ?�킨 변�?
     local account = session.barrack.GetMyAccount();
 	local slotCount = account:GetAccountWarehouseSlotCount();
     local availableTakeCount = math.max(slotCount, slotIndx);
@@ -417,7 +450,6 @@ function CHECK_USER_MEDAL_FOR_EXTEND_ACCOUNT_WAREHOUSE(price)
 end
 
 function ACCOUNT_WAREHOUSE_INV_RBTN(itemObj, slot)
-	
 	local frame = ui.GetFrame("accountwarehouse");
 	local icon = slot:GetIcon();
 	local iconInfo = icon:GetInfo();

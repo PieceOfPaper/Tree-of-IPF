@@ -1,4 +1,4 @@
-
+﻿
 function RECYCLE_SHOW_TO_MEDAL(parent, ctrl, str, num)
 	if ctrl ~= nil then
 	ctrl:SetSkinName("baseyellow_btn");
@@ -23,14 +23,15 @@ function RECYCLE_SHOW_TO_MEDAL(parent, ctrl, str, num)
 	rcycle_mainSellText:ShowWindow(1)
 
 	UPDATE_RECYCLE_BASKET_MONEY(frame,"sell")
-	RECYCLE_CREATE_SELL_LIST();
+	RECYCLE_CREATE_SELL_LIST();	
+	RECYCLE_CATE_SELECT(frame, false);
 end
 
 function RECYCLE_SHOW_TO_ITEM(parent, ctrl, str, num)
 	if ctrl ~= nil then
-	ctrl:SetSkinName("baseyellow_btn");
-	local rcycle_group1 = GET_CHILD_RECURSIVELY(parent,"rcycle_group1");	
-	rcycle_group1:SetSkinName("base_btn");
+	    ctrl:SetSkinName("baseyellow_btn");
+	    local rcycle_group1 = GET_CHILD_RECURSIVELY(parent,"rcycle_group1");	
+	    rcycle_group1:SetSkinName("base_btn");
 	end
 
 	local frame = ui.GetFrame('tpitem')
@@ -49,18 +50,18 @@ function RECYCLE_SHOW_TO_ITEM(parent, ctrl, str, num)
 	rcycle_mainBuyText:ShowWindow(1)
 	rcycle_mainSellText:ShowWindow(0)
 
-	UPDATE_RECYCLE_BASKET_MONEY(frame,"buy")	
-	RECYCLE_CREATE_BUY_LIST()
+	UPDATE_RECYCLE_BASKET_MONEY(frame,"buy");	
+	RECYCLE_CREATE_BUY_LIST();
+	RECYCLE_CATE_SELECT(frame, true);
 end
 
 function RECYCLE_CREATE_BUY_LIST()
-
-	local frame = ui.GetFrame('tpitem')
+	local frame = ui.GetFrame('tpitem');
 	local rcycle_mainSubGbox = GET_CHILD_RECURSIVELY(frame,"rcycle_mainSubGbox");
 	DESTROY_CHILD_BYNAME(rcycle_mainSubGbox, "eachitem_");
 
 	local mainSubGbox = GET_CHILD_RECURSIVELY(frame,"rcycle_mainSubGbox");
-
+	mainSubGbox:RemoveAllChild();
 	local clsList, cnt = GetClassList('recycle_shop');	
 	if cnt == 0 or clsList == nil then
 		return;
@@ -70,22 +71,67 @@ function RECYCLE_CREATE_BUY_LIST()
 	local showitemcnt = 1
 	for i = 0, cnt - 1 do
 		local obj = GetClassByIndexFromList(clsList, i);
-
 		if obj.BuyPrice ~= 0 then
+			local itemobj = GetClass("Item", obj.ClassName);
+			if CHECK_RECYCLE_SHOW_ITEM(frame, itemobj) == true then
+				x = ( (showitemcnt-1) % 3) * ui.GetControlSetAttribute("tpshop_recycle", 'width')
+				y = (math.ceil( (showitemcnt / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_recycle", 'height') * 1)
+				local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_recycle', 'eachitem_'..showitemcnt, x, y);
+				RECYCLE_DRAW_ITEM_DETAIL(obj, itemobj, itemcset, "buy");
 
-			local itemobj = GetClass("Item", obj.ClassName)
+				showitemcnt = showitemcnt + 1
+			end
+		end
+	end
+end
 
-			x = ( (showitemcnt-1) % 3) * ui.GetControlSetAttribute("tpshop_recycle", 'width')
-			y = (math.ceil( (showitemcnt / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_recycle", 'height') * 1)
-			local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_recycle', 'eachitem_'..showitemcnt, x, y);
-			RECYCLE_DRAW_ITEM_DETAIL(obj, itemobj, itemcset, "buy");
+function CHECK_RECYCLE_SHOW_ITEM(frame, item)
+	-- category check	
+	local curSelectCate = frame:GetUserValue('RECYCLE_SELECTED_CATEGORY');		
+	if curSelectCate == 'Wiki_Accessory' and item.ClassType ~= 'Ring' and item.ClassType ~= 'Neck' then
+		return false;
+	end
 
-			showitemcnt = showitemcnt + 1
+	if curSelectCate == 'Drug' and item.GroupName ~= 'Consume' then
+		return false;
+	end
+
+	if string.find(curSelectCate, 'costume') ~= nil then
+		if item.ClassType ~= 'Outer' then
+			return false;
+		else
+			local ctrlType = string.sub(curSelectCate, 0, string.find(curSelectCate, '_') - 1);			
+			if ctrlType == 'Com' and item.UseJob ~= 'All' then
+				return false;
+			elseif ctrlType == 'War' and item.UseJob ~= 'Char1' then
+				return false;
+			elseif ctrlType == 'Wiz' and item.UseJob ~= 'Char2' then
+				return false;
+			elseif ctrlType == 'Arc' and item.UseJob ~= 'Char3' then
+				return false;
+			elseif ctrlType == 'Cle' and item.UseJob ~= 'Char4' then
+				return false;
+			end
 		end
 	end
 
-end
+	if curSelectCate == 'Artefact' and item.ClassType ~= 'Artefact' then
+		return false;
+	end
 
+	-- text check
+	local recycle_input = GET_CHILD_RECURSIVELY(frame, 'recycle_input');
+	local searchText = recycle_input:GetText();
+	if searchText ~= nil and searchText ~= '' then
+		local itemName = dic.getTranslatedStr(item.Name);
+		itemName = string.lower(itemName); -- 소문자로 변경
+		if string.find(itemName, searchText) == nil then
+			return false;
+		end
+	end
+
+	return true;
+end
 
 function RECYCLE_CREATE_SELL_LIST()
 
@@ -856,3 +902,50 @@ function EXEC_SELL_RECYCLE_ITEM()
 	TPITEM_CLOSE(frame);
 end
 
+function RECYCLE_MAKE_TREE(frame)
+	local recycleCateTree = GET_CHILD_RECURSIVELY(frame, 'recycleCateTree');
+	recycleCateTree:Clear();
+	recycleCateTree:SetFitToChild(true,10);
+	DESTROY_CHILD_BYNAME(recycleCateTree, 'CATEGORY_');
+	recycleCateTree:CloseNodeAll();
+
+	-- TODO: 추후 카테고리를 늘릴 때에는 여기 아래를 수정하면 됨. 지금은 고정된 것들만 하기로 하였음
+	local firstItem = RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'TotalTabName');
+	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Wiki_Accessory');
+	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Artefact');
+	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Com_costume_M');
+	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'War_costume_F');
+	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Wiz_costume_F');
+	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Arc_costume_F');
+	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Cle_costume_F');
+	--RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Drug');
+	recycleCateTree:OpenNodeAll();
+end
+
+function RECYCLE_CREATE_CATEGORY_ITEM(tree, key)		
+	local htreeitem = tree:FindByValue(key);
+	if tree:IsExist(htreeitem) == 0 then
+	    htreeitem = tree:Add('{@st66}'..ScpArgMsg(key), key);
+    end
+    return htreeitem;
+end
+
+function RECYCLE_TREE_CLICK(parent, ctrl)
+	local frame = parent:GetTopParentFrame();
+	local selectNode = ctrl:GetLastSelectedNode();
+	frame:SetUserValue('RECYCLE_SELECTED_CATEGORY', selectNode:GetValue());
+	RECYCLE_CREATE_BUY_LIST();	
+end
+
+function RECYCLE_CATE_SELECT(frame, forceSelect)
+	local recycleCateTree = GET_CHILD_RECURSIVELY(frame, 'recycleCateTree');
+	local firstItem = recycleCateTree:FindByValue('TotalTabName');
+	if firstItem == nil then
+		return;
+	end
+	if forceSelect == true then
+		recycleCateTree:Select(firstItem);
+	else
+		recycleCateTree:DeSelectAll();
+	end
+end

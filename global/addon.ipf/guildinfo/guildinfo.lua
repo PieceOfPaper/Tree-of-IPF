@@ -1,4 +1,4 @@
-﻿local json = require "json"
+﻿local json = require "json_imc"
 
 local firstOpen = true;
 function GUILDINFO_ON_INIT(addon, frame)
@@ -12,6 +12,7 @@ function GUILDINFO_ON_INIT(addon, frame)
     addon:RegisterMsg('GUILD_WAREHOUSE_ITEM_LIST', 'GUILDINFO_INVEN_UPDATE_INVENTORY');
     addon:RegisterMsg('GUILD_ASSET_LOG_UPDATE', 'ON_GUILD_ASSET_LOG');
     addon:RegisterMsg('GUILD_INFO_UPDATE', 'GUILDINFO_UPDATE_INFO');
+    addon:RegisterMsg('GUILD_MEMBER_INFO_UPDATE', 'GUILDINFO_UPDATE_INFO');
 	addon:RegisterMsg("GUILD_ENTER", "GUILDINFO_UPDATE_INFO");
 	addon:RegisterMsg("GUILD_OUT", "ON_GUILD_OUT");
     addon:RegisterMsg('MYPC_GUILD_JOIN', 'GUILDINFO_OPEN_UI');
@@ -49,13 +50,14 @@ function GUILDINFO_OPEN_UI(frame)
         
         --todo여기에 처음 로드할때만 요청할 바인드함수 추가
         GUILDINFO_OPTION_INIT(frame, frame);
+        GUILDINFO_INIT_TAB(frame);
         firstOpen = false
         
     end
     GUILDINFO_COLONY_INIT(frame, frame)
     INIT_UI_BY_CLAIM();
 
-    GUILDINFO_INIT_TAB(frame);
+
    GUILDINFO_INIT_PROFILE(frame); 
     GUILDINFO_OPTION_INIT_SETTING_CLAIM_TAB();
     
@@ -158,7 +160,7 @@ function ON_UPDATE_GUILD_ASSET(frame, msg, argStr, argNum)
     GUILDINFO_INIT_PROFILE(frame);
 end
 
-function GUILDINFO_UPDATE_INFO(frame, msg, argStr, argNum)
+function GUILDINFO_UPDATE_INFO(frame, msg, argStr, argNum)    
   --  print("msg:" .. msg)
     if frame == nil then
        -- print("frame is nil")

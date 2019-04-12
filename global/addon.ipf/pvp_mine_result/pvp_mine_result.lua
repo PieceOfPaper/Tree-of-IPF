@@ -3,7 +3,7 @@ function PVP_MINE_RESULT_REQ_RETURN_CITY(frame)
     ui.CloseFrame('pvp_mine_result');
 end
 
-function PVP_MINE_RESULT_OPEN(isWin)
+function PVP_MINE_RESULT_OPEN(isWin, Team, killCount, killName, mineCount, mineName)
     local frame = ui.GetFrame('pvp_mine_result');
     frame:SetUserValue('SERVICE_NATION', config.GetServiceNation());
     if frame:GetUserValue('SERVICE_NATION') == 'KOR' then        
@@ -11,28 +11,69 @@ function PVP_MINE_RESULT_OPEN(isWin)
     else        
         COLONY_RESULT_SHOW_UI_MODE(frame, 1);
     end
-    PVP_MINE_RESULT_INIT(frame, isWin, argStr);
+    PVP_MINE_RESULT_INIT(frame, isWin, Team, killCount, killName, mineCount, mineName);
     frame:ShowWindow(1);
 end
 
-function PVP_MINE_RESULT_INIT(frame, isWin)
+function PVP_MINE_RESULT_INIT(frame, isWin, Team, killCount, killName, mineCount, mineName)
     local WIN_EFFECT_NAME = frame:GetUserConfig('WIN_EFFECT_NAME');
     local LOSE_EFFECT_NAME = frame:GetUserConfig('LOSE_EFFECT_NAME');
     local EFFECT_SCALE = tonumber(frame:GetUserConfig('EFFECT_SCALE'));
 
     local drawBox = GET_CHILD_RECURSIVELY(frame, 'drawBox');
-
+    local MyPc = GetMyPCObject();
     local aObj = GetMyAccountObj();
-    local getpoint = aObj.PVP_MINE_MAX;
+    local mine_max = aObj.PVP_MINE_MAX
 
-    if isWin == 1 then
-        getpoint = getpoint + 500
+    if mine_max > 500 then
+        mine_max = 500
+    end
+
+    local getpoint = mine_max * 3;
+    local bouns = 0
+
+    if MyPc.Name == killName then
+        bouns = 450
+    end
+
+    if MyPc.Name == mineName then
+        bouns = bouns + 900
+    end
+
+    if isWin == 1 then -- win, lose
+        getpoint = getpoint + 1500 + bouns
     else
-        getpoint = getpoint + 100
+        getpoint = getpoint + 300 + bouns
+    end
+
+    if killName == nil then
+        killName = 'None'
+    elseif mineName == nil then
+        mineName = 'None'
     end
 
     local GetPoint_Desc = GET_CHILD_RECURSIVELY(frame, 'GetPoint_Desc');
     GetPoint_Desc:SetTextByKey("point", getpoint);
+
+    local Kill_MVP_Desc = GET_CHILD_RECURSIVELY(frame, 'Kill_MVP_Desc');
+    Kill_MVP_Desc:SetTextByKey("KillName", killName);
+
+    local Kill_MVP_Point = GET_CHILD_RECURSIVELY(frame, 'Kill_MVP_Point');
+    Kill_MVP_Point:SetTextByKey("KillCount", killCount);
+
+    local Point_MVP_Desc = GET_CHILD_RECURSIVELY(frame, 'Point_MVP_Desc');
+    Point_MVP_Desc:SetTextByKey("PointName", mineName);
+
+    local Point_MVP_Point = GET_CHILD_RECURSIVELY(frame, 'Point_MVP_Point');
+    Point_MVP_Point:SetTextByKey("PointCount", mineCount);
+
+    if killCount == 0 then
+        Kill_MVP_Desc:ShowWindow(0);
+    end
+
+    if mineCount == 0 then
+        Point_MVP_Desc:ShowWindow(0);
+    end
 
     local winBox = GET_CHILD_RECURSIVELY(frame, 'winBox');
     local loseBox = GET_CHILD_RECURSIVELY(frame, 'loseBox');

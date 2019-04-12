@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<idspace id="Beauty_Shop_Wig">
+	<Category Name="뷰티샵 가발">
+		<SecondCategory Name="가발(남)">
+			<Class ClassID="11" ClassName="HAIR_M_102" Price="119"/>
+			<Class ClassID="12" ClassName="HAIR_M_101" Price="119"/>
+			<Class ClassID="13" ClassName="HAIR_M_113" Price="119"/>
+			<Class ClassID="14" ClassName="HAIR_M_114" Price="119"/>
+			<Class OverrideType="REMOVE" ClassID="24" ClassName="HAIR_M_128" Price="248"/>
+			<Class OverrideType="REMOVE" ClassID="25" ClassName="HAIR_M_126" Price="248"/>
+			<Class OverrideType="REMOVE" ClassID="26" ClassName="HAIR_M_129" Price="248"/>
+		</SecondCategory>
+		<SecondCategory Name="가발(여)">
+			<Class ClassID="1013" ClassName="HAIR_F_101" Price="178"/>
+			<Class ClassID="1014" ClassName="HAIR_F_102" Price="178"/>
+			<Class ClassID="1015" ClassName="HAIR_F_116" Price="178"/>
+			<Class ClassID="1016" ClassName="HAIR_F_115" Price="178"/>
+			<Class OverrideType="REMOVE" ClassID="1026" ClassName="HAIR_F_129" Price="248"/>
+			<Class OverrideType="REMOVE" ClassID="1027" ClassName="HAIR_F_127" Price="248"/>
+			<Class OverrideType="REMOVE" ClassID="1028" ClassName="HAIR_F_130" Price="248"/>
+		</SecondCategory>
+	</Category>
+</idspace>

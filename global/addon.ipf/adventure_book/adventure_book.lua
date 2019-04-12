@@ -99,10 +99,6 @@ function ADVENTURE_BOOK_BTN_SELECT_REGION(ctrl , btn)
 	ADVENTURE_BOOK_MAP.FILL_DATA()
 end
 
-
-function ADVENTURE_BOOK_BTN_SELECT_MAP(ctrl , btn)
-	local value = ctrl:GetUserValue("BtnArg");
-end
 function ADVENTURE_BOOK_RENEW_GROW()
 	ADVENTURE_BOOK_GROW.RENEW();
 end

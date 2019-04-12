@@ -90,7 +90,9 @@ function ON_BARRACK_NAME_CHANGE_RESULT(frame, addon, str, result)
 		ui.SysMsg(ClMsg("ThisWorldExistFamilyName"));
 	elseif result == -15 then
 		ui.SysMsg(ClMsg("KorAnotherWorldExistFamilyName"));
-		else
+	elseif result == -2 then
+	  ui.SysMsg(ClMsg("HadFobbidenWord"));
+	else
 			ui.SysMsg(ClMsg("TeamNameChangeFailed"));
 		end			
 	end

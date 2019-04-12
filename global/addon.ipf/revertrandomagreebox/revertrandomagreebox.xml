@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="revertrandomagreebox" x="0" y="0" width="480" height="415" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" margin="0 -35 0 0"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<layer layerlevel="110"/>
+	<userconfig/>
+	<opencheck scp="" numarg="1"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 480 415" margin="0 0 0 0" layout_gravity="center top" scrollbar="false" draw="true" hittestbox="false" resizebyparent="true" resizebyresolution="false" skin="test_win_lastpopup2"/>
+		<groupbox name="randomGbox" rect="0 0 400 180" margin="0 160 0 0" layout_gravity="center top" scrollbar="false" skin="None"/>
+		<richtext name="randomtext" margin="0 105 0 0" rect="0 0 400 50" layout_gravity="center top" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="yellow_16_ol" fixwidth="true" parent="randombox"/>
+		<groupbox name="arrowGbox" margin="0 160 0 0" rect="0 0 420 30" hittestbox="false" skin="test_arow" layout_gravity="center top" parent="bg"/>
+		<button name="yes" rect="0 0 140 45" parent="bg" margin="-70 0 0 25" layout_gravity="center bottom" LBtnUpArgNum="" LBtnUpScp="" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}확인" clicksound="button_click_big" skin="test_red_button" oversound="button_over" fontname="white_18_b"/>
+		<button name="no" rect="0 0 140 45" parent="bg" margin="70 0 0 25" layout_gravity="center bottom" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;warningmsgbox&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}취소" clicksound="button_click_big" skin="test_gray_button" oversound="button_over" fontname="white_18_b"/>
+	</controls>
+</uiframe>

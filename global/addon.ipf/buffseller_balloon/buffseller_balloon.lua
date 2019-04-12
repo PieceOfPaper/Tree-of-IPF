@@ -63,6 +63,8 @@ function AUTOSELLER_BALLOON(title, sellType, handle, skillID, skillLv)
 		pic:SetImage("sign_Appraiser");
     elseif sellType == AUTO_SELL_PORTAL then
 		pic:SetImage("sign_potal");
+	elseif sellType == AUTO_SELL_AWAKENING then
+		pic:SetImage("sign_awakening");
 	else
 		pic:SetImage("sign_buy");
 	end

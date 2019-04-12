@@ -10,8 +10,10 @@
 	<controlset name="tpshop_item" hittest="true" width="286" height="350" hittestset="true" draw="true" skin="test_skin_01_btn" stateskin="false">
 		<controls>
 			<picture name="isNew_mark" margin="0 60 0 0" rect="0 0 72 34" hittest="false" image="new_mark2" changecursor="false" layout_gravity="left top"/>
+			<picture name="isLimit_mark" margin="0 60 0 0" rect="0 0 72 34" hittest="false" image="special_mark2" changecursor="false" layout_gravity="left top"/>
 			<picture name="isHot_mark" margin="0 94 0 0" rect="0 0 72 34" hittest="false" image="hot_mark2" changecursor="false" layout_gravity="left top"/>
-			<picture name="isEvent_mark" margin="0 128 0 0" rect="0 0 72 34" hittest="false" image="recommend_mark2" changecursor="false" layout_gravity="left top"/>
+			<picture name="isEvent_mark" margin="0 128 0 0" rect="0 0 72 34" hittest="false" image="best_mark2" changecursor="false" layout_gravity="left top"/>
+			<picture name="isSale_mark" margin="0 94 0 0" rect="0 0 72 34" hittest="false" image="sale_mark2" changecursor="false" layout_gravity="left top"/>
 		</controls>
 	</controlset>
 	<controlset name="guild_warinfo" hittest="true" width="590" height="900" hittestset="false" draw="false" skin="none">
@@ -103,6 +105,19 @@
 			<richtext name="richtext_2" margin="145 10 0 0" rect="0 0 120 24" caption="[서버] 길드명" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
 			<groupbox name="gbox_ctrls" margin="-3 50 0 0" rect="0 0 497 640" hittestbox="false" skin="none" layout_gravity="center top" scrollbar="false"/>
 			<richtext name="richtext_2_1" margin="301 10 0 0" rect="0 0 156 21" caption="전적 / 점수" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
+		</controls>
+	</controlset>
+	<controlset name="beautyshop_subitem">
+		<controls>
+			<picture name="isSale_mark" image="sale_mark2"/>
+		</controls>
+	</controlset>
+	<controlset name="beautyshop_item">
+		<controls>
+			<picture name="isNew_mark" image="new_mark2"/>
+			<picture name="isHot_mark" image="hot_mark2"/>
+			<picture name="isSale_mark" image="sale_mark2"/>
+			<picture name="isLimit_mark" image="special_mark2"/>
 		</controls>
 	</controlset>
 </controlsetlist>

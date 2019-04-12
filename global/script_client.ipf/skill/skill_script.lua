@@ -72,7 +72,7 @@ function SCR_ITEMDUNGEON_SKL_UI(skillType)
 	if skill == nil then
 		return 0;
 	end
-	ui.OpenFrame("itemdungeon");
+	OPEN_ITEMDUNGEON_SELLER();
 	return 0;
 end
 
@@ -142,7 +142,7 @@ function EQUIP_MENDING_SKL(skillType)
 		return;
 	elseif "Oracle_SwitchGender" == clsName then
 		local frame = ui.GetFrame("switchgender");
-		SWITCHGENDER_OPEN_UI_SET(frame, clsName)
+		SWITCHGENDER_OPEN_UI_SET(frame, clsName, true);
 		frame:ShowWindow(1);
 		return;
 	elseif "Enchanter_EnchantArmor" == clsName then
@@ -166,36 +166,17 @@ function EQUIP_MENDING_SKL(skillType)
 		moneyInput:SetTypingScp("APPRAISAL_PC_ON_TYPING");	
 	end
 
-	ITEMBUFF_SET_SKILLTYPE(frame, obj.ClassName, obj.Level, obj.Name);
-	frame:ShowWindow(1);
-	ITEMBUFF_REFRESH_LIST(frame);
-	return 0;
-end
-
-function SCR_SKILL_BRIQUITE(skillType)
-    if session.colonywar.GetIsColonyWarMap() == true then
-        ui.SysMsg(ClMsg('ThisLocalUseNot'));
-        return 0;
+    local titleName = obj.Name;
+    if clsName == 'Squire_WeaponTouchUp' or clsName == 'Squire_ArmorTouchUp' then
+        titleName = ClMsg('EqiupmentTouchUp');
     end
 
-	local skill = session.GetSkill(skillType);
-	if skill == nil then
-		return 0;
-	end
-
-	local obj = GetIES(skill:GetObject());
-	local frame = ui.GetFrame("briquetting");
-	if nil == frame then
-		return 0;
-	end
-
+	ITEMBUFF_SET_SKILLTYPE(frame, obj.ClassName, obj.Level, titleName);
+	ITEMBUFF_INIT_USER_PRICE(frame, obj.ClassName);
 	frame:ShowWindow(1);
-	BRIQUETTING_SET_SKILLTYPE(frame, obj.ClassName, obj.Level);
-	BRIQUETTING_UI_RESET(frame);
-	ui.OpenFrame("inventory");
+	ITEMBUFF_REFRESH_LIST(frame);	
 	return 0;
 end
-
 
 function CAMP_SKILL(skillType)
 	local skill = session.GetSkill(skillType);

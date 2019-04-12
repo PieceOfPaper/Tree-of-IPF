@@ -1,4 +1,4 @@
-local json = require "json"
+local json = require "json_imc"
 
 function GUILDINFO_INFO_INIT(parent, infoBox)
     local guildObj = GET_MY_GUILD_OBJECT();

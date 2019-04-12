@@ -1,5 +1,7 @@
+local dic_portal_price = {}
+
 function PORTAL_SELLER_ON_INIT(addon, frame)
-    
+    addon:RegisterMsg('UPDATE_PORTAL_STONE', 'ON_UPDATE_PORTAL_STONE');
 end
 
 function PORTAL_SELLER_OPEN_UI(groupName, sellType, handle)
@@ -34,16 +36,17 @@ function PORTAL_SELLER_SELLER_TAB_INIT(frame, sellerBox)
     PORTAL_SELLER_INIT_PORTAL_LIST(frame);
 
     if PORTAL_SELLER_HIDE_BY_HANDLE(frame, handle) == 1 then
-        PORTAL_SHOP_REGISTER_INIT_INGREDIENT(frame, 'Sage_PortalShop');        
+        PORTAL_SHOP_REGISTER_INIT_INGREDIENT(frame, 'Sage_PortalShop');
     end
 end
 
-function PORTAL_SELLER_INIT_PORTAL_LIST(frame)    
+function PORTAL_SELLER_INIT_PORTAL_LIST(frame)
     local portalListBox = GET_CHILD_RECURSIVELY(frame, 'portalListBox');
     portalListBox:RemoveAllChild();
 
     local groupName = frame:GetUserValue('GroupName');
     local itemCount = session.autoSeller.GetCount(groupName);
+    dic_portal_price = {}
     for i = 0, itemCount - 1 do
         local itemInfo = session.autoSeller.GetByIndex(groupName, i);
         local propValue = itemInfo:GetArgStr();
@@ -88,8 +91,9 @@ function PORTAL_SELLER_INIT_PORTAL_LIST(frame)
         local pc = GetMyPCObject();
         local priceText = GET_CHILD_RECURSIVELY(ctrlSet, 'priceText');
         local itemName, cnt = ITEMBUFF_NEEDITEM_Sage_PortalShop(pc, mapName);
-        local cost = cnt * itemInfo.price;
+        local cost = cnt * itemInfo.price;        
         priceText:SetTextByKey('price', GET_COMMAED_STRING(cost));
+        dic_portal_price[i] = cost  -- save price
     end
     GBOX_AUTO_ALIGN(portalListBox, 0, 0, 0, true, false);
 end
@@ -114,12 +118,25 @@ function PORTAL_SELLER_CLOSE(parent, btn)
 	PORTAL_SELLER_CLOSE_UI();
 end
 
+function ACCEPT_PORTAL_OK_BTN(handle, index, sellType)
+    session.autoSeller.Buy(handle, index, 1, sellType)
+end
+
 function SAGE_PORTAL_SELL_INFO_OK_BTN(ctrlSet, btn)
     local frame = ctrlSet:GetTopParentFrame();
     local handle = frame:GetUserIValue('HANDLE');
     local sellType = frame:GetUserIValue('SELL_TYPE');
     local index = ctrlSet:GetUserIValue('SELL_ITEM_INDEX');
-    session.autoSeller.Buy(handle, index, 1, sellType);    
+    local yesScp = string.format("ACCEPT_PORTAL_OK_BTN(%d, %d, %d)", handle, index, sellType)
+    
+    if tonumber(dic_portal_price[index]) < 10000 then
+        ui.MsgBox(ScpArgMsg('ReallyWarp10000{PRICE}', "PRICE", GET_COMMAED_STRING(dic_portal_price[index])) , yesScp, 'None')
+    elseif tonumber(dic_portal_price[index]) < 100000 then
+        ui.MsgBox(ScpArgMsg('ReallyWarp100000{PRICE}', "PRICE", GET_COMMAED_STRING(dic_portal_price[index])) , yesScp, 'None')
+    else
+        ui.MsgBox(ScpArgMsg('ReallyWarp1000000{PRICE}', "PRICE", GET_COMMAED_STRING(dic_portal_price[index])) , yesScp, 'None')
+    end
+    
 end
 
 function PORTAL_SELLER_UPDATE_HISTORY(frame)
@@ -146,4 +163,8 @@ function PORTAL_SELLER_UPDATE_HISTORY(frame)
 	end
 
 	GBOX_AUTO_ALIGN(historyStrBox, 20, 10, 10, true, false);
+end
+
+function ON_UPDATE_PORTAL_STONE(frame, msg, argStr, argNum)
+    PORTAL_SHOP_REGISTER_INIT_INGREDIENT(frame, 'Sage_PortalShop');
 end

@@ -49,7 +49,7 @@ function INDUNENTER_AUTOMATCH_CANCEL()
     INDUNENTER_UPDATE_PC_COUNT(frame, nil, "None", 0);
 end
 
-function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
+function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, enableEnterRight, enablePartyMatch)    
     -- get data and check
     local indunCls = GetClassByType('Indun', indunType);
     local admissionItemName = TryGetProp(indunCls, "AdmissionItemName");
@@ -121,9 +121,15 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
     INDUNENTER_INIT_REENTER_UNDERSTAFF_BUTTON(frame, isAlreadyPlaying)
     withBtn:SetTextTooltip(ClMsg("PartyMatchInfo_Req"));
 
+    local enableMulti = 1;
     if enableAutoMatch == 0 then
-        INDUNENTER_SET_ENABLE(1, 0, 0, 0);
+        enableMulti = 0;
     end
+
+    frame:SetUserValue('ENABLE_ENTERRIGHT', enableEnterRight);
+    frame:SetUserValue('ENABLE_AUTOMATCH', enableAutoMatch);
+    frame:SetUserValue('ENABLE_PARTYMATCH', enablePartyMatch);
+    INDUNENTER_SET_ENABLE(enableEnterRight, enableAutoMatch, enablePartyMatch, enableMulti);
 
     -- show
     frame:ShowWindow(1);
@@ -325,13 +331,14 @@ function INDUNENTER_DROPBOX_ITEM_LIST(parent, control)
     else
         local rewardCube = TryGetProp(rewardItem, 'Reward_Item');
         local cubeList = SCR_STRING_CUT(rewardCube, '/');
-        
-        for e = 1, #cubeList do
-            local cubeCls = GetClass('Item', cubeList[e]);
-            indunRewardItemList['materialBtn'][#indunRewardItemList['materialBtn'] + 1] = cubeCls
+        if cubeList ~= nil then
+            for e = 1, #cubeList do
+                local cubeCls = GetClass('Item', cubeList[e]);
+                indunRewardItemList['materialBtn'][#indunRewardItemList['materialBtn'] + 1] = cubeCls
+            end
         end
     end
-
+    
     if #indunRewardItemList[controlName] == 0 then
         local dropListFrame = ui.MakeDropListFrame(control, 0, 0, 300, 600, 1, ui.LEFT, "INDUNENTER_DROPBOX_AFTER_BTN_DOWN",nil,nil);
             ui.AddDropListItem(ClMsg('IndunRewardItem_Empty'))
@@ -677,8 +684,9 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable, understaffCount)
     DESTROY_CHILD_BYNAME(memberBox, 'MEMBER_');
     
     local understaffShowCount = 0;
-    for i = 1, INDUN_AUTOMATCHING_PCCOUNT do
-        local memberCtrlSet = memberBox:CreateOrGetControlSet('indunMember', 'MEMBER_'..tostring(i), 10 * i + 58 * (i - 1), 0);
+    local maxMatchingCount = GET_MAX_MATCHING_COUNT(frame);
+    for i = 1, maxMatchingCount do
+        local memberCtrlSet = memberBox:CreateOrGetControlSet('indunMember', 'MEMBER_'..tostring(i), 10 * i + 47 * (i - 1), 0);
         memberCtrlSet:ShowWindow(1);
 
         -- default setting
@@ -979,11 +987,17 @@ function INDUNENTER_PARTYMATCH(frame, ctrl)
     local textCount = topFrame:GetUserIValue("multipleCount");
     local partyAskText = GET_CHILD_RECURSIVELY(topFrame, "partyAskText");
     local understaffEnterAllowBtn = GET_CHILD_RECURSIVELY(topFrame, 'understaffEnterAllowBtn');
+	
+	local enableReenter = frame:GetUserIValue('ENABLE_REENTER');
 
     if topFrame:GetUserValue('WITHMATCH_MODE') == 'NO' then
         ReqMoveToIndun(3, textCount);
         ctrl:SetTextTooltip(ClMsg("PartyMatchInfo_Go"));
-        understaffEnterAllowBtn:ShowWindow(1);
+		if enableReenter == trhe then
+			understaffEnterAllowBtn:ShowWindow(1);
+		else
+			understaffEnterAllowBtn:ShowWindow(0);
+		end
         INDUNENTER_SET_ENABLE(0, 0, 1, 0);
     else
         ReqRegisterToIndun(topFrame:GetUserIValue('INDUN_TYPE'));
@@ -1162,9 +1176,19 @@ function INDUNENTER_SET_ENABLE(enter, autoMatch, withParty, multi)
     local multiCancelBtn = GET_CHILD_RECURSIVELY(frame, 'multiCancelBtn');
     local reEnterBtn = GET_CHILD_RECURSIVELY(frame, 'reEnterBtn');
     
+    if frame:GetUserIValue('ENABLE_ENTERRIGHT') == 0 and enter == 1 then
+        enter = 0;
+    end
+    if frame:GetUserIValue('ENABLE_AUTOMATCH') == 0 and autoMatch == 1 then
+        autoMatch = 0;
+    end
+    if frame:GetUserIValue('ENABLE_PARTYMATCH') == 0 and withParty == 1 then
+        withParty = 0;
+    end
+
     enterBtn:SetEnable(enter);
     autoMatchBtn:SetEnable(autoMatch);
-    withPartyBtn:SetEnable(withParty);
+    _INDUNENTER_SET_ENABLE_PARTYMATCHBTN(frame, withParty);
     INDUNENTER_SET_ENABLE_MULTI(multi);
 
     -- multi btn: 배수?�큰 ?�어???�용 가?? ?�던/?�뢰??미션�??�용가??
@@ -1174,6 +1198,13 @@ function INDUNENTER_SET_ENABLE(enter, autoMatch, withParty, multi)
     if itemCount == 0 or (resetType ~= 100 and resetType ~= 200) then
         INDUNENTER_SET_ENABLE_MULTI(0);
     end
+end
+
+function _INDUNENTER_SET_ENABLE_PARTYMATCHBTN(frame, enable)
+    local withPartyBtn = GET_CHILD_RECURSIVELY(frame, 'withBtn');
+    local withText = GET_CHILD_RECURSIVELY(frame, 'withText');
+    withPartyBtn:SetEnable(enable);
+    withText:SetEnable(enable);
 end
 
 function INDUNENTER_UPDATE_PC_COUNT(frame, msg, infoStr, pcCount, understaffCount) -- infoStr: aid/jobID/level/CID/understaffAllow(YES/NO)
@@ -1205,14 +1236,25 @@ function INDUNENTER_UPDATE_PC_COUNT(frame, msg, infoStr, pcCount, understaffCoun
     INDUNENTER_UPDATE_SMALLMODE_PC(pcCount, understaffCount);
 end
 
+function GET_MAX_MATCHING_COUNT(frame)
+    local maxMatchingCount = INDUN_AUTOMATCHING_PCCOUNT;
+    local indunCls = GetClassByType('Indun', frame:GetUserIValue('INDUN_TYPE'));
+    if indunCls == nil then
+        return 0;
+    end
+    if maxMatchingCount ~= indunCls.PlayerCnt then
+        maxMatchingCount = indunCls.PlayerCnt;
+    end
+    return maxMatchingCount;
+end
+
 function INDUNENTER_UPDATE_SMALLMODE_PC(pcCount, understaffCount)
     local frame = ui.GetFrame("indunenter");
     local YES_MATCH_SKIN = frame:GetUserConfig('YES_MATCH_SKIN');
 
     local matchPCBox = GET_CHILD_RECURSIVELY(frame, 'matchPCBox');
     matchPCBox:RemoveAllChild();
-    local notWaitingCount = INDUN_AUTOMATCHING_PCCOUNT - pcCount;
-
+    local notWaitingCount = GET_MAX_MATCHING_COUNT(frame) - pcCount;
     local pictureIndex = 0;
     local understaffShowCount = 0;
     for i = 0 , pcCount - 1 do
@@ -1625,6 +1667,11 @@ end
 function INDUNENTER_UNDERSTAFF_BTN_ENABLE(frame, enable)
     local understaffEnterAllowBtn = GET_CHILD_RECURSIVELY(frame, 'understaffEnterAllowBtn');
     local smallUnderstaffEnterAllowBtn = GET_CHILD_RECURSIVELY(frame, 'smallUnderstaffEnterAllowBtn');
+
+    local indunCls = GetClassByType('Indun', frame:GetUserIValue('INDUN_TYPE'));
+    if TryGetProp(indunCls, 'EnableUnderStaffEnter', 'YES') == 'NO' then
+        enable = 0;
+    end
 
     understaffEnterAllowBtn:SetEnable(enable);
     smallUnderstaffEnterAllowBtn:SetEnable(enable);

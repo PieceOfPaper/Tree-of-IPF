@@ -11,9 +11,7 @@ function ITEM_TOOLTIP_ETC(tooltipframe, invitem, num1, usesubframe)
 		mainframename = "etc_sub"
 	end
 
-	local ypos = DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename); -- 기타 템이라면 공통적으로 그리는 툴팁들
-	ypos = DRAW_ETC_HEAL_AMOUNT(tooltipframe, invitem, ypos, mainframename); -- 회복량. (존재한다면)
-	
+	local ypos = DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename); -- 기타 템이라면 공통적으로 그리는 툴팁들	
 	ypos = DRAW_ETC_DESC_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 아이템 설명.
 	ypos = DRAW_ETC_RECIPE_NEEDITEM_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 재료템이라면 필요한 재료랑 보여줌
     ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename);
@@ -134,28 +132,6 @@ function DRAW_ETC_PROPRTY(tooltipframe, invitem, yPos, mainframename)
 	Cset:Resize(Cset:GetOriginalWidth(), propRichtext:GetY()+propRichtext:GetHeight() + BOTTOM_MARGIN)
 	gBox:Resize(gBox:GetWidth(), gBox:GetHeight() + Cset:GetHeight())
 	return Cset:GetHeight() + Cset:GetY();
-end
-
--- 회복량 표시.
-function DRAW_ETC_HEAL_AMOUNT(tooltipframe, invitem, yPos, mainframename)
-
-	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
-	gBox:RemoveChild('tooltip_etc_heal_amount');
-	
-	-- 회복량 등 표시
-	local usable = IS_DRAW_ETC_ITEM_DAMAGE(invitem)
-
-	if usable ~= 1 then
-		return yPos;
-	end
-
---	local Cset = gBox:CreateOrGetControlSet('tooltip_etc_heal_amount', 'tooltip_etc_heal_amount', 0, yPos);
---	
---	SET_DAMAGE_TEXT(Cset, ScpArgMsg("PotionRecovery"), 'None', invitem.NumberArg1, invitem.NumberArg2, 1);
---
---	gBox:Resize(gBox:GetWidth(), gBox:GetHeight() + Cset:GetHeight())
---	return Cset:GetHeight() + Cset:GetY();
-	return yPos;
 end
 
 function DRAW_ETC_DESC_TOOLTIP(tooltipframe, invitem, yPos, mainframename)

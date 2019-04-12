@@ -3,24 +3,11 @@ function SCR_PVP_MINE_ENTER_TIME_DIALOG(self, pc)
     local now_time = os.date('*t')
     local hour = now_time['hour']
     local min = now_time['min']
-    local dunTime = {
-        10, 14, 18, 22
-    }
-
-    if GetServerGroupID() == 1001 then
-        dunTime = {10, 14, 18, 22}
-    elseif GetServerGroupID() == 1003 then
-        dunTime = {16, 20, 0, 4}
-    elseif GetServerGroupID() == 1004 then
-        dunTime = {22, 2, 6, 10}
-    elseif GetServerGroupID() == 1005 then
-        dunTime = {11, 15, 19, 23}
-    end
 
     local aObj = GetAccountObj(pc)
     local partyObj = GetPartyObj(pc)
 
-    if min > 10 then
+    if (min >= 6 and min <= 15) or (min >= 26 and min <= 35) then
         ShowOkDlg(pc, 'PVP_MINE_DLG5', 1)
         return false;
     elseif pc.Lv < 350 then
@@ -31,13 +18,22 @@ function SCR_PVP_MINE_ENTER_TIME_DIALOG(self, pc)
         return false;
     end
 
-    for i = 1, #dunTime do
-        if dunTime[i] == hour and min <= 10 then
-            return true;
+    local globalTiem = {
+        {1001, 21},
+        {1003, 3},
+        {1004, 9},
+        {1005, 22}
+    }
+   
+    for i = 1, #globalTiem do
+        if GetServerGroupID() == globalTiem[i][1] and hour == globalTiem[i][2] then
+            if (min >= 0 and min <= 5) or (min >= 20 and min <= 25) then
+                return true;
+            end
         end
     end
 
-    return false;
+   return false;
 end
 
 function SCR_PVP_MINE_CREATEOBJECT_TS_BORN_UPDATE(self)
@@ -71,24 +67,20 @@ function SCR_PVP_MINE_CREATEOBJECT_TS_BORN_UPDATE(self)
         local hour = now_time['hour']
         local min = now_time['min']
         local sec = now_time['sec']
-        local dunTime = {
-            10, 14, 18, 22
+
+        local globalTiem = {
+            {1001, 21},
+            {1003, 3},
+            {1004, 9},
+            {1005, 22}
         }
 
-        if GetServerGroupID() == 1001 then
-            dunTime = {10, 14, 18, 22}
-        elseif GetServerGroupID() == 1003 then
-            dunTime = {16, 20, 0, 4}
-        elseif GetServerGroupID() == 1004 then
-            dunTime = {22, 2, 6, 10}
-        elseif GetServerGroupID() == 1005 then
-            dunTime = {11, 15, 19, 23}
-        end
-
-        for i = 1, #dunTime do -- mgame start
-            if dunTime[i] == hour and (min >= 0 and min <= 10 ) then
-                RunMGame(self, 'PVP_MINE')
-                break;
+        for i = 1, #globalTiem do
+            if GetServerGroupID() == globalTiem[i][1] and hour == globalTiem[i][2] then
+                if (min >= 0 and min <= 5) or (min >= 20 and min <= 25) then
+                    RunMGame(self, 'PVP_MINE')
+                    return
+                end
             end
         end
 
@@ -97,7 +89,7 @@ function SCR_PVP_MINE_CREATEOBJECT_TS_BORN_UPDATE(self)
                 RunScript('SCR_PVP_MINE_TIMEOUT_RUN', list[a])
             end
         end
-    end
+   end
 end
 
 function SCR_PVP_MINE_START_ALARAM_TS_BORN_UPDATE(self)
@@ -109,31 +101,36 @@ function SCR_PVP_MINE_START_ALARAM_TS_BORN_UPDATE(self)
         local min = now_time['min']
         local sec = now_time['sec']
 
-        local dunTime = {10, 14, 18, 22}
+        local globalTiem = {
+            {1001, 20},
+            {1003, 2},
+            {1004, 8},
+            {1005, 21}
+        }
 
-        if GetServerGroupID() == 1001 then
-            dunTime = {10, 14, 18, 22}
-        elseif GetServerGroupID() == 1003 then
-            dunTime = {16, 20, 0, 4}
-        elseif GetServerGroupID() == 1004 then
-            dunTime = {22, 2, 6, 10}
-        elseif GetServerGroupID() == 1005 then
-            dunTime = {11, 15, 19, 23}
-        end
+        for i = 1, #globalTiem do
+            if GetServerGroupID() == globalTiem[i][1] and hour == globalTiem[i][2] then
+                if min == 30 and self.NumArg1 == 0 then
+                    BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_30m"), "");
+                    self.NumArg1 = 1
+                elseif min == 50 and self.NumArg1 == 1 then
+                    BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_10m"), "");
+                    self.NumArg1 = 2
+                elseif min == 55 and self.NumArg1 == 2 then
+                    BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_5m"), "");
+                    self.NumArg1 = 3
+                elseif min == 59 and self.NumArg1 == 3 and sec == 58 then
+                    BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_start"), "");
+                    self.NumArg1 = 0
+                end
 
-        if hour == dunTime[1] - 1 or hour == dunTime[2] - 1 or hour == dunTime[3] - 1 or hour == dunTime[4] - 1 then
-            if min == 30 and self.NumArg1 == 0 then
-                BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_30m"), "");
-                self.NumArg1 = 1
-            elseif min == 50 and self.NumArg1 == 1 then
-                BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_10m"), "");
-                self.NumArg1 = 2
-            elseif min == 55 and self.NumArg1 == 2 then
-                BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_5m"), "");
-                self.NumArg1 = 3
-            elseif min == 59 and self.NumArg1 == 3 and sec == 58 then
-                BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_before_start"), "");
-                self.NumArg1 = 0
+                if min == 17 and self.NumArg1 == 0 then
+                    BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_2nd_before_3m"), "");
+                    self.NumArg1 = 1
+                elseif min == 19 and self.NumArg1 == 1 and sec == 58 then
+                    BroadcastToAllServerPC(1, ScpArgMsg("pvp_mine_2nd_before_start"), "");
+                    self.NumArg1 = 0
+                end
             end
         end
     end

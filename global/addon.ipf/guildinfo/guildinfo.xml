@@ -34,8 +34,8 @@
 							</layoutsection>
 							<layoutsection name="tabsection" size="320" parent="leftlayout">
 								<tab name="maintab" parent="tabsection" layout_gravity="center center" skin="tab4" margin="0 0 20 0" vertical="true" itemspc="1" targetcontrol="contents" fixwidth="false" autowidth="false">
-									<tabitem name="communitytab" parent="menutab" caption="{@st66b}커뮤니티{/}" width="170" layout_gravity="left top"/>
 									<tabitem name="guildinfotab" parent="menutab" caption="{@st66b}길드 정보{/}" width="170" layout_gravity="left top"/>
+									<tabitem name="communitytab" parent="menutab" caption="{@st66b}커뮤니티{/}" width="170" layout_gravity="left top"/>
 									<tabitem name="inventorytab" parent="menutab" caption="{@st66b}보관함{/}" width="170" layout_gravity="left top"/>
 									<tabitem name="battletab" parent="menutab" caption="{@st66b}전투{/}" width="170" layout_gravity="left top"/>
 									<tabitem name="optionTabItemText" parent="menutab" caption="{@st66b}설정{/}" width="170" layout_gravity="left top"/>
@@ -55,6 +55,9 @@
 										<layoutsection name="writeOnelineBoardSection" size="150">
 											<button name="writeOnelineBoardBtn" caption="{@st41b}글 작성" skin="test_red_button" LBtnUpScp="ui.OpenFrame(&quot;guildinfo_newthread&quot;)"/>
 											<!--한줄게시판 애드온 열기 -->
+										</layoutsection>
+										<layoutsection name="refreshCommunitySection" size="45">
+											<button name="updateOnelineboard" image="market_reset3_btn" fontname="white_16_b_ol" LBtnUpScp="REFRESH_BOARD" texttooltip="한줄게시판을 업데이트합니다."/>
 										</layoutsection>
 									</layout>
 								</layoutsection>

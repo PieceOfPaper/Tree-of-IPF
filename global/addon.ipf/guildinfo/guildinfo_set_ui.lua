@@ -1,4 +1,4 @@
-local json = require "json"
+local json = require "json_imc"
 local has_kick_claim = false
 local has_guild_war_list_claim = false;
 function HAS_KICK_CLAIM()

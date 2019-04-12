@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\city\c_barber_dress\"/>
+	<TexDir IpfName="bg_texture" Path="\barbershop\"/>
+	<LightMap File="c_barber_dress_lightmap.jpg" Length="1500 1500" Offset="35.051 556.142" Size="512 512"/>
+	<ShaTexDir IpfName="bg_hi" Path="\city\c_barber_dress\"/>
+	<Model File="c_barbershop_base.xac" Model="c_barbershop_base" pos="-3.0966 51.9414 550.1095" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_dressroom_model.xac" Model="c_dressroom_model" pos="22.5719 77.1864 1098.7898" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_barbershop_model.xac" Model="c_barbershop_model" pos="-0.3431 78.6728 1.8409" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_barbershop_gr_a.xac" Model="c_barbershop_gr_a" pos="54.8727 10.8646 540.7487" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_barbershop_chair.xac" Model="c_barbershop_chair" pos="-24.8955 22.9544 -9.5621" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_barbershop_obbcol.xac" Model="c_barbershop_obbcol" pos="-24.8955 22.9544 -9.5621" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

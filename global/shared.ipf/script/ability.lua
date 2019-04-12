@@ -26,7 +26,6 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
             end
         end
 	end
-    --IMC_LOG("INFO_NORMAL", "CHECK_ABILITY_LOCK-NOT-RETURN");
 
     if ability.Job == "None" then
 		LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] Ability Job is None");
@@ -56,11 +55,9 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
                 return "UNLOCK"
             end
 
-
-            local unlockFuncName = abilGroupClass.UnlockScr;
-
-            if abilGroupClass.UnlockScr == "None" then
-				LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] abilGroupClass.UnlockScr is None");
+            local unlockFuncName = TryGetProp(abilGroupClass, 'UnlockScr', 'None');
+            if unlockFuncName == 'None' then
+                LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] abilGroupClass.UnlockScr is None");
                 return "UNLOCK"
             end
         
@@ -1009,4 +1006,18 @@ function SCR_ABIL_WIZARD23_INACTIVE(self, ability)
         skl.KnockDownHitType = 4
     end
 
+end
+
+function SCR_ABIL_MACE_ACTIVE(self, ability)
+	local addHeaLPwrRate = 0;
+	local rItem  = GetEquipItem(self, 'RH');
+	if TryGetProp(rItem, "ClassType") == "Mace" then
+	   addHeaLPwrRate = ability.Level * 0.02
+	end
+    
+	SetExProp(self, "ABIL_MACE_ADDHEAL", addHeaLPwrRate);
+end
+
+function SCR_ABIL_MACE_INACTIVE(self, ability)
+    DelExProp(self, "ABIL_MACE_ADDHEAL");
 end

@@ -1,4 +1,4 @@
-local json = require "json"
+local json = require "json_imc"
 local emblemPath = nil
 local bannerPath = nil
 local introImagePath = nil

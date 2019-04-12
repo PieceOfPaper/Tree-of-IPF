@@ -10,7 +10,7 @@ if #TEXT_ZONENAMELIST == 0 then
     for i = 0 , mapcnt - 1 do
         local cls = GetClassByIndexFromList(maplist, i);
         local zoneName = TryGetProp(cls,'Name', 'None')
-        if zoneName ~= 'None' and table.find(TEXT_ZONENAMELIST, zoneName) == 0 then
+        if zoneName ~= 'None' and table.find(TEXT_ZONENAMELIST, zoneName) == 0 and string.find(zoneName,'%[') == nil then
             TEXT_ZONENAMELIST[#TEXT_ZONENAMELIST + 1] = zoneName
         end
     end
@@ -19,7 +19,7 @@ if #TEXT_ZONENAMELIST == 0 then
     for i = 0 , areacnt - 1 do
         local cls = GetClassByIndexFromList(arealist, i);
         local zoneName = TryGetProp(cls,'Name', 'None')
-        if zoneName ~= 'None' and table.find(TEXT_ZONENAMELIST, zoneName) == 0 then
+        if zoneName ~= 'None' and table.find(TEXT_ZONENAMELIST, zoneName) == 0 and string.find(zoneName,'%[') == nil then
             TEXT_ZONENAMELIST[#TEXT_ZONENAMELIST + 1] = zoneName
         end
     end
@@ -44,7 +44,7 @@ if #TEXT_MONNAMELIST == 0 then
         local monName = TryGetProp(cls,'Name', 'None')
         local monRank = TryGetProp(cls,'MonRank', 'None')
         local faction = TryGetProp(cls,'Faction', 'None')
-        if monName ~= 'None' and table.find(TEXT_ZONENAMELIST, monName) == 0 and monRank ~= 'MISC' and monRank ~= 'NPC' and monRank ~= 'Pet' and faction == 'Monster' then
+        if monName ~= 'None' and table.find(TEXT_ZONENAMELIST, monName) == 0 and monRank ~= 'MISC' and monRank ~= 'NPC' and monRank ~= 'Pet' and faction == 'Monster' and string.find(monName,'%[') == nil then
             if table.find(except, monName) == 0 then
                 TEXT_MONNAMELIST[#TEXT_MONNAMELIST + 1] = monName
             end

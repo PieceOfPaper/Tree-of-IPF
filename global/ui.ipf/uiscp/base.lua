@@ -78,21 +78,23 @@ function ICON_ON_COOLTIMEEND(frame, object, argStr, argNum)
 		local centerY 	= (screenHeight - 32) * 0.7;
 
 		local imageItem = ui.CreateImageItem("eft_" .. icon:GetDumpArgNum(), x, y);
-		imageItem:SetImage('effect_star1');
-		imageItem:SetScale(2.0, 2.0);
+		if imageItem ~= nil then
+			imageItem:SetImage('effect_star1');
+			imageItem:SetScale(2.0, 2.0);
 
-		local parentObj = iconPt:GetParent();
-		if parentObj  ~=  nil then
-			local width = parentObj:GetWidth();
-			local height = parentObj:GetHeight();
-			imageItem:SetSize(width, height);
-		 end
+			local parentObj = iconPt:GetParent();
+			if parentObj  ~=  nil then
+				local width = parentObj:GetWidth();
+				local height = parentObj:GetHeight();
+				imageItem:SetSize(width, height);
+			 end
 
-		imageItem:SetLifeTime(1.0);
-		imageItem:SetAngleSpd(3.0);
-		imageItem:SetScaleDest(1.0, 1.0);
-		imageItem:SetAlphaBlendDest(0.0);
-		imageItem:SetMoveDest(x, y);
+			imageItem:SetLifeTime(1.0);
+			imageItem:SetAngleSpd(3.0);
+			imageItem:SetScaleDest(1.0, 1.0);
+			imageItem:SetAlphaBlendDest(0.0);
+			imageItem:SetMoveDest(x, y);
+		end
 	 end
  end
 

@@ -10,12 +10,12 @@ function SCR_EVENT_1806_NUMBER_GAMES_NPC_DIALOG(self, pc, gimmickName)
     -- local select = ShowSelDlg(pc, 0, 'EVENT_1806_NUMBER_GAMES_DLG1', ScpArgMsg('EVENT_1806_NUMBER_GAMES_MSG2'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
     
     -- if select == 1 then
-        if pc.Lv < 50 then
+        if pc.Lv < 50 then  
             ShowOkDlg(pc, 'EVENT_1806_NUMBER_GAMES_DLG1\\'..ScpArgMsg('EVENT_1801_ORB_MSG8','LV',50), 1)
             return
         end
         local accRewardMsg
-        local accRewardList = {{5, 'Artefact_630010',1},{10, 'Premium_boostToken03_event01',2},{15, 'ABAND01_133',1}}
+        local accRewardList = {{5, 'Artefact_630010',1},{10, 'Premium_boostToken03_event01',1},{15, 'ABAND01_133',1}}
         local accIndex
         for i = 1, #accRewardList do
             if aObj.EVENT_1806_NUMBER_GAMES_ACC_COUNT >= accRewardList[i][1] and aObj.EVENT_1806_NUMBER_GAMES_ACC_REWARD < accRewardList[i][1] then
@@ -144,7 +144,7 @@ function SCR_EVENT_1806_NUMBER_GAMES_NPC_DIALOG(self, pc, gimmickName)
                     	
                     	if ret == 'SUCCESS' then
                     	    ShowOkDlg(pc, dlgNPC..ScpArgMsg("EVENT_1806_NUMBER_GAMES_MSG11", "NUM",input), 1)
-                	        SCR_SEND_NOTIFY_REWARD(pc, GetClassString('ClientMessage', 'EVENT_1806_NUMBER_GAMES_MSG2','Data'), itemList[targetIndex][1] .. ';' .. itemList[targetIndex][2])
+                	        --SCR_SEND_NOTIFY_REWARD(pc, GetClassString('ClientMessage', 'EVENT_1806_NUMBER_GAMES_MSG2','Data'), itemList[targetIndex][1] .. ';' .. itemList[targetIndex][2])
                     	end
                     	return
                     else

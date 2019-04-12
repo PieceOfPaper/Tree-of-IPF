@@ -402,7 +402,10 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 
 			fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_SYSTEM");
 			msgFront = "#A566FF";
+		elseif msgType == "partymem" then
 
+			fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_SYSTEM");
+			msgFront = "#86E57F";
 		elseif msgType ~= "System" then
 
         
@@ -464,7 +467,7 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 				msgFront = string.format("[%s]%s", ScpArgMsg("ChatType_6"), commnderNameUIText);	
 			else			
 
-				--ÆË¾÷Ã¢¿¡¼­ÀÇ ±Ó¸», ±×·ì ¸Þ½ÃÁö
+				--ï¿½Ë¾ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¸ï¿½, ï¿½×·ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 				chatCtrl:SetEventScript(ui.LBUTTONDOWN, 'CHAT_GBOX_LBTN_DOWN');
 				chatCtrl:SetEventScriptArgString(ui.LBUTTONDOWN, clusterinfo:GetRoomID());
 
@@ -484,7 +487,7 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 		end	
 
 		local tempMsg = clusterinfo:GetMsg()
-		if msgType == "friendmem" or  msgType == "guildmem" then
+		if msgType == "friendmem" or  msgType == "guildmem" or msgType == "partymem" then
 			msgString = string.format("{%s}%s{nl}",msgFront, tempMsg);		
 		else
 			msgString = string.format("%s%s{nl}", msgFront, tempMsg);		
@@ -528,11 +531,11 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 	end
 
 
-    --1. ÀÌ·¸°Ô Ã³¸®ÇÏ¸é ¸ÞÀÎ Ã¤ÆÃ Ã¢¿¡¼­ ±×·ì, ±Ó¸» ¸Þ½ÃÁö Ä«¿îÆ®¸¦ °»½Å °¡´É
+    --1. ï¿½Ì·ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½, ï¿½Ó¸ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	--UPDATE_READ_FLAG_BY_GBOX_NAME(groupboxname)
 
-    --2. ÀÌ·¸°Ô Ã³¸®ÇÏ¸é ¸ÞÀÎ Ã¤ÆÃ Ã¢¿¡¼­ ±×·ì, ±Ó¸» ¸Þ½ÃÁö Ä«¿îÆ®¸¦ °»½ÅÇÏÁö ¾ÊÀ½
-    --1ÀÌ ´õ Æí¸®ÇÏ³ª, 2°¡ ´õ Á÷°üÀû.
+    --2. ï¿½Ì·ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½, ï¿½Ó¸ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    --1ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï³ï¿½, 2ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	local gboxtype = string.sub(groupboxname,string.len("chatgbox_") + 1)
 	local tonumberret = tonumber(gboxtype)
 
@@ -700,7 +703,7 @@ end
 
 
 
---½ºÅ©·Ñ¹Ù °­Á¦ ÇÏ´Ü ÀÌµ¿ °ü·Ã ¼³Á¤ È®ÀÎ ÇÔ¼ö
+--ï¿½ï¿½Å©ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½Ô¼ï¿½
 function TOGGLE_BOTTOM_CHAT()
 	local IsBottomChat = config.GetXMLConfig("ToggleBottomChat")
 
@@ -718,7 +721,7 @@ end
 
 
 
---¸Þ¼¼ÁöÀÇ ÆùÆ® Å©±â º¯°æÇÔ¼ö (¸Þ¼¼Áö¿¡ ÆùÆ®Å©±âº¯°æÅäÅ«ÀÌ ÀÖ¾î¾ß ÇÑ´Ù.)
+--ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ® Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ (ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®Å©ï¿½âº¯ï¿½ï¿½ï¿½ï¿½Å«ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ ï¿½Ñ´ï¿½.)
 function CHAT_TEXT_CHAR_RESIZE(msg, fontSize)
 	if msg == nil then 
 		return;
@@ -850,7 +853,7 @@ function CHAT_TABSET_SELECT(index)
 		return
 	end
 
-	-- ¼±ÅÃÇÑ ÅÇÀ¸·Î ¹öÆ° ½ºÅ² º¯°æÇÒ 
+	-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½Å² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	frame:SetUserValue("BTN_INDEX", index);
 
 	local tabbtn = GET_CHILD_RECURSIVELY(frame, "tabsetbtn")

@@ -481,11 +481,16 @@ function GET_CONFIG_HUD_OFFSET(frame, defaultX, defaultY)
     if config.IsExistHUDConfig(name) ~= 1 then
         return defaultX, defaultY;
     end
-    local width = option.GetClientWidth();
-    local height = option.GetClientHeight();
     local x = math.floor(config.GetHUDConfigXRatio(name) * ui.GetClientInitialWidth());
     local y = math.floor(config.GetHUDConfigYRatio(name) * ui.GetClientInitialHeight());
 
+    -- clamping
+    local width = option.GetClientWidth() - frame:GetWidth();
+    local height = option.GetClientHeight() - frame:GetHeight();
+    x = math.max(0, x);
+    x = math.min(x, width);
+    y = math.max(0, y);
+    y = math.min(y, height);
     return x, y;
 end
 
@@ -506,6 +511,12 @@ end
 function SHOW_GUILD_HTTP_ERROR(code, msg, funcName)
 	local errNamePrefix = 'WebService_';
 	local errName = errNamePrefix;
+	if code == '0' then
+		 -- 클라<->웹서버가 아닌 클라<->존<->웹서버 경유해서 갔을때 웹서버가 다운된 상태인 경우, 
+		 -- 존에서 RunClientScript사용해서 클라로 보내주고, 코드에는 문자열로 "0"을 전달해줌
+		ShowErrorInfoMsg('CannotConnectWebServer');
+		return
+	end 
 	if code == nil then
 		local splitmsg = StringSplit(msg, " ");
 		code = splitmsg[1];

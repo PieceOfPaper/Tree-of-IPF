@@ -1,5 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="npc_potap_shot" />
-    <Sound frame="3.00" soundFile="npc_potap_atk_rolling_1" />
+	<Particle frame="1" attachNode="eff_shot01" particleName="F_fire037_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="npc_potap_shot"/>
+	<Sound frame="3.00" soundFile="npc_potap_atk_rolling_1"/>
 </ActionDesc>

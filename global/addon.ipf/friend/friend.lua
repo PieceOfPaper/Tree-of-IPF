@@ -368,7 +368,7 @@ function BUILD_FRIEND_LIST(frame, listType, groupName, iscustom)
 			    else
 				    ismakenewset = true;
 			    end
-            
+
 			    if ismakenewset == true then
                     local ctrlSetName = GET_FRIEND_CTRLSET_NAME(listType);
                     if listType == FRIEND_LIST_COMPLETE and friendInfo.mapID == 0 then
@@ -445,7 +445,7 @@ function UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet, mapID, channel, info, drawN
 	local map_name_text = ctrlSet:GetChild("map_name_text");
 	local map_name_channel_text = ctrlSet:GetChild("map_name_channel_text");
 	local level_text = GET_CHILD(ctrlSet, "level_text", "ui::CRichText");
-    
+	
 	team_name_text:SetTextByKey("name", info:GetFamilyName());	
 	if mapID == 0 then
 
@@ -558,11 +558,9 @@ function FRIEND_PAGE_FOCUS(ctrlSet, button)
 	local slotHeight = FRIEND_MINIMIZE_HEIGHT    
 
 	if ctrlSet:GetHeight() > FRIEND_MINIMIZE_HEIGHT then
-		--page:SetFocusedRowHeight(-1, slotHeight, 0.2, 0.7, 5);
 		page:SetFocusedRowHeight(-1, slotHeight);
 		page:SetUserValue("minimized", 1);
-		FRIEND_MINIMIZE_FOCUS(page);
-
+		FREIND_PAGE_SET_DETAIL(ctrlSet, 0);
 		button:SetText(ScpArgMsg('DownButtonText'))
 	else
 		
@@ -626,11 +624,10 @@ function ON_FRIEND_SESSION_CHANGE(frame, msg, aid, listType)
 	end
 	local showOnlyOnline = config.GetXMLConfig("Friend_ShowOnlyOnline")
 
-	if showOnlyOnline == 1 and f.mapID == 0 then
+	if showOnlyOnline == 1 or f.mapID == 0 then
 		ON_UPDATE_FRIEND_LIST(frame);
 		return;
 	end
-
 	local treename = 'friendtree_normal'
 
 	if listType ~= FRIEND_LIST_COMPLETE then
@@ -640,17 +637,34 @@ function ON_FRIEND_SESSION_CHANGE(frame, msg, aid, listType)
 	local tree = GET_CHILD_RECURSIVELY(frame, treename,'ui::CTreeControl')
 	
 	local pageCtrlName = "PAGE_" .. FRIEND_GET_GROUPNAME(listType);
+	if f:GetGroupName() ~= nil and f:GetGroupName() ~= "" then
+		pageCtrlName = "PAGE_" .. f:GetGroupName();
+	end
 	local page = tree:GetChild(pageCtrlName);
-
-	local ctrlSet = page:GetChild("FR_" .. listType .. "_" .. f:GetInfo():GetACCID());
 	
-	if nil == ctrlSet then	
-		ctrlSet = page:CreateOrGetControlSet(GET_FRIEND_CTRLSET_NAME(listType), "FR_" .. listType .. "_" .. f:GetInfo():GetACCID(), 0, 0);
-		if listType == FRIEND_LIST_COMPLETE and f.mapID > 0 then
-			ctrlSet:Resize(ctrlSet:GetOriginalWidth(),FRIEND_MINIMIZE_HEIGHT)
-		end;		
-	end;
+	if page == nil then
+		BUILD_FRIEND_LIST(frame, listType, f:GetGroupName(), "custom")
+		page = tree:GetChild(pageCtrlName);
+		if page == nil then
+			page = tree:GetChild("PAGE_" .. FRIEND_GET_GROUPNAME(listType));
+		end
+	end
+	local childName = "FR_" .. listType .. "_" .. f:GetInfo():GetACCID();
+
+	local ctrlSet = page:GetChild(childName);
+	if ctrlSet ~= nil then
+		page:RemoveChild(childName);
+	end
+	if f.mapID == 0 and ctrlSet:GetChild('logoutText') == nil then
+		ctrlSet = page:CreateOrGetControlSet('friend_not_online', childName, 0, 0);
+		
+	else --온라인상태
+		ctrlSet = page:CreateOrGetControlSet(GET_FRIEND_CTRLSET_NAME(listType), childName, 0, 0);
+		ctrlSet:Resize(ctrlSet:GetOriginalWidth(), FRIEND_MINIMIZE_HEIGHT);
+	end
+
 	UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, f);
+	
 end
 
 function OPEN_FRIEND_FRAME()
@@ -722,6 +736,9 @@ function UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, friendInfo)
     end
 
 	local memo = friendInfo:GetMemo();
+	if memo == 'None' then
+		memo = ''
+	end
 	local frame = ctrlSet:GetTopParentFrame();
 	
 	if listType == FRIEND_LIST_COMPLETE then	
