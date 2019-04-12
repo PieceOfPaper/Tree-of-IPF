@@ -10,7 +10,9 @@ function ON_ABILITYSHOP_OPEN(frame, msg, abilGroupName, argNum)
 
 	frame:ShowWindow(1);
 	REFRESH_ABILITYSHOP(frame, msg);
-
+	
+	local gbox = GET_CHILD_RECURSIVELY(frame, 'abilityshopGBox');
+	gbox:SetScrollPos(0);
 
 	local abilityFrame = ui.GetFrame('skilltree');
 	if abilityFrame:IsVisible() == 0 then

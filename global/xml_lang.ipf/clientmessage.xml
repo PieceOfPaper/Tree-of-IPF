@@ -5497,6 +5497,7 @@
 		<Class ClassID="100058" ClassName="SKILL_EMPOWRING_{Auto_1}" Data="{Auto_1}레벨 증가!"/>
 		<Class ClassID="100059" ClassName="CannotMoreBuff" Data="허용할 수 있는 버프 개수를 초과하였습니다."/>
 		<Class ClassID="100060" ClassName="ExistBuffByAutoSeller" Data="상점에서 받은 버프가 이미 적용 중입니다."/>
+		<Class ClassID="100061" ClassName="skill_TransmitPrana" Data="프라나 전송"/>
 	</Category>
 	<Category Name="Party">
 		<Class ClassID="101001" ClassName="GULID_OUT" Data="길드 탈퇴"/>
@@ -6397,7 +6398,7 @@
 		<Class ClassID="124026" ClassName="PolicyMsgAlram{TimeStr}" Data="셧다운제에 의해 {TimeStr}시에 게임이용이 제한됩니다."/>
 		<Class ClassID="124027" ClassName="DelibarationMsg1" Data="과도한 게임이용은 정상적인 일상생활에 지장을 줄 수 있습니다."/>
 		<Class ClassID="124028" ClassName="DelibarationMsg2" Data="게임을 시작한 지 {Time}시간이 지났습니다."/>
-		<Class ClassID="124029" ClassName="REQ_CANCEL_LEARING_ABIL" Data="특성배우기를 취소하시겠습니까? 사용한 실버는 회수되지 않습니다. "/>
+		<Class ClassID="124029" ClassName="REQ_CANCEL_LEARING_ABIL" Data="특성배우기를 취소하시겠습니까? 사용한 포인트는 회수되지 않습니다. "/>
 		<Class ClassID="124030" ClassName="CANCEL_LEARING_ABIL" Data="특성배우기가 취소되었습니다."/>
 		<Class ClassID="124031" ClassName="CanNotItemEquip" Data="착용 할 수 있는 아이템이 아닙니다."/>
 		<Class ClassID="124032" ClassName="CanNotLikeIte" Data="해당 캐릭터는 좋아요를 받을 수 있는 상태가 아닙니다."/>
@@ -9669,6 +9670,13 @@
 		<Class ClassID="501048" ClassName="steam_Premium_StatReset" Data="스탯 초기화 포션"/>
 		<Class ClassID="501050" ClassName="steam_Event_Select_1" Data="친절한 도네스 이벤트"/>
 		<Class ClassID="501051" ClassName="steam_Event_Select_2" Data="신규 유저 이벤트"/>
+		<Class ClassID="501053" ClassName="Moru_King_Select_1" Data="빛나는 네잎클로버 받기"/>
+		<Class ClassID="501054" ClassName="Moru_King_Select_2" Data="상품 교환하기"/>
+		<Class ClassID="501055" ClassName="Moru_King_Select_3" Data="강화 8단계 상품"/>
+		<Class ClassID="501056" ClassName="Moru_King_Select_4" Data="강화 10단계 상품"/>
+		<Class ClassID="501057" ClassName="Moru_King_Select_5" Data="강화 15단계 상품"/>
+		<Class ClassID="501058" ClassName="Moru_King_Select_6" Data="강화 20단계 상품"/>
+		<Class ClassID="501059" ClassName="Moru_King_Select_7" Data="강화 25단계 상품"/>
 	</Category>
 	<Category Name="Npc_Equip_Shop_270_315">
 		<Class ClassID="510200" ClassName="NPC_SHOP_WEAPON_NORMAL_270_315" Data="무기"/>

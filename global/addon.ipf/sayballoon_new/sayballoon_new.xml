@@ -3,7 +3,7 @@
 <uiframe name="sayballoon_new" x="0" y="0" width="280" height="220" create="open">
     <frame title="{@st43}말풍선{/}" layout_gravity="left top" snapclient="true" snapframe="true" scale_align="center bottom"/>
     <draw blend="80" drawframe="false" drawtitlebar="false"/>
-    <layer layerlevel="100"/>
+    <layer layerlevel="89"/>
     <input moveable="true" resize="true" reduce="true" hittest="true" hittestframe="false"/>
     <option closebuttonpos="5 20" closebutton="false" hideable="false" useimageitem="true"/>
     <sound opensound="win_open" closesound="win_close"/>

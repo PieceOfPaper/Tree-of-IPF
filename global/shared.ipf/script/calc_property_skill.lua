@@ -2135,7 +2135,13 @@ function SCR_GET_Rush_Ratio(skill)
 
 end
 function SCR_GET_Rush_Ratio3(skill)
+    local pc = GetSkillOwner(skill);
     local value = 10 + skill.Level *1;
+    local abil = GetAbility(pc, "Cataphract1")
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value * 1.2
+    end
+    
     return value;
 end
 
@@ -5235,11 +5241,7 @@ end
 
 function SCR_GET_Limacon_Ratio2(skill)
     local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Schwarzereiter13");
-    local value = 30 + (skill.Level -1) * 5;
-    if abil ~= nil and abil.ActiveState == 1 then
-        value = value + abil.Level * 0.5
-    end
+    local value = 50 + (skill.Level - 1) * 10;
     
     return value;
 end
@@ -9553,7 +9555,13 @@ end
 
 function SCR_GET_KaguraDance_Ratio(skill)
     local value = 70 + skill.Level * 2
-    return value
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, "Miko5")
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value * 1.1
+    end
+    
+    return math.floor(value)
 end
 
 
@@ -10218,8 +10226,20 @@ function SCR_GET_PsychicPressure_Ratio2(skill)
 end
 
 function SCR_GET_PsychicPressure_Ratio3(skill)
+    local pc = GetSkillOwner(skill)
     local value = 30 + skill.Level * 1;
-    return value;
+    local abil_2 = GetAbility(pc, "Psychokino2")
+    local abil_10 = GetAbility(pc, "Psychokino10")
+    
+    if abil_2 ~= nil and abil_2.ActiveState == 1 then
+        value = value * 1.2
+    end
+    
+    if abil_10 ~= nil and abil_10.ActiveState == 1 then
+        value = value * 1.2
+    end
+
+    return math.floor(value);
 end
 
 function SCR_GET_GravityPole_Ratio(skill)
@@ -10231,8 +10251,14 @@ function SCR_GET_GravityPole_Ratio(skill)
 end
 
 function SCR_GET_GravityPole_Ratio3(skill)
+    local pc = GetSkillOwner(skill);
     local value = 40 + skill.Level * 1;
-    return value;
+    local abil = GetAbility(pc, "Psychokino20")
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value * 1.2
+    end
+    
+    return math.floor(value);
 end
 
 
@@ -10323,8 +10349,15 @@ function SCR_Get_FireBall_Bufftime(skill)
 end
 
 function SCR_GET_HellBreath_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, "Pyromancer4")
     local value = 27 + skill.Level * 2
-    return value
+    
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value * 1.3
+    end
+
+    return math.floor(value)
 end
 
 function SCR_GET_Rapidfire_Bufftime(skill)
@@ -11049,7 +11082,7 @@ end
 
 function SCR_GET_Effigy_Ratio(skill)
 
-    local value = (160 + 7 * (skill.Level-1)) / 100
+    local value = 1.60 + 0.07 * (skill.Level-1);
 
     return value
 
@@ -11057,7 +11090,7 @@ end
 
 function SCR_GET_Effigy_Ratio2(skill)
 
-    local value = (230 + 9 * (skill.Level-1)) / 100
+    local value = 2.3 + 0.09 * (skill.Level-1)
 
     return value
 
@@ -11185,7 +11218,7 @@ function SCR_GET_God_Finger_Flicking_Ratio2(skill)
 end
 
 function SCR_GET_DiscernEvil_Ratio(skill)
-    local value = skill.Level * 2
+    local value = 25 + skill.Level * 5
     return value
 end
 
@@ -12620,7 +12653,16 @@ function SCR_GET_DivineStigma_Ratio2(skill)
     return math.floor(value);
 end
 
-
+function SCR_GET_DivineStigma_Ratio3(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 30;
+    local abil = GetAbility(pc, "Kriwi9")
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value + abil.Level
+    end
+    
+    return math.floor(value);
+end
 
 
 function SCR_GET_Limitation_Bufftime(skill)
@@ -12805,9 +12847,14 @@ function SCR_Get_VashitaSiddhi_Ratio(skill)
 end
 
 function SCR_Get_VashitaSiddhi_Ratio2(skill)
-
+    local pc = GetSkillOwner(skill);
     local value = 35 + skill.Level * 1;
-    return value;
+    local abil = GetAbility(pc, "Sadhu7")
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value * 1.2
+    end
+    
+    return math.floor(value);
 
 end
 
