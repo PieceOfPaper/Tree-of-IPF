@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- 운영상의 이슈로 조정되는 값들이 아닌 시스템 옵션 값들을 관리하는 sharedconst. 민감한 값들이므로 프로그래머의 확인 후에 수정 하도록 합시다. sharedconst.xml의 classID와 겹치지 않도록 주의 -->
 <idspace id="SharedConst">
 	<Category Name="OnOff">
 		<Class ClassID="400000" ClassName="USE_STEAM_DLC" Value="1"/>
 		<Class ClassID="400001" ClassName="USE_GET_ACC_CREATETIME" Value="1"/>
 		<Class ClassID="400002" ClassName="USE_MARKET_REPORT" Value="1"/>
-		<Class ClassID="400006" ClassName="USE_CHAT_SERVER_MEMORY_DUMP_REPORT" Value="0"/>
 		<Class ClassID="400007" ClassName="USE_COUNT_INDUN_USING_RATE" Value="1"/>
-		<Class ClassID="400012" ClassName="MINIGAME_COND_CHECK_BUG_LOG" Value="0"/>
 	</Category>
 	<Category Name="System">
-		<Class ClassID="100056" ClassName="DLC_GET_DELAY" Value="0"/>
+		<Class ClassID="100037" ClassName="MAX_MIC_LEN" Value="150"/>
 		<Class ClassID="100057" ClassName="TRADABLE_DELAY" Value="604800"/>
 		<Class ClassID="100058" ClassName="USE_STEAM_INVENTORY" Value="1"/>
 		<Class ClassID="100059" ClassName="TRADABLE_LEVEL" Value="40"/>
 	</Category>
 	<Category Name="Market">
-		<Class ClassID="200012" ClassName="IGNORE_ITEM_AVG_TABLE_FOR_TOKEN" Value="1" Desc="토큰 사용자는 상/하안가에 영향을 받지 않는다." UseInScript="YES"/>
+<Class ClassID="200012" ClassName="IGNORE_ITEM_AVG_TABLE_FOR_TOKEN" Value="1" Desc="토큰 사용자는 상/하안가에 영향을 받지 않는다." UseInScript="YES"/>
 		<Class ClassID="200013" ClassName="UNLIMIT_TRADE_TOKEN" Value="1" Desc="토큰은 마켓에서 거래한 이후에도 계속 거래 가능하게 할 것인가?(1:거래가능, 0:거래불가)" UseInScript="NO"/>
-	</Category>
+</Category>
 	<Category Name="BotReport">
 		<Class ClassID="290000" ClassName="USE_REPORT_BOT_TO_STEAM" Value="1"/>
 		<Class ClassID="290001" ClassName="USE_REPORT_BOT_TO_CLASSIFIER" Value="1"/>
