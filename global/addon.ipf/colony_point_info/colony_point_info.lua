@@ -1,3 +1,4 @@
+
 function COLONY_POINT_INFO_ON_INIT(addon, frame)
     addon:RegisterMsg('UPDATE_COLONY_POINT', 'ON_UPDATE_COLONY_POINT');
     addon:RegisterMsg('OPEN_COLONY_POINT', 'OPEN_COLONY_POINT_UI');
@@ -14,6 +15,7 @@ function OPEN_COLONY_POINT_UI(frame, msg)
     COLONY_POINT_INFO_INIT_OCCUPATION(frame);
     COLONY_POINT_INFO_RESET(frame);
     COLONY_POINT_INFO_INIT_TIMER(frame);
+    COLONY_POINT_INFO_SET_SAVED_OFFSET(frame, msg, argStr, argNum);
     frame:ShowWindow(1);
 end
 
@@ -27,6 +29,8 @@ function COLONY_POINT_INFO_MINIMIZE_CLICK(parent, ctrl)
     local infoBox = GET_CHILD_RECURSIVELY(frame, 'infoBox');
     expandBtn:ShowWindow(1);
     infoBox:ShowWindow(0);
+
+    frame:Resize(frame:GetWidth(), expandBtn:GetY() + expandBtn:GetHeight());
 end
 
 function COLONY_POINT_INFO_EXPAND_CLICK(parent, ctrl)
@@ -35,6 +39,8 @@ function COLONY_POINT_INFO_EXPAND_CLICK(parent, ctrl)
     local infoBox = GET_CHILD_RECURSIVELY(frame, 'infoBox');
     expandBtn:ShowWindow(0);
     infoBox:ShowWindow(1);
+
+    frame:Resize(frame:GetWidth(), infoBox:GetY() + infoBox:GetHeight());
 end
 
 function COLONY_POINT_INFO_INIT_OCCUPATION(frame)
@@ -44,7 +50,7 @@ function COLONY_POINT_INFO_INIT_OCCUPATION(frame)
     local occupyInfo = session.colonywar.GetOccupationInfoByMapID(mapCls.ClassID);
     if occupyInfo ~= nil then
         local occupyGuildNameText = GET_CHILD_RECURSIVELY(frame, 'occupyGuildNameText');
-        local occupyGuildEmblemPic = GET_CHILD_RECURSIVELY(frame, 'occupyGuildEmblemPic');
+    local occupyGuildEmblemPic = GET_CHILD_RECURSIVELY(frame, 'occupyGuildEmblemPic');
         local guildID = occupyInfo:GetGuildID();
         local worldID = session.party.GetMyWorldIDStr();
         local emblemImgName = guild.GetEmblemImageName(guildID,worldID);
@@ -122,9 +128,9 @@ function COLONY_POINT_INFO_UPDATE_EMBLEM(frame, msg, argStr, argNum)
         local worldID = session.party.GetMyWorldIDStr();
         local emblemImgName = guild.GetEmblemImageName(argStr,worldID);
          IMC_LOG("INFO_NORMAL", "COLONY_POINT_INFO_UPDATE_EMBLEM info" .. "imageName:" .. emblemImgName);
-        if emblemImgName ~= 'None' then
+        if emblemImgName ~= 'None' then   
             emblemCtrl:SetImage(emblemImgName);
-        end     
+        end
     end
      IMC_LOG("INFO_NORMAL", "COLONY_POINT_INFO_UPDATE_EMBLEM ED");
 end
@@ -186,4 +192,21 @@ function COLONY_POINT_INFO_UPDATE_TIMER(remainTimeText)
     local remainTimeStr = string.format('%d:%02d', remainMin, remainSec);
     remainTimeText:SetTextByKey('time', remainTimeStr);
     return 1;
+end
+
+function COLONY_POINT_INFO_LBTN_UP(frame, ctrl)
+    if session.colonywar.GetIsColonyWarMap() == false then
+        return;
+    end
+    SET_CONFIG_HUD_OFFSET(frame);
+end
+
+function COLONY_POINT_INFO_SET_SAVED_OFFSET(frame, msg, argStr, argNum)    
+    if session.colonywar.GetIsColonyWarMap() == false then
+        return;
+    end
+    local oriMargin = frame:GetOriginalMargin(); 
+    local savedX, savedY = GET_CONFIG_HUD_OFFSET(frame, option.GetClientWidth() - oriMargin.right, frame:GetOriginalY());    
+    savedX, savedY = GET_OFFSET_IN_SCREEN(savedX, savedY, frame:GetWidth(), frame:GetHeight());    
+    frame:SetOffset(savedX, savedY);
 end

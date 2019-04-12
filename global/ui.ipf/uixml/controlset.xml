@@ -3905,8 +3905,8 @@
 			<groupbox name="bgBox" rect="0 0 1120 30" margin="0 0 0 0" layout_gravity="left top" skin="None" hittest="false"/>
 			<richtext name="mapNameText" rect="0 0 200 30" margin="10 0 0 0" layout_gravity="left center" caption="게나르 평원" fontname="white_16_b_ol" hittest="false"/>
 			<richtext name="gradeText" rect="0 0 100 30" margin="310 0 0 0" layout_gravity="left center" caption="A" fontname="white_16_b_ol" hittest="false"/>
-			<richtext name="percentText" rect="0 0 100 30" margin="460 0 0 0" layout_gravity="left center" format="%s%" param1="percentage" param1_def="" fontname="white_16_b_ol" hittest="false"/>
-			<richtext name="rewardText" rect="0 0 300 30" margin="655 0 0 0" layout_gravity="left center" format="{img %s 24 24}%s" param1="icon" param1_def="tooltip_spicon" param2="name" param2_def="보상템" fontname="white_16_b_ol" hittest="false"/>
+			<richtext name="percentText" rect="0 0 100 30" margin="460 0 0 0" layout_gravity="left center" fontname="white_16_b_ol" hittest="false"/>
+			<richtext name="rewardText" rect="0 0 300 30" margin="655 0 0 0" layout_gravity="left center" fontname="white_16_b_ol" hittest="false"/>
 		</controls>
 	</controlset>
 	<controlset name="guild_emblem_deck" hittest="true" width="330" height="62" skin="test_pvp_btn" hittestset="true" draw="false" stateskin="false">
@@ -3919,7 +3919,7 @@
 	</controlset>
 	<controlset name="guild_emblem_set" hittest="true" width="70" height="70" skin="test_frame_midle" hittestset="true" draw="true" stateskin="false">
 		<controls>
-			<picture name="emblemPic" rect="0 0 64 64" margin="0 0 0 0" layout_gravity="center center" image="guildmark_slot" stretch="true" hittest="false" resizebyparent="true"/>
+			<picture name="emblemPic" rect="0 0 64 64" margin="0 0 0 0" layout_gravity="center center" image="guildmark_slot" stretch="true" hittest="false" resizebyparent="true" forceupdate="true"/>
 		</controls>
 	</controlset>
 	<controlset name="attendance_reward" hittest="true" width="115" height="115" hittestset="true" draw="false" stateskin="false">

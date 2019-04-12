@@ -36,6 +36,7 @@ function MAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('CHANGE_CLIENT_SIZE', 'FIRST_UPDATE_MAP');
     addon:RegisterMsg('COLONY_MONSTER', 'MAP_COLONY_MONSTER');
     addon:RegisterMsg('OPEN_COLONY_POINT', 'UPDATE_MAP');
+    addon:RegisterMsg('REMOVE_COLONY_MONSTER', 'ON_REMOVE_COLONY_MONSTER');
 
 	frame = ui.GetFrame("map");
 	INIT_MAPUI_INFO(frame);
@@ -528,8 +529,12 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 				local PictureC = frame:CreateOrGetControl('picture', ctrlname, XC, YC, iconW, iconH);                
 				tolua.cast(PictureC, "ui::CPicture");
 				local idx, Icon = SET_MAP_MONGEN_NPC_INFO(PictureC, mapprop, WorldPos, MonProp, mapNpcState, npclist, statelist, questIESlist);
-                if isColonyMap == true and MonProp:GetClassName() == 'Warp_arrow' then
-                    PictureC:ShowWindow(1);
+                if isColonyMap == true then
+                    if MonProp:GetClassName() == 'Warp_arrow' then
+                        PictureC:ShowWindow(1);
+                    else
+                        PictureC:ShowWindow(0);
+                    end
                 end
 			end
 		end
@@ -694,11 +699,10 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 										local WorldPos = GenList:Element(j);
 										local MapPos = mapprop:WorldPosToMinimapPos(WorldPos, m_mapWidth, m_mapHeight);
 										local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_SESSIONOBJ(MapPos, range);
-
-										MAKE_LOC_CLICK_ICON(frame, i, 'group'..roundCount, k, XC, YC, RangeX, RangeY, 30);
+										MAKE_LOC_CLICK_ICON(frame, i, stateidx, 'group'..k, XC, YC, RangeX, RangeY, 30);
 										XC = m_offsetX + MapPos.x - iconW / 2;
 										YC = m_offsetY + MapPos.y - iconH / 2;
-										MAKE_LOC_ICON(frame, cls, i, stateidx, 'group'..roundCount, XC, YC, iconW, iconH, WorldPos, statelist, questIESlist);
+										MAKE_LOC_ICON(frame, cls, i, stateidx, 'group'..k, XC, YC, iconW, iconH, WorldPos, statelist, questIESlist);
 
 										roundCount = roundCount+1;
 									end
@@ -713,11 +717,11 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 								local MapPos = mapprop:WorldPosToMinimapPos(x, z, m_mapWidth, m_mapHeight);
 
 								local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_SESSIONOBJ(MapPos, range);
-								MAKE_LOC_CLICK_ICON(frame, i, stateidx, 'group'..roundCount, XC, YC, RangeX, RangeY, 30);
+								MAKE_LOC_CLICK_ICON(frame, i, stateidx, 'group'..k, XC, YC, RangeX, RangeY, 30);
 
 								XC = m_offsetX + MapPos.x - iconW / 2;
 								YC = m_offsetY + MapPos.y - iconH / 2;
-								MAKE_LOC_ICON(frame, cls, i, stateidx, 'group'..roundCount, XC, YC, iconW, iconH, nil, statelist, questIESlist);
+								MAKE_LOC_ICON(frame, cls, i, stateidx, 'group'..k, XC, YC, iconW, iconH, nil, statelist, questIESlist);
 								roundCount = roundCount + 1;
 
 							end
@@ -1266,7 +1270,7 @@ function GET_COLONY_MONSTER_IMG(frame, monID)
     return frame:GetUserConfig('COLONY_TOWER_IMG');
 end
 
-function MAP_COLONY_MONSTER(frame, msg, posStr, monID)        
+function MAP_COLONY_MONSTER(frame, msg, posStr, monID)
     frame:RemoveChild('colonyMonPic_'..monID);
 
     local mapFrame = ui.GetFrame('map');
@@ -1299,4 +1303,9 @@ function MAP_COLONY_MONSTER(frame, msg, posStr, monID)
         colonyMonEffectPic:SetOffset(_x, _y);
         SET_PICTURE_QUESTMAP(colonyMonEffectPic);
     end
+end
+
+function ON_REMOVE_COLONY_MONSTER(frame, msg, argStr, monID)
+   frame:RemoveChild('colonyMonPic_'..monID);
+   frame:RemoveChild('colonyMonEffectPic'); 
 end

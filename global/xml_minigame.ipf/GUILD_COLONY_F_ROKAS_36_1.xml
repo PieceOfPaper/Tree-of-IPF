@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <GameList>
     <Game Name="GUILD_COLONY_F_ROKAS_36_1" minLv="0" maxLv="0" playerCountCheckDestroy="0" mapName="f_rokas_36_1" startWaitSec="0">
         <StageList>
@@ -44,11 +45,30 @@
                                 <MGameObj List="START/2"/>
                                 <Str Str="SCR_COLONY_TOWER_EFFECT_OFF"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="START/18/START/19/START/20"/>
+                                <Str Str="SCR_GUILD_COLONY_ENTER_EFFECT_OFF"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
                                 <Str Str="START"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="START"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="colony_end_return_city" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_GUILD_COLONY_END_TIME_CHECK"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="COLONY_WAR_RETURN_CITY_ZONE"/>
                             </ToolScp>
                         </execList>
                     </Event>

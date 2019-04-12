@@ -31,13 +31,13 @@ function GUILDINFO_COLONY_ENTER_CONFIG(parent, ctrl)
         return;
     end
 
+    local changeValue = GET_RADIOBTN_NUMBER(ctrl);
     if changeValue == 0 and session.colonywar.GetOccupationInfoByGuildID(guild.info:GetPartyID()) ~= nil then
         ui.SysMsg(ClMsg('CannotChangeConfigBecauseOccupation'));
         GUILDINFO_COLONY_INIT_RADIO(parent);
         return;
     end
 
-    local changeValue = GET_RADIOBTN_NUMBER(ctrl);
     local yesscp = string.format('control.CustomCommand("CHANGE_COLONY_CONFIG", %d)', changeValue);
     local clmsg = '';
     if changeValue == 1 then
@@ -53,9 +53,8 @@ function GUILDINFO_COLONY_INIT_RADIO(colonyBox)
     if guildObj == nil then
         return;
     end    
-    if colonyBox == nil then
-        colonyBox = ui.GetFrame('guildinfo');
-    end
+
+       colonyBox = ui.GetFrame('guildinfo');
 
     local currentConfigValue = guildObj.EnableEnterColonyWar;
     local radioBtn = GET_CHILD_RECURSIVELY(colonyBox, 'joinRadio_'..currentConfigValue);

@@ -826,6 +826,31 @@
         <Key Name="EVENT_1804_ROOT_DATE" Value="102267"/>
         <Key Name="EVENT_MAGAZINE_NUM1_ACHIEVE" Value="102268"/>
         <Key Name="GOLD_STATUE_FIRST_DATA" Value="102263"/>
+        <Key Name="BLESSEDSTONE_DAY_FIRST_REWARD_COUNT" Value="102270"/>
+        <Key Name="BLESSEDSTONE_DAY_FIRST_REWARD_DATE" Value="102273"/>
+        <Key Name="EV180130_STEAM_NIGHT_MARKET_NPC" Value="102281"/>
+        <Key Name="EV180130_STEAM_NIGHT_MARKET_SHOP_9" Value="102282"/>
+        <Key Name="EVENT_1804_TRANSCEND_SHOP_TRADE1" Value="102284"/>
+        <Key Name="EVENT_1804_TRANSCEND_SHOP_TRADE2" Value="102285"/>
+        <Key Name="EVENT_1804_TRANSCEND_SHOP_TRADE3" Value="102294"/>
+        <Key Name="EVENT_1804_TRANSCEND_SUCCESS_COUNT" Value="102283"/>
+        <Key Name="EVENT_COLONYWAR_1DAY" Value="102298"/>
+        <Key Name="EVENT_COLONYWAR_7DAY" Value="102299"/>
+        <Key Name="EVENT_COLONYWAR_GIVETIME" Value="102300"/>
+        <Key Name="HadVisited_700" Value="102290"/>
+        <Key Name="HadVisited_8021" Value="102276"/>
+        <Key Name="MISSION_SURVIVAL_EVENT2_REWARD_COUNT" Value="102289"/>
+        <Key Name="MISSION_SURVIVAL_EVENT2_REWARD_DATE" Value="102291"/>
+        <Key Name="PVP_MINE_MAX" Value="102269"/>
+        <Key Name="PVP_MINE_PCID" Value="102275"/>
+        <Key Name="PVP_MINE_POINT" Value="102274"/>
+        <Key Name="PVP_MINE_RESET" Value="102272"/>
+        <Key Name="PVP_MINE_TEAM" Value="102271"/>
+        <Key Name="STEAM_COLONY_WAR_FIRST_ENTRY_REWARD_CHECK" Value="102295"/>
+        <Key Name="STEAM_COLONY_WAR_FIVE_TIME_REWARD_CHECK" Value="102297"/>
+        <Key Name="STEAM_COLONY_WAR_FIVE_TIME_REWARD_COUNT" Value="102302"/>
+        <Key Name="STEAM_COLONY_WAR_ONEDAY_REWARD_CHECK" Value="102296"/>
+        <Key Name="STEAM_COLONY_WAR_ONEDAY_REWARD_COUNT" Value="102301"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>
@@ -1460,6 +1485,8 @@
         <Key Name="Guild_Attendance_1" Value="102226"/>
         <Key Name="Guild_Attendance_2" Value="102225"/>
         <Key Name="Guild_Attendance_Reset" Value="102227"/>
+        <Key Name="ColonyWarFirstEntryReward" Value="102303"/>
+        <Key Name="ColonyWarFirstVictoryReward" Value="102304"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PartyMember">
         <Key Name="Before_Quest" Value="7225"/>
@@ -8026,6 +8053,9 @@
         <Key Name="STEAM_2YEARS_MASTER_LIST_CHECK" Value="102257"/>
         <Key Name="EVENT_CurrentZone" Value="102266"/>
         <Key Name="EVENT_STrigger_Time" Value="102265"/>
+        <Key Name="MG_Last_MISSION_SURVIVAL_EVENT2" Value="102292"/>
+        <Key Name="MG_Last_PVP_MINE" Value="102280"/>
+        <Key Name="TUTO_RESOURCE_BATTLE" Value="102293"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PC">
         <Key Name="SP" Value="7052"/>
@@ -16505,6 +16535,12 @@
         <Key Name="SIAULIAI_SPIRIT_TRACK" Value="7817"/>
         <Key Name="SUBMASTER_LINKER1_2_TRACK" Value="102093"/>
         <Key Name="Kill_d_raid_velcoffer_fallen_statue_gray" Value="102264"/>
+        <Key Name="HadVisited_700" Value="102286"/>
+        <Key Name="HadVisited_8021" Value="102278"/>
+        <Key Name="Kill_PVP_mine_Genmagnus" Value="102279"/>
+        <Key Name="Kill_PVP_mine_bearkaras" Value="102277"/>
+        <Key Name="Pose_DANCECLAP" Value="102287"/>
+        <Key Name="Pose_EXERCISE" Value="102288"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="CategoryType" Value="51"/>

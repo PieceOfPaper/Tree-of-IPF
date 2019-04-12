@@ -11,7 +11,7 @@
 	<controls>
 		<picture name="bg" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="center center" hittest="false" image="fullblack" stretch="true" alpha="80"/>
 		<button name="closeBtn" rect="0 0 70 70" margin="0 10 10 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame('colony_result')" texttooltip="닫기"/>
-		<richtext name="infoText" rect="0 0 500 30" margin="0 0 280 105" layout_gravity="center bottom" format="{@st66d}{s20}%s초 후에 도시로 귀환됩니다.{/}" param1="time" param1_def="60" fontname="white_18_b_ol"/>
+		<richtext name="infoText" rect="0 0 500 30" margin="0 0 280 105" layout_gravity="center bottom" format="{@st66d}{s20}%s초 후에 도시로 귀환됩니다.{/}" param1="time" param1_def="30" fontname="white_18_b_ol"/>
 		<button name="returnBtn" rect="0 0 220 60" margin="0 0 20 30" layout_gravity="center bottom" skin="test_red_button" caption="{@st66d}도시 귀환{/}" fontname="white_18_b_ol" LBtnUpScp="COLONY_RESULT_REQ_RETURN_CITY"/>
 		<!-- Win -->
 		<groupbox name="winBox" rect="0 0 1300 700" margin="0 -100 0 0" layout_gravity="center center" draw="false">
@@ -23,7 +23,7 @@
 		<picture name="line1" rect="0 0 1048 23" parent="winnerInfoBox" margin="0 0 0 0" layout_gravity="center top" image="colonyline"/>
 		<picture name="line2" rect="0 0 1048 23" parent="winnerInfoBox" margin="0 0 0 10" layout_gravity="center bottom" image="colonyline"/>
 		<richtext name="winnerText" rect="0 0 300 30" parent="winnerInfoBox" margin="0 -78 0 0" layout_gravity="center center" caption="{@st43}{s20}점령길드{/}" fontname="white_18_b_ol"/>
-		<picture name="winnerEmblemPic" rect="0 0 70 70" parent="winnerInfoBox" margin="0 -5 0 0" layout_gravity="center center" image="guildmark_slot" stretch="true"/>
+		<picture name="winnerEmblemPic" rect="0 0 70 70" parent="winnerInfoBox" margin="0 -5 0 0" layout_gravity="center center" image="guildmark_slot" stretch="true" />
 		<richtext name="winnerNameText" rect="0 0 500 30" parent="winnerInfoBox" margin="0 60 0 0" layout_gravity="center center" caption="점령 길드 이름" fontname="yellow_18_b"/>
 	</controls>
 </uiframe>

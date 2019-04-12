@@ -75,6 +75,7 @@ function MINIMAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('MON_MINIMAP_END', 'ON_MON_MINIMAP_END');
     addon:RegisterMsg('COLONY_MONSTER', 'MINIMAP_COLONY_MONSTER');
     addon:RegisterMsg('OPEN_COLONY_POINT', 'UPDATE_MINIMAP');
+    addon:RegisterMsg('REMOVE_COLONY_MONSTER', 'ON_REMOVE_COLONY_MONSTER_MINIMAP');
 
 	mini_pos = GET_CHILD(frame, "my");
 	mini_pos:SetOffset(frame:GetWidth() / 2 - mini_pos:GetImageWidth() / 2 , frame:GetHeight() / 2 - mini_pos:GetImageHeight() / 2);
@@ -194,8 +195,12 @@ function UPDATE_MINIMAP(frame)
 						PictureC:ShowWindow(0);                       
 					end
 
-                    if isColonyMap == true and MonProp:GetClassName() == 'Warp_arrow' then
+                    if isColonyMap == true then
+                        if MonProp:GetClassName() == 'Warp_arrow' then
                         PictureC:ShowWindow(1);
+                        else
+                            PictureC:ShowWindow(0);
+                        end
                     end
 				end
 			end
@@ -398,6 +403,11 @@ function GET_MINI_ICON_POS_BY_MAPPOS(x, y, iconW, iconH)
 end
 
 function MAKE_LOC_CLICK_ICON(parent, i, stateidx, k, XC, YC, RangeX, RangeY, alpha)	
+    local isColonyMap = session.colonywar.GetIsColonyWarMap();
+    if isColonyMap == true then
+        return
+    end
+
 	local ctrlname = "_NPC_LOC_CIR" .. i..stateidx..k;
 	local PictureC = parent:CreateOrGetControl('picture', ctrlname, XC, YC, RangeX, RangeY);
 	tolua.cast(PictureC, "ui::CPicture");
@@ -439,6 +449,10 @@ function MAKE_LOC_ICON(parent, cls, i, stateidx, k, XC, YC, iconW, iconH, worldP
 end
 
 function MAKE_LOC_ICON_BY_ICON_NAME(parent, i, stateidx, k, XC, YC, iconW, iconH, IconName, state, level, name, classID, text, worldPos, MapPos)
+    local isColonyMap = session.colonywar.GetIsColonyWarMap();
+    if isColonyMap == true then
+        return
+    end
 
 	local mylevel = info.GetLevel(session.GetMyHandle());
 
@@ -711,4 +725,10 @@ function MINIMAP_COLONY_MONSTER(frame, msg, posStr, monID)
         colonyMonEffectPic:SetOffset(_x, _y);
         SET_PICTURE_QUESTMAP(colonyMonEffectPic);
     end
+end
+
+function ON_REMOVE_COLONY_MONSTER_MINIMAP(frame, msg, posStr, monID)
+    local mappicturetemp = GET_CHILD(frame, 'npclist', 'ui::CPicture');  
+    mappicturetemp:RemoveChild('colonyMonPic_'..monID);
+    frame:RemoveChild('colonyMonEffectPic');
 end

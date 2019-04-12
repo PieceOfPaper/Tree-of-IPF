@@ -10870,6 +10870,7 @@
 		<Class ClassID="501145" ClassName="EVENT_STEAM_2YEARS_MASTER_CHECK" Data="2주년 이벤트 - 마스터 명단 리스트 받기"/>
 		<Class ClassID="501146" ClassName="EVENT_STEAM_2YEARS_MASTER_CHECK_2" Data="이벤트 진행 상황 : {COUNT}/55{nl}오늘의 초대장을 확인할 마스터는{nl}{JOB} 마스터입니다."/>
 		<Class ClassID="501147" ClassName="EVENT_STEAM_2YEARS_MASTER_CHECK_3" Data="이벤트 진행 상황 : {COUNT}/55{nl}오늘의 초대장은 이미 확인했습니다."/>
+		<Class ClassID="501154" ClassName="EVENT_STEAM_COLONY_FIRST_VICTORY_MSG" Data="길드 콜로니전 첫 승리 보상 받기"/>
 	</Category>
 	<Category Name="GEM_GACHA">
 		<Class ClassID="510001" ClassName="GEM_GACHA_SEL1" Data="젬 1회 뽑기"/>
@@ -11020,6 +11021,17 @@
 		<Class ClassID="801041" ClassName="CololnywarInsideCannotRideHasnotAbility" Data="컴패니언 탑승가능한 직업이 아닙니다."/>
 		<Class ClassID="801042" ClassName="CanNotActiveByColonyWarJoin" Data="콜로니전 진행 중에는 해당 기능을 이용하실 수 없습니다."/>
 		<Class ClassID="801043" ClassName="CannotUseInPVPZone" Data="PVP 지역에서는 사용 하실 수 없습니다."/>
+		<Class ClassID="801044" ClassName="GUILD_COLONY_MSG_ENHANCER_DESTROY{partyName}{name}" Data="콜로니 증폭기가 파괴되었습니다!{nl}(마지막 타격자 : [{partyName}] 길드의 [{name}])"/>
+		<Class ClassID="801045" ClassName="GUILD_COLONY_MSG_ENHANCER_DESTROY_BUFF{name}{buff}" Data="길드 내 [{name}] 유저가 증폭기를 마지막으로 타격하는데 성공했습니다!{nl}보상으로[{buff}] 버프를 받았습니다!"/>
+		<Class ClassID="801046" ClassName="colony_enhancer_name" Data="콜로니 증폭기"/>
+		<Class ClassID="801047" ClassName="STEAM_COLONY_WAR_ONEDAY_REWARD_MSG{itemName}{itemCount}{nowCount}{limitCount}" Data="길드 콜로니전 참여 보상으로  [{itemName}] x {itemCount} 개 지급{nl}(일일 지급 횟수 : {nowCount}/{limitCount} 회)"/>
+		<Class ClassID="801048" ClassName="Colony_GuildMember{Name}HasKilledBy{From}OfGuild{FromGuild}" Data="{FromGuild}의 {From}에게 길드원 {Name}님이 당했습니다."/>
+		<Class ClassID="801049" ClassName="Colony_GuildMember{Name}Killed{Target}OfGuild{TargetGuild}" Data="길드원 {Name}님이 {TargetGuild}의 {Target}을 처치했습니다."/>
+	<Class ClassID="801050" ClassName="STEAM_COLONY_WAR_FIVE_TIME_REWARD_MSG{number}{itemName1}{itemCount1}{itemName2}{itemCount2}" Data="길드 콜로니전 {number}회 참여 보상으로 특별한 아이템이 지급됩니다. {nl}[{itemName1}] x {itemCount1} 개{nl}[{itemName2}] x {itemCount2} 개"/>
+		<Class ClassID="801051" ClassName="STEAM_COLONY_WAR_FIRST_ENTRY_REWARD_MSG" Data="길드 콜로니전 첫 참여 보상으로 다양한 아이템이 지급됩니다.{nl}[F2]키를 눌러 현재 캐릭터의 인벤토리를 확인해 주세요.{nl}(길드 단위로 지급되는 아이템은 [길드 보관함]을 확인해 주세요.)"/>
+		<Class ClassID="801052" ClassName="STEAM_COLONY_WAR_FIRST_VICTORY_REWARD_MSG{itemName}{itemCount}" Data="길드 콜로니전 첫 승리 보상으로  [{itemName}] x {itemCount} 개 지급{nl}(지급된 아이템은 길드 단위로 지급됩니다. [길드 보관함]을 확인해 주세요.)"/>
+		<Class ClassID="801053" ClassName="STEAM_COLONY_WAR_FIRST_VICTORY_REWARD_MSG1" Data="콜로니전에서 첫 승리한 길드의 길드마스터만 이용할 수 있습니다."/>
+		<Class ClassID="801054" ClassName="STEAM_COLONY_WAR_FIRST_VICTORY_REWARD_MSG2" Data="이미 첫 승리 보상을 받았습니다.{nl}길드 보관함을 확인해 주세요."/>
 	</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="การซื้อสำเร็จ"/>

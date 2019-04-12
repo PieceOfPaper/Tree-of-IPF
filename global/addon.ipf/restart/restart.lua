@@ -94,6 +94,12 @@ function AUTORESIZE_RESTART(frame)
 			end
 		end
 	end
+
+	if session.colonywar.GetIsColonyWarMap() == true then	
+		frame:Resize(frame:GetWidth(), maxy + 40);
+		return;
+	end
+
 	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
 	local count = list:Count();
 
