@@ -4,5 +4,7 @@
 	<controls>
 		<richtext name="main_desc" rect="0 0 400 30" margin="46 152 0 0" parent="page_main_left" layout_gravity="left top" textalign="left top" fixwidth="true" caption="{img test_cooltime 24 24} 매월 1일마다 점수가 초기화됩니다.{/}" fontname="limitedsale"/>
 		<!--아이템-->
+		<!-- 팀배 탭 -->
+		<tabitem name="teamBattleObserveTab" parent="teamBattleDetailTab" layout_gravity="left top" caption="{@st66b}Spectate{/}" skinspace="30" width="174"/>
 	</controls>
 </uiframe>

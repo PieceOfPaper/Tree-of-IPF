@@ -2936,7 +2936,18 @@
 			<richtext name="richtext_1" margin="20 55 0 0" rect="0 0 451 27" format="{#000000}%s{/}" param1="value" param1_def="최근 열린 관람 목록" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		</controls>
 	</controlset>
-	<controlset name="pvp_observe_ctrlset" hittest="true" width="480" height="400" hittestset="false" draw="false" skin="none"/>
+  <controlset name="pvp_observe_ctrlset" hittest="true" width="480" height="400" hittestset="false" draw="false" skin="none">
+    <controls>
+      <groupbox name="gbox_whole" margin="0 0 0 0" rect="0 0 480 300" hittestbox="false" skin="test_skin_01" layout_gravity="left top" scrollbar="false"/>
+      <groupbox name="gbox" margin="10 40 0 0" rect="0 0 460 104" hittestbox="false" skin="pvp_team_skin" layout_gravity="left top" scrollbar="false"/>
+      <groupbox name="gbox_1" margin="10 40 0 0" rect="0 0 230 104" hittestbox="false" skin="none" layout_gravity="left top" scrollbar="false"/>
+      <groupbox name="gbox_2" margin="240 40 0 0" rect="0 0 230 104" hittestbox="false" skin="none" layout_gravity="left top" scrollbar="false"/>
+      <richtext name="team_name_1" margin="10 10 0 0" rect="0 0 230 27" format="{@stc2}%s{/}" param1="name" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+      <richtext name="team_name_2" margin="10 10 9 0" rect="0 0 230 27" format="{@stc2}%s{/}" param1="name" textalign="right center" resizebytext="true" spacey="0" maxwidth="0" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
+      <richtext name="vx_text" margin="0 10 0 0" rect="0 0 50 27" format="{@st45tw}{s20}%s{/}" param1="vs" param1_def="x" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+      <button name="btn" margin="0 113 0 5" rect="0 0 261 43" layout_gravity="center bottom" skin="test_red_button" LBtnUpScp="MSG_OBSERVE_GAME" format="{ol}{s20}%s" param1="value" param1_def="관전하기"/>
+    </controls>
+  </controlset>    
 	<controlset name="pvp_observe_ctrlset_pc_1" hittest="true" width="230" height="50" hittestset="false" draw="false" skin="none">
 		<controls>
 			<picture name="pic_job" margin="0 5 0 0" rect="0 0 42 42" hittest="false" image="c_wizard_sorcerer" stretch="true" changecursor="false" layout_gravity="left top"/>

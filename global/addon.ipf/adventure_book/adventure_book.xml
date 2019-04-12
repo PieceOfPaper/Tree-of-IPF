@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="adventure_book" x="0" y="0" width="1500" height="950">
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="false"/>
 	<skin frameskin="None"/>
@@ -289,7 +289,7 @@
 		<groupbox name="page_achieve" rect="0 0 550 680" margin="0 50 25 0" parent="page_quest_and_achieve" layout_gravity="right top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" skin="test_frame_midle"/>
 		<richtext name="title_label" rect="0 0 200 30" margin="20 20 0 0" parent="page_achieve" layout_gravity="left top" textalign="left top" fontname="white_18_ol" caption="업적"/>
 		<richtext name="score_text" rect="0 0 200 30" margin="0 20 20 0" parent="page_achieve" layout_gravity="right top" textalign="right top" fontname="white_18_ol" format="획득점수 %s점" param1="value" param1_def="0"/>
-		<labelline name="labelline" margin="0 50 0 0" rect="0 0 540 4" parent="page_achieve" skin="labelline_def2" layout_gravity="center top"/>		
+		<labelline name="labelline" margin="0 50 0 0" rect="0 0 540 4" parent="page_achieve" skin="labelline_def2" layout_gravity="center top"/>
 		<groupbox name="achieve_list" rect="0 0 520 580" margin="20 70 0 0" parent="page_achieve" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" skin="none"/>
 		<!--콜렉션-->
 		<groupbox name="page_collection" rect="0 0 1200 780" margin="23 80 0 0" parent="page_explore" tabname="tab_explore_collection" tabchangescp="ADVENTURE_BOOK_COLLECTION_TAB" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true"/>
@@ -327,7 +327,7 @@
 		<button name="teamBattleMatchingBtn" rect="0 0 250 60" parent="teamBattleLeftBox" margin="40 0 0 95" layout_gravity="center bottom" skin="test_red_button" caption="{@st59}참여{/}" LBtnUpScp="ADVENTURE_BOOK_JOIN_WORLDPVP" format="{s18}{ol}{#FFFFFF}%s" param1="text" param1_def="JOIN"/>
 		<groupbox name="teamBattleRankingBox" rect="0 0 550 800" parent="page_teamBattleRanking" margin="13 20 35 0" layout_gravity="right top" draw="false" tabname="teamBattleRankingTab" tabchangescp="ADVENTURE_BOOK_TEAM_BATTLE_RANK"/>
 		<controlset name="teamBattleRankSet" rect="0 0 550 750" parent="teamBattleRankingBox" margin="0 10 0 0" layout_gravity="center bottom" type="team_battle_rank_page"/>
-		<groupbox name="teamBattleObserveBox" rect="0 0 550 750" parent="page_teamBattleRanking" margin="10 0 0 0" layout_gravity="right top" draw="false" tabname="teamBattleObserveTab"/>
+		<groupbox name="teamBattleObserveBox" rect="0 0 550 750" parent="page_teamBattleRanking" margin="10 0 0 0" layout_gravity="right top" draw="false" tabname="teamBattleObserveTab" tabchangescp="REFRESH_PVP_OBSERVE_LIST"/>
 		<controlset name="bg_observer" rect="0 0 550 700" parent="teamBattleObserveBox" margin="10 0 0 0" layout_gravity="left bottom" type="pvp_observe_page"/>
 		<!-- 업힐 디펜스 랭킹 -->
 		<groupbox name="page_upHillRanking" rect="0 0 1200 870" margin="0 54 0 0" tabname="upHillRankingTab" layout_gravity="center top" draw="false" tabchangescp="ADVENTURE_BOOK_RANK"/>
@@ -335,7 +335,7 @@
 		<controlset name="upHillRankingSet" type="adventure_book_rank_page" rect="0 0 1100 800" parent="page_upHillRanking" margin="10 0 0 0" layout_gravity="center bottom"/>
 		<richtext name="totalPointText" rect="0 0 300 30" parent="page_upHillRanking" margin="70 7 0 85" layout_gravity="left bottom" caption="누적 포인트" fontname="black_18_b"/>
 		<button name="pointShopBtn" rect="0 0 150 40" parent="page_upHillRanking" margin="420 0 0 75" layout_gravity="left bottom" skin="test_pvp_btn" caption="{@st66b}포인트샵{/}" LBtnUpScp="PVP_OPEN_POINT_SHOP"/>
-		<richtext name="totalPointValueText" rect="0 0 300 30" parent="page_upHillRanking" margin="270 7 0 85" layout_gravity="left bottom" format="%s" param1="point" param1_def="0" fontname="black_18"/>		
+		<richtext name="totalPointValueText" rect="0 0 300 30" parent="page_upHillRanking" margin="270 7 0 85" layout_gravity="left bottom" format="%s" param1="point" param1_def="0" fontname="black_18"/>
 		<!--개인 탭-->
 		<tab name="bookmark_explore" rect="0 0 1000 50" margin="37 50 0 0" parent="page_explore" layout_gravity="left top" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="adventure_tab"/>
 		<tabitem name="tab_explore_map" parent="bookmark_explore" layout_gravity="left top" caption="{@st66b}맵탐사" skinspace="30" width="174"/>
@@ -352,6 +352,6 @@
 		<!-- 팀배 탭 -->
 		<tab name="teamBattleDetailTab" rect="0 0 500 50" margin="37 50 0 0" parent="page_teamBattleRanking" layout_gravity="left top" skin="adventure_tab"/>
 		<tabitem name="teamBattleRankingTab" parent="teamBattleDetailTab" layout_gravity="left top" caption="{@st66b}랭킹{/}" skinspace="30" width="174"/>
-		<tabitem name="teamBattleObserveTab" parent="teamBattleDetailTab" layout_gravity="left top" caption="{@st66b}관전하기{/}" skinspace="30" width="174"/>
+		<tabitem name="teamBattleObserveTab" parent="teamBattleDetailTab" layout_gravity="left top" caption="{@st66b}Spectate{/}" skinspace="30" width="174"/>
 	</controls>
 </uiframe>

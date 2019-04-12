@@ -34,6 +34,12 @@ function REQ_EVENT_ITEM_SHOP7_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
+function REQ_EVENT_ITEM_SHOP8_OPEN()
+	local frame = ui.GetFrame("earthtowershop");
+	frame:SetUserValue("SHOP_TYPE", 'EventShop8');
+	ui.OpenFrame('earthtowershop');
+end
+
 function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	if frame:GetName() == 'legend_craft' then
@@ -125,6 +131,8 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD4", resultlist, cntText);
 	elseif shopType == 'EventShop7' then
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD7", resultlist, cntText);
+	elseif shopType == 'EventShop8' then
+		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD8", resultlist, cntText);
 	elseif shopType == 'PVPMine' then
 		item.DialogTransaction("PVP_MINE_SHOP", resultlist, cntText);
 	end

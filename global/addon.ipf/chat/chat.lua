@@ -89,8 +89,14 @@ function CHAT_SET_TO_TITLENAME(chatType, targetName)
 	end;
 		
 	local width = chatEditCtrl:GetOriginalWidth() - titleCtrl:GetWidth() - btn_ChatType:GetWidth();
-	chatEditCtrl:Resize(width, chatEditCtrl:GetOriginalHeight())
-	chatEditCtrl:SetOffset(offsetX, chatEditCtrl:GetOriginalY());			
+	chatEditCtrl:Resize(width, chatEditCtrl:GetOriginalHeight());
+	
+	if config.GetServiceNation() == "GLOBAL" then
+	chatEditCtrl:SetOffset(offsetX+20, chatEditCtrl:GetOriginalY());	
+	else
+			chatEditCtrl:SetOffset(offsetX, chatEditCtrl:GetOriginalY());	
+	end		
+	
 end
 
 

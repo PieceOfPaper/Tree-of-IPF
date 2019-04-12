@@ -1,11 +1,11 @@
--- function SCR_EVENT_TODAY_TREEROOT_DROPITEM(self, sObj, msg, argObj, argStr, argNum)  
+function SCR_EVENT_TODAY_TREEROOT_DROPITEM(self, sObj, msg, argObj, argStr, argNum)  
 
---     if (argObj.ClassID >= 45132 and argObj.ClassID <= 45136) or (argObj.ClassID >= 45110 and argObj.ClassID <= 45111) then
---         if IsBuffApplied(self, 'Event_Steam_Base_Buff') == 'NO' then 
---             AddBuff(argObj, self, 'Event_Steam_Base_Buff', 1, 0, 1800000, 1);
---         end
---     end
--- end
+    if (argObj.ClassID >= 45132 and argObj.ClassID <= 45136) or (argObj.ClassID >= 45110 and argObj.ClassID <= 45111) then
+        if IsBuffApplied(self, 'Event_Steam_Base_Buff') == 'NO' then 
+            AddBuff(argObj, self, 'Event_Steam_Base_Buff', 1, 0, 1800000, 1);
+        end
+    end
+end
 
 -- function SCR_EVENT_COOPERRATION_DIALOG(self, pc)
 --     local aObj = GetAccountObj(pc);
