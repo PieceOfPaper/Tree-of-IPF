@@ -25,13 +25,15 @@ function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
             ShowOkDlg(pc,'NPC_EVENT_VERUP_DLG1', 1)
             local tx = TxBegin(pc)
             TxAddIESProp(tx, sObj, 'EVENT_VALUE_SOBJ03', 171212);
+            TxSetIESProp(tx, sObj, 'EVENT_VALUE_SOBJ02', 0)
             TxSetIESProp(tx, sObj, 'EVENT_VALUE_SOBJ01', nextLv)
             TxSetIESProp(tx, aObj, 'EVENT_WHITE_R1', 0)
             TxGiveItem(tx, 'LevelUp_Reward_EV', 10, 'Event_VerUP_Box');
             local ret = TxCommit(tx)
-        elseif pc.Lv == 360 and aObj.EVENT_WHITE_R1 == 0 then
+        elseif pc.Lv == 360 and aObj.EVENT_WHITE_R1 ~= aObj.EVENT_WHITE_R2 then
             local tx = TxBegin(pc)
             TxSetIESProp(tx, aObj, 'EVENT_WHITE_R1', 171212)
+            TxSetIESProp(tx, aObj, 'EVENT_WHITE_R2', 171212)
             TxGiveItem(tx, 'Premium_RankReset_60d', 1, 'Event_VerUP_Box2');
             local ret = TxCommit(tx)
         elseif sObj.EVENT_VALUE_SOBJ03 > 0 then
