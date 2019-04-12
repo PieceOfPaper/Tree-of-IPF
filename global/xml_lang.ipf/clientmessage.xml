@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
@@ -367,7 +367,7 @@
 		<Class ClassID="10427" ClassName="MustbeTokenUser" Data="토큰 혜택 적용 시만이 2회 까지 가능합니다."/>
 		<Class ClassID="10428" ClassName="ExtendWarehouseSlot{Silver}{SLOT}" Data="{Silver}실버를 소모해 {SLOT}칸을 확장하시겠습니까?"/>
 		<Class ClassID="10429" ClassName="WarpQuestDisabled" Data="해당 지역에서는 되돌아가기를 사용할 수 없습니다."/>
-		<Class ClassID="10430" ClassName="AccessFailByNoDLC" Data="2016년 3/21일 03시 까지는 파운더를 위한 사전 체험 기간으로 파운더에 한해 게임 이용이 가능합니다. 파운더의 자격은 스팀 스토어를 통해 파운더 스팩을 구매하시면 획득 가능합니다."/>
+		<Class ClassID="10430" ClassName="AccessFailByNoDLC" Data="DLC를 구매하여야 접속 가능합니다."/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="210401" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
