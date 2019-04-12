@@ -405,6 +405,9 @@ function JOURNAL_UPDATE_SCORE(frame, monsterGroup, category)
 	-- 갱신이 안된다는 버그처럼 제보됨...우선 UI표기는 그냥 갱신점수로 하자.
 	-- 기획이 계속 바뀌다보니 뭐가버그고 아닌지 분간도 안가고... 우선 아래처럼 해놓자.
 	local score = session.GetUpdatedWikiScore(GetWikiCategoryEnum(category));
+	if score < session.GetMyWikiScore(GetWikiCategoryEnum(category)) then
+		score = session.GetMyWikiScore(GetWikiCategoryEnum(category))
+	end
 
 	local ctrlSet = monsterGroup:GetChild("ctrlset");
 	if ctrlSet ~= nil then
