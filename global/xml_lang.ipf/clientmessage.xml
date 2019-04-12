@@ -36,13 +36,13 @@
 		<Class ClassID="32" ClassName="DisconnectNGSLogin" Data="NGS 로그인에 실패하였습니다."/>
 		<Class ClassID="33" ClassName="DisconnectNGSProcess" Data="NGS에 의해 접속이 차단되었습니다."/>
 		<Class ClassID="34" ClassName="DisconnectNGSBlock" Data="NGS에 탐지되었습니다. 접속이 차단됩니다."/>
-    <Class ClassID="35" ClassName="TryLater" Data="잠시 후 다시 시도해 주세요."/>
+		<Class ClassID="35" ClassName="TryLater" Data="잠시 후 다시 시도해 주세요."/>
 	</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="301" ClassName="CantWhisperToSelf" Data="자기자신에겐 귓속말을 할 수 없습니다."/>
 		<Class ClassID="302" ClassName="ChatMsgLimitedBy{Max}Byte_EmoticonCanTakeLotsOfByte" Data="채팅은 {Max}바이트를 초과할 수 없습니다. 이모티콘은 많은 바이트를 차지할 수 있기 때문에 개수 제한이 있습니다."/>
 		<Class ClassID="303" ClassName="GuildChatting" Data="길드 대화"/>
-    <Class ClassID="304" ClassName="GroupList" Data="대화 목록"/>
+		<Class ClassID="304" ClassName="GroupList" Data="대화 목록"/>
 	</Category>
 	<Category Name="SimpleWords">
 		<Class ClassID="1100" ClassName="ValidTime" Data="지속 시간"/>
@@ -362,11 +362,12 @@
 		<Class ClassID="10422" ClassName="YouCantUseOblationInCity" Data="마을에서는 사용할 수 없습니다."/>
 		<Class ClassID="10423" ClassName="OblationNameIsNone" Data="봉헌함 이름을 입력해야 합니다."/>
 		<Class ClassID="10424" ClassName="DoingEnchanting" Data="현재 아이템 마법 부여 중에 있습니다. 잠시 후 다시 시도해 주세요."/>
-	<Class ClassID="10425" ClassName="MaxSilverLimitOver" Data="실버 소지 제한 금액을 초과하였습니다."/>
+		<Class ClassID="10425" ClassName="MaxSilverLimitOver" Data="실버 소지 제한 금액을 초과하였습니다."/>
 		<Class ClassID="10426" ClassName="MarketMaxSilverLimitOver" Data="등록 가능한 최대 금액을 초과하였습니다."/>
-    <Class ClassID="10427" ClassName="MustbeTokenUser" Data="토큰 혜택 적용 시만이 2회 까지 가능합니다."/>
+		<Class ClassID="10427" ClassName="MustbeTokenUser" Data="토큰 혜택 적용 시만이 2회 까지 가능합니다."/>
 		<Class ClassID="10428" ClassName="ExtendWarehouseSlot{Silver}{SLOT}" Data="{Silver}실버를 소모해 {SLOT}칸을 확장하시겠습니까?"/>
-	<Class ClassID="10429" ClassName="WarpQuestDisabled" Data="해당 지역에서는 되돌아가기를 사용할 수 없습니다."/>
+		<Class ClassID="10429" ClassName="WarpQuestDisabled" Data="해당 지역에서는 되돌아가기를 사용할 수 없습니다."/>
+		<Class ClassID="10430" ClassName="AccessFailByNoDLC" Data="2016년 3/21일 03시 까지는 파운더를 위한 사전 체험 기간으로 파운더에 한해 게임 이용이 가능합니다. 파운더의 자격은 스팀 스토어를 통해 파운더 스팩을 구매하시면 획득 가능합니다."/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="210401" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -839,8 +840,8 @@
 		<Class ClassID="20154" ClassName="JustStat" Data="스탯"/>
 		<Class ClassID="20155" ClassName="TP_Hair_M_Premium" Data="[프리미엄]남자 헤어"/>
 		<Class ClassID="20156" ClassName="TP_Hair_F_Premium" Data="[프리미엄]여자 헤어"/>
-	<Class ClassID="20157" ClassName="ONE_MORE_TIME" Data="한번 더 열기"/>
-	<Class ClassID="20158" ClassName="ITEM_IsEquiped" Data="착용중"/>
+		<Class ClassID="20157" ClassName="ONE_MORE_TIME" Data="한번 더 열기"/>
+		<Class ClassID="20158" ClassName="ITEM_IsEquiped" Data="착용중"/>
 		<Class ClassID="20159" ClassName="ITEM_IsPurchased" Data="구매함"/>
 	</Category>
 	<Category Name="ChatText">
@@ -3350,11 +3351,11 @@
 		<Class ClassID="22103" ClassName="WaitDroppingItemFromParty{Name}" Data="{Name}님이 아이템선택중에 있습니다. 기다려주세요."/>
 		<Class ClassID="22104" ClassName="WrongTargetTryAgin" Data="잘못된 상대를 선택해 보냈습니다. 다시 시도해 주세요."/>
 		<Class ClassID="22105" ClassName="OverIndunMaxPC" Data="인던 최대 입장인원을 초과했습니다."/>
-	<Class ClassID="22106" ClassName="CantEnterThePartyCuzEnemyGuildInParty" Data="파티에 전쟁 관계인 길드원이 속해있습니다. 파티에 참여할 수 없습니다."/>
+		<Class ClassID="22106" ClassName="CantEnterThePartyCuzEnemyGuildInParty" Data="파티에 전쟁 관계인 길드원이 속해있습니다. 파티에 참여할 수 없습니다."/>
 		<Class ClassID="22107" ClassName="CantInviteThatPersonCuzEnemyGuild" Data="파티에 해당 유저와 전쟁 관계인 길드원이 속해있습니다. 파티에 초대할 수 없습니다."/>
 		<Class ClassID="22108" ClassName="ThatMapCannotPartyOut" Data="해당 맵에서는 파티 탈퇴를 할 수 없습니다."/>
-	<Class ClassID="22109" ClassName="ThatMapCannotChangePartyLeader" Data="해당 맵에서는 파티 리더를 변경 할 수 없습니다."/>
-  </Category>
+		<Class ClassID="22109" ClassName="ThatMapCannotChangePartyLeader" Data="해당 맵에서는 파티 리더를 변경 할 수 없습니다."/>
+	</Category>
 	<Category Name="Guild">
 		<Class ClassID="22301" ClassName="GuildMember{Cur}/{Max}People,OnLine{On}People" Data="길드원 ( {Cur} / {Max} 명, 온라인 {On} 명 )"/>
 		<Class ClassID="22303" ClassName="ChangeDuty" Data="직책변경"/>
@@ -3446,24 +3447,24 @@
 		<Class ClassID="22389" ClassName="Enemy" Data="적대"/>
 		<Class ClassID="22390" ClassName="ToRebuildableTime" Data="재건 가능까지 남은시간"/>
 		<Class ClassID="22391" ClassName="CantRebuildYet" Data="아직 재건이 불가능합니다."/>
-    <Class ClassID="22392" ClassName="GuildMember{Name}HasKilledBy{From}OfGuild{FromGuild}" Data="길드원 {Name}이 {FromGuild}의 {From}에게 당했습니다."/>
-    <Class ClassID="22393" ClassName="GuildMember{Name}Killed{Target}OfGuild{TargetGuild}" Data="길드원 {Name}이 {TargetGuild}의 {Target}을 처치했습니다."/>
-    <Class ClassID="22394" ClassName="CantCancelWarWhenWarIsResting" Data="휴전중엔 전쟁취소가 불가능합니다."/>
-    <Class ClassID="22395" ClassName="GetItemToGuildWareHouse" Data="길드 보관함에 아이템을 획득했습니다."/>
+		<Class ClassID="22392" ClassName="GuildMember{Name}HasKilledBy{From}OfGuild{FromGuild}" Data="길드원 {Name}이 {FromGuild}의 {From}에게 당했습니다."/>
+		<Class ClassID="22393" ClassName="GuildMember{Name}Killed{Target}OfGuild{TargetGuild}" Data="길드원 {Name}이 {TargetGuild}의 {Target}을 처치했습니다."/>
+		<Class ClassID="22394" ClassName="CantCancelWarWhenWarIsResting" Data="휴전중엔 전쟁취소가 불가능합니다."/>
+		<Class ClassID="22395" ClassName="GetItemToGuildWareHouse" Data="길드 보관함에 아이템을 획득했습니다."/>
 		<Class ClassID="22396" ClassName="SelectGuildMemberToGetItem" Data="아이템을 수령할 길드원을 선택하세요."/>
 		<Class ClassID="22397" ClassName="CantRebuildWhileWarState" Data="전쟁중엔 타워를 다시 건설할 수 없습니다."/>
-    <Class ClassID="22398" ClassName="ReturnToOutOfTowerBecauseTowerIsDestroyedAfter{Minute}" Data="타워가 파괴당하여 {Minute}분 후 밖으로 이동됩니다."/>
-    <Class ClassID="22399" ClassName="AbleToRebuild" Data="재건 가능"/>
-	<Class ClassID="22403" ClassName="DoYouWant{GuildEvent}Start?" Data="길드이벤트{nl}{GuildEvent}를 시작하시겠습니까?"/>
+		<Class ClassID="22398" ClassName="ReturnToOutOfTowerBecauseTowerIsDestroyedAfter{Minute}" Data="타워가 파괴당하여 {Minute}분 후 밖으로 이동됩니다."/>
+		<Class ClassID="22399" ClassName="AbleToRebuild" Data="재건 가능"/>
+		<Class ClassID="22403" ClassName="DoYouWant{GuildEvent}Start?" Data="길드이벤트{nl}{GuildEvent}를 시작하시겠습니까?"/>
 		<Class ClassID="22405" ClassName="AccountWareHouse" Data="팀 창고"/>
 		<Class ClassID="22406" ClassName="GetFromGuildWareHouse" Data="길드 보관함 수령 아이템"/>
-	<Class ClassID="22407" ClassName="NotEnoughTicketPossibleCount" Data="필요한 티켓의 갯수가 부족합니다."/>
+		<Class ClassID="22407" ClassName="NotEnoughTicketPossibleCount" Data="필요한 티켓의 갯수가 부족합니다."/>
 		<Class ClassID="22408" ClassName="YouCanBuildInGuildAgit" Data="길드 아지트 내에서만 사용할 수 있습니다."/>
-    <Class ClassID="22409" ClassName="TradeCountWillBeConsumedBy{Value}_Continue?" Data="토큰의 거래 가능 횟수가 {Value}만큼 차감됩니다. 계속하시겠습니까?"/>
-    <Class ClassID="22410" ClassName="SelectItemByMouseLeftButton" Data="마우스 왼쪽 버튼으로 아이템을 선택해주세요."/>
-    <Class ClassID="22411" ClassName="CantDiscardTowerWhileWarState" Data="전쟁중엔 타워를 철거할 수 없습니다."/>
-  <Class ClassID="22412" ClassName="CantPlantSeedBczNotOurGuild" Data="길드원이 아니면 작물을 심을 수 없습니다."/>
-	<Class ClassID="22413" ClassName="doNotJoinGuildEvent" Data="길드 이벤트에 참여하지 않았습니다."/>
+		<Class ClassID="22409" ClassName="TradeCountWillBeConsumedBy{Value}_Continue?" Data="토큰의 거래 가능 횟수가 {Value}만큼 차감됩니다. 계속하시겠습니까?"/>
+		<Class ClassID="22410" ClassName="SelectItemByMouseLeftButton" Data="마우스 왼쪽 버튼으로 아이템을 선택해주세요."/>
+		<Class ClassID="22411" ClassName="CantDiscardTowerWhileWarState" Data="전쟁중엔 타워를 철거할 수 없습니다."/>
+		<Class ClassID="22412" ClassName="CantPlantSeedBczNotOurGuild" Data="길드원이 아니면 작물을 심을 수 없습니다."/>
+		<Class ClassID="22413" ClassName="doNotJoinGuildEvent" Data="길드 이벤트에 참여하지 않았습니다."/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="22501" ClassName="THSword" Data="양손검"/>
@@ -3546,7 +3547,7 @@
 		<Class ClassID="22836" ClassName="NotEnoughTradePossibleCount" Data="거래 가능 횟수가 부족합니다."/>
 <Class ClassID="22838" ClassName="WANNING_DecreasePotaionWhenPutItToAccountWareHouse_Continue?" Data="{#FF0000}남은 거래 횟수 : {COUNT}{nl}{#0f0f0f}해당 아이템을 팀 창고에 넣으면{nl}포텐셜이 감소합니다.{nl}하지만 팀 창고에서 꺼낼땐 포텐셜이 감소하지 않습니다.{nl}그래도 넣으시겠습니까?"/>
 		<Class ClassID="22839" ClassName="WANNING_IfPutItemToWareHouse_TradePossibleItemWillBePut_Continue?" Data="{#FF0000}남은 거래 횟수 : {COUNT}{nl}{#0f0f0f}해당 아이템을 팀 창고에 넣으면{nl}거래 가능한 아이템의 수량만큼 차감됩니다.{nl}그래도 넣으시겠습니까?"/>
-		</Category>
+	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="22900" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
 		<Class ClassID="22901" ClassName="OnlySkillWithSpendItemIsAble" Data="해당 스킬은 등록할 수 없습니다."/>
@@ -3877,7 +3878,7 @@
 		<Class ClassID="29505" ClassName="Collection" Data="콜렉션"/>
 		<Class ClassID="29506" ClassName="GetCollection" Data="콜렉션이 등록되었습니다."/>
 		<Class ClassID="29507" ClassName="YouCanAddOnlyNearbyNpc" Data="마법협회 NPC를 통해서만 등록 가능합니다."/>
-    <Class ClassID="29508" ClassName="CollectionIsSharedToTeamAndCantTakeBackItem_Continue?" Data="콜렉션은 팀단위로 공유되며, 한번 추가한 아이템은 되돌려 받을 수 없습니다. 아이템을 넣으시겠습니까?"/>
+		<Class ClassID="29508" ClassName="CollectionIsSharedToTeamAndCantTakeBackItem_Continue?" Data="콜렉션은 팀단위로 공유되며, 한번 추가한 아이템은 되돌려 받을 수 없습니다. 아이템을 넣으시겠습니까?"/>
 	</Category>
 	<Category Name="Wiki">
 		<Class ClassID="29701" ClassName="From{Auto_1}_Get_{Auto_2}_Count" Data="{Auto_1}로부터 {Auto_2}개 획득"/>
@@ -3929,7 +3930,7 @@
 		<Class ClassID="29747" ClassName="DamageRanking" Data="피해량 랭킹"/>
 		<Class ClassID="29748" ClassName="AlreadyAddrecipe" Data="이미 등록되어 있는 제작서입니다."/>
 		<Class ClassID="29749" ClassName="SuccessAddrecipe" Data="제작서가 등록되었습니다."/>
-    <Class ClassID="29750" ClassName="JournalRank{Rank}" Data="모험지수 {Rank}위"/>
+		<Class ClassID="29750" ClassName="JournalRank{Rank}" Data="모험지수 {Rank}위"/>
 	</Category>
 	<Category Name="HelpList">
 		<Class ClassID="29801" ClassName="HelpList" Data="도움말"/>
@@ -4028,8 +4029,8 @@
 		<Class ClassID="31029" ClassName="CANCEL_LEARING_ABIL" Data="특성배우기가 취소되었습니다."/>
 		<Class ClassID="31031" ClassName="CanNotItemEquip" Data="착용 할 수 있는 아이템이 아닙니다."/>
 		<Class ClassID="31032" ClassName="CanNotLikeIte" Data="해당 캐릭터는 좋아요를 받을 수 있는 상태가 아닙니다."/>
-	<Class ClassID="31033" ClassName="DeathPenaltyGem" Data="현재 지역에서 전투 불능 시, 소지 중인 젬 일부를 유실할 수 있습니다."/>
-    <Class ClassID="31034" ClassName="DeathPenaltyGemSilver" Data="현재 지역에서 전투 불능 시, 소지 중인 젬 일부와 실버를 유실할 수 있습니다."/>
+		<Class ClassID="31033" ClassName="DeathPenaltyGem" Data="현재 지역에서 전투 불능 시, 소지 중인 젬 일부를 유실할 수 있습니다."/>
+		<Class ClassID="31034" ClassName="DeathPenaltyGemSilver" Data="현재 지역에서 전투 불능 시, 소지 중인 젬 일부와 실버를 유실할 수 있습니다."/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="32001" ClassName="ClickToSharedQuestWithParty" Data="{@st59}버튼을 클릭하면 파티원에게 노출합니다."/>
@@ -4155,7 +4156,7 @@
 		<Class ClassID="36501" ClassName="YourLevelIsLowThenIndun" Data="인던 제한 레벨보다 낮습니다"/>
 		<Class ClassID="36502" ClassName="MaxCountExplain{COUNT}" Data="매일 {HOUR}시에 초기화되며 {COUNT}회 입장할 수 있습니다."/>
 		<Class ClassID="36503" ClassName="NextEnterNeed" Data="인던 무제한 입장권을 사용중에 있습니다."/>
-	<Class ClassID="36504" ClassName="IndunMore{COUNT}ForTOKEN" Data="(토큰 혜택으로 {COUNT}번 추가 입장 하실 수 있습니다.)"/>
+		<Class ClassID="36504" ClassName="IndunMore{COUNT}ForTOKEN" Data="(토큰 혜택으로 {COUNT}번 추가 입장 하실 수 있습니다.)"/>
 	</Category>
 	<Category Name="AchieveReward">
 		<Class ClassID="37000" ClassName="GainAchieveHairBefore" Data="이미 업적 보상을 받았습니다."/>
@@ -6568,8 +6569,8 @@
 		<Class ClassID="7008" ClassName="IsSkillStateInPet" Data="스킬 사용중엔 컴패니언에서 내릴 수 없습니다."/>
 		<Class ClassID="7009" ClassName="AlreadRegSameCard" Data="이미 등록된 카드입니다."/>
 		<Class ClassID="7010" ClassName="CheckCardType" Data="카드 속성을 확인해주세요."/>
-	<Class ClassID="7011" ClassName="CannotRideState" Data="해당 스킬 중엔 탑승을 시도할 수 없습니다."/>
-	<Class ClassID="7012" ClassName="CannotTryEquipAndUnEquip" Data="해당 스킬 중엔 장비 장착 및 해제를 할 수 없습니다."/>
+		<Class ClassID="7011" ClassName="CannotRideState" Data="해당 스킬 중엔 탑승을 시도할 수 없습니다."/>
+		<Class ClassID="7012" ClassName="CannotTryEquipAndUnEquip" Data="해당 스킬 중엔 장비 장착 및 해제를 할 수 없습니다."/>
 	</Category>
 	<Category Name="HotKey">
 		<Class ClassID="7200" ClassName="Minimap_-" Data="미니맵 -"/>
@@ -7025,7 +7026,7 @@
 		<Class ClassID="550062" ClassName="Premium_StatResetLng" Data="전체 스탯을 초기화 시킵니다."/>
 		<Class ClassID="550063" ClassName="PremiumToken_event" Data="토큰[증정용]"/>
 		<Class ClassID="550064" ClassName="PremiumToken_15d" Data="토큰:15일[증정용]"/>
-    <Class ClassID="550065" ClassName="OnlyTokenUserAbleToUse" Data="토큰 이용자만 이용할 수 있습니다."/>
+		<Class ClassID="550065" ClassName="OnlyTokenUserAbleToUse" Data="토큰 이용자만 이용할 수 있습니다."/>
 		<Class ClassID="550067" ClassName="CanGetMoreBuff" Data="최대 버프 적용 개수 증가"/>
 	</Category>
 	<Category Name="TPHistory">
