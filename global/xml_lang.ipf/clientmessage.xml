@@ -458,6 +458,7 @@
 		<Class ClassID="4184" ClassName="EventFootBall_350Arm_2_Title" Data="350제 프리머스 방어구 선택 상자"/>
 		<Class ClassID="4185" ClassName="EventFootBall_350Wep_1_Title" Data="350제 베르타스 무기 선택 상자"/>
 		<Class ClassID="4186" ClassName="EventFootBall_350Wep_2_Title" Data="350제 프리머스 무기 선택 상자"/>
+		<Class ClassID="4192" ClassName="SelectHairAcc{ITEM}" Data="{@st66d_y}{s20}{ITEM}{/}{/} {nl}아이템을 정말 선택하시겠습니까?{nl} {nl}선택 후에는 다른 아이템으로{nl}교환할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -4760,6 +4761,41 @@
 		<Class ClassID="28032" ClassName="EVENT_1806_SOCCER_MSG13" Data="천하제일 축구대회가 시작됩니다!{nl}클라페다 낚시터 앞 '천하제일 축구대회 도우미'를 통해서 참여하실 수 있습니다"/>
 		<Class ClassID="28033" ClassName="EVENT_1806_SOCCER_MSG14" Data="숙소에서 컴패니언을 해제하셔야 진행하실 수 있습니다."/>
 		<Class ClassID="28034" ClassName="EVENT_1806_SOCCER_MSG15" Data="3대3축구리그 랭킹 확인"/>
+		<Class ClassID="28040" ClassName="EVENT_1806_STORY_1_MSG1" Data="마스터의 일을 돕는다"/>
+		<Class ClassID="28041" ClassName="EVENT_1806_STORY_1_MSG2" Data="전서응의 이동경로 중 {ZONE} 지역의 몬스터 50마리 처치!"/>
+		<Class ClassID="28042" ClassName="EVENT_1806_STORY_1_MSG3" Data="매 울음소리를 들은 곳으로 가서 매를 찾는다"/>
+		<Class ClassID="28043" ClassName="EVENT_1806_STORY_1_MSG4" Data="더 중요한 일이 있어서 매 찾기는 못 도와준다고 한다"/>
+		<Class ClassID="28044" ClassName="EVENT_1806_STORY_1_MSG5" Data="피리 소리에 대답하는 매 울음소리가 없습니다"/>
+		<Class ClassID="28045" ClassName="EVENT_1806_STORY_1_MSG6" Data="희미한 매 울음소리가 들립니다{nl}하지만 너무 멀리 떨어져있습니다{nl}거리 : {DIST}"/>
+		<Class ClassID="28046" ClassName="EVENT_1806_STORY_1_MSG7" Data="희미하지만 좀 더 뚜렷이 매 울음소리가 들립니다{nl}거리 : {DIST}"/>
+		<Class ClassID="28047" ClassName="EVENT_1806_STORY_1_MSG8" Data="멀지 않은 곳에서 매 울음소리가 들립니다{nl}거리 : {DIST}"/>
+		<Class ClassID="28048" ClassName="EVENT_1806_STORY_1_MSG9" Data="매 가까이에 온 것 같지만 매가 숨어있는지 보이지 않습니다{nl}거리 : {DIST}"/>
+		<Class ClassID="28049" ClassName="EVENT_1806_STORY_1_MSG10" Data="숨어있던 매가 나타났습니다{nl}응사 마스터에게 돌아가 매를 전달하세요"/>
+		<Class ClassID="28050" ClassName="EVENT_1806_STORY_1_MSG11" Data="전서응 안전을 위해 이동 경로 몬스터 처치 {KILL}/50"/>
+		<Class ClassID="28051" ClassName="EVENT_1806_STORY_1_MSG12" Data="전서응 안전이 확보되었습니다.{nl}응사 마스터에게 돌아가 보상을 받으세요!"/>
+		<Class ClassID="28052" ClassName="EVENT_1806_STORY_1_MSG13" Data="멀리서 도움을 요청하는 매 울음소리가 들린다{nl}응사 마스터에게 받은 '전서응 훈련 피리'를 사용해 숨어있는 매를 찾으세요!"/>
+		<Class ClassID="28053" ClassName="EVENT_1806_STORY_1_MSG14" Data="누적 보상받기 (현재 횟수 : {COUNT}회)"/>
+		<Class ClassID="28060" ClassName="EVENT_1807_STORY_2_MSG1" Data="누적 보상을 이미 받으셨습니다"/>
+		<Class ClassID="28061" ClassName="EVENT_1807_STORY_2_MSG2" Data="호위{nl}실패 인원 : {COUNT2}"/>
+		<Class ClassID="28062" ClassName="EVENT_1807_STORY_2_MSG3" Data="호위를 감사드립니다"/>
+		<Class ClassID="28063" ClassName="EVENT_1807_STORY_2_MSG4" Data="동참해주셔서 감사합니다"/>
+		<Class ClassID="28064" ClassName="EVENT_1807_STORY_2_MSG5" Data="역시 여신님이 점찍은 계시자님입니다"/>
+		<Class ClassID="28065" ClassName="EVENT_1807_STORY_2_MSG6" Data="이 모든게 계시자님 덕분입니다"/>
+		<Class ClassID="28066" ClassName="EVENT_1807_STORY_2_MSG7" Data="별의 탑까지 잘 해쳐가겠습니다."/>
+		<Class ClassID="28067" ClassName="EVENT_1807_STORY_2_MSG8" Data="누적 완료 횟수 {COUNT}회 이상부터 받으실 수 있습니다"/>
+		<Class ClassID="28075" ClassName="EVENT_1807_POOL_MSG1" Data="{SEC}초 후 '[Summer Festa] 휴식' 버프가 발동 됩니다"/>
+		<Class ClassID="28076" ClassName="EVENT_1807_POOL_MSG2" Data="맛있는 꼬치와 교환한다[누적 교환 : {COUNT}회]"/>
+		<Class ClassID="28077" ClassName="EVENT_1807_POOL_MSG3" Data="짜릿한 레몬아이스티와 교환한다[누적 교환 : {COUNT}회]"/>
+		<Class ClassID="28078" ClassName="EVENT_1807_POOL_MSG4" Data="시원한 코코넛쥬스와 교환한다[누적 교환 : {COUNT}회]"/>
+		<Class ClassID="28079" ClassName="EVENT_1807_POOL_MSG5" Data="오늘은 {MAX}개까지 교환이 가능합니다"/>
+		<Class ClassID="28080" ClassName="EVENT_1807_POOL_MSG6" Data="몇 개를 교환해드릴까요?{nl}[교환가능 개수 : 1 ~ {MAX}]"/>
+		<Class ClassID="28081" ClassName="EVENT_1807_POOL_MSG7" Data="같은 효과의 버프가 적용 중입니다"/>
+		<Class ClassID="28082" ClassName="EVENT_1807_POOL_MSG8" Data="오늘은 해당 아이템 버프를 사용하셨습니다"/>
+		<Class ClassID="28083" ClassName="EVENT_1807_POOL_MSG9" Data="누적 교환 보상 '{ITEM}' 아이템이 지급됩니다"/>
+		<Class ClassID="28084" ClassName="EVENT_1807_POOL_MSG10" Data="접속 시간 : {MIN}분{nl}[Summer Festa] 이벤트 특별한 얼음 5개를 획득했습니다"/>
+		<Class ClassID="28085" ClassName="EVENT_1807_POOL_MSG11" Data="'[Summer Festa] 휴식' 버프가 발동합니다!"/>
+		<Class ClassID="28091" ClassName="EVENT_1807_BALL_MSG1" Data="남은 이동 횟수 : {COUNT}"/>
+		<Class ClassID="28092" ClassName="EVENT_1807_BALL_MSG2" Data="미션에 도전한다"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -11431,6 +11467,7 @@
 		<Class ClassID="300175" ClassName="Beauty_Coupon_Box" Data="뷰티샵: 바버샵 쿠폰 선물 봉투"/>
 		<Class ClassID="300176" ClassName="Premium_StatReset_30d" Data="스탯 초기화 포션 (30일)"/>
 		<Class ClassID="300177" ClassName="FAILED_PURCHASED_1001000" Data="구매 실패했습니다.{nl}해당 아이템 구매 시{nl}넥슨캐시 월 구매(사용) 한도를 초과합니다."/>
+		<Class ClassID="300180" ClassName="Hair_Acc_Box" Data="헤어 액세서리 상자"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>

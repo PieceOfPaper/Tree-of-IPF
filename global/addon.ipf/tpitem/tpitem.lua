@@ -399,8 +399,6 @@ function SET_TOPMOST_FRAME_SHOWFRAME(show)
 end
 
 function ON_TPSHOP_BUY_SUCCESS(frame)
-	ON_TPSHOP_RESET_PREVIEWMODEL();
-
 	local basketslotset = GET_CHILD_RECURSIVELY(frame,"basketslotset")
 	basketslotset:ClearIconAll();
 	local rcycle_basketbuyslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketbuyslotset")
@@ -408,7 +406,6 @@ function ON_TPSHOP_BUY_SUCCESS(frame)
 	local rcycle_basketsellslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketsellslotset")
 	rcycle_basketsellslotset:ClearIconAll();
 
-	TPSHOP_SET_PREVIEW_APC_IMAGE(frame);
 	UPDATE_BASKET_MONEY(frame);
 	UPDATE_RECYCLE_BASKET_MONEY(frame,"sell")	
 	UPDATE_RECYCLE_BASKET_MONEY(frame,"buy")
@@ -785,33 +782,33 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 			  	isFounded = true;					
 			  end
 		  end
-      local itemcset = nil;
-		  if (allFlag == nil) then	
-			  if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
-				  if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
-					  if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then
-					    index = index + 1
-					    x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
-						  y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
-              itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
-						  TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
-					  end
-				  end
-			  end
-		  else
-			  if (obj.Category == category) then
-				  if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
-					  if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
-						  index = index + 1
-						  x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
-						  y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
-						  itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
-						  TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
-					  end
-				  end
-			  end
-		  end
-    end
+          local itemcset = nil;
+		      if (allFlag == nil) then	
+			      if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
+				      if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
+					      if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then
+					        index = index + 1
+					        x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width');
+						    y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
+                            itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);                            
+						    TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+					      end
+				      end
+			      end
+		      else
+			      if (obj.Category == category) then
+				      if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
+					      if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
+						      index = index + 1
+						      x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
+						      y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
+						      itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
+						      TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+					      end
+				      end
+			      end
+		      end
+        end
 	end
 
 	--mainSubGbox:Resize(mainSubGbox:GetOriginalWidth(), y + ui.GetControlSetAttribute("tpshop_item", 'height'))
@@ -3211,7 +3208,7 @@ function TPITEM_IS_ALREADY_PUT_INTO_BASKET(frame, tpitem)
 end
 
 function TPITEM_SHOW_PACKAGELIST(parent, ctrl, argStr, itemID)
-	PACKAGELIST_SHOW(itemID, argStr);
+	PACKAGELIST_SHOW(itemID, argStr, parent:GetName());
 end
 
 g_tpItemMap = {};

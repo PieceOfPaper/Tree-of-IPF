@@ -6,20 +6,13 @@ function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
         RemoveBuff(pc, 'Event_Steam_Secret_Market')
     end
 
-    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("EVENT_STEAM_2018REWARD_DLG1"), ScpArgMsg("EVENT_STEAM_2018REWARD_DLG2"), ScpArgMsg("EVENT_STEAM_COLONY_FIRST_VICTORY_MSG"), ScpArgMsg("Cancel"))
+    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("EVENT_STEAM_2018REWARD_DLG1"), ScpArgMsg("EVENT_STEAM_2018REWARD_DLG2"), ScpArgMsg("Cancel"))
   
 
     if select == 1 then
         SCR_EV2018_REWARD_GUIDE_DIALOG(self, pc)
     elseif select == 2 then
         SCR_EV2018_REWARD_DAYDAY_DIALOG(self, pc)
-    elseif select == 3 then
-        local state = GetColonyWarState()
-        if state ~= 2 then
-            SCR_STEAM_COLONY_WAR_FIRST_VICTORY_REWARD(self, pc)
-        else
-            SendAddOnMsg(pc, "NOTICE_Dm_!", ScpArgMsg("CanNotActiveByColonyWarJoin"), 7)
-        end
     end
 end
 

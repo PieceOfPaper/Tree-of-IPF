@@ -90,6 +90,8 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_6'); --출석 체크
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Server_Buff'); --스팀 버전업 이벤트
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_FireSongPyeon'); --폭죽 버프
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1807_POOL_TABLE_BUFF'); --[Summer Festa] 휴식
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1807_BALL_CRACKER'); --[Summer Festa] 폭죽
 	return sumExp; 
 end
 

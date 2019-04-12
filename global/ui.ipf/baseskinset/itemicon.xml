@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -2532,6 +2532,19 @@
 		<image name="icon_item_aretfact_trophy_soccer" file="\icon\weapon\icon_item_aretfact_trophy_soccer.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_aretfact_victory_purple" file="\icon\weapon\icon_item_aretfact_victory_purple.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_aretfact_victory_red" file="\icon\weapon\icon_item_aretfact_victory_red.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_food_brochette" file="\icon\weapon\icon_item_food_brochette.png" imgrect="0 0 256 256" CMM_Caption="2018 07 장난감"/>
+		<image name="icon_item_food_paella" file="\icon\weapon\icon_item_food_paella.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_food_coconut" file="\icon\weapon\icon_item_food_coconut.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_food_grilledfish" file="\icon\weapon\icon_item_food_grilledfish.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_food_mojito" file="\icon\weapon\icon_item_food_mojito.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin2018_pistol" file="\icon\weapon\icon_item_marin2018_pistol.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin2018_rifle" file="\icon\weapon\icon_item_marin2018_rifle.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin2018_rod" file="\icon\weapon\icon_item_marin2018_rod.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin2018_staff" file="\icon\weapon\icon_item_marin2018_staff.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin_watergun" file="\icon\weapon\icon_item_marin_watergun.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bubble_pipeb" file="\icon\weapon\icon_item_bubble_pipeb.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_scope_marin" file="\icon\weapon\icon_item_scope_marin.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_lighthouse_stick" file="\icon\weapon\icon_item_lighthouse_stick.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -2965,6 +2978,12 @@
 		<image name="icon_item_2018wedding05" file="\icon\hairacc\icon_item_2018wedding05.png" imgrect="0 0 256 256" CMM_Caption="2018 5월 테마 헤어악세05"/>
 		<image name="icon_item_2018wedding06" file="\icon\hairacc\icon_item_2018wedding06.png" imgrect="0 0 256 256" CMM_Caption="2018 5월 테마 헤어악세06"/>
 		<image name="icon_item_accessory_soccer_ball" file="\icon\hairacc\icon_item_accessory_soccer_ball.png" imgrect="0 0 256 256" CMM_Caption="축구 헤어 악세"/>
+		<image name="icon_item_accessory_anchor" file="\icon\hairacc\icon_item_accessory_anchor.png" imgrect="0 0 256 256" CMM_Caption="2018 07 헤어악세"/>
+		<image name="icon_item_accessory_glassmarin" file="\icon\hairacc\icon_item_accessory_glassmarin.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_lighthouse" file="\icon\hairacc\icon_item_accessory_lighthouse.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_marincap" file="\icon\hairacc\icon_item_accessory_marincap.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_bandmarin" file="\icon\hairacc\icon_item_accessory_bandmarin.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_papermarincap" file="\icon\hairacc\icon_item_accessory_papermarincap.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -4693,6 +4712,20 @@
 		<image name="icon_item_wakepowder" file="\icon\item\icon_item_wakepowder.png" imgrect="0 0 80 80" CMM_Caption="각성가루"/>
 		<image name="icon_item_Vernike_Potion" file="\icon\item\icon_item_Vernike_Potion.png" imgrect="0 0 128 128" CMM_Caption="베르니케 파편 포션"/>
 		<image name="icon_item_Woodcarving_Core" file="\icon\item\icon_item_Woodcarving_Core.png" imgrect="0 0 256 256" CMM_Caption="브리케팅 무기재료"/>
+		<image name="icon_item_random_cashbox" file="\icon\item\icon_item_random_cashbox.png" imgrect="0 0 256 256" CMM_Caption="소액 캐쉬템 랜덤 상자"/>
+		<image name="icon_item_random_hpellixerbox" file="\icon\item\icon_item_random_hpellixerbox.png" imgrect="0 0 128 128" CMM_Caption="[PC방] HP엘릭서 x20"/>
+		<image name="icon_item_random_spellixerbox" file="\icon\item\icon_item_random_spellixerbox.png" imgrect="0 0 128 128" CMM_Caption="[PC방] SP엘릭서 x20"/>
+		<image name="icon_item_pc_looting100" file="\icon\item\icon_item_pc_looting100.png" imgrect="0 0 128 128" CMM_Caption="[PC방] 루팅 찬스 물약 =100"/>
+		<image name="icon_item_pc_skillresetpotion" file="\icon\item\icon_item_pc_skillresetpotion.png" imgrect="0 0 256 256" CMM_Caption="[PC방] 스킬 초기화 포션"/>
+		<image name="icon_item_pc_statresetpotion" file="\icon\item\icon_item_pc_statresetpotion.png" imgrect="0 0 256 256" CMM_Caption="[PC방] 스탯 초기화 포션"/>
+		<image name="icon_item_pc_raidstoneBox" file="\icon\item\icon_item_pc_raidstoneBox.png" imgrect="0 0 256 256" CMM_Caption="[PC방] 레이드 포탈 스톤 상자 x10"/>
+		<image name="icon_item_pc_goldmoru" file="\icon\item\icon_item_pc_goldmoru.png" imgrect="0 0 256 256" CMM_Caption="[PC방] 황금 모루"/>
+		<image name="icon_item_pc_miscbox" file="\icon\item\icon_item_pc_miscbox.png" imgrect="0 0 256 256" CMM_Caption="[PC방] 광물 상자"/>
+		<image name="icon_item_pc_unlock_box" file="\icon\item\icon_item_pc_unlock_box.png" imgrect="0 0 256 256" CMM_Caption="[PC방] 해금권"/>
+		<image name="icon_item_pc_unlock_shaman" file="\icon\item\icon_item_pc_unlock_shaman.png" imgrect="0 0 256 256" CMM_Caption="[PC방] 무녀 해금권"/>
+		<image name="icon_item_pc_unlock_shinobi" file="\icon\item\icon_item_pc_unlock_shinobi.png" imgrect="0 0 256 256" CMM_Caption="[PC방] 시노비 해금권"/>
+		<image name="icon_item_pc_unlock_appraisal" file="\icon\item\icon_item_pc_unlock_appraisal.png" imgrect="0 0 256 256" CMM_Caption="[PC방] 감정사 해금권"/>
+		<image name="icon_item_1807_pool_ice" file="\icon\item\icon_item_1807_pool_ice.png" imgrect="0 0 128 128" CMM_Caption="특별한 얼음"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -5358,6 +5391,35 @@
 		<image name="icon_item_lionSupporter_box" file="\icon\payment\icon_item_lionSupporter_box.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_cafriSupporter_box" file="\icon\payment\icon_item_cafriSupporter_box.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_tpBox_500" file="\icon\payment\icon_item_tpBox_500.png" imgrect="0 0 256 256" CMM_Caption="500TP 패키지"/>
+		<image name="icon_item_Wing_Rescue_Tube" file="\icon\payment\icon_item_Wing_Rescue_Tube.png" imgrect="0 0 256 256" CMM_Caption="2018 7월 코스튬 "/>
+		<image name="icon_item_Wing_Surfing_Marin" file="\icon\payment\icon_item_Wing_Surfing_Marin.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin01_f" file="\icon\payment\icon_item_marin01_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin01_m" file="\icon\payment\icon_item_marin01_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin02_f" file="\icon\payment\icon_item_marin02_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin02_m" file="\icon\payment\icon_item_marin02_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin03_f" file="\icon\payment\icon_item_marin03_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin03_m" file="\icon\payment\icon_item_marin03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin01_sp_f" file="\icon\payment\icon_item_marin01_sp_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin01_sp_m" file="\icon\payment\icon_item_marin01_sp_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin02_sp_f" file="\icon\payment\icon_item_marin02_sp_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin02_sp_m" file="\icon\payment\icon_item_marin02_sp_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin03_sp_f" file="\icon\payment\icon_item_marin03_sp_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marin03_sp_m" file="\icon\payment\icon_item_marin03_sp_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_summer_marine_box" file="\icon\payment\icon_item_summer_marine_box.png" imgrect="0 0 256 256" CMM_Caption="2018 7월 코스튬 박스"/>
+		<image name="icon_item_marine_box01_s" file="\icon\payment\icon_item_marine_box01_s.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marine_box02" file="\icon\payment\icon_item_marine_box02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marine_box03" file="\icon\payment\icon_item_marine_box03.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marine_box01_sp" file="\icon\payment\icon_item_marine_box01_sp.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marine_box02_sp" file="\icon\payment\icon_item_marine_box02_sp.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_marine_box03_sp" file="\icon\payment\icon_item_marine_box03_sp.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_special_marin_effect" file="\icon\payment\icon_item_special_marin_effect.png" imgrect="0 0 256 256" CMM_Caption="2018 7월 코스튬 이펙트"/>
+		<image name="icon_item_marine_popupbook" file="\icon\payment\icon_item_marine_popupbook.png" imgrect="0 0 256 256" CMM_Caption="2018 7월 팝업북"/>
+		<image name="icon_item_Cube_Reopen_Coupon" file="\icon\payment\icon_item_Cube_Reopen_Coupon.png" imgrect="0 0 256 256" CMM_Caption="2018 07 레티샤 "/>
+		<image name="icon_item_Premium_CubeReopen_Box_S" file="\icon\payment\icon_item_Premium_CubeReopen_Box_S.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Premium_kit_Sliver_Box_A" file="\icon\payment\icon_item_Premium_kit_Sliver_Box_A.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_god_box" file="\icon\payment\icon_item_god_box.png" imgrect="0 0 256 256" CMM_Caption="2018 07 레티샤 상자"/>
+		<image name="icon_item_Event_tpBox_500" file="\icon\payment\icon_item_Event_tpBox_500.png" imgrect="0 0 256 256" CMM_Caption="이벤트 TP550"/>
+		<image name="icon_item_acc_hair_box1" file="\icon\payment\icon_item_acc_hair_box1.png" imgrect="0 0 256 256" CMM_Caption="헤어악세 상자"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

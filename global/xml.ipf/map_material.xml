@@ -397,4 +397,22 @@
 			<Sound From="walk_left" To="step_soil"/>
 		</Anim>
 	</Material>
+	<Material ID="25" Name="special_marin" KorName="바다의 가호" MaterialItem="None">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_water007" Scale="0.7"/>
+			<Sound From="pc_war_jump_2" To="step_ice_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="None" Scale="0"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_water007" Scale="1.5"/>
+			<Sound From="walk_left" To="step_ice"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_water007" Scale="1.5"/>
+			<Sound From="walk_left" To="step_ice"/>
+		</Anim>
+	</Material>
 </Map_materials>
