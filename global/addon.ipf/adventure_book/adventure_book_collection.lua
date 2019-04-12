@@ -34,7 +34,7 @@ function ADVENTURE_BOOK_DROPLIST_INIT(frame)
 end
 
 function ADVENTURE_BOOK_COLLECTION_LIST(frame)
-     -- 컬렉션 정보를 만듬
+     -- 콜렉션 정보를 만듬
 	local pc = session.GetMySession();
 	local collectionList = pc:GetCollection();
 	local collectionClassList, collectionClassCount= GetClassList("Collection");    
@@ -44,8 +44,8 @@ function ADVENTURE_BOOK_COLLECTION_LIST(frame)
     local topFrame = frame:GetTopParentFrame();
     local collectionSearchEdit = GET_CHILD_RECURSIVELY(topFrame, 'collectionSearchEdit');
     local searchText = collectionSearchEdit:GetText();
-  
-	-- 보여줄 컬렉션 리스트를 만듬
+    
+	-- 보여줄 콜렉션 리스트를 만듬
 	local collectionCompleteMagicList ={}; -- 완료된 총 효과 리스트.
 	local collectionInfoList = {};
 	local collectionInfoIndex = 1;
@@ -100,7 +100,7 @@ function ADVENTURE_BOOK_COLLECTION_DETAIL(parent, ctrl)
 
     -- name
     local collectionNameText = GET_CHILD_RECURSIVELY(topFrame, 'collectionNameText');    
-    local replaceName = ADVENTURE_BOOK_COLLECTION_REPLACE_NAME(collectionCls.Name); -- "컬렉션:" 을 공백으로 치환한다.
+    local replaceName = ADVENTURE_BOOK_COLLECTION_REPLACE_NAME(collectionCls.Name); -- "콜렉션:" 을 공백으로 치환한다.
     collectionNameText:SetTextByKey('name', replaceName);
 
     -- count
@@ -204,7 +204,6 @@ function ADVENTURE_BOOK_CHECK_STATE_FILTER(frame, collectionInfo, searchText, co
     if searchText ~= nil and searchText ~= '' then
         local collectionName = ADVENTURE_BOOK_COLLECTION_REPLACE_NAME(collectionInfo.name);
         searchText = string.lower(searchText);
-        collectionName = dic.getTranslatedStr(collectionName)
         collectionName = string.lower(collectionName);
         if string.find(collectionName, searchText) == nil then
             return false;
