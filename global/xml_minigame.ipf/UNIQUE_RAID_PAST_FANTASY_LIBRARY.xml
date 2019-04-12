@@ -4116,6 +4116,9 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Success"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_EVENT_REFILL_STONE_LIBRARY_REWARD"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
                                 <Str Str="마군주 프로스터 로드를 쓰러뜨렸습니다!{nl}아가일라 플러리의 계획을 성공적으로 마쳤습니다!{nl}20초 뒤 입장했던 곳으로 이동합니다."/>
                                 <Str Str="Clear"/>

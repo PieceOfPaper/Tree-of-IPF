@@ -906,6 +906,9 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="Boss_Stage"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_EVENT_REFILL_STONE_ASIO_REWARD"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="STAGE3_SUCC_CHECK"/>
                                 <Num Num="1"/>

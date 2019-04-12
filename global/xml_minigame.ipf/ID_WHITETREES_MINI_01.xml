@@ -606,6 +606,9 @@
                                 <Num Num="1"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_EVENT_REFILL_STONE_FIRST_REWARD"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
                                 <Str Str="60초 후 입구로 돌아갑니다."/>
                                 <Num Num="5"/>

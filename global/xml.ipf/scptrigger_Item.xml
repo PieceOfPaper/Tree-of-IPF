@@ -1,384 +1,462 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <SpcItemList>
-	<SpcItem Name="Default">
-		<TriggerList Act="Equip">
-			<Trigger CondScript="" CustomScp=" INCR_PROP(self, obj,&quot;DEF_BM&quot;,10);">
-				<ExecList/>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger CondScript="" CustomScp=" RESTORE_PROP(self, obj,&quot;DEF_BM&quot;);">
-				<ExecList/>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="SWD04_119">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_WEISTREL_SWORD_PRE"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_WEISTREL_SWORD_PRE"/>
-						<Num Num="99"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="Effect_Ghost">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="GHOST_EFFECT"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="GHOST_EFFECT"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="Effect_Stamp_Pumpkin">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="PUMPKIN_STAMP_EFFECT"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="PUMPKIN_STAMP_EFFECT"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="PST04_112">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Bulletmarker_FullMetalJacket"/>
-						<Num Num="2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_RetreatShot"/>
-						<Num Num="2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_RetreatShot"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Bulletmarker_FullMetalJacket"/>
-						<Num Num="-2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="SWD04_120">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_SHAPE_KNIFE"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_SHAPE_KNIFE"/>
-						<Num Num="250"/>
-						<Num Num="80"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="SHD04_116">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_HATECOUNT_UP"/>
-						<Num Num="99"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_HATECOUNT_UP"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="Effect_Cherry_Blossom">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="CHERRY_BLOSSOM_EFFECT"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="CHERRY_BLOSSOM_EFFECT"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="Effect_Stamp_Horse">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="HORSE_STAMP_EFFECT"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="HORSE_STAMP_EFFECT"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="MAC04_122">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_ASIO_MACE_PRE"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_ASIO_MACE_PRE"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="DAG04_116">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_CLOAKING_ADDDMG"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_CLOAKING_ADDDMG"/>
-						<Num Num="15"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="CAN04_111">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_SweepingCannon"/>
-						<Num Num="-2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_SweepingCannon"/>
-						<Num Num="2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_SiegeBurst"/>
-						<Num Num="-2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_SiegeBurst"/>
-						<Num Num="2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="DAG04_115">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO" CondFunc="">
-						<Str Str="ITEM_ATTRIBUTE_ADD"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_ATTRIBUTE_ADD"/>
-						<Num Num="300"/>
-						<Num Num="30"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="CAN04_110">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="BAZOOKAR_DOUBLE_DMG_PRE"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="BAZOOKAR_DOUBLE_DMG_PRE"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="BOW04_117">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
+    <SpcItem Name="Default">
+        <TriggerList Act="Equip">
+            <Trigger CondScript="" CustomScp=" INCR_PROP(self, obj,&quot;DEF_BM&quot;,10);">
+                <ExecList/>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger CondScript="" CustomScp=" RESTORE_PROP(self, obj,&quot;DEF_BM&quot;);">
+                <ExecList/>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="SWD04_119">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="ITEM_WEISTREL_SWORD_PRE"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="ITEM_WEISTREL_SWORD_PRE"/>
+                        <Num Num="99"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="Effect_SNOW">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="SNOW_EFFECT"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="SNOW_EFFECT"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="Effect_AURORA">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="AURORA_EFFECT"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="AURORA_EFFECT"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="Effect_Stamp_Thorn">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="THORN_EFFECT"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="THORN_EFFECT"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="Effect_Ghost">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="GHOST_EFFECT"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="GHOST_EFFECT"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="Effect_Stamp_Pumpkin">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="PUMPKIN_STAMP_EFFECT"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="PUMPKIN_STAMP_EFFECT"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="PST04_112">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Bulletmarker_FullMetalJacket"/>
+                        <Num Num="2"/>
+                    </ToolScp>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Schwarzereiter_RetreatShot"/>
+                        <Num Num="2"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Schwarzereiter_RetreatShot"/>
+                        <Num Num="-2"/>
+                    </ToolScp>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Bulletmarker_FullMetalJacket"/>
+                        <Num Num="-2"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="SWD04_120">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="ITEM_SHAPE_KNIFE"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="ITEM_SHAPE_KNIFE"/>
+                        <Num Num="250"/>
+                        <Num Num="80"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="SHD04_116">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="ITEM_HATECOUNT_UP"/>
+                        <Num Num="99"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="ITEM_HATECOUNT_UP"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="Effect_Cherry_Blossom">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="CHERRY_BLOSSOM_EFFECT"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="CHERRY_BLOSSOM_EFFECT"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="Effect_Stamp_Horse">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="HORSE_STAMP_EFFECT"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="HORSE_STAMP_EFFECT"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="MAC04_122">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="ITEM_ASIO_MACE_PRE"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="ITEM_ASIO_MACE_PRE"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="DAG04_116">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="ITEM_CLOAKING_ADDDMG"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="ITEM_CLOAKING_ADDDMG"/>
+                        <Num Num="15"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="CAN04_111">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Cannoneer_SweepingCannon"/>
+                        <Num Num="-2"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Cannoneer_SweepingCannon"/>
+                        <Num Num="2"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Cannoneer_SiegeBurst"/>
+                        <Num Num="-2"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Cannoneer_SiegeBurst"/>
+                        <Num Num="2"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="DAG04_115">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO" CondFunc="">
+                        <Str Str="ITEM_ATTRIBUTE_ADD"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="ITEM_ATTRIBUTE_ADD"/>
+                        <Num Num="300"/>
+                        <Num Num="30"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="CAN04_110">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="BAZOOKAR_DOUBLE_DMG_PRE"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="BAZOOKAR_DOUBLE_DMG_PRE"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="BOW04_117">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_DeployPavise"/>
-						<Num Num="2"/>
-					</ToolScp>
+                        <Num Num="2"/>
+                    </ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_StoneShot"/>
 						<Num Num="2"/>
@@ -402,13 +480,13 @@
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_ScatterCaltrop"/>
 						<Num Num="2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_RunningShot"/>
 						<Num Num="-3"/>
@@ -432,185 +510,293 @@
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_ScatterCaltrop"/>
 						<Num Num="-2"/>
-					</ToolScp>
+                    </ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_DeployPavise"/>
-						<Num Num="-2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="DAG04_113">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
+                        <Num Num="-2"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="DAG04_113">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Corsair_ImpaleDagger"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Corsair_ImpaleDagger"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="BeforeAttack">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+                        <Str Str="Rogue_Backstab"/>
+                        <Num Num="1.5"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="CAN04_108">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Cannoneer_SweepingCannon"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Cannoneer_CannonBarrage"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Cannoneer_SweepingCannon"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Cannoneer_CannonBarrage"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="costume_Com_41">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="Cotume_DMG_Rate_Down_5"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="Cotume_DMG_Rate_Down_5"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="costume_Com_40">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="Cotume_DMG_Rate_Down_5"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="Cotume_DMG_Rate_Down_5"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="costume_Com_38">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="Cotume_DMG_Rate_Down_3"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="Cotume_DMG_Rate_Down_3"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="costume_Com_39">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="Cotume_DMG_Rate_Down_3"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="Cotume_DMG_Rate_Down_3"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="CAN04_101">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Corsair_ImpaleDagger"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Corsair_ImpaleDagger"/>
+						<Str Str="Cannoneer_CannonShot"/>
 						<Num Num="1"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="BeforeAttack">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
-						<Str Str="Rogue_Backstab"/>
-						<Num Num="1.5"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="CAN04_108">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_SweepingCannon"/>
+						<Str Str="Cannoneer_ShootDown"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SiegeBurst"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonBlast"/>
 						<Num Num="1"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cannoneer_CannonBarrage"/>
 						<Num Num="1"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_SweepingCannon"/>
+						<Str Str="Cannoneer_SmokeGrenade"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_Bazooka"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonShot"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_ShootDown"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SiegeBurst"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonBlast"/>
 						<Num Num="-1"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cannoneer_CannonBarrage"/>
 						<Num Num="-1"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="costume_Com_41">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="Cotume_DMG_Rate_Down_5"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="Cotume_DMG_Rate_Down_5"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SmokeGrenade"/>
 						<Num Num="-1"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="costume_Com_40">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="Cotume_DMG_Rate_Down_5"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="Cotume_DMG_Rate_Down_5"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_Bazooka"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="CAN04_102">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonShot"/>
 						<Num Num="-1"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="costume_Com_38">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="Cotume_DMG_Rate_Down_3"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_ShootDown"/>
 						<Num Num="-1"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="Cotume_DMG_Rate_Down_3"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="costume_Com_39">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="Cotume_DMG_Rate_Down_3"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="Cotume_DMG_Rate_Down_3"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SiegeBurst"/>
 						<Num Num="-1"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="CAN04_101">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonBlast"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonBarrage"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SmokeGrenade"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_Bazooka"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SweepingCannon"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cannoneer_CannonShot"/>
 						<Num Num="1"/>
@@ -639,126 +825,18 @@
 						<Str Str="Cannoneer_Bazooka"/>
 						<Num Num="1"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_CannonShot"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_ShootDown"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_SiegeBurst"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_CannonBlast"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_CannonBarrage"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_SmokeGrenade"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_Bazooka"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="CAN04_102">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_CannonShot"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_ShootDown"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_SiegeBurst"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_CannonBlast"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_CannonBarrage"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_SmokeGrenade"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_Bazooka"/>
-						<Num Num="-1"/>
-					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cannoneer_SweepingCannon"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_CannonShot"/>
-						<Num Num="1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_ShootDown"/>
-						<Num Num="1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_SiegeBurst"/>
-						<Num Num="1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_CannonBlast"/>
-						<Num Num="1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_CannonBarrage"/>
-						<Num Num="1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_SmokeGrenade"/>
-						<Num Num="1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_Bazooka"/>
-						<Num Num="1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_SweepingCannon"/>
-						<Num Num="1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="BOW04_108">
+                        <Num Num="1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="BOW04_108">
 		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
+            <Trigger>
+                <ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_RunningShot"/>
 						<Num Num="-1"/>
@@ -786,13 +864,13 @@
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_DeployPavise"/>
 						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
 		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
+            <Trigger>
+                <ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_DeployPavise"/>
 						<Num Num="1"/>
@@ -820,445 +898,445 @@
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_StonePicking"/>
 						<Num Num="1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="BOW03_303">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="BOW03_303">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_RunningShot"/>
-						<Num Num="1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_RunningShot"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="BRC03_109">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="BRC03_109_buff"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="-1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="BRC03_109_buff"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="NECK03_107">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="NECK03_107_buff"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="-1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="NECK03_107_buff"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="Effect_Stamp_Rabbit">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="RABBIT_STAMP_EFFECT"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="RABBIT_STAMP_EFFECT"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="Effect_Special_Marin">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="SPECIAL_MARIN_EFFECT"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="SPECIAL_MARIN_EFFECT"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="Effect_SnowFlower">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="SNOW_FLOWER_EFFECT"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="SNOW_FLOWER_EFFECT"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="Effect_Stamp_Good">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="GOOD_STAMP_EFFECT"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="GOOD_STAMP_EFFECT"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="MAC04_119">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="MASINIOS_MACE"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="MASINIOS_MACE"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="MUS04_108">
-		<TriggerList Act="AfterHitScript_Attack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_DAMTYPE" Client="NO" UseSleep="NO">
-						<Num Num="4"/>
-					</ToolScp>
-				</CondList>
-				<TgtExecList>
-					<ToolScp Scp="SPCI_BUFF2" Client="NO" UseSleep="NO">
-						<Str Str="Item_BLOCK_Debuff"/>
-						<Num Num="1"/>
-						<Num Num="400"/>
-						<Num Num="10000"/>
-						<Num Num="1"/>
-						<Num Num="10"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</TgtExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="HAND04_112">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="ATK_ICE_SLOW_PRE"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="ATK_ICE_SLOW_PRE"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="HAND03_117">
-		<TriggerList Act="AfterHitScript_Attack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_USE_SKILL" Client="NO" UseSleep="NO">
-						<Str Str="Featherfoot_BloodSucking"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_VAMP" Client="NO" UseSleep="NO">
-						<Num Num="0.15000001"/>
-					</ToolScp>
-				</ExecList>
-				<TgtCondList>
-					<ToolScp Scp="SPCI_COND_MON_TYPE_CHECK" Client="NO" UseSleep="NO">
-						<Str Str="Forester"/>
-					</ToolScp>
-				</TgtCondList>
-			</Trigger>
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_USE_SKILL" Client="NO" UseSleep="NO">
-						<Str Str="Featherfoot_BloodSucking"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_VAMP" Client="NO" UseSleep="NO">
-						<Num Num="0.15000001"/>
-					</ToolScp>
-				</ExecList>
-				<TgtCondList>
-					<ToolScp Scp="SPCI_COND_MON_TYPE_CHECK" Client="NO" UseSleep="NO">
-						<Str Str="Paramune"/>
-					</ToolScp>
-				</TgtCondList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="BRC02_121">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="BRC02_121_buff"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="-1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="BRC02_121_buff"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="BRC01_141">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="BRC01_141_buff"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="-1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="BRC01_141_buff"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="BRC02_120">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="BRC02_120_buff"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="BRC02_120_buff"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="-1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="BRC01_140">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="BRC01_140_buff"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="-1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="BRC01_140_buff"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="BOW03_201">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="BRC03_109">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="BRC03_109_buff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="-1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="BRC03_109_buff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="NECK03_107">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="NECK03_107_buff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="-1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="NECK03_107_buff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="Effect_Stamp_Rabbit">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="RABBIT_STAMP_EFFECT"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="RABBIT_STAMP_EFFECT"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="Effect_Special_Marin">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="SPECIAL_MARIN_EFFECT"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="SPECIAL_MARIN_EFFECT"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="Effect_SnowFlower">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="SNOW_FLOWER_EFFECT"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="SNOW_FLOWER_EFFECT"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="Effect_Stamp_Good">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="GOOD_STAMP_EFFECT"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="GOOD_STAMP_EFFECT"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="MAC04_119">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="MASINIOS_MACE"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="MASINIOS_MACE"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="MUS04_108">
+        <TriggerList Act="AfterHitScript_Attack">
+            <Trigger>
+                <CondList>
+                    <ToolScp Scp="SPCI_CHECK_DAMTYPE" Client="NO" UseSleep="NO">
+                        <Num Num="4"/>
+                    </ToolScp>
+                </CondList>
+                <TgtExecList>
+                    <ToolScp Scp="SPCI_BUFF2" Client="NO" UseSleep="NO">
+                        <Str Str="Item_BLOCK_Debuff"/>
+                        <Num Num="1"/>
+                        <Num Num="400"/>
+                        <Num Num="10000"/>
+                        <Num Num="1"/>
+                        <Num Num="10"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </TgtExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="HAND04_112">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="ATK_ICE_SLOW_PRE"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="ATK_ICE_SLOW_PRE"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="HAND03_117">
+        <TriggerList Act="AfterHitScript_Attack">
+            <Trigger>
+                <CondList>
+                    <ToolScp Scp="SPCI_CHECK_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Featherfoot_BloodSucking"/>
+                    </ToolScp>
+                </CondList>
+                <ExecList>
+                    <ToolScp Scp="SPCI_VAMP" Client="NO" UseSleep="NO">
+                        <Num Num="0.15000001"/>
+                    </ToolScp>
+                </ExecList>
+                <TgtCondList>
+                    <ToolScp Scp="SPCI_COND_MON_TYPE_CHECK" Client="NO" UseSleep="NO">
+                        <Str Str="Forester"/>
+                    </ToolScp>
+                </TgtCondList>
+            </Trigger>
+            <Trigger>
+                <CondList>
+                    <ToolScp Scp="SPCI_CHECK_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Featherfoot_BloodSucking"/>
+                    </ToolScp>
+                </CondList>
+                <ExecList>
+                    <ToolScp Scp="SPCI_VAMP" Client="NO" UseSleep="NO">
+                        <Num Num="0.15000001"/>
+                    </ToolScp>
+                </ExecList>
+                <TgtCondList>
+                    <ToolScp Scp="SPCI_COND_MON_TYPE_CHECK" Client="NO" UseSleep="NO">
+                        <Str Str="Paramune"/>
+                    </ToolScp>
+                </TgtCondList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="BRC02_121">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="BRC02_121_buff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="-1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="BRC02_121_buff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="BRC01_141">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="BRC01_141_buff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="-1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="BRC01_141_buff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="BRC02_120">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="BRC02_120_buff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="BRC02_120_buff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="-1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="BRC01_140">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="BRC01_140_buff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="-1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="BRC01_140_buff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="BOW03_201">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_DeployPavise"/>
 						<Num Num="2"/>
@@ -1277,8 +1355,8 @@
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_RapidFire"/>
-						<Num Num="2"/>
-					</ToolScp>
+                        <Num Num="2"/>
+                    </ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_Teardown"/>
 						<Num Num="2"/>
@@ -1287,12 +1365,12 @@
 						<Str Str="QuarrelShooter_RunningShot"/>
 						<Num Num="3"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_DeployPavise"/>
 						<Num Num="-2"/>
@@ -1311,8 +1389,8 @@
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_RapidFire"/>
-						<Num Num="-2"/>
-					</ToolScp>
+                        <Num Num="-2"/>
+                    </ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_Teardown"/>
 						<Num Num="-2"/>
@@ -1321,14 +1399,14 @@
 						<Str Str="QuarrelShooter_RunningShot"/>
 						<Num Num="-3"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="BOW03_110">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="BOW03_110">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_DeployPavise"/>
 						<Num Num="2"/>
@@ -1355,14 +1433,14 @@
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_RunningShot"/>
-						<Num Num="2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
+                        <Num Num="2"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_DeployPavise"/>
 						<Num Num="-2"/>
@@ -1389,213 +1467,213 @@
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_RunningShot"/>
-						<Num Num="-2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="DAG02_101">
-		<TriggerList Act="AfterHitScript_Attack">
-			<Trigger>
-				<TgtExecList>
-					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
-						<Str Str="CriticalWound"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="15000"/>
-						<Num Num="1"/>
-						<Num Num="1"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</TgtExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="DAG04_101">
-		<TriggerList Act="AfterHitScript_Attack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
-						<Str Str="War_JustFrameDagger"/>
-					</ToolScp>
-				</CondList>
-				<TgtCondList>
-					<ToolScp Scp="SPCI_COND_CHECK_ISNT_BOSS" Client="NO" UseSleep="NO"/>
-				</TgtCondList>
-				<TgtExecList>
-					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
-						<Str Str="item_poison_fast"/>
-						<Num Num="685"/>
-						<Num Num="0"/>
-						<Num Num="10000"/>
-						<Num Num="1"/>
-						<Num Num="2"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</TgtExecList>
-			</Trigger>
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
-						<Str Str="Common_DaggerAries"/>
-					</ToolScp>
-				</CondList>
-				<TgtCondList>
-					<ToolScp Scp="SPCI_COND_CHECK_ISNT_BOSS" Client="NO" UseSleep="NO"/>
-				</TgtCondList>
-				<TgtExecList>
-					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
-						<Str Str="item_poison_fast"/>
-						<Num Num="685"/>
-						<Num Num="0"/>
-						<Num Num="10000"/>
-						<Num Num="1"/>
-						<Num Num="2"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</TgtExecList>
-			</Trigger>
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
-						<Str Str="Corsair_HexenDropper"/>
-					</ToolScp>
-				</CondList>
-				<TgtCondList>
-					<ToolScp Scp="SPCI_COND_CHECK_ISNT_BOSS" Client="NO" UseSleep="NO"/>
-				</TgtCondList>
-				<TgtExecList>
-					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
-						<Str Str="item_poison_fast"/>
-						<Num Num="685"/>
-						<Num Num="0"/>
-						<Num Num="10000"/>
-						<Num Num="1"/>
-						<Num Num="2"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</TgtExecList>
-			</Trigger>
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
-						<Str Str="Corsair_DustDevil"/>
-					</ToolScp>
-				</CondList>
-				<TgtCondList>
-					<ToolScp Scp="SPCI_COND_CHECK_ISNT_BOSS" Client="NO" UseSleep="NO"/>
-				</TgtCondList>
-				<TgtExecList>
-					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
-						<Str Str="item_poison_fast"/>
-						<Num Num="685"/>
-						<Num Num="0"/>
-						<Num Num="10000"/>
-						<Num Num="1"/>
-						<Num Num="2"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</TgtExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="DAG03_102">
-		<TriggerList Act="BeforeAttack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_COND_BUFF" Client="NO" UseSleep="NO">
-						<Str Str="item_set_019_buff"/>
-						<Num Num="1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_COND_BACK_OF_THE_HEAD" Client="NO" UseSleep="NO">
-						<Num Num="120"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
-						<Str Str="Rogue_Backstab"/>
-						<Num Num="1.5"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="BRC04_101">
-		<TriggerList Act="Attack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
-						<Str Str="ENEMY"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
-						<Str Str="item_cicel"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="5000"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-				<TgtCondList>
-					<ToolScp Scp="SPCI_CHECK_DAMTYPE" Client="NO" UseSleep="NO">
-						<Num Num="1"/>
-					</ToolScp>
-				</TgtCondList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="BRC03_102">
-		<TriggerList Act="Kill">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
-						<Str Str="item_linne"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="30000"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-				<TgtCondList>
-					<ToolScp Scp="SPCI_COND_MON_TYPE_CHECK" Client="NO" UseSleep="NO">
-						<Str Str="Forester"/>
-					</ToolScp>
-				</TgtCondList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="BOW02_109">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Rogue_Backstab"/>
-						<Num Num="3"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Rogue_Backstab"/>
-						<Num Num="-3"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="BOW02_103">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
+                        <Num Num="-2"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="DAG02_101">
+        <TriggerList Act="AfterHitScript_Attack">
+            <Trigger>
+                <TgtExecList>
+                    <ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+                        <Str Str="CriticalWound"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="15000"/>
+                        <Num Num="1"/>
+                        <Num Num="1"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </TgtExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="DAG04_101">
+        <TriggerList Act="AfterHitScript_Attack">
+            <Trigger>
+                <CondList>
+                    <ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="War_JustFrameDagger"/>
+                    </ToolScp>
+                </CondList>
+                <TgtCondList>
+                    <ToolScp Scp="SPCI_COND_CHECK_ISNT_BOSS" Client="NO" UseSleep="NO"/>
+                </TgtCondList>
+                <TgtExecList>
+                    <ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+                        <Str Str="item_poison_fast"/>
+                        <Num Num="685"/>
+                        <Num Num="0"/>
+                        <Num Num="10000"/>
+                        <Num Num="1"/>
+                        <Num Num="2"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </TgtExecList>
+            </Trigger>
+            <Trigger>
+                <CondList>
+                    <ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Common_DaggerAries"/>
+                    </ToolScp>
+                </CondList>
+                <TgtCondList>
+                    <ToolScp Scp="SPCI_COND_CHECK_ISNT_BOSS" Client="NO" UseSleep="NO"/>
+                </TgtCondList>
+                <TgtExecList>
+                    <ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+                        <Str Str="item_poison_fast"/>
+                        <Num Num="685"/>
+                        <Num Num="0"/>
+                        <Num Num="10000"/>
+                        <Num Num="1"/>
+                        <Num Num="2"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </TgtExecList>
+            </Trigger>
+            <Trigger>
+                <CondList>
+                    <ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Corsair_HexenDropper"/>
+                    </ToolScp>
+                </CondList>
+                <TgtCondList>
+                    <ToolScp Scp="SPCI_COND_CHECK_ISNT_BOSS" Client="NO" UseSleep="NO"/>
+                </TgtCondList>
+                <TgtExecList>
+                    <ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+                        <Str Str="item_poison_fast"/>
+                        <Num Num="685"/>
+                        <Num Num="0"/>
+                        <Num Num="10000"/>
+                        <Num Num="1"/>
+                        <Num Num="2"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </TgtExecList>
+            </Trigger>
+            <Trigger>
+                <CondList>
+                    <ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Corsair_DustDevil"/>
+                    </ToolScp>
+                </CondList>
+                <TgtCondList>
+                    <ToolScp Scp="SPCI_COND_CHECK_ISNT_BOSS" Client="NO" UseSleep="NO"/>
+                </TgtCondList>
+                <TgtExecList>
+                    <ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+                        <Str Str="item_poison_fast"/>
+                        <Num Num="685"/>
+                        <Num Num="0"/>
+                        <Num Num="10000"/>
+                        <Num Num="1"/>
+                        <Num Num="2"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </TgtExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="DAG03_102">
+        <TriggerList Act="BeforeAttack">
+            <Trigger>
+                <CondList>
+                    <ToolScp Scp="SPCI_COND_BUFF" Client="NO" UseSleep="NO">
+                        <Str Str="item_set_019_buff"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                    <ToolScp Scp="SPCI_COND_BACK_OF_THE_HEAD" Client="NO" UseSleep="NO">
+                        <Num Num="120"/>
+                    </ToolScp>
+                </CondList>
+                <ExecList>
+                    <ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+                        <Str Str="Rogue_Backstab"/>
+                        <Num Num="1.5"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="BRC04_101">
+        <TriggerList Act="Attack">
+            <Trigger>
+                <CondList>
+                    <ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+                        <Str Str="ENEMY"/>
+                    </ToolScp>
+                </CondList>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+                        <Str Str="item_cicel"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="5000"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+                <TgtCondList>
+                    <ToolScp Scp="SPCI_CHECK_DAMTYPE" Client="NO" UseSleep="NO">
+                        <Num Num="1"/>
+                    </ToolScp>
+                </TgtCondList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="BRC03_102">
+        <TriggerList Act="Kill">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+                        <Str Str="item_linne"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="30000"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+                <TgtCondList>
+                    <ToolScp Scp="SPCI_COND_MON_TYPE_CHECK" Client="NO" UseSleep="NO">
+                        <Str Str="Forester"/>
+                    </ToolScp>
+                </TgtCondList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="BOW02_109">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Rogue_Backstab"/>
+                        <Num Num="3"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Rogue_Backstab"/>
+                        <Num Num="-3"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="BOW02_103">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_DeployPavise"/>
 						<Num Num="2"/>
@@ -1622,14 +1700,14 @@
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_RunningShot"/>
-						<Num Num="2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
+                        <Num Num="2"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_DeployPavise"/>
 						<Num Num="-2"/>
@@ -1656,149 +1734,149 @@
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="QuarrelShooter_RunningShot"/>
-						<Num Num="-2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="SSword_knife_D">
-		<TriggerList Act="Attack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_IS_DAGGER_ATTACK" Client="NO" UseSleep="NO"/>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_DAGGER_MULTIPLE_HIT" Client="BOTH" UseSleep="NO">
-						<Num Num="2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="RAP04_115">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_EpeeGarde"/>
-						<Num Num="-2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_EpeeGarde"/>
-						<Num Num="2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="PST04_113">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="SENTENCE_DEBUFF_PRE"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="SENTENCE_DEBUFF_PRE"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="NECK04_117">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
-						<Str Str="SUMMON_STANCE_NO_FALLDOWN"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="0"/>
-						<Num Num="1"/>
-						<Num Num="100"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="SUMMON_STANCE_NO_FALLDOWN"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="PST04_110">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Corsair_PistolShot"/>
-						<Num Num="1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_Limacon"/>
-						<Num Num="1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Bulletmarker_FullMetalJacket"/>
-						<Num Num="1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Bulletmarker_FullMetalJacket"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Corsair_PistolShot"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_Limacon"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="SPR04_118">
-		<TriggerList Act="BeforeAttack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
-						<Num Num="5"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
-						<Num Num="1" UseFunc="1" FuncTxt="if IS_PC(self) == true then
+                        <Num Num="-2"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="SSword_knife_D">
+        <TriggerList Act="Attack">
+            <Trigger>
+                <CondList>
+                    <ToolScp Scp="SPCI_CHECK_IS_DAGGER_ATTACK" Client="NO" UseSleep="NO"/>
+                </CondList>
+                <ExecList>
+                    <ToolScp Scp="SPCI_DAGGER_MULTIPLE_HIT" Client="BOTH" UseSleep="NO">
+                        <Num Num="2"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="RAP04_115">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Fencer_EpeeGarde"/>
+                        <Num Num="-2"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Fencer_EpeeGarde"/>
+                        <Num Num="2"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="PST04_113">
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="SENTENCE_DEBUFF_PRE"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="SENTENCE_DEBUFF_PRE"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="NECK04_117">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+                        <Str Str="SUMMON_STANCE_NO_FALLDOWN"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+                        <Str Str="SUMMON_STANCE_NO_FALLDOWN"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="PST04_110">
+        <TriggerList Act="Equip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Corsair_PistolShot"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Schwarzereiter_Limacon"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Bulletmarker_FullMetalJacket"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+        <TriggerList Act="UnEquip">
+            <Trigger>
+                <ExecList>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Bulletmarker_FullMetalJacket"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Corsair_PistolShot"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                    <ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+                        <Str Str="Schwarzereiter_Limacon"/>
+                        <Num Num="-1"/>
+                    </ToolScp>
+                </ExecList>
+            </Trigger>
+        </TriggerList>
+    </SpcItem>
+    <SpcItem Name="SPR04_118">
+        <TriggerList Act="BeforeAttack">
+            <Trigger>
+                <CondList>
+                    <ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+                        <Num Num="5"/>
+                    </ToolScp>
+                </CondList>
+                <ExecList>
+                    <ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+                        <Num Num="1" UseFunc="1" FuncTxt="if IS_PC(self) == true then
 
 return self.Lightning_Atk*10
 else

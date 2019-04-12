@@ -158,7 +158,7 @@ function HAIR_GACHA_RESERVE_POP_SMALL_FRAME(frameindex, type)
 		return;
 	end
 	
-	local itemiconname = itemclass.Icon
+	local itemiconname = GET_ITEM_ICON_IMAGE(itemclass);
 
 	local smallframename = "HAIRGACHA_SMALL_"..tostring(frameindex);
 	local smallframe = ui.GetFrame(smallframename);
@@ -292,7 +292,7 @@ function HAIR_GACHA_POP_BIG_FRAME(frameindex, type, nobonus, isLeticia)
 	end
 
 	local itemimg = GET_CHILD_RECURSIVELY(bigframe, "bigitemimg")
-	itemimg:SetImage(itemclass.Icon)
+	itemimg:SetImage(GET_ITEM_ICON_IMAGE(itemclass))
 
 	local itemnamectl = GET_CHILD_RECURSIVELY(bigframe, "itemname")
 	if cnt == 1 then
