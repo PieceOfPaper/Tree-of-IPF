@@ -1,4 +1,4 @@
-function LOGINUI_TITLE_ON_INIT(addon, frame)
+﻿function LOGINUI_TITLE_ON_INIT(addon, frame)
 	login.LoadServerList();
 
 	TOGGLE_SINGLE_MODE_UI(frame);

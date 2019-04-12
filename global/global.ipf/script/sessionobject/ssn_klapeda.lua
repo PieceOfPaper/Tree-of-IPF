@@ -29,9 +29,12 @@
 ---- EVENT_1706_MONK
 --SCR_SSN_EVENT_1706_MONK_KillMonster(self, sObj, msg, argObj, argStr, argNum)
 
---EVENT_STEAM_REWARD
+----EVENT_STEAM_REWARD
+--    if IsSameActor(self, party_pc) ~= "YES" and GetDistance(self, party_pc) < PARTY_SHARE_RANGE then
+--        SCR_EVENT_STEAM_ELITE_CHECK(self, sObj, msg, argObj, argStr, argNum)
+--    end
     if IsSameActor(self, party_pc) ~= "YES" and GetDistance(self, party_pc) < PARTY_SHARE_RANGE then
-        SCR_EVENT_STEAM_ELITE_CHECK(self, sObj, msg, argObj, argStr, argNum)
+        SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum) 
     end
 end
 
@@ -51,8 +54,9 @@ function SCR_SSN_KLAPEDA_KillMonster(self, sObj, msg, argObj, argStr, argNum)
 --    SCR_EVENT_YOUR_CHOICE_CHECK(self, sObj, msg, argObj, argStr, argNum)
 -- EVENT_1706_MONK
 --SCR_SSN_EVENT_1706_MONK_KillMonster(self, sObj, msg, argObj, argStr, argNum)
--- TODAY_NUMBER_EVENT
-    SCR_EVENT_TODAY_NUMBER_DROPITEM(self, sObj, msg, argObj, argStr, argNum)
---EVENT_STEAM_REWARD
-    SCR_EVENT_STEAM_ELITE_CHECK(self, sObj, msg, argObj, argStr, argNum)
+---- TODAY_NUMBER_EVENT
+--    SCR_EVENT_TODAY_NUMBER_DROPITEM(self, sObj, msg, argObj, argStr, argNum)
+----EVENT_STEAM_REWARD
+--    SCR_EVENT_STEAM_ELITE_CHECK(self, sObj, msg, argObj, argStr, argNum)
+    SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum) 
 end

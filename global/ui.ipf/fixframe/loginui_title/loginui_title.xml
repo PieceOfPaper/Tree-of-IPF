@@ -8,8 +8,8 @@
 	<script fadeinScp="None" fadeoutScp="None"/>
 	<option hideable="false" closebutton="false"/>
 	<controls>
-		<picture name="bgbg" rect="0 0 6000 8000" margin="0 0 0 0" layout_gravity="center center" image="bg_w" stretch="true"/>
-		<picture name="login_bg" rect="0 0 1920 1080" margin="0 0 0 0 " layout_gravity="center center" image="login_bg2" stretch="false">
+		<picture name="bgbg" rect="0 0 0 0" margin="0 0 0 0" layout_gravity="center center" image="bg_w" stretch="true"/>
+		<picture name="login_bg" rect="0 0 0 0" margin="0 0 0 0 " layout_gravity="center center" image="login_bg2" stretch="false">
 			<uieffect effect="I_screen_bg_light01_orange" scale="50" sound="None" offset="0 0" playtime="10" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_vat03" scale="3" sound="None" offset="550 -200" playtime="2" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_vat03" scale="3" sound="None" offset="-550 -200" playtime="2" duration="0" conditon="Always" event="None"/>
