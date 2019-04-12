@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="3.08" soundFile="skl_eff_photowall_landing"/>
+    <Particle frame="10" particleName="F_drop_flower02" attachNode="Eff_plane_MR04" useAttach="true" hiddenObj="false" changeEffect="None" scale=".7" pause="true" targetPos="false"/>
+    <Particle frame="10" particleName="F_light070_simple" attachNode="Eff_plane_BR" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="10" particleName="F_light070_simple" attachNode="Eff_plane_BL" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="18.00" soundFile="skl_eff_photowall_open"/>
+    <Particle frame="25" particleName="F_spread_out053_flower01" attachNode="Dummy_root" useAttach="true" hiddenObj="false" changeEffect="None" scale=".7" pause="true" targetPos="false"/>
+    <Particle frame="30" particleName="F_candle002" attachNode="Eff_plane_FR01" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="30" particleName="F_candle002" attachNode="Eff_plane_FL01" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="44" particleName="F_candle002" attachNode="Eff_plane_ML02" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" targetPos="false"/>
+    <Particle frame="44" particleName="F_candle002" attachNode="Eff_plane_ML01" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" targetPos="false"/>
+    <Particle frame="44" particleName="F_candle002" attachNode="Eff_plane_MR01" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" targetPos="false"/>
+</ActionDesc>

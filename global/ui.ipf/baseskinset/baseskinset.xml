@@ -5352,6 +5352,8 @@
 		<image name="Collar_FinestMoment" file="\skin\keynbet.tga" imgrect="779 90 30 30" CMM_Caption="칭호 사진"/>
 		<image name="indun_readycheck" file="\skin\indun_skin.tga" imgrect="811 58 57 57" CMM_Caption="인던 4인 이하 준비표시"/>
 		<image name="tooltip_speedofatk" file="\skin\tooltip_skin_3.tga" imgrect="743 111 18 18" CMM_Caption="공격속도 아이콘"/>
+		<image name="LimitedPeriod_bg" file="\skin\pip_test_item.tga" imgrect="1040 0 243 167" CMM_Caption="한정판매"/>
+		<image name="LimitedPeriod_timebg" file="\skin\pip_test_item.tga" imgrect="1508 60 159 25"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -7082,6 +7084,8 @@
 		<image name="Dlg_port_Larisa" file="\npcimg\Larisa.png" imgrect="0 0 800 800" CMM_Caption="쏘마터지마스터"/>
 		<image name="Dlg_port_Kamiya" file="\npcimg\Kamiya.png" imgrect="0 0 800 900" CMM_Caption="로델레로마스터"/>
 		<image name="Dlg_port_Hayravern" file="\npcimg\Hayravern.png" imgrect="0 0 800 1000" CMM_Caption="커세어마스터"/>
+		<image name="Dlg_port_Hayravern2" file="\npcimg\Hayravern2.png" imgrect="0 0 800 1000" CMM_Caption="커세어마스터 위엄"/>
+		<image name="Dlg_port_Hayravern3" file="\npcimg\Hayravern3.png" imgrect="0 0 830 1000" CMM_Caption="커세어마스터 화남"/>
 		<image name="Dlg_port_ApolonijaBarbora" file="\npcimg\ApolonijaBarbora.png" imgrect="0 0 800 900" CMM_Caption="오라클마스터"/>
 		<image name="Dlg_port_DameCirce" file="\npcimg\DameCirce.png" imgrect="0 0 800 900" CMM_Caption="소서러마스터"/>
 		<image name="Dlg_port_EdmundasTiller" file="\npcimg\EdmundasTiller.png" imgrect="0 0 750 1000" CMM_Caption="아쳐마스터"/>
@@ -7282,6 +7286,7 @@
 		<image name="icon_Event_WhitDay_Candy_2" file="\icon\buff_icon.tga" imgrect="128 1664 128 128" CMM_Caption="사탕2"/>
 		<image name="icon_Event_WhitDay_Candy_3" file="\icon\buff_icon.tga" imgrect="256 1664 128 128" CMM_Caption="사탕3"/>
 		<image name="icon_Event_WhitDay_Candy_4" file="\icon\buff_icon.tga" imgrect="384 1664 128 128" CMM_Caption="사탕4"/>
+		<image name="icon_WeddingCake" file="\icon\buff_icon.tga" imgrect="640 1664 128 128" CMM_Caption="웨딩케이크버프"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

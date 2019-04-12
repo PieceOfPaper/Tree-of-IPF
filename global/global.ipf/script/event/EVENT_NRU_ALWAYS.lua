@@ -7,7 +7,7 @@ function SCR_NRU_ALWAYS_DIALOG(self,pc)
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
     local select = ShowSelDlg(pc, 0, 'NPC_EVENT_NRU_ALWAYS_3', ScpArgMsg("steam_Nru_Always_1"), ScpArgMsg("Auto_DaeHwa_JongLyo"))
     if select == 1 then
-        if month >= 5 and day >= 9 and year >= 2017 then
+        if ((month >= 5 and day >= 9) or (month >= 6)) and year >= 2017 then
             if aObj.EV170516_NRU_ALWAYS_AOBJ < 4 then
                 if sObj.EV170516_NRU_ALWAYS_SOBJ == 0 then
                     local tx = TxBegin(pc)

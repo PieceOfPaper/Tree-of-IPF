@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <packeteffects>
+    <Category ID="176">
+        <Effect Name="Dummy_wing"/>
+        <Effect Name="artefact_balloon"/>
+        <Effect Name="Dummy_balloon"/>
+        <Effect Name="artefact_balloon_T"/>
+        <Effect Name="artefact_balloon_O"/>
+        <Effect Name="artefact_balloon_S"/>
+        <Effect Name="artefact_balloon_kor1"/>
+        <Effect Name="artefact_balloon_kor2"/>
+        <Effect Name="artefact_balloon_kor3"/>
+        <Effect Name="artefact_balloon_kor4"/>
+        <Effect Name="artefact_balloon_kor5"/>
+        <Effect Name="artefact_balloon_kor6"/>       
+        <Effect Name="artefact_balloon_star"/>
+    </Category>
+    <Category ID="137">
+        <Effect Name="F_drop_water001_alpha"/>
+        <Effect Name="I_cylinder010_light_dark"/>
+        <Effect Name="I_cleric_barrier_mash_loop"/>
+        <Effect Name="F_dash002_dark"/>
+        <Effect Name="I_archer_canon_force4"/>
+        <Effect Name="F_3CMLAKE261_SQ08_MINI"/>
+        <Effect Name="F_3CMLAKE262_SQ03_MINI"/>
+        <Effect Name="I_cylinder005_light_blue"/>
+        <Effect Name="I_cylinder_test"/>
+        <Effect Name="10"/>
+        <Effect Name="F_3CMLAKE262_SQ06_MINI"/>
+        <Effect Name="F_lineup017_green_rize2"/>
+        <Effect Name="F_3CMLAKE262_SQ06_MINI02"/>
+        <Effect Name="F_explosion09_dark_red"/>
+        <Effect Name="F_ground142_spread_in_blue"/>
+        <Effect Name="YES"/>
+        <Effect Name="EVENT_HOLY"/>
+        <Effect Name="I_smoke004_4_grey2"/>
+        <Effect Name="F_wizard_obey_shot_smoke"/>
+        <Effect Name="F_item_drop_line_loop_green"/>
+        <Effect Name="F_item_drop_line_loop_green"/>
+        <Effect Name="I_light019_orange_spark##2"/>
+        <Effect Name="I_light019_green_spark"/>
+        <Effect Name="I_light019_green_spark"/>
+        <Effect Name="I_light019_orane_spark"/>
+    </Category>
     <Category ID="83">
         <Effect Name="SKL_ARIES"/>
         <Effect Name="SKL_BASH"/>
@@ -54,7 +96,6 @@
         <Effect Name="F_light094_blue_loop2"/>
         <Effect Name="F_light062_red"/>
         <Effect Name="f_bracken_42_1_elt2"/>
-        <Effect Name="WALK"/>
         <Effect Name="F_bg_statu_mint"/>
         <Effect Name="F_explosion035_violet"/>
         <Effect Name="SitGrope_loop"/>
@@ -96,6 +137,20 @@
         <Effect Name="I_ground009_water"/>
         <Effect Name="F_light119_yellow"/>
         <Effect Name="F_light119_yellow"/>
+        <Effect Name="F_light115_explosion_blue"/>
+        <Effect Name="F_light123_green"/>
+        <Effect Name="F_dash011_dark"/>
+        <Effect Name="F_dash014_dark_violet"/>
+        <Effect Name="F_explosion096_dark"/>
+        <Effect Name="F_smoke168_darkpuple"/>
+        <Effect Name="I_smoke027_spread_out"/>
+        <Effect Name="F_lineup016_red"/>
+        <Effect Name="I_line007_red"/>
+        <Effect Name="I_laser001_pink"/>
+        <Effect Name="F_warrior_berserk_shot_ground"/>
+        <Effect Name="F_levitation005_dark_blue2"/>
+        <Effect Name="F_light102_violet_crazy"/>
+        <Effect Name="F_F_pattern015_green"/>
     </Category>
     <Category ID="201">
         <Effect Name="F_cleric_devinestigma_hit_smoke_LOW##0.5"/>
@@ -313,6 +368,24 @@
         <Effect Name="I_force003_green#Bone_mouth2"/>
         <Effect Name="I_force057_dark#Bip001 L Finger3"/>
         <Effect Name="F_burstup003_2"/>
+        <Effect Name="I_arrow009_red2"/>
+        <Effect Name="I_force096_dark#Dummy_effect_hand_R"/>
+        <Effect Name="I_force081_red#Dummy_effect_hand_R"/>
+        <Effect Name="Zaura_pad"/>
+        <Effect Name="F_ground071_smoke_dark#Dummy001"/>
+        <Effect Name="I_force018_trail_fire_grayball"/>
+        <Effect Name="Evil_Pillar"/>
+        <Effect Name="I_force018_trail_fire_grayball#Dummy_effect_skl2"/>
+        <Effect Name="F_wizard_BloodSucking_cast_ground_loop##1"/>
+        <Effect Name="F_explosion98_blood"/>
+        <Effect Name="Mirtis_Cloud"/>
+        <Effect Name="I_force028_orange#Dummy_effect_hand_R"/>
+        <Effect Name="I_force081_orange#Dummy_effect_hand_R"/>
+        <Effect Name="I_force059_orange#Dummy_effect_hand_R"/>
+        <Effect Name="F_explosion065_orange"/>
+        <Effect Name="I_force006_fire#Dummy_effect_hand_R"/>
+        <Effect Name="I_force096_orange#Dummy_effect_hand_R"/>
+        <Effect Name="I_explosion002_orange"/>
     </Category>
     <Category ID="197">
         <Effect Name="F_burstup030_fire1"/>
@@ -411,7 +484,6 @@
     <Category ID="183">
         <Effect Name="F_DCAPITAL_20_6_SQ_60_MINI"/>
         <Effect Name="F_staup_hit"/>
-        <Effect Name="InCount_Compare"/>
         <Effect Name="MISSION_PRISON_EVENT1"/>
         <Effect Name="stage_5"/>
         <Effect Name="MISSION_WHITETREES"/>
@@ -1533,6 +1605,29 @@
         <Effect Name="F_light069_red_fire3"/>
         <Effect Name="Appraiser_OverEstimate"/>
         <Effect Name="Appraiser_Devaluation"/>
+        <Effect Name="mon_jackpot"/>
+        <Effect Name="MISSION_WHITETREES"/>
+        <Effect Name="singing_forest_1"/>
+        <Effect Name="singing_forest_3"/>
+        <Effect Name="F_bg_butterfly002_yellow"/>
+        <Effect Name="singing_forest_4"/>
+        <Effect Name="on_std"/>
+        <Effect Name="I_spread_out001_light_pink_loop"/>
+        <Effect Name="I_spread_out001_light2"/>
+        <Effect Name="F_light028_blue2"/>
+        <Effect Name="WTREES22_3_SUBQ8_MINI"/>
+        <Effect Name="loop_on"/>
+        <Effect Name="I_light015_3"/>
+        <Effect Name="on_loop"/>
+        <Effect Name="I_smoke_red"/>
+        <Effect Name="singing_forest_2"/>
+        <Effect Name="F_bg_smoke005"/>
+        <Effect Name="F_rize014"/>
+        <Effect Name="F_explosion98_rize_green"/>
+        <Effect Name="F_sys_expcard_good"/>
+        <Effect Name="I_light004_red4"/>
+        <Effect Name="I_light004_red4"/>
+        <Effect Name="F_bufBf_basic033_orange_line"/>
     </Category>
     <Category ID="26">
         <Effect Name="I_warrior_ironhook_hook2"/>
@@ -3431,6 +3526,7 @@
         <Effect Name="I_rize009_7_green"/>
         <Effect Name="I_rize009_4"/>
         <Effect Name="F_ground170_dark"/>
+        <Effect Name="musicbox_main"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
@@ -3870,6 +3966,15 @@
         <Effect Name="KEPA_EVENT"/>
         <Effect Name="CORAL_44_3_SQ_30_MINI"/>
         <Effect Name="MISSION_WHITETREES"/>
+        <Effect Name="fishingrod_basic"/>
+        <Effect Name="#Monster_Fishing"/>
+        <Effect Name="Monster_Fishing"/>
+        <Effect Name="dummy_r_hand"/>
+        <Effect Name="PC_Fishing"/>
+        <Effect Name="#PC_Fishing"/>
+        <Effect Name="BLANK"/>
+        <Effect Name="fishing_shot"/>
+        <Effect Name="fishing_ready"/>
     </Category>
     <Category ID="23">
         <Effect Name="I_force004_pink#Bip01 R Finger0"/>
@@ -4090,7 +4195,22 @@
         <Effect Name="F_rize001##0.5"/>
         <Effect Name="MISSION_CATACOMB_HALLOWEEN"/>
         <Effect Name="MISSION_CASTLE_01_RN"/>
-    <Effect Name="Appraise"/>
+        <Effect Name="Appraise"/>    
+        <Effect Name="Monster_Orgel"/>
+        <Effect Name="PC_Orgel"/>
+        <Effect Name="#Monster_Orgel"/>
+        <Effect Name="#PC_Orgel"/>
+        <Effect Name="POSE_DANCECLAP"/>
+        <Effect Name="POSE_EXERCISE"/>
+        <Effect Name="musicbox"/>
+        <Effect Name="dummy_musicbox"/>
+        <Effect Name="musicbox_cake"/>
+        <Effect Name="musicbox_wedding_f"/>
+        <Effect Name="musicbox_maple"/>
+        <Effect Name="#Monster_Orgel2"/>
+        <Effect Name="musicbox_wedding_m"/>
+        <Effect Name="#PC_Orgel2"/>
+        <Effect Name="musicbox_bear"/>
     </Category>
     <Category ID="57">
         <Effect Name="SKL_TELEKINESIS_THROW"/>
@@ -4706,6 +4826,15 @@
         <Effect Name="FANTASYLIB485_MQ_5_MINI"/>
         <Effect Name="I_smoke013_dark_glow2_water"/>
         <Effect Name="F_spread_in032_dark_loop"/>
+        <Effect Name="FANTASYLIB483_MQ_7_MINI"/>
+        <Effect Name="I_light004_blue2"/>
+        <Effect Name="FANTASYLIB484_MQ_2_MINI"/>
+        <Effect Name="FANTASYLIB484_MQ_4_MINI"/>
+        <Effect Name="FANTASYLIB484_MQ_7_MINI"/>
+        <Effect Name="I_cylinder001_blue"/>
+        <Effect Name="I_circle003_spin_loop_violet"/>
+        <Effect Name="FANTASYLIB485_MQ_4_MINI"/>
+        <Effect Name="FANTASYLIB485_MQ_2_MINI"/>
     </Category>
     <Category ID="180">
         <Effect Name="I_ice005_mash###1"/>

@@ -249,3 +249,32 @@ function DLC_BOX10(pc)
     TxGiveItem(tx, 'GIMMICK_Drug_HPSP2', 20, 'DLC_BOX10');
     local ret = TxCommit(tx);
 end
+
+function SCR_USE_ITEM_AddBuff_Item(self,argObj,BuffName,arg1,arg2)
+    -- 이벤트 처음 참가
+    -- 전날 이벤트 완료한 유저
+    local aobj = GetAccountObj(pc);
+    local dlg = {}
+    
+    if aObj.EV170530_MORU_KING == 0 or aObj.EVENT_RETURN_DAY ~= yday then -- 이벤트 처음 참가
+        local rand = IMCRandom(1, 15)
+        
+        local tx = TxBegin(pc);
+    	TxAddIESProp(tx, aobj, "EV170530_MORU_KING", rand);
+    	local ret = TxCommit(tx);
+    end
+    
+    if aObj.EV170530_MORU_KING ~= 0 then
+        ShowOkDlg(pc, dlg[aObj.EV170530_MORU_KING])
+    else
+        -- 다음날 와라
+    end
+    
+    -- 완료
+    local tx = TxBegin(pc);
+  	TxAddIESProp(tx, aobj, "EVENT_RETURN_DAY", yday);
+  	TxAddIESProp(tx, aobj, "EVENT_RETURN_COUNT", aobj.EVENT_RETURN_COUNT + 1);
+  	TxAddIESProp(tx, aobj, "EV170530_MORU_KING", 0);
+  	-- 보상
+  	local ret = TxCommit(tx);
+end

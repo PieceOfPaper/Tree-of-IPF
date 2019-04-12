@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mondu (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <TimeActionAnim>
 	<TimeAction Name="TestTimeAction" RandomLoop="1" StartAnim="APPLY" StartAnimCount="1" NextStart="NONE" NextStartCount="1" BeforEnd="NONE" BeforEndCount="1" EndAniTime="0" EndAnim="AKICKBOX">
 		<LoopAnim Anim="MAKING" AnimCount="1"/>
@@ -86,5 +86,17 @@
 	</TimeAction>
 	<TimeAction Name="Enchanter_EnchantArmor" RandomLoop="1" StartAnim="absorb" StartAnimCount="1" NextStart="NONE" NextStartCount="1" BeforEnd="NONE" BeforEndCount="1" EndAniTime="0" EndAnim="CRAFT_READY">
 		<LoopAnim Anim="absorb" AnimCount="1"/>
+	</TimeAction>
+	<TimeAction Name="PC_Orgel" RandomLoop="0" StartAnim="NONE" StartAnimCount="0" NextStart="NONE" NextStartCount="0" BeforEnd="NONE" BeforEndCount="0" EndAniTime="0" EndAnim="NONE">
+		<LoopAnim Anim="musicbox" AnimCount="1"/>
+	</TimeAction>
+	<TimeAction Name="Monster_Orgel" RandomLoop="0" StartAnim="NONE" StartAnimCount="0" NextStart="NONE" NextStartCount="0" BeforEnd="NONE" BeforEndCount="0" EndAniTime="0" EndAnim="NONE">
+		<LoopAnim Anim="rotate" AnimCount="1"/>
+	</TimeAction>
+	<TimeAction Name="PC_Orgel2" RandomLoop="0" StartAnim="musicbox_cast" StartAnimCount="1" NextStart="NONE" NextStartCount="0" BeforEnd="NONE" BeforEndCount="0" EndAniTime="0" EndAnim="NONE">
+		<LoopAnim Anim="musicbox_loop" AnimCount="1"/>
+	</TimeAction>
+	<TimeAction Name="Monster_Orgel2" RandomLoop="0" StartAnim="rotate_cast" StartAnimCount="1" NextStart="NONE" NextStartCount="0" BeforEnd="NONE" BeforEndCount="0" EndAniTime="0" EndAnim="NONE">
+		<LoopAnim Anim="rotate_loop" AnimCount="1"/>
 	</TimeAction>
 </TimeActionAnim>
