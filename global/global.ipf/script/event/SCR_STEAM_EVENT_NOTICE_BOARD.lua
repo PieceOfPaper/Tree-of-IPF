@@ -13,7 +13,14 @@ function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
     end
     
     if select == 1 then
-        if sObj.EVENT_VALUE_SOBJ03 ~= 171212 and (pc.Lv <= 349 and pc.Lv >= 50) then
+        if aObj.EVENT_WHITE_R1 ~= 171212 then -- reset
+            local tx = TxBegin(pc)
+            TxSetIESProp(tx, aObj, 'EVENT_WHITE_R1', 171212)
+            TxSetIESProp(tx, aObj, 'EVENT_WHITE_R2', 0)
+            local ret = TxCommit(tx)
+        end
+
+        if sObj.EVENT_VALUE_SOBJ03 ~= 171212 and (pc.Lv <= 350 and pc.Lv >= 50) then
             local nextLv = 0
 	        local nextlv_group = {330, 280, 235, 185, 135, 85, 45, 1}
 	        for i = 1, table.getn(nextlv_group) do
@@ -27,12 +34,10 @@ function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
             TxAddIESProp(tx, sObj, 'EVENT_VALUE_SOBJ03', 171212);
             TxSetIESProp(tx, sObj, 'EVENT_VALUE_SOBJ02', 0)
             TxSetIESProp(tx, sObj, 'EVENT_VALUE_SOBJ01', nextLv)
-            TxSetIESProp(tx, aObj, 'EVENT_WHITE_R1', 0)
             TxGiveItem(tx, 'LevelUp_Reward_EV', 10, 'Event_VerUP_Box');
             local ret = TxCommit(tx)
-        elseif pc.Lv == 360 and aObj.EVENT_WHITE_R1 ~= aObj.EVENT_WHITE_R2 then
+        elseif pc.Lv == 360 and aObj.EVENT_WHITE_R2 == 0 then
             local tx = TxBegin(pc)
-            TxSetIESProp(tx, aObj, 'EVENT_WHITE_R1', 171212)
             TxSetIESProp(tx, aObj, 'EVENT_WHITE_R2', 171212)
             TxGiveItem(tx, 'Premium_RankReset_60d', 1, 'Event_VerUP_Box2');
             local ret = TxCommit(tx)
