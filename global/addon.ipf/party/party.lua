@@ -1,14 +1,18 @@
 
 function PARTY_ON_INIT(addon, frame)
-	
 	addon:RegisterMsg("GAME_START", "PARTY_MSG_GAMESTART");
 	addon:RegisterMsg("PARTY_UPDATE", "PARTY_MSG_UPDATE");
+    addon:RegisterMsg("PARTY_NAME_UPDATE", "ON_PARTY_NAME_UPDATE")
 	addon:RegisterMsg("PARTY_INST_UPDATE", "ON_PARTY_INST_UPDATE");
 	addon:RegisterMsg("PARTY_PROPERTY_UPDATE", "ON_PARTY_PROPERTY_UPDATE");
 	addon:RegisterMsg("PARTY_PROPERTY_NOTE_UPDATE", "ON_PARTY_PROPERTY_UPDATE");
 	addon:RegisterMsg("PVP_STATE_CHANGE", "PARTY_ON_PVP_STATE_CHANGE");
 	addon:RegisterMsg("PARTY_OPTION_RESET", "ON_PARTY_OPTION_RESET");
-	
+	addon:RegisterMsg("PARTY_JOIN", "ON_PARTY_JOIN");	
+end
+
+function ON_PARTY_JOIN(frame)
+	RESET_NAME_N_MEMO(frame)
 end
 
 function PARTY_MSG_GAMESTART(frame, msg, str, num)
@@ -66,10 +70,24 @@ function TOGGLE_PARTY_PAT()
 	ui.ToggleFrame('partylist');
 end
 
-function ON_PARTY_UPDATE(frame, msg, str, num)
+function ON_PARTY_NAME_UPDATE(frame)
+	local pcparty = session.party.GetPartyInfo();
+	if pcparty == nil then
+		DESTROY_CHILD_BYNAME(memberlist, 'PTINFO_');
+	end
 
+	local partyNameText = GET_CHILD_RECURSIVELY(frame, 'partyName')
+	local partyNameText_setting = GET_CHILD_RECURSIVELY(frame, 'partyname_edit')
+	
+	if pcparty ~= nil then
+		partyNameText:SetTextByKey("PartyName", pcparty.info.name)
+		partyNameText_setting:SetText(pcparty.info.name)
+		partyNameText:ShowWindow(1)
+	end	
+end
+
+function ON_PARTY_UPDATE(frame, msg, str, num)    
 	UPDATE_I_NEED_PARTY(frame, msg, str, num);
-
 	
 	local partyTab = GET_CHILD_RECURSIVELY(frame, 'itembox')
 	local nowtab = partyTab:GetSelectItemIndex();
@@ -93,13 +111,11 @@ function ON_PARTY_UPDATE(frame, msg, str, num)
 	local partyNameText_setting = GET_CHILD_RECURSIVELY(frame, 'partyname_edit')
 	
 	if pcparty ~= nil then
-		partyNameText:SetTextByKey("PartyName", pcparty.info.name)
-		partyNameText_setting:SetText(pcparty.info.name)
-		partyNameText:ShowWindow(1)
 		local partyObj = GetIES(pcparty:GetObject());
 		local GainType = "ExpGainType_" .. partyObj["ExpGainType"];
 		local expGainType = GET_CHILD_RECURSIVELY(gbox, GainType, "ui::CRadioButton")
 		expGainType:Select();
+		partyNameText:ShowWindow(1)
 	else
 		partyNameText_setting:SetText("")
 		partyNameText:ShowWindow(0)
@@ -258,20 +274,17 @@ function SET_PARTY_PROPERTY_RADIO_BUTTON(gbox, partyObj, propName, maxValue, isL
 	local curValue = partyObj[propName];
 	local curButton = GET_CHILD(gbox, propName .. "_" .. curValue, "ui::CRadioButton");
 	curButton:Select();
-	MSG_CHANGE_RADIO(gbox, propName, curValue, isLeader, curButton)
+	MSG_CHANGE_RADIO(gbox, propName, curValue, curButton)
 end
 
-function MSG_CHANGE_RADIO(gbox,propName,curValue,isLeader, button)
-	
-	local leader = tonumber(isLeader)
-
+function MSG_CHANGE_RADIO(gbox,propName,curValue, button)
 	local preValue = tonumber(gbox:GetUserValue(propName.."Pre"))
 	if preValue == nil then
 		gbox:SetUserValue(propName.."Pre", curValue)
 		return
 	end
 
-	if preValue ~= curValue and leader == 0 then
+	if preValue ~= curValue then
 		if propName == "ItemRouting" then
 			ui.SysMsg(ScpArgMsg("{Change}ItemRouting", "Change", button:GetText()))
 		elseif propName == "ExpGainType" then
@@ -323,7 +336,6 @@ function SAVE_PARTY_NAME_AND_MEMO(parent)
 end
 
 function RESET_NAME_N_MEMO(frame)
-
 	local pcparty = session.party.GetPartyInfo();
 	if pcparty == nil then
 		local outPartyBtn = GET_CHILD_RECURSIVELY(frame, 'outPartyBtn');
@@ -333,23 +345,29 @@ function RESET_NAME_N_MEMO(frame)
 	local partyObj = GetIES(pcparty:GetObject());
 	local nowPartyName = pcparty.info.name;
 	local nowPartyNote = partyObj["Note"];	
-
+	
 	local partynoteText = GET_CHILD_RECURSIVELY(frame,"partynote");
 	partynoteText:SetText(nowPartyNote)
 	local partyNameText_setting = GET_CHILD_RECURSIVELY(frame, 'partyname_edit')
 	partyNameText_setting:SetText(nowPartyName)
-
+	local partyNameText = GET_CHILD_RECURSIVELY(frame, 'partyname')
+	partyNameText:SetTextByKey("PartyName", nowPartyName);
+	
 	local createPartyBtn = GET_CHILD_RECURSIVELY(frame, 'createPartyBtn');
 	createPartyBtn:ShowWindow(0);
 end
 
 
 function ON_PARTY_PROPERTY_UPDATE(frame, msg, str, num)
+	local gbox = frame:GetChild("gbox");
 
 	UPDATE_I_NEED_PARTY(frame, msg, str, num)
 
 	local pcparty = session.party.GetPartyInfo();
 	if pcparty == nil then
+		gbox:SetUserValue("ItemRoutingPre", "None")
+		gbox:SetUserValue("ExpGainTypePre", "None")
+		gbox:SetUserValue("IsQuestSharePre", "None")
 		return;
 	end
 	local partyObj = GetIES(pcparty:GetObject());
@@ -359,7 +377,6 @@ function ON_PARTY_PROPERTY_UPDATE(frame, msg, str, num)
 		isLeader = 1;
 	end
 
-	local gbox = frame:GetChild("gbox");	
 	SET_PARTY_PROPERTY_RADIO_BUTTON(gbox, partyObj, "ItemRouting", 2, isLeader);
 	SET_PARTY_PROPERTY_RADIO_BUTTON(gbox, partyObj, "ExpGainType", 2, isLeader);
 	SET_PARTY_PROPERTY_RADIO_BUTTON(gbox, partyObj, "IsQuestShare", 1, isLeader);
@@ -367,8 +384,6 @@ function ON_PARTY_PROPERTY_UPDATE(frame, msg, str, num)
 	local partynote = GET_CHILD_RECURSIVELY(frame,"partynote");
 	if msg == "PARTY_PROPERTY_NOTE_UPDATE" then
 		partynote:SetText(str);
-	else
-		partynote:SetText(partyObj["Note"])
 	end
 
 	local savePartyNameAndMemo = GET_CHILD_RECURSIVELY(frame,"savePartyNameAndMemo")
