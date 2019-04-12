@@ -28,22 +28,21 @@ function SCR_ORSHA_PETSHOP_DIALOG(self,pc)
         	end
         end
     end
-    local select = ShowSelDlg(pc, 0, 'PETSHOP_ORSHA_basic1', vel, hawk, hoglan, ScpArgMsg('shop_companion'), ScpArgMsg('shop_companionItem'), ScpArgMsg('shop_companion_learnabil'), ScpArgMsg('shop_companion_info'), ScpArgMsg('Auto_DaeHwa_JongLyo'));
-    
-    if select == 1 or select == 2 or select == 3 then
-       local scp = string.format("TRY_CECK_BARRACK_SLOT_BY_COMPANION_EXCHANGE(%d)", select);
-		ExecClientScp(pc, scp);
-	elseif select == 4 then
-	    ShowCustomDlg(pc, "companionshop", 5, "Normal");
-    elseif select == 5 then
-        ShowTradeDlg(pc, 'Klapeda_Companion', 5);
-    elseif select == 6 then
-        SendAddOnMsg(pc, "COMPANION_UI_OPEN", "", 0);
-    elseif select == 7 then
-        ShowOkDlg(pc, 'PETSHOP_ORSHA_basic2', 1)
-    elseif select == 8 then
-        return 0
+   local select = ShowSelDlg(pc, 0, 'PETSHOP_ORSHA_basic1', vel, hawk, hoglan, ScpArgMsg('shop_companion'), ScpArgMsg('shop_companion_learnabil'), ScpArgMsg('shop_companion_info'), ScpArgMsg('Auto_DaeHwa_JongLyo'));
         
-    end
+        if select == 1 or select == 2 or select == 3 then
+           local scp = string.format("TRY_CECK_BARRACK_SLOT_BY_COMPANION_EXCHANGE(%d)", select);
+    		ExecClientScp(pc, scp);
+        elseif select == 4 then
+            ShowTradeDlg(pc, 'Klapeda_Companion', 5);
+        elseif select == 5 then
+			SetExProp(pc, 'PET_TRAIN_SHOP', 1);
+            SendAddOnMsg(pc, "COMPANION_UI_OPEN", "", 0);
+        elseif select == 6 then
+            ShowOkDlg(pc, 'PETSHOP_ORSHA_basic2', 1)
+        elseif select == 7 then
+            return 0
+            
+        end
     
 end
