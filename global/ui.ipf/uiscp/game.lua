@@ -4223,3 +4223,7 @@ function TEST_CLIENT_SCRIPT()
 	TEST_CAMERA_CHANGE(pc, 1, pos.x , pos.y, pos.z, 180)
 	]]
 end
+
+function TEST_UI_OBJECT_INFO()
+	print(ui.UIObjCount(), ui.UIObjectAllocatedSize() / 1024 / 1024);
+end

@@ -56,6 +56,10 @@ end
 
 
 function SCR_D_STARTOWER_90_MQ_HIDDENWALL_PRE_DIALOG(pc, dialog)
+    local questCheck = SCR_QUEST_CHECK(pc, "STARTOWER_90_MQ_40")
+    if questCheck == "PROGRESS" then
+        return "YES"
+    end
     return "NO"
 end
 
