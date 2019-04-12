@@ -13,9 +13,7 @@ function SYSMENU_ON_INIT(addon, frame)
 
 	addon:RegisterMsg('SERV_UI_EMPHASIZE', 'ON_UI_EMPHASIZE');
 	addon:RegisterMsg("UPDATE_READ_COLLECTION_COUNT", "SYSMENU_ON_MSG");
-	addon:RegisterMsg("PREMIUM_NEXON_PC", "SYSMENU_ON_MSG");
-	addon:RegisterMsg("ENABLE_PCBANG_SHOP", "SYSMENU_ON_MSG");
-	addon:RegisterMsg("NEW_USER_REQUEST_GUILD_JOIN", "SYSMENU_ON_MSG");    
+    	
 	frame:EnableHideProcess(1);
 
 end
@@ -25,8 +23,6 @@ function SYSMENU_ON_JOB_CHANGE(frame)
 	
 	--"SYSMENU_CHANGED" 메시지 보내기 대신.
 	SYSMENU_JOYSTICK_ON_MSG();
-	local timerFrame = ui.GetFrame("pcbang_point_timer");
-	PCBANG_POINT_TIMER_SET_MARGIN(timerFrame);
 end
 
 function SYSMENU_MYPC_GUILD_JOIN(frame)
@@ -38,18 +34,8 @@ end
 
 function SYSMENU_ON_MSG(frame, msg, argStr, argNum)
 	if msg == "GAME_START" then
+		frame:RunUpdateScript("JANSORI", 0.01, 0.0, 0, 1);
 		SYSMENU_CHECK_HIDE_VAR_ICONS(frame);
-	end
-
-	if msg == "PREMIUM_NEXON_PC" or msg == "ENABLE_PCBANG_SHOP" then
-		if argNum == 1 then
-			SYSMENU_CHECK_HIDE_VAR_ICONS(frame);
-			if IS_PCBANG_POINT_TIMER_CHECKED() == 1 then
-				ui.OpenFrame("pcbang_point_timer");
-				local timerFrame = ui.GetFrame("pcbang_point_timer");
-				PCBANG_POINT_TIMER_SET_MARGIN(timerFrame);
-			end
-		end
 	end
 
 	if msg == 'PC_PROPERTY_UPDATE' or msg == 'RESET_SKL_UP' or msg =='GAME_START' or msg=='UPDATE_READ_COLLECTION_COUNT' then
@@ -68,9 +54,6 @@ function SYSMENU_ON_MSG(frame, msg, argStr, argNum)
 	if msg == 'UPDATE_FRIEND_LIST' or msg == 'REMOVE_FRIEND' or msg == 'ADD_FRIEND' then
 		SYSMENU_PC_NEWFRIEND_NOTICE(frame)
 		frame:Invalidate();
-	end
-	if msg == "NEW_USER_REQUEST_GUILD_JOIN" then
-		SYSMENU_GUILD_NOTICE(frame, 1)
 	end
 end
 
@@ -93,29 +76,24 @@ end
 function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
 
 	if false == VARICON_VISIBLE_STATE_CHANTED(frame, "necronomicon", "necronomicon")
-	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "customdrag", "customdrag")
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "grimoire", "grimoire")
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "guild", "guild")
-	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "poisonpot", "poisonpot")    
-	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "pcbang_shop", "pcbang_shop")    
+	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "poisonpot", "poisonpot")
 	then
 		return;
 	end
 
-	local pcbangIcon = frame:GetUserConfig("PC_BANG_SHOP_ICON");
 	DESTROY_CHILD_BY_USERVALUE(frame, "IS_VAR_ICON", "YES");
 
     local extraBag = frame:GetChild('extraBag');
-	local rankBtn = frame:GetChild("rankBtn");	
-    local guildRank = frame:GetChild('guildRank');
-    local offsetX = extraBag:GetX() - guildRank:GetX()
-	local rightMargin = guildRank:GetMargin().right + offsetX;
+	local status = frame:GetChild("status");
+	local offsetX = status:GetX() - extraBag:GetX();
+	local rightMargin = extraBag:GetMargin().right + offsetX;
+
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "guildinfo", "guildinfo", "sysmenu_guild", rightMargin, offsetX, "Guild");
-	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "customdrag", "customdrag", "sysmenu_alchemist", rightMargin, offsetX);
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "necronomicon", "necronomicon", "sysmenu_card", rightMargin, offsetX);
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "grimoire", "grimoire", "sysmenu_neacro", rightMargin, offsetX);
-	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "poisonpot", "poisonpot", "sysmenu_wugushi", rightMargin, offsetX);	 
-	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "pcbang_shop", "pcbang_shop", pcbangIcon, rightMargin, offsetX);	   
+	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "poisonpot", "poisonpot", "sysmenu_wugushi", rightMargin, offsetX);	
 end
 
 function SYSMENU_CREATE_VARICON(frame, status, ctrlName, frameName, imageName, rightMargin, offsetX, hotkeyName)
@@ -125,7 +103,7 @@ function SYSMENU_CREATE_VARICON(frame, status, ctrlName, frameName, imageName, r
 		return rightMargin;
 	end
 
-	local margin = status:GetMargin();
+	local margin = status:GetMargin();    
 	local btn = frame:CreateControl("button", ctrlName, status:GetWidth(), status:GetHeight(), ui.LEFT, ui.BOTTOM, 0, margin.top, margin.right, margin.bottom);
 	if btn == nil then
 		return rightMargin;
@@ -146,15 +124,9 @@ function SYSMENU_CREATE_VARICON(frame, status, ctrlName, frameName, imageName, r
 
 	btn:SetTextTooltip("{@st59}" .. tooltipString);
     if hotkeyName ~= 'Guild' then
-	    btn:SetEventScript(ui.LBUTTONUP, string.format("ui.ToggleFrame('%s')", frameName), true);
+	    btn:SetEventScript(ui.LBUTTONUP, string.format("ui.ToggleFrame('%s')", frameName));
     else
-		btn:SetEventScript(ui.LBUTTONUP, 'UI_TOGGLE_GUILD()', true);
-		local guildinfonotice = btn:CreateControl("groupbox", "guildinfonotice", 20, 20, ui.LEFT, ui.TOP, 0, 0, 0, 0)
-		guildinfonotice:SetSkinName("digitnotice_bg")
-		guildinfonotice:EnableHitTest(1)
-		guildinfonotice:SetVisible(0)
-		local noticeText = guildinfonotice:CreateControl("richtext", "guildinfonoticetext", 20, 20, ui.CENTER_HORZ, ui.CENTER_VERT, 0, 0, 0, 0)
-		noticeText:EnableHitTest(0)
+        btn:SetEventScript(ui.LBUTTONUP, 'UI_TOGGLE_GUILD()');
     end
 	return rightMargin;
 end
@@ -297,39 +269,6 @@ function SYSMENU_PC_NEWFRIEND_NOTICE(frame)
 
 end
 
-function SYSMENU_GUILD_NOTICE(frame, isChecked)
-	local parentCtrl = frame:GetChild('guildinfo');
-	if parentCtrl == nil then
-		return
-	end
-
-	local notice = GET_CHILD_RECURSIVELY(parentCtrl:GetTopParentFrame(), "guildinfonotice");    
-	local noticeText = notice:GetChild("guildinfonoticetext");
-
-	if isChecked > 0 then
-		notice:ShowWindow(1);        
-		noticeText:ShowWindow(1);
-		noticeText:SetText('{ol}{b}{s14}!');
-		notice:SetTextTooltip(ClMsg("GuildNewJoinRequest"))
-
-     
-		local noticeBalloon = MAKE_BALLOON_FRAME(ClMsg("GuildNewJoinRequest"), 0, 0, nil, "guildinfonotice", "{ol}{b}{s14}", 0)
-		noticeBalloon:ShowWindow(1);
-		noticeBalloon:SetDuration(5);
-		noticeBalloon:SetGravity(ui.RIGHT, ui.BOTTOM) 
-
-		local margin = parentCtrl:GetMargin(); 
-		local x = margin.right + (parentCtrl:GetWidth() / 2);
-		local y = margin.bottom + parentCtrl:GetHeight() + 5;
-		
-		noticeBalloon:SetMargin(margin.left, margin.top, x, y);
-	elseif isChecked == nil or isChecked == 0  then
-		notice:ShowWindow(0);
-		noticeText:ShowWindow(0);
-	end
-
-end
-
 function SYSMENU_PC_SKILL_NOTICE(frame)
 
 	local parentCtrl = frame:GetChild("skilltree");
@@ -414,6 +353,57 @@ function SYSMENU_BTN_LOST_FOCUS(frame, btnCtrl, argStr, argNum)
 	end
 
 	ui.CloseFrame("apps");
+end
+
+function SYSMENU_LOSTFOCUS_SCP(frame, ctrl, argStr, argNum)
+
+
+	--[[
+	메뉴 계속 활성화 되어있도록 해서 주석처리
+
+	local focusFrame = ui.GetFocusFrame();
+	if focusFrame ~= nil then
+		local focusFrameName = focusFrame:GetName();
+		if focusFrameName == "apps" or focusFrameName == "sysmenu" then
+			return;
+		end
+	end
+
+	if 1 == ctrl:GetUserIValue("DISABLE_L_FOCUS") then
+		return;
+	end
+
+	
+	]]
+end
+
+function SYSMENU_SHOW_FOR_SEC(sec)
+	--[[
+	local frame = ui.GetFrame("sysmenu");
+	SYSMENU_ENABLE_LOST_FOCUS(frame, 0);
+	frame:RunUpdateScript("SYSMENU_AUTO_LOST_FOCUS", sec);
+	]]
+end
+
+function SYSMENU_AUTO_LOST_FOCUS(frame)
+	--SYSMENU_ENABLE_LOST_FOCUS(frame, 1)
+	return 0;
+end
+
+function SYSMENU_ENABLE_LOST_FOCUS(frame, isEnable)
+	--[[
+	if isEnable == 1 then
+		frame:SetUserValue("DISABLE_L_FOCUS", 0);
+		frame:SetEffect("sysmenu_LostFocus", ui.UI_LOSTFOCUS);
+		frame:SetEffect("sysmenu_LostFocus", ui.UI_TEMP0);
+		frame:StartEffect(ui.UI_TEMP0);
+	else
+		frame:SetUserValue("DISABLE_L_FOCUS", 1);
+		frame:SetEffect("None", ui.UI_LOSTFOCUS);
+		frame:SetEffect("sysmenu_MouseMove", ui.UI_TEMP0);
+		frame:StartEffect(ui.UI_TEMP0);
+	end
+	]]
 end
 
 function SYSMENU_UPDATE_QUEUE(frame, queue)
@@ -545,11 +535,6 @@ function AUCTION_TOOLTIP_SET_REMAINTIME(frame, aucItem)
 end
 
 function TOGGLE_CARD_REINFORCE(frame)
-    if GetCraftState() == 1 then
-        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
-        return;
-    end
-
 	local rframe = ui.GetFrame("reinforce_by_mix");
 	if rframe:IsVisible() == 1 then
 		rframe:ShowWindow(0);
@@ -562,11 +547,6 @@ end
 
 
 function TOGGLE_CERTIFICATE_REINFORCE(frame)		-- This is registered in restquickslotinfo.xml
-    if GetCraftState() == 1 then
-        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
-        return;
-    end
-
 	local rframe = ui.GetFrame("reinforce_by_mix_certificate");
 	if rframe:IsVisible() == 1 then
 		rframe:ShowWindow(0);
@@ -578,33 +558,12 @@ function TOGGLE_CERTIFICATE_REINFORCE(frame)		-- This is registered in restquick
 end
 
 function TOGGLE_GEM_REINFORCE(frame)
-    if GetCraftState() == 1 then
-        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
-        return;
-    end
-
 	local rframe = ui.GetFrame("reinforce_by_mix");
 	if rframe:IsVisible() == 1 then
 		rframe:ShowWindow(0);
 	else
 		local title = rframe:GetChild("title");
 		title:SetTextByKey("value", ClMsg("GemReinforce"));
-		rframe:ShowWindow(1);
-	end
-end
-
-function TOGGLE_LEGEND_CARD_REINFORCE(frame)
-    if GetCraftState() == 1 then
-        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
-        return;
-    end
-
-	local rframe = ui.GetFrame("legendcardupgrade");
-	if rframe:IsVisible() == 1 then
-		rframe:ShowWindow(0);
-	else
-		local title = rframe:GetChild("title");
-		title:SetTextByKey("value", ClMsg("LegendCardReinforce"));
 		rframe:ShowWindow(1);
 	end
 end
