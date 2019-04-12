@@ -166,7 +166,12 @@ function BUFFSELLER_REG_EXEC(frame)
 			return;
 		end
 	end
-	session.autoSeller.RequestRegister(groupName, serverGroupName, inputname:GetText(), nil);
+
+	if serverGroupName == 'Buff' then -- case: pardoner_spell shop
+		session.autoSeller.RequestRegister(groupName, serverGroupName, inputname:GetText(), 'Pardoner_SpellShop');
+	else
+		session.autoSeller.RequestRegister(groupName, serverGroupName, inputname:GetText(), nil);
+	end
 end
 
 function BUFFSELLER_REG_CANCEL(frame)

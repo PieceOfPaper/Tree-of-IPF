@@ -133,6 +133,8 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 		arg1 = 2592000 -- 30¿œ
 	elseif itemobj.ClassName == "steam_PremiumToken_60d" then
 		arg1 = 5184000 -- 60¿œ
+        elseif itemobj.ClassName == "steam_PremiumToken_1d" then
+		arg1 = 604800 -- 70
 	end
 	local endTime = GET_TIME_TXT(arg1, 1)
 	local endTxt = frame:GetChild("endTime");

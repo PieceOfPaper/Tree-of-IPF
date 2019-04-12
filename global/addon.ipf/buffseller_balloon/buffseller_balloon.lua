@@ -4,7 +4,7 @@ function BUFFSELLER_BALLOON_ON_INIT(addon, frame)
 	
 end
 
-function AUTOSELLER_BALLOON(title, sellType, handle, skillID)
+function AUTOSELLER_BALLOON(title, sellType, handle, skillID, skillLv)
 	if title == "" then
 		if AUTO_SELL_BUFF == sellType then
 			local frame = ui.GetFrame("buffseller_target");
@@ -57,8 +57,20 @@ function AUTOSELLER_BALLOON(title, sellType, handle, skillID)
 
 	frame:SetUserValue("SELL_TYPE", sellType);
 	frame:SetUserValue("HANDLE", handle);
+
+	-- level을 표시해야 하는 경우 레벨과 타이틀이 함께 있는 ui를 보여주고, 아니면 이름만 보여줌
+	local lvBox = frame:GetChild("withLvBox")
 	local text = frame:GetChild("text");
-	text:SetTextByKey("value", title);
+	if sellType == AUTO_SELL_BUFF or sellType == AUTO_SELL_GEM_ROASTING or sellType == AUTO_SELL_SQUIRE_BUFF then		
+		local lvText = lvBox:GetChild("lv_text")
+		local lvTitle = lvBox:GetChild('lv_title')
+		lvText:SetTextByKey("value", skillLv)
+		lvTitle:SetTextByKey("value", title)
+		text:ShowWindow(0)
+	else
+		text:SetTextByKey("value", title);
+		lvBox:ShowWindow(0)
+	end	
 	frame:ShowWindow(1);
 
 	local offsetY = - 30;
@@ -88,7 +100,7 @@ function CLOSE_SQUIRE_STORE(handle, skillID)
 	end
 
 	local skillName = GetClassByType("Skill", skillID).ClassName;
-	 -- GetUserIValue �� string, GetUserIValue inter!
+	 -- GetUserIValue �� string, GetUserIValue inter!
 
 	if "Squire_Repair" == skillName then
 		local repair = ui.GetFrame("itembuffrepair");

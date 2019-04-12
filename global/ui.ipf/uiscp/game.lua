@@ -885,7 +885,7 @@ function ADD_EX_TOOLTIP(GroupCtrl, txt, yPos, ySize)
 	ControlSetCtrl:SetGravity(ui.LEFT, ui.TOP);
 	richText:SetGravity(ui.LEFT, ui.TOP);
 	richText:SetFontName(ITEM_TOOLTIP_TEXT_FONT);
-	ControlSetCtrl:Resize(255, ySize);		-- 3??¸®±î????Ãâ·Â??¼­ 7~8??¸®±î?? ??¸²
+	ControlSetCtrl:Resize(255, ySize);		-- 3??ï¿½ï¿½ï¿½ï¿½????ï¿½ï¿½ï¿½??ï¿½ï¿½ 7~8??ï¿½ï¿½ï¿½ï¿½?? ??ï¿½ï¿½
 	ControlSetCtrl:SetTextByKey('text', txt);
 	GroupCtrl:ShowWindow(1)
 	return ControlSetCtrl:GetHeight() + ControlSetCtrl:GetOffsetY();
@@ -1931,7 +1931,7 @@ end
 
 
 
--- ON_WORLD_MSG_%d (WORLD_MESSAGE_ACHIEVE_ADD == 0)   : ?????ºï?????? Âº???
+-- ON_WORLD_MSG_%d (WORLD_MESSAGE_ACHIEVE_ADD == 0)   : ?????ï¿½ï¿½?????? Âº???
 function ON_WORLD_MSG_0(name, type, pointType, point)
 
 	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
@@ -3170,7 +3170,23 @@ function SCR_GEM_ITEM_SELECT(argNum, luminItem, frameName)
 		local itemobj = GetIES(invitem:GetObject());
 		local socketCnt = GET_SOCKET_CNT(itemobj);
 		if socketCnt == 0 then
+			ui.SysMsg(ScpArgMsg("NOT_HAVE_SOCKET_SPACE"))
 			return;
+		end
+
+		local emptyCnt = GET_EMPTY_SOCKET_CNT(socketCnt, itemobj)
+		if emptyCnt < 1 then
+			ui.SysMsg(ScpArgMsg("Auto_SoKaeseopKeoNa_JeonBu_SayongJungiDa"))
+			return
+		end
+
+		if IS_SAME_TYPE_GEM_IN_ITEM(itemobj, luminItem.type, socketCnt) then
+			local ret = true
+			local invFrame = ui.GetFrame(frameName)
+			invFrame:SetUserValue("GEM_EQUIP_ITEM_ID", luminItem:GetIESID())
+			invFrame:SetUserValue("GEM_EQUIP_TARGET_ID", invitem:GetIESID())
+			ui.MsgBox(ScpArgMsg("GEM_EQUIP_SAME_TYPE"), "GEM_EQUIP_TRY", "None")
+			return
 		end
 	else
 		invitem = session.GetEquipItemBySpot(argNum);
@@ -3202,8 +3218,14 @@ function SCR_GEM_ITEM_SELECT(argNum, luminItem, frameName)
 			cnt = cnt + 1;
 		end
 	end
-
 	item.UseItemToItem(luminItem:GetIESID(), invitem:GetIESID(), cnt);
+end
+
+function GEM_EQUIP_TRY()
+	local invFrame = ui.GetFrame('inventory')
+	local fromItem = invFrame:GetUserValue("GEM_EQUIP_ITEM_ID")
+	local toItem = invFrame:GetUserValue('GEM_EQUIP_TARGET_ID')
+	item.UseItemToItem(fromItem, toItem, 0);
 end
 
 function ENABLE_CTRL(ctrl, isEnable)
@@ -4201,7 +4223,7 @@ end
 function TEST_TIARUA()
 
 ReloadHotKey()
---print("¸®·Î??ÇÖ??)
+--print("ï¿½ï¿½ï¿½ï¿½??ï¿½ï¿½??)
 --ui.OpenFrame("joystickrestquickslot");
 --[[
 local quickFrame = ui.GetFrame('quickslotnexpbar')

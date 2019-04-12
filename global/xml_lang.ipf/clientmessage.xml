@@ -3282,6 +3282,7 @@
 		<Class ClassID="210071" ClassName="CORAL_32_1_SQ_6_2" Data="촌장 프레제"/>
 		<Class ClassID="210072" ClassName="CORAL_32_1_SQ_6_3" Data="파견병 바질리우스"/>
 		<Class ClassID="120635" ClassName="QuestDoNOTTransform" Data="해당 지역에서 퀘스트 도중에는 변신을 풀 수 없습니다."/>
+		<Class ClassID="210073" ClassName="GEM_EQUIP_SAME_TYPE" Data="이미 같은 종류의 젬이 장착되어 있습니다.{nl}중복 장착해도 효과는 누적되지 않습니다.{nl}장착하시겠습니까?"/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="21300" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
@@ -5851,7 +5852,7 @@ ClassID="33547" ClassName="CantUseThisInIntegrateServer" Data="통합 서버에�
 		<Class ClassID="91556" ClassName="Auto_NoDeu_JeongBoKa_eopSeupNiDa" Data="노드 정보가 없습니다"/>
 		<Class ClassID="91557" ClassName="Auto_BeoPeuJunge_Chong_KongKyeogHan_KaunTeu_:" Data="버프중에 총 공격한 카운트 :"/>
 		<Class ClassID="91558" ClassName="Auto_job.xmlui_JeonJig_KweSeuTeuKa_SeolJeongDoeJi_aneum(None)" Data="job.xml의 전직 퀘스트가 설정되지 않음(None)"/>
-		<Class ClassID="91559" ClassName="Auto_SoKaeseopKeoNa_JeonBu_SayongJungiDa" Data="소켓없거나 전부 사용 중이다"/>
+		<Class ClassID="91559" ClassName="Auto_SoKaeseopKeoNa_JeonBu_SayongJungiDa" Data="소켓없거나 전부 사용 중입니다"/>
 		<Class ClassID="91560" ClassName="Auto_LaengKeuBuJogHaDa." Data="랭크부족하다."/>
 		<Class ClassID="91561" ClassName="Auto_iKeoSseuNeunKeo_JeKeoHaeJuSem._TeugSeongPoinTeueopaeKo_SilBeoLo_SaNeunKeolLo_ByeonKyeongDoeeosseum." Data="이거쓰는거 제거해주셈. 특성포인트없애고 실버로 사는걸로 변경되었음."/>
 		<Class ClassID="91562" ClassName="Auto_TeugSeong_PoinTeuLeul_HoegDeugHayeossSeupNiDa" Data="특성 포인트를 획득하였습니다"/>
