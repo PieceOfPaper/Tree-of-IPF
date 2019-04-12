@@ -22,7 +22,6 @@ sampler2D g_bgSampler = sampler_state
     Texture = <g_bgTexture>;
 };
 
-#ifdef EFFECT_ENABLE_SOFTPARTICLE
 texture	g_bgDepthTexture;
 sampler2D g_bgDepthSampler = sampler_state 
 {
@@ -35,15 +34,13 @@ sampler2D g_bgDepthSampler = sampler_state
 	BorderColor = 0xFFFFFFFF;
 	SRGBTEXTURE = FALSE;
 };
-#endif
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 // global shader variables
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 float 		g_Power = 1.0f;
-//float		g_Freq 	= 600.0f;
 float		g_HDR_sunLightIntensity = 1.0f;
-float		g_HDR_specularIntensity = 0.0f;
 
 float		g_farDistance = 10000.0f;
 float		g_softParticleRange = 3.0f;
@@ -71,7 +68,7 @@ float4		g_lightDirection;
 // 3d캐릭터 2d로 그리는거
 float4x4 	g_billboardTM		: 	BILLBOARD_TM;
 float4x4 	g_charProjTM		:	CHARPROJ_TM;
-float4x4		g_charViewTM		:	CHARVIEW_TM;
+float4x4	g_charViewTM		:	CHARVIEW_TM;
 float3		g_pivotPoint;
 
 float g_softParticleFactor = 0.15f;
@@ -93,16 +90,16 @@ float4 ShiftColor(float4 c)
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Vertex Shader
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
-float4 CalcWVP( float4 Pos ) 
+float4 CalcWVP( float4 Pos )
 {
 	Pos.w = 1.0f;	
 	// 캐릭터 2D로 찍기
 	#ifdef USE_2D
 		//return mul(Pos, g_ViewProjTM);
 		// 사실 밑에 두개는 합쳐도 좋습니다. 어차피 나눠쓸 이유가 없음
-		float4 WorldPos = mul(Pos, g_WorldTM);		
+		float4 WorldPos = mul(Pos, g_WorldTM);
 		Pos = mul(WorldPos, g_charViewTM);
-		Pos = mul(Pos, g_charProjTM);				
+		Pos = mul(Pos, g_charProjTM);
 		Pos /= Pos.w;
 		Pos.z = 0.0f; // 빌보드로 만듬
 		Pos.y += 0.4f;  // 캐릭터 발 위치 맞출때 사용하는 상수입니다
@@ -118,9 +115,16 @@ float4 CalcWVP( float4 Pos )
 		return Pos;
 	#else
 		return mul(Pos, g_WorldViewProjTM);
-	#endif
+	#endif	
+}
 
-	
+float4 CalcWVPInstancing(float4 Pos)
+{
+#ifdef USE_2D
+	return Pos;
+#else
+	return mul(Pos, g_WorldViewProjTM);
+#endif	
 }
 
 float4 CalcWorldNormal( float3 normal ) 
@@ -141,20 +145,69 @@ void CalcSkinGeom(in float4 Pos, in float3 Nml, in float4 weights, in int4 indic
     PosCS = CalcWVP( float4(localPos, 1.0f) );
 }
 
-void VS_Effect( in float4 PosIn : POSITION,
+void VS_EffectInstancing_Frk(in float4 PosIn : POSITION,
+	in float4 ColorIn : COLOR,
+	in float2 TexIn : TEXCOORD0,
+	in float2 SoftParticleIn : TEXCOORD1,
+	out float4 PosOut : POSITION,
+	out float4 ColorOut : COLOR,
+	out float2 TexOut : TEXCOORD0,
+	out float4 ScrPos : TEXCOORD1,
+	out float2 SoftParticleOut : TEXCOORD2,
+	out float4 WaveSpeedStretchOut : TEXCOORD3,
+	out float4 WavePowerTimeOut : TEXCOORD4
+	)
+{
+	PosOut = CalcWVPInstancing(PosIn);
+	ScrPos = PosOut;
+
+	ColorOut = ColorIn;
+	TexOut = TexIn;
+	SoftParticleOut = SoftParticleIn;
+	WaveSpeedStretchOut = 0.f;
+	WavePowerTimeOut = 0.f;
+}
+
+void VS_EffectInstancing( in float4 PosIn : POSITION,
 				in float4 ColorIn : COLOR,
 				in float2 TexIn : TEXCOORD0,
+				in float2 SoftParticleIn : TEXCOORD1,
+				in float4 WaveSpeedStretchIn : TEXCOORD2,
+				in float4 WavePowerTimeIn : TEXCOORD3,
 					out float4 PosOut : POSITION,
-					out float4 ColorOut : COLOR,					
+					out float4 ColorOut : COLOR,
 					out float2 TexOut : TEXCOORD0,
-					out float4 ScrPos : TEXCOORD1
+					out float4 ScrPos : TEXCOORD1,
+					out float2 SoftParticleOut : TEXCOORD2,
+					out float4 WaveSpeedStretchOut : TEXCOORD3,
+					out float4 WavePowerTimeOut : TEXCOORD4
 					)
 {
-	PosOut			= CalcWVP(PosIn);
+	PosOut			= CalcWVPInstancing(PosIn);
 	ScrPos			= PosOut;
 	
 	ColorOut		= ColorIn;
 	TexOut			= TexIn;
+	SoftParticleOut = SoftParticleIn;
+
+	WaveSpeedStretchOut = WaveSpeedStretchIn;
+	WavePowerTimeOut = WavePowerTimeIn;
+}
+
+void VS_Effect(in float4 PosIn : POSITION,
+	in float4 ColorIn : COLOR,
+	in float2 TexIn : TEXCOORD0,
+	out float4 PosOut : POSITION,
+	out float4 ColorOut : COLOR,
+	out float2 TexOut : TEXCOORD0,
+	out float4 ScrPos : TEXCOORD1
+	)
+{
+	PosOut = CalcWVP(PosIn);
+	ScrPos = PosOut;
+
+	ColorOut = ColorIn;
+	TexOut = TexIn;
 }
 
 void VS_Effect_Model( in float4 PosIn : POSITION,
@@ -232,22 +285,113 @@ float decodeFromRG(float2 rg)
 }
 
 float CalcAlphaWithDepth(float4 srcPos)
-{	
-
-#ifdef EFFECT_ENABLE_SOFTPARTICLE
-	#ifndef USE_SOFT_PARTICLE
-		return 1.0f;	//2d이펙트(ex:UI)
-	#endif
+{
+#ifdef USE_SOFT_PARTICLE
 	float2 scrTexOut = GetScreenTex(srcPos);
 	float pixelDepth = srcPos.z;
-	float bgDepth = tex2D(g_bgDepthSampler, scrTexOut.xy).x * 5000.0;
-
-	float delta = (bgDepth - pixelDepth)*g_softParticleFactor + 1.0f;	
-	float alpha = saturate(delta);		
+	float bgDepth = tex2D(g_bgDepthSampler, scrTexOut.xy).x * 5000.0f;
+	float delta = (bgDepth - pixelDepth) * g_softParticleFactor + 1.0f;
+	float alpha = saturate(delta);
 	return alpha;
 #else
-	return 1.0f;
+	return 1.0f;	//2d이펙트(ex:UI)
 #endif
+}
+
+float CalcAlphaWithDepthInstancing(float4 srcPos, float softParticleFactor)
+{
+#ifdef USE_SOFT_PARTICLE
+	float2 scrTexOut = GetScreenTex(srcPos);
+	float pixelDepth = srcPos.z;
+	float bgDepth = tex2D(g_bgDepthSampler, scrTexOut.xy).x * 5000.0f;
+	float delta = (bgDepth - pixelDepth) * softParticleFactor + 1.0f;
+	float alpha = saturate(delta);
+	return alpha;
+#else
+	return 1.0f;	//2d이펙트(ex:UI)
+#endif
+}
+
+float4 PS_MultiplyProcessInstancing(in float4 diffuse : COLOR,
+	in float2 tex : TEXCOORD0,
+	in float4 ScrPos : TEXCOORD1,
+	in float2 SoftParticle : TEXCOORD2,
+	in float4 WaveSpeedStretch : TEXCOORD3,
+	in float4 WavePowerTime : TEXCOORD4
+	) : COLOR
+{
+	clip(diffuse.a - 0.001f);
+
+	tex.x = tex.x + (sin(tex.y * WaveSpeedStretch.z + WavePowerTime.z * WaveSpeedStretch.x) * WavePowerTime.x);
+	tex.y = tex.y + (sin(tex.x * WaveSpeedStretch.w + WavePowerTime.z * WaveSpeedStretch.y) * WavePowerTime.y);
+
+	float4 texColor = tex2D(g_sampler, tex.xy).rgba;
+	float4 finalColor = texColor * diffuse;
+	finalColor.rgb = finalColor * g_HDR_sunLightIntensity;
+
+#ifdef IS_REVERSE
+	finalColor = ShiftColor(finalColor);
+#endif
+
+#ifdef RGB_SOFT_PARTICLE
+	finalColor.rgb *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
+	finalColor.a = 0.0f;
+#else
+	finalColor.a *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
+#endif
+
+	return finalColor;
+}
+
+
+float4 PS_AdditiveProcessInstancing(in float4 diffuse : COLOR,
+	in float2 tex : TEXCOORD0,
+	in float4 ScrPos : TEXCOORD1,
+	in float2 SoftParticle : TEXCOORD2
+	) : COLOR
+{
+	float4 texColor = tex2D(g_sampler, tex.xy).rgba;
+	float4 finalColor = texColor;
+
+	finalColor.a = texColor.a * diffuse.a;
+	finalColor.rgb = (texColor.rgb * diffuse.rgb) * g_HDR_sunLightIntensity;
+
+#ifdef RGB_SOFT_PARTICLE
+	finalColor.rgb *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
+	finalColor.a = 1.0f;
+#else
+	finalColor.a *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
+#endif
+
+#ifdef IS_REVERSE
+	finalColor = ShiftColor(finalColor);
+#endif 
+
+	return finalColor;
+}
+
+float4 PS_ExchangeProcessInstancing(in float4 diffuse : COLOR,
+	in float2 tex : TEXCOORD0,
+	in float4 ScrPos : TEXCOORD1,
+	in float2 SoftParticle : TEXCOORD2
+	) : COLOR
+{
+	float4 texColor = tex2D(g_sampler, tex.xy).rgba;
+	float4 finalColor = diffuse;
+	finalColor.a = texColor.a * diffuse.a;
+	finalColor.rgb = finalColor * g_HDR_sunLightIntensity;
+
+#ifdef RGB_SOFT_PARTICLE
+	finalColor.rgb *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
+	finalColor.a = 1.0f;
+#else
+	finalColor.a *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
+#endif	
+
+#ifdef IS_REVERSE
+	finalColor = ShiftColor(finalColor);
+#endif 
+	return finalColor;
 }
 
 float4 PS_ScreenProcess( in float4 diffuse : COLOR,
@@ -276,19 +420,13 @@ float4 PS_MultiplyProcess( in float4 diffuse : COLOR,
 #ifdef IS_REVERSE
 	finalColor = ShiftColor(finalColor);
 #endif 
-#ifdef EFFECT_ENABLE_SOFTPARTICLE
-	#ifdef RGB_SOFT_PARTICLE
-		finalColor.rgb *= CalcAlphaWithDepth(ScrPos);	
-		finalColor.a = 0.0f;	
-	#else
-		finalColor.a *= CalcAlphaWithDepth(ScrPos);
-	#endif		
-	//finalColor = tex2D(g_bgDepthSampler, ScrPos.xy);	
-	//finalColor.a = 1.0f;
-	//finalColor.r = 0.0f;
-	//finalColor.g = CalcAlphaWithDepth(ScrPos);
-	//finalColor.b = 0.0f;
-#endif	
+
+#ifdef RGB_SOFT_PARTICLE
+	finalColor.rgb *= CalcAlphaWithDepth(ScrPos);
+	finalColor.a = 0.0f;	
+#else
+	finalColor.a *= CalcAlphaWithDepth(ScrPos);
+#endif		
 
 	return finalColor;
 }
@@ -304,14 +442,11 @@ float4 PS_AdditiveProcess( in float4 diffuse : COLOR,
 	finalColor.a 	= texColor.a * diffuse.a;
 	finalColor.rgb 	= (texColor.rgb * diffuse.rgb) * g_HDR_sunLightIntensity;	
 	
-#ifdef EFFECT_ENABLE_SOFTPARTICLE
-	#ifdef RGB_SOFT_PARTICLE
-		finalColor.rgb *= CalcAlphaWithDepth(ScrPos);	
-		finalColor.a = 1.0f;	
-	#else
-		finalColor.a *= CalcAlphaWithDepth(ScrPos);	
-	#endif
-		
+#ifdef RGB_SOFT_PARTICLE
+	finalColor.rgb *= CalcAlphaWithDepth(ScrPos);
+	finalColor.a = 1.0f;	
+#else
+	finalColor.a *= CalcAlphaWithDepth(ScrPos);
 #endif
 
 #ifdef IS_REVERSE
@@ -325,24 +460,21 @@ float4 PS_ExchangeProcess( in float4 diffuse : COLOR,
 						in float2 tex: TEXCOORD0,
 						in float4 ScrPos: TEXCOORD1
 						) : COLOR
-{	
+{
     float4 texColor = tex2D(g_sampler, tex.xy).rgba;
 	float4 finalColor = diffuse;
 	finalColor.a 	= texColor.a * diffuse.a;
 	finalColor.rgb 	= finalColor * g_HDR_sunLightIntensity;
 	
-#ifdef EFFECT_ENABLE_SOFTPARTICLE
-	#ifdef RGB_SOFT_PARTICLE
-		finalColor.rgb *= CalcAlphaWithDepth(ScrPos);	
-		finalColor.a = 1.0f;	
-	#else
-		finalColor.a *= CalcAlphaWithDepth(ScrPos);	
-	#endif
-	
-#endif		
+#ifdef RGB_SOFT_PARTICLE
+	finalColor.rgb *= CalcAlphaWithDepth(ScrPos);	
+	finalColor.a = 1.0f;	
+#else
+	finalColor.a *= CalcAlphaWithDepth(ScrPos);	
+#endif	
 
 #ifdef IS_REVERSE
-		finalColor = ShiftColor(finalColor);
+	finalColor = ShiftColor(finalColor);
 #endif 
 	return finalColor;
 }
@@ -514,12 +646,12 @@ technique TQ_Effect_Particle
 {
     pass P0 {
 		VertexShader = compile vs_3_0 VS_Effect();
-        PixelShader  = compile ps_3_0 PS_MultiplyProcess();
+		PixelShader = compile ps_3_0 PS_MultiplyProcess();
     }
 	
 	pass P1 {
 		VertexShader = compile vs_3_0 VS_Effect();
-        PixelShader  = compile ps_3_0 PS_AdditiveProcess();
+		PixelShader = compile ps_3_0 PS_AdditiveProcess();
     }
 	
 	pass P2 {
@@ -549,6 +681,56 @@ technique TQ_Effect_Particle
 	
 	pass P7 {
         PixelShader  = compile ps_3_0 PS_ScreenProcess();
+	}
+}
+
+technique TQ_Effect_ParticleInstancing
+{
+	pass P0 {
+		VertexShader = compile vs_3_0 VS_EffectInstancing();
+		PixelShader = compile ps_3_0 PS_MultiplyProcessInstancing();
+	}
+
+	pass P1 {
+		VertexShader = compile vs_3_0 VS_EffectInstancing();
+		PixelShader = compile ps_3_0 PS_AdditiveProcessInstancing();
+	}
+
+	pass P2 {
+		VertexShader = compile vs_3_0 VS_EffectInstancing();
+		PixelShader = compile ps_3_0 PS_ExchangeProcessInstancing();
+	}
+
+	pass P3 {
+		VertexShader = compile vs_3_0 VS_Effect();
+		PixelShader = compile ps_3_0 PS_ShakeProcess();
+	}
+
+	pass P4 {
+		VertexShader = compile vs_3_0 VS_Effect();
+		PixelShader = compile ps_3_0 PS_BlurProcess();
+	}
+
+	pass P5 {
+		VertexShader = compile vs_3_0 VS_Effect();
+		PixelShader = compile ps_3_0 PS_NoiseProcess();
+	}
+
+	pass P6 {
+		VertexShader = compile vs_3_0 VS_Effect();
+		PixelShader = compile ps_3_0 PS_DistortionProcess();
+	}
+
+	pass P7 {
+		PixelShader = compile ps_3_0 PS_ScreenProcess();
+	}
+}
+
+technique TQ_Effect_ParticleInstancing_Frk
+{
+	pass P0 {
+		VertexShader = compile vs_3_0 VS_EffectInstancing_Frk();
+		PixelShader = compile ps_3_0 PS_MultiplyProcessInstancing();
 	}
 }
 
