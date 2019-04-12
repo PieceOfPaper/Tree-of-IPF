@@ -198,7 +198,7 @@ function UPDATE_ARTICLE_Monster(ctrlset)
 	if topAtkPropValue > 0 then
 		local sklCls = GetClassByType("Skill", topAtkPropValue);
 		skillName:SetTextByKey("value", sklCls.Name);
-		skillValue:SetTextByKey("value", "피해량 " .. topAtkPropCount);
+		skillValue:SetTextByKey("value", " " .. topAtkPropCount);
 		skillicon:SetImage("Icon_" .. sklCls.Icon);
 
 		skillValue:ShowWindow(1);

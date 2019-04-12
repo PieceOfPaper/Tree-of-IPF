@@ -1,10 +1,7 @@
 
 
 function GUILDBATTLE_RANKING_ON_INIT(addon, frame)
-
-	addon:RegisterMsg("PREV_GUILD_RANK_INFO", "ON_UPDATE_PREV_GUILD_RANK_INFO");
-	addon:RegisterMsg("ALL_SEASON_TOP_RANK_INFO", "ON_UPDATE_ALL_SEASON_TOP_RANK_INFO");
-
+	
 end
 
 function ON_UPDATE_PREV_GUILD_RANK_INFO(frame)
@@ -178,19 +175,7 @@ function GUILDBATTLE_RANKING_REQUEST_ALL_SEASON_TOP_RANKER(frame, page)
 end
 
 function OPEN_GUILDBATTLE_RANKING_FRAME(openPage)
-		local guildbattle_ranking = ui.GetFrame("guildbattle_ranking");
-		guildbattle_ranking:ShowWindow(1);
-		if 1 ~= openPage then
-			local tab = GET_CHILD_RECURSIVELY(guildbattle_ranking, "tab", "ui::CTabControl");
-			local nTabIdx = tab:GetSelectItemIndex();
-
-			if nTabIdx == 0 then
-				GUILDBATTLE_RANKING_UPDATE(guildbattle_ranking);
-			elseif nTabIdx == 1 then
-				UPDATE_ALL_SEASON_TOP_RANKING_GUILD(guildbattle_ranking);
-			end
-		end
-		UPDATE_PREV_RANKING_GUILD(guildbattle_ranking);
+		
 end
 
 function OPEN_GUILDBATTLE_RANKING(frame)
@@ -323,8 +308,7 @@ function UPDATE_GUILDBATTLE_RANK_MYRANK(frame)
 			txt_myrank:ShowWindow(1);
 			txt_myrank:SetTextByKey("value", rank);
 		end
-	end
-	
+	end	
 end
 
 function GUILDBATTLE_RANKING_UPDATE(frame)
@@ -418,4 +402,3 @@ function UPDATE_GUILDBATTLE_RANKING_CONTROL(ctrlSet, info, showUpDown)
 		imgUpDown:SetVisible(0);
 	end
 end
-

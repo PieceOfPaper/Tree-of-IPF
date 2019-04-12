@@ -10,7 +10,7 @@
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
 	<layer layerlevel="80" margin="-100 -100 0 0"/>
 	<script CloseScp="INDUNENTER_CLOSE"/>
-	<userconfig SLOT_SKIN="invenslot2" SLOT_SIZE="65" MULTI_DEFAULT="0" MULTI_MIN="0" SMALLMODE_WIDTH="400" FIND_WAIT_TIME="10" NO_MATCH_SKIN="indun_people_btn" YES_MATCH_SKIN="indun_people_img" PLUS_BTN_IMAGE="btn_plus" MINUS_BTN_IMAGE="btn_minus"RANDOM_ICON="indun_bossrandom"MATCH_FINDED_SOUND="sys_pvp_battle_party_user_full" MEMBER_FINDED_SOUND="sys_pvp_battle_party_user_in"/>
+	<userconfig SLOT_SKIN="invenslot2" SLOT_SIZE="65" MULTI_DEFAULT="0" MULTI_MIN="0" SMALLMODE_WIDTH="400" FIND_WAIT_TIME="10" NO_MATCH_SKIN="indun_people_btn" YES_MATCH_SKIN="indun_people_img" PLUS_BTN_IMAGE="btn_plus" MINUS_BTN_IMAGE="btn_minus"RANDOM_ICON="indun_bossrandom"/>
 	<controls>
 		<!-- Big Mode -->
 		<groupbox name="bigmode" rect="0 0 1015 680" margin="0 0 0 0" layout_gravity="left top" draw="false"hittestbox="false"/>		

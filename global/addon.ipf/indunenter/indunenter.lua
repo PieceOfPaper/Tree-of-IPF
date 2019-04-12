@@ -275,13 +275,6 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable)
 		memberCnt = 0;
 	end
 
-	local prevPcCnt = frame:GetUserIValue('UI_PC_COUNT');
-	frame:SetUserValue('UI_PC_COUNT', pcCount);
-	if prevPcCnt < pcCount then
-		local MEMBER_FINDED_SOUND = frame:GetUserConfig('MEMBER_FINDED_SOUND');
-		imcSound.PlaySoundEvent(MEMBER_FINDED_SOUND);
-	end
-
 	if memberCnt> 1 then 
 		partyLine:Resize(58 * (memberCnt - 1), 15);
 		partyLine:ShowWindow(1);
@@ -633,10 +626,6 @@ function INDUNENTER_AUTOMATCH_FINDED()
 	autoMatchText:SetText(ClMsg('PILGRIM41_1_SQ07_WATER'));
 	autoMatchTime:ShowWindow(0);
 	autoMatchText:ShowWindow(1);
-
-	-- play matching sound
-	local MATCH_FINDED_SOUND = frame:GetUserConfig('MATCH_FINDED_SOUND');
-	imcSound.PlaySoundEvent(MATCH_FINDED_SOUND);
 
 	INDUNENTER_SET_ENABLE(0, 0, 0, 0);
 	INDUNENTER_MAKE_SMALLMODE(frame, true);
