@@ -2,7 +2,11 @@
 	addon:RegisterMsg('MOVE_ZONE', 'INDUNENTER_CLOSE');
 	addon:RegisterMsg('UPDATE_PC_COUNT', 'INDUNENTER_UPDATE_PC_COUNT');
 	addon:RegisterMsg('ESCAPE_PRESSED', 'INDUNENTER_ON_ESCAPE_PRESSED');
+
 	g_indunMultipleItem = "Premium_dungeoncount_01";
+	g_indunMultipleItem2 = "Premium_dungeoncount_Event";
+
+	PC_INFO_COUNT = 4;
 end
 
 function INDUNENTER_ON_ESCAPE_PRESSED(frame, msg, argStr, argNum)
@@ -10,11 +14,13 @@ function INDUNENTER_ON_ESCAPE_PRESSED(frame, msg, argStr, argNum)
 		INDUNENTER_CLOSE(frame, msg, argStr, argNum);
 	end
 end
- 
+
 function INDUNENTER_CLOSE(frame, msg, argStr, argNum)
 	INDUNENTER_AUTOMATCH_CANCEL();
-	INDUNENTER_PARTYMATCH_CANCEL();		
-	
+	INDUNENTER_PARTYMATCH_CANCEL();
+		
+	INDUNENTER_MULTI_CANCEL(frame)
+
 	ui.CloseFrame('indunenter');
 	CloseIndunEnterDialog();
 end
@@ -44,10 +50,6 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 		return;
 	end
 	
-	if frame:IsVisible() == 1 then
-		return;
-	end
-	
 	-- set user value
 	frame:SetUserValue('INDUN_TYPE', indunType);
 	frame:SetUserValue('FRAME_MODE', 'BIG');
@@ -58,11 +60,15 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 	frame:SetUserValue('REWARD_TOGGLE_OPEN', 'NO');
 	frame:SetUserValue('AUTOMATCH_FIND', 'NO');
 
+    frame:SetUserValue("multipleCount", 0);
+
+
 	-- make controls
 	INDUNENTER_MAKE_HEADER(frame);
 	INDUNENTER_MAKE_PICTURE(frame, indunCls);
 	INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls);
-	INDUNENTER_MAKE_LEVEL_BOX(frame, noPicBox, indunCls);	
+	INDUNENTER_MAKE_LEVEL_BOX(frame, noPicBox, indunCls);
+	INDUNENTER_MAKE_MULTI_BOX(frame, indunCls);
 	INDUNENTER_UPDATE_PC_COUNT(frame, nil, "None", 0);
 	INDUNENTER_MAKE_MONLIST(frame, indunCls);
 	INDUNENTER_MAKE_REWARDLIST(frame, indunCls);
@@ -80,16 +86,6 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 		INDUNENTER_SET_ENABLE(1, 0, 0, 0);
 	end
 
-	-- close dummy ui
-	local topFrame = frame:GetTopParentFrame()
-	local monDummy = GET_CHILD_RECURSIVELY(frame, 'mon_dummy2')
-	
-	if topFrame:GetUserValue('MON_DUMMY_DOWN') == 'YES' then
-		UI_PLAYFORCE(monDummy, "slotsetUpMove")		
-		topFrame:SetUserValue('MON_DUMMY_DOWN', 'NO')
-		
-	end
-
 	-- show
 	frame:ShowWindow(1);
 	bigmode:ShowWindow(1);
@@ -97,16 +93,17 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 end
 
 function INDUNENTER_INIT_MEMBERBOX(frame)
-	local pc = GetMyPCObject();
+    local pc = GetMyPCObject();
 	local aid = session.loginInfo.GetAID();
+	local mySession = session.GetMySession();
 	local jobID = TryGetProp(pc, "Job");
 	local lv = TryGetProp(pc, "Lv");
-
-	if pc == nil or jobID == nil or lv ==  nil then
+	if pc == nil or jobID == nil or lv ==  nil or mySession == nil then
 		return;
 	end
+	local cid = mySession:GetCID();
 
-	frame:SetUserValue('MEMBER_INFO', aid..'/'..tostring(jobID)..'/'..tostring(lv));
+	frame:SetUserValue('MEMBER_INFO', aid..'/'..tostring(jobID)..'/'..tostring(lv)..'/'..cid);
 	INDUNENTER_UPDATE_PC_COUNT(frame, nil, "None", 0);
 end
 
@@ -129,7 +126,7 @@ function INDUNENTER_MAKE_MONLIST(frame, indunCls)
 
 	local monSlotSet = GET_CHILD_RECURSIVELY(frame, 'monSlotSet');
 	local monSlotSet_extra = GET_CHILD_RECURSIVELY(frame, 'monSlotSet_extra');
-
+	
 	-- init
 	monSlotSet_extra:SetPos(monSlotSet_extra:GetOriginalX(), monSlotSet_extra:GetOriginalY());
 	monSlotSet:ClearIconAll();
@@ -142,14 +139,14 @@ function INDUNENTER_MAKE_MONLIST(frame, indunCls)
 	end
 	local bossTable = StringSplit(bossList, '/');
 	frame:SetUserValue('MON_SLOT_CNT', #bossTable);
-	
+
 	for i = 1, #bossTable do
 		local monIcon = nil;
 		local monCls = nil;
 		if bossTable[i] == "Random" then
 			monIcon = frame:GetUserConfig('RANDOM_ICON');
 		else
-			monCls = GetClass('Monster', bossTable[i]);			
+			monCls = GetClass('Monster', bossTable[i]);
 			monIcon = TryGetProp(monCls, 'Icon');
 		end
 
@@ -163,7 +160,7 @@ function INDUNENTER_MAKE_MONLIST(frame, indunCls)
 			if slot ~= nil then
 				local slotIcon = CreateIcon(slot);
 				slotIcon:SetImage(monIcon);
-				if monCls ~= nil then -- set tooltip					
+				if monCls ~= nil then -- set tooltip
 					slotIcon:SetImage(GET_MON_ILLUST(monCls));
 					slotIcon:SetTooltipType("mon_simple");
 					slotIcon:SetTooltipArg(bossTable[i]);
@@ -171,7 +168,7 @@ function INDUNENTER_MAKE_MONLIST(frame, indunCls)
 				end
 			end
 		end
-	end	
+	end
 end
 
 function INDUNENTER_MAKE_REWARDLIST(frame, indunCls)
@@ -187,7 +184,7 @@ function INDUNENTER_MAKE_REWARDLIST(frame, indunCls)
 	rewardSlotSet:ClearIconAll();
 	rewardSlotSet_extra:ClearIconAll();
 
-	-- data set
+	-- data set	
 	local itemList = TryGetProp(indunCls, 'ItemList');
 	if itemList == nil or itemList == 'None' then
 		return;
@@ -218,8 +215,45 @@ function INDUNENTER_MAKE_REWARDLIST(frame, indunCls)
 				SET_ITEM_TOOLTIP_BY_NAME(slot:GetIcon(), itemTable[i]);
 				slotIcon:SetTooltipOverlap(1);
 			end
-		end			
+		end
 	end
+end
+
+function INDUNENTER_MAKE_MULTI_BOX(frame, indunCls)
+	if frame == nil then
+		return;
+	end
+	local multiBox = GET_CHILD_RECURSIVELY(frame, 'multiBox');
+	local multiBtn = GET_CHILD_RECURSIVELY(frame, 'multiBtn');
+	local arrow = GET_CHILD_RECURSIVELY(frame, 'arrow');
+	local invItem = session.GetInvItemByName(g_indunMultipleItem);
+	local invItem2 = session.GetInvItemByName(g_indunMultipleItem2);
+	local indunType = TryGetProp(indunCls, "PlayPerResetType");
+	local viewBOX = false;
+	
+	-- view setting	
+	multiBtn:ShowWindow(1);
+	multiBtn:SetEnable(1);
+	if indunType == 100 or indunType == 200 then
+		viewBOX = true;
+	end
+
+	if viewBOX == false or (invItem == nil and invItem2 == nil) then
+		multiBtn:SetEnable(0);
+		return;
+	end
+
+	local multiEdit = GET_CHILD_RECURSIVELY(frame, 'multiEdit');
+	local maxMultiCnt = INDUN_MULTIPLE_USE_MAX_COUNT - 1; --frame:GetUserIValue('MAX_MULTI_CNT');
+	local multiDefault = frame:GetUserConfig('MULTI_DEFAULT');
+	
+	multiEdit:SetText(multiDefault);
+	multiEdit:SetMaxNumber(maxMultiCnt);
+	multiBox:ShowWindow(1);
+	arrow:ShowWindow(1);
+	
+	local multiCancelBtn = GET_CHILD_RECURSIVELY(frame, "multiCancelBtn");
+	multiCancelBtn:ShowWindow(0);
 end
 
 function INDUNENTER_MAKE_HEADER(frame)
@@ -258,7 +292,12 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
 	if session.loginInfo.IsPremiumState(ITEM_TOKEN) == true then
 		maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_Token');
 	end
-	countData:SetTextByKey("max", maxCount);	
+	countData:SetTextByKey("max", maxCount);
+
+	-- set min/max multi count
+	local minCount = frame:GetUserConfig('MULTI_MIN');
+	frame:SetUserValue("MIN_MULTI_CNT", minCount);
+	frame:SetUserValue("MAX_MULTI_CNT", maxCount - nowCount);
 end
 
 function INDUNENTER_MAKE_LEVEL_BOX(frame, noPicBox, indunCls)
@@ -273,10 +312,17 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable)
 	local frame = ui.GetFrame('indunenter');
 	local partyLine = GET_CHILD_RECURSIVELY(frame, 'partyLine');
 	local memberBox = GET_CHILD_RECURSIVELY(frame, 'memberBox');
-	local memberCnt = #memberTable / 3;
+	local memberCnt = #memberTable / PC_INFO_COUNT;
 
 	if pcCount < 1 then -- member초기화해주자
 		memberCnt = 0;
+	end
+
+	local prevPcCnt = frame:GetUserIValue('UI_PC_COUNT');
+	frame:SetUserValue('UI_PC_COUNT', pcCount);
+	if prevPcCnt < pcCount then
+		local MEMBER_FINDED_SOUND = frame:GetUserConfig('MEMBER_FINDED_SOUND');
+		imcSound.PlaySoundEvent(MEMBER_FINDED_SOUND);
 	end
 
 	if memberCnt > 1 then 
@@ -304,35 +350,133 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable)
 		matchedIcon:ShowWindow(0);
 
 		if i <= pcCount then -- 참여한 인원만큼 보여주는 부분
-			if i * 3 <= #memberTable then -- 파티원인 경우		
+			if i * PC_INFO_COUNT <= #memberTable then -- 파티원인 경우		
 				-- show leader
-				local aid = memberTable[i * 3 - 2];
+				local aid = memberTable[i * PC_INFO_COUNT - (PC_INFO_COUNT - 1)];
 				local pcparty = session.party.GetPartyInfo(PARTY_NORMAL);
 				if pcparty ~= nil and pcparty.info:GetLeaderAID() == aid then
 					leaderImg:ShowWindow(1);
 				end
 
 				-- show job icon
-				local jobCls = GetClassByType("Job", tonumber(memberTable[i * 3 - 1]));
+				local jobCls = GetClassByType("Job", tonumber(memberTable[i * PC_INFO_COUNT - (PC_INFO_COUNT - 2)]));
 				local jobIconData = TryGetProp(jobCls, 'Icon');
 				if jobIconData ~= nil then
 					jobIcon:SetImage(jobIconData);
 				end
-				local ret = PARTY_JOB_TOOLTIP_BY_AID(aid, jobIcon, jobCls);
 
 				-- show level
-				local lv = memberTable[i * 3];
+				local lv = memberTable[i * PC_INFO_COUNT - (PC_INFO_COUNT - 3)];
 				levelText:SetText(lv);
 				levelText:ShowWindow(1);
+
+				-- set tooltip
+				local cid = memberTable[i * PC_INFO_COUNT - (PC_INFO_COUNT - 4)];
+				PARTY_JOB_TOOLTIP_BY_CID(cid, jobIcon, jobCls);
+
 			else -- 파티원은 아닌데 매칭된 사람
 				jobIcon:ShowWindow(0);
 				matchedIcon:ShowWindow(1);
-			end		
-		end
+                end
+			end
 	end
 end
 
-function INDUNENTER_SMALL(frame, ctrl)
+function INDUNENTER_MULTI_UP(frame, ctrl)
+	if frame == nil or ctrl == nil then
+		return;
+	end
+	local multiEdit = GET_CHILD(frame, 'multiEdit');
+	local nowCnt = multiEdit:GetNumber();
+	local topFrame = frame:GetTopParentFrame();
+	--local maxCnt = topFrame:GetUserIValue('MAX_MULTI_CNT');
+	local maxCnt = INDUN_MULTIPLE_USE_MAX_COUNT;
+	local invItem = session.GetInvItemByName(g_indunMultipleItem);
+	local invItem2 = session.GetInvItemByName(g_indunMultipleItem2);
+
+    if invItem ~= nil and invItem.isLockState then
+        ui.SysMsg(ClMsg("MaterialItemIsLock"));
+        return;
+    end
+
+    if invItem2 ~= nil and invItem2.isLockState == true then
+        ui.SysMsg(ClMsg("MaterialItemIsLock"));
+        return;
+    end
+    
+	if invItem == nil and invItem2 == nil then
+		return;
+	end
+	local itemCount = 0;
+	if invItem ~= nil then
+		itemCount = itemCount + invItem.count;
+	end
+	if invItem2 ~= nil then
+		itemCount = itemCount + GET_INVENTORY_ITEM_COUNT_BY_NAME(g_indunMultipleItem2);
+	end
+
+	nowCnt = nowCnt + 1;
+
+	local etc = GetMyEtcObject();
+	local indunType = topFrame:GetUserValue('INDUN_TYPE');
+	local indunCls = GetClassByType('Indun', indunType);
+	if indunCls == nil then
+		return;
+	end
+
+	local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
+
+	local maxCount = TryGetProp(indunCls, 'PlayPerReset');
+	if session.loginInfo.IsPremiumState(ITEM_TOKEN) == true then
+		maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_Token');
+	end
+
+	local remainCount = maxCount - nowCount;
+
+	if nowCnt >= remainCount then
+		nowCnt = remainCount - 1;
+		ui.SysMsg(ScpArgMsg('NotEnoughIndunEnterCount'));
+	elseif nowCnt == maxCnt then
+		ui.SysMsg(ScpArgMsg('IndunMultipleMAX'));
+		return
+	end
+	
+	if nowCnt - 1 >= itemCount then
+		ui.SysMsg(ScpArgMsg('NotEnoughIndunMultipleItem'));
+		return;
+	end
+
+	if nowCnt < 0 then
+		return;
+	end
+
+	local rateValue = GET_CHILD_RECURSIVELY(topFrame, "RateValue");
+	local imgName = string.format("indun_x%d", nowCnt + 1);
+	rateValue:SetImage(imgName);
+	multiEdit:SetText(tostring(nowCnt));
+end
+
+function INDUNENTER_MULTI_DOWN(frame, ctrl)
+	if frame == nil or ctrl == nil then
+		return;
+	end
+	local multiEdit = GET_CHILD(frame, 'multiEdit');
+	local nowCnt = multiEdit:GetNumber();
+	local topFrame = frame:GetTopParentFrame();
+	local minCnt = topFrame:GetUserIValue('MIN_MULTI_CNT');
+
+	nowCnt = nowCnt - 1;
+	if nowCnt < minCnt then
+		nowCnt = minCnt;
+	end
+
+	local rateValue = GET_CHILD_RECURSIVELY(topFrame, "RateValue");
+	local imgName = string.format("indun_x%d", nowCnt + 1);
+	rateValue:SetImage(imgName);
+	multiEdit:SetText(tostring(nowCnt));
+end
+
+function INDUNENTER_SMALL(frame, ctrl, forceSmall)
 	if frame == nil then
 		return;
 	end
@@ -340,6 +484,10 @@ function INDUNENTER_SMALL(frame, ctrl)
 	local bigmode = topFrame:GetChild('bigmode');
 	local smallmode = topFrame:GetChild('smallmode');
 	local header = topFrame:GetChild('header');
+
+	if forceSmall == true and topFrame:GetUserValue('FRAME_MODE') == 'SMALL' then
+		return;
+	end
 	
 	if topFrame:GetUserValue('FRAME_MODE') == "BIG" then	-- to small mode
 		if topFrame:GetUserValue('AUTOMATCH_MODE') == 'NO' then
@@ -355,6 +503,8 @@ function INDUNENTER_SMALL(frame, ctrl)
 		smallmode:ShowWindow(0);
 		topFrame:SetUserValue('FRAME_MODE', 'BIG');
 		topFrame:Resize(bigmode:GetWidth(), bigmode:GetHeight());
+
+		INDUNENTER_AMEND_OFFSET(topFrame);
 	end
 	INDUNENTER_MAKE_HEADER(topFrame);
 
@@ -363,14 +513,14 @@ end
 
 function INDUNENTER_ENTER(frame, ctrl)
 	local topFrame = frame:GetTopParentFrame();
-	local textCount = 0
+	local textCount = topFrame:GetUserIValue("multipleCount");
 	local yesScript = string.format("ReqMoveToIndun(%d,%d)", 1, textCount);
 	ui.MsgBox(ScpArgMsg("EnterRightNow"), yesScript, "None");
 end
 
 function INDUNENTER_AUTOMATCH(frame, ctrl)
 	local topFrame = frame:GetTopParentFrame();
-	local textCount = 0
+	local textCount = topFrame:GetUserIValue("multipleCount");
 	if topFrame:GetUserValue('AUTOMATCH_MODE') == 'NO' then
 		ReqMoveToIndun(2, textCount);
 	else
@@ -385,7 +535,7 @@ function INDUNENTER_PARTYMATCH(frame, ctrl)
 	end
 
 	local topFrame = frame:GetTopParentFrame();
-	local textCount = 0
+	local textCount = topFrame:GetUserIValue("multipleCount");
 	local partyAskText = GET_CHILD_RECURSIVELY(topFrame, "partyAskText");
 
 	if topFrame:GetUserValue('WITHMATCH_MODE') == 'NO' then
@@ -450,6 +600,7 @@ function INDUNENTER_AUTOMATCH_TYPE(indunType)
 
 	if indunType == 0 then
 		frame:SetUserValue('AUTOMATCH_MODE', 'NO');
+		frame:SetUserValue('EXCEPT_CLOSE_TARGET', 'NO');
 		autoMatchText:ShowWindow(1);
 		autoMatchTime:ShowWindow(0);
 
@@ -459,8 +610,9 @@ function INDUNENTER_AUTOMATCH_TYPE(indunType)
 		if frame:GetUserValue('FRAME_MODE') == "SMALL" then
 			INDUNENTER_SMALL(frame, smallBtn);
 		end
-	else
+	elseif frame:GetUserValue('AUTOMATCH_MODE') ~= 'YES' then
 		frame:SetUserValue('AUTOMATCH_MODE', 'YES');
+		frame:SetUserValue('EXCEPT_CLOSE_TARGET', 'YES');
 		autoMatchText:ShowWindow(0);
 		cancelAutoMatch:SetEnable(1);
 
@@ -523,7 +675,7 @@ function INDUNENTER_AUTOMATCH_PARTY(numWaiting, level, limit, indunLv, indunName
 			lowerBound = indunLv;
 		end
 		if upperBound > PC_MAX_LEVEL then
-			uppderBound = PC_MAX_LEVEL;
+			upperBound = PC_MAX_LEVEL;
 		end	
 		partyAskText:SetTextByKey("value", ScpArgMsg("MatchWithParty").."(Lv."..tostring(lowerBound)..'~'..tostring(upperBound)..")");	
 
@@ -533,7 +685,6 @@ function INDUNENTER_AUTOMATCH_PARTY(numWaiting, level, limit, indunLv, indunName
 		withTime:ShowWindow(1);
 		INDUNENTER_SET_ENABLE(0, 0, 1, 0);
 	end
-		partyAskText:SetTextByKey("value", ScpArgMsg("MatchWithParty").."(Lv."..tostring(lowerBound)..'~'..tostring(upperBound)..")");	
 
 	INDUNENTER_SET_MEMBERCNTBOX();
 end
@@ -555,24 +706,31 @@ function INDUNENTER_SET_ENABLE(enter, autoMatch, withParty, multi)
 	local frame = ui.GetFrame('indunenter');
 	local enterBtn = GET_CHILD_RECURSIVELY(frame, 'enterBtn');
 	local autoMatchBtn = GET_CHILD_RECURSIVELY(frame, 'autoMatchBtn');
-	local withPartyBtn = GET_CHILD_RECURSIVELY(frame, 'withBtn');	
+	local withPartyBtn = GET_CHILD_RECURSIVELY(frame, 'withBtn');
+	local multiBtn = GET_CHILD_RECURSIVELY(frame, 'multiBtn');
+	local multiCancelBtn = GET_CHILD_RECURSIVELY(frame, 'multiCancelBtn');
 	local reEnterBtn = GET_CHILD_RECURSIVELY(frame, 'reEnterBtn');
 	
 	enterBtn:SetEnable(enter);
 	autoMatchBtn:SetEnable(autoMatch);
-	withPartyBtn:SetEnable(withParty);	
+	withPartyBtn:SetEnable(withParty);
+	INDUNENTER_SET_ENABLE_MULTI(multi);
+
+	-- multi btn: 배수토큰 있어야 사용 가능. 인던/의뢰소 미션만 사용가능
+	local indunCls = GetClassByType('Indun', frame:GetUserIValue('INDUN_TYPE'));
+	local resetType = TryGetProp(indunCls, 'PlayPerResetType');
+	local invItem = session.GetInvItemByName(g_indunMultipleItem);
+	local invItem2 = session.GetInvItemByName(g_indunMultipleItem2);
+	if (invItem == nil and invItem2 == nil) or (resetType ~= 100 and resetType ~= 200) then
+		INDUNENTER_SET_ENABLE_MULTI(0);
+	end
 end
 
 function INDUNENTER_UPDATE_PC_COUNT(frame, msg, argStr, argNum) -- argNum: pcCount, argStr: aid/jobID/lv
 	if frame == nil then
 		return;
 	end
-	
-	-- enable auto match, with match mode; except initialize
-	if frame:GetUserValue('AUTOMATCH_MODE') == 'NO' and frame:GetUserValue('WITHMATCH_MODE') == 'NO' and argNum > 0 then
-		return;
-	end
-
+		
 	-- update pc count
 	if argStr == nil then
 		argStr = "None";
@@ -645,6 +803,12 @@ function INDUNENTER_AUTOMATCH_FINDED()
 	autoMatchTime:ShowWindow(0);
 	autoMatchText:ShowWindow(1);
 
+	-- play matching sound
+	local MATCH_FINDED_SOUND = frame:GetUserConfig('MATCH_FINDED_SOUND');
+	imcSound.PlaySoundEvent(MATCH_FINDED_SOUND);
+
+	app.SetWindowTopMost();
+
 	INDUNENTER_SET_ENABLE(0, 0, 0, 0);
 	INDUNENTER_MAKE_SMALLMODE(frame, true);
 	INDUNENTER_AUTOMATCH_FIND_TIMER_START(frame);
@@ -674,33 +838,28 @@ end
 
 function INDUNENTER_REENTER(frame, ctrl)
 	local topFrame = frame:GetTopParentFrame();
-	local textCount = 0
+	local textCount = topFrame:GetUserIValue("multipleCount");
 	ReqMoveToIndun(4, textCount);
 end
 
 function INDUNENTER_MON_TOGGLE(frame, ctrl)
 	local topFrame = frame:GetTopParentFrame();
 	local monSlotSet_extra = GET_CHILD_RECURSIVELY(frame, 'monSlotSet_extra');
-	local monDummy = GET_CHILD_RECURSIVELY(frame, 'mon_dummy2');
 	local monSlotCnt = topFrame:GetUserIValue('MON_SLOT_CNT');
 
 	if monSlotCnt < 6 then
 		return;
 	end
 
-	--monSlotCnt = monSlotCnt - 5; -- 더 보여줄 슬롯의 개수
+	monSlotCnt = monSlotCnt - 5; -- 더 보여줄 슬롯의 개수
 	if topFrame:GetUserValue('MON_TOGGLE_OPEN') == 'NO' then
 		topFrame:SetUserValue('MON_TOGGLE_OPEN', 'YES');
-		topFrame:SetUserValue('MON_DUMMY_DOWN', 'YES')
 		ctrl:SetImage(topFrame:GetUserConfig('MINUS_BTN_IMAGE'));
-		UI_PLAYFORCE(monSlotSet_extra, "slotsetDownMove");
-		UI_PLAYFORCE(monDummy, "slotsetDownMove");
+		UI_PLAYFORCE(monSlotSet_extra, "slotsetRightMove_"..tostring(monSlotCnt));
 	else
 		topFrame:SetUserValue('MON_TOGGLE_OPEN', 'NO');
 		ctrl:SetImage(topFrame:GetUserConfig('PLUS_BTN_IMAGE'));
-		UI_PLAYFORCE(monSlotSet_extra, "slotsetUpMove");		
-		UI_PLAYFORCE(monDummy, "slotsetUpMove");
-		topFrame:SetUserValue('MON_DUMMY_DOWN', 'NO')
+		UI_PLAYFORCE(monSlotSet_extra, "slotsetLeftMove_"..tostring(monSlotCnt));		
 	end
 end
 
@@ -713,14 +872,172 @@ function INDUNENTER_REWARD_TOGGLE(frame, ctrl)
 		return;
 	end
 
-	--rewardSlotCnt = rewardSlotCnt - 5; -- 더 보여줄 슬롯의 개수
+	rewardSlotCnt = rewardSlotCnt - 5; -- 더 보여줄 슬롯의 개수
 	if topFrame:GetUserValue('ITEM_TOGGLE_OPEN') == 'NO' then
 		topFrame:SetUserValue('ITEM_TOGGLE_OPEN', 'YES');
 		ctrl:SetImage(topFrame:GetUserConfig('MINUS_BTN_IMAGE'));
-		UI_PLAYFORCE(rewardSlotSet_extra, "slotsetDownMove");
+		UI_PLAYFORCE(rewardSlotSet_extra, "slotsetRightMove_"..tostring(rewardSlotCnt));
 	else
 		topFrame:SetUserValue('ITEM_TOGGLE_OPEN', 'NO');
 		ctrl:SetImage(topFrame:GetUserConfig('PLUS_BTN_IMAGE'));
-		UI_PLAYFORCE(rewardSlotSet_extra, "slotsetUpMove");		
+		UI_PLAYFORCE(rewardSlotSet_extra, "slotsetLeftMove_"..tostring(rewardSlotCnt));		
 	end
+end
+
+function INDUNENTER_MULTI_EXEC(frame, ctrl)
+	
+    local invItem = session.GetInvItemByName(g_indunMultipleItem);
+	local invItem2 = session.GetInvItemByName(g_indunMultipleItem2);
+    if invItem ~= nil and invItem.isLockState then
+        ui.SysMsg(ClMsg("MaterialItemIsLock"));
+        return;
+    end
+
+    if invItem2 ~= nil and invItem2.isLockState == true then
+        ui.SysMsg(ClMsg("MaterialItemIsLock"));
+        return;
+    end
+	
+	local indunenterFrame = ui.GetFrame('indunenter');
+	local indunType = indunenterFrame:GetUserValue('INDUN_TYPE');
+
+	local multiEdit = GET_CHILD_RECURSIVELY(frame, 'multiEdit');
+	local textCount = multiEdit:GetNumber();
+
+	if textCount == 0 then
+		return;
+	end
+
+	if textCount >= INDUN_MULTIPLE_USE_MAX_COUNT then
+		multiEdit:SetText(tostring(0));
+		return;
+	end
+
+	local indunCls = GetClassByType('Indun', indunType);
+	if indunCls == nil then
+		return;
+	end
+
+	local etc = GetMyEtcObject();
+
+	local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
+	--
+	local maxCount = TryGetProp(indunCls, 'PlayPerReset');
+	if session.loginInfo.IsPremiumState(ITEM_TOKEN) == true then
+		maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_Token');
+	end
+
+	local remainCount = maxCount - nowCount;
+
+	if textCount >= remainCount then
+		ui.SysMsg(ScpArgMsg('NotEnoughIndunEnterCount'));
+		return;
+	end
+
+	local invItem = session.GetInvItemByName(g_indunMultipleItem);
+	local itemCount = 0;
+	if invItem ~= nil then
+		itemCount = invItem.count;
+	end
+	itemCount = itemCount + GET_INVENTORY_ITEM_COUNT_BY_NAME(g_indunMultipleItem2);
+
+	if itemCount < textCount then
+		ui.SysMsg(ScpArgMsg('NotEnoughIndunMultipleItem'));
+		return;
+	end
+
+	local topFrame = frame:GetTopParentFrame();
+	topFrame:SetUserValue("multipleCount", textCount);
+
+	local multiCancelBtn = GET_CHILD_RECURSIVELY(frame, "multiCancelBtn");
+	multiCancelBtn:ShowWindow(1);
+	local multiBtn = GET_CHILD_RECURSIVELY(frame, "multiBtn");
+	multiBtn:ShowWindow(0);
+end
+
+function INDUN_MULTIPLE_CHECK_NUMBER(frame)
+    local invItem = session.GetInvItemByName(g_indunMultipleItem);
+	local invItem2 = session.GetInvItemByName(g_indunMultipleItem2);
+
+    if invItem ~= nil and invItem.isLockState then
+        ui.SysMsg(ClMsg("MaterialItemIsLock"));
+        return;
+    end
+
+    if invItem2 ~= nil and invItem2.isLockState == true then
+        ui.SysMsg(ClMsg("MaterialItemIsLock"));
+        return;
+    end
+
+	local multiEdit = GET_CHILD_RECURSIVELY(frame, 'multiEdit');
+	local textCount = multiEdit:GetNumber();
+	if textCount >= INDUN_MULTIPLE_USE_MAX_COUNT then
+		multiEdit:SetText(tostring(0));
+		return;
+	end
+	local topFrame = frame:GetTopParentFrame();	
+
+	local rateValue = GET_CHILD_RECURSIVELY(topFrame, "RateValue");
+	local imgName = string.format("indun_x%d", textCount + 1);
+	rateValue:SetImage(imgName);
+end
+
+function INDUNENTER_MULTI_CANCEL(frame, ctrl)
+	local topFrame = frame:GetTopParentFrame();	
+	local multiEdit = GET_CHILD_RECURSIVELY(topFrame, 'multiEdit');
+	multiEdit:SetText(tostring(0));
+
+	local rateValue = GET_CHILD_RECURSIVELY(topFrame, "RateValue");
+	rateValue:SetImage("indun_x1");
+
+	topFrame:SetUserValue("multipleCount", 0);
+
+	local multiCancelBtn = GET_CHILD_RECURSIVELY(topFrame, "multiCancelBtn");
+	multiCancelBtn:ShowWindow(0);
+	local multiBtn = GET_CHILD_RECURSIVELY(topFrame, "multiBtn");
+	multiBtn:ShowWindow(1);
+end
+
+function GET_INVENTORY_ITEM_COUNT_BY_NAME(name)
+	if name == nil or name == "" then
+		return 0;
+	end
+
+	local invItemList = session.GetInvItemList();
+	local index = invItemList:Head();
+	local itemCount = session.GetInvItemList():Count();
+	local invITemCount = 0;
+	for i = 0, itemCount - 1 do		
+		local invItem = invItemList:Element(index);
+		local itemobj = GetIES(invItem:GetObject());			
+		if invItem ~= nil then
+			if itemobj.ClassName == name then
+				invITemCount = invITemCount + 1;
+			end
+		end
+		index = invItemList:Next(index);
+	end
+	return invITemCount;
+end
+
+function INDUNENTER_AMEND_OFFSET(frame)
+	local left = frame:GetX();
+	local top = frame:GetY();
+	if left < 0 then
+		left = 0;
+	end
+	if top < 0 then
+		top = 0;
+	end
+		
+	local rightDiff = left + frame:GetWidth() - option.GetClientWidth();
+	local bottomDiff = top + frame:GetHeight() - option.GetClientHeight();
+	if rightDiff > 0 then
+		left = left - rightDiff;
+	end
+	if bottomDiff > 0 then
+		top = top - bottomDiff;
+	end
+
+	frame:SetOffset(left, top);	
 end

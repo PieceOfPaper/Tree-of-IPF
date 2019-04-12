@@ -1,10 +1,4 @@
-﻿function SCR_GET_Cyclone_Ratio2(skill)
-
- return 2.5 + skill.Level * 0.3
-
-end
-
-function SCR_Get_SteadyAim_Ratio(skill)
+﻿function SCR_Get_SteadyAim_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
     local value = 5 + skill.Level
