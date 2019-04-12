@@ -6,15 +6,47 @@ function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
         RemoveBuff(pc, 'Event_Steam_Secret_Market')
     end
 
-    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("NPC_EVENT_VIVID_CITY_SEL1"), ScpArgMsg("EVENT_STEAM_2018REWARD_DLG1"), ScpArgMsg("EVENT_STEAM_2018REWARD_DLG2"), ScpArgMsg("Cancel"))
+    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("Harvest"), ScpArgMsg("NPC_EVENT_VIVID_CITY_SEL1"), ScpArgMsg("EVENT_STEAM_2018REWARD_DLG1"), ScpArgMsg("EVENT_STEAM_2018REWARD_DLG2"), ScpArgMsg("Cancel"))
   
+    if select == 1 then
+        SCR_STEAM_2018_TREASURE_EVENT_DIALOG(self,pc)
+    elseif select == 2 then
+        SCR_EVENT_VIVID_CITY_DIALOG(self,pc)
+    elseif select == 3 then
+        SCR_EV2018_REWARD_GUIDE_DIALOG(self, pc)
+    elseif select == 4 then
+        SCR_EV2018_REWARD_DAYDAY_DIALOG(self, pc)
+    end
+end
+
+function SCR_STEAM_2018_TREASURE_EVENT_DIALOG(self,pc) -- 국내 수확 이벤트 함수명 바꿔서 사용 --
+      -- SCR_STEAM_TREASURE_EVENT_DIALOG -- 검색 로그 남김 --
+    if pc.Lv < 50 then
+        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1801_ORB_MSG8","LV",50), 10);
+        return
+    end
+    local select = ShowSelDlg(pc,0, 'EV_DAILYBOX_SEL', ScpArgMsg("Get_RedSeed"), ScpArgMsg("Cancel"))
 
     if select == 1 then
-        SCR_EVENT_VIVID_CITY_DIALOG(self,pc)
-    elseif select == 2 then
-        SCR_EV2018_REWARD_GUIDE_DIALOG(self, pc)
-    elseif select == 3 then
-        SCR_EV2018_REWARD_DAYDAY_DIALOG(self, pc)
+        local aobj = GetAccountObj(pc);
+        local now_time = os.date('*t')
+        local yday = now_time['yday']
+        local hour = now_time['hour']
+        local min = now_time['min']
+        
+        if aobj.THANKSGIVINGDAY_DAY ~= yday then
+            local tx = TxBegin(pc);
+            TxSetIESProp(tx, aobj, 'THANKSGIVINGDAY_DAY', yday)
+            TxGiveItem(tx, 'Event_Seed_ThanksgivingDay', 1, "EVENT_THANKSGIVINGDAY_DAY")
+            
+            if aobj.Event_HiddenReward ~= 2 then
+                TxGiveItem(tx, 'NECK99_102_team', 1, "EVENT_THANKSGIVINGDAY_DAY")
+                TxSetIESProp(tx, aobj, 'Event_HiddenReward', 2)
+            end
+            local ret = TxCommit(tx);
+        else
+            SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg('EVENT_1705_CORSAIR_MSG4'),10)
+        end
     end
 end
 

@@ -393,7 +393,7 @@ function SCR_USE_EVENT_NRU2_BOX_7(pc) -- Team Lv 3 BOX --
         if teamlv >= 3 then
             local tx = TxBegin(pc)
             TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV_GuideBox_Give');
-            TxGiveItem(tx, 'Premium_StatReset14', 1, 'EV_GuideBox_Give');
+            --TxGiveItem(tx, 'Premium_StatReset14', 1, 'EV_GuideBox_Give');
             TxGiveItem(tx, 'Premium_SkillReset_14d', 1, 'EV_GuideBox_Give');
             TxGiveItem(tx, 'Ability_Point_Stone_500_14d', 2, 'EV_GuideBox_Give');
             TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV_GuideBox_Give');
@@ -490,7 +490,7 @@ function SCR_USE_EVENT_NRU2_BOX_7_RE(pc) -- Team Lv 3 BOX --
     if teamlv >= 3 then
         local tx = TxBegin(pc)
         TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV_GuideBox_Give');
-        TxGiveItem(tx, 'Premium_StatReset14', 1, 'EV_GuideBox_Give');
+        --TxGiveItem(tx, 'Premium_StatReset14', 1, 'EV_GuideBox_Give');
         TxGiveItem(tx, 'Premium_SkillReset_14d', 1, 'EV_GuideBox_Give');
         TxGiveItem(tx, 'Ability_Point_Stone_500_14d', 2, 'EV_GuideBox_Give');
         TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV_GuideBox_Give');
@@ -510,7 +510,7 @@ function SCR_USE_EVENT_RETURN_BOX(pc) --복귀 유저 상자 --
     TxGiveItem(tx, 'Premium_boostToken03_event01', 2, "EVENT_RETURN")
     TxGiveItem(tx, 'Ability_Point_Stone_500_14d', 1, "EVENT_RETURN")
     TxGiveItem(tx, 'Premium_SkillReset_14d', 1, "EVENT_RETURN")
-    TxGiveItem(tx, 'Premium_StatReset14', 1, "EVENT_RETURN")
+    --TxGiveItem(tx, 'Premium_StatReset14', 1, "EVENT_RETURN")
     TxGiveItem(tx, 'Event_Nru2_Box_1_re', 1, "EVENT_RETURN")
     IMCLOG_CONTENT('ENTER_EV_GUIDE', 'ENTER_EV_RETRUN  '..'..PC_LV : '..pc.Lv..'  '..'TEAM_LV : '..teamlv..'  '..'TEAM_NAME : '..teamName) -- Log --
     local ret = TxCommit(tx)

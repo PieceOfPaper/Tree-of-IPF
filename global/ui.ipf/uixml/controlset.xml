@@ -3091,8 +3091,8 @@
 		<userconfig SELECTED_BOX_SKIN="guildbattle_win_bg" NOT_SELECTED_BOX_SKIN="chat_window_2"/>
 		<controls>
 			<groupbox name="skinBox" rect="0 0 312 30" margin="4 0 0 0" layout_gravity="left center" skin="None" hittest="false"/>
-			<richtext name="infoText" rect="0 0 340 30" margin="10 0 0 0" layout_gravity="left center" format="{@st42b}Lv %s{/}" param1="level" param1_def="50" hittest="false"/>
-			<richtext name="nameText" rect="0 0 340 30" margin="80 0 0 0" layout_gravity="left center" format="{@st42b}%s{/}" param1="name" param1_def="던전 이름" hittest="false"/>
+			<richtext name="infoText" rect="0 0 340 30" margin="10 0 0 0" layout_gravity="left center" format="{@st42b}Lv %s{/}" param1="level" fixwidth="false" omitbywidth="false" param1_def="50" hittest="false"/>
+			<richtext name="nameText" rect="0 0 235 30" margin="80 0 0 0" layout_gravity="left center" format="{@st42b}%s{/}" param1="name" fixwidth="true" omitbywidth="true" param1_def="던전 이름" hittest="false"/>
 		</controls>
 	</controlset>
 	<controlset name="keyconfig_tree" hittest="true" width="287" height="60" hittestset="false" draw="false" skin="none">
@@ -4379,7 +4379,7 @@
 		<controls>
 			<picture name="portrait_pic" rect="0 0 350 350" margin="0 100 0 0" layout_gravity="center top" image="charinfo_markslot" stretch="true" hittest="true"/>
 			<picture name="job_icon_pic" rect="0 0 80 80" margin="110 470 0 0" layout_gravity="left top" image="charinfo_markslot" stretch="true" hittest="true"/>
-			<richtext name="job_name_text" rect="0 0 200 50" margin="210 495 0 0" layout_gravity="left top" textalign="left center" format="{@st43}%s{/}" param1="value" param1_def="none" omitbywidth="true" fixwidth="true" fontname="white_14_b_ds_ol"/>
+			<richtext name="job_name_text" rect="0 0 200 50" margin="210 495 0 0" layout_gravity="left top" textalign="left center" format="{@st43}%s{/}" param1="value" param1_def="none" omitbywidth="false" fixwidth="false" fontname="white_14_b_ds_ol"/>
 			<groupbox name="suggestion_gb" margin="0 0 0 0" rect="0 0 500 260" draw="true" hittestbox="false" layout_gravity="center bottom" resizebyparent="false" skin="none" scrollbar="false"/>
 			<controlset name="suggestion_1" skin="blackbox_op_50" parent="suggestion_gb" type="job_select_guide_job_tree" rect="0 0 500 80" margin="0 0 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false"/>
 			<controlset name="suggestion_2" skin="blackbox_op_50" parent="suggestion_gb" type="job_select_guide_job_tree" rect="0 0 500 80" margin="0 85 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false"/>

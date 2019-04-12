@@ -252,7 +252,7 @@ end
 function SCR_USE_EVENT_NRU2_BOX_19(pc)
     local tx = TxBegin(pc)
     TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
-    TxGiveItem(tx, 'Premium_StatReset14', 1, 'EV170711_NRU2');
+    --TxGiveItem(tx, 'Premium_StatReset14', 1, 'EV170711_NRU2');
     TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
     local ret = TxCommit(tx)
 end

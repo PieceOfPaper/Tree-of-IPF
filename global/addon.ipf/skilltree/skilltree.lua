@@ -153,8 +153,8 @@ function MAKE_CLASS_INFO_LIST(frame, resetCommonType)
 		local nameCtrl = GET_CHILD(classCtrl, "name", "ui::CRichText");
 		nameCtrl:SetText("{@st41}".. GET_JOB_NAME(cls, gender));
 
-		g_skilltreeJobList[i + 1] = GET_JOB_NAME(cls, gender)
-		g_skilltreeJobIDList[i + 1] = jobID
+		g_skilltreeJobList[#g_skilltreeJobList + 1] = GET_JOB_NAME(cls, gender)        
+		g_skilltreeJobIDList[#g_skilltreeJobIDList + 1] = jobID
 	--	mainClassList:AddItem(i, GET_JOB_NAME(cls, gender));
 
 		-- 클래스 레벨 (★로 표시)

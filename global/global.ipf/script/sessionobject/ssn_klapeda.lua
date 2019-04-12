@@ -5,9 +5,6 @@
             end
     end
 
-    if IsSameActor(self, party_pc) ~= "YES" and GetDistance(self, party_pc) < PARTY_SHARE_RANGE then
-        SCR_EVENT_TODAY_TREEROOT_DROPITEM(self, sObj, msg, argObj, argStr, argNum)  
-    end
 end
 
 function SCR_SSN_KLAPEDA_KillMonster(self, sObj, msg, argObj, argStr, argNum)
@@ -21,7 +18,6 @@ function SCR_SSN_KLAPEDA_KillMonster(self, sObj, msg, argObj, argStr, argNum)
 		IndunMonKillCountIncrease(self);
 	end
 
-    SCR_EVENT_TODAY_TREEROOT_DROPITEM(self, sObj, msg, argObj, argStr, argNum)  
 
 ---- ID_WHITETREES1
     if GetZoneName(self) == 'id_whitetrees1' then
