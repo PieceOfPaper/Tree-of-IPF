@@ -106,7 +106,7 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
        		if moruName == "Moru_Potential" or moruName == "Moru_Potential14d" then
 				local potential = invItem.PR;
     			TxSetIESProp(tx, invItem, 'PR', potential + 1);
-			elseif moruName == "Moru_Premium" or moruName == "Moru_Gold" or moruName == "Moru_Gold_14d" or moruName == "Moru_Gold_TA" then
+			elseif moruName == "Moru_Premium" or moruName == "Moru_Gold" or moruName == "Moru_Gold_14d" or moruName == "Moru_Gold_TA" or moruName == "Moru_Gold_TA_NR" then
 				if  reinforce_2 > 10 then
 					TxSetIESProp(tx, invItem, 'Reinforce_2', 10);
 				else

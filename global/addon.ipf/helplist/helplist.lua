@@ -105,9 +105,16 @@ function ON_HELPLIST_UPDATE(frame)
 		y = y + ui.GetControlSetAttribute("helplist_category", "height");
 
 		local cnameRichText = GET_CHILD(cset, "help_category", "ui::CRichText");
+        
+        local translated_name = categoryNameList[i]
 
-		cnameRichText:SetTextByKey("help_category_param1",categoryNameList[i]);
+        local start_index, end_index = string.find(categoryNameList[i], '@dicID')
+        if start_index == 1 then
+            translated_name = dic.getTranslatedStr(categoryNameList[i])
+        end
 
+		cnameRichText:SetTextByKey("help_category_param1", translated_name)
+                
 		local qwe = cset:GetEventScript(ui.LBUTTONDOWN)
 
 		cset:SetEventScript(ui.LBUTTONDOWN, 'HELPCATEGORY_LCLICK')
@@ -131,8 +138,13 @@ function ON_HELPLIST_UPDATE(frame)
 
 				local nameRichText = GET_CHILD(set, "help_title", "ui::CRichText");
 
-				nameRichText:SetTextByKey("help_name_param1",helpCls.Title);
+                local translated_helpCls_title = helpCls.Title
+                local start_index, end_index = string.find(helpCls.Title, '@dicID')
+                if start_index == 1 then
+                    translated_helpCls_title = dic.getTranslatedStr(helpCls.Title)
+                end
 
+				nameRichText:SetTextByKey("help_name_param1", translated_helpCls_title);                
 				set:SetEventScript(ui.LBUTTONDOWN, 'HELPLIST_LCLICK')
 				set:SetEventScriptArgNumber(ui.LBUTTONDOWN, helpCls.ClassID);
 				
@@ -140,7 +152,7 @@ function ON_HELPLIST_UPDATE(frame)
 				set:ShowWindow(0)
 			end
 		end
-		
+		 
 		y = y + 10
 	end
 
