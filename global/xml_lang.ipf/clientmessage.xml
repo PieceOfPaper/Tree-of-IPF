@@ -9507,7 +9507,7 @@
 		<Class ClassID="300078" ClassName="TokenAppliedAtExchange" Data="토큰 사용"/>
 		<Class ClassID="300079" ClassName="TokenNoneAppliedAtExchange" Data="토큰 미사용"/>
 		<Class ClassID="300080" ClassName="PremiumToken_60d" Data="토큰:60일"/>
-		<Class ClassID="300081" ClassName="NextTokenBuyableTime" Data="다음 토큰 구입 가능 시간은 {Time}입니다."/>
+		<Class ClassID="300081" ClassName="NextTokenBuyableTime" Data="다음 토큰 구입 가능 시간은 {Year}년 {Month}월 {Day}일 {Hour}시 {Minute}분 입니다."/>
 		<Class ClassID="300082" ClassName="FamilyShareCantRecv" Data="패밀리 쉐어링중인 계정으로는 수령 불가능합니다."/>
 		<Class ClassID="300083" ClassName="ChangeFamilyName" Data="팀 이름"/>
 		<Class ClassID="300084" ClassName="ChangeGuildName" Data="길드 이름"/>

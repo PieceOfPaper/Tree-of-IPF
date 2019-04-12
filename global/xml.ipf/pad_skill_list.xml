@@ -13075,7 +13075,7 @@ end"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="indunTheEnd" CheckerType="0" AllowOverlap="1" Range="30">
+    <PadSkill Name="indunTheEnd" CheckerType="0" AllowOverlap="1" Range="30" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000"/>

@@ -77,29 +77,24 @@ function SCR_TX_TP_SHOP(pc, argList)
 
 		if itemcls.ClassName == "PremiumToken" and pc.Lv < 150 then
 
-			local now = os.time()
-			local nowtime = os.date("%c",now)
-			local nextbuyabletime = os.date("%c",now+(60*60*24))
+			local curDBTime = GetDBTime()
+			local nextBuyableTime = imcTime.AddSec(curDBTime, 60 * 60 * 24);
 
-			
-			local buyabletime = aobj.NextBuyTokenTime;
+			local curDBTimeStr = string.format("%04d%02d%02d%02d%02d%02d", curDBTime.wYear, curDBTime.wMonth, curDBTime.wDay, curDBTime.wHour, curDBTime.wMinute, curDBTime.wSecond)
+			local nextBuyableTimeStr = string.format("%04d%02d%02d%02d%02d%02d", nextBuyableTime.wYear, nextBuyableTime.wMonth, nextBuyableTime.wDay, nextBuyableTime.wHour, nextBuyableTime.wMinute, nextBuyableTime.wSecond)
 
-			if buyabletime == "None" then
-				TxSetIESProp(tx, aobj, 'NextBuyTokenTime', nextbuyabletime);
+			local buyableTime = aobj.NextBuyTokenTime;
+			if buyableTime == "None" or buyableTime == nil or buyableTime == "" then
+				TxSetIESProp(tx, aobj, 'NextBuyTokenTime', nextBuyableTimeStr);
 			else
-
-				local ymhbuyabletime = string.sub(buyabletime,7,8) .. string.sub(buyabletime,0,5) .. string.sub(buyabletime,9)
-				local ymhnowtime = string.sub(nowtime,7,8) .. string.sub(nowtime,0,5) .. string.sub(nowtime,9)
-
-				if ymhbuyabletime < ymhnowtime then 
-					TxSetIESProp(tx, aobj, 'NextBuyTokenTime', nextbuyabletime);
-				else
-					SendSysMsg(pc, "NextTokenBuyableTime", 0, "Time", buyabletime);
+				if buyableTime < curDBTimeStr then
+					TxSetIESProp(tx, aobj, 'NextBuyTokenTime', nextBuyableTimeStr);
+				else					
+					SendSysMsg(pc, "NextTokenBuyableTime", 0, "Year", string.sub(buyableTime, 1, 4), "Month", string.sub(buyableTime, 5, 6), "Day", string.sub(buyableTime, 7, 8), "Hour", string.sub(buyableTime, 9, 10), "Minute", string.sub(buyableTime, 11, 12));
 					TxRollBack(tx);
 					return;
 				end
-			end
-			
+			end	
 		end
 		
 		local cmdIdx = TxGiveItem(tx, itemcls.ClassName, 1, "NpcShop");
