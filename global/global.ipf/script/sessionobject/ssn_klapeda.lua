@@ -21,5 +21,5 @@ function SCR_SSN_KLAPEDA_KillMonster(self, sObj, msg, argObj, argStr, argNum)
 	SCR_SSN_KLAPEDA_KillMonster_Sub(self, sObj, msg, argObj, argStr, argNum)
 ---- ALPHABET_EVENT
 --	SCR_ALPHABET_EVENT(self, sObj, msg, argObj, argStr, argNum)
-    SCR_STEAM_OBSERVER_EVENT(self, sObj, msg, argObj, argStr, argNum)
+--  SCR_STEAM_OBSERVER_EVENT(self, sObj, msg, argObj, argStr, argNum)
 end

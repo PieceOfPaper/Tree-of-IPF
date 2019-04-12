@@ -79,6 +79,42 @@ end
 
 function SCR_USE_ITEM_BUYPOINT(self, argObj, StringArg, Numarg1, Numarg2)
     local tx = TxBegin(self);
-    TxAddWorldPVPProp(tx, "ShopPoint", Numarg1);
+	TxAddWorldPVPProp(tx, "ShopPoint", Numarg1);
+	local ret = TxCommit(tx);
+end
+
+function SCR_USE_PENGUINPACK_2016(pc, argObj, StringArg, Numarg1, Numarg2)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'egg_006', 1, 'PENGUINPACK_2016');
+    TxGiveItem(tx, 'food_penguin', 50, 'PENGUINPACK_2016');
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_ADVENTURERPACK_2016(pc, argObj, StringArg, Numarg1, Numarg2)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'Premium_indunReset', 1, 'ADVENTURERPACK_2016');
+    TxGiveItem(tx, 'Premium_boostToken', 3, 'ADVENTURERPACK_2016');
+    TxGiveItem(tx, 'Event_drug_steam_1h', 2, 'ADVENTURERPACK_2016');
+    local ret = TxCommit(tx);
+end
+
+function DLC_BOX8(pc)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'PremiumToken_15d', 1, 'DLC_BOX8');
+    TxGiveItem(tx, 'Premium_eventTpBox_65', 1, 'DLC_BOX8');
+    TxGiveItem(tx, 'Drug_Premium_HP1', 30, 'DLC_BOX8');
+    TxGiveItem(tx, 'Drug_Premium_SP1', 30, 'DLC_BOX8');
+    TxGiveItem(tx, 'RestartCristal', 10, 'DLC_BOX8');
+    TxGiveItem(tx, 'Mic', 10, 'DLC_BOX8');
+    TxGiveItem(tx, 'Premium_WarpScroll', 10, 'DLC_BOX8');
+    TxGiveItem(tx, 'Drug_STA1', 30, 'DLC_BOX8');
+    TxGiveItem(tx, 'Drug_Haste2_DLC', 30, 'DLC_BOX8');
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_SET01_COMPANION_STEAM(pc)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'egg_009', 1, 'EGG009_PACK');
+    TxGiveItem(tx, 'food_cereal', 50, 'EGG009_PACK');
     local ret = TxCommit(tx);
 end

@@ -19,6 +19,7 @@ end
 function CHAT_OPEN_INIT()
 	--'채팅 타입'에 따른 채팅바의 '채팅타입 버튼 목록'이 결정된다.
 	CHAT_TYPE_LISTSET(config.GetConfigInt("ChatTypeNumber"));
+	CHAT_SET_RESIZE_EDITBOX();
 end;
 
 function CHAT_CLOSE_SCP()
@@ -410,10 +411,19 @@ function CHAT_SET_TO_TITLENAME(chatType, targetName, count)
 		titleCtrl:SetVisible(0);
 	end;
 
-	chatEditCtrl:Resize(chatEditCtrl:GetOriginalWidth() - titleCtrl:GetWidth() - offsetX + 10, chatEditCtrl:GetOriginalHeight())
 	chatEditCtrl:SetOffset(titleCtrl:GetWidth() + offsetX, chatEditCtrl:GetOriginalY());
+	chatEditCtrl:Resize(chatEditCtrl:GetOriginalWidth() - titleCtrl:GetWidth() - offsetX + 10, chatEditCtrl:GetOriginalHeight())
 end
 
+function CHAT_SET_RESIZE_EDITBOX()
+	local frame = ui.GetFrame('chat');
+	local chatEditCtrl = frame:GetChild('mainchat');
+	local btn_ChatType = GET_CHILD(frame,'button_type');
+	local titleCtrl = GET_CHILD(frame,'edit_to_bg');
+	local offsetX = btn_ChatType:GetWidth() - 18;
+	chatEditCtrl:SetOffset(titleCtrl:GetWidth() + offsetX, chatEditCtrl:GetOriginalY());
+	chatEditCtrl:Resize(chatEditCtrl:GetOriginalWidth() - titleCtrl:GetWidth() - offsetX + 10, chatEditCtrl:GetOriginalHeight())
+end
 
 -- 채팅창의 이모티콘선택창과 옵션창의 Open 스크립트
 --{

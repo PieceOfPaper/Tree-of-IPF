@@ -5,7 +5,9 @@ function CHAT_TYPE_INIT(addon, frame)
 end
 
 function CHAT_TYPE_CLOSE(frame)
-	local chattype_frame = ui.GetFrame('chattypelist');	chattype_frame:ShowWindow(0);end
+	local chattype_frame = ui.GetFrame('chattypelist');
+	chattype_frame:ShowWindow(0);
+end
 
 --채팅 타입 목록에서 선택시 채팅타입을 바꿔주고 목록을 닫아준다. 
 function CHAT_TYPE_SELECTION(frame, ctrl)
@@ -31,6 +33,14 @@ function CHAT_TYPE_LISTSET(selected)
 	local frame = ui.GetFrame('chat');		
 	frame:SetUserValue("CHAT_TYPE_SELECTED_VALUE", selected);
 	local chattype_frame = ui.GetFrame('chattypelist');
+	
+	local btn_type = GET_CHILD(frame, "button_type");
+	if btn_type == nil then
+		return;
+	end			
+	local w = btn_type:GetWidth();
+	local h = btn_type:GetHeight();
+
 	local j = 1;
 	for i = 1, 5 do
 
@@ -41,7 +51,9 @@ function CHAT_TYPE_LISTSET(selected)
 		local btn_Chattype = GET_CHILD(chattype_frame, "button_type" .. j);
 			if btn_Chattype == nil then
 				return;
-			end						
+			end
+			btn_Chattype:Resize(w, h);		
+			
 			local msg = "{@st60}".. ScpArgMsg("ChatType_" .. i)  .. "{/}";
 			btn_Chattype:SetText(msg);	
 			btn_Chattype:SetTextTooltip( ScpArgMsg("ChatType_" .. i .. "_ToolTip") );
@@ -67,8 +79,11 @@ function CHAT_TYPE_LISTSET(selected)
 			btn_type:SetText(msg);	
 			btn_type:SetColorTone("FF".. color);
 			config.SetConfig("ChatTypeNumber", i);
+			btn_type:Invalidate();
 		end;
 	end;
+	chattype_frame:Resize(w, chattype_frame:GetHeight());
+	chattype_frame:Invalidate();
 end;
 
 
