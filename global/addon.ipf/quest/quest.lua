@@ -125,7 +125,7 @@ function SHOW_QUEST_BY_ID(frame, ctrl, argstr, clsid)
 	ui.SetTopMostFrame(questframe);
 end
 
-function UPDATE_ALLQUEST_ABANDONLIST(frame)
+function UPDATE_ALLQUEST_ABANDONLIST(frame)    
     is_updated_abandonlist = true    
 	local pc = GetMyPCObject();
 	local posY = 60;
@@ -160,7 +160,7 @@ function UPDATE_ALLQUEST_(frame)
 	UPDATE_ALLQUEST(frame, nil, nil, nil, nil)
 end
 
-function UPDATE_ALLQUEST(frame, msg, isNew, questID, isNewQuest)    
+function UPDATE_ALLQUEST(frame, msg, isNew, questID, isNewQuest)
 	local pc = GetMyPCObject();
 	local mylevel = info.GetLevel(session.GetMyHandle());
 	local posY = 60;
@@ -334,7 +334,7 @@ function HIDE_IN_QUEST_LIST(pc, questIES, abandonResult, subQuestZoneList)
 	return 0, subQuestZoneList;
 end
 
-function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID, abandonResult, subQuestZoneList)    
+function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID, abandonResult, subQuestZoneList)        
 	questGbox:RemoveChild(ctrlName);
 	if result == 'IMPOSSIBLE' or result == 'COMPLETE' then
 		return posY, subQuestZoneList;
@@ -434,12 +434,12 @@ function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, 
 end
 
 function ADD_QUEST_DETAIL(frame, ctrl, argStr, questClassID, notUpdateRightUI)        
-	tolua.cast(ctrl, "ui::CCheckBox");
+	tolua.cast(ctrl, "ui::CCheckBox");    
 	if ctrl:IsChecked() == 1 then
-		quest.AddCheckQuest(questClassID);        
+		quest.AddCheckQuest(questClassID);                
 		if quest.GetCheckQuestCount() > 5 then
 			ctrl:SetCheck(0);
-			quest.RemoveCheckQuest(questClassID);
+			quest.RemoveCheckQuest(questClassID);            
 			return;
 		end
 	else
@@ -503,8 +503,16 @@ function UPDATE_QUEST_DETAIL(frame, questID)
 				i = i + 1;
 			else
                 local exist_quest = GetClassByType("QuestProgressCheck", questID)                
-                if exist_quest == nil or (is_updated_abandonlist == true and exist_quest ~= nil) then
-				    quest.RemoveCheckQuestByIndex(i);
+	            local sobjIES = GET_MAIN_SOBJ();                
+                local questState = nil
+                local questMode = nil
+                if exist_quest ~= nil then                    
+                    questState = SCR_QUEST_CHECK(sobjIES, exist_quest.ClassName);
+                    questMode = exist_quest.QuestMode
+                end
+                
+                if exist_quest == nil or (questState == "IMPOSSIBLE" and questMode ~= "PARTY") or (is_updated_abandonlist == true and exist_quest ~= nil) then
+				    quest.RemoveCheckQuestByIndex(i);                    
                 else
                     i = i + 1
                 end

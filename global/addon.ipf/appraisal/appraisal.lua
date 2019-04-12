@@ -50,8 +50,7 @@ function APPRAISAL_UPDATE_ITEM_LIST(frame)
 		if tempobj ~= nil then
 		    
 			local obj = GetIES(tempobj);
-			if CHECK_NEED_RANDOM_OPTION(obj) == true then
-			if IS_NEED_APPRAISED_ITEM(obj) == true or IS_NEED_RANDOM_OPTION_ITEM(obj) == true then
+			if IS_NEED_APPRAISED_ITEM(obj) == true or (CHECK_NEED_RANDOM_OPTION(obj) == true and IS_NEED_RANDOM_OPTION_ITEM(obj) == true) then
 				local slot = slotSet:GetSlotByIndex(slotcnt)
 				if slot == nil then
 					break;
@@ -65,7 +64,6 @@ function APPRAISAL_UPDATE_ITEM_LIST(frame)
 				slotcnt = slotcnt + 1
 			end
 		end
-	end
 	end
 
 	APPRAISAL_UPDATE_MONEY(frame)

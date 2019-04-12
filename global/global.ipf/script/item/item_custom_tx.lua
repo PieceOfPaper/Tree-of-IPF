@@ -40,15 +40,7 @@ function SCR_TX_TRADE_SELECT_ITEM(pc, argStr)
 		else
 			SysMsg(pc, "Instant", ScpArgMsg("EV161215_NEXONCASHBOX_MSG1","LV",230));
 		end -- @@Steam Returning Event Start@@ --
-	elseif item.ClassName == 'Steam_Event_350_Weapon_Select_Box' then -- !!Steam Friend Event Start!! --
-		local tx = TxBegin(pc);
-		TxEnableInIntegrate(tx);
-		TxTakeItemByObject(tx, item, 1, "TradeSelectItem");
-		local cmdIdx_Global_Event = TxGiveItem(tx, giveItemName, giveItemCount, "TradeSelectItem");
-		TxAppendProperty(tx, cmdIdx_Global_Event, 'Transcend', 5)
-    	TxAppendProperty(tx, cmdIdx_Global_Event, 'Reinforce_2', 11);
-		local ret = TxCommit(tx);
-	else -- !!Steam Friend Event Start!! --
+	else
 		local tx = TxBegin(pc);
 		TxEnableInIntegrate(tx);
 		TxTakeItemByObject(tx, item, 1, "TradeSelectItem");
