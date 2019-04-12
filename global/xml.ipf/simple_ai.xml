@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <AIList>
 	<AI Name="ABBAY643_MQ4_OBJ_EFFECT" UpdateMS="2000" ActiveMessageMapInBattle="1">
@@ -17282,6 +17282,16 @@ return GET_HP_RATE(self) * 0.5"/>
 				<Str Str="SCR_PAVISE_BORNSCRIPT"/>
 			</ToolScp>
 		</StartList>
+	</AI>
+	<AI Name="raid_siauliai1_ST3" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+				<Num Num="400"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+				<AbsPos X="-71.25061" Y="1.8263" Z="113.54411" Random="60"/>
+			</ToolScp>
+		</List>
 	</AI>
 	<AI Name="remains_minigame_cockat" ActiveMessageMapInBattle="1">
 		<List>

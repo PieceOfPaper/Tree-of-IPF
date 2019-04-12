@@ -54,7 +54,6 @@ function SCR_EV_NUMBER_QUEST(slef, pc)
             {'Hat_628096',                   1 } -- 20
         }
         
-        ShowOkDlg(pc, 'EV_NUMBER_RESULT1', 1)
         --print(aObj.PlayTimeEventRewardCount, aObj.PlayTimeEventRewardCount, aObj.DailyTimePoint, aObj.PlayTimeEventPlayMin)
         --print(reward[aObj.PlayTimeEventRewardCount + 1][1], reward[aObj.PlayTimeEventRewardCount + 1][2])
 
@@ -75,23 +74,33 @@ function SCR_EV_NUMBER_QUEST(slef, pc)
         if aObj.Event_HiddenReward == 1 then
             TxSetIESProp(tx, aObj, 'Event_HiddenReward', 0)
         end
+        TxTakeItem(tx, 'Event_160913_1', 5, "160913_TAKEITEM");
     	local ret = TxCommit(tx)
+    	if ret == 'FAIL' then
+    	    ShowOkDlg(pc, 'EV_QUESTITEM_LOCK', 1)
+    	else
+    	    ShowOkDlg(pc, 'EV_NUMBER_RESULT1', 1)
+    	end
     elseif select < aObj.DailyTimePoint then
         local tx = TxBegin(pc)
         TxSetIESProp(tx, aObj, 'Event_HiddenReward', 1)
+        TxTakeItem(tx, 'Event_160913_1', 5, "160913_TAKEITEM");
         local ret = TxCommit(tx)
-        ShowOkDlg(pc, 'EV_NUMBER_RESULT2', 1)
+        if ret == 'FAIL' then
+    	    ShowOkDlg(pc, 'EV_QUESTITEM_LOCK', 1)
+    	else
+    	    ShowOkDlg(pc, 'EV_NUMBER_RESULT2', 1)
+    	end
     elseif select > aObj.DailyTimePoint then
         local tx = TxBegin(pc)
         TxSetIESProp(tx, aObj, 'Event_HiddenReward', 1)
-        local ret = TxCommit(tx)
-        ShowOkDlg(pc, 'EV_NUMBER_RESULT3', 1)
-    end
-    
-    if select ~= nil then
-        local tx = TxBegin(pc)
         TxTakeItem(tx, 'Event_160913_1', 5, "160913_TAKEITEM");
         local ret = TxCommit(tx)
+        if ret == 'FAIL' then
+    	    ShowOkDlg(pc, 'EV_QUESTITEM_LOCK', 1)
+    	else
+    	    ShowOkDlg(pc, 'EV_NUMBER_RESULT3', 1)
+    	end
     end
 end
 
