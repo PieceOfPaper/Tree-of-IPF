@@ -175,7 +175,7 @@ end
 function ON_GUILD_ENTER(frame, msg, str, isEnter)
 	local partynamegbox = GET_CHILD_RECURSIVELY(frame, 'partynamegbox')
 	partynamegbox:EnableHitTest(1);
-	ThrottleScript("UPDATE_GUILDINFO", 5.0);	
+	DebounceScript("UPDATE_GUILDINFO", 0.2);	
 end
 
 function ON_MYPC_GUILD_JOIN(frame)
@@ -193,7 +193,7 @@ function GUILD_TAB_CHANGE(parent, ctrl)
 end
 
 function ON_GUILD_INFO_UPDATE(frame, msg)
-	ThrottleScript("UPDATE_GUILDINFO", 5.0);
+	DebounceScript("UPDATE_GUILDINFO", 0.2);
 end
 
 function GUILD_UI_CLOSE(frame)
@@ -771,7 +771,7 @@ end
 function GUILD_SHOW_ONLY_CONNECTED(parent, ctrl)
 
 	local frame = parent:GetTopParentFrame();
-	ThrottleScript("UPDATE_GUILDINFO", 5.0);
+	DebounceScript("UPDATE_GUILDINFO", 0.2);
 
 	local guild_authority_popup = ui.GetFrame("guild_authority_popup");	
 	guild_authority_popup:ShowWindow(0);
