@@ -30,6 +30,10 @@ function GET_MORE_EVENT_EXP(pc)
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Goddess');	-- 여신의 조각상
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_RedOrb_GM');	-- 이벤트 참여
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_WeddingCake'); -- 웨딩 케잌
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_ManWoo_Pet_1'); --pet
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_FireSongPyeon'); --스팀1주년 폭죽
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Donnes_Buff'); --스팀 친절한 도네스 
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Moru_King'); --모루왕 이벤트
 	return sumExp; 
 end
 

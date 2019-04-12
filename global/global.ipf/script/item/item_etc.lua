@@ -251,30 +251,21 @@ function DLC_BOX10(pc)
 end
 
 function SCR_USE_ITEM_AddBuff_Item(self,argObj,BuffName,arg1,arg2)
-    -- 이벤트 처음 참가
-    -- 전날 이벤트 완료한 유저
-    local aobj = GetAccountObj(pc);
-    local dlg = {}
-    
-    if aObj.EV170530_MORU_KING == 0 or aObj.EVENT_RETURN_DAY ~= yday then -- 이벤트 처음 참가
-        local rand = IMCRandom(1, 15)
-        
-        local tx = TxBegin(pc);
-    	TxAddIESProp(tx, aobj, "EV170530_MORU_KING", rand);
-    	local ret = TxCommit(tx);
-    end
-    
-    if aObj.EV170530_MORU_KING ~= 0 then
-        ShowOkDlg(pc, dlg[aObj.EV170530_MORU_KING])
+    local aObj = GetAccountObj(self);
+
+    if IsBuffApplied(self, 'Premium_Fortunecookie_1') == 'YES' then
+        BuffName = 'Premium_Fortunecookie_2'
+    elseif IsBuffApplied(self, 'Premium_Fortunecookie_2') == 'YES' then
+        BuffName = 'Premium_Fortunecookie_3'
+    elseif IsBuffApplied(self, 'Premium_Fortunecookie_3') == 'YES' then
+        BuffName = 'Premium_Fortunecookie_4'
+    elseif IsBuffApplied(self, 'Premium_Fortunecookie_4') == 'YES' then
+        BuffName = 'Premium_Fortunecookie_5'
+    elseif IsBuffApplied(self, 'Premium_Fortunecookie_5') == 'YES' then
+        BuffName = 'Premium_Fortunecookie_5'
     else
-        -- 다음날 와라
+        BuffName = 'Premium_Fortunecookie_1'
     end
-    
-    -- 완료
-    local tx = TxBegin(pc);
-  	TxAddIESProp(tx, aobj, "EVENT_RETURN_DAY", yday);
-  	TxAddIESProp(tx, aobj, "EVENT_RETURN_COUNT", aobj.EVENT_RETURN_COUNT + 1);
-  	TxAddIESProp(tx, aobj, "EV170530_MORU_KING", 0);
-  	-- 보상
-  	local ret = TxCommit(tx);
+
+	AddBuff(self, self, BuffName, arg1, 0, arg2, 1);
 end
