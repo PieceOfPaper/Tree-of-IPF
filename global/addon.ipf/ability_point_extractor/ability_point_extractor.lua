@@ -126,8 +126,8 @@ function ABILITY_POINT_EXTRACTOR_GET_CONSUME_MONEY(frame)
     
     local eventDiscount = 0
     -- EVENT_1811_ABILITY_EXTRACTOR
-    local useFlag = TryGetProp(sObj, 'EVENT_1811_ABILITY_EXTRACTOR_USE')
-    local exceptFlag = TryGetProp(sObj, 'EVENT_1811_ABILITY_EXTRACTOR_EXCEPT')
+--    local useFlag = TryGetProp(sObj, 'EVENT_1811_ABILITY_EXTRACTOR_USE')
+--    local exceptFlag = TryGetProp(sObj, 'EVENT_1811_ABILITY_EXTRACTOR_EXCEPT')
     
     
     if exceptFlag == 0 and useFlag == 0 then

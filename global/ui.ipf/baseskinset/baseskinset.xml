@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -5840,6 +5840,7 @@
 		<image name="Map_Indun_abbey_raid" file="\skin\indunmap\Map_Indun_abbey_raid.png" imgrect="0 0 295 450" CMM_Caption="노바하 유니크 던전"/>
 		<image name="Map_Indun_StarTower_uniqe_raid" file="\skin\indunmap\Map_Indun_StarTower_uniqe_raid.png" imgrect="0 0 295 450" CMM_Caption="별의 탑 레이드"/>
 		<image name="Map_Klapeda" file="\skin\indunmap\Map_Klapeda.png" imgrect="0 0 295 450" CMM_Caption="클라페다"/>
+		<image name="Map_Orsha" file="\skin\indunmap\Map_Orsha.png" imgrect="0 0 295 450" CMM_Caption="오르샤"/>
 	</imagelist>
 	<imagelist category="jootest_image">
 		<image name="market_hairacc" file="\skin\market_skin.tga" imgrect="1927 447 60 60" CMM_Caption="마켓_헤어악세사리"/>
@@ -9125,6 +9126,7 @@
 		<image name="icon_boruta_force_warp" file="\icon\buff_icon2.tga" imgrect="768 896 128 128"/>
 		<image name="icon_boruta_echo" file="\icon\buff_icon2.tga" imgrect="896 896 128 128"/>
 		<image name="icon_goldpig_have" file="\icon\buff_icon2.tga" imgrect="0 1024 128 128" CMM_Caption="황금돼지 컴페니언 버프"/>
+		<image name="icon_sweet_potato" file="\icon\buff_icon2.tga" imgrect="128 1024 128 128" CMM_Caption="군고구마 버프"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>
