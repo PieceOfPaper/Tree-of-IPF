@@ -14,6 +14,11 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_LargeSongPyeon');	-- 대왕송편
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Largehoney_Songpyeon'); -- 대왕꿀송편
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_161110_candy'); -- 대왕꿀송편
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_161215_1'); -- 축복이 깃든 새싹 1단계
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_161215_2'); -- 축복이 깃든 새싹 2단계
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_161215_3'); -- 축복이 깃든 새싹 3단계
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_161215_4'); -- 축복이 깃든 새싹 4단계
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_161215_5'); -- 축복이 깃든 새싹 5단계
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Premium_Fortunecookie_1'); -- 포춘 쿠키 1단계
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Premium_Fortunecookie_2'); -- 포춘 쿠키 2단계
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Premium_Fortunecookie_3'); -- 포춘 쿠키 3단계
@@ -23,20 +28,37 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_LargeRice_Soup');	-- 특대 떡국
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_WhiteDay_Buff');	-- 화이트데이
 
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_ManWoo_Pet_1'); --pet
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_FireSongPyeon'); --스팀1주년 폭죽 
 	return sumExp; 
 end
 
-function GET_MIX_MATERIAL_EXP(item)
+function GET_MORE_EVENT_EXP_JAEDDURY(pc)
+	local sumExp = 0.0;
+	if "YES" == IsBuffApplied(pc, 'Event_CharExpRate') then
+		local etc = GetETCObject(pc);
+		local rate = TryGetProp(etc, "EventCharExpRate");
+		if rate ~= nil and rate > 0 then
+			sumExp = sumExp + rate;
+		end		
+	end	
+	return sumExp; 
+end
 
+-- 아이템의 exp 를 설정 ItemExp
+function GET_MIX_MATERIAL_EXP(item)
 	if item.EquipXpGroup == "None" then
 		return 0;
 	end
 
 	local prop = geItemTable.GetProp(item.ClassID);
 	local itemExp = TryGetProp(item, 'ItemExp')
+	
 	if itemExp ~= nil then
 	    if item.ItemType == "Equip" then
 	        return item.ItemLv;
+	    elseif item.EquipXpGroup == 'hethran_material' then
+			return itemExp;
 	    end
 		return prop:GetMaterialExp(itemExp);
 	end

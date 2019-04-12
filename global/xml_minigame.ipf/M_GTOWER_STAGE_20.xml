@@ -844,6 +844,15 @@
                     </Obj>
                     <Obj Type="Monster" MonType="57272" Pos="-5229.09#268.91#-4146.50" angle="90" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;BTree&apos; &apos;None&apos; "/>
                 </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Reward">
+                        <execList>
+                            <ToolScp Scp="REWARD_EARTH_TOWER" Client="NO" UseSleep="NO">
+                                <Str Str="GT_SELECT_STAGE_20"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
             </Stage>
             <Stage Name="OUT" AutoStart="0">
                 <StartScpList>
@@ -895,6 +904,9 @@
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="CHECK"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="InCount_Compare"/>
                             </ToolScp>
                         </execList>
                     </Event>

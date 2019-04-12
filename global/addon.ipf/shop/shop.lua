@@ -352,8 +352,6 @@ function SHOP_SELL(invitem, sellCount, frame, setTotalCount)
 		frame = ui.GetFrame('shop');
 	end
 
-	local shopFrame = ui.GetFrame('shop');
-
 	if true == invitem.isLockState then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
@@ -367,7 +365,7 @@ function SHOP_SELL(invitem, sellCount, frame, setTotalCount)
 	end
 
 	imcSound.PlaySoundEvent('button_inven_click_item');
-	local slot = GET_USABLE_SLOTSET(shopFrame, invitem);
+	local slot = GET_USABLE_SLOTSET(frame, invitem);
 	slot:SetUserValue("SLOT_ITEM_ID", invitem:GetIESID());
 	local icon = CreateIcon(slot);
 	local imageName = GET_EQUIP_ITEM_IMAGE_NAME(itemobj, 'Icon')
@@ -409,8 +407,8 @@ function SHOP_SELL(invitem, sellCount, frame, setTotalCount)
 
 	SHOP_SELECT_ITEM_LIST[invitem:GetIESID()] = curCnt;
 
-	SHOP_ITEM_LIST_GET(shopFrame);
-	SHOP_UPDATE_BUY_PRICE(shopFrame);
+	SHOP_ITEM_LIST_GET(frame);
+	SHOP_UPDATE_BUY_PRICE(frame);
 
 	INVENTORY_UPDATE_ICON_BY_INVITEM(ui.GetFrame('inventory'), invitem);
 
@@ -868,7 +866,6 @@ function SHOP_ITEM_LIST_GET(frame)
 		frame = ui.GetFrame('shop');
 	end
 	
-	
 	local ShopItemGroupBox 	= frame:GetChild('shop');
 	local SHOPITEM_listSet	= tolua.cast(ShopItemGroupBox, "ui::CGroupBox");
 
@@ -1253,7 +1250,6 @@ function CONTEXT_SOLD_ITEM(frame, slot, str, num)
 	local context = ui.CreateContextMenu("SOLD_ITEM_CONTEXT", "{@st41}".. GET_FULL_NAME(obj).. "{@st42b}..",0, 0, 100, 100);
 	local strScp = string.format("SHOP_REQ_CANCEL_SELL(%d, '%s')", num, topFrame:GetName());
 
-	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}JaeMaeip"), strScp);
 	strScp = string.format("SHOP_REQ_DELETE_SOLDITEM(%d)", num);
 	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}yeongKuJeKeo"), strScp);
 	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}ChwiSo"), "SHOP_SOLDED_CANCEL");
