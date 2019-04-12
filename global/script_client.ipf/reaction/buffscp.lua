@@ -733,14 +733,7 @@ function Bazooka_LEAVE(actor, obj, buff)
 end
 
 function RetreatShotScp_ENTER(actor, obj, buff)
-    if actor:GetVehicleActor() ~= nil then
-     -- actor:GetAnimation():SetSTDAnim("SKL_RETREATSHOT_STD_RIDE");
-      actor:GetAnimation():SetRUNAnim("SKL_RETREATSHOT_RIDE");
-        actor:GetAnimation():SetWLKAnim("SKL_RETREATSHOT_RIDE");
-        actor:GetAnimation():SetTURNAnim("None");
-    end
-    
-    actor:SetAlwaysBattleState(true);
+    ScpChangeMovingShotAnimationSet(actor, obj, buff);
 end
 
 function RetreatShotScp_LEAVE(actor, obj, buff)
@@ -749,21 +742,11 @@ function RetreatShotScp_LEAVE(actor, obj, buff)
     actor:GetAnimation():ResetWLKAnim();
     actor:GetAnimation():ResetTURNAnim();
     actor:SetAlwaysBattleState(false);
-    
+    ScpChangeMovingShotAnimationSet(actor, obj, buff);
 end
 
 function AssaultFireScp_ENTER(actor, obj, buff)
-    
-    actor:SetAlwaysBattleState(true);
-    if actor:GetVehicleActor() ~= nil then
-        actor:GetAnimation():SetSTDAnim("SKL_WILDSHOT_LOOP_STD_RIDE");
-        actor:GetAnimation():SetRUNAnim("SKL_WILDSHOT_LOOP_RIDE");
-        actor:GetAnimation():SetWLKAnim("SKL_WILDSHOT_LOOP_RIDE");
-        actor:GetAnimation():SetTURNAnim("None");
-        actor:GetAnimation():PlayFixAnim("SKL_WILDSHOT_LOOP_STD_RIDE", 1, 1);
-    end
-    
-    
+    ScpChangeMovingShotAnimationSet(actor, obj, buff);
 end
 
 function AssaultFireScp_LEAVE(actor, obj, buff)
@@ -773,7 +756,7 @@ function AssaultFireScp_LEAVE(actor, obj, buff)
     actor:GetAnimation():ResetTURNAnim();
     actor:SetAlwaysBattleState(false);
     actor:GetAnimation():PlayFixAnim("ASTD", 1, 1);
-    
+    ScpChangeMovingShotAnimationSet(actor, obj, buff);
 end
 
 function WebFlyObject_ENTER(actor, obj, buff)
@@ -1037,7 +1020,8 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
     local buffRunningShot = actor:GetBuff():GetBuff('RunningShot_Buff');
     local buffDoubleGunStance = actor:GetBuff():GetBuff('DoubleGunStance_Buff');
     local buffLimacon = actor:GetBuff():GetBuff('Limacon_Buff');
-    local buffRamMuay = actor:GetBuff():GetBuff('RamMuay_Buff');
+    local RetreatShot = actor:GetBuff():GetBuff('RetreatShot');
+    local AssaultFire = actor:GetBuff():GetBuff('AssaultFire_Buff');
     
     -- RunningShot_Buff (and) DoubleGunStance_Buff
     if buffRunningShot ~= nil and buffDoubleGunStance ~= nil then
@@ -1065,7 +1049,6 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
             actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
             actor:SetAlwaysBattleState(true);
             actor:SetMovingShotAnimation("DOUBLEGUN_ATKMOVE");
-            
             actor:GetAnimation():SetTURNAnim("SKL_DOUBLEGUN_ATURN");
             actor:GetAnimation():SetSTDAnim("SKL_DOUBLEGUN_ASTD");
             actor:GetAnimation():SetRUNAnim("SKL_DOUBLEGUN_ARUN");
@@ -1081,6 +1064,24 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
         actor:GetAnimation():SetSTDAnim("ASTD");
         actor:GetAnimation():SetTURNAnim("None");
         actor:SetMovingShotAnimation("SKL_LIMACON");
+        actor:SetAlwaysBattleState(true);
+    end
+    
+    -- RetreatShot --
+    if actor:GetVehicleActor() ~= nil and RetreatShot ~= nil then
+        actor:GetAnimation():SetRUNAnim("SKL_RETREATSHOT_RIDE");
+        actor:GetAnimation():SetWLKAnim("SKL_RETREATSHOT_RIDE");
+        actor:GetAnimation():SetTURNAnim("None");
+        actor:SetAlwaysBattleState(true);
+    end
+    
+    -- AssaultFire_Buff--
+    if actor:GetVehicleActor() ~= nil and AssaultFire ~= nil then
+        actor:GetAnimation():SetSTDAnim("SKL_WILDSHOT_LOOP_STD_RIDE");
+        actor:GetAnimation():SetRUNAnim("SKL_WILDSHOT_LOOP_RIDE");
+        actor:GetAnimation():SetWLKAnim("SKL_WILDSHOT_LOOP_RIDE");
+        actor:GetAnimation():SetTURNAnim("None");
+        actor:GetAnimation():PlayFixAnim("SKL_WILDSHOT_LOOP_STD_RIDE", 1, 1);
         actor:SetAlwaysBattleState(true);
     end
 end

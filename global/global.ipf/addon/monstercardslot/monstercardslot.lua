@@ -84,7 +84,7 @@
 
 			local optionText = cardcls.OptionText
 			local temp = dictionary.ReplaceDicIDInCompStr(optionText);
-			optionText = string.format(temp, optionValue_temp[1], optionValue_temp[2], optionValue_temp[3])
+			optionText = string.format(temp, optionValue[1], optionValue[2], optionValue[3])
 
 			strInfo = strInfo ..optionText
 			frame : SetUserValue("DUPLICATE_OPTION_VALUE1", optionValue[1])
