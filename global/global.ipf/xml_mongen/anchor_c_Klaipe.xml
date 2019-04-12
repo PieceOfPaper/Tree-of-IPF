@@ -4,7 +4,7 @@
 	<Category>
 		<Class OverrideType="ADD" ClassID="10001" GenType="50001" PosX="94.879028" PosY="148.82733" PosZ="390.55286" Direction="180" Name="게시판"/>
 		<Class OverrideType="REMOVE" ClassID="10002" GenType="50002" PosX="-889.64" PosY="246.15" PosZ="74.97" Direction="-45" Name="성장 지원 도우미"/>
-		<Class OverrideType="ADD" ClassID="10004" GenType="50004" PosX="302.3" PosY="79.9" PosZ="73" Direction="0" Name="보너스 큐브"/>
+		<Class OverrideType="REMOVE" ClassID="10004" GenType="50004" PosX="302.3" PosY="79.9" PosZ="73" Direction="0" Name="보너스 큐브"/>
 		<Class OverrideType="REMOVE" ClassID="10005" GenType="50005" PosX="59" PosY="149" PosZ="305" Direction="180" Name="친구 추천 도우미"/>
 	</Category>
 </idspace>
