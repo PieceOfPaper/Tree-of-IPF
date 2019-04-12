@@ -17,6 +17,8 @@ local DRT_POS = {
 }
 
 function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNameList, hairCouponGuid, dyeCouponGuid)
+
+	
 	if #idSpaceList < 1 then
 		return;
 	end
@@ -32,7 +34,6 @@ function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNa
 
 	-- 넘어온 list 합치기
 	local productList = {};
-	local index = 1
 	for i = 1, #idSpaceList do		
 		local colorName = 'None';
 		-- idSpace 가 hair이면서 ColorClassName이 'None'일 경우 default다.
@@ -46,9 +47,7 @@ function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNa
 			colorName = colorCls.DyeName;
 		end
 	
-		-- 미리보기 상점이 아닌 상품만 목록으로 만든다.
-		if idSpaceList[i] ~= 'Beauty_Shop_Preview' then
-			productList[index] = {
+		productList[i] = {
 			IDSpace =  idSpaceList[i],
 			ClassName = classNameList[i],
 			ColorClassName = colorClassNameList[i],
@@ -57,16 +56,7 @@ function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNa
 			HairDiscountValue  = 0, -- for log
 			DyeDiscountValue = 0, -- for log
 		};
-			index = index +1
 	end
-	end
-
-	-- 구매할 목록이 없으면 더미 아이템을 착용해제하고 종료
-	if #productList == 0 then
-		BEAUTYSHOP_EQUIP_DUMMY_ITEM_CLEAR(pc);
-		return;
-	end
-	
 	
 	-- 구매 제한 검증
 	local isLimit = IS_PURCHASE_LIMIT(pc, productList);
@@ -228,7 +218,7 @@ function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNa
 			end
 
 			-- 헤어구매의 경우 이벤트 프로퍼티 설정
-			TX_SET_BEAUTYSHOP_EVENT_PROPERTY(tx, pc)
+			TX_SET_BEAUTYSHOP_EVENT_PROPERTY(tx, pc) -- 5월 17일 이벤트 종료
 
 		else
 			-- Beauty_Shop_Costume, Beauty_Shop_Lens, Beauty_Shop_Package_Cube Beauty_Shop_Wig
