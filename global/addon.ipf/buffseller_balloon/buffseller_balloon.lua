@@ -83,7 +83,7 @@ function AUTOSELLER_BALLOON(title, sellType, handle, skillID, skillLv)
 		offsetY = - 150;
 	end
 
-	FRAME_AUTO_POS_TO_OBJ(frame, handle, -frame:GetWidth() / 2, offsetY, 3, 1);
+	FRAME_AUTO_POS_TO_OBJ(frame, handle, -frame:GetWidth() / 2, offsetY, 3, 1, 1);
 end
 
 function BUFFSELLER_OPEN(parent, ctrl)

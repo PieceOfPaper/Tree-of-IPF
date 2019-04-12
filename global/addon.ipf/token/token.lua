@@ -282,7 +282,7 @@ function BEFORE_APPLIED_INDUNRESET_OPEN(invItem)
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_INDUNFREE",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
 
-	if obj.ClassName == 'Premium_indunReset_1add' or obj.ClassName == 'Premium_indunReset_1add_14d' then
+	if obj.ClassName == 'Premium_indunReset_1add' or obj.ClassName == 'Premium_indunReset_1add_14d' or obj.ClassName == 'indunReset_1add_14d_NoStack' then
 	    prop:SetTextByKey("value", ClMsg('Indun1AddText'));
 	else
 	    prop:SetTextByKey("value", ClMsg('IndunRestText'));
@@ -392,7 +392,7 @@ function REQ_TOKEN_ITEM(parent, ctrl)
 		return;
 	end
 	
-	if argList == 'Premium_indunReset' or argList == 'Premium_indunReset_14d' or argList == 'Premium_indunReset_14d_test' or argList == 'Premium_indunReset_1add' or argList == 'Premium_indunReset_1h' or argList == 'Premium_indunReset_1add_14d' then
+	if argList == 'Premium_indunReset' or argList == 'Premium_indunReset_14d' or argList == 'Premium_indunReset_14d_test' or argList == 'Premium_indunReset_1add' or argList == 'Premium_indunReset_1h' or argList == 'Premium_indunReset_1add_14d' or argList == 'Premium_indunReset_TA' or argList == 'indunReset_1add_14d_NoStack' then
 
 		local etcObj = GetMyEtcObject();
 		-- 2개뿐이여서 고정으로 넣어둠

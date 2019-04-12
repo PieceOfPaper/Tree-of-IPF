@@ -95,10 +95,10 @@ function _FRAME_AUTOPOS_BY_FRAMEPOS(frame)
 		return 1;
 	end
 
-	local x = pos.x + offsetX;
-	local y = pos.y + offsetY;
 	AUTO_CAST(frame);
-	local pt = frame:ScreenPosToFramePos(x, y);
+	local pt = frame:ScreenPosToFramePos(pos.x, pos.y);
+	pt.x = pt.x + offsetX;
+	pt.y = pt.y + offsetY;
 	frame:MoveFrame(pt.x, pt.y);
 	return 1;
 end
