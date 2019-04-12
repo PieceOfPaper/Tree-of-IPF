@@ -6,5 +6,8 @@
 		<!--아이템-->
 		<!-- 팀배 탭 -->
 		<tabitem name="teamBattleObserveTab" parent="teamBattleDetailTab" layout_gravity="left top" caption="{@st66b}Spectate{/}" skinspace="30" width="174"/>
+		<!--개인 탭-->
+		<tabitem name="tab_explore_quest" parent="bookmark_explore" layout_gravity="left top" caption="{@st66b}퀘스트/업적" skinspace="10" width="174"/>
+		<tabitem name="tab_explore_collection" parent="bookmark_explore" layout_gravity="left top" caption="{@st66b}컬렉션" skinspace="10" width="140"/>
 	</controls>
 </uiframe>
