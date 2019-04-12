@@ -1045,7 +1045,7 @@
 		<Class ClassID="21239" ClassName="MoreNeedRecycleMedal" Data="소유중인 리사이클 메달이 부족합니다."/>
 		<Class ClassID="21240" ClassName="YouCanChargeOnWeb" Data="넥슨캐시 충전은 홈페이지에서 가능합니다."/>
 		<Class ClassID="21241" ClassName="NotLearnedYet" Data="미습득"/>
-<Class ClassID="21242" ClassName="TargetNameGiant" Data="자이언트"/>
+		<Class ClassID="21242" ClassName="TargetNameGiant" Data="자이언트"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -8960,6 +8960,16 @@
 		<Class ClassID="300125" ClassName="Premium_boostToken_RemainingMsg{Sec}" Data="경험의서 효과가 {Sec}초 후에 종료됩니다."/>
 		<Class ClassID="300126" ClassName="Premium_boostToken_EndMsg" Data="경험의서 효과가 종료되었습니다."/>
 		<Class ClassID="300136" ClassName="Premium_StatReset_TA" Data="농축 스탯 초기화 포션"/>
+		<Class ClassID="300137" ClassName="Premium_indunReset_1h" Data="인스턴스 던전 입장 횟수 초기화권:1시간"/>
+		<Class ClassID="300138" ClassName="PremiumToken_1h_TC" Data="토큰:1시간[증정용]"/>
+		<Class ClassID="300139" ClassName="Premium_indunReset_1add_14d" Data="인던 입장 1회 입장권(14일)"/>
+		<Class ClassID="300140" ClassName="PremiumToken_3d_Steam" Data="토큰:3일[증정용]"/>
+		<Class ClassID="300141" ClassName="PremiumToken_5d_Steam" Data="토큰:5일[증정용]"/>
+		<Class ClassID="300142" ClassName="PremiumToken_7d_Steam" Data="토큰:7일[증정용]"/>
+		<Class ClassID="300143" ClassName="PremiumToken_15d_Steam" Data="토큰:15일[증정용]"/>
+		<Class ClassID="300144" ClassName="Premium_SkillReset_14d" Data="스킬 초기화 포션(14일)"/>
+		<Class ClassID="300145" ClassName="Premium_boostToken02_1d" Data="x4 경험의 서 (1일)"/>
+		<Class ClassID="300146" ClassName="Premium_indunReset_TA" Data="인던 입장 횟수 초기화권"/>
 		<Class ClassID="300147" ClassName="Premium_Emoticon_Desc1" Data="해당 이모티콘은 이미 보유하고 있습니다."/>
 	</Category>
 	<Category Name="TPHistory">

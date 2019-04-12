@@ -505,22 +505,19 @@
     <AI Name="ATK_400" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                <Num Num="500"/>
-            </ToolScp>
-            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                <Str Str="Attack"/>
+                <Num Num="150"/>
             </ToolScp>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="792.32367" Y="323.04456" Z="562.89771"/>
+                <AbsPos X="706.96722" Y="323.04456" Z="551.82904"/>
             </ToolScp>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="784.3797" Y="323.04361" Z="779.44781"/>
+                <AbsPos X="1014.3779" Y="323.04364" Z="869.17236"/>
             </ToolScp>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="984.83618" Y="323.04388" Z="772.38568"/>
+                <AbsPos X="771.01147" Y="323.04358" Z="849.0379"/>
             </ToolScp>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="977.05798" Y="323.04456" Z="555.76361"/>
+                <AbsPos X="1015.1531" Y="323.04456" Z="489.10809"/>
             </ToolScp>
             <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
         </List>
@@ -528,22 +525,19 @@
     <AI Name="ATK_400_2" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                <Num Num="500"/>
-            </ToolScp>
-            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                <Str Str="Attack"/>
+                <Num Num="150"/>
             </ToolScp>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="892.17126" Y="323.04376" Z="771.90607"/>
+                <AbsPos X="889.96027" Y="323.04352" Z="910.0954"/>
             </ToolScp>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="765.49744" Y="323.04407" Z="660.68109"/>
+                <AbsPos X="944.3548" Y="323.04456" Z="450.84763"/>
             </ToolScp>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="892.82043" Y="323.04456" Z="556.54462"/>
+                <AbsPos X="738.50562" Y="323.04376" Z="699.30859"/>
             </ToolScp>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="998.79828" Y="323.04419" Z="662.67859"/>
+                <AbsPos X="1066.1078" Y="323.04413" Z="688.86823"/>
             </ToolScp>
             <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
         </List>

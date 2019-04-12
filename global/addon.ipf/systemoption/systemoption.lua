@@ -83,10 +83,10 @@ function INIT_SCREEN_CONFIG(frame)
 	if autoPerfBtn ~= nil then
 		autoPerfBtn:Select();
 	end
-
+	
 	local chkOptimization = GET_CHILD_RECURSIVELY(frame, "check_optimization", "ui::CCheckBox");
 	if nil ~= chkOptimization then
-		chkOptimization:SetCheck(1);
+		chkOptimization:SetCheck(imcperfOnOff.IsEnableOptimization());
 	end;
 
 	local syncMode = option.IsEnableVSync()
