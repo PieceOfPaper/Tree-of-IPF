@@ -25,7 +25,7 @@ function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
             elseif select1 >= 1 and select1 <= 6 then
                 local reward = {
                     'indunReset_1add_14d_NoStack', 'misc_gemExpStone_randomQuest3_14d', 'Premium_eventTpBox_3',
-                    'Premium_Enchantchip14', 'Premium_boostToken_14d', 'Event_160908_6_14d'
+                    'Premium_Enchantchip14_NoStack', 'Premium_boostToken_14d', 'Event_160908_6_14d'
                 }
   
                 local tx = TxBegin(pc)
