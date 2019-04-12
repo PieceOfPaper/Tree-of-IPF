@@ -163,13 +163,13 @@ function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
         needMatCount = 1;
     end
     
-   --EVENT_1804_TRANSCEND_DISCOUNT
-   if transcendCount % 2 == 1 then
-       needMatCount = math.floor(needMatCount/2)
-       if needMatCount < 1 then
-           needMatCount = 1
-       end
-   end
+--    --EVENT_1804_TRANSCEND_DISCOUNT
+--    if transcendCount % 2 == 1 then
+--        needMatCount = math.floor(needMatCount/2)
+--        if needMatCount < 1 then
+--            needMatCount = 1
+--        end
+--    end
     
     return SyncFloor(needMatCount);
 end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
 <imcErrorCode>
 	<Code Code="FATAL_ASSERT" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다."/>
 	<Code Code="FATAL_ASSERT_EX" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다. 다음 정보를 참조하세요."/>
@@ -549,4 +549,5 @@
 	<Code Code="ERROR_WEBSERVICE_SCRIPT" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="웹서버 요청 실패."/>
 	<Code Code="FATAL_SQL_NULL_DATA" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="NO" CallStack="NO" Desc="null 데이타가 Bind되었습니다. 해당 select 루프에서 초기화가 필수입니다. 또는 DB의 null 데이타를 없애주세요."/>
 	<Code Code="INFO_COLONY" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="콜로니전 정보 로그"/>
+	<Code Code="SKILL_HIT_SCRIPT_DURATION" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="RunSkillHitScript 처리 시간 로그"/>
 </imcErrorCode>

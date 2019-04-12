@@ -91,8 +91,8 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem, pc)
         value = value + (value_diamond * 2.1)
     end
   
-    if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
-        value = value/2
+    if moruItem.StringArg == 'SILVER' then
+        value = 0;
     end
     
     return SyncFloor(value);

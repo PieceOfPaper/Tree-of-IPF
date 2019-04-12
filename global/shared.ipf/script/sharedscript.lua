@@ -2094,32 +2094,32 @@ function SCR_REINFORCE_COUPON_PRECHECK(pc, price)
     return price, retCouponList
 end
 
---EVENT_1804_TRANSCEND_REINFORCE
-function SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc)
-   if GetServerNation() ~= "GLOBAL" then
-       return 'NO'
-   end
-   
-   local now_time = os.date('*t')
-   local year = now_time['year']
-   local month = now_time['month']
-   local day = now_time['day']
-   
-   if IsServerSection(pc) ~= 1 then
-       local serverTime = imcTime.GetCurdateNumber()
-       year = 2000 + tonumber(string.sub(serverTime,1, 2))
-       month = tonumber(string.sub(serverTime,3, 4))
-       day = tonumber(string.sub(serverTime,5, 6))
-   end
-   
-   local nowbasicyday = SCR_DATE_TO_YDAY_BASIC_2000(year, month, day)
-
-   if nowbasicyday >= SCR_DATE_TO_YDAY_BASIC_2000(2018, 5, 29) and nowbasicyday <= SCR_DATE_TO_YDAY_BASIC_2000(2018, 6, 26) then
-       return 'YES'
-   end
-   
-   return 'NO'
-end
+----EVENT_1804_TRANSCEND_REINFORCE
+--function SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc)
+--    if GetServerNation() ~= "KOR" then
+--        return 'NO'
+--    end
+--    
+--    local now_time = os.date('*t')
+--    local year = now_time['year']
+--    local month = now_time['month']
+--    local day = now_time['day']
+--    
+--    if IsServerSection(pc) ~= 1 then
+--        local serverTime = imcTime.GetCurdateNumber()
+--        year = 2000 + tonumber(string.sub(serverTime,1, 2))
+--        month = tonumber(string.sub(serverTime,3, 4))
+--        day = tonumber(string.sub(serverTime,5, 6))
+--    end
+--    
+--    local nowbasicyday = SCR_DATE_TO_YDAY_BASIC_2000(year, month, day)
+--
+--    if nowbasicyday >= SCR_DATE_TO_YDAY_BASIC_2000(2018, 4, 19) and nowbasicyday <= SCR_DATE_TO_YDAY_BASIC_2000(2018, 5, 3) then
+--        return 'YES'
+--    end
+--    
+--    return 'NO'
+--end
 
 
 
