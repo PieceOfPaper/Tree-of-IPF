@@ -1,7 +1,7 @@
 function SCR_GACHA_BOUNS_VALUE(self, pc)
     local aObj = GetAccountObj(pc);
-    local count = aObj.GACHA_HAIRACC_COUNT;
-    local bouns = aObj.GACHA_HAIRACC_BOUNS;
+    local count = aObj.STEAM190326_GACHA_HAIRACC_COUNT;
+    local bouns = aObj.STEAM190326_GACHA_HAIRACC_BOUNS;
     local cubetype = 2;
     local next_count, next_bouns = 0, 0;
     local rewardlist = {}
@@ -9,11 +9,11 @@ function SCR_GACHA_BOUNS_VALUE(self, pc)
 
     local bounslist = {
         {25, 55, 85, 115, 200,      'GACHA_TP_COUNT',      'GACHA_TP_BOUNS', 100}, -- tp
-        {15, 25, 35,  50, 100, 'GACHA_HAIRACC_COUNT', 'GACHA_HAIRACC_BOUNS', 50} -- hairacc
+        {15, 25, 35,  50, 100, 'STEAM190326_GACHA_HAIRACC_COUNT', 'STEAM190326_GACHA_HAIRACC_BOUNS', 50} -- hairacc
     }
 
     -- next count
-    if count > bounslist[cubetype][5] then
+    if count >= bounslist[cubetype][5] then
         for a = 1, 20 do
             if count < bounslist[cubetype][5] + (bounslist[cubetype][8] * a) then
                 next_bouns = bounslist[cubetype][5] + (bounslist[cubetype][8] * a)

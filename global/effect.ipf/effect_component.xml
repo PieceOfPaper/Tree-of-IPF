@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ComponentList>
+	<Particle name="fire013_2" texture="fire013_2" width="5.00" height="5.00" pivot_x="0" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="128"/>
+	<Particle name="fire013" texture="fire013" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="256"/>
 	<Particle name="light047_red4" texture="light047_red4" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="light047_red3" texture="light047_red3" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="light047_red2" texture="light047_red2" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
@@ -650,6 +652,9 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="arditi_skill_firebomb" model="arditi_skill_firebomb.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="slash001" model="slash001.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="fire_ball_spear2_white" model="fire_ball_spear2.xac" motion="None" texturepath="effect\high\modeltexture\white\" overlap="true" AlphaType="TEST"/>
 	<Model name="tantaliser_skl2" model="tantaliser_skl2.xac" motion="tantaliser_skl2_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="thornbush" model="thornbush.xac" motion="thornbush_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="wing_boruta" model="wing_boruta.xac" motion="wing_boruta_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
@@ -759,6 +764,9 @@
 	<Model name="Hengestone_dead" model="Hengestone_dead.xac" motion="Hengestone_dead_ani.xsm" texturepath="char_texture\monster\Hengestone\" overlap="false" AlphaType="TEST"/>
 	<Model name="velcoffer_gimmick_prop_dead" model="velcoffer_gimmick_prop_dead.xac" motion="velcoffer_gimmick_prop_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="maple_25_supplemants_event_dead" model="maple_25_supplemants_event_dead.xac" motion="maple_25_supplemants_event_dead_ani.xsm" texturepath="char_texture\npc\maple_25_supplemants\" overlap="false" AlphaType="TEST"/>
+	<Model name="shadow_raid_stone_dead" model="shadow_raid_stone_dead.xac" motion="shadow_raid_stone_dead_ani.xsm" texturepath="char_texture\npc\shadow_raid_stone\" overlap="false" AlphaType="TEST"/>
+	<Model name="shadow_raid_device_dead" model="shadow_raid_device_dead.xac" motion="shadow_raid_device_dead_ani.xsm" texturepath="char_texture\npc\shadow_raid_device\" overlap="false" AlphaType="TEST"/>
+	<Model name="shadow_raid_orb_dead" model="shadow_raid_orb_dead.xac" motion="shadow_raid_orb_dead_ani.xsm" texturepath="char_texture\npc\shadow_raid_orb\" overlap="false" AlphaType="TEST"/>
 	<Model name="greenwood_dead" model="greenwood_dead.xac" motion="greenwood_dead_ani.xsm" texturepath="char_texture\npc\skill\" overlap="false" AlphaType="TEST"/>
 	<Model name="statue_velcofer_dead" model="statue_velcofer_dead.xac" motion="statue_velcofer_dead_ani.xsm" texturepath="char_texture\npc\statue_velcofer\" overlap="false" AlphaType="TEST"/>
 	<Model name="shogogoth_effect" model="shogogoth_effect.xac" motion="shogogoth_effect_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>

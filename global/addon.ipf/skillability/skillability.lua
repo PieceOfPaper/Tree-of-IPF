@@ -18,12 +18,45 @@ function SKILLABILITY_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('POPULAR_SKILL_INFO', 'ON_POPULAR_SKILL_INFO');
 end
 
+function UPDATE_SKILL_BY_SKILLMAKECOSTUME_MAGICAL(resStr)
+    local datas = StringSplit(resStr, ":");
+    local msg = datas[1];
+    local skillName = datas[2];
+    local skillID = datas[3];
+    local frame = ui.GetFrame("skillability")
+    if frame ~= nil then
+        local ctrlSet = GET_CHILD_RECURSIVELY(frame, "SKILL_"..skillName);
+        if ctrlSet ~= nil then
+            if msg == "create_skill" then
+                ctrlSet:SetVisible(1);
+            elseif msg == "remove_skill" then
+                ctrlSet:SetVisible(0);
+                frame:RemoveChild(ctrlSet:GetName());
+                
+                local job_tab = GET_CHILD_RECURSIVELY(frame, "job_tab");
+                if job_tab ~= nil then
+                    local tabIndex = job_tab:GetIndexByName("tab_"..0);
+                    job_tab:DeleteTab(tabIndex);
+                end
+
+                if skillID ~= nil then
+                    DELETE_SKILLICON_QUICKSLOTBAR(nil, msg, skillID, 0);
+                end
+            end
+        end
+
+         session.skill.ReqCommonSkillList();
+         frame:Invalidate();
+    end
+end
+
 function SKILLABILITY_ON_FULL_UPDATE(frame)
     local oldgb = SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(frame);
     local jobClsName = nil;
     if oldgb ~= nil then
         jobClsName = oldgb:GetUserValue("JobClsName");
     end
+
     SKILLABILITY_MAKE_JOB_TAB(frame);
     local job_tab = GET_CHILD(frame, "job_tab");
     if jobClsName ~= nil and jobClsName ~= "Common" then

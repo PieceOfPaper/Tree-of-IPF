@@ -1667,3 +1667,15 @@ function SCR_USE_EVENT_KOR_Fortunecookie(self,argObj,argstr,arg1,arg2)
         -- SendAddOnMsg(self, "NOTICE_Dm_scroll",msg, 10)
     end
 end
+
+function Achieve_Event_Steam_Content_Creator(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Achieve_Event_Steam_Content_Creator', 1)
+    local ret = TxCommit(tx);
+end
+
+function Achieve_Event_Steam_Happy_Anniversary(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Achieve_Event_Steam_Happy_Anniversary', 1)
+    local ret = TxCommit(tx);
+end

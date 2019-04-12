@@ -614,6 +614,8 @@
 		<Class ClassID="4228" ClassName="{itemName}OverStackItem" Data="[{itemName}]아이템이 너무 많습니다. 해당 아이템을 비워주세요"/>
 		<Class ClassID="4230" ClassName="Broadcast_Open_To_Cardbook_Black" Data="{PC} 님이 '카드첩:블랙'으로{nl}불러냈습니다!: {BossName}"/>
 		<Class ClassID="4231" ClassName="Broadcast_Open_To_Cardbook_Ominous" Data="{PC} 님이 '카드첩:칠흑'으로{nl}불러냈습니다!: {BossName}"/>
+		<Class ClassID="4232" ClassName="MYSTIC_SAVIOR_CHAGE_DIAMOND" Data="눈부신 반짝임을 담아! 미스틱 세이비어 다이아!"/>
+		<Class ClassID="4233" ClassName="MYSTIC_SAVIOR_CHAGE_HEART" Data="정열의 마음을 담아! 미스틱 세이비어 하트!"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -7006,6 +7008,8 @@
 		<Class ClassID="67311" ClassName="IRREDIAN1131_BOSS_PORTAL_1" Data="마돈메이드"/>
 		<Class ClassID="67312" ClassName="IRREDIAN1131_BOSS_PORTAL_2" Data="어미스독"/>
 		<Class ClassID="67313" ClassName="IRREDIAN1131_BOSS_PORTAL_NOTICE" Data="수호자 대기실로 향하는 포탈이 생성되었습니다.{nl} 30분간 지속 됩니다."/>
+		<Class ClassID="67314" ClassName="EVENT1902_FISHINGBOX_GACHA" Data="{s24}축하드립니다!{nl}{PC} 님이 [이벤트]연못에 숨겨진 보물 상자에서{nl}{ITEMNAME} 를 획득하셨습니다!"/>
+		<Class ClassID="67316" ClassName="EVENT1902_FISHINGBOX_GIVEITEM_1" Data="[이벤트]요하가 기른 미꾸라지를 획득했습니다"/>
 		<Class ClassID="70001" ClassName="FARM49_2_MQ06_DRAW" Data="우물 물을 긷는 중"/>
 		<Class ClassID="70002" ClassName="FARM49_2_MQ06_SUCCESS" Data="우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
 		<Class ClassID="70003" ClassName="FARM49_2_MQ06_ALREADY" Data="이미 우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>

@@ -1483,10 +1483,10 @@
 	<controlset name="tpshop_recycle_popup" hittest="true" width="440" height="90" hittestset="false" draw="true" skin="" stateskin="false">
 		<controls>
 			<groupbox name="slot_bg" rect="0 0 425 30" margin="0 5 0 0" layout_gravity="left top" skin="guild_base_skin" scrollbar="false"/>
-			<picture name="rightarrow" margin="50 40 0 0" rect="0 0 30 20" hittest="false" image="market_rightarrow" stretch="true" changecursor="false" layout_gravity="center top"/>
+			<picture name="rightarrow" margin="20 40 0 0" rect="0 0 30 20" hittest="false" image="market_rightarrow" stretch="true" changecursor="false" layout_gravity="center top"/>
 			<slot name="itemicon" margin="10 0 0 0" rect="0 0 80 80" layout_gravity="left center" enabledrop="false" enablepop="false" hittest="true" stretch="true"/>
-			<richtext name="itemname" margin="100 10 0 0" rect="0 0 210 40" caption="ZZZZZZZZZZZ" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<richtext name="itemStaticprice_buy" margin="100 40 0 0" rect="0 0 210 40" caption="소비 메달" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+			<richtext name="itemname" margin="100 10 0 0" rect="0 0 400 40" caption="ZZZZZZZZZZZ" autofontsizebywidth="400" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="white_18_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="itemStaticprice_buy" margin="70 40 0 0" rect="0 0 210 40" caption="소비 메달" autofontsizebywidth="210" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 			<richtext name="itemStaticprice_sell" margin="100 40 0 0" rect="0 0 210 40" caption="획득 메달" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 			<richtext name="itemprice" margin="150 40 0 0" rect="0 0 210 40" caption="ZZZZZZZZZZZ" textalign="right center" resizebytext="true" spacey="0" maxwidth="280" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 		</controls>

@@ -523,4 +523,40 @@
 			<Sound From="walk_left" To="step_soil"/>
 		</Anim>
 	</Material>
+	<Material ID="32" Name="magicsquare_red" KorName="변신 마법진: 하트" MaterialItem="misc_soil">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_dry_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_welldone_magicalEffect01" Scale="0.6"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke" Scale="1.7"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke" Scale="1.8"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+	</Material>
+	<Material ID="33" Name="magicsquare_yellow" KorName="변신 마법진: 다이아" MaterialItem="misc_soil">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_dry_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_welldone_magicalEffect02" Scale="0.6"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke" Scale="1.7"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke" Scale="1.8"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+	</Material>
 </Map_materials>
