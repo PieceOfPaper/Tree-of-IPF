@@ -13,7 +13,7 @@ function INIT_CURSEDOOR_EVENT_STAT(pc)
       end
       
       AddBuff(pc, pc, "Event_Penalty", 1, 0, 700000, 1);
-
+      AddBuff(pc, pc, 'Event_Penalty_2');
     else
         local petlist = {
           'Velhider',
@@ -61,7 +61,7 @@ function SCR_CURSE_DOOR_EV(self)
 				local result = math.floor(GetLookAngle(self, objList[i]) - GetLookAngle(objList[i],self))
 				local dis = GetActorDistance(self, objList[i])
 
-				if dis <= 20 then
+				if dis <= 10 then
 					TakeDamage(self, objList[i], "None", 10000);
 				end
 
@@ -79,7 +79,9 @@ function SCR_CURSE_DOOR_EV(self)
 			end
 		end
 	else
-		RandomMove(self, 50)
+		if IMCRandom(1, 20) == 1 then
+			RandomMove(self, 30)
+		end
 	end
 end
 
@@ -91,6 +93,7 @@ function SCR_CURSEDOOR_REWARD_DIALOG(self,pc)
 
 	if IsBuffApplied(pc, 'Event_Penalty_2') == 'YES' then
 		local tx = TxBegin(pc)
+		TxEnableInIntegrate(tx)
 		TxAddIESProp(tx, aObj, 'SURVIVAL2_COUNT', 1);
 		TxGiveItem(tx, 'Event_CurseDoor_Cube', 1, 'Curse_Door_Cube');
 		local ret = TxCommit(tx)
@@ -130,13 +133,6 @@ function SCR_CREATE_RBOX_DIALOG(self,pc)
 		local npc = CREATE_NPC(pc, 'treasure_box5', rbox_pos[rand][1], rbox_pos[rand][2], rbox_pos[rand][3], 0, "Neutral", 0, ScpArgMsg("CITYATTACK_BOSS_BOX"), 'CURSEDOOR_REWARD', nil, nil, 1, nil, nil, nil, nil, nil, nil, 1)
 		if npc ~= nil then
 			EnableMonMinimap(npc)
-			local zoneID = GetZoneInstID(self)
-			local layer = GetLayer(pc);
-			local list, cnt = GetLayerPCList(zoneID, layer);
-
-			for i = 1 , cnt do
-				AddBuff(self,pc, 'Event_Penalty_2')
-			end
 			Kill(self);
 		end
 	end

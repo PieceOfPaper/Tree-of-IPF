@@ -1,33 +1,38 @@
-function SCR_EVENT_NRU2_315GUIDE_DIALOG(self, pc)
+﻿function SCR_EVENT_NRU2_315GUIDE_DIALOG(self, pc)
     if GetServerNation() ~= 'GLOBAL' then
         return
     end
-    local year, month, day, hour, min = GetAccountCreateTime(pc)
-    local aObj = GetAccountObj(pc);
-    local sObj = GetSessionObject(pc, 'ssn_klapeda')
     
-    if ((month >= 10 and day >= 17) or (month >= 11)) and year >= 2017 then
-        if aObj.EV171017_STEAM_NRU_AOBJ == 0 then
+    local aObj = GetAccountObj(pc);
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')  
+    
+    if aObj.EV171114_STEAM_ALL_JOIN_CHECK == 1 then
+        ShowOkDlg(pc, 'NPC_EVENT_NRU2_1', 1)
+        return
+    end
+    if aObj.EV171114_STEAM_NRU_JOIN_CHECK == 1 then
+        if aObj.EV171114_STEAM_NRU_ACCOUNT_CHECK == 0 then
            local tx = TxBegin(pc)
            TxGiveItem(tx, 'costume_simple_festival_m', 1, 'EV170711_NRU2');
            TxGiveItem(tx, 'costume_simple_festival_f', 1, 'EV170711_NRU2');
-           TxSetIESProp(tx, aObj, 'EV171017_STEAM_NRU_AOBJ', 1);
+           TxSetIESProp(tx, aObj, 'EV171114_STEAM_NRU_ACCOUNT_CHECK', 1); 
+           TxSetIESProp(tx, aObj, 'EV171114_STEAM_NRU_JOIN_CHECK', 1); 
            local ret = TxCommit(tx) 
         end
-            if aObj.EV171017_STEAM_NRU_AOBJ < 5 then
-                if sObj.EV171017_STEAM_NRU_SOBJ == 0 then
-                    local tx = TxBegin(pc)
-                    TxGiveItem(tx, 'Event_Nru2_Box_1', 1, 'EV170711_NRU2');
-                    TxSetIESProp(tx, aObj, 'EV171017_STEAM_NRU_AOBJ', aObj.EV171017_STEAM_NRU_AOBJ + 1);
-                    TxSetIESProp(tx, sObj, 'EV171017_STEAM_NRU_SOBJ', sObj.EV171017_STEAM_NRU_SOBJ + 1);
-                    local ret = TxCommit(tx)
-                    SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("steam_Nru_Always_2", "NRUCOUNT", 5 - aObj.EV171017_STEAM_NRU_AOBJ), 5)
-                 else
-                    ShowOkDlg(pc,'NPC_EVENT_NRU_ALWAYS_1', 1)
-                end
-            else
-                ShowOkDlg(pc,'NPC_EVENT_NRU_ALWAYS_2', 1)
+        if aObj.EV171114_STEAM_NRU_ACCOUNT_CHECK < 5 then
+            if sObj.EV171114_STEAM_NRU_SESSION_CHECK == 0 then 
+                local tx = TxBegin(pc)
+                TxGiveItem(tx, 'Event_Nru2_Box_1', 1, 'EV170711_NRU2');
+                TxSetIESProp(tx, aObj, 'EV171114_STEAM_NRU_ACCOUNT_CHECK', aObj.EV171114_STEAM_NRU_ACCOUNT_CHECK + 1);
+                TxSetIESProp(tx, sObj, 'EV171114_STEAM_NRU_SESSION_CHECK', sObj.EV171114_STEAM_NRU_SESSION_CHECK + 1);
+                local ret = TxCommit(tx)
+                SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("steam_Nru_Always_2", "NRUCOUNT", 5 - aObj.EV171114_STEAM_NRU_ACCOUNT_CHECK), 5)
+             else
+                ShowOkDlg(pc,'NPC_EVENT_NRU_ALWAYS_1', 1)
             end
+        else
+            ShowOkDlg(pc,'NPC_EVENT_NRU_ALWAYS_2', 1)
+        end
     else
         ShowOkDlg(pc,'NPC_EVENT_NRU2_1', 1)
     end

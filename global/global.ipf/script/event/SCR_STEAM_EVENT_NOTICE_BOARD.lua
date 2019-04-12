@@ -1,8 +1,16 @@
 function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
 
     local year, month, day, hour, min = GetAccountCreateTime(pc)
+    local aObj = GetAccountObj(pc)
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
     local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("EVENT_SURVIVAL_NAME"), ScpArgMsg("Event_Nru2_Guide_1"), ScpArgMsg("Event_CB_1"), ScpArgMsg("Event_Today_Number_1"), ScpArgMsg("Cancel")) 
+    local TeamLevel = GetTeamLevel(pc);
+
+    if TeamLevel == 1 then
+        local tx = TxBegin(pc)
+    	TxSetIESProp(tx, aObj, 'EV171114_STEAM_NRU_JOIN_CHECK', 1);
+    	local ret = TxCommit(tx)
+    end
     
     if select == 1 then
         SCR_CURSE_DOOR_DIALOG(self,pc) 

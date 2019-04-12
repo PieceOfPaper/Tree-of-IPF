@@ -7,17 +7,17 @@ function SCR_EVENT_CB_DIALOG(self, pc)
     if aObj.EV171017_STEAM_CB_DAY ~= yday then
         local tx = TxBegin(pc)
         TxSetIESProp(tx, aObj, 'EV171017_STEAM_CB_DAY', yday);
-        TxSetIESProp(tx, aObj, 'EV171017_STEAM_CB_COUNT', 0);
+        TxSetIESProp(tx, aObj, 'EV171114_STEAM_CB_COUNT', 0);
         local ret = TxCommit(tx)
     end
-    if aObj.EV171017_STEAM_CB_CHECK == 1 and aObj.EV171017_STEAM_CB_COUNT == 0 then
+    if aObj.EV171114_STEAM_CB_CHECK == 1 and aObj.EV171114_STEAM_CB_COUNT == 0 then
         local tx = TxBegin(pc)
         TxGiveItem(tx, 'Event_Cb_Buff_Item', 5, "EVENT_CB")
-        TxSetIESProp(tx, aObj, 'EV171017_STEAM_CB_COUNT', 1);
+        TxSetIESProp(tx, aObj, 'EV171114_STEAM_CB_COUNT', 1);
         local ret = TxCommit(tx)
         ShowOkDlg(pc,'NPC_EVENT_JP_DAY_CHECK_2', 1)
         return
-    elseif aObj.EV171017_STEAM_CB_CHECK == 1 then
+    elseif aObj.EV171114_STEAM_CB_CHECK == 1 then
         ShowOkDlg(pc,'NPC_EVENT_TODAY_NUMBER_5', 1)
         return
     end
@@ -31,8 +31,8 @@ function SCR_EVENT_CB_DIALOG(self, pc)
         TxGiveItem(tx, 'Premium_StatReset14', 1, "EVENT_CB")
         TxGiveItem(tx, 'Event_Cb_Buff_Item', 5, "EVENT_CB")
         TxGiveItem(tx, 'Event_Cb_Buff_Potion', 1, "EVENT_CB")
-        TxSetIESProp(tx, aObj, 'EV171017_STEAM_CB_CHECK', 1);
-        TxSetIESProp(tx, aObj, 'EV171017_STEAM_CB_COUNT', 1);
+        TxSetIESProp(tx, aObj, 'EV171114_STEAM_CB_CHECK', 1);
+        TxSetIESProp(tx, aObj, 'EV171114_STEAM_CB_COUNT', 1);
         TxSetIESProp(tx, aObj, 'EV171017_STEAM_CB_DAY', yday);
         local ret = TxCommit(tx)
     else
