@@ -2,6 +2,9 @@
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="Recipe">
 	<Category Name="Normal">
+		<Class ClassID="9010" ClassName="R_BlessedStone_1" TargetItem="Premium_itemUpgradeStone_Weapon" TargetItemCnt="1"/>
+		<Class ClassID="9011" ClassName="R_BlessedStone_2" TargetItem="Premium_itemUpgradeStone_Armor" TargetItemCnt="1"/>
+		<Class ClassID="9012" ClassName="R_BlessedStone_3" TargetItem="Premium_itemUpgradeStone_Acc" TargetItemCnt="1"/>
 		<Class OverrideType="None" ClassID="35105" ClassName="R_Hat_628001" Item_2_1="misc_0153" Item_2_1_Cnt="51"/>
 		<Class OverrideType="ADD" ClassID="40039" ClassName="R_Steam_YC_Event" Category="Recipe" Journal="TRUE" NeedWiki="1" Price="0" SellPrice="0" CT_Destroyable="NO" CT_TeamTrade="NO" CT_ShopTrade="NO" UseQueue="YES" CT_MarketTrade="NO" CT_UserTrade="NO" Icon="icon_item_stonepaper_03" RecipeType="Drag" Type="Action" FromItem="Drag" Monster="Drag" MonsterTactics="None" Dialog="ETC" EnableScp="None" Arg1="5" Arg2="0" RecipeTime="8" Playanim="CRAFT" GetMaterialScript="SCR_GET_RECIPE_ITEM" SuccessRatio="0" LevelByFail="0" TargetItem="Event_Steam_YC_5" TargetItemCnt="1" Item_1_1="R_Steam_YC_Event" Item_1_1_Cnt="1" Item_1_1_Level="0" Item_2_1="Event_Steam_YC_1" Item_2_1_Cnt="1" Item_2_1_Level="0" Item_3_1="Event_Steam_YC_2" Item_3_1_Cnt="1" Item_3_1_Level="0" Item_4_1="Event_Steam_YC_3" Item_4_1_Cnt="1" Item_4_1_Level="0" Item_5_1="Event_Steam_YC_4" Item_5_1_Cnt="1" Item_5_1_Level="0"/>
 	</Category>
