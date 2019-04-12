@@ -5243,12 +5243,42 @@
 		<image name="test_betrumlodling_btn" file="\skin\keynbet.tga" imgrect="646 274 67 67" CMM_Caption="배틀럼블 대기중 원"/>
 		<image name="test_betrumlodling_btn_cursoron" file="\skin\keynbet.tga" imgrect="646 274 67 67"/>
 		<image name="test_betrumlodling_btn_clicked" file="\skin\keynbet.tga" imgrect="646 274 67 67"/>
+		<image name="birth_attribute_secret" file="\skin\keynbet.tga" imgrect="352 507 27 27" CMM_Caption="선천 버프 비공개"/>
+		<image name="birth_attribute_berserker" file="\skin\keynbet.tga" imgrect="379 507 27 27" CMM_Caption="버서커형"/>
+		<image name="birth_attribute_avoidance" file="\skin\keynbet.tga" imgrect="406 507 27 27" CMM_Caption="회피형"/>
+		<image name="birth_attribute_cancellation" file="\skin\keynbet.tga" imgrect="433 507 27 27" CMM_Caption="조인트 패널티 해제형"/>
+		<image name="birth_attribute_ld_defense" file="\skin\keynbet.tga" imgrect="352 534 27 27" CMM_Caption="원거리 방어형"/>
+		<image name="birth_attribute_explosion" file="\skin\keynbet.tga" imgrect="379 534 27 27" CMM_Caption="폭발형"/>
+		<image name="birth_attribute_absorption" file="\skin\keynbet.tga" imgrect="406 534 27 27" CMM_Caption="디버프 흡수형"/>
+		<image name="birth_attribute_equalattribute" file="\skin\keynbet.tga" imgrect="433 534 27 27" CMM_Caption="속성별 마이너스 데미지형"/>
+		<image name="birth_attribute_healingfactor" file="\skin\keynbet.tga" imgrect="352 561 27 27" CMM_Caption="힐링팩터"/>
+		<image name="birth_attribute_defense" file="\skin\keynbet.tga" imgrect="379 561 27 27" CMM_Caption="물리방어형"/>
+		<image name="birth_attribute_mdefense" file="\skin\keynbet.tga" imgrect="406 561 27 27" CMM_Caption="마법방어형"/>
+		<image name="birth_attribute_athealing" file="\skin\keynbet.tga" imgrect="352 588 27 27" CMM_Caption="물공회복형"/>
+		<image name="birth_attribute_mathealing" file="\skin\keynbet.tga" imgrect="379 588 27 27" CMM_Caption="마공회복형"/>
+		<image name="birth_attribute_skin" file="\skin\keynbet.tga" imgrect="433 561 35 35" CMM_Caption="선천 버프 스킨"/>
 		<image name="test_restartjj_btn" file="\skin\market_skin.tga" imgrect="950 97 49 49" CMM_Caption="재시작"/>
 		<image name="test_restartjj_btn_cursoron" file="\skin\market_skin.tga" imgrect="1000 97 49 49"/>
 		<image name="test_restartjj_btn_clicked" file="\skin\market_skin.tga" imgrect="1050 97 49 49"/>
 		<image name="test_restartjjsm_btn" file="\skin\market_skin.tga" imgrect="1100 97 45 45" CMM_Caption="재시작 소"/>
 		<image name="test_restartjjsm_btn_cursoron" file="\skin\market_skin.tga" imgrect="1146 97 45 45"/>
 		<image name="test_restartjjsm_btn_clicked" file="\skin\market_skin.tga" imgrect="1192 97 45 45"/>
+		<image name="test_tooltltip_blue" file="\skin\keynbet.tga" imgrect="566 993 25 25" CMM_Caption="툴팁 블루"/>
+		<image name="test_tooltltip_yellow" file="\skin\keynbet.tga" imgrect="540 967 25 25" CMM_Caption="툴팁 옐로"/>
+		<image name="test_tooltltip_green" file="\skin\keynbet.tga" imgrect="514 993 25 25" CMM_Caption="툴팁 그린"/>
+		<image name="test_tooltltip_red" file="\skin\keynbet.tga" imgrect="540 993 25 25" CMM_Caption="툴팁 레드"/>
+		<image name="test_tooltltip_blue2" file="\skin\keynbet.tga" imgrect="462 967 25 25" CMM_Caption="툴팁 블루"/>
+		<image name="test_tooltltip_yellow2" file="\skin\keynbet.tga" imgrect="488 967 25 25" CMM_Caption="툴팁 옐로"/>
+		<image name="test_tooltltip_green2" file="\skin\keynbet.tga" imgrect="462 993 25 25" CMM_Caption="툴팁 그린"/>
+		<image name="test_tooltltip_red2" file="\skin\keynbet.tga" imgrect="488 993 25 25" CMM_Caption="툴팁 레드"/>
+		<image name="test_tooltltip_empty" file="\skin\keynbet.tga" imgrect="514 967 25 25" CMM_Caption="툴팁 빈소켓"/>
+		<image name="test_tooltip_used" file="\skin\keynbet.tga" imgrect="773 152 136 33" CMM_Caption="툴팁 사용중"/>
+		<image name="test_tooltip_forcecodi" file="\skin\keynbet.tga" imgrect="773 185 136 33" CMM_Caption="강화 초월 여부"/>
+		<image name="tradecondition_on" file="\skin\keynbet.tga" imgrect="0 995 130 20"/>
+		<image name="tradecondition_off" file="\skin\keynbet.tga" imgrect="130 995 130 20"/>
+		<image name="Collar_heart" file="\skin\keynbet.tga" imgrect="412 215 20 20" CMM_Caption="칭호 하트"/>
+		<image name="Collar_Lollipop" file="\skin\keynbet.tga" imgrect="309 507 20 20 " CMM_Caption="칭호 롤리팝"/>
+		<image name="Collar_Brush" file="\skin\keynbet.tga" imgrect="330 507 20 20" CMM_Caption="칭호 붓"/>
 	</imagelist>
 	<imagelist category="MCC_image">
 		<image name="MCC_one" file="\skin\MCC_skin.tga" imgrect="237 0 50 50"/>
