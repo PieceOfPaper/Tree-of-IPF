@@ -6,7 +6,7 @@ function SCR_EVENT_1806_NUMBER_GAMES_NPC_DIALOG(self, pc, gimmickName)
     local month = now_time['month']
     local day = now_time['day']
     local nowDate = year..'/'..month..'/'..day
-    
+
     -- local select = ShowSelDlg(pc, 0, 'EVENT_1806_NUMBER_GAMES_DLG1', ScpArgMsg('EVENT_1806_NUMBER_GAMES_MSG2'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
     
     -- if select == 1 then
