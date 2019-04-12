@@ -704,15 +704,15 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
             cycleImage:ShowWindow(0);
         end
 
---        if indunCls.MGame == 'MISSION_EVENT_BLUEORB' then
---            local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
---            if isTokenState == true then
---                isTokenStateCount = TryGetProp(indunCls, "PlayPerReset_Token");
---                nowAdmissionItemCount = nowAdmissionItemCount - isTokenStateCount
---            end
---            countItemData:SetTextByKey('admissionitem', '  {img '..indunAdmissionItemImage..' 30 30}  '..nowAdmissionItemCount..'')
---            cycleImage:ShowWindow(0);
---        end
+        if indunCls.MGame == 'MISSION_EVENT_BLUEORB' then
+            local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
+            if isTokenState == true then
+                isTokenStateCount = TryGetProp(indunCls, "PlayPerReset_Token");
+                nowAdmissionItemCount = nowAdmissionItemCount - isTokenStateCount
+            end
+            countItemData:SetTextByKey('admissionitem', '  {img '..indunAdmissionItemImage..' 30 30}  '..nowAdmissionItemCount..'')
+            cycleImage:ShowWindow(0);
+        end
 
         countData:ShowWindow(0)
         countItemData:ShowWindow(1)

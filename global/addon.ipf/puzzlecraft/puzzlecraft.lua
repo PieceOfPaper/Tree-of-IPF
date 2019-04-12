@@ -238,7 +238,7 @@ function UPDATE_PUZZLECRAFT_TARGETS()
 		SET_SLOT_COUNT_TEXT(retSlot, ptCount)
         
         local needSec = 1
-        if resultInfo ~= nil then
+        if resultInfo ~= nil and resultInfo.needSec ~= nil then
             needSec = resultInfo.needSec
         end
         

@@ -52,6 +52,10 @@ end
 
 
 function SCR_RAID_EVENT_20190102(pc, isServer)
+    if 1 == 1 then
+        return false;
+    end
+
     local sysTime
 
     if isServer == true then
