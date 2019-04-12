@@ -88,6 +88,8 @@
 		<Class ClassID="501132" OverrideType="ADD" ClassName="EVENT_STEAM_LAST_WINTER_SEL1" Data="마지막 겨울 이벤트"/>
 		<Class ClassID="501133" OverrideType="ADD" ClassName="EVENT_STEAM_LAST_WINTER_SEL2" Data="마지막 겨울 버프 받기"/>
 		<Class ClassID="501134" OverrideType="ADD" ClassName="EVENT_STEAM_LAST_WINTER_SEL3" Data="마지막 겨울 선물 받기"/>
+		<Class ClassID="501139" OverrideType="ADD" ClassName="GACHA_BOUNS_SEL1" Data=" {nl}{CUBE} 사용 횟수 : {@st66d_y}{s18}{SUM}{/}{/}{nl}앞으로 {@st66d_y}{s18}{COUNT}{/}{/}회 사용시 {@st66d_y}{s18}{BOUNS}{/}{/}회 보상을 받을 수 있습니다.{nl}{@st66d_y}{s18}{REWARD}{/}{/} 회 보상을 받을 수 있습니다.{nl}수령하시겠습니까?"/>
+		<Class ClassID="501140" OverrideType="ADD" ClassName="GACHA_BOUNS_SEL2" Data=" {nl}{CUBE}  사용 횟수 : {@st66d_y}{s18}{SUM}{/}{/}{nl}앞으로 {@st66d_y}{s18}{COUNT}{/}{/}회 사용시 {@st66d_y}{s18}{BOUNS}{/}{/}회 보상을 받을 수 있습니다."/>
 	</Category>
 	<Category Name="Premium">
 		<Class ClassID="660001" OverrideType="ADD" ClassName="steam_PremiumToken_30day" Data="토큰:30일"/>
