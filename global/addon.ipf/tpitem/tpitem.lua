@@ -324,7 +324,7 @@ function TPITEM_DRAW_ITEM(frame, category, subcategory)
 				state_Text_BG:SetGrayStyle(1);		
 				pre_Text:SetVisible(0);
 			elseif session.GetInvItemByType(clsID) ~= nil then	-- 구매한 물품.
-				sucValue = string.format("{@st41b}%s", ScpArgMsg("ITEM_IsPurchased"));
+				sucValue = string.format("{@st41b}%s", ScpArgMsg("ITEM_IsPurchased1"));
 				state_Text:SetTextByKey("value", sucValue);		
 				state_Text_BG:SetGrayStyle(1);		
 				pre_Text:SetVisible(0);	
@@ -700,7 +700,7 @@ function TPSHOP_ITEM_TO_BASKET(parent, control, tpitemname, classid)
 		end
 
 		local nowAllowedColor = etc['AllowedHairColor']
-		if string.find(nowAllowedColor, item.StringArg) ~= nil then
+		if string.find(nowAllowedColor, item.StringArg) ~= nil or TryGetProp(etc, "HairColor_"..item.StringArg) == 1 then
 			ui.MsgBox(ScpArgMsg("AlearyEquipColor"))
 			return;
 		end
@@ -885,4 +885,23 @@ function UPDATE_BASKET_MONEY(frame)
 
 	frame:Invalidate();
 
+end
+
+function IS_ENABLE_EQUIP_CLASS(pc, needJobClassName, needJobGrade)
+	if pc == nil or needJobClassName == nil or needJobGrade == nil then
+		return false;
+	end
+
+	local jobGrade, jobTotal = GetJobGradeByName(pc, needJobClassName);
+	if jobGrade == nil then
+		return false;
+	end
+
+	if jobGrade < needJobGrade then
+		local jobinfoclass = GetClass('Job', needJobClassName);
+		ui.MsgBox(ScpArgMsg("CanNotEquipLow{Job}{Grade}", "Job", GET_JOB_NAME(jobinfoclass), "Grade", needJobGrade));
+		return false;
+	end
+
+	return true
 end

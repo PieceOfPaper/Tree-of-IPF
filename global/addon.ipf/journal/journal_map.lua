@@ -9,7 +9,7 @@ function CREATE_JOURNAL_ARTICLE_MAP(frame, grid, key, text, iconImage, callback)
 	CREATE_JOURNAL_ARTICLE(frame, grid, key, text, iconImage, callback);
 
 	local group = GET_CHILD(frame, 'map', 'ui::CGroupBox')
-	local page = group:CreateOrGetControl('groupbox', 'page_Map', 0, 0, ui.NONE_HORZ, ui.NONE_VERT, 0, 0, 0, 0)
+	local page = group:CreateOrGetControl('groupbox', 'page_Map', 0, 0, ui.NONE_HORZ, ui.NONE_VERT, 10, 50, 10, 30);
 	local queue = page:CreateOrGetControl('queue', 'page_Queue', 0, 100, ui.NONE_HORZ, ui.TOP, 0, 0, 0, 0)
 	queue:RemoveAllChild();
 	page:SetSkinName(frame:GetUserConfig(""));
@@ -172,13 +172,14 @@ function JOURNAL_OPEN_MAP_ARTICLE(frame, ctrlSet)
 	local group = GET_CHILD(f, 'map', 'ui::CGroupBox');
 
 	local bg = GET_CHILD(f, "bg", "ui::CGroupBox");
-	local page = group:CreateOrGetControl('groupbox', 'page_Map', 0, 0, ui.NONE_HORZ, ui.NONE_VERT, 10, 50, 10, 30);
-	local scrollBarHeight = bg:GetHeight() - group:GetY();
-	tolua.cast(page, 'ui::CGroupBox');
-	page:SetScrollBar(scrollBarHeight);
+	local page = GET_CHILD(group, "page_Map", "ui::CGroupBox");
+
+	if page ~= nil then
+		local scrollBarHeight = bg:GetHeight() - group:GetY();
+		page:SetScrollBar(scrollBarHeight);
+	end
 
 	group:ShowWindow(1);
 	imcSound.PlaySoundEvent('button_click_3');
 	--SET_JOURNAL_RANK_TYPE(f, 'Map');
 end
-

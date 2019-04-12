@@ -6,7 +6,7 @@ end
 function UPDATE_EARTH_TOWER_POPUP(mgameValue)
 
 	local frame = ui.GetFrame("earthtowerpopup");
-	ON_UPDATE_EARTH_TOWER_POPUP(frame, mgameValue);
+	ON_UPDATE_EARTH_TOWER_POPUP(frame, "ON_UPDATE_EARTH_TOWER_POPUP", mgameValue);
 
 end
 
@@ -34,8 +34,38 @@ end
 function EARTH_TOWER_NEXT_FLOOR(parent, ctrl)
 	local frame = parent:GetTopParentFrame();	
 	local mgameValue = frame:GetUserValue("MGAME_VALUE");
-	pc.ReqExecuteTx("SCR_EARTH_TOWER_NEXT_FLOOR", mgameValue);
-	frame:ShowWindow(0);
+    if mgameValue == 'GT_SELECT_STAGE_20' then
+        local list = session.party.GetPartyMemberList(PARTY_NORMAL);
+        local count = list:Count();	
+        local limit_lv = 310
+        local shortfall = 0
+        if count > 0 then
+            local i
+            
+            for i = 0, count-1 do
+                local partyMemberInfo = list:Element(i);
+                local level = partyMemberInfo:GetLevel();
+                if level < limit_lv then
+                    shortfall = shortfall + 1
+                end
+            end
+        end
+    
+        if shortfall == 0 or shortfall == nil then
+
+        	local mgameValue = frame:GetUserValue("MGAME_VALUE");
+        	pc.ReqExecuteTx("SCR_EARTH_TOWER_NEXT_FLOOR", mgameValue);
+            frame:ShowWindow(0);
+        else
+            addon.BroadMsg("NOTICE_Dm_!", ScpArgMsg("GT_shortfallMember_1"), 10);
+            return
+        end
+        return
+    else
+    	local mgameValue = frame:GetUserValue("MGAME_VALUE");
+    	pc.ReqExecuteTx("SCR_EARTH_TOWER_NEXT_FLOOR", mgameValue);
+    	frame:ShowWindow(0);
+    end
 end
 
 function EARTH_TOWER_STOP(parent, ctrl)
@@ -54,7 +84,6 @@ function EARTH_TOWER_POPUP_UPDATE_STARTWAITSEC(frame)
 	local remainSec = startWaitSec - curSec;
 	remainSec = math.floor(remainSec);
 	if remainSec < 0 then
-		--시간 다 지나면 포기 누른거랑 같은 효과를 내자
 		local mgameValue = frame:GetUserValue("MGAME_VALUE");
 		pc.ReqExecuteTx("SCR_TX_EARTH_TOWER_STOP", mgameValue);
 		frame:ShowWindow(0);

@@ -85,7 +85,6 @@ function ITEM_BUFF_CREATE_STORE(frame)
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
-
 	session.autoSeller.RequestRegister("ItemBuffStore", storeGroupName, edit:GetText(), sklName);
 end
 
@@ -168,17 +167,17 @@ function OPEN_ITEMBUFF_UI_COMMON(groupName, sellType, handle)
 	open:ShowWindow(1);
 	open:SetUserValue("GroupName", groupName);
 
-	-- 상점 이후 타이틀을 변경한다.
+
 	local sklName = GetClassByType("Skill", groupInfo.classID).ClassName;
 	local armor = open:GetChild("Squire_ArmorTouchUp");
 	local Weapon = open:GetChild("Squire_WeaponTouchUp");
 	
 	if 'Squire_WeaponTouchUp' == sklName then 
-		-- 장비손질과 같으면, 아머를 안보여주고
+
 		armor:SetVisible(0);
 		Weapon:SetVisible(1);
 	else
-		-- 같지 않으면 아머타이틀을 보여준다
+
 		armor:SetVisible(1);
 		Weapon:SetVisible(0);
 	end
@@ -188,7 +187,7 @@ function OPEN_ITEMBUFF_UI_COMMON(groupName, sellType, handle)
 	open:SetUserValue("HANDLE", handle);
 
 	local repairBox = open:GetChild("repair");
-	-- 주인만 판매 가격을 보여주자
+
 	if session.GetMyHandle() == handle then
 		local money = repairBox:GetChild("reqitemMoney");
 		money:SetTextByKey("txt", groupInfo.price);

@@ -104,20 +104,21 @@ function JOIN_PARTY_COMPETITION(parent, ctrl)
 
 	local type = parent:GetUserIValue("TYPE");
 	local cls = GetClassByType("PartyCompetition", type);
-	if cls.PartyType == "Party" then
-		if 0 == AM_I_LEADER(PARTY_NORMAL) then
-			ui.MsgBox(ScpArgMsg("OnlyPartyLeader"));
-			return;
-		end
-	else
-		if 0 == AM_I_LEADER(PARTY_GUILD) then
-			ui.MsgBox(ScpArgMsg("OnlyGuildLeader"));
-			return;
+	local isJoining = session.party.GetPartyCompetitionJoinState(type);
+	if isJoining ~= 2 then
+		if cls.PartyType == "Party" then
+			if 0 == AM_I_LEADER(PARTY_NORMAL) then
+				ui.MsgBox(ScpArgMsg("OnlyPartyLeader"));
+				return;
+			end
+		else
+			if 0 == AM_I_LEADER(PARTY_GUILD) then
+				ui.MsgBox(ScpArgMsg("OnlyGuildLeader"));
+				return;
+			end
 		end
 	end
 
-	local isJoining = session.party.GetPartyCompetitionJoinState(type);
-	
 	if isJoining == 2 then
 		ui.Chat("/partycompetition " .. type .. " 2");
 	elseif isJoining == 1 then

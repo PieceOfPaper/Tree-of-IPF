@@ -92,26 +92,6 @@ function INTE_WARP_DETAIL_INFO(cost, infoString, xPos)
 	frame:Invalidate();
 end
 
---[[
-function WARP_TO_AREA_OLD(frame, data, argStr, argNum)
-
-	local dest_mapClassID = data:GetEventScriptArgNumber(ui.LBUTTONDOWN);
-	local cheat = string.format("/intewarp %d", dest_mapClassID);
-
-	local warpFrame = ui.GetFrame('inte_warp');	
-	if warpFrame:GetUserValue('SCROLL_WARP') == 'YES' then
-		cheat = string.format("/intewarpByItem %d", dest_mapClassID);
-	end
-	movie.InteWarp(session.GetMyHandle(), cheat);
-	local frame2 = ui.GetFrame('inte_warp_detail');
-	frame2:ShowWindow(0);
-	frame2:Invalidate()
-
-	packet.ClientDirect("InteWarp");
-
-end
-]]
-
 function ON_INTE_SKILL_WARP(frame, msg, argStr, argNum)
 
 	movie.InteWarp(session.GetMyHandle(), 'None');

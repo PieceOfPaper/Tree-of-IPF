@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_emitter2" particleName="I_spread_in011_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Dummy_emitter" particleName="F_spread_in003" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="20" attachNode="Dummy_emitter2" particleName="I_spread_in011_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="40" attachNode="Dummy_emitter2" particleName="I_spread_in011_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="64" attachNode="Dummy_emitter2" particleName="F_spread_out026_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_hydra_skl_2"/>
+	<Sound frame="0.00" soundFile="mon_voice_lapene_skl2_cast"/>
+	<Sound frame="6.00" soundFile="skl_eff_summon_smoke"/>
+	<Sound frame="56.00" soundFile="mon_voice_lapene_skl3_cast"/>
+	<Sound frame="62.00" soundFile="skl_eff_spread_2"/>
+</ActionDesc>

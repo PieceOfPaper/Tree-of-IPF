@@ -93,7 +93,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 		
 		if itemObj.EqpType == 'SH' then
 		
-			if itemObj.DefaultEqpSlot == 'RH' then
+			if itemObj.DefaultEqpSlot == 'RH' or itemObj.DefaultEqpSlot == 'RH LH' then
 				
 				local item = session.GetEquipItemBySpot( item.GetEquipSpotNum("RH") );
 				if nil ~= item then

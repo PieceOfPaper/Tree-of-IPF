@@ -1,5 +1,5 @@
 
--- ?�빌 UNLOCK체크??
+-- 어빌 UNLOCK체크용
 
 function PC_PCAA(pc)
 local jobHistory = GetJobHistorySting(pc)
@@ -21,6 +21,9 @@ function CHECK_ABILITY_LOCK(pc, ability)
 			local jobCls = GetClass("Job", ability.Job)
 		
 			local abilGroupClass = GetClass("Ability_"..jobCls.EngName, ability.ClassName);
+			if abilGroupClass == nil then
+				abilGroupClass = GetClass("Ability", ability.ClassName);
+			end
 
 			if abilGroupClass == nil then
 				IMC_NORMAL_INFO("abilGroupClass is nil!!  jobCls.EngName : "..jobCls.EngName.."  ability.ClassName : "..ability.ClassName)
@@ -45,6 +48,9 @@ function CHECK_ABILITY_LOCK(pc, ability)
 			if string.find(ability.Job, sList[i]) ~= nil then
 				local jobCls = GetClass("Job", sList[i])
 				local abilGroupClass = GetClass("Ability_"..jobCls.EngName, ability.ClassName);
+				if abilGroupClass == nil then
+					abilGroupClass = GetClass("Ability", ability.ClassName);
+				end
 
 				local unlockFuncName = abilGroupClass.UnlockScr;
 
@@ -163,11 +169,11 @@ end
 --	end
 --
 --
---	-- PATK_BM?????�줬???MINPATK?? MAXPATK??????계산??????????
---	-- ???? self.MAXPATK????�???�??�??�??invalidate??needCalc값이 false??변경되????cp계산???????????�??	
---	-- ?? MINPATK?????�계???�?MAXPATK?? ???�값??�??????�??�???
---	-- ?????그냥 ?????관??칼럼??????계산?????Invalidate(self, 관??�? ??�????�?처리가??
---	-- �??구조?????��???문제??�??빠름. �??방법????�???�간??????�????보기�?. �???????????????????????�주�?감사.
+--	-- PATK_BM????려줬으??MINPATK?? MAXPATK????시 계산????야??는??
+--	-- ???? self.MAXPATK????번 ??출??기??문??invalidate??needCalc값이 false??변경되??서 cp계산????시??????게??	
+--	-- ?? MINPATK????시계산??고 MAXPATK?? ??전값을 그??????고??게 ??
+--	-- ??럴??그냥 ??하??관??칼럼????시 계산??도??Invalidate(self, 관??값) ??주????게 처리가??
+--	-- 좋??구조????니지??문제??결??빠름. 좋??방법????각??시간이??을??고????보기로.. 좋??????이??으????재??에????려주면 감사.
 --	Invalidate(self, "MINPATK");
 --	Invalidate(self, "MAXPATK");
 --end
@@ -445,6 +451,27 @@ function SCR_ABIL_CLOTH_INACTIVE(self, ability)
 	
 end
 
+function SCR_ABIL_MERGEN(self)
+	local Bow_Attack = GetSkill(self, 'Bow_Attack');
+	if nil ~= Bow_Attack then
+		InvalidateSkill(self, 'Bow_Attack');
+		SendSkillProperty(self, Bow_Attack);
+	end
+
+	local CrossBow_Attack = GetSkill(self, 'CrossBow_Attack');
+	if nil ~= CrossBow_Attack then
+		InvalidateSkill(self, 'CrossBow_Attack');
+		SendSkillProperty(self, CrossBow_Attack);
+	end
+end
+
+function SCR_ABIL_MERGEN1_ACTIVE(self, ability)
+	SCR_ABIL_MERGEN(self)
+end
+
+function SCR_ABIL_MERGEN1_INACTIVE(self, ability)
+	SCR_ABIL_MERGEN(self)
+end
 
 function SCR_ABIL_LEATHER_ACTIVE(self, ability)
 
@@ -733,6 +760,24 @@ function SCR_ABIL_KRIWI1_INACTIVE(self, ability)
 
 end
 
+function SCR_ABIL_INQUISITOR9_ACTIVE(self, ability)
+
+	local rItem  = GetEquipItem(self, 'RH');
+	
+    local addresdark = 0
+	if rItem.ClassType == "Mace" then
+		addresdark = addresdark + ability.Level * 10
+	end
+	
+	self.ResDark_BM = self.ResDark_BM + addresdark
+	SetExProp(ability, "ABIL_RESDARK_ADD", addresdark)
+end
+
+function SCR_ABIL_INQUISITOR9_INACTIVE(self, ability)
+	local addresdark = GetExProp(ability, "ABIL_RESDARK_ADD")
+	self.ResDark_BM = self.ResDark_BM - addresdark
+end
+
 
 
 function SCR_GET_SwordMastery_Bonus(ability)
@@ -875,3 +920,23 @@ function SCR_ABIL_MONK9_INACTIVE(self, ability)
 
 end
 
+function TX_SCR_SET_ABIL_HEADSHOT_OPTION(pc, tx, active)
+	local skl = GetSkill(pc, 'Musketeer_HeadShot')
+	if nil == skl then
+		return false;
+	end
+
+	local sklValue, overValue = 0, 0;
+	if active == 1 then
+		sklValue = 20000;
+		overValue = 20000;
+		SetExProp(skl, "CoolTimeForceStart", 0);
+	else -- no active state: no overheat 
+		sklValue = 0;
+		overValue = 0;
+		SetExProp(skl, "CoolTimeForceStart", 1);
+	end
+	TxSetIESProp(tx, skl, "SklUseOverHeat", sklValue);
+	TxSetIESProp(tx, skl, "OverHeatDelay", overValue);
+	return true;
+end

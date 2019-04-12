@@ -26,7 +26,7 @@ function ON_PARTYINFO_INST_UPDATE(frame, msg, argStr, argNum)
 		if partyMemberInfo:GetMapID() > 0 then
 			local partyInfoCtrlSet = frame:GetChild('PTINFO_'.. partyMemberInfo:GetAID());
 			if partyInfoCtrlSet ~= nil then
-				UPDATE_PARTY_INST_SET(partyInfoCtrlSet, partyMemberInfo);
+				UPDATE_PARTY_INST_SET(partyInfoCtrlSet, partyMemberInfo);			
 			end
 		end
 
@@ -51,15 +51,15 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 
 	local myAid = session.loginInfo.GetAID();
 	for i = 0 , count - 1 do
-		local partyMemberInfo = list:Element(i);
+		local partyMemberInfo = list:Element(i);	
 		if partyMemberInfo:GetAID() ~= myAid then
-			local ret = nil;
+			local ret = nil;		
 			-- 접속중 파티원
 			if geMapTable.GetMapName(partyMemberInfo:GetMapID()) ~= 'None' then
 				ret = SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, false);
 			else-- 접속안한 파티원
 				ret = SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType);
-				end
+			end
 		else -- 내정본데
 			local headsup = ui.GetFrame("headsupdisplay");
 			local leaderMark = GET_CHILD(headsup, "Isleader", "ui::CPicture");
@@ -70,19 +70,19 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 			end
 		end
 	end	
-
+	
 	for i = 0 , frame:GetChildCount() - 1 do
 		local ctrlSet = frame:GetChildByIndex(i);
 		if nil ~= ctrlSet then
-		local ctrlSetName = ctrlSet:GetName();
-		if string.find(ctrlSetName, "PTINFO_") ~= nil then
-			local aid = string.sub(ctrlSetName, 8, string.len(ctrlSetName));
-			local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, aid);
-			if memberInfo == nil then
-				frame:RemoveChildByIndex(i);
-				i = i - 1;
+			local ctrlSetName = ctrlSet:GetName();
+			if string.find(ctrlSetName, "PTINFO_") ~= nil then
+				local aid = string.sub(ctrlSetName, 8, string.len(ctrlSetName));
+				local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, aid);
+				if memberInfo == nil then
+					frame:RemoveChildByIndex(i);
+					i = i - 1;
+				end
 			end
-		end
 		end
 	end
 	-- DESTROY_CHILD_BYNAME(frame, 'PTINFO_');
@@ -144,7 +144,7 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 					for j=0, buffCount - 1 do
 						
 						local buffID = partyMemberInfo:GetBuffIDByIndex(j);
-						local cls = GetClassByType("Buff", buffID);											
+						local cls = GetClassByType("Buff", buffID);					
 						if cls ~= nil and cls.ShowIcon ~= "FALSE" and cls.ClassName ~= "TeamLevel" then
 							local buffOver = partyMemberInfo:GetBuffOverByIndex(j);
 							local buffTime = partyMemberInfo:GetBuffTimeByIndex(j);							
@@ -227,8 +227,8 @@ function GIVE_PARTY_LEADER(name)
 end
 
 function OPEN_PARTY_MEMBER_INFO(name)
-
-	party.ReqMemberDetailInfo(name)
+	
+	party.ReqMemberDetailInfo(name)	
 	
 end
 
@@ -247,7 +247,7 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 	local context = ui.CreateContextMenu("CONTEXT_PARTY", "", 0, 0, 170, 100);
 	if session.world.IsIntegrateServer() == true then
 		if  session.world.IsIntegrateIndunServer() == false then
-		local actor = GetMyActor();
+			local actor = GetMyActor();
 			local execScp = string.format("ui.Chat(\"/changePVPObserveTarget %d 0\")", memberInfo:GetHandle());
 			ui.AddContextMenuItem(context, ScpArgMsg("Observe{PC}", 'PC',memberInfo:GetName() ), execScp);
 			ui.OpenContextMenu(context);
@@ -321,7 +321,7 @@ function PARTY_HP_UPDATE(actor, partyMemberInfo)
 end
 
 function UPDATE_PARTY_INST_SET(partyInfoCtrlSet, partyMemberInfo)
-	UPDATE_PARTYINFO_HP(partyInfoCtrlSet, partyMemberInfo);
+	UPDATE_PARTYINFO_HP(partyInfoCtrlSet, partyMemberInfo);	
 end
 
 function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, leaderFID, isCorsairType, ispipui)
@@ -361,7 +361,7 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 	local nameRichText = tolua.cast(nameObj, "ui::CRichText");	
 	local hpGauge = GET_CHILD(partyInfoCtrlSet, "hp", "ui::CGauge");
 	local spGauge = GET_CHILD(partyInfoCtrlSet, "sp", "ui::CGauge");
-
+	
 	if jobportraitImg ~= nil then
 		local jobIcon = GET_CHILD(jobportraitImg, "jobportrait", "ui::CPicture");
 		local iconinfo = partyMemberInfo:GetIconInfo();
@@ -390,7 +390,7 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 		if ispipui == true then
 			partyMemberName = ScpArgMsg("PartyMemberMapNChannel","Name",partyMemberName,"Mapname",partymembermapUIName,"ChNo",partyMemberInfo:GetChannel() + 1)
 		end
-			
+				
 
 		if dist < sharedcls.Value and mymapname == partymembermapName then
 			jobportraitImg:SetColorTone(NEAR_MEMBER_FACE_COLORTONE)
@@ -506,7 +506,7 @@ function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogou
 		local jobCls  = GetClassByType("Job", iconinfo.job);
 		if nil ~= jobCls then
 			jobIcon:SetImage(jobCls.Icon);
-	end
+		end
 	end
 		
 	-- 파티원 레벨 표시 -- 
@@ -626,44 +626,49 @@ function ON_PARTY_INVITE_CANCEL(frame, msg, familyName, arg2)
 end
 
 function SET_PARTY_JOB_TOOLTIP(cid)	
+	local ret = 0;
 	local pcparty = session.party.GetPartyInfo();
 	if pcparty == nil then
-		return 0;
+		return ret;
 	end	
 	local partyInfo = pcparty.info;
 	local info = session.otherPC.GetByStrCID(cid);		
 	
 	if info == nil then
-		return 0 ;
+		return ret;
 	end;
 
 	local frame = ui.GetFrame("partyinfo");	
-	PARTY_JOB_TOOLTIP_CTRLSET(frame, cid, info);
-	
+	ret = PARTY_JOB_TOOLTIP_CTRLSET(frame, cid, info);
+
 	local partyFrame = ui.GetFrame('party');
 	local gbox = partyFrame:GetChild("gbox");
-	frame = gbox:GetChild("memberlist");		
-	PARTY_JOB_TOOLTIP_CTRLSET(frame, cid, info);
+	local memberlist = gbox:GetChild("memberlist");		
+	ret = PARTY_JOB_TOOLTIP_CTRLSET(memberlist, cid, info);
+
+	return ret;
 end
-	
+
 function PARTY_JOB_TOOLTIP_CTRLSET(frame, cid, info)
+	local ret = 0;
 	if frame == nil then
-		return 0;
+		return ret;
 	end;
 	local partyInfoCtrlSet = frame:GetChild('PTINFO_'.. info:GetAID());
-		if partyInfoCtrlSet ~= nil then	
-			local jobportraitImg = GET_CHILD(partyInfoCtrlSet, "jobportrait_bg", "ui::CPicture");
-			if jobportraitImg ~= nil then
-				local jobIcon = GET_CHILD(jobportraitImg, "jobportrait", "ui::CPicture");
-			PARTY_JOB_TOOLTIP(frame, cid, jobIcon, info.JobName);
-				end;
-			end;	
-		end;	
+	if partyInfoCtrlSet ~= nil then	
+		local jobportraitImg = GET_CHILD(partyInfoCtrlSet, "jobportrait_bg", "ui::CPicture");
+		if jobportraitImg ~= nil then
+			local jobIcon = GET_CHILD(jobportraitImg, "jobportrait", "ui::CPicture");
+			ret = PARTY_JOB_TOOLTIP(frame, cid, jobIcon, info.JobName);
+		end;
+	end;
+	return ret;
+end;
 
 
 function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName)
 	if (nil == session.otherPC.GetByStrCID(cid)) or (nil == uiChild) then 
-		return;
+		return 0;
 	end		 
 	
 	local otherpcinfo = session.otherPC.GetByStrCID(cid);
@@ -715,4 +720,5 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName)
 	end
 	uiChild:SetTextTooltip(startext);
 	uiChild:EnableHitTest(1);
+	return 1;
 end

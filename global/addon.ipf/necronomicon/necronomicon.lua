@@ -167,7 +167,15 @@ function UPDATE_NECRONOMICON_UI(frame)
 	
 	local part_gaugename = 'part_gauge1'
 	local part_gauge = GET_CHILD(deadpartsGbox, part_gaugename,"ui::CGauge")
-	part_gauge:SetPoint(deadPartsCnt,300) -- 기획 변경으로 100개 씩 3개있던걸 300개로 변경
+	local totalCount = 300
+	
+	local abil = session.GetAbilityByName("Necromancer21")
+	if abil ~= nil then
+	    local abilObj = GetIES(abil:GetObject());
+	    totalCount = totalCount + abilObj.Level * 100
+	end
+	
+	part_gauge:SetPoint(deadPartsCnt, totalCount) -- 기획 변경으로 100개 씩 3개있던걸 300개로 변경
 
 
 	local gbox = GET_CHILD(frame,'necoGbox',"ui::CGroupBox")
@@ -339,3 +347,4 @@ function SET_NECRO_CARD_ROTATE()
 	local resultlist = session.GetItemIDList();
 	item.DialogTransaction("SET_NECRO_CARD_ROTATE", resultlist);
 end
+

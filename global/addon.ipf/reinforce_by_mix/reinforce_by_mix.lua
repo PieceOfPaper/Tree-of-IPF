@@ -153,7 +153,7 @@ function REINFORCE_MIX_UPDATE_ITEM_STATS(frame, obj, nextObj)
 	local title_gauge = GET_CHILD_RECURSIVELY(frame, "title_gauge", "ui::CRichText");
 	title_gauge:ShowWindow(1);
 
-	--???�용 ?�벨??prop?�시 ??��. ?��? ??�� 분류가 번거로우므�??�예 ?�른 ?�과 ?�르�??�도�??�다. ?�머지???�협?�에�?문의.
+
 	if obj.GroupName == "Gem" then
 		local box_stats_gem = GET_CHILD_RECURSIVELY(frame,'box_stats_gem','ui::CGroupBox')
 		box_stats_gem:ShowWindow(1)
@@ -182,7 +182,6 @@ function REINFORCE_MIX_UPDATE_ITEM_STATS(frame, obj, nextObj)
 			end
 		
 			if title ~= nil then
-				-- �??�로?�티 마다 컨트롤셋 ?�성. 무기?�서 ?�번, ?�의?�서 ?�번 ?�런 ??
 				innerCSet = box_stats_gem:CreateOrGetControlSet('each_gem_property_for_gemreinforceui', title, 0, inner_yPos); 
 				DESTROY_CHILD_BYNAME(innerCSet, 'proptext');
 				local type_text = GET_CHILD(innerCSet,'type_text','ui::CRichText')
@@ -195,7 +194,7 @@ function REINFORCE_MIX_UPDATE_ITEM_STATS(frame, obj, nextObj)
 			
 			else
 				local type_text = GET_CHILD(innerCSet,'type_text','ui::CRichText')
-				-- �??�로?�티???�션 마다 컨트롤셋 ?�성. 공격??10?�서 ?�번, 블럭+10?�서 ?�번 ?�런 ??
+
 				innerInnerCSet = innerCSet:CreateOrGetControlSet('each_gem_property_each_text_for_gemreinforceui', 'proptext'..innerpropcount, 0, innerpropypos);
 			
 				local realtext = nil
@@ -310,13 +309,14 @@ end
 
 function CLICK_ITEM_PIC_RBTN(ctrl)
 
-	local frame = ctrl:GetTopParentFrame();
+	local frame = ctrl:GetTopParentFrame();	
 	if 1 == frame:GetUserIValue("EXECUTE_REINFORCE") then
 		return 0;
 	end
 	CLEAR_REINFORCE_BY_MIX(frame);
 
 end
+
 
 function REINFORCE_BY_MIX_SETITEM(frame, invItem)
 	if true == invItem.isLockState then
@@ -326,48 +326,47 @@ function REINFORCE_BY_MIX_SETITEM(frame, invItem)
 
 	CLEAR_REINFORCE_BY_MIX(frame);
 	
-	local obj = GetIES(invItem:GetObject());
-	local reinforceCls = GetClass("Reinforce", obj.Reinforce_Type);
-	if reinforceCls == nil then
-		return;
-	end
-	
-	local lv, curExp, maxExp = GET_ITEM_LEVEL_EXP(obj);
+	local obj = GetIES(invItem:GetObject());		
+		local reinforceCls = GetClass("Reinforce", obj.Reinforce_Type);
+		if reinforceCls == nil then
+			return;
+		end
+			local lv, curExp, maxExp = GET_ITEM_LEVEL_EXP(obj);
+			
+			if maxExp == 0 then
+			    ui.SysMsg(ClMsg("ThisGemCantReinforce"));
+			    return;
+			end
 
-	if maxExp == 0 then
-	    ui.SysMsg(ClMsg("ThisGemCantReinforce"));
-	    return;
-	end
+			frame:SetUserValue("REINFORCE_CLS", reinforceCls.ClassName);
+			local box_item = frame:GetChild("box_item");
+			local itemname = box_item:GetChild("itemname");
+			itemname:SetTextByKey("value", GET_FULL_NAME(obj));
 
-	frame:SetUserValue("REINFORCE_CLS", reinforceCls.ClassName);
-	local box_item = frame:GetChild("box_item");
-	local itemname = box_item:GetChild("itemname");
-	itemname:SetTextByKey("value", GET_FULL_NAME(obj));
+			local startext = box_item:GetChild("startext");
+			local starsize = frame:GetUserConfig("STAR_TEXT_SIZE")
+			startext:SetText(GET_ITEM_STAR_TXT(obj,starsize));	
+			
+			REINFORCE_MIX_UPDATE_ITEM_STATS(frame, obj, nil);
+				
+			local item_pic = GET_CHILD(box_item, "item_pic", "ui::CSlot");
+			item_pic:ShowWindow(1);
+			item_pic:SetEventScript(ui.RBUTTONUP, "CLICK_ITEM_PIC_RBTN");
+			SET_SLOT_ITEM(item_pic, invItem);
+			
+			frame:SetUserValue("ITEM_GUID", invItem:GetIESID());
+			local matslot = GET_MAT_SLOT(frame);
+			matslot:ShowWindow(1);
+			matslot:SetSkinName(reinforceCls.SlotSkin);
+			matslot:SetSlotSize(reinforceCls.SlotWidth, reinforceCls.SlotHeight);
+			matslot:SetSpc(reinforceCls.SlotSpaceX, reinforceCls.SlotSpaceY);
+			matslot:RemoveAllChild();
+			matslot:CreateSlots();
 
-	local startext = box_item:GetChild("startext");
-	local starsize = frame:GetUserConfig("STAR_TEXT_SIZE")
-	startext:SetText(GET_ITEM_STAR_TXT(obj,starsize));	
-	
-	REINFORCE_MIX_UPDATE_ITEM_STATS(frame, obj, nil);
-		
-	local item_pic = GET_CHILD(box_item, "item_pic", "ui::CSlot");
-	item_pic:ShowWindow(1);
-	item_pic:SetEventScript(ui.RBUTTONUP, "CLICK_ITEM_PIC_RBTN");
-	SET_SLOT_ITEM(item_pic, invItem);
-	
-	frame:SetUserValue("ITEM_GUID", invItem:GetIESID());
-	local matslot = GET_MAT_SLOT(frame);
-	matslot:ShowWindow(1);
-	matslot:SetSkinName(reinforceCls.SlotSkin);
-	matslot:SetSlotSize(reinforceCls.SlotWidth, reinforceCls.SlotHeight);
-	matslot:SetSpc(reinforceCls.SlotSpaceX, reinforceCls.SlotSpaceY);
-	matslot:RemoveAllChild();
-	matslot:CreateSlots();
-
-	INVENTORY_SET_ICON_SCRIPT("REINF_MIX_CHECK_ICON", "GET_REINFORCE_MIX_ITEM");
-	INVENTORY_SET_CUSTOM_RBTNDOWN("REINFORCE_MIX_INV_RBTN");
-	INVENTORY_SET_CUSTOM_RDBTNDOWN("REINFORCE_MIX_INV_RDBTN");
-end
+			INVENTORY_SET_ICON_SCRIPT("REINF_MIX_CHECK_ICON", "GET_REINFORCE_MIX_ITEM");
+			INVENTORY_SET_CUSTOM_RBTNDOWN("REINFORCE_MIX_INV_RBTN");
+			INVENTORY_SET_CUSTOM_RDBTNDOWN("REINFORCE_MIX_INV_RDBTN");
+		end
 
 function REINFORCE_MIX_UPDATE_EXP(frame)
 	local slots = GET_MAT_SLOT(frame);
@@ -433,18 +432,21 @@ function REINF_MIX_CHECK_ICON(slot, reinfItemObj, invItem, itemobj)
 	slot:EnableDrop(0);
 
 	local icon = slot:GetIcon();
-	if itemobj ~= nil and reinfItemObj ~= nil then
+	if itemobj ~= nil and reinfItemObj ~= nil and TryGetProp(reinfItemObj, 'Reinforce_Type') ~= nil then
 		local reinforceCls = GetClass("Reinforce", reinfItemObj.Reinforce_Type);
-		if 1 == _G[reinforceCls.MaterialScript](reinfItemObj, itemobj) then
-			--slot:PlayUIEffect("I_sys_item_slot_loop_yellow", 1.7, "Reinforce");
-			if 0 == slot:GetUserIValue("REINF_MIX_SELECTED") then
-				icon:SetColorTone("FFFFFFFF");
-			else
-				icon:SetColorTone("33000000");
+		local materialScp = TryGetProp(reinforceCls, 'MaterialScript')
+		if materialScp ~= nil then
+			if 1 == _G[materialScp](reinfItemObj, itemobj) then
+				--slot:PlayUIEffect("I_sys_item_slot_loop_yellow", 1.7, "Reinforce");
+				if 0 == slot:GetUserIValue("REINF_MIX_SELECTED") then
+						icon:SetColorTone("FFFFFFFF");
+					else
+						icon:SetColorTone("33000000");
+					end
+					return;
+				end
 			end
-			return;
 		end
-	end
 	
 	--slot:StopUIEffect("Reinforce", true, 0.0);
 	if icon ~= nil then
@@ -464,8 +466,6 @@ end
 
 function REINFORCE_MIX_INV_RBTN(itemObj, slot, selectall)
 
-	imcSound.PlaySoundEvent("sys_jam_slot_equip");
-
 	local invitem = session.GetInvItemByGuid(GetIESID(itemObj))
 	if nil == invitem then
 		return;
@@ -473,36 +473,39 @@ function REINFORCE_MIX_INV_RBTN(itemObj, slot, selectall)
 
 	local reinfItem = GET_REINFORCE_MIX_ITEM();
 	local reinforceCls = GetClass("Reinforce", reinfItem.Reinforce_Type);
-	if 1 == _G[reinforceCls.MaterialScript](reinfItem, itemObj) then
+			if 1 == _G[reinforceCls.MaterialScript](reinfItem, itemObj) then
 
-		if true == invitem.isLockState then
-			ui.SysMsg(ClMsg("MaterialItemIsLock"));
-			return;
-		end
-		local nowselectedcount = slot:GetUserIValue("REINF_MIX_SELECTED")
-
-		if selectall == 'YES' then
-			nowselectedcount = invitem.count -1 -- ?�차???�에??+1 ?��?�?
-		end
-
-		if nowselectedcount < invitem.count then
-			local reinfFrame = ui.GetFrame("reinforce_by_mix");
-			local icon = slot:GetIcon();
-
-			if 1 == REINFORCE_BY_MIX_ADD_MATERIAL(reinfFrame, itemObj, nowselectedcount + 1) then
-				slot:SetUserValue("REINF_MIX_SELECTED", nowselectedcount + 1);
-				local nowselectedcount = slot:GetUserIValue("REINF_MIX_SELECTED")
-				
-				if icon ~= nil and nowselectedcount == invitem.count then
-					icon:SetColorTone("AA000000");
+				if true == invitem.isLockState then
+					ui.SysMsg(ClMsg("MaterialItemIsLock"));
+					return;
 				end
-			end
+				local nowselectedcount = slot:GetUserIValue("REINF_MIX_SELECTED")
+
+				if selectall == 'YES' then
+					nowselectedcount = invitem.count -1;
+				end
+
+				if nowselectedcount < invitem.count then
+					local reinfFrame = ui.GetFrame("reinforce_by_mix");
+					local icon = slot:GetIcon();
+					
+					if 1 == REINFORCE_BY_MIX_ADD_MATERIAL(reinfFrame, itemObj, nowselectedcount + 1)  then
+					
+						imcSound.PlaySoundEvent("icon_get_down");
+
+						slot:SetUserValue("REINF_MIX_SELECTED", nowselectedcount + 1);
+						local nowselectedcount = slot:GetUserIValue("REINF_MIX_SELECTED")
+						
+						if icon ~= nil and nowselectedcount == invitem.count then
+							icon:SetColorTone("AA000000");
+						end
+					end
+				end
+			end	
 		end
-	end
-end
 
 function REINFORCE_BY_MIX_ADD_MATERIAL(frame, itemObj, count)	
-
+	
 	if 1 == frame:GetUserIValue("EXECUTE_REINFORCE") then
 		return 0;
 	end
@@ -517,19 +520,18 @@ function REINFORCE_BY_MIX_ADD_MATERIAL(frame, itemObj, count)
 	if slot == nil then
 		return 0; 
 	end
-
-	local invItem = GET_ITEM_BY_GUID(GetIESID(itemObj));
-	SET_SLOT_ITEM(slot, invItem, count);
-
-	if invItem.count > 1 then
-		local icon  = slot:GetIcon()
-		icon:SetText(count, 'quickiconfont', 'right', 'bottom', -2, 1);
-	end
-
-	slot:SetEventScript(ui.RBUTTONDOWN, "REINFORCE_BY_MIX_SLOT_RBTN");
-
-	REINFORCE_MIX_UPDATE_EXP(frame);
-
+	
+		local invItem = GET_ITEM_BY_GUID(GetIESID(itemObj));
+		SET_SLOT_ITEM(slot, invItem, count);
+	
+		if invItem.count > 1 then
+			local icon  = slot:GetIcon()
+			icon:SetText(count, 'quickiconfont', 'right', 'bottom', -2, 1);
+		end
+	
+		slot:SetEventScript(ui.RBUTTONDOWN, "REINFORCE_BY_MIX_SLOT_RBTN");
+	
+		REINFORCE_MIX_UPDATE_EXP(frame);
 	return 1
 end
 
@@ -550,7 +552,7 @@ function REINFORCE_BY_MIX_SLOT_RBTN(parent, slot)
 	ui.UpdateVisibleToolTips();
 
 	REINFORCE_MIX_UPDATE_EXP(frame);
-
+	imcSound.PlaySoundEvent("icon_pick_up");
 end
 
 function REINFORCE_BY_MIX_EXECUTE(parent)
@@ -589,13 +591,13 @@ function _REINFORCE_BY_MIX_EXECUTE()
 	local tgtItem = GET_REINFORCE_MIX_ITEM();
 	if tgtItem.GroupName == "Card" then
 		local lv, curExp, maxExp = GET_ITEM_LEVEL_EXP(tgtItem, tgtItem.ItemExp);
-		if lv == 10 then	
+		if lv == 10 then		-- ī�� �ռ� �����̴�. ���Ѽ��� ������ ��� ���⵵ �ٲ�����Ѵ�. ī�� ���� ������ ����ġ ���� ������ ������ ������ �������� ���� ���� ����� ��ã�ڴ�.
 			ui.MsgBox(ScpArgMsg("CardLvisMax"));			
 			return;
 		end
 	end
 	local frame = ui.GetFrame("reinforce_by_mix");
-
+	
 	frame:SetUserValue("EXECUTE_REINFORCE", 1);
 
 	session.ResetItemList();
@@ -683,7 +685,7 @@ function REINFORCE_MIX_ITEM_EXPUP_END(frame, msg, multiPly, totalPoint)
 		local indicator = ctrlSet:GetChild("indicator");
 		if indicator ~= nil then indicator:ShowWindow(0); end
 	end
-	
+
 	frame:SetUserValue("EXECUTE_REINFORCE", 0);
 	
 end
@@ -768,7 +770,7 @@ function REINF_MIX_UPDATE_EXP_UP(frame)
 end
 
 function RESERVE_REINFORCE_MIX_UPDATE_ITEM_STATS()
-	local frame = ui.GetFrame('reinforce_by_mix')
+	local frame = ui.GetFrame('reinforce_by_mix')	
 	local obj = GetTempObj("REINF_MIX_TEMPOBJ");
 	REINFORCE_MIX_UPDATE_ITEM_STATS(frame,obj)
 

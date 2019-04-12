@@ -147,7 +147,7 @@
 			<groupbox name="ability_desc" margin="0 0 500 50" rect="0 0 500 50" hittest="false" skin="test_skill_skin2" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 		</controls>
 	</tooltip>
-	<tooltip name="skill_link" x="0" y="0" marginy="10" fixwidth="true" width="500" height="700" moveable="true" frameskin="test_skill_tooltip" blendtime="" UpdateScp="UPDATE_SKILL_TOOLTIP" CustomUpdate="UPDATE_SKILL_NEW_TIP">
+	<tooltip name="skill_link" x="0" y="0" marginy="10" fixwidth="true" width="480" height="700" moveable="true" frameskin="test_skill_tooltip" blendtime="" UpdateScp="UPDATE_SKILL_TOOLTIP" CustomUpdate="UPDATE_SKILL_NEW_TIP">
 		<userconfig BOTTOM_MARGIN="10"/>
 		<controls>
 			<picture name="icon_frame" image="skilltooltip_skill_image_slot" layout_gravity="center top" rect="0 0 150 150" stretch="true"/>

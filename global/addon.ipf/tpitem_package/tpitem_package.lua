@@ -50,7 +50,29 @@ function TPITEM_PACKAGE_SETUI(frame, clsid)
 		local packageSlot = GET_CHILD(frame,"packageSlot");	
 		SET_SLOT_IMG(packageSlot, cls.Icon);
 		
-		local bgBox = frame:CreateOrGetControl('groupbox', 'bgBox', 30, 370, 440, 220);
+		
+		DESTROY_CHILD_BYNAME(frame, "cautionText_");
+		local bisTradealbe = nil;
+		SWITCH(cls.PackageTradeAble) {					
+		['YES'] = function()	bisTradealbe = 1;	end,			
+		['NO'] = function() 	bisTradealbe = 0;	end,	
+		['None'] = function() end,		
+		default = function() end,
+		}	
+		local cautionIndex = 0;
+		local y = 305;	
+
+		if bisTradealbe ~= nil then
+			y = SETCAUTION_MEMO_TOPURCHASE(frame, y, ScpArgMsg("ITEM_IsPurchased_CAUTION_TRADEABLE_" .. bisTradealbe), cautionIndex);
+			cautionIndex = cautionIndex + 1;
+		end
+
+		if cls.PackageTradeCount == 1 then
+			y = SETCAUTION_MEMO_TOPURCHASE(frame, y, ScpArgMsg("ITEM_IsPurchased_CAUTION_TRADECNT1"), cautionIndex);
+			cautionIndex = cautionIndex + 1;
+		end
+		
+		local bgBox = frame:CreateOrGetControl('groupbox', 'bgBox', 30, y, 440, 220 + (370 - y));
 		bgBox = tolua.cast(bgBox, "ui::CGroupBox");
 		bgBox:DeleteAllControl();
 		bgBox:EnableDrawFrame(1);
@@ -73,4 +95,11 @@ function TPITEM_PACKAGE_SETUI(frame, clsid)
 		contents:SetText(string.format("{@st43d}{s18}%s{/}",cls.Desc));
 
 		innerBox:Resize(innerBox:GetWidth(), contents:GetHeight() + (contents:GetY() * 2));
+end
+
+function SETCAUTION_MEMO_TOPURCHASE(frame, y, text, index)
+	local cautionText = frame:CreateControl("richtext", "cautionText_".. index, 40, y, 200, 10);
+	cautionText:SetFontName("black_16_b");
+	cautionText:SetText(string.format("{@st67}{s18}   %s{/}",text));
+	return y + 28;
 end

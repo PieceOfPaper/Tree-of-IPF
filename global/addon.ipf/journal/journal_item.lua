@@ -38,6 +38,8 @@ function UPDATE_ARTICLE_Item(ctrlset)
 	local titleText = GET_CHILD(ctrlset, "t_name", "ui::CRichText");
 	titleText:SetTextByKey("value", cls.Name);
 
+	local infoGbox = GET_CHILD(ctrlset, "infoGbox");	
+	infoGbox:SetOffset(infoGbox:GetOffsetX(), titleText:GetY() + titleText:GetHeight());
 	local icon = GET_CHILD(ctrlset, "icon", "ui::CPicture");
 	icon:SetImage(cls.Icon);
 	icon:SetEnableStretch(1)
@@ -46,7 +48,7 @@ function UPDATE_ARTICLE_Item(ctrlset)
 	icon:SetTooltipArg('', cls.ClassID, 0);
 	icon:SetOverSound('button_over')
 
-	local monsters = GET_CHILD(ctrlset, "drop", "ui::CPage");
+	local monsters = GET_CHILD(infoGbox, "drop", "ui::CPage");
 	if wiki ~= nil then
 		local sortList = {};
 		GET_WIKI_SORT_LIST(wiki, "Mon_", MAX_WIKI_ITEM_MON, sortList);
@@ -66,25 +68,25 @@ function UPDATE_ARTICLE_Item(ctrlset)
 	end
 
 	local totalCount = GetWikiIntProp(wiki, "Total");
-	local t_totalcount = GET_CHILD(ctrlset, "t_totalcount");
+	local t_totalcount = GET_CHILD(infoGbox, "t_totalcount");
 	t_totalcount:SetTextByKey("value", totalCount);
 
 	local pts = GET_ITEM_WIKI_PTS(cls, wiki);
-	local t_point = GET_CHILD(ctrlset, "t_point");
+	local t_point = GET_CHILD(infoGbox, "t_point");
 	t_point:SetTextByKey("value", math.floor(pts));
 	
 	local maxPts = GET_ITEM_MAX_WIKI_PTS(cls, wiki);
-	local t_scoreratio = GET_CHILD(ctrlset, "t_scoreratio");
+	local t_scoreratio = GET_CHILD(infoGbox, "t_scoreratio");
 	if maxPts > 0 then
-	local ratio = math.floor(pts * 100 / maxPts);
-	t_scoreratio:SetTextByKey("value", ratio);
+		local ratio = math.floor(pts * 100 / maxPts);
+		t_scoreratio:SetTextByKey("value", ratio);
 		t_scoreratio:ShowWindow(1);
 	else
 		t_scoreratio:ShowWindow(0);
 	end
 	
 
-	local t_level = GET_CHILD(ctrlset, "t_level");
+	local t_level = GET_CHILD(infoGbox, "t_level");
 	if cls.ItemType == "Equip" then
 		local reinforceValue = GetWikiIntProp(wiki, "MaxReinforce");
 		if reinforceValue > 0 then
@@ -119,6 +121,8 @@ function UPDATE_ARTICLE_Item(ctrlset)
 		SET_COLORTONE_RECURSIVE(ctrlset, "FFFFFFFF");
 	end
 	]]
+
+	ctrlset:Resize(ctrlset:GetWidth(), infoGbox:GetHeight() + infoGbox:GetY() + 8);
 end
 
 function JOURNAL_OPEN_ITEM_ARTICLE(frame)

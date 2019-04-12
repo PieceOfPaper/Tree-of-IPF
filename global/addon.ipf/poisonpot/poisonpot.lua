@@ -6,7 +6,6 @@ function POISONPOT_ON_INIT(addon, frame)
 end
 
 function POISONPOT_MSG(frame, msg, argStr, argNum)
-
 	if msg == "MSG_UPDATE_POISONPOT_UI" or msg == "INV_ITEM_ADD" then
 		UPDATE_POISONPOT_UI(frame)
 	elseif msg == "DO_OPEN_POISONPOT_UI" then
@@ -15,7 +14,6 @@ function POISONPOT_MSG(frame, msg, argStr, argNum)
 end
 
 function POISONPOT_FRAME_OPEN(frame)
-
 	local selectallbutton = GET_CHILD_RECURSIVELY(frame,"selectAllBtn","ui::CButton")
 	selectallbutton:SetUserValue("SELECTED", "notselected");
 
@@ -75,6 +73,7 @@ function UPDATE_POISONPOT_UI(frame)
 
 	local invItemList = session.GetInvItemList();
 
+	local bExistsCard = false;
 	local i = invItemList:Head();
 	local slotindex = 0
 	while 1 do
@@ -108,7 +107,18 @@ function UPDATE_POISONPOT_UI(frame)
 
 		end
 
+		if obj.ClassID == bosscardid then
+			bExistsCard = true;
+		end
+
 		i = invItemList:Next(i);
+	end
+
+	if bExistsCard == false and bosscardid ~= 0 then
+		slotchild:ClearIcon();
+		
+		local slot = tolua.cast(slotchild, "ui::CSlot");
+		SET_POISONPOT_CARD_COMMIT(slot:GetName(), "UnEquip")
 	end
 
 end
@@ -124,7 +134,7 @@ function IS_USEABLEITEM_IN_POISONPOT(itemobj)
 end
 
 function SCP_LBTDOWN_POISONPOT(frame, ctrl)
-
+	
 	ui.EnableSlotMultiSelect(1);
 
 end
@@ -166,7 +176,7 @@ function POISONPOT_SLOT_DROP(frame, control, argStr, argNum)
 	local slot 						= tolua.cast(control, 'ui::CSlot');
 	
 	local iconInfo = liftIcon:GetInfo();
-	invenItemInfo = session.GetInvItem(iconInfo.ext);
+	local invenItemInfo = session.GetInvItem(iconInfo.ext);
 
 	local tempobj = invenItemInfo:GetObject()
 	local cardobj = GetIES(invenItemInfo:GetObject());
@@ -183,7 +193,7 @@ function POISONPOT_SLOT_DROP(frame, control, argStr, argNum)
 		ui.SysMsg(ClMsg("PutOnlyCardItem"));
 		return 
 	end
-
+	
 	local bossCls = GetClassByType("Monster", cardobj.NumberArg1);
 	if bossCls.RaceType ~= 'Klaida' then
 		ui.SysMsg(ClMsg("CheckCardType"));

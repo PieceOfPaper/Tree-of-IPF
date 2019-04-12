@@ -36,7 +36,7 @@ end
 
 function Petrification_ENTER(actor, obj, buff)
 
-	-- actor:GetEffect():EnableVibrate(1, 0.5, 0.5, 50.0); -- 얼굴 깨지는 것 때문에 임시로 주석.
+	-- actor:GetEffect():EnableVibrate(1, 0.5, 0.5, 50.0); -- ?? ?????? ?? ?????? ??÷? ???.
 	-- imcSound.PlaySoundItem(cls.Sound);
 	-- actor:PlaySound("SOUNDNAME");
 
@@ -239,6 +239,33 @@ function Finestra_LEAVE(actor, obj, buff)
 
 end
 
+function EpeeGarde_ENTER(actor, obj, buff)
+
+	local lhItem = session.GetEquipItemBySpot(item.GetEquipSpotNum("LH"));
+	if nil == lhItem then
+		return;
+	end
+
+	local lhObj = GetIES(lhItem:GetObject());
+	if nil == lhObj or lhObj.DEF <= 0 then
+		return;
+	end
+
+	actor:SetAlwaysBattleState(true);
+	actor:ShowModelByPart('LH', 0, 0);
+	actor:GetAnimation():SetSTDAnim("SKL_EPEEGARDE_ASTD");
+end
+
+function EpeeGarde_LEAVE(actor, obj, buff)
+
+	actor:SetAlwaysBattleState(false);
+	
+	actor:GetAnimation():ResetSTDAnim();
+	actor:ShowModelByPart('LH', 1, 0);
+	actor:GetAnimation():PlayFixAnim("ASTD", 1, 1);
+	
+end
+
 
 function HighGuard_ENTER(actor, obj, buff)
 
@@ -358,29 +385,29 @@ function Medusa_LEAVE(actor, obj, buff)
 end
 
 
--- 버프이펙트 크기설정
+-- ????????? ?????
 function CalcBuffEffScale(radius)
-	local scale = 1;		-- 기준. 스몰 m_radius = 12
+	local scale = 1;		-- ????. ???? m_radius = 12
 
 	if radius >= 50 then
-		scale = 2.5;		-- 엑스라지
+		scale = 2.5;		-- ????????
 	elseif radius >= 20 then
-		scale = 2;			-- 라지
+		scale = 2;			-- ????
 	elseif radius >= 15 then
-		scale = 1.5;		-- 미들
+		scale = 1.5;		-- ???
 	end
 	return scale;
 end
 
--- 텔레키네시스처럼 FSM으로는 ASTD이지만 실제로는 스킬캐스팅중 인것들 등록. (버프로 캐스팅중인것 확인)
+-- ??????y?o?? FSM???δ? ASTD?????? ?????δ? ???ĳ?????? ???? ???. (?????? ĳ????????? ???)
 function IsSkillStateByBuff(isForGuard)
 
-  -- 텔레키네시스
+  -- ??????y?
   if info.GetMyPcBuff('TeleCast') ~= nil then
     return 1;
   end
 
-  -- 임페일러
+  -- ???????
 	if isForGuard == 1 and info.GetMyPcBuff('Impaler_Buff') ~= nil then
 	  return 1;
 	end
@@ -388,7 +415,7 @@ function IsSkillStateByBuff(isForGuard)
 end
 
 function IsSkillStateOnCompanionByBuff()
-	-- 텔레키네시스
+	-- ??????y?
   if info.GetMyPcBuff('TeleCast') ~= nil then
     return 1;
   end
@@ -418,7 +445,7 @@ function PlantGuard_LEAVE(actor, obj, buff)
 	geGrassEffect.EnablePlantSurround(actor, 0);
 end
 
--- 독
+-- ??
 function PoisonBlink_ENTER(actor, obj, buff)
   imcSound.PlaySoundEvent("monster_state_2")
     actor:GetEffect():SetColorBlink(0,0.1,0,0,0.05,0.3,0,0, 1.5, 1);
@@ -428,7 +455,7 @@ function PoisonBlink_LEAVE(actor, obj, buff)
     actor:GetEffect():SetColorBlink(0,0,0,0,0,0.2,0,1, 0, 1);
 end
 
--- 출혈
+-- ????
 function WoundBlink_ENTER(actor, obj, buff)
     actor:GetEffect():SetColorBlink(0,0,0,0,0.5,0,0,1, 2.5, 1);
 end
@@ -437,7 +464,7 @@ function WoundBlink_LEAVE(actor, obj, buff)
     actor:GetEffect():SetColorBlink(0,0,0,0,0.5,0,0,1, 0 , 1);
 end
 
--- 화염
+-- ???
 function FireBlink_ENTER(actor, obj, buff)
     actor:GetEffect():SetColorBlink(0,0,0,0,76,50,0,1, 2.5, 1);
 end
@@ -446,7 +473,7 @@ function FireBlink_LEAVE(actor, obj, buff)
     actor:GetEffect():SetColorBlink(0,0,0,0,0.5,0.2,0,1, 0 , 1);
 end
 
--- 목둔술
+-- ??м?
 function Mokuton_ENTER(actor, obj, buff)
     actor:GetEffect():SetColorBlink(0,0,0,0,0.1,0.11,0.1,0.15, 2.5, 1);
 end
@@ -457,7 +484,7 @@ end
 
 
 
--- 대박버프
+-- ??????
 function SuperDrop_Client_ENTER(actor, obj, buff)
 	if buff.arg2 == 1 then
 		actor:GetEffect():SetColorBlink(0,0,0,0,1,0.8,0.07,1, 1.5, 1);
@@ -475,7 +502,7 @@ function SuperDrop_Client_LEAVE(actor, obj, buff)
 	
 end
 
---반짝이 버프: 대박 버프처럼 반짝거리기만 하는 용도
+--??|?? ????: ??? ????o?? ??|????? ??? ?뵵
 function TwinkleBuff_Client_ENTER(actor, obj, buff)
 	if buff.arg2 == 1 then
 		actor:GetEffect():SetColorBlink(0,0,0,0,1,0.8,0.07,1, 1.5, 1);
@@ -493,7 +520,7 @@ function TwinkleBuff_Client_LEAVE(actor, obj, buff)
 	
 end
 
--- 디바인스티그마 디버프 블링크
+-- ????ν????? ????? ????
 function DivineStigma_ENTER(actor, obj, buff)
 	actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 1.5, 1);
 end
@@ -501,7 +528,7 @@ end
 function DivineStigma_LEAVE(actor, obj, buff)
 	actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 0 , 1);
 end
---흰색
+--???
 function WhiteBlink_ENTER(actor, obj, buff)
   imcSound.PlaySoundEvent("monster_state_1")
 	actor:GetEffect():SetColorBlink(0.1,0.1,0.1,0.1,0.3,0.3,0.3,0.3, 1.5, 1);
@@ -511,7 +538,7 @@ function WhiteBlink_LEAVE(actor, obj, buff)
 	actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 0 , 1);
 end
 
---빨간색
+--??????
 function RedBlink_ENTER(actor, obj, buff)
 imcSound.PlaySoundEvent("monster_state_1")
 	actor:GetEffect():SetColorBlink(0.2,0,0,0,0.45,0.05,0,0, 1.5, 1);
@@ -521,7 +548,7 @@ function RedBlink_LEAVE(actor, obj, buff)
 	actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 0 , 1);
 end
 
---파란색
+--?????
 function BlueBlink_ENTER(actor, obj, buff)
 imcSound.PlaySoundEvent("monster_state_1")
 	actor:GetEffect():SetColorBlink(0,0,0.1,0,0,0.1,0.4,0, 1.5, 1);
@@ -531,7 +558,16 @@ function BlueBlink_LEAVE(actor, obj, buff)
 	actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 0 , 1);
 end
 
---노란색
+function OrangeBlink_ENTER(actor, obj, buff)
+imcSound.PlaySoundEvent("monster_state_1")
+	actor:GetEffect():SetColorBlink(0,0,0.1,0,1,0.3,0,0, 1.5, 1);
+end
+
+function OrangeBlink_LEAVE(actor, obj, buff)
+	actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 0 , 1);
+end
+
+--?????
 function YellowBlink_ENTER(actor, obj, buff)
 imcSound.PlaySoundEvent("monster_state_1")
 	actor:GetEffect():SetColorBlink(0.2,0.17,0.05,0,0.5,0.4,0.15,0, 1.5, 1);
@@ -541,7 +577,7 @@ function YellowBlink_LEAVE(actor, obj, buff)
 	actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 0 , 1);
 end
 
--- 포인팅 디버프 블링크
+-- ?????? ????? ????
 function Pointing_ENTER(actor, obj, buff)
 	actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 3.0, 1);
 end
@@ -567,11 +603,11 @@ function rottenScp_LEAVE(actor, obj, buff)
 end
 
 function DirtyWallScp_ENTER(actor, obj, buff)
-	actor:GetEffect():SetColorBlink(0,0,0,0,0,0.1,0,0.1, 1, 1);
+	actor:GetEffect():SetColorBlink(0,0,0,0,0,0.3,0,0.6, 1.4, 1);
 end
 
 function DirtyWallScp_LEAVE(actor, obj, buff)
-	actor:GetEffect():SetColorBlink(0,0,0,0,0,0.1,0,0.1, 0, 1);
+	actor:GetEffect():SetColorBlink(0,0,0,0,0,0.3,0,0.6, 0, 1);
 end
 
 function LH_VisibleObject_ENTER(actor, obj, buff, rps, dir)
@@ -624,6 +660,16 @@ function KneelingShot_LEAVE(actor, obj, buff)
 	actor:SetAlwaysBattleState(false);
 end
 
+function Bazooka_ENTER(actor, obj, buff)
+    actor:SetAlwaysBattleState(true);
+    actor:GetAnimation():SetSTDAnim("SKL_BAZOOCA_ASTD");
+end
+
+function Bazooka_LEAVE(actor, obj, buff)
+    actor:SetAlwaysBattleState(false);
+    actor:GetAnimation():ResetSTDAnim();
+end
+
 function RetreatShotScp_ENTER(actor, obj, buff)
 	if actor:GetVehicleActor() ~= nil then
 	 -- actor:GetAnimation():SetSTDAnim("SKL_RETREATSHOT_STD_RIDE");
@@ -641,6 +687,30 @@ function RetreatShotScp_LEAVE(actor, obj, buff)
 	actor:GetAnimation():ResetWLKAnim();
 	actor:GetAnimation():ResetTURNAnim();
 	actor:SetAlwaysBattleState(false);
+	
+end
+
+function AssaultFireScp_ENTER(actor, obj, buff)
+    
+    actor:SetAlwaysBattleState(true);
+    if actor:GetVehicleActor() ~= nil then
+        actor:GetAnimation():SetSTDAnim("SKL_WILDSHOT_LOOP_STD_RIDE");
+        actor:GetAnimation():SetRUNAnim("SKL_WILDSHOT_LOOP_RIDE");
+        actor:GetAnimation():SetWLKAnim("SKL_WILDSHOT_LOOP_RIDE");
+        actor:GetAnimation():SetTURNAnim("None");
+        actor:GetAnimation():PlayFixAnim("SKL_WILDSHOT_LOOP_STD_RIDE", 1, 1);
+    end
+    
+    
+end
+
+function AssaultFireScp_LEAVE(actor, obj, buff)
+    actor:GetAnimation():ResetSTDAnim();
+	actor:GetAnimation():ResetRUNAnim();
+	actor:GetAnimation():ResetWLKAnim();
+	actor:GetAnimation():ResetTURNAnim();
+	actor:SetAlwaysBattleState(false);
+	actor:GetAnimation():PlayFixAnim("ASTD", 1, 1);
 	
 end
 
@@ -758,6 +828,45 @@ end
 function IMPALER_STUN_ANI_LEAVE(actor, obj, buff)
 	actor:GetAnimation():ResetSTDAnim();
 	actor:GetAnimation():PlayFixAnim("ASTD", 1.0, 0);
+end
+
+function GuildBattleObserve_ENTER(actor, obj, buff)	
+    actor:GetEffect():SetColorBlend("GuildPVP", 100, 100, 100, 100, true, 0, false, 0);
+end
+
+function GuildBattleObserve_LEAVE(actor, obj, buff)
+
+end
+
+function IronMaiden_ENTER(actor, obj, buff)
+    local actorPos = actor:GetPos();
+	actor:GetClientMonster():ClientMonsterToPos("pcskill_IronMaiden", "STD", actorPos.x, actorPos.y, actorPos.z, 0, 0);
+end
+
+function IronMaiden_LEAVE(actor, obj, buff)
+    local actorPos = actor:GetPos();
+	actor:GetClientMonster():ClientMonsterToPos("pcskill_IronMaiden", "STD", actorPos.x, actorPos.y, actorPos.z, 0, 1);
+end
+
+function Levitation_ENTER(actor, obj, buff)
+
+	actor:SetAlwaysBattleState(true);
+	
+	actor:GetAnimation():SetTURNAnim("SKL_LEVITATION_ATURN");
+	actor:GetAnimation():SetSTDAnim("SKL_LEVITATION_ASTD");
+	actor:GetAnimation():SetRUNAnim("SKL_LEVITATION_ARUN");
+	actor:GetAnimation():SetWLKAnim("SKL_LEVITATION_ARUN");
+
+end
+
+function Levitation_LEAVE(actor, obj, buff)
+
+	actor:SetAlwaysBattleState(false);
+	actor:GetAnimation():ResetTURNAnim();
+	actor:GetAnimation():ResetSTDAnim();
+	actor:GetAnimation():ResetRUNAnim();
+	actor:GetAnimation():ResetWLKAnim();
+
 end
 
 

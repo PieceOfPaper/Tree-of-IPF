@@ -59,7 +59,7 @@ function FOODTABLE_CHECK_BOX(parent, ctrl)
 		return;
 	end
 
-	-- ÀÏ´Ü ¸ðµå º¯°æ‰ç´Ù ÇÏ°í,
+	-- ï¿½Ï´ï¿½ ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï°ï¿½,
 	tableInfo:SetSharedFood();
 
 	local titleBox = GET_CHILD(parent, "gBox", "ui::CGroupBox");
@@ -158,16 +158,11 @@ function ON_OPEN_FOOD_TABLE_UI(frame, msg, handle, forceOpenUI)
 		for i = 0 , cnt - 1 do
 			local cls = GetClassByIndexFromList(clslist, i);
 			
-			local skillInfo = session.GetSkill(tableInfo:GetSkillType());
-			if skillInfo ~= nil then
-				local sklObj = GetIES(skillInfo:GetObject());
-
-				-- À½½Ä Á¦ÀÛÀÇ ÇÊ¿ä ½ºÅ³·¹º§ÀÌ pcÀÇ ½ºÅ³ ·¹º§ ÀÌÇÏÀÏ¶§ Ãâ·Â
-				if cls.SkillLevel <= sklObj.Level then
-					local ctrlSet = gbox_make:CreateControlSet('camp_food_register', "FOOD_" .. cls.ClassName, 0, 0);
-					SET_FOOD_TABLE_BASE_INFO(ctrlSet, cls, tableInfo);
-					SET_FOOD_TABLE_MATAERIAL_INFO(ctrlSet, cls);		
-				end
+			-- À½½Ä Á¦ÀÛÀÇ ÇÊ¿ä ½ºÅ³·¹º§ÀÌ pcÀÇ ½ºÅ³ ·¹º§ ÀÌÇÏÀÏ¶§ Ãâ·Â
+			if cls.SkillLevel <= tableInfo:GetSkillLevel() then
+				local ctrlSet = gbox_make:CreateControlSet('camp_food_register', "FOOD_" .. cls.ClassName, 0, 0);
+				SET_FOOD_TABLE_BASE_INFO(ctrlSet, cls, tableInfo);
+				SET_FOOD_TABLE_MATAERIAL_INFO(ctrlSet, cls);		
 			end
 		end
 
@@ -290,3 +285,14 @@ function DESC_FOOD_yogurt(skillType, skillLevel)
 	return ScpArgMsg("IncreaseRSPTIME{Value}For{Time}Minute", "Value", value, "Time", 30);
 end
 
+function DESC_FOOD_BBQ(skillType, skillLevel)
+    local value = 0.5 + (skillLevel - 5) * 0.5;
+    value = math.floor(value)
+	return ScpArgMsg("IncreaseSR{Value}For{Time}Minute", "Value", value, "Time", 30);
+end
+
+function DESC_FOOD_champagne(skillType, skillLevel)
+    local value = 0.5 + (skillLevel - 5) * 0.5;
+    value = math.floor(value)
+	return ScpArgMsg("IncreaseSDR{Value}For{Time}Minute", "Value", value, "Time", 30);
+end

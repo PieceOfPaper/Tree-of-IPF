@@ -56,6 +56,7 @@ function MY_AUTOSELL_LIST(groupName, sellType)
 	local titleName = session.autoSeller.GetTitle(groupName);
 	local gBox = frame:GetChild("bodyGbox");
 	local shopname = gBox:GetChild("shopname");
+
 	shopname:SetTextByKey("value", titleName);
 
 	local selllist = gBox:GetChild("selllist");
@@ -115,6 +116,16 @@ function MY_AUTOSELL_HISTORY(groupName, sellType)
 	elseif sellType == AUTO_SELL_GEM_ROASTING then
 		local buffFrame = ui.GetFrame("itembuffgemroasting");
 		GEMROASTING_UPDATE_HISTORY(buffFrame);
+		return;
+
+	elseif sellType == AUTO_SELL_ENCHANTERARMOR then
+		local enchantarmoropen = ui.GetFrame("enchantarmoropen");
+		ENCHANTARMOROPEN_UPDATE_HISTORY(enchantarmoropen);
+		return;
+
+	elseif sellType == AUTO_SELL_ORACLE_SWITCHGENDER then
+		local switchgender = ui.GetFrame("switchgender");
+		SWITCHGENDER_UPDATE_HISTORY(switchgender);
 		return;
 	end
 

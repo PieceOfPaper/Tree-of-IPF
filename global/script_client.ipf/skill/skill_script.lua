@@ -21,6 +21,15 @@ function SKL_OPEN_UI_C(actor, obj, uiName, subUi)
 
 end
 
+function C_SCR_OPEN_SAGE_PORTAL(skillType)
+	local skil = session.GetSkill(skillType);
+	if nil == skil then
+		return 0;
+	end
+
+	ui.OpenFrame("sageportal")
+end
+
 function C_SCR_SORCERER_CARD_CHECK(skillType)
 	local skil = session.GetSkill(skillType);
 	if nil == skil then
@@ -34,7 +43,7 @@ function C_SCR_SORCERER_CARD_CHECK(skillType)
 	end
 
 	local cardGUID = etc_pc.Sorcerer_bosscardGUID2;
-	-- NameÀ¸·Î ºñ±³ÇÏ·Á ÇßÀ¸³ª, NameÀº NT°¡ ¾ÈºÙ¾îÀÖÀ½.
+	-- Nameìœ¼ë¡œ ë¹„êµí•˜ë ¤ í–ˆìœ¼ë‚˜, Nameì€ NTê°€ ì•ˆë¶™ì–´ìˆìŒ.
 	if cardGUID == "None" then
 		ui.SysMsg(ClMsg("NoCardAvailable"));
 		return 0;
@@ -68,16 +77,34 @@ function RUN_BUFF_SELLER(actor, obj)
 	end
 end
 
+function OPEN_MAGIC_SKL_UI(skillType)
+	local skill = session.GetSkill(skillType);
+	if skill == nil then
+		return 0;
+	end
+
+	local frame = ui.GetFrame('skillitemmaker');
+	local richtext_1 = frame:GetChild('richtext_1');
+	richtext_1:ShowWindow(0);
+	local richtext_1_1 = frame:GetChild('richtext_1_1');
+	richtext_1_1:ShowWindow(1);
+	local obj = GetIES(skill:GetObject());
+
+	frame:SetUserValue("SKLNAME", obj.ClassName);
+	_SKILLITEMMAKE_RESET(frame);
+	frame:ShowWindow(1)
+end
+
 function EQUIP_MENDING_SKL(skillType)
 	local skill = session.GetSkill(skillType);
 	if skill == nil then
 		return 0;
 	end
-		-- ¹æÇâÀº Á¤¸é°ú ´ë°¢Á¤¸é±îÁö¸¸ Çã¿ë. »óÁ¡À» µÚ·Î °³¼³ ÇÒ ÇÊ¿æ¾øÀ½.
+		-- ë°©í–¥ì€ ì •ë©´ê³¼ ëŒ€ê°ì •ë©´ê¹Œì§€ë§Œ í—ˆìš©. ìƒì ì„ ë’¤ë¡œ ê°œì„¤ í•  í•„ìš˜ì—†ìŒ.
 	local myActor = GetMyActor();
 	local rotateAngle = fsmactor.GetAngle(myActor);
 
-	-- ±ÍÂúÀ¸´Ï °Á °¢µµ·Î ¶§·Á³ÖÀ½
+	-- ê·€ì°®ìœ¼ë‹ˆ ê± ê°ë„ë¡œ ë•Œë ¤ë„£ìŒ
 --			135
 --		180		90
 --	-135			45
@@ -98,18 +125,19 @@ function EQUIP_MENDING_SKL(skillType)
 
 	local obj = GetIES(skill:GetObject());
 	local clsName = obj.ClassName;
-
 	if "Pardoner_SpellShop" == clsName then
 		local frame = ui.GetFrame("buffseller_register");
 		BUFFSELLER_INIT(frame);
 		frame:ShowWindow(1);
 		return;
-	end
-
-	if "Oracle_SwitchGender" == clsName then
-		local frame = ui.GetFrame("buffseller_register");
-		BUFFSELLER_INIT(frame);
-		BUFFSELLER_SET_CUSTOM_SKILL_TYPE(frame, clsName, obj.ClassID);
+	elseif "Oracle_SwitchGender" == clsName then
+		local frame = ui.GetFrame("switchgender");
+		SWITCHGENDER_OPEN_UI_SET(frame, clsName)
+		frame:ShowWindow(1);
+		return;
+	elseif "Enchanter_EnchantArmor" == clsName then
+		local frame = ui.GetFrame("enchantarmor");
+		ENCHANTARMOR_OPEN_UI_SET(frame, obj)
 		frame:ShowWindow(1);
 		return;
 	end
@@ -201,4 +229,13 @@ end
 function SET_ENABLESKILLCANCEL_HITINDEX_C(actor, obj, cancelHitIndex)
 
 	actor:SetEnableSkillCancelHitIndex(cancelHitIndex);
+end
+
+function GET_LH_SOUND_SKILL(sklID)
+	-- ìŠ¤ì¹¼í‘¸ê·¸ë‹
+	if sklID == 31301 then
+		return 1;
+	end
+
+	return 0;
 end

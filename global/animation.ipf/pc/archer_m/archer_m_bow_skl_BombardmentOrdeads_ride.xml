@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="7.00" soundFile="skl_fgt_tackle_cast"/>
+    <Particle frame="11" attachNode="Dummy_sandwich_bread" particleName="I_light019_orange_spark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound="skl_eff_collarbomb"/>
+    <Particle frame="11" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="11" R="130" G="100" B="50" A="100"/>
+    <BlendOn frame="12" R="80" G="50" B="20" A="100"/>
+    <BlendOn frame="13" R="50" G="35" B="15" A="100"/>
+    <BlendOn frame="14" R="30" G="25" B="10" A="100"/>
+    <BlendOff frame="15" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

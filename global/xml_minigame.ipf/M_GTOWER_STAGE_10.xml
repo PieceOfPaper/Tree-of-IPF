@@ -1,614 +1,624 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <GameList>
-    <Game Name="M_GTOWER_STAGE_10" minLv="0" maxLv="0" startWaitSec="15">
-        <StageList>
-            <Stage Name="SETTING">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="곧 대지의 탑 10층 임무가 시작됩니다"/>
-                        <Str Str="stage_ready"/>
-                        <Num Num="10"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="10"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList/>
-                <StageEvents>
-                    <Event execCount="1" eventName="END">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
-                            </ToolScp>
-                        </condList>
+	<Game Name="M_GTOWER_STAGE_10" minLv="0" maxLv="0" startWaitSec="15">
+		<StageList>
+			<Stage Name="SETTING">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+						<Str Str="곧 대지의 탑 10층 임무가 시작됩니다"/>
+						<Str Str="stage_ready"/>
+						<Num Num="10"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="10"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="END">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="CNT"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_1_PROG"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				<Event execCount="1" eventName="SavePCList">
                         <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="CNT"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE_1_PROG"/>
-                            </ToolScp>
+                            <ToolScp Scp="EARTH_TOWER_SAVE_PC_LIST" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                 </StageEvents>
-            </Stage>
-            <Stage Name="FAIL" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="30"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="대지의 탑 임무 실패!{nl}30초 후에 퇴장합니다"/>
-                        <Str Str="raid_fail"/>
-                        <Num Num="30"/>
-                    </ToolScp>
-                <ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
-                        <Str Str="Fail"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList/>
-                <StageEvents>
-                    <Event execCount="1" eventName="Fail">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="EndStage">
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE_1_PROG"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE_2_PROG"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="CNT"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="STAGE_1_PROG" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="첫 번째 목표가 시작되었습니다{nl}고사리우스를 처치하세요"/>
-                        <Str Str="stage_start"/>
-                        <Num Num="20"/>
-                    </ToolScp>
-                <ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
-                        <Str Str="Start"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="100081" Pos="177.95#239.70#3978.95" angle="-88" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="2000"/>
-                                </ToolScp>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="100085" Pos="48.44#239.70#4202.85" range="1" maxStackCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" tendency="0">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="50"/>
-                                </ToolScp>
-                            </List>
-                            <DeadList>
-                                <ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
-                                    <Str Str="GT_STAGE_10_ROOT"/>
-                                    <Num Num="1"/>
-                                    <Num Num="0"/>
-                                    <Num Num="15000"/>
-                                    <Num Num="1"/>
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </DeadList>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Normal"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="100085" Pos="-97.05#239.70#3990.39" range="1" maxStackCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" tendency="0">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="50"/>
-                                </ToolScp>
-                            </List>
-                            <DeadList>
-                                <ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
-                                    <Str Str="GT_STAGE_10_ROOT"/>
-                                    <Num Num="1"/>
-                                    <Num Num="0"/>
-                                    <Num Num="15000"/>
-                                    <Num Num="1"/>
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </DeadList>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Normal"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="100085" Pos="-40.30#239.70#3945.35" range="1" maxStackCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" tendency="0">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="50"/>
-                                </ToolScp>
-                            </List>
-                            <DeadList>
-                                <ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
-                                    <Str Str="GT_STAGE_10_ROOT"/>
-                                    <Num Num="1"/>
-                                    <Num Num="0"/>
-                                    <Num Num="15000"/>
-                                    <Num Num="1"/>
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </DeadList>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Normal"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="100085" Pos="-109.52#239.70#3927.40" range="1" maxStackCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" tendency="0">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="50"/>
-                                </ToolScp>
-                            </List>
-                            <DeadList>
-                                <ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
-                                    <Str Str="GT_STAGE_10_ROOT"/>
-                                    <Num Num="1"/>
-                                    <Num Num="0"/>
-                                    <Num Num="15000"/>
-                                    <Num Num="1"/>
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </DeadList>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Normal"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="100085" Pos="13.72#239.70#4303.42" range="1" maxStackCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" tendency="0">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="50"/>
-                                </ToolScp>
-                            </List>
-                            <DeadList>
-                                <ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
-                                    <Str Str="GT_STAGE_10_ROOT"/>
-                                    <Num Num="1"/>
-                                    <Num Num="0"/>
-                                    <Num Num="15000"/>
-                                    <Num Num="1"/>
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </DeadList>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Normal"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="100085" Pos="-14.15#239.70#4257.02" range="1" maxStackCount="1" genTime="20000" objectKey="6" UseAiOutOfPc="1" tendency="0">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="50"/>
-                                </ToolScp>
-                            </List>
-                            <DeadList>
-                                <ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
-                                    <Str Str="GT_STAGE_10_ROOT"/>
-                                    <Num Num="1"/>
-                                    <Num Num="0"/>
-                                    <Num Num="15000"/>
-                                    <Num Num="1"/>
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </DeadList>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Normal"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="100085" Pos="-67.87#239.70#4049.37" range="1" maxStackCount="1" genTime="20000" objectKey="7" UseAiOutOfPc="1" tendency="0">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="50"/>
-                                </ToolScp>
-                            </List>
-                            <DeadList>
-                                <ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
-                                    <Str Str="GT_STAGE_10_ROOT"/>
-                                    <Num Num="1"/>
-                                    <Num Num="0"/>
-                                    <Num Num="15000"/>
-                                    <Num Num="1"/>
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </DeadList>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Normal"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="100085" Pos="4.55#239.70#4149.14" range="1" maxStackCount="1" genTime="20000" objectKey="8" UseAiOutOfPc="1" tendency="0">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="50"/>
-                                </ToolScp>
-                            </List>
-                            <DeadList>
-                                <ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
-                                    <Str Str="GT_STAGE_10_ROOT"/>
-                                    <Num Num="1"/>
-                                    <Num Num="0"/>
-                                    <Num Num="15000"/>
-                                    <Num Num="1"/>
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </DeadList>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Normal"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="100085" Pos="82.93#239.70#4257.34" range="1" maxStackCount="1" genTime="20000" objectKey="9" UseAiOutOfPc="1" tendency="0">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="50"/>
-                                </ToolScp>
-                            </List>
-                            <DeadList>
-                                <ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
-                                    <Str Str="GT_STAGE_10_ROOT"/>
-                                    <Num Num="1"/>
-                                    <Num Num="0"/>
-                                    <Num Num="15000"/>
-                                    <Num Num="1"/>
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </DeadList>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Normal"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="100085" Pos="-83.15#239.70#3881.45" range="1" maxStackCount="1" genTime="20000" objectKey="10" UseAiOutOfPc="1" tendency="0">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="50"/>
-                                </ToolScp>
-                            </List>
-                            <DeadList>
-                                <ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
-                                    <Str Str="GT_STAGE_10_ROOT"/>
-                                    <Num Num="1"/>
-                                    <Num Num="0"/>
-                                    <Num Num="15000"/>
-                                    <Num Num="1"/>
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </DeadList>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Normal"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="END">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="STAGE_1_PROG/0"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE_1_PROG"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE_2_PROG"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE_1_PROG"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE_2_PROG"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="CNT"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="CHECK"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="PROG">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="90"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE_2_PROG"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="STAGE_2_PROG" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="고사리우스가 부하들을 불러들입니다"/>
-                        <Str Str="stage_start"/>
-                        <Num Num="20"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="100007" Pos="-33.18#239.70#4037.93" angle="-42" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="2000"/>
-                                </ToolScp>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="100007" Pos="352.07#239.70#4059.53" angle="-119" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="2000"/>
-                                </ToolScp>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                </ObjList>
-            </Stage>
-            <Stage Name="CNT" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="270"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="고사리우스 처치"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList/>
-                <StageEvents>
-                    <Event execCount="1" eventName="Fail_PCcnt">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="FAIL"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="Fail_Timmer">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="270"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="FAIL"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="CHECK" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="파티 리더가 선택 중입니다"/>
-                        <Str Str="reward_box"/>
-                        <Num Num="15"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="대기시간"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="120"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList/>
-                <StageEvents>
-                    <Event execCount="1" eventName="KEEP">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="GT_SELECT_STAGE_10"/>
-                                <Str Str="=="/>
-                                <Num Num="300"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="SUCCESS"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="CHECK"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="OUT">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="GT_SELECT_STAGE_10"/>
-                                <Str Str="=="/>
-                                <Num Num="100"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="OUT"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="CHECK"/>
-                            </ToolScp>
-                            </execList>
-                    </Event>
-                    <Event execCount="1" eventName="TIMEOUT">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="120"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="OUT"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="CHECK"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="select">
-                        <execList>
-                            <ToolScp Scp="GT_SELECT_REWARD" Client="NO" UseSleep="NO">
-                                <Str Str="GT_SELECT_STAGE_10"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="SUCCESS" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="파티 리더가 다음 임무에 도전했습니다{nl}11층으로 이동하세요"/>
-                        <Str Str="move_to_point"/>
-                        <Num Num="20"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="20"/>
-                    </ToolScp>
-                <ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
-                        <Str Str="Success"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="40001" Pos="179.48#265.07#4337.93" angle="91" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;대지의 탑 11층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_11&apos; &apos;Range&apos; &apos;50&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <StartList>
-                                <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
-                                    <Str Str="g_tower_door"/>
-                                    <Str Str="GT_GATE_OPEN_ANIM"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57272" Pos="-2640.48#268.91#-4329.30" angle="90" genCount="1" genTime="20000" objectKey="1" autoDestroy="0"/>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="RunMGame">
-                        <execList>
-                            <ToolScp Scp="MGAME_EXEC_RUNMGAME" Client="NO" UseSleep="NO">
-                                <Str Str="M_GTOWER_STAGE_11"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="OUT" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="파티 리더가 도전을 포기했습니다.{nl}보상을 받고 이스토라 유적지로 돌아갑니다"/>
-                        <Str Str="reward_box"/>
-                        <Num Num="60"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="퇴장 중"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
-                    </ToolScp>
-                <ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
-                        <Str Str="End"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList/>
-                <StageEvents>
-                    <Event execCount="1" eventName="LEAVE">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
-                <Event execCount="1" eventName="Reward">
-                        <execList>
-                            <ToolScp Scp="REWARD_EARTH_TOWER" Client="NO" UseSleep="NO">
-                                <Str Str="GT_SELECT_STAGE_10"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-        </StageList>
-    </Game>
+			</Stage>
+			<Stage Name="FAIL" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="30"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+						<Str Str="대지의 탑 임무 실패!{nl}30초 후에 퇴장합니다"/>
+						<Str Str="raid_fail"/>
+						<Num Num="30"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
+						<Str Str="Fail"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="Fail">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="EndStage">
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_1_PROG"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_2_PROG"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="CNT"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="STAGE_1_PROG" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+						<Str Str="첫 번째 목표가 시작되었습니다{nl}고사리우스를 처치하세요"/>
+						<Str Str="stage_start"/>
+						<Num Num="20"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
+						<Str Str="Start"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="100081" Pos="177.95#239.70#3978.95" angle="-88" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="2000"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="100085" Pos="48.44#239.70#4202.85" range="1" maxStackCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" tendency="0">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="50"/>
+								</ToolScp>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+									<Str Str="GT_STAGE_10_ROOT"/>
+									<Num Num="1"/>
+									<Num Num="0"/>
+									<Num Num="15000"/>
+									<Num Num="1"/>
+									<Num Num="100"/>
+								</ToolScp>
+							</DeadList>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Normal"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="100085" Pos="-97.05#239.70#3990.39" range="1" maxStackCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" tendency="0">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="50"/>
+								</ToolScp>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+									<Str Str="GT_STAGE_10_ROOT"/>
+									<Num Num="1"/>
+									<Num Num="0"/>
+									<Num Num="15000"/>
+									<Num Num="1"/>
+									<Num Num="100"/>
+								</ToolScp>
+							</DeadList>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Normal"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="100085" Pos="-40.30#239.70#3945.35" range="1" maxStackCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" tendency="0">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="50"/>
+								</ToolScp>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+									<Str Str="GT_STAGE_10_ROOT"/>
+									<Num Num="1"/>
+									<Num Num="0"/>
+									<Num Num="15000"/>
+									<Num Num="1"/>
+									<Num Num="100"/>
+								</ToolScp>
+							</DeadList>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Normal"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="100085" Pos="-109.52#239.70#3927.40" range="1" maxStackCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" tendency="0">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="50"/>
+								</ToolScp>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+									<Str Str="GT_STAGE_10_ROOT"/>
+									<Num Num="1"/>
+									<Num Num="0"/>
+									<Num Num="15000"/>
+									<Num Num="1"/>
+									<Num Num="100"/>
+								</ToolScp>
+							</DeadList>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Normal"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="100085" Pos="13.72#239.70#4303.42" range="1" maxStackCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" tendency="0">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="50"/>
+								</ToolScp>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+									<Str Str="GT_STAGE_10_ROOT"/>
+									<Num Num="1"/>
+									<Num Num="0"/>
+									<Num Num="15000"/>
+									<Num Num="1"/>
+									<Num Num="100"/>
+								</ToolScp>
+							</DeadList>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Normal"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="100085" Pos="-14.15#239.70#4257.02" range="1" maxStackCount="1" genTime="20000" objectKey="6" UseAiOutOfPc="1" tendency="0">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="50"/>
+								</ToolScp>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+									<Str Str="GT_STAGE_10_ROOT"/>
+									<Num Num="1"/>
+									<Num Num="0"/>
+									<Num Num="15000"/>
+									<Num Num="1"/>
+									<Num Num="100"/>
+								</ToolScp>
+							</DeadList>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Normal"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="100085" Pos="-67.87#239.70#4049.37" range="1" maxStackCount="1" genTime="20000" objectKey="7" UseAiOutOfPc="1" tendency="0">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="50"/>
+								</ToolScp>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+									<Str Str="GT_STAGE_10_ROOT"/>
+									<Num Num="1"/>
+									<Num Num="0"/>
+									<Num Num="15000"/>
+									<Num Num="1"/>
+									<Num Num="100"/>
+								</ToolScp>
+							</DeadList>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Normal"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="100085" Pos="4.55#239.70#4149.14" range="1" maxStackCount="1" genTime="20000" objectKey="8" UseAiOutOfPc="1" tendency="0">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="50"/>
+								</ToolScp>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+									<Str Str="GT_STAGE_10_ROOT"/>
+									<Num Num="1"/>
+									<Num Num="0"/>
+									<Num Num="15000"/>
+									<Num Num="1"/>
+									<Num Num="100"/>
+								</ToolScp>
+							</DeadList>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Normal"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="100085" Pos="82.93#239.70#4257.34" range="1" maxStackCount="1" genTime="20000" objectKey="9" UseAiOutOfPc="1" tendency="0">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="50"/>
+								</ToolScp>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+									<Str Str="GT_STAGE_10_ROOT"/>
+									<Num Num="1"/>
+									<Num Num="0"/>
+									<Num Num="15000"/>
+									<Num Num="1"/>
+									<Num Num="100"/>
+								</ToolScp>
+							</DeadList>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Normal"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="100085" Pos="-83.15#239.70#3881.45" range="1" maxStackCount="1" genTime="20000" objectKey="10" UseAiOutOfPc="1" tendency="0">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="50"/>
+								</ToolScp>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+									<Str Str="GT_STAGE_10_ROOT"/>
+									<Num Num="1"/>
+									<Num Num="0"/>
+									<Num Num="15000"/>
+									<Num Num="1"/>
+									<Num Num="100"/>
+								</ToolScp>
+							</DeadList>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Normal"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="END">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE_1_PROG/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_1_PROG"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_2_PROG"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_1_PROG"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_2_PROG"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="CNT"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="CHECK"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="PROG">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="90"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_2_PROG"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="STAGE_2_PROG" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+						<Str Str="고사리우스가 부하들을 불러들입니다"/>
+						<Str Str="stage_start"/>
+						<Num Num="20"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="100007" Pos="-33.18#239.70#4037.93" angle="-42" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="2000"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="100007" Pos="352.07#239.70#4059.53" angle="-119" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="2000"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+			</Stage>
+			<Stage Name="CNT" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="270"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="고사리우스 처치"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="Fail_PCcnt">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+								<Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+								<Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="FAIL"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Fail_Timmer">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="270"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="FAIL"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="CHECK" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+						<Str Str="파티 리더가 선택 중입니다"/>
+						<Str Str="reward_box"/>
+						<Num Num="15"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="대기시간"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="120"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="KEEP">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="GT_SELECT_STAGE_10"/>
+								<Str Str="=="/>
+								<Num Num="300"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="SUCCESS"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="CHECK"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="OUT">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="GT_SELECT_STAGE_10"/>
+								<Str Str="=="/>
+								<Num Num="100"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="OUT"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="CHECK"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="TIMEOUT">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="120"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="OUT"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="CHECK"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="select">
+						<execList>
+							<ToolScp Scp="GT_SELECT_REWARD" Client="NO" UseSleep="NO">
+								<Str Str="GT_SELECT_STAGE_10"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="SUCCESS" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+						<Str Str="파티 리더가 다음 임무에 도전했습니다{nl}11층으로 이동하세요"/>
+						<Str Str="move_to_point"/>
+						<Num Num="20"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="20"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
+						<Str Str="Success"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="179.48#265.07#4337.93" angle="91" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;대지의 탑 11층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_11&apos; &apos;Range&apos; &apos;50&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+									<Str Str="g_tower_door"/>
+									<Str Str="GT_GATE_OPEN_ANIM"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57272" Pos="-2640.48#268.91#-4329.30" angle="90" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;BTree&apos; &apos;None&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="RunMGame">
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_RUNMGAME" Client="NO" UseSleep="NO">
+								<Str Str="M_GTOWER_STAGE_11"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="OUT" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+						<Str Str="파티 리더가 도전을 포기했습니다.{nl}보상을 받고 이스토라 유적지로 돌아갑니다"/>
+						<Str Str="reward_box"/>
+						<Num Num="60"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="퇴장 중"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="60"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
+						<Str Str="End"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="LEAVE">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="60"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Reward">
+						<execList>
+							<ToolScp Scp="REWARD_EARTH_TOWER" Client="NO" UseSleep="NO">
+								<Str Str="GT_SELECT_STAGE_10"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+	</Game>
 </GameList>

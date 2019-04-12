@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <HeadRotBip frame="0" BipName="Dummy_head"/>
+    <Particle frame="0.00" attachNode="Dummy_Force_effect" particleName="F_archer_ParthianShaft_cast_spread_in" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="None"/>
+    <BlendOn frame="4" R="120" G="130" B="150" A="100"/>
+    <Shockwave frame="4" type="2" intensity="3" frequency="70" duration="0.1" range="1000"/>
+    <Particle frame="4" attachNode="Dummy_center" particleName="F_hit003_light_mint" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="4" attachNode="Dummy_center" particleName="F_hit003_light_mint" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound="arrow_shot_skl"/>
+    <Particle frame="4" attachNode="Dummy_center" particleName="I_light018_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound="skl_archer_dividedarrow_hit"/>
+    <BlendOn frame="5" R="70" G="90" B="140" A="80"/>
+    <BlendOff frame="6" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

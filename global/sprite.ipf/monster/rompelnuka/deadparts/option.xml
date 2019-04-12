@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <DeadParts>
 	<ForkParticle Name="F_spark001_green"/>
 	<Anim Play="0" HideTime="2.000000"/>
 	<DeadParts Play="1"/>
+	<Sound Name="mon_die_effect" Time="0.000000"/>
+	<Sound Name="mon_sakmoli_dead" Time="0.000000"/>
 </DeadParts>

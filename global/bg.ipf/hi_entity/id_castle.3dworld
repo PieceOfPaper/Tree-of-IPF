@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Jang (IMCGames Co., Ltd) -->
+<World>
+	<ModelDir IpfName="bg_hi2" Path="\raid\id_castle\"/>
+	<LightMap File="id_castle_lightmap.jpg" Length="2600 2600" Offset="-326.666 104.168" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\castle\"/>
+	<SubTexDir IpfName="bg_texture" Path="\startower\"/>
+	<SubTexDir IpfName="bg_texture" Path="\siauliai\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<ShaTexDir IpfName="bg_hi2" Path="\raid\id_castle\"/>
+	<Model File="id_castle_fog.xac" Model="id_castle_fog" pos="-30.4498 115.6051 99.3247" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_blend.xac" Model="id_castle_blend" ShadowMap="id_castle_blend" pos="-461.5020 -10.1978 -86.5962" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_bloom.xac" Model="id_castle_bloom" pos="-342.4458 90.0517 61.9651" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_light02.xac" Model="id_castle_light02" pos="-709.9568 -57.3837 394.7190" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_light.xac" Model="id_castle_light" pos="-515.9953 160.0004 -189.0887" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_1area_tree.xac" Model="id_castle_1area_tree" ShadowMap="id_castle_1area_tree" pos="-63.8064 15.3720 136.5161" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_2area_model.xac" Model="id_castle_2area_model" ShadowMap="id_castle_2area_model" pos="151.3708 -164.8354 1110.1127" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_grass.xac" Model="id_castle_grass" ShadowMap="id_castle_grass" pos="-307.4393 7.0139 98.8193" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_b_model.xac" Model="id_castle_b_model" ShadowMap="id_castle_b_model" pos="-529.1899 -95.4493 255.5827" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_ground.xac" Model="id_castle_ground" ShadowMap="id_castle_ground" pos="-320.1702 21.1477 107.4482" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_1area_model.xac" Model="id_castle_1area_model" ShadowMap="id_castle_1area_model" pos="-1046.8826 -47.1223 693.9738" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_3area_model.xac" Model="id_castle_3area_model" ShadowMap="id_castle_3area_model" pos="-284.3186 -89.5820 667.1799" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_4area_model.xac" Model="id_castle_4area_model" ShadowMap="id_castle_4area_model" pos="401.0295 -44.4715 -289.5319" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_5area_model.xac" Model="id_castle_5area_model" ShadowMap="id_castle_5area_model" pos="-721.5679 -125.8796 104.9648" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_6area_model.xac" Model="id_castle_6area_model" ShadowMap="id_castle_6area_model" pos="-708.9956 -56.9337 95.7954" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_2area_tree.xac" Model="id_castle_2area_tree" ShadowMap="id_castle_2area_tree" pos="-63.8064 15.3720 136.5161" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_3area_tree.xac" Model="id_castle_3area_tree" ShadowMap="id_castle_3area_tree" pos="-63.8064 15.3720 136.5161" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_castle_4area_tree.xac" Model="id_castle_4area_tree" ShadowMap="id_castle_4area_tree" pos="-63.8064 15.3720 136.5161" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

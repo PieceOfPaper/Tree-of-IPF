@@ -2012,7 +2012,7 @@
 			<img name="topright" imgrect="766 942 30 30"/>
 			<img name="bodyleft" imgrect="654 973 30 20"/>
 			<img name="bodycore" imgrect="685 973 80 20"/>
-			<img name="bodyright" imgrect="766 973 30 30"/>
+			<img name="bodyright" imgrect="766 973 30 20"/>
 			<img name="bottomleft" imgrect="654 994 30 30"/>
 			<img name="bottomcore" imgrect="685 994 80 30"/>
 			<img name="bottomright" imgrect="766 994 30 30"/>
@@ -2023,7 +2023,7 @@
 			<img name="topright" imgrect="909 942 30 30"/>
 			<img name="bodyleft" imgrect="797 973 30 20"/>
 			<img name="bodycore" imgrect="828 973 80 20"/>
-			<img name="bodyright" imgrect="909 973 30 30"/>
+			<img name="bodyright" imgrect="909 973 30 20"/>
 			<img name="bottomleft" imgrect="797 994 30 30"/>
 			<img name="bottomcore" imgrect="828 994 80 30"/>
 			<img name="bottomright" imgrect="909 994 30 30"/>
@@ -2034,7 +2034,7 @@
 			<img name="topright" imgrect="1052 942 30 30"/>
 			<img name="bodyleft" imgrect="940 973 30 20"/>
 			<img name="bodycore" imgrect="971 973 80 20"/>
-			<img name="bodyright" imgrect="1052 973 30 30"/>
+			<img name="bodyright" imgrect="1052 973 30 20"/>
 			<img name="bottomleft" imgrect="940 994 30 30"/>
 			<img name="bottomcore" imgrect="971 994 80 30"/>
 			<img name="bottomright" imgrect="1052 994 30 30"/>
@@ -2460,6 +2460,20 @@
 			<img name="topclose" imgrect="1987 383 30 10"/>
 			<img name="centerclose" imgrect="1987 383 30 10"/>
 			<img name="bottomclose" imgrect="1987 383 30 10"/>
+		</skin>
+		<skin name="tab2_marketgender" texture="\skin\market_skin.tga">
+			<img name="leftopen" imgrect="1848 0 10 63"/>
+			<img name="bodyopen" imgrect="1859 0 42 63"/>
+			<img name="rightopen" imgrect="1902 0 10 63"/>
+			<img name="leftclose" imgrect="1913 0 10 63"/>
+			<img name="bodyclose" imgrect="1924 0 42 63"/>
+			<img name="rightclose" imgrect="1967 0 10 63"/>
+			<img name="topopen" imgrect="1967 64 10 36"/>
+			<img name="centeropen" imgrect="1967 64 10 36"/>
+			<img name="bottomopen" imgrect="1967 64 10 36"/>
+			<img name="topclose" imgrect="1967 64 10 36"/>
+			<img name="centerclose" imgrect="1967 64 10 36"/>
+			<img name="bottomclose" imgrect="1967 64 10 36"/>
 		</skin>
 		<skin name="test_socket_topskin" texture="\skin\pip_test_item.tga">
 			<img name="topleft" imgrect="0 584 180 1"/>
@@ -2944,6 +2958,17 @@
 			<img name="bottomleft" imgrect="0 231 30 287"/>
 			<img name="bottomcore" imgrect="31 231 222 287"/>
 			<img name="bottomright" imgrect="254 231 30 287"/>
+		</skin>
+		<skin name="nisms_skin" texture="\skin\nisms_skin.tga">
+			<img name="topleft" imgrect="0 0 150 150"/>
+			<img name="topcore" imgrect="150 0 162 150"/>
+			<img name="topright" imgrect="312 0 150 150"/>
+			<img name="bodyleft" imgrect="0 150 150 150"/>
+			<img name="bodycore" imgrect="150 150 162 161"/>
+			<img name="bodyright" imgrect="312 150 150 161"/>
+			<img name="bottomleft" imgrect="0 311 150 150"/>
+			<img name="bottomcore" imgrect="150 311 162 150"/>
+			<img name="bottomright" imgrect="312 311 150 150"/>
 		</skin>
 	</skinlist>
 	<skinlist category="buttons">
@@ -3599,15 +3624,15 @@
 			<img name="bottomclose" imgrect="311 556 12 30"/>
 		</skin>
 		<skin name="digitnotice_bg" texture="\skin\mainframe_A.tga">
-			<img name="topleft" imgrect="471 857 9 9"/>
-			<img name="topcore" imgrect="481 857 2 9"/>
-			<img name="topright" imgrect="484 857 9 9"/>
-			<img name="bodyleft" imgrect="471 867 9 2"/>
-			<img name="bodycore" imgrect="481 867 2 2"/>
-			<img name="bodyright" imgrect="484 867 9 2"/>
+			<img name="topleft" imgrect="471 854 9 9"/>
+			<img name="topcore" imgrect="481 854 5 9"/>
+			<img name="topright" imgrect="487 854 9 9"/>
+			<img name="bodyleft" imgrect="471 864 9 5"/>
+			<img name="bodycore" imgrect="481 864 5 5"/>
+			<img name="bodyright" imgrect="487 864 9 5"/>
 			<img name="bottomleft" imgrect="471 870 9 9"/>
-			<img name="bottomcore" imgrect="481 870 2 9"/>
-			<img name="bottomright" imgrect="484 870 9 9"/>
+			<img name="bottomcore" imgrect="481 870 5 9"/>
+			<img name="bottomright" imgrect="487 870 9 9"/>
 		</skin>
 		<skin name="barrack_name" texture="\skin\barrack.tga">
 			<img name="topleft" imgrect="0 519 146 49"/>
@@ -3859,9 +3884,9 @@
 			<img name="barright" imgrect="1580 1009 1 15"/>
 		</skin>
 		<skin name="gauge_sta2" texture="\skin\pip_test.tga">
-			<img name="bgtop" imgrect="477 888 40 1"/>
-			<img name="bgmiddle" imgrect="477 888 40 1"/>
-			<img name="bgbottom" imgrect="477 942 40 1"/>
+			<img name="bgtop" imgrect="519 888 40 1"/>
+			<img name="bgmiddle" imgrect="519 889 40 53"/>
+			<img name="bgbottom" imgrect="519 942 40 1"/>
 			<img name="bartop" imgrect="477 888 40 1"/>
 			<img name="barmiddle" imgrect="477 889 40 53"/>
 			<img name="barbottom" imgrect="477 942 40 1"/>
@@ -4122,6 +4147,14 @@
 			<img name="dropbutton" imgrect="603 921 12 12"/>
 			<img name="dropbutton_click" imgrect="616 921 12 12"/>
 			<img name="dropbutton_cursoron" imgrect="629 921 12 12"/>
+		</skin>
+		<skin name="droplist_normal2" texture="\skin\pip_test.tga">
+			<img name="left" imgrect="868 503 20 40"/>
+			<img name="middle" imgrect="889 503 20 40"/>
+			<img name="right" imgrect="910 503 20 40"/>
+			<img name="dropbutton" imgrect="931 503 12 12"/>
+			<img name="dropbutton_click" imgrect="931 516 12 12"/>
+			<img name="dropbutton_cursoron" imgrect="931 529 12 12"/>
 		</skin>
 	</skinlist>
 	<skinlist>
@@ -4502,6 +4535,9 @@
 		<image name="guild_offline" file="\skin\pip_test.tga" imgrect="1799 589 20 20" CMM_Caption="길드_오프라인"/>
 		<image name="v_mark" file="\skin\barrack.tga" imgrect="1067 330 84 84" CMM_Caption="브이마크"/>
 		<image name="guild_talt" file="\skin\pip_test_item.tga" imgrect="1612 87 190 190" CMM_Caption="길드탈트넣는곳"/>
+		<image name="market_default" file="\skin\market_default.png" imgrect="0 0 520 250" CMM_Caption="마켓배너준비(작은거)"/>
+		<image name="market_default2" file="\skin\market_default2.png" imgrect="0 0 1230 400" CMM_Caption="마켓배너준비(큰거)"/>
+		<image name="market_default3" file="\skin\market_default3.png" imgrect="0 0 512 246" CMM_Caption="마켓닫기버튼으로쓸이미지"/>
 		<image name="tpshop_image" file="\skin\market_skin.tga" imgrect="0 344 1180 80" CMM_Caption="마켓임시"/>
 		<image name="67percent_image" file="\skin\paid_skin.tga" imgrect="131 0 55 45" CMM_Caption="67%"/>
 		<image name="50percent_image" file="\skin\paid_skin.tga" imgrect="131 46 55 45" CMM_Caption="50%"/>
@@ -4544,6 +4580,7 @@
 		<image name="indunFreeEnter_middle" file="\skin\paid_skin.tga" imgrect="419 802 316 165" CMM_Caption="인던3일무제한"/>
 		<image name="resetSkill_middle" file="\skin\paid_skin.tga" imgrect="419 636 316 165" CMM_Caption="스킬초기화"/>
 		<image name="resetStat_middle" file="\skin\paid_skin_title.tga" imgrect="0 0 316 165" CMM_Caption="스텟 초기화"/>
+		<image name="indunticket_middle" file="\skin\indunticket.tga" imgrect="0 0 316 165" CMM_Caption="인던소탕권"/>
 		<image name="market_sell_updown" file="\skin\paid_skin.tga" imgrect="675 439 328 115" CMM_Caption="마켓상하한가표"/>
 		<image name="M_message_open" file="\skin\barrack.tga" imgrect="1493 721 30 30"/>
 		<image name="M_message_Unopen" file="\skin\barrack.tga" imgrect="1524 721 30 30"/>
@@ -4584,6 +4621,34 @@
 		<image name="chul_arrow" file="\skin\pip_test.tga" imgrect="439 640 14 14" CMM_Caption="출금화살표"/>
 		<image name="tooltip_spicon" file="\skin\pip_test_item.tga" imgrect="415 546 20 20" CMM_Caption="sp아이콘"/>
 		<image name="tooltip_charging" file="\skin\pip_test_item.tga" imgrect="438 546 20 20" CMM_Caption="챠징아이콘"/>
+		<image name="Purchase_complete" file="\skin\market_skin.tga" imgrect="1978 292 70 90" CMM_Caption="구매완료"/>
+		<image name="new_mark2" file="\skin\market_skin.tga" imgrect="1204 246 72 34" CMM_Caption="뉴_마크"/>
+		<image name="hot_mark2" file="\skin\market_skin.tga" imgrect="1204 281 72 34" CMM_Caption="핫_마크"/>
+		<image name="event_mark2" file="\skin\market_skin.tga" imgrect="1204 316 72 34" CMM_Caption="이벤트_마크"/>
+		<image name="new_mark_K" file="\skin\market_skin.tga" imgrect="1785 383 72 34" CMM_Caption="뉴_마크_한글"/>
+		<image name="hot_mark_K" file="\skin\market_skin.tga" imgrect="1785 418 72 34" CMM_Caption="핫_마크_한글"/>
+		<image name="recommend_mark_K" file="\skin\market_skin.tga" imgrect="1785 453 72 34" CMM_Caption="추천_마크_한글"/>
+		<image name="minus_icon" file="\skin\market_skin.tga" imgrect="1277 277 20 20" CMM_Caption="마이너스아이콘"/>
+		<image name="result_icon" file="\skin\market_skin.tga" imgrect="1277 298 20 20" CMM_Caption="결과아이콘"/>
+		<image name="Nexon_cash_mark" file="\skin\market_skin.tga" imgrect="1277 246 30 30" CMM_Caption="넥슨캐시마크"/>
+		<image name="Tp_cash_mark" file="\skin\market_skin.tga" imgrect="1277 319 30 30" CMM_Caption="TP캐시마크"/>
+		<image name="mirror_bg" file="\skin\mirror_bg.tga" imgrect="0 0 300 380" CMM_Caption="거울"/>
+		<image name="market_hairacc" file="\skin\market_skin.tga" imgrect="1927 447 60 60" CMM_Caption="마켓_헤어악세사리"/>
+		<image name="market_haircolor" file="\skin\market_skin.tga" imgrect="1866 447 60 60" CMM_Caption="마켓_염색약"/>
+		<image name="market_costume" file="\skin\market_skin.tga" imgrect="1866 383 60 60" CMM_Caption="마켓_코스튬"/>
+		<image name="market_hair" file="\skin\market_skin.tga" imgrect="1927 383 60 60" CMM_Caption="마켓_가발"/>
+		<image name="market_lens" file="\skin\market_skin.tga" imgrect="1988 383 60 60" CMM_Caption="마켓_렌즈"/>
+		<image name="market_F_gender" file="\skin\market_skin.tga" imgrect="1746 0 50 50" CMM_Caption="마켓_여자성별"/>
+		<image name="market_M_gender" file="\skin\market_skin.tga" imgrect="1797 0 50 50" CMM_Caption="마켓_남자성별"/>
+		<image name="indun_line_img" file="\skin\pip_test.tga" imgrect="1548 872 100 14" CMM_Caption="인던맵구분선"/>
+		<image name="gacha_big_01" file="\skin\gacha_big_one.tga" imgrect="0 0 758 508" CMM_Caption="가챠_좋은거_큰거"/>
+		<image name="gacha_big_02" file="\skin\gacha_big_two.tga" imgrect="0 0 758 508" CMM_Caption="가챠_그냥저냥_큰거"/>
+		<image name="gacha_big_03" file="\skin\gacha_big_three.tga" imgrect="0 0 758 508" CMM_Caption="가챠_노말_큰거"/>
+		<image name="gacha_01" file="\skin\gacha_ui.tga" imgrect="0 78 170 170" CMM_Caption="가챠_좋은거"/>
+		<image name="gacha_02" file="\skin\gacha_ui.tga" imgrect="171 78 170 170" CMM_Caption="가챠_그냥저냥"/>
+		<image name="gacha_03" file="\skin\gacha_ui.tga" imgrect="342 78 170 170" CMM_Caption="가챠_노말"/>
+		<image name="gacha_skin" file="\skin\gacha_skin.tga" imgrect="0 0 450 580" CMM_Caption="가챠_팝업"/>
+		<image name="expup_img" file="\skin\pip_test.tga" imgrect="868 544 70 62" CMM_Caption="expup_이미지"/>
 	</imagelist>
 	<imagelist category="MCC_image">
 		<image name="MCC_one" file="\skin\MCC_skin.tga" imgrect="237 0 50 50"/>
@@ -4890,6 +4955,42 @@
 		<image name="barrack_off_two_btn" file="\skin\barrack.tga" imgrect="1535 831 40 58" CMM_Caption="레이어2버튼_비활성"/>
 		<image name="barrack_off_two_btn_cursoron" file="\skin\barrack.tga" imgrect="1535 949 40 58"/>
 		<image name="barrack_off_two_btn_clicked" file="\skin\barrack.tga" imgrect="1535 949 40 58"/>
+		<image name="market_reset_btn" file="\skin\market_skin.tga" imgrect="374 97 49 49" CMM_Caption="마켓_새로고침버튼"/>
+		<image name="market_reset_btn_cursoron" file="\skin\market_skin.tga" imgrect="424 97 49 49"/>
+		<image name="market_reset_btn_clicked" file="\skin\market_skin.tga" imgrect="474 97 49 49"/>
+		<image name="market_cleric_btn" file="\skin\market_skin.tga" imgrect="1429 0 64 63" CMM_Caption="마켓_클레릭버튼"/>
+		<image name="market_cleric_btn_cursoron" file="\skin\market_skin.tga" imgrect="1429 64 64 63"/>
+		<image name="market_cleric_btn_clicked" file="\skin\market_skin.tga" imgrect="1429 0 64 63"/>
+		<image name="market_warrior_btn" file="\skin\market_skin.tga" imgrect="1624 0 64 63" CMM_Caption="마켓_워리어버튼"/>
+		<image name="market_warrior_btn_cursoron" file="\skin\market_skin.tga" imgrect="1624 64 64 63"/>
+		<image name="market_warrior_btn_clicked" file="\skin\market_skin.tga" imgrect="1624 0 64 63"/>
+		<image name="market_mage_btn" file="\skin\market_skin.tga" imgrect="1559 0 64 63" CMM_Caption="마켓_위자드버튼"/>
+		<image name="market_mage_btn_cursoron" file="\skin\market_skin.tga" imgrect="1559 64 64 63"/>
+		<image name="market_mage_btn_clicked" file="\skin\market_skin.tga" imgrect="1559 0 64 63"/>
+		<image name="market_archer_btn" file="\skin\market_skin.tga" imgrect="1494 0 64 63" CMM_Caption="마켓_아쳐버튼"/>
+		<image name="market_archer_btn_cursoron" file="\skin\market_skin.tga" imgrect="1494 64 64 63"/>
+		<image name="market_archer_btn_clicked" file="\skin\market_skin.tga" imgrect="1494 0 64 63"/>
+		<image name="nisms_close_btn" file="\skin\nisms_skin.tga" imgrect="464 10 35 35" CMM_Caption="닫기버튼"/>
+		<image name="nisms_close_btn_cursoron" file="\skin\nisms_skin.tga" imgrect="464 46 35 35"/>
+		<image name="nisms_close_btn_clicked" file="\skin\nisms_skin.tga" imgrect="464 82 35 35"/>
+		<image name="nisms_refresh_btn" file="\skin\nisms_skin.tga" imgrect="464 123 35 35" CMM_Caption="새로고침"/>
+		<image name="nisms_refresh_btn_cursoron" file="\skin\nisms_skin.tga" imgrect="464 160 35 35"/>
+		<image name="nisms_refresh_btn_clicked" file="\skin\nisms_skin.tga" imgrect="464 197 35 35"/>
+		<image name="nisms_forward_btn" file="\skin\nisms_skin.tga" imgrect="464 235 35 35" CMM_Caption="앞으로가기"/>
+		<image name="nisms_forward_btn_cursoron" file="\skin\nisms_skin.tga" imgrect="464 272 35 35"/>
+		<image name="nisms_forward_btn_clicked" file="\skin\nisms_skin.tga" imgrect="464 309 35 35"/>
+		<image name="nisms_back_btn" file="\skin\nisms_skin.tga" imgrect="464 346 35 35" CMM_Caption="뒤로가기"/>
+		<image name="nisms_back_btn_cursoron" file="\skin\nisms_skin.tga" imgrect="464 383 35 35"/>
+		<image name="nisms_back_btn_clicked" file="\skin\nisms_skin.tga" imgrect="464 420 35 35"/>
+		<image name="nisms_scale_btn" file="\skin\nisms_skin.tga" imgrect="464 456 15 15" CMM_Caption="크기변환"/>
+		<image name="nisms_scale_btn_cursoron" file="\skin\nisms_skin.tga" imgrect="480 456 15 15"/>
+		<image name="nisms_scale_btn_clicked" file="\skin\nisms_skin.tga" imgrect="496 456 15 15"/>
+		<image name="market_number_btn" file="\skin\market_skin.tga" imgrect="1776 51 35 38" CMM_Caption="마켓_번호버튼"/>
+		<image name="market_number_btn_cursoron" file="\skin\market_skin.tga" imgrect="1812 51 35 38"/>
+		<image name="market_number_btn_clicked" file="\skin\market_skin.tga" imgrect="1812 51 35 38"/>
+		<image name="market_number2_btn" file="\skin\market_skin.tga" imgrect="1812 51 35 38" CMM_Caption="마켓_번호버튼2"/>
+		<image name="market_number2_btn_cursoron" file="\skin\market_skin.tga" imgrect="1812 51 35 38"/>
+		<image name="market_number2_btn_clicked" file="\skin\market_skin.tga" imgrect="1812 51 35 38"/>
 	</imagelist>
 	<imagelist category="hair_color">
 		<image name="basic_color" file="\skin\barrack.tga" imgrect="949 492 35 35" CMM_Caption="기본컬러"/>
@@ -5048,6 +5149,8 @@
 		<image name="sign_buy" file="\skin\signboard.tga" imgrect="0 228 355 75"/>
 		<image name="sign_bong" file="\skin\signboard.tga" imgrect="0 304 355 75"/>
 		<image name="sign_buff" file="\skin\signboard.tga" imgrect="0 380 355 75"/>
+		<image name="sign_gender" file="\skin\signboard.tga" imgrect="0 456 355 75"/>
+		<image name="sign_enchant" file="\skin\signboard.tga" imgrect="0 532 355 75"/>
 		<image name="buff_market_title" file="\skin\HUD.tga" imgrect="1745 466 274 76"/>
 		<image name="buff_market_icon" file="\skin\HUD.tga" imgrect="1780 431 34 34"/>
 		<image name="skilltooltip_skill_image_slot" file="\skin\tooltip_skin_3.tga" imgrect="768 1494 150 150"/>
@@ -5752,6 +5855,7 @@
 		<image name="minimap_collection_c" file="\icon\minimap_icon3.tga" imgrect="240 338 24 24"/>
 		<image name="minimap_team" file="\icon\minimap_icon3.tga" imgrect="340 587 80 80"/>
 		<image name="minimap_dungeon" file="\icon\minimap_icon3.tga" imgrect="432 653 80 80"/>
+		<image name="minimap_indun" file="\icon\minimap_icon3.tga" imgrect="432 734 80 80"/>
 	</imagelist>
 	<imagelist category="quest_tags">
 		<image name="quest_tag_1_MAIN" file="\icon\minimap_icon.tga" imgrect="61 31 16 16"/>
@@ -6211,6 +6315,15 @@
 		<image name="Dlg_port_AgaillaFlurry" file="\npcimg\AgaillaFlurry.png" imgrect="0 0 800 900" CMM_Caption="아가일라플러리"/>
 		<image name="Dlg_port_Diena" file="\npcimg\Diena.png" imgrect="0 0 700 1000" CMM_Caption="디에나"/>
 		<image name="Dlg_port_Diena_dark" file="\npcimg\Diena_dark.png" imgrect="0 0 700 1000" CMM_Caption="디에나_다크"/>
+		<image name="Dlg_port_jenaHavindar" file="\npcimg\jenaHavindar.png" imgrect="0 0 800 900" CMM_Caption="인챈터마스터"/>
+		<image name="Dlg_port_Flintess" file="\npcimg\Flintess.png" imgrect="0 0 800 950" CMM_Caption="하카펠마스터"/>
+		<image name="Dlg_port_hitomiko" file="\npcimg\hitomiko.png" imgrect="0 0 900 900" CMM_Caption="무녀마스터"/>
+		<image name="Dlg_port_Feliksia" file="\npcimg\Feliksia.png" imgrect="0 0 800 900" CMM_Caption="무르밀로마스터"/>
+		<image name="Dlg_port_NoirParesseus" file="\npcimg\NoirParesseus.png" imgrect="0 0 800 900" CMM_Caption="랜서마스터"/>
+		<image name="Dlg_port_BangomontBorjigin" file="\npcimg\BangomontBorjigin.png" imgrect="0 0 800 1000" CMM_Caption="메르겐마스터"/>
+		<image name="Dlg_port_LufasKehel" file="\npcimg\LufasKehel.png" imgrect="0 0 800 900" CMM_Caption="세이지마스터"/>
+		<image name="Dlg_port_GeHong" file="\npcimg\GeHong.png" imgrect="0 0 800 900" CMM_Caption="도사마스터"/>
+		<image name="Dlg_port_ThomasIconostasis" file="\npcimg\ThomasIconostasis.png" imgrect="0 0 800 1000" CMM_Caption="인퀴지터마스터"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>
@@ -6310,6 +6423,9 @@
 		<image name="icon_L_Songpyeon" file="\icon\buff_icon.tga" imgrect="384 1280 128 128" CMM_Caption="대왕송편버프"/>
 		<image name="icon_Songpyeon" file="\icon\buff_icon.tga" imgrect="512 1280 128 128" CMM_Caption="송편버프"/>
 		<image name="icon_L_H_Songpyeon" file="\icon\buff_icon.tga" imgrect="640 1280 128 128" CMM_Caption="꿀떡버프"/>
+		<image name="icon_nexonpc2" file="\icon\buff_icon.tga" imgrect="768 1280 128 128" CMM_Caption="넥슨피시방"/>
+		<image name="icon_expup_total" file="\icon\buff_icon.tga" imgrect="896 1280 128 128" CMM_Caption="경험치버프토탈"/>
+		<image name="icon_eventbuff" file="\icon\buff_icon.tga" imgrect="0 1408 128 128" CMM_Caption="이벤트버프"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

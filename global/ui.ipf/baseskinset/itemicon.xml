@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
 		<image name="item_angle_icon" file="\skin\mainframe_A.tga" imgrect="818 710 30 20" CMM_Caption="S 랭크 아이템 아이콘"/>
@@ -368,6 +369,18 @@
 		<image name="icon_item_gloves_nobleLeather_yellow" file="\icon\equip\gloves_nobleLeather_yellow.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_boots_nobleLeather_yellow" file="\icon\equip\boots_nobleLeather_yellow.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_gloves_intathurta" file="\icon\equip\gloves_intathurta.png" imgrect="0 0 256 256" CMM_Caption="블러드배쓰장갑"/>
+		<image name="icon_item_shirts_acolyte_silver" file="\icon\equip\icon_item_shirts_acolyte_silver.png" imgrect="0 0 256 256" CMM_Caption="솔미키_천세트"/>
+		<image name="icon_item_pants_acolyte_silver" file="\icon\equip\icon_item_pants_acolyte_silver.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_boots_acolyte_silver" file="\icon\equip\icon_item_boots_acolyte_silver.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_gloves_acolyte_silver" file="\icon\equip\icon_item_gloves_acolyte_silver.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_shirts_nobleLeather_silver" file="\icon\equip\icon_item_shirts_nobleLeather_silver.png" imgrect="0 0 256 256" CMM_Caption="솔미키_가죽세트"/>
+		<image name="icon_item_pants_nobleLeather_silver" file="\icon\equip\icon_item_pants_nobleLeather_silver.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_boots_nobleLeather_silver" file="\icon\equip\icon_item_boots_nobleLeather_silver.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_gloves_nobleLeather_silver" file="\icon\equip\icon_item_gloves_nobleLeather_silver.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_shirts_crusader_silver" file="\icon\equip\icon_item_shirts_crusader_silver.png" imgrect="0 0 256 256" CMM_Caption="솔미키_판금세트"/>
+		<image name="icon_item_pants_crusader_silver" file="\icon\equip\icon_item_pants_crusader_silver.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_gloves_crusader_silver" file="\icon\equip\icon_item_gloves_crusader_silver.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_boots_crusader_silver" file="\icon\equip\icon_item_boots_crusader_silver.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="256_costume_icons">
 		<image name="icon_item_Alchemist_f" file="\icon\equip\Alchemist_f_icon.png" imgrect="0 0 256 256" CMM_Caption="알케미스트"/>
@@ -518,6 +531,14 @@
 		<image name="icon_item_archer_quarreelshooter01_3_f" file="\icon\equip\archer_f_quarreelshooter01_3.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Cleric_dievdirbys01_3_m" file="\icon\equip\Cleric_dievdirbys01_3_m.png" imgrect="0 0 256 256" CMM_Caption="3랭크코스튬_딥디르비"/>
 		<image name="icon_item_Cleric_dievdirbys01_3_f" file="\icon\equip\Cleric_dievdirbys01_3_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_inquisitor_m" file="\icon\equip\icon_item_inquisitor_m.png" imgrect="0 0 256 256" CMM_Caption="인퀴지터_코스튬"/>
+		<image name="icon_item_inquisitor_f" file="\icon\equip\icon_item_inquisitor_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mergen_m" file="\icon\equip\icon_item_mergen_m.png" imgrect="0 0 256 256" CMM_Caption="메르겐_코스튬"/>
+		<image name="icon_item_mergen_f" file="\icon\equip\icon_item_mergen_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_ranger_costume01_3_f" file="\icon\equip\icon_item_ranger_costume01_3_f.png" imgrect="0 0 256 256" CMM_Caption="3랭크 유료 레인저 코스튬"/>
+		<image name="icon_item_ranger_costume01_3_m" file="\icon\equip\icon_item_ranger_costume01_3_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_miko" file="\icon\equip\icon_item_miko.png" imgrect="0 0 256 256" CMM_Caption="미코"/>
+		<image name="icon_item_kannushi" file="\icon\equip\icon_item_kannushi.png" imgrect="0 0 256 256" CMM_Caption="칸누시"/>
 	</imagelist>
 	<imagelist category="256_weapone_icons">
 		<image name="icon_item_artefact_210011" file="\icon\weapon\icon_item_artefact_210011.png" imgrect="0 0 256 256" CMM_Caption="요령"/>
@@ -545,6 +566,8 @@
 		<image name="Hogma_great_sword" file="\icon\weapon\Hogma_great_sword.png" imgrect="0 0 256 256" CMM_Caption="양손검"/>
 		<image name="icon_item_f_thsword_barbar" file="\icon\weapon\icon_item_f_thsword_barbar.png" imgrect="0 0 256 256" CMM_Caption="양손검"/>
 		<image name="warrior_f_thsword_stala" file="\icon\weapon\warrior_f_thsword_stala.png" imgrect="0 0 256 256" CMM_Caption="양손검"/>
+		<image name="icon_item_sword_heartword_TH" file="\icon\weapon\icon_item_sword_heartword_TH.png" imgrect="0 0 256 256" CMM_Caption="양손검"/>
+		<image name="icon_item_sword_noroi_TH" file="\icon\weapon\icon_item_sword_noroi_TH.png" imgrect="0 0 256 256" CMM_Caption="양손검"/>
 		<image name="warrior_f_sword_stala" file="\icon\weapon\warrior_f_sword_stala.png" imgrect="0 0 256 256" CMM_Caption="검"/>
 		<image name="icon_item_scimiter" file="\icon\weapon\icon_item_scimiter.png" imgrect="0 0 256 256" CMM_Caption="검"/>
 		<image name="icon_item_snickersnee" file="\icon\weapon\icon_item_snickersnee.png" imgrect="0 0 256 256" CMM_Caption="검"/>
@@ -603,11 +626,16 @@
 		<image name="icon_item_corvus_sword" file="\icon\weapon\corvus_sword.png" imgrect="0 0 256 256" CMM_Caption="검"/>
 		<image name="icon_item_coperon_sword" file="\icon\weapon\coperon_sword.png" imgrect="0 0 256 256" CMM_Caption="검"/>
 		<image name="icon_item_shark_cutter" file="\icon\weapon\shark_cutter.png" imgrect="0 0 256 256" CMM_Caption="검"/>
+		<image name="icon_item_sword_rebal" file="\icon\weapon\icon_item_sword_rebal.png" imgrect="0 0 256 256" CMM_Caption="검"/>
+		<image name="icon_item_sword_regardhorn" file="\icon\weapon\icon_item_sword_regardhorn.png" imgrect="0 0 256 256" CMM_Caption="검"/>
 		<image name="icon_item_knife" file="\icon\weapon\icon_item_knife.png" imgrect="0 0 256 256" CMM_Caption="단검"/>
 		<image name="icon_item_dirk_dagger" file="\icon\weapon\icon_item_dirk_dagger.png" imgrect="0 0 256 256" CMM_Caption="단검"/>
 		<image name="icon_item_main-gauche" file="\icon\weapon\icon_item_main-gauche.png" imgrect="0 0 256 256" CMM_Caption="단검"/>
 		<image name="icon_item_choora" file="\icon\weapon\icon_item_choora.png" imgrect="0 0 256 256" CMM_Caption="단검"/>
 		<image name="icon_item_pesh-kabz" file="\icon\weapon\icon_item_pesh-kabz.png" imgrect="0 0 256 256" CMM_Caption="단검"/>
+		<image name="icon_item_dagger_lionmask" file="\icon\weapon\icon_item_dagger_lionmask.png" imgrect="0 0 256 256" CMM_Caption="단검"/>
+		<image name="icon_item_dagger_bloodsteeler" file="\icon\weapon\icon_item_dagger_bloodsteeler.png" imgrect="0 0 256 256" CMM_Caption="단검"/>
+		<image name="icon_item_dagger_regardhorn" file="\icon\weapon\icon_item_dagger_regardhorn.png" imgrect="0 0 256 256" CMM_Caption="단검"/>
 		<image name="icon_item_cane" file="\icon\weapon\icon_item_cane.png" imgrect="0 0 256 256" CMM_Caption="지팡이"/>
 		<image name="icon_item_callow_cane" file="\icon\weapon\icon_item_callow_cane.png" imgrect="0 0 256 256" CMM_Caption="지팡이"/>
 		<image name="icon_item_short_staff" file="\icon\weapon\icon_item_short_staff.png" imgrect="0 0 256 256" CMM_Caption="지팡이"/>
@@ -683,6 +711,10 @@
 		<image name="icon_item_sun" file="\icon\weapon\icon_item_sun.png" imgrect="0 0 256 256" CMM_Caption="지팡이"/>
 		<image name="wiz_f_staff_staff_stala" file="\icon\weapon\wiz_f_staff_staff_stala.png" imgrect="0 0 256 256" CMM_Caption="지팡이"/>
 		<image name="wiz_f_staff_stala" file="\icon\weapon\wiz_f_staff_stala.png" imgrect="0 0 256 256" CMM_Caption="지팡이"/>
+		<image name="icon_item_staff_holeofglory" file="\icon\weapon\icon_item_staff_holeofglory.png" imgrect="0 0 256 256" CMM_Caption="지팡이"/>
+		<image name="icon_item_staff_regardhorn" file="\icon\weapon\icon_item_staff_regardhorn.png" imgrect="0 0 256 256" CMM_Caption="지팡이"/>
+		<image name="icon_item_staff_regardhorn_TH" file="\icon\weapon\icon_item_staff_regardhorn_TH.png" imgrect="0 0 256 256" CMM_Caption="지팡이"/>
+		<image name="icon_item_staff_whiteholse_TH" file="\icon\weapon\icon_item_staff_whiteholse_TH.png" imgrect="0 0 256 256" CMM_Caption="지팡이"/>
 		<image name="icon_item_gandivam" file="\icon\weapon\icon_item_gandivam.png" imgrect="0 0 256 256" CMM_Caption="활"/>
 		<image name="icon_item_shortbow" file="\icon\weapon\icon_item_shortbow.png" imgrect="0 0 256 256" CMM_Caption="활"/>
 		<image name="icon_item_selfbow" file="\icon\weapon\icon_item_selfbow.png" imgrect="0 0 256 256" CMM_Caption="활"/>
@@ -707,6 +739,8 @@
 		<image name="icon_item_winged_bow" file="\icon\weapon\icon_item_winged_bow.png" imgrect="0 0 256 256" CMM_Caption="활"/>
 		<image name="icon_item_fulgur" file="\icon\weapon\icon_item_fulgur.png" imgrect="0 0 256 256" CMM_Caption="활"/>
 		<image name="icon_item_finiens" file="\icon\weapon\icon_item_finiens.png" imgrect="0 0 256 256" CMM_Caption="활"/>
+		<image name="icon_item_bow_pierotbow_TH" file="\icon\weapon\icon_item_bow_pierotbow_TH.png" imgrect="0 0 256 256" CMM_Caption="활"/>
+		<image name="icon_item_bow_pollyhorn_TH" file="\icon\weapon\icon_item_bow_pollyhorn_TH.png" imgrect="0 0 256 256" CMM_Caption="활"/>
 		<image name="icon_item_catapult" file="\icon\weapon\icon_item_catapult.png" imgrect="0 0 256 256" CMM_Caption="석궁"/>
 		<image name="icon_item_light_crossbow" file="\icon\weapon\icon_item_light_crossbow.png" imgrect="0 0 256 256" CMM_Caption="석궁"/>
 		<image name="icon_item_crossbow" file="\icon\weapon\icon_item_crossbow.png" imgrect="0 0 256 256" CMM_Caption="석궁"/>
@@ -731,6 +765,8 @@
 		<image name="icon_item_stiria" file="\icon\weapon\icon_item_stiria.png" imgrect="0 0 256 256" CMM_Caption="석궁"/>
 		<image name="icon_item_cracked_shooter" file="\icon\weapon\icon_item_cracked_shooter.png" imgrect="0 0 256 256" CMM_Caption="석궁"/>
 		<image name="archer_f_crossbow_stala" file="\icon\weapon\archer_f_crossbow_stala.png" imgrect="0 0 256 256" CMM_Caption="석궁"/>
+		<image name="icon_item_crossbow_cristalbouncer" file="\icon\weapon\icon_item_crossbow_cristalbouncer.png" imgrect="0 0 256 256" CMM_Caption="석궁"/>
+		<image name="icon_item_crossbow_regardhorn" file="\icon\weapon\icon_item_crossbow_regardhorn.png" imgrect="0 0 256 256" CMM_Caption="석궁"/>
 		<image name="icon_item_Hammer_2" file="\icon\weapon\icon_item_Hammer_2.png" imgrect="0 0 256 256" CMM_Caption="둔기"/>
 		<image name="icon_item_Hammer_3" file="\icon\weapon\icon_item_Hammer_3.png" imgrect="0 0 256 256" CMM_Caption="둔기"/>
 		<image name="mace" file="\icon\weapon\mace.png" imgrect="0 0 256 256" CMM_Caption="둔기"/>
@@ -764,6 +800,8 @@
 		<image name="icon_item_mace_Spike_club" file="\icon\weapon\icon_item_mace_Spike_club.png" imgrect="0 0 256 256" CMM_Caption="둔기"/>
 		<image name="icon_item_mace_Steel_masher" file="\icon\weapon\icon_item_mace_Steel_masher.png" imgrect="0 0 256 256" CMM_Caption="둔기"/>
 		<image name="icon_item_mace_Typhon_hammer" file="\icon\weapon\icon_item_mace_Typhon_hammer.png" imgrect="0 0 256 256" CMM_Caption="둔기"/>
+		<image name="icon_item_mace_regardhorn" file="\icon\weapon\icon_item_mace_regardhorn.png" imgrect="0 0 256 256" CMM_Caption="둔기"/>
+		<image name="icon_item_mace_whiteholse" file="\icon\weapon\icon_item_mace_whiteholse.png" imgrect="0 0 256 256" CMM_Caption="둔기"/>
 		<image name="icon_item_Shield_2" file="\icon\weapon\icon_item_Shield_2.png" imgrect="0 0 256 256" CMM_Caption="방패"/>
 		<image name="icon_item_Shield_3" file="\icon\weapon\icon_item_Shield_3.png" imgrect="0 0 256 256" CMM_Caption="방패"/>
 		<image name="icon_item_Shield_6" file="\icon\weapon\icon_item_Shield_3.png" imgrect="0 0 256 256" CMM_Caption="방패"/>
@@ -817,6 +855,8 @@
 		<image name="icon_item_aias_shield_A" file="\icon\weapon\icon_item_aias_shield_A.png" imgrect="0 0 256 256" CMM_Caption="방패"/>
 		<image name="icon_item_f_shield_angrysmile" file="\icon\weapon\icon_item_f_shield_angrysmile.png" imgrect="0 0 256 256" CMM_Caption="방패"/>
 		<image name="icon_item_f_shield_smile" file="\icon\weapon\icon_item_f_shield_smile.png" imgrect="0 0 256 256" CMM_Caption="방패"/>
+		<image name="icon_item_shield_lionmask" file="\icon\weapon\icon_item_shield_lionmask.png" imgrect="0 0 256 256" CMM_Caption="방패"/>
+		<image name="icon_item_shield_regardhorn" file="\icon\weapon\icon_item_shield_regardhorn.png" imgrect="0 0 256 256" CMM_Caption="방패"/>
 		<image name="ahlspiess" file="\icon\weapon\ahlspiess.png" imgrect="0 0 256 256" CMM_Caption="창"/>
 		<image name="ahlspiess_up" file="\icon\weapon\ahlspiess_up.png" imgrect="0 0 256 256" CMM_Caption="창"/>
 		<image name="breach_pike" file="\icon\weapon\breach_pike.png" imgrect="0 0 256 256" CMM_Caption="창"/>
@@ -851,10 +891,14 @@
 		<image name="icon_item_f_spear_twin" file="\icon\weapon\icon_item_f_spear_twin.png" imgrect="0 0 256 256" CMM_Caption="창"/>
 		<image name="icon_item_f_thspear_demon" file="\icon\weapon\icon_item_f_thspear_demon.png" imgrect="0 0 256 256" CMM_Caption="창"/>
 		<image name="icon_item_f_thspear_halbert" file="\icon\weapon\icon_item_f_thspear_halbert.png" imgrect="0 0 256 256" CMM_Caption="창"/>
+		<image name="icon_item_spear_eyeofencharge" file="\icon\weapon\icon_item_spear_eyeofencharge.png" imgrect="0 0 256 256" CMM_Caption="창"/>
+		<image name="icon_item_spear_regardhorn" file="\icon\weapon\icon_item_spear_regardhorn.png" imgrect="0 0 256 256" CMM_Caption="창"/>
 		<image name="icon_item_f_thspear_lightning" file="\icon\weapon\icon_item_f_thspear_lightning.png" imgrect="0 0 256 256" CMM_Caption="양손창"/>
 		<image name="icon_item_f_thspear_oju" file="\icon\weapon\icon_item_f_thspear_oju.png" imgrect="0 0 256 256" CMM_Caption="양손창"/>
 		<image name="icon_item_f_thspear_plunger" file="\icon\weapon\icon_item_f_thspear_plunger.png" imgrect="0 0 256 256" CMM_Caption="양손창"/>
 		<image name="warrior_f_thspear_stala" file="\icon\weapon\warrior_f_thspear_stala.png" imgrect="0 0 256 256" CMM_Caption="양손창"/>
+		<image name="icon_item_spear_regardhorn_TH" file="\icon\weapon\icon_item_spear_regardhorn_TH.png" imgrect="0 0 256 256" CMM_Caption="양손창"/>
+		<image name="icon_item_spear_falanks_TH" file="\icon\weapon\icon_item_spear_falanks_TH.png" imgrect="0 0 256 256" CMM_Caption="양손창"/>
 		<image name="bow_arcbow" file="\icon\weapon\bow_arcbow.png" imgrect="0 0 256 256" CMM_Caption="활"/>
 		<image name="bow_bow01" file="\icon\weapon\bow_bow01.png" imgrect="0 0 256 256" CMM_Caption="활"/>
 		<image name="bow_chargebow_black" file="\icon\weapon\bow_chargebow_black.png" imgrect="0 0 256 256" CMM_Caption="활"/>
@@ -887,6 +931,10 @@
 		<image name="Musket_wheellocker" file="\icon\weapon\Musket_wheellocker.png" imgrect="0 0 256 256" CMM_Caption="총"/>
 		<image name="Musket_bayonetfinisher" file="\icon\weapon\Musket_bayonetfinisher.png" imgrect="0 0 256 256" CMM_Caption="총"/>
 		<image name="archer_f_pistol_stala" file="\icon\weapon\archer_f_pistol_stala.png" imgrect="0 0 256 256" CMM_Caption="총"/>
+		<image name="icon_item_musket_chatcher" file="\icon\weapon\icon_item_musket_chatcher.png" imgrect="0 0 256 256" CMM_Caption="총"/>
+		<image name="icon_item_musket_regardhorn" file="\icon\weapon\icon_item_musket_regardhorn.png" imgrect="0 0 256 256" CMM_Caption="총"/>
+		<image name="icon_item_pistol_doublestack" file="\icon\weapon\icon_item_pistol_doublestack.png" imgrect="0 0 256 256" CMM_Caption="총"/>
+		<image name="icon_item_pistol_regardhorn" file="\icon\weapon\icon_item_pistol_regardhorn.png" imgrect="0 0 256 256" CMM_Caption="총"/>
 		<image name="icon_item_f_pistol_wartergun" file="\icon\weapon\icon_item_f_pistol_wartergun.png" imgrect="0 0 256 256" CMM_Caption="물총"/>
 		<image name="icon_item_oldpistol_1" file="\icon\weapon\icon_item_oldpistol_1.png" imgrect="0 0 256 256" CMM_Caption="양손총"/>
 		<image name="icon_item_bubblestick" file="\icon\weapon\icon_item_bubblestick.png" imgrect="0 0 256 256" CMM_Caption="버블스틱"/>
@@ -916,6 +964,8 @@
 		<image name="cannon_peacemaker" file="\icon\weapon\cannon_peacemaker.png" imgrect="0 0 256 256" CMM_Caption="캐논"/>
 		<image name="cannon_recoillesscannon" file="\icon\weapon\cannon_recoillesscannon.png" imgrect="0 0 256 256" CMM_Caption="캐논"/>
 		<image name="cannon_whiteglorycannon" file="\icon\weapon\cannon_whiteglorycannon.png" imgrect="0 0 256 256" CMM_Caption="캐논"/>
+		<image name="icon_item_cannon_lionmask" file="\icon\weapon\icon_item_cannon_lionmask.png" imgrect="0 0 256 256" CMM_Caption="캐논"/>
+		<image name="icon_item_cannon_regardhorn" file="\icon\weapon\icon_item_cannon_regardhorn.png" imgrect="0 0 256 256" CMM_Caption="캐논"/>
 		<image name="Fencer_armrapier" file="\icon\weapon\Fencer_armrapier.png" imgrect="0 0 256 256" CMM_Caption="레이피어"/>
 		<image name="Fencer_cristalrapier" file="\icon\weapon\Fencer_cristalrapier.png" imgrect="0 0 256 256" CMM_Caption="레이피어"/>
 		<image name="Fencer_fleuret" file="\icon\weapon\Fencer_fleuret.png" imgrect="0 0 256 256" CMM_Caption="레이피어"/>
@@ -2030,6 +2080,20 @@
 		<image name="coritos_up_purple" file="\icon\weapon\coritos_up_purple.png" imgrect="0 0 256 256"/>
 		<image name="OTL_flag" file="\icon\weapon\OTL_flag.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_balloon_pipe" file="\icon\weapon\icon_item_balloon_pipe.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_solmiki_bow" file="\icon\weapon\icon_item_solmiki_bow.png" imgrect="0 0 256 256" CMM_Caption="솔미키14종"/>
+		<image name="icon_item_solmiki_cannon" file="\icon\weapon\icon_item_solmiki_cannon.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_solmiki_crossbow" file="\icon\weapon\icon_item_solmiki_crossbow.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_dagger_solmiki" file="\icon\weapon\icon_item_dagger_solmiki.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_solmiki_mace" file="\icon\weapon\icon_item_solmiki_mace.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_solmiki_pistol" file="\icon\weapon\icon_item_solmiki_pistol.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_solmiki_musket" file="\icon\weapon\icon_item_solmiki_musket.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_solmiki_rod" file="\icon\weapon\icon_item_solmiki_rod.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_shield_solmiki" file="\icon\weapon\icon_item_shield_solmiki.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_solmiki_spear" file="\icon\weapon\icon_item_solmiki_spear.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_solmiki_pike" file="\icon\weapon\icon_item_solmiki_pike.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_solmiki_THS" file="\icon\weapon\icon_item_solmiki_THS.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_solmiki_sword" file="\icon\weapon\icon_item_solmiki_sword.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_solmiki_TSD" file="\icon\weapon\icon_item_solmiki_TSD.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -2110,6 +2174,7 @@
 		<image name="icon_item_armband_singleTassel" file="\icon\acc\icon_item_armband_singleTassel.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_armband_chief" file="\icon\acc\icon_item_armband_chief.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_armband_ribbon" file="\icon\acc\icon_item_armband_ribbon.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_facebook" file="\icon\acc\icon_item_armband_facebook.png" imgrect="0 0 256 256" CMM_Caption="페이스북 암밴드"/>
 	</imagelist>
 	<imagelist category="hair_accesory">
 		<image name="hairacc_1_egg" file="\icon\hairacc\hairacc_1_egg.png" imgrect="0 0 256 256"/>
@@ -2584,6 +2649,7 @@
 		<image name="icon_item_Drug_CON2" file="icon\item\icon_item_Drug_CON2.png" imgrect="0 0 80 80" CMM_Caption="체력+2 물약"/>
 		<image name="icon_item_Drug_INT2" file="icon\item\icon_item_Drug_INT2.png" imgrect="0 0 80 80" CMM_Caption="지능+2 물약"/>
 		<image name="icon_item_Drug_DEX2" file="icon\item\icon_item_Drug_DEX2.png" imgrect="0 0 80 80" CMM_Caption="민첩+2 물약"/>
+		<image name="icon_item_Drug_AGI2" file="icon\item\icon_item_Drug_AGI2.png" imgrect="0 0 80 80" CMM_Caption="케이트리스 물약"/>
 		<image name="icon_item_Warrior_f_gloves_ronya_brown" file="icon\item\icon_item_Warrior_f_gloves_ronya_brown.png" imgrect="0 0 80 80" CMM_Caption="로냐 장갑-브라운"/>
 		<image name="icon_item_Warrior_f_gloves_ronya_green" file="icon\item\icon_item_Warrior_f_gloves_ronya_green.png" imgrect="0 0 80 80" CMM_Caption="로냐 장갑-그린"/>
 		<image name="icon_item_Warrior_f_gloves_ronya_black" file="icon\item\icon_item_Warrior_f_gloves_ronya_black.png" imgrect="0 0 80 80" CMM_Caption="로냐 장갑-블랙"/>
@@ -2791,6 +2857,7 @@
 		<image name="icon_item_insectLeg_02Green" file="icon\item\icon_item_insectLeg_02Green.png" imgrect="0 0 80 80" CMM_Caption="곤충 다리"/>
 		<image name="icon_item_insectLeg_03Blue" file="icon\item\icon_item_insectLeg_03Blue.png" imgrect="0 0 80 80" CMM_Caption="곤충 다리"/>
 		<image name="icon_item_insectLeg_04Purple" file="icon\item\icon_item_insectLeg_04Purple.png" imgrect="0 0 80 80" CMM_Caption="곤충 다리"/>
+		<image name="icon_item_fur_00White" file="icon\item\icon_item_fur_00White.png" imgrect="0 0 80 80" CMM_Caption="털"/>
 		<image name="icon_item_fur_00Red" file="icon\item\icon_item_fur_00Red.png" imgrect="0 0 80 80" CMM_Caption="털"/>
 		<image name="icon_item_fur_01Yellow" file="icon\item\icon_item_fur_01Yellow.png" imgrect="0 0 80 80" CMM_Caption="털"/>
 		<image name="icon_item_fur_02Green" file="icon\item\icon_item_fur_02Green.png" imgrect="0 0 80 80" CMM_Caption="털"/>
@@ -2845,6 +2912,7 @@
 		<image name="icon_item_shorthorn" file="icon\item\icon_item_shorthorn.png" imgrect="0 0 80 80" CMM_Caption="짧은 뿔"/>
 		<image name="icon_item_mushroomcap" file="icon\item\icon_item_mushroomcap.png" imgrect="0 0 80 80" CMM_Caption="버섯 갓"/>
 		<image name="icon_item_fur_06Brown" file="icon\item\icon_item_fur_06Brown.png" imgrect="0 0 80 80" CMM_Caption="동물 털"/>
+		<image name="icon_item_fur_06Green" file="icon\item\icon_item_fur_06Green.png" imgrect="0 0 80 80" CMM_Caption="동물 털"/>
 		<image name="icon_item_canine" file="icon\item\icon_item_canine.png" imgrect="0 0 80 80" CMM_Caption="돼지 송곳니"/>
 		<image name="icon_item_stonepiece_01Yellow_01" file="icon\item\icon_item_stonepiece_01Yellow_01.png" imgrect="0 0 80 80" CMM_Caption="파편 조각"/>
 		<image name="icon_item_stonepiece_01Yellow_00" file="icon\item\icon_item_stonepiece_01Yellow_00.png" imgrect="0 0 80 80" CMM_Caption="파편 조각"/>
@@ -3677,6 +3745,8 @@
 		<image name="hair_necromancer" file="\icon\payment\hair_necromancer.png" imgrect="0 0 256 256"/>
 		<image name="hair_warrock2" file="\icon\payment\hair_warrock2.png" imgrect="0 0 256 256"/>
 		<image name="hair_shinobi" file="\icon\payment\hair_shinobi.png" imgrect="0 0 256 256"/>
+		<image name="hair_puppeteer" file="\icon\payment\hair_puppeteer.png" imgrect="0 0 256 256"/>
+		<image name="hair_mergen" file="\icon\payment\hair_mergen.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_swordmanmaster_m" file="\icon\payment\warrior_swordmanmaster_m.png" imgrect="0 0 256 256" CMM_Caption="소드맨마스터유료코스튬"/>
 		<image name="icon_item_Warrior_PeltastaMaster_f" file="\icon\payment\Warrior_PeltastaMaster_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_repairkit" file="\icon\payment\icon_item_repairkit.png" imgrect="0 0 256 256" CMM_Caption="긴급수리키트"/>
@@ -3736,6 +3806,7 @@
 		<image name="icon_item_lens_Albino" file="\icon\payment\lens_Albino.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_lens_heart" file="\icon\payment\lens_heart.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_lens_lens_star" file="\icon\payment\lens_star.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_lens_orange" file="\icon\payment\lens_orange.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_package_penguin" file="\icon\payment\icon_item_package_penguin.png" imgrect="0 0 256 256" CMM_Caption="펭귄패키지"/>
 		<image name="icon_item_tospoint500" file="\icon\payment\icon_item_tospoint500.png" imgrect="0 0 256 256" CMM_Caption="TP 500개"/>
 		<image name="icon_item_tospoint900" file="\icon\payment\icon_item_tospoint900.png" imgrect="0 0 256 256" CMM_Caption="TP 900개"/>
@@ -3752,8 +3823,6 @@
 		<image name="hairacc_Hat_trump_war" file="\icon\payment\Hat_war_trump.png" imgrect="0 0 256 256"/>
 		<image name="hairacc_Hat_trump_wizm" file="\icon\payment\Hat_wiz_trump_m.png" imgrect="0 0 256 256"/>
 		<image name="hairacc_Hat_trump_wizf" file="\icon\payment\Hat_wiz_trump_f.png" imgrect="0 0 256 256"/>
-		<image name="icon_item_tospoint100" file="\icon\payment\icon_item_tospoint100.png" imgrect="0 0 256 256" CMM_Caption="TP 100개"/>
-		<image name="icon_item_tospoint300" file="\icon\payment\icon_item_tospoint300.png" imgrect="0 0 256 256" CMM_Caption="TP 300개"/>
 		<image name="icon_item_warrior_school_m" file="\icon\payment\warrior_school_m.png" imgrect="0 0 256 256" CMM_Caption="스쿨룩세트_코스튬"/>
 		<image name="icon_item_warrior_school_f" file="\icon\payment\warrior_school_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_mage_school_m" file="\icon\payment\mage_school_m.png" imgrect="0 0 256 256"/>
@@ -3773,6 +3842,8 @@
 		<image name="icon_item_warrior_swordman01_3_m" file="\icon\payment\warrior_swordman01_3_m.png" imgrect="0 0 256 256" CMM_Caption="소드맨3랭크코스튬"/>
 		<image name="icon_item_warrior_swordman01_3_f" file="\icon\payment\warrior_swordman01_3_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_archer_racoon_f" file="\icon\payment\archer_racoon_f.png" imgrect="0 0 256 256" CMM_Caption="너구리여자코스튬"/>
+		<image name="icon_item_tospoint100" file="\icon\payment\icon_item_tospoint100.png" imgrect="0 0 256 256" CMM_Caption="TP 500개"/>
+		<image name="icon_item_tospoint300" file="\icon\payment\icon_item_tospoint300.png" imgrect="0 0 256 256" CMM_Caption="TP 900개"/>
 		<image name="icon_item_ChangeGuildName" file="\icon\payment\icon_item_ChangeGuildName.png" imgrect="0 0 256 256" CMM_Caption="체인지길드이름"/>
 		<image name="icon_item_ChangeTeamName" file="\icon\payment\icon_item_ChangeTeamName.png" imgrect="0 0 256 256" CMM_Caption="체인지팀이름"/>
 		<image name="icon_item_ChangeName" file="\icon\payment\icon_item_ChangeName.png" imgrect="0 0 256 256" CMM_Caption="체인지이름"/>
@@ -3816,6 +3887,9 @@
 		<image name="Hat_arc_alice_f" file="\icon\payment\Hat_arc_alice_f.png" imgrect="0 0 256 256"/>
 		<image name="Hat_cle_alice_m" file="\icon\payment\Hat_cle_alice_m.png" imgrect="0 0 256 256"/>
 		<image name="Hat_cle_alice_f" file="\icon\payment\Hat_cle_alice_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_warrior_armor_m" file="\icon\payment\icon_item_warrior_armor_m.png" imgrect="0 0 256 256" CMM_Caption="유료 코스튬 워리어 갑옷 남자"/>
+		<image name="icon_item_warrior_schoolsalor_f" file="\icon\payment\icon_item_warrior_schoolsalor_f.png" imgrect="0 0 256 256" CMM_Caption="세일러"/>
+		<image name="icon_item_archer_schoolsalor_f" file="\icon\payment\icon_item_archer_schoolsalor_f.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

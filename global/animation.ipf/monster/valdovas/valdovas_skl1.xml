@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by anifac (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="10" attachActor="None" attachNode="Dummy_deadbody" particleName="F_spread_in002_red" hiddenObj="false" useAttach="false" scale="3"/>
+	<Particle frame="81" attachActor="None" attachNode="Dummy_deadbody" particleName="F_smoke089" hiddenObj="false" useAttach="true" scale="30"/>
+	<Particle frame="93" attachActor="None" attachNode="Dummy_deadbody" particleName="F_smoke089" hiddenObj="false" useAttach="true" scale="30"/>
+	<Sound frame="4.00" soundFile="mon_denoptic_skl_4"/>
+	<Sound frame="48.00" soundFile="mon_minivern_atk"/>
+	<Sound frame="73.00" soundFile="skl_eff_atk_move_m_3"/>
+	<Sound frame="73.00" soundFile="swd_blow_flesh1--"/>
+	<Sound frame="75.00" soundFile="mon_hori_warrior_atk"/>
+	<Sound frame="76.00" soundFile="skl_eff_atk_move_m_4"/>
+	<Sound frame="85.00" soundFile="skl_eff_rapid_fire_force"/>
+</ActionDesc>

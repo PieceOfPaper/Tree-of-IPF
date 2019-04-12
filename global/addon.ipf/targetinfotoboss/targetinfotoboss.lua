@@ -134,6 +134,7 @@ function TARGETINFOTOBOSS_ON_MSG(frame, msg, argStr, argNum)
 
 	if msg == 'TARGET_CLEAR_BOSS' then
 		session.ResetTargetBossHandle();
+		frame:SetVisible(0); -- visible값이 1이면 다른 몬스터 hp gauge offset이 옆으로 밀림.(targetinfo.lua 참조)
 		frame:ShowWindow(0);
 	end
 	

@@ -1,37 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
 <ActionDesc>
-	<Particle frame="2" attachNode="Dummy_effect_smoke_r1" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="3" attachNode="Dummy_effect_smoke_r2" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="6" attachNode="Dummy_effect_smoke_l1" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="12" attachNode="Dummy_effect_smoke_l2" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="13" attachNode="Dummy_effect_smoke_r2" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="21" attachNode="Dummy_effect_smoke_r1" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="13" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="20" attachNode="Dummy_effect_smoke_l2" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="12" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="22" attachNode="Dummy_effect_smoke_l1" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="13" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="16" attachNode="Dummy_effect_smoke_r3" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="12" attachNode="Dummy_effect_smoke_l3" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="13" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="37" attachNode="Dummy_emitter" particleName="F_dash011_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="38" attachNode="Dummy_emitter" particleName="F_dash013_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="13" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="7" attachNode="Dummy_effect_head" particleName="F_leaf002_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="12" attachNode="Dummy_effect_head" particleName="F_leaf002_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="20" attachNode="Dummy_effect_head" particleName="F_leaf002_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="52" attachNode="Dummy_effect_head" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="51" attachNode="Dummy_emitter" particleName="F_ground148_web_white_spread_out" useAttach="false" hiddenObj="false" changeEffect="None" scale="23" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="6" attachNode="Rlocator_Bone_03" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="6" attachNode="Llocator_Bone_03" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="3" attachNode="Rlocator_Bone_03" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="3" attachNode="Llocator_Bone_03" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="3" attachNode="Lleg_Bone_03" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="3" attachNode="Lleg_Bone_06" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="3" attachNode="Lleg_Bone_12" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="3" attachNode="Rleg_Bone_05" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="3" attachNode="Rleg_Bone_11" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="3" attachNode="ROOT_Dummy01" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="37" attachNode="Foot_Dummy_06" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="37" attachNode="Foot_Dummy_01" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="37" attachNode="Foot_Dummy_02" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="37" attachNode="Foot_Dummy_05" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="37" attachNode="Foot_Dummy_04" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="37" attachNode="Foot_Dummy_03" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+    <Sound frame="0.00" soundFile="mon_voice_lapene_skl2_shot"/>
+    <Particle frame="2" attachNode="Dummy_effect_smoke_r1" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="3" attachNode="Dummy_effect_smoke_r2" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="3" attachNode="Rlocator_Bone_03" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="3" attachNode="Llocator_Bone_03" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="3" attachNode="Lleg_Bone_03" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="3" attachNode="Lleg_Bone_06" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="3" attachNode="Lleg_Bone_12" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="3" attachNode="Rleg_Bone_05" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="3" attachNode="Rleg_Bone_11" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="3" attachNode="ROOT_Dummy01" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_effect_smoke_l1" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="6" attachNode="Rlocator_Bone_03" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="6" attachNode="Llocator_Bone_03" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="6.00" soundFile="mon_molich_atk_ready"/>
+    <Particle frame="7" attachNode="Dummy_effect_head" particleName="F_leaf002_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="12" attachNode="Dummy_effect_smoke_l2" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="12" attachNode="Dummy_effect_smoke_l3" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="13" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="12" attachNode="Dummy_effect_head" particleName="F_leaf002_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="13" attachNode="Dummy_effect_smoke_r2" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="14.00" soundFile="skl_eff_stone_blow_m_far"/>
+    <Particle frame="16" attachNode="Dummy_effect_smoke_r3" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="20" attachNode="Dummy_effect_smoke_l2" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="12" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="20" attachNode="Dummy_effect_head" particleName="F_leaf002_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="21" attachNode="Dummy_effect_smoke_r1" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="13" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="22" attachNode="Dummy_effect_smoke_l1" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="13" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="37" attachNode="Dummy_emitter" particleName="F_dash011_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="37" attachNode="Foot_Dummy_06" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="37" attachNode="Foot_Dummy_01" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="37" attachNode="Foot_Dummy_02" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="37" attachNode="Foot_Dummy_05" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="37" attachNode="Foot_Dummy_04" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="37" attachNode="Foot_Dummy_03" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="38.00" soundFile="mon_molich_skl_shot"/>
+    <Particle frame="38" attachNode="Dummy_emitter" particleName="F_dash013_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="13" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="39.00" soundFile="mon_mothtem_born"/>
+    <Sound frame="43.00" soundFile="skl_eff_crash_ground_l_4"/>
+    <Sound frame="43.00" soundFile="skl_archer_crossarrow_badak"/>
+    <Particle frame="51" attachNode="Dummy_emitter" particleName="F_ground148_web_white_spread_out" useAttach="false" hiddenObj="false" changeEffect="None" scale="23" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="52" attachNode="Dummy_effect_head" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
 </ActionDesc>

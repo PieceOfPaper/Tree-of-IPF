@@ -3,7 +3,10 @@ function GET_SKILL_MAT_PRICE(sklObj, level)
 	return level * 500;
 end
 
-function GET_SKILL_MAT_ITEM(sklObj, level)
+function GET_SKILL_MAT_ITEM(sklName, makeSklObj, level)
+	if sklName == "Enchanter_CraftMagicScrolls" then
+		return "misc_emptySpellBook", level;
+	end
 	return "misc_parchment", level;
 end
 

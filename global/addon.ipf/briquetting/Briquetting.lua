@@ -44,7 +44,7 @@ function BRIQUETTING_SLOT_DROP(parent, ctrl)
 		return;
 	end
 
-	-- ½½·Ô ¹Ú½º¿¡ ÀÌ¹ÌÁö¸¦ ³Ö°í
+	-- ìŠ¬ë¡¯ ë°•ìŠ¤ì— ì´ë¯¸ì§€ë¥¼ ë„£ê³ 
 	local itemCls = GetClassByType("Item", invItem.type);
 	
 	SET_SLOT_ITEM_IMANGE(slot, invItem);
@@ -53,7 +53,7 @@ function BRIQUETTING_SLOT_DROP(parent, ctrl)
 	if nil == obj then 
 		return nil;
 	end
-	-- ¿ø·¡ °ø°Ý·Â, ¸¶°øÀ» °¡Áø object¸¦ ¸¸µç´Ù.
+	-- ì›ëž˜ ê³µê²©ë ¥, ë§ˆê³µì„ ê°€ì§„ objectë¥¼ ë§Œë“ ë‹¤.
 	local tempObj = CreateIESByID("Item", itemCls.ClassID);
 	if nil == tempObj then
 		return;
@@ -69,46 +69,46 @@ function BRIQUETTING_SLOT_DROP(parent, ctrl)
 	local slotNametext      = bodyGBox:GetChild("slotName");
 	bodyGBox:RemoveChild('tooltip_only_pr');
 
-	-- ÀÌ¸§À» Ç¥½ÃÇÑ´Ù.
+	-- ì´ë¦„ì„ í‘œì‹œí•œë‹¤.
 	slotNametext:SetTextByKey("txt", obj.Name);
 	BRIQUETTING_SLOT_SET(slotNametext, invItem);
 
-	-- ÀÌÈÄ ÃÖ´ë, ÃÖ¼Ò °ø°Ý·Â, Æ÷ÅÙ¼ÈÀ»Ç¥½ÃÇÑ´Ù.
+	-- ì´í›„ ìµœëŒ€, ìµœì†Œ ê³µê²©ë ¥, í¬í…ì…œì„í‘œì‹œí•œë‹¤.
 
-	-- ÄÁÆ®·Ñ ¼ÂÀ¸·Î ÀúÀåµÇ¾îÀÖ´Â Æ÷ÅÙ¼ÈÀ» »ý¼ºÇØ ¸ÞÀÎ bodx¿¡ ºÙÀÎ´Ù.
+	-- ì»¨íŠ¸ë¡¤ ì…‹ìœ¼ë¡œ ì €ìž¥ë˜ì–´ìžˆëŠ” í¬í…ì…œì„ ìƒì„±í•´ ë©”ì¸ bodxì— ë¶™ì¸ë‹¤.
 	local nowPotential = bodyGBox:CreateControlSet('tooltip_only_pr', 'tooltip_only_pr', 40, 290);
 	tolua.cast(nowPotential, "ui::CControlSet");
-	-- ÄÁÆ®·Ñ¼Â ui¿¡ ÀÖ´Â pr_gauge¸¦ Ã£¾Æ ÇöÀç Æ÷ÅÙ¼È°ú º»·¡ Æ÷ÅÙ¼ÈÀ» Ç¥½ÃÇÏ°í
+	-- ì»¨íŠ¸ë¡¤ì…‹ uiì— ìžˆëŠ” pr_gaugeë¥¼ ì°¾ì•„ í˜„ìž¬ í¬í…ì…œê³¼ ë³¸ëž˜ í¬í…ì…œì„ í‘œì‹œí•˜ê³ 
 	local pr_gauge = GET_CHILD(nowPotential,'pr_gauge','ui::CGauge')
 	pr_gauge:SetPoint(obj.PR, tempObj.PR);
-	-- pr_txt´Â ÇöÀç ¿©±â¼­ º¸ÀÏ ÇÊ¿ä°¡ ¾ø´Ù.
+	-- pr_txtëŠ” í˜„ìž¬ ì—¬ê¸°ì„œ ë³´ì¼ í•„ìš”ê°€ ì—†ë‹¤.
 	local pr_txt = GET_CHILD(nowPotential,'pr_text','ui::CGauge')
 	pr_txt:SetVisible(0);
 
-	-- ÃÖ´ë, ÃÖ¼Ò¸¦ ÀÛ¼ºÇÏ°íÀÚ ÇØ´ç Ç×¸ñÀÇ ¼Ó¼ºÀ» °¡Áö°í ¿É´Ï´Ù.
+	-- ìµœëŒ€, ìµœì†Œë¥¼ ìž‘ì„±í•˜ê³ ìž í•´ë‹¹ í•­ëª©ì˜ ì†ì„±ì„ ê°€ì§€ê³  ì˜µë‹ˆë‹¤.
 	local minPowerStr = bodyGBox:GetChild("minPowerStr");
 	local maxPowerStr = bodyGBox:GetChild("maxPowerStr");
 
-	-- ¾î¶² Å¸ÀÔÀÇ ¹«±âÀÎÁö¸¦ È®ÀÎÇÏ´Â ¼Ó¼ºÀ» ¸®ÅÏÇÕ´Ï´Ù.
-	-- ÀÌ ÇÔ¼ö¸¦ º¸½Ã¸é ¹«±â¿¡ ±ÙÁ¢ ¹«±â¸é ÃÖ´ë, ÃÖ¼Ò°ø°Ý·ÂÀ»
-	-- ¸¶¹ý°ø°Ý·ÂÀÇ ¹«±â¸é ¸¶¹ý°ø°Ý·Â°ú  ºó  ±ÛÀÚ¸¦ ¸®ÅÏÇÕ´Ï´Ù.
+	-- ì–´ë–¤ íƒ€ìž…ì˜ ë¬´ê¸°ì¸ì§€ë¥¼ í™•ì¸í•˜ëŠ” ì†ì„±ì„ ë¦¬í„´í•©ë‹ˆë‹¤.
+	-- ì´ í•¨ìˆ˜ë¥¼ ë³´ì‹œë©´ ë¬´ê¸°ì— ê·¼ì ‘ ë¬´ê¸°ë©´ ìµœëŒ€, ìµœì†Œê³µê²©ë ¥ì„
+	-- ë§ˆë²•ê³µê²©ë ¥ì˜ ë¬´ê¸°ë©´ ë§ˆë²•ê³µê²©ë ¥ê³¼  ë¹ˆ  ê¸€ìžë¥¼ ë¦¬í„´í•©ë‹ˆë‹¤.
 	local prop1, prop2 = GET_ITEM_PROPERT_STR(obj);
 	
-	-- ¹ÞÀº ³»¿ëÀÇ °ªÀ» Åä´ë·Î, param1¿¡ Á¤ÀÇÇÑ Å°°ªÀ» º¯°æÇØÁÝ´Ï´Ù.
+	-- ë°›ì€ ë‚´ìš©ì˜ ê°’ì„ í† ëŒ€ë¡œ, param1ì— ì •ì˜í•œ í‚¤ê°’ì„ ë³€ê²½í•´ì¤ë‹ˆë‹¤.
 	minPowerStr:SetTextByKey("txt", prop2);
 	maxPowerStr:SetTextByKey("txt", prop1);
 	
 	local checkValue = _G["ALCHEMIST_VALUE_" .. frame:GetUserValue("SKILLNAME")];
-	-- ÀÌ°ÍÀº °¢°¢ÀÇ ÃÖ´ë ÃÖ¼ÒÀÇ ¼öÄ¡¸¦ Ç¥½ÃÇÏ°íÀÚ ÇÏ´Â ¼Ó¼ºÀÔ´Ï´Ù.
+	-- ì´ê²ƒì€ ê°ê°ì˜ ìµœëŒ€ ìµœì†Œì˜ ìˆ˜ì¹˜ë¥¼ í‘œì‹œí•˜ê³ ìž í•˜ëŠ” ì†ì„±ìž…ë‹ˆë‹¤.
 	local maxPower = bodyGBox:GetChild("maxPower");
 	local minPower = bodyGBox:GetChild("minPower");
 	if obj.BasicTooltipProp == "ATK" then
-		local min, max = checkValue(frame:GetUserIValue("SKILLLEVEL"), tempObj.MAXATK); -- ÃÖ´ë
+		local min, max = checkValue(frame:GetUserIValue("SKILLLEVEL"), tempObj.MAXATK); -- ìµœëŒ€
 		maxPower:SetTextByKey("txt", BRIQUETTIN_MAX_MIN_TEXT(tempObj.MAXATK, min, max));
-		local min, max = checkValue(frame:GetUserIValue("SKILLLEVEL"), tempObj.MINATK); -- ÃÖ¼Ò
+		local min, max = checkValue(frame:GetUserIValue("SKILLLEVEL"), tempObj.MINATK); -- ìµœì†Œ
 		minPower:SetTextByKey("txt", BRIQUETTIN_MAX_MIN_TEXT(tempObj.MINATK, min, max));
 
-	elseif obj.BasicTooltipProp == "MATK" then -- ¸¶¹ý°ø°Ý·Â
+	elseif obj.BasicTooltipProp == "MATK" then -- ë§ˆë²•ê³µê²©ë ¥
 		local min, max = checkValue(frame:GetUserIValue("SKILLLEVEL"), tempObj.MATK);
 		maxPower:SetTextByKey("txt", BRIQUETTIN_MAX_MIN_TEXT(tempObj.MATK, min, max));
 		minPower:SetTextByKey("txt", prop2);
@@ -132,7 +132,7 @@ function BRIQUETTING_SPEND_DROP(parent, ctrl)
 		return;
 	end
 
-	-- ½½·Ô ¹Ú½º¿¡ ÀÌ¹ÌÁö¸¦ ³Ö°í
+	-- ìŠ¬ë¡¯ ë°•ìŠ¤ì— ì´ë¯¸ì§€ë¥¼ ë„£ê³ 
 	SET_SLOT_ITEM_IMANGE(slot, invItem);
 	local frame				= parent:GetTopParentFrame();
 	local bodyGBox			= frame:GetChild("bodyGbox");
@@ -142,7 +142,14 @@ function BRIQUETTING_SPEND_DROP(parent, ctrl)
 	if nil == obj then 
 		return nil;
 	end
-	-- ÀÌ¸§À» Ç¥½ÃÇÑ´Ù.
+
+	local abil = session.GetAbilityByName('Alchemist10')
+	if nil ~= abil then
+		local check2Name      = frame:GetChild("check2Name");
+		check2Name:SetTextByKey("txt", obj.Name);
+	end
+
+	-- ì´ë¦„ì„ í‘œì‹œí•œë‹¤.
 	slotNametext:SetTextByKey("txt", obj.Name);
 	BRIQUETTING_SLOT_SET(slotNametext, invItem);
 end
@@ -153,7 +160,38 @@ function BRIQUETTING_SKILL_EXCUTE(parent)
 	local slotNametext		= bodyGBox:GetChild("spendName");
 	local mainSlotName      = bodyGBox:GetChild("slotName");
 
-	Alchemist.ExcuteBriquetting(mainSlotName:GetTextByKey("guid"), slotNametext:GetTextByKey("guid"));
+	local index = 0;
+	local slotName = frame:GetUserValue('SELECT');
+	if slotName == 'checkbox_1' then
+		index = 1;
+	elseif slotName == 'checkbox_2' then
+		index = 2;
+	end
+
+	local abil = session.GetAbilityByName('Alchemist10')
+	if index > 0 then 
+		if nil == abil then 
+			ui.SysMsg(ClMsg("DonotLearnAbility"));
+			return;
+		end
+
+		local mainGuid = mainSlotName:GetTextByKey("guid");
+		local mainItem = session.GetInvItemByGuid(mainGuid);
+		local spend = slotNametext:GetTextByKey("guid");
+		local spendItem = session.GetInvItemByGuid(spend);		
+		if nil == mainItem or spendItem == nil then
+			return;
+		end
+		
+		local mainObj = GetIES(mainItem:GetObject())
+		local spendObj = GetIES(spendItem:GetObject())
+		if mainObj.ClassType ~= spendObj.ClassType then
+			ui.SysMsg(ClMsg("NeedSameEquipClassType"));
+			return;
+		end
+
+	end
+	Alchemist.ExcuteBriquetting(mainSlotName:GetTextByKey("guid"), slotNametext:GetTextByKey("guid"), index);
 end
 
 function BRIQUETTING_SPEND_POP(parent)
@@ -196,14 +234,14 @@ function BRIQUETTING_SLOT_ITEM(parent, ctrl)
 		ui.SysMsg(ClMsg("NoMorePotential"));
 	end
 
-	-- À§¿¡ °É¸° Àç·á¿Í ÀÏÄ¡ÇÏÁö ¾Ê´ÂÁö È®ÀÎÇÑ´Ù.
+	-- ìœ„ì— ê±¸ë¦° ìž¬ë£Œì™€ ì¼ì¹˜í•˜ì§€ ì•ŠëŠ”ì§€ í™•ì¸í•œë‹¤.
 	local bodyGBox = frame:GetChild("bodyGbox");
 	local mainSlotName      = bodyGBox:GetChild("slotName");
 	local slotNametext		= bodyGBox:GetChild("spendName");
 
 	if slotNametext:GetTextByKey("guid") == invItem:GetIESID() or
 	  mainSlotName:GetTextByKey("guid") == invItem:GetIESID() then 
-		--Å×½ºÆ® ¹®±¸: °°ÀºÁ¾·ùÀÇ ¾ÆÀÌÅÛÀ» µî·ÏÇÒ ¼ö ¾ø½À´Ï´Ù.
+		--í…ŒìŠ¤íŠ¸ ë¬¸êµ¬: ê°™ì€ì¢…ë¥˜ì˜ ì•„ì´í…œì„ ë“±ë¡í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 		ui.SysMsg(ClMsg("CantRegisterSameTypeGoods"));
 		return nil;
 	end
@@ -211,7 +249,7 @@ function BRIQUETTING_SLOT_ITEM(parent, ctrl)
 	local MainType = mainSlotName:GetTextByKey("itemtype");
 	local spendType = slotNametext:GetTextByKey("itemtype");
 
-	-- ¸ÞÀÎ°ú ¼ÒºñÀç·á º° ºñ±³..
+	-- ë©”ì¸ê³¼ ì†Œë¹„ìž¬ë£Œ ë³„ ë¹„êµ..
 	local mainCls = GetClassByType("Item", MainType);
 	local spendCls = GetClassByType("Item", spendType);
 	if nil ~= mainCls and mainCls.ItemStar > obj.ItemStar or
@@ -222,6 +260,24 @@ function BRIQUETTING_SLOT_ITEM(parent, ctrl)
 
 	return invItem;
 end
+
+function BRIQUETTING_SELECT_WEAPON(frame, ctrl)
+	local parent	= frame:GetTopParentFrame();
+	local select = parent:GetUserValue('SELECT');
+	if 'None' ~= select then
+		local excute = GET_CHILD(frame, select, "ui::CCheckBox");
+		excute:SetCheck(0);
+	end
+
+	if ctrl:IsChecked() == 0 then
+		parent:SetUserValue('SELECT', 'None');
+		ctrl:SetCheck(0);
+	else
+		parent:SetUserValue('SELECT', ctrl:GetName());
+		ctrl:SetCheck(1);
+	end
+end
+
 
 function BRIQUETTING_UI_RESET(frame)
 	local bodyGBox = frame:GetChild("bodyGbox");
@@ -244,6 +300,24 @@ function BRIQUETTING_UI_RESET(frame)
 	minPower:SetTextByKey("txt", "");
 	bodyGBox:RemoveChild('tooltip_only_pr');
 
+	local check2Name      = frame:GetChild("check2Name");
+	check2Name:SetTextByKey("txt", '');
+
+	local abil = session.GetAbilityByName('Alchemist10')
+	
+	local checkbox_2 = GET_CHILD(frame, "checkbox_2", "ui::CCheckBox");
+	local spendMainStr_1 = bodyGBox:GetChild("spendMainStr_1");
+
+	if nil == abil then
+	checkbox_2:ShowWindow(0);
+	spendMainStr_1:ShowWindow(0);
+	else
+		checkbox_2:ShowWindow(1);
+		spendMainStr_1:ShowWindow(1);
+	end
+	checkbox_2:SetCheck(0);
+
+
 	BRIQUETTING_UI_SPEND_RESET(frame);
 	BRIQUETTING_REFRESH_MATERIAL(frame, "");
 end 
@@ -257,6 +331,11 @@ function BRIQUETTING_UI_SPEND_RESET(frame)
 	local slotNametext		= bodyGBox:GetChild("spendName");
 	slotNametext:SetTextByKey("txt", "");
 	BRIQUETTING_SLOT_SET(slotNametext);
+
+	local check2Name      = frame:GetChild("check2Name");
+	check2Name:SetTextByKey("txt", '');
+
+	frame:SetUserValue('SELECT', 'None');
 end
 
 function BRIQUETTING_REFRESH_MATERIAL(frame, spendUI)

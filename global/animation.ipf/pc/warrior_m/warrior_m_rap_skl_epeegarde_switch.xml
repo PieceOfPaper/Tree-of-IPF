@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by aasdasd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<Particle frame="0" attachNode="Dummy_trail" particleName="WeaponTrail_rap_epeegarde" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_wepon_spear0" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_eff_sinobi_kunai_cast_1"/>
+	<Particle frame="1" attachNode="Dummy_effect_wepon_spear0" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="2" attachNode="Dummy_effect_wepon_spear0" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="3" attachNode="Dummy_effect_wepon_spear0" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="4" attachNode="Dummy_effect_wepon_spear0" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_wepon_spear0" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="6" attachNode="Dummy_effect_wepon_spear0" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="7" attachNode="Dummy_effect_wepon_spear0" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<BlendOn frame="8" R="70" G="70" B="80" A="100"/>
+	<Particle frame="8" attachNode="Dummy_effect_wepon_spear0" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<BlendOn frame="9" R="50" G="50" B="60" A="100"/>
+	<Particle frame="9" attachNode="Dummy_effect_wepon_spear0" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<BlendOn frame="10" R="0" G="0" B="0" A="50"/>
+	<Particle frame="10" attachNode="Dummy_effect_wepon_spear0" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="11" attachNode="Dummy_effect_wepon_spear0" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Sound frame="11.00" soundFile="skl_eff_sinobi_kunai_cast_2"/>
+	<BlendOn frame="12" R="120" G="120" B="125" A="100"/>
+	<Particle frame="12" attachNode="Dummy_effect_wepon_spear0" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Shockwave frame="13" type="2" intensity="2" frequency="70" duration="0.1" range="500"/>
+	<BlendOn frame="13" R="100" G="100" B="105" A="100"/>
+	<Particle frame="13" attachNode="Dummy_effect_wepon_spear0" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="13" attachNode="Dummy_effect_wepon_spear0" particleName="I_warrior_Sturzhau_hit_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound="skl_fgt_light_cast_2"/>
+	<Sound frame="14.00" soundFile="skl_eff_sinobi_kunai_cast_1"/>
+	<BlendOff frame="14" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -14,7 +14,7 @@ function JOURNAL_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('NPC_STATE_UPDATE', 'JOURNAL_UPDATE_CONTENTS');
 	addon:RegisterOpenOnlyMsg('LEVEL_UPDATE', 'JOURNAL_UPDATE_MAIN_PAGE');
 	addon:RegisterOpenOnlyMsg('MON_RANKINFO_TOOLTIP', 'ON_MON_RANKINFO_TOOLTIP');
-	
+
 	addon:RegisterOpenOnlyMsg('WIKI_PROP_UPDATE_MAP', 'ON_JOURNAL_UPDATE_MAP');
 	addon:RegisterOpenOnlyMsg('CHANGE_COUNTRY', 'JOURNAL_UPDATE_MAIN_PAGE');
 	addon:RegisterOpenOnlyMsg('CHANGE_COUNTRY', 'JOURNAL_FIRST_OPEN'); 
@@ -27,7 +27,6 @@ function JOURNAL_ON_INIT(addon, frame)
 		bg:SetSkinName('bg')
 	end
 
-	local grid = GET_CHILD(frame, "article", "ui::CGrid");
 	--local infogauge = GET_CHILD(bg, "infogauge", "ui::CInfoGauge");
 	--infogauge:SetMaxValue(400);
 	--infogauge:AddInfo('Item', 100, 'FFcc9933');
@@ -130,9 +129,13 @@ function JOURNAL_CLOSE(frame)
 end
 
 function JOURNAL_UPDATE_CONTENTS(frame)
-
-	JOURNAL_BUILD_ALL_LIST(frame, "Contents");
-
+	local grid = frame:GetChild('article')
+	local contentCtrl = grid:GetChild('Contents')
+	if contentCtrl == nil then -- 이전에 만들어둔 컨트롤이 없는 경우, 메인부터 차례대로 만들어준다.
+		JOURNAL_BUILD_ALL_LIST(frame)
+	else
+		JOURNAL_BUILD_ALL_LIST(frame, "Contents") -- 있으면 컨텐츠 탭만 바꿔줌
+	end
 end
 
 function JOURNAL_ON_RELOAD(frame)
@@ -158,7 +161,6 @@ function JORNAL_WIKI_PROP_UPDATE(frame, msg, str, type)
 
 	if category == "Map" then
 		JOURNAL_BUILD_ALL_LIST(frame, "Map");
-		
 	end
 
 	if page ~= nil then
@@ -455,9 +457,12 @@ function VIEW_UPDATED_SCORE(ctrl)
 		local gauge = GET_CHILD(ctrl, "gauge", "ui::CGauge");
 		gauge:PlayOnceUIEffect("I_sys_fullcharge", 5.0);
 		gauge:SetDrawFillPoint(0);
+
+		local frame = ui.GetFrame("journal");
+		JOURNAL_UPDATE_CONTENTS(frame);
 		return 0;
 	end
-
+	
 	return 1;
 end
 

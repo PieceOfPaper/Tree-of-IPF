@@ -1,9 +1,40 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
-<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\field\f_maple_23_2\"/>
-	<SubModelDir IpfName="bg_hi" Path="\field\f_maple_23_2\"/>
-	<TexDir IpfName="bg_texture" Path="\castle\"/>
-	<Model File="f_maple23_2_ground.xac" Model="f_maple23_2_ground" pos="0.0 0.0 0.0" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<ModelDir IpfName="bg_hi3" Path="\field\f_maple_23_2\"/>
+	<TexDir IpfName="bg_texture" Path="\maple\"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\field\f_maple_23_2\"/>
+	<SubTexDir IpfName="bg_texture" Path="\gele\"/>
+	<SubTexDir IpfName="bg_texture" Path="\siauliai\"/>
+	<SubTexDir IpfName="bg_texture" Path="\orchard\"/>
+	<LightMap File="f_maple_23_2_lightmap.jpg" Length="4300 4300" Offset="-83.947 201.743" Size="1024 1024"/>
+	<AutoHeightMap Length="5000 5000" Offset="-100 -20000" Height="-200 55000"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<Model File="f_maple_23_2_set.xac" Model="f_maple_23_2_set" ShadowMap="f_maple_23_2_set" pos="-1106.0861 -110.8465 761.4064" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_b_model.xac" Model="f_maple_23_2_b_model" ShadowMap="f_maple_23_2_b_model" pos="-197.9258 -173.0359 824.9978" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_water.xac" Model="f_maple_23_2_water" ShadowMap="f_maple_23_2_water" pos="-47.4231 -71.9430 572.2349" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_blend_04.xac" Model="f_maple_23_2_blend_04" ShadowMap="f_maple_23_2_blend_04" pos="294.9803 -86.4744 -13.3024" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_light.xac" Model="f_maple_23_2_light" ShadowMap="f_maple_23_2_light" pos="332.4224 391.0670 109.9975" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_blend_01.xac" Model="f_maple_23_2_blend_01" ShadowMap="f_maple_23_2_blend_01" pos="67.5831 -7.9615 87.2896" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_blend_02.xac" Model="f_maple_23_2_blend_02" ShadowMap="f_maple_23_2_blend_02" pos="52.8958 -66.5070 64.4356" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_blend_03.xac" Model="f_maple_23_2_blend_03" ShadowMap="f_maple_23_2_blend_03" pos="60.2400 -27.5970 156.8416" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_ground.xac" Model="f_maple_23_2_ground" ShadowMap="f_maple_23_2_ground" pos="214.1747 -172.7982 34.8162" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_tree_03.xac" Model="f_maple_23_2_tree_03" ShadowMap="f_maple_23_2_tree_03" pos="108.4971 -28.3622 207.2133" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_grass.xac" Model="f_maple_23_2_grass" ShadowMap="f_maple_23_2_grass" pos="63.0533 -58.5142 171.6392" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_gr_a_01.xac" Model="f_maple_23_2_gr_a_01" ShadowMap="f_maple_23_2_gr_a_01" pos="260.5254 -52.7583 93.3478" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_tree_out.xac" Model="f_maple_23_2_tree_out" ShadowMap="f_maple_23_2_tree_out" pos="331.5485 18.5926 122.0757" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_tree_01.xac" Model="f_maple_23_2_tree_01" ShadowMap="f_maple_23_2_tree_01" pos="-107.0060 -99.4727 -98.0927" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_gr_a_02.xac" Model="f_maple_23_2_gr_a_02" ShadowMap="f_maple_23_2_gr_a_02" pos="356.4755 -46.2951 61.9734" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_model_02.xac" Model="f_maple_23_2_model_02" ShadowMap="f_maple_23_2_model_02" pos="-809.1029 -141.5252 -287.3400" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_tree_04.xac" Model="f_maple_23_2_tree_04" ShadowMap="f_maple_23_2_tree_04" pos="60.6687 -3.4900 178.1528" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_model_01.xac" Model="f_maple_23_2_model_01" ShadowMap="f_maple_23_2_model_01" pos="794.5680 -497.6932 -630.4642" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_model_03.xac" Model="f_maple_23_2_model_03" ShadowMap="f_maple_23_2_model_03" pos="-441.4261 -265.3875 966.1730" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_model_04.xac" Model="f_maple_23_2_model_04" ShadowMap="f_maple_23_2_model_04" pos="1008.5010 -79.0709 1205.0210" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_tree_02.xac" Model="f_maple_23_2_tree_02" ShadowMap="f_maple_23_2_tree_02" pos="450.5467 25.2496 834.2846" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_set_02.xac" Model="f_maple_23_2_set_02" ShadowMap="f_maple_23_2_set_02" pos="856.1516 -26.4060 -315.5309" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_tp_01.xac" Model="f_maple_23_2_tp_01" ShadowMap="f_maple_23_2_tp_01" pos="-285.9575 95.1250 1367.9744" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_obbcol.xac" Model="f_maple_23_2_obbcol" ShadowMap="f_maple_23_2_obbcol" pos="-965.402 -65.385 141.657" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_model05.xac" Model="f_maple_23_2_model05" ShadowMap="f_maple_23_2_model05" pos="1225.8934 -230.7325 1415.5808" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_maple_23_2_grass_02.xac" Model="f_maple_23_2_grass_02" ShadowMap="f_maple_23_2_grass_02" pos="1277.8169 -226.1271 1425.9106" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

@@ -14,6 +14,7 @@
 		<groupbox name="pipwin_top_my" rect="0 0 600 126" margin="1 -1 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<button name="colse" rect="0 0 44 44" margin="0 20 26 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;exchange&apos;)" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}거래를취소합니다{/}"/>
         <richtext name="title" rect="0 0 200 30" layout_gravity="center top" caption="{@st43}개인 거래{/}" textalign="center center" margin="0 17 0 0"/>
+		<!-- slotset의 col과 row를 변경 할때에는 ExchangeManager.cpp 파일의 MAX_OFFER_ITEM 값을 col * row로 변경해주세요~ -->
 		<groupbox name="mybgGbox" rect="0 0 300 800" margin="0 30 -28 0" layout_gravity="right center" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_low"/>
 		<slotset name="myslot" parent="mybgGbox" rect="0 0 210 110" margin="5 150 0 0" DropScp="EXCHANGE_ON_DROP" col="4" row="7" size="60 60" skin="invenslot2" layout_gravity="left top"/>
 		<button name="myagree" parent="mybgGbox" rect="0 0 160 50" margin="-25 0 0 150" layout_gravity="center bottom" LBtnUpScp="EXCHANGE_ON_AGREE" caption="{@st41b}수락" clicksound="button_click" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" oversound="button_over" skin="test_red_button" textalign="center center"/>

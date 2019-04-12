@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="induntheend" x="0" y="0" width="480" height="640">
+    <frame fullheight="false" fasthide="true" layout_gravity="center center" open=""/>
+    <skin frameskin="token_skin2"/>
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <layer layerlevel="99"/>
+    <option closebutton="false" closebuttonpos="0 20"/>
+    <sound opensound="button_click_stats_OK" closesound="button_click_big_2"/>
+    <effect open="character_item_window_open" close="character_item_window_close"/>
+    <script CloseScp="SELEC_CANCLE"/>
+    <controls>
+        <picture name="middleImg" rect="0 0 316 200" margin="0 -1 0 0" layout_gravity="center top" hittest="true" image="indunticket_middle"/>
+        <groupbox name="middleImg1" rect="0 0 450 200" margin="0 80 0 0" layout_gravity="center center" hittest="true" skin="test_frame_midle"/>
+		<labelline name="labelline" margin="0 40 0 0" rect="0 0 300 2" skin="None" layout_gravity="center top" parent="middleImg1"/>
+		<richtext name="star_mark" margin="0 145 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="{img star_mark 40 40}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+        <richtext name="richtext_2" margin="0 230 0 0" rect="0 0 120 24" format="인스턴스 던전의 몬스터를 {nl}빠르게 처치할 수 있는 주문서 입니다." textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_18" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<richtext name="richtext_1" margin="0 194 0 0" rect="0 0 120 24" caption="인스턴스 던전 소탕권{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_20_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+        <richtext name="indunStr" margin="0 0 0 305" rect="0 0 200 24" format="주의사항" param1="value" param2="value2" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="bg2"/>
+        <richtext name="indunStr2" margin="0 0 0 170" rect="0 0 200 24" format=" 빛기둥에 죽은 몬스터는 모험일지에 기록되지{nl}않을 수 있으며, 빛기둥 주변에서 아이템이 떨어지게{nl}되어, 유실 가능성에 유의해 주시기 바랍니다.{nl}사용한 소탕권은 즉시 사라지며, 해당회차 인스턴스{nl}던전에서만 적용됩니다.{/}" param1="value" param2="value2" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_18" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="bg2"/>
+        <richtext name="str" margin="0 0 0 100" rect="0 0 120 24" format="인스턴스 던전 소탕권을 사용하시겠습니까?{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_20_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="bg2"/>
+        <richtext name="string" margin="1 0 -10 110" rect="0 0 200 24" format="" param1="value" param2="value2" param3="value3" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="bg2"/>
+        <button name="button_1" margin="50 264 0 31" rect="10 10 170 50" skin="test_red_button" layout_gravity="left bottom" caption="{@st41b}사용" LBtnUpScp="REQ_CLEAR_INDUN_ITEM" parent="bg2"/>
+        <button name="button_1_1" margin="236 0 0 31" rect="10 10 170 50" skin="test_gray_button" layout_gravity="left bottom" caption="{@st41b}취소" LBtnUpScp="SELEC_CANCLE" parent="bg2"/>
+    </controls>
+</uiframe>

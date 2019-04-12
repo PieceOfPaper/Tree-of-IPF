@@ -59,6 +59,25 @@ function ITEMBUFF_CHECK_Squire_ArmorTouchUp(self, item)
 	return 0;
 end
 
+function ITEMBUFF_CHECK_Enchanter_EnchantArmor(self, item)
+	if false == IS_EQUIP(item) then
+		return 0;
+	end
+
+	if item.GroupName == "Armor" then
+		if item.ClassType == "Shield" or
+		   item.ClassType == "Shirt" or
+		   item.ClassType == "Pants" then
+				return 1;
+		end
+		return 0;
+	end
+	return 0;
+end
+
+function ITEMBUFF_NEEDITEM_Enchanter_EnchantArmor(self, item)	
+	return "misc_emptySpellBook", 1;
+end
 
 function ITEMBUFF_NEEDITEM_Squire_WeaponTouchUp(self, item)
 	local needCount = item.ItemStar + item.ItemStar * (item.ItemGrade - 1) / 2;
@@ -135,6 +154,24 @@ function ITEMBUFF_STONECOUNT_Squire_Repair(invItemList)
 	return "misc_repairkit_1", count;
 end
 
+function ITEMBUFF_STONECOUNT_Enchanter_EnchantArmor(invItemList)
+	local i = invItemList:Head();
+	local count = 0;
+	while 1 do
+		if i == invItemList:InvalidIndex() then
+			break;
+		end
+		local invItem = invItemList:Element(i);		
+		i = invItemList:Next(i);
+		local obj = GetIES(invItem:GetObject());
+		
+		if obj.ClassName == "misc_emptySpellBook" then
+			count = count + invItem.count;
+		end
+	end
+
+	return "misc_emptySpellBook", count;
+end
 
 function ITEMBUFF_VALUE_Squire_WeaponTouchUp(self, item, skillLevel)
 

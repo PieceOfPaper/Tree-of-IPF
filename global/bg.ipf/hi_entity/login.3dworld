@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\login\"/>
+	<TexDir IpfName="bg_texture" Path="\login\"/>
+	<AnimationDir IpfName="bg_hi" Path="\login\"/>
+	<Model File="hair_Background.xac" Model="hair_Background" pos="0 -122 0" rot="0 0 0 0" scale="2.25 2.25 2.25" AniFile="hair_Background.xsm" AniLoop="-1" SubAniCount="0"/>
+	<Model File="hair_Vakarine.xac" Model="hair_Vakarine" pos="0 -122 0" rot="0 0 0 0" scale="2.25 2.25 2.25" AniFile="hair_Vakarine.xsm" AniLoop="5" SubAniCount="1" SubAniFile1="hair_Vakarine_idle.xsm" SubAniLoop1="1"/>
+	<Model File="hair_Zemyna.xac" Model="hair_Zemyna" pos="0 -122 0" rot="0 0 0 0" scale="2.25 2.25 2.25" AniFile="hair_Zemyna.xsm" AniLoop="5" SubAniCount="1" SubAniFile1="hair_Zemyna_idle.xsm" SubAniLoop1="1"/>
+</World>

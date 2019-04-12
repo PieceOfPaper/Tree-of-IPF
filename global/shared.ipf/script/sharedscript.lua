@@ -1,4 +1,4 @@
-function IS_SEASON_SERVER(pc)
+﻿function IS_SEASON_SERVER(pc)
 	
 	if pc ~= nil then
 		if IsServerObj(pc) == 1 then
@@ -14,7 +14,7 @@ function IS_SEASON_SERVER(pc)
 				--end
 
 				--Live Server
-				if GetServerNation() == "KOR" and serverGroupID == 3001 then
+				if GetServerNation() == "KOR" and ( serverGroupID == 3001 or serverGroupID == 8801) then
 					return "YES";
 				else
 					return "NO";
@@ -28,7 +28,7 @@ function IS_SEASON_SERVER(pc)
 				--end
     
 				--Live Server
-				if (GetServerNation() == "KOR" and GetServerGroupID() == 3001) then
+				if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
 					return "YES"
 				else
 					return "NO"
@@ -48,7 +48,7 @@ function IS_SEASON_SERVER(pc)
 				--end
 
 				--Live Server
-				if GetServerNation() == "KOR" and serverGroupID == 3001 then
+				if GetServerNation() == "KOR" and ( serverGroupID == 3001 or serverGroupID == 8801) then
 					return "NO";
 				else
 					return "YES";
@@ -60,7 +60,7 @@ function IS_SEASON_SERVER(pc)
 				--end
 	 
 				--Live Server
-			    if (GetServerNation() == "KOR" and GetServerGroupID() == 3001) then
+			    if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
 					return "YES"
 				else
 					return "NO"
@@ -74,21 +74,21 @@ function IS_SEASON_SERVER(pc)
 		--end
     
 		--Live Server
-		if (GetServerNation() == "KOR" and GetServerGroupID() == 3001) then
+		if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
 			return 'YES'
 		end			
 	end
 
 
     --Test Server
---    if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
---        return 'YES'
---    end
+	--if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
+	--	return 'YES'
+	--end
     
     --Live Server
-    if (GetServerNation() == "KOR" and GetServerGroupID() == 3001) then
-        return 'YES'
-    end
+    --if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
+    --   return 'YES'
+    --end
     
     return 'NO'
 end
@@ -1034,18 +1034,14 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
         value = 500;
     end
     
-    if (pcLv - 4) > monLv then
-        local lvRatio = 1 - ((pcLv - monLv - 4) * 0.05);
+    if (pcLv - 20) > monLv then
+        local lvRatio = 1 - ((pcLv - monLv - 20) * 0.05);
         value = value * lvRatio;
     end
     
-    if monLv > (pcLv + 10) then
-        local lvRatio = 1 - ((monLv - pcLv - 10) * 0.05);
+    if monLv > (pcLv + 20) then
+        local lvRatio = 1 - ((monLv - pcLv - 20) * 0.033);
         value = value * lvRatio;
-        
-        if value < 0.2 then
-            value = 0.2;
-        end
     end
 	
     if value < 0 then
@@ -1435,9 +1431,14 @@ function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestCount, chType)
         return ret, subQuestCount
     end
     local sobjIES = GET_MAIN_SOBJ();
-    local abandonCheck = QUEST_ABANDON_RESTARTLIST_CHECK(questIES, sobjIES)
+    local abandonCheck = 'None';
+	local fun = _G['QUEST_ABANDON_RESTARTLIST_CHECK']
+	if nil ~= fun then
+		abandonCheck = fun(questIES, sobjIES)
+	end
     local result = SCR_QUEST_CHECK_C(pc,questIES.ClassName)
     
+	local zonecheckFun = _G['LINKZONECHECK'];
     if chType == 'Set2' then
         ret = "OPEN"
         return ret, subQuestCount
@@ -1447,7 +1448,7 @@ function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestCount, chType)
     elseif questIES.QuestMode ~= "MAIN" and subQuestCount == 0 and result == 'POSSIBLE' and (questIES.StartMap == GetZoneName(pc) or table.find(SCR_STRING_CUT(questIES.StartMapListUI), GetZoneName(pc)) > 0) then
         ret = "OPEN"
         return ret, subQuestCount + 1
-    elseif questIES.QuestMode ~= "MAIN" and questIES.Check_QuestCount > 0 and LINKZONECHECK(GetZoneName(pc), questIES.StartMap) == 'YES' then
+    elseif questIES.QuestMode ~= "MAIN" and questIES.Check_QuestCount > 0 and zonecheckFun ~= nil and zonecheckFun(GetZoneName(pc), questIES.StartMap) == 'YES' then
         local sObj = GetSessionObject(pc, "ssn_klapeda")
         local result1 = SCR_QUEST_CHECK_MODULE_QUEST(pc, questIES, sObj)
         if result1 == "YES" then

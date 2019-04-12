@@ -3,7 +3,7 @@
 <Prop>
 	<Model Path="mission_groundtower02_01area_grass.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
 	<Model Path="mission_groundtower02_01area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
-	<Model Path="mission_groundtower02_02area_grass.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="mission_groundtower02_02area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
 	<Model Path="mission_groundtower02_03area_grass.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
 	<Model Path="mission_groundtower02_03area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
 	<Model Path="mission_groundtower02_04area_grass.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
@@ -44,4 +44,6 @@
 	<Model Path="mission_groundtower02_b_model.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
 	<Model Path="mission_groundtower02_light.xac" RenderType="RT_PLANELIGHT" IsBloom="0" Type="" NoCol="1"/>
 	<Model Path="mission_groundtower_ani01.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
+	<Model Path="mission_groundtower02_tp.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
+	<Model Path="mission_groundtower02_bloom.xac" IsBloom="1" Type="" NoCol="0"/>
 </Prop>

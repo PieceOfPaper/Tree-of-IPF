@@ -1,4 +1,4 @@
-癤풾unction TOKEN_ON_INIT(addon, frame)
+function TOKEN_ON_INIT(addon, frame)
 
 end
 
@@ -45,21 +45,17 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 		end
 
 		local value = ctrlSet:GetChild("value");
-		if str =="abilityMax" then
-			value:ShowWindow(0);
-		else
-			value:SetTextByKey("value", txt); 
-		end
+		value:SetTextByKey("value", txt); 
 	end
 
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 4,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-    local prop = ctrlSet:GetChild("prop");
-    local imag = string.format(TOKEN_GET_IMGNAME1(), 55, 45) 
+	local prop = ctrlSet:GetChild("prop");
+	local imag = string.format(TOKEN_GET_IMGNAME1(), 55, 45) 
 	prop:SetTextByKey("value", imag.. ScpArgMsg("Token_ExpUp{PER}", "PER", " ")); 
-    local value = ctrlSet:GetChild("value");
+	local value = ctrlSet:GetChild("value");
 	imag = string.format(TOKEN_GET_IMGNAME2(), 100, 45) 
-    value:SetTextByKey("value", imag);
-
+	value:SetTextByKey("value", imag); 
+	
 	local itemobj = GetIES(invItem:GetObject());
 	if itemobj.NumberArg2 > 0 then
 		local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_TOKEN_TRADECOUNT",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
@@ -91,26 +87,26 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	ADD_2PLUS_IMAGE(gBox)
 
 	GBOX_AUTO_ALIGN(gBox, 0, 2, 0, true, true);
-	
+
 	local arg1 = itemobj.NumberArg1;
 	if itemobj.ClassName == "PremiumToken" then
-		arg1 = 2592000
+		arg1 = 2592000 --30일
 	elseif itemobj.ClassName == "PremiumToken_5d" then
-		arg1 = 432000
+		arg1 = 432000 -- 5일
 	elseif itemobj.ClassName == "PremiumToken_1d" then
-		arg1 = 604800
+		arg1 = 604800 -- 7일
 	elseif itemobj.ClassName == "PremiumToken_24h" then
-		arg1 = 86400
+		arg1 = 86400 -- 1일
 	elseif itemobj.ClassName == "PremiumToken_3d" then
-		arg1 = 259200
+		arg1 = 259200 -- 3일
 	elseif itemobj.ClassName == "PremiumToken_12h" then
-		arg1 = 43200 
+		arg1 = 43200 -- 12시간
 	elseif itemobj.ClassName == "PremiumToken_6h" then
-		arg1 = 21600 
+		arg1 = 21600 -- 6시간
 	elseif itemobj.ClassName == "PremiumToken_3h" then
-		arg1 = 10800 
+		arg1 = 10800 -- 3시간
 	elseif itemobj.ClassName == "PremiumToken_15d" then
-		arg1 = 1296000 
+		arg1 = 1296000 -- 15일
 	end
 	local endTime = GET_TIME_TXT(arg1, 1)
 	local endTxt = frame:GetChild("endTime");
@@ -132,7 +128,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 
 	local indunStr = bg2:GetChild("indunStr");
 	indunStr:ShowWindow(0);
-    
+
 	local forToken = bg2:GetChild("forToken");
 	forToken:ShowWindow(1);
 
@@ -203,7 +199,7 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	elseif itemobj.ClassName == "Premium_boostToken04" then
     	value:SetTextByKey("value", string.format("{img 50percent_image3 %d %d}", 100, 45) );
 	else
-	value:SetTextByKey("value", string.format("{img 30percent_image2 %d %d}", 100, 45) ); 
+    	value:SetTextByKey("value", string.format("{img 30percent_image2 %d %d}", 100, 45) );
     end
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_1",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
@@ -212,7 +208,7 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	elseif itemobj.ClassName == "Premium_boostToken03" or itemobj.ClassName == "Premium_boostToken03_event01" then
     	imag = string.format("{img 9multiply_image %d %d}", 55, 45) 
 	else
-	imag = string.format("{img 2multiply_image %d %d}", 55, 45) 
+    	imag = string.format("{img 2multiply_image %d %d}", 55, 45) 
     end	
 	prop:SetTextByKey("value",imag .. ClMsg("token_staup")); 
 	local value = ctrlSet:GetChild("value");
@@ -222,7 +218,7 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	elseif itemobj.ClassName == "Premium_boostToken03" or itemobj.ClassName == "Premium_boostToken03_event01" then
     	value:SetTextByKey("value", string.format("{img 9multiply_image2 %d %d}", 100, 45) );
 	else
-	value:SetTextByKey("value", string.format("{img 2plus_image2 %d %d}", 100, 45) ); 
+    	value:SetTextByKey("value", string.format("{img 2plus_image2 %d %d}", 100, 45) );
     end
 
 	GBOX_AUTO_ALIGN(gBox, 0, 2, 0, true, false);
@@ -294,7 +290,7 @@ function BEFORE_APPLIED_INDUNRESET_OPEN(invItem)
 	local itemobj = GetIES(invItem:GetObject());
 	local endTxt = frame:GetChild("endTime");
 	endTxt:ShowWindow(0);
-
+	
 	local strTxt = frame:GetChild("richtext_1");
 	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
 
@@ -306,12 +302,12 @@ function BEFORE_APPLIED_INDUNRESET_OPEN(invItem)
 
 	local endTime2 = bg2:GetChild("endTime2");
 	endTime2:ShowWindow(0);
-    
+
 	local strTxt = bg2:GetChild("str");
 	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
-    
+
 	local forToken = bg2:GetChild("forToken");
-	forToken:ShowWindow(0);
+	forToken:ShowWindow(1);
 
 	frame:SetUserValue("itemIES", invItem:GetIESID());
 	frame:SetUserValue("ClassName", itemobj.ClassName);
@@ -344,7 +340,7 @@ function BEFORE_APPLIED_INDUNFREE_OPEN(invItem)
 
 	GBOX_AUTO_ALIGN(gBox, 0, 3, 0, true, false);
 	local itemobj = GetIES(invItem:GetObject());
-	local arg1 = 259200 
+	local arg1 = 259200 -- 3일
 	local endTime = GET_TIME_TXT(arg1, 1)
 	local endTxt = frame:GetChild("endTime");
 	endTxt:SetTextByKey("value", endTime); 
@@ -362,7 +358,7 @@ function BEFORE_APPLIED_INDUNFREE_OPEN(invItem)
 	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
 
 	local forToken = frame:GetChild("forToken");
-	forToken:ShowWindow(0);
+	forToken:ShowWindow(1);
 
 	frame:SetUserValue("itemIES", invItem:GetIESID());
 	frame:SetUserValue("ClassName", itemobj.ClassName);
@@ -393,6 +389,7 @@ function REQ_TOKEN_ITEM(parent, ctrl)
 	if argList == 'Premium_indunReset' or argList == 'Premium_indunReset_14d' or argList == 'Premium_indunReset_14d_test' then
 
 		local etcObj = GetMyEtcObject();
+		-- 2개뿐이여서 고정으로 넣어둠
 		local countType1 = "InDunCountType_100";
 		local countType2 = "InDunCountType_200";
 		if etcObj[countType1] == 0 and etcObj[countType2] == 0 then

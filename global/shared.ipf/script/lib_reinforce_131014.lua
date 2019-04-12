@@ -59,7 +59,7 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
 		value = value / 2;
 	end
 	
-    if moruItem.ClassName == "Moru_Silver" or moruItem.ClassName == "Moru_Silver_test" then 
+    if moruItem.ClassName == "Moru_Silver" or moruItem.ClassName == "Moru_Silver_test" or moruItem.ClassName == "Moru_Silver_NoDay" then 
 		value = 0;
 	end
 	

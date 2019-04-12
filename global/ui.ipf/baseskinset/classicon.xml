@@ -18,6 +18,8 @@
 		<image name="c_warrior_shinobi" file="\icon\class_warrior.tga" imgrect="200 200 100 100" CMM_Caption="시노비"/>
 		<image name="c_warrior_dragoon" file="\icon\class_warrior.tga" imgrect="300 200 100 100" CMM_Caption="드라군"/>
 		<image name="c_warrior_templar" file="\icon\class_warrior.tga" imgrect="400 200 100 100" CMM_Caption="템플러"/>
+		<image name="c_warrior_lancer" file="\icon\class_warrior.tga" imgrect="0 300 100 100" CMM_Caption="랜서"/>
+		<image name="c_warrior_murmillo" file="\icon\class_warrior.tga" imgrect="100 300 100 100" CMM_Caption="무르밀로"/>
 		<image name="c_wizard_wizard" file="\icon\class_wizard.tga" imgrect="0 0 100 100" CMM_Caption="위저드"/>
 		<image name="c_wizard_pyromancer" file="\icon\class_wizard.tga" imgrect="100 0 100 100" CMM_Caption="파이로맨서"/>
 		<image name="c_wizard_cryomancer" file="\icon\class_wizard.tga" imgrect="200 0 100 100" CMM_Caption="크리오맨서"/>
@@ -32,6 +34,8 @@
 		<image name="c_wizard_warlock" file="\icon\class_wizard.tga" imgrect="100 200 100 100" CMM_Caption="워록"/>
 		<image name="c_wizard_featherfoot" file="\icon\class_wizard.tga" imgrect="200 200 100 100" CMM_Caption="페더풋"/>
 		<image name="c_wizard_runecaster" file="\icon\class_wizard.tga" imgrect="300 200 100 100" CMM_Caption="룬캐스터"/>
+		<image name="c_wizard_sage" file="\icon\class_wizard.tga" imgrect="400 200 100 100" CMM_Caption="세이지"/>
+		<image name="c_wizard_enchanter" file="\icon\class_wizard.tga" imgrect="0 300 100 100" CMM_Caption="인챈터"/>
 		<image name="c_archer_archer" file="\icon\class_archer.tga" imgrect="0 0 100 100" CMM_Caption="아쳐"/>
 		<image name="c_archer_ranger" file="\icon\class_archer.tga" imgrect="100 0 100 100" CMM_Caption="레인저"/>
 		<image name="c_archer_quarrelshooter" file="\icon\class_archer.tga" imgrect="200 0 100 100" CMM_Caption="쿼렐슈터"/>
@@ -46,6 +50,7 @@
 		<image name="c_archer_falconer" file="\icon\class_archer.tga" imgrect="100 200 100 100" CMM_Caption="응사"/>
 		<image name="c_archer_cannoneer" file="\icon\class_archer.tga" imgrect="200 200 100 100" CMM_Caption="캐노니어"/>
 		<image name="c_archer_musketeer" file="\icon\class_archer.tga" imgrect="300 200 100 100" CMM_Caption="머스킷티어"/>
+		<image name="c_archer_mergen" file="\icon\class_archer.tga" imgrect="400 200 100 100" CMM_Caption="메르겐"/>
 		<image name="c_cleric_cleric" file="\icon\class_cleric.tga" imgrect="0 0 100 100" CMM_Caption="클레릭"/>
 		<image name="c_cleric_kriwi" file="\icon\class_cleric.tga" imgrect="100 0 100 100" CMM_Caption="크리비"/>
 		<image name="c_cleric_priest" file="\icon\class_cleric.tga" imgrect="200 0 100 100" CMM_Caption="프리스트"/>
@@ -57,8 +62,10 @@
 		<image name="c_cleric_pardoner" file="\icon\class_cleric.tga" imgrect="300 100 100 100" CMM_Caption="파드너"/>
 		<image name="c_cleric_druid" file="\icon\class_cleric.tga" imgrect="400 100 100 100" CMM_Caption="드루이드"/>
 		<image name="c_cleric_oracle" file="\icon\class_cleric.tga" imgrect="0 200 100 100" CMM_Caption="오라클"/>
-	<image name="c_cleric_plaguedoctor" file="\icon\class_cleric.tga" imgrect="100 200 100 100" CMM_Caption="플레이그닥터"/>
+		<image name="c_cleric_plaguedoctor" file="\icon\class_cleric.tga" imgrect="100 200 100 100" CMM_Caption="플레이그닥터"/>
 		<image name="c_cleric_kabbalist" file="\icon\class_cleric.tga" imgrect="200 200 100 100" CMM_Caption="카발리스트"/>
-	<image name="c_cleric_chaplain" file="\icon\class_cleric.tga" imgrect="300 200 100 100" CMM_Caption="채플린"/>
+		<image name="c_cleric_chaplain" file="\icon\class_cleric.tga" imgrect="300 200 100 100" CMM_Caption="채플린"/>
+		<image name="c_cleric_inquisitor" file="\icon\class_cleric.tga" imgrect="400 200 100 100" CMM_Caption="인퀴지터"/>
+		<image name="c_cleric_daoshi" file="\icon\class_cleric.tga" imgrect="0 300 100 100" CMM_Caption="도사"/>
 	</imagelist>
 </skinset>

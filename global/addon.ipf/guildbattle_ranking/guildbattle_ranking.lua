@@ -57,6 +57,10 @@ function UPDATE_PREV_RANKING_GUILD(frame)
 	local first_point = frame:GetChild("first_point");
 	local first_guild_award = frame:GetChild("first_guild_award");
 
+	frame = frame:GetTopParentFrame();
+	local prevRank = frame:GetChild("prev_rank");
+	prevRank:RemoveAllChild();
+
 	if cnt < 1 then
 		first_rank:ShowWindow(0);
 		first_server:SetTextByKey("value", "");
@@ -64,38 +68,32 @@ function UPDATE_PREV_RANKING_GUILD(frame)
 		first_winlose:SetTextByKey("value", "");
 		first_point:SetTextByKey("value", "");
 		first_guild_award:SetTextByKey("value", "");
-		return;
-	end
+	else
+		if first_info:GetCID() ~= "0" then
+			first_rank:ShowWindow(1);
+			local serverName = GetServerNameByGroupID(first_info.groupID);
+			first_server:SetTextByKey("value", "[" .. serverName .. "]");
+			first_name:SetTextByKey("value", first_info:GetIconInfo():GetFamilyName());
+			first_winlose:SetTextByKey("value", ScpArgMsg("Win{Win}Lose{Lose}", "Win", first_info.win, "Lose", first_info.lose));
+			first_point:SetTextByKey("value", ScpArgMsg("{Point}Point", "Point", first_info.point));
 
-	if first_info:GetCID() ~= "0" then
-		first_rank:ShowWindow(1);
-		local serverName = GetServerNameByGroupID(first_info.groupID);
-		first_server:SetTextByKey("value", "[" .. serverName .. "]");
-		first_name:SetTextByKey("value", first_info:GetIconInfo():GetFamilyName());
-		first_winlose:SetTextByKey("value", ScpArgMsg("Win{Win}Lose{Lose}", "Win", first_info.win, "Lose", first_info.lose));
-		first_point:SetTextByKey("value", ScpArgMsg("{Point}Point", "Point", first_info.point));
+			first_guild_award:SetTextByKey("value", "");
 
-		first_guild_award:SetTextByKey("value", "");
-
-		local rewardClass = GetClassByType("GuildBattleReward", 1);
-		if rewardClass ~= nil then
-			local reward = TryGetProp(rewardClass, "TPCount");
+			local rewardClass = GetClassByType("GuildBattleReward", 1);
+			if rewardClass ~= nil then
+				local reward = TryGetProp(rewardClass, "TPCount");
 			
-			if reward ~= nil then
-				first_guild_award:SetTextByKey("value", reward.."TP");
+				if reward ~= nil then
+					first_guild_award:SetTextByKey("value", reward.."TP");
+				end
 			end
+		end	
+		for i = 1, cnt - 1 do
+			local info = session.worldPVP.GetPrevRankInfoByIndex(i);
+			local ctrlSet = prevRank:CreateControlSet("guildbattle_prev_rank_ctrl", "CTRLSET_PREV_" .. i - 1,  ui.LEFT, ui.TOP, 0, 0, 0, 0);
+
+			UPDATE_PREV_RANKING_CTRL(ctrlSet, info);
 		end
-	end
-
-	frame = frame:GetTopParentFrame();
-	local prevRank = frame:GetChild("prev_rank");
-	prevRank:RemoveAllChild();
-	
-	for i = 1, cnt - 1 do
-		local info = session.worldPVP.GetPrevRankInfoByIndex(i);
-		local ctrlSet = prevRank:CreateControlSet("guildbattle_prev_rank_ctrl", "CTRLSET_PREV_" .. i - 1,  ui.LEFT, ui.TOP, 0, 0, 0, 0);
-
-		UPDATE_PREV_RANKING_CTRL(ctrlSet, info);
 	end
 	
 	GBOX_AUTO_ALIGN(prevRank, 0, 0, 0, true, false);
@@ -142,10 +140,12 @@ function UPDATE_GET_REWARD_BUTTON(frame)
 
 end
 
-function REQ_GET_GUILD_BATTLE_REWARD(frame)
+function REQ_GET_GUILD_BATTLE_REWARD(frame, ctrl)
 
 	local type = session.worldPVP.GetRankProp("Type");
 	worldPVP.RequestGetWorldPVPReward(type);
+
+	DISABLE_BUTTON_DOUBLECLICK("guildbattle_ranking",ctrl:GetName())
 
 end
 

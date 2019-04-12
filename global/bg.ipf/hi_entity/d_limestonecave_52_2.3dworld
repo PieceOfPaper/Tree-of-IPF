@@ -1,8 +1,30 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
-<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 11 (IMCGames Co., Ltd) -->
 <World>
 	<ModelDir IpfName="bg_hi" Path="\dungeon\d_limestonecave_52_2\"/>
-	<TexDir IpfName="bg_texture" Path="\common\"/>
-	<Model File="d_limestonecave_52_2_ground.xac" Model="d_limestonecave_52_2_ground" pos="0.0 0.0 0.0" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<SubTexDir IpfName="bg_texture" Path="\Desolated_Capital\"/>
+	<LightMap File="d_limestonecave_52_2.jpg" Length="4300 4300 " Offset="-426.185 -53.376" Size="1024 1024"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<AnimationDir IpfName="bg_hi2" Path="\dungeon\d_limestonecave_52_2\"/>
+	<TexDir IpfName="bg_texture" Path="\limestonecave\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_limestonecave_52_2\"/>
+	<Model File="d_limestonecave_52_2_blend02.xac" Model="d_limestonecave_52_2_blend02" ShadowMap="d_limestonecave_52_2_blend02" pos="-455.4976 -741.0996 -139.4768" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_ground.xac" Model="d_limestonecave_52_2_ground" ShadowMap="d_limestonecave_52_2_ground" pos="-481.8924 -920.5009 -193.2317" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_grass.xac" Model="d_limestonecave_52_2_grass" ShadowMap="d_limestonecave_52_2_grass" pos="-283.4460 -724.3635 -84.6754" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_blend01.xac" Model="d_limestonecave_52_2_blend01" ShadowMap="d_limestonecave_52_2_blend01" pos="-253.1128 -737.9490 -150.1526" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_fog.xac" Model="d_limestonecave_52_2_fog" pos="-480.25 -750.894 348.637" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_light.xac" Model="d_limestonecave_52_2_light" ShadowMap="d_limestonecave_52_2_light" pos="-300.9863 -670.4753 -150.7959" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_water.xac" Model="d_limestonecave_52_2_water" pos="-1703.3730 -1103.1553 212.0664" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_gr_a.xac" Model="d_limestonecave_52_2_gr_a" ShadowMap="d_limestonecave_52_2_gr_a" pos="-685.3218 -783.3304 -167.9348" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_1area_model.xac" Model="d_limestonecave_52_2_1area_model" ShadowMap="d_limestonecave_52_2_1area_model" pos="-1248.688 -893.802 -1408.5" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_2area_model.xac" Model="d_limestonecave_52_2_2area_model" ShadowMap="d_limestonecave_52_2_2area_model" pos="-972.66 -945.834 -728.19" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_3area_model.xac" Model="d_limestonecave_52_2_3area_model" ShadowMap="d_limestonecave_52_2_3area_model" pos="-1426.2729 -995.2700 -415.9636" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_4area_model.xac" Model="d_limestonecave_52_2_4area_model" ShadowMap="d_limestonecave_52_2_4area_model" pos="-1065.3931 -915.3429 211.2690" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_5area_model.xac" Model="d_limestonecave_52_2_5area_model" ShadowMap="d_limestonecave_52_2_5area_model" pos="-764.4229 -892.4967 -30.8525" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_6area_model.xac" Model="d_limestonecave_52_2_6area_model" ShadowMap="d_limestonecave_52_2_6area_model" pos="473.223 -799.981 378.221" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_7area_model.xac" Model="d_limestonecave_52_2_7area_model" ShadowMap="d_limestonecave_52_2_7area_model" pos="702.1943 -748.112 415.099" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_8area_model.xac" Model="d_limestonecave_52_2_8area_model" ShadowMap="d_limestonecave_52_2_8area_model" pos="28.7920 -823.5206 1794.3831" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_b_model01.xac" Model="d_limestonecave_52_2_b_model01" ShadowMap="d_limestonecave_52_2_b_model01" pos="191.4316 -403.7747 338.2749" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_b_model02.xac" Model="d_limestonecave_52_2_b_model02" ShadowMap="d_limestonecave_52_2_b_model02" pos="-503.3574 -827.4366 -67.0708" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_limestonecave_52_2_obbcol.xac" Model="d_limestonecave_52_2_obbcol" pos="-440.167 -693.157 -71.492" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

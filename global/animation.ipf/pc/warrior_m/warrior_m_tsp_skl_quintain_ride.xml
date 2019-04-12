@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="5" type="2" intensity="10" frequency="50" duration="0.4" range="1000"/>
+	<BlendOn frame="1" R="40" G="40" B="70" A="100"/>
+	<BlendOn frame="2" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="5" R="150" G="100" B="100" A="100"/>
+	<BlendOn frame="6" R="200" G="150" B="150" A="100"/>
+	<BlendOn frame="7" R="120" G="100" B="130" A="100"/>
+	<BlendOn frame="8" R="40" G="40" B="70" A="100"/>
+	<BlendOff frame="9" R="0" G="0" B="0" A="0"/>
+	<Particle frame="1" attachNode="Dummy_effect_wepon_spear03" particleName="I_cleric_DarkSight_shot_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="4" attachNode="Dummy_emitter" particleName="E_warrior_Quintain_spear" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy_emitter_pet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy_emitter_pet" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy_emitter_pet" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy_emitter_pet" particleName="F_wizard_BRIQUETTING_STEP1_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy_emitter_pet" particleName="I_warrior_rush_shot_dash2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="2.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="4.00" soundFile="spear_thrust"/>
+</ActionDesc>

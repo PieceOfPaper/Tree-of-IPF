@@ -1,0 +1,36 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi2" Path="\dungeon\d_firetower_69_1\"/>
+	<TexDir IpfName="bg_texture" Path="\firetower\"/>
+	<SubTexDir IpfName="bg_texture" Path="\bracken\"/>
+	<ShaTexDir IpfName="bg_hi2" Path="\dungeon\d_firetower_69_1\"/>
+	<AutoHeightMap Length="5000 5000" Offset="-100 -20000" Height="-200 55000"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<LightMap File="d_firetower_69_1_lightmap.jpg" Length="5800 5800" Offset="135.08 -160.53" Size="1024 1024"/>
+	<SubShaTexDir IpfName="bg_hi2" Path="\dungeon\d_firetower_69_1\"/>
+	<Model File="d_firetower_69_1_model_08.xac" Model="d_firetower_69_1_model_08" ShadowMap="d_firetower_69_1_model_08" pos="-1479.7612 -1358.0283 -871.0862" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_water_02.xac" Model="d_firetower_69_1_water_02" ShadowMap="d_firetower_69_1_water_02" pos="334.7653 -935.6260 489.6245" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_b_model.xac" Model="d_firetower_69_1_b_model" ShadowMap="d_firetower_69_1_b_model" pos="-1685.2236 -1486.5576 1669.7705" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_tp.xac" Model="d_firetower_69_1_tp" ShadowMap="d_firetower_69_1_tp" pos="-380.6463 -661.5548 -873.2347" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_light_01.xac" Model="d_firetower_69_1_light_01" ShadowMap="d_firetower_69_1_light_01" pos="-797.2910 -985.1915 -686.6977" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_grass.xac" Model="d_firetower_69_1_grass" ShadowMap="d_firetower_69_1_grass" pos="-189.9308 -800.5961 -527.8882" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_tree01.xac" Model="d_firetower_69_1_tree01" ShadowMap="d_firetower_69_1_tree01" pos="-153.2221 -787.7562 -395.5137" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_light_02.xac" Model="d_firetower_69_1_light_02" ShadowMap="d_firetower_69_1_light_02" pos="154.9292 -702.9461 -424.7559" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_model_02.xac" Model="d_firetower_69_1_model_02" ShadowMap="d_firetower_69_1_model_02" pos="-1566.4287 -883.8915 -1289.0696" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_model_03.xac" Model="d_firetower_69_1_model_03" ShadowMap="d_firetower_69_1_model_03" pos="-2348.2153 -1232.6321 402.8406" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_model_04.xac" Model="d_firetower_69_1_model_04" ShadowMap="d_firetower_69_1_model_04" pos="135.4922 -1089.4037 228.6689" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_model_05.xac" Model="d_firetower_69_1_model_05" ShadowMap="d_firetower_69_1_model_05" pos="1173.5035 -1212.0005 125.1493" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_model_06.xac" Model="d_firetower_69_1_model_06" ShadowMap="d_firetower_69_1_model_06" pos="1827.4268 -1073.2189 -192.9579" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_model_07.xac" Model="d_firetower_69_1_model_07" ShadowMap="d_firetower_69_1_model_07" pos="790.0603 -1605.4099 -1401.9895" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_model_water_03.xac" Model="d_firetower_69_1_model_water_03" ShadowMap="d_firetower_69_1_model_water_03" pos="472.8025 -761.9822 -405.3834" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_model_blend_01.xac" Model="d_firetower_69_1_model_blend_01" ShadowMap="d_firetower_69_1_model_blend_01" pos="62.5054 -797.4824 -440.9006" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_model_blend_02.xac" Model="d_firetower_69_1_model_blend_02" ShadowMap="d_firetower_69_1_model_blend_02" pos="-1441.3439 -874.9318 -1573.6622" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_model_09.xac" Model="d_firetower_69_1_model_09" ShadowMap="d_firetower_69_1_model_09" pos="1871.4346 -455.7079 -573.9216" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_water_01.xac" Model="d_firetower_69_1_water_01" ShadowMap="d_firetower_69_1_water_01" pos="34.0225 -513.4453 -485.7439" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_model_01.xac" Model="d_firetower_69_1_model_01" ShadowMap="d_firetower_69_1_model_01" pos="-947.1101 -517.6556 -328.1628" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_fog.xac" Model="d_firetower_69_1_fog" ShadowMap="d_firetower_69_1_fog" pos="-71.1650 -899.6345 -219.1584" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_ground.xac" Model="d_firetower_69_1_ground" ShadowMap="d_firetower_69_1_ground" pos="-602.9531 -1095.3623 -196.5798" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower_69_1_obbcol.xac" Model="d_firetower_69_1_obbcol" pos="145.432 -618.005 -703.82" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

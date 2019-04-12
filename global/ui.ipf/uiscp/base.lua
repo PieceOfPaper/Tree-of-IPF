@@ -223,7 +223,7 @@ function ICON_USE(object, reAction)
 				return;
 			else
 				local groupName = itemObj.ItemType;
-				if groupName == 'Consume' or groupName == "Quest" then
+				if groupName == 'Consume' or groupName == "Quest" or TryGetProp(itemObj, "GroupName") == "Cube" then
 					local usable = itemObj.Usable;
 					if usable ~= 'ITEMTARGET' then						
 						local invenItemInfo = GET_ICON_ITEM(iconInfo);

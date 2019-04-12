@@ -257,20 +257,20 @@ function IS_SELECTED_JOB(pc, questname, scriptInfo)
 		etcObj = GetMyEtcObject();
 		
 	end
-
-
-    if IS_SEASON_SERVER(pc) == 'YES' then
-        local temp
-        local totalRank
-        if IsServerSection(pc) == 1 then
-            temp, totalRank = GetJobGradeByName(pc, pc.JobName);
-        else
-            totalRank = session.GetPcTotalJobGrade()
-        end
-        if totalRank >= 7 then
-            return 'NO'
-        end
-    end
+    
+    
+--    if IS_SEASON_SERVER(pc) == 'YES' then
+--        local temp
+--        local totalRank
+--        if IsServerSection(pc) == 1 then
+--            temp, totalRank = GetJobGradeByName(pc, pc.JobName);
+--        else
+--            totalRank = session.GetPcTotalJobGrade()
+--        end
+--        if totalRank >= 7 then
+--            return 'NO'
+--        end
+--    end
 
 	local jobclassid = 0
 

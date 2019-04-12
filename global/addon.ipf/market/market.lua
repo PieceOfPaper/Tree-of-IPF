@@ -283,7 +283,8 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
 
 		local pic = GET_CHILD(ctrlSet, "pic", "ui::CPicture");
-		pic:SetImage(itemObj.Icon);
+		local imgName = GET_ITEM_ICON_IMAGE(itemObj);
+		pic:SetImage(imgName);
 
 		local name = ctrlSet:GetChild("name");
 		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
@@ -422,13 +423,8 @@ function BUY_MARKET_ITEM(parent, ctrl)
 	local row = parent:GetUserIValue("DETAIL_ROW");
 	local marketItem = session.market.GetItemByIndex(row);
 	local itemObj = GetIES(marketItem:GetObject());
-	local txt = ScpArgMsg("ReallyBuy?");
-	if itemObj.GroupName == "Premium" then
-		txt = ScpArgMsg("CannotSoldAnyMore")
-	elseif itemObj.ItemType == "Equip" then
-		txt = ScpArgMsg("DecreasePotaion");
-	end
 
+	local txt = ScpArgMsg("ReallyBuy?");
 	ui.MsgBox(txt, string.format("_BUY_MARKET_ITEM(%d)", row+1), "None");
 end
 

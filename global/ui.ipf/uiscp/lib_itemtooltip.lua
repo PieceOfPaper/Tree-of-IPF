@@ -1,5 +1,28 @@
 -- lib_itemtooltip.lua
 
+function GET_EQUIP_ITEM_IMAGE_NAME(invitem, imageType)
+	if 'TooltipImage' == imageType then
+		local changeItemcls = nil;
+		local faceID = TryGetProp(invitem, 'BriquettingIndex');
+		if nil ~= faceID and tonumber(faceID) > 0 then
+			faceID = tonumber(faceID);
+			 changeItemcls = GetClassByType('Item', faceID)
+		end
+
+		if nil ~= changeItemcls then
+			return changeItemcls.TooltipImage;
+		end
+		local imageName = TryGetProp(invitem, imageType);
+		if nil ~= imageName then
+			return tostring(imageName)
+		end
+	elseif 'Icon' == imageType then
+		return GET_ITEM_ICON_IMAGE(invitem);
+	end
+
+	return 'None'
+end
+
 function IS_NEED_DRAW_GEM_TOOLTIP(invitem)
 
 	local cnt = 0
@@ -9,8 +32,8 @@ function IS_NEED_DRAW_GEM_TOOLTIP(invitem)
 		end
 	end
 
-	if cnt <= 0 then -- 일단 그릴 소켓이 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
-		return false
+	if cnt <= 0 then 
+	return false
 	end
 
 	return true
@@ -26,8 +49,8 @@ function IS_NEED_DRAW_MAGICAMULET_TOOLTIP(invitem)
 		end
 	end
 
-	if cnt <= 0 then -- 일단 그릴 소켓이 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
-		return false
+	if cnt <= 0 then 
+	return false
 	end
 
 	return true
@@ -140,7 +163,7 @@ function SET_DAMAGE_TEXT(parent, strArg, iconname, mindamage, maxdamage, index, 
 	end
 
 	if iconname ~= 'None' then
-		-- 타입 아이콘
+
 		local weapon_type_img = GET_CHILD(parent, "weapon_type", "ui::CPicture");
 		weapon_type_img:SetImage(iconname);
 		weapon_type_img:ShowWindow(1)
@@ -153,7 +176,7 @@ function SET_DAMAGE_TEXT(parent, strArg, iconname, mindamage, maxdamage, index, 
 	local atkValueCtrl = GET_CHILD(parent, "atkValue"..index, "ui::CRichText");
 	if mindamage == maxdamage or maxdamage == 0 then
 		if reinforceAddValue ~= 0 then
-			--강화수치를 따로 표현해주지 않고 합쳐서 보여준다.
+
 			--atkValueCtrl:SetText(mindamage..' '..color..'(+'..reinforceAddValue..'){/}');
 			atkValueCtrl:SetText(mindamage + reinforceAddValue);
 		else
@@ -161,7 +184,7 @@ function SET_DAMAGE_TEXT(parent, strArg, iconname, mindamage, maxdamage, index, 
 		end
 	else
 		if reinforceAddValue ~= 0 then
-			--강화수치를 따로 표현해주지 않고 합쳐서 보여준다.
+
 			atkValueCtrl:SetText(mindamage + reinforceAddValue.." ~ "..maxdamage + reinforceAddValue);
 		else
 			atkValueCtrl:SetText(mindamage.." ~ "..maxdamage);
@@ -249,7 +272,7 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 		end
 
 		local cnt2 = socketProp:GetPropPenaltyCountByType(type);
-		-- 원래 한단게 아래에, 젬 강화가 존재한다면 젬 강화 레벨을 뺀다
+
 		local penaltyLv = lv - gemLv;
 		if 0 > penaltyLv then
 			penaltyLv = 0;
@@ -259,7 +282,7 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 			local addProp = socketPenaltyProp:GetPropPenaltyAddByType(type, i);
 			local tempvalue = addProp.value
 			local plma_mark = POSITIVE_COLOR .. "{img green_up_arrow 16 16}"..'{/}';
-			-- 만약 마이너스 패널티라면
+
 			if tempvalue < 0 then
 				plma_mark = NEGATIVE_COLOR .. "{img red_down_arrow 16 16}"..'{/}';			
 			end
@@ -315,7 +338,7 @@ end
 
 function SET_GRADE_TOOLTIP(parent, invitem, starsize)
 
-	-- 아이템 grade 설정
+
 	local gradeChild = parent:GetChild('grade');
 	if gradeChild ~= nil then
 		local gradeString = GET_ITEM_GRADE_TXT(invitem, starsize);
@@ -367,8 +390,8 @@ function COMPARISON_BY_PROPLIST(list, invitem, eqpItem, tooltipframe, equipchang
 		end
 	end
 
-	local IsNeedShowTooltip = 0; -- 툴팁 자체가 떠야하는가에 대한 변수. 하나라도 보여줄게 있었는지?
-	for i = 1 , #list do
+	local IsNeedShowTooltip = 0;
+		for i = 1 , #list do
 		local propName = list[i];
 		local changeValue = valueList[i];
 		if ADD_COMPARITION_TOOLTIP(equipchange, changeValue) == 1 then
@@ -424,7 +447,7 @@ function IS_DRAG_RECIPE_ITEM(itemObj)
 		return 0;
 	end
 
-	return 0; --왜 항상 0인겨?
+	return 0;
 end
 
 function GET_DRAG_RECIPE_INFO(itemObj)
@@ -676,6 +699,31 @@ function SET_BUFF_TEXT(gBox, invitem, yPos, strarg)
 
 	end
 
+	if invitem.EnchanterBuffValue ~= 'None' and invitem.EnchanterBuffValue ~= 0  then
+		local y = GET_CHILD_MAX_Y(gBox);
+		local content = gBox:CreateOrGetControl('richtext', "ENCHANTBUFF", 20, yPos, gBox:GetWidth() - 30, 20);
+		local clientTxt = "";
+		content = tolua.cast(content, "ui::CRichText");
+		content:SetTextFixWidth(1);
+		content:SetFormat("%s %s");
+		content:AddParamInfo("text", "");
+		content:AddParamInfo("remaintime", "");
+
+		local sysTime = geTime.GetServerSystemTime();
+		local endTime = imcTime.GetSysTimeByStr(invitem.EnchanterBuffEndTime);
+		local difSec = imcTime.GetDifSec(endTime, sysTime);
+		content:SetUserValue("REMAINSEC", difSec);
+		content:SetUserValue("STARTSEC", imcTime.GetAppTime());
+		content:SetUserValue("ENCHANT", 1);
+		SHOW_REMAIN_BUFF_TIME(content);
+		content:RunUpdateScript("SHOW_REMAIN_BUFF_TIME");
+		local clientTxt = invitem.EnchanterBuffValue .. '_DESC';
+		local text = string.format("{#004123}".."- "..ScpArgMsg(clientTxt));
+		content:SetTextByKey("text", text);
+
+		yPos = yPos + content:GetHeight();
+	end
+
 	return yPos;
 end
 
@@ -689,7 +737,12 @@ function SHOW_REMAIN_BUFF_TIME(ctrl)
 		return 0;
 	end 
 	local timeTxt = GET_TIME_TXT(startSec);
-	ctrl:SetTextByKey("remaintime", "{#004123}" .. timeTxt);
+	local enchant = ctrl:GetUserIValue("ENCHANT");
+	if 1 == enchant then
+		ctrl:SetTextByKey("remaintime", "{nl}{#004123}    " .. timeTxt);
+	else
+		ctrl:SetTextByKey("remaintime", "{#004123}" .. timeTxt);
+	end
 	return 1;
 end
 

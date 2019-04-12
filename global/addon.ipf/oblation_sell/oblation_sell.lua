@@ -44,7 +44,8 @@ function OBLATION_SELL_ADD_SELL_ITEM(frame, invItem, addCount)
 	end
 
 	local itemCls = GetIES(invItem:GetObject());
-	if itemCls.ShopTrade ~= 'YES' then
+	local itemProp = geItemTable.GetPropByName(itemCls.ClassName);
+	if itemProp:IsTradable() == false then
 		ui.SysMsg(ClMsg("Auto_SangJeom_PanMae_BulKaNeung"));
 		return;
 	end

@@ -95,7 +95,8 @@ function SET_SLOT_ITEM_IMANGE(slot, invItem)
 
 	local obj = GetIES(invItem:GetObject());
 	local icon = CreateIcon(slot);
-	icon:Set(obj.Icon, 'None', invItem.type, invItem.count, invItem:GetIESID(), cnt);
+	local iconName = GET_ITEM_ICON_IMAGE(obj);
+	icon:Set(iconName, 'None', invItem.type, invItem.count, invItem:GetIESID(), cnt);
 	
 	SET_ITEM_TOOLTIP_ALL_TYPE(icon, invItem, invItem.ClassName, 'None', invItem.type, invItem:GetIESID());
 end
@@ -105,7 +106,8 @@ function SET_SLOT_ITEM(slot, invItem, count)
 	local itemCls = GetClassByType("Item", invItem.type);
 
 	local type = itemCls.ClassID;
-	local img = itemCls.Icon;
+	local obj = GetIES(invItem:GetObject());
+	local img = GET_ITEM_ICON_IMAGE(obj);
 	SET_SLOT_IMG(slot, img)
 	SET_SLOT_COUNT(slot, count)
 	SET_SLOT_IESID(slot, invItem:GetIESID())

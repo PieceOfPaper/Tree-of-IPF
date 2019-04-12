@@ -3665,6 +3665,10 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Fail"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+                                <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+                                <Str Str="확인을 누르시면 미션 밖으로 이동합니다."/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="timeout">
@@ -4034,7 +4038,7 @@
             </Stage>
             <Stage Name="BossGen">
                 <ObjList>
-                    <Obj Type="Monster" MonType="156044" Pos="182.70#80.12#-120.47" range="240" genCount="1" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_UPHILL_GIMMICKOBJ1&apos; &apos;Name&apos; &apos;화염 보주&apos; &apos;DialogRotate&apos; &apos;0&apos; &apos;Rotate&apos; &apos;NO&apos; &apos;Scale&apos; &apos;0.3&apos; " SimpleAI="MISSION_UPHILL_GIMMICKOBJ1"/>
+                    <Obj Type="Monster" MonType="156044" Pos="182.70#80.12#-120.47" range="240" genCount="1" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_UPHILL_GIMMICKOBJ1&apos; &apos;Name&apos; &apos;화염 보주&apos; &apos;DialogRotate&apos; &apos;0&apos; &apos;Rotate&apos; &apos;NO&apos; &apos;Scale&apos; &apos;0.3&apos; &apos;MaxDialog&apos; &apos;1&apos; " SimpleAI="MISSION_UPHILL_GIMMICKOBJ1"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="bossGenL1">

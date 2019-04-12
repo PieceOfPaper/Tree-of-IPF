@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <GameList>
     <Game Name="MISSION_GELE_01" rankScript="RAID_RANK_SCP" minLv="88" maxLv="0" mapName="mission_gele_01" playerCnt="10" checkSec="4200" startWaitSec="0" checkScript="CHECK_MGAME_COMMON" msgTxt="{@st41b}겔리고원 판토들이 마족들과 손을 잡았습니다. 그들의 결속을 막을 수 있는 건 당신뿐입니다!" portrait="Dlg_port_Vlaentinas_Naimon">
         <StageList>
@@ -287,7 +287,7 @@
                 </CompleteScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="147377" Pos="603.16#135.05#-766.27" angle="-30" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
-                    <Obj Type="Monster" MonType="57574" Pos="-268.83#135.05#-1048.03" maxStackCount="1" genTime="10000" autoGen="0" objectKey="1" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57574" Pos="-268.83#135.05#-1048.03" maxStackCount="1" genTime="10000" autoGen="0" objectKey="1" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -304,7 +304,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57574" Pos="-16.74#135.05#-1213.47" maxStackCount="1" genTime="10000" autoGen="0" objectKey="2" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57574" Pos="-16.74#135.05#-1213.47" maxStackCount="1" genTime="10000" autoGen="0" objectKey="2" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -321,7 +321,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57574" Pos="-179.78#135.05#-739.84" maxStackCount="1" genTime="10000" autoGen="0" objectKey="4" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57574" Pos="-179.78#135.05#-739.84" maxStackCount="1" genTime="10000" autoGen="0" objectKey="4" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -338,7 +338,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57574" Pos="389.59#135.05#-661.90" maxStackCount="1" genTime="10000" autoGen="0" objectKey="6" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57574" Pos="389.59#135.05#-661.90" maxStackCount="1" genTime="10000" autoGen="0" objectKey="6" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -355,7 +355,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57574" Pos="417.95#135.05#-885.86" maxStackCount="1" genTime="10000" autoGen="0" objectKey="7" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57574" Pos="417.95#135.05#-885.86" maxStackCount="1" genTime="10000" autoGen="0" objectKey="7" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -484,7 +484,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57574" Pos="-24.91#135.45#151.45" maxStackCount="1" genTime="10000" autoGen="0" objectKey="5" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57574" Pos="-24.91#135.45#151.45" maxStackCount="1" genTime="10000" autoGen="0" objectKey="5" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -501,7 +501,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57574" Pos="108.32#135.45#278.31" maxStackCount="1" genTime="10000" autoGen="0" objectKey="6" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57574" Pos="108.32#135.45#278.31" maxStackCount="1" genTime="10000" autoGen="0" objectKey="6" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -518,7 +518,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57574" Pos="291.20#135.45#342.25" maxStackCount="1" genTime="10000" autoGen="0" objectKey="7" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57574" Pos="291.20#135.45#342.25" maxStackCount="1" genTime="10000" autoGen="0" objectKey="7" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -535,7 +535,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57574" Pos="-31.97#135.45#1.52" maxStackCount="1" genTime="10000" autoGen="0" objectKey="8" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57574" Pos="-31.97#135.45#1.52" maxStackCount="1" genTime="10000" autoGen="0" objectKey="8" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -552,7 +552,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57574" Pos="430.73#135.45#298.93" maxStackCount="1" genTime="10000" autoGen="0" objectKey="9" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57574" Pos="430.73#135.45#298.93" maxStackCount="1" genTime="10000" autoGen="0" objectKey="9" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -569,7 +569,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57573" Pos="9.68#135.45#287.41" maxStackCount="1" genTime="10000" autoGen="0" objectKey="10" propList="&apos;Name&apos; &apos;음산한 판토 마법사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57573" Pos="9.68#135.45#287.41" maxStackCount="1" genTime="10000" autoGen="0" objectKey="10" propList="&apos;Name&apos; &apos;음산한 판토 마법사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -586,7 +586,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57573" Pos="-22.74#135.45#204.68" maxStackCount="1" genTime="10000" autoGen="0" objectKey="11" propList="&apos;Name&apos; &apos;음산한 판토 마법사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57573" Pos="-22.74#135.45#204.68" maxStackCount="1" genTime="10000" autoGen="0" objectKey="11" propList="&apos;Name&apos; &apos;음산한 판토 마법사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -603,7 +603,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57573" Pos="-89.10#135.45#63.30" maxStackCount="1" genTime="10000" autoGen="0" objectKey="12" propList="&apos;Name&apos; &apos;음산한 판토 마법사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57573" Pos="-89.10#135.45#63.30" maxStackCount="1" genTime="10000" autoGen="0" objectKey="12" propList="&apos;Name&apos; &apos;음산한 판토 마법사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -620,7 +620,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57573" Pos="414.36#135.45#372.86" maxStackCount="1" genTime="10000" autoGen="0" objectKey="13" propList="&apos;Name&apos; &apos;음산한 판토 마법사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57573" Pos="414.36#135.45#372.86" maxStackCount="1" genTime="10000" autoGen="0" objectKey="13" propList="&apos;Name&apos; &apos;음산한 판토 마법사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -637,7 +637,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57573" Pos="257.82#135.45#199.90" maxStackCount="1" genTime="10000" autoGen="0" objectKey="14" propList="&apos;Name&apos; &apos;음산한 판토 마법사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57573" Pos="257.82#135.45#199.90" maxStackCount="1" genTime="10000" autoGen="0" objectKey="14" propList="&apos;Name&apos; &apos;음산한 판토 마법사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1144,7 +1144,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57570" Pos="-283.32#236.84#907.09" genCount="3" maxStackCount="3" genTime="15000" objectKey="8" propList="&apos;Name&apos; &apos;음산한 판토 길잡이&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57570" Pos="-283.32#236.84#907.09" genCount="3" maxStackCount="3" genTime="15000" objectKey="8" propList="&apos;Name&apos; &apos;음산한 판토 길잡이&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1161,7 +1161,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57570" Pos="-236.45#236.84#768.94" genCount="3" maxStackCount="3" genTime="15000" objectKey="9" propList="&apos;Name&apos; &apos;음산한 판토 길잡이&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57570" Pos="-236.45#236.84#768.94" genCount="3" maxStackCount="3" genTime="15000" objectKey="9" propList="&apos;Name&apos; &apos;음산한 판토 길잡이&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1178,7 +1178,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57570" Pos="-91.63#236.84#901.81" genCount="3" maxStackCount="3" genTime="15000" objectKey="10" propList="&apos;Name&apos; &apos;음산한 판토 길잡이&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57570" Pos="-91.63#236.84#901.81" genCount="3" maxStackCount="3" genTime="15000" objectKey="10" propList="&apos;Name&apos; &apos;음산한 판토 길잡이&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1195,7 +1195,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57570" Pos="-26.06#236.84#758.12" genCount="3" maxStackCount="3" genTime="15000" objectKey="11" propList="&apos;Name&apos; &apos;음산한 판토 길잡이&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57570" Pos="-26.06#236.84#758.12" genCount="3" maxStackCount="3" genTime="15000" objectKey="11" propList="&apos;Name&apos; &apos;음산한 판토 길잡이&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1212,7 +1212,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400662" Pos="294.53#236.84#774.45" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="12" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400662" Pos="294.53#236.84#774.45" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="12" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1229,7 +1229,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400662" Pos="5.05#236.84#594.38" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="13" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400662" Pos="5.05#236.84#594.38" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="13" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1246,7 +1246,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400662" Pos="77.16#236.84#946.14" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="14" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400662" Pos="77.16#236.84#946.14" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="14" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1263,7 +1263,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400662" Pos="22.72#236.84#710.68" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="15" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400662" Pos="22.72#236.84#710.68" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="15" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1280,7 +1280,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400662" Pos="-340.82#236.84#808.74" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="16" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400662" Pos="-340.82#236.84#808.74" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="16" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1297,7 +1297,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400662" Pos="-304.21#236.84#985.84" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="17" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400662" Pos="-304.21#236.84#985.84" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="17" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1314,7 +1314,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400662" Pos="-94.28#236.84#592.20" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="18" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400662" Pos="-94.28#236.84#592.20" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="18" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1331,7 +1331,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400662" Pos="248.13#236.84#900.66" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="19" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400662" Pos="248.13#236.84#900.66" range="50" maxStackCount="4" genTime="10000" autoGen="0" objectKey="19" propList="&apos;Name&apos; &apos;음산한 초록 어패리션&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1521,7 +1521,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57574" Pos="-566.61#338.02#-662.80" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="3" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57574" Pos="-566.61#338.02#-662.80" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="3" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1538,7 +1538,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57574" Pos="-684.08#338.02#-505.23" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="4" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57574" Pos="-684.08#338.02#-505.23" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="4" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1555,7 +1555,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57574" Pos="-727.88#338.02#-381.37" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="5" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57574" Pos="-727.88#338.02#-381.37" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="5" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1572,7 +1572,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57574" Pos="-634.51#338.02#-276.99" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="6" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57574" Pos="-634.51#338.02#-276.99" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="6" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1589,7 +1589,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57574" Pos="-512.43#338.02#-243.67" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="7" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57574" Pos="-512.43#338.02#-243.67" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="7" propList="&apos;Name&apos; &apos;음산한 판토 전사&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1606,7 +1606,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47476" Pos="-380.22#338.02#-545.54" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="8" propList="&apos;Name&apos; &apos;음산한 판토 암살자&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47476" Pos="-380.22#338.02#-545.54" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="8" propList="&apos;Name&apos; &apos;음산한 판토 암살자&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1623,7 +1623,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47476" Pos="-327.18#338.02#-465.51" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="9" propList="&apos;Name&apos; &apos;음산한 판토 암살자&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47476" Pos="-327.18#338.02#-465.51" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="9" propList="&apos;Name&apos; &apos;음산한 판토 암살자&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1640,7 +1640,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47476" Pos="-307.45#338.02#-392.53" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="10" propList="&apos;Name&apos; &apos;음산한 판토 암살자&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47476" Pos="-307.45#338.02#-392.53" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="10" propList="&apos;Name&apos; &apos;음산한 판토 암살자&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1657,7 +1657,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47476" Pos="-337.38#338.02#-299.74" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="11" propList="&apos;Name&apos; &apos;음산한 판토 암살자&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47476" Pos="-337.38#338.02#-299.74" range="70" maxStackCount="1" genTime="10000" autoGen="0" objectKey="11" propList="&apos;Name&apos; &apos;음산한 판토 암살자&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1863,6 +1863,15 @@
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="clearPoint">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_SSN_ADD" Client="NO" UseSleep="NO">
+                                <Str Str="ssn_klapeda"/>
+                                <Str Str="REQUESTMISSION_CLEAR2"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="FAILED">
@@ -1875,6 +1884,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+                                <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="QUIT"/>
                             </ToolScp>
@@ -2019,50 +2032,50 @@
                     </Event>
                 </StageEvents>
             </Stage>
-			<Stage Name="TimeOver">
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="Warning1">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3000"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-								<Str Str="10분 뒤 미션이 종료됩니다"/>
-								<Num Num="5"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="Warning2">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3300"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-								<Str Str="5분 뒤 미션이 종료됩니다"/>
-								<Num Num="5"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="TimeOver">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3600"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
+            <Stage Name="TimeOver">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Warning1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3000"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="10분 뒤 미션이 종료됩니다"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Warning2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3300"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="5분 뒤 미션이 종료됩니다"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="TimeOver">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
         </StageList>
         <EnterList>
             <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">

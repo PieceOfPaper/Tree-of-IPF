@@ -2,9 +2,18 @@
 function MIC_ON_INIT(addon, frame)
 
 	addon:RegisterMsg('CHANGE_CLIENT_SIZE', 'MIC_SIZE_UPDATE');
+	addon:RegisterMsg('MOVE_ZONE', 'MIC_REMOVE_CONTEXT_MENU');
+
+	-- if mouse over, stop flow text during 2 seconds	
+	frame:SetEventScript(ui.MOUSEMOVE, "MIC_MOUSE_OVER");	
+
 	MIC_SIZE_UPDATE(frame);
 	RUN_MIC();
 
+end
+
+function MIC_REMOVE_CONTEXT_MENU()
+	ui.CloseAllContextMenu()
 end
 
 function MIC_SIZE_UPDATE(frame)
@@ -31,6 +40,54 @@ function RUN_MIC()
 
 	frame:RunUpdateScript("PROCESS_MIC", 0.01, 0, 0, 1);
 end
+
+function SHOW_PC_CONTEXT_MENU_BY_NAME(familyName)
+	if familyName == nil then
+		return nil
+	end
+
+	local pc = GetMyPCObject()
+	local myName = TryGetProp(pc, 'Name')
+	if myName ~= nil and myName == familyName then
+		return nil
+	end
+
+	local context = ui.CreateContextMenu("PC_CONTEXT_MENU", familyName, 0, 0, 170, 100);
+	if session.world.IsIntegrateServer() == false then
+		-- whisper 
+		local strScp = string.format("ui.WhisperTo('%s')", familyName);		
+		ui.AddContextMenuItem(context, ClMsg("WHISPER"), strScp);
+
+		-- invite party
+		strScp = string.format("PARTY_INVITE(\"%s\")", familyName);
+		ui.AddContextMenuItem(context, ClMsg("PARTY_INVITE"), strScp);
+
+		-- invite guild
+		if AM_I_LEADER(PARTY_GUILD) == 1 then
+			strScp = string.format("GUILD_INVITE(\"%s\")", familyName);
+			ui.AddContextMenuItem(context, ClMsg("GUILD_INVITE"), strScp);
+		end
+
+		-- register friend
+		strScp = string.format("friends.RequestRegister('%s')", familyName);
+		ui.AddContextMenuItem(context, ScpArgMsg("ReqAddFriend"), strScp);
+
+		-- block
+		strScp = string.format("CHAT_BLOCK_MSG('%s')", familyName);
+		ui.AddContextMenuItem(context, ScpArgMsg("FriendBlock"), strScp)
+
+		-- report auto bot
+		strScp =  string.format("REPORT_AUTOBOT_MSGBOX(\"%s\")", familyName)
+		ui.AddContextMenuItem(context, ScpArgMsg("Report_AutoBot"), strScp);
+
+		-- cancel
+		ui.AddContextMenuItem(context, ScpArgMsg("Cancel"), "None");
+	end
+
+	ui.OpenContextMenu(context);
+	return context;
+end
+
 
 function CHANGE_LINKTEXT_COLOR(micText, changeColor)
 	local filterByColorTag = StringSplit(micText, "{#");
@@ -65,6 +122,10 @@ function MIC_PUSH(frame, mic)
 	local ctrlName = "T_" .. index;
 	local ctrl = frame:CreateControl("richtext", ctrlName, startX, 0, 10, 20);
 	
+	local rBtnHandler = string.format("SHOW_PC_CONTEXT_MENU_BY_NAME('%s')", mic:GetName())
+	ctrl:SetEventScript(ui.RBUTTONDOWN, rBtnHandler)
+	ctrl:SetEventScript(ui.MOUSEMOVE, "MIC_MOUSE_OVER")
+
 	ctrl:ShowWindow(1);
 	ctrl = tolua.cast(ctrl, "ui::CRichText");
 	ctrl:SetUseOrifaceRect(true);
@@ -81,12 +142,16 @@ function MIC_PUSH(frame, mic)
 
 	local txt = string.format("{s20}{ol}{#FFFFFF}[%s] : %s", mic:GetName(), micText);
 
+	--[[ all mic can be enable hit: rBtnDown->context menu function
 	local slflag = string.find(txt,'a SL%a')
+
 	if slflag == nil then
 		ctrl:EnableHitTest(0)
 	else
 		ctrl:EnableHitTest(1)
 	end
+	]]--
+	ctrl:EnableHitTest(1)
 
 	ctrl:SetText(txt);
 
@@ -97,6 +162,9 @@ end
 
 function PROCESS_MIC(frame, totalTime)
 
+	if ui.IsStopFlowText() == 1 then
+		return 1
+	end
 	
 	local showMicFrameValue = config.GetXMLConfig("ShowMicFrame")
 	
@@ -155,4 +223,6 @@ function PROCESS_MIC(frame, totalTime)
 	return 1;
 end
 
-
+function MIC_MOUSE_OVER()
+	ui.StopMicFlowText();
+end

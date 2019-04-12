@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by anifac (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="76" attachActor="None" attachNode="Dummy_deadbody" particleName="I_stone015_mash" hiddenObj="false" useAttach="false" scale="0.3"/>
+	<Particle frame="76" attachActor="None" attachNode="Dummy_deadbody" particleName="F_burstup007_smoke2" hiddenObj="false" useAttach="false" scale="1"/>
+	<Particle frame="96" attachActor="None" attachNode="Dummy_deadbody" particleName="F_ground057" hiddenObj="false" useAttach="true" scale="3"/>
+	<Particle frame="96" attachActor="None" attachNode="Dummy_deadbody" particleName="I_stone015_mash" hiddenObj="false" useAttach="true" scale="0.5"/>
+	<Particle frame="96" attachActor="None" attachNode="Dummy_deadbody" particleName="F_ground016_light" hiddenObj="false" useAttach="true" scale="3"/>
+	<Particle frame="96" attachActor="None" attachNode="Dummy_deadbody" particleName="I_stone006_mash" hiddenObj="false" useAttach="true" scale="1"/>
+	<Particle frame="96" attachActor="None" attachNode="Dummy_deadbody" particleName="F_smoke090" hiddenObj="false" useAttach="true" scale="8"/>
+	<AfterImage frame="77" term="0" blendTime="0" r="150" g="150" b="150" a="150"/>
+	<Sound frame="4.00" soundFile="mon_denoptic_skl_4"/>
+	<Sound frame="65.00" soundFile="mon_voice_helgasercle_7"/>
+	<Sound frame="68.00" soundFile="mon_hori_warrior_atk"/>
+	<Sound frame="69.00" soundFile="skl_eff_atk_sperad"/>
+	<Sound frame="94.00" soundFile="skl_eff_stoneunderground_2"/>
+</ActionDesc>

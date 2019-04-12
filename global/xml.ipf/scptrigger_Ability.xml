@@ -410,6 +410,28 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="Murmillo1">
+		<TriggerList Act="BeforeAttacked">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="0" UseFunc="1" FuncTxt="return -(obj.Level * 10)"/>
+					</ToolScp>
+				</ExecList>
+				<TgtCondList>
+          <ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+            <Num Num="1" UseFunc="1" FuncTxt="return 25"/>
+          </ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Murmillo1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+				</TgtCondList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="Peltasta8">
 		<TriggerList Act="AfterHitScript_Attack">
 			<Trigger>

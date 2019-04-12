@@ -483,6 +483,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 			objIsClone= true;
 		end
 	else
+	--존 이동시 아이템에 의한 스킬레벨이 툴팁에 적용되지 않음
 		obj = GetIES(abil:GetObject());
 		tooltipStartLevel = obj.Level;
 	end
@@ -698,7 +699,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 	end
 
 	if totalLevel > 0 and pcAbilCnt > 0 then
-		ADD_SPEND_SKILL_LV_DESC_TOOLTIP(skillFrame:GetChild('SKILL_CAPTION_'..tostring(totalLevel)), pcAbilList)
+		ADD_SPEND_SKILL_LV_DESC_TOOLTIP(skillFrame:GetChild('SKILL_CAPTION_'..tostring(totalLevel)), pcAbilList, pcAbilCnt)
 	end
 
 	if pcAbilCnt > 0 then
@@ -813,11 +814,29 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
 		descFont = DESC_NEXTLV_FONTNAME
 	end
 	
-	if TryGetProp(obj, 'BasicSP') ~= nil and TryGetProp(obj, 'LvUpSpendSp') ~= nil then
-		sp = obj.BasicSP + obj.LvUpSpendSp * (lv - 1)
+	if TryGetProp(obj, 'BasicSP') ~= nil and TryGetProp(obj, 'LvUpSpendSp') ~= nil and TryGetProp(obj, 'Level') ~= nil and TryGetProp(obj, 'SpendSP') ~= nil then
+		-- lvUpSpendSP의 루아에서의 float 정밀도를 수정하기위해 소수 5자리에서 반올림한다.
+		-- 값을 print로 찍어보면 원래 값과 같지만.. 서버와 계산값을 맞출려면 이렇게 해야 한다.
+		local lvUpSpendSpRound = math.floor((obj.LvUpSpendSp * 10000) + 0.5) / 10000
+		
+		if noHave == true then
+			sp = obj.BasicSP + lvUpSpendSpRound * (lv - obj.Level)
+		else
+			sp = obj.BasicSP + lvUpSpendSpRound * (obj.Level-1 + (lv - obj.Level))
+		end
+		
 	end
+	sp = math.floor(sp)
 	if TryGetProp(obj, 'CoolDown') ~= nil then
 		coolTime = obj.BasicCoolDown * 0.001
+	end
+	
+	local pc = GetMyPCObject();
+
+	if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
+		coolTime = coolTime * 0.8;
+	elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+	    coolTime = coolTime * 1.2;
 	end
 
 	-- data setting
@@ -941,8 +960,8 @@ function ABILITY_DESC_TOOLTIP(frame, abilCls, index, ypos, pc, pcAbilIES)
 	return abilCtrlSet:GetY() + abilCtrlSet:GetHeight() + 10, pcAbilIES
 end
 
-function ADD_SPEND_SKILL_LV_DESC_TOOLTIP(ctrlSet, pcAbilList)
-	if #pcAbilList < 1 then
+function ADD_SPEND_SKILL_LV_DESC_TOOLTIP(ctrlSet, pcAbilList, pcAbilCnt)
+	if pcAbilCnt < 1 then
 		return
 	end
 
@@ -956,12 +975,12 @@ function ADD_SPEND_SKILL_LV_DESC_TOOLTIP(ctrlSet, pcAbilList)
 	local coolText = ctrlSet:GetChild('cool_text')
 	local ADD_ABILITY_STYLE = ctrlSet:GetUserConfig('ADD_ABILITY_STYLE')
 
-	for i = 0, #pcAbilList do
+	for i = 0, pcAbilCnt - 1 do
 		local addSpendStr = pcAbilList[i].AddSpend
 		if pcAbilList[i].ActiveState == 1 and addSpendStr ~= 'None' then
 			local addSpendList = GET_ADD_SPEND_LIST(addSpendStr)
 
-			for i = 0, #addSpendList, 2 do	-- AddSpendStr은 prop/value pair
+			for i = 0, #addSpendList, 2 do	-- AddSpendStr? prop/value pair
 				local addValueStr = addSpendList[i + 1]
 				local addValue = tonumber(addValueStr)
 		

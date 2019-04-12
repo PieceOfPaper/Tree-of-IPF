@@ -9,7 +9,7 @@
 	<option closebutton="false"/>
 	<animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
 	<layer layerlevel="150"/>
-	<userconfig RESULT_EFT="None" RESULT_EFT_SCALE="7.0"/>
+	<userconfig RESULT_EFT="I_cardbattle_end_win" RESULT_EFT_SCALE="7.0"/>
 	<controls>
 		<picture name="pic_bg" rect="0 0 720 436" margin="0 0 0 0" layout_gravity="left top" changecursor="false" hittest="false" image="test_card_result_bg" stretch="false"/>
 		<richtext name="txt_condition" rect="0 0 545 64" margin="96 166 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st42}%s{/}" maxwidth="0" param1="value" param1_def="WIN CONDITION : DETERMINE BY LENGTH OF NAME " resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>

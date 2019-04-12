@@ -1,4 +1,4 @@
--- skilltree.lua
+ï»¿-- skilltree.lua
 
 function SKILLTREE_ON_INIT(addon, frame)
 
@@ -21,6 +21,14 @@ function UI_TOGGLE_SKILLTREE()
 	end
 
 	ui.ToggleFrame('skilltree')
+
+end
+
+function SKILL_TREE_SET_TARGET_CHAR_ID(cid)
+
+	local frame = ui.GetFrame("skilltree");
+	frame:SetUserValue("TARGET_CID", cid);
+	SKILLTREE_OPEN(frame);
 
 end
 
@@ -73,7 +81,6 @@ end
 function MAKE_CLASS_INFO_LIST(frame)
 
 	local clslist, cnt  = GetClassList("Job");
-	local index = 0;
 
 	local canChangeJob = session.CanChangeJob();
 	local haveJobNameList = {};
@@ -89,11 +96,17 @@ function MAKE_CLASS_INFO_LIST(frame)
 
 	local grid = GET_CHILD_RECURSIVELY(frame, 'skill', 'ui::CGrid')
 	grid:SetForbidClose(true)
+	grid:RemoveAllChild();
+
+	local cid = frame:GetUserValue("TARGET_CID");
+	local pcSession = session.GetSessionByCID(cid);
+	local pcJobInfo = pcSession.pcJobInfo;
 
 	local lastclassCtrlcount = 0
-	-- ÇöÀç ¹è¿ö¼­ °¡Áö°íÀÖ´Â Á÷¾÷µé ±×·ÁÁÖ´Â ºÎºĞ
-	while 1 do
-		local jobID = session.GetHaveJobIdByIndex(index);  -- ÀÌ°Å ¾÷µ«ÀÌ¾ÈµÇ´Âµí???
+	local cnt = pcJobInfo:GetJobCount();
+
+	for i = 0 , cnt - 1 do
+		local jobID = pcJobInfo:GetJobByIndex(i);
 		if jobID == -1 then
 			break;
 		end
@@ -127,18 +140,18 @@ function MAKE_CLASS_INFO_LIST(frame)
 		local icon = CreateIcon(classSlot);
 		local iconname = cls.Icon;
 		icon:SetImage(iconname);
-
+		
 		local upCtrl = GET_CHILD(classCtrl, "upbtn", "ui::CButton");
 		--upCtrl:SetImage('skill_up_btn');
 		upCtrl:SetEventScript(ui.LBUTTONUP, "CLASS_PTS_UP");
 		upCtrl:SetEventScriptArgString(ui.LBUTTONUP, cls.ClassID);
 		upCtrl:SetOverSound('button_over');
-		local classLv = session.GetJobGrade(jobID);
+		local classLv = pcJobInfo:GetJobGrade(jobID);
 		upCtrl:SetEventScriptArgNumber(ui.LBUTTONUP, classLv);
 		upCtrl:SetClickSound("button_click_skill_up");
 		--upCtrl:ShowWindow(0);
 
-		-- Å¬·¡½º ·¾¾÷ÀÌ °¡´ÉÇÏ¸é upCtrlº¸¿©ÁÖ±â. Å×½ºÆ®¿ë
+		-- í´ë˜ìŠ¤ ë ™ì—…ì´ ê°€ëŠ¥í•˜ë©´ upCtrlë³´ì—¬ì£¼ê¸°. í…ŒìŠ¤íŠ¸ìš©
 		local curLv = session.GetUserConfig("CLASSUP_" .. cls.ClassName, 0);
 		if canChangeJob == false or curLv >= cls.MaxLevel * classLv then
 			upCtrl:ShowWindow(0);
@@ -147,10 +160,11 @@ function MAKE_CLASS_INFO_LIST(frame)
 		end
 		upCtrl:ShowWindow(0);
 
-		-- Å¬·¡½º ÀÌ¸§
+		-- í´ë˜ìŠ¤ ì´ë¦„
 		local nameCtrl = GET_CHILD(classCtrl, "name", "ui::CRichText");
 		nameCtrl:SetText("{@st41}".. cls.Name);
-		-- Å¬·¡½º ·¹º§ (¡Ú·Î Ç¥½Ã)
+
+		-- í´ë˜ìŠ¤ ë ˆë²¨ (â˜…ë¡œ í‘œì‹œ)
 		local levelCtrl = GET_CHILD(classCtrl, "level", "ui::CRichText");
 		local levelFont = frame:GetUserConfig("Font_Normal");
 		session.SetUserConfig("CLASSUP_" .. cls.ClassName, classLv);
@@ -166,9 +180,7 @@ function MAKE_CLASS_INFO_LIST(frame)
 
 		levelCtrl:SetText(startext);
 
-		index = index + 1;
-
-		-- ¾Æ·¡¿¡¼­ ÀüÁ÷°¡´ÉÇÑ Å¬·¡½º ±×¸±¶§ ÀÌ¹Ì ¹è¿îÅ¬·¡½º´Â ¿¹¿ÜÃ³¸®ÇÏ·Á°í haveJobNameList Ãß°¡ÇÔ
+		-- ì•„ë˜ì—ì„œ ì „ì§ê°€ëŠ¥í•œ í´ë˜ìŠ¤ ê·¸ë¦´ë•Œ ì´ë¯¸ ë°°ìš´í´ë˜ìŠ¤ëŠ” ì˜ˆì™¸ì²˜ë¦¬í•˜ë ¤ê³  haveJobNameList ì¶”ê°€í•¨
 		haveJobNameList[#haveJobNameList+1] = cls.ClassName;
 		haveJobGradeList[#haveJobGradeList+1] = classLv;
 
@@ -181,12 +193,12 @@ function MAKE_CLASS_INFO_LIST(frame)
 	detail:SetOffset(detail:GetOriginalX(),grid:GetY() + detailypos)
 end
 
--- ¼­¹ö¿¡ ÀüÁ÷ ¿äÃ»
+-- ì„œë²„ì— ì „ì§ ìš”ì²­
 function SCR_CHANGE_JOB(jobID)
 	packet.ReqChangeJob(jobID);
 end
 
--- Å¬·¡½º·¾ ¾÷±Û or ¹è¿ì±â
+-- í´ë˜ìŠ¤ë ™ ì—…ê¸€ or ë°°ìš°ê¸°
 function CLASS_PTS_UP(frame, control, clsID, level)
 
 	local clslist, cnt  = GetClassList("Job");
@@ -211,13 +223,15 @@ function CLASS_PTS_UP(frame, control, clsID, level)
 end
 
 function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack)
-	
-	local pc = GetMyPCObject();
+
+	frame = frame:GetTopParentFrame();	
+	local cid = frame:GetUserValue("TARGET_CID");
+	local pc = GetPCObjectByCID(cid);
 	if pc == nil then
 		return;
 	end
 
-	-- ¾Ö´Ï¸ŞÀÌ¼Ç ±â´É ³Ö¾îÁà¾ßÇÏ´Âµ¥ ±×°Ç UI±â´É Á¤¸®µÈÈÄ ³ªÁß¿¡...
+	-- ì• ë‹ˆë©”ì´ì…˜ ê¸°ëŠ¥ ë„£ì–´ì¤˜ì•¼í•˜ëŠ”ë° ê·¸ê±´ UIê¸°ëŠ¥ ì •ë¦¬ëœí›„ ë‚˜ì¤‘ì—...
 	session.SetUserConfig("SELECT_SKLTREE", jobID);
 	if isSkillInfoRollBack ~= 0 then
 		ROLLBACK_SKILL(frame);
@@ -225,15 +239,17 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack)
 	local parentFrame = frame:GetTopParentFrame();
 
 	local treelist = {};
-	GET_TREE_INFO_LIST(jobName, treelist);
+	GET_TREE_INFO_LIST(frame, jobName, treelist);
 
 	local grid = GET_CHILD_RECURSIVELY(parentFrame, "skill", "ui::CGrid");
 	
-	-- ¼±ÅÃÇÑ Á÷¾÷ ¾Æ·¡ È­»ìÇ¥ ±×·ÁÁÖ±â
-	local index = 0;
+	-- ì„ íƒí•œ ì§ì—… ì•„ë˜ í™”ì‚´í‘œ ê·¸ë ¤ì£¼ê¸°
+	local pcSession = session.GetSessionByCID(cid);
+	local pcJobInfo = pcSession.pcJobInfo;
 	local clslist, cnt  = GetClassList("Job");
-	while 1 do
-		local jobID = session.GetHaveJobIdByIndex(index);  -- ÀÌ°Å ¾÷µ«ÀÌ¾ÈµÇ´Âµí???
+	local jobCnt = pcJobInfo:GetJobCount();
+	for i = 0 , jobCnt - 1 do
+		local jobID = pcJobInfo:GetJobByIndex(i);
 		if jobID == -1 then
 			break;
 		end
@@ -254,8 +270,6 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack)
 				arrowPic:ShowWindow(0)
 			end
 		end
-
-		index = index + 1
 		
 	end
 	
@@ -269,7 +283,7 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack)
 
 	local posY = 0
 	for i = 1 , #treelist do
-		-- ¼­¹ö¿¡¼­ »ç¶÷µéÀÌ °¡Àå ¸¹ÀÌ ÂïÀº 1, 2µî ½ºÅ³
+		-- ì„œë²„ì—ì„œ ì‚¬ëŒë“¤ì´ ê°€ì¥ ë§ì´ ì°ì€ 1, 2ë“± ìŠ¤í‚¬
 		local topSkillName1 = ui.GetRedisHotSkillByRanking(jobName, 1);		
 		local topSkillName2 = ui.GetRedisHotSkillByRanking(jobName, 2);
 		posY = MAKE_SKILLTREE_ICON(detail, jobName, treelist, i, topSkillName1, topSkillName2);
@@ -284,8 +298,8 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack)
 	abilitysRtext:SetText(ScpArgMsg('JustAbility'))
 
 	-- Ability
-	-- Æ¯¼º ÀÖÀ¸¸é ¿©±â´Ù°¡ ±¸ºĞ¼± ÇÏ³ª Ãß°¡ÇÒ °Í
-	local abilList = session.GetAbilityList();
+	-- íŠ¹ì„± ìˆìœ¼ë©´ ì—¬ê¸°ë‹¤ê°€ êµ¬ë¶„ì„  í•˜ë‚˜ ì¶”ê°€í•  ê²ƒ
+	local abilList = pcSession.abilityList;
 	local abilListCnt = 0;
 	if abilList ~= nil then
 		abilListCnt = abilList:Count();
@@ -296,8 +310,8 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack)
 	if abilListCnt > 0 then
 
 		local abilindex = 0
-		for i=0, abilListCnt do
-			local abil = session.GetAbilityByIndex(i);			
+		for i=0, abilListCnt - 1 do			
+			local abil = abilList:Element(i);
 			if abil ~= nil then
 				local cls = GetIES(abil:GetObject());
 				local ableJobList = StringSplit(cls.Job, ';');
@@ -335,7 +349,7 @@ end
 
 function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
 
-	local row = (listindex-1) % 1; -- ¿¹Àü¿¡´Â ÇÑÁÙ¿¡ µÎ°³¾¿ º¸¿©Áá´Ù. /1À» 2·Î ¹Ù²Ù¸é ´Ù½Ã º¹±¸µÊ
+	local row = (listindex-1) % 1; -- ì˜ˆì „ì—ëŠ” í•œì¤„ì— ë‘ê°œì”© ë³´ì—¬ì¤¬ë‹¤. /1ì„ 2ë¡œ ë°”ê¾¸ë©´ ë‹¤ì‹œ ë³µêµ¬ë¨
 	local col = math.floor((listindex-1) / 1);
 
 	local skilltreeframe = ui.GetFrame('skilltree')
@@ -344,12 +358,12 @@ function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
 	local xBetweenMargin = 10
 	local yBetweenMargin = 10
 
-local classCtrl = detail:CreateOrGetControlSet('ability_set', 'ABIL_'..abilClass.ClassName, 10 + (CTL_WIDTH + xBetweenMargin) * row, posY + 20 + (CTL_HEIGHT + yBetweenMargin) * col);
+	local classCtrl = detail:CreateOrGetControlSet('ability_set', 'ABIL_'..abilClass.ClassName, 10 + (CTL_WIDTH + xBetweenMargin) * row, posY + 20 + (CTL_HEIGHT + yBetweenMargin) * col);
 	classCtrl:ShowWindow(1);
-
-    -- Ç×»ó È°¼ºÈ­ µÈ Æ¯¼ºÀº Æ¯¼º È°¼ºÈ­ ¹öÆ°À» ¾Èº¸¿©ÁØ´Ù.
+	
+    -- í•­ìƒ í™œì„±í™” ëœ íŠ¹ì„±ì€ íŠ¹ì„± í™œì„±í™” ë²„íŠ¼ì„ ì•ˆë³´ì—¬ì¤€ë‹¤.
 	if abilClass.AlwaysActive == 'NO' then
-		-- Æ¯¼º È°¼ºÈ­ ¹öÆ°
+		-- íŠ¹ì„± í™œì„±í™” ë²„íŠ¼
 		local activeImg = GET_CHILD(classCtrl, "activeImg", "ui::CPicture");
 	    activeImg:EnableHitTest(1);
 	    activeImg:SetEventScript(ui.LBUTTONUP, "TOGGLE_ABILITY_ACTIVE");
@@ -366,7 +380,7 @@ local classCtrl = detail:CreateOrGetControlSet('ability_set', 'ABIL_'..abilClass
 	    activeImg:ShowWindow(1);
 	end
 	
-	-- Æ¯¼º ¾ÆÀÌÄÜ
+	-- íŠ¹ì„± ì•„ì´ì½˜
 	local classSlot = GET_CHILD(classCtrl, "slot", "ui::CSlot");
 	local icon = CreateIcon(classSlot);	
 	icon:SetImage(abilClass.Icon);
@@ -376,11 +390,11 @@ local classCtrl = detail:CreateOrGetControlSet('ability_set', 'ABIL_'..abilClass
 	local abilIES = GetAbilityIESObject(pc, abilClass.ClassName);
 	icon:SetTooltipIESID(GetIESGuid(abilIES));
 
-	-- Æ¯¼º ÀÌ¸§
+	-- íŠ¹ì„± ì´ë¦„
 	local nameCtrl = GET_CHILD(classCtrl, "abilName", "ui::CRichText");
 	nameCtrl:SetText("{@st41}{s16}".. abilClass.Name);
 
-	-- Æ¯¼º ·¹º§
+	-- íŠ¹ì„± ë ˆë²¨
 	local abilLv = abilIES.Level;
 
 	local levelCtrl = GET_CHILD(classCtrl, "abilLevel", "ui::CRichText");
@@ -417,7 +431,7 @@ function TOGGLE_ABILITY_ACTIVE(frame, control, abilName, abilID)
 		return;
 	end
 
-	-- ÀÌÆ¯¼º¿¡ ÇØ´ç ½ºÅ³À» ½ÃÀüÁßÀÌ¸é on/off¸¦ ÇÏÁö ¸øÇÏ°Ô ÇÑ´Ù.
+	-- ì´íŠ¹ì„±ì— í•´ë‹¹ ìŠ¤í‚¬ì„ ì‹œì „ì¤‘ì´ë©´ on/offë¥¼ í•˜ì§€ ëª»í•˜ê²Œ í•œë‹¤.
 	if abilName == "Corsair7" and 1 == geClientSkill.MyActorHasCmd('HOOKEFFECT') then
 		return;
 	end
@@ -427,9 +441,13 @@ function TOGGLE_ABILITY_ACTIVE(frame, control, abilName, abilID)
 end
 
 
-function GET_TREE_INFO_LIST(jobName, treelist)
+function GET_TREE_INFO_LIST(frame, jobName, treelist)
 
-	local pc = GetMyPCObject();
+	local cid = frame:GetUserValue("TARGET_CID");
+	local pcSession = session.GetSessionByCID(cid);
+	local skillList = pcSession.skillList;
+	
+	local pc = GetPCObjectByCID(cid);
 	local clslist, cnt  = GetClassList("SkillTree");
 	local index = 1;
 	while 1 do
@@ -439,7 +457,9 @@ function GET_TREE_INFO_LIST(jobName, treelist)
 			break;
 		end
 		
-		if 0 < GET_SKILLTREE_MAXLV(pc, jobName, cls) then
+		local maxLv = GET_SKILLTREE_MAXLV(pc, jobName, cls);
+
+		if 0 < maxLv then
 			treelist[index] = {};
 			local info = treelist[index];
 			info["class"] = cls;
@@ -447,7 +467,7 @@ function GET_TREE_INFO_LIST(jobName, treelist)
 			local lv = 0;
 			local obj = nil;
 			local dbLv = 0;
-			local skl = session.GetSkillByName(cls.SkillName)
+			local skl = skillList:GetSkillByName(cls.SkillName)
 			if skl ~= nil then
 				obj = GetIES(skl:GetObject());
 				lv = obj.Level;
@@ -501,7 +521,7 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance, EnableCompanion)
 		shareBtn = tolua.cast(shareBtn, "ui::CPicture");
 		shareBtn:SetTextTooltip(tooltipText..ScpArgMsg("EquipAll"));				
 		return
-	end
+	end	
 	
 	local stancelist, stancecnt = GetClassList("Stance");	
 	for word in string.gmatch(reqstance, "%a+")do
@@ -514,14 +534,14 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance, EnableCompanion)
 	
 	for i = 0, stancecnt -1 do
 		local stance = GetClassByIndexFromList(stancelist, i)
-			local index = string.find(reqstance, stance.ClassName)
-		--½ºÅÄ½º´Â TwoHandBowÀÎµ¥.. ¼è³úÀÌ¸§ÀÌ Bow¶ó¼­ À§¿¡ ½ºÆ®¸µÆÄÀÎµå¿¡ °É¸²..
-		--¼è³úÀÌ¸§À» º¯°æÇÏ¸é µ¥ÀÌÅÍÀÛ¾÷ÀÚµéÀÌ °íÅë½º·¯¿ì´Ï.. ¿¹¿Ü¸¦ µĞ´Ù.. ÁøÂ¥ ¸ÁÇÑ ±¸Á¶ÀÓ..
+		local index = string.find(reqstance, stance.ClassName)
+		--ìŠ¤íƒ ìŠ¤ëŠ” TwoHandBowì¸ë°.. ì‡ ë‡Œì´ë¦„ì´ Bowë¼ì„œ ìœ„ì— ìŠ¤íŠ¸ë§íŒŒì¸ë“œì— ê±¸ë¦¼..
+		--ì‡ ë‡Œì´ë¦„ì„ ë³€ê²½í•˜ë©´ ë°ì´í„°ì‘ì—…ìë“¤ì´ ê³ í†µìŠ¤ëŸ¬ìš°ë‹ˆ.. ì˜ˆì™¸ë¥¼ ë‘”ë‹¤.. ì§„ì§œ ë§í•œ êµ¬ì¡°ì„..
 		
 		if (reqstance == "TwoHandBow") and (stance.ClassName == "Bow") then
 			index = nil;
 		end
-			if index ~= nil then
+		if index ~= nil then
 			local index = string.find(stance.ClassName, "Artefact")
 			if index == nil then
 				if stance.UseSubWeapon == "NO" then
@@ -540,8 +560,8 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance, EnableCompanion)
 						subWeaponName[subSum] = stance.Name
 						subSum = subSum + 1
 					end
+				end
 			end
-	end
 		end
 	end
 	
@@ -562,7 +582,7 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance, EnableCompanion)
 		--shareBtn:SetTextTooltip(subWeaponName[i]);	
 		iconCount = iconCount + 1
 	end
-	
+
 	if iconCount > 0 then 
 		local compainonindex = 0		
 		if compainon ~= 0 then
@@ -571,7 +591,7 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance, EnableCompanion)
 		local shareBtn = reqstancectrl:CreateControl("picture", "iconTooltip", 100, 37, (compainonindex + iconCount)*20, 20)
 		shareBtn = tolua.cast(shareBtn, "ui::CPicture");
 		shareBtn:SetTextTooltip(tooltipText);	
-	end	
+	end
 	
 end
 
@@ -585,8 +605,12 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 	local lv = info["lv"];
 	local statlv = info["statlv"];
 	local totallv = lv + statlv;
-
-	local skl = session.GetSkillByName(cls.SkillName)
+	
+	local cid = frame:GetUserValue("TARGET_CID");
+	local pcSession = session.GetSessionByCID(cid);
+	local skillList = pcSession.skillList;
+	
+	local skl = skillList:GetSkillByName(cls.SkillName)
 	if skl ~= nil then
 		sklObj = GetIES(skl:GetObject());	
 		if sklObj ~= nil then 
@@ -596,11 +620,11 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 
 	local sklBM = math.abs(sklDBLevel - lv)
 
-	local pc = GetMyPCObject();
+	local pc = GetPCObjectByCID(cid);
 	local maxlv = GET_SKILLTREE_MAXLV(pc, jobName, cls);
 	local remainstat = GET_REMAIN_SKILLTREE_PTS(treelist);
 
-	local row = (listindex-1) % 1; -- ¿¹Àü¿¡´Â ÇÑÁÙ¿¡ µÎ°³¾¿ º¸¿©Áá´Ù. /1À» 2·Î ¹Ù²Ù¸é ´Ù½Ã º¹±¸µÊ
+	local row = (listindex-1) % 1; -- ì˜ˆì „ì—ëŠ” í•œì¤„ì— ë‘ê°œì”© ë³´ì—¬ì¤¬ë‹¤. /1ì„ 2ë¡œ ë°”ê¾¸ë©´ ë‹¤ì‹œ ë³µêµ¬ë¨
 	local col = math.floor((listindex-1) / 1);
 
 	local skilltreeframe = ui.GetFrame('skilltree')
@@ -609,7 +633,7 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 	local xBetweenMargin = 5
 	local yBetweenMargin = 10
 
-local skillCtrl = frame:CreateOrGetControlSet('skilltreeIcon', 'classCtrl_'..cls.ClassName, 10 + (CTL_WIDTH + xBetweenMargin) * row, 50 + (CTL_HEIGHT + yBetweenMargin) * col);
+	local skillCtrl = frame:CreateOrGetControlSet('skilltreeIcon', 'classCtrl_'..cls.ClassName, 10 + (CTL_WIDTH + xBetweenMargin) * row, 50 + (CTL_HEIGHT + yBetweenMargin) * col);
 	skillCtrl:ShowWindow(1);
 	skillCtrl:SetUserValue("JOBNAME", jobName);
 	--skillCtrl:EnableScrollBar(0)
@@ -620,7 +644,7 @@ local skillCtrl = frame:CreateOrGetControlSet('skilltreeIcon', 'classCtrl_'..cls
 	local iconname = "icon_" .. typeclass.Icon;
 	icon:SetImage(iconname);
 	
-	--½ºÅ©·ÑÀÌ ÀÌ À§¿¡¼­ ¾È¿òÁ÷¿©¼­ ÇØÁá½À´Ï´Ù.
+	--ìŠ¤í¬ë¡¤ì´ ì´ ìœ„ì—ì„œ ì•ˆì›€ì§ì—¬ì„œ í•´ì¤¬ìŠµë‹ˆë‹¤.
 	local bggroupbox = GET_CHILD(skillCtrl, "slot_bg", "ui::CGroupBox");
 	
 	bggroupbox:EnableScrollBar(0);
@@ -641,7 +665,7 @@ local skillCtrl = frame:CreateOrGetControlSet('skilltreeIcon', 'classCtrl_'..cls
 
 	local reqstance = GET_CHILD(skillCtrl, "reqstance", "ui::CRichText");
 	reqstance:ShowWindow(0);
-
+	
 	local cooltime = GET_CHILD(skillCtrl, "cooltimeimg", "ui::CPicture")
 	cooltime:ShowWindow(0)
 	
@@ -655,16 +679,21 @@ local skillCtrl = frame:CreateOrGetControlSet('skilltreeIcon', 'classCtrl_'..cls
 		sptxt:ShowWindow(1);
 
 		if session.GetUserConfig("SKLUP_" .. cls.SkillName) == 0 then
-		sp:SetText("{@st66b}{s18}"..obj["SpendSP"].."{/}");
+			sp:SetText("{@st66b}{s18}"..obj["SpendSP"].."{/}");
 		else
-			local spendSP = obj["SpendSP"] + (math.floor(session.GetUserConfig("SKLUP_" .. cls.SkillName) * obj.LvUpSpendSp))
+			-- lvUpSpendSPì˜ ë£¨ì•„ì—ì„œì˜ float ì •ë°€ë„ë¥¼ ìˆ˜ì •í•˜ê¸°ìœ„í•´ ì†Œìˆ˜ 5ìë¦¬ì—ì„œ ë°˜ì˜¬ë¦¼í•œë‹¤.
+			-- ê°’ì„ printë¡œ ì°ì–´ë³´ë©´ ì›ë˜ ê°’ê³¼ ê°™ì§€ë§Œ.. ì„œë²„ì™€ ê³„ì‚°ê°’ì„ ë§ì¶œë ¤ë©´ ì´ë ‡ê²Œ í•´ì•¼ í•œë‹¤.
+			local lvUpSpendSpRound = math.floor((obj.LvUpSpendSp * 10000) + 0.5)/10000; 
+			
+			local spendSP = obj["BasicSP"] + ((lv-1) + session.GetUserConfig("SKLUP_" .. cls.SkillName)) * lvUpSpendSpRound
+			spendSP = math.floor(spendSP)
 			sp:SetText("{@st66b}{s18}"..spendSP.."{/}");
 		end
 		sptxt:SetText("{@st66b}".."SP.".."{/}");
 		timtext:ShowWindow(1);
 
 		if obj["CoolDown"] ~= 0 then
-		time = obj["CoolDown"] * 0.001
+			time = obj["CoolDown"] * 0.001
 		timtext:SetText("{@st66b}{s18}"..GET_TIME_TXT_TWO_FIGURES(time).."{/}");
 		else
 			timtext:SetText("{@st66b}{s18}"..ScpArgMsg("{Sec}","Sec", 0).."{/}");	
@@ -678,11 +707,16 @@ local skillCtrl = frame:CreateOrGetControlSet('skilltreeIcon', 'classCtrl_'..cls
 		sptxt:ShowWindow(1);
 		
 		local spendSP = 0;
+		-- lvUpSpendSPì˜ ë£¨ì•„ì—ì„œì˜ float ì •ë°€ë„ë¥¼ ìˆ˜ì •í•˜ê¸°ìœ„í•´ ì†Œìˆ˜ 5ìë¦¬ì—ì„œ ë°˜ì˜¬ë¦¼í•œë‹¤.
+		-- ê°’ì„ printë¡œ ì°ì–´ë³´ë©´ ì›ë˜ ê°’ê³¼ ê°™ì§€ë§Œ.. ì„œë²„ì™€ ê³„ì‚°ê°’ì„ ë§ì¶œë ¤ë©´ ì´ë ‡ê²Œ í•´ì•¼ í•œë‹¤.
+		local lvUpSpendSpRound = math.floor((dummyObj.LvUpSpendSp * 10000) + 0.5)/10000; 
+		
 		if session.GetUserConfig("SKLUP_" .. cls.SkillName) >= 1 then
-			spendSP = math.floor(dummyObj["BasicSP"] + ((session.GetUserConfig("SKLUP_" .. cls.SkillName) - 1) * dummyObj.LvUpSpendSp))
+			spendSP = dummyObj["BasicSP"] + (session.GetUserConfig("SKLUP_" .. cls.SkillName) - 1) * lvUpSpendSpRound 
 		else
-			spendSP = math.floor(dummyObj["BasicSP"] + ((session.GetUserConfig("SKLUP_" .. cls.SkillName)) * dummyObj.LvUpSpendSp))
+			spendSP =dummyObj["BasicSP"] +  session.GetUserConfig("SKLUP_" .. cls.SkillName) * lvUpSpendSpRound
 		end
+		spendSP = math.floor(spendSP)
 		sp:SetText("{@st66b}{s18}"..spendSP.."{/}");
 		sptxt:SetText("{@st66b}".."SP.".."{/}");
 
@@ -725,8 +759,8 @@ local skillCtrl = frame:CreateOrGetControlSet('skilltreeIcon', 'classCtrl_'..cls
 
 	if totallv >= maxlv then
 		if totallv - sklBM == maxlv then
-		upCtrl:SetImage('testlock_button');
-		upCtrl:SetTextTooltip(ScpArgMsg('NeedMoreRank'));
+			upCtrl:SetImage('testlock_button');
+			upCtrl:SetTextTooltip(ScpArgMsg('NeedMoreRank'));
 		end
 	else
 		upCtrl:SetTextTooltip(ScpArgMsg('SkillLevelUp'));
@@ -750,8 +784,8 @@ local skillCtrl = frame:CreateOrGetControlSet('skilltreeIcon', 'classCtrl_'..cls
 		leveltxt:ShowWindow(1);
 		if totallv >= maxlv then
 			if totallv - sklBM == maxlv then
-			levelFont = "{@st66b}{s18}";
-			skillCtrl:SetSkinName("skill_max");
+				levelFont = "{@st66b}{s18}";
+				skillCtrl:SetSkinName("skill_max");
 			end
 		else
 			skillCtrl:SetSkinName("bg_active");
@@ -862,7 +896,7 @@ function EXEC_COMMIT_SKILL()
 	local curJob = session.GetUserConfig("SELECT_SKLTREE", 0);
 	local ArgStr = string.format("%d", curJob);
 	local treelist = {};
-	GET_TREE_INFO_LIST(treename, treelist);
+	GET_TREE_INFO_LIST(frame, treename, treelist);
 
 	local isReq = 0;
 	local cnt = #treelist;
@@ -910,7 +944,7 @@ function ROLLBACK_SKILL(frame)
 	end
 
 	local treelist = {};
-	GET_TREE_INFO_LIST(treename, treelist);
+	GET_TREE_INFO_LIST(frame, treename, treelist);
 
 	local changed = 0;
 	local cnt = #treelist;
@@ -950,8 +984,8 @@ function SKL_PTS_UP(frame, control, clsID, level)
 	local curpts = session.GetUserConfig("SKLUP_" .. cls.SkillName, 0);
 	local skl = session.GetSkillByName(cls.SkillName)
 	if skl ~= nil then
-		obj = GetIES(skl:GetObject());		
-		if obj.LevelByDB ~= obj.Level then
+		obj = GetIES(skl:GetObject());	
+		if obj.LevelByDB ~= obj.Level then 
 			level = obj.LevelByDB;
 		end
 	end
@@ -959,7 +993,7 @@ function SKL_PTS_UP(frame, control, clsID, level)
 	local selectJobID = session.GetUserConfig("SELECT_SKLTREE", 0);
 	local jobName = GetClassByType("Job", selectJobID).ClassName;
 	local maxlv = GET_SKILLTREE_MAXLV(pc, jobName, cls);
-	
+
 	if maxlv <= curpts + level then
 		return;
 	end
@@ -971,7 +1005,8 @@ end
 
 function REFRESH_STAT_TEXT(frame, treelist)
 
-	local pc = GetMyPCObject();
+	local cid = frame:GetUserValue("TARGET_CID");
+	local pc = GetPCObjectByCID(cid);
 	local txtctrl = GET_CHILD_RECURSIVELY(frame,'PTS','ui::CRichText')
 	if treelist == nil then
 		txtctrl:SetText("");
@@ -1014,7 +1049,8 @@ function UPDATE_LEARING_ABIL_INFO(frame)
 	local nowLearingGBox = GET_CHILD(frame, 'nowLearingGBox','ui::CGroupBox')
 	nowLearingGBox:ShowWindow(0);
 
-	local pc = GetMyPCObject();
+	local cid = frame:GetUserValue("TARGET_CID");
+	local pc = GetPCObjectByCID(cid);
 	for i = 0, RUN_ABIL_MAX_COUNT do
 		local prop = "None";
 		if 0 == i then
@@ -1027,41 +1063,41 @@ function UPDATE_LEARING_ABIL_INFO(frame)
 			local ctr = nowLearingGBox:CreateOrGetControlSet("learing_abil_ctrl", "CTRLSET_" .. i, ui.LEFT, 0, 0, 0, 0, 0);
 			local abilClass = GetClassByType("Ability", pc[prop]);
 
-		if abilClass ~= nil then
+			if abilClass ~= nil then
 
 				local titlepicture = GET_CHILD(ctr, 'learningAbilPic','ui::CPicture')
 
-			local iconname = abilClass.Icon;
-			titlepicture:SetImage(iconname);
+				local iconname = abilClass.Icon;
+				titlepicture:SetImage(iconname);
 
 				local nowLearingRtxt = GET_CHILD(ctr, 'nowLearing','ui::CRichText')
 
-			local jobClsList, jobCnt = GetClassList('Job');
-			for i=0, jobCnt-1 do
-				local cls = GetClassByIndexFromList(jobClsList, i);
-				
-				local tempstr = 'Ability_' .. cls.EngName
-				
-				local clslist, cnt  = GetClassList(tempstr);
-				if clslist ~= nil then
-					local foundabilcls = GetClassByNameFromList(clslist, abilClass.ClassName);
-					if foundabilcls ~= nil then
+				local jobClsList, jobCnt = GetClassList('Job');
+				for i=0, jobCnt-1 do
+					local cls = GetClassByIndexFromList(jobClsList, i);
+					
+					local tempstr = 'Ability_' .. cls.EngName
+					
+					local clslist, cnt  = GetClassList(tempstr);
+					if clslist ~= nil then
+						local foundabilcls = GetClassByNameFromList(clslist, abilClass.ClassName);
+						if foundabilcls ~= nil then
 							ctr:SetTextByKey('clsName',cls.Name)
+						end
 					end
 				end
-			end
 
-			local abilIES = GetAbilityIESObject(pc, abilClass.ClassName);
+				local abilIES = GetAbilityIESObject(pc, abilClass.ClassName);
 
-			if abilIES ~= nil then
-				local abilLv = abilIES.Level + 1;
+				if abilIES ~= nil then
+					local abilLv = abilIES.Level + 1;
 					ctr:SetTextByKey('level',abilLv)
-			end
-			
+				end
+				
 				ctr:SetTextByKey('abilName',abilClass.Name)
 
 				local remainTimeRtxt = GET_CHILD(ctr, 'remainTime','ui::CRichText')
-			local sysTime = geTime.GetServerSystemTime();
+				local sysTime = geTime.GetServerSystemTime();
 				local propTime = "None";
 				if i == 0 then
 					propTime = "LearnAbilityTime";
@@ -1069,22 +1105,22 @@ function UPDATE_LEARING_ABIL_INFO(frame)
 					propTime = "LearnAbilityTime_" ..i;
 				end
 				local learnAbilTime = imcTime.GetSysTimeByStr(pc[propTime]);
-			local difSec = imcTime.GetDifSec(learnAbilTime, sysTime);
-			local min = math.floor(difSec / 60);
+				local difSec = imcTime.GetDifSec(learnAbilTime, sysTime);
+				local min = math.floor(difSec / 60);
 
-			if min < 0 then
-				min = 0;
-			end
+				if min < 0 then
+					min = 0;
+				end
 
-			remainTimeRtxt:SetTextByKey('remaintime',min + 1)
-			
-			local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
-			--timer:SetUpdateScript("UPDATE_LEARN_ABIL_TIME");
-			timer:SetUpdateScript("UPDATE_LEARING_ABIL_INFO");
-			timer:Stop();
-			timer:Start(1, 0);
-			--frame:SetUserValue("LEARN_ABIL_NAME", abilClass.Name);
-			--frame:SetUserValue("LEARN_ABIL_CLASSNAME", abilClass.ClassName);
+				remainTimeRtxt:SetTextByKey('remaintime',min + 1)
+				
+				local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
+				--timer:SetUpdateScript("UPDATE_LEARN_ABIL_TIME");
+				timer:SetUpdateScript("UPDATE_LEARING_ABIL_INFO");
+				timer:Stop();
+				timer:Start(1, 0);
+				--frame:SetUserValue("LEARN_ABIL_NAME", abilClass.Name);
+				--frame:SetUserValue("LEARN_ABIL_CLASSNAME", abilClass.ClassName);
 
 				ctr:SetUserValue("PROP_INDEX", i);
 			end

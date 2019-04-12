@@ -91,32 +91,44 @@ function WEAPONSWAP_ITEM_DROP(parent, ctrl, argStr, argNum)
 	end
 
 	local obj = GetIES(invItem:GetObject());
-	if	obj.DefaultEqpSlot ~= "RH" and obj.DefaultEqpSlot ~= "LH" then
-		return
-	end
+	if	obj.DefaultEqpSlot == "RH" or  obj.DefaultEqpSlot == "LH" or obj.DefaultEqpSlot == "RH LH" then
+		-- 슬롯은 좌우 두개므로
+		local offset = 2;
+		-- 일단 슬롯 위치가, 왼쪽오른쪽인지를 확인
+		if slot:GetSlotIndex() % offset == 0 then
+			
+			if obj.DefaultEqpSlot ~= "RH" and obj.DefaultEqpSlot ~= "RH LH" then
+				return;
+			end
+		end
 
-	-- 슬롯은 좌우 두개므로
-	local offset = 2;
-	-- 일단 슬롯 위치가, 왼쪽오른쪽인지를 확인
-	if slot:GetSlotIndex() % offset == 0 and
-		obj.DefaultEqpSlot ~= "RH" then
-		return;
-	end
+		if slot:GetSlotIndex() % offset == 1 and obj.DefaultEqpSlot ~= "LH" then
+			local pc = GetMyPCObject();
+			if pc == nil then
+				return;
+			end
 
-	if slot:GetSlotIndex() % offset == 1 and
-		obj.DefaultEqpSlot ~= "LH" then
-		return;
-	end
+			local clsType = TryGetProp(obj, "ClassType2");
+			if clsType ~= "Sword" then
+				return;
+			end
+
+			local abil = GetAbility(pc, "SubSword");
+			if abil == nil then
+				return;
+			end
+		end
 	
-	local bodyGbox = frame:GetChild("bodyGbox");
-	if nil == bodyGbox then
-		return;
-	end
+		local bodyGbox = frame:GetChild("bodyGbox");
+		if nil == bodyGbox then
+			return;
+		end
 	
-	-- 양손무기를 체크하자
-	TH_WEAPON_CHECK(obj, bodyGbox, slot:GetSlotIndex());
-	session.SetWeaponQuicSlot(slot:GetSlotIndex(), invItem:GetIESID());
-	SET_SLOT_ITEM_IMANGE(slot, invItem);
+		-- 양손무기를 체크하자
+		TH_WEAPON_CHECK(obj, bodyGbox, slot:GetSlotIndex());
+		session.SetWeaponQuicSlot(slot:GetSlotIndex(), invItem:GetIESID());
+		SET_SLOT_ITEM_IMANGE(slot, invItem);
+	end
 end
 
 function WEAPONSWAP_ITEM_POP(parent, ctrl)
@@ -228,8 +240,8 @@ function WEAPONSWAP_FAIL()
 	
 	session.SetWeaponSwap(0);
 	if 0 == lowDur then
-	ui.SysMsg(ClMsg("TryLater"));
-	WEAPONSWAP_SLOT_UPDATE();
+		ui.SysMsg(ClMsg("TryLater"));
+		WEAPONSWAP_SLOT_UPDATE();
 	end;
 end
 

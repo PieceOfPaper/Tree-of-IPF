@@ -161,7 +161,7 @@ function UPDATE_QUEST_WARP(actor, elapsedTime)
 
 	-- 워프하는중에 공격당하면 워프 캔슬
 	local fsmActor = GetMyActor();	
-	if fsmActor:IsHitState() == true or fsmActor:IsDead() == 1 then
+	if fsmActor:IsHitState() == 1 or fsmActor:IsDead() == 1 then
 		actor:ActorMoveStop();
 		movie.ShowModel(actor:GetHandleVal(), 1);
 		return;		
@@ -338,8 +338,18 @@ function UPDATE_INTE_WARP_READY(actor)
 		actor:SetFSMArg1(1);
 		actor:SetFSMTime(imcTime.GetAppTime());
 		local strArg = actor:GetFSMStrArg();
-		if strArg ~= 'None' then
-			ui.Chat(strArg);	
+		local sageWarp, sageWarpEnd= string.find(strArg,'friends.SageSkillGoFriend');
+		if nil ~= sageWarp then
+			local length = string.len(strArg);
+			local string = string.sub(strArg, sageWarpEnd+2, length-1)
+			local sList = StringSplit(string, ",");
+			if #sList >= 6 then
+				friends.SageSkillGoFriend(sList[1], tonumber(sList[2]), tonumber(sList[2]), tonumber(sList[2]), tonumber(sList[2]), tonumber(sList[2]));
+			end
+		else
+			if strArg ~= 'None' then
+				ui.Chat(strArg);	
+			end
 		end
 		s_warpEffect = 0;
 		return;

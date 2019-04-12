@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="teaminfo" x="0" y="0" width="470" height="609" create="open" barrackuse="true">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin=" "/>
@@ -21,7 +22,8 @@
 		<richtext name="richtext_2" margin="126 96 0 0" rect="0 0 142 31" format="{@st66b18}%s{/}" param1="value" param1_def="경험치" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		<groupbox name="gbox_buff" rect="0 0 450 817" margin="12 198 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
 		<groupbox name="test_arrow" rect="0 0 450 49" margin="0 180 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_arow"/>
-    <groupbox name="gbox_abil" margin="5 0 0 0" draw="false" rect="0 0 420 35" hittestbox="false" layout_gravity="left top" parent="gbox_buff" scrollbar="false" image="test_com_namebg"/>
+		<groupbox name="gbox_abil" margin="5 0 0 0" draw="false" rect="0 0 420 35" hittestbox="false" layout_gravity="left top" parent="gbox_buff" scrollbar="false" image="test_com_namebg"/>
 		<groupbox name="gbox_abil_list" margin="7 49 0 0" rect="0 0 416 313" hittestbox="false" skin="none" layout_gravity="left top" parent="gbox_buff" scrollbar="false"/>
+		<richtext name="abil_title" rect="0 0 100 30" margin="40 204 3 0 0" layout_gravity="left top" format="{@st66b18}%s" param1="value" param1_def="능력치"/>
 	</controls>
 </uiframe>

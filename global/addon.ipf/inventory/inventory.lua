@@ -9,6 +9,7 @@ function INVENTORY_ON_INIT(addon, frame)
     addon:RegisterOpenOnlyMsg('INV_ITEM_LIST_GET', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('INV_ITEM_ADD', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('INV_ITEM_REMOVE', 'INVENTORY_ON_MSG');
+	addon:RegisterMsg('INV_DRAW_MONEY_TEXT', 'INVENTORY_ON_MSG');
 	addon:RegisterOpenOnlyMsg('INV_ITEM_CHANGE_COUNT', 'INVENTORY_ON_MSG', 1);
 	addon:RegisterOpenOnlyMsg('LEVEL_UPDATE', 'INVENTORY_ON_MSG');
 	addon:RegisterOpenOnlyMsg('ITEM_PROP_UPDATE', 'INVENTORY_ITEM_PROP_UPDATE', 1);
@@ -73,12 +74,12 @@ function UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
 		INIT_INVEN_SLOT(slot)						
 
 		--거래목록 또는 상점 판매목록에서 올려놓은 아이템(슬롯) 표시 기능
-			local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
-			if remainInvItemCount ~= invItem.count then
-				slot:Select(1)
-			else
-				slot:Select(0)
-			end
+		local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
+		if remainInvItemCount ~= invItem.count then
+			slot:Select(1)
+		else
+			slot:Select(0)
+		end		
 end
 
 function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
@@ -96,7 +97,6 @@ function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 
 							--슬롯셋 없으면 만들기
 							local slotsetname = GET_SLOTSET_NAME(invItem.invIndex)
-
 							local slotsetnode = tree:FindByValue(treegroup, slotsetname);
 							if tree:IsExist(slotsetnode) == 0 then
 								MAKE_INVEN_SLOTSET_AND_TITLE(tree, treegroup, slotsetname, baseidcls);
@@ -205,8 +205,12 @@ function UPDATE_SHIHOUETTE_IMAGE(frame)
 	local shihouette = GET_CHILD(equipgroup, 'shihouette', "ui::CPicture");
 	local shihouette_imgname = ui.CaptureMyFullStdImage();
 	shihouette:SetImage(shihouette_imgname);
-
 	frame:Invalidate()
+
+	local genderFrame = ui.GetFrame('switchgender');
+	if nil ~= genderFrame and genderFrame:IsVisible() == 1 then
+		SWITCHGENDER_DRAW_CHANGE_STATE(genderFrame);
+	end
 end
 
 
@@ -246,7 +250,7 @@ end
 
 function INVENTORY_CLOSE()
 	local frame = ui.GetFrame("inventory");
-	frame:SetUserValue("MONCARDLIST_OPENED", 1);		-- 바로 다음에 있는 OPEN_MANAGED_CARDINVEN 함수에서 0으로 만들어준다.
+	frame:SetUserValue("MONCARDLIST_OPENED", 1);		-- 바로 다음에 있는 OPEN_MANAGED_CARDINVEN 함수에서 0으로 만들어준다.	
 	CHECK_BTN_OPNE_CARDINVEN(frame:GetChild('moncardGbox'));
 	EQUIP_CARDSLOT_BTN_CANCLE();
 
@@ -386,7 +390,7 @@ function TEMP_INV_ADD(frame,invIndex)
 		local slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
 		HIDE_EMPTY_SLOT(slotset)
 	end
-
+	
 	ADD_GROUP_BOTTOM_MARGIN(frame,tree)
 
 	local treegroupname = baseidcls.TreeGroup;
@@ -607,6 +611,10 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
 		DRAW_MEDAL_COUNT(frame)
 	end
 
+	if msg == 'INV_DRAW_MONEY_TEXT' then
+		DRAW_TOTAL_VIS(frame, 'invenZeny');
+	end
+
 end
 
 function INVENTORY_ITEM_PROP_UPDATE(frame, msg, itemGuid)
@@ -623,7 +631,6 @@ function INVENTORY_ITEM_PROP_UPDATE(frame, msg, itemGuid)
 	if itemSlot ~= nil then
 		local invItem = GET_PC_ITEM_BY_GUID(itemGuid);
 		AUTO_CAST(itemSlot);
-		local icon = itemSlot:GetIcon();
 		local eqpItemList = session.GetEquipItemList();
 		SET_EQUIP_SLOT_BY_SPOT(frame, invItem, eqpItemList, _INV_EQUIP_LIST_SET_ICON);
 		frame:Invalidate();
@@ -773,7 +780,7 @@ function INVENTORY_LIST_GET(frame, setpos, slotSetName)
 	--모든 리스트를 다 불러올 필요는 없다.
 
 	if slotSetName == nil then
-	INVENTORY_TOTAL_LIST_GET(frame, setpos);
+		INVENTORY_TOTAL_LIST_GET(frame, setpos);
 	end
 	
 	DRAW_TOTAL_VIS(frame, 'invenZeny');
@@ -786,18 +793,18 @@ function INVENTORY_LIST_GET(frame, setpos, slotSetName)
 			local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
 			local tree_box = GET_CHILD(group, 'treeGbox','ui::CGroupBox')
 			local tree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
-			local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
-
+			local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
+			
 			if slotSetName ~= nil then
 				if string.find(slotSet:GetName(), slotSetName) then
 					local func = _G[funcStr];
 					APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
 				end
 			else
-			local func = _G[funcStr];
-			APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+				local func = _G[funcStr];
+				APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+			end
 		end
-	end
 	end
 
 end
@@ -1278,7 +1285,13 @@ end
 function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 
 	-- 워프 주문서 예외처리. 실제 워프가 이루어질때 아이템이 소비되도록.
-	if itemobj.ClassName == 'Scroll_WarpKlaipe' or itemobj.ClassName == 'Scroll_Warp_quest' or itemobj.ClassName == 'Premium_WarpScroll'  then
+	local warpscrolllistcls = GetClass("warpscrolllist", itemobj.ClassName);
+	if warpscrolllistcls ~= nil then
+
+		if itemobj.LifeTime > 0 and itemobj.ItemLifeTimeOver > 0 then
+			ui.SysMsg(ScpArgMsg("LessThanItemLifeTime"));
+			return 1;
+		end
 
 		if true == invitem.isLockState then
 			ui.SysMsg(ClMsg("MaterialItemIsLock"));
@@ -1330,6 +1343,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 
 	if customRBtnScp ~= nil then
 		customRBtnScp(itemobj, object);
+		imcSound.PlaySoundEvent("icon_get_down");
 		return;
 	end
 	
@@ -1376,8 +1390,8 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 			end
 
 		return;
-	end
-	
+	end	
+
 	local mixerFrame = ui.GetFrame("mixer");
 	if mixerFrame:IsVisible() == 1 then
 
@@ -1386,7 +1400,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		MIXER_INVEN_RBOTTUNDOWN(itemobj, argNum);
 		return;
 	end
-	
+
 	if TRY_TO_USE_WARP_ITEM(invitem, itemobj) == 1 then
 		return;
 	end
@@ -1403,7 +1417,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	else
 		RUN_CLIENT_SCP(invitem);
 		local groupName = itemobj.ItemType;
-		if groupName == 'Consume' or groupName == 'Quest' then
+		if groupName == 'Consume' or groupName == 'Quest' or groupName == 'Cube' then
 			if itemobj.Usable == 'ITEMTARGET' then
 				local invFrame = ui.GetFrame('inventory');
 				USE_ITEMTARGET_ICON(invFrame, itemobj, argNum);
@@ -1620,7 +1634,7 @@ function GET_SLOT_INDEX_BY_INVINDEX(parentSlotSet, invIndex)
 end
 
 function INVENTORY_ON_DROP(frame, control, argStr, argNum)
-	
+
 
 	local liftIcon 				= ui.GetLiftIcon();
 	if liftIcon == nil then
@@ -1828,26 +1842,25 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 		return;
 	end
 
-	local imageName = GET_ITEM_ICON_IMAGE(class);
-	
+	local itemobj = GetIES(invItem:GetObject());	
+	local imageName = GET_EQUIP_ITEM_IMAGE_NAME(itemobj, 'Icon')
 	local itemType = invItem.type;
 	ICON_SET_ITEM_COOLDOWN(icon, itemType);	
 
 	icon:Set(imageName, 'Item', itemType, invItem.invIndex, invItem:GetIESID(), invItem.count);
 
 	ICON_SET_INVENTORY_TOOLTIP(icon, invItem, nil, class);
-	local itemobj = GetIES(invItem:GetObject());	
-
+	
 	if class.ItemType == 'Equip' then
 		local resultLifeTimeOver = IS_LIFETIME_OVER(itemobj);
 		local result = CHECK_EQUIPABLE(itemType);
 		if (result ~= "OK") or (resultLifeTimeOver == 1) then
-			icon:SetColorTone("FFFF0000");
+			icon:SetColorTone("FFFF0000");		
 		end
-	end
+	end	
 	
 	SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemobj, count);
-
+	
 	--아이템이 선택되었을 때의 스크립트를 선택한다
 	slot:SetEventScript(ui.RBUTTONDOWN, 'INVENTORY_RBDC_ITEMUSE');
 	slot:SetEventScriptArgString(ui.RBUTTONDOWN, imageName);
@@ -1963,12 +1976,11 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 	local slot = tolua.cast(child, 'ui::CSlot');
 	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
 	controlset:ShowWindow(0);
-
+	
 	if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
 		local icon = CreateIcon(slot);
 		local obj = GetIES(equipItem:GetObject());
-		local imageName = GET_ITEM_ICON_IMAGE(obj);
-
+		local imageName = GET_EQUIP_ITEM_IMAGE_NAME(obj, 'Icon');
 		if IS_DUR_ZERO(obj) == true  then
 			icon:SetColorTone("FF990000");
 		elseif IS_DUR_UNDER_10PER(obj) == true  then
@@ -1976,7 +1988,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 		else
 			icon:SetColorTone("FFFFFFFF");
 		end
-
+		
 		icon:Set(imageName, 'Item', equipItem.type, equipItem.equipSpot, equipItem:GetIESID());
 		iconFunc(slot, icon, equipItem, ...);
 
@@ -2148,9 +2160,9 @@ function INVENTORY_DELETE(itemIESID, itemType)
 	if cls.Destroyable == 'NO' or geItemTable.IsDestroyable(itemType) == false then
 		local obj = GetIES(invItem:GetObject());
 		if obj.ItemLifeTimeOver == 0 then
-		ui.AlarmMsg("ItemIsNotDestroy");
-		return;
-	end
+			ui.AlarmMsg("ItemIsNotDestroy");
+			return;
+		end
 	end
 
 	--if cls.UserTrade == 'YES' or cls.ShopTrade == 'YES' then
@@ -2372,7 +2384,7 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	if itemType == "Quest" then
 		return;
 	end
-	
+
 	local invframe = ui.GetFrame("inventory");
 	if selectItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
 		or selectItem:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
@@ -2382,7 +2394,7 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	
 	--디스펠러, 오마모리 관련 처리
 	local obj = GetIES(selectItem:GetObject());
-	if obj.ClassName == "Dispeller_1" then
+	if obj.ClassName == "Dispeller_1" or obj.ClassName == 'Bujeok_1' then
 		if false == selectItem.isLockState then
 			if true == item.useToggleDispelDebuff() then
 				ui.SysMsg(ClMsg("selectItemUsed"));
@@ -2400,7 +2412,7 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	else
 		controlset:ShowWindow(1);
 	end
-
+	
 	session.inventory.SendLockItem(selectItem:GetIESID(), state);
 end
 
@@ -2417,7 +2429,7 @@ function INV_ITEM_LOCK_SAVE_FAIL(frame, msg, argStr, agrNum)
 				local invItem = GET_SLOT_ITEM(slot);
 				if invItem ~= nil and invItem:GetIESID() == argStr then
 					invItem.isLockState = argNum;
-	ui.SysMsg(ClMsg("ItemLockSaveFail"));
+					ui.SysMsg(ClMsg("ItemLockSaveFail"));
 					local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
 					if 1 == agrNum then
 						controlset:ShowWindow(1);

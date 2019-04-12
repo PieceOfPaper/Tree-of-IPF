@@ -33,7 +33,7 @@ function PROCESS_TARGETSP_KEY(frame)
 		control.CustomCommand("LIKE_SPRAY", obj:GetHandleVal());
 				
 	elseif keyboard.IsKeyDown("2") == 1 then
-		print("222");
+		
 	elseif keyboard.IsKeyDown("3") == 1 then
 		
 		local obj = world.GetTarget();

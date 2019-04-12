@@ -163,13 +163,12 @@ class UI_FRAME_INFO
 
 
 function ON_UI_INFO_GET(frame)
-
-	local list= session.GetUIInfoList();
-	local cnt = list:Count();
+	local cnt = session.GetUIInfoCount();
 	for i = 0 , cnt - 1 do
-		local info = list:Element(i);
-		print(info.groupID .. " " .. info.uiindex .. " " .. info.title);		
-	
+		local info = session.GetUIInfoByIndex(i);
+		if info ~= nil then
+			print(info.groupID .. " " .. info.uiindex .. " " .. info.title);		
+		end	
 	end	
 
 end

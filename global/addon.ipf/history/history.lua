@@ -31,7 +31,7 @@ function UPDATE_PLAY_HISTORY(frame, numArg)
 	local gBox = nil;
 	local respect = nil;
 	local menu = frame:GetChild("menu")
-		local rect4 = menu:GetChild("richtext_4");
+	local rect4 = menu:GetChild("richtext_4");
 --if numArg == HISTORY_STAT then
 --	gBox = frame:GetChild("skill");
 --	gBox:RemoveAllChild();
@@ -89,14 +89,14 @@ function UPDATE_PLAY_HISTORY(frame, numArg)
 	local rollbackCnt = 0;
 
 	if numArg ~= HISTORY_TP then
-	local info = session.playHistory.GetHistoryRespec(numArg);
-	local ctrlSet = respect:CreateControlSet("skill_stat_resCnt", "repect",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-	ctrlSet:SetSkinName("test_weight_skin");
-	local resCnt = ctrlSet:GetChild("resCnt");
-	if nil ~= info then
-		rollbackCnt = info.count;
-	end
-	resCnt:SetTextByKey("value", rollbackCnt);	
+		local info = session.playHistory.GetHistoryRespec(numArg);
+		local ctrlSet = respect:CreateControlSet("skill_stat_resCnt", "repect",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+		ctrlSet:SetSkinName("test_weight_skin");
+		local resCnt = ctrlSet:GetChild("resCnt");
+		if nil ~= info then
+			rollbackCnt = info.count;
+		end
+		resCnt:SetTextByKey("value", rollbackCnt);	
 	end
 
 	--skill_stat_his
@@ -122,7 +122,14 @@ function UPDATE_PLAY_HISTORY(frame, numArg)
 			name = cls.Name;
 			data = "-"..string.format("%s", info.value);
 		elseif numArg == HISTORY_TP then
-			name = ClMsg(info:GetPropName());
+			local sList = StringSplit(info:GetPropName(), ":");
+			print(info:GetPropName());
+			if 2 > #sList then
+				name = ClMsg(info:GetPropName());
+			else
+				local itemCls = GetClass("Item", sList[2]);
+				name = ClMsg(sList[1]) .. " : " .. itemCls.Name;
+			end
 			data = info.value;
 		end
 		propName:SetTextByKey("value", name);
@@ -150,14 +157,14 @@ function UPDATE_PLAY_HISTORY(frame, numArg)
 				preValue:SetTextByKey("value", btnData);
 				rollbackCnt = rollbackCnt+1;
 			end
-
+			
 			if 1 == curPage and i == 0 then
-			button_1:ShowWindow(1);
+				button_1:ShowWindow(1);
 				preValue:ShowWindow(0);
-			button_1:SetUserValue("propName", info:GetPropName());
-			button_1:SetUserValue("value", info.preValue);
-			button_1:SetUserValue("RollBackCnt", rollbackCnt);
-			button_1:SetUserValue("saveTime", info:GetSaveTime());
+				button_1:SetUserValue("propName", info:GetPropName());
+				button_1:SetUserValue("value", info.preValue);
+				button_1:SetUserValue("RollBackCnt", rollbackCnt);
+				button_1:SetUserValue("saveTime", info:GetSaveTime());
 				button_1:SetTextByKey("value", btnData);
 			end
 		end

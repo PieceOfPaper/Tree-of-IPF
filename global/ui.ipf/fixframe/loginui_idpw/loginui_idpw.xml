@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="loginui_idpw" x="0" y="0" width="1920" height="1080">
 	<frame title="로그인" margin="0 0 0 0" fullheight="true" layout_gravity="center bottom" scale_align="center bottom"/>
 	<layer layerlevel="11"/>
@@ -18,13 +18,13 @@
 		<picture name="copyright_banner" rect="0 0 199 10" margin="0 0 0 15" layout_gravity="center bottom" hittest="false" image="copyright_banner" serviceNation="KOR" stretch="true"/>
 		<picture name="game_violent" rect="0 0 100 116" margin="0 20 130 0" layout_gravity="right top" hittest="false" image="game_violent_mark" serviceNation="KOR" stretch="true"/>
 		<picture name="game_rating" rect="0 0 100 116" margin="0 20 20 0" layout_gravity="right top" hittest="false" image="game_rating_mark" serviceNation="KOR" stretch="true"/>
-		<text name="STATICID" rect="0 0 200 30" margin="-230 0 0 425" layout_gravity="center bottom" caption="계정" fontname="black_18" textalign="right center"/>
+		<text name="STATICID" rect="0 0 200 30" margin="-230 0 0 425" layout_gravity="center bottom" caption="계정" fontname="white_18_b_ol" textalign="right center"/>
 		<groupbox name="id_bg" rect="0 0 240 40" margin="0 0 0 420" layout_gravity="center bottom" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="bg2"/>
 		<edit name="id" rect="0 0 230 36" margin="0 0 0 422" layout_gravity="center bottom" OffsetForDraw="0 3" clicksound="button_click" fontname="gold_login_text" maxlen="16" oversound="button_over" textalign="center top" tooltipcaption="{@st59}계정을 입력 하십시오{/}" tooltipwidth="256" drawbackground="false" skin="None" typingsound="chat_typing" usetag="true"/>
-		<text name="STATICPASS" rect="0 0 200 30" margin="-230 0 0 375" layout_gravity="center bottom" caption="비밀번호" fontname="black_18" textalign="right center"/>
+		<text name="STATICPASS" rect="0 0 200 30" margin="-230 0 0 375" layout_gravity="center bottom" caption="비밀번호" fontname="white_18_b_ol" textalign="right center"/>
 		<groupbox name="pw_bg" rect="0 0 240 40" margin="0 0 0 370" layout_gravity="center bottom" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="bg2"/>
 		<edit name="password" rect="0 0 230 36" margin="0 0 0 372" layout_gravity="center bottom" OffsetForDraw="0 3" clicksound="button_click" fontname="gold_login_text" maxlen="16" oversound="button_over" textalign="center top" tooltipcaption="{@st59}비밀 번호를 입력하십시오{/}" tooltipwidth="256" drawbackground="false" skin="None" typingsound="chat_typing" usetag="true"/>
-		<text name="SERVERLIST" rect="0 0 200 30" margin="-230 0 0 310" layout_gravity="center bottom" caption="서버 목록" fontname="black_18" textalign="right center"/>
+		<text name="SERVERLIST" rect="0 0 200 30" margin="-230 0 0 310" layout_gravity="center bottom" caption="서버 목록" fontname="white_18_b_ol" textalign="right center"/>
 		<button name="OK" rect="0 0 280 100" margin="0 0 0 80" layout_gravity="center bottom" MouseOnAnim="btn_mouseover_3" caption="{@st43}게임 접속{/}" clicksound="game_start" oversound="button_over" skin="barrack_gamestart" textalign="center center" textoffset="0 0" tooltipcaption="{@st59}선택한 서버에 접속합니다{/}" tooltipwidth="256">
 			<uieffect effect="I_sys_item_slot2" scale="9.6" overlab="No" sound="None" offset="0 -2" playtime="1" duration="0.4" conditon="active" event="LBUTTONDOWN"/>
 		</button>
@@ -32,6 +32,6 @@
 		<button name="singleMode" rect="0 0 160 50" margin="0 0 220 25" layout_gravity="right bottom" MouseOnAnim="btn_mouseover" caption="{@st41b}싱글 모드{/}" clicksound="button_click_big" oversound="button_over" skin="textbutton_nomal_joo" textalign="center center" textoffset="0 0" LBtnUpScp="app.ClientSingleBarrack()" serviceNation="KOR"/>
 		<button name="SYS.EXITAPP" rect="0 0 160 50" margin="0 0 50 25" layout_gravity="right bottom" MouseOnAnim="btn_mouseover" caption="{@st41b}게임 종료{/}" clicksound="button_click_big" oversound="button_over" skin="test_graytored_button" textalign="center center" textoffset="0 0" tooltipcaption="{@st59}게임을 종료합니다{/}" tooltipwidth="256" LBtnUpScp="app.Quit()"/>
 		<button name="creditbtn" rect="0 0 160 50" margin="0 0 50 85" layout_gravity="right bottom" MouseOnAnim="btn_mouseover" caption="{@st41b}크레디트{/}" clicksound="button_click_big" oversound="button_over" skin="test_gray_button" textalign="center center" textoffset="0 0" tooltipcaption="{@st59}크레디트{/}" tooltipwidth="256" LBtnUpScp='ui.ToggleFrame("newcredit")'/>
-		<checkbox name="save" rect="0 0 200 30" margin="230 0 0 425" layout_gravity="center bottom" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="저장" clicksound="button_click" fontname="black_18" oversound="button_over" tooltipcaption="{@st59}체크하면 계정을 저장합니다{/}" tooltipwidth="256"/>
+		<checkbox name="save" rect="0 0 200 30" margin="230 0 0 425" layout_gravity="center bottom" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="저장" clicksound="button_click" fontname="white_18_b_ol" oversound="button_over" tooltipcaption="{@st59}체크하면 계정을 저장합니다{/}" tooltipwidth="256"/>
 	</controls>
 </uiframe>

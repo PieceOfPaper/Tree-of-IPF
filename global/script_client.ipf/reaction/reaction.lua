@@ -222,6 +222,9 @@ function MONSKL_C_RESERVE_ANIM(actor, skill, animName, spd, freezeAnim)
 	actor:GetAnimation():ReserveAnim(animName, spd, freezeAnim);
 end
 
+function C_NEXT_SKILL_RESERVE_RESETANIM(actor)
+	actor:GetAnimation():SetNextSkillReserveResetAnim(true);
+end
 
 function MONSKL_C_RESERVE_ANIM_OOBE(actor, skill, animName, spd, freezeAnim)
 	local oobeActor = actor:GetOOBEActor();

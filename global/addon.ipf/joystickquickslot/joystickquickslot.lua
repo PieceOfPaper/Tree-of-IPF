@@ -452,7 +452,7 @@ function UPDATE_JOYSTICK_INPUT(frame)
 	if input_L1 == 1 and input_R1 == 0 then
 		local gbox = frame:GetChildRecursively("L1_slot_Set"..setIndex);
 		if joystick.IsKeyPressed("JOY_L1L2") == 0 then
-		gbox:SetSkinName(padslot_onskin);
+			gbox:SetSkinName(padslot_onskin);
 		end
 	elseif input_L1 == 0 or input_L1 == 1 and input_R1 == 1 then
 		local gbox = frame:GetChildRecursively("L1_slot_Set"..setIndex);
@@ -462,7 +462,7 @@ function UPDATE_JOYSTICK_INPUT(frame)
 	if input_R1 == 1 and input_L1 == 0 then
 		local gbox = frame:GetChildRecursively("R1_slot_Set"..setIndex);
 		if joystick.IsKeyPressed("JOY_R1R2") == 0 then
-		gbox:SetSkinName(padslot_onskin);
+			gbox:SetSkinName(padslot_onskin);
 		end
 	elseif input_R1 == 0 or input_L1 == 1 and input_R1 == 1 then
 		local gbox = frame:GetChildRecursively("R1_slot_Set"..setIndex);
@@ -472,7 +472,13 @@ function UPDATE_JOYSTICK_INPUT(frame)
 	if input_L2 == 1 and input_R2 == 0 then
 		local gbox = frame:GetChildRecursively("L2_slot_Set"..setIndex);
 		if joystick.IsKeyPressed("JOY_L1L2") == 0 then
-		gbox:SetSkinName(padslot_onskin);
+---------------------------------------------------------------------
+-- sysmenu 조작 끼워넣음
+			if SYSMENU_JOYSTICK_IS_OPENED() == 1 then
+				SYSMENU_JOYSTICK_MOVE_LEFT();
+			end
+			gbox:SetSkinName(padslot_onskin);
+---------------------------------------------------------------------
 		end
 	elseif input_L2 == 0 then
 		local gbox = frame:GetChildRecursively("L2_slot_Set"..setIndex);
@@ -482,7 +488,13 @@ function UPDATE_JOYSTICK_INPUT(frame)
 	if input_R2 == 1 and input_L2 == 0 then
 		local gbox = frame:GetChildRecursively("R2_slot_Set"..setIndex);
 		if joystick.IsKeyPressed("JOY_R1R2") == 0 then
-		gbox:SetSkinName(padslot_onskin);
+---------------------------------------------------------------------
+-- sysmenu 조작 끼워넣음
+			if SYSMENU_JOYSTICK_IS_OPENED() == 1 then
+				SYSMENU_JOYSTICK_MOVE_RIGHT();
+			end
+			gbox:SetSkinName(padslot_onskin);
+---------------------------------------------------------------------
 		end
 	elseif input_R2 == 0 then
 		local gbox = frame:GetChildRecursively("R2_slot_Set"..setIndex);

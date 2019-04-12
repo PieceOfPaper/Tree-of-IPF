@@ -1,41 +1,19 @@
 -- item_equip_exp.lua
 
 function GET_MORE_EXP_BOOST_TOKEN(pc)
-    local eventBuff = 0;
-	if 'YES' == IsBuffApplied(pc, 'Event_LargeSongPyeon') or 'YES' == IsBuffApplied(pc, 'Event_Largehoney_Songpyeon') then
-        eventBuff = eventBuff + 0.25;
-	end
-	
-	-- 경험의서 8배
-	if 'YES' == IsBuffApplied(pc, 'Premium_boostToken03') then
-		return 3.0;
-	end
+	local sumExp = 0.0;
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Premium_boostToken');	-- 경험의 서 경험치
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Premium_boostToken02');	-- 경험의서 4배
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Premium_boostToken03');	-- 경험의서 8배
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Premium_boostToken04'); -- 이벤트 경험의 서
+	return sumExp;
+end
 
-	-- 경험의서 4배
-	if 'YES' == IsBuffApplied(pc, 'Premium_boostToken02') then
-		return 1.5;
-	end
-
-	-- 이벤트 경험의 서
-	if 'YES' == IsBuffApplied(pc, 'Premium_boostToken04') then
-		return 0.5;
-	end
-
-	-- 경험의 서 경험치
-	if 'YES' == IsBuffApplied(pc, 'Premium_boostToken') then
-		return 0.3;
-	end
-
-        -- 대왕송편
-	if 'YES' == IsBuffApplied(pc, 'Event_LargeSongPyeon') then
-		return 0.25;
-	end
-
-	-- 대왕꿀송편
-	if 'YES' == IsBuffApplied(pc, 'Event_Largehoney_Songpyeon') then
-		return 0.25;
-	end	
-	return 0.0;
+function GET_MORE_EVENT_EXP(pc)
+	local sumExp = 0.0;
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_LargeSongPyeon');	-- 대왕송편
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Largehoney_Songpyeon'); -- 대왕꿀송편
+	return sumExp; 
 end
 
 function GET_MIX_MATERIAL_EXP(item)

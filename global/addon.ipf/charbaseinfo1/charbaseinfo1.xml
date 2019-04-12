@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
 <uiframe name="charbaseinfo1" x="0" y="0" width="400" height="130">
     <frame title="character" layout_gravity="center center" outside="true" useothercountryframe="false" fasthide="true"/>
@@ -19,5 +19,6 @@
         <richtext name="guildName" rect="0 0 400 24" margin="0 62 0 0" layout_gravity="center top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="false"/>
         <richtext name="partyName" rect="0 0 400 24" margin="0 62 0 0" layout_gravity="center top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="false"/>
         <gauge name="pcShieldGauge" rect="0 0 104 15" margin="0 7 0 0" layout_gravity="center top" hittest="false" skin="guard_gauge" point="100" text1="AAA" textoffset1="0 -1" textfont1="white_14_ol" textalign1="center center"/>
+        <picture name="desenchant" margin="166 7 0 0" rect="5 5 64 64" hittest="false" image="None" stretch="true" changecursor="false" layout_gravity="left top"/>
     </controls>
 </uiframe>

@@ -107,7 +107,7 @@ function SCR_GET_STR(self)
 	
 	value = value + value * (jobCount - 1) * 0.1;
 	value = math.floor(value + self.STR_ADD, 1);
-	
+
 	if value < 1 then
         value = 1;
     end
@@ -152,6 +152,13 @@ function SCR_GET_CON(self)
 	
 	local value = math.floor(baseCon + self.CON_ADD + addStat, 1);
 
+	local enchantcnt = CountEnchantItemEquip(self, 'ENCHANTARMOR_VOLITIVE');
+	if enchantcnt > 0 then
+	    local baseMna = self.MNA_JOB + self.MNA_STAT + self.MNA_Bonus + GetExProp(self, "MNA_TEMP") + rewardProperty;
+	    local addMna =  SCR_GET_ADDSTAT(self, baseMna)
+	    value = value + math.floor((baseMna + addMna) / 20 * enchantcnt)--SCR_GET_MNA(self)
+	end
+
 	if value < 1 then
         value = 1;
     end
@@ -176,7 +183,7 @@ function SCR_GET_INT(self)
 	
 	value = value + value * (jobCount - 1) * 0.1;
 	value = math.floor(value + self.INT_ADD, 1);
-	
+
 	if value < 1 then
         value = 1;
     end
@@ -194,7 +201,7 @@ function SCR_GET_MNA(self)
     local rewardProperty = GET_REWARD_PROPERTY(self, "MNA")
 	local baseMna = self.MNA_JOB + self.MNA_STAT + self.MNA_Bonus + GetExProp(self, "MNA_TEMP") + rewardProperty;
     local addStat = SCR_GET_ADDSTAT(self, baseMna)
-	
+
 	local value = math.floor(baseMna + self.MNA_ADD + addStat, 1);
 
 	if value < 1 then
@@ -286,7 +293,7 @@ end
 function SCR_Get_MINPATK(self)
 	local jobObj = GetJobObject(self);
 		
-	local str = self.STR;	
+	local str = self.STR;
 	local lv = self.Lv;
 	local buff = self.PATK_BM;
 
@@ -311,7 +318,7 @@ function SCR_Get_MINPATK(self)
     	throwItemMinAtk = rightHand.MINATK;
     end
     
-	local value = lv + str + byItem + byItem2 + byItem3 + buff - leftMinAtk - throwItemMinAtk;
+	local value = lv + str + byItem + byItem2 + byItem3 + buff - leftMinAtk - throwItemMinAtk + 0;
 	
 	return math.floor(value);
 end
@@ -328,7 +335,7 @@ function SCR_Get_MAXPATK(self)
 	local byItem3 = GetSumOfEquipItem(self, 'ADD_MAXATK');
     local leftMaxAtk = 0;
 	local maxpatk_bm = self.MAXPATK_BM;
-	
+    
     
 	if jobObj.CtrlType == 'Warrior' then
         	str = str * 1.3;
@@ -366,7 +373,7 @@ function SCR_Get_MINPATK_SUB(self)
     	rightHand = GetEquipItemForPropCalc(self, 'RH');
     	rightMinAtk = rightHand.MINATK;
     end
-	
+    
 	if jobObj.CtrlType == 'Warrior' then
         	str = str * 1.3;
 	end
@@ -392,7 +399,7 @@ function SCR_Get_MAXPATK_SUB(self)
     	rightHand = GetEquipItemForPropCalc(self, 'RH');
     	rightMaxAtk = rightHand.MAXATK;
     end
-	
+
 	if jobObj.CtrlType == 'Warrior' then
         	str = str * 1.3;
 	end
@@ -412,8 +419,14 @@ function SCR_Get_MINMATK(self)
 	local byItem = GetSumOfEquipItem(self, 'MATK');
 	local byItem2 = GetSumOfEquipItem(self, 'ADD_MATK');
     local byItem3 = GetSumOfEquipItem(self, 'ADD_MINATK');
-	
-	local value = lv + str + byItem + byItem2 + byItem3 + buff;
+
+	local throwItemMinMAtk = 0;
+	if IsBuffApplied(self, 'Warrior_RH_VisibleObject') == 'YES' and GetEquipItemForPropCalc(self, 'RH') ~= nil then
+    	rightHand = GetEquipItemForPropCalc(self, 'RH');
+    	throwItemMinMAtk = rightHand.MATK;
+    end
+
+	local value = lv + str + byItem + byItem2 + byItem3 + buff - throwItemMinMAtk + 0;
 	
 	return math.floor(value);
 end
@@ -428,8 +441,14 @@ function SCR_Get_MAXMATK(self)
 	local byItem = GetSumOfEquipItem(self, 'MATK');
 	local byItem2 = GetSumOfEquipItem(self, 'ADD_MATK');
 	local byItem3 = GetSumOfEquipItem(self, 'ADD_MAXATK');
-	
-	local value = lv + str + byItem + byItem2 + byItem3 + buff;
+
+	local throwItemMaxMAtk = 0;
+	if IsBuffApplied(self, 'Warrior_RH_VisibleObject') == 'YES' and GetEquipItemForPropCalc(self, 'RH') ~= nil then
+    	rightHand = GetEquipItemForPropCalc(self, 'RH');
+    	throwItemMaxMAtk = rightHand.MATK;
+    end
+
+	local value = lv + str + byItem + byItem2 + byItem3 + buff - throwItemMaxMAtk + 0;
 	
 	return math.floor(value);
 end
@@ -584,6 +603,12 @@ function SCR_Get_MDEF(self)
 	
 	local value = byLevel + byItem + byItem2 + addDef + byStat;
 	value = value + self.MDEF_BM;
+	
+	local enchantcnt = CountEnchantItemEquip(self, 'ENCHANTARMOR_PROTECTIVE');
+	if enchantcnt > 0 then
+	    value = value + math.floor(value * enchantcnt * 0.05)
+	end
+	
 	return math.floor(value);
 end
 
@@ -849,7 +874,7 @@ function SCR_Get_KDArmorType(self)
     	armor = 1;
 	end
 	
-	if IsBuffApplied(self, 'Safe') == 'YES' or IsBuffApplied(self, 'PainBarrier_Buff') == 'YES' then
+	if IsBuffApplied(self, 'Safe') == 'YES' or IsBuffApplied(self, 'PainBarrier_Buff') == 'YES' or IsBuffApplied(self, 'Lycanthropy_Buff') == 'YES' then
 		armor = 99999;
 	end
 
@@ -1622,8 +1647,8 @@ function SCR_GET_PC_LIMIT_BUFF_COUNT(self)
 	elseif 'Cleric' == GetJobObject(self).CtrlType then
 	  count = 7;
 	end
-	
-	-- �����ü��... 
+
+	-- ?????u??... 
 	if 1 == IsDummyPC(self) then
 		return count;
 	end

@@ -1,8 +1,32 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
-<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by .. (IMCGames Co., Ltd) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\field\f_bracken_43_2\"/>
-	<TexDir IpfName="bg_texture" Path="\common\"/>
-	<Model File="f_bracken_43_2_ground.xac" Model="f_bracken_43_2_ground" pos="0.0 0.0 0.0" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<ModelDir IpfName="bg_hi3" Path="\field\f_bracken_43_2\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<LightMap File="f_bracken_43_2_lightmap.jpg" Length="4100 4100" Offset="-327.728 164.353" Size="1024 1024"/>
+	<AutoHeightMap Length="6000 6000" Offset="0 0" Height="15000 -15000"/>
+	<TexDir IpfName="bg_texture" Path="\bracken\"/>
+	<SubTexDir IpfName="bg_texture" Path="\abbey\"/>
+	<SubTexDir IpfName="bg_texture" Path="\sky\"/>
+	<SubTexDir IpfName="bg_texture" Path="\orchard\"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\field\f_bracken_43_2\"/>
+	<Model File="f_bracken_43_2_ground.xac" Model="f_bracken_43_2_ground" ShadowMap="f_bracken_43_2_ground" pos="-125.2982 107.0657 -245.9232" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_water.xac" Model="f_bracken_43_2_water" ShadowMap="f_bracken_43_2_water" pos="-968.8805 16.6787 -287.6814" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_1area_b_model.xac" Model="f_bracken_43_2_1area_b_model" ShadowMap="f_bracken_43_2_1area_b_model" pos="-712.0960 157.0349 -171.7710" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_2area_b_model.xac" Model="f_bracken_43_2_2area_b_model" ShadowMap="f_bracken_43_2_2area_b_model" pos="-303.3425 -248.1497 -187.9495" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_3area_b_model.xac" Model="f_bracken_43_2_3area_b_model" pos="-2354.4036 -434.6486 2242.8647" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_1area_blend.xac" Model="f_bracken_43_2_1area_blend" ShadowMap="f_bracken_43_2_1area_blend" pos="-108.9445 213.2524 -285.9154" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_1area_grass.xac" Model="f_bracken_43_2_1area_grass" ShadowMap="f_bracken_43_2_1area_grass" pos="-280.6423 99.9894 106.3617" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_2area_blend.xac" Model="f_bracken_43_2_2area_blend" ShadowMap="f_bracken_43_2_2area_blend" pos="-363.2678 246.1781 630.6643" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_2area_gr_a.xac" Model="f_bracken_43_2_2area_gr_a" ShadowMap="f_bracken_43_2_2area_gr_a" pos="-130.2530 -9.7678 -367.0208" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_fog.xac" Model="f_bracken_43_2_fog" pos="-868.3562 75.0285 1357.2788" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_3area_gr_a.xac" Model="f_bracken_43_2_3area_gr_a" ShadowMap="f_bracken_43_2_3area_gr_a" pos="-1402.4868 211.7181 389.3362" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_1area_tree.xac" Model="f_bracken_43_2_1area_tree" ShadowMap="f_bracken_43_2_1area_tree" pos="-1456.9293 143.2041 506.7993" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_1area_model.xac" Model="f_bracken_43_2_1area_model" ShadowMap="f_bracken_43_2_1area_model" pos="-1570.0452 96.7939 485.1974" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_2area_tree.xac" Model="f_bracken_43_2_2area_tree" ShadowMap="f_bracken_43_2_2area_tree" pos="-435.2743 -76.8921 -286.0351" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_3area_tree.xac" Model="f_bracken_43_2_3area_tree" ShadowMap="f_bracken_43_2_3area_tree" pos="1016.4213 159.1798 147.7737" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_2area_model.xac" Model="f_bracken_43_2_2area_model" ShadowMap="f_bracken_43_2_2area_model" pos="-317.6595 61.3443 403.7812" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_3area_model.xac" Model="f_bracken_43_2_3area_model" ShadowMap="f_bracken_43_2_3area_model" pos="937.2061 165.7598 430.7357" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_4area_model.xac" Model="f_bracken_43_2_4area_model" ShadowMap="f_bracken_43_2_4area_model" pos="308.9612 -170.0824 -648.7214" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_43_2_4area_b_model.xac" Model="f_bracken_43_2_4area_b_model" pos="-1998.3535 -333.6630 2018.1781" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

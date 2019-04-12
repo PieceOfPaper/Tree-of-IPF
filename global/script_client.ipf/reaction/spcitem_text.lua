@@ -13,6 +13,10 @@ function SHOW_BUFF_TEXT(arg)
 	return ScpArgMsg("ADD_BUFF_{Auto_1}!", "Auto_1",  buff.Name);
 end
 
+function EMPOWERING_LEVEL_TEXT(arg)
+	return ScpArgMsg("SKILL_EMPOWRING_{Auto_1}","Auto_1", arg);	
+end
+
 function VAMP_HP(arg)
 	return ScpArgMsg("ABSORB_HP_{Auto_1}!","Auto_1",  arg);	
 end
@@ -99,7 +103,7 @@ function SHOW_HASTE(arg1, argString)
 end
 
 
--- ��ȿ�� �ؽ�Ʈ
+-- ????? ????
 function SHOW_SKILL_ATTRIBUTE(arg, argString)
 
 	local cls = GetClass('skill_attribute', argString)
@@ -114,7 +118,7 @@ function SHOW_SKILL_ATTRIBUTE(arg, argString)
 	return string.format("%s +%s", cls.TextEffectMsg, ScpArgMsg("SKILL_ATTRIBUTE_{Auto_1}!", "Auto_1", arg));	
 end
 
--- ��ȿ�� �ؽ�Ʈ
+-- ????? ????
 function SHOW_SKILL_ATTRIBUTE_WEAPON(arg, argString)
 
 	local cls = GetClass('skill_attribute', argString)
@@ -129,7 +133,7 @@ function SHOW_SKILL_ATTRIBUTE_WEAPON(arg, argString)
 	return string.format("%s %s", cls.TextEffectMsg, ScpArgMsg("SKILL_ATTRIBUTE_W_{Auto_1}!", "Auto_1", arg));	
 end
 
--- ��ų��ȿ��
+-- ????????
 function SHOW_SKILL_BONUS(arg, argString)
 	return string.format("%s +%d", ScpArgMsg(argString), arg);
 end
@@ -139,12 +143,12 @@ function SHOW_SKILL_BONUS2(arg, skillID)
 	return string.format("%s +%d%%", skill.Name, arg);
 end
 
--- ��ų��ȿ��
+-- ????????
 function SHOW_SKILL_EFFECT(arg, argString)
 	return string.format("%s", ScpArgMsg(argString), arg);	
 end
 
--- ��ų��ȿ��
+-- ????????
 function SHOW_ATTRIBUTE_RESIST(arg, argString)
 	return string.format("%s +%s", ScpArgMsg(argString), arg);
 end

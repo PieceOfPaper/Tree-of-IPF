@@ -8,7 +8,7 @@
 	<option closebutton="false" closebuttonpos="0 20"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<effect open="character_item_window_open" close="character_item_window_close"/>
-	<Script OpenScp="OPEN_KEYCONFIG"/>
+	<Script OpenScp="OPEN_KEYCONFIG" CloseScp="CLOSE_KEYCONFIG"/>
 	<controls>
 		<groupbox name="bg2" rect="0 0 800 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
 		<groupbox name="bg_midle" rect="0 0 292 930" margin="13 76 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle"/>

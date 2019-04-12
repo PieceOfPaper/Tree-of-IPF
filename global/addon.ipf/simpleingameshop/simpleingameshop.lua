@@ -70,15 +70,10 @@ end
 
 function EXEC_INGAMESHOP_ITEM_PURCHASE(itemguid)
 
-	if itemguid == nil then
-		return;
-	end
-
 	ui.BuyIngameShopItem(itemguid);
 end
 
 function UI_CHECK_SIMPLEINGAMESHOP_UI_OPEN() -- 오버라이드로 사용해라
 	
-	print("qweqwe")
 	return 1
 end

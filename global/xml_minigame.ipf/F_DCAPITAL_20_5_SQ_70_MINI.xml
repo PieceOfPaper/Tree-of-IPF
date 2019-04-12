@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+	<Game Name="F_DCAPITAL_20_5_SQ_70_MINI" minLv="0" maxLv="0" startWaitSec="30458368">
+		<StageList>
+			<Stage Name="1">
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="2"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="58560" Pos="-1110.66#94.53#72.29" genCount="1" maxStackCount="1" objectKey="0" searchRange="200" tendency="1"/>
+					<Obj Type="Monster" MonType="58560" Pos="-1041.63#94.53#-88.73" genCount="1" maxStackCount="1" objectKey="1" searchRange="200" tendency="1"/>
+					<Obj Type="Monster" MonType="58560" Pos="-995.99#92.17#-97.99" genCount="1" maxStackCount="1" objectKey="2" searchRange="200" tendency="1"/>
+					<Obj Type="Monster" MonType="58560" Pos="-1121.90#94.53#2.60" genCount="1" maxStackCount="1" objectKey="3" searchRange="200" tendency="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="1" execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="2" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="58560" Pos="-1216.89#66.96#83.20" genCount="1" objectKey="0" searchRange="200" tendency="1"/>
+					<Obj Type="Monster" MonType="58560" Pos="-924.83#80.97#-111.89" genCount="1" objectKey="1" searchRange="200" tendency="1"/>
+					<Obj Type="Monster" MonType="57674" Pos="-1112.20#94.53#-70.56" genCount="1" objectKey="2" searchRange="200" tendency="1"/>
+					<Obj Type="Monster" MonType="57674" Pos="-1008.05#67.98#-140.14" genCount="1" objectKey="3" searchRange="200" tendency="1"/>
+				</ObjList>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

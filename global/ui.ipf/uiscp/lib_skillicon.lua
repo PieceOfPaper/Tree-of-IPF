@@ -1,5 +1,24 @@
 -- lib_skillicon.lua --
 
+function SET_SLOT_SKILL_BY_TYPE(slot, type)
+	local skl = session.GetMCCSkill(type);
+	if nil == skl then
+		return;
+	end
+	local obj = GetIES(skl:GetObject());
+	if nil == obj then
+		return;
+	end
+	local icon = CreateIcon(slot);
+	local imageName = 'icon_' .. obj.Icon;
+	icon:SetTooltipType('skill');
+	local iesID = skl:GetIESID();
+	icon:Set(imageName, category, type, 0, iesID);
+	icon:SetTooltipNumArg(type);
+	icon:SetTooltipIESID(iesID);	
+	
+end
+
 function SET_SLOT_SKILL(slot, sklCls)
 
 	local type = sklCls.ClassID;

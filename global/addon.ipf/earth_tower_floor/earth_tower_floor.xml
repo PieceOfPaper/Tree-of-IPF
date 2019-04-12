@@ -10,7 +10,7 @@
 	<animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
 	<layer layerlevel="150"/>
 	<controls>
-		<picture name="pic_bg" rect="0 0 490 260" margin="0 0 0 0" layout_gravity="left top" changecursor="false" hittest="false" image="popup_floor" stretch="false"/>
+		<groupbox name="pic_bg" rect="0 0 490 260" margin="0 0 0 0" layout_gravity="left top" hittestbox="false" skin="popup_floor_skin"/>
 		<richtext name="earthToweTitle" margin="0 -62 0 0" rect="0 0 120 24" format="{@st69b_36}%s{/}" param1="value" param1_def="대지의 탑" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="bookfont" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
 		<richtext name="floorCount" margin="-20 13 0 56" rect="0 0 120 24" format="{@st69_100}%s{/}" param1="value" param1_def="24" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="bookfont" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom"/>
 		<richtext name="floor" margin="66 13 0 66" rect="0 0 120 24" format="{@st69b_36}%s{/}" param1="value" param1_def="층" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="bookfont" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom"/>

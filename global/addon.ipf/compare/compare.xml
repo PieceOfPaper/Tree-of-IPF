@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="compare" x="0" y="0" width="500" height="650" create="open">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin=" "/>
@@ -20,7 +20,7 @@
 		<tabitem name="information" parent="itembox" margin="0 -10 0 0" layout_gravity="left top" caption="{@st66b}정보" skinspace="40" width="190"/>
 		<tabitem name="history" parent="itembox" layout_gravity="left top" caption="{@st66b}기록" skinspace="40" width="190"/>
 		<groupbox name="bg_mid" parent="bg" rect="0 0 480 470" margin="10 520 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle" tabname="information"/>
-		<richtext name="charName" parent="groupbox_1" rect="0 0 120 24" margin="30 60 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_18_ol" format="{@st41}%s (%s){/}" maxwidth="0" param1="teamName" param1_def="DefVal" param2="charName" param2_def="DefVal" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="charName" parent="groupbox_1" rect="0 0 120 24" margin="30 55 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_18_ol" format="{@st42b}%s{nl}%s{/}" maxwidth="0" param1="teamName" param1_def="DefVal" param2="charName" param2_def="DefVal" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<richtext name="jobInfo" parent="groupbox_1" rect="0 0 120 24" margin="30 100 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_18_ol" format="{#ffff00}%s{/}랭크 %s {#ffff00}%s{/}레벨" maxwidth="0" param1="rank" param1_def="-1" param2="job" param2_def="DefVal" param3="lv" param3_def="-1" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<richtext name="rankingInfo" parent="groupbox_1" rect="0 0 120 24" margin="30 125 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_18_ol" format="모험지수 {#ffff00}%s{/} ({#ffff00}%s{/}위)" maxwidth="0" param1="journalScore" param1_def="-1111" param2="charRanking" param2_def="-1" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<richtext name="unrankingInfo" parent="groupbox_1" rect="0 0 120 24" margin="30 125 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_18_ol" format="모험지수 {#ffff00}%s{/} ({#ffff00}Unranked{/})" maxwidth="0" param1="journalScore" param1_def="-1111" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>

@@ -16,3 +16,6 @@ end
 
 
 
+function CANCEL_SERVER_WAIT_QUEUE()
+	barrack.CancelWaitQueue();
+end

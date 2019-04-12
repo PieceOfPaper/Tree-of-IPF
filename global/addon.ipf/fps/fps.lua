@@ -10,9 +10,6 @@ end
 function FPS_ON_MSG(frame, msg, argStr, argNum)
 
 	local perfType = config.GetAutoAdjustLowLevel()
-
-	local fpsnumber = tonumber(argStr)
-
 	local nowLowOptionValue = config.GetUseLowOption();
 
 	local nowLowOptionValueprt = "Low"
@@ -30,11 +27,11 @@ function FPS_ON_MSG(frame, msg, argStr, argNum)
 
 	elseif perfType == 1 then
 
-		if fpsnumber < 20 then
+		if argNum < 20 then
 			if nowLowOptionValue == 0 then
 				graphic.EnableLowOption(1);
 			end
-		elseif fpsnumber > 40 then
+		elseif argNum > 40 then
 			if nowLowOptionValue == 1 then
 				graphic.EnableLowOption(0);
 			end

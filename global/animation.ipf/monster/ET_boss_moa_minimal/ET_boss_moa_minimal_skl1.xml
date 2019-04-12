@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_voice_rooto_5"/>
+	<Sound frame="9.00" soundFile="mon_voice_bird_4"/>
+	<Sound frame="51.00" soundFile="skl_eff_atk_move_m_8"/>
+	<Sound frame="54.00" soundFile="mon_voice_bird_12"/>
+	<Sound frame="55.50" soundFile="skl_eff_atk_move_l_4"/>
+	<Particle frame="57" attachActor="None" attachNode="Dummy_head_effect_L" particleName="F_mon_dead_dark" useAttach="false" hiddenObj="false" scale="1.7" pause="true" targetPos="false"/>
+	<Particle frame="57" attachActor="None" attachNode="Dummy_head_effect_R" particleName="F_mon_dead_dark" useAttach="false" hiddenObj="false" scale="1.7" pause="true" targetPos="false"/>
+	<Particle frame="57" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="57" attachActor="None" attachNode="Dummy_emitter" particleName="F_ground065_smoke" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="57" attachActor="None" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+</ActionDesc>

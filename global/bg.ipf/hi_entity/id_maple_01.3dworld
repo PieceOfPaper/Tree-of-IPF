@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi2" Path="\raid\id_maple_01\"/>
+	<SubTexDir IpfName="bg_texture" Path="\cathedral\"/>
+	<SubTexDir IpfName="bg_texture" Path="\maple\"/>
+	<SubTexDir IpfName="bg_texture" Path="\sky\"/>
+	<LightMap File="id_maple_01.jpg" Length="1700.0 1700.0" Offset="334.174 518.872" Size="1024 1024"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\zachariel\"/>
+	<ShaTexDir IpfName="bg_hi2" Path="\raid\id_maple_01\"/>
+	<Model File="id_maple_01_b_model02.xac" Model="id_maple_01_b_model02" pos="80.9412 -473.6169 259.3992" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_maple_01_light.xac" Model="id_maple_01_light" pos="-263.3472 -1143.6001 927.4490" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_maple_01_1area_model.xac" Model="id_maple_01_1area_model" ShadowMap="id_maple_01_1area_model" pos="-342.2819 -1.8716 -50.4325" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_maple_01_b_model03.xac" Model="id_maple_01_b_model03" pos="-188.231 -571.98 808.826" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_maple_01_gr_a.xac" Model="id_maple_01_gr_a" ShadowMap="id_maple_01_gr_a" pos="302.0520 63.8488 503.9326" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_maple_01_grass.xac" Model="id_maple_01_grass" ShadowMap="id_maple_01_grass" pos="293.5770 81.5164 497.5377" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_maple_01_ground.xac" Model="id_maple_01_ground" ShadowMap="id_maple_01_ground" pos="329.7956 49.9725 519.9340" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_maple_01_water.xac" Model="id_maple_01_water" ShadowMap="id_maple_01_water" pos="-22.5932 230.5163 19.5125" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_maple_01_1area_tree.xac" Model="id_maple_01_1area_tree" ShadowMap="id_maple_01_1area_tree" pos="-56.0394 4.1549 391.7299" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_maple_01_b_model01.xac" Model="id_maple_01_b_model01" ShadowMap="id_maple_01_b_model01" pos="-20.0444 -259.4850 469.1815" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_maple_01_tree_out.xac" Model="id_maple_01_tree_out" ShadowMap="id_maple_01_tree_out" pos="74.7755 -79.5720 275.8874" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_maple_01_2area_tree.xac" Model="id_maple_01_2area_tree" ShadowMap="id_maple_01_2area_tree" pos="749.7534 -34.3616 821.8239" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_maple_01_bloom.xac" Model="id_maple_01_bloom" ShadowMap="id_maple_01_bloom" pos="-4.8445 321.9019 -4.2220" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_maple_01_4area_model.xac" Model="id_maple_01_4area_model" ShadowMap="id_maple_01_4area_model" pos="-667.965 -454.901 1169.969" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_maple_01_3area_model.xac" Model="id_maple_01_3area_model" ShadowMap="id_maple_01_3area_model" pos="501.9080 -144.1967 1135.3389" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_maple_01_2area_model.xac" Model="id_maple_01_2area_model" ShadowMap="id_maple_01_2area_model" pos="749.5107 -66.7641 528.4611" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

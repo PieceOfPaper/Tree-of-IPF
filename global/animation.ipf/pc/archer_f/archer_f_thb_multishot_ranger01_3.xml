@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="4" type="2" intensity="1" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="6" type="2" intensity="1" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="9" type="2" intensity="1" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="12" type="2" intensity="1" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="14" type="2" intensity="1" frequency="70" duration="0.2" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="4" R="25" G="60" B="40" A="100"/>
+	<BlendOn frame="5" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="6" R="70" G="30" B="50" A="100"/>
+	<BlendOn frame="7" R="60" G="25" B="40" A="100"/>
+	<BlendOn frame="8" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="9" R="35" G="60" B="70" A="100"/>
+	<BlendOn frame="10" R="25" G="60" B="40" A="100"/>
+	<BlendOn frame="11" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="12" R="35" G="60" B="70" A="100"/>
+	<BlendOn frame="13" R="70" G="30" B="50" A="100"/>
+	<BlendOn frame="14" R="60" G="25" B="40" A="100"/>
+	<BlendOn frame="15" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="16" R="0" G="0" B="0" A="0"/>
+	<Particle frame="4" attachNode="Dummy_L_HAND" particleName="I_archer_multishot_ranger01_3_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="6" attachNode="Dummy_L_HAND" particleName="I_archer_multishot_ranger01_3_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="9" attachNode="Dummy_L_HAND" particleName="I_archer_multishot_ranger01_3_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="12" attachNode="Dummy_L_HAND" particleName="I_archer_multishot_ranger01_3_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="15" attachNode="Dummy_L_HAND" particleName="I_archer_multishot_ranger01_3_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<AttachModel frame="0" XAC="archer_f_arrow_01" node="Dummy_arrow" isAttach="true" autoDetach="false" index="0" anim="None"/>
+	<Sound frame="0.00" soundFile="arrow_cast"/>
+	<HeadRotBip frame="0" BipName="Dummy_head"/>
+	<Sound frame="0.00" soundFile="voice_atk_long_war_f"/>
+	<Sound frame="3.00" soundFile="skl_archer_sweepshot_shot"/>
+	<Sound frame="5.00" soundFile="skl_archer_sweepshot_shot"/>
+</ActionDesc>

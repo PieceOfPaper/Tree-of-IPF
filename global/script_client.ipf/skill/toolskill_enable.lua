@@ -35,6 +35,29 @@ function SKL_CHECK_FORMATION_STATE_C(actor, skl, checkValue)
 	return 0;
 end
 
+function SKL_CHECK_BUFF_STATE_C(actor, skl, buffName)
+	local myHandle = session.GetMyHandle();
+	local buff = info.GetBuffByName(myHandle, buffName);
+	if nil ~= buff then
+		return 1;
+	end
+
+	return 0;
+end
+
+function SKL_CHECK_BRING_COMPANION_C(self, skl, jobID)
+	local hawk = session.pet.GetSummonedPet(jobID);
+	if hawk == nil then
+		return 0;
+	end
+
+	return 1;
+end
+
+function SKL_CHECK_MOVEING_C(actor, skl)
+	return control.IsMoving();
+end
+
 function SKL_CHECK_RIDING_COMPANION_C(actor, skl)
 
 	local myActor = GetMyActor();
@@ -60,6 +83,73 @@ function SKL_CHECK_EXPROP_OBJ_RANGE_C(actor, skl, propName, propValue, range)
 	
 	local obj = world.GetMonsterByUserValue(propName, propValue, range);
 	if obj == nil then
+		return 0;
+	end
+
+	return 1;
+
+end
+
+
+function SKL_CHECK_BOSS_CARD_C(self, skl)
+	local etc = GetMyEtcObject();
+	if etc == nil then
+		return 0;
+	end
+
+	local bosscardCount = 0;
+	for i = 1, 4 do
+		local cardGUID = etc["Necro_bosscardGUID" .. i];
+		local invItem = nil;
+
+		if cardGUID ~= 'None' and cardGUID ~= "" then
+			 invItem = session.GetInvItemByGuid(cardGUID);
+		end
+
+		if invItem ~= nil then
+			bosscardCount = bosscardCount + 1;
+		end
+	end
+
+	if bosscardCount < 1 then
+		return 0;
+	end
+
+	local mymapname = session.GetMapName();
+	local map = GetClass("Map", mymapname);
+	if nil == map then
+		return 0;
+	end
+	
+	if 'City' == map.MapType then
+		return 0;
+	end
+
+	return 1;
+end
+
+function SKL_CHECK_DPARTS_COUNT_C(self, skl, count)
+	if skl.ClassName == "Necromancer_RaiseSkullarcher" or skl.ClassName == "Necromancer_RaiseDead" then
+		local mymapname = session.GetMapName();
+		local map = GetClass("Map", mymapname);
+		if nil == map then
+			return 0;
+		end
+		
+		if 'City' == map.MapType then
+			return 0;
+		end
+	end
+
+	local etc = GetMyEtcObject();
+	if etc == nil then
+		return 0;
+	end
+
+	local haveParts = 0;
+	haveParts = etc["Necro_DeadPartsCnt"];
+
+	if haveParts < count then
 		return 0;
 	end
 

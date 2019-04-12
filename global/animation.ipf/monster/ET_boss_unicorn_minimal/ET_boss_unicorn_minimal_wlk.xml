@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="7.00" soundFile="mon_unicorn_wlk"/>
+    <Particle frame="8" attachNode="Dummy_emitter" particleName="F_smoke084" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="8" attachNode="Bip001 R Toe0Nub" particleName="F_smoke126" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="16" attachNode="Bip001 R Finger0Nub" particleName="F_smoke126" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="30" attachNode="Bip001 L Toe0Nub" particleName="F_smoke126" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="38" attachNode="Bip001 L Finger0Nub" particleName="F_smoke126" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

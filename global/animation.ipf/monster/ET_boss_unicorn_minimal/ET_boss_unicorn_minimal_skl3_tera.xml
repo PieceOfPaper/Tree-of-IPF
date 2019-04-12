@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="16" R="5" G="2" B="1" A="50"/>
+	<BlendOn frame="21" R="15" G="5" B="3" A="50"/>
+	<BlendOn frame="25" R="5" G="2" B="1" A="50"/>
+	<BlendOn frame="31" R="15" G="5" B="3" A="50"/>
+	<BlendOn frame="34" R="5" G="2" B="1" A="50"/>
+	<BlendOn frame="37" R="15" G="5" B="3" A="50"/>
+	<BlendOn frame="40" R="5" G="2" B="1" A="50"/>
+	<BlendOn frame="43" R="15" G="5" B="3" A="50"/>
+	<BlendOn frame="46" R="5" G="2" B="1" A="50"/>
+	<BlendOn frame="49" R="15" G="5" B="3" A="50"/>
+	<BlendOn frame="52" R="5" G="2" B="1" A="50"/>
+	<BlendOn frame="55" R="15" G="5" B="3" A="50"/>
+	<BlendOn frame="58" R="5" G="2" B="1" A="50"/>
+	<BlendOn frame="61" R="15" G="5" B="3" A="50"/>
+	<BlendOn frame="64" R="5" G="2" B="1" A="50"/>
+	<BlendOn frame="67" R="15" G="5" B="3" A="50"/>
+	<BlendOn frame="70" R="5" G="2" B="1" A="50"/>
+	<BlendOn frame="87" R="15" G="5" B="3" A="50"/>
+	<BlendOn frame="87" R="100" G="40" B="20" A="80"/>
+	<BlendOn frame="88" R="80" G="40" B="15" A="80"/>
+	<BlendOff frame="92" R="0" G="0" B="0" A="0"/>
+	<Particle frame="11" attachNode="Dummy_emitter" particleName="I_smoke011_rainbow1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="11" attachNode="Dummy_effect_L_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="11" attachNode="Dummy_effect_R_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="3" attachNode="Bip001 Spine2" particleName="F_spread_out025_fether_brown" useAttach="true" hiddenObj="true" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="25" attachNode="Bone_hair02" particleName="I_force071_light_green" useAttach="true" hiddenObj="true" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="50" attachNode="Bone_hair02" particleName="I_force071_light_green" useAttach="true" hiddenObj="true" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="75" attachNode="Bone_hair02" particleName="I_force071_light_green" useAttach="true" hiddenObj="true" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="25" attachNode="Dummy_effect_back_foot" particleName="I_smoke011_rainbow1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="40" attachNode="Dummy_effect_L_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="40" attachNode="Dummy_effect_R_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="90" attachNode="Dummy_effect_front_foot2" particleName="F_ground068_smoke" useAttach="false" hiddenObj="true" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="90" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="true" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="30" attachNode="Dummy_effect_back_foot" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_voice_unicorn_skl4"/>
+	<Sound frame="0.00" soundFile="skl_eff_fireball_cast_loop"/>
+	<Sound frame="0.00" soundFile="skl_eff_summon_smoke"/>
+	<Sound frame="0.00" soundFile="skl_eff_stone_rolling_2"/>
+	<Sound frame="20.00" soundFile="skl_eff_lightning_2"/>
+	<Sound frame="20.00" soundFile="skl_eff_blessing_cast"/>
+	<Sound frame="20.00" soundFile="skl_eff_gyulge_cast"/>
+	<Sound frame="20.00" soundFile="skl_eff_fire_cast"/>
+	<Sound frame="25.00" soundFile="skl_eff_wiz_skl_cast_4"/>
+	<Sound frame="80.00" soundFile="skl_eff_crash_ground_l_4"/>
+</ActionDesc>

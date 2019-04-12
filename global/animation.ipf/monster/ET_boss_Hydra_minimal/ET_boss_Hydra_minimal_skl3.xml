@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_hydra_skl_1"/>
+    <Sound frame="0.00" soundFile="mon_voice_rootopus_dead_1"/>
+    <Sound frame="0.55" soundFile="mon_voice_ravinelerva_11"/>
+    <Particle frame="10" particleName="I_spread_out002_mint" attachNode="Eff_skl_lazer_010" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="10" particleName="I_spread_out002_mint" attachNode="Eff_skl_lazer_009" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="10" particleName="I_spread_out002_mint" attachNode="Eff_skl_lazer_006" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="10" particleName="I_spread_out002_mint" attachNode="Eff_skl_lazer_007" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="10" particleName="I_spread_out002_mint" attachNode="Eff_skl_lazer_008" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="15" particleName="F_smoke082" attachNode="Bip01 R Finger0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="15" particleName="F_smoke061" attachNode="eff_skl2_smoke" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="18" particleName="F_smoke082" attachNode="Bip01 L Finger0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="26" particleName="F_smoke082" attachNode="Bip01 L Toe0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <BlendOn frame="30" R="7" G="15" B="13" A="10"/>
+    <BlendOn frame="40" R="15" G="30" B="25" A="25"/>
+    <BlendOn frame="50" R="30" G="60" B="50" A="50"/>
+    <Sound frame="50.00" soundFile="skl_eff_atk_move_l_8"/>
+    <Particle frame="60" particleName="hydra_head1" attachNode="Eff_skl_lazer_006" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="60" particleName="hydra_head1" attachNode="Eff_skl_lazer_007" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="60" particleName="hydra_head1" attachNode="Eff_skl_lazer_008" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="60" particleName="hydra_head1" attachNode="Eff_skl_lazer_009" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="60" particleName="hydra_head1" attachNode="Eff_skl_lazer_010" scale="5" useAttach="true" pause="true" targetPos="false"/>
+    <BlendOn frame="63" R="60" G="130" B="110" A="70"/>
+    <BlendOn frame="67" R="100" G="150" B="145" A="100"/>
+    <Sound frame="71.31" soundFile="skl_eff_mushroom"/>
+    <Particle frame="72" particleName="F_explosion001_blue1" attachNode="Neck_c_05" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="75" particleName="F_explosion001_blue1" attachNode="Neck_R_b_05" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="75.18" soundFile="skl_eff_poison_2"/>
+    <Particle frame="78" particleName="F_explosion001_blue1" attachNode="Neck_L_a_05" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="81" particleName="F_explosion001_blue1" attachNode="Neck_R_a_05" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="84" particleName="F_explosion001_blue1" attachNode="Neck_L_b_05" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="86.23" soundFile="skl_eff_hit_plants_5"/>
+    <Particle frame="87" particleName="F_explosion001_blue1" attachNode="Neck_c_05" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="90" particleName="F_explosion001_blue1" attachNode="Neck_R_b_05" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="93" particleName="F_explosion001_blue1" attachNode="Neck_L_a_05" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="96" particleName="F_explosion001_blue1" attachNode="Neck_R_a_05" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="99" particleName="F_explosion001_blue1" attachNode="Neck_L_b_05" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="105.58" soundFile="mon_voice_rootopus_move_2"/>
+    <BlendOn frame="110" R="60" G="130" B="110" A="70"/>
+    <Particle frame="117" particleName="F_smoke082" attachNode="Bip01 R Finger0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="119" particleName="F_smoke082" attachNode="Bip01 L Toe0" scale="3.5" useAttach="true" pause="true" targetPos="false"/>
+    <BlendOn frame="120" R="30" G="60" B="50" A="50"/>
+    <Particle frame="124" particleName="F_smoke061" attachNode="eff_skl2_smoke" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+    <BlendOn frame="130" R="15" G="30" B="25" A="25"/>
+    <Particle frame="134" particleName="F_smoke082" attachNode="Bip01 L Finger0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="137" particleName="F_smoke082" attachNode="Bip01 R Toe0" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <BlendOff frame="140" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -165,7 +165,7 @@ function QUEST_REWARD_TEST(frame, questID)
     	y = MAKE_BASIC_REWARD_REPE_CTRL(box, questCls, cls, y + 20);
 --    	y = y + 20
     end
-    
+
 	
 	local cancelBtn = frame:GetChild('CancelBtn');
 	local useBtn = frame:GetChild('UseBtn');
@@ -187,6 +187,7 @@ function QUEST_REWARD_TEST(frame, questID)
 		box:InvalidateScrollBar();
 		frame:Resize(frame:GetWidth() + 10, margin);
 	else
+		box:SetCurLine(0) -- scroll init
 		box:EnableScrollBar(0);
 		box:Resize(box:GetWidth(), y);
 		frame:Resize(frame:GetWidth() + 10, maxSizeHeightFrame);
@@ -202,8 +203,8 @@ function QUEST_REWARD_TEST(frame, questID)
 		if string.find(name, "REWARD_") ~= nil then
 			selectExist = 1;
 		end 
-	end
-
+	end    
+    
     local flag = false
     
     local dlgShowState = SCR_QUEST_SUCC_REWARD_DLG(pc, questCls, cls, sObj)
@@ -362,15 +363,15 @@ function MAKE_ITEM_TAG_TEXT_CTRL(y, box, ctrlNameHead, itemName, itemCount, inde
 	if itemCount < 0 then
 		local invItem = session.GetInvItemByName(itemName);
 		if invItem ~= nil then
-		    itemText = ScpArgMsg("{Auto_1}ItemName{Auto_2}NeedCount", "Auto_1", itemCls.Name, "Auto_2", invItem.count);
+		    itemText = ScpArgMsg("{Auto_1}ItemName{Auto_2}NeedCount", "Auto_1", itemCls.Name, "Auto_2", GetCommaedText(invItem.count));
 		else
 		    itemText = '{@st45w3}{s18}'..itemCls.Name..'{/}'
 		end
 	else
 	    if itemName ~= 'Vis' then
-			itemText = ScpArgMsg("{Auto_1}ItemName{Auto_2}NeedCount","Auto_1", itemCls.Name, "Auto_2",itemCount);
+			itemText = ScpArgMsg("{Auto_1}ItemName{Auto_2}NeedCount","Auto_1", itemCls.Name, "Auto_2",GetCommaedText(itemCount));
 		else
-    		itemText = ScpArgMsg("QuestRewardMoneyText", "Auto_1", itemCount);
+    		itemText = ScpArgMsg("QuestRewardMoneyText", "Auto_1", GetCommaedText(itemCount));
     	end
     end
 	itemNameCtrl:SetText(itemText);
@@ -1114,7 +1115,7 @@ function QUEST_REWARD_CHECK(questname)
     if cls.Success_HonorPoint ~= 'None' then
         result[#result + 1] = 'HonorPoint'
     end
-
+    
     local pcProperty = GetClass('reward_property', questname)
     if pcProperty ~= nil then
         result[#result + 1] = 'PCProperty'

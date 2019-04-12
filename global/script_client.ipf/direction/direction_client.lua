@@ -120,6 +120,16 @@ function DRT_C_FADEOUT(actor, cmd, isOut)
 	ui.CloseUICmdByTime("fullblack", 0.5);	
 end
 
+function DRT_C_FADEOUT_TIME(actor, cmd, isOut, time)
+    if time == nil or time == 0 then
+        time = 1
+    end
+	ui.UIOpenByPacket("fullblack", isOut);
+	ui.CloseUICmdByTime("fullblack", time);	
+end
+
+
+
 function DRT_KNOCKBACK_RUN_C(self, cmd, fromHandle, power, hAngle, vAngle, kdCount, speed, verticalPow)	
 	self:KnockDown_C(fromHandle, power, hAngle, vAngle, kdCount, speed, verticalPow);
 end
@@ -268,7 +278,6 @@ function RESUME_CLIENT_DIRECTION()
 end
 
 function DRT_OK_DLG_CLIENT(actor, cmd, dlg)
-
 	if IsToolMode() == false then
 		g_cmdGuid = cmd:GetGuid();
 		cmd:PauseDirection();
@@ -284,22 +293,15 @@ function DRT_ACTOR_ATTACH_EFFECT_CLIENT(actor, cmd, eftName, scl, hOffset)
 end
 
 
-
 function DRT_C_HIDE_MY_CHAR(pc, cmd, isHide)
-
 	if isHide == 0 then
 		movie.ShowModel(pc:GetHandleVal(), 1)
 	else
 		movie.ShowModel(pc:GetHandleVal(), 0)
 	end;
 	
-
 end
-
 function DRT_FUNC_RUNSCRIPT_C(pc, cmd, funcName)
-
 	local func = _G[funcName];
 	func(pc ,cmd);
-
 end
-

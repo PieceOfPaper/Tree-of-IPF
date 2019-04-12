@@ -1,9 +1,10 @@
 
 function GUILDEVENTPOPUP_ON_INIT(addon, frame)
 
-	addon:RegisterMsg("GUILD_PROPERTY_UPDATE", "ON_UPDATE_GUILDEVENT_POPUP");
-	addon:RegisterMsg("GUILD_INFO_UPDATE", "ON_UPDATE_GUILDEVENT_POPUP");
-	addon:RegisterMsg('GAME_START', 'ON_UPDATE_GUILDEVENT_POPUP');			
+	addon:RegisterMsg("GUILD_PROPERTY_UPDATE", "UPDATE_GUILD_EVENT_POPUP");
+	addon:RegisterMsg("GUILD_INFO_UPDATE", "UPDATE_GUILD_EVENT_POPUP");
+	addon:RegisterMsg('GAME_START', 'UPDATE_GUILD_EVENT_POPUP');			
+	addon:RegisterMsg('PARTY_UPDATE', 'UPDATE_GUILD_EVENT_POPUP');			
 end
 
 function OPEN_GUILDEVENTPOPUP(frame)
@@ -22,12 +23,12 @@ function OPEN_GUILDEVENTPOPUP(frame)
 end
 
 function UPDATE_GUILD_EVENT_POPUP()
-	local frame = ui.GetFrame("guildeventpopup");
-	ON_UPDATE_GUILDEVENT_POPUP(frame);
+	--여러 참여/거절 메세지가 동시에 올 경우에 Debouce 사용하면 갱신이 너무 늦어질 수 있으므로 Throttle 처리
+	ThrottleScript("ON_UPDATE_GUILDEVENT_POPUP", 0.1);
 end
 
-function ON_UPDATE_GUILDEVENT_POPUP(frame, msg, arg)
-	GUILDEVENTPOPUP_UI_RELOCATION(frame);
+function ON_UPDATE_GUILDEVENT_POPUP()
+	local frame = ui.GetFrame("guildeventpopup");
 	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
 	if pcparty == nil then
 		return;
@@ -57,19 +58,20 @@ function ON_UPDATE_GUILDEVENT_POPUP(frame, msg, arg)
 		guildEventCls = GetClassByType("GuildEvent", partyObj.GuildRaidSelectInfo);
 		LocInfo = guildEventCls.StageLoc_1;
 	end
-	
+
 	frame:SetUserValue("CLSSID", guildEventCls.ClassID);
 	frame:SetUserValue("STARTWAITSEC", guildEventCls.StartWaitSec);
 
-	local sysTime = geTime.GetServerSystemTime();
-	local endTime = imcTime.GetSysTimeByStr(partyObj.GuildEventStartTime);
-	local difSec = imcTime.GetDifSec(sysTime, endTime);
+	
+	local currentTime = geTime.GetServerSystemTime();
+	local startTime = imcTime.GetSysTimeByStr(partyObj.GuildEventStartTime);
+
+	local difSec = imcTime.GetDifSec(currentTime, startTime);
 	if difSec >= guildEventCls.StartWaitSec then
 		return;
 	end
+	frame:SetUserValue("START_TIME", partyObj.GuildEventStartTime);
 
-	frame:SetUserValue("ELAPSED_SEC", difSec);
-	frame:SetUserValue("START_SEC", imcTime.GetAppTime());
 	if GuildInDunFlag == 1 or GuildBossSummonFlag == 1 then
 		local sList = StringSplit(LocInfo, ":");
 		local mapID = sList[1];
@@ -89,6 +91,7 @@ function ON_UPDATE_GUILDEVENT_POPUP(frame, msg, arg)
 		end
 		
 		local accObj = GetMyAccountObj();
+		--이벤트 거절
 		if IsLaterOrSameStrByStr(accObj.GuildEventSelectTime, partyObj.GuildEventBroadCastTime) == 1 and accObj.GuildEventSeq ~= partyObj.GuildEventSeq then
 			frame:ShowWindow(0);
 		else
@@ -126,6 +129,7 @@ function ON_UPDATE_GUILDEVENT_POPUP(frame, msg, arg)
 		local posZ = tonumber(sList[4]);
 
 		local accObj = GetMyAccountObj();
+		--이벤트 거절
 		if IsLaterOrSameStrByStr(accObj.GuildEventSelectTime, partyObj.GuildEventBroadCastTime) == 1 and accObj.GuildEventSeq ~= partyObj.GuildEventSeq then
 			frame:ShowWindow(0);
 			return;
@@ -159,11 +163,9 @@ function ON_UPDATE_GUILDEVENT_POPUP(frame, msg, arg)
 		end	
 	end
 	
-	if nil ~= arg then
-		if nil ~= string.gmatch(arg, "AID") then
-			GUILDEVENTPOPUP_SET_UIITEM(frame, arg, partyObj, guildEventCls);
-		end;
-	end;
+	GUILDEVENTPOPUP_SET_UIITEM(frame, partyObj, guildEventCls);
+	
+	GUILDEVENTPOPUP_UI_RELOCATION(frame);
 end
 
 function REQ_JOIN_GUILDEVENT(parent, ctrl, isLeader)
@@ -197,12 +199,13 @@ function REQ_ClOSE_GUILDEVENT(parent, ctrl)
 end
 
 function GUILDEVENTPOPUP_UPDATE_STARTWAITSEC(frame)
+	local startTime = imcTime.GetSysTimeByStr(frame:GetUserValue("START_TIME"));
+	local currentTime = geTime.GetServerSystemTime();
+
+	local difSec = imcTime.GetDifSec(currentTime, startTime);
 
 	local startWaitSec = frame:GetUserIValue("STARTWAITSEC");
-	local elapsedSec = frame:GetUserIValue("ELAPSED_SEC");
-	local startSec = frame:GetUserIValue("START_SEC");
-	local curSec = imcTime.GetAppTime() -  startSec + elapsedSec;
-	local remainSec = startWaitSec - curSec;
+	local remainSec = startWaitSec - difSec;
 	remainSec = math.floor(remainSec);
 	if remainSec < 0 then
 		frame:ShowWindow(0);
@@ -262,7 +265,7 @@ function GUILDEVENTPOPUP_UI_RELOCATION(frame)
 	backG:Resize(backG:GetWidth(), frame:GetHeight() - nHeight - 20);
 end;
 
-function GUILDEVENTPOPUP_SET_UIITEM(frame, arg, partyObj, guildEventCls)
+function GUILDEVENTPOPUP_SET_UIITEM(frame, partyObj, guildEventCls)
 	local playerCnt = guildEventCls.PlayerCnt;	
 	local backG = GET_CHILD(frame, "bg");
 	local txt_joined_member = GET_CHILD(backG, "txt_joined_member");
@@ -271,21 +274,13 @@ function GUILDEVENTPOPUP_SET_UIITEM(frame, arg, partyObj, guildEventCls)
 	local bgRefuse = GET_CHILD(backG, "bgRefuse");
 	local nHeight = txt_joined_member:GetY();
 
-	local strMember = partyObj.GuildEventJoinCount .. "/" .. playerCnt .. "{/}";	
+	local strMember = string.format("%s/%s{/}", partyObj.GuildEventJoinCount, playerCnt);	
 	txt_joined_member:SetTextByKey("value", strMember);
 	nHeight = nHeight + txt_joined_member:GetHeight();
-	bgAccept:SetPos(bgAccept:GetX(), nHeight);	
-	local countRead = 0;
-	local list = session.party.GetPartyMemberList(PARTY_GUILD);
-	if nil ~= string.gmatch(arg, "Aceepted") then
-		countRead	= countRead + 1;
-		GUILDEVENTPOPUP_SET_UICONTROLSET(partyObj, list, "GuildEventAceeptedAID_", frame:GetUserConfig("AGREE_MEMBER_FACE_COLORTONE"), frame:GetUserConfig("AGREE_MEMBER_NAME_FONT_COLORTAG"), bgAccept);
-	end;
+	bgAccept:SetPos(bgAccept:GetX(), nHeight);
 
-	if nil ~= string.gmatch(arg, "Refused") then
-		countRead	= countRead + 1;
-		GUILDEVENTPOPUP_SET_UICONTROLSET(partyObj, list, "GuildEventRefusedAID_", frame:GetUserConfig("REFUSE_MEMBER_FACE_COLORTONE"), frame:GetUserConfig("REFUSE_MEMBER_NAME_FONT_COLORTAG"), bgRefuse);
-	end
+	GUILDEVENTPOPUP_SET_UICONTROLSET(partyObj, "GuildEventAceeptedAID_", frame:GetUserConfig("AGREE_MEMBER_FACE_COLORTONE"), frame:GetUserConfig("AGREE_MEMBER_NAME_FONT_COLORTAG"), bgAccept);
+	GUILDEVENTPOPUP_SET_UICONTROLSET(partyObj, "GuildEventRefusedAID_", frame:GetUserConfig("REFUSE_MEMBER_FACE_COLORTONE"), frame:GetUserConfig("REFUSE_MEMBER_NAME_FONT_COLORTAG"), bgRefuse);
 
 	nHeight = nHeight + bgAccept:GetHeight() + 15;
 	txt_refused_member:SetPos(txt_refused_member:GetX(), nHeight);
@@ -296,46 +291,43 @@ function GUILDEVENTPOPUP_SET_UIITEM(frame, arg, partyObj, guildEventCls)
 	bgRefuse:Resize(bgRefuse:GetWidth(), bgRefuse:GetHeight() + 20);
 end;
 
-function GUILDEVENTPOPUP_SET_UICONTROLSET(partyObj, list, propName, MEMBER_FACE_COLORTONE, MEMBER_NAME_FONT_TAG, memberBox)
-	local aBoxItemHeight = 0;	
-	local count = list:Count();	
+function GUILDEVENTPOPUP_SET_UICONTROLSET(partyObj, propName, MEMBER_FACE_COLORTONE, MEMBER_NAME_FONT_TAG, memberBox)
+	local aBoxItemHeight = 0;
 	local eventMemberMaxCount = 30;
 	memberBox:RemoveAllChild();
-	memberBox:Resize(memberBox:GetWidth(), 0);	
+	memberBox:Resize(memberBox:GetWidth(), 0);
+
+	
 	for i = 0 , eventMemberMaxCount - 1 do				
 	   	local tempText = string.format("%s%02d",  propName, i+1);
-		 local writedAid = TryGetProp(partyObj, tempText);
-		 if nil ~= writedAid then			
-			for k = 0, count - 1 do
-				local partyMemberInfo = list:Element(k);	
-				if tonumber(writedAid) == tonumber(partyMemberInfo:GetAID()) then		
-					local partyMemberName = partyMemberInfo:GetName();		
-					local ctrlSet = memberBox:CreateControlSet("guildEvent_popup_listItem", partyMemberInfo:GetAID(), ui.LEFT, ui.TOP, 0, aBoxItemHeight, 0, 0);
-			
-					local jobIcon = GET_CHILD(ctrlSet, "jobportrait", "ui::CPicture");
-					local nameObj = ctrlSet:GetChild('name_text');
-					local nameRichText = tolua.cast(nameObj, "ui::CRichText");	
-					
-					local iconinfo = partyMemberInfo:GetIconInfo();
-					local jobCls  = GetClassByType("Job", iconinfo.job);
-					if nil ~= jobCls then						
-						jobIcon:SetImage(jobCls.Icon);
-						jobIcon:SetTextTooltip(jobCls.Name);
-					end											
-					jobIcon:SetColorTone(MEMBER_FACE_COLORTONE)
-					partyMemberName = MEMBER_NAME_FONT_TAG..partyMemberName;
-					nameRichText:SetTextByKey("name", partyMemberName);		
-					print(partyMemberName);			
+		local writedAid = TryGetProp(partyObj, tempText);
 
-					-- 파티원 레벨 표시 -- 
-					local levelRichText = ctrlSet:GetChild('level_text');
-					local level = partyMemberInfo:GetLevel();	
-					local lvText = MEMBER_NAME_FONT_TAG..ScpArgMsg("Level") .. string.format(" %d", level); 
-					levelRichText:SetTextByKey("lv",  lvText);
-					aBoxItemHeight = aBoxItemHeight + nameRichText:GetHeight() + 5;
-					memberBox:Resize(memberBox:GetWidth(), aBoxItemHeight);						
-				end;		
-			end;				
-		 end;
-	end;
+		local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_GUILD, writedAid);
+		if memberInfo ~= nil then
+			local partyMemberName = memberInfo:GetName();		
+			local ctrlSet = memberBox:CreateControlSet("guildEvent_popup_listItem", memberInfo:GetAID(), ui.LEFT, ui.TOP, 0, aBoxItemHeight, 0, 0);
+			
+			local jobIcon = GET_CHILD(ctrlSet, "jobportrait");
+			local nameObj = ctrlSet:GetChild('name_text');
+				
+			local iconinfo = memberInfo:GetIconInfo();
+			local jobCls  = GetClassByType("Job", iconinfo.job);
+			if nil ~= jobCls then						
+				jobIcon:SetImage(jobCls.Icon);
+				jobIcon:SetTextTooltip(jobCls.Name);
+			end											
+			jobIcon:SetColorTone(MEMBER_FACE_COLORTONE)
+			local nameText = string.format("%s%s", MEMBER_NAME_FONT_TAG, partyMemberName);
+			partyMemberName = nameText;
+			nameObj:SetTextByKey("name", partyMemberName);		
+				
+			-- 파티원 레벨 표시 -- 
+			local levelRichText = ctrlSet:GetChild('level_text');
+			local level = memberInfo:GetLevel();	
+			local lvText = string.format("%s%s %d",MEMBER_NAME_FONT_TAG, ScpArgMsg("Level"), level); 
+			levelRichText:SetTextByKey("lv",  lvText);
+			aBoxItemHeight = aBoxItemHeight + nameObj:GetHeight() + 5;
+			memberBox:Resize(memberBox:GetWidth(), aBoxItemHeight);		
+		end
+	end
 end;

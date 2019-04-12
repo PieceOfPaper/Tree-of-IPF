@@ -1,6 +1,15 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mondu (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
 <ComponentList>
+	<Particle name="pattern024_5" texture="pattern024_5" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="pattern024_4" texture="pattern024_4" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="pattern024_3" texture="pattern024_3" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="pattern024_2" texture="pattern024_2" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="pattern024_1" texture="pattern024_1" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="talisman_TriDisaster" texture="talisman_TriDisaster" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="talisman_StormCalling" texture="talisman_StormCalling" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="talisman_DarkSight" texture="talisman_DarkSight" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="talisman_CreepingDeath" texture="talisman_CreepingDeath" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="pattern023" texture="pattern023" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="pattern022" texture="pattern022" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="square008" texture="background002" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
@@ -361,6 +370,7 @@
 	<Sprite name="sprit008_orange" texture="sprit008_orange" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.05"/>
 	<Sprite name="sprit006" texture="sprit006" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.05"/>
 	<Sprite name="sprit009" texture="sprit009" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.05"/>
+	<Sprite name="sprit001_alpha" texture="sprit001_alpha" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="16" pitch="4" ticktime="0.04"/>
 	<Sprite name="sprit001" texture="sprit001" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="16" pitch="4" ticktime="0.04"/>
 	<Sprite name="sprit005" texture="sprit005" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="16" pitch="4" ticktime="0.05"/>
 	<Ray name="rize005_alpha" texture="rize005_alpha" height="3.00" texel_x="0" texel_y="0" texel_width="128" texel_height="32" texel_speed="0.00" loopingwidth="0.00" loop="true" count="4" pitch="4" ticktime="0.10"/>
@@ -374,8 +384,16 @@
 	<Trail name="dash009_trail" texture="dash009" height="4.00" texel_x="0" texel_y="0" texel_width="128" texel_height="64"/>
 	<Trail name="background002" texture="background002" height="2.00" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Trail name="dash004" texture="dash004" height="4.00" texel_x="128" texel_y="128" texel_width="64" texel_height="64"/>
-	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="1040" texel_height="640"/>
+	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
+	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="escarot_dead" model="escarot_dead.xac" motion="escarot_dead_ani.xsm" texturepath="char_texture\monster\escarot\" overlap="false"/>
+	<Model name="kucarry_balzermancer_dead" model="kucarry_balzermancer_dead.xac" motion="kucarry_balzermancer_dead_ani.xsm" texturepath="char_texture\monster\kucarry_balzermancer\" overlap="false"/>
+	<Model name="PearofAnguish" model="PearofAnguish.xac" motion="None" texturepath="char_texture\monster\pear_of_anquish\" overlap="false"/>
+	<Model name="Hengestone_dead" model="Hengestone_dead.xac" motion="Hengestone_dead_ani.xsm" texturepath="char_texture\monster\Hengestone\" overlap="false"/>
+	<Model name="maple_25_supplemants_event_dead" model="maple_25_supplemants_event_dead.xac" motion="maple_25_supplemants_event_dead_ani.xsm" texturepath="char_texture\npc\maple_25_supplemants\" overlap="false"/>
+	<Model name="shogogoth_effect" model="shogogoth_effect.xac" motion="shogogoth_effect_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false"/>
+	<Model name="MakeOmamori" model="MakeOmamori.xac" motion="MakeOmamori_ani.xsm" texturepath="item_texture\" overlap="false"/>
 	<Model name="skullarcher_dead" model="skullarcher_dead.xac" motion="skullarcher_dead_ani.xsm" texturepath="char_texture\monster\skullarcher\" overlap="false"/>
 	<Model name="effect_spear_13_hexa" model="effect_spear_13_hexa.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true"/>
 	<Model name="monster_froster_lord_dead" model="monster_froster_lord_dead.xac" motion="monster_froster_lord_dead_ani.xsm" texturepath="char_texture\monster\froster_lord\" overlap="false"/>
@@ -1144,11 +1162,17 @@
 	<Model name="f_farm_47_power_01_dead" model="f_farm_47_power_01_dead.xac" motion="f_farm_47_power_01_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true"/>
 	<Model name="closing_device_dead" model="closing_device_dead.xac" motion="closing_device_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true"/>
 	<Model name="boss_stalakan_dead" model="boss_stalakan_dead.xac" motion="boss_stalakan_dead_ani.xsm" texturepath="char_texture\monster\boss_stalakan\" overlap="false"/>
+	<Model name="I_boss_Valdovas_dead" model="boss_Valdovas_dead.xac" motion="boss_Valdovas_dead_ani.xsm" texturepath="char_texture\monster\boss_Valdovas\" overlap="false"/>
+	<Model name="I_boss_Castle_princess_dead" model="boss_Castle_princess_dead.xac" motion="boss_Castle_princess_dead_ani.xsm" texturepath="char_texture\monster\boss_Castle_princess\" overlap="false"/>
 	<Model name="boss_lucy_dead" model="boss_lucy_dead.xac" motion="boss_lucy_dead_ani.xsm" texturepath="char_texture\monster\boss_lucy\" overlap="false"/>
 	<Model name="boss_kurmis_dead" model="boss_kurmis_dead.xac" motion="boss_kurmis_dead_ani.xsm" texturepath="char_texture\monster\kurmis\" overlap="false"/>
 	<Model name="stake_stockades_01_dead" model="stake_stockades_01_dead.xac" motion="stake_stockades_01_dead_ani.xsm" texturepath="char_texture\monster\stake_stockades\" overlap="false"/>
 	<Model name="pet_egg_dead" model="pet_egg_dead.xac" motion="pet_egg_dead_ani.xsm" texturepath="char_texture\monster\Egg\" overlap="false"/>
 	<Model name="pet_box_dead" model="pet_box_dead.xac" motion="pet_box_dead_ani.xsm" texturepath="char_texture\monster\pet_box\" overlap="false"/>
+	<Model name="I_fantasylibrary_brickfloor_dead" model="fantasylibrary_brickfloor_dead.xac" motion="fantasylibrary_brickfloor_dead_ani.xsm" texturepath="char_texture\npc\fantasylibrary_brickfloor\" overlap="false"/>
+	<Model name="I_fantasylibrary_arch_dead" model="fantasylibrary_arch_dead.xac" motion="fantasylibrary_arch_dead_ani.xsm" texturepath="char_texture\npc\fantasylibrary_arch\" overlap="false"/>
+	<Model name="boss_torelodeer_dead" model="boss_torelodeer_dead.xac" motion="boss_torelodeer_dead_ani.xsm" texturepath="char_texture\monster\torelodeer\" overlap="false"/>
+	<Model name="I_boss_aklasprincess_dead" model="boss_aklasprincess_dead.xac" motion="boss_aklasprincess_dead_ani.xsm" texturepath="char_texture\monster\boss_aklasprincess\" overlap="false"/>
 	<Text name="Text_damage_self" caption="" fontfilename="ORIGINAL" fontsize="24" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
 	<Text name="Text_damage_decision" caption="" fontfilename="ORIGINAL" fontsize="20" bold="1" italic="0" outline="1" dropshadow="0" mindistance="50.00" maxdistance="150.00"/>
 	<Text name="Text_destination" caption="" fontfilename="ORIGINAL" fontsize="28" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>

@@ -252,16 +252,19 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
 		DialogSelect_Type = 0;
 		DIALOGSELECT_ITEM_ADD(frame, msg, argStr, argNum);
 
+		local ItemBtn = frame:GetChild('item1Btn');
+		local itemWidth = ItemBtn:GetWidth();
+		local x, y = GET_SCREEN_XY(ItemBtn,itemWidth/2.5);		
+
 		local questRewardBox = frame:GetChild('questreward');
 		if questRewardBox ~= nil then
 			argNum = argNum - 1;
+			
+			-- questreward가 있는 경우, DIALOGSELECT_ITEM_ADD 함수에서 버튼의 layout_gravity가 ui.TOP으로 바뀌면서
+			-- GET_SCRREN_XY의 반환 값에 questreward가 반영되어 계산됨.
+			y = y - questRewardBox:GetY();
 		end
 		DialogSelect_count = argNum;
-
-		local ItemBtn = frame:GetChild('item1Btn');
-		local itemWidth = ItemBtn:GetWidth();
-		local x, y = GET_SCREEN_XY(ItemBtn,itemWidth/2.5);
-
 		DialogSelect_index = 1;
 
 		mouse.SetPos(x,y);

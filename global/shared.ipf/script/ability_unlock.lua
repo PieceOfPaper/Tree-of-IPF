@@ -71,3 +71,14 @@ function UNLOCK_FEATHERFOOT_BLOOD(pc, sklName, limitLevel, abilIES)
 
 end
 
+function UNLOCK_MUSKETEER15(pc, sklName, limitLevel, abilIES)
+
+	local jobGrade = GetJobGradeByName(pc, 'Char3_16');
+	local skl = GetSkill(pc, sklName)
+	if skl ~= nil and skl.LevelByDB >= 1 and jobGrade ~= nil and jobGrade >= 2 then
+		return "UNLOCK";
+	end
+
+	return "LOCK_GRADE";
+
+end

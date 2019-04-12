@@ -18,6 +18,7 @@ end
 -- ��ư Ŭ�� (2, 3��° �̱�)
 function GACHA_CUBE_OK_BTN(frame, ctrl)
 	item.DoPremiumItemGachaCube();	-- 1��°�� �ٸ��� ������ null�� ���� ����
+	DISABLE_BUTTON_DOUBLECLICK("gacha_cube",ctrl:GetName())
 end
 
 -- �̱� ���� ��, ��� UIâ �����Ͽ� ���� 
@@ -35,7 +36,7 @@ function GACHA_CUBE_SUCEECD_EX(invItemClsID, rewardItem, btnVisible)
 	local gachaCubeFrame = ui.GetFrame("gacha_cube");	
 	GACHA_CUBE_SUCEECD_UI(gachaCubeFrame, invItemClsID, rewardItem, btnVisible);
 end
-	
+
 --
 function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible)
 	-- UIâ�� ȣ���� ť�� ���� ������
@@ -45,7 +46,7 @@ function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible)
 	local invframe = ui.GetFrame("inventory");
 
 	-- ��� UI â�� ���������� ������ �������� ��� �� ����.
-	SET_SLOT_APPLY_FUNC(invframe, "GHACHA_CUBE_ITEM_LOCK", "Consume");
+	SET_SLOT_APPLY_FUNC(invframe, "GHACHA_CUBE_ITEM_LOCK", "Cube");
 	
 	-- UIâ�� ��� ����
 	ui.SetEscapeScp("CANCEL_GACHA_CUBE()");
@@ -55,7 +56,7 @@ function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible)
 	local sucName = string.format("{@st41b}%s", cubeItem.Name);	
 	CubeNameFrame:SetTextByKey("value", sucName);
 	local BtnFrame = frame:GetChild("button_1");	
-
+	
 	local price = TryGet(cubeItem, "NumberArg1");
 	
 	if IS_SEASON_SERVER(nil) == 'YES' then
@@ -69,15 +70,15 @@ function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible)
 	local sucValue = string.format("{@st41b}%s{nl}{img icon_item_silver 20 20 }%s", ScpArgMsg("ONE_MORE_TIME"), price);
 	BtnFrame:SetTextByKey("value", sucValue);	
 	BtnFrame:SetVisible(btnVisible);
-
+	
 	-- ��ȸ�� ��� ����������
 	local EndFrame = frame:GetChild("richtext_4");
-	if btnVisible == '0'  then
+	if btnVisible == '0'  then	
 		EndFrame:SetVisible(1);
 	else
 		EndFrame:SetVisible(0);
 	end
-
+	
 	-- ���� ��ǰ �̸����� ������Ʈ ���� ã��
 	local reward = GetClass("Item", rewardItem);
 		
@@ -95,7 +96,7 @@ function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible)
 	else
 		imcSound.PlaySoundEvent('sys_cube_open_jackpot');	
 	end
-	
+
 	-- AnimPicture ����
 	local startAnim = GET_CHILD(frame, 'animpic', 'ui::CAnimPicture');
 	startAnim:PlayAnimation();	
@@ -117,8 +118,8 @@ function GHACHA_CUBE_UI_RESET(frame)
 	frame:ShowWindow(0);							-- ������ �����
 	
 	local invframe = ui.GetFrame("inventory");		-- �κ��丮 ������ �޾ƿ���
-	SET_SLOT_APPLY_FUNC(invframe, "GHACHA_CUBE_ITEM_UNLOCK", "Consume");
-	SET_SLOT_APPLY_FUNC(invframe, "None", "Consume");			-- �κ� ���� ���� ���� �ʱ�ȭ
+	SET_SLOT_APPLY_FUNC(invframe, "GHACHA_CUBE_ITEM_UNLOCK", "Cube");
+	SET_SLOT_APPLY_FUNC(invframe, "None", "Cube");			-- �κ� ���� ���� ���� �ʱ�ȭ
 end
 
 -- Inven ���� GHACHA_CUBE ���� ITEM�� �� ��Ű�� 

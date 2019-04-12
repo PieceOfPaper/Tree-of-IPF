@@ -3,9 +3,13 @@ function PET_INFO_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg("PET_PROP_UPDATE", "ON_PET_PROP_UPDATE");
 	addon:RegisterOpenOnlyMsg("PET_EXP_UPDATE", "ON_PET_EXP_UPDATE");
 	addon:RegisterMsg("COMPANION_UI_OPEN", "COMPANION_UI_OPEN_DO");
+	addon:RegisterMsg("COMPANION_AUTO_ATK", "COMPANION_UI_AUTO_ATK");
 	
 	local frame = ui.GetFrame("pet_info");
-	frame:SetUserValue("IS_OPEN_BY_NPC","NO")
+	frame:SetUserValue("IS_OPEN_BY_NPC","NO")	
+
+	local etc = GetMyEtcObject()
+	COMPANION_UI_AUTO_ATK(frame, nil, TryGetProp(etc, 'CompanionAutoAtk'))
 end
 
 g_use_pet_friendly_point = 0;
@@ -207,7 +211,7 @@ function PET_INFO_SHOW(petGuid)
 	newslotset:ShowWindow(1);
 	PET_INFO_BUILD_EQUIP(frame, newslotset, petInfo);
 	tree:Add(equips, newslotset);
-	
+		
 	tree:OpenNodeAll();
 	frame:ShowWindow(1);
 	PET_INFO_UPDATE_ACTIVATED(frame, true);
@@ -338,10 +342,6 @@ end
 
 function DROP_PET_EQUIP(parent, slot, str, num)
 
-	if 1 == 1 then
-		return;
-	end
-
 	local liftIcon = ui.GetLiftIcon():GetInfo();
 	local frame = parent:GetTopParentFrame();
 	local guid = frame:GetUserValue("PET_GUID");
@@ -387,4 +387,39 @@ function ON_PET_EXP_UPDATE(frame)
 	local lv = bg:GetChild("lv");
 	lv:SetTextByKey("value", petLv);
 
+end
+
+function TOGGLE_PET_ATTACK(frame, ctrl)
+	local topFrame = frame:GetTopParentFrame()
+	local atkEnable = topFrame:GetUserValue('AUTO_ATK')
+
+	if atkEnable == 'YES' then
+		geClientPet.RequestAutoAtkPet(false)
+	else
+		geClientPet.RequestAutoAtkPet(true)
+	end
+end
+
+function COMPANION_UI_AUTO_ATK(frame, msg, argStr, argNum)
+	local topFrame = frame:GetTopParentFrame()
+	local TOGGLE_ATK_ON = topFrame:GetUserConfig('TOGGLE_ATK_ON')
+	local TOGGLE_ATK_OFF = topFrame:GetUserConfig('TOGGLE_ATK_OFF')
+	local bg_stat = topFrame:GetChild('bg_stat')
+	local autoAtkImg = GET_CHILD(bg_stat, 'atkActiveImg', 'ui::CPicture')
+
+	local TOGGLE_ATK_ON = frame:GetUserConfig('TOGGLE_ATK_ON')
+	local TOGGLE_ATK_OFF = frame:GetUserConfig('TOGGLE_ATK_OFF')
+
+	local atkValue = argStr
+	if argStr == nil then
+		atkValue = 'YES' --default value
+	end
+
+	topFrame:SetUserValue('AUTO_ATK', atkValue)
+
+	if atkValue == 'YES' then
+		autoAtkImg:SetImage(TOGGLE_ATK_ON)
+	else
+		autoAtkImg:SetImage(TOGGLE_ATK_OFF)
+	end
 end

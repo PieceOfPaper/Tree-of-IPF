@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
-<v>
+<ActionDesc>
+	<AttachModel frame="0" XAC="archer_f_arrow_08" node="Dummy_arrow" isAttach="true" autoDetach="true" index="0" anim="None"/>
+	<Shockwave frame="3" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="3" attachNode="Dummy_effect_q" particleName="F_archer_fluflu_shot_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound="None"/>
+	<Particle frame="3" attachNode="Dummy_emitter" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="3" attachNode="Dummy_effect_q" particleName="I_cleric_DarkSight_shot_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound="skl_archer_trickshot_shot"/>
+	<Particle frame="3" attachNode="Dummy_effect_q" particleName="I_wizard_rune_stone_shot_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="3" attachNode="Dummy_emitter" particleName="F_wizard_BRIQUETTING_STEP1_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<BlendOn frame="3" R="130" G="130" B="100" A="100"/>
+	<BlendOn frame="4" R="80" G="80" B="50" A="100"/>
+	<BlendOn frame="5" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="6" R="0" G="0" B="0" A="0"/>
 	<Sound frame="0.00" soundFile="arrow_blow_normal"/>
 	<Sound frame="1.00" soundFile="voice_archer_f_atk"/>
 	<Sound frame="2.00" soundFile="crossbow_shot"/>
 	<Sound frame="9.00" soundFile="crossbow_cast"/>
-</v>
+</ActionDesc>

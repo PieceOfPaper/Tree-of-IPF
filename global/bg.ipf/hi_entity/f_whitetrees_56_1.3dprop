@@ -1,5 +1,29 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Jang (IMCGames Co., Ltd) -->
 <Prop>
-	<Model Path="f_whitetrees_56_1_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="f_whitetrees_56_1_1area_b_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_2area_b_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_1area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_2area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_3area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_4area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_5area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_6area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_1area_tree.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_2area_tree.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_3area_tree.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_4area_tree.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_blend.xac" RenderType="RT_MUD_BLEND" Type="" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_gr_a01.xac" RenderType="RT_MUD_BLEND" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_gr_a02.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_gr_a03.xac" RenderType="RT_MUD_BLEND" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_grass.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_light.xac" RenderType="RT_FOG" Type="" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_shadow.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_tp01.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_tp02.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_tp03.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_tree_out.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsBloom="0"/>
+	<Model Path="f_whitetrees_56_1_water.xac" RenderType="RT_WATER" Type="" NoCol="1" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0.6" WaterSwayRange="0.03 0" waterSwayPower="0.15" RefractionNormalSize="0.001" RefractionDir="0.0 0.01" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.01" WaterSprayRange="4" WaterSpraycolor="0.1 0.3 0.4" IsBloom="0"/>
 </Prop>

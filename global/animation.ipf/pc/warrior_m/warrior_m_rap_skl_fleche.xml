@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="0" type="2" intensity="8" frequency="70" duration="0.1" range="1000"/>
+	<Shockwave frame="4" type="2" intensity="2" frequency="70" duration="0.7" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="4" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="5" R="100" G="80" B="80" A="100"/>
+	<BlendOn frame="6" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="8" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="9" R="100" G="80" B="80" A="100"/>
+	<BlendOn frame="10" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="13" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="14" R="100" G="80" B="80" A="100"/>
+	<BlendOn frame="15" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="16" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_Fleche" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_trail" particleName="WeaponTrail_rap_SeptEtoiles_02" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="2" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="4" attachNode="Dummy_effect_craft" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy_emitter_front" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="4" attachNode="Dummy_bash_badak" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="3" attachNode="Dummy_emitter" particleName="I_warrior_dash_run_line4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy_effect_craft" particleName="I_warrior_dash_run_line4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="I_warrior_dash_run_line4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="11" attachNode="Dummy_effect_wepon_spear00" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="13" attachNode="Bip01 L Toe0" particleName="F_smoke109" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="13" attachNode="Bip01 R Toe0" particleName="F_smoke109" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="15" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_effect_wepon_spear002_1" particleName="I_light013_spark_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_effect_wepon_spear002_1" particleName="F_light063_spark_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+</ActionDesc>

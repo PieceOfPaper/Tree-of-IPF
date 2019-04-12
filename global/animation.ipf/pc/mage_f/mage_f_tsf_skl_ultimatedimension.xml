@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="13" R="40" G="80" B="100" A="100"/>
+	<BlendOn frame="14" R="30" G="45" B="60" A="100"/>
+	<BlendOn frame="15" R="15" G="30" B="40" A="100"/>
+	<BlendOn frame="16" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="27" R="130" G="180" B="200" A="100"/>
+	<BlendOn frame="28" R="100" G="150" B="180" A="100"/>
+	<BlendOn frame="29" R="50" G="110" B="140" A="100"/>
+	<BlendOn frame="30" R="40" G="80" B="100" A="100"/>
+	<BlendOn frame="31" R="30" G="45" B="60" A="100"/>
+	<BlendOn frame="32" R="15" G="30" B="40" A="100"/>
+	<BlendOff frame="33" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="27" type="2" intensity="3" frequency="70" duration="0.5" range="1000"/>
+	<Particle frame="26" attachNode="Dummy_emitter" particleName="F_wizard_UltimateDimension_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" sound="skl_eff_special_cast_3" soft2DValue="20"/>
+	<Particle frame="27" attachNode="Dummy_effect_craft" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="27" attachNode="Dummy_effect_craft" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" sound="skl_eff_acid_blood_hit" soft2DValue="20"/>
+	<Particle frame="27" attachNode="Dummy_effect_craft" particleName="F_circle020_light2_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_R_HAND" particleName="I_smoke013_dark4_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="12" attachNode="Dummy_R_HAND" particleName="I_light018_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" sound="skl_eff_psychicpressure_body_hit" soft2DValue="20"/>
+	<Particle frame="16" attachNode="Dummy_R_HAND" particleName="I_light018_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" sound="skl_eff_hagalaz_shot" soft2DValue="20"/>
+	<Particle frame="21" attachNode="Dummy_R_HAND" particleName="I_light018_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" sound="skl_eff_psychicpressure_body_hit" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="atk_cloth_m_r1"/>
+	<Sound frame="17.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="19.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="22.00" soundFile="skl_fgt_tackle_cast_2"/>
+</ActionDesc>

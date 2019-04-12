@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <Recipe_Puzzle>
 	<Puzzle Name="BigHPPotion" TargetItem="Drug_HP3" NeedSec="30">
 		<Item Name="Drug_HP1" Row="0" Col="0"/>
@@ -1023,5 +1023,662 @@
 		<Item Name="misc_0092" Row="0" Col="1"/>
 		<Item Name="misc_0092" Row="1" Col="0"/>
 		<Item Name="misc_0092" Row="1" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_161" TargetItem="misc_0034" NeedSec="30">
+		<Item Name="misc_0019" Row="0" Col="0"/>
+		<Item Name="misc_0019" Row="0" Col="1"/>
+		<Item Name="misc_0019" Row="0" Col="2"/>
+		<Item Name="misc_0019" Row="1" Col="0"/>
+		<Item Name="misc_0019" Row="1" Col="1"/>
+		<Item Name="misc_0019" Row="2" Col="0"/>
+	</Puzzle>
+	<Puzzle Name="ALC_162" TargetItem="misc_0047" NeedSec="30">
+		<Item Name="misc_0034" Row="0" Col="0"/>
+		<Item Name="misc_0034" Row="1" Col="1"/>
+		<Item Name="misc_0034" Row="1" Col="3"/>
+		<Item Name="misc_0034" Row="2" Col="2"/>
+		<Item Name="misc_0034" Row="2" Col="3"/>
+		<Item Name="misc_0034" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_163" TargetItem="misc_0055" NeedSec="30">
+		<Item Name="misc_0047" Row="0" Col="0"/>
+		<Item Name="misc_0047" Row="1" Col="1"/>
+		<Item Name="misc_0047" Row="1" Col="3"/>
+		<Item Name="misc_0047" Row="2" Col="2"/>
+		<Item Name="misc_0047" Row="2" Col="3"/>
+		<Item Name="misc_0047" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_164" TargetItem="misc_0103" NeedSec="30">
+		<Item Name="misc_0055" Row="0" Col="0"/>
+		<Item Name="misc_0055" Row="1" Col="1"/>
+		<Item Name="misc_0055" Row="1" Col="3"/>
+		<Item Name="misc_0055" Row="2" Col="2"/>
+		<Item Name="misc_0055" Row="2" Col="3"/>
+		<Item Name="misc_0055" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_165" TargetItem="misc_0122" NeedSec="30">
+		<Item Name="misc_0103" Row="0" Col="0"/>
+		<Item Name="misc_0103" Row="1" Col="1"/>
+		<Item Name="misc_0103" Row="1" Col="3"/>
+		<Item Name="misc_0103" Row="2" Col="2"/>
+		<Item Name="misc_0103" Row="2" Col="3"/>
+		<Item Name="misc_0103" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_166" TargetItem="misc_0128" NeedSec="30">
+		<Item Name="misc_0122" Row="0" Col="0"/>
+		<Item Name="misc_0122" Row="1" Col="1"/>
+		<Item Name="misc_0122" Row="1" Col="3"/>
+		<Item Name="misc_0122" Row="2" Col="2"/>
+		<Item Name="misc_0122" Row="2" Col="3"/>
+		<Item Name="misc_0122" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_167" TargetItem="misc_0131" NeedSec="30">
+		<Item Name="misc_0128" Row="0" Col="0"/>
+		<Item Name="misc_0128" Row="1" Col="1"/>
+		<Item Name="misc_0128" Row="1" Col="3"/>
+		<Item Name="misc_0128" Row="2" Col="2"/>
+		<Item Name="misc_0128" Row="2" Col="3"/>
+		<Item Name="misc_0128" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_168" TargetItem="misc_0134" NeedSec="30">
+		<Item Name="misc_0131" Row="0" Col="0"/>
+		<Item Name="misc_0131" Row="1" Col="1"/>
+		<Item Name="misc_0131" Row="1" Col="3"/>
+		<Item Name="misc_0131" Row="2" Col="2"/>
+		<Item Name="misc_0131" Row="2" Col="3"/>
+		<Item Name="misc_0131" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_169" TargetItem="misc_0152" NeedSec="30">
+		<Item Name="misc_0134" Row="0" Col="0"/>
+		<Item Name="misc_0134" Row="1" Col="1"/>
+		<Item Name="misc_0134" Row="1" Col="3"/>
+		<Item Name="misc_0134" Row="2" Col="2"/>
+		<Item Name="misc_0134" Row="2" Col="3"/>
+		<Item Name="misc_0134" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_170" TargetItem="misc_0155" NeedSec="30">
+		<Item Name="misc_0152" Row="0" Col="0"/>
+		<Item Name="misc_0152" Row="1" Col="1"/>
+		<Item Name="misc_0152" Row="1" Col="3"/>
+		<Item Name="misc_0152" Row="2" Col="2"/>
+		<Item Name="misc_0152" Row="2" Col="3"/>
+		<Item Name="misc_0152" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_171" TargetItem="misc_0187" NeedSec="30">
+		<Item Name="misc_0155" Row="0" Col="0"/>
+		<Item Name="misc_0155" Row="1" Col="1"/>
+		<Item Name="misc_0155" Row="1" Col="3"/>
+		<Item Name="misc_0155" Row="2" Col="2"/>
+		<Item Name="misc_0155" Row="2" Col="3"/>
+		<Item Name="misc_0155" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_172" TargetItem="misc_0223" NeedSec="30">
+		<Item Name="misc_0187" Row="0" Col="0"/>
+		<Item Name="misc_0187" Row="1" Col="1"/>
+		<Item Name="misc_0187" Row="1" Col="3"/>
+		<Item Name="misc_0187" Row="2" Col="2"/>
+		<Item Name="misc_0187" Row="2" Col="3"/>
+		<Item Name="misc_0187" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_173" TargetItem="misc_0226" NeedSec="30">
+		<Item Name="misc_0223" Row="0" Col="0"/>
+		<Item Name="misc_0223" Row="1" Col="1"/>
+		<Item Name="misc_0223" Row="1" Col="3"/>
+		<Item Name="misc_0223" Row="2" Col="2"/>
+		<Item Name="misc_0223" Row="2" Col="3"/>
+		<Item Name="misc_0223" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_174" TargetItem="misc_0269" NeedSec="30">
+		<Item Name="misc_0226" Row="0" Col="0"/>
+		<Item Name="misc_0226" Row="1" Col="1"/>
+		<Item Name="misc_0226" Row="1" Col="3"/>
+		<Item Name="misc_0226" Row="2" Col="2"/>
+		<Item Name="misc_0226" Row="2" Col="3"/>
+		<Item Name="misc_0226" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_175" TargetItem="misc_0275" NeedSec="30">
+		<Item Name="misc_0269" Row="0" Col="0"/>
+		<Item Name="misc_0269" Row="1" Col="1"/>
+		<Item Name="misc_0269" Row="1" Col="3"/>
+		<Item Name="misc_0269" Row="2" Col="2"/>
+		<Item Name="misc_0269" Row="2" Col="3"/>
+		<Item Name="misc_0269" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_176" TargetItem="misc_0139" NeedSec="30">
+		<Item Name="misc_0132" Row="0" Col="0"/>
+		<Item Name="misc_0132" Row="0" Col="1"/>
+		<Item Name="misc_0132" Row="0" Col="2"/>
+		<Item Name="misc_0132" Row="1" Col="0"/>
+		<Item Name="misc_0132" Row="1" Col="2"/>
+		<Item Name="misc_0132" Row="2" Col="0"/>
+		<Item Name="misc_0132" Row="2" Col="1"/>
+		<Item Name="misc_0132" Row="2" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_177" TargetItem="misc_0141" NeedSec="30">
+		<Item Name="misc_0139" Row="0" Col="0"/>
+		<Item Name="misc_0139" Row="0" Col="1"/>
+		<Item Name="misc_0139" Row="0" Col="2"/>
+		<Item Name="misc_0139" Row="1" Col="0"/>
+		<Item Name="misc_0139" Row="1" Col="2"/>
+		<Item Name="misc_0139" Row="2" Col="0"/>
+		<Item Name="misc_0139" Row="2" Col="1"/>
+		<Item Name="misc_0139" Row="2" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_178" TargetItem="misc_0162" NeedSec="30">
+		<Item Name="misc_0141" Row="0" Col="0"/>
+		<Item Name="misc_0141" Row="0" Col="1"/>
+		<Item Name="misc_0141" Row="0" Col="2"/>
+		<Item Name="misc_0141" Row="1" Col="0"/>
+		<Item Name="misc_0141" Row="1" Col="2"/>
+		<Item Name="misc_0141" Row="2" Col="0"/>
+		<Item Name="misc_0141" Row="2" Col="1"/>
+		<Item Name="misc_0141" Row="2" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_179" TargetItem="misc_0225" NeedSec="30">
+		<Item Name="misc_0162" Row="0" Col="0"/>
+		<Item Name="misc_0162" Row="0" Col="1"/>
+		<Item Name="misc_0162" Row="0" Col="2"/>
+		<Item Name="misc_0162" Row="1" Col="0"/>
+		<Item Name="misc_0162" Row="1" Col="2"/>
+		<Item Name="misc_0162" Row="2" Col="0"/>
+		<Item Name="misc_0162" Row="2" Col="1"/>
+		<Item Name="misc_0162" Row="2" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_180" TargetItem="misc_0263" NeedSec="30">
+		<Item Name="misc_0225" Row="0" Col="0"/>
+		<Item Name="misc_0225" Row="0" Col="1"/>
+		<Item Name="misc_0225" Row="0" Col="2"/>
+		<Item Name="misc_0225" Row="1" Col="0"/>
+		<Item Name="misc_0225" Row="1" Col="2"/>
+		<Item Name="misc_0225" Row="2" Col="0"/>
+		<Item Name="misc_0225" Row="2" Col="1"/>
+		<Item Name="misc_0225" Row="2" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_181" TargetItem="misc_0267" NeedSec="30">
+		<Item Name="misc_0263" Row="0" Col="0"/>
+		<Item Name="misc_0263" Row="0" Col="1"/>
+		<Item Name="misc_0263" Row="0" Col="2"/>
+		<Item Name="misc_0263" Row="1" Col="0"/>
+		<Item Name="misc_0263" Row="1" Col="2"/>
+		<Item Name="misc_0263" Row="2" Col="0"/>
+		<Item Name="misc_0263" Row="2" Col="1"/>
+		<Item Name="misc_0263" Row="2" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_182" TargetItem="misc_0041" NeedSec="30">
+		<Item Name="misc_0020" Row="0" Col="0"/>
+		<Item Name="misc_0020" Row="0" Col="3"/>
+		<Item Name="misc_0020" Row="1" Col="1"/>
+		<Item Name="misc_0020" Row="1" Col="2"/>
+		<Item Name="misc_0020" Row="2" Col="0"/>
+		<Item Name="misc_0020" Row="2" Col="3"/>
+	</Puzzle>
+	<Puzzle Name="ALC_183" TargetItem="misc_0049" NeedSec="30">
+		<Item Name="misc_0041" Row="0" Col="0"/>
+		<Item Name="misc_0041" Row="0" Col="3"/>
+		<Item Name="misc_0041" Row="1" Col="1"/>
+		<Item Name="misc_0041" Row="1" Col="2"/>
+		<Item Name="misc_0041" Row="2" Col="0"/>
+		<Item Name="misc_0041" Row="2" Col="3"/>
+	</Puzzle>
+	<Puzzle Name="ALC_184" TargetItem="misc_0109" NeedSec="30">
+		<Item Name="misc_0049" Row="0" Col="0"/>
+		<Item Name="misc_0049" Row="0" Col="3"/>
+		<Item Name="misc_0049" Row="1" Col="1"/>
+		<Item Name="misc_0049" Row="1" Col="2"/>
+		<Item Name="misc_0049" Row="2" Col="0"/>
+		<Item Name="misc_0049" Row="2" Col="3"/>
+	</Puzzle>
+	<Puzzle Name="ALC_185" TargetItem="misc_0119" NeedSec="30">
+		<Item Name="misc_0109" Row="0" Col="0"/>
+		<Item Name="misc_0109" Row="0" Col="3"/>
+		<Item Name="misc_0109" Row="1" Col="1"/>
+		<Item Name="misc_0109" Row="1" Col="2"/>
+		<Item Name="misc_0109" Row="2" Col="0"/>
+		<Item Name="misc_0109" Row="2" Col="3"/>
+	</Puzzle>
+	<Puzzle Name="ALC_186" TargetItem="misc_0138" NeedSec="30">
+		<Item Name="misc_0119" Row="0" Col="0"/>
+		<Item Name="misc_0119" Row="0" Col="3"/>
+		<Item Name="misc_0119" Row="1" Col="1"/>
+		<Item Name="misc_0119" Row="1" Col="2"/>
+		<Item Name="misc_0119" Row="2" Col="0"/>
+		<Item Name="misc_0119" Row="2" Col="3"/>
+	</Puzzle>
+	<Puzzle Name="ALC_187" TargetItem="misc_0221" NeedSec="30">
+		<Item Name="misc_0138" Row="0" Col="0"/>
+		<Item Name="misc_0138" Row="0" Col="3"/>
+		<Item Name="misc_0138" Row="1" Col="1"/>
+		<Item Name="misc_0138" Row="1" Col="2"/>
+		<Item Name="misc_0138" Row="2" Col="0"/>
+		<Item Name="misc_0138" Row="2" Col="3"/>
+	</Puzzle>
+	<Puzzle Name="ALC_188" TargetItem="misc_0235" NeedSec="30">
+		<Item Name="misc_0221" Row="0" Col="0"/>
+		<Item Name="misc_0221" Row="0" Col="3"/>
+		<Item Name="misc_0221" Row="1" Col="1"/>
+		<Item Name="misc_0221" Row="1" Col="2"/>
+		<Item Name="misc_0221" Row="2" Col="0"/>
+		<Item Name="misc_0221" Row="2" Col="3"/>
+	</Puzzle>
+	<Puzzle Name="ALC_189" TargetItem="misc_0149" NeedSec="30">
+		<Item Name="misc_0147" Row="0" Col="0"/>
+		<Item Name="misc_0147" Row="0" Col="1"/>
+		<Item Name="misc_0147" Row="0" Col="3"/>
+		<Item Name="misc_0147" Row="1" Col="2"/>
+		<Item Name="misc_0147" Row="2" Col="1"/>
+		<Item Name="misc_0147" Row="2" Col="3"/>
+		<Item Name="misc_0147" Row="3" Col="1"/>
+		<Item Name="misc_0147" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_190" TargetItem="misc_0222" NeedSec="30">
+		<Item Name="misc_0149" Row="0" Col="0"/>
+		<Item Name="misc_0149" Row="0" Col="1"/>
+		<Item Name="misc_0149" Row="0" Col="3"/>
+		<Item Name="misc_0149" Row="1" Col="2"/>
+		<Item Name="misc_0149" Row="2" Col="1"/>
+		<Item Name="misc_0149" Row="2" Col="3"/>
+		<Item Name="misc_0149" Row="3" Col="1"/>
+		<Item Name="misc_0149" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_191" TargetItem="misc_0229" NeedSec="30">
+		<Item Name="misc_0222" Row="0" Col="0"/>
+		<Item Name="misc_0222" Row="0" Col="1"/>
+		<Item Name="misc_0222" Row="0" Col="3"/>
+		<Item Name="misc_0222" Row="1" Col="2"/>
+		<Item Name="misc_0222" Row="2" Col="1"/>
+		<Item Name="misc_0222" Row="2" Col="3"/>
+		<Item Name="misc_0222" Row="3" Col="1"/>
+		<Item Name="misc_0222" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_192" TargetItem="misc_0232" NeedSec="30">
+		<Item Name="misc_0229" Row="0" Col="0"/>
+		<Item Name="misc_0229" Row="0" Col="1"/>
+		<Item Name="misc_0229" Row="0" Col="3"/>
+		<Item Name="misc_0229" Row="1" Col="2"/>
+		<Item Name="misc_0229" Row="2" Col="1"/>
+		<Item Name="misc_0229" Row="2" Col="3"/>
+		<Item Name="misc_0229" Row="3" Col="1"/>
+		<Item Name="misc_0229" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_193" TargetItem="misc_0236" NeedSec="30">
+		<Item Name="misc_0232" Row="0" Col="0"/>
+		<Item Name="misc_0232" Row="0" Col="1"/>
+		<Item Name="misc_0232" Row="0" Col="3"/>
+		<Item Name="misc_0232" Row="1" Col="2"/>
+		<Item Name="misc_0232" Row="2" Col="1"/>
+		<Item Name="misc_0232" Row="2" Col="3"/>
+		<Item Name="misc_0232" Row="3" Col="1"/>
+		<Item Name="misc_0232" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_194" TargetItem="misc_0237" NeedSec="30">
+		<Item Name="misc_0236" Row="0" Col="0"/>
+		<Item Name="misc_0236" Row="0" Col="1"/>
+		<Item Name="misc_0236" Row="0" Col="3"/>
+		<Item Name="misc_0236" Row="1" Col="2"/>
+		<Item Name="misc_0236" Row="2" Col="1"/>
+		<Item Name="misc_0236" Row="2" Col="3"/>
+		<Item Name="misc_0236" Row="3" Col="1"/>
+		<Item Name="misc_0236" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_195" TargetItem="misc_0260" NeedSec="30">
+		<Item Name="misc_0237" Row="0" Col="0"/>
+		<Item Name="misc_0237" Row="0" Col="1"/>
+		<Item Name="misc_0237" Row="0" Col="3"/>
+		<Item Name="misc_0237" Row="1" Col="2"/>
+		<Item Name="misc_0237" Row="2" Col="1"/>
+		<Item Name="misc_0237" Row="2" Col="3"/>
+		<Item Name="misc_0237" Row="3" Col="1"/>
+		<Item Name="misc_0237" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_196" TargetItem="misc_0278" NeedSec="30">
+		<Item Name="misc_0260" Row="0" Col="0"/>
+		<Item Name="misc_0260" Row="0" Col="1"/>
+		<Item Name="misc_0260" Row="0" Col="3"/>
+		<Item Name="misc_0260" Row="1" Col="2"/>
+		<Item Name="misc_0260" Row="2" Col="1"/>
+		<Item Name="misc_0260" Row="2" Col="3"/>
+		<Item Name="misc_0260" Row="3" Col="1"/>
+		<Item Name="misc_0260" Row="3" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_197" TargetItem="misc_0027" NeedSec="30">
+		<Item Name="misc_0012" Row="0" Col="0"/>
+		<Item Name="misc_0012" Row="0" Col="1"/>
+		<Item Name="misc_0012" Row="1" Col="2"/>
+		<Item Name="misc_0012" Row="2" Col="1"/>
+		<Item Name="misc_0012" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_198" TargetItem="misc_0054" NeedSec="30">
+		<Item Name="misc_0027" Row="0" Col="0"/>
+		<Item Name="misc_0027" Row="0" Col="1"/>
+		<Item Name="misc_0027" Row="1" Col="2"/>
+		<Item Name="misc_0027" Row="2" Col="1"/>
+		<Item Name="misc_0027" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_199" TargetItem="misc_0072" NeedSec="30">
+		<Item Name="misc_0054" Row="0" Col="0"/>
+		<Item Name="misc_0054" Row="0" Col="1"/>
+		<Item Name="misc_0054" Row="1" Col="2"/>
+		<Item Name="misc_0054" Row="2" Col="1"/>
+		<Item Name="misc_0054" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_200" TargetItem="misc_0080" NeedSec="30">
+		<Item Name="misc_0072" Row="0" Col="0"/>
+		<Item Name="misc_0072" Row="0" Col="1"/>
+		<Item Name="misc_0072" Row="1" Col="2"/>
+		<Item Name="misc_0072" Row="2" Col="1"/>
+		<Item Name="misc_0072" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_201" TargetItem="misc_0144" NeedSec="30">
+		<Item Name="misc_0080" Row="0" Col="0"/>
+		<Item Name="misc_0080" Row="0" Col="1"/>
+		<Item Name="misc_0080" Row="1" Col="2"/>
+		<Item Name="misc_0080" Row="2" Col="1"/>
+		<Item Name="misc_0080" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_202" TargetItem="misc_0166" NeedSec="30">
+		<Item Name="misc_0144" Row="0" Col="0"/>
+		<Item Name="misc_0144" Row="0" Col="1"/>
+		<Item Name="misc_0144" Row="1" Col="2"/>
+		<Item Name="misc_0144" Row="2" Col="1"/>
+		<Item Name="misc_0144" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_203" TargetItem="misc_0176" NeedSec="30">
+		<Item Name="misc_0166" Row="0" Col="0"/>
+		<Item Name="misc_0166" Row="0" Col="1"/>
+		<Item Name="misc_0166" Row="1" Col="2"/>
+		<Item Name="misc_0166" Row="2" Col="1"/>
+		<Item Name="misc_0166" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_204" TargetItem="misc_0212" NeedSec="30">
+		<Item Name="misc_0176" Row="0" Col="0"/>
+		<Item Name="misc_0176" Row="0" Col="1"/>
+		<Item Name="misc_0176" Row="1" Col="2"/>
+		<Item Name="misc_0176" Row="2" Col="1"/>
+		<Item Name="misc_0176" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_205" TargetItem="misc_0216" NeedSec="30">
+		<Item Name="misc_0212" Row="0" Col="0"/>
+		<Item Name="misc_0212" Row="0" Col="1"/>
+		<Item Name="misc_0212" Row="1" Col="2"/>
+		<Item Name="misc_0212" Row="2" Col="1"/>
+		<Item Name="misc_0212" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_206" TargetItem="misc_0266" NeedSec="30">
+		<Item Name="misc_0216" Row="0" Col="0"/>
+		<Item Name="misc_0216" Row="0" Col="1"/>
+		<Item Name="misc_0216" Row="1" Col="2"/>
+		<Item Name="misc_0216" Row="2" Col="1"/>
+		<Item Name="misc_0216" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_207" TargetItem="misc_0270" NeedSec="30">
+		<Item Name="misc_0266" Row="0" Col="0"/>
+		<Item Name="misc_0266" Row="0" Col="1"/>
+		<Item Name="misc_0266" Row="1" Col="2"/>
+		<Item Name="misc_0266" Row="2" Col="1"/>
+		<Item Name="misc_0266" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_208" TargetItem="misc_0028" NeedSec="30">
+		<Item Name="misc_0022" Row="0" Col="0"/>
+		<Item Name="misc_0022" Row="0" Col="1"/>
+		<Item Name="misc_0022" Row="1" Col="2"/>
+		<Item Name="misc_0022" Row="2" Col="1"/>
+		<Item Name="misc_0022" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_209" TargetItem="misc_0201" NeedSec="30">
+		<Item Name="misc_0028" Row="0" Col="0"/>
+		<Item Name="misc_0028" Row="0" Col="1"/>
+		<Item Name="misc_0028" Row="1" Col="2"/>
+		<Item Name="misc_0028" Row="2" Col="1"/>
+		<Item Name="misc_0028" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_210" TargetItem="misc_0205" NeedSec="30">
+		<Item Name="misc_0201" Row="0" Col="0"/>
+		<Item Name="misc_0201" Row="0" Col="1"/>
+		<Item Name="misc_0201" Row="1" Col="2"/>
+		<Item Name="misc_0201" Row="2" Col="1"/>
+		<Item Name="misc_0201" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_211" TargetItem="misc_0175" NeedSec="30">
+		<Item Name="misc_0130" Row="0" Col="0"/>
+		<Item Name="misc_0130" Row="0" Col="1"/>
+		<Item Name="misc_0130" Row="1" Col="2"/>
+		<Item Name="misc_0130" Row="2" Col="1"/>
+		<Item Name="misc_0130" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_212" TargetItem="misc_0177" NeedSec="30">
+		<Item Name="misc_0175" Row="0" Col="0"/>
+		<Item Name="misc_0175" Row="0" Col="1"/>
+		<Item Name="misc_0175" Row="1" Col="2"/>
+		<Item Name="misc_0175" Row="2" Col="1"/>
+		<Item Name="misc_0175" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_213" TargetItem="misc_0208" NeedSec="30">
+		<Item Name="misc_0177" Row="0" Col="0"/>
+		<Item Name="misc_0177" Row="0" Col="1"/>
+		<Item Name="misc_0177" Row="1" Col="2"/>
+		<Item Name="misc_0177" Row="2" Col="1"/>
+		<Item Name="misc_0177" Row="3" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_214" TargetItem="misc_0083" NeedSec="30">
+		<Item Name="misc_0018" Row="0" Col="0"/>
+		<Item Name="misc_0018" Row="0" Col="1"/>
+		<Item Name="misc_0018" Row="2" Col="1"/>
+		<Item Name="misc_0018" Row="3" Col="1"/>
+		<Item Name="misc_0018" Row="3" Col="2"/>
+		<Item Name="misc_0018" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_215" TargetItem="misc_0100" NeedSec="30">
+		<Item Name="misc_0083" Row="0" Col="0"/>
+		<Item Name="misc_0083" Row="0" Col="1"/>
+		<Item Name="misc_0083" Row="2" Col="1"/>
+		<Item Name="misc_0083" Row="3" Col="1"/>
+		<Item Name="misc_0083" Row="3" Col="2"/>
+		<Item Name="misc_0083" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_216" TargetItem="misc_0102" NeedSec="30">
+		<Item Name="misc_0100" Row="0" Col="0"/>
+		<Item Name="misc_0100" Row="0" Col="1"/>
+		<Item Name="misc_0100" Row="2" Col="1"/>
+		<Item Name="misc_0100" Row="3" Col="1"/>
+		<Item Name="misc_0100" Row="3" Col="2"/>
+		<Item Name="misc_0100" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_217" TargetItem="misc_0159" NeedSec="30">
+		<Item Name="misc_0102" Row="0" Col="0"/>
+		<Item Name="misc_0102" Row="0" Col="1"/>
+		<Item Name="misc_0102" Row="2" Col="1"/>
+		<Item Name="misc_0102" Row="3" Col="1"/>
+		<Item Name="misc_0102" Row="3" Col="2"/>
+		<Item Name="misc_0102" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_218" TargetItem="misc_0192" NeedSec="30">
+		<Item Name="misc_0159" Row="0" Col="0"/>
+		<Item Name="misc_0159" Row="0" Col="1"/>
+		<Item Name="misc_0159" Row="2" Col="1"/>
+		<Item Name="misc_0159" Row="3" Col="1"/>
+		<Item Name="misc_0159" Row="3" Col="2"/>
+		<Item Name="misc_0159" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_219" TargetItem="misc_0210" NeedSec="30">
+		<Item Name="misc_0192" Row="0" Col="0"/>
+		<Item Name="misc_0192" Row="0" Col="1"/>
+		<Item Name="misc_0192" Row="2" Col="1"/>
+		<Item Name="misc_0192" Row="3" Col="1"/>
+		<Item Name="misc_0192" Row="3" Col="2"/>
+		<Item Name="misc_0192" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_220" TargetItem="misc_0215" NeedSec="30">
+		<Item Name="misc_0210" Row="0" Col="0"/>
+		<Item Name="misc_0210" Row="0" Col="1"/>
+		<Item Name="misc_0210" Row="2" Col="1"/>
+		<Item Name="misc_0210" Row="3" Col="1"/>
+		<Item Name="misc_0210" Row="3" Col="2"/>
+		<Item Name="misc_0210" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_221" TargetItem="misc_0218" NeedSec="30">
+		<Item Name="misc_0215" Row="0" Col="0"/>
+		<Item Name="misc_0215" Row="0" Col="1"/>
+		<Item Name="misc_0215" Row="2" Col="1"/>
+		<Item Name="misc_0215" Row="3" Col="1"/>
+		<Item Name="misc_0215" Row="3" Col="2"/>
+		<Item Name="misc_0215" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_222" TargetItem="misc_0231" NeedSec="30">
+		<Item Name="misc_0218" Row="0" Col="0"/>
+		<Item Name="misc_0218" Row="0" Col="1"/>
+		<Item Name="misc_0218" Row="2" Col="1"/>
+		<Item Name="misc_0218" Row="3" Col="1"/>
+		<Item Name="misc_0218" Row="3" Col="2"/>
+		<Item Name="misc_0218" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_223" TargetItem="misc_0234" NeedSec="30">
+		<Item Name="misc_0231" Row="0" Col="0"/>
+		<Item Name="misc_0231" Row="0" Col="1"/>
+		<Item Name="misc_0231" Row="2" Col="1"/>
+		<Item Name="misc_0231" Row="3" Col="1"/>
+		<Item Name="misc_0231" Row="3" Col="2"/>
+		<Item Name="misc_0231" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_224" TargetItem="misc_0246" NeedSec="30">
+		<Item Name="misc_0234" Row="0" Col="0"/>
+		<Item Name="misc_0234" Row="0" Col="1"/>
+		<Item Name="misc_0234" Row="2" Col="1"/>
+		<Item Name="misc_0234" Row="3" Col="1"/>
+		<Item Name="misc_0234" Row="3" Col="2"/>
+		<Item Name="misc_0234" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_225" TargetItem="misc_0247" NeedSec="30">
+		<Item Name="misc_0246" Row="0" Col="0"/>
+		<Item Name="misc_0246" Row="0" Col="1"/>
+		<Item Name="misc_0246" Row="2" Col="1"/>
+		<Item Name="misc_0246" Row="3" Col="1"/>
+		<Item Name="misc_0246" Row="3" Col="2"/>
+		<Item Name="misc_0246" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_226" TargetItem="misc_0268" NeedSec="30">
+		<Item Name="misc_0247" Row="0" Col="0"/>
+		<Item Name="misc_0247" Row="0" Col="1"/>
+		<Item Name="misc_0247" Row="2" Col="1"/>
+		<Item Name="misc_0247" Row="3" Col="1"/>
+		<Item Name="misc_0247" Row="3" Col="2"/>
+		<Item Name="misc_0247" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_227" TargetItem="misc_0271" NeedSec="30">
+		<Item Name="misc_0268" Row="0" Col="0"/>
+		<Item Name="misc_0268" Row="0" Col="1"/>
+		<Item Name="misc_0268" Row="2" Col="1"/>
+		<Item Name="misc_0268" Row="3" Col="1"/>
+		<Item Name="misc_0268" Row="3" Col="2"/>
+		<Item Name="misc_0268" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_228" TargetItem="egg_008" NeedSec="30">
+		<Item Name="misc_quicksilver" Row="0" Col="0"/>
+		<Item Name="misc_0011" Row="0" Col="1"/>
+		<Item Name="misc_0236" Row="0" Col="2"/>
+		<Item Name="misc_whip_vine_ra2" Row="1" Col="2"/>
+		<Item Name="misc_0244" Row="1" Col="3"/>
+		<Item Name="misc_yekubite3" Row="1" Col="4"/>
+		<Item Name="misc_Fire_Dragon2" Row="2" Col="3"/>
+		<Item Name="misc_goldbar" Row="3" Col="3"/>
+		<Item Name="misc_talt" Row="4" Col="2"/>
+		<Item Name="misc_seedOil" Row="4" Col="3"/>
+		<Item Name="misc_hanaming2" Row="4" Col="4"/>
+		<Item Name="misc_Dumaro" Row="6" Col="1"/>
+		<Item Name="misc_liena_pants_1" Row="6" Col="3"/>
+		<Item Name="rsc_2_1" Row="6" Col="5"/>
+		<Item Name="misc_icepiece" Row="6" Col="7"/>
+	</Puzzle>
+	<Puzzle Name="ALC_229" TargetItem="misc_quicksilver" NeedSec="30">
+		<Item Name="misc_silverbar" Row="0" Col="0"/>
+		<Item Name="misc_silverbar" Row="0" Col="1"/>
+		<Item Name="misc_silverbar" Row="1" Col="0"/>
+		<Item Name="misc_silverbar" Row="3" Col="1"/>
+		<Item Name="misc_silverbar" Row="2" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_230" TargetItem="misc_0011" NeedSec="30">
+		<Item Name="OnionPiece_Red" Row="0" Col="0"/>
+		<Item Name="OnionPiece_Red" Row="0" Col="2"/>
+		<Item Name="OnionPiece_Red" Row="1" Col="1"/>
+		<Item Name="OnionPiece_Red" Row="2" Col="0"/>
+		<Item Name="OnionPiece_Red" Row="2" Col="2"/>
+	</Puzzle>
+	<Puzzle Name="ALC_232" TargetItem="misc_whip_vine_ra2" NeedSec="30">
+		<Item Name="misc_popolion3" Row="0" Col="0"/>
+		<Item Name="misc_popolion3" Row="0" Col="1"/>
+		<Item Name="misc_popolion3" Row="0" Col="2"/>
+		<Item Name="misc_popolion3" Row="0" Col="3"/>
+	</Puzzle>
+	<Puzzle Name="ALC_233" TargetItem="misc_0244" NeedSec="30">
+		<Item Name="misc_0196" Row="0" Col="0"/>
+		<Item Name="misc_0196" Row="0" Col="2"/>
+		<Item Name="misc_0196" Row="1" Col="3"/>
+		<Item Name="misc_0196" Row="2" Col="4"/>
+		<Item Name="misc_0196" Row="3" Col="3"/>
+		<Item Name="misc_0196" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_234" TargetItem="misc_yekubite3" NeedSec="30">
+		<Item Name="misc_yekubite2" Row="0" Col="0"/>
+		<Item Name="misc_yekubite2" Row="0" Col="1"/>
+		<Item Name="misc_yekubite2" Row="2" Col="1"/>
+		<Item Name="misc_yekubite2" Row="3" Col="1"/>
+		<Item Name="misc_yekubite2" Row="3" Col="2"/>
+		<Item Name="misc_yekubite2" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_235" TargetItem="misc_Fire_Dragon2" NeedSec="30">
+		<Item Name="misc_0079" Row="0" Col="0"/>
+		<Item Name="misc_0079" Row="0" Col="1"/>
+		<Item Name="misc_0079" Row="2" Col="1"/>
+		<Item Name="misc_0079" Row="3" Col="1"/>
+		<Item Name="misc_0079" Row="3" Col="2"/>
+		<Item Name="misc_0079" Row="3" Col="5"/>
+	</Puzzle>
+	<Puzzle Name="ALC_236" TargetItem="misc_goldbar" NeedSec="30">
+		<Item Name="misc_talt" Row="0" Col="0"/>
+		<Item Name="misc_talt" Row="0" Col="1"/>
+		<Item Name="misc_talt" Row="1" Col="0"/>
+		<Item Name="misc_talt" Row="1" Col="1"/>
+		<Item Name="misc_talt" Row="2" Col="0"/>
+		<Item Name="misc_talt" Row="2" Col="1"/>
+		<Item Name="misc_talt" Row="3" Col="0"/>
+		<Item Name="misc_talt" Row="3" Col="1"/>
+		<Item Name="misc_talt" Row="4" Col="0"/>
+		<Item Name="misc_talt" Row="4" Col="1"/>
+	</Puzzle>
+	<Puzzle Name="ALC_237" TargetItem="misc_talt" NeedSec="30">
+		<Item Name="misc_goldbar" Row="0" Col="0"/>
+		<Item Name="misc_goldbar" Row="3" Col="3"/>
+	</Puzzle>
+	<Puzzle Name="ALC_238" TargetItem="misc_seedOil" NeedSec="30">
+		<Item Name="misc_seedmia" Row="0" Col="0"/>
+		<Item Name="misc_seedmia" Row="1" Col="1"/>
+		<Item Name="misc_seedmia" Row="2" Col="2"/>
+		</Puzzle>
+	<Puzzle Name="ALC_239" TargetItem="misc_hanaming2" NeedSec="30">
+		<Item Name="leaf_hanaming" Row="0" Col="0"/>
+		<Item Name="leaf_hanaming" Row="0" Col="4"/>
+		<Item Name="leaf_hanaming" Row="1" Col="1"/>
+		<Item Name="leaf_hanaming" Row="1" Col="3"/>
+		<Item Name="leaf_hanaming" Row="2" Col="2"/>
+		</Puzzle>
+	<Puzzle Name="ALC_240" TargetItem="misc_liena_pants_1" NeedSec="30">
+		<Item Name="misc_0135" Row="0" Col="0"/>
+		<Item Name="misc_0135" Row="0" Col="1"/>
+		<Item Name="misc_0135" Row="1" Col="1"/>
+		<Item Name="misc_0135" Row="2" Col="1"/>
+		<Item Name="misc_0135" Row="3" Col="0"/>
+		<Item Name="misc_0135" Row="3" Col="2"/>
+		</Puzzle>
+	<Puzzle Name="ALC_241" TargetItem="rsc_2_1" NeedSec="30">
+		<Item Name="misc_mud" Row="0" Col="0"/>
+		<Item Name="misc_mud" Row="1" Col="1"/>
+		<Item Name="misc_mud" Row="2" Col="0"/>
+		<Item Name="misc_mud" Row="2" Col="1"/>
+		<Item Name="misc_mud" Row="2" Col="2"/>
+		</Puzzle>
+	<Puzzle Name="ALC_242" TargetItem="misc_icepiece" NeedSec="30">
+		<Item Name="Drug_holywater" Row="0" Col="0"/>
+		<Item Name="Drug_holywater" Row="0" Col="1"/>
+		<Item Name="Drug_holywater" Row="1" Col="0"/>
+		<Item Name="Drug_holywater" Row="1" Col="1"/>
 	</Puzzle>
 </Recipe_Puzzle>
