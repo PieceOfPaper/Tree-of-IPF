@@ -64,9 +64,10 @@ function JANSORI(frame)
 					local condScp = _G[cls.CondScp];
 					if condScp == nil then
 						ErrorLog(cls.CondScp .. ScpArgMsg("Auto__HamSuKaeopeum_JanSoLiKeulLaeSeu_:_") .. cls.ClassName);
+					else
+						curCond = condScp(frame, cls);
 					end
 
-					curCond = condScp(frame, cls);
 				end
 			end
 		end

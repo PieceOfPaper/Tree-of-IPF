@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- 카테고리 : 1차 카테고리, 서브카테고리 : 1차 카테고리 눌렀을 때 나오는 서브 카테고리. 필요 없으면 "None" 으로 지정 가능, 아이템클래스테임 : Item idspace에 등록되어 있는 아이템의 클래스네임, 프라이스 : 가격  -->
 <idspace id="TPitem">
 	<Category>
-    <Class ClassName="ClassName4" OverrideType="REMOVE"/>
+		<Class ClassName="ClassName4" ItemClassName="Mic_bundle10" Price="8"/>
 		<Class ClassName="ClassName5" Price="1"/>
-		<Class ClassName="ClassName6" OverrideType="REMOVE"/>
+		<Class ClassName="ClassName6" Price="32"/>
 		<Class ClassName="ClassName7" Price="4"/>
-		<Class ClassName="ClassName8" OverrideType="REMOVE"/>
+		<Class ClassName="ClassName8" Price="16"/>
 		<Class ClassName="ClassName9" Price="2"/>
-		<Class ClassName="ClassName11" OverrideType="REMOVE"/>	
+		<Class ClassName="ClassName11" ItemClassName="Premium_Enchantchip_10" Price="64"/>
+		<Class ClassID="35" ClassName="ClassName35" Category="TP_Costume" SubCategory="TP_Hair_M_Premium" ItemClassName="HAIR_M_102" Price="119" Job="None" JobGrade="0"/>
+		<Class ClassID="36" ClassName="ClassName36" Category="TP_Costume" SubCategory="TP_Hair_M_Premium" ItemClassName="HAIR_M_101" Price="119" Job="None" JobGrade="0"/>
+		<Class ClassID="37" ClassName="ClassName37" Category="TP_Costume" SubCategory="TP_Hair_M_Premium" ItemClassName="HAIR_M_113" Price="119" Job="None" JobGrade="0"/>
+		<Class ClassID="38" ClassName="ClassName38" Category="TP_Costume" SubCategory="TP_Hair_M_Premium" ItemClassName="HAIR_M_114" Price="119" Job="None" JobGrade="0"/>
+		<Class ClassID="39" ClassName="ClassName39" Category="TP_Costume" SubCategory="TP_Hair_F_Premium" ItemClassName="HAIR_F_101" Price="178" Job="None" JobGrade="0"/>
+		<Class ClassID="40" ClassName="ClassName40" Category="TP_Costume" SubCategory="TP_Hair_F_Premium" ItemClassName="HAIR_F_102" Price="178" Job="None" JobGrade="0"/>
+		<Class ClassID="41" ClassName="ClassName41" Category="TP_Costume" SubCategory="TP_Hair_F_Premium" ItemClassName="HAIR_F_116" Price="178" Job="None" JobGrade="0"/>
+		<Class ClassID="42" ClassName="ClassName42" Category="TP_Costume" SubCategory="TP_Hair_F_Premium" ItemClassName="HAIR_F_115" Price="178" Job="None" JobGrade="0"/>
 	</Category>
 </idspace>

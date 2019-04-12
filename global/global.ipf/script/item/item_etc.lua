@@ -23,3 +23,18 @@ function DLC_BOX3(pc)
     TxGiveItem(tx, 'steam_Premium_tpBox_160', 1, 'DLC_BOX3');
     local ret = TxCommit(tx);
 end
+
+function GIVE_MIC_10(pc)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'Mic', 10, 'TPSHOP_MIC_50');
+    local ret = TxCommit(tx);
+end
+
+function GIVE_ENCHANTSCROLL_10(pc)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'Premium_Enchantchip', 10, 'TPSHOP_ENCHANTSCROLL_20');
+    local ret = TxCommit(tx);
+end
+
+
+

@@ -18,7 +18,7 @@
 		<tab name="itembox" rect="0 0 540 40" margin="50 80 0 0" layout_gravity="left top" LBtnDownScp="GUILD_TAB_CHANGE" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
 		<tabitem name="information" parent="itembox" layout_gravity="left top" caption="{@st66b}기본정보" width="250"/>
 		<tabitem name="properties" parent="itembox" layout_gravity="left top" caption="{@st66b}속성" width="250"/>
-		<controlset name="information" type="guild_infomation" margin="4 124 0 0" rect="0 0 149 120" hittest="true" layout_gravity="left top" tabname="information"/>
+		<controlset name="information" type="guild_infomation" margin="4 124 0 0" rect="0 0 590 700" hittest="true" layout_gravity="left top" tabname="information"/>
 		<controlset name="properties" type="guild_properties" margin="4 124 0 0" rect="0 0 149 120" hittest="true" layout_gravity="left top" tabname="properties"/>
 	</controls>
 </uiframe>

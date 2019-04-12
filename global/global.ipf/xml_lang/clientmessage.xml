@@ -1,9 +1,7 @@
 ﻿<idspace id="ClientMessage">
-	<Category Name="ErrorMsg">
-	    <Class ClassID="10430" OverrideType="ADD" ClassName="AccessFailByNoDLC" Data="DLC를 구매하여야 접속 가능합니다."/>
-	</Category>
-	<Category Name="Premium">
-	<Class ClassID="550068" ClassName="Moreindunmission" Data="인던,미션 1회 추가 입장"/>
-    <Class ClassID="550069" ClassName="PremiumToken_60d" Data="토큰:60일"/>
-    </Category>
+  <Category Name="Premium">
+    <Class ClassID="660000" OverrideType="ADD" ClassName="PremiumToken_60d" Data="토큰:60일"/>
+    <Class ClassID="660001" OverrideType="ADD" ClassName="steam_PremiumToken_30day" Data="토큰:30일"/>
+    <Class ClassID="660002" OverrideType="ADD" ClassName="steam_PremiumToken_60d" Data="토큰:60일"/>
+  </Category>
 </idspace>

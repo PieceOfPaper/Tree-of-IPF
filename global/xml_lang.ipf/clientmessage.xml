@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
@@ -502,7 +502,7 @@
 		<Class ClassID="10745" ClassName="DropItemPlz" Data="아이템을 올려주세요."/>
 		<Class ClassID="10746" ClassName="JustGem" Data="젬"/>
 		<Class ClassID="10747" ClassName="JustSocket" Data="소켓"/>
-		<Class ClassID="10748" ClassName="RemainMagicAmuletSocket" Data="{nl}{nl}앞으로 장착 가능한 매직 어뮬렛 개수 : {Remain}"/>
+		<Class ClassID="10748" ClassName="RemainMagicAmuletSocket" Data="{nl}장착시 해당 아이템의 포텐셜이 감소됩니다.{nl}{nl}앞으로 장착 가능한 매직 어뮬렛 개수 : {Remain}"/>
 		<Class ClassID="10749" ClassName="SelectRepairItemPlz" Data="수리 할 아이템을 선택해 주세요."/>
 		<Class ClassID="10750" ClassName="DON_T_HAVE_ITEM_TO_REPAIR" Data="수리 할 아이템이 없습니다."/>
 		<Class ClassID="10751" ClassName="IMPOSSIBLE_ITEM" Data="불가능한 종류의 아이템입니다."/>
@@ -583,8 +583,6 @@
 		<Class ClassID="10829" ClassName="SortByWeight" Data="무게순"/>
 		<Class ClassID="10830" ClassName="SortByPrice" Data="가격순"/>
 		<Class ClassID="10831" ClassName="SortByName" Data="이름순"/>
-	<Class ClassID="10832" ClassName="MeleeDamage" Data="물리 피해 감소율"/>
-		<Class ClassID="10833" ClassName="MagicDamage" Data="마법 피해 감소율"/>
 	</Category>
 	<Category Name="PeriodicTitle">
 		<Class ClassID="10901" ClassName="TournamentChampion" Data="토너먼트 챔피언"/>
@@ -2129,6 +2127,24 @@
 		<Class ClassID="140317" ClassName="BRACKEN631_RP_1_1" Data="더 파낼 것이 없습니다"/>
 		<Class ClassID="140318" ClassName="BRACKEN631_RP_1_2" Data="삽질을 멈췄습니다"/>
 		<Class ClassID="140319" ClassName="BRACKEN631_RP_1_GETITEM" Data="푸른 석탄을 발견했습니다"/>
+		<Class ClassID="140320" ClassName="CHAPLE576_RP_1_DO" Data="수집 중"/>
+		<Class ClassID="140321" ClassName="CHAPLE576_RP_1_GETITEM" Data="보주 결정을 획득했습니다"/>
+		<Class ClassID="140322" ClassName="BRACKEN632_RP_1_GETITEM" Data="라프세이프의 지팡이 조각을 수집했습니다"/>
+		<Class ClassID="140323" ClassName="BRACKEN633_RP_1_DO" Data="채집 중"/>
+		<Class ClassID="140324" ClassName="BRACKEN633_RP_1_GETITEM" Data="마른 다다니아 잎사귀를 찾았습니다"/>
+		<Class ClassID="140325" ClassName="BRACKEN633_RP_1_1" Data="더는 없어 보입니다"/>
+		<Class ClassID="140326" ClassName="BRACKEN633_RP_1_2" Data="채집을 멈췄습니다"/>
+		<Class ClassID="140327" ClassName="CM3LAKE83_RP_1_GETITEM" Data="해독제 표본을 획득했습니다"/>
+		<Class ClassID="140328" ClassName="KATYN10_RP_1_KILLMON" Data="붙잡힌 영혼을 해방시켰습니다"/>
+		<Class ClassID="140329" ClassName="KATYN12_RP_1_DO" Data="영혼 수집 중"/>
+		<Class ClassID="140330" ClassName="KATYN12_RP_1_GETITEM" Data="미약한 영혼을 수집했습니다"/>
+		<Class ClassID="140331" ClassName="THORN21_RP_2_DO" Data="정화 중"/>
+		<Class ClassID="140332" ClassName="THORN21_RP_2_1" Data="모두 정화 했습니다"/>
+		<Class ClassID="140333" ClassName="THORN21_RP_2_2" Data="정화를 멈췄습니다"/>
+		<Class ClassID="140334" ClassName="ROKAS24_RP_2_1_DO" Data="삽질 중"/>
+		<Class ClassID="140335" ClassName="ROKAS24_RP_2_1" Data="더 파낼게 없습니다"/>
+		<Class ClassID="140336" ClassName="ROKAS24_RP_2_2" Data="삽질을 멈췄습니다"/>
+		<Class ClassID="140337" ClassName="ROKAS24_RP_2_GETITEM" Data="모마된 고대 자료를 찾았습니다"/>
 		<Class ClassID="220000" ClassName="GUILDEVENT_SELECT_1" Data="길드 인던 미션"/>
 		<Class ClassID="220001" ClassName="GUILDEVENT_SELECT_2" Data="길드 필드 보스"/>
 		<Class ClassID="220002" ClassName="GUILDEVENT_SELECT_3" Data="길드 레이드"/>
@@ -3524,6 +3540,18 @@
 		<Class ClassID="22414" ClassName="GuildMember{Name}Get{Item}By{Count}FromGuildWareHouse" Data="길드원 {Name}이 길드 보관함으로부터 {Item} {Count}개를 받았습니다."/>
 		<Class ClassID="22415" ClassName="ReceivedItemFromGuildWareHouse_GetItFromBarrack" Data="길드 보관함에 아이템을 수령했습니다. 숙소에서 아이템을 확인하세요."/>
 <Class ClassID="22417" ClassName="YouCanBuildInTheOtherGuildAgit" Data="다른 길드 아지트에서는 사용하실 수 없습니다."/>
+<Class ClassID="22418" ClassName="CannotChangeNeutralityState" Data="아직 중립상태를 변경할 수 없습니다."/>
+		<Class ClassID="22419" ClassName="YouCanBuildInTheOtherGuildAgit" Data="다른 길드 아지트에서는 사용하실 수 없습니다."/>
+		<Class ClassID="22421" ClassName="WantTobeChangedNeutralityState{DAY}" Data="길드 중립 상태로 변경하시길 원합니까?{nl}중립 상태에서는 필드 전쟁이 불가능합니다.{nl}상태는 {DAY}동안 유지됩니다."/>
+		<Class ClassID="22422" ClassName="WantTobeChangedNoneNeutralityState{DAY}" Data="길드 중립 상태로 변경하시길 원합니까?{nl}중립 상태에서는 필드 전쟁이 불가능합니다.{nl}상태는 {DAY}동안 유지됩니다."/>
+		<Class ClassID="22423" ClassName="ChangeGuildNeutralityState{DAY}" Data="길드가 중립 상태로 변경되었습니다. {DAY}이후에 상태를 재 변경 하실 수 있습니다."/>
+		<Class ClassID="22424" ClassName="ChangeGuildNoneNeutralityState{DAY}" Data="길드 중립 상태가 해지되었습니다. {DAY}이후에 상태를 재 변경 하실 수 있습니다."/>
+		<Class ClassID="22425" ClassName="CannotChangeCuzGuildWarState" Data="길드 전쟁 중엔 중립 상태로 변경하실 수 없습니다."/>
+		<Class ClassID="22426" ClassName="NeutralityChangeTime{TIME}" Data="{@st42}[{TIME} 후 상태 변경 가능]"/>
+		<Class ClassID="22427" ClassName="TargetGuildIsNeutralityState" Data="상대길드는 현재 중립 상태에 있어 전쟁 선포를 하실 수 없습니다."/>
+		<Class ClassID="22428" ClassName="YourGuildIsNeutralityState" Data="당신의 길드는 현재 중립 상태에 있어 전쟁 선포를 하실 수 없습니다."/>
+		<Class ClassID="22429" ClassName="GuildEnemyCountMAX" Data="전쟁 선포는 최대 3개의 길드까지만 가능합니다."/>
+		<Class ClassID="22430" ClassName="NeedGuildTower" Data="길드 타워가 없으면 전쟁 선포를 하실 수 없습니다."/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="22501" ClassName="THSword" Data="양손검"/>
@@ -3827,8 +3855,6 @@
 		<Class ClassID="25191" ClassName="RSP_BM" Data="SP 회복력"/>
 		<Class ClassID="25192" ClassName="MHR_BM" Data="마법 증폭"/>
 		<Class ClassID="25193" ClassName="EnchantOption" Data="인챈트 옵션"/>
-	<Class ClassID="25194" ClassName="ReinforceOption" Data="강화 단계마다"/>
-		<Class ClassID="25195" ClassName="ReinforceOptionAtk" Data="공격력 증가"/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="26001" ClassName="VeryEasy" Data="매우 쉬움"/>

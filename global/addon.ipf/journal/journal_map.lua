@@ -169,8 +169,15 @@ function JOURNAL_OPEN_MAP_ARTICLE(frame, ctrlSet)
 	JOURNAL_HIDE_ARTICLES(f)
 	JOURNAL_OPEN_ARTICLE(f, 'map')
 
-	local group = GET_CHILD(f, 'map', 'ui::CGroupBox')
-	group:ShowWindow(1)
+	local group = GET_CHILD(f, 'map', 'ui::CGroupBox');
+
+	local bg = GET_CHILD(f, "bg", "ui::CGroupBox");
+	local page = group:CreateOrGetControl('groupbox', 'page_Map', 0, 0, ui.NONE_HORZ, ui.NONE_VERT, 10, 50, 10, 30);
+	local scrollBarHeight = bg:GetHeight() - group:GetY();
+	tolua.cast(page, 'ui::CGroupBox');
+	page:SetScrollBar(scrollBarHeight);
+
+	group:ShowWindow(1);
 	imcSound.PlaySoundEvent('button_click_3');
 	--SET_JOURNAL_RANK_TYPE(f, 'Map');
 end
