@@ -128,6 +128,10 @@
 		<Class ClassID="501182" OverrideType="ADD" ClassName="EVENT_CURSED_COAST_NPC_SEL2" Data="{Name}님이 저주받은 석화 고래를 깨웠습니다."/>
 		<Class ClassID="501183" OverrideType="ADD" ClassName="EVENT_STEAM_SOCCER_NPC_SEL1" Data="응원 도구 받기"/>
 		<Class ClassID="501184" OverrideType="ADD" ClassName="EVENT_STEAM_SOCCER_NPC_SEL2" Data="트로피 받기"/>
+		<Class ClassID="501186" OverrideType="ADD" ClassName="EVENT_STEAM_EVENT_INVITE_FRIEND_SEL1" Data="이벤트 참여 대상이 아닙니다."/>
+		<Class ClassID="501187" OverrideType="ADD" ClassName="EVENT_STEAM_EVENT_INVITE_FRIEND_SEL2" Data="{#003399}{team}{/}팀 내에 50레벨 이상인 캐릭터가 없습니다."/>
+		<Class ClassID="501188" OverrideType="ADD" ClassName="EVENT_STEAM_EVENT_INVITE_FRIEND_SEL3" Data="{#003399}{team}{/}의 성장 지원 받기"/>
+		<Class ClassID="501189" OverrideType="ADD" ClassName="EVENT_STEAM_EVENT_INVITE_FRIEND_SEL4" Data="{#003399}{team}{/}님이 접속 중입니다.{nl}버프가 부여됩니다."/>
 	</Category>
 	<Category Name="Premium">
 		<Class ClassID="300174" OverrideType="ADD" ClassName="Ability_Point_Stone" Data="특성 포인트 1,000"/>

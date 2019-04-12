@@ -458,6 +458,10 @@
 		<Class ClassID="4184" ClassName="EventFootBall_350Arm_2_Title" Data="350제 프리머스 방어구 선택 상자"/>
 		<Class ClassID="4185" ClassName="EventFootBall_350Wep_1_Title" Data="350제 베르타스 무기 선택 상자"/>
 		<Class ClassID="4186" ClassName="EventFootBall_350Wep_2_Title" Data="350제 프리머스 무기 선택 상자"/>
+		<Class ClassID="4187" ClassName="OnlyLegendGachaCube" Data="레전드 큐브에서만 가능합니다."/>
+		<Class ClassID="4188" ClassName="OnlySecondOpenLegendCubeUsingCoupon" Data="첫번째 재개봉시에만 이용권을 사용할 수 있습니다."/>
+		<Class ClassID="4189" ClassName="NoCubeCoupon" Data="인벤토리에 이용권이 존재하지 않습니다."/>
+		<Class ClassID="4190" ClassName="CubeCouponIsLock" Data="이용권이 잠금 되어 있습니다. {nl}잠금 해제 후 이용해 주시기 바랍니다."/>
 		<Class ClassID="4192" ClassName="SelectHairAcc{ITEM}" Data="{@st66d_y}{s20}{ITEM}{/}{/} {nl}아이템을 정말 선택하시겠습니까?{nl} {nl}선택 후에는 다른 아이템으로{nl}교환할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">

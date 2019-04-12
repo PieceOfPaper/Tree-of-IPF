@@ -405,6 +405,8 @@
         <Key Name="RareOption_PVPDamageRate" Value="102989"/>
         <Key Name="RareOption_PVPReducedRate" Value="102993"/>
         <Key Name="RareOption_SubWeaponDamageRate" Value="102988"/>
+        <Key Name="RareOption_MSPD" Value="103064"/>
+        <Key Name="RareOption_SR" Value="103063"/>
     </KeyIDSpc>
     <KeyIDSpc Name="ZoneObject">
         <Key Name="Hero_Line" Value="118"/>
@@ -2305,6 +2307,25 @@
         <Key Name="EVENT_1807_NEWCHARACTER_COUNT" Value="102980"/>
         <Key Name="EVENT_VIVID_FINAL_COUNT" Value="103013"/>
         <Key Name="EVENT_VIVID_FINAL_YDAY" Value="103014"/>
+        <Key Name="EVENT_VIVID_ACCOUNT_FEDIMIAN_POINT1" Value="103031"/>
+        <Key Name="EVENT_VIVID_ACCOUNT_FEDIMIAN_POINT2" Value="103035"/>
+        <Key Name="EVENT_VIVID_ACCOUNT_FEDIMIAN_POINT3" Value="103041"/>
+        <Key Name="EVENT_VIVID_ACCOUNT_FEDIMIAN_POINT4" Value="103038"/>
+        <Key Name="EVENT_VIVID_ACCOUNT_KLAIPE_POINT1" Value="103030"/>
+        <Key Name="EVENT_VIVID_ACCOUNT_KLAIPE_POINT2" Value="103042"/>
+        <Key Name="EVENT_VIVID_ACCOUNT_KLAIPE_POINT3" Value="103036"/>
+        <Key Name="EVENT_VIVID_ACCOUNT_KLAIPE_POINT4" Value="103033"/>
+        <Key Name="EVENT_VIVID_ACCOUNT_ORSHA_POINT1" Value="103032"/>
+        <Key Name="EVENT_VIVID_ACCOUNT_ORSHA_POINT2" Value="103037"/>
+        <Key Name="EVENT_VIVID_ACCOUNT_ORSHA_POINT3" Value="103034"/>
+        <Key Name="EVENT_VIVID_ACCOUNT_ORSHA_POINT4" Value="103043"/>
+        <Key Name="EVENT_VIVID_BEFORE_ZONE" Value="103040"/>
+        <Key Name="EVENT_VIVID_SHOP1" Value="103039"/>
+        <Key Name="EVENT_VIVID_SHOP2" Value="103029"/>
+        <Key Name="STEAM_EVENT_INVITE_FRIEND_ROOKIE_LV" Value="103065"/>
+        <Key Name="STEAM_EVENT_INVITE_FRIEND_SAVIOR_LV" Value="103066"/>
+        <Key Name="TWN180807_GACHA_HAIRACC_BOUNS" Value="103027"/>
+        <Key Name="TWN180807_GACHA_HAIRACC_COUNT" Value="103028"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_ID_boss_Rambandgad" Value="10995"/>
@@ -9955,6 +9976,9 @@
         <Key Name="Hide_2817" Value="103026"/>
         <Key Name="Kill_Boss_TealSpecter" Value="103017"/>
         <Key Name="Kill_Raid_boss_Velcoffer_event" Value="102978"/>
+        <Key Name="LEVELINFORM_CMINEPVP" Value="103045"/>
+        <Key Name="LEVELINFORM_SOLODUNGEON" Value="103044"/>
+        <Key Name="LEVELINFORM_WEAPONCHANGE10" Value="103046"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PC">
         <Key Name="DEX_JOB" Value="7165"/>
@@ -10468,6 +10492,22 @@
         <Key Name="SlashDefFactor_PC_NT" Value="11480"/>
         <Key Name="StrikeAtkFactor_PC_NT" Value="11472"/>
         <Key Name="StrikeDefFactor_PC_NT" Value="11481"/>
+        <Key Name="EnchantBlockBreakRate" Value="103055"/>
+        <Key Name="EnchantBlockRate" Value="103057"/>
+        <Key Name="EnchantBossDamageRate" Value="103059"/>
+        <Key Name="EnchantCriticalDamage_Rate" Value="103061"/>
+        <Key Name="EnchantCriticalDodgeRate" Value="103054"/>
+        <Key Name="EnchantCriticalHitRate" Value="103056"/>
+        <Key Name="EnchantDodgeRate" Value="103051"/>
+        <Key Name="EnchantHitRate" Value="103047"/>
+        <Key Name="EnchantMSPD" Value="103062"/>
+        <Key Name="EnchantMagicReducedRate" Value="103052"/>
+        <Key Name="EnchantMainWeaponDamageRate" Value="103048"/>
+        <Key Name="EnchantMeleeReducedRate" Value="103049"/>
+        <Key Name="EnchantPVPDamageRate" Value="103060"/>
+        <Key Name="EnchantPVPReducedRate" Value="103050"/>
+        <Key Name="EnchantSR" Value="103058"/>
+        <Key Name="EnchantSubWeaponDamageRate" Value="103053"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PartyMember">
         <Key Name="Before_Quest" Value="7225"/>

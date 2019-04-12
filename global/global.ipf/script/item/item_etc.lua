@@ -1481,3 +1481,9 @@ function Achieve_Event_Loving_Summer(pc)
     TxAddAchievePoint(tx, 'Achieve_Event_Loving_Summer', 1)
     local ret = TxCommit(tx);
 end
+
+function Achieve_Event_With_Friend(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Achieve_Event_With_Friend', 1)
+    local ret = TxCommit(tx);
+end

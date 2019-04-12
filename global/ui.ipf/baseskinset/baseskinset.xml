@@ -3694,6 +3694,17 @@
 			<img name="bottomcore" imgrect="592 853 148 145"/>
 			<img name="bottomright" imgrect="741 853 279 145"/>
 		</skin>
+		<skin name="Cube_skin2" texture="\skin\cube_skin.tga">
+			<img name="topleft" imgrect="0 0 1 409"/>
+			<img name="topcore" imgrect="1 0 453 409"/>
+			<img name="topright" imgrect="454 0 1 409"/>
+			<img name="bodyleft" imgrect="0 409 1 12"/>
+			<img name="bodycore" imgrect="1 409 453 12"/>
+			<img name="bodyright" imgrect="454 409 1 12"/>
+			<img name="bottomleft" imgrect="0 421 1 88"/>
+			<img name="bottomcore" imgrect="1 421 453 88"/>
+			<img name="bottomright" imgrect="454 421 1 88"/>
+		</skin>
 	</skinlist>
 	<skinlist category="testmin_frames">
 		<skin name="monstercard" texture="\skin\monstercard.tga">

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="gacha_cube_legend" x="0" y="0" width="455" height="600">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="250 -100 0 0" scale_align="right center"/>
+	<skin frameskin="none"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="100"/>
+	<input moveable="true"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="popup_start3" frameCloseAnim="popup_end3"/>
+	<effect open="character_item_window_open" close="character_item_window_close"/>
+	<script CloseScp="CANCEL_GACHA_CUBE_LEGEND"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 455 600" margin="3 5 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="Cube_skin2"/>
+		<groupbox name="item_name_bg" rect="0 0 300 50" margin="0 40 0 0" layout_gravity="center center" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="monster_skill_bg"/>
+		<groupbox name="item_name_bg2" rect="0 0 300 50" margin="0 40 0 0" layout_gravity="center center" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="monster_skill_bg"/>
+		<animpicture name="animpic" blend="50" texelx="0" texely="0" texelwidth="400" texelheight="400" spacex="1" spacey="0" loop="false" ticktime="0.06" animcount="9" layout_gravity="left top" rect="0 0 400 400" margin="35 10 0 0" image="cube_ani" hittest="false" playanim="true" stretch="true"/>
+		<button name="button_1" margin="0 0 0 85" rect="0 0 280 60" format="%s" param1="value" skin="test_red_button" layout_gravity="center bottom" oversound="button_over" LBtnUpScp="GACHA_CUBE_LEGEND_OK_BTN"/>
+		<button name="button_2" margin="0 0 0 25" rect="0 0 280 60" caption="{@st41b}이용권을 사용하여 개봉하기" skin="test_red_button" layout_gravity="center bottom" oversound="button_over" LBtnUpScp="GACHA_CUBE_LEGEND_USE_COUPON_BTN"/>
+		<richtext name="richtext_1" margin="0 59 0 0" rect="0 0 380 50" format="%s" param1="value" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<button name="close" rect="30 40 70 70" margin="10 8 0 0" layout_gravity="left top" LBtnUpScp="CANCEL_GACHA_CUBE_LEGEND" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}아이템 획득 창을 닫습니다.{/}"/>
+		<slot name="slot" margin="11 165 0 0" rect="0 0 96 96" skin="" movepop="false" oversound="button_cursor_over_3" texttooltip="{@st59}악세서리를 올려주세요{/}" dropsound="icon_get_down" picksound="icon_pick_up" DropScp="None" layout_gravity="center top"/>
+		<richtext name="itemName" margin="0 38 0 0" rect="0 0 380 50" format="{@st41b}%s" param1="value" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
+		<richtext name="richtext_2" margin="0 380 0 0" rect="0 0 480 24" caption="{@st66b}실버를 사용해서 1회 더 열 수 있습니다. {/}" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<richtext name="richtext_3" margin="0 408 0 0" rect="0 0 480 24" caption="{@st66b}토큰 혜택 적용시 2회까지 가능합니다.{/}" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<richtext name="richtext_4" margin="0 0 0 95" rect="0 0 200 60" caption="{@st41b}횟수를 모두 소진하였습니다.{/}" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom"/>
+		<richtext name="richtext_5" margin="0 0 0 135" rect="0 50 480 24" format="{@st41b}%s {nl}아이템을 획득 하셨습니다!" param1="value" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" visible="false"/>
+		<richtext name="notAllowedReopenText" margin="0 0 0 105" rect="0 0 400 30" layout_gravity="center bottom" caption="{@st41b}한번 더 열기를 할 수 없는 큐브입니다.{/}"/>
+	</controls>
+</uiframe>

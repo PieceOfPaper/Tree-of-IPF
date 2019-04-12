@@ -93,7 +93,7 @@ function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible, reop
 	local richText3  = frame:GetChild("richtext_3");
 	local richText4  = frame:GetChild("richtext_4");
 	local richText5  = frame:GetChild("richtext_5");
-	local BtnFrame = frame:GetChild("button_1");	
+	local BtnFrame = frame:GetChild("button_1");
 	richText2:ShowWindow(1);
 	richText3:ShowWindow(1);
 	richText4:ShowWindow(1);
@@ -139,6 +139,16 @@ function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible, reop
 	local sucValue = string.format("{@st41b}%s{nl}{img icon_item_silver 20 20 }%s", ScpArgMsg("ONE_MORE_TIME"), price);
 	BtnFrame:SetTextByKey("value", sucValue);	
 	BtnFrame:SetVisible(btnVisible);
+
+    local button_2 = GET_CHILD_RECURSIVELY(frame, 'button_2');
+    if button_2 ~= nil then
+    	button_2:ShowWindow(btnVisible);
+    	if reopenCount == nil then
+    		button_2:SetEnable(1);
+    	else
+    		button_2:SetEnable(0);
+    	end
+    end
 	
 	-- 기회를 모두 소진했을때
 	local EndFrame = frame:GetChild("richtext_4");
@@ -198,6 +208,11 @@ function GHACHA_CUBE_UI_RESET(frame)
 	local invframe = ui.GetFrame("inventory");		-- 인벤토리 프레임 받아오기
 	SET_SLOT_APPLY_FUNC(invframe, "GHACHA_CUBE_ITEM_UNLOCK", "Cube");
 	SET_SLOT_APPLY_FUNC(invframe, "None", "Cube");			-- 인벤 슬롯 접근 상태 초기화
+
+	local button_2 = GET_CHILD_RECURSIVELY(frame, 'button_2');	
+	if button_2 ~= nil then
+		button_2:SetEnable(1);		
+	end
 end
 
 -- Inven 에서 GHACHA_CUBE 관련 ITEM만 락 시키기 
