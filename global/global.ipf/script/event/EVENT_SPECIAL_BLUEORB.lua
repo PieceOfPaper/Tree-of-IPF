@@ -275,13 +275,6 @@ function SCR_BLUEORB_MONLVUP_DIALOG(self,pc)
     	local ret = TxCommit(tx)
     end
 
-    if aObj.EVENT_VALEN_R1 ~= 171123 then
-        local tx = TxBegin(pc)
-        TxSetIESProp(tx, aObj, 'EVENT_VALEN_R1', 171123);
-        TxSetIESProp(tx, aObj, 'EVENT_VALEN_R2', 3);
-    	local ret = TxCommit(tx)
-    end
-
     local now_time = os.date('*t')
     local yday = now_time['yday']
     
@@ -504,7 +497,7 @@ function SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum)
         local curMap = GetZoneName(self);
         local mapCls = GetClass("Map", curMap);
         
-        if self.Lv >= 100 and (mapCls.WorldMap ~= 'None' and mapCls.MapType ~= 'City') and argObj.MonRank == 'Normal' then
+        if self.Lv >= 50 and (mapCls.WorldMap ~= 'None' and mapCls.MapType ~= 'City') and argObj.MonRank == 'Normal' then
             if self.Lv <= argObj.Lv + 20 then
                 local x, y, z = GetPos(argObj);
                 local itemObj = CreateGCIES('Monster', 'Event_Special_Etcitem');
