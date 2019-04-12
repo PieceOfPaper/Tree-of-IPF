@@ -1,37 +1,5 @@
 function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
---    if pc.Lv < 100 then
---        ShowOkDlg(pc, 'EV_PRISON_DESC2', 1)
---        return
---    end
---    local aObj = GetAccountObj(pc);
---    
---    EVENT_PROPERTY_RESET(pc, aObj, sObj)
---    
---    if pc.MHP - pc.HP > 0 then
---        AddHP(pc, pc.MHP - pc.HP);
---    end
---    
---    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("Prison_Select1"), ScpArgMsg("Prison_Select3"), ScpArgMsg("Prison_Select2", "COUNT", aObj.PlayTimeEventRewardCount), ScpArgMsg("Cancel"))
---    
---    if select == 1 then
---        AUTOMATCH_INDUN_DIALOG(pc, nil, 'Indun_d_prison_62_1_event')
---    elseif select == 2 then
---        AUTOMATCH_INDUN_DIALOG(pc, nil, 'Indun_d_prison_event_easy')
---    elseif select == 3 then
---        if aObj.PlayTimeEventRewardCount >= 10 and aObj.Event_HiddenReward == 0 then
---            local tx = TxBegin(pc)
---            TxAddIESProp(tx, aObj, 'Event_HiddenReward', 1);
---            TxGiveItem(tx, 'Premium_Enchantchip14', 3, 'Prison_Event');
---        	local ret = TxCommit(tx)
---        elseif aObj.PlayTimeEventRewardCount >= 20 and aObj.Event_HiddenReward == 1 then
---            local tx = TxBegin(pc)
---            TxAddIESProp(tx, aObj, 'Event_HiddenReward', 1);
---            TxGiveItem(tx, 'Hat_628290', 1, 'Prison_Event');
---        	local ret = TxCommit(tx)
---        else
---            ShowOkDlg(pc, 'EV_PRISON_DESC1')
---    	end
---    end
+    EVENT_LVUP_13094(self,pc)
 end
 
 function EVENT_PROPERTY_RESET(pc, aObj, sObj)
@@ -43,5 +11,57 @@ function EVENT_PROPERTY_RESET(pc, aObj, sObj)
         TxSetIESProp(tx, etcObj, 'InDunCountType_900', 0);
     	local ret = TxCommit(tx)
     	print(ret)
+    end
+end
+
+function EVENT_LVUP_13094(self,pc)
+    local aObj = GetAccountObj(pc);
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    
+    local select = 0
+    
+    if sObj.EVENT_VALUE_SOBJ01 ~= 0 then
+        select = ShowSelDlg(pc, 0, 'NPC_EVENT_VERUP_DLG6', ScpArgMsg("Auto_DaeHwa_JongLyo"), ScpArgMsg("Steam_VerUP_Select01"), ScpArgMsg("Steam_VerUP_Select02"), ScpArgMsg("Steam_VerUP_Select03"))
+    else
+        select = ShowSelDlg(pc, 0, 'NPC_EVENT_VERUP_DLG6', ScpArgMsg("Auto_DaeHwa_JongLyo"), ScpArgMsg("Steam_VerUP_Select01"), ScpArgMsg("Steam_VerUP_Select02"))
+    end
+    
+    if select == 2 then
+        if sObj.EVENT_VALUE_SOBJ03 == 0 then
+            local nextLv = 0
+	        local nextlv_group = {280, 235, 185, 135, 85, 45}
+	        for i = 1, table.getn(nextlv_group) do
+        	    if pc.Lv >= nextlv_group[i] then
+        	        nextLv = i + pc.Lv
+        	        break
+        	    end
+        	end
+            ShowOkDlg(pc,'NPC_EVENT_VERUP_DLG1', 1)
+            local tx = TxBegin(pc)
+            TxAddIESProp(tx, sObj, 'EVENT_VALUE_SOBJ03', 1);
+            TxSetIESProp(tx, sObj, 'EVENT_VALUE_SOBJ01', nextLv)
+            TxGiveItem(tx, 'LevelUp_Reward_EV', 10, 'Event_VerUP_Box');
+            local ret = TxCommit(tx)
+        elseif pc.Lv == 330 then
+            ShowOkDlg(pc,'NPC_EVENT_VERUP_DLG8', 1)
+        elseif sObj.EVENT_VALUE_SOBJ03 > 0 then
+            ShowOkDlg(pc,'NPC_EVENT_VERUP_DLG2', 1)    
+        end
+    elseif select == 3 then
+        if aObj.EVENT_VALUE_AOBJ04 == 0 then
+            if pc.Lv == 330 then
+                ShowOkDlg(pc,'NPC_EVENT_VERUP_DLG3', 1)
+                local tx = TxBegin(pc)
+                TxAddIESProp(tx, aObj, 'EVENT_VALUE_AOBJ04', 1);
+                TxGiveItem(tx, 'Premium_eventTpBox_120', 1, 'Event_VerUP_Tp');
+                local ret = TxCommit(tx)
+            elseif pc.Lv ~= 330 then
+                ShowOkDlg(pc,'NPC_EVENT_VERUP_DLG4', 1)
+            end
+        elseif aObj.EVENT_VALUE_AOBJ04 > 0 then
+            ShowOkDlg(pc,'NPC_EVENT_VERUP_DLG5', 1)    
+        end
+    elseif select == 4 then
+        SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("LevelUp_Event_Desc02", "NEXTLV", sObj.EVENT_VALUE_SOBJ01), 5)
     end
 end

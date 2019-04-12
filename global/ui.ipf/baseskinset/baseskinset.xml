@@ -5194,6 +5194,7 @@
 		<image name="indun_x2" file="\skin\indun_skin.tga" imgrect="535 323 150 110" CMM_Caption="x2"/>
 		<image name="indun_x1" file="\skin\indun_skin.tga" imgrect="384 323 150 110" CMM_Caption="x1"/>
 		<image name="indun_info" file="\skin\indun_skin.tga" imgrect="233 434 150 110" CMM_Caption="올라가는거_kor"/>
+		<image name="indun_info_E" file="\skin\indun_skin.tga" imgrect="899 389 105 120" CMM_Caption="올라가는거_E"/>
 		<image name="indun_silverbox_bg" file="\skin\indun_skin.tga" imgrect="0 651 204 324" CMM_Caption="배수권실버박스이미지"/>
 		<image name="indun_slide_bg" file="\skin\indun_skin.tga" imgrect="686 323 338 65" CMM_Caption="슬라이드박스_배경"/>
 		<image name="indun_bossrandom" file="\skin\indun_skin.tga" imgrect="958 54 65 65" CMM_Caption="인던_보스랜덤"/>
@@ -7159,13 +7160,12 @@
 		<image name="icon_Event_Vitamin" file="\icon\buff_icon.tga" imgrect="384 1408 128 128" CMM_Caption="이벤트 비타민 버프"/>
 		<image name="icon_Event_choco" file="\icon\buff_icon.tga" imgrect="512 1408 128 128" CMM_Caption="이벤트 초콜릿 버프"/>
 		<image name="icon_ScudInstinct_Buff" file="\icon\buff_icon.tga" imgrect="640 1408 128 128" CMM_Caption="바바리안 특성 버프"/>
-		<image name="icon_Event_161215_1" file="\icon\buff_icon.tga" imgrect="768 1408 128 128" CMM_Caption="새싹1"/>
-		<image name="icon_Event_161215_2" file="\icon\buff_icon.tga" imgrect="896 1408 128 128" CMM_Caption="새싹2"/>
-		<image name="icon_Event_161215_3" file="\icon\buff_icon.tga" imgrect="0 1536 128 128" CMM_Caption="새싹3"/>
-		<image name="icon_Event_161215_4" file="\icon\buff_icon.tga" imgrect="128 1536 128 128" CMM_Caption="새싹4"/>
-		<image name="icon_Event_161215_5" file="\icon\buff_icon.tga" imgrect="256 1536 128 128" CMM_Caption="새싹5"/>
-		<image name="icon_Large_RiceSoup" file="\icon\buff_icon.tga" imgrect="512 1536 128 128" CMM_Caption="특대떡국"/>
-		<image name="icon_RiceSoup" file="\icon\buff_icon.tga" imgrect="640 1536 128 128" CMM_Caption="떡국"/>
+		<image name="icon_Event_WhitDay_Buff" file="\icon\buff_icon.tga" imgrect="768 1536 128 128" CMM_Caption="화이트데이 버프"/>
+		<image name="icon_Event_WhitDay_Candy_set" file="\icon\buff_icon.tga" imgrect="896 1536 128 128" CMM_Caption="사탕 버프"/>
+		<image name="icon_Event_WhitDay_Candy_1" file="\icon\buff_icon.tga" imgrect="0 1664 128 128" CMM_Caption="사탕1"/>
+		<image name="icon_Event_WhitDay_Candy_2" file="\icon\buff_icon.tga" imgrect="128 1664 128 128" CMM_Caption="사탕2"/>
+		<image name="icon_Event_WhitDay_Candy_3" file="\icon\buff_icon.tga" imgrect="256 1664 128 128" CMM_Caption="사탕3"/>
+		<image name="icon_Event_WhitDay_Candy_4" file="\icon\buff_icon.tga" imgrect="384 1664 128 128" CMM_Caption="사탕4"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>
