@@ -125,10 +125,12 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
 
         local countBox = GET_CHILD_RECURSIVELY(frame, 'countBox');
         local countText = GET_CHILD_RECURSIVELY(countBox, 'countText');
+        local cycleCtrlPic = GET_CHILD_RECURSIVELY(countBox, 'cycleCtrlPic');
         countText:SetText(ScpArgMsg("IndunAdmissionItemReset"))
         countData:ShowWindow(1)
         countItemData:ShowWindow(0)
         cycleImage:ShowWindow(1);
+        cycleCtrlPic:ShowWindow(0);
     else
         -- if isTokenState == true then
         --     isTokenState = TryGetProp(indunCls, "PlayPerReset_Token")
@@ -140,13 +142,36 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         --     tokenStatePic:SetTextTooltip(ScpArgMsg('YouCanLittleIndunAdmissionItemWithToken', 'COUNT', indunCls.PlayPerReset_Token, 'TOKEN_STATE', ClMsg('NotApplied')));
         -- end
         --local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
-        local nowAdmissionItemCount = admissionItemCount + addCount
+        local nowAdmissionItemCount = admissionItemCount
+        
+        if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
+            nowAdmissionItemCount  = admissionItemCount - 1
+        else
+            nowAdmissionItemCount  = admissionItemCount + addCount
+        end
+        
         countItemData:SetTextByKey('admissionitem', '  {img '..indunAdmissionItemImage..' 30 30}  '..nowAdmissionItemCount..'')
         local countBox = GET_CHILD_RECURSIVELY(frame, 'countBox');
         local countText = GET_CHILD_RECURSIVELY(countBox, 'countText');
+        local cycleCtrlPic = GET_CHILD_RECURSIVELY(countBox, 'cycleCtrlPic');
         countText:SetText(ScpArgMsg("IndunAdmissionItem"))
+        cycleCtrlPic:ShowWindow(0);
 
         if indunCls.DungeonType == 'UniqueRaid' then
+            if SCR_RAID_EVENT_20190102(nil, false) and admissionItemName == 'Dungeon_Key01' then -- 별의 탑 폐쇄 구역 제외 조건 걸어주기
+                cycleCtrlPic:ShowWindow(1);
+            end
+        
+            cycleImage:ShowWindow(0);
+        end
+
+        if indunCls.MGame == 'MISSION_EVENT_BLUEORB' then
+            local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
+            if isTokenState == true then
+                isTokenStateCount = TryGetProp(indunCls, "PlayPerReset_Token");
+                nowAdmissionItemCount = nowAdmissionItemCount - isTokenStateCount
+            end
+            countItemData:SetTextByKey('admissionitem', '  {img '..indunAdmissionItemImage..' 30 30}  '..nowAdmissionItemCount..'')
             cycleImage:ShowWindow(0);
         end
 
