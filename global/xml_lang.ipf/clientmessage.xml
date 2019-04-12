@@ -863,7 +863,7 @@
     <Class ClassID="20168" ClassName="TpChargeSuccess" Data="TP가 충전되었습니다."/>
     <Class ClassID="20169" ClassName="TpChargeFail" Data="TP 충전에 실패하였습니다."/>
     <Class ClassID="20170" ClassName="AreyouSureToProductBuy{ProductName}"  Data="{ProductName} 상품을 구매 하시겠습니까?"/>
-  </Category>
+ </Category>
 	<Category Name="ChatText">
 		<Class ClassID="20501" ClassName="Guard" Data="방어"/>
 		<Class ClassID="20502" ClassName="FrontShot!" Data="전방 사격!"/>
@@ -1001,6 +1001,7 @@
 		<Class ClassID="2008" ClassName="QuestReenterTimeMSG2" Data="후에 시작하실 수 있습니다"/>
 		<Class ClassID="2009" ClassName="DialogSelectRandomRewardTxt" Data="{@st41}랜덤 보상{/}"/>
 		<Class ClassID="2010" ClassName="DialogSelectRandomRewardListTxt" Data="{@st41}놓친 보상{/}"/>
+		<Class ClassID="20180" ClassName="TP_Costume_Hairacc" Data="헤어 악세서리"/>
 		<Class ClassID="21011" ClassName="TreasureboxKeyCMSG1" Data="여는 중"/>
 		<Class ClassID="21012" ClassName="TreasureboxKeyCMSG2" Data="보물 상자 보상 리스트가 없습니다."/>
 		<Class ClassID="21013" ClassName="TreasureboxKeyCMSG3" Data="번 째 보상 설정이 잘 못 되어있습니다."/>

@@ -646,7 +646,7 @@ end
 
 
 
-function CHAT_RBTN_POPUP(frame, chatCtrl) -- 이거 살릴 수도. 오늘 말고.
+function CHAT_RBTN_POPUP(frame, chatCtrl)
 
 	if session.world.IsIntegrateServer() == true then
 		ui.SysMsg(ScpArgMsg("CantUseThisInIntegrateServer"));
@@ -668,6 +668,8 @@ function CHAT_RBTN_POPUP(frame, chatCtrl) -- 이거 살릴 수도. 오늘 말고.
 
 	local blockScp = string.format("CHAT_BLOCK_MSG('%s')", targetName );
 	ui.AddContextMenuItem(context, ScpArgMsg("FriendBlock"), blockScp)
+
+	ui.AddContextMenuItem(context, ScpArgMsg("Report_AutoBot"), string.format("REPORT_AUTOBOT_MSGBOX(\"%s\")", targetName));
 
 	ui.AddContextMenuItem(context, ScpArgMsg("Cancel"), "None");
 	ui.OpenContextMenu(context);

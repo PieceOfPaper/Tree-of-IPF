@@ -3472,6 +3472,8 @@
 		<image name="hair_thaumaturge" file="\icon\payment\hair_thaumaturge.png" imgrect="0 0 256 256"/>
 		<image name="hair_musketeer_female" file="\icon\payment\hair_musketeer_female.png" imgrect="0 0 256 256"/>
 		<image name="hair_thaumaturge_female" file="\icon\payment\hair_thaumaturge_female.png" imgrect="0 0 256 256"/>
+		<image name="hair_jullahair" file="\icon\payment\hair_jullahair.png" imgrect="0 0 256 256"/>
+		<image name="hair_onmyoji" file="\icon\payment\hair_onmyoji.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_hair_elementalist_female" file="\icon\payment\hair_elementalist_female.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_hair_GM2_female" file="\icon\payment\hair_GM2_female.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_hair_sage" file="\icon\payment\hair_sage.png" imgrect="0 0 256 256"/>
@@ -3514,6 +3516,19 @@
 	<image name="icon_item_archer_school_f" file="\icon\payment\archer_school_f.png" imgrect="0 0 256 256"/>
 	<image name="icon_item_cleric_school_m" file="\icon\payment\cleric_school_m.png" imgrect="0 0 256 256"/>
 	<image name="icon_item_cleric_school_f" file="\icon\payment\cleric_school_f.png" imgrect="0 0 256 256"/>
+	<image name="icon_item_warrior_trump_m" file="\icon\payment\warrior_m_trump.png" imgrect="0 0 256 256" CMM_Caption="트럼프세트_전사"/>
+		<image name="icon_item_warrior_trump_f" file="\icon\payment\warrior_f_trump.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archer_trump_m" file="\icon\payment\archer_m_trump.png" imgrect="0 0 256 256" CMM_Caption="트럼프세트_아쳐"/>
+		<image name="icon_item_archer_trump_f" file="\icon\payment\archer_f_trump.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_cleric_trump_m" file="\icon\payment\cleric_m_trump.png" imgrect="0 0 256 256" CMM_Caption="트럼프세트_클레릭"/>
+		<image name="icon_item_cleric_trump_f" file="\icon\payment\cleric_f_trump.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mage_trump_m" file="\icon\payment\mage_m_trump.png" imgrect="0 0 256 256" CMM_Caption="트럼프세트_위저드"/>
+		<image name="icon_item_mage_trump_f" file="\icon\payment\mage_f_trump.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_Hat_trump_cle" file="\icon\payment\Hat_cle_trump.png" imgrect="0 0 256 256" CMM_Caption="트럼프세트_헤어"/>
+		<image name="hairacc_Hat_trump_arc" file="\icon\payment\Hat_arc_trump.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_Hat_trump_war" file="\icon\payment\Hat_war_trump.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_Hat_trump_wizm" file="\icon\payment\Hat_wiz_trump_m.png" imgrect="0 0 256 256"/>
+		<image name="hairacc_Hat_trump_wizf" file="\icon\payment\Hat_wiz_trump_f.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

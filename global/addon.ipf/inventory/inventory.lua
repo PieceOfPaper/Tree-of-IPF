@@ -1658,7 +1658,7 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 		RunStringScript(strScp);
 	elseif FromFrame:GetName() == "camp_ui" or FromFrame:GetName() == "warehouse" then
 		local iconInfo = liftIcon:GetInfo();
-		local iesID = liftIcon:GetTooltipIESID();
+		local iesID = iconInfo:GetIESID();
 
 		if iconInfo.count > 1 then	
 			toFrame:SetUserValue("HANDLE", FromFrame:GetUserIValue("HANDLE"));
