@@ -95,7 +95,7 @@ end
 
 function SCR_STEAM_EVENT_TODAY_TICKET(self,argObj,BuffName,arg1,arg2)
 
-    select = ShowSelDlg(self, 0, 'EVENT_STEAM_TODAY_TICKET_DLG_1', ScpArgMsg("Event_Steam_YC_2"), ScpArgMsg("Event_Steam_YC_3"), ScpArgMsg("Event_Steam_YC_4"), ScpArgMsg("Cancel"))
+    local select = ShowSelDlg(self, 0, 'EVENT_STEAM_TODAY_TICKET_DLG_1', ScpArgMsg("Event_Steam_YC_2"), ScpArgMsg("Event_Steam_YC_3"), ScpArgMsg("Event_Steam_YC_4"), ScpArgMsg("Cancel"))
 
     if select == 1 then
         MoveZone(self, 'c_Klaipe', -179, 150, 72);

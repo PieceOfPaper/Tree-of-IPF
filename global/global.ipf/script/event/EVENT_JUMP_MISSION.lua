@@ -62,7 +62,19 @@ function INIT_EVNET_JUMP_STAT(pc)
 end
 
 function SCR_EVENT_JUMP_MISSION_DIALOG(self, pc)
-    AUTOMATCH_INDUN_DIALOG(pc, nil, 'E_f_tableland_11_1')
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    local now_time = os.date('*t')
+    local yday = now_time['yday']
+    local hour = now_time['hour']
+    local min = now_time['min']
+    local ymin = (yday * 24 * 60) + hour * 60 + min
+
+    if sObj.EVENT_JUMP_BOX_REWARD + 9 <= ymin then
+        AUTOMATCH_INDUN_DIALOG(pc, nil, 'E_f_tableland_11_1')
+    else
+        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("TryLater"), 5);
+        return
+    end
 end
 
 function SCR_EVENT_JUMP_POTAL_DIALOG(self, pc)
@@ -73,12 +85,15 @@ function SCR_EVENT_JUMP_NPC_DIALOG(self, pc)
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
     local now_time = os.date('*t')
     local yday = now_time['yday']
+    local hour = now_time['hour']
+    local min = now_time['min']
+    local ymin = (yday * 24 * 60) + hour * 60 + min
     
-    if sObj.EVENT_JUMP_NPC_REWARD ~= yday then    
+    if sObj.EVENT_JUMP_NPC_REWARD + 9 <= ymin then    
         local tx = TxBegin(pc)
         TxEnableInIntegrate(tx)
         TxGiveItem(tx, 'GIMMICK_Drug_HPSP2', 2, "EVENT_JUMP_HPSP2");
-        TxSetIESProp(tx, sObj, 'EVENT_JUMP_NPC_REWARD', yday);
+        TxSetIESProp(tx, sObj, 'EVENT_JUMP_NPC_REWARD', ymin);
         local ret = TxCommit(tx)
         ShowOkDlg(pc, 'EVENT_JUMP_MISSION_NPC1', 1)
     end
@@ -88,10 +103,13 @@ function SCR_EVENT_JUMP_BOX_DIALOG(self, pc)
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
     local now_time = os.date('*t')
     local yday = now_time['yday']
+    local hour = now_time['hour']
+    local min = now_time['min']
+    local ymin = (yday * 24 * 60) + hour * 60 + min
     local zoneObj = GetLayerObject(pc);
 	local GOAL_COUNT = GetExProp(zoneObj, 'GOAL_COUNT')
 
-    if sObj.EVENT_JUMP_BOX_REWARD ~= yday then
+    if sObj.EVENT_JUMP_BOX_REWARD + 9 <= ymin then
         local TIME_COUNT = GetExProp(zoneObj, 'TIME_COUNT')
         if TIME_COUNT == 0 then
             local tx = TxBegin(pc)
@@ -109,7 +127,7 @@ function SCR_EVENT_JUMP_BOX_DIALOG(self, pc)
             TxEnableInIntegrate(tx)
             TxGiveItem(tx, 'Ability_Point_Stone_500_14d', 1, "EVENT_JUMP_GET_Ability");
             TxGiveItem(tx, 'Drug_Fortunecookie', 1, "EVENT_JUMP_GET_Fortun");
-            TxSetIESProp(tx, sObj, 'EVENT_JUMP_BOX_REWARD', yday);
+            TxSetIESProp(tx, sObj, 'EVENT_JUMP_BOX_REWARD', ymin);
             local ret = TxCommit(tx)
             if ret == 'SUCCESS' then
                 SetExProp(zoneObj, "GOAL_COUNT", GOAL_COUNT + 1);
@@ -120,7 +138,7 @@ function SCR_EVENT_JUMP_BOX_DIALOG(self, pc)
             local tx = TxBegin(pc)
             TxEnableInIntegrate(tx)
             TxGiveItem(tx, 'Ability_Point_Stone_500_14d', 1, "EVENT_JUMP_GET_Ability");
-            TxSetIESProp(tx, sObj, 'EVENT_JUMP_BOX_REWARD', yday);
+            TxSetIESProp(tx, sObj, 'EVENT_JUMP_BOX_REWARD', ymin);
             local ret = TxCommit(tx)
             if ret == 'SUCCESS' then
                 SetExProp(zoneObj, "GOAL_COUNT", GOAL_COUNT + 1);

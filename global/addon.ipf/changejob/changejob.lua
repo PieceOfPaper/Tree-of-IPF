@@ -303,18 +303,15 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
     jobchangebutton:ShowWindow(0);
     
     local jobCircleValue = session.GetJobGrade(jobinfo.ClassID);
-
+    
     if jobinfo.HiddenJob == "YES" and jobCircleValue <= 0 then
-		if IS_KOR_JOB_EXEMPTION_PERIOD(jobinfo.ClassName) == 'NO' then
-			local pcEtc = GetMyEtcObject();
-			if pcEtc["HiddenJob_"..jobinfo.ClassName] ~= 300 and IS_KOR_TEST_SERVER() == false then
-				return
-			end	
-		end
+    	local pcEtc = GetMyEtcObject();
+    	if pcEtc["HiddenJob_"..jobinfo.ClassName] ~= 300 and IS_KOR_TEST_SERVER() == false then
+    	    return
+    	end
     end
     local pc = GetMyPCObject();
     local preFuncName = TryGetProp(jobinfo, 'PreFunction')
-
     if preFuncName ~= nil and preFuncName ~= 'None' then
         local preFunc = _G[preFuncName]
         if preFunc ~= nil then
@@ -324,13 +321,11 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
             end
         end
     end
-
 	if canChangeJob == true and CHANGEJOB_CHECK_QUEST_SCP_CONDITION_IGNORE_SELECTEDJOB(jobinfo[stringtest]) == 1 then
 
 		if infotype == CHANGE_JOB_TYPE_HAVE then
 			jobchangebutton:ShowWindow(0);
 		else
-		
 			if CJ_JOB_PROPERTYQUESTCHECK() == 1 then
 				if CJ_JOB_GENDERCHECK(jobid) == 1 then
 					if session.GetPcTotalJobGrade() <= JOB_CHANGE_MAX_RANK then
@@ -514,12 +509,14 @@ function UPDATE_CHANGEJOB(frame)
     						hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);						
     							hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]	
     						elseif cls.HiddenJob == "YES" then
-    							local pcEtc = GetMyEtcObject();
-    							if pcEtc["HiddenJob_"..cls.ClassName] == 300 or IS_KOR_TEST_SERVER() or IS_KOR_JOB_EXEMPTION_PERIOD(cls.ClassName) == 'YES' then
-    							    local questIES = GetClass('QuestProgressCheck',nowjobID[ChangeJobQuestCircleText])
-    							    local req_joblvup = SCR_QUEST_CHECK_MODULE_JOBLVUP(pc, questIES)
-    							    local req_joblvdown = SCR_QUEST_CHECK_MODULE_JOBLVDOWN(pc, questIES)
-    							    if req_joblvup == 'YES' and req_joblvdown == 'YES' then
+--    							local pcEtc = GetMyEtcObject();
+--    							if pcEtc["HiddenJob_"..cls.ClassName] == 300 or IS_KOR_TEST_SERVER() or IS_KOR_JOB_EXEMPTION_PERIOD(cls.ClassName) == 'YES' then
+--    							    local questIES = GetClass('QuestProgressCheck',nowjobID[ChangeJobQuestCircleText])
+--    							    local req_joblvup = SCR_QUEST_CHECK_MODULE_JOBLVUP(pc, questIES)
+--    							    local req_joblvdown = SCR_QUEST_CHECK_MODULE_JOBLVDOWN(pc, questIES)
+--    						    print('SSSSSSSSSSSSSSSSS',cls.Name,nowjobID[ChangeJobQuestCircleText])
+--    							    if req_joblvup == 'YES' and req_joblvdown == 'YES' then
+--    						    print('HHHHHHHHH',cls.Name)
         								local subindex = #hadjobarray + 1
         								hadjobarray[subindex] = {}
         								hadjobarray[subindex][1] = cls.ClassID	
@@ -527,8 +524,8 @@ function UPDATE_CHANGEJOB(frame)
         								hadjobarray[subindex][3] = cls.Name
         								hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);	
         								hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]	
-       							end
-   							end
+--        							end
+--    							end
     						end
     					elseif cls.HiddenJob == "NO" then
     						if canChangeJob == true then
@@ -543,12 +540,12 @@ function UPDATE_CHANGEJOB(frame)
     					
     					elseif cls.HiddenJob == "YES" then
     						if canChangeJob == true then
-    							local pcEtc = GetMyEtcObject();
-    							if pcEtc["HiddenJob_"..cls.ClassName] == 300 or IS_KOR_TEST_SERVER() or IS_KOR_JOB_EXEMPTION_PERIOD(cls.ClassName) == 'YES'  then
-    							    local questIES = GetClass('QuestProgressCheck',nowjobID[ChangeJobQuestCircleText])
-    							    local req_joblvup = SCR_QUEST_CHECK_MODULE_JOBLVUP(pc, questIES)
-    							    local req_joblvdown = SCR_QUEST_CHECK_MODULE_JOBLVDOWN(pc, questIES)
-    							    if req_joblvup == 'YES' and req_joblvdown == 'YES' then
+--    							local pcEtc = GetMyEtcObject();
+--    							if pcEtc["HiddenJob_"..cls.ClassName] == 300 or IS_KOR_TEST_SERVER() or IS_KOR_JOB_EXEMPTION_PERIOD(cls.ClassName) == 'YES'  then
+--    							    local questIES = GetClass('QuestProgressCheck',nowjobID[ChangeJobQuestCircleText])
+--    							    local req_joblvup = SCR_QUEST_CHECK_MODULE_JOBLVUP(pc, questIES)
+--    							    local req_joblvdown = SCR_QUEST_CHECK_MODULE_JOBLVDOWN(pc, questIES)
+--    							    if req_joblvup == 'YES' and req_joblvdown == 'YES' then
         								local subindex = #hadjobarray + 1
         								hadjobarray[subindex] = {}
         								hadjobarray[subindex][1] = cls.ClassID
@@ -556,12 +553,13 @@ function UPDATE_CHANGEJOB(frame)
         								hadjobarray[subindex][3] = cls.Name
         								hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);			
         								hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]	
-       							end
-   							end
+--        							end
+--    							end
     						end
     					end
     				end
     			end
+    
     
     			if pcjobinfo.ClassID == cls.ClassID then
     				pcjobinfotype = hadjobarray[subindex][2]
@@ -680,7 +678,7 @@ function UPDATE_CHANGEJOB(frame)
 				end
 
 				local tempstr = hadjobarray[i][2]..(jobclass+1)
-			
+				
 				button:SetEventScript(ui.LBUTTONDOWN, 'CJ_CLICK_INFO')
 				button:SetEventScriptArgNumber(ui.LBUTTONDOWN, hadjobarray[i][1]);	
 				button:SetEventScriptArgString(ui.LBUTTONDOWN, tempstr);	

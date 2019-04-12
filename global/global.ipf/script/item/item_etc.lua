@@ -1178,3 +1178,12 @@ function ACHIEVE_THEGIFTEDARTIST2(pc)
     TxAddAchievePoint(tx, 'TheGiftedArtist2', 1)
     local ret = TxCommit(tx);
 end
+
+function SCR_USE_MONSTERCARDALBUM_TAIWAN(pc, target, string1, arg1, arg2, itemID)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'Red_Card_Book', 1, 'MONSTERCARDALBUM_TAIWAN');
+    TxGiveItem(tx, 'Blue_Card_Book', 1, 'MONSTERCARDALBUM_TAIWAN');
+    TxGiveItem(tx, 'Green_Card_Book', 1, 'MONSTERCARDALBUM_TAIWAN');
+    TxGiveItem(tx, 'Purple_Card_Book', 1, 'MONSTERCARDALBUM_TAIWAN');
+    local ret = TxCommit(tx);
+end
