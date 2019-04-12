@@ -64,6 +64,7 @@
 		<checkbox name="check_EnableCharSilhouette" rect="0 0 120 30" margin="320 800 0 0" layout_gravity="left top" ConfigName="EnableCharSilhouette" caption="{@st66b} 캐릭터 실루엣 적용" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="UseCamShockWave" rect="0 0 120 30" margin="50 830 0 0" layout_gravity="left top" ConfigName="UseCamShockWave" LBtnUpScp="" caption="{@st66b}카메라 진동 사용{/}" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="check_ShowOtherPCDamageEffect" rect="0 0 120 30" margin="320 830 0 0" layout_gravity="left top" ConfigName="EnableOtherPCDamageEffect" caption="{@st66b}다른 캐릭터 대미지 보기" clicksound="button_click_big" oversound="button_over"/>
+		<checkbox name="UseItemDropEffect" rect="0 0 120 30" margin="50 860 0 0" layout_gravity="left top" ConfigName="UseItemDropEffect" caption="{@st66b}아이템 드랍 이펙트 사용" clicksound="button_click_big" oversound="button_over"/>
 		<richtext name="credit_txt" rect="0 0 120 24" margin="45 0 0 -2107" layout_gravity="left bottom" format="{@st43}크레딧{/}"/>
 		<button name="COMMIT" rect="0 0 120 40" margin="130 0 0 -2100" layout_gravity="left bottom" LBtnUpScp="ui.ToggleFrame(&apos;credit&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}보기{/}" clicksound="button_click_skill_up_OK" oversound="button_over" textalign="center center" textoffset="0 0" texttooltip="{@st59}만든 사람들{/}"/>
 		<labelline name="boardLine 1" parent="pipwin_low" rect="0 0 560 4" margin="20 220 0 0" layout_gravity="left top" skin="None" visible="true"/>
