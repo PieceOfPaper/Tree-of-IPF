@@ -7877,6 +7877,7 @@
 		<Class ClassID="124043" ClassName="OnlyOnePcJoin" Data="해당 미션은 다른 캐릭터로 입장할 수 없습니다."/>
 		<Class ClassID="124045" ClassName="MaxDurUnderflow" Data="최대 내구도가 부족합니다."/>
 		<Class ClassID="124046" ClassName="FailToTakeCostume" Data="코스튬 수거에 실패했습니다."/>
+		<Class ClassID="124047" ClassName="FailSlashCommand" Data="해당 명령이 없거나 실패하였습니다."/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="130001" ClassName="ClickToSharedQuestWithParty" Data="{@st59}버튼을 클릭하면 파티원에게 노출합니다."/>
@@ -11488,6 +11489,12 @@
 		<Class ClassID="2000205" ClassName="WebService_204" Data="승낙 또는 거절 상태의 신청서는 삭제하실 수 없습니다."/>
 		<Class ClassID="2000206" ClassName="WebService_43" Data="연속으로 실행하실 수 없는 작업입니다.{nl}잠시뒤 다시 실행해주세요."/>
 		<Class ClassID="2000207" ClassName="WebService_44" Data="[Error Code 44] 입력하신 이름으로 변경할 수 없습니다."/>
+		<Class ClassID="2000208" ClassName="WebService_TooManyRequests" Data="연속으로 실행하실 수 없는 작업입니다.{nl}잠시뒤 다시 실행해주세요."/>
+		<Class ClassID="2099994" ClassName="ImageUploadSuccess" Data="이미지가 성공적으로 업로드되었습니다"/>
+		<Class ClassID="2099995" ClassName="RegGuildPromoteBeforeImage" Data="이미지를 등록하기 전에 길드 홍보글을 등록해주세요"/>
+		<Class ClassID="2099996" ClassName="BannerUploadSuccess" Data="배너가 성공적으로 업로드되었습니다"/>
+		<Class ClassID="2099997" ClassName="ImageInterlaceException" Data="인터레이스 제거에 문제가 발생했습니다. 이미지 형식을 확인해주세요"/>
+		<Class ClassID="2099998" ClassName="GuildIntroUpdated" Data="길드 소개글 변경 완료"/>
 		<Class ClassID="2099999" ClassName="UpdateSuccess" Data="성공적으로 갱신되었습니다."/>
 		<Class ClassID="2100000" ClassName="NotYetExcute" Data="지금 당장 하실 수 없습니다."/>
 		<Class ClassID="2100001" ClassName="GuildJoined" Data="길드 가입신청이 완료되었습니다."/>
@@ -11499,7 +11506,8 @@
 		<Class ClassID="2100007" ClassName="AvailableAfterRegisterGuildPromote" Data="미리보기 등록 후 이용이 가능합니다."/>
 		<Class ClassID="2100008" ClassName="CannotJoinWhileGuildWar" Data="길드 전쟁중에는 길드 가입을 할 수 없습니다"/>
 		<Class ClassID="2100009" ClassName="DuplicateClaim" Data="중복되는 직급이 있습니다."/>
-	</Category>
+
+</Category>
 	<Category Name="Raid">
 		<Class ClassID="514001" ClassName="VelcofferSealStoneScrMsg" Data="봉인 해제중.."/>
 		<Class ClassID="514002" ClassName="VelcofferTeraStoneScrMsg" Data="테라 정수 수집중.."/>

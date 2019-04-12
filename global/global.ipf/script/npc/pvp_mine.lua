@@ -8,13 +8,13 @@ function SCR_PVP_MINE_ENTER_TIME_DIALOG(self, pc)
     }
 
     if GetServerGroupID() == 1001 then
-        dunTime = {21, 1, 5, 9}
+        dunTime = {10, 14, 18, 22}
     elseif GetServerGroupID() == 1003 then
-        dunTime = {3, 7, 11, 15}
+        dunTime = {16, 20, 0, 4}
     elseif GetServerGroupID() == 1004 then
-        dunTime = {9, 13, 17, 21
-    elseif GetServerGroupID() == 1005 then
         dunTime = {22, 2, 6, 10}
+    elseif GetServerGroupID() == 1005 then
+        dunTime = {11, 15, 19, 23}
     end
 
     local aObj = GetAccountObj(pc)
@@ -76,13 +76,13 @@ function SCR_PVP_MINE_CREATEOBJECT_TS_BORN_UPDATE(self)
         }
 
         if GetServerGroupID() == 1001 then
-            dunTime = {21, 1, 5, 9}
+            dunTime = {10, 14, 18, 22}
         elseif GetServerGroupID() == 1003 then
-            dunTime = {3, 7, 11, 15}
+            dunTime = {16, 20, 0, 4}
         elseif GetServerGroupID() == 1004 then
-            dunTime = {9, 13, 17, 21
-        elseif GetServerGroupID() == 1005 then
             dunTime = {22, 2, 6, 10}
+        elseif GetServerGroupID() == 1005 then
+            dunTime = {11, 15, 19, 23}
         end
 
         for i = 1, #dunTime do -- mgame start
@@ -112,13 +112,13 @@ function SCR_PVP_MINE_START_ALARAM_TS_BORN_UPDATE(self)
         local dunTime = {10, 14, 18, 22}
 
         if GetServerGroupID() == 1001 then
-            dunTime = {21, 1, 5, 9}
+            dunTime = {10, 14, 18, 22}
         elseif GetServerGroupID() == 1003 then
-            dunTime = {3, 7, 11, 15}
+            dunTime = {16, 20, 0, 4}
         elseif GetServerGroupID() == 1004 then
-            dunTime = {9, 13, 17, 21
-        elseif GetServerGroupID() == 1005 then
             dunTime = {22, 2, 6, 10}
+        elseif GetServerGroupID() == 1005 then
+            dunTime = {11, 15, 19, 23}
         end
 
         if hour == dunTime[1] - 1 or hour == dunTime[2] - 1 or hour == dunTime[3] - 1 or hour == dunTime[4] - 1 then
