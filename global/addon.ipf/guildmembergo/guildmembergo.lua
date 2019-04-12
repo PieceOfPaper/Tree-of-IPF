@@ -1,3 +1,6 @@
+function GUILDMEMBERGO_ON_INIT(addon, frame)
+    addon:RegisterMsg('CLEAR_ACCEPT_GUILDSKILL_MSGBOX', 'ON_CLEAR_ACCEPT_GUILDSKILL_MSGBOX');
+end
 
 function GUILDMEMBER_GO_UPDATE_MEMBERLIST(frame, skillType)
 
@@ -152,8 +155,7 @@ function _GUILD_GO_EXEC(frameName)
 
 end
 
-function GUILD_MEMBER_SKILL_INVITE(argList)
-    
+function GUILD_MEMBER_SKILL_INVITE(argList)    
 	local sList = StringSplit(argList, "#");
     
 	local aid = sList[1];
@@ -170,15 +172,23 @@ function GUILD_MEMBER_SKILL_INVITE(argList)
     end
     
     local yesScp = string.format("ACCEPT_GUILD_SKILL(\"%s\", %d)", aid, skillType);
-	ui.MsgBox(msgString, yesScp, "None");
+    local noScp = string.format('DISAGREE_GUILD_SKILL("%s", %d)', aid, skillType);
+	local acceptMsgBox = ui.MsgBox(msgString, yesScp, noScp);
+    acceptMsgBox = tolua.cast(acceptMsgBox, 'ui::CMessageBoxFrame');
+    
+    local frame = ui.GetFrame('guildmembergo');
+    frame:SetUserValue('ACCEPT_MSGBOX_INDEX', acceptMsgBox:GetIndex());
 end
 
 function ACCEPT_GUILD_SKILL(aid, skillType)
-
-	session.party.AcceptUsePartyMemberSkill(aid, skillType);
-	
+	session.party.AcceptUsePartyMemberSkill(aid, skillType, true);	
 end
 
+function ON_CLEAR_ACCEPT_GUILDSKILL_MSGBOX(frame, msg, argStr, argNum)
+    local index = frame:GetUserIValue('ACCEPT_MSGBOX_INDEX');    
+    ui.CloseMsgBoxByIndex(index);
+end
 
-
-
+function DISAGREE_GUILD_SKILL(aid, skillType)
+    session.party.AcceptUsePartyMemberSkill(aid, skillType, false);
+end

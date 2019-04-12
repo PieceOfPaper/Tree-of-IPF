@@ -116,11 +116,19 @@ function SHOW_PC_CONTEXT_MENU(handle)
 
 			strscp = string.format("barrackNormal.Visit(%d)", handle);
 			ui.AddContextMenuItem(context, ScpArgMsg("VisitBarrack"), strscp);
+			strscp = string.format("ui.ToggleHeaderText(%d)", handle);
+			if pcObj:GetHeaderText() ~= nil and string.len(pcObj:GetHeaderText()) ~= 0 then
+				if pcObj:IsHeaderTextVisible() == true  then			
+					ui.AddContextMenuItem(context, ClMsg("BlockTitleText"), strscp);
+				else
+					ui.AddContextMenuItem(context, ClMsg("UnblockTitleText"), strscp);
+				end
+			end
 		end
 
 		strscp = string.format("PROPERTY_COMPARE(%d)", handle);
 		ui.AddContextMenuItem(context, ScpArgMsg("Auto_SalPyeoBoKi"), strscp);
-
+			
 		if session.world.IsIntegrateServer() == false then
 			local strRequestAddFriendScp = string.format("friends.RequestRegister('%s')", pcObj:GetPCApc():GetFamilyName());
 			ui.AddContextMenuItem(context, ScpArgMsg("ReqAddFriend"), strRequestAddFriendScp);

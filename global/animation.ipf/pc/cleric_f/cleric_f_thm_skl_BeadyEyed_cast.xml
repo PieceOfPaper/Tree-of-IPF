@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="I_warrior_dash_run_line" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="3" attachNode="Dummy_emitter" particleName="I_cleric_BeadyEyed_dash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="4" R="50" G="60" B="80" A="80"/>
+	<BlendOn frame="5" R="30" G="100" B="50" A="80"/>
+	<BlendOn frame="6" R="200" G="10" B="10" A="100"/>
+	<BlendOff frame="7" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

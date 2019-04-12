@@ -92,11 +92,7 @@ function HIDE_MONBASE_INFO(frame)
 end
 
 function ON_MON_ENTER_SCENE(frame, msg, str, handle)
-	
-	local visible = session.ui.IsAlwaysVisible(handle);
-	if visible == true then
-		SHOW_MONB_TARGET(handle, 0.0);
-	end
+	SHOW_MONB_TARGET(handle, 0.0);
 end
 
 function UPDATE_MONB(handle)
@@ -154,7 +150,7 @@ function ON_SHOW_TARGET_UI(frame, msg, argStr, handle)
 end
 
 function OPEN_MONB_FRAME(frame, handle)	
-	if frame ~= nil and frame:IsVisible() == 0 and IS_IN_EVENT_MAP() == false then
+	if frame ~= nil and frame:IsVisible() == 0 and session.world.IsDirectionMode() == false and IS_IN_EVENT_MAP() == false then
 		frame:ShowWindow(1);
 		ui.UpdateCharBasePos(handle);
 	end	

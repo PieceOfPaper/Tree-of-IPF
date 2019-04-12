@@ -74,7 +74,7 @@ function LOADINGBG_ON_INIT(addon, frame)
 		else
 			isHide = 0;		
 		end
-		faqGroupbox:SetVisible(isHide);	
+		--faqGroupbox:SetVisible(isHide);	
 
 		if cls.Tooltip_Hide == "YES" then	
 			isHide = 1;
@@ -133,8 +133,8 @@ function LOADINGBG_ON_INIT(addon, frame)
 	local faqClass  = GetClassByIndexFromList(faqclsList, OSRandom(0, faqcnt  - 1));
 	local faqtxt = '{#f0dcaa}{s18}{ol}{gr gradation2}'..faqClass.Text;
 
-	faqCtl:SetText(faqtxt);
-	faqGroupbox:Resize(faqCtl:GetWidth()+70, faqCtl:GetHeight() + 50);
+	--faqCtl:SetText(faqtxt);
+	--faqGroupbox:Resize(faqCtl:GetWidth()+70, faqCtl:GetHeight() + 50);
 	
 	frame:Invalidate();
 

@@ -74,6 +74,7 @@ function MINIMAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('MON_MINIMAP', 'MAP_MON_MINIMAP');
 	addon:RegisterMsg('MON_MINIMAP_END', 'ON_MON_MINIMAP_END');
     addon:RegisterMsg('COLONY_MONSTER', 'MINIMAP_COLONY_MONSTER');
+    addon:RegisterMsg('OPEN_COLONY_POINT', 'UPDATE_MINIMAP');
 
 	mini_pos = GET_CHILD(frame, "my");
 	mini_pos:SetOffset(frame:GetWidth() / 2 - mini_pos:GetImageWidth() / 2 , frame:GetHeight() / 2 - mini_pos:GetImageHeight() / 2);
@@ -100,7 +101,7 @@ end
 
 function MINIMAP_FIRST_OPEN(frame)
 
-	UPDATE_MINIMAP(frame, 1);
+	UPDATE_MINIMAP(frame);
 
 end
 
@@ -116,7 +117,7 @@ function UPDATE_MINIMAP_NPC_STATE(frame)
 	UPDATE_NPC_STATE_COMMON(npcList);
 end
 
-function UPDATE_MINIMAP(frame, isFirst)
+function UPDATE_MINIMAP(frame)
 
 	if session.DontUseMinimap() == true then
 		frame:ShowWindow(0);
@@ -161,16 +162,16 @@ function UPDATE_MINIMAP(frame, isFirst)
 	DESTROY_CHILD_BY_USERVALUE(npcList, "EXTERN", "None");
 	npcList:Resize(minimapw, minimaph);
 
+    local isColonyMap = session.colonywar.GetIsColonyWarMap();
+
 	local mongens = mapprop.mongens;
 	if mongens ~= nil then
 		local mapNpcState = session.GetMapNPCState(mapprop:GetClassName());
 		local cnt = mongens:Count();
 		local WorldPos;
 		local minimapPos;
-
 		for i = 0 , cnt - 1 do
-			local MonProp = mongens:Element(i);
-
+			local MonProp = mongens:Element(i);            
 			if MonProp.Minimap >= 1 then
 				local GenList = MonProp.GenList;
 				local GenCnt = GenList:Count();
@@ -181,6 +182,7 @@ function UPDATE_MINIMAP(frame, isFirst)
 					local miniX = MapPos.x - iconW / 2;
 					local miniY = MapPos.y - iconH / 2;
 					local ctrlname = GET_GENNPC_NAME(npcList, MonProp);
+
 					local PictureC = npcList:CreateOrGetControl('picture', ctrlname , miniX, miniY, iconW, iconH);
 					tolua.cast(PictureC, "ui::CPicture");		
 				
@@ -188,11 +190,13 @@ function UPDATE_MINIMAP(frame, isFirst)
 					PictureC:SetUserValue("GlobalY", PictureC:GetGlobalY());
 				
 					SET_MAP_MONGEN_NPC_INFO(PictureC, mapprop, WorldPos, MonProp, mapNpcState, npclist, statelist, questIESlist);				
-
 					if PictureC:GetUserIValue("IsHide") == 1 then
-						PictureC:ShowWindow(0);
+						PictureC:ShowWindow(0);                       
 					end
 
+                    if isColonyMap == true and MonProp:GetClassName() == 'Warp_arrow' then
+                        PictureC:ShowWindow(1);
+                    end
 				end
 			end
 		end

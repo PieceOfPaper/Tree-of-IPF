@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <imcErrorCode>
 	<Code Code="FATAL_ASSERT" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다."/>
 	<Code Code="FATAL_ASSERT_EX" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다. 다음 정보를 참조하세요."/>
@@ -99,7 +100,6 @@
 	<Code Code="ERROR_INVALID_CHAR_SLOT_COUNT" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="슬롯갯수보다 캐릭터 갯수가 많음에도 클라이언트에서 게임시작 요청이 들어왔거나 갯수를 가져오는데 실패했습니다"/>
 	<Code Code="ERROR_INVALID_ACCOUNT_ID" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Account ID의 값이 비정상입니다."/>
 	<Code Code="ERROR_AUTOMATCH" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="매칭 관련 에러 발생"/>
-	<Code Code="ERROR_RANDOM_MISSION" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="살러스 수녀원 관련 에러"/>
 	<Code Code="ERROR_MISSION_ROOM_EXIT" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="미션룸 삭제"/>
 	<Code Code="ERROR_UNKNOWN_ACTOR_MESSAGE" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="정의되지 않은 메세지 입니다."/>
 	<Code Code="ERROR_DUPLICATE_LOGIN" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="중복 로그인 관련 에러"/>
@@ -109,13 +109,12 @@
 	<Code Code="ERROR_OMG_LOGIN_FAIL" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
 	<Code Code="ERROR_DIDNT_DESTROYED" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
 	<Code Code="ERROR_OVERFLOW_FIXED_LIST" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
-	<Code Code="FATAL_INIT_TABLE" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>
-
-<Code Code="ERROR_NXA_LOGIN_FAILED" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 로그인 실패"/>
+	<Code Code="ERROR_NXA_LOGIN_FAILED" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 로그인 실패"/>
 	<Code Code="INFO_NXA_LOGIN" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 로그인 정보"/>
-	
-<Code Code="ERROR_NXA_BILLING" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 빌링 에러"/>
+	<Code Code="ERROR_NXA_BILLING" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 빌링 에러"/>
 	<Code Code="INFO_NXA_BILLING" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 빌링 정보"/>
+	<Code Code="INFO_NXA_BILLING_REQUEST" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 빌링 요청 데이터"/>
+	<Code Code="INFO_NXA_BILLING_RESPONSE" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 빌링 응답 데이터"/>
 	<Code Code="FATAL_INVALID_IES" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존재하지 않는 IES입니다. 해당하는 ipspace를 담고 있는 xml이 존재하는지, 정상적으로 불러왔는지 확인하세요."/>
 	<Code Code="FATAL_INVALID_CLASS_IN_IES" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 IES에 존재하지 않는 클래스입니다.  해당 정보를 담고 있는 xml 파일을 확인하세요."/>
 	<Code Code="FATAL_FILE_LOAD" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 파일을 불러오는데 실패하였습니다."/>
@@ -172,7 +171,6 @@
 	<Code Code="ERROR_INVALID_HOTKEYSCP" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못된 단축키 스크립트입니다. hotkeyscp.xml에 등록되어 있는 스크립트인지 확인하세요."/>
 	<Code Code="ERROR_NONEWAY" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="GiveWay 또는 TakeWay 의 값이 None입니다."/>
 	<Code Code="ERROR_INVALID_SECTORPOS" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="World::Enter() 실패하였습니다. 해당좌표에 맞는 섹터가 없습니다."/>
-	<Code Code="ERROR_FAIL_WORLD_ENTER" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="World::Enter() 실패하였습니다. 해당좌표가 유효한지 확인하세요."/>
 	<Code Code="ERROR_FAIL_WORLD_ENTER" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="World::Enter() 실패하였습니다. 해당좌표가 유효한지 확인하세요."/>
 	<Code Code="WARNING_TOOLONG_APPERANCE_TOSTRING_PVP" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="속성값의 변환된 문자열이 너무 깁니다. (최소 1024보다 작아야 합니다.) 값을 None으로 대체합니다."/>
 	<Code Code="ERROR_GET_FAIL_WORLDPVP_STATE" Team="PROGRAM" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="PVP 월드의 State를 가지고 오는데에 실패했습니다. 매칭에 실패한 것으로 처리합니다."/>
@@ -281,6 +279,7 @@
 	<Code Code="ERROR_EMBEDDED_BROWSER_ERROE" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="YES" Desc="Embedded_Browser에 문제가 발생하였습니다."/>
 	<Code Code="FATAL_NISMS_LOADFAIL" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="NISMS 상품 목록을 얻어오는데에 실패했습니다. 강제종료 시킵니다. 만약 넥슨 인게임샵 기능을 사용하지 않는다면, serverconfig.xml의 UseNISMS를 NO로 설정하세요. "/>
 	<Code Code="ERROR_NISMS_INVALIED_WORLDID" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="NISMS를 위한 월드의 domainType 값을 잘못 얻어왔습니다."/>
+	<Code Code="ERROR_HTTP_RESPONSE_CODE" Team="tos_team" Category="NETWORK" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="HTTP 서버 응답을 확인하세요."/>
 	<Code Code="FATAL_WORLDTABLE" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="월드 테이블 세팅에 실패하였습니다. WorldTable DB 테이블 및 ODBC 세팅을 확인하세요."/>
 	<Code Code="FATAL_NOT_EXIST_SID_IN_WORLDTABLE" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="월드 테이블에서 지정한 SID를 찾을 수 없습니다."/>
 	<Code Code="ERROR_NOT_EXIST_MAP_IN_WORLDTABLE" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="월드 테이블에서 지정한 이름에 해당하는 존 정보를 찾을 수 없습니다."/>
@@ -354,14 +353,36 @@
 	<Code Code="WARNING_OLDMSG" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="다국어화 어순 이슈로 clientmessage.xml에서 %s 를 이용한 포맷은 쓰지 않기로 했습니다. "/>
 	<Code Code="INFO_FAIL_GUILD_AGIT_ENTER" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 아지트 입장 불가 로그"/>
 	<Code Code="FATAL_DB_CONNECT" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc=" : "/>
-	<Code Code="INFO_FAIL_GUILD_AGIT_ENTER" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 아지트 입장 불가 로그"/>
-	<Code Code="INFO_TEST_REPLAY" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="리플레이 테스트"/>
 	<Code Code="INFO_LOGIN_PROCESS" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
 	<Code Code="INFO_SERVER_RELOAD" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
 	<Code Code="INFO_PATCHMAKER_LOG" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="등록되지 않았던 에러코드"/>
 	<Code Code="WARNING_INVALID_LOG_PROPERTY" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="로그 프로퍼티 형식 오류 입니다."/>
 	<Code Code="NOTICE_PACKET_INFO" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="패킷 정보 입니다"/>
-	<Code Code="INFO_ADVENTURE_BOOK" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="모험일지 관련 정보"/>	<Code Code="ALERT_Machine_CPU" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 머신의 CPU 사용율"/>
+	<Code Code="ALERT_REPORT_DBConnectionLost" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="데이터베이스 연결이 끊김 "/>
+
+<Code Code="ALERT_REPORT_NodeConnectionLost" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Node와의 연결이 끊김"/>
+
+<Code Code="ALERT_REPORT_DaemonCrash" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Daemon Crash"/>
+
+<Code Code="ERROR_NULLPTR_REFCOUNT_ZERO" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="참조 수가 0인 이미 지워진 객체입니다."/>
+
+<Code Code="INFO_ADVENTURE_BOOK" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="모험일지 관련 정보"/>	
+	<Code Code="ERROR_FAIL_DLL_LOAD" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DLL 을 로드하지 못했습니다."/>
+	<Code Code="STEAM_CHARGE_BACK_ERROR" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스팀 차지백 에러"/>
+	<Code Code="INFO_FISH_RUBBING" Team="PROGRAM" Category="LOGIC" SubCategory="FISHING" Logger="root" Enabled="YES" CallStack="NO" Desc="탁본 정보 로그"/>
+	<Code Code="ERROR_FISH_RUBBING_SCORE" Team="PROGRAM" Category="LOGIC" SubCategory="FISHING" Logger="root" Enabled="YES" CallStack="NO" Desc="탁본 점수 에러"/>
+	<Code Code="ERROR_FISH_RUBBING_STATUE" Team="PROGRAM" Category="LOGIC" SubCategory="FISHING" Logger="root" Enabled="YES" CallStack="NO" Desc="탁본 동상 에러 "/>
+	<Code Code="INFO_ZONE_ENTER_DEBUG" Team="PROGRAM" Category="INFO" Logger="root" Enabled="YES" CallStack="NO" Desc="특정 계정 존 입장 안되는 문제 추적용"/>
+	<Code Code="INFO_SKILL_PASS_DECREASED_TIME" Team="SYSTEMDESIGN" Category="INFO" SubCategory="SKILL" Logger="root" Enabled="YES" CallStack="NO" Desc="패스로 줄어든 쿨타임"/>
+	<Code Code="ERROR_PADSKILL_OVERRIDE_CLONE_FAIL" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="패드 스킬 프로퍼티 오버라이드 중 클론 생성 실패"/>
+	<Code Code="INFO_DB_INIT" Team="PROGRAM" Category="INFO" Logger="root" Enabled="YES" CallStack="NO" Desc="DB 초기화 관련 정보"/>
+	<Code Code="ERROR_ATTENDANCE" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="출석 시스템 관련 에러"/>
+	<Code Code="ERROR_RANK_RESET" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="랭크 초기화 관련 에러"/>
+	<Code Code="INFO_CONTENT_SCRIPT" Team="CONTENTDESIGN" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스크립트에서 사용 할 수 있는 로그의 에러코드. 추가되는 Property의 Tag 참고."/>
+
+<Code Code="INFO_ETC_PROP_SEND" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="간헐적으로 인던 카운트 보이지 않는 문제 추적용"/>
+					
+<Code Code="ALERT_Machine_CPU" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 머신의 CPU 사용율"/>
 	<Code Code="ALERT_Machine_FreeDisk" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="드라이브의 남은 용량(MB)"/>
 	<Code Code="ALERT_Machine_DiskTime" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="초당 디스크 엑세스 비율(100% = 1초)"/>
 	<Code Code="ALERT_Machine_Network" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="초당 네트워크 사용량(Bytes)"/>
@@ -490,28 +511,15 @@
 	<Code Code="ALERT_ZoneInstance_PC" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존 인스턴스에 있는 PC수"/>
 	<Code Code="ALERT_ZoneInstance_Zombie" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존 인스턴스에 있는 좀비수"/>
 	<Code Code="ALERT_ZoneInstance_UpdateMs" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Update에 걸리는 시간"/>
-	<Code Code="ALERT_Report_DBConnectionLost" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="데이터베이스 연결이 끊김 "/>
-	<Code Code="ALERT_Report_NodeConnectionLost" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Node와의 연결이 끊김"/>
-	<Code Code="ALERT_Report_DaemonCrash" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Daemon Crash"/>
 	<Code Code="ALERT_Report_AutoChannelCommandAddRecv" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 추가 결과 수신"/>
 	<Code Code="ALERT_Report_AutoChannelCommandAddSend" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 추가 명령 전송 "/>
 	<Code Code="ALERT_Report_AutoChannelCommandDeleteRecv" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 삭제 결과 수신"/>
 	<Code Code="ALERT_Report_AutoChannelCommandDeleteSend" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 삭제 명령 전송 "/>
-
-<Code Code="ERRCODE_LOGIC_CHN_COMMANDLINE_PARSING_FAIL" 
-Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" 
-CallStack="NO" Desc="런처 커맨드라인으로 온 정보의 파싱이 실패했습니다."/>
-		<Code Code="ERRCODE_LOGIC_CHN_MACHINECODE_GAIN_FAIL" 
-Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc="머신코드 획득 실패."/>
+	<Code Code="ERRCODE_LOGIC_CHN_COMMANDLINE_PARSING_FAIL" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc="런처 커맨드라인으로 온 정보의 파싱이 실패했습니다."/>
+	<Code Code="ERRCODE_LOGIC_CHN_MACHINECODE_GAIN_FAIL" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc="머신코드 획득 실패."/>
 	<Code Code="ERROR_ADVENTURE_BOOK_LOG" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="모험일지 관련 에러"/>
-		<Code Code="ERRCODE_LOGIC_CYOU_LOGIN_FAIL" 
-Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc="AID 획득 실패."/>
-	<Code Code="ERROR_FAIL_DLL_LOAD" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DLL 을 로드하지 못했습니다."/>
-	<Code Code="ERROR_NULLPTR_REFCOUNT_ZERO" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="참조 수가 0인 이미 지워진 객체입니다."/>
-	<Code Code="STEAM_CHARGE_BACK_ERROR" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스팀 차지백 에러"/>
-	<Code Code="INFO_ZONE_ENTER_DEBUG" Team="PROGRAM" Category="INFO" Logger="root" Enabled="YES" CallStack="NO" Desc="특정 계정 존 입장 안되는 문제 추적용"/>
-	<Code Code="INFO_SKILL_PASS_DECREASED_TIME" Team="SYSTEMDESIGN" Category="INFO" SubCategory="SKILL" Logger="root" Enabled="YES" CallStack="NO" Desc="패스로 줄어든 쿨타임"/>
-	<Code Code="INFO_ADVENTURE_BOOK" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="모험일지 관련 정보"/>
-	<Code Code="ERROR_REPLAY" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="리플레이 관련 에러"/>
-	<Code Code="ERROR_REPLAY" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="리플레이 관련 에러"/>
+	<Code Code="ERROR_TEAM_BATTLE" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="팀배틀리그 관련 에러"/>
+	<Code Code="ERROR_REPLAY" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="리플레이 관련 에러"/>
+	<Code Code="ERROR_CHALLENGE_MODE" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="챌린지모드 관련 에러"/>
+	<Code Code="LOGGING_ABILITY_CHECK" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="어빌리티 적용 여부 확인을 위한 로그"/>
 </imcErrorCode>

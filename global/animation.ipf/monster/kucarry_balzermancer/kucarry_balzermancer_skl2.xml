@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<AfterImage frame="90" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
-	<AfterImage frame="75" term="100" blendTime="300" r="130" g="150" b="140" a="250"/>
+	<BlendOn frame="84" R="100" G="120" B="100" A="50"/>
+	<BlendOn frame="86" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="88" R="100" G="120" B="100" A="50"/>
+	<BlendOff frame="90" R="0" G="0" B="0" A="0"/>
 	<Shockwave frame="85" type="2" intensity="7" frequency="100" duration="0.3" range="1000"/>
 	<Sound frame="3.00" soundFile="m_ironbaum_skl3_voice"/>
 	<Sound frame="20.00" soundFile="m_kerberos_atk"/>

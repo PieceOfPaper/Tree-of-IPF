@@ -31,15 +31,9 @@ function GET_MORE_EVENT_EXP(pc)
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_RedOrb_GM');	-- 이벤트 참여
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Danoh_3'); --대만 단오절
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_WeddingCake'); -- 웨딩 케잌
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_ManWoo_Pet_1'); --pet
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_FireSongPyeon'); --스팀1주년 폭죽
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Donnes_Buff'); --스팀 친절한 도네스 
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Moru_King'); --모루왕 이벤트
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Wedding'); --스팀 웨딩 이벤트
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Golden_Whale_1'); --황금 석화 고래 이벤트
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Fishing_1'); --스팀 낚시 고양이 은혜 버프 이벤트
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Nru_Buff_Item'); --해외 신규 유저 이벤트
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1706_FREE_EXPUP'); --이런 이벤트
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Wedding'); --스팀 웨딩 이벤트
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Nru_Buff_Item'); --해외 신규 유저 이벤트
 	return sumExp; 
 end
 

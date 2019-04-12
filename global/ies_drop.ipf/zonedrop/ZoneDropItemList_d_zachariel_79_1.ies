@@ -1,5 +1,10 @@
-ClassID,DropRatio,Money_Min,Money_Max,DPK_Min,DPK_Max,DPK_Expo,EPIK_Min,EPIK_Max,Zone,Type,GroupName,ItemClassName,ItemProperty
-90001,10,0,0,0,0,0,0,0,"","Item","Item","Cube_FD_Weapon_220",""
-90002,12,0,0,0,0,0,0,0,"","Item","Item","Cube_FD_Armor_220",""
-90003,50,0,0,0,0,0,0,0,"","Item","Item","Cube_FD_Weapon_220_Piece",""
-90004,60,0,0,0,0,0,0,0,"","Item","Item","Cube_FD_Armor_220_Piece",""
+ClassID,DropRatio,Money_Min,Money_Max,DPK_Min,DPK_Max,DPK_Expo,EPIK_Min,EPIK_Max,Zone,Type,GroupName,ItemClassName,DropGroup,ItemProperty
+90001,133,0,0,0,0,0,0,0,"","Item","Item","","DropGroup_Armor_220_FreeDungeon",""
+90002,66,0,0,0,0,0,0,0,"","Item","Item","","DropGroup_Weapon_220_FreeDungeon",""
+90003,500,0,0,0,0,0,0,0,"","Item","Item","","DropGroup_FreeDungeon",""
+90004,10,0,0,0,0,0,0,0,"","Item","Item","gem_circle_1","","ItemExp#300"
+90005,10,0,0,0,0,0,0,0,"","Item","Item","gem_square_1","","ItemExp#300"
+90006,10,0,0,0,0,0,0,0,"","Item","Item","gem_diamond_1","","ItemExp#300"
+90007,10,0,0,0,0,0,0,0,"","Item","Item","gem_star_1","","ItemExp#300"
+90008,4,0,0,0,0,0,0,0,"","Item","Item","","DropGroup_CardBook",""
+90009,2,0,0,0,0,0,0,0,"","Item","Item","Moru_Gold","",""

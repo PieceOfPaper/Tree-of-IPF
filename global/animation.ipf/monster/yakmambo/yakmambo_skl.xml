@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice13_cast7"/>
+    <Sound frame="7.00" soundFile="mon_voice13_shot8"/>
+    <Sound frame="7.00" soundFile="skl_eff_body_atk_1"/>
+    <Sound frame="10.00" soundFile="skl_eff_body_atk_2"/>
+    <Shockwave frame="13" type="2" intensity="1" frequency="100" duration="0.3" range="500"/>
+    <Particle frame="13" attachNode="None" particleName="F_circle029_ground" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="19.00" soundFile="skl_eff_atk_move_m_8"/>
+    <Sound frame="20.00" soundFile="skl_eff_bodyfall_l_2"/>
+    <Shockwave frame="22" type="2" intensity="2" frequency="70" duration="0.5" range="500"/>
+    <Particle frame="22" attachNode="None" particleName="F_ground062_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" targetPos="false"/>
+</ActionDesc>

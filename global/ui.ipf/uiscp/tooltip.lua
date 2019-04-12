@@ -119,8 +119,7 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption)
     
     local skillLevel = session.GetUserConfig("SKLUP_" .. nextObj.ClassName);    
     
-    -- skillLevel : 유저가 임시로 올린 레벨 수
-    -- _obj.Level : 지금 스킬의 레벨        
+    -- skillLevel : ?��?가 ?�시�??�린 ?�벨 ??    -- _obj.Level : 지�??�킬???�벨        
     skillLevel = _obj.Level + skillLevel;
     
     local LevelByDB = TryGetProp(nextObj, 'LevelByDB');
@@ -260,8 +259,7 @@ function UPDATE_ABILITY_TOOLTIP(frame, strarg, numarg1, numarg2)
     frame:Resize(frame:GetWidth(), ypos + 30);
  end
 
-function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)        
-
+function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)            
     -- destroy skill, ability tooltip
     DESTROY_CHILD_BYNAME(frame:GetChild('skill_desc'), 'SKILL_CAPTION_');
     DESTROY_CHILD_BYNAME(frame:GetChild('ability_desc'), 'ABILITY_CAPTION_');
@@ -386,23 +384,20 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
         end
     end
     
-    local currLvCtrlSet = nil
-        
+    local currLvCtrlSet = nil    
     if totalLevel == 0 and lvDescStart ~= nil then  -- no have skill case        
         skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));
-        lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");
-        if lvDescStart ~= nil then  
+        lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");        
+        if lvDescStart ~= nil then              
             local lvDesc = string.sub(skillLvDesc, 2, lvDescStart -1);
             skillLvDesc  = string.sub(skillLvDesc, lvDescEnd + 2    , string.len(skillLvDesc));
             ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
-        else -- max skill level = 1
+        else -- max skill level = 1        
             local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));
             ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
-        end        
-    
-    elseif lvDescStart ~= nil and totalLevel ~= 0 then        
-        skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));        
-
+        end            
+    elseif lvDescStart ~= nil and totalLevel ~= 0 then                
+        skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));                
         while 1 do
 
             local levelvalue = 2
@@ -412,11 +407,10 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
                 levelvalue = 4
             end
 
-            lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");            
-
+            lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");                        
             if lvDescStart == nil then -- max skill level = 1
-                local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));                
-                ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
+                local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));                   
+                ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);                
                 break;
             end            
             local lvDesc = string.sub(skillLvDesc, 2, lvDescStart -1);               
@@ -424,7 +418,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
             if comma ~= nil and comma == ',' then                
                 lvDesc = string.sub(skillLvDesc, 3, lvDescStart -1);   
             end
-            skillLvDesc  = string.sub(skillLvDesc, lvDescEnd + levelvalue, string.len(skillLvDesc));          
+            skillLvDesc  = string.sub(skillLvDesc, lvDescEnd + levelvalue, string.len(skillLvDesc));            
             ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);            
             lv = lv + 1;
         end
@@ -559,14 +553,14 @@ end
     return caption;
  end
 
-function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext)    
-    if totalLevel ~= lv and totalLevel + 1 ~= lv then
+function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext)        
+    if totalLevel ~= lv and totalLevel + 1 ~= lv then        
         return ypos;
     end
-
+    
     local lvDescCtrlSet = frame:CreateOrGetControlSet("skilllvdesc", "SKILL_CAPTION_"..tostring(lv), 0, ypos);
     tolua.cast(lvDescCtrlSet, "ui::CControlSet");
-
+    
     -- user config
     local LEVEL_FONTNAME = lvDescCtrlSet:GetUserConfig("LEVEL_FONTNAME")
     local LEVEL_NEXTLV_FONTNAME = lvDescCtrlSet:GetUserConfig("LEVEL_NEXTLV_FONTNAME")
@@ -612,7 +606,7 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     
     if TryGetProp(obj, 'BasicSP') ~= nil and TryGetProp(obj, 'LvUpSpendSp') ~= nil and TryGetProp(obj, 'Level') ~= nil and TryGetProp(obj, 'SpendSP') ~= nil then
 		-- lvUpSpendSP??루아?�서??float ?��??��? ?�정?�기?�해 ?�수 5?�리?�서 반올림한??
-		-- 값을 print�?찍어보면 ?�래 값과 같�?�?. ?�버?� 계산값을 맞출?�면 ?�렇�??�야 ?�다.
+		-- 값을 print�?찍어보면 ?�래 값과 같�?�?. ?�버?�?계산값을 맞출?�면 ?�렇�??�야 ?�다.
         local lvUpSpendSpRound = math.floor((obj.LvUpSpendSp * 10000) + 0.5) / 10000
         
         if noHave == true then
@@ -624,10 +618,15 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     end
     sp = math.floor(sp)
     if TryGetProp(obj, 'CoolDown') ~= nil then
---      coolTime = obj.BasicCoolDown * 0.001
-        coolTime = obj.CoolDown * 0.001
+        local tempObj = CreateGCIESByID("Skill", obj.ClassID);
+        if tempObj ~= nil then
+            tempObj.Level = lv;
+        else
+            tempObj = obj;
+        end
+        coolTime = tempObj.CoolDown * 0.001
         if coolTime == 0 then
-            coolTime = obj.BasicCoolDown * 0.001
+            coolTime = tempObj.BasicCoolDown * 0.001
         end
     end
     
@@ -644,15 +643,19 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     spText:SetText(SP_ICON..lvFont.." "..math.floor(sp))
     spText:SetUserValue('SPEND_SP_VALUE', math.floor(sp));
     if coolTime == 0 then
-        coolText:SetText(lvFont..ScpArgMsg("{Sec}","Sec", 0))
+        coolText:SetText(lvFont..ScpArgMsg("{Sec}","Sec", 0))        
     else        
-        coolText:SetText(lvFont..GET_TIME_TXT_TWO_FIGURES(coolTime))
+        coolText:SetText(lvFont..GET_TIME_TXT_TWO_FIGURES(coolTime))        
     end
     
     -- trim desc    
     local trimedDesc = desc:match("^%s*(.+)")    
-    descText:SetText(descFont..trimedDesc);    
-
+    local detect_comma = string.find(trimedDesc, ',')
+    
+    if detect_comma ~= nil and detect_comma == 1 then
+        trimedDesc = string.sub(trimedDesc, 2, string.len(trimedDesc))
+    end
+    descText:SetText(descFont..trimedDesc);
     lvDescCtrlSet:SetGravity(ui.CENTER_HORZ, ui.TOP)
     lvDescCtrlSet:Resize(frame:GetWidth() - 20, descText:GetY() + descText:GetHeight() + 15);
     lvDescCtrlSet:ShowWindow(1);
@@ -713,9 +716,17 @@ function GET_ABILITYLIST_BY_SKILL_NAME(skillName)
     -- get list
     for i = 0, abilCnt do
         local abilCls = GetClassByIndexFromList(abilList, i - 1)
-        if abilCls ~= nil and abilCls.SkillCategory == skillName then
-            retList[index] = abilCls
-            index = index + 1
+        if abilCls ~= nil then
+            local abilClsSkillList = SCR_STRING_CUT_SEMICOLON(abilCls.SkillCategory);
+            if abilClsSkillList ~= nil and #abilClsSkillList ~= 0 then
+                for j = 1, #abilClsSkillList do
+                    local abilClsSkillName = abilClsSkillList[j];
+                    if abilClsSkillName == skillName then
+                        retList[index] = abilCls
+                        index = index + 1
+                    end
+                end
+            end
         end
     end
 

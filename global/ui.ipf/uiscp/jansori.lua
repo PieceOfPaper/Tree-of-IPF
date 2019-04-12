@@ -220,9 +220,9 @@ end
 function JS_INV_STATE_CHANGED(frame, cond)
 	--[[
 	if cond == 1 then
-		SYSMENU_ENABLE_LOST_FOCUS(frame, 0);
+		
 	else
-		SYSMENU_ENABLE_LOST_FOCUS(frame, 1);
+		
 	end
 	]]
 end
@@ -284,14 +284,10 @@ end
 function UI_TUTO_REINF(frame)
 	JANSORI_SET_NOTIFIED(frame);
 	ui.OpenFrame("inventory");
-	--frame:EnableHideProcess(1);
-	--frame:RunUpdateScript("_UI_TUTO_GOTO_REINFORCE", 0.8);
-
 end
 
 function UI_TUTO_SHOP(frame)
-	JANSORI_SET_NOTIFIED(frame);
-	SYSMENU_SHOW_FOR_SEC(3);
+	JANSORI_SET_NOTIFIED(frame);	
 	frame:EnableHideProcess(1);
 	frame:RunUpdateScript("_UI_TUTO_AUTO_GOTO_SHOP", 0.8);
 

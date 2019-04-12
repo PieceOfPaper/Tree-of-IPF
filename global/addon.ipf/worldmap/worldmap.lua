@@ -253,9 +253,9 @@ function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, chan
 					local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
 					
 					if changeDirection ~= true or parentGBox:GetChild(gBoxName) == nil then
-				    
+						if index == '0' or index == '1' then
 							CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirection, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY, pictureStartY);
-				
+						end
 					end
 				end
 			end
@@ -515,12 +515,14 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
                 emblemSet:SetGravity(ui.CENTER_HORZ, ui.TOP);
 
                 -- emblem pic set
-                local emblemPic = GET_CHILD(emblemSet, 'emblemPic');                
-                local emblemImgName = guild.GetEmblemImageName(guildID);                        
+                local emblemPic = GET_CHILD(emblemSet, 'emblemPic');    
+                local worldID = session.party.GetMyWorldIDStr();            
+                local emblemImgName = guild.GetEmblemImageName(guildID, worldID);                        
                 if emblemImgName ~= 'None' then
                     emblemPic:SetImage(emblemImgName);
-                else                
-                    guild.ReqEmblemImage(guildID);
+                else            
+                    local worldID = session.party.GetMyWorldIDStr();    
+                    guild.ReqEmblemImage(guildID,worldID);
                 end                                
                 occupyTextTooltip = occupyInfo:GetGuildName();
             end
@@ -1401,7 +1403,8 @@ function ON_UPDATE_OTHER_GUILD_EMBLEM(frame, msg, argStr, argNum)
     local emblemSet = GET_CHILD_RECURSIVELY(pic, 'EMBELM_'..argStr);    
     if emblemSet ~= nil then
         local emblemPic = GET_CHILD(emblemSet, 'emblemPic');
-        local emblemImgName = guild.GetEmblemImageName(argStr);
+        local worldID = session.party.GetMyWorldIDStr();
+        local emblemImgName = guild.GetEmblemImageName(argStr,worldID);
         if emblemImgName ~= 'None' then
             emblemPic:SetImage(emblemImgName);
         end

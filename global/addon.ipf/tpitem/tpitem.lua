@@ -13,12 +13,19 @@ function TPITEM_ON_INIT(addon, frame)
 	addon:RegisterMsg("UPDATE_INGAME_SHOP_REFUND_RESULT", "_TPSHOP_REFUND_RESULT");
 	addon:RegisterMsg("UPDATE_INGAME_SHOP_PICKUP_RESULT", "_TPSHOP_PICKUP_RESULT");
 	end
-	
+
 	addon:RegisterMsg("UPDATE_TPITEM_LIST_FOR_TAG", "_TPSHOP_TPITEM_SET_SPECIAL");
 	addon:RegisterMsg("UPDATE_TPSHOP_BANNER", "_TPSHOP_BANNER");
 
 	session.ui.Clear_NISMS_CashInven_ItemList();
 
+	if (config.GetServiceNation() == "THI") then
+		addon:RegisterMsg("NEXON_AMERICA_LIST", "ON_NEXON_AMERICA_LIST");
+		addon:RegisterMsg("NEXON_AMERICA_SELLITEMLIST", "ON_NEXON_AMERICA_SELLITEMLIST");
+		addon:RegisterMsg("NEXON_AMERICA_BALANCE", "ON_NEXON_AMERICA_BALANCE");
+		addon:RegisterMsg("NEXON_AMERICA_BALANCE_ENOUGH", "ON_NEXON_AMERICA_BALANCE_ENOUGH");
+		addon:RegisterMsg("NEXON_AMERICA_BALANCE_NOT_ENOUGH", "ON_NEXON_AMERICA_BALANCE_NOT_ENOUGH");
+	end
 	
 	local limitTime = TPSHOP_ISNEW_CHECK_TIME();	
 	local tpitemframe = ui.GetFrame("tpitem");
@@ -36,26 +43,30 @@ function TPSHOP_REDRAW_TPITEMLIST()
 		
 	local showTypeList = GET_CHILD_RECURSIVELY(frame,"showTypeList");	
 	local typeIndex = showTypeList:GetSelItemIndex();
-	
+	session.shop.RequestLoadShopBuyLimit();
 	
 	frame:SetUserValue("SHOWITEM_OPTION", typeIndex);	
 	
 	local tpitemtree = GET_CHILD_RECURSIVELY(frame, "tpitemtree");
 	
 	local tnode = tpitemtree:GetLastSelectedNode();
-	local obj = tnode:GetObject();
-	local parent_tnode = nil;
-	if obj == nil then
-		parent_tnode = tnode.pParentNode;
-		if parent_tnode ~= nil then			
-			obj = parent_tnode:GetObject();		
-		end
-	end
+    local obj = nil;
+    if tnode ~= nil then
+	    obj = tnode:GetObject();
+	    local parent_tnode = nil;
+	    if obj == nil then
+		    parent_tnode = tnode.pParentNode;
+		    if parent_tnode ~= nil then			
+			    obj = parent_tnode:GetObject();		
+		    end
+	    end
+    end
 	
 	if obj ~= nil then
-			local gBox = obj:GetChild("group");
-			gBox:SetSkinName("baseyellow_btn");
+		local gBox = obj:GetChild("group");
+		gBox:SetSkinName("baseyellow_btn");
 	end
+
 	tpitemtree:CloseNodeAll();
 	frame:SetUserValue("LAST_OPEN_SUB_CATEGORY", "None");	
 	frame:SetUserValue("SHOWITEM_OPTION", typeIndex);	
@@ -79,13 +90,13 @@ function TPITEM_OPEN(frame)
 	end
 
 	if (config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP") then
-	if 0 == IsMyPcGM_FORNISMS() then
-	local btn1 = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn")
-	local btn2 = GET_CHILD_RECURSIVELY(frame,"ncChargebtn")
-	btn1:SetEnable(0)
-	btn2:SetEnable(0)
+		if 0 == IsMyPcGM_FORNISMS() then
+			local btn1 = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn")
+			local btn2 = GET_CHILD_RECURSIVELY(frame,"ncChargebtn")
+			btn1:SetEnable(0)
+			btn2:SetEnable(0)
+		end
 	end
-end
 end
 
 function TPSHOP_TAB_VIEW(frame, curtabIndex)
@@ -97,6 +108,7 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 	local previewStaticTitle = rightgbox:GetChild('previewStaticTitle');
 	local cashInvGbox = rightgbox:GetChild('cashInvGbox');	
 	local screenbgTemp = frame:GetChild('screenbgTemp');
+	local ncChargebtn = rightgbox:GetChild('ncChargebtn');
 	screenbgTemp:ShowWindow(0);
 	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
 	local rcycle_basketgbox = GET_CHILD_RECURSIVELY(frame,'rcycle_basketgbox');
@@ -110,8 +122,8 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 		previewStaticTitle:SetVisible(0);	
 		cashInvGbox:SetVisible(1);
 		rcycle_basketgbox:SetVisible(0);
-			tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
-			tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
+		tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
+		tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
 	elseif curtabIndex == 1 then
 		basketgbox:SetVisible(1);
 		previewgbox:SetVisible(1);
@@ -124,6 +136,32 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 		previewgbox:SetVisible(1);
 		basketgbox:SetVisible(0);
 		cashInvGbox:SetVisible(0);
+		RECYCLE_SHOW_TO_ITEM()
+	end
+	elseif (config.GetServiceNation() == "THI") then	
+	if curtabIndex == 0 then	
+		UPDATE_NEXON_AMERICA_SELLITEMLIST();
+		TPSHOP_SHOW_CASHINVEN_ITEMLIST();
+		basketgbox:SetVisible(0);
+		previewgbox:SetVisible(0);
+		previewStaticTitle:SetVisible(0);	
+		cashInvGbox:SetVisible(0);
+		rcycle_basketgbox:SetVisible(0);
+		ncChargebtn:SetVisible(0);
+	elseif curtabIndex == 1 then
+		basketgbox:SetVisible(1);
+		previewgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);
+		cashInvGbox:SetVisible(0);
+		rcycle_basketgbox:SetVisible(0);
+		ncChargebtn:SetVisible(0);
+	elseif curtabIndex == 2 then -- 리사이클 샵
+		rcycle_basketgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);	
+		previewgbox:SetVisible(1);
+		basketgbox:SetVisible(0);
+		cashInvGbox:SetVisible(0);
+		ncChargebtn:SetVisible(0);
 		RECYCLE_SHOW_TO_ITEM()
 	end
 	else
@@ -148,10 +186,12 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
     
 	ui.CloseAllOpenedUI();
 	ui.OpenIngameShopUI();	-- Tpshop을 열었을때에 Tpitem에 대한 정보와 NexonCash 정보 등을 서버에 요청한다.
-
+	session.shop.RequestLoadShopBuyLimit();
 	frame:ShowWindow(1);
 	local leftgFrame = frame:GetChild("leftgFrame");	
 	local leftgbox = leftgFrame:GetChild("leftgbox");
+	local rightFrame = frame:GetChild('rightFrame');
+	local rightgbox = rightFrame:GetChild('rightgbox');
 	local shopTab = leftgbox:GetChild('shopTab');
 	local itembox_tab		= tolua.cast(shopTab, "ui::CTabControl");
 	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
@@ -160,6 +200,32 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		banner:SetUserValue("URL_BANNER", "");
 		banner:SetUserValue("NUM_BANNER", 0);
 		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+	elseif config.GetServiceNation() == "THI" then 
+		local banner_offset_y = frame:GetUserConfig("banner_offset_y")
+		local balance_resize_width = frame:GetUserConfig("balance_resize_width")
+		local balance_offset_y = frame:GetUserConfig("balance_offset_y")
+		local refresh_offset_x = frame:GetUserConfig("refresh_offset_x")
+		local balance_resize_height = frame:GetUserConfig("balance_resize_height")
+
+		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
+		banner:SetImage("market_event_test");	--market_default
+		banner:SetUserValue("URL_BANNER", "");
+		banner:SetUserValue("NUM_BANNER", 0);
+		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+		banner:SetOffset(banner:GetOriginalX(), banner:GetOriginalY()+banner_offset_y)
+
+		local haveStaticNCbox = GET_CHILD_RECURSIVELY(frame,"haveStaticNCbox");	
+		haveStaticNCbox:SetText("  Total          {img Nexon_cash_mark 30 30}{/}{/}"); -- //memo nxa clientmessage
+		haveStaticNCbox:SetOffset(haveStaticNCbox:GetOriginalX(), haveStaticNCbox:GetOriginalY()+balance_offset_y)
+		haveStaticNCbox:Resize(haveStaticNCbox:GetOriginalWidth()+balance_resize_width, haveStaticNCbox:GetOriginalHeight()+balance_resize_height)
+		local haveStaticNCbox_prepaid = GET_CHILD(rightgbox, 'haveStaticNCbox_prepaid');
+		haveStaticNCbox_prepaid:SetVisible(1);
+		haveStaticNCbox_prepaid:Resize(haveStaticNCbox_prepaid:GetOriginalWidth(), haveStaticNCbox_prepaid:GetOriginalHeight()+balance_resize_height)
+		local haveStaticNCbox_credit = GET_CHILD(rightgbox, 'haveStaticNCbox_credit');
+		haveStaticNCbox_credit:SetVisible(1);
+		haveStaticNCbox_credit:Resize(haveStaticNCbox_credit:GetOriginalWidth(), haveStaticNCbox_credit:GetOriginalHeight()+balance_resize_height)
+		local ncReflashbtn = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn");	
+		ncReflashbtn:SetOffset(ncReflashbtn:GetOriginalX()+refresh_offset_x, ncReflashbtn:GetOriginalY()+balance_offset_y)
 	else
 		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 		banner:ShowWindow(0);
@@ -193,8 +259,8 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	local screenbgTemp = GET_CHILD_RECURSIVELY(frame, 'screenbgTemp');
 	screenbgTemp:ShowWindow(0);
 	
-	buyBtn = GET_CHILD_RECURSIVELY(frame,"specialBuyBtn");	
-	buyBtn:ShowWindow(0);
+	--buyBtn = GET_CHILD_RECURSIVELY(frame,"specialBuyBtn");	
+	--buyBtn:ShowWindow(0);
 	
 	local ratio = option.GetClientHeight()/option.GetClientWidth();	
 	local limitMaxWidth = ui.GetSceneWidth() / ui.GetRatioWidth();
@@ -230,7 +296,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	rcycle_basketsellslotset:ClearIconAll();
 	
 	local specialGoods = GET_CHILD_RECURSIVELY(frame,"specialGoods");	
-	specialGoods:SetImage("market_default2");
+	specialGoods:SetImage("market_default4");
 		
 	local basketTP = GET_CHILD_RECURSIVELY(frame,"basketTP")
 	basketTP:SetText(tostring(0))	
@@ -460,6 +526,11 @@ function TPITEM_CLOSE(frame)
 	banner:SetUserValue("URL_BANNER", "");
 	banner:SetUserValue("NUM_BANNER", 0);
 	banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+	elseif (config.GetServiceNation() == "THI") then
+	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
+	banner:SetUserValue("URL_BANNER", "");
+	banner:SetUserValue("NUM_BANNER", 0);
+	banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
 	end
 
 	--ui.SetHoldUI("");
@@ -645,7 +716,7 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 		frame:SetUserValue("CHILD_ITEM_INDEX", index);
 	else
 		-- 처음이 아니라면 현재 마지막의 인덱스의 다음부터
-		index = frame:GetUserValue("CHILD_ITEM_INDEX");	
+		index = frame:GetUserIValue("CHILD_ITEM_INDEX");	
 	end
 	
 	local clsList, cnt = GetClassList('TPitem');	
@@ -879,17 +950,8 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 		time_limited_text:SetVisible(0);
 	end
 			
-	nxp:SetText("{@st43}{s18}"..obj.Price.."{/}");
-	--[[
-	if obj.LimitCount ~= 0 then
-		local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID);
-		local limitText = string.format("{s13}%s{/}", ScpArgMsg("BuyLimitPerMonth_{Cur}_{Max}", "Cur", curBuyCount, "Max", obj.LimitCount));
-		subtitle:SetText(limitText);
-		subtitle:SetVisible(1);	
-	else
-	]]
-		subtitle:SetVisible(0);	
-	--end;
+	nxp:SetText("{@st43}{s18}"..obj.Price.."{/}");	
+	subtitle:SetVisible(0);	
 
 	SET_SLOT_IMG(slot, GET_ITEM_ICON_IMAGE(itemobj));
 			
@@ -921,7 +983,7 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 	local buyBtn = GET_CHILD_RECURSIVELY(itemcset, "buyBtn");
 	buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, tpitem_clsID);
 	buyBtn:SetEventScriptArgString(ui.LBUTTONUP, tpitem_clsName);
-
+	
 	local previewbtn = GET_CHILD_RECURSIVELY(itemcset, "previewBtn");
 	previewbtn:SetEventScriptArgNumber(ui.LBUTTONUP, tpitem_clsID);		
 	previewbtn:SetEventScriptArgString(ui.LBUTTONUP, tpitem_clsName);
@@ -940,7 +1002,7 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 
 	local isPreviewPossible = 0;
 
-	if session.GetEquipItemByType(itemclsID) ~= nil then		-- 사용하여 혜택을 받고 있거나, 장비하고 있을때
+	if session.GetEquipItemByType(itemclsID) ~= nil then -- 사용하여 혜택을 받고 있거나, 장비하고 있을때
 		SWITCH(subCategory)
 		{
 			['TP_Useable'] = function()
@@ -979,12 +1041,12 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 				SWITCH(subCategory)
 				{
 					['TP_Costume_Color'] = function() 	
-						isPreviewPossible = 1;	--미리보기 버그 수정 보류
+						isPreviewPossible = 1;
 						sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased"..isPreviewPossible));
  					end,
 
 					['TP_Costume_Hairacc'] = function()
-						isPreviewPossible = 1;		--미리보기 버그 수정 보류
+						isPreviewPossible = 1;
  					end,
 
 					['TP_Costume_Lens'] = function()
@@ -1019,24 +1081,18 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 
 				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased".. isPreviewPossible));	
             end,
-			--[[		--미리보기 버그 수정 보류
-			['TP_Premium'] = function() 
-				SWITCH(subCategory) {
-					['TP_Petitem'] = function() 	-- 컴페니언 알일 경우
-						local clsName = obj.ItemClassName;
-						if (string.find(clsName, "egg_") ~= nil) then
-							isPreviewPossible = 1;`
-						end
- 					end,
-					default = function() end,
-					}
-			end,
-			]]--
 		}
 	end
 
 	buyBtn:SetSkinName("test_red_button");	
 	buyBtn:EnableHitTest(1);
+	
+	local obj = GetClassByType("TPitem", tpitem_clsID)
+	if obj == nil then
+		return;
+	end
+
+    TPITEM_SET_ENABLE_BY_LIMITATION(buyBtn, obj);
 
 	previewbtn:ShowWindow(isPreviewPossible);
 end
@@ -1214,8 +1270,7 @@ function _TPSHOP_TPITEM_SET_SPECIAL()
 
 	local frame = ui.GetFrame("tpitem");
 	local mainSubGbox = GET_CHILD_RECURSIVELY(frame,"mainSubGbox");
-	local index = frame:GetUserValue("CHILD_ITEM_INDEX");	
-
+	local index = frame:GetUserIValue("CHILD_ITEM_INDEX");	
 	if index == 0 then
 		return;
 	end
@@ -1548,6 +1603,9 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 		[ES_WING] = function() --ES_WING
 				invSlot = invframe:GetChild("WING");			
 		end,
+		[ES_SPECIAL_COSTUME] = function() --ES_SPECIAL_COSTUME
+				invSlot = invframe:GetChild("SPECIAL_COSTUME");			
+		end,
 		--[ES_HELMET] = function() end,		-- 6
 		--[ES_OUTERADD1] = function() end,	-- 11
 		--[ES_OUTERADD2] = function() end,	-- 12
@@ -1825,11 +1883,12 @@ function CHECK_LIMIT_PAYMENT_STATE_C()
 			if limitPaymentStateBySteam == "Trusted" or limitPaymentStateByGM == "Trusted" then
 				return true;
 			else
-				return false;
+				--return false;
+				return true;
 			end
 		end
 	end
-	return false;
+	return true;
 end
 
 function POPUP_LIMIT_PAYMENT(clientMsg, parentName, allPrice)
@@ -1879,7 +1938,6 @@ function TPSHOP_ITEM_BASKET_BUY_CANCEL()
 end
 
 function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_clsID)
-	
 	g_TpShopParent = parent;
 	g_TpShopcontrol = control;
 	
@@ -1919,9 +1977,24 @@ function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_
 			isHave = true;
 		end
 	end
-	
+
+    local limit = GET_LIMITATION_TO_BUY(obj.ClassID);
 	if isHave == true then
 		ui.MsgBox(ClMsg("AlearyHaveItemReallyBuy?"), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
+	elseif limit == 'ACCOUNT' then
+		local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID);
+		if curBuyCount >= obj.AccountLimitCount then
+			ui.MsgBox_OneBtnScp(ScpArgMsg("PurchaseItemExceeded","Value", obj.AccountLimitCount), "")
+		else
+			ui.MsgBox(ScpArgMsg("SelectPurchaseRestrictedItem","Value", obj.AccountLimitCount), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
+		end
+    elseif limit == 'MONTH' then
+        local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID);
+		if curBuyCount >= obj.MonthLimitCount then
+			ui.MsgBox_OneBtnScp(ScpArgMsg("PurchaseItemExceeded","Value", obj.MonthLimitCount), "")
+		else
+			ui.MsgBox(ScpArgMsg("SelectPurchaseRestrictedItemByMonth","Value", obj.MonthLimitCount), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
+		end
 	else
 		TPSHOP_ITEM_TO_BASKET(tpitemname, classid)
 	end
@@ -2276,7 +2349,7 @@ function TPITEM_DRAW_NC_TP()
 		    buyBtn = GET_CHILD_RECURSIVELY(itemcset, "buyBtn");	
 		    buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
 		    buyBtn:SetEventScriptArgString(ui.LBUTTONUP, string.format("%d", itemClsID));
-		    buyBtn:SetUserValue("LISTINDEX", i);
+			buyBtn:SetUserValue("LISTINDEX", i);
 		elseif (categoryNo == 806) or (categoryNo == 2349)  then				
 		    local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
 		    if imgURL ~= nil then	
@@ -2290,7 +2363,7 @@ function TPITEM_DRAW_NC_TP()
 		    		local jobCountMax = 0;
 		    		for j = 0, listcnt - 1 do
 		    			local obj = GetClassByIndexFromList(clsList, j);	
-		    			retNum = CHECK_APPLY_PACKAGE_CLSID(itemClsID, obj);	
+						retNum = CHECK_APPLY_PACKAGE_CLSID(itemClsID, obj);	
 		    			if retNum > 0 then
 		    				ItemClassName = obj.Name;	
 		    				item_package = obj;
@@ -2424,17 +2497,17 @@ function _PROCESS_ROLLING_SPECIALGOODS()
 		return 0;
 	end
 
-	num = num + 1;
-	if num > max then 
-		num = 1;
-	end
-
 	local package_Btn = tpSubgbox:GetControlSet('button', 'specialProduct_'..num);
 	if package_Btn == nil then
 		tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 		return 0;
 	end
 	TPSHOP_SELECTED_SPECIALGOODS(tpSubgbox, package_Btn, package_Btn:GetEventScriptArgString(ui.LBUTTONUP), package_Btn:GetEventScriptArgNumber(ui.LBUTTONUP));
+
+	num = num + 1;
+	if num > max then 
+		num = 1;    
+	end
 
 	tpSubgbox:SetUserValue("NUM_GOODNO", num);
 	tpSubgbox:Invalidate();
@@ -2511,7 +2584,7 @@ end
 
 function TPSHOP_SELECTED_SPECIALGOODS(parent, control, strArg, numArg)		
 	frame = parent:GetTopParentFrame()
-	local cnt = frame:GetUserIValue("SpecialGoodCount");
+	local cnt = parent:GetUserIValue("NUM_GOODS");
 	for i = 1 , cnt do
 		 local specialProduct = parent:GetControlSet('button',"specialProduct_" .. i);	
 		 if specialProduct ~= nil then
@@ -2533,81 +2606,97 @@ end
 
 function TPSHOP_SELECTED_SPECIALGOODS_BANNER(tpSubgbox, control, strArg, numArg)
 
-	local listIndex = control:GetUserValue("LISTINDEX");
-	local iteminfo = session.ui.Get_NISMS_ItemInfo(listIndex)
-	if iteminfo == nil then
-		return;
-	end
-	
-	local limitOnce = iteminfo.limitOnce;
-	local price = iteminfo.price;
-	local imgAddress = string.format("%d", iteminfo.tpItemClsId);	
+	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then
+		local listIndex = control:GetUserValue("LISTINDEX");
+		local iteminfo = session.ui.Get_NISMS_ItemInfo(listIndex)
+		if iteminfo == nil then
+			return;
+		end
+		
+		local limitOnce = iteminfo.limitOnce;
+		local price = iteminfo.price;
+		local imgAddress = string.format("%d", iteminfo.tpItemClsId);	
 
-	local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
-	specialGoods = tolua.cast(specialGoods, "ui::CWebPicture");	
-	specialGoods:SetUrlInfo(GETBANNERURL(imgAddress));
-	specialGoods:Invalidate();
-	
-	local buyBtn = GET_CHILD(tpSubgbox,"specialBuyBtn");	
-	buyBtn:ShowWindow(1);									
-	buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, numArg);
-	buyBtn:SetEventScriptArgString(ui.LBUTTONUP, strArg);
-	buyBtn:SetUserValue("LISTINDEX", listIndex);
-	
-	buyBtn:SetEventScript(ui.MOUSEMOVE, '_TPSHOP_STOPROLLING_SPECIALGOODS');
-	
-	TPSHOP_SET_SPECIALPACKAGES_BANNER_BUTTONSET(tpSubgbox, buyBtn, 0);	
+		local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
+		specialGoods = tolua.cast(specialGoods, "ui::CWebPicture");	
+		specialGoods:SetUrlInfo(GETBANNERURL(imgAddress));
+		specialGoods:Invalidate();
+
+	--local buyBtn = GET_CHILD(tpSubgbox,"specialBuyBtn");	
+	--buyBtn:ShowWindow(1);									
+	--buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, numArg);
+	--buyBtn:SetEventScriptArgString(ui.LBUTTONUP, strArg);
+	--buyBtn:SetUserValue("LISTINDEX", listIndex);
+		
+	--buyBtn:SetEventScript(ui.MOUSEMOVE, '_TPSHOP_STOPROLLING_SPECIALGOODS');
+		
+	--TPSHOP_SET_SPECIALPACKAGES_BANNER_BUTTONSET(tpSubgbox, buyBtn, 0);
+
+	else
+		local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
+		specialGoods = tolua.cast(specialGoods, "ui::CWebPicture");	
+		specialGoods:SetUrlInfo(GETBANNERURL(strArg));
+		specialGoods:Invalidate();
+	end
 end
 
 function TPSHOP_SELECTED_SPECIALPACKAGES_BANNER(tpSubgbox, control, strArg, numArg)
-	local clsList, listcnt = GetClassList('item_package');	
-	if listcnt == 0 or clsList == nil then
-		return;
-	end	
-	local retNum = -1;
-	local obj = nil;
-	local packageID = tonumber(strArg);
-	local additionstr = "";
-	if numArg <= 0 then
-		local Default_itemClsID = control:GetUserIValue("DEFAULT_CLSID");
-		obj = GetClassByIndexFromList(clsList, packageID -1);	
-		retNum = CHECK_APPLY_PACKAGE_CLSID(Default_itemClsID, obj);	
-		if retNum <= 0 then
+	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then	
+		local clsList, listcnt = GetClassList('item_package');	
+		if listcnt == 0 or clsList == nil then
 			return;
-		end			
-	else
-		retNum = numArg;
-	end	
+		end	
+		local retNum = -1;
+		local obj = nil;
+		local packageID = tonumber(strArg);
+		local additionstr = "";
+		if numArg <= 0 then
+			local Default_itemClsID = control:GetUserIValue("DEFAULT_CLSID");
+			obj = GetClassByIndexFromList(clsList, packageID -1);	
+			retNum = CHECK_APPLY_PACKAGE_CLSID(Default_itemClsID, obj);	
+			if retNum <= 0 then
+				return;
+			end			
+		else
+			retNum = numArg;
+		end	
 
-	local listIndex = control:GetUserValue("LISTINDEX_".. retNum);
-	local iteminfo = session.ui.Get_NISMS_ItemInfo(listIndex)
-	if iteminfo == nil then
-		return;
-	end
-	
-	local limitOnce = iteminfo.limitOnce;
-	local price = iteminfo.price;
-	local imgAddress = string.format("%d", iteminfo.tpItemClsId);
-	local productNo = iteminfo.itemid;	
-	local itemClsID = iteminfo.tpItemClsId;				
-											
-	local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
-	specialGoods = tolua.cast(specialGoods, "ui::CWebPicture");	
+		local listIndex = control:GetUserValue("LISTINDEX_".. retNum);
+		local iteminfo = session.ui.Get_NISMS_ItemInfo(listIndex)
+		if iteminfo == nil then
+			return;
+		end
+		
+		local limitOnce = iteminfo.limitOnce;
+		local price = iteminfo.price;
+		local imgAddress = string.format("%d", iteminfo.tpItemClsId);
+		local productNo = iteminfo.itemid;	
+		local itemClsID = iteminfo.tpItemClsId;				
+												
+		local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
+		specialGoods = tolua.cast(specialGoods, "ui::CWebPicture");	
 	specialGoods:SetUrlInfo(GETBANNERURL(imgAddress));
-	
-	local buyBtn = GET_CHILD(tpSubgbox,"specialBuyBtn");	
-	if GETPACKAGE_JOBNUM_BYJOBNGENDER() == retNum then
-		buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
-		buyBtn:SetEventScriptArgString(ui.LBUTTONUP, itemClsID);
-		buyBtn:SetUserValue("LISTINDEX", listIndex);
-		buyBtn:ShowWindow(1);
+
+	--local buyBtn = GET_CHILD(tpSubgbox,"specialBuyBtn");	
+	--if GETPACKAGE_JOBNUM_BYJOBNGENDER() == retNum then
+	--	buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
+	--	buyBtn:SetEventScriptArgString(ui.LBUTTONUP, itemClsID);
+	--	buyBtn:SetUserValue("LISTINDEX", listIndex);
+	--	buyBtn:ShowWindow(1);
+	--else
+	--	buyBtn:ShowWindow(0);
+	--end
+	--buyBtn:SetEventScript(ui.MOUSEMOVE, '_TPSHOP_STOPROLLING_SPECIALGOODS');
+		
+	--local jobCountMax = control:GetUserValue("jobCountMax");	
+	--TPSHOP_SET_SPECIALPACKAGES_BANNER_BUTTONSET(tpSubgbox, buyBtn, 1, jobCountMax, packageID, control:GetName(), itemClsID, retNum);			
+		
 	else
-		buyBtn:ShowWindow(0);
-	end
-	buyBtn:SetEventScript(ui.MOUSEMOVE, '_TPSHOP_STOPROLLING_SPECIALGOODS');
-			
-	local jobCountMax = control:GetUserValue("jobCountMax");	
-	TPSHOP_SET_SPECIALPACKAGES_BANNER_BUTTONSET(tpSubgbox, buyBtn, 1, jobCountMax, packageID, control:GetName(), itemClsID, retNum);			
+		local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
+		specialGoods = tolua.cast(specialGoods, "ui::CWebPicture");	
+		specialGoods:SetUrlInfo(GETBANNERURL(strArg));
+		specialGoods:Invalidate();
+	end		
 end
 
 function TPSHOP_SET_SPECIALPACKAGES_BANNER_BUTTONSET(tpSubgbox, buyBtn, isVisible, cnt, packageID, ctrlName, itemClsID, retNum)	
@@ -2687,10 +2776,12 @@ end
 --///////////////////////////////////////////////////////////////////////////////////////////TPITEM DRAW Code end
 
 function TPSHOP_REFLASH_REMAINCASH(parent, control, strArg, numArg)
-	if 1 == IsMyPcGM_FORNISMS() then
+	if (config.GetServiceNation() == "THI") then
+		REQ_NEXON_AMERICA_REFRESH();
+	elseif 1 == IsMyPcGM_FORNISMS() then
 		DebounceScript("ON_TPSHOP_REFLASH_REMAINCASH", 5);
 	else
-	ui.MsgBox(ClMsg("YouCanChargeOnWeb"));
+		ui.MsgBox(ClMsg("YouCanChargeOnWeb"));
 	end
 end
 
@@ -2709,27 +2800,32 @@ function TPSHOP_SELECTED_SPECIALGOODS_BANNER_CLICK(parent, control, strArg, numA
 end
 
 function TPSHOP_TRY_BUY_TPITEM_BY_NEXONCASH(parent, control, ItemClassIDstr, itemid)
-	
-	local frame = ui.GetFrame("tpitem");	
-	
-	local nMaxCnt = session.ui.Get_NISMS_CashInven_ItemListSize();
-	if nMaxCnt >= 18 then
-		strMsg = string.format("{@st43d}{s20}%s{/}", ScpArgMsg("MAX_CASHINVAN"));
-		ui.MsgBox_NonNested(strMsg, 0x00000000, frame:GetName(), "None", "None");	
+	if (config.GetServiceNation() == "THI") then
+		ON_NEXON_AMERICA_BUY_ITEM(parent, control, ItemClassIDstr, itemid)
 		return;
-	end
-	
-	local screenbgTemp = frame:GetChild('screenbgTemp');	
-	screenbgTemp:ShowWindow(1);	
+	else
+		local frame = ui.GetFrame("tpitem");	
+		
+		local nMaxCnt = session.ui.Get_NISMS_CashInven_ItemListSize();
+		if nMaxCnt >= 18 then
+			strMsg = string.format("{@st43d}{s20}%s{/}", ScpArgMsg("MAX_CASHINVAN"));
+			ui.MsgBox_NonNested(strMsg, 0x00000000, frame:GetName(), "None", "None");	
+			return;
+		end
+		
+		local screenbgTemp = frame:GetChild('screenbgTemp');	
+		screenbgTemp:ShowWindow(1);	
 
-	local listIndex = control:GetUserValue("LISTINDEX");
-	local iteminfo = session.ui.Get_NISMS_ItemInfo(listIndex)
-	if iteminfo == nil then
+		local listIndex = control:GetUserValue("LISTINDEX");
+		local iteminfo = session.ui.Get_NISMS_ItemInfo(listIndex)
+		if iteminfo == nil then
+			return;
+		end
+		
+		local amount = iteminfo.limitOnce;-- control:GetUserIValue("LimitOnce");	
+		ui.BuyIngameShopItem(itemid, amount);
 		return;
 	end
-	
-	local amount = iteminfo.limitOnce;-- control:GetUserIValue("LimitOnce");	
-	ui.BuyIngameShopItem(itemid, amount);
 end
 
 function _TPSHOP_PURCHASE_RESULT(parent, control, msg, ret)
@@ -2823,7 +2919,9 @@ function TPSHOP_CHECK_REMAIN_NEXONCASH()
 	local rightFrame = GET_CHILD(frame,"rightFrame");	
 	local rightgbox = GET_CHILD(rightFrame,"rightgbox");	
 
-	if 1 == IsMyPcGM_FORNISMS() then
+	if config.GetServiceNation() == "THI" then
+		ON_NEXON_AMERICA_BALANCE(frame)
+	elseif 1 == IsMyPcGM_FORNISMS() then
 		local haveStaticNCbox = GET_CHILD(rightgbox,"haveStaticNCbox");	
 		local remainNexonCash = GET_CHILD_RECURSIVELY(haveStaticNCbox,"remainNexonCash");	
 		remainNexonCash:SetText(session.ui.GetRemainCash());
@@ -2907,38 +3005,77 @@ function TPSHOP_CASHINVEN_ITEM_CLICKED(parent, ctrl)
 end
 
 function _TPSHOP_BANNER(parent, control, argStr, argNum)
-	local size = session.ui.GetSize_TPITEM_Banner_INFOList();
+-- right banner
+	local size = session.ui.GetSizeTPItemBannerCategory("Right");
 
 	local frame = ui.GetFrame("tpitem");
 	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 	banner = tolua.cast(banner, "ui::CWebPicture");	
-
+	
 	if size <= 1 then
 		banner:SetImage("market_event_test");	--market_default
 	else
-		local bannerInfo = session.ui.Getlistitem_TPITEM_Banner_byIndex(0);
-		local strImage = bannerInfo.imagePath;
-		if string.len(strImage) <= 0 then
-			banner:SetImage("market_event_test");	--market_default
-		else
-			banner:SetUrlInfo(GETBANNERURL(strImage));
-		end;
-		banner:SetUserValue("URL_BANNER", bannerInfo.clickUrl);
-		banner:SetUserValue("NUM_BANNER", 0);
-		
-		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
-		banner:RunUpdateScript("_PROCESS_ROLLING_BANNER",  5, 0, 1, 1);
+		local bannerInfo = session.ui.GetTPItemBannerCategoryByIndex("Right", 0);
+		if bannerInfo ~= nil then
+			local strImage = bannerInfo:GetimagePath();
+			if string.len(strImage) <= 0 then
+				banner:SetImage("market_event_test");	--market_default
+			else
+				banner:SetUrlInfo(GETBANNERURL(strImage));
+			end;
+			banner:SetUserValue("URL_BANNER", bannerInfo:GetclickUrl());
+			banner:SetUserValue("NUM_BANNER", 0);
+			
+			banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+			banner:RunUpdateScript("_PROCESS_ROLLING_BANNER",  5, 0, 1, 1);
+		end
 	end
 	banner:Invalidate();
+
+-- bottom banner
+	local leftgFrame = GET_CHILD(frame,"leftgFrame");	
+	local leftgbox = GET_CHILD(leftgFrame,"leftgbox");	
+	local tpSubgbox = GET_CHILD(leftgbox,"tpSubgbox");
+	DESTROY_CHILD_BYNAME(tpSubgbox, "specialProduct_");
+	local bottomBannerCount = session.ui.GetSizeTPItemBannerCategory("Bottom");
+	if bottomBannerCount <= 1 then
+		local specialGoods = GET_CHILD_RECURSIVELY(frame,"specialGoods");	
+		specialGoods:SetImage("market_default4");
+	else
+		local last_Btn = nil
+		for i = 1 , bottomBannerCount  do 
+			local bannerInfo = session.ui.GetTPItemBannerCategoryByIndex("Bottom", i-1)
+			if bannerInfo ~= nil then
+				local package_Btn = tpSubgbox:CreateOrGetControl('button', 'specialProduct_'..i, 35, 38, ui.RIGHT, ui.TOP, 0, 25, 35 * (bottomBannerCount-i), 0);		
+				tolua.cast(package_Btn, "ui::CButton");
+				package_Btn:SetImage("market_number_btn");
+				package_Btn:SetText(string.format("{@st66d}{s20}%d{/}", i));
+				package_Btn:EnableHitTest(1);
+
+				package_Btn:SetEventScript(ui.LBUTTONUP, '_TPSHOP_SELECTED_SPECIALGOODS');
+				package_Btn:SetEventScriptArgNumber(ui.LBUTTONUP, 0);
+				package_Btn:SetEventScriptArgString(ui.LBUTTONUP, bannerInfo:GetimagePath());
+				
+				package_Btn:SetUserValue("LISTINDEX", i);
+				last_Btn = package_Btn;
+			end
+		end
+		tpSubgbox:SetUserValue("NUM_GOODS", bottomBannerCount);
+		tpSubgbox:SetUserValue("NUM_GOODNO", 1);
+		tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
+		tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
+		TPSHOP_SELECTED_SPECIALGOODS(tpSubgbox, last_Btn, last_Btn:GetEventScriptArgString(ui.LBUTTONUP), last_Btn:GetEventScriptArgNumber(ui.LBUTTONUP));		
+		tpSubgbox:Invalidate()
+	end
 end
 
 function _PROCESS_ROLLING_BANNER()
-	local size = session.ui.GetSize_TPITEM_Banner_INFOList();
+	local size = session.ui.GetSizeTPItemBannerCategory("Right");
 	local frame = ui.GetFrame("tpitem");
 	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 	banner = tolua.cast(banner, "ui::CWebPicture");	
 		
-	if size <= 0 then
+	if size <= 1 then
 		banner:SetImage("market_event_test");	--market_default
 		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
 		return 0;
@@ -2948,15 +3085,17 @@ function _PROCESS_ROLLING_BANNER()
 		if num >= size then 
 			num = 0;
 		end
-		local bannerInfo = session.ui.Getlistitem_TPITEM_Banner_byIndex(num);
-		local strImage = bannerInfo.imagePath;
-		if strImage == 'None' then
-			banner:SetImage("market_event_test");	--market_default	
-		else
-			banner:SetUrlInfo(GETBANNERURL(strImage));
-		end;
-		banner:SetUserValue("URL_BANNER", bannerInfo.clickUrl);
-		banner:SetUserValue("NUM_BANNER", num);
+		local bannerInfo = session.ui.GetTPItemBannerCategoryByIndex("Right", num);
+		if bannerInfo ~= nil then
+			local strImage = bannerInfo:GetimagePath();
+			if strImage == 'None' then
+				banner:SetImage("market_event_test");	--market_default	
+			else
+				banner:SetUrlInfo(GETBANNERURL(strImage));
+			end;
+			banner:SetUserValue("URL_BANNER", bannerInfo:GetclickUrl());
+			banner:SetUserValue("NUM_BANNER", num);
+		end
 	end
 	banner:Invalidate();
 	return 1;
@@ -2984,4 +3123,16 @@ function GETBANNERURL(webUrl)
 	local url = config.GetBannerImgURL();	
 	local urlStr = string.format("%s%s.png", url,webUrl );
 	return urlStr;
+end
+
+function TPITEM_SET_ENABLE_BY_LIMITATION(buyBtn, itemObj)
+    local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, itemObj.ClassID);
+    local accountLimitCount = TryGetProp(itemObj, 'AccountLimitCount');
+    local monthLimitCount = TryGetProp(itemObj, 'MonthLimitCount');
+	if (accountLimitCount ~= nil and accountLimitCount > 0 and curBuyCount >= accountLimitCount)
+        or (monthLimitCount ~= nil and monthLimitCount > 0 and curBuyCount >= monthLimitCount) then
+		buyBtn:SetSkinName('test_gray_button');
+		buyBtn:SetText(ClMsg('ITEM_IsPurchased0'))
+		buyBtn:EnableHitTest(0)
+	end
 end

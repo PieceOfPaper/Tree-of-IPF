@@ -1,8 +1,39 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by r (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\dungeon\d_fantasylibrary_48_3\"/>
-	<TexDir IpfName="bg_texture" Path="\common\"/>
-	<Model File="d_fantasylibrary_48_3_ground.xac" Model="d_fantasylibrary_48_3_ground" pos="0.0 0.0 0.0" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<ModelDir IpfName="bg_hi2" Path="\dungeon\d_fantasylibrary_48_3\"/>
+	<SubTexDir IpfName="bg_texture\" Path="\d_fantasylibrary_48_3\"/>
+	<LightMap File="d_fantasylibrary_48_3.jpg" Length="4000.0 4000.0" Offset="-193.398 785.01" Size="1024 1024"/>
+	<ShaTexDir IpfName="bg_hi2" Path="\dungeon\d_fantasylibrary_48_3\"/>
+	<TexDir IpfName="bg_texture" Path="\fantasylibrary\"/>
+	<Model File="d_fantasylibrary_48_3_tree.xac" Model="d_fantasylibrary_48_3_tree" ShadowMap="d_fantasylibrary_48_3_tree" pos="56.9629 95.8818 557.2102" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_b_model_01.xac" Model="d_fantasylibrary_48_3_b_model_01" ShadowMap="d_fantasylibrary_48_3_b_model_01" pos="-240.2693 -451.7996 1446.9302" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_grass.xac" Model="d_fantasylibrary_48_3_grass" ShadowMap="d_fantasylibrary_48_3_grass" pos="316.9102 40.9701 168.9967" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_ani.xac" Model="d_fantasylibrary_48_3_model_ani" ShadowMap="d_fantasylibrary_48_3_model_ani" pos="746.4014 298.2030 420.5616" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_16.xac" Model="d_fantasylibrary_48_3_model_16" ShadowMap="d_fantasylibrary_48_3_model_16" pos="245.6288 -66.1167 1797.1111" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_06.xac" Model="d_fantasylibrary_48_3_model_06" ShadowMap="d_fantasylibrary_48_3_model_06" pos="216.7342 71.5538 1176.4890" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_12.xac" Model="d_fantasylibrary_48_3_model_12" ShadowMap="d_fantasylibrary_48_3_model_12" pos="576.8126 -41.9457 -479.8257" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_14.xac" Model="d_fantasylibrary_48_3_model_14" ShadowMap="d_fantasylibrary_48_3_model_14" pos="192.6141 -13.5308 -422.6453" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_15.xac" Model="d_fantasylibrary_48_3_model_15" ShadowMap="d_fantasylibrary_48_3_model_15" pos="-713.1061 260.6709 -612.0320" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_17.xac" Model="d_fantasylibrary_48_3_model_17" ShadowMap="d_fantasylibrary_48_3_model_17" pos="-131.5917 107.6454 -267.8939" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_04.xac" Model="d_fantasylibrary_48_3_model_04" ShadowMap="d_fantasylibrary_48_3_model_04" pos="817.9958 40.1488 1125.9719" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_09.xac" Model="d_fantasylibrary_48_3_model_09" ShadowMap="d_fantasylibrary_48_3_model_09" pos="-95.0583 38.5335 687.6004" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_b_model_04.xac" Model="d_fantasylibrary_48_3_b_model_04" ShadowMap="d_fantasylibrary_48_3_b_model_04" pos="383.9121 -143.6371 970.4862" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_11.xac" Model="d_fantasylibrary_48_3_model_11" ShadowMap="d_fantasylibrary_48_3_model_11" pos="1003.3804 25.8143 -434.9269" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_ground_01.xac" Model="d_fantasylibrary_48_3_ground_01" ShadowMap="d_fantasylibrary_48_3_ground_01" pos="-114.7104 138.4253 828.5890" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_b_model_05.xac" Model="d_fantasylibrary_48_3_b_model_05" ShadowMap="d_fantasylibrary_48_3_b_model_05" pos="-422.8596 285.5983 1016.1909" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_b_model_03.xac" Model="d_fantasylibrary_48_3_b_model_03" ShadowMap="d_fantasylibrary_48_3_b_model_03" pos="-201.7252 253.4073 962.8445" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_07.xac" Model="d_fantasylibrary_48_3_model_07" ShadowMap="d_fantasylibrary_48_3_model_07" pos="-1767.4890 352.7018 38.9006" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_08.xac" Model="d_fantasylibrary_48_3_model_08" ShadowMap="d_fantasylibrary_48_3_model_08" pos="-941.8815 297.9319 249.6173" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_ground_02.xac" Model="d_fantasylibrary_48_3_ground_02" ShadowMap="d_fantasylibrary_48_3_ground_02" pos="-776.8744 297.4735 -236.7294" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_01.xac" Model="d_fantasylibrary_48_3_model_01" ShadowMap="d_fantasylibrary_48_3_model_01" pos="-4.2505 188.5266 606.4751" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_10.xac" Model="d_fantasylibrary_48_3_model_10" ShadowMap="d_fantasylibrary_48_3_model_10" pos="738.0476 -103.7361 179.6270" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_b_model_02.xac" Model="d_fantasylibrary_48_3_b_model_02" ShadowMap="d_fantasylibrary_48_3_b_model_02" pos="-503.9412 -233.3215 1044.1846" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_02.xac" Model="d_fantasylibrary_48_3_model_02" ShadowMap="d_fantasylibrary_48_3_model_02" pos="-918.9645 42.5717 2445.9478" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_03.xac" Model="d_fantasylibrary_48_3_model_03" ShadowMap="d_fantasylibrary_48_3_model_03" pos="-994.2808 -88.2216 1757.5785" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_model_05.xac" Model="d_fantasylibrary_48_3_model_05" ShadowMap="d_fantasylibrary_48_3_model_05" pos="-340.5406 183.2739 2082.3159" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_b_model_ground.xac" Model="d_fantasylibrary_48_3_b_model_ground" ShadowMap="d_fantasylibrary_48_3_b_model_ground" pos="-210.7795 174.2128 778.7748" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_light.xac" Model="d_fantasylibrary_48_3_light" pos="-297.6868 -193.4606 987.1362" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_fantasylibrary_48_3_obbcol.xac" Model="d_fantasylibrary_48_3_obbcol" pos="-152.6107 107.6454 -271.4575" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

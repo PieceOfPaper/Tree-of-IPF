@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="23.00" soundFile="mon_voice_lecifer_skl1"/>
+    <Sound frame="75.49" soundFile="skl_eff_archer_skl_shot4"/>
+    <Sound frame="75.99" soundFile="skl_eff_dock"/>
+    <Shockwave frame="80" type="2" intensity="5" frequency="70" duration="0.4" range="1000"/>
+    <BlendOn frame="80" R="130" G="100" B="150" A="200"/>
+    <Particle frame="80" attachNode="Dummy_effect_force_skl00" particleName="I_arrow020_ignas_mon_mesh4" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="80" attachNode="Bip001 L Hand" particleName="I_warrior_Sturzhau_hit_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound=""/>
+    <Particle frame="80" attachNode="Bip001 L Hand" particleName="I_light013_spark_blue_3" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <BlendOn frame="81" R="80" G="50" B="100" A="200"/>
+    <BlendOn frame="82" R="0" G="0" B="0" A="50"/>
+    <Sound frame="87.00" soundFile="skl_eff_dock"/>
+    <Sound frame="87.49" soundFile="skl_eff_archer_skl_shot4"/>
+    <Shockwave frame="91" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <BlendOn frame="91" R="130" G="100" B="150" A="200"/>
+    <Particle frame="91" attachNode="Dummy_effect_force_skl00" particleName="I_arrow020_ignas_mon_mesh4" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="91" attachNode="Bip001 L Hand" particleName="I_warrior_Sturzhau_hit_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="91" attachNode="Bip001 L Hand" particleName="I_light013_spark_blue_3" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <BlendOn frame="92" R="80" G="50" B="100" A="200"/>
+    <BlendOn frame="93" R="0" G="0" B="0" A="50"/>
+    <Sound frame="96.00" soundFile="skl_archer_crossarrow_badak"/>
+    <Sound frame="98.00" soundFile="skl_eff_dock"/>
+    <Sound frame="98.49" soundFile="skl_eff_archer_skl_shot4"/>
+    <Shockwave frame="102" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <BlendOn frame="102" R="130" G="100" B="150" A="200"/>
+    <Particle frame="102" attachNode="Dummy_effect_force_skl00" particleName="I_arrow020_ignas_mon_mesh4" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="102" attachNode="Bip001 L Hand" particleName="I_warrior_Sturzhau_hit_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="102" attachNode="Bip001 L Hand" particleName="I_light013_spark_blue_3" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <BlendOn frame="103" R="80" G="50" B="100" A="200"/>
+    <BlendOff frame="104" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

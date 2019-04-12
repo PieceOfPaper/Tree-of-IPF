@@ -70,7 +70,7 @@ function SCR_USE_161215EVENT_SEED(pc,argObj,BuffName,arg1,arg2)
         SetLifeTime(npc, 330)
         AttachEffect(npc, 'F_light081_ground_orange_loop', 8, 'BOT', 0, 0, 0, 0)
 		ChangeScale(npc, 2.5, 0, 1, 0, 0, 1)
-        AttachEffect(npc, 'F_pattern013_ground_white', 1.9, 'BOT')
+        --AttachEffect(npc, 'F_pattern013_ground_white', 1.9, 'BOT')
     end
 end
 

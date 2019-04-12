@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="9" R="100" G="120" B="0150" A="100"/>
+	<BlendOff frame="11" R="0" G="0" B="0" A="0"/>
+	<Particle frame="9" attachNode="Dummy_eff_skl" particleName="I_swordtrail033_white" useAttach="ture" hiddenObj="false" changeEffect="None" scale="3" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_rudas_loxodon_atk"/>
+	<Sound frame="0.00" soundFile="m_schlesien_darkmage_born"/>
+	<Sound frame="8.00" soundFile="skl_eff_body_atk_2"/>
+	<Sound frame="8.00" soundFile="mon_rudas_loxodon_kback"/>
+</ActionDesc>

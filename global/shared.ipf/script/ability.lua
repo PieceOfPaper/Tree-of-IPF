@@ -1,24 +1,45 @@
-
--- 어빌 UNLOCK체크용
-
-function PC_PCAA(pc)
+﻿function PC_PCAA(pc)
 local jobHistory = GetJobHistorySting(pc)
     print(jobHistory)
 end
 
-function CHECK_ABILITY_LOCK(pc, ability)
-
-if 1 == 1 then
-		return "UNLOCK";
+function LOGGING_ABILITY_CHECK(isEnableLogging, abilityName, logMsg)
+	if isEnableLogging ~= nil and isEnableLogging == true then
+		IMC_LOG("LOGGING_ABILITY_CHECK", "AbilityName : " .. abilityName .. ", LogMsg : " .. logMsg);
 	end
-    IMC_LOG("INFO_NORMAL", "CHECK_ABILITY_LOCK-NOT-RETURN");
+end
+
+function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
+    if IsServerSection(pc) == 1 then
+        if IS_REAL_PC(pc) == 'NO' then  -- 진짜 PC가 아니네 --
+            if GetExProp(pc, "BUNSIN") == 1 then    -- 나는 분신인가? --
+                local bunsinOwner = GetExArgObject(pc, 'BUNSIN_OWNER'); -- 분신 본체가 있는가? --
+                if bunsinOwner == nil then
+					LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[LOCK] BunsinOwner is nullptr");
+                    return 'LOCK';
+                else
+                    pc = bunsinOwner;   -- 나는 본체다 --
+                end
+            else
+				LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[LOCK] Not Real Pc");
+                return 'LOCK';
+            end
+        end
+	end
+    --IMC_LOG("INFO_NORMAL", "CHECK_ABILITY_LOCK-NOT-RETURN");
 
     if ability.Job == "None" then
+		LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] Ability Job is None");
         return "UNLOCK";
     end
 
-    local jobHistory = GetJobHistoryString(pc)
-    IMC_LOG("INFO_NORMAL", "CHECK_ABILITY_LOCK-History : "..jobHistory);
+    local jobHistory = '';
+    if IsServerObj(pc) == 1 then
+        jobHistory = GetJobHistoryString(pc);
+    else
+        jobHistory = GetMyJobHistoryString();
+    end
+    
     if string.find(ability.Job, ";") == nil then
         
         if string.find(jobHistory, ability.Job) ~= nil then
@@ -31,6 +52,7 @@ if 1 == 1 then
 
             if abilGroupClass == nil then
                 IMC_LOG("INFO_NORMAL", "abilGroupClass is nil!!  jobCls.EngName : "..jobCls.EngName.."  ability.ClassName : "..ability.ClassName)
+				LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] abilGroupClass is nullptr");
                 return "UNLOCK"
             end
 
@@ -38,12 +60,15 @@ if 1 == 1 then
             local unlockFuncName = abilGroupClass.UnlockScr;
 
             if abilGroupClass.UnlockScr == "None" then
+				LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] abilGroupClass.UnlockScr is None");
                 return "UNLOCK"
             end
         
             local scp = _G[unlockFuncName];
             local ret = scp(pc, abilGroupClass.UnlockArgStr, abilGroupClass.UnlockArgNum, ability);
         
+			LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[" .. ret .. "] Result1");
+			
             return ret;
         end
     else
@@ -59,6 +84,7 @@ if 1 == 1 then
                 local unlockFuncName = abilGroupClass.UnlockScr;
 
                 if abilGroupClass.UnlockScr == "None" then
+					LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] abilGroupClass.UnlockScr is None");
                     return "UNLOCK"
                 end
         
@@ -66,6 +92,7 @@ if 1 == 1 then
                 local ret = scp(pc, abilGroupClass.UnlockArgStr, abilGroupClass.UnlockArgNum, ability);
 
                 if ret == "UNLOCK" then
+					LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[" .. ret .. "] Result2");
                     return ret;
                 end
             end
@@ -73,6 +100,7 @@ if 1 == 1 then
     end
 
     IMC_LOG("INFO_NORMAL", "abilityUnlock Error");
+	LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] Error1");
     return "UNLOCK";
     
     
@@ -683,7 +711,7 @@ function SCR_ABIL_INQUISITOR9_ACTIVE(self, ability)
     local rItem  = GetEquipItem(self, 'RH');
     
     local addresdark = 0
-    if rItem.ClassType == "Mace" then
+    if rItem.ClassType == "Mace" or rItem.ClassType == "THMace" then
         addresdark = addresdark + ability.Level * 10
     end
     
@@ -841,7 +869,7 @@ end
 function TX_SCR_SET_ABIL_HEADSHOT_OPTION(pc, tx, active)
     local skl = GetSkill(pc, 'Musketeer_HeadShot')
     if nil == skl then
-        return false;
+        return true -- 스킬이 없어도 true를 반환하여, tx가 롤백되지 않도록 한다.
     end
 
     local sklValue, overValue = 0, 0;
@@ -875,4 +903,128 @@ function SCR_ABIL_DRAGOON14_INACTIVE(self, ability)
         skl.KnockDownHitType = 3
     end
 
+end
+
+function SCR_ABIL_THSWORD_ACTIVE(self, ability)
+    local rItem  = GetEquipItem(self, 'RH');
+    local addSR = 0
+    if rItem.ClassType == "THSword" then
+        addSR = 1
+    end
+    
+    SetExProp(self, "ABIL_THSWORD_SR", addSR)
+end
+
+function SCR_ABIL_THSWORD_INACTIVE(self, ability)
+    DelExProp(self, "ABIL_THSWORD_SR")
+end
+
+function SCR_ABIL_THSTAFF_ACTIVE(self, ability)
+    local rItem  = GetEquipItem(self, 'RH');
+    local addSR = 0
+    if rItem.ClassType == "THStaff" then
+        addSR = 1
+    end
+    
+    SetExProp(self, "ABIL_THSTAFF_SR", addSR)
+end
+
+function SCR_ABIL_THSTAFF_INACTIVE(self, ability)
+    DelExProp(self, "ABIL_THSTAFF_SR")
+end
+
+function SCR_ABIL_THSPEAR_ACTIVE(self, ability)
+    local rItem  = GetEquipItem(self, 'RH');
+    local addSkillRange = 0
+    if rItem.ClassType == "THSpear" then
+        addSkillRange = 10
+    end
+    
+    SetExProp(self, "ABIL_THSPEAR_RANGE", addSkillRange)
+end
+
+function SCR_ABIL_THSPEAR_INACTIVE(self, ability)
+    DelExProp(self, "ABIL_THSPEAR_RANGE")
+end
+
+function SCR_ABIL_THMACE_ACTIVE(self, ability)
+    local rItem  = GetEquipItem(self, 'RH');
+    local addBlkBreak = 0
+    if rItem.ClassType == "THMace" then
+        addBlkBreak = 85
+    end
+    
+    SetExProp(self, "ABIL_THMACE_BLKBLEAK", addBlkBreak)
+end
+
+function SCR_ABIL_THMACE_INACTIVE(self, ability)
+    DelExProp(self, "ABIL_THMACE_BLKBLEAK")
+end
+
+function SCR_ABIL_SPEAR_ACTIVE(self, ability)
+    local rItem  = GetEquipItem(self, 'RH');
+    local addSkillRange = 0
+    if rItem.ClassType == "Spear" then
+        addSkillRange = 5
+    end
+    
+    SetExProp(self, "ABIL_SPEAR_RANGE", addSkillRange)
+end
+
+function SCR_ABIL_SPEAR_INACTIVE(self, ability)
+    DelExProp(self, "ABIL_SPEAR_RANGE")
+end
+
+
+
+function SCR_ABIL_KABBALIST21_ACTIVE(self, ability)
+	local addMaxMATKRate = 0.0;
+	
+    local rItem  = GetEquipItem(self, 'RH');
+    local rItemType = TryGetProp(rItem, 'ClassType');
+    if rItem ~= nil and (rItemType == 'Staff' or rItemType == 'Mace') then
+		addMaxMATKRate = 0.2;
+		
+		if rItemType == 'Staff' then
+			ChangeNormalAttack(self, "Magic_Attack");
+		end
+    end
+    
+	self.MAXMATK_RATE_BM = self.MAXMATK_RATE_BM + addMaxMATKRate;
+	
+	SetExProp(self, "ABIL_KABBALIST21_MAX_MATK_RATE", addMaxMATKRate);
+end
+
+function SCR_ABIL_KABBALIST21_INACTIVE(self, ability)
+	local addMaxMATKRate = GetExProp(self, "ABIL_KABBALIST21_MAX_MATK_RATE");
+	self.MAXMATK_RATE_BM = self.MAXMATK_RATE_BM - addMaxMATKRate;
+	
+	ChangeNormalAttack(self, "None");
+	
+	DelExProp(self, "ABIL_KABBALIST21_MAX_MATK_RATE");
+end
+
+function SCR_ABIL_KABBALIST22_ACTIVE(self, ability)
+	local addMSPD = 0;
+	local isAbilKabbalist22 = 0;
+	
+	local count = CHECK_ARMORMATERIAL(self, "Cloth")
+	if count >= 4 then
+		addMSPD = 5;
+		
+		isAbilKabbalist22 = 1;
+	end
+	
+	self.MSPD_BM = self.MSPD_BM + addMSPD;
+	
+	SetExProp(self, "ABIL_KABBALIST22_MSPD", addMSPD);
+	SetExProp(self, "ABIL_KABBALIST22_ON", isAbilKabbalist22);
+end
+
+function SCR_ABIL_KABBALIST22_INACTIVE(self, ability)
+	local addMSPD = GetExProp(self, "ABIL_KABBALIST22_MSPD");
+	self.MSPD_BM = self.MSPD_BM - addMSPD;
+	
+	DelExProp(self, "ABIL_KABBALIST22_MSPD");
+	DelExProp(self, "ABIL_KABBALIST22_ON");
 end

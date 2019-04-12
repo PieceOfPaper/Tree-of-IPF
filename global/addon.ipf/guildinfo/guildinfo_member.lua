@@ -16,13 +16,14 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
         return;
     end
 
+    GUILDINFO_MEMBER_INIT_ONLINE_CHECKBOX(frame);
+
     local memberCtrlBox = GET_CHILD_RECURSIVELY(memberBox, 'memberCtrlBox');
     DESTROY_CHILD_BYNAME(memberCtrlBox, 'MEMBER_');
 
     local leaderAID = guild.info:GetLeaderAID();
 
     local onlineCnt = 0;    
-    local MEMBER_TEXT_LIMIT_BYTE = tonumber(frame:GetUserConfig('MEMBER_TEXT_LIMIT_BYTE'));    
     local list = session.party.GetPartyMemberList(PARTY_GUILD);
 	local count = list:Count();
 	for i = 0 , count - 1 do
@@ -74,7 +75,6 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
                     local name = partyMemberInfo:GetName();
                     txt_teamname:SetTextByKey('value', partyMemberInfo:GetName());
                     txt_teamname:SetTextTooltip(partyMemberInfo:GetName());
-        txt_teamname:SetVisibleByte(MEMBER_TEXT_LIMIT_BYTE);
 
                     -- job
                     local jobID = partyMemberInfo:GetIconInfo().job;
@@ -93,7 +93,6 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
 
                     -- duty
                     local txt_duty = memberCtrlSet:GetChild('txt_duty');        
-        txt_duty:SetVisibleByte(MEMBER_TEXT_LIMIT_BYTE);
                     local grade = partyMemberInfo.grade;        
             		if leaderAID == partyMemberInfo:GetAID() then
             			local dutyName = "{ol}{#FFFF00}" .. ScpArgMsg("GuildMaster") .. "{/}{/}";
@@ -160,6 +159,8 @@ function GUILDINFO_MEMBER_ONLINE_CLICK(parent, checkBox)
 
     local childCount = memberCtrlBox:GetChildCount();
     local showOnlyOnline = checkBox:IsChecked();
+    config.ChangeXMLConfig('OnlyOnlineGuildMember', showOnlyOnline);    
+
     for i = 0, childCount - 1 do
         local child = memberCtrlBox:GetChildByIndex(i);
         if string.find(child:GetName(), 'MEMBER_') ~= nil then
@@ -422,4 +423,9 @@ end
 
 function GUILD_BAN(name)
 	ui.Chat("/partybanByAID " .. PARTY_GUILD.. " " .. name);	
+end
+
+function GUILDINFO_MEMBER_INIT_ONLINE_CHECKBOX(frame)
+    local memberFilterCheck = GET_CHILD_RECURSIVELY(frame, 'memberFilterCheck');    
+    memberFilterCheck:SetCheck(config.GetXMLConfig('OnlyOnlineGuildMember'));
 end

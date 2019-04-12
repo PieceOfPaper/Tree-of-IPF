@@ -15,6 +15,8 @@ function SYSTEMOPTION_CREATE(frame)
 	SET_SKL_CTRL_CONFIG(frame);
     	SET_DMG_FONT_SCALE_CONTROLLER(frame);
 	SET_SHOW_PAD_SKILL_RANGE(frame);
+	SET_SIMPLIFY_BUFF_EFFECTS(frame);
+	SET_SIMPLIFY_MODEL(frame);
 
 end
 
@@ -496,4 +498,30 @@ end
 
 function CONFIG_SHOW_PAD_SKILL_RANGE(frame, ctrl, str, num)
 	config.SetEnableShowPadSkillRange(ctrl:IsChecked());
+end
+
+function SET_SIMPLIFY_BUFF_EFFECTS(frame)
+	local isEnable = config.IsEnableSimplifyBuffEffects();
+
+	local chkSimplifyBuffEffects = GET_CHILD_RECURSIVELY(frame, "chkSimplifyBuffEffects", "ui::CCheckBox");
+	if nil ~= chkSimplifyBuffEffects then
+		chkSimplifyBuffEffects:SetCheck(isEnable);
+	end;
+end
+
+function CONFIG_SIMPLIFY_BUFF_EFFECTS(frame, ctrl, str, num)
+	config.SetEnableSimplifyBuffEffects(ctrl:IsChecked());
+end
+
+function SET_SIMPLIFY_MODEL(frame)
+	local isEnable = config.IsEnableSimplifyModel();
+
+	local chkSimplifyModel = GET_CHILD_RECURSIVELY(frame, "chkSimplifyModel", "ui::CCheckBox");
+	if nil ~= chkSimplifyModel then
+		chkSimplifyModel:SetCheck(isEnable);
+	end;
+end
+
+function CONFIG_SIMPLIFY_MODEL(frame, ctrl, str, num)
+	config.SetEnableSimplifyModel(ctrl:IsChecked());
 end

@@ -148,13 +148,14 @@ function ADVENTURE_BOOK_CRAFT_CONTENT.CRAFT_TARGET_INFO(targetItemClsName)
 
 	local retTable = {}
 	local needAppraisal = TryGetProp(targetItemCls, "NeedAppraisal");
+	local needRandomOption = TryGetProp(targetItemCls, "NeedRandomOption");
 	local grade = TryGetProp(targetItemCls, "ItemGrade");
 
 	retTable['class_id'] = TryGetProp(targetItemCls, "ClassID")
 	retTable['class_name'] = TryGetProp(targetItemCls, "ClassName")
 	retTable['name'] = TryGetProp(targetItemCls, "Name");
 	retTable['icon'] = TryGetProp(targetItemCls, "TooltipImage");
-	retTable['bg'] = GET_ITEM_BG_PICTURE_BY_GRADE(grade, needAppraisal)
+	retTable['bg'] = GET_ITEM_BG_PICTURE_BY_GRADE(grade, needAppraisal, needRandomOption)
 
 	retTable['card_icon'] = TryGetProp(targetItemCls, "TooltipImage");
 	retTable['desc'] = TryGetProp(targetItemCls, "Desc");
@@ -223,6 +224,7 @@ function ADVENTURE_BOOK_CRAFT_CONTENT.CRAFT_RECIPE_INFO(recipeClsName, targetIte
 
 	local retTable = {}
 	local needAppraisal = TryGetProp(targetItemCls, "NeedAppraisal");
+	local needRandomOption = TryGetProp(targetItemCls, "NeedRandomOption")
 	local grade = TryGetProp(targetItemCls, "ItemGrade");
 
 	retTable['recipe_class_id'] =  TryGetProp(recipeCls, "ClassID")
@@ -232,7 +234,7 @@ function ADVENTURE_BOOK_CRAFT_CONTENT.CRAFT_RECIPE_INFO(recipeClsName, targetIte
 	retTable['class_name'] = TryGetProp(targetItemCls, "ClassName")
 	retTable['name'] = TryGetProp(targetItemCls, "Name");
 	retTable['icon'] = TryGetProp(targetItemCls, "TooltipImage");
-	retTable['bg'] = GET_ITEM_BG_PICTURE_BY_GRADE(grade, needAppraisal)
+	retTable['bg'] = GET_ITEM_BG_PICTURE_BY_GRADE(grade, needAppraisal, needRandomOption)
 
 	retTable['card_icon'] = TryGetProp(targetItemCls, "TooltipImage");
 	retTable['desc'] = TryGetProp(targetItemCls, "Desc");

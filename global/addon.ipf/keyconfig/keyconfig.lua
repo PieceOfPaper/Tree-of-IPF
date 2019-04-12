@@ -139,7 +139,6 @@ function KEYCONFIG_EDIT_START(parent, ctrl, str, num)
 end
 
 function KEYCONFIG_SAVE_INPUT(frame)
-
 	if frame:GetUserValue("EDITING") ~= "YES" then
 		return;
 	end
@@ -167,26 +166,10 @@ function KEYCONFIG_SAVE_INPUT(frame)
 		local useShift = txt_key:GetUserValue("UseShift");
 		local useAlt = txt_key:GetUserValue("UseAlt");
 		local useCtrl = txt_key:GetUserValue("UseCtrl");
-		local key = txt_key:GetUserValue("Key");
+		local key = txt_key:GetUserValue("Key");        
 		if key == "" then
-			if useAlt == "YES" and useCtrl ~= "YES" and useShift ~= "YES" then
-				key = "LALT";
-			elseif useAlt ~= "YES" and useCtrl == "YES" and useShift ~= "YES" then
-				key = "LCTRL";
-			elseif  useAlt ~= "YES" and useCtrl ~= "YES" and useShift == "YES" then
-				key = "LSHIFT";
-			else
-				KEYCONFIG_RESTORE_KEY_TEXT(txt_key);
-				return;
-			end
-
-			useAlt = "NO";
-			useCtrl = "NO";
-			useShift = "NO";
-			txt_key:SetUserValue("UseAlt", useAlt);
-			txt_key:SetUserValue("UseCtrl", useCtrl);
-			txt_key:SetUserValue("UseShift", useShift);
-			txt_key:SetUserValue("Key", key);
+			KEYCONFIG_RESTORE_KEY_TEXT(txt_key);
+			return;
 		end
 
 		config.SetHotKeyElementAttributeForConfig(idx, "Key", key);

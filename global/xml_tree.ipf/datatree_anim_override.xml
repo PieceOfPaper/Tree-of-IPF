@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="AnimOverrideList">
 	<Category>
 		<Class ClassID="1" ClassName="mon_zealot">
@@ -668,6 +668,10 @@
 			<Node1 ClassID="16" ClassName="ATK_CAST" FileName="npc\Catapult\npc_Catapult_std"/>
 			<Node1 ClassID="17" ClassName="ATK_SHOT" FileName="npc\Catapult\npc_Catapult_std"/>
 			<Node1 ClassID="18" ClassName="ATK2_SHOT" FileName="npc\Catapult\npc_Catapult_std"/>
+		</Class>
+		<Class ClassID="46223" ClassName="musicbox_popolion">
+			<Node1 ClassID="1" ClassName="BORN" FileName="pc\equip\musicbox_poporion_rotate"/>
+			<Node1 ClassID="2" ClassName="STD" FileName="pc\equip\musicbox_poporion_rotate"/>
 		</Class>
 		<Class ClassID="46231" ClassName="Barricade_butterfly">
 			<Node1 ClassID="1" ClassName="BORN" FileName="npc\barricade_butterfly\npc_barricade_butterfly_born"/>

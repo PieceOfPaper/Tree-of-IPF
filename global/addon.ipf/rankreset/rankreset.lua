@@ -23,9 +23,18 @@ function RANKRESET_ITEM_USE(invItem)
 		return;
 	end
 
+    local obj = GetIES(invItem:GetObject());
+    if obj.ClassName == '1706Event_RankReset' then
+        if session.GetPcTotalJobGrade() > 6 then
+          ui.SysMsg(ScpArgMsg('CantUseRankRest6Rank'));
+          return
+        end
+    end
+    
 	local frame = ui.GetFrame("rankreset");
 	frame:ShowWindow(1)
 	frame:SetUserValue("itemIES", invItem:GetIESID());
+
 
 	RANKRESET_CHECK_PLAYER_STATE(frame);
 end

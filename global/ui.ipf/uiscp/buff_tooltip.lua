@@ -6,10 +6,10 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 	local token_staup = tooltipframe:GetChild("token_staup");
 	local marketFastGet = tooltipframe:GetChild("marketFastGet");
 	local marketMinMax = tooltipframe:GetChild("marketMinMax");
-	local token_buffCountUp = tooltipframe:GetChild("token_buffCountUp");
+--	local token_buffCountUp = tooltipframe:GetChild("token_buffCountUp");
 	local token_teamwarehouse = tooltipframe:GetChild("token_teamwarehouse");
 	local mission_reward = tooltipframe:GetChild("mission_reward");
-	
+	local RaidStance = tooltipframe:GetChild("RaidStance");
     
 	local token_tradecount = tooltipframe:GetChild("token_tradecount");
 
@@ -27,7 +27,7 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
         marketFastGet:ShowWindow(1);
         marketMinMax:ShowWindow(1);
         token_teamwarehouse:ShowWindow(1);
-        token_buffCountUp:ShowWindow(1);
+--        token_buffCountUp:ShowWindow(1);
 		token_expup:SetTextByKey("value", ScpArgMsg("Token_ExpUp{PER}", "PER", "20%"));
 		token_staup:SetTextByKey("value", ClMsg("AllowPremiumPose"));
 		local accountObj = GetMyAccountObj();
@@ -39,17 +39,19 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 			token_tradecount:ShowWindow(0);
 		end
         mission_reward:ShowWindow(1);
+        RaidStance:ShowWindow(1);
 
 	elseif NEXON_PC == argNum then
 		type:SetTextByKey("value", ClMsg("nexon")); 
 		token_staup:SetTextByKey("value", ClMsg("token_setup"));
 		token_expup:SetTextByKey("value", ClMsg("token_expup"));
 		token_tradecount:ShowWindow(0);
-		token_buffCountUp:ShowWindow(0);
+--		token_buffCountUp:ShowWindow(0);
         marketFastGet:ShowWindow(0);
         marketMinMax:ShowWindow(0);
         token_teamwarehouse:ShowWindow(0);
         mission_reward:ShowWindow(0);
+        RaidStance:ShowWindow(0);
 	else
 		token_tradecount:ShowWindow(0);
         marketFastGet:ShowWindow(0);

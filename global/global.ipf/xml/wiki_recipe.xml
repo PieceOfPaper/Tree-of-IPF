@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- 0~9999 아이템 10000~19999 몬스터  20000-22000 NPC 22000~24000 지역  24000~26000 기타  26000-27000 SETITEM, 27000-28000 RECIPE-->
+<idspace id="Wiki">
+	<Category Name="Recipe">
+		<Class OverrideType="ADD" ClassID="9023" ClassName="R_Steam_YC_Event" TargetClassName="R_Steam_YC_Event" TargetMapName="None" WikiPoint="0" TeachPoint="0" Illust="icon_item_stonepaper_03" Name="제작서-[이벤트] 복원된 여신상" Category="Recipe" TagHead="{#5090ff}{ol}" TagEnd="{/}{/}{/}" Scp="WIKIPAGE_ITEM" Desc="[이벤트] 복원된 여신상을 만들 수 있는 제작서"/>
+	</Category>
+</idspace>

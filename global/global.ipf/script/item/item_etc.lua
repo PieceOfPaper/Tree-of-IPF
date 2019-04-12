@@ -658,6 +658,35 @@ function SCR_USE_RETURNQUEST_1705(pc)
     end
 end
 
+function SCR_PRE_Premium_IndunReset_All(self)
+    if IS_BASIC_FIELD_DUNGEON(self) == 'YES' or GetClassString('Map', GetZoneName(self), 'MapType') == 'City' then
+        local pcetc = GetETCObject(self)
+        if pcetc ~= nil then
+            local result = 0;
+            local clsList, cnt = GetClassList('Indun');
+            
+            for i = 0, cnt - 1 do
+                local pCls = GetClassByIndexFromList(clsList, i)
+                local induncount = 'InDunCountType_'..pCls.PlayPerResetType
+                if pcetc[induncount] > 0 then
+                    result = 1
+                    break
+                end
+            end
+            
+            if result == 1 then
+                return 1
+            else
+                SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("IsApplied_indunReset"), 10);
+            end
+        end
+    else
+        SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("AllowedInTown"), 10);
+    end
+    
+    return 0
+end
+
 function SCR_USE_Premium_IndunReset_All(self)
     if IS_BASIC_FIELD_DUNGEON(self) == 'YES' or GetClassString('Map', GetZoneName(self), 'MapType') == 'City' then
         local pcetc = GetETCObject(self)
@@ -945,5 +974,219 @@ function DLC_BOX12(pc)
     TxGiveItem(tx, 'Event_drug_steam_1h_DLC', 10, 'DLC_BOX10');
     TxGiveItem(tx, 'Event_Goddess_Statue_DLC', 5, 'DLC_BOX10');
     TxGiveItem(tx, 'Drug_Haste1_event_DLC', 5, 'DLC_BOX10');
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_LETICIA_MONSTERGEM_3RANK(pc)
+    local r_gem = {
+      'Gem_Hoplite_Stabbing',
+      'Gem_Hoplite_Pierce',
+      'Gem_Hoplite_Finestra',
+      'Gem_Hoplite_SynchroThrusting',
+      'Gem_Hoplite_LongStride',
+      'Gem_Hoplite_SpearLunge',
+      'Gem_Hoplite_ThrouwingSpear',
+      'Gem_Barbarian_Embowel',
+      'Gem_Barbarian_StompingKick',
+      'Gem_Barbarian_Cleave',
+      'Gem_Barbarian_HelmChopper',
+      'Gem_Barbarian_Warcry',
+      'Gem_Barbarian_Frenzy',
+      'Gem_Barbarian_Seism',
+      'Gem_Barbarian_GiantSwing',
+      'Gem_Barbarian_Pouncing',
+      'Gem_Psychokino_PsychicPressure',
+      'Gem_Psychokino_Telekinesis',
+      'Gem_Psychokino_Swap',
+      'Gem_Psychokino_Teleportation',
+      'Gem_Psychokino_MagneticForce',
+      'Gem_Psychokino_Raise',
+      'Gem_Psychokino_GravityPole',
+      'Gem_Linker_Physicallink',
+      'Gem_Linker_JointPenalty',
+      'Gem_Linker_HangmansKnot',
+      'Gem_Linker_SpiritualChain',
+      'Gem_Linker_UmbilicalCord',
+      'Gem_Hunter_Coursing',
+      'Gem_Hunter_Snatching',
+      'Gem_Hunter_Pointing',
+      'Gem_Hunter_RushDog',
+      'Gem_Hunter_Retrieve',
+      'Gem_Hunter_Hounding',
+      'Gem_Hunter_Growling',
+      'Gem_Sapper_StakeStockades',
+      'Gem_Sapper_Cover',
+      'Gem_Sapper_Claymore',
+      'Gem_Sapper_PunjiStake',
+      'Gem_Sapper_DetonateTraps',
+      'Gem_Sapper_BroomTrap',
+      'Gem_Sapper_CollarBomb',
+      'Gem_Sapper_SpikeShooter',
+      'Gem_Bokor_Hexing',
+      'Gem_Bokor_Effigy',
+      'Gem_Bokor_Zombify',
+      'Gem_Bokor_Mackangdal',
+      'Gem_Bokor_BwaKayiman',
+      'Gem_Bokor_Samdiveve',
+      'Gem_Bokor_Ogouveve',
+      'Gem_Bokor_Damballa',
+      'Gem_Dievdirbys_CarveVakarine',
+      'Gem_Dievdirbys_CarveZemina',
+      'Gem_Dievdirbys_CarveLaima',
+      'Gem_Dievdirbys_Carve',
+      'Gem_Dievdirbys_CarveOwl',
+      'Gem_Dievdirbys_CarveAustrasKoks',
+      'Gem_Dievdirbys_CarveAusirine'
+    }
+    
+    local rand = IMCRandom(1, table.getn(r_gem))
+    
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, r_gem[rand], 1, 'LETICIA_MONSTERGEM_3RANK');
+    local ret = TxCommit(tx);
+end
+
+function ACHIEVE_MONSTERINKER(pc)
+   AddAchievePoint(pc, "Event_MonsterInker_Steam", 1); 
+end
+
+function SCR_USE_GIVE_STUFF_BOX_C(pc)
+    local tx = TxBegin(pc) 
+    TxGiveItem(tx, 'Premium_WarpScroll', 5, "DRUNG_BOX_ELIXER_PREMIUM")
+    TxGiveItem(tx, 'Premium_repairPotion', 2, "DRUNG_BOX_ELIXER_PREMIUM")
+    TxGiveItem(tx, 'Drug_MSPD2_1h_NR', 2, 'DRUNG_BOX_ELIXER_PREMIUM');
+    local ret = TxCommit(tx)
+end
+
+function ACHIEVE_COMPANIONFORLIFE(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Companions_forLife', 1)
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_LETICIA_MONSTERGEM_4RANK(pc)
+    local r_gem = {
+      'Gem_Cataphract_Impaler',
+      'Gem_Cataphract_EarthWave',
+      'Gem_Cataphract_Trot',
+      'Gem_Cataphract_SteedCharge',
+      'Gem_Cataphract_DoomSpike',
+      'Gem_Cataphract_Rush',
+      'Gem_Rodelero_ShieldCharge',
+      'Gem_Rodelero_Montano',
+      'Gem_Rodelero_TargeSmash',
+      'Gem_Rodelero_ShieldPush',
+      'Gem_Rodelero_ShieldShoving',
+      'Gem_Rodelero_ShieldBash',
+      'Gem_Rodelero_Slithering',
+      'Gem_Rodelero_ShootingStar',
+      'Gem_Thaumaturge_SwellLeftArm',
+      'Gem_Thaumaturge_ShrinkBody',
+      'Gem_Thaumaturge_SwellBody',
+      'Gem_Thaumaturge_Transpose',
+      'Gem_Thaumaturge_SwellRightArm',
+      'Gem_Elementalist_Electrocute',
+      'Gem_Elementalist_StoneCurse',
+      'Gem_Elementalist_Hail',
+      'Gem_Elementalist_Meteor',
+      'Gem_Elementalist_FreezingSphere',
+      'Gem_Elementalist_Rain',
+      'Gem_Elementalist_FrostCloud',
+      'Gem_Wugushi_Detoxify',
+      'Gem_Wugushi_NeedleBlow',
+      'Gem_Wugushi_Bewitch',
+      'Gem_Wugushi_WugongGu',
+      'Gem_Wugushi_Zhendu',
+      'Gem_Wugushi_ThrowGuPot',
+      'Gem_Wugushi_JincanGu',
+      'Gem_Scout_FluFlu',
+      'Gem_Scout_FlareShot',
+      'Gem_Scout_Cloaking',
+      'Gem_Scout_Undistance',
+      'Gem_Sadhu_OutofBody',
+      'Gem_Sadhu_AstralBodyExplosion',
+      'Gem_Sadhu_VashitaSiddhi',
+      'Gem_Sadhu_Possession',
+      'Gem_Paladin_Smite',
+      'Gem_Paladin_Restoration',
+      'Gem_Paladin_ResistElements',
+      'Gem_Paladin_TurnUndead',
+      'Gem_Paladin_Conversion'
+    }
+    
+    local rand = IMCRandom(1, table.getn(r_gem))
+    
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, r_gem[rand], 1, 'LETICIA_MONSTERGEM_4RANK');
+    local ret = TxCommit(tx);
+end
+
+function HALOWEEN_2017_ACHIEVE1(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, '2017_Halloween2_AP', 1)
+    local ret = TxCommit(tx);
+end
+
+function HALOWEEN_2017_ACHIEVE2(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, '2017_Halloween1_AP', 1)
+    local ret = TxCommit(tx);
+end
+
+function HALOWEEN_2017_ACHIEVE1(pc)
+    local tx = TxBegin(pc);
+    TxEnableInIntegrate(tx)
+    TxAddAchievePoint(tx, '2017_Halloween2_AP', 1)
+    local ret = TxCommit(tx);
+end
+
+function HALOWEEN_2017_ACHIEVE2(pc)
+    local tx = TxBegin(pc);
+    TxEnableInIntegrate(tx)
+    TxAddAchievePoint(tx, '2017_Halloween1_AP', 1)
+    local ret = TxCommit(tx);
+end
+
+function ACHIEVE_JOURNAL_AP1(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Journal_AP1', 1)
+    local ret = TxCommit(tx);
+
+    if ret == 'SUCCESS' then
+        AddBuff(pc, pc, 'Journal_AP1', 1, 0, 1209600000, 1);
+    end
+end
+
+function SCR_USE_ITEM_LVUPCARD(self, argObj, argstring, arg1, arg2, itemID)
+    local level = self.Lv
+    local cur_xp = GetExp(self) - GetClassNumber('Xp', level - 1,'TotalXp')
+
+    if level > arg1 then
+        SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("PILGRIM_48_SQ_030_MSG03"), 3);
+        return
+    end
+    
+    local exp
+    if level == 1 then
+        exp = GetClassNumber('Xp', level,'TotalXp')
+    else
+        exp = GetClassNumber('Xp', level,'TotalXp') - GetClassNumber('Xp', level - 1,'TotalXp')
+    end
+
+    exp = exp - cur_xp
+    
+    local tx = TxBegin(self);
+	TxGiveExp(tx, exp, "LVUPCARD");
+	local ret = TxCommit(tx);
+	if ret == 'SUCCESS' then
+		local jexp = math.floor(exp * 0.77);
+		GiveJobExp(self, jexp, "ExpCard");
+		UserExpCardMongoLog(self, exp, jexp, "LVUPCARD");
+	end
+end
+
+function ACHIEVE_THEGIFTEDARTIST2(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'TheGiftedArtist2', 1)
     local ret = TxCommit(tx);
 end

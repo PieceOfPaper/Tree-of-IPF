@@ -333,6 +333,9 @@ end
 
 function TRANSCEND_BREAK_UPDATE(itemName, count)
 	local frame = ui.GetFrame("itemtranscend_break");
+    local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_BREAK_GUIDE_FIRST"));	
+	SETTEXT_GUIDE(frame, 3, needTxt);
+
 	UPDATE_TRANSCEND_BREAK_ITEM(frame);
 	UPDATE_TRANSCEND_BREAK_RESULT(frame, itemName, count);
 end

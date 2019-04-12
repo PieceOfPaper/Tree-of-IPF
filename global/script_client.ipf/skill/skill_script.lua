@@ -22,6 +22,11 @@ function SKL_OPEN_UI_C(actor, obj, uiName, subUi)
 end
 
 function C_SCR_OPEN_SAGE_PORTAL(skillType)
+    if session.colonywar.GetIsColonyWarMap() == true then
+        ui.SysMsg(ClMsg('ThisLocalUseNot'));
+        return 0;
+    end
+
 	local skil = session.GetSkill(skillType);
 	if nil == skil then
 		return 0;
@@ -58,6 +63,11 @@ function C_SCR_SORCERER_CARD_CHECK(skillType)
 end
 
 function SCR_ITEMDUNGEON_SKL_UI(skillType)
+    if session.colonywar.GetIsColonyWarMap() == true then
+        ui.SysMsg(ClMsg('ThisLocalUseNot'));
+        return 0;
+    end
+
 	local skill = session.GetSkill(skillType);
 	if skill == nil then
 		return 0;
@@ -140,11 +150,20 @@ function EQUIP_MENDING_SKL(skillType)
 		ENCHANTARMOR_OPEN_UI_SET(frame, obj)
 		frame:ShowWindow(1);
 		return;
+    elseif "Sage_PortalShop" == clsName then
+        PORTAL_SHOP_REGISTER_OPEN(obj);
+        return;
 	end
 
 	local frame = ui.GetFrame("itembuff");
 	if nil == frame then
 		return 0;
+	end
+
+	if clsName == 'Appraiser_Apprise' then
+		local moneyInput = GET_CHILD_RECURSIVELY(frame, 'MoneyInput');
+		moneyInput:SetNumberMode(1);
+		moneyInput:SetTypingScp("APPRAISAL_PC_ON_TYPING");	
 	end
 
 	ITEMBUFF_SET_SKILLTYPE(frame, obj.ClassName, obj.Level, obj.Name);
@@ -154,6 +173,11 @@ function EQUIP_MENDING_SKL(skillType)
 end
 
 function SCR_SKILL_BRIQUITE(skillType)
+    if session.colonywar.GetIsColonyWarMap() == true then
+        ui.SysMsg(ClMsg('ThisLocalUseNot'));
+        return 0;
+    end
+
 	local skill = session.GetSkill(skillType);
 	if skill == nil then
 		return 0;

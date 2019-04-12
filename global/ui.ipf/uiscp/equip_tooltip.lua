@@ -111,17 +111,18 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, isForge
 	-- 아이템 배경 이미지 : grade기준
 	local item_bg = GET_CHILD(equipCommonCSet, "item_bg", "ui::CPicture");
 	local needAppraisal = TryGetProp(invitem, "NeedAppraisal");
-	local gradeBGName = GET_ITEM_BG_PICTURE_BY_GRADE(invitem.ItemGrade, needAppraisal)
+	local neddRandomOption = TryGetProp(invitem, "NeedRandomOption")
+	local gradeBGName = GET_ITEM_BG_PICTURE_BY_GRADE(invitem.ItemGrade, needAppraisal, neddRandomOption)
 	item_bg:SetImage(gradeBGName);
 	-- 아이템 이미지
 	local itemPicture = GET_CHILD(equipCommonCSet, "itempic", "ui::CPicture");
-	if needAppraisal ~= nil and needAppraisal == 1 then
+	if (needAppraisal ~= nil and needAppraisal == 1) or (neddRandomOption ~= nil and neddRandomOption == 1) then
 		itemPicture:SetColorTone("FF111111");
 	end
 
 	if invitem.TooltipImage ~= nil and invitem.TooltipImage ~= 'None' then
 	
-    	if invitem.ClassType ~= 'Outer' then
+    	if invitem.ClassType ~= 'Outer' and invitem.ClassType ~= 'SpecialCostume' then
 			imageName = GET_EQUIP_ITEM_IMAGE_NAME(invitem, "TooltipImage")
     		itemPicture:SetImage(imageName);
     		itemPicture:ShowWindow(1);
@@ -416,6 +417,33 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 		if invitem[propValue] ~= 0 and invitem[propName] ~= "None" then
 			local opName = string.format("[%s] %s", ClMsg("EnchantOption"), ScpArgMsg(invitem[propName]));
 			local strInfo = ABILITY_DESC_PLUS(opName, invitem[propValue], 0);
+			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
+		end
+	end
+	
+	for i = 1 , 6 do
+	    local propGroupName = "RandomOptionGroup_"..i;
+		local propName = "RandomOption_"..i;
+		local propValue = "RandomOptionValue_"..i;
+		local clientMessage = 'None'
+		
+		if invitem[propGroupName] == 'ATK' then
+		    clientMessage = 'ItemRandomOptionGroupATK'
+		elseif invitem[propGroupName] == 'DEF' then
+		    clientMessage = 'ItemRandomOptionGroupDEF'
+		elseif invitem[propGroupName] == 'UTIL_WEAPON' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif invitem[propGroupName] == 'UTIL_ARMOR' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif invitem[propGroupName] == 'UTIL_SHILED' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif invitem[propGroupName] == 'STAT' then
+		    clientMessage = 'ItemRandomOptionGroupSTAT'
+		end
+		
+		if invitem[propValue] ~= 0 and invitem[propName] ~= "None" then
+			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(invitem[propName]));
+			local strInfo = ABILITY_DESC_NO_PLUS(opName, invitem[propValue], 0);
 			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 		end
 	end
@@ -850,13 +878,16 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 		dur_gauge:SetPoint(temparg1, temparg2);
 	end
 
-	if itemClass.NeedAppraisal == 1 then
+	if itemClass.NeedAppraisal == 1 or itemClass.NeedRandomOption == 1 then
 		local needAppraisal = TryGetProp(invitem, "NeedAppraisal");
-		if needAppraisal ~= nil and  needAppraisal == 0 then -- 감정아이템
+		local needRandomOption = TryGetProp(invitem, "NeedRandomOption");
+		if needAppraisal ~= nil and  needAppraisal == 0 and itemClass.NeedAppraisal == 1 then -- 감정아이템
 			pr_gauge:SetStatFont(0, "yellow_14_b")
-		else  --미감정아이템
-			pr_gauge:SetTextStat(0, "{@st66d_y}????{/}")
-
+		elseif  needRandomOption == 1 or needAppraisal == 1 then --미감정아이템
+		    if needAppraisal == 1 then 
+			    pr_gauge:SetTextStat(0, "{@st66d_y}????{/}")
+            end
+            
 			local picture = CSet:CreateControl('picture', 'appraisalPic', 0, dur_gauge:GetY()+dur_gauge:GetHeight() - 10, 400, 46);
 			picture:ShowWindow(1);
 			picture = tolua.cast(picture, "ui::CPicture");

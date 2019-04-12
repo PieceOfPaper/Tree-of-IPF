@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<Prop>
+	<Model Path="id_whitetree_01_2area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="id_whitetree_01_3area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="id_whitetree_01_4area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="id_whitetree_01_5area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="id_whitetree_01_6area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="id_whitetree_01_b_model.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
+	<Model Path="id_whitetree_01_blend.xac" RenderType="RT_MUD_BLEND" IsBloom="0" Type="" NoCol="0"/>
+	<Model Path="id_whitetree_01_blend2.xac" RenderType="RT_MUD_BLEND2" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="id_whitetree_01_gr_a01.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="1"/>
+	<Model Path="id_whitetree_01_gr_a03.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="1"/>
+	<Model Path="id_whitetree_01_gr_a_02.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="1"/>
+	<Model Path="id_whitetree_01_grass_01.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="id_whitetree_01_grass_02.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
+	<Model Path="id_whitetree_01_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="1"/>
+	<Model Path="id_whitetree_01_light.xac" RenderType="RT_PLANELIGHT" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="id_whitetree_01_tree_01.xac" RenderType="RT_MODEL" IsBloom="0" Type="" IsGrass="1" GrassWindPower="200" GrassTime="4" NoCol="0"/>
+	<Model Path="id_whitetree_01_tree_02.xac" RenderType="RT_MODEL" IsBloom="0" Type="" IsGrass="1" GrassWindPower="200" GrassTime="4" NoCol="1"/>
+	<Model Path="id_whitetree_01_tree_03.xac" RenderType="RT_MODEL" IsBloom="0" Type="" IsGrass="1" GrassWindPower="200" GrassTime="4" NoCol="1"/>
+	<Model Path="id_whitetree_01_tree_out.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="id_whitetree_01_water.xac" RenderType="RT_WATER" IsBloom="1" Type="" IsWater="1" WaterDiffDir="0 -0.03" WaterSwaySpeed="0.6" WaterSwayRange="0.03 0" waterSwayPower="0.05" RefractionNormalSize="0.001" RefractionDir="0.0 0.01" RefractionPower="0.04" WaterSprayNormalSize="0.000" WaterSprayDir="-0.0 -0.00" WaterSprayPower="0.00" WaterSprayRange="0" WaterSpraycolor="0.1 0.2 0.3" NoCol="1"/>
+</Prop>

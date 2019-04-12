@@ -46,7 +46,7 @@
 		<picture name="arrow_pic" rect="0 0 50 30" margin="345 195 0 0" parent="page_main_left" layout_gravity="left top" image="adventure_arrow" stretch="true"/>
 		<picture name="gauge_bg" rect="0 0 52 358" margin="0 0 50 170" parent="page_main_left" layout_gravity="right bottom" resizebyparent="false" resizebyresolution="false" stretch="true" image="jour_gauge_bg"/>
 		<picture name="gauge_fg" rect="0 0 44 348" margin="0 0 54 175" parent="page_main_left" layout_gravity="right bottom" resizebyparent="false" resizebyresolution="false" stretch="true" image="jour_gauge"/>
-		<richtext name="main_desc" rect="0 0 400 30" margin="46 152 0 0" parent="page_main_left" layout_gravity="left top" textalign="left top" fixwidth="true" caption="{img test_cooltime 24 24} 매월 1일마다 점수가 초기화됩니다.{/}" fontname="limitedsale"/>
+		<richtext name="main_desc" rect="0 0 300 30" margin="46 152 0 0" parent="page_main_left" layout_gravity="left top" textalign="left top" fixwidth="true" caption="{img test_cooltime 24 24} 매월 1일마다 점수가 초기화됩니다.{/}" fontname="limitedsale"/>
 		<labelline name="main_labelline" margin="40 185 0 0" rect="0 0 420 4" parent="page_main_left" skin="labelline_def2" layout_gravity="left top"/>
 		<controlset name="guage_monster" rect="0 0 300 20" margin="47 205 0 0" parent="page_main_left" type="adventure_book_main_guage" layout_gravity="left top" hittestbox="false" scrollbar="false" skin="None"/>
 		<controlset name="guage_item" rect="0 0 300 20" margin="47 285 0 0" parent="page_main_left" type="adventure_book_main_guage" layout_gravity="left top" hittestbox="false" scrollbar="false" skin="None"/>
@@ -333,11 +333,9 @@
 		<groupbox name="page_upHillRanking" rect="0 0 1200 870" margin="0 54 0 0" tabname="upHillRankingTab" layout_gravity="center top" draw="false" tabchangescp="ADVENTURE_BOOK_RANK"/>
 		<richtext name="page_upHillRanking_text" rect="0 0 200 30" parent="page_upHillRanking" margin="5 7 0 0" layout_gravity="center top" caption="업힐디펜스 랭킹" fontname="white_16_ol"/>
 		<controlset name="upHillRankingSet" type="adventure_book_rank_page" rect="0 0 1100 800" parent="page_upHillRanking" margin="10 0 0 0" layout_gravity="center bottom"/>
-		<richtext name="totalPointText" rect="0 0 300 30" parent="page_upHillRanking" margin="70 7 0 100" layout_gravity="left bottom" caption="누적 포인트" fontname="black_18_b"/>
-		<button name="pointShopBtn" rect="0 0 150 40" parent="page_upHillRanking" margin="420 0 0 90" layout_gravity="left bottom" skin="test_pvp_btn" caption="{@st66b}포인트샵{/}" LBtnUpScp="PVP_OPEN_POINT_SHOP"/>
-		<richtext name="totalPointValueText" rect="0 0 300 30" parent="page_upHillRanking" margin="270 7 0 100" layout_gravity="left bottom" format="%s" param1="point" param1_def="0" fontname="black_18"/>
-		<richtext name="dailyPointText" rect="0 0 300 30" parent="page_upHillRanking" margin="70 0 0 58" layout_gravity="left bottom" caption="일일 획득 포인트" fontname="black_18_b"/>
-		<gauge name="dailyPointGauge" rect="0 0 300 30" parent="page_upHillRanking" margin="270 0 0 55" layout_gravity="left bottom" skin="test_gauge_barrack_defence" point="00" maxpoint="50" text1="%v / %m" textoffset1="0 0" textfont1="yellow_14_b" textalign1="center center"/>
+		<richtext name="totalPointText" rect="0 0 300 30" parent="page_upHillRanking" margin="70 7 0 85" layout_gravity="left bottom" caption="누적 포인트" fontname="black_18_b"/>
+		<button name="pointShopBtn" rect="0 0 150 40" parent="page_upHillRanking" margin="420 0 0 75" layout_gravity="left bottom" skin="test_pvp_btn" caption="{@st66b}포인트샵{/}" LBtnUpScp="PVP_OPEN_POINT_SHOP"/>
+		<richtext name="totalPointValueText" rect="0 0 300 30" parent="page_upHillRanking" margin="270 7 0 85" layout_gravity="left bottom" format="%s" param1="point" param1_def="0" fontname="black_18"/>		
 		<!--개인 탭-->
 		<tab name="bookmark_explore" rect="0 0 1000 50" margin="37 50 0 0" parent="page_explore" layout_gravity="left top" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="adventure_tab"/>
 		<tabitem name="tab_explore_map" parent="bookmark_explore" layout_gravity="left top" caption="{@st66b}맵탐사" skinspace="30" width="174"/>

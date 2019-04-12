@@ -21,7 +21,7 @@ function ITEM_DUNGEON_FOR_PARTY_ON_MSG(frame, msg, argStr, argNum)
 		local agrBtn = frame:GetChild("btn_excute");
 		agrBtn:SetEnable(1);
 	elseif msg == "REQ_ITEM_DUNGEON" then
-		-- ���ɹ̽�Ʈ�� ��û�� ����
+		-- 알케미스트가 요청을 받음
 		if 0 == argNum then
 			local str = ScpArgMsg("DoYouOpenItemDungeon{Name}", "Name", argStr);
 			local okScript = string.format("AGREE_OPEN_ITEM_DUNGEON_UI('%s', 1)", argStr);
@@ -275,9 +275,9 @@ function ITEMDUNGEON_CLEARUI(frame)
 	local partySlot = GET_CHILD(bodyGbox, "partySlot"); 
 	partySlot:RemoveAllChild();
 	
-	local count = session.party.GetAlivePartyMemberList() -- ��Ƽ���� ������ 0��ī��Ʈ, �뺴 ����
+	local count = session.party.GetAlivePartyMemberList() -- 파티원이 없으면 0을카운트, 용병 포함
 	local number = math.min(ItemAwakening.Level,count); 
-	if count == 0 then-- �⺻������ ���� �߰�������
+	if count == 0 then-- 기본적으로 나는 추가해주자
 		number = 1;
 	end
 	local maxCount = 4;
@@ -289,7 +289,7 @@ function ITEMDUNGEON_CLEARUI(frame)
 		pic:SetEnableStretch(1);
 		pic:SetImage("house_change_man");
 
-		-- ���� ����� �ֳ�, �̰� �׽�Ʈ��
+		-- 만약 사람이 있냐, 이건 테스트용
 		if number > 0 then
 			pic:SetColorTone("00000000"); 
 			number = number - 1;
@@ -338,7 +338,7 @@ function ITEMDUNGEON_DROP_ITEM(parent, ctrl)
 		return;
 	end
 
-	if IS_NEED_APPRAISED_ITEM(itemObj) == true then 
+	if IS_NEED_APPRAISED_ITEM(itemObj) == true or IS_NEED_RANDOM_OPTION_ITEM(itemObj) then 
 		ui.SysMsg(ClMsg("NeedAppraisd"));
 		return;
 	end

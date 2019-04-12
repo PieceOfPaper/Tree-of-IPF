@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="indunenter" x="0" y="0" width="1020" height="650" create="open">
 	<frame titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" margin="-100 -100 0 0"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
@@ -38,6 +38,7 @@
 		<picture name="countPic" parent="countBox" rect="0 0 27 27" margin="0 0 0 0" layout_gravity="left top" image="indun_entrance"/>
 		<richtext name="countText" parent="countBox" rect="0 0 190 30" margin="30 0 0 0" layout_gravity="left center" fontname="brown_18_b" caption="던전 입장"/>
 		<richtext name="countData" parent="countBox" rect="0 0 190 30" margin="0 0 0 0" layout_gravity="right center" textalign="right center" fontname="brown_18_b" format="%s/%s회" param1="now" param2="max"/>
+		<richtext name="countItemData" parent="countBox" rect="0 0 190 30" margin="0 0 0 0" layout_gravity="right center" textalign="right center" fontname="brown_18_b" format="%s개" param1="ivnadmissionitem"/>
 		<groupbox name="lvBox" parent="noPicBox" rect="0 0 390 30" margin="5 53 0 0" layout_gravity="left top" draw="false" hittestbox="false"/>
 		<picture name="lvPic" parent="lvBox" rect="0 0 27 27" margin="0 0 0 0" layout_gravity="left top" image="indun_entrance_level"/>
 		<richtext name="lvText" parent="lvBox" rect="0 0 190 30" margin="30 0 0 0" layout_gravity="left center" fontname="brown_18_b" caption="입장레벨"/>
@@ -53,7 +54,7 @@
 		<slotset name="monSlotSet" parent="monBox_dummy" rect="0 0 370 60" margin="5 0 0 0" layout_gravity="left top" row="1" col="10" size="65 65" skin="invenslot2" spc="2 2" enabledrop="false" enablepop="false"/>
 		<!-- Reward Box -->
 		<groupbox name="rewardBox" parent="noPicBox" rect="0 0 412 90" margin="0 210 0 0" layout_gravity="left top" draw="false" hittestbox="false"/>
-		<button name="rewardRightBtn" parent="rewardBox" rect="0 0 40 50" margin="0 30 0 0" layout_gravity="right top" image="button_right_select2" xLBtnUpScp="INDUNENTER_REWARD_CLICK_RIGHT"/>
+		<button name="rewardRightBtn" parent="rewardBox" rect="0 0 40 50" margin="0 30 0 0" layout_gravity="right top" image="button_right_select2" LBtnUpScp="INDUNENTER_REWARD_CLICK_RIGHT"/>
 		<button name="rewardLeftBtn" parent="rewardBox" rect="0 0 40 50" margin="0 30 0 0" layout_gravity="left top" image="button_left_select2" LBtnUpScp="INDUNENTER_REWARD_CLICK_LEFT"/>
 		<picture name="rewardPic" parent="rewardBox" rect="0 0 27 27" margin="5 0 0 0" layout_gravity="left top" image="indun_item"/>
 		<richtext name="rewardText" parent="rewardBox" rect="0 0 190 30" margin="35 0 0 0" layout_gravity="left top" caption="대표 획득 아이템" fontname="brown_18_b"/>
@@ -62,13 +63,13 @@
 		<button name="autoMatchBtn" parent="noPicBox" rect="0 0 250 70" margin="0 0 75 155" layout_gravity="right bottom" skin="test_red_button" oversound="button_over" LBtnUpScp="INDUNENTER_AUTOMATCH"/>
 		<button name="reEnterBtn" parent="noPicBox" rect="0 0 250 55" margin="0 0 75 100" layout_gravity="right bottom" skin="test_pvp_btn" caption="{@st66b}자동매칭{nl}재입장" oversound="button_over" LBtnUpScp="INDUNENTER_REENTER" texttooltip="이전에 매칭된 곳으로 입장합니다."/>
 		<button name="understaffEnterAllowBtn" parent="noPicBox" rect="0 0 250 55" margin="0 0 75 100" layout_gravity="right bottom" skin="test_gray_button" caption="{@st41b}4인 이하 입장{/}" oversound="button_over" LBtnUpScp="INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW"/>
-		<richtext name="autoMatchText" parent="autoMatchBtn" rect="0 0 250 80" margin="0 0 0 0" layout_gravity="center center" textalign="center center" caption="자동매칭" fontname="white_18_ol" hittest="false"/>
-		<richtext name="autoMatchTime" parent="autoMatchBtn" rect="0 0 250 80" margin="0 0 0 0" layout_gravity="center center" textalign="center center" foramt="00:00" fontname="white_18_b" hittest="false" draw="false"/>
+		<richtext name="autoMatchText" parent="autoMatchBtn" rect="0 0 250 80" margin="0 0 0 0" layout_gravity="center center" textalign="center center" format="자동매칭%s" param1="image" fontname="white_18_ol" hittest="false"/>
+		<richtext name="autoMatchTime" parent="autoMatchBtn" rect="0 0 250 80" margin="0 0 0 0" layout_gravity="center center" textalign="center center" caption="00:00" fontname="white_18_b" hittest="false" draw="false"/>
 		<!-- Bottom Box -->
 		<button name="withBtn" parent="bottomBox" rect="0 0 250 70" margin="0 15 65 0" layout_gravity="right top" skin="test_gray_button" oversound="button_over" LBtnUpScp="INDUNENTER_PARTYMATCH" texttooltip="파티원의 참여를 기다립니다.{nl}레벨대가 맞는 파티원에게는 메세지가 전송됩니다."/>
 		<richtext name="withText" parent="withBtn" rect="0 0 250 65" margin="0 0 0 0" layout_gravity="center center" textalign="center center" caption="파티원과 자동매칭" fontname="white_18_ol" hittest="false"/>
 		<richtext name="withTime" parent="withBtn" rect="0 0 250 65" margin="0 0 0 0" layout_gravity="center center" textalign="left center" format="현재 모인 멤버로 자동매칭" fontname="white_18_ol" hittest="false" draw="false"/>
-		<button name="enterBtn" parent="bottomBox" rect="0 0 250 55" margin="0 0 65 10" layout_gravity="right bottom" skin="test_gray_button" oversound="button_over" format="{@st41b}바로입장" LBtnUpScp="INDUNENTER_ENTER"/>
+		<button name="enterBtn" parent="bottomBox" rect="0 0 250 55" margin="0 0 65 10" layout_gravity="right bottom" skin="test_gray_button" oversound="button_over" format="{@st41b}바로입장%s" param1="image" LBtnUpScp="INDUNENTER_ENTER"/>
 		<groupbox name="memberBox" parent="bottomBox" rect="0 0 350 85" margin="10 0 0 10" layout_gravity="left bottom" draw="false" hittestbox="true"/>
 		<picture name="partyLine" parent="memberBox" rect="0 0 15 50" margin="40 -10 0 0" layout_gravity="left center" image="indun_partyline" stretch="true"/>
 		<groupbox name="memberCntBox" parent="bottomBox" rect="0 0 300 35" skin="notice_more" margin="0 10 0 0" layout_gravity="left top" draw="true" hittestbox="false"/>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="fish_rubbing_paper" x="0" y="0" width="970" height="600">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="280 40 0 0" draw="false"/>
+	<skin frameskin="none"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<option visible="false" hideable="false" closebutton="false" alwaysVisible="false"/>
+	<layer layerlevel="100"/>
+	<controls>
+		<picture name="bg" rect="0 0 920 520" margin="0 0 0 0" layout_gravity="left top" draw="false" hittestbox="false" stretch="true" resizebyparent="false" resizebyresolution="false" scrollbar="false" image="fishing_paper1"/>
+		<picture name="fish_pic" rect="0 0 685 300" margin="-20 -95 0 0" layout_gravity="center center" hittest="false" image="fish_drawing" stretch="true"/>
+		<picture name="stamp_pic" rect="0 0 95 95" margin="0 280 180 0" layout_gravity="right top" hittest="false" image="fish_stamp"/>
+		<richtext name="desc_text" rect="0 0 800 50" margin="-20 0 0 230" layout_gravity="center bottom" drawbackground="false" fixwidth="false" fontname="black_18_b" format="%s" param1="value" param1_def="abc" resizebytext="false" textalign="center bottom" updateparent="false"/>
+		<richtext name="size_text" rect="0 0 320 50" margin="-20 0 0 208" layout_gravity="center bottom" drawbackground="false" fixwidth="false" fontname="brown_16" format="크기: %s" param1="value" param1_def="0" resizebytext="false" textalign="center bottom" updateparent="false"/>
+		<button name="ok_btn" rect="0 0 124 50" margin="-20 0 0 145" layout_gravity="center bottom" LBtnUpScp="EXPIREDITEM_ALERT_OK_BTN" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st42b}확인" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_red_button" textalign="center center"/>
+	</controls>
+</uiframe>

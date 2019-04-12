@@ -133,16 +133,15 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 		prop:SetTextByKey("value", img .. ScpArgMsg("AllowTradeByCount"));
 
 		local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
-		img = string.format("{img dealok30_image2 %d %d}", 100, 45) 
-		value:SetTextByKey("value", img);
+		value:SetTextByKey("value", "");
 	end
 	
-	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 7,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-    local prop = ctrlSet:GetChild("prop");
-    local imag = string.format("{img 1plus_image %d %d}", 55, 45) 
-    prop:SetTextByKey("value", imag..ClMsg("CanGetMoreBuff")); 
-    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
-    value:ShowWindow(0);
+--	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 7,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+--    local prop = ctrlSet:GetChild("prop");
+--    local imag = string.format("{img 1plus_image %d %d}", 55, 45) 
+--    prop:SetTextByKey("value", imag..ClMsg("CanGetMoreBuff")); 
+--    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+--    value:ShowWindow(0);
 
 	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 8,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
@@ -178,7 +177,14 @@ local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 11,  ui.
     prop:SetTextByKey("value", imag..ClMsg("Mission_Reward")); 
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
-
+    
+    local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 13,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img 2minus_image %d %d}", 55, 45)
+    prop:SetTextByKey("value", imag..ClMsg("RaidStance")); 
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+    value:ShowWindow(0);
+    
 	STATUS_OVERRIDE_NEWCONTROLSET1(tokenList)
 	
 	GBOX_AUTO_ALIGN(tokenList, 0, 0, 0, false, true);
@@ -728,7 +734,7 @@ function SETEXP_SLOT(gbox, addBuffClsName, isAdd)
     if session.world.IsIntegrateIndunServer() == true then
         local party = session.party.GetPartyMemberList(PARTY_NORMAL);
         local count = party:Count();
-        local expupValue = count * INDUN_AUTO_FIND_EXP_BONUS * 100;
+		local expupValue = INDUN_AUTO_MATCHING_PARTY_EXP_BOUNS_RATE(count) / count * 100;
         expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, 'PartyIndunExpBuff', expupValue);
         totalExpUpValue = totalExpUpValue + expupValue; 
     end
@@ -809,6 +815,7 @@ function SETEXP_SLOT_ADD_ICON(expupBuffBox, key, expupValue)
 	end
 
     -- percent text
+	expupValue = math.floor(expupValue);
     local text = gBox:CreateOrGetControl('richtext', 'text_'..key, 40, 20, ui.CENTER_HORZ, ui.TOP, 0, 45, 0, 0);    
     text:SetFontName('white_18_ol');
     text:SetText('{s13}'.. expupValue ..'%{/}');
@@ -942,6 +949,10 @@ function STATUS_INFO()
 		y = returnY + 3;
 	end
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "MaxWeight", y);
+	if returnY ~= y then
+		y = returnY + 3;
+	end
+	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "LootingChance", y);
 	y = returnY + 10;
 	
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Fire_Atk", y);
@@ -1009,6 +1020,21 @@ function STATUS_INFO()
 	end
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResDark", y);
 	y = returnY + 10;
+	
+	
+	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Aries_Atk", y);
+	if returnY ~= y then
+		y = returnY + 3;
+	end
+	
+	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Slash_Atk", y);
+	if returnY ~= y then
+		y = returnY + 3;
+	end
+	
+	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Strike_Atk", y);
+	y = returnY + 10;
+	
 	
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "DefAries", y);
 	if returnY ~= y then
@@ -1380,10 +1406,13 @@ function STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, attibuteName, y)
 	tolua.cast(controlSet, "ui::CControlSet");
 	local title = GET_CHILD(controlSet, "title", "ui::CRichText");
 	title:SetText(ScpArgMsg(attibuteName));
+	
 	if attibuteName == 'SR' then
     	title:SetTextTooltip(ScpArgMsg("StatusTooltipMsg2"))
 	elseif attibuteName == 'SDR' then
     	title:SetTextTooltip(ScpArgMsg("StatusTooltipMsg3"))
+	elseif attibuteName == 'LootingChance' then
+    	title:SetTextTooltip(ScpArgMsg("StatusTooltipMsgLootingChance"))
     end
 
 	local stat = GET_CHILD(controlSet, "stat", "ui::CRichText");
@@ -1391,7 +1420,6 @@ function STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, attibuteName, y)
 	stat:SetUseOrifaceRect(true)
 
 	--stat:SetText('120');
-
 	local grayStyle, value = SET_VALUE_ZERO(pc[attibuteName]);
 	
 	if 1 == grayStyle then
@@ -1564,6 +1592,17 @@ function CHANGE_MYPC_NAME(frame)
 
 end
 
+function CHANGE_MYPET_NAME()
+        local petName = GETMYPETNAME();
+        if petName == nil then
+        	ui.SysMsg(ClMsg("SummonedPetDoesNotExist"));
+            return;
+        end
+	local newframe = ui.GetFrame("inputstring");
+	newframe:SetUserValue("InputType", "PetName");
+	INPUT_STRING_BOX(ClMsg("PetName"), "EXEC_CHANGE_NAME_PET", petName, 0, 16);
+end
+
 CHAR_NAME_LEN = 20;
 
 function EXEC_CHANGE_NAME(inputframe, ctrl)
@@ -1573,7 +1612,17 @@ function EXEC_CHANGE_NAME(inputframe, ctrl)
 	end
 
 	local changedName = GET_INPUT_STRING_TXT(inputframe);
-	OPEN_CHECK_USER_MIND_BEFOR_YES(inputframe, changedName);
+	OPEN_CHECK_USER_MIND_BEFOR_YES(inputframe, "pcName", changedName, GETMYPCNAME());
+end
+
+function EXEC_CHANGE_NAME_PET(inputframe, ctrl)
+
+	if ctrl:GetName() == "inputstr" then
+		inputframe = ctrl;
+	end
+
+	local changedName = GET_INPUT_STRING_TXT(inputframe);
+	OPEN_CHECK_USER_MIND_BEFOR_YES(inputframe, "petName", changedName, GETMYPETNAME());
 end
 
 function STATUS_AVG(frame)

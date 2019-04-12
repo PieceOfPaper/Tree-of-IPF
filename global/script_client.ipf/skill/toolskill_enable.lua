@@ -65,7 +65,7 @@ function SKL_CHECK_BRING_COMPANION_C(self, skl, jobID)
 end
 
 function SKL_CHECK_MOVEING_C(actor, skl)
-    return control.IsMoving();
+    return control.IsMoving(false); -- checkSkillState = false
 end
 
 function SKL_CHECK_RIDING_COMPANION_C(actor, skl)
@@ -348,6 +348,14 @@ function PET_SKILL_PRE_CHECK_C(self, skill)
     if pet == nil then
         return 0;
     end
+    
+	local companionClass = GetClass('Companion', pet.ClassName);
+	if companionClass ~= nil then
+		if TryGetProp(companionClass, 'RidingOnly') == 'YES' then
+	        SendSysMsg(self, 'ThisCompanionIs NotPossible');
+	        return 0;
+		end
+	end
     
 --    local job_id = 0;
 --    

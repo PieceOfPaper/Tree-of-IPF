@@ -871,7 +871,7 @@ function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg, progVal)
 	elseif result == 'POSSIBLE' and questIES.QuestStartMode ~= 'NPCDIALOG' then
 	    return nil;
 	end
-    
+	
 	if questIES.ClassName ~= 'None' and result == 'PROGRESS' then
 		CHEAK_QUEST_MONSTER(questIES);
 	end
@@ -1074,6 +1074,11 @@ function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
 end
 
 function QUESTION_QUEST_WARP(frame, ctrl, argStr, questID)
+    if session.colonywar.GetIsColonyWarMap() == true then
+        ui.SysMsg(ClMsg('ThisLocalUseNot'));
+        return 0;
+    end
+
 	if control.IsRestSit() == true then
 		ui.SysMsg(ClMsg('DontQuestWarpForSit'));
 		return;
@@ -1206,6 +1211,7 @@ function MAKE_QUESTINFO_BY_IES(ctrlset, questIES, startx, y, s_obj, result, isQu
     
     if result ~= 'POSSIBLE' and result ~= 'IMPOSSIBLE' and flag == 'YES' then
     	local starty = y;
+    	y = MAKE_QUESTINFO_STEP_REWARD_BY_IES(ctrlset, questIES, startx, y, result);
     	y = MAKE_QUESTINFO_BASIC_BY_IES(ctrlset, questIES, startx, y, result);
     	y = MAKE_QUESTINFO_BUFF_BY_IES(ctrlset, questIES, startx, y);
     	y = MAKE_QUESTINFO_EQUIP_BY_IES(ctrlset, questIES, startx, y);
@@ -1241,6 +1247,39 @@ function MAKE_QUESTINFO_BY_IES(ctrlset, questIES, startx, y, s_obj, result, isQu
         return y;
     end
 
+end
+function MAKE_QUESTINFO_STEP_REWARD_BY_IES(ctrlset, questIES, startx, y, result)
+
+	--local pc = SCR_QUESTINFO_GET_PC();
+	--local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
+	local quest_auto = GetClass('QuestProgressCheck_Auto',questIES.ClassName)
+	if TryGetProp(quest_auto , 'StepRewardList1') ~= nil and TryGetProp(quest_auto , 'StepRewardList1') ~= 'None' then
+    	local pc = GetMyPCObject();
+    	local maxRewardIndex
+        for index = 1, 10 do
+            local stepRewardList = TryGetProp(quest_auto , 'StepRewardList'..index)
+            local stepRewardFuncList = TryGetProp(quest_auto, 'StepRewardFunc'..index)
+            if stepRewardList ~= nil and stepRewardList ~= 'None' and stepRewardFuncList ~= nil and stepRewardFuncList ~= 'None' then
+                stepRewardFuncList = SCR_STRING_CUT(stepRewardFuncList)
+                local stepRewardFunc = _G[stepRewardFuncList[1]]
+                if stepRewardFunc ~= nil then
+                    local result = stepRewardFunc(pc, stepRewardFuncList)
+                    if result == 'YES' then
+                        maxRewardIndex = index
+                    end
+                end
+            end
+        end
+        if maxRewardIndex ~= nil and maxRewardIndex > 0 then
+    		local content = ctrlset:CreateOrGetControl('richtext', "Succ_StepReward", startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
+    		content:EnableHitTest(0);
+    		content:SetTextFixWidth(0);
+    		content:SetText('{@st42b}'..ScpArgMsg('QUEST_STEPREWARD_MSG3','STEP',maxRewardIndex));
+    		y = y + content:GetHeight();
+        end
+    end
+	
+	return y;
 end
 
 function MAKE_QUESTINFO_BASIC_BY_IES(ctrlset, questIES, startx, y, result)

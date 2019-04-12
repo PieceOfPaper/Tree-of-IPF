@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="portal_seller" x="0" y="0" width="450" height="1200" create="open">
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="0 0 -480 0" open="pip"/>
+	<skin frameskin=" "/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="80"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<effect open="skilltreeOpen" close="skilltreeClose"/>	
+	<controls>
+		<groupbox name="bg" rect="0 0 450 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="pip4" rect="0 0 450 70" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_wizard"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 15 0 0" layout_gravity="center top" caption="{@st43}포탈 상점{/}" textalign="left top"/>	
+		<button name="close" rect="10 0 44 44" margin="0 12 22 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;portal_seller&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}포탈 상점 UI를 닫습니다{/}"/>		
+		<!-- Seller Box -->
+		<groupbox name="sellerBox" rect="0 0 430 900" margin="0 120 0 0" layout_gravity="center top" draw="false" tabname="sellerTabItem" tabchangescp="PORTAL_SELLER_SELLER_TAB_INIT"/>		
+		<groupbox name="portalBox" rect="0 0 430 880" parent="sellerBox" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_midle"/>
+		<groupbox name="ingredientBox" rect="0 0 430 150" parent="portalBox" margin="0 0 0 0" layout_gravity="left bottom" draw="false"/>
+		<richtext name="ingredientText" rect="0 0 300 30" parent="ingredientBox" margin="20 0 0 0" layout_gravity="left top" caption="소비재료" fontname="white_18_b_ol"/>
+		<labelline name="line1" rect="0 0 420 4" parent="ingredientBox" margin="0 30 0 0" layout_gravity="center top" skin="labelline_def2"/>
+		<groupbox name="ingredientImgBox" rect="0 0 70 70" parent="ingredientBox" margin="10 50 0 0" layout_gravity="left top" skin="test_weight_skin"/>
+		<richtext name="reqitemImage" rect="0 0 60 60" parent="ingredientImgBox" margin="0 0 0 0" layout_gravity="center center" format="%s" maxwidth="0" param1="txt"/>
+		<richtext name="reqitemNameStr" rect="0 0 300 30" parent="ingredientBox" margin="90 60 0 0" layout_gravity="left top" format="{@st66e}%s" maxwidth="0" param1="txt" param1_def=""/>
+		<richtext name="haveText" rect="0 0 300 30" parent="ingredientBox" margin="90 90 0 0" layout_gravity="left top" caption="보유 개수" fontname="black_16"/>
+		<richtext name="reqitemCount" rect="0 0 300 30" parent="ingredientBox" margin="0 90 20 0" layout_gravity="right top" format="%s개" param1="txt" param1_def="0" fontname="black_16"/>
+		<groupbox name="portalListBox" rect="0 0 430 700" parent="portalBox" margin="0 10 0 0" layout_gravity="left top" draw="false" fixheight="true" scrollbar="true"/>
+		<!-- History Box -->
+		<groupbox name="historyBox" rect="0 0 430 900" margin="0 120 0 0" layout_gravity="center top" draw="false" tabname="historyTabItem" tabchangescp="PORTAL_SELLER_HISTORY_TAB_INIT"/>		
+		<button name="cancelBtn" rect="0 0 160 50" parent="historyBox" margin="0 0 0 20" layout_gravity="center bottom" skin="test_red_button" caption="{@st41b}폐점" clicksound="button_click_3" oversound="button_cursor_over_2" LBtnUpScp="PORTAL_SELLER_CLOSE"/>
+		<groupbox name="logBox" rect="0 0 430 820" parent="historyBox" margin="0 0 0 0" layout_gravity="left top" draw="false" fixheight="true" scrollbar="true"/>
+		<!-- Main Tab -->
+		<tab name="sellerTab" rect="0 0 500 40" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="70 70 0 0"/>
+		<tabitem name="sellerTabItem" parent="sellerTab" caption="{@st66b}상점{/}" width="160" layout_gravity="left top"/>
+		<tabitem name="historyTabItem" parent="sellerTab" caption="{@st66b}기록{/}" width="160" layout_gravity="left top"/>
+	</controls>
+</uiframe>

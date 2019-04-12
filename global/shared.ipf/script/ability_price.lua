@@ -78,6 +78,20 @@ function ABIL_8RANK_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel)
     
 end
 
+function ABIL_9RANK_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 720 + (4 - maxLevel + abilLevel) * 67
+    local time = 360 + (4 - maxLevel + abilLevel) * 120;
+    
+    return price, time;
+end
+
+function ABIL_10RANK_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 1080 + (4 - maxLevel + abilLevel) * 100
+    local time = 400 + (4 - maxLevel + abilLevel) * 200;
+    
+    return price, time;
+end
+
 function ABIL_1RANK_BUFF_PRICE(pc, abilName, abilLevel, maxLevel)
 
 --    local price = 1 + (abilLevel - 1) * 1;
@@ -155,6 +169,20 @@ function ABIL_8RANK_BUFF_PRICE(pc, abilName, abilLevel, maxLevel)
     
 end
 
+function ABIL_9RANK_BUFF_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 600 + (abilLevel - 1) * 65
+    local time = 360 + (abilLevel - 1) * 30;
+    
+    return price, time;
+end
+
+function ABIL_10RANK_BUFF_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 700 + (abilLevel - 1) * 75
+    local time = 400 + (abilLevel - 1) * 50;
+    
+    return price, time;
+end
+
 function ABIL_1RANK_PRICE(pc, abilName, abilLevel, maxLevel)
 
     local price = math.floor(1.07^(abilLevel-1) * 1);
@@ -226,6 +254,20 @@ function ABIL_8RANK_PRICE(pc, abilName, abilLevel, maxLevel)
 
     return price, time;
     
+end
+
+function ABIL_9RANK_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = math.floor(1.0822^(abilLevel-1) * 8.5)
+    local time = 0;
+    
+    return price, time;
+end
+
+function ABIL_10RANK_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = math.floor(1.0822^(abilLevel-1) * 9)
+    local time = 0;
+    
+    return price, time;
 end
 
 function ABIL_3RANK_MASTER_PRICE(pc, abilName, abilLevel, maxLevel)
@@ -576,7 +618,6 @@ function GET_TOTAL_ABILITY_PRICE(pc, scrCalcPrice, abilName, abilLevel, maxLevel
 end
 
 function GET_TOTAL_ABILITY_PRICE_BY_PRICE_COLUMN(abilGroup, abilName, abilLevel)
-    print("---------------------------------------")
     local price = 0;
     if abilGroup == nil or abilName == nil or abilLevel == nil then
         return price;
@@ -596,8 +637,6 @@ function GET_TOTAL_ABILITY_PRICE_BY_PRICE_COLUMN(abilGroup, abilName, abilLevel)
             price = price + priceCol;
         end
     end
-    
-    IMC_LOG(abilName, abilLevel, price)
-    print(abilName, abilLevel, price)
+
     return price;
 end

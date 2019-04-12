@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="3.00" soundFile="mon_tomblord_skl_2"/>
+    <Sound frame="8.00" soundFile="mon_voice_lapene_skl2_cast"/>
+    <Sound frame="10.00" soundFile="mon_voice_lapene_skl1_cast"/>
+    <Sound frame="47.00" soundFile="skl_eff_skyline_spread"/>
+    <Sound frame="48.00" soundFile="mon_voice_lapene_skl3_cast"/>
+    <AfterImage frame="50" term="50" blendTime="300" r="160" g="160" b="200" a="255"/>
+    <Particle frame="53" attachActor="None" attachNode="effect_dummy_atk3" particleName="I_force019_trail_ice" hiddenObj="false" useAttach="true" scale="2" pause="true" targetPos="false"/>
+    <Particle frame="53" attachActor="None" attachNode="effect_dummy_atk2" particleName="I_swordtrail031_blue2" hiddenObj="false" useAttach="true" scale="2" pause="true" targetPos="false"/>
+    <Particle frame="53" attachActor="None" attachNode="effect_emitter" particleName="F_smoke064_blue" hiddenObj="false" useAttach="true" scale="9" pause="true" targetPos="false"/>
+    <AfterImage frame="60" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+    <Sound frame="75.00" soundFile="skl_fgt_skyline_costume"/>
+    <AfterImage frame="77" term="50" blendTime="300" r="160" g="160" b="200" a="255"/>
+    <Sound frame="78.00" soundFile="skl_wiz_gust"/>
+    <Particle frame="80" attachActor="None" attachNode="effect_dummy_atk1" particleName="I_force019_trail_ice" hiddenObj="false" useAttach="true" scale="2" pause="true" targetPos="false"/>
+    <Particle frame="80" attachActor="None" attachNode="effect_dummy_atk1" particleName="I_swordtrail031_blue2" hiddenObj="false" useAttach="true" scale="2" pause="true" targetPos="false"/>
+    <Particle frame="80" attachActor="None" attachNode="effect_emitter" particleName="F_smoke064_blue" hiddenObj="false" useAttach="true" scale="9" pause="true" targetPos="false"/>
+    <AfterImage frame="87" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+</ActionDesc>

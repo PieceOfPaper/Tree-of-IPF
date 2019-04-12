@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="6" R="100" G="120" B="150" A="100"/>
+	<BlendOff frame="8" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Dummy_eff_buff" particleName="F_light055_blue2" useAttach="ture" hiddenObj="false" changeEffect="None" scale="2" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="1" attachNode="Dummy_eff_buff" particleName="F_light055_blue2" useAttach="ture" hiddenObj="false" changeEffect="None" scale="2" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="6" attachNode="Dummy_eff_atk" particleName="I_dash014_blue" useAttach="ture" hiddenObj="false" changeEffect="None" scale="8" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_rudas_loxodon_atk"/>
+	<Sound frame="0.00" soundFile="mon_sakmoli_raiseup"/>
+	<Sound frame="7.00" soundFile="skl_eff_body_atk_1"/>
+	<Sound frame="7.00" soundFile="mon_firent_atk"/>
+</ActionDesc>

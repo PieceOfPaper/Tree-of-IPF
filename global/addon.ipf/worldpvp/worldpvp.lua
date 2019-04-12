@@ -99,17 +99,37 @@ function OPEN_WORLDPVP(frame)
 	if tab ~= nil then
 		tab:SelectTab(0);
 	end
+	
+	local bg = frame:GetChild("bg");
+	local loadingtext = bg:GetChild("loadingtext");
+	local charinfo = bg:GetChild("charinfo");
 
 	WORLDPVP_SET_UI_MODE(frame, "");
 	local ret = worldPVP.RequestPVPInfo();
 	if ret == false then
 		ON_PVP_TIME_TABLE(frame);
 	else
-		local bg = frame:GetChild("bg");
-		local loadingtext = bg:GetChild("loadingtext");
-	    local charinfo = bg:GetChild("charinfo");
 		loadingtext:ShowWindow(1);
 	    charinfo:ShowWindow(0);
+	end
+	
+	local join = charinfo:GetChild("join");
+	join:SetEnable(0);
+	
+	local cnt = session.worldPVP.GetPlayTypeCount();
+	if cnt > 0 then
+		local isGuildBattle = 0;
+		for i = 1, cnt do
+			local type = session.worldPVP.GetPlayTypeByIndex(i);
+			if type == 210 then
+				isGuildBattle = 1;
+				break;
+			end
+		end
+
+		if isGuildBattle == 0 then
+			join:SetEnable(1);
+		end
 	end
 
 	UPDATE_WORLDPVP(frame);
@@ -391,12 +411,8 @@ function ON_PVP_STATE_CHANGE(frame, msg, pvpType)
 	local viewText = ClMsg( "PVP_State_".. stateText );
 	local join = charinfo:GetChild("join");
 	join:SetTextByKey("text", viewText);
-	join:SetEnable(1);
 
 	if state == PVP_STATE_FINDING then
-
-		-- frame:ShowWindow(1);
-
 		local bg = frame:GetChild("bg");
 		local charinfo = bg:GetChild("charinfo");
 		local droplist = GET_CHILD(charinfo, "droplist", "ui::CDropList");
@@ -426,7 +442,6 @@ function ON_PVP_STATE_CHANGE(frame, msg, pvpType)
 	if 1 == ui.IsFrameVisible("worldpvp_ready") then
 		WORLDPVP_READY_STATE_CHANGE(state, pvpType);
 	end
-
 end
 
 function WORLDPVP_TYPE_SELECT(parent, ctrl)
@@ -672,7 +687,7 @@ function ON_WORLDPVP_RANK_PAGE(frame)
 	local cid = session.GetMySession():GetCID();
 	local myRank = session.worldPVP.GetPrevRankInfoByCID(cid);
 	if myRank ~= nil then
-		-- 1,2,3µî¸¸ º¸¿©ÁØ´Ù.
+		-- 1,2,3ï¿½î¸¸ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 		if myRank.ranking < 3 then
 			btnReward:SetVisible(1);
 		end
@@ -1024,4 +1039,3 @@ function GUILD_PVP_MISSION_CREATED(roomGuid, gameType, isCreated, zonePCCount)
 	end
 
 end
-

@@ -126,20 +126,17 @@ function ADVENTURE_BOOK_UPHILL_UPDATE_POINT(uphillPage)
 	local shopPointName = GetPVPPointPropName(clsName, "ShopPoint");
     local mySession = session.GetMySession();
 	local cid = mySession:GetCID();
-	local pvpObj = session.worldPVP.GetPVPObject(cid);
+    local ret = worldPVP.RequestPVPInfo();        
+    if ret == true then
+        return;
+    end
+
+	local pvpObj = session.worldPVP.GetPVPObject(cid);        
     if pvpObj == nil then
         return;
     end
 
     if shopPointName ~= "None" then
-		local todayGetShopPoint = 0;
-		if curDateString == pvpObj:GetPropValue(lastPointGetDateName) then
-			todayGetShopPoint = pvpObj:GetPropValue(todayGetShopPointName);
-		end
-
-		local dailyPointGauge = GET_CHILD_RECURSIVELY(uphillPage, "dailyPointGauge");
-		dailyPointGauge:SetPoint(todayGetShopPoint, PVP_DAY_MAX_SHOP_POINT);
-
 		local totalPointValueText = GET_CHILD_RECURSIVELY(uphillPage, "totalPointValueText");
 		totalPointValueText:SetTextByKey("point", pvpObj:GetPropValue(shopPointName));
 	end    

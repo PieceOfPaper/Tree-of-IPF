@@ -33,7 +33,6 @@ function SCR_GET_SKL_CoolDown(skill)
 
 end
 
-
 function SCR_Get_SpendSP_Buff(skill)
 
     local basicsp = skill.BasicSP;
@@ -71,6 +70,49 @@ function SCR_Get_SpendSP_Buff(skill)
     return math.floor(value);
 end
 
+function SCR_Get_SpendSP_HakkaPalle(skill)
+
+    local basicsp = skill.BasicSP;
+    local lv = skill.Level;
+    local addsp = skill.LvUpSpendSp;
+    local decsp = 0;
+    
+    if basicsp == 0 then
+        return 0;
+    end
+    
+    local pc = GetSkillOwner(skill);
+    local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
+    abilAddSP = abilAddSP / 100;
+    
+--  local value = basicsp + (lv - 1) * addsp + abilAddSP;
+    local value = basicsp + (lv - 1) * addsp
+    
+    local GHabil =  GetAbility(pc, 'Remain')
+    if GHabil ~= nil then 
+        value = value + (value * (GHabil.Level * 0.1))
+    end
+    
+    value = value + (value * abilAddSP);
+    
+    local hakkaPalleSkill = GetSkill(pc, "Hackapell_HakkaPalle")
+    if IsBuffApplied(pc, 'HakkaPalle_Buff') == 'YES' and skill.Job == 'Hackapell' then
+        value = value - (value * (hakkaPalleSkill.Level * 0.05))
+    end
+    
+    local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+    if zeminaLv > 0 then
+        decsp = 4 + (zeminaLv * 4);
+    end
+    
+    value = value - decsp;
+    
+    if value < 1 then
+        value = 1;
+    end
+    
+    return math.floor(value);
+end
 
 function SCR_Get_SpendSP(skill)
 
@@ -215,6 +257,50 @@ function SCR_Get_SpendSP_Bow(skill)
     return math.floor(value)
 end
 
+function SCR_Get_SpendSP_FanaticIllusion(skill)
+
+    local basicsp = 40;
+    local lv = skill.Level;
+    local lvUpSpendSp = 4;
+    local decsp = 0;
+    
+    if basicsp == 0 then
+        return 0;
+    end
+    
+    local pc = GetSkillOwner(skill);
+
+    local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
+    abilAddSP = abilAddSP / 100;
+    
+--  local value = basicsp + (lv - 1) * lvUpSpendSp + abilAddSP;
+    local value = basicsp + (lv - 1) * lvUpSpendSp;
+    
+    if IsBuffApplied(pc, 'Wizard_Wild_buff') == 'YES' then
+        value = value * 1.5 * spRatio;
+        return math.floor(value);
+    end
+    
+    if IsBuffApplied(pc, 'MalleusMaleficarum_Debuff') == 'YES' then
+        value = value * 2
+        return math.floor(value);
+    end    
+    
+    value = value + (value * abilAddSP);
+    
+    local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+    if zeminaLv > 0 then
+        decsp = 4 + (zeminaLv * 4);
+    end
+    value = value - decsp;
+    
+    if value < 1 then
+        value = 1;
+    end
+    
+    return math.floor(value);
+end
+
 function SCR_Get_SpendSP_DoublePunch(skill)
 
     local basicsp = skill.BasicSP;
@@ -242,6 +328,46 @@ function SCR_Get_SpendSP_DoublePunch(skill)
     
     if abil ~= nil and ActiveState == 1 then
         value = value - (value * 0.3)
+    end
+    
+    local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+    if zeminaLv > 0 then
+        decsp = 4 + (zeminaLv * 4);
+    end
+    value = value - decsp;
+    
+    if value < 1 then
+        value = 1;
+    end
+    
+    return math.floor(value);
+end
+
+function SCR_Get_SpendSP_DragoonHelmet(skill)
+
+    local basicsp = skill.BasicSP;
+    local lv = skill.Level;
+    local lvUpSpendSp = skill.LvUpSpendSp;
+    local decsp = 0;
+    
+    if basicsp == 0 then
+        return 0;
+    end
+    
+    local pc = GetSkillOwner(skill);
+    
+    local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
+    abilAddSP = abilAddSP / 100;
+    
+    local lvUpSpendSpRound = math.floor((lvUpSpendSp * 10000) + 0.5)/10000;
+    
+--  value = basicsp + (lv - 1) * lvUpSpendSpRound + abilAddSP;
+    local value = basicsp + (lv - 1) * lvUpSpendSpRound;
+    
+    value = value + (value * abilAddSP);
+    
+    if IsBuffApplied(pc, 'DragoonHelmet_Buff') == 'YES' and skill.Job == 'Dragoon' then
+        value = value - (value * 0.5)
     end
     
     local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
@@ -436,11 +562,118 @@ function SCR_GET_SKL_COOLDOWN(skill)
 
 end
 
+function SCR_GET_SKL_COOLDOWN_CounterSpell(skill)
+    
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    basicCoolDown = basicCoolDown + abilAddCoolDown  - (skill.Level * 1000);
+    
+    local owner =GetSkillOwner(skill)
+    if skill.ClassName == "Cleric_Heal" then
+        if IsPVPServer(owner) == 1 then
+            basicCoolDown = basicCoolDown + 28000
+        end
+    end
+    
+    if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.8;
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
+    
+    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.9;
+    end
+    
+    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+            basicCoolDown = basicCoolDown * 0.5;
+        end
+    end
+    
+    local ret = math.floor(basicCoolDown) / 1000
+    
+    ret = math.floor(ret) * 1000;
+    
+    return math.floor(ret);
+end
+
 function SCR_GET_SKL_COOLDOWN_ABIL(skill)
 
     local basicCoolDown = skill.BasicCoolDown;
     return basicCoolDown;
 
+end
+
+function SCR_GET_SKL_CoolDown_BackSlide(skill)
+    
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    basicCoolDown = (basicCoolDown + abilAddCoolDown) - (skill.Level * 1000);
+    
+    local owner = GetSkillOwner(skill)
+    if skill.ClassName == "Cleric_Heal" then
+        if IsPVPServer(owner) == 1 then
+            basicCoolDown = basicCoolDown + 28000
+        end
+    end
+    
+    if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.8;
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
+    
+    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.9;
+    end
+    
+    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+            basicCoolDown = basicCoolDown * 0.5;
+        end
+    end
+    local ret = math.floor(basicCoolDown) / 1000
+    ret = math.floor(ret) * 1000;
+    
+    return math.floor(ret);
+end
+
+function SCR_GET_SKL_CoolDown_Prevent(skill)
+    
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    basicCoolDown = (basicCoolDown + abilAddCoolDown) - (skill.Level * 1000);
+    
+    local owner =GetSkillOwner(skill)
+    if skill.ClassName == "Cleric_Heal" then
+        if IsPVPServer(owner) == 1 then
+            basicCoolDown = basicCoolDown + 28000
+        end
+    end
+    
+    if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.8;
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
+    
+    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.9;
+    end
+    
+    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+            basicCoolDown = basicCoolDown * 0.5;
+        end
+    end
+    local ret = math.floor(basicCoolDown) / 1000
+    ret = math.floor(ret) * 1000;
+    
+    return math.floor(ret);
 end
 
 function SCR_GET_SKL_COOLDOWN_MISTWIND(skill)
@@ -465,7 +698,7 @@ end
 function SCR_GET_SKL_COOLDOWN_Golden_Bell_Shield(skill)
     local pc = GetSkillOwner(skill);
     local basicCoolDown = skill.BasicCoolDown;
-    basicCoolDown = basicCoolDown - ((skill.Level - 1) * 1000);
+    basicCoolDown = basicCoolDown - (skill.Level * 1000);
     if basicCoolDown < 0 then
         basicCoolDown = 0;
     end
@@ -3152,6 +3385,18 @@ function SCR_GET_Dragon_Soar_Ratio(skill)
 
 end
 
+function SCR_GET_Dragon_Soar_Ratio2(skill)
+    local value = 5;
+    
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, "Dragoon16") 
+    if abil ~= nil and abil.ActiveState == 1 then 
+        value = value * 2;
+    end
+    
+    return math.floor(value);
+end
+
 function SCR_Get_SkillFactor_Zwerchhau(skill)
 
     local pc = GetSkillOwner(skill);
@@ -3384,6 +3629,88 @@ function SCR_GET_FlowDrill_Ratio(skill)
 
 end
 
+function SCR_GET_SKL_COOLDOWN_MortalSlash(skill)
+    
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    basicCoolDown = basicCoolDown + abilAddCoolDown;
+    
+    local owner = GetSkillOwner(skill)
+    
+    local abilTemplar3 = GetAbility(owner, "Templar3")
+    if abilTemplar3 ~= nil and abilTemplar3.ActiveState == 1 then
+        if IsServerSection(owner) == 1 then
+            local list, cnt = GetPartyMemberList(owner, PARTY_NORMAL, 0);
+            if cnt > 1 then
+                local abilCoolDownRatio = 1;
+                for i = 1, cnt - 1 do
+                    abilCoolDownRatio = abilCoolDownRatio - 0.1;
+                end
+                
+                if abilCoolDownRatio < 0.6 then
+                    abilCoolDownRatio = 0.6;
+                end
+                
+                basicCoolDown = basicCoolDown * abilCoolDownRatio;
+            end
+        else
+            local list = session.party.GetPartyMemberList(PARTY_NORMAL);
+            if list ~= nil then
+                local cnt = list:Count();
+                if cnt > 1 then
+                    local myObj = session.party.GetMyPartyObj(PARTY_NORMAL)
+                    local myMapID = myObj:GetMapID()
+                    local myChannelInfo = session.loginInfo.GetChannel();
+                    
+                    local loginCount = 0;
+                    for i = 0 , cnt - 1 do
+                        local partyMemberInfo = list:Element(i);
+                        if partyMemberInfo:GetMapID() == myMapID and partyMemberInfo:GetChannel() == myChannelInfo then
+                            loginCount = loginCount + 1;
+                        end
+                    end
+                    
+                    local abilCoolDownRatio = 1;
+                    
+                    if loginCount > 1 then
+                        for i = 1, loginCount - 1 do
+                            abilCoolDownRatio = abilCoolDownRatio - 0.1;
+                        end
+                    end
+                    
+                    if abilCoolDownRatio < 0.6 then
+                        abilCoolDownRatio = 0.6;
+                    end
+                    
+                    basicCoolDown = basicCoolDown * abilCoolDownRatio;
+                end
+            end
+        end
+    end
+    
+    if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.8;
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
+    
+    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.9;
+    end
+    
+    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+            basicCoolDown = basicCoolDown * 0.5;
+        end
+    end
+    
+    local ret = math.floor(basicCoolDown) / 1000
+    ret = math.floor(ret) * 1000;   
+    return math.floor(ret);
+
+end
+
 function SCR_GET_CassisCrista_Bufftime(skill)
 
     local value = 240
@@ -3563,6 +3890,17 @@ function SCR_GET_ScutumHit_Ratio(skill)
 
 end
 
+function SCR_GET_SR_LV_ScutumHit(skill)
+    local pc = GetSkillOwner(skill);
+    local byAbil = 0;
+    local abil = GetAbility(pc, 'Murmillo16');
+    if abil ~= nil and 1 == abil.ActiveState then
+        byAbil = pc.SR + skill.SklSR;
+    end
+    
+    return pc.SR + skill.SklSR + byAbil
+end
+
 function SCR_Get_SkillFactor_Crush(skill)
 
     local pc = GetSkillOwner(skill);
@@ -3716,10 +4054,92 @@ function SCR_GET_Commence_Ratio2(skill)
 end
 
 function SCR_GET_Commence_Bufftime(skill)
-
     local value = 10 + skill.Level * 3
+    
     return value
+end
 
+function SCR_GET_Capote_Ratio(skill)
+    local value = 10 + skill.Level * 1
+    
+    return value
+end
+
+function SCR_GET_Faena_Ratio(skill)
+    local value = (skill.Level / 2) + 2
+    
+    return math.floor(value)
+end
+
+function SCR_GET_Faena_Ratio2(skill)
+    local value = skill.Level + 2
+    
+    return value
+end
+
+function SCR_GET_Ole_Ratio(skill)
+    local value = 10 + skill.Level * 2
+    
+    return value
+end
+
+function SCR_GET_Ole_Ratio2(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 20
+    local abil = GetAbility(pc, "Matador4")
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value + abil.Level
+    end
+    
+    return value
+end
+
+function SCR_GET_BackSlide_Bufftime(skill)
+    local value = skill.Level
+    
+    return value
+end
+
+function SCR_GET_BackSlide_Bufftime(skill)
+    local value = skill.Level
+    
+    return value
+end
+
+function SCR_GET_Sprint_Ratio(skill)
+    local value = 5 + skill.Level
+    
+    return value
+end
+
+function SCR_GET_ShadowPool_Bufftime(skill)
+    local value = 3 + skill.Level
+    
+    return value
+end
+
+function SCR_GET_ShadowFatter_Bufftime(skill)
+    local value = 3 + skill.Level
+    
+    return value
+end
+
+function SCR_GET_Hallucination_Bufftime(skill)
+    local value = 5 + skill.Level
+    
+    return value
+end
+
+function SCR_Get_Enervation_BuffTime(skill)
+    local value = 20 + skill.Level * 2
+    
+    return value
+end
+
+function SCR_GET_EnchantEarth_Ratio(skill)
+    local value = 5 + skill.Level * 2
+    
+    return value
 end
 
 function SCR_Get_SklAtkAdd_Multishot(skill)
@@ -5278,13 +5698,23 @@ end
 
 function SCR_GET_Limacon_Ratio(skill)
 
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Schwarzereiter13") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
-    end
-
+--    local pc = GetSkillOwner(skill);
+--    local abil = GetAbility(pc, "Schwarzereiter13") 
+--    local value = 0
+--    if abil ~= nil then 
+--        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
+--    end
+	
+	local value = 2 + (skill.Level * 1);
+	local pc = GetSkillOwner(skill);
+	if pc ~= nil then
+		local abilSchwarzereiter18 = GetAbility(pc, 'Schwarzereiter18');
+		if abilSchwarzereiter18 ~= nil and TryGetProp(abilSchwarzereiter18, 'ActiveState') == 1 then
+			value = value + 3;
+		end
+	end
+	
+	return value;
 end
 
 function SCR_GET_Limacon_Ratio2(skill)
@@ -5775,6 +6205,40 @@ function SCR_GET_CannonBarrage_Ratio(skill)
 
 end
 
+function SCR_GET_SKL_COOLDOWN_CannonBarrage(skill)
+    
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    basicCoolDown = basicCoolDown + abilAddCoolDown;
+    
+    local abilCannoneer20 = GetAbility(pc, 'Cannoneer20');
+    if abilCannoneer20 ~= nil and abilCannoneer20.ActiveState == 1 then
+        local abilCoolDownRate = 1 - (abilCannoneer20.Level * 0.1);
+        basicCoolDown = basicCoolDown * abilCoolDownRate;
+    end
+    
+    if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.8;
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
+    
+    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.9;
+    end
+    
+    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+            basicCoolDown = basicCoolDown * 0.5;
+        end
+    end
+    local ret = math.floor(basicCoolDown) / 1000
+    ret = math.floor(ret) * 1000;   
+    return math.floor(ret);
+
+end
+
 function SCR_Get_SkillFactor_Volleyfire(skill)
 
     local pc = GetSkillOwner(skill);
@@ -5851,12 +6315,7 @@ function SCR_GET_Skarphuggning_Ratio(skill)
 end
 
 function SCR_GET_HakkaPalle_BuffTime(skill)
-    local value = 20 + skill.Level * 2
-    return value
-end
-
-function SCR_GET_HakkaPalle_Ratio(skill)
-    local value = 2 + skill.Level
+    local value = 45
     return value
 end
 
@@ -7125,16 +7584,28 @@ function SCR_GET_Ayin_sof_Ratio2(skill)
 end
 
 function SCR_GET_Gematria_Ratio(skill)
-    local value = skill.Level
-  return value
-
+    local value = 10;
+    
+    local pc = GetSkillOwner(skill);
+    local abilKabbalist14 = GetAbility(pc, "Kabbalist14");
+    if abilKabbalist14 ~= nil and abilKabbalist14.ActiveState == 1 then
+        value = value + abilKabbalist14.Level;
+    end
+    
+    return value;
 end
 
 
 function SCR_GET_Notarikon_Ratio(skill)
-    local value = skill.Level
-  return value
-
+    local value = 10;
+    
+    local pc = GetSkillOwner(skill);
+    local abilKabbalist14 = GetAbility(pc, "Kabbalist14");
+    if abilKabbalist14 ~= nil and abilKabbalist14.ActiveState == 1 then
+        value = value + abilKabbalist14.Level;
+    end
+    
+    return value;
 end
 
 
@@ -7360,6 +7831,13 @@ end
 
 function SCR_GET_HealingFactor_Time(skill)
 
+  local value = 15 + skill.Level * 5
+  
+  local pc = GetSkillOwner(skill);
+  if IsPVPServer(pc) == 1 then
+    value = math.min(27, value);
+  end
+  
   local value = 15 + skill.Level * 5
   
   local pc = GetSkillOwner(skill);
@@ -7931,6 +8409,24 @@ function SCR_GET_UltimateDimension_Ratio(skill)
 
 end
 
+function SCR_Get_SkillFactor_DimensionCompression(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
+    
+    local abil = GetAbility(pc, "Sage10")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_GET_Gevura_Ratio(skill)
+    local value = skill.Level * 20
+    
+    return value
+end
+
 function SCR_Get_SkillFactor_Maze(skill)
 
     local pc = GetSkillOwner(skill);
@@ -8087,6 +8583,18 @@ function SCR_Get_SklAtkAdd_Zaibas(skill)
 
     return math.floor(value)
     
+end
+
+function SCR_Get_SkillFactor_DivineStigma(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+    local abil = GetAbility(pc, "Kriwi20")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
 end
 
 function SCR_Get_SkillFactor_Zaibas(skill)
@@ -8500,6 +9008,20 @@ function SCR_Get_SkillFactor_EctoplasmAttack(skill)
 
 end
 
+function SCR_Get_SkillFactor_Demolition(skill)
+
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Paladin21")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+
+end
+
 function SCR_Get_SklAtkAdd_Smite(skill)
 
     local pc = GetSkillOwner(skill);
@@ -8754,6 +9276,30 @@ function SCR_GET_Aspergillum_Time(skill)
     return value
 end
 
+function SCR_GET_ElevateMagicSquare_Time(skill)
+    local value = 5 + skill.Level
+    
+    return value
+end
+
+function SCR_GET_Methadone_Time(skill)
+    local value = 15 + skill.Level
+    
+    return value
+end
+
+function SCR_GET_IronMaiden_Time(skill)
+    local value = 4 + skill.Level * 0.5
+    
+    return value
+end
+
+function SCR_GET_Judgment_Bufftime(skill)
+    local value = 15 + skill.Level
+    
+    return value
+end
+
 function SCR_GET_LastRites_Time(skill)
 
 
@@ -8951,26 +9497,28 @@ function SCR_GET_Indulgentia_Ratio2(skill)
 end
 
 function SCR_Get_SkillFactor_Dekatos(skill)
-
     local pc = GetSkillOwner(skill);
     local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
-
---  local abil = GetAbility(pc, "Pardoner1")      -- Skill Damage add
---    if abil ~= nil then
---        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
---    end
-
+    
+    local abil = GetAbility(pc, "Pardoner7")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
     return math.floor(value)
-
 end
 
 function SCR_GET_IncreaseMagicDEF_Bufftime(skill)
     local pc = GetSkillOwner(skill);
-    local value = 45
+    local value = 300
     
     local abil = GetAbility(pc, "Pardoner6")
-    if abil ~= nil and abil.ActiveState == 1 then
-        value = value + abil.Level
+    local ActiveState = TryGetProp(abil, "ActiveState")
+    if abil ~= nil and ActiveState == 1 then
+        local abilLevel = TryGetProp(abil, "Level")
+        local abilValue = abilLevel * 20
+        
+        value = value + abilValue
     end
     
     return value
@@ -8979,7 +9527,7 @@ end
 
 function SCR_GET_IncreaseMagicDEF_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = 60 + ((skill.Level - 1) * 6) + ((skill.Level / 5) * ((pc.MNA * 0.8) ^ 0.9))
+    local value = 240 + ((skill.Level - 1) * 80) + ((skill.Level / 3) * (pc.MNA ^ 0.9));
     
     return math.floor(value)
 end
@@ -9567,6 +10115,164 @@ function SCR_GET_Lycanthropy_Ratio2(skill)
     return value;
 end
 
+function SCR_Get_SkillFactor_Muleta(skill)
+    local pc = GetSkillOwner(skill);
+    local MuletaSkill = GetSkill(pc, "Matador_Muleta")
+    local value = 0
+    if MuletaSkill ~= nil then
+        value = MuletaSkill.SklFactor + (MuletaSkill.Level - 1) * MuletaSkill.SklFactorByLevel
+        
+        local abil = GetAbility(pc, "Matador1")      -- Skill Damage add
+        if abil ~= nil then
+            value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+        end
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_Muleta_Ratio(skill)
+    local value = 914 + (skill.Level - 1) * 50.3
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, "Matador1")
+    if abil ~= nil then
+        value = value * (1 + (abil.Level * 0.005))
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_DoubleGun(skill)
+    local pc = GetSkillOwner(skill);
+    local DoubleGunSkill = GetSkill(pc, "Bulletmarker_DoubleGunStance")
+    local value = 0
+    if DoubleGunSkill ~= nil then
+        value = DoubleGunSkill.SklFactor + DoubleGunSkill.Level * DoubleGunSkill.SklFactorByLevel
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_GET_DoubleGunStance_Ratio(skill)
+    local value = 100 + skill.Level * 10
+    
+    return value
+end
+
+function SCR_Get_SkillFactor_Faena(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+    local abil = GetAbility(pc, "Matador2")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    local abil_Matador3 = GetAbility(pc, "Matador3")      -- Skill Damage add
+    local subWeapon = GetEquipItem(pc, 'RH')
+    if abil_Matador3 ~= nil and subWeapon == nil then
+        value = value + (value * 0.5)
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_PasoDoble(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+    local abil = GetAbility(pc, "Matador5")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_Chage(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+    local abil = GetAbility(pc, "Lancer9")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_ShieldTrain(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+    local abil = GetAbility(pc, "Murmillo15")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_DragonFall(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+    local abil = GetAbility(pc, "Dragoon15")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_ShadowThorn(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+    local abil = GetAbility(pc, "Shadowmancer1")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_ShadowConjuration(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+    local abil = GetAbility(pc, "Shadowmancer2")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_ShadowCondensation(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+    local abil = GetAbility(pc, "Shadowmancer3")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_DemonScratch(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+    local abil = GetAbility(pc, "Warlock15")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
+end
+
 function SCR_Get_SkillFactor_Gohei(skill)
 
     local pc = GetSkillOwner(skill);
@@ -9650,6 +10356,72 @@ function SCR_GET_KaguraDance_Ratio(skill)
     return math.floor(value)
 end
 
+function SCR_GET_Invulnerable_Time(skill)
+    local value = 20 + skill.Level
+    
+    return value
+end
+
+function SCR_Get_SkillFactor_FanaticIllusion(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+    
+    local abil = GetAbility(pc, "Zealot3")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_Immolation(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+    
+    local abil = GetAbility(pc, "Zealot2")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_GET_Immolation_Ratio(skill)
+    local value = SCR_Get_SkillFactor_Immolation(skill)
+    value = value * 0.1
+    
+    return value
+end
+
+function SCR_GET_Immolation_Ratio2(skill)
+    local value = skill.Level * 0.001
+    
+    return value
+end
+
+function SCR_GET_Fanaticism_Ratio(skill)
+    local value = 10 + ((skill.Level - 1) * 5)
+    
+    return value
+end
+
+function SCR_GET_BlindFaith_Ratio(skill)
+    local value = 2 + ((skill.Level - 1) * 0.2)
+
+    return value
+end
+
+function SCR_GET_FanaticIllusion_Time(skill)
+    local value = 5 + skill.Level * 2
+
+    return value
+end
+
+function SCR_GET_Fanaticism_Time(skill)
+    local value = 10 + skill.Level * 2
+
+    return value
+end
 
 function SCR_GET_KaguraDance_Ratio2(skill)
     local value = 10 * skill.Level
@@ -9670,6 +10442,17 @@ function SCR_GET_SR_LV_BodkinPoint(skill)
     local pc = GetSkillOwner(skill);
     return math.floor(1 + pc.SR + (skill.Level * 0.2))
 
+end
+
+function SCR_GET_SR_LV_Skarphuggning(skill)
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, "Hackapell10")
+    local value = pc.SR + skill.SklSR
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value + abil.Level
+    end
+    
+    return value
 end
 
 function SCR_GET_Kasiwade_Ratio(skill)
@@ -9755,7 +10538,7 @@ function SCR_Get_SteadyAim_Ratio2(skill)
     local Lv = skill.Level
     value = Lv * 10
     local Ranger14_abil = GetAbility(pc, 'Ranger14');
-    if Ranger14_abil ~= nil then
+    if Ranger14_abil ~= nil and skill.Level >= 3 then
         value = value + Ranger14_abil.Level * 3;
     end
     
@@ -10163,6 +10946,28 @@ function SCR_GET_Barrier_Ratio(skill)
     
 end
 
+function SCR_GET_Sanctuary_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    local DEF = TryGetProp(pc, "DEF")
+    local defRate = DEF * (0.1 * skill.Level)
+    
+    return math.floor(defRate)
+end
+
+function SCR_GET_Sanctuary_Ratio2(skill)
+    local pc = GetSkillOwner(skill);
+    local MDEF = TryGetProp(pc, "MDEF")
+    local mdefRate = MDEF * (0.1 * skill.Level)
+    
+    return math.floor(mdefRate)
+end
+
+function SCR_GET_Sanctuary_Ratio3(skill)
+    local value = 9 + skill.Level
+    
+    return value
+end
+
 function SCR_Get_Undistance_Ratio(skill)
     local value = 55 + skill.Level *5;
     return value
@@ -10212,13 +11017,13 @@ function SCR_Get_Detoxify_Ratio(skill)
     
 end
 
-function SCR_Get_daino_Ratio(skill)
-
-    local value = 1 + skill.Level
-
-    return value;
-    
-end
+--function SCR_Get_daino_Ratio(skill)
+--
+--    local value = 1 + skill.Level
+--
+--    return value;
+--    
+--end
 
 function SCR_Get_Coursing_Bufftime(skill)
 
@@ -10526,7 +11331,7 @@ function SCR_GET_Blessing_Ratio(skill)
 --    end
         
     local Priest13_abil = GetAbility(pc, "Priest13")
-    if Priest13_abil ~= nil then
+    if Priest13_abil ~= nil and skill.Level >= 3 then
         value = value * (1 + Priest13_abil.Level * 0.01);
     end
     
@@ -10534,19 +11339,19 @@ function SCR_GET_Blessing_Ratio(skill)
 
 end
 
-function SCR_GET_Blessing_Ratio2(skill)
-
-    local pc = GetSkillOwner(skill);
-    local value = skill.Level * 10
-    
-    local priest5_abil = GetAbility(pc, 'Priest5');
-    if priest5_abil ~= nil and 1 == priest5_abil.ActiveState then
-        value = value + priest5_abil.Level * 10
-    end
-    
-    return math.floor(value);
-
-end
+--function SCR_GET_Blessing_Ratio2(skill)
+--
+--    local pc = GetSkillOwner(skill);
+--    local value = skill.Level * 10
+--    
+--    local priest5_abil = GetAbility(pc, 'Priest5');
+--    if priest5_abil ~= nil and 1 == priest5_abil.ActiveState then
+--        value = value + priest5_abil.Level * 10
+--    end
+--    
+--    return math.floor(value);
+--
+--end
 
 function SCR_GET_Blessing_AddCount(skill)
     local pc = GetSkillOwner(skill);
@@ -10584,35 +11389,38 @@ end
 
 
 
+--function SCR_GET_Sacrament_Ratio(skill)
+--
+--    local pc = GetSkillOwner(skill);
+----  local value = 12.2 + 3.1 * (skill.Level - 1)
+--    local value =(10 + (skill.Level * 2)) + pc.MNA;
+--    local Priest16_abil = GetAbility(pc, "Priest16")    -- 2rank Skill Damage multiple
+--    local Priest17_abil = GetAbility(pc, "Priest17")    -- 3rank Skill Damage multiple
+--    if Priest17_abil ~= nil then
+--        value = value * 1.44
+--    elseif Priest17_abil == nil and Priest16_abil ~= nil then
+--        value = value * 1.38
+--    end
+--            
+--    local Priest12_abil = GetAbility(pc, 'Priest12');
+--    if Priest12_abil ~= nil then
+--        value = value + Priest12_abil.Level
+--    end
+--    
+--    return math.floor(value)
+--
+--end
+
 function SCR_GET_Sacrament_Ratio(skill)
-
     local pc = GetSkillOwner(skill);
---  local value = 12.2 + 3.1 * (skill.Level - 1)
-    local value =(10 + (skill.Level * 2)) + pc.MNA;
-    local Priest16_abil = GetAbility(pc, "Priest16")    -- 2rank Skill Damage multiple
-    local Priest17_abil = GetAbility(pc, "Priest17")    -- 3rank Skill Damage multiple
-    if Priest17_abil ~= nil then
-        value = value * 1.44
-    elseif Priest17_abil == nil and Priest16_abil ~= nil then
-        value = value * 1.38
-    end
-            
-    local Priest12_abil = GetAbility(pc, 'Priest12');
-    if Priest12_abil ~= nil then
-        value = value + Priest12_abil.Level
+    local stat = TryGetProp(pc, 'MNA');
+    if stat == nil then
+        stat = 1;
     end
     
-    return math.floor(value)
-
-end
-
-function SCR_GET_Sacrament_Ratio2(skill)
-
-    local pc = GetSkillOwner(skill);
-    local value = 12.2 + 3.1 * (skill.Level - 1)
+    local value = 180 + ((skill.Level - 1) * 60) + ((skill.Level / 3) * (stat ^ 0.9));
     
     return math.floor(value)
-
 end
 
 function SCR_GET_Revive_Bufftime(skill)
@@ -10767,7 +11575,7 @@ function SCR_GET_Lethargy_Ratio(skill)
     local value = 5 + (skill.Level * 3) + pc.INT * (skill.Level / 15)
 
     local Wizard14_abil = GetAbility(pc, "Wizard14")
-    if Wizard14_abil ~= nil then
+    if Wizard14_abil ~= nil and skill.Level >= 3 then
         value = value * (1 + Wizard14_abil.Level * 0.01);
     end
     
@@ -10798,7 +11606,7 @@ function SCR_GET_KneelingShot_Ratio(skill)
 --    end
 
     local Archer14_abil = GetAbility(pc, 'Archer14')
-    if Archer14_abil ~= nil then
+    if Archer14_abil ~= nil and skill.Level >= 3 then
         value = value * (1 + Archer14_abil.Level * 0.01);
     end
     local DEX = TryGetProp(pc,"DEX")
@@ -10878,7 +11686,7 @@ function SCR_GET_CrossGuard_Ratio(skill)
     end
 
     local Highlander15_abil = GetAbility(pc, 'Highlander15');
-    if Highlander15_abil ~= nil then
+    if Highlander15_abil ~= nil and skill.Level >= 3 then
         value = value + Highlander15_abil.Level;
     end
 
@@ -11007,7 +11815,7 @@ function SCR_GET_ReflectShield_Ratio(skill)
 
     
     local Wizard2_abil = GetAbility(pc, "Wizard2")      -- Skill Damage add
-    if Wizard2_abil ~= nil and 1 == Wizard2_abil.ActiveState then
+    if Wizard2_abil ~= nil and 1 == Wizard2_abil.ActiveState and skill.Level >= 3 then
         value = value + Wizard2_abil.Level
     end
 
@@ -11228,7 +12036,7 @@ function SCR_GET_Restoration_Ratio(skill)
     local value = 300 + ((skill.Level - 1) * 20)
     
     local Paladin11_abil = GetAbility(pc, "Paladin11")  -- 1rank Skill Damage add
-    if Paladin11_abil ~= nil then
+    if Paladin11_abil ~= nil and skill.Level >= 3 then
         value = value * (1 + Paladin11_abil.Level * 0.01);
     end
     
@@ -11240,7 +12048,7 @@ function SCR_GET_ResistElements_Ratio(skill)
     local value = 24 + 6.3 * (skill.Level - 1)
     
     local abil = GetAbility(pc, "Paladin18")
-    if abil ~= nil and 1 == abil.ActiveState then
+    if abil ~= nil and 1 == abil.ActiveState and skill.Level >= 3 then
         value = value * (1 + abil.Level * 0.01);
     end
     
@@ -11333,12 +12141,13 @@ function SCR_Get_Oblation_Ratio(skill)
 end
 
 function SCR_Get_SpellShop_Ratio(skill)
-    local value = 7 * skill.Level
-    local pc = GetSkillOwner(skill)
+    local value = 100 + (skill.Level * 80);
+    
+    local pc = GetSkillOwner(skill);
     
     local abil = GetAbility(pc, "Pardoner4")
     if abil ~= nil and 1 == abil.ActiveState then
-        value = value + 5 * abil.Level;
+        value = value + (abil.Level * 40);
     end
     
     return value
@@ -11426,57 +12235,68 @@ function SCR_GET_Change_Ratio(skill)
 end
 
 function SCR_GET_Forecast_Ratio(skill)
-    local value = 30;
+    local value = 300;
     local pc = GetSkillOwner(skill)
     
     local Oracle3_abil = GetAbility(pc, "Oracle3")
     if Oracle3_abil ~= nil and 1 == Oracle3_abil.ActiveState then
-        value = value + Oracle3_abil.Level * 2
+        value = value + Oracle3_abil.Level * 60;
     end
+    
+    return value
+end
+
+function SCR_GET_BeadyEyed_Time(skill)
+    local value = 100 + (skill.Level * 5);
     
     return value
 end
 
 function SCR_GET_CounterSpell_Bufftime(skill)
-    local value = 30
-    local pc = GetSkillOwner(skill)
-    if IsPVPServer(pc) == 1 then
-        value = value / 3
-    end
+    local value = 10;
     
     return math.floor(value);
 end
 
 function SCR_GET_CounterSpell_Ratio(skill)
-    return 3 + skill.Level * 2
+    return skill.Level
 end
 
 function SCR_GET_DeathVerdict_Ratio(skill)
-    local value = 60 - (skill.Level * 4);
-    return math.max(1, value)
+    local value = 30 + (skill.Level * 5)
+    return math.floor(value);
 end
 
-function SCR_GET_Prophecy_Bufftime(skill)
-    return 5 + skill.Level * 5
+function SCR_GET_DeathVerdict_Ratio2(skill)
+	local value = 100
+    local pc = GetSkillOwner(skill);
+    local Oracle13_abil = GetAbility(pc, 'Oracle13')
+    if Oracle13_abil ~= nil and 1 == Oracle13_abil.ActiveState then
+    	value = value - (Oracle13_abil.Level * 10);
+    end
+	
+    return math.floor(value);
 end
 
 function SCR_GET_Prophecy_Ratio(skill)
-    return skill.Level * 2
+    return skill.Level;
 end
 
 function SCR_GET_Foretell_Time(skill)
-    local value = 15
-    return value
+    local value = 5 + skill.Level;
+    return value;
 end
 
 function SCR_GET_Foretell_Ratio(skill)
-    local value = 20 - skill.Level
-    return value
-end
-
-function SCR_GET_Foretell_Ratio2(skill)
-    local value = 40 + skill.Level * 3
-    return value
+    local value = 30;
+    
+    local pc = GetSkillOwner(skill);
+    local Oracle14_abil = GetAbility(pc, 'Oracle14');
+    if Oracle14_abil ~= nil and 1 == Oracle14_abil.ActiveState then
+    	value = value / 3;
+    end
+    
+    return math.floor(value);
 end
 
 function SCR_GET_TwistOfFate_BuffTime(skill)
@@ -11606,7 +12426,7 @@ function SCR_GET_Gungho_Ratio(skill)
     local value = 10 + ((skill.Level - 1) * 2) + ((skill.Level / 5) * ((pc.STR * 0.5) ^ 0.8))
     
     local Swordman13_abil = GetAbility(pc, "Swordman13")
-    if Swordman13_abil ~= nil then
+    if Swordman13_abil ~= nil and skill.Level >= 3 then
         value = value * (1 + Swordman13_abil.Level * 0.01);
     end
 
@@ -11628,7 +12448,7 @@ function SCR_GET_Gungho_Ratio2(skill)
 --    end
     
     local Swordman13_abil = GetAbility(pc, "Swordman13")
-    if Swordman13_abil ~= nil then
+    if Swordman13_abil ~= nil and skill.Level >= 3 then
         value = value * (1 + Swordman13_abil.Level * 0.01);
     end
     
@@ -11723,7 +12543,7 @@ function SCR_GET_Concentrate_Ratio2(skill)
 --    end
     
     local Swordman14_abil = GetAbility(pc, "Swordman14")
-    if Swordman14_abil ~= nil then
+    if Swordman14_abil ~= nil and skill.Level >= 3 then
         value = value * (1 + Swordman14_abil.Level * 0.01);
     end
     return math.floor(value);
@@ -11865,7 +12685,7 @@ function SCR_GET_Warcry_Ratio3(skill)
     local Warcry_abil = GetAbility(pc, "Barbarian11")
     local value = skill.Level * 4
     
-    if Warcry_abil ~= nil then
+    if Warcry_abil ~= nil and skill.Level >= 3 then
         value = value * (1 + Warcry_abil.Level * 0.01)
     end
     
@@ -11930,7 +12750,7 @@ function SCR_GET_WeaponTouchUp_Ratio2(skill)
     local value = 2500 + skill.Level * 250 + pc.INT
     local Squire3 = GetAbility(pc, 'Squire3');
     
-    if Squire3 ~= nil and 1 == Squire3.ActiveState then
+    if Squire3 ~= nil and 1 == Squire3.ActiveState and skill.Level >= 3 then
         value = value + Squire3.Level * 20
     end
     
@@ -11946,7 +12766,7 @@ function SCR_GET_ArmorTouchUp_Ratio2(skill)
     local value = 500 + skill.Level * 50 + pc.INT
     local Squire4 = GetAbility(pc, 'Squire4');
     
-    if Squire4 ~= nil and 1 == Squire4.ActiveState then
+    if Squire4 ~= nil and 1 == Squire4.ActiveState and skill.Level >= 3 then
         value = value + Squire4.Level * 5
     end
     
@@ -12553,15 +13373,21 @@ end
 
 function SCR_GET_Daino_Bufftime(skill)
 
-    local value = 200;
+--    local value = 200;
+--    local pc = GetSkillOwner(skill);
+--    local Kriwi5_abil = GetAbility(pc, 'Kriwi5');
+--    if Kriwi5_abil ~= nil and 1 == Kriwi5_abil.ActiveState then
+--        value = value + (Kriwi5_abil.Level * 40);
+--    end
+    local value = 20 + (skill.Level * 2);
+    
     local pc = GetSkillOwner(skill);
     local Kriwi5_abil = GetAbility(pc, 'Kriwi5');
     if Kriwi5_abil ~= nil and 1 == Kriwi5_abil.ActiveState then
-        value = value + (Kriwi5_abil.Level * 40);
+        value = value + (Kriwi5_abil.Level * 4);
     end
-
+    
     return value;
-
 end
 
 function SCR_GET_Mackangdal_Bufftime(skill)
@@ -12636,7 +13462,7 @@ function SCR_GET_Finestra_Ratio2(skill)
     local value = 15 * skill.Level
     
     local abil = GetAbility(pc, 'Hoplite9');
-    if abil ~= nil and 1 == abil.ActiveState then
+    if abil ~= nil and 1 == abil.ActiveState and skill.Level >= 3 then
         value = value * 2;
     end
     
@@ -12723,31 +13549,46 @@ function SCR_GET_Cure_Bufftime(skill)
 end
 
 function SCR_GET_Aukuras_Bufftime(skill)
-
-    return 90 + skill.Level * 10;
-
+    local value = 30;
+	
+	local pc = GetSkillOwner(skill)
+    local Kriwi18_abil = GetAbility(pc, "Kriwi18")
+    if Kriwi18_abil ~= nil and Kriwi18_abil.ActiveState == 1 then
+        value = 20;
+    end
+    
+    return math.floor(value);
 end
 
 
 
 function SCR_GET_Aukuras_Ratio(skill)
+    local value = 39 + (19 * (skill.Level - 1));
+    
     local pc = GetSkillOwner(skill)
-    local value = 15 + (6 * skill.Level);
-    local abil = GetAbility(pc, 'Kriwi14');
-    if abil ~= nil then
-        value = value * (1 + abil.Level * 0.01);
+    local abilKriwi14 = GetAbility(pc, 'Kriwi14');
+    if abilKriwi14 ~= nil and skill.Level >= 3 then
+        value = value * (1 + abilKriwi14.Level * 0.01);
     end
-
+    
+    local abilKriwi18 = GetAbility(pc, "Kriwi18");
+    if abilKriwi18 ~= nil and abilKriwi18.ActiveState == 1 then
+        value = 0;
+    end
+    
     return math.floor(value)
-
 end
 
 function SCR_GET_Aukuras_Ratio2(skill)
-
-    local value = 8 + (skill.Level - 1) * 0.5
-
-    return value
-
+	local value = 0;
+	
+	local pc = GetSkillOwner(skill)
+    local abilKriwi18 = GetAbility(pc, "Kriwi18");
+    if abilKriwi18 ~= nil and abilKriwi18.ActiveState == 1 then
+    	value = value + (215 + (((pc.INT + pc.MNA) ^ 0.9) * (1 + skill.Level / 15)) + (skill.Level * 43))
+    end
+    
+    return math.floor(value)
 end
 
 function SCR_GET_DivineStigma_Ratio(skill)
@@ -12755,19 +13596,12 @@ function SCR_GET_DivineStigma_Ratio(skill)
     return math.floor(value);
 end
 
-function SCR_GET_DivineStigma_Ratio2(skill)
-
-    local value = 5 + skill.Level
-
-    return math.floor(value);
-end
-
-function SCR_GET_DivineStigma_Ratio3(skill)
+function SCR_GET_DivineStigma_Time(skill)
     local pc = GetSkillOwner(skill)
-    local value = 30;
+    local value = 60;
     local abil = GetAbility(pc, "Kriwi9")
     if abil ~= nil and abil.ActiveState == 1 then
-        value = value + abil.Level
+        value = value + (abil.Level * 6);
     end
     
     return math.floor(value);
@@ -12814,7 +13648,7 @@ function SCR_Get_Zalciai_Ratio(skill)
 --  end
     
     local Kriwi17_abil = GetAbility(pc, "Kriwi17")
-    if Kriwi17_abil ~= nil then
+    if Kriwi17_abil ~= nil and skill.Level >= 3 then
         value = value * (1 + Kriwi17_abil.Level * 0.01);
     end
 
@@ -12843,10 +13677,9 @@ end
 
 function SCR_Get_Aspersion_Ratio(skill)
     local pc = GetSkillOwner(skill)
-    local value = 40 + ((skill.Level - 1) * 4) + ((skill.Level / 5) * ((pc.MNA * 0.8) ^ 0.9))
-
+    local value = 75 + ((skill.Level - 1) * 25) + ((skill.Level / 4) * (pc.MNA ^ 0.9));
+    
     return math.floor(value);
-
 end
 
 function SCR_Get_Resurrection_Ratio(skill)
@@ -12909,12 +13742,12 @@ function SCR_Get_Monstrance_Ratio(skill)
     
 end
 
-function SCR_Get_Monstrance_Ratio3(skill)
-    local pc = GetSkillOwner(skill);
-    local value = skill.Level;
-    
-    return math.floor(value);
-end
+--function SCR_Get_Monstrance_Ratio3(skill)
+--    local pc = GetSkillOwner(skill);
+--    local value = skill.Level;
+--    
+--    return math.floor(value);
+--end
 
 
 function SCR_Get_Aspersion_Bufftime(skill)
@@ -13389,7 +14222,7 @@ function SCR_Get_SwellLeftArm_Ratio(skill)
     local value = 70 + (skill.Level - 1) * 12 + (skill.Level/5) * ((pc.INT + pc.MNA)*0.6)^0.9
 
     local Thaumaturge11_abil = GetAbility(pc, "Thaumaturge11")  -- 1rank Skill Damage add
-    if Thaumaturge11_abil ~= nil then
+    if Thaumaturge11_abil ~= nil and skill.Level >= 3 then
         value = value * (1 + Thaumaturge11_abil.Level * 0.01)    -- Temporary Value
     end
 
@@ -13403,7 +14236,7 @@ function SCR_Get_SwellRightArm_Ratio(skill)
     local value = 90 + (skill.Level - 1) * 20 + (skill.Level / 5) * ((pc.INT + pc.MNA) * 0.7) ^ 0.9 
     
     local Thaumaturge14_abil = GetAbility(pc, "Thaumaturge14")
-    if Thaumaturge14_abil ~= nil and 1 == Thaumaturge14_abil.ActiveState then
+    if Thaumaturge14_abil ~= nil and 1 == Thaumaturge14_abil.ActiveState and skill.Level >= 3 then
         value = value * (1 + (Thaumaturge14_abil.Level * 0.01))
     end
     
@@ -13436,7 +14269,7 @@ function SCR_Get_SwellBrain_Ratio2(skill)
     local pc = GetSkillOwner(skill);
     local value = 60 + (skill.Level - 1) * 10 + (skill.Level/3) * (pc.MNA * 0.7)^0.9
     local abil = GetAbility(pc, 'Thaumaturge15')
-    if abil ~= nil then
+    if abil ~= nil and skill.Level >= 3 then
         value = value * (1 + abil.Level * 0.01);
     end
     return math.floor(value)
@@ -13632,7 +14465,7 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
 --  local sklFactor = skill.SklFactor;
 --  if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
 --      local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo14');
---      sklFactor = sklFactor + math.floor(sklFactor * abilLevel * 0.28); -- ??�?무르밀??리밸????????????--
+--      sklFactor = sklFactor + math.floor(sklFactor * abilLevel * 0.28);
 --  end
     
     local def = lhEquipWeapon.DEF;
@@ -13697,7 +14530,7 @@ end
 
 function SCR_GET_SR_LV_TurnUndead(skill)
 
-    local value = 3 + skill.Level
+    local value = 5 + skill.Level
 
     return value
     
@@ -13822,7 +14655,7 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     local value = skill.LevelByDB + skill.Level_BM;
     if skill.GemLevel_BM > 0 then
-        value = value + 1;  -- 몬스????????�?????중첩?????무조??+1??????????
+        value = value + 1;
     end
 
     if skill.LevelByDB == 0 then
@@ -13893,9 +14726,8 @@ function SCR_GET_SPENDITEM_COUNT_Claymore(skill)
     return count;
 end
 
-
 function SCR_GET_Dekatos_Ratio(skill)
-    return 1500
+    return 300
 end
 
 
@@ -14054,6 +14886,17 @@ function SCR_GET_Ogouveve_Ratio2(skill)
     return math.floor(value);
 end
 
+function SCR_GET_Ogouveve_Ratio3(skill)
+    local skillLevel = TryGetProp(skill, 'Level');
+    if skillLevel == nil then
+        skillLevel = 0;
+    end
+    
+    local value = skillLevel * 10;
+    
+    return math.floor(value);
+end
+
 function SCR_GET_Samdiveve_Ratio(skill)
     local pc = GetSkillOwner(skill)
     local value = 298.6 + ((pc.MHP * (0.005 * skill.Level)))
@@ -14182,3 +15025,257 @@ function SCR_Get_SkillFactor_Zombify(skill)
     return math.floor(value)
 end
 
+function SCR_GET_SilverBullet_BuffTime(skill)
+    local value = 15 + skill.Level * 3 
+    return value;
+end
+
+function SCR_Get_SkillFactor_Tase(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Fencer5")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_GET_Tase_BuffTime(skill)
+    local value = 15 + skill.Level * 3
+    return value;
+end
+
+function SCR_Get_SkillFactor_NapalmBullet(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Bulletmarker1")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_FullMetalJacket(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Bulletmarker2")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_GET_DoubleGunStance_BuffTime(skill)
+
+end
+
+function SCR_Get_SkillFactor_RestInPeace(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Bulletmarker3")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_BloodyOverdrive(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Bulletmarker4")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_SmashBullet(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Bulletmarker6")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_GET_SmashBullet_Ratio(skill)
+    local value = 0
+    return value;
+end
+
+function SCR_GET_TracerBullet_Ratio(skill)
+    local value = 50 + skill.Level * 5
+    return value;
+end
+
+function SCR_GET_TracerBullet_BuffTime(skill)
+    local value = 15
+    
+    return value;
+end
+
+function SCR_Get_SkillFactor_MozambiqueDrill(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Bulletmarker5")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_JumpShot(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Mergen7")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_GET_JumpShot_Ratio(skill)
+    local value = 6 * skill.Level;
+    return value;
+end
+
+function SCR_Get_SkillFactor_AssaultFire(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Schwarzereiter19")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_DownFall(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Mergen11")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_GrindCutter(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Hackapell9")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_GET_DownFall_Ratio(skill)
+    local value = 5 + skill.Level;
+    return value;    
+end
+
+function SCR_GET_HakkaPalle_BuffTime(skill)
+    local value = 45
+    return value
+end
+
+function SCR_GET_HakkaPalle_Ratio(skill)
+    local value = 10 + skill.Level
+    
+    return value;
+end
+
+function SCR_GET_HakkaPalle_Ratio2(skill)
+    local value = 10 + skill.Level * 2
+    
+    return value
+end
+
+function SCR_GET_HakkaPalle_Ratio3(skill)
+    local value = skill.Level * 5
+    
+    return value
+end
+
+function SCR_Get_SkillFactor_GrindCutter(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Hackapell9")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_GET_SnipersSerenity_Ratio(skill)
+    local value = 4 - (skill.Level * 0.4)
+    if value < 0.4 then
+        value = 0.4
+    end
+    
+    return value;
+end
+
+function SCR_Get_SkillFactor_SweepingCannon(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Cannoneer15")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_DivinePunishment(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Daoshi11")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_GET_NonInvasiveArea_Bufftime(skill)
+    local value = 10 + skill.Level
+    return value;
+end
+
+function SCR_GET_NonInvasiveArea_Ratio(skill)
+    local value = 15 + skill.Level * 3
+    return value;
+end
+
+function SCR_GET_NonInvasiveArea_Ratio2(skill)
+    local value = 42 + skill.Level * 2
+    return value;
+end

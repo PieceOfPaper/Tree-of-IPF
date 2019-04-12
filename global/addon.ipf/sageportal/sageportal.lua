@@ -17,15 +17,22 @@ function SAGE_PORTAL_SAVE_SUCCESS()
 	SAGEPORTAL_UPDATE_LIST(frame, skillName);
 end
 
-function SAGEPORTAL_WRITE_PORTAL_CNT(frame, etcObj, skillName)
-	local nowCnt = 0;
-	local maxCnt = tonumber(SAGE_PORTAL_BASE_CNT); -- + 특성
+function GET_SAGE_PORTAL_MAX_COUNT_C()
+    local maxCnt = tonumber(SAGE_PORTAL_BASE_CNT);
 
+    -- 특성
 	local abil = session.GetAbilityByName("Sage1")
 	if abil ~= nil then
 	    local abilObj = GetIES(abil:GetObject());
 	    maxCnt = maxCnt + abilObj.Level
 	end
+
+    return maxCnt;
+end
+
+function SAGEPORTAL_WRITE_PORTAL_CNT(frame, etcObj, skillName)
+	local nowCnt = 0;
+	local maxCnt = GET_SAGE_PORTAL_MAX_COUNT_C();
 
 	for i = 1, maxCnt do
 		local propName = skillName .. "_"..i;
@@ -54,8 +61,7 @@ function SAGEPORTAL_UPDATE_LIST(frame, skillName)
 	local picX, picY = 125, 125;
 	for i = 1, maxCnt do
 		local propName =  skillName.. "_"..i;
-		local propValue = etcObj[propName];
-		
+		local propValue = etcObj[propName];		
 		if 'None' ~= propValue then
 			local ctrlSet = warplist:CreateControlSet("sage_portal_warp_list", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 			local sSave = StringSplit(etcObj[propName], "@");

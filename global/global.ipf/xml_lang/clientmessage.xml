@@ -1,6 +1,83 @@
-﻿<idspace id="ClientMessage">
-  <Category Name="Premium">
-    <Class ClassID="660001" OverrideType="ADD" ClassName="steam_PremiumToken_30day" Data="토큰:30일"/>
-    <Class ClassID="660002" OverrideType="ADD" ClassName="steam_PremiumToken_60d" Data="토큰:60일"/>
-  </Category>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<idspace id="ClientMessage">
+	<Category Name="Event">
+		<Class ClassID="302008" OverrideType="ADD" ClassName="Kepa_Event_Enter" Data="이벤트 던전 입장 하기"/>
+		<Class ClassID="302025" OverrideType="ADD" ClassName="Valen_Select1" Data="사랑의 초콜릿 레서피 구입."/>
+		<Class ClassID="302026" OverrideType="ADD" ClassName="Valen_Select2" Data="사랑의 초콜릿을 건네준다."/>
+		<Class ClassID="302027" OverrideType="ADD" ClassName="Valen_Select3" Data="대화 종료"/>
+	</Category>
+	<Category Name="GLOBAL">
+		<Class ClassID="501016" OverrideType="None" ClassName="steam_Premium_SkillReset" Data="스킬 초기화 포션"/>
+		<Class ClassID="501017" OverrideType="None" ClassName="steam_Premium_SkillReset_1" Data="스킬 초기화 포션"/>
+		<Class ClassID="501018" OverrideType="ADD" ClassName="steam_OneYear_1" Data="1주년 폭죽 받기"/>
+		<Class ClassID="501021" OverrideType="ADD" ClassName="DayQuest_Rand_Desc01" Data=" {nl}아래 특성을 가진 몬스터를 처치하고 증표 10개를 가지고 오십시오.{nl} - 종족 : {RACE}{{nl} - 레벨 : {LV} 이상"/>
+		<Class ClassID="501022" OverrideType="ADD" ClassName="DayQuest_Rand_Desc02" Data="퀘스트 수령 하기"/>
+		<Class ClassID="501023" OverrideType="ADD" ClassName="DayQuest_Rand_Desc03" Data="보상 받기"/>
+		<Class ClassID="501024" OverrideType="ADD" ClassName="Retention_Select2" Data="다음 목표 레벨은 {LEVELCOUNT} 입니다."/>
+		<Class ClassID="501025" OverrideType="ADD" ClassName="WhiteTree_Core_Desc01" Data="검은 수정 획득 중"/>
+		<Class ClassID="501026" OverrideType="ADD" ClassName="WhiteTree_Core_Desc02" Data="검은 수정 넣는 중"/>
+		<Class ClassID="501027" OverrideType="ADD" ClassName="WhiteTree_Core_Desc03" Data="검은 수정 : {COUNT} / 50개"/>
+		<Class ClassID="501028" OverrideType="ADD" ClassName="WhiteTree_Core_Desc04" Data="이벤트 던전 참가"/>
+		<Class ClassID="501036" OverrideType="ADD" ClassName="steam_Premium_StatReset_1" Data="스탯 초기화 포션"/>
+		<Class ClassID="501037" OverrideType="ADD" ClassName="steam_KindDonnes_1" Data="도네스의 증표 건네주기"/>
+		<Class ClassID="501038" OverrideType="ADD" ClassName="steam_KindDonnes_2" Data="건네준 도네스의 증표 개수 확인"/>
+		<Class ClassID="501039" OverrideType="ADD" ClassName="steam_KindDonnes_3" Data="{DONNESCOUNT}회 완료하셨습니다."/>
+		<Class ClassID="501040" OverrideType="ADD" ClassName="steam_KindDonnes_Select" Data="도네스의 증표 교환"/>
+		<Class ClassID="501041" OverrideType="ADD" ClassName="Event_Returner_Desc01" Data="오늘은 더 이상 진행할 수 없습니다. 내일 다시 시도해 주세요."/>
+		<Class ClassID="501042" OverrideType="ADD" ClassName="Event_Returner_Desc02" Data=" {nl}나무뿌리를 부시고 복귀자의 증표 10개를 획득하세요."/>
+		<Class ClassID="501043" OverrideType="ADD" ClassName="Dungeoncount_14d_Name" Data="인스턴스 던전 배수 토큰 (14일)"/>
+		<Class ClassID="501044" OverrideType="ADD" ClassName="CS_IndunReset_GTower_14d" Data="대지의 탑 1회 입장권 (14일)"/>
+		<Class ClassID="501045" OverrideType="ADD" ClassName="CS_IndunReset_Nunnery_14d" Data="살러스 미션 1회 입장권 (14일)"/>
+		<Class ClassID="501046" OverrideType="ADD" ClassName="steam_Nru_Always_1" Data="신규 유저 가이드 상자 받기"/>
+		<Class ClassID="501047" OverrideType="ADD" ClassName="steam_Nru_Always_2" Data="앞으로 {NRUCOUNT}개의 캐릭터 보상이 남았습니다."/>
+		<Class ClassID="501048" OverrideType="ADD" ClassName="steam_Premium_StatReset" Data="스탯 초기화 포션"/>
+		<Class ClassID="501050" OverrideType="ADD" ClassName="steam_Event_Select_1" Data="친절한 도네스 이벤트"/>
+		<Class ClassID="501051" OverrideType="ADD" ClassName="steam_Event_Select_2" Data="신규 유저 이벤트"/>
+		<Class ClassID="501053" OverrideType="ADD" ClassName="Moru_King_Select_1" Data="빛나는 네잎클로버 받기"/>
+		<Class ClassID="501054" OverrideType="ADD" ClassName="Moru_King_Select_2" Data="상품 교환하기"/>
+		<Class ClassID="501055" OverrideType="ADD" ClassName="Moru_King_Select_3" Data="강화 8단계 상품"/>
+		<Class ClassID="501056" OverrideType="ADD" ClassName="Moru_King_Select_4" Data="강화 10단계 상품"/>
+		<Class ClassID="501057" OverrideType="ADD" ClassName="Moru_King_Select_5" Data="강화 15단계 상품"/>
+		<Class ClassID="501058" OverrideType="ADD" ClassName="Moru_King_Select_6" Data="강화 20단계 상품"/>
+		<Class ClassID="501059" OverrideType="ADD" ClassName="Moru_King_Select_7" Data="강화 25단계 상품"/>
+		<Class ClassID="501060" OverrideType="ADD" ClassName="Event_Steam_Wedding_1" Data="청첩장 받기"/>
+		<Class ClassID="501061" OverrideType="ADD" ClassName="Event_Steam_Wedding_2" Data="남은 청첩장 확인"/>
+		<Class ClassID="501062" OverrideType="ADD" ClassName="Event_Steam_Wedding_3" Data="앞으로 {WEDDINGCOUNT}명에게 청첩장을 건네주어야 합니다."/>
+		<Class ClassID="501065" OverrideType="ADD" ClassName="Event_GOLDEN_WHALE_1" Data="황금 석화 고래 이벤트 (모두)"/>
+		<Class ClassID="501066" OverrideType="ADD" ClassName="Event_GOLDEN_WHALE_2" Data="고래의 보물 받기"/>
+		<Class ClassID="501067" OverrideType="ADD" ClassName="Event_Today_Number_1" Data="같이 시작 이벤트 (복귀, 기존)"/>
+		<Class ClassID="501068" OverrideType="ADD" ClassName="Event_Today_Number_2" Data="오늘의 숫자 맞추기"/>
+		<Class ClassID="501069" OverrideType="ADD" ClassName="Event_Today_Number_3" Data="이벤트 진행 정보"/>
+		<Class ClassID="501070" OverrideType="ADD" ClassName="Event_Today_Number_4" Data="지금까지 {NUMCOUNT} 번 보상 받았습니다."/>
+		<Class ClassID="501071" OverrideType="ADD" ClassName="Event_Nru2_Guide_1" Data="새로운 시작 이벤트 (신규)"/>
+		<Class ClassID="501072" OverrideType="ADD" ClassName="Event_Nru2_Guide_2" Data="장비 선택"/>
+		<Class ClassID="501073" OverrideType="ADD" ClassName="Event_CB_1" Data="다시 시작 이벤트 (복귀자의 선물)"/>
+		<Class ClassID="501075" OverrideType="ADD" ClassName="Event_Steam_fishing_1" Data="은빛 물고기 건네주기"/>
+		<Class ClassID="501076" OverrideType="ADD" ClassName="Event_Steam_YC_1" Data="당신의 선택은? 이벤트"/>
+		<Class ClassID="501077" OverrideType="ADD" ClassName="Event_Steam_YC_2" Data="클라페다"/>
+		<Class ClassID="501078" OverrideType="ADD" ClassName="Event_Steam_YC_3" Data="오르샤"/>
+		<Class ClassID="501079" OverrideType="ADD" ClassName="Event_Steam_YC_4" Data="페디미안"/>
+		<Class ClassID="501080" OverrideType="ADD" ClassName="Event_Steam_YC_5" Data="마을 선택"/>
+		<Class ClassID="501081" OverrideType="ADD" ClassName="Event_Steam_YC_6" Data="마을 초기화"/>
+		<Class ClassID="501082" OverrideType="ADD" ClassName="Event_Steam_YC_7" Data="제작서-[이벤트] 복원된 여신상 받기"/>
+		<Class ClassID="501083" OverrideType="ADD" ClassName="Event_Steam_YC_8" Data="오늘 받은 보상 : {TODAY}회{nl}제작서 받은 뒤 경과 시간 : {COUNT}분"/>
+		<Class ClassID="501084" OverrideType="ADD" ClassName="Event_Steam_YC_9" Data="바로 획득 가능합니다."/>
+		<Class ClassID="501085" OverrideType="ADD" ClassName="Event_Steam_Together_Master_1" Data="이벤트 미션 참가"/>
+		<Class ClassID="501086" OverrideType="ADD" ClassName="Event_Steam_Together_Master_2" Data="증표 교환"/>
+		<Class ClassID="501087" OverrideType="ADD" ClassName="Event_Together_Master_1" Data="오늘은 마스터의 증표를 모두 받으셨습니다"/>
+		<Class ClassID="501088" OverrideType="ADD" ClassName="Event_Together_Master_2" Data="마스터의 증표를 획득하셨습니다"/>
+		<Class ClassID="501089" OverrideType="ADD" ClassName="Event_Steam_Together_Master_3" Data="마스터와 함께"/>
+		<Class ClassID="501091" OverrideType="ADD" ClassName="EVENT_SELECT_BOSSLV_SEL1" Data="육성하기"/>
+		<Class ClassID="501092" OverrideType="ADD" ClassName="EVENT_SELECT_BOSSLV_SEL2" Data="몬스터명 : {NAME}"/>
+		<Class ClassID="501093" OverrideType="ADD" ClassName="EVENT_SELECT_BOSSLV_SEL3" Data=" {nl}몬스터명 : {NAME}{nl}현재레벨 : {LV}{nl}{nl}레벨을 올리기 위해서는 '몬스터의 기운' 아이템이 필요합니다."/>
+		<Class ClassID="501094" OverrideType="ADD" ClassName="EVENT_SELECT_BOSSLV_SEL4" Data="방생하기"/>
+		<Class ClassID="501096" OverrideType="ADD" ClassName="EVENT_SELECT_BOSSLV_SEL5" Data="특별한 블루 오브 이벤트"/>
+		<Class ClassID="501097" OverrideType="ADD" ClassName="EVENT_SELECT_BOSSLV_SEL6" Data=" {nl}몬스터 정보{nl}Lv {LV1} {NAME1}{nl}Lv {LV2} {NAME2}{nl}Lv {LV3} {NAME3}"/>
+		<Class ClassID="501098" OverrideType="ADD" ClassName="EVENT_SELECT_BOSSLV_SEL7" Data=" {nl}이벤트 미션 정보{nl}최대 클리어 단계 : {MAX}"/>
+		<Class ClassID="501099" OverrideType="ADD" ClassName="EVENT_SURVIVAL_NAME" Data="서바이벌 이벤트"/>
+	</Category>
+	<Category Name="Premium">
+		<Class ClassID="660001" OverrideType="ADD" ClassName="steam_PremiumToken_30day" Data="토큰:30일"/>
+		<Class ClassID="660002" OverrideType="ADD" ClassName="steam_PremiumToken_60d" Data="토큰:60일"/>
+	</Category>
 </idspace>

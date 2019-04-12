@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="8" attachNode="bip01" particleName="F_spread_out055" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="7" attachNode="None" particleName="F_warrior_dragoonhelmet001" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="8" attachNode="None" particleName="F_spread_out026_leaf_fire_dragoonhelmet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false"/>
+	<AttachModel frame="0" XAC="warrior_f_dragoon_helmet" node="Dummy_helmet" isAttach="true" autoDetach="true" index="0" anim=""/>
+	<Sound frame="0.00" soundFile="atk_cloth_s_l1"/>
+	<Sound frame="2.00" soundFile="voice_archer_atk"/>
+	<Sound frame="4.00" soundFile="skl_eff_murmillo_on"/>
+</ActionDesc>

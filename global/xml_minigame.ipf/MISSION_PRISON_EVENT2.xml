@@ -1,371 +1,344 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <GameList>
-	<Game Name="MISSION_PRISON_EVENT2" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="d_prison_62_1_event" startWaitSec="5177402">
-		<StageList>
-			<Stage Name="DefGroup">
-				<StartScpList>
-					<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-						<Str Str="7분동안 몬스터로부터 도망치세요."/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList>
-					<Obj Type="Monster" MonType="47230" Pos="676.24#325.90#673.82" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1"/>
-					<Obj Type="Monster" MonType="47230" Pos="1056.87#323.04#454.65" angle="90" genCount="1" genTime="20000" objectKey="1"/>
-					<Obj Type="Monster" MonType="47230" Pos="693.97#323.04#900.01" angle="200" genCount="1" genTime="20000" objectKey="2"/>
-					<Obj Type="Monster" MonType="47230" Pos="1068.67#323.04#883.35" angle="180" genCount="1" genTime="20000" objectKey="3"/>
-					<Obj Type="Monster" MonType="47230" Pos="689.74#323.04#462.83" angle="90" genCount="1" genTime="20000" objectKey="4"/>
-				</ObjList>
-				<StageEvents>
-					<Event execCount="1" eventName="sec30">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="20"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="30초 후에 시작됩니다"/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="sec10">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="40"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="10초 후에 시작됩니다"/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="start">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="50"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="미션이 시작됩니다!"/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="DefGroup"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="Stage1"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
-								<Str Str="None"/>
-								<Str Str="None"/>
-								<Str Str="None"/>
-								<Str Str="account/PlayTimeEventRewardCount/1"/>
-								<Str Str="PlayTimeEventRewardCount"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="sec50">
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="50초 후에 시작됩니다"/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="FailCheck">
-				<ObjList/>
-				<StageEvents>
-					<Event eventName="pcDieCheck">
-						<condList>
-							<ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
-								<Num Num="0"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="FailCheck"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="Fail"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
-								<Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
-								<Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="min10Check">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3000"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="10분 뒤 미션이 종료됩니다"/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="min5Check">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3300"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="5분 뒤 미션이 종료됩니다"/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="min60Check">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3600"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="FailCheck"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="Fail"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="Fail" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-						<Str Str="미션 실패 : 10초 후 원래 존으로 돌아갑니다"/>
-					</ToolScp>
-					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
-						<Str Str="미션 실패 : 10초 후 원래 존으로 돌아갑니다"/>
-						<Str Str="scroll"/>
-						<Num Num="5"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="failsec30">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="Success" AutoStart="0">
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="successsec60">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="30"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-						</execList>
-					</Event>
-					<Event eventName="delete">
-						<condList>
-							<ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
-								<Str Str="INIT_PRISON_EVENT_END"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="Stage1" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="90"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList>
-					<Obj Type="Monster" MonType="41383" Pos="792.17#323.04#513.28" genCount="1" genTime="20000" objectKey="0" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;100000&apos; " SimpleAI="ATK_400" AfterGenScript="POST_GEN_PRISONMON">
-						<SelfAI ActiveMessageMapInBattle="1"/>
-					</Obj>
-					<Obj Type="Monster" MonType="41384" Pos="987.99#323.04#820.34" genCount="1" genTime="20000" objectKey="2" propList="&apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;100000&apos; " SimpleAI="ATK_400_2" AfterGenScript="POST_GEN_PRISONMON"/>
-				</ObjList>
-				<StageEvents>
-					<Event execCount="1" eventName="NextStage" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="90"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
-								<MGameObjPtr List="Stage1/0/Stage1/2"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EXEC_REVIVE" Client="NO" UseSleep="NO"/>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="1단계 보상이 지급됩니다."/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_GIVE_ITEM" Client="NO" UseSleep="NO">
-								<Str Str="Event_170117_1/1"/>
-								<Str Str="MISSION_PRISON_EVENT1"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="Stage1"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="Stage2"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="Stage2" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="120"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList>
-					<Obj Type="Monster" MonType="41383" Pos="788.49#323.04#530.21" angle="90" genCount="1" genTime="20000" objectKey="0" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;100000&apos; " SimpleAI="ATK_400" AfterGenScript="POST_GEN_PRISONMON">
-						<SelfAI ActiveMessageMapInBattle="1"/>
-					</Obj>
-					<Obj Type="Monster" MonType="100170" Pos="769.63#323.04#832.55" genCount="1" genTime="20000" objectKey="2" propList="&apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;100000&apos; " SimpleAI="ATK_400_2" AfterGenScript="POST_GEN_PRISONMON">
-						<SelfAI ActiveMessageMapInBattle="1"/>
-					</Obj>
-					<Obj Type="Monster" MonType="41384" Pos="986.40#323.04#545.31" genCount="1" genTime="20000" objectKey="3" propList="&apos;ATK_BM&apos; &apos;100000&apos; &apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; " SimpleAI="ATK_400_2" AfterGenScript="POST_GEN_PRISONMON"/>
-				</ObjList>
-				<StageEvents>
-					<Event execCount="1" eventName="NextStage" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="120"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
-								<MGameObjPtr List="Stage2/0/Stage2/2/Stage2/3"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EXEC_REVIVE" Client="NO" UseSleep="NO"/>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="2단계 보상이 지급됩니다."/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_GIVE_ITEM" Client="NO" UseSleep="NO">
-								<Str Str="Event_170117_1/1"/>
-								<Str Str="MISSION_PRISON_EVENT1"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="Stage2"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="Stage3"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="Stage3" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="180"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList>
-					<Obj Type="Monster" MonType="41227" Pos="1028.25#323.04#660.86" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;100000&apos; " SimpleAI="ATK_400" AfterGenScript="POST_GEN_PRISONMON">
-						<SelfAI ActiveMessageMapInBattle="1"/>
-					</Obj>
-					<Obj Type="Monster" MonType="100170" Pos="731.01#323.04#669.96" angle="-90" genCount="1" genTime="20000" objectKey="2" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;100000&apos; " SimpleAI="ATK_400_2" AfterGenScript="POST_GEN_PRISONMON">
-						<SelfAI ActiveMessageMapInBattle="1"/>
-					</Obj>
-					<Obj Type="Monster" MonType="41383" Pos="905.54#323.04#867.71" angle="-90" genCount="1" genTime="20000" objectKey="3" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;100000&apos; " SimpleAI="ATK_400_2" AfterGenScript="POST_GEN_PRISONMON">
-						<SelfAI ActiveMessageMapInBattle="1"/>
-					</Obj>
-				</ObjList>
-				<StageEvents>
-					<Event execCount="1" eventName="NextStage" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="180"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
-								<MGameObjPtr List="Stage3/0/Stage3/2/Stage3/3"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EXEC_REVIVE" Client="NO" UseSleep="NO"/>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="3단계 보상이 지급됩니다."/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_GIVE_ITEM" Client="NO" UseSleep="NO">
-								<Str Str="Event_170117_1/1/Drug_Fortunecookie/1"/>
-								<Str Str="MISSION_PRISON_EVENT1"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="Stage3"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="Success"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-		</StageList>
-		<EnterList>
-			<ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
-				<Str Str="Indun_d_prison_62_1_event"/>
-			</ToolScp>
-			<ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
-				<Num Num="2"/>
-				<Str Str="INIT_PRISON_EVENT_STAT"/>
-			</ToolScp>
-		</EnterList>
-	</Game>
+    <Game Name="MISSION_PRISON_EVENT2" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="d_prison_62_1_event" startWaitSec="5177402">
+        <StageList>
+            <Stage Name="DefGroup">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                        <Str Str="3분 10초 동안 몬스터로부터 도망치세요."/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="47230" Pos="676.24#325.90#673.82" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1"/>
+                    <Obj Type="Monster" MonType="47230" Pos="1056.87#323.04#454.65" angle="90" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="47230" Pos="693.97#323.04#900.01" angle="200" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="47230" Pos="1068.67#323.04#883.35" angle="180" genCount="1" genTime="20000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="47230" Pos="689.74#323.04#462.83" angle="90" genCount="1" genTime="20000" objectKey="4"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="sec30">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10초 후에 시작됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="start">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="미션이 시작됩니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="account/EV170330_REWARD_COUNT/1"/>
+                                <Str Str="EV170330_REWARD_COUNT"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="EV170330"/>
+                                <Str Str="Type/Easy"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="sec50">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="30초 후에 시작됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="FailCheck">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="pcDieCheck">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FailCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+                                <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="min10Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3000"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10분 뒤 미션이 종료됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="min5Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3300"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="5분 뒤 미션이 종료됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="min60Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FailCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Fail" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="미션 실패 : 10초 후 원래 존으로 돌아갑니다"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="미션 실패 : 10초 후 원래 존으로 돌아갑니다"/>
+                        <Str Str="scroll"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="failsec30">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Success" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="successsec60">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage1" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="40"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="41383" Pos="792.17#323.04#513.28" genCount="1" genTime="20000" objectKey="0" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;999999&apos; &apos;STR_BM&apos; &apos;999999&apos; &apos;INT_BM&apos; &apos;999999&apos; " SimpleAI="ATK_400" AfterGenScript="POST_GEN_PRISONMON">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41384" Pos="987.99#323.04#820.34" genCount="1" genTime="20000" objectKey="2" propList="&apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;999999&apos; &apos;STR_BM&apos; &apos;999999&apos; &apos;INT_BM&apos; &apos;999999&apos; " SimpleAI="ATK_400_2" AfterGenScript="POST_GEN_PRISONMON"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="NextStage" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="40"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="Stage1/0/Stage1/2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_REVIVE" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="1단계 보상이 지급됩니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_GIVE_ITEM" Client="NO" UseSleep="NO">
+                                <Str Str="Event_170117_1/1/161215Event_Seed/1"/>
+                                <Str Str="MISSION_PRISON_EVENT2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage2" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="60"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="41383" Pos="788.49#323.04#530.21" angle="90" genCount="1" genTime="20000" objectKey="0" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;999999&apos; &apos;STR_BM&apos; &apos;999999&apos; &apos;INT_BM&apos; &apos;999999&apos; " SimpleAI="ATK_400" AfterGenScript="POST_GEN_PRISONMON">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100170" Pos="769.63#323.04#832.55" genCount="1" genTime="20000" objectKey="2" propList="&apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;999999&apos; &apos;STR_BM&apos; &apos;999999&apos; &apos;INT_BM&apos; &apos;999999&apos; " SimpleAI="ATK_400_2" AfterGenScript="POST_GEN_PRISONMON">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="NextStage" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="Stage2/0/Stage2/2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_REVIVE" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="2단계 보상이 지급됩니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_GIVE_ITEM" Client="NO" UseSleep="NO">
+                                <Str Str="Event_170117_1/1/161215Event_Seed/1"/>
+                                <Str Str="MISSION_PRISON_EVENT2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage3" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="90"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="100170" Pos="731.01#323.04#669.96" angle="-90" genCount="1" genTime="20000" objectKey="2" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;999999&apos; &apos;STR_BM&apos; &apos;999999&apos; &apos;INT_BM&apos; &apos;999999&apos; " SimpleAI="ATK_400_2" AfterGenScript="POST_GEN_PRISONMON">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41383" Pos="905.54#323.04#867.71" angle="-90" genCount="1" genTime="20000" objectKey="3" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;999999&apos; &apos;STR_BM&apos; &apos;999999&apos; &apos;INT_BM&apos; &apos;999999&apos; " SimpleAI="ATK_400_2" AfterGenScript="POST_GEN_PRISONMON">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="NextStage" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="90"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="Stage3/2/Stage3/3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_REVIVE" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="3단계 보상이 지급됩니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_GIVE_ITEM" Client="NO" UseSleep="NO">
+                                <Str Str="Event_170117_1/1/161215Event_Seed/1"/>
+                                <Str Str="MISSION_PRISON_EVENT2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Success"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="Indun_d_prison_62_1_event"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
+                <Str Str="INIT_PRISON_EVENT_STAT"/>
+            </ToolScp>
+        </EnterList>
+    </Game>
 </GameList>

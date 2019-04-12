@@ -206,7 +206,7 @@ function ADVENTURE_BOOK_MAIN_SET_MY_RANK_INFO(frame)
     local FG_MARGIN = 10;
     gauge_fg:Resize(gauge_fg:GetWidth(), height);
 
-    local arrowY = gauge_fg:GetOriginalHeight() - gauge_fg:GetHeight();
+    local arrowY = math.min(gauge_fg:GetOriginalHeight() - gauge_fg:GetHeight(), 348);
     arrow_pic:SetOffset(arrow_pic:GetX(), arrow_pic:GetOriginalY() + arrowY);
 
     return existRank;

@@ -2,6 +2,7 @@ function PET_INFO_ON_INIT(addon, frame)
 
 	addon:RegisterOpenOnlyMsg("PET_PROP_UPDATE", "ON_PET_PROP_UPDATE");
 	addon:RegisterOpenOnlyMsg("PET_EXP_UPDATE", "ON_PET_EXP_UPDATE");
+	addon:RegisterOpenOnlyMsg("PET_NAME_CHANGED", "ON_PET_NAME_CHANGED");
 	addon:RegisterMsg("COMPANION_UI_OPEN", "COMPANION_UI_OPEN_DO");
 	addon:RegisterMsg("COMPANION_AUTO_ATK", "COMPANION_UI_AUTO_ATK");
 	
@@ -32,6 +33,10 @@ function COMPANION_UI_OPEN_DO(frame)
 
 	PET_INFO_SHOW(summonedPet:GetStrGuid());
 
+end
+
+function ON_PET_NAME_CHANGED(frame, msg, strArg, numArg)
+	PET_INFO_SHOW(frame:GetUserValue('PET_GUID'));
 end
 
 function ON_PET_PROP_UPDATE(frame, msg, propName)
@@ -260,8 +265,23 @@ function PET_INFO_SHOW(petGuid)
 
 	-- 자동 공격 관련 컨트롤을 트리 밑에 넣어야 한다
 	local autoAtkBox = GET_CHILD_RECURSIVELY(frame, 'autoAtkBox');
-	autoAtkBox:SetOffset(autoAtkBox:GetX(), tree:GetY() + tree:GetAllHeight() + slotsize);
-		
+    autoAtkBox:SetOffset(autoAtkBox:GetX(), tree:GetY() + tree:GetAllHeight() + slotsize);
+    
+    local companionList , cnt = GetClassList('Companion')
+	local checkRidingOnly = 'None'
+	for i = 0, cnt - 1 do
+	    local companion = GetClassByIndexFromList(companionList, i)
+	    if companion.ClassName == obj.ClassName then
+	        checkRidingOnly = companion.RidingOnly
+	    end
+	end
+    
+    if checkRidingOnly == 'YES' then
+        autoAtkBox:ShowWindow(0);
+    elseif checkRidingOnly == 'NO' then
+        autoAtkBox:ShowWindow(1);
+    end
+    
 	frame:ShowWindow(1);
 	
 	PET_INFO_UPDATE_ACTIVATED(frame, true);

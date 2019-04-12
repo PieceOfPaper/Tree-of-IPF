@@ -11,16 +11,18 @@ end
 
 
 
-function SET_SLOT_ITEM_INFO(slot, itemCls, count)
+function SET_SLOT_ITEM_INFO(slot, itemCls, count, style)
 	local icon = CreateIcon(slot);
 	icon:EnableHitTest(0);
 	if itemCls == nil then
 		return;
 	end
     local iconImageName = GET_EQUIP_ITEM_IMAGE_NAME(itemCls, 'Icon');
-
+    if style == nil then
+        style = '{s12}{ol}{b}'
+    end
 	icon:Set(iconImageName, "item", itemCls.ClassID, count);
-	slot:SetText('{s12}{ol}{b}'..count, 'count', 'right', 'bottom', -2, 1);
+	slot:SetText(style..count, 'count', 'right', 'bottom', -2, 1);
 	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), itemCls.ClassID);
 	return icon;
 end
@@ -82,7 +84,7 @@ function SET_SLOT_ITEM_INV(slot, itemCls)
 
 end
 
--- ?˜ë‹¨ ?„ì´??ê°?ˆ˜ ?«ìê°€ê°€ ? ì„œ... ?´ë?ì§€ë§?ë³´ì´ê²??˜ê¸° ?„í•´
+-- ?ï¿½ë‹¨ ?ï¿½ì´??ï¿½?ï¿½ï¿½ ?ï¿½ìê°€ê°€ ?ï¿½ì„œ... ?ï¿½ï¿½?ì§€ï¿½?ë³´ì´ï¿½??ï¿½ê¸° ?ï¿½í•´
 function SET_SLOT_ITEM_IMAGE(slot, invItem)
 	if nil == invItem then
 		return;

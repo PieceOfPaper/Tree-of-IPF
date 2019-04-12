@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <AttachModel frame="0" XAC="artefact_holybaptism" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="0" anim="None"/>
+    <Sound frame="11.00" soundFile="skl_cleric_sungsu"/>
+    <Particle frame="14" attachActor="None" attachNode="Dummy_effect_sungsu2" particleName="I_cleric_methadone_shot_water" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="14" attachActor="None" attachNode="Dummy_emitter" particleName="F_pc_skilltarget_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="16.00" soundFile="skl_eff_buff_7"/>
+</ActionDesc>

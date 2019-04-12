@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="None" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="5" attachNode="Bip001 Spine" particleName="I_spread_in011" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="8.00" soundFile="mon_voice_lapene_skl1_shot"/>
+    <Particle frame="15" attachNode="Bip001 Spine" particleName="I_spread_in011_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="20" attachNode="Bip001 Spine" particleName="I_spread_in011" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="30" attachNode="Bip001 Spine" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="30" attachNode="Bip001 Xtra02" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="30" attachNode="Bip001 Spine" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="35" attachNode="Bip001 Xtra02Opp" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="35" attachNode="Bip001 Xtra02Opp04" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="40" attachNode="Bip001 Xtra0204" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="40" attachNode="Bip001 Xtra0604" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="45" attachNode="Bip001 Xtra0606" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="45" attachNode="Bip001 Xtra0608" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="50" attachNode="Bip001 Xtra06Nub" particleName="Bip001 Xtra0610" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="50" attachNode="Dummy_effect_head" particleName="F_light080_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.15" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="55" attachNode="Bip001 Spine" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="70" attachNode="Bip001 Spine" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="70" attachNode="Bip001 Xtra02" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="75" attachNode="Bip001 Xtra02Opp" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="75" attachNode="Bip001 Xtra02Opp04" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="80" attachNode="Bip001 Xtra0204" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="80" attachNode="Bip001 Xtra0604" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="80" attachNode="Bip001 Xtra06Nub" particleName="Bip001 Xtra0610" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Sound frame="80.00" soundFile="mon_voice_lapene_skl3_cast"/>
+    <Particle frame="85" attachNode="Bip001 Xtra0606" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="85" attachNode="Bip001 Xtra0608" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+    <Particle frame="86" attachNode="Dummy_emitter" particleName="F_smoke148_spread_out_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="86" attachNode="Dummy_emitter" particleName="F_dash013_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="86" attachNode="Bip001 Spine" particleName="I_light013_spark_blue_3" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="86" attachNode="Dummy_emitter" particleName="F_spread_out047_circle_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="skl_eff_spread_4"/>
+    <Particle frame="86" attachNode="None" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="86" attachNode="Dummy_emitter" particleName="F_spread_out026_dark_low" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="86" attachNode="Bip001 Xtra0103" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="86" attachNode="Bip001 Xtra01" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="86" attachNode="Bip001 Xtra05Opp05" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="86" attachNode="Bip001 Xtra0505" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="95" attachNode="Dummy_emitter" particleName="F_smoke148_spread_out_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

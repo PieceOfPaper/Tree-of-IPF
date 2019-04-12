@@ -84,7 +84,7 @@ function ON_ADD_HELPLIST(frame, msg)
 end
 
 
-function ON_HELPLIST_UPDATE(frame)
+function ON_HELPLIST_UPDATE(frame)    
 
 	local x = 10;
 	local y = 20;
@@ -104,7 +104,7 @@ function ON_HELPLIST_UPDATE(frame)
 				
 		y = y + ui.GetControlSetAttribute("helplist_category", "height");
 
-		local cnameRichText = GET_CHILD(cset, "help_category", "ui::CRichText");
+		local cnameRichText = GET_CHILD(cset, "help_category", "ui::CRichText");        
         
         local translated_name = categoryNameList[i]
 
@@ -136,7 +136,7 @@ function ON_HELPLIST_UPDATE(frame)
 				set:ShowWindow(1)
 				y = y + ui.GetControlSetAttribute("helplist", "height");
 
-				local nameRichText = GET_CHILD(set, "help_title", "ui::CRichText");
+				local nameRichText = GET_CHILD(set, "help_title", "ui::CRichText");                
 
                 local translated_helpCls_title = helpCls.Title
                 local start_index, end_index = string.find(helpCls.Title, '@dicID')
@@ -152,7 +152,7 @@ function ON_HELPLIST_UPDATE(frame)
 				set:ShowWindow(0)
 			end
 		end
-		 
+		
 		y = y + 10
 	end
 

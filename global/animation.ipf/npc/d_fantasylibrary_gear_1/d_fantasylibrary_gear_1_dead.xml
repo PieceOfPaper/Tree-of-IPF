@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Shockwave frame="0" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" particleName="F_spread_in038" attachNode="Dummy_light_mid" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_chapparition_dead_cast_eff"/>
+    <Sound frame="0.00" soundFile="skl_eff_debuff_3"/>
+    <BlendOn frame="10" R="150" G="100" B="100" A="200"/>
+    <BlendOn frame="30" R="200" G="130" B="130" A="200"/>
+    <Sound frame="35.00" soundFile="skl_eff_bloodcurse_boom"/>
+    <BlendOn frame="50" R="255" G="200" B="200" A="255"/>
+    <Sound frame="52.00" soundFile="skl_eff_dead_boom_stone"/>
+    <BlendOn frame="55" R="255" G="255" B="255" A="255"/>
+    <BlendOff frame="59" R="0" G="0" B="0" A="0"/>
+    <Particle frame="59" particleName="F_smoke117" attachNode="Dummy001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="59" particleName="F_smoke033" attachNode="Dummy001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="59" particleName="d_fantasylibrary_gear_dead_mash" attachNode="Dummy001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Shockwave frame="60" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="62" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="64" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

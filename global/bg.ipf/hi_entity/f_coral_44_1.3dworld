@@ -1,8 +1,47 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by r (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\field\ f_coral_44_1\"/>
-	<TexDir IpfName="bg_texture" Path="\common\"/>
-	<Model File=" f_coral_44_1_ground.xac" Model=" f_coral_44_1_ground" pos="0.0 0.0 0.0" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<ModelDir IpfName="bg_hi3" Path="\field\f_coral_44_1\"/>
+	<SubTexDir IpfName="bg_texture\" Path="\flash\"/>
+	<SubTexDir IpfName="bg_texture\" Path="\gele\"/>
+	<LightMap File="f_coral_44_1_lightmap.jpg" Length="4000.0 4000.0" Offset="-116.644 -88.415" Size="1024 1024"/>
+	<AutoHeightMap Length="5000.0 5000.0" Offset="-245.589 -19.137" Height="5000 -5000"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\field\f_coral_44_1\"/>
+	<TexDir IpfName="bg_texture" Path="\coral\"/>
+	<Model File="f_coral_44_1_b_model_01.xac" Model="f_coral_44_1_b_model_01" ShadowMap="f_coral_44_1_b_model_01" pos="-298.5896 -2.6160 161.9737" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_grass_03.xac" Model="f_coral_44_1_grass_03" ShadowMap="f_coral_44_1_grass_03" pos="-63.7532 107.2305 -138.6659" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_cable.xac" Model="f_coral_44_1_cable" ShadowMap="f_coral_44_1_cable" pos="144.5674 88.4113 72.8062" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_gr_a.xac" Model="f_coral_44_1_gr_a" ShadowMap="f_coral_44_1_gr_a" pos="-253.6277 206.8660 -69.5687" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_bl_01.xac" Model="f_coral_44_1_bl_01" ShadowMap="f_coral_44_1_bl_01" pos="-175.5571 113.7593 -95.1870" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_grass_02.xac" Model="f_coral_44_1_grass_02" ShadowMap="f_coral_44_1_grass_02" pos="-269.9498 154.0288 -115.2286" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_b_model_02.xac" Model="f_coral_44_1_b_model_02" ShadowMap="f_coral_44_1_b_model_02" pos="-1463.0959 147.0208 634.0292" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_b_model_04.xac" Model="f_coral_44_1_b_model_04" ShadowMap="f_coral_44_1_b_model_04" pos="-1277.2976 50.1323 -1177.9399" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_b_model_05.xac" Model="f_coral_44_1_b_model_05" ShadowMap="f_coral_44_1_b_model_05" pos="282.9329 108.2774 1212.5625" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_b_model_06.xac" Model="f_coral_44_1_b_model_06" ShadowMap="f_coral_44_1_b_model_06" pos="-60.7463 120.4198 156.5884" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_b_model_07.xac" Model="f_coral_44_1_b_model_07" ShadowMap="f_coral_44_1_b_model_07" pos="1043.1810 127.1928 110.9849" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_b_model_09.xac" Model="f_coral_44_1_b_model_09" ShadowMap="f_coral_44_1_b_model_09" pos="1075.6770 104.3043 -756.3378" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_bl_03.xac" Model="f_coral_44_1_bl_03" ShadowMap="f_coral_44_1_bl_03" pos="-286.4482 146.9283 -83.3115" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_bl_02.xac" Model="f_coral_44_1_bl_02" ShadowMap="f_coral_44_1_bl_02" pos="-296.1264 146.7283 -83.3950" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_water.xac" Model="f_coral_44_1_water" ShadowMap="f_coral_44_1_water" pos="-455.2862 111.6499 81.1101" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_grass_01.xac" Model="f_coral_44_1_grass_01" ShadowMap="f_coral_44_1_grass_01" pos="-739.9404 184.9836 202.7047" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_ground.xac" Model="f_coral_44_1_ground" ShadowMap="f_coral_44_1_ground" pos="-163.0260 125.0098 -45.8113" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_model_10.xac" Model="f_coral_44_1_model_10" ShadowMap="f_coral_44_1_model_10" pos="-76.8833 111.6322 -103.7959" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_model_07.xac" Model="f_coral_44_1_model_07" ShadowMap="f_coral_44_1_model_07" pos="839.1488 128.8867 -1344.1223" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_b_model_10.xac" Model="f_coral_44_1_b_model_10" ShadowMap="f_coral_44_1_b_model_10" pos="-61.8064 108.9771 -923.7488" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_grass_04.xac" Model="f_coral_44_1_grass_04" ShadowMap="f_coral_44_1_grass_04" pos="-342.8447 185.9210 -13.4229" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_model_01.xac" Model="f_coral_44_1_model_01" ShadowMap="f_coral_44_1_model_01" pos="-1554.8124 111.0993 763.0319" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_model_02.xac" Model="f_coral_44_1_model_02" ShadowMap="f_coral_44_1_model_02" pos="-1612.0356 171.0566 -159.8903" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_model_03.xac" Model="f_coral_44_1_model_03" ShadowMap="f_coral_44_1_model_03" pos="-1152.5359 94.9083 -1195.6345" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_model_04.xac" Model="f_coral_44_1_model_04" ShadowMap="f_coral_44_1_model_04" pos="177.4647 95.1143 1135.3459" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_model_06.xac" Model="f_coral_44_1_model_06" ShadowMap="f_coral_44_1_model_06" pos="30.9429 92.0999 425.6707" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_model_08.xac" Model="f_coral_44_1_model_08" ShadowMap="f_coral_44_1_model_08" pos="42.3561 148.6403 -613.0780" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_model_09.xac" Model="f_coral_44_1_model_09" ShadowMap="f_coral_44_1_model_09" pos="1313.0548 112.4009 148.0685" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_model_05.xac" Model="f_coral_44_1_model_05" ShadowMap="f_coral_44_1_model_05" pos="1299.1583 133.3815 -733.0583" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_b_model_03.xac" Model="f_coral_44_1_b_model_03" ShadowMap="f_coral_44_1_b_model_03" pos="-1660.1329 141.2046 -297.6989" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_grass_05.xac" Model="f_coral_44_1_grass_05" ShadowMap="f_coral_44_1_grass_05" pos="101.2140 150.9300 -326.5828" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_model_13.xac" Model="f_coral_44_1_model_13" ShadowMap="f_coral_44_1_model_13" pos="-426.4202 128.8754 -171.9338" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_model_12.xac" Model="f_coral_44_1_model_12" ShadowMap="f_coral_44_1_model_12" pos="1174.7097 68.0761 -619.1841" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_obbcol.xac" Model="f_coral_44_1_obbcol" pos="-1612.0356 171.0566 -159.8903" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_44_1_model_11.xac" Model="f_coral_44_1_model_11" ShadowMap="f_coral_44_1_model_11" pos="-1064.5198 105.6312 385.0288" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

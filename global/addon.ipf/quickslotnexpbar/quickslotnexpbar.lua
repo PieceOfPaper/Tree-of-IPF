@@ -644,7 +644,7 @@ function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 						local classType = TryGetProp(obj, "ClassType");
 
 						if itemType ~= nil and classType ~= nil then
-							if itemType ~= "Equip" or (itemType == "Equip" and classType == "Outer") then
+							if itemType ~= "Equip" or (itemType == "Equip" and (classType == "Outer" or classType == "SpecialCostume")) then
 								return;
 							end
 						else

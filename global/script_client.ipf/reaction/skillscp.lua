@@ -68,7 +68,7 @@ function SKILLSCP_CART(skillType)
 	local mapFrame = ui.GetFrame("map");
 	mapFrame:ShowWindow(1);
 	local eftFrame = ui.GetFrame("uieffect");
-	-- ������ UI�� �����Ǵ°� ����
+	-- 여러개 UI가 생성되는걸 방지
 	if eftFrame:GetUserIValue("MAP_CHECKING") == 1 then
 		return 0;
 	end
@@ -129,7 +129,7 @@ end
 
 function SCP_SKL_IMPALER_SUBANIM(aniName)
 
-	-- �ϴ� ��pc������ ���̵��� ������ üũ. �����
+	-- 일단 내pc에서만 보이도록 내꺼만 체크. 영상용
 	local mains = session.GetMainSession();
 	local buffCount = info.GetBuffCount(mains:GetHandle());
 	for i = 0, buffCount - 1 do
@@ -164,6 +164,10 @@ function SCR_SKILL_RECIPE(skillType)
 end
 
 function SCR_SKILL_PUZZLECRAFT(skillType)
+    if session.colonywar.GetIsColonyWarMap() == true then
+        ui.SysMsg(ClMsg('ThisLocalUseNot'));
+        return 0;
+    end
 
 	local skl = session.GetSkill(skillType);
 	if skl == nil then

@@ -58,7 +58,7 @@ function ITEM_TRANSEND_DROP(frame, icon, argStr, argNum)
 	local FromFrame 			= liftIcon:GetTopParentFrame();
 	local toFrame				= frame:GetTopParentFrame();
 
-	-- ?�레�??�롭???�벤?�리?�서�?가?�하�?
+	-- ?�레�??�롭???�벤?�리?�서�?가?�하�?
 	if FromFrame:GetName() == 'inventory' then
 		local iconInfo = liftIcon:GetInfo();
 		ITEM_TRANSCEND_REG_TARGETITEM(frame, iconInfo:GetIESID());
@@ -78,7 +78,7 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 		return;
 	end
 
-	if IS_NEED_APPRAISED_ITEM(obj) == true then 
+	if IS_NEED_APPRAISED_ITEM(obj) == true or IS_NEED_RANDOM_OPTION_ITEM(obj) == true then 
 		ui.SysMsg(ClMsg("NeedAppraisd"));
 		return;
 	end
@@ -96,7 +96,7 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 	UPDATE_TRANSCEND_ITEM(frame);	
 end
 
--- ?�내메세지�??�요???�이?�을 보여주기 ?�함. 
+-- ?�내메세지�??�요???�이?�을 보여주기 ?�함. 
 function ITEM_TRANSCEND_NEED_GUIDE(frame, obj)
 	local mtrlName = GET_TRANSCEND_MATERIAL_ITEM(obj);	
 	if string.len(mtrlName) <= 0 then
@@ -117,12 +117,12 @@ function ITEM_TRANSCEND_NEED_GUIDE(frame, obj)
 	SETTEXT_GUIDE(frame, 1, needTxt);
 end;
 
--- 초월 ?�공�?100%???�요??�?�� ?�기
+-- 초월 ?�공�?100%???�요??�?�� ?�기
 function GET_TRANSCEND_MAXCOUNT(obj)
 	return GET_TRANSCEND_MATERIAL_COUNT(obj, nil);
 end;
 
--- 초월 ?�공�?100%???�요??�?�� ?�시
+-- 초월 ?�공�?100%???�요??�?�� ?�시
 function GET_TRANSCEND_MAXCOUNT_TXT(obj)
 	local numColor = "{#FFE400}";
 	local mtrl_num = ScpArgMsg("ITEMTRANSCEND_MTRL_NUM{color}{num}", "num", GET_TRANSCEND_MAXCOUNT(obj), "color", numColor);
@@ -130,7 +130,7 @@ function GET_TRANSCEND_MAXCOUNT_TXT(obj)
 	return guideTxt;
 end;
 
--- 초월 ?�이?????�???�내메세지.
+-- 초월 ?�이?????�???�내메세지.
 function SETTEXT_GUIDE(frame, type, text)
 	local title_result = frame:GetChildRecursively("title_result");
 	local txt_result = frame:GetChildRecursively("txt_result");
@@ -155,7 +155,7 @@ function SETTEXT_GUIDE(frame, type, text)
 	txt_result:ShowWindow(1);
 end;
 
--- 초월 ?�이???�거??
+-- 초월 ?�이???�거??
 function REMOVE_TRANSCEND_TARGET_ITEM(frame)
 	
 	if ui.CheckHoldedUI() == true then
@@ -168,14 +168,14 @@ function REMOVE_TRANSCEND_TARGET_ITEM(frame)
 	SET_TRANSCEND_RESET(frame);
 	UPDATE_TRANSCEND_ITEM(frame);
 	
-	local needTxt = string.format("{@st43b}{s18}%s{/}", ScpArgMsg("ITEMTRANSCEND_GUIDE_FIRST"));	
+	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_GUIDE_FIRST"));	
 	SETTEXT_GUIDE(frame, 3, needTxt);
 	
 	local popupFrame = ui.GetFrame("itemtranscendresult");
 	popupFrame:ShowWindow(0);	
 end
 
--- ?�료 ?�롯�??�공�? 버튼??초기???�킴.
+-- ?�료 ?�롯�??�공�? 버튼??초기???�킴.
 function SET_TRANSCEND_RESET(frame)
 	local slot_material = GET_CHILD(frame, "slot_material");
 	slot_material:SetUserValue("MTRL_COUNT", 0);
@@ -191,7 +191,7 @@ function SET_TRANSCEND_RESET(frame)
 	reg:ShowWindow(0);
 end;
 
--- ?�려?�있???�료 ?�이???�릭??
+-- ?�려?�있???�료 ?�이???�릭??
 function REMOVE_TRANSCEND_MTRL_ITEM(frame, slot)
 	local materialItem = GET_SLOT_ITEM(slot);	
 	if materialItem == nil then
@@ -224,7 +224,7 @@ function REMOVE_TRANSCEND_MTRL_ITEM(frame, slot)
 	EXEC_INPUT_CNT_TRANSCEND_MATERIAL(materialItem:GetIESID(), count);
 end;
 
--- ?�료???�른 ?�공률과 ?�이?�의 초월 ?�계 ?�데?�트
+-- ?�료???�른 ?�공률과 ?�이?�의 초월 ?�계 ?�데?�트
 function UPDATE_TRANSCEND_ITEM(frame)
 
 	local slot = GET_CHILD(frame, "slot");
@@ -281,8 +281,8 @@ function UPDATE_TRANSCEND_ITEM(frame)
 	end
 end
 
--- ?�공률에 ?�른 글????변??
--- ?�정 ?�요 (?�상값이 ?�해지지 ?�아???�직 ?�맞?� 계산?�을 �??�우겠음. ?�선 ?�드코딩 ?�놓겠음.)
+-- ?�공률에 ?�른 글????변??
+-- ?�정 ?�요 (?�상값이 ?�해지지 ?�아???�직 ?�맞?� 계산?�을 �??�우겠음. ?�선 ?�드코딩 ?�놓겠음.)
 function GET_RATIO_FONT_COLOR(ratio)	
 	local color1 = 0xFF0000;
 	local color2 = 0xFFBB00;
@@ -305,7 +305,7 @@ function GET_RATIO_FONT_COLOR(ratio)
 	return color1, color2;		
 end
 
--- ?�료 ?�이?�을 ?�을??
+-- ?�료 ?�이?�을 ?�을??
 function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 
 	local invItem = GET_PC_ITEM_BY_GUID(itemID);
@@ -359,7 +359,7 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 		return;
 	end		
 
-	if IS_NEED_APPRAISED_ITEM(obj) == true then 
+	if IS_NEED_APPRAISED_ITEM(obj) == true  or IS_NEED_RANDOM_OPTION_ITEM(obj) == true then 
 		ui.SysMsg(ClMsg("NeedAppraisd"));
 		return;
 	end
@@ -378,25 +378,25 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 
 	EXEC_INPUT_CNT_TRANSCEND_MATERIAL(invItem:GetIESID(), count);
 	--[[	
-	-- 메세지박스�??�량?�로 ?�는 방법
+	-- 메세지박스�??�량?�로 ?�는 방법
 	INPUT_NUMBER_BOX(frame, string.format("%s(%d ~ %d)", ScpArgMsg("InputCount"), 1, maxItemCount), "EXEC_INPUT_CNT_TRANSCEND_MATERIAL", maxItemCount, 1, maxItemCount, nil, tostring(invItem:GetIESID()));
 	]]
 end
 
--- ?�료�??�레�??�롭?�을 경우
+-- ?�료�??�레�??�롭?�을 경우
 function DROP_TRANSCEND_MATERIAL(frame, icon, argStr, argNum)
 
 	local liftIcon 				= ui.GetLiftIcon();
 	local FromFrame 			= liftIcon:GetTopParentFrame();
 	local iconInfo = liftIcon:GetInfo();
 	
-	-- ?�레�??�롭???�벤?�리?�서�?가?�하�?
+	-- ?�레�??�롭???�벤?�리?�서�?가?�하�?
 	if FromFrame:GetName() == 'inventory' then
 		ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID());
 	end
 end
 
--- ?�료�??�량???�라 ?�롯???�기
+-- ?�료�??�량???�라 ?�롯???�기
 function TRANSCEND_SET_MATERIAL_ITEM(frame, iesID, count)
 
 	local invItem = GET_PC_ITEM_BY_GUID(iesID);
@@ -410,7 +410,7 @@ function TRANSCEND_SET_MATERIAL_ITEM(frame, iesID, count)
 
 
 	local slot_material = GET_CHILD(frame, "slot_material");
-	-- ?�량?�시�??�롯???��?분으�??�정 
+	-- ?�량?�시�??�롯???��?분으�??�정 
 	SET_SLOT_INVITEM(slot_material, invItem, count);
 	slot_material:SetUserValue("MTRL_COUNT", count);
 	slot_material:StopActiveUIEffect();
@@ -442,7 +442,7 @@ function EXEC_INPUT_CNT_TRANSCEND_MATERIAL(iesid, count)
 end
 
 --[[
--- 메세지박스�??�량?�로 ?�는 방법
+-- 메세지박스�??�량?�로 ?�는 방법
 function EXEC_INPUT_CNT_TRANSCEND_MATERIAL(frame, count, inputframe, fromFrame)
 	inputframe:ShowWindow(0);
 	local iesid = inputframe:GetUserValue("ArgString");
@@ -453,7 +453,7 @@ end
 ]]
 
 function ITEMTRANSCEND_EXEC(frame)
-	-- ?�정 버프 ?�용 중에??강화/초월 막아?�라�??�셨??
+	-- ?�정 버프 ?�용 중에??강화/초월 막아?�라�??�셨??
 	local buffState = IS_ENABLE_BUFF_STATE_TO_REINFORCE_OR_TRANSCEND_C();
 	if buffState ~= 'YES' then
 		local buffCls = GetClass('Buff', buffState);
@@ -537,7 +537,7 @@ function _ITEMTRANSCEND_EXEC()
 	SETTEXT_GUIDE(frame, 0, nil);
 end
 
--- ?�벤?�서 ?�른�??�릭??
+-- ?�벤?�서 ?�른�??�릭??
 function ITEMTRANSCEND_INV_RBTN(itemObj, slot)
 	
 	local frame = ui.GetFrame("itemtranscend");
@@ -562,14 +562,14 @@ function ITEMTRANSCEND_INV_RBTN(itemObj, slot)
 
 	if slotInvItem ~= nil then
 		if ("Premium_item_transcendence_Stone" == obj.ClassName) then
-			ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID());	-- ?�료??경우
+			ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID());	-- ?�료??경우
 			return;
 		end;
 	end;
-	ITEM_TRANSCEND_REG_TARGETITEM(frame, iconInfo:GetIESID());  -- ?�료가 ?�닐 �? 초월 ?�하???�이??
+	ITEM_TRANSCEND_REG_TARGETITEM(frame, iconInfo:GetIESID());  -- ?�료가 ?�닐 �? 초월 ?�하???�이??
 end
 
--- ?�니?�쳐???�니메이???�에 ?�른 결과 UIeffect ?�정
+-- ?�니?�쳐???�니메이???�에 ?�른 결과 UIeffect ?�정
 function ITEMTRANSCEND_BG_ANIM_TICK(ctrl, str, tick)
 
 	if tick == 14 then
@@ -599,7 +599,7 @@ function UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 	end;
 end
 
--- ?�버???�공?��????�른 UI?�펙?��? 결과 ?�데?�트 
+-- ?�버???�공?��????�른 UI?�펙?��? 결과 ?�데?�트 
 function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)			
 	local slot = GET_CHILD(frame, "slot");
 	
@@ -704,8 +704,8 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 end
 
 -------------------------
--- 결과???�른 UIeffect가 ?�업 결과 UI�?가리는 ?�유�?
--- ?�간차로 ?�업 결과 UI�??�워주기 ?�한 UpdateScript.
+-- 결과???�른 UIeffect가 ?�업 결과 UI�?가리는 ?�유�?
+-- ?�간차로 ?�업 결과 UI�??�워주기 ?�한 UpdateScript.
 function TIMEWAIT_STOP_ITEMTRANSCEND()
 	local frame = ui.GetFrame("itemtranscend");
 	local slotTemp = GET_CHILD(frame, "slotTemp");

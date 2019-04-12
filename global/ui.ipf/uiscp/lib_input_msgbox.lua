@@ -71,7 +71,7 @@ function INPUT_STRING_BOX(titleName, strscp, defaultText, numArg, maxLen, titleN
 		else
 			edit2:SetText(defaultText2);
 		end
-
+                
 		edit2:SetEventScript(ui.ENTERKEY, strscp, byFullString);
 	end
 

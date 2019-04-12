@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="induninfo" x="0" y="0" width="1095" height="620" create="open">
 	<frame fasthide="true" layout_gravity="center center" margin="0 -50 0 0"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
@@ -28,6 +28,7 @@
 		<picture name="countPic" parent="countBox" rect="0 0 27 27" margin="0 0 0 0" layout_gravity="left center" image="indun_entrance"/>
 		<richtext name="countText" parent="countBox" rect="0 0 190 30" margin="30 0 0 0" layout_gravity="left center" fontname="brown_18_b" caption="입장 횟수"/>
 		<richtext name="countData" parent="countBox" rect="0 0 190 30" margin="0 0 30 0" layout_gravity="right center" textalign="right center" fontname="brown_18_b" format="%s/%s회" param1="now" param1_def="0" param2="max" param2_def="3"/>
+		<richtext name="countItemData" parent="countBox" rect="0 0 190 30" margin="0 0 30 0" layout_gravity="right center" textalign="right center" fontname="brown_18_b" format="%s개" param1="admissionitem" param1_def="0"/>
 		<picture name="tokenStatePic" parent="countBox" rect="0 0 30 30" margin="0 0 0 0" layout_gravity="right center" image="token_on" stretch="true" texttooltip="토큰 혜택으로 1회 추가 입장 가능합니다."/>
 		<!-- Level -->
 		<groupbox name="lvBox" parent="infoBox" rect="0 0 412 50" margin="0 85 0 0" layout_gravity="right top" draw="false" hittestbox="false"/>
@@ -53,7 +54,7 @@
 		<slotset name="monSlotSet" parent="monBox_dummy" rect="0 0 370 60" margin="5 0 0 0" layout_gravity="left top" row="1" col="10" size="65 65" skin="invenslot2" spc="2 2" enabledrop="false" enablepop="false"/>
 		<!-- Reward Box -->
 		<groupbox name="rewardBox" parent="infoBox" rect="0 0 412 90" margin="0 0 0 0" layout_gravity="right bottom" draw="false" hittestbox="false"/>
-		<button name="rewardRightBtn" parent="rewardBox" rect="0 0 40 50" margin="0 30 0 0" layout_gravity="right top" image="button_right_select2" xLBtnUpScp="INDUNENTER_REWARD_CLICK_RIGHT"/>
+		<button name="rewardRightBtn" parent="rewardBox" rect="0 0 40 50" margin="0 30 0 0" layout_gravity="right top" image="button_right_select2" LBtnUpScp="INDUNENTER_REWARD_CLICK_RIGHT"/>
 		<button name="rewardLeftBtn" parent="rewardBox" rect="0 0 40 50" margin="0 30 0 0" layout_gravity="left top" image="button_left_select2" LBtnUpScp="INDUNENTER_REWARD_CLICK_LEFT"/>
 		<picture name="rewardPic" parent="rewardBox" rect="0 0 27 27" margin="5 0 0 0" layout_gravity="left top" image="indun_item"/>
 		<richtext name="rewardText" parent="rewardBox" rect="0 0 190 30" margin="35 0 0 0" layout_gravity="left top" caption="대표 획득 아이템" fontname="brown_18_b"/>

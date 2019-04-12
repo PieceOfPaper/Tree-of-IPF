@@ -206,6 +206,7 @@ function DIALOGSELECT_QUEST_REWARD_ADD(frame, argStr)
 
     y = MAKE_REWARD_ITEM_CTRL(questRewardBox, cls, y);
     y = MAKE_BASIC_REWARD_RANDOM_CTRL(questRewardBox, questCls, cls, y)
+    y = MAKE_REWARD_STEP_ITEM_CTRL(questRewardBox, questCls, cls, y)
     y = MAKE_BASIC_REWARD_REPE_CTRL(questRewardBox, questCls, cls, y)
     questRewardBox:Resize(10, 10, questRewardBox:GetWidth(), y+30);
     frame:SetUserValue("QUESTFRAME_HEIGHT",  y+30);
@@ -355,6 +356,63 @@ function DIALOGSELECT_STRING_ENTER(frame, ctrl)
     if strText ~= nil then
         control.DialogStringSelect(strText);
     end
+end
+
+function MAKE_REWARD_STEP_ITEM_CTRL(box, questCls, cls, y, state)
+    if TryGetProp(cls, 'StepRewardList1') ~= nil and TryGetProp(cls, 'StepRewardList1') ~= 'None' then
+        local duplicate = TryGetProp(cls, 'StepRewardDuplicatePayments')
+        local lastReward
+        local pc = GetMyPCObject();
+        if duplicate == 'NODUPLICATE' then
+            local sObj = GetSessionObject(pc, 'ssn_klapeda')
+            local lastRewardList = TryGetProp(sObj, questCls.QuestPropertyName..'_SRL')
+            if lastRewardList ~= nil and lastRewardList ~= 'None' then
+                lastReward = SCR_STRING_CUT(lastRewardList)
+            end
+        end
+        local maxRewardIndex
+        if state == 'SUCCESS' then
+            for index = 1, 10 do
+                if table.find(lastReward, index) == 0 then
+                    local stepRewardFuncList = TryGetProp(cls, 'StepRewardFunc'..index)
+                    if stepRewardFuncList ~= nil and stepRewardFuncList ~= 'None' then
+                        stepRewardFuncList = SCR_STRING_CUT(stepRewardFuncList)
+                        local stepRewardFunc = _G[stepRewardFuncList[1]]
+                        if stepRewardFunc ~= nil then
+                            local result = stepRewardFunc(pc, stepRewardFuncList)
+                            if result == 'YES' then
+                                maxRewardIndex = index
+                            end
+                        end
+                    end
+                end
+            end
+        end
+        local titleFlag = 0
+        for index = 1, 10 do
+            if (state == nil and table.find(lastReward, index) == 0) or (state == 'SUCCESS' and maxRewardIndex == index) then
+                if titleFlag == 0 then
+                    y = y + 10
+                    y = BOX_CREATE_RICHTEXT(box, "t_stepReward", y, 50, '{@st54}{b}'..ScpArgMsg("QUEST_STEPREWARD_MSG1"), 0);
+                    titleFlag = 1
+                end
+                local rewardList = SCR_TABLE_TYPE_SEPARATE(SCR_STRING_CUT(TryGetProp(cls, 'StepRewardList'..index)), {'ITEM'})
+                local itemList = rewardList['ITEM']
+                if itemList ~= nil and itemList[1] ~= 'None' and #itemList > 0 then
+                    y = y + 7
+                    y = BOX_CREATE_RICHTEXT(box, "s_stepReward_text_"..index, y, 50, '{@st41b}'..ScpArgMsg("QUEST_STEPREWARD_MSG2", "STEP", index), 10);
+                    y = y - 5
+                    for i2 = 1, #itemList/2 do
+                        local itemName = itemList[i2*2 - 1]
+                        local itemCount = itemList[i2*2]
+                        y = MAKE_ITEM_TAG_TEXT_CTRL(y, box, "s_stepReward_item_", itemName, itemCount, index*10+i2);
+                        y = y - 10
+                    end
+                end
+            end
+        end
+    end
+    return y;
 end
 
 function MAKE_REWARD_ITEM_CTRL(box, cls, y)

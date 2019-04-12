@@ -53,13 +53,16 @@ function ADVENTURE_BOOK_COLLECTION_LIST(frame)
 		local collectionClass = GetClassByIndexFromList(collectionClassList, i);
 		local collection = collectionList:Get(collectionClass.ClassID);
 		local collectionInfo = GET_COLLECTION_INFO(collectionClass, collection,etcObject, collectionCompleteMagicList);        
-		if ADVENTURE_BOOK_CHECK_STATE_FILTER(topFrame, collectionInfo, searchText, collectionClass, collection) == true then
-		    -- data input
-			collectionInfoList[collectionInfoIndex] = {cls = collectionClass, 
-													   coll = collection, 
-													   info = collectionInfo };
-			collectionInfoIndex = collectionInfoIndex +1;
-		end
+		local collectionJournal = TryGetProp(collectionClass,'Journal')
+		if collectionJournal == 'TRUE' then
+    		if ADVENTURE_BOOK_CHECK_STATE_FILTER(topFrame, collectionInfo, searchText, collectionClass, collection) == true then
+    		    -- data input
+    			collectionInfoList[collectionInfoIndex] = {cls = collectionClass, 
+    													   coll = collection, 
+    													   info = collectionInfo };
+    			collectionInfoIndex = collectionInfoIndex +1;
+    		end
+    	end
 	end
     
     local posY = 0;

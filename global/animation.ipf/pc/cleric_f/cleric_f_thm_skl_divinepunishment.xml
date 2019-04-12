@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="bip01 R finger12" particleName="F_light140_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_rize015_ground" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
+    <Sound frame="0.00" soundFile="skl_eff_daoshi_divinepunishment_cast"/>
+    <Sound frame="6.00" soundFile="skl_fgt_tackle_cast_2"/>
+    <Sound frame="10.00" soundFile="skl_eff_atk_move_s_4"/>
+    <Particle frame="14.00" attachNode="bip01 R finger12" particleName="F_light140_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="None"/>
+    <Particle frame="15" attachNode="Dummy_emitter" particleName="F_rize015_ground" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="19.00" attachNode="Dummy_emitter" particleName="F_rize015_1_ground_delay" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="None"/>
+</ActionDesc>

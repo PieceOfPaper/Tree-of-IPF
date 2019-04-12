@@ -90,3 +90,8 @@ function SCR_HT2_DCAPITAL_103_DOC_PRE_DIALOG(pc, dialog, handle)
     end
     return 'NO'
 end
+
+
+function SCR_DCAPITAL_103_SHADOW_DEVICE_PRE_DIALOG(pc, dialog, handle)
+    return 'NO'
+end

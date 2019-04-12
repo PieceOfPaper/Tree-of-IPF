@@ -38,19 +38,26 @@ function ADVENTURE_BOOK_TEAM_BATTLE_COMMON_UPDATE(adventureBookFrame, msg, argSt
 	if pvpCls == nil then
 		return;
 	end
-	local pvpObj = GET_PVP_OBJECT_FOR_TYPE(pvpCls);    
+	local pvpObj = GET_PVP_OBJECT_FOR_TYPE(pvpCls);        
 	if nil == pvpObj then
 		return;
 	end
-    local winValue = pvpObj:GetPropValue(pvpCls.ClassName..'WIN');
-    local loseValue = pvpObj:GetPropValue(pvpCls.ClassName..'LOSE');
+    local winValue = pvpObj:GetPropValue(pvpCls.ClassName..'_WIN');
+    local loseValue = pvpObj:GetPropValue(pvpCls.ClassName..'_LOSE');
     local totalValue = winValue + loseValue;
     local battleHistoryValueText = GET_CHILD_RECURSIVELY(adventureBookFrame, 'battleHistoryValueText');    
     battleHistoryValueText:SetTextByKey('total', totalValue);
     battleHistoryValueText:SetTextByKey('win', winValue);
     battleHistoryValueText:SetTextByKey('lose', loseValue);
-    
-    local pointValue = pvpObj:GetPropValue(pvpCls.ClassName..'RP', 1000);
+        
+    local mySession = session.GetMySession();
+	local cid = mySession:GetCID();
+    local pointInfo = session.worldPVP.GetRankInfoByCID(cid);
+    local pointValue = pvpObj:GetPropValue(pvpCls.ClassName..'_RP', 1000);
+    if pointInfo ~= nil then
+        pointValue = pointInfo.point;
+    end
+
     local battlePointValueText = GET_CHILD_RECURSIVELY(adventureBookFrame, 'battlePointValueText');
     battlePointValueText:SetTextByKey('point', pointValue);
 end

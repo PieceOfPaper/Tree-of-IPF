@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_effect_wepon_spear002_1" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="2.00" soundFile="mon_voice_lapene_skl1_cast"/>
+    <Sound frame="20.00" soundFile="mon_voice_lecifer_born"/>
+    <Sound frame="43.00" soundFile="mon_voice_lecifer_atk2"/>
+    <Sound frame="72.00" soundFile="mon_voice_lecifer_skl2"/>
+    <Sound frame="80.00" soundFile="mon_voice_lapene_skl1_shot"/>
+    <BlendOn frame="96" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="98" R="0" G="0" B="0" A="0"/>
+    <Shockwave frame="98" type="2" intensity="5" frequency="70" duration="0.2" range="1000"/>
+    <BlendOn frame="100" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="102" R="0" G="0" B="0" A="0"/>
+    <Sound frame="124.00" soundFile="mon_voice_lapene_skl3_cast"/>
+    <BlendOn frame="132" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="134" R="0" G="0" B="0" A="0"/>
+    <Shockwave frame="134" type="2" intensity="5" frequency="70" duration="0.2" range="1000"/>
+    <BlendOn frame="136" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="138" R="0" G="0" B="0" A="0"/>
+    <Sound frame="140.00" soundFile="mon_voice_lapene_skl2_shot"/>
+    <BlendOn frame="154" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="156" R="0" G="0" B="0" A="0"/>
+    <Shockwave frame="156" type="2" intensity="10" frequency="70" duration="0.2" range="1000"/>
+    <BlendOn frame="158" R="100" G="100" B="100" A="50"/>
+    <BlendOff frame="160" R="0" G="0" B="0" A="0"/>
+    <Sound frame="160.00" soundFile="mon_move_lecifer_skl2"/>
+</ActionDesc>

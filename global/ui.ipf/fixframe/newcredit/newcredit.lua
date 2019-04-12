@@ -1,7 +1,7 @@
 
 
 g_credintimageNum = 1
-MAX_IMAGE_NUM = 10
+MAX_IMAGE_NUM = 5
 
 
 
@@ -48,7 +48,7 @@ function NEWCREDIT_NEXT_PAGE()
 
 	
 	local imgname = "nameimg"..tostring(g_credintimageNum)
-
+	
 	local nowimage = GET_CHILD_RECURSIVELY(frame,imgname);
 	nowimage:ShowWindow(1)
 

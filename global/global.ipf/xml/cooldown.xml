@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
-<idspace/>
+<idspace id="CoolDown">
+	<Category>
+		<Class OverrideType="ADD" ClassID="4047" ClassName="Event_Steam_Wedding" IsOverHeat="NO" ReducePlayOnly="FALSE" ForceReset="YES" MaxOverTime="6000"/>
+		<Class OverrideType="ADD" ClassID="4060" ClassName="Event_Nru_Buff" IsOverHeat="NO" ReducePlayOnly="FALSE" ForceReset="YES" MaxOverTime="360000"/>
+		<Class OverrideType="ADD" ClassID="4061" ClassName="Event_Cb_Buff" IsOverHeat="NO" ReducePlayOnly="FALSE" ForceReset="YES" MaxOverTime="360000"/>
+		<Class OverrideType="ADD" ClassID="4062" ClassName="Event_Cb_Buff_Potion" IsOverHeat="NO" ReducePlayOnly="FALSE" ForceReset="YES" MaxOverTime="360000"/>
+	</Category>
+</idspace>

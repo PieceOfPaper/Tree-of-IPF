@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+	<Game Name="CORAL_44_2_SQ_50_MINI" minLv="0" maxLv="0" startWaitSec="-340484628">
+		<StageList>
+			<Stage Name="DefGroup">
+				<ObjList>
+					<Obj Type="Monster" MonType="58825" Pos="-783.26#-66.60#-718.66" genCount="1" maxStackCount="1" objectKey="0" searchRange="200" tendency="1"/>
+					<Obj Type="Monster" MonType="58825" Pos="-738.98#-62.87#-517.26" genCount="1" maxStackCount="1" objectKey="1" searchRange="200" tendency="1"/>
+					<Obj Type="Monster" MonType="58825" Pos="-674.13#-66.60#-655.02" genCount="1" maxStackCount="1" objectKey="2" searchRange="200" tendency="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event execMS="30000" execCount="5" eventName="1" execWithStart="0">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="DefGroup/0"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="30000" execCount="4" eventName="3" execWithStart="0" isEnabled="0">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="DefGroup/2"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="30000" eventName="2" execWithStart="0" isEnabled="0">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="DefGroup/1"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="3"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+					<Event execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="60"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="2"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

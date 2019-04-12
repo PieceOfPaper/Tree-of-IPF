@@ -264,12 +264,6 @@ function SCR_SELCT_BOSSLV_DIALOG(self, pc)
     end
 end
 
-function REQ_EVENT_ITEM_SHOP4_OPEN()
-	local frame = ui.GetFrame("earthtowershop");
-	frame:SetUserValue("SHOP_TYPE", 'EventShop4');
-	ui.OpenFrame('earthtowershop');
-end
-
 -- main dialog
 function SCR_BLUEORB_MONLVUP_DIALOG(self,pc)
     local moncls_info = {
@@ -424,7 +418,7 @@ function SCR_BLUEORB_MONLVUP_DIALOG(self,pc)
         	end
         end
     elseif select == 5 then
-        ExecClientScp(pc, "REQ_EVENT_ITEM_SHOP4_OPEN()")
+        ExecClientScp(pc, "REQ_EVENT_ITEM_SHOP2_OPEN()")
     elseif select == 6 then
         local clear_reward = {
             {10, 'Premium_boostToken02_event01'},

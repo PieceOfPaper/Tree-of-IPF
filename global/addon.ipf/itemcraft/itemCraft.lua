@@ -546,7 +546,11 @@ function SORT_INVITEM_BY_WORTH(a,b)
 	return a:GetIESID() < b:GetIESID()	
 end
 
-function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)	
+function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
+    if session.colonywar.GetIsColonyWarMap() == true then
+        ui.SysMsg(ClMsg('CannotUseInPVPZone'));
+        return;
+    end
 
 	if session.world.IsIntegrateServer() == true or
 	 session.world.IsIntegrateIndunServer() == true or

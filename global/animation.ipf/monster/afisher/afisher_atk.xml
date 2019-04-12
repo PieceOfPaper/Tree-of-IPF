@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_eff_R_hand" particleName="I_smoke007_blue" useAttach="ture" hiddenObj="false" changeEffect="None" scale=".6" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="6" attachNode="Dummy_eff_atk" particleName="I_dash014_blue" useAttach="ture" hiddenObj="false" changeEffect="None" scale="6" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_voice_rootopus_move_4"/>
+	<Sound frame="7.00" soundFile="skl_eff_body_atk_1"/>
+	<Sound frame="7.00" soundFile="m_tontulia_atk1_shot"/>
+	<Sound frame="7.00" soundFile="m_tontulia_atk2_shot"/>
+</ActionDesc>

@@ -36,12 +36,17 @@
     if IsSameActor(self, party_pc) ~= "YES" and GetDistance(self, party_pc) < PARTY_SHARE_RANGE then
         SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum) 
     end
+----TODAY_NUMBER_EVENT    
+    if IsSameActor(self, party_pc) ~= "YES" and GetDistance(self, party_pc) < PARTY_SHARE_RANGE then
+        SCR_EVENT_TODAY_NUMBER_DROPITEM(self, sObj, msg, argObj, argStr, argNum) 
+    end
 end
 
 function SCR_SSN_KLAPEDA_KillMonster(self, sObj, msg, argObj, argStr, argNum)
 	PC_WIKI_KILLMON(self, argObj, true);
 	CHECK_SUPER_DROP(self);
 	SCR_SSN_KLAPEDA_KillMonster_Sub(self, sObj, msg, argObj, argStr, argNum)
+    CHECK_CHALLENGE_MODE(self, argObj);
 ---- WHITEDAY_EVENT
 --    SCR_EVENT_WHITEDAY(self, sObj, msg, argObj, argStr, argNum)
 ---- ALPHABET_EVENT
@@ -58,5 +63,8 @@ function SCR_SSN_KLAPEDA_KillMonster(self, sObj, msg, argObj, argStr, argNum)
 --    SCR_EVENT_TODAY_NUMBER_DROPITEM(self, sObj, msg, argObj, argStr, argNum)
 ----EVENT_STEAM_REWARD
 --    SCR_EVENT_STEAM_ELITE_CHECK(self, sObj, msg, argObj, argStr, argNum)
-    SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum) 
+    SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum)
+
+-- TODAY_NUMBER_EVENT    
+    SCR_EVENT_TODAY_NUMBER_DROPITEM(self, sObj, msg, argObj, argStr, argNum)
 end

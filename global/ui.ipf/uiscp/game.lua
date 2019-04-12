@@ -1243,7 +1243,7 @@ function GET_ITEM_TOOLTIP_SKIN(cls)
 	return "Item_tooltip_consumable";
 end
 
-function GET_ITEM_BG_PICTURE_BY_GRADE(rank, needAppraisal)
+function GET_ITEM_BG_PICTURE_BY_GRADE(rank, needAppraisal, needRandomOption)
 
 	local pic = 'None'
 	if rank == 1 then
@@ -1260,7 +1260,7 @@ function GET_ITEM_BG_PICTURE_BY_GRADE(rank, needAppraisal)
 		return "premium_item_bg";
 	end
 
-	if needAppraisal == 1 then
+	if needAppraisal == 1 or needRandomOption == 1 then
 		pic = pic..'2';
 	end
 	return pic;
@@ -2014,6 +2014,21 @@ function GETMYPCNAME()
 	local MySession		= session.GetMyHandle()
 	local CharName		= info.GetName(MySession);
 	return CharName;
+end
+
+function GETMYPETNAME()
+	local summonedPet = GET_SUMMONED_PET();
+	if summonedPet == nil then
+		return;
+	end
+
+	local petInfo = session.pet.GetPetByGUID(summonedPet:GetStrGuid());
+	if petInfo == nil then
+		return;
+	end
+
+	local petName = petInfo:GetName();
+    return petName;
 end
 
 function CHECK_EQUIPABLE(type)
@@ -3173,7 +3188,6 @@ function SCR_GEM_ITEM_SELECT(argNum, luminItem, frameName)
 		return
 	end
 
-	-- 몬스?�젬�?중복검??
 	local gemClass = GetClassByType("Item", luminItem.type)
 	if gemClass ~= nil then
 		local gemEquipGroup = TryGetProp(gemClass, "EquipXpGroup")
@@ -3378,8 +3392,7 @@ end
 
 function SCR_QUEST_CHECK_C(pc, questname)
 	local questState = GetQuestState(questname);
-	if "PROGRESS" == questState then -- 진행중일?? ?�션?�브?�트???�로 ?�인?�보?�록 ?�자.
-	-- 마법?�회 ?�스?��? 갱신???��? ?�기?�문??
+	if "PROGRESS" == questState then
 		local questIES = GetClass('QuestProgressCheck', questname);
 		local sObj_quest = GetSessionObject(pc, questIES.Quest_SSN);
 		if nil ~= sObj_quest then
@@ -3831,18 +3844,44 @@ function CHEAT_LIST_OPEN()
 end
 
 function ON_RIDING_VEHICLE(onoff)
-    
+    local commanderPC = GetCommanderPC()
+    if IsBuffApplied(commanderPC, 'pet_PetHanaming_buff') == 'YES' then -- no ride
+        return;
+    end
+	
+	
+	
+    local summonedCompanion = session.pet.GetSummonedPet(0);	-- Riding Companion Only / Not Hawk --
+    if summonedCompanion ~= nil then
+		local companionObj = summonedCompanion:GetObject();
+		local companionIES = GetIES(companionObj);
+		local companionClassName = TryGetProp(companionIES, 'ClassName');
+		if companionClassName ~= nil then
+--			local fsmActor = GetMyActor();
+--			local subAction = fsmActor:GetSubActionState();
+			
+			local companionClass = GetClass('Companion', companionClassName);
+			local isRidingOnly = TryGetProp(companionClass, 'RidingOnly');
+			if isRidingOnly == 'YES' then
+--				pc.ReqExecuteTx_NumArgs("SCR_TX_RIDING_ONLY_VEHICLE", onoff);
+				control.CustomCommand("RIDING_ONLY_VEHICLE", onoff);
+				return;
+			end
+		end
+	end
+	
+	
+	
 	if control.HaveNearCompanionToRide() == true then
 		local fsmActor = GetMyActor();
-
 		local subAction = fsmActor:GetSubActionState();
-	
+		
 		-- 42 == CSS_SKILL_USE
 		if onoff == 0 and subAction == 42 then
 			ui.SysMsg(ClMsg('SkillUse_Vehicle'));
 			return;
 		end
-
+		
 		if 1 == onoff then
 			local abil = GetAbility(GetMyPCObject(), "CompanionRide");
 			if nil == abil and control.IsPremiumCompanion() == false then
@@ -3869,8 +3908,6 @@ function ON_RIDING_VEHICLE(onoff)
 			end			
 		end
 	end
-	
-
 end
 
 function COMPANION_INTERACTION(index)
@@ -3952,7 +3989,7 @@ function UPDATE_COMPANION_TITLE(frame, handle)
 		local petObj = GetIES(pet:GetObject());
 		gauge_stamina:SetPoint(petObj.Stamina, petObj.MaxStamina);
 		
-		local petInfo = info.GetStat(handle); --IESObject ?�보 ?�용??HP???�시간으�??�기???��? ?�는??
+		local petInfo = info.GetStat(handle);
 		gauge_HP:SetPoint(petInfo.HP, petInfo.maxHP);		
 	end
 
@@ -3985,7 +4022,6 @@ end
 function TEST_TIARUA()
 
 ReloadHotKey()
---print("?�щ줈??�빂??)
 --ui.OpenFrame("joystickrestquickslot");
 --[[
 local quickFrame = ui.GetFrame('quickslotnexpbar')
