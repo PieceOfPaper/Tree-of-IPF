@@ -1467,7 +1467,7 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 	gBox:RemoveChild('tooltip_pr_n_dur');
 
 	local itemClass = GetClassByType("Item", invitem.ClassID);
-	if invitem.GroupName ~= "Armor" and invitem.GroupName ~= "Weapon" then -- 내구도 개념이 없는 템
+	if (invitem.GroupName ~= "Armor" and invitem.GroupName ~= "Weapon" ) or invitem.EquipGroup == "WING" then -- 내구도 개념이 없는 템
 
 	    if invitem.BasicTooltipProp == "None" then
     		return yPos;

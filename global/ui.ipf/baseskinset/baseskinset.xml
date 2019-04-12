@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -7947,6 +7947,10 @@
 		<image name="questinfo_3_KEYQUEST" file="\icon\minimap_icon3.tga" imgrect="255 882 72 72"/>
 		<image name="minimap_Appraisers" file="\icon\minimap_icon3.tga" imgrect="432 815 80 80"/>
 		<image name="minimap_erosion" file="\icon\minimap_icon3.tga" imgrect="432 896 80 80"/>
+		<image name="minimap_event_1" file="\icon\minimap_icon3_2.tga" imgrect="0 0 80 80"/>
+		<image name="minimap_event_2" file="\icon\minimap_icon3_2.tga" imgrect="81 0 80 80"/>
+		<image name="minimap_event_3" file="\icon\minimap_icon3_2.tga" imgrect="0 81 80 80"/>
+		<image name="minimap_event_4" file="\icon\minimap_icon3_2.tga" imgrect="81 81 80 80"/>
 	</imagelist>
 	<imagelist category="quest_tags">
 		<image name="quest_tag_1_MAIN" file="\icon\minimap_icon.tga" imgrect="61 31 16 16"/>

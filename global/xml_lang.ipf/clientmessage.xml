@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -4453,6 +4453,7 @@
 		<Class ClassID="27225" ClassName="EV161124_DAYCHECK_MSG6" Data="{ITEM} {COUNT}개"/>
 		<Class ClassID="27226" ClassName="EV161124_DAYCHECK_MSG7" Data="남은 보상("/>
 		<Class ClassID="27227" ClassName="EV161124_DAYCHECK_MSG8" Data="모든 보상을 받으셨습니다!"/>
+		<Class ClassID="27228" ClassName="EV161124_DAYCHECK_MSG9" Data="출석보상"/>
 		<Class ClassID="27230" ClassName="EV161215_SEED_MSG1" Data="PVP 서버에서는 사용 하실 수 없습니다!"/>
 		<Class ClassID="27231" ClassName="EV161215_SEED_MSG2" Data="주변에 축복이 깃든 새싹이 있어서 추가로 심을 수 없습니다."/>
 		<Class ClassID="27232" ClassName="EV161215_SEED_MSG3" Data="연출 모드에서는 사용하실 수 없습니다."/>
@@ -4849,6 +4850,28 @@
 		<Class ClassID="28110" ClassName="EVENT_1807_HOTTIME_MSG1" Data="축하드립니다.{nl}'{TEAM}'님이 '{ITEM1}'에서 '{ITEM2}' {COUNT}개를 획득하셨습니다"/>
 		<Class ClassID="28111" ClassName="EVENT_1807_HOTTIME_MSG2" Data="축하드립니다.{nl}'{TEAM}'님이 '{ITEM1}'에서 {COUNT} 실버를 획득하셨습니다"/>
 		<Class ClassID="28115" ClassName="QUEST_ABANDONMENT_MSG1" Data="연출 영상 중에는 퀘스트를 포기하실 수 없습니다"/>
+		<Class ClassID="28125" ClassName="EVENT_1809_CHUSEOK_DAY_MSG1" Data="풍성한 한가위엔 접속만 해도 풍성한 보상이!{nl}한가위를 맞이해 선물을 드리고 있어요.{nl}한가위 연휴에는 더 좋은 선물을 드리니 잊지 말아 주세요."/>
+		<Class ClassID="28126" ClassName="EVENT_1809_CHUSEOK_DAY_MSG2" Data="선물 받기"/>
+		<Class ClassID="28127" ClassName="EVENT_1809_CHUSEOK_DAY_MSG3" Data="선물"/>
+		<Class ClassID="28128" ClassName="EVENT_1809_CHUSEOK_DAY_MSG4" Data="한가위 추가 보상"/>
+		<Class ClassID="28132" ClassName="EVENT_1809_CHUSEOK_MOON_MSG1" Data="일일 이벤트"/>
+		<Class ClassID="28133" ClassName="EVENT_1809_CHUSEOK_MOON_MSG2" Data="누적 보상"/>
+		<Class ClassID="28134" ClassName="EVENT_1809_CHUSEOK_MOON_MSG3" Data="랭킹 도전"/>
+		<Class ClassID="28135" ClassName="EVENT_1809_CHUSEOK_MOON_MSG4" Data="랭킹 확인"/>
+		<Class ClassID="28136" ClassName="EVENT_1809_CHUSEOK_MOON_MSG5" Data="보름달 조각이 부족 합니다"/>
+		<Class ClassID="28137" ClassName="EVENT_1809_CHUSEOK_MOON_MSG6" Data="일일 이벤트를 진행하실 수 없습니다"/>
+		<Class ClassID="28138" ClassName="EVENT_1809_CHUSEOK_MOON_MSG7" Data="오늘은 이미 랭킹 도전에 참여하셨습니다"/>
+		<Class ClassID="28139" ClassName="EVENT_1809_CHUSEOK_MOON_MSG8" Data="랭킹 도전에 참여하실 수 없습니다"/>
+		<Class ClassID="28140" ClassName="EVENT_1809_CHUSEOK_MOON_MSG9" Data="랭킹 도전을 끝내셔야 일일 이벤트를 시작하실 수 있습니다"/>
+		<Class ClassID="28141" ClassName="EVENT_1809_CHUSEOK_MOON_MSG10" Data="모두 전달한다"/>
+		<Class ClassID="28142" ClassName="EVENT_1809_CHUSEOK_MOON_MSG11" Data="보름달 키우기 대작전 이벤트 랭킹"/>
+		<Class ClassID="28143" ClassName="EVENT_1809_CHUSEOK_MOON_MSG13" Data="{NAME}님을 비추는 보름달"/>
+		<Class ClassID="28144" ClassName="EVENT_1809_CHUSEOK_MOON_MSG14" Data="일일 이벤트를 완료 하신 후 랭킹에 도전해주세요!"/>
+		<Class ClassID="28145" ClassName="EVENT_1809_CHUSEOK_MOON_MSG15" Data="일일 이벤트를 시작합니다{nl}퀘스트를 완료하고 보스 몬스터를 처치해 '보름달 조각'을 획득하세요!"/>
+		<Class ClassID="28146" ClassName="EVENT_1809_CHUSEOK_MOON_MSG16" Data="랭킹 도전을 시작합니다{nl}퀘스트를 완료하고 보스 몬스터를 처치해 '보름달 조각'을 획득하세요!"/>
+		<Class ClassID="28147" ClassName="EVENT_1809_CHUSEOK_MOON_MSG17" Data="{COUNT} 개"/>
+		<Class ClassID="28148" ClassName="EVENT_1809_CHUSEOK_MOON_MSG18" Data="[누적 : {COUNT} 개]"/>
+		<Class ClassID="28149" ClassName="EVENT_1809_CHUSEOK_MOON_MSG19" Data="{nl}{#D50000}기간제 아이템은 팀 창고로 옮길 수 없습니다. 선물을 받기 전에 캐릭터를 꼭! 확인하세요.{/}"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -6345,8 +6368,6 @@
 		<Class ClassID="60375" ClassName="DCAPITAL107_SQ_9_MSG2" Data="안 돼! 그리시아. 그러지마!"/>
 		<Class ClassID="60376" ClassName="DCAPITAL107_SQ_9_MSG3" Data="그러지마 내게 주지마!"/>
 		<Class ClassID="60377" ClassName="PRISON_81_OBJ_2_MSG" Data="개별 작업장에 있는 수용실에 이동 마법을 이용해{nl}건너편의 다른 수용실로 넘어가세요."/>
-
-
 		<Class ClassID="67243" ClassName="GT_INCOUNT_COMPARE_1" Data="파티 구성원 중, 남은 입장 횟수가 0인 파티원이 있습니다{nl}롤로팬서 구간까지 도전할 수 있습니다"/>
 		<Class ClassID="67244" ClassName="GT_INCOUNT_COMPARE_2" Data="파티 구성원 중, 남은 입장 횟수가 0인 파티원이 있습니다{nl}롤로팬서 구간까지 도전할 수 있습니다"/>
 		<Class ClassID="67000" ClassName="JOB_SHINOBI_HIDDEN_ITEM_5_book2" Data="글자가 보이는 두루마리"/>
@@ -8956,7 +8977,6 @@
 		<Class ClassID="133012" ClassName="{Sec}Sec" Data="{Sec}초"/>
 		<Class ClassID="133013" ClassName="{Sec}s" Data="{Sec}s"/>
 		<Class ClassID="133014" ClassName="LogoutLongTime" Data="로그아웃 : 오래 전"/>
-		
 	</Category>
 	<Category Name="Indun">
 		<Class ClassID="134001" ClassName="CannotJoinIndunYet" Data="오늘의 인던 참여 횟수를 초과하였습니다."/>
@@ -12349,7 +12369,7 @@
 		<Class ClassID="801066" ClassName="ColonyPaymentBtnOnlyGuildMaster" Data="길드마스터만 점령 보상을 수령할 수 있습니다."/>
 		<Class ClassID="801067" ClassName="ColonyPaymentItemTooManyInGuildWare" Data="길드보관함에 점령 보상 아이템이 너무 많습니다. {nl}길드 보관함을 정리해주세요."/>
 		<Class ClassID="801068" ClassName="ColonyPaymentItemCountIsZero" Data="지급될 점령 보상 아이템이 없습니다."/>
-		</Category>
+	</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="การซื้อสำเร็จ"/>
 		<Class ClassID="900001" ClassName="NXABillingPurchaseFailed" Data="Purchase Failed"/>

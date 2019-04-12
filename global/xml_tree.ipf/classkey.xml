@@ -7283,6 +7283,14 @@
         <Key Name="test_zone_evballgame1" Value="7501"/>
         <Key Name="test_zone_evcopy001" Value="7502"/>
         <Key Name="test_zone_evhilowgame1" Value="7503"/>
+        <Key Name="COLLECT_50_REWARD" Value="103100"/>
+        <Key Name="EVENT_1809_CLR_DATE" Value="103099"/>
+        <Key Name="EVENT_1810_UNIQUE_PC_STATE" Value="103111"/>
+        <Key Name="EVENT_1810_UNIQUE_PC_YDAY" Value="103110"/>
+        <Key Name="F_BRACKEN_UNIQUE_MQ1" Value="103094"/>
+        <Key Name="F_NICOPOLIS_UNIQUE_MQ1" Value="103090"/>
+        <Key Name="MG_Last_ID_NNICOPOLIS_RAID_MINI" Value="103089"/>
+        <Key Name="MG_Last_raid_bracken" Value="103093"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="PartyPVP" Value="49"/>
@@ -8510,6 +8518,8 @@
         <Key Name="ItemExpString" Value="102262"/>
         <Key Name="RareOption_MSPD" Value="103064"/>
         <Key Name="RareOption_SR" Value="103063"/>
+        <Key Name="SkillWidthRange" Value="103097"/>
+        <Key Name="TempUseItem" Value="103088"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PartyMember">
         <Key Name="Name" Value="7220"/>
@@ -16368,6 +16378,17 @@
         <Key Name="SIAULIAI16_REPORT3_S2_TRACK" Value="8117"/>
         <Key Name="SIAULIAI16_SEARCH1_TRACK" Value="8211"/>
         <Key Name="SIAULIAI_SPIRIT_TRACK" Value="7817"/>
+        <Key Name="BerniceShard_Dungeon_Save_Stage" Value="103102"/>
+        <Key Name="HadVisited_10000" Value="103092"/>
+        <Key Name="HadVisited_4941" Value="103077"/>
+        <Key Name="Hide_2811" Value="103098"/>
+        <Key Name="InDunRewardCountType_800" Value="103104"/>
+        <Key Name="IndunWeeklyEnteredCount_800" Value="103101"/>
+        <Key Name="Kill_uniq_boss_Mandara" Value="103091"/>
+        <Key Name="Kill_uniq_id_boss_Wastrel" Value="103076"/>
+        <Key Name="Kill_uniq_id_boss_Wastrel_Red" Value="103074"/>
+        <Key Name="Pose_MAGICAL" Value="103103"/>
+        <Key Name="RepresentationClassID" Value="103075"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Account">
         <Key Name="AccountWareHouseExtend" Value="11584"/>
@@ -17349,6 +17370,30 @@
         <Key Name="TradeLimit_490063" Value="34263"/>
         <Key Name="TradeLimit_495034" Value="34264"/>
         <Key Name="TradeLimit_495035" Value="34262"/>
+        <Key Name="COLLECT_100_REWARD" Value="103108"/>
+        <Key Name="EVENT_1809_CHUSEOK_DAY_COUNT" Value="103085"/>
+        <Key Name="EVENT_1809_CHUSEOK_DAY_DATE" Value="103087"/>
+        <Key Name="EVENT_1809_CHUSEOK_MOON_ADDREWARD" Value="103080"/>
+        <Key Name="EVENT_1809_CHUSEOK_MOON_COUNT" Value="103079"/>
+        <Key Name="EVENT_1809_CHUSEOK_MOON_DATE" Value="103086"/>
+        <Key Name="EVENT_1809_CHUSEOK_MOON_RANK_DATE" Value="103078"/>
+        <Key Name="EVENT_1809_CHUSEOK_MOON_RANK_GIVECOUNT" Value="103083"/>
+        <Key Name="EVENT_1809_CHUSEOK_MOON_STATE" Value="103082"/>
+        <Key Name="EVENT_1809_DAYCHECK_ADDREWARD" Value="103071"/>
+        <Key Name="EVENT_1809_DAYCHECK_DATE" Value="103068"/>
+        <Key Name="EVENT_1809_DAYCHECK_DAYCOUNT" Value="103070"/>
+        <Key Name="EVENT_1809_DAYCHECK_REWARDLIST" Value="103069"/>
+        <Key Name="EVENT_1809_DAYCHECK_SELECTLIST" Value="103073"/>
+        <Key Name="EVENT_1809_UCC_ADDCOUNT" Value="103067"/>
+        <Key Name="EVENT_1809_UCC_DATE" Value="103072"/>
+        <Key Name="EVENT_1810_FALL_LEAF_DAY_DATE" Value="103109"/>
+        <Key Name="EVENT_1810_FALL_LEAF_DAY_STATE" Value="103107"/>
+        <Key Name="EVENT_1810_UNIQUE_STATE" Value="103105"/>
+        <Key Name="EVENT_1810_UNIQUE_YDAY" Value="103106"/>
+        <Key Name="HadVisited_10000" Value="103095"/>
+        <Key Name="HadVisited_4941" Value="103084"/>
+        <Key Name="Indun_Bracken_uniqe_raid_First_Clear_Reward" Value="103096"/>
+        <Key Name="Indun_Nicopolis_uniqe_raid_First_Clear_Reward" Value="103081"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Ability">
         <Key Name="Script" Value="140"/>

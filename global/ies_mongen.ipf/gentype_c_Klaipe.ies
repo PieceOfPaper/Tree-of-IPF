@@ -65,5 +65,6 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 5118,10061,1,40,1,60000,1,2,0,0,0,0,0,"npc_soldier_female_01","경비병 리엔","","","","","","","INSTANCE_DUNGEON","","","NO","YES","NO","Neutral","","","",""
 5171,10062,1,40,1,60000,1,1,0,0,0,0,0,"HiddenTrigger6","[케도라 상단원]{nl}게랄다시아","","","","","","JUNK_SHOP_CREATE_AI","","","","NO","YES","NO","Neutral","","","",""
 5178,10063,1,20,1,60000,1,2,0,0,0,0,0,"Warp_arrow","뷰티샵","","","","MON_DUMMY","","","BEAUTY_IN_MOVE","BEAUTY_IN_MOVE","","NO","YES","NO","Neutral","","","",""
-5205,5205,1,1,-1,60000,1,2,0,0,0,100,0,"NPC_GM","랭크초기화 이벤트 도우미","","","","","","","EVENT_1807_RANK_NPC","","","NO","YES","NO","Neutral","","","",""
+5209,5209,1,1,1,1,1,2,0,0,0,0,0,"NPC_GM2","한가위출석 이벤트 도우미","","","","MON_DUMMY","","","EVENT_1809_CHUSEOK_DAY","","","No","YES","NO","Neutral","","","",""
+5210,5210,1,20,1,1,1,2,0,0,0,0,0,"mon_kupole_6_Event","보름달 키우기 대작전 큐폴","","","","MON_DUMMY","","","EVENT_1809_CHUSEOK_MOON","","","No","YES","NO","Neutral","","","",""
 10001,50001,1,40,1,60000,1,2,0,0,0,0,0,"Board3","이벤트 알림판","","","","","","","STEAM_TREASURE_EVENT","","","NO","YES","NO","Neutral","","","",""
