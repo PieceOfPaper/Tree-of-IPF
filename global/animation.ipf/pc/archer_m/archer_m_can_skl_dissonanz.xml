@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<AttachModel frame="0" XAC="archer_skl_Pipe" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="archer_skl_Pipe_ani.xsm"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="10" R="70" G="20" B="20" A="50"/>
+	<BlendOn frame="11" R="50" G="15" B="15" A="50"/>
+	<BlendOff frame="12" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="10" type="2" intensity="2" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="12" type="2" intensity="1" frequency="70" duration="0.5" range="1000"/>
+	<Particle frame="9" attachNode="Dummy_emitter" particleName="E_Dissonanz" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="9" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="19" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+</ActionDesc>

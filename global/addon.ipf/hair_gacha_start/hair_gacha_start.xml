@@ -3,7 +3,7 @@
 <uiframe name="hair_gacha_start" x="0" y="0" width="450" height="500">
 	<frame fullheight="false" fasthide="false" layout_gravity="center center" margin="270 -100 0 0" scale_align="right center"/>
 	<skin frameskin="none"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="100"/>
 	<input moveable="true"/>
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
@@ -17,5 +17,6 @@
 		<button name="close" rect="30 40 0 0" margin="0 10 60 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame('hair_gacha_start')" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}창을 닫습니다.{/}"/>
 		<richtext name="richtext_2" margin="0 0 0 150" rect="0 0 350 50" caption="{@st66b}사용하면 무언가 알 수 없는 것을{nl}획득할 수 있을 것 같습니다.{/}" textalign="center top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom"/>
 		<richtext name="richtext_3" margin="0 0 0 150" rect="0 0 350 50" caption="{@st66b}코스튬을 얻을 수 있습니다.{/}" textalign="center top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom"/>
+    <checkbox name="skip_animation" margin="0 0 0 130" rect="0 0 0 20" layout_gravity="center bottom" caption="큐브 애니메이션 스킵" fontname="black_18" checked="false" LBtnUpScp="SCR_GACHA_SKIP_ANIMATION"/>
 	</controls>
 </uiframe>

@@ -13,3 +13,11 @@ function IS_RANKROLLBACK_ITEM(itemClassName)
     end
     return 0;
 end
+
+function GET_MAX_WEEKLY_CLASS_RESET_POINT_EXP()
+    return 1000;
+end
+
+function GET_MAX_CLASS_RESET_POINT_EXP()
+    return 3000;
+end

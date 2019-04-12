@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
-    <Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
-    <Particle frame="6" attachNode="Dummy_emitter_pet" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false"/>
-    <Particle frame="6" attachNode="Dummy_emitter_pet" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
-    <BlendOn frame="7" R="100" G="55" B="50" A="100"/>
-    <BlendOn frame="8" R="150" G="110" B="100" A="100"/>
-    <Particle frame="8" attachNode="Dummy_effect_shieldshoving" particleName="I_dash25_red_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_umbothrust"/>
-    <BlendOff frame="10" R="0" G="0" B="0" A="0" sound="skl_eff_umbothrust"/>
-    <Sound frame="18.00" soundFile="skl_fgt_tackle_cast"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
+	<BlendOn frame="7" R="100" G="55" B="50" A="100"/>
+	<BlendOn frame="8" R="150" G="110" B="100" A="100"/>
+	<Shockwave frame="6" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="7" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="8" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_wizard_obey_shot_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="4" attachNode="Dummy_effect_shieldshoving" particleName="I_warrior_peltasta_umbothrust" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_umbothrust"/>
+	<Particle frame="8" attachNode="Dummy_effect_AttaqueAuFer" particleName="F_hit001_light_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_umbothrust"/>
+	<Particle frame="6" attachNode="Dummy_effect_shieldshoving" particleName="I_dash25_red_mash2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_umbothrust"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+	<BlendOff frame="10" R="0" G="0" B="0" A="0" sound="skl_eff_umbothrust"/>
+	<Sound frame="18.00" soundFile="skl_fgt_tackle_cast"/>
 </ActionDesc>

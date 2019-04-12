@@ -219,6 +219,11 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 		return false;
 	end
 
+	if TryGetProp(obj, 'Rebuildchangeitem', 0) > 0 then		
+		ui.MsgBox(ScpArgMsg('IfUDoCannotExchangeWeaponType'), 'IMPL_MARKET_SELL_UPDATE_REG_SLOT_ITEM("'..invItem:GetIESID()..'", '..tradeCount..')', 'None');
+		return;
+	end
+
 	local groupbox = frame:GetChild("groupbox");
 	local sellPriceGbox = GET_CHILD_RECURSIVELY(groupbox, "sellPriceGbox");
 	local maxPrice = sellPriceGbox:GetChild("maxPrice");
@@ -239,8 +244,6 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3); -- 3: , 텍스트로 변환		
 	end
 
-
-
 	if nil == slot then
 		slot = GET_CHILD_RECURSIVELY(groupbox, "slot_item", "ui::CSlot");
 	end
@@ -250,6 +253,55 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 	MARKET_SELL_UPDATE_SLOT_ITEM(frame);
 	
 	return true;
+end
+
+function IMPL_MARKET_SELL_UPDATE_REG_SLOT_ITEM(guid, tradeCount)
+	local invItem = session.GetInvItemByGuid(guid);
+	if invItem == nil then
+		return;
+	end
+	local obj = GetIES(invItem:GetObject());
+	local frame = ui.GetFrame('market_sell');	
+	local groupbox = frame:GetChild("groupbox");
+	local sellPriceGbox = GET_CHILD_RECURSIVELY(groupbox, "sellPriceGbox");
+	local maxPrice = sellPriceGbox:GetChild("maxPrice");
+	local minPrice = sellPriceGbox:GetChild("minPrice");	
+	sellPriceGbox:SetTextByKey("value", '0');
+	sellPriceGbox:SetTextByKey("value", '0');
+
+	local edit_count = GET_CHILD_RECURSIVELY(groupbox, "edit_count", "ui::CEditControl");
+	local edit_price = GET_CHILD_RECURSIVELY(groupbox, "edit_price", "ui::CEditControl");
+	if obj.ClassName == "PremiumToken" then
+		edit_count:SetText("1");
+		edit_count:SetMaxNumber(1);
+		edit_price:SetMaxNumber(TOKEN_MARKET_REG_MAX_PRICE * invItem.count);
+		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
+	else
+		edit_price:ClearMaxNumber();
+		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3); -- 3: , 텍스트로 변환		
+	end
+
+	if nil == slot then
+		slot = GET_CHILD_RECURSIVELY(groupbox, "slot_item", "ui::CSlot");
+	end
+	SET_SLOT_ITEM(slot, invItem);
+	edit_count:SetText(tradeCount);
+	edit_count:SetMaxNumber(tradeCount);
+	MARKET_SELL_UPDATE_SLOT_ITEM(frame);
+
+	edit_price:SetText("0");
+	edit_price:SetMinNumber(0);
+
+	local edit_count_value = string.gsub(edit_count:GetText(), ",", "")
+	local edit_price_value = string.gsub(edit_price:GetText(), ",", "")
+	local radioCtrl = GET_CHILD_RECURSIVELY(frame, "feePerTime_1")
+	local feeSelectIndex = GET_RADIOBTN_NUMBER(radioCtrl) - 1;
+	local feeSelected = tonumber(frame:GetUserValue('FREE_'..feeSelectIndex));
+	local priceText = GET_CHILD_RECURSIVELY(frame, "priceText")
+	priceText:SetTextByKey("priceText", GetMonetaryString(edit_price_value))
+	UPDATE_FEE_INFO(frame, feeSelected, edit_count_value, edit_price_value)
+
+	MARKET_SELL_REQUEST_PRICE_INFO(frame, invItem:GetIESID(), invItem.type);
 end
 
 function MARKET_SELL_RBUTTON_ITEM_CLICK(frame, invItem)
@@ -545,6 +597,15 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		ui.AlarmMsg("ItemIsNotTradable");
 		return false;
 	end
+    
+    if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+        local maxPrice = GET_CHILD_RECURSIVELY(frame, "maxPrice");
+		local maxPriceStr = GET_NOT_COMMAED_NUMBER(maxPrice:GetTextByKey('value'), true);		
+	    if tonumber(maxPriceStr) ~= 0 and IsGreaterThanForBigNumber(floorprice, maxPriceStr) == 1 then
+		    ui.SysMsg(ClMsg('MaxAllowPriceError'));
+		    return false;
+	    end
+    end 	
 
 	local yesScp = string.format("market.ReqRegisterItem(\'%s\', %s, %d, 1, %d)", itemGuid, floorprice, count, needTime);
 	commission = registerFeeValueCtrl:GetTextByKey("value");	
@@ -603,6 +664,9 @@ function UPDATE_MONEY_COMMAED_STRING(parent, ctrl)
 			limitMoney = 0;			
 		end
 		limitMoney = tonumber(limitMoney);
+	--
+	elseif frame:GetName() == 'colony_tax_distribute' then
+		
     end
 
     if tonumber(moneyText) > limitMoney then

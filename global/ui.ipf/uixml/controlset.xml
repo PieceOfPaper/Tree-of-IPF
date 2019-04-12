@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <controlsetlist>
 	<controlset name="barrack_pet_mini" toggle="false" hittest="true" width="150" height="150" skin="">
@@ -61,17 +61,19 @@
 			<slot name="BOOTS" margin="30 154 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="boots" DropScp="None" texttooltip="{@st59}신발{/}" layout_gravity="center top"/>
 			<slot name="NECK" margin="84 158 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="necklace" DropScp="None" texttooltip="{@st59}목걸이{/}" layout_gravity="center top"/>
 			<slot name="PANTS" margin="-30 155 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="pants" DropScp="None" texttooltip="{@st59}하의{/}" layout_gravity="center top"/>
+			<slot name="SEAL" margin="-84 158 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="seal_slot" DropScp="None" texttooltip="{@st59}인장{/}" layout_gravity="center top"/>
 			<!--3 line-->
 			<slot name="RH" margin="-30 214 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="rh" DropScp="None" texttooltip="{@st59}왼손{/}" layout_gravity="center top"/>
 			<slot name="LH" margin="30 214 0 0" rect="0 0 55 55" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lh" DropScp="None" texttooltip="{@st59}오른손{/}" layout_gravity="center top"/>
 			<slot name="RING1" margin="-84 217 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="ring" DropScp="None" texttooltip="{@st59}팔찌1{/}" layout_gravity="center top"/>
 			<slot name="RING2" margin="84 217 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="ring" DropScp="None" texttooltip="{@st59}팔찌2{/}" layout_gravity="center top"/>
 			<!--4 line-->
-			<slot name="ARMBAND" margin="-96 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="armband" DropScp="None" texttooltip="{@st59}암밴드{/}" layout_gravity="center top"/>
-			<slot name="OUTER" margin="-48 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="outer" DropScp="None" texttooltip="{@st59}코스튬{/}" layout_gravity="center top"/>
-			<slot name="SPECIALCOSTUME" margin="0 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="spcostume_slot" DropScp="None" texttooltip="{@st59}스페셜 코스튬{/}" layout_gravity="center top"/>
-			<slot name="WING" margin="48 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wing_slot" DropScp="None" texttooltip="{@st59}등 코스튬{/}" layout_gravity="center top"/>
-			<slot name="EFFECTCOSTUME" margin="96 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="effect_slot" DropScp="None" texttooltip="{@st59}이펙트 코스튬{/}" layout_gravity="center top"/>
+			<slot name="ARMBAND" margin="-120 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="armband" DropScp="None" texttooltip="{@st59}암밴드{/}" layout_gravity="center top"/>
+			<slot name="OUTER" margin="-72 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="outer" DropScp="None" texttooltip="{@st59}코스튬{/}" layout_gravity="center top"/>
+			<slot name="SPECIALCOSTUME" margin="-24 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="spcostume_slot" DropScp="None" texttooltip="{@st59}스페셜 코스튬{/}" layout_gravity="center top"/>
+			<slot name="WING" margin="24 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wing_slot" DropScp="None" texttooltip="{@st59}등 코스튬{/}" layout_gravity="center top"/>
+			<slot name="EFFECTCOSTUME" margin="72 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="effect_slot" DropScp="None" texttooltip="{@st59}이펙트 코스튬{/}" layout_gravity="center top"/>
+			<slot name="DOLL" margin="120 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="doll_slot" DropScp="None" texttooltip="{@st59}인형{/}" layout_gravity="center top"/>
 			<labelline name="labelline" margin="0 40 0 0" rect="0 0 300 4" skin="None" layout_gravity="center top" parent="detailBox"/>
 			<richtext name="mapName" margin="0 15 0 0" rect="0 0 120 30" caption="{@st42}텍스트{/}" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" parent="detailBox"/>
 		</controls>
@@ -366,8 +368,8 @@
 			<groupbox name="nowequip" rect="0 0 100 30" layout_gravity="left top" margin="10 280 0 0" image="testblackbg_image" hittest="false" draw="false" updateparent="false" scrollbar="false"/>
 			<richtext name="nowequip_text" caption="착용중" layout_gravity="center center" textalign="center center" fontname="white_16_ol" rect="0 0 100 30" margin="0 0 0 0" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" parent="nowequip"/>
 			<richtext name="cantrf_text" caption="강화 불가" layout_gravity="right top" textalign="center center" fontname="white_16_ol" rect="0 0 120 30" margin="0 285 10 0" fixwidth="true" hittest="false" resizebytext="true" updateparent="true"/>
-			<groupbox name="forgeryequip" rect="0 0 400 100" margin="0 140 0 0" layout_gravity="center top" skin="chat_window_2" draw="true"/>
-			<richtext name="forgeryequip_text" format="{@st66d}감정사 [모조품] 아이템{nl}   남은 유지시간 %s" param1="time" param1_def="1분30초" layout_gravity="center center" fontname="white_16_ol" rect="0 0 100 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" parent="forgeryequip"/>
+			<groupbox name="forgeryequip" rect="0 0 200 200" margin="0 80 0 0" layout_gravity="center top" skin="chat_window_2" draw="true"/>
+			<richtext name="forgeryequip_text" format="{@st66d}모조품" layout_gravity="center center" fontname="white_16_ol" rect="0 0 100 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" parent="forgeryequip"/>
 		</controls>
 	</controlset>
 	<controlset name="tooltip_equip_small_img" hittest="true" width="405" height="165">
@@ -395,6 +397,8 @@
 			<picture name="jobimage_archer_open" image="open_archer" parent="jobImageGbox" layout_gravity="right center" stretch="true" rect="0 0 23 23" margin="0 0 24 0" updateparent="true"/>
 			<picture name="jobimage_cleric_close" image="close_cleric" parent="jobImageGbox" layout_gravity="right center" stretch="true" rect="0 0 23 23" margin="0 0 0 0" updateparent="true"/>
 			<picture name="jobimage_cleric_open" image="open_cleric" parent="jobImageGbox" layout_gravity="right center" stretch="true" rect="0 0 23 23" margin="0 0 0 0" updateparent="true"/>
+			<picture name="jobimage_scout_close" image="close_scout" parent="jobImageGbox" layout_gravity="right center" stretch="true" rect="0 0 23 23" margin="0 0 96 0" updateparent="true"/>
+			<picture name="jobimage_scout_open" image="open_scout" parent="jobImageGbox" layout_gravity="right center" stretch="true" rect="0 0 23 23" margin="0 0 96 0" updateparent="true"/>
 			<richtext name="grade" layout_gravity="center top" textalign="center center" fontname="black_18" rect="0 0 120 30" margin="0 45 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true"/>
 			<richtext name="text_type" layout_gravity="center center" parent="bg_type" textalign="center center" fontname="white_16_ol" rect="0 0 60 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" format="종류"/>
 			<richtext name="text_job" layout_gravity="center center" parent="bg_job" textalign="center center" fontname="white_16_ol" rect="0 0 60 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" format="직업"/>
@@ -406,8 +410,8 @@
 			<groupbox name="nowequip" rect="0 0 100 30" layout_gravity="left top" margin="10 280 0 0" image="testblackbg_image" hittest="false" draw="false" updateparent="false" scrollbar="false"/>
 			<richtext name="nowequip_text" caption="착용중" layout_gravity="center center" textalign="center center" fontname="white_16_ol" rect="0 0 100 30" margin="0 0 0 0" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" parent="nowequip"/>
 			<richtext name="cantrf_text" caption="강화 불가" layout_gravity="right top" textalign="center center" fontname="white_16_ol" rect="0 0 120 30" margin="0 285 10 0" fixwidth="true" hittest="false" resizebytext="true" updateparent="true"/>
-			<groupbox name="forgeryequip" rect="0 0 400 100" margin="0 140 0 0" layout_gravity="center top" skin="chat_window_2" draw="true"/>
-			<richtext name="forgeryequip_text" format="{@st66d}감정사 [모조품] 아이템{nl}   남은 유지시간 %s" param1="time" param1_def="1분30초" layout_gravity="center center" fontname="white_16_ol" rect="0 0 100 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" parent="forgeryequip"/>
+			<groupbox name="forgeryequip" rect="0 0 97 97" margin="7 60 0 0" layout_gravity="left top" skin="chat_window_2" draw="true"/>
+			<richtext name="forgeryequip_text" format="{@st66d}모조품" layout_gravity="center center" fontname="white_16_ol" rect="0 0 100 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" parent="forgeryequip"/>
 			<labelline name="labelline" margin="0 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center bottom"/>
 		</controls>
 	</controlset>
@@ -452,7 +456,7 @@
 		</controls>
 	</controlset>
 	<controlset name="tooltip_equip_cannot_reinforce" hittest="true" width="410" height="45">
-		<userconfig BOTTOM_MARGIN="10" TEXT_FONT="{#62100c}" REINFORCE_TEXT="강화 불가" TRANSCEND_TEXT="초월 불가" EXTRACT_TEXT="추출 불가" SOCKET_TEXT="소켓 추출 불가" BRIQUET_TEXT="외형 변경 불가"/>
+		<userconfig BOTTOM_MARGIN="10" TEXT_FONT="{#62100c}" REINFORCE_TEXT="강화 불가" TRANSCEND_TEXT="초월 불가" EXTRACT_TEXT="추출 불가" SOCKET_TEXT="소켓 추출 불가" BRIQUET_TEXT="외형 변경 불가" EXCHANGE_TEXT="{#00fec5}{ol}계열 변경 가능(1월 24일까지){/}" AWAKEN_TEXT="각성 불가"/>
 		<controls>
 			<labelline name="labelline" margin="0 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center top"/>
 			<richtext name="socket_text" layout_gravity="left top" rect="0 0 390 45" margin="17 5 0 0" fixwidth="true" format="" hittest="false" textalign="left center" fontname="brown_16"/>
@@ -472,7 +476,7 @@
 		<!--socket_gbox의 child로 들어가는 컨트롤셋이다.-->
 		<controls>
 			<picture name="socket_image" layout_gravity="left center" rect="0 0 25 25" stretch="true" margin="20 0 0 0"/>
-			<richtext name="socket_property" layout_gravity="right center" rect="0 0 340 30" margin="0 0 15 0" fixwidth="true" hittest="false" textalign="right center" fontname="brown_16"/>
+			<richtext name="socket_property" layout_gravity="right center" rect="0 0 340 30" margin="0 0 15 0" fixwidth="true" hittest="false" textalign="right center" fontname="brown_16" resizebytext="true"/>
 			<richtext name="grade" layout_gravity="left center" rect="0 0 340 20" margin="55 0 0 0" textalign="left center" fontname="brown_16" fixwidth="false" caption="별별별별" hittest="false" resizebytext="false" updateparent="true"/>
 		</controls>
 	</controlset>
@@ -516,7 +520,7 @@
 		<!--set_gbox_prop의 child로 들어가는 컨트롤셋이다.-->
 		<controls>
 			<labelline name="labelline" margin="0 0 0 0" rect="0 0 280 1" skin="labelline_def_2" layout_gravity="center top"/>
-			<richtext name="set_prop_Text" layout_gravity="center center" format="%s %s" param1="setTitle" param1_def="DefVal" param2="setDesc" param2_def="DefVal" rect="0 0 270 27" margin="20 5 0 0" fixwidth="true" hittest="false" fontname="idiotbrown_16_b"/>
+			<richtext name="set_prop_Text" layout_gravity="center center" format="%s %s" param1="setTitle" param1_def="DefVal" param2="setDesc" param2_def="DefVal" rect="0 0 260 27" margin="20 5 0 0" fixwidth="true" hittest="false" fontname="idiotbrown_16_b"/>
 		</controls>
 	</controlset>
 	<controlset name="tooltip_available_property" hittest="true" width="410" height="60">
@@ -786,7 +790,7 @@
 			<checkbox name="BuyCheck" rect="5 0 30 30" layout_gravity="left center"/>
 		</controls>
 	</controlset>
-	<controlset name="socialitemset_Type" toggle="false" hittest="true" width="480" height="70" cursoronimage="Item_View01_ON" selectedimage="Item_View01_SELECTED" skin="downbox">
+	<controlset name="socialitemset_Type" toggle="false" hittest="true" width="480" height="70" skin="downbox">
 		<controls>
 			<slot name="slot" layout_gravity="left center" skin="slot_empty" rect="10 0 60 60"/>
 			<richtext name="ItemName" rect="80 10 120 42" layout_gravity="left top" fixwidth="true" hittest="false" fontname="white_16_ol"/>
@@ -842,16 +846,17 @@
 		</controls>
 	</controlset>
 	<controlset name="skilllvdesc" toggle="false" hittest="true" width="500" height="100">
-		<userconfig LEVEL_FONTNAME="{@st66d_y}" LEVEL_NEXTLV_FONTNAME="{@st66d}" DESC_FONTNAME="{@st66b}" DESC_NEXTLV_FONTNAME="{@st66c}" ADD_ABILITY_STYLE="{#00FF00}" LABEL_SKIN_NAME="labelline_def_2" SKIN_NEXTLV_NAME="tooltip_nextskill" SP_ICON="{img tooltip_spicon 24 24}"/>
+		<userconfig LEVEL_FONTNAME="{@st66d_y}" LEVEL_NEXTLV_FONTNAME="{@st66d}" DESC_FONTNAME="{@st66b}" DESC_NEXTLV_FONTNAME="{@st66c}" ADD_ABILITY_STYLE="{#00FF00}" LABEL_SKIN_NAME="labelline_def_2" SKIN_NEXTLV_NAME="tooltip_nextskill" SP_ICON="{img tooltip_spicon 24 24}" OVERHEAT_ICON="{img tooltip_charging 24 24}"/>
 		<controls>
-			<picture name="cooltimeimg" rect="0 0 24 24" margin="0 5 175 0" layout_gravity="right top" image="test_cooltime"/>
+			<picture name="cooltimeimg" rect="0 0 24 24" margin="0 5 120 0" layout_gravity="right top" image="test_cooltime"/>
 			<richtext name="level" layout_gravity="left top" rect="0 5 100 24" resizebytext="true" fixwidth="true" hittest="false" textalign="center top" caption="{@st66d_y}exinfo"/>
 			<labelline name="labelline2" skin="none" margin="0 -2 0 0" rect="0 0 470 4" layout_gravity="center top"/>
 			<labelline name="labelline" skin="labelline_def_2" margin="0 35 0 0" rect="0 0 470 4" layout_gravity="center top"/>
 			<richtext name="desc" layout_gravity="left top" rect="120 45 350 24" resizebytext="true" fixwidth="true" hittest="false" textalign="left  top" caption="{@st66b}exinfo"/>
 			<richtext name="pad_text" format="장판형" layout_gravity="left top" rect="0 45 100 24" resizebytext="true" fixwidth="true" hittest="false" textalign="center  top"/>
 			<richtext name="sp_text" layout_gravity="left top" rect="120 5 125 24" resizebytext="true" fixwidth="true" hittest="false" textalign="left top"/>
-			<richtext name="cool_text" margin="0 5 5 0" layout_gravity="right top" rect="0 0 160 24" resizebytext="true" fixwidth="true" hittest="false" textalign="left top"/>
+			<richtext name="overheat_text" margin="0 5 90 0" layout_gravity="right top" rect="0 0 160 24" resizebytext="true" fixwidth="true" hittest="false" fontname="brown_16_b" textalign="left top"/>
+			<richtext name="cool_text" margin="0 5 5 0" layout_gravity="right top" rect="0 0 120 24" resizebytext="true" fixwidth="true" hittest="false" textalign="left top"/>
 		</controls>
 	</controlset>
 	<controlset name="itemtooltipexinfo" toggle="false" hittest="true" width="180" height="100" skin="bg">
@@ -880,11 +885,10 @@
 			<richtext name="pts" layout_gravity="center bottom" rect="0 -34 100 24" fixwidth="true" hittest="false" fontname="white_16" textalign="center top" caption="{@st41}특성포인트"/>
 		</controls>
 	</controlset>
-	<controlset name="classtreeIcon" toggle="false" hittest="true" width="120" height="140">
+	<controlset name="classtreeIcon" toggle="false" hittest="true" width="120" height="120">
 		<controls>
-			<picture name="selectedarrow" layout_gravity="center bottom" stretch="true" rect="0 0 120 140" margin="0 0 0 0" image="class_glow"/>
+			<picture name="selectedarrow" layout_gravity="center bottom" stretch="true" rect="0 0 120 120" margin="0 0 0 0" image="class_glow"/>
 			<slot name="slot" layout_gravity="center top" stretch="true" rect="0 0 85 85" skin="slot_empty" enabledrop="false" enablepop="false" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
-			<richtext name="level" layout_gravity="center bottom" rect="0 0 50 20" margin="0 0 0 40" fixwidth="false" hittest="false" fontname="white_16" textalign="left center" caption="{@st42b}5/5"/>
 			<richtext name="name" layout_gravity="center bottom" rect="0 0 100 40" margin="0 0 0 15" fixwidth="false" hittest="false" fontname="white_16" textalign="left center" caption="{@st41}클래스이름"/>
 		</controls>
 	</controlset>
@@ -935,39 +939,15 @@
 	<controlset name="partylist" toggle="false" hittest="true" width="300" height="30" skin="textview" stretch="true">
 		<controls>
 			<richtext name="partynumber" layout_gravity="left top" hittest="false" visible="true" rect="0 0 50 20" margin="5 5 0 0" textalign="left top" caption="{@st60}1"/>
-			<richtext name="partyname" layout_gravity="none top" hittest="false" visible="true" rect="0 0 200 20" margin="60 5 65 0" textalign="center top" caption="{@st60}1"/>
+			<richtext name="partyname" layout_gravity="left top" hittest="false" visible="true" rect="0 0 200 20" margin="60 5 65 0" textalign="center top" caption="{@st60}1"/>
 			<richtext name="partymembercount" layout_gravity="right top" hittest="false" visible="true" rect="0 0 50 20" margin="0 5 5 0" textalign="left top" caption="{@st60}1"/>
 		</controls>
 	</controlset>
-	<controlset name="objheadsprite" toggle="false" hittest="true" width="200" height="90">
-		<controls>
-			<picture name="head" rect="0 0 40 40" image="fullblack" stretch="true" hittest="false"/>
-			<picture name="hat" rect="0 0 40 40" image="fullblack" stretch="true" hittest="false"/>
-		</controls>
-	</controlset>
-	<controlset name="chatu" toggle="false" hittest="true" width="400" height="100" skin="">
-		<controls>
-			<labelbox name="bg" layout_gravity="left top" visible="true" rect="0 0 380 40" skin="textballoon_reflect" margin="0 18 0 0"/>
-			<richtext name="name" layout_gravity="left top" useorifacerect="true" visible="true" rect="0 0 319 22" margin="10 0 0 0" resizebytext="true" maxwidth="200" fixwidth="false" fixheight="true" textalign="left top" format="{@st42b}%s" param1="name" param1_def="AAAAAAABBBBBBBCCCCCC"/>
-			<richtext name="text" layout_gravity="center center" useorifacerect="true" visible="true" rect="0 0 350 20" margin="0 0 0 0" resizebytext="true" maxwidth="330" fixwidth="false" textalign="left top" splitbyspace="false" format="%s{s%s}%s" param1="font" param1_def="{#050505}{b}" param2="size" param2_def="16" param3="text" param3_def="AAA" parent="bg"/>
-			<groupbox name="timebox" margin="50 25 0 0" rect="0 0 70 18" hittestbox="false" skin="chat_time_bg2" layout_gravity="left top" scroll="false"/>
-			<richtext name="time" layout_gravity="center center" useorifacerect="true" rect="0 0 70 18" margin="0 0 0 0" resizebytext="true" maxwidth="0" fixwidth="false" textalign="center center" param1="time" param1_def="PM 16:16" spacey="0" fontname="white_14_ol" updateparent="false" drawbackground="false" slideshow="false" parent="timebox"/>
-			<picture name="iconPicture" margin="5 7 0 0" rect="0 0 48 48" hittest="false" image="mainpc_crown" stretch="true" changecursor="false" layout_gravity="left top"/>
-		</controls>
-	</controlset>
-	<controlset name="chatTextVer" toggle="false" hittest="true" width="450" height="26" skin="chat_window_2" stateskin="false">
+	<controlset name="chatTextVer" toggle="false" hittest="true" width="450" height="26" skin="chat_window_2" stateskin="false" draw="false">
 		<controls>
 			<labelbox name="bg" layout_gravity="left top" rect="0 0 420 26" skin="chat_window_2" margin="0 0 0 0"/>
 			<richtext name="text" layout_gravity="left top" useorifacerect="true" visible="true" rect="0 0 440 24" margin="0 0 0 0" resizebytext="true" maxwidth="440" fixwidth="false" textalign="left top" splitbyspace="false" format="{/}%s{s%s}%s{/}" param1="font" param1_def="{#FFFFFF}" param2="size" param2_def="16" param3="text" param3_def="AAA"/>
 			<richtext name="time" layout_gravity="right center" rect="0 0 80 24" margin="0 0 20 0" maxwidth="0" fixwidth="true" textalign="right center" format="{b}" useorifacerect="true" resizebytext="true" param1="time" param1_def="PM 16:16" spacey="0" fontname="idiotbrown_14" updateparent="false" drawbackground="false" slideshow="false"/>
-		</controls>
-	</controlset>
-	<controlset name="chati" toggle="false" hittest="true" width="400" height="100" skin="">
-		<controls>
-			<labelbox name="bg" layout_gravity="right top" visible="true" rect="0 0 380 40" skin="textballoon" margin="0 0 2 0"/>
-			<richtext name="text" layout_gravity="center center" visible="true" rect="0 0 360 20" margin="0 0 0 0" maxwidth="320" fixwidth="false" textalign="left top" splitbyspace="false" format="%s{s%s}%s" useorifacerect="true" resizebytext="true" param1="font" param1_def="{#050505}" param2="size" param2_def="16" param3="text" param3_def="AAA" parent="bg"/>
-			<groupbox name="timebox" margin="0 7 0 0" rect="0 0 70 18" hittestbox="false" skin="chat_time_bg2" layout_gravity="left top" scroll="false"/>
-			<richtext name="time" layout_gravity="center center" rect="0 0 70 18" margin="0 0 0 0" maxwidth="0" fixwidth="false" textalign="center center" useorifacerect="true" resizebytext="true" param1="time" param1_def="PM 16:16" spacey="0" fontname="white_14_ol" updateparent="false" drawbackground="false" slideshow="false" parent="timebox"/>
 		</controls>
 	</controlset>
 	<controlset name="chatlist" toggle="false" hittest="true" hittestset="true" width="445" height="60" skin="test_skin_01_btn" stateskin="true">
@@ -1021,45 +1001,6 @@
 			<richtext name="level_text" rect="0 0 46 30" margin="0 0 0 0" caption="{@st41}1" resizebytext="false" updateparent="false" layout_gravity="center center" hittest="false" textalign="center center" format="{@st41}%s" param1="lv" param1_def="1" scroll="false" parent="lvbox"/>
 		</controls>
 	</controlset>
-	<controlset name="partyfound_info2" toggle="false" hittest="true" width="520" height="100" skin="test_skin_01" stateskin="false">
-		<controls>
-			<picture name="namebg" rect="0 0 450 40" margin="10 10 0 0" layout_gravity="left top" hittest="false" image="test_com_namebg"/>
-			<richtext name="note" margin="20 20 0 0" rect="0 0 400 20" resizebytext="true" fixwidth="true" layout_gravity="left top" textalign="left center" format="{@st41b}%s{/}" hittest="false" fontname="white_18_b_ol" param1="note" param1_def="Default"/>
-			<richtext name="numberNmax" margin="20 20 0 0" rect="-20 0 20 20" resizebytext="true" fixwidth="false" layout_gravity="right top" textalign="left center" format="{#2c140c}(%s/5){/}" hittest="false" fontname="black_18" param1="maxCnt" param1_def="1"/>
-			<richtext name="avgLevel" margin="20 20 0 0" rect="0 -20 20 20" resizebytext="true" fixwidth="false" layout_gravity="left bottom" textalign="left center" format="{#2c140c}평균레벨 : %s{/}" hittest="false" fontname="black_18" param1="avglv" param1_def="0"/>
-			<button name="joinParty" rect="0 0 160 40" margin="0 0 10 10" layout_gravity="right bottom" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}참가" skin="test_red_button" oversound="button_cursor_over_2" clicksound="button_click_stats_up"/>
-		</controls>
-	</controlset>
-	<controlset name="partyfound_info" toggle="false" hittest="true" width="520" height="345" skin="test_skin_01" stateskin="false">
-		<controls>
-			<richtext name="name" rect="0 0 20 20" margin="20 20 0 0" resizebytext="true" fixwidth="false" layout_gravity="left top" textalign="left center" format="파티명 : {#2c140c}%s{/}" hittest="false" fontname="black_18" param1="name" param1_def="Default"/>
-			<richtext name="note" rect="0 0 20 20" margin="20 45 0 0" resizebytext="true" fixwidth="false" layout_gravity="left top" textalign="left center" format="설명 : {#2c140c}%s{/}" hittest="false" fontname="black_18" param1="note" param1_def="Default"/>
-			<richtext name="avgLevel" rect="0 0 20 20" margin="20 70 0 0" resizebytext="true" fixwidth="false" layout_gravity="left top" textalign="left center" format="평균 레벨 :  {#2c140c}%s{/}" hittest="false" fontname="black_18" param1="avglv" param1_def="Default"/>
-			<richtext name="findClass" rect="0 0 20 20" margin="20 95 0 0" resizebytext="true" fixwidth="false" layout_gravity="left top" textalign="left center" format="찾는 파티원 :  {#2c140c}%s{/}" hittest="false" fontname="black_18" param1="findClass" param1_def="Default"/>
-			<richtext name="questPolicy" rect="0 0 20 20" margin="20 120 0 0" resizebytext="true" fixwidth="false" layout_gravity="left top" textalign="left center" format="퀘스트 공유 :  {#2c140c}%s{/}" hittest="false" fontname="black_18" param1="isuse" param1_def="Default"/>
-			<richtext name="expPolicy" rect="0 0 20 20" margin="20 145 0 0" resizebytext="true" fixwidth="false" layout_gravity="left top" textalign="left center" format="경험치 분배규칙 :  {#2c140c}%s{/}" hittest="false" fontname="black_18" param1="isuse" param1_def="Default"/>
-			<richtext name="itemPolicy" rect="0 0 20 20" margin="20 170 0 0" resizebytext="true" fixwidth="false" layout_gravity="left top" textalign="left center" format="아이템 분배규칙 :  {#2c140c}%s{/}" hittest="false" fontname="black_18" param1="isuse" param1_def="Default"/>
-		</controls>
-	</controlset>
-	<controlset name="partyfound_member_info" toggle="false" hittest="true" width="127" height="150" skin="none" stateskin="false"/>
-	<controlset name="partyinfo_helper" toggle="false" hittest="true" width="500" height="100" skin="">
-		<controls>
-			<gauge name="hp" rect="0 0 100 20" margin="60 13 0 0" ratewidth="true" skin="partyinfo_HP_helper" text1="%v / %m" textoffset1="0 1" textfont1="white_14_ol" textalign1="center center" hittest="false" layout_gravity="left top" point="100"/>
-			<gauge name="sp" rect="0 0 100 20" margin="60 27 0 0" ratewidth="true" skin="partyinfo_SP_helper" text1="%v / %m" textoffset1="0 1" textfont1="white_14_ol" textalign1="center center" hittest="false" layout_gravity="left top" point="100"/>
-			<picture name="jobportrait_bg" rect="0 0 60 60" hittest="false" margin="0 0 0 0" layout_gravity="left top" image="party_cha_helper" stretch="true"/>
-			<picture name="jobportrait" rect="0 0 50 50" hittest="false" margin="5 7 0 0" layout_gravity="left top" mask="mask_youinfo"/>
-			<richtext name="name_text" rect="0 0 150 30" spacey="0" fontname="white_16_ol" layout_gravity="left top" hittest="false" textalign="left center" margin="81 65 0 0" caption="ASDSAASDADA" format="{@st41b}%s" param1="name" param1_def="ZZZZZZZZZZZZZZ"/>
-			<groupbox name="lvbox" margin="10 60 0 0" rect="0 0 46 32" hittestbox="false" skin="false" layout_gravity="left top" scroll="false"/>
-			<button name="helper_btn" image="helper_btn" margin="155 16 0 0" layout_gravity="left top" rect="0 0 28 28"/>
-			<richtext name="level_text" rect="0 0 46 30" caption="{@st41}1" resizebytext="true" spacey="0" updateparent="false" layout_gravity="left center" hittest="false" textalign="center center" margin="25 26 0 0" format="{@st41}%s" param1="lv" param1_def="131"/>
-		</controls>
-	</controlset>
-	<controlset name="skillpagenum" toggle="false" hittest="true" width="22" height="22">
-		<controls>
-			<labelbox name="pagebg" layout_gravity="center top" visible="true" rect="0 0 22 22" skin="digitnotice_bg"/>
-			<richtext name="pagenum" layout_gravity="center center" visible="true" rect="0 0 20 20" resizebytext="false" fixwidth="false" textalign="center center" caption="{ol}{b}{s14}1"/>
-		</controls>
-	</controlset>
 	<controlset name="app" toggle="false" hittest="true" width="144" height="90">
 		<controls>
 			<slot name="appSlot" rect="0 0 64 64" margin="0 0 0 0" layout_gravity="center top" stretch="true" enabledrop="false" enablepop="false"/>
@@ -1072,19 +1013,6 @@
 		<controls>
 			<picture name="keypad" layout_gravity="left top" stretch="true" rect="0 0 32 32"/>
 			<richtext name="action" layout_gravity="left center" rect="46 0 350 32" fixwidth="true" hittest="false" fontname="white_16"/>
-		</controls>
-	</controlset>
-	<controlset name="itemset_Type02" toggle="false" hittest="true" width="191" height="50" image="Item_View01_IDLE" cursoronimage="Item_View01_ON" selectedimage="Item_View01_SELECTED">
-		<controls>
-			<slot name="slot" layout_gravity="left top" rect="4 4 42 42"/>
-			<richtext name="ItemName_Count" rect="50 14 180 42" fixwidth="true" hittest="false" fontname="white_18"/>
-		</controls>
-	</controlset>
-	<controlset name="skilllistitem_Type" toggle="false" stretch="true" hittest="true" width="160" height="50" image="Item_View01_IDLE" cursoronimage="Item_View01_ON" selectedimage="Item_View01_SELECTED">
-		<controls>
-			<slot name="slot" layout_gravity="left top" skin="slot_empty" rect="4 4 42 42"/>
-			<richtext name="ItemName_Count" rect="50 7 100 42" layout_gravity="left top" fixwidth="true" hittest="false" fontname="white_14_b_ds"/>
-			<richtext name="Item_Price" rect="-5 -3 100 42" layout_gravity="right bottom" fixwidth="true" hittest="false" fontname="white_14_b_ds"/>
 		</controls>
 	</controlset>
 	<controlset name="shopitemset_Type" toggle="false" hittest="true" width="460" height="55" skin="test_skin_01_btn">
@@ -1104,13 +1032,6 @@
 			<richtext name="needItem" rect="-10 0 120 42" layout_gravity="right center" fixwidth="true" hittest="false" fontname="white_14_b_ds"/>
 		</controls>
 	</controlset>
-	<controlset name="itemdure_text" toggle="false" hittest="false" width="200" height="24">
-		<controls>
-			<richtext name="duretext" rect="0 0 100 24" fixwidth="true" hittest="false" fontname="black_20"/>
-			<button name="srcbtn" skin="test_weight_skin" caption="100" textalign="center center" rect="0 0 48 25"/>
-			<richtext name="desttext" rect="0 0 100 24" fixwidth="true" hittest="false" fontname="black_20"/>
-		</controls>
-	</controlset>
 	<controlset name="repair_set" toggle="false" hittest="true" width="180" height="50" skin="textbutton" stateskin="true">
 		<controls>
 			<slot name="slot" layout_gravity="left top" rect="4 2 42 42"/>
@@ -1124,43 +1045,6 @@
 			<richtext name="ItemName" rect="0 0 300 25" margin="120 20 0 0" fixwidth="false" hittest="false" fontname="white_18_b_ol"/>
 			<richtext name="ItemCount" rect="0 0 300 25" margin="120 50 0 0" fixwidth="false" hittest="false" fontname="white_16_b_ol"/>
 			<richtext name="AddWiki" rect="0 0 250 25" margin="120 75 0 0" format="{@st41b}%s" param1="value" param1_def="모험일지에 등록되었습니다." fixwidth="true" hittest="false" fontname="white_18_b_ol"/>
-		</controls>
-	</controlset>
-	<controlset name="itemset_categorybar" toggle="false" hittest="true" width="206" height="18">
-		<controls>
-			<picture name="CategoryImage" rect="2 2 18 18" layout_gravity="left top"/>
-			<labelbox name="CategoryBar" rect="0 0 206 18" skin="labelbox_set01" layout_gravity="left top"/>
-			<richtext name="CategoryName" rect="24 2 194 14" fixwidth="true" layout_gravity="left top"/>
-		</controls>
-	</controlset>
-	<controlset name="menu_category" toggle="false" hittest="true" width="84" height="34" image="Category_Btn_Normal" cursoronimage="Category_Btn_Normal" selectedimage="Category_Btn_Normal">
-		<controls>
-			<richtext name="CategoryName" rect="28 6 50 12" fixwidth="true" hittest="false" layout_gravity="left top"/>
-			<picture name="CategoryImage" rect="6 4 22 22" hittest="false"/>
-		</controls>
-	</controlset>
-	<controlset name="menu_category_workboard" toggle="false" hittest="true" width="98" height="34" skin="labelbox">
-		<controls>
-			<richtext name="CategoryName" rect="28 6 70 12" fixwidth="true" hittest="false" layout_gravity="left top"/>
-			<picture name="CategoryImage" rect="6 4 22 22" hittest="false"/>
-		</controls>
-	</controlset>
-	<controlset name="itemset_workboard" toggle="false" hittest="true" width="500" height="24">
-		<controls>
-			<slot name="slot" layout_gravity="left top" rect="2 2 16 16" hittest="false"/>
-			<richtext name="ItemName_Count" rect="22 2 460 16" fixwidth="true" hittest="false" fontname="white_12"/>
-		</controls>
-	</controlset>
-	<controlset name="skillset" toggle="false" hittest="true" width="180" height="60" skin="labelbox">
-		<controls>
-			<slot name="slot" rect="5 5 48 48"/>
-			<richtext name="text" rect="60 5 80 50 " fixwidth="true"/>
-		</controls>
-	</controlset>
-	<controlset name="LdExplorerMenu" toggle="false" hittest="true" width="180" height="60" skin="labelbox">
-		<controls>
-			<slot name="slot" rect="5 5 48 48"/>
-			<richtext name="text" rect="60 5 80 50 " fixwidth="true"/>
 		</controls>
 	</controlset>
 	<controlset name="Category" toggle="false" hittest="true" width="260" height="24">
@@ -1247,7 +1131,7 @@
 	</controlset>
 	<controlset name="CreateSet_Type02" toggle="false" hittest="true" width="68" height="68" caption="퀘스트의 리스트 오브젝트-여기까지는 옛날꺼임">
 		<controls>
-			<picture name="Picture" stretch="ture" rect="2 2 64 64"/>
+			<picture name="Picture" rect="2 2 64 64"/>
 		</controls>
 	</controlset>
 	<controlset name="Roadmap_Line01" toggle="false" hittest="true" width="298" height="28" caption="로드맵에서 사용하는 라인">
@@ -1438,12 +1322,11 @@
 			<richtext name="tiername" rect="0 0 100 18" layout_gravity="left top" margin="20 13 0 0" fixwidth="true" resizebytext="true" hittest="false" fontname="white_18_ol"/>
 		</controls>
 	</controlset>
-	<controlset name="jobinfo" toggle="false" width="280" height="134" skin="bg" draw="false" updateparent="true" stateskin="false">
+	<controlset name="jobinfo" toggle="false" width="317" height="109" skin="bg" draw="false" updateparent="true" stateskin="false">
 		<controls>
 			<button rect="0 0 200 134" layout_gravity="left top" clicksound="button_click_big" oversound="button_over" name="button"/>
-			<richtext name="jobname" rect="0 0 200 50" format="{@st46}%s{/}" param1="param_jobcname" param1_def="DefVal" layout_gravity="center center" margin="0 0 0 0" textalign="center top" fixwidth="true" resizebytext="true" hittest="false"/>
-			<richtext name="jobclass" rect="0 0 150 50" format="{@st42}%s 서클{/}" param1="param_jobclass" param1_def="99 서클" layout_gravity="center top" margin="0 6 0 0" textalign="center top" fixwidth="true" resizebytext="true" hittest="false"/>
-			<picture name="hotimg" layout_gravity="center center" rect="0 0 70 40" margin="0 35 0 0" hittest="false"/>
+			<richtext name="jobname" rect="0 0 200 50" format="{@sti7}{s22}{ds}%s{/}" param1="param_jobcname" param1_def="DefVal" layout_gravity="center center" margin="0 0 0 0" textalign="center top" fixwidth="true" resizebytext="true" hittest="false"/>
+			<picture name="hotimg" layout_gravity="left top" rect="0 0 69 73" margin="0 0 0 0" hittest="false" image="class_tree_hot_icon"/>
 		</controls>
 	</controlset>
 	<controlset name="map_icon" toggle="false" width="104" height="80">
@@ -1603,6 +1486,35 @@
 			<richtext name="itemprice" margin="150 40 0 0" rect="0 0 210 40" caption="ZZZZZZZZZZZ" textalign="right center" resizebytext="true" spacey="0" maxwidth="280" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 		</controls>
 	</controlset>
+	<controlset name="tpshop_costume_exchange" hittest="true" width="286" height="350" hittestset="true" draw="true" skin="test_skin_01_btn" stateskin="false">
+		<controls>
+			<button name="noneBtnPreSlot_1" margin="0 5 0 0" rect="0 0 275 48" layout_gravity="left top" skin="premium_title_line" scrollbar="false" hittest="false"/>
+			<richtext name="title" margin="0 20 0 0" rect="0 0 210 40" caption="ZZZZZZZZZZZ" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="black_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+			<richtext name="subtitle" margin="0 43 0 0" rect="0 0 210 40" caption="WWWWWWWWWWWWW" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+			<picture name="shawdow" margin="0 20 0 0" rect="0 0 110 40 " hittest="false" layout_gravity="center center" stretch="true" image="skill-name_bg"/>
+			<slot name="icon" margin="0 70 0 0" rect="0 0 135 135" layout_gravity="center top" enabledrop="false" enablepop="false" hittest="true"/>
+			<button name="noneBtnPreSlot_2" margin="0 0 0 0 " rect="0 0 280 350" layout_gravity="left top" skin="premium_case_skin" scrollbar="false" hittest="false"/>
+			<button name="staticBuyMedalbox" margin="0 0 0 105" rect="0 0 255 30" layout_gravity="center bottom" hittestbox="false" draw="true" hittest="false" skin="categoryselect_skin" textalign="left center" fontname="black_16_b" caption="{@st42}{s16}  소모 교환권 {/}{img icon_item_exchange_costumeCoupon 32 32}{/}"/>
+			<labelline name="labelline14" margin="10 60 0 0" rect="0 0 270 2" skin="none" layout_gravity="left top"/>
+			<richtext name="nxp" margin="0 0 20 100" rect="0 0 217 30" caption="999" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right bottom"/>
+			<richtext name="desc" margin="20 0 0 75" rect="0 0 260 24" caption="XXXXXXXXXXXXXXXXXXXXXXXXX" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left bottom"/>
+			<richtext name="tradeable" margin="20 0 0 55" rect="0 0 260 24" caption="거래 불가" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left bottom"/>
+			<richtext name="remaincnt" margin="0 0 20 70" rect="0 0 217 30" format="보유 수량 : %s" param1="cnt" param1_def="def" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right bottom"/>
+			<button name="previewBtn" rect="0 0 130 44" margin="11 0 0 10" layout_gravity="left bottom" skin="test_pvp_btn" scrollbar="false" hittest="true" caption="{@st66b}{s16}미리보기{/}" fontname="brown_16_b" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_ITEM_COSTUME_EXCHANGE_PREVIEW_PREPROCESSOR"/>
+			<button name="buyBtn" rect="0 0 130 44" margin="0 0 11 10" layout_gravity="right bottom" skin="test_red_button" scrollbar="false" hittest="true" caption="{@st42b}{s16}구매{/}" fontname="black_16_b" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_ITEM_TO_COSTUME_EXCHANGE_BUY_BASKET_PREPROCESSOR"/>
+			<picture name="noneBtnPreSlot_3" margin="0 55 0 0" rect="0 0 100 30" hittest="false" image="premium_img" stretch="true" changecursor="false" layout_gravity="center top"/>
+		</controls>
+	</controlset>
+	<controlset name="tpshop_costume_exchange_popup" hittest="true" width="440" height="90" hittestset="false" draw="true" skin="" stateskin="false">
+		<controls>
+			<groupbox name="slot_bg" rect="0 0 425 30" margin="0 5 0 0" layout_gravity="left top" skin="guild_base_skin" scrollbar="false"/>
+			<picture name="rightarrow" margin="50 40 0 0" rect="0 0 30 20" hittest="false" image="market_rightarrow" stretch="true" changecursor="false" layout_gravity="center top"/>
+			<slot name="itemicon" margin="10 0 0 0" rect="0 0 80 80" layout_gravity="left center" enabledrop="false" enablepop="false" hittest="true" stretch="true"/>
+			<richtext name="itemname" margin="100 10 0 0" rect="0 0 210 40" caption="ZZZZZZZZZZZ" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="itemStaticprice_buy" margin="100 40 0 0" rect="0 0 210 40" caption="소비 교환권" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+			<richtext name="itemprice" margin="150 40 0 0" rect="0 0 210 40" caption="ZZZZZZZZZZZ" textalign="right center" resizebytext="true" spacey="0" maxwidth="280" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		</controls>
+	</controlset>
 	<controlset name="nearparty_each_member_info" toggle="false" hittest="true" width="400" height="30" skin="none" stateskin="false" draw="false">
 		<controls>
 			<picture name="classicon" layout_gravity="left center" rect="0 0 20 20" margin="0 3 0 0" hittest="false"/>
@@ -1741,7 +1653,7 @@
 	<controlset name="quest_reward_s" toggle="false" hittest="true" skin="reward_joo_btn" draw="true" updateparent="true" width="335" height="70">
 		<controls>
 			<slot name="slot" layout_gravity="left center" rect="20 0 42 42" hittest="false"/>
-			<richtext name="ItemName" rect="80 0 270 42" layout_gravity="left center" fixwidth="true" resizebytext="true" hittest="false" fontname="white_14_b_ds"/>
+			<richtext name="ItemName" rect="80 0 400 42" layout_gravity="left center" fixwidth="true" resizebytext="true" hittest="false" fontname="white_14_b_ds"/>
 		</controls>
 	</controlset>
 	<controlset name="quest_reward" hittest="false" skin="bg_test" draw="true" updateparent="true" width="500" height="70">
@@ -1811,65 +1723,71 @@
 			<richtext name="recipeName" margin="60 6 0 0" layout_gravity="left top" rect="0 0 120 24" format="{@st66b}%s{/}" param1="name" param1_def="제작서" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false"/>
 		</controls>
 	</controlset>
-	<controlset name="itemslotset_compare" hittest="true" hittestset="false" draw="false" width="420" height="315" skin="">
+	<controlset name="itemslotset_compare" hittest="true" hittestset="false" draw="false" width="420" height="330" skin="">
 		<userconfig EQUIPSLOT_PIC_MAGIC="invenslot_pic_magic" EQUIPSLOT_PIC_RARE="invenslot_pic_rare" EQUIPSLOT_PIC_UNIQUE="invenslot_pic_unique" EQUIPSLOT_PIC_LEGEND="invenslot_pic_legend"/>
 		<controls>
-			<picture name="shihouette" parent="equip" rect="0 0 160 283" margin="0 -10  0 0" layout_gravity="center top" image="inventory_F" hittest="true" stretch="true" oversound="button_cursor_over_3"/>
+			<picture name="shihouette" rect="0 0 160 283" margin="0 0  0 0" layout_gravity="center top" image="inventory_F" hittest="true" stretch="true" oversound="button_cursor_over_3"/>
 			<slot name="HAT_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 0 0 0" movepop="false" skin="hat"/>
 			<slot name="HAT_T_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 52 0 0" movepop="false" skin="hat"/>
 			<slot name="HAT_L_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 104 0 0" movepop="false" skin="hat"/>
 			<slot name="HAIR_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 156 0 0" movepop="false" skin="wig_slot"/>
-			<slot name="OUTER_bg" layout_gravity="center top" rect="0 0 60 60" margin="100 55 0 0" movepop="false" skin="cloths"/>
-			<slot name="RH_bg" layout_gravity="center top" rect="0 0 60 60" margin="-31 230 0 0" movepop="false" skin="rh"/>
-			<slot name="LH_bg" layout_gravity="center top" rect="0 0 60 60" margin="31 230 0 0" movepop="false" skin="lh"/>
-			<slot name="SHIRT_bg" layout_gravity="center top" rect="0 0 60 60" margin="-100 80 0 0" movepop="false" skin="shirt"/>
-			<slot name="PANTS_bg" layout_gravity="center top" rect="0 0 60 60" margin="-100 145 0 0" movepop="false" skin="pants"/>
-			<slot name="GLOVES_bg" layout_gravity="center top" rect="0 0 60 60" margin="100 120 0 0" movepop="false" skin="gloves"/>
-			<slot name="BOOTS_bg" layout_gravity="center top" rect="0 0 60 60" margin="100 185 0 0" movepop="false" skin="boots"/>
-			<slot name="RING1_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 208 0 0" movepop="false" skin="ring"/>
-			<slot name="RING2_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 208 0 0" movepop="false" skin="ring"/>
-			<slot name="NECK_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 104 0 0" movepop="false" skin="necklace"/>
-			<slot name="ARMBAND_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 156 0 0" movepop="false" skin="armband"/>
-			<slot name="LENS_bg" layout_gravity="center top" rect="0 0 50 50" margin="-100 25 0 0" movepop="false" skin="lens_slot"/>
-			<slot name="WING_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 52 0 0" movepop="false" skin="wing_slot"/>
-			<slot name="SPECIALCOSTUME_bg" layout_gravity="center top" rect="0 0 50 50" margin="100 0 0 0" movepop="false" skin="spcostume_slot"/>
-			<slot name="EFFECTCOSTUME_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 0 0 0" movepop="false" skin="effect_slot"/>
+			<slot name="OUTER_bg" layout_gravity="center top" rect="0 0 60 60" margin="100 75 0 0" movepop="false" skin="cloths"/>
+			<slot name="RH_bg" layout_gravity="center top" rect="0 0 60 60" margin="-31 245 0 0" movepop="false" skin="rh"/>
+			<slot name="LH_bg" layout_gravity="center top" rect="0 0 60 60" margin="31 245 0 0" movepop="false" skin="lh"/>
+			<slot name="SHIRT_bg" layout_gravity="center top" rect="0 0 60 60" margin="-100 102 0 0" movepop="false" skin="shirt"/>
+			<slot name="PANTS_bg" layout_gravity="center top" rect="0 0 60 60" margin="-100 167 0 0" movepop="false" skin="pants"/>
+			<slot name="SEAL_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 208 0 0" movepop="false" skin="seal_slot"/>
+			<slot name="GLOVES_bg" layout_gravity="center top" rect="0 0 60 60" margin="100 140 0 0" movepop="false" skin="gloves"/>
+			<slot name="BOOTS_bg" layout_gravity="center top" rect="0 0 60 60" margin="100 205 0 0" movepop="false" skin="boots"/>
+			<slot name="RING1_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 260 0 0" movepop="false" skin="ring"/>
+			<slot name="RING2_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 260 0 0" movepop="false" skin="ring"/>
+			<slot name="NECK_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 156 0 0" movepop="false" skin="necklace"/>
+			<slot name="ARMBAND_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 208 0 0" movepop="false" skin="armband"/>
+			<slot name="LENS_bg" layout_gravity="center top" rect="0 0 50 50" margin="-100 48 0 0" movepop="false" skin="lens_slot"/>
+			<slot name="WING_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 104 0 0" movepop="false" skin="wing_slot"/>
+			<slot name="SPECIALCOSTUME_bg" layout_gravity="center top" rect="0 0 50 50" margin="100 21 0 0" movepop="false" skin="spcostume_slot"/>
+			<slot name="EFFECTCOSTUME_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 52 0 0" movepop="false" skin="effect_slot"/>
+			<slot name="DOLL_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 0 0 0" movepop="false" skin="doll_slot"/>
 			<slot name="HAT" texttooltip="{@st59}헤어 코스튬1{/}" layout_gravity="center top" rect="0 0 50 50" margin="-175 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat"/>
 			<slot name="HAT_T" texttooltip="{@st59}헤어 코스튬2{/}" layout_gravity="center top" rect="0 0 50 50" margin="-175 52 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat"/>
 			<slot name="HAT_L" texttooltip="{@st59}헤어 코스튬3{/}" layout_gravity="center top" rect="0 0 50 50" margin="-175 104 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat">				
 			</slot>
 			<slot name="HAIR" texttooltip="{@st59}가발{/}" layout_gravity="center top" rect="0 0 50 50" margin="-175 156 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wig_slot">				
 			</slot>
-			<slot name="OUTER" texttooltip="{@st59}코스튬{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 55 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="cloths">				
+			<slot name="OUTER" texttooltip="{@st59}코스튬{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 75 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="cloths">				
 			</slot>
-			<slot name="RH" texttooltip="{@st59}왼손{/}" layout_gravity="center top" rect="0 0 60 60" margin="-31 230 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="rh">				
+			<slot name="RH" texttooltip="{@st59}왼손{/}" layout_gravity="center top" rect="0 0 60 60" margin="-31 245 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="rh">				
 			</slot>
-			<slot name="LH" texttooltip="{@st59}오른손{/}" layout_gravity="center top" rect="0 0 60 60" margin="31 230 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lh">				
+			<slot name="LH" texttooltip="{@st59}오른손{/}" layout_gravity="center top" rect="0 0 60 60" margin="31 245 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lh">				
 			</slot>
-			<slot name="SHIRT" texttooltip="{@st59}상의{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 80 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="shirt">				
+			<slot name="SHIRT" texttooltip="{@st59}상의{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 102 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="shirt">				
 			</slot>
-			<slot name="PANTS" texttooltip="{@st59}하의{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 145 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="pants">				
+			<slot name="PANTS" texttooltip="{@st59}하의{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 167 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="pants">				
 			</slot>
-			<slot name="GLOVES" texttooltip="{@st59}장갑{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 120 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="gloves">				
+			<slot name="SEAL" texttooltip="{@st59}인장{/}" layout_gravity="center top" rect="0 0 50 50" margin="-175 208 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="seal_slot">				
 			</slot>
-			<slot name="BOOTS" texttooltip="{@st59}신발{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 185 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="boots">				
+			<slot name="GLOVES" texttooltip="{@st59}장갑{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 140 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="gloves">				
 			</slot>
-			<slot name="RING1" texttooltip="{@st59}왼팔찌{/}" layout_gravity="center top" rect="0 0 50 50" margin="-175 208 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="ring">				
+			<slot name="BOOTS" texttooltip="{@st59}신발{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 205 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="boots">				
 			</slot>
-			<slot name="RING2" texttooltip="{@st59}오른팔찌{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 208 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="ring">				
+			<slot name="RING1" texttooltip="{@st59}왼팔찌{/}" layout_gravity="center top" rect="0 0 50 50" margin="-175 260 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="ring">				
 			</slot>
-			<slot name="NECK" texttooltip="{@st59}목걸이{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 104 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="necklace">				
+			<slot name="RING2" texttooltip="{@st59}오른팔찌{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 260 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="ring">				
 			</slot>
-			<slot name="ARMBAND" texttooltip="{@st59}암밴드{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 156 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="armband">				
+			<slot name="NECK" texttooltip="{@st59}목걸이{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 156 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="necklace">				
 			</slot>
-			<slot name="LENS" texttooltip="{@st59}렌즈{/}" layout_gravity="center top" rect="0 0 50 50" margin="-100 25 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lens_slot">				
+			<slot name="ARMBAND" texttooltip="{@st59}암밴드{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 208 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="armband">				
 			</slot>
-			<slot name="WING" texttooltip="{@st59}등 코스튬{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 52 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wing_slot">				
+			<slot name="LENS" texttooltip="{@st59}렌즈{/}" layout_gravity="center top" rect="0 0 50 50" margin="-100 48 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lens_slot">				
 			</slot>
-			<slot name="SPECIALCOSTUME" texttooltip="{@st59}스페셜 코스튬{/}" layout_gravity="center top" rect="0 0 50 50" margin="100 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="spcostume_slot">				
+			<slot name="WING" texttooltip="{@st59}등 코스튬{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 104 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="wing_slot">				
 			</slot>
-			<slot name="EFFECTCOSTUME" texttooltip="{@st59}이펙트 코스튬{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="effect_slot">				
-			</slot>
+			<slot name="SPECIALCOSTUME" texttooltip="{@st59}스페셜 코스튬{/}" layout_gravity="center top" rect="0 0 50 50" margin="100 21 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="spcostume_slot">
+      </slot>
+			<slot name="EFFECTCOSTUME" texttooltip="{@st59}이펙트 코스튬{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 52 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="effect_slot">
+      </slot>
+			<slot name="DOLL" texttooltip="{@st59}인형{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="doll_slot">
+      </slot>
 		</controls>
 	</controlset>
 	<controlset name="itemslotset" hittest="true" hittestset="false" draw="false" width="420" height="320">
@@ -2022,12 +1940,9 @@
 			<button name="button" margin="0 30 20 24" rect="10 10 90 30" layout_gravity="right bottom" caption="{@st41}선물"/>
 		</controls>
 	</controlset>
-	<controlset name="groupbox_sub" hittest="true" hittestset="false" draw="false" skin="pipwin" width="1300" height="934">
+	<controlset name="groupbox_sub" hittest="true" hittestset="false" draw="false" skin="pipwin" width="1120" height="934">
 		<controls>
-			<richtext name="changeJob_richtext" rect="0 0 120 25" hittest="false" textalign="left top" format="{@st44}%s랭크 클래스 정보{/}" resizebytext="true" spacey="0" maxwidth="0" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" margin="30 -80 0 0" layout_gravity="left center" param1="rankinfo" param1_def="DefVal"/>
-			<labelline name="labelline" margin="30 -62 0 0" rect="0 0 1300 2" skin="None" layout_gravity="left center"/>
-			<groupbox name="changeJobGbox" margin="220 20 0 0" rect="0 0 1258 896" hittestbox="false" skin="" layout_gravity="left top" scrollbar="false"/>
-			<button name="rankRollBackBtn" rect="0 0 50 50" margin="0 40 0 0" layout_gravity="right top" image="goldf_reset_button" texttooltip="해당 클래스를 이전으로 되돌립니다." LBtnUpScp="RANKROLLBACK_BTN_CLICK"/>
+			<groupbox name="changeJobGbox" margin="10 20 0 0" rect="0 0 1120 896" hittestbox="false" skin="" layout_gravity="left top" scrollbar="false"/>
 		</controls>
 	</controlset>
 	<controlset name="pose_icon" hittest="true" hittestset="true" draw="false" skin="pipwin" width="90" height="100">
@@ -2127,25 +2042,19 @@
 	</controlset>
 	<controlset name="buffseller_reg" toggle="false" hittest="true" width="410" height="110" skin="test_skin_01" stateskin="false">
 		<controls>
-			<slot name="skill_slot" margin="14 10 0 0" rect="0 0 80 80" movepop="false" hittest="true" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" DropScp="None" texttooltip="{@st59}{/}" layout_gravity="left top"/>
+			<slot name="skill_slot" margin="14 10 0 0" rect="0 0 80 80" movepop="false" hittest="true" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" DropScp="None" texttooltip="{@st59}{/}" layout_gravity="left top" enabledrag="false" enablepop="false"/>
 			<richtext name="skilllevel" margin="111 14 0 0" rect="0 0 120 24" format="레벨 %s{/}" param1="value" param1_def="11" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="skillname" margin="111 39 0 0" rect="0 0 120 24" format="%s{/}" param1="value" param1_def="Heal" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="price" margin="284 75 165 0" rect="0 0 120 24" format="%s{/}" param1="value" param1_def="가격" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
 			<edit name="priceinput" margin="283 60 10 7" rect="0 0 150 31" fontname="white_20_b" maxlen="12" EnterKeyScp="None" numbermode="false" OffsetForDraw="0 -2" textalign="center center" layout_gravity="right bottom"/>
 			<richtext name="price_1" margin="284 14 82 0" rect="0 0 120 24" format="%s{/}" param1="value" param1_def="재료" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
-			<slot name="mat_item" margin="340 15 0 0" rect="0 0 50 50" movepop="false" hittest="true" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="none" DropScp="None" texttooltip="{@st59}링1{/}" layout_gravity="left top"/>
-			<button name="cancel" margin="107 40 0 8" rect="0 2 80 40" skin="test_pvp_btn" layout_gravity="left bottom" caption="{@st41b}취소" LBtnUpScp="BUFFSELLER_CANCEL_REG"/>
+			<slot name="mat_item" margin="340 15 0 0" rect="0 0 50 50" movepop="false" hittest="true" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="none" DropScp="None" texttooltip="{@st59}링1{/}" layout_gravity="left top"/>			
+			<checkbox name="selectCheck" rect="0 0 30 30" margin="110 0 0 10" layout_gravity="left bottom" texttooltip="판매 목록에 포함시킵니다." caption="판매하기" fontname="brown_16_b" LBtnDownScp="BUFFSELLER_CHECK_FOR_SELL"/>
 		</controls>
-	</controlset>
-	<controlset name="buffseller_reg_new" toggle="false" hittest="true" width="410" height="110" skin="test_skin_01" stateskin="false">
-		<controls>
-			<slot name="slot" margin="14 10 0 0" rect="0 0 80 80" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" DropScp="None" texttooltip="{@st59}{/}" layout_gravity="left top"/>
-			<richtext name="skilllevel" margin="111 45 0 0" rect="0 0 120 24" caption="판매할 버프를 등록해주세요." textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-		</controls>
-	</controlset>
+	</controlset>	
 	<controlset name="buffseller_my" toggle="false" hittest="true" width="390" height="90" skin="test_skin_01_btn" stateskin="false">
 		<controls>
-			<slot name="skill_slot" margin="13 0 0 0" rect="0 0 70 70" movepop="false" hittest="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" DropScp="None" texttooltip="{@st59}{/}" layout_gravity="left center"/>
+			<slot name="skill_slot" margin="13 0 0 0" rect="0 0 70 70" movepop="false" hittest="true" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" DropScp="None" texttooltip="{@st59}{/}" layout_gravity="left center"/>
 			<richtext name="skilllevel" margin="96 12 0 0" rect="0 0 120 24" format="레벨 %s{/}" param1="value" param1_def="11" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="skillname" margin="96 32 0 0" rect="0 0 120 24" format="%s{/}" param1="value" param1_def="Heal" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="price" margin="0 55 210 0" rect="0 0 120 24" format="가격 : %s{/}" param1="value" param1_def="123" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
@@ -2247,7 +2156,7 @@
 			<button name="make" layout_gravity="right top" rect="0 0 150 50" margin="0 35 20 0" caption="{@st41b}제작" hittest="true" skin="test_pvp_btn" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
 		</controls>
 	</controlset>
-	<controlset name="craftRecipe_numupdown" toggle="false" hittest="true" width="145" height="30" skin="downbox" cursoronimage="Item_View01_ON" selectedimage="Item_View01_SELECTED">
+	<controlset name="craftRecipe_numupdown" toggle="false" hittest="true" width="145" height="30" skin="downbox">
 		<controls>
 			<numupdown name="upDown" rect="0 0 120 30" layout_gravity="right top" clicksound="button_click_big" oversound="button_over" minvalue="0" incrvalue="1" fontname="white_20_ol" keypad="false" margin="0 0 35 0"/>
 		</controls>
@@ -2335,7 +2244,7 @@
 		</controls>
 	</controlset>
 	<controlset name="pet_stat_info_train" toggle="false" hittest="true" width="450" height="30" skin="listbox" stateskin="false" draw="false">
-		<userconfig TRAIN_TOOLTIP_EMPHA_ST="{@st66d_y}" TRAIN_TOOLTIP_ST="{@st38}" TRAIN_TOOLTIP_IMG="silver"/>
+		<userconfig TRAIN_TOOLTIP_EMPHA_ST="{@st66d_y}" TRAIN_TOOLTIP_ST="{@st38}" TRAIN_TOOLTIP_IMG="silver" STYLE_TAX_RATE="{@st38}"/>
 		<controls>
 			<richtext name="statNameText" rect="0 0 100 25" margin="20 0 0 0" layout_gravity="left top" textalign="left center" format="%s" param1="name" param1_def="HP" fontname="white_18_ol"/>
 			<button name="statUpBtn" rect="0 0 35 30" margin="0 0 5 0" layout_gravity="right center" image="test_com_ability" oversound="button_cursor_over_2" clicksound="button_click" LBtnUpScp="PET_STAT_UP"/>
@@ -2347,7 +2256,7 @@
 	<controlset name="petTrainTotal" toggle="false" hittest="true" width="450" height="40" skin="listbox" stateskin="false" draw="false">
 		<controls>
 			<labelline name="line" rect="0 0 450 3" margin="0 5 0 0" layout_gravity="center top" skin="None" visible="true"/>
-			<richtext name="costText" rect="0 0 100 30" margin="20 0 0 0" layout_gravity="left bottom" caption="{img white_right_arrow 24 24}{@st66d_y} 총 강화 소비 비용{/}"/>
+			<richtext name="costText" rect="0 0 100 30" margin="20 0 0 0" layout_gravity="left bottom" format="{img white_right_arrow 24 24}{@st66d_y} 총 강화 소비 비용{/} %s" param1="tax_rate"/>
 			<richtext name="totalCostText" rect="0 0 100 30" margin="0 0 15 0" layout_gravity="right bottom" format="{@st66d_y}%s{/}" param1="cost" param1_def="0"/>
 		</controls>
 	</controlset>
@@ -2356,7 +2265,7 @@
 			<richtext name="name" margin="100 24 0 0" rect="0 0 100 15" hittest="false" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="Name"/>
 			<richtext name="level" margin="399 24 0 10" rect="0 0 38 20" hittest="false" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="Lv"/>
 			<picture name="pic" margin="15 0 0 0" rect="0 0 55 55" hittest="false" image="mainpc_crown" stretch="true" changecursor="false" layout_gravity="left center"/>
-			<richtext name="count" margin="49 40 0 10" rect="0 0 30 20" hittest="false" textalign="right center" resizebytext="ture" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="Cnt"/>
+			<richtext name="count" margin="49 40 0 10" rect="0 0 30 20" hittest="false" textalign="right center" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="Cnt"/>
 			<richtext name="price" margin="495 24 0 10" rect="0 0 100 20" sharedConst="USE_MARKET_REPORT/0" hittest="false" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="price"/>
 			<richtext name="price" margin="450 24 0 10" rect="0 0 100 20" sharedConst="USE_MARKET_REPORT/1" hittest="false" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="price"/>
 			<richtext name="totalPrice" margin="760 24 0 10" rect="0 0 150 20" sharedConst="USE_MARKET_REPORT/0" hittest="false" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="totalPrice"/>
@@ -2472,7 +2381,7 @@
 			<slot name="pic" margin="5 -1 0 0" rect="0 0 55 55" hittest="true" skin="invenslot2" stretch="true" changecursor="false" layout_gravity="left center"/>
 			<richtext name="name" margin="70 0 0 0" rect="0 0 230 15" hittest="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixheight="false" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" format="%s" param1="value" omitbywidth="true" param1_def="Name"/>
 			<richtext name="level" margin="315 0 0 0" rect="0 0 38 20" hittest="false" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixheight="false" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" format="%s" param1="value" param1_def="Lv"/>
-			<richtext name="option" margin="350 0 0 0" rect="0 0 350 38" hittest="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixheight="true" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" format="%s" param1="value" omitbyheight="true" param1_def="option"/>
+			<richtext name="option" margin="350 0 0 0" rect="0 0 350 38" hittest="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixheight="true" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" format="%s" param1="value" omitbyheight="true" param1_def="option" omitbywidth="true"/>
 			<richtext name="totalPrice_num" margin="0 -7 190 0" rect="0 0 180 20" hittest="false" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right center" format="%s" param1="value" param1_def="totalPrice"/>
 			<richtext name="totalPrice_text" margin="0 10 190 0" rect="0 0 180 20" hittest="false" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_14" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right center" format="%s" param1="value" param1_def="totalPrice"/>
 			<button name="cancelBtn" margin="0 1 52 0" rect="0 0 80 46" layout_gravity="right center" sharedConst="USE_MARKET_REPORT/0" skin="test_gray_button" caption="{@st41b}취소{/}" LBtnUpScp="CANCEL_MARKET_ITEM" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" oversound="button_cursor_over_3" clicksound="button_click_big"/>
@@ -2502,7 +2411,7 @@
 			<slot name="pic" margin="5 -1 0 0" rect="0 0 55 55" hittest="false" skin="invenslot2" stretch="true" changecursor="false" layout_gravity="left center"/>
 			<richtext name="name" margin="80 0 0 0" rect="0 0 100 15" hittest="false" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left  center" format="{@st66}%s" param1="value" param1_def="Name"/>
 			<groupbox name="timeBox" rect="0 0 200 66" margin="640 0 0 0" layout_gravity="left center" draw="false" hittest="false" skin="market_linebg"/>
-			<richtext name="endTime" parent="timeBox" margin="0 0 0 0" rect="0 0 200 20" hittest="false" resizebytext="ture" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center" format="{@st66}%s" param1="value" param1_def="totalPrice"/>
+			<richtext name="endTime" parent="timeBox" margin="0 0 0 0" rect="0 0 200 20" hittest="false" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center" format="{@st66}%s" param1="value" param1_def="totalPrice"/>
 			<groupbox name="priceBox" rect="0 0 200 66" margin="407 0 0 0" layout_gravity="left center" draw="false"/>
 			<richtext name="totalPrice" parent="priceBox" margin="0 -7 0 0" rect="0 0 200 20" layout_gravity="center center" textalign="center center" fixwidth="true" format="{@st66}%s" fontname="brown_16" param1="value" param1_def="totalPrice"/>
 			<richtext name="totalPriceStr" parent="priceBox" margin="0 10 0 0" rect="0 0 200 20" layout_gravity="center center" textalign="center center" fixwidth="true" format="{@st66}{s14}%s" fontname="brown_16" param1="value" param1_def="totalPriceStr"/>
@@ -2576,53 +2485,6 @@
 			<richtext name="count" layout_gravity="center center" visible="true" rect="0 0 20 20" resizebytext="false" fixwidth="false" textalign="center center" caption="121" format="{ol}{b}{s14}%s" param1="value" param1_def="131"/>
 		</controls>
 	</controlset>
-	<controlset name="journal_recipe_set" toggle="false" hittest="false" width="581" height="1300" skin=" " draw="true">
-		<controls>
-			<labelline name="label" margin="0 30 0 0" rect="0 0 560 4" skin="None" layout_gravity="center top"/>
-			<groupbox name="recipetree_Box" rect="0 0 570 745" margin="15 45 0 0" layout_gravity="left top" scrollbar="true" skin="None" draw="true" resizebyresolution="true"/>
-			<tree name="recipetree" parent="recipetree_Box" layout_gravity="center top" rect="0 0 570 100" margin="0 0 0 0" drawline="true" resizebyresolution="true" selectioncolor="000000"/>
-			<grid name="category" rect="0 0 0 200" margin="20 -98 30 0" layout_gravity="none top" slotsize="100 70" slotspc="10 0">
-				<detail margin="0 0 0 0" speed="500" layout_gravity="left top"/>
-			</grid>
-			<checkbox name="showonlyhavemat" caption="{@st42b}재료가 있는 것만 보기{/}" layout_gravity="left top" rect="0 0 150 24" margin="40 0 0 0" clicksound="button_click_big" oversound="button_over" LBtnUpScp="JOURNAL_CRAFT_OPTION" ConfigName="CraftMaterial"/>
-			<richtext name="title_score" margin="0 0 20 0" rect="0 0 400 24" format="{@st41_yellow}%s{/}" param1="value" param1_def="0" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
-		</controls>
-	</controlset>
-	<controlset name="journal_map_set" toggle="false" hittest="false" width="570" height="800">
-		<controls>
-			<labelline name="label" margin="0 30 0 0" rect="0 0 560 4" skin="None" layout_gravity="center top"/>
-			<richtext name="rationText" parent="map" rect="0 0 200 24" margin="0 0 170 0" layout_gravity="right top" format="{@st41_yellow}탐색율 %s%{/}" param1="rate" param1_def="0" resizebytext="false" fixwidth="true" fixheight="true" textalign="right center"/>
-			<richtext name="scoreText" parent="map" rect="0 0 150 24" margin="0 0 20 0" layout_gravity="right top" format="{@st41_yellow}획득점수 %s{/}" param1="score2" param1_def="0" resizebytext="false" fixwidth="true" fixheight="true" textalign="right center"/>
-			<grid name="category" parent="map" rect="0 0 0 210" margin="0 0 0 0" layout_gravity="none top" slotsize="100 90" slotspc="10 10">
-				<detail margin="0 0 0 0" speed="500" layout_gravity="left top"/>
-			</grid>
-		</controls>
-	</controlset>
-	<controlset name="journal_contents_set" toggle="false" hittest="false" width="570" height="800" skin=""/>
-	<controlset name="journal_leveling_set" toggle="false" hittest="false" width="490" height="800" skin="">
-		<controls>
-			<richtext name="rating" parent="leveling" rect="0 0 45 40" margin="0 10 10 0" layout_gravity="right top" caption="{@st43b}56%{/}" resizebytext="false" fixwidth="true" fixheight="true" textalign="left center"/>
-			<richtext name="rationText" parent="leveling" rect="0 0 100 40" margin="0 10 50 0" layout_gravity="right top" caption="{@st42b}{b}달성율{/}" resizebytext="false" fixwidth="true" fixheight="true" textalign="center center"/>
-			<grid name="category" parent="leveling" rect="0 0 0 200" margin="0 60 0 0" layout_gravity="none top" slotsize="100 90" slotspc="10 10">
-				<detail margin="0 0 0 0" speed="500" layout_gravity="left top"/>
-			</grid>
-			<grid name="detail" parent="leveling" rect="0 0 0 0" margin="0 260 0 50" layout_gravity="none none" slotsize="300 90" slotspc="10 10">
-				<detail margin="0 0 0 0" speed="500" layout_gravity="left top"/>
-			</grid>
-		</controls>
-	</controlset>
-	<controlset name="journal_achieve_set" toggle="false" hittest="false" width="490" height="800" skin="">
-		<controls>
-			<richtext name="rating" parent="achieve" rect="0 0 45 40" margin="0 10 10 0" layout_gravity="right top" caption="{@st43b}56%{/}" resizebytext="false" fixwidth="true" fixheight="true" textalign="left center"/>
-			<richtext name="rationText" parent="achieve" rect="0 0 100 40" margin="0 10 50 0" layout_gravity="right top" caption="{@st42b}{b}달성율{/}" resizebytext="false" fixwidth="true" fixheight="true" textalign="center center"/>
-			<grid name="category" parent="achieve" rect="0 0 0 200" margin="0 60 0 0" layout_gravity="none top" slotsize="100 90" slotspc="10 10">
-				<detail margin="0 0 0 0" speed="500" layout_gravity="left top"/>
-			</grid>
-			<grid name="detail" parent="achieve" rect="0 0 0 0" margin="0 260 0 50" layout_gravity="none none" slotsize="300 90" slotspc="10 10">
-				<detail margin="0 0 0 0" speed="500" layout_gravity="left top"/>
-			</grid>
-		</controls>
-	</controlset>
 	<controlset name="propertyshop_item" toggle="false" hittest="true" width="250" height="60" skin="slot_empty">
 		<controls>
 			<picture name="pic" margin="0 0 0 0" rect="0 0 60 60" hittest="true" image="mainpc_crown" stretch="true" changecursor="false" layout_gravity="left top"/>
@@ -2684,7 +2546,7 @@
 	</controlset>
 	<controlset name="pushalarm_control" toggle="false" hittest="true" hittestset="true" width="320" height="30" stateskin="false" skin="none">
 		<controls>
-			<richtext name="text" hittest="false" margin="0 0 0 0" rect="0 0 300 30" format="{@st41}%s{/}" param1="value" param1_def="ALARM_TEXT" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center centrer"/>
+			<richtext name="text" hittest="false" margin="0 0 0 0" rect="0 0 300 30" format="{@st41}%s{/}" param1="value" param1_def="ALARM_TEXT" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 		</controls>
 	</controlset>
 	<controlset name="logoutpc_config" toggle="false" hittest="true" hittestset="false" width="480" height="875" stateskin="false" skin="none" resizebyresolution="true">
@@ -2714,14 +2576,14 @@
 			<slot name="slot" margin="15 15 0 0" rect="0 0 80 80" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" DropScp="None" layout_gravity="left top"/>
 			<labelline name="labelline_1" margin="10 105 0 0" rect="0 0 390 4" skin="None" layout_gravity="left top"/>
 			<richtext name="skilllevel" margin="20 120 0 0" rect="0 0 120 24" caption="구입할 아이템 검색" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<groupbox name="edit_skin_search" margin="0 152 0 0" rect="0 0 380 35" skin="test_weight_skin" draw="true" hittestbox="true" layout_gravity="center top" scrollbar="false" resizebyparent="false" parent="gbox"/>
+			<groupbox name="edit_skin_search" margin="0 152 0 0" rect="0 0 380 35" skin="test_weight_skin" draw="true" hittestbox="true" layout_gravity="center top" scrollbar="false" resizebyparent="false"/>
 			<edit name="edit" margin="0 158 0 0" rect="0 0 360 26" fontname="brown_16_b" maxlen="16" EnterKeyScp="PS_FIND_ITEM_BY_NAME" numbermode="false" OffsetForDraw="0 2" drawbackground="false" typingsound="chat_typing" layout_gravity="center top"/>
 			<detaillist name="detaillist" rect="0 0 384 223" margin="15 190 0 0" skin="none" barheight="20" barskin="textbutton" layout_gravity="left top" rowheight="48"/>
-			<groupbox name="edit_skin_count" margin="210 19 0 0" rect="0 0 125 35" skin="test_weight_skin" draw="true" hittestbox="true" layout_gravity="left top" scrollbar="false" resizebyparent="false" parent="gbox"/>
+			<groupbox name="edit_skin_count" margin="210 19 0 0" rect="0 0 125 35" skin="test_weight_skin" draw="true" hittestbox="true" layout_gravity="left top" scrollbar="false" resizebyparent="false"/>
 			<edit name="input_count" margin="215 24 0 0" rect="0 0 115 25" fontname="brown_16_b" maxlen="16" numbermode="true" OffsetForDraw="0 2" drawbackground="false" typingsound="chat_typing" layout_gravity="left top"/>
 			<richtext name="skilllevel_1" margin="102 27 0 0" rect="0 0 100 24" caption="구매수량" textalign="right center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="skilllevel_1_1" margin="102 63 0 0" rect="0 0 100 24" caption="개당가격" textalign="right center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<groupbox name="edit_skin_price" margin="210 56 0 0" rect="0 0 125 35" skin="test_weight_skin" draw="true" hittestbox="true" layout_gravity="left top" scrollbar="false" resizebyparent="false" parent="gbox"/>
+			<groupbox name="edit_skin_price" margin="210 56 0 0" rect="0 0 125 35" skin="test_weight_skin" draw="true" hittestbox="true" layout_gravity="left top" scrollbar="false" resizebyparent="false"/>
 			<edit name="input_price" margin="215 61 0 0" rect="0 0 115 25" fontname="brown_16_b" maxlen="16" numbermode="true" OffsetForDraw="0 2" drawbackground="false" layout_gravity="left top" typingsound="chat_typing"/>
 			<button name="btn_register" margin="0 25 10 0" skin="test_pvp_btn" rect="0 0 60 60" layout_gravity="right top" caption="{img white_up_arrow 20 20}" LBtnUpScp="PS_REGISTER_ITEM" clicksound="button_click" oversound="button_over"/>
 		</controls>
@@ -2757,7 +2619,7 @@
 		<controls>
 			<slot name="slot" margin="-2 -11 0 0" rect="0 0 50 50" movepop="false" hittest="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="buff_buy_slot" DropScp="None" texttooltip="{@st59}링1{/}" layout_gravity="left center"/>
 			<richtext name="UserName" margin="49 0 0 0" rect="0 0 171 23" format="{@sti9}%s{/}" param1="value" param1_def="THISISITEMNAEM" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<richtext name="prop" margin="50 27 0 0" rect="0 0 168 23" format="{@st49}%s{/}" param1="value" param1_def="THISISITEMNAEM" textalign="left top" resizebytext="true " spacey="0" maxwidth="0" fontname="white_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="prop" margin="50 27 0 0" rect="0 0 168 23" format="{@st49}%s{/}" param1="value" param1_def="THISISITEMNAEM" textalign="left top" spacey="0" maxwidth="0" fontname="white_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		</controls>
 	</controlset>
 	<controlset name="enchanter_history" toggle="false" hittest="true" width="400" height="100" skin="none" stateskin="false">
@@ -2829,12 +2691,14 @@
 		<userconfig NORMAL_SKIN="test_skin_01" HAVE_SKIN="rank_one_skin"/>
 		<controls>
 			<groupbox name="each_achieve_gbox" margin="0 0 0 0" rect="0 0 435 230" hittestbox="false" skin="test_skin_01" layout_gravity="left top" scrollbar="false"/>
-			<richtext name="achieve_desctitle" parent="each_achieve_gbox" margin="20 10 0 0" rect="0 0 430 30" format="None" textalign="left center" resizebytext="true" fontname="brown_18_b" fixwidth="false" layout_gravity="left top" hittest="false"/>
+			<picture name="each_achieve_name_box" margin="0 7 0 0" parent="each_achieve_gbox" rect="0 0 420 30" hittestbox="false" draw="false" stretch="true" image="test_com_namebg" layout_gravity="center top" scrollbar="false"/>
+			<richtext name="achieve_desctitle" parent="each_achieve_gbox" margin="15 10 0 0" rect="0 0 430 30" format="None" textalign="left center" resizebytext="true" fontname="white_18_b_ol_ds" fixwidth="false" layout_gravity="left top" hittest="false"/>
 			<button name="req_reward_btn" margin="0 0 5 5" rect="0 0 36 39" image="compen_btn" layout_gravity="right top" LBtnUpScp="REQ_ACHIEVE_REWARD"/>
-			<labelline name="labelline" parent="each_achieve_gbox" margin="0 37 0 0" rect="0 0 400 2" skin="None" layout_gravity="center top" hittest="false"/>
-			<richtext name="achieve_static_desc" parent="each_achieve_gbox" margin="20 45 0 0" rect="0 0 430 30" format="{@41b}조건" textalign="left center" resizebytext="true" fontname="brown_16_b" fixwidth="false" layout_gravity="left top" hittest="false"/>
-			<gauge name="achieve_gauge" parent="each_achieve_gbox" margin="0 30 0 0" rect="0 0 260 50" skin="gauge_itemtooltip_poten" inverse="false" point="50" layout_gravity="left top" text1="" textoffset1="0 1" textfont1="white_14_ol" textalign1="center center" hittest="true"/>
-			<richtext name="achieve_desc" parent="each_achieve_gbox" margin="20 45 0 0" rect="0 0 400 30" caption="None" textalign="left center" resizebytext="true" fontname="white_16_ol" fixwidth="false" layout_gravity="left top" hittest="false"/>
+			<richtext name="achieve_static_desc" parent="each_achieve_gbox" margin="20 71 0 0" rect="0 0 430 30" format="{@41b}조건" textalign="left center" resizebytext="true" fontname="brown_16_b" fixwidth="false" layout_gravity="left top" hittest="false"/>
+			<richtext name="achieve_static_accomplishment" parent="each_achieve_gbox" margin="20 45 0 0" rect="0 0 60 30" format="{@41b}달성도" textalign="left center" resizebytext="true" fontname="brown_16_b" fixwidth="false" layout_gravity="left top" hittest="false"/>
+			<gauge name="achieve_gauge" parent="each_achieve_gbox" margin="0 30 0 0" rect="0 0 230 50" skin="gauge_itemtooltip_poten" inverse="false" point="50" layout_gravity="left top" text1="" textoffset1="0 1" textfont1="white_14_ol" textalign1="center center" hittest="true"/>
+			<richtext name="achieve_accomplishment" parent="each_achieve_gbox" margin="20 40 0 0" rect="0 0 335 30" caption="None" textalign="center center" resizebytext="false" fontname="white_16_ol" fixwidth="false" layout_gravity="left top" hittest="false"/>
+			<richtext name="achieve_desc" parent="each_achieve_gbox" margin="20 71 0 0" rect="0 0 335 30" caption="None" textalign="left center" resizebytext="true" fontname="brown_16_b" fixwidth="true" layout_gravity="left top" hittest="false"/>
 			<richtext name="achieve_name" parent="each_achieve_gbox" margin="20 65 0 0" rect="0 0 400 30" format="칭호       %s" param1="name" param1_def="None" textalign="left center" resizebytext="true" fontname="brown_16_b" fixwidth="false" layout_gravity="left top" hittest="false"/>
 			<richtext name="achieve_reward" parent="each_achieve_gbox" margin="20 90 0 0" rect="0 0 400 30" format="보상       %s" param1="reward" param1_def="None" textalign="left center" resizebytext="true" fontname="brown_16_b" fixwidth="false" layout_gravity="left top" hittest="false"/>
 		</controls>
@@ -2903,7 +2767,7 @@
 	<controlset name="pvp_ranking_page" hittest="true" width="500" height="1000" hittestset="false" draw="false" skin="none">
 		<controls>
 			<groupbox name="groupbox_1" margin="9 70 0 0" rect="0 0 480 710" hittestbox="false" skin="test_frame_midle" resizebyresolution="true" layout_gravity="left top"/>
-			<pagecontroller name="control" hittest="true" rect="0 0 450 30" margin="0 0 0 0" layout_gravity="center bottom" space="50 0 0 20" slot="35 25" type="button" image="{@st41b}{#444444} {@st41b}{b}" selectScp="WORLDPVP_RANK_SELECT" prevScp="WORLDPVP_RANK_SELECT_PREV" nextScp="WORLDPVP_RANK_SELECT_NEXT" parent="bg_ranking" movebyone="true">
+			<pagecontroller name="control" hittest="true" rect="0 0 450 30" margin="0 0 0 0" layout_gravity="center bottom" space="50 0 0 20" slot="35 25" type="button" image="{@st41b}{#444444} {@st41b}{b}" selectScp="WORLDPVP_RANK_SELECT" prevScp="WORLDPVP_RANK_SELECT_PREV" nextScp="WORLDPVP_RANK_SELECT_NEXT" movebyone="true">
 				<prev size="40 30" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}"/>
 				<next size="40 30" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}"/>
 			</pagecontroller>
@@ -2936,18 +2800,18 @@
 			<richtext name="richtext_1" margin="20 55 0 0" rect="0 0 451 27" format="{#000000}%s{/}" param1="value" param1_def="최근 열린 관람 목록" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		</controls>
 	</controlset>
-  <controlset name="pvp_observe_ctrlset" hittest="true" width="480" height="400" hittestset="false" draw="false" skin="none">
-    <controls>
-      <groupbox name="gbox_whole" margin="0 0 0 0" rect="0 0 480 300" hittestbox="false" skin="test_skin_01" layout_gravity="left top" scrollbar="false"/>
-      <groupbox name="gbox" margin="10 40 0 0" rect="0 0 460 104" hittestbox="false" skin="pvp_team_skin" layout_gravity="left top" scrollbar="false"/>
-      <groupbox name="gbox_1" margin="10 40 0 0" rect="0 0 230 104" hittestbox="false" skin="none" layout_gravity="left top" scrollbar="false"/>
-      <groupbox name="gbox_2" margin="240 40 0 0" rect="0 0 230 104" hittestbox="false" skin="none" layout_gravity="left top" scrollbar="false"/>
-      <richtext name="team_name_1" margin="10 10 0 0" rect="0 0 230 27" format="{@stc2}%s{/}" param1="name" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-      <richtext name="team_name_2" margin="10 10 9 0" rect="0 0 230 27" format="{@stc2}%s{/}" param1="name" textalign="right center" resizebytext="true" spacey="0" maxwidth="0" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
-      <richtext name="vx_text" margin="0 10 0 0" rect="0 0 50 27" format="{@st45tw}{s20}%s{/}" param1="vs" param1_def="x" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
-      <button name="btn" margin="0 113 0 5" rect="0 0 261 43" layout_gravity="center bottom" skin="test_red_button" LBtnUpScp="MSG_OBSERVE_GAME" format="{ol}{s20}%s" param1="value" param1_def="관전하기"/>
-    </controls>
-  </controlset>    
+	<controlset name="pvp_observe_ctrlset" hittest="true" width="480" height="400" hittestset="false" draw="false" skin="none">
+		<controls>
+			<groupbox name="gbox_whole" margin="0 0 0 0" rect="0 0 480 300" hittestbox="false" skin="test_skin_01" layout_gravity="left top" scrollbar="false"/>
+			<groupbox name="gbox" margin="10 40 0 0" rect="0 0 460 104" hittestbox="false" skin="pvp_team_skin" layout_gravity="left top" scrollbar="false"/>
+			<groupbox name="gbox_1" margin="10 40 0 0" rect="0 0 230 104" hittestbox="false" skin="none" layout_gravity="left top" scrollbar="false"/>
+			<groupbox name="gbox_2" margin="240 40 0 0" rect="0 0 230 104" hittestbox="false" skin="none" layout_gravity="left top" scrollbar="false"/>
+			<richtext name="team_name_1" margin="10 10 0 0" rect="0 0 230 27" format="{@stc2}%s{/}" param1="name" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="team_name_2" margin="10 10 9 0" rect="0 0 230 27" format="{@stc2}%s{/}" param1="name" textalign="right center" resizebytext="true" spacey="0" maxwidth="0" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
+			<richtext name="vx_text" margin="0 10 0 0" rect="0 0 50 27" format="{@st45tw}{s20}%s{/}" param1="vs" param1_def="x" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+			<button name="btn" margin="0 113 0 5" rect="0 0 261 43" layout_gravity="center bottom" skin="test_red_button" LBtnUpScp="MSG_OBSERVE_GAME" format="{ol}{s20}%s" param1="value" param1_def="관전하기"/>
+		</controls>
+	</controlset>
 	<controlset name="pvp_observe_ctrlset_pc_1" hittest="true" width="230" height="50" hittestset="false" draw="false" skin="none">
 		<controls>
 			<picture name="pic_job" margin="0 5 0 0" rect="0 0 42 42" hittest="false" image="c_wizard_sorcerer" stretch="true" changecursor="false" layout_gravity="left top"/>
@@ -2970,14 +2834,14 @@
 	</controlset>
 	<controlset name="pvp_charinfo" hittest="true" width="487" height="400" hittestset="false" draw="false" skin="none">
 		<controls>
-			<richtext name="win" parent="charinfo" rect="0 0 132 25" margin="334 341 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_18" format="{#000000}%s 승{/}" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
-			<button name="join" parent="charinfo" rect="0 0 168 60" margin="290 20 0 0" layout_gravity="left top" image="pvp_leageue_btn" LBtnUpScp="JOIN_WORLDPVP" textalign="center center" format="{s18}{ol}{#FFFFFF}%s" param1="text" param1_def="JOIN"/>
-			<droplist name="droplist" parent="charinfo" rect="0 0 259 61" margin="21 38 207 0" layout_gravity="left top" SelectScp="WORLDPVP_TYPE_SELECT" font="white_20_ol" frametextalign="left" skin="droplist_normal" textalign="left center" textoffset="20 0" visibleline="11"/>
+			<richtext name="win" rect="0 0 132 25" margin="334 341 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_18" format="{#000000}%s 승{/}" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
+			<button name="join" rect="0 0 168 60" margin="290 20 0 0" layout_gravity="left top" image="pvp_leageue_btn" LBtnUpScp="JOIN_WORLDPVP" textalign="center center" format="{s18}{ol}{#FFFFFF}%s" param1="text" param1_def="JOIN"/>
+			<droplist name="droplist" rect="0 0 259 61" margin="21 38 207 0" layout_gravity="left top" SelectScp="WORLDPVP_TYPE_SELECT" font="white_20_ol" frametextalign="left" skin="droplist_normal" textalign="left center" textoffset="20 0" visibleline="11"/>
 			<labelline name="labelline_1" margin="9 86 0 0" rect="0 0 473 2" skin="labelline_2" layout_gravity="left top"/>
-			<richtext name="txt_total_exp_1" parent="charinfo" rect="0 0 120 24" margin="28 337 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_18" format="{#000000}%s" maxwidth="0" param1="value" param1_def="전적" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+			<richtext name="txt_total_exp_1" rect="0 0 120 24" margin="28 337 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_18" format="{#000000}%s" maxwidth="0" param1="value" param1_def="전적" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 			<labelline name="labelline_1_1" margin="16 322 0 0" rect="0 0 473 2" skin="none" layout_gravity="left top"/>
 			<richtext name="richtext_1" margin="27 363 0 0" rect="0 0 120 24" caption="{#000000}점수{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<richtext name="rp" parent="charinfo" rect="0 0 132 25" margin="334 363 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_18" format="{#000000}%s 점{/}" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
+			<richtext name="rp" rect="0 0 132 25" margin="334 363 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_18" format="{#000000}%s 점{/}" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
 			<groupbox name="gbox_playcnt" margin="4 93 0 0" rect="0 0 480 200" hittestbox="false" skin="none" layout_gravity="left top" scrollbar="false"/>
 			<richtext name="richtext_2" margin="21 168 0 0" rect="0 0 120 24" caption="{@brown_16}길드 참여{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox_playcnt"/>
 			<richtext name="todaycnt" margin="256 168 0 0" rect="0 0 120 24" format="{@brown_16}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox_playcnt"/>
@@ -2992,7 +2856,7 @@
 	<controlset name="guildbattle_ranking_page" hittest="true" width="520" height="800" hittestset="false" draw="false" skin="none">
 		<controls>
 			<groupbox name="groupbox_1" margin="4 3 0 0" rect="0 0 510 780" hittestbox="false" skin="test_frame_midle" resizebyresolution="true" layout_gravity="left top"/>
-			<pagecontroller name="control" hittest="true" rect="0 0 450 30" margin="0 0 0 30" layout_gravity="center bottom" space="50 0 0 20" slot="35 25" type="button" image="{@st41b}{#444444} {@st41b}{b}" selectScp="GUILDBATTLE_RANKING_SELECT" prevScp="GUILDBATTLE_RANKING_SELECT_PREV" nextScp="GUILDBATTLE_RANKING_SELECT_NEXT" parent="bg_ranking" movebyone="true">
+			<pagecontroller name="control" hittest="true" rect="0 0 450 30" margin="0 0 0 30" layout_gravity="center bottom" space="50 0 0 20" slot="35 25" type="button" image="{@st41b}{#444444} {@st41b}{b}" selectScp="GUILDBATTLE_RANKING_SELECT" prevScp="GUILDBATTLE_RANKING_SELECT_PREV" nextScp="GUILDBATTLE_RANKING_SELECT_NEXT" movebyone="true">
 				<prev size="40 30" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}"/>
 				<next size="40 30" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}"/>
 			</pagecontroller>
@@ -3078,12 +2942,12 @@
 			<button name="button_1_1" margin="0 50 0 0" rect="0 0 530 50" layout_gravity="center top" skin="rank_btn" format="{@st63}%s" param1="value" param1_def="팀 배틀 리그 참여" LBtnUpScp="ui.ToggleFrame(&apos;worldpvp&apos;)"/>
 		</controls>
 	</controlset>
-	<controlset name="indun_cate_ctrl" hittest="true" width="340" height="60" hittestset="false" draw="false" skin="None">
+	<controlset name="indun_cate_ctrl" hittest="true" width="350" height="60" hittestset="false" draw="false" skin="None">
 		<userconfig SELECTED_BTN_SKIN="baseyellow_btn" NOT_SELECTED_BTN_SKIN="base_btn"/>
 		<controls>
-			<button name="button" hittest="true" margin="0 0 0 0" rect="0 0 340 60" layout_gravity="left top" skin="base_btn" textalign="center center" LBtnUpScp="INDUNINFO_CATEGORY_LBTN_CLICK"/>
-			<richtext name="name" hittest="false" margin="10 0 0 0" rect="0 0 200 35" layout_gravity="left center" format="{#000000}%s (%s){/}" param1="value" param1_def="던전" param2="cnt" param2_def="0"/>
-			<richtext name="countText" rect="0 0 200 35" margin="0 0 30 0" layout_gravity="right center" format="{#000000}(%s/%s){/}" param1="current" param1_def="0" param2="max" param2_def="2"/>
+			<button name="button" hittest="true" margin="0 0 0 0" rect="0 0 350 60" layout_gravity="left top" skin="base_btn" textalign="center center" LBtnUpScp="INDUNINFO_CATEGORY_LBTN_CLICK"/>
+			<richtext name="name" hittest="false" margin="10 0 0 0" rect="0 0 230 35" fixwidth="true" textalign="left center" omitbywidth="true" layout_gravity="left center" format="{#000000}%s (%s){/}" param1="value" param1_def="던전" param2="cnt" param2_def="0"/>
+			<richtext name="countText" margin="0 0 30 0" rect="0 0 80 35" fixwidth="true" textalign="right center" omitbywidth="true" layout_gravity="right center" format="{#000000}(%s/%s){/}" param1="current" param1_def="0" param2="max" param2_def="2"/>
 			<picture name="cycleCtrlPic" margin="0 4 67 0" rect="0 0 41 30" image="indun_icon_day_s" layout_gravity="right center"/>
 		</controls>
 	</controlset>
@@ -3097,7 +2961,7 @@
 	</controlset>
 	<controlset name="keyconfig_tree" hittest="true" width="287" height="60" hittestset="false" draw="false" skin="none">
 		<controls>
-			<groupbox name="keyboard" margin="0 -2 0 0" rect="0 0 287 60" hittestbox="false" skin="base_btn" layout_gravity="left top" parent="tree" treeattach="tree"/>
+			<groupbox name="keyboard" margin="0 -2 0 0" rect="0 0 287 60" hittestbox="false" skin="base_btn" layout_gravity="left top" treeattach="tree"/>
 			<picture name="img" margin="59 -3 0 0" rect="0 0 186 43" hittest="false" image="keyboard_img" stretch="false" changecursor="false" layout_gravity="left center" imagealign="center center"/>
 			<picture name="foldimg" margin="11 17 0 0" rect="0 0 20 20" hittest="false" image="viewunfold" stretch="true" changecursor="false" layout_gravity="left top"/>
 		</controls>
@@ -3140,11 +3004,11 @@
 			<button name="savememo" rect="0 0 120 40" margin="0 7 20 0" layout_gravity="right top" LBtnUpScp="SAVE_GUILD_NAME_AND_MEMO" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" format="{@st66b}%s{/}" param1="value" param1_def="저장" clicksound="button_click" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
 			<groupbox name="partynamegbox" rect="0 0 550 39" margin="20 48 0 0" layout_gravity="left top" draw="true" hittestbox="false" scrollbar="false" skin="test_weight_skin"/>
 			<edit name="partyname_edit" parent="partynamegbox" rect="0 0 530 27" margin="7 6 0 0" layout_gravity="left top" caption="" drawbackground="false" fixwidth="true" fontname="black_16_b" maxwidth="120" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
-			<groupbox name="partynotegbox" parent="gBox" rect="0 0 550 78" margin="20 88 0 0" layout_gravity="left top" draw="true" hittestbox="false" scrollbar="false" skin="test_weight_skin"/>
+			<groupbox name="partynotegbox" rect="0 0 550 78" margin="20 88 0 0" layout_gravity="left top" draw="true" hittestbox="false" scrollbar="false" skin="test_weight_skin"/>
 			<edit name="partynote" parent="partynotegbox" rect="0 0 530 65" margin="7 6 0 0" layout_gravity="left top" caption="" drawbackground="false" fixwidth="true" fontname="black_16_b" maxwidth="120" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-			<richtext name="richtext_partynote_1" parent="gbox" rect="0 0 150 51" margin="20 3 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="150" slideshow="false" spacey="0" textalign="center center" updateparent="false" format="{@st42}%s" param1="value" param1_def="길드명과 소개글" resizebytext="false"/>
+			<richtext name="richtext_partynote_1" rect="0 0 150 51" margin="20 3 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="150" slideshow="false" spacey="0" textalign="center center" updateparent="false" format="{@st42}%s" param1="value" param1_def="길드명과 소개글" resizebytext="false"/>
 			<button name="guild_autho" rect="0 0 120 40" margin="0 166 20 0" layout_gravity="right top" LBtnUpScp="ON_GUILD_AUTHO_POPUP_OPEN" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" format="{@st66b}%s{/}" param1="value" param1_def="길드 권한" clicksound="button_click" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
-			<groupbox name="bg_title_key" rect="0 0 570 40" margin="8 213 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="market_listbase" parent="gbox"/>
+			<groupbox name="bg_title_key" rect="0 0 570 40" margin="8 213 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="market_listbase"/>
 			<richtext name="richtext_partynote_1_1_1" rect="0 0 126 28" margin="5 218 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="120" slideshow="false" spacey="0" textalign="center center" updateparent="false" format="{@st45tw2}%s" param1="value" param1_def="팀이름" resizebytext="false"/>
 			<richtext name="richtext_partynote_1_1_1_1" rect="0 0 126 28" margin="185 218 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="120" slideshow="false" spacey="0" textalign="center center" updateparent="false" format="{@st45tw2}%s" param1="value" param1_def="직책" resizebytext="false"/>
 			<richtext name="richtext_partynote_1_1_1_1_1" rect="0 0 126 28" margin="310 218 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="120" slideshow="false" spacey="0" textalign="center center" updateparent="false" format="{@st45tw2}%s" param1="value" param1_def="위치" resizebytext="false"/>
@@ -3156,8 +3020,8 @@
 	</controlset>
 	<controlset name="guild_warinfo" hittest="true" width="590" height="900" hittestset="false" draw="false" skin="none">
 		<controls>
-			<richtext name="guidwar" parent="gbox" rect="0 0 112 30" margin="0 14 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="120" slideshow="false" spacey="0" textalign="center center" updateparent="false" format="{@st42}길드 전쟁" param1="value" resizebytext="false"/>
-			<richtext name="txt_wars_title" parent="gbox" rect="0 0 159 35" margin="27 66 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="black_18_b" maxwidth="120" slideshow="false" spacey="0" textalign="left center" updateparent="false" format="%s" param1="value" param1_def="{@st42}전적" resizebytext="false"/>
+			<richtext name="guidwar" rect="0 0 112 30" margin="0 14 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="120" slideshow="false" spacey="0" textalign="center center" updateparent="false" format="{@st42}길드 전쟁" param1="value" resizebytext="false"/>
+			<richtext name="txt_wars_title" rect="0 0 159 35" margin="27 66 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="black_18_b" maxwidth="120" slideshow="false" spacey="0" textalign="left center" updateparent="false" format="%s" param1="value" param1_def="{@st42}전적" resizebytext="false"/>
 			<groupbox name="test_arrow" rect="0 0 550 49" margin="4 49 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_arow"/>
 			<groupbox name="gbox_enemy_list" margin="20 104 0 0" rect="0 0 550 172" hittestbox="false" skin="bg2" layout_gravity="left top" scrollbar="false"/>
 			<groupbox name="groupbox_1" margin="2 2 0 0" rect="0 0 543 40" hittestbox="false" skin="test_pvp_youparty_name" layout_gravity="left top" parent="gbox_enemy_list"/>
@@ -3168,14 +3032,14 @@
 			<picture name="pic_tower" margin="20 523 0 0" rect="0 0 102 101" hittest="false" image="icon_item_guildtower" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<richtext name="txt_guildtowercount" margin="126 538 0 0" rect="0 0 120 24" format="{#000000}%s{/}" param1="value" param1_def="GuildTower" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="txt_guildtowerposition" margin="125 562 0 0" rect="0 0 175 50" format="{#000000}%s {#000000}(%s){/}" param1="value" param1_def="GuildTower" param2="remaintime" param2_def="aaa" paramtextalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<button name="guildwarehouse" parent="gBox" rect="0 0 120 40" margin="0 63 21 0" layout_gravity="right top" LBtnUpScp="OPEN_GUILDBATTLE_RANKING_TAB" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" format="{@st66b}%s{/}" param1="value" param1_def="길드 배틀 랭킹" clicksound="button_click" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
+			<button name="guildwarehouse" rect="0 0 120 40" margin="0 63 21 0" layout_gravity="right top" LBtnUpScp="OPEN_GUILDBATTLE_RANKING_TAB" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" format="{@st66b}%s{/}" param1="value" param1_def="길드 배틀 랭킹" clicksound="button_click" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
 			<checkbox name="neutrality" margin="448 17 0 0" rect="0 0 120 24" fontname="black_16_b" caption="중립 선언" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" LBtnUpScp="ON_GUILD_SET_NEUTRALITY"/>
 			<richtext name="neutralityTime" margin="111 21 0 0" rect="0 0 120 50" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<groupbox name="sklgBox" margin="23 663 0 0" rect="0 0 540 130" hittestbox="false" skin="test_frame_midle" layout_gravity="left top"/>
 			<picture name="pforge" margin="120 5 0 0" rect="5 5 100 100" hittest="false" image="icon_item_Forge" stretch="true" changecursor="false" layout_gravity="left top" parent="sklgBox"/>
-			<richtext name="forge" margin="135 100 0 0" rect="0 0 120 24" format="{@st66e}포지(%s/%s){/}" param1="cnt" textalign="cneter cneter" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="sklgBox" param2="max"/>
+			<richtext name="forge" margin="135 100 0 0" rect="0 0 120 24" format="{@st66e}포지(%s/%s){/}" param1="cnt" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="sklgBox" param2="max"/>
 			<picture name="pshildCarge" margin="334 5 0 0" rect="0 0 100 100" hittest="false" image="icon_item_ShieldCharge" stretch="true" changecursor="false" layout_gravity="left top" parent="sklgBox"/>
-			<richtext name="charge" margin="332 100 0 0" rect="0 0 120 24" format="{@st66e}실드 차져(%s/%s){/}" param1="cnt" textalign="cneter cneter" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="sklgBox" param2="max"/>
+			<richtext name="charge" margin="332 100 0 0" rect="0 0 120 24" format="{@st66e}실드 차져(%s/%s){/}" param1="cnt" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="sklgBox" param2="max"/>
 			<richtext name="txt_tower_1" margin="25 813 0 0" rect="0 0 225 26" format="{@st42}%s{/}" param1="value" param1_def="아지트 입장" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<checkbox name="chk_agit_enter_onlyguild" margin="26 847 0 0" rect="0 0 120 24" caption="{@st45tw2}길드원만 입장{/}" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" LBtnUpScp="CHANGE_AGIT_ENTER_OPTION"/>
 		</controls>
@@ -3279,10 +3143,10 @@
 	</controlset>
 	<controlset name="learing_abil_ctrl" toggle="false" hittest="true" width="530" height="50" stateskin="false" draw="true">
 		<controls>
-			<picture name="learningAbilPic" parent="nowLearingGBox" rect="0 0 44 44" margin="15 0 0 0" layout_gravity="left center" stretch="true"/>
+			<picture name="learningAbilPic" rect="0 0 44 44" margin="15 0 0 0" layout_gravity="left center" stretch="true"/>
 			<labelline name="labelline" rect="0 0 560 4" margin="0 0 0 187" layout_gravity="center bottom" skin="None"/>
-			<richtext name="nowLearing" parent="nowLearingGBox" rect="0 0 500 30" margin="63 0 0 0" layout_gravity="left center" fixwidth="true" fontname="white_16_ol" format="{#ff4400}%s (%s레벨){/} 학습 중.." hittest="false" param1="abilName" param1_def="None" param2="level" param2_def="1"/>
-			<richtext name="remainTime" parent="nowLearingGBox" rect="0 0 190 30" margin="0 0 28 0" layout_gravity="right center" fixwidth="true" fontname="brown_16_b" format="%s분 남음" hittest="false" param1="remaintime" param1_def="99" textalign="right center"/>
+			<richtext name="nowLearing" rect="0 0 500 30" margin="63 0 0 0" layout_gravity="left center" fixwidth="true" fontname="white_16_ol" format="{#ff4400}%s (%s레벨){/} 학습 중.." hittest="false" param1="abilName" param1_def="None" param2="level" param2_def="1"/>
+			<richtext name="remainTime" rect="0 0 190 30" margin="0 0 28 0" layout_gravity="right center" fixwidth="true" fontname="brown_16_b" format="%s분 남음" hittest="false" param1="remaintime" param1_def="99" textalign="right center"/>
 			<button name="cancelBtn" margin="0 1 0 0" rect="0 0 20 20" layout_gravity="right center" caption="{@st42}X{/}" LBtnUpScp="REQ_ROLL_BACK_LEARING_ABIL"/>
 		</controls>
 	</controlset>
@@ -3297,9 +3161,9 @@
 	<controlset name="tokenDetail" hittest="true" width="440" height="50" hittestset="true" draw="false" skin="none">
 		<controls>
 			<groupbox name="groupbox_1" margin="0 0 0 0" rect="0 0 420 50" hittestbox="true" skin="guild_base_skin" layout_gravity="left top"/>
-			<richtext name="prop" margin="20 0 0 0" rect="0 0 120 24" format="{@st41b}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" hittest="true"/>
-			<richtext name="value" parent="groupbox_1" margin="0 0 0 0" rect="0 0 100 24" format="{@st41b}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right center" hittest="true"/>
-		</controls>
+			<richtext name="prop" margin="20 0 0 0" rect="0 0 440 50" format="{@st41b}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" hittest="true" autofontsizebywidth="420"/>
+			<richtext name="value" parent="groupbox_1" margin="0 0 0 0" rect="0 0 440 50" format="{@st41b}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right center" hittest="true"/>
+			</controls>
 	</controlset>
 	<controlset name="timer" hittest="true" width="150" height="40" hittestset="false" draw="false" skin="none">
 		<controls>
@@ -3477,7 +3341,7 @@
 		<controls>
 			<groupbox name="bg_slot" margin="0 0 0 0" rect="0 0 55 55" hittestbox="false" LBtnDownScp="" changecursor="true" skin="" layout_gravity="left top" scrollbar="false"/>
 			<slot name="slot" margin="0 0 0 0" layout_gravity="left top" rect="0 0 55 55" stretch="true" skin="slot_empty" oversound="button_over" enabledrag="false" enableselect="false" enablepop="false"/>
-			<button name="btn" caption="{@st41b}{/}" margin="0 0 0 0" rect="0 0 55 55" layout_gravity="center center" DropScp="COLLECTION_DROP" LBtnDownScp="COLLECTION_TAKE" texttooltip="{@st59}콜렉션 아이템을 등록합니다.{/}" image="itemcraft_btn" clicksound="button_click_big_2" oversound="button_cursor_over_3"/>
+			<button name="btn" caption="{@st41b}{/}" margin="0 0 0 0" rect="0 0 55 55" layout_gravity="center center" DropScp="COLLECTION_DROP" LBtnDownScp="COLLECTION_TAKE" texttooltip="{@st59}컬렉션 아이템을 등록합니다.{/}" image="itemcraft_btn" clicksound="button_click_big_2" oversound="button_cursor_over_3"/>
 		</controls>
 	</controlset>
 	<controlset name="forgery_item" hittest="true" hittestset="false" draw="true" width="460" height="150" skin="mypage_bar">
@@ -3497,16 +3361,6 @@
 			<richtext name="changeText" parent="centerBox" rect="0 0 100 20" margin="0 0 0 5" layout_gravity="center bottom" caption="장비{nl}교체시" fontname="black_16"/>
 			<groupbox name="compareBox" rect="0 0 450 50" margin="0 195 0 0" layout_gravity="center top" draw="true" skin="Appariser_Positive" scrollbar="false" fixheight="false"/>
 			<richtext name="compareResText" parent="compareBox" rect="0 0 100 20" margin="0 0 0 0" layout_gravity="center center" caption="감정사가 착용 중인 아이템이 없습니다" fontname="black_16"/>
-		</controls>
-		<controls>
-			<labelline name="label" margin="0 30 0 0" rect="0 0 560 4" skin="None" layout_gravity="center top"/>
-			<richtext name="scoreText" parent="contents" rect="0 0 400 24" margin="0 0 20 0" layout_gravity="right top" format="{@st41_yellow}획득점수 %s{/}" param1="score" param1_def="0" resizebytext="false" fixwidth="true" fixheight="true" textalign="right center"/>
-			<grid name="category" parent="contents" rect="0 0 0 210" margin="30 0 30 0" layout_gravity="none top" slotsize="100 90" slotspc="10 10">
-				<detail margin="0 0 0 0" speed="500" layout_gravity="left top"/>
-			</grid>
-			<grid name="detail" parent="contents" rect="0 0 0 0" margin="30 200 30 50" layout_gravity="none none" slotsize="300 90" slotspc="10 10">
-				<detail margin="0 0 0 0" speed="500" layout_gravity="left top"/>
-			</grid>
 		</controls>
 	</controlset>
 	<controlset name="expireditem_ctrlset" hittest="false" width="380" height="70">
@@ -3853,7 +3707,7 @@
 			<richtext name="level_text" rect="0 0 200 20" margin="20 12 0 0" layout_gravity="left top" resizebytext="false" textalign="left top" format="Lv.%s" param1="value" param1_def="0" fontname="black_14_b"/>
 			<richtext name="name_text" rect="0 0 200 20" margin="80 12 0 0" layout_gravity="left top" resizebytext="false" textalign="left top" format="%s" param1="value" param1_def="아이템" fontname="black_14_b"/>
 			<richtext name="score_text" rect="0 0 200 20" margin="0 12 30 0" layout_gravity="right top" resizebytext="false" textalign="right top" format="%s 점" param1="value" param1_def="0" fontname="white_14_ol"/>
-			<labelline name="labelline2" margin="0 35 0 0" rect="0 0 460 4" parent="fish_info_gb" skin="labelline_def2" layout_gravity="center top"/>
+			<labelline name="labelline2" margin="0 35 0 0" rect="0 0 460 4" skin="labelline_def2" layout_gravity="center top"/>
 			<richtext name="count_text" rect="0 0 200 20" margin="0 0 30 10" layout_gravity="right bottom" resizebytext="false" textalign="right bottom" format="총 %s번 클리어" param1="value" param1_def="0" fontname="black_14_b"/>
 		</controls>
 	</controlset>
@@ -3887,7 +3741,7 @@
 			<richtext name="percent" hittest="false" margin="0 0 28 0" rect="0 0 200 30" fontname="white_18_ol" format="%s{s16}%s" param1="reward" param1_def="" param2="value" param2_def="" textalign="right center" resizebytext="true" spacey="0" maxwidth="0" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right center"/>
 		</controls>
 	</controlset>
-	<!-- 콜렉션 -->
+	<!-- 컬렉션 -->
 	<controlset name="advbook_collection_detail" toggle="false" hittest="true" width="430" height="50" skin="None">
 		<controls>
 			<picture name="itemPic" rect="0 0 50 50" margin="0 0 0 0" layout_gravity="left center" image="chul_arrow" stretch="true"/>
@@ -3895,7 +3749,7 @@
 		</controls>
 	</controlset>
 	<!-- 모험일지 랭킹 -->
-	<controlset name="adventure_book_rank_page" hittest="true" width="1100" height="800" hittestset="false" draw="fals">
+	<controlset name="adventure_book_rank_page" hittest="true" width="1100" height="800" hittestset="false">
 		<userconfig EACH_RANK_SET_HEIGHT="60" RANK_FONT_NAME="{@st41}" RANK_MY_FONT_NAME="{@st42_yellow}{s20}"/>
 		<controls>
 			<richtext name="rankText_left" rect="0 0 100 30" margin="20 20 0 0" layout_gravity="left top" caption="순위" fontname="brown_18_b"/>
@@ -3947,10 +3801,10 @@
 			<richtext name="killMonsterText" rect="0 0 100 25" margin="1100 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" fontname="white_18_ol" format="%s" param1="killmonster" param1_def=""/>
 		</controls>
 	</controlset>
-	<controlset name="solodungeon_result_rank" hittest="true" width="335" height="68" hittestset="false" draw="false" skin="None" resizebyresolution="false">
+	<controlset name="solodungeon_result_rank" hittest="true" width="350" height="70" hittestset="false" draw="false" skin="None" resizebyresolution="false">
 		<userconfig RANK_IMAGE_1="solodungeon_rank_img_1" RANK_IMAGE_2="solodungeon_rank_img_2" RANK_IMAGE_3="solodungeon_rank_img_3" RANK_IMAGE_4="solodungeon_rank_img_4" RANK_IMAGE_5="solodungeon_rank_img_5" RANK_IMAGE_6="solodungeon_rank_img_6" RANK_IMAGE_7="solodungeon_rank_img_7" RANK_IMAGE_8="solodungeon_rank_img_8" RANK_IMAGE_9="solodungeon_rank_img_9" RANK_IMAGE_10="solodungeon_rank_img_10" MYRANK_FONT="orange_18_b_ol_ds"/>
 		<controls>
-			<groupbox name="rankGbox" rect="0 0 320 71" margin="0 0 0 0 " layout_gravity="center center" hittestbox="false" scrollbar="false" skin="test_skin_01"/>
+			<groupbox name="rankGbox" rect="0 0 345 71" margin="0 0 0 0 " layout_gravity="center center" hittestbox="false" scrollbar="false" skin="test_skin_01"/>
 			<picture name="rankImage" parent="rankGbox" rect="0 0 60 61" margin="4 4 0 0" layout_gravity="left top" image="None" stretch="true"/>
 			<richtext name="teamNameText" parent="rankGbox" rect="0 0 300 30" margin="0 10 10 0" layout_gravity="right top" textalign="center top" fontname="brown_18_b" format="%s" param1="teamname" param1_def=""/>
 			<richtext name="clearStageText" parent="rankGbox" rect="0 0 300 30" margin="0 0 10 8" layout_gravity="right bottom" textalign="center top" fontname="black_18" format="{#003997}{b}클리어 스테이지: %s" param1="clearstage" param1_def="0"/>
@@ -4032,13 +3886,16 @@
 			<picture name="line" rect="0 0 320 2" margin="0 0 0 0" layout_gravity="center bottom" stretch="true" image="guild_line_h2"/>
 		</controls>
 	</controlset>
-	<controlset name="colony_occupy_info" hittest="true" width="1120" height="30" draw="false" hittestset="false">
+	<controlset name="colony_occupy_info" hittest="true" width="1385" height="30" draw="false" hittestset="false">
+		<userconfig NO_VALUE="-" PERCENT="%" SILVER_ICON="{img silver_pic 20 20/}" TAX_RATE_ICON="{img colony_scales_pic 25 20/}"/>
 		<controls>
-			<groupbox name="bgBox" rect="0 0 1120 30" margin="0 0 0 0" layout_gravity="left top" skin="None" hittest="false"/>
-			<richtext name="mapNameText" rect="0 0 200 30" margin="10 0 0 0" layout_gravity="left center" caption="게나르 평원" fontname="white_16_b_ol" hittest="false"/>
-			<richtext name="gradeText" rect="0 0 100 30" margin="730 0 0 0" layout_gravity="left center" caption="A" fontname="white_16_b_ol" hittest="false"/>
-			<richtext name="percentText" rect="0 0 100 30" margin="460 0 0 0" layout_gravity="left center" fontname="white_16_b_ol" hittest="false"/>
-			<richtext name="rewardText" rect="0 0 300 30" margin="655 0 0 0" layout_gravity="left center" fontname="white_16_b_ol" hittest="false"/>
+			<groupbox name="bgBox" rect="0 0 1385 30" margin="0 0 0 0" layout_gravity="left top" skin="None" hittest="false"/>
+			<richtext name="mapNameText" rect="0 0 250 30" margin="35 0 0 0" layout_gravity="left center" textalign="left center" fixwidth="true" omitbywidth="true" caption="점령지역이름" fontname="white_16_b_ol" hittest="false"/>
+			<richtext name="gradeText" rect="0 0 0 30" margin="-230 0 0 0" layout_gravity="left center" textalign="left center" fixwidth="true" omitbywidth="true" caption="Grade" fontname="white_16_b_ol" hittest="false"/>
+			<richtext name="cityText" rect="0 0 250 30" margin="300 0 0 0" layout_gravity="left center" textalign="left center" fixwidth="true" omitbywidth="true" caption="도시이름" fontname="white_16_b_ol" hittest="false"/>
+			<richtext name="taxRateText" rect="0 0 100 30" margin="580 0 0 0" layout_gravity="left center" textalign="left center" fixwidth="true" omitbywidth="true" format="%s%s%s" param1="icon" param2="value" param3="percent" fontname="white_16_b_ol" hittest="false"/>
+			<richtext name="cityTaxText" rect="0 0 350 30" margin="720 0 0 0" layout_gravity="left center" textalign="left center" fixwidth="true" omitbywidth="true" format="%s%s" param1="icon" param2="value" fontname="white_16_b_ol" hittest="false"/>
+			<richtext name="marketTaxText" rect="0 0 350 30" margin="995 0 0 0" layout_gravity="left center" textalign="left center" fixwidth="true" omitbywidth="true" format="%s" param1="value" fontname="white_16_b_ol" hittest="false"/>
 		</controls>
 	</controlset>
 	<controlset name="guild_emblem_deck" hittest="true" width="330" height="62" skin="test_pvp_btn" hittestset="true" draw="false" stateskin="false">
@@ -4096,52 +3953,50 @@
 			<controlset name="secondColumnControlset" parent="secondColumn" type="guild_info_banner" hittestbox="true" scrollbar="false" skin="None"/>
 		</controls>
 	</controlset>
-	<controlset name="community_card_layout" hittest="true" width="1355" height="600" hittestset="true" draw="true">
+	<controlset name="community_card_layout" hittest="true" width="1355" height="220" hittestset="false" draw="true">
 		<controls>
-			<layout name="layoutBg"/>
-			<layoutsection name="layoutbgSection" parent="layoutBg"/>
-			<groupbox name="mainBg" parent="layoutbgSection" skin="test_skin_01" LBtnUpScp="OPEN_COMMUNITY_CARD" scrollbar="false"/>
-			<picture name="separator" stretch="true" image="guild_line_h2" margin="0 45 0 0" rect="0 0 1355 2"/>
-			<richtext name="writerName" textalign="left center" margin="20 15 0 0" caption="{@st66d}유저이름{/}"/>
-			<groupbox name="main_box" rect="0 0 1355 400" margin="0 50 0 0" LBtnUpScp="OPEN_COMMUNITY_CARD" draw="false" scrollbar="false"/>
-			<richtext name="mainText" rect="0 0 1200 90" hittest="false" parent="main_box" format="{@st66b}%s{/}" param1="text" param1_def="텍스트" fixheight="false" fixwidth="true" margin="100 0 0 0" resizebytext="true"/>
-			<groupbox name="bottomBox" LBtnUpScp="OPEN_COMMUNITY_CARD" rect="0 0 1355 50" draw="false" skin="premium_title_line" layout_gravity="center bottom" scrollbar="false"/>
-			<picture name="replyPic" rect="0 0 50 50" margin="10 0 0 -10" parent="bottomBox" image="guild_comment_on" hittest="true" layout_gravity="left top" LBtnUpScp="OPEN_COMMUNITY_CARD"/>
-			<richtext name="replyCount" parent="bottomBox" caption="0" rect="0 0 100 50" fontname="black_18" layout_gravity="left top" margin="50 0 0 15" LBtnUpScp="OPEN_COMMUNITY_CARD"/>
-			<richtext name="date" parent="bottomBox" caption="000 000 000 000" rect="0 0 100 50" fontname="black_18" layout_gravity="right top" margin="0 0 10 10"/>
-			<groupbox name="replyArea" hittestbox="false" hittest="true" rect="0 0 1340 200" parent="bottomBox" draw="true" margin="8 35 0 0" layout_gravity="left top" skin="guild_comment_skin"/>
-			<groupbox name="replyBox" parent="replyArea" rect="0 0 1340 100" draw="false" hittest="false" hittestbox="false" scrollbar="false"/>
-			<edit name="editReply" skin="test_weight_skin" rect="0 0 1340 100" parent="replyArea" fixwidth="true" fontname="white_20_ol" layout_gravity="left bottom"/>
+			<groupbox name="mainBg" rect="0 0 1355 220" skin="test_skin_01" LBtnUpScp="OPEN_COMMUNITY_CARD" scrollbar="false"/>
+			<groupbox name="header" draw="false" rect="0 0 1355 50" parent="mainBg" scrollbar="false"/>
+			<picture name="separator" parent="header" stretch="true" image="guild_line_h2" margin="0 45 0 0" rect="0 0 1355 2"/>
+			<richtext name="writerName" textalign="left center" parent="header" margin="20 15 0 0" caption="{@st66d}유저이름{/}"/>
+			<button name="card_deleteBtn" rect="0 0 40 40" skin="test_pvp_btn" parent="header" caption="{img indun_entrance_LOD 26 26}" layout_gravity="right top" margin="0 5 5 0" LBtnUpScp="COMMUNITY_CARD_DELETE"/>
+			<groupbox name="main_box" rect="0 0 1355 100" margin="0 50 0 0" parent="mainBg" LBtnUpScp="OPEN_COMMUNITY_CARD" draw="false" scrollbar="false"/>
+			<richtext name="mainText" rect="0 0 1200 100" hittest="false" parent="main_box" format="{@st66b}%s{/}" param1="text" param1_def="텍스트" fixheight="false" fixwidth="true" margin="100 0 0 0" resizebytext="true"/>
+			<groupbox name="bottomBox" parent="mainBg" LBtnUpScp="OPEN_COMMUNITY_CARD" rect="0 0 1355 50" margin="0 0 0 10" draw="false" skin="premium_title_line" layout_gravity="center bottom" scrollbar="false"/>
+			<groupbox name="bottomBoxHeader" parent="bottomBox" rect="0 0 1355 50" draw="false" scrollbar="false"/>
+			<picture name="replyPic" rect="0 0 50 50" margin="10 0 0 -10" parent="bottomBoxHeader" image="guild_comment_on" hittest="true" layout_gravity="left top" LBtnUpScp="OPEN_COMMUNITY_CARD"/>
+			<richtext name="replyCount" parent="bottomBoxHeader" caption="0" rect="0 0 100 50" fontname="black_18" layout_gravity="left top" margin="50 0 0 15" LBtnUpScp="OPEN_COMMUNITY_CARD"/>
+			<richtext name="date" parent="bottomBoxHeader" caption="000 000 000 000" rect="0 0 100 50" fontname="black_18" layout_gravity="right top" margin="0 0 10 10"/>
+			<groupbox name="replyArea" parent="bottomBox" LBtnUpScp="OPEN_COMMUNITY_CARD" hittest="true" scrollbar="false" rect="0 0 1340 200" draw="true" margin="8 50 0 0" layout_gravity="left top" skin="guild_comment_skin" hittestbox="false"/>
+			<groupbox name="replyBox" parent="replyArea" rect="0 0 1340 100" draw="false" hittest="true" hittestbox="false" scrollbar="false"/>
+			<edit name="editReply" skin="test_weight_skin" rect="0 0 1340 100" parent="replyArea" fixwidth="true" fontname="white_20_ol" layout_gravity="left bottom" maxlen="120"/>
 			<button name="sendReply" rect="0 0 200 50" parent="replyArea" skin="test_pvp_btn" layout_gravity="right bottom" caption="{@st66}{s18}작성{/}" fontname="brown_16"/>
 		</controls>
 	</controlset>
-	<controlset name="community_card_reply" hittest="false" width="1355" height="50" hittestset="false" draw="false">
+	<controlset name="community_card_reply" hittest="true" width="1320" height="50" hittestset="false" draw="false">
 		<controls>
-			<picture name="guildLinePicture" rect="0 0 1355 2" layout_gravity="center bottom" stretch="true" image="guild_line_h2"/>
-			<layout name="commentLayout" margin="20 5 40 10"/>
-			<layoutsection name="commentAuthorSection" parent="commentLayout" size="10%" hittest="false"/>
-			<richtext name="commentAuthorText" parent="commentAuthorSection" textalign="left center" fontname="black_18_b" hittest="false"/>
-			<layoutsection name="replyTextSection" parent="commentLayout" hittest="false"/>
-			<richtext name="replyText" format="{@st66b}%s{/}" param1="text" fontname="black_18_b" textalign="left center" parent="replyTextSection" hittest="false"/>
-			<layoutsection name="dateSection" parent="commentLayout" hittest="false"/>
-			<richtext name="dateText" format="{@st66b}%s{/}" param1="text" fontname="black_18_b" textalign="right center" parent="dateSection" hittest="false"/>
+			<picture name="guildLinePicture" rect="0 0 1320 2" layout_gravity="center bottom" stretch="true" image="guild_line_h2"/>
+			<richtext name="commentAuthorText" fixwidth="true" margin="50 0 0 0" rect="0 0 140 40" layout_gravity="left center" textalign="left center" fontname="black_18_b" hittest="true" omitbywidth="true"/>
+			<richtext name="replyText" rect="0 0 960 40" margin="200 0 0 0" layout_gravity="left center" format="{@st66b}%s     {/}" param1="text" fontname="white_18" hittest="true" omitbywidth="true" fixwidth="true" resizebytext="true"/>
+			<button name="deleteCommentBtn" rect="0 0 20 20" format="X" skin="None" fontname="white_18" layout_gravity="right bottom" parent="replyText" LBtnUpScp="DELETE_ONELINE_COMMENT"/>
+			<richtext name="dateText" rect="0 0 400 40" layout_gravity="right center" format="{@st66b}%s{/}" param1="text" fontname="black_18_b" textalign="right center" hittest="false"/>
 		</controls>
 	</controlset>
 	<controlset name="guild_member_row" hittest="true" width="1050" height="50" hittestset="true" draw="true">
 		<controls>
-			<layout name="rowLayout" spacing="10" orientation="horizontal"/>
+			<layout name="rowLayout" spacing="0" orientation="horizontal"/>
 			<layoutsection name="column1" size="free" parent="rowLayout"/>
-			<richtext name="teamName1" parent="column1" layout_gravity="center center" fontname="black_18_b"/>
+			<richtext name="teamName1" parent="column1" fontname="black_18_b" textalign="center center"/>
 			<layoutsection name="column2" size="free" parent="rowLayout"/>
-			<richtext name="team_lv1" parent="column2" layout_gravity="center center" fontname="black_18_b"/>
+			<richtext name="team_lv1" parent="column2" fontname="black_18_b" textalign="center center"/>
 			<layoutsection name="column3" size="free" parent="rowLayout"/>
-			<richtext name="lv1" parent="column3" layout_gravity="center center" fontname="black_18_b"/>
+			<richtext name="lv1" parent="column3" fontname="black_18_b" textalign="center center"/>
 			<layoutsection name="column4" size="free" parent="rowLayout"/>
-			<richtext name="teamName2" parent="column4" layout_gravity="center center" fontname="black_18_b"/>
+			<richtext name="teamName2" parent="column4" fontname="black_18_b" textalign="center center"/>
 			<layoutsection name="column5" size="free" parent="rowLayout"/>
-			<richtext name="team_lv2" parent="column5" layout_gravity="center center" fontname="black_18_b"/>
+			<richtext name="team_lv2" parent="column5" fontname="black_18_b" textalign="center center"/>
 			<layoutsection name="column6" size="free" parent="rowLayout"/>
-			<richtext name="lv2" parent="column6" layout_gravity="center center" fontname="black_18_b"/>
+			<richtext name="lv2" parent="column6" fontname="black_18_b" textalign="center center"/>
 		</controls>
 	</controlset>
 	<controlset name="guild_join_sent" hittest="true" width="690" height="30" hittestset="true" draw="true">
@@ -4199,7 +4054,7 @@
 			<layoutsection name="adventureRankSection" parent="applicantLayout"/>
 			<richtext name="adventureRankText" parent="adventureRankSection" fontname="black_18_b" format="%s" param1="adventureRank" param1_def="모험일지 랭킹" textalign="center center"/>
 			<layoutsection name="commentSection" parent="applicantLayout"/>
-			<richtext name="commentText" parent="commentSection" fontname="black_18_b" format="%s" param1="comment" param1_def="가입시켜주세요" textalign="center center"/>
+			<richtext name="commentText" parent="commentSection" fontname="black_18_b" format="%s" param1="comment" param1_def="가입시켜주세요" textalign="center center" omitbywidth="true"/>
 			<layoutsection name="declineBtnSection" parent="applicantLayout" size="10%"/>
 			<button name="refuseJoinBtn" parent="declineBtnSection" margin="0 5 0 10" caption="{@st41}거절" skin="test_gray_button" LBtnUpScp="DECLINE_APPLICANT"/>
 			<layoutsection name="acceptBtnSection" parent="applicantLayout" size="10%"/>
@@ -4351,7 +4206,7 @@
 	</controlset>
 	<controlset name="itemslot_reinforce_styleset" hittest="false" width="60" height="60" hittestset="false">
 		<controls>
-			<richtext name="levelText" parent="starIcon" rect="0 0 30 20" margin="0 0 4 4" layout_gravity="right bottom" textalign="center center" format="+%s" param1="level" param1_def="0" fontname="white_14_b_ds_ol"/>
+			<richtext name="levelText" rect="0 0 30 20" margin="0 0 4 4" layout_gravity="right bottom" textalign="center center" format="+%s" param1="level" param1_def="0" fontname="white_14_b_ds_ol"/>
 		</controls>
 	</controlset>
 	<controlset name="job_select_guide_card" hittest="true" width="269" height="350" hittestset="false">
@@ -4360,26 +4215,30 @@
 			<richtext name="text" rect="0 0 60 30" margin="0 0 0 0" layout_gravity="center bottom" textalign="center center" format="{@st43}%s{/}" param1="value" param1_def="none" fontname="white_14_b_ds_ol"/>
 		</controls>
 	</controlset>
-	<controlset name="job_select_guide_start" hittest="true" width="1340" height="350" hittestset="false">
-		<userconfig Icon_Warrior="swordsman_icon" Icon_Archer="archer_icon" Icon_Wizard="wizard_icon" Icon_Cleric="cleric_icon"/>
+	<controlset name="job_select_guide_start" hittest="true" width="950" height="350" hittestset="false">
+		<userconfig Icon_Warrior="swordsman_icon" Icon_Archer="archer_icon" Icon_Wizard="wizard_icon" Icon_Cleric="cleric_icon" Icon_Scout="wizard_icon"/>
 		<controls>
-			<picture name="title_left_pic" rect="0 0 188 35" margin="-220 15 0 0" layout_gravity="center top" image="frame_classguide_l"/>
-			<picture name="title_right_pic" rect="0 0 188 35" margin="220 15 0 0" layout_gravity="center top" image="frame_classguide_r"/>
-			<richtext name="title_text" rect="0 0 440 60" margin="0 15 0 0" layout_gravity="center top" textalign="center center" caption="{@sti7}{s26}클래스 선택 가이드" fixwidth="true" resizebytext="true" font="white_20_ol"/>
-			<picture name="job_pic" rect="0 0 140 190" margin="0 75 0 0" layout_gravity="center top" image="" stretch="true"/>
-			<button name="start_btn" rect="0 0 70 20" margin="0 0 0 -10" layout_gravity="center bottom" image="btn_lv3" caption="{@st43b}시작" hittest="true" LBtnUpScp="ON_CHANGE_JOB_SELECT_GUIDE_START" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2"/>
+			<richtext name="title_text" rect="0 0 440 60" margin="330 35 0 0" layout_gravity="left top" caption="{@sti7}{s30}{ds}클래스 선택 가이드" fixwidth="true" resizebytext="true" font="white_20_ol"/>
+			<groupbox name="bgBox" rect="0 0 600 210" margin="0 0 220 50" layout_gravity="right bottom" skin="blackbox_op_50"/>
+			<picture name="job_pic" parent="bgBox" rect="0 0 140 190" margin="10 0 0 0" layout_gravity="left center" image="" stretch="true"/>
+			<button name="start_btn" parent="bgBox" rect="0 0 50 30" margin="0 0 0 0" layout_gravity="center bottom" image="btn_lv3" caption="{@st43b}시작" hittest="true" LBtnUpScp="ON_CHANGE_JOB_SELECT_GUIDE_START" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2"/>
+			<richtext name="infoStaticText" parent="bgBox" rect="0 0 300 100" margin="170 30 0 0" layout_gravity="left top" caption="{@st66d_y}어떤 직업을 골라야할지 고민된다면?{/}{nl}                                                                         적성검사를통해 내 플레이타입에{nl}맞는 직업 순위를 알아보세요!" fontname="white_16_b_ol" fixwidth="true" textalign="center top"/>
+			<picture name="title_left_pic" rect="0 0 188 35" margin="100 35 0 0" layout_gravity="left top" image="frame_classguide_l" stretch="true"/>
+			<picture name="title_right_pic" rect="0 0 188 35" margin="0 35 140 0" layout_gravity="right top" image="frame_classguide_r" stretch="true"/>
+			<picture name="portraitPic" rect="0 0 275 282" margin="0 0 80 0" layout_gravity="right bottom" image="Dlg_port_Austeja" stretch="true"/>
 		</controls>
 	</controlset>
 	<controlset name="job_select_guide_job_tree" hittest="true" width="500" height="80" hittestset="false">
 		<controls>
 			<groupbox name="gb" margin="0 0 0 0" rect="0 0 500 80" draw="false" hittestbox="false" layout_gravity="center center" resizebyparent="false" scrollbar="false"/>
+			<richtext name="too_many_text" rect="0 0 200 80" margin="0 0 30 10" layout_gravity="right center" textalign="right center" caption="{@st43}...{/}" visible="false"/>
 		</controls>
 	</controlset>
 	<controlset name="job_select_guide_result" hittest="true" width="500" height="830" hittestset="false" draw="false" skin="None">
 		<controls>
 			<picture name="portrait_pic" rect="0 0 350 350" margin="0 100 0 0" layout_gravity="center top" image="charinfo_markslot" stretch="true" hittest="true"/>
 			<picture name="job_icon_pic" rect="0 0 80 80" margin="110 470 0 0" layout_gravity="left top" image="charinfo_markslot" stretch="true" hittest="true"/>
-			<richtext name="job_name_text" rect="0 0 200 50" margin="210 495 0 0" layout_gravity="left top" textalign="left center" format="{@st43}%s{/}" param1="value" param1_def="none" omitbywidth="false" fixwidth="false" fontname="white_14_b_ds_ol"/>
+			<richtext name="job_name_text" rect="0 0 200 50" margin="210 495 0 0" layout_gravity="left top" textalign="left center" format="{@st43}%s{/}" param1="value" param1_def="none" omitbywidth="true" fixwidth="true" fontname="white_14_b_ds_ol"/>
 			<groupbox name="suggestion_gb" margin="0 0 0 0" rect="0 0 500 260" draw="true" hittestbox="false" layout_gravity="center bottom" resizebyparent="false" skin="none" scrollbar="false"/>
 			<controlset name="suggestion_1" skin="blackbox_op_50" parent="suggestion_gb" type="job_select_guide_job_tree" rect="0 0 500 80" margin="0 0 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false"/>
 			<controlset name="suggestion_2" skin="blackbox_op_50" parent="suggestion_gb" type="job_select_guide_job_tree" rect="0 0 500 80" margin="0 85 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false"/>
@@ -4403,6 +4262,14 @@
 			<picture name="reward_pic" parent="bg" rect="0 0 30 30" margin="330 0 0 0" layout_gravity="left center" image="" stretch="true"/>
 			<richtext name="reward_text" parent="bg" rect="0 0 200 30" margin="370 0 0 0" layout_gravity="left center" format="{@st42}{s20}x%s{/}" param1="value" fontname="white_16_b" spacey="0"/>
 			<button name="recv_btn" parent="bg" rect="0 0 70 40" margin="0 0 0 0" layout_gravity="right center" skin="test_red_button" caption="{@st42}{s16}받기" hittest="true" LBtnUpScp="ON_REQ_COLONY_MARKET_FEE_PAYMENT_BTN" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2"/>
+		</controls>
+	</controlset>
+	<controlset name="colony_warp_elem" hittest="true" width="540" height="55" hittestset="false" draw="true">
+		<controls>
+			<groupbox name="bg" rect="0 0 540 48" margin="0 0 0 0" layout_gravity="center center" skin="market_listbase" draw="true" scrollbar="false"/>
+			<richtext name="map_text" parent="bg" rect="0 0 200 30" margin="20 0 0 0" textalign="center center" layout_gravity="left center" format="%s" param1="value" fontname="brown_16_b" spacey="0"/>
+			<richtext name="state_text" parent="bg" rect="0 0 200 30" margin="320 0 0 0" textalign="center center" layout_gravity="left center" format="%s" param1="value" fontname="brown_16_b" spacey="0"/>
+			<button name="move_btn" parent="bg" rect="0 0 70 40" margin="0 0 10 0" layout_gravity="right center" skin="test_red_button" caption="{@st41b}{s16}이동" hittest="true" LBtnUpScp="ON_REQ_COLONY_WARP_LIST_MOVE_BTN" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2"/>
 		</controls>
 	</controlset>
 	<controlset name="market_category" width="335" height="873">
@@ -4529,6 +4396,228 @@
 			<groupbox name="skinBox" rect="0 0 410 30" margin="4 0 0 0" layout_gravity="left center" skin="None" hittest="false"/>
 			<richtext name="nameText" rect="0 0 370 30" margin="15 5 0 0" layout_gravity="left top" fontname="white_16_b_ol" caption="설정 저장 이름" fixwidth="true" omitbywidth="true"/>
 			<richtext name="deleteText" rect="0 0 30 30" margin="0 5 8 0" layout_gravity="right top" caption="x" fontname="brown_18_b" texttooltip="설정 삭제" LBtnUpScp="MARKET_DELETE_SAVED_OPTION"/>
+		</controls>
+	</controlset>
+	<controlset name="news_ranking_each_rank" width="520" height="58" hittestset="true" draw="false" skin="none">
+		<userconfig RankingPic_1="adventure_ranking1" RankingPic_2="adventure_ranking2" RankingPic_3="adventure_ranking3" RankingSkin_1="rank_one_skin" RankingSkin_2="rank_two_skin" RankingSkin_3="rank_three_skin"/>
+		<controls>
+			<picture name="ranking_pic" rect="0 0 53 44" margin="0 0 0 0" layout_gravity="left center" stretch="true" image="adventure_ranking1"/>
+			<groupbox name="bg" rect="0 0 400 50" margin="54 5 0 0" layout_gravity="left top" draw="true" skin="rank_one_skin"/>
+			<picture name="job_pic" parent="bg" rect="0 0 30 30" margin="10 0 0 0" layout_gravity="left center" stretch="true" image="None"/>
+			<richtext name="name_text" parent="bg" rect="0 0 300 30" margin="50 0 0 0" fixwidth="true" layout_gravity="left center" textalign="left center" format="Lv.%s %s" param1="lv" param1_def="0" param2="name" param2_def="None" fontname="white_18_ol" omitbywidth="true"/>
+			<richtext name="noranker_text" parent="bg" rect="0 0 300 30" margin="20 0 0 0" fixwidth="true" layout_gravity="left center" textalign="left center" format="%s" param1="value" param1_def="-    -" fontname="white_18_ol"/>
+			<richtext name="score_text" parent="bg" rect="0 0 200 30" margin="0 0 12 0" layout_gravity="right center" textalign="right center" format="%s" param1="value" param1_def="0" fontname="white_18_ol"/>
+		</controls>
+	</controlset>
+	<controlset name="news_ranking" hittest="true" width="500" height="250" hittestset="true" draw="true" skin="none">
+		<userconfig OffsetX="10" OffsetY="-8"/>
+		<controls>
+			<groupbox name="title_bg" rect="0 0 490 40" margin="0 0 0 0" layout_gravity="center top" draw="true" skin="test_skin_01_btn"/>
+			<richtext name="title_text" rect="0 0 490 30" margin="0 10 0 0" layout_gravity="center top" textalign="center top" format="%s" param1="value" fontname="black_16_b"/>
+			<groupbox name="list_bg" rect="0 0 490 180" margin="0 50 0 0" layout_gravity="center top" draw="false" skin="bg2"/>
+			<button name="detail_btn" layout_gravity="right bottom" rect="0 0 100 30" margin="0 0 0 10" caption="{s16}{b}{ol}{ds}자세히 보기>>" draw="true" skin="none" clicksound="button_click_big" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
+			<labelline name="labelline" margin="0 0 0 5" rect="0 0 490 3" skin="labelline_def_2" layout_gravity="center bottom"/>
+		</controls>
+	</controlset>
+	<controlset name="guild_joint_inventory_log" width="950" height="50" hittest="true" hittestset="false" draw="false">
+		<userconfig DEPOSIT_IMG="in_arrow" WITHDRAW_IMG="chul_arrow"/>
+		<controls>
+			<picture name="line" rect="0 0 946 2" margin="0 4 0 0" layout_gravity="right top" stretch="true" image="guild_line_h2"/>
+			<layout name="logLayout" margin="0 0 30 0"/>
+			<layoutsection name="dateSection" parent="logLayout"/>
+			<richtext name="dateText" parent="dateSection" format="{img %s 18 18} %s" fontname="white_16_ol" param1="img" param1_def="in_arrow" param2="date" textalign="center center" omitbywidth="true"/>
+			<layoutsection name="teamNameSection" parent="logLayout"/>
+			<richtext name="teamName" parent="teamNameSection" format="{@st66d}%s" param1="name" textalign="center center" omitbywidth="true"/>
+			<layoutsection name="itemNameSection" parent="logLayout"/>
+			<richtext name="itemName" parent="itemNameSection" format="{@st66d}%s" fontname="white_16_ol" param1="name" textalign="center center" omitbywidth="true"/>
+			<layoutsection name="itemCountSection" parent="logLayout"/>
+			<richtext name="itemCount" parent="itemCountSection" format="{@st66d_y}%s" fontname="black_18" param1="count" textalign="center center"/>
+		</controls>
+	</controlset>
+	<controlset name="changejob_class_info" hittest="true" width="150" height="285" hittestset="true" draw="false">
+		<controls>
+			<richtext name="jobNameText" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center top" format="{@sti7}{s24}{ds}%s%s" param1="style" param1_def="{@st43}" param2="name" param2_def="직업 이름"/>
+			<picture name="jobEmblemPic" rect="0 0 120 120" margin="0 -33 0 0" layout_gravity="center center" image="c_cleric_pardoner" stretch="true"/>
+			<button name="rankRollBackBtn" rect="0 0 50 50" margin="0 0 0 50" layout_gravity="center bottom" image="class_tree_job_reset_btn" texttooltip="해당 클래스를 변경합니다."/>
+			<picture name="infoPic" rect="0 0 45 45" margin="40 0 0 70" layout_gravity="center bottom" image="NOTICE_Dm_!" texttooltip="특정 클래스의 선행 직업인 경우 변경할 수 없습니다." stretch="true"/>
+		</controls>
+	</controlset>
+	<controlset name="select_target_party_member" hittest="true" width="120" height="125" hittestset="true" draw="false">
+		<controls>
+			<picture name="jobEmblemPic" rect="0 0 80 80" margin="0 0 0 0" layout_gravity="center top" image="c_cleric_pardoner" stretch="true"/>
+			<richtext name="lvText" rect="0 0 100 30" margin="0 70 0 0" layout_gravity="center top" format="Lv.%s" param1="lv" param1_def="0" fontname="white_16_b_ol"/>
+			<richtext name="nameText" rect="0 0 120 30" margin="0 0 0 15" layout_gravity="center bottom" format="{#00FF00}{ol}%s" param1="name" param1_def="파티원이름이에요"/>
+			<gauge name="hpGauge" rect="0 0 80 22" margin="0 0 0 0" layout_gravity="center bottom" skin="pcinfo_gauge_hp2"/>
+		</controls>
+	</controlset>
+	<!--skillability-->
+	<controlset name="skillability_job" hittest="true" width="1265" height="790" hittestset="false" draw="false">
+		<userconfig SKILL_LV_HEIGHT="140" SKILL_LV_DIST="-15" SKILL_LV_MARGIN="15" SKILL_COL_COUNT="5" SKILL_LINE_BREAK_COUNT="4"/>
+		<controls>
+			<groupbox name="skill_gb" rect="0 0 540 785" margin="0 0 0 0" layout_gravity="left top" draw="false" skin=""/>
+			<groupbox name="skilltop_gb" parent="skill_gb" rect="0 0 540 40" margin="0 0 0 0" layout_gravity="left top" draw="false" skin="bg2"/>
+			<richtext name="skill_text" parent="skilltop_gb" rect="0 0 50 25" margin="5 10 0 0" layout_gravity="left top" caption="{@st43b}{s18}스킬" hittest="false" fontname="white_20_ol"/>
+			<groupbox name="skilltreebg_gb" parent="skill_gb" rect="0 0 540 405" margin="0 40 0 0" layout_gravity="left top" draw="true" skin="test_frame_midle"/>
+			<richtext name="skillpoint_text" parent="skilltreebg_gb" rect="0 0 50 25" margin="0 5 10 0" format="스킬 포인트:        %s/%s" param1="cur" param2="max" param1_def="0" param2_def="0" layout_gravity="right top" hittest="false" fontname="white_16_ol"/>
+			<labelline name="labelline_1" parent="skilltreebg_gb" margin="0 30 0 0" rect="0 0 535 3" skin="labelline_def_2" layout_gravity="center top"/>
+			<groupbox name="skilltree_gb" parent="skilltreebg_gb" rect="0 0 540 370" margin="0 35 0 0" layout_gravity="left top" draw="false" skin=""/>
+			<groupbox name="skillinfo_gb" parent="skill_gb" rect="0 0 530 80" margin="5 453 0 0" layout_gravity="left top" draw="false" skin="bg2"/>
+			<groupbox name="linkabil_gb2" parent="skill_gb" rect="0 0 540 250" margin="0 0 0 0" layout_gravity="left bottom" draw="true" skin="test_frame_midle"/>
+			<groupbox name="linkabil_gb" parent="skill_gb" rect="0 0 540 218" margin="0 0 0 0" layout_gravity="left bottom" draw="false" skin="test_frame_midle"/>
+			<richtext name="linkabil_label" parent="linkabil_gb2" rect="0 0 50 25" margin="5 6 0 0" format="연결 특성" layout_gravity="left top" hittest="false" fontname="brown_16_b"/>
+			<labelline name="labelline_2" parent="linkabil_gb2" margin="0 29 0 0" rect="0 0 535 3" skin="labelline_def_2" layout_gravity="center top"/>
+			<groupbox name="ability_gb" rect="0 0 710 785" margin="540 0 0 0" layout_gravity="left top" draw="false"/>
+			<groupbox name="abilitytop_gb" parent="ability_gb" rect="0 0 710 40" margin="0 0 0 0" layout_gravity="right top" draw="false" skin="bg2"/>
+			<richtext name="ability_text" parent="abilitytop_gb" rect="0 0 50 25" margin="15 10 0 0" layout_gravity="left top" caption="{@st43b}{s18}특성" hittest="false" fontname="white_20_ol"/>
+			<groupbox name="abilitylist_gb" parent="ability_gb" rect="0 0 708 700" margin="0 40 0 0" layout_gravity="right top" draw="true" skin="test_frame_midle"/>
+			<groupbox name="abilitybottom_gb" parent="ability_gb" rect="0 0 700 40" margin="0 0 0 0" layout_gravity="right bottom" draw="false" skin="bg2"/>
+			<button name="cancel_btn" parent="abilitybottom_gb" rect="0 0 150 40" margin="0 0 150 0" LBtnUpScp="ui.CloseFrame(&apos;skillability&apos;)" caption="{@st41d}취소" fontname="white_16_ol" skin="test_gray_button" layout_gravity="right top" clicksound="button_click_skill_down" oversound="button_over"/>
+			<button name="confirm_btn" parent="abilitybottom_gb" rect="0 0 150 40" margin="0 0 0 0" LBtnUpScp="ui.CloseFrame(&apos;skillability&apos;)" caption="{@st41d}저장" fontname="white_16_ol" skin="test_red_button" layout_gravity="right top" clicksound="button_click_skill_up_OK" oversound="button_over"/>
+			<groupbox name="abilitypoint_gb" parent="abilitytop_gb" rect="0 0 395 38" margin="0 0 0 0" layout_gravity="right top" draw="true" skin="test_weight_skin"/>
+			<richtext name="abilitypoint_label" parent="abilitypoint_gb" rect="0 0 50 30" margin="10 0 0 0" layout_gravity="left center" format="특성 포인트" param1="value" hittest="false" fontname="white_16_ol"/>
+			<richtext name="abilitypoint_text" parent="abilitypoint_gb" rect="0 0 220 30" margin="0 0 0 0" textalign="right center" layout_gravity="left center" fixwidth="true" format="%s" param1="value" param1_def="-" hittest="false" fontname="white_16_ol"/>
+			<button name="abilitypoint_extractor_btn" parent="abilitypoint_gb" rect="0 0 85 40" margin="0 0 80 0" LBtnUpScp="ABILITYSHOP_EXTRACTOR_BTN_CLICK" fixwidth="true" omitbywidth="true" texttooltip="특성 포인트 추출" caption="{@st66}{s16}추출" skin="test_pvp_btn" layout_gravity="right center" stretch="false" clicksound="button_click_big" oversound="button_over"/>
+			<button name="abilitypoint_add_btn" parent="abilitypoint_gb" rect="0 0 85 40" margin="0 0 0 0" LBtnUpScp="ABILITYSHOP_BUY_BTN_CLICK" fixwidth="true" omitbywidth="true" texttooltip="특성 포인트 구매" caption="{@st66}{s16}구매" skin="test_pvp_btn" layout_gravity="right center" stretch="false" clicksound="button_click_big" oversound="button_over"/>
+		</controls>
+	</controlset>
+	<controlset name="skillability_ability" toggle="false" hittest="true" width="660" height="140" skin="test_skin_01_btn" stateskin="false">
+		<userconfig AFTER_ARROW="{img skill_arrow_red_pic 13 17}{/}{#8e0000}{b}" SKIN_LOCK="test_skin_gary_01" SKIN_UNLOCK="test_skin_01_btn" SKIN_LEVEL_ZERO="test_skin_gary_01" SKIN_LEVEL_MAX="test_skin_01_btn_cursoron"/>
+		<controls>
+			<slot name="slot" margin="13 15 0 0" rect="0 0 55 55" layout_gravity="left top" skin="slot_empty" PopScp="LIFT_ABILITY_ICON" enabledrop="false" enablepop="true" hittestset="true" hittest="true" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
+			<picture name="abilLevelPic" margin="80 42 0 0" rect="0 0 75 20" layout_gravity="left top" image="ability_now" stretch="true"/>
+			<picture name="abilConditionPic" margin="405 42 0 0" rect="0 0 75 20" layout_gravity="left top" image="ability_now" stretch="true"/>
+			<picture name="abilLevelMaxPic" margin="265 42 0 0" rect="0 0 75 20" layout_gravity="left top" image="ability_max" stretch="true"/>
+			<richtext name="abilLevelLabel" margin="80 42 0 0" rect="0 0 75 20" layout_gravity="left top" resizebytext="false" textalign="center center" fixwidth="true" fixheight="true" hittest="false" fontname="white_16_b" caption="현재"/>
+			<richtext name="abilConditionLabel" margin="405 42 0 0" rect="0 0 75 20" layout_gravity="left top" resizebytext="false" textalign="center center" fixwidth="true" fixheight="true" hittest="false" fontname="white_16_b" caption="조건"/>
+			<richtext name="abilLevelMaxLabel" margin="265 42 0 0" rect="0 0 75 20" layout_gravity="left top" resizebytext="false" textalign="center center" fixwidth="true" fixheight="true" hittest="false" fontname="white_16_b" caption="최대"/>
+			<groupbox name="descGB" margin="0 0 5 7" rect="0 0 580 70" hittestbox="false" skin="ability_deck" layout_gravity="right bottom" scrollbar="false"/>
+			<picture name="abilMasterPic" margin="0 8 10 0" rect="0 0 58 32" layout_gravity="right top" image="abill_mini_m_pic" stretch="true"/>
+			<richtext name="nameText" margin="80 10 0 0" rect="0 0 290 30" format="%s" param1="value" layout_gravity="left top" resizebytext="false" textalign="left center" fixwidth="true" omitbywidth="false" fixheight="true" hittest="false" fontname="brown_18_b" autofontsizebywidth="290"/>
+			<richtext name="abilLevelText" margin="160 42 0 0" rect="0 0 130 30" format="%s%s%s" param1="before" param2="arrow" param3="after" layout_gravity="left top" resizebytext="false" textalign="left top" fixwidth="true" omitbywidth="false" fixheight="true" hittest="false" fontname="brown_16"/>
+			<richtext name="abilConditionText" margin="482 42 0 0" rect="0 0 180 30" format="{@st66b}{#8e0000}%s{/}" param1="value" layout_gravity="left top" resizebytext="true" textalign="left top" fixwidth="true" omitbywidth="true" fixheight="false" hittest="true" fontname="brown_16_b"/>
+			<richtext name="abilLevelMaxText" margin="347 42 0 0" rect="0 0 100 30" format="%s" param1="value" layout_gravity="left top" resizebytext="false" textalign="left top" fixwidth="true" omitbywidth="false" fixheight="true" hittest="false" fontname="brown_16"/>
+			<richtext name="descText" parent="descGB" margin="5 0 0 0" rect="0 0 565 70" skin="ability_deck" format="{@st65}%s{/}" param1="value" layout_gravity="left top" resizebytext="true" textalign="left top" fixwidth="true" omitbywidth="false" hittest="false" fontname="brown_16"/>
+			<groupbox name="abilPointGB" rect="0 0 290 40" margin="0 0 0 0" layout_gravity="right top" draw="false"/>
+			<groupbox name="abilBG" parent="abilPointGB" rect="0 0 220 30" margin="0 7 68 0" layout_gravity="right top" draw="true" skin="test_weight_skin"/>
+			<richtext name="abilLabel" parent="abilPointGB" rect="0 0 50 30" margin="10 3 0 0" layout_gravity="left center" format="필요 포인트" param1="value" hittest="false" fontname="brown_16"/>
+			<richtext name="abilPrice" parent="abilPointGB" rect="0 0 210 30" margin="0 3 0 0" textalign="right center" layout_gravity="left center" fixwidth="true" format="%s" param1="value" param1_def="-" hittest="false" fontname="brown_16"/>
+			<button name="abilAdd" parent="abilPointGB" rect="0 0 30 30" margin="0 2 8 0" image="market_plus4_btn" layout_gravity="right center" stretch="true" clicksound="button_click_big" oversound="button_over"/>
+			<button name="abilRevert" parent="abilPointGB" rect="0 0 30 30" margin="0 2 36 0" image="market_reset4_btn" layout_gravity="right center" stretch="true" LBtnUpScp="UI_LIB_POINT_AMOUNT_REFRESH" clicksound="button_click_big" oversound="button_over"/>
+			<checkbox name="toggle" margin="15 90 0 0" rect="0 0 24 24" skin="slide_btn_small" LBtnDownScp="SKILLABILITY_TOGGLE_ABILITY" clicksound="button_click_big" oversound="button_over" layout_gravity="left top"/>
+		</controls>
+	</controlset>
+	<controlset name="skillability_skillset" toggle="false" hittest="true" width="80" height="105" skin="bg_active" stateskin="false" draw="true" hittestset="true">
+		<userconfig ENABLED_COLOR="FFFFFFFF" DISABLED_COLOR="FFAAAAAA" IMG_MAX="skill_mini_m_btn" IMG_LOCK="skill_mini_plus_btn"/>
+		<controls>
+			<groupbox name="slot_bg" rect="0 0 80 105" margin="0 0 0 0" layout_gravity="center top" skin="skill_mini_plus_skin" hittest="true" scrollbar="false"/>
+			<slot name="slot" rect="0 0 70 70" margin="0 5 0 0" layout_gravity="center top" stretch="true" PopScp="LIFT_SKILL_ICON" enabledrop="false" enablepop="true" hittestset="true" hittest="true" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" skin="slot"/>
+			<picture name="hitimg" layout_gravity="left top" rect="0 0 64 64" margin="0 2 0 0" stretch="true" hittest="false"/>
+			<richtext name="level_txt" layout_gravity="left bottom" rect="0 0 90 30" margin="7 0 0 7" format="{@st43b}{s16}Lv.%s" param1="value" fixwidth="true" hittest="false" fontname="white_16_ol" textalign="left center"/>
+			<button name="upbtn" layout_gravity="right bottom" rect="0 0 25 25" margin="0 0 5 4" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="false" hittest="true" image="skill_mini_plus_btn" oversound="button_over"/>
+			<button name="lockbtn" layout_gravity="right bottom" rect="0 0 25 25" margin="0 0 5 4" stretch="false" hittest="true" image="skill_mini_m_btn" oversound="button_over" draw="false"/>
+		</controls>
+	</controlset>
+	<controlset name="skillability_skillinfo" hittest="true" width="540" height="80" hittestset="false" draw="false">
+		<userconfig AFTER_ARROW="{img skill_arrow_red_pic 13 17}{#8e0000}{b}"/>
+		<controls>
+			<slot name="slot" rect="0 0 70 70" margin="0 5 0 0" layout_gravity="left top" stretch="true" PopScp="LIFT_SKILL_ICON" enabledrop="false" enablepop="true" hittestset="true" hittest="true" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" skin="slot"/>
+			<richtext name="name_txt" layout_gravity="left top" rect="0 0 300 30" margin="80 10 0 0" format="%s" param1="value" fixwidth="false" hittest="false" fontname="brown_20_b" textalign="left center"/>
+			<richtext name="level_txt" layout_gravity="left bottom" rect="0 0 107 30" margin="80 0 0 15" format="%s%s%s" param1="before" param2="arrow" param3="after" fixwidth="true" hittest="false" fontname="brown_16_b" textalign="left center"/>
+			<richtext name="sp_txt" layout_gravity="left bottom" rect="0 0 107 30" margin="190 0 0 15" format="{img tooltip_spicon 20 20}%s" param1="value" fixwidth="true" hittest="false" fontname="brown_16_b" textalign="left center"/>
+			<richtext name="overheat_txt" layout_gravity="left bottom" rect="0 0 107 30" margin="300 0 0 15" format="{img tooltip_charging 20 20}%s" param1="value" fixwidth="true" hittest="false" fontname="brown_16_b" textalign="left center"/>
+			<richtext name="cooldown_txt" layout_gravity="left bottom" rect="0 0 107 30" margin="410 0 0 15" format="{img test_cooltime 20 20}%s" param1="value" fixwidth="true" hittest="false" fontname="brown_16_b" textalign="left center"/>
+			<groupbox name="weapon_gb" rect="0 0 28 20" margin="0 5 15 0" layout_gravity="right top" draw="true" skin="bg2"/>
+		</controls>
+	</controlset>
+	<controlset name="skillability_linkabil" hittest="true" width="510" height="80" hittestset="false" draw="false">
+		<userconfig ACTIVE_GROUP_DIST_X="5" ACTIVE_GROUP_WIDTH="30" ACTIVE_GROUP_HEIGHT="30" LINK_LEFT_MARGIN="15"/>
+		<controls>
+			<slot name="slot" layout_gravity="left center" skin="slot_empty" rect="0 0 55 55" margin="15 -2 0 0" PopScp="LIFT_ABILITY_ICON" enabledrop="false" enablepop="true" hittestset="true" hittest="true" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
+			<richtext name="nameText" layout_gravity="left top" rect="0 0 150 30" margin="90 13 0 0" format="%s" param1="value" fixwidth="false" hittest="false" fontname="brown_16" textalign="left center"/>
+			<richtext name="abilLevelText" layout_gravity="left top" rect="0 0 90 30" margin="90 40 0 0" format="Lv.%s" param1="value" param1_def="0" fixwidth="true" hittest="false" fontname="brown_16" textalign="left center"/>
+			<labelline name="labelline" margin="0 0 0 0" rect="0 0 530 3" skin="labelline_def_2" layout_gravity="left bottom"/>
+			<groupbox name="linkGB" margin="0 0 0 0" rect="0 0 450 40" hittestbox="false" draw="false" skin="ability_deck" layout_gravity="right bottom" scrollbar="false"/>
+			<checkbox name="toggle" margin="5 15 0 0" rect="0 0 24 24" skin="slide_btn_small" LBtnDownScp="SKILLABILITY_TOGGLE_ABILITY" clicksound="button_click_big" oversound="button_over" layout_gravity="right top"/>
+		</controls>
+	</controlset>
+	<!--lib_point_amount-->
+	<controlset name="lib_point_amount" hittest="true" width="400" height="50" hittestset="false" draw="false">
+		<controls>
+			<groupbox name="bg" rect="0 0 310 50" margin="0 0 0 0" layout_gravity="left center" draw="true" skin="bg2"/>
+			<groupbox name="text_gb" rect="0 0 310 50" margin="0 0 0 0" layout_gravity="left center" draw="false"/>
+			<richtext name="name_text" parent="text_gb" rect="0 0 50 25" margin="10 0 0 0" layout_gravity="left center" format="%s%s" param1="style" param2="value" hittest="false" fontname="white_20_ol"/>
+			<richtext name="value_text" parent="text_gb" rect="0 0 50 25" margin="0 0 10 0" layout_gravity="right center" format="%s%s" param1="style" param2="value" hittest="false" fontname="white_20_ol"/>
+			<button name="add_btn" rect="0 0 30 30" margin="0 0 0 0" image="market_plus2_btn" layout_gravity="right center" stretch="true" LBtnUpScp="UI_LIB_POINT_AMOUNT_ADD" clicksound="button_click_big" oversound="button_over"/>
+			<button name="refresh_btn" rect="0 0 30 30" margin="0 0 45 0" image="market_reset2_btn" layout_gravity="right center" stretch="true" LBtnUpScp="UI_LIB_POINT_AMOUNT_REFRESH" clicksound="button_click_big" oversound="button_over"/>
+		</controls>
+	</controlset>
+	<!--lib_toggle_button-->
+	<controlset name="lib_toggle_button" width="70" height="30" hittest="true" hittestset="false" draw="false">
+		<userconfig TOGGLE_ON="ability_on" TOGGLE_OFF="ability_off"/>
+		<controls>
+			<picture name="active_pic" rect="0 0 70 30" margin="0 0 0 0" hittest="true" layout_gravity="left top" LBtnUpScp="UI_LIB_TOGGLE_BUTTON_UPDATE" updateparent="true" stretch="true"/>
+		</controls>
+	</controlset>
+	<controlset name="item_tooltip_seal" hittest="true" width="405" height="30" draw="false">
+		<controls/>
+	</controlset>
+	<controlset name="colony_tax_rate_elem" hittest="true" width="840" height="40" skin="none" hittestset="false" draw="true">
+		<controls>
+			<groupbox name="gb" rect="0 0 750 50" margin="0 0 0 0" layout_gravity="center center" skin="none" draw="false" scrollbar="false"/>
+			<richtext name="colonymap_text" parent="gb" rect="0 0 160 30" margin="0 0 0 0" layout_gravity="left center" fixwidth="true" omitwidth="true" textalign="center center" format="{@st41b}{b}{s16}%s" param1="value" param1_def="mapname" fontname="brown_16_b" spacey="0"/>
+			<richtext name="citymap_text" parent="gb" rect="0 0 160 30" margin="270 0 0 0" layout_gravity="left center" fixwidth="true" omitwidth="true" textalign="center center" format="{@st41b}{b}{s16}%s" param1="value" param1_def="mapname" fontname="brown_16_b" spacey="0"/>
+			<edit name="rate_edit" parent="gb" rect="0 0 60 35" margin="0 0 125 0" layout_gravity="right center" typingscp="ON_COLONY_TAX_RATE_TYPE" numbermode="true" minnumber="0" skin="test_weight_skin" caption="0" textalign="center center" fontname="white_18_ol"/>
+			<button name="rate_down" parent="gb" rect="0 0 35 35" margin="0 0 190 0" layout_gravity="right center" LBtnUpScp="ON_COLONY_TAX_RATE_DOWN" LBtnUpArgNum="1" image="buff_sale_left" stretch="true"/>
+			<button name="rate_up" parent="gb" rect="0 0 35 35" margin="0 0 95 0" layout_gravity="right center" LBtnUpScp="ON_COLONY_TAX_RATE_UP" LBtnUpArgNum="1" image="buff_sale_right" stretch="true"/>
+			<button name="commit_btn" parent="gb" rect="0 0 70 40" margin="0 0 10 0" layout_gravity="right center" LBtnUpScp="ON_COMMIT_COLONY_TAX_RATE" skin="test_red_button" caption="{@st42}{s16}적용" hittest="true" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2"/>
+		</controls>
+	</controlset>
+	<controlset name="colony_tax_cheque_elem" hittest="true" width="820" height="70" skin="test_skin_01" hittestset="false" draw="true">
+		<controls>
+			<groupbox name="bg" rect="0 0 820 80" margin="0 0 0 0" layout_gravity="center center" skin="test_frame_low" draw="false" scrollbar="false"/>
+			<richtext name="date_text" parent="bg" rect="0 0 200 30" margin="15 0 0 0" layout_gravity="left center" omitwidth="true" fixwidth="true" format="%s.%s.%s" param1="year" param2="month" param3="day" param1_def="0000" param2_def="00" param3_def="00" fontname="brown_16_b" spacey="0"/>
+			<richtext name="colonymap_text" parent="bg" richtext="true" rect="0 0 100 30" margin="140 0 0 0" layout_gravity="left center" omitwidth="true" fixwidth="true" textalign="center center" format="%s" param1="value" param1_def="mapname" fontname="brown_16_b" spacey="0"/>
+			<richtext name="citymap_text" parent="bg" rect="0 0 120 30" margin="286 0 0 0" layout_gravity="left center" omitwidth="true" fixwidth="true" textalign="center center" format="%s" param1="value" param1_def="mapname" fontname="brown_16_b" spacey="0"/>
+			<richtext name="expire_text" parent="bg" rect="0 0 120 30" margin="450 0 0 0" layout_gravity="left center" omitwidth="true" fixwidth="true" textalign="center center" format="%s" param1="value" param1_def="expire" fontname="white_16_ol" spacey="0"/>
+			<richtext name="taxamount_text" parent="bg" rect="0 0 120 30" margin="615 0 0 0" layout_gravity="left center" omitwidth="true" fixwidth="true" textalign="right center" format="{img silver 20 20/} {s20}{/}%s{/}" param1="value" param1_def="00" fontname="white_16_ol" spacey="0" hittest="true"/>
+			<button name="recv_btn" parent="bg" rect="0 0 70 40" margin="0 0 10 0" layout_gravity="right center" skin="test_red_button" caption="{@st42}{s16}분배" hittest="true" LBtnUpScp="REQ_COLONY_TAX_CHEQUE_PAY" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2"/>
+		</controls>
+	</controlset>
+	<controlset name="colony_tax_cheque_history" hittest="true" width="840" height="30" skin="none" hittestset="false" draw="true">
+		<controls>
+			<groupbox name="bg" rect="0 0 840 40" margin="0 0 0 0" layout_gravity="center center" skin="test_frame_low" draw="false" scrollbar="false"/>
+			<richtext name="date_text" parent="bg" rect="0 0 200 30" margin="20 0 0 0" omitwidth="true" fixwidth="true" layout_gravity="left center" format="%s.%s.%s" param1="year" param2="month" param3="day" param1_def="0000" param2_def="00" param3_def="00" fontname="white_16_ol" spacey="0"/>
+			<richtext name="sender_text" parent="bg" rect="0 0 170 30" margin="150 0 0 0" omitwidth="true" fixwidth="true" textalign="center center" layout_gravity="left center" format="%s" param1="value" param1_def="sender" fontname="white_16_ol" spacey="0"/>
+			<richtext name="receiver_text" parent="bg" rect="0 0 170 30" margin="320 0 0 0" omitwidth="true" fixwidth="true" textalign="center center" layout_gravity="left center" format="%s" param1="value" param1_def="receiver" fontname="white_16_ol" spacey="0"/>
+			<richtext name="amount_text" parent="bg" rect="0 0 170 30" margin="505 0 0 0" omitwidth="true" fixwidth="true" textalign="center center" layout_gravity="left center" format="%s" param1="value" param1_def="amount" fontname="white_16_ol" spacey="0"/>
+			<richtext name="comment_text" parent="bg" rect="0 0 170 30" margin="660 0 0 0" omitwidth="true" fixwidth="true" textalign="center center" layout_gravity="left center" format="%s" param1="value" param1_def="comment" fontname="white_16_ol" spacey="0"/>
+		</controls>
+	</controlset>
+	<controlset name="colony_tax_distribute_team" hittest="true" width="480" height="40" skin="none" hittestset="false" draw="true">
+		<controls>
+			<groupbox name="bg" rect="0 0 470 60" margin="0 0 0 0" layout_gravity="center center" skin="none" draw="false" scrollbar="false"/>
+			<checkbox name="receive_check" parent="bg" rect="0 0 100 30" margin="9 0 0 0" layout_gravity="left center" checked="false" LBtnUpScp="ON_COLONY_TAX_DISTRIBUTE_RECEIVER_CHECK"/>
+			<richtext name="receiver_text" parent="bg" omitwidth="true" fixwidth="true" rect="0 0 150 30" margin="50 0 0 0" layout_gravity="left center" textalign="left center" format="%s" param1="value" param1_def="receiver" fontname="white_18_ol" spacey="0"/>
+			<edit name="amount_edit" parent="bg" rect="0 0 200 30" margin="0 0 0 0" layout_gravity="right center" typingscp="ON_COLONY_TAX_DISTRIBUTE_RECEIVER_AMOUNT_TYPE" numbermode="true" monetary="true" minnumber="0" skin="test_weight_skin" caption="0" textalign="center center" fontname="white_18_ol"/>
+		</controls>
+	</controlset>
+	<controlset name="colony_tax_payment_elem" hittest="true" width="609" height="42" skin="midle_line_skin" hittestset="false" draw="true">
+		<userconfig REMAIN_DAY_STYLE="" REMAIN_HOUR_STYLE="{@st41d}{b}{#ff6000}"/>
+		<controls>
+			<groupbox name="bg" rect="0 0 609 42" margin="0 0 0 0" layout_gravity="left center" skin="midle_line_skin" draw="false" scrollbar="false"/>
+			<richtext name="date_text" parent="bg" rect="0 0 100 30" margin="20 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" omitbywidth="true" format="%s.%s.%s" param1="year" param2="month" param3="day" param1_def="0000" param2_def="00" param3_def="00" fontname="black_16_b" spacey="0"/>
+			<richtext name="taxamount_text" parent="bg" rect="0 0 200 30" margin="155 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" omitbywidth="true" format="%s" param1="value" param1_def="000000" fontname="black_16_b" spacey="0"/>
+			<richtext name="expire_text" parent="bg" rect="0 0 100 30" margin="380 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" omitbywidth="true" format="%s" param1="value" param1_def="expire" fontname="black_16_b" spacey="0"/>
+			<button name="recv_btn" parent="bg" rect="0 0 70 38" margin="0 0 5 0" layout_gravity="right center" skin="test_red_button" caption="{@st41d}받기" hittest="true" LBtnUpScp="GET_COLONY_TAX_PAYMENT_RECV" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2"/>
+		</controls>
+	</controlset>
+	<controlset name="ingamealert_elem" hittest="true" width="350" height="100" skin="nearparty_btn" hittestset="false" draw="true">
+		<userconfig MARGIN_BOTTOM="10" OPEN_ANIM="dialog_start2" CLOSE_ANIM="dialog_end"/>
+		<controls>
+			<richtext name="text" rect="0 0 280 20" margin="20 10 0 0" layout_gravity="left top" caption="메세지" fixwidth="true" fontname="black_16_b" hittest="false" spacey="0" textalign="left center"/>
+			<button name="closeBtn" rect="0 0 5 5" margin="0 5 5 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ON_INGAMEALERT_ELEM_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="nisms_close_btn" oversound="button_over" texttooltip="{@st59}메세지를 닫습니다.{/}"/>
+			<button name="yesBtn" rect="0 0 90 38" margin="0 0 100 8" layout_gravity="right bottom" skin="test_red_button" caption="{@st41b}{s16}예" hittest="true" LBtnUpScp="ON_INGAMEALERT_ELEM_YES" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2"/>
+			<button name="noBtn" rect="0 0 90 38" margin="0 0 10 8" layout_gravity="right bottom" skin="test_gray_button" caption="{@st41b}{s16}아니오" hittest="true" LBtnUpScp="ON_INGAMEALERT_ELEM_NO" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2"/>
 		</controls>
 	</controlset>
 </controlsetlist>

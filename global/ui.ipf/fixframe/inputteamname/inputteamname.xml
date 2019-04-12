@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uiframe name="inputteamname" x="0" y="0" width="540" height="20">
-    <frame title="캐릭터선택" margin="0 -50 0 0" layout_gravity="center center" snapclient="true" fullwidth="false" fullheight="false" useautoposition="true" autosizebychild="true"/>
+    <frame title="캐릭터선택" margin="0 -50 0 0" layout_gravity="center center" fullwidth="false" fullheight="false" useautoposition="true" autosizebychild="true"/>
     <skin frameskin="test_win_system"/>
-    <draw drawnotitlebar="false" drawtitlebar="false" drawframe="true"/>
+    <draw drawtitlebar="false" drawframe="true"/>
     <input moveable="false" hittestframe="false"/>
     <option hideable="false" closebutton="false"/>
     <controls>

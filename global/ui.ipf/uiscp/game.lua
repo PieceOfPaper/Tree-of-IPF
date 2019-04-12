@@ -629,7 +629,6 @@ end
 
 
 function GET_ITEM_BY_GUID(guid, equipfirst)
-
 	if equipfirst == 1 then
 		local pitem = session.GetEquipItemByGuid(guid);
 		if pitem ~= nil then
@@ -1334,26 +1333,26 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 	end
 	local ownName = GET_NAME_OWNED(item);
 	local reinforce_2 = TryGetProp(item, "Reinforce_2");
-	local isHaveLifeTime = TryGetProp(item, "LifeTime");
+	local isHaveLifeTime = TryGetProp(item, "LifeTime", 0);    
 	local pc = GetMyPCObject();
 	local bonusReinf = TryGetProp(pc, 'BonusReinforce');
 	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce');
 	local overReinf = TryGetProp(pc, 'OverReinforce');
 	if bonusReinf ~= nil then
 		if TryGetProp(item, 'EquipGroup') == 'SubWeapon' and isEquiped > 0 then
-			reinforce_2 = reinforce_2 + bonusReinf;
+			reinforce_2 = reinforce_2 + overReinf;
 		end
 	end
 	if overReinf ~= nil then
 		if TryGetProp(item, 'GroupName') == 'Weapon' and isEquiped > 0 then
-			reinforce_2 = reinforce_2 + overReinf;
+			reinforce_2 = reinforce_2 + bonusReinf;
 		end
 	end
 	if isEquiped > 0 and ignoreReinf == 1 then
 		reinforce_2 = 0;
 	end	
 	
-	if 0 ~= isHaveLifeTime then
+	if 0 ~= tonumber(isHaveLifeTime) then
 		ownName = string.format("{img test_cooltime 30 30}%s{/}", ownName);
 	end
 	
@@ -1361,26 +1360,24 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 		ownName = string.format("+%d %s", reinforce_2, ownName);
 	end
 
-	local lv = GET_ITEM_LEVEL(item);
-	if lv > 0 then
-		if useNewLine == nil then
-			-- return string.format("%s - {ol}{#FFFFEE}Lv %d", ownName, lv);
-		--else
-		--	local maxLv = GET_ITEM_MAX_LEVEL(item);
-		--	if maxLv > 1 then
-		--		return string.format("%s{nl}{ol}{#FFFFFF}Lv  %d / %d", ownName, lv, maxLv);
-		--	end
-		end
-	end
-
 	if IS_ENCHANT_JEWELL_ITEM(item) == true then
 		return GET_EXTRACT_ITEM_NAME(item);
 	end
 
-	if IS_SKILL_SCROLL_ITEM ~= nil and IS_SKILL_SCROLL_ITEM(item) == true then
-		local skillCls = GetClassByType('Skill', item.SkillType);
-		return ownName..string.format('[Lv. %d %s]', item.SkillLevel, skillCls.Name);
+	if IS_SEAL_ITEM(item) == true then
+		local curLv = GET_CURRENT_SEAL_LEVEL(item);
+		if curLv > 0 then
+			ownName = string.format("+%d %s", curLv, ownName);
+		end
 	end
+
+--	if IS_100PERCENT_SUCCESS_EXTRACT_ICOR_ITEM(item) == true then
+----		if TryGetProp(item, 'KeyWord') == 'RandomOption' then
+----			return ownName..string.format(': %s', ClMsg('RandomOption'));
+----		else
+----			return ownName..string.format(': %s', ClMsg('Auto_JeJag'));
+----		end		
+--	end
 
 	return ownName;
 end
@@ -1416,7 +1413,7 @@ function GET_NAME_OWNED(item)
 end
 
 function GET_REQ_TOOLTIP(invitem)
-	local req = invitem.ReqToolTip;
+	local req = invitem.ReqToolTip;	
 
 	if item.ItemType == "Equip" then
 		local useJob = invitem.UseJob;
@@ -1515,6 +1512,20 @@ function SCR_MAGICAMULET_EQUIP(fromitem, toitem)
 
 end
 
+local function _GET_GEM_SOCKET_CNT(invitem, itemObj)
+    if itemObj.ItemType ~= 'Equip' then
+        return 0;
+    end
+
+    for i = 0 , SKT_COUNT - 1 do
+		if invitem:IsAvailableSocket(i) == true then
+			return i;
+		end
+    end
+
+    return -1;
+end
+
 function SCR_GEM_EQUIP(fromitem, toitem)
 
 	local fromobj = GetIES(fromitem:GetObject());
@@ -1527,12 +1538,7 @@ function SCR_GEM_EQUIP(fromitem, toitem)
 		return;
 	end
 	
-	local socketindex = GET_GEM_SOCKET_CNT(toobj,fromobj_gemtype);
-
-	if socketindex == -1 then
-		socketindex = GET_GEM_SOCKET_CNT(toobj,5);
-	end
-
+	local socketindex = _GET_GEM_SOCKET_CNT(toitem, toobj);
 	if socketindex == -1 then
 		ITEM_MSG(ScpArgMsg("NOT_HAVE_SOCKET_SPACE"));
 		return;
@@ -1542,46 +1548,6 @@ function SCR_GEM_EQUIP(fromitem, toitem)
 	local msg = "["..fromobj.Name..ScpArgMsg("Auto_]_KaDeuLeul_[")..toobj.Name..ScpArgMsg("Auto_]_e_JangChagHaSiKessSeupNiKka?");
 	ui.MsgBox(msg, strscp, "None");
 
-end
-
-function SCR_RUNE_EQUIP(fromitem, toitem)
-
-	local fromobj = GetIES(fromitem:GetObject());
-	local toobj = GetIES(toitem:GetObject());
-
-	local socketCnt = GET_SOCKET_CNT(toobj);
-
-	if socketCnt == 0 then
-		ITEM_MSG(ScpArgMsg("NOT_HAVE_SOCKET_SPACE"));
-		return;
-	end
-
-	if toitem.ItemStar < fromitem.ItemStar then
-		return;
-	end
-
-	local strscp = string.format( "LUMIN_EXECUTE(\"%s\", \"%s\")", fromitem:GetIESID(), toitem:GetIESID());
-	local msg = "["..fromobj.Name..ScpArgMsg("Auto_]_KaDeuLeul_[")..toobj.Name..ScpArgMsg("Auto_]_e_JangChagHaSiKessSeupNiKka?");
-	ui.MsgBox(msg, strscp, "None");
-
-	--[[
-	local tframe = ui.GetNewToolTip("item", "item_test");
-    tframe:SetTooltipType('wholeitem');
-    tframe:SetTooltipArg('inven', 0, toitem:GetIESID());
-    tframe:RefreshTooltip();
-
-	local yPos = tframe:GetHeight() + 10;
-	local clickLumin = tframe:CreateOrGetControl('richtext', "DESC", 20, yPos, tframe:GetWidth(), 25);
-	clickLumin:ShowWindow(1);
-	local newtxt = string.format("{@st41}%s{/}", ClMsg("DropCartToSlot"));
-	clickLumin:SetText(newtxt);
-	yPos = yPos + clickLumin:GetHeight();
-
-	tframe:Resize(tframe:GetWidth(), yPos + 20);
-
-	ui.ToCenter(tframe);
-    tframe:ShowWindow(1);
-	]]
 end
 
 function LUMIN_EXECUTE(fromIESID, toIESID)
@@ -1590,7 +1556,7 @@ end
 
 function SHOW_NEW_TOOLTIP(invitem, tipname)
 	local itemobj = GetIES(invitem:GetObject());
-	local socketCnt = GET_SOCKET_CNT(itemobj);
+	local socketCnt = GET_NEXT_SOCKET_SLOT_INDEX(itemobj);
 	if socketCnt == 0 then
 		return;
 	end
@@ -1617,93 +1583,6 @@ function SHOW_NEW_TOOLTIP(invitem, tipname)
 end
 
 function UPDATE_NEW_TIP(tframe)
-
-	local  oldx = tframe:GetX();
-	local  oldy = tframe:GetY();
-
-	local iesID = tframe:GetTooltipIESID();
-	local item_c = session.GetInvItemByGuid(iesID);
-
-	tolua.cast(tframe, 'ui::CTooltipFrame');
-	tframe:RefreshTooltip();
-	MODIFY_TOOLTIP_FOR_SOCKET(tframe, item_c);
-	tframe:MoveFrame(oldx, oldy);
-end
-
-function MODIFY_TOOLTIP_FOR_SOCKET(tframe, invitem)
-	local itemobj = GetIES(invitem:GetObject());
-	local socketCnt = GET_SOCKET_CNT(itemobj);
-
-	if socketCnt == 0 then
-		return;
-	end
-
-	local nameChild = tframe:GetChild('name');
-
-	local ypos = 0;
-	local x = 15;
-	for i = 0 , socketCnt - 1 do
-		local socketName = "SOCKET_" .. i;
-		local slotNameCtrl = nil;
-		slotNameCtrl = secondPageGroupBox:GetChild(socketName);
-
-		local skttype = GetIESProp(itemobj, "Socket_" .. i);
-		local basiccls = GetClassByType("Socket", skttype % SOCKET_MAX);
-		local curcls = GetClassByType("Socket", CUR_SOCKET(skttype));
-
-		local newtxt = string.format('{s16}{#050505}'.."%s"..'{/}', curcls.Name);
-		slotNameCtrl:SetText(newtxt);
-
-		slotNameCtrl:ShowWindow(1);
-
-		local slotName = "SLOT_SOCKET_"..i;
-		local socketSlot = nil;
-
-		socketSlot = secondPageGroupBox:GetChild(slotName);
-
-		local skttype = GetIESProp(itemobj, "Socket_" .. i);
-		local basiccls = GetClassByType("Socket", skttype % SOCKET_MAX);
-		local curcls = GetClassByType("Socket", CUR_SOCKET(skttype));
-
-		tolua.cast(socketSlot, "ui::CSlot");
-		socketSlot:SetSkinName(basiccls.SlotName);
-		socketSlot:ShowWindow(1);
-		socketSlot:ClearIcon();
-		if curcls.SlotIcon ~= "None" then
-			local icon = CreateIcon(socketSlot);
-			icon:SetImage("icon_"..curcls.SlotIcon);
-			icon:SetColorTone("FFFFFFFF");
-			icon:SetEnable(1);
-		end
-
-		socketSlot:SetDropScp("LUMIN_DROP");
-		socketSlot:SetDropArgStr(invitem:GetIESID());
-		socketSlot:SetDropArgNum(i);
-
-		ypos = socketSlot:GetY() + 35;
-	end
-
-	tolua.cast(tframe, "ui::CTooltipFrame");
-	local pageCount = tframe:GetPageCount();
-
-	for i=0, pageCount-1 do
-		local pageGroupBox = tframe:GetChild(tframe:GetName()..'_'..i);
-		local picture = tframe:GetChild('pageNum_'..i);
-		if i == tooltipPage then
-			pageGroupBox:ShowWindow(1);
-			if picture ~= nil then
-				tolua.cast(picture, "ui::CPicture");
-				picture:SetImage('page_'..i+1);
-			end
-		else
-			pageGroupBox:ShowWindow(0);
-			if picture ~= nil then
-				tolua.cast(picture, "ui::CPicture");
-				picture:SetImage('pagemarker_off');
-			end
-		end
-	end
-	tframe:Resize(200, secondPageGroupBox:GetY()+secondPageGroupBox:GetHeight()+15);
 end
 
 function LUMIN_DROP(frame, control, argStr, argNum)
@@ -1841,13 +1720,13 @@ function SCR_SKILLITEM(invItem)
 end
 
 function SCR_SKILLSCROLL(invItem)
+
 	if world.IsPVPMap() then
 		return;
 	end
 
 	local obj = GetIES(invItem:GetObject());
 	if obj.SkillType == 0 then
-
 		return;
 	end
 
@@ -1855,7 +1734,7 @@ function SCR_SKILLSCROLL(invItem)
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
-
+	
 	local sklType = obj.SkillType;
 	spcitem.CreateScrollSkill(sklType, invItem:GetIESID(), obj.SkillLevel, true);
 	control.Skill(sklType, obj.SkillLevel, true);
@@ -2043,7 +1922,7 @@ function CHECK_EQUIPABLE(type)
 	local prop = geItemTable.GetProp(type);
 	
 	local ret = prop:CheckEquip(lv, job, gender);
-	local haveAbil =  session.IsEquipWeaponAbil(type);
+	local haveAbil = session.IsEquipWeaponAbil(type);    
 	if ret == 'OK' then
 		if 0 ~= haveAbil then
 			return ret;
@@ -2053,9 +1932,9 @@ function CHECK_EQUIPABLE(type)
     elseif ret == 'NOEQUIP' then
         return ret
 	else
-		if ret == 'LV' or ret == 'GENDER' then
+		if ret == 'LV' or ret == 'GENDER' or ret == 'JOB' then
 			return ret;
-		elseif 0 ~= haveAbil then            
+		elseif 0 ~= haveAbil then
 			return 'OK'
 		end
 	end
@@ -2092,11 +1971,11 @@ function ITEM_EQUIP_EXCEPTION(item)
 	return 1;
 end
 
-function ITEM_EQUIP_MSG(item, slotName)	
+function ITEM_EQUIP_MSG(item, slotName)
 	if 1 ~= ITEM_EQUIP_EXCEPTION(item) then
 		return;
 	end
-		
+
 	if true == BEING_TRADING_STATE() then
 		return;
 	end
@@ -2112,7 +1991,7 @@ function ITEM_EQUIP_MSG(item, slotName)
 		strscp = string.format("item.Equip(\"%s\", %d)", slotName, item.invIndex);
 	end
 
-	RunStringScript(strscp);
+	RunStringScript(strscp);	
 end
 
 function GET_ITEM_EQUIP_INDEX(item)
@@ -2266,7 +2145,7 @@ function UI_CHECK_GRIMOIRE_UI_OPEN(propname, propvalue)
 	local jobcls = GetClass("Job", 'Char2_6');
 	local jobid = jobcls.ClassID
 
-	if IS_HAD_JOB(jobid) == 1 then
+	if IS_HAD_JOB(jobid) == true then
 		return 1
 	end
 
@@ -2537,6 +2416,8 @@ function GET_PCPROPERTY_TAG_TXT(propertyName, value)
         propertyTxt = ScpArgMsg("MaxWeight")
 	elseif propertyName == 'MNA' then
         propertyTxt = ScpArgMsg("MNA")
+    elseif propertyName == 'StatByBonus' then
+        propertyTxt = ScpArgMsg("QUEST_JOURNEYSHOP_MSG3")
     else
         propertyTxt = propertyName
     end
@@ -2561,7 +2442,7 @@ function GET_HONOR_TAG_TXT(honor, point_value)
 	for i = 0 , cnt - 1 do
 		local cls2 = GetClassByIndexFromList(clslist, i);
 		if cls2.NeedPoint == honor and cls2.NeedCount <= point_value  then
-			ret = ScpArgMsg("RepeatRewardAchieve")..'{@st41b}'..cls2.Name
+			ret = ScpArgMsg("RepeatRewardAchieve")..'{@st41b}{#0064FF}'..cls2.Name
 			break
 		end
 	end
@@ -2645,18 +2526,12 @@ end
 
 function CLEAR_SLOT_ITEM_INFO(slot)
 	slot:ClearIcon();
-	slot:SetText("", 'count', 'right', 'bottom', -2, 1);
+	slot:SetText("", 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 end
 
-function GET_SOLDITEM_BY_INDEX(index)
-
-	index = tonumber(index);
+function GET_SOLDITEM_BY_INDEX(guid)
 	local list = session.GetSoldItemList();
-	if 0 == list:IsValidIndex(index) then
-		return nil;
-	end
-
-	return list:Element(index);
+	return list:GetItemByGuid(guid);
 end
 
 function ADD_QUEST_CHECK_MONSTER(questID, monname)
@@ -2834,25 +2709,16 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 		return;
 	end
 	if itemobj.ClassName == "Drug_Socket" then
-
 		local invItemList = session.GetInvItemList();
-		local index = invItemList:Head();
-		local itemCount = session.GetInvItemList():Count();
-
-		for i = 0, itemCount - 1 do
-			local invItem = invItemList:Element(index);
-
+		FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem)
 			if invItem ~= nil then
-
 				local slot = INV_GET_SLOT_BY_ITEMGUID(invItem:GetIESID())
 				tolua.cast(slot, "ui::CSlot");
-
-				local icon 		= slot:GetIcon();
-
+				local icon = slot:GetIcon();
 				if icon ~= nil then
-					local class     = GetClassByType('Item', invItem.type);
+					local class = GetClassByType('Item', invItem.type);
 					local invitem = GET_TOOLTIP_ITEM_OBJECT('inven', invItem:GetIESID());
-					local socketCnt = GET_SOCKET_CNT(invitem);
+					local socketCnt = GET_NEXT_SOCKET_SLOT_INDEX(invitem);
 					local maxcnt = 0;
 					if invitem.ItemType == 'Equip' then
 						maxcnt = invitem.MaxSocket;
@@ -2864,24 +2730,21 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 					end
 				end
 			end
-
-			index = invItemList:Next(index);
-		end
+		end, false);
 
 		local statusFrame = ui.GetFrame('status');
 		local curChildIndex = 0;
 		local equipItemList = session.GetEquipItemList();
 		for i = 0, equipItemList:Count() - 1 do
-			local equipItem = equipItemList:Element(i);
+			local equipItem = equipItemList:GetEquipItemByIndex(i);
 			local spotName = item.GetEquipSpotName(equipItem.equipSpot);
-
 			if  spotName  ~=  nil  then
 				local child = statusFrame:GetChild(spotName);
 				local slot = tolua.cast(child, 'ui::CSlot');
 				if  child  ~=  nil  then
-					if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
+					if  equipItem.type ~= item.GetNoneItem(equipItem.equipSpot)  then
 						local equipItemObj = GetIES(equipItem:GetObject());
-						local socketCnt = GET_SOCKET_CNT(equipItemObj);
+						local socketCnt = GET_NEXT_SOCKET_SLOT_INDEX(equipItemObj);
 						local maxcnt = equipItemObj.MaxSocket;
 
 						if equipItemObj.ToolTipScp ~= 'WEAPON' and equipItemObj.ToolTipScp ~= 'ARMOR' or socketCnt == maxcnt then
@@ -2896,21 +2759,15 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 	elseif itemobj.ClassName == "Drug_Reinforce" then
 
 		local invItemList = session.GetInvItemList();
-		local index = invItemList:Head();
-		local itemCount = session.GetInvItemList():Count();
-
-		for i = 0, itemCount - 1 do
-		
-			local invItem = invItemList:Element(index);
+		FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem)
 			if invItem ~= nil then
-
 				local slot = INV_GET_SLOT_BY_ITEMGUID(invItem:GetIESID())
 				tolua.cast(slot, "ui::CSlot");
-				local icon 		= slot:GetIcon();
+				local icon = slot:GetIcon();
 
 				if icon ~= nil then
-					local class     = GetClassByType('Item', invItem.type);
-					local invitem  = GET_TOOLTIP_ITEM_OBJECT('inven', invItem:GetIESID());
+					local class = GetClassByType('Item', invItem.type);
+					local invitem = GET_TOOLTIP_ITEM_OBJECT('inven', invItem:GetIESID());
 
 					if invitem.ItemType == 'Equip' then
 						local potential = invitem.PR;
@@ -2922,17 +2779,14 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 					end
 				end
 			end
-
-			index = invItemList:Next(index);
-		end
+		end, false);
 
 		local statusFrame = ui.GetFrame('status');
 		local curChildIndex = 0;
 		local equipItemList = session.GetEquipItemList();
 		for i = 0, equipItemList:Count() - 1 do
-			local equipItem = equipItemList:Element(i);
+			local equipItem = equipItemList:GetEquipItemByIndex(i);
 			local spotName = item.GetEquipSpotName(equipItem.equipSpot);
-
 			if  spotName  ~=  nil  then
 				local child = statusFrame:GetChild(spotName);
 				local slot = tolua.cast(child, 'ui::CSlot');
@@ -2950,17 +2804,10 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 				end
 			end
 		end
-
-
 	elseif itemobj.GroupName == "Gem" then
 							
 		local invItemList = session.GetInvItemList();
-		local index = invItemList:Head();
-		local itemCount = session.GetInvItemList():Count();
-
-		local cnt = 0;
-		for i = 0, itemCount - 1 do
-			local invItem = invItemList:Element(index);
+		FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, frame)
 			local invitem = GET_TOOLTIP_ITEM_OBJECT('inven', invItem:GetIESID());
 			if invItem ~= nil and false == geItemTable.IsMoney(invItem.type) and invitem.ItemType == "Equip" then
 				local tab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
@@ -2972,55 +2819,40 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 				if slot ~= nil then
 					local icon = slot:GetIcon();
 					if icon ~= nil then
-						local class     = GetClassByType('Item', invItem.type);
+						local class = GetClassByType('Item', invItem.type);
 						
-						local socketCnt = GET_SOCKET_CNT(invitem);
-
-							for i=0, socketCnt do
-								local temp = GetIESProp(invitem, 'Socket_Equip_'..i);
-								if temp == 0 then
-									socketNum = i;
-									break;
-								end
+						local socketCnt = GET_NEXT_SOCKET_SLOT_INDEX(invitem);
+						for i=0, socketCnt do								
+							if invItem:GetEquipGemID(i) == 0 then
+								socketNum = i;
+								break;
 							end
+						end
 
-							if socketCnt > socketNum then
-								slot:Select(1);
-							else
-								slot:Select(0);
-							end
+						if socketCnt > socketNum then
+							slot:Select(1);
+						else
+							slot:Select(0);
+						end
 					end
-					cnt = cnt + 1;
 				end
 			end
-
-			index = invItemList:Next(index);
-		end
+		end, false, frame);
 
 		local statusFrame = ui.GetFrame('status');
 		local curChildIndex = 0;
 		local equipItemList = session.GetEquipItemList();
 		for i = 0, equipItemList:Count() - 1 do
-			local equipItem = equipItemList:Element(i);
+			local equipItem = equipItemList:GetEquipItemByIndex(i);
 			local spotName = item.GetEquipSpotName(equipItem.equipSpot);
-
-			
-
 			if  spotName  ~=  nil  then
-	
 				local slot = GET_CHILD_RECURSIVELY(frame, spotName, "ui::CSlot")
-
 				if  slot  ~=  nil  then
-
-		--		slot:SetSelectedImage('socket_slot_check')
-
 					if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
 						local equipItemObj = GetIES(equipItem:GetObject());
-						local socketCnt = GET_SOCKET_CNT(equipItemObj);
-
-						for i=0, socketCnt do
-							local temp = GetIESProp(equipItemObj, 'Socket_Equip_'..i);
-							if temp == 0 then
+						local socketCnt = GET_NEXT_SOCKET_SLOT_INDEX(equipItemObj);
+						for i=0, socketCnt do							
+							if equipItem:GetEquipGemID(i) == 0 then
 								socketNum = i;
 								break;
 							end
@@ -3051,16 +2883,17 @@ function RELEASE_ITEMTARGET_ICON_GEM()
 end
 
 function USE_ITEMTARGET_ICON_GEM(argNum)
-	local invFrame     	= ui.GetFrame("inventory");
-	local invGbox		= invFrame:GetChild('inventoryGbox');
+	local invFrame 	= ui.GetFrame("inventory");
+	local invGbox = invFrame:GetChild('inventoryGbox');
 	local tab = invGbox:GetChild("inventype_Tab");
 	tolua.cast(tab, "ui::CTabControl");
 	tab:SelectTab(1);
-	item.SelectTargetItem(argNum)
+	item.SelectTargetItem(argNum);
 end
 
 function SCR_ITEM_USE_TARGET_RELEASE()
-	local frame = ui.GetFrame('inventory');	
+	local frame = ui.GetFrame('inventory');
+	INVENTORY_SET_ICON_SCRIPT('None');
 	INVENTORY_UPDATE_ICONS(frame);
 	STATUS_EQUIP_SLOT_SET(frame)
 
@@ -3068,8 +2901,7 @@ function SCR_ITEM_USE_TARGET_RELEASE()
 	STATUS_ON_MSG(frame, 'EQUIP_ITEM_LIST_GET', 'None', 0);
 end
 
-function SCR_GEM_ITEM_SELECT(argNum, luminItem, frameName)
-	
+function SCR_GEM_ITEM_SELECT(argNum, luminItem, frameName)	
 	-- get inventory item
 	local invitem = nil;
 	if frameName == 'inventory' then
@@ -3078,66 +2910,66 @@ function SCR_GEM_ITEM_SELECT(argNum, luminItem, frameName)
 		invitem = session.GetEquipItemBySpot(argNum);
 	end
 	if invitem == nil then
+		RELEASE_ITEMTARGET_ICON_GEM();
 		return;
 	end
 
 	-- get item object
 	local itemobj = GetIES(invitem:GetObject());
 	if itemobj == nil then
-		return
+		RELEASE_ITEMTARGET_ICON_GEM();
+		return;
 	end
 
 	-- get total / empty socket count
-	local socketCnt = GET_SOCKET_CNT(itemobj);
+	local socketCnt = GET_NEXT_SOCKET_SLOT_INDEX(itemobj);
 	if socketCnt == 0 then
-		ui.SysMsg(ScpArgMsg("NOT_HAVE_SOCKET_SPACE"))
+		ui.SysMsg(ScpArgMsg("NOT_HAVE_SOCKET_SPACE"));
+		RELEASE_ITEMTARGET_ICON_GEM();
 		return;
 	end
-	local emptyCnt = GET_EMPTY_SOCKET_CNT(socketCnt, itemobj)
+	local emptyCnt = GET_EMPTY_SOCKET_CNT(socketCnt, invitem);
 	if emptyCnt < 1 then
-		ui.SysMsg(ScpArgMsg("Auto_SoKaeseopKeoNa_JeonBu_SayongJungiDa"))
+		ui.SysMsg(ScpArgMsg("Auto_SoKaeseopKeoNa_JeonBu_SayongJungiDa"));		
+		RELEASE_ITEMTARGET_ICON_GEM();
 		return
 	end
 
-	-- 몬스?�젬�?중복검??
 	local gemClass = GetClassByType("Item", luminItem.type)
 	if gemClass ~= nil then
 		local gemEquipGroup = TryGetProp(gemClass, "EquipXpGroup")
 		if gemEquipGroup == 'Gem_Skill' then
-			if IS_SAME_TYPE_GEM_IN_ITEM(itemobj, luminItem.type, socketCnt) then
+			if IS_SAME_TYPE_GEM_IN_ITEM(invitem, luminItem.type, socketCnt, itemobj) then
 				local ret = true
 				local invFrame = ui.GetFrame(frameName)
 				invFrame:SetUserValue("GEM_EQUIP_ITEM_ID", luminItem:GetIESID())
 				invFrame:SetUserValue("GEM_EQUIP_TARGET_ID", invitem:GetIESID())
 
 				if frameName == 'inventory' then
-					ui.MsgBox(ScpArgMsg("GEM_EQUIP_SAME_TYPE"), "GEM_EQUIP_TRY", "None")
+					ui.MsgBox(ScpArgMsg("GEM_EQUIP_SAME_TYPE"), "GEM_EQUIP_TRY", "None");
 				elseif frameName == 'status' then
-					ui.MsgBox(ScpArgMsg("GEM_EQUIP_SAME_TYPE"), "GEM_EQUIP_TRY_STATUS", "None")
+					ui.MsgBox(ScpArgMsg("GEM_EQUIP_SAME_TYPE"), "GEM_EQUIP_TRY_STATUS", "None");
 				end
 				return
 			end
 		end
 	end
 
-	if IS_ENABLE_EQUIP_GEM(itemobj, gemClass.ClassID) == false then
+	if IS_ENABLE_EQUIP_GEM(itemobj, gemClass.ClassID, invitem) == false then
 		ui.SysMsg(ScpArgMsg("ValidDupEquipGemBy{VALID_CNT}", "VALID_CNT", VALID_DUP_GEM_CNT));
+		RELEASE_ITEMTARGET_ICON_GEM();
 		return;
 	end
 
 	local cnt = 0;
 	for i = 0 , socketCnt - 1 do
-		local socketName = "SOCKET_" .. i;
-		local skttype = itemobj["Socket_" .. i];
-		local socketCls = GetClassByType('Socket', skttype);
-
-		if socketCls ~= nil then
+		if invitem:IsAvailableSocket(i) == false then
 			break;
-		else
-			cnt = cnt + 1;
 		end
+		cnt = cnt + 1;
 	end
 	item.UseItemToItem(luminItem:GetIESID(), invitem:GetIESID(), cnt);
+	RELEASE_ITEMTARGET_ICON_GEM();
 end
 
 function GEM_EQUIP_TRY_STATUS()
@@ -3145,6 +2977,7 @@ function GEM_EQUIP_TRY_STATUS()
 	local fromItem = invFrame:GetUserValue("GEM_EQUIP_ITEM_ID")
 	local toItem = invFrame:GetUserValue('GEM_EQUIP_TARGET_ID')
 	item.UseItemToItem(fromItem, toItem, 0);
+	RELEASE_ITEMTARGET_ICON_GEM();
 end
 
 function GEM_EQUIP_TRY()
@@ -3152,6 +2985,7 @@ function GEM_EQUIP_TRY()
 	local fromItem = invFrame:GetUserValue("GEM_EQUIP_ITEM_ID")
 	local toItem = invFrame:GetUserValue('GEM_EQUIP_TARGET_ID')
 	item.UseItemToItem(fromItem, toItem, 0);
+	RELEASE_ITEMTARGET_ICON_GEM();
 end
 
 function ENABLE_CTRL(ctrl, isEnable)
@@ -3298,14 +3132,13 @@ function SCR_QUEST_CHECK_T(pc, questname)
 			end
 		end
 	end
-
+    
 	return result, reasonString;
 end
 
 function SCR_QUEST_CHECK_C(pc, questname)
 	local questState = GetQuestState(questname);
-	if "PROGRESS" == questState then -- 진행중일?? ?�션?�브?�트???�로 ?�인?�보?�록 ?�자.
-	-- 마법?�회 ?�스?��? 갱신???��? ?�기?�문??
+	if "PROGRESS" == questState then
 		local questIES = GetClass('QuestProgressCheck', questname);
 		local sObj_quest = GetSessionObject(pc, questIES.Quest_SSN);
 		if nil ~= sObj_quest then
@@ -3457,7 +3290,7 @@ end
 function SET_GAUGE_PERCENT_STAT(g)
 
 	g:SetStatFont(0, "white_16_ol");
-	g:SetStatAlign(0, "center", "top");
+	g:SetStatAlign(0, ui.CENTER_HORZ, ui.TOP);
 
 end
 
@@ -3792,7 +3625,6 @@ function ON_RIDING_VEHICLE(onoff)
 
 	if (control.HaveNearCompanionToRide() == true or isRidingOnly == 'YES') and cartHandle == 0 then
 		local fsmActor = GetMyActor();
-
 		local subAction = fsmActor:GetSubActionState();
 		
 		-- 41, 42 == CSS_SKILL_READY, CSS_SKILL_USE
@@ -3826,8 +3658,6 @@ function ON_RIDING_VEHICLE(onoff)
 			end			
 		end
 	end
-	
-
 end
 
 function COMPANION_INTERACTION(index)
@@ -3909,7 +3739,7 @@ function UPDATE_COMPANION_TITLE(frame, handle)
 		local petObj = GetIES(pet:GetObject());
 		gauge_stamina:SetPoint(petObj.Stamina, petObj.MaxStamina);
 		
-		local petInfo = info.GetStat(handle); --IESObject ?�보 ?�용??HP???�시간으�??�기???��? ?�는??
+		local petInfo = info.GetStat(handle);
 		gauge_HP:SetPoint(petInfo.HP, petInfo.maxHP);		
 	end
 
@@ -3942,7 +3772,6 @@ end
 function TEST_TIARUA()
 
 ReloadHotKey()
---print("?�щ줈??�빂??)
 --ui.OpenFrame("joystickrestquickslot");
 --[[
 local quickFrame = ui.GetFrame('quickslotnexpbar')

@@ -6,16 +6,6 @@ end
 function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
     local text = frame:GetChild('text');
     local clmsg = '';
-    local guildObj = GET_MY_GUILD_OBJECT();
-    local enableEnterColonyWar = 0
-
-    if guildObj ~= nil then
-        enableEnterColonyWar = TryGetProp(guildObj, 'EnableEnterColonyWar');
-    end
-
-    if 1 == session.IsGM() then --GM은 예외처리
-        enableEnterColonyWar = 1
-    end
 
     if argStr == 'START' then
         if diffSec == -1800 then
@@ -26,22 +16,18 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
             clmsg = ClMsg('Guild_Colony_Start_Msg_Before_5min');
         elseif diffSec == -60 then
             clmsg = ClMsg('Guild_Colony_Start_Msg_Before_1min');
-            if enableEnterColonyWar == 1 then
                 if config.GetServiceNation() == 'KOR' then
                     imcSound.PlaySoundEvent('battle_start_before');
                 else
                     imcSound.PlaySoundEvent('S1_battle_start_before_1');
                 end
-            end
         elseif diffSec == 0 then
             clmsg = ClMsg('Guild_Colony_Start_Msg');
-            if enableEnterColonyWar == 1 then
                 if config.GetServiceNation() == 'KOR' then
                     imcSound.PlaySoundEvent('battle_start');
                 else
                     imcSound.PlaySoundEvent('S1_battle_start');
                 end
-            end
         end
     elseif argStr == 'END' then
         if diffSec == -1800 then
@@ -82,13 +68,11 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
             end
         elseif diffSec == 0 then
             clmsg = ClMsg('Guild_Colony_End_Msg');
-            if enableEnterColonyWar == 1 then
                 if config.GetServiceNation() == 'KOR' then
                     imcSound.PlaySoundEvent('battle_end');
                 else
                     imcSound.PlaySoundEvent('S1_battle_end');
                 end
-            end
         end
     end
 

@@ -4,7 +4,7 @@
 	<frame fullheight="false" fasthide="true" layout_gravity="right top" margin="0 300 470 0"/>
 	<skin frameskin="none"/>
 	<input moveable="false" hittestframe="true" moveintitlebar="false"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="100"/>
 	<option closebutton="false" moveable="false"/>
 	<sound opensound="button_click_stats_OK"/>
@@ -26,7 +26,7 @@
 		<richtext name="text_name" margin="0 421 0 0" rect="0 0 380 50" format="{@st41b}{s18}%s{/}" param1="value" param1_def="item name" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 		<richtext name="text_transcend" margin="0 0 0 200" rect="0 0 120 24" format="초월 수치: %s" param1="value" param1_def="0" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_22" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" hittest="false"/>
 		<richtext name="text_rate" margin="0 0 0 170" rect="0 0 120 24" format="성공 확률: %s%" param1="value" param1_def="0" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_22" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" hittest="false"/>
-		<richtext name="text_desc" margin="0 0 0 110" rect="0 0 480 24" format="{@st66}이미 초월된 장비에는 사용할 수 없으며{nl}사용시 %s초월로 변경됩니다.{/}" param1="value" param1_def="0" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" hittest="false"/>
+		<richtext name="text_desc" margin="0 0 0 110" rect="0 0 480 24" format="{@st66}사용 시 %s초월로 변경됩니다.{/}" param1="value" param1_def="0" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" hittest="false"/>
 		<button name="button_transcend" margin="0 0 0 35" rect="0 0 180 50" skin="test_red_button" layout_gravity="center bottom" caption="{@st41b}{s20}초월" LBtnUpScp="TRANSCEND_SCROLL_EXEC_ASK_AGAIN"/>
 		<button name="button_close" margin="0 0 0 35" rect="0 0 180 50" skin="test_red_button" layout_gravity="center bottom" caption="{@st41b}{s20}확인" LBtnUpScp="TRANSCEND_SCROLL_CLOSE"/>
 		<richtext name="text_itemtranscend" margin="0 280 0 0" rect="0 0 460 45" format="{@st42}%s단계{/}" param1="value" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" openAnim="popup_start3" closeAnim="popup_end3"/>

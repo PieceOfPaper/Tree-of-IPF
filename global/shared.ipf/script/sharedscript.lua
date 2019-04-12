@@ -8,7 +8,7 @@ random_item.is_sealed_random_item = function(itemobj)
     local isAppraisal = TryGetProp(itemobj,'NeedAppraisal')
 
     if isRandomOption == 1 then
-        return true;    
+        return true;
     elseif isAppraisal == 1 then
         return true;
     end
@@ -165,7 +165,7 @@ function JOB_CHAPLAIN_PRE_CHECK(pc)
 end
 
 function IS_KOR_JOB_EXEMPTION_PERIOD(jobClassName)
-    local jobList = {'Char1_19','Char2_19','Char3_18','Char4_19'}
+    local jobList = {'Char1_19','Char2_19','Char5_12','Char4_19'}
     if GetServerNation() == 'KOR' then
         if table.find(jobList, jobClassName) > 0 then
             return 'YES'
@@ -371,7 +371,7 @@ function GET_LAST_UI_OPEN_POS(etc)
 end
 
 
-function IS_NO_EQUIPITEM(equipItem) -- No_~ ?�리�??�이?�인지.
+function IS_NO_EQUIPITEM(equipItem) -- No_~ 시리즈 아이템인지.
 
     local clsName = equipItem.ClassName;
 
@@ -384,22 +384,7 @@ function IS_NO_EQUIPITEM(equipItem) -- No_~ ?�리�??�이?�인지.
     return 0;
 end
 
-function IS_HAVE_GEM(item)
-
-    for i = 0, item.MaxSocket - 1 do
-        
-        local nowsocketitem = item['Socket_Equip_' .. i]
-
-        if nowsocketitem ~= 0 then
-            return 1;
-        end     
-    end
-
-    return 0;
-end
-
-function GET_MAKE_SOCKET_PRICE(itemlv, grade, curcnt)
-
+function GET_MAKE_SOCKET_PRICE(itemlv, grade, curcnt, taxRate)
     local clslist, cnt  = GetClassList("socketprice");
     local gradRatio = {1.2, 1 , 0.5 , 0.4, 0.3}
     local itemGradeRatio = 1;
@@ -415,6 +400,9 @@ function GET_MAKE_SOCKET_PRICE(itemlv, grade, curcnt)
         if cls.Lv == itemlv then
             local priceRatio = (curcnt + 1) ;
             local ret = SyncFloor(cls.NewSocketPrice * secretNumber * (priceRatio ^ 1 / itemGradeRatio));
+            if taxRate ~= nil then
+                ret = tonumber(CALC_PRICE_WITH_TAX_RATE(ret, taxRate))
+            end
             return ret
         end
     end
@@ -423,7 +411,7 @@ function GET_MAKE_SOCKET_PRICE(itemlv, grade, curcnt)
 
 end
 
-function GET_REMOVE_GEM_PRICE(itemlv)
+function GET_REMOVE_GEM_PRICE(itemlv, taxRate)
 
     local clslist, cnt  = GetClassList("socketprice");
 
@@ -432,7 +420,11 @@ function GET_REMOVE_GEM_PRICE(itemlv)
         local cls = GetClassByIndexFromList(clslist, i);
 
         if cls.Lv == itemlv then
-            return cls.RemoveSocketPrice
+            local price = cls.RemoveSocketPrice
+            if taxRate ~= nil then
+                price = tonumber(CALC_PRICE_WITH_TAX_RATE(price, taxRate)) -- 젬 추출 세금
+            end
+            return price
         end
     end
 
@@ -455,7 +447,7 @@ function GET_GEM_TYPE_NUMBER(GemType)
     return -1;
 end
 
--- ?�정 �??�커 �??�덤?�로 1�?IES�?리턴?��???
+-- 특정 존 앵커 중 랜덤으로 1개 IES를 리턴해준다
 function SCR_RANDOM_ZONE_ANCHORIES(zoneName)
     local idspace = 'Anchor_'..zoneName
     local class_count = GetClassCount(idspace)
@@ -474,7 +466,7 @@ function SCR_RANDOM_ZONE_ANCHORIES(zoneName)
     
 end
 
--- ?�이블에???�정 컬럼??검?�해??리턴?��???
+-- 테이블에서 특정 컬럼을 검색해서 리턴해준다
 function SCR_TABLE_SEARCH_ITEM(list, target)
     local result = 'NO'
     local keyList = {}
@@ -529,7 +521,7 @@ function SCR_Q_SUCCESS_REWARD_JOB_GENDER_CHECK(pc, list, target1, target2, targe
                             local jobIES = SCR_GET_XML_IES('Job', 'Initial', target1)
                             if #jobIES >= 1 then
                                 local ishave = IS_HAD_JOB(jobIES[1].ClassID)
-                                if ishave ~= 1 then
+                                if ishave == false then
                                     keyList[#keyList + 1] = key
                                 end
                             end
@@ -564,7 +556,7 @@ function SCR_Q_SUCCESS_REWARD_JOB_GENDER_CHECK(pc, list, target1, target2, targe
 end
 
 
--- ?�개??IES 리스?��? ?�쳐준??
+-- 두개의 IES 리스트를 합쳐준다
 function SCR_IES_ADD_IES(IES_list1, IES_list2)
     if IES_list1 == nil and IES_list2 == nil then
         return nil
@@ -585,7 +577,7 @@ function SCR_IES_ADD_IES(IES_list1, IES_list2)
     return IES_list1
 end
 
--- ?�정 ?�스???�션?�브?�트 ?�료 조건 �?index 번째 조건 만족 ?�인
+-- 특정 퀘스트 세션오브젝트 완료 조건 중 index 번째 조건 만족 확인
 function SCR_QUEST_SOBJ_TERMS(pc, sObj_name, index)
     local sObj_quest = GetSessionObject(pc, sObj_name)
     if sObj_quest ~= nil then
@@ -601,7 +593,7 @@ function SCR_QUEST_SOBJ_TERMS(pc, sObj_name, index)
     end
 end
 
--- ?�정 존에 ?�는 ?�브?�트??좌표 IES 리스?��? 찾아�?
+-- 특정 존에 있는 오브젝트의 좌표 IES 리스트를 찾아줌
 function SCR_GET_MONGEN_ANCHOR(zone_name, column, value)
     local result2 = SCR_GET_XML_IES('GenType_'..zone_name, column, value)
     if  result2 ~= nil and #result2 > 0 then
@@ -613,7 +605,7 @@ function SCR_GET_MONGEN_ANCHOR(zone_name, column, value)
 end
 
 
--- xml �??�정 컬럼??값과 ?�치/?�사 ??IES 리스?��? 찾아�?(option 1?�면 ?�사 �? ?�니�??�치)
+-- xml 중 특정 컬럼의 값과 일치/유사 한 IES 리스트를 찾아줌 (option 1이면 유사 값, 아니면 일치)
 function SCR_GET_XML_IES(idspace, column_name, target_value, option)
     local return_list = {}
     if idspace == nil then
@@ -1078,6 +1070,15 @@ function SCR_DATE_TO_YDAY_BASIC_2000_REVERSE(yday)
     
     return yy,mm,dd
 end
+function SCR_DATE_HOUR_TO_YWEEK_BASIC_2000(yy, mm, dd, hour, firstWday, firstHour)
+    local yday2000 = SCR_DATE_TO_YDAY_BASIC_2000(yy, mm, dd)
+    if hour < firstHour then
+        yday2000 = yday2000 - 1
+    end
+    local result = math.floor((yday2000+6-firstWday)/7) + 1
+    return result
+    
+end
 function SCR_DATE_TO_YWEEK_BASIC_2000(yy, mm, dd, firstWday)
     local yday2000 = SCR_DATE_TO_YDAY_BASIC_2000(yy, mm, dd)
     local result = math.floor((yday2000+6-firstWday)/7) + 1
@@ -1335,13 +1336,13 @@ function GET_MAP_ACHI_NAME(mapCls)
 
     local name = ScpArgMsg("Auto_{Auto_1}_TamSaJa","Auto_1", mapCls.Name);
     local desc = ScpArgMsg("Auto_{Auto_1}_Jiyeogeul_MoDu_TamSaHayeossSeupNiDa.","Auto_1", mapCls.Name);
-    local desctitle = name -- ?�시. ?�중??�??�적 ?�성??보상�?�?��???�???�이???�팅 ?�루??지�?바꾸??
+    local desctitle = name -- 임시. 나중에 맵 업적 달성시 보상및 칭호에 대한 데이터 세팅 이루어 지면 바꾸자.
     local reward = "None"
     return desc, name, desctitle, reward;
 
 end
 
--- hgihLv : ?�티?�중 가???��? ?�벨, ?�티가 ?�니거나 1???�티�?0??
+-- hgihLv : 파티원중 가장 높은 레벨, 파티가 아니거나 1인 파티면 0임
 function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
     local pcLv = myLevel;
     local monLv = monLevel;
@@ -1360,9 +1361,9 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
     if levelGap > standardLevel then
     	local penaltyRatio = 0.0;
     	if pcLv < monLv then
-	        penaltyRatio = 0.05;	-- 고레�?몬스???�냥 ???�널??
+	        penaltyRatio = 0.05;	-- 고레벨 몬스터 사냥 시 페널티
 	    else
-	    	penaltyRatio = 0.02;	-- ?�?�벨 몬스???�냥 ???�널??
+	    	penaltyRatio = 0.02;	-- 저레벨 몬스터 사냥 시 페널티
 	    end
 	    
 	    local lvRatio = 1 - ((levelGap - standardLevel) * penaltyRatio);
@@ -1561,9 +1562,9 @@ function SCR_DIALOG_NPC_ANIM(animName)
 
 end
 
-                                    -- 공용 ?�이브러�?
+                                    -- 공용 라이브러리
 --------------------------------------------------------------------------------------
--- ?�정 문자�?기�??�로 문자?�을 ?�라 ?�이블로 반환
+-- 특정 문자를 기준으로 문자열을 잘라 테이블로 반환
 function StringSplit(str, delimStr)
     local _tempStr = str;
     local _result = {};
@@ -1647,13 +1648,13 @@ function IsEnableEffigy(self, skill)
         return 0;
     end
 
-    -- 거리 체크?�는�?추�??�야?�듯?
-    -- 근데 그럼 ?�능??��?�디???
+    -- 거리 체크하는거 추가해야할듯?
+    -- 근데 그럼 성능낭비인디???
     return 1;
 end
 
 
--- 보스 ?�랍 리스??교체 바인???�수
+-- 보스 드랍 리스트 교체 바인딩 함수
 function CHANGE_BOSSDROPLIST(self, equipDropList)
     ChangeClassValue(self, 'EquipDropType', equipDropList);
 end
@@ -1671,10 +1672,10 @@ function GET_RECIPE_REQITEM_CNT(cls, propname)
 
 end
 
--- ?�직가??조건체크?�는 ?�수. skilltree.lua ui?�드?�에???�용?�고 ?�버?�서??조건체크?�때 ?�용.
+-- 전직가능 조건체크하는 함수. skilltree.lua ui애드온에서 사용하고 서버에서도 조건체크할때 사용.
 function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
     
-    -- ?��? 가지고있??직업?�면 바로 true리턴
+    -- 이미 가지고있는 직업이면 바로 true리턴
     for i = 0, #haveJobNameList do      
         if haveJobNameList[i] ~= nil then
             if haveJobNameList[i] == cls.ClassName then
@@ -1683,29 +1684,29 @@ function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
         end
     end
     
-    -- ?�래???�로??직업?��???조건 체크
+    -- 아래는 새로운 직업에대한 조건 체크
     local i = 1;
     
     while 1 do
     
-            -- 조건체크?�는 칼럼?????�요?�면 xml?�서 �??�리면됨. ?�ㅋ?   
+            -- 조건체크하는 칼럼이 더 필요하면 xml에서 걍 늘리면됨. ㅇㅋ?   
         if GetPropType(cls, "ChangeJobCondition" .. i) == nil then
             break;
         end
 
 
-        -- ChangeJobCondition???��? 'None'?�면 ?�스?��? ?�해???�직?�는거임. UI?�서???�보?�줌.
+        -- ChangeJobCondition이 전부 'None'이면 퀘스트를 통해서 전직하는거임. UI에서는 안보여줌.
         if cls["ChangeJobCondition" .. i] == 'None' then
             return false;
         end
         
 
         local sList = StringSplit(cls["ChangeJobCondition" .. i], ";");
-        local conditionCount = #sList / 2;  -- ?�당직업 ?�직조건 체크�?��
+        local conditionCount = #sList / 2;  -- 해당직업 전직조건 체크갯수
         
-        local completeCount = 0;            -- ?�직조건??몇개??만족?�는지
+        local completeCount = 0;            -- 전직조건에 몇개나 만족하는지
         for j = 1, conditionCount do
-            -- 직업가지고있�??�구?�벨보다 ?��?지 체크
+            -- 직업가지고있고 요구레벨보다 높은지 체크
             for n=0, #haveJobNameList do
                             
                 if sList[j*2-1] == haveJobNameList[n] and tonumber(sList[j*2]) <= tonumber(haveJobGradeList[n]) then
@@ -1714,7 +1715,7 @@ function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
             end
         end
 
-            -- ?�직조건??모두 만족?�면 ?�직가?�하?�고 ?�팅?�줌
+            -- 전직조건에 모두 만족하면 전직가능하다고 셋팅해줌
         if conditionCount == completeCount then
             return true;
         end
@@ -1930,7 +1931,7 @@ function GET_COMMA_SEPARATED_STRING_FOR_HIGH_VALUE(num)
 	local retStr = "";
 	local numValue = num;
 	
-	for i = 1, 1000 do	-- 무한루프 방�???--
+	for i = 1, 1000 do	-- 무한루프 방지용 --
 		local tempValue = numValue % 1000;
 		if string.len(tempValue) < 3 then
 			for j = 1, 3 - string.len(tempValue) do
@@ -1959,9 +1960,9 @@ function GET_COMMA_SEPARATED_STRING_FOR_HIGH_VALUE(num)
 	return retStr, "SUCCESS";
 end
 
--- ???�수???�제 ?�용?��? �?�?--
--- 그래???�시 ?�디??참조?��? 몰라???�겨?�긴 ??--
-function GET_COMMAED_STRING(num) -- unsigned long 범위?�에??가?�하�??�정??
+-- 이 함수는 이제 사용하지 말 것 --
+-- 그래도 혹시 어디서 참조할지 몰라서 남겨두긴 함 --
+function GET_COMMAED_STRING(num) -- unsigned long 범위내에서 가능하게 수정함
     if num == nil then
         return "0";
     end
@@ -1988,7 +1989,7 @@ function GET_NOT_COMMAED_NUMBER(commaedString)
         startIndex, endIndex = string.find(tempStr, ',');
         noInfinite = noInfinite + 1;
 
-        -- ?�시 모�? 무한루프 방�?
+        -- 혹시 모를 무한루프 방지
         if noInfinite >= 10000 then
             break;
         end
@@ -2001,7 +2002,7 @@ function GET_NOT_COMMAED_NUMBER(commaedString)
     return retNum;
 end
 
-function IS_ENABLE_EQUIP_GEM(targetItem, gemType)
+function IS_ENABLE_EQUIP_GEM(targetItem, gemType, targetItemInvItem)
     if targetItem == nil or gemType == nil then
         return false;
     end
@@ -2012,9 +2013,17 @@ function IS_ENABLE_EQUIP_GEM(targetItem, gemType)
     end
     
     local curCnt = 0;
-    for i = 0, maxSocket - 1 do
-        if TryGetProp(targetItem, 'Socket_Equip_'..i) == gemType then
-            curCnt = curCnt + 1;
+    if targetItemInvItem ~= nil then
+        for i = 0, maxSocket - 1 do
+            if targetItemInvItem:GetEquipGemID(i) == gemType then
+                curCnt = curCnt + 1;
+            end
+        end
+    else -- server
+        for i = 0, maxSocket - 1 do            
+            if GetItemSocketInfo(targetItem, i) == gemType then
+                curCnt = curCnt + 1;                
+            end
         end
     end
 
@@ -2182,13 +2191,13 @@ function IS_IN_EVENT_MAP(pc)
     return false;
 end
 
---?�반 ?�티 경험�?계산
+--일반 파티 경험치 계산
 function NORMAL_PARTY_EXP_BOUNS_RATE(partyMemberCount, pc)
-	--1??100. 2??190(95), 3??270(90), 4??340(85), 5??400(80)
-	--?�문자�??�언?�어?�는 변?�는 ??sharedconst_system.xml???�는 값임.
+	--1인 100. 2인 190(95), 3인 270(90), 4인 340(85), 5인 400(80)
+	--대문자로 선언되어있는 변수는 다 sharedconst_system.xml에 있는 값임.
 	local expUpRatio = 1;
 	
-	--?�티?�원?�에 ?�??계산
+	--파티인원수에 대한 계산
 	if partyMemberCount > 1 then
 		expUpRatio = expUpRatio + ((1 - (partyMemberCount * PARTY_EXP_BONUS)) * (partyMemberCount - 1));
 	end
@@ -2196,9 +2205,9 @@ function NORMAL_PARTY_EXP_BOUNS_RATE(partyMemberCount, pc)
 	return expUpRatio;
 end
 
---?�던 ?�동매칭 경험�?계산
+--인던 자동매칭 경험치 계산
 function INDUN_AUTO_MATCHING_PARTY_EXP_BOUNS_RATE(partyMemberCount)
-	--?�명??120?�로????준?? ?? 1명일 ?? 경험�?보너???�다.
+	--한명당 120프로씩 더 준다. 단! 1명일 땐, 경험치 보너스 없다.
 	local expUpRatio = NORMAL_PARTY_EXP_BOUNS_RATE(partyMemberCount);
 	
 	if partyMemberCount > 1 then
@@ -2217,7 +2226,7 @@ function GET_INDUN_SILVER_RATIO(myLevel, indunLevel)
     local levelGap = math.abs(pcLv - dungeonLv);
     
     if levelGap > standardLevel then
-    	local penaltyRatio = 0.02;	-- ?�?�벨 ?�던 ?�냥 ???�버 ?�널??-
+    	local penaltyRatio = 0.02;	-- 저레벨 인던 사냥 시 실버 페널티--
 	    local lvRatio = 1 - ((levelGap - standardLevel) * penaltyRatio);
         value = value * lvRatio;        
     end
@@ -2407,4 +2416,420 @@ function CALC_CENTER_ALIGN_POSITION(index, count, len, dist, bgLen)
     local bgOffset = bgLen/2;
     local firstOffset = (len*count/2) + math.floor(count/2)*dist;
     return bgOffset - firstOffset + (len + dist)*(index-1);
+end 
+
+function CALC_LIST_LINE_BREAK(lvList, maxCol, breakedMaxCol)
+    if maxCol < breakedMaxCol then
+        return;
+    end
+    local breakedList = {}
+    breakedList[#breakedList+1] = {}
+
+    local col = 1
+    for i=1, #lvList do
+        local remainCount = #lvList-i;
+        if col + remainCount > maxCol and col > breakedMaxCol then
+            breakedList[#breakedList+1] = {}
+            col = 1;
+        else
+            col = col + 1
+        end
+        local curRow = breakedList[#breakedList]
+        curRow[#curRow+1] = lvList[i];
+    end
+
+    return breakedList
+end
+
+function SCR_MAIN_QUEST_WARP_CHECK(pc, questState, questIES, questName)
+    if questName == nil and questIES == nil then
+        return 'NO'
+    end
+    if questIES == nil then
+        questIES = GetClass('QuestProgressCheck', questName)
+    end
+    
+    if questName == nil then
+        questName = questIES.ClassName
+    end
+    
+    if questState == nil then
+        if IsServerSection(pc) == 1 then
+            questState = SCR_QUEST_CHECK(pc, questName)
+        else
+            questState = SCR_QUEST_CHECK_C(pc, questName)
+        end
+    end
+    
+    if questState ~= 'POSSIBLE' then
+        return 'NO'
+    end
+    
+    if GetClass('mainquest_startnpcwarp', questName) == nil then
+        return 'NO'
+    end
+    
+    if IsServerSection(pc) ~= 1 and GET_QUESTINFO_PC_FID() ~= 0 then
+        return 'NO'
+    end
+    
+    local sObj
+    if IsServerSection(pc) == 1 then
+        sObj = GetSessionObject(pc, 'ssn_klapeda')
+    else
+        pc = GetMyPCObject()
+        sObj = GetSessionObject(pc, 'ssn_klapeda')
+    end
+    
+    local clsList, cnt  = GetClassList("mainquest_startnpcwarp");
+    for i = 0, cnt - 1 do
+        local tQuest = GetClassByIndexFromList(clsList, i);
+        
+        local tQuestState
+        if IsServerSection(pc) == 1 then
+            tQuestState = SCR_QUEST_CHECK(pc, tQuest.ClassName)
+        else
+            if pc.Lv == nil then
+                pc = GetMyPCObject()
+            end
+            tQuestState = SCR_QUEST_CHECK_C(pc, tQuest.ClassName)
+        end
+        
+        if tQuestState == 'POSSIBLE' then
+            local tquestIES = GetClass('QuestProgressCheck',tQuest.ClassName)
+            if pc.Lv < 100 then
+                if tquestIES.QStartZone ~= 'None' and sObj.QSTARTZONETYPE ~= 'None' and tquestIES.QStartZone ~=  sObj.QSTARTZONETYPE then
+                elseif tQuest.ClassName == questName then
+                    return 'YES'
+                elseif tquestIES.QStartZone ~= 'None' and sObj.QSTARTZONETYPE ~= 'None' and tquestIES.QStartZone ==  sObj.QSTARTZONETYPE then
+                    return 'NO'
+                end
+            else
+                return 'NO'
+            end
+        end
+        
+        if tQuest.ClassName == questName then
+            return 'YES'
+        end
+    end
+    
+    return 'NO'
+end
+
+function IS_KANNUSHI_GENDER_CHANGE_FLAG(pc, targetJobClassName)
+    if pc == nil then
+        return 'NO'
+    end
+    
+    local jobclass = 'Char4_18'
+    
+    if IsServerSection(pc) == 1 then
+        local pcEtc = GetETCObject(pc)
+    	if targetJobClassName == jobclass and pcEtc.IS_KANNUSHI_GENDER_CHANGE == 300 then
+    	    return 'YES'
+    	end
+    else
+        local myPCetc = GetMyEtcObject();
+    	if targetJobClassName == jobclass and myPCetc.IS_KANNUSHI_GENDER_CHANGE == 300 then
+    	    return 'YES'
+    	end
+    end
+    
+    return 'NO'
+end
+
+
+
+function SCR_ZONE_KEYWORD_CHECK(zoneName, keyword)
+	if zoneName == nil or keyword == nil then
+		return "NO";
+	end
+	
+	local mapClass = GetClass("Map", zoneName);
+	local mapKeyWord = TryGetProp(mapClass, "Keyword", "None");
+	if mapKeyWord ~= "None" or mapKeyWord ~= "" then
+		return "NO";
+	end
+	
+	local keyWordList = SCR_STRING_CUT(mapKeyWord, ";");
+	if keyWordList ~= nil and #keyWordList >= 1 then
+		local index = table.find(keyWordList, keyword);
+		if index ~= 0 then
+			return "YES";
+		end
+	end
+	
+	return 'NO';
+end
+
+function SCR_CHECK_MONSTER_KEYWORD(mon, keyword)
+	if keyword == nil then
+		return "NO"
+	end
+	
+	local monKeyword = TryGetProp(mon, "Keyword", "None");
+	if monKeyword == "None" or monKeyword == "" then
+		return "NO";
+	end
+	
+	local keywordList = SCR_STRING_CUT(monKeyword, ";");
+	if keywordList ~= nil and #keywordList >= 1 then
+		local index = table.find(keywordList, keyword);
+		if index ~= 0 then
+			return "YES";
+		end
+	end
+	
+	return "NO";
+end
+
+function SCR_GET_MONSTER_KEYWORD(mon)
+	local monKeyword = TryGetProp(mon, "Keyword", "None");
+	if monKeyword == "None" or monKeyword == "" then
+		return nil;
+	end
+	
+	local keywordList = SCR_STRING_CUT(monKeyword, ";");
+	
+	return keywordList;
+end
+
+
+function JOB_NAKMUAY_PRE_CHECK(pc, jobCount)
+    if jobCount == nil then
+        jobCount = GetTotalJobCount(pc);
+    end
+	if jobCount >= 2 then
+	    local pcEtc
+	    if IsServerSection() == 0 then
+	        pcEtc = GetMyEtcObject();
+	    else
+			pcEtc = GetETCObject(pc);
+	    end
+	    
+	    if pcEtc ~= nil then
+	        local value = TryGetProp(pcEtc, 'HiddenJob_Char1_20', 0)
+	        if value == 300 or IS_KOR_TEST_SERVER() == true then
+	            return 'YES'
+	        end
+	    end
+	end
+    
+    return 'NO'
+end
+
+
+function JOB_RUNECASTER_PRE_CHECK(pc, jobCount)
+    if jobCount == nil then
+        jobCount = GetTotalJobCount(pc);
+    end
+	if jobCount >= 2 then
+	    local pcEtc
+	    if IsServerSection() == 0 then
+	        pcEtc = GetMyEtcObject();
+	    else
+			pcEtc = GetETCObject(pc);
+	    end
+	    
+	    if pcEtc ~= nil then
+	        local value = TryGetProp(pcEtc, 'HiddenJob_Char2_17', 0)
+	        if value == 300 or IS_KOR_TEST_SERVER() == true then
+	            return 'YES'
+	        end
+	    end
+    end
+    
+    return 'NO';
+end
+
+
+function JOB_APPRAISER_PRE_CHECK(pc, jobCount)
+    if jobCount == nil then
+        jobCount = GetTotalJobCount(pc);
+    end
+	if jobCount >= 2 then
+	    local pcEtc
+	    if IsServerSection() == 0 then
+	        pcEtc = GetMyEtcObject();
+	    else
+			pcEtc = GetETCObject(pc);
+	    end
+	    
+	    if pcEtc ~= nil then
+	        local value = TryGetProp(pcEtc, 'HiddenJob_Char3_13', 0)
+	        if value == 300 or IS_KOR_TEST_SERVER() == true then
+	            return 'YES'
+	        end
+	    end
+    end
+    
+    return 'NO'
+end
+
+
+function JOB_MIKO_PRE_CHECK(pc, jobCount)
+    if jobCount == nil then        
+        jobCount = GetTotalJobCount(pc);
+    end
+	if jobCount >= 2 then
+	    local pcEtc
+	    if IsServerSection() == 0 then
+	        pcEtc = GetMyEtcObject();
+	    else
+			pcEtc = GetETCObject(pc);
+	    end
+	    
+	    if pcEtc ~= nil then
+	        local value = TryGetProp(pcEtc, 'HiddenJob_Char4_18', 0)
+	        if value == 300 or IS_KOR_TEST_SERVER() == true then
+	            return 'YES'
+	        end
+	    end
+	end
+    
+    return 'NO'
+end
+
+
+function JOB_SHINOBI_PRE_CHECK(pc, jobCount)
+    if jobCount == nil then
+        jobCount = GetTotalJobCount(pc);
+    end
+	if jobCount >= 2 then
+	    local pcEtc
+	    if IsServerSection() == 0 then
+	        pcEtc = GetMyEtcObject();
+	    else
+			pcEtc = GetETCObject(pc);
+	    end
+	    
+	    if pcEtc ~= nil then
+	        local value = TryGetProp(pcEtc, 'HiddenJob_Char5_6', 0)
+	        if value == 300 or IS_KOR_TEST_SERVER() == true then
+	            return 'YES'
+	        end
+	    end
+	end
+    
+    return 'NO'
+end
+
+function GET_ACCOUNT_WAREHOUSE_EXTEND_PRICE(aObj, taxRate)
+	local slotDiff = aObj.AccountWareHouseExtend;
+	local price = ACCOUNT_WAREHOUSE_EXTEND_PRICE;
+	if slotDiff > 0 then
+		if slotDiff >= tonumber(ACCOUNT_WAREHOUSE_MAX_EXTEND_COUNT) then
+			return;
+		end
+		if slotDiff < 4 then
+		    price = price*(math.pow(2, slotDiff))
+		else
+		    --Form the fifth slot, it will be fixde at 2000000 silver
+		    price = price * 10
+		end
+	end
+
+    if taxRate ~= nil then
+        price = tonumber(CALC_PRICE_WITH_TAX_RATE(price, taxRate))
+    end
+    return price
+end
+
+function GET_COMPANION_PRICE(petCls, pc, taxRate)
+    if petCls.SellPrice == "None" then
+        return nil
+    end
+
+	local sellPrice = _G[petCls.SellPrice];
+	sellPrice = sellPrice(petCls, pc);
+    if taxRate ~= nil then
+        sellPrice = tonumber(CALC_PRICE_WITH_TAX_RATE(sellPrice, taxRate))
+    end
+    return sellPrice
+end
+
+--function JOB_CANNONEER_PRE_CHECK(pc, jobCount)
+--    if jobCount == nil then        
+--        jobCount = GetTotalJobCount(pc);
+--    end
+--	if jobCount >= 2 then
+--        return 'YES';
+--    end   
+--    
+--    return 'NO';
+--end
+--
+--
+--function JOB_MUSKETEER_PRE_CHECK(pc, jobCount)
+--    if jobCount == nil then
+--        jobCount = GetTotalJobCount(pc);
+--    end
+--	if jobCount >= 2 then
+--        return 'YES';
+--    end
+--    
+--    return 'NO';
+--end
+
+
+function GET_TIMESTAMP_TO_COUNTDOWN_DATESTR(timestamp, prop)
+    
+    if prop == nil then
+        prop ={}
+    end
+
+    local day = math.floor(timestamp / 86400)
+	local remainder = (timestamp % 86400)
+	local hour = math.floor(remainder / 3600)
+	local remainder = (timestamp % 3600)
+	local min = math.floor(remainder / 60)
+	local sec = (remainder % 60)
+	
+    local countdownStr = ""
+    
+    if prop.noDay == nil then
+        if day > 0 then
+            countdownStr = countdownStr..day..ClMsg("UI_Day").." ";
+        end
+    end
+    
+    if prop.noHour == nil then
+        if hour > 0 then
+            countdownStr = countdownStr..hour..ClMsg("UI_Hour").." ";
+        end
+    end
+
+    if prop.noMin == nil then
+        if min > 0 then
+            countdownStr = countdownStr..min..ClMsg("UI_Min").." ";
+        end
+    end
+    
+    if prop.noSec == nil then
+        if sec > 0 then
+            countdownStr = countdownStr..sec..ClMsg("UI_Sec").." ";
+        end
+    end
+    
+	return countdownStr
+
+end
+
+function GET_MODIFIED_PROPERTIES_STRING(item, invitem)
+    local str = GetModifiedPropertiesString(item);
+    str = str..'#';
+    if IsServerSection() == 1 then
+        local additionalStr = GetAdditionalModifiedString(item);
+        if additionalStr ~= nil then            
+            str = str..additionalStr;            
+        end
+    else
+        local itemIdx = GetIESID(item);
+        if invitem == nil then
+            invitem = GET_PC_ITEM_BY_GUID(itemIdx);
+        end
+        str = str..invitem:GetAdditionalModifiedString();
+    end
+    return str;
 end

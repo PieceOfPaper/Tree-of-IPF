@@ -2,8 +2,7 @@
 
 
 function RANKROLLBACK_ON_INIT(addon, frame)
-	addon:RegisterOpenOnlyMsg('EQUIP_ITEM_LIST_GET', 'RANKROLLBACK_PC_EQUIP_STATE');
-	addon:RegisterOpenOnlyMsg('RESET_ABILITY_UP', 'RANKROLLBACK_PC_ABILITY_STATE');
+	addon:RegisterOpenOnlyMsg('EQUIP_ITEM_LIST_GET', 'RANKROLLBACK_PC_EQUIP_STATE');	
 	addon:RegisterOpenOnlyMsg('AUTOSELLER_UPDATE', 'RANKROLLBACK_PC_AUTOSELLER_STATE'); 
 end
 
@@ -40,14 +39,11 @@ function RANKROLLBACK_ITEM_USE(invItem)
 end
 
 function RANKROLLBACK_CHECK_PLAYER_STATE(frame)
-
 	RANKROLLBACK_PC_EQUIP_STATE(frame);
-	RANKROLLBACK_PC_ABILITY_STATE(frame);
 	RANKROLLBACK_PC_WITH_COMMPANION(frame);
 	RANKROLLBACK_PC_LOCATE(frame);
 	RANKROLLBACK_PC_AUTOSELLER_STATE(frame);
 	RANKROLLBACK_PC_TIMEACTION_STATE(frame);
-    RANKROLLBACK_PC_UNIQUE_TEMPLER_GUILD_MASTER_STATE(frame);
 end
 
 function RANKROLLBACK_PC_TIMEACTION_STATE(frame)
@@ -117,7 +113,7 @@ function RANKROLLBACK_PC_EQUIP_STATE(frame)
 	local equipList = session.GetEquipItemList();
 	local unEquip = false;
 	for i = 0, equipList:Count() - 1 do
-		local equipItem = equipList:Element(i);
+		local equipItem = equipList:GetEquipItemByIndex(i);
 		local spotName = item.GetEquipSpotName(equipItem.equipSpot);	
 		if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
 			unEquip = true;
@@ -133,30 +129,6 @@ function RANKROLLBACK_PC_EQUIP_STATE(frame)
 	end
 end
 
-function RANKROLLBACK_PC_ABILITY_STATE(frame)
-	local pc = GetMyPCObject();
-	local runAbil = false;
-	for i = 0, RUN_ABIL_MAX_COUNT do
-		local prop = "None";
-		if 0 == i then
-			prop = "LearnAbilityID";
-		else
-			prop = "LearnAbilityID_" ..i;
-		end
-		if pc[prop] ~= nil and pc[prop] > 0 then
-			runAbil = true;
-			break;
-		end
-	end
-
-	local ability_check = GET_CHILD(frame, 'ability_check', "ui::CCheckBox");
-	if false == runAbil then
-		ability_check:SetCheck(1);
-	else
-		ability_check:SetCheck(0);
-	end
-end
-
 function RANKROLLBACK_ITEM_USE_BUTTON_CLICK(frame, ctrl)
 	local gradeRank = session.GetPcTotalJobGrade();
 	if gradeRank <= 1 then
@@ -167,12 +139,6 @@ function RANKROLLBACK_ITEM_USE_BUTTON_CLICK(frame, ctrl)
     local armor_check = GET_CHILD_RECURSIVELY(frame, 'armor_check');
     if armor_check:IsChecked() == 0 then
     	ui.SysMsg(ClMsg('CannotEquipState'));
-    	return;
-    end
-
-    local ability_check = GET_CHILD_RECURSIVELY(frame, 'ability_check');
-    if ability_check:IsChecked() == 0 then
-    	ui.SysMsg(ClMsg('YouareLearningAbil'));
     	return;
     end
 
@@ -205,19 +171,7 @@ function RANKROLLBACK_ITEM_USE_BUTTON_CLICK(frame, ctrl)
         ui.MsgBox_NonNested(ClMsg('YouHaveRankCardReallyRankReset?'), 0x00000000, frame:GetName(), 'None', 'None');
         return;
     end
-
-    if IS_UNIQUE_TEMPLER_GUILD_MASTER_C() == true then
-        ui.SysMsg(ClMsg('CannotRankResetBecauseUniqueTemplerMaster'));
-        return;
-    end
     
-    local templerCls = GetClass('Job', 'Char1_16');    
-    if AM_I_LEADER(PARTY_GUILD) == 1 and IS_EXIST_JOB_IN_HISTORY(templerCls.ClassID) == true then
-        local yesscp = string.format("RANKROLLBACK_REQUEST_RANK_RESET()");
-        ui.MsgBox(ClMsg('YouMustUpdateTowerLevel'), yesscp, 'None');
-        return;
-    end
-
     RANKROLLBACK_REQUEST_RANK_RESET();
 end
 
@@ -239,9 +193,10 @@ function CHECK_INVENTORY_HAS_RANK_CARD()
 end
 
 function RANKROLLBACK_REQUEST_RANK_RESET()
-    local frame = ui.GetFrame('rankrollback');
-    local itemIES = frame:GetUserValue("itemIES");
-	packet.RequestRankResetSystem(1 , "0");
+	local frame = ui.GetFrame('rankrollback');
+	local targetJobID = frame:GetUserIValue('TARGET_JOB_CLASS_ID');
+	local destJobID = frame:GetUserIValue('DEST_JOB_CLASS_ID')
+	session.job.ReqClassExchange(targetJobID, destJobID);
 end
 
 function RANKROLLBACK_CANCEL_BUTTON_CLICK(frame, ctrl)
@@ -264,27 +219,7 @@ function RANKROLLBACK_DELETE_RANK_CARD(className)
     ui.MsgBox(ClMsg('DeleteCardBecauseYourRankTooHigh'), yesScp, 'None');
 end
 
-function RANKROLLBACK_PC_UNIQUE_TEMPLER_GUILD_MASTER_STATE(frame)
-    local enable = 1;
-    if IS_UNIQUE_TEMPLER_GUILD_MASTER_C() == true then
-        enable = 0;
-    end    
-    local master_check = GET_CHILD(frame, 'master_check');
-    master_check:SetCheck(enable);
-end
-
 function OPEN_RANKROLLBACK_UI_BY_SYSMENU()
     ui.OpenFrame('changejob');
     CHANGEJOB_SHOW_RANKROLLBACK();
-end
-
-function RANKROLLBACK_BTN_CLICK(parent, ctrl)	
-	if ctrl:GetUserValue('ENABLE_RANKROLLBACK') == 'NO' then
-		return;
-	end
-    ui.CloseFrame('changejob');
-
-    local frame = ui.GetFrame("rankrollback");
-	frame:ShowWindow(1)
-	RANKROLLBACK_CHECK_PLAYER_STATE(frame);
 end

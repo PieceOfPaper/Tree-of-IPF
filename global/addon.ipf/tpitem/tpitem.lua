@@ -1,9 +1,19 @@
 -- tpitem.lua : (tp shop)
+
+local eventUserType = {
+	normalUser = 0,		-- 일반
+	returnUser = 1, -- 복귀유저
+	newbie  = 2,	-- 신규
+};
+
+
 function TPITEM_ON_INIT(addon, frame)
    
 	addon:RegisterMsg('TP_SHOP_UI_OPEN', 'TP_SHOP_DO_OPEN');
 	addon:RegisterMsg("TPSHOP_BUY_SUCCESS", "ON_TPSHOP_BUY_SUCCESS");
 	addon:RegisterMsg("SHOP_BUY_LIMIT_INFO", "ON_SHOP_BUY_LIMIT_INFO");
+
+	addon:RegisterMsg("SHOP_USER_INFO", "ON_SHOP_USER_INFO"); 
 	
 	if (config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP") then
 	addon:RegisterMsg("UPDATE_INGAME_SHOP_ITEM_LIST", "TPITEM_DRAW_NC_TP");
@@ -33,7 +43,62 @@ function TPITEM_ON_INIT(addon, frame)
 end
 
 function ON_SHOP_BUY_LIMIT_INFO(frame)	--해당 아이템에 대하여 월별 구매 제한 기능. 으로 추정
+	TPSHOP_SORT_TAB(frame)
 	TPSHOP_REDRAW_TPITEMLIST();
+	
+	local tabObj = GET_CHILD_RECURSIVELY(frame, 'shopTab');
+	local itembox_tab = tolua.cast(tabObj, "ui::CTabControl");
+	local curtabIndex = itembox_tab:GetSelectItemIndex();
+	if curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox6") then -- 신규 유저 상점
+		NEWBIE_CREATE_ITEM_LIST(frame);
+	elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox7") then -- 복귀 유저 상점
+		RETURNUSER_CREATE_ITEM_LIST(frame);
+	end
+end
+
+function ON_SHOP_USER_INFO(frame)
+	TPSHOP_SORT_TAB(frame)
+	
+	if session.shop.GetEventUserType() ~= eventUserType.normalUser  then
+		TPSHOP_EVENT_USER_TIMER_START(frame)		
+	end
+
+	local tabObj = GET_CHILD_RECURSIVELY(frame, 'shopTab');
+	local itembox_tab = tolua.cast(tabObj, "ui::CTabControl");
+	local curtabIndex = itembox_tab:GetSelectItemIndex();
+	TPSHOP_TAB_VIEW(frame, curtabIndex); -- 배너 변경을 위해 호출
+end
+
+function TPSHOP_EVENT_USER_TIMER_UPDATE()
+	local frame = ui.GetFrame("tpitem");
+	if frame ~= nil then
+		local eventUserRemainTimeText = GET_CHILD_RECURSIVELY(frame,"eventUserRemainTimeText");
+		local timer = frame:GetChild("eventUserRemainTimer");
+		tolua.cast(timer, "ui::CAddOnTimer");
+		local elapsedSeconds = 0;
+		
+		if session.shop.GetEventUserType() ~= eventUserType.normalUser then
+			local endTime = session.shop.GetEventUserEndTime()
+			local endTimeStamp = os.time({year = endTime.wYear, month = endTime.wMonth, day = endTime.wDay, hour = endTime.wHour, min = endTime.wMinute, sec = endTime.wSecond})
+			elapsedSeconds = endTimeStamp - os.time(os.date('*t'));
+		end
+
+		if session.shop.GetEventUserType() == eventUserType.normalUser or elapsedSeconds <= 0 then
+			session.shop.RequestEventUserTypeInfo(); -- 신규/복귀/일반 변경정보 요청.
+			eventUserRemainTimeText:SetVisible(0);
+			timer:Stop(); 
+		else
+			eventUserRemainTimeText:SetTextByKey("countdown", GET_TIMESTAMP_TO_COUNTDOWN_DATESTR(elapsedSeconds, {noSec = true}))
+		end
+	end
+end
+
+function TPSHOP_EVENT_USER_TIMER_START(frame)
+	local timer = frame:GetChild("eventUserRemainTimer");
+	tolua.cast(timer, "ui::CAddOnTimer");
+	timer:Stop(); 
+	timer:SetUpdateScript("TPSHOP_EVENT_USER_TIMER_UPDATE");
+	timer:Start(1); 
 end
 
 function TPSHOP_REDRAW_ALIGN_LIST()
@@ -58,10 +123,10 @@ function TPSHOP_REDRAW_ALIGN_LIST()
 end
 
 function TPSHOP_REDRAW_TPITEMLIST()
+	
 	local frame = ui.GetFrame("tpitem");
 	local category = frame:GetUserValue("LAST_OPEN_CATEGORY");
 	local subcategory = frame:GetUserValue("LAST_OPEN_SUB_CATEGORY");	
-		
 	local showTypeList = GET_CHILD_RECURSIVELY(frame,"showTypeList");	
 	local typeIndex = showTypeList:GetSelItemIndex();
 	session.shop.RequestLoadShopBuyLimit();
@@ -96,6 +161,13 @@ function TPSHOP_REDRAW_TPITEMLIST()
 	
 end
 
+function TPSHOP_GET_INDEX_BY_TAB_NAME(name)
+	local frame = ui.GetFrame("tpitem");
+	local tabObj = GET_CHILD_RECURSIVELY(frame, 'shopTab');
+	local itembox_tab = tolua.cast(tabObj, "ui::CTabControl");
+	return itembox_tab:GetIndexByName(name);
+end
+
 function TPSHOP_TAB_CHANGE(frame, ctrl, argStr, argNum)
 	local tabObj		    = frame:GetChild('shopTab');
 	local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
@@ -120,6 +192,9 @@ function TPITEM_OPEN(frame)
 	end
 
 	RECYCLE_MAKE_TREE(frame);
+	COSTUME_EXCHANGE_MAKE_TREE(frame);
+	NEWBIE_MAKE_TREE(frame);
+	RETURNUSER_MAKE_TREE(frame);
 end
 
 function TPSHOP_TAB_VIEW(frame, curtabIndex)
@@ -133,104 +208,240 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 	local screenbgTemp = frame:GetChild('screenbgTemp');
 	local ncChargebtn = rightgbox:GetChild('ncChargebtn');
 	screenbgTemp:ShowWindow(0);
-	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
+	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");
 	local rcycle_basketgbox = GET_CHILD_RECURSIVELY(frame,'rcycle_basketgbox');
-
 	local rcycle_toitemBtn = GET_CHILD_RECURSIVELY(frame, 'rcycle_toitemBtn');
+	local costume_exchange_basketgbox =  GET_CHILD_RECURSIVELY(frame,'costume_exchange_basketgbox');
+	local costume_exchange_toitemBtn=  GET_CHILD_RECURSIVELY(frame,'costume_exchange_toitemBtn');
 	local basketBuyBtn = GET_CHILD_RECURSIVELY(frame, 'basketBuyBtn');
-	basketBuyBtn:SetEnable(1);
-	rcycle_toitemBtn:SetEnable(1);
+	local newbie_basketgbox =  GET_CHILD_RECURSIVELY(frame,'newbie_basketgbox');
+	local newbie_toitemBtn=  GET_CHILD_RECURSIVELY(frame,'newbie_toitemBtn');
+	local returnuser_basketgbox =  GET_CHILD_RECURSIVELY(frame,'returnuser_basketgbox');
+	local returnuser_toitemBtn=  GET_CHILD_RECURSIVELY(frame,'returnuser_toitemBtn');
+	-- 배너
+	local banner = GET_CHILD_RECURSIVELY(frame,"banner");
+	local eventUserBanner = GET_CHILD_RECURSIVELY(frame,"eventUserBanner");
+	local eventUserRemainTimeText = GET_CHILD_RECURSIVELY(frame,"eventUserRemainTimeText");
+
+	eventUserBanner:SetVisible(0);
+	eventUserRemainTimeText:SetVisible(0);
+
+	basketBuyBtn:SetEnable(0);
+	rcycle_toitemBtn:SetEnable(0);
+	costume_exchange_toitemBtn:SetEnable(0);
+	newbie_toitemBtn:SetEnable(0);
+	returnuser_toitemBtn:SetEnable(0);
+
+	previewgbox:SetVisible(0);
+	previewStaticTitle:SetVisible(0);	
+	cashInvGbox:SetVisible(0);
+	basketgbox:SetVisible(0);
+	rcycle_basketgbox:SetVisible(0);
+	costume_exchange_basketgbox:SetVisible(0);
+	newbie_basketgbox:SetVisible(0);
+	returnuser_basketgbox:SetVisible(0);
+
+	ncChargebtn:SetVisible(1); -- 캐시 충전은 기본 활성화.
+	banner:SetVisible(1); -- 배너는 기본적으로 활성화.
 	
+	-- 국가별 처리
 	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
-		if curtabIndex == 0 then	
+		if curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox2") then	-- TP 구매
 			TPITEM_DRAW_NC_TP();
 			TPSHOP_SHOW_CASHINVEN_ITEMLIST();
-			basketgbox:SetVisible(0);
-			previewgbox:SetVisible(0);
-			previewStaticTitle:SetVisible(0);	
 			cashInvGbox:SetVisible(1);
-			rcycle_basketgbox:SetVisible(0);
 			tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 			tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
-		elseif curtabIndex == 1 then
-			basketgbox:SetVisible(1);
-			previewgbox:SetVisible(1);
-			previewStaticTitle:SetVisible(1);
-			cashInvGbox:SetVisible(0);
-			rcycle_basketgbox:SetVisible(0);
-		elseif curtabIndex == 2 then -- 리사이클 샵
-			rcycle_basketgbox:SetVisible(1);
-			previewStaticTitle:SetVisible(1);	
-			previewgbox:SetVisible(1);
-			basketgbox:SetVisible(0);
-			cashInvGbox:SetVisible(0);
-			RECYCLE_SHOW_TO_ITEM()
-		elseif curtabIndex == 3 then
-			basketBuyBtn:SetEnable(0);
-			rcycle_toitemBtn:SetEnable(0);
 		end
 	elseif (config.GetServiceNation() == "THI") then	
-		if curtabIndex == 0 then	
+		if curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox2") then		-- TP 구매
 			UPDATE_NEXON_AMERICA_SELLITEMLIST();
 			TPSHOP_SHOW_CASHINVEN_ITEMLIST();
-			basketgbox:SetVisible(0);
-			previewgbox:SetVisible(0);
-			previewStaticTitle:SetVisible(0);	
-			cashInvGbox:SetVisible(0);
-			rcycle_basketgbox:SetVisible(0);
 			ncChargebtn:SetVisible(0);
-		elseif curtabIndex == 1 then
-			basketgbox:SetVisible(1);
-			previewgbox:SetVisible(1);
-			previewStaticTitle:SetVisible(1);
-			cashInvGbox:SetVisible(0);
-			rcycle_basketgbox:SetVisible(0);
+		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox1") then	-- 프리미엄 샵
 			ncChargebtn:SetVisible(0);
-		elseif curtabIndex == 2 then -- 리사이클 샵
-			rcycle_basketgbox:SetVisible(1);
-			previewStaticTitle:SetVisible(1);	
-			previewgbox:SetVisible(1);
-			basketgbox:SetVisible(0);
-			cashInvGbox:SetVisible(0);
+		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox3") then -- 리사이클 샵
 			ncChargebtn:SetVisible(0);
-			RECYCLE_SHOW_TO_ITEM()
 		end
 	else
-		if curtabIndex == 0 then
-			basketgbox:SetVisible(1);
-			previewgbox:SetVisible(1);
-			previewStaticTitle:SetVisible(1);
-			cashInvGbox:SetVisible(0);
-			rcycle_basketgbox:SetVisible(0);
-		elseif curtabIndex == 1 then -- 리사이클 샵
-			rcycle_basketgbox:SetVisible(1);
-			previewStaticTitle:SetVisible(1);	
-			previewgbox:SetVisible(1);
-			basketgbox:SetVisible(0);
-			cashInvGbox:SetVisible(0);
-			RECYCLE_SHOW_TO_ITEM()
+		-- 기본적으로 타 국가에서는 TP충전 버튼을 비활성화.
+		ncChargebtn:SetVisible(0);
+	end
+
+	-- 모든 국가 공통 적용(프리미엄, 계열 코스튬, 리사이클, 신규유저, 복귀유저)
+	if curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox1") then -- 프리미엄
+		basketgbox:SetVisible(1);
+		previewgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);
+		basketBuyBtn:SetEnable(1);
+	elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox5") then -- 계열 코스튬 교환 샵
+		costume_exchange_basketgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);	
+		previewgbox:SetVisible(1);
+		costume_exchange_toitemBtn:SetEnable(1);
+		COSTUME_EXCHANGE_SHOW_TO_ITEM()
+	elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox3") then -- 리사이클 샵
+		rcycle_basketgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);	
+		previewgbox:SetVisible(1);
+		rcycle_toitemBtn:SetEnable(1);
+		RECYCLE_SHOW_TO_ITEM()
+	elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox6") then -- 신규 유저 상점
+		banner:SetVisible(0); -- 기존 배너 비활성화 후 이벤트 상점 배너 활성화.
+		eventUserBanner:SetVisible(1);
+		eventUserRemainTimeText:SetVisible(1);
+		previewStaticTitle:SetVisible(1);	
+		previewgbox:SetVisible(1);
+		newbie_basketgbox:SetVisible(1);
+		newbie_toitemBtn:SetEnable(1);
+		NEWBIE_SHOW_TO_ITEM()
+	elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox7") then -- 복귀 유저 상점
+		banner:SetVisible(0); -- 기존 배너 비활성화 후 이벤트 상점 배너 활성화.
+		eventUserBanner:SetVisible(1);
+		eventUserRemainTimeText:SetVisible(1);
+		previewStaticTitle:SetVisible(1);	
+		previewgbox:SetVisible(1);
+		returnuser_basketgbox:SetVisible(1);
+		returnuser_toitemBtn:SetEnable(1);
+		RETURNUSER_SHOW_TO_ITEM()
+	end
+
+	-- 이벤트 유저면 배너를 이벤트 유저 전용 배너로 변경
+	if session.shop.GetEventUserType() ~= eventUserType.normalUser then
+		banner:SetVisible(0)
+		eventUserBanner:SetVisible(1)
+		eventUserRemainTimeText:SetVisible(1)
+	end
+end
+
+function TPSHOP_IS_EXIST_COSTUME_EXCHANGE_COUPON()
+	local isCostumeExchangeCoupon = false;
+	local CostumeExchangeCoupon = session.GetInvItemByName("Costume_Exchange_Coupon");
+	if CostumeExchangeCoupon ~= nil and CostumeExchangeCoupon.count > 0 then
+		isCostumeExchangeCoupon = true;
+	end
+
+	return isCostumeExchangeCoupon
+end
+
+function TPSHOP_SORT_TAB(frame)
+
+	-- 프리미엄
+	-- 리사이클
+	-- 계열 코스튬
+	-- 꾸미기
+	-- 전용상점
+
+	local shopTab = GET_CHILD_RECURSIVELY(frame, "shopTab");
+	local itembox_tab = tolua.cast(shopTab, "ui::CTabControl");
+	local itemCount = itembox_tab:GetItemCount();
+
+	-- 1. 꾸미기를 리사이클 뒤로 이동시킴.
+	local recycleTabIndex = itembox_tab:GetIndexByName("Itembox3") -- 리사이클샵
+	local beautyshopTabIndex = itembox_tab:GetIndexByName("Itembox4");
+	if recycleTabIndex ~= -1 and beautyshopTabIndex ~= -1 then
+		if recycleTabIndex + 1 <= itemCount and recycleTabIndex + 1 ~= beautyshopTabIndex then
+			itembox_tab:SwapTab(recycleTabIndex + 1, beautyshopTabIndex )
+			frame:Invalidate();
+		end
+	end
+
+	-- 2. 계열 코스튬 쿠폰 확인 후 뷰티샵 앞으로 이동. (뷰티샵 뒤에 탭하고 스왑후, 뷰티샵하고 스왑)
+	local isExistCoupon = TPSHOP_IS_EXIST_COSTUME_EXCHANGE_COUPON()
+	local costumeExchangeShopTabIndex = itembox_tab:GetIndexByName("Itembox5")
+	if costumeExchangeShopTabIndex ~= -1 then
+		if isExistCoupon == true then
+			-- beuatyshop + 1위치와 스왑
+			beautyshopTabIndex = itembox_tab:GetIndexByName("Itembox4");
+			if beautyshopTabIndex + 1 <= itemCount then
+				itembox_tab:SwapTab(costumeExchangeShopTabIndex, beautyshopTabIndex + 1 )
+				frame:Invalidate();
+			end
+			-- 뷰티샵과 스왑
+			costumeExchangeShopTabIndex = itembox_tab:GetIndexByName("Itembox5")
+			if beautyshopTabIndex + 1 <= itemCount and costumeExchangeShopTabIndex ~= -1 then
+				itembox_tab:SetTabVisible(costumeExchangeShopTabIndex, true)
+
+				itembox_tab:SwapTab(costumeExchangeShopTabIndex, beautyshopTabIndex )
+				frame:Invalidate();
+			end
+		else
+			itembox_tab:SetTabVisible(costumeExchangeShopTabIndex, false)
+		end
+		
+	end
+
+	-- 3. 전용 상점 확인 후 뷰티샵 뒤로 붙임.
+	local userType = session.shop.GetEventUserType()
+	local newbieTabIndex = itembox_tab:GetIndexByName("Itembox6")
+	local returnuserTabIndex = itembox_tab:GetIndexByName("Itembox7")
+	beautyshopTabIndex = itembox_tab:GetIndexByName("Itembox4");
+
+	-- 우선 둘다 숨김.
+	if newbieTabIndex ~= -1 and returnuserTabIndex ~= -1 then	
+		itembox_tab:SetTabVisible(newbieTabIndex, false)
+		itembox_tab:SetTabVisible(returnuserTabIndex, false)
+	end
+	-- 타입에 따라 스왑후 보이기.
+	if userType == eventUserType.newbie then
+		if newbieTabIndex ~= -1 then
+			-- 꾸미기 다음 슬롯이 자신이면 무시
+			if newbieTabIndex ~= beautyshopTabIndex +1 then
+				-- 꾸미기 다음 index와 스왑. 
+				if itemCount >= beautyshopTabIndex +1 then 
+					itembox_tab:SwapTab(newbieTabIndex, beautyshopTabIndex +1 )
+					frame:Invalidate();
+				end
+			end
+			newbieTabIndex = itembox_tab:GetIndexByName("Itembox6")
+			if newbieTabIndex ~= -1 then
+				itembox_tab:SetTabVisible(newbieTabIndex, true)
+			end
+		end
+	
+	 elseif userType == eventUserType.returnUser then
+		if returnuserTabIndex ~= -1 then
+			-- 꾸미기 다음 슬롯이 자신이면 무시
+			if returnuserTabIndex ~= beautyshopTabIndex +1 then
+				-- 꾸미기 다음 index와 스왑. 
+				if itemCount >= beautyshopTabIndex +1 then 
+					itembox_tab:SwapTab(returnuserTabIndex, beautyshopTabIndex +1 )
+					
+					frame:Invalidate();
+				end
+			end			
+			returnuserTabIndex = itembox_tab:GetIndexByName("Itembox7")
+			if returnuserTabIndex ~= -1 then
+				itembox_tab:SetTabVisible(returnuserTabIndex, true)
+			end
 		end
 	end
 end
 
 function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
-    
 	ui.CloseAllOpenedUI();
 	ui.OpenIngameShopUI();	-- Tpshop을 열었을때에 Tpitem에 대한 정보와 NexonCash 정보 등을 서버에 요청한다.
+
+	-- 탭정렬 먼저 한번 하고 요청.
+	TPSHOP_SORT_TAB(frame)
+	-- 요청
 	session.shop.RequestLoadShopBuyLimit();
+	session.shop.RequestEventUserTypeInfo(); -- 신규/복귀/일반 변경정보 요청.
+
 	frame:ShowWindow(1);
 	local leftgFrame = frame:GetChild("leftgFrame");	
 	local leftgbox = leftgFrame:GetChild("leftgbox");
 	local rightFrame = frame:GetChild('rightFrame');
 	local rightgbox = rightFrame:GetChild('rightgbox');
 	local shopTab = leftgbox:GetChild('shopTab');
-	local itembox_tab		= tolua.cast(shopTab, "ui::CTabControl");
+	local itembox_tab = tolua.cast(shopTab, "ui::CTabControl");
+
 	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
 		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 		banner:SetImage("market_event_test");	--market_default
 		banner:SetUserValue("URL_BANNER", "");
 		banner:SetUserValue("NUM_BANNER", 0);
-		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");	
 	elseif config.GetServiceNation() == "THI" then 
 		local banner_offset_y = frame:GetUserConfig("banner_offset_y")
 		local balance_resize_width = frame:GetUserConfig("balance_resize_width")
@@ -258,30 +469,24 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		local ncReflashbtn = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn");	
 		ncReflashbtn:SetOffset(ncReflashbtn:GetOriginalX()+refresh_offset_x, ncReflashbtn:GetOriginalY()+balance_offset_y)
 	else
+		-- 그외에는 TP 구매 탭을 제거한다.
+		itembox_tab:DeleteTab(itembox_tab:GetIndexByName("Itembox2"));	
+		itembox_tab:SetItemsFixWidth(170);		
+		itembox_tab:SelectTab(itembox_tab:GetIndexByName("Itembox1"));
+
 		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 		banner:ShowWindow(0);
-
 		local haveStaticNCbox = GET_CHILD_RECURSIVELY(frame,"haveStaticNCbox");	
 		haveStaticNCbox:ShowWindow(0);
-		
 		local ncReflashbtn = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn");	
 		ncReflashbtn:ShowWindow(0);
-		
 		local ncChargebtn = GET_CHILD_RECURSIVELY(frame,"ncChargebtn");	
 		ncChargebtn:ShowWindow(0);
-		
 		local remainNexonCash = GET_CHILD_RECURSIVELY(frame,"remainNexonCash");	
 		remainNexonCash:ShowWindow(0);
-				
 		local ncReflashbtn = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn");	
 		ncReflashbtn:ShowWindow(0);
-		
-		if itembox_tab:GetItemCount() == 3 then
-			itembox_tab:DeleteTab(0);
-			itembox_tab:SetItemsFixWidth(170);
-		end
 	end
-		
 	
 	MAKE_CATEGORY_TREE();
 	
@@ -289,9 +494,6 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 
 	local screenbgTemp = GET_CHILD_RECURSIVELY(frame, 'screenbgTemp');
 	screenbgTemp:ShowWindow(0);
-	
-	--buyBtn = GET_CHILD_RECURSIVELY(frame,"specialBuyBtn");	
-	--buyBtn:ShowWindow(0);
 	
 	local ratio = option.GetClientHeight()/option.GetClientWidth();	
 	local limitMaxWidth = ui.GetSceneWidth() / ui.GetRatioWidth();
@@ -311,8 +513,13 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	--session.shop.RequestLoadShopBuyLimit();
 	SET_TOPMOST_FRAME_SHOWFRAME(0);	
 	
-	itembox_tab:SelectTab(1);
-	TPSHOP_TAB_VIEW(frame, 1);
+	-- 프리미엄 탭을 설정.
+	local premiumTabIndex = TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox1");
+	if premiumTabIndex < 0 then
+		premiumTabIndex = 0
+	end
+	itembox_tab:SelectTab(premiumTabIndex);
+	TPSHOP_TAB_VIEW(frame, premiumTabIndex);
 	
 	local input = GET_CHILD_RECURSIVELY(frame, "input");
 	local editDiff = GET_CHILD_RECURSIVELY(frame, "editDiff");
@@ -321,6 +528,11 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		
 	local basketslotset = GET_CHILD_RECURSIVELY(frame,"basketslotset")	
 	TPITEM_CLEAR_SLOTSET(basketslotset);
+
+	local newbie_basketbuyslotset = GET_CHILD_RECURSIVELY(frame,"newbie_basketbuyslotset")	
+	TPITEM_CLEAR_SLOTSET(newbie_basketbuyslotset);
+	local returnuser_basketbuyslotset = GET_CHILD_RECURSIVELY(frame,"returnuser_basketbuyslotset")	
+	TPITEM_CLEAR_SLOTSET(returnuser_basketbuyslotset);
 
 	local rcycle_basketbuyslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketbuyslotset")
 	rcycle_basketbuyslotset:ClearIconAll();
@@ -338,7 +550,6 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	local tpPackageGbox = GET_CHILD_RECURSIVELY(frame,"tpPackageGbox");		
 	tpPackageGbox:ShowWindow(0);	
 
-	--ui.SetHoldUI(frame:GetName());
 	UPDATE_BASKET_MONEY(frame);
 	UPDATE_RECYCLE_BASKET_MONEY(frame,"sell");
 	
@@ -355,9 +566,6 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		resol = 0;
 	end
 	
-	--leftgFrame:SetOffset(leftgFrame:GetOffsetX(), resol);
-	--rightFrame:SetOffset(rightFrame:GetOffsetX(), resol);
-
 	for i = 0 , 3 do
 	local resString = string.format("{@st42b}{s16}%s{/}", ScpArgMsg("SHOWLIST_ITEM_TYPE_" .. i));
 		showTypeList:AddItem(i, resString);
@@ -403,9 +611,13 @@ function ON_TPSHOP_BUY_SUCCESS(frame)
 	local rcycle_basketsellslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketsellslotset")
 	rcycle_basketsellslotset:ClearIconAll();
 
+	local costume_exchange_basketbuyslotset = GET_CHILD_RECURSIVELY(frame,"costume_exchange_basketbuyslotset")
+	costume_exchange_basketbuyslotset:ClearIconAll();
+
 	UPDATE_BASKET_MONEY(frame);
 	UPDATE_RECYCLE_BASKET_MONEY(frame,"sell")	
 	UPDATE_RECYCLE_BASKET_MONEY(frame,"buy")
+	UPDATE_COSTUME_EXCHANGE_BASKET_MONEY(frame)
 end
 
 function ON_TPSHOP_RESET_PREVIEWMODEL()
@@ -569,7 +781,12 @@ function TPITEM_CLOSE(frame)
 
 	session.ui.Clear_NISMS_CashInven_ItemList();	
 
+	local timer = GET_CHILD_RECURSIVELY(frame, "eventUserRemainTimer")
+	tolua.cast(timer, "ui::CAddOnTimer");
+	timer:Stop();
+
 	ui.CloseFrame("recycleshop_popupmsg");
+	ui.CloseFrame("costume_exchangeshop_popupmsg")
 	ui.CloseFrame("tpitem_popupmsg");
 	ui.CloseFrame('packagelist');
 end
@@ -1195,6 +1412,7 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 
 	local itemName = itemobj.Name;
 	local itemclsID = itemobj.ClassID;
+
 	local tpitem_clsName = obj.ClassName;
 	local tpitem_clsID = obj.ClassID;
 
@@ -1467,7 +1685,7 @@ function TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox, clsID)
 		end
 	elseif typeIndex == 2 then
 		if bisHot == true then
-			return true;
+			return true
 		end
 	elseif typeIndex == 3 then
 		if bisRecom == true then
@@ -1736,8 +1954,8 @@ end
 function TPSHOP_ITEMSEARCH_CLICK(parent, control, strArg, intArg)
 	local editDiff = GET_CHILD(parent, "editDiff");
     if editDiff == nil then
-        local frame = parent:GetTopParentFrame();
-        editDiff = GET_CHILD_RECURSIVELY(frame, 'recycle_editDiff');
+		local frame = parent:GetTopParentFrame();
+	  editDiff = GET_CHILD_RECURSIVELY(frame, 'recycle_editDiff');
     end
 	editDiff:SetVisible(0);
 	control:ClearText();
@@ -1873,64 +2091,64 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 	for i = 0, ES_LAST do	--  EQUIP_SPOT만이 아닌 ES_LENS 포함
 		SWITCH(i) {				
 		[ES_HAT] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAT");			
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAT");
 		end,
 		[ES_HAT_L] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAT_L");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAT_L");
 		end,			
 		[ES_HAT_T] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAT_T");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAT_T");
 		end,
 		[ES_HAIR] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAIR");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAIR");
 		end,
 		[ES_SHIRT] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "SHIRT");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "SHIRT");
 		end,
 		[ES_GLOVES] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "GLOVES");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "GLOVES");
 		end,
 		[ES_BOOTS] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "BOOTS");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "BOOTS");
 		end,
 		[ES_HELMET] = function()
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAIR");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAIR");
 		end,
 		[ES_ARMBAND] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "ARMBAND");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "ARMBAND");
 		end,
 		[ES_RH] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "RH");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "RH");
 		end,
 		[ES_LH] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "LH");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "LH");
 		end,
 		[ES_OUTER] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "OUTER");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "OUTER");
 		end,
 		[ES_PANTS] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "PANTS");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "PANTS");
 		end,
 		[ES_RING1] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "RING1");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "RING1");
 		end,
 		[ES_RING2] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "RING2");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "RING2");
 		end,
 		[ES_NECK] = function() 
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "NECK");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "NECK");
 		end,
 		[ES_LENS] = function() --ES_LENS
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "LENS");			
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "LENS");
 		end,
 		[ES_WING] = function() --ES_WING
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "WING");			
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "WING");
 		end,
 		[ES_SPECIAL_COSTUME] = function() --ES_SPECIAL_COSTUME
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "SPECIAL_COSTUME");			
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "SPECIAL_COSTUME");
 		end,
 		[ES_EFFECT_COSTUME] = function() --ES_EFFECT_COSTUME
-				invSlot = GET_CHILD_RECURSIVELY(invframe, "EFFECTCOSTUME");			
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "EFFECTCOSTUME");
 		end,
 		--[ES_HELMET] = function() end,		-- 6
 		--[ES_OUTERADD1] = function() end,	-- 11
@@ -1938,6 +2156,7 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 		--[ES_BODY] = function() end,		-- 13
 		--[ES_PANTSADD1] = function() end,	-- 15	
 		--[ES_PANTSADD2] = function() end,	-- 16
+		--[ES_DOLL] = function() end,
 		default = function() invSlot = nil; end,
 		}
 		if invSlot == nil then
@@ -2179,9 +2398,9 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
         end
     end
 
-    if #needWarningItemList > 0 or #cannotEquip > 0 then
+	if #needWarningItemList > 0 or #cannotEquip > 0 then
     	OPEN_TPITEM_POPUPMSG(needWarningItemList, noNeedWarning, cannotEquip, itemAndTPItemIDTable, allPrice);
-    else
+	else
     	if config.GetServiceNation() == "GLOBAL" then			
 			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
         		ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
@@ -2206,12 +2425,11 @@ function CHECK_LIMIT_PAYMENT_STATE_C()
 			if limitPaymentStateBySteam == "Trusted" or limitPaymentStateByGM == "Trusted" then
 				return true;
 			else
-				--return false;
-				return true;
+				return false;
 			end
 		end
 	end
-	return true;
+	return false;
 end
 
 function POPUP_LIMIT_PAYMENT(clientMsg, parentName, allPrice)
@@ -2262,7 +2480,7 @@ function TPSHOP_ITEM_BASKET_BUY_CANCEL()
 	ui.CloseFrame('tpitem_popupmsg');
 end
 
-function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_clsID)		
+function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_clsID)	
 	local tpitem_popupmsg = ui.GetFrame('tpitem_popupmsg');
 	if tpitem_popupmsg ~= nil and tpitem_popupmsg:IsVisible() == 1 then
 		return false;
@@ -2275,7 +2493,7 @@ function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_
 	if obj == nil then
 		return false;
 	end
-	
+
 	local itemobj = GetClass("Item", obj.ItemClassName)
 	if itemobj == nil then
 		return false;
@@ -2831,7 +3049,7 @@ function GETPACKAGE_JOBNUM_BYJOBNGENDER()
 	["Warrior"] = function() jobNum = gender; end,				
 	["Wizard"] = function() jobNum = (2 * 1) + gender; end,				
 	["Archer"] = function() jobNum = (2 * 2) + gender; end,				
-	["Cleric"] = function() jobNum = (2 * 3) + gender; end,					
+	["Cleric"] = function() jobNum = (2 * 3) + gender; end,
 	default = function() jobNum = 0 end,
 	}	
 	return jobNum;
@@ -3505,4 +3723,36 @@ function CHECK_ALREADY_IN_LIMIT_ITEM(frame, tpItem)
 		end	
 	end
 	return true;
+end
+
+
+function  TPITEM_CREATE_CATEGORY_TREE(categoryTree, categoryKey)
+    local categoryCset = GET_CHILD(categoryTree, "TPSHOP_CT_" .. categoryKey)
+	if categoryCset == nil then 
+	    categoryCset = categoryTree:CreateControlSet("tpshop_tree", "TPSHOP_CT_" .. categoryKey, ui.LEFT, 0, 0, 0, 0, 0);
+        local part = GET_CHILD(categoryCset, "part");
+        part:SetTextByKey("value", ScpArgMsg(categoryKey));
+		local foldimg = GET_CHILD(categoryCset,"foldimg");
+		foldimg:ShowWindow(0);
+    end
+    return categoryCset
+end
+
+function TPITEM_CREATE_CATEGORY_ITEM(ctrlSet, categoryTree, categoryKey, subCategoryKey)
+    local htreeitem = categoryTree:FindByValue(categoryKey);
+    local tempFirstValue = nil
+	if categoryTree:IsExist(htreeitem) == 0 then
+	    htreeitem = categoryTree:Add(ctrlSet, categoryKey);
+		tempFirstValue = categoryTree:GetItemValue(htreeitem)	
+    end
+
+    local hsubtreeitem = categoryTree:FindByCaption("{@st42b}"..ScpArgMsg(subCategoryKey));
+	if categoryTree:IsExist(hsubtreeitem) == 0 and subCategoryKey ~= "None" then
+		local added = categoryTree:Add(htreeitem, "{@st66}"..ScpArgMsg(subCategoryKey), categoryKey.."#"..subCategoryKey, "{#000000}");
+			
+		categoryTree:SetFitToChild(true,10);
+		categoryTree:SetFoldingScript(htreeitem, "KEYCONFIG_UPDATE_FOLDING");
+		local foldimg = GET_CHILD(ctrlSet,"foldimg");
+		foldimg:ShowWindow(1);
+    end
 end

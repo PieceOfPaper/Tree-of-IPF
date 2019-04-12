@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uitile name="challenge_mode" x="0" y="0" width="580" height="300" bodycolor="#ffff 0" bodyalpha="0" create="open">
+<uitile name="challenge_mode" x="0" y="0" width="580" height="300" create="open">
 	<skin frameskin="none" draw="false"/>
 	<frame title="" layout_gravity="center center" margin="-30 250 0 0" piptype="top"/>
-	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="true"/>
+	<option visible="false" hideable="false" closebutton="false" moveable="true" alwaysVisible="true"/>
 	<controls>
 		<picture name="challenge_pic_lv_bg" rect="0 0 251 112" margin="50 0 0 0" layout_gravity="left center" hittest="false" image="challenge_gauge_black" stretch="true"/>
 		<picture name="challenge_gauge_lv_left" rect="0 0 7 33" margin="158 7 0 0" layout_gravity="left center" hittest="false" image="challenge_gauge_left" stretch="true"/>

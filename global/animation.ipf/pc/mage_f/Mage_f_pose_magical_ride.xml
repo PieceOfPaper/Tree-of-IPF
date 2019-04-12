@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mondu (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <HeadRotBip frame="0" BipName="Dummy_head"/>
-    <Sound frame="4.00" soundFile="atk_cloth_m_l2"/>
-    <Sound frame="5.00" soundFile="pc_war_jump_1"/>
-    <Sound frame="30.00" soundFile="atk_cloth_m_r1"/>
-    <Sound frame="40.00" soundFile="atk_cloth_s_l1"/>
+	<HeadRotBip frame="0" BipName="Dummy_head"/>
+	<Particle frame="0" attachNode="Bip01 Spine2" particleName="F_pose_magical_shot_heart" useAttach="true" hiddenObj="false" changeEffect="None" scale="0" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="5" attachNode="Bip01 Pelvis" particleName="F_pose_magical_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="25" attachNode="Bip01 Pelvis" particleName="F_pose_magical_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="5" attachNode="Bip01 Pelvis" particleName="F_pose_magical_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="20" attachNode="Dummy_emitter" particleName="F_pose_magical_spin2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="44" attachNode="Bip01 Pelvis" particleName="F_pose_magical_shot_heart_end2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="44" attachNode="Bip01 L Finger42" particleName="F_pose_magical_heart" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Sound frame="4.00" soundFile="atk_cloth_m_l2"/>
+	<Sound frame="5.00" soundFile="pc_war_jump_1"/>
+	<Sound frame="30.00" soundFile="atk_cloth_m_r1"/>
+	<Sound frame="40.00" soundFile="atk_cloth_s_l1"/>
 </ActionDesc>

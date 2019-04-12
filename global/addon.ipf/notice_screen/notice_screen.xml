@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by LEE (EMBRACE) -->
 <uiframe name="notice_screen" x="0" y="0" width="600" height="100">
-    <frame title="알림" margin="center top" layout_gravity="0 150 0 0"/>
+    <frame title="알림" layout_gravity="center top" margin="0 150 0 0"/>
     <draw drawtitlebar="false"/>
     <skin frameskin="notice_bg"/>
     <layer layerlevel="99"/>

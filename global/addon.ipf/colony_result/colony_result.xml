@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="colony_result" x="0" y="0" width="1920" height="1080" create="open">
 	<frame stretch="true" fullwidth="true" fullheight="true" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true" resizebyresolution="true"/>
 	<draw drawtitlebar="false" drawframe="false"/>
@@ -10,9 +10,9 @@
 	<userconfig WIN_EFFECT_NAME="UI_colony_V" LOSE_EFFECT_NAME="UI_colony_L" EFFECT_SCALE="10"/>
 	<controls>
 		<picture name="bg" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="center center" hittest="false" image="fullblack" stretch="true" alpha="80"/>
-		<button name="closeBtn" rect="0 0 70 70" margin="0 10 10 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame('colony_result')" texttooltip="닫기"/>
+		<button name="closeBtn" rect="0 0 70 70" margin="0 10 10 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame('colony_result')" texttooltip="닫기" clicksound="button_click_big" oversound="button_over"/>
 		<richtext name="infoText" rect="0 0 500 30" margin="0 0 280 105" layout_gravity="center bottom" format="{@st66d}{s20}%s초 후에 도시로 귀환됩니다.{/}" param1="time" param1_def="30" fontname="white_18_b_ol"/>
-		<button name="returnBtn" rect="0 0 220 60" margin="0 0 20 30" layout_gravity="center bottom" skin="test_red_button" caption="{@st66d}도시 귀환{/}" fontname="white_18_b_ol" LBtnUpScp="COLONY_RESULT_REQ_RETURN_CITY"/>
+		<button name="returnBtn" rect="0 0 220 60" margin="0 0 20 30" layout_gravity="center bottom" skin="test_red_button" caption="{@st66d}도시 귀환{/}" fontname="white_18_b_ol" LBtnUpScp="COLONY_RESULT_REQ_RETURN_CITY" clicksound="button_click_big" oversound="button_over"/>
 		<!-- Win -->
 		<groupbox name="winBox" rect="0 0 1300 700" margin="0 -100 0 0" layout_gravity="center center" draw="false"/>
 		<groupbox name="winUIBox" rect="0 0 1300 700" margin="0 -100 0 0" layout_gravity="center center" draw="false"/>

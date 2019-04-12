@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="chat_memberlist" x="0" y="0" width="205" height="200" create="open">
 	<skin frameskin="test_frame_low"/>
-	<frame title="chat_optionwin" titlepos="0 -12" layout_gravity="left top" snapclient="true" snapframe="true" margin="0 0 0 0" scale_align="left bottom"/>
+	<frame title="chat_optionwin" titlepos="0 -12" layout_gravity="left top" margin="0 0 0 0" scale_align="left bottom"/>
 	<draw drawframe="true" drawtitlebar="false"/>
 	<layer layerlevel="79"/>
 	<input moveable="true"/>

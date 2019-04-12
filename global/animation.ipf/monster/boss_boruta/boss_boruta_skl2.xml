@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_bg_light014" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Bip001 RUpArmTwist" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Bip001 LUpArmTwist" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="80" attachNode="Bone_wing_R_5" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="80" attachNode="Bone_wing_L_5" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="100" attachNode="Bone_wing_R_3" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="100" attachNode="Bone_wing_L_3" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="100" attachNode="Dummy_effect_lip_drop" particleName="F_drop001_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="103" attachNode="Dummy_effect_lip" particleName="F_drop001_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="70" attachNode="Dummy_effect_lip" particleName="F_drop_water005_violet2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="110" attachNode="Dummy_effect_lip_drop" particleName="F_drop_water005_violet2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="80" attachNode="Dummy_effect_lip" particleName="I_smoke054_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="80" attachNode="Dummy_effect_lip" particleName="I_smoke054_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="80" attachNode="Dummy_effect_eye_L" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="80" attachNode="Dummy_effect_eye_R" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+</ActionDesc>

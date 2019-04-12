@@ -1,52 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
-<uiframe name="colony_point_info" x="20" y="470" width="310" height="430" hud="true">
-	<frame layout_gravity="right top" margin="0 470 20 0" scale_align="right top"/>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="colony_point_info" x="20" y="470" width="328" height="530" hud="true">
+	<frame layout_gravity="right top" margin="0 370 20 0" scale_align="right top"/>
 	<option visible="false" closebutton="false" hideable="false" alwaysVisible="false"/>
 	<sound opensound="win_open" closesound="win_close"/>
 	<draw drawframe="false" drawtitlebar="false"/>
 	<layer layerlevel="92"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
-	<script OpenScp="OPEN_COLONY_POINT_UI" LBtnUpScp="COLONY_POINT_INFO_LBTN_UP"/>	
+	<script OpenScp="OPEN_COLONY_POINT_UI" LBtnUpScp="COLONY_POINT_INFO_LBTN_UP"/>
 	<userconfig TOTAL_STEP_COUNT="4" MY_GUILD_STEP1="300" MY_GUILD_STEP2="500" MY_GUILD_STEP3="700" MY_GUILD_STEP4="900" MY_GUILD_STEP_STYLE1="{@st43}{#ffffff}{s16}" MY_GUILD_STEP_STYLE2="{@st43}{#ecc642}{s16}" MY_GUILD_STEP_STYLE3="{@st43}{#ff7e00}{s16}" MY_GUILD_STEP_STYLE4="{@st43}{#dd0000}{s16}"/>
 	<controls>
-		<groupbox name="mapBox" rect="0 0 332 96" margin="0 0 0 0" draw="false" layout_gravity="left top" image="colony_myscore" hittest="false"/>
+		<groupbox name="mapBox" rect="0 0 332 163" margin="0 0 0 0" draw="false" layout_gravity="left top" image="colony_myscore" hittest="false"/>
 		<richtext name="mapNameText" rect="0 0 300 30" parent="mapBox" margin="36 18 0 0" layout_gravity="left top" caption="남은 시간" fontname="white_16_b_ol"/>
 		<richtext name="remainTimeText" rect="0 0 300 30" parent="mapBox" margin="0 18 40 0" layout_gravity="right top" format="%s" param1="time" param1_def="0:00" fontname="white_16_b_ol"/>
-		<picture name="line" rect="0 0 330 23" margin="-12 83 0 0" layout_gravity="center top" image="colonyline" stretch="true"/>
-		<button name="expandBtn" rect="0 0 60 20" margin="-10 95 0 0" layout_gravity="center top" image="colonyopen_btn" stretch="true" LBtnUpScp="COLONY_POINT_INFO_EXPAND_CLICK"/>
+		<picture name="line" rect="0 0 330 23" margin="-12 149 0 0" layout_gravity="center top" image="colonyline" stretch="true"/>
+		<button name="expandBtn" rect="0 0 60 20" margin="-10 163 0 0" layout_gravity="center top" image="colonyopen_btn" stretch="true" LBtnUpScp="COLONY_POINT_INFO_EXPAND_CLICK"clicksound="button_click_big" oversound="button_over"/>
 		<!-- Expand -->
-		<groupbox name="infoBox" rect="0 0 331 335" margin="0 97 0 0" layout_gravity="cneter top" draw="false"/>
-		<groupbox name="bgBox" rect="0 0 324 311" parent="infoBox" margin="3 0 0 0" layout_gravity="left top" draw="false" image="colony_chartbg"/>
-		<groupbox name="occupyBox" rect="0 0 331 46" parent="bgBox" margin="0 0 0 0" layout_gravity="left top" draw="false"/>
-		<richtext name="occupyText" rect="0 0 300 30" parent="occupyBox" margin="14 1 0 0" layout_gravity="left center" caption="현재 점령 중인 길드" fontname="white_16_b"/>
-		<groupbox name="occupyGuildBox" rect="0 0 340 55" parent="bgBox" margin="0 40 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="infoBox" rect="0 0 331 366" margin="0 164 0 0" layout_gravity="cneter top" draw="false"/>
+		<groupbox name="bgBox" rect="0 0 328 344" parent="infoBox" margin="3 0 0 0" layout_gravity="left top" draw="false" image="colony_chartbg"/>
+		<tab name="statusTab" rect="0 0 280 40" layout_gravity="left top" parent="bgBox" LBtnDownScp="COLONY_POINT_INFO_TAB_LBTN_UP" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="colony_tab" margin="13 3 0 0"/>
+		<tabitem name="Itembox1" parent="statusTab" caption="{s6} {nl}{/}{@st41d}{img colony_point_pic 24 24}포인트 현황{nl}{/}" width="140" layout_gravity="left top"/>
+		<tabitem name="Itembox2" parent="statusTab" caption="{s6} {nl}{/}{@st41d}{img colony_deploy_pic 24 24}배치 현황{/}" width="140" layout_gravity="left top"/>
+		<groupbox name="occupyBox1" rect="0 0 303 304" parent="bgBox" margin="0 40 0 0" layout_gravity="left top" scrollbar="false" draw="false" tabname="Itembox1"/>
+		<groupbox name="occupyBox2" rect="0 0 303 304" parent="bgBox" margin="0 40 0 0" layout_gravity="left top" scrollbar="false" draw="false" tabname="Itembox2"/>
+		<groupbox name="occupynameBox1" rect="0 0 318 34" parent="occupyBox1" margin="6 0 0 0" layout_gravity="left top" scrollbar="false" draw="false" image="colony_namebg_pic"/>
+		<groupbox name="occupynameBox2" rect="0 0 318 34" parent="occupyBox1" margin="6 95 0 0" layout_gravity="left top" scrollbar="false" draw="false" image="colony_namebg_pic"/>
+		<groupbox name="occupynameBox3_1" rect="0 0 318 300" parent="occupyBox2" margin="6 0 0 0" layout_gravity="left top" scrollbar="false" draw="false" image="colony_namebg_pic"/>
+		<groupbox name="occupynameBox3_2" rect="0 0 318 300" parent="occupyBox2" margin="6 95 0 0" layout_gravity="left top" scrollbar="false" draw="false" image="colony_namebg_pic"/>
+		<groupbox name="occupynameBox4_1" rect="0 0 318 300" parent="occupyBox2" margin="6 0 0 0" layout_gravity="left top" scrollbar="false" draw="false" image="colony_namebg_pic"/>
+		<groupbox name="occupynameBox4_2" rect="0 0 318 300" parent="occupyBox2" margin="6 95 0 0" layout_gravity="left top" scrollbar="false" draw="false" image="colony_namebg_pic"/>
+		<richtext name="occupyText" rect="0 0 300 30" parent="occupynameBox1" margin="14 0 0 0" layout_gravity="left center" caption="현재 점령 중인 길드" fontname="white_16_b"/>
+		<groupbox name="occupyGuildBox" rect="0 0 330 55" parent="occupyBox1" margin="0 31 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="occupyGuildPointbgBox" rect="0 0 316 168" parent="occupyBox1" margin="6 0 0 6" layout_gravity="left bottom" draw="false" image="colony_point_bg"/>
+		<slotset name="buildSlotset1_1" parent="occupynameBox3_1" rect="0 0 300 60" margin="0 32 0 0" layout_gravity="left top" col="5" enabledrop="false" enablepop="false" row="2" size="55 55" draw="true" skin="slot_empty" spc="2 2"/>
+		<slotset name="buildSlotset1_2" parent="occupynameBox3_2" rect="0 0 300 60" margin="0 32 0 0" layout_gravity="left top" col="5" enabledrop="false" enablepop="false" row="2" size="55 55" draw="true" skin="slot_empty" spc="2 2"/>
+		<slotset name="buildSlotset2_1" parent="occupynameBox4_1" rect="0 0 300 60" margin="0 32 0 0" layout_gravity="left top" col="5" enabledrop="false" enablepop="false" row="2" size="55 55" draw="true" skin="slot_empty" spc="2 2"/>
+		<slotset name="buildSlotset2_2" parent="occupynameBox4_2" rect="0 0 300 60" margin="0 32 0 0" layout_gravity="left top" col="5" enabledrop="false" enablepop="false" row="2" size="55 55" draw="true" skin="slot_empty" spc="2 2"/>
 		<picture name="occupyGuildEmblemPic" rect="0 0 45 45" parent="occupyGuildBox" margin="5 5 0 0" layout_gravity="left center" image="guildmark_slot" stretch="true" forceupdate="true"/>
 		<richtext name="occupyGuildNameText" rect="0 0 240 40" parent="occupyGuildBox" margin="53 7 0 0" layout_gravity="left center" caption="" fixwidth="true" resizebytext="false" fontname="white_16_ol"/>
-		<groupbox name="pointBox" rect="0 0 350 40" parent="bgBox" margin="0 101 0 0" layout_gravity="left top" skin=""/>
-		<richtext name="pointText" rect="0 0 300 30" parent="pointBox" margin="14 1 0 0" layout_gravity="left center" caption="점령 포인트 현황" fontname="white_16_b"/>
+		<groupbox name="pointBox" rect="0 0 350 40" parent="occupyBox1" margin="0 131 0 0" layout_gravity="left top" skin=""/>
+		<richtext name="deployOffense_Title" rect="0 0 300 30" parent="occupynameBox3_1" margin="14 6 0 0" scrollbar="false" layout_gravity="left top" caption="공격형" fontname="white_16_b"/>
+		<richtext name="deployDefense_Title" rect="0 0 300 30" parent="occupynameBox4_1" margin="14 6 0 0" scrollbar="false" layout_gravity="left top" caption="방어형" fontname="white_16_b"/>
+		<richtext name="deployDivine_Flag_Title" rect="0 0 300 30" parent="occupynameBox3_2" margin="14 6 0 0" scrollbar="false" layout_gravity="left top" caption="유틸형" fontname="white_16_b"/>
+		<richtext name="deployInterrupt_Title" rect="0 0 300 30" parent="occupynameBox4_2" margin="14 6 0 0" scrollbar="false" layout_gravity="left top" caption="이동 방지형" fontname="white_16_b"/>
+		<richtext name="deployOffense_Value" rect="0 0 300 30" parent="occupynameBox3_1" margin="0 6 30 0" scrollbar="false" layout_gravity="right top" fontname="white_16_b" format="%s/%s" param1="curCount" param1_def="0" param2="maxCount" param2_def="10"/>
+		<richtext name="deployDefense_Value" rect="0 0 300 30" parent="occupynameBox4_1" margin="0 6 30 0" scrollbar="false" layout_gravity="right top" fontname="white_16_b" format="%s/%s" param1="curCount" param1_def="0" param2="maxCount" param2_def="10"/>
+		<richtext name="deployDivine_Flag_Value" rect="0 0 300 30" parent="occupynameBox3_2" margin="0 6 30 0" scrollbar="false" layout_gravity="right top" fontname="white_16_b" format="%s/%s" param1="curCount" param1_def="0" param2="maxCount" param2_def="10"/>
+		<richtext name="deployInterrupt_Value" rect="0 0 300 30" parent="occupynameBox4_2" margin="0 6 30 0" scrollbar="false" layout_gravity="right top" fontname="white_16_b" format="%s/%s" param1="curCount" param1_def="0" param2="maxCount" param2_def="10"/>
+		<richtext name="pointText" rect="0 0 300 30" parent="occupynameBox2" margin="14 6 0 0" scrollbar="false" layout_gravity="left top" caption="점령 포인트 현황" fontname="white_16_b"/>
 		<!-- First Ranking -->
-		<groupbox name="rankingBox1" rect="0 0 340 60" parent="bgBox" margin="0 132 0 0" layout_gravity="center top" skin=""/>
-		<picture name="firstPic" rect="0 0 39 57" parent="rankingBox1" margin="4 0 0 0" layout_gravity="left center" image="colony_medal1" stretch="true"/>
+		<groupbox name="rankingBox1" rect="0 0 340 60" parent="occupyBox1" margin="0 125 0 0" layout_gravity="center top" skin=""/>
+		<picture name="firstPic" rect="0 0 39 57" parent="rankingBox1" margin="6 1 0 0" layout_gravity="left center" image="colony_medal1" stretch="true"/>
 		<picture name="emblemPic" rect="0 0 45 45" parent="rankingBox1" margin="55 2 0 0" layout_gravity="left center" image="guildmark_slot" stretch="true" forceupdate="true"/>
 		<richtext name="nameText" rect="0 0 190 21" fixwidth="true" resizebytext="false" parent="rankingBox1" margin="0 13 48 0" layout_gravity="right top" caption="길드 이름" fontname="white_16_ol"/>
-		<richtext name="pointText" rect="0 0 300 30" parent="rankingBox1" margin="0 0 50 4" layout_gravity="right bottom" format="{@st43}{#ffcc33}{s16}%s/%s" param1="cur" param1_def="0" param2="max" param2_def="1000" fontname="white_16_b_ol"/>
+		<richtext name="pointText" rect="0 0 300 30" parent="rankingBox1" margin="0 0 50 4" layout_gravity="right bottom" format="{@st66d}{#ffcc33}{s16}%s/%s" param1="cur" param1_def="0" param2="max" param2_def="1000" fontname="white_16_b_ol"/>
 		<!-- Second Ranking -->
-		<groupbox name="rankingBox2" rect="0 0 340 60" parent="bgBox" margin="0 188 0 0" layout_gravity="center top" skin=""/>
-		<picture name="secondPic" rect="0 0 39 57" parent="rankingBox2" margin="4 0 0 0" layout_gravity="left center" image="colony_medal2" stretch="true"/>
+		<groupbox name="rankingBox2" rect="0 0 340 60" parent="occupyBox1" margin="0 181 0 0" layout_gravity="center top" skin=""/>
+		<picture name="secondPic" rect="0 0 39 57" parent="rankingBox2" margin="6 1 0 0" layout_gravity="left center" image="colony_medal2" stretch="true"/>
 		<picture name="emblemPic" rect="0 0 45 45" parent="rankingBox2" margin="55 2 0 0" layout_gravity="left center" image="guildmark_slot" stretch="true" forceupdate="true"/>
 		<richtext name="nameText" rect="0 0 190 21" fixwidth="true" resizebytext="false" parent="rankingBox2" margin="0 13 48 0" layout_gravity="right top" caption="길드 이름" fontname="white_16_ol"/>
-		<richtext name="pointText" rect="0 0 300 30" parent="rankingBox2" margin="0 0 50 4" layout_gravity="right bottom" format="{@st43}{#ffcc33}{s16}%s/%s" param1="cur" param1_def="0" param2="max" param2_def="1000" fontname="white_16_b_ol"/>
+		<richtext name="pointText" rect="0 0 300 30" parent="rankingBox2" margin="0 0 50 4" layout_gravity="right bottom" format="{@st66d}{#ffcc33}{s16}%s/%s" param1="cur" param1_def="0" param2="max" param2_def="1000" fontname="white_16_b_ol"/>
 		<!-- Third Ranking -->
-		<groupbox name="rankingBox3" rect="0 0 340 60" parent="bgBox" margin="0 245 0 0" layout_gravity="center top" skin=""/>
-		<picture name="thirdPic" rect="0 0 39 57" parent="rankingBox3" margin="4 0 0 0" layout_gravity="left center" image="colony_medal3" stretch="true"/>
+		<groupbox name="rankingBox3" rect="0 0 340 60" parent="occupyBox1" margin="0 236 0 0" layout_gravity="center top" skin=""/>
+		<picture name="thirdPic" rect="0 0 39 57" parent="rankingBox3" margin="6 1 0 0" layout_gravity="left center" image="colony_medal3" stretch="true"/>
 		<picture name="emblemPic" rect="0 0 45 45" parent="rankingBox3" margin="55 2 0 0" layout_gravity="left center" image="guildmark_slot" stretch="true" forceupdate="true"/>
 		<richtext name="nameText" rect="0 0 190 21" fixwidth="true" resizebytext="false" parent="rankingBox3" margin="0 13 48 0" layout_gravity="right top" caption="길드 이름" fontname="white_16_ol"/>
-		<richtext name="pointText" rect="0 0 300 30" parent="rankingBox3" margin="0 0 50 4" layout_gravity="right bottom" format="{@st43}{#ffcc33}{s16}%s/%s" param1="cur" param1_def="0" param2="max" param2_def="1000" fontname="white_16_b_ol"/>
+		<richtext name="pointText" rect="0 0 300 30" parent="rankingBox3" margin="0 0 50 4" layout_gravity="right bottom" format="{@st66d}{#ffcc33}{s16}%s/%s" param1="cur" param1_def="0" param2="max" param2_def="1000" fontname="white_16_b_ol"/>
 		<!-- My Guild -->
-		<richtext name="myGuildName" rect="0 0 300 30" parent="mapBox" margin="15 22 0 0" layout_gravity="left center" caption="내 길드" fontname="white_16_b_ol"/>
-		<richtext name="myGuildPointText" rect="0 0 300 30" parent="mapBox" margin="0 22 35 0" layout_gravity="right center" format="%s%s/%s" param1="style" param1_def="{@st43}{#ffffff}{s16}" param2="cur" param2_def="0" param3="max" param3_def="1000"/>
-		<picture name="line1" rect="0 0 330 23" parent="infoBox" margin="-12 301 0 0" layout_gravity="center top" image="colonyline" stretch="true"/>
-		<button name="minimizeBtn" rect="0 0 60 20" parent="infoBox" margin="-10 0 0 0" layout_gravity="center bottom" image="colonyclose_btn" stretch="true" LBtnUpScp="COLONY_POINT_INFO_MINIMIZE_CLICK"/>
+		<slotset name="buffSlotset" rect="0 0 200 30" margin="0 120 32 0" layout_gravity="right top" col="5" enabledrop="false" enablepop="false" row="1" size="35 35" skin="slot_empty" spc="2 15"/>
+		<richtext name="myGuild" rect="0 0 300 30" parent="mapBox" margin="15 52 0 0" layout_gravity="left top" caption="내 길드" fontname="white_16_b_ol"/>
+		<richtext name="myGuildPointText2" rect="0 0 300 30" parent="mapBox" margin="15 85 0 0" layout_gravity="left top" caption="점령 포인트" fontname="white_16_ol"/>
+		<richtext name="myGuildPointText" rect="0 0 300 30" parent="mapBox" margin="0 84 35 0" layout_gravity="right top" format="%s%s/%s" param1="style" param1_def="{@st66d}{#ffffff}{s16}" param2="cur" param2_def="0" param3="max" param3_def="1000"/>
+		<richtext name="myGuildbuffText" rect="0 0 300 30" parent="mapBox" margin="15 125 0 0" layout_gravity="left top" caption="적용 효과" fontname="white_16_ol"/>
+		<picture name="line1" rect="0 0 330 23" parent="infoBox" margin="-12 332 0 0" layout_gravity="center top" image="colonyline" stretch="true"/>
+		<button name="minimizeBtn" rect="0 0 60 20" parent="infoBox" margin="-10 0 0 0" layout_gravity="center bottom" image="colonyclose_btn" stretch="true" LBtnUpScp="COLONY_POINT_INFO_MINIMIZE_CLICK"clicksound="button_click_big" oversound="button_over"/>
 	</controls>
 </uiframe>

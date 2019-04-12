@@ -2,7 +2,7 @@
 
 -- tooltip.xml에 적혀있는, 툴팁 관련 가장 처음 실행되는 루아 함수. 여기서 아이템의 종류에 따라 각각 다른 전용 툴팁 함수들을 호출한다. 종류되는 함수 명은 item클래스의 CT_ToolTipScp를 따름
 
-function ON_REFRESH_ITEM_TOOLTIP()
+function ON_REFRESH_ITEM_TOOLTIP()	
 	local wholeitem = ui.GetTooltip("wholeitem")
 	if wholeitem ~= nil then
 		wholeitem:RefreshTooltip();
@@ -13,11 +13,17 @@ function ON_REFRESH_ITEM_TOOLTIP()
 	if wholeitem_link ~= nil then
 		wholeitem_link:RefreshTooltip();
 	end
+
+	local item_tooltip = ui.GetFrame("item_tooltip")
+	tolua.cast(item_tooltip, "ui::CTooltipFrame");
+	if item_tooltip ~= nil then
+		item_tooltip:RefreshTooltip();
+	end
 end
 
-function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, tooltipobj, noTradeCnt)
+function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, tooltipobj, noTradeCnt)		
 	tolua.cast(tooltipframe, "ui::CTooltipFrame");
-	
+
 	local itemObj, isReadObj = nil;	
 	if tooltipobj ~= nil then
 		itemObj = tooltipobj;
@@ -25,7 +31,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 	else
 		itemObj, isReadObj = GET_TOOLTIP_ITEM_OBJECT(strarg, numarg2, numarg1);
 	end
-    
+
 	if itemObj == nil then
 		return;
 	end
@@ -35,12 +41,9 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
         return;
 	end
 	
-	-- 모조품은 가상의 아이템 정보를 만들어서 보여주기 때문에 GUID가 없어서 strarg를 통해 정보 보내줌(forgery#ModifiedPropertyString)
 	local isForgeryItem = false;	
-	if string.find(strarg, 'forgery') ~= nil and itemObj ~= nil then
-		isForgeryItem = true;
-		local strList = StringSplit(strarg, '#');
-		SetModifiedPropertiesString(itemObj, strList[2]);
+	if strarg == 'forgery' then
+	 	isForgeryItem = true;
 	elseif string.find(strarg, 'pcbang_rental') ~= nil and itemObj ~= nil then
 		local strList = StringSplit(strarg, '#');
 		itemObj.Reinforce_2 = strList[2]
@@ -89,7 +92,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 
 	local recipeclass = recipeitemobj;
 
-	-- 콜렉션에서 툴팁을 띄울때는 제작서는 제작서만 보여준다. 
+	-- 컬렉션에서 툴팁을 띄울때는 제작서는 제작서만 보여준다. 
 	if recipeclass ~= nil and strarg ~= 'collection' then
 		local ToolTipScp = _G[ 'ITEM_TOOLTIP_' .. recipeclass.ToolTipScp];
 		ToolTipScp(tooltipframe, recipeclass, strarg, "usesubframe_recipe");
@@ -115,7 +118,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 	-- 비교툴팁
 	-- 툴팁 비교는 무기와 장비에만 해당된다. (미감정 제외)
 
-	if drawCompare == true and ( (itemObj.ToolTipScp == 'WEAPON' or itemObj.ToolTipScp == 'ARMOR') and  (strarg == 'inven' or strarg =='sell' or isForgeryItem == true) and (string.find(itemObj.GroupName, "Pet") == nil)) then
+	if drawCompare == true and ( (itemObj.ToolTipScp == 'WEAPON' or itemObj.ToolTipScp == 'ARMOR') and  (strarg == 'inven' or strarg =='sell' or strarg == 'guildwarehouse' or isForgeryItem == true) and (string.find(itemObj.GroupName, "Pet") == nil)) then
 
 		local CompItemToolTipScp = _G[ 'ITEM_TOOLTIP_' .. itemObj.ToolTipScp];
 		local ChangeValueToolTipScp = _G[ 'ITEM_TOOLTIP_' .. itemObj.ToolTipScp..'_CHANGEVALUE'];
@@ -197,16 +200,13 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 		if class ~= nil then
 			local ToolTipScp = _G[ 'ITEM_TOOLTIP_' .. class.ToolTipScp];
 			ToolTipScp(tooltipframe, class, strarg, "mainframe", isForgeryItem);
-		end
-
-		
+		end		
 	else
 		local ToolTipScp = _G[ 'ITEM_TOOLTIP_' .. itemObj.ToolTipScp];
 		if nil == noTradeCnt then
 			noTradeCnt = 0
 		end
 		ToolTipScp(tooltipframe, itemObj, strarg, "mainframe",noTradeCnt);
-
 	end
 	
 
@@ -272,16 +272,15 @@ function ITEMTOOLTIPFRAME_ARRANGE_CHILDS(tooltipframe, showAppraisalPic)
 end
 
 function INIT_ITEMTOOLTIPFRAME_CHILDS(tooltipframe)
-
 	local childCnt = tooltipframe:GetChildCount();
 	for i = 0 , childCnt - 1 do
 		local chld = tooltipframe:GetChildByIndex(i);
 
 		chld:RemoveAllChild()
-		chld:SetOffset(chld:GetOriginalX(),chld:GetOriginalY());
+		chld:SetOffset(chld:GetOriginalX(), chld:GetOriginalY());
 
 		if chld:GetName() ~= 'closebtn' then
-			chld:Resize(chld:GetOriginalWidth(),0);
+			chld:Resize(chld:GetOriginalWidth(), 0);
 		end
 	end
 end
@@ -321,12 +320,15 @@ function ITEMTOOLTIPFRAME_RESIZE(tooltipframe)
 
 	local childCnt = tooltipframe:GetChildCount();
 	for i = 0 , childCnt - 1 do
-		local chld = tooltipframe:GetChildByIndex(i);
-		    chld:SetOffset(chld:GetX() - min_x, chld:GetY() - min_y)
+		local chld = tooltipframe:GetChildByIndex(i);		
+		chld:SetOffset(chld:GetX() - min_x, chld:GetY() - min_y);
+		
+		if chld:GetName() == 'closebtn' then
+			chld:SetOffset(chld:GetX(), chld:GetOriginalY() + 5);
+		end
 	end
 
 	tooltipframe:Resize(max_x-min_x, max_y-min_y);
-
 end
 
 --상점에서 가격 표시
@@ -519,15 +521,14 @@ function CLOSE_ITEM_TOOLTIP()
 
 end
 
-function SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, className, strType, ItemType, index)
-	
-	if className == 'Scroll_SkillItem' then
+function SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, className, strType, itemType, index)
+	if IS_SKILL_SCROLL_ITEM_BYNAME(className) == true then
 		local obj = GetIES(invitem:GetObject());
 		SET_TOOLTIP_SKILLSCROLL(icon, obj, nil, strType);
 	else
 		icon:SetTooltipType('wholeitem');
-		if nil ~= strType and nil ~= ItemType and nil ~= index then
-			icon:SetTooltipArg(strType, ItemType, index);
+		if nil ~= strType and nil ~= itemType and nil ~= index then			
+			icon:SetTooltipArg(strType, itemType, index);
 		end
 	end
 end
@@ -564,16 +565,13 @@ function SET_TOOLTIP_SKILLSCROLL(icon, obj, itemCls, strType)
 	return 1;
 end
 
--- 마켓??에??묘사??서 ??킬????오??록
 function SET_ITEM_DESC(value, desc, item)
 	if desc == "None" then
 		desc = "";
 	end
 
 	local obj = GetIES(item:GetObject());
-
-	if nil ~= obj and
-	   obj.ClassName == 'Scroll_SkillItem' then		
+	if IS_SKILL_SCROLL_ITEM(obj) == 1 then		
 		local sklCls = GetClassByType("Skill", obj.SkillType)
 		value:SetTextByKey("value", obj.SkillLevel .. " Level/ "..  sklCls.Name);
 	else
@@ -655,8 +653,7 @@ end
 
 function DRAW_EXTRACT_OPTION_COMMON_TOOLTIP(tooltipframe, invitem, targetItem, mainframename)
 	local gBox = GET_CHILD(tooltipframe, mainframename);
-	gBox:RemoveAllChild();
-	
+	gBox:RemoveAllChild();	
 	local ctrlset = gBox:CreateControlSet('tooltip_extract_option', 'EXTRACT_OPTION_CTRLSET', 0, 0);
 	local nameText = GET_CHILD(ctrlset, 'nameText');
 	local nameStr = GET_EXTRACT_ITEM_NAME(invitem);

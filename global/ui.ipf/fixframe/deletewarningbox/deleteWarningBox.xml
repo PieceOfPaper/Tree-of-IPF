@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="deleteWarningBox" x="0" y="0" width="400" height="140">
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 60"/>
-	<draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawframe="false" drawtitlebar="false"/>
 	<layer layerlevel="100"/>
 	<input moveable="false"/>
 	<script CloseScp="CANCEL_DELETE_WARNING_BOX"/>

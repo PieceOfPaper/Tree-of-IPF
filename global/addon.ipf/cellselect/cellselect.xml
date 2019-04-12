@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="cellselect" x="-28" y="-18" width="551" height="100" create="open">
-    <frame title="{@st43}게임설정{/}" titlepos="0 -12" layout_gravity="center center" snapclient="true" snapframe="true" margin="-339 -221 0 0"/>
+    <frame title="{@st43}게임설정{/}" titlepos="0 -12" layout_gravity="center center" margin="-339 -221 0 0"/>
     <draw drawframe="false" drawtitlebar="false"/>
     <layer layerlevel="100"/>
     <input moveable="true"/>
-    <option closebuttonpos="5 20" closebutton="false" hideable="false" useimageitem="true"/>
+    <option hideable="false" useimageitem="true"/>
     <sound opensound="win_open" closesound="win_close"/>
     <controls>
         <gauge name="timeGauge" rect="0 0 453 31" margin="55 47 0 0" layout_gravity="left top" inverse="false" point="0" skin="gauge_hp"/>

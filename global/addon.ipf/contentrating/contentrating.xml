@@ -3,7 +3,7 @@
 <uiframe name="contentrating" x="0" y="0" width="1920" height="1080" create="open">
 	<frame stretch="true" fullwidth="true" fullheight="true" fasthide="true" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true"/>
 	<skin frameskin="property_screenbg"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="100"/>
 	<controls>
 		<picture name="screenmask" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="left top" hittest="false" image="fullgray" stretch="true"/>

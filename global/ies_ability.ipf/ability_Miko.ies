@@ -1,4 +1,5 @@
 ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time4,Price5,Time5,Price6,Time6,Price7,Time7,Price8,Time8,Price9,Time9,Price10,Time10,ClassName,UnlockScr,UnlockArgStr,UnlockDesc,ScrCalcPrice
-1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Omamori","UNLOCK_ABIL_CIRCLE","Char4_18","무녀 1서클 필요","ABIL_6RANK_NORMAL_PRICE"
-101,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Miko1","UNLOCK_ABIL_CIRCLE","Char4_18","무녀 1서클 필요","ABIL_6RANK_PRICE"
-301,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Miko3","UNLOCK_ABIL_CIRCLE","Char4_18","무녀 1서클 필요","ABIL_6RANK_PRICE"
+1,300,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Omamori","UNLOCK_BASE_LEVEL","","캐릭터 300레벨 이상","ABIL_COMMON_PRICE_300LV"
+101,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Miko1","UNLOCK_ABIL_SKILL","Miko_Gohei","고헤이 1레벨 이상","ABIL_REINFORCE_PRICE"
+201,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Miko3","UNLOCK_ABIL_SKILL","Miko_Hamaya","하마야 1레벨 이상","ABIL_REINFORCE_PRICE"
+501,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Miko7","UNLOCK_ABIL_SKILL","Miko_Omikuji","오미쿠지 1레벨 이상","ABIL_REINFORCE_PRICE"

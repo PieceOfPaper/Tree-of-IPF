@@ -294,7 +294,7 @@
 	<Code Code="ERROR_REDIS" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Redis 서버 관련 에러가 발생하였습니다. 에러 메시지를 확인하세요."/>
 	<Code Code="ERROR_SP_EXCUTE_ERROR" Team="PROGRAM" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="SP실행에 실패하였습니다. sp 내용과 에러코드를 확인하세요."/>
 	<Code Code="ERROR_MASTER_IES_SAVE_TIME" Team="PROGRAM" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="sp_ies_master_set 수행에 오랜시간이 걸려 취소되었습니다."/>
-	<Code Code="ERROR_NEED_ADD_LOG_COLLECTINO" Team="DB" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="sp_server_logging_list 에 해당 콜렉션이 등록되어있지 않습니다. DB팀이나 운영팀에 문의하세요."/>
+	<Code Code="ERROR_NEED_ADD_LOG_COLLECTINO" Team="DB" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="sp_server_logging_list 에 해당 컬렉션이 등록되어있지 않습니다. DB팀이나 운영팀에 문의하세요."/>
 	<Code Code="WARNING_COULDNT_LOAD_CLIENT_HASH" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DB에서 클라이언트 파일 해시코드 값을 로드하지 못했습니다. 개발서버가 아니라면 반드시 로드되어야 합니다."/>
 	<Code Code="ERROR_CMD_DISPATHCING" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 커멘더가 이미 처리중에 있는데 새로운 생성을 시도하려합니다."/>
 	<Code Code="ERROR_NEXON_SN_NOT_MATCH" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="넥슨 세션 서버 초기화에 실패하였습니다. 넥슨에서 전달받은 SN과 월드테이블의 SN값이 서로 다릅니다."/>
@@ -553,6 +553,7 @@
 	<Code Code="ERROR_MONGO" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="몽고 관련 에러"/>
 	<Code Code="FATAL_SQL_NULL_DATA" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="NO" CallStack="NO" Desc="null 데이타가 Bind되었습니다. 해당 select 루프에서 초기화가 필수입니다. 또는 DB의 null 데이타를 없애주세요."/>
 	<Code Code="INFO_COLONY" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="콜로니전 정보 로그"/>
+  <Code Code="INFO_RVR" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="RVR 정보 로그"/>
 	<Code Code="ERROR_PCBANG_BENEFIT" Team="tos_team" Category="SYSTEM" SubCategory="PCBANG" Logger="root" Enabled="YES" CallStack="NO" Desc="PC방 혜택 에러"/>
 	<Code Code="INFO_PCBANG_BENEFIT" Team="tos_team" Category="SYSTEM" SubCategory="PCBANG" Logger="root" Enabled="YES" CallStack="NO" Desc="PC방 혜택 정보"/>
 	<Code Code="ERROR_PCBANG_POINTSHOP" Team="tos_team" Category="SYSTEM" SubCategory="PCBANG" Logger="root" Enabled="YES" CallStack="NO" Desc="PC방 포인트샵 에러"/>
@@ -574,8 +575,15 @@
 	<Code Code="INFO_COLONY_FEE" Team="PROGRAM" Category="LOGIC" SubCategory="COLONY" Logger="root" Enabled="YES" CallStack="NO" Desc=""/>
 	<Code Code="FATAL_GET_MARKET_WEB_URL" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Market Web Server URL 획득에 실패하였습니다. server_info 확인 필요."/>
 	<Code Code="ERROR_MARKET_WEB" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="마켓 웹서버 에러 로그"/>
-    <Code Code="ERROR_INDUN_MULTIPLE" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc=""/>
-
+	<Code Code="ERROR_GUILD_BUILDING" Team="tos_team" Category="LOGIC" SubCategory="COLONY" Logger="root" Enabled="YES" CallStack="NO" Desc="콜로니전 설치물 에러"/>
+	<Code Code="INFO_GUILD_BUILDING" Team="tos_team" Category="LOGIC" SubCategory="COLONY" Logger="root" Enabled="YES" CallStack="NO" Desc="콜로니전 설치물 정보"/>
+    <Code Code="FATAL_DUPLICATE_USERPROP_NAME" Team="PROGRAM" Category="ERROR" SubCategory="USER_PROP" Logger="root" Enabled="YES" CallStack="NO" Desc="동일한 UserProp 이름으로 다른 타입을 설정하려 했습니다."/>
+	<Code Code="ERROR_INDUN_MULTIPLE" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc=""/>
+	<Code Code="ERROR_GUILD_JOINT_INV" Team="PROGRAM" Category="LOGIC" SubCategory="GuildJointInv" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 공용 창고 에러"/>
+	<Code Code="ERROR_GUILD_MILEAGE" Team="PROGRAM" Category="LOGIC" SubCategory="GuildMileage" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 마일리지 에러"/>
+	<Code Code="INFO_GUILD_MILEAGE" Team="PROGRAM" Category="LOGIC" SubCategory="GuildMileage" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 마일리지 정보"/>
+	<Code Code="ERROR_COLONY_TAX" Team="PROGRAM" Category="LOGIC" SubCategory="ColonyTax" Logger="root" Enabled="YES" CallStack="NO" Desc="콜로니 세금 에러"/>
+	<Code Code="INFO_COLONY_TAX" Team="PROGRAM" Category="LOGIC" SubCategory="ColonyTax" Logger="root" Enabled="YES" CallStack="NO" Desc="콜로니 세금 정보"/>
 	<Code Code="EMOTIONFX_FATAL" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="EMotionFX Fatal Log"/>
 	<Code Code="EMOTIONFX_ERROR" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="EMotionFX Error Log"/>
 	<Code Code="EMOTIONFX_WARNING" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="EMotionFX Warning Log"/>
@@ -583,4 +591,6 @@
 	<Code Code="EMOTIONFX_DETAILEDINFO" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="EMotionFX DetailedInfo Log"/>
 	<Code Code="EMOTIONFX_DEBUG" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="EMotionFX Debug Log"/>
 	<Code Code="EMOTIONFX_CUSTOM" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="EMotionFX Custom Log"/>
+	<Code Code="FATAL_FAIL_INIT_RVR" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="RvRWorldManager init fail."/>
+	<Code Code="info_error_code8" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Error code 8 추적 로그."/>
 </imcErrorCode> 

@@ -3,7 +3,7 @@
 <uiframe name="briquetting" x="0" y="0" width="450" height="1200" create="open">
 	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="0 0 -480 0" open="pip"/>
 	<skin frameskin=" "/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="80"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<effect open="skilltreeOpen" close="skilltreeClose"/>
@@ -34,7 +34,7 @@
 		<groupbox name="reqItemBox" parent="bg_mid" rect="0 0 430 120" margin="0 320 0 0" layout_gravity="left top" draw="false"/>
 		<checkbox name="prCheck" parent="reqItemBox" rect="0 0 300 30" margin="20 0 0 0" layout_gravity="left top" caption="{@st42}포텐셜 소실 방지" LBtnUpScp="BRIQUETTING_CLICK_PR_CHECK"/>
 		<labelline name="repairLine1_1" parent="reqItemBox" rect="0 0 420 2" margin="0 35 0 0" layout_gravity="center top" skin="None"/>
-		<richtext name="priceStaticText" parent="reqItemBox" rect="0 0 100 30" margin="20 0 0 50" layout_gravity="left bottom" caption="{img silver 20 20}가격" fontname="white_16_ol"/>
+		<richtext name="priceStaticText" parent="reqItemBox" rect="0 0 100 30" margin="20 0 0 50" layout_gravity="left bottom" format="{img silver 20 20}가격 %s" param1="tax_rate" fontname="white_16_ol"/>
 		<richtext name="priceText" parent="reqItemBox" rect="0 0 200 30" margin="396 0 20 50" layout_gravity="right bottom" format="%s%s" param1="style" param1_def="{@st66d_y}" param2="price" param2_def="0"/>
 		<richtext name="infoText" parent="reqItemBox" rect="0 0 200 30" margin="20 0 0 0" layout_gravity="left bottom" caption="포텐셜 소실 방지 체크 해제시 포텐셜이 감소합니다.{nl} 실버는 소모되지 않습니다." fontname="black_16"/>
 		<!-- look material item slotset -->

@@ -81,12 +81,11 @@ function ON_FISHING_ITEM_LIST(frame, msg, argStr, argNum) -- argStr: owner aid, 
     if isMyFishingItemBag == false then
         itemList = session.GetOtherPCFishingItemBag();
     end    
-    local index = itemList:Head();
-    local slotIndex = 0;
-    while itemList:InvalidIndex() ~= index do
-        local invItem = itemList:Element(index);
-        local itemCls = GetIES(invItem:GetObject());
+
+    FOR_EACH_INVENTORY(itemList, function(invItemList, invItem, itemSlotset)
+		local itemCls = GetIES(invItem:GetObject());
         local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
+        local slotIndex = imcSlot:GetEmptySlotIndex(itemSlotset);
         local slot = itemSlotset:GetSlotByIndex(slotIndex);
         if slot == nil then
             slot = GET_EMPTY_SLOT(itemSlotset);
@@ -101,12 +100,9 @@ function ON_FISHING_ITEM_LIST(frame, msg, argStr, argNum) -- argStr: owner aid, 
 
         local icon = slot:GetIcon();
         icon:SetTooltipArg("accountwarehouse", invItem.type, invItem:GetIESID());
-        SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, "accountwarehouse");  
+        SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, "accountwarehouse");
         slot:ShowWindow(1);
-
-        slotIndex = slotIndex + 1;
-        index = itemList:Next(index);
-    end
+    end, false, itemSlotset);
 
     local slotCountText = frame:GetChild('slotCountText');
     local maxSlotCount = tonumber(slotCountText:GetTextByKey('max'));
@@ -114,6 +110,7 @@ function ON_FISHING_ITEM_LIST(frame, msg, argStr, argNum) -- argStr: owner aid, 
         maxSlotCount = argNum;
         slotCountText:SetTextByKey('max', maxSlotCount);
     end
+    local slotIndex = imcSlot:GetFilledSlotCount(itemSlotset);
     slotCountText:SetTextByKey('current', slotIndex);
 
     -- other pc ui
@@ -225,5 +222,11 @@ function FISHING_ITEM_BAG_TOGGLE()
 end
 
 function FISHING_ITEM_BAG_UPGRADE(parent, ctrl)
+    local account = session.barrack.GetMyAccount();
+    local currentMaxSlotCount = account:GetMaxFishingItemBagSlotCount(0);
+    if currentMaxSlotCount + FISHING_SLOT_EXPAND_UNIT > MAX_FISHING_ITEM_BAG_SLOT_COUNT then
+        ui.SysMsg(ClMsg('ExceedMaxFishingItemBagSlotCount'));
+        return;
+    end
     ui.OpenFrame('fishing_bag_upgrade');
 end

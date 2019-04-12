@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="beautyshop" x="0" y="0" width="1230" height="1000" create="open">
-	<frame titlepos="0 0" margin="0 0 0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top"/>
+	<frame titlepos="0 0" margin="0 0 0 0" layout_gravity="center center" scale_align="center top"/>
 	<draw drawframe="false" drawtitlebar="false"/>
 	<layer layerlevel="100"/>
 	<input moveable="true"/>
@@ -21,7 +21,7 @@
 		<button name="btnClose" parent="gbTitle" rect="0 0 44 44" margin="0 20 80 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;beautyshop&apos;)" clicksound="button_click_big" image="testclose_button" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
 		<!-- left : item list -->
 		<droplist name="cateDrop" rect="0 0 178 20" margin="15 80 0 0" layout_gravity="left top" SelectScp="BEAUTYSHOP_SELECT_DROPLIST" frametextalign="left" listclicksound="button_click" listoversound="button_cursor_over_2" skin="droplist_normal" textalign="left center" textoffset="10 0" visibleline="8"/>
-		<checkbox name="showOnlyEnableEquipCheck" parent="publicgbox" rect="0 0 178 20" margin="210 75 0 0" layout_gravity="left top" LBtnDownScp="BEAUTYSHOP_CLICK_CHECKBOX" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="착용 가능한 물품만 보기" clicksound="button_click_big" fontname="black_16_b" oversound="button_over" visible="false"/>
+		<checkbox name="showOnlyEnableEquipCheck" rect="0 0 178 20" margin="210 75 0 0" layout_gravity="left top" LBtnDownScp="BEAUTYSHOP_CLICK_CHECKBOX" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="착용 가능한 물품만 보기" clicksound="button_click_big" fontname="black_16_b" oversound="button_over" visible="false"/>
 		<groupbox name="gbItemList" parent="gbLeft" rect="0 0 595 820" margin="3 10 0 0" layout_gravity="left top" skin="test_frame_midle" draw="true" hittestbox="false" resizebyparent="true" scrollbar="true"/>
 		<!-- left : Search -->
 		<groupbox name="gbSearchItem" parent="gbLeft" rect="0 0 595 55" margin="3 0 0 5" layout_gravity="left bottom" skin="test_frame_low" draw="false" hittestbox="false" resizebyparent="true" scrollbar="false"/>
@@ -45,16 +45,17 @@
 		<groupbox name="gbPreview" parent="gbRight" rect="0 0 605 420" margin="-1 275 0 0" layout_gravity="center top" skin="test_frame_midle" draw="true" hittestbox="false" resizebyparent="true" scrollbar="false"/>
 		<picture name="picSilhouette" parent="gbPreview" rect="0 0 300 500" margin="0 50 0 0" layout_gravity="center center" hittest="true" scrollbar="false" scale_align="center center" oversound="button_cursor_over_3" stretch="true"/>
 		<!-- preview left slot -->
-		<slot name="slotPreview_hair" parent="gbPreview" rect="0 0 56 56" margin="5 35 0 0" layout_gravity="left top" hittest="true" skin="market_hair" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어{/}"/>
-		<slot name="slotPreview_wig" parent="gbPreview" rect="0 0 56 56" margin="5 93 0 0" layout_gravity="left top" hittest="true" skin="wig_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}가발{/}"/>
-		<slot name="slotPreview_wig_dye" parent="gbPreview" rect="0 0 56 56" margin="5 151 0 0" layout_gravity="left top" hittest="true" skin="market_wigcolor" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}가발 염색약{/}"/>
-		<slot name="slotPreview_hair_costume_1" parent="gbPreview" rect="0 0 56 56" margin="5 209 0 0" layout_gravity="left top" hittest="true" skin="market_hairacc_1" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어 코스튬1{/}"/>
-		<slot name="slotPreview_hair_costume_2" parent="gbPreview" rect="0 0 56 56" margin="5 267 0 0" layout_gravity="left top" hittest="true" skin="market_hairacc_2" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어 코스튬2{/}"/>
-		<slot name="slotPreview_hair_costume_3" parent="gbPreview" rect="0 0 56 56" margin="5 325 0 0" layout_gravity="left top" hittest="true" skin="market_hairacc_3" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어 코스튬3{/}"/>
+		<slot name="slotPreview_hair" parent="gbPreview" rect="0 0 56 56" margin="5 6 0 0" layout_gravity="left top" hittest="true" skin="market_hair" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어{/}"/>
+		<slot name="slotPreview_wig" parent="gbPreview" rect="0 0 56 56" margin="5 64 0 0" layout_gravity="left top" hittest="true" skin="wig_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}가발{/}"/>
+		<slot name="slotPreview_wig_dye" parent="gbPreview" rect="0 0 56 56" margin="5 122 0 0" layout_gravity="left top" hittest="true" skin="market_wigcolor" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}가발 염색약{/}"/>
+		<slot name="slotPreview_lens" parent="gbPreview" rect="0 0 56 56" margin="5 180 0 0" layout_gravity="left top" hittest="true" skin="lens_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}렌즈{/}"/>
+		<slot name="slotPreview_hair_costume_1" parent="gbPreview" rect="0 0 56 56" margin="5 238 0 0" layout_gravity="left top" hittest="true" skin="market_hairacc_1" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어 코스튬1{/}"/>
+		<slot name="slotPreview_hair_costume_2" parent="gbPreview" rect="0 0 56 56" margin="5 296 0 0" layout_gravity="left top" hittest="true" skin="market_hairacc_2" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어 코스튬2{/}"/>
+		<slot name="slotPreview_hair_costume_3" parent="gbPreview" rect="0 0 56 56" margin="5 354 0 0" layout_gravity="left top" hittest="true" skin="market_hairacc_3" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어 코스튬3{/}"/>
 		<!-- hide/unhide prefix visible_ -->
 		<picture name="visible_slotPreview_wig" parent="slotPreview_wig" rect="0 0 20 20" margin="0 0  0 0" layout_gravity="left top" hittest="true" image="inven_hat_layer_on" oversound="button_cursor_over_3" stretch="true" texttooltip="{@st59}보이기/안보이기{/}" LBtnUpScp="BEAUTYSHOP_SET_VISIBLE_STATE"/>
 		<!-- preview right slot -->
-		<slot name="slotPreview_lens" parent="gbPreview" rect="0 0 56 56" margin="5 6 5 0" layout_gravity="right top" hittest="true" skin="lens_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}렌즈{/}"/>
+		<slot name="slotPreview_doll" parent="gbPreview" rect="0 0 56 56" margin="5 6 5 0" layout_gravity="right top" hittest="true" skin="doll_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}인형{/}"/>
 		<slot name="slotPreview_costume" parent="gbPreview" rect="0 0 56 56" margin="5 64 5 0" layout_gravity="right top" hittest="true" skin="market_costume" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}코스튬{/}"/>
 		<slot name="slotPreview_wing" parent="gbPreview" rect="0 0 56 56" margin="5 122 5 0" layout_gravity="right top" hittest="true" skin="wing_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}등 코스튬{/}"/>
 		<slot name="slotPreview_effect_costume" parent="gbPreview" rect="0 0 56 56" margin="5 180 5 0" layout_gravity="right top" hittest="true" skin="effect_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}이펙트 코스튬{/}"/>
@@ -76,7 +77,7 @@
 		<groupbox name="gbBasketTPInfo" parent="gbBasket" rect="0 0 420 150" margin="3 65 0 0" layout_gravity="left top" skin="test_frame_low" draw="false" hittestbox="false" resizebyparent="true" scrollbar="false"/>
 		<button name="btnBoxHaveStaticTP" parent="gbBasketTPInfo" rect="0 0 413 46" margin="5 6 0 0" layout_gravity="left top" skin="test_weight_skin" hittestbox="false" draw="true" hittest="false" caption="   보유중인 TP{/}" textalign="left center" fontname="black_16_b"/>
 		<button name="btnBoxRemainStaticTP" parent="gbBasketTPInfo" rect="0 0 413 46" margin="5 95 0 0" layout_gravity="left top" skin="test_weight_skin" hittestbox="false" draw="true" hittest="false" caption="   잔여 TP{/}" textalign="left center" fontname="black_16_b"/>
-		<richtext name="rtBasketStaticTP" parent="gbBasketTPInfo" rect="0 0 215 50" margin="16 65 0 0" layout_gravity="leff top" caption="장바구니 TP" fontname="black_16_b" resizebytext="true" textalign="left center"/>
+		<richtext name="rtBasketStaticTP" parent="gbBasketTPInfo" rect="0 0 215 50" margin="16 65 0 0" layout_gravity="left top" caption="장바구니 TP" fontname="black_16_b" resizebytext="true" textalign="left center"/>
 		<richtext name="rtHaveTP" parent="btnBoxHaveStaticTP" rect="0 0 215 50" margin="0 0 13 0" layout_gravity="right center" caption="0" fontname="black_16_b" resizebytext="true" textalign="right center"/>
 		<richtext name="rtBasketTP" parent="gbBasketTPInfo" rect="0 0 215 50" margin="5 65 15 0" layout_gravity="right top" caption="0" fontname="black_16_b" resizebytext="true" textalign="right center"/>
 		<richtext name="rtRemainTP" parent="btnBoxRemainStaticTP" rect="0 0 215 50" margin="0 0 13 0" layout_gravity="right center" caption="0" fontname="black_16_b" resizebytext="true" textalign="right center"/>

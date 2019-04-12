@@ -15,8 +15,8 @@ local collectionView = {
 };
 
 local collectionSortTypes = {
-	default = 0,			-- 기본값: 기본 콜렉션 순서
-	name = 1,				-- 이름순: 콜렉션의 이름순서
+	default = 0,			-- 기본값: 기본 컬렉션 순서
+	name = 1,				-- 이름순: 컬렉션의 이름순서
 	status = 2				-- 상태  : 기본(0), 새로등록(1), 완성(2), 수집가능(3) << 수치가 높을수록 아래로감 >>
 };
 
@@ -63,7 +63,7 @@ function COLLECTION_ON_RELOAD(frame)
 	COLLECTION_FIRST_OPEN(frame);
 end
 
--- 콜렉션이 최초 열렸을때 드롭다운 리스트를 만든다.
+-- 컬렉션이 최초 열렸을때 드롭다운 리스트를 만든다.
 function COLLECTION_FIRST_OPEN(frame)
 	local showAlignTypeList = GET_CHILD_RECURSIVELY(frame,"alignTypeList");
 	showAlignTypeList:ClearItems();
@@ -91,7 +91,7 @@ function ON_COLLECTION_ITEM_CHANGE(frame, msg, str, type, removeType)
 	UPDATE_COLLECTION_LIST(frame, str, removeType);
 end
 
--- 콜렉션 정렬 드롭다운리스트 갱신
+-- 컬렉션 정렬 드롭다운리스트 갱신
 function COLLECTION_TYPE_CHANGE(frame, ctrl)
 	
 	local alignoption = tolua.cast(ctrl, "ui::CDropList");
@@ -116,7 +116,7 @@ function SET_COLLECTION_PIC(frame, slotSet, itemCls, coll, type,drawitemset)
 	icon:SetTooltipOverlap(0);
 
 	-- # 기본 아이템 툴팁을 넣음. 아래는 이전부터 있던 주석.
-	-- 세션 콜렉션에 오브젝트 정보가 존재하고 이를 바탕으로 하면 item오브젝트의 옵션을 살린 툴팁도 생성 가능하다. 가령 박아넣은 젬의 경험치라던가.
+	-- 세션 컬렉션에 오브젝트 정보가 존재하고 이를 바탕으로 하면 item오브젝트의 옵션을 살린 툴팁도 생성 가능하다. 가령 박아넣은 젬의 경험치라던가.
 	-- 허나 지금 슬롯 지정하여 꺼내는 기능이 없기 때문에 무의미. 정확한 툴팁을 넣으려면 COLLECTION_TAKE를 type이 아니라 guid 기반으로 바꿔야함
 	SET_ITEM_TOOLTIP_ALL_TYPE(icon, nil, itemCls.ClassName, 'collection', type, itemCls.ClassID);
 	
@@ -134,11 +134,11 @@ function SET_COLLECTION_PIC(frame, slotSet, itemCls, coll, type,drawitemset)
 		showedcount = drawitemset[itemCls.ClassID]
 	end
 
-	-- 콜렉션을 등록했을 경우
+	-- 컬렉션을 등록했을 경우
 	if coll ~= nil then
 		local collecount = coll:GetItemCountByType(itemCls.ClassID);
 
-		-- 1. 내가 이미 모은 것들(콜렉션을 등록했을 때만)
+		-- 1. 내가 이미 모은 것들(컬렉션을 등록했을 때만)
 		if collecount > showedcount then
 			if drawitemset[itemCls.ClassID] == nil then
 				drawitemset[itemCls.ClassID] = 1
@@ -208,7 +208,7 @@ end
 
 function GET_COLLECT_ABLE_ITEM_COUNT(coll, type)
 
--- 미확인콜렉션도 체크해야되니까 coll==nil일때도 처리.
+-- 미확인컬렉션도 체크해야되니까 coll==nil일때도 처리.
 --	if coll == nil then
 --	 return 0;
 --	end
@@ -235,7 +235,7 @@ function GET_COLLECT_ABLE_ITEM_COUNT(coll, type)
 
 		local collecount = 0; -- coll이 nil일때의 기본값.
 		if coll ~= nil then
-			collecount = coll:GetItemCountByType(itemCls.ClassID);    -- 해당 아이템이 해당콜렉션에서 몇개가 들어있는지
+			collecount = coll:GetItemCountByType(itemCls.ClassID);    -- 해당 아이템이 해당컬렉션에서 몇개가 들어있는지
 		end
 		local invcount = session.GetInvItemCountByType(itemCls.ClassID); -- 해당 아이템을 인벤에 몇개나 들고 있는지.
 		
@@ -246,7 +246,7 @@ function GET_COLLECT_ABLE_ITEM_COUNT(coll, type)
 			itemList[itemCls.ClassID] = 1;
 		end
 
-		-- 모아진 콜렉션 아이템 개수보다 필요한 개수가 많을때
+		-- 모아진 컬렉션 아이템 개수보다 필요한 개수가 많을때
 		if itemList[itemCls.ClassID] > collecount then
 			-- 해당 아이템 클래스에 카운터가 nil이면 0으로 초기화
 		    if itemCount[itemCls.ClassID] == nil then
@@ -272,10 +272,10 @@ function SET_COLLECTION_SET(frame, ctrlSet, type, coll, posY)
 	local cls = GetClassByType("Collection", type);
 
 	local isUnknown = coll == nil;
-	-- 콜렉션의 기본 스킨을 설정한다.
-	if isUnknown == false then -- 미확인된 콜렉션이 아닐때
+	-- 컬렉션의 기본 스킨을 설정한다.
+	if isUnknown == false then -- 미확인된 컬렉션이 아닐때
 		ctrlSet:SetSkinName(frame:GetUserConfig("ENABLE_SKIN"));
-	else -- 미확인된 콜렉션일 때
+	else -- 미확인된 컬렉션일 때
 		ctrlSet:SetSkinName(frame:GetUserConfig("DISABLE_SKIN"));
 	end
 
@@ -296,10 +296,10 @@ function SET_COLLECTION_SET(frame, ctrlSet, type, coll, posY)
 	local gbox_complete = GET_CHILD(ctrlSet, "gb_complete", "ui::CGroupBox");  -- 완료시 테두리용
 
 	
-	-- 콜렉션 이름을 설정한다.
+	-- 컬렉션 이름을 설정한다.
 	local collec_name = GET_CHILD(ctrlSet, "collec_name", "ui::CRichText");
 	local replaceName =  cls.Name;
-	replaceName = string.gsub(replaceName, ClMsg("CollectionReplace"), ""); -- "콜렉션:" 을 공백으로 치환한다.
+	replaceName = string.gsub(replaceName, ClMsg("CollectionReplace"), ""); -- "컬렉션:" 을 공백으로 치환한다.
 	-- 이름을 아래에서 설정. 완료/미확인/미완료시에 각각 텍스트가 틀림
 
 	---- 우선 전부 hide
@@ -315,7 +315,7 @@ function SET_COLLECTION_SET(frame, ctrlSet, type, coll, posY)
 	local collectionNameFont = nil;
 	local visibleAddNumFont = nil;
 	local visibleAddNum = false;
-	if isUnknown == false then -- 미확인된 콜렉션이 아닐때
+	if isUnknown == false then -- 미확인된 컬렉션이 아닐때
 		collectionNameFont = frame:GetUserConfig("ENABLE_DECK_TITLE_FONT");
 		if curCount >= maxCount then	-- 컴플리트
 			compicon_pic:ShowWindow(1);
@@ -349,7 +349,7 @@ function SET_COLLECTION_SET(frame, ctrlSet, type, coll, posY)
 		end
 	end
 
-	-- 콜렉션 이름 설정
+	-- 컬렉션 이름 설정
 	if collectionNameFont ~= nil then
 		collec_name:SetTextByKey("name", collectionNameFont .. replaceName .. "{/}");	
 	else 
@@ -458,7 +458,7 @@ function UPDATE_COLLECTION_LIST(frame, addType, removeType)
 		return ;
 	end
 	
-	-- 콜렉션 상태 Check
+	-- 컬렉션 상태 Check
 	chkComplete:SetCheck(BOOLEAN_TO_NUMBER(collectionViewOptions.showCompleteCollections));
 	chkUnknown:SetCheck(BOOLEAN_TO_NUMBER(collectionViewOptions.showUnknownCollections));
 	chkIncomplete:SetCheck(BOOLEAN_TO_NUMBER(collectionViewOptions.showIncompleteCollections));
@@ -467,12 +467,12 @@ function UPDATE_COLLECTION_LIST(frame, addType, removeType)
 	-- 그룹박스내의 DECK_로 시작하는 항목들을 제거
 	DESTROY_CHILD_BYNAME(col, 'DECK_');
 
-	-- 콜렉션 VIEW 카운터 초기화
+	-- 컬렉션 VIEW 카운터 초기화
 	collectionViewCount.showCompleteCollections = 0 ;
 	collectionViewCount.showUnknownCollections = 0 ;
 	collectionViewCount.showIncompleteCollections = 0;
 
-	-- 콜렉션 정보를 만듬
+	-- 컬렉션 정보를 만듬
 	local pc = session.GetMySession();
 	local collectionList = pc:GetCollection();
 	local collectionClassList, collectionClassCount= GetClassList("Collection");
@@ -480,7 +480,7 @@ function UPDATE_COLLECTION_LIST(frame, addType, removeType)
 	local etcObject = GetMyEtcObject();
 
 
-	-- 보여줄 콜렉션 리스트를 만듬
+	-- 보여줄 컬렉션 리스트를 만듬
 	local collectionCompleteMagicList ={}; -- 완료된 총 효과 리스트.
 	local collectionInfoList = {};
 	local collectionInfoIndex = 1;
@@ -499,10 +499,10 @@ function UPDATE_COLLECTION_LIST(frame, addType, removeType)
 		end
 	end
 	
-	-- 콜렉션 효과 목록을 날려줌.
+	-- 컬렉션 효과 목록을 날려줌.
 	SET_COLLECTION_MAIGC_LIST(frame, collectionCompleteMagicList, collectionViewCount.showCompleteCollections ) -- 활성화되어 있지 않다면 그냥반환.
 	
-	-- 콜렉션 상태 카운터 적용
+	-- 컬렉션 상태 카운터 적용
 	chkComplete:SetTextByKey("value", collectionViewCount.showCompleteCollections);
 	chkUnknown:SetTextByKey("value", collectionViewCount.showUnknownCollections);
 	chkIncomplete:SetTextByKey("value", collectionViewCount.showIncompleteCollections);
@@ -514,7 +514,7 @@ function UPDATE_COLLECTION_LIST(frame, addType, removeType)
 		table.sort(collectionInfoList, SORT_COLLECTION_BY_STATUS);
 	end
 	
-	-- 콜렉션 항목 입력
+	-- 컬렉션 항목 입력
 	local posY = 0;
 	for index , v in pairs(collectionInfoList) do
 		local ctrlSet = col:CreateOrGetControlSet('collection_deck', "DECK_" .. index, 0, posY );
@@ -528,7 +528,7 @@ function UPDATE_COLLECTION_LIST(frame, addType, removeType)
 	end
 end
 
--- 콜렉션 view를 카운트하고 필터도 검사한다.
+-- 컬렉션 view를 카운트하고 필터도 검사한다.
 function CHECK_COLLECTION_INFO_FILTER(collectionInfo,  searchText,  collectionClass, collection)
 
 	-- view counter
@@ -568,11 +568,11 @@ function CHECK_COLLECTION_INFO_FILTER(collectionInfo,  searchText,  collectionCl
 		return true;
 	end
 
-	-- 콜렉션 이름을 가져온다
+	-- 컬렉션 이름을 가져온다
 	local collectionName = collectionInfo.name;
 	collectionName = dic.getTranslatedStr(collectionName)
 	collectionName = string.lower(collectionName); -- 소문자로 변경
-	-- 콜렉션 효과에서도 필터링한다.
+	-- 컬렉션 효과에서도 필터링한다.
 	local desc = GET_COLLECTION_MAGIC_DESC(collectionClass.ClassID);
 	desc = dic.getTranslatedStr(desc)
 	desc = string.lower(desc); -- 소문자로 변경
@@ -611,12 +611,12 @@ function OPEN_DECK_DETAIL(parent, ctrl)
 			local collectionList = pc:GetCollection();
 			local coll = collectionList:Get(cls.ClassID);
 
-			-- 콜렉션이 등록되어있을때만.
+			-- 컬렉션이 등록되어있을때만.
 			if coll ~= nil then 
 				-- 오픈된다면 확인하기위해 누른것임. 여기서 확인처리
 				etcObj = GetMyEtcObject();
 				local isread = TryGetProp(etcObj,"CollectionRead_" .. cls.ClassID);
-				if isread == nil or isread == 0 then -- 한번이라도 읽은 콜렉션은 new 표시 안생기도록.
+				if isread == nil or isread == 0 then -- 한번이라도 읽은 컬렉션은 new 표시 안생기도록.
 					local scpString = string.format("/readcollection %d", type);
 					ui.Chat(scpString);
 				end
@@ -974,7 +974,7 @@ function SORT_COLLECTION_BY_NAME(a,b)
 	return aName < bName;
 end
 
--- 콜렉션 정보를 리턴.
+-- 컬렉션 정보를 리턴.
 function GET_COLLECTION_INFO(collectionClass, collection, etcObject, collectionCompleteMagicList)
 	-- view 
 	local curCount, maxCount = GET_COLLECTION_COUNT(collectionClass.ClassID, collection);
@@ -1012,13 +1012,13 @@ function GET_COLLECTION_INFO(collectionClass, collection, etcObject, collectionC
 	
 	-- name
 	local collectionName =  cls.Name;
-	collectionName = string.gsub(collectionName, ClMsg("CollectionReplace"), ""); -- "콜렉션:" 을 공백으로 치환한다.
+	collectionName = string.gsub(collectionName, ClMsg("CollectionReplace"), ""); -- "컬렉션:" 을 공백으로 치환한다.
 	
 	
 	return { 
-			 name = collectionName,		-- "콜렉션:" 이 제거된 이름
-			 status = collStatus,		-- 콜렉션 상태
-			 view = collView,			-- 콜랙션 보여주기 상태
+			 name = collectionName,		-- "컬렉션:" 이 제거된 이름
+			 status = collStatus,		-- 컬렉션 상태
+			 view = collView,			-- 컬랙션 보여주기 상태
 			 addNum = addNumCnt			-- 추가 가능한 아이템 개수.
 			};
 end
@@ -1065,12 +1065,12 @@ function VIEW_COLLECTION_ALL_STATUS(parent, ctrl)
 	 return 
 	end
 	
-	-- 콜렉션 VIEW 카운터 초기화
+	-- 컬렉션 VIEW 카운터 초기화
 	collectionViewCount.showCompleteCollections = 0 ;
 	collectionViewCount.showUnknownCollections = 0 ;
 	collectionViewCount.showIncompleteCollections = 0;
 
-	-- 콜렉션 정보를 만듬
+	-- 컬렉션 정보를 만듬
 	local pc = session.GetMySession();
 	local collectionList = pc:GetCollection();
 	local collectionClassList, collectionClassCount= GetClassList("Collection");
@@ -1083,10 +1083,10 @@ function VIEW_COLLECTION_ALL_STATUS(parent, ctrl)
 		local collectionClass = GetClassByIndexFromList(collectionClassList, i);
 		local collection = collectionList:Get(collectionClass.ClassID);
 		local collectionInfo = GET_COLLECTION_INFO(collectionClass, collection,etcObject, collectionCompleteMagicList);
-		CHECK_COLLECTION_INFO_FILTER(collectionInfo, "", collectionClass,collection); -- 콜렉션 완료 개수를 카운트하기 위해 호출
+		CHECK_COLLECTION_INFO_FILTER(collectionInfo, "", collectionClass,collection); -- 컬렉션 완료 개수를 카운트하기 위해 호출
 	end
 	
-	-- 콜렉션 효과 목록을 날려줌.
+	-- 컬렉션 효과 목록을 날려줌.
 	SET_COLLECTION_MAIGC_LIST(frame, collectionCompleteMagicList, collectionViewCount.showCompleteCollections) -- 활성화되어 있지 않다면 그냥반환.
 
 	COLLECTION_MAGIC_OPEN(frame);

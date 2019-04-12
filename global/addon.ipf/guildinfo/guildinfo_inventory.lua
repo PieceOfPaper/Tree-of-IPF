@@ -38,10 +38,8 @@ function GUILDINFO_INVEN_UPDATE_INVENTORY(frame, msg, argStr, argNum)
     local slotset = GET_CHILD_RECURSIVELY(frame, 'itemSlotset');
     slotset:ClearIconAll();
 
-	local itemList = session.GetEtcItemList(IT_GUILD);
-	local index = itemList:Head();			
-	while itemList:InvalidIndex() ~= index do
-		local invItem = itemList:Element(index);
+    local itemList = session.GetEtcItemList(IT_GUILD);
+    FOR_EACH_INVENTORY(itemList, function(invItemList, invItem, slotset)
 		local slot = slotset:GetSlotByIndex(invItem.invIndex);
 		if slot == nil then
 			slot = GET_EMPTY_SLOT(slotset);
@@ -64,10 +62,8 @@ function GUILDINFO_INVEN_UPDATE_INVENTORY(frame, msg, argStr, argNum)
         slot:SetUserValue('ITEM_CLASS_NAME', itemCls.ClassName);        
         slot:SetUserValue('ITEM_COUNT', invItem.count);
         slot:SetUserValue('ITEM_ID', invItem:GetIESID());
-        slot:SetEventScript(ui.LBUTTONUP, 'GUILDINFO_INVEN_ITEM_CLICK');        
-
-		index = itemList:Next(index);
-	end
+        slot:SetEventScript(ui.LBUTTONUP, 'GUILDINFO_INVEN_ITEM_CLICK');     
+    end, false, slotset);
 end
 
 function GUILDINFO_INVEN_ITEM_CLICK(parent, slot)

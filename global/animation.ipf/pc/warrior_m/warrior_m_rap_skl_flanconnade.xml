@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-	<BlendOn frame="0" R="0" G="0" B="0" A="0"/>
 	<Particle frame="6" attachNode="Dummy_trail" particleName="WeaponTrail_rap_Lunge_01" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
 	<Particle frame="13" attachNode="Dummy_trail" particleName="WeaponTrail_rap_Flanconnade_01" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="0"/>
 	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
 	<Sound frame="2.00" soundFile="skl_fgt_tackle_shot"/>
 	<Sound frame="6.00" soundFile="rap_attack"/>

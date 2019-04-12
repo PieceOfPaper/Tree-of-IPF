@@ -1,21 +1,29 @@
 -- briquetting.lua
 function BRIQUETTING_ON_INIT(addon, frame)
 	addon:RegisterMsg('SUCCESS_BRIQUETTING', 'BRIQUETTING_REFRESH_INVENTORY_ICON');
+	addon:RegisterOpenOnlyMsg('UPDATE_COLONY_TAX_RATE_SET', 'ON_BRIQUETTING_UPDATE_COLONY_TAX_RATE_SET');
 end
 
 function BRIQUETTING_UI_OPEN(frame)
 	INVENTORY_SET_CUSTOM_RBTNDOWN('BRIQUETTING_INVENTORY_RBTN_CLICK');
 	BRIQUETTING_UI_RESET(frame);
+	
+	local priceStaticText = GET_CHILD_RECURSIVELY(frame, "priceStaticText")
+	SET_COLONY_TAX_RATE_TEXT(priceStaticText, "tax_rate")
+	
 	ui.OpenFrame('inventory');
 end
 
 function BRIQUETTING_UI_CLOSE()
 	INVENTORY_SET_CUSTOM_RBTNDOWN('None');
 	ui.CloseFrame('inventory');
-	local inventory = ui.GetFrame('inventory');	
-	INVENTORY_SET_ICON_SCRIPT('None');
-	INVENTORY_UPDATE_ICONS(inventory);
-	INVENTORY_CLEAR_SELECT(inventory);
+	RESET_INVENTORY_ICON();
+end
+
+function ON_BRIQUETTING_UPDATE_COLONY_TAX_RATE_SET(frame)
+	BRIQUETTING_UI_RESET(frame);
+	local priceStaticText = GET_CHILD_RECURSIVELY(frame, "priceStaticText")
+	SET_COLONY_TAX_RATE_TEXT(priceStaticText, "tax_rate")
 end
 
 function BRIQUETTING_SLOT_POP(parent, ctrl)
@@ -146,7 +154,7 @@ function BRIQUETTING_REFRESH_MATERIAL(frame)
 		local lookItem = BRIQUETTING_GET_SLOT_ITEM_OBJECT(frame, 'look');		
 		local price = 0;		
 		if targetItem ~= nil and lookItem ~= nil then
-			price = GET_BRIQUETTING_PRICE(targetItem, lookItem, BRIQUETTING_GET_LOOK_MATERIAL_LIST(frame));			
+			price = GET_BRIQUETTING_PRICE(targetItem, lookItem, BRIQUETTING_GET_LOOK_MATERIAL_LIST(frame), GET_COLONY_TAX_RATE_CURRENT_MAP());
 
 			local prCheck = GET_CHILD_RECURSIVELY(frame, 'prCheck');
 			if prCheck:IsChecked() == 0 then
@@ -594,7 +602,7 @@ function BRIQUETTING_SKILL_EXCUTE(parent, ctrl)
 
 	local moneyItem = GetClass('Item', MONEY_NAME);
 	local myMoney = session.GetInvItemCountByType(moneyItem.ClassID);
-	local price = GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMatItemList);
+	local price = GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMatItemList, GET_COLONY_TAX_RATE_CURRENT_MAP());
 	if prCheck:IsChecked() == 0 then
 		price = 0;
 	end
@@ -619,7 +627,19 @@ function IMPL_BRIQUETTING_SKILL_EXCUTE()
 	_BRIQUETTING_SKILL_EXCUTE(frame:GetUserValue('BRIQUETTING_TARGET_GUID'), frame:GetUserValue('BRIQUETTING_LOOK_GUID'));
 end
 
-function _BRIQUETTING_SKILL_EXCUTE(targetItemGuid, lookItemGuid)
+function _BRIQUETTING_SKILL_EXCUTE(targetItemGuid, lookItemGuid, checkRebuildFlag)
+	if checkRebuildFlag ~= false then
+		local targetItem = session.GetInvItemByGuid(targetItemGuid);
+		if targetItem == nil or targetItem:GetObject() == nil then
+			return;
+		end
+
+		if TryGetProp(GetIES(targetItem:GetObject()), 'Rebuildchangeitem', 0) > 0 then
+			ui.MsgBox(ScpArgMsg('IfUDoCannotExchangeWeaponType'), '_BRIQUETTING_SKILL_EXCUTE("'..targetItemGuid..'", "'..lookItemGuid..'", false)', 'None');
+			return;
+		end
+	end
+
 	local frame = ui.GetFrame('briquetting');	
 	local prCheck = GET_CHILD_RECURSIVELY(frame, 'prCheck');
 	local lookMatItemList, lookMatItemGuidList = BRIQUETTING_GET_LOOK_MATERIAL_LIST(frame);	

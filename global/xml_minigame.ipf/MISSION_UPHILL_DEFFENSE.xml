@@ -6605,6 +6605,10 @@
                                 <Str Str="UPHillDeffense"/>
                                 <Str Str="State/SuccessReturn"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                                <Str Str="UphillDefense"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="stepReward">
@@ -7159,6 +7163,10 @@
                             <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
                                 <Str Str="UPHillDeffense"/>
                                 <Str Str="State/FailReturn"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                                <Str Str="UphillDefense"/>
                             </ToolScp>
                         </execList>
                     </Event>

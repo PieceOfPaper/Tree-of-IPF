@@ -2,8 +2,8 @@
 <uiframe name="worldpvp_score" x="0" y="0" width="800" height="150" create="open">
     <frame title="{@st41}NewUI{/}" titlepos="0 0" layout_gravity="center top" margin="0 0 0 0"/>
     <draw drawtitlebar="false"/>
-    <skin frameskin="none"/>
-    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <skin frameskin="none"/>    
+    <option hideable="false" useimageitem="true"/>
     <sound opensound="win_open" closesound="win_close"/>
     <controls>
         <gauge name="g_team_1" rect="0 0 242 40" margin="45 63 0 0" layout_gravity="left top" inverse="true" maxpoint="1" point="1" skin="gauge_youteam_L"/>

@@ -38,10 +38,6 @@ end
 function UPDATE_REPRESENTATION_CLASS_ICON(frame, msg, argStr, argNum)    
     HUD_SET_EMBLEM(frame, argNum, 1)
     session.SetUserConfig("SELECT_SKLTREE", argNum)
-    local skilltreeFrame = ui.GetFrame("skilltree")
-    if skilltreeFrame ~= nil and skilltreeFrame:IsVisible() == 1 then
-    	UPDATE_SKILLTREE(skilltreeFrame)
-    end
 end
 
 function CANT_RUN_ALARM(frame, msg, argStr, argNum)
@@ -138,8 +134,8 @@ function HEADSUPDISPLAY_ON_MSG(frame, msg, argStr, argNum)
         		        
         local etc = GetMyEtcObject()
         local MyJobNum = TryGetProp(etc, 'RepresentationClassID', 'None')
-        if MyJobNum == 'None' then
-            MyJobNum = info.GetJob(MySession)
+        if MyJobNum == 'None' or tonumber(MyJobNum) == 0 then
+            MyJobNum = info.GetJob(MySession);
         end        
 
 		local JobCtrlType = GetClassString('Job', MyJobNum, 'CtrlType');
@@ -191,25 +187,7 @@ function HUD_SET_EMBLEM(frame, jobClassID, isChangeMainClass)
     local mySession = session.GetMySession();
     local jobPic = GET_CHILD_RECURSIVELY(frame, 'jobPic');
     jobPic:SetImage(jobIcon);
-    UPDATE_MY_JOB_TOOLTIP(jobClassID, jobPic, jobCls, isChangeMainClass)
-    local jobStarText = GET_CHILD_RECURSIVELY(frame, 'jobStarText');
-    local STAR_SIZE = frame:GetUserConfig('STAR_SIZE');
-    local pcJobInfo = mySession.pcJobInfo;
-    local classLv = pcJobInfo:GetJobGrade(jobClassID);
-    local startext = "";
-	local maxIndex = 3;
-	local maxCircle = TryGetProp(jobCls,'MaxCircle')
-	if maxCircle ~= nil then
-	    maxIndex = maxCircle
-	end
-	for i = 1, maxIndex do
-		if i <= classLv then
-			startext = startext .. string.format("{img star_in_arrow %d %d}", STAR_SIZE, STAR_SIZE);
-		else
-		    startext = startext .. string.format("{img star_out_arrow %d %d}", STAR_SIZE, STAR_SIZE);
-		end
-	end
-	jobStarText:SetText(startext);
+    UPDATE_MY_JOB_TOOLTIP(jobClassID, jobPic, jobCls, isChangeMainClass);
     HEADSUPDISPLAY_SET_CAMP_BTN(frame);
 end
 

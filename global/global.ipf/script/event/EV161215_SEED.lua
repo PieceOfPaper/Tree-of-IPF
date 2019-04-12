@@ -32,6 +32,9 @@ function SCR_PRE_161215EVENT_SEED_NEXT_TIME()
     return 60
 end
 function SCR_PRE_161215EVENT_SEED(pc)
+    -- if GetServerNation() ~= 'KOR' then
+    --     return 0
+    -- end
     if IsPVPServer(pc) == 1 then
         SysMsg(pc, "Instant", ScpArgMsg("EV161215_SEED_MSG1"));
         return 0
@@ -56,10 +59,14 @@ function SCR_PRE_161215EVENT_SEED(pc)
     
     return 1
 end
+
 function SCR_USE_161215EVENT_SEED(pc,argObj,BuffName,arg1,arg2)
+    -- if GetServerNation() ~= 'KOR' then
+    --     return 0
+    -- end
     local x,y,z = GetPos(pc)
     local npc = CREATE_MONSTER(pc, 'Default_Sprout', x, y, z, 0, 'Peaceful', 0, 1, '161215EVENT_SEED', ScpArgMsg("EV161215_SEED_MSG4"), nil, nil, 1, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, nil, 1000)
-    local npc = CREATE_NPC(pc, 'Default_Sprout', x, y, z, 0, 'Peaceful', 0, ScpArgMsg("EV161215_SEED_MSG4"), nil, nil, nil, 1, nil, '161215EVENT_SEED', nil, nil, nil, nil, nil)
+--    local npc = CREATE_NPC(pc, 'Default_Sprout', x, y, z, 0, 'Peaceful', 0, ScpArgMsg("EV161215_SEED_MSG4"), nil, nil, nil, 1, nil, '161215EVENT_SEED', nil, nil, nil, nil, nil)
     if npc ~= nil then
         EnableAIOutOfPC(npc)
         npc.StrArg1 = GetPcCIDStr(pc)
@@ -70,7 +77,7 @@ function SCR_USE_161215EVENT_SEED(pc,argObj,BuffName,arg1,arg2)
         SetLifeTime(npc, 330)
         AttachEffect(npc, 'F_light081_ground_orange_loop', 8, 'BOT', 0, 0, 0, 0)
 		ChangeScale(npc, 2.5, 0, 1, 0, 0, 1)
-        --AttachEffect(npc, 'F_pattern013_ground_white', 1.9, 'BOT')
+--        AttachEffect(npc, 'F_pattern013_ground_white', 1.9, 'BOT')
     end
 end
 

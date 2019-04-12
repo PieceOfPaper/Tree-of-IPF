@@ -1,148 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <GameList>
-    <Game Name="GELE574_MQ_06_MINI" minLv="0" maxLv="0" startWaitSec="0">
-        <StageList>
-            <Stage Name="DefGroup">
-                <ObjList>
-                    <Obj Type="Monster" MonType="57572" Pos="-1542.21#7.34#-592.19" maxStackCount="1" genTime="5000" objectKey="0" propList="&apos;EXP_Rate&apos; &apos;0&apos; &apos;JEXP_Rate&apos; &apos;0&apos; &apos;Level&apos; &apos;0&apos; &apos;Lv&apos; &apos;35&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="150"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-1590.1982" Y="7.1816001" Z="-845.09259" Random="90"/>
-                                </ToolScp>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57572" Pos="-1433.74#7.18#-708.15" maxStackCount="1" genTime="5000" objectKey="1" propList="&apos;EXP_Rate&apos; &apos;0&apos; &apos;JEXP_Rate&apos; &apos;0&apos; &apos;Level&apos; &apos;0&apos; &apos;Lv&apos; &apos;35&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="150"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-1590.1982" Y="7.1816001" Z="-845.09259" Random="90"/>
-                                </ToolScp>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57572" Pos="-1472.47#7.40#-555.13" maxStackCount="1" genTime="5000" objectKey="2" propList="&apos;EXP_Rate&apos; &apos;0&apos; &apos;JEXP_Rate&apos; &apos;0&apos; &apos;Level&apos; &apos;0&apos; &apos;Lv&apos; &apos;35&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="150"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-1590.1982" Y="7.1816001" Z="-845.09259" Random="90"/>
-                                </ToolScp>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57572" Pos="-1734.78#7.21#-703.76" maxStackCount="1" genTime="5000" objectKey="3" propList="&apos;EXP_Rate&apos; &apos;0&apos; &apos;JEXP_Rate&apos; &apos;0&apos; &apos;Level&apos; &apos;0&apos; &apos;Lv&apos; &apos;35&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="150"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-1590.1982" Y="7.1816001" Z="-845.09259" Random="90"/>
-                                </ToolScp>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57259" Pos="-1719.81#7.18#-865.84" maxStackCount="1" genTime="20000" objectKey="6" propList="&apos;Lv&apos; &apos;35&apos; &apos;HPCount&apos; &apos;40&apos; &apos;DropItemList&apos; &apos;None&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="200"/>
-                                </ToolScp>
-                                <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                                    <Str Str="GELE572_MQ_GOAT_TOTEM"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57572" Pos="-1609.76#7.18#-774.64" maxStackCount="1" genTime="5000" objectKey="4" propList="&apos;EXP_Rate&apos; &apos;0&apos; &apos;JEXP_Rate&apos; &apos;0&apos; &apos;Level&apos; &apos;0&apos; &apos;Lv&apos; &apos;35&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="150"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-1590.1982" Y="7.1816001" Z="-845.09259" Random="90"/>
-                                </ToolScp>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57572" Pos="-1563.46#7.18#-1072.19" maxStackCount="1" genTime="5000" objectKey="5" propList="&apos;EXP_Rate&apos; &apos;0&apos; &apos;JEXP_Rate&apos; &apos;0&apos; &apos;Level&apos; &apos;0&apos; &apos;Lv&apos; &apos;35&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="150"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-1590.1982" Y="7.1816001" Z="-845.09259" Random="90"/>
-                                </ToolScp>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57572" Pos="-1638.19#7.18#-1037.60" maxStackCount="1" genTime="5000" objectKey="7" propList="&apos;EXP_Rate&apos; &apos;0&apos; &apos;JEXP_Rate&apos; &apos;0&apos; &apos;Level&apos; &apos;0&apos; &apos;Lv&apos; &apos;35&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="150"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-1590.1982" Y="7.1816001" Z="-845.09259" Random="90"/>
-                                </ToolScp>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                </ObjList>
-            </Stage>
-        </StageList>
-    </Game>
+	<Game Name="GELE574_MQ_06_MINI" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="0">
+		<StageList>
+			<Stage Name="DefGroup">
+				<ObjList>
+					<Obj Type="Monster" MonType="57572" Pos="-1542.21#7.34#-592.19" maxStackCount="1" genTime="5000" objectKey="0" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="150"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-1590.1982" Y="7.1816001" Z="-845.09259" Random="90"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57572" Pos="-1433.74#7.18#-708.15" maxStackCount="1" genTime="5000" objectKey="1" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="150"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-1590.1982" Y="7.1816001" Z="-845.09259" Random="90"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57572" Pos="-1472.47#7.40#-555.13" maxStackCount="1" genTime="5000" objectKey="2" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="150"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-1590.1982" Y="7.1816001" Z="-845.09259" Random="90"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57572" Pos="-1734.78#7.21#-703.76" maxStackCount="1" genTime="5000" objectKey="3" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="150"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-1590.1982" Y="7.1816001" Z="-845.09259" Random="90"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57259" Pos="-1719.81#7.18#-865.84" maxStackCount="1" genTime="20000" objectKey="6" propList="&apos;Lv&apos; &apos;35&apos; &apos;HPCount&apos; &apos;40&apos; &apos;DropItemList&apos; &apos;None&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="GELE572_MQ_GOAT_TOTEM"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57572" Pos="-1609.76#7.18#-774.64" maxStackCount="1" genTime="5000" objectKey="4" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="150"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-1590.1982" Y="7.1816001" Z="-845.09259" Random="90"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57572" Pos="-1563.46#7.18#-1072.19" maxStackCount="1" genTime="5000" objectKey="5" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="150"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-1590.1982" Y="7.1816001" Z="-845.09259" Random="90"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57572" Pos="-1638.19#7.18#-1037.60" maxStackCount="1" genTime="5000" objectKey="7" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="150"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-1590.1982" Y="7.1816001" Z="-845.09259" Random="90"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+			</Stage>
+		</StageList>
+	</Game>
 </GameList>

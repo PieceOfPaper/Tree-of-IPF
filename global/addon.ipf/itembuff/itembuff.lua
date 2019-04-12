@@ -12,11 +12,6 @@ function ITEMBUFF_SET_SKILLTYPE(frame, skillName, skillLevel, titleName)
 	title:SetTextByKey("txt", titleName);
 end
 
-function ITEM_STOR_FAIL()
-	ui.SysMsg(ClMsg("CannotState"));
-	ui.CloseFrame("itembuff");
-end
-
 function ITEMBUFF_REFRESH_LIST(frame)
 	local reqitembox = frame:GetChild("Material");
 	local reqitemtext = reqitembox:GetChild("reqitemCount");
@@ -34,7 +29,7 @@ function ITEMBUFF_REFRESH_LIST(frame)
 	reqitemtext:SetTextByKey("txt", text);
 end
 
-function ITEM_BUFF_CREATE_STORE(frame)
+function ITEM_BUFF_CREATE_STORE(frame)    
 	ITEM_BUFF_CLOSE();
 	local optionBox = frame:GetChild("OptionBox");
 	local edit = GET_CHILD(optionBox, "TitleInput")
@@ -97,6 +92,7 @@ function ITEM_BUFF_CREATE_STORE(frame)
 		return;
 	end
 	session.autoSeller.RequestRegister("ItemBuffStore", storeGroupName, edit:GetText(), sklName);
+    packet.SendMoveStopMyCharacter()
 end
 
 function OPEN_MY_ITEMBUFF_UI(groupName, sellType, handle)
@@ -243,7 +239,25 @@ function ITEMBUFF_INIT_USER_PRICE(frame, sklClassName)
 	PROCESS_USER_SHOP_PRICE(sklClassName, MoneyInput);
 end
 
-function PROCESS_USER_SHOP_PRICE(sklClassName, editCtrl, buffSklClsID)
+local function GET_PC_ABILITY_OBJECT_LIST()
+    local abilObjList = {};
+    local pcSession = session.GetMySession();
+	local abilList = pcSession.abilityList;
+	local abilListCnt = 0;
+	if abilList ~= nil then
+		abilListCnt = abilList:Count();
+	end
+
+	for i=0, abilListCnt - 1 do
+		local abil = abilList:Element(i);
+		if abil ~= nil and abil:GetObject() ~= nil then
+            abilObjList[#abilObjList + 1] = GetIES(abil:GetObject());
+		end
+    end
+    return abilObjList;
+end
+
+function PROCESS_USER_SHOP_PRICE(sklClassName, editCtrl, buffClassID)
 	local userPriceCls = GetClass('UserShopPrice', sklClassName);	
 	if userPriceCls ~= nil then
 		local priceType = userPriceCls.PriceType;
@@ -253,10 +267,10 @@ function PROCESS_USER_SHOP_PRICE(sklClassName, editCtrl, buffSklClsID)
 		elseif priceType == 'ConstantPrice' then
 			local GetPriceScp = _G[TryGetProp(userPriceCls, 'Price', 'None')];
 			if GetPriceScp ~= nil then
-				local buffSklCls = GetClassByType('Skill', buffSklClsID);
+				local buffCls = GetClassByType('Buff', buffClassID);
 				local argStr = '';
 				if buffSklCls ~= nil then
-					argStr = buffSklCls.ClassName;
+					argStr = buffCls.ClassName;
 				end
 
 				price = GetPriceScp(sklClassName, GetZoneName(), argStr, GET_PC_ABILITY_OBJECT_LIST());

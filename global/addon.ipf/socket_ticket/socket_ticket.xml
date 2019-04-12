@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="socket_ticket" x="0" y="0" width="390" height="360" create="open">
-	<frame title="{@st43}{s22}소켓 추가{/}" titlepos="0 -5" layout_gravity="left center" snapclient="true" snapframe="true" margin="350 -50 0 0"/>
+	<frame title="{@st43}{s22}소켓 추가{/}" titlepos="0 -5" layout_gravity="left center" margin="350 -50 0 0"/>
 	<option closebutton="false" hideable="true"/>
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
 	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>

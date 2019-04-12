@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="skillitemmaker" x="0" y="0" width="470" height="609" create="open">
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<skin frameskin=" "/>
 	<frame title="" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
 	<input maxwidth="1280" moveable="false"/>
 	<layer layerlevel="80"/>
 	<option closebutton="false"/>
 	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="OPEN_SKILLITEMMAKER"/>
 	<controls>
 		<groupbox name="bg" rect="0 0 470 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
 		<groupbox name="bg_mid" rect="0 0 450 520" margin="10 420 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
 		<groupbox name="pipwin_top" rect="0 0 470 117" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_cleric"/>
 		<groupbox name="gbox" rect="0 0 472 960" margin="0 60 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
 		<richtext name="richtext_1" rect="0 0 120 24" margin="0 15 0 0" layout_gravity="center top" caption="{@st43}시모니" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-    <richtext name="richtext_1_1" rect="0 0 120 24" margin="0 15 0 0" layout_gravity="center top" caption="{@st43}스펠북 제작" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-		<button name="close" rect="0 0 44 44" margin="0 10 10 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}자판기를 닫습니다{/}"/>
-		<richtext name="richtext_2" rect="0 0 120 24" margin="40 90 0 0" layout_gravity="left top" caption="{@st41}제작 스킬" drawbackground="false" fixwidth="false" fontname="white_18_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-		<slot name="skillslot" rect="0 0 128 128" margin="170 189 0 0" layout_gravity="left top" DropScp="DROP_SKILLITEM_MAKER" PopScp="POP_SKILLITEM_MAKER" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}스킬을 올려주세요{/}"/>
-		<droplist name="droplist_level" rect="0 0 144 41" margin="307 95 0 0" layout_gravity="left top" font="white_20_ol" frametextalign="left" skin="droplist_normal" textalign="center center" textoffset="20 0" visibleline="11"/>
+	    <richtext name="richtext_1_1" rect="0 0 120 24" margin="0 15 0 0" layout_gravity="center top" caption="{@st43}주문서 제작" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<button name="close" rect="0 0 44 44" margin="0 10 10 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}자판기를 닫습니다{/}"/>		
+		<slot name="skillslot" rect="0 0 128 128" margin="170 189 0 0" layout_gravity="left top" DropScp="DROP_SKILLITEM_MAKER" PopScp="POP_SKILLITEM_MAKER" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}스킬을 올려주세요{/}"/>		
 		<richtext name="skilllevel" rect="0 0 120 24" margin="0 330 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42}레벨 %s{/}" maxwidth="0" param1="value" param1_def="12" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<richtext name="skillname" rect="0 0 120 24" margin="0 360 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42}%s{/}" maxwidth="0" param1="value" param1_def="힐" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<labelline name="labelline_1" rect="0 0 441 2" margin="0 532 0 0" layout_gravity="center top" skin="labelline_def_2"/>

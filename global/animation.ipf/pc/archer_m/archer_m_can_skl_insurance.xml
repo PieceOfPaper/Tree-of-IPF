@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <AttachModel frame="0" XAC="appraiser_insurance" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="appraiser_insurance_ani.xsm"/>
+    <Sound frame="3.00" soundFile="skl_eff_action_shot_1"/>
+    <Sound frame="5.00" soundFile="skl_eff_move_paper_scroll_2"/>
+    <Particle frame="8" attachNode="Dummy_emitter_overestimate" particleName="F_archer_Overestimate_buff" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="8" attachNode="Dummy_Claymore" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="8" attachNode="Dummy_emitter" particleName="E_archer_overestimate_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

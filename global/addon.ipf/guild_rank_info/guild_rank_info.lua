@@ -28,7 +28,7 @@ function GUILD_RANK_INFO_INIT(frame)
     innerLayout:SetEventScript(ui.SCROLL, "SCROLL_GUILD");
     emblemFolderPath = filefind.GetBinPath("GuildEmblem"):c_str()
     bannerFolderPath = filefind.GetBinPath("GuildBanner"):c_str()
-    GetFeaturedGuildList("GET_GUILD_LIST", tostring(curPage), orderKeyword, "desc")
+    GET_FEATURED_GUILD_LIST("GET_GUILD_LIST", tostring(curPage), orderKeyword, "desc")
 end
 local finishedLoading = false;
 function SCROLL_GUILD(parent, ctrl, str, wheel)
@@ -42,8 +42,8 @@ function SCROLL_GUILD(parent, ctrl, str, wheel)
         local now = imcTime.GetAppTime();
         local dif = now - clickedTime;
         if dif > 2 then
-		    curPage = curPage + 1;
-            GetFeaturedGuildList("GET_GUILD_LIST", tostring(curPage), orderKeyword, "desc")
+            curPage = curPage + 1;
+            GET_FEATURED_GUILD_LIST("GET_GUILD_LIST", tostring(curPage), orderKeyword, "desc")
             clickedTime = now
             finishedLoading = false;
         end
@@ -76,6 +76,9 @@ function GET_GUILD_LIST(ret_code, return_json)
         return
     end
 
+    local checkbox = GET_CHILD_RECURSIVELY(frame, 'recruitingGuild')
+    checkbox:SetEnable(1)
+
     local scrollPanel = GET_CHILD_RECURSIVELY(frame, "vertGuildEmblemLayout", "ui::CScrollPanel");
     for guildNum = currentGuildNum, loadedGuildNum-1  do
         local columnName = "secondColumn";
@@ -96,8 +99,13 @@ function GET_GUILD_LIST(ret_code, return_json)
         local guildCtrlset = col:CreateOrGetControlSet("guild_info_banner", guildProp[guildNum]['id'], 0, 0);
 
         local guildName = GET_CHILD_RECURSIVELY(guildCtrlset, "guildName", "ui::CRichText");
-        
+        if guildProp[guildNum]['name'] == nil then
+            guildProp[guildNum]['name']=""
+        end
         guildName:SetText("{@st43b}{s18}" .. guildProp[guildNum]['name'])
+        if guildProp[guildNum]['level'] == nil then
+            guildProp[guildNum]['level'] = 0
+        end
         local guildLvl = GET_CHILD_RECURSIVELY(guildCtrlset,"guildLv",  "ui::CRichText");
         guildLvl:SetText("{@st43b}{s18}" ..  guildProp[guildNum]['level'])
 
@@ -118,12 +126,10 @@ end
 function RESET_GUILD_BY(frame, ctrl, str)
     local now = imcTime.GetAppTime();
     local dif = now - clickedTime;
+    local frame = ui.GetFrame("guild_rank_info");
+    local checkbox = GET_CHILD_RECURSIVELY(frame, 'recruitingGuild')
     if dif > 2 then
-        
-    
-    --if dif > 3
 
-        local frame = ui.GetFrame("guild_rank_info");
         local scrollPanel = GET_CHILD_RECURSIVELY(frame, "vertGuildEmblemLayout", "ui::CScrollPanel");
         scrollPanel:RemoveAllChild();
         orderKeyword = str;
@@ -131,8 +137,21 @@ function RESET_GUILD_BY(frame, ctrl, str)
         emblemFolderPath = filefind.GetBinPath("GuildEmblem"):c_str()
         bannerFolderPath = filefind.GetBinPath("GuildBanner"):c_str()
 
-        GetFeaturedGuildList("GET_GUILD_LIST", tostring(curPage), str, "desc")
+        checkbox:SetEnable(0)
+
+        GET_FEATURED_GUILD_LIST("GET_GUILD_LIST", tostring(curPage), str, "desc")
         clickedTime = now
+    else
+        if ctrl:GetName() == "recruitingGuild" then
+            tolua.cast(checkbox, "ui::CCheckBox")
+            if checkbox:IsChecked() == 1 then
+                checkbox:SetCheck(0)
+            else
+                checkbox:SetCheck(1)
+            end
+
+            ui.MsgBox(ClMsg("WebService_43"))
+        end
     end
 
 end
@@ -158,6 +177,11 @@ end
 
 
 function ON_GUILD_BANNER_SAVED(code, guild_idx)
+    local frame = ui.GetFrame("guild_rank_info");
+    local controlset =  GET_CHILD_RECURSIVELY(frame, guild_idx);
+            
+    local picture = controlset:GetChildRecursively("bannerPic");
+    picture:Invalidate()
     if code ~= 200 then
         if code == 400 or code == 404 then
             return
@@ -165,10 +189,7 @@ function ON_GUILD_BANNER_SAVED(code, guild_idx)
             SHOW_GUILD_HTTP_ERROR(code, guild_idx, "ON_GUILD_BANNER_SAVED")
         end
     end
-    local frame = ui.GetFrame("guild_rank_info");
-    local controlset =  GET_CHILD_RECURSIVELY(frame, guild_idx);
-            
-    local picture = controlset:GetChildRecursively("bannerPic");
+   
     local pictureFrame = controlset:GetChildRecursively("bannerFrame");
     local layoutsection = controlset:GetChildRecursively("bannerSection");
     pictureFrame:EnableHitTest(1);
@@ -213,4 +234,21 @@ function GUILD_RANK_INFO_TOGGLE()
         return
     end
     frame:ShowWindow(1);
+end
+
+function GET_FEATURED_GUILD_LIST(funcStr, pageNum, type, order)
+    local frame = ui.GetFrame('guild_rank_info');
+    if frame ~= nil and frame:IsVisible() == 1 then
+        local checkbox = GET_CHILD_RECURSIVELY(frame, 'recruitingGuild')
+        tolua.cast(checkbox, "ui::CCheckBox")
+        if checkbox:IsChecked() == 1 then
+            GetEnableJoinFeaturedGuildList(funcStr, pageNum, type, order)
+        else
+            GetFeaturedGuildList(funcStr, pageNum, type, order)
+        end
+    end
+end
+
+function SHOW_RECRUITING_GUILDLIST(parent, control)
+    RESET_GUILD_BY(parent, control, orderKeyword)
 end

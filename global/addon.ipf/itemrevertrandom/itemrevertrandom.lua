@@ -414,38 +414,9 @@ ui.SetHoldUI(false);
 end
 
 function UPDATE_REMAIN_MASTER_GLASS_COUNT(frame)
-	local itemHaveCount = 0
-	local invItemList = session.GetInvItemList()
-	local invItemCount = session.GetInvItemList():Count()
-
-	local limitLoopCount = 100000
-	local loopCount = 0
-
-	if invItemCount <= 0 then
-		itemHaveCount = 0
-	else
-		local index = invItemList:Head()
-		while invItemList:InvalidIndex() ~= index do
-			local invItem = invItemList:Element(index)
-			if invItem ~= nil and invItem:GetObject() ~= nil then
-				local obj = GetIES(invItem:GetObject())
-				if obj ~= nil then
-					local stringArg = TryGetProp(obj, "StringArg")
-					if stringArg == "Master_Glass" then
-						local pc = GetMyPCObject();
-						itemHaveCount = itemHaveCount + GetInvItemCount(pc, obj.ClassName)
-					end
-				end
-			end
-
-			index = invItemList:Next(index)
-			loopCount = loopCount + 1
-			if loopCount >= limitLoopCount then
-				return
-			end
-		end
-	end
-	
+	local itemHaveCount = GET_INV_ITEM_COUNT_BY_PROPERTY({
+        {Name = 'StringArg', Value ='Master_Glass'}
+    }, false);
 	local text_havematerial = GET_CHILD_RECURSIVELY(frame, "text_havematerial")
 	text_havematerial:SetTextByKey("count", itemHaveCount)
 end

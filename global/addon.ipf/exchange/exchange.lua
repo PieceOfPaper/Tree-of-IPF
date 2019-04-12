@@ -74,7 +74,6 @@ function EXCHANGE_MSG_REQUEST(frame)
 end
 
 function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
-
 	if ctrl ~= nil then
 		if ctrl:GetName() == "inputstr" then
 			inputframe = ctrl;
@@ -84,18 +83,8 @@ function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
 	local inputCnt = tonumber(GET_INPUT_STRING_TXT(inputframe));
 	inputframe:ShowWindow(0);
 	local iesid = inputframe:GetUserValue("ArgString");
-
-	-- 개수채크
-	local invItemList = session.GetInvItemList();
-	local i = invItemList:Head();
-	local count = 0;
-	while 1 do
-		if i == invItemList:InvalidIndex() then
-			break;
-		end
-
-		local invItem = invItemList:Element(i);		
-		i = invItemList:Next(i);
+	local invItemList = session.GetInvItemList();	
+	if FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, iesid, inputCnt)
 		if invItem:GetIESID() == iesid then
 			local obj = GetIES(invItem:GetObject());
 			local noTrade = TryGetProp(obj, "BelongingCount");
@@ -119,7 +108,7 @@ function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
 					else
 						ui.SysMsg(ClMsg("ItemOverCount"));	
 					end
-					return;
+					return 'end';
 				end
 			end
 			if tradeCount >= inputCnt then
@@ -127,41 +116,14 @@ function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
 			else
 				ui.AlarmMsg("ItemOverCount"); -- 등록수가 소비개수보다 큼
 			end
-			break;
+			return 'break';
 		end
-	end
-end
-
-function EXCHANGE_INV_RBTN(itemobj, slot)
-	local icon = slot:GetIcon();
-	local iconInfo = icon:GetInfo();
-	local item = session.GetInvItem(iconInfo.ext);
-	if nil == item then
+	end, false, iesid, inputCnt) == false then
 		return;
 	end
-
-	local obj = GetIES(item:GetObject());
-	local noTradeCnt = TryGetProp(obj, "BelongingCount");
-	local tradeCount = item.count;
-	if noTradeCnt ~= nil then
-		local wareItem = nil;
-		if obj.MaxStack > 1 then
-			wareItem = session.GetWarehouseItemByType(obj.ClassID);
-		end
-		local wareCnt = 0;
-		if nil ~= wareItem then
-			wareCnt = wareItem.count;
-		end
-		tradeCount = (item.count + wareCnt) - noTradeCnt;
-		if tradeCount > item.count then
-			tradeCount = item.count;
-		end
-	end
-	
-	EXCHANGE_ADD_FROM_INV(obj, item, tradeCount);	
 end
 
-function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
+local function _EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 	local reason = GetTradeLockByProperty(obj);
 	if reason ~= "None" then
 		ui.SysMsg(ScpArgMsg(reason));
@@ -233,10 +195,49 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
             ui.SysMsg(ClMsg("ItemIsNotTradable"));	
             return;
         end
-    end
+	end
+	
+	if TryGetProp(obj, 'Rebuildchangeitem', 0) > 0 then		
+		ui.MsgBox(ScpArgMsg('IfUDoCannotExchangeWeaponType'), 'IMPL_EXCHANGE_ADD_FROM_INV("'..item:GetIESID()..'")', 'None');
+		return;
+	end
 
 	exchange.SendOfferItem(tostring(item:GetIESID()), 1);
 	SELECT_INV_SLOT_BY_GUID(item:GetIESID(), 1);
+end
+
+function IMPL_EXCHANGE_ADD_FROM_INV(guid)
+	exchange.SendOfferItem(guid, 1);
+	SELECT_INV_SLOT_BY_GUID(guid, 1);
+end
+
+function EXCHANGE_INV_RBTN(itemobj, slot)
+	local icon = slot:GetIcon();
+	local iconInfo = icon:GetInfo();
+	local item = session.GetInvItem(iconInfo.ext);
+	if nil == item then
+		return;
+	end
+
+	local obj = GetIES(item:GetObject());
+	local noTradeCnt = TryGetProp(obj, "BelongingCount");
+	local tradeCount = item.count;
+	if noTradeCnt ~= nil then
+		local wareItem = nil;
+		if obj.MaxStack > 1 then
+			wareItem = session.GetWarehouseItemByType(obj.ClassID);
+		end
+		local wareCnt = 0;
+		if nil ~= wareItem then
+			wareCnt = wareItem.count;
+		end
+		tradeCount = (item.count + wareCnt) - noTradeCnt;
+		if tradeCount > item.count then
+			tradeCount = item.count;
+		end
+	end
+	
+	_EXCHANGE_ADD_FROM_INV(obj, item, tradeCount);	
 end
 
 function EXCHANGE_ON_DROP(frame, control, argStr, argNum)
@@ -286,7 +287,7 @@ function EXCHANGE_ON_DROP(frame, control, argStr, argNum)
 				return;
 			end
 		end
-		EXCHANGE_ADD_FROM_INV(obj, item, tradeCount);	
+		_EXCHANGE_ADD_FROM_INV(obj, item, tradeCount);	
 	end 	
 	
 end 
@@ -342,12 +343,7 @@ function EXCHANGE_MSG_START(frame, msg, argStr, argNum)
 	local oppfinalbutton = GET_CHILD_RECURSIVELY(opponenGBox,'opponentfinalagree','ui::CButton');
 	oppfinalbutton:SetEnable(0);
 
-	local myToken = false;
-	local accountObj = GetMyAccountObj();
-	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) and accountObj.TradeCount > 0 then
-		myToken = true;
-	end
-
+	local myToken = IS_MYPC_EXCHANGE_BENEFIT_STATE();	
 	local targetToken = false;
 	 if 0 ~= argNum then
 		targetToken = true;

@@ -92,10 +92,12 @@ function ADVENTURE_BOOK_GROW_CONTENT.JOB_INFO(jobClsID)
 	elseif retTable['ctrl_type'] == 'Archer' then
 		type = ScpArgMsg('Char3');
 	elseif retTable['ctrl_type'] == 'Cleric' then
-		type = ScpArgMsg('Char4');
+		type = ScpArgMsg('Char4');	
+	elseif retTable['ctrl_type'] == 'Scout' then
+		type = ScpArgMsg('EVENT_1811_CTRLTYPE_RESET_MSG5');
 	end
 
-	retTable['ctrltype_and_rank'] = ScpArgMsg("{CtrlType}Type{RankNum}Rank", "CtrlType", type, "RankNum", retTable["rank"])
+	retTable['ctrltype_and_rank'] = ScpArgMsg("{CtrlType}Type", "CtrlType", type);
 	
 	retTable['icon'] = TryGetProp(job, "Icon");
 	retTable['has_job'] = ADVENTURE_BOOK_GROW_CONTENT.HAS_JOB(jobClsID)
@@ -112,12 +114,19 @@ function ADVENTURE_BOOK_GROW_CONTENT.IS_VISIBLE_JOB(cls)
 		return 0;
 	end
 
-	local removeBan = TryGetProp(cls, "RemoveBan");
-	local hasJob = ADVENTURE_BOOK_GROW_CONTENT.HAS_JOB(clsID)
-
-	if removeBan == "ON" or hasJob == 1 then
+	if cls.Rank > 2 then
+		return 0;
+	end
+	
+	local hasJob = ADVENTURE_BOOK_GROW_CONTENT.HAS_JOB(clsID);
+	if hasJob == 1 then
 		return 1;
 	end
+
+	if cls.HiddenJob ~= 'YES' or cls.PreFunction == 'None' then
+		return 1;
+	end
+
 	return 0;
 end
 

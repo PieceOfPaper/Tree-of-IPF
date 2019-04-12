@@ -511,6 +511,10 @@
                                 <Str Str="None"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                                <Str Str="SaalusMission: Request_Mission11"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>

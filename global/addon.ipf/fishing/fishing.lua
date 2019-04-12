@@ -106,14 +106,11 @@ function FISHING_PASTE_BAIT_SLOTSET_INIT(frame)
     pasteBaitSlotset:ClearSelectedSlot();
 
     local invItemList = session.GetInvItemList();
-	local index = invItemList:Head();
-	local itemCount = session.GetInvItemList():Count();
-    local pasteBaitCount = 0;
-	for i = 0, itemCount - 1 do
-        local invItem = invItemList:Element(index);
+    FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, pasteBaitSlotset)		
 		if invItem ~= nil then
 		    local itemObj = GetIES(invItem:GetObject());
-		    if IS_PASTE_BAIT_ITEM(itemObj.ClassID) == 1 then
+            if IS_PASTE_BAIT_ITEM(itemObj.ClassID) == 1 then
+                local pasteBaitCount = imcSlot:GetEmptySlotIndex(pasteBaitSlotset);
                 local slot = pasteBaitSlotset:GetSlotByIndex(pasteBaitCount);
                 if slot == nil then
                     slot = GET_EMPTY_SLOT(pasteBaitSlotset);
@@ -126,13 +123,10 @@ function FISHING_PASTE_BAIT_SLOTSET_INIT(frame)
                 SET_ITEM_TOOLTIP_BY_NAME(slot:GetIcon(), itemObj.ClassName);
                 slot:SetMaxSelectCount(1);
                 slot:SetUserValue('PASTE_BAIT_ID', itemObj.ClassID);
-
-                pasteBaitCount = pasteBaitCount + 1;
             end
 	    end
-	    index = invItemList:Next(index);
-    end
-    return pasteBaitCount;
+	end, false, pasteBaitSlotset);
+    return imcSlot:GetFilledSlotCount(pasteBaitSlotset);
 end
 
 function FISHING_ARROW_BTN_INIT(frame, pasteBaitCount)

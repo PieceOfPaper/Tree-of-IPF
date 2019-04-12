@@ -84,7 +84,7 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 					-- 이 땜빵을 어찌해아 하나? 제일 좋은건 hotkey_joystic.xml의 Key, PressedKey를 예쁘게 정리하는 것이다.
 					hotKey = JOYSTICK_QUICKSLOT_REPLACE_HOTKEY_STRING(true, hotKey);
 					
-					slot:SetText('{s14}{ol}{b}'..hotKey, 'count', 'left', 'top', 2, 1);
+					slot:SetText('{s14}{ol}{b}'..hotKey, 'count', ui.LEFT, ui.TOP, 2, 1);
 					slot:EnableDrag(0);
 				end
 			end
@@ -95,7 +95,11 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 
 		local lastSlot = slotset:GetSlotByIndex(slotset:GetSlotCount() - 1);
 		local icon = CreateIcon(lastSlot);
-		icon:SetImage("druid_del_icon");		
+		local lastSlotIconName = "druid_del_icon";
+		if monName == "Colony_Siege_Tower" then
+			lastSlotIconName = "Icon_common_get_off";
+		end	
+		icon:SetImage(lastSlotIconName);
 		local slotString 	= 'QuickSlotExecute'.. slotset:GetSlotCount();
 		local hotKey = nil;
 
@@ -107,7 +111,7 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 
 		hotKey = JOYSTICK_QUICKSLOT_REPLACE_HOTKEY_STRING(true, hotKey);
 
-		lastSlot:SetText('{s14}{ol}{b}'..hotKey, 'count', 'left', 'top', 2, 1);
+		lastSlot:SetText('{s14}{ol}{b}'..hotKey, 'count', ui.LEFT, ui.TOP, 2, 1);
 		lastSlot:EnableDrag(0);
 
 	else
@@ -199,7 +203,7 @@ function EXEC_INSTANT_QUICKSLOT(isOn)
 				-- 이 땜빵을 어찌해아 하나? 제일 좋은건 hotkey_joystic.xml의 Key, PressedKey를 예쁘게 정리하는 것이다.
 				hotKey = JOYSTICK_QUICKSLOT_REPLACE_HOTKEY_STRING(true, hotKey);
 					
-				slot:SetText('{s14}{ol}{b}'..hotKey, 'count', 'left', 'top', 2, 1);
+				slot:SetText('{s14}{ol}{b}'..hotKey, 'count', ui.LEFT, ui.TOP, 2, 1);
 				slot:EnableDrag(0);
             end
         end

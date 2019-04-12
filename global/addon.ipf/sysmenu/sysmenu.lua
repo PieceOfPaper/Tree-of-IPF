@@ -14,7 +14,8 @@ function SYSMENU_ON_INIT(addon, frame)
 	addon:RegisterMsg('SERV_UI_EMPHASIZE', 'ON_UI_EMPHASIZE');
 	addon:RegisterMsg("UPDATE_READ_COLLECTION_COUNT", "SYSMENU_ON_MSG");
 	addon:RegisterMsg("PREMIUM_NEXON_PC", "SYSMENU_ON_MSG");
-    	
+	addon:RegisterMsg("ENABLE_PCBANG_SHOP", "SYSMENU_ON_MSG");
+	addon:RegisterMsg("NEW_USER_REQUEST_GUILD_JOIN", "SYSMENU_ON_MSG");    
 	frame:EnableHideProcess(1);
 
 end
@@ -40,11 +41,13 @@ function SYSMENU_ON_MSG(frame, msg, argStr, argNum)
 		SYSMENU_CHECK_HIDE_VAR_ICONS(frame);
 	end
 
-	if msg == "PREMIUM_NEXON_PC" then
+	if msg == "PREMIUM_NEXON_PC" or msg == "ENABLE_PCBANG_SHOP" then
 		if argNum == 1 then
 			SYSMENU_CHECK_HIDE_VAR_ICONS(frame);
 			if IS_PCBANG_POINT_TIMER_CHECKED() == 1 then
 				ui.OpenFrame("pcbang_point_timer");
+				local timerFrame = ui.GetFrame("pcbang_point_timer");
+				PCBANG_POINT_TIMER_SET_MARGIN(timerFrame);
 			end
 		end
 	end
@@ -65,6 +68,9 @@ function SYSMENU_ON_MSG(frame, msg, argStr, argNum)
 	if msg == 'UPDATE_FRIEND_LIST' or msg == 'REMOVE_FRIEND' or msg == 'ADD_FRIEND' then
 		SYSMENU_PC_NEWFRIEND_NOTICE(frame)
 		frame:Invalidate();
+	end
+	if msg == "NEW_USER_REQUEST_GUILD_JOIN" then
+		SYSMENU_GUILD_NOTICE(frame, 1)
 	end
 end
 
@@ -87,6 +93,7 @@ end
 function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
 
 	if false == VARICON_VISIBLE_STATE_CHANTED(frame, "necronomicon", "necronomicon")
+	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "customdrag", "customdrag")
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "grimoire", "grimoire")
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "guild", "guild")
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "poisonpot", "poisonpot")    
@@ -103,7 +110,8 @@ function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
     local guildRank = frame:GetChild('guildRank');
     local offsetX = extraBag:GetX() - guildRank:GetX()
 	local rightMargin = guildRank:GetMargin().right + offsetX;
-	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "guildinfo", "guildinfo", "sysmenu_guild", rightMargin, offsetX, "Guild");    
+	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "guildinfo", "guildinfo", "sysmenu_guild", rightMargin, offsetX, "Guild");
+	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "customdrag", "customdrag", "sysmenu_alchemist", rightMargin, offsetX);
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "necronomicon", "necronomicon", "sysmenu_card", rightMargin, offsetX);
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "grimoire", "grimoire", "sysmenu_neacro", rightMargin, offsetX);
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "poisonpot", "poisonpot", "sysmenu_wugushi", rightMargin, offsetX);	 
@@ -117,7 +125,7 @@ function SYSMENU_CREATE_VARICON(frame, status, ctrlName, frameName, imageName, r
 		return rightMargin;
 	end
 
-	local margin = status:GetMargin();    
+	local margin = status:GetMargin();
 	local btn = frame:CreateControl("button", ctrlName, status:GetWidth(), status:GetHeight(), ui.LEFT, ui.BOTTOM, 0, margin.top, margin.right, margin.bottom);
 	if btn == nil then
 		return rightMargin;
@@ -140,7 +148,13 @@ function SYSMENU_CREATE_VARICON(frame, status, ctrlName, frameName, imageName, r
     if hotkeyName ~= 'Guild' then
 	    btn:SetEventScript(ui.LBUTTONUP, string.format("ui.ToggleFrame('%s')", frameName), true);
     else
-        btn:SetEventScript(ui.LBUTTONUP, 'UI_TOGGLE_GUILD()', true);
+		btn:SetEventScript(ui.LBUTTONUP, 'UI_TOGGLE_GUILD()', true);
+		local guildinfonotice = btn:CreateControl("groupbox", "guildinfonotice", 20, 20, ui.LEFT, ui.TOP, 0, 0, 0, 0)
+		guildinfonotice:SetSkinName("digitnotice_bg")
+		guildinfonotice:EnableHitTest(1)
+		guildinfonotice:SetVisible(0)
+		local noticeText = guildinfonotice:CreateControl("richtext", "guildinfonoticetext", 20, 20, ui.CENTER_HORZ, ui.CENTER_VERT, 0, 0, 0, 0)
+		noticeText:EnableHitTest(0)
     end
 	return rightMargin;
 end
@@ -280,6 +294,39 @@ function SYSMENU_PC_NEWFRIEND_NOTICE(frame)
 	local cnt = session.friends.GetFriendCount(FRIEND_LIST_REQUESTED);
 	local parentCtrl = frame:GetChild('friend');
 	NOTICE_CTRL_SET(parentCtrl, "friend", cnt);
+
+end
+
+function SYSMENU_GUILD_NOTICE(frame, isChecked)
+	local parentCtrl = frame:GetChild('guildinfo');
+	if parentCtrl == nil then
+		return
+	end
+
+	local notice = GET_CHILD_RECURSIVELY(parentCtrl:GetTopParentFrame(), "guildinfonotice");    
+	local noticeText = notice:GetChild("guildinfonoticetext");
+
+	if isChecked > 0 then
+		notice:ShowWindow(1);        
+		noticeText:ShowWindow(1);
+		noticeText:SetText('{ol}{b}{s14}!');
+		notice:SetTextTooltip(ClMsg("GuildNewJoinRequest"))
+
+     
+		local noticeBalloon = MAKE_BALLOON_FRAME(ClMsg("GuildNewJoinRequest"), 0, 0, nil, "guildinfonotice", "{ol}{b}{s14}", 0)
+		noticeBalloon:ShowWindow(1);
+		noticeBalloon:SetDuration(5);
+		noticeBalloon:SetGravity(ui.RIGHT, ui.BOTTOM) 
+
+		local margin = parentCtrl:GetMargin(); 
+		local x = margin.right + (parentCtrl:GetWidth() / 2);
+		local y = margin.bottom + parentCtrl:GetHeight() + 5;
+		
+		noticeBalloon:SetMargin(margin.left, margin.top, x, y);
+	elseif isChecked == nil or isChecked == 0  then
+		notice:ShowWindow(0);
+		noticeText:ShowWindow(0);
+	end
 
 end
 

@@ -55,11 +55,11 @@ function GET_QUEST_RET_POS(pc, questIES, inputNpcState)
     local questnpc_state;
 	if inputNpcState == nil then
 		local result = SCR_QUEST_CHECK(pc, questIES.ClassName);
-		questnpc_state = GET_QUEST_NPC_STATE(questIES, result);
+		questnpc_state = GET_QUEST_NPC_STATE(questIES, result, pc);
 	else
 		questnpc_state = inputNpcState;
 	end
-
+	
     if questnpc_state ~= nil then
     	local mapProp = geMapTable.GetMapProp(questIES[questnpc_state..'Map']);
     	if mapProp ~= nil then
@@ -282,7 +282,7 @@ function SCR_JOB_PROPERTYQUESTCHECK(pc, questname, scriptInfo)
 ----    end
 --    
 --    if jlv >= 5 + changedJobCount * 5 then
-    if jlv >= 15 then
+    if jlv >= GetJobMaxLevel(pc) then
         local pcjobinfo = GetClass('Job', pc.JobName)
         local tarjobinfo = GetClass('Job', scriptInfo[2])
         if pcjobinfo.CtrlType == tarjobinfo.CtrlType then
@@ -597,6 +597,42 @@ end
 --    return 'NO'
 --end
 
+function SCR_JOB_OUTLAW_Q1_PRE_CHECK(pc, questname, scriptInfo)
+    local result1, result2 = SCR_STEPREWARD_QUEST_REMAINING_CHECK(pc, questname)
+    if result1 == 'YES' and #result2 == 0 then
+        return 'NO'
+    end
+    
+    return 'YES'
+end
+
+function SCR_JOB_OUTLAW_Q1_STEPREWARD_CHECK1(pc, stepRewardFuncList)
+    local sObj = GetSessionObject(pc, 'SSN_JOB_OUTLAW_Q1')
+    if sObj ~= nil then
+        if sObj.QuestInfoValue1 >= 20 then
+            return 'YES'
+        end
+    end
+end
+
+function SCR_JOB_OUTLAW_Q1_STEPREWARD_CHECK2(pc, stepRewardFuncList)
+    local sObj = GetSessionObject(pc, 'SSN_JOB_OUTLAW_Q1')
+    if sObj ~= nil then
+        if sObj.QuestInfoValue1 >= 30 then
+            return 'YES'
+        end
+    end
+end
+
+function SCR_JOB_OUTLAW_Q1_STEPREWARD_CHECK3(pc, stepRewardFuncList)
+    local sObj = GetSessionObject(pc, 'SSN_JOB_OUTLAW_Q1')
+    if sObj ~= nil then
+        if sObj.QuestInfoValue1 >= 45 then
+            return 'YES'
+        end
+    end
+end
+
 function SCR_JOB_RETIARII1_PRE_FUNC(pc, questname, scriptInfo)
     local result1, result2 = SCR_STEPREWARD_QUEST_REMAINING_CHECK(pc, questname)
     if result1 == 'YES' and #result2 == 0 then
@@ -748,6 +784,42 @@ function SCR_JOB_EXORCIST1_REWARD3(self)
     local sObj = GetSessionObject(self, 'SSN_JOB_EXORCIST1')
     if sObj ~= nil then
         if sObj.QuestInfoValue1 >= 500 then
+            return 'YES'
+        end
+    end
+    
+    return 'NO'
+end
+
+
+function SCR_GUILD_QUEST_WEEK1_START_CHECK(pc)
+    local aObj
+    if IsServerSection(pc) == 1 then
+        aObj = GetAccountObj(pc)
+    else
+        aObj = GetMyAccountObj()
+    end
+    if aObj ~= nil then
+        local questCompleteDate = TryGetProp(aObj, 'TEAM_GUILD_QUEST_WEEK1_COMPLETE_DATE', 'None')
+        local questCheck = 0
+        if questCompleteDate == 'None' then
+            questCheck = 1
+        elseif questCompleteDate ~= 'None' then
+            local questCompleteDate = SCR_STRING_CUT(questCompleteDate)
+            local lastYWeek = SCR_DATE_HOUR_TO_YWEEK_BASIC_2000(questCompleteDate[1], questCompleteDate[2], questCompleteDate[3], questCompleteDate[4], 2, 6)
+            local now_time = os.date('*t')
+            local year = now_time['year']
+            local month = now_time['month']
+            local day = now_time['day']
+            local hour = now_time['hour']
+            local nowYWeek = SCR_DATE_HOUR_TO_YWEEK_BASIC_2000(year, month, day, hour, 2, 6)
+            
+            if lastYWeek < nowYWeek then
+                questCheck = 1
+            end
+        end
+        
+        if questCheck == 1 then
             return 'YES'
         end
     end

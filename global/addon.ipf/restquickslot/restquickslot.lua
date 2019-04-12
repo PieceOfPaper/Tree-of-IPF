@@ -12,11 +12,11 @@ end
 
 function RESTQUICKSLOT_UPDATE_HOTKEYNAME(frame)
 	for i = 0, MAX_RESTSLOT_CNT-1 do
-		local slot 			= frame:GetChild("slot"..i+1);
+		local slot = frame:GetChild("slot"..i+1);
 		tolua.cast(slot, "ui::CSlot");
-		local slotString 	= 'QuickSlotExecute'..(i+1);
-		local text 			= hotKeyTable.GetHotKeyString(slotString);
-		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', 'left', 'top', 2, 1);
+		local slotString = 'QuickSlotExecute'..(i+1);
+		local text = hotKeyTable.GetHotKeyString(slotString);
+		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', ui.LEFT, ui.TOP, 2, 1);
 	end
 end;
 
@@ -169,7 +169,7 @@ function SET_REST_QUICK_SLOT(slot, cls)
 			slot:GetIcon():SetGrayStyle(1);
 		end
 
-		slot:GetIcon():SetText('{s18}{ol}{b}'.. itemCount, 'count', 'right', 'bottom', -2, 1);
+		slot:GetIcon():SetText('{s18}{ol}{b}'.. itemCount, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 	end
 
 	local enableScp = cls.EnableScript;
@@ -376,7 +376,7 @@ function QSLOT_VISIBLE_ENCHNTE_CRAFT()
 	local pc = GetMyPCObject();
 	local pcjobinfo = GetClass('Job', pc.JobName)
 	local pcCtrlType = pcjobinfo.CtrlType
-	if pcCtrlType == "Wizard" then
+	if pcCtrlType == "Scout" then
 		return 1;
 	end
 
@@ -416,4 +416,12 @@ function QSLOT_ENABLE_INDUN(cls)
 		end
     end
 	return true;
+end
+
+function QSLOT_VISIBLE_CRAFT_SPELL_BOOK()
+	local runecasterCls = GetClass('Job', 'Char2_17');
+	if IS_HAD_JOB(runecasterCls.ClassID) == true then
+		return 1;
+	end
+	return 0;
 end

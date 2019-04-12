@@ -532,9 +532,29 @@ end
 function UPDATE_TITLE_OPTION(frame)
     if IS_IN_EVENT_MAP() == true then    
         return;
-    end
+	end
+	
+	if session.colonywar.GetIsColonyWarMap() == true then
+		return;
+	end
 
 	world.UpdateTitleOption();
+end
+
+function UPDATE_COLONY_WAR_TITLE_OPTION(frame)
+    if IS_IN_EVENT_MAP() == true then    
+        return;
+	end
+	
+	world.UpdateTitleOption();
+end
+
+function SHOW_COLONY_EFFECTCOSTUME(frame)
+	if IS_IN_EVENT_MAP() == true then
+		return;
+	end
+
+	effect.ShowColonyEffectCostume();
 end
 
 function SET_DMG_FONT_SCALE_CONTROLLER(frame)

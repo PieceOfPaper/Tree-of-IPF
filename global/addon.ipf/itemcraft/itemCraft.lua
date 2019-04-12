@@ -85,18 +85,12 @@ function ITEMCRAFT_FIRST_OPEN(frame)
 end
 
 function ITEMCRAFT_CLOSE(frame)
-
 	session.ResetItemList();
 
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 	INVENTORY_SET_ICON_SCRIPT("ITEMCRAFT_INV_ICON");
-	INVENTORY_SET_ICON_SCRIPT("None");
-
-    local invframe = ui.GetFrame('inventory')
-	INVENTORY_UPDATE_ICONS(invframe)
-	ui.CloseFrame('inventory')
-
-
+	RESET_INVENTORY_ICON();
+	ui.CloseFrame('inventory');
 end
 
 function CRAFT_OPEN(frame)
@@ -164,14 +158,13 @@ function CRAFT_CHECK_Recipe_ItemCraft(cls, arg1, arg2)
 end	
 		
 		
-function CREATE_CRAFT_ARTICLE(frame)
-
+function CREATE_CRAFT_ARTICLE(frame)    
 	if g_craftRecipe == nil then
 		return;
 	end
 
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
-	INVENTORY_SET_ICON_SCRIPT("None");
+	RESET_INVENTORY_ICON();
 
 	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
 
@@ -201,7 +194,7 @@ function CREATE_CRAFT_ARTICLE(frame)
 
 	local clslist = GetClassList(idSpace);
 	if clslist == nil then return end
-
+    
 	local i = 0;
 	local cls = GetClassByIndexFromList(clslist, i);
 
@@ -209,7 +202,7 @@ function CREATE_CRAFT_ARTICLE(frame)
 	local checkHaveMaterial = showonlyhavemat:IsChecked();	
 
 	local checkCraftFunc = _G["CRAFT_CHECK_".. idSpace];
-	while cls ~= nil do
+	while cls ~= nil do        
 		if checkCraftFunc(cls, arg1, arg2) == true then
 			local haveM = CRAFT_HAVE_MATERIAL(cls);
 			if checkHaveMaterial == 1 then
@@ -309,7 +302,7 @@ function CRAFT_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType)
 	
 	local hGroup = tree:FindByValue(groupName);
 	if tree:IsExist(hGroup) == 0 then
-		hGroup = tree:Add(GET_RECIPE_GROUP_NAME(groupName), groupName);
+		hGroup = tree:Add(ScpArgMsg(groupName), groupName);
 		tree:SetNodeFont(hGroup,"brown_18_b")
 	end
 
@@ -319,7 +312,7 @@ function CRAFT_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType)
 	else
 		local hClassType = tree:FindByValue(hGroup, classType);
 		if tree:IsExist(hClassType) == 0 then
-			hClassType = tree:Add(hGroup, GET_RECIPE_GROUP_NAME(classType), classType);
+			hClassType = tree:Add(hGroup, ScpArgMsg(classType), classType);
 			tree:SetNodeFont(hClassType,"brown_18_b")
 			
 		end
@@ -430,57 +423,41 @@ function SORT_INVITEM_BY_WORTH(a,b)
 	local a_gemexp = 0
 	local b_gemexp = 0
 
-	for i = 0, 5-1 do
-	    local tempvala = TryGetProp(itemobj_a,'SocketItemExp_' .. i)
-   	    local tempvalb = TryGetProp(itemobj_b,'SocketItemExp_' .. i)
-        
-        if tempvala ~= nil and tempvalb ~= nil then
-		    a_gemexp = a_gemexp +  itemobj_a['SocketItemExp_' .. i] 
-    		b_gemexp = b_gemexp +  itemobj_b['SocketItemExp_' .. i] 
-		end
+	for i = 0, 4 do
+		a_gemexp = a_gemexp +  a:GetEquipGemExp(i);
+		b_gemexp = b_gemexp +  b:GetEquipGemExp(i);
 	end
 
 	if a_gemexp ~= b_gemexp then
 		return a_gemexp < b_gemexp
 	end
 
-
 	local a_gemcnt = 0
 	local b_gemcnt = 0
 
-	for i = 0, 5-1 do
-	    local tempvala = TryGetProp(itemobj_a,'Socket_Equip_' .. i)
-   	    local tempvalb = TryGetProp(itemobj_b,'Socket_Equip_' .. i)
-        
-        if tempvala ~= nil and tempvalb ~= nil then
-    		if itemobj_a['Socket_Equip_' .. i] ~= 0 then
-    			a_gemcnt = a_gemcnt + 1
-    		end
-    		if itemobj_b['Socket_Equip_' .. i] ~= 0 then
-    			b_gemcnt = b_gemcnt + 1
-    		end
+	for i = 0, 4 do
+		if a:GetEquipGemID(i) ~= 0 then
+			a_gemcnt = a_gemcnt + 1
+		end
+		if b:GetEquipGemID(i) ~= 0 then
+			b_gemcnt = b_gemcnt + 1
 		end
 	end
 
-	if a_amuletcnt ~= b_amuletcnt then
-		return a_amuletcnt < b_amuletcnt
+	if a_gemcnt ~= b_gemcnt then
+		return a_gemcnt < b_gemcnt
 	end
 
 
 	local a_socketcnt = 0
 	local b_socketcnt = 0
 
-	for i = 0, 5-1 do
-	    local tempvala = TryGetProp(itemobj_a,'Socket_' .. i)
-   	    local tempvalb = TryGetProp(itemobj_b,'Socket_' .. i)
-        
-        if tempvala ~= nil and tempvalb ~= nil then
-    		if itemobj_a['Socket_' .. i] > 0 then
-    			a_socketcnt = a_socketcnt + 1
-    		end
-    		if itemobj_b['Socket_' .. i] > 0 then
-    			b_socketcnt = b_socketcnt + 1
-    		end
+	for i = 0, 4 do
+		if a:IsAvailableSocket(i) == true then
+			a_socketcnt = a_socketcnt + 1
+		end
+		if b:IsAvailableSocket(i) == true then
+			b_socketcnt = b_socketcnt + 1
 		end
 	end
 
@@ -546,7 +523,8 @@ function SORT_INVITEM_BY_WORTH(a,b)
 	return a:GetIESID() < b:GetIESID()	
 end
 
-function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
+function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)    
+    
     if session.colonywar.GetIsColonyWarMap() == true then
         ui.SysMsg(ClMsg('CannotUseInPVPZone'));
         return;
@@ -615,7 +593,7 @@ function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
 	if someflag > 0 then
 		local yesScp = string.format("CRAFT_START_CRAFT(\'%s\', \'%s\', %d)",idSpace, recipeName, totalCount);
 		ui.MsgBox(ScpArgMsg("IsValueAbleItem"), yesScp, "None");
-	else
+	else        
 		CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 	end
 end
@@ -695,13 +673,9 @@ local function CHECK_MATERIAL_COUNT(recipecls, totalCount)
         end
     end
         
-    local invItemList = session.GetInvItemList();
-    local index = invItemList:Head();
-    local itemCount = session.GetInvItemList():Count();
-
-    for i = 0, itemCount - 1 do -- 인벤내의 아이템을 가져와서 재료인 아이템의 개수를 센다.
-	    local invItem = invItemList:Element(index);        
-	    if invItem ~= nil then
+	local invItemList = session.GetInvItemList();
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, havingItemCount)		
+		if invItem ~= nil then
             for key, value in pairs(havingItemCount) do
                 local item_classname = GetIES(invItem:GetObject()).ClassName
                 if item_classname ~= nil and IsValidRecipeMaterial(key, GetIES(invItem:GetObject())) and invItem.isLockState == false then                    
@@ -709,8 +683,7 @@ local function CHECK_MATERIAL_COUNT(recipecls, totalCount)
                 end    
             end
 	    end
-	    index = invItemList:Next(index);
-    end
+	end, false, havingItemCount);
 
     local max_try_count = 210000000 -- 가진 재료로 최대로 만들 수 있는 개수
         
@@ -798,7 +771,7 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 	local resultlist = session.GetItemIDList();
 	for index=1, 5 do
 		local clsName = "Item_"..index.."_1";
-		local itemName = recipecls[clsName];
+		local itemName = recipecls[clsName];        
 		local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, clsName);
 		if 'None' ~= itemName then
 			for j = 0, resultlist:Count() - 1 do
@@ -839,7 +812,7 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 		session.CopyTempItemID();
 		local queueFrame = ui.GetFrame("craftqueue");
 		CLEAR_CRAFT_QUEUE(queueFrame);
-		for i = 1, totalCount do
+		for i = 1, totalCount do            
 			ADD_CRAFT_QUEUE(queueFrame, targetItem, recipecls.ClassID, 1);
 		end
 		if frame:GetUserIValue("MANUFACTURING") == 1 then
@@ -853,7 +826,7 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 	
 	local resultlist = session.GetItemIDList();
 	local cntText = string.format("%s %s", recipecls.ClassID, 1);
-	frame:SetUserValue("IDSPACE", idSpace);
+	frame:SetUserValue("IDSPACE", idSpace);    
 	item.DialogTransaction("SCR_ITEM_MANUFACTURE_" .. idSpace, resultlist, cntText, nameList);    
 end
 
@@ -901,8 +874,8 @@ function IS_VALUEABLE_ITEM(itemid)
 
 	local gemcnt = 0
 
-	for i = 0, 5-1 do
-		if itemobj['Socket_Equip_' .. i] ~= 0 then
+	for i = 0, 4 do
+		if invitem:GetEquipGemID(i) ~= 0 then
 		gemcnt = gemcnt + 1
 		end
 	end
@@ -978,19 +951,20 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
     local map_classID = {}
     local map_cnt = {}  -- 제작에 필요한 아이템별 필요 개수
     local item_count = 0
-        
+    
 	for index=1, 5 do        
 		local clsName = "Item_"..index.."_1";        
-		local itemName = recipecls[clsName];        
-		local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, clsName);        
-        
-        if recipeItemCnt ~= 0 then
-            item_count = item_count + 1
-            map_classname[item_count] = itemName            
-            map_cnt[item_count] = recipeItemCnt
-        end
+		local itemName = recipecls[clsName];
+        if itemName ~= 'None' then
+            local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, clsName)
+            if recipeItemCnt ~= 0 then
+                item_count = item_count + 1
+                map_classname[item_count] = itemName
+                map_cnt[item_count] = recipeItemCnt                
+            end
+        end		
 	end
-
+    
     local extralist = {}    -- 중복 체크용 셋
     local ordered_list = {}
     local ordered_cnt = 1
@@ -1047,7 +1021,7 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
             end
         end
     end
-
+    
     session.ResetItemList()
 
     for i = 1, ordered_cnt - 1 do        
@@ -1061,8 +1035,9 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
         end
         session.AddItemID(ordered_list[i], map_cnt[i]);
     end
-
+    
     resultlist = session.GetItemIDList()
+    
     if resultlist:Count() ~= item_count then
         session.ResetItemList()
         ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
@@ -1071,7 +1046,7 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
 		SetCraftState(0)                
         return
     end 
-
+    
     local nameList = NewStringList();
 
     if IS_EQUIP(targetItem) then
@@ -1080,7 +1055,6 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
         nameList:Add(name)
 	    nameList:Add(memo)
     end
-
 	item.DialogTransaction("SCR_ITEM_MANUFACTURE_" .. idSpace, resultlist, cntText, nameList)
 end
 
@@ -1104,8 +1078,7 @@ function CRAFT_RECIPE_FOCUS(page, ctrlSet)
 		CRAFT_MINIMIZE_FOCUS(page);
 
 		INVENTORY_SET_CUSTOM_RBTNDOWN("None");
-		INVENTORY_SET_ICON_SCRIPT("None");
-		
+		RESET_INVENTORY_ICON();		
 	else
 		CRAFT_MINIMIZE_FOCUS(page);
 		page:SetUserValue("minimized", 0);
@@ -1289,6 +1262,22 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot)
     end
 end
 
+local function _RUNFUNC_TO_MERGED_CTRLSET(ctrlset, setName, func)
+
+	local setInfo = ui.GetControlSetInfo(setName);	
+	if setInfo == nil then
+		return;
+	end
+
+	local cnt = setInfo:GetControlCount();
+	for i = 0 , cnt - 1 do
+		local name = setInfo:GetControl(i):GetName();
+		local child = ctrlset:GetChild(name);
+		func(child);
+	end
+
+end
+
 function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)	
 	session.ResetItemList();
 	
@@ -1378,13 +1367,12 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 		memoSet:SetSkinName('None');
 		CRAFT_DETAIL_CTRL_INIT(memoSet);
 		CRAFT_INIT_MEMO_SET(memoSet);
-		--y = y + memoSet:GetHeight();
 	end
 
 	y = y + 10;
 
 	ctrlset:MergeControlSet(g_craftRecipe_makeBtn, 100, y +5);
-	RUNFUNC_TO_MERGED_CTRLSET(ctrlset, g_craftRecipe_makeBtn, CRAFT_DETAIL_CTRL_INIT);
+	_RUNFUNC_TO_MERGED_CTRLSET(ctrlset, g_craftRecipe_makeBtn, CRAFT_DETAIL_CTRL_INIT);
 	local make = GET_CHILD(ctrlset, "make", "ui::CButton");
 	make:SetEventScript(ui.LBUTTONUP, 'CRAFT_BEFORE_START_CRAFT');
 	make:SetOverSound('button_over');
@@ -1393,7 +1381,7 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 	make:ShowWindow(1)
 
 	ctrlset:MergeControlSet(g_craftRecipe_upDown, 357, y + 5);
-	RUNFUNC_TO_MERGED_CTRLSET(ctrlset, g_craftRecipe_upDown, CRAFT_DETAIL_CTRL_INIT);
+	_RUNFUNC_TO_MERGED_CTRLSET(ctrlset, g_craftRecipe_upDown, CRAFT_DETAIL_CTRL_INIT);
 	y = y + ui.GetControlSetAttribute(g_craftRecipe_upDown, 'height');
 	y = y + ui.GetControlSetAttribute(g_craftRecipe_makeBtn, 'height');
 	local upDown = GET_CHILD(ctrlset, "upDown", "ui::CNumUpDown");
@@ -1470,7 +1458,7 @@ function ITEMCRAFT_ON_DROP(cset, control, materialItemCnt, materialItemClassID)
 	if IS_EQUIP(itemObj) == true then
 		local frame = ui.GetFrame(g_itemCraftFrameName);
 		frame:SetUserValue("TARGETSET", cset:GetName())
-		local equip =	REGISTER_EQUIP(itemObj)
+		local equip =	REGISTER_EQUIP(itemObj,  invItem);
 		if equip == 1 then
 			return;
 		end
@@ -1574,9 +1562,9 @@ function SORT_PURE_INVITEMLIST(a,b)
     	local a_gemexp = 0
     	local b_gemexp = 0
     
-    	for i = 0, 5-1 do
-    		a_gemexp = a_gemexp +  itemobj_a['SocketItemExp_' .. i] 
-    		b_gemexp = b_gemexp +  itemobj_b['SocketItemExp_' .. i] 
+    	for i = 0, 4 do
+    		a_gemexp = a_gemexp + a:GetEquipGemExp(i);
+    		b_gemexp = b_gemexp + b:GetEquipGemExp(i);
     	end
     
     	if a_gemexp ~= b_gemexp then
@@ -1587,11 +1575,11 @@ function SORT_PURE_INVITEMLIST(a,b)
     	local a_gemcnt = 0
     	local b_gemcnt = 0
     
-    	for i = 0, 5-1 do
-    		if itemobj_a['Socket_Equip_' .. i] ~= 0 then
+    	for i = 0, 4 do
+    		if a:GetEquipGemID(i) ~= 0 then
     			a_gemcnt = a_gemcnt + 1
     		end
-    		if itemobj_b['Socket_Equip_' .. i] ~= 0 then
+    		if b:GetEquipGemID(i) ~= 0 then
     			b_gemcnt = b_gemcnt + 1
     		end
     	end
@@ -1604,11 +1592,11 @@ function SORT_PURE_INVITEMLIST(a,b)
     	local a_socketcnt = 0
     	local b_socketcnt = 0
     
-    	for i = 0, 5-1 do
-    		if itemobj_a['Socket_' .. i] > 0 then
+    	for i = 0, 4 do
+    		if a:IsAvailableSocket(i) == true then
     			a_socketcnt = a_socketcnt + 1
     		end
-    		if itemobj_b['Socket_' .. i] > 0 then
+    		if b:IsAvailableSocket(i) == true then
     			b_socketcnt = b_socketcnt + 1
     		end
     	end
@@ -1647,52 +1635,34 @@ end
 
 
 function GET_SORTED_INV_ITEMLIST()
-    local resultlist = {}
-
+    local resultlist = {};
 	local invItemList = session.GetInvItemList();
-	local index = invItemList:Head();
-	local itemCount = session.GetInvItemList():Count();
-
-	for i = 0, itemCount - 1 do
-		
-		local invItem = invItemList:Element(index);
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, resultlist)		
 		if invItem ~= nil then
 			if invItem.isLockState == false then
 				local itemobj = GetIES(invItem:GetObject());			
 				resultlist[#resultlist+1] = invItem
 			end
 		end
-		index = invItemList:Next(index);
-	end
-	
-	table.sort(resultlist, SORT_INVITEM_BY_WORTH)
+	end, false, resultlist);
 
+	table.sort(resultlist, SORT_INVITEM_BY_WORTH)
 	return resultlist
 end
 
 function GET_ONLY_PURE_INVITEMLIST(type)
-
-	local resultlist = {}
-
+	local resultlist = {};
 	local invItemList = session.GetInvItemList();
-	local index = invItemList:Head();
-	local itemCount = session.GetInvItemList():Count();
-
-	for i = 0, itemCount - 1 do
-		
-		local invItem = invItemList:Element(index);
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, resultlist)		
 		if invItem ~= nil then
 			if invItem.type == type and invItem.isLockState == false then
 				local itemobj = GetIES(invItem:GetObject());			
 				resultlist[#resultlist+1] = invItem
 			end
 		end
+	end, false, resultlist);
 
-		index = invItemList:Next(index);
-	end
-	
-	table.sort(resultlist, SORT_PURE_INVITEMLIST)
-
+	table.sort(resultlist, SORT_PURE_INVITEMLIST);
 	return resultlist
 end
 
@@ -1753,7 +1723,7 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 		local frame = ui.GetFrame(g_itemCraftFrameName);
 		frame:SetUserValue("TARGETSET", itemSet:GetName())
 		frame:SetUserValue("TARGET_GUID", GetIESID(itemObj))
-		local equip =	REGISTER_EQUIP(itemObj)
+		local equip =	REGISTER_EQUIP(itemObj, invItemadd);
 		if equip == 1 then
 			return;
 		end
@@ -1825,15 +1795,14 @@ function ITEM_EQUIP_CRAFT()
 
 end
 
-function REGISTER_EQUIP(itemObj)	
+function REGISTER_EQUIP(itemObj, invItem)
 	if itemObj.Reinforce_2 ~= 0 then
 			local yesScp = string.format("ITEM_EQUIP_CRAFT()");
 			ui.MsgBox(ScpArgMsg("craft_really_make"), yesScp, "None");
 			return 1
-	else 
-		
-		for i = 0 , itemObj.MaxSocket	do
-			if itemObj["Socket_"..i]  ~= 0 then
+	else 		
+		for i = 0, itemObj.MaxSocket - 1 do
+			if invItem:IsAvailableSocket(i) then
 				local yesScp = string.format("ITEM_EQUIP_CRAFT()");
 				ui.MsgBox(ScpArgMsg("craft_really_make"), yesScp, "None");
 				return 1
@@ -1889,7 +1858,7 @@ function MAKE_DETAIL_REQITEMS(ctrlset)
 
 
 	ctrlset:MergeControlSet("journalRecipe_makeBtn", ctrlset:GetWidth() - 320, y + 0);
-	RUNFUNC_TO_MERGED_CTRLSET(ctrlset, "journalRecipe_makeBtn", JOURNAL_DETAIL_CTRL_INIT);
+	_RUNFUNC_TO_MERGED_CTRLSET(ctrlset, "journalRecipe_makeBtn", JOURNAL_DETAIL_CTRL_INIT);
 	y = y + ui.GetControlSetAttribute("journalRecipe_makeBtn", 'height') + 0;
 	local make = GET_CHILD(ctrlset, "make", "ui::CButton");
 	

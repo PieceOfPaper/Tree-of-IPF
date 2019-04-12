@@ -107,8 +107,8 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 			    mintext:SetTextByKey("txt", obj.HR .." > ".. nextObj.HR);
 		    elseif  basicTooltipProp == "DR" then -- 회피
 			    mintext:SetTextByKey("txt", obj.DR .." > ".. nextObj.DR);
-		    elseif  basicTooltipProp == "MHR" then -- 마법관통
-			    mintext:SetTextByKey("txt", obj.MHR .." > ".. nextObj.MHR);
+		    elseif  basicTooltipProp == "CRTMATK" then -- 마법관통
+			    mintext:SetTextByKey("txt", obj.CRTMATK .." > ".. nextObj.CRTMATK);
 		    elseif  basicTooltipProp == "ADD_FIRE" then -- 화염
 			    mintext:SetTextByKey("txt", obj.FIRE .." > ".. nextObj.FIRE);
 		    elseif  basicTooltipProp == "ADD_ICE" then -- 빙한

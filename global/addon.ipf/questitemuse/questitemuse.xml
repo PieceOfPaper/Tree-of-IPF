@@ -4,7 +4,7 @@
 <uiframe name="questitemuse" x="0" y="0" width="160" height="100">
     <frame title="퀘스트 아이템 사용" layout_gravity="center center" margin="300 100 0 0"/>
     <skin frameskin="bg2"/>
-    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <draw drawtitlebar="false"/>
     <input hittest="false" moveable="false"/>
     <layer layerlevel="40"/>
     <option hideable="false" closebutton="false"/>

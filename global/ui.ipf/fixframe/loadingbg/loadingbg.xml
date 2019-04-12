@@ -6,7 +6,7 @@
 	<input hittest="false"/>
 	<layer topmostlayer="true"/>
 	<option hideable="false" closebutton="false"/>
-	<draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawframe="false" drawtitlebar="false"/>
 	<controls>
 		<picture name="screenbg" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="left top" hittest="false" image="fullblack" stretch="true"/>
 		<webpicture name="pic" rect="0 0 1920 1080" margin="0 0 0 0" check_pattern="false" image="fullblack" resizebyresolution="true" layout_gravity="center top"/>

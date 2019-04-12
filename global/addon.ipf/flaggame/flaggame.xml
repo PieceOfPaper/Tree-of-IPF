@@ -3,7 +3,7 @@
     <frame title="{@st41}NewUI{/}" fasthide="true" titlepos="0 -8" layout_gravity="right center" margin="0 143 20 0"/>
     <draw drawtitlebar="false"/>
     <skin frameskin="none"/>
-    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <option hideable="false" useimageitem="true"/>
     <sound opensound="win_open" closesound="win_close"/>
     <controls>
         <groupbox name="groupbox_1" rect="0 0 403 700" margin="0 0 0 0" layout_gravity="left top" hittestbox="false" skin="textballoon_npc"/>

@@ -1,7 +1,11 @@
 function TPITEM_POPUPMSG_ON_INIT(addon, frame)	
 end
 
-function OPEN_TPITEM_POPUPMSG(warningList, notWarningList, equipLimitList, itemAndTPItemIDTable, totalTP)
+function OPEN_TPITEM_POPUPMSG(warningList, notWarningList, equipLimitList, itemAndTPItemIDTable, totalTP, prop)
+	if prop == nil then
+		prop ={}
+	end
+
 	local frame = ui.GetFrame('tpitem_popupmsg');
 	local posy = 0;
 	posy = TPITEM_POPUPMSG_INIT_PROBABILITY_LIST(posy, frame, warningList);
@@ -9,6 +13,21 @@ function OPEN_TPITEM_POPUPMSG(warningList, notWarningList, equipLimitList, itemA
 
 	TPITEM_POPUPMSG_INIT_BOTTOM_MSG(posy, frame, totalTP);
 	frame:ShowWindow(1);
+
+	local btnOk = GET_CHILD_RECURSIVELY(frame, "button_ok")
+	if btnOk ~= nil and prop.okScp ~= nil then
+		btnOk:SetEventScript(ui.LBUTTONUP, prop.okScp);
+	else
+		btnOk:SetEventScript(ui.LBUTTONUP, "EXEC_BUY_MARKET_ITEM");
+	end
+
+	local btnCancel = GET_CHILD_RECURSIVELY(frame, "button_cancel")
+	if btnCancel ~= nil and prop.cancelSp ~= nil then
+		btnCancel:SetEventScript(ui.LBUTTONUP, prop.cancelSp);
+	else
+		btnCancel:SetEventScript(ui.LBUTTONUP, "TPSHOP_ITEM_BASKET_BUY_CANCEL");
+	end
+
 end
 
 function GET_NAME_COUNT_TABLE_BY_IES(iesList, property)

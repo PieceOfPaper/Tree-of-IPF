@@ -39,7 +39,7 @@ local MARKET_OPTION_GROUP_PROP_LIST = {
 		"PATK",
 		"ADD_MATK",
 		"CRTATK",
-		"ADD_MHR",
+		"CRTMATK",
 		"ADD_CLOTH",
 		"ADD_LEATHER",
 		"ADD_IRON",

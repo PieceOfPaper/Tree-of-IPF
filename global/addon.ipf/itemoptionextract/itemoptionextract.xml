@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="itemoptionextract" x="0" y="0" width="500" height="609" create="open">
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<skin frameskin=" "/>
 	<frame title="" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
 	<input maxwidth="1280" moveable="false"/>
@@ -16,8 +16,8 @@
 		<richtext name="richtext_1" rect="0 0 120 24" margin="0 18 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}%s" param1="value" param1_def="아이커 추출"/>
 		<groupbox name="pic_bg" rect="0 0 470 362" margin="0 50 0 0" layout_gravity="center top" parent="bg" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" skin="test_socket_topskin"/>
 		<groupbox name="resultGbox" rect="0 0 470 362" margin="0 50 0 0" layout_gravity="center top" parent="bg" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" skin="test_socket_topskin"/>
-		<button name="do_extract" parent="gbox" rect="0 0 180 50" margin="0 0  0 70" layout_gravity="center bottom" LBtnUpScp="ITEMOPTIONEXTRACT_EXEC" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="추출" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big"/>
-		<button name="send_ok" parent="gbox" rect="0 0 180 50" margin="0 0  0 70" layout_gravity="center bottom" LBtnUpScp="CLEAR_ITEMOPTIONEXTRACT_UI" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="확인" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big"/>
+		<button name="do_extract" rect="0 0 180 50" margin="0 0  0 70" layout_gravity="center bottom" LBtnUpScp="ITEMOPTIONEXTRACT_EXEC" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="추출" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big"/>
+		<button name="send_ok" rect="0 0 180 50" margin="0 0  0 70" layout_gravity="center bottom" LBtnUpScp="CLEAR_ITEMOPTIONEXTRACT_UI" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="확인" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big"/>
 		<button name="close" rect="0 0 44 44" margin="0 15 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ITEMOPTIONEXTRACT_CLOSE" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button"/>
 		<slot name="slot" margin="0 0 0 0" parent="pic_bg" rect="0 0 140 140" movepop="false" dropsound="icon_get_down" picksound="icon_pick_up" DropScp="ITEM_OPTIONEXTRACT_DROP" skin="invenslot2" RBtnUpScp="REMOVE_OPTIONEXTRACT_TARGET_ITEM" layout_gravity="center center"/>
 		<gauge name="gauge_potential" parent="pic_bg" rect="0 0 267 34" margin="0 0 0 0" layout_gravity="center bottom" inverse="false" point="0" skin="gauge_itemtooltip_poten" text1="%v / %m" textalign1="center center" textfont1="white_18_ol" textoffset1="0 -1"/>
@@ -25,7 +25,7 @@
 		<richtext name="destroy_text" parent="destroy_gbox" rect="0 0 267 34" margin="0 0 0 0" layout_gravity="center center" format="{s22}아이템이 파괴되었습니다." textalign="center center" fontname="red_18_ol"/>
 		<picture name="slot_bg_image" parent="slot" rect="0 0 140 140" margin="10 13 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="false" image="socket_slot_bg" oversound="button_over"/>
 		<groupbox name="gbox" rect="0 0 500 840" margin="0 67 0 0" parent="bg" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
-		<groupbox name="bodyGbox4" rect="0 0 450 460" margin="0 380 0 0" parent="gbox" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_bgreentitle_skin"/>
+		<groupbox name="bodyGbox4" rect="0 0 450 460" margin="0 430 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_bgreentitle_skin"/>
 		<groupbox name="bodyGbox1" rect="0 0 430 200" margin="0 0 0 0" parent="bodyGbox4" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_bgreentitle_skin"/>
 		<groupbox name="bodyGbox1_0" rect="0 0 430 200" margin="0 30 0 0" parent="bodyGbox1" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" stretch="false" skin="None"/>
 		<groupbox name="bodyGbox1_1" rect="0 0 430 200" margin="0 0 0 0" parent="bodyGbox1_0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="None"/>
@@ -35,7 +35,7 @@
 		<groupbox name="bodyGbox3" rect="0 0 430 200" margin="0 250 0 0" parent="bodyGbox4" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_weight_skin"/>
 		<groupbox name="bodyGbox3_1" rect="0 0 430 200" margin="0 10 0 0" parent="bodyGbox3" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
 		<groupbox name="groupbox_1" rect="0 0 400 60" margin="0 0 0 25" parent="pic_bg" layout_gravity="center bottom" draw="true" hittestbox="true" resizebyparent="false" resizebyresolution="false" skin="monster_skill_bg"/>
-		<labelline name="labelline2" parent="gbox" rect="0 0 420 1" margin="0 360 0 0" layout_gravity="center top" skin="labelline_def_2"/>
+		<labelline name="labelline2" rect="0 0 420 1" margin="0 415 0 0" layout_gravity="center top" skin="labelline_def_2"/>
 		<richtext name="text_potential" margin="0 0 0 8" rect="0 0 100 50" parent="pic_bg" format="{@st43b}{s18}포텐셜" hittestbox="false" textalign="center center " resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left bottom"/>
 		<richtext name="text_itemname" margin="0 -3 0 0 " rect="0 0 300 50" parent="groupbox_1" hittestbox="false" textalign="center center " resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center "/>
 		<richtext name="text_putonitem" margin="0 -3 0 0 " rect="0 0 400 50" parent="groupbox_1" format="{@st43b}{s18}아이템을 올려주세요" hittestbox="false" textalign="center center " resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center "/>
@@ -52,6 +52,6 @@
 		<picture name="text_fail" parent="resultGbox" rect="0 0 330 133" hittest="false" image="card_reinforce_FAIL" margin="0 185 0 0" stretch="false" layout_gravity="center top"/>
 		<groupbox name="extractKitGbox" parent="bodyGbox2_1" rect="0 0 430 70" margin="0 0 0 0" skin="" layout_gravity="center top" draw="true"/>
 		<slot name="extractKitSlot" parent="extractKitGbox" layout_gravity="left top" rect="0 0 60 60" skin="invenslot2" DropScp="ITEM_OPTIONEXTRACT_KIT_DROP" RBtnUpScp="REMOVE_OPTIONEXTRACT_KIT_TARGET_ITEM" margin="10 7 0 0" draw="true" stretch="true"/>
-		<richtext name="extractKitName" margin="100 0 0 0" rect="0 0 80 30" parent="extractKitGbox" layout_gravity="left center" textalign="left center" resizebytext="true" fixwidth="false" format="%s" param1="value" param1_def="추출 키트" fontname="brown_18"/>
+		<richtext name="extractKitName" margin="100 0 0 0" rect="0 0 300 30" parent="extractKitGbox" layout_gravity="left center" textalign="left center" resizebytext="true" fixwidth="true" format="%s" param1="value" param1_def="추출 키트" fontname="brown_18"/>
 		<richtext name="text_potential_change" margin="0 400 0 0 " rect="0 0 100 50" parent="resultGbox" layout_gravity="center top" format="{@st43b}{s18}포텐셜" hittestbox="false" textalign="center center " resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false"/><![CDATA[]]></controls>
 </uiframe>

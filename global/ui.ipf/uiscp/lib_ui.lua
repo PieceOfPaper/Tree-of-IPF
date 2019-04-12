@@ -549,9 +549,29 @@ end
 end
 
 function GET_JOB_MAX_CIRCLE(jobcls)
-	local maxCircle = TryGetProp(jobcls, "MaxCircle")
+	local maxCircle = TryGetProp(jobcls, "MaxCircle")	
 	if maxCircle ~= nil then
 		return maxCircle;
 	end
-	return 3;
+	return 1;
 end
+
+function SET_FRAME_OFFSET_TO_RIGHT_TOP(frame, targetFrame)
+    local x = targetFrame:GetGlobalX()+targetFrame:GetWidth();
+    local y = targetFrame:GetGlobalY();
+
+    if x > ui.GetClientInitialWidth()-frame:GetWidth() then
+        x = ui.GetClientInitialWidth()-frame:GetWidth();
+    end
+    frame:SetOffset(x, y)
+end
+
+imcRichText = {
+	SetColorBlend = function(self, richtext, isStart, blendTime, color1, color2)
+		richtext:StopColorBlend();
+		if isStart == false then
+			return;
+		end
+		richtext:SetColorBlend(blendTime, color1, color2, true);
+	end,
+};

@@ -4,7 +4,7 @@
 	<frame title="{@st41}NewUI{/}" titlepos="0 -8" layout_gravity="center top" margin="0 50 0 0"/>
 	<draw drawtitlebar="false"/>
 	<skin frameskin="recipe_skin"/>
-	<option hideable="true" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+	<option hideable="true" useimageitem="true"/>
 	<sound opensound="win_open" closesound="win_close"/>
 	<controls>
 		<richtext name="richtext_1" rect="0 0 200 24" margin="0 29 0 0" layout_gravity="center top" caption="{@st41b}제작 아이템 재료 획득!" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>

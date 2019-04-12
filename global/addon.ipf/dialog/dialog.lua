@@ -13,6 +13,7 @@ function DIALOG_ON_INIT(addon, frame)
 	addon:RegisterMsg('DIALOG_DIRECT_SELECT_DLG_LIST', 'DIALOG_ON_DIRECT_SELECT_DLG_LIST');
 	addon:RegisterMsg('DIALOG_ESCAPE', 'DIALOG_ON_ESCAPE');
 	addon:RegisterMsg('LEAVE_TRIGGER', 'DIALOG_LEAVE_TRIGGER');
+	addon:RegisterOpenOnlyMsg('UPDATE_COLONY_TAX_RATE_SET', 'ON_DIALOG_UPDATE_COLONY_TAX_RATE_SET');
 end
 
 g_lastClassName = nil;
@@ -211,8 +212,23 @@ function DIALOG_LEAVE_TRIGGER(frame)
 	--end
 end
 
-function DIALOG_ON_PRESS_ESCAPE(frame, msg, argStr, argNum)
+function ON_DIALOG_UPDATE_COLONY_TAX_RATE_SET(frame)
+	local needTaxEscape = false;
+	local clsName = TryGetProp(GET_LAST_DLG_CLS(), "ClassName");
+	if clsName ~= nil then
+		if string.find(clsName, "NPC_JUNK_SHOP") ~= nil then
+			needTaxEscape = true;
+		end
+	end
 
+	if needTaxEscape then
+		if frame:IsVisible() == 1 then
+			control.DialogCancel();
+		end
+	end
+end
+
+function DIALOG_ON_PRESS_ESCAPE(frame, msg, argStr, argNum)
 	if frame:IsVisible() == 1 then
 		control.DialogCancel();
 	end

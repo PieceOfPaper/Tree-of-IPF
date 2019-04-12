@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="colony_tax_distribute" x="0" y="0" width="500" height="560">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="650 0 0 0" draw="true"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<skin frameskin="collection_complete"/>
+	<draw drawtitlebar="false"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<layer layerlevel="101"/>
+	<script OpenScp="ON_OPEN_COLONY_TAX_DISTRIBUTE"/>
+	<userconfig ASC="▲" DESC="▼"/>
+	<controls>
+		<richtext name="title" rect="0 0 200 30" margin="0 10 0 0" layout_gravity="center top" caption="{@st42}{s20}세금 분배" fontname="brown_16_b" spacey="0"/>
+		<groupbox name="amount_gb" rect="0 0 480 100" margin="0 40 0 0" layout_gravity="center top" skin="bg2" draw="false" scrollbar="false"/>
+		<groupbox name="cur_amount_bg" parent="amount_gb" rect="0 0 150 28" margin="0 0 0 0" layout_gravity="left top" skin="jour_search" draw="true" scrollbar="false"/>
+		<groupbox name="send_amount_bg" parent="amount_gb" rect="0 0 150 28" margin="0 32 0 0" layout_gravity="left top" skin="jour_search" draw="true" scrollbar="false"/>
+		<groupbox name="remain_amount_bg" parent="amount_gb" rect="0 0 150 28" margin="0 64 0 0" layout_gravity="left top" skin="jour_search" draw="true" scrollbar="false"/>
+		<richtext name="cur_amount_label" parent="cur_amount_bg" rect="0 0 150 30" margin="0 5 0 0" fixwidth="true" textalign="center center" layout_gravity="left top" caption="현재 금액" fontname="brown_16" spacey="0"/>
+		<richtext name="send_amount_label" parent="send_amount_bg" rect="0 0 150 30" margin="0 5 0 0" fixwidth="true" textalign="center center" layout_gravity="left top" caption="보낼 금액" fontname="brown_16" spacey="0"/>
+		<richtext name="remain_amount_label" parent="remain_amount_bg" rect="0 0 150 30" margin="0 5 0 0" fixwidth="true" textalign="center center" layout_gravity="left top" caption="잔여 금액" fontname="brown_16" spacey="0"/>
+		<richtext name="cur_amount_text" parent="amount_gb" rect="0 0 200 30" margin="0 5 0 0" textalign="center center" layout_gravity="right top" format="%s" param1="value" param1_def="0" fontname="brown_16" spacey="0"/>
+		<richtext name="send_amount_text" parent="amount_gb" rect="0 0 200 30" margin="0 35 0 0" textalign="center center" layout_gravity="right top" format="- %s" param1="value" param1_def="0" fontname="brown_16" spacey="0"/>
+		<richtext name="remain_amount_text" parent="amount_gb" rect="0 0 200 30" margin="0 65 0 0" textalign="center center" layout_gravity="right top" format="= %s" param1="value" param1_def="0" fontname="brown_16" spacey="0"/>
+		<groupbox name="teamlist_gb" rect="0 0 480 300" margin="0 138 0 0" layout_gravity="center top" skin="test_frame_midle" draw="true" scrollbar="false"/>
+		<groupbox name="teamlist_column_bar" parent="teamlist_gb" rect="0 0 472 35" margin="0 4 0 0" layout_gravity="center top" skin="jour_search" draw="true" scrollbar="false"/>
+		<checkbox name="all_check" parent="teamlist_column_bar" rect="0 0 100 30" margin="10 0 0 0" layout_gravity="left center" checked="false" LBtnUpScp="ON_COLONY_TAX_DISTRIBUTE_ALL_CHECK"/>
+		<richtext name="name_text" parent="teamlist_column_bar" rect="0 0 200 30" margin="100 0 0 0" layout_gravity="left center" LBtnUpScp="ON_COLONY_TAX_DISTRIBUTE_NAME_ORDER" format="팀명 %s" param1="value" fontname="black_18_b" spacey="0"/>
+		<richtext name="amount_text" parent="teamlist_column_bar" rect="0 0 200 30" margin="350 0 0 0" layout_gravity="left center" caption="금액" fontname="black_18_b" spacey="0"/>
+		<groupbox name="receiverlist_gb" parent="teamlist_gb" rect="0 0 480 255" margin="0 40 0 0" layout_gravity="center top" skin="none" draw="false" scrollbar="true"/>
+		<groupbox name="send_gb" rect="0 0 480 100" margin="0 0 0 18" layout_gravity="center bottom" skin="bg2" draw="false" scrollbar="false"/>
+		<groupbox name="find_gb" parent="send_gb" rect="0 0 480 35" margin="0 0 0 0" layout_gravity="center top" skin="test_frame_midle" draw="true" scrollbar="false"/>
+		<edit name="find_edit" parent="find_gb" rect="0 0 420 30" margin="0 3 0 0" layout_gravity="left top" typingscp="ON_COLONY_TAX_DISTRIBUTE_TEAMNAME_TYPE" numbermode="false" skin="none" caption="" textalign="center center" fontname="white_18_ol"/>
+		<button name="find_btn" parent="find_gb" rect="0 0 60 40" margin="0 0 0 0" layout_gravity="right center" LBtnUpScp="ON_COLONY_TAX_DISTRIBUTE_TEAMNAME_FIND_BTN" image="inven_s" hittest="true" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2"/>
+		<button name="send_btn" parent="send_gb" rect="0 0 130 40" margin="100 0 0 10" layout_gravity="left bottom" LBtnUpScp="ON_COLONY_TAX_DISTRIBUTE_SEND_BTN" skin="test_pvp_btn" caption="{@st42}{s16}보내기" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2"/>
+		<button name="cancel_btn" parent="send_gb" rect="0 0 130 40" margin="0 0 100 10" layout_gravity="right bottom" LBtnUpScp="ui.CloseFrame(&apos;colony_tax_distribute&apos;)" skin="test_pvp_btn" caption="{@st42b}{s16}취소{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_cursor_over_2"/>
+	</controls>
+</uiframe>

@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="indun_reward_hud" x="0" y="0" width="400" height="100">
 	<skin frameskin=" "/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<frame layout_gravity="right top" keyboardselectframe="false" margin="0 370 20 0"/>
 	<layer layerlevel="60"/>
 	<option hideable="false" closebutton="false" alwaysVisible="false" autoopen="false"/>

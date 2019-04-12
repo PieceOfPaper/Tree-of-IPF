@@ -48,15 +48,22 @@ function ON_GUILD_APPLICANT_GET(_code, ret_json)
                 local teamLevel = GET_CHILD_RECURSIVELY(row, 'teamLevelText');
                 teamLevel:SetTextByKey("teamlvl", txtToJson['team_lv'])
                 
-                local teamLevel = GET_CHILD_RECURSIVELY(row, 'charNumText');
-                teamLevel:SetTextByKey("charnum", txtToJson['character_count'])
+                local charNumText = GET_CHILD_RECURSIVELY(row, 'charNumText');
+                charNumText:SetTextByKey("charnum", txtToJson['character_count'])
 
-                local teamLevel = GET_CHILD_RECURSIVELY(row, 'adventureRankText');
-                teamLevel:SetTextByKey("adventureRank", txtToJson['adventure_rank'])
+                local adventureRankText = GET_CHILD_RECURSIVELY(row, 'adventureRankText');
+                local rankNumber = tonumber(txtToJson['adventure_rank'])
+                rankNumber = rankNumber + 1;
 
-                local teamLevel = GET_CHILD_RECURSIVELY(row, 'commentText');
-                teamLevel:SetTextByKey("comment", txtToJson['msg_text'])
-                teamLevel:SetTextTooltip(txtToJson['msg_text'])
+                if rankNumber == 0 then -- 실제 순위보다 1 작은 값이 뜸. ex. 순위에 없을 경우 -1
+
+                    rankNumber = ClMsg("NONE")
+                end
+                adventureRankText:SetTextByKey("adventureRank", rankNumber) 
+
+                local commentText = GET_CHILD_RECURSIVELY(row, 'commentText');
+                commentText:SetTextByKey("comment", txtToJson['msg_text'])
+                commentText:SetTextTooltip(txtToJson['msg_text'])
 
                 local acceptBtn = GET_CHILD_RECURSIVELY(row, 'acceptJoinBtn')
                 acceptBtn:SetUserValue('account_idx', y['account_idx'])
@@ -112,6 +119,9 @@ function REMOVE_APPLICANT_RESUME()
     scrollPanel:RemoveChild(selected_applicant:GetName());
     selected_applicant = nil;
     GBOX_AUTO_ALIGN(scrollPanel, 0, 0, 45, true, false, true)
+
+    --길드UI에 알림 있으면 삭제
+    SYSMENU_GUILD_NOTICE(ui.GetFrame("sysmenu"), 0)
 end
 
 function ACCEPT_SELECTED_USER()

@@ -107,7 +107,11 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 
     -- birth buff
     local mon_attribute_img = TARGETINFO_GET_ATTRIBUTE_SKIN_ANG_IMG(frame, targetinfo, targetHandle);
-    local attribute = targetinfo.attribute
+	local attribute = targetinfo.attribute
+	
+	if attribute == nil then
+		attribute = "None"
+	end
     local attributeImgName = "attribute_"..attribute
 	if attributeImgName == "None" or attribute == "None" then
 		mon_attribute_img:ShowWindow(0)
@@ -143,8 +147,9 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 			hpGauge:SetColorTone("FFFFFFFF");
 		end
 	end
-    local hpText = frame:GetChild('hpText');
-    hpText:SetText(GET_COMMAED_STRING(stat.HP));
+	local strHPValue = TARGETINFO_TRANS_HP_VALUE(targetHandle, stat.HP);
+	local hpText = frame:GetChild('hpText');
+    hpText:SetText(strHPValue);
     
     -- name	
 	local targetSize = targetinfo.size;
@@ -206,8 +211,9 @@ function TARGETINFO_ON_MSG(frame, msg, argStr, argNum)
 			end
 		end
 		hpGauge:SetMaxPointWithTime(stat.HP, stat.maxHP, 0.2, 0.4);
-        local hpText = frame:GetChild('hpText');
-        hpText:SetText(GET_COMMAED_STRING(stat.HP));
+		local strHPValue = TARGETINFO_TRANS_HP_VALUE(targetHandle, stat.HP);
+		local hpText = frame:GetChild('hpText');
+        hpText:SetText(strHPValue);
 		frame:Invalidate();
 	 end
  end
@@ -270,4 +276,23 @@ function TARGETINFO_ON_MSG(frame, msg, argStr, argNum)
         attributeSkin = GET_CHILD(normalGaugeBox, "normal_attribute_img");
 	end	
     return attributeSkin;
+ end
+
+ function TARGETINFO_TRANS_HP_VALUE(handle, hp, fontStyle)
+	-- 일반 HP의 경우 3자리마다 콤마를찍어준다.
+	local strHPValue = tostring(math.floor(hp)):reverse():gsub("(%d%d%d)","%1,"):gsub(",(%-?)$","%1"):reverse();
+	if info.IsPercentageHP(handle) == true then
+		if fontStyle == nil or fontStyle == "None" then
+			fontStyle = "";
+		end
+		
+		if hp >= 10000 then 
+			-- 100% 일때 계산필요 없이 100%
+			strHPValue = fontStyle.."100%";	
+		else
+			
+			strHPValue = string.format("%s%3.2f%%",fontStyle, hp/100.0);
+		end
+	end
+	return strHPValue;
  end

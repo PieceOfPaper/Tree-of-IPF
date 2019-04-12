@@ -97,11 +97,11 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
             			local dutyName = "{ol}{#FFFF00}" .. ScpArgMsg("GuildMaster") .. "{/}{/}";
             			dutyName = dutyName .. " " .. guild:GetDutyName(grade);
             			txt_duty:SetTextByKey("value", dutyName);
-            		else
+                    else
                         local claimName = GET_CLAIM_NAME_BY_AIDX(partyMemberInfo:GetAID())
                         if claimName == nil then
                             claimName = ""
-            		end
+                        end
             			txt_duty:SetTextByKey("value", claimName);
             		end
 
@@ -113,7 +113,6 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
                     memberCtrlSet:SetEventScript(ui.RBUTTONDOWN, 'POPUP_GUILD_MEMBER');
     end
     GUILDINFO_MEMBER_ONLINE_CLICK(frame);
-    memberCtrlBox:SetEventScript(ui.SCROLL, 'SET_AUTHO_MEMBERS_SCROLL');
 
     -- on/off
     local memberCountText = GET_CHILD_RECURSIVELY(memberBox, 'memberCountText');
@@ -124,7 +123,7 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
 
     GUILDINFO_MEMBER_LEADER_ON_TOP(frame, leaderAID);
 
-    end
+end
 
 function GUILDINFO_MEMBER_LEADER_ON_TOP(frame, leaderAID)
     local memberCtrlBox = GET_CHILD_RECURSIVELY(frame, 'memberCtrlBox');
@@ -184,12 +183,12 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 	local name = memberInfo:GetName();
 
 	local contextMenuCtrlName = string.format("{@st41}%s{/}", name);
-	local context = ui.CreateContextMenu("PC_CONTEXT_MENU", name, 0, 0, 170, 100);
-	
-
+    local context = ui.CreateContextMenu("PC_CONTEXT_MENU", name, 0, 0, 170, 100);
+    
     if isLeader == 1 or HAS_KICK_CLAIM() then
         ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("GUILD_BAN('%s')", aid));        
     end
+
 	if isLeader == 1 and aid ~= myAid then
 		local mapName = session.GetMapName();
 		if mapName == 'guild_agit_1' then
@@ -198,16 +197,25 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 	end
 
 	if isLeader == 1 then
-
 		local list = session.party.GetPartyMemberList(PARTY_GUILD);
 		if list:Count() == 1 then
-			ui.AddContextMenuItem(context, ScpArgMsg("Disband"), "ui.Chat('/destroyguildbyweb')");            
+			ui.AddContextMenuItem(context, ScpArgMsg("Disband"), "DESTROY_GUILD()");            
 		end
 	else
 		if aid == myAid then
-			ui.AddContextMenuItem(context, ScpArgMsg("GULID_OUT"), "OUT_GUILD()");
+			ui.AddContextMenuItem(context, ScpArgMsg("GULID_OUT"), "OUT_GUILD_CHECK()");
 		end
-	end
+    end
+    
+    if isLeader == 1 and aid ~= myAid then
+        local summonSkl = GetClass('Skill', 'Templer_SummonGuildMember');
+        ui.AddContextMenuItem(context, summonSkl.Name, string.format("SUMMON_GUILD_MEMBER('%s')", aid));
+    end
+
+    if isLeader == 1 and aid ~= myAid then
+        local goSkl = GetClass('Skill', 'Templer_WarpToGuildMember');
+        ui.AddContextMenuItem(context, goSkl.Name, string.format("WARP_GUILD_MEMBER('%s')", aid));
+    end
 
 	ui.AddContextMenuItem(context, ScpArgMsg("WHISPER"), string.format("ui.WhisperTo('%s')", name));
 	ui.AddContextMenuItem(context, ScpArgMsg("Cancel"), "None");
@@ -378,11 +386,27 @@ end
 
 function SEND_REQ_GUILD_MASTER(name)
     local yesscp = string.format("_SEND_REQ_GUILD_MASTER('%s')", name);
-    ui.MsgBox(ClMsg('YouMustUpdateTowerLevel'), yesscp, 'None');
+    ui.MsgBox(ScpArgMsg('ReallyChangeLeader', 'NAME', name), yesscp, 'None');
 end
 
 function _SEND_REQ_GUILD_MASTER(name)
 	ui.Chat("/guildleader " .. name);
+end
+
+function OUT_GUILD_CHECK()
+	ui.Chat("/outguildcheck");
+    ui.CloseFrame('guildinfo');
+end
+
+function SHOW_WARNING_OUT_GUILD(taxAmount)
+    local yesscp = "OUT_GUILD()"
+    taxAmount = GET_COMMAED_STRING(taxAmount)
+    ui.MsgBox(ScpArgMsg('ColonyTax_GuildOut_RemainAsset_Warning{Tax}', 'Tax', taxAmount), yesscp, 'None');
+end
+
+function DESTROY_GUILD()
+    local yesscp = "ui.Chat('/destroyguildbyweb')"
+    ui.MsgBox(ScpArgMsg('ColonyTax_GuildDestroy_RemainAsset_Warning'), yesscp, 'None');
 end
 
 function OUT_GUILD()
@@ -406,4 +430,48 @@ end
 function GUILDINFO_MEMBER_INIT_ONLINE_CHECKBOX(frame)
     local memberFilterCheck = GET_CHILD_RECURSIVELY(frame, 'memberFilterCheck');    
     memberFilterCheck:SetCheck(config.GetXMLConfig('OnlyOnlineGuildMember'));
+end
+
+function SUMMON_GUILD_MEMBER(aid)
+    if IS_IN_EVENT_MAP() == true then
+        ui.SysMsg(ClMsg('ImpossibleInCurrentMap'));
+        return;
+    end
+
+    local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_GUILD, aid);
+    if memberInfo == nil then
+        return;
+    end
+
+    local yesScp = string.format("SUMMON_GUILD_MEMBER_EXEC(\"%s\")", aid);
+	ui.MsgBox(ScpArgMsg('ReallySummonGuildMember', 'NAME', memberInfo:GetName()), yesScp, "None"); 
+end
+
+function SUMMON_GUILD_MEMBER_EXEC(aid)
+    session.party.ClearSkillTargetList();
+    session.party.AddSkillTarget(aid);
+    local summonSkl = GetClass('Skill', 'Templer_SummonGuildMember');
+	session.party.ReqUsePartyMemberSkill(PARTY_GUILD, summonSkl.ClassID);
+end
+
+function WARP_GUILD_MEMBER(aid)
+    if IS_IN_EVENT_MAP() == true then
+        ui.SysMsg(ClMsg('ImpossibleInCurrentMap'));
+        return;
+    end
+
+    local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_GUILD, aid);
+    if memberInfo == nil then
+        return;
+    end
+
+    local yesScp = string.format("WARP_GUILD_MEMBER_EXEC(\"%s\")", aid);
+	ui.MsgBox(ScpArgMsg('ReallyWarpGuildMember', 'NAME', memberInfo:GetName()), yesScp, "None"); 
+end
+
+function WARP_GUILD_MEMBER_EXEC(aid)
+    session.party.ClearSkillTargetList();
+    session.party.AddSkillTarget(aid);
+    local summonSkl = GetClass('Skill', 'Templer_WarpToGuildMember');
+	session.party.ReqUsePartyMemberSkill(PARTY_GUILD, summonSkl.ClassID);
 end

@@ -1,8 +1,8 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 1,1,1,40,-1,60000,1,2,0,0,1,0,0,"Warp_arrow","갈르엣 평야","","","","","","","","ABBEY_35_4_TO_ROKAS_36_1","","NO","YES","NO","Neutral","","","",""
-2,2,0,40,30,0,20,0,0,0,1,0,0,"Hohen_mane_brown","","","","","","","ABBEY_35_4_MON_AI","","","","NO","YES","NO","Monster","SmartGen","","",""
+2,2,0,40,30,0,35,0,0,0,1,0,0,"Hohen_mane_brown","","","","","","","ABBEY_35_4_MON_AI","","","","NO","YES","NO","Monster","SmartGen","","",""
 3,3,0,40,30,0,15,0,0,0,0,0,0,"Hohen_orben_green","","","","","","","ABBEY_35_4_MON_AI","","","","NO","YES","NO","Monster","SmartGen","","",""
-4,4,0,40,30,0,8,0,0,0,1,0,0,"Harugal_brown","","","","","","","ABBEY_35_4_MON_AI","","","","NO","YES","NO","Monster","","","",""
+4,4,0,40,30,0,10,0,0,0,1,0,0,"Harugal_brown","","","","","","","ABBEY_35_4_MON_AI","","","","NO","YES","NO","Monster","","","",""
 5,5,0,40,30,0,25,0,0,0,0,0,0,"Hohen_mane_brown","","","","","","","ABBEY_35_4_MON_AI","","","","NO","YES","NO","Monster","SmartGen","","",""
 6,6,1,100,-1,60000,1,0,0,0,1,0,0,"HiddenTrigger_CantGen200","FieldCantGen","","","","","","","","","","NO","YES","NO","Neutral","","","",""
 7,7,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","엘고스 수도원 별관","","","","MON_DUMMY","","","","ABBEY_35_4_ABBEY_35_3","","NO","YES","NO","Neutral","","","",""

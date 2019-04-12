@@ -18,9 +18,9 @@ function MAP_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('LOCALAREA_LEAVE', 'MAP_ON_MSG');
 
 	addon:RegisterMsg('GAME_START', 'FIRST_UPDATE_MAP');
-	addon:RegisterOpenOnlyMsg('QUEST_UPDATE', 'UPDATE_MAP');
-	addon:RegisterOpenOnlyMsg('GET_NEW_QUEST', 'UPDATE_MAP');
-	addon:RegisterMsg('REVEAL_ALL', 'UPDATE_MAP');
+	addon:RegisterOpenOnlyMsg('QUEST_UPDATE', 'REQUEST_MAP_UPDATE');
+	addon:RegisterOpenOnlyMsg('GET_NEW_QUEST', 'REQUEST_MAP_UPDATE');
+	addon:RegisterMsg('REVEAL_ALL', 'REQUEST_MAP_UPDATE');
 
 	-- addon:RegisterOpenOnlyMsg('PC_PROPERTY_UPDATE', 'UPDATE_MAP');
 	addon:RegisterMsg('NPC_STATE_UPDATE', 'UPDATE_MAP_NPC_STATE');
@@ -36,9 +36,12 @@ function MAP_ON_INIT(addon, frame)
 			
 	addon:RegisterMsg('CHANGE_CLIENT_SIZE', 'FIRST_UPDATE_MAP');
     addon:RegisterMsg('COLONY_MONSTER', 'MAP_COLONY_MONSTER');
-    addon:RegisterMsg('OPEN_COLONY_POINT', 'UPDATE_MAP');
+    addon:RegisterMsg('OPEN_COLONY_POINT', 'REQUEST_MAP_UPDATE');
     addon:RegisterMsg('REMOVE_COLONY_MONSTER', 'ON_REMOVE_COLONY_MONSTER');
 	addon:RegisterOpenOnlyMsg('UPDATE_MGAME_POSITION', 'ON_UPDATE_MAP_MGAME_POSITION');
+	addon:RegisterMsg('ON_QUEST_UPDATED', 'UPDATE_MAP');
+	addon:RegisterMsg('QUEST_DELETED', 'REQUEST_MAP_UPDATE');
+	
 	frame = ui.GetFrame("map");
 	INIT_MAPUI_INFO(frame);
 	local mapClassName = session.GetMapName();
@@ -50,6 +53,13 @@ function MAP_ON_INIT(addon, frame)
 
 	INIT_MAP_UI_COMMON(frame, mapClassName);
 
+end
+function REQUEST_MAP_UPDATE(frame)
+	
+	local curmapname = session.GetMapName();
+	local mapprop = geMapTable.GetMapProp(curmapname);
+	local mapname = mapprop:GetClassName();
+	RequestUpdateMinimap(mapname, 0);
 end
 
 function MAP_OPEN(frame)
@@ -374,7 +384,6 @@ function FIRST_UPDATE_MAP(frame, msg)
 end
 
 function UPDATE_MAP(frame)
-
 	local curmapname = session.GetMapName()
 	UPDATE_MAP_BY_NAME(frame, curmapname, GET_CHILD_RECURSIVELY(frame, "map"));
 	RUN_REVEAL_CHECKER(frame, curmapname);
@@ -387,7 +396,7 @@ function MAKE_MAP_NPC_ICONS(frame, mapname, mapWidth, mapHeight, offsetX, offset
 		return;
 	end
 	
-	local npclist, statelist, questIESlist, questPropList = GET_QUEST_NPC_NAMES(mapname);
+	local npclist, statelist, questIESlist, questPropList = GetQuestNpcNames(mapname);
 	MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, questPropList, mapWidth, mapHeight, offsetX, offsetY);
 	MAKE_TOP_QUEST_ICONS(frame);
 	MAKE_MY_CURSOR_TOP(frame);
@@ -1049,19 +1058,20 @@ function CREATE_PM_PICTURE(frame, pcInfo, type, mapprop)
 	map_partymember_iconset:SetTooltipArg(pcInfo:GetName(), type);
 
 	local pm_name_rtext = GET_CHILD_RECURSIVELY(map_partymember_iconset,"pm_name","ui::CRichText")
-	pm_name_rtext:SetTextByKey("pm_fname",pcInfo:GetName())    
+	pm_name_rtext:SetTextByKey("pm_fname", pcInfo:GetName())    
 	local iconinfo = pcInfo:GetIconInfo();    
-	SET_PM_MINIMAP_ICON(map_partymember_iconset, instInfo.hp, iconinfo.job)
+	SET_PM_MINIMAP_ICON(map_partymember_iconset, instInfo.hp, pcInfo:GetAID());
 	SET_PM_MAPPOS(frame, map_partymember_iconset, instInfo, mapprop)    
 end
 
-function SET_PM_MINIMAP_ICON(map_partymember_iconset, pcHP, pcJobID)
-	local jobCls = GetClassByType("Job", pcJobID);
-	local pm_icon = GET_CHILD_RECURSIVELY(map_partymember_iconset,"pm_icon","ui::CPicture")
+function SET_PM_MINIMAP_ICON(map_partymember_iconset, pcHP, aid)
+	local pm_icon = GET_CHILD_RECURSIVELY(map_partymember_iconset, "pm_icon");
 	if pcHP > 0 then
-		if nil ~= jobCls then            
-			pm_icon:SetImage(jobCls.CtrlType.."_party");
-		else        
+		if session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, aid) ~= nil then
+			pm_icon:SetImage('Archer_party');
+		elseif session.party.GetPartyMemberInfoByAID(PARTY_GUILD, aid) ~= nil then
+			pm_icon:SetImage('Wizard_party');
+		else
 			pm_icon:SetImage('die_party');
 		end
 	else    
@@ -1093,7 +1103,7 @@ function MAP_UPDATE_PARTY_INST(frame, msg, str, partyType)
 			local pic = GET_CHILD_RECURSIVELY(frame, name);            
 			if pic ~= nil then
 				local iconinfo = pcInfo:GetIconInfo()
-				SET_PM_MINIMAP_ICON(pic, instInfo.hp, iconinfo.job)
+				SET_PM_MINIMAP_ICON(pic, instInfo.hp, pcInfo:GetAID());
 				tolua.cast(pic, "ui::CControlSet")
 				SET_PM_MAPPOS(frame, pic, instInfo, mapprop)
 			else
@@ -1257,16 +1267,23 @@ function SCR_SHOW_LOCAL_MAP(zoneClassName, useMapFog, showX, showZ)
 		
 end
 
-function GET_COLONY_MONSTER_POS(posStr)
-    local list = StringSplit(posStr, '#');
-    return list[1], list[2];
+function GET_COLONY_MONSTER_POS(handlePosStr)
+    local list = StringSplit(handlePosStr, '#');
+    return list[1], list[2], list[3];
 end
 
 function GET_COLONY_MONSTER_IMG(frame, monID)
     if IS_COLONY_MONSTER(monID) == true then
-        return frame:GetUserConfig('COLONY_MON_IMG');
+		return frame:GetUserConfig('COLONY_MON_IMG');
+	elseif IS_COLONY_ENHANCER(monID) == true then
+		return frame:GetUserConfig('COLONY_ENHANCER_IMG');
     end
     return frame:GetUserConfig('COLONY_TOWER_IMG');
+end
+
+function GET_COLONY_MONSTER_PIC_NAME(monID, handle)
+	local ctrlName = 'colonyMonPic_'..monID..'_'..handle;
+	return ctrlName;
 end
 
 function MAP_COLONY_MONSTER(frame, msg, posStr, monID)
@@ -1277,8 +1294,9 @@ function MAP_COLONY_MONSTER(frame, msg, posStr, monID)
     local MONSTER_SIZE = tonumber(mapFrame:GetUserConfig('COLONY_MON_SIZE'));
     local MONSTER_EFFECT_SIZE = tonumber(mapFrame:GetUserConfig('COLONY_MON_EFFECT_SIZE'));
 
-    local x, z = GET_COLONY_MONSTER_POS(posStr);    
-    local colonyMonPic = frame:CreateControl('picture', 'colonyMonPic_'..monID, 0, 0, MONSTER_SIZE, MONSTER_SIZE);    
+	local handle, x, z = GET_COLONY_MONSTER_POS(posStr);    
+	local ctrlName = GET_COLONY_MONSTER_PIC_NAME(monID, handle);
+    local colonyMonPic = frame:CreateControl('picture', ctrlName, 0, 0, MONSTER_SIZE, MONSTER_SIZE);    
     colonyMonPic = AUTO_CAST(colonyMonPic);    
     colonyMonPic:SetImage(COLONY_MON_IMG);
 	
@@ -1308,9 +1326,11 @@ function MAP_COLONY_MONSTER(frame, msg, posStr, monID)
     end
 end
 
-function ON_REMOVE_COLONY_MONSTER(frame, msg, argStr, monID)
-   frame:RemoveChild('colonyMonPic_'..monID);
-   frame:RemoveChild('colonyMonEffectPic'); 
+function ON_REMOVE_COLONY_MONSTER(frame, msg, handlePosStr, monID)
+	local handle, x, z = GET_COLONY_MONSTER_POS(handlePosStr)
+	local pic = GET_COLONY_MONSTER_PIC_NAME(monID, handle);
+	frame:RemoveChild(pic);
+	frame:RemoveChild('colonyMonEffectPic'); 
 end
 
 function DESTROY_GUILD_MEMBER_ICON(frame, msg, guild_member_aid)    

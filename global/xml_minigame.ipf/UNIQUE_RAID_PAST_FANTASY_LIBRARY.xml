@@ -1435,7 +1435,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="400323" Pos="-1403.52#64.75#-14.80" range="100" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400323" Pos="-1403.52#64.75#-14.80" range="100" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1453,7 +1453,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400323" Pos="-1085.07#57.64#26.86" range="100" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400323" Pos="-1085.07#57.64#26.86" range="100" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1471,7 +1471,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58512" Pos="-1334.56#57.64#72.51" range="100" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58512" Pos="-1334.56#57.64#72.51" range="100" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1489,7 +1489,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58512" Pos="-1200.98#57.64#82.44" range="100" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58512" Pos="-1200.98#57.64#82.44" range="100" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1750,7 +1750,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58515" Pos="-1443.44#1.84#-789.98" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58515" Pos="-1443.44#1.84#-789.98" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1764,7 +1764,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58515" Pos="-1290.72#3.40#-548.50" genCount="1" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58515" Pos="-1290.72#3.40#-548.50" genCount="1" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1778,7 +1778,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58516" Pos="-1456.69#1.87#-577.93" genCount="1" genTime="20000" autoGen="0" objectKey="3" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58516" Pos="-1456.69#1.87#-577.93" genCount="1" genTime="20000" autoGen="0" objectKey="3" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1792,7 +1792,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58516" Pos="-1278.26#3.40#-769.01" genCount="1" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58516" Pos="-1278.26#3.40#-769.01" genCount="1" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -1949,10 +1949,10 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="58515" Pos="-764.13#-66.34#-595.25" range="100" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; "/>
-                    <Obj Type="Monster" MonType="58515" Pos="-464.09#-66.34#-599.09" range="100" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; "/>
-                    <Obj Type="Monster" MonType="58516" Pos="-297.37#-65.28#-512.02" range="100" genCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; "/>
-                    <Obj Type="Monster" MonType="58516" Pos="-643.74#-66.34#-714.83" range="100" genCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; "/>
+                    <Obj Type="Monster" MonType="58515" Pos="-764.13#-66.34#-595.25" range="100" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; "/>
+                    <Obj Type="Monster" MonType="58515" Pos="-464.09#-66.34#-599.09" range="100" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; "/>
+                    <Obj Type="Monster" MonType="58516" Pos="-297.37#-65.28#-512.02" range="100" genCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; "/>
+                    <Obj Type="Monster" MonType="58516" Pos="-643.74#-66.34#-714.83" range="100" genCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="SUB_ACTIVE">
@@ -2113,7 +2113,7 @@
             </Stage>
             <Stage Name="3RD_1" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="58512" Pos="83.52#-67.76#-646.93" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; ">
+                    <Obj Type="Monster" MonType="58512" Pos="83.52#-67.76#-646.93" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -2127,7 +2127,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400323" Pos="323.65#-67.76#-434.76" range="150" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; ">
+                    <Obj Type="Monster" MonType="400323" Pos="323.65#-67.76#-434.76" range="150" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -2170,10 +2170,10 @@
             </Stage>
             <Stage Name="3RD_2" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="58515" Pos="-658.61#-120.67#-1122.84" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; &apos;SimpleAI&apos; &apos;STAGE3_02_MONSTER_AI&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58515" Pos="-658.61#-120.67#-1122.84" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; &apos;SimpleAI&apos; &apos;STAGE3_02_MONSTER_AI&apos; " tendency="1">
                         <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1"/>
                     </Obj>
-                    <Obj Type="Monster" MonType="58516" Pos="-657.72#-120.67#-1136.07" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="1" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; &apos;SimpleAI&apos; &apos;STAGE3_02_MONSTER_AI&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58516" Pos="-657.72#-120.67#-1136.07" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="1" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; &apos;SimpleAI&apos; &apos;STAGE3_02_MONSTER_AI&apos; " tendency="1">
                         <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1"/>
                     </Obj>
                 </ObjList>
@@ -2303,7 +2303,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58512" Pos="583.55#-64.51#106.26" range="150" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58512" Pos="583.55#-64.51#106.26" range="150" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -2317,7 +2317,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58512" Pos="929.84#-64.51#83.29" range="150" genCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58512" Pos="929.84#-64.51#83.29" range="150" genCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -2331,7 +2331,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400323" Pos="629.23#-64.51#-88.82" range="150" genCount="1" genTime="20000" objectKey="6" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400323" Pos="629.23#-64.51#-88.82" range="150" genCount="1" genTime="20000" objectKey="6" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -2345,7 +2345,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400323" Pos="896.61#-64.51#-98.66" range="150" genCount="1" genTime="20000" objectKey="7" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400323" Pos="896.61#-64.51#-98.66" range="150" genCount="1" genTime="20000" objectKey="7" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -2756,7 +2756,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400323" Pos="187.32#11.21#361.95" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="8" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400323" Pos="187.32#11.21#361.95" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="8" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -2770,7 +2770,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400323" Pos="-89.37#11.21#359.76" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="9" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400323" Pos="-89.37#11.21#359.76" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="9" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -2784,7 +2784,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400323" Pos="-84.62#11.21#89.54" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="10" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400323" Pos="-84.62#11.21#89.54" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="10" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -2798,7 +2798,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400323" Pos="197.29#11.21#87.79" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="11" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400323" Pos="197.29#11.21#87.79" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="11" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -2812,7 +2812,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58513" Pos="-79.62#11.21#345.62" range="60" genCount="1" genTime="20000" objectKey="12" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58513" Pos="-79.62#11.21#345.62" range="60" genCount="1" genTime="20000" objectKey="12" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -2826,7 +2826,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58513" Pos="-75.97#11.21#103.32" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="13" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58513" Pos="-75.97#11.21#103.32" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="13" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -2840,7 +2840,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58513" Pos="179.35#11.21#79.10" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="14" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58513" Pos="179.35#11.21#79.10" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="14" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -2854,7 +2854,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58513" Pos="201.04#11.21#364.47" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="15" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58513" Pos="201.04#11.21#364.47" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="15" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3032,7 +3032,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="58513" Pos="-93.57#40.83#808.14" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58513" Pos="-93.57#40.83#808.14" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3064,7 +3064,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58513" Pos="-93.00#40.88#714.10" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="1" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58513" Pos="-93.00#40.88#714.10" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="1" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3096,7 +3096,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58513" Pos="125.42#40.95#792.01" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="2" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58513" Pos="125.42#40.95#792.01" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="2" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3128,7 +3128,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400323" Pos="-124.92#40.93#839.05" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="3" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400323" Pos="-124.92#40.93#839.05" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="3" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3160,7 +3160,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400323" Pos="-111.68#40.94#698.75" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="4" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400323" Pos="-111.68#40.94#698.75" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="4" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3192,7 +3192,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400323" Pos="150.87#40.95#809.44" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="5" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400323" Pos="150.87#40.95#809.44" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="5" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3224,7 +3224,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="400323" Pos="117.70#43.91#675.21" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="6" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400323" Pos="117.70#43.91#675.21" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="6" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3256,7 +3256,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58513" Pos="96.99#40.95#700.56" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="7" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58513" Pos="96.99#40.95#700.56" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="7" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3288,7 +3288,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58512" Pos="-124.04#40.91#796.51" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="8" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58512" Pos="-124.04#40.91#796.51" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="8" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3320,7 +3320,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58512" Pos="-81.58#40.92#683.01" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="9" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58512" Pos="-81.58#40.92#683.01" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="9" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3352,7 +3352,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58512" Pos="81.37#40.95#674.67" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="10" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58512" Pos="81.37#40.95#674.67" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="10" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3384,7 +3384,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58512" Pos="144.09#40.95#780.08" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="11" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58512" Pos="144.09#40.95#780.08" range="40" genCount="1" genTime="1000" autoGen="0" objectKey="11" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3746,7 +3746,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="58512" Pos="1308.13#-83.09#298.15" angle="-45" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="3" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58512" Pos="1308.13#-83.09#298.15" angle="-45" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="3" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3760,7 +3760,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58512" Pos="1269.67#-80.96#46.17" angle="45" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="4" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58512" Pos="1269.67#-80.96#46.17" angle="45" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="4" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3774,7 +3774,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58512" Pos="1596.60#-83.09#303.14" angle="-135" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="5" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58512" Pos="1596.60#-83.09#303.14" angle="-135" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="5" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3788,7 +3788,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58512" Pos="1564.67#-83.09#35.58" angle="135" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="6" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58512" Pos="1564.67#-83.09#35.58" angle="135" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="6" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3802,7 +3802,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58513" Pos="1263.16#-74.21#19.26" angle="45" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="7" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58513" Pos="1263.16#-74.21#19.26" angle="45" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="7" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3816,7 +3816,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58513" Pos="1259.50#-83.09#308.26" angle="-45" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="8" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58513" Pos="1259.50#-83.09#308.26" angle="-45" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="8" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3830,7 +3830,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58513" Pos="1601.85#-83.09#329.31" angle="-135" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="9" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58513" Pos="1601.85#-83.09#329.31" angle="-135" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="9" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -3844,7 +3844,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58513" Pos="1587.70#-83.09#15.37" angle="135" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="10" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;206&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58513" Pos="1587.70#-83.09#15.37" angle="135" range="70" genCount="1" genTime="1000" autoGen="0" objectKey="10" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos;UniqueRaid&apos; &apos;Lv&apos; &apos;360&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -4116,9 +4116,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Success"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_EVENT_REFILL_STONE_LIBRARY_REWARD"/>
-                            </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
                                 <Str Str="마군주 프로스터 로드를 쓰러뜨렸습니다!{nl}아가일라 플러리의 계획을 성공적으로 마쳤습니다!{nl}20초 뒤 입장했던 곳으로 이동합니다."/>
                                 <Str Str="Clear"/>
@@ -4131,6 +4128,10 @@
                             <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
                                 <Str Str="PastFantasyLibrary"/>
                                 <Str Str="MinigameSuccess"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                                <Str Str="UniqueRaid: M_Past_FantasyLibrary_1"/>
                             </ToolScp>
                         </execList>
                     </Event>

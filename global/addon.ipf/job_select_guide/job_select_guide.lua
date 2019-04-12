@@ -271,6 +271,8 @@ function JOB_SELECT_GUIDE_CLEAR_SUGGESTION(ctrlset)
         local suggestion = GET_CHILD_RECURSIVELY(ctrlset, "suggestion_"..index);
         local gb = GET_CHILD(suggestion, "gb");
         gb:RemoveAllChild();
+        local too_many_text = GET_CHILD(suggestion, "too_many_text")
+        too_many_text:ShowWindow(0);
     end
 end
 
@@ -305,7 +307,14 @@ function JOB_SELECT_GUIDE_SET_SUGGESTION(jobClsName, index, tree)
     
     local starTextWidth = tonumber(frame:GetUserConfig("StarTextWidth"));
     local jobTree = PARSE_JOB_SELECT_GUIDE_RANKING(tree);
-    for i=1, #jobTree do
+    local FORCE_MAX_COUNT = 7;
+    local maxCount = #jobTree;
+    local tooManyCount = #jobTree > FORCE_MAX_COUNT;
+    if tooManyCount then
+        maxCount = FORCE_MAX_COUNT - 1;
+    end
+     
+    for i=1, maxCount do
         local jobInfo = jobTree[i];
         local width = ui.GetControlSetAttribute("job_select_guide_circle", "width");
         local rank = gb:CreateOrGetControlSet("job_select_guide_circle", "job_"..i, i*width, 0);
@@ -321,6 +330,11 @@ function JOB_SELECT_GUIDE_SET_SUGGESTION(jobClsName, index, tree)
         end
         
         circle_text:SetText(starText)
+    end
+
+    if tooManyCount then
+        local too_many_text = GET_CHILD(suggestion, "too_many_text");
+        too_many_text:ShowWindow(1);
     end
 
     suggestion:SetTooltipType("job_select_guide_tree_tooltip");

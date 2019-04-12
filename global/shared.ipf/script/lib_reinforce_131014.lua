@@ -49,6 +49,7 @@ function IS_MORU_NOT_DESTROY_TARGET_ITEM(moruItem)
         or moruItem.ClassName == "Moru_Gold_TA" 
         or moruItem.ClassName == "Moru_Gold_TA_NR" 
         or moruItem.ClassName == "Moru_Gold_Team_Trade" 
+        or moruItem.ClassName == "Moru_Gold_14d_Team" 
         or moruItem.ClassName == "Moru_Gold_EVENT_1710_NEWCHARACTER" then
         return true;
     end
@@ -163,6 +164,11 @@ function GET_REINFORCE_PRICE(fromItem, moruItem, pc)
 
     if moruItem.StringArg == 'DIAMOND' and reinforcecount > 1 then
         value = value + (value_diamond * 2.1)
+    end
+    
+    -- EVENT_1811_WEEKEND
+    if SCR_EVENT_1811_WEEKEND_CHECK('REINFORCE') == 'YES' then
+        value = value/2
     end
     
     return SyncFloor(value);

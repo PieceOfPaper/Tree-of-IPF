@@ -29,6 +29,16 @@ function GET_CLAIM_NAME_BY_AIDX(aidx)
     return claimTitle;
 end
 
+function IS_ENABLED_CLAIM_CODE(index)
+    if session.colonytax.IsEnabledColonyTaxReward() == false then
+        if tonumber(index) == 106 then
+            return false;
+        elseif tonumber(index) == 107 then
+            return false;
+        end
+    end
+    return true;
+end
 
 function ON_CLAIM_GET(code, ret_json) -- run once on zone enter
     DEFAULT_CLAIM_LIST= ""
@@ -70,16 +80,18 @@ local i = 0
             layoutName = "claimCheckbox5"
         elseif authIndex == 40 then -- contents manager
             layoutName = "claimCheckbox6"
-        end
-        authlist[i] = { authName, authIdx }
+        end        
+        if IS_ENABLED_CLAIM_CODE(authIdx) == true then
+            authlist[i] = { authName, authIdx }
 
-        local grid = GET_CHILD_RECURSIVELY(curFrame, layoutName, "ui::CGrid");
-        if grid ~= nil then
-            local checkbox = grid:CreateControl("checkbox", authName, 0, 0, 25, 25);
-            checkboxList[authIdx] = checkbox;
-            checkbox:SetText("{@st42}" .. authName);
-            --checkbox:SetCheck(1)
-            checkbox:SetUserValue("authNum", authIdx);
+            local grid = GET_CHILD_RECURSIVELY(curFrame, layoutName, "ui::CGrid");
+            if grid ~= nil then
+                local checkbox = grid:CreateControl("checkbox", authName, 0, 0, 25, 25);
+                checkboxList[authIdx] = checkbox;
+                checkbox:SetText("{@st42}" .. authName);
+                --checkbox:SetCheck(1)
+                checkbox:SetUserValue("authNum", authIdx);
+            end
         end
         i = i + 1
     end
@@ -408,11 +420,13 @@ function ON_UPDATE_CLAIM(code, ret_json)
     local decoded_json = json.decode(ret_json)
     local i = 1;
     for k, v in pairs(checkboxList) do
-        SetCheckForce(v, 0)
+        v = AUTO_CAST(v)
+        v:SetCheck(0)
     end
     for k, v in pairs(decoded_json) do
-        local asdf = checkboxList[tostring(v)];
-       SetCheckForce(asdf, 1)
+        local claimCheckbox = checkboxList[tostring(v)];
+        claimCheckbox = AUTO_CAST(claimCheckbox)
+        claimCheckbox:SetCheck(1)
     end
 
 end

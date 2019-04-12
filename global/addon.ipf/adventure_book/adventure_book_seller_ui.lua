@@ -137,5 +137,6 @@ function ADVENTURE_BOOK_SELLER.DROPDOWN_LIST_INIT()
     category_opt_list:AddItem(2, ClMsg('Auto_wiJeoDeu'));
     category_opt_list:AddItem(3, ClMsg('Auto_aCheo'));
     category_opt_list:AddItem(4, ClMsg('Auto_KeulLeLig'));
+    category_opt_list:AddItem(5, ClMsg('EVENT_1811_CTRLTYPE_RESET_MSG5'));
 	
 end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <Category>
 	<Gender Name="Male">
 		<Class Costume="shadowmancer01_sp">
@@ -855,6 +855,52 @@
 				</Job>
 			</Motion>
 		</Class>
+		<Class Costume="wing_Guilty_Little">
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_1_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3_1" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="DASH_RUN">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_1_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3_1" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="10" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="25" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_1_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3_1" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="10" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="25" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="7" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="16" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
 		<Class Costume="wing_guilty">
 			<Motion Name="RUN">
 				<Job Name="All">
@@ -1599,6 +1645,210 @@
 				<Job Name="All" LoopTime="200">
 					<Event>
 						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="Outlaw01_sp">
+			<Motion Name="WALK">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ARUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WALK_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All" LoopTime="200">
+					<zosemf>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</zosemf>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="Outlaw02_sp">
+			<Motion Name="WALK">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ARUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WALK_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All" LoopTime="200">
+					<zosemf>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</zosemf>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="Outlaw02sp_brown">
+			<Motion Name="WALK">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ARUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WALK_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All" LoopTime="200">
+					<zosemf>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</zosemf>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="Outlaw03_sp">
+			<Motion Name="WALK">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ARUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WALK_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All" LoopTime="200">
+					<zosemf>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</zosemf>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -2699,6 +2949,52 @@
 				</Job>
 			</Motion>
 		</Class>
+		<Class Costume="wing_Guilty_Little">
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_1_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3_1" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="DASH_RUN">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_1_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3_1" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="10" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="25" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_1_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3_1" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="10" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="25" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
 		<Class Costume="wing_guilty">
 			<Motion Name="Default">
 				<Job Name="All">
@@ -3431,6 +3727,210 @@
 				<Job Name="All" LoopTime="200">
 					<Event>
 						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="Outlaw01_sp">
+			<Motion Name="WALK">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ARUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WALK_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All" LoopTime="200">
+					<zosemf>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</zosemf>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="Outlaw02_sp">
+			<Motion Name="WALK">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ARUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WALK_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All" LoopTime="200">
+					<zosemf>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</zosemf>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="Outlaw02sp_brown">
+			<Motion Name="WALK">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ARUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WALK_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All" LoopTime="200">
+					<zosemf>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</zosemf>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="Outlaw03_sp">
+			<Motion Name="WALK">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ARUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WALK_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All" LoopTime="200">
+					<zosemf>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</zosemf>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_Outlaw01_sp" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>

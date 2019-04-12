@@ -1,7 +1,7 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P_MaxDialog,AnchorCount,UP_ReturnRange,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 1,1,1,20,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","파사카 협곡","","","","","","","","SIAULIAI_35_1_TO_PILGRIM_36_2","","NO","YES","NO","Neutral","","","",""
 2,2,0,40,30,0,15,0,0,0,0,0,0,"Spion_mage_blue","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","SmartGen","Gimmick_hidenseek","",""
-3,3,0,40,30,0,25,0,0,0,0,0,0,"Spion_blue","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","SmartGen","Gimmick_hidenseek","",""
+3,3,0,40,30,0,110,0,0,0,0,0,0,"Spion_blue","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","SmartGen","Gimmick_hidenseek","",""
 4,4,0,40,30,0,20,0,0,0,0,0,0,"Spion_bow_blue","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","SmartGen","Gimmick_hidenseek","",""
 5,5,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","바르하 숲","","","","MON_DUMMY","","","","SIAULIAI_35_1_ORCHARD34_3","","NO","YES","NO","Neutral","","","",""
 6,6,1,20,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","엘고스 수도원 별관","","","","MON_DUMMY","","","","SIAULIAI_35_1_ABBEY_35_3","","NO","YES","NO","Neutral","","","",""
@@ -39,4 +39,5 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P
 39,1001,1,40,1,60000,1,0,0,0,0,0,0,"Hiddennpc","","","","","","","","SIAULIAI351_HIDDENQ1_PREITEM","","","NO","YES","NO","Neutral","","","",""
 40,1002,1,40,1,30000,4,0,0,0,1,1,0,"siauliai_grass_2","슬럭티 풀","","","","","","","SIAULIAI_351_HIDDENQ1_ITEM1","","","NO","YES","NO","Neutral","","","",""
 41,1003,1,40,1,30000,4,0,0,0,1,1,0,"siauliai_grass_1","스투디아 풀","","","","","","","SIAULIAI_351_HIDDENQ1_ITEM2","","","NO","YES","NO","Neutral","","","",""
+42,1004,1,250,1,60000,1,1,0,0,0,0,0,"Treasure_box_siaul","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 43,1005,1,40,1,60000,1,0,0,0,0,0,0,"HiddenTrigger6","UnvisibleName","","","","","","ONMYOJI_MSTEP2_GEN_AI","","CHAR220_MSETP2_5_GEN_INIT","","NO","YES","NO","Neutral","","","",""

@@ -1,20 +1,33 @@
 ﻿-- ingameeventbanner.lua
 
-
 function INGAMEEVENTBANNER_ON_INIT(addon, frame)
 --	addon:RegisterMsg("MSG_UPDATE_EVENTBANNER_UI", "EVENTBANNER_FRAME_OPEN");
 	addon:RegisterMsg("DO_OPEN_EVENTBANNER_UI", "EVENTBANNER_FRAME_OPEN");
+	addon:RegisterMsg("EVENTBANNER_SOLODUNGEON", "ON_EVENTBANNER_SOLODUNGEON");
+	addon:RegisterMsg("EVENTBANNER_TEAMBATTLE", "ON_EVENTBANNER_TEAMBATTLE");
+	addon:RegisterMsg('WORLDPVP_RANK_PAGE', 'ON_EVENTBANNER_TEAMBATTLE');    
+	addon:RegisterMsg('EVENTBANNER_USERTYPE', 'ON_EVENTBANNER_USERTYPE');    
 end
 
 function EVENTBANNER_FRAME_OPEN(frame)
 	ui.OpenFrame("ingameeventbanner")
 	UPDATE_EVENTBANNER_UI(frame)
+	UPDATE_EVENTBANNER_RANKINGS(frame)
+	
+	--solodungeon
+	control.CustomCommand("REQ_EVENTBANNER_RANK", 0);
+	
+	--teambattle
+	local pvpCls = GET_TEAM_BATTLE_CLASS();
+	worldPVP.RequestPVPRanking(pvpCls.ClassID, 0, 0, 1, 0, "");
+
+	--event User Type
+	control.CustomCommand("REQ_EVENTBANNER_USERTYPE", 0);
 end
 
 function EVENTBANNER_FRAME_CLOSE(frame)
 	
 end
-
 
 function SHOW_REMAIN_BANNER_TIME(ctrl)
 	local curIndex = ctrl:GetUserIValue("curIndex")
@@ -46,22 +59,153 @@ function SHOW_REMAIN_BANNER_TIME(ctrl)
 	return 1;
 end
 
+function ON_EVENTBANNER_DETAIL_BTN_SOLODUNGEON(ctrlset, btn)
+	control.CustomCommand("REQ_SOLO_DUNGEON_RANK", 0);
+end
+
+function ON_EVENTBANNER_DETAIL_BTN_TEAMBATTLE(ctrlset, btn)
+	local advFrame = ui.GetFrame("adventure_book")
+	local rankingTab = GET_CHILD(advFrame, "rankingTab")
+	local index = rankingTab:GetIndexByName("teamBattleRankingTab")
+	advFrame:ShowWindow(1);
+	rankingTab:SelectTab(index);
+end
+
+function ON_EVENTBANNER_SOLODUNGEON(frame)
+	local ranking_solo_dungeon = GET_CHILD_RECURSIVELY(frame, "ranking_solo_dungeon");
+	local indunName = TryGetProp(GetClass("Indun", "Solo_dungeon"), "Name");
+	local detail_btn = GET_CHILD(ranking_solo_dungeon, "detail_btn");
+	detail_btn:SetEventScript(ui.LBUTTONUP, "ON_EVENTBANNER_DETAIL_BTN_SOLODUNGEON");
+	UPDATE_EVENTBANNER_RANKING(ranking_solo_dungeon, indunName, "UPDATE_EVENTBANNER_RANKING_SOLODUNGEON")
+end
+
+function ON_EVENTBANNER_TEAMBATTLE(frame, msg, strarg, numarg)
+	local ranking_team_battle = GET_CHILD_RECURSIVELY(frame, "ranking_team_battle");
+	local name = ClMsg("TeamBattleLeagueText");
+	local detail_btn = GET_CHILD(ranking_team_battle, "detail_btn");
+	detail_btn:SetEventScript(ui.LBUTTONUP, "ON_EVENTBANNER_DETAIL_BTN_TEAMBATTLE");
+	UPDATE_EVENTBANNER_RANKING(ranking_team_battle, name, "UPDATE_EVENTBANNER_RANKING_TEAMBATTLE")
+end
+
+function UPDATE_EVENTBANNER_RANKING_SOLODUNGEON(eachctrl, name, i)
+	local noranker_text = GET_CHILD_RECURSIVELY(eachctrl, "noranker_text");
+	local name_text = GET_CHILD_RECURSIVELY(eachctrl, "name_text");
+	local score_text = GET_CHILD_RECURSIVELY(eachctrl, "score_text");
+	local job_pic = GET_CHILD_RECURSIVELY(eachctrl, "job_pic");
+	
+	local scoreInfo = session.soloDungeon.GetRankingByIndex(soloDungeonShared.ThisWeek, 0, i-1);
+	if scoreInfo == nil then
+		noranker_text:SetVisible(1);
+		name_text:SetVisible(0);
+		job_pic:SetVisible(0);
+		score_text:SetTextByKey("value", "-");
+		return;
+	end
+	
+	noranker_text:SetVisible(0);
+	name_text:SetVisible(1);
+	job_pic:SetVisible(1);
+
+	local jobIcon = TryGetProp(GetClassByType("Job", scoreInfo:GetJobHistoryByIndex(scoreInfo:GetJobHistoryCount()-1)), "Icon");
+	job_pic:SetImage(jobIcon);
+	name_text:SetTextByKey("lv", scoreInfo.level);
+	name_text:SetTextByKey("name", scoreInfo.familyName);
+	score_text:SetTextByKey("value", scoreInfo.stage);
+end
+
+function UPDATE_EVENTBANNER_RANKING_TEAMBATTLE(eachctrl, name, i)
+	local noranker_text = GET_CHILD_RECURSIVELY(eachctrl, "noranker_text");
+	local job_pic = GET_CHILD_RECURSIVELY(eachctrl, "job_pic");
+	local name_text = GET_CHILD_RECURSIVELY(eachctrl, "name_text");
+	local score_text = GET_CHILD_RECURSIVELY(eachctrl, "score_text");
+
+	noranker_text:SetVisible(1);
+	name_text:SetVisible(0);
+	job_pic:SetVisible(0);
+	score_text:SetTextByKey("value", "-");
+
+    local rank_type = session.worldPVP.GetRankProp("Type");    
+	if rank_type == 210 then
+        return;
+	end
+	
+	local info = session.worldPVP.GetRankInfoByIndex(i-1);
+	if info == nil then
+		return;
+	end
+	
+	local iconinfo = info:GetIconInfo();
+	if iconinfo == nil then
+		return;
+	end
+	
+	noranker_text:SetVisible(0);
+	name_text:SetVisible(1);
+	job_pic:SetVisible(1);
+	
+	local jobIcon = TryGetProp(GetClassByType("Job", iconinfo.job), "Icon");
+	job_pic:SetImage(jobIcon);
+
+	name_text:SetTextByKey("lv", iconinfo:GetLevel());
+	name_text:SetTextByKey("name", iconinfo:GetFamilyName());
+	score_text:SetTextByKey("value", info.point);
+end
+
+function UPDATE_EVENTBANNER_RANKING(ctrlset, name, set_func)
+	local title_text = GET_CHILD_RECURSIVELY(ctrlset, "title_text");
+	title_text:SetTextByKey("value", name);
+	
+	local x = tonumber(ctrlset:GetUserConfig("OffsetX"));
+	local y = tonumber(ctrlset:GetUserConfig("OffsetY"));
+	local eachHeight = ui.GetControlSetAttribute("news_ranking_each_rank", "height");
+	local list_bg = GET_CHILD_RECURSIVELY(ctrlset, "list_bg");
+	for i = 1, 3 do 
+		local eachctrl = list_bg:CreateOrGetControlSet("news_ranking_each_rank", "news_ranking_each_rank_"..i, x, y+(i-1)*eachHeight);
+		AUTO_CAST(eachctrl);
+		local picName = eachctrl:GetUserConfig("RankingPic_"..i);
+		local skinName = eachctrl:GetUserConfig("RankingSkin_"..i);
+		local bg = GET_CHILD_RECURSIVELY(eachctrl, "bg");
+		bg:SetSkinName(skinName);
+		local ranking_pic = GET_CHILD_RECURSIVELY(eachctrl, "ranking_pic");
+		ranking_pic:SetImage(picName);
+		
+		local func = _G[set_func];
+		func(eachctrl, name, i);
+	end
+	
+end
+
+function UPDATE_EVENTBANNER_RANKINGS(frame)
+	ON_EVENTBANNER_SOLODUNGEON(frame);
+	ON_EVENTBANNER_TEAMBATTLE(frame);
+end
 
 function UPDATE_EVENTBANNER_UI(frame)
 	if frame == nil then
 		frame = ui.GetFrame('ingameeventbanner');
 	end	
 
-	local bannerCtrlIndex = 0
-	local bannerList, bannerCnt = GetClassList("event_banner")
-	local bannerUserCommandIndex = 0
-	
 	local bannerBox = GET_CHILD_RECURSIVELY(frame, 'bannerGbox');
 	bannerBox = tolua.cast(bannerBox, "ui::CGroupBox");
 	DESTROY_CHILD_BYNAME(bannerBox, "event_banner_");
+
+	local eventUserBannerHeight = 0
+	-- 최상단에 신규/복귀 유저 배너
+	local eventUserType = frame:GetUserValue('EVENT_USER_TYPE');	
+	if eventUserType ~= nil and eventUserType ~= 0 then
+		-- event banner 만들기.
+		local name = "event_banner_user"
+		eventUserBannerHeight = EVENTBANNER_MAKE_USERTYPE(bannerBox, eventUserType, frame:GetUserValue('EVENT_USER_END_TIMESTAMP') )
+	end
+
+	-- 일반 배너.
+	local bannerCtrlIndex = 0
+	local bannerList, bannerCnt = GetClassList("event_banner")
+	local bannerUserCommandIndex = 0
+
 	for i = 0, bannerCnt - 1 do
 		local banner = GetClassByIndex('event_banner', i)
-		local bannerCtrl = bannerBox:CreateOrGetControlSet('ingame_event_banner', 'event_banner_' .. bannerCtrlIndex, 0, 180 * bannerCtrlIndex + bannerUserCommandIndex * 30);
+		local bannerCtrl = bannerBox:CreateOrGetControlSet('ingame_event_banner', 'event_banner_' .. bannerCtrlIndex, 0, eventUserBannerHeight + (180 * bannerCtrlIndex + bannerUserCommandIndex * 30));
 		bannerCtrl:SetUserValue("bannerIndex", i)
 	
 		local bannerImage = GET_CHILD_RECURSIVELY(bannerCtrl, 'banner');
@@ -151,7 +295,7 @@ function UPDATE_EVENTBANNER_UI(frame)
                     	imgBtn:SetOverSound('button_over');
                     	imgBtn:SetClickSound('button_click_big');
                     end
-                end
+                end 
         	end
     	end
 	end
@@ -277,4 +421,56 @@ end
 
 function EVENTBANNER_CHECK_OPEN(propname, propvalue)
 
+end
+
+function ON_EVENTBANNER_USERTYPE(frame, msg, strarg, numarg)
+	frame = ui.GetFrame("ingameeventbanner")
+	frame:SetUserValue("EVENT_USER_TYPE",numarg)
+	frame:SetUserValue("EVENT_USER_END_TIMESTAMP",strarg)
+	UPDATE_EVENTBANNER_UI(frame)
+end
+
+function CLICKED_EVENTBANNER_USER(parent, ctrl)
+	control.CustomCommand("REQ_EVENTBANNER_USERTYPE_CLICK", 0);
+end
+
+function EVENTBANNER_MAKE_USERTYPE(bgCtrl, userType, eventEndTimeStampStr)
+	if userType == nil or eventEndTimeStampStr == nil or eventEndTimeStampStr == 'None' then
+		return 0
+	end
+
+	local bannerBox = tolua.cast(bgCtrl, "ui::CGroupBox"); 
+	local ctrlName = "event_banner_user"
+	local bannerCtrl = bannerBox:CreateOrGetControlSet('ingame_event_banner', ctrlName, 0, 0); -- 최상단.
+	
+	-- 이미지 설정
+	local bannerImage = GET_CHILD_RECURSIVELY(bannerCtrl, 'banner');
+	bannerImage = tolua.cast(bannerImage, "ui::CPicture");
+	bannerImage:SetImage("news_event_banner")
+	bannerImage:SetTextTooltip(""); -- 툴팁 제거
+	---- 클릭 이벤트 변경
+	bannerImage:SetEventScript(ui.LBUTTONUP, 'CLICKED_EVENTBANNER_USER');
+
+	-- 종료시간 설정
+	local time_limited_bg = GET_CHILD_RECURSIVELY(bannerCtrl, "time_limited_bg");
+	local time_limited_text = GET_CHILD_RECURSIVELY(bannerCtrl, "time_limited_text");
+	time_limited_bg:SetVisible(1);   -- 검은색 그라데이션 배경
+	time_limited_text:SetVisible(1); -- 일시분 텍스트
+
+	local endTimeStamp = tonumber(eventEndTimeStampStr)
+	local elapsedSeconds = endTimeStamp - os.time(os.date('*t'));
+	local remainTimeText = GET_TIMESTAMP_TO_COUNTDOWN_DATESTR(elapsedSeconds, {noSec = true});
+	time_limited_text:SetTextByKey('remainTime', remainTimeText)
+
+	-- 기타 컨트롤 설정
+	local new_ribbon = GET_CHILD_RECURSIVELY(bannerCtrl, "new_ribbon");
+	local deadline_ribbon = GET_CHILD_RECURSIVELY(bannerCtrl, "deadline_ribbon");
+	local exchange_ribbon = GET_CHILD_RECURSIVELY(bannerCtrl, "exchange_ribbon");
+
+	new_ribbon:SetVisible(0);		-- 신규 표시
+	deadline_ribbon:SetVisible(0);  -- 종료 임박 표시
+	exchange_ribbon:SetVisible(0);  -- 교환 표시
+
+	bannerCtrl:Invalidate()
+	return bannerCtrl:GetHeight();
 end

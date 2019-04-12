@@ -144,12 +144,20 @@ function HOLD_EXP_BOOK_TIME(frame, data, argStr, argNum)
 	end	
 end
 
+function GET_BUFF_ICON_NAME(buffCls)
+	local imageName = 'icon_' .. buffCls.Icon;
+	return imageName;
+end
+
 function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)	
 	local icon = slot:GetIcon();
-	local imageName = 'icon_' .. class.Icon;
+	local imageName = GET_BUFF_ICON_NAME(class);
 
 	icon:Set(imageName, 'BUFF', buffType, 0);
-	icon:SetUserValue("BuffIndex", buffIndex);	
+	if buffIndex ~= nil then
+		icon:SetUserValue("BuffIndex", buffIndex);	
+	end
+
 	if tonumber(handle) == nil then
 		return;
 	end
@@ -160,7 +168,7 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 	end
 
 	if buff.over > 1 then
-		slot:SetText('{s13}{ol}{b}'..buff.over, 'count', 'right', 'bottom', -5, -3);
+		slot:SetText('{s13}{ol}{b}'..buff.over, 'count', ui.RIGHT, ui.BOTTOM, -5, -3);
 	else
 		slot:SetText("");
 	end
@@ -173,8 +181,10 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 	slot:EnableDrop(0);
 	slot:EnableDrag(0);
 
-	capt:ShowWindow(1);
-	capt:SetText(GET_BUFF_TIME_TXT(buff.time, 0));
+	if capt ~= nil then
+		capt:ShowWindow(1);
+		capt:SetText(GET_BUFF_TIME_TXT(buff.time, 0));
+	end
 	
 	local targetinfo = info.GetTargetInfo( handle );
 	if targetinfo ~= nil then
@@ -192,7 +202,9 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 		icon:SetTooltipArg(handle, buffType, buff.arg1);
 	else
 	    icon:SetTooltipType('buff');
-	    icon:SetTooltipArg(handle, buffType, buffIndex);
+	    if buffIndex ~= nil then
+	    	icon:SetTooltipArg(handle, buffType, buffIndex);
+	    end
 	end
 
 	slot:Invalidate();
@@ -202,6 +214,7 @@ function SET_DEBUFF_CAPTION_OFFSET(slotset, buff_ui)
     if slotset:GetName() ~= 'debuffslot' then
         return;
     end
+    
     local captionList = buff_ui["captionlist"][2];
     local totalDebuffSlotCount = slotset:GetRow() * slotset:GetCol();
     for i = 0, totalDebuffSlotCount - 1 do
@@ -210,6 +223,7 @@ function SET_DEBUFF_CAPTION_OFFSET(slotset, buff_ui)
         local caption = captionList[i];
         caption:SetOffset(caption:GetX(), slotset:GetY() + slotHeight);
     end
+
 end
 
 function GET_BUFF_ARRAY_INDEX(i, colcnt)
@@ -235,14 +249,13 @@ function GET_BUFF_SLOT_INDEX(j, colcnt)
 end
 
 function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
-
 	if msg == "SET" then
+		local buffCount = info.GetBuffCount(handle);
 
-			local buffCount = info.GetBuffCount(handle);
-			for i = 0, buffCount - 1 do
-				local buff = info.GetBuffIndexed(handle, i);
-				COMMON_BUFF_MSG(frame, "ADD", buff.buffID, handle, buff_ui, buff.index);
-			end
+		for i = 0, buffCount - 1 do
+			local buff = info.GetBuffIndexed(handle, i);
+			COMMON_BUFF_MSG(frame, "ADD", buff.buffID, handle, buff_ui, buff.index);
+		end
 
 		return;
 	elseif msg == "CLEAR" then
@@ -305,6 +318,7 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 	end
 
 	if msg == 'ADD' then
+
 		for j = 0, slotcount - 1 do
 			local i = GET_BUFF_SLOT_INDEX(j, colcnt);
 			local slot				= slotlist[i];
@@ -316,7 +330,6 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 		end
 
 	elseif msg == 'REMOVE' then
-
 		for i = 0, slotcount - 1 do
 
 			local slot		= slotlist[i];
@@ -328,6 +341,7 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
                 local isBuffIndexSame = oldBuffIndex - buffIndex;
 				if iconInfo.type == buffType and isBuffIndexSame == 0 then
 					CLEAR_BUFF_SLOT(slot, text);
+				
 					local j = GET_BUFF_ARRAY_INDEX(i, colcnt);
 					PULL_BUFF_SLOT_LIST(slotlist, captionlist, j, slotcount, colcnt, ApplyLimitCountBuff);
 					frame:Invalidate();
@@ -351,8 +365,9 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 			end
 		end
 	end
-
     ARRANGE_DEBUFF_SLOT(frame, buff_ui);
+
+    COLONY_POINT_INFO_DRAW_BUFF_ICON()
 end
 
 function ARRANGE_DEBUFF_SLOT(frame, buff_ui)
@@ -421,21 +436,26 @@ function COPY_BUFF_SLOT_INFO(bslot, aslot, btext, atext)
 	local bicon = bslot:GetIcon();
 	local handle = bicon:GetTooltipStrArg();
 	local buffType = bicon:GetTooltipNumArg();
+	if buffType == 0 then
+		return
+	end		
+
 	local class  = GetClassByType('Buff', buffType);
 	local buffIndex = bicon:GetUserIValue("BuffIndex");
 	SET_BUFF_SLOT(aslot, atext, class, buffType, handle, slotlist, buffIndex);
 	CLEAR_BUFF_SLOT(bslot, btext);
-
 end
 
 function CLEAR_BUFF_SLOT(slot, text)
 	slot:ShowWindow(0);
 	slot:ReleaseBlink();
-	text:SetText("");
+	if text ~= nil then
+		text:SetText("");
+	end
+	
 end
 
 function BUFF_ON_MSG(frame, msg, argStr, argNum)
-
 	local handle = session.GetMyHandle();
 	if msg == "BUFF_ADD" then
 

@@ -4,7 +4,7 @@
 <uiframe name="buff" x="0" y="0" width="635" height="500">
 	<frame title="BuffWindow" layout_gravity="left top" margin="20 140 0 0" tooltipoverlap="true"/>
 	<option visible="true" hideable="false" closebutton="false"/>
-	<draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
+	<draw drawtitlebar="false" drawframe="false"/>
 	<layer layerlevel="60"/>
 	<input hittestframe="false"/>
 	<userconfig DEFAULT_SLOT_Y_OFFSET="50"/>

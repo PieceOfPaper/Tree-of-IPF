@@ -6,10 +6,12 @@ end
 function OPEN_LEGENDPREFIX(frame)
 	ui.OpenFrame('inventory');
 	LEGENDPREFIX_RESET(frame);
+    lock_state_check.clear_lock_state()
 end
 
-function CLOSE_LEGENDPREFIX(frame)
+function CLOSE_LEGENDPREFIX(frame)    
 	ui.CloseFrame('inventory');
+    lock_state_check.clear_lock_state()
 end
 
 function LEGENDPREFIX_CLOSE_BUTTON(frame)
@@ -18,11 +20,13 @@ function LEGENDPREFIX_CLOSE_BUTTON(frame)
 	end
 	ui.CloseFrame('legendprefix')
 	ui.CloseFrame('inventory')
+    lock_state_check.clear_lock_state()
 end
 
 function LEGENDPREFIX_RESET(frame)
 	LEGENDPREFIX_RESET_TARGET_ITEM(frame);
 	LEGENDPREFIX_RESET_MATERIAL_SLOT(frame);	
+    lock_state_check.clear_lock_state()
 end
 
 function LEGENDPREFIX_RESET_TARGET_ITEM(frame)
@@ -32,7 +36,7 @@ function LEGENDPREFIX_RESET_TARGET_ITEM(frame)
 	slot:ClearIcon();
 
 	local targetText = GET_CHILD_RECURSIVELY(frame, 'targetText');
-	targetText:SetTextByKey('name', '');
+	targetText:SetTextByKey('name', '')
 end
 
 function LEGENDPREFIX_RESET_MATERIAL_SLOT(frame)	
@@ -42,7 +46,7 @@ function LEGENDPREFIX_RESET_MATERIAL_SLOT(frame)
 	matText:ShowWindow(0);
 end
 
-function LEGENDPREFIX_SET_TARGET(parent, ctrl)	
+function LEGENDPREFIX_SET_TARGET(parent, ctrl)    
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
@@ -56,7 +60,7 @@ function LEGENDPREFIX_SET_TARGET(parent, ctrl)
 	end
 end
 
-function LEGENDPREFIX_SET_TARGET_ITEM(frame, itemGuid)
+function LEGENDPREFIX_SET_TARGET_ITEM(frame, itemGuid)    
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
@@ -135,27 +139,23 @@ end
 
 function GET_VALID_LEGEND_PREFIX_MATERIAL_COUNT_C() -- 경험치 꽉 찬 아이템만 개수 세주는 함수
     local count = 0;
-    local needItemName = GET_LEGEND_PREFIX_MATERIAL_ITEM_NAME();
-    local invItemList = session.GetInvItemList();
-    local i = invItemList:Head();
-    while true do		
-		if i == invItemList:InvalidIndex() then
-			break;
+	local needItemName = GET_LEGEND_PREFIX_MATERIAL_ITEM_NAME();
+	local count = GET_INV_ITEM_COUNT_BY_PROPERTY({
+        {Name = 'ClassName', Value = needItemName}
+	}, false, nil, function(item)
+		if item == nil then
+			return false;
 		end
-		local invItem = invItemList:Element(i);
-		local item = GetIES(invItem:GetObject());
-        local itemExpStr = TryGetProp(item, 'ItemExpString', 'None');
+		local itemExpStr = TryGetProp(item, 'ItemExpString', 'None');
         if itemExpStr == 'None' then
             itemExpStr = '0';
         end
 		local itemExpNum = tonumber(itemExpStr);
-        if item.ClassName == needItemName and itemExpNum ~= nil and itemExpNum >= item.NumberArg1 then
-            count = count + 1;
-        end
-
-        i = invItemList:Next(i);
-    end
-
+        if itemExpNum ~= nil and itemExpNum >= item.NumberArg1 then
+            return true;
+		end
+		return false;
+	end);	
     return count;
 end
 
@@ -228,6 +228,7 @@ function _LEGENDPREFIX_EXECUTE()
     session.AddItemID(invItem:GetIESID(), 1);
     local resultlist = session.GetItemIDList();
     item.DialogTransaction("EXECUTE_PREFIX_SET", resultlist);
+    lock_state_check.disable_lock_state(itemGuid)
 end
 
 function LEGENDPREFIX_APPLY_RESULT(argStr)
@@ -268,8 +269,13 @@ function ON_SUCCESS_LEGEND_PREFIX(frame, msg, argStr, argNum)
 	pic:PlayActiveUIEffect();
 	matPic_dummy:PlayActiveUIEffect();
 	slot:PlayActiveUIEffect();
+
+    local itemGuid = frame:GetUserValue('TARGET_ITEM_GUID');
+    lock_state_check.enable_lock_state(itemGuid)
 end
 
 function ON_FAIL_LEGEND_PREFIX(frame, msg, argStr, argNum)
+    local itemGuid = frame:GetUserValue('TARGET_ITEM_GUID');
+    lock_state_check.enable_lock_state(itemGuid)
 	ui.SetHoldUI(false);
 end

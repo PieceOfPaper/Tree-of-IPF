@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="market_sell" x="0" y="0" width="1425" height="1000" create="open">
-	<frame title="{@st43}{s22}판매 등록" titlepos="0 0" layout_gravity="left center" snapclient="true" snapframe="true" scale_align="center top" margin="0 -20 0 0" fasthide="true"/>
+	<frame title="{@st43}{s22}판매 등록" titlepos="0 0" layout_gravity="left center" scale_align="center top" margin="0 -20 0 0" fasthide="true"/>
 	<option closebutton="false"/>
 	<draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
 	<script OpenScp="MARKET_SELL_OPEN"/>

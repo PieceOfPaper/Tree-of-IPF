@@ -18,13 +18,13 @@ function IS_LEGEND_GROUP_ITEM(item)
 end
 
 function GET_OPTION_EXTRACT_KIT_LIST()
-    return {'Extract_kit', 'Extract_kit_Sliver', 'Extract_kit_Gold'};
+    return {'Extract_kit', 'Extract_kit_Sliver', 'Extract_kit_Gold', 'Extract_kit_Gold_NotFail', 'Extract_kit_Gold_NotFail_Rand', 'Extract_kit_Gold_NotFail_Recipe'};
 end
 
 function IS_VALID_OPTION_EXTRACT_KIT(itemCls)
     local list = GET_OPTION_EXTRACT_KIT_LIST();
     for i = 1, #list do
-        if list[i] == itemCls.StringArg then
+        if list[i] == itemCls.StringArg and tonumber(TryGetProp(itemCls, "ItemLifeTimeOver", 0)) == 0 then
             return true;
         end
     end
@@ -40,7 +40,7 @@ function GET_OPTION_EXTRACT_NEED_MATERIAL_COUNT(item)
 end
 
 function IS_ENABLE_NOT_TAKE_MATERIAL_KIT(kitCls)
-    if kitCls.StringArg == 'Extract_kit_Sliver' then 
+    if kitCls.StringArg == 'Extract_kit_Sliver' or kitCls.StringArg == 'Extract_kit_Gold_NotFail' or kitCls.StringArg == 'Extract_kit_Gold_NotFail_Recipe' or kitCls.StringArg == 'Extract_kit_Gold_NotFail_Rand' then 
         return true;
     end
     return false;
@@ -119,4 +119,12 @@ function SCR_VELLCOFFER_MATCOUNT(pc)
     end
     
     return matCount;
+end
+
+function IS_100PERCENT_SUCCESS_EXTRACT_ICOR_ITEM(item)
+    if item == nil then
+        return false;
+    end
+
+    return item.StringArg == 'Extract_kit_Gold_NotFail' or item.StringArg == 'Extract_kit_Gold_NotFail_Rand' or item.StringArg == 'Extract_kit_Gold_NotFail_Recipe';
 end

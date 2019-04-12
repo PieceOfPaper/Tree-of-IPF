@@ -14,7 +14,7 @@ function QUICKSLOTNEXPBAR_UPDATE_HOTKEYNAME(frame)
 		    end
 		end
 		
-		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', 'left', 'top', 2, 1);
+		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', ui.LEFT, ui.TOP, 2, 1);
 		QUICKSLOT_MAKE_GAUGE(slot);
 	end
 end

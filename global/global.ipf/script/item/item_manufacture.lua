@@ -21,7 +21,3 @@ end
 function TX_EVENT_ITEM_SHOP_TREAD7(pc, argList, strArgList)
 	TX_ITEM_TRADE_SHOP_THREAD(pc, argList, strArgList, 'EventShop7')
 end
-
-function TX_EVENT_ITEM_SHOP_TREAD8(pc, argList, strArgList)
-	TX_ITEM_TRADE_SHOP_THREAD(pc, argList, strArgList, 'EventShop8')
-end

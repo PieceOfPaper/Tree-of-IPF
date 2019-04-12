@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="dialogselect" x="0" y="0" width="400" height="200">
-	<frame title="대화 선택" layout_gravity="center bottom" margin="0 0 0 200" snapframe="true" snapclient="true" scale_align="center bottom"/>
+<uiframe name="dialogselect" x="0" y="0" width="600" height="500">
+	<frame title="대화 선택" layout_gravity="center bottom" margin="0 0 0 300" scale_align="center bottom"/>
 	<input moveable="false"/>
 	<skin frameskin="test_win_mypage" layout_gravity="center center" rect="0 0 340 200"/>
 	<draw drawtitlebar="false" drawnotitlebar="false"/>

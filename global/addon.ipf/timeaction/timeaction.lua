@@ -12,9 +12,7 @@ function ON_TIME_ACTION(frame, msg, msgType, isFail, info)
 	end
 	
 	info = tolua.cast(info, "TIME_ACTION_INFO");
-	START_TIME_ACTION(frame, info.msg, info.time)
-
-			
+	START_TIME_ACTION(frame, info.msg, info.time);
 end
 
 function START_TIME_ACTION(frame, msg, second)
@@ -63,7 +61,19 @@ function START_TIME_ACTION(frame, msg, second)
 	
 end
 
+function CANCEL_TIME_ACTION_BY_SCRIPT(frame)
+    if frame == nil then
+        frame = ui.GetFrame('timeaction')
+    end
+	packet.StopTimeAction();
+	END_TIME_ACTION(frame, 1)
+		
+end
+
 function CANCEL_TIME_ACTION(frame)
+    if frame == nil then
+        frame = ui.GetFrame('timeaction')
+    end
 	packet.StopTimeAction();
 	END_TIME_ACTION(frame, 1)
 		
@@ -75,7 +85,7 @@ function END_TIME_ACTION(frame, isFail)
 	timer:Stop();
 	timer:EnableHideUpdate(0);
 	frame:EnableHideProcess(0);
-		
+
 	
 	local rankresetFrame = ui.GetFrame("rankreset");
 	if 1 == rankresetFrame:IsVisible() then

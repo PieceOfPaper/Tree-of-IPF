@@ -5,6 +5,7 @@ function APPRAISAL_ON_INIT(addon, frame)
 
 	addon:RegisterMsg("OPEN_DLG_APPRAISAL", "ON_OPEN_APPRAISAL");
 	addon:RegisterMsg("SUCCESS_APPRALSAL", "ON_OPEN_APPRAISAL");
+	addon:RegisterMsg('UPDATE_COLONY_TAX_RATE_SET', 'ON_APPRAISAL_UPDATE_COLONY_TAX_RATE_SET');
 	
 end
 
@@ -48,45 +49,42 @@ function APPRAISAL_UI_OPEN(frame, ctrl)
 	ui.EnableSlotMultiSelect(1);
 
 	APPRAISAL_UPDATE_ITEM_LIST(frame);
+	local invenzenytext = GET_CHILD_RECURSIVELY(frame, "invenzenytext")
+	SET_COLONY_TAX_RATE_TEXT(invenzenytext, "tax_rate")
+end
+
+function ON_APPRAISAL_UPDATE_COLONY_TAX_RATE_SET(frame)
+	local invenzenytext = GET_CHILD_RECURSIVELY(frame, "invenzenytext")
+	SET_COLONY_TAX_RATE_TEXT(invenzenytext, "tax_rate")
+	session.ResetItemList();
+	APPRAISAL_UPDATE_ITEM_LIST(frame);
+	CLOSE_MSGBOX_BY_NON_NESTED_KEY("APPRAISAL_EXECUTE");
 end
 
 function APPRAISAL_UPDATE_ITEM_LIST(frame)
 	--슬롯 셋 및 전체 슬롯 초기화 해야됨
 	local slotSet = GET_CHILD_RECURSIVELY(frame,"slotlist","ui::CSlotSet")
-	slotSet:ClearIconAll();
-	local slotcnt = 0
-
+	slotSet:ClearIconAll();	
 	local invItemList = session.GetInvItemList();
-	local i = invItemList:Head();
-	while 1 do
-		if i == invItemList:InvalidIndex() then
-			break;
-		end
-
-		local invItem = invItemList:Element(i);		
-		i = invItemList:Next(i);
-		
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, slotSet)		
 		local tempobj = invItem:GetObject()
-		if tempobj ~= nil then
-		    
+		if tempobj ~= nil then		    
 			local obj = GetIES(tempobj);
 			if IS_NEED_APPRAISED_ITEM(obj) == true or (CHECK_NEED_RANDOM_OPTION(obj) == true and IS_NEED_RANDOM_OPTION_ITEM(obj) == true) then
+				local slotcnt = imcSlot:GetEmptySlotIndex(slotSet);
 				local slot = slotSet:GetSlotByIndex(slotcnt)
 				if slot == nil then
-					break;
+					return 'break';
 				end
 
 				local icon = CreateIcon(slot);
 				icon:Set(obj.Icon, 'Item', invItem.type, slotcnt, invItem:GetIESID());
 				local class = GetClassByType('Item', invItem.type);
 				ICON_SET_INVENTORY_TOOLTIP(icon, invItem, "appraisal", class);
-
-				slotcnt = slotcnt + 1
 			end
 		end
-	end
-
-	APPRAISAL_UPDATE_MONEY(frame)
+	end, false, slotSet);
+	APPRAISAL_UPDATE_MONEY(frame);
 end
 
 function APPRAISAL_RESET_CAL_MONEY(frame)
@@ -112,7 +110,7 @@ function APPRAISAL_UPDATE_MONEY(frame)
 		local itemobj = GetIES(invitem:GetObject());
 
 		if groupInfo == nil then -- npc 상점의 경우
-		totalprice = totalprice + GET_APPRAISAL_PRICE(itemobj);
+		totalprice = totalprice + GET_APPRAISAL_PRICE(itemobj, nil, GET_COLONY_TAX_RATE_CURRENT_MAP());
 		elseif handle ~= session.GetMyHandle() then -- pc 상점인 경우
 			local itemName, cnt = ITEMBUFF_NEEDITEM_Appraiser_Apprise(nil, itemobj);
 			totalprice = totalprice + cnt * groupInfo.price;
@@ -195,7 +193,7 @@ function APPRAISAL_EXECUTE(frame)
 		local invitem = GET_ITEM_BY_GUID(iconInfo:GetIESID());
 		local itemobj = GetIES(invitem:GetObject());
 
-		totalprice = totalprice + GET_APPRAISAL_PRICE(itemobj);
+		totalprice = totalprice + GET_APPRAISAL_PRICE(itemobj, nil, GET_COLONY_TAX_RATE_CURRENT_MAP());
 	end
 
 	if totalprice == 0 then
@@ -210,7 +208,7 @@ function APPRAISAL_EXECUTE(frame)
 
 	local txtPrice = GET_COMMAED_STRING(totalprice)
 	local msg = ScpArgMsg('AppraisalPrice',"Price", txtPrice)
-	local msgBox = ui.MsgBox(msg, 'APPRAISAL_EXECUTE_COMMIT', "None");
+	local msgBox = ui.MsgBox_NonNested(msg, 'APPRAISAL_EXECUTE', 'APPRAISAL_EXECUTE_COMMIT', "None");
 	msgBox:SetYesButtonSound("button_click_repair");
 end
 

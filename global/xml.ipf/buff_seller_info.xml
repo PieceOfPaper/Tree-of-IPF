@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<Data>
+	<Buff BuffClassName="SpellShop_Sacrament_Buff" SpendItemClassName="food_007" SpendItemCount="10" Caption="캐릭터의 기본 공격에 일시적으로 신성 속성 추가타를 부여하는 축복을 줍니다. 해당 버프를 1회 판매하는데 기슬로티스 10개가 필요합니다." Caption2="신성 속성 추가 공격 +#{CaptionRatio}#{nl}지속시간 #{CaptionTime}#분" CaptionTime="SCR_Get_SpellShop_Ratio" CaptionRatio="SCR_GET_SpellShop_Sacrament_Ratio" CaptionRatio2="ZERO" CaptionRatio3="ZERO"/>
+	<Buff BuffClassName="SpellShop_Blessing_Buff" SpendItemClassName="Drug_powder" SpendItemCount="10" Caption="적을 공격할 때 마다 신성 속성 추가 대미지를 부여하는 축복을 줍니다. 해당 버프를 1회 판매하는데 홀리 파우더 10개가 필요합니다." Caption2="추가 대미지 +#{CaptionRatio}#{nl}지속시간 #{CaptionTime}#분" CaptionTime="SCR_Get_SpellShop_Ratio" CaptionRatio="SCR_GET_SpellShop_Blessing_Ratio" CaptionRatio2="ZERO" CaptionRatio3="ZERO"/>
+	<Buff BuffClassName="SpellShop_IncreaseMagicDEF_Buff" SpendItemClassName="Drug_holywater" SpendItemCount="10" Caption="캐릭터의 마법 방어력을 일시적으로 증가하는 축복을 줍니다. 해당 버프를 1회 판매하는데 성수 10개가 필요합니다." Caption2="마법 방어력 #{CaptionRatio}#% 증가{nl}지속시간 #{CaptionTime}#분" CaptionTime="SCR_Get_SpellShop_Ratio" CaptionRatio="SCR_GET_SpellShop_IncreaseMagicDEF_Ratio" CaptionRatio2="ZERO" CaptionRatio3="ZERO"/>
+	<Buff BuffClassName="SpellShop_Aspersion_Buff" SpendItemClassName="Drug_holywater" SpendItemCount="10" Caption="캐릭터의 물리 방어력을 일시적으로 증가하는 축복을 줍니다. 해당 버프를 1회 판매하는데 성수 10개가 필요합니다." Caption2="물리 방어력 #{CaptionRatio}#% 증가{nl}지속시간 #{CaptionTime}#분" CaptionTime="SCR_Get_SpellShop_Ratio" CaptionRatio="SCR_GET_SpellShop_Aspersion_Ratio" CaptionRatio2="ZERO" CaptionRatio3="ZERO"/>
+</Data>

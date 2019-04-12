@@ -184,16 +184,7 @@ function SOCIAL_SELL_ITEM_LIST(frame)
 	sellItemGbox:DeleteAllControl();
 	
 	local list = session.GetSocialSellModeItemList();
-	local i = list:Head();
-	local idx = 0;
-	while 1 do
-		if i == list:InvalidIndex() then
-			break;
-		end
-		
-		local info = list:Element(i);
-		SOCIAL_SELL_CTRL_SET(info.invIndex, info.type, info.count);		
-		idx = idx + 1;
-		i = list:Next(i);
-	end
+	FOR_EACH_INVENTORY(list, function(invItemList, info)			
+		SOCIAL_SELL_CTRL_SET(info.invIndex, info.type, info.count);
+	end, false);
 end

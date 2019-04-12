@@ -473,6 +473,27 @@ function ITEM_OPTIONEXTRACT_KIT_REG_TARGETITEM(frame, itemID)
 		ui.SysMsg(ClMsg("IsNotOptionExtractKit"));
 		return
 	end
+
+	if IS_100PERCENT_SUCCESS_EXTRACT_ICOR_ITEM(item) == true then		
+		local slot = GET_CHILD_RECURSIVELY(frame, "slot");
+		local targetItem = GET_SLOT_ITEM(slot);
+		if targetItem == nil then
+			return;
+		end
+
+		local targetItemObj = GetIES(targetItem:GetObject());
+		if item.ClassName == 'Extract_kit_Gold_NotFail_Rand' then	
+			if IS_HAVE_RANDOM_OPTION(targetItemObj) == false then
+				ui.SysMsg(ClMsg("IsNotOptionExtractKit"));
+				return;
+			end
+		elseif item.ClassName == 'Extract_kit_Gold_NotFail_Recipe' then
+			if IS_HAVE_RANDOM_OPTION(targetItemObj) == true then
+				ui.SysMsg(ClMsg("IsNotOptionExtractKit"));
+				return;
+			end
+		end
+	end
 	
 	local invframe = ui.GetFrame("inventory");
 	if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
@@ -483,7 +504,7 @@ function ITEM_OPTIONEXTRACT_KIT_REG_TARGETITEM(frame, itemID)
 	local slot = GET_CHILD_RECURSIVELY(frame, "extractKitSlot");
 	SET_SLOT_ITEM(slot, invItem);
 	local extractKitName = GET_CHILD_RECURSIVELY(frame, "extractKitName", "ui::CRichText")
-	extractKitName:SetTextByKey("value", item.Name)
+	extractKitName:SetTextByKey("value", GET_FULL_NAME(item));	
 	local bodyGbox2_2 = GET_CHILD_RECURSIVELY(frame, "bodyGbox2_2")
 		
 	if IS_ENABLE_NOT_TAKE_MATERIAL_KIT(itemCls) then
@@ -528,7 +549,6 @@ function ITEMOPTIONEXTRACT_EXEC(frame)
 		clmsg = ScpArgMsg("ItemOptionExtractMessage_3")
 	end
 
---	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEMOPTIONEXTRACT_EXEC", "_ITEMOPTIONEXTRACT_CANCEL");
 	WARNINGMSGBOX_FRAME_OPEN(clmsg, "_ITEMOPTIONEXTRACT_EXEC", "_ITEMOPTIONEXTRACT_CANCEL")
 end
 
@@ -536,7 +556,7 @@ function _ITEMOPTIONEXTRACT_CANCEL()
 	local frame = ui.GetFrame("itemoptionextract");
 end;
 
-function _ITEMOPTIONEXTRACT_EXEC()
+function _ITEMOPTIONEXTRACT_EXEC(checkRebuildFlag)
 	local frame = ui.GetFrame("itemoptionextract");
 	local extractKitSlot = GET_CHILD_RECURSIVELY(frame, "extractKitSlot");
 	local extractKitIcon = extractKitSlot:GetIcon();
@@ -577,6 +597,12 @@ function _ITEMOPTIONEXTRACT_EXEC()
 	local item = GetIES(invItem:GetObject());
 	local itemCls = GetClassByType('Item', item.ClassID)
 
+	if checkRebuildFlag ~= false then
+		if TryGetProp(item, 'Rebuildchangeitem', 0) > 0 then
+			ui.MsgBox(ScpArgMsg('IfUDoCannotExchangeWeaponType'), '_ITEMOPTIONEXTRACT_EXEC(false)', 'None');
+			return;
+		end
+	end
 	
 	local bodyGbox2 = GET_CHILD_RECURSIVELY(frame, "bodyGbox2")
 	bodyGbox2:ShowWindow(0)

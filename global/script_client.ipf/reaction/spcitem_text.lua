@@ -33,6 +33,10 @@ function SHOW_DMG_CRI()
 	return ScpArgMsg("ADD_CRI");
 end
 
+function SHOW_DMG_BLOCK()
+	return ScpArgMsg("ADD_BLOCK");
+end
+
 
 function SHOW_DMG_COUNTER()
 	return ScpArgMsg("ADD_COUNTER");
@@ -155,6 +159,12 @@ end
 function SHOW_SKILL_BONUS2(arg, skillID)
     local skill = GetClassByType("Skill", skillID);
 	return string.format("%s +%d%%", skill.Name, arg);
+end
+
+function SHOW_SKILL_BONUS3(arg, argString)
+    -- 소수점 둘째 자리까지 표현하기 위함 --------
+    arg = math.floor(arg*100)
+    return string.format("%s +%.2f%%", ScpArgMsg(argString), arg/100);
 end
 
 -- ????????

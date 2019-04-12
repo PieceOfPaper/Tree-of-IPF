@@ -28,6 +28,9 @@ end
 
 function RUN_MIC()
 	local frame = ui.GetFrame("mic");
+	if frame == nil then
+		return;
+	end
 
 	local showMicFrameValue = config.GetXMLConfig("ShowMicFrame")
 	

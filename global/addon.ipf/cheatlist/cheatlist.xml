@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <uiframe name="cheatlist" x="0" y="0" width="580" height="770">
-	<option closebuttonpos="0 35" hideable="true"/>
-	<frame title="{@st43}치트리스트{/}" titlepos="0 -14" snapclient="true" snapframe="true" layout_gravity="left center" margin="100 0 0 0" permission="operator"/>
+	<option closebutton="true" closebuttonpos="0 35" hideable="true"/>
+	<frame title="{@st43}치트리스트{/}" titlepos="0 -14" layout_gravity="left center" margin="100 0 0 0" permission="operator"/>
 	<layer layerlevel="100"/>
-	<script CloseScp="CHEATLIST_UI_CLOSE"/>
+	<script CloseScp="CHEATLIST_UI_CLOSE" />
 	<sound opensound="win_open" closesound="win_close"/>
 	<controls>
 		<tab name="cheatlisttap" rect="0 0 500 40" margin="40 0 0 0" layout_gravity="left top" LBtnDownScp="CHEATLIST_TAB_CHANGE" fixwidth="false" itemspc="0"/>

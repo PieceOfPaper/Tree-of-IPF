@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_outlaw_rampage"/>
+    <Particle frame="7" attachNode="Bip01 R Toe0" particleName="F_smoke008_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="7" type="2" intensity="3" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="16" attachNode="Bip01 R Toe0" particleName="F_smoke008_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="16" type="2" intensity="3" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="30" attachNode="Bip01 R Toe0" particleName="F_smoke008_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="30" type="2" intensity="3" frequency="70" duration="0.2" range="1000"/>
+    <BlendOn frame="46" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="47" R="0" G="0" B="0" A="0"/>
+    <Particle frame="48" attachNode="Dummy_emitter" particleName="F_smoke171" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="48" R="100" G="100" B="100" A="50"/>
+    <Shockwave frame="48" type="2" intensity="7" frequency="55" duration="0.2" range="1000"/>
+    <BlendOn frame="49" R="0" G="0" B="0" A="0"/>
+    <Particle frame="55" attachNode="Dummy_emitter" particleName="F_smoke169_shockwave_soil" useAttach="false" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="55" R="100" G="100" B="100" A="50"/>
+    <Shockwave frame="55" type="2" intensity="9" frequency="45" duration="0.3" range="1000"/>
+    <BlendOn frame="56" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="57" R="100" G="100" B="100" A="50"/>
+    <BlendOff frame="58" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

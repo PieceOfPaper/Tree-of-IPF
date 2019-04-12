@@ -99,22 +99,6 @@ function GUILDMEMBER_GO_CTRLSET_UPDATE(ctrlSet, updateTotalCheckCount)
 
 end
 
-function GUILD_CALL_EXEC(parent, ctrl)
-    if IS_IN_EVENT_MAP() == true then
-        ui.SysMsg(ClMsg('ImpossibleInCurrentMap'));
-        return;
-    end
-
-	local frame = parent:GetTopParentFrame();
-	local skillType = frame:GetUserIValue("SKILLTYPE");
-	local sklCls = GetClassByType("Skill", skillType);
-
-	local msgString = ScpArgMsg("WillYouUseSkill{SkillName}?", "SkillName", sklCls.Name);
-	local yesScp = string.format("_GUILD_GO_EXEC(\"%s\")", frame:GetName());
-	ui.MsgBox(msgString, yesScp, "None");
-
-end
-
 function GUILD_GO_EXEC(parent, ctrl)
     if IS_IN_EVENT_MAP() == true then
         ui.SysMsg(ClMsg('ImpossibleInCurrentMap'));

@@ -9,7 +9,13 @@ function TRANSCEND_SCROLL_CHECK_TARGET_ITEM(slot)-- _CHECK_MORU_TARGET_ITEM
 	local item = GET_SLOT_ITEM(slot);
 	if item ~= nil then
 		local obj = GetIES(item:GetObject());
-		if IS_TRANSCEND_SCROLL_ABLE_ITEM(obj, scrollType) == 1 or IS_TRANSCEND_SCROLL_ITEM(obj) == 1 then
+		local scrollGuid = frame:GetUserValue("ScrollGuid")
+    	local scrollInvItem = session.GetInvItemByGuid(scrollGuid);
+    	if scrollInvItem == nil then
+    		return;
+    	end
+    	local scrollObj = GetIES(scrollInvItem:GetObject());
+		if IS_TRANSCEND_SCROLL_ABLE_ITEM(obj, scrollType, scrollObj.NumberArg1) == 1 or IS_TRANSCEND_SCROLL_ITEM(obj) == 1 then
 			slot:GetIcon():SetGrayStyle(0);
 		else
 			slot:GetIcon():SetGrayStyle(1);
@@ -53,8 +59,9 @@ function TRANSCEND_SCROLL_SET_TARGET_ITEM(invframe, invItem)
 		return;
 	end
 
+	local scrollObj = GetIES(scrollInvItem:GetObject());
 	local itemObj = GetIES(invItem:GetObject());
-	if IS_TRANSCEND_SCROLL_ABLE_ITEM(itemObj, scrollType) ~= 1 then
+	if IS_TRANSCEND_SCROLL_ABLE_ITEM(itemObj, scrollType, scrollObj.NumberArg1) ~= 1 then
 		if scrollType == "transcend_Add" then
 			ui.SysMsg(ClMsg("TranscendScrollAddDisabledItem"));
 		elseif scrollType == "transcend_Set" then
@@ -63,7 +70,6 @@ function TRANSCEND_SCROLL_SET_TARGET_ITEM(invframe, invItem)
 		return;
 	end
 
-	local scrollObj = GetIES(scrollInvItem:GetObject());
 	local anticipatedTranscend, percent = GET_ANTICIPATED_TRANSCEND_SCROLL_SUCCESS(itemObj, scrollObj)
 
 	text_name:SetTextByKey("value", itemObj.Name)
@@ -164,8 +170,15 @@ function TRANSCEND_SCROLL_EXEC_ASK_AGAIN(frame, btn)
 		ui.SysMsg(ScpArgMsg('ItemTranscendChanged'));
 		return;
 	end
-
-	local clmsg = ScpArgMsg("TranscendScrollWarning{Before}To{After}", "Before", beforeTranscend, "After", transcend)
+    local text_rate = GET_CHILD(frame, "text_rate")
+    local clmsg = ScpArgMsg("TranscendScrollWarning{Before}To{After}", "Before", beforeTranscend, "After", transcend)
+    if text_rate:GetTextByKey('value') ~= nil then
+        local rate = tonumber(text_rate:GetTextByKey('value'))
+        if rate ~= nil and rate >= 100 then
+            clmsg = ScpArgMsg("TranscendScrollWarning{Before}To{After}100Percent", "Before", beforeTranscend, "After", transcend)
+        end
+    end
+    
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_BTN_OK_SOUND"));
 	ui.MsgBox_NonNested(clmsg, frame:GetName(), "TRANSCEND_SCROLL_EXEC", "None");
 end

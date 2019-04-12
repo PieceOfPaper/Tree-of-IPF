@@ -118,27 +118,17 @@ function GET_STAR_TXT_REDUCED(imgSize, obj, count, removeCount)
 end
 
 function GET_ITEM_GRADE_TXT(obj, imgSize, isEquiped)
-	return GET_ITEM_STAR_TXT(obj, imgSize, isEquiped)
-
-	--[[ 이제 별과 그레이드는 관계 없어졌다. 스펙 확정되면 이 함수 날리고 GET_ITEM_STAR_TXT만 쓰면 됨
-	local grade = obj.ItemGrade;	
-	if grade == nil or grade == 'None' then
-		grade = 1;
-	end
-
-	return GET_STAR_TXT(imgSize, grade);
-	]]
+	return GET_ITEM_STAR_TXT(obj, imgSize, isEquiped);
 end
 
 
 function GET_ITEM_STAR_TXT(obj, imgSize, isEquiped)
 	local star = nil
-	if obj.GroupName == "Gem" or  obj.GroupName == "Card"  then
+	if obj.GroupName == "Gem" or obj.GroupName == "Card"  then		
 		local lv = GET_ITEM_LEVEL_EXP(obj);
 		star = lv
 	else
-	return "";
-		--star = obj.ItemStar;
+		return "";
 	end
 	return GET_STAR_TXT(imgSize, star, obj, isEquiped);
 end

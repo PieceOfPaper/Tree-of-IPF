@@ -27,7 +27,7 @@ function SKILL_QUEUE_CLEAR_SLOT(slot)
 	local icon = slot:GetIcon();
 	if icon ~= nil then
 		slot:ClearIcon();
-		slot:SetText('', 'count', 'right', 'bottom', -2, 1);	
+		slot:SetText('', 'count', ui.RIGHT, ui.BOTTOM, -2, 1);	
 	end
 
 	slot:ShowWindow(0);
@@ -42,7 +42,7 @@ function SKILL_QUEUE_SET_SLOT(slot, iconName, count)
 	local icon = CreateIcon(slot);
 	icon:SetImage(iconName);
 	slot:SetUserValue("SLOT_SET", 1);
-	slot:SetText('{s18}{ol}{b}'..count, 'count', 'right', 'bottom', -2, 1);
+	slot:SetText('{s18}{ol}{b}'..count, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 	slot:ShowWindow(1);	
 end
 

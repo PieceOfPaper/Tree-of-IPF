@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="walk_right"/>
-    <Sound frame="7.00" soundFile="pc_war_jump_1"/>
+	<Particle frame="1" attachNode="Dummy_effect_shieldpush_root" particleName="I_warrior_slithering" useAttach="ture" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="walk_right"/>
+	<Sound frame="7.00" soundFile="pc_war_jump_1"/>
 </ActionDesc>

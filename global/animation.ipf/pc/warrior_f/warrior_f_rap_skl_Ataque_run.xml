@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<Sound frame="0.00" soundFile="walk_left" Value="0"/>
-	<Sound frame="9.00" soundFile="walk_left" Value="263"/>
+	<Particle frame="0" attachNode="Dummy_effect_pns_force_ride" particleName="I_warrior_shield_charge_dash" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" targetPos="false"/>
 	<Particle frame="2" attachNode="Dummy_effect_run01" particleName="F_pc_run_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
 	<Particle frame="4" attachNode="Dummy_effect_run01" particleName="F_pc_run_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
 	<Particle frame="11" attachNode="Dummy_effect_run02" particleName="F_pc_run_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
 	<Particle frame="13" attachNode="Dummy_effect_run02" particleName="F_pc_run_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="walk_left" Value="0"/>
+	<Sound frame="8.00" soundFile="walk_left" Value="263"/>
 </ActionDesc>

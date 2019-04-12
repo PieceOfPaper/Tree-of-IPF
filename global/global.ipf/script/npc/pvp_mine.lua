@@ -28,7 +28,18 @@ function SCR_PVP_MINE_ENTER_TIME_DIALOG(self, pc)
     for i = 1, #globalTiem do
         if GetServerGroupID() == globalTiem[i][1] and hour == globalTiem[i][2] then
             if (min >= 0 and min <= 5) or (min >= 20 and min <= 25) then
+                if pc.Lv < 350 then
+                ShowOkDlg(pc, 'EV_PRISON_DESC2', 1)
+                return false;
+            elseif partyObj ~= nil then
+                SendSysMsg(pc, 'CannotUseInParty');
+                return false;
+            else
                 return true;
+            end
+        elseif (min >= 6 and min <= 15) or (min >= 26 and min <= 35) then
+            ShowOkDlg(pc, 'PVP_MINE_DLG5', 1)
+            return false;
             end
         end
     end

@@ -387,7 +387,13 @@ function GET_FISHING_ITEM_BAG_UPGRADE_COST(pc, currentExpandCount)
         return 0;   -- 0 반환하면 업그레이드 안시켜주게 해놓을 거에요
     end
     
-    local nowSlot = GetMaxFishingItemBagSlotCount(pc);
+    local nowSlot = 0;
+    if IsServerObj(pc) == 1 then -- for server
+        nowSlot = GetMaxFishingItemBagSlotCount(pc);
+    else
+        local account = session.barrack.GetMyAccount();        
+        count = account:GetMaxFishingItemBagSlotCount(0);
+    end
     if nowSlot == nil then
         return 0;
     end

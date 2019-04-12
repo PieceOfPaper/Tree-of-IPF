@@ -92,3 +92,26 @@ function GBOX_AUTO_ALIGN_HORZ(gbox, startx, spacex, gboxaddx, alignByMargin, aut
 	end
 end
 
+imcGroupBox = {
+	StartAlphaEffect = function(self, box, totalSec, updateSec)
+		box:SetUserValue('UPDATE_TERM', updateSec);
+		box:SetUserValue('TOTAL_SEC', totalSec);
+		box:SetUserValue('ACCUMULATE_SEC', 0);
+		box:RunUpdateScript('UPDATE_IMC_GROUPBOX_ALPHA_EFFECT', updateSec, totalSec);
+	end,
+};
+
+function UPDATE_IMC_GROUPBOX_ALPHA_EFFECT(box)
+	local updateTerm = box:GetUserValue('UPDATE_TERM');
+	local accumulateSec = box:GetUserValue('ACCUMULATE_SEC');
+	local totalSec = tonumber(box:GetUserValue('TOTAL_SEC'));
+	accumulateSec = tonumber(accumulateSec) + tonumber(updateTerm);
+	box:SetUserValue('ACCUMULATE_SEC', accumulateSec);
+	if accumulateSec >= totalSec then
+		return 0;
+	end
+
+	local destAlpha = (1 - accumulateSec / totalSec) * 100;
+	box:SetAlpha(destAlpha);
+	return 1;
+end

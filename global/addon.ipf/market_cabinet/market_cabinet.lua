@@ -199,38 +199,32 @@ function CABINET_GET_ALL_ITEM(parent, ctrl)
     INPUT_GETALL_MSG_BOX(frame, ctrl, now, flag, moneyItem);
 end
 
-function CABINET_GET_ALL_LIST(frame, control, strarg, now)
-    
-    --market cabient 완료 (모두받기)
-    local pc = GetMyPCObject();
+function CABINET_GET_ITEM()
     local moneyItem = GetClass('Item', MONEY_NAME);
-    if moneyItem == nil then
-        return;
-    end 
-    
-    local weightflag = 0;
+	local count = session.market.GetCabinetItemCount();
+
     local sysTime = geTime.GetServerSystemTime();		
-	for i = 0 , session.market.GetCabinetItemCount() - 1 do
-		local cabinetItem = session.market.GetCabinetItemByIndex(i);
+
+	local cabinetItem = session.market.GetCabinetItemByIndex(0);
+	if cabinetItem ~= nil then
 		local registerTime = cabinetItem:GetRegSysTime();
 		local difSec = imcTime.GetDifSec(registerTime, sysTime);
-        
-        --마켓 완료 UI 에서 목록에 없어도 바로 받아 버리는 현상 / 2차 수정 때 반영 될꺼임.
-        --if cabinetItem:GetWhereFrom() ~= 'market_sell' then
-            --return;
-        --end
 
-        if cabinetItem:GetWhereFrom() ~= 'market_sell' or 0 >= difSec then
-	        market.ReqGetCabinetItem(cabinetItem:GetItemID());
-        end
-    end
+		if cabinetItem:GetWhereFrom() ~= 'market_sell' or 0 >= difSec then
+			market.ReqGetCabinetItem(cabinetItem:GetItemID());
+		end
+	end
+end
 
-    local frame = ui.GetFrame("market_cabinet_soldlist")
+function CABINET_GET_ALL_LIST(frame, control, strarg, now)
+    --market cabient 완료 (모두받기)
+	local count = session.market.GetCabinetItemCount();
+	AddLuaTimerFuncWithLimitCount("CABINET_GET_ITEM", 200, count * 5);
+
+	local frame = ui.GetFrame("market_cabinet_soldlist")
 	if frame ~= nil then
 		ui.CloseFrame("market_cabinet_soldlist")
 	end
-
-	market.ReqCabinetList();
 end
 
 function CABINET_ITEM_BUY(frame, ctrl, guid)

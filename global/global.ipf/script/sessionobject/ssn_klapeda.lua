@@ -17,8 +17,12 @@ function SCR_SSN_KLAPEDA_KillMonster(self, sObj, msg, argObj, argStr, argNum)
 	if IsIndun(self) == 1 then
 		IndunMonKillCountIncrease(self);
 	end
-
-
+	-- EVENT_1811_NEWCHARACTER
+    SCR_SSN_EVENT_1811_NEWCHARACTER_KillMonster(self, sObj, msg, argObj, argStr, argNum)
+    
+    -- EVENT_1811_KUPOLE
+    SCR_SSN_EVENT_1811_KUPOLE_KillMonster(self, sObj, msg, argObj, argStr, argNum)
+    
 ---- ID_WHITETREES1
     if GetZoneName(self) == 'id_whitetrees1' then
         if argObj.ClassName == 'ID_umblet' then

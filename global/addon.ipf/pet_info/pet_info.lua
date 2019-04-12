@@ -5,6 +5,7 @@ function PET_INFO_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg("PET_NAME_CHANGED", "ON_PET_NAME_CHANGED");
 	addon:RegisterMsg("COMPANION_UI_OPEN", "COMPANION_UI_OPEN_DO");
 	addon:RegisterMsg("COMPANION_AUTO_ATK", "COMPANION_UI_AUTO_ATK");
+	addon:RegisterOpenOnlyMsg("UPDATE_COLONY_TAX_RATE_SET", "ON_COMPANION_UI_UPDATE_COLONY_TAX_RATE_SET");
 	
 	local frame = ui.GetFrame("pet_info");
 	frame:SetUserValue("IS_OPEN_BY_NPC","NO")	
@@ -35,13 +36,22 @@ function COMPANION_UI_OPEN_DO(frame)
 
 end
 
+function ON_COMPANION_UI_UPDATE_COLONY_TAX_RATE_SET(frame)
+	local tree = GET_CHILD_RECURSIVELY(frame, "pettree");
+	local statBox = tree:CreateOrGetControl("groupbox", "statbox" ,tree:GetWidth(), 200, ui.LEFT, ui.TOP, 0,0,0,0);
+
+	SET_PET_TRAIN_COST_TEXT(frame, statBox)
+
+	PET_INFO_CALC_TRAIN_COST(frame)
+end
+
 function ON_PET_NAME_CHANGED(frame, msg, strArg, numArg)
 	PET_INFO_SHOW(frame:GetUserValue('PET_GUID'));
 end
 
 function ON_PET_PROP_UPDATE(frame, msg, propName)
 	if propName == "IsActivated" then
-		PET_INFO_UPDATE_ACTIVATED(frame);
+	PET_INFO_UPDATE_ACTIVATED(frame);
 		return;
 	end
 
@@ -195,12 +205,12 @@ function PET_INFO_SHOW(petGuid)
 	for i = 0 , statCnt - 1 do
 		local statCls = GetClassByIndexFromList(statList, i);
 		local val = obj[statCls.ClassName];
-		
+
 		if frame:GetUserValue("IS_OPEN_BY_NPC") == "NO" then
 			local pet_stat_info_text = statBox:CreateOrGetControlSet("pet_stat_info_text", "STAT_TEXT_" .. i, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 			pet_stat_info_text:SetUserValue("CLSNAME", statCls.ClassName);
 			pet_stat_info_text:Resize(statBox:GetWidth() - 20, pet_stat_info_text:GetHeight());
-		
+			
 			local name = pet_stat_info_text:GetChild("name");
 			name:SetTextByKey("value", ClMsg("Pet_" .. statCls.ClassName));
 			local value = pet_stat_info_text:GetChild("value");
@@ -232,11 +242,7 @@ function PET_INFO_SHOW(petGuid)
 	end
 
 	-- 총 강화 소비 비용
-	if frame:GetUserValue("IS_OPEN_BY_NPC") == "YES" then
-		local petTrainTotal = statBox:CreateOrGetControlSet("petTrainTotal", "STAT_TEXT_TOTAL", ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-	end
-	
-	GBOX_AUTO_ALIGN(statBox, 20, 3, 10, true, true);
+	SET_PET_TRAIN_COST_TEXT(frame, statBox)
 	PET_INFO_CALC_TRAIN_COST(frame);
 	local statnode = tree:Add(ClMsg("DetailInfo"), "Stats", 5, 10);
 	tree:Add(statnode, statBox);
@@ -287,6 +293,16 @@ function PET_INFO_SHOW(petGuid)
 	PET_INFO_UPDATE_ACTIVATED(frame, true);
 end
 
+function SET_PET_TRAIN_COST_TEXT(frame, statBox)
+	if frame:GetUserValue("IS_OPEN_BY_NPC") == "YES" then
+		local petTrainTotal = statBox:CreateOrGetControlSet("petTrainTotal", "STAT_TEXT_TOTAL", ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+		local costText = GET_CHILD_RECURSIVELY(petTrainTotal, "costText")
+		SET_COLONY_TAX_RATE_TEXT(costText, "tax_rate")
+	end
+
+	GBOX_AUTO_ALIGN(statBox, 20, 3, 10, true, true);
+end
+
 function PET_INFO_UPDATE_ACTIVATED(frame, isFirstUpdate)
 
 	local pet_guid = frame:GetUserValue("PET_GUID");
@@ -312,6 +328,18 @@ function PET_INFO_UPDATE_ACTIVATED(frame, isFirstUpdate)
 		ui.DisableForTime(activate, PET_ACTIVATE_COOLDOWN);	
 	end
 
+end
+
+function UNLOCK_LEAVE_SUMMONED_PET()
+	local pet = GET_SUMMONED_PET();
+	if pet ~= nil then
+		world.Leave(pet:GetHandle(), 0);
+	end
+
+	local hawk = GET_SUMMONED_PET_HAWK()
+	if hawk ~= nil then
+		world.Leave(hawk:GetHandle(), 0);
+	end
 end
 
 function TOGGLE_PET_ACTIVITY(parent, ctrl)
@@ -663,6 +691,7 @@ function PET_INFO_CALC_TRAIN_COST(frame)
 		local TRAIN_TOOLTIP_EMPHA_ST = ctrlset:GetUserConfig('TRAIN_TOOLTIP_EMPHA_ST');
 		local TRAIN_TOOLTIP_ST = ctrlset:GetUserConfig('TRAIN_TOOLTIP_ST');
 		local TRAIN_TOOLTIP_IMG = ctrlset:GetUserConfig('TRAIN_TOOLTIP_IMG');
+		local STYLE_TAX_RATE = ctrlset:GetUserConfig('STYLE_TAX_RATE');
 
 		-- cost
 		local statCost = PET_INFO_GET_STAT_SILVER(ctrlset, pc, obj, trainCnt);
@@ -670,7 +699,9 @@ function PET_INFO_CALC_TRAIN_COST(frame)
 		-- tooltip
 		local tooltipText = string.format("%s[%s]{/}%s%s{/}{nl}", TRAIN_TOOLTIP_EMPHA_ST, ClMsg("Pet_" .. clsName), TRAIN_TOOLTIP_ST, ClMsg('NextReinforceCost'));
 		tooltipText = tooltipText..string.format("{img %s 18 18}", TRAIN_TOOLTIP_IMG);
-		tooltipText = tooltipText..string.format("%s%s{/}", TRAIN_TOOLTIP_EMPHA_ST, GET_COMMAED_STRING(PET_INFO_GET_STAT_SILVER(ctrlset, pc, obj, trainCnt + 1)));
+		tooltipText = tooltipText..string.format("%s%s{/}{nl}", TRAIN_TOOLTIP_EMPHA_ST, GET_COMMAED_STRING(PET_INFO_GET_STAT_SILVER(ctrlset, pc, obj, trainCnt + 1)));
+		local taxStr = GET_COLONY_TAX_APPLIED_STRING();
+		tooltipText = tooltipText..string.format("%s%s{/}", STYLE_TAX_RATE, taxStr)
 		statUpBtn:SetTextTooltip(tooltipText);
 
 		cost = cost + statCost;
@@ -692,7 +723,7 @@ function PET_INFO_GET_STAT_SILVER(ctrl, pc, pet, trainCnt)
 	local statValue = pet["Stat_" .. clsName];
 	local statCost = 0;
 	for j = 0, trainCnt - 1 do
-		local needSilver = GET_PET_STAT_PRICE(pc, pet, clsName, statValue + j);
+		local needSilver = GET_PET_STAT_PRICE(pc, pet, clsName, statValue + j, GET_COLONY_TAX_RATE_CURRENT_MAP());
 		statCost = statCost + needSilver;
 	end
 	return statCost;

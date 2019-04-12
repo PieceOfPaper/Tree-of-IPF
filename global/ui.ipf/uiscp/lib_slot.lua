@@ -1,5 +1,48 @@
 -- lib_slot.lua
 
+imcSlot = {
+	GetEmptySlotIndex = function(self, slotset)
+		for i = 0, slotset:GetSlotCount() - 1 do
+			if slotset:GetSlotByIndex(i):GetIcon() == nil then
+				return i;
+			end
+		end
+		return 0;
+	end,
+	GetFilledSlotCount = function(self, slotset)
+		local cnt = 0;
+		for i = 0, slotset:GetSlotCount() - 1 do
+			if slotset:GetSlotByIndex(i):GetIcon() ~= nil then
+				cnt = cnt + 1;
+			end
+		end
+		return cnt;
+	end,
+	SetImage = function(self, slot, img)		
+		tolua.cast(slot, "ui::CSlot");
+		local icon = slot:GetIcon();
+		if icon == nil then
+			icon = CreateIcon(slot);
+		end
+		icon:SetImage(img);
+		return icon;
+	end,
+	SetItemInfo = function(self, slot, invItem, count)
+		local itemCls = GetClassByType("Item", invItem.type);
+		local type = itemCls.ClassID;
+		local obj = GetIES(invItem:GetObject());
+		local img = GET_ITEM_ICON_IMAGE(obj);    
+		self:SetImage(slot, img);
+		SET_SLOT_COUNT(slot, count);
+		SET_SLOT_IESID(slot, invItem:GetIESID());
+		local icon = slot:GetIcon();
+		local iconInfo = icon:GetInfo();
+		iconInfo.type = type;
+		SET_ITEM_TOOLTIP_ALL_TYPE(icon, invItem, itemCls.ClassName, 'inven', type, invItem:GetIESID());
+		return icon;
+	end,
+};
+
 function SET_SLOT_ITEM_CLS(slot, itemCls)
 	if itemCls == nil then
 		return;
@@ -13,8 +56,6 @@ function SET_SLOT_ITEM_CLS(slot, itemCls)
 	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), itemCls.ClassID);
 end
 
-
-
 function SET_SLOT_ITEM_INFO(slot, itemCls, count, style)
 	local icon = CreateIcon(slot);
 	icon:EnableHitTest(0);
@@ -27,7 +68,7 @@ function SET_SLOT_ITEM_INFO(slot, itemCls, count, style)
     end
 	icon:Set(iconImageName, "item", itemCls.ClassID, count);
 	if itemCls.ItemType ~= "Equip" then
-		slot:SetText(style..count, 'count', 'right', 'bottom', -2, 1);
+		slot:SetText(style..count, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 	end
 
 	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), itemCls.ClassID);
@@ -44,7 +85,7 @@ function SET_SLOT_ITEM_OBJ(slot, itemCls, gender, isBarrack)
 	if nil == icon then
 		return;
 	end
-	local tooltipID = GetExProp(itemCls, "TooltipID");
+	local tooltipID = GetExProp(itemCls, "TooltipID");	
 	if tooltipID == 0 then
 		SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls);
 	else
@@ -92,7 +133,7 @@ function SET_SLOT_ITEM_INV(slot, itemCls)
 	iconInfo.type = type;
 	local invItem = session.GetInvItemByType(type);
 	if nil ~= invItem then
-		slot:SetText('{s12}{ol}{b}'..invItem.count, 'count', 'right', 'bottom', -2, 1);
+		slot:SetText('{s12}{ol}{b}'..invItem.count, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 	end
 
 	slot:SetEventScript(ui.RBUTTONDOWN, 'SLOT_ITEMUSE_BY_TYPE');
@@ -124,26 +165,11 @@ function SET_SLOT_ITEM_IMAGE(slot, invItem)
 end
 
 function SET_SLOT_ITEM(slot, invItem, count)
-	local itemCls = GetClassByType("Item", invItem.type);
-	local type = itemCls.ClassID;
-	local obj = GetIES(invItem:GetObject());
-	local img = GET_ITEM_ICON_IMAGE(obj);    
-	SET_SLOT_IMG(slot, img);
-	SET_SLOT_COUNT(slot, count);
-	SET_SLOT_IESID(slot, invItem:GetIESID());
-	local icon = slot:GetIcon();
-	local iconInfo = icon:GetInfo();
-	iconInfo.type = type;
-	SET_ITEM_TOOLTIP_ALL_TYPE(icon, invItem, itemCls.ClassName, 'inven', type, invItem:GetIESID());
+	imcSlot:SetItemInfo(slot, invItem, count);
 end
 
 function SET_SLOT_IMG(slot, img)
-	tolua.cast(slot, "ui::CSlot");
-    local icon = slot:GetIcon();
-    if icon == nil then
-	    icon = CreateIcon(slot);
-    end
-	icon:SetImage(img);
+	imcSlot:SetImage(slot, img);
 end
 
 function SET_SLOT_IESID(slot, iesid)
@@ -219,11 +245,11 @@ function SET_SLOT_COUNT_TEXT(slot, cnt, font, hor, ver, stateX, stateY)
 		end
 		
 		if hor == nil then
-			hor = 'right';
+			hor = ui.RIGHT;
 		end
 
 		if ver == nil then
-			ver = 'bottom';
+			ver = ui.BOTTOM;
 		end
 
 		if stateX == nil then
@@ -277,7 +303,11 @@ function SET_SLOT_STYLESET(slot, itemCls, itemGrade_Flag, itemLevel_Flag, itemAp
 		if isInventory ~= nil and isInventory == 1 and config.GetXMLConfig("ViewReinforceStyle") == 0 then
 
 		else
-			SET_SLOT_REINFORCE_LEVEL(slot, TryGetProp(itemCls, 'Reinforce_2'))
+			local reinforceLv = TryGetProp(itemCls, 'Reinforce_2');
+			if TryGetProp(itemCls, 'GroupName') == 'Seal' then
+				reinforceLv = GET_CURRENT_SEAL_LEVEL(itemCls);
+			end
+			SET_SLOT_REINFORCE_LEVEL(slot, reinforceLv);			
 		end
 	end
 
@@ -412,7 +442,7 @@ function SET_SLOT_ITEM_TEXT(slot, invItem, obj)
 	local lv = TryGetProp(obj, "Level");
 	if lv ~= nil and lv > 1 then		
 		slot:SetFrontImage('enchantlevel_indi_icon');
-		slot:SetText('{s20}{ol}{#FFFFFF}{b}'..lv, 'count', 'left', 'top', 8, 2);
+		slot:SetText('{s20}{ol}{#FFFFFF}{b}'..lv, 'count', ui.LEFT, ui.TOP, 8, 2);
 		return;
 	end
 end
@@ -439,23 +469,22 @@ function SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, count, font)
 	if lv ~= nil and lv > 1 then
 		--slot:SetFrontImage('enchantlevel_indi_icon');
 		if IS_ENCHANT_JEWELL_ITEM(obj) == true then
-			slot:SetText('{s15}{ol}{#FFFFFF}{b}LV.'..lv, 'count', 'left', 'bottom', 3, 2);
+			slot:SetText('{s15}{ol}{#FFFFFF}{b}LV.'..lv, 'count', ui.LEFT, ui.BOTTOM, 3, 2);
 		else
-			slot:SetText('{s17}{ol}{#FFFFFF}{b}LV. '..lv, 'count', 'left', 'top', 3, 2);
+			slot:SetText('{s17}{ol}{#FFFFFF}{b}LV. '..lv, 'count', ui.LEFT, ui.TOP, 3, 2);
 		end
 		return;
 	end
 end
 
 function GET_SLOT_ITEM(slot)
-
 	slot = AUTO_CAST(slot);
 	local icon = slot:GetIcon();
 	if icon == nil then
 		return nil;
 	end
-	local iconInfo = icon:GetInfo();
 
+	local iconInfo = icon:GetInfo();
 	if iconInfo:GetIESID() ~= "0" then
 		return GET_PC_ITEM_BY_GUID(iconInfo:GetIESID()), iconInfo.count
 	else
@@ -495,4 +524,16 @@ function _EXEC_SLOT_SELECT_COUNT(numberString, inputFrame)
 	slotSet:MakeSelectionList();
 
 
+end
+
+function GET_SLOT_ITEM_TYPE(slot)
+	local icon = slot:GetIcon();
+	if icon == nil then
+		return 0;		
+	end
+	local iconinfo = icon:GetInfo();
+	if iconinfo == nil then
+		return 0;
+	end
+	return iconinfo.type;
 end

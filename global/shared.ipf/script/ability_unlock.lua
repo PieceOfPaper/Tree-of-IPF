@@ -1,12 +1,11 @@
 -- ability_unlock.lua
 
 function UNLOCK_ABIL_CIRCLE(pc, jobName, limitLevel, abilIES)
-
 	local jobGrade = GetJobGradeByName(pc, jobName);
 	if jobGrade >= limitLevel then
 		return "UNLOCK";
 	end
-
+	
 	return "LOCK_GRADE";
 end
 
@@ -45,6 +44,15 @@ function UNLOCK_ABIL_RANK(pc, strarg, limitRank, abilIES)
 
 	return "LOCK_GRADE";
 
+end
+
+function UNLOCK_BASE_LEVEL(pc, jobName, limitLevel, abilIES)
+	local pcBaseLevel = TryGetProp(pc, "Lv")
+	if pcBaseLevel >= limitLevel then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
 end
 
 function UNLOCK_PRIEST21(pc, sklName, limitLevel, abilIES)

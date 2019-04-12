@@ -53,7 +53,8 @@ function TRY_PARSE_PROPERTY(obj, nextObj, caption)
 
             local propValue;
             if string.sub(tagText, 1, 1) == "1" then
-                propValue = nextObj[string.sub(tagText, 2, string.len(tagText))];
+                local propName = string.sub(tagText, 2, string.len(tagText));
+                propValue = nextObj[propName];
             else
                 propValue = nextObj[tagText]
             end
@@ -68,7 +69,7 @@ function TRY_PARSE_PROPERTY(obj, nextObj, caption)
     return caption, 0;
 end
 
-function PARSE_TOOLTIP_CAPTION(_obj, caption)
+function PARSE_TOOLTIP_CAPTION(_obj, caption, predictSkillPoint)
     caption = dictionary.ReplaceDicIDInCompStr(caption);
     local obj;  
     local parsed = 0;
@@ -76,7 +77,6 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption)
     local hasSkil = true;
     if _obj.Level < 1 then
         hasSkil = false;
-        _obj.Level = 1
     end
     
     --CloneIES_UseCP use -> buff normal, attack abnormal
@@ -92,6 +92,78 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption)
     
     if obj == nil then
         return caption;
+    end
+    
+    local addCaption = ""
+    local skillValueType = TryGetProp(obj,"ValueType")
+    if skillValueType ~= nil then
+        local skillClassType = TryGetProp(obj,"ClassType","None")
+        local skillAttackType = TryGetProp(obj,"AttackType","None")
+        local skillAttribute = TryGetProp(obj,"Attribute","None")
+        local skillAffectedByAttackSpeedRate = TryGetProp(obj,"AffectedByAttackSpeedRate","None")
+        local skillEnableCompanion = TryGetProp(obj,"EnableCompanion","None")
+        
+        if skillValueType == "Attack" then
+            if skillClassType == "Melee" then
+                addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG1')
+                if skillAttackType == "Aries" then
+                    addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG4')
+                elseif skillAttackType == "Slash" then
+                    addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG5')
+                elseif skillAttackType == "Strike" then
+                    addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG6')
+                end
+            elseif skillClassType == "Magic" then
+                addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG2')
+            elseif skillClassType == "Missile" then
+                addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG3')
+                if skillAttackType == "Arrow" then
+                    addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG7')
+                elseif skillAttackType == "Gun" then
+                    addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG8')
+                elseif skillAttackType == "Cannon" then
+                    addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG9')
+                end
+            end
+            
+            if skillAttribute == "Fire" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG10')
+            elseif skillAttribute == "Ice" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG11')
+            elseif skillAttribute == "Lightning" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG12')
+            elseif skillAttribute == "Poison" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG13')
+            elseif skillAttribute == "Earth" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG14')
+            elseif skillAttribute == "Dark" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG15')
+            elseif skillAttribute == "Holy" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG16')
+            elseif skillAttribute == "Soul" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG17')
+            end
+            
+            if addCaption ~= "" then
+                addCaption = addCaption.."{nl}"
+            end
+            
+            if skillAffectedByAttackSpeedRate == "YES" then
+                addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG18').."{nl}"
+            end
+        end
+        
+        if skillEnableCompanion == "BOTH" then
+            addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG19').."{nl}"
+        elseif skillEnableCompanion == "YES" then
+            addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG20').."{nl}"
+        end
+        
+        if addCaption ~= "" then
+            addCaption = "{#DD5500}{ol}"..addCaption.."{/}{/}"
+        end
+        
+        caption = addCaption..caption
     end
 
     local nextObj = CloneIES_UseCP(obj);
@@ -117,11 +189,16 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption)
 
     local lvCaption = caption;    
     
-    local skillLevel = session.GetUserConfig("SKLUP_" .. nextObj.ClassName);    
+    local skillLevel = 0;
+    if predictSkillPoint == true then
+        skillLevel = session.GetUserConfig("SKLUP_" .. nextObj.ClassName);
+    end
+
+    if hasSkil == false and skillLevel < 1 then
+        skillLevel = 1;
+    end
     
-    -- skillLevel : ?��?가 ?�시�??�린 ?�벨 ??    -- _obj.Level : 지�??�킬???�벨        
     skillLevel = _obj.Level + skillLevel;
-    
     local LevelByDB = TryGetProp(nextObj, 'LevelByDB');
     
     if LevelByDB ~= nil then
@@ -163,7 +240,7 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption)
         -- current level        
         caption, parsed = TRY_PARSE_PROPERTY(obj, nextObj, caption);        
         -- next level
-        lvCaption, parsed = TRY_PARSE_PROPERTY(obj, nextObj, lvCaption);        
+        lvCaption, parsed = TRY_PARSE_PROPERTY(obj, nextObj, lvCaption);      
         if parsed == 0 then
             break;
         end
@@ -205,7 +282,7 @@ function UPDATE_ABILITY_TOOLTIP(frame, strarg, numarg1, numarg2)
     if obj.Desc ~= translatedData then
         descCtrl:SetDicIDText(obj.Desc)
     end
-    descCtrl:SetText('{#1f100b}'..PARSE_TOOLTIP_CAPTION(obj, obj.Desc));
+    descCtrl:SetText('{#1f100b}'..PARSE_TOOLTIP_CAPTION(obj, obj.Desc, true));
 
     local ypos = descCtrl:GetY() + descCtrl:GetHeight();
 
@@ -214,7 +291,8 @@ function UPDATE_ABILITY_TOOLTIP(frame, strarg, numarg1, numarg2)
     if obj.Desc2 ~= translatedData2 then
         originalText = obj.Desc2
     end
-    local skillLvDesc = PARSE_TOOLTIP_CAPTION(obj, obj.Desc2);
+
+    local skillLvDesc = PARSE_TOOLTIP_CAPTION(obj, obj.Desc2, true);
 
     local lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");
 
@@ -259,7 +337,148 @@ function UPDATE_ABILITY_TOOLTIP(frame, strarg, numarg1, numarg2)
     frame:Resize(frame:GetWidth(), ypos + 30);
  end
 
-function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)            
+ function MAKE_STANCE_ICON(reqstancectrl, reqstance, EnableCompanion, leftOffset, topOffset)
+	local mainSum = 1;
+	local mainWeapon = {}
+	local mainWeaponName = {}
+	local subSum = 1;
+	local subWeapon = {}
+	local subWeaponName = {}
+	local tooltipText = "";
+	local iconCount = 0;
+    local compainon = 0;
+
+	if EnableCompanion == "YES" then
+		local shareBtn = reqstancectrl:CreateControl("picture", "companion", leftOffset, topOffset, 28, 20)
+		shareBtn:ShowWindow(1);	
+		shareBtn = tolua.cast(shareBtn, "ui::CPicture");
+		shareBtn:SetImage("weapon_companion");
+		--shareBtn:SetTextTooltip();
+		tooltipText = ScpArgMsg("companionRide").."{nl}"
+		compainon = 20;	
+	end
+
+    local width = 0;
+	if reqstance == "None" then
+		local shareBtn = reqstancectrl:CreateControl("picture", "All", leftOffset + compainon, topOffset, 28, 20)
+		shareBtn:ShowWindow(1);	
+		shareBtn = tolua.cast(shareBtn, "ui::CPicture");
+		shareBtn:SetImage("weapon_All");
+		--shareBtn:SetTextTooltip(ScpArgMsg("EquipAll"));
+		local tooltipSize = 28;
+		if compainon ~= 0 then
+			tooltipSize = tooltipSize + 20
+		end
+
+		local shareBtn = reqstancectrl:CreateControl("picture", "iconTooltip", leftOffset, topOffset, tooltipSize, 20)
+		shareBtn = tolua.cast(shareBtn, "ui::CPicture");
+		shareBtn:SetTextTooltip(tooltipText..ScpArgMsg("EquipAll"));				
+		return 0, compainon/20;
+	end	
+	
+	local stancelist, stancecnt = GetClassList("Stance");	
+	for word in string.gmatch(reqstance, "%a+")do
+		local stance = GetClassByNameFromList(stancelist, word);	
+		local index = string.find(stance.ClassName, "Artefact")
+		if index == nil then
+				tooltipText = tooltipText..stance.Name.."{nl}";
+		end
+	end
+	
+	for i = 0, stancecnt -1 do
+		local stance = GetClassByIndexFromList(stancelist, i)
+		local index = string.find(reqstance, stance.ClassName)
+		--스탠스는 TwoHandBow인데.. 쇠뇌이름이 Bow라서 위에 스트링파인드에 걸림..
+		--쇠뇌이름을 변경하면 데이터작업자들이 고통스러우니.. 예외를 둔다.. 진짜 망한 구조임..
+		
+		if (reqstance == "TwoHandBow") and (stance.ClassName == "Bow") then
+			index = nil;
+		end
+		if index ~= nil then
+			local index = string.find(stance.ClassName, "Artefact")
+			if index == nil then
+				if stance.UseSubWeapon == "NO" then
+					mainWeapon[mainSum] = stance.Icon
+					mainWeaponName[mainSum] = stance.Name
+					mainSum = mainSum + 1
+				elseif stance.UseSubWeapon == "YES" then
+					local flag = 0
+					for i = 0, #subWeapon do
+						if subWeapon[i] == stance.Icon then
+							flag = 1
+						end
+					end
+					if flag == 0 then
+						subWeapon[subSum] = stance.Icon
+						subWeaponName[subSum] = stance.Name
+						subSum = subSum + 1
+					end
+				end
+			end
+		end
+	end
+	
+	local index = 0	
+	for i = 1, #mainWeapon do
+		local shareBtn = reqstancectrl:CreateControl("picture", mainWeapon[i]..i, (leftOffset + compainon)+((i-1)*20), topOffset, 20, 20)
+		shareBtn = tolua.cast(shareBtn, "ui::CPicture");
+		shareBtn:SetImage(mainWeapon[i]);
+		--shareBtn:SetTextTooltip(mainWeaponName[i]);	
+		index = index + 1
+		iconCount = iconCount + 1
+	end
+
+	for i = 1, #subWeapon do
+		local shareBtn = reqstancectrl:CreateControl("picture", subWeapon[i]..index+i, (leftOffset + compainon)+((index+i-1)*20), topOffset, 20, 20)
+		shareBtn = tolua.cast(shareBtn, "ui::CPicture");
+		shareBtn:SetImage(subWeapon[i]);
+		--shareBtn:SetTextTooltip(subWeaponName[i]);	
+		iconCount = iconCount + 1
+	end
+
+    local compainonindex = 0		
+	if iconCount > 0 then 
+		if compainon ~= 0 then
+			compainonindex = 1
+		end
+		local shareBtn = reqstancectrl:CreateControl("picture", "iconTooltip", leftOffset, topOffset, (compainonindex + iconCount)*20, 20)
+		shareBtn = tolua.cast(shareBtn, "ui::CPicture");
+		shareBtn:SetTextTooltip(tooltipText);	
+	end
+	return iconCount, compainonindex;
+end
+
+function SET_SKILL_TOOLTIP_ICON_AND_NAME(skillFrame, obj, useTranslateData)    
+    local iconPicture = GET_CHILD(skillFrame, "icon", "ui::CPicture");
+    local iconname = "icon_" .. obj.Icon;
+    iconPicture:SetImage(iconname);
+    local name = skillFrame:GetChild('name');
+    local nameText = '{@st43}'..obj.Name;
+
+    if useTranslateData == true then
+        local translatedData = dictionary.ReplaceDicIDInCompStr(obj.Name);
+        if obj.EngName ~= translatedData then
+            if config.GetServiceNation() ~= "GLOBAL" then
+                nameText = nameText .. "{/}{nl}" .. obj.EngName;
+            end
+        end
+    end
+    name:SetText(nameText); 
+end
+
+function SET_SKILL_TOOLTIP_CAPTION(skillFrame, caption, parsedCaption)
+    local skillDesc = GET_CHILD(skillFrame, "desc", "ui::CRichText");   
+    skillDesc:Resize(skillDesc:GetWidth(), 20);
+    skillDesc:SetTextAlign("left", "top");
+    local translatedData = dictionary.ReplaceDicIDInCompStr(caption);
+    if caption ~= translatedData then
+        skillDesc:SetDicIDText(caption)
+    end
+    skillDesc:SetText('{#1f100b}'..parsedCaption);
+    skillDesc:EnableSplitBySpace(0);
+end
+
+function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)         
     -- destroy skill, ability tooltip
     DESTROY_CHILD_BYNAME(frame:GetChild('skill_desc'), 'SKILL_CAPTION_');
     DESTROY_CHILD_BYNAME(frame:GetChild('ability_desc'), 'ABILITY_CAPTION_');
@@ -269,15 +488,17 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     local objIsClone = false;
     local tooltipStartLevel = 1;
     if abil == nil then
-        obj = GetClassByType("Skill", numarg1);
+        local cloneObjLevel = 0;
         if strarg == "Level" then
-            obj = CloneIES_UseCP(obj);
-            obj.LevelByDB = numarg2;
-            tooltipStartLevel = numarg2;
-            objIsClone= true;
+            cloneObjLevel = numarg2;
         end
-    else
-	--�??�동???�이?�에 ?�한 ?�킬?�벨???�팁???�용?��? ?�음
+        obj = GetClassByType("Skill", numarg1);
+        obj = CloneIES_UseCP(obj);
+        obj.LevelByDB = cloneObjLevel;
+        tooltipStartLevel = cloneObjLevel;
+        objIsClone = true;
+    else	
+        --존 이동시 아이템에 의한 스킬레벨이 툴팁에 적용되지 않음
         obj = GetIES(abil:GetObject());
         tooltipStartLevel = obj.Level;
     end
@@ -290,41 +511,20 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     local skillFrame = GET_CHILD(frame, "skill_desc", "ui::CGroupBox")
 
     -- set skill icon and name
-    local iconPicture = GET_CHILD(skillFrame, "icon", "ui::CPicture");
-    local iconname = "icon_" .. obj.Icon;
-    iconPicture:SetImage(iconname);
-    local name = skillFrame:GetChild('name');
-    local nameText = '{@st43}'..obj.Name;   
-    local translatedData = dictionary.ReplaceDicIDInCompStr(obj.Name);
-
-    if obj.EngName ~= translatedData then
-        if config.GetServiceNation() ~= "GLOBAL" then
-            nameText = nameText .. "{/}{nl}" .. obj.EngName;
-        end
-    end
-    name:SetText(nameText); 
+    SET_SKILL_TOOLTIP_ICON_AND_NAME(skillFrame, obj, true);    
     
     -- set skill description
     local skillDesc = GET_CHILD(skillFrame, "desc", "ui::CRichText");   
-    skillDesc:Resize(skillDesc:GetWidth(), 20);
-    skillDesc:SetTextAlign("left", "top");
-    local translatedData = dictionary.ReplaceDicIDInCompStr(obj.Caption);
-    if obj.Caption ~= translatedData then
-        skillDesc:SetDicIDText(obj.Caption)
-    end
-    skillDesc:SetText('{#1f100b}'..PARSE_TOOLTIP_CAPTION(obj, obj.Caption));    
-    skillDesc:EnableSplitBySpace(0);
+    SET_SKILL_TOOLTIP_CAPTION(skillFrame, obj.Caption, PARSE_TOOLTIP_CAPTION(obj, obj.Caption, true));    
 
-    local stateLevel = session.GetUserConfig("SKLUP_" .. strarg, 0);
+    local stateLevel = 0;
+    if strarg ~= "quickslot" then
+        stateLevel = session.GetUserConfig("SKLUP_" .. obj.ClassName, 0);
+    end
     tooltipStartLevel = tooltipStartLevel + stateLevel;    
 
-    local skilltreecls = GetClassByStrProp("SkillTree", "SkillName", obj.ClassName);    
-    if skilltreecls ~= nil then    
-        if skilltreecls.MaxLevel < tooltipStartLevel then            
-             tooltipStartLevel = skilltreecls.MaxLevel
-        end
-    end
-    
+    local skilltreecls = GetClassByStrProp("SkillTree", "SkillName", obj.ClassName);
+    local iconPicture = GET_CHILD(skillFrame, "icon", "ui::CPicture");
     local iconEndPos = iconPicture:GetY() + iconPicture:GetHeight()
     local ypos = skillDesc:GetY() + skillDesc:GetHeight()
 
@@ -337,7 +537,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     local stancePic = weaponBox:GetChild("stance_pic")
     stancePic:RemoveAllChild()
     if TryGetProp(obj, 'ReqStance') ~= nil and TryGetProp(obj, 'EnableCompanion') ~= nil then       
-        MAKE_STANCE_ICON(stancePic, obj.ReqStance, obj.EnableCompanion)
+        MAKE_STANCE_ICON(stancePic, obj.ReqStance, obj.EnableCompanion, 100, 37)
 
         local childCount = stancePic:GetChildCount()
         for i=0, childCount-1 do
@@ -358,7 +558,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
         originalText = skillCaption2
     end    
     
-    local skillLvDesc = PARSE_TOOLTIP_CAPTION(obj, skillCaption2);
+    local skillLvDesc = PARSE_TOOLTIP_CAPTION(obj, skillCaption2, strarg ~= "quickslot");
     local lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");
     local lv = 1;
     if tooltipStartLevel > 0 then
@@ -372,18 +572,12 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
             skillObj = GetIES(skl:GetObject());
             totalLevel = skillObj.Level + stateLevel;
         else
-            totalLevel = totalLevel + stateLevel;
+            totalLevel = stateLevel;
         end
     else
         totalLevel = obj.LevelByDB;
     end
 
-    if skilltreecls ~= nil then
-        if skilltreecls.MaxLevel < totalLevel then
-            totalLevel = skilltreecls.MaxLevel
-        end
-    end
-    
     local currLvCtrlSet = nil    
     if totalLevel == 0 and lvDescStart ~= nil then  -- no have skill case        
         skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));
@@ -396,7 +590,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
             local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));
             ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
         end            
-    elseif lvDescStart ~= nil and totalLevel ~= 0 then                
+    elseif lvDescStart ~= nil and totalLevel ~= 0 then        
         skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));                
         while 1 do
 
@@ -406,7 +600,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
             elseif lv >= 99 then
                 levelvalue = 4
             end
-
+            
             lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");  
             if lvDescStart == nil then -- max skill level = 1
                 local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));   
@@ -457,22 +651,28 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 
 
     ------------------------ ability description frame ---------------------------------
-
     local isShowNoHaveAbility = false
     local abilFrame = GET_CHILD(frame, 'ability_desc', 'ui::CGroupBox')
     abilFrame:SetOffset(0, ypos)
     ypos = 20 -- init by ability frame
 
-    local pc = GetMyPCObject();
+    local jobEngNameList = {}
+    local mySession = session.GetMySession();
+    local jobHistory = mySession.pcJobInfo;
+    local jobHistoryCnt = jobHistory:GetJobCount();
+    for i = 0, jobHistoryCnt - 1 do
+		local jobInfo = jobHistory:GetJobInfoByIndex(i);
+        local jobCls = GetClassByType("Job", jobInfo.jobID)
+        jobEngNameList[#jobEngNameList+1] = jobCls.EngName
+    end
 
-    local abilList, abilCnt = GET_ABILITYLIST_BY_SKILL_NAME(obj.ClassName)
+    local showAbilCnt = 0;
+    local abilList, abilCnt = GET_ABILITYLIST_BY_SKILL_NAME(obj.ClassName, jobEngNameList)
     local pcAbilCnt = 0 -- ability count for showing
     local pcAbilList = {}
-
     for i = 0, abilCnt-1 do     
         -- check pc have abilList[i]
-        local pcAbilIES = nil
-        pcAbilIES = GetAbilityIESObject(pc, abilList[i].ClassName);             
+        local pcAbilIES  = GetAbilityIESObject(GetMyPCObject(), abilList[i].ClassName);             
         if isShowNoHaveAbility or (pcAbilIES ~= nil and pcAbilIES.ActiveState == 1) then
             if pcAbilCnt > 0 then -- secondary ability: label line added
                 local labelLine = abilFrame:CreateOrGetControl('labelline', 'ABILITY_CAPTION_'..tostring(i), 0, ypos, 480, 2);
@@ -480,7 +680,8 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
                 labelLine:SetGravity(ui.CENTER_HORZ, ui.TOP)
                 labelLine:SetSkinName('labelline_def_2')
             end
-            ypos = ABILITY_DESC_TOOLTIP(abilFrame, abilList[i], i, ypos, pc, pcAbilIES)
+            ypos = ABILITY_DESC_TOOLTIP(abilFrame, abilList[i], i, ypos, GetMyPCObject(), pcAbilIES)
+            showAbilCnt = showAbilCnt + 1
         end
 
         if isShowNoHaveAbility then
@@ -492,11 +693,8 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
         end
     end
 
-    if totalLevel > 0 and pcAbilCnt > 0 then
+    if totalLevel > 0 and showAbilCnt > 0 then
         ADD_SPEND_SKILL_LV_DESC_TOOLTIP(skillFrame:GetChild('SKILL_CAPTION_'..tostring(totalLevel)), pcAbilList, pcAbilCnt)
-    end
-
-    if pcAbilCnt > 0 then
         abilFrame:Resize(frame:GetWidth(), ypos)
         frame:Resize(frame:GetWidth(), frame:GetHeight() + abilFrame:GetHeight());
         abilFrame:ShowWindow(1)
@@ -537,6 +735,9 @@ end
 		maxLevel = 1;
 		curLv = 1;
 	end
+    if maxLevel < curLv then
+        maxLevel = curLv
+    end
 
     -- 1 ~ maxLevel caption cause to client down. use only two captions which you need
     if curLv ~= nil then
@@ -559,7 +760,7 @@ end
     return caption;
  end
 
-function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext)        
+function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext)       
     if totalLevel ~= lv and totalLevel + 1 ~= lv then        
         return ypos;
     end
@@ -576,6 +777,7 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     local LABEL_SKIN_NAME = lvDescCtrlSet:GetUserConfig("LABEL_SKIN_NAME")
     local SKIN_NEXTLV_NAME = lvDescCtrlSet:GetUserConfig("SKIN_NEXTLV_NAME")
     local SP_ICON = lvDescCtrlSet:GetUserConfig("SP_ICON")
+    local OVERHEAT_ICON = lvDescCtrlSet:GetUserConfig("OVERHEAT_ICON")
 
     local lvFont = LEVEL_FONTNAME
     local descFont = DESC_FONTNAME
@@ -583,21 +785,21 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     -- controls
     local lvText = lvDescCtrlSet:GetChild("level");
     local spText = lvDescCtrlSet:GetChild("sp_text");
+    local overheatText = lvDescCtrlSet:GetChild("overheat_text");
     local coolText = lvDescCtrlSet:GetChild("cool_text");
     local padText = lvDescCtrlSet:GetChild("pad_text");
     local descText = GET_CHILD(lvDescCtrlSet, "desc", "ui::CRichText");
 
     -- data
-    local sp = 0
     local coolTime = 0
-
+    
     padText:ShowWindow(0) -- skill type is not documented yet. padText is not used currently
     descText:EnableSplitBySpace(0);
-
+    
     if dicidtext ~= nil and dicidtext ~= "" then
         descText:SetDicIDText(dicidtext)
     end
-
+    
     -- font and data setting
     if totalLevel == lv then
         lvDescCtrlSet:SetDraw(1);
@@ -610,19 +812,6 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
         descFont = DESC_NEXTLV_FONTNAME
     end
     
-    if TryGetProp(obj, 'BasicSP') ~= nil and TryGetProp(obj, 'LvUpSpendSp') ~= nil and TryGetProp(obj, 'Level') ~= nil and TryGetProp(obj, 'SpendSP') ~= nil then
-		-- lvUpSpendSP??루아?�서??float ?��??��? ?�정?�기?�해 ?�수 5?�리?�서 반올림한??
-		-- 값을 print�?찍어보면 ?�래 값과 같�?�?. ?�버?�?계산값을 맞출?�면 ?�렇�??�야 ?�다.
-        local lvUpSpendSpRound = math.floor((obj.LvUpSpendSp * 10000) + 0.5) / 10000
-        
-        if noHave == true then
-            sp = obj.BasicSP + lvUpSpendSpRound * (lv - obj.Level)
-        else
-            sp = obj.BasicSP + lvUpSpendSpRound * (obj.Level-1 + (lv - obj.Level))
-        end
-        
-    end
-    sp = math.floor(sp)
     if TryGetProp(obj, 'CoolDown') ~= nil then
         local tempObj = CreateGCIESByID("Skill", obj.ClassID);
         if tempObj ~= nil then
@@ -635,7 +824,9 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
             coolTime = tempObj.BasicCoolDown * 0.001
         end
     end
-    
+
+    local overHeat = GET_SKILL_OVERHEAT_COUNT(obj);
+    local sp = GET_SPENDSP_BY_LEVEL(obj, lv);
     local pc = GetMyPCObject();
 
     -- data setting
@@ -647,15 +838,19 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     else
         coolText:SetText(lvFont..GET_TIME_TXT_TWO_FIGURES(coolTime))        
     end
+
+    overheatText:SetText(OVERHEAT_ICON ..lvFont..ScpArgMsg("count{value}", "value", overHeat))
     
     -- trim desc    
-    local trimedDesc = desc:match("^%s*(.+)")    
-    local detect_comma = string.find(trimedDesc, ',')
-    
-    if detect_comma ~= nil and detect_comma == 1 then
-        trimedDesc = string.sub(trimedDesc, 2, string.len(trimedDesc))
+    local trimedDesc = desc:match("^%s*(.+)");
+    if trimedDesc ~= nil then
+        local detect_comma = string.find(trimedDesc, ',');        
+        if detect_comma ~= nil and detect_comma == 1 then
+            trimedDesc = string.sub(trimedDesc, 2, string.len(trimedDesc))
+        end
+        descText:SetText(descFont..trimedDesc);
     end
-    descText:SetText(descFont..trimedDesc);
+
     lvDescCtrlSet:SetGravity(ui.CENTER_HORZ, ui.TOP)
     lvDescCtrlSet:Resize(frame:GetWidth() - 20, descText:GetY() + descText:GetHeight() + 15);
     lvDescCtrlSet:ShowWindow(1);
@@ -693,44 +888,6 @@ function SET_TOOLTIP_ZOMBIECAPSULE_DESC(obj)
     end
     
     return retString;
-end
-
-function GET_ABILITYLIST_BY_SKILL_NAME(skillName)
-
-    local abilList, abilCnt = GetClassList('Ability')
-    local retList = {}
-    local index = 0
-    local dummyCls = GetClassByIndexFromList(abilList, 0) -- for check exception
-
-    -- exception handle
-    if abilList == nil then
-        return nil
-    end
-    if abilCnt < 1 or dummyCls == nil then
-        return nil
-    end
-    if TryGetProp(dummyCls, 'SkillCategory') == nil then
-        return nil
-    end
-
-    -- get list
-    for i = 0, abilCnt do
-        local abilCls = GetClassByIndexFromList(abilList, i - 1)
-        if abilCls ~= nil then
-            local abilClsSkillList = SCR_STRING_CUT_SEMICOLON(abilCls.SkillCategory);
-            if abilClsSkillList ~= nil and #abilClsSkillList ~= 0 then
-                for j = 1, #abilClsSkillList do
-                    local abilClsSkillName = abilClsSkillList[j];
-                    if abilClsSkillName == skillName then
-                        retList[index] = abilCls
-                        index = index + 1
-                    end
-                end
-            end
-        end
-    end
-
-    return retList, index -- return list and count
 end
 
 function ABILITY_DESC_TOOLTIP(frame, abilCls, index, ypos, pc, pcAbilIES)

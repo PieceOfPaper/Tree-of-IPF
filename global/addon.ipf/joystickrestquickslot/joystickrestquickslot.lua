@@ -32,7 +32,7 @@ function JOYSTICKRESTQUICKSLOT_ON_INIT(addon, frame)
 			SLOT_NAME_INDEX = 0;
 		end
 
-		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..string, 'default', 'left', 'top', 2, 1);
+		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..string, 'default', ui.LEFT, ui.TOP, 2, 1);
 	end
 	
 end
@@ -135,7 +135,7 @@ function SET_JOYSTICK_REST_QUICK_SLOT(slot, cls)
 			slot:GetIcon():SetGrayStyle(1);
 		end
 
-		slot:GetIcon():SetText('{s18}{ol}{b}'.. itemCount, 'count', 'right', 'bottom', -2, 1);
+		slot:GetIcon():SetText('{s18}{ol}{b}'.. itemCount, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 	end
 
 	local enableScp = cls.EnableScript;

@@ -5,9 +5,8 @@ function REPAIR140731_ON_INIT(addon, frame)
 	addon:RegisterMsg('OPEN_DLG_REPAIR', 'REPAIR140731_ON_MSG');
 	addon:RegisterMsg('UPDATE_DLG_REPAIR', 'REPAIR140731_ON_MSG');
 	addon:RegisterMsg('UPDATE_ITEM_REPAIR', 'REPAIR140731_ON_MSG');
-	
+	addon:RegisterOpenOnlyMsg("UPDATE_COLONY_TAX_RATE_SET", "REPAIR140731_ON_MSG");
 end
-
 
 function REPAIR140731_ON_MSG(frame, msg, argStr, argNum)
 	if  msg == 'DIALOG_CLOSE'  then
@@ -24,6 +23,8 @@ function REPAIR140731_ON_MSG(frame, msg, argStr, argNum)
 		else
 			UPDATE_REPAIR140731_LIST(frame);
 		end
+	elseif msg == 'UPDATE_COLONY_TAX_RATE_SET' then
+		UPDATE_REPAIR140731_LIST(frame);
 	end
 end
 
@@ -42,21 +43,20 @@ function UPDATE_REPAIR140731_LIST(frame)
 	--슬롯 셋 및 전체 슬롯 초기화 해야됨
 	local slotSet = GET_CHILD_RECURSIVELY(frame,"slotlist","ui::CSlotSet")
 	slotSet:ClearIconAll();
-	local slotcnt = 0
-
 	local equiplist = session.GetEquipItemList()
 	local isSquire = 0;
 
 	if "itembuffrepair" == frame:GetName() then
 		isSquire = 1;
 	end
-	
+
 	for i = 0, equiplist:Count() - 1 do
-		local equipItem = equiplist:Element(i);
+		local equipItem = equiplist:GetEquipItemByIndex(i);
 		local tempobj = equipItem:GetObject()
 		if tempobj ~= nil then
 			local obj = GetIES(tempobj);
 			if IS_NEED_REPAIR_ITEM(obj, isSquire) == true then
+				local slotcnt = imcSlot:GetEmptySlotIndex(slotSet);
 				local slot = slotSet:GetSlotByIndex(slotcnt)
 				slot:SetClickSound('button_click_stats');
 				while slot == nil do 
@@ -73,27 +73,18 @@ function UPDATE_REPAIR140731_LIST(frame)
 				icon:Set(iconValue, 'Item', equipItem.type, slotcnt, equipItem:GetIESID());
 				local class = GetClassByType('Item', equipItem.type);
 				ICON_SET_INVENTORY_TOOLTIP(icon, equipItem, "repair", class);
-
-				slotcnt = slotcnt + 1
 			end
 		end
 	end
 
-	local invItemList = session.GetInvItemList();
-	local i = invItemList:Head();
-	while 1 do
-		if i == invItemList:InvalidIndex() then
-			break;
-		end
-
-		local invItem = invItemList:Element(i);		
-		i = invItemList:Next(i);
-		
+	local invItemList = session.GetInvItemList();	
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, isSquire, slotSet)
 		local tempobj = invItem:GetObject()
 		if tempobj ~= nil then
 			local obj = GetIES(tempobj);
 			if IS_NEED_REPAIR_ITEM(obj, isSquire) == true then
-				local slot = slotSet:GetSlotByIndex(slotcnt)
+				local slotcnt = imcSlot:GetEmptySlotIndex(slotSet);
+				local slot = slotSet:GetSlotByIndex(slotcnt);
 
 				while slot == nil do 
 					slotSet:ExpandRow()
@@ -109,11 +100,9 @@ function UPDATE_REPAIR140731_LIST(frame)
 				icon:Set(iconValue, 'Item', invItem.type, slotcnt, invItem:GetIESID());
 				local class = GetClassByType('Item', invItem.type);
 				ICON_SET_INVENTORY_TOOLTIP(icon, invItem, "repair", class);
-
-				slotcnt = slotcnt + 1
 			end
 		end
-	end
+	end, false, isSquire, slotSet);
 
 	local invFrame = ui.GetFrame("inventory")
 	if invFrame ~= nil then
@@ -121,7 +110,11 @@ function UPDATE_REPAIR140731_LIST(frame)
 	end
 
 	UPDATE_REPAIR140731_MONEY(frame)
-
+	
+	local invenzenytext = GET_CHILD_RECURSIVELY(frame, "invenzenytext")
+	if invenzenytext ~= nil then
+		SET_COLONY_TAX_RATE_TEXT(invenzenytext, "tax_rate", isSquire ~= 1)
+	end
 end
 
 function UPDATE_REPAIR140731_MONEY(frame)
@@ -136,8 +129,8 @@ function UPDATE_REPAIR140731_MONEY(frame)
 		local invitem = GET_ITEM_BY_GUID(iconInfo:GetIESID());
 		local itemobj = GetIES(invitem:GetObject());
 
-		local repairamount = itemobj.MaxDur - itemobj.Dur
-		totalprice = totalprice + GET_REPAIR_PRICE(itemobj,repairamount);
+		local repairamount = itemobj.MaxDur - itemobj.Dur		
+		totalprice = totalprice + GET_REPAIR_PRICE(itemobj, repairamount, GET_COLONY_TAX_RATE_CURRENT_MAP())
 
 	end
 
@@ -214,7 +207,7 @@ function EXECUTE_REPAIR140731(frame)
 		local itemobj = GetIES(invitem:GetObject());
 
 		local repairamount = itemobj.MaxDur - itemobj.Dur
-		totalprice = totalprice + GET_REPAIR_PRICE(itemobj,repairamount);
+		totalprice = totalprice + GET_REPAIR_PRICE(itemobj,repairamount, GET_COLONY_TAX_RATE_CURRENT_MAP())
 	end
 
 	if totalprice == 0 then
@@ -257,15 +250,14 @@ function SCP_LBTDOWN_REPAIR140731(frame, ctrl)
 		local itemobj = GetIES(invitem:GetObject());
 
 		local repairamount = itemobj.MaxDur - itemobj.Dur
-		totalprice = totalprice + GET_REPAIR_PRICE(itemobj,repairamount);
-
+		totalprice = totalprice + GET_REPAIR_PRICE(itemobj,repairamount,GET_COLONY_TAX_RATE_CURRENT_MAP())
 	end
 
 	local repairprice = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "invenZeny", "ui::CRichText")
 	repairprice:SetText(GET_COMMAED_STRING(totalprice));
 
 	local calcprice = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "remainInvenZeny", "ui::CRichText")
-	calcprice:SetText(GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY_STR(), -1 * totalprice)));
+	calcprice:SetText(GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY_STR(), '-'..totalprice)));
 
 
 end
@@ -327,16 +319,14 @@ function REPAIR140731_SELECT_EQUIPED_ITEMS(frame, ctrl)
 			if isselected == "SelectedEquiped" then
 				slot:Select(0)
 			else
-				for i = 0, equipList:Count() - 1 do
-					local equipItem = equipList:Element(i);
-					
+				for j = 0, equipList:Count() - 1 do
+					local equipItem = equipList:GetEquipItemByIndex(j);
 					if equipItem:GetIESID() == slot:GetIcon():GetInfo():GetIESID() then
 						slot:Select(1);
 						isSelectEquipedItem = true;
 						break;
 					end
 				end
-				
 			end
 		end
 	end

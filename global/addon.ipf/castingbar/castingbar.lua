@@ -12,7 +12,6 @@ function CASTINGBAR_ON_INIT(addon, frame)
 end 
 
 function CASTINGBAR_ON_MSG(frame, msg, argStr, argNum)
-
 	if msg == 'CAST_BEGIN' then		-- 시전 시작
 	 
 		local castingObject = frame:GetChild('casting');
@@ -21,7 +20,7 @@ function CASTINGBAR_ON_MSG(frame, msg, argStr, argNum)
 		local time = argNum / 1000;   -- 이부분 필요한 값으로 변경
 			
 		castingGauge:SetTotalTime(time);	
-		castingGauge:SetText(argStr, 'normal', 'center', 'bottom', 0, 0);
+		castingGauge:SetText(argStr, 'normal', ui.CENTER_HORZ, ui.BOTTOM, 0, 0);
 
 		local sklObj = GetSkill(GetMyPCObject(), argStr);
 		if nil ~= sklObj then
@@ -61,7 +60,6 @@ function CASTINGBAR_ON_MSG(frame, msg, argStr, argNum)
 end 
 
 function DYNAMIC_CASTINGBAR_ON_MSG(frame, msg, argStr, maxTime, isVisivle)
-
 	if msg == 'DYNAMIC_CAST_BEGIN' and maxTime > 0 then		-- 시전 시작
 	 
 		local castingObject = frame:GetChild('dynamic_casting');
@@ -69,7 +67,7 @@ function DYNAMIC_CASTINGBAR_ON_MSG(frame, msg, argStr, maxTime, isVisivle)
 		
 		castingGauge:SetTotalTime(maxTime);
 		frame:SetUserValue("MAX_CHARGE_TIME", maxTime);
-		castingGauge:SetText("1", 'normal', 'center', 'bottom', 0, 0);
+		castingGauge:SetText("1", 'normal', ui.CENTER_HORZ, ui.BOTTOM, 0, 0);
 		
 		local timer = frame:GetChild("addontimer");
 		tolua.cast(timer, "ui::CAddOnTimer");
@@ -136,13 +134,13 @@ function UPDATE_CASTTIME(frame)
 	local timer = frame:GetChild("addontimer");
 	tolua.cast(timer, "ui::CAddOnTimer");		
 	local time = GetDynamicCastSkillChargedTime();
-   
+		
 	local maxTime = tonumber( frame:GetUserValue("MAX_CHARGE_TIME") );
 	
 
 	local chargeType = tonumber( frame:GetUserValue('LOOPING_CHARGE') );
 
-	if chargeType == 0 then        
+	if chargeType == 0 then
 
 		if maxTime < time then
 			-- uiEffect가 useExternal이 안먹어서 루핑UI이펙트를 끄는걸 못하겠음. 그래서 아래처럼 처리함.

@@ -69,6 +69,19 @@ function PCBANG_SHOP_POINTSHOP_MAKE_PRODUCT(products_gb, constants, positionInde
     item_pic:SetTooltipArg("", cls.ClassID, 0);
     item_pic:SetTooltipOverlap(1)
 
+    local option_text = GET_CHILD_RECURSIVELY(ctrl, "option_text");
+    local marketTrade = TryGetProp(cls, "MarketTrade") == "YES";
+    local userTrade = TryGetProp(cls, "UserTrade") == "YES";
+    local optionStr = ClMsg("UserTradeUnable");
+    if marketTrade and userTrade then
+        optionStr = "";
+    elseif marketTrade == false and userTrade then
+        optionStr = ClMsg("NoMarketTrade");
+    elseif userTrade == false and marketTrade then
+        optionStr = ClMsg("NoUserTrade");
+    end
+    option_text:SetText(optionStr);
+
     local price_gb = GET_CHILD(ctrl, "price_gb");
     local price_text = GET_CHILD(price_gb, "price_text");
     price_text:SetTextByKey("price", info.price)

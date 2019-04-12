@@ -17,12 +17,14 @@ function ADVENTURE_BOOK_GROW.CLEAR()
 	local wizardList = GET_CHILD(page, "page_grow_wizard", "ui::CGroupBox");
 	local archerList = GET_CHILD(page, "page_grow_archer", "ui::CGroupBox");
 	local clericList = GET_CHILD(page, "page_grow_cleric", "ui::CGroupBox");
+	local scoutList = GET_CHILD(page, "page_grow_scout", "ui::CGroupBox");
 
 	charList:RemoveAllChild();
 	warriorList:RemoveAllChild();
 	wizardList:RemoveAllChild();
 	archerList:RemoveAllChild();
 	clericList:RemoveAllChild();
+	scoutList:RemoveAllChild();
 end
 
 function ADVENTURE_BOOK_GROW.FILL_CHAR_LIST()
@@ -74,6 +76,7 @@ function ADVENTURE_BOOK_GROW.FILL_CTRL_TYPES()
 	ADVENTURE_BOOK_GROW.FILL_CTRL_TYPE("Wizard", "page_grow_wizard");
 	ADVENTURE_BOOK_GROW.FILL_CTRL_TYPE("Archer", "page_grow_archer");
 	ADVENTURE_BOOK_GROW.FILL_CTRL_TYPE("Cleric", "page_grow_cleric");
+	ADVENTURE_BOOK_GROW.FILL_CTRL_TYPE("Scout", "page_grow_scout");
 end
 
 function ADVENTURE_BOOK_GROW.FILL_CTRL_TYPE(ctrlType, ctrlName)
@@ -159,22 +162,13 @@ function ADVENTURE_BOOK_GROW_SET_JOB_HISTORY_TOOLTIP(icon, charName)
 	end
 
     local gender = info.GetGender(session.GetMyHandle());
-    local startext = '';
+    local jobtext = '';
     for jobName, grade in pairs(jobInfoTable) do
         local jobCls = GetClass('Job', jobName);        
         if jobCls ~= nil then
-            startext = startext .. ("{@st41}").. GET_JOB_NAME(jobCls, gender);
+            jobtext = jobtext .. ("{@st41}").. GET_JOB_NAME(jobCls, gender).."{nl}";
         end
-        
-		for i = 1 , 3 do
-			if i <= grade then
-				startext = startext ..('{img star_in_arrow 20 20}');
-			else
-				startext = startext ..('{img star_out_arrow 20 20}');
-			end
-		end
-		startext = startext ..('{nl}');
     end
-    icon:SetTextTooltip(startext);
+    icon:SetTextTooltip(jobtext);
 	icon:EnableHitTest(1);
 end

@@ -1,7 +1,6 @@
 -- weaponswap.lua
 
 function WEAPONSWAP_ON_INIT(addon, frame)
-
 	addon:RegisterMsg('WEAPONSWAP_ENTERED', 'WEAPONSWAP_SWAP_UPDATE_ENTERED');
 	addon:RegisterMsg('WEAPONSWAP', 'WEAPONSWAP_SWAP_UPDATE');
 	addon:RegisterMsg('WEAPONSWAP_FAIL', 'WEAPONSWAP_FAIL');
@@ -12,8 +11,11 @@ function WEAPONSWAP_ON_INIT(addon, frame)
 --	WEAPONSWAP_SLOT_UPDATE();
 end 
 
-function TH_WEAPON_CHECK(obj, bodyGbox, slotIndex)
+function discover_weaponswap_state()
+    quickslot.SetWeaponSwapState(0)
+end
 
+function TH_WEAPON_CHECK(obj, bodyGbox, slotIndex)
 	if obj == nil then
 		return;
 	end
@@ -138,8 +140,7 @@ function WEAPONSWAP_ITEM_POP(parent, ctrl)
 	quickslot.SetSwapWeaponInfo(slot:GetSlotIndex(), "");
 end
 
-function WEAPONSWAP_SWAP_EQUIP()
-
+function WEAPONSWAP_SWAP_EQUIP()    
 	--제작시에는 무기스왑 안되게 끔..
 	if GetCraftState() == 1 then
 		ui.SysMsg(ClMsg("prosessItemCraft"));
@@ -183,7 +184,7 @@ function WEAPONSWAP_UI_UPDATE()
 	end
 end
 
-function WEAPONSWAP_SWAP_UPDATE_ENTERED(frame)
+function WEAPONSWAP_SWAP_UPDATE_ENTERED(frame)    
 	local bodyGbox = frame:GetChild("bodyGbox");
 	for i = 0, 3 do
 		local etcSlot = bodyGbox:GetChild("slot"..i);
@@ -254,16 +255,17 @@ function WEAPONSWAP_FAIL()
 	quickslot.SwapWeapon();
 	if 0 == lowDur then
 		ui.SysMsg(ClMsg("TryLater"));
+        discover_weaponswap_state()
 	end
 end
 
-function WEAPONSWAP_SLOT_SUCCESS()
+function WEAPONSWAP_SLOT_SUCCESS()    
 	imcSound.PlaySoundEvent("sys_weapon_swap");
---	WEAPONSWAP_SLOT_UPDATE()
+    RemoveLuaTimerFunc('discover_weaponswap_state')
+    discover_weaponswap_state()
 end
 
 function WEAPONSWAP_SLOT_UPDATE()
-
 	local frame = ui.GetFrame("weaponswap");
 	if frame == nil then
 		return;

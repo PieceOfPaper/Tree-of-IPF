@@ -1505,3 +1505,9 @@ function Achieve_Event_Weapon_Designer(pc)
     TxAddAchievePoint(tx, 'Achieve_Event_Weapon_Designer', 1)
     local ret = TxCommit(tx);
 end
+
+function Achieve_Event_2019_New_Year_Artist(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Achieve_Event_2019_New_Year_Artist', 1)
+    local ret = TxCommit(tx);
+end

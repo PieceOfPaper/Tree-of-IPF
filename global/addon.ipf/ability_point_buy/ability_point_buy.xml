@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="ability_point_buy" x="0" y="0" width="400" height="360" create="open">
-	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="500 100 0 0"/>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="ability_point_buy" x="0" y="0" width="400" height="360">
+	<frame fullheight="false" fasthide="true" layout_gravity="right top" margin="0 120 0 0"/>
 	<skin frameskin="pipwin_test"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
-	<layer layerlevel="80"/>
-	<option closebutton="false" closebuttonpos="0 20"/>
+	<draw drawtitlebar="false"/>
+	<layer layerlevel="93"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<effect open="character_item_window_open" close="character_item_window_close"/>
 	<animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
 	<script OpenScp="ABILITY_POINT_BUY_OPEN"/>
 	<userconfig EXCEED_POINT_STYLE="{#FF0000}" EXCEED_MONEY_STYLE="{#FF0000}"/>
 	<controls>
-		<groupbox name="bg" rect="0 0 400 320" margin="0 0 0 0" layout_gravity="left top" draw="true" skin="collection_complete"/>
-		<groupbox name="headerBox" rect="0 0 400 30" margin="0 0 0 0" layout_gravity="left top" draw="false"/>
-		<richtext name="headerText" parent="headerBox" rect="0 0 400 30" margin="0 5 0 0" layout_gravity="center center" caption="{@st66d}특성 포인트 구매"/>
+		<groupbox name="bg" rect="0 0 400 320" margin="0 0 0 0" layout_gravity="left top" draw="true" skin="collection_complete" hittestbox="false" hittest="true"/>
+		<groupbox name="headerBox" rect="0 0 400 30" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="false"/>
+		<richtext name="headerText" parent="headerBox" rect="0 0 400 30" margin="0 5 0 0" layout_gravity="center center" caption="{@st66d}특성 포인트 구매" hittest="false"/>
 		<!-- buy ratio -->
 		<groupbox name="ratioBox" rect="0 0 400 30" margin="0 40 0 0" layout_gravity="center top" draw="false"/>
 		<groupbox name="ratioTextBox" parent="ratioBox" rect="0 0 140 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search"/>
@@ -49,7 +50,7 @@
 		<richtext name="remainMoneyInfoText" parent="remainMoneyTextBox" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" caption="잔여 소지금" fontname="brown_16"/>
 		<richtext name="remainMoneyText" parent="remainMoneyBox" rect="0 0 100 30" margin="0 0 20 0" layout_gravity="right center" format="%s" fontname="brown_18" param1="money" param1_def="1,000,000,000"/>
 		<!-- buttons -->
-		<button name="buyBtn" parent="bg" rect="0 0 160 40" margin="-80 0 0 10" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}구매" LBtnUpScp="ABILITY_POINT_BUY" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover_3" clicksound="button_click" oversound="button_over"/>
-		<button name="cancelBtn" parent="bg" rect="0 0 160 40" margin="80 0 0 10" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}취소" LBtnUpScp="ABILITY_POINT_BUY_CANCEL" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover_3" clicksound="button_click" oversound="button_over"/>
+		<button name="buyBtn" parent="bg" rect="0 0 160 40" margin="-80 0 0 10" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}구매" LBtnUpScp="ABILITY_POINT_BUY" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover_3" clicksound="button_click" oversound="button_over" />
+		<button name="cancelBtn" parent="bg" rect="0 0 160 40" margin="80 0 0 10" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}취소" LBtnUpScp="ABILITY_POINT_BUY_CANCEL" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover_3" clicksound="button_click" oversound="button_over" />
 	</controls>
 </uiframe>

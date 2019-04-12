@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="cardbattle_rullet" x="0" y="100" width="550" height="360" create="open">
-	<frame title="" layout_gravity="center top" snapclient="true" snapframe="true" margin="0 129 0 0"/>
+	<frame title="" layout_gravity="center top" margin="0 129 0 0"/>
 	<skin backgroundimage="mixer_back" layout_gravity="left top" rect="0 82 220 220" frameskin="none"/>
 	<option hideable="false" closebutton="true" useimageitem="true"/>
 	<sound opensound="sys_card_battle_roulette_born" closesound="sys_card_battle_roulette_dead"/>

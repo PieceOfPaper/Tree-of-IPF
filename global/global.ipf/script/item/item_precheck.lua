@@ -81,28 +81,3 @@ function SCR_PRE_CS_IndunReset_M_Past_FantasyLibrary_1(self)
     return 0
 end
 
-function SCR_PRECHECK_HALOWEEN_2017_ACHIEVE1(self)
-    if OnKnockDown(self) == 'NO' then
-        local achieve_Point = GetAchievePoint(self, "2017_Halloween2_AP");
-        if achieve_Point == 0 then
-            return 1;
-        else
-            SendAddOnMsg(self, 'NOTICE_Dm_!', ScpArgMsg("AGARIO_ACHIEVE"), 5)
-            return 0;
-        end
-    end
-    return 0;
-end
-
-function SCR_PRECHECK_HALOWEEN_2017_ACHIEVE2(self)
-    if OnKnockDown(self) == 'NO' then
-        local achieve_Point = GetAchievePoint(self, "2017_Halloween1_AP");
-        if achieve_Point == 0 then
-            return 1;
-        else
-            SendAddOnMsg(self, 'NOTICE_Dm_!', ScpArgMsg("AGARIO_ACHIEVE"), 5)
-            return 0;
-        end
-    end
-    return 0;
-end

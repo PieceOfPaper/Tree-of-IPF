@@ -392,6 +392,10 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="CNT"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                                <Str Str="LegendRaid: M_GTOWER_2_40F"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event eventName="ACT1">

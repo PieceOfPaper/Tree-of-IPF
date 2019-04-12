@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="skl_archer_wideareashot_shot"/>
-    <Sound frame="1.00" soundFile="voice_atk_medium_war_f"/>
-    <Particle frame="3" attachActor="None" attachNode="Dummy_effect_angkering_pajang" particleName="I_archer_highanchoring_shot_mash" hiddenObj="false" useAttach="false" scale="1.1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_archer_skl_chargeshot" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_skarphuggning002_1" particleName="I_archer_highanchoring_shot_mash_new" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_archer_wideareashot_shot"/>
+	<Sound frame="1.00" soundFile="voice_atk_medium_war_f"/>
 </ActionDesc>

@@ -13,35 +13,33 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 
 	local gBox = frame:GetChild("gBox");
 	gBox:RemoveAllChild();
-	for i = 0 , 3 do
-		local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-		local str, value = GetCashInfo(ITEM_TOKEN, i)
-		local prop = ctrlSet:GetChild("prop");
+		for i = 0 , 3 do
+		local str, value = GetCashInfo(ITEM_TOKEN, i);
+		if str ~= 'abilityMax' then
+			local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);		
+			local prop = ctrlSet:GetChild("prop");
 
-		local normal = GetCashValue(0, str) 
-		local txt = "None"
-		if str == "marketSellCom" then
-			normal = normal + 0.01;
-			value = value + 0.01;
-			local img = string.format("{img 67percent_image %d %d}",55, 45) 
-			prop:SetTextByKey("value", img..ClMsg(str)); 
-			txt = string.format("{img 67percent_image2 %d %d}", 100, 45) 
-		elseif str =="abilityMax" then
-			local img = string.format("{img paid_immed_image %d %d}", 55, 45) 
-			prop:SetTextByKey("value", img..ClMsg(str)); 
-			txt = string.format("", 100, 45) 
-		elseif str == "speedUp"then
-			local img = string.format("{img 3plus_image %d %d}", 55, 45) 
-			prop:SetTextByKey("value",img.. ClMsg(str)); 
-			txt = string.format("{img 3plus_image2 %d %d}", 100, 45) 
-		else
-			local img = string.format("{img 9plus_image %d %d}", 55, 45) 
-			prop:SetTextByKey("value", img..ClMsg(str)); 
-			txt = string.format("{img 9plus_image2 %d %d}", 100, 45) 
+			local normal = GetCashValue(0, str) 
+			local txt = "None"
+			if str == "marketSellCom" then
+				normal = normal + 0.01;
+				value = value + 0.01;
+				local img = string.format("{img 67percent_image %d %d}",55, 45) 
+				prop:SetTextByKey("value", img..ClMsg(str)); 
+				txt = string.format("{img 67percent_image2 %d %d}", 100, 45) 
+			elseif str == "speedUp"then
+				local img = string.format("{img 3plus_image %d %d}", 55, 45) 
+				prop:SetTextByKey("value",img.. ClMsg(str)); 
+				txt = string.format("{img 3plus_image2 %d %d}", 100, 45) 
+			else
+				local img = string.format("{img 9plus_image %d %d}", 55, 45) 
+				prop:SetTextByKey("value", img..ClMsg(str)); 
+				txt = string.format("{img 9plus_image2 %d %d}", 100, 45) 
+			end
+
+			local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+			value:SetTextByKey("value", txt); 
 		end
-
-		local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
-		value:SetTextByKey("value", txt); 
 	end
 
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 4,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
@@ -59,12 +57,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 		local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 		local img = string.format("{img dealok_image %d %d}", 55, 45) 
 		prop:SetTextByKey("value", img .. ScpArgMsg("AllowTradeByCount"));
-        if itemobj.NumberArg2 >= 30 then
-		img = string.format("{img dealok30_image2 %d %d}", 100, 45) 
-		elseif itemobj.NumberArg2 >= 15 then
-		    img = string.format("{img dealok15_image2 %d %d}", 100, 45) 
-		end
-		value:SetTextByKey("value", img);
+        value:SetTextByKey("value", '');
 	else
 		gBox:RemoveChild("CTRLSET_TOKEN_TRADECOUNT");	
 	end	
@@ -117,7 +110,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
   -- 혹시나 저처럼 고생하시는 분이 생길가 적습니다. 해당 부분은 토큰의 실제 적용 시간에 여유분을 두기 때문에 UI 상 출력시간을 보정하는 곳입니다.
   -- 여기 작성 안하면 계속 시간이 이상하게 나올거에요
 	local arg1 = itemobj.NumberArg1;
-	if itemobj.ClassName == "PremiumToken" or itemobj.ClassName == "PremiumToken_event" then
+	if itemobj.ClassName == "PremiumToken" or itemobj.ClassName == "PremiumToken_event" or itemobj.ClassName == "PremiumToken_New_Return" then
 		arg1 = 2592000 --30일
 	elseif itemobj.ClassName == "PremiumToken_5d" or itemobj.ClassName == "PremiumToken_5d_Steam" or itemobj.ClassName == "PremiumToken_5d_event" then
 		arg1 = 432000 -- 5일

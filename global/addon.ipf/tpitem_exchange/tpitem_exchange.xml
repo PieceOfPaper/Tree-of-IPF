@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <uiframe name="tpitem_exchange" x="0" y="0" width="500" height="700" create="open">
 	<frame title="{@st41}IE{/}" layout_gravity="left top" fasthide="true" tooltipoverlap="true" margin="10 10 0 0"/>
-	<draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawframe="false" drawtitlebar="false"/>
 	<input moveable="true" minwidth="290" maxwidth="500" maxheight="1000" minheight="150" resize="true" resizerange="450 150 800 600" hittestframe="true"/>
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
 	<script CloseScp="TPITEM_EXCHANGE_CLOSE"/>

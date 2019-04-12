@@ -3,7 +3,7 @@
     <frame title="{@st41}NewUI{/}" titlepos="0 -8" layout_gravity="center center" margin="0 -390 0 0"/>
     <draw drawtitlebar="false"/>
     <skin frameskin="test_pvp_alarm"/>
-    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <option hideable="false" useimageitem="true"/>
     <sound opensound="win_open" closesound="win_close"/>
     <controls>
         <picture name="pic" rect="0 0 62 66" margin="59 7 0 0" layout_gravity="left top" hittest="false" image="job_portrait_char1" stretch="true"/>

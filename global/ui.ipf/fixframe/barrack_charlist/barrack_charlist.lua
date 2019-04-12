@@ -380,17 +380,11 @@ function SELECT_BARRACK_LAYER(frame, ctrl, arg, layer)
 	if tostring(before) == tostring(layer) then
 		return;
 	end
+	
 	if tostring(isMoving) == '1' then
 		return;
 	end
-	
-	-- 숙소 방문 중일 때에는 상대방 숙소의 레이어를 변경시켜야하는데 내 숙소로 변경시키는 문제가 있음.
-	-- 일단 숙소 방문중 레이어 변경 막아버림.
-	local barrackMode = frame:GetUserValue("BarrackMode");
-	if barrackMode == "Visit" then
-		return;
-	end
-	
+		
 	frame:SetUserValue("MovingBarrackLayer", 1);
     
 	local pccount = GET_CHILD(frame, "pccount", "ui::CRichText");
@@ -465,8 +459,10 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 	nameCtrl:SetText("{@st42b}{b}".. name);
         
     -- 대표 클래스 지정
-    local barrack_pc = session.barrack.GetMyAccount():GetByStrCID(key)    
-    if barrack_pc:GetRepID() ~= 0 then jobid = barrack_pc:GetRepID() end
+	local barrack_pc = session.barrack.GetMyAccount():GetByStrCID(key);
+	if barrack_pc ~= nil and barrack_pc:GetRepID() ~= 0 then 
+		jobid = barrack_pc:GetRepID();
+	end
     
     local jobCls = GetClassByType("Job", jobid);
 	local jobCtrl = GET_CHILD(mainBox, "job", "ui::CRichText");
@@ -475,9 +471,9 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 	levelCtrl:SetText("{@st42b}Lv.".. actor:GetLv());
 
 	local detail = GET_CHILD(charCtrl,'detailBox','ui::CGroupBox');
-	local mapNameCtrl				= GET_CHILD(detail,'mapName','ui::CRichText');	
+	local mapNameCtrl = GET_CHILD(detail,'mapName','ui::CRichText');	
 	local mapCls = GetClassByType("Map", apc.mapID);
-	local mapName 					= mapCls.Name;
+	local mapName = mapCls.Name;
 	mapNameCtrl:SetText("{@st66b}".. mapName);
 		
 	local isDraw = 0;
@@ -510,6 +506,7 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 				end	
 
 				if 0 == item.IsNoneItem(obj.ClassID) then
+					CLEAR_SLOT_ITEM_INFO(eqpSlot);
 					SET_SLOT_ITEM_OBJ(eqpSlot, obj, gender, 1);
 					if obj.ItemType == 'Equip' and obj.DBLHand == 'YES' then
 						local LhSlot = GET_CHILD(detail, 'LH', "ui::CSlot");
@@ -531,10 +528,6 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 
 	detail:ShowWindow(0);
 	charCtrl:Resize(charCtrl:GetWidth(), CHAR_LIST_CLOSE_HEIGHT);
-
---	if barrackMode == "Barrack" then
---		CREATE_SCROLL_NEW_CHAR(frame);
---	end
 
 	GBOX_AUTO_ALIGN(scrollBox, 10, 10, 10, true, false);
 
@@ -741,7 +734,8 @@ function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
 			gameStartFrame:ShowWindow(0);
 		else
             local now_select_slot = tonumber(argNum)
-            local char_controlset = GET_CHILD_RECURSIVELY(frame, 'char_' .. tostring(bpc:GetCID()))
+			local char_controlset = GET_CHILD_RECURSIVELY(frame, 'char_' .. tostring(bpc:GetCID()))
+			if char_controlset ~= nil then
             local y_pos = tonumber(char_controlset:GetY())            
             local ret = math.floor(y_pos / 200)
             if now_select_slot > prev_select_slot then  -- down
@@ -753,6 +747,7 @@ function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
             scroll_bar:SetScrollPos(math.abs(tonumber(y_pos - 10)))                    
             prev_select_slot = now_select_slot
 			START_GAME_SET_MAP(gameStartFrame, argNum, bpc:GetApc().mapID, bpc:GetApc().channelID);
+			end
 			gameStartFrame:ShowWindow(1);
 		end
 	elseif msg == "BARRACK_SELECTCHARACTER" then    

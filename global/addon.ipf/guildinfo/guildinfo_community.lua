@@ -2,15 +2,13 @@ local json = require "json_imc"
 
 local refreshBoard = false
 local isUpdating = false; -- 타임라인 게시글 가져왔는지 여부 확인용
-local selectedCard = nil;
 local isTimelineEnd = false
 
 local lastBoardIndex = 0;
 local lastIndex = 1;
 
 function GUILDINFO_COMMUNITY_INIT(communityBox)
-    selectedCard = nil;
-    GetGuildNotice("GUILDNOTICE_GET")
+
     GetTimeLine("ON_TIMELINE_UPDATE", "0", "0")
 
     local frame = ui.GetFrame("guildinfo");
@@ -23,19 +21,6 @@ function GUILDINFO_COMMUNITY_INIT(communityBox)
     isTimelineEnd = false
     lastBoardIndex = 0
 end
-function GUILDNOTICE_GET(code, ret_json)
-    if code ~= 200 then
-        SHOW_GUILD_HTTP_ERROR(code, ret_json, "GUILDNOTICE_GET")
-    end
-    local frame = ui.GetFrame("guildinfo")
-    local notifyText = GET_CHILD_RECURSIVELY(frame, 'noticeEdit');
-    if notifyText:IsHaveFocus() == 0 then
-        notifyText:SetText(ret_json)
-        notifyText:Invalidate()
-    end
-
-end
-
 
 function REFRESH_BOARD()
     refreshBoard = true
@@ -78,11 +63,17 @@ function ON_TIMELINE_UPDATE(code, ret_json)
         local ctrlSet = communityPanel:CreateOrGetControlSet("community_card_layout", lastIndex + i, 0, 0);
         
         ctrlSet:EnableHitTest(1);
+        ctrlSet:SetUserValue("opened", "false")
         local mainText = GET_CHILD_RECURSIVELY(ctrlSet, "mainText", "ui::CRichText");
         local authorTxt = GET_CHILD_RECURSIVELY(ctrlSet, "writerName", "ui::CRichText");
         local regDateTxt = GET_CHILD_RECURSIVELY(ctrlSet, "date", "ui::CRichText");
         local replyCount = GET_CHILD_RECURSIVELY(ctrlSet, "replyCount", "ui::CRichText");
         local replyPic = GET_CHILD_RECURSIVELY(ctrlSet, "replyPic", "ui::CPicture"); 
+        if HAS_CLAIM_CODE(207) == nil and AM_I_LEADER(PARTY_GUILD) == 0 then
+            local deleteBtn = GET_CHILD_RECURSIVELY(ctrlSet, "card_deleteBtn", "ui::CButton"); 
+            deleteBtn:SetEnable(0)
+            deleteBtn:SetVisible(0)
+        end
 
         authorTxt:SetText("{@st66d}" .. list[i]["author"] .. "{/}");
         if GETMYFAMILYNAME() == list[i]["author"] then
@@ -97,13 +88,14 @@ function ON_TIMELINE_UPDATE(code, ret_json)
         regDateTxt:SetText(list[i]["reg_time"])
         mainText:SetTextByKey('text',  list[i]["message"])
         mainText:SetUserValue("boardIdx", list[i]["board_idx"]);
-        
+        ctrlSet:SetUserValue("boardIdx", list[i]["board_idx"]);
+
         local replyBtn = GET_CHILD_RECURSIVELY(ctrlSet, "sendReply", "ui::CButton");
         replyBtn:SetEventScript(ui.LBUTTONUP, "ON_REPLY_SEND")
         replyBtn:SetUserValue("boardIdx", list[i]["board_idx"]);
 
-        OPEN_COMMUNITY_CARD(communityPanel, mainText)
-
+        local replyArea = GET_CHILD_RECURSIVELY(ctrlSet, "replyArea", "ui::CGroupBox");
+        replyArea:SetVisible(0);
     end
     if #list ~= 0 then
         lastBoardIndex = list[#list]["seq"]
@@ -113,6 +105,8 @@ function ON_TIMELINE_UPDATE(code, ret_json)
     GBOX_AUTO_ALIGN(communityPanel, 0, 0, 0, true, false);
 
 end
+
+
 function ON_REPLY_SEND(parent, control)
  
     parent = parent:GetAboveControlset();
@@ -129,88 +123,83 @@ function ON_REPLY_SEND(parent, control)
     WriteOnelineComment("ON_REPLY_SUCCESS", message:GetText(), control:GetUserValue("boardIdx"))
     message:SetText("")
 end
-function ON_REPLY_SUCCESS(code, ret_json)
+
+
+function ON_REPLY_SUCCESS(code, ret_json, boardIdx)
 
     if code ~= 200 then
         SHOW_GUILD_HTTP_ERROR(code, ret_json, "ON_REPLY_SUCCESS")
         return
     end
 
-    if selectedCard ~= nil then
-        local sendReply = GET_CHILD_RECURSIVELY(selectedCard, "sendReply")
-
-        local boardIdx = sendReply:GetUserValue("boardIdx");
-
-        GetComment("ON_COMMENT_GET", boardIdx);
+    local boardCtrl = GET_ONELINE_BOARD(boardIdx)
+    if boardCtrl == nil then
+        return
 end
-
+    GetComment("ON_COMMENT_GET", boardIdx);
 end
 
 
 
-function ON_COMMENT_GET(code, ret_json)
+function ON_COMMENT_GET(code, ret_json, boardIdx)
     if code ~= 200 then
-        if code == 400 then -- 400:댓글이 없거나 로드에 실패함. 이외 코드는 출력해서 보여줌.
-
-        else
+        if code ~= 400 then -- 400:댓글이 없거나 로드에 실패함. 이외 코드는 출력해서 보여줌.
             SHOW_GUILD_HTTP_ERROR(code, ret_json, "ON_COMMENT_GET")
         end
         return
     end
+
     local list = json.decode(ret_json);
     list = list["list"];
-    if selectedCard ~= nil then
-        local totalHeight = 0;
+
+    local selectedCard = GET_ONELINE_BOARD(boardIdx)
+    if selectedCard == nil then
+        return
+    end 
     
-        local replyList = GET_CHILD_RECURSIVELY(selectedCard, "replyBox", "ui::CGroupBox");
-        local replyArea = GET_CHILD_RECURSIVELY(selectedCard, "replyArea", "ui::CGroupBox");
-        local editReply = GET_CHILD_RECURSIVELY(selectedCard, "editReply", "ui::CEdit");
-        local bottomBox = GET_CHILD_RECURSIVELY(selectedCard, "bottomBox", "ui::CGroupBox");
-        local bg = GET_CHILD_RECURSIVELY(selectedCard, "mainBg")
-        local replyTxt = ""
-        local replySetHeight=0;
-        for i=1, #list do
-            local replySet = replyList:CreateOrGetControlSet("community_card_reply", i, 0, 0)
-            replySet:EnableHitTest(0)
-            replySetHeight = replySet:GetHeight()
-            local replyData = list[i]
+    local replyBox = GET_CHILD_RECURSIVELY(selectedCard, "replyBox", "ui::CGroupBox");
+    local replyArea = GET_CHILD_RECURSIVELY(selectedCard, "replyArea", "ui::CGroupBox");
+    local bottomBox = GET_CHILD_RECURSIVELY(selectedCard, "bottomBox", "ui::CGroupBox");
+    local mainBg = GET_CHILD_RECURSIVELY(selectedCard, "mainBg")
+    local replyCount = GET_CHILD_RECURSIVELY(selectedCard, "replyCount", "ui::CRichText")
+    replyCount:SetText(#list)
+    replyBox:RemoveAllChild()  
+     
+    for i=1, #list do
+        local replySet = replyBox:CreateOrGetControlSet("community_card_reply", i, 0, 0)
+        local replyData = list[i]
 
-            local authorTxt = GET_CHILD_RECURSIVELY(replySet, "commentAuthorText");
-            authorTxt:SetText("{@st66d}" .. replyData["author"] .. "{/}");
-            if GETMYFAMILYNAME() == replyData["author"] then
-                authorTxt:SetText("{@st66d_y}" .. replyData["author"] .. "{/}");
-            end
+        replySet:SetUserValue("comment_idx", replyData["comment_idx"]);
+
+
+        local authorTxt = GET_CHILD_RECURSIVELY(replySet, "commentAuthorText");
+        authorTxt:SetText("{@st66d}" .. replyData["author"] .. "{/}");
+
+        if GETMYFAMILYNAME() == replyData["author"] then
+            authorTxt:SetText("{@st66d_y}" .. replyData["author"] .. "{/}");
+        end
+        authorTxt:SetTextTooltip(replyData["author"]);
             
-            local regTime =  GET_CHILD_RECURSIVELY(replySet, "dateText");
-            regTime:SetTextByKey("text", replyData["reg_time"]);
-
-            local replyText = GET_CHILD_RECURSIVELY(replySet, "replyText");
-            replyText:SetTextByKey("text", replyData["message"]);
-            totalHeight = totalHeight + replySetHeight;
+        local regTime =  GET_CHILD_RECURSIVELY(replySet, "dateText");
+        regTime:SetTextByKey("text", replyData["reg_time"]);
+        if HAS_CLAIM_CODE(207) == nil and AM_I_LEADER(PARTY_GUILD) == 0 then
+            local btn = GET_CHILD_RECURSIVELY(replySet, 'deleteCommentBtn')
+            btn:SetEnable(0)
+            btn:SetVisible(0)
         end
-        --기본 컨트롤셋 크기가 댓글 2개는 보이도록 함
-        if #list > 2 then
-            replyList:Resize(replyList:GetWidth(), totalHeight);
-            bottomBox:Resize(bottomBox:GetWidth(), totalHeight + editReply:GetHeight() + 50);
-            replyArea:Resize(replyArea:GetWidth(), totalHeight + editReply:GetHeight());
-            local replyBoxHeight = totalHeight - (2 * replySetHeight) -- 2 * replySetHeight: 댓글 2개 크기
-            replyBoxHeight = replyBoxHeight + editReply:GetHeight();
-            replyBoxHeight = replyBoxHeight + 400;
-            selectedCard:Resize(selectedCard:GetWidth(), replyBoxHeight );        
-        else
-            bottomBox:Resize(bottomBox:GetWidth(), 250)
-        end
-        if selectedCard ~= nil then
-            local replyCount = GET_CHILD_RECURSIVELY(selectedCard, "replyCount", "ui::CRichText");
-            replyCount:SetText(#list)
-        end
-        bg:Resize(selectedCard:GetWidth(), selectedCard:GetHeight())
-        GBOX_AUTO_ALIGN(replyList, 0, 0, 0, true, false);
-        local frame = ui.GetFrame("guildinfo");
-        local communityPanel = GET_CHILD_RECURSIVELY(frame, "communitypanel", "ui::CGroupBox");
-        GBOX_AUTO_ALIGN(communityPanel, 0, 0, 0, true, false);
+        local replyText = GET_CHILD_RECURSIVELY(replySet, "replyText");
+        replyText:SetTextByKey("text", replyData["message"]);
+        replyText:SetUserValue("comment_idx", replyData["comment_idx"])
+        replyText:SetUserValue("board_idx", replyData["board_idx"])
     end
 
+    GBOX_AUTO_ALIGN(replyBox, 0, 0, 0, false, true, true)
+    GBOX_AUTO_ALIGN(replyArea, 0, 0, 0, true, true, true)
+    GBOX_AUTO_ALIGN(bottomBox, 0, 0, 0, true, true, true)
+    GBOX_AUTO_ALIGN(mainBg, 0, 0, 10, true, true, true)
+    selectedCard:Resize(selectedCard:GetWidth(), mainBg:GetHeight())
+
+    REALIGN_COMMUNITYPANEL()
 end
 
 function LOAD_MORE_ONLINE_BOARD(parent, control)
@@ -225,51 +214,128 @@ function LOAD_MORE_ONLINE_BOARD(parent, control)
 
 end
 
--- 하단 매직넘버(width, height값 uservalue나 userconfig으로 수정해야함)
 function OPEN_COMMUNITY_CARD(parent, control)
     local controlset = control:GetAboveControlset();
     controlset = tolua.cast(controlset, "ui::CControlSet")
-    selectedCard = controlset;
+
+    local mainBg = GET_CHILD_RECURSIVELY(controlset, "mainBg")
+    local header = GET_CHILD_RECURSIVELY(controlset, "header");
+    
     local main_box = GET_CHILD_RECURSIVELY(controlset, "main_box");
-    local height = controlset:GetHeight()
     local bottomBox = GET_CHILD_RECURSIVELY(controlset, "bottomBox");
-    local replyArea =  GET_CHILD_RECURSIVELY(controlset, "replyArea");
-    local replyBox = GET_CHILD_RECURSIVELY(controlset, "replyBox");
-    local editReply =  GET_CHILD_RECURSIVELY(controlset, "editReply");
-    local sendReply = GET_CHILD_RECURSIVELY(controlset, "sendReply");
     local mainText = GET_CHILD_RECURSIVELY(controlset, "mainText", "ui::CRichText");
-    local bg = GET_CHILD_RECURSIVELY(controlset, "mainBg")
-    if height == 140 then  -- closed. opening
-        local additionalTextHeight = mainText:GetHeight() - 100
-        if additionalTextHeight > 0 then
-            main_box:Resize(main_box:GetWidth(), mainText:GetHeight())
-            controlset:Resize(controlset:GetWidth(), 450 + additionalTextHeight)
-        else
-            main_box:Resize(main_box:GetWidth(), 100)
-            controlset:Resize(controlset:GetWidth(), 400)
-        end
+    local replyArea =  GET_CHILD_RECURSIVELY(controlset, "replyArea");
 
-        bottomBox:Resize(bottomBox:GetWidth(), 250)
-        replyArea:SetVisible(1)
-        replyBox:SetVisible(1)
-        editReply:SetVisible(1)
-        local sendReply = GET_CHILD_RECURSIVELY(controlset, "sendReply")
-
-        local boardIdx = sendReply:GetUserValue("boardIdx");
-
-        GetComment("ON_COMMENT_GET", boardIdx);
-        bg:Resize(controlset:GetWidth(), controlset:GetHeight())
-    else --opened. closing
-        controlset:Resize(controlset:GetWidth(), 140)
-        main_box:Resize(main_box:GetWidth(), 20)
-        bg:Resize(controlset:GetWidth(), 140)
-        bottomBox:Resize(bottomBox:GetWidth(), 50)
-        replyArea:SetVisible(0)
+    if controlset:GetUserValue("opened") == "true" then -- 열려있음. 닫혀야함
+        controlset:SetUserValue("opened", "false")
+       
+        main_box:Resize(main_box:GetWidth(), main_box:GetOriginalHeight())
         
-        replyBox:SetVisible(0)
-        editReply:SetVisible(0)
+        replyArea:SetVisible(0);
+        
+
+    else--닫힘. 열고 코멘트 로드함
+        controlset:SetUserValue("opened", "true")
+        if mainText:GetHeight() > main_box:GetOriginalHeight() then
+            main_box:Resize(main_box:GetWidth(), mainText:GetHeight())
+        end
+        replyArea:SetVisible(1);
+
+        local sendReply = GET_CHILD_RECURSIVELY(controlset, "sendReply")
+        local boardIdx = sendReply:GetUserValue("boardIdx");
+        GetComment("ON_COMMENT_GET", boardIdx);
     end
+    GBOX_AUTO_ALIGN(bottomBox, 0, 0, 0, true, true, true)
+    GBOX_AUTO_ALIGN(mainBg, 0, 0, 10, true, true, true)
+    controlset:Resize(controlset:GetWidth(), mainBg:GetHeight())
+        
+
+    REALIGN_COMMUNITYPANEL()
+end
+
+function REALIGN_COMMUNITYPANEL()
     local frame = ui.GetFrame("guildinfo");
     local communityPanel = GET_CHILD_RECURSIVELY(frame, "communitypanel", "ui::CGroupBox");
-    GBOX_AUTO_ALIGN(communityPanel, 0, 0, 0, true, false);
+    GBOX_AUTO_ALIGN(communityPanel, 0, 0, 0, false, false);
+end
+
+
+function COMMUNITY_CARD_DELETE(frame, control)
+    frame = frame:GetAboveControlset()
+    local context = ui.CreateContextMenu("CARD_DELETE_CONTEXT","", 0, 0, 170, 100)
+    ui.AddContextMenuItem(context, ClMsg("Delete"), "DELETE_COMMUNITY_CARD(" .. frame:GetUserValue("boardIdx") .. ")");
+    ui.AddContextMenuItem(context, ClMsg("Cancel"), "ui.CloseFrame('CARD_DELETE_CONTEXT')")
+    ui.OpenContextMenu(context)
+end
+
+function DELETE_COMMUNITY_CARD(boardIdx)
+    local yesScp = string.format("DeleteBoard(%s, %s)","'ON_DELETE_COMMUNITY_CARD'", boardIdx)
+    ui.MsgBox("정말로 삭제하시겠습니까?", yesScp, "None")
+    
+end
+
+function ON_DELETE_COMMUNITY_CARD(code, ret_json, boardIdx)
+    if code ~= 200 then
+        SHOW_GUILD_HTTP_ERROR(code, ret_json,"ON_DELETE_COMMUNITY_CARD")
+        return
+    end
+
+    local selectedBoard = GET_ONELINE_BOARD(boardIdx)
+    if selectedBoard == nil then
+        return
+    end
+
+    local parent = selectedBoard:GetParent();
+    if parent ~= nil then
+        parent:RemoveChild(selectedBoard:GetName())
+        selectedBoard = nil;
+        REALIGN_COMMUNITYPANEL()
+    end
+end
+
+function DELETE_ONELINE_COMMENT(frame, control)
+    local boardIdx = frame:GetUserValue("board_idx")
+    local commentIdx = frame:GetUserValue("comment_idx")
+    local yesScp = string.format("DeleteComment(%s, %s, %s)","'ON_DELETE_COMMUNITY_COMMENT'", boardIdx, commentIdx)
+    ui.MsgBox("정말로 삭제하시겠습니까?", yesScp, "None")
+end
+
+function ON_DELETE_COMMUNITY_COMMENT(code, ret_json, board_idx, comment_idx)
+    if code ~= 200 then
+        SHOW_GUILD_HTTP_ERROR(code, ret_json,"ON_DELETE_COMMUNITY_COMMENT")
+        return
+    end
+
+    local boardCtrl = GET_ONELINE_BOARD(board_idx)
+    if boardCtrl == nil then
+        return
+    end
+
+    local replyBox = GET_CHILD_RECURSIVELY(boardCtrl, "replyBox", "ui::CGroupBox")
+    local childCount = replyBox:GetChildCount()
+    for i=0, childCount-1 do
+        local child = replyBox:GetChildByIndex(i)
+        if child:GetUserValue("comment_idx") == comment_idx then
+            replyBox:RemoveChild(child:GetName())
+            GBOX_AUTO_ALIGN(replyBox, 0, 0, 0, true, true)
+            local replyCount = GET_CHILD_RECURSIVELY(boardCtrl, "replyCount", "ui::CRichText");
+            replyCount:SetText( tonumber(replyCount:GetText())-1);
+            return
+        end
+    end
+end
+
+function GET_ONELINE_BOARD(board_idx)
+    local frame = ui.GetFrame("guildinfo");
+    local communityPanel = GET_CHILD_RECURSIVELY(frame, "communitypanel", "ui::CGroupBox");
+    
+    local childCount = communityPanel:GetChildCount();	
+	for i=0, childCount-1 do
+        local selectedCard = communityPanel:GetChildByIndex(i);
+        
+        if selectedCard:GetUserValue("boardIdx") == board_idx then
+            return selectedCard;
+        end
+    end
+    return nil;
 end

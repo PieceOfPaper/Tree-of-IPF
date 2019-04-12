@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="guildinfo_newthread" x="-50" y="0" width="1000" height="500" create="open" version="2">
 	<frame title="{@st43}글 작성{/}" titlepos="0 -8" layout_gravity="center center"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<skin frameskin="mainwindow3"/>
 	<layer layerlevel="93"/>
 	<option closebutton="false"/>

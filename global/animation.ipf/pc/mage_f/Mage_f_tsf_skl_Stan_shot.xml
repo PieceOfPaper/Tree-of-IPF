@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<CreateMonsterAnim frame="0" Key="Stan" Anim="Stan_shot" Freeze="0"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="2.00" soundFile="skl_fgt_tackle_cast_2"/>
+	<Particle frame="3" attachNode="Dummy_effect_hand_L" particleName="I_light013_spark_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+	<Particle frame="3" attachNode="Dummy_effect_hand_R" particleName="I_light013_spark_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+	<Particle frame="4" attachNode="Dummy_effect_hand_L" particleName="I_light013_spark_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+	<Particle frame="4" attachNode="Dummy_effect_hand_R" particleName="I_light013_spark_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+	<Particle frame="10" attachNode="Dummy_effect_hand_R" particleName="I_spread_out011_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false" sound="skl_eff_special_cast_3"/>
+	<DeleteMonster frame="14" Key="Stan"/>
+</ActionDesc>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Bip01 L Hand" particleName="I_scout_brick_mesh" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <AttachModel frame="0" XAC="outlaw_Brick" node="Dummy_Brick" isAttach="true" autoDetach="true" index="1" anim="outlaw_Brick_dead.xsm"/>
+    <Sound frame="0.00" soundFile="skl_eff_outlaw_breakbrick"/>
+    <BlendOn frame="5" R="30" G="10" B="2" A="100"/>
+    <AfterImage frame="6" term="150" blendTime="200" r="160" g="130" b="30" a="150"/>
+    <AfterImage frame="14" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+    <Shockwave frame="16" type="2" intensity="4" frequency="40" duration="0.3" range="1000"/>
+    <Particle frame="16" attachNode="Bip01 L Hand" particleName="I_Brick_dead" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOff frame="18" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

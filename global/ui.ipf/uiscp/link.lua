@@ -4,10 +4,11 @@ function GET_ITEM_FULLNAME_BY_TAG_INFO(props, clsID)
 
 	local newobj = CreateIESByID("Item", clsID);
 	if props ~= 'nullval' then
-		SetModifiedPropertiesString(newobj, props);
+		local propInfo = StringSplit(props, '#');
+		SetModifiedPropertiesString(newobj, propInfo[1]);
 	end
 
-	if newobj.ClassName == "Scroll_SkillItem" then
+	if IS_SKILL_SCROLL_ITEM(newobj) == 1 then
 		local skillType, level = GetSkillScrollProperty(props);
 		newobj.SkillType = skillType
 		newobj.SkillLevel = level
@@ -20,7 +21,6 @@ function GET_ITEM_FULLNAME_BY_TAG_INFO(props, clsID)
 end
 
 function SLI(props, clsID)
-
 	local itemFrame = ui.GetFrame("wholeitem_link");
 	if itemFrame == nil then
 		itemFrame = ui.GetNewToolTip("wholeitem_link", "wholeitem_link");
@@ -40,15 +40,17 @@ function SLI(props, clsID)
 
 	local currentFrame = nil;
 
-	if 910001 ~= clsID then -- 스킬 스크롤이 아니면
-		local newobj = CreateIESByID("Item", clsID);
-		if props ~= 'nullval' then
-			SetModifiedPropertiesString(newobj, props);
+	local baseCls = GetClassByType('Item', clsID);
+	if IS_SKILL_SCROLL_ITEM(baseCls) == 0 then -- 스킬 스크롤이 아니면
+		if props == 'nullval' then
+			props = nil;
 		end
-
+		local linkInfo = session.link.CreateOrGetGCLinkObject(clsID, props);
 		itemFrame:SetTooltipType('wholeitem')
-		local pobj = tolua.cast(newobj, "imcIES::IObject");
-		itemFrame:SetToolTipObject(pobj);
+		local newobj = GetIES(linkInfo:GetObject());
+		local pobj = tolua.cast(newobj, "imcIES::IObject");		
+		itemFrame:SetTooltipIESID(GetIESID(newobj));
+		itemFrame:SetTooltipStrArg('link');
 		
 		currentFrame = itemFrame;
 	else
@@ -79,12 +81,6 @@ function CLOSE_LINK_TOOLTIP(frame)
 end
 
 function GET_ITEM_LINK_COLOR(rank)
-
-	--[[local ret = GET_ITEM_FONT_COLOR(rank); -- 링크 컬러 통일
-	if ret == "{#FFFFFF}" then
-		return "{#FFCC00}";
-	end]]--
-
 	return "{#BF6DC6}"; 
 end
 
@@ -123,12 +119,12 @@ function LINK_ITEM_TEXT(invitem)
 
 	local itemName = GET_FULL_NAME(itemobj);
 
-	if itemobj.ClassName == 'Scroll_SkillItem' then		
+	if IS_SKILL_SCROLL_ITEM(itemobj) == 1 then		
 		local sklCls = GetClassByType("Skill", itemobj.SkillType)
 		itemName = itemName .. "(" .. sklCls.Name ..")";
 		properties = GetSkillItemProperiesString(itemobj);
 	else
-		properties = GetModifiedPropertiesString(itemobj);
+		properties = GET_MODIFIED_PROPERTIES_STRING(itemobj);
 	end
 	
 	if properties == "" then

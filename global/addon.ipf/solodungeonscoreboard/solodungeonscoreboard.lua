@@ -75,6 +75,7 @@ function SOLODUNGEON_SCOREBOARD_FILL_RANK_LISTS()
     local rankGbox_wizard = GET_CHILD_RECURSIVELY(frame, "rankGbox_wizard")
     local rankGbox_archer = GET_CHILD_RECURSIVELY(frame, "rankGbox_archer")
     local rankGbox_cleric = GET_CHILD_RECURSIVELY(frame, "rankGbox_cleric")
+    local rankGbox_scout = GET_CHILD_RECURSIVELY(frame, "rankGbox_scout")
     if rankGbox_all ~= nil then
         --All
         SOLODUNGEON_SCOREBOARD_FILL_RANK_LIST(rankGbox_all, 0)
@@ -99,6 +100,11 @@ function SOLODUNGEON_SCOREBOARD_FILL_RANK_LISTS()
         --cleric
         SOLODUNGEON_SCOREBOARD_FILL_RANK_LIST(rankGbox_cleric, 4)
     end
+
+    if rankGbox_scout ~= nil then
+        --cleric
+        SOLODUNGEON_SCOREBOARD_FILL_RANK_LIST(rankGbox_scout, 5)
+    end
 end
 
 
@@ -118,7 +124,7 @@ function SOLODUNGEON_SCOREBOARD_FILL_RANK_LIST(gbox, ctrlType)
             local rankImage = GET_CHILD_RECURSIVELY(rankGbox, "rankImage")
             rankImage:SetImage(rankGbox:GetUserConfig("RANK_IMAGE_" .. rank + 1))
 
-            local scoreInfo = session.soloDungeon.GetCurrentRankingByIndex(ctrlType, rank)
+            local scoreInfo = session.soloDungeon.GetRankingByIndex(soloDungeonShared.ThisWeek, ctrlType, rank)
             if scoreInfo ~= nil then
                 local teamNameText = GET_CHILD_RECURSIVELY(rankGbox, "teamNameText")
                 local teamName = rank .. "team"

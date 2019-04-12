@@ -1,4 +1,4 @@
-﻿--- skillshared.lua
+--- skillshared.lua
 
 function SKILL_TARGET_ITEM_Swordman_Thrust(obj)
 	
@@ -12,36 +12,37 @@ function GET_NINJA_SKILLS()
 	retList[#retList + 1] = "Shinobi_Kunai";
 	retList[#retList + 1] = "Shinobi_Mijin_no_jutsu";
 	retList[#retList + 1] = "Shinobi_Katon_no_jutsu";
-	retList[#retList + 1] = "Swordman_Thrust";
-	retList[#retList + 1] = "Swordman_Bash";
-	retList[#retList + 1] = "Swordman_DoubleSlash";
-	retList[#retList + 1] = "Swordman_PommelBeat";
-	retList[#retList + 1] = "Peltasta_UmboBlow";
-	retList[#retList + 1] = "Peltasta_RimBlow";
-	retList[#retList + 1] = "Peltasta_ButterFly";
-	retList[#retList + 1] = "Peltasta_Langort";
-	retList[#retList + 1] = "Highlander_Crown";
-	retList[#retList + 1] = "Highlander_Moulinet";
-	retList[#retList + 1] = "Hoplite_SynchroThrusting";
-	retList[#retList + 1] = "Barbarian_Cleave";
-	retList[#retList + 1] = "Barbarian_Seism";
-	retList[#retList + 1] = "Rodelero_ShootingStar";
-	retList[#retList + 1] = "Rodelero_ShieldBash";
-	retList[#retList + 1] = "Rodelero_TargeSmash";
-	retList[#retList + 1] = "Corsair_DustDevil";
-	retList[#retList + 1] = "Corsair_HexenDropper";
-	retList[#retList + 1] = "Corsair_ImpaleDagger";
-	retList[#retList + 1] = "Doppelsoeldner_Mordschlag";
-	retList[#retList + 1] = "Doppelsoeldner_Zwerchhau";
-	retList[#retList + 1] = "Doppelsoeldner_Sturzhau";
-	retList[#retList + 1] = "Fencer_SeptEtoiles";
-	retList[#retList + 1] = "Fencer_AttaqueComposee";
-	retList[#retList + 1] = "Fencer_Fleche";
-	retList[#retList + 1] = "Dragoon_Dragontooth";
-	retList[#retList + 1] = "Dragoon_Dragon_Soar";
-	retList[#retList + 1] = "NakMuay_Attack";
-	retList[#retList + 1] = "Templer_MortalSlash";
-	retList[#retList + 1] = "Squire_DeadlyCombo";
+	retList[#retList + 1] = "Shinobi_Raiton_no_Jutsu";
+--	retList[#retList + 1] = "Swordman_Thrust";
+--	retList[#retList + 1] = "Swordman_Bash";
+--	retList[#retList + 1] = "Swordman_DoubleSlash";
+--	retList[#retList + 1] = "Swordman_PommelBeat";
+--	retList[#retList + 1] = "Peltasta_UmboBlow";
+--	retList[#retList + 1] = "Peltasta_RimBlow";
+--	retList[#retList + 1] = "Peltasta_ButterFly";
+--	retList[#retList + 1] = "Peltasta_Langort";
+--	retList[#retList + 1] = "Highlander_Crown";
+--	retList[#retList + 1] = "Highlander_Moulinet";
+--	retList[#retList + 1] = "Hoplite_SynchroThrusting";
+--	retList[#retList + 1] = "Barbarian_Cleave";
+--	retList[#retList + 1] = "Barbarian_Seism";
+--	retList[#retList + 1] = "Rodelero_ShootingStar";
+--	retList[#retList + 1] = "Rodelero_ShieldBash";
+--	retList[#retList + 1] = "Rodelero_TargeSmash";
+--	retList[#retList + 1] = "Corsair_DustDevil";
+--	retList[#retList + 1] = "Corsair_HexenDropper";
+--	retList[#retList + 1] = "Corsair_ImpaleDagger";
+--	retList[#retList + 1] = "Doppelsoeldner_Mordschlag";
+--	retList[#retList + 1] = "Doppelsoeldner_Zwerchhau";
+--	retList[#retList + 1] = "Doppelsoeldner_Sturzhau";
+--	retList[#retList + 1] = "Fencer_SeptEtoiles";
+--	retList[#retList + 1] = "Fencer_AttaqueComposee";
+--	retList[#retList + 1] = "Fencer_Fleche";
+--	retList[#retList + 1] = "Dragoon_Dragontooth";
+--	retList[#retList + 1] = "Dragoon_Dragon_Soar";
+--	retList[#retList + 1] = "NakMuay_Attack";
+--	retList[#retList + 1] = "Templer_MortalSlash";
+--	retList[#retList + 1] = "Squire_DeadlyCombo";
 	return retList;
 
 end
@@ -68,7 +69,7 @@ function GET_HOMUNCULUS_SKILLS()
 	retList[#retList + 1] = "Psychokino_MagneticForce";
 	retList[#retList + 1] = "Elementalist_StoneCurse";
 	retList[#retList + 1] = "Elementalist_Rain";
-	retList[#retList + 1] = "Chronomancer_Quicken";
+--	retList[#retList + 1] = "Chronomancer_Quicken";
 	retList[#retList + 1] = "Chronomancer_Slow";
 	retList[#retList + 1] = "Chronomancer_Stop";
 	retList[#retList + 1] = "Thaumaturge_ShrinkBody";
@@ -245,25 +246,26 @@ function SCR_GET_SWITCHGENDER_PRICE(shopClassName, mapClassName, buffClassName, 
 	return math.floor(price);
 end
 
-function GET_BUFFSELLER_SPEND_ITEM_COUNT(sklClassName)
-	if sklClassName == "Priest_Aspersion" then
-		return 10;
-	end
+-- deprecated: buff_seller_info.xml에 적어주세요 
+-- function GET_BUFFSELLER_SPEND_ITEM_COUNT(sklClassName)
+-- 	if sklClassName == "Priest_Aspersion" then
+-- 		return 10;
+-- 	end
 	
-	if sklClassName == "Priest_Blessing" then
-		return 25;
-	end
+-- 	if sklClassName == "Priest_Blessing" then
+-- 		return 25;
+-- 	end
 	
-	if sklClassName == "Priest_Sacrament" then
-		return 14;
-	end
+-- 	if sklClassName == "Priest_Sacrament" then
+-- 		return 14;
+-- 	end
 	
-	if sklClassName == "Pardoner_IncreaseMagicDEF" then
-		return 10;
-	end
+-- 	if sklClassName == "Pardoner_IncreaseMagicDEF" then
+-- 		return 10;
+-- 	end
 	
-	return 0;
-end
+-- 	return 0;
+-- end
 
 function SCR_GET_EQUIPMENTTOUCHUP_PRICE(shopClassName, mapClassName, buffClassName, abilList)
 	local price = SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)
@@ -303,4 +305,40 @@ function SCR_GET_APPRISE_PRICE(shopClassName, mapClassName, buffClassName, abilL
 	local price = SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)
 	
 	return math.floor(price);
+end
+
+-- 해당 skill에 checkKeyword 키워드가 존재하는지 체크. 있으면 1 반환, 없으면 0 반환.
+function CHECK_SKILL_KEYWORD(skill, checkKeyword)
+	local skillKeyword = TryGetProp(skill, 'Keyword');
+	if skillKeyword ~= nil and skillKeyword ~= 'None' then
+		local skillKeywordList = SCR_STRING_CUT(skillKeyword, ';')
+		local index = table.find(skillKeywordList, checkKeyword);
+		if index ~= 0 then
+			return 1;
+		end
+	end
+	
+	return 0;
+end
+
+
+-- 버프 강화 특성 증가 비율 계산-------
+function SCR_REINFORCEABILITY_FOR_BUFFSKILL(self, skill)
+    local addRate = 1;
+    if self ~= nil and skill ~= nil then
+        local reinforceAbilName = TryGetProp(skill, "ReinforceAbility", "None");
+        if reinforceAbilName ~= "None" then
+            local reinforceAbil = GetAbility(self, reinforceAbilName)
+            if reinforceAbil ~= nil then
+                local abilLevel = TryGetProp(reinforceAbil, "Level")
+                local masterAddValue = 0
+                if abilLevel == 100 then
+                    masterAddValue = 0.1
+                end
+                
+                addRate = addRate + (abilLevel * 0.005 + masterAddValue);
+            end
+        end
+    end
+    return addRate
 end

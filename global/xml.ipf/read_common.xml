@@ -120,6 +120,7 @@
 	<ReadXml Name="statbase_pc"/>
 	<ReadXml Name="statbase_monster"/>
 	<ReadXml Name="statbase_monster_type"/>
+	<ReadXml Name="statbase_monster_race"/>
 	<ReadXml Name="statbase_weapon"/>
 	<ReadXml Name="statbase_weaponrank"/>
 	<ReadXml Name="statbase_armor"/>
@@ -146,7 +147,6 @@
 	<ReadXml Name="foodtable"/>
 	<ReadXml Name="zoneobject_contents"/>
 	<ReadXml Name="dismount_ani"/>
-	<ReadXml Name="partymatchmaker"/>
 	<ReadXml Name="subeffect"/>
 	<ReadXml Name="changeanim"/>
 	<ReadXml Name="cardbattle"/>
@@ -180,22 +180,21 @@
 	<ReadXml Name="addon_d_list"/>
 	<ReadXml Name="item_grade"/>
 	<ReadXml Name="TradeSelectItem"/>
-	<ReadXml Name="exchangeAntiqueList"/>
-	<ReadXml Name="gacha_detail"/>
-	<ReadXml Name="monster_item_summon"/>
 	<ReadXml Name="adventure_book_point"/>
 	<ReadXml Name="adventure_book_sharedconst"/>
+	<ReadXml Name="gacha_detail"/>
 	<ReadXml Name="adventure_book_rank_reward"/>
 	<ReadXml Name="statue_position"/>
+	<ReadXml Name="monster_item_summon"/>
 	<ReadXml Name="guild_colony"/>
 	<ReadXml Name="guild_colony_rule"/>
+	<ReadXml Name="max_pc_count_in_zone"/>
 	<ReadXml Name="time_event"/>
 	<ReadXml Name="item_random_reset_material"/>
-	<ReadXml Name="monster_event"/>	<ReadXml Name="specialcostume"/>
-
-<ReadXml Name="tp_event_attendance"/>
+	<ReadXml Name="monster_event"/>	
+	<ReadXml Name="tp_event_attendance"/>
 	<ReadXml Name="reward_attendance"/>
-  <ReadXml Name="equipbosscard"/>
+	<ReadXml Name="specialcostume"/>
 	<ReadXml Name="Indun_reward_item"/>
 	<ReadXml Name="equipbosscard"/>
 	<ReadXml Name="reward_indun"/>
@@ -205,22 +204,27 @@
 	<ReadXml Name="legend_setitem"/>
 	<ReadXml Name="legend_decompose"/>
 	<ReadXml Name="legend_recipe"/>
+	<ReadXml Name="Monster_solo_dungeon"/>
+	<ReadXml Name="d_solo_MonsterList"/>
 	<ReadXml Name="Beauty_Hair_Coupon"/>
-
-<ReadXml Name="Beauty_Shop_Costume"/>
+	<ReadXml Name="Beauty_Shop_Costume"/>
 	<ReadXml Name="Beauty_Shop_Dye"/>
 	<ReadXml Name="Beauty_Shop_Hair"/>
 	<ReadXml Name="Beauty_Shop_Lens"/>
 	<ReadXml Name="Beauty_Shop_Package_Cube"/>
 	<ReadXml Name="Beauty_Shop_Wig"/>
 	<ReadXml Name="Package_Item_List"/>
-	<ReadXml Name="fluting_scale"  />
-  <ReadXml
-    Name="Monster_solo_dungeon"
-  />
-<ReadXml
-  Name="d_solo_MonsterList"
-/>
+	<ReadXml Name="fluting_scale"/>
 	<ReadXml Name="UserShopPrice"/>
+	<ReadXml Name="mainquest_startnpcwarp"/>
 	<ReadXml Name="Beauty_Shop_Preview"/>	
+	<ReadXml Name="cooldown_guild"/>
+	<ReadXml Name="item_seal_option"/>
+	<ReadXml Name="costume_exchange_shop"/>
+	<ReadXml Name="item_growth"/>
+	<ReadXml Name="skill_buff_condition"/>
+	<ReadXml Name="tpitem_user_new"/>
+	<ReadXml Name="tpitem_return_user"/>
+	<ReadXml Name="ExchangeAntiqueList"/>
+	<ReadXml Name="shop_tax"/>
 </Category>

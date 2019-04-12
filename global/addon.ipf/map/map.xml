@@ -12,7 +12,7 @@
 	<sound opensound="sys_map_open" closesound="sys_map_close"/>
 	<script OpenScp="MAP_OPEN" CloseScp="MAP_CLOSE"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
-	<userconfig COLONY_MON_IMG="colonymonster" COLONY_MON_SIZE="38" COLONY_MON_EFFECT_SIZE="160" COLONY_TOWER_IMG="colonypalace" MGAME_POSITION_ICON="minimap_1_PARTY"/>
+	<userconfig COLONY_MON_IMG="colonymonster" COLONY_MON_SIZE="38" COLONY_MON_EFFECT_SIZE="160" COLONY_TOWER_IMG="colonypalace" MGAME_POSITION_ICON="minimap_1_PARTY" COLONY_ENHANCER_IMG="colonyenhancer"/>
 	<controls>
 		<groupbox name="bg" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="center center" hittest="false" skin="property_screenbg" stretch="true"/>
 		<picture name="map" rect="0 0 1024 1024" layout_gravity="center center" hittest="false" stretch="true"/>

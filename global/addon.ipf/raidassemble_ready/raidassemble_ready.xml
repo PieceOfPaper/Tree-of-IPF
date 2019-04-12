@@ -2,11 +2,11 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="raidassemble_ready" x="0" y="0" width="240" height="170" create="open">
     <skin frameskin="shadow_box"/>
-    <frame title="{@st43}{s22}게임설정{/}" titlepos="0 -12" margin="0 0 0 150" layout_gravity="center bottom" snapclient="true" snapframe="true"/>
+    <frame title="{@st43}{s22}게임설정{/}" titlepos="0 -12" margin="0 0 0 150" layout_gravity="center bottom" snapframe="true"/>
     <draw drawframe="true" drawtitlebar="false"/>
     <layer layerlevel="100"/>
     <input moveable="true"/>
-    <option closebuttonpos="5 20" closebutton="false" hideable="false" useimageitem="true"/>
+    <option hideable="false" useimageitem="true"/>
     <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
     <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
     <controls>

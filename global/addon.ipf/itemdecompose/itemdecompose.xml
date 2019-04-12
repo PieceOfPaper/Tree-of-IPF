@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="itemdecompose" x="0" y="0" width="560" height="1000" create="open">
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="itemdecompose" x="0" y="0" width="560" height="1030" create="open">
 	<frame title="" fullheight="false" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
 	<skin frameskin="test_frame_low"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="80"/>
+	<input moveable="false" hittestframe="false"/>
 	<option closebutton="false"/>
 	<script OpenScp="ITEMDECOMPOSE_UI_OPEN" CloseScp="ITEMDECOMPOSE_UI_CLOSE"/>
 	<controls>
@@ -28,7 +29,7 @@
 		<groupbox name="materialGbox" rect="0 0 500 38" margin="0 0 0 205" layout_gravity="center bottom" hittest="true" draw="false"/>
 		<groupbox name="medalGbox2" rect="0 0 500 38" margin="0 0 0 160" layout_gravity="center bottom" draw="true" hittestbox="true" skin="test_weight_skin"/>
 		<picture name="medalPic2" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" parent="medalGbox2" image="icon_item_silver" stretch="true"/>
-		<richtext name="decomposeCostText" rect="0 0 120 24" parent="medalGbox2" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}분해 비용{/}"/>
+		<richtext name="decomposeCostText" rect="0 0 120 24" parent="medalGbox2" margin="40 0 0 0" layout_gravity="left center" format="{@st41b}분해 비용{/}%s" param1="tax_rate"/>
 		<richtext name="decomposeCost" rect="0 0 120 24" parent="medalGbox2" margin="0 1 10 0" layout_gravity="right center" caption="0" fontname="white_16_ol" textalign="right center"/>
 		<groupbox name="medalGbox" rect="0 0 500 38" margin="0 0 0 120" layout_gravity="center bottom" draw="true" hittestbox="true" skin="test_weight_skin"/>
 		<picture name="medalPic" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" parent="medalGbox" image="icon_item_silver" stretch="true"/>

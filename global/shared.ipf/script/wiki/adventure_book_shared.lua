@@ -441,7 +441,7 @@ end
 function GET_ADVENTURE_BOOK_COLLECTION_POINT(pc)
     local collectionCount, completeCount = GetCollectionCount(pc);
     local collect_Point = (collectionCount * 5) + (completeCount * 45);
-    --print("콜렉션 점수 : "..collect_Point)
+    --print("컬렉션 점수 : "..collect_Point)
     return collect_Point
 end
 
@@ -483,7 +483,7 @@ function GET_ADVENTURE_BOOK_TOTAL_SCORE(pc)
         elseif cls.ClassName == "Adventure_Collection_point" then
              local point = _G[cls.Script]
              totalPoint = totalPoint + point(pc)
-             --print("탐험 콜렉션 : "..point(pc))
+             --print("탐험 컬렉션 : "..point(pc))
         elseif cls.ClassName == "Adventure_Achieve_point" then
              local point = _G[cls.Script]
              totalPoint = totalPoint + point(pc)

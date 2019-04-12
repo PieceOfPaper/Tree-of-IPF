@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="market" x="0" y="0" width="1425" height="1000" create="open">
-	<frame title="{@st43}{s22}마켓{/}" titlepos="0 0" layout_gravity="left center" snapclient="true" snapframe="true" margin="0 -20 0 0" scale_align="center top" tooltipoverlap="true"/>
+	<frame title="{@st43}{s22}마켓{/}" titlepos="0 0" layout_gravity="left center" margin="0 -20 0 0" scale_align="center top" tooltipoverlap="true"/>
 	<option closebutton="false" hideable="false" escscript="ON_MARKET_ESCAPE_PRESSED"/>
 	<draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
 	<script CloseScp="MARKET_CLOSE"/>

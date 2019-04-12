@@ -18,10 +18,12 @@ end
 function APPS_TRY_LEAVE(type)
     if type ~= "Channel" then
         local alertFrame = ui.GetFrame('expireditem_alert');
-        local nearFutureSec = alertFrame:GetUserConfig("NearFutureSec");
-        if nearFutureSec ~= nil and nearFutureSec ~= "None" then
+        local nearFutureSec = tonumber(alertFrame:GetUserConfig("NearFutureSec"));
+        if nearFutureSec ~= nil then
             local list = GET_SCHEDULED_TO_EXPIRED_ITEM_LIST(nearFutureSec);
-            if list ~= nil and #list > 0 then
+            local needToAskItem = (list ~= nil and #list > 0);
+            local needToAskToken = IS_NEED_TO_ALERT_TOKEN_EXPIRATION(nearFutureSec);
+            if needToAskItem or needToAskToken then
                 addon.BroadMsg("EXPIREDITEM_ALERT_OPEN", type, 0);
                 return;
             end

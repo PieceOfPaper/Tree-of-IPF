@@ -8,7 +8,7 @@
 	<layer layerlevel="40"/>
 	<option hideable="false" closebutton="false"/>
 	<script fadeinScp="None" fadeoutScp="None"/>
-	<userconfig MON_NAME_COLOR_MORE_THAN_5="{#FF2211}" MON_NAME_COLOR_MORE_THAN_10="{gr gradation5}" MON_NAME_COLOR_DEFAULT="{#FFFFFF}"/>
+	<userconfig MON_NAME_COLOR_MORE_THAN_5="{#FF2211}" MON_NAME_COLOR_MORE_THAN_10="{gr gradation5}" MON_NAME_COLOR_DEFAULT="{#FFFFFF}"  HPTEXT_STYLESHEET="{@st41}" />
 	<controls>
 		<picture name="bossbg" rect="0 0 756 116" margin="0 5 0 0" layout_gravity="left center" image="mong_bg"/>
 		<gauge name="hp" rect="0 0 604 120" margin="0 20 0 0" layout_gravity="center top" hittest="false" skin="bosstarget_info_gauge" text1="{s20}%v{s22}/{s20}%m" textalign1="center center" textfont1="GD_digit_font" textoffset1="0 -1900"/>

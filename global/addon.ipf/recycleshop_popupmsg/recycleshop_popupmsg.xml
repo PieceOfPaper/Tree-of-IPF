@@ -4,7 +4,7 @@
 	<frame fullheight="false" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center"/>
 	<skin frameskin="test_pvp_skin"/>
   <!-- 프레임 스킨인가? -->
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="1000"/>
 	<input moveable="false"/>
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>

@@ -354,12 +354,17 @@
                                 <Str Str="60초 후 입구로 돌아갑니다."/>
                                 <Num Num="5"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                                <Str Str="Indun: Indun_Castle2"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="End" AutoStart="0">
-   <ObjList/>                             <StageEvents>
+                <ObjList/>
+                <StageEvents>
                     <Event execCount="1" eventName="존으로 돌아가기">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
@@ -401,6 +406,10 @@
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
                                 <Str Str="60초 후 입구로 돌아갑니다."/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                                <Str Str="Indun: Indun_Castle2"/>
                             </ToolScp>
                         </execList>
                     </Event>

@@ -606,15 +606,16 @@
                                 <Num Num="1"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_EVENT_REFILL_STONE_FIRST_REWARD"/>
-                            </ToolScp>
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
                                 <Str Str="60초 후 입구로 돌아갑니다."/>
                                 <Num Num="5"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="stage6/17/stage6/18/stage6/19/stage6/20/stage6/21/stage6/22/stage6/23/stage6/24/stage6/25/stage6/26/stage6/27/stage6/28/stage6/29/stage6/30/stage6/31/stage6/32/stage6/33/stage6/34"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                                <Str Str="UniqueRaid: Indun_whitetrees"/>
                             </ToolScp>
                         </execList>
                     </Event>

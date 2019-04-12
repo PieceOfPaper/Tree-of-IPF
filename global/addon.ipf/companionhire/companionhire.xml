@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="companionhire" x="0" y="0" width="420" height="360" create="open">
-	<frame title="{@st43}컴패니언 분양" titlepos="0 -5" layout_gravity="center center" margin="0 -100 0 0" snapclient="true" snapframe="true"/>
+	<frame title="{@st43}컴패니언 분양" titlepos="0 -5" layout_gravity="center center" margin="0 -100 0 0" snapframe="true"/>
     <skin backgroundimage="mixer_back" layout_gravity="center center" rect="0 0 78 36"/>
     <option hideable="true" closebutton="false" useimageitem="true"/>
     <layer layerlevel="85"/>
     <sound opensound="win_open" closesound="win_close"/>
     <controls>
         <picture name="pic" rect="0 0 120 120" margin="0 -10 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="mainpc_crown" stretch="true"/>
-        <groupbox name="bgbox" parent="bg" rect="0 0 270 36" margin="20 168 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="inventory_serch"/>
+        <groupbox name="bgbox" rect="0 0 270 36" margin="20 168 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="inventory_serch"/>
         <edit name="input" rect="0 0 260 26" margin="20 173 0 0" layout_gravity="center top" EnterKeyScp="None" OffsetForDraw="0 -1" createscript="INIT_TEAMNAME_EDIT" createscriptarg="btn" drawbackground="false" fontname="white_18_ol" maxlen="16" numbermode="false" skin="None" textalign="left center" texttooltip="{@st59}분양 받을 컴패니언의 이름을 입력하세요{/}"/>
         <richtext name="petname" rect="0 0 300 30" margin="0 120 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41b}{s20}%s{/}" maxwidth="0" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" resizebytext="true" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
         <richtext name="richtext_1" rect="0 0 120 24" margin="40 174 0 0" layout_gravity="left top" caption="{@st41b}이름{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>

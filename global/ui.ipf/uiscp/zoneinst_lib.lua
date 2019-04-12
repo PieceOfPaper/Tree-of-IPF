@@ -5,7 +5,7 @@ function GET_CHANNEL_STRING(zoneInst, isShowPCCount)
 		return
 	end
 
-	local maxCount = session.serverState.GetMaxPCCount();
+    local maxCount = zoneInst.maxCount
 	local fontStr = "{@st42b}";
 	local fullColor = "{#FF0000}";
 	local normalColor = "{#FFCC33}";

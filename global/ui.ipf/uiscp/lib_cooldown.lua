@@ -1,22 +1,6 @@
 ----- lib_cooldown.lua
 
 
--- Item CoolDown
-function ICON_SET_ITEM_COOLDOWN(icon, itemType)
-	local itemCls = GetClassByType('Item', itemType);
-
-	if itemCls.ClientScp == "SCR_SKILLITEM" then
-		icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_ITEM_SKILL');
-		return;	
-	end
-	
-	if itemCls.CoolDownGroup ~= 'None' or itemCls.ClassName == 'Scroll_SkillItem' then		
-		icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_ITEM_COOLDOWN');
-		return;
-	end
-	
-end
-
 function ICON_SET_ITEM_COOLDOWN_OBJ(icon, itemIES)
 	if icon == nil then
 		return;
@@ -28,11 +12,15 @@ function ICON_SET_ITEM_COOLDOWN_OBJ(icon, itemIES)
 		return;	
 	end
 	
-	if itemIES.CoolDownGroup ~= 'None' or itemIES.ClassName == 'Scroll_SkillItem' then		
+	if itemIES.CoolDownGroup ~= 'None' or IS_SKILL_SCROLL_ITEM(itemIES) == 1 then		
 		icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_ITEM_COOLDOWN');
 		return;
 	end
 
+	if TryGetProp(itemIES, "GuildCoolDownGroup") ~= nil and itemIES.GuildCoolDownGroup ~= 'None' then
+		icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_ITEM_GUILD_COOLDOWN');
+		return;
+	end
 end
 
 function ICON_UPDATE_ITEM_COOLDOWN(icon)
@@ -45,12 +33,12 @@ function ICON_UPDATE_ITEM_COOLDOWN(icon)
 	local curTime = item.GetCoolDown(itemtype);
 	local totalTime = item.GetTotalCoolDown(itemtype);	
 
-	-- ½ºÅ©·Ñ¾ÆÀÌÅÛ½ºÅ³ (½Ã¸ð´Ï)
+	-- ï¿½ï¿½Å©ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½Û½ï¿½Å³ (ï¿½Ã¸ï¿½ï¿½)
 	local iconInfo = icon:GetInfo();
 	local invItem = session.GetInvItemByGuid(iconInfo:GetIESID());
 	if invItem ~= nil then
 		local obj = GetIES(invItem:GetObject());
-		if obj ~= nil and obj.ClassName == 'Scroll_SkillItem' then
+		if IS_SKILL_SCROLL_ITEM(obj) == 1 then
 			local skillInfo = session.GetSkill(obj.SkillType);
 			if skillInfo ~= nil then
 				local skl = GetIES(skillInfo:GetObject());
@@ -112,3 +100,47 @@ function ICON_UPDATE_ITEM_SKILL(icon)
  end
 
  
+-- Item CoolDown
+function ICON_SET_ITEM_COOLDOWN(icon, itemType)
+	local itemCls = GetClassByType('Item', itemType);
+
+	if itemCls.ClientScp == "SCR_SKILLITEM" then
+		icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_ITEM_SKILL');
+		return;	
+	end
+
+	if itemCls.CoolDownGroup ~= 'None' or IS_SKILL_SCROLL_ITEM(itemCls) == 1 then		
+		icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_ITEM_COOLDOWN');
+		return;
+	end
+
+	if TryGetProp(itemCls, "GuildCoolDownGroup") ~= nil and itemCls.GuildCoolDownGroup ~= 'None' then
+		icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_ITEM_GUILD_COOLDOWN');
+		return;
+	end
+	
+end
+
+-- Item Guild Cooldown Update
+function ICON_UPDATE_ITEM_GUILD_COOLDOWN(icon)
+	local iconinfo = icon:GetInfo();
+	local invitem = GET_ICON_ITEM(iconinfo);
+	if invitem == nil then
+		return 0, 0;
+	end
+	local itemCls = GetClassByType("Item", invitem.type);
+	
+	local coolDownGroup = TryGetProp(itemCls, "GuildCoolDownGroup");
+	if coolDownGroup == nil then
+		return 0, 0;
+	end
+
+	local coolCls = GetClass("CoolDown_Guild", coolDownGroup);
+	if coolCls == nil then
+		return 0, 0;
+	end
+	
+	local curTime = session.guildcooldown.GetRemainSec(coolCls.ClassID);
+	local totalTime = itemCls.ItemGuildCoolDown;
+	return curTime*1000, totalTime;
+end

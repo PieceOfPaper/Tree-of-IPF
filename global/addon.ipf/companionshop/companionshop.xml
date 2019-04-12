@@ -3,7 +3,7 @@
 <uiframe name="companionshop" x="0" y="0" width="500" height="1100" create="open">
 	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="-450 0 0 0" open="pip" piptype="left"/>
 	<skin frameskin=" "/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="98"/>
 	<option closebutton="false"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
@@ -31,7 +31,7 @@
 		<richtext name="compaSelectText" parent="compaSelectBox" rect="0 0 300 80" margin="100 10 0 0" layout_gravity="left top" fontname="white_18_ol" format="{@st66d}%s{/}" param1="name" param1_def=""/>
 		<labelline name="line" parent="adoptBottomBox" rect="0 0 460 3" margin="0 105 0 0" layout_gravity="center top" skin="labelline_def_2"/>
 		<groupbox name="buyMoneyBox" parent="adoptBottomBox" rect="0 0 450 30" margin="0 110 0 0" layout_gravity="center top" draw="false"/>
-		<richtext name="buyMoneyInfoText" parent="buyMoneyBox" rect="0 0 230 30" margin="0 0 0 0" layout_gravity="left center" caption="{img icon_item_silver 20 20}{@st41b}거래 정산 {/}{img white_right_arrow 15 18}"/>
+		<richtext name="buyMoneyInfoText" parent="buyMoneyBox" rect="0 0 230 30" margin="0 0 0 0" layout_gravity="left center" format="{img icon_item_silver 20 20}{@st41b}거래 정산 {/}{img white_right_arrow 15 18} %s" param1="tax_rate"/>
 		<richtext name="buyMoneyText" parent="buyMoneyBox" rect="0 0 230 30" margin="0 2 0 0" layout_gravity="right center" format="{@st66d}%s{/}" param1="money" param1_def="0"/>
 		<groupbox name="remainMoneyBox" parent="adoptBottomBox" rect="0 0 450 30" margin="0 145 0 0" layout_gravity="center top" draw="false"/>
 		<richtext name="remainMoneyInfoText" parent="remainMoneyBox" rect="0 0 230 30" margin="0 0 0 0" layout_gravity="left center" caption="{img icon_item_silver 20 20}{@st41b}예상 잔액 {/}{img white_right_arrow 15 18}"/>
@@ -51,7 +51,7 @@
 		<button name="sell" parent="foodBox" rect="0 0 120 50" margin="0 0 20 155" layout_gravity="right bottom" LBtnUpScp="SHOP_BUTTON_BUYSELL" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}정산{/}" clicksound="button_click_big" oversound="button_over" skin="test_red_button" textalign="center center" textoffset="0 -2" texttooltip="{@st59}거래를 결정합니다{/}">
 		</button>
 		<richtext name="pagetxt" parent="foodBox" rect="0 0 35 20" margin="0 0 0 478" layout_gravity="center bottom" caption="{@st41b}1 / 1{/}" spacey="0" textalign="center center"/>
-		<richtext name="buy_itemtext" parent="foodBox" rect="0 0 90 20" margin="50 0 0 425" layout_gravity="left bottom" caption="{@st41b}구입 아이템{/}" spacey="0" textalign="left center"/>
+		<richtext name="buy_itemtext" parent="foodBox" rect="0 0 90 20" margin="50 0 0 425" layout_gravity="left bottom" format="{@st41b}구입 아이템{/} %s" param1="tax_rate" spacey="0" textalign="left center"/>
 		<richtext name="buy_price" parent="foodBox" rect="0 0 90 20" margin="0 0 30 425" layout_gravity="right bottom" caption="{@st41}10,000,000{/}" spacey="0" textalign="right center"/>
 		<richtext name="sell_itemtext" parent="foodBox" rect="0 0 90 20" margin="50 0 0 340" layout_gravity="left bottom" caption="{@st41b}판매 아이템{/}" spacey="0" textalign="left center"/>
 		<richtext name="sell_price" parent="foodBox" rect="0 0 90 20" margin="0 0 30 340" layout_gravity="right bottom" caption="{@st41}10,000,000{/}" spacey="0" textalign="right center"/>

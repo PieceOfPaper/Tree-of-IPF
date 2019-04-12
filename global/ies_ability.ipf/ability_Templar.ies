@@ -1,4 +1,6 @@
 ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time4,Price5,Time5,Price6,Time6,Price7,Time7,Price8,Time8,Price9,Time9,Price10,Time10,ClassName,UnlockScr,UnlockArgStr,UnlockDesc,ScrCalcPrice
-101,2,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Templar1","UNLOCK_ABIL_CIRCLE","Char1_16","템플러 2서클 필요","ABIL_8RANK_PRICE"
-102,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Templar2","UNLOCK_ABIL_CIRCLE","Char1_16","템플러 2서클 필요","ABIL_8RANK_NORMAL_PRICE"
-103,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Templar3","UNLOCK_ABIL_CIRCLE","Char1_16","템플러 3서클 필요","ABIL_9RANK_NORMAL_PRICE"
+101,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Templar1","UNLOCK_ABIL_SKILL","Templer_MortalSlash","모탈 슬래시 1레벨 이상","ABIL_REINFORCE_PRICE"
+301,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Templar4","UNLOCK_ABIL_SKILL","Templer_BuildForge","포지 설치 1레벨 이상","ABIL_REINFORCE_PRICE"
+401,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Templar5","UNLOCK_ABIL_SKILL","Templer_BuildShieldCharger","실드 차저 설치 1레벨 이상","ABIL_REINFORCE_PRICE"
+701,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Templar6","UNLOCK_ABIL_SKILL","Templer_BattleOrders","배틀 오더스 1레벨 이상","ABIL_REINFORCE_PRICE"
+801,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Templar7","UNLOCK_ABIL_SKILL","Templer_FlyingColors","플라잉 컬러즈 1레벨 이상","ABIL_REINFORCE_PRICE"

@@ -4,7 +4,7 @@
     <frame title="{@st41b}NewUI{/}" titlepos="0 -8" margin="0 -300 0 0" layout_gravity="center center"/>
     <draw drawtitlebar="false"/>
     <skin frameskin="notice_bg"/>
-    <option hideable="false" closebutton="false" closebuttonpos="-5 22" useimageitem="true"/>
+    <option hideable="false" useimageitem="true"/>
     <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
     <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
     <controls>

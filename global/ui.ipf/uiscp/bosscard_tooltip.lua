@@ -22,8 +22,7 @@ function ITEM_TOOLTIP_LEGEND_BOSSCARD(tooltipframe, invitem, strarg)
 
 	local ypos = DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename); -- 보스 카드라면 공통적으로 그리는 툴팁들
 	ypos = DRAW_BOSSCARD_ADDSTAT_TOOLTIP(tooltipframe, invitem, ypos, mainframename);
---	ypos = DRAW_BOSSCARD_EXP_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 경험치 바
-    ypos = DRAW_BOSSCARD_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 
+        ypos = DRAW_BOSSCARD_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 
 	ypos = DRAW_BOSSCARD_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
 end
 
@@ -84,8 +83,7 @@ function DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 	gBox:RemoveAllChild()
 	
 	local CSetBg = gBox : CreateControlSet('tooltip_bosscard_bg', 'boss_bg_cset', 0, 200);
-
-	local CSet = gBox:CreateControlSet('tooltip_bosscard_common', 'boss_common_cset', 0, 50);
+	local CSet = gBox:CreateControlSet('tooltip_bosscard_common', 'boss_common_cset', 0, 0);
 	tolua.cast(CSet, "ui::CControlSet");
 
 	local GRADE_FONT_SIZE = CSet:GetUserConfig("GRADE_FONT_SIZE"); -- 등급 나타내는 별 크기
@@ -112,8 +110,8 @@ function DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
     
 	local BOTTOM_MARGIN = CSet:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
 	CSet:Resize(CSet:GetWidth(),typeRichtext:GetY() + typeRichtext:GetHeight() + BOTTOM_MARGIN);
-	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+CSet:GetHeight() + 50)
-	return CSet:GetHeight()+50;
+	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+CSet:GetHeight());
+	return CSet:GetHeight();
 end
 
 --포텐 및 내구도
@@ -158,8 +156,8 @@ function DRAW_BOSSCARD_ADDSTAT_TOOLTIP(tooltipframe, invitem, yPos, mainframenam
 		desc_text:SetTextByKey("text", textDesc);
 		CSet:Resize(CSet:GetWidth(), desc_text:GetHeight() + desc_text:GetOffsetY());
 	else
-	desc_text:SetTextByKey("text", invitem.Desc);
-	CSet:Resize(CSet:GetWidth(), desc_text:GetHeight() + desc_text:GetOffsetY());
+		desc_text:SetTextByKey("text", invitem.Desc);
+		CSet:Resize(CSet:GetWidth(), desc_text:GetHeight() + desc_text:GetOffsetY());
 	end
 	
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + CSet:GetHeight())

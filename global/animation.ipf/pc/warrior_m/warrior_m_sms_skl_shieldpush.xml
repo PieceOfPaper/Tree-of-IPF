@@ -6,6 +6,7 @@
 	<BlendOn frame="7" R="80" G="70" B="50" A="50"/>
 	<BlendOn frame="8" R="60" G="50" B="30" A="50"/>
 	<BlendOff frame="10" R="0" G="0" B="0" A="0"/>
+	<Particle frame="8" attachNode="Dummy_effect_effigy1" particleName="I_warrior_shieldpush_dash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
 	<Particle frame="0" attachNode="Dummy_effect_shieldpush" particleName="F_light019" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
 	<Particle frame="8" attachNode="Dummy_effect_shieldpush_root" particleName="I_sphere001_mash_reverse2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true"/>
 	<Particle frame="8" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false"/>

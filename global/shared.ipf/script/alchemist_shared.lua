@@ -7,7 +7,7 @@ function GET_BRIQUETTING_NEED_LOOK_ITEM_CNT(targetItem)
 	return needItem;
 end
 
-function GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMaterialItemList)
+function GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMaterialItemList, taxRate)
 	if IS_BRIQUETTING_DUMMY_ITEM(lookItem) == true then		
 		return 0;
 	end
@@ -37,6 +37,10 @@ function GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMaterialItemList)
 	
 	if cehckLookitem == 'WoodCarving' then
 	    price = 0;
+	end
+
+	if taxRate ~= nil then
+		price = tonumber(CALC_PRICE_WITH_TAX_RATE(price, taxRate)) -- 외형 변경 세금
 	end
 	return price;
 end
@@ -136,5 +140,124 @@ function IS_VALID_LOOK_ITEM(lookItem)
         return false;
     end
     
+	return true;
+end
+
+function IS_VALID_ITEM_TO_REGISTER(itemID)	
+	local itemCls = GetClassByType('Item', itemID);
+	if itemCls == nil then
+		return nil;
+	end	
+	
+	if TryGetProp(itemCls, 'LifeTime', 0) > 0 then
+		return nil;
+	end
+	return itemCls;
+end
+
+function IS_VALID_ALCHEMY_WORKSHOP_COMBUSTION(itemID)
+	local itemCls = IS_VALID_ITEM_TO_REGISTER(itemID);
+	if itemCls == nil then
+		return false;
+	end
+
+	if TryGetProp(itemCls, 'GroupName') == 'Premium' then
+		return false;
+	end
+
+	if IS_EQUIP(itemCls) == true then
+		return false;
+	end
+
+	if TryGetProp(itemCls, 'Destroyable') == 'YES' then
+		return true;
+	end
+	return false;
+end
+
+function IS_VALID_ALCHEMY_WORKSHOP_SPRINKLE_HP(itemID)
+	local itemCls = IS_VALID_ITEM_TO_REGISTER(itemID);
+	if itemCls == nil then
+		return false;
+	end
+	local MAX_ALCHE_POTION_LV = 15;
+	for i = 1, MAX_ALCHE_POTION_LV do
+		local alchePotionName = 'Drug_Alche_HP';
+		if i > 1 then
+			alchePotionName = alchePotionName..tostring(i);
+		end
+		if itemCls.ClassName == alchePotionName then
+			return true;
+		end
+	end
+	return false;
+end
+
+function IS_VALID_ALCHEMY_WORKSHOP_SPRINKLE_SP(itemID)
+	local itemCls = IS_VALID_ITEM_TO_REGISTER(itemID);
+	if itemCls == nil then
+		return false;
+	end
+	local MAX_ALCHE_POTION_LV = 15;
+	for i = 1, MAX_ALCHE_POTION_LV do
+		local alchePotionName = 'Drug_Alche_SP';
+		if i > 1 then
+			alchePotionName = alchePotionName..tostring(i);
+		end
+		if itemCls.ClassName == alchePotionName then
+			return true;
+		end
+	end
+	return false;
+end
+
+function SCR_GET_SPEND_ITEM_Alchemist_Combustion(pc)	
+	local etc = nil;
+	if IsServerObj(pc) == 1 then
+		etc = GetETCObject(pc);
+	else
+		etc = GetMyEtcObject();
+	end
+	if etc == nil then
+		return 0;
+	end
+	local savedID = etc.AlcheWorkshopItemID_Combustion;	
+	return GetClassByType('Item', savedID), savedID;
+end
+
+function SCR_GET_SPEND_ITEM_Alchemist_SprinkleHPPotion(pc)
+	local etc = nil;
+	if IsServerObj(pc) == 1 then
+		etc = GetETCObject(pc);
+	else
+		etc = GetMyEtcObject();
+	end
+	if etc == nil then
+		return 0;
+	end
+	local savedID = etc.AlcheWorkshopItemID_SprinkleHP;
+	return GetClassByType('Item', savedID), savedID;
+end
+
+function SCR_GET_SPEND_ITEM_Alchemist_SprinkleSPPotion(pc)
+	local etc = nil;
+	if IsServerObj(pc) == 1 then
+		etc = GetETCObject(pc);
+	else
+		etc = GetMyEtcObject();
+	end
+	if etc == nil then
+		return 0;
+	end
+	local savedID = etc.AlcheWorkshopItemID_SprinkleSP;
+	return GetClassByType('Item', savedID), savedID;
+end
+
+function IS_ENABLE_GIVE_HIDDEN_PROP_ITEM(item)
+	local star = TryGetProp(item, 'ItemStar', -1);
+	if star < 0 then
+		return false;		
+	end
+	
 	return true;
 end
