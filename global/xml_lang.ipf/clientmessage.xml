@@ -296,7 +296,11 @@
 		<Class ClassID="4122" ClassName="AppraisalSuccess" Data="감정 성공!"/>
 		<Class ClassID="4123" ClassName="AppraisalPrice" Data="감정 비용 : {Price}{nl}감정하시겠습니까?"/>
 		<Class ClassID="4124" ClassName="AppraisalItem" Data="미감정 아이템입니다"/>
+		<Class ClassID="4125" ClassName="RankResetStart" Data="랭크초기화를 시작하였습니다. 처리시간이 걸릴 수 있습니다."/>
 		<Class ClassID="4126" ClassName="DON_T_HAVE_ITEM_TO_APPRAISAL" Data="감정할 아이템을 선택해 주세요."/>
+		<Class ClassID="4127" ClassName="CantUseRank" Data="{Rank}랭크 에서만 사용하실 수 있습니다."/>
+		<Class ClassID="4128" ClassName="CantUseRankRest1Rank" Data="1랭크에서는 사용하실 수 없습니다."/>
+		<Class ClassID="4130" ClassName="IsDoingRankReset" Data="랭크 초기화중에 있습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
@@ -792,6 +796,7 @@
 		<Class ClassID="10451" ClassName="InvalidGender" Data="착용할 수 있는 성별이 아닙니다."/>
 		<Class ClassID="10452" ClassName="Indun1AddText" Data="  인스턴스 던전과 의뢰소 미션에 1회 더 입장 가능"/>
 		<Class ClassID="10453" Data="중복으로 장착할 수 없는 아이템입니다."/>
+		<Class ClassID="10454" ClassName="RankResetMsg" Data="랭크초기화에 성공하였습니다. 배럭으로 돌아갑니다."/>
 		<Class ClassID="10456" ClassName="YouareLearningAbil" Data="습득중인 특성이 있어 사용할 수 없습니다."/>
 		<Class ClassID="10457" ClassName="OnlyTokenUserAbilCount" Data="토큰 이용자만 특성 레벨을 한번에 올릴 수 있습니다."/>
 	</Category>

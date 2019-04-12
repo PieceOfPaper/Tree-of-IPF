@@ -104,7 +104,7 @@ function GET_ABILITY_LEARN_COST(pc, groupClass, abilClass, destLv)
 			local scp = _G[funcName];
 			tempPrice, tempTotalTime = scp(pc, abilClass.ClassName, abilLv, groupClass.MaxLevel);
 
-			tempPrice = GET_ABILITY_PRICE(tempPrice)
+			tempPrice = GET_ABILITY_PRICE(tempPrice, groupClass, abilClass, abilLv)
 			price = price + tempPrice;			
 			tempTotalTime = math.floor(tempTotalTime);
 			totalTime = totalTime + tempTotalTime;
@@ -113,7 +113,7 @@ function GET_ABILITY_LEARN_COST(pc, groupClass, abilClass, destLv)
 		for abilLv = curLv+1, destLv, 1 do
 			tempPrice = groupClass["Price" .. abilLv];
 			tempTotalTime = groupClass["Time" .. abilLv];
-			tempPrice = GET_ABILITY_PRICE(tempPrice)
+			tempPrice = GET_ABILITY_PRICE(tempPrice, groupClass, abilClass, abilLv)
 			price = price + tempPrice;			
 			tempTotalTime = math.floor(tempTotalTime);
 			totalTime = totalTime + tempTotalTime;	
@@ -584,9 +584,17 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 
 end
 
-function GET_ABILITY_PRICE(price)
+function GET_ABILITY_PRICE(price, groupClass, abilClass, abilLv)
+    -- 랭크 초기화권 사용 전에 배웠던 특성은 0실버
+    if GetBeforeAbilityLevel(nil, abilClass.ClassName) >= abilLv then
+        price = 0
+        return price
+    end
+    
 	if IS_SEASON_SERVER(nil) == "YES" then
 		price = price - (price * 0.4)
+	else
+	    price = price - (price * 0.2)
 	end
 	price = math.floor(price);
 
