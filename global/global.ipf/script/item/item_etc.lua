@@ -55,3 +55,24 @@ function DLC_BOX5(pc)
     TxGiveItem(tx, 'steam_Hat_629004', 1, 'DLC_BOX5');
     local ret = TxCommit(tx);
 end
+
+function DLC_BOX6(pc)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'steam_Premium_tpBox_190', 1, 'DLC_BOX6');
+    TxGiveItem(tx, 'PremiumToken_15d', 1, 'DLC_BOX6');
+    TxGiveItem(tx, 'RestartCristal', 15, 'DLC_BOX6');
+    TxGiveItem(tx, 'Premium_boostToken', 5, 'DLC_BOX6');
+    TxGiveItem(tx, 'Mic', 15, 'DLC_BOX6');
+    TxGiveItem(tx, 'Premium_WarpScroll', 15, 'DLC_BOX6');
+    TxGiveItem(tx, 'Drug_Premium_HP1', 20, 'DLC_BOX6');
+    TxGiveItem(tx, 'Drug_Premium_SP1', 20, 'DLC_BOX6');
+    local ret = TxCommit(tx);
+end
+
+function DLC_BOX7(pc)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'steam_PremiumToken_30day', 1, 'DLC_BOX7');
+    TxGiveItem(tx, 'Premium_Enchantchip_10', 4, 'DLC_BOX7');
+    TxGiveItem(tx, 'Premium_indunReset', 5, 'DLC_BOX7');
+    local ret = TxCommit(tx);
+end
