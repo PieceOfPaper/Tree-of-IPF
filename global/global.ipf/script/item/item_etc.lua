@@ -169,3 +169,9 @@ function SCR_USE_ALICEHAIRBOX_2016(pc)
         end
     end
 end
+
+function ACHIEVE_HAUNTEDARTIST(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'HauntedArtist', 1)
+    local ret = TxCommit(tx);
+end

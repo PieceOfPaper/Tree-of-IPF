@@ -1,30 +1,30 @@
 function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
-    local select = ShowSelDlg(pc,0, 'EV_DAILYBOX_SEL', ScpArgMsg("Steam_Event_SongPyeon"), ScpArgMsg("Cancel"))
-
-    if select == 1 then
-        local msgBig = nil 
-        local aobj = GetAccountObj(pc);
-        local now_time = os.date('*t')
-        local year = now_time['year']
-        local month = now_time['month']
-        local day = now_time['day']
-        local nowYday = SCR_DATE_TO_YDAY_BASIC_2000(year, month, day)
-        if aobj ~= nil then
-            if aobj.CHUSEOK_EVENT_DATE < nowYday or aobj.CHUSEOK_EVENT_DAY_COUNT < 3 then
-                msgBig = ScpArgMsg('CHUSEOK_EVENT_MSG2')
-            end
-        end
-        local select1 = ShowSelDlg(pc, 0, 'EV_SONGPYEON_DESC1',  ScpArgMsg('CHUSEOK_EVENT_MSG1'), ScpArgMsg('CHUSEOK_EVENT_MSG3'), msgBig, ScpArgMsg('Auto_DaeHwa_JongLyo'))
-        
-        if select1 == 1 then
-            local dlgTable = {'KLAPEDA_CHUSEOK_EVENT_SELECT1','KLAPEDA_CHUSEOK_EVENT_ERROR1','KLAPEDA_CHUSEOK_EVENT_ERROR2'}
-	        SCR_CHUSEOK_EVENT_EXCHANGE1(pc, dlgTable)
-        elseif select1 == 2 then
-            SCR_CHUSEOK_EVENT_EXCHANGE3(pc)
-        elseif select1 == 3 then
-            SCR_CHUSEOK_EVENT_EXCHANGE2(pc)
-        end
-    end
+--    local select = ShowSelDlg(pc,0, 'EV_DAILYBOX_SEL', ScpArgMsg("Steam_Event_SongPyeon"), ScpArgMsg("Cancel"))
+--
+--    if select == 1 then
+--        local msgBig = nil 
+--        local aobj = GetAccountObj(pc);
+--        local now_time = os.date('*t')
+--        local year = now_time['year']
+--        local month = now_time['month']
+--        local day = now_time['day']
+--        local nowYday = SCR_DATE_TO_YDAY_BASIC_2000(year, month, day)
+--        if aobj ~= nil then
+--            if aobj.CHUSEOK_EVENT_DATE < nowYday or aobj.CHUSEOK_EVENT_DAY_COUNT < 3 then
+--                msgBig = ScpArgMsg('CHUSEOK_EVENT_MSG2')
+--            end
+--        end
+--        local select1 = ShowSelDlg(pc, 0, 'EV_SONGPYEON_DESC1',  ScpArgMsg('CHUSEOK_EVENT_MSG1'), ScpArgMsg('CHUSEOK_EVENT_MSG3'), msgBig, ScpArgMsg('Auto_DaeHwa_JongLyo'))
+--        
+--        if select1 == 1 then
+--            local dlgTable = {'KLAPEDA_CHUSEOK_EVENT_SELECT1','KLAPEDA_CHUSEOK_EVENT_ERROR1','KLAPEDA_CHUSEOK_EVENT_ERROR2'}
+--	        SCR_CHUSEOK_EVENT_EXCHANGE1(pc, dlgTable)
+--        elseif select1 == 2 then
+--            SCR_CHUSEOK_EVENT_EXCHANGE3(pc)
+--        elseif select1 == 3 then
+--            SCR_CHUSEOK_EVENT_EXCHANGE2(pc)
+--        end
+--    end
 end
 
 function SCR_CHUSEOK_EVENT_EXCHANGE1(pc, dlgTable)
