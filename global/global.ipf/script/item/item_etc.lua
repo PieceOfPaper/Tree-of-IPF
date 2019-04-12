@@ -1482,3 +1482,15 @@ function Achieve_Event_Fashionista(pc)
     TxAddAchievePoint(tx, 'Achieve_Event_Fashionista', 1)
     local ret = TxCommit(tx);
 end
+
+function SCR_USE_DIAMOND_MOUR_BOX_GIVE_ITEM(pc, string1, arg1, arg2)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, arg1, arg2, 'DIAMOND_MOUR_BOX_S_GIVE_COUNT'..arg2);
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_ABILITY_POINT_BOX1_BOX_GIVE_ITEM(pc, string1, arg1, arg2)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, arg1, arg2, 'ABILITY_POINT_BOX1_BOX_S_GIVE_COUNT'..arg2);
+    local ret = TxCommit(tx);
+end

@@ -3735,20 +3735,6 @@ function DIALOG_TEXT_VOICE(flowTextObj)
 	end
 end
 
--- function COMMON_SHOP_TOGGLE()
-
-
-	-- local shopCommonFrame = ui.GetFrame("shop");
-
-
-	-- if shopCommonFrame:IsVisible() == 1 then
-		-- shopCommonFrame:ShowWindow(0);
-	-- else
-		-- ui.CommonShopToggle();
-	-- end
-
--- end
-
 function GET_RADIOBTN_NUMBER(radioBtn)
 
 	radioBtn = tolua.cast(radioBtn, "ui::CRadioButton");

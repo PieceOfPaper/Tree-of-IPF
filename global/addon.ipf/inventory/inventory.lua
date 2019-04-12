@@ -1363,6 +1363,12 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 	-- 워프 주문서 예외처리. 실제 워프가 이루어질때 아이템이 소비되도록.
 	local warpscrolllistcls = GetClass("warpscrolllist", itemobj.ClassName);
 	if warpscrolllistcls ~= nil then
+		local ZoneClassName = GetZoneName(self) -- event V I V I D CICY --
+		if ZoneClassName == 'VIVID_c_Klaipe' or ZoneClassName == 'VIVID_c_orsha' or ZoneClassName == 'VIVID_c_fedimian' then
+			ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
+			return 0;
+		end -- event V I V I D CICY --
+		
 		if itemobj.LifeTime > 0 and itemobj.ItemLifeTimeOver > 0 then
 			ui.SysMsg(ScpArgMsg("LessThanItemLifeTime"));
 			return 1;
