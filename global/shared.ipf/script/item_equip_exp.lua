@@ -14,14 +14,12 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_LargeSongPyeon');	-- 대왕송편
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Largehoney_Songpyeon'); -- 대왕꿀송편
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_161110_candy'); -- 대왕꿀송편
-	
-	if IsBuffApplied(pc, 'Premium_Fortunecookie') == 'YES' then
-	    local buff = GetBuffByName(from, 'Premium_Fortunecookie');
-	    print(buff)
-	    local buffOver = GetOver(buff)
-	    sumExp = sumExp + (IsBuffAppliedEXP(pc, 'Premium_Fortunecookie') * buffOver)
-	end
-	
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Premium_Fortunecookie_1'); -- 포춘 쿠키 1단계
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Premium_Fortunecookie_2'); -- 포춘 쿠키 2단계
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Premium_Fortunecookie_3'); -- 포춘 쿠키 3단계
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Premium_Fortunecookie_4'); -- 포춘 쿠키 4단계
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Premium_Fortunecookie_5'); -- 포춘 쿠키 5단계
+
 	return sumExp; 
 end
 

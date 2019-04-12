@@ -1617,7 +1617,7 @@ function EXEC_SHOP_SELL(frame, cnt)
 	cnt = tonumber(cnt);
 	local itemGuid = frame:GetUserValue("SELL_ITEM_GUID");
 	local invItem = session.GetInvItemByGuid(itemGuid);
-	SHOP_SELL(invItem, cnt, frame, true);
+	SHOP_SELL(invItem, cnt, GET_SHOP_FRAME(), true);
 
 end
 

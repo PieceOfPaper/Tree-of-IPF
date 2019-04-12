@@ -52,7 +52,7 @@ local val2 = cls2.Value;
 	end
 	end
 	
-	--?�반 ?�티 경험�?계산
+	--?¼반 ??티 경험췿계산
 	local retParty = false;
 	local partyMember, addValue1 =	GET_ONLINE_PARTY_MEMBER_N_ADDEXP();	
 	SWITCH(math.floor(partyMember)) {				
@@ -97,7 +97,7 @@ local val2 = cls2.Value;
 						exp = 0;
 					else
 						exp = tonumber(exp);
-						if config.GetServiceNation() == 'GLOBAL' then 
+						if config.GetServiceNation() == 'GLOBAL' and type == 70002 then 
 							exp = exp + 0.1;
 						end;						
 					end

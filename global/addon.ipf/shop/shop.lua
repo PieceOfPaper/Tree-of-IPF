@@ -352,6 +352,8 @@ function SHOP_SELL(invitem, sellCount, frame, setTotalCount)
 		frame = ui.GetFrame('shop');
 	end
 
+	local shopFrame = ui.GetFrame('shop');
+
 	if true == invitem.isLockState then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
@@ -365,7 +367,7 @@ function SHOP_SELL(invitem, sellCount, frame, setTotalCount)
 	end
 
 	imcSound.PlaySoundEvent('button_inven_click_item');
-	local slot = GET_USABLE_SLOTSET(frame, invitem);
+	local slot = GET_USABLE_SLOTSET(shopFrame, invitem);
 	slot:SetUserValue("SLOT_ITEM_ID", invitem:GetIESID());
 	local icon = CreateIcon(slot);
 	local imageName = GET_EQUIP_ITEM_IMAGE_NAME(itemobj, 'Icon')
@@ -407,8 +409,8 @@ function SHOP_SELL(invitem, sellCount, frame, setTotalCount)
 
 	SHOP_SELECT_ITEM_LIST[invitem:GetIESID()] = curCnt;
 
-	SHOP_ITEM_LIST_GET(frame);
-	SHOP_UPDATE_BUY_PRICE(frame);
+	SHOP_ITEM_LIST_GET(shopFrame);
+	SHOP_UPDATE_BUY_PRICE(shopFrame);
 
 	INVENTORY_UPDATE_ICON_BY_INVITEM(ui.GetFrame('inventory'), invitem);
 
@@ -865,6 +867,8 @@ function SHOP_ITEM_LIST_GET(frame)
 	if frame == nil then
 		frame = ui.GetFrame('shop');
 	end
+	
+	
 	local ShopItemGroupBox 	= frame:GetChild('shop');
 	local SHOPITEM_listSet	= tolua.cast(ShopItemGroupBox, "ui::CGroupBox");
 
@@ -893,6 +897,10 @@ function SHOP_ITEM_LIST_GET(frame)
 	local SHOPITEMLIST_prevItem = nil;
 
 	TOTALPAGENUM = math.floor(shopItemCount / 8) + 1;
+	if shopItemCount % 8 == 0 then
+		TOTALPAGENUM = TOTALPAGENUM - 1;
+	end
+
 	if shopItemCount - shopItemCount % 8 > 0 then
 		local pageEndCount = NOWPAGENUM * 8 - 1;
 		if pageEndCount > shopItemCount then
@@ -1306,3 +1314,11 @@ function SHOP_SLOT_CLEAR(slot)
 
 end
 
+function GET_SHOP_FRAME()
+	local shop = ui.GetFrame('shop');
+	local companionshop = ui.GetFrame('companionshop');
+	if companionshop:IsVisible() == 1 then
+		return companionshop:GetChild('foodBox');
+	end
+	return shop;
+end
