@@ -24,13 +24,14 @@ function ON_TREE_NODE_RCLICK(frame, msg, clickedGroupName, argNum)
 	local cnt = session.friends.GetFriendCount(FRIEND_LIST_COMPLETE);
 
 	for i = 0 , cnt - 1 do
-		local f = session.friends.GetFriendByIndex(FRIEND_LIST_COMPLETE, i);		
+		local f = session.friends.GetFriendByIndex(FRIEND_LIST_COMPLETE, i);
+		if nil == f then
+			break;
+		end
+
 		local groupname = f:GetGroupName()
-
 		if groupname == clickedGroupName then
-
 			local context = ui.CreateContextMenu("GROUP_EDIT_CONTEXT", "", 0, 0, 0, 0);
-
 			local groupDelScp = string.format("FRIEND_GROUP_CHANGE_NAME(\"%s\")", groupname);
 			ui.AddContextMenuItem(context, ScpArgMsg("FriendGroupChangeName"), groupDelScp);
 
@@ -41,11 +42,8 @@ function ON_TREE_NODE_RCLICK(frame, msg, clickedGroupName, argNum)
 			ui.OpenContextMenu(context);
 
 			break;
-
 		end
-
 	end
-
 end
 
 function FRIEND_GROUP_CHANGE_NAME(groupname)
@@ -63,7 +61,7 @@ function EXED_FRIEND_CHANGE_GROUP_NAME(frame, groupname)
 	for i = 0 , cnt - 1 do
 		local f = session.friends.GetFriendByIndex(FRIEND_LIST_COMPLETE, i);		
 
-		if oldgroupname == f:GetGroupName() then
+		if f ~= nil and oldgroupname == f:GetGroupName() then
 			friends.RequestSetGroup(f:GetInfo():GetACCID(), groupname);
 		end
 	end
@@ -77,7 +75,7 @@ function FRIEND_GROUP_DELETE(groupname)
 	for i = 0 , cnt - 1 do
 		local f = session.friends.GetFriendByIndex(FRIEND_LIST_COMPLETE, i);		
 
-		if groupname == f:GetGroupName() then
+		if f ~= nil and  groupname == f:GetGroupName() then
 			friends.RequestSetGroup(f:GetInfo():GetACCID(), '');
 		end
 	end
@@ -866,12 +864,12 @@ function POPUP_FRIEND_GROUP_CONTEXTMENU(aid)
 
 	for i = 0 , cnt - 1 do
 		local f = session.friends.GetFriendByIndex(FRIEND_LIST_COMPLETE, i);		
-		local groupname = f:GetGroupName()
+		if nil ~= f then
+			local groupname = f:GetGroupName()
 
-		if groupname ~= nil and groupname ~= "" and groupname ~= "None" and groupnamelist[groupname] == nil then
-			
-			table.insert(groupnamelist,groupname)
-			
+			if groupname ~= nil and groupname ~= "" and groupname ~= "None" and groupnamelist[groupname] == nil then
+				table.insert(groupnamelist,groupname)
+			end
 		end
 	end
 

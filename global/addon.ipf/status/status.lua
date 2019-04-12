@@ -669,7 +669,7 @@ function SETEXP_SLOT(gbox)
 	end
 	
 		--[[
-	--?�반 ?�티 경험�?계산
+	--?¼반 ??티 경험췿계산
 	local retParty = false;
 	local partyMember, addValue1 =	GET_ONLINE_PARTY_MEMBER_N_ADDEXP();	
 	SWITCH(math.floor(partyMember)) {				
@@ -1743,7 +1743,7 @@ function STATUS_ACHIEVE_INIT(frame)
 				local eachColor = imcIES.GetString(eachcls, 'Color') 
 				eachColorE = string.lower(eachColorE)
 
-				-- ?�적 받으�??�어 컬러 ?�라지???�상???�다�??�서 HairColor ?�로?�티 값으로도 ?�인
+				-- ??적 받으맿?¤어 컬러 ?￢라지????상????다걿?´서 HairColor ??로?¼티 값으로도 ??인
 				if string.find(nowAllowedColor, eachColorE) ~= nil or TryGetProp(etc, "HairColor_"..eachColorE) == 1 then
 				
 					local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_'..eachColorE, 30 + 35 * haircount, 55, 35, 35);
@@ -1902,7 +1902,8 @@ function STATUS_JOB_CHANGE(frame)
 end
 
 
---캐릭???�름 변�?function CHANGE_MYPC_NAME_BY_ITEM(invItem)
+--캐릭???´름 변갿
+function CHANGE_MYPC_NAME_BY_ITEM(invItem)
 	local newframe = ui.GetFrame("inputstring");
 
 	if invItem.isLockState then
@@ -1918,7 +1919,8 @@ end
 	INPUT_STRING_BOX(ClMsg("InputNameForChange"), "EXEC_CHANGE_NAME_BY_ITEM", charName, 0, 16);
 end
 
---?� ?�름 변�?function CHANGE_TEAM_NAME_BY_ITEM(invItem)
+--? ?´름 변갿
+function CHANGE_TEAM_NAME_BY_ITEM(invItem)
 	local newframe = ui.GetFrame("inputstring");
 
 	if invItem.isLockState then
@@ -1934,7 +1936,8 @@ end
 	INPUT_STRING_BOX(ClMsg("ChangeFamilyName"), "EXEC_CHANGE_NAME_BY_ITEM", charName, 0, 16);
 end
 
---길드 ?�름 변�?function CHANGE_GUILD_NAME_BY_ITEM(invItem)
+--길드 ?´름 변갿
+function CHANGE_GUILD_NAME_BY_ITEM(invItem)
 	local newframe = ui.GetFrame("inputstring");
 
 	if invItem.isLockState then

@@ -1953,7 +1953,7 @@ function ON_WORLD_MSG_0(name, type, pointType, point)
 		end
 	end
 	
-	if FRIEND_LIST_COMPLETE == session.friends.GetFriendListTypeByFamilyName(name) or ispartymesmbers == true then
+	if nil ~= session.friends.GetFriendByFamilyName(FRIEND_LIST_COMPLETE, name) or ispartymesmbers == true then
 		
 		local achiName = geAchieveTable.GetName(type);	
 
