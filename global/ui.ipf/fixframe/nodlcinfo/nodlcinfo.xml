@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="nodlcinfo" x="0" y="0" width="480" height="640">
-	<frame title="nodlc" margin="0 0 0 0" layout_gravity="center center" scale_align="center center"/>
-	<layer layerlevel="100"/>
-	<controls>
-		<picture name="bgimg" rect="0 0 480 640" hittest="false" image="fulldgray" stretch="true"/>
-		<richtext name="testtext" rect="0 0 360 860" margin="0 0 0 0" layout_gravity="center center" caption="TestText" fixwidth="false" resizebytext="false" textalign="center center"/>
-		<button name="closebtn" rect="0 0 44 44" margin="0 20 20 0" layout_gravity="center bottom" LBtnUpArgNum="" LBtnUpScp="ui.ToggleFrame('nodlcinfo')" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
-	</controls>
+<uiframe name="nodlcinfo" x="0" y="0" width="1276" height="691">
+  <frame title="" margin="0 0 0 0" layout_gravity="center center" scale_align="center center"/>
+  <draw drawnotitlebar="false" drawtitlebar="false"/>
+  <skin frameskin="None"/>
+  <layer layerlevel="100"/>
+  <controls>
+    <picture name="dlcinfo" rect="0 0 1276 691" hittest="false" image="dlcinfo" stretch="true"/>
+    <button name="closebtn" rect="0 0 76 45" margin="0 0 0 35" layout_gravity="center bottom" LBtnUpScp="ui.ToggleFrame('nodlcinfo2')" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" format="{@st66b}%s" param1="value" param1_def="OK"/>
+  </controls>
 </uiframe>
