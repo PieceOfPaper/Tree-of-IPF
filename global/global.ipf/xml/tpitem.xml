@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- 카테고리 : 1차 카테고리, 서브카테고리 : 1차 카테고리 눌렀을 때 나오는 서브 카테고리. 필요 없으면 "None" 으로 지정 가능, 아이템클래스테임 : Item idspace에 등록되어 있는 아이템의 클래스네임, 프라이스 : 가격  -->
 <idspace id="TPitem">
 	<Category Name="소모품 /잡화">
 		<SecondCategory Name="프리미엄 아이템">
 			<Class ClassID="1" ClassName="ClassName1" OverrideType="None" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="PremiumToken" Price="99" Job="None" JobGrade="0"/>
-			<Class ClassID="4" ClassName="ClassName4" OverrideType="REMOVE" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="Gacha_HairAcc_001" Price="30" Job="None" JobGrade="0"/>
-			<Class ClassID="5" ClassName="ClassName5" OverrideType="REMOVE" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="Gacha_HairAcc_010" Price="300" Job="None" JobGrade="0"/>
 		</SecondCategory>
 		<SecondCategory Name="소모품">
 			<Class ClassID="101" ClassName="ClassName101" Category="TP_Premium" SubCategory="TP_Consume" ItemClassName="Mic_bundle10" Price="8" Job="None" JobGrade="0"/>
