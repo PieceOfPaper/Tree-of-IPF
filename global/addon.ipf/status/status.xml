@@ -28,7 +28,7 @@
 		<groupbox name="internalstatusBox" parent="statusGbox" rect="0 0 483 415" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true"/>
 		<groupbox name="internalBox" parent="achieveGbox" rect="0 0 480 840" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true"/>
 		<groupbox name="logoutGBox" rect="0 0 495 915" margin="10 140 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="false"/>
-		<groupbox name="customizingGBox" parent="logoutGBox" rect="0 0 480 360" margin="0 0 0 0" layout_gravity="left top" draw="true" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true"skin="line_bg_skin"/>
+		<groupbox name="customizingGBox" parent="logoutGBox" rect="0 0 480 370" margin="0 0 0 0" layout_gravity="left top" draw="true" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true"skin="line_bg_skin"/>
 		<richtext name="hairColorStatic" parent="customizingGBox" rect="0 0 200 20" margin="15 25 0 0" layout_gravity="left top" caption="헤어컬러" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
 		<richtext name="titleListStatic" parent="customizingGBox" rect="0 0 200 20" margin="15 115 0 0" layout_gravity="left top" caption="장착 가능 칭호" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
 		<controlset name="logoutInternal" parent="logoutGBox" rect="0 0 485 560" margin="1 357 0 0" layout_gravity="left bottom" draw="false" hittest="true" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin="none" type="logoutpc_config"/>

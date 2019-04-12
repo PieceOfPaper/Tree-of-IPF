@@ -574,55 +574,6 @@
 		</TriggerList>
 	</SpcItem>
 	<SpcItem Name="RAP04_101">
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_AttaqueComposee"/>
-						<Num Num="2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_Lunge"/>
-						<Num Num="2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_SeptEtoiles"/>
-						<Num Num="2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_AttaqueCoquille"/>
-						<Num Num="2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_EsquiveToucher"/>
-						<Num Num="2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_Flanconnade"/>
-						<Num Num="2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_Preparation"/>
-						<Num Num="2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="BeforeAttack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
-						<Num Num="3"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
-						<Num Num="1" UseFunc="1" FuncTxt="
-return self.Holy_Atk"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
 		<TriggerList Act="UnEquip">
 			<Trigger>
 				<ExecList>
@@ -653,6 +604,59 @@ return self.Holy_Atk"/>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Fencer_Preparation"/>
 						<Num Num="-2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="3"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="1" UseFunc="1" FuncTxt="if IS_PC(self) == true then
+
+return self.Holy_Atk
+else
+return 0;
+end"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_AttaqueComposee"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_Lunge"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_SeptEtoiles"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_AttaqueCoquille"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_EsquiveToucher"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_Flanconnade"/>
+						<Num Num="2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_Preparation"/>
+						<Num Num="2"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -863,6 +867,32 @@ return self.Holy_Atk"/>
 		</TriggerList>
 	</SpcItem>
 	<SpcItem Name="PST02_103">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_ConcentratedFire"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_Caracole"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_Limacon"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_RetreatShot"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_WildShot"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
 		<TriggerList Act="Equip">
 			<Trigger>
 				<ExecList>
@@ -882,33 +912,41 @@ return self.Holy_Atk"/>
 						<Str Str="Schwarzereiter_RetreatShot"/>
 						<Num Num="1"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_ConcentratedFire"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_Caracole"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_Limacon"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_RetreatShot"/>
-						<Num Num="-1"/>
+						<Str Str="Schwarzereiter_WildShot"/>
+						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
 	<SpcItem Name="PST04_102">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_ConcentratedFire"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_Caracole"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_Limacon"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_RetreatShot"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_WildShot"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
 		<TriggerList Act="Equip">
 			<Trigger>
 				<ExecList>
@@ -928,27 +966,9 @@ return self.Holy_Atk"/>
 						<Str Str="Schwarzereiter_RetreatShot"/>
 						<Num Num="1"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_ConcentratedFire"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_Caracole"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_Limacon"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Schwarzereiter_RetreatShot"/>
-						<Num Num="-1"/>
+						<Str Str="Schwarzereiter_WildShot"/>
+						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>

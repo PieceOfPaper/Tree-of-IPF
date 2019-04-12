@@ -22,8 +22,10 @@ end
 function GET_CURRENT_SNIPE_POS()
 	local frame = ui.GetFrame("uieffect");
 	local child = frame:GetChild("SNIPER");
-	local x = tonumber(child:GetUserValue("CURX"));
-	local y = tonumber(child:GetUserValue("CURY"));
+	local childName = child:GetUserValue("CENTERNAME");
+	local centerChild = child:GetChild(childName);
+	local x = centerChild:GetGlobalX() + centerChild:GetWidth() * 0.5;
+	local y = centerChild:GetGlobalY() + centerChild:GetHeight() * 0.5;
 	local pos = frame:FramePosToScreenPos(x, y);
 	return pos.x, pos.y;
 end
@@ -36,7 +38,7 @@ function START_SNIPE(sx, sy)
 	local child = frame:GetChild("SNIPER");
 	if child == nil then
 		local skinSize = ui.GetSkinImageSize("snipe_center");	
-		child = frame:CreateControl("groupbox", "SNIPER", 0, 0, frame:GetWidth() * 2 + skinSize.x * 4, frame:GetHeight() * 2 + skinSize.y * 4);
+		child = frame:CreateControl("groupbox", "SNIPER", 0, 0, frame:GetWidth() * 2 + skinSize.x * 8, frame:GetHeight() * 8 + skinSize.y * 4);
 		child:SetSkinName("None");
 		local createX = math.floor(frame:GetWidth() * 2 / skinSize.x) + 1;
 		local createY = math.floor(frame:GetHeight() * 2 / skinSize.y) + 1;
@@ -95,28 +97,35 @@ end
 
 function UPDATE_SNIPE_POSITION(child, totalTime, elapsedTime)
 
+	if session.config.IsMouseMode() == true then
+		local x, y = GET_MOUSE_POS();
+		local frame = child:GetTopParentFrame();
+		local pt = frame:ScreenPosToFramePos(x, y);
+		SNIPE_SETPOS(child, pt.x, pt.y);
+		return 1;
+	end
+
 	local x = tonumber(child:GetUserValue("CURX"));
 	local y = tonumber(child:GetUserValue("CURY"));
 	
 	local spd = 1000 * elapsedTime;
 	local changed = false;
-	if 1 == keyboard.IsKeyPressed("LEFT") then
+	if true == imcinput.IsHotKeyPressed("MoveLeft") then
 			x = x - spd;
 			changed = true;
 	end
 	
-	if 1 == keyboard.IsKeyPressed("RIGHT") then
+	if true  == imcinput.IsHotKeyPressed("MoveRight") then
 			x = x + spd;
 			changed = true;
-		--			print(x);
 	end
 
-	if 1 == keyboard.IsKeyPressed("UP") then
+	if true == imcinput.IsHotKeyPressed("MoveUp") then
 			y = y - spd;
 			changed = true;
 	end
 	
-	if 1 == keyboard.IsKeyPressed("DOWN") then
+	if true == imcinput.IsHotKeyPressed("MoveDown") then
 			y = y + spd;
 			changed = true;
 	end
@@ -136,13 +145,14 @@ function SNIPE_SETPOS(child, x, y)
 	local child = frame:GetChild("SNIPER");
 	child:SetUserValue("CURX", x);
 	child:SetUserValue("CURY", y);
-	local centerOffsetX = child:GetUserIValue("CENTER_X");
-	local centerOffsetY = child:GetUserIValue("CENTER_Y");
-	
-	centerOffsetX = -centerOffsetX + x - frame:GetWidth() / 2;
-	centerOffsetY = -centerOffsetY + y - frame:GetHeight() / 2;
 
-	child:SetOffset( centerOffsetX, centerOffsetY);
+	local childName = child:GetUserValue("CENTERNAME");
+	local centerChild = child:GetChild(childName);
+	
+	local childCenterX = x - centerChild:GetX() - centerChild:GetWidth() * 0.5;
+	local childCenterY = y - centerChild:GetY() - centerChild:GetHeight() * 0.5;
+	
+	child:SetOffset( childCenterX, childCenterY);
 
 end
 

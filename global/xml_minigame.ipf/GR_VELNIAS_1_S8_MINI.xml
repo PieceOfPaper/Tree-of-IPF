@@ -35,29 +35,14 @@
             </Stage>
             <Stage Name="SUCCESS" AutoStart="0">
                 <StartScpList>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="10"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="보상을 선택하세요"/>
+                        <Str Str="길드 마스터에게 이벤트 보상이 지급되었습니다"/>
                         <Str Str="reward_box"/>
-                        <Num Num="10"/>
+                        <Num Num="5"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList/>
                 <StageEvents>
-                    <Event execCount="1" eventName="END">
-                        <condList>
-                            <ToolScp Scp="RAID_END_REWARD_CHECK" Client="NO" UseSleep="NO">
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_GUILD_RAID_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Num Num="8"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
                     <Event execCount="1" eventName="reward">
                         <execList>
                             <ToolScp Scp="MGAME_GUILD_REWARD" Client="NO" UseSleep="NO"/>
@@ -140,8 +125,8 @@
             <Stage Name="STAGE_1_END" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="첫 번째 목표를 완료했습니다"/>
-                        <Str Str="stage_clear"/>
+                        <Str Str="[마족 봉기] 이벤트를 완료했습니다"/>
+                        <Str Str="raid_clear"/>
                         <Num Num="10"/>
                     </ToolScp>
                 </StartScpList>
@@ -160,7 +145,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="STAGE_1_END"/>
                             </ToolScp>
-                            <ToolScp Scp="RAID_END_REWARD" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                 </StageEvents>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <packeteffects>
     <Category ID="48">
@@ -20,6 +20,15 @@
         <Effect Name="F_full_charge_ground"/>
         <Effect Name="timer"/>
         <Effect Name="ABSORB"/>
+        <Effect Name="FIRE"/>
+        <Effect Name="I_smoke054_white"/>
+        <Effect Name="F_wizard_SubzeroShield_light_loop"/>
+        <Effect Name="F_warrior_ninja_shot_smoke"/>
+        <Effect Name="I_smoke053_mint_loop"/>
+        <Effect Name="I_force023_fire2"/>
+        <Effect Name="setting"/>
+        <Effect Name="E_light001_circle"/>
+        <Effect Name="CORAL_32_2_SQ_1_MINI"/>
     </Category>
     <Category ID="75">
         <Effect>knockdown_bounce</Effect>
@@ -48,6 +57,32 @@
         <Effect Name="I_force0082"/>
         <Effect Name="F_rize006_red"/>
         <Effect Name="event_sit"/>
+        <Effect Name="F_explosion043"/>
+        <Effect Name="I_EventVab_mash"/>
+        <Effect Name="F_ground034_violet"/>
+        <Effect Name="F_smoke072_sviolet2"/>
+        <Effect Name="I_EventVab02_mash"/>
+        <Effect Name="F_light096_red_loop2"/>
+        <Effect Name="I_vine_event_dead_mash"/>
+        <Effect Name="I_wizard_necromancer_force"/>
+        <Effect Name="I_wizard_necromancer_force2"/>
+        <Effect Name="F_pattern015_blue_loop"/>
+        <Effect Name="F_pattern015_green_loop"/>
+        <Effect Name="F_pattern015_white"/>
+        <Effect Name="F_pattern015_white_loop"/>
+        <Effect Name="CORAL_35_2_SQ_9_MINI"/>
+        <Effect Name="I_SlaveStone_mash"/>
+        <Effect Name="F_stone005"/>
+        <Effect Name="F_pattern015_orange_loop"/>
+        <Effect Name="F_magic_prison_line_orange"/>
+        <Effect Name="bury"/>
+        <Effect Name="F_pattern015_green"/>
+        <Effect Name="F_pattern015_blue"/>
+        <Effect Name="F_pattern015_orange"/>
+        <Effect Name="F_levitation005_yellow"/>
+        <Effect Name="public_throw"/>
+        <Effect Name="F_pattern014_ground_blue_loop"/>
+        <Effect Name="I_chain004_mash_loop"/>
     </Category>
     <Category ID="72">
         <Effect>F_archer_chargeshot_shot_smoke</Effect>
@@ -738,6 +773,23 @@
         <Effect Name="TABLELAND_73_SUBQ5_ICE"/>
         <Effect Name="I_light015_yellow"/>
         <Effect Name="F_light056_green"/>
+        <Effect Name="campfire_add"/>
+        <Effect Name="boss_b"/>
+        <Effect Name="F_circle020_light2_red"/>
+        <Effect Name="F_levitation014"/>
+        <Effect Name="F_levitation032_red_loop"/>
+        <Effect Name="F_levitation032_red_loop"/>
+        <Effect Name="event_flask"/>
+        <Effect Name="F_buff_basic034_pink"/>
+        <Effect Name="F_smoke141_darkblue_spread_out"/>
+        <Effect Name="F_smoke149_ice"/>
+        <Effect Name="ICE"/>
+        <Effect Name="voice_wiz_psychicpressure_shot"/>
+        <Effect Name="F_ground049_lineup"/>
+        <Effect Name="F_buff_basic034_pink2"/>
+        <Effect Name="F_smoke137_white2"/>
+        <Effect Name="F_smoke137_white2"/>
+        <Effect Name="I_emo_exclamation#Dummy_head"/>
     </Category>
     <Category ID="26">
         <Effect Name="I_warrior_ironhook_hook2"/>
@@ -2117,6 +2169,22 @@
         <Effect Name="I_force015_violet#Bip001 Spine"/>
         <Effect Name="F_burstup011_violet"/>
         <Effect Name="TABLEL72_SUBQ8_MINI"/>
+        <Effect Name="voice_wiz_stonecurse_shot"/>
+        <Effect Name="voice_wiz_psychicpressure_shot"/>
+        <Effect Name="I_ground012_ice"/>
+        <Effect Name="F_ground143_violet_ice##1"/>
+        <Effect Name="F_spark017_ice##1"/>
+        <Effect Name="F_spread_out037_violet_ice_leaf"/>
+        <Effect Name="F_spread_out037_violet_ice_leaf"/>
+        <Effect Name="I_smoke004_4_grey#Bip001 L Hand"/>
+        <Effect Name="F_explosion033_orange##0.5"/>
+    <Effect Name="I_smoke004_4_grey#Bip001 R Finger0Nub"/>
+    <Effect Name="I_smoke004_4_grey#Dummy_effect_hand_R"/>
+        <Effect Name="I_smoke004_4_grey#Dummy_effect_skl2"/>
+    <Effect Name="I_force046_green2#B_light 01"/>
+        <Effect Name="I_force046_green2#B_light 02"/>
+        <Effect Name="I_force046_green2#B_light 03"/>
+        <Effect Name="I_force046_green2#B_light 04"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
@@ -2297,6 +2365,11 @@
         <Effect Name="Dialog_prog"/>
         <Effect Name="Timmer_cnt"/>
         <Effect Name="mission_groundtower"/>
+        <Effect Name="AutoStartBattle"/>
+        <Effect Name="Five_WIN"/>
+        <Effect Name="GuildHunter_RP"/>
+        <Effect Name="GuildHunter_LOSE"/>
+        <Effect Name="GuildHunter_WIN"/>
     </Category>
     <Category ID="49">
         <Effect Name="JOB_CENTURION5_1_MINI"/>
@@ -2469,6 +2542,11 @@
         <Effect Name="skl_eff_stone_grind"/>
         <Effect Name="skl_eff_stone_grind_2"/>
         <Effect Name="M_GTOWER_INIT"/>
+        <Effect Name="F_light084_yellow2"/>
+        <Effect Name="F_light096_red_loop2"/>
+        <Effect Name="I_sphere008_boss_barrier_mash_loop"/>
+        <Effect Name="I_rize009"/>
+        <Effect Name="I_force046_green2#Bone11"/>
     </Category>
     <Category ID="23">
         <Effect Name="I_force004_pink#Bip01 R Finger0"/>
@@ -3133,6 +3211,14 @@
         <Effect Name="Timmer_cnt"/>
         <Effect Name="InDun_Clear"/>
         <Effect Name="Indun_Clear"/>
+        <Effect Name="F_cleric_merkabah_ground_loop"/>
+        <Effect Name="F_cleric_merkabah_ground_loop"/>
+        <Effect Name="ADD_POINT"/>
+        <Effect Name="F_spread_out028_dark_violet"/>
+        <Effect Name="F_lineup022_violet"/>
+        <Effect Name="I_EventVab02_mash##3"/>
+        <Effect Name="I_EventVab02_mash##3"/>
+        <Effect Name="d_free"/>
     </Category>
     <Category ID="180">
         <Effect Name="I_ice005_mash###1"/>
@@ -8537,6 +8623,3 @@
         <Effect Name="DefClass123"/>
     </Category>
 </packeteffects>
-
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml version="1.0" encoding="UTF-8"?>

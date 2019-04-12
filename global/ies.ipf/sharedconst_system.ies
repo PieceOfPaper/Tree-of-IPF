@@ -126,7 +126,7 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 200004,2500000,0,"TOKEN_MARKET_REG_MAX_PRICE","토큰 마켓 올릴때 최대 실버가격","YES"
 200005,5,0,"JAEDDURY_MARKET_MAXPRICE","마켓 상한가 조절","YES"
 200006,0,0,"MARKET_IMME_REG","마켓 즉시 등록할지","NO"
-200007,1,0,"MARKET_BUY_CHECK_ITEM_TABLE","sp_market_item_get 체크할지","NO"
+200007,0,0,"MARKET_BUY_CHECK_ITEM_TABLE","sp_market_item_get 체크할지","NO"
 210000,950,0,"PARTY_SHARE_RANGE","파티 공유거리","YES"
 210001,30,0,"PARTY_AUCTION_SEC","파티 경매 제한 시간","NO"
 210002,2000,0,"PARTY_MEMBER_LOC_UPDATE","파티 멤버 위치 정보 전송","NO"

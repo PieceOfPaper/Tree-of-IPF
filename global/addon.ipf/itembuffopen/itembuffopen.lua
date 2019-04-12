@@ -118,11 +118,11 @@ function SQIORE_TARGET_UI_CLOSE()
 	ui.CloseFrame("itembuffopen");
 end
 
-function SQIORE_TARGET_BUFF_CENCEL(sellerHandle)
+function SQUIRE_TARGET_BUFF_CENCEL(sellerHandle)
 	packet.StopTimeAction(1);
 end
 
-function SQIORE_BUFF_CENCEL_CHECK(frame)
+function SQUIRE_BUFF_CENCEL_CHECK(frame)
 	frame = frame:GetTopParentFrame();
 	local handle = frame:GetUserIValue("HANDLE");
 	local skillName = frame:GetUserValue("SKILLNAME");
@@ -208,7 +208,7 @@ function SQIORE_LOG_VIEW(frame)
 	gboxctrl:ShowWindow(1);
 end
 
-function SQIORE_BUFF_CLOSE(frame)
+function SQUIRE_BUFF_CLOSE(frame)
 	frame = frame:GetTopParentFrame();
 	local groupName = frame:GetUserValue("GroupName");
 	local groupInfo = session.autoSeller.GetByIndex(groupName, 0);

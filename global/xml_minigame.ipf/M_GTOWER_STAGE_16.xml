@@ -358,7 +358,7 @@
                             </DeadList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="100036" Pos="-5168.22#239.93#-4455.47" range="200" genCount="1" genTime="10000" objectKey="11" UseAiOutOfPc="1" tendency="1">
+                    <Obj Type="Monster" MonType="100036" Pos="-5160.23#239.93#-4374.72" range="200" genCount="1" genTime="10000" objectKey="11" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -534,11 +534,17 @@
                             </DeadList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="100001" Pos="-5155.75#239.93#-4450.50" range="200" genCount="1" genTime="10000" objectKey="19" UseAiOutOfPc="1" tendency="1">
+                    <Obj Type="Monster" MonType="100001" Pos="-4839.00#147.66#-4811.00" angle="169" range="10" maxStackCount="1" genTime="20000" genReadyTime="15000" objectKey="20" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="GT_STAGE_16_DISPELL"/>
+                                </ToolScp>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="2000"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-5253.4424" Y="239.93381" Z="-4559.7603" Random="40"/>
                                 </ToolScp>
                             </List>
                             <DeadList>
@@ -639,6 +645,9 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="CNT"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1_PROG"/>
                             </ToolScp>
                         </execList>
                     </Event>

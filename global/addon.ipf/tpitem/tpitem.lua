@@ -236,13 +236,11 @@ end
 function TPITEM_DRAW_ITEM(frame, category, subcategory)
 
 	local mainText = GET_CHILD_RECURSIVELY(frame,"mainText")
-
 	if subcategory ~= "None" then
 		mainText:SetText(ScpArgMsg(category).." > "..ScpArgMsg(subcategory))
 	else
 		mainText:SetText(ScpArgMsg(category))
 	end
-	
 	
 	local mainSubGbox = GET_CHILD_RECURSIVELY(frame,"mainSubGbox")
 	DESTROY_CHILD_BYNAME(mainSubGbox, "eachitem_");
@@ -255,13 +253,20 @@ function TPITEM_DRAW_ITEM(frame, category, subcategory)
 	local index = 0
 	local x, y;
 
+	-- 해당 카테고리의 노드들의 프레임을 만들기.
 	for i = 0, cnt - 1 do
 	
 		local obj = GetClassByIndexFromList(clsList, i);
 
 		local itemobj = GetClass("Item", obj.ItemClassName)
+		local IsPremiumCase = 0;
 
 		if obj.Category == category and obj.SubCategory == subcategory then
+
+			-- 프리미엄 아이템 확인
+			if itemobj.ItemGrade == 0 then
+				IsPremiumCase = 1;
+			end
 
 			index = index + 1
 			x = ( (index-1) % 2) * ui.GetControlSetAttribute("tpshop_item", 'width')
@@ -269,16 +274,47 @@ function TPITEM_DRAW_ITEM(frame, category, subcategory)
 	
 			local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
 
-			local title = GET_CHILD_RECURSIVELY(itemcset,"title")
-			title:SetText(itemobj.Name)
-
+			-- 프리미엄 여부에 따라 분류되느 UI를 일괄적으로 받아오고
+			local title = GET_CHILD_RECURSIVELY(itemcset,"title");
 			local nxp = GET_CHILD_RECURSIVELY(itemcset,"nxp")
-
-			nxp:SetText(obj.Price)
-
 			local slot = GET_CHILD_RECURSIVELY(itemcset, "icon");
+			local pre_Line = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_1");
+			local pre_Box = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_2");
+			local pre_Text = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_3");
+			local state_Text = GET_CHILD_RECURSIVELY(itemcset,"textState");
+			local state_Text_BG = GET_CHILD_RECURSIVELY(itemcset,"textStateBG");
+
+			if 1 == IsPremiumCase then	--프리미엄일 경우
+				local sucValue = string.format("{@st41b}%s", itemobj.Name);
+				title:SetText(sucValue);
+				pre_Line:SetVisible(1);
+				pre_Box:SetVisible(1);
+				pre_Text:SetVisible(1);
+			else						--프리미엄이 아닐 경우
+				title:SetText(itemobj.Name);
+				pre_Line:SetVisible(0);
+				pre_Box:SetVisible(0);
+				pre_Text:SetVisible(0);
+			end			
+
+			-- 구매 여부와 착용 여부를 검사한다.
+			local clsID = itemobj.ClassID;
+			local sucValue = string.format("");		
+			if session.GetEquipItemByType(clsID) ~= nil then	-- 장비 작용중
+				sucValue = string.format("{@st41b}%s", ScpArgMsg("ITEM_IsEquiped"));
+				state_Text:SetTextByKey("value", sucValue);	
+				state_Text_BG:SetGrayStyle(1);		
+			elseif session.GetInvItemByType(clsID) ~= nil then	-- 구매한 물품.
+				sucValue = string.format("{@st41b}%s", ScpArgMsg("ITEM_IsPurchased"));
+				state_Text:SetTextByKey("value", sucValue);		
+				state_Text_BG:SetGrayStyle(1);		
+			else	-- 비구매 품목.
+				state_Text_BG:SetVisible(0);
+			end
 			
+			nxp:SetText(obj.Price);
 			SET_SLOT_IMG(slot, GET_ITEM_ICON_IMAGE(itemobj));
+			
 			local icon = slot:GetIcon();
 			icon:SetTooltipType('wholeitem');
 			icon:SetTooltipArg('', itemobj.ClassID, 0);

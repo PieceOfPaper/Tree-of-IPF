@@ -7,6 +7,7 @@
 	<TexDir IpfName="bg_texture" Path="\coral\"/>
 	<SubTexDir IpfName="bg_texture" Path="\flash\"/>
 	<SubTexDir IpfName="bg_texture" Path="\gele\"/>
+	<LightMap File="f_coral_35_2_lightmap.jpg" Length="6000 6000" Offset="242.775 849.423" Size="1024 1024"/>
 	<AutoHeightMap Length="4000.0 4000.0" Offset="219.79 -74.397" Height="10000 -10000"/>
 	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
 	<ShaTexDir IpfName="bg_hi3" Path="\field\f_coral_35_2\"/>
@@ -15,7 +16,7 @@
 	<Model File="f_coral_35_2_blend03.xac" Model="f_coral_35_2_blend03" ShadowMap="f_coral_35_2_blend03" pos="1073.4478 170.8519 1481.2162" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_coral_35_2_water02.xac" Model="f_coral_35_2_water02" pos="668.1626 227.9240 1126.7866" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_coral_35_2_b_model.xac" Model="f_coral_35_2_b_model" ShadowMap="f_coral_35_2_b_model" pos="-279.969 -21.363 1107.579" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_coral_35_2_9area_model.xac" Model="f_coral_35_2_9area_model" ShadowMap="f_coral_35_2_9area_model" pos="-280.2662 86.9093 421.3131" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_9area_model.xac" Model="f_coral_35_2_9area_model" ShadowMap="f_coral_35_2_9area_model" pos="-284.269 86.909 421.313" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_coral_35_2_5area_model.xac" Model="f_coral_35_2_5area_model" ShadowMap="f_coral_35_2_5area_model" pos="1614.7368 299.5716 1191.1055" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_coral_35_2_grass01.xac" Model="f_coral_35_2_grass01" ShadowMap="f_coral_35_2_grass01" pos="183.7428 210.4439 1169.4304" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_coral_35_2_blend01.xac" Model="f_coral_35_2_blend01" ShadowMap="f_coral_35_2_blend01" pos="253.2529 152.7043 926.1063" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
@@ -28,7 +29,7 @@
 	<Model File="f_coral_35_2_6area_model.xac" Model="f_coral_35_2_6area_model" ShadowMap="f_coral_35_2_6area_model" pos="883.3273 257.4462 664.5670" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_coral_35_2_7area_model.xac" Model="f_coral_35_2_7area_model" ShadowMap="f_coral_35_2_7area_model" pos="-35.5575 5.3461 -426.5498" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_coral_35_2_8area_model.xac" Model="f_coral_35_2_8area_model" ShadowMap="f_coral_35_2_8area_model" pos="-497.851 125.092 -241.786" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_coral_35_2__gr_a.xac" Model="f_coral_35_2__gr_a" ShadowMap="f_coral_35_2__gr_a" pos="289.3183 216.2896 854.6912" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2__gr_a.xac" Model="f_coral_35_2__gr_a" ShadowMap="f_coral_35_2__gr_a" pos="289.318 212.527 854.691" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_coral_35_2_grass02.xac" Model="f_coral_35_2_grass02" ShadowMap="f_coral_35_2_grass02" pos="174.7792 200.0907 833.6519" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_coral_35_2_water01.xac" Model="f_coral_35_2_water01" pos="-222.364 -78.218 691.43" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_coral_35_2_10area_model.xac" Model="f_coral_35_2_10area_model" ShadowMap="f_coral_35_2_10area_model" pos="-1015.5874 -346.9704 2936.5063" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>

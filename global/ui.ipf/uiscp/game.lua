@@ -2568,6 +2568,34 @@ function GET_BUFF_TAG_TXT(buffName)
 	return ScpArgMsg("Auto_{img_{Auto_1}_20_20}{ol}{@st45}_{Auto_2}_BeoPeu","Auto_1", 'icon_'..cls.Icon,"Auto_2", cls.Name)
 
 end
+function GET_PCPROPERTY_TAG_TXT(propertyName, value)
+    local ret, propertyTxt
+    if propertyName == 'STR' then
+        propertyTxt = ScpArgMsg("STR")
+    elseif propertyName == 'DEX' then
+        propertyTxt = ScpArgMsg("DEX")
+    elseif propertyName == 'CON' then
+        propertyTxt = ScpArgMsg("CON")
+    elseif propertyName == 'INT' then
+        propertyTxt = ScpArgMsg("INT")
+    elseif propertyName == 'MSTA' then
+        propertyTxt = ScpArgMsg("MSTA")
+    elseif propertyName == 'MHP' then
+        propertyTxt = ScpArgMsg("MHP")
+    elseif propertyName == 'MSP' then
+        propertyTxt = ScpArgMsg("MSP")
+    elseif propertyName == 'MaxWeight' then
+        propertyTxt = ScpArgMsg("MaxWeight")
+	elseif propertyName == 'MNA' then
+        propertyTxt = ScpArgMsg("MNA")
+    else
+        propertyTxt = propertyName
+    end
+    
+    ret = ScpArgMsg("QuestRewardPCPropertyText1","Auto_1", propertyTxt,"Auto_2", value)
+    
+    return ret
+end
 
 function GET_HONOR_TAG_TXT(honor, point_value)
 

@@ -4,11 +4,11 @@
         <StageList>
             <Stage Name="DefGroup">
                 <ObjList>
-                    <Obj Type="Monster" MonType="57720" Pos="-113.24#26.79#-37.90" angle="-89" maxStackCount="2" genTime="20000" objectKey="0">
+                    <Obj Type="Monster" MonType="57720" Pos="-105.12#26.79#-78.25" angle="-89" range="50" maxStackCount="2" genTime="20000" objectKey="0" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="400"/>
+                                    <Num Num="2000"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -25,11 +25,11 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57718" Pos="-134.21#26.79#-6.11" angle="-80" maxStackCount="2" genTime="20000" objectKey="1">
+                    <Obj Type="Monster" MonType="57718" Pos="-152.03#26.79#3.74" angle="-80" range="50" maxStackCount="2" genTime="20000" objectKey="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="400"/>
+                                    <Num Num="2000"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -46,11 +46,11 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57718" Pos="-88.12#26.79#-1.27" angle="-89" maxStackCount="2" genTime="20000" objectKey="2">
+                    <Obj Type="Monster" MonType="57718" Pos="-50.00#26.79#13.00" angle="-89" range="50" maxStackCount="2" genTime="20000" objectKey="2" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="400"/>
+                                    <Num Num="2000"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -67,11 +67,11 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57720" Pos="-65.22#24.37#-27.74" angle="-69" maxStackCount="2" genTime="15000" objectKey="3">
+                    <Obj Type="Monster" MonType="57720" Pos="-62.00#23.31#-43.00" angle="-69" range="50" maxStackCount="2" genTime="15000" objectKey="3" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="400"/>
+                                    <Num Num="2000"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -88,11 +88,11 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57718" Pos="-50.41#26.79#0.98" angle="-91" maxStackCount="2" genTime="20000" objectKey="4">
+                    <Obj Type="Monster" MonType="57718" Pos="-45.00#26.79#3.00" angle="-91" range="50" maxStackCount="2" genTime="20000" objectKey="4" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="400"/>
+                                    <Num Num="2000"/>
                                 </ToolScp>
                             </List>
                             <StartList>

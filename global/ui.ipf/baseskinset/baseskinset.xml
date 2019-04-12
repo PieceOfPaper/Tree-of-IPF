@@ -2701,6 +2701,28 @@
 			<img name="bottomcore" imgrect="1847 469 150 50"/>
 			<img name="bottomright" imgrect="1998 469 50 50"/>
 		</skin>
+	<skin name="journal_mon_skin" texture="\skin\pip_test_item.tga">
+			<img name="topleft" imgrect="1673 397 40 40"/>
+			<img name="topcore" imgrect="1714 397 40 40"/>
+			<img name="topright" imgrect="1755 397 40 40"/>
+			<img name="bodyleft" imgrect="1673 438 40 40"/>
+			<img name="bodycore" imgrect="1714 438 40 40"/>
+			<img name="bodyright" imgrect="1755 438 40 40"/>
+			<img name="bottomleft" imgrect="1673 479 40 40"/>
+			<img name="bottomcore" imgrect="1714 479 40 40"/>
+			<img name="bottomright" imgrect="1755 479 40 40"/>
+		</skin>
+		<skin name="journal_complete_skin" texture="\skin\pip_test_item.tga">
+			<img name="topleft" imgrect="1409 862 20 20"/>
+			<img name="topcore" imgrect="1430 862 20 20"/>
+			<img name="topright" imgrect="1451 862 20 20"/>
+			<img name="bodyleft" imgrect="1409 883 20 20"/>
+			<img name="bodycore" imgrect="1430 883 20 20"/>
+			<img name="bodyright" imgrect="1451 883 20 20"/>
+			<img name="bottomleft" imgrect="1409 904 20 29"/>
+			<img name="bottomcore" imgrect="1430 904 20 29"/>
+			<img name="bottomright" imgrect="1451 904 20 29"/>
+		</skin>
 	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
@@ -3785,27 +3807,27 @@
 		</skin>
 		<skin name="gauge_youteam_L" texture="\skin\pvp_skin.tga">
 			<img name="bgleft" imgrect="0 91 1 40"/>
-			<img name="bgmiddle" imgrect="1 91 234 40"/>
-			<img name="bgright" imgrect="235 91 1 40"/>
+			<img name="bgmiddle" imgrect="1 91 240 40"/>
+			<img name="bgright" imgrect="241 91 1 40"/>
 			<img name="barleft" imgrect="0 132 1 40"/>
-			<img name="barmiddle" imgrect="1 132 234 40"/>
-			<img name="barright" imgrect="235 132 1 40"/>
+			<img name="barmiddle" imgrect="1 132 240 40"/>
+			<img name="barright" imgrect="241 132 1 40"/>
 		</skin>
 		<skin name="gauge_myteam_R" texture="\skin\pvp_skin.tga">
 			<img name="bgleft" imgrect="0 47 1 40"/>
-			<img name="bgmiddle" imgrect="1 47 234 40"/>
-			<img name="bgright" imgrect="235 47 1 40"/>
+			<img name="bgmiddle" imgrect="1 47 240 40"/>
+			<img name="bgright" imgrect="241 47 1 40"/>
 			<img name="barleft" imgrect="0 0 1 40"/>
-			<img name="barmiddle" imgrect="0 1 234 40"/>
-			<img name="barright" imgrect="235 0 1 40"/>
+			<img name="barmiddle" imgrect="0 1 240 40"/>
+			<img name="barright" imgrect="241 0 1 40"/>
 		</skin>
 		<skin name="gauge_youteam_R" texture="\skin\pvp_skin.tga">
 			<img name="bgleft" imgrect="0 47 1 40"/>
-			<img name="bgmiddle" imgrect="1 47 234 40"/>
-			<img name="bgright" imgrect="235 47 1 40"/>
+			<img name="bgmiddle" imgrect="1 47 240 40"/>
+			<img name="bgright" imgrect="241 47 1 40"/>
 			<img name="barleft" imgrect="0 132 1 40"/>
-			<img name="barmiddle" imgrect="1 132 234 40"/>
-			<img name="barright" imgrect="235 132 1 40"/>
+			<img name="barmiddle" imgrect="1 132 240 40"/>
+			<img name="barright" imgrect="241 132 1 40"/>
 		</skin>
 	</skinlist>
 	<skinlist category="labellines">
@@ -4099,20 +4121,21 @@
 		<image name="test_quest_partyicon" file="\skin\pip_test.tga" imgrect="403 158 40 50" CMM_Caption="파티퀘스트아이콘"/>
 		<image name="test_partyquest_slot" file="\skin\pip_test.tga" imgrect="1411 191 226 35" CMM_Caption="파티퀘스트_조건뒤배경 슬롯"/>
 		<image name="test_pvp_center" file="\skin\pvp_skin.tga" imgrect="278 1 335 160" CMM_Caption="pvp_가운데이미지"/>
-		<image name="test_pvp_center_bg" file="\skin\pvp_skin.tga" imgrect="0 173 286 65" CMM_Caption="pvp_가운데이미지뒷배경"/>
+		<image name="test_pvp_center_bg" file="\skin\pvp_skin.tga" imgrect="0 173 250 65" CMM_Caption="pvp_가운데이미지뒷배경"/>
 		<image name="test_pvp_center_bg2" file="\skin\pvp_skin.tga" imgrect="0 247 560 40" CMM_Caption="pvp_가운데사람있는뒷배경"/>
 		<image name="test_pvp_alram_icon" file="\skin\pvp_skin.tga" imgrect="615 65 50 50" CMM_Caption="pvp_알람 아이콘"/>
 		<image name="test_pvp_mvpicon" file="\skin\pvp_skin.tga" imgrect="615 116 45 45" CMM_Caption="mvp아이콘"/>
 		<image name="test_pvp_win" file="\skin\pvp_skin.tga" imgrect="729 342 165 80" CMM_Caption="이김표시"/>
 		<image name="test_pvp_lose" file="\skin\pvp_skin.tga" imgrect="909 342 110 50" CMM_Caption="패배표시"/>
 		<image name="test_pvp_reslut_center" file="\skin\pvp_skin.tga" imgrect="0 904 510 120" CMM_Caption="결과창 가운데미지"/>
-		<image name="test_pvp_roundwin" file="\skin\pvp_skin.tga" imgrect="237 0 20 20" CMM_Caption="라운드승리표시"/>
+		<image name="test_pvp_roundwin" file="\skin\pvp_skin.tga" imgrect="243 0 27 27" CMM_Caption="라운드승리표시"/>
+		<image name="test_pvp_roundwin2" file="\skin\pvp_skin.tga" imgrect="243 132 27 27" CMM_Caption="라운드승리표시"/>
 		<image name="test_pvp_veteran" file="\skin\pvp_skin.tga" imgrect="863 134 35 30" CMM_Caption="등급베테랑"/>
 		<image name="test_pvp_ikseupeodeu" file="\skin\pvp_skin.tga" imgrect="899 134 35 30" CMM_Caption="등급익스퍼드"/>
 		<image name="test_pvp_challenger" file="\skin\pvp_skin.tga" imgrect="935 134 35 30" CMM_Caption="등급첼린져"/>
 		<image name="test_pvp_champion" file="\skin\pvp_skin.tga" imgrect="971 134 35 30" CMM_Caption="등급챔피언"/>
-		<image name="test_pvp_gauge_R" file="\skin\pvp_skin.tga" imgrect="237 47 10 40" CMM_Caption="게이지R이미지"/>
-		<image name="test_pvp_gauge_L" file="\skin\pvp_skin.tga" imgrect="237 91 10 40" CMM_Caption="게이지L이미지"/>
+		<image name="test_pvp_gauge_R" file="\skin\pvp_skin.tga" imgrect="243 47 10 40" CMM_Caption="게이지R이미지"/>
+		<image name="test_pvp_gauge_L" file="\skin\pvp_skin.tga" imgrect="243 91 10 40" CMM_Caption="게이지L이미지"/>
 		<image name="test_pvp_round" file="\skin\pvp_round1.tga" imgrect="0 0 1020 270" CMM_Caption="라운드"/>
 		<image name="test_pvp_round1" file="\skin\pvp_round3.tga" imgrect="0 0 270 270" CMM_Caption="1"/>
 		<image name="test_pvp_round2" file="\skin\pvp_round4.tga" imgrect="0 0 270 270" CMM_Caption="2"/>
@@ -4231,6 +4254,7 @@
 		<image name="guild_event_start" file="\skin\pip_test.tga" imgrect="403 625 35 30" CMM_Caption="스타트버튼화살표"/>
 	<image name="Cube_skin" file="\skin\cube_skin.tga" imgrect="0 0 455 509" CMM_Caption="큐브스킨"/>
 	<image name="tiket_icon" file="\skin\pip_test.tga" imgrect="1797 937 34 21" CMM_Caption="티켓스킨"/>
+	<image name="premium_img" file="\skin\pip_test_item.tga" imgrect="947 684 85 25" CMM_Caption="프리미엄_폰트"/>
 	</imagelist>
 	<imagelist category="tutorial_img">
 		<image name="tutr_img_btn_left" file="\skin\mainframe_04.tga" imgrect="371 448 44 44"/>
@@ -4481,6 +4505,9 @@
 	<image name="pvp_leageue_btn" file="\skin\PVP_skin.tga" imgrect="286 162 180 60" CMM_Caption="리그참여"/>
 		<image name="pvp_leageue_btn_cursoron" file="\skin\PVP_skin.tga" imgrect="467 162 180 60"/>
 		<image name="pvp_leageue_btn_clicked" file="\skin\PVP_skin.tga" imgrect="614 0 180 60"/>
+	<image name="barrack_message_btn" file="\skin\barrack.tga" imgrect="949 600 90 50" CMM_Caption="메시지버튼"/>
+		<image name="barrack_message_btn_cursoron" file="\skin\barrack.tga" imgrect="949 651 90 50"/>
+		<image name="barrack_message_btn_clicked" file="\skin\barrack.tga" imgrect="949 702 90 50"/>
 	</imagelist>
 	<imagelist category="hair_color">
 		<image name="basic_color" file="\skin\barrack.tga" imgrect="948 491 35 35" CMM_Caption="기본컬러"/>
@@ -5067,12 +5094,12 @@
 		<image name="icon_gesture_no" file="\icon\social.tga" imgrect="1 1 80 80"/>
 		<image name="icon_gesture_best" file="\icon\social.tga" imgrect="82 1 80 80"/>
 		<image name="icon_gesture_help" file="\icon\social.tga" imgrect="163 1 80 80"/>
-		<image name="icon_gesture_what" file="\icon\social.tga" imgrect="244 1 80 80"/>
+		<image name="icon_gesture_idk" file="\icon\social.tga" imgrect="244 1 80 80"/>
 		<image name="icon_gesture_hi" file="\icon\social.tga" imgrect="325 1 80 80"/>
-		<image name="icon_gesture_sit" file="\icon\social.tga" imgrect="406 1 80 80"/>
+		<image name="icon_gesture_outcast" file="\icon\social.tga" imgrect="406 1 80 80"/>
 		<image name="icon_gesture_love" file="\icon\social.tga" imgrect="1 82 80 80"/>
 		<image name="icon_gesture_follow" file="\icon\social.tga" imgrect="82 82 80 80"/>
-		<image name="icon_gesture_OTL" file="\icon\social.tga" imgrect="163 82 80 80"/>
+		<image name="icon_gesture_nono" file="\icon\social.tga" imgrect="163 82 80 80"/>
 		<image name="icon_gesture_sorry" file="\icon\social.tga" imgrect="244 82 80 80"/>
 		<image name="icon_gesture_Fighting" file="\icon\social.tga" imgrect="325 82 80 80"/>
 		<image name="icon_gesture_win" file="\icon\social.tga" imgrect="406 82 80 80"/>
@@ -5085,15 +5112,20 @@
 		<image name="icon_gesture_bow2" file="\icon\social.tga" imgrect="1 244 80 80"/>
 		<image name="icon_gesture_bow1" file="\icon\social.tga" imgrect="82 244 80 80"/>
 		<image name="icon_gesture_birdpose" file="\icon\social.tga" imgrect="163 244 80 80"/>
-		<image name="icon_gesture_outcast" file="\icon\social.tga" imgrect="406 1 80 80"/>
-		<image name="icon_gesture_question" file="\icon\social.tga" imgrect="1 325 80 80"/>
-		<image name="icon_gesture_crap" file="\icon\social.tga" imgrect="163 325 80 80"/>
-		<image name="icon_gesture_jumping" file="\icon\social.tga" imgrect="325 244 80 80"/>
-		<image name="icon_gesture_cute" file="\icon\social.tga" imgrect="82 325 80 80"/>
 		<image name="icon_gesture_hulahula" file="\icon\social.tga" imgrect="244 244 80 80"/>
-		<image name="icon_gesture_idk" file="\icon\social.tga" imgrect="244 1 80 80"/>
-		<image name="icon_gesture_nono" file="\icon\social.tga" imgrect="163 82 80 80"/>
+		<image name="icon_gesture_jumping" file="\icon\social.tga" imgrect="325 244 80 80"/>
 		<image name="icon_gesture_ouch" file="\icon\social.tga" imgrect="406 244 80 80"/>
+		<image name="icon_gesture_question" file="\icon\social.tga" imgrect="1 325 80 80"/>
+		<image name="icon_gesture_cute" file="\icon\social.tga" imgrect="82 325 80 80"/>
+		<image name="icon_gesture_crap" file="\icon\social.tga" imgrect="163 325 80 80"/>
+		<image name="icon_gesture_popcorn" file="\icon\social.tga" imgrect="244 325 80 80"/>
+		<image name="icon_gesture_cheers" file="\icon\social.tga" imgrect="325 325 80 80"/>
+		<image name="icon_gesture_dance" file="\icon\social.tga" imgrect="406 325 80 80"/>
+		<image name="icon_gesture_thanks2" file="\icon\social.tga" imgrect="1 406 80 80"/>
+		<image name="icon_gesture_polien" file="\icon\social.tga" imgrect="82 406 80 80"/>
+		<image name="icon_gesture_kick" file="\icon\social.tga" imgrect="163 406 80 80"/>
+		<image name="icon_gesture_OTL" file="\icon\social.tga" imgrect="244 406 80 80"/>
+		<image name="icon_gesture_jiangshi" file="\icon\social.tga" imgrect="325 406 80 80"/>
 	</imagelist>
 	<imagelist>
 		<image name="chat_page_arrow_left" file="\skin\mainframe_A.tga" imgrect="766 943 40 40"/>

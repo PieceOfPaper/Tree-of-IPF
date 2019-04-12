@@ -663,6 +663,216 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
+                    <Obj Type="Monster" MonType="100066" Pos="559.44#150.30#-4834.02" range="50" genCount="1" genTime="10000" objectKey="20" UseAiOutOfPc="1" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="2000"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="142.56017" Y="243.25525" Z="-4561.9082" Random="40"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V" Client="NO" UseSleep="NO">
+                                    <Str Str="MGTSTAGE6"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM" Client="NO" UseSleep="NO">
+                                    <Str Str="MGTSTAGE6"/>
+                                    <Num Num="165"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100066" Pos="521.85#150.30#-4825.91" range="50" genCount="1" genTime="10000" objectKey="21" UseAiOutOfPc="1" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="2000"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="142.56017" Y="243.25525" Z="-4561.9082" Random="40"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V" Client="NO" UseSleep="NO">
+                                    <Str Str="MGTSTAGE6"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM" Client="NO" UseSleep="NO">
+                                    <Str Str="MGTSTAGE6"/>
+                                    <Num Num="165"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100066" Pos="517.40#150.30#-4821.53" range="50" genCount="1" genTime="10000" objectKey="22" UseAiOutOfPc="1" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="2000"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="142.56017" Y="243.25525" Z="-4561.9082" Random="40"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V" Client="NO" UseSleep="NO">
+                                    <Str Str="MGTSTAGE6"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM" Client="NO" UseSleep="NO">
+                                    <Str Str="MGTSTAGE6"/>
+                                    <Num Num="165"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100066" Pos="517.40#150.30#-4821.53" range="50" genCount="1" genTime="10000" objectKey="23" UseAiOutOfPc="1" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="2000"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="142.56017" Y="243.25525" Z="-4561.9082" Random="40"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V" Client="NO" UseSleep="NO">
+                                    <Str Str="MGTSTAGE6"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM" Client="NO" UseSleep="NO">
+                                    <Str Str="MGTSTAGE6"/>
+                                    <Num Num="165"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100066" Pos="517.40#150.30#-4821.53" range="50" genCount="1" genTime="10000" objectKey="24" UseAiOutOfPc="1" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="2000"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="142.56017" Y="243.25525" Z="-4561.9082" Random="40"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V" Client="NO" UseSleep="NO">
+                                    <Str Str="MGTSTAGE6"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM" Client="NO" UseSleep="NO">
+                                    <Str Str="MGTSTAGE6"/>
+                                    <Num Num="165"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100066" Pos="517.40#150.30#-4821.53" range="50" genCount="1" genTime="10000" objectKey="25" UseAiOutOfPc="1" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="2000"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="142.56017" Y="243.25525" Z="-4561.9082" Random="40"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V" Client="NO" UseSleep="NO">
+                                    <Str Str="MGTSTAGE6"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM" Client="NO" UseSleep="NO">
+                                    <Str Str="MGTSTAGE6"/>
+                                    <Num Num="165"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100066" Pos="517.40#150.30#-4821.53" range="50" genCount="1" genTime="10000" objectKey="26" UseAiOutOfPc="1" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="2000"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="142.56017" Y="243.25525" Z="-4561.9082" Random="40"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V" Client="NO" UseSleep="NO">
+                                    <Str Str="MGTSTAGE6"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM" Client="NO" UseSleep="NO">
+                                    <Str Str="MGTSTAGE6"/>
+                                    <Num Num="165"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="END">
@@ -746,6 +956,9 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="CNT"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1_PROG"/>
                             </ToolScp>
                         </execList>
                     </Event>

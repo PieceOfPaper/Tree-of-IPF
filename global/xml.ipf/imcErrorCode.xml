@@ -91,6 +91,11 @@
 		<Code Code="ERRCODE_LOGIC_OBJ_POOL" CallStack="NO" Desc="오브젝트 풀에서 에러가 발생했습니다. 다음 정보를 참조하세요."/>
     <Code Code="ERRCODE_LOGIC_UPDATE_AUTHCODE" CallStack="NO" Desc="인증코드에러로 강제 로그아웃됩니다."/>
     <Code Code="ERRCODE_LOGIC_MONSTER_CREATE_FAILED" CallStack="NO" Desc="랜덤 좌표를 받지 못하고 몬스터 생성에 실패했습니다."/>
+    <Code Code="ERRCODE_LOGIC_TOO_MANY_CHAT_ROOM" CallStack="NO" Desc="채팅 방 개수가 비정상 적으로 많습니다."/>
+
+    <Code Code="ERRCODE_LOGIC_CHAT_ROOM" CallStack="NO" Desc="채팅 방 오류"/>
+
+
 	</Type>
 	<Type Type="DATA">
 		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>

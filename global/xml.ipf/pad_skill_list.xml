@@ -5053,7 +5053,7 @@ return 30000 + obj.Level * 5000"/>
                 <Num Num="99990"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_FORCE" Client="YES" UseSleep="NO">
-                <Str_Arg Str="I_wizard_icebolt_force_ice" Arg="0.40000001"/>
+                <Str_Arg Str="I_wizard_icebolt_force_ice2" Arg="0.40000001"/>
                 <Num Num="25"/>
             </ToolScp>
         </createEvent>
@@ -6937,46 +6937,86 @@ return 15000 + obj.Level * 5000"/>
             </ToolScp>
         </createEvent>
         <enterEvent>
-            <ToolScp Scp="PAD_TGT_RAISE" Client="NO" UseSleep="NO">
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
                 <Str Str="ENEMY"/>
-                <Num Num="70"/>
-                <Num Num="0.5"/>
-                <Num Num="10"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-            </ToolScp>
-            <ToolScp Scp="PAD_TGT_ACTOR_VIBRATE_CONCORRENT_COUNT" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
+                <Str Str="Raise_Debuff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
                 <Num Num="100"/>
-                <Num Num="1.5"/>
-                <Num Num="10"/>
-                <Num Num="0.1"/>
-                <Num Num="0"/>
                 <Num Num="0"/>
             </ToolScp>
         </enterEvent>
         <leaveEvent>
-            <ToolScp Scp="PAD_TGT_ACTOR_VIBRATE" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
-                <Num Num="0.1"/>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-            </ToolScp>
-            <ToolScp Scp="PAD_TGT_RAISE" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
-                <Num Num="0"/>
-                <Num Num="0.1"/>
-                <Num Num="0.5"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
+                <Str Str="Raise_Debuff"/>
             </ToolScp>
         </leaveEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="-100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Pyroego_FirePillar" CheckerType="0" Dist="122.91336" Angle="-0.1394898" Range="25">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="10000"/>
+                <Num Num="999990"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_burstup040_fire2" Arg="0.69999999"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_MON" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Mon_Fire_buff"/>
+                <Num Num="250"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="20"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE_MON" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Mon_Fire_buff"/>
+            </ToolScp>
+        </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_MOVE_NEAR_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="200"/>
+                <Num Num="50"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
                 <Num Num="0"/>
             </ToolScp>
         </updateEvent>
@@ -7755,8 +7795,8 @@ return 30000 + obj.Level * 5000"/>
                 <Num Num="99990"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_FORCE" Client="YES" UseSleep="NO">
-                <Str_Arg Str="I_archer_turret_force_circle" Arg="0.30000001"/>
-                <Num Num="25"/>
+                <Str_Arg Str="I_wizard_fireball_cast_fire2_force" Arg="0.30000001"/>
+                <Num Num="10"/>
             </ToolScp>
         </createEvent>
         <enterEvent>
@@ -7905,6 +7945,12 @@ return 30000 + obj.Level * 5000"/>
                 <Str Str="UC_deprotect"/>
             </ToolScp>
         </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-200"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
     </PadSkill>
     <PadSkill Name="Summon_Lethargy" CheckerType="0" Dist="3.3052464e-010" Angle="1.6480041e-010" Range="30" UpdateTerm="200" Relation="2">
         <createEvent>
@@ -7945,6 +7991,12 @@ return 30000 + obj.Level * 5000"/>
                 <Str Str="UC_debrave"/>
             </ToolScp>
         </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-200"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
     </PadSkill>
     <PadSkill Name="Summon_Magnet" CheckerType="0" Dist="3.3052464e-010" Angle="1.6480041e-010" Range="30" UpdateTerm="200" Relation="2">
         <createEvent>
@@ -7985,6 +8037,12 @@ return 30000 + obj.Level * 5000"/>
                 <Str Str="Slow_Debuff"/>
             </ToolScp>
         </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-200"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
     </PadSkill>
     <PadSkill Name="Summon_Silence" CheckerType="0" Dist="3.3052464e-010" Angle="1.6480041e-010" Range="30" UpdateTerm="200" Relation="2">
         <createEvent>
@@ -8025,6 +8083,12 @@ return 30000 + obj.Level * 5000"/>
                 <Str Str="UC_silence_normalAttack"/>
             </ToolScp>
         </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-200"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
     </PadSkill>
     <PadSkill Name="Templer_BattleOrders" CheckerType="0" Range="100" UpdateTerm="100" AutoPos="1" EnableSearch="0" IsMineType="0">
         <createEvent>
@@ -9581,7 +9645,19 @@ return obj.Level"/>
                 <Num Num="9999"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_ground117_loop" Arg="1.1"/>
+                <Str_Arg Str="F_explosion092_ice" Arg="1"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="I_ice006_violet_mash" Arg="0.80000001"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_ground143_violet_ice" Arg="1.8"/>
                 <Pos Angle="0" Dist="0"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
@@ -9595,8 +9671,8 @@ return obj.Level"/>
             <ToolScp Scp="PAD_MSL_FALL" Client="NO" UseSleep="NO">
                 <Num Num="85"/>
                 <Num Num="55"/>
-                <Str_Arg Str="I_wizard_hail_force" Arg="0.30000001"/>
-                <Str_Arg Str="F_wizard_hail_hit_ice" Arg="0.30000001"/>
+                <Str_Arg Str="I_wizard_hail_force" Arg="0.2"/>
+                <Str_Arg Str="F_wizard_hail_hit_ice" Arg="0.2"/>
                 <Str_Arg Str="None" Arg="1"/>
                 <Num Num="10"/>
                 <Num Num="0"/>

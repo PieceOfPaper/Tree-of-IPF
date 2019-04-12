@@ -29,10 +29,10 @@
 		<groupbox name="groupbox_2" rect="0 0 500 280" margin="0 250 0 0" layout_gravity="left top" draw="false" hittestbox="false" scrollbar="false" skin="pipwin_low"/>
 		<groupbox name="his_box_bg" rect="0 0 480 890" margin="10 130 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyresolution="true" scrollbar="false" skin="test_frame_midle" tabname="history"/>
 		<groupbox name="his_box" parent="his_box_bg" rect="0 0 490 740" margin="0 15 0 0" layout_gravity="left top" ScrollScp="SCROLL_COMPARE_HISTORY" draw="false" hittestbox="true" resizebyresolution="true" scrollbar="true"/>
-		<groupbox name="groupbox_3" rect="0 0 480 180" margin="10 550 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>
-		<groupbox name="groupbox_4" rect="0 0 500 290" margin="0 0 0 60" layout_gravity="left bottom" draw="false" hittestbox="false" scrollbar="false" skin="pipwin_low"/>
-		<richtext name="achieveCount" parent="groupbox_4" rect="0 0 120 24" margin="30 20 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_18_ol" format="업적달성 {#ffff00}%s{/}개" maxwidth="0" param1="count" param1_def="999+" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-		<labelline name="labelline" parent="bg_mid" rect="0 0 470 4" margin="15 0 0 288" layout_gravity="left bottom" skin="None"/>
-		<groupbox name="groupbox_4_sub" parent="groupbox_4" rect="0 0 460 230" margin="20 50 0 0" layout_gravity="left top" hittestbox="false" resizebyresolution="false" scrollbar="true" skin=""/>
+		<groupbox name="groupbox_3" rect="0 0 480 300" margin="10 550 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>
+		<groupbox name="groupbox_4" rect="0 0 490 170" margin="0 0 0 60" layout_gravity="left bottom" draw="false" hittestbox="false" scrollbar="true" skin="pipwin_low"/>
+		<richtext name="achieveCount" parent="groupbox_4" rect="0 0 120 24" margin="30 5 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_18_ol" format="업적달성 {#ffff00}%s{/}개" maxwidth="0" param1="count" param1_def="999+" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<labelline name="labelline" parent="bg_mid" rect="0 0 470 4" margin="0 0 0 170" layout_gravity="center bottom" skin="None"/>
+		<groupbox name="groupbox_4_sub" parent="groupbox_4" rect="0 0 460 150" margin="20 20 0 0" layout_gravity="left top" hittestbox="false" resizebyresolution="false" skin=""/>
 	</controls>
 </uiframe>

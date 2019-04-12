@@ -125,6 +125,33 @@ function UPDATE_ARTICLE_Monster(ctrlset)
 	icon:SetTooltipArg(monCls.ClassName, expProp, jobExpProp);
 	
 	icon:SetOverSound("button_over")
+	
+	local completeBtn = GET_CHILD(ctrlset, "complete");
+	local completeText = GET_CHILD(ctrlset, "t_complete");
+	completeBtn:SetVisible(0);
+	completeText:SetVisible(0);
+	local jIES = GetClass('Journal_monkill_reward', monCls.ClassName)
+	if jIES ~= nil then
+	    if jIES ~= nil and jIES.Count1 > 0 then
+	        local wiki = GetWikiByName(monCls.ClassName)
+            if wiki ~= nil then
+                local killcount = GetWikiIntProp(wiki, "KillCount");
+                if killcount >= jIES.Count1 then
+					completeBtn:SetVisible(1);
+					completeText:SetVisible(1);
+					ctrlset:SetSkinName("journal_mon_skin")
+--                    local picMonKillReward = ctrlset:CreateControl('picture', 'COM_'..monCls.ClassName, 0, 0, 75, 75)
+--        			tolua.cast(picMonKillReward, 'ui::CPicture')
+--                	picMonKillReward:SetImage('icon_item_expcard');
+--                	picMonKillReward:SetTooltipType("monster");
+--                	picMonKillReward:SetTooltipArg(monCls.ClassName, expProp, jobExpProp);
+--                	picMonKillReward:SetOverSound("button_over")
+                end
+            end
+	    end
+	end
+	
+	
 	local items = GET_CHILD(ctrlset, "drop", "ui::CPage");
 	local index  = 1;
 	local itemTypeCount = 0;
@@ -166,7 +193,7 @@ function UPDATE_ARTICLE_Monster(ctrlset)
 	if topAtkPropValue > 0 then
 		local sklCls = GetClassByType("Skill", topAtkPropValue);
 		skillName:SetTextByKey("value", sklCls.Name);
-		skillValue:SetTextByKey("value", "Damage " .. topAtkPropCount);
+		skillValue:SetTextByKey("value", "ÇÇÇØ·® " .. topAtkPropCount);
 		skillicon:SetImage("Icon_" .. sklCls.Icon);
 
 		skillValue:ShowWindow(1);

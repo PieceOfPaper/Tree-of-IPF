@@ -73,22 +73,12 @@ function UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
 		INIT_INVEN_SLOT(slot)						
 
 		--거래목록 또는 상점 판매목록에서 올려놓은 아이템(슬롯) 표시 기능
-		if itemCls.MaxStack > 1 then
 			local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
 			if remainInvItemCount ~= invItem.count then
 				slot:Select(1)
 			else
 				slot:Select(0)
 			end
-		else
-			slot:Select(0)
-			for iesid, selllistcount in pairs(SHOP_SELECT_ITEM_LIST) do
-				if invItem:GetIESID() == iesid then
-					slot:Select(1)
-					break;
-				end
-			end
-		end
 
 end
 
@@ -297,17 +287,17 @@ function SET_INV_LBTN_FUNC(frame, funcName)
 	frame:SetUserValue("LBTN_SCP", funcName);
 end
 
-function SET_SLOT_APPLY_FUNC(frame, funcName)
+function SET_SLOT_APPLY_FUNC(frame, funcName, slotSetName)
 	frame:SetUserValue("SLOT_APPLY_FUNC", funcName);
 	if funcName == "None" then
 		INV_APPLY_TO_ALL_SLOT(_SLOT_RESET_GRAY_BLINK);
 	end
 
-	UPDATE_INV_LIST(frame);
+	UPDATE_INV_LIST(frame, slotSetName);
 end
 
-function UPDATE_INV_LIST(frame)
-	INVENTORY_LIST_GET(frame);
+function UPDATE_INV_LIST(frame, slotSetName)
+	INVENTORY_LIST_GET(frame, nil, slotSetName);
 end
 
 function INVENTORY_WEIGHT_UPDATE(frame)
@@ -766,12 +756,18 @@ function INVENTORY_UPDATE_ICONS(frame)
 
 end
 
-function INVENTORY_LIST_GET(frame, setpos)
+--특정 경우에서 모든 아이템 리스트를 돌 필요는 없기 떄문에
+--특정 슬롯셋의 리스트만 가져올 때, slotSetName 값을 넣는다.
+function INVENTORY_LIST_GET(frame, setpos, slotSetName)
 	
 	SET_INVENTORY_MODE(frame, "Normal");
 	
-	INVENTORY_TOTAL_LIST_GET(frame, setpos);
+	--이미 인벤토리의 리스트는 만들어져 있는데, slotSetName 이부분 갱신해주고 싶어서
+	--모든 리스트를 다 불러올 필요는 없다.
 
+	if slotSetName == nil then
+	INVENTORY_TOTAL_LIST_GET(frame, setpos);
+	end
 	
 	DRAW_TOTAL_VIS(frame, 'invenZeny');
 
@@ -785,9 +781,16 @@ function INVENTORY_LIST_GET(frame, setpos)
 			local tree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
 			local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
 
+			if slotSetName ~= nil then
+				if string.find(slotSet:GetName(), slotSetName) then
+					local func = _G[funcStr];
+					APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+				end
+			else
 			local func = _G[funcStr];
 			APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
 		end
+	end
 	end
 
 end

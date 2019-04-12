@@ -8,6 +8,7 @@
 	<AutoHeightMap Length="5000 5000" Offset="-100 -20000" Height="-200 55000"/>
 	<TexDir IpfName="bg_texture" Path="\whitetrees\"/>
 	<SubTexDir IpfName="bg_texture" Path="\castle\"/>
+	<LightMap File="f_whitetrees_21_1_lightmap.jpg" Length="4100 4100" Offset="-97.958 326.932" Size="1024 1024"/>
 	<ShaTexDir IpfName="bg_hi3" Path="\field\f_whitetrees_21_1\"/>
 	<Model File="f_whitetrees_21_1_blend_03.xac" Model="f_whitetrees_21_1_blend_03" ShadowMap="f_whitetrees_21_1_blend_03" pos="-53.0499 3.1192 281.9375" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_whitetrees_21_1_grass.xac" Model="f_whitetrees_21_1_grass" ShadowMap="f_whitetrees_21_1_grass" pos="-257.7797 54.6512 104.3134" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
@@ -45,4 +46,5 @@
 	<Model File="f_whitetrees_21_1_castle_model_01.xac" Model="f_whitetrees_21_1_castle_model_01" ShadowMap="f_whitetrees_21_1_castle_model_01" pos="2055.0769 -51.8273 1186.3214" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_whitetrees_21_1_castle_light_01.xac" Model="f_whitetrees_21_1_castle_light_01" pos="2145.9128 -109.7672 843.9286" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_whitetrees_21_1_castle_bloom_01.xac" Model="f_whitetrees_21_1_castle_bloom_01" pos="2077.8352 -74.9616 794.6022" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_21_1_obbcol.xac" Model="f_whitetrees_21_1_obbcol" pos="127.952 1.009 261.834" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

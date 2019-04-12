@@ -486,7 +486,7 @@ function SCR_ABIL_IRON_ACTIVE(self, ability)
 	end
 	
 	if count == 4 then
-	    addsta = math.floor(ability.Level / 3) * 1000;
+	    addsta = math.floor(ability.Level / 3);
 	end
 	
 	SetExProp(self, "IRON_ARMOR_COUNT", count);
@@ -676,11 +676,11 @@ end
 
 
 function SCR_ABIL_WEIGHT_ACTIVE(self, ability)
-    self.MaxWeight_Bonus = self.MaxWeight_Bonus + ability.Level * 20
+    self.MaxWeight_BM = self.MaxWeight_BM + ability.Level * 20
 end
 
 function SCR_ABIL_WEIGHT_INACTIVE(self, ability)
-    self.MaxWeight_Bonus = self.MaxWeight_Bonus - ability.Level * 20
+    self.MaxWeight_BM = self.MaxWeight_BM - ability.Level * 20
 end
 
 function SCR_ABIL_CRYOMANCER21_ACTIVE(self, ability)

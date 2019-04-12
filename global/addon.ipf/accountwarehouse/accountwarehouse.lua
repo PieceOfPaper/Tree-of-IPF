@@ -51,14 +51,33 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 	end
 	
 	if fromFrame:GetName() == "inventory" then
+		local accountObj = GetMyAccountObj();
+		local itemClassID = session.loginInfo.GetPremiumStateArg(ITEM_TOKEN)
+		local tokenItemCls = GetClassByType("Item", itemClassID);
+		local remainTardeCnt = 0;
+		if tokenItemCls ~= nil then
+			remainTardeCnt = tokenItemCls.NumberArg2 - accountObj.TradeCount
+		end
+		if 0 >= remainTardeCnt then
+			ui.MsgBox(ScpArgMsg("RemainTradeCountDoesNotExist"));
+			return;
+		end
+
 		if geItemTable.IsHavePotential(itemCls.ClassID) == 1 then
 			if obj.PR <= 0 then
 				ui.MsgBox(ScpArgMsg("NoMorePotential"));
 				return;
 			end
 
+			local msg = "";
+			if 5 < remainTardeCnt then
+				msg = ScpArgMsg('DecreasePotaionWhenPutItToAccountWareHouse_Continue?', 'COUNT', remainTardeCnt)
+			else
+				msg = ScpArgMsg('WANNING_DecreasePotaionWhenPutItToAccountWareHouse_Continue?', 'COUNT', remainTardeCnt)
+			end
+
 			local yesScp = string.format("EXEC_PUT_TO_ACCOUNT_WAREHOUSE(\"%s\", %d, %d)", invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
-			ui.MsgBox(ScpArgMsg('DecreasePotaionWhenPutItToAccountWareHouse_Continue?'), yesScp, "None");
+			ui.MsgBox(msg, yesScp, "None");
 			return;
 		end
 
@@ -68,8 +87,15 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 				ui.MsgBox(ScpArgMsg("NotEnoughTradePossibleCount"));
 				return;
 			end
+			local msg = "";
+			if 5 < remainTardeCnt then
+				msg = ScpArgMsg('IfPutItemToWareHouse_TradePossibleItemWillBePut_Continue?', 'COUNT', remainTardeCnt)
+			else
+				msg = ScpArgMsg('WANNING_IfPutItemToWareHouse_TradePossibleItemWillBePut_Continue?', 'COUNT', remainTardeCnt)
+			end
+
 			local yesScp = string.format("MSG_PUTITEM_ACCOUNT_WAREHOUSE(\"%s\", %d, %d)", invItem:GetIESID(), remainBelongCount, frame:GetUserIValue("HANDLE"));
-			ui.MsgBox(ScpArgMsg('IfPutItemToWareHouse_TradePossibleItemWillBePut_Continue?'), yesScp, "None");
+			ui.MsgBox(msg, yesScp, "None");
 			return;
 		end
 

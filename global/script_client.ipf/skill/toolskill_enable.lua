@@ -67,6 +67,22 @@ function SKL_CHECK_EXPROP_OBJ_RANGE_C(actor, skl, propName, propValue, range)
 
 end
 
+function CHECK_IS_VILLAGE_C(actor, skl)
+	local mymapname = session.GetMapName();
+	local map = GetClass("Map", mymapname);
+	if nil == map then
+		return 0;
+	end
+	
+	if map.isVillage == "YES" then
+		return 0;
+	end
+	
+	return 1;
+
+end
+
+
 function SKL_CHECK_CHECK_BUFF_C(actor, skl, buffName)
 
 	if actor:GetBuff():GetBuff(buffName) == nil then

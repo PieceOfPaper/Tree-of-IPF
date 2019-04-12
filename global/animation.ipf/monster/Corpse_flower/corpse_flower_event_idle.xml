@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_flower_blue_atk2_shot"/>
+    <Particle frame="1" particleName="F_explosion058_dark" attachNode="Dummy_head_effect_F" scale="1" useAttach="false" pause="true" targetPos="false" sound="skl_eff_body_atk_10"/>
+    <Particle frame="2" particleName="F_explosion058_dark" attachNode="Dummy_head_effect_R" scale="0.6" useAttach="false" pause="true" targetPos="false" sound="mon_yekub_turn"/>
+    <Particle frame="2" particleName="F_explosion058_dark" attachNode="Dummy_head_effect_L" scale="0.6" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="3" particleName="F_ground010_dark" attachNode="Dummy_Emitter" scale="2.5" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="3" particleName="F_smoke033" attachNode="Dummy_Emitter" scale="0.5" useAttach="false" pause="true" targetPos="false" sound="skl_eff_hit_plants_5"/>
+</ActionDesc>

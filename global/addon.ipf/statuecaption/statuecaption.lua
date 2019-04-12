@@ -26,3 +26,25 @@ function StatueCaption_PVPStatue(handle, funcArg, familyName, pcName)
 	return 1.8 - ranking * 0.1;
 
 end
+
+
+function StatueCaption_JournalStatue(handle, funcArg, familyName, pcName)
+
+	local frame = ui.CreateNewFrame("statuecaption", "STATUE_CAPTION" .. handle);
+	if frame == nil then
+		return nil;
+	end
+
+	funcArg = tonumber(funcArg);
+	local pvpType = math.floor(funcArg / 100);
+	local ranking = math.mod(funcArg, 100);
+	local title = GET_CHILD(frame, "title");
+	title:SetTextByKey("title", ScpArgMsg("JournalRank{Rank}", "Rank", ranking));
+		
+	local nameText = string.format("%s (%s)", familyName, pcName);
+	title:SetTextByKey("name", nameText);
+
+	FRAME_AUTO_POS_TO_OBJ(frame, handle, - frame:GetWidth() * 0.35, 20, 0, 1, 1);
+	return 1.8 - ranking * 0.1;
+
+end

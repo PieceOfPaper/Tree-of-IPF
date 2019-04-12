@@ -836,7 +836,9 @@ function SCR_PRE_KEY_OF_LEGEND_01(self, argstring, argnum1, argnum2)
 --        end
     elseif PC_zone == 'f_siauliai_west' or
             PC_zone == 'f_pilgrimroad_52' or
-            PC_zone == 'd_velniasprison_51_4' then
+            PC_zone == 'd_velniasprison_51_4' or
+            PC_zone == 'd_velniasprison_51_1' or
+            PC_zone == 'd_velniasprison_51_5' then
 
         if GetLayer(self) == 0 then
 --            if result1 == "PROGRESS" or result2 == "PROGRESS" then
@@ -2970,6 +2972,121 @@ end
 
 
 
+--ORCHARD_34_1_SQ_2_ITEM
+function SCR_PRE_ORCHARD_34_1_SQ_2_ITEM(self, argstring, argnum1, argnum2)
+    local result1 = SCR_QUEST_CHECK(self, 'ORCHARD_34_1_SQ_2')
+    if result1 == 'PROGRESS' then
+        if GetLayer(self) == 0  then
+    	    if GetZoneName(self) == 'f_orchard_34_1' then
+                local sObj = GetSessionObject(self, 'SSN_ORCHARD_34_1_SQ_2')
+                if sObj ~= nil then
+                    if sObj.QuestInfoValue1 == 1 then
+                        if IsServerSection(self) == 1 then
+                            return 1;
+                        else
+                            return 0
+                        end
+                    else
+            	        local list, cnt = SelectObject(self, 50, 'ALL')
+            	        if cnt >= 1 then
+                	        for i = 1, cnt do
+                	            if IsServerSection(self) == 1 then
+                    	            if list[i].ClassName ~= 'PC' then
+                        	            if list[i].Dialog == 'ORCHARD_34_1_SQ_2_OBJ_1' then
+                        	                return 1;
+                        	            end
+                        	        end
+                	            else
+                    	            if list[i].ClassName ~= 'PC' then
+                        	            if GetDialogByObject(list[i]) == 'ORCHARD_34_1_SQ_2_OBJ_1' then
+                        	                return 1;
+                        	            end
+                        	        end
+                    	        end
+                	        end
+                	    end
+            	        if IsServerSection(self) == 1 then
+            	            SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("ORCHARD_34_1_SQ_2_ITEM_MSG_no1"), 5);
+            	        end
+                	end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+
+
+--ORCHARD_34_1_SQ_4_ITEM_1
+function SCR_PRE_ORCHARD_34_1_SQ_4_ITEM_1(self, argstring, argnum1, argnum2)
+    local result1 = SCR_QUEST_CHECK(self, 'ORCHARD_34_1_SQ_4')
+    if result1 == 'PROGRESS' then
+        if GetLayer(self) == 0  then
+    	    if GetZoneName(self) == 'f_orchard_34_1' then
+    	        local list, cnt = SelectObject(self, 60, 'ENEMY')
+    	        if cnt >= 1 then
+        	        for i = 1, cnt do
+        	            if list[i].ClassName == 'eldigo_green' then
+            	            if IsServerSection(self) == 1 then
+                                local buff1 = GetBuffByName(list[i], 'ORCHARD_34_1_SQ_4_BUFF')
+                                if buff1 == nil then
+                	                return GetHandle(list[i])
+                	            end
+            	            else
+            	                return GetHandle(list[i])
+                	        end
+            	        end
+        	        end
+        	    end
+        	    
+                if IsServerSection(self) == 1 then
+                    SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("ORCHARD_34_1_SQ_4_ITEM_1_MSG2"), 5);
+        	    end
+            end
+        end
+    end
+    return 0
+end
+
+
+
+--ORCHARD_34_1_SQ_5_ITEM_1
+function SCR_PRE_ORCHARD_34_1_SQ_5_ITEM_1(self, argstring, argnum1, argnum2)
+    if GetLayer(self) == 0  then
+	    if GetZoneName(self) == 'f_orchard_34_1' then
+            return 1;
+        end
+    end
+    return 0
+end
+
+
+
+--ORCHARD_34_1_SQ_5_ITEM_2
+function SCR_PRE_ORCHARD_34_1_SQ_5_ITEM_2(self, argstring, argnum1, argnum2)
+    if GetLayer(self) == 0  then
+	    if GetZoneName(self) == 'f_orchard_34_1' then
+            return 1;
+        end
+    end
+    return 0
+end
+
+
+
+--ORCHARD_34_1_SQ_5_ITEM_3
+function SCR_PRE_ORCHARD_34_1_SQ_5_ITEM_3(self, argstring, argnum1, argnum2)
+    if GetLayer(self) == 0  then
+	    if GetZoneName(self) == 'f_orchard_34_1' then
+            return 1;
+        end
+    end
+    return 0
+end
+
+
+
 --HIDDEN_RUNECASTER_ITEM_1
 function SCR_PRE_HIDDEN_RUNECASTER_ITEM_1(self, argstring, argnum1, argnum2)
     if GetLayer(self) == 0  then
@@ -3328,13 +3445,15 @@ function SCR_PRE_FLASH63_SQ_02_ITEM(self, argstring, argnum1, argnum2)
             if GetLayer(self) == 0 then
                 local x, y, z = GetPos(self)
                 if SCR_POINT_DISTANCE(x, z, 963, -1351) < 200 then
-                    local list, cnt = SelectObjectByFaction(self, 100, 'Monster')
+                    local list, cnt = SelectObject(self, 100, 'ALL')
                     local i
                     for i = 1, cnt do
-                        return GetHandle(list[i])
+                        if list[i].ClassName == 'Lemur' or list[i].ClassName == 'goblin2_wand3' or list[i].ClassName == 'goblin2_hammer' then
+                            return GetHandle(list[i])
+                        end
                     end
-                end
-        	end
+            	end
+            end
         end
     end
     return 0
@@ -4752,4 +4871,154 @@ function SCR_PRE_ITEM_Escape(self, argObj, BuffName, arg1, arg2)
     end
     
     return 1;
+end
+
+--TABLELAND_11_1_SQ_06_CHARM
+function SCR_PRE_TABLELAND_11_1_SQ_06_CHARM(self, argObj, BuffName, arg1, arg2)
+    if GetZoneName(self) == "f_tableland_11_1" then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'TABLELAND_11_1_SQ_06')
+            if result == 'PROGRESS' then
+                local list, cnt = SelectObject(self, 40, 'ALL')
+                local i
+                if cnt > 0 then
+                    for i = 1, cnt do
+                        if list[i].ClassName ~= 'PC' then
+                            if list[i].ClassName == 'SCS_M2_Mon' then
+                                return GetHandle(list[i])
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--CORAL_32_1_SQ_11_ITEM1
+function SCR_PRE_CORAL_32_1_SQ_11_ITEM1(self, argObj, BuffName, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'CORAL_32_1_SQ_11')
+    if result == 'PROGRESS' then
+        if GetZoneName(self) == 'f_coral_32_1' then
+            if GetLayer(self) == 0 then
+                return 1;
+            end
+        end
+    end
+    return 0;
+end
+
+--TABLELAND_11_1_SQ_10_LETTER
+function SCR_PRE_TABLELAND_11_1_SQ_10_LETTER(self, argObj, BuffName, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'TABLELAND_11_1_SQ_09')
+    if result == 'COMPLETE' then
+        return 1
+    else
+        ShowBalloonText(self, 'TABLELAND_11_1_SQ_10_FAIL')
+    end
+    return 0
+end
+
+--TABLELAND_11_1_SQ_11_PAPER
+function SCR_PRE_TABLELAND_11_1_SQ_11_PAPER(self, argObj, BuffName, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'TABLELAND_11_1_SQ_09')
+    if result == 'COMPLETE' then
+        return 1
+    end
+    return 0
+end
+
+--SIAULIAI_35_1_SQ_7_REAGENT
+function SCR_PRE_SIAULIAI_35_1_SQ_7_REAGENT(self, argObj, BuffName, arg1, arg2)
+    if GetZoneName(self) == "f_siauliai_35_1" then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'SIAULIAI_35_1_SQ_8')
+            if result == 'PROGRESS' then
+                local list, cnt = SelectObject(self, 40, 'ALL')
+                local i
+                if cnt > 0 then
+                    for i = 1, cnt do
+                        if list[i].ClassName ~= 'PC' then
+                            if list[i].ClassName == 'vine_4' then
+                                return GetHandle(list[i])
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--ABBEY_35_3_SQ_ORB
+function SCR_PRE_ABBEY_35_3_SQ_ORB(self, argObj, BuffName, arg1, arg2)
+    if GetZoneName(self) == "d_abbey_35_3" then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'ABBEY_35_3_SQ_3')
+            if result == 'PROGRESS' then
+                local list, cnt = SelectObject(self, 100, 'ALL')
+                local i
+                if cnt > 0 then
+                    for i = 1, cnt do
+                        if list[i].ClassName ~= 'PC' then
+                            if list[i].ClassName == 'Hohen_mage_red' or list[i].ClassName == 'Hohen_ritter_green' or list[i].ClassName == 'hohen_barkle_green' then
+                                if GetHpPercent(list[i]) <= 0.5 then
+                                    return GetHandle(list[i])
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--ABBEY_35_4_SQ_HOLLYORB
+function SCR_PRE_ABBEY_35_4_SQ_HOLLYORB(self, argObj, BuffName, arg1, arg2)
+    if GetZoneName(self) == "d_abbey_35_4" then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'ABBEY_35_4_SQ_6')
+            if result == 'PROGRESS' then
+                local list, cnt = SelectObject(self, 100, 'ALL')
+                local i
+                if cnt > 0 then
+                    for i = 1, cnt do
+                        if list[i].ClassName ~= 'PC' then
+                            if list[i].ClassName == 'npc_Obelisk' then
+                                return GetHandle(list[i])
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--ABBEY_35_3_SQ_10_REAGENT
+function SCR_PRE_ABBEY_35_3_SQ_10_REAGENT(self, argObj, BuffName, arg1, arg2)
+    if GetZoneName(self) == "d_abbey_35_3" then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'ABBEY_35_3_SQ_10')
+            if result == 'PROGRESS' then
+                local list, cnt = SelectObject(self, 40, 'ALL')
+                local i
+                if cnt > 0 then
+                    for i = 1, cnt do
+                        if list[i].ClassName ~= 'PC' then
+                            if list[i].ClassName == 'vine_4' then
+                                return GetHandle(list[i])
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
 end

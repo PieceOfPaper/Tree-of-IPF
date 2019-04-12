@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="4.00" soundFile="step_carpet"/>
+	<Sound frame="5.00" soundFile="step_marble"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_pc_run_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+</ActionDesc>

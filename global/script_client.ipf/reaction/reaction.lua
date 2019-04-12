@@ -497,7 +497,7 @@ end
 function C_SKL_CIRCLE_DAMAGE(actor, obj, range, hitType, hitDelay, isKdSafe, sklSR)
 
 	-- hitdelay쓰면 멈춤. 버그있음 일단 0으로 고정.
-	actor:DamageByClientDecisionOnCircle(range, hitType, 0, isKdSafe, sklSR);
+	actor:DamageByClientDecisionOnCircle(obj.type, range, hitType, 0, isKdSafe, sklSR);
 end
 
 function C_SKL_CIRCLE_DAMAGE_SR(actor, obj, range, hitType, hitDelay, isKdSafe)
@@ -507,7 +507,7 @@ function C_SKL_CIRCLE_DAMAGE_SR(actor, obj, range, hitType, hitDelay, isKdSafe)
 	if sklSR == 0 then
 		return;
 	end
-	actor:DamageByClientDecisionOnCircle(range, hitType, 0, isKdSafe, sklSR);
+	actor:DamageByClientDecisionOnCircle(obj.type, range, hitType, 0, isKdSafe, sklSR);
 end
 
 function SKL_FAST_FALL(actor, obj, fallRate)

@@ -131,6 +131,7 @@ function QUEST_REWARD_TEST(frame, questID)
     	y = MAKE_BASIC_REWARD_MONEY_CTRL(box, cls, y);
     	y = MAKE_BASIC_REWARD_BUFF_CTRL(box, cls, y);
     	y = MAKE_BASIC_REWARD_HONOR_CTRL(box, cls, y);
+    	y = MAKE_BASIC_REWARD_PCPROPERTY_CTRL(box, cls, y);
     end
     
 	local succExp = cls.Success_Exp;
@@ -439,13 +440,23 @@ function MAKE_BUFF_TAG_TEXT_CTRL(y, box, ctrlNameHead, buffName, index)
 	return y;
 end
 
+function MAKE_PCPROPERTY_TAG_TEXT_CTRL(y, box, ctrlNameHead, propertyName, value, index)
+
+	local txt = GET_PCPROPERTY_TAG_TXT(propertyName, value);
+	local richTxt;
+	y = y + 10
+	y, richTxt = BOX_CREATE_RICH_CONTROLSET(box, ctrlNameHead .. index, y, 20, txt, index);
+	richTxt:EnableHitTest(1);
+
+	return y;
+end
+
 function MAKE_HONOR_TAG_TEXT_CTRL(y, box, ctrlNameHead, honorName, point_value, index)
 
 	local txt = GET_HONOR_TAG_TXT(honorName, point_value);
 	local richTxt;
 	y, richTxt = BOX_CREATE_RICH_CONTROLSET(box, ctrlNameHead .. index, y, 20, txt, index);
 	richTxt:EnableHitTest(1);
---	SET_BUFF_TOOLTIP_BY_NAME(richTxt, honorName);
 
 	return y;
 end
@@ -513,6 +524,15 @@ function MAKE_TAKEITEM_CTRL(box, cls, y)
 		end
 	end
 	
+	return y;
+end
+
+function MAKE_BASIC_REWARD_PCPROPERTY_CTRL(box, cls, y)
+    local pcProperty = GetClass('reward_property', cls.ClassName)
+    if pcProperty ~= nil then
+        y = MAKE_PCPROPERTY_TAG_TEXT_CTRL(y, box, "reward_PcProperty", pcProperty.Property, pcProperty.Value, 1);
+    end
+    
 	return y;
 end
 
@@ -1076,6 +1096,11 @@ function QUEST_REWARD_CHECK(questname)
 
     if cls.Success_HonorPoint ~= 'None' then
         result[#result + 1] = 'HonorPoint'
+    end
+
+    local pcProperty = GetClass('reward_property', questname)
+    if pcProperty ~= nil then
+        result[#result + 1] = 'PCProperty'
     end
 
     return result

@@ -1,7 +1,7 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P_MaxDialog,AnchorCount,UP_ReturnRange,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 1,1,1,30,-1,60000,1,2,0,0,0,0,100,"Warp_arrow","바이덴티스 신당","","","","","","","","CATACOMB_02_CATACOMB_38_1","","NO","YES","NO","Neutral","","","",""
 2,2,1,30,-1,60000,1,3,0,0,0,0,100,"Warp_arrow","누오로딘 폭포","","","","","","","","CATACOMB_02_REMAINS37_1","","NO","YES","NO","Neutral","","","",""
-3,3,0,30,150,30000,11,0,0,0,0,1,0,"rootcrystal_01","나무뿌리 수정","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
+3,3,0,30,100,30000,13,0,0,0,0,1,0,"rootcrystal_01","나무뿌리 수정","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
 4,4,1,40,-1,60000,1,1,0,1,0,0,0,"npc_grita","제인의 영혼","","","","","","","CATACOMB_02_NPC_01","","","NO","YES","NO","Neutral","C/10/130/255/180","EffectLocal/F_ground017/0.5/2/CATACOMB_02_SQ_04/IMPOSSIBLE:POSSIBLE:PROGRESS","",""
 5,5,1,40,-1,60000,1,0,0,1,0,0,0,"boss_archon_thorn21","봉인된 아콘","","","","","BT_Dummy","","CATACOMB_02_NPC_02","","","NO","YES","NO","Neutral","","","",""
 6,6,1,40,-1,60000,1,0,0,1,0,0,0,"Link_stone","교감의 마법석","","","","CATACOMB_02_OBJ_01_TACTICS","","","CATACOMB_02_OBJ_01","","","NO","YES","NO","Neutral","Anim/ON","","",""
@@ -34,3 +34,4 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P
 33,33,1,300,1,60000,4,0,0,0,0,1,0,"HiddenTrigger_CantGen300","몬젠X","","","","","","","","","","NO","YES","NO","Neutral","","","",""
 34,34,1,200,1,60000,2,0,0,0,0,1,0,"HiddenTrigger_CantGen200","몬젠X","","","","","","","","","","NO","YES","NO","Neutral","","","",""
 35,35,0,40,20,60000,15,0,0,0,0,0,100,"pyran_green","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+36,1000,1,0,1,1,1,0,0,0,0,0,0,"treasure_box1","보물 상자 LV1","","","","","","","TREASUREBOX_LV","","","","YES","NO","Neutral","LV1","ITEM:COLLECT_217:1","",""

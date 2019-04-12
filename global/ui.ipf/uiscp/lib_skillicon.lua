@@ -41,7 +41,7 @@ function SET_SLOT_SKILL_BY_LEVEL(slot, type, level)
 	local sklCls = GetClassByType("Skill", type);
 	local imageName = 'icon_' .. sklCls.Icon;
 	icon:Set(imageName, "Skill", type, 0);
-	SET_SKILL_TOOLTIP_BY_TYPE(icon, type);
+	--SET_SKILL_TOOLTIP_BY_TYPE(icon, type);
 	icon:ClearText();
 end
 

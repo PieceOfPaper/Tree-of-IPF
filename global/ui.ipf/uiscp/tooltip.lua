@@ -6,6 +6,27 @@ function UPDATE_MONSTER_TOOLTIP(frame, monName)
 	local image = GET_CHILD(frame, "image");
 	image:SetImage(GET_MON_ILLUST(monCls));
 
+	local completeBtn = GET_CHILD(frame, "complete");
+	local completeText = GET_CHILD(frame, "t_complete");
+	completeBtn:SetVisible(0);
+	completeText:SetVisible(0);
+	local jIES = GetClass('Journal_monkill_reward', monCls.ClassName)
+	if jIES ~= nil then
+	    if jIES ~= nil and jIES.Count1 > 0 then
+	        local wiki = GetWikiByName(monCls.ClassName)
+            if wiki ~= nil then
+                local killcount = GetWikiIntProp(wiki, "KillCount");
+                if killcount >= jIES.Count1 then
+					completeBtn:SetVisible(1);
+					completeText:SetVisible(1);
+--                    local picMonKillReward = frame:CreateControl('picture', 'COM_'..monCls.ClassName, 0, 40, 95, 95)
+--        			tolua.cast(picMonKillReward, 'ui::CPicture')
+--                	picMonKillReward:SetImage('icon_item_expcard');
+                end
+            end
+	    end
+	end
+	
 	local name = GET_CHILD(frame, "name");
 	name:SetTextByKey("value", monCls.Name);
 

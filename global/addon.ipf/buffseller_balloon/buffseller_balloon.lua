@@ -19,6 +19,13 @@ function AUTOSELLER_BALLOON(title, sellType, handle, skillID)
 				ui.CloseFrame("personal_shop_register");
 			end
 		elseif sellType == AUTO_TITLE_FOOD_TABLE then
+		elseif sellType == AUTO_SELL_OBLATION then
+			local frame = ui.GetFrame("oblation_sell");
+			local ownerHandle = frame:GetUserIValue("HANDLE");
+			
+			if ownerHandle == handle then
+				ui.CloseFrame("oblation_sell");
+			end
 		else
 			CLOSE_SQUIRE_STORE(handle, skillID);
 		end

@@ -16,3 +16,20 @@ function GET_PVP_STATUEPOSITION(ranking)
 	end	
 
 end
+
+
+function GET_JOURNAL_STATUE_POSITION(ranking)
+
+	if ranking == 1 then
+		return "c_Klaipe", -878, 167, 0
+	elseif ranking == 2 then
+		return "c_Klaipe", -861, 214, 0
+	elseif ranking == 3 then
+		return "c_Klaipe", -844, 262, 0
+	elseif ranking == 4 then
+		return "c_Klaipe", -827, 309, 0
+	else
+		return "c_Klaipe", -811, 357, 0
+	end	
+
+end

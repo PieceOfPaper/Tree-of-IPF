@@ -2152,7 +2152,7 @@ end
 
 function SCR_GET_Cyclone_Ratio2(skill)
 
- return 2 + skill.Level * 0.5
+ return 2.5 + skill.Level * 0.3
 
 end
 
@@ -5169,6 +5169,31 @@ function SCR_GET_MagneticForce_Ratio(skill)
 
 end
 
+function SCR_Get_SkillFactor_GravityPole(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor
+
+	local abil = GetAbility(pc, "Psychokino8")      -- Skill Damage add
+    if abil ~= nil then
+        value = value + (value * (abil.Level * 0.01))
+    end
+
+    return math.floor(value)
+
+end
+
+function SCR_GET_GravityPole_Ratio2(skill)
+
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, "Psychokino8") 
+	local value = 0
+	if abil ~= nil then 
+        return value + abil.Level
+    end
+
+end
+
 function SCR_Get_SklAtkAdd_Meteor(skill)
 
     local pc = GetSkillOwner(skill);
@@ -5604,6 +5629,12 @@ end
 
 function SCR_GET_Reduce_Level_Ratio(skill)
 	local value = skill.Level
+  return value
+
+end
+
+function SCR_GET_Reduce_Level_Ratio2(skill)
+	local value = 10 + skill.Level
   return value
 
 end
@@ -7174,7 +7205,7 @@ end
 function SCR_Get_SteadyAim_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = 3 * skill.Level
+    local value = 5 + skill.Level
 
     return math.floor(value)
 
@@ -7713,7 +7744,7 @@ end
 
 
 function SCR_GET_PsychicPressure_Ratio(skill)
-	return 5 - math.floor(skill.Level * 0.1)
+	return skill.Level + 4
 end
 
 
@@ -10126,7 +10157,7 @@ function SCR_Get_JointPenalty_Ratio(skill)
 end
 
 function SCR_Get_HangmansKnot_Bufftime(skill)
-    return skill.Level;
+    return 1 + skill.Level * 0.2;
 end
 
 

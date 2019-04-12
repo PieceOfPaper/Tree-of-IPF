@@ -1,4 +1,4 @@
-function SCR_GET_JOB_STR(pc)
+﻿function SCR_GET_JOB_STR(pc)
 	
 	local jobObj = GetJobObject(pc);
 	if jobObj ~= nil then
@@ -67,7 +67,9 @@ end
 
 function SCR_GET_MAX_WEIGHT(pc)
 	
-	local value = 5000 + pc.MaxWeight_Bonus + (pc.CON * 5) + (pc.STR * 5);
+	local rewardProperty = GET_REWARD_PROPERTY(pc, "MaxWeight")
+
+	local value = 5000 + pc.MaxWeight_BM + pc.MaxWeight_Bonus + (pc.CON * 5) + (pc.STR * 5) + rewardProperty;
 
 	return value;
 end
@@ -103,6 +105,10 @@ function SCR_GET_STR(self)
 	
 	value = value + value * (jobCount - 1) * 0.1;
 	value = math.floor(value + self.STR_ADD, 1);
+	
+	local rewardProperty = GET_REWARD_PROPERTY(self, "STR")
+	value = value + rewardProperty
+
 	if value < 1 then
         value = 1;
     end
@@ -122,9 +128,15 @@ function SCR_GET_DEX(self)
 	local baseDex = self.DEX_JOB + self.DEX_STAT + self.DEX_Bonus + GetExProp(self, "DEX_TEMP");
 	local addStat = SCR_GET_ADDSTAT(self, baseDex)
 	local value = math.floor(baseDex + self.DEX_ADD + addStat, 1);
+	
+	local rewardProperty = GET_REWARD_PROPERTY(self, "DEX")
+
+	value = value + rewardProperty
+	
 	if value < 1 then
         value = 1;
     end
+
 	return value;
 
 end
@@ -142,9 +154,15 @@ function SCR_GET_CON(self)
     local addStat = SCR_GET_ADDSTAT(self, baseCon)
 	
 	local value = math.floor(baseCon + self.CON_ADD + addStat, 1);
+
+	local rewardProperty = GET_REWARD_PROPERTY(self, "CON")
+
+	value = value + rewardProperty
+
 	if value < 1 then
         value = 1;
     end
+
 	return value;
 
 end
@@ -162,11 +180,17 @@ function SCR_GET_INT(self)
     local value = baseInt + addStat;
 	local jobCount = GetTotalJobCount(self);
 	
+	local rewardProperty = GET_REWARD_PROPERTY(self, "INT")
+	
 	value = value + value * (jobCount - 1) * 0.1;
 	value = math.floor(value + self.INT_ADD, 1);
+	
+	value = value + rewardProperty 
+
 	if value < 1 then
         value = 1;
     end
+
 	return value;
 
 end
@@ -180,10 +204,16 @@ function SCR_GET_MNA(self)
 	local baseMna = self.MNA_JOB + self.MNA_STAT + self.MNA_Bonus + GetExProp(self, "MNA_TEMP");
     local addStat = SCR_GET_ADDSTAT(self, baseMna)
 	
+	local rewardProperty = GET_REWARD_PROPERTY(self, "MNA")
+
 	local value = math.floor(baseMna + self.MNA_ADD + addStat, 1);
+
+	value = value + rewardProperty
+
 	if value < 1 then
         value = 1;
     end
+
 	return value;
 end
 
@@ -224,7 +254,9 @@ function SCR_Get_MHP(self)
 	local byLevel = math.floor((lv -1) * 8.5 * 2);
 	local byStat = math.floor(con * 85);
 
-	local value = (jobObj.JobRate_HP * byLevel) + byItem + byStat + self.MHP_Bonus + byBuff;
+	local rewardProperty = GET_REWARD_PROPERTY(self, "MHP")
+
+	local value = (jobObj.JobRate_HP * byLevel) + byItem + byStat + self.MHP_Bonus + byBuff + rewardProperty;
 	
 	if value < 1 then
 	    value = 1;
@@ -250,7 +282,9 @@ function SCR_Get_MSP(self)
         	addSp = self.Lv * 1.675;
 	end
 
-	local value = (jobObj.JobRate_SP * byLevel) + byItem + byStat + self.MSP_Bonus + byBuff + addSp;
+	local rewardProperty = GET_REWARD_PROPERTY(self, "MSP")
+
+	local value = (jobObj.JobRate_SP * byLevel) + byItem + byStat + self.MSP_Bonus + byBuff + addSp + rewardProperty;
 	
 	if value < 1 then
 	    value = 0;
@@ -1040,7 +1074,10 @@ function SCR_Get_MSTA(self)
 	if itemSta == nil then
 		itemSta = 0;
 	end
-	local result = 25000 + itemSta * 1000 + self.MaxSta_BM + self.MAXSTA_Bonus * 1000;
+
+	local rewardProperty = GET_REWARD_PROPERTY(self, "MSTA")
+
+	local result = 25000 + itemSta * 1000 + self.MaxSta_BM * 1000 + self.MAXSTA_Bonus * 1000 + (rewardProperty * 1000);
 	return result;
 
 end
@@ -1572,6 +1609,11 @@ function SCR_GET_PC_LIMIT_BUFF_COUNT(self)
 	  count = 7;
 	end
 	
+	-- �����ü��... 
+	if 1 == IsDummyPC(self) then
+		return count;
+	end
+	
 	if 1 == IsPremiumState(self, ITEM_TOKEN) then
 	  TokenBuffCnt = 1
 	end
@@ -1709,4 +1751,25 @@ end
 
 function SCR_GET_DARK_DEFFACTOR_PC(self)
     return self.DarkDefFactor_PC_BM;
+end
+
+function GET_REWARD_PROPERTY(self, propertyName)
+	
+	local sObj = GetSessionObject(self, 'ssn_klapeda')
+	local rewardProperty = 0;
+
+	if sObj ~= nil then
+		local list, listCnt = GetClassList("reward_property");
+		
+		for i = 0, listCnt -1 do
+			local cls = GetClassByIndexFromList(list, i);
+			if cls ~= nil and cls.Property == propertyName then
+				if sObj[cls.ClassName] == 300 then
+					rewardProperty = rewardProperty + cls.Value
+				end
+			end
+		end
+	end
+
+	return rewardProperty
 end

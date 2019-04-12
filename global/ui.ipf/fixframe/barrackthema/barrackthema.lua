@@ -28,8 +28,7 @@ function BARRACK_THEMA_UPDATE(frame)
 	local account = GetMyAccountObj();
 	local mynxp = bg:GetChild("mynxp");
 	local accountObj = GetMyAccountObj();
-	mynxp:SetTextByKey("value", accountObj.GiftMedal);
-	mynxp:SetTextByKey("value2", accountObj.GiftMedal + accountObj.PremiumMedal);
+	mynxp:SetTextByKey("value", accountObj.GiftMedal + accountObj.PremiumMedal);
 	local bg_1 = frame:GetChild("nxp_bg_1");
 	local mynxp_1 = bg_1:GetChild("mynxp_1");
 	mynxp_1:SetTextByKey("value", accountObj.Medal);

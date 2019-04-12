@@ -140,6 +140,7 @@ function DIALOGSELECT_QUEST_REWARD_ADD(frame, argStr)
     	y = MAKE_BASIC_REWARD_MONEY_CTRL(questRewardBox, cls, y);
     	y = MAKE_BASIC_REWARD_BUFF_CTRL(questRewardBox, cls, y);
     	y = MAKE_BASIC_REWARD_HONOR_CTRL(questRewardBox, cls, y);
+    	y = MAKE_BASIC_REWARD_PCPROPERTY_CTRL(questRewardBox, cls, y);
     end
     
 	local succExp = cls.Success_Exp;

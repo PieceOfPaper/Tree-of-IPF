@@ -157,10 +157,18 @@ function ON_OPEN_FOOD_TABLE_UI(frame, msg, handle, forceOpenUI)
 		local clslist, cnt  = GetClassList("FoodTable");
 		for i = 0 , cnt - 1 do
 			local cls = GetClassByIndexFromList(clslist, i);
-			local ctrlSet = gbox_make:CreateControlSet('camp_food_register', "FOOD_" .. cls.ClassName, 0, 0);
-			SET_FOOD_TABLE_BASE_INFO(ctrlSet, cls, tableInfo);
-			SET_FOOD_TABLE_MATAERIAL_INFO(ctrlSet, cls);		
+			
+			local skillInfo = session.GetSkill(tableInfo:GetSkillType());
+			if skillInfo ~= nil then
+				local sklObj = GetIES(skillInfo:GetObject());
 
+				-- 음식 제작의 필요 스킬레벨이 pc의 스킬 레벨 이하일때 출력
+				if cls.SkillLevel <= sklObj.Level then
+					local ctrlSet = gbox_make:CreateControlSet('camp_food_register', "FOOD_" .. cls.ClassName, 0, 0);
+					SET_FOOD_TABLE_BASE_INFO(ctrlSet, cls, tableInfo);
+					SET_FOOD_TABLE_MATAERIAL_INFO(ctrlSet, cls);		
+				end
+			end
 		end
 
 		GBOX_AUTO_ALIGN(gbox_make, 15, 3, 10, true, false);
