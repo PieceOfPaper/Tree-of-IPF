@@ -41,6 +41,7 @@ function GET_MORE_EVENT_EXP(pc)
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_3'); --비 이벤트
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_4'); --비 이벤트
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_5'); --비 이벤트
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1708_JURATE_1'); --비 이벤트
 
 	return sumExp; 
 end

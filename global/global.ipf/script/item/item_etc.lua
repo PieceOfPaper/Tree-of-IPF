@@ -1242,3 +1242,47 @@ end
 function SCR_USE_ITEM_Event_Steam_Night_Market_RedOxBuff(self,argObj,BuffName,arg1,arg2)
     AddBuff(self, self, 'Event_Steam_Drug_RedOx');
 end
+
+function ACHIEVE_TEAMBATTLE_ERROR(self, argObj, argstring, arg1, arg2pc)
+    local achieveName = nil;
+	local buffName = nil;
+
+    if arg1 == 1 then
+        achieveName = "TeamBattle_Gold";
+        buffName = "TeamBattle_GoldRanker_Error";
+    elseif arg1 == 2 then
+        achieveName = "TeamBattle_Silver";
+        buffName = "TeamBattle_SilverRanker_Error";
+    elseif arg1 == 3 then
+        achieveName = "TeamBattle_Bronze";
+        buffName = "TeamBattle_BronzeRanker_Error";
+    end
+    local tx = TxBegin(self);
+    TxAddAchievePoint(tx, achieveName, 1);
+    local ret = TxCommit(tx);
+    if ret == 'SUCCESS' then
+        ADDBUFF(self, self, buffName, 1, 0, 604740000);
+    end
+end
+
+function SCR_USE_VALENTINE_CHOCO_2018(pc)
+    local aObj = GetAccountObj(pc);
+    local mapclass = GetClass('Map', aObj.EV180206_VALENTINE_MAP)
+
+    local choco_sel = ShowSelDlg(pc, 0, ScpArgMsg('EVENT_2018VALEN_SEL3', 'MAP', mapclass.Name), ScpArgMsg("No"), ScpArgMsg("Yes"))
+
+    if choco_sel == 1 then
+        return;
+    elseif choco_sel == 2 then
+        local tx = TxBegin(pc);
+        TxSetIESProp(tx, aObj, 'EV180206_VALENTINE_MAP', 'None')
+        local ret = TxCommit(tx);
+
+        if ret == 'SUCCESS' then
+            AddBuff(pc, pc, 'EVENT_1708_JURATE_1', arg1, 0, '3600000', 1);
+            local teamlv = GetTeamLevel(pc)
+            local teamName = GetTeamName(pc);
+            IMCLOG_CONTENT("180206_VALENTINE_EVENT", "PClv:  ", pc.Lv, "TeamLv:  ", teamlv, "TeamName:   ", teamName)
+        end
+    end
+end

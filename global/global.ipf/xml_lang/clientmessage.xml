@@ -79,6 +79,9 @@
 		<Class ClassID="501122" OverrideType="ADD" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_SEL2" Data="탈트 10개를 건네준다."/>
 		<Class ClassID="501123" OverrideType="ADD" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_SEL3" Data="비밀 야시장으로 들어간다."/>
 		<Class ClassID="501124" OverrideType="ADD" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_SEL4" Data="비밀 야시장을 나간다."/>
+		<Class ClassID="501129" OverrideType="ADD" ClassName="EVENT_STEAM_2018REWARD_DLG1" Data="초보, 복귀 이벤트"/>
+		<Class ClassID="501130" OverrideType="ADD" ClassName="EVENT_STEAM_2018REWARD_DLG2" Data="매일매일 출석체크 이벤트"/>
+		<Class ClassID="501131" OverrideType="ADD" ClassName="EVENT_STEAM_2018REWARD_DLG3" Data=" {nl}{COUNT}일차 보상을 받았습니다.{nl}내일 또 오세요~"/>
 	</Category>
 	<Category Name="Premium">
 		<Class ClassID="660001" OverrideType="ADD" ClassName="steam_PremiumToken_30day" Data="토큰:30일"/>

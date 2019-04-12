@@ -9,11 +9,6 @@
         end
     end
 
-    --TODAY_NUMBER_EVENT    
-    if IsSameActor(self, party_pc) ~= "YES" and GetDistance(self, party_pc) < PARTY_SHARE_RANGE then
-        SCR_EVENT_TODAY_NUMBER_DROPITEM(self, sObj, msg, argObj, argStr, argNum) 
-    end
-
     --upgrade buff    
     if IsSameActor(self, party_pc) ~= "YES" and GetDistance(self, party_pc) < PARTY_SHARE_RANGE then
         SCR_DROP_LVUPBUFF(self, sObj, msg, argObj, argStr, argNum)
@@ -29,9 +24,6 @@ function SCR_SSN_KLAPEDA_KillMonster(self, sObj, msg, argObj, argStr, argNum)
 	CHECK_SUPER_DROP(self);
 	SCR_SSN_KLAPEDA_KillMonster_Sub(self, sObj, msg, argObj, argStr, argNum)
     CHECK_CHALLENGE_MODE(self, argObj);
-
--- TODAY_NUMBER_EVENT    
-    SCR_EVENT_TODAY_NUMBER_DROPITEM(self, sObj, msg, argObj, argStr, argNum)
 
     --upgrade buff
     SCR_DROP_LVUPBUFF(self, sObj, msg, argObj, argStr, argNum)

@@ -5378,6 +5378,9 @@
 		<image name="test_companion_17" file="\icon\companion.tga" imgrect="606 246 100 122" CMM_Caption="슈트고로_탭버튼"/>
 		<image name="test_companion_17_cursoron" file="\icon\companion.tga" imgrect="707 246 100 122"/>
 		<image name="test_companion_17_clicked" file="\icon\companion.tga" imgrect="707 246 100 122"/>
+		<image name="test_companion_18" file="\icon\companion.tga" imgrect="505 369 100 122" CMM_Caption="황금고로_탭버튼"/>
+		<image name="test_companion_18_cursoron" file="\icon\companion.tga" imgrect="505 492 100 122"/>
+		<image name="test_companion_18_clicked" file="\icon\companion.tga" imgrect="505 492 100 122"/>
 		<image name="test_com_ability" file="\skin\pip_test.tga" imgrect="1832 851 54 35" CMM_Caption="컴패니언_특성플러스"/>
 		<image name="test_com_ability_cursoron" file="\skin\pip_test.tga" imgrect="1832 887 54 35"/>
 		<image name="test_com_ability_clicked" file="\skin\pip_test.tga" imgrect="1832 923 54 35"/>
@@ -6091,6 +6094,7 @@
 		<image name="companion_penguin_blue" file="\icon\companion_Velhider.tga" imgrect="80 240 80 80"/>
 		<image name="companion_sled" file="\icon\companion_Velhider.tga" imgrect="240 240 80 80"/>
 		<image name="companion_goro_suit" file="\icon\companion_Velhider.tga" imgrect="320 80 80 80"/>
+		<image name="companion_gold_goro" file="\icon\companion_Velhider.tga" imgrect="320 160 80 80"/>
 		<image name="bg_w" file="\skin\button.tga" imgrect="252 974 50 50"/>
 		<image name="barrack_signboard" file="\skin\barrack.tga" imgrect="356 0 257 192"/>
 		<image name="barrack_attack_icon" file="\skin\barrack.tga" imgrect="59 720 55 61"/>
@@ -8048,6 +8052,12 @@
 		<image name="icon_forest3" file="\icon\buff_icon.tga" imgrect="384 1920 128 128"/>
 		<image name="icon_forest4" file="\icon\buff_icon.tga" imgrect="512 1920 128 128"/>
 		<image name="icon_goro_have" file="\icon\buff_icon.tga" imgrect="896 1920 128 128" CMM_Caption="슈트 고로 버프"/>
+		<image name="icon_evasion_back" file="\icon\buff_icon.tga" imgrect="640 1920 128 128"/>
+		<image name="icon_goldfish2" file="\icon\buff_icon.tga" imgrect="768 1920 128 128" CMM_Caption="황금 물고기 루팅찬스 버프"/>
+		<image name="icon_swashbuckling_abill_buff" file="\icon\buff_icon2.tga" imgrect="0 0 128 128" CMM_Caption="스워시 버클링: 집중 방어"/>
+		<image name="icon_Provocation_immunity" file="\icon\buff_icon2.tga" imgrect="128 0 128 128" CMM_Caption="도발 면역"/>
+		<image name="icon_gold_dog" file="\icon\buff_icon2.tga" imgrect="256 0 128 128" CMM_Caption="황금 고로 버프"/>
+		<image name="icon_Gold_Clover" file="\icon\buff_icon2.tga" imgrect="384 0 128 128" CMM_Caption="황금 클로버"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

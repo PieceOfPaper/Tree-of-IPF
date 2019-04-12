@@ -95,5 +95,9 @@
 		<Class OverrideType="ADD" ClassID="5010139" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_DLG_4" Caption="경계하는 남자" NextPage="None" ImgName="blank" VoiceName="None" Text="볼 일 없으면 그만 돌아가 주시길 부탁드립니다." arg1="None" arg2="None" arg3="None" arg4="None"/>
 		<Class OverrideType="ADD" ClassID="5010140" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_DLG_5" Caption="야시장 관리인" NextPage="None" ImgName="blank" VoiceName="None" Text="마음에 드는 물건은 있었나?{nl}운이 좋으면 다음에 또 볼 수 있기를 바라지..." arg1="None" arg2="None" arg3="None" arg4="None"/>
 		<Class OverrideType="ADD" ClassID="5010141" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_DLG_6" Caption="경계하는 남자" NextPage="None" ImgName="blank" VoiceName="None" Text="당신은 모험을 시작한 지 얼마 되지 않아 보이는군요.{nl}아직 이곳에 오기에 이릅니다." arg1="None" arg2="None" arg3="None" arg4="None"/>
+		<Class OverrideType="ADD" ClassID="5010144" ClassName="NPC_EVENT_2018GUIDE_DLG1" Caption="이벤트 알림판" NextPage="None" ImgName="blank" VoiceName="None" Text='팀 레벨이 1보다 높거나 이미 "가이드 상자(14일)"을 받으셨습니다.{nl}(복귀 유저는 "복귀 유저의 선물 상자(14일)"을 사용해서 복귀 유저를 증명해주세요.)' arg1="None" arg2="None" arg3="None" arg4="None"/>
+		<Class OverrideType="ADD" ClassID="5010145" ClassName="NPC_EVENT_2018GUIDE_DLG2" Caption="이벤트 알림판" NextPage="None" ImgName="blank" VoiceName="None" Text="트리 오브 세이비어 복귀를 환영합니다." arg1="None" arg2="None" arg3="None" arg4="None"/>
+		<Class OverrideType="ADD" ClassID="5010146" ClassName="NPC_EVENT_2018GUIDE_DLG3" Caption="이벤트 알림판" NextPage="None" ImgName="blank" VoiceName="None" Text="트리 오브 세이비어에 오신 것을 환영합니다." arg1="None" arg2="None" arg3="None" arg4="None"/>
+		<Class OverrideType="ADD" ClassID="5010147" ClassName="NPC_EVENT_2018GUIDE_DLG4" Caption="알림" NextPage="None" ImgName="blank" VoiceName="None" Text='복귀 유저가 증명되었습니다.{nl}"가이드 상자(14일)"을 받지 않으셨다면 "이벤트 알림판"에서 아이템을 획득하세요.' arg1="None" arg2="None" arg3="None" arg4="None"/>
 	</Category>
 </idspace>
