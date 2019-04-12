@@ -53,7 +53,7 @@ function TX_SCR_USE_STAT_RESET(self, itemGUID, argList)
 		return
 	end
 
-	if invItem.ClassName ~= "Premium_StatReset" and invItem.ClassName ~= "steam_Premium_StatReset" and invItem.ClassName ~= "Premium_StatReset14" and invItem.ClassName ~= "steam_Premium_StatReset_1" then
+	if invItem.ClassName ~= "Premium_StatReset" and invItem.ClassName ~= "steam_Premium_StatReset" and invItem.ClassName ~= "Premium_StatReset14" and invItem.ClassName ~= "steam_Premium_StatReset_1" and invItem.ClassName ~= "Premium_StatReset_TA" then
 		return;
 	end
 

@@ -2,6 +2,7 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 400000,1,0,"USE_STEAM_DLC","1이면 사용","NO"
 400001,1,0,"USE_GET_ACC_CREATETIME","1이면 사용","NO"
 400002,1,0,"USE_MARKET_REPORT","1이면 사용","YES"
+400003,0,0,"USE_STEAM_VAC_BAN","스팀 VAC에 의한 밴 기능 사용 여부. 1이면 사용","NO"
 100000,0,0,"SHUTDOWN_TEST","셧다운테스트","NO"
 100001,0.250000,0,"MOVE_PKT_TIME","이동동기화패킷전송텀","NO"
 100002,0,0,"NOT_ZONE_DOWN","존이안떨어지는것을가정한다. 성능에 제한","NO"

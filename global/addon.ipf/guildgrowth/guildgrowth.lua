@@ -1,4 +1,4 @@
-﻿
+
 function GUILDGROWTH_ON_INIT(addon, frame)
 	
 	addon:RegisterMsg("OPEN_DLG_GUILDGROWTH", "ON_OPEN_DLG_GUILDGROWTH");		
@@ -21,7 +21,7 @@ function GUILDGROWTH_UPDATE_ABILITY(frame, guildObj)
 	local ablePoint = current - used;
 	local ablePointText = ScpArgMsg("UsableAbilityPoint") .. " : " .. ablePoint;	
 	txt_current_point:SetTextByKey("value", ablePointText);
-
+	
 	local gbox_list = gbox_ability:GetChild("gbox_list");
 	gbox_list:RemoveAllChild();
 	
@@ -294,10 +294,15 @@ end
 function DROP_GUILDGROWTH_TALT(parent, ctrl)
 
 	local invItem = GET_DRAG_INVITEM_INFO();
-
-	local dropItemCls = GetClassByType("Item", invItem.type);
+	
 	local itemName = GET_GUILD_EXPUP_ITEM_INFO();
+	local dropItemCls = GetClassByType("Item", invItem.type);
+	if dropItemCls.ClassName == 'misc_talt_event' then
+        itemName = GET_GUILD_EXPUP_ITEM_INFO2();
+	end
+
 	local taltCls = GetClass("Item", itemName);
+
 	if itemName ~= dropItemCls.ClassName then
 		local text = ScpArgMsg("DropItem{Name}ForGuildExpUp", "Name", taltCls.Name);
 		ui.SysMsg(text);
