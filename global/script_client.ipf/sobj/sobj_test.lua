@@ -628,8 +628,7 @@ function SCR_SMARTGEN_MON_CREATE_CLIENT(myActor, sObj, DuplCreatePass_OPT, Accru
 		    end
 		    
 		    local Accrue = {sObj.SpecialAccrue, sObj.NormalAccrue}
-		    
-        	if Accrue[mon_division] >= smartgen.Accrue_Max * 6 or AccruePass_OPT == 'YES' then
+        	if Accrue[mon_division] >= smartgen.Accrue_Max * 3 or AccruePass_OPT == 'YES' then
 				control.CustomCommand("SMARTGEN_CHECK", smartgen.ClassID);
                 mon_summon = 'YES'
 				if string.find(smartgen.ClassName, 'NormalMonGenPos') ~= nil then

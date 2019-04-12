@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -443,10 +443,10 @@
 		<Class ClassID="10536" ClassName="RecipeGroup_Artefact" Data="아티팩트"/>
 		<Class ClassID="10537" ClassName="RecipeGroup_Rapier" Data="레이피어"/>
 		<Class ClassID="10538" ClassName="CraftUsedtoSit" Data="제작은 앉아서 할 수 있습니다."/>
-	<Class ClassID="10539" ClassName="RecipeGroup_Armband" Data="암밴드"/>
+		<Class ClassID="10539" ClassName="RecipeGroup_Armband" Data="암밴드"/>
 		<Class ClassID="10540" ClassName="RecipeGroup_MagicAmulet" Data="매직어뮬렛"/>
 		<Class ClassID="10541" ClassName="RecipeGroup_Cannon" Data="캐논"/>
-	<Class ClassID="10542" ClassName="RecipeGroup_Dagger" Data="단검"/>
+		<Class ClassID="10542" ClassName="RecipeGroup_Dagger" Data="단검"/>
 		<Class ClassID="10543" ClassName="RecipeGroup_Musket" Data="머스킷"/>
 	</Category>
 	<Category Name="ItemPuzzle">
@@ -851,6 +851,7 @@
 		<Class ClassID="20157" ClassName="ONE_MORE_TIME" Data="한번 더 열기"/>
 		<Class ClassID="20158" ClassName="ITEM_IsEquiped" Data="착용중"/>
 		<Class ClassID="20159" ClassName="ITEM_IsPurchased" Data="구매함"/>
+		<Class ClassID="20160" ClassName="NeedMoreLevel" Data="{Level}이상이어야 사용 가능합니다."/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="20501" ClassName="Guard" Data="방어"/>
@@ -3539,8 +3540,7 @@
 		<Class ClassID="22413" ClassName="doNotJoinGuildEvent" Data="길드 이벤트에 참여하지 않았습니다."/>
 		<Class ClassID="22414" ClassName="GuildMember{Name}Get{Item}By{Count}FromGuildWareHouse" Data="길드원 {Name}이 길드 보관함으로부터 {Item} {Count}개를 받았습니다."/>
 		<Class ClassID="22415" ClassName="ReceivedItemFromGuildWareHouse_GetItFromBarrack" Data="길드 보관함에 아이템을 수령했습니다. 숙소에서 아이템을 확인하세요."/>
-<Class ClassID="22417" ClassName="YouCanBuildInTheOtherGuildAgit" Data="다른 길드 아지트에서는 사용하실 수 없습니다."/>
-<Class ClassID="22418" ClassName="CannotChangeNeutralityState" Data="아직 중립상태를 변경할 수 없습니다."/>
+		<Class ClassID="22418" ClassName="CannotChangeNeutralityState" Data="아직 중립상태를 변경할 수 없습니다."/>
 		<Class ClassID="22419" ClassName="YouCanBuildInTheOtherGuildAgit" Data="다른 길드 아지트에서는 사용하실 수 없습니다."/>
 		<Class ClassID="22421" ClassName="WantTobeChangedNeutralityState{DAY}" Data="길드 중립 상태로 변경하시길 원합니까?{nl}중립 상태에서는 필드 전쟁이 불가능합니다.{nl}상태는 {DAY}동안 유지됩니다."/>
 		<Class ClassID="22422" ClassName="WantTobeChangedNoneNeutralityState{DAY}" Data="길드 중립 상태로 변경하시길 원합니까?{nl}중립 상태에서는 필드 전쟁이 불가능합니다.{nl}상태는 {DAY}동안 유지됩니다."/>
@@ -4120,7 +4120,7 @@
 		<Class ClassID="31032" ClassName="CanNotLikeIte" Data="해당 캐릭터는 좋아요를 받을 수 있는 상태가 아닙니다."/>
 		<Class ClassID="31033" ClassName="DeathPenaltyGem" Data="현재 지역에서 전투 불능 시, 소지 중인 젬 일부를 유실할 수 있습니다."/>
 		<Class ClassID="31034" ClassName="DeathPenaltyGemSilver" Data="현재 지역에서 전투 불능 시, 소지 중인 젬 일부와 실버를 유실할 수 있습니다."/>
-	<Class ClassID="31035" ClassName="CanNotEquipLow{Job}{Grade}" Data="{Job} {Grade}서클만 구매 가능합니다."/>
+		<Class ClassID="31035" ClassName="CanNotEquipLow{Job}{Grade}" Data="{Job} {Grade}서클만 구매 가능합니다."/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="32001" ClassName="ClickToSharedQuestWithParty" Data="{@st59}버튼을 클릭하면 파티원에게 노출합니다."/>
@@ -4162,18 +4162,18 @@
 		<Class ClassID="33532" ClassName="ReviveSomeTimeLater" Data="잠시 후 부활합니다."/>
 		<Class ClassID="33533" ClassName="{Name}Get{Point}BecauseHave{MonName}LastTime" Data="{MonName}을 마지막에 가지고 있던 {Name}이 {Point}포인트를 획득했습니다."/>
 		<Class ClassID="33534" ClassName="RemainTimeToStartGame" Data="게임시작까지 남은 시간"/>
-    <Class ClassID="33535" ClassName="RemainTimeToEndGame" Data="게임종료까지 남은 시간"/>
+		<Class ClassID="33535" ClassName="RemainTimeToEndGame" Data="게임종료까지 남은 시간"/>
 		<Class ClassID="33536" ClassName="GameAlreadyStarted" Data="게임이 이미 시작되었습니다."/>
 		<Class ClassID="33537" ClassName="JoinCountLimited" Data="입장 인원이 초과되었습니다."/>
 		<Class ClassID="33538" ClassName="Rank{Value}" Data="{Value} 위"/>
-    <Class ClassID="33539" ClassName="Win{Win}Lose{Lose}" Data="{Win}승 {Lose}패"/>
+		<Class ClassID="33539" ClassName="Win{Win}Lose{Lose}" Data="{Win}승 {Lose}패"/>
 		<Class ClassID="33540" ClassName="{Time}WeeklyRankingRefresh" Data="{Time}후 주간 순위 갱신"/>
-    <Class ClassID="33541" ClassName="{Point}Point" Data="{Point}점"/>
-    <Class ClassID="33542" ClassName="{Rank}Rank" Data="{Rank}위"/>
-    <Class ClassID="33543" ClassName="TPChangeTicket" Data="TP 교환권"/>
-    <Class ClassID="33544" ClassName="GuildReward" Data="길드 보상"/>
-    <Class ClassID="33545" ClassName="FirstRankServerReward" Data="1위 서버 보상"/>
-    <Class ClassID="33546" ClassName="ForTheNextRankingRefreshFreeTPPlus{Value}" Data="다음 주간 순위 갱신시까지 무료 TP+{Value}"/>
+		<Class ClassID="33541" ClassName="{Point}Point" Data="{Point}점"/>
+		<Class ClassID="33542" ClassName="{Rank}Rank" Data="{Rank}위"/>
+		<Class ClassID="33543" ClassName="TPChangeTicket" Data="TP 교환권"/>
+		<Class ClassID="33544" ClassName="GuildReward" Data="길드 보상"/>
+		<Class ClassID="33545" ClassName="FirstRankServerReward" Data="1위 서버 보상"/>
+		<Class ClassID="33546" ClassName="ForTheNextRankingRefreshFreeTPPlus{Value}" Data="다음 주간 순위 갱신시까지 무료 TP+{Value}"/>
 
 ClassID="33547" ClassName="CantUseThisInIntegrateServer" Data="통합 서버에서는 사용할 수 없는 기능입니다."/>
 	
@@ -7137,7 +7137,7 @@ ClassID="33547" ClassName="CantUseThisInIntegrateServer" Data="통합 서버에�
 		<Class ClassID="550064" ClassName="PremiumToken_15d" Data="토큰:15일[증정용]"/>
 		<Class ClassID="550065" ClassName="OnlyTokenUserAbleToUse" Data="토큰 이용자만 이용할 수 있습니다."/>
 		<Class ClassID="550067" ClassName="CanGetMoreBuff" Data="최대 버프 적용 개수 증가"/>
-	<Class ClassID="550068" ClassName="Moreindunmission" Data="인던,미션 1회 추가 입장"/>
+		<Class ClassID="550068" ClassName="Moreindunmission" Data="인던,미션 1회 추가 입장"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="600001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
