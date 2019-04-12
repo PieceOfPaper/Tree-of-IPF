@@ -6,7 +6,6 @@
 	<Category Name="소모품 /잡화">
 		<SecondCategory Name="프리미엄 아이템">
 			<Class ClassID="1" ClassName="ClassName1" OverrideType="None" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="PremiumToken" Price="99" Job="None" JobGrade="0" LimitCount="5" LimitDuration="Month"/>
-			<Class ClassID="15" ClassName="ClassName15" OverrideType="ADD" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="Alice_Pack_2016" Price="198" Job="None" JobGrade="0" LimitCount="0" LimitDuration="Month"/>
 		</SecondCategory>
 		<SecondCategory Name="소모품">
 			<Class ClassID="101" ClassName="ClassName101" Category="TP_Premium" SubCategory="TP_Consume" ItemClassName="Mic_bundle10" Price="8" Job="None" JobGrade="0"/>

@@ -17,7 +17,7 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47463" Pos="-1476.49#43.50#-741.37" range="200" genCount="30" maxStackCount="30" genTime="100" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47463" Pos="-1518.52#43.50#-757.37" range="230" genCount="40" maxStackCount="45" genTime="100" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -28,7 +28,7 @@
                     </Obj>
                 </ObjList>
                 <StageEvents>
-                    <Event>
+                    <Event eventName="next">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="stage_1/0"/>
@@ -45,47 +45,23 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="stage_2"/>
                             </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event eventName="bonus">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="minigame_timeout"/>
-                                <Str Str="UNDER"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="stage_1/0"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="minigame_bonus01"/>
-                                <Num Num="1"/>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="timeout"/>
                             </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="minigame">
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="minigame_bonus01"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="minigame_bonus02"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="minigame_timeout"/>
                                 <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="timeout">
+                    <Event execCount="1" eventName="timeout">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="180"/>
+                                <Num Num="20"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -153,6 +129,9 @@
                                 <Num Num="1"/>
                                 <Num Num="1"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="next"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event eventName="regen">
@@ -183,7 +162,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event>
+                    <Event eventName="next" isEnabled="0">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="stage_2/0/stage_2/1/stage_2/2/stage_2/3"/>
@@ -217,7 +196,7 @@
                     <Obj Type="Monster" MonType="20053" Pos="575.54#2.64#182.46" angle="-80" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; " SimpleAI="HUEVILLAGE_58_4_MQ01_WALL01">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
-                    <Obj Type="Monster" MonType="47472" Pos="70.02#2.64#215.58" range="80" genCount="10" maxStackCount="5" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47472" Pos="70.02#2.64#215.58" range="80" genCount="10" maxStackCount="5" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -226,7 +205,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47480" Pos="198.68#2.64#120.72" range="80" genCount="15" maxStackCount="5" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47480" Pos="198.68#2.64#120.72" range="80" genCount="15" maxStackCount="5" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -235,7 +214,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47479" Pos="204.77#2.64#318.72" range="80" genCount="15" maxStackCount="5" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47479" Pos="204.77#2.64#318.72" range="80" genCount="15" maxStackCount="5" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -246,7 +225,7 @@
                     </Obj>
                 </ObjList>
                 <StageEvents>
-                    <Event eventName="wave">
+                    <Event eventName="wave" isEnabled="0">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="stage_3/1/stage_3/2/stage_3/3"/>
@@ -254,51 +233,14 @@
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="s3_wave"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="timeout">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="240"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="minigame_timeout"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event eventName="bonus">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="s3_wave"/>
-                                <Str Str="OVER"/>
-                                <Num Num="8"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="minigame_timeout"/>
-                                <Str Str="UNDER"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="minigame_bonus02"/>
-                                <Num Num="1"/>
-                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="stage_3"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
                                 <Str Str="stage_3"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="stage_4"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="stage_3"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -313,144 +255,110 @@
                                 <Str Str="s3_wave"/>
                                 <Num Num="1"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="gen2"/>
+                            </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" isOr="1" eventName="gen2">
+                    <Event execCount="1" isOr="1" eventName="gen2" isEnabled="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="s3_wave"/>
-                                <Str Str="=="/>
-                                <Num Num="2"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="stage_3/1"/>
-                                <Num Num="5"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" isOr="1" eventName="gen3">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="s3_wave"/>
-                                <Str Str="=="/>
-                                <Num Num="3"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="stage_3/2"/>
-                                <Num Num="5"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" isOr="1" eventName="gen4">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="90"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="s3_wave"/>
-                                <Str Str="=="/>
-                                <Num Num="4"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="stage_3/3"/>
-                                <Num Num="5"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" isOr="1" eventName="gen5">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="120"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="s3_wave"/>
-                                <Str Str="=="/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="stage_3/1"/>
-                                <Num Num="5"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" isOr="1" eventName="gen6">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="150"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="s3_wave"/>
-                                <Str Str="=="/>
-                                <Num Num="6"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="stage_3/2"/>
-                                <Num Num="5"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" isOr="1" eventName="gen7">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="180"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="s3_wave"/>
-                                <Str Str="=="/>
-                                <Num Num="7"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="stage_3/3"/>
-                                <Num Num="5"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event>
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="s3_wave"/>
-                                <Str Str="OVER"/>
                                 <Num Num="8"/>
                             </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="minigame_timeout"/>
-                                <Str Str="OVER"/>
-                                <Num Num="1"/>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="gen3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_3/1"/>
+                                <Num Num="5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" isOr="1" eventName="gen3" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="8"/>
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="stage_3"/>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="gen4"/>
                             </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-                                <Str Str="stage_3"/>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_3/2"/>
+                                <Num Num="8"/>
+                                <Num Num="0"/>
                             </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="stage_4"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" isOr="1" eventName="gen4" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="gen5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_3/3"/>
+                                <Num Num="8"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" isOr="1" eventName="gen5" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="gen6"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_3/1"/>
+                                <Num Num="5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" isOr="1" eventName="gen6" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="gen7"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_3/2"/>
+                                <Num Num="5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" isOr="1" eventName="gen7" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_3/3"/>
+                                <Num Num="15"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="wave"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -459,10 +367,10 @@
             <Stage Name="stage_4" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
+                        <Num Num="40"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="60초 안에 함정지대를 돌파하세요.{nl}실패 : 시간초과"/>
+                        <Str Str="40초 안에 함정지대를 돌파하세요.{nl}실패 : 시간초과"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
@@ -510,7 +418,7 @@
                             </ToolScp>
                         </enterScpList>
                     </Obj>
-                    <Obj Type="Monster" MonType="47465" Pos="869.49#33.63#235.86" range="200" genCount="5" maxStackCount="5" genTime="1" objectKey="11" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47465" Pos="869.49#33.63#235.86" range="200" genCount="5" maxStackCount="5" genTime="1" objectKey="11" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -519,7 +427,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47465" Pos="1243.11#81.59#587.98" range="300" genCount="10" maxStackCount="10" genTime="1" objectKey="12" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47465" Pos="1243.11#81.59#587.98" range="300" genCount="15" maxStackCount="10" genTime="1" objectKey="12" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -533,7 +441,7 @@
                     <Event eventName="timeout">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -577,10 +485,20 @@
                     <Event execCount="1" eventName="message">
                         <execList>
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="60초 안에 함정지대를 돌파하지 못하면 미션에 실패합니다!"/>
+                                <Str Str="40초 안에 함정지대를 돌파하지 못하면 미션에 실패합니다!"/>
                                 <Num Num="10"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="bonusSet">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE_RANDOM" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                                <Str Str="mission_huevillage_bonus"/>
+                                <Num Num="1"/>
+                                <Num Num="20"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -595,7 +513,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="400161" Pos="1719.00#172.09#1233.93" angle="-90" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_LASTBOSS1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="400161" Pos="1691.40#172.25#1251.78" angle="-47" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_LASTBOSS1&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -604,6 +522,10 @@
                             </List>
                         </SelfAI>
                     </Obj>
+                    <Obj Type="Monster" MonType="47465" Pos="1639.60#171.43#1115.16" angle="-34" range="110" genCount="20" maxStackCount="3" genTime="8000" objectKey="1" searchRange="200" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47465" Pos="1798.65#170.11#1247.19" angle="-122" range="120" genCount="20" maxStackCount="3" genTime="8000" objectKey="2" searchRange="200" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47472" Pos="1864.68#171.80#1033.81" angle="-121" range="140" genCount="25" maxStackCount="5" genTime="7000" objectKey="3" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47472" Pos="1779.04#170.94#948.18" angle="133" range="160" genCount="25" maxStackCount="5" genTime="7000" objectKey="4" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;geleMon_A&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="check" execWithStart="0" isEnabled="0">
@@ -622,6 +544,9 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="SUCCESS"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="stage_5"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -678,15 +603,15 @@
                     <Obj Type="Monster" MonType="20053" Pos="-83.33#2.64#690.88" angle="5" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; " SimpleAI="HUEVILLAGE_58_4_MQ01_WALL01"/>
                 </ObjList>
                 <StageEvents>
-                    <Event execCount="1">
+                    <Event execCount="1" eventName="check">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="minigame_bonus01"/>
-                                <Str Str="=="/>
+                                <Str Str="minigame_timeout"/>
+                                <Str Str="DIF"/>
                                 <Num Num="1"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="minigame_bonus02"/>
+                                <Str Str="mission_huevillage_bonus1"/>
                                 <Str Str="=="/>
                                 <Num Num="1"/>
                             </ToolScp>
@@ -707,7 +632,7 @@
             <Stage Name="ready">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="60초 뒤 미션이 시작됩니다"/>
+                        <Str Str="30초 뒤 미션이 시작됩니다"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
@@ -717,7 +642,7 @@
                     <Event eventName="sec10">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="50"/>
+                                <Num Num="20"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -728,21 +653,21 @@
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
-                    <Event eventName="sec30">
+                    <Event eventName="sec5">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
+                                <Num Num="25"/>
                             </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="30초 후에 시작됩니다"/>
+                                <Str Str="5초 후에 시작됩니다"/>
                                 <Num Num="5"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
-                    <Event eventName="sec50">
+                    <Event eventName="sec20">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="10"/>
@@ -750,7 +675,7 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="50초 후에 시작됩니다"/>
+                                <Str Str="20초 후에 시작됩니다"/>
                                 <Num Num="5"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
@@ -759,7 +684,7 @@
                     <Event eventName="secEnd">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="30"/>
                             </ToolScp>
                         </condList>
                         <execList>

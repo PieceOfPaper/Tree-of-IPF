@@ -9,14 +9,14 @@
                         <Str Str="a"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="60초 뒤 미션이 시작됩니다"/>
+                        <Str Str="30초 뒤 미션이 시작됩니다"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="47230" Pos="9.00#0.00#-466.00" angle="-90" genCount="1" genTime="20000" objectKey="0"/>
                 </ObjList>
                 <StageEvents>
-                    <Event execCount="1" eventName="sec50">
+                    <Event execCount="1" eventName="sec20">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="10"/>
@@ -24,20 +24,20 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="50초 후에 시작됩니다"/>
+                                <Str Str="20초 후에 시작됩니다"/>
                                 <Num Num="8"/>
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="sec30">
+                    <Event execCount="1" eventName="sec5">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
+                                <Num Num="25"/>
                             </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="30초 후에 시작됩니다"/>
+                                <Str Str="5초 후에 시작됩니다"/>
                                 <Num Num="8"/>
                             </ToolScp>
                         </execList>
@@ -45,7 +45,7 @@
                     <Event execCount="1" eventName="sec10">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="50"/>
+                                <Num Num="20"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -58,7 +58,7 @@
                     <Event execCount="1" eventName="start">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="30"/>
                             </ToolScp>
                         </condList>
                         <execList>
