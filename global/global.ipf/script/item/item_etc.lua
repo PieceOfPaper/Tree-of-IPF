@@ -936,14 +936,14 @@ function DLC_BOX12(pc)
     local tx = TxBegin(pc);
     TxGiveItem(tx, 'Hat_628254', 1, 'DLC_BOX12');
     TxGiveItem(tx, 'Moru_Diamond_DLC', 1, 'DLC_BOX12');
-    TxGiveItem(tx, 'Moru_Gold', 3, 'DLC_BOX12');
-    TxGiveItem(tx, 'Moru_Silver_NoDay', 3, 'DLC_BOX12');
+    TxGiveItem(tx, 'Moru_Gold_Team_Trade', 3, 'DLC_BOX12');
+    TxGiveItem(tx, 'Moru_Silver_DLC', 3, 'DLC_BOX12');
     TxGiveItem(tx, 'Event_Reinforce_100000coupon', 10, 'DLC_BOX12');
     TxGiveItem(tx, 'Ability_Point_Stone', 1, 'DLC_BOX10');
     TxGiveItem(tx, 'Drug_Premium_HP1', 20, 'DLC_BOX10');
     TxGiveItem(tx, 'Drug_Premium_SP1', 20, 'DLC_BOX10');
     TxGiveItem(tx, 'Event_drug_steam_1h_DLC', 10, 'DLC_BOX10');
     TxGiveItem(tx, 'Event_Goddess_Statue_DLC', 5, 'DLC_BOX10');
-    TxGiveItem(tx, 'Drug_Haste1_event', 5, 'DLC_BOX10');
+    TxGiveItem(tx, 'Drug_Haste1_event_DLC', 5, 'DLC_BOX10');
     local ret = TxCommit(tx);
 end

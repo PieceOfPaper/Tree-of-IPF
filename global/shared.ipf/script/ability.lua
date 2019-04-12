@@ -8,13 +8,17 @@ end
 
 function CHECK_ABILITY_LOCK(pc, ability)
 
+if 1 == 1 then
+		return "UNLOCK";
+	end
+    IMC_LOG("INFO_NORMAL", "CHECK_ABILITY_LOCK-NOT-RETURN");
 
     if ability.Job == "None" then
         return "UNLOCK";
     end
 
     local jobHistory = GetJobHistoryString(pc)
-    
+    IMC_LOG("INFO_NORMAL", "CHECK_ABILITY_LOCK-History : "..jobHistory);
     if string.find(ability.Job, ";") == nil then
         
         if string.find(jobHistory, ability.Job) ~= nil then

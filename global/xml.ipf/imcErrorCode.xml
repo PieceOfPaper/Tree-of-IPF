@@ -511,4 +511,6 @@ Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc
 	<Code Code="INFO_ZONE_ENTER_DEBUG" Team="PROGRAM" Category="INFO" Logger="root" Enabled="YES" CallStack="NO" Desc="특정 계정 존 입장 안되는 문제 추적용"/>
 	<Code Code="INFO_SKILL_PASS_DECREASED_TIME" Team="SYSTEMDESIGN" Category="INFO" SubCategory="SKILL" Logger="root" Enabled="YES" CallStack="NO" Desc="패스로 줄어든 쿨타임"/>
 	<Code Code="INFO_ADVENTURE_BOOK" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="모험일지 관련 정보"/>
+	<Code Code="ERROR_REPLAY" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="리플레이 관련 에러"/>
+	<Code Code="ERROR_REPLAY" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="리플레이 관련 에러"/>
 </imcErrorCode>

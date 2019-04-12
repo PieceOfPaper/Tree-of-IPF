@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -4370,6 +4370,7 @@
 		<Class ClassID="27735" ClassName="EVENT_HALLOWEEN_SHOP_NAME" Data="할로윈 상점"/>
 		<Class ClassID="27720" ClassName="Excnaged_AccountCount_Remind" Data="팀당 {COUNT}번 교환 가능 합니다."/>
 		<Class ClassID="27736" ClassName="EVENT_1710_HALLOWEEN_MSG1" Data="모든 채널에 유저가 가득 차서 현재 입장하실 수 없습니다."/>
+		<Class ClassID="27737" ClassName="EVENT_1710_HALLOWEEN_MSG2" Data="5분 뒤에 할로윈 던전이 시작 됩니다{nl}5분 뒤 클라페다 할로윈 허수아비와 대화해 던전에 입장하실 수 있습니다!"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -5612,7 +5613,7 @@
 		<Class ClassID="90107" ClassName="MISSION_UPHILL_JOIN" Data="업힐 디펜스 미션 입장"/>
 		<Class ClassID="90108" ClassName="UPHILL_STORE" Data="업힐 디펜스 상점 열기"/>
 		<Class ClassID="90173" ClassName="AGARIO_MSG1" Data="초 후 부활합니다"/>
-	<Class ClassID="90174" ClassName="AGARIO_SEL_MSG1" Data="던전 입장"/>
+		<Class ClassID="90174" ClassName="AGARIO_SEL_MSG1" Data="던전 입장"/>
 		<Class ClassID="90175" ClassName="AGARIO_SEL_MSG2" Data="이벤트 상점"/>
 		<Class ClassID="90176" ClassName="AGARIO_SEL_MSG3" Data="취소"/>
 		<Class ClassID="90177" ClassName="HALLOWEEN_DTA_MSG" Data="포탈을 여는 중"/>
@@ -5623,7 +5624,7 @@
 		<Class ClassID="90182" ClassName="AGARIO_ENTER_MSG1" Data="현재 입장 횟수는 {COUNT} / 3 회입니다."/>
 		<Class ClassID="90183" ClassName="AGARIO_SEL2_MSG1" Data="나가기"/>
 		<Class ClassID="90184" ClassName="AGARIO_ACHIEVE" Data="이미 획득한 칭호입니다"/>
-		</Category>
+	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
 		<Class ClassID="100002" ClassName="ADD_BUFF_{Auto_1}!" Data="{Auto_1}!"/>
@@ -9824,6 +9825,7 @@
 		<Class ClassID="302002" ClassName="ArborDayOneHourReward" Data="봄볕 이벤트 1시간 게임 플레이 보상입니다."/>
 		<Class ClassID="302003" ClassName="ArborDayEventRewardGet" Data="봄볕 이벤트 보상을 받았습니다. 메시지함에서 확인해주세요."/>
 		<Class ClassID="302007" ClassName="JP_Event_Daily" Data="이벤트 보상을 받았습니다. 인벤토리를 확인해 주세요."/>
+		<Class ClassID="302008" ClassName="Kepa_Event_Enter" Data="이벤트 던전 입장 하기"/>
 		<Class ClassID="302021" ClassName="Fortunecookie_Count" Data="포춘 쿠키 {COUNT}회 사용"/>
 		<Class ClassID="302022" ClassName="Prison_Select1" Data="아샤크 지하 감옥 입장"/>
 		<Class ClassID="302023" ClassName="Prison_Select2" Data="이벤트 던전 참여보상({COUNT}회 입장)"/>
@@ -9963,6 +9965,7 @@
 		<Class ClassID="501096" ClassName="EVENT_SELECT_BOSSLV_SEL5" Data="특별한 블루 오브 이벤트"/>
 		<Class ClassID="501097" ClassName="EVENT_SELECT_BOSSLV_SEL6" Data=" {nl}몬스터 정보{nl}Lv {LV1} {NAME1}{nl}Lv {LV2} {NAME2}{nl}Lv {LV3} {NAME3}"/>
 		<Class ClassID="501098" ClassName="EVENT_SELECT_BOSSLV_SEL7" Data=" {nl}이벤트 미션 정보{nl}최대 클리어 단계 : {MAX}"/>
+		<Class ClassID="501099" ClassName="EVENT_SURVIVAL_NAME" Data="서바이벌 이벤트"/>
 	</Category>
 	<Category Name="Npc_Equip_Shop_270_315">
 		<Class ClassID="510200" ClassName="NPC_SHOP_WEAPON_NORMAL_270_315" Data="무기"/>

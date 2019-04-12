@@ -72,11 +72,11 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
         value = value / 2;
     end
     
-    if moruItem.ClassName == "Moru_Silver" or moruItem.ClassName == "Moru_Silver_test" or moruItem.ClassName == "Moru_Silver_NoDay" or moruItem.ClassName == "Moru_Silver_TA" or moruItem.ClassName == "Moru_Silver_TA2" or moruItem.ClassName == "Moru_Silver_Event_1704" or moruItem.ClassName == 'Moru_Silver_TA_Recycle' then 
+    if moruItem.ClassName == "Moru_Silver" or moruItem.ClassName == "Moru_Silver_test" or moruItem.ClassName == "Moru_Silver_NoDay" or moruItem.ClassName == "Moru_Silver_TA" or moruItem.ClassName == "Moru_Silver_TA2" or moruItem.ClassName == "Moru_Silver_Event_1704" or moruItem.ClassName == 'Moru_Silver_TA_Recycle' or moruItem.ClassName == 'Moru_Silver_TA_V2' or moruItem.ClassName == 'Moru_Silver_DLC' then 
         value = 0;
     end
 
-    if moruItem.ClassName == "Moru_Gold_TA" then 
+    if moruItem.ClassName == "Moru_Gold_TA" or moruItem.ClassName == "Moru_Gold_TA_NR" then 
         value = 0;
     end
     

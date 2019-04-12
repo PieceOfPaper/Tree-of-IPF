@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="MISSION_EVENT_CURSEDOOR" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="id_catacomb_04_event" playerCountCheckDestroy="1" startWaitSec="5177402">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="sec30">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10초 후에 시작됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="start">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="미션이 시작됩니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="TimeOut"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="sec50">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="30초 후에 시작됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="BlockObj">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47241" Pos="1379.33#419.46#-286.86" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="47241" Pos="1330.00#417.53#-316.95" genCount="1" genTime="20000" objectKey="1"/>
+                </ObjList>
+            </Stage>
+            <Stage Name="Stage1" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="420"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="47398" Pos="1217.65#378.59#-385.58" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="0" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="848.42#268.02#-661.81" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="1" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="435.21#268.02#-655.01" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="2" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="63.94#287.90#-642.64" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="3" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="11.14#267.39#-235.20" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="4" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="15.29#288.88#166.77" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="5" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="8.93#302.41#598.83" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="6" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="60.57#264.90#1009.34" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="7" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="-346.96#264.90#1214.24" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="8" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="-422.71#264.90#693.98" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="9" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="33.99#320.62#1288.96" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="10" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="313.75#265.66#1181.34" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="11" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="734.44#285.28#1175.52" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="12" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="1129.18#265.31#1179.54" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="13" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="1564.49#265.31#1168.12" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="14" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="1599.06#265.31#944.40" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="15" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="0.30#267.72#-1053.72" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="18" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="0.66#267.72#-1495.74" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="19" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="-354.74#289.28#-1547.10" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="20" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="-773.60#267.64#-1552.23" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="21" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="-763.04#267.64#-1155.29" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="22" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="-744.39#267.52#-760.70" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="23" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="-740.93#287.04#-486.23" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="24" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="-1016.73#287.31#-781.25" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="25" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="-1025.77#308.10#-459.60" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="26" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="-1398.38#348.41#-480.46" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="27" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="-1639.69#366.86#-597.63" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="28" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47398" Pos="-1576.97#346.36#-772.82" range="200" genCount="10" maxStackCount="10" genTime="5000" objectKey="29" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="151109" Pos="-11.31#287.90#-638.95" genCount="1" genTime="5000" objectKey="16" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;CREATE_RBOX&apos; &apos;Level&apos; &apos;550&apos; "/>
+                    <Obj Type="Monster" MonType="47399" Pos="1134.07#341.98#-231.20" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="17" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="675.48#268.02#-647.72" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="30" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="953.95#268.02#-390.03" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="31" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-4.75#287.90#-676.77" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="32" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-0.38#267.39#-328.07" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="33" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="164.18#267.39#-52.00" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="34" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-5.89#288.88#362.74" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="35" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-16.20#302.41#710.28" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="36" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-322.04#264.90#679.43" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="37" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-259.49#264.90#1236.92" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="38" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="406.08#265.66#1176.13" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="39" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="1332.59#265.31#1183.21" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="40" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="1562.98#265.31#1056.41" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="41" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-17.04#267.72#-976.70" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="42" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-22.27#267.72#-1539.34" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="43" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-504.82#289.28#-1553.14" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="44" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-767.56#267.64#-1314.76" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="45" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-763.52#267.52#-778.91" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="46" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-1009.03#308.10#-490.09" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="47" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-1479.90#348.41#-476.10" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="48" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                    <Obj Type="Monster" MonType="47399" Pos="-1839.02#368.39#-531.37" range="100" genCount="1" maxStackCount="5" genTime="5000" objectKey="49" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;550&apos; " SimpleAI="CURSE_DOOL_EV"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="RemoveObj">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="BlockObj/0/BlockObj/1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="CreateMon">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage1/0"/>
+                                <Num Num="10"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="TimeOut" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Time">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="420"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="PcCount">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Fail" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="End">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Msg">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10초후에 미션이 종료됩니다."/>
+                                <Str Str="!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="Indun_catacomb_04_event"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str Str="INIT_CURSEDOOR_EVENT_STAT"/>
+            </ToolScp>
+        </EnterList>
+    </Game>
+</GameList>

@@ -4,7 +4,6 @@
         <StageList>
             <Stage Name="DefGroup">
                 <ObjList>
-                    <Obj Type="Monster" MonType="2000006" Pos="-71.23#149.07#-31.40" angle="-42" range="100" genCount="1" maxStackCount="1" genTime="360000" genReadyTime="360000" objectKey="0" UseAiOutOfPc="1" searchRange="100" tendency="1"/>
                     <Obj Type="Monster" MonType="2000003" Pos="-112.88#149.07#1.51" range="1500" genCount="1" genTime="30000" objectKey="1" UseAiOutOfPc="1" propList="&apos;MHPRate&apos; &apos;50&apos; "/>
                     <Obj Type="Monster" MonType="2000004" Pos="-105.84#149.07#1.89" range="1500" genCount="1" autoGen="0" objectKey="2" propList="&apos;MHPRate&apos; &apos;20&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="2000004" Pos="-73.15#149.07#15.52" range="1500" genCount="1" autoGen="0" objectKey="3" propList="&apos;MHPRate&apos; &apos;20&apos; " tendency="1"/>
@@ -63,7 +62,7 @@
                                 <Str Str="DefGroup"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
-                                <MGameObjPtr List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7"/>
+                                <MGameObjPtr List="DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="몬스터 리젠"/>
