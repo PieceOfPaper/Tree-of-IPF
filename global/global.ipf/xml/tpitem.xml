@@ -6,10 +6,6 @@
 	<Category Name="소모품 /잡화">
 		<SecondCategory Name="프리미엄 아이템">
 			<Class ClassID="1" ClassName="ClassName1" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="PremiumToken" Price="99" Job="None" JobGrade="0" LimitCount="5" LimitDuration="Month"/>
-			<Class ClassID="5" ClassName="ClassName5" OverrideType="ADD" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="Penguin_Pack_2016" Price="248" Job="None" JobGrade="0" LimitCount="0" LimitDuration="Month"/>
-			<Class ClassID="6" ClassName="ClassName6" OverrideType="ADD" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="Adventurer_Pack_2016" Price="70" Job="None" JobGrade="0" LimitCount="0" LimitDuration="Month"/>
-			<Class ClassID="7" ClassName="ClassName7" OverrideType="ADD" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="Bunny_Pack_2016" Price="200" Job="None" JobGrade="0" LimitCount="0" LimitDuration="Month"/>
-			<Class ClassID="8" ClassName="ClassName8" OverrideType="ADD" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="Swimsuit_Pack_2016" Price="200" Job="None" JobGrade="0" LimitCount="0" LimitDuration="Month"/>
 		</SecondCategory>
 		<SecondCategory Name="소모품">
 			<Class ClassID="101" ClassName="ClassName101" Category="TP_Premium" SubCategory="TP_Consume" ItemClassName="Mic_bundle10" Price="8" Job="None" JobGrade="0"/>

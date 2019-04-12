@@ -70,6 +70,10 @@ end
 
 function EXEC_INGAMESHOP_ITEM_PURCHASE(itemguid)
 
+	if itemguid == nil then
+		return;
+	end
+
 	ui.BuyIngameShopItem(itemguid);
 end
 
