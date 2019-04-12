@@ -1,23 +1,3 @@
-function SCR_PRECHECK_CONSUME_SUMMONORB(self)
-    local curMap = GetZoneName(self);
-    local mapCls = GetClass("Map", curMap);
-    
-    if mapCls.MapType == 'City' then
-        SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("NotAllowedInTown"), 3);
-        return 0;
-    end
-    
-    if mapCls.ClassName == 'c_firemage_event' then -- steam event
-        return 0;
-    end
-    
-    if IsJoinColonyWarMap(self) == 1 then
-        SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("ThisLocalUseNot"), 3);
-        return 0;
-    end
-    
-    return 1;
-end
 
 function SCR_PRECHECK_CONSUME_ZOMBIECAPSUL(self)
     local curMap = GetZoneName(self);

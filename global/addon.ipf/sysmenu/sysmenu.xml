@@ -25,7 +25,7 @@
 		<button name="dungenInfo" rect="0 0 38 44" margin="0 0 32 10" stretch="true" layout_gravity="right bottom" LBtnUpScp="UI_TOGGLE_INDUN" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" clickrgn="0 0 52 52" clicksound="button_click_2" image="sysmenu_instantDungeon" oversound="button_over" skin="textbutton" textalign="right bottom" texttooltip="{@st59}던전 정보(F10){/}"/>
 		<button name="system" rect="0 0 38 44" margin="0 0 0 10" stretch="true" layout_gravity="right bottom" LBtnUpScp="ui.ToggleFrame(&apos;apps&apos;)" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" clickrgn="0 0 52 52" clicksound="button_click_2" image="sysmenu_sys" oversound="button_over" skin="textbutton" textalign="right bottom" texttooltip="{@st59}시스템 메뉴 (Esc){/}"/>
 		<groupbox name="skilltreenotice" rect="0 0 20 20" margin="0 0 284 40" layout_gravity="right bottom" hittest="false" skin="digitnotice_bg"/>
-		<groupbox name="friendnotice" rect="0 0 20 20" margin="0 0 140 40" layout_gravity="right bottom" hittest="false" skin="digitnotice_bg"/>
+		<groupbox name="friendnotice" rect="0 0 20 20" margin="0 0 179 40" layout_gravity="right bottom" hittest="false" skin="digitnotice_bg"/>
 		<groupbox name="statusnotice" rect="0 0 20 20" margin="0 0 349 40" layout_gravity="right bottom" hittest="false" skin="digitnotice_bg"/>
 		<richtext name="statusnoticetext" parent="statusnotice" rect="0 0 20 20" margin="0 0 0 0" layout_gravity="center center" caption="11" fixwidth="false" hittest="false" resizebytext="true"/>
 		<richtext name="skilltreenoticetext" parent="skilltreenotice" rect="0 0 20 20" margin="0 0 0 0" layout_gravity="center center" caption="12" fixwidth="false" hittest="false" resizebytext="true"/>
