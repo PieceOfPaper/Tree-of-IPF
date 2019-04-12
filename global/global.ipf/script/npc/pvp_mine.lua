@@ -19,10 +19,10 @@ function SCR_PVP_MINE_ENTER_TIME_DIALOG(self, pc)
     end
 
     local globalTiem = {
-        {1001, 21},
-        {1003, 3},
-        {1004, 9},
-        {1005, 22}
+       {1001, 21},
+       {1003, 15},
+       {1004, 9},
+       {1005, 20}
     }
    
     for i = 1, #globalTiem do
@@ -70,9 +70,9 @@ function SCR_PVP_MINE_CREATEOBJECT_TS_BORN_UPDATE(self)
 
         local globalTiem = {
             {1001, 21},
-            {1003, 3},
+            {1003, 15},
             {1004, 9},
-            {1005, 22}
+            {1005, 20}
         }
 
         for i = 1, #globalTiem do
@@ -103,9 +103,9 @@ function SCR_PVP_MINE_START_ALARAM_TS_BORN_UPDATE(self)
 
         local globalTiem = {
             {1001, 20},
-            {1003, 2},
+            {1003, 14},
             {1004, 8},
-            {1005, 21}
+            {1005, 19}
         }
 
         for i = 1, #globalTiem do
