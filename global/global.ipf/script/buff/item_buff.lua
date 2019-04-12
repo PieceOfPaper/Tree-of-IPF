@@ -180,3 +180,17 @@ function SCR_BUFF_LEAVE_Event_Steam_Drug_RedOx(self, buff, arg1, arg2, over)
     self.SR_BM = self.SR_BM - 1
     self.MSP_BM = self.MSP_BM - 1000
 end
+
+function SCR_BUFF_ENTER_Event_Steam_Server_Buff(self, buff, arg1, arg2, over)
+end
+
+function SCR_BUFF_LEAVE_Event_Steam_Server_Buff(self, buff, arg1, arg2, over)
+end
+
+function SCR_BUFF_ENTER_Event_Steam_Base_Buff(self, buff, arg1, arg2, over)
+    self.MSPD_BM = self.MSPD_BM + 2;
+end
+
+function SCR_BUFF_LEAVE_Event_Steam_Base_Buff(self, buff, arg1, arg2, over)
+    self.MSPD_BM = self.MSPD_BM - 2;
+end

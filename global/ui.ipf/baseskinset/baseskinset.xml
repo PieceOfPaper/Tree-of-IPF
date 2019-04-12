@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -3525,7 +3525,7 @@
 			<img name="bottomcore" imgrect="1348 156 18 1"/>
 			<img name="bottomright" imgrect="1367 156 43 1"/>
 		</skin>
-	<skin name="cutting_line_h" texture="\skin\guild_skin.tga">
+		<skin name="cutting_line_h" texture="\skin\guild_skin.tga">
 			<img name="topleft" imgrect="2 438 150 1"/>
 			<img name="topcore" imgrect="153 438 209 1"/>
 			<img name="topright" imgrect="363 438 139 1"/>
@@ -4289,7 +4289,7 @@
 			<img name="cooltime" imgrect="1411 253 200 165"/>
 			<img name="selected" imgrect="1411 253 200 165"/>
 		</skin>
-	<skin name="red_cardslot" texture="\skin\monstercard.tga">
+		<skin name="red_cardslot" texture="\skin\monstercard.tga">
 			<img name="slot" imgrect="422 563 67 103"/>
 			<img name="mouseon" imgrect="422 563 67 103"/>
 			<img name="cooltime" imgrect="422 563 67 103"/>
@@ -5414,7 +5414,7 @@
 		<image name="test_companion_15" file="\icon\companion.tga" imgrect="606 0 100 122 " CMM_Caption="크리스마스 썰매_탭버튼"/>
 		<image name="test_companion_15_cursoron" file="\icon\companion.tga" imgrect="707 0 100 122"/>
 		<image name="test_companion_15_clicked" file="\icon\companion.tga" imgrect="707 0 100 122"/>
-                <image name="test_companion_16" file="\icon\companion.tga" imgrect="606 123 100 122" CMM_Caption="아르마딜로_탭버튼"/>
+		<image name="test_companion_16" file="\icon\companion.tga" imgrect="606 123 100 122" CMM_Caption="아르마딜로_탭버튼"/>
 		<image name="test_companion_16_cursoron" file="\icon\companion.tga" imgrect="707 123 100 122"/>
 		<image name="test_companion_16_clicked" file="\icon\companion.tga" imgrect="707 123 100 122"/>
 		<image name="test_companion_17" file="\icon\companion.tga" imgrect="606 246 100 122" CMM_Caption="슈트고로_탭버튼"/>
@@ -5748,6 +5748,7 @@
 	<imagelist category="Collar_image">
 		<image name="Collar_The_Gifted_Artist" file="\skin\Collar_skin.tga" imgrect="0 0 30 30" CMM_Caption="칭호 진저 쿠키"/>
 		<image name="Collar_New_Class_Artist" file="\skin\Collar_skin.tga" imgrect="31 0 30 30" CMM_Caption="눈꽃"/>
+		<image name="Collar_Happy_2_year_anniversary" file="\skin\Collar_skin.tga" imgrect="62 0 30 30" CMM_Caption="스팀 2주년 기념"/>
 	</imagelist>
 	<imagelist category="testje_image">
 		<image name="test_deathX" file="\skin\keynbet.tga" imgrect="363 272 47 47" CMM_Caption="파티 사망자표시"/>

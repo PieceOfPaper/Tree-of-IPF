@@ -1286,3 +1286,9 @@ function SCR_USE_VALENTINE_CHOCO_2018(pc)
         end
     end
 end
+
+function ACHIEVE_HAPPY2YEAR_STEAM(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Event_Happy2Year_Steam', 1)
+    local ret = TxCommit(tx);
+end

@@ -84,6 +84,12 @@ function HALLOWEEN_EVENT_ITEM_SHOP_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
+function REQ_EVENT_ITEM_SHOP7_OPEN()
+	local frame = ui.GetFrame("earthtowershop");
+	frame:SetUserValue("SHOP_TYPE", 'EventShop7');
+	ui.OpenFrame('earthtowershop');
+end
+
 function EARTH_TOWER_SHOP_OPEN(frame)
 	if frame == nil then
 		frame = ui.GetFrame("earthtowershop")
@@ -487,6 +493,8 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD3", resultlist, cntText);	
 	elseif shopType == 'EventShop4' then
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD4", resultlist, cntText);
+	elseif shopType == 'EventShop7' then
+		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD7", resultlist, cntText);
 	end
 
 	frame:ShowWindow(0)
