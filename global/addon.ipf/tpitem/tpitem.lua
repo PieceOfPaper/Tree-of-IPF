@@ -1545,6 +1545,9 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 		[ES_LENS] = function() --ES_LENS
 				invSlot = invframe:GetChild("LENS");			
 		end,
+		[ES_WING] = function() --ES_WING
+				invSlot = invframe:GetChild("WING");			
+		end,
 		--[ES_HELMET] = function() end,		-- 6
 		--[ES_OUTERADD1] = function() end,	-- 11
 		--[ES_OUTERADD2] = function() end,	-- 12
@@ -1822,12 +1825,11 @@ function CHECK_LIMIT_PAYMENT_STATE_C()
 			if limitPaymentStateBySteam == "Trusted" or limitPaymentStateByGM == "Trusted" then
 				return true;
 			else
-				--return false;
-				return true;
+				return false;
 			end
 		end
 	end
-	return true;
+	return false;
 end
 
 function POPUP_LIMIT_PAYMENT(clientMsg, parentName, allPrice)
