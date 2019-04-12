@@ -72,8 +72,10 @@ function DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 		noTradeCount = 0
 	end
 	noTrade_cnt:SetTextByKey('count', noTradeCount);
-	if invitem.UserTrade ~= nil then
-		if invitem.UserTrade == "YES" then
+
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+	if itemProp ~= nil then
+		if itemProp:IsExchangeable() == true then
 			tradeText = ScpArgMsg("UserTradeAble")
 		else
 			tradeText = ScpArgMsg("UserTradeUnable")

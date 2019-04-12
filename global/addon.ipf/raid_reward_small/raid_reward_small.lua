@@ -21,6 +21,8 @@ function ITEM_BALLOON_COMMON(handle, itemCls, tooltipEnum, duration, delaySec, s
 		return 0;
 	end
 
+	_G[itemCls.RefreshScp](itemCls);
+
 	delaySec = 0.0;
 
 	local customName = string.format("ITEM_COMMON_%d", handle);

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="10.00" soundFile="mon_voice_lapene_skl1_cast"/>
+    <Sound frame="15.00" soundFile="mon_goblinwarrior_atk1_cast"/>
+    <Shockwave frame="30" type="2" intensity="2" frequency="50" duration="1.5" range="1000"/>
+    <Sound frame="66.00" soundFile="mon_rudas_loxodon_kdown"/>
+    <Sound frame="70.71" soundFile="skl_cleric_effigy_boom_2"/>
+    <AfterImage frame="71" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+    <Shockwave frame="74" type="2" intensity="5" frequency="50" duration="0.3" range="1000"/>
+    <Particle frame="74" attachNode="Dummy_effect_skl" particleName="F_explosion028_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_drapeliun_atk_hit_ground"/>
+    <AfterImage frame="81" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+</ActionDesc>

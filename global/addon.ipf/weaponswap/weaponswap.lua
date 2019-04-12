@@ -207,9 +207,30 @@ function WEAPONSWAP_SWAP_UPDATE(frame)
 end
 
 function WEAPONSWAP_FAIL()
-	ui.SysMsg(ClMsg("TryLater"));
+
+	local lowDur = 0;
+	for i=0, 3 do
+		local guid = session.GetWeaponQuicSlot(i);
+		if nil ~= guid then 
+			local item = GET_ITEM_BY_GUID(guid, 1);
+			if nil ~= item then
+				local itemobj = GetIES(item:GetObject());
+				if nil ~= itemobj then 
+					if itemobj.Dur <= 0 then
+						ui.MsgBox(ScpArgMsg("YouCantEquipDur0Item"));
+						lowDur = 1;
+						break;
+					end;
+				end;
+			end
+		end;
+	end;
+	
 	session.SetWeaponSwap(0);
+	if 0 == lowDur then
+	ui.SysMsg(ClMsg("TryLater"));
 	WEAPONSWAP_SLOT_UPDATE();
+	end;
 end
 
 function WEAPONSWAP_SLOT_SUCCESS()

@@ -38,26 +38,28 @@ function BARRACK_CHARLIST_ON_INIT(addon, frame)
 
 	CHAR_LIST_CLOSE_HEIGHT = 105;
 	CHAR_LIST_OPEN_HEIGHT = 420;
-	CUR_SELECT_GUID = 'None';
+	CUR_SELECT_GUID = 'None';	
 end
 
 function INIT_BARRACK_NAME(frame)
-	local richtext = frame:GetChild("richtext");
-	richtext:SetTextByKey("value", '0');
-	richtext:SetTextByKey("value2", '4');
+	local charlist = ui.GetFrame("barrack_charlist");
+	local pccount = charlist:GetChild("pccount");
+	pccount:ShowWindow(1);
+	pccount:SetTextByKey("curpc", '0');
+	pccount:SetTextByKey("maxpc", '4');
 	local myaccount = session.barrack.GetMyAccount();
 	if nil == myaccount then
 		return;
 	end
 
 	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
-	richtext:SetTextByKey("value",myCharCont);
 	local buySlot = session.loginInfo.GetBuySlotCount();
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
-	richtext:SetTextByKey("value2", tostring(barrackCls.BaseSlot + buySlot));
+	pccount:SetTextByKey("curpc", tostring(myCharCont));
+	pccount:SetTextByKey("maxpc", tostring(barrackCls.BaseSlot + buySlot));
 
 	local accountObj = GetMyAccountObj();
-	richtext = frame:GetChild("free");
+	local richtext = frame:GetChild("free");
 	richtext:SetTextByKey("value", accountObj.Medal);
 	richtext = frame:GetChild("event");
 	richtext:SetTextByKey("value", accountObj.GiftMedal);
@@ -86,15 +88,19 @@ function SELECTTEAM_NEW_CTRL(frame, actor)
 	end
 
 	local barrackName = ui.GetFrame("barrack_name");
-	local richtext = barrackName:GetChild("richtext");
+	local teamlevel = barrackName:GetChild("teamlevel");
+	teamlevel:SetTextByKey("value", account:GetTeamLevel());
 	local buySlot = session.loginInfo.GetBuySlotCount();
 	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
-	richtext:SetTextByKey("value", tostring(myCharCont));
-	richtext:SetTextByKey("value2", tostring(barrackCls.BaseSlot + buySlot));
+
+	local pccount = frame:GetChild("pccount");
+	pccount:ShowWindow(1);
+	pccount:SetTextByKey("curpc", tostring(myCharCont));
+	pccount:SetTextByKey("maxpc", tostring(barrackCls.BaseSlot + buySlot));
 
 	local accountObj = GetMyAccountObj();
-	richtext = barrackName:GetChild("free");
+	local richtext = barrackName:GetChild("free");
 	richtext:SetTextByKey("value", accountObj.Medal);
 	richtext = barrackName:GetChild("event");
 	richtext:SetTextByKey("value", accountObj.GiftMedal);
@@ -319,10 +325,10 @@ function DELETE_CHAR_SCROLL(ctrl, btn, cid, argNum)
 		end
 	end
 
-		local bpc = barrack.GetBarrackPCInfoByCID(cid);
-		if bpc == nil then
-			return;
-		end
+	local bpc = barrack.GetBarrackPCInfoByCID(cid);
+	if bpc == nil then
+		return;
+	end
 
 	if 0 < bpc:GetDummyPCZoneID() then 
 		ui.MsgBox(ScpArgMsg("CanDelChrBecauseDummyPC"));
@@ -330,20 +336,20 @@ function DELETE_CHAR_SCROLL(ctrl, btn, cid, argNum)
 	end
 
 	if IsFinalRelease() == true then
-		local isHaveEquipItem = 0
-	for i = 0 , item.GetEquipSpotCount() - 1 do
-		local eqpObj = bpc:GetEquipObj(i);
-		if eqpObj ~= nil then
-			local obj = GetIES(eqpObj);
-			if 0 == item.IsNoneItem(obj.ClassID) then
-				--착용중인 아이템이 있음	
-				isHaveEquipItem = 1;
-				break;
-			end
+		local isHaveEquipItem = 0		
+		for i = 0 , item.GetEquipSpotCount() - 1 do
+			local eqpObj = bpc:GetEquipObj(i);
+			if eqpObj ~= nil then
+				local obj = GetIES(eqpObj);			
+				if 0 == item.IsNoneItem(obj.ClassID) then
+					--착용중인 아이템이 있음	
+					isHaveEquipItem = 1;
+					break;
+				end
+			end	
 		end
-			end
 		
-		
+
 		if isHaveEquipItem == 1 then
 			ui.MsgBox(ScpArgMsg("CantDelCharBecauseHaveEquipItem"));
 			return;
@@ -376,7 +382,7 @@ function SELECTTEAM_UPDATE_BTN_TITLE(frame)
 	if petVec:size() == 0 then
 		return;
 	end
-	
+
 	for i = 0 , petVec:size() -  1 do
 		local pet = petVec:at(i);
 		local pcID = pet:GetPCID()
@@ -506,13 +512,19 @@ function SELECTCHARINFO_DELETE_CTRL(frame, obj, argStr, argNum)
 	frame:Invalidate();
 
 	local myaccount = session.barrack.GetMyAccount();
-	local barrackName = ui.GetFrame("barrack_name");
-	local richtext = barrackName:GetChild("richtext");
+	local barrackName = ui.GetFrame("barrack_charlist");
+	local pccount = barrackName:GetChild("pccount");
+	pccount:ShowWindow(1);
 	local buySlot = session.loginInfo.GetBuySlotCount();
-	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount() - 1;
+	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
-	richtext:SetTextByKey("value", tostring(myCharCont));
-	richtext:SetTextByKey("value2", tostring(barrackCls.BaseSlot + buySlot));
+	pccount:SetTextByKey("curpc", tostring(myCharCont));
+	pccount:SetTextByKey("maxpc", tostring(barrackCls.BaseSlot + buySlot));
+
+	local barrackName = ui.GetFrame("barrack_name");
+	local teamlevel = barrackName:GetChild("teamlevel");
+	local account = session.barrack.GetCurrentAccount();
+	teamlevel:SetTextByKey("value", account:GetTeamLevel());
 end
 
 
@@ -576,8 +588,15 @@ function UPDATE_BARRACK_MODE(frame)
 		local barrack_nameUI = ui.GetFrame("barrack_name");
 		barrack_nameUI:ShowWindow(0);
 
+		local pccount = frame:GetChild("pccount");
+		pccount:ShowWindow(0);
+
 		local barrack_exit = ui.GetFrame("barrack_exit");
 		local postbox = barrack_exit:GetChild("postbox");
+		if nil == postbox then
+			return;
+		end
+
 		local postbox_new = GET_CHILD(barrack_exit, "postbox_new");
 		postbox:ShowWindow(0);
 		postbox_new:ShowWindow(0);

@@ -37,20 +37,20 @@
         <richtext name="subbosstext2" parent="necoGbox" rect="0 0 80 150" margin="-150 290 0 0" layout_gravity="center top" caption="2" stretch="false"/>
         <richtext name="subbosstext3" parent="necoGbox" rect="0 0 80 150" margin="-20 400 0 0" layout_gravity="center top" caption="3" stretch="false"/>
         <richtext name="subbosstext4" parent="necoGbox" rect="0 0 80 150" margin="155 340 0 0" layout_gravity="center top" caption="4" stretch="false"/>
-        <groupbox name="descriptGbox" parent="necoGbox" rect="0 0 440 330" margin="10 0 0 40" layout_gravity="center bottom" draw="true" hittestbox="false" skin="test_frame_midle"/>
-        <richtext name="desc_name" parent="descriptGbox" rect="0 0 250 95" margin="20 20 0 0" layout_gravity="left top" fixwidth="false" fontname="white_18_ol" format="소환체 : {#ffcc33}%s{/}" param1="bossname"/>
-      <richtext name="desc_needparts" parent="descriptGbox" rect="0 0 250 95" margin="20 300 0 0" layout_gravity="left top" fixwidth="false" fontname="white_18_ol" format="필요 파편 : %s개" param1="value" />
+        <groupbox name="descriptGbox" parent="necoGbox" rect="0 0 450 330" margin="10 0 0 20" layout_gravity="center bottom" draw="true" hittestbox="false" skin="test_frame_midle"/>
+        <richtext name="desc_name" parent="descriptGbox" rect="0 0 250 95" margin="8 10 0 0" layout_gravity="left top" fixwidth="false" fontname="white_18_ol" format="{@st41}소환체 : {#ffcc33}%s{/}" param1="bossname"/>
+      <richtext name="desc_needparts" parent="descriptGbox" rect="0 0 250 95" margin="8 300 0 0" layout_gravity="left top" fixwidth="false" fontname="white_18_ol" format="{@st41}필요 파편 : %s개" param1="value" />
         <picture name="titlepicture" rect="0 0 44 44" margin="10 -600 0 0" layout_gravity="left top" image="testquesten_button"/>
         <groupbox name="deadpartsGbox" rect="0 0 470 205" margin="0 0 0 20" layout_gravity="center bottom" draw="false" hittestbox="false" skin="pipwin_low"/>
         <richtext name="deadpartsGboxTitle" parent="deadpartsGbox" rect="0 0 80 30" margin="0 25 0 0" layout_gravity="center top" caption="파편의 개수" fontname="white_20_ol" stretch="false"/>
         <gauge name="part_gauge1" parent="deadpartsGbox" rect="0 0 300 50" margin="0 0 0 0" layout_gravity="center center" inverse="false" point="0" skin="gauge_itemtooltip_poten" text1="%v / %m" textalign1="center center" textfont1="yellow_16_b" textoffset1="0 -1"/>
-        <richtext name="desc_hp" parent="descriptGbox" rect="0 0 250 95" margin="35 50 0 0" layout_gravity="left top" fixwidth="false" fontname="brown_16" format="H P : %s" param1="value"/>
-        <richtext name="desc_fower" parent="descriptGbox" rect="0 0 250 95" margin="35 75 0 0" layout_gravity="left top" fixwidth="false" fontname="brown_16" format="공격력 : %s" param1="value"/>
-        <richtext name="desc_defense" parent="descriptGbox" rect="0 0 250 95" margin="35 100 0 0" layout_gravity="left top" fixwidth="false" fontname="brown_16" format="방어력 : %s" param1="value"/>
-        <richtext name="desc_Str" parent="descriptGbox" rect="0 0 250 95" margin="35 125 0 0" layout_gravity="left top" fixwidth="false" fontname="brown_16" format="힘 : %s" param1="value"/>
-        <richtext name="desc_Con" parent="descriptGbox" rect="0 0 250 95" margin="35 150 0 0" layout_gravity="left top" fixwidth="false" fontname="brown_16" format="체력 : %s" param1="value"/>
-        <richtext name="desc_Int" parent="descriptGbox" rect="0 0 250 95" margin="35 175 0 0" layout_gravity="left top" fixwidth="false" fontname="brown_16" format="지능 : %s" param1="value"/>
-        <richtext name="desc_Mna" parent="descriptGbox" rect="0 0 250 95" margin="35 200 0 0" layout_gravity="left top" fixwidth="false" fontname="brown_16" format="민첩 : %s" param1="value"/>
-        <richtext name="desc_Dex" parent="descriptGbox" rect="0 0 250 95" margin="35 225 0 0" layout_gravity="left top" fixwidth="false" fontname="brown_16" format="정신 : %s" param1="value"/>
+        <richtext name="desc_hp" parent="descriptGbox" rect="0 0 250 95" margin="10 40 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="H P : {@st41b}%s" param1="value"/>
+        <richtext name="desc_fower" parent="descriptGbox" rect="0 0 250 95" margin="10 68 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="공격력 : {@st41b}%s" param1="value"/>
+        <richtext name="desc_defense" parent="descriptGbox" rect="0 0 250 95" margin="10 95 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="방어력 : {@st41b}%s" param1="value"/>
+        <richtext name="desc_Str" parent="descriptGbox" rect="0 0 250 95" margin="10 125 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="힘 : {@st41b}%s" param1="value"/>
+        <richtext name="desc_Con" parent="descriptGbox" rect="0 0 250 95" margin="10 155 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="체력 : {@st41b}%s" param1="value"/>
+        <richtext name="desc_Int" parent="descriptGbox" rect="0 0 250 95" margin="10 185 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="지능 : {@st41b}%s" param1="value"/>
+        <richtext name="desc_Mna" parent="descriptGbox" rect="0 0 250 95" margin="10 215 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="민첩 : {@st41b}%s" param1="value"/>
+        <richtext name="desc_Dex" parent="descriptGbox" rect="0 0 250 95" margin="10 250 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="정신 : {@st41b}%s" param1="value"/>
     </controls>
 </uiframe>

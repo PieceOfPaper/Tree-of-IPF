@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="barrack_charlist" x="0" y="0" width="800" height="1080">
-	<frame title="캐릭터선택" margin="0 0 0 0" layout_gravity="left top" fullheight="true" scale_align="left center"tooltipoverlap="true"/>
+	<frame title="캐릭터선택" margin="0 60 0 0" layout_gravity="left top" fullheight="true" scale_align="left center" tooltipoverlap="true"/>
 	<draw drawtitlebar="false" drawframe="false"/>
 	<input moveable="false" hittestframe="false"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
 	<option hideable="false" closebutton="false"/>
 	<controls>
-		<labelline name="LL" margin="0 40 0 0" rect="0 0 350 4" skin="None" layout_gravity="center top"/>
-		<groupbox name="scrollBox" parent="listGbox" rect="0 0 800 1038" margin="0 42 0 0" skin="_pipwin_low" draw="true" hittest="true" layout_gravity="left top" leftscroll="true" resizebyparent="false" hittestbox="true" resizebyresolution="true"/>
+		<labelline name="LL" margin="-200 40 0 0" rect="0 0 350 4" skin="None" layout_gravity="center top"/>
+		<groupbox name="scrollBox" parent="listGbox" rect="0 0 800 980" margin="0 42 0 0" skin="_pipwin_low" draw="true" hittest="true" layout_gravity="left top" leftscroll="true" resizebyparent="false" hittestbox="true" resizebyresolution="true"/>
 		<picture name="signboard" rect="0 0 346 50" margin="50 0 0 0" layout_gravity="left top" image="barrack_ace"/>
-		<richtext name="richtext_1" margin="0 16 400 0" rect="200 0 200 24" caption="{@st41}캐릭터{/}" layout_gravity="left top" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false"/>
+		<richtext name="pccount" margin="94 8 400 0" rect="0 0 267 36" layout_gravity="left top" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" format="{@st41}%s (%s/%s){/}" param1="value" param1_def="캐릭터" param2="curpc" param3="maxpc"/>
 	</controls>
 </uiframe>

@@ -15,13 +15,13 @@ function ON_DELETE_PET(frame, msg, guid)
 	end
 		
 	local myaccount = session.barrack.GetMyAccount();
-	local barrackName = ui.GetFrame("barrack_name");
-	local richtext = barrackName:GetChild("richtext");
+	local barrackName = ui.GetFrame("barrack_charlist");
+	local pccount = barrackName:GetChild("pccount");
 	local buySlot = session.loginInfo.GetBuySlotCount();
 	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
-	richtext:SetTextByKey("value", tostring(myCharCont));
-	richtext:SetTextByKey("value2", tostring(barrackCls.BaseSlot + buySlot));
+	pccount:SetTextByKey("curpc", tostring(myCharCont));
+	pccount:SetTextByKey("maxpc", tostring(barrackCls.BaseSlot + buySlot));
 
 	ON_BARRACK_CREATE_PET_BTN(frame);
 end

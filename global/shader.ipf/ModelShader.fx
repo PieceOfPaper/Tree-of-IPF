@@ -1565,14 +1565,12 @@ PS_CharacterShader(VS_OUT In) : COLOR
 	float  alpha = 0;
 	float3 farColor = 1;
 		float3 nearColor = 1;
-		float3 nearTopColor = 1;
-		float3 nearBottomColor = 1;
 		float3 outlineColor = 1;
-		float3 specularcolor = 1;
+		// float3 specularcolor = 1;
 		float3 envtex = float3(1, 0, 0);
-		float specularpower = 0;
-	float specularmask = 0;
-	float glossiness = 0;
+		// float specularpower = 0;
+	// float specularmask = 0;
+	// float glossiness = 0;
 #ifdef ENABLE_DIFFUSETEX
 	diffTexColor = tex2D(diffuseTex, In.diffuseTexCoord);
 	alpha = diffTexColor.a;
@@ -1596,17 +1594,17 @@ PS_CharacterShader(VS_OUT In) : COLOR
 	//distValue 		= saturate(distValue/(g_depthDistanceValue));
 	falloff = fall_off(normalizeNormal, In.viewVec);
 	//diffTexColor.rgb = diffTexColor.rgb*0.8+0.13;
-	specularmask = envtex.r;
-	specularpower = 1 + (envtex.g*g_envValue);
-	glossiness = saturate(0.78 + (envtex.b*0.2)) - 0.03;
+	//specularmask = envtex.r;
+	///specularpower = 1 + (envtex.g*g_envValue);
+	// glossiness = saturate(0.78 + (envtex.b*0.2)) - 0.03;
 
-	float falloffValue = smoothstep(glossiness, 0.98, falloff);
+	//float falloffValue = smoothstep(glossiness, 0.98, falloff);
 	float outlinevalue = smoothstep(0.0f, 0.38f, falloff);
-	falloffValue *= specularmask;
+	// falloffValue *= specularmask;
 	
 	farColor = adjust(diffTexColor.rgb, g_farValue);
-	nearTopColor = adjust(diffTexColor.rgb, g_nearTopValue);
-	nearBottomColor = adjust(diffTexColor.rgb, g_nearBottomValue);
+	// nearTopColor = adjust(diffTexColor.rgb, g_nearTopValue);
+	// nearBottomColor = adjust(diffTexColor.rgb, g_nearBottomValue);
 
 	//nearColor 		= lerp(nearBottomColor, nearTopColor, falloffValue);
 
@@ -2114,6 +2112,48 @@ technique CharacterOutlineShadingTq
 		PixelShader = compile ps_3_0 PS_OutLineColorShader();
 	}
 }
+
+technique CharacterShadingTq_LowQuality
+{
+	pass P0 {
+		AlphaTestEnable = true;
+		AlphaRef = 0xfd;
+		AlphaFunc = Greater;
+		CullMode = ccw;
+		AlphaBlendEnable = false;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_CharacterShader();
+	}
+}
+
+technique CharacterOutlineShadingTq_LowQuality
+{
+	pass P0 {
+		AlphaTestEnable = true;
+		AlphaRef = 0xfd;
+		AlphaFunc = Greater;
+		CullMode = ccw;
+		AlphaBlendEnable = false;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_CharacterShader();
+	}
+	pass P2 {
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
+		CullMode = cw;
+		AlphaBlendEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = false;
+		VertexShader = compile vs_3_0 VS_ColorOutlineShader();
+		PixelShader = compile ps_3_0 PS_OutLineColorShader();
+	}
+}
+
 
 technique BillboardHeadTq
 {

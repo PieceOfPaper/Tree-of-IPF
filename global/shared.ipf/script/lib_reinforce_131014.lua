@@ -56,6 +56,11 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
 	if moruItem.ClassName == "Moru_Platinum_Premium" then
 		value = value / 2;
 	end
+	
+    if moruItem.ClassName == "Moru_Silver" then
+		value = 0;
+	end
+	
     value = math.floor(value)
 	return math.floor(value);
 

@@ -23,7 +23,6 @@ function SET_SLOT_ITEM_INFO(slot, itemCls, count)
 	icon:Set(itemCls.Icon, "item", itemCls.ClassID, count);
 	slot:SetText('{s12}{ol}{b}'..count, 'count', 'right', 'bottom', -2, 1);
 	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), itemCls.ClassID);
-	SET_ITEM_TOOLTIP_BY_TYPE(slot, itemCls.ClassID);
 	return icon;
 end
 

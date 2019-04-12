@@ -212,6 +212,26 @@ function GET_RECIPE_GROUP_NAME(groupname)
 		return ScpArgMsg('RecipeGroup_Artefact')
 	end
 
+	if groupname == 'Armband' then
+		return ScpArgMsg('RecipeGroup_Armband')
+	end
+	
+	if groupname == 'MagicAmulet' then
+		return ScpArgMsg('RecipeGroup_MagicAmulet')
+	end
+	
+	if groupname == 'Cannon' then
+		return ScpArgMsg('RecipeGroup_Cannon')
+	end
+	
+	if groupname == 'Dagger' then
+		return ScpArgMsg('RecipeGroup_Dagger')
+	end
+	
+	if groupname == 'Musket' then
+		return ScpArgMsg('RecipeGroup_Musket')
+	end
+	
 	return groupname;
 
 end

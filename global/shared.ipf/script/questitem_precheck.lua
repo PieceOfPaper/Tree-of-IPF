@@ -5022,3 +5022,113 @@ function SCR_PRE_ABBEY_35_3_SQ_10_REAGENT(self, argObj, BuffName, arg1, arg2)
     end
     return 0
 end
+
+--CORAL_35_2_SQ_2_STONEPIECE
+function SCR_PRE_CORAL_35_2_SQ_2_STONEPIECE(self, argObj, BuffName, arg1, arg2)
+    if GetZoneName(self) == "f_coral_35_2" then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'CORAL_35_2_SQ_2')
+            if result == 'PROGRESS' then
+                local list, cnt = SelectObject(self, 100, 'ALL')
+                local i
+                if cnt > 0 then
+                    for i = 1, cnt do
+                        if list[i].ClassName ~= 'PC' then
+                            if list[i].ClassName == 'Altarcrystal_G1' then
+                                return GetHandle(list[i])
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--CORAL_35_2_SQ_3_HORNPIECE
+function SCR_PRE_CORAL_35_2_SQ_3_HORNPIECE(self, argObj, BuffName, arg1, arg2)
+    if GetZoneName(self) == "f_coral_35_2" then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'CORAL_35_2_SQ_3')
+            if result == 'PROGRESS' then
+                local list, cnt = SelectObject(self, 100, 'ALL')
+                local i
+                if cnt > 0 then
+                    for i = 1, cnt do
+                        if list[i].ClassName ~= 'PC' then
+                            if list[i].ClassName == 'Altarcrystal_G1' then
+                                return GetHandle(list[i])
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--CORAL_35_2_SQ_8_MARINESTONE
+function SCR_PRE_CORAL_35_2_SQ_8_MARINESTONE(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "f_coral_35_2" then
+        local result = SCR_QUEST_CHECK(self, 'CORAL_35_2_SQ_8')
+        if result == 'PROGRESS' then
+            return 1
+        end
+    end
+    return 0;
+end
+
+--CORAL_35_2_SQ_7_HARMONYSTONE
+function SCR_PRE_CORAL_35_2_SQ_7_HARMONYSTONE(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "f_coral_35_2" then
+        local result = SCR_QUEST_CHECK(self, 'CORAL_35_2_SQ_7')
+        if result == 'PROGRESS' then
+            return 1
+        else
+            local result2 = SCR_QUEST_CHECK(self, 'CORAL_35_2_SQ_11')
+            if result2 == 'PROGRESS' then
+                local list, cnt = SelectObject(self, 100, 'ALL')
+                local i
+                if cnt > 0 then
+                    for i = 1, cnt do
+                        if list[i].ClassName ~= 'PC' then
+                            if list[i].ClassName == 'Altarcrystal_Silhouette_Noobb' then
+                                return GetHandle(list[i])
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0;
+end
+
+--CORAL_35_2_SQ_6_TERRASTONE
+function SCR_PRE_CORAL_35_2_SQ_6_TERRASTONE(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "f_coral_35_2" then
+        local result = SCR_QUEST_CHECK(self, 'CORAL_35_2_SQ_12')
+        if result == 'PROGRESS' then
+            return 1
+        end
+    end
+    return 0;
+end
+
+--CORAL_35_2_SQ_14_FINDER
+function SCR_PRE_CORAL_35_2_SQ_14_FINDER(self, argstring, argnum1, argnum2)
+    local result1 = SCR_QUEST_CHECK(self, 'CORAL_35_2_SQ_14')
+    if result1 == 'PROGRESS' then
+        if GetZoneName(self) == 'f_coral_35_2' then
+            if GetLayer(self) == 0 then
+                local x, y, z = GetPos(self)
+                if SCR_POINT_DISTANCE(x, z, -338, 1082) < 750 or SCR_POINT_DISTANCE(x, z, 865, 628) < 750 then
+                    return 1;
+                end
+            end
+        end
+    end
+    return 0;
+end

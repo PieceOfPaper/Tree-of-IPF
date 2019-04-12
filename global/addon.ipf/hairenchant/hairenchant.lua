@@ -111,6 +111,8 @@ function HAIRENCHANT_DRAW_HIRE_ITEM(slot, invItem)
 	local itemName = frame:GetChild("itemName")
 	itemName:SetTextByKey("value", obj.Name);
 
+	imcSound.PlaySoundEvent('inven_equip');
+
 	HAIRENCHANT_UPDATE_ITEM_OPTION(itemIES);
 end
 

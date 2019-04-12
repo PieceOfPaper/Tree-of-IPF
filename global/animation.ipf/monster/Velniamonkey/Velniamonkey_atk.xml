@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_onion_the_great_4"/>
+    <Sound frame="45.00" soundFile="mon_voice_onion_the_great_3"/>
+    <Sound frame="53.00" soundFile="skl_fgt_ultimatedash_shot"/>
+    <Sound frame="53.92" soundFile="skl_eff_palmstrike_shot"/>
+    <AfterImage frame="54" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+    <Shockwave frame="56" type="2" intensity="5" frequency="50" duration="0.3" range="1000"/>
+    <Particle frame="56" attachNode="Dummy_effect_atk" particleName="F_explosion028_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_special_shot_1"/>
+    <AfterImage frame="62" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+</ActionDesc>

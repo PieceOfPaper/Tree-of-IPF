@@ -2,12 +2,11 @@
 
 function POST_BOX_MESSAGE_COUNT()
 
-	local frame = ui.GetFrame("barrack_exit");
+	local frame = ui.GetFrame("barrack_name");
 	if frame == nil then
 		return;
 	end
 
-	local postbox = GET_CHILD(frame, "postbox");
 	local postbox_new = GET_CHILD(frame, "postbox_new");
 
 	local drawnewicon = false

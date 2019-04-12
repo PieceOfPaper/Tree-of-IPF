@@ -661,6 +661,15 @@
             </ToolScp>
         </List>
     </AI>
+    <AI Name="BRACKEN631_RP_1_FIRE" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_fire027_2" Arg="0.5"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
     <AI Name="BRACKEN632_MON_CREATE" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -2141,7 +2150,189 @@ Name="CORAL_32_1_SQ_3_AI" ActiveMessageMapInBattle="1">
             <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
         </StartList>
     </AI>
-<AI Name="Cappella" ActiveMessageMapInBattle="1"/>
+<AI Name="CORAL_35_2_CRYSTAL_MARINE_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_pattern015_blue_loop" Arg="3"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_light055_blue" Arg="6"/>
+                <Str Str="MID"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_sphere010_orange_loop" Arg="4"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="CORAL_35_2_CRYSTAL_TERRA_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_pattern015_green_loop" Arg="3"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_light055_green" Arg="6"/>
+                <Str Str="MID"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_sphere010_orange_loop" Arg="4"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="CORAL_35_2_CRYSTAL_TR_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
+                <Str Str="CORAL_35_2_CRYSTAL_RUN"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="CORAL_35_2_HARMONY_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_pattern015_orange_loop" Arg="3"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_light055_orange" Arg="6"/>
+                <Str Str="MID"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_sphere010_orange_loop" Arg="4"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="CORAL_35_2_HARMONY_MINI_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_pattern015_orange_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_magic_prison_line_orange" Arg="2"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="CORAL_35_2_LUTAS_TR_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="CORAL_35_2_LUTAS_MAGIC_RUN"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="CORAL_35_2_MARINE_MINI_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_pattern015_blue_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_magic_prison_line_blue" Arg="2"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="CORAL_35_2_SQ_10_NPC_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="CORAL_35_2_SQ_10_NPC_DEAD"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_PARENT_POS_WARP" Client="NO" UseSleep="NO">
+                <Num Num="80"/>
+                <Num Num="450"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="CORAL_35_2_SQ_11_CRYSTAL_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_pattern015_white_loop" Arg="3"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="CORAL_35_2_SQ_14_MAGIC_AI" ActiveMessageMapInBattle="1">
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="CORAL_35_2_SQ_14_MAGIC_DEAD"/>
+            </ToolScp>
+        </DeadList>
+    </AI>
+    <AI Name="CORAL_35_2_SQ_5_NPC_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="CORAL_35_2_SQ_5_NPC_DEAD"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="CORAL_35_2_SQ_5_NPC_RUN"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="CORAL_35_2_SQ_6_SPOT_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_ground023" Arg="4"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="CORAL_35_2_SQ_6_TERRA_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="CORAL_35_2_SQ_6_TERRA_RUN"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_force003_green" Arg="1"/>
+                <Str Str="MID"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="CORAL_35_2_TERRA_MAKING_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_pattern015_white_loop" Arg="3"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="CORAL_35_2_TERRA_MINI_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_pattern015_green_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_magic_prison_line_green" Arg="2"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="Cappella" ActiveMessageMapInBattle="1"/>
     <AI Name="Chaplain_Cappella" ActiveMessageMapInBattle="1">
         <DeadList>
             <ToolScp Scp="SAI_DEAD_REMOVE_PAD" Client="NO" UseSleep="NO">
@@ -4801,24 +4992,10 @@ Name="CORAL_32_1_SQ_3_AI" ActiveMessageMapInBattle="1">
                 <Str Str="Point"/>
                 <Num Num="5"/>
             </ToolScp>
-            <ToolScp Scp="S_AI_SOBJ_ADD" Client="NO" UseSleep="NO">
-                <Num Num="2"/>
-                <Str Str="ssn_mission"/>
-                <Str Str="Coin"/>
-                <Num Num="5"/>
-            </ToolScp>
-            <ToolScp Scp="S_AI_UI_FORCE" Client="NO" UseSleep="NO">
-                <Num Num="2"/>
-                <Str Str="coin_force"/>
-                <Str Str="icon_item_gold"/>
-                <Num Num="0.5"/>
-                <Str Str="mcy_buyitem"/>
-                <Str Str="COIN_icon"/>
-                <Num Num="1"/>
-            </ToolScp>
-        </List>
+          </List>
         <StartList>
             <ToolScp Scp="S_AI_INDICATOR" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_DISABLE_TARGETSELECT" Client="NO" UseSleep="NO"/>
             <ToolScp Scp="S_AI_MINIMAP" Client="NO" UseSleep="NO"/>
             <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
@@ -4834,7 +5011,7 @@ Name="CORAL_32_1_SQ_3_AI" ActiveMessageMapInBattle="1">
     <AI Name="Flag_PC" ActiveMessageMapInBattle="1">
         <DeadList>
             <ToolScp Scp="S_AI_DETACH_OBJ" Client="NO" UseSleep="NO">
-                <Str Str="Hanaming"/>
+                <Str Str="Hanaming_Flag"/>
                 <Str Str="FLAG_BUFF_OFF"/>
             </ToolScp>
             <ToolScp Scp="SAI_DEAD_ACTORSCP" Client="NO" UseSleep="NO">
@@ -4843,9 +5020,6 @@ Name="CORAL_32_1_SQ_3_AI" ActiveMessageMapInBattle="1">
             </ToolScp>
         </DeadList>
         <StartList>
-            <ToolScp Scp="S_AI_SET_FACTION" Client="NO" UseSleep="NO">
-                <Str Str="FreeForAll"/>
-            </ToolScp>
             <ToolScp Scp="S_AI_MINIMAP" Client="NO" UseSleep="NO"/>
         </StartList>
     </AI>
@@ -11856,7 +12030,12 @@ if self.HP == 0 then return 1; else return 0; end;">
         <StartList>
             <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
-                <Str_Arg Str="F_circle026_violet_loop" Arg="25"/>
+                <Str_Arg Str="F_bg_light011_red_event" Arg="20"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_bg_light011_red_event" Arg="20"/>
                 <Str Str="BOT"/>
             </ToolScp>
         </StartList>
@@ -14108,26 +14287,26 @@ return IMCRandom(300, 1000) * 0.001;"/>
     </AI>
     <AI Name="handler_s_goldenbell_shield" ActiveMessageMapInBattle="1">
         <Attacked>
-            <ScpSet Range="40" RelationBit="2" CheckClassName="None" CheckClassNameByFunc="0">
+            <ScpSet Range="100" RelationBit="2" CheckClassName="None" CheckClassNameByFunc="0">
                 <Cond>
                     <ToolScp Scp="SH_COND_EXEC_COUNT" Client="NO" UseSleep="NO">
                         <Num Num="2"/>
                         <Str Str="12_13_12_20_30"/>
                     </ToolScp>
-                    <ToolScp Scp="SH_COND_COOLDOWN_MINIMON" Client="NO" UseSleep="NO" CondFunc="">
-                        <Num Num="60"/>
-                        <Num Num="50"/>
-                        <Num Num="250"/>
-                        <Num Num="3"/>
-                        <Num Num="5"/>
-                        <Str Str="12_13_12_20_36"/>
-                    </ToolScp>
+                    <ToolScp Scp="SH_COND_RAND" Client="NO" UseSleep="NO" >
+                        <Num Num="25"/>
+                        </ToolScp>
                 </Cond>
                 <Exec>
-                    <ToolScp Scp="SH_USE_PCSKILL" Client="NO" UseSleep="NO">
-                        <Str Str="Monk_Golden_Bell_Shield"/>
-                        <Num Num="10"/>
+                    <ToolScp Scp="SH_EXEC_BUFF" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_Golden_Bell_Shield_Buff"/>
                         <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="10000"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                <ToolScp Scp="SH_EXEC_CHAT" Client="NO" UseSleep="YES">
+                        <Str Str="금종조"/>
                     </ToolScp>
                 </Exec>
             </ScpSet>

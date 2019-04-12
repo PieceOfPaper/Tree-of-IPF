@@ -10,13 +10,6 @@
                                 <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="SCR_CASTLE65_3_MQ03_P_A"/>
                                 </ToolScp>
-                                <ToolScp Scp="S_AI_PLAYANI_OP" Client="NO" UseSleep="NO">
-                                    <Str Str="look"/>
-                                    <Num Num="1"/>
-                                    <Num Num="1"/>
-                                    <Num Num="0"/>
-                                    <Num Num="0"/>
-                                </ToolScp>
                             </List>
                             <DeadList>
                                 <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -32,8 +25,12 @@
                                 <ToolScp Scp="S_AI_SET_MGAME_PC_OWNER" Client="NO" UseSleep="NO">
                                     <Num Num="1"/>
                                 </ToolScp>
-                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
-                                    <Str Str="look"/>
+                                <ToolScp Scp="S_AI_PLAYANI_OP" Client="NO" UseSleep="NO">
+                                    <Str Str="event_loop2"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
                                 </ToolScp>
                             </StartList>
                         </SelfAI>
@@ -56,7 +53,7 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="castle653_04"/>
-                                <Str Str="=="/>
+                                <Str Str="OVER"/>
                                 <Num Num="10"/>
                             </ToolScp>
                         </condList>

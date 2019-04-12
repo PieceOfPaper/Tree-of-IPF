@@ -52,12 +52,7 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 	
 	if fromFrame:GetName() == "inventory" then
 		local accountObj = GetMyAccountObj();
-		local itemClassID = session.loginInfo.GetPremiumStateArg(ITEM_TOKEN)
-		local tokenItemCls = GetClassByType("Item", itemClassID);
-		local remainTardeCnt = 0;
-		if tokenItemCls ~= nil then
-			remainTardeCnt = tokenItemCls.NumberArg2 - accountObj.TradeCount
-		end
+		local remainTardeCnt = accountObj.TradeCount
 		if 0 >= remainTardeCnt then
 			ui.MsgBox(ScpArgMsg("RemainTradeCountDoesNotExist"));
 			return;

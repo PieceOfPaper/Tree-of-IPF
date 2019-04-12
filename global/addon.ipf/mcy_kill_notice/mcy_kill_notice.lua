@@ -26,32 +26,36 @@ end
 
 function MCY_NOTICE_KILL(frame, teamID, textFormat, killerJob, killerGender, killer, killed)
 	
+
+
 	frame:ShowWindow(1);
 
 	local pic = GET_CHILD(frame, "pic", "ui::CPicture");
 	if killerJob ~= nil then
-		--local imgName = ui.CaptureModelHeadImage(killerJob, killerGender);
-		--pic:SetImage(imgName);
-		--pic:ShowWindow(1);
+		local imgName = GET_JOB_ICON(killerJob);
+		pic:SetImage(imgName);
+		pic:ShowWindow(1);
 	else
 		pic:ShowWindow(0);
 	end
 
 	local myTeam = GET_MY_TEAMID();
-	local font;
+	local font = "";
+	--[[
 	if teamID == myTeam then
 		font = "{@st46}";
 	else
 		font = "{@st47}";
 	end
+	]]
 
 	local text = frame:GetChild("text");
 	if killed == nil then
 		local txt = string.format(textFormat, killer);
-		text:SetText(font .. txt);
+		text:SetTextByKey("value", txt);
 	else
 		local txt = string.format(textFormat, killer, killed);
-		text:SetText(font .. txt);
+		text:SetTextByKey("value", txt);
 	end
 
 	frame:SetDuration(2);

@@ -91,6 +91,10 @@ function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible)
 		imcSound.PlaySoundEvent('sys_cube_open_jackpot');	
 	end
 	
+	-- AnimPicture 설정
+	local startAnim = GET_CHILD(frame, 'animpic', 'ui::CAnimPicture');
+	startAnim:PlayAnimation();	
+	
 	-- 설정해 놓은 UI창 보이기
 	frame:ShowWindow(1);
 end

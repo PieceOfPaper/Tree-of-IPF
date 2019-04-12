@@ -47,6 +47,237 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="magicAmulet_24">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="5"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ATTACKTYPE" Client="NO" UseSleep="NO">
+						<Str Str="Strike"/>
+						<Str Str="NotCheck"/>
+						<Str Str="NotCheck"/>
+						<Str Str="None"/>
+						<Str Str="NotCheck"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+						<Str Str="Stun"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="500"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="magicAmulet_23">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_ATTACKTYPE" Client="NO" UseSleep="NO">
+						<Str Str="Aries"/>
+						<Str Str="NotCheck"/>
+						<Str Str="NotCheck"/>
+						<Str Str="None"/>
+						<Str Str="NotCheck"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="5"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+						<Str Str="Item_magicAmulet_23_Buff"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="3000"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="magicAmulet_22">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_ATTACKTYPE" Client="NO" UseSleep="NO">
+						<Str Str="Slash"/>
+						<Str Str="NotCheck"/>
+						<Str Str="NotCheck"/>
+						<Str Str="None"/>
+						<Str Str="NotCheck"/>
+					</ToolScp>
+				<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="15"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+						<Str Str="UC_bleed"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="3000"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="magicAmulet_20">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_DAMTYPE" Client="NO" UseSleep="NO">
+						<Num Num="4"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="5"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+						<Str Str="Item_magicAmulet_22_Buff"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="30000"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="magicAmulet_21">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_CRITICAL" Client="NO" UseSleep="NO"/>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="magicAmulet_19">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="0.80000001"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_IS_NORMAL_ATTACK" Client="NO" UseSleep="NO"/>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="8640"/>
+					</ToolScp>
+				</ExecList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_MON_TYPE_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="Klaida"/>
+					</ToolScp>
+				</TgtCondList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="magicAmulet_18">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="0.80000001"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_IS_NORMAL_ATTACK" Client="NO" UseSleep="NO"/>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="8640"/>
+					</ToolScp>
+				</ExecList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_MON_TYPE_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="Widling"/>
+					</ToolScp>
+				</TgtCondList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="magicAmulet_17">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="0.80000001"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_IS_NORMAL_ATTACK" Client="NO" UseSleep="NO"/>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="8640"/>
+					</ToolScp>
+				</ExecList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_MON_TYPE_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="Paramune"/>
+					</ToolScp>
+				</TgtCondList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="magicAmulet_16">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="0.80000001"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_IS_NORMAL_ATTACK" Client="NO" UseSleep="NO"/>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="8640"/>
+					</ToolScp>
+				</ExecList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_MON_TYPE_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="Forester"/>
+					</ToolScp>
+				</TgtCondList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="magicAmulet_15">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="0.80000001"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_IS_NORMAL_ATTACK" Client="NO" UseSleep="NO"/>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="8640"/>
+					</ToolScp>
+				</ExecList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_MON_TYPE_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="Velnias"/>
+					</ToolScp>
+				</TgtCondList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="magicAmulet_2">
 		<TriggerList Act="AfterHitScript_Attack">
 			<Trigger>

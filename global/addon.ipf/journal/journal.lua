@@ -15,6 +15,7 @@ function JOURNAL_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('LEVEL_UPDATE', 'JOURNAL_UPDATE_MAIN_PAGE');
 	addon:RegisterOpenOnlyMsg('MON_RANKINFO_TOOLTIP', 'ON_MON_RANKINFO_TOOLTIP');
 	
+	addon:RegisterOpenOnlyMsg('WIKI_PROP_UPDATE_MAP', 'ON_JOURNAL_UPDATE_MAP');
 	addon:RegisterOpenOnlyMsg('CHANGE_COUNTRY', 'JOURNAL_UPDATE_MAIN_PAGE');
 	addon:RegisterOpenOnlyMsg('CHANGE_COUNTRY', 'JOURNAL_FIRST_OPEN'); 
         -- ??? ???? ?? UI ??????? : ??? ??? ??? ???¿??? ??? ????? ??? -140527 ayase

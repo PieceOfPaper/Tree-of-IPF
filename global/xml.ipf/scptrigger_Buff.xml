@@ -23,7 +23,7 @@
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_CRTHR" Client="NO" UseSleep="NO">
-						<Num Num="30"/>
+						<Num Num="40"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -51,20 +51,6 @@
 					</ToolScp>
 					<ToolScp Scp="SPCI_DAM_RATE" Client="NO" UseSleep="NO">
 						<Num Num="2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="SneakHit_Buff">
-		<TriggerList Act="BeforeAttack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_COND_BACK_OF_THE_HEAD" Client="NO" UseSleep="NO"/>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_CRTHR" Client="NO" UseSleep="NO">
-						<Num Num="10" UseFunc="1" FuncTxt="local lv = GetExProp(buff, 'Lv'); return 60 + lv * 2;"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>

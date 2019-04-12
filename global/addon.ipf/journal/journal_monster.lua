@@ -24,8 +24,8 @@ function SET_MON_CATEGORY_FILTER(ctrlset)
 	local list = {};
 	list[#list + 1] = "Normal";
 	list[#list + 1] = "Boss";
-	
 	SET_CATEGORY_BY_PROP(tree, "Monster", "MonRank", "RaceType", "MonCategory_", list)	
+	gBox:EnableScrollBar(0);
 end
 
 function JOURNAL_PAGE_CHANGE_MONSTER(ctrl, ctrlset)

@@ -151,12 +151,12 @@ function UPDATE_GUILDINFO(frame)
 
 	GBOX_AUTO_ALIGN(gbox_list, 0, 0, 0, true, false);
 
-	local text_memberinfo = information:GetChild("text_memberinfo");
+	local text_memberinfo = gbox_member:GetChild("text_memberinfo");
 	
 	local memberStateText = ScpArgMsg("GuildMember{Cur}/{Max}People,OnLine{On}People", "Cur", count, "Max", GUILD_BASIC_MAX_MEMBER + partyObj.AbilLevel_MemberExtend, "On", connectionCount);
 	text_memberinfo:SetTextByKey("value", memberStateText);
 
-	local chk_showonlyconnected = GET_CHILD(information, "chk_showonlyconnected");
+	local chk_showonlyconnected = GET_CHILD(gbox_member, "chk_showonlyconnected");
 	chk_showonlyconnected:SetCheck(showOnlyConnected);
 	
 	local chk_agit_enter_onlyguild = GET_CHILD(properties, "chk_agit_enter_onlyguild");

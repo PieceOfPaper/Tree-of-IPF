@@ -56,6 +56,7 @@ function ON_ADD_COLLECTION(frame, msg)
 	if colls:Count() == 1 then
 		SYSMENU_FORCE_ALARM("collection", "Collection");
 	end
+	imcSound.PlaySoundEvent('cllection_register');
 	frame:Invalidate();
 
 	end
@@ -99,7 +100,7 @@ function SET_COLLECTION_PIC(frame, pic, itemCls, coll, drawitemset)
 				drawitemset[itemCls.ClassID] = drawitemset[itemCls.ClassID] + 1
 			end
 
-			return "Can Take"
+			return "Can Take", drawitemset[itemCls.ClassID]
 		end
 
 		-- 2. 꼽으면 되는 것들
@@ -288,6 +289,7 @@ end
 
 function OPEN_DECK_DETAIL(parent, ctrl)
 
+	imcSound.PlaySoundEvent('cllection_inven_open');
 	local col = parent:GetParent();
 	col = tolua.cast(col, "ui::CCollection");
 	col:DetailView(parent, "MAKE_DECK_DETAIL");
@@ -380,6 +382,7 @@ function DETAIL_UPDATE(frame, detailView, type, playEffect)
 	else
 		detailMainGbox:SetColorTone("FFFFFFFF");
 	end
+	detailMainGbox:EnableHitTest(0);
 
 	-- 맨 위에 RichText생성 --
 	local nextY = 10;
@@ -424,19 +427,31 @@ function DETAIL_UPDATE(frame, detailView, type, playEffect)
 			lastRow = row;
 		end
 
-		local slot  = detailMainGbox:CreateOrGetControl('slot', "IMG_" .. i, x, picY, picWidth, picHeight);
+		local slot  = detailView:CreateOrGetControl('slot', "IMG_" .. i, x, picY, picWidth, picHeight);
 		slot = tolua.cast(slot, "ui::CSlot");
 		slot:EnableDrag(0);
+		slot:EnableHitTest(1);
 
 		slot:SetOverSound('button_cursor_over_2')
 		local icon = CreateIcon(slot);
-		icon:SetImage(itemCls.Icon);		
-		local cantake = SET_COLLECTION_PIC(frame, icon, itemCls, coll,drawItemSet);
+		icon:SetImage(itemCls.Icon);	
+icon:EnableHitTest(1);	
+	
+		local cantake, count = SET_COLLECTION_PIC(frame, icon, itemCls, coll,drawItemSet);
 		slot:SetUserValue("COLLECTION_TYPE", type);
 
+		local itemGuid = itemCls.ClassID;
+		if cantake ~= nil then
+			local strGuid = coll:GetByItemTypeWithIndex(itemCls.ClassID, count);
+
+			if strGuid ~= nil then
+				itemGuid = strGuid;
+			end
+		end
+		
 		-- 세션 콜렉션에 오브젝트 정보가 존재하고 이를 바탕으로 하면 item오브젝트의 옵션을 살린 툴팁도 생성 가능하다. 가령 박아넣은 젬의 경험치라던가.
 		-- 허나 지금 슬롯 지정하여 꺼내는 기능이 없기 때문에 무의미. 정확한 툴팁을 넣으려면 COLLECTION_TAKE를 type이 아니라 guid 기반으로 바꿔야함
-		SET_ITEM_TOOLTIP_ALL_TYPE(icon, itemData, itemCls.ClassName, 'collection', itemCls.ClassID, type); 
+		SET_ITEM_TOOLTIP_ALL_TYPE(icon, itemData, itemCls.ClassName, 'collection', type, itemGuid); 
 		
 		if cantake ~= nil then
 			slot:SetEventScript(ui.RBUTTONUP, "COLLECTION_TAKE");
@@ -465,6 +480,7 @@ function DETAIL_UPDATE(frame, detailView, type, playEffect)
 	detailMainGbox:Resize(detailMainGbox:GetWidth(), nextY);
 	local detailAbilGbox  = detailView:CreateOrGetControl('groupbox', "downbox", 5, nextY, detailView:GetWidth() - 10, 50);
 	detailAbilGbox:SetSkinName('rank_three_skin')
+	detailAbilGbox:EnableHitTest(0);
 
 
 	local abilText = string.format("%s %s : %s", font, ClMsg("CollectionEffect"), GET_COLLECTION_EFFECT_DESC(type));
@@ -510,6 +526,7 @@ function COLLECTION_DROP(frame, slot)
 	local needcnt = colinfo:GetNeedItemCount(liftIcon.type)
 
 	if nowcnt < needcnt then
+		imcSound.PlaySoundEvent('sys_popup_open_1');
 		local yesScp = string.format("EXEC_PUT_COLLECTION(\"%s\", %d)", liftIcon:GetIESID(), type);
 		ui.MsgBox(ScpArgMsg("CollectionIsSharedToTeamAndCantTakeBackItem_Continue?"), yesScp, "None");
 	end

@@ -124,10 +124,7 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 	end
 
 	local invframe = ui.GetFrame("inventory");
-	if invItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_MORU")
-		or invItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or invItem:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
-	
+	if true == IS_TEMP_LOCK(invframe, invItem) then
 			ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return false;
 		end
@@ -394,14 +391,10 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	end
 
 	local invframe = ui.GetFrame("inventory");
-	if invitem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_MORU")
-		or invitem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or invitem:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
-	
+	if true == IS_TEMP_LOCK(invframe, invitem) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return false;
 	end
-
 	local itemProp = geItemTable.GetProp(obj.ClassID);
 	local pr = TryGetProp(obj, "PR");
 

@@ -1,14 +1,7 @@
 MAX_RESTSLOT_CNT = 20;
 
 function RESTQUICKSLOT_ON_INIT(addon, frame)
-
-	for i = 0, MAX_RESTSLOT_CNT-1 do
-		local slot 			= frame:GetChild("slot"..i+1);
-		tolua.cast(slot, "ui::CSlot");
-		local slotString 	= 'QuickSlotExecute'..(i+1);
-		local text 			= hotKeyTable.GetHotKeyString(slotString);
-		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', 'left', 'top', 2, 1);
-	end
+	RESTQUICKSLOT_UPDATE_HOTKEYNAME(frame);
 
 	addon:RegisterMsg('RESTQUICKSLOT_OPEN', 'ON_RESTQUICKSLOT_OPEN');
 	addon:RegisterMsg('RESTQUICKSLOT_CLOSE', 'ON_RESTQUICKSLOT_CLOSE');
@@ -16,6 +9,16 @@ function RESTQUICKSLOT_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('INV_ITEM_POST_REMOVE', 'RESTQUICKSLOT_ON_ITEM_CHANGE');
 	addon:RegisterOpenOnlyMsg('INV_ITEM_CHANGE_COUNT', 'RESTQUICKSLOT_ON_ITEM_CHANGE');
 end
+
+function RESTQUICKSLOT_UPDATE_HOTKEYNAME(frame)
+	for i = 0, MAX_RESTSLOT_CNT-1 do
+		local slot 			= frame:GetChild("slot"..i+1);
+		tolua.cast(slot, "ui::CSlot");
+		local slotString 	= 'QuickSlotExecute'..(i+1);
+		local text 			= hotKeyTable.GetHotKeyString(slotString);
+		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', 'left', 'top', 2, 1);
+	end
+end;
 
 function RESTQUICKSLOT_ON_ITEM_CHANGE(frame)
 	-- 우선 걍다 업데이트 하는거로

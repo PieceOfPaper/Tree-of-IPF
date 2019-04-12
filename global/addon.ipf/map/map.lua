@@ -243,7 +243,7 @@ function UI_TOGGLE_MAP()
 		return;
 	end
 
-	if session.IsMissionMap() == true then
+	if session.DontUseMinimap() == true then
 		return;
 	end
 
@@ -349,7 +349,6 @@ function UPDATE_MAP(frame, isFirst)
 	local curmapname = session.GetMapName()
 	UPDATE_MAP_BY_NAME(frame, curmapname, GET_CHILD(frame, "map"));
 	RUN_REVEAL_CHECKER(frame, curmapname);
-	MAKE_MAP_AREA_INFO(frame, curmapname)
 
 end
 

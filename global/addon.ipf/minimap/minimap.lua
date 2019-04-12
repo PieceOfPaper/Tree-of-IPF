@@ -117,7 +117,7 @@ end
 
 function UPDATE_MINIMAP(frame, isFirst)
 
-	if session.IsMissionMap() == true then
+	if session.DontUseMinimap() == true then
 		frame:ShowWindow(0);
 		return;
 	end

@@ -29,8 +29,10 @@ function POPUP_DUMMY(handle, targetInfo)
 		ui.AddContextMenuItem(context, ScpArgMsg("Auto_JeKeo"), strscp);
 	end
 
-	strscp = string.format("barrackNormal.Visit(%d)", handle);
-	ui.AddContextMenuItem(context, ScpArgMsg("Auto_BaeLeogBangMun"), strscp);
+	if session.world.IsIntegrateServer() == false then
+		strscp = string.format("barrackNormal.Visit(%d)", handle);
+		ui.AddContextMenuItem(context, ScpArgMsg("VisitBarrack"), strscp);
+	end
 
 	ui.AddContextMenuItem(context, ScpArgMsg("Auto_DatKi"),  "");		
 	

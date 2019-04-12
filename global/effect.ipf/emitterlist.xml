@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
 <EmitterList>
+	<battle name="E_PC_pose_popcorn_ride" filename="E_PC_pose_popcorn_ride" loop="true" nodecount="4" xml="E_PC_pose_popcorn_ride.xml" paused="NO" is2D="FALSE" softParticleFactor="100" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_PC_pose_popcorn" filename="E_PC_pose_popcorn" loop="true" nodecount="4" xml="E_PC_pose_popcorn.xml" paused="NO" is2D="FALSE" softParticleFactor="100" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_light001_circle" filename="E_light001_circle" loop="true" nodecount="4" xml="E_light001_circle.xml" paused="NO" is2D="FALSE" softParticleFactor="100" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_PC_pose_OTL" filename="E_PC_pose_OTL" loop="false" nodecount="4" xml="E_PC_pose_OTL.xml" paused="NO" is2D="FALSE" softParticleFactor="100" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_PC_pose_cheers_light_ride" filename="E_PC_pose_cheers_light_ride" loop="false" nodecount="4" xml="E_PC_pose_cheers_light_ride.xml" paused="NO" is2D="FALSE" softParticleFactor="100" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>

@@ -17,4 +17,7 @@ function C_GSP_EFFECT(actor, obj, effectName, scale, nodeName)
 
 end
 
+function PLAY_SOUND_EVENT(soundName)
+	imcSound.PlaySoundEvent(soundName);
+end
 

@@ -2076,6 +2076,10 @@ function ITEM_EQUIP_MSG(item, slotName)
 		return;
 	end
 
+	if true == BEING_TRADING_STATE() then
+		return;
+	end
+
 	local strscp = string.format("item.Equip(%d)", item.invIndex);
 	if slotName ~= nil then
 		strscp = string.format("item.Equip(\"%s\", %d)", slotName, item.invIndex);
@@ -4333,12 +4337,14 @@ function KEYBOARD_INPUT()
 		local Set1 = GET_CHILD(joystickQuickFrame,'Set1','ui::CGroupBox');
 		local Set2 = GET_CHILD(joystickQuickFrame,'Set2','ui::CGroupBox');
 
+		if monsterquickslot:IsVisible() ~= 1 then
 		if control.IsRestSit() == true then
 			quickFrame:ShowWindow(0);
 			restquickslot:ShowWindow(1);
 		else
 			quickFrame:ShowWindow(1);
 			restquickslot:ShowWindow(0);
+		end
 		end
 
 		joystickQuickFrame:ShowWindow(0);
@@ -4378,12 +4384,14 @@ function JOYSTICK_INPUT()
 		local Set1 = GET_CHILD(joystickQuickFrame,'Set1','ui::CGroupBox');
 		local Set2 = GET_CHILD(joystickQuickFrame,'Set2','ui::CGroupBox');
 
+		if monsterquickslot:IsVisible() ~= 1 then
 		if control.IsRestSit() == true then
 			joystickQuickFrame:ShowWindow(0);
 			joystickrestquickslot:ShowWindow(1);
 		else
 			joystickQuickFrame:ShowWindow(1);
 			joystickrestquickslot:ShowWindow(0);
+		end
 		end
 
 		quickFrame:ShowWindow(0);

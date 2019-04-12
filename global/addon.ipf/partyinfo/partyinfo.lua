@@ -105,6 +105,8 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 	local count = list:Count();
 	local memberIndex = 0;
 
+	local myInfo = session.party.GetMyPartyObj();
+
 	-- 접속중 파티원 버프리스트
 	for i = 0 , count - 1 do
 		local partyMemberInfo = list:Element(i);
@@ -143,7 +145,7 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 						
 						local buffID = partyMemberInfo:GetBuffIDByIndex(j);
 						local cls = GetClassByType("Buff", buffID);											
-						if cls ~= nil and cls.ShowIcon ~= "FALSE" then
+						if cls ~= nil and cls.ShowIcon ~= "FALSE" and cls.ClassName ~= "TeamLevel" then
 							local buffOver = partyMemberInfo:GetBuffOverByIndex(j);
 							local buffTime = partyMemberInfo:GetBuffTimeByIndex(j);							
 							local slot = nil;
@@ -162,9 +164,17 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 									icon = CreateIcon(slot);
 								end
 
+								local handle = 0;
+								if myInfo ~= nil then
+									if myInfo:GetMapID() == partyMemberInfo:GetMapID() and myInfo:GetChannel() == partyMemberInfo:GetChannel() then
+										handle  = partyMemberInfo:GetHandle();
+									end
+										
+								end
+								handle = tostring(handle);
 								icon:SetDrawCoolTimeText( math.floor(buffTime/1000) );
 								icon:SetTooltipType('buff');
-								icon:SetTooltipArg(0, buffID, "");
+								icon:SetTooltipArg(handle, buffID, "");
 
 								local imageName = 'icon_' .. cls.Icon;
 								icon:Set(imageName, 'BUFF', buffID, 0);
@@ -223,6 +233,10 @@ function OPEN_PARTY_MEMBER_INFO(name)
 end
 
 function CONTEXT_PARTY(frame, ctrl, aid)
+
+	if session.world.IsIntegrateServer() == true then
+		return;
+	end
 	
 	local myAid = session.loginInfo.GetAID();
 	
@@ -351,6 +365,13 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 		if nil ~= jobCls then
 			jobIcon:SetImage(jobCls.Icon);
 		end
+			
+			
+		local tooltipID = jobIcon:GetTooltipIESID();		
+		if nil == tooltipID then		
+			jobIcon:SetTextTooltip(jobCls.name);
+		end
+
 		local stat = partyMemberInfo:GetInst();
 		local pos = stat:GetPos();
 
@@ -476,11 +497,11 @@ function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogou
 	-- 머리
 	local jobportraitImg = GET_CHILD(partyInfoCtrlSet, "jobportrait_bg", "ui::CPicture");
 	if jobportraitImg ~= nil then
-		jobportraitImg = GET_CHILD(jobportraitImg, "jobportrait", "ui::CPicture");
+		jobIcon = GET_CHILD(jobportraitImg, "jobportrait", "ui::CPicture");
 		local iconinfo = partyMemberInfo:GetIconInfo();
 		local jobCls  = GetClassByType("Job", iconinfo.job);
 		if nil ~= jobCls then
-			jobportraitImg:SetImage(jobCls.Icon);
+			jobIcon:SetImage(jobCls.Icon);
 	end
 	end
 		
@@ -518,6 +539,7 @@ PARTY_RELATION_LEADER	= 6;
 PARTY_RELATION_GUILD	= 7;
 
 function ON_PARTYINFO_DESTROY(frame)
+
 	frame:RemoveAllChild();	
 	frame:ShowWindow(0);
 end
@@ -597,4 +619,96 @@ end
 function ON_PARTY_INVITE_CANCEL(frame, msg, familyName, arg2)
 
 	ui.SysMsg('['..familyName..'] '.. ClMsg("PartyInviteCancelMsg"));
+end
+
+function SET_PARTY_JOB_TOOLTIP(cid)	
+	local pcparty = session.party.GetPartyInfo();
+	if pcparty == nil then
+		return 0;
+	end	
+	local partyInfo = pcparty.info;
+	local info = session.otherPC.GetByStrCID(cid);		
+	
+	if info == nil then
+		return 0 ;
+	end;
+
+	local frame = ui.GetFrame("partyinfo");	
+	PARTY_JOB_TOOLTIP_CTRLSET(frame, cid, info);
+	
+	local partyFrame = ui.GetFrame('party');
+	local gbox = partyFrame:GetChild("gbox");
+	frame = gbox:GetChild("memberlist");		
+	PARTY_JOB_TOOLTIP_CTRLSET(frame, cid, info);
+end
+	
+function PARTY_JOB_TOOLTIP_CTRLSET(frame, cid, info)
+	if frame == nil then
+		return 0;
+	end;
+	local partyInfoCtrlSet = frame:GetChild('PTINFO_'.. info:GetAID());
+		if partyInfoCtrlSet ~= nil then	
+			local jobportraitImg = GET_CHILD(partyInfoCtrlSet, "jobportrait_bg", "ui::CPicture");
+			if jobportraitImg ~= nil then
+				local jobIcon = GET_CHILD(jobportraitImg, "jobportrait", "ui::CPicture");
+			PARTY_JOB_TOOLTIP(frame, cid, jobIcon, info.JobName);
+				end;
+			end;	
+		end;	
+
+
+function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName)
+	if (nil == session.otherPC.GetByStrCID(cid)) or (nil == uiChild) then 
+		return;
+	end		 
+	
+	local otherpcinfo = session.otherPC.GetByStrCID(cid);
+
+	local jobhistory = otherpcinfo.jobHistory;
+	local clslist, cnt  = GetClassList("Job");
+	
+	local nowjobinfo = jobhistory:GetJobHistory(jobhistory:GetJobHistoryCount()-1);
+	local nowjobcls;
+	if nil == nowjobinfo then
+		nowjobcls = nowJobName; 
+	else
+		nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
+	end; 
+
+	local OTHERPCJOBS = {}
+	for i = 0, jobhistory:GetJobHistoryCount()-1 do
+		local tempjobinfo = jobhistory:GetJobHistory(i);
+
+		if OTHERPCJOBS[tempjobinfo.jobID] == nil then
+			OTHERPCJOBS[tempjobinfo.jobID] = tempjobinfo.grade;
+		else
+			if tempjobinfo.grade > OTHERPCJOBS[tempjobinfo.jobID] then
+				OTHERPCJOBS[tempjobinfo.jobID] = tempjobinfo.grade;
+			end
+		end
+	end
+	
+	local startext = ("");
+	for jobid, grade in pairs(OTHERPCJOBS) do
+		-- 클래스 이름{@st41}
+		local cls = GetClassByTypeFromList(clslist, jobid);
+
+		if cls.Name == nowjobcls.Name then
+			startext = startext .. ("{@st41_yellow}").. cls.Name;		
+		else
+			startext = startext .. ("{@st41}").. cls.Name;				
+		end
+		
+		-- 클래스 레벨 (★로 표시)				
+		for i = 1 , 3 do
+			if i <= grade then
+				startext = startext ..('{img star_in_arrow 20 20}');
+			else
+				startext = startext ..('{img star_out_arrow 20 20}');
+			end
+		end
+		startext = startext ..('{nl}');
+	end
+	uiChild:SetTextTooltip(startext);
+	uiChild:EnableHitTest(1);
 end

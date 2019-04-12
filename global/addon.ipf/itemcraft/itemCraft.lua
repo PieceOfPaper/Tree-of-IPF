@@ -287,6 +287,9 @@ function CRAFT_UPDATE_PAGE(page, cls, haveMaterial, item)
 	SET_ITEM_TOOLTIP_ALL_TYPE(icon, itemData, item.ClassName, '', item.ClassID, 0);
 
 	app:SetEventScript(ui.LBUTTONUP, 'CRAFT_RECIPE_FOCUS');
+	app:SetOverSound('button_cursor_over_3');
+	app:SetClickSound('button_click_big_2');
+
 	page:Resize(page:GetWidth(), app:GetY() + app:GetHeight() + 20);
 
 end
@@ -678,6 +681,7 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 
 	-- 임시로 작동하지 않게 막는다. 나중에 새로 만들어야함.
 	if TryGetProp(recipecls, "UseQueue") == "YES" then
+		session.CopyTempItemID();
 		local queueFrame = ui.GetFrame("craftqueue");
 		for i = 1, totalCount do
 			ADD_CRAFT_QUEUE(queueFrame, targetItem, recipecls.ClassID, 1);
@@ -771,6 +775,8 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_FAIL(frame, msg, str, time)
 end
 
 function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
+	imcSound.PlaySoundEvent('sys_item_jackpot_get');
+
 	frame = ui.GetFrame(frame:GetUserValue("UI_NAME"))
 	if frame:GetUserIValue("MANUFACTURING") ~= 1 then
 		return;
@@ -783,9 +789,10 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
 		SetCraftState(0)
 		return;
 	end
+
 	local idSpace = frame:GetUserValue("IDSPACE");
 	local recipecls = GetClassByType(idSpace, recipeType);
-	local resultlist = session.GetItemIDList();
+	local resultlist = session.GetTempItemIDList();--session.GetItemIDList();
 	local cntText = string.format("%s %s", recipecls.ClassID, totalCount);
 
 	for index=1, 5 do
@@ -803,6 +810,7 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
 			end
 		end
 	end
+
 	item.DialogTransaction("SCR_ITEM_MANUFACTURE_" .. idSpace, resultlist, cntText);
 end
 
@@ -1043,6 +1051,9 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 					itemtext:SetText(dragRecipeItem.Name);
 					y = y + itemHeight;
 					itemSet:SetUserValue("ClassName", dragRecipeItem.ClassName)
+
+					slot:SetOverSound('button_cursor_over_2');
+					slot:SetClickSound('button_click');
 				end
 			else
 				local itemSet = ctrlset:CreateOrGetControlSet(g_craftRecipe_detail_item, "EACHMATERIALITEM_" .. i, x, y);
@@ -1062,6 +1073,9 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 				itemtext:SetText(dragRecipeItem.Name);
 				y = y + itemHeight;
 				itemSet:SetUserValue("ClassName", dragRecipeItem.ClassName)
+				
+				slot:SetOverSound('button_cursor_over_2');
+				slot:SetClickSound('button_click');
 			end
 		end
 	end
@@ -1101,6 +1115,8 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 	upDown:SetNumChangeScp('ITMCRAFT_BUTTON_UP');
 	upDown:SetNumberValue(1)--아이템 제작시 개수 설정 디폴트 1로 설정.
 	upDown:ShowWindow(1)
+	upDown:SetOverSound('button_cursor_over_2');
+	upDown:SetClickSound('button_click');
 
 	y = y + 10
 
@@ -1228,7 +1244,6 @@ function CRAFT_CRAFT_OPTION(frame, ctrl)
 end
 
 function CRAFT_EXIT(frame, msg, argStr, argNum)
-
 	packet.StopTimeAction();
 	ui.CloseFrame("timeaction");
 	ui.CloseFrame(frame:GetUserValue("UI_NAME"))

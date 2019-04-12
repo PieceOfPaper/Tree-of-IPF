@@ -3,10 +3,17 @@ function GUILD_ITEM_OBJECT_CHECK()
 	return true;
 end
 
+function GUILD_SEND_CLICK_TRIGGER(handle)
+	local mobj = GetMyActor();
+	local comHandle = handle;
+	if handle == nil then
+		comHandle = mobj:GetUserIValue("COMPANION_HANDLE");
+	end
+	
+	packet.SendClickTrigger(comHandle);
+end
+
 function GUILD_ITEM_OBJECT(actor, isSelect)
-
-	if isSelect == 2 then
-
 		local guid = actor:GetUserSValue("GUID");
 		local obj = session.guildHouse.GetObjectByStrGuid(guid);
 		if obj == nil then
@@ -15,8 +22,13 @@ function GUILD_ITEM_OBJECT(actor, isSelect)
 
 		local clsName = obj:GetPropValue("ClassName");
 		local seedCls = GetClass("Seed", clsName);
+	if nil == seedCls then
+		return;
+	end
+
 		local objType = seedCls.ObjType;
 		
+	if isSelect == 2 then	
 		local frame = ui.GetFrame("plantwater");
 		local pic = GET_CHILD(frame, "pic");
 		pic:SetImage(seedCls.GaugeIcon);
@@ -28,21 +40,18 @@ function GUILD_ITEM_OBJECT(actor, isSelect)
 		FRAME_AUTO_POS_TO_OBJ(frame, actor:GetHandleVal(), -frame:GetWidth() / 2, offsetY, 3);
 
 	elseif isSelect == 1 then
-
-		packet.SendClickTrigger(actor:GetHandleVal());
-
-	elseif isSelect == 0 then
-
-		local guid = actor:GetUserSValue("GUID");
-		local obj = session.guildHouse.GetObjectByStrGuid(guid);
-		if obj == nil then
+		if objType == "Animal" then
+		if 1 == TRY_CHECK_BARRACK_SLOT(actor:GetHandleVal()) then
 			return;
 		end
+		local mobj = GetMyActor();
+		mobj:SetUserValue("COMPANION_HANDLE", tostring(actor:GetHandleVal()));
+		else
+			packet.SendClickTrigger(actor:GetHandleVal());
+		end
 
-		local clsName = obj:GetPropValue("ClassName");
-		local seedCls = GetClass("Seed", clsName);
-		local objType = seedCls.ObjType;
 
+	elseif isSelect == 0 then
 		---if objType == "Plant" then
 			ui.CloseFrame("plantwater");
 		--end

@@ -6,7 +6,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P
 16,21,1,20,1,60000,1,3,0,1,0,1,100,"whorfzone","마법사의 탑 2층","","","","MON_DUMMY","","","","FIRETOWER41_TO_FIRETOWER42","","NO","YES","NO","Neutral","Anim/ON","","",""
 100,100,1,250,1,1,1,0,0,0,0,0,0,"npc_grita","그리타","","","","","","","FTOWER41_GRITA_01","","","NO","YES","NO","Neutral","","","",""
 104,104,1,0,-1,1,1,0,0,1,0,0,0,"whorfzone","제2 이동 마법진","","","","","","","FTOWER41_MQ_03","","","NO","YES","NO","Neutral","","","",""
-105,105,1,0,-1,1,1,0,0,0,0,0,0,"closing_device","방어막 가동 장치","","","","","","","FTOWER41_MQ_05","","","NO","YES","NO","Neutral","AttachAnimLocal/0:STD/5:ON","NPCStateLocal/5:FTOWER41_MQ_05:SUCCESS:COMPLETE","COPY",""
+105,105,1,0,-1,1,1,0,0,0,0,0,0,"closing_device","방어막 가동 장치","","","","","","","FTOWER41_MQ_05","","","NO","YES","NO","Neutral","AttachAnimLocal/0:STD/5:EVENT_LOOP","NPCStateLocal/5:FTOWER41_MQ_05:SUCCESS:COMPLETE","COPY",""
 107,107,1,0,-1,1,1,1,0,0,0,0,100,"npc_village_uncle_1","오윈","","","","","","","FTOWER41_SQ_01","","","NO","YES","NO","Neutral","","","",""
 108,108,1,0,-1,1,1,1,0,0,0,0,100,"npc_matron3","코델리어","","","","","","","FTOWER41_SQ_03","","","NO","YES","NO","Neutral","","","",""
 109,109,1,40,-1,1,1,0,0,0,0,0,0,"blank_npc","책장","","","","","","","FTOWER41_SQ_05_NPC","","","NO","YES","NO","Neutral","","","",""

@@ -8664,6 +8664,13 @@ end
 
 function SCR_GET_Carnivory_Time(skill)
     local value = 10
+    
+    local pc = GetSkillOwner(skill)
+    local abil = GetAbility(pc, "Druid8")
+    if abil ~= nil and 1 == abil.ActiveState then
+        value = value + abil.Level
+    end
+    
     return value
 end
 

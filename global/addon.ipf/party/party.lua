@@ -80,9 +80,11 @@ function ON_PARTY_UPDATE(frame, msg, str, num)
 	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
 
 	local memberlist = gbox:GetChild("memberlist");
-	DESTROY_CHILD_BYNAME(memberlist, 'PTINFO_');
 
 	local pcparty = session.party.GetPartyInfo();
+	if pcparty == nil then
+		DESTROY_CHILD_BYNAME(memberlist, 'PTINFO_');
+	end
 
 	local createPartyBtn = GET_CHILD_RECURSIVELY(frame, 'createPartyBtn', 'ui::CButton')
 	local outPartyBtn = GET_CHILD_RECURSIVELY(frame, 'outPartyBtn', 'ui::CButton')
@@ -122,7 +124,7 @@ function ON_PARTY_UPDATE(frame, msg, str, num)
 		QUEST_PARTY_MEMBER_PROP_UPDATE(questinfo2frame)
 		useineedparty:SetEnable(1)
 
-		--파티보스 소환관련해서 남아있으면 지워보자.
+		--?�티보스 ?�환관?�해???�아?�으�?지?�보??
 		session.minimap.RemoveIconInfo("PartyQuest_FieldBossRaid");
 
 		return;
@@ -141,10 +143,10 @@ function ON_PARTY_UPDATE(frame, msg, str, num)
 		local partyMemberInfo = list:Element(i);
 		local ret = nil;
 		local iconinfo = partyMemberInfo:GetIconInfo();
-		-- 접속중 파티원
+		-- ?�속�??�티??
 		if geMapTable.GetMapName(partyMemberInfo:GetMapID()) ~= 'None' then
 			ret = SET_PARTYINFO_ITEM(memberlist, msg, partyMemberInfo, memberIndex, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, true);
-		-- 접속안한 파티원
+		-- ?�속?�한 ?�티??
 		else
 			ret = SET_LOGOUT_PARTYINFO_ITEM(memberlist, msg, partyMemberInfo, memberIndex, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, true);
 		end
@@ -153,6 +155,20 @@ function ON_PARTY_UPDATE(frame, msg, str, num)
 			end
 		end
 	
+	for i = 0 , memberlist:GetChildCount() - 1 do
+		local ctrlSet = memberlist:GetChildByIndex(i);
+		if nil ~= ctrlSet then
+			local ctrlSetName = ctrlSet:GetName();
+			if string.find(ctrlSetName, "PTINFO_") ~= nil then
+				local aid = string.sub(ctrlSetName, 8, string.len(ctrlSetName));
+				local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, aid);
+				if memberInfo == nil then
+					memberlist:RemoveChildByIndex(i);
+					i = i - 1;
+				end
+			end
+		end
+	end	
 
 	if nowtab == 0 then
 		if count > 0 then
@@ -181,7 +197,6 @@ function ON_PARTY_UPDATE(frame, msg, str, num)
 
 	GBOX_AUTO_ALIGN(memberlist, 10, 0, 0, true, false)
 	frame:Invalidate();
-	frame:Invalidate();
 	frame:ResizeByResolutionRecursively(0);
 
 end
@@ -208,7 +223,7 @@ function CREATE_PARTY_BTN(control)
 end
 
 function HIDE_PARTY_CREATE_BTN()
-	local partyframe = ui.GetFrame('party') -- 일단 버튼을 없에고 나중에 업데이트
+	local partyframe = ui.GetFrame('party') -- ?�단 버튼???�에�??�중???�데?�트
 	local createPartyBtn = GET_CHILD_RECURSIVELY(partyframe, 'createPartyBtn', 'ui::CButton')
 	createPartyBtn:ShowWindow(0)
 end
@@ -354,7 +369,7 @@ function ON_PARTY_PROPERTY_UPDATE(frame, msg, str, num)
 	isPrivate_checkbox:SetEnable(isLeader)
 
 
-	-- 파티매치 옵션 설정 관련 코드
+	-- ?�티매치 ?�션 ?�정 관??코드
 	local usePartyMatch = partyObj["UsePartyMatch"];
 	local isUseMemberRecommend_checkbox = GET_CHILD_RECURSIVELY(frame,"isUseMemberRecommend")
 	if usePartyMatch == 1 then
@@ -424,7 +439,7 @@ function ON_PARTY_PROPERTY_UPDATE(frame, msg, str, num)
 	end
 
 	PM_ETC_checkbox:SetEnable(isLeader)
-	-- 파티매치 관련 코드 끝
+	-- ?�티매치 관??코드 ??
 
 end
 
@@ -726,7 +741,7 @@ function UPDATE_PARTY_TICKET(frame, msg, propName, propValue)
 			end
 	
 		elseif cls.ViewProp ~= "None" then
-			--이 밑에는 구버전 호환용 입니다. 갯수가 많아지면 따로 관리하게 끔 해봐야함.
+			--??밑에??구버???�환???�니?? �?��가 많아지�??�로 관리하�????�봐?�함.
 			if cls.ClassName == "FieldBossRaid" then
 				if partyObj.FieldBossSummon == 1 then
 					local ctrlSet = quest_gbox:CreateControlSet("party_ticket", cls.ClassName, ui.LEFT, ui.TOP, 0, 0, 0, 0);
@@ -873,7 +888,7 @@ function ACCEPT_PARTY_EVENT(parent, ctrl)
 	end
 	
 	--local desc = GET_CHILD(parent, "desc");
-	--desc:SetTextByKey("value", "미션시작?");
+	--desc:SetTextByKey("value", "미션?�작?");
 	--parent:GetChild("btn_start"):ShowWindow(0);
 end
 
@@ -1046,7 +1061,7 @@ function UPDATE_I_NEED_PARTY(frame, msg, str, num)
 		useineedparty_checkbox:SetCheck(1)
 	end
 
-		-- 001 : 퀘스트 / 010 : 닥사 / 100 : 파티이벤트
+		-- 001 : ?�스??/ 010 : ?�사 / 100 : ?�티?�벤??
 	if math.floor(myplaystyle % 10) == 1 then
 		playstyle_quest_checkbox:SetCheck(1)
 	else
@@ -1073,7 +1088,7 @@ function UPDATE_I_NEED_PARTY(frame, msg, str, num)
 		need_lv_minmax_edit:SetEnable(1)
 	end
 
-		-- 0001 : 소드맨 / 0010 : 위자드 / 0100 : 아처 / 1000 : 클레릭
+		-- 0001 : ?�드�?/ 0010 : ?�자??/ 0100 : ?�처 / 1000 : ?�레�?
 	if math.floor(myneedctrltype % 10) == 1 then
 		inp_classlimite_war_checkbox:SetCheck(1)
 	else
@@ -1110,7 +1125,7 @@ function UPDATE_I_NEED_PARTY(frame, msg, str, num)
 			SET_I_NEED_PARTY()
 		end
 
-	elseif pcparty ~= nil and isLeader == 0 then -- 리더 아닌 일반 파티원이라면 리더의 설정 따라감
+	elseif pcparty ~= nil and isLeader == 0 then -- 리더 ?�닌 ?�반 ?�티?�이?�면 리더???�정 ?�라�?
 	
 		local partyObj = GetIES(pcparty:GetObject());
 
@@ -1135,7 +1150,7 @@ function UPDATE_I_NEED_PARTY(frame, msg, str, num)
 		local calcresult={}
 		local i = 0
 	
-		while num > 0 do -- 2진수 변환. 설마 비트연산이 안될 줄이야,,
+		while num > 0 do -- 2진수 변?? ?�마 비트?�산???�될 줄이??,
 		
 			calcresult[i] = num%2
 			num = math.floor(num/2)
@@ -1145,7 +1160,7 @@ function UPDATE_I_NEED_PARTY(frame, msg, str, num)
 			end
 		end
 
-		if calcresult[0] == 1 then -- 전사
+		if calcresult[0] == 1 then -- ?�사
 			inp_classlimite_war_checkbox:SetCheck(1)
 		else
 			inp_classlimite_war_checkbox:SetCheck(0)
@@ -1160,7 +1175,7 @@ function UPDATE_I_NEED_PARTY(frame, msg, str, num)
 		else
 			inp_classlimite_arc_checkbox:SetCheck(0)
 		end
-		if calcresult[3] == 1 then -- 성직자
+		if calcresult[3] == 1 then -- ?�직??
 			inp_classlimite_cle_checkbox:SetCheck(1)
 		else
 			inp_classlimite_cle_checkbox:SetCheck(0)
@@ -1221,7 +1236,7 @@ end
 
 end
 
--- 파티원 찾기 기능
+-- ?�티??찾기 기능
 function SET_I_NEED_PARTY()
 
 	local pcparty = session.party.GetPartyInfo();
@@ -1248,7 +1263,7 @@ function SET_I_NEED_PARTY()
 
 	local playstyle = 0
 
-	-- 001 : 퀘스트 / 010 : 닥사 / 100 : 파티이벤트
+	-- 001 : ?�스??/ 010 : ?�사 / 100 : ?�티?�벤??
 	if playstyle_quest_checkbox:IsChecked() == 1 then
 		playstyle = playstyle + 1
 	end
@@ -1263,7 +1278,7 @@ function SET_I_NEED_PARTY()
 
 	if uselevellimit_checkbox:IsChecked() == 1 then
 		need_lv_minmax_edit:SetEnable(0)	
-		levellimit = -1 -- 제한없음
+		levellimit = -1 -- ?�한?�음
 	else
 		need_lv_minmax_edit:SetEnable(1)	
 		levellimit = tonumber(need_lv_minmax_edit:GetText());
@@ -1272,7 +1287,7 @@ function SET_I_NEED_PARTY()
 
 	local needtype = 0
 	
-	-- 0001 : 소드맨 / 0010 : 위자드 / 0100 : 아처 / 1000 : 클레릭
+	-- 0001 : ?�드�?/ 0010 : ?�자??/ 0100 : ?�처 / 1000 : ?�레�?
 	if inp_classlimite_war_checkbox:IsChecked() == 1 then
 		needtype = needtype + 1
 	end
@@ -1286,7 +1301,7 @@ function SET_I_NEED_PARTY()
 		needtype = needtype + 1000
 	end
 
-	if pcparty == nil then -- 파티 속해있지 않다면 그냥 적용
+	if pcparty == nil then -- ?�티 ?�해?��? ?�다�?그냥 ?�용
 
 	config.ChangeXMLConfig("UseINeedParty",tostring(useineedparty))
 	local temp = config.GetXMLConfig("UseINeedParty")
@@ -1309,7 +1324,7 @@ function SET_I_NEED_PARTY()
 			isLeader = 1;
 		end
 
-		if isLeader == 1 then -- 리더라면 ineedparty와 파티 프로퍼티 동시 적용. 아니면 할일 없다.
+		if isLeader == 1 then -- 리더?�면 ineedparty?� ?�티 ?�로?�티 ?�시 ?�용. ?�니�??�일 ?�다.
 
 			config.ChangeXMLConfig("UseINeedParty",tostring(useineedparty))
 			local temp = config.GetXMLConfig("UseINeedParty")
@@ -1325,7 +1340,7 @@ function SET_I_NEED_PARTY()
 
 			party.ReqINeepParty(requseineedparty, playstyle, levellimit, needtype)	
 
-			-- 파티 프로퍼티
+			-- ?�티 ?�로?�티
 			local war_val = "0"
 			local wiz_val = "0"
 			local arc_val = "0"
@@ -1349,7 +1364,7 @@ function SET_I_NEED_PARTY()
 
 			party.ReqChangeProperty(PARTY_NORMAL, "RecruitClassType", calcvalue);
 
-			-- 레벨
+			-- ?�벨
 			if levellimit == -1 then
 				party.ReqChangeProperty(PARTY_NORMAL, "UseLevelLimit", 0);
 	else 

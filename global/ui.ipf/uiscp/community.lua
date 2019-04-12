@@ -102,37 +102,42 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			local strScp = string.format("exchange.RequestChange(%d)", pcObj:GetHandleVal());
 			ui.AddContextMenuItem(context, ClMsg("Exchange"), strScp);
 		end
-		ui.AddContextMenuItem(context, ClMsg("WHISPER"), strWhisperScp);
+		
+		local strScp = "";
+		if session.world.IsIntegrateServer() == false then
+			ui.AddContextMenuItem(context, ClMsg("WHISPER"), strWhisperScp);
+			strScp = string.format("PARTY_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
+			ui.AddContextMenuItem(context, ClMsg("PARTY_INVITE"), strScp);
 
-	--if partyinfo ~= nil then
-		local strScp = string.format("PARTY_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
-		ui.AddContextMenuItem(context, ClMsg("PARTY_INVITE"), strScp);
-	-- end
+			if AM_I_LEADER(PARTY_GUILD) == 1 then
+				strScp = string.format("GUILD_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
+				ui.AddContextMenuItem(context, ClMsg("GUILD_INVITE"), strScp);
+			end
 
-		if AM_I_LEADER(PARTY_GUILD) == 1 then
-			strScp = string.format("GUILD_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
-			ui.AddContextMenuItem(context, ClMsg("GUILD_INVITE"), strScp);
+			strscp = string.format("barrackNormal.Visit(%d)", handle);
+			ui.AddContextMenuItem(context, ScpArgMsg("VisitBarrack"), strscp);
 		end
-
-		strscp = string.format("barrackNormal.Visit(%d)", handle);
-		ui.AddContextMenuItem(context, ScpArgMsg("Auto_BaeLeogBangMun"), strscp);
 
 		strscp = string.format("PROPERTY_COMPARE(%d)", handle);
 		ui.AddContextMenuItem(context, ScpArgMsg("Auto_SalPyeoBoKi"), strscp);
 
-		local strRequestAddFriendScp = string.format("friends.RequestRegister('%s')", pcObj:GetPCApc():GetFamilyName());
-		ui.AddContextMenuItem(context, ScpArgMsg("ReqAddFriend"), strRequestAddFriendScp);
+		if session.world.IsIntegrateServer() == false then
+			local strRequestAddFriendScp = string.format("friends.RequestRegister('%s')", pcObj:GetPCApc():GetFamilyName());
+			ui.AddContextMenuItem(context, ScpArgMsg("ReqAddFriend"), strRequestAddFriendScp);
+		end
 
 		ui.AddContextMenuItem(context, ScpArgMsg("RequestFriendlyFight"), string.format("REQUEST_FIGHT(\"%d\")", pcObj:GetHandleVal()));
 
 		local familyname = pcObj:GetPCApc():GetFamilyName()
 		local otherpcinfo = session.otherPC.GetByFamilyName(familyname);
 		
-		local strRequestLikeItScp = string.format("SEND_PC_INFO(%d)", handle);
-		if session.likeit.AmILikeYou(familyname) == true then
-			ui.AddContextMenuItem(context, ScpArgMsg("ReqUnlikeIt"), strRequestLikeItScp);
-		else
-			ui.AddContextMenuItem(context, ScpArgMsg("ReqLikeIt"), strRequestLikeItScp);
+		if session.world.IsIntegrateServer() == false then
+			local strRequestLikeItScp = string.format("SEND_PC_INFO(%d)", handle);
+			if session.likeit.AmILikeYou(familyname) == true then
+				ui.AddContextMenuItem(context, ScpArgMsg("ReqUnlikeIt"), strRequestLikeItScp);
+			else
+				ui.AddContextMenuItem(context, ScpArgMsg("ReqLikeIt"), strRequestLikeItScp);
+			end
 		end
 
 		-- 보호모드, 강제킥

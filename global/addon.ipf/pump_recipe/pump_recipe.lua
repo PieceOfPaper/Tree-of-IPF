@@ -16,6 +16,7 @@ function _PUMP_RECIPE_OPEN(frame, recipeType, itemName)
 	end
 
 	frame = tolua.cast(frame, "ui::CFrame");
+	frame:Resize(frame:GetOriginalWidth(),frame:GetOriginalHeight())
 	local beforeRecipeType = frame:GetUserIValue("RECIPETYPE");
 	if frame:IsVisible() == 1 and beforeRecipeType ~= recipeType then
 		local duration = frame:GetDuration();

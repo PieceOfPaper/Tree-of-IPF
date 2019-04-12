@@ -8,15 +8,51 @@ end
 function PARTY_INFO_UPDATE_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userData)
 	
 	local name = GET_CHILD_RECURSIVELY(tooltipframe,"partyname")
-	local nearPartyList = session.party.GetNearPartyList();
-	local eachpartyinfo = nearPartyList:Element(numarg1).partyInfo
+	local getterPartyList = session.party.GetNearPartyList();
+		
+	if getterPartyList == nil then
+		return;
+	end	
+
+	local eachpartyinfo = getterPartyList:Element(numarg1).partyInfo;
+	local eachpartymemberlist = getterPartyList:Element(numarg1):GetMemberList();
 
 	if eachpartyinfo == nil then
 		return;
 	end
 
-	local eachpartymemberlist = nearPartyList:Element(numarg1):GetMemberList()
+	TOOLTIP_NORMAL_PROCESS_TOOLTIP(tooltipframe, eachpartyinfo, eachpartymemberlist, name);
 
+end
+
+
+
+function PARTY_INFO_UPDATE_TOOLTIP_NORMAL(tooltipframe, strarg, numarg1, numarg2, userData)
+
+	local name = GET_CHILD_RECURSIVELY(tooltipframe,"partyname")
+	local getterPartyList = session.party.GetFoundPartyList(PARTY_NORMAL);
+
+	if getterPartyList == nil then
+		return;
+	end	
+
+	if getterPartyList:IsValidIndex(numarg1) == false then
+		return;
+	end
+
+	local eachpartyinfo = getterPartyList:Element(numarg1).partyInfo;
+	local eachpartymemberlist = getterPartyList:Element(numarg1):GetMemberList();
+
+	if eachpartyinfo == nil then
+		return;
+	end	
+
+	TOOLTIP_NORMAL_PROCESS_TOOLTIP(tooltipframe, eachpartyinfo, eachpartymemberlist, name);
+
+end
+
+
+function TOOLTIP_NORMAL_PROCESS_TOOLTIP(tooltipframe, eachpartyinfo, eachpartymemberlist, name)
 	local ppartyobj = eachpartyinfo:GetObject();
 
 	if ppartyobj == nil then
@@ -76,6 +112,19 @@ function PARTY_INFO_UPDATE_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userD
 			local jobclass = GetClassByType("Job",eachpartymember:GetIconInfo().job)
 			meminfotext:SetTextByKey('job',jobclass.Name)
 
+			-- 색으로 차별화.
+			if eachpartyinfo.info:GetLeaderAID() == eachpartymember:GetAID() then
+				if eachpartyinfo.info.isCorsairType == true then
+					meminfotext:SetFontName("green_16_ol"); -- 커세어는 초록색
+				else
+					meminfotext:SetFontName("yellow_16_ol"); -- 파티장은 노란색
+				end
+			else
+					meminfotext:SetFontName("white_16_ol"); -- 일반은 하얀색
+			end
+
+			
+
 			if jobclass.CtrlType == "Warrior" then
 				classicon:SetImage("partylist_swordman")
 			elseif jobclass.CtrlType == "Wizard" then
@@ -125,7 +174,4 @@ function PARTY_INFO_UPDATE_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userD
 	tooltipframe:Resize(tooltipframe:GetOriginalWidth(), 210 + (eachpartymemberlist:Count() * 30) )
 
 	tooltipframe:Invalidate()
-
-	
-	
 end

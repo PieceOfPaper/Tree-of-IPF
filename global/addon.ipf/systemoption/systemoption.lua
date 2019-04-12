@@ -112,8 +112,8 @@ function INIT_GRAPHIC_CONFIG(frame)
 	local glow = GET_CHILD(frame, "check_Glow", "ui::CCheckBox");
 	glow:SetCheck(config.GetUseGlow());
 
-	local depth = GET_CHILD(frame, "check_Depth", "ui::CCheckBox");
-	depth:SetCheck(config.GetUseDepth());
+--	local depth = GET_CHILD(frame, "check_Depth", "ui::CCheckBox");
+	depth:SetCheck(1);
 
 	local softParticle = GET_CHILD(frame, "check_SoftParticle", "ui::CCheckBox");
 	softParticle:SetCheck(config.GetUseSoftParticle());

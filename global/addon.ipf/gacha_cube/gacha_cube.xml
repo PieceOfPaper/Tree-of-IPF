@@ -13,6 +13,7 @@
 	<controls>
 		<groupbox name="bg" rect="0 0 455 509" margin="3 5 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" image="Cube_skin"/>
 		<groupbox name="item_name_bg" rect="0 0 300 50" margin="0 40 0 0" layout_gravity="center center" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="monster_skill_bg"/>
+		<animpicture name="animpic" blend="50" texelx="0" texely="0" texelwidth="400" texelheight="400" spacex="1" spacey="0" loop="false" ticktime="0.06" animcount="9" layout_gravity="left top" rect="0 0 400 400" margin="35 10 0 0" image="cube_ani" hittest="false" playanim="true" stretch="true"/>
 		<button name="button_1" margin="0 0 0 35" rect="0 0 280 60" format="%s" param1="value" skin="test_red_button" layout_gravity="center bottom" clicksound="button_click_stats_OK" oversound="button_over" LBtnUpScp="GACHA_CUBE_OK_BTN"/>
 		<richtext name="richtext_1" margin="0 59 0 0" rect="0 0 380 50" format="%s" param1="value" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 		<button name="close" rect="30 40 70 70" margin="10 8 0 0" layout_gravity="left top" LBtnUpScp="CANCEL_GACHA_CUBE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}큐브 획득 창을 닫습니다.{/}"/>

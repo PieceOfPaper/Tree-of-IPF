@@ -6,6 +6,7 @@ function TPITEM_ON_INIT(addon, frame)
 
 	addon:RegisterMsg('TP_SHOP_UI_OPEN', 'TP_SHOP_DO_OPEN');
 	addon:RegisterMsg("TPSHOP_BUY_SUCCESS", "ON_TPSHOP_BUY_SUCCESS");
+	addon:RegisterMsg("TPSHOP_BUY_FAILED", "ON_TPSHOP_BUY_FAILED");
 
 	MAKE_CATEGORY_TREE()
 
@@ -33,6 +34,21 @@ function ON_TPSHOP_BUY_SUCCESS(frame)
 
 end
 
+function ON_TPSHOP_BUY_FAILED(frame, msg, argStr, argNum)
+	local tpitem = GetClassByType("TPitem", argNum);
+	if tpitem == nil then
+		return
+	end
+		
+	local needJobClassName = TryGetProp(tpitem, "Job");
+	local needJobGrade = TryGetProp(tpitem, "JobGrade");
+
+	if needJobGrade ~= nil and needJobClassName ~= nil then
+		local jobinfoclass = GetClass('Job', needJobClassName);
+		ui.MsgBox(ScpArgMsg("CanNotEquipLow{Job}{Grade}", "Job", jobinfoclass.Name, "Grade", needJobGrade));
+		return;
+	end
+end
 
 function MAKE_CATEGORY_TREE()
 
@@ -304,10 +320,12 @@ function TPITEM_DRAW_ITEM(frame, category, subcategory)
 				sucValue = string.format("{@st41b}%s", ScpArgMsg("ITEM_IsEquiped"));
 				state_Text:SetTextByKey("value", sucValue);	
 				state_Text_BG:SetGrayStyle(1);		
+				pre_Text:SetVisible(0);
 			elseif session.GetInvItemByType(clsID) ~= nil then	-- 구매한 물품.
 				sucValue = string.format("{@st41b}%s", ScpArgMsg("ITEM_IsPurchased"));
 				state_Text:SetTextByKey("value", sucValue);		
 				state_Text_BG:SetGrayStyle(1);		
+				pre_Text:SetVisible(0);	
 			else	-- 비구매 품목.
 				state_Text_BG:SetVisible(0);
 			end
@@ -490,7 +508,7 @@ function TPSHOP_PREVIEWSLOT_REMOVE(parent, control, strarg, classid)
 
 end
 
-function UPDATE_PREVIEW_APC_IMAGE_N_MONEY(frame)
+function UPDATE_PREVIEW_APC_IMAGE_N_MONEY(frame, rotDir)
 
 	local slotset = GET_CHILD_RECURSIVELY(frame,"previewslotset")
 	local slotCount = slotset:GetSlotCount();
@@ -535,8 +553,13 @@ function UPDATE_PREVIEW_APC_IMAGE_N_MONEY(frame)
 
 		end
 	end
+
+	if rotDir == nil then
+		rotDir = 0;
+	end
+
 	local shihouette = GET_CHILD_RECURSIVELY(frame,"shihouette")
-	local imgName = ui.CaptureMyFullStdImageByAPC(apc);
+	local imgName = ui.CaptureMyFullStdImageByAPC(apc, rotDir);
 	shihouette:SetImage(imgName)
 
 	local previewTP = GET_CHILD_RECURSIVELY(frame,"previewTP")
@@ -561,6 +584,16 @@ function TPSHOP_ITEM_BASKET_BUY(parent)
 
 	DISABLE_BUTTON_DOUBLECLICK("tpitem","basketBuyBtn")
 
+end
+
+function TPSHOP_HAIR_ROT_PREV(parent)
+
+	UPDATE_PREVIEW_APC_IMAGE_N_MONEY(parent:GetTopParentFrame(), 2)
+end
+
+function TPSHOP_HAIR_ROT_NEXT(parent)
+	
+	UPDATE_PREVIEW_APC_IMAGE_N_MONEY(parent:GetTopParentFrame(), 1)
 end
 
 function EXEC_BUY_MARKET_ITEM(slotsettype)
@@ -661,9 +694,31 @@ function TPSHOP_ITEM_TO_BASKET(parent, control, tpitemname, classid)
 			return;
 		end
 
+		local tpitem = GetClass("TPitem", tpitemname);
+		
+		if tpitem == nil then
+			return
+		end
+
 		local pc = GetMyPCObject();
 		if pc == nil then
 			return;
+		end
+
+		local needJobClassName = TryGetProp(tpitem, "Job");
+		local needJobGrade = TryGetProp(tpitem, "JobGrade");		
+
+		if needJobGrade ~= nil and needJobClassName ~= nil then
+			local jobGrade, jobTotal = GetJobGradeByName(pc, needJobClassName);
+			if jobGrade == nil then
+				return;
+			end
+
+			if jobGrade < needJobGrade then
+				local jobinfoclass = GetClass('Job', needJobClassName);
+				ui.MsgBox(ScpArgMsg("CanNotEquipLow{Job}{Grade}", "Job", jobinfoclass.Name, "Grade", needJobGrade));
+				return;
+			end
 		end
 
 		local useGender = TryGetProp(item,'UseGender')

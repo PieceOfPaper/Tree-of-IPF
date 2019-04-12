@@ -11,10 +11,10 @@
         <tabitem name="createmonster" parent="cheatlisttap" layout_gravity="left top" caption="{@st59b}  몬스터  {/}" control="none" crect="5 100 235 30"/>
         <tabitem name="mzmaplist" parent="cheatlisttap" layout_gravity="left top" caption="{@st59b}  맵이동  {/}" control="none" crect="5 100 235 30"/>
         <tabitem name="cheatothers" parent="cheatlisttap" layout_gravity="left top" caption="{@st59b}  전투명령  {/}" control="none" crect="5 100 235 30"/>
-        <tree name="itemtree" rect="0 0 500 350" margin="40 40 0 0" layout_gravity="left top" LBtnDblClickScp="CREATE_LIST_LBDBLCLICK" LBtnDownScp="CHEATLIST_TREE_CHANGE" drawline="false" selectioncolor="000000"/>
-        <tree name="monstertree" rect="0 0 500 350" margin="40 40 0 0" layout_gravity="left top" LBtnDblClickScp="CREATE_LIST_LBDBLCLICK" LBtnDownScp="CHEATLIST_TREE_CHANGE" drawline="false" selectioncolor="000000"/>
-        <tree name="maptree" rect="0 0 500 350" margin="40 40 0 0" layout_gravity="left top" LBtnDblClickScp="CREATE_LIST_LBDBLCLICK" LBtnDownScp="CHEATLIST_TREE_CHANGE" drawline="false" selectioncolor="000000"/>
-        <tree name="otherstree" rect="0 0 500 350" margin="40 40 0 0" layout_gravity="left top" LBtnDblClickScp="CREATE_LIST_LBDBLCLICK" LBtnDownScp="CHEATLIST_TREE_CHANGE" drawline="false" selectioncolor="000000"/>
+        <tree name="itemtree" rect="0 0 500 350" margin="40 40 0 0" layout_gravity="left top" LBtnDblClickScp="CREATE_LIST_LBDBLCLICK" LBtnDownScp="CHEATLIST_TREE_CHANGE" drawline="false" selectioncolor="000000"enableResizing="false"/>
+        <tree name="monstertree" rect="0 0 500 350" margin="40 40 0 0" layout_gravity="left top" LBtnDblClickScp="CREATE_LIST_LBDBLCLICK" LBtnDownScp="CHEATLIST_TREE_CHANGE" drawline="false" selectioncolor="000000"enableResizing="false"/>
+        <tree name="maptree" rect="0 0 500 350" margin="40 40 0 0" layout_gravity="left top" LBtnDblClickScp="CREATE_LIST_LBDBLCLICK" LBtnDownScp="CHEATLIST_TREE_CHANGE" drawline="false" selectioncolor="000000"enableResizing="false"/>
+        <tree name="otherstree" rect="0 0 500 350" margin="40 40 0 0" layout_gravity="left top" LBtnDblClickScp="CREATE_LIST_LBDBLCLICK" LBtnDownScp="CHEATLIST_TREE_CHANGE" drawline="false" selectioncolor="000000"enableResizing="false"/>
         <button name="UseBtn" rect="0 0 177 60" margin="-101 0 0 34" layout_gravity="center bottom" LBtnUpScp="CREATE_LIST_LBDBLCLICK" caption="{@st41b}생성{/}" clicksound="button_click" oversound="button_over"/>
         <button name="CloseBtn" rect="0 0 192 61" margin="90 0 0 32" layout_gravity="center bottom" LBtnUpScp="ui.CloseFrame(&apos;cheatlist&apos;)" caption="{@st41b}닫기{/}" clicksound="button_click" oversound="button_over"/>
         <groupbox name="ItemUseGroup" rect="0 0 541 170" margin="35 388 0 0" layout_gravity="left top" container="true" draw="false" target="itemtree"/>

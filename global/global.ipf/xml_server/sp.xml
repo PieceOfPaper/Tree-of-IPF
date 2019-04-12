@@ -1,0 +1,8 @@
+<idspace id="sp">
+  <Category Name="Game">
+		<Class ClassID="100000" ClassName="sp_stm_cash_dlc_purchase_reg" OverrideType="ADD" ParamCount="5" Desc="BServer"/>
+		<Class ClassID="100001" ClassName="sp_stm_cash_dlc_purchase_set" OverrideType="ADD" ParamCount="4" Desc="BServer"/>
+		<Class ClassID="100002" ClassName="sp_stm_cash_dlc_purchase_get" OverrideType="ADD" ParamCount="2" Desc="BServer"/>
+    <Class ClassID="100003" ClassName="sp_pass_account_get" OverrideType="ADD" ParamCount="1" Desc="BServer"/>
+	</Category>
+</idspace>

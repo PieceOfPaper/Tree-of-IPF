@@ -98,7 +98,9 @@ function SCR_GET_ADDSTAT(self, stat)
 end
 
 function SCR_GET_STR(self)
-	local baseStr = self.STR_JOB + self.STR_STAT + self.STR_Bonus + GetExProp(self, "STR_TEMP");
+    local rewardProperty = GET_REWARD_PROPERTY(self, "STR")
+	local baseStr = self.STR_JOB + self.STR_STAT + self.STR_Bonus + GetExProp(self, "STR_TEMP") + rewardProperty;
+	
 	local addStat = SCR_GET_ADDSTAT(self, baseStr);
 	local value = baseStr + addStat;
 	local jobCount = GetTotalJobCount(self);
@@ -106,9 +108,6 @@ function SCR_GET_STR(self)
 	value = value + value * (jobCount - 1) * 0.1;
 	value = math.floor(value + self.STR_ADD, 1);
 	
-	local rewardProperty = GET_REWARD_PROPERTY(self, "STR")
-	value = value + rewardProperty
-
 	if value < 1 then
         value = 1;
     end
@@ -125,13 +124,10 @@ function SCR_GET_ADDSTR(self)
 end
 
 function SCR_GET_DEX(self)
-	local baseDex = self.DEX_JOB + self.DEX_STAT + self.DEX_Bonus + GetExProp(self, "DEX_TEMP");
+    local rewardProperty = GET_REWARD_PROPERTY(self, "DEX")
+	local baseDex = self.DEX_JOB + self.DEX_STAT + self.DEX_Bonus + GetExProp(self, "DEX_TEMP") + rewardProperty;
 	local addStat = SCR_GET_ADDSTAT(self, baseDex)
 	local value = math.floor(baseDex + self.DEX_ADD + addStat, 1);
-	
-	local rewardProperty = GET_REWARD_PROPERTY(self, "DEX")
-
-	value = value + rewardProperty
 	
 	if value < 1 then
         value = 1;
@@ -150,14 +146,11 @@ end
 
 
 function SCR_GET_CON(self)
-	local baseCon = self.CON_JOB + self.CON_STAT + self.CON_Bonus + GetExProp(self, "CON_TEMP");
+    local rewardProperty = GET_REWARD_PROPERTY(self, "CON")
+	local baseCon = self.CON_JOB + self.CON_STAT + self.CON_Bonus + GetExProp(self, "CON_TEMP") + rewardProperty;
     local addStat = SCR_GET_ADDSTAT(self, baseCon)
 	
 	local value = math.floor(baseCon + self.CON_ADD + addStat, 1);
-
-	local rewardProperty = GET_REWARD_PROPERTY(self, "CON")
-
-	value = value + rewardProperty
 
 	if value < 1 then
         value = 1;
@@ -175,18 +168,15 @@ function SCR_GET_ADDCON(self)
 end
 
 function SCR_GET_INT(self)
-	local baseInt = self.INT_JOB + self.INT_STAT + self.INT_Bonus + GetExProp(self, "INT_TEMP");
+    local rewardProperty = GET_REWARD_PROPERTY(self, "INT")
+	local baseInt = self.INT_JOB + self.INT_STAT + self.INT_Bonus + GetExProp(self, "INT_TEMP") + rewardProperty;
     local addStat = SCR_GET_ADDSTAT(self, baseInt)
     local value = baseInt + addStat;
 	local jobCount = GetTotalJobCount(self);
 	
-	local rewardProperty = GET_REWARD_PROPERTY(self, "INT")
-	
 	value = value + value * (jobCount - 1) * 0.1;
 	value = math.floor(value + self.INT_ADD, 1);
 	
-	value = value + rewardProperty 
-
 	if value < 1 then
         value = 1;
     end
@@ -201,14 +191,11 @@ function SCR_GET_ADDINT(self)
 end
 
 function SCR_GET_MNA(self)
-	local baseMna = self.MNA_JOB + self.MNA_STAT + self.MNA_Bonus + GetExProp(self, "MNA_TEMP");
+    local rewardProperty = GET_REWARD_PROPERTY(self, "MNA")
+	local baseMna = self.MNA_JOB + self.MNA_STAT + self.MNA_Bonus + GetExProp(self, "MNA_TEMP") + rewardProperty;
     local addStat = SCR_GET_ADDSTAT(self, baseMna)
 	
-	local rewardProperty = GET_REWARD_PROPERTY(self, "MNA")
-
 	local value = math.floor(baseMna + self.MNA_ADD + addStat, 1);
-
-	value = value + rewardProperty
 
 	if value < 1 then
         value = 1;
@@ -938,10 +925,6 @@ function SCR_Get_SR(pc)
 	local jobObj = GetJobObject(pc);
 	if jobObj.CtrlType == 'Warrior' then
 	    byStat = 4;
-	    local abil = GetAbility(pc, 'Hoplite9');
-	    if abil ~= nil and IsBuffApplied(pc, 'Finestra_Buff') == 'YES' then
-		    byStat = byStat + 3;
-	    end
 	end
 	if jobObj.CtrlType == 'Archer' then
     	byStat = 0;
@@ -1758,12 +1741,17 @@ function GET_REWARD_PROPERTY(self, propertyName)
 	local sObj = GetSessionObject(self, 'ssn_klapeda')
 	local rewardProperty = 0;
 
+	if sObj == nil and IsServerObj(self) == 0 then
+		local pc = GetMyPCObject()
+		sObj = GetSessionObject(pc, 'ssn_klapeda')
+	end
+
 	if sObj ~= nil then
 		local list, listCnt = GetClassList("reward_property");
 		
 		for i = 0, listCnt -1 do
 			local cls = GetClassByIndexFromList(list, i);
-			if cls ~= nil and cls.Property == propertyName then
+			if cls ~= nil and TryGetProp(cls, "Property") == propertyName then
 				if sObj[cls.ClassName] == 300 then
 					rewardProperty = rewardProperty + cls.Value
 				end

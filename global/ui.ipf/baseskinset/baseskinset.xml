@@ -2646,7 +2646,7 @@
 			<img name="bottomcore" imgrect="1462 762 50 50"/>
 			<img name="bottomright" imgrect="1513 762 50 50"/>
 		</skin>
-	<skin name="pvp_Team_skin" texture="\skin\PVP_skin.tga">
+		<skin name="pvp_Team_skin" texture="\skin\PVP_skin.tga">
 			<img name="topleft" imgrect="895 393 30 30"/>
 			<img name="topcore" imgrect="926 393 30 30"/>
 			<img name="topright" imgrect="957 393 30 30"/>
@@ -2657,7 +2657,7 @@
 			<img name="bottomcore" imgrect="926 455 30 30"/>
 			<img name="bottomright" imgrect="957 455 30 30"/>
 		</skin>
-	<skin name="premium_skin" texture="\skin\pip_test_item.tga">
+		<skin name="premium_skin" texture="\skin\pip_test_item.tga">
 			<img name="topleft" imgrect="1689 575 102 70"/>
 			<img name="topcore" imgrect="1792 575 150 70"/>
 			<img name="topright" imgrect="1943 575 105 70"/>
@@ -2690,7 +2690,7 @@
 			<img name="bottomcore" imgrect="1541 989 35 35"/>
 			<img name="bottomright" imgrect="1577 989 35 35"/>
 		</skin>
-	<skin name="earth_T_shop_skin" texture="\skin\pip_test_item.tga">
+		<skin name="earth_T_shop_skin" texture="\skin\pip_test_item.tga">
 			<img name="topleft" imgrect="1796 317 50 50"/>
 			<img name="topcore" imgrect="1847 317 150 50"/>
 			<img name="topright" imgrect="1998 317 50 50"/>
@@ -2701,7 +2701,7 @@
 			<img name="bottomcore" imgrect="1847 469 150 50"/>
 			<img name="bottomright" imgrect="1998 469 50 50"/>
 		</skin>
-	<skin name="journal_mon_skin" texture="\skin\pip_test_item.tga">
+		<skin name="journal_mon_skin" texture="\skin\pip_test_item.tga">
 			<img name="topleft" imgrect="1673 397 40 40"/>
 			<img name="topcore" imgrect="1714 397 40 40"/>
 			<img name="topright" imgrect="1755 397 40 40"/>
@@ -4123,6 +4123,7 @@
 		<image name="test_pvp_center" file="\skin\pvp_skin.tga" imgrect="278 1 335 160" CMM_Caption="pvp_가운데이미지"/>
 		<image name="test_pvp_center_bg" file="\skin\pvp_skin.tga" imgrect="0 173 250 65" CMM_Caption="pvp_가운데이미지뒷배경"/>
 		<image name="test_pvp_center_bg2" file="\skin\pvp_skin.tga" imgrect="0 247 560 40" CMM_Caption="pvp_가운데사람있는뒷배경"/>
+		<image name="test_pvp_center_bg3" file="\skin\pvp_skin.tga" imgrect="693 743 250 160" CMM_Caption="길드배틀배경"/>
 		<image name="test_pvp_alram_icon" file="\skin\pvp_skin.tga" imgrect="615 65 50 50" CMM_Caption="pvp_알람 아이콘"/>
 		<image name="test_pvp_mvpicon" file="\skin\pvp_skin.tga" imgrect="615 116 45 45" CMM_Caption="mvp아이콘"/>
 		<image name="test_pvp_win" file="\skin\pvp_skin.tga" imgrect="729 342 165 80" CMM_Caption="이김표시"/>
@@ -4245,17 +4246,21 @@
 		<image name="market_sell_updown" file="\skin\paid_skin.tga" imgrect="675 439 328 115" CMM_Caption="마켓상하한가표"/>
 		<image name="M_message_open" file="\skin\barrack.tga" imgrect="1493 721 30 30"/>
 		<image name="M_message_Unopen" file="\skin\barrack.tga" imgrect="1524 721 30 30"/>
-	<image name="pvp_teamrank_bg" file="\skin\PVP_skin.tga" imgrect="668 65 38 30"/>
-	<image name="inventory_hat_layer_off" file="\skin\pip_test.tga" imgrect="596 888 20 20" CMM_Caption="인벤헤어_꺼짐"/>
+		<image name="pvp_teamrank_bg" file="\skin\PVP_skin.tga" imgrect="668 65 38 30"/>
+		<image name="inventory_hat_layer_off" file="\skin\pip_test.tga" imgrect="596 888 20 20" CMM_Caption="인벤헤어_꺼짐"/>
 		<image name="inven_hat_layer_on" file="\skin\pip_test.tga" imgrect="596 909 20 20" CMM_Caption="인벤헤어_켜짐"/>
-	<image name="guild_event_indeon" file="\icon\icon_guild_event.tga" imgrect="0 0 80 80" CMM_Caption="길드이벤트_인던디펜스"/>
+		<image name="guild_event_indeon" file="\icon\icon_guild_event.tga" imgrect="0 0 80 80" CMM_Caption="길드이벤트_인던디펜스"/>
 		<image name="guild_event_raid" file="\icon\icon_guild_event.tga" imgrect="81 0 80 80" CMM_Caption="길드이벤트_레이드"/>
 		<image name="guild_event_bosshunting" file="\icon\icon_guild_event.tga" imgrect="162 0 80 80" CMM_Caption="길드이벤트_보스사냥"/>
 		<image name="guild_event_oenamu" file="\icon\icon_guild_event.tga" imgrect="234 0 80 80" CMM_Caption="길드이벤트_외나무다리"/>
 		<image name="guild_event_start" file="\skin\pip_test.tga" imgrect="403 625 35 30" CMM_Caption="스타트버튼화살표"/>
-	<image name="Cube_skin" file="\skin\cube_skin.tga" imgrect="0 0 455 509" CMM_Caption="큐브스킨"/>
-	<image name="tiket_icon" file="\skin\pip_test.tga" imgrect="1797 937 34 21" CMM_Caption="티켓스킨"/>
-	<image name="premium_img" file="\skin\pip_test_item.tga" imgrect="947 684 85 25" CMM_Caption="프리미엄_폰트"/>
+		<image name="Cube_skin" file="\skin\cube_skin.tga" imgrect="0 0 455 509" CMM_Caption="큐브스킨"/>
+		<image name="tiket_icon" file="\skin\pip_test.tga" imgrect="1797 937 34 21" CMM_Caption="티켓스킨"/>
+		<image name="premium_img" file="\skin\pip_test_item.tga" imgrect="947 684 85 25" CMM_Caption="프리미엄_폰트"/>
+		<image name="guildbattle_ranking_bg" file="\skin\guildbattle_ranking_bg.tga" imgrect="0 0 366 626" CMM_Caption="길드배틀1등표시배경"/>
+		<image name="guildbattle_kill_count" file="\skin\pvp_skin.tga" imgrect="251 204 30 30" CMM_Caption="길드배틀킬카운트"/>
+		<image name="guildbattle_death_count" file="\skin\pvp_skin.tga" imgrect="251 173 30 30" CMM_Caption="길드배틀데쓰카운트"/>
+		<image name="market_view_bg" file="\skin\market_view_bg.tga" imgrect="0 0 380 330" CMM_Caption="마켓뷰배경"/>
 <image name="dlcinfo" file="\skin\dlcinfo.png" imgrect="0 0 1276 691" CMM_Caption="DLC정보안내"/>
 	</imagelist>
 	<imagelist category="tutorial_img">
@@ -4320,6 +4325,8 @@
 		<image name="companion_nomal" file="\skin\barrack.tga" imgrect="660 19 20 19"/>
 		<image name="companion_bad" file="\skin\barrack.tga" imgrect="660 38 20 19"/>
 		<image name="loading_bube" file="\skin\loading_gauge.tga" imgrect="7 183 790 80"/>
+		<image name="cube_ani" file="\skin\cube_ani.tga" imgrect="0 0 3608 400"/>
+		<image name="glimoire_ani" file="\skin\glimoire_ani.tga" imgrect="0 0 2887 360"/>
 		<image name="notice_pos" file="\skin\notice_pos.tga" imgrect="0 0 2800 200"/>
 		<image name="collection_new" file="\skin\HUD.tga" imgrect="559 521 55 55"/>
 		<image name="collection_com" file="\skin\HUD.tga" imgrect="503 521 55 55"/>
@@ -4504,20 +4511,20 @@
 		<image name="M_down_btn" file="\skin\barrack.tga" imgrect="1352 721 46 46" CMM_Caption="받기버튼"/>
 		<image name="M_down_btn_cursoron" file="\skin\barrack.tga" imgrect="1399 721 46 46"/>
 		<image name="M_down_btn_clicked" file="\skin\barrack.tga" imgrect="1446 721 46 46"/>
-	<image name="pvp_leageue_btn" file="\skin\PVP_skin.tga" imgrect="286 162 180 60" CMM_Caption="리그참여"/>
+		<image name="pvp_leageue_btn" file="\skin\PVP_skin.tga" imgrect="286 162 180 60" CMM_Caption="리그참여"/>
 		<image name="pvp_leageue_btn_cursoron" file="\skin\PVP_skin.tga" imgrect="467 162 180 60"/>
 		<image name="pvp_leageue_btn_clicked" file="\skin\PVP_skin.tga" imgrect="614 0 180 60"/>
-	<image name="barrack_message_btn" file="\skin\barrack.tga" imgrect="949 600 90 50" CMM_Caption="메시지버튼"/>
+		<image name="barrack_message_btn" file="\skin\barrack.tga" imgrect="949 600 90 50" CMM_Caption="메시지버튼"/>
 		<image name="barrack_message_btn_cursoron" file="\skin\barrack.tga" imgrect="949 651 90 50"/>
 		<image name="barrack_message_btn_clicked" file="\skin\barrack.tga" imgrect="949 702 90 50"/>
 	</imagelist>
 	<imagelist category="hair_color">
-		<image name="basic_color" file="\skin\barrack.tga" imgrect="948 491 35 35" CMM_Caption="기본컬러"/>
-		<image name="color_check" file="\skin\barrack.tga" imgrect="1020 527 35 35" CMM_Caption="체크표시"/>
-		<image name="white_color" file="\skin\barrack.tga" imgrect="984 491 35 35" CMM_Caption="화이트컬러"/>
-		<image name="blue_color" file="\skin\barrack.tga" imgrect="1020 491 35 35" CMM_Caption="블루컬러"/>
-		<image name="black_color" file="\skin\barrack.tga" imgrect="948 527 35 35" CMM_Caption="블랙컬러"/>
-		<image name="peach_color" file="\skin\barrack.tga" imgrect="984 527 35 35" CMM_Caption="피치컬러"/>
+		<image name="basic_color" file="\skin\barrack.tga" imgrect="949 492 35 35" CMM_Caption="기본컬러"/>
+		<image name="color_check" file="\skin\barrack.tga" imgrect="1021 528 35 35" CMM_Caption="체크표시"/>
+		<image name="white_color" file="\skin\barrack.tga" imgrect="985 492 35 35" CMM_Caption="화이트컬러"/>
+		<image name="blue_color" file="\skin\barrack.tga" imgrect="1020 492 35 35" CMM_Caption="블루컬러"/>
+		<image name="black_color" file="\skin\barrack.tga" imgrect="949 528 35 35" CMM_Caption="블랙컬러"/>
+		<image name="peach_color" file="\skin\barrack.tga" imgrect="985 528 35 35" CMM_Caption="피치컬러"/>
 	</imagelist>
 	<imagelist category="market">
 		<image name="market_target" file="\skin\market_skin.tga" imgrect="0 156 1780 88"/>
@@ -4548,8 +4555,7 @@
 		<image name="Magic_necro" file="\skin\glimoire_skin.tga" imgrect="0 0 450 200 "/>
 		<image name="Magic_necro_ring" file="\skin\glimoire_skin.tga" imgrect="451 0 450 200"/>
 		<image name="Magic_necro_shadow" file="\skin\glimoire_skin.tga" imgrect="902 174 103 26"/>
-		<image name="Magic_gli" file="\skin\glimoire_skin.tga" imgrect="0 201 470 200"/>
-		<image name="Magic_gli_candle" file="\skin\glimoire_skin.tga" imgrect="283 416 440 240"/>
+		<image name="Magic_gli" file="\skin\glimoire_skin.tga" imgrect="281 346 310 310"/>
 		<image name="Magic_poison" file="\skin\glimoire_skin.tga" imgrect="0 402 280 270"/>
 		<image name="bosscard_small_off" file="\skin\glimoire_skin.tga" imgrect="471 201 102 132"/>
 		<image name="bosscard_small_on" file="\skin\glimoire_skin.tga" imgrect="574 201 102 132"/>
@@ -4848,6 +4854,7 @@
 		<image name="class_glow" file="\skin\mainframe_04.tga" imgrect="904 372 120 140"/>
 		<image name="party_cha_slot" file="\skin\mainframe_A.tga" imgrect="41 0 94 94"/>
 		<image name="party_cha_slot2" file="\skin\HUD.tga" imgrect="472 614 48 48"/>
+		<image name="friend_info_slot" file="\skin\HUD.tga" imgrect="1632 416 50 50"/>
 		<image name="party_cha_myslot" file="\skin\pip_test.tga" imgrect="477 777 140 110"/>
 		<image name="party_cha_helper" file="\skin\HUD.tga" imgrect="1031 455 60 60"/>
 		<image name="tooltip_cardslot_end" file="\skin\tooltip_skin_3.tga" imgrect="0 612 90 120"/>
@@ -4919,6 +4926,12 @@
 		<image name="button_right_select" file="\skin\barrack.tga" imgrect="316 547 18 21" CMM_Caption="캐릭터상세선택 오른쪽"/>
 		<image name="button_right_select_cursoron" file="\skin\barrack.tga" imgrect="316 569 18 21"/>
 		<image name="button_right_select_clicked" file="\skin\barrack.tga" imgrect="316 547 18 21"/>
+		<image name="button_left_select2" file="\skin\barrack.tga" imgrect="771 495 40 50" CMM_Caption="캐릭터상세선택 왼쪽2"/>
+		<image name="button_left_select2_cursoron" file="\skin\barrack.tga" imgrect="812 495 40 50"/>
+		<image name="button_left_select2_clicked" file="\skin\barrack.tga" imgrect="812 495 40 50"/>
+		<image name="button_right_select2" file="\skin\barrack.tga" imgrect="894 495 40 50" CMM_Caption="캐릭터상세선택 오른쪽2"/>
+		<image name="button_right_select2_cursoron" file="\skin\barrack.tga" imgrect="853 495 40 50"/>
+		<image name="button_right_select2_clicked" file="\skin\barrack.tga" imgrect="853 495 40 50"/>
 		<image name="companion_did_btn" file="\skin\barrack.tga" imgrect="894 646 45 45" CMM_Caption="죽었을때나오는버튼"/>
 		<image name="companion_did_btn_cursoron" file="\skin\barrack.tga" imgrect="894 692 45 45"/>
 		<image name="companion_did_btn_clicked" file="\skin\barrack.tga" imgrect="894 738 45 45"/>
@@ -5227,8 +5240,8 @@
 		<image name="questicon_ef" file="\icon\icon_item_quest_alarm_scroll_ef.tga" imgrect="0 0 80 80"/>
 		<image name="focus_ui" file="\icon\focus_ui.tga" imgrect="0 0 128 128"/>
 		<image name="socket_blank" file="\skin\mainframe_A.tga" imgrect="504 771 24 24"/>
-		<image name="socket_red" file="\skin\mainframe_A.tga" imgrect="554 771 24 24"/>
-		<image name="socket_green" file="\skin\mainframe_A.tga" imgrect="604 771 24 24"/>
+		<image name="socket_red1" file="\skin\mainframe_A.tga" imgrect="554 771 24 24"/>
+		<image name="socket_green1" file="\skin\mainframe_A.tga" imgrect="604 771 24 24"/>
 		<image name="socket_blue" file="\skin\mainframe_A.tga" imgrect="529 771 24 24"/>
 		<image name="socket_yellow" file="\skin\mainframe_A.tga" imgrect="579 771 24 24"/>
 		<image name="socket_blank_cursoron" file="\skin\mainframe_A.tga" imgrect="504 796 24 24"/>
@@ -5349,7 +5362,7 @@
 		<image name="minimap_man_TPshop" file="\icon\minimap_icon3.tga" imgrect="432 572 80 80"/>
 		<image name="minimap_complete" file="\icon\minimap_icon3.tga" imgrect="213 338 24 24"/>
 		<image name="minimap_collection_c" file="\icon\minimap_icon3.tga" imgrect="240 338 24 24"/>
-	<image name="minimap_team" file="\icon\minimap_icon3.tga" imgrect="340 587 80 80"/>
+		<image name="minimap_team" file="\icon\minimap_icon3.tga" imgrect="340 587 80 80"/>
 	</imagelist>
 	<imagelist category="quest_tags">
 		<image name="quest_tag_1_MAIN" file="\icon\minimap_icon.tga" imgrect="61 31 16 16"/>
@@ -5774,18 +5787,18 @@
 		<image name="Dlg_port_Boruble" file="\npcimg\Boruble.png" imgrect="0 0 700 1000" CMM_Caption="프리스트마스터"/>
 		<image name="Dlg_port_Zemyna" file="\npcimg\Zemyna.png" imgrect="0 0 800 1000" CMM_Caption="제미나여신"/>
 		<image name="Dlg_port_Ceslovas" file="\npcimg\Ceslovas.png" imgrect="0 0 700 1000" CMM_Caption="채플린마스터"/>
-	<image name="Dlg_port_melanymelakhim" file="\npcimg\melanymelakhim.png" imgrect="0 0 700 1000" CMM_Caption="워록마스터"/>
+		<image name="Dlg_port_melanymelakhim" file="\npcimg\melanymelakhim.png" imgrect="0 0 700 1000" CMM_Caption="워록마스터"/>
 		<image name="Dlg_port_SorshaHutton" file="\npcimg\SorshaHutton.png" imgrect="0 0 800 1000" CMM_Caption="펜서마스터"/>
 		<image name="Dlg_port_ValeskaHimil" file="\npcimg\ValeskaHimil.png" imgrect="0 0 800 950" CMM_Caption="드라군마스터"/>
-	<image name="Dlg_port_ShellyPennington" file="\npcimg\ShellyPennington.png" imgrect="0 0 850 900" CMM_Caption="룬캐스터마스터"/>
+		<image name="Dlg_port_ShellyPennington" file="\npcimg\ShellyPennington.png" imgrect="0 0 850 900" CMM_Caption="룬캐스터마스터"/>
 		<image name="Dlg_port_KiolRuarawa" file="\npcimg\KiolRuarawa.png" imgrect="0 0 900 900" CMM_Caption="페더풋마스터"/>
 		<image name="Dlg_port_Herkus" file="\npcimg\Herkus.png" imgrect="0 0 700 1000" CMM_Caption="크리비마스터"/>
-	<image name="Dlg_port_Nun_Aiste" file="\npcimg\Nun_Aiste.png" imgrect="0 0 750 900" CMM_Caption="수녀원npc"/>
-	<image name="Dlg_port_EdaSakerBarazas" file="\npcimg\EdaSakerBarazas.png" imgrect="0 0 700 900" CMM_Caption="캐노니어마스터"/>
+		<image name="Dlg_port_Nun_Aiste" file="\npcimg\Nun_Aiste.png" imgrect="0 0 750 900" CMM_Caption="수녀원npc"/>
+		<image name="Dlg_port_EdaSakerBarazas" file="\npcimg\EdaSakerBarazas.png" imgrect="0 0 700 900" CMM_Caption="캐노니어마스터"/>
 		<image name="Dlg_port_AlothenMazarin" file="\npcimg\AlothenMazarin.png" imgrect="0 0 800 1000" CMM_Caption="머스킷티어마스터"/>
 		<image name="Dlg_port_RebeccaHypatia" file="\npcimg\RebeccaHypatia.png" imgrect="0 0 800  900" CMM_Caption="카발리스트마스터"/>
 		<image name="Dlg_port_Lutha" file="\npcimg\Lutha.png" imgrect="0 0 850 950" CMM_Caption="루타"/>
-	<image name="Dlg_port_PhilipAureolus" file="\npcimg\PhilipAureolus.png" imgrect="0 0 800 1000" CMM_Caption="플레이그닥터마스터"/>
+		<image name="Dlg_port_PhilipAureolus" file="\npcimg\PhilipAureolus.png" imgrect="0 0 800 1000" CMM_Caption="플레이그닥터마스터"/>
 		<image name="Dlg_port_zanas_prison" file="\npcimg\zanas_prison.png" imgrect="0 0 800 900" CMM_Caption="자나스"/>
 	</imagelist>
 	<imagelist category="bufficon">
@@ -5879,6 +5892,7 @@
 		<image name="icon_token" file="\icon\buff_icon.tga" imgrect="512 1152 128 128" CMM_Caption="토큰"/>
 		<image name="icon_nexonpc" file="\icon\buff_icon.tga" imgrect="640 1152 128 128" CMM_Caption="넥슨피시방"/>
 		<image name="icon_expup" file="\icon\buff_icon.tga" imgrect="768 1152 128 128" CMM_Caption="경험의서버프"/>
+		<image name="icon_teamexpup" file="\icon\buff_icon.tga" imgrect="896 1152 128 128" CMM_Caption="팀경험치"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>
@@ -5967,7 +5981,7 @@
 		<image name="NOTICE_Dm_fail" file="\skin\dungeon_message.tga" imgrect="808 606 100 100" CMM_Caption="fail"/>
 		<image name="NOTICE_Dm_directormode" file="\skin\dungeon_message.tga" imgrect="606 606 100 100" CMM_Caption="directormode"/>
 		<image name="NOTICE_Dm_directormode2" file="\skin\dungeon_message.tga" imgrect="0 707 100 100" CMM_Caption="directormode2"/>
-	<image name="NOTICE_Dm_GMmessage" file="\skin\dungeon_message.tga" imgrect="0 808 100 100" CMM_Caption="gm message"/>
+		<image name="NOTICE_Dm_GMmessage" file="\skin\dungeon_message.tga" imgrect="0 808 100 100" CMM_Caption="gm message"/>
 	</imagelist>
 	<imagelist category="SkillAnimPicture">
 		<image name="skillAnim" file="\icon\warrior_m.tga" imgrect="0 0 1024 512"/>

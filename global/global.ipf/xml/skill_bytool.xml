@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<ToolSkill>
+	<Skill Name="Doppelsoeldner_Cyclone">
+		<MainSkl>
+			<EtcList>
+				<Scp>
+				</Scp>
+				<Scp LoopTime="320">
+				</Scp>
+				<Scp LoopTime="320">
+				</Scp>
+				<Scp>
+				</Scp>
+				<Scp>
+				</Scp>
+				<Scp>
+				</Scp>
+				<Scp>
+				</Scp>
+				<Scp Time="2500">
+					<Num FuncTxt="return obj.Level * 300;"/>
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+</ToolSkill>

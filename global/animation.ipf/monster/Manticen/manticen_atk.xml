@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="m_manticen_skl_1"/>
-    <Sound frame="20.00" soundFile="m_manticen_born"/>
-    <Sound frame="30.00" soundFile="atk_swordthrust"/>
-    <Sound frame="30.00" soundFile="spear_thrust"/>
-    <Sound frame="30.00" soundFile="spear_whoosh"/>
+	<Particle frame="33" attachNode="Dummy_effect_atk" particleName="F_swordtrail001_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="m_manticen_skl_1"/>
+	<Sound frame="20.00" soundFile="m_manticen_born"/>
+	<Sound frame="30.00" soundFile="atk_swordthrust"/>
+	<Sound frame="30.00" soundFile="spear_thrust"/>
+	<Sound frame="30.00" soundFile="spear_whoosh"/>
 </ActionDesc>

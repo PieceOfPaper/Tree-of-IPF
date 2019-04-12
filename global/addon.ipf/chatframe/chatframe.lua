@@ -339,8 +339,7 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 		else -- 없다면 새로 그리기
 			
 			local chatCtrlName = 'chatu';
-			local myName = GETMYFAMILYNAME();
-			if myName == clusterinfo:GetCommanderName() then
+			if true == ui.IsMyChatCluster(clusterinfo) then
 				chatCtrlName = 'chati';
 			end
 			local horzGravity = ui.LEFT;
@@ -648,6 +647,11 @@ end
 
 
 function CHAT_RBTN_POPUP(frame, chatCtrl) -- 이거 살릴 수도. 오늘 말고.
+
+	if session.world.IsIntegrateServer() == true then
+		ui.SysMsg(ScpArgMsg("CantUseThisInIntegrateServer"));
+		return;
+	end
 
 	local targetName = chatCtrl:GetUserValue("TARGET_NAME");
 	local myName = GETMYFAMILYNAME();

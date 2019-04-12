@@ -20,10 +20,7 @@ function BEFORE_APPLIED_SKILLSTAT_OPEN(invItem)
 	end
 
 	local invframe = ui.GetFrame("inventory");
-	if invItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_MORU")
-		or invItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or invItem:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
-	
+	if true == IS_TEMP_LOCK(invframe, invItem) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return false;
 	end
@@ -73,6 +70,7 @@ end
 function SKILLSTAT_SELEC_CANCLE(frame, ctrl)
 	frame:ShowWindow(0);
 end
+
 -- Stat
 function BEFORE_APPLIED_STATRESET_OPEN(invItem)
 	local frame = ui.GetFrame("skillstat");
@@ -91,10 +89,7 @@ function BEFORE_APPLIED_STATRESET_OPEN(invItem)
 	end
 
 	local invframe = ui.GetFrame("inventory");
-	if invItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_MORU")
-		or invItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or invItem:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
-	
+	if true == IS_TEMP_LOCK(invframe, invItem) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return false;
 	end

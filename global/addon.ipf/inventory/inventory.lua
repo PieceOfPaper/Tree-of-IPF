@@ -570,6 +570,7 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
 	
     if msg == 'INV_ITEM_LIST_GET' or msg == 'UPDATE_ITEM_REPAIR' then
         INVENTORY_LIST_GET(frame)
+		STATUS_EQUIP_SLOT_SET(frame);
     end
 	
     if msg == 'INV_ITEM_ADD' then
@@ -1288,6 +1289,16 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 
 end
 
+function IS_TEMP_LOCK(invFrame, invitem)
+	if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
+		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
+		or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+			return true;
+	end
+
+	return false;
+end
+
 --아이템의 사용
 function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	local invitem = GET_SLOT_ITEM(object);
@@ -1335,9 +1346,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		local slotsetname	= GET_SLOTSET_NAME(argNum)
 		local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
 
-		if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
-			or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-			or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+		if true == IS_TEMP_LOCK(invFrame, invitem) then
 			return;
 		end
 		local Itemclass		= GetClassByType("Item", invitem.type);
@@ -1448,9 +1457,7 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
 
 	local slot		    = slotSet:GetSlotByIndex(argNum-1);
-	if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
-		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+	if true == IS_TEMP_LOCK(invFrame, invitem) then
 		return;
 	end
 
@@ -1629,11 +1636,18 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 				QUICKSLOT_ON_CHANGE_INVINDEX(fromInvIndex, toInvIndex);
 			end
 		else
+			if true == BEING_TRADING_STATE() then
+				return;
+			end
+
 			local iconInfo = liftIcon:GetInfo();
 			item.UnEquip(iconInfo.ext);
 		end
 		
 	elseif FromFrame:GetName() == 'status' then
+		if true == BEING_TRADING_STATE() then
+			return;
+		end
 		local iconInfo = liftIcon:GetInfo();
 		item.UnEquip(iconInfo.ext);
 	elseif FromFrame:GetName() == "party" then
@@ -1710,40 +1724,6 @@ function INVENTORY_THROW_ITEM_AWAY(frame, control, argStr, argNum)
 			end
 		end
 	end
-end
-
---이거 쓰는건가?
-function INVENTORY_DELETE(deleteIESID, itemID)
-
-	local topFrame			= ui.GetFrame("inventory");
-	local invGbox			= topFrame:GetChild('inventoryGbox');
-	local slotSet			= GET_CHILD(invGbox, 'slotlist', 'ui::CSlotSet');
-	local slotCount 		= slotSet:GetSlotCount();
-
-	for i = 0, slotCount - 1 do
-		local slot = slotSet:GetSlotByIndex(i );
-		local icon = slot:GetIcon();
-		if icon ~= nil then
-			local iconInfo = icon:GetInfo();
-			if iconInfo.type == itemID then
-				item.AddToThrowAway(deleteIESID, iconInfo.count);
-			end
-		end
-	end
-
-	local mobj = GetMyActor();	
-	if 1 == mobj:IsDead() then
-		ui.SysMsg(ClMsg('CantDoWhenCharacterDead'));
-	else
-		ui.MsgBox(ScpArgMsg("Auto_JeongMal_SagJeHaSiKessSeupNiKka?"), "item.ThrowAwayList()", "None");
-
-	end
-
-	slotSet:ClearIconAll();
-	INVENTORY_FRONT_IMAGE_CLEAR(topFrame);
-
-	INVENTORY_LIST_GET(topFrame);
-
 end
 
 --이거 쓰는건가?
@@ -1871,9 +1851,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 		slot:SetFrontImage('quest_indi_icon');
 	elseif invItem.isLockState == true then
 		local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
-	elseif invItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_MORU') 
-		or invItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_AWAKEN')  
-		or invItem:GetIESID() == frame:GetUserValue('STONE_ITEM_GUID_IN_AWAKEN') then
+	elseif true == IS_TEMP_LOCK(frame, invItem) then
 		slot:SetFrontImage('item_Lock');
 	elseif invItem.isNew == true  then
 		slot:SetHeaderImage('new_inventory_icon');
@@ -2114,12 +2092,11 @@ end
 s_dropDeleteItemIESID = '';
 
 function INVENTORY_DELETE(itemIESID, itemType)
-	local invframe = ui.GetFrame("inventory");
-	if itemIESID == invframe:GetUserValue("ITEM_GUID_IN_MORU")
-		or itemIESID == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or itemIESID == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+	if true == BEING_TRADING_STATE() then
 		return;
 	end
+
+	local invframe = ui.GetFrame("inventory");
 	if ui.GetPickedFrame() ~= nil then
 		return;
 	end
@@ -2129,7 +2106,7 @@ function INVENTORY_DELETE(itemIESID, itemType)
 		return;
 	end
 
-	if true == invItem.isLockState then
+	if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
@@ -2292,8 +2269,13 @@ function LOCK_ITEM_INVENTORY(frame)
 	for i = 0, AUTO_SELL_COUNT-1 do
 		-- 뭐하나라도 true면
 		if session.autoSeller.GetMyAutoSellerShopState(i) == true then
+			ui.MsgBox(ScpArgMsg("CannotDoAction"));
 			return;
 		end
+	end
+
+	if true == BEING_TRADING_STATE() then
+		return;
 	end
 
 	session.inventory.SetInventoryLock();
@@ -2380,8 +2362,32 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	session.inventory.SendLockItem(selectItem:GetIESID(), state);
 end
 
-function INV_ITEM_LOCK_SAVE_FAIL()
+function INV_ITEM_LOCK_SAVE_FAIL(frame, msg, argStr, agrNum)
+	local tree = GET_CHILD_RECURSIVELY(frame, 'inventree')
+	for i = 1 , #SLOTSET_NAMELIST do
+		local slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
+
+		if nil ~= slotset then
+			local slotCount = slotset:GetSlotCount();
+			for i = 0, slotCount - 1 do
+				local slot		= slotset:GetSlotByIndex(i );
+				AUTO_CAST(slot);
+				local invItem = GET_SLOT_ITEM(slot);
+				if invItem ~= nil and invItem:GetIESID() == argStr then
+					invItem.isLockState = argNum;
 	ui.SysMsg(ClMsg("ItemLockSaveFail"));
+					local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
+					if 1 == agrNum then
+						controlset:ShowWindow(1);
+					else
+						controlset:ShowWindow(0);
+					end
+				end
+
+			end	
+		end
+
+	end
 end
 
 function INV_HAT_VISIBLE_STATE(frame)

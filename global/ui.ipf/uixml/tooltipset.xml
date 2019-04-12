@@ -1,18 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <tooltipset>
+	<tooltip name="partyinfotooltipNormal" x="0" y="0" fixwidth="false" width="412" height="370" moveable="true" frameskin="partylist_tooltip_skin" blendtime="" UpdateScp="PARTY_INFO_UPDATE_TOOLTIP_NORMAL">
+		<controls>
+			<richtext name="partyname" caption="WWWWWWWW" layout_gravity="left top" rect="0 0 300 30" margin="30 30 0 0" fixwidth="true" hittest="false" resizebytext="true" fontname="white_20_ol_ds" textalign="false"/>
+			<richtext name="partymemo" caption="WWWWWWWW" layout_gravity="left top" rect="0 0 300 30" margin="50 70 0 0" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
+			<richtext name="createdTime" layout_gravity="right top" rect="0 0 140 80" margin="0 35 20 0" fixwidth="false" fontname="white_16_ol" format="[결성: %s 전]" param1="createtime" param1_def="DefTime DefMin" textalign="right top"/>
+			<groupbox name="meminfo" rect="0 0 414 200" margin="0 110 0 0" skin="none" hittest="false" draw="false" updateparent="true" scrollbar="false"/>
+			<richtext name="questText" format="퀘스트" textalign="center top" margin="30 0 0 50" rect="0 0 100 30" layout_gravity="left bottom" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
+			<richtext name="expText" format="경험치" textalign="center top" margin="0 0 0 50" rect="0 0 100 30" layout_gravity="center bottom" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
+			<richtext name="itemText" format="아이템" textalign="center top" margin="0 0 30 50" rect="0 0 100 30" layout_gravity="right bottom" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
+			<picture name="labelline_1" margin="30 0 0 20" rect="0 0 100 32" image="partylist_line" layout_gravity="left bottom"/>
+			<picture name="labelline_2" margin="0 0 0 20" rect="0 0 100 32" image="partylist_line" layout_gravity="center bottom"/>
+			<picture name="labelline_3" margin="0 0 30 20" rect="0 0 100 32" image="partylist_line" layout_gravity="right bottom"/>
+			<labelline name="labelline_4" margin="30 0 0 45" rect="0 0 100 1" skin="partylist_line" layout_gravity="left bottom"/>
+			<labelline name="labelline_5" margin="0 0 0 45" rect="0 0 100 1" skin="partylist_line" layout_gravity="center bottom"/>
+			<labelline name="labelline_6" margin="0 0 30 45" rect="0 0 100 1" skin="partylist_line" layout_gravity="right bottom"/>
+			<richtext name="questTextval" caption="Defval" textalign="center top" layout_gravity="left bottom" rect="0 0 100 30" margin="30 0 0 20" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16_ol"/>
+			<richtext name="expTextval" caption="Defval" textalign="center top" layout_gravity="center bottom" rect="0 0 100 30" margin="0 0 0 20" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16_ol"/>
+			<richtext name="itemTextval" caption="Defval" textalign="center top" layout_gravity="right bottom" rect="0 0 100 30" margin="0 0 30 20" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16_ol"/>
+		</controls>
+	</tooltip>
 	<tooltip name="partyinfotooltip" x="0" y="0" fixwidth="false" width="412" height="370" moveable="true" frameskin="partylist_tooltip_skin" blendtime="" UpdateScp="PARTY_INFO_UPDATE_TOOLTIP">
 		<controls>
-			<richtext name="partyname" caption="WWWWWWWW" layout_gravity="left top" rect="0 0 300 30" margin="30 30 0 0" fixwidth="false" hittest="false" resizebytext="true" fontname="white_18_ol"/>
-			<richtext name="partymemo" caption="WWWWWWWW" layout_gravity="left top" rect="0 0 300 30" margin="40 60 0 0" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
-			<richtext name="createdTime" rect="0 0 140 80" margin="0 30 25 0" layout_gravity="right top" fixwidth="false" fontname="white_16_ol" format="결성시간 : %s 전" param1="createtime" param1_def="DefTime DefMin" textalign="left top"/>
+			<richtext name="partyname" caption="WWWWWWWW" layout_gravity="left top" rect="0 0 300 30" margin="30 30 0 0" fixwidth="false" hittest="false" resizebytext="true" fontname="white_20_ol_ds"/>
+			<richtext name="partymemo" caption="WWWWWWWW" layout_gravity="left top" rect="0 0 300 30" margin="50 70 0 0" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
+			<richtext name="createdTime" layout_gravity="right top" rect="0 0 140 80" margin="0 35 20 0" fixwidth="false" fontname="white_16_ol" format="[결성: %s 전]" param1="createtime" param1_def="DefTime DefMin" textalign="right top"/>
 			<groupbox name="meminfo" rect="0 0 414 200" margin="0 110 0 0" skin="none" hittest="false" draw="false" updateparent="true" scrollbar="false"/>
 			<richtext name="questText" format="퀘스트" textalign="center top" layout_gravity="left bottom" rect="0 0 100 30" margin="30 0 0 50" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
 			<richtext name="expText" format="경험치" textalign="center top" layout_gravity="center bottom" rect="0 0 100 30" margin="0 0 0 50" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
 			<richtext name="itemText" format="아이템" textalign="center top" layout_gravity="right bottom" rect="0 0 100 30" margin="0 0 30 50" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
-			<labelline name="labelline_1" margin="30 0 0 45" rect="0 0 100 1" skin="partylist_line" layout_gravity="left bottom"/>
-			<labelline name="labelline_2" margin="0 0 0 45" rect="0 0 100 1" skin="partylist_line" layout_gravity="center bottom"/>
-			<labelline name="labelline_3" margin="0 0 30 45" rect="0 0 100 1" skin="partylist_line" layout_gravity="right bottom"/>
+			<picture name="labelline_1" margin="30 0 0 20" rect="0 0 100 32" image="partylist_line" layout_gravity="left bottom"/>
+			<picture name="labelline_2" margin="0 0 0 20" rect="0 0 100 32" image="partylist_line" layout_gravity="center bottom"/>
+			<picture name="labelline_3" margin="0 0 30 20" rect="0 0 100 32" image="partylist_line" layout_gravity="right bottom"/>
+			<labelline name="labelline_4" margin="30 0 0 45" rect="0 0 100 1" skin="partylist_line" layout_gravity="left bottom"/>
+			<labelline name="labelline_5" margin="0 0 0 45" rect="0 0 100 1" skin="partylist_line" layout_gravity="center bottom"/>
+			<labelline name="labelline_6" margin="0 0 30 45" rect="0 0 100 1" skin="partylist_line" layout_gravity="right bottom"/>
 			<richtext name="questTextval" caption="Defval" textalign="center top" layout_gravity="left bottom" rect="0 0 100 30" margin="30 0 0 20" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16_ol"/>
 			<richtext name="expTextval" caption="Defval" textalign="center top" layout_gravity="center bottom" rect="0 0 100 30" margin="0 0 0 20" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16_ol"/>
 			<richtext name="itemTextval" caption="Defval" textalign="center top" layout_gravity="right bottom" rect="0 0 100 30" margin="0 0 30 20" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16_ol"/>
@@ -143,7 +166,7 @@
             <richtext name="comment" rect="5 45 160 100" fixwidth="false" updateparent="true"/>
         </controls>
     </tooltip>
-    <tooltip name="monster" x="0" y="0" fixwidth="true" width="400" height="600" moveable="true" frameskin="test_Item_tooltip_normal" skin="" UpdateScp="UPDATE_MONSTER_TOOLTIP">
+    <tooltip name="monster" x="0" y="0" fixwidth="true" width="400" height="430" moveable="true" frameskin="test_Item_tooltip_normal" skin="" UpdateScp="UPDATE_MONSTER_TOOLTIP">
         <controls>
             <picture name="image" rect="0 0 80 80" margin="10 47 0 0" layout_gravity="left top"/>
             <button name="complete" layout_gravity="left top" margin="7 44 0 0" rect="0 0 88 94" hittest="false" skin="journal_complete_skin"/>
@@ -151,18 +174,18 @@
             <richtext name="racetype" rect="0 0 120 32" margin="110 50 0 0" layout_gravity="left top" format="{#16120e}%s" param1="value" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false"/>
             <richtext name="attr" rect="0 0 120 32" margin="220 50 0 0" layout_gravity="left top" format="{#16120e}%s" param1="value" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false"/>
             <richtext name="t_exp" rect="0 0 80 20" fixwidth="false" updateparent="true" margin="110 90 0 0" layout_gravity="left top" format="{#16120e}Exp : {@st63_green}%s {@st42_red}(%s)" param1="exp" param1_def="0" fontname="brown_16_b" param2="jobexp" param2_def="123"/>
-            <richtext name="t_desc" rect="0 0 380 80" fixwidth="true" margin="12 135 0 0" layout_gravity="left top" format="{#16120e}%s" param1="value" param1_def="Monster_Desc" resizebytext="false"/>
+            <richtext name="t_desc" rect="0 0 380 18" fixwidth="true" margin="12 135 0 0" layout_gravity="left top" format="{#16120e}%s" param1="value" param1_def="Monster_Desc" resizebytext="true" />
             <richtext name="t_complete" rect="0 0 70 40" margin="15 105 0 0" layout_gravity="left top" format="{#16120e}달성{/}" textalign="center center" resizebytext="false" fontname="brown_14" fixwidth="true"/>
-			<labelline name="label_1" margin="0 217 0 0" rect="0 0 380 4" skin="None" layout_gravity="center top"/>
-            <labelline name="label_2" margin="0 300 0 0" rect="0 0 380 4" skin="None" layout_gravity="center top"/>
-            <labelline name="label_3" margin="0 402 0 0" rect="0 0 380 4" skin="None" layout_gravity="center top"/>
-            <groupbox name="myRanking" margin="12 220 0 0" rect="0 0 380 80" skin="bg2" hittest="false" draw="false" updateparent="false" scrollbar="false" layout_gravity="left top"/>
-            <groupbox name="killRanking" margin="12 303 0 0" rect="0 0 380 100" skin="bg2" hittest="false" draw="false" updateparent="false" scrollbar="false" layout_gravity="left top"/>
-            <groupbox name="damageRanking" margin="12 405 0 0" rect="0 0 380 100" skin="bg2" hittest="false" draw="false" updateparent="false" scrollbar="false" layout_gravity="left top"/>
+			<labelline name="label_1" margin="0 157 0 0" rect="0 0 380 4" skin="None" layout_gravity="center top"/>
+            <labelline name="label_2" margin="0 240 0 0" rect="0 0 380 4" skin="None" layout_gravity="center top"/>
+            <labelline name="label_3" margin="0 342 0 0" rect="0 0 380 4" skin="None" layout_gravity="center top"/>
+            <groupbox name="myRanking" margin="12 160 0 0" rect="0 0 380 80" skin="bg2" hittest="false" draw="false" updateparent="false" scrollbar="false" layout_gravity="left top"/>
+            <groupbox name="killRanking" margin="12 243 0 0" rect="0 0 380 100" skin="bg2" hittest="false" draw="false" updateparent="false" scrollbar="false" layout_gravity="left top"/>
+            <groupbox name="damageRanking" margin="12 345 0 0" rect="0 0 380 100" skin="bg2" hittest="false" draw="false" updateparent="false" scrollbar="false" layout_gravity="left top"/>
             <richtext name="myTitle" parent="myRanking" rect="0 0 100 20" fixwidth="true" updateparent="true" margin="10 7 0 0" layout_gravity="left top" format="{@sti9}내 랭킹" fontname="white_16_ol"/>
             <richtext name="myKillTitle" parent="myRanking" rect="0 0 350 20" fixwidth="true" updateparent="true" margin="10 35 0 0" layout_gravity="left top" fontname="brown_16"/>
             <richtext name="myKillRank" parent="myRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="180 35 0 0" layout_gravity="left top" format="%s 위" param1="rank" param1_def="0" fontname="brown_16"/>
-            <richtext name="myKillScore" parent="myRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="0 35 10 0" layout_gravity="right top" format="횟수 : %s" param1="score" param1_def="0" fontname="brown_16"/>
+            <richtext name="myKillScore" parent="myRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="0 35 10 0" layout_gravity="right top" fontname="brown_16"/>
             <richtext name="myDamageTitle" parent="myRanking" rect="0 0 100 20" fixwidth="true" updateparent="true" margin="10 55 0 0" layout_gravity="left top" fontname="brown_16"/>
             <richtext name="myDamageRank" parent="myRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="180 55 0 0" layout_gravity="left top" format="%s 위" param1="rank" param1_def="0" fontname="brown_16"/>
             <richtext name="myDamageScore" parent="myRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="0 55 10 0" layout_gravity="right top" format="피해량 : %s" param1="score" param1_def="0" fontname="brown_16"/>
@@ -251,20 +274,19 @@
             <richtext name="text" margin="-1 21 0 0" rect="0 0 120 24" format="{@st53}제조 중인 아이템" textalign="center center" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" layout_gravity="center top"/>
         </controls>
     </tooltip>
-  <tooltip name="premium" x="0" y="0" width="300" height="270" frameskin="none" UpdateScp="UPDATE_PREMIUM_TOOLTIP" lifetime="90000" blendtime="1500" skin="">
-    <controls>
-      <groupbox name="gbox" margin="0 0 0 0" scrollbar="false" rect="0 0 300 250" hittestbox="false" skin="test_skin_01_btn_clicked" layout_gravity="left top"/>
-      <labelline name="labelline_1" margin="10 35 0 0" rect="0 0 280 2" skin="labelline_def" layout_gravity="left top"/>
-      <richtext name="richtext_1" margin="9 10 0 0" rect="0 0 120 24" format="{@st42}%s 혜택적용{/}" param1="value" param1_def="혜택" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-      <richtext name="marketSellCom" margin="10 70 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-      <richtext name="marketUpMax" margin="10 95 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-      <richtext name="abilityMax" margin="10 45 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-      <richtext name="speedUp" margin="10 120 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-      <richtext name="token_expup" margin="10 145 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-      <richtext name="token_staup" margin="10 170 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+    <tooltip name="premium" x="0" y="0" width="300" height="270" frameskin="none" UpdateScp="UPDATE_PREMIUM_TOOLTIP" lifetime="90000" blendtime="1500" skin="">
+        <controls>
+            <groupbox name="gbox" margin="0 0 0 0" scrollbar="false" rect="0 0 300 250" hittestbox="false" skin="test_skin_01_btn_clicked" layout_gravity="left top"/>
+            <labelline name="labelline_1" margin="10 35 0 0" rect="0 0 280 2" skin="labelline_def" layout_gravity="left top"/>
+            <richtext name="richtext_1" margin="9 10 0 0" rect="0 0 120 24" format="{@st42}%s 혜택적용{/}" param1="value" param1_def="혜택" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+            <richtext name="marketSellCom" margin="10 70 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+            <richtext name="marketUpMax" margin="10 95 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+            <richtext name="abilityMax" margin="10 45 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+            <richtext name="speedUp" margin="10 120 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+            <richtext name="token_expup" margin="10 145 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="token_staup" margin="10 170 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
       <richtext name="token_buffCountUp" margin="10 195 0 0" rect="0 0 120 24" format="최대 버프 적용 개수 증가" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
       <richtext name="token_tradecount" margin="10 220 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-      <richtext name="token_moremission" OverrideType="ADD" margin="10 195 0 0" rect="0 0 120 24" fontname="brown_16" format="인던,미션 1회 추가입장"/>
-    </controls>
-  </tooltip>
+		</controls>
+    </tooltip>
 </tooltipset>

@@ -327,14 +327,11 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 		warpGoddessIcon = '{img minimap_goddess 24 24}'
 	end
 
-	local nltag = ''
-
 	local mapLvValue = mapLv
 	if mapLv == nil or mapLv == 'None' or mapLv == '' or mapLv == 0 then
 		mapLv = ''
 	else
 		mapLv = 'Lv.'..mapLv
-		nltag = "{nl}"
 	end
 
 	local recoverRate = 0
@@ -360,9 +357,9 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
         	else
         		nowmapLv = '{nl}Lv.'..nowmapLv
         	end
-			text:SetTextByKey("value", mapNameFont..mapCls.Name..nltag..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge..'{nl}'..warpGoddessIcon_now..questPossibleIcon..'{@st57}'..nowMapIES.Name..nowmapLv..'{/}'.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank))
+			text:SetTextByKey("value", mapNameFont..mapCls.Name..'{nl}'..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge..'{nl}'..warpGoddessIcon_now..questPossibleIcon..'{@st57}'..nowMapIES.Name..nowmapLv..'{/}'.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank))
 		else
-    		text:SetTextByKey("value", mapNameFont..mapCls.Name..nltag..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank));						
+    		text:SetTextByKey("value", mapNameFont..mapCls.Name..'{nl}'..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank));						
     	end
 	end
 					

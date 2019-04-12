@@ -151,7 +151,17 @@ function JOURNAL_DETAIL_LIST_RENEW(ctrlset, idSpace, group, groupValue, cate, ca
 
 	gbox:SetChildShownScript("UPDATE_JOURNAL_CTRLSET");
 	GBOX_AUTO_ALIGN(gbox, 10, 0, 10);
-	gbox:Resize(gbox:GetWidth(),gbox:GetOriginalHeight())
+		
+	local gBox_category = GET_CHILD(ctrlset, "categoryGbox");
+	if gBox_category ~= nil then
+		local tree = GET_CHILD(gBox_category, "tree", 'ui::CTreeControl');
+		if tree ~= nil then
+			gbox:Resize(gbox:GetWidth(),gBox_category:GetHeight());
+			return;
+		end;
+	end;
+	gbox:Resize(gbox:GetWidth(),gbox:GetOriginalHeight());
+
 end
 
 function SET_ITEM_CATEGORY_BY_PROP(tree)
@@ -167,7 +177,7 @@ function SET_ITEM_CATEGORY_BY_PROP(tree)
 			cls = GetClassByIndexFromList(clslist, i);
 			iesPropName = cls.ClassName;
 		end
-
+		if iesPropName ~= "Recipe" then
 		local subCateList = {};
 		if nil ~= cls and cls.SubCategory ~= "None" then
 			subCateList = StringSplit(cls.SubCategory, "/");
@@ -194,6 +204,7 @@ function SET_ITEM_CATEGORY_BY_PROP(tree)
 		    	end
 			end
 		end
+	end
 	end
 
 	if clMsgHeader == nil then
@@ -515,8 +526,16 @@ function JOURNAL_UPDATE_LIST_RENEW(groupBox, insertWikiType)
 
 	gbox:SetChildShownScript("UPDATE_JOURNAL_CTRLSET");
 	GBOX_AUTO_ALIGN(gbox, 10, 0, 10);
-	gbox:Resize(gbox:GetWidth(),gbox:GetOriginalHeight())
 
+	local gBox_category = GET_CHILD(ctrlset, "categoryGbox");
+	if gBox_category ~= nil then
+		local tree = GET_CHILD(gBox_category, "tree", 'ui::CTreeControl');
+		if tree ~= nil then
+			gbox:Resize(gbox:GetWidth(),gBox_category:GetHeight());
+			return;
+		end;
+	end;
+	gbox:Resize(gbox:GetWidth(),gbox:GetOriginalHeight());
 end
 
 function JOURNAL_INSERT_ITEM(gbox, cls, category)

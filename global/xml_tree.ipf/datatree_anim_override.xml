@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mondu (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
 <idspace id="AnimOverrideList">
 	<Category>
 		<Class ClassID="1" ClassName="mon_zealot">
@@ -1069,6 +1069,10 @@
 			<Node1 ClassID="53" ClassName="EVENT_POINT" FileName="npc\soldier_m\soldier_m_event_point"/>
 			<Node1 ClassID="54" ClassName="EVENT_SIT_2" FileName="npc\soldier_m\soldier_m_event_sit_2"/>
 			<Node1 ClassID="55" ClassName="EVENT_SOVEL" FileName="npc\soldier_m\soldier_m_event_shovel"/>
+			<Node1 ClassID="57" ClassName="EVENT_FLASK" FileName="npc\soldier_m\soldier_m_event_flask"/>
+			<Node1 ClassID="58" ClassName="EVENT_SITGROPE_LOOP" FileName="npc\soldier_m\soldier_m_event_sitgrope_loop"/>
+			<Node1 ClassID="59" ClassName="WEAPON_SHARPEN" FileName="npc\soldier_m\soldier_m_weapon_sharpen"/>
+			<Node1 ClassID="60" ClassName="EVENT_BURY" FileName="npc\soldier_m\soldier_m_event_bury"/>
 		</Class>
 		<Class ClassID="20014" ClassName="ghost_soldier">
 			<Node1 ClassID="1" ClassName="ASTD" FileName="npc\soldier_m\soldier_m_astd"/>
@@ -3692,7 +3696,10 @@
 		<Class ClassID="40196" ClassName="closing_device">
 			<Node1 ClassID="1" ClassName="STD" FileName="npc\closing_device\closing_device_std"/>
 			<Node1 ClassID="2" ClassName="ON" FileName="npc\closing_device\closing_device_on"/>
-			<Node1 ClassID="2" ClassName="ON2" FileName="npc\closing_device\closing_device_on2"/>
+			<Node1 ClassID="3" ClassName="ON2" FileName="npc\closing_device\closing_device_on2"/>
+			<Node1 ClassID="4" ClassName="DEAD" FileName="npc\closing_device\closing_device_dead"/>
+			<Node1 ClassID="4" ClassName="EVENT_LOOP" FileName="npc\closing_device\closing_device_event_loop"/>
+			<Node1 ClassID="4" ClassName="EVENT_LOOP2" FileName="npc\closing_device\closing_device_event_loop2"/>
 		</Class>
 		<Class ClassID="40197" ClassName="spell_crystal_red">
 			<Node1 ClassID="1" ClassName="STD" FileName="npc\spell_crystal_red\spell_crystal_red_std"/>
@@ -3777,6 +3784,9 @@
 		<Class ClassID="40217" ClassName="f_farm_47_power_01">
 			<Node1 ClassID="1" ClassName="STD" FileName="npc\f_farm_47_power_01\f_farm_47_power_01_std"/>
 			<Node1 ClassID="2" ClassName="ON" FileName="npc\f_farm_47_power_01\f_farm_47_power_01_on"/>
+			<Node1 ClassID="3" ClassName="OFF" FileName="npc\f_farm_47_power_01\f_farm_47_power_01_off"/>
+			<Node1 ClassID="4" ClassName="DEAD" FileName="npc\f_farm_47_power_01\f_farm_47_power_01_dead"/>
+			<Node1 ClassID="5" ClassName="EVENT_LOOP" FileName="npc\f_farm_47_power_01\f_farm_47_power_01_event_loop"/>
 		</Class>
 		<Class ClassID="40218" ClassName="f_farm_47_circle_01">
 			<Node1 ClassID="1" ClassName="STD" FileName="npc\f_farm_47_circle_01\f_farm_47_circle_01_std"/>

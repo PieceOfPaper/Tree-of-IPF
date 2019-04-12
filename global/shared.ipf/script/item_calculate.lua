@@ -179,6 +179,42 @@ function GET_REINFORCE_ADD_VALUE_ATK(item)
 	return value;
 end
 
+function GET_REINFORCE_ADD_VALUE_ATK_AFTER_REFRESH(item)
+	local buffValue = item.BuffValue;
+	local star = item.ItemStar;
+	local value = 0;
+	
+	if item.BasicTooltipProp == "ATK" then
+	    value = (item.MINATK + item.MAXATK) / 2;
+	elseif item.BasicTooltipProp == "MATK" then
+	    value = item.MATK;
+	end
+	if value < 10 then
+	    value = 10;
+    end
+
+	-- 대미지 증가율
+	local damageRatio = GET_REINFORCE_RATIO_ATK(item);
+
+	-- 원본 대미지 계산
+	value = value / (damageRatio + 1.0);
+
+	if value < 10 then
+	    value = 10;
+	end
+	
+	value = value * item.ReinforceRatio / 100;
+	value = value * damageRatio;
+
+	value = value + buffValue;
+	
+	return value;
+end
+
+function GET_REINFORCE_RATIO_ATK(item)
+	return item.Reinforce_2 * 0.1 + math.floor(item.Reinforce_2 / 10) * 0.5;
+end
+
 function GET_REINFORCE_ADD_VALUE_DEF(item)
 	local buffValue = item.BuffValue;
 	local star = item.ItemStar;

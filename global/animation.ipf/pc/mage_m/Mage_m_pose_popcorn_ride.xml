@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="EUC-KR"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mondu (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <AttachModel frame="0" XAC="artefact_popcorn_set" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="0" anim="artefact_popcorn_ani.xsm"/>
-    <Sound frame="0.00" soundFile="m_insect_move"/>
-    <Sound frame="11.00" soundFile="skl_eff_move_paper_scroll_2"/>
-    <Sound frame="11.00" soundFile="skl_eff_collect_move"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_pose_popcorn_ride" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+	<AttachModel frame="0" XAC="artefact_popcorn_set" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="0" anim="artefact_popcorn_ani.xsm"/>
+	<Sound frame="0.00" soundFile="m_insect_move"/>
+	<Sound frame="11.00" soundFile="skl_eff_move_paper_scroll_2"/>
+	<Sound frame="11.00" soundFile="skl_eff_collect_move"/>
 </ActionDesc>

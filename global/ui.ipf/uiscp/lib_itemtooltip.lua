@@ -538,9 +538,14 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 		end
 	elseif strarg == "collection" then
 		local colls = session.GetMySession():GetCollection();
-		local coll = colls:Get(guid);
+		local coll = colls:Get(numarg1);
 		if coll ~= nil then
-			local collItem = coll:Get(numarg1);
+			local collItem = coll:GetByItemID(guid);
+			if collItem == nil then
+				local item = GetClassByType("Item", guid);
+				return item;
+			end
+
 			if collItem ~= nil then
 				return GetIES(collItem:GetObject());
 			end

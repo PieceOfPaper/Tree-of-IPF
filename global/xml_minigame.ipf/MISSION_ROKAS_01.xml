@@ -869,6 +869,9 @@
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+                                <AbsPosRange X="467.06702" Y="181.94327" Z="-16.124086"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>

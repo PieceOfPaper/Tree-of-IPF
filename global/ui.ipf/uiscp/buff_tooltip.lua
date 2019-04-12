@@ -19,9 +19,8 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 		token_expup:SetTextByKey("value", ScpArgMsg("Token_ExpUp{PER}", "PER", "20%"));
 		token_staup:SetTextByKey("value", ClMsg("AllowPremiumPose"));
 		local accountObj = GetMyAccountObj();
-		local tokenItemCls = GetClassByType("Item", numarg2);
-		if tokenItemCls ~= nil and tokenItemCls.NumberArg2 > 0 then
-			local tradeCountString = ScpArgMsg("AllowTradeByCount") .. " " .. string.format("(%d/%d)", accountObj.TradeCount, tokenItemCls.NumberArg2);
+		if accountObj.TradeCount > 0 then
+			local tradeCountString = ScpArgMsg("AllowTradeByCount") .. " " .. tostring(accountObj.TradeCount)
 			token_tradecount:SetTextByKey("value", tradeCountString);
 			token_tradecount:ShowWindow(1);
 		else
@@ -94,8 +93,6 @@ function UPDATE_BUFF_TOOLTIP(frame, handle, numarg1, numarg2)
 		nametxt = nametxt .. " X " .. buffOver;
 	end
 
-	name:SetText("{@st41}"..nametxt);
-
 	local comment = frame:GetChild("comment");
 
 	local tooltipfunc = _G["BUFF_TOOLTIP_" .. cls.ClassName];
@@ -103,7 +100,11 @@ function UPDATE_BUFF_TOOLTIP(frame, handle, numarg1, numarg2)
 	if tooltipfunc == nil then
 		tooltip = cls.ToolTip;
 	else
-		tooltip = tooltipfunc(buff, cls);
+		local newName;
+		tooltip, newName = tooltipfunc(buff, cls);
+		if newName ~= nil then
+			nametxt = newName;
+		end
 	end
 
 	if buffTime == 0.0 then
@@ -117,19 +118,36 @@ function UPDATE_BUFF_TOOLTIP(frame, handle, numarg1, numarg2)
 		comment:SetText("{@st59}"..txt);
 	end
 
+	name:SetText("{@st41}"..nametxt);
+
 end
 
 function BUFF_TOOLTIP_Rejuvenation(buff, cls)
 
 	local heal = 5
-	return string.format(ScpArgMsg("Auto_HPwa_SPLeul_HoeBogSiKipNiDa."), heal);
+	return string.format(ScpArgMsg("Auto_HPwa_SPLeul_HoeBogSiKipNiDa."), heal), nil;
 
 end
 
 function BUFF_TOOLTIP_OgouVeve(buff, cls)
 
-	return ScpArgMsg("Auto_HimKwa_JiNeungeul_olLyeoJupNiDa.");
+	return ScpArgMsg("Auto_HimKwa_JiNeungeul_olLyeoJupNiDa."), nil;
 
 end
 
+
+function BUFF_TOOLTIP_TeamLevel(buff, cls)
+
+	local advantageText = "";
+	local xpCls = GetClassByType("XP_TeamLevel", buff.arg1);
+	if xpCls ~= nil then
+		local expBonus = xpCls.ExpBonus;
+		if expBonus > 0 then
+			advantageText = advantageText .. ScpArgMsg("ExpGetAmount") .. " + " .. expBonus .. "%";
+		end
+	end
+
+	return advantageText, ScpArgMsg("TeamLevel") .. " " .. buff.arg1;
+
+end
 

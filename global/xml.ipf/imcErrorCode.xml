@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <imcErrorCode>
 	<Type Type="LOGIC">
@@ -89,13 +89,11 @@
 		<Code Code="ERRCODE_LOGIC_ALREADY_DESTROYED" CallStack="NO" Desc="이미 소멸된 자원입니다."/>
 		<Code Code="ERRCODE_LOGIC_INCORRECT_CALL_SEQUENCE" CallStack="NO" Desc="호출 순서가 잘못됐습니다. 다음 정보를 참조하세요."/>
 		<Code Code="ERRCODE_LOGIC_OBJ_POOL" CallStack="NO" Desc="오브젝트 풀에서 에러가 발생했습니다. 다음 정보를 참조하세요."/>
-    <Code Code="ERRCODE_LOGIC_UPDATE_AUTHCODE" CallStack="NO" Desc="인증코드에러로 강제 로그아웃됩니다."/>
-    <Code Code="ERRCODE_LOGIC_MONSTER_CREATE_FAILED" CallStack="NO" Desc="랜덤 좌표를 받지 못하고 몬스터 생성에 실패했습니다."/>
-    <Code Code="ERRCODE_LOGIC_TOO_MANY_CHAT_ROOM" CallStack="NO" Desc="채팅 방 개수가 비정상 적으로 많습니다."/>
-
-    <Code Code="ERRCODE_LOGIC_CHAT_ROOM" CallStack="NO" Desc="채팅 방 오류"/>
-
-
+		<Code Code="ERRCODE_LOGIC_UPDATE_AUTHCODE" CallStack="NO" Desc="인증코드에러로 강제 로그아웃됩니다."/>
+		<Code Code="ERRCODE_LOGIC_MONSTER_CREATE_FAILED" CallStack="NO" Desc="랜덤 좌표를 받지 못하고 몬스터 생성에 실패했습니다."/>
+		<Code Code="ERRCODE_LOGIC_TOO_MANY_CHAT_ROOM" CallStack="NO" Desc="채팅 방 개수가 비정상 적으로 많습니다."/>
+		<Code Code="ERRCODE_LOGIC_CHAT_ROOM" CallStack="NO" Desc="채팅 방 오류"/>
+		<Code Code="ERRCODE_LOGIC" CallStack="NO" Desc="로직 오류"/>
 	</Type>
 	<Type Type="DATA">
 		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>
@@ -182,6 +180,8 @@
 		<Code Code="ERRCODE_DATA_REMOVE_FAIL" CallStack="NO" Desc="해당 데이터의 삭제를 실패했습니다."/>
 		<Code Code="ERRCODE_DATA_COMPRESS_FAIL" CallStack="NO" Desc="해당 데이터의 압축에 실패했습니다."/>
 		<Code Code="ERRCODE_DATA_DOSENT_MATCH_SIZE" CallStack="NO" Desc="해당 데이터가 지정된 사이즈와 맞지 않습니다."/>
+		<Code Code="ERRCODE_DATA_INVALID_TRANSLATED_DATA" CallStack="NO" Desc="잘못된 번역 데이터입니다."/>
+		<Code Code="ERRCODE_DATA_INVALID_TRANSLATED_ENCODING" CallStack="NO" Desc=".tsv 파일의 인코딩은 반드시 UTF-8 whitout BOM 이어야 합니다."/>
 	</Type>
 	<Type Type="SCRIPT">
 		<Code Code="ERRCODE_SCRIPT_IES_CANT_SUSPEND_MAIN_THREAD" CallStack="NO" Desc="메인 쓰레드는 sleep, tx등으로 중단시킬 수 없습니다. 해당 함수 내용을 확인하세요."/>

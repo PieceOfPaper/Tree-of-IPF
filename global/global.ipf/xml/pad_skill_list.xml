@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PadSkills>
+    <PadSkill Name="Elementalist_FrostCloud">
+        <createEvent>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO" OverrideType="ADD">
+                <Num Num="1" UseFunc="1" FuncTxt="return 10 + obj.Level;"/>
+            </ToolScp>
+        </createEvent>
+    </PadSkill>
+</PadSkills>

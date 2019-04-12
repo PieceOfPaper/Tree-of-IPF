@@ -10,6 +10,26 @@ function EXCHANGE_ON_INIT(addon, frame)
    
 end 
 
+function BEING_TRADING_STATE()
+	local exchangeFrame = ui.GetFrame("exchange");
+	if nil == exchangeFrame then
+		return false;
+	end
+	
+	local nameRichText = GET_CHILD_RECURSIVELY(exchangeFrame,'opponentname','ui::CRichText');
+	if nameRichText == nil then
+		return false;
+	end
+
+	local targetName = nameRichText:GetTextByKey("oppName");
+	if targetName == "" or targetName == "None" then
+		return false;
+	end
+
+	ui.MsgBox(ScpArgMsg("CannotDoAction"));
+	return true;
+end
+
 function EXCHANGE_ON_OPEN(frame)
 	packet.RequestItemList(IT_WAREHOUSE);
 	INVENTORY_SET_CUSTOM_RBTNDOWN("EXCHANGE_INV_RBTN");
@@ -148,7 +168,8 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 		return;
 	end
 
-		if obj.UserTrade == 'NO' then
+	local itemProp = geItemTable.GetPropByName(obj.ClassName);
+	if itemProp:IsExchangeable() == false then
 			ui.AlarmMsg("ItemIsNotTradable");
 			return;
 		end
@@ -164,11 +185,10 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 	end
 
 		local invframe = ui.GetFrame("inventory");
-		if item:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_MORU") 
-		or item:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN")  
-		or item:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+	if true == IS_TEMP_LOCK(invframe, item) then
 			return;
 		end
+
 		if geItemTable.IsStack(obj.ClassID) == 1  then
 		local noTrade = TryGetProp(obj, "BelongingCount");
 		local tradeCount = item.count;
@@ -270,6 +290,10 @@ function EXCHANGE_MSG_END(frame, msg, argStr, argNum)
 	--local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 	--timer:Stop();
 
+	local nameRichText = GET_CHILD_RECURSIVELY(frame,'opponentname','ui::CRichText');
+	nameRichText:SetTextByKey('oppName',argStr)
+	
+
 	frame:ShowWindow(0);		
 end 
 
@@ -354,6 +378,10 @@ function CHECK_VIS_INPUT(frame)
 	end	
 end
 
+function EXCHANGE_ITEM_REMOVE(slot, agrNum, agrString)
+	exchange.SendOfferItem(agrString, 0);
+end
+
 function EXCHANGE_UPDATE_SLOT(slotset,listindex)
  
 	slotset:ClearIconAll();
@@ -384,6 +412,9 @@ function EXCHANGE_UPDATE_SLOT(slotset,listindex)
 
 				index = index + 1
 			end			
+
+			slot:SetEventScript(ui.RBUTTONDOWN, 'EXCHANGE_ITEM_REMOVE');
+			slot:SetEventScriptArgString(ui.RBUTTONDOWN, itemData:GetGUID());
 
 		else
 			local cls = GetClassByType("Wiki", itemData.itemID);

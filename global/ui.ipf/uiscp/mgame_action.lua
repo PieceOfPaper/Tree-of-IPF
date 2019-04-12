@@ -4,6 +4,17 @@ function MGAME_MSG(actor, msgStr)
     addon.BroadMsg("NOTICE_Dm_!", msgStr, 3);
 end
 
+function SHOW_SIMPLE_MSG(msgStr)
+
+	local pvpmsg = ui.GetFrame("pvpmsg");
+	pvpmsg:ShowWindow(1);
+	local text = pvpmsg:GetChild("text");
+	text:SetTextByKey("font", "");
+	text:SetTextByKey("text", msgStr);
+	pvpmsg:SetDuration(120);
+
+end
+
 function MGAME_MSG_SIMPLE(actor, font, msgStr, msgTime)
 
 	local pvpmsg = ui.GetFrame("pvpmsg");

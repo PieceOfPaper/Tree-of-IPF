@@ -292,7 +292,7 @@
 				</CondList>
 				<ExecList>
 					<ToolScp Scp="SPCI_CRTHR" Client="NO" UseSleep="NO">
-						<Num Num="7" UseFunc="1" FuncTxt="return GET_ABIL_LEVEL(self, 'Highlander10') * 10;"/>
+						<Num Num="7" UseFunc="1" FuncTxt="return GET_ABIL_LEVEL(self, 'Highlander10') * 12;"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -500,28 +500,6 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
-	<SpcItem Name="Mark">
-		<TriggerList Act="Attack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
-						<Str Str="Archer_Multishot"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
-						<Str Str="ENEMY"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
-						<Str Str="Mark"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_CRTHR" Client="NO" UseSleep="NO">
-						<Num Num="1" UseFunc="1" FuncTxt="return obj.Level * 1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
 	<SpcItem Name="Impact">
 		<TriggerList Act="Attack">
 			<Trigger>
@@ -567,7 +545,7 @@
 				</CondList>
 				<ExecList>
 					<ToolScp Scp="SPCI_CRTHR" Client="NO" UseSleep="NO">
-						<Num Num="10" UseFunc="1" FuncTxt="return obj.Level * 10;"/>
+						<Num Num="10" UseFunc="1" FuncTxt="return obj.Level * 13;"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -913,7 +891,7 @@
 				</CondList>
 				<ExecList>
 					<ToolScp Scp="SPCI_CRTHR" Client="NO" UseSleep="NO">
-						<Num Num="0" UseFunc="1" FuncTxt="return obj.Level * 5"/>
+						<Num Num="0" UseFunc="1" FuncTxt="return obj.Level * 7"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>

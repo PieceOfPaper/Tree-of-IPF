@@ -567,7 +567,9 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 	--		return;
 	--	end
 		ICON_USE(icon, 'reAction');
-	else
+		return;
+	end
+
 		local invenItemInfo = session.GetInvItem(iconInfo.ext);
 		if invenItemInfo == nil then
 			invenItemInfo = session.GetInvItemByType(iconInfo.type);
@@ -576,6 +578,10 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 		end
 
 		if invenItemInfo == nil then
+		if iconInfo.category == 'Item' then
+			icon:SetColorTone("FFFF0000");
+			icon:SetText('0', 'quickiconfont', 'right', 'bottom', -2, 1);
+		end
 			return;
 		end
 
@@ -584,21 +590,18 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 			return;
 		end
 
-
-		if invenItemInfo ~= nil then
 			if invenItemInfo.count == 0 then
 				icon:SetColorTone("FFFF0000");
 				icon:SetText(invenItemInfo.count, 'quickiconfont', 'right', 'bottom', -2, 1);
-			else
-				ICON_USE(icon, 'reAction');
-			end
-		else
-			if iconInfo.category == 'Item' then
-				icon:SetColorTone("FFFF0000");
-				icon:SetText('0', 'quickiconfont', 'right', 'bottom', -2, 1);
-			end
+		return;
 		end
+
+	-- ∞≈∑°«“∂© ƒ¸ΩΩ∑‘ æ∆¿Ã≈€ ∏¯æ≤∞‘ «ÿ¡‡
+	if true == BEING_TRADING_STATE() then
+		return;
 	end
+	
+	ICON_USE(icon, 'reAction');
 end
 
 function QUICKSLOTNEXPBAR_ICON_COUNT(frame, icon, argStr, argNum)

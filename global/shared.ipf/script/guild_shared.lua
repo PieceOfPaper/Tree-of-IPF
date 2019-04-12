@@ -1,4 +1,4 @@
-
+﻿
 
 
 function GET_GELE_MODELITEM(seedCls, obj)
@@ -49,7 +49,7 @@ function GET_SEED004_MODELITEM(seedCls, obj)
 		return "Default_Sprout";
 	end
 
-	return "icon_item_Jonazole_farm";
+	return "food_008";
 
 end
 
@@ -62,7 +62,7 @@ function GET_SEED005_MODELITEM(seedCls, obj)
 		return "Default_Sprout";
 	end
 
-	return "icon_item_Mairunas_farm";
+	return "food_009";
 
 end
 
@@ -75,7 +75,7 @@ function GET_SEED006_MODELITEM(seedCls, obj)
 		return "Default_Sprout";
 	end
 
-	return "icon_item_Rosemary_farm";
+	return "food_036";
 
 end
 
@@ -88,7 +88,7 @@ function GET_SEED007_MODELITEM(seedCls, obj)
 		return "Default_Sprout";
 	end
 
-	return "icon_item_Lavender_farm";
+	return "food_037";
 
 end
 

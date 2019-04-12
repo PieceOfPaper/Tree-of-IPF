@@ -75,8 +75,14 @@ function UPDATE_ARTICLE_Item(ctrlset)
 	
 	local maxPts = GET_ITEM_MAX_WIKI_PTS(cls, wiki);
 	local t_scoreratio = GET_CHILD(ctrlset, "t_scoreratio");
+	if maxPts > 0 then
 	local ratio = math.floor(pts * 100 / maxPts);
 	t_scoreratio:SetTextByKey("value", ratio);
+		t_scoreratio:ShowWindow(1);
+	else
+		t_scoreratio:ShowWindow(0);
+	end
+	
 
 	local t_level = GET_CHILD(ctrlset, "t_level");
 	if cls.ItemType == "Equip" then
