@@ -38,3 +38,29 @@ function IS_EXIST_RANDOM_OPTION(item)
 	end
 	return false;
 end
+
+function CHECK_NEED_RANDOM_OPTION(item)
+	if item == nil then
+		return false;
+	end
+
+	if TryGetProp(item, 'NeedRandomOption', 0) == 0 then
+		return false;
+	end
+
+	for i = 1, 6 do
+		if item['RandomOption_'..i] ~= 'None' then
+			return false;
+		end
+
+		if item['RandomOptionGroup_'..i] ~= 'None' then
+			return false;
+		end
+
+		if item['RandomOptionValue_'..i] ~= 0 then
+			return false;
+		end
+	end
+
+	return true;
+end

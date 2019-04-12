@@ -181,6 +181,7 @@ function ICON_SET_ITEM_REMAIN_LIFETIME(icon)
     
     local remainTimeSec = GET_ITEM_REMAIN_LIFETIME_BY_SEC(obj);
     if remainTimeSec ~= "None" then
+        icon:SetDrawLifeTimeText(1)
 	    icon:SetOnLifeTimeUpdateScp('ICON_UPDATE_ITEM_REMAIN_LIFETIME');
     end
 end
@@ -203,6 +204,7 @@ function ICON_UPDATE_ITEM_REMAIN_LIFETIME(icon)
     
     local remainTimeSec = GET_ITEM_REMAIN_LIFETIME_BY_SEC(obj);
     if remainTimeSec == "None" or remainTimeSec == "Expired" then
+        icon:SetColorTone("FFFF0000");
         return 0;
     else
         return remainTimeSec;

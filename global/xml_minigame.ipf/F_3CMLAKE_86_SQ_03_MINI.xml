@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="F_3CMLAKE_86_SQ_03_MINI" minLv="0" maxLv="0" startWaitSec="1047343280">
+    <Game Name="F_3CMLAKE_86_SQ_03_MINI" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="1047343280">
         <StageList>
             <Stage Name="DefGroup">
                 <ObjList>
@@ -27,9 +27,9 @@
             <Stage Name="fail">
                 <ObjList>
                     <Obj Type="Monster" MonType="20024" Pos="-1361.58#52.16#-602.80" genCount="1" genTime="20000" genReadyTime="2000" objectKey="0" SimpleAI="F_3CMLAKE_86_SQ_03_FAIL_AI1"/>
-                    <Obj Type="Monster" MonType="20024" Pos="-1292.07#52.16#-1015.63" genCount="1" genTime="20000" genReadyTime="2000" objectKey="1" propList="&apos;CreateAngle&apos; &apos;90&apos; " SimpleAI="F_3CMLAKE_86_SQ_03_FAIL_AI2"/>
+                    <Obj Type="Monster" MonType="20024" Pos="-1298.62#52.16#-1012.94" angle="90" genCount="1" genTime="20000" genReadyTime="2000" objectKey="1" SimpleAI="F_3CMLAKE_86_SQ_03_FAIL_AI2"/>
                     <Obj Type="Monster" MonType="20024" Pos="-970.71#52.14#-946.28" genCount="1" genTime="20000" genReadyTime="2000" objectKey="2" SimpleAI="F_3CMLAKE_86_SQ_03_FAIL_AI3"/>
-                    <Obj Type="Monster" MonType="20024" Pos="-1033.44#52.16#-528.57" genCount="1" genTime="20000" genReadyTime="2000" objectKey="3" SimpleAI="F_3CMLAKE_86_SQ_03_FAIL_AI4"/>
+                    <Obj Type="Monster" MonType="20024" Pos="-1033.44#52.16#-528.57" angle="90" genCount="1" genTime="20000" genReadyTime="2000" objectKey="3" SimpleAI="F_3CMLAKE_86_SQ_03_FAIL_AI4"/>
                 </ObjList>
             </Stage>
         </StageList>

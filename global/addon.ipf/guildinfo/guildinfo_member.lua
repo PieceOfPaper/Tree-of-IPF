@@ -132,7 +132,7 @@ function GUILDINFO_MEMBER_LEADER_ON_TOP(frame, leaderAID)
     local firstMember = nil;
     for i = 0, memberBoxChildCount - 1 do
         local child = memberCtrlBox:GetChildByIndex(i);        
-        if string.find(child:GetName(), 'MEMBER_') ~= nil then
+        if string.find(child:GetName(), 'MEMBER_') ~= nil and child:IsVisible() == 1 then
             firstMember = child;
             break;
         end
