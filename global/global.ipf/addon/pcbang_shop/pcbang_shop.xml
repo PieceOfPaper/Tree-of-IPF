@@ -4,6 +4,7 @@
 	<controls>
 		<picture name="computer_pic" rect="0 0 38 40" margin="5 2 0 0" parent="point_gb" layout_gravity="left center" image="pp_point_icon" stretch="true"/>
 		<!--메뉴 탭-->
+		<richtext name="point_timer_text" rect="0 0 300 30" margin="0 0 15 20" layout_gravity="right bottom" format=" " param1="day" param1_def=" " param2="hour" param2_def=" " param3="min" param3_def=" " fontname="limitedsale"/>
 		<tabitem name="main_tab" parent="tab" layout_gravity="left top" caption="{@st66b}{/}" width="0"/>
 	</controls>
 </uiframe>

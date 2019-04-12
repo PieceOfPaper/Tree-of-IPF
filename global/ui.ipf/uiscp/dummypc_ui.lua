@@ -1,8 +1,7 @@
 -- dummypc_ui.lua
 
 
-function POPUP_DUMMY(handle, targetInfo)
-
+function POPUP_DUMMY(handle, targetInfo)    
 	local context = ui.CreateContextMenu("DPC_CONTEXT", targetInfo.name, 0, 0, 100, 100);
 	
 	local ownerHandle = info.GetOwner(handle);
@@ -12,7 +11,7 @@ function POPUP_DUMMY(handle, targetInfo)
 	ui.AddContextMenuItem(context, ScpArgMsg("Auto_SalPyeoBoKi"), strscp);
 
 
---  ∏≈¿‘¿«∑⁄ªÛ¡°»ƒ «€∆€ ∞ÌøÎ ∏ﬁΩ√¡ˆ ¡¶∞≈	
+--  Îß§ÏûÖÏùòÎ¢∞ÏÉÅÏ†êÌõÑ ÌïºÌçº Í≥†Ïö© Î©îÏãúÏßÄ Ï†úÍ±∞	
 --	if ownerHandle == 0 then
 --		strscp = string.format("DUMMYPC_HIRE(%d)", handle);
 --		ui.AddContextMenuItem(context, ScpArgMsg("Auto_yongByeongKoyong"), strscp);
@@ -22,11 +21,12 @@ function POPUP_DUMMY(handle, targetInfo)
 --		ui.AddContextMenuItem(context, ScpArgMsg("Auto_yongByeongHaeKo"), strscp);
 --	end
 
-	if true == session.IsGM() then
+	if 1 == session.IsGM() then        
 		strscp = string.format("debug.TestE(%d)", handle);
 		ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}NodeBoKi{/}"), strscp);
 		strscp = string.format("ui.Chat(\"//killmon %d\")", handle);
-		ui.AddContextMenuItem(context, ScpArgMsg("Auto_JeKeo"), strscp);
+		ui.AddContextMenuItem(context, ScpArgMsg("Auto_JeKeo"), strscp)
+        ui.AddContextMenuItem(context, ScpArgMsg("GM_Order_Kick"), string.format("REQUEST_ORDER_DUMMY_KICK(\"%s\")", handle))
 	end
 
 	if session.world.IsIntegrateServer() == false then
@@ -34,10 +34,12 @@ function POPUP_DUMMY(handle, targetInfo)
 		ui.AddContextMenuItem(context, ScpArgMsg("VisitBarrack"), strscp);
 	end
 
-	ui.AddContextMenuItem(context, ScpArgMsg("Auto_DatKi"),  "");		
-	
-	ui.OpenContextMenu(context);
+	ui.AddContextMenuItem(context, ScpArgMsg("Auto_DatKi"),  "")	
+	ui.OpenContextMenu(context)
+end
 
+function REQUEST_ORDER_DUMMY_KICK(handle)
+    packet.RequestGmOrderDummyKick(tonumber(handle))
 end
 
 function DUMMYPC_SHOWINFO(handle)
