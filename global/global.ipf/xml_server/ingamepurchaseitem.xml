@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Price는 스팀에서는 사용하지 않는다. 인니 등 타 국가용. 스팀의 Price는 steam store 웹 페이지에서 지정한다-->
+<!-- GroupID는 스팀에서만 사용하는 컬럼. 해당 아이템을 사용 가능한 서버 그룹을 지정-->
+<idspace id="ingamepurchaseitem">
+	<Class ClassID="100" OverrideType="ADD" ClassName="100TP(NA)" GiveTpAmount="100" Price="10" GroupID="G1001/G1002" ImgName="icon_item_tospoint100" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+	<Class ClassID="101" OverrideType="ADD" ClassName="100TP(EU)" GiveTpAmount="100" Price="10" GroupID="G1003" ImgName="icon_item_tospoint100" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+	<Class ClassID="102" OverrideType="ADD" ClassName="100TP(SEA)" GiveTpAmount="100" Price="10" GroupID="G1004/G1006" ImgName="icon_item_tospoint100" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+	<Class ClassID="103" OverrideType="ADD" ClassName="100TP(SA)" GiveTpAmount="100" Price="10" GroupID="G1005" ImgName="icon_item_tospoint100" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+	<Class ClassID="300" OverrideType="ADD" ClassName="300TP(NA)" GiveTpAmount="310" Price="30" GroupID="G1001/G1002" ImgName="icon_item_tospoint300" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+	<Class ClassID="301" OverrideType="ADD" ClassName="300TP(EU)" GiveTpAmount="310" Price="30" GroupID="G1003" ImgName="icon_item_tospoint300" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+	<Class ClassID="302" OverrideType="ADD" ClassName="300TP(SEA)" GiveTpAmount="310" Price="30" GroupID="G1004/G1006" ImgName="icon_item_tospoint300" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+	<Class ClassID="303" OverrideType="ADD" ClassName="300TP(SA)" GiveTpAmount="310" Price="30" GroupID="G1005" ImgName="icon_item_tospoint300" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+	<Class ClassID="500" OverrideType="ADD" ClassName="500TP(NA)" GiveTpAmount="530" Price="50" GroupID="G1001/G1002" ImgName="icon_item_tospoint500" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+	<Class ClassID="501" OverrideType="ADD" ClassName="500TP(EU)" GiveTpAmount="530" Price="50" GroupID="G1003" ImgName="icon_item_tospoint500" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+	<Class ClassID="502" OverrideType="ADD" ClassName="500TP(SEA)" GiveTpAmount="530" Price="50" GroupID="G1004/G1006" ImgName="icon_item_tospoint500" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+	<Class ClassID="503" OverrideType="ADD" ClassName="500TP(SA)" GiveTpAmount="530" Price="50" GroupID="G1005" ImgName="icon_item_tospoint500" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+	<Class ClassID="900" OverrideType="ADD" ClassName="900TP(NA)" GiveTpAmount="990" Price="90" GroupID="G1001/G1002" ImgName="icon_item_tospoint900" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+	<Class ClassID="901" OverrideType="ADD" ClassName="900TP(EU)" GiveTpAmount="990" Price="90" GroupID="G1003" ImgName="icon_item_tospoint900" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+	<Class ClassID="902" OverrideType="ADD" ClassName="900TP(SEA)" GiveTpAmount="990" Price="90" GroupID="G1004/G1006" ImgName="icon_item_tospoint900" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+	<Class ClassID="903" OverrideType="ADD" ClassName="900TP(SA)" GiveTpAmount="990" Price="90" GroupID="G1005" ImgName="icon_item_tospoint900" ItemCode="DEF" ProductName="DEF" PriceUnit="DEF"/>
+</idspace>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->

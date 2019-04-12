@@ -3,7 +3,7 @@ function SCR_STEAM_OBSERVER_EVENT(pc, sObj, msg, argObj, argStr, argNum)
         return
     end
     
-    local rand = IMCRandom(1, 3)
+    local rand = IMCRandom(1, 50)
     local isMission = IsMissionInst(zoneInst);
 
     if rand > 3 or isMission == 1 then
