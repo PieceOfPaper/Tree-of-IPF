@@ -21,6 +21,11 @@
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="sec30">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
                         <execList>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
                                 <Str Str="30초 후에 시작됩니다"/>
@@ -32,7 +37,7 @@
                     <Event execCount="1" eventName="sec10">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
+                                <Num Num="40"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -67,6 +72,15 @@
                                 <Str Str="None"/>
                                 <Str Str="account/PlayTimeEventRewardCount/1"/>
                                 <Str Str="PlayTimeEventRewardCount"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="sec50">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="50초 후에 시작됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -210,7 +224,7 @@
                     <Obj Type="Monster" MonType="41227" Pos="792.43#323.04#829.07" genCount="1" genTime="20000" objectKey="1" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;100000&apos; " SimpleAI="ATK_400_2" AfterGenScript="POST_GEN_PRISONMON">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
-                    <Obj Type="Monster" MonType="41384" Pos="1000.57#323.04#547.97" genCount="1" genTime="20000" objectKey="2" propList="&apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;100000&apos; " SimpleAI="ATK_400"/>
+                    <Obj Type="Monster" MonType="41384" Pos="1000.57#323.04#547.97" genCount="1" genTime="20000" objectKey="2" propList="&apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;100000&apos; " SimpleAI="ATK_400" AfterGenScript="POST_GEN_PRISONMON"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="NextStage" execWithStart="0">
@@ -259,7 +273,7 @@
                     <Obj Type="Monster" MonType="41227" Pos="1016.03#323.04#800.30" angle="-90" genCount="1" genTime="20000" objectKey="1" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Summons&apos; &apos;boss_summon_magnet&apos; &apos;ATK_BM&apos; &apos;100000&apos; " SimpleAI="ATK_400" AfterGenScript="POST_GEN_PRISONMON">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
-                    <Obj Type="Monster" MonType="100170" Pos="769.63#323.04#832.55" genCount="1" genTime="20000" objectKey="2" propList="&apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;100000&apos; " SimpleAI="ATK_400_2" AfterGenScript="POST_GEN_PRISONMON">
+                    <Obj Type="Monster" MonType="100170" Pos="769.63#323.04#832.55" genCount="1" genTime="20000" objectKey="2" propList="&apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;ATK_BM&apos; &apos;100000&apos; &apos;DropItemList&apos; &apos;None&apos; " SimpleAI="ATK_400_2" AfterGenScript="POST_GEN_PRISONMON">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
                     <Obj Type="Monster" MonType="41384" Pos="986.40#323.04#545.31" genCount="1" genTime="20000" objectKey="3" propList="&apos;ATK_BM&apos; &apos;100000&apos; &apos;Lv&apos; &apos;550&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; " SimpleAI="ATK_400_2" AfterGenScript="POST_GEN_PRISONMON"/>

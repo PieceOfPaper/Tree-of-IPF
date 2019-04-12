@@ -8467,7 +8467,7 @@ if self.HP == 0 then return 1; else return 0; end;">
 	</AI>
 	<AI Name="MISSION_UPHILL_DEFFENSE_L2" ActiveMessageMapInBattle="1">
 		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+			<ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
 				<Num Num="80"/>
 			</ToolScp>
 			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
@@ -8511,7 +8511,7 @@ if self.HP == 0 then return 1; else return 0; end;">
 	</AI>
 	<AI Name="MISSION_UPHILL_DEFFENSE_L3" ActiveMessageMapInBattle="1">
 		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+			<ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
 				<Num Num="80"/>
 			</ToolScp>
 			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
