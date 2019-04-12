@@ -5,7 +5,7 @@ function DLC_BOX1(pc)
     TxGiveItem(tx, 'steam_JOB_HOGLAN_COUPON', 1, 'DLC_BOX1');
     TxGiveItem(tx, 'steam_Hat_629003', 1, 'DLC_BOX1');
     TxGiveItem(tx, 'steam_Hat_629004', 1, 'DLC_BOX1');
-    TxGiveItem(tx, 'steam_Premium_SkillReset', 1, 'DLC_BOX1');
+    TxGiveItem(tx, 'SkillReset', 1, 'DLC_BOX1');
     TxGiveItem(tx, 'steam_Premium_StatReset', 1, 'DLC_BOX1');
     local ret = TxCommit(tx);
 end
