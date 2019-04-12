@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="loginui_title" x="0" y="0" width="6000" height="3000">
 	<frame title="로그인타이틀" margin="0 0 0 0" layout_gravity="center center"/>
 	<layer layerlevel="10"/>
@@ -12,6 +12,5 @@
 		<picture name="login_bg" rect="0 0 1920 1080" margin="0 0 0 0 " layout_gravity="center center" image="login_bg" stretch="false"/>
 		<picture name="r1_logo1" rect="0 0 688 363" margin="0 -230 0 0" layout_gravity="center center" image="login2" stretch="true"/>
 		<picture name="r1_logo_title_kor" rect="0 0 300 45" margin="0 -55 0 0" layout_gravity="center center" image="login1" serviceNation="KOR" stretch="true"/>
-		<picture name="r1_logo_title_tw" rect="0 0 300 45" margin="0 -55 0 0" layout_gravity="center center" image="login3" serviceNation="TAIWAN" stretch="true"/>
 	</controls>
 </uiframe>

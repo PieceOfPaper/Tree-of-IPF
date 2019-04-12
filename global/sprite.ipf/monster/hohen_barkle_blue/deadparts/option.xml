@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <DeadParts>
 	<Effect Name="None"/>
 	<ForkParticle Name="F_explosion001_dark"/>
 	<Anim Play="0" HideTime="2.000000"/>
 	<DeadParts Play="1"/>
+	<Sound Name="mon_die_effect" Time="0.000000"/>
+	<Sound Name="mon_dead_voice_boom_s_3" Time="0.200000"/>
+	<Sound Name="skl_eff_dead_boom_1" Time="0.300000"/>
 	<Parts SprName="monster_wendigo_wendigoF14L1obj" MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="0.500000" MinRadius="1.000000" MaxRadius="50.000000" OverKillAddDist="0.500000" OverKillMinRadius="20.000000" MaxBounceCount="3" MinVerticalSpd="150.000000" MaxVerticalSpd="250.000000" Gravity="1.000000" RotMinValue="7.000000" RotMaxValue="15.000000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Random"/>
 	<Parts SprName="monster_wendigo_wendigoF13L1obj" MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="0.500000" MinRadius="1.000000" MaxRadius="50.000000" OverKillAddDist="0.500000" OverKillMinRadius="20.000000" MaxBounceCount="3" MinVerticalSpd="150.000000" MaxVerticalSpd="250.000000" Gravity="1.000000" RotMinValue="7.000000" RotMaxValue="15.000000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Random"/>
 	<Parts SprName="monster_wendigo_wendigoF12L1obj" MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="0.500000" MinRadius="1.000000" MaxRadius="50.000000" OverKillAddDist="0.500000" OverKillMinRadius="20.000000" MaxBounceCount="3" MinVerticalSpd="150.000000" MaxVerticalSpd="250.000000" Gravity="1.000000" RotMinValue="7.000000" RotMaxValue="15.000000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Random"/>
@@ -48,7 +51,4 @@
 	<Parts SprName="monster_Warleader_Hogma_HogmaF27L1obj" MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="0.500000" MinRadius="1.000000" MaxRadius="50.000000" OverKillAddDist="0.500000" OverKillMinRadius="20.000000" MaxBounceCount="3" MinVerticalSpd="150.000000" MaxVerticalSpd="250.000000" Gravity="1.000000" RotMinValue="7.000000" RotMaxValue="15.000000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Random"/>
 	<Parts SprName="monster_Warleader_Hogma_HogmaF28L1obj" MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="0.500000" MinRadius="1.000000" MaxRadius="50.000000" OverKillAddDist="0.500000" OverKillMinRadius="20.000000" MaxBounceCount="3" MinVerticalSpd="150.000000" MaxVerticalSpd="250.000000" Gravity="1.000000" RotMinValue="7.000000" RotMaxValue="15.000000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Random"/>
 	<Parts SprName="monster_Warleader_Hogma_HogmaF29L1obj" MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="0.500000" MinRadius="1.000000" MaxRadius="50.000000" OverKillAddDist="0.500000" OverKillMinRadius="20.000000" MaxBounceCount="3" MinVerticalSpd="150.000000" MaxVerticalSpd="250.000000" Gravity="1.000000" RotMinValue="7.000000" RotMaxValue="15.000000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Random"/>
-	<Sound Name="skl_eff_dead_boom_s" Time="0.000000"/>
-	<Sound Name="skl_eff_mushroom" Time="0.200000"/>
-	<Sound Name="mon_wendigo_dead" Time="0.300000"/>
 </DeadParts>

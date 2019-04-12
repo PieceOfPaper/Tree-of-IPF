@@ -37,8 +37,21 @@ end
 ----- reinforce_131014
 
 function CLIENT_MORU(invItem)
+	if IsPVPServer() == 1 then	
+		ui.SysMsg(ScpArgMsg('CantUseThisInIntegrateServer'));
+		return;
+	end
+
 	local frame = ui.GetFrame("reinforce_131014");
 	local fromMoruSlot = GET_CHILD(frame, "fromMoruSlot", "ui::CSlot");
+
+	local obj = GetIES(invItem:GetObject());
+	
+	if obj.ItemLifeTimeOver > 0 then
+		ui.SysMsg(ScpArgMsg('LessThanItemLifeTime'));
+		return;
+	end
+
 	SET_SLOT_ITEM(fromMoruSlot, invItem);
 	ui.GuideMsg("SelectItem");
 
@@ -66,9 +79,17 @@ function CURSOR_CHECK_REINF(slot)
 	local fromItem, fromMoru = REINFORCE_131014_GET_ITEM(upgradeitem_2);
 	local moruObj = GetIES(fromMoru:GetObject());
 	local obj = GetIES(item:GetObject());
-	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" then -- 황금모루 오브젝트면
+	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" then
 		if 1 == REINFORCE_ABLE_131014(obj) 
-			and obj.PR == 0 then  -- 내구도가 0 이어야
+			and obj.PR == 0 then
+			return 1;
+		end
+		return 0;
+	elseif moruObj.ClassName == "Moru_Potential" or moruObj.ClassName == "Moru_Potential14d" then
+		local itemCls = GetClass("Item",obj.ClassName);
+		local objPR = TryGetProp(obj, "PR");
+
+		if nil ~= itemCls and nil ~= objPR and tonumber(itemCls.PR) - 1 > objPR then
 			return 1;
 		end
 		return 0;
@@ -118,11 +139,28 @@ function MORU_LBTN_CLICK(frame, invItem)
 		if obj.PR > 0 then
 		return;
 	end
+	elseif moruObj.ClassName == "Moru_Potential" or moruObj.ClassName == "Moru_Potential14d" then
+		local itemObj = GetIES(fromItem:GetObject());
+		local itemCls = GetClass("Item",itemObj.ClassName);
+		local objPR = TryGetProp(obj, "PR");
+		if nil == objPR then
+			ui.SysMsg(ClMsg("MaxPR"));
+			return;
+		end
+		if nil ~= itemCls and tonumber(itemCls.PR) - 1 < tonumber(objPR) then
+			ui.SysMsg(ClMsg("MaxPR"));
+			return;
+		end
+	end
+
+	local pCls = GetClass("Item", obj.ClassName);
+	local Star = TryGetProp(pCls, "ItemStar")
+	if Star == nil or tonumber(Star) == 0 then
+		return;
 	end
 
 	upgradeitem_2:ShowWindow(1);
 	REINFORCE_131014_UPDATE_MORU_COUNT(upgradeitem_2);
-
 
 end
 
@@ -137,18 +175,28 @@ function _CHECK_MORU_TARGET_ITEM(slot)
 	local fromItem, fromMoru = REINFORCE_131014_GET_ITEM(upgradeitem_2);
 	local moruObj = GetIES(fromMoru:GetObject());
 	local obj = GetIES(item:GetObject());
+	local CanReinforceItem = 0;
 	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" then 
 		if REINFORCE_ABLE_131014(obj) == 1 and obj.PR == 0 then
-			slot:GetIcon():SetGrayStyle(0);
-			slot:SetBlink(60000, 2.0, "FFFFFF00", 1);
-		else
-			slot:GetIcon():SetGrayStyle(1);
-			slot:ReleaseBlink();
+			CanReinforceItem = 1;
 		end
-		return;
+	elseif moruObj.ClassName == "Moru_Potential" or moruObj.ClassName == "Moru_Potential14d" then
+		local itemCls = GetClass("Item",obj.ClassName);
+		local objPR = TryGetProp(obj, "PR");
+		if nil ~= itemCls and nil ~= objPR and tonumber(itemCls.PR) - 1 >= tonumber(objPR) then
+			CanReinforceItem = 1;
+		end
+	elseif REINFORCE_ABLE_131014(obj) == 1 then
+		CanReinforceItem =1;
 	end
 
-	if REINFORCE_ABLE_131014(obj) == 1 then
+	local pCls = GetClass("Item", obj.ClassName);
+	local Star = TryGetProp(pCls, "ItemStar")
+	if Star == nil or tonumber(Star) == 0 then
+		CanReinforceItem = 0;
+	end
+
+	if CanReinforceItem == 1 then
 		slot:GetIcon():SetGrayStyle(0);
 		slot:SetBlink(60000, 2.0, "FFFFFF00", 1);
 	else

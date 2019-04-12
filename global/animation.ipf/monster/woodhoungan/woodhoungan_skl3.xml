@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AfterImage frame="49" term="50" blendTime="100" r="200" g="200" b="200" a="200"/>
+	<AfterImage frame="57" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Shockwave frame="51" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_22"/>
+	<Sound frame="42.00" soundFile="skl_eff_atk_move_l_15"/>
+	<Sound frame="45.32" soundFile="skl_eff_atk_move_m_6"/>
+	<Sound frame="48.50" soundFile="mon_voice_mushcaria_8"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="52" R="150" G="70" B="70" A="100"/>
+	<BlendOn frame="53" R="200" G="100" B="100" A="200"/>
+	<BlendOff frame="54" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Bip001 Spine" particleName="I_spread_in003_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="3.00" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bip001 L Finger1" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.50" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bip001 R Finger1" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.50" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="20" attachNode="Bip001 L Finger1" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.50" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="20" attachNode="Bip001 R Finger1" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.50" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Bip001 L Finger1" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.50" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Bip001 R Finger1" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.50" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="50" attachNode="Bip001 R Finger2" particleName="I_force091_trail_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="50" attachNode="Bip001 R Finger1" particleName="I_force091_trail_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="50" attachNode="Bip001 R Finger0" particleName="I_force091_trail_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="50" attachNode="Bip001 L Finger0" particleName="I_force091_trail_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="50" attachNode="Bip001 L Finger1" particleName="I_force091_trail_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="50" attachNode="Bip001 L Finger2" particleName="I_force091_trail_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="0"/>
+</ActionDesc>

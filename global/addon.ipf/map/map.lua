@@ -20,7 +20,8 @@ function MAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('GAME_START', 'FIRST_UPDATE_MAP');
 	addon:RegisterOpenOnlyMsg('QUEST_UPDATE', 'UPDATE_MAP');
 	addon:RegisterOpenOnlyMsg('GET_NEW_QUEST', 'UPDATE_MAP');
-	
+	addon:RegisterMsg('REVEAL_ALL', 'UPDATE_MAP');
+
 	addon:RegisterOpenOnlyMsg('PC_PROPERTY_UPDATE', 'UPDATE_MAP');
 	addon:RegisterMsg('NPC_STATE_UPDATE', 'UPDATE_MAP_NPC_STATE');
 

@@ -2004,13 +2004,22 @@ function SCR_PRE_FARM49_2_MQ06_ITEM1(self, argstring, argnum1, argnum2)
     if result == "PROGRESS" then
         if GetZoneName(self) == 'f_farm_49_2' then
             if GetLayer(self) == 0 then
-                local list, cnt = SelectObject(self, 50, 'ALL')
+                local list, cnt = SelectObject(self, 2, 'ALL', 1)
                 local i
+                if cnt >= 1 then
                 for i = 1, cnt do
-                    if list[i].ClassName == "old_well" then
-                        local itemCnt = GetInvItemCount(self, 'FARM49_2_MQ06_ITEM2')
-                        if itemCnt == 0 or itemCnt == nil then
-                            return 1
+                        if list[i].ClassName ~= 'PC' then
+                            if list[i].Faction == 'Neutral' then
+                                if IsServerSection(self) == 1 then
+                                    if list[i].Dialog == 'FARM492_MQ_06_2' then
+                                        return GetHandle(list[i])
+                                    end
+                                else
+                                    if GetDialogByObject(list[i]) == 'FARM492_MQ_06_2' then
+                                        return GetHandle(list[i])
+                                    end
+                                end
+                            end
                         end
                     end
                 end
@@ -4356,7 +4365,15 @@ function SCR_PRE_JOB_2_CLERIC3_ITEM(self, argObj, argstring, arg1, arg2)
                 if list[i].ClassName ~= 'PC' then
                     if list[i].ClassName == 'orsha_m_2' or list[i].ClassName == 'orsha_f_4' or list[i].ClassName == 'orsha_m_14_1' then
                         if IsBuffApplied(list[i],'JOB_2_CLERIC_CURED')  == 'NO' then
-                            return GetHandle(list[i])
+                            if IsServerSection(self) == 1 then
+                                if list[i].Dialog == 'JOB_2_CLERIC3_PATIENT' then
+                                    return GetHandle(list[i])
+                                end
+                            else
+                                if GetDialogByObject(list[i]) == 'JOB_2_CLERIC3_PATIENT' then
+                                    return GetHandle(list[i])
+                                end
+                            end
                         end
                     end
                 end
@@ -4952,6 +4969,82 @@ function SCR_PRE_SIAULIAI_35_1_SQ_7_REAGENT(self, argObj, BuffName, arg1, arg2)
     return 0
 end
 
+--TABLE71_SUBQ4ITEM
+function SCR_PRE_TABLE71_SUBQ4ITEM(self, argObj, BuffName, arg1, arg2)
+    if GetZoneName(self) == "f_tableland_71" then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'TABLELAND_71_SQ4')
+            if result == 'PROGRESS' then
+                local list, cnt = SelectObject(self, 100, 'ALL')
+                local i
+                if cnt > 0 then
+                    for i = 1, cnt do
+                        if list[i].ClassName ~= 'PC' then
+                            if list[i].Faction == 'Neutral' then
+                                if list[i].ClassName == 'HiddenTrigger4' then
+                                    --if list[i].Enter == 'TABLE71_POINT3' then
+                                        --print(list[i].Enter)
+                                        return GetHandle(list[i])
+                                    --end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--TABLE71_SUBQ7ITEM2
+function SCR_PRE_TABLE71_SUBQ7ITEM2(self, argObj, BuffName, arg1, arg2)
+    if GetZoneName(self) == "f_tableland_71" then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'TABLELAND_71_SQ7')
+            if result == 'PROGRESS' then
+                local list, cnt = SelectObject(self, 60, 'ALL')
+                local i
+                if cnt > 0 then
+                    for i = 1, cnt do
+                        if list[i].ClassName ~= 'PC' then
+                            if list[i].Faction == 'Monster' then
+                                if list[i].ClassName == 'Hohen_ritter_purple' then
+                                    return GetHandle(list[i])
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--TABLE72_SUBQ6ITEM1
+function SCR_PRE_TABLE72_SUBQ6ITEM1(self, argObj, BuffName, arg1, arg2)
+    if GetZoneName(self) == "f_tableland_72" then
+        if GetLayer(self) == 0 then
+            local result = SCR_QUEST_CHECK(self, 'TABLELAND_72_SQ6')
+            if result == 'PROGRESS' then
+                local list, cnt = SelectObject(self, 40, 'ALL')
+                local i
+                if cnt > 0 then
+                    for i = 1, cnt do
+                        if list[i].ClassName ~= 'PC' then
+                            if list[i].ClassName == 'npc_orb1' then
+                                return GetHandle(list[i])
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
 --ABBEY_35_3_SQ_ORB
 function SCR_PRE_ABBEY_35_3_SQ_ORB(self, argObj, BuffName, arg1, arg2)
     if GetZoneName(self) == "d_abbey_35_3" then
@@ -5021,6 +5114,57 @@ function SCR_PRE_ABBEY_35_3_SQ_10_REAGENT(self, argObj, BuffName, arg1, arg2)
         end
     end
     return 0
+end
+
+--SCR_PRE_TABLE72_SUBQ9ITEM
+function SCR_PRE_TABLE72_SUBQ9ITEM(self, argObj, BuffName, arg1, arg2)
+    if GetZoneName(self) == "f_tableland_73" then
+        if GetLayer(self) == 0 then
+            local result = SCR_QUEST_CHECK(self, 'TABLELAND_73_SQ1')
+            if result == 'PROGRESS' then
+                local list, cnt = SelectObject(self, 40, 'ALL')
+                local i
+                if cnt > 0 then
+                    for i = 1, cnt do
+                        if list[i].ClassName == 'npc_orb1' then
+                            return GetHandle(list[i])
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
+--SCR_PRE_TABLE73_SUBQ5_ITEM
+function SCR_PRE_TABLE73_SUBQ5_ITEM(self, argObj, BuffName, arg1, arg2)
+    if GetZoneName(self) == "f_tableland_73" then
+        if GetLayer(self) > 0 then
+            local quest_item = GetInvItemCount(self, 'TABLE73_SUBQ5_ITEM')
+            if quest_item >= 5 then
+                return 1
+            end
+        end
+    end
+    return 0;
+end
+
+--SCR_PRE_TABLE73_SUBQ6_ITEM
+function SCR_PRE_TABLE73_SUBQ6_ITEM(self, argObj, BuffName, arg1, arg2)
+    if GetZoneName(self) == "f_tableland_73" then
+        if GetLayer(self) == 0 then
+            local result = SCR_QUEST_CHECK(self, 'TABLELAND_73_SQ6')
+            if result == 'PROGRESS' then
+                local quest_item = GetInvItemCount(self, 'TABLE73_SUBQ6_ITEM')
+                if quest_item >= 5 then
+                    return 1
+                else
+                    SendAddOnMsg(self, 'NOTICE_Dm_scroll', ScpArgMsg('TABLE73_SUBQ5_MSG1'), 5)
+                end
+            end
+        end
+    end
+    return 0;
 end
 
 --CORAL_35_2_SQ_2_STONEPIECE
@@ -5131,4 +5275,54 @@ function SCR_PRE_CORAL_35_2_SQ_14_FINDER(self, argstring, argnum1, argnum2)
         end
     end
     return 0;
+end
+
+--CORAL_32_2_SQ_5_ITEM
+function SCR_PRE_CORAL_32_2_SQ_5_ITEM(self, argObj, BuffName, arg1, arg2)
+    if GetZoneName(self) == 'f_coral_32_2' then
+        if GetLayer(self) == 0 then
+            local x, y, z = GetPos(self)
+            local dist1 = SCR_POINT_DISTANCE(x, z, -698, 785)
+            local dist2 = SCR_POINT_DISTANCE(x, z, 4, 39)
+            if dist1 <= 40 then
+                return 1;
+            elseif dist2 <= 40 then
+                return 1;
+            end
+        end
+    end
+    return 0;
+end
+
+--CORAL_32_2_SQ_12_ITEM2
+function SCR_PRE_CORAL_32_2_SQ_12_ITEM2(self, argObj, BuffName, arg1, arg2)
+    if GetZoneName(self) == 'f_coral_32_2' then
+        if GetLayer(self) == 0 then
+            local list, cnt = SelectObject(self, 40, 'ALL', 1)
+            local i
+            if cnt > 0 then
+                for i = 1, cnt do
+                    if list[i].ClassName ~= 'PC' then
+                        if list[i].ClassName == 'Stone04' then
+                            return GetHandle(list[i])
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0;
+end
+
+--UNDER30_3_EVENT2_BOMB
+function SCR_PRE_UNDER30_3_EVENT2_BOMB(self, argstring, argnum1, argnum2)
+    if GetZoneName(self) == 'd_underfortress_30_3' then
+        if GetLayer(self) == 0 then
+            return 1
+        end
+    end
+    if IsServerSection(self) == 1 then
+        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("UNDER30_3_EVENT2_BOBM"), 5);
+    end
+    return 0
 end

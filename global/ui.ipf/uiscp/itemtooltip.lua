@@ -266,14 +266,15 @@ end
 --상점에서 가격 표시
 function DRAW_SELL_PRICE(tooltipframe, invitem, yPos, mainframename)
     
-    if invitem.ShopTrade ~= 'YES' then
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+    if itemProp:IsTradable() == false then
         return yPos
     end
     
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_sellinfo');
 
-	if ui.IsFrameVisible("shop") == 0 and invitem.SellPrice ~= 0 and invitem.ShopTrade == 'YES' then
+	if ui.IsFrameVisible("shop") == 0 and invitem.SellPrice ~= 0 and itemProp:IsTradable() == true then
 		return yPos
 	end
 	
@@ -281,16 +282,65 @@ function DRAW_SELL_PRICE(tooltipframe, invitem, yPos, mainframename)
 	tolua.cast(tooltip_sellinfo_CSet, "ui::CControlSet");
 
 	local sellprice_text = GET_CHILD(tooltip_sellinfo_CSet,'sellprice','ui::CRichText')
-	
-	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
-
 	sellprice_text:SetTextByKey("silver", geItemTable.GetSellPrice(itemProp) );
 
 	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
 	tooltip_sellinfo_CSet:Resize(tooltip_sellinfo_CSet:GetWidth(),tooltip_sellinfo_CSet:GetHeight() + BOTTOM_MARGIN);
 
-	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + tooltip_sellinfo_CSet:GetHeight())
+	local height = gBox:GetHeight() + tooltip_sellinfo_CSet:GetHeight();
+	gBox:Resize(gBox:GetWidth(), height);
+	return height;
+end
+
+function DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, yPos, mainframename)
 	
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+    if itemProp:IsTradable() == false and itemProp.LifeTime == 0 then
+        return yPos
+    end
+    
+	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
+	gBox:RemoveChild('tooltip_lifeTimeinfo');	
+
+	local tooltip_lifeTimeinfo_CSet = gBox:CreateControlSet('tooltip_lifeTimeinfo', 'tooltip_lifeTimeinfo', 0, yPos);
+	tolua.cast(tooltip_lifeTimeinfo_CSet, "ui::CControlSet");
+
+	local lifeTime_text = GET_CHILD(tooltip_lifeTimeinfo_CSet,'lifeTime','ui::CRichText');
+		
+	if string.find(invitem.ItemLifeTime, "None") ~= nil then
+		local timeTxt = GET_TIME_TXT(invitem.LifeTime);
+		lifeTime_text:SetTextByKey("p_LifeTime", timeTxt );
+	else
+	local sysTime = geTime.GetServerSystemTime();
+	local endTime = imcTime.GetSysTimeByStr(invitem.ItemLifeTime);
+	local difSec = imcTime.GetDifSec(endTime, sysTime);
+	lifeTime_text:SetUserValue("REMAINSEC", difSec);
+	lifeTime_text:SetUserValue("STARTSEC", imcTime.GetAppTime());
+	lifeTime_text:RunUpdateScript("SHOW_REMAIN_LIFE_TIME");
+	end
+
+	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	tooltip_lifeTimeinfo_CSet:Resize(tooltip_lifeTimeinfo_CSet:GetWidth(),tooltip_lifeTimeinfo_CSet:GetHeight() + BOTTOM_MARGIN);
+	
+	local height = gBox:GetHeight() + tooltip_lifeTimeinfo_CSet:GetHeight();
+	gBox:Resize(gBox:GetWidth(), height);
+	return height;
+end;
+
+function SHOW_REMAIN_LIFE_TIME(ctrl)
+	local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC");
+	local startSec = ctrl:GetUserIValue("REMAINSEC");
+	startSec = startSec - elapsedSec;
+	if 0 > startSec then
+		ctrl:SetText(ScpArgMsg("LessThanItemLifeTime"));
+		ctrl:SetFontName("red_18");
+		ctrl:StopUpdateScript("SHOW_REMAIN_LIFE_TIME");
+		return 0;
+	end 
+	
+	local timeTxt = GET_TIME_TXT(startSec);
+	ctrl:SetTextByKey("p_LifeTime", timeTxt );
+	return 1;
 end
 
 function GET_ITEM_TOOLTIP_DESC(obj)
@@ -402,7 +452,7 @@ function CLOSE_ITEM_TOOLTIP()
 end
 
 
--- ???�수???�크�??�이?�도 ?�시?????�용?�니??
+-- ???�수???�크�??�이?�도 ?�시?????�용?�니??
 function SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, className, strType, ItemType, index)
 	
 	if className == 'Scroll_SkillItem' then
@@ -454,7 +504,7 @@ function SET_TOOLTIP_SKILLSCROLL(icon, obj, itemCls, strType)
 	return 1;
 end
 
--- 마켓?�에??묘사?�서 ?�킬�??�오?�록
+-- 마켓?�에??묘사?�서 ?�킬�??�오?�록
 function SET_ITEM_DESC(value, desc, item)
 	if desc == "None" then
 		desc = "";

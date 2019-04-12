@@ -1,6 +1,7 @@
 function WAREHOUSE_ON_INIT(addon, frame)
 
 	REGISTER_WAREHOUSE_MSG(addon, frame);
+	print('1');
 end
 
 function WAREHOUSE_OPEN(frame)
@@ -48,6 +49,12 @@ function PUT_ITEM_TO_WAREHOUSE(parent, slot)
 		ui.MsgBox(ScpArgMsg("IT_ISNT_REINFORCEABLE_ITEM"));
 		return;
 	end
+	
+	if itemCls.LifeTime > 0 then
+		ui.MsgBox(ScpArgMsg("IsItemLifeTime"));
+		return;
+	end
+
 	
 	AUTO_CAST(slot);
 

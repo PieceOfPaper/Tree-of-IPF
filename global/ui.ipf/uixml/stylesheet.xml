@@ -401,6 +401,14 @@
 		<!--notice_screen-->
 		<font name="normal" size="16" space="0" color="222222" bold="yes" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
 	</style>
+	<style name="st66d">
+		<!--UI_button_big-->
+		<font name="normal" size="18" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="yes" outline="yes" outlinecolor="563300" underline="no" centerline="no"/>
+	</style>
+	<style name="st66e">
+		<!--UI_button_big-->
+		<font name="normal" size="16" space="0" color="FFFFFF" bold="no" italic="no" dropshadow="yes" outline="yes" outlinecolor="563300" underline="no" centerline="no"/>
+	</style>
 	<style name="st67">
 		<!--notice_screen-->
 		<font name="normal" size="16" space="0" color="770000" bold="no" italic="no" dropshadow="no" outline="no" underline="no" centerline="no"/>
@@ -417,7 +425,19 @@
     <!--mon_pcskill-->
     <font name="book" size="36" space="0" color="3C270D" bold="yes" italic="no" dropshadow="no" outline="no" outlinecolor="222222" underline="no" centerline="no" gradation="gradation2"/>
   </style>
-  <style name="st69_100">
+  <style name="st70_d">
+		<!--quest_day_text-->
+		<font name="normal" size="14" space="0" color="00a800" bold="yes" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="no"/>
+	</style>
+	<style name="st70_s">
+		<!--quest_sub_text-->
+		<font name="normal" size="14" space="0" color="004bb2" bold="yes" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="no"/>
+	</style>
+	<style name="st70_m">
+		<!--quest_main_text-->
+		<font name="normal" size="14" space="0" color="f46200" bold="yes" italic="no" dropshadow="no" outline="yes" underline="no" centerline="no" gradation="no"/>
+	</style>
+	<style name="st69_100">
     <!--mon_pcskill-->
     <font name="book" size="100" space="0" color="3C270D" bold="yes" italic="no" dropshadow="no" outline="no" outlinecolor="222222" underline="no" centerline="no" gradation="gradation2"/>
   </style>

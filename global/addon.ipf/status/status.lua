@@ -1,4 +1,4 @@
-
+ï»¿
 g_reserve_reset = 0;
 MAX_INV_COUNT = 4999;
 
@@ -59,14 +59,14 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 
 	local tokenList = gToken:GetChild("tokenList");
 	tokenList:RemoveAllChild();
-	
+
 	if argNum ~= ITEM_TOKEN or "NO" == argStr then
 		return;
 	end
 
-	local sysTime = geTime.GetServerSystemTime();
+		local sysTime = geTime.GetServerSystemTime();
 	local endTime = session.loginInfo.GetTokenTime();
-	local difSec = imcTime.GetDifSec(endTime, sysTime);
+		local difSec = imcTime.GetDifSec(endTime, sysTime);
 		
 	if 0 < difSec then
 		time:ShowWindow(1);
@@ -78,35 +78,35 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 		time:SetTextByKey("value", "");
 		time:StopUpdateScript("SHOW_TOKEN_REMAIN_TIME");
 	end
-
+	
 	for i = 0 , 3 do
 		local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 		local str, value = GetCashInfo(ITEM_TOKEN, i)
 		if nil ~= str then
-			local prop = ctrlSet:GetChild("prop");
-			local normal = GetCashValue(0, str) 
-			local txt = "None"
-			if str == "marketSellCom" then
-				normal = normal + 0.01;
-				value = value + 0.01;
-				local img = string.format("{img 67percent_image %d %d}",55, 45) 
+		local prop = ctrlSet:GetChild("prop");
+		local normal = GetCashValue(0, str) 
+		local txt = "None"
+		if str == "marketSellCom" then
+			normal = normal + 0.01;
+			value = value + 0.01;
+				local img = string.format("{img 67percent_image %d %d}", 55, 45) 
 				prop:SetTextByKey("value", img..ClMsg(str)); 
 				txt = string.format("{img 67percent_image2 %d %d}", 100, 45) 
 			elseif str =="abilityMax" then
-				local img = string.format("{img paid_immed_image %d %d}", 55, 45)
+				local img = string.format("{img paid_immed_image %d %d}", 55, 45) 
 				prop:SetTextByKey("value", img..ClMsg(str)); 
 				txt = string.format("{img 2plus_image2 %d %d}", 100, 45) 
 			elseif str == "speedUp"then
 				local img = string.format("{img 3plus_image %d %d}", 55, 45) 
 				prop:SetTextByKey("value",img.. ClMsg(str)); 
 				txt = string.format("{img 3plus_image2 %d %d}", 100, 45) 
-			else
+		else
 				local img = string.format("{img 9plus_image %d %d}", 55, 45) 
 				prop:SetTextByKey("value", img..ClMsg(str)); 
 				txt = string.format("{img 9plus_image2 %d %d}", 100, 45) 
-			end
+		end
 
-	local value = ctrlSet:GetChild("value");
+		local value = ctrlSet:GetChild("value");
 			if str =="abilityMax" then
 				value:ShowWindow(0);
 			else
@@ -118,7 +118,7 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 	end
 
 	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 5,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-	local prop = ctrlSet:GetChild("prop");
+    local prop = ctrlSet:GetChild("prop");
     local imag = string.format(STATUS_OVERRIDE_GET_IMGNAME1(), 55, 45) 
 	prop:SetTextByKey("value", imag.. ScpArgMsg("Token_ExpUp{PER}", "PER", " ")); 
     local value = ctrlSet:GetChild("value");
@@ -128,16 +128,16 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 	local itemClassID = session.loginInfo.GetPremiumStateArg(ITEM_TOKEN)
 	local itemCls = GetClassByType("Item", itemClassID);
 	if nil ~= itemCls and itemCls.NumberArg2 > 0 then
-		local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 6,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-		local prop = ctrlSet:GetChild("prop");
-		local img = string.format("{img dealok_image %d %d}", 55, 45) 
-		prop:SetTextByKey("value", img .. ScpArgMsg("AllowTradeByCount"));
-
-		local value = ctrlSet:GetChild("value");
-		img = string.format("{img dealok30_image2 %d %d}", 100, 45) 
-		value:SetTextByKey("value", img);
-	end
+	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 6,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+	local prop = ctrlSet:GetChild("prop");
+	local img = string.format("{img dealok_image %d %d}", 55, 45) 
+	prop:SetTextByKey("value", img .. ScpArgMsg("AllowTradeByCount"));
 	
+	local value = ctrlSet:GetChild("value");
+	img = string.format("{img dealok30_image2 %d %d}", 100, 45) 
+	value:SetTextByKey("value", img);
+	end
+		
 	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 7,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img 1plus_image %d %d}", 55, 45) 
@@ -214,7 +214,6 @@ function STATUS_EMPTY_EQUIP_SET(frame, argNum)
 	end
 end
 
--- ÃÊ±â UI ½ÇÇà½Ã ½ÇÇàµÇ´Â ½ºÅ©¸³Æ®
 function STATUS_ONLOAD(frame, obj, argStr, argNum)
 
 	STAT_RESET(frame);
@@ -428,10 +427,8 @@ function SET_STAT_TEXT(frame, ctrlname, pc, propname, addprop, consumed, vpc, xp
 	btnUp:SetEventScriptArgString(ui.LBUTTONUP, propname);
 	btnUp:SetClickSound("button_click_stats");
 
-	-- ¿î¿µÀÚ¿ë ÀÓÀÇ Ãß°¡. ³ªÁß¿¡ Áö¿ö¾ßÇÔ
 	btnUp:SetEventScript(ui.RBUTTONUP, "OPERATOR_REQ_STAT_UP");
 	btnUp:SetEventScriptArgString(ui.RBUTTONUP, propname);
-	-- ¿î¿µÀÚ¿ë ÀÓÀÇ Ãß°¡³¡ 
 
 	if statup > 0 then
 		if vpc == nil then
@@ -462,7 +459,6 @@ function REQ_STAT_UP(frame, control, argstr, argnum)
 
 end
 
--- ¿î¿µÀÚ¿ë ÀÓÀÇ Ãß°¡. ³ªÁß¿¡ Áö¿ö¾ßÇÔ
 function OPERATOR_REQ_STAT_UP(frame, control, argstr, argnum)
 
 	if GET_REMAIN_STAT_PTS() <= 0 then
@@ -475,7 +471,7 @@ function OPERATOR_REQ_STAT_UP(frame, control, argstr, argnum)
 	local increase = 10;
 	local remainder = 0;
 
-	if curstat + increase > bonusstat or increase > bonusstat then -- ¼öÄ¡°¡ ³ÑÀ» ¶§ 
+	if curstat + increase > bonusstat or increase > bonusstat then 
 		remainder = bonusstat - (curstat + increase);
 	end
 
@@ -488,7 +484,6 @@ function OPERATOR_REQ_STAT_UP(frame, control, argstr, argnum)
 	STATUS_INFO(frame);
 
 end
--- ¿î¿µÀÚ¿ë ÀÓÀÇ Ãß°¡³¡ 
 
 function GET_REMAIN_STAT_PTS()
 
@@ -569,12 +564,11 @@ function STATUS_BTN_UP_VISIBLE(frame, controlsetName, pc, visible)
 end
 
 function STATUS_INFO(frame)	
-	-- Ãâ·ÂÇÒ µ¥ÀÌÅÍ¸¦ °¡Áö°í ¿Â´Ù
+
 	local MySession		= session.GetMyHandle()
 	local CharName		= info.GetName(MySession);
 --	local CharProperty	= GetProperty(MySession);
 
-	-- ÄÁÆ®·ÑÀ» µî·Ï
 	local NameObj	= GET_CHILD(frame, "NameText", "ui::CRichText");
     local LevJobObj = GET_CHILD(frame, "LevJobText", "ui::CRichText");
 
@@ -648,7 +642,7 @@ function STATUS_INFO(frame)
 	end
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "CRTHR", y);
 	y = returnY + 10;
-	
+
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "DEF", y);
 	if returnY ~= y then
 		y = returnY + 3;
@@ -671,7 +665,7 @@ function STATUS_INFO(frame)
 	end
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "CRTDR", y);
 	y = returnY + 10;
-	
+    
 	returnY = STATUS_ATTRIBUTE_VALUE_DIVISIONBYTHOUSAND_NEW(pc, opc, frame, gboxctrl, "MaxSta", y);
 	if returnY ~= y then
 		y = returnY + 3;
@@ -760,7 +754,7 @@ function STATUS_INFO(frame)
 	end
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "LargeSize_Atk", y);
 	y = returnY + 10;
-	
+    
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Cloth_Atk", y);
 	if returnY ~= y then
 		y = returnY + 3;
@@ -795,7 +789,6 @@ function STATUS_INFO(frame)
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Velnias_Atk", y);
 	y = returnY + 10;
 	
---°ø°Ý È¿°ú
 	--STATUS_ATTRIBUTE_VALUE_RANGE(pc, opc, frame, gboxctrl, "PATK", "MINPATK", "MAXPATK");
 	--STATUS_ATTRIBUTE_VALUE_RANGE(pc, opc, frame, gboxctrl, "MATK", "MINMATK", "MAXMATK");
 	--STATUS_ATTR_SET_PERCENT(pc, opc, frame, gboxctrl, "CRTHR");
@@ -811,7 +804,6 @@ function STATUS_INFO(frame)
 
 
 
---¹æ¾î È¿°ú
 	--STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "DEF");
 	STATUS_ATTR_SET_PERCENT(pc, opc, frame, gboxctrl, "BLK");
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "CRTDR");
@@ -832,7 +824,6 @@ function STATUS_INFO(frame)
 		DestroyIES(vpc);
 	end
 
-	-- ³»°¡ ¹ÞÀº ÁÁ¾Æ¿ä °³¼ö
 	local loceCountText = GET_CHILD_RECURSIVELY(frame, "loceCountText")
 	loceCountText:SetTextByKey("Count",session.likeit.GetWhoLikeMeCount());
 
@@ -854,7 +845,7 @@ function STATUS_SLOT_RBTNDOWN(frame, slot, argStr, equipSpot)
 	if true == BEING_TRADING_STATE() then
 		return;
 	end
-	-- ÀÎº¥¿¡ ÀÚ¸®ÀÖ´ÂÁö ¸ÕÀú È®ÀÎ
+	-- ì¸ë²¤ì— ìžë¦¬ìžˆëŠ”ì§€ ë¨¼ì € í™•ì¸
 	local isEmptySlot = false;
 
 	local invItemList = session.GetInvItemList();
@@ -931,12 +922,7 @@ function CHECK_EQP_LBTN(frame, slot, argStr, argNum)
 
 	local fromID = GET_USING_ITEM_GUID();
 	if fromID ~= 0 then
-		local fromObj = GET_USING_ITEM_OBJ();
-		if fromObj ~= nil then
-			local strscp = string.format( "LUMIN_EXECUTE(\"%s\", \"%s\")", fromID, iesID);
-			local msg = "["..fromObj.Name..ScpArgMsg("Auto_]_KaDeuLeul_SayongHaSiKessSeupNiKka?");
-			ui.MsgBox(msg, strscp, "None");
-		end
+		SCR_MAGICAMULET_EQUIP(item.GetUsingItem(),GET_ITEM_BY_GUID(iesID, 1));
 	end
 
 end
@@ -993,7 +979,6 @@ function STATUS_ATTRIBUTE_VALUE_RANGE(pc, opc, frame, gboxctrl, attibuteName, mi
 	local minVal = pc[minName];
 	local maxVal = pc[maxName];
 
-	-- °ø¼ºÀü(¹Ì¼Ç) µî¿¡¼­ »ç¿ëÇÏ´Â ATK_COMMON_BM °ü·Ã ui°»½Å¿ë.
 	if pc ~= nil and pc.ATK_COMMON_BM > 0 then
 		minVal = minVal + pc.ATK_COMMON_BM;
 		maxVal = maxVal + pc.ATK_COMMON_BM;
@@ -1007,7 +992,6 @@ function STATUS_ATTRIBUTE_VALUE_RANGE(pc, opc, frame, gboxctrl, attibuteName, mi
 	else
 		grayStyle = 0;
 
-		-- Á¤Åº °íÁ¤Ãß°¡ÇÇÇØ¿¡ ´ëÇØ µ¥¹ÌÁöÇ¥½Ã
 		if attibuteName == "ATK" and item.IsUseJungtanRank() > 0 then
 			value = string.format("%d~%d(+%d)", minVal, maxVal, item.GetJungtanDamage());
 		else
@@ -1190,7 +1174,6 @@ function STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, attibuteName)
 	else
 		txtctrl:SetText(value);
 
-		-- °ø¼ºÀü(¹Ì¼Ç) µî¿¡¼­ »ç¿ëÇÏ´Â DEF_COMMON_BM °ü·Ã ui°»½Å¿ë.
 		if pc ~= nil and pc.DEF_COMMON_BM > 0 then
 			value = value + pc.DEF_COMMON_BM;
 		end
@@ -1399,7 +1382,6 @@ function STATUS_ACHIEVE_INIT(frame)
 			eachAchiveGauge:Resize(eachAchiveGBox:GetWidth() - eachAchiveStaticDesc:GetWidth() - 50, eachAchiveGauge:GetHeight() )
 			eachAchiveGauge:SetTextTooltip("(" .. nowpoint .. "/" .. cls.NeedCount ..")")
 
-			-- Á¦ÀÏ À§ÀÇ Å¸ÀÌÆ². ÁøÂ¥ ÄªÈ£¶ûÀº ´Ù¸§
 			if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 then
 				if equipAchieveName == cls.Name then
 					eachAchiveDescTitle:SetText('{@stx2}'..cls.DescTitle..ScpArgMsg('Auto__(SayongJung)'));
@@ -1412,16 +1394,9 @@ function STATUS_ACHIEVE_INIT(frame)
 				eachAchiveGBox:SetSkinName(NORMAL_SKIN)
 			end
 
-			-- Á¶°Ç ¼³¸í
 			eachAchiveDesc:SetText(cls.Desc);
-			
-			-- Á¶°Ç ¹è°æ ÈÄÀÇ °ÔÀÌÁö
 			eachAchiveGauge:SetPoint(nowpoint, cls.NeedCount);
-
-			-- ÄªÈ£
 			eachAchiveName:SetTextByKey('name', cls.Name);
-
-			-- º¸»ó
 			eachAchiveReward:SetTextByKey('reward', cls.Reward);
 
 			if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 then
@@ -1469,7 +1444,6 @@ function STATUS_ACHIEVE_INIT(frame)
 		end
 	end
 
-	--»ç¿ë °¡´É Çì¾î»ö
 	local customizingGBox = GET_CHILD_RECURSIVELY(frame,'customizingGBox')
 	DESTROY_CHILD_BYNAME(customizingGBox, "hairColor_");
 
@@ -1502,7 +1476,7 @@ function STATUS_ACHIEVE_INIT(frame)
 				local eachColor = imcIES.GetString(eachcls, 'Color') 
 				eachColorE = string.lower(eachColorE)
 
-				if string.find(nowAllowedColor, eachColorE) ~= nil then -- ÀÌ¹Ì ¼ÒÀ¯ÁßÀÌ¶ó¸é
+				if string.find(nowAllowedColor, eachColorE) ~= nil then 
 				
 					local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_'..haircount, 30 + 35 * haircount, 55, 35, 35);
 					tolua.cast(eachhairimg, "ui::CPicture");
@@ -1525,8 +1499,6 @@ function STATUS_ACHIEVE_INIT(frame)
 		end
 	end
 
-	--ÀåÂø °¡´É ÄªÈ£ 
-	
 	DESTROY_CHILD_BYNAME(customizingGBox, "ACHIEVE_RICHTEXT_");
 	local index = 0;
 	local x = 40;
@@ -1588,6 +1560,22 @@ function GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(engname)
 
 	if engname == 'white' then
 		return "white_color"
+	end
+
+	if engname == 'blond' then
+		return "blond_color"
+	end
+	
+	if engname == 'red' then
+		return "red_color"
+	end
+
+	if engname == 'green' then
+		return "green_color"
+	end
+	
+	if engname == 'gray' then
+		return "gray_color"
 	end
 
 	return "basic_color"

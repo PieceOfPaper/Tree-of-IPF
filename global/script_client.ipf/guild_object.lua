@@ -41,7 +41,7 @@ function GUILD_ITEM_OBJECT(actor, isSelect)
 
 	elseif isSelect == 1 then
 		if objType == "Animal" then
-		if 1 == TRY_CHECK_BARRACK_SLOT(actor:GetHandleVal()) then
+			if  1 == TRY_CHECK_BARRACK_SLOT(actor:GetHandleVal(), 1) then
 			return;
 		end
 		local mobj = GetMyActor();

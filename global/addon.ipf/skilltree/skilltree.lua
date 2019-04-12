@@ -465,11 +465,9 @@ function GET_TREE_INFO_LIST(jobName, treelist)
 end
 
 function MAKE_STANCE_ICON(reqstancectrl, reqstance, EnableCompanion)
-	local stancelist, stancecnt = GetClassList("Stance")
 	local mainSum = 1;
 	local mainWeapon = {}
 	local mainWeaponName = {}
-
 	local subSum = 1;
 	local subWeapon = {}
 	local subWeaponName = {}
@@ -504,13 +502,23 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance, EnableCompanion)
 		shareBtn:SetTextTooltip(tooltipText..ScpArgMsg("EquipAll"));				
 		return
 	end
-	local stanceList = StringSplit(reqstance, ";");
+	
+	local stancelist, stancecnt = GetClassList("Stance");	
+	for word in string.gmatch(reqstance, "%a+")do
+		local stance = GetClassByNameFromList(stancelist, word);	
+		local index = string.find(stance.ClassName, "Artefact")
+		if index == nil then
+				tooltipText = tooltipText..stance.Name.."{nl}";
+		end
+	end
+	
 	for i = 0, stancecnt -1 do
 		local stance = GetClassByIndexFromList(stancelist, i)
 			local index = string.find(reqstance, stance.ClassName)
 		--스탠스는 TwoHandBow인데.. 쇠뇌이름이 Bow라서 위에 스트링파인드에 걸림..
 		--쇠뇌이름을 변경하면 데이터작업자들이 고통스러우니.. 예외를 둔다.. 진짜 망한 구조임..
-		if reqstance == "TwoHandBow" and stance.ClassName == "Bow" then
+		
+		if (reqstance == "TwoHandBow") and (stance.ClassName == "Bow") then
 			index = nil;
 		end
 			if index ~= nil then
@@ -520,13 +528,6 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance, EnableCompanion)
 					mainWeapon[mainSum] = stance.Icon
 					mainWeaponName[mainSum] = stance.Name
 					mainSum = mainSum + 1
-					--쇠뇌만 예외처리 하드코드
-					if mainSum == 2 and stance.ClassName == "Bow" then
-						--이미 구조가 글러먹었다. 하지만 그냥 예외처리를 하겠다.
-					else 
-						tooltipText = tooltipText..stance.Name.."{nl}"	
-					end
-
 				elseif stance.UseSubWeapon == "YES" then
 					local flag = 0
 					for i = 0, #subWeapon do
@@ -539,7 +540,6 @@ function MAKE_STANCE_ICON(reqstancectrl, reqstance, EnableCompanion)
 						subWeaponName[subSum] = stance.Name
 						subSum = subSum + 1
 					end
-					tooltipText = tooltipText..stance.Name.."{nl}"
 			end
 	end
 		end

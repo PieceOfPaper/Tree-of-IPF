@@ -3,21 +3,55 @@
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- 카테고리 : 1차 카테고리, 서브카테고리 : 1차 카테고리 눌렀을 때 나오는 서브 카테고리. 필요 없으면 "None" 으로 지정 가능, 아이템클래스테임 : Item idspace에 등록되어 있는 아이템의 클래스네임, 프라이스 : 가격  -->
 <idspace id="TPitem">
-	<Category>
-		<Class ClassName="ClassName4" ItemClassName="Mic_bundle10" Price="8"/>
-		<Class ClassName="ClassName5" Price="1"/>
-		<Class ClassName="ClassName6" Price="32"/>
-		<Class ClassName="ClassName7" Price="4"/>
-		<Class ClassName="ClassName8" Price="16"/>
-		<Class ClassName="ClassName9" Price="2"/>
-		<Class ClassName="ClassName11" ItemClassName="Premium_Enchantchip_10" Price="64"/>
-		<Class ClassID="35" ClassName="ClassName35" Category="TP_Costume" SubCategory="TP_Hair_M_Premium" ItemClassName="HAIR_M_102" Price="119" Job="None" JobGrade="0"/>
-		<Class ClassID="36" ClassName="ClassName36" Category="TP_Costume" SubCategory="TP_Hair_M_Premium" ItemClassName="HAIR_M_101" Price="119" Job="None" JobGrade="0"/>
-		<Class ClassID="37" ClassName="ClassName37" Category="TP_Costume" SubCategory="TP_Hair_M_Premium" ItemClassName="HAIR_M_113" Price="119" Job="None" JobGrade="0"/>
-		<Class ClassID="38" ClassName="ClassName38" Category="TP_Costume" SubCategory="TP_Hair_M_Premium" ItemClassName="HAIR_M_114" Price="119" Job="None" JobGrade="0"/>
-		<Class ClassID="39" ClassName="ClassName39" Category="TP_Costume" SubCategory="TP_Hair_F_Premium" ItemClassName="HAIR_F_101" Price="178" Job="None" JobGrade="0"/>
-		<Class ClassID="40" ClassName="ClassName40" Category="TP_Costume" SubCategory="TP_Hair_F_Premium" ItemClassName="HAIR_F_102" Price="178" Job="None" JobGrade="0"/>
-		<Class ClassID="41" ClassName="ClassName41" Category="TP_Costume" SubCategory="TP_Hair_F_Premium" ItemClassName="HAIR_F_116" Price="178" Job="None" JobGrade="0"/>
-		<Class ClassID="42" ClassName="ClassName42" Category="TP_Costume" SubCategory="TP_Hair_F_Premium" ItemClassName="HAIR_F_115" Price="178" Job="None" JobGrade="0"/>
+	<Category Name="소모품 /잡화">
+		<SecondCategory Name="프리미엄 아이템">
+			<Class ClassID="1" ClassName="ClassName1" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="PremiumToken" Price="99" Job="None" JobGrade="0" LimitCount="5" LimitDuration="Month"/>
+		</SecondCategory>
+		<SecondCategory Name="소모품">
+			<Class ClassID="101" ClassName="ClassName101" Category="TP_Premium" SubCategory="TP_Consume" ItemClassName="Mic_bundle10" Price="8" Job="None" JobGrade="0"/>
+			<Class ClassID="103" ClassName="ClassName103" Category="TP_Premium" SubCategory="TP_Consume" ItemClassName="RestartCristal_bundle10" Price="32" Job="None" JobGrade="0"/>
+			<Class ClassID="104" ClassName="ClassName104" Category="TP_Premium" SubCategory="TP_Consume" ItemClassName="RestartCristal" Price="4" Job="None" JobGrade="0"/>
+			<Class ClassID="105" ClassName="ClassName105" Category="TP_Premium" SubCategory="TP_Consume" ItemClassName="Premium_WarpScroll_bundle10" Price="16" Job="None" JobGrade="0"/>
+			<Class ClassID="106" ClassName="ClassName106" Category="TP_Premium" SubCategory="TP_Consume" ItemClassName="Premium_WarpScroll" Price="2" Job="None" JobGrade="0"/>
+			<Class ClassID="108" ClassName="ClassName108" Category="TP_Premium" SubCategory="TP_Consume" ItemClassName="Premium_Enchantchip_10" Price="64" Job="None" JobGrade="0"/>
+		</SecondCategory>
+	</Category>
+	<Category Name="꾸미기">
+		<SecondCategory Name="프리미엄남성 헤어">
+			<Class ClassID="3401" ClassName="ClassName3401" Category="TP_Character" SubCategory="TP_Hair_M_Premium" ItemClassName="HAIR_M_102" Price="119" Job="None" JobGrade="0"/>
+			<Class ClassID="3402" ClassName="ClassName3402" Category="TP_Character" SubCategory="TP_Hair_M_Premium" ItemClassName="HAIR_M_101" Price="119" Job="None" JobGrade="0"/>
+			<Class ClassID="3403" ClassName="ClassName3403" Category="TP_Character" SubCategory="TP_Hair_M_Premium" ItemClassName="HAIR_M_113" Price="119" Job="None" JobGrade="0"/>
+			<Class ClassID="3404" ClassName="ClassName3404" Category="TP_Character" SubCategory="TP_Hair_M_Premium" ItemClassName="HAIR_M_114" Price="119" Job="None" JobGrade="0"/>
+		</SecondCategory>
+		<SecondCategory Name="프리미엄여성 헤어">
+			<Class ClassID="3601" ClassName="ClassName3601" Category="TP_Character" SubCategory="TP_Hair_F_Premium" ItemClassName="HAIR_F_101" Price="178" Job="None" JobGrade="0"/>
+			<Class ClassID="3602" ClassName="ClassName3602" Category="TP_Character" SubCategory="TP_Hair_F_Premium" ItemClassName="HAIR_F_102" Price="178" Job="None" JobGrade="0"/>
+			<Class ClassID="3603" ClassName="ClassName3603" Category="TP_Character" SubCategory="TP_Hair_F_Premium" ItemClassName="HAIR_F_116" Price="178" Job="None" JobGrade="0"/>
+			<Class ClassID="3604" ClassName="ClassName3604" Category="TP_Character" SubCategory="TP_Hair_F_Premium" ItemClassName="HAIR_F_115" Price="178" Job="None" JobGrade="0"/>
+		</SecondCategory>
+	</Category>
+	<Category Name="소모품 /잡화 더미">
+		<SecondCategory Name="소모품 /잡화 더미">
+			<Class ClassID="10001" ClassName="ClassName10001" Category="TP_Premium" SubCategory="None" ItemClassName="PremiumToken" Price="99" Job="None" JobGrade="0" LimitCount="5" LimitDuration="Month"/>
+			<Class ClassID="10004" ClassName="ClassName10004" Category="TP_Premium" SubCategory="None" ItemClassName="Mic_bundle10" Price="8" Job="None" JobGrade="0"/>
+			<Class ClassID="10006" ClassName="ClassName10006" Category="TP_Premium" SubCategory="None" ItemClassName="RestartCristal_bundle10" Price="32" Job="None" JobGrade="0"/>
+			<Class ClassID="10007" ClassName="ClassName10007" Category="TP_Premium" SubCategory="None" ItemClassName="RestartCristal" Price="4" Job="None" JobGrade="0"/>
+			<Class ClassID="10008" ClassName="ClassName10008" Category="TP_Premium" SubCategory="None" ItemClassName="Premium_WarpScroll_bundle10" Price="16" Job="None" JobGrade="0"/>
+			<Class ClassID="10009" ClassName="ClassName10009" Category="TP_Premium" SubCategory="None" ItemClassName="Premium_WarpScroll" Price="2" Job="None" JobGrade="0"/>
+			<Class ClassID="10011" ClassName="ClassName10011" Category="TP_Premium" SubCategory="None" ItemClassName="Premium_Enchantchip_10" Price="64" Job="None" JobGrade="0"/>
+			<Class ClassID="10012" ClassName="ClassName10012" Category="TP_Premium" SubCategory="None" ItemClassName="Premium_Enchantchip" Price="8" Job="None" JobGrade="0"/>
+		</SecondCategory>
+	</Category>
+	<Category Name="꾸미기 더미">
+		<SecondCategory Name="꾸미기 더미">
+			<Class ClassID="12023" ClassName="ClassName12023" Category="TP_Character" SubCategory="None" ItemClassName="HAIR_M_102" Price="119" Job="None" JobGrade="0"/>
+			<Class ClassID="12024" ClassName="ClassName12024" Category="TP_Character" SubCategory="None" ItemClassName="HAIR_M_101" Price="119" Job="None" JobGrade="0"/>
+			<Class ClassID="12025" ClassName="ClassName12025" Category="TP_Character" SubCategory="None" ItemClassName="HAIR_M_113" Price="119" Job="None" JobGrade="0"/>
+			<Class ClassID="12026" ClassName="ClassName12026" Category="TP_Character" SubCategory="None" ItemClassName="HAIR_M_114" Price="119" Job="None" JobGrade="0"/>
+			<Class ClassID="12030" ClassName="ClassName12030" Category="TP_Character" SubCategory="None" ItemClassName="HAIR_F_101" Price="178" Job="None" JobGrade="0"/>
+			<Class ClassID="12031" ClassName="ClassName12031" Category="TP_Character" SubCategory="None" ItemClassName="HAIR_F_102" Price="178" Job="None" JobGrade="0"/>
+			<Class ClassID="12032" ClassName="ClassName12032" Category="TP_Character" SubCategory="None" ItemClassName="HAIR_F_116" Price="178" Job="None" JobGrade="0"/>
+			<Class ClassID="12033" ClassName="ClassName12033" Category="TP_Character" SubCategory="None" ItemClassName="HAIR_F_115" Price="178" Job="None" JobGrade="0"/>
+		</SecondCategory>
 	</Category>
 </idspace>

@@ -1332,25 +1332,37 @@ function NUM_KILO_CHANGE(num)
     return str
 end
 
-function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES)
+function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestCount, chType)
     local ret = "HIDE"
     if questIES.PossibleUI_Notify == 'NO' then
-        return ret
+        return ret, subQuestCount
     end
+    local sobjIES = GET_MAIN_SOBJ();
+    local abandonCheck = QUEST_ABANDON_RESTARTLIST_CHECK(questIES, sobjIES)
+    local result = SCR_QUEST_CHECK_C(pc,questIES.ClassName)
     
-    if questIES.QuestMode ~= "MAIN" and questIES.Check_QuestCount > 0 then
+    if chType == 'Set2' then
+        ret = "OPEN"
+        return ret, subQuestCount
+    elseif (chType == 'ZoneMap' or chType == 'NPCMark') and abandonCheck == 'ABANDON/LIST' then
+        ret = "OPEN"
+        return ret, subQuestCount
+    elseif questIES.QuestMode ~= "MAIN" and subQuestCount == 0 and result == 'POSSIBLE' and (questIES.StartMap == GetZoneName(pc) or table.find(SCR_STRING_CUT(questIES.StartMapListUI), GetZoneName(pc)) > 0) then
+        ret = "OPEN"
+        return ret, subQuestCount + 1
+    elseif questIES.QuestMode ~= "MAIN" and questIES.Check_QuestCount > 0 and LINKZONECHECK(GetZoneName(pc), questIES.StartMap) == 'YES' then
         local sObj = GetSessionObject(pc, "ssn_klapeda")
         local result1 = SCR_QUEST_CHECK_MODULE_QUEST(pc, questIES, sObj)
         if result1 == "YES" then
             ret = "OPEN"
-            return ret
+            return ret, subQuestCount
         end
     elseif questIES.QuestMode == "MAIN" or questIES.PossibleUI_Notify == 'UNCOND' then
         ret = "OPEN"
-        return ret
+        return ret, subQuestCount
     end
     
-    return ret
+    return ret, subQuestCount
 end
 
 function SCR_GET_ZONE_FACTION_OBJECT(zoneClassName, factionList, monRankList, respawnTime)

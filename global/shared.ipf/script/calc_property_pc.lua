@@ -293,6 +293,11 @@ function SCR_Get_MINPATK(self)
 	local byItem3 = GetSumOfEquipItem(self, 'ADD_MINATK');
 	local leftMinAtk = 0;
 	
+	if jobObj.CtrlType == 'Warrior' then
+        	str = str * 1.3;
+	end
+	
+	
 	if GetEquipItemForPropCalc(self, 'LH') ~= nil then
     	leftHand = GetEquipItemForPropCalc(self, 'LH');
     	leftMinAtk = leftHand.MINATK;
@@ -320,6 +325,12 @@ function SCR_Get_MAXPATK(self)
 	local byItem2 = GetSumOfEquipItem(self, 'PATK');
 	local byItem3 = GetSumOfEquipItem(self, 'ADD_MAXATK');
     local leftMaxAtk = 0;
+	
+    
+	if jobObj.CtrlType == 'Warrior' then
+        	str = str * 1.3;
+	end
+	
 	
 	if GetEquipItemForPropCalc(self, 'LH') ~= nil then
     	leftHand = GetEquipItemForPropCalc(self, 'LH');
@@ -353,6 +364,10 @@ function SCR_Get_MINPATK_SUB(self)
     	rightMinAtk = rightHand.MINATK;
     end
 	
+	if jobObj.CtrlType == 'Warrior' then
+        	str = str * 1.3;
+	end
+	
 	local value = lv + str + byItem + byItem2 + byItem3 + buff - rightMinAtk;
 	
 	return math.floor(value);
@@ -374,6 +389,10 @@ function SCR_Get_MAXPATK_SUB(self)
     	rightMaxAtk = rightHand.MAXATK;
     end
 	
+	if jobObj.CtrlType == 'Warrior' then
+        	str = str * 1.3;
+	end
+
 	local value = lv + str + byItem + byItem2 + byItem3 + buff - rightMaxAtk;
 	
 	return math.floor(value);
@@ -1212,6 +1231,11 @@ function SCR_GET_PC_GUARDABLE(pc)
 	--	return 1;
 	--end
 	
+	if IsBuffApplied(pc, "Impaler_Buff") == "YES" then
+		return 0;
+	end
+
+
 	if pelGuard ~= nil and (lItem ~= nil and lItem.ClassType == "Shield") then	
 		return 1; 
 	end

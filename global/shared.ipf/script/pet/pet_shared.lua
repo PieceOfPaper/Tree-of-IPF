@@ -4,7 +4,7 @@ PET_ACTIVATE_COOLDOWN = 5;
 
 function GET_PET_STAT(self, lv, statStr)
     local statRatio = TryGetProp(self , statStr.."_Rate");
-	local stat = statRatio + statRatio / 25 * (lv * 1.5 + self.Level); -- �ʱ� ���дϾ� �ɷ�ġ�� �÷��ֱ� ���� self.Level���� ������
+	local stat = statRatio + statRatio / 25 * (lv * 1.5 + self.Level);
     return math.floor(stat);
 end
 
@@ -97,11 +97,9 @@ function PET_ATK_BY_ABIL(statValue)
 end
 
 function PET_ATK(self)
-    -- ���дϾ��� ATK ��ġ�� ����, ���� ���ݷ��� ���� ���
     local addLv = self.Level;
     local atk = self.Lv + self.STR + addLv + PET_ATK_BY_ABIL(self.Stat_ATK) + self.Stat_ATK_BM;
-    -- �⺻������ ���� ������ ���� �����ϸ� INT�� ���ݷ¿� ���������� ����ó���� �ʿ�
-	return math.floor(atk);
+    return math.floor(atk);
 end
 
 function PET_MINPATK(self)
@@ -225,7 +223,7 @@ end
 function PET_SDR(self)
     local value = 5;
     
-    if self.MonSDR < 0 then	-- �ĺ�
+    if self.MonSDR < 0 then
 		return -1;
 	elseif self.Size == 'S' then
         value = 1;
@@ -264,7 +262,6 @@ function PET_HR(self)
 end
 
 function GET_PET_STAT_PRICE(pc, pet, statName)
-
     local defPrice = 300;
 	if statName  == "DEF" then
 		defPrice = 600;

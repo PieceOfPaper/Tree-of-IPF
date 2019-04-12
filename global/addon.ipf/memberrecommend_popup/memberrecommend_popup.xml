@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
 <uiframe name="memberrecommend_popup" x="0" y="0" width="400" height="165" create="open">
 	<frame layout_gravity="left bottom" margin="100 0 0 280"/>
@@ -17,6 +17,6 @@
 		<richtext name="lv" rect="0 0 220 80" margin="120 60 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_16" format="%s 레벨" param1="level" param1_def="9999" textalign="left top"/>
 		<richtext name="job" rect="0 0 220 80" margin="120 80 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_16" format="%s (%s 랭크)" param1="jobname" param1_def="직업이름" param2="jobrank" param2_def="9999" textalign="left top"/>
 		<button name="invite" rect="0 0 130 50" margin="120 0 0 10" layout_gravity="left bottom" LBtnUpScp="MEMBER_RECOMMEND_INVITE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}초대" hittest="true" skin="test_red_button" oversound="button_over" clicksound="button_click_post"/>
-		<button name="close" rect="0 0 130 50" margin="255 0 0 10" layout_gravity="left bottom" LBtnUpScp="ui.CloseFrame(&apos;memberrecommend_popup&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}닫기" hittest="true" skin="test_gray_button" oversound="button_over" clicksound="button_click_big_2"/>
+		<button name="close" rect="0 0 130 50" margin="255 0 0 10" layout_gravity="left bottom" LBtnUpScp="MEMBER_RECOMMEND_REFUSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}거절" hittest="true" skin="test_gray_button" oversound="button_over" clicksound="button_click_big_2"/>
 	</controls>
 </uiframe>

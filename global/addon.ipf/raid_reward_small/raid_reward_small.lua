@@ -1,4 +1,4 @@
-
+﻿
 
 function RAID_REWARD_SMALL_ON_INIT(addon, frame)
 
@@ -16,7 +16,6 @@ function ITEM_BALLOON_CLEAR(handle)
 end
 
 function ITEM_BALLOON_COMMON(handle, itemCls, tooltipEnum, duration, delaySec, skinName, msgText)
--- ?????? ?????? ??? ??? ???? ?????
   if world.GetLayer() ~= 0 then
 		return 0;
 	end

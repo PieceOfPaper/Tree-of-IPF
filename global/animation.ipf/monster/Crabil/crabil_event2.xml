@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="22" soundFile="mon_rafflesia_skl"/>
+	<Sound frame="22" soundFile="mon_voice_throneweaver_8"/>
+	<Sound frame="22" soundFile="skl_eff_atk_move_m_4"/>
+	<Sound frame="22" soundFile="skl_eff_stone_blow_m"/>
+	<Sound frame="22" soundFile="swd_blow_flesh1--"/>
+	<Sound frame="22" soundFile="skl_eff_resizing_boom"/>
+	<Particle frame="22" attachNode="Dummy_effect_skl" particleName="F_ground127_water" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="22" attachNode="Dummy_effect_skl" particleName="F_burstup043_water_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

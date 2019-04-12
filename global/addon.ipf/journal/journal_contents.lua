@@ -111,6 +111,11 @@ function JOURNAL_CONTENTS_NPC(frame, group)
 			
 			local type = npcList:Key(npcIdx);
 			local genCls = GetGenTypeClass(mapName, type);
+			
+			if nil == genCls then
+				break;
+			end;
+			
 			npcIdx = npcList:Next(npcIdx);
 			local name = GET_GENCLS_NAME(genCls);
 

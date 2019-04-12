@@ -8,6 +8,7 @@
 	<option closebutton="false"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<script CloseScp="CLOSE_WORLDPVP" OpenScp="OPEN_WORLDPVP"/>
+	<userconfig IMAGE_GUILDBATTLE="{img guild_master_mark 32 20 }{/}" IMAGE_TEAMBATTLE="{img battle_mark 32 20 }{/}" FONT_GUILDBATTLE="{@st45tw}{s20}" FONT_TEAMBATTLE="{@st45ty}{s20}"/>
 	<userconfig TIME_TABLE_FONT="{@st42}" RANK_PAGE_FONT="{@st42}"/>
 	<controls>
 		<groupbox name="bg3" rect="0 0 500 1000" margin="-1 30 0 0" layout_gravity="center top" draw="true" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>

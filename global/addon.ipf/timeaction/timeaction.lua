@@ -73,10 +73,14 @@ function END_TIME_ACTION(frame, isFail)
 		
 end
 
+function STOP_TIEM_ACTINO(frame)
+	packet.StopTimeAction();
+	END_TIME_ACTION(frame, 1);
+end
+
 function UPDATE_TIME_ACTION(frame, timer, str, num, totalTime)
 	if 1 == control.IsMoving() then
-		packet.StopTimeAction();
-		END_TIME_ACTION(frame, 1);
+		STOP_TIEM_ACTINO(frame);
 		return;
 	end
 	

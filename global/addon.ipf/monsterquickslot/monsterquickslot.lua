@@ -1,4 +1,4 @@
-function MONSTERQUICKSLOT_ON_INIT(addon, frame)
+ï»¿function MONSTERQUICKSLOT_ON_INIT(addon, frame)
 
 end
 
@@ -61,7 +61,7 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 					end
 
 					
-					-- ÀÌ ¶«»§À» ¾îÂîÇØ¾Æ ÇÏ³ª? Á¦ÀÏ ÁÁÀº°Ç hotkey_joystic.xmlÀÇ Key, PressedKey¸¦ ¿¹»Ú°Ô Á¤¸®ÇÏ´Â °ÍÀÌ´Ù.
+					-- ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Ï³ï¿½? ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ hotkey_joystic.xmlï¿½ï¿½ Key, PressedKeyï¿½ï¿½ ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½.
 					hotKey = string.gsub(hotKey, "JOY_BTN_1", "X");
 					hotKey = string.gsub(hotKey, "JOY_BTN_2", "A");
 					hotKey = string.gsub(hotKey, "JOY_BTN_3", "Y");
@@ -113,4 +113,3 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 	
 
 end
-

@@ -644,25 +644,21 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 		end
 	end
 	
-	session.ResetItemList();
-
+	local resultlist = session.GetItemIDList();
 	for index=1, 5 do
 		local clsName = "Item_"..index.."_1";
 		local itemName = recipecls[clsName];
 		local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, clsName);
-		local invItem = session.GetInvItemByName(itemName);
-		if "None" ~= itemName then
-			if nil == invItem then
-				ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
-				return;
-			else
+		if 'None' ~= itemName then
+			for j = 0, resultlist:Count() - 1 do
+				local tempitem = resultlist:PtrAt(j);
+				local invItem = session.GetInvItemByGuid(tempitem.ItemID);
+				local itemobj = GetIES(invItem:GetObject());
+				if nil ~= invItem and itemobj.ClassName == itemName then
 				if true == invItem.isLockState then
 					ui.SysMsg(ClMsg("MaterialItemIsLock"));
 					return;
 				end
-				session.AddItemID(invItem:GetIESID(), recipeItemCnt);
-			end
-		end
 
 		if 0 ~= recipeItemCnt and 0 == IS_EQUIPITEM(itemName) then
 			if nil ~= invItem and invItem.count < (recipeItemCnt * totalCount) then
@@ -670,7 +666,15 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 				return;
 			end
 		end
+					break;
+				end
 
+				if resultlist:Count() - 1 == j then
+					ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
+					return;
+				end
+			end
+		end
 	end
 
 	--if frame:GetUserIValue("MANUFACTURING") == 1 then
@@ -763,8 +767,13 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_START(frame, msg, str, time)
 	end
 end
 
-function CRAFT_DETAIL_CRAFT_EXEC_ON_FAIL(frame, msg, str, time)
-	frame = ui.GetFrame(frame:GetUserValue("UI_NAME"))
+function CRAFT_DETAIL_CRAFT_EXEC_ON_FAIL(mainFrame, msg, str, time)
+	local frame = ui.GetFrame(mainFrame:GetUserValue("UI_NAME"))
+	if nil == frame then
+		mainFrame:SetUserValue("MANUFACTURING", 0);
+		return;
+	end
+
 	if frame:GetUserIValue("MANUFACTURING") == 1 then
 		local queueFrame = ui.GetFrame("craftqueue");
 		CLEAR_CRAFT_QUEUE(queueFrame);

@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="EUC-KR"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
 <ActionDesc>
 	<Shockwave frame="19" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
 	<Shockwave frame="21" type="2" intensity="20" frequency="40" duration="0.5" range="1000"/>
-	<Particle frame="18" attachNode="Bip01 L Foot" particleName="F_smoke109" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
-	<Particle frame="21" attachNode="Dummy_emitter" particleName="F_smoke062_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
-	<Particle frame="21" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="18" attachNode="Bip01 L Foot" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="21" attachNode="Dummy_emitter" particleName="F_smoke062_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+	<Particle frame="21" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
 	<Particle frame="12" attachNode="Dummy_emitter" particleName="E_warrior_murmillo1_trail" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_L_HAND" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_R_HAND" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_effect_wepon" particleName="I_force080_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_effect_wepon2" particleName="I_force080_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_effect_wepon3" particleName="I_force080_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Particle frame="21" attachNode="Dummy_emitter" particleName="F_smoke089" useAttach="false" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false"/>
 	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
 	<BlendOn frame="5" R="50" G="100" B="80" A="50"/>
 	<BlendOn frame="8" R="60" G="120" B="90" A="80"/>
@@ -18,10 +24,4 @@
 	<Sound frame="3" soundFile="skl_eff_murmillo_jump"/>
 	<Sound frame="5" soundFile="skl_fgt_horizontalcrasher_shot"/>
 	<Sound frame="18" soundFile="skl_eff_murmillo_landing"/>
-	<Particle frame="0" attachNode="Dummy_L_HAND" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
-	<Particle frame="0" attachNode="Dummy_R_HAND" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
-	<Particle frame="0" attachNode="Dummy_effect_wepon" particleName="I_force080_green_blue2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
-	<Particle frame="0" attachNode="Dummy_effect_wepon2" particleName="I_force080_green_blue2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
-	<Particle frame="0" attachNode="Dummy_effect_wepon3" particleName="I_force080_green_blue2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
-	<Particle frame="21" attachNode="Dummy_emitter" particleName="F_smoke089" useAttach="false" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false"/>
 </ActionDesc>

@@ -1,8 +1,38 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ka (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\field\f_bracken_42_1\"/>
-	<TexDir IpfName="bg_texture" Path="\common\"/>
-	<Model File="f_bracken_42_1_ground.xac" Model="f_bracken_42_1_ground" pos="0.0 0.0 0.0" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<ModelDir IpfName="bg_hi3" Path="\field\f_bracken_42_1\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<LightMap File="f_bracken_42_1_lightmap.jpg" Length="4000 4000" Offset="238.843 62.043" Size="1024 1024"/>
+	<AutoHeightMap Length="5000.0 5000.0" Offset="241.148 211.049" Height="10000 -10000"/>
+	<SubTexDir IpfName="bg_texture" Path="\desolated_capital\"/>
+	<SubTexDir IpfName="bg_texture" Path="\sky\"/>
+	<SubTexDir IpfName="bg_texture" Path="\abbey\"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\field\f_bracken_42_1\"/>
+	<TexDir IpfName="bg_texture" Path="\bracken\"/>
+	<Model File="f_bracken_42_1_ground.xac" Model="f_bracken_42_1_ground" ShadowMap="f_bracken_42_1_ground" pos="126.4841 552.1332 92.8435" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_b_model_03.xac" Model="f_bracken_42_1_b_model_03" ShadowMap="f_bracken_42_1_b_model_03" pos="245.9346 545.0381 -91.5576" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_gr_a_03.xac" Model="f_bracken_42_1_gr_a_03" ShadowMap="f_bracken_42_1_gr_a_03" pos="190.9434 552.4456 161.8661" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_gr_a_02.xac" Model="f_bracken_42_1_gr_a_02" ShadowMap="f_bracken_42_1_gr_a_02" pos="197.8176 552.5833 180.5619" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_grass_02.xac" Model="f_bracken_42_1_grass_02" ShadowMap="f_bracken_42_1_grass_02" pos="263.3184 599.4075 100.0012" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_b_model_01.xac" Model="f_bracken_42_1_b_model_01" ShadowMap="f_bracken_42_1_b_model_01" pos="206.7382 635.6475 130.9520" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_grass_01.xac" Model="f_bracken_42_1_grass_01" ShadowMap="f_bracken_42_1_grass_01" pos="-691.3234 417.3088 65.7932" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_water.xac" Model="f_bracken_42_1_water" pos="660.8406 615.2433 155.2552" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_grass_03.xac" Model="f_bracken_42_1_grass_03" ShadowMap="f_bracken_42_1_grass_03" pos="-922.8796 479.9581 20.2563" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_bl_01.xac" Model="f_bracken_42_1_bl_01" ShadowMap="f_bracken_42_1_bl_01" pos="797.4150 510.3989 275.5777" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_b_model_02.xac" Model="f_bracken_42_1_b_model_02" ShadowMap="f_bracken_42_1_b_model_02" pos="-139.1011 327.2927 156.0959" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_grass_04.xac" Model="f_bracken_42_1_grass_04" ShadowMap="f_bracken_42_1_grass_04" pos="705.8631 668.3136 406.5297" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_grass_05.xac" Model="f_bracken_42_1_grass_05" ShadowMap="f_bracken_42_1_grass_05" pos="1061.6560 626.6969 -505.9751" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_gr_a_01.xac" Model="f_bracken_42_1_gr_a_01" ShadowMap="f_bracken_42_1_gr_a_01" pos="210.2996 598.4414 -80.2192" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_light.xac" Model="f_bracken_42_1_light" pos="-366.1871 585.3824 -95.9238" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_grass_06.xac" Model="f_bracken_42_1_grass_06" ShadowMap="f_bracken_42_1_grass_06" pos="1180.4153 674.2789 160.6969" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_model_07.xac" Model="f_bracken_42_1_model_07" ShadowMap="f_bracken_42_1_model_07" pos="1703.1499 706.4408 -340.4263" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_model_06.xac" Model="f_bracken_42_1_model_06" ShadowMap="f_bracken_42_1_model_06" pos="1306.8450 653.7957 -229.8167" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_model_05.xac" Model="f_bracken_42_1_model_05" ShadowMap="f_bracken_42_1_model_05" pos="1081.1069 556.4821 -121.2050" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_model_04.xac" Model="f_bracken_42_1_model_04" ShadowMap="f_bracken_42_1_model_04" pos="341.4934 456.1953 -745.6343" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_model_03.xac" Model="f_bracken_42_1_model_03" ShadowMap="f_bracken_42_1_model_03" pos="228.0952 522.0156 -98.0225" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_model_02.xac" Model="f_bracken_42_1_model_02" ShadowMap="f_bracken_42_1_model_02" pos="-28.0918 487.2863 841.8641" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_obbcol.xac" Model="f_bracken_42_1_obbcol" pos="1081.1069 556.4821 -121.2050" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_bracken_42_1_model_01.xac" Model="f_bracken_42_1_model_01" ShadowMap="f_bracken_42_1_model_01" pos="-1086.5924 339.0549 17.8159" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

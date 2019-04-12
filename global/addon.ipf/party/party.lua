@@ -7,6 +7,7 @@ function PARTY_ON_INIT(addon, frame)
 	addon:RegisterMsg("PARTY_PROPERTY_UPDATE", "ON_PARTY_PROPERTY_UPDATE");
 	addon:RegisterMsg("PARTY_PROPERTY_NOTE_UPDATE", "ON_PARTY_PROPERTY_UPDATE");
 	addon:RegisterMsg("PVP_STATE_CHANGE", "PARTY_ON_PVP_STATE_CHANGE");
+	addon:RegisterMsg("PARTY_OPTION_RESET", "ON_PARTY_OPTION_RESET");
 	
 end
 
@@ -234,7 +235,24 @@ function OUT_PARTY_BTN(control)
 
 end
 
+function ON_PARTY_OPTION_RESET(frame, msg, argStr, argNum)
+	local pcparty = session.party.GetPartyInfo();
+	if pcparty == nil then
+		return;
+	end
+	local partyObj = GetIES(pcparty:GetObject());
 
+	local curValue = partyObj[argStr];
+	local gbox = frame:GetChild("gbox");	
+
+	local curButton = GET_CHILD(gbox, argStr .. "_" .. curValue, "ui::CRadioButton");
+	if nil == curButton then
+		return;
+	end
+
+	curButton:Select();
+	ui.SysMsg(ScpArgMsg("CannotChagePropertyThisServer"));
+end
 
 function SET_PARTY_PROPERTY_RADIO_BUTTON(gbox, partyObj, propName, maxValue, isLeader)
 

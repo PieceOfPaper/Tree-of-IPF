@@ -36,7 +36,7 @@
 		<groupbox name="previewgbox" parent="rightgbox" rect="0 0 380 330" margin="0 60 0 0" layout_gravity="center top" draw="false" scrollbar="false" hittestbox="false" resizebyparent="false" skin="none"/>
 		<richtext name="previewStatic" parent="previewgbox" rect="0 0 200 50" margin="13 13 0 0" layout_gravity="leff top" caption="미리보기" drawbackground="false" fixwidth="false" fontname="black_16_b" resizebytext="true" textalign="left center"/>
 		<picture name=" " parent="previewgbox" rect="0 0 380 330" margin="0 0 0 0" layout_gravity="center top" draw="true" hittest="true" image="market_view_bg" stretch="true"/>
-		<picture name="shihouette" parent="previewgbox" rect="0 0 200 330" margin="0 0 0 0" layout_gravity="center top" hittest="true" image="inventory_F" oversound="button_cursor_over_3" stretch="true"/>
+		<picture name="shihouette" parent="previewgbox" rect="0 0 185 330" margin="0 0 0 0" layout_gravity="center top" hittest="true" image="inventory_F" oversound="button_cursor_over_3" stretch="true"/>
 		<slotset name="previewslotset" parent="previewgbox" rect="0 0 336 42" margin="0 0 0 15" layout_gravity="center bottom" col="8" dropsound="inven_equip" oversound="button_cursor_over_3" picksound="icon_pick_up" row="1" size="42 42" skin="invenslot2" spc="2 2"/>
 		<richtext name="previewStaticTP" parent="rightgbox" rect="0 0 200 50" margin="25 400 0 0" layout_gravity="leff top" caption="착용 품목 TP" drawbackground="false" fixwidth="false" fontname="black_16_b" resizebytext="true" textalign="left center"/>
 		<richtext name="previewTP" parent="rightgbox" rect="0 0 200 50" margin="0 400 20 0" layout_gravity="right top" caption="99999999999" drawbackground="false" fixwidth="false" fontname="black_16_b" resizebytext="true" textalign="left center"/>

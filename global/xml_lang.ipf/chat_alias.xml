@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ChatAlias">
 	<Category>
 		<Class ClassID="1" ClassName="/s" Alias="/ㄴ" ConvertWhenSend="0"/>
@@ -11,8 +11,10 @@
 		<Class ClassID="7" ClassName="/party" Alias="/파티초대" ConvertWhenSend="1"/>
 		<Class ClassID="8" ClassName="/friend" Alias="/친구추가" ConvertWhenSend="1"/>
 		<Class ClassID="9" ClassName="/block" Alias="/차단" ConvertWhenSend="1"/>
-    <Class ClassID="10" ClassName="/indun" Alias="/인던" ConvertWhenSend="1"/>
-    <Class ClassID="11" ClassName="/guild" Alias="/길드초대" ConvertWhenSend="1"/>
-    <Class ClassID="12" ClassName="/g" Alias="/ㅎ" ConvertWhenSend="0"/>
-  </Category>
+		<Class ClassID="10" ClassName="/indun" Alias="/인던" ConvertWhenSend="1"/>
+		<Class ClassID="11" ClassName="/guild" Alias="/길드초대" ConvertWhenSend="1"/>
+		<Class ClassID="12" ClassName="/g" Alias="/ㅎ" ConvertWhenSend="0"/>
+		<Class ClassID="13" ClassName="/uicallscp_coin" Alias="/누적티켓" ConvertWhenSend="1"/>
+		<Class ClassID="14" ClassName="/uicallscp_test" Alias="/테스트" ConvertWhenSend="1"/>
+	</Category>
 </idspace>

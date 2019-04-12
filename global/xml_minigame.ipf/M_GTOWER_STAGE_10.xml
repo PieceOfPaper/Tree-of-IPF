@@ -42,6 +42,9 @@
                         <Str Str="raid_fail"/>
                         <Num Num="30"/>
                     </ToolScp>
+                <ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
+                        <Str Str="Fail"/>
+                    </ToolScp>
                 </StartScpList>
                 <ObjList/>
                 <StageEvents>
@@ -76,6 +79,9 @@
                         <Str Str="첫 번째 목표가 시작되었습니다{nl}고사리우스를 처치하세요"/>
                         <Str Str="stage_start"/>
                         <Num Num="20"/>
+                    </ToolScp>
+                <ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
+                        <Str Str="Start"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
@@ -501,10 +507,7 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="CHECK"/>
                             </ToolScp>
-                            <ToolScp Scp="REWARD_EARTH_TOWER" Client="NO" UseSleep="NO">
-                                <Str Str="GT_SELECT_STAGE_10"/>
-                            </ToolScp>
-                        </execList>
+                            </execList>
                     </Event>
                     <Event execCount="1" eventName="TIMEOUT">
                         <condList>
@@ -539,6 +542,9 @@
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
                         <Num Num="20"/>
+                    </ToolScp>
+                <ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
+                        <Str Str="Success"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
@@ -578,6 +584,9 @@
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
                         <Num Num="60"/>
                     </ToolScp>
+                <ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
+                        <Str Str="End"/>
+                    </ToolScp>
                 </StartScpList>
                 <ObjList/>
                 <StageEvents>
@@ -589,6 +598,13 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                <Event execCount="1" eventName="Reward">
+                        <execList>
+                            <ToolScp Scp="REWARD_EARTH_TOWER" Client="NO" UseSleep="NO">
+                                <Str Str="GT_SELECT_STAGE_10"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>

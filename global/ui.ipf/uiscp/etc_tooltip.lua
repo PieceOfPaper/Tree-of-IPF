@@ -16,7 +16,13 @@ function ITEM_TOOLTIP_ETC(tooltipframe, invitem, num1, usesubframe)
 	ypos = DRAW_ETC_PROPRTY(tooltipframe, invitem, ypos, mainframename); -- 쿨다운은 몇초입니다. 그런것들?
 	ypos = DRAW_ETC_DESC_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 아이템 설명.
 	ypos = DRAW_ETC_RECIPE_NEEDITEM_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 재료템이라면 필요한 재료랑 보여줌
-	ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename); -- 재료템이라면 필요한 재료랑 보여줌
+	
+	local isHaveLifeTime = TryGetProp(invitem, "LifeTime");	
+	if 0 == isHaveLifeTime then
+		ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename); -- 재료템이라면 필요한 재료랑 보여줌
+	else
+		ypos = DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, ypos, mainframename);
+	end
 	
 end
 

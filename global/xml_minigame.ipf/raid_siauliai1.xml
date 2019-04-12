@@ -172,14 +172,6 @@
                     <Obj Type="Monster" MonType="401341" Pos="-275.26#-74.46#-655.93" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;SurroundRate&apos; &apos;10&apos; &apos;Name&apos; &apos;싸늘한 포쿠부&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
-                    <Event eventName="setPosPC">
-                        <execList>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
-                                <AbsPosRange X="-340.14801" Y="-74.460503" Z="-901.02148" Range="90"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
                     <Event eventName="stSuccess" isEnabled="0">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
@@ -592,14 +584,6 @@
                                 <Str Str="bossGen"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
-                    <Event eventName="setPosPC">
-                        <execList>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
-                                <AbsPosRange X="106.01326" Y="1.8263" Z="767.06726" Range="80"/>
-                            </ToolScp>
                         </execList>
                     </Event>
                     <Event eventName="stSuccess" isEnabled="0">

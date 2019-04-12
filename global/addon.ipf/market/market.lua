@@ -68,8 +68,8 @@ function MARKET_SEARCH_GROUP_AND_CLASSTYPE(frame)
 	local groupName = frame:GetUserValue("Group");
 	local classType = frame:GetUserValue("ClassType");
 	if "None" == groupName or "None" == classType then
-		groupName = "ShowAll";
-		classType = "ShowAll";
+		groupName = "ALL";
+		classType = "ALL";
 	end
 
 	return groupName, classType;
@@ -229,8 +229,6 @@ end
 
 function MARKET_REQ_LIST(frame)
 	frame = frame:GetTopParentFrame();
-	frame:SetUserValue("Group", 'ShowAll');
-	frame:SetUserValue("ClassType", 'ShowAll');
 	MARGET_FIND_PAGE(frame, 0);
 end
 
@@ -300,10 +298,15 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 		if cid == marketItem:GetSellerCID() then
 			local button_1 = ctrlSet:GetChild("button_1");
 			button_1:SetEnable(0);
-			local button_report = ctrlSet:GetChild("button_report");
-			button_report:SetEnable(0);
 
-			local btn = ctrlSet:CreateControl("button", "DETAIL_ITEM_" .. i, 720, 8, 100, 50);
+			local btnmargin = 639
+			if USE_MARKET_REPORT == 1 then
+				local button_report = ctrlSet:GetChild("button_report");
+				button_report:SetEnable(0);
+				btnmargin = 720
+			end
+
+			local btn = ctrlSet:CreateControl("button", "DETAIL_ITEM_" .. i, btnmargin, 8, 100, 50);
 			btn = tolua.cast(btn, "ui::CButton");
 			btn:ShowWindow(1);
 			btn:SetText("{@st41b}" .. ClMsg("Cancel"));
@@ -320,7 +323,11 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 			local totalPrice = ctrlSet:GetChild("totalPrice");
 			totalPrice:SetTextByKey("value", 0);
 		else
-			local numUpDown = ctrlSet:CreateControl("numupdown", "DETAIL_ITEM_" .. i, 560, 20, 100, 30);
+			local btnmargin = 639
+			if USE_MARKET_REPORT == 1 then
+				btnmargin = 560
+			end
+			local numUpDown = ctrlSet:CreateControl("numupdown", "DETAIL_ITEM_" .. i, btnmargin, 20, 100, 30);
 			numUpDown = tolua.cast(numUpDown, "ui::CNumUpDown");
 			numUpDown:SetFontName("white_18_ol");
 			numUpDown:MakeButtons("btn_numdown", "btn_numup", "editbox");

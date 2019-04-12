@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="status" x="0" y="0" width="500" height="1080">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin=" "/>
@@ -26,7 +26,7 @@
 		<groupbox name="statusGbox" rect="0 0 480 415" margin="10 550 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle"/>
 		<groupbox name="achieveGbox" rect="0 0 500 830" margin="10 160 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="false"/>
 		<groupbox name="internalstatusBox" parent="statusGbox" rect="0 0 483 415" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true"/>
-		<groupbox name="internalBox" parent="achieveGbox" rect="0 0 480 840" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true"/>
+		<groupbox name="internalBox" parent="achieveGbox" rect="0 0 480 830" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true"/>
 		<groupbox name="logoutGBox" rect="0 0 495 915" margin="10 140 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="false"/>
 		<groupbox name="customizingGBox" parent="logoutGBox" rect="0 0 480 350" margin="0 110 0 0" layout_gravity="left top" draw="true" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
 		<richtext name="hairColorStatic" parent="customizingGBox" rect="0 0 200 20" margin="15 15 0 0" layout_gravity="left top" caption="{@st42}헤어컬러{/}" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>

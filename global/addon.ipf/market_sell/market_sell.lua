@@ -309,12 +309,13 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	local count = session.market.GetItemCount();
 	local userType = session.loginInfo.GetPremiumState();
 	local maxCount = GetCashValue(userType, "marketUpMax");
-		if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
 		local tokenCnt = GetCashValue(ITEM_TOKEN, "marketUpMax");
 		if tokenCnt > maxCount then
 			maxCount = tokenCnt;
 		end
 	end
+
 	if count+1 > maxCount then
 		ui.SysMsg(ClMsg("MarketRegitCntOver"));		
 		return;

@@ -22,7 +22,6 @@ function REINFORCE_131014_ITEM_LOCK(guid)
 	end
 
 	local invframe = ui.GetFrame("inventory");
-
 	invframe:SetUserValue("ITEM_GUID_IN_MORU", guid);
 	INVENTORY_ON_MSG(invframe, 'UPDATE_ITEM_REPAIR');
 end
@@ -94,6 +93,7 @@ function REINFORCE_131014_MSGBOX(frame)
 		return;
 	end
     
+    if moruObj.ClassName ~= "Moru_Potential" and moruObj.ClassName ~= "Moru_Potential14d" then
     if fromItemObj.GroupName == 'Weapon' then
     	if curReinforce >= 5 then
     		ui.MsgBox(ScpArgMsg("WeaponWarningMSG", "Auto_1", 5), "REINFORCE_131014_EXEC", "None");
@@ -105,6 +105,7 @@ function REINFORCE_131014_MSGBOX(frame)
     		return;
     	end
     end
+	end
 	
 	REINFORCE_131014_EXEC();
 end

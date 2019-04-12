@@ -94,9 +94,21 @@ function ON_CABINET_ITEM_LIST(frame)
 end
 
 function CABINET_GET_ALL_ITEM(parent, ctrl)
+    local pc = GetMyPCObject();
+    local now = pc.NowWeight
+    local flag = 0
 	for i = 0 , session.market.GetCabinetItemCount() - 1 do
 		local cabinetItem = session.market.GetCabinetItemByIndex(i);
+		local itemObj = GetIES(cabinetItem:GetObject());
+		if pc.MaxWeight < now + (itemObj.Weight * cabinetItem.count) then
+		    flag = 1
+		else
 		market.ReqGetCabinetItem(cabinetItem:GetItemID());
+		    now  = now + (itemObj.Weight * cabinetItem.count)
+		end
+	end
+	if flag == 1 then
+	    addon.BroadMsg("NOTICE_Dm_!", ScpArgMsg("MAXWEIGHTMSG"), 10);
 	end
 end
 

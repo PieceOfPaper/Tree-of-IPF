@@ -135,7 +135,6 @@ function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 							
 							slot:ShowWindow(1)							
 							UPDATE_INVENTORY_SLOT(slot, invItem, itemCls);
-							
 							INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, remainInvItemCount);
 							SET_SLOTSETTITLE_COUNT(tree, baseidcls, 1)
 											
@@ -372,7 +371,6 @@ function TEMP_INV_ADD(frame,invIndex)
 
 	local beforeSlotSetCount = #SLOTSET_NAMELIST;
 	local beforeGroupCount = #GROUP_NAMELIST;
-
 	INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls);
 		
 	--아이템 없는 빈 슬롯은 숨겨라
@@ -489,7 +487,7 @@ function TEMP_INV_REMOVE(frame, itemGuid)
 	if slot == nil then
 		return;
 	end
-
+	slot:SetText('{s18}{ol}{b}', 'count', 'right', 'bottom', -2, 1);
 	local slotIndex = slot:GetSlotIndex();
 	slotset:ClearSlotAndPullNextSlots(slotIndex, "ONUPDATE_SLOT_INVINDEX");
 	
@@ -1806,18 +1804,15 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	icon:Set(imageName, 'Item', itemType, invItem.invIndex, invItem:GetIESID(), invItem.count);
 
 	ICON_SET_INVENTORY_TOOLTIP(icon, invItem, nil, class);
-	
-	
+	local itemobj = GetIES(invItem:GetObject());	
 
 	if class.ItemType == 'Equip' then
+		local resultLifeTimeOver = IS_LIFETIME_OVER(itemobj);
 		local result = CHECK_EQUIPABLE(itemType);
-		if result ~= "OK" then
+		if (result ~= "OK") or (resultLifeTimeOver == 1) then
 			icon:SetColorTone("FFFF0000");
 		end
 	end
-
-	local itemobj = GetIES(invItem:GetObject());
-
 	SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemobj, count);
 
 	--아이템이 선택되었을 때의 스크립트를 선택한다
@@ -2118,8 +2113,11 @@ function INVENTORY_DELETE(itemIESID, itemType)
 
 	local itemProp = geItemTable.IsDestroyable(itemType);
 	if cls.Destroyable == 'NO' or geItemTable.IsDestroyable(itemType) == false then
+		local obj = GetIES(invItem:GetObject());
+		if obj.ItemLifeTimeOver == 0 then
 		ui.AlarmMsg("ItemIsNotDestroy");
 		return;
+	end
 	end
 
 	--if cls.UserTrade == 'YES' or cls.ShopTrade == 'YES' then
@@ -2483,3 +2481,30 @@ function INV_HAT_VISIBLE_STEATE_SET(frame)
 
 	control.CustomCommand("HAT_VISIBLE_STATE", index);
 end
+-- 기간제 아이템 판별 함수
+function IS_LIFETIME_OVER(itemobj)
+
+	if itemobj.LifeTime == nil then
+		return 0;
+
+	elseif 0 ~= itemobj.LifeTime then		
+
+		-- 기간에 따라 정하기
+		local sysTime = geTime.GetServerSystemTime();
+		local endTime = imcTime.GetSysTimeByStr(itemobj.ItemLifeTime);
+		local difSec = imcTime.GetDifSec(endTime, sysTime);		
+		
+		-- 기간만료 일 경우에
+		if 0 > difSec then
+			return 1;
+		end;
+		
+		-- ItemLifeTimeOver으로 검사하는 함수		
+		--[[
+		if 0 ~= itemobj.ItemLifeTimeOver then
+			return 1;
+		end;
+		]]
+	end;
+	return 0;
+end;

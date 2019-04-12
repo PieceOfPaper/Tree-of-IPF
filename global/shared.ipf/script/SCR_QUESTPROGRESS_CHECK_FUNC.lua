@@ -311,6 +311,7 @@ function IS_SELECTED_JOB(pc, questname, scriptInfo)
 end
 
 
+
 ---- Is it possible to hidden class?
 --IS_POSSIBLE_HIDDEN_JOB/job_ClassName
 function IS_POSSIBLE_HIDDEN_JOB(pc, questname, scriptInfo)
@@ -355,6 +356,7 @@ function IS_POSSIBLE_HIDDEN_JOB(pc, questname, scriptInfo)
     end
     return 'NO'
 end
+
 
 
 function SCR_TUT_COLLECT_01_PRE_FUNC(pc, questname, scriptInfo)

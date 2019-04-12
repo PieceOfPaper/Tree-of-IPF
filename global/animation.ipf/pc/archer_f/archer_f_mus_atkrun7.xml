@@ -3,6 +3,7 @@
 <ActionDesc>
     <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
     <Sound frame="0.00" soundFile="arrow_blow_normal"/>
+    <Sound frame="0.00" soundFile="walk_left"/>
     <Sound frame="1.43" soundFile="crossbow_shot"/>
     <Sound frame="3.50" soundFile="voice_archer_f_atk"/>
     <BlendOn frame="4" R="100" G="90" B="80" A="100"/>
@@ -16,4 +17,5 @@
     <BlendOn frame="6" R="60" G="40" B="30" A="70"/>
     <BlendOn frame="7" R="30" G="20" B="10" A="40"/>
     <BlendOff frame="8" R="0" G="0" B="0" A="0"/>
+    <Sound frame="9.00" soundFile="walk_left"/>
 </ActionDesc>

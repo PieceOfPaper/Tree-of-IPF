@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
     <Game Name="ItemAwakeningDungeon" minLv="0" maxLv="0" mapName="d_itemdungeon_1" startWaitSec="497389056">
+      <EnterList>
+        <ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
+          <Num Num="2"/>
+          <Str Str="SCP_ENTER_ALCHEMIST_MISSION"/>
+        </ToolScp>
+      </EnterList>
         <StageList>
             <Stage Name="DefGroup">
                 <ObjList>

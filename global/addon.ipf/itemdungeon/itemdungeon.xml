@@ -30,7 +30,7 @@
         <slot name="slot_needitem" rect="0 0 70 70" margin="40 515 0 0" layout_gravity="left top" DropScp="None" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}필요재료{/}"/>
         <labelline name="Optionline" parent="bodyGbox" rect="0 0 420 1" margin="0 0 0 515" layout_gravity="center bottom" skin="None"/>
         <labelline name="Optionline2" parent="bodyGbox" rect="0 0 420 1" margin="0 0 0 120" layout_gravity="center bottom" skin="None"/>
-        <richtext name="richtext_1_1" rect="0 0 160 24" margin="30 641 0 0" layout_gravity="left top" caption="{@st41}재물 재료" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="richtext_1_1" rect="0 0 160 24" margin="30 641 0 0" layout_gravity="left top" caption="{@st41}제물 재료" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
         <labelline name="Optionline2_1" parent="bodyGbox" rect="0 0 420 1" margin="0 0 0 350" layout_gravity="center bottom" skin="None"/>
       <slot name="stoneSlot" rect="0 0 70 70" margin="40 680 0 0" layout_gravity="left top" DropScp="ITEMDUNGEON_DROP_WEALTH_ITEM" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}아이템을 올려주세요{/}"/>
         <slot name="partySlot" rect="0 0 220 30" margin="170 908 0 0" layout_gravity="left top" DropScp="None" movepop="false"/>

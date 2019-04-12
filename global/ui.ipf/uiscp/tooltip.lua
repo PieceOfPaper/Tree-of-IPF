@@ -631,10 +631,13 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 	if noTradeCnt ~= nil and 0 <= noTradeCnt then
 		noTrade:SetTextByKey('count', noTradeCnt);
 		noTrade:ShowWindow(1);
+		noTrade:SetOffset(noTrade:GetOriginalX() + 10, ypos - noTrade:GetOriginalHeight());
 	else
+		noTrade:SetOffset(noTrade:GetOriginalX(),noTrade:GetOriginalY());
 		noTrade:ShowWindow(0);
 	end
 
+	noTrade:Invalidate();
 	frame:Resize(frame:GetWidth(), ypos + 10);
 	frame:Invalidate();
 

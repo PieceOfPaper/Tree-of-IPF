@@ -232,6 +232,14 @@ function GET_RECIPE_GROUP_NAME(groupname)
 		return ScpArgMsg('RecipeGroup_Musket')
 	end
 	
+	if groupname == 'Premium' then
+		return ScpArgMsg('TP_Premium')
+	end
+	
+	if groupname == 'Drug' then
+		return ScpArgMsg('Drug')
+	end
+	
 	return groupname;
 
 end

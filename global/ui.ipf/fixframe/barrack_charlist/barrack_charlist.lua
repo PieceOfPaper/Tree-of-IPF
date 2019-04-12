@@ -90,6 +90,9 @@ function SELECTTEAM_NEW_CTRL(frame, actor)
 
 	local barrackName = ui.GetFrame("barrack_name");
 	local teamlevel = barrackName:GetChild("teamlevel");
+	local nameCtrl = GET_CHILD(barrackName, "barrackname");
+	nameCtrl:SetPos(teamlevel:GetX() + teamlevel:GetWidth() + 20,nameCtrl:GetY());
+
 	teamlevel:SetTextByKey("value", account:GetTeamLevel());
 	local buySlot = session.loginInfo.GetBuySlotCount();
 	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();

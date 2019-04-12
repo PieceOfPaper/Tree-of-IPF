@@ -1,5 +1,27 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ka (IMCGames Co., Ltd) -->
 <Prop>
+	<Model Path="f_bracken_42_1_b_model_01.xac" RenderType="RT_MUD" IsBloom="0" Type="" NoCol="0"/>
+	<Model Path="f_bracken_42_1_b_model_02.xac" RenderType="RT_MUD" IsBloom="0" Type="" NoCol="0"/>
+	<Model Path="f_bracken_42_1_b_model_03.xac" RenderType="RT_MUD" IsBloom="0" Type="" NoCol="0"/>
+	<Model Path="f_bracken_42_1_bl_01.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_bracken_42_1_gr_a_01.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_bracken_42_1_gr_a_02.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_bracken_42_1_gr_a_03.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_bracken_42_1_grass_01.xac" RenderType="RT_MODEL" IsBloom="0" Type="" IsGrass="1" GrassWindPower="4000" GrassTime="3" IsDynTree="1" GrassWindDir="1" NoCol="1"/>
+	<Model Path="f_bracken_42_1_grass_02.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_bracken_42_1_grass_03.xac" RenderType="RT_MODEL" IsBloom="0" Type="" IsGrass="1" GrassWindPower="500" GrassTime="3" IsDynTree="1" GrassWindDir="1" NoCol="1"/>
+	<Model Path="f_bracken_42_1_grass_04.xac" RenderType="RT_MODEL" IsBloom="0" Type="" IsGrass="1" GrassWindPower="500" GrassTime="3" IsDynTree="1" GrassWindDir="1" NoCol="1"/>
+	<Model Path="f_bracken_42_1_grass_05.xac" RenderType="RT_MODEL" IsBloom="0" Type="" IsGrass="1" GrassWindPower="500" GrassTime="3" IsDynTree="1" GrassWindDir="1" NoCol="1"/>
+	<Model Path="f_bracken_42_1_grass_06.xac" RenderType="RT_MODEL" IsBloom="0" Type="" IsGrass="1" GrassWindPower="4000" GrassTime="3" IsDynTree="1" GrassWindDir="1" NoCol="1"/>
 	<Model Path="f_bracken_42_1_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="f_bracken_42_1_light.xac" RenderType="RT_PLANELIGHT" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_bracken_42_1_model_01.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_bracken_42_1_model_02.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_bracken_42_1_model_03.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_bracken_42_1_model_04.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_bracken_42_1_model_05.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_bracken_42_1_model_06.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_bracken_42_1_model_07.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_bracken_42_1_water.xac" RenderType="RT_WATER" IsBloom="0" Type="" IsWater="1" WaterDiffDir="0 -0.0" WaterSwaySpeed="0.1" WaterSwayRange="0.01 0" waterSwayPower="0.5" RefractionNormalSize="0.01" RefractionDir="-0.15 0.01" RefractionPower="0.01" WaterSprayNormalSize="0.01" WaterSprayDir="-0.1 -0.01" WaterSprayPower="0.00" WaterSprayRange="0.0" WaterSpraycolor="0.1 0.2 0.3" NoCol="1"/>
 </Prop>

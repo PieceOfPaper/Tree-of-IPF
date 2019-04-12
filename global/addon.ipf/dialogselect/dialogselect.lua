@@ -66,12 +66,12 @@ function DIALOGSELECT_ITEM_ADD(frame, msg, argStr, argNum)
 				ItemBtnCtrl:SetOffset(0, boxHeight + offsetEx);	
 			else				
 				frame:SetUserValue("IsScroll", "NO");	
-				ItemBtnCtrl:SetOffset(0, height + offset + 10);			
+				ItemBtnCtrl:SetOffset(0, height + offset + 10 + ItemBtnCtrl:GetHeight());			
 			end;
 			frame:SetUserValue("FIRSTORDER_MAXHEIGHT", 0);
 		else			
 			if frame:GetUserValue("IsScroll") == "NO" then
-				height = y;	
+				height = y + ItemBtnCtrl:GetHeight();	
 				frameHeight = height + offset + 50;	
 				ItemBtnCtrl:SetOffset(0, height + offset + 10);
 			else

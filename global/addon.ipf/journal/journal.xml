@@ -9,7 +9,7 @@
     <option closebutton="false"/>
     <sound opensound="window_mohum_open" closesound="window_mohum_close"/>
     <script OpenScp="OPEN_JOURNAL" CloseScp="JOURNAL_CLOSE"/>
-    <userconfig NOT_HAVE_WIKI="AA555555" BG_MONSTER="bg2" BG_ITEM="bg2" BG_RECIPE="bg2" BG_MAP_PAGE="bg2" BG_MAP_QUEUE="bg2"/>
+    <userconfig NOT_HAVE_WIKI="AA555555" BG_MONSTER="bg2" BG_ITEM="bg2" BG_RECIPE="bg2" BG_MAP_PAGE="none" BG_MAP_QUEUE="none"/>
     <controls>
         <groupbox name="bg3" rect="0 0 600 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
         <groupbox name="bg_menu" rect="0 0 600 130" margin="0 90 0 0" layout_gravity="center top" draw="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="pipwin_low"/>
@@ -48,7 +48,7 @@
         <groupbox name="Monster" rect="0 0 590 815" margin="5 240 0 0" layout_gravity="left top" draw="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
         <controlset name="ctrlset" parent="Monster" rect="0 0 570 120" margin="0 0 0 0" layout_gravity="left top" hittest="true" type="journal_category_set"/>
 		<groupbox name="map" rect="0 0 590 770" margin="5 240 0 0" layout_gravity="left top" draw="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
-        <controlset name="ctrlset" parent="map" rect="0 0 570 120" margin="5 0 0 0" layout_gravity="center top" hittest="true" type="journal_map_set"/>
+        <controlset name="ctrlset" parent="map" rect="0 0 580 120" margin="5 0 0 0" layout_gravity="center top" hittest="true" type="journal_map_set"/>
         <groupbox name="contents" rect="0 0 590 805" margin="5 240 0 0" layout_gravity="left top" draw="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
         <controlset name="ctrlset" parent="contents" rect="0 0 570 120" margin="5 0 0 0" layout_gravity="center top" hittest="true" type="journal_contents_set"/>
         <groupbox name="leveling" rect="0 0 0 0" margin="30 80 30 30" layout_gravity="none none" scrollbar="false"/>

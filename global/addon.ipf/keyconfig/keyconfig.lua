@@ -7,6 +7,8 @@ function INIT_KEYCONFIG_CATEGORY(tree, cateName, imgName)
 	img:SetImage(imgName);
 	
 	local handle = tree:FindByObject(mouse);
+	
+	tree:SetFitToChild(true,50);
 	tree:SetFoldingScript(handle, "KEYCONFIG_UPDATE_FOLDING");
 
 end

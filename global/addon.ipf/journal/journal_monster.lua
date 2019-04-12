@@ -23,8 +23,10 @@ function SET_MON_CATEGORY_FILTER(ctrlset)
 	local tree = GET_CHILD(gBox, "tree", 'ui::CTreeControl');
 	local list = {};
 	list[#list + 1] = "Normal";
+	list[#list + 1] = "Special";
+	list[#list + 1] = "Elite";
 	list[#list + 1] = "Boss";
-	SET_CATEGORY_BY_PROP(tree, "Monster", "MonRank", "RaceType", "MonCategory_", list)	
+	SET_CATEGORY_BY_PROP(tree, "Monster", "MonRank", "RaceType", "MonCategory_", list, 10)	
 	gBox:EnableScrollBar(0);
 end
 

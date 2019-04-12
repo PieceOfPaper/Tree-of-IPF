@@ -84,9 +84,9 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 	
 	local mypclevel = GETMYPCLEVEL();
 	local levelcolor = ""
+	local targetHandle = session.GetTargetHandle();
 	
-	
-	local targetinfo = info.GetTargetInfo( session.GetTargetHandle() );
+	local targetinfo = info.GetTargetInfo( targetHandle );
 	if nil == targetinfo then
 		return;
 	end
@@ -102,12 +102,15 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 		return;
 	end
 
-	local hpGauge 
+	local hpGauge; 
 
 	if targetinfo.isBoss == 1 then
 		return;
 	end
 	
+	local normalImage;
+	local eliteImage;
+
 	if targetinfo.isElite == 1 then
 		hpGauge = GET_CHILD(frame, "elite", "ui::CGauge");
 		local normal = GET_CHILD(frame, "normal", "ui::CGauge");
@@ -115,9 +118,8 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 		normal:ShowWindow(0);
 		elite:ShowWindow(1);
 
-
-		local normalImage = GET_CHILD(frame, "target_info_gauge_image", "ui::CPicture");
-		local eliteImage = GET_CHILD(frame, "elitetarget_info_gauge_image", "ui::CPicture");
+		normalImage = GET_CHILD(frame, "target_info_gauge_image", "ui::CPicture");
+		eliteImage = GET_CHILD(frame, "elitetarget_info_gauge_image", "ui::CPicture");
 		normalImage:ShowWindow(0);
 		eliteImage:ShowWindow(1);
 
@@ -128,12 +130,25 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 		normal:ShowWindow(1);
 		elite:ShowWindow(0);
 
-		local normalImage = GET_CHILD(frame, "target_info_gauge_image", "ui::CPicture");
-		local eliteImage = GET_CHILD(frame, "elitetarget_info_gauge_image", "ui::CPicture");
+		normalImage = GET_CHILD(frame, "target_info_gauge_image", "ui::CPicture");
+		eliteImage = GET_CHILD(frame, "elitetarget_info_gauge_image", "ui::CPicture");
 		normalImage:ShowWindow(1);
 		eliteImage:ShowWindow(0);
 	end
 	
+	local targetMonRank = info.GetMonRankbyHandle(targetHandle);
+	if nil ~= targetMonRank then		
+		if targetMonRank == 'Special' then
+			normalImage:SetImage("expert_info_gauge_image");
+			eliteImage:SetImage("expert_info_gauge_image");
+		else
+			normalImage:SetImage("target_info_gauge_image");
+			eliteImage:SetImage("elitetarget_info_gauge_image");
+		end;
+
+	end;
+
+
 	frame:SetValue(session.GetTargetHandle());
 
 	local dist = targetinfo.distance;

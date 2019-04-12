@@ -670,6 +670,8 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 		return;
 	end
 
+	local subQuestCount = 0
+	
     for i = 0, class_count-1 do
         local questIES = GetClassByIndex('QuestProgressCheck', i);
 
@@ -760,6 +762,48 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
                         			end
                         		end
                         	end
+                        end
+                    end
+                end
+                
+                if questIES.QuestMode ~= 'MAIN' then
+                    if result == nil then
+                        result = SCR_QUEST_CHECK_C(self, questIES.ClassName)
+                    end
+                    if result == 'POSSIBLE' then
+                        if questIES.StartMap ~= 'None' and questIES.StartNPC ~= 'None' and GetZoneName(self) == questIES.StartMap then
+                            local result2
+                            result2, subQuestCount = SCR_POSSIBLE_UI_OPEN_CHECK(self, questIES, subQuestCount, 'ZoneMap')
+                            
+                            if result2 == 'OPEN' then
+                            	local genDlgIESList = SCR_GET_XML_IES('GenType_'..questIES.StartMap, 'Dialog', questIES.StartNPC)
+                            	local genEntIESList = SCR_GET_XML_IES('GenType_'..questIES.StartMap, 'Enter', questIES.StartNPC)
+                            	local genLevIESList = SCR_GET_XML_IES('GenType_'..questIES.StartMap, 'Leave', questIES.StartNPC)
+                            	
+                            	if #genDlgIESList > 0 or #genEntIESList > 0 or #genLevIESList > 0 then
+                            	    local genType
+                            	    local genIES
+                            	    if #genDlgIESList > 0 then
+                            	        genIES = genDlgIESList[1]
+                            	        genType = genDlgIESList[1].GenType
+                            	    elseif  #genEntIESList > 0 then
+                            	        genIES = genEntIESList[1]
+                            	        genType = genEntIESList[1].GenType
+                           	        elseif  #genLevIESList > 0 then
+                            	        genIES = genLevIESList[1]
+                            	        genType = genLevIESList[1].GenType
+                           	        end
+                           	        
+                           	        if genType ~= nil and ( genIES.Minimap == 1 or genIES.Minimap == 3) and string.find(genIES.ArgStr1, 'NPCStateLocal/') == nil and string.find(genIES.ArgStr2, 'NPCStateLocal/') == nil and string.find(genIES.ArgStr3, 'NPCStateLocal/') == nil  then
+                           	            local mapprop = session.GetCurrentMapProp();
+                                    	local mapNpcState = session.GetMapNPCState(mapprop:GetClassName());
+                                    	local curState = mapNpcState:FindAndGet(genType);
+                                    	if curState < 1 then
+                                    	    control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 6);
+                                    	end
+                           	        end
+                            	end
+                            end
                         end
                     end
                 end

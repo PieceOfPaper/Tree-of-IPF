@@ -39,8 +39,8 @@ function SET_CHAT_TEXT(txt)
 	edit:ShowWindow(1);
 
 	local editCtrl 	= tolua.cast(edit, "ui::CEditControl");
-	editCtrl:AcquireFocus();
 	edit:SetText(txt);
+	editCtrl:AcquireFocus();
 end
 
 

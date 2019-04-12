@@ -10,7 +10,7 @@
 	<option hideable="false" closebutton="false"/>
 	<controls>
 		<!--text name="SERVERLIST" rect="0 0 200 30" layout_gravity="right top" margin="0 240 25 0" textalign="center center" caption="서버 리스트" fontname="white_login_text"/-->
-		<text name="SERVERLIST" rect="0 0 200 26" margin="0 0 0 0" layout_gravity="center top" textalign="center center" caption="서버 목록" fontname="white_20_ol"/>
+		<text name="SERVERLIST" rect="0 0 100 26" margin="0 0 0 0" layout_gravity="center top" textalign="center center" caption="서버 목록" fontname="white_20_ol"/>
 		<listbox name="select server" rect="0 0 230 230" skin="bg2" layout_gravity="center top" margin="0 35 0 0" selectionimage="bar_selection" cursoronimage="bar_cursoron" columnsort="true" showtitle="false" clicksound="button_click" oversound="button_cursor_over_3" horzgrid="false" tooltipcaption="{@st59}접속을 원하는 서버를 선택하여 주세요{/}" tooltipwidth="512"/>
 	</controls>
 </uiframe>

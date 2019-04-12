@@ -50,6 +50,48 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 		else
 			ctrlSet:GetChild("monlv"):SetVisible(0)
 		end	
+    	
+    	local questClsList, questCnt = GetClassList('QuestProgressCheck');	
+		local subX = 15
+		local subY = 55
+		local viewCount = 1
+		local pc = GetMyPCObject();
+    	for index = 0, questCnt-1 do
+    		local questIES = GetClassByIndexFromList(questClsList, index);
+    		if questIES.StartMap == drawCls.ClassName and questIES.PossibleUI_Notify ~= 'NO' and questIES.QuestMode == 'MAIN' and questIES.Level ~= 9999 and questIES.Lvup ~= -9999 and questIES.QuestStartMode ~= 'NPCENTER_HIDE' then
+    		    local result = SCR_QUEST_CHECK_C(pc, questIES.ClassName)
+    		    if result == 'POSSIBLE' then
+    		        local picture = ctrlSet:CreateOrGetControl('picture', "questListBoxIcon"..viewCount, subX, subY + (viewCount - 1)*20, 20, 20);
+                	tolua.cast(picture, "ui::CPicture");
+                	picture:SetImage(GET_QUESTINFOSET_ICON_BY_STATE_MODE(result, questIES));
+                	picture:SetEnableStretch(1);
+        		    local questListBox = ctrlSet:CreateControl('richtext', "questListBox"..viewCount, subX + 20, subY + (viewCount - 1)*20, 20, 100);
+                	questListBox:SetText('{@st70_m}'..questIES.Name..'{/}');
+                	viewCount = viewCount + 1
+                end
+    		end
+    	end
+    	for index = 0, questCnt-1 do
+    		local questIES = GetClassByIndexFromList(questClsList, index);
+    		if questIES.StartMap == drawCls.ClassName and questIES.PossibleUI_Notify ~= 'NO' and questIES.QuestMode ~= 'MAIN' and questIES.Level ~= 9999 and questIES.Lvup ~= -9999 and questIES.QuestStartMode ~= 'NPCENTER_HIDE' then
+    		    local result = SCR_QUEST_CHECK_C(pc, questIES.ClassName)
+    		    if result == 'POSSIBLE' then
+    		        local picture = ctrlSet:CreateOrGetControl('picture', "questListBoxIcon"..viewCount, subX, subY + (viewCount - 1)*20, 20, 20);
+                	tolua.cast(picture, "ui::CPicture");
+                	picture:SetImage(GET_QUESTINFOSET_ICON_BY_STATE_MODE(result, questIES));
+                	picture:SetEnableStretch(1);
+        		    local questListBox = ctrlSet:CreateControl('richtext', "questListBox"..viewCount, subX + 20, subY + (viewCount - 1)*20, 20, 100);
+        		    if questIES.QuestMode == 'SUB' then
+                    	questListBox:SetText('{@st70_s}'..questIES.Name);
+                    elseif questIES.QuestMode == 'REPEAT' then
+                        questListBox:SetText('{@st70_d}'..questIES.Name);
+                    else
+                        questListBox:SetText('{@st70_s}'..questIES.Name);
+                    end
+                	viewCount = viewCount + 1
+                end
+    		end
+    	end
 	end
 
 	GBOX_AUTO_ALIGN_HORZ(frame, 10, 5, 0, true, true, 512, true);	

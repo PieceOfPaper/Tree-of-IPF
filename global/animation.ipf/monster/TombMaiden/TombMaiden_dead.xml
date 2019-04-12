@@ -3,6 +3,7 @@
 <ActionDesc>
     <BlendOn frame="0" R="50" G="50" B="10" A="30"/>
     <Sound frame="0.00" soundFile="mon_tomblord_dead"/>
+    <Sound frame="0.00" soundFile="mon_voice_screech_2"/>
     <Particle frame="3" attachActor="None" attachNode="Bip001 Spine2" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="10" pause="true" use2DEffect="false" targetPos="false"/>
     <BlendOn frame="10" R="150" G="150" B="100" A="150"/>
     <Particle frame="20" attachActor="None" attachNode="Bip001 Spine2" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="20" pause="true" use2DEffect="false" targetPos="false"/>

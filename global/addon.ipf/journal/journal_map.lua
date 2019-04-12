@@ -9,8 +9,8 @@ function CREATE_JOURNAL_ARTICLE_MAP(frame, grid, key, text, iconImage, callback)
 	CREATE_JOURNAL_ARTICLE(frame, grid, key, text, iconImage, callback);
 
 	local group = GET_CHILD(frame, 'map', 'ui::CGroupBox')
-	local page = group:CreateOrGetControl('groupbox', 'page_Map', 0, 0, ui.NONE_HORZ, ui.NONE_VERT, 10, 50, 10, 30)
-	local queue = page:CreateOrGetControl('queue', 'page_Queue', 0, 100, ui.NONE_HORZ, ui.TOP, 15, 20, 20, 0)
+	local page = group:CreateOrGetControl('groupbox', 'page_Map', 0, 0, ui.NONE_HORZ, ui.NONE_VERT, 0, 0, 0, 0)
+	local queue = page:CreateOrGetControl('queue', 'page_Queue', 0, 100, ui.NONE_HORZ, ui.TOP, 0, 0, 0, 0)
 	queue:RemoveAllChild();
 	page:SetSkinName(frame:GetUserConfig(""));
 	queue:SetSkinName(frame:GetUserConfig("BG_MAP_QUEUE"));
@@ -85,7 +85,7 @@ function CREATE_JOURNAL_ARTICLE_MAP(frame, grid, key, text, iconImage, callback)
 		local zone = cateList[i];
 		local mapName = zone:GetUserValue("MAPNAME");
 
-		local title = zone:CreateOrGetControlSet('mapElementZone', zone:GetName(), 10, 0);
+		local title = zone:CreateOrGetControlSet('mapElementZone', zone:GetName(), 0, 0);
 		tolua.cast(title, 'ui::CControlSet')
 
 		local name = GET_CHILD(title, 'name', 'ui::CRichText')

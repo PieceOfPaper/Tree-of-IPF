@@ -1,3 +1,64 @@
+癤�--PLAYTIMEEVENT_REFLASH_HOUR = 6
+--PLAYTIMEEVENT_REWARD_TIME = {0, 30, 60}
+--PLAYTIMEEVENT_REWARD_BASIC = {{{'Event_160421',2}}, {{'Event_160421',4}}, {{'Event_160421',10}}}
+--PLAYTIMEEVENT_REWARD_PREMIUM = {{{'Event_160421',4}}, {{'Event_160421',6}}, {{'Event_160421',14}}}
+--PLAYTIMEEVENT_REWARD_ACC_TIME = {80, 110, 130, 192}
+--PLAYTIMEEVENT_REWARD_ACC = {{{'Hat_628132',1}},{{'Premium_awakeningStone14',2}},{{'Premium_StatReset14', 1}},{{'Hat_628133',1}}}
+
+CITYATTACK_BOSS_EVENT_TIME_TABLE = {{2016,5,26,20,'boss_honeyspider'},
+                                    {2016,5,26,22,'Head_fish'},
+                                    {2016,5,27,20,'boss_honeyspider'},
+                                    {2016,5,27,22,'Head_fish'},
+                                    {2016,5,28,16,'boss_honeyspider'},
+                                    {2016,5,28,18,'Head_fish'},
+                                    {2016,5,28,20,'boss_honeyspider'},
+                                    {2016,5,28,22,'Head_fish'},
+                                    {2016,5,29,16,'boss_honeyspider'},
+                                    {2016,5,29,18,'Head_fish'},
+                                    {2016,5,29,20,'boss_honeyspider'},
+                                    {2016,5,29,22,'Head_fish'},
+                                    {2016,5,30,20,'boss_honeyspider'},
+                                    {2016,5,30,22,'Head_fish'},
+                                    {2016,5,31,20,'boss_honeyspider'},
+                                    {2016,5,31,22,'Head_fish'},
+                                    {2016,6,1,20,'boss_honeyspider'},
+                                    {2016,6,1,22,'Head_fish'},
+                                    {2016,6,2,20,'boss_honeyspider'},
+                                    {2016,6,2,22,'Head_fish'},
+                                    {2016,6,3,20,'boss_honeyspider'},
+                                    {2016,6,3,22,'Head_fish'},
+                                    {2016,6,4,16,'boss_honeyspider'},
+                                    {2016,6,4,18,'Head_fish'},
+                                    {2016,6,4,20,'boss_honeyspider'},
+                                    {2016,6,4,22,'Head_fish'},
+                                    {2016,6,5,16,'boss_honeyspider'},
+                                    {2016,6,5,18,'Head_fish'},
+                                    {2016,6,5,20,'boss_honeyspider'},
+                                    {2016,6,5,22,'Head_fish'},
+                                    {2016,6,6,16,'boss_honeyspider'},
+                                    {2016,6,6,18,'Head_fish'},
+                                    {2016,6,6,20,'boss_honeyspider'},
+                                    {2016,6,6,22,'Head_fish'},
+                                    {2016,6,7,20,'boss_honeyspider'},
+                                    {2016,6,7,22,'Head_fish'},
+                                    {2016,6,8,20,'boss_honeyspider'},
+                                    {2016,6,8,22,'Head_fish'},
+                                    {2016,6,9,20,'boss_honeyspider'},
+                                    {2016,6,9,22,'Head_fish'},
+                                    {2016,6,10,20,'boss_honeyspider'},
+                                    {2016,6,10,22,'Head_fish'},
+                                    {2016,6,11,16,'boss_honeyspider'},
+                                    {2016,6,11,18,'Head_fish'},
+                                    {2016,6,11,20,'boss_honeyspider'},
+                                    {2016,6,11,22,'Head_fish'},
+                                    {2016,6,12,16,'boss_honeyspider'},
+                                    {2016,6,12,18,'Head_fish'},
+                                    {2016,6,12,20,'boss_honeyspider'},
+                                    {2016,6,12,22,'Head_fish'}
+                                    }
+                                    
+FLASHMOB_EVENT_REWARD_TABLE = {{{'Premium_tpBox_10',1}}}
+
 
 WORLD_SIZE = 10240;
 MINIMAP_LOC_MULTI = 4;
@@ -189,18 +250,7 @@ function G_TOTAL_MON_CNT(cls)
 	return cnt;
 end
 
--- 에러가 떠서 더미용으로 넣은 함수
 function SSN_DIALOGCOUNT_ENTER_C()
 end
 function SSN_DIALOGCOUNT_LEAVE_C()
 end
-
-
-
-
-
-
-
-
-
-

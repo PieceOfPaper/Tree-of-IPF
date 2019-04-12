@@ -319,7 +319,8 @@ function PET_ABIL_UP(parent, ctrl)
 		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
 		return;
 	end
-	ui.MsgBox(msg, scriptString, "None");
+
+	ui.MsgBoxNoCap(msg, scriptString, "None", frame:GetName());
 
 end
 
@@ -331,6 +332,10 @@ function EXEC_PET_ABIL(guid, clsName)
 end
 
 function DROP_PET_EQUIP(parent, slot, str, num)
+
+	if 1 == 1 then
+		return;
+	end
 
 	local liftIcon = ui.GetLiftIcon():GetInfo();
 	local frame = parent:GetTopParentFrame();

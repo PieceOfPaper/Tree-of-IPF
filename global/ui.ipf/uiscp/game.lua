@@ -217,10 +217,9 @@ end
 	
 function TEST_AYASE()
 	
-		--ui.ToggleFrame("market") 
-		--ui.ToggleFrame("repair140731")
-		--ui.ToggleFrame("warehouse")
-		--ui.ToggleFrame("accountwarehouse")
+
+	print(" ")
+
 
 end
 
@@ -885,7 +884,7 @@ function ADD_EX_TOOLTIP(GroupCtrl, txt, yPos, ySize)
 	ControlSetCtrl:SetGravity(ui.LEFT, ui.TOP);
 	richText:SetGravity(ui.LEFT, ui.TOP);
 	richText:SetFontName(ITEM_TOOLTIP_TEXT_FONT);
-	ControlSetCtrl:Resize(255, ySize);		-- 3??ï¿½ï¿½ï¿½ï¿½????ï¿½ï¿½ï¿½??ï¿½ï¿½ 7~8??ï¿½ï¿½ï¿½ï¿½?? ??ï¿½ï¿½
+	ControlSetCtrl:Resize(255, ySize);		-- 3??ï¿½ï¿½ï¿½ï¿½????ï¿½ï¿½ï¿??ï¿½ï¿½ 7~8??ï¿½ï¿½ï¿½ï¿½?? ??ï¿½ï¿½
 	ControlSetCtrl:SetTextByKey('text', txt);
 	GroupCtrl:ShowWindow(1)
 	return ControlSetCtrl:GetHeight() + ControlSetCtrl:GetOffsetY();
@@ -1343,6 +1342,12 @@ function GET_FULL_NAME(item, useNewLine)
 	local ownName = GET_NAME_OWNED(item);
 
 	local reinforce_2 = TryGetProp(item, "Reinforce_2");
+	local isHaveLifeTime = TryGetProp(item, "LifeTime");
+	
+	if 0 ~= isHaveLifeTime then
+		ownName = string.format("{img test_cooltime 30 30 }%s", ownName);
+	end
+	
 	if reinforce_2 ~= nil and reinforce_2 > 0 then
 		ownName = string.format("+%d %s", reinforce_2, ownName);
 	end
@@ -1460,7 +1465,9 @@ function IS_RECIPE_ITEM(itemCls)
 end
 
 function SCR_MAGICAMULET_EQUIP(fromitem, toitem)
-
+	if nil == fromitem or nil == toitem then
+		return;
+	end
 	local fromobj = GetIES(fromitem:GetObject());
 	local toobj = GetIES(toitem:GetObject());
 
@@ -4074,7 +4081,7 @@ function ON_RIDING_VEHICLE(onoff)
 
 		if 1 == onoff then
 			local abil = GetAbility(GetMyPCObject(), "CompanionRide");
-			if nil == abil then
+			if nil == abil and control.IsPremiumCompanion() == false then
 				ui.SysMsg(ClMsg('PetHasNotAbility'));
 				return
 			end
@@ -4189,7 +4196,7 @@ function UPDATE_COMPANION_TITLE(frame, handle)
 
 		local petObj = GetIES(pet:GetObject());
 		gauge_stamina:SetPoint(petObj.Stamina, petObj.MaxStamina);
-
+		
 		local petInfo = info.GetStat(handle);
 		gauge_HP:SetPoint(petInfo.HP, petInfo.maxHP);		
 	end

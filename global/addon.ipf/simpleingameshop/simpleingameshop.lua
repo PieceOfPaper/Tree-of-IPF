@@ -3,9 +3,20 @@ function SIMPLEINGAMESHOP_ON_INIT(addon, frame)
 
 		addon:RegisterMsg("UPDATE_INGAME_SHOP_ITEM_LIST", "ON_UPDATE_INGAME_SHOP_ITEM_LIST");
 		addon:RegisterMsg("CLOSE_INGAMESHOP_UI", "ON_CLOSE_INGAMESHOP_UI");
+		addon:RegisterMsg("UPDATE_INGAME_SHOP_REMAIN_CASH", "ON_UPDATE_INGAME_SHOP_REMAIN_CASH");
+		
 end
 
-function ON_CLOSE_INGAMESHOP_UI(msg)
+function numWithCommas(n)
+  return tostring(math.floor(n)):reverse():gsub("(%d%d%d)","%1,")
+                                :gsub(",(%-?)$","%1"):reverse()
+end
+
+function ON_UPDATE_INGAME_SHOP_REMAIN_CASH(frame) -- for override
+
+end
+
+function ON_CLOSE_INGAMESHOP_UI()
 	ui.CloseFrame("simpleingameshop");
 end
 
@@ -64,5 +75,6 @@ end
 
 function UI_CHECK_SIMPLEINGAMESHOP_UI_OPEN() -- 오버라이드로 사용해라
 	
+	print("qweqwe")
 	return 1
 end

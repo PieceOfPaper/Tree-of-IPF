@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="AnimOverrideList">
 	<Category>
 		<Class ClassID="1" ClassName="mon_zealot">
@@ -3152,6 +3152,8 @@
 			<Node1 ClassID="31" ClassName="EVENT_CRAZY" FileName="monster\Sequoia\sequoia_event_crazy"/>
 			<Node1 ClassID="32" ClassName="EVENT_CRAZY2" FileName="monster\Sequoia\sequoia_event_crazy2"/>
 			<Node1 ClassID="33" ClassName="EVENT_SKL" FileName="monster\Sequoia\sequoia_event_skl"/>
+			<Node1 ClassID="34" ClassName="EVENT_BORN" FileName="monster\Sequoia\Sequoia_event_born"/>
+			<Node1 ClassID="35" ClassName="EVENT_BORN2" FileName="monster\Sequoia\Sequoia_event_born2"/>
 		</Class>
 		<Class ClassID="401681" ClassName="Fallen_Statue">
 			<Node1 ClassID="1" ClassName="STD" FileName="monster\Fallen_Statue\Fallen_Statue_astd"/>
@@ -3423,6 +3425,10 @@
 			<Node1 ClassID="11" ClassName="EVENT_IDLE" FileName="npc\Laima\Laima_event_idle"/>
 			<Node1 ClassID="12" ClassName="EVENT_IDLE2" FileName="npc\Laima\Laima_event_idle2"/>
 			<Node1 ClassID="13" ClassName="EVENT_IDLE3" FileName="npc\Laima\Laima_event_idle3"/>
+			<Node1 ClassID="14" ClassName="EVENT_NO" FileName="npc\Laima\Laima_event_no"/>
+			<Node1 ClassID="15" ClassName="EVENT_ATK" FileName="npc\Laima\Laima_event_atk"/>
+			<Node1 ClassID="16" ClassName="EVENT_LOOP3" FileName="npc\Laima\Laima_event_loop3"/>
+			<Node1 ClassID="17" ClassName="EVENT_SIT" FileName="npc\Laima\Laima_event_sit"/>
 		</Class>
 		<Class ClassID="40129" ClassName="npc_sculptor">
 			<Node1 ClassID="1" ClassName="STD" FileName="npc\sculptor\sculptor_std"/>
@@ -3794,24 +3800,21 @@
 			<Node1 ClassID="3" ClassName="ON2" FileName="npc\f_farm_47_circle_01\f_farm_47_circle_01_on2"/>
 		</Class>
 		<Class ClassID="40219" ClassName="NPC_Blowfish2">
-			<Node1 ClassID="1" ClassName="BORN" FileName="npc\cart\npc_blowfish_std"/>
-			<Node1 ClassID="2" ClassName="STD" FileName="npc\cart\npc_blowfish_std"/>
-			<Node1 ClassID="3" ClassName="ASTD" FileName="npc\cart\npc_blowfish_std"/>
+			<Node1 ClassID="1" ClassName="BORN" FileName="npc\cart\npc_blowfish_born"/>
+			<Node1 ClassID="2" ClassName="STD" FileName="npc\cart\npc_blowfish_astd"/>
+			<Node1 ClassID="3" ClassName="ASTD" FileName="npc\cart\npc_blowfish_astd"/>
 			<Node1 ClassID="4" ClassName="RUN" FileName="npc\cart\npc_blowfish_run"/>
 			<Node1 ClassID="5" ClassName="WLK" FileName="npc\cart\npc_blowfish_run"/>
-			<Node1 ClassID="6" ClassName="HIT" FileName="npc\cart\npc_blowfish_std"/>
-			<Node1 ClassID="7" ClassName="RAISEUP" FileName="npc\cart\npc_blowfish_std"/>
-			<Node1 ClassID="8" ClassName="FALLDOWN" FileName="npc\cart\npc_blowfish_std"/>
-			<Node1 ClassID="9" ClassName="DOWN" FileName="npc\cart\npc_blowfish_std"/>
-			<Node1 ClassID="10" ClassName="KNOCKDOWN" FileName="npc\cart\npc_blowfish_std"/>
-			<Node1 ClassID="11" ClassName="KNOCKBACK" FileName="npc\cart\npc_blowfish_std"/>
-			<Node1 ClassID="12" ClassName="ATK" FileName="npc\cart\npc_blowfish_std"/>
-			<Node1 ClassID="14" ClassName="DEAD" FileName="npc\cart\npc_blowfish_std"/>
-			<Node1 ClassID="16" ClassName="ATK_CAST" FileName="npc\cart\npc_blowfish_std"/>
-			<Node1 ClassID="17" ClassName="ATK_SHOT" FileName="npc\cart\npc_blowfish_std"/>
-			<Node1 ClassID="18" ClassName="ATK2_SHOT" FileName="npc\cart\npc_blowfish_std"/>
-			<Node1 ClassID="19" ClassName="LEFTTURN" FileName="npc\cart\npc_blowfish_std"/>
-			<Node1 ClassID="20" ClassName="RIGHTTURN" FileName="npc\cart\npc_blowfish_std"/>
+			<Node1 ClassID="6" ClassName="HIT" FileName="npc\cart\npc_blowfish_astd"/>
+			<Node1 ClassID="7" ClassName="RAISEUP" FileName="npc\cart\npc_blowfish_astd"/>
+			<Node1 ClassID="8" ClassName="FALLDOWN" FileName="npc\cart\npc_blowfish_astd"/>
+			<Node1 ClassID="9" ClassName="DOWN" FileName="npc\cart\npc_blowfish_astd"/>
+			<Node1 ClassID="10" ClassName="KNOCKDOWN" FileName="npc\cart\npc_blowfish_astd"/>
+			<Node1 ClassID="11" ClassName="KNOCKBACK" FileName="npc\cart\npc_blowfish_astd"/>
+			<Node1 ClassID="12" ClassName="ATK" FileName="npc\cart\npc_blowfish_skl"/>
+			<Node1 ClassID="14" ClassName="DEAD" FileName="npc\cart\npc_blowfish_dead"/>
+			<Node1 ClassID="19" ClassName="LEFTTURN" FileName="npc\cart\npc_blowfish_astd"/>
+			<Node1 ClassID="20" ClassName="RIGHTTURN" FileName="npc\cart\npc_blowfish_astd"/>
 		</Class>
 	</Category>
 </idspace>

@@ -652,6 +652,13 @@ function ON_FRIEND_SESSION_CHANGE(frame, msg, aid, listType)
 	local page = tree:GetChild(pageCtrlName);
 
 	local ctrlSet = page:GetChild("FR_" .. listType .. "_" .. f:GetInfo():GetACCID());
+	
+	if nil == ctrlSet then	
+		ctrlSet = page:CreateOrGetControlSet(GET_FRIEND_CTRLSET_NAME(listType), "FR_" .. listType .. "_" .. f:GetInfo():GetACCID(), 0, 0);
+		if listType == FRIEND_LIST_COMPLETE then
+			ctrlSet:Resize(ctrlSet:GetOriginalWidth(),FRIEND_MINIMIZE_HEIGHT)
+		end;		
+	end;
 	UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, f);
 end
 

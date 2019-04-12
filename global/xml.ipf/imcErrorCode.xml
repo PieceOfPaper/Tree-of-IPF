@@ -234,6 +234,8 @@
 		<Code Code="ERRCODE_NETWORK_READ_FAIL_SERVERLIST" CallStack="NO" Desc="월드 테이블에서 서버리스트를 읽어 올 수 없습니다. 또는 서버리스트가 비어있을 수 있습니다. daemon.xml을 확인하세요."/>
 		<Code Code="ERRCODE_NETWORK_RECEIVE_FAIL_FOR_REQUEST" CallStack="NO" Desc="요청에 대한 응답을 실패했습니다."/>
 		<Code Code="ERRCODE_NETWORK_IP_CONNECT_ERROR" CallStack="NO" Desc="해당 IP로의 연결에 실패했습니다."/>
+		<Code Code="ERRCODE_NETWORK_STEAM_VAC_BANNED" CallStack="NO" Desc="스팀 VAC에서 밴 되어있는 유저입니다."/>
+		<Code Code="ERRCODE_NETWORK_FAIL_ONPACKET_FALSE" CallStack="NO" Desc="해당 패킷을 처리하는 로직이 없습니다."/>
     <Code Code="ERRCODE_NETWORK_CANT_GET_EXTERN_IP" CallStack="NO" Desc="외부 IP를 얻는데 실패하였습니다."/>
     <Code Code="ERRCODE_NETWORK_HTTP_JSON_PARSE_FALSE" CallStack="NO" Desc="HTTP 통신 데이터를 읽는데 실패하였습니다."/>
 	</Type>
@@ -258,8 +260,8 @@
 		<Code Code="ERRCODE_DB_NEXON_SN_NOT_MATCH" CallStack="NO" Desc="넥슨 세션 서버 초기화에 실패하였습니다. 넥슨에서 전달받은 SN과 월드테이블의 SN값이 서로 다릅니다."/>
 		<Code Code="ERRCODE_DB_MONGO_FAILOVER_FILE" CallStack="NO" Desc="MongoLog Failover파일에 로그기록을 실패했습니다."/>
 		<Code Code="ERRCODE_DB_DISCONNECTED_MONGO" CallStack="NO" Desc="Mongo DB의 연결이 끊어져 있습니다. 해당 쿼리문을 가져올 수 없습니다."/>
-		<Code Code="ERRCODE_DB_CONNECT" CallStack="NO" Desc="DB 연결 실패"/>
-		<Code Code="ERRCODE_DB_CONNECT_CRASH" CallStack="NO" Desc="DB 연결에 실패하였습니다. 서버를 강제로 종료합니다. ODBC설정 또는 연결 상태를 확인하세요."/>
+    <Code Code="ERRCODE_DB_CONNECT" CallStack="NO" Desc="DB 연결 실패"/>
+    <Code Code="ERRCODE_DB_CONNECT_CRASH" CallStack="NO" Desc="DB 연결에 실패하였습니다. 서버를 강제로 종료합니다. ODBC설정 또는 연결 상태를 확인하세요."/>
 	</Type>
 	<Type Type="SYSTEM">
 		<Code Code="ERRCODE_SYSTEM_INVALIED_CMDLINE_PARAM" CallStack="NO" Desc="커맨드 라인 패러미터가 잘못되었습니다. 프로그램 실행 배치 파일 내용을 확인하세요."/>
@@ -311,7 +313,6 @@
 		<Code Code="ERRCODE_INFO_OBB_TIMETEST" CallStack="NO" Desc="OBB TEST용 클릭 후 반응 시간"/>
 		<Code Code="ERRCODE_INFO_TIMEOUT" CallStack="NO" Desc="처리 시간 초과 로그"/>
 		<Code Code="ERRCODE_INFO_OLDMSG" CallStack="NO" Desc="다국어화 어순 이슈로 clientmessage.xml에서 %s 를 이용한 포맷은 쓰지 않기로 했습니다. "/>
-		<Code Code="ERRCODE_INFO_DB_CONNECT" CallStack="NO" Desc=" : "/>
-    <Code Code="ERRCODE_INFO_TRACE_DISCONNECT" CallStack="YES" Desc=" : "/>
+    <Code Code="ERRCODE_INFO_DB_CONNECT" CallStack="NO" Desc=" : "/>
 	</Type>
 </imcErrorCode>

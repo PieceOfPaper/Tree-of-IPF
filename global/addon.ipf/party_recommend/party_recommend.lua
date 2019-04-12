@@ -122,6 +122,7 @@ function SHOW_PARTY_RECOMMEND(recommendType)
 
 	popupframe:SetUserValue("RECOMMEND_TYPE",recommendType);
 	popupframe:SetUserValue("RECOMMEND_LEADER_FNAME", partyInfo.info.leaderName);
+	popupframe:SetUserValue("RECOMMEND_LEADER_AID", partyInfo.info:GetLeaderAID());
 	popupframe:SetUserValue("IS_ACK", "false");
 	
 

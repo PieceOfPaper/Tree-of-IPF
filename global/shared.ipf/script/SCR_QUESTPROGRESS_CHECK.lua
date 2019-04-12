@@ -79,6 +79,7 @@ function SCR_QUESTPROGRESS_CHECK( pc, quest_list, quest_name, npcquestcount_list
 end
 
 function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
+	
 	if pc == nil then
 		return;
 	end

@@ -16,6 +16,12 @@ function AUTO_REVIVE_UI(revTime)
 
 end
 
+function STOP_AUTO_REVIVE_UI()
+	local frame = ui.GetFrame("gaugetext");
+	STOP_TIEM_ACTINO(frame);
+end
+
+
 function FLAGGAME_LAYER_PC_UPDATE(frame)
 	
 	local gbox_ctrlset = frame:GetChild("gbox_ctrlset");

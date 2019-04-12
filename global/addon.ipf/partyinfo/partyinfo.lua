@@ -589,7 +589,7 @@ function PARTYMEMBER_VAN(ctrlset, ctrl)
 	party.ReqChangeRelation(name, PARTY_ADD_VANLIST);
 end
 
-function RECEIVE_PARTY_INVITE(partyType, familyName)
+function RECEIVE_PARTY_INVITE(partyType, inviterAid, familyName)
 
 	local msg = "";
 	if partyType == PARTY_NORMAL then
@@ -599,7 +599,7 @@ function RECEIVE_PARTY_INVITE(partyType, familyName)
 	end
 
 	local str = ScpArgMsg(msg, "Inviter", familyName);
-	local yesScp = string.format("party.AcceptInvite(%d, \"%s\", 0)", partyType, familyName);
+	local yesScp = string.format("party.AcceptInvite(%d, \"%s\", \"%s\", 0)", partyType, inviterAid, familyName);
 	local noScp = string.format("party.CancelInvite(%d, \"%s\", 0)", partyType, familyName);
 	ui.MsgBox(str, yesScp, noScp);
 end

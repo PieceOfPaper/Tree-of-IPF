@@ -11,6 +11,7 @@ end
 function UPDATE_QUESTMARK(frame, msg, argStr, argNum)
 	local pc = GetMyPCObject();
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    local subQuestCount = 0
     if sObj == nil then
 		return;
 	end
@@ -73,7 +74,9 @@ function UPDATE_QUESTMARK(frame, msg, argStr, argNum)
     		        flag = 1
     		    end
     		    if flag == 0 then
-    		        if SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES) == "HIDE"
+    		        local result
+    		        result, subQuestCount = SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestCount, 'NPCMark')
+    		        if result == "HIDE"
     		        or questIES.QuestStartMode == 'NPCENTER_HIDE'
     		        or questIES.QuestStartMode == 'GETITEM'
     		        or questIES.QuestStartMode == 'USEITEM' then

@@ -2,17 +2,25 @@
 
 function CHAT_OBSERVER_ENABLE(count, aidList, teamIDList, iconList)
 
-	if count == 0 then
-		ui.CloseFrame("worldpvp_observer_chat");
-		return;
-	end
-
 	local frame = ui.GetFrame("worldpvp_observer_chat");
 	for i = 1 , 2 do
 		local gbox = frame:GetChild("gbox_" .. i);
 		gbox:RemoveAllChild();
 	end
 	
+	frame:ShowWindow(1);
+	if count == 0 then
+		for i = 0 , frame:GetChildCount() - 1 do
+			local child = frame:GetChildByIndex(i);
+			if string.find(child:GetName(), "button") ~= nil or string.find(child:GetName(), "mainchat") ~= nil then
+				child:ShowWindow(1)
+			else
+				child:ShowWindow(0)
+			end
+		end
+		return;
+	end
+
 	local aniPCAID = nil;
 	for i = 0 , count - 1 do
 		local aid = aidList:Get(i);
@@ -40,9 +48,6 @@ function CHAT_OBSERVER_ENABLE(count, aidList, teamIDList, iconList)
 		local gbox = frame:GetChild("gbox_" .. i);
 		GBOX_AUTO_ALIGN_HORZ(gbox, 10, 10, 0, true, false);
 	end
-
-	frame:ShowWindow(1);
-
 
 	if aniPCAID ~= nil then
 		if camera.IsViewFocsedToSelf() == true then

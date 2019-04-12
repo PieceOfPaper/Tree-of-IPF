@@ -46,7 +46,13 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
 	ypos = DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, ypos, mainframename) -- 장착제한, 거래제한, 소켓, 레벨 제한 등등
 	ypos = DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, ypos, mainframename) -- 포텐셜 및 내구도
 	ypos = DRAW_EQUIP_ONLY_PR(tooltipframe, invitem, ypos, mainframename) -- 포텐셜 만 있는 애들은 여기서 그림 (그릴 아이템인지 검사는 내부에서)
+	
+	local isHaveLifeTime = TryGetProp(invitem, "LifeTime");	
+	if 0 == isHaveLifeTime then
 	ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
+	else
+		ypos = DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, ypos, mainframename);
+	end
 
 	local subframeypos = 0
 
@@ -136,12 +142,14 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 	-- 거래불가 아이콘 (일단 거래불가 아이콘 표시하지 않음)
 	local itemCantSoldPicture = GET_CHILD(equipCommonCSet, "cantsold", "ui::CPicture");
 	local itemCantSoldText = GET_CHILD(equipCommonCSet, "cantsold_text", "ui::CRichText");
+
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
 	local blongProp = TryGetProp(invitem, "BelongingCount");
 	local blongCnt = 0;
 	if blongProp ~= nil then
 		blongCnt = tonumber(blongProp);
 	end
-	if invitem.UserTrade == "NO" or 0 <  blongCnt then
+	if itemProp:IsExchangeable() == false or 0 <  blongCnt then
 		itemCantSoldPicture:ShowWindow(1);
 		itemCantSoldText:ShowWindow(1);
 	else
@@ -710,8 +718,18 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 
 	local classtype = TryGetProp(invitem, "ClassType"); -- 코스튬은 안뜨도록
 	if classtype ~= nil then
-		if classtype == "Outer" or classtype == "Hat" or classtype == "Hair" then
+		if (classtype == "Outer") 
+		or (classtype == "Hat") 
+		or (classtype == "Hair") 
+		or (itemClass.PR == 0) then
 			return yPos;
+		end
+		
+		local isHaveLifeTime = TryGetProp(invitem, "LifeTime");	
+		if isHaveLifeTime ~= nil then
+			if isHaveLifeTime > 0 then
+				return yPos;
+			end;
 		end
 	end
 	
@@ -748,13 +766,16 @@ function DRAW_EQUIP_ONLY_PR(tooltipframe, invitem, yPos, mainframename)
 	local itemClass = GetClassByType("Item", invitem.ClassID);
 
 	local classtype = TryGetProp(invitem, "ClassType"); -- 코스튬은 안뜨도록
+		
 	if classtype ~= nil then
-		if classtype == "Outer" or classtype == "Hat" or invitem.BasicTooltipProp == "None" then
-			
-		else
+		if (classtype ~= "Hat" and invitem.BasicTooltipProp ~= "None")
+		or (itemClass.PR == 0) 
+		or (classtype == "Outer")
+		or (itemClass.ItemGrade == 0 and classtype == "Hair") then
 			return yPos;
+		end;
 		end
-	end
+
 	
 	local CSet = gBox:CreateControlSet('tooltip_only_pr', 'tooltip_only_pr', 0, yPos);
 	tolua.cast(CSet, "ui::CControlSet");

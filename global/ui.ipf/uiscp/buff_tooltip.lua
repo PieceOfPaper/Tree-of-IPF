@@ -48,6 +48,9 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 				txt = math.floor(normal*100).. "% ->".. math.floor(value*100) .."%";
 				type:SetTextByKey("value", ClMsg(str)); 
 			elseif str =="abilityMax" or str == "speedUp"then
+				if NEXON_PC == argNum and str =="abilityMax" then
+					str = "abilityMax_ForPC";
+				end
 				txt = normal.. " -> +"..value;
 				type:SetTextByKey("value", ScpArgMsg(str.."{COUNT}", "COUNT", value)); 
 			else

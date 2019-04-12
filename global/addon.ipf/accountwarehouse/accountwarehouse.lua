@@ -56,33 +56,7 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 		return;
 	end
 	
-		if fromFrame:GetName() == "inventory" then
-	--local accountObj = GetMyAccountObj();
-	--local remainTardeCnt = accountObj.TradeCount
-	--if 0 >= remainTardeCnt then
-	--	ui.MsgBox(ScpArgMsg("RemainTradeCountDoesNotExist"));
-	--	return;
-	--end
-	--
-	--if geItemTable.IsHavePotential(itemCls.ClassID) == 1 then
-	--	if obj.PR <= 0 then
-	--		ui.MsgBox(ScpArgMsg("NoMorePotential"));
-	--		return;
-	--	end
-	--
-	--	local msg = "";
-	--	if 5 < remainTardeCnt then
-	--		msg = ScpArgMsg('DecreasePotaionWhenPutItToAccountWareHouse_Continue?', 'COUNT', remainTardeCnt)
-	--	else
-	--		msg = ScpArgMsg('WANNING_DecreasePotaionWhenPutItToAccountWareHouse_Continue?', 'COUNT', remainTardeCnt)
-	--	end
-	--
-	--	local yesScp = string.format("EXEC_PUT_TO_ACCOUNT_WAREHOUSE(\"%s\", %d, %d)", invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
-	--	ui.MsgBox(msg, yesScp, "None");
-	--	return;
-	--end
-	--
-
+if fromFrame:GetName() == "inventory" then
 	local maxCnt = invItem.count;
 		if TryGetProp(obj, "BelongingCount") ~= nil then
 			maxCnt = invItem.count - obj.BelongingCount;
@@ -113,6 +87,22 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 
 end
 
+function PUT_ACCOUNT_ITEM_TO_WAREHOUSE(parent, slot)
+
+	local frame = parent:GetTopParentFrame();
+
+	local liftIcon 			= ui.GetLiftIcon();
+	local iconInfo			= liftIcon:GetInfo();
+	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
+
+	if invItem == nil then
+		return;
+	end
+
+	local fromFrame = liftIcon:GetTopParentFrame();
+	PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFrame);
+
+end
 
 function MSG_PUTITEM_ACCOUNT_WAREHOUSE(iesID, count, handle)
 	local frame = ui.GetFrame("accountwarehouse");	
@@ -131,6 +121,10 @@ function EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE(frame, count, inputframe)
 	inputframe:ShowWindow(0);
 	local iesid = inputframe:GetUserValue("ArgString");
 	item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, iesid, tonumber(count), frame:GetUserIValue("HANDLE"));
+end
+
+function ACCOUNT_WAREHOUSE_SLOT_RESET(frame, slot)
+	slot:Select(0, 1);
 end
 
 function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)

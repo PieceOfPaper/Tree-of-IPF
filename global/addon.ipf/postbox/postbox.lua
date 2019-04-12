@@ -99,8 +99,8 @@ function UPDATE_POSTBOX_LETTERS_LIST(gbox_list, onlyNewMessage, startindex)
 	local x = 0;
 	local y = 0;
 
-	for dbType = 0, 1 do
-		local cnt = session.postBox.GetMessageCount(dbType);
+	--for dbType = 0, 1 do
+		local cnt = session.postBox.GetMessageCount();
 		local drawindex = gbox_list:GetChildCount();
 
 		for i = startindex , cnt - 1 do
@@ -109,10 +109,9 @@ function UPDATE_POSTBOX_LETTERS_LIST(gbox_list, onlyNewMessage, startindex)
 				break;
 			end
 
-			local msgInfo = session.postBox.GetMessageByIndex(i, dbType);
+			local msgInfo = session.postBox.GetMessageByIndex(i);
 
 			if onlyNewMessage == false or (msgInfo:GetItemCount() > 0 and msgInfo:GetItemTakeCount() == 0 ) then
-
 				drawindex = drawindex + 1
 
 				local beforectrl = GET_CHILD_RECURSIVELY(gbox_list,"ITEM_" ..(drawindex-1))
@@ -127,7 +126,7 @@ function UPDATE_POSTBOX_LETTERS_LIST(gbox_list, onlyNewMessage, startindex)
 				if ctrlSet ~= nil then
 				
 					ctrlSet:SetUserValue("LETTER_ID", msgInfo:GetID());
-					ctrlSet:SetUserValue("DB_TYPE", dbType);
+					ctrlSet:SetUserValue("DB_TYPE", msgInfo:GetDBType());
 					ctrlSet:ShowWindow(1);
 
 					local title = ctrlSet:GetChild("title");
@@ -149,10 +148,9 @@ function UPDATE_POSTBOX_LETTERS_LIST(gbox_list, onlyNewMessage, startindex)
 					UPDATE_POSTBOX_ITEM(ctrlSet, msgInfo);
 					
 					local timestring = imcTime.GetStringSysTimeYYMMDDHHMM(msgInfo:GetTime())
-
 					local deleteTimeText = nil
 
-					if  timestring == "900-01-01 00:00" or msgInfo:GetDBType() == POST_BOX_DB_ACCOUNT then
+					if  timestring == "900-01-01 00:00" or (msgInfo:GetDBType() == POST_BOX_DB_ACCOUNT and timestring == "900-01-01 00:00") then
 						deleteTimeText = ScpArgMsg("AutoDeleteTime","Time",ScpArgMsg("InfiDeleteTime") );
 					else
 						deleteTimeText = ScpArgMsg("AutoDeleteTime","Time",imcTime.GetStringSysTimeYYMMDDHHMM(msgInfo:GetTime()) );
@@ -166,7 +164,7 @@ function UPDATE_POSTBOX_LETTERS_LIST(gbox_list, onlyNewMessage, startindex)
 				end
 			end
 		end
-	end
+	--end
 	
 	gbox_list:SetEventScript(ui.SCROLL, "SCROLL_POSTBOX_GBOX");
 
@@ -258,7 +256,7 @@ function SCROLL_POSTBOX_GBOX(parent, ctrl, str, wheel)
 
 	if wheel == ctrl:GetScrollBarMaxPos() and POSTBOX_LAST_GBOX_SCROLL_POS ~= ctrl:GetScrollBarMaxPos() then
 
-		local cnt = session.postBox.GetMessageCount(0);
+	local cnt = session.postBox.GetMessageCount();
 		barrack.ReqPostBoxNextPage(cnt)
 
 		POSTBOX_LAST_GBOX_SCROLL_POS = ctrl:GetScrollBarMaxPos()
@@ -350,7 +348,7 @@ function EXEC_SELECT_POSTBOX_ITEM_PC(pcName)
 	local accountInfo = session.barrack.GetMyAccount();
 	local pcInfo = accountInfo:GetByPCName(pcName);
 
-	local msgInfo = session.postBox.GetMessageByID(letterID, dbType);
+	local msgInfo = session.postBox.GetMessageByID(letterID);
 	if msgInfo == nil then
 		return;
 	end
@@ -363,13 +361,13 @@ function POSTBOX_DELETE(parent, ctrl)
 
 	local id = parent:GetUserValue("LETTER_ID");
 	local dbType = parent:GetUserValue("DB_TYPE");
-	local itemCnt = session.postBox.GetMessageRemainItemCountByID(id, dbType);
+	local itemCnt = session.postBox.GetMessageRemainItemCountByID(id);
 	if 0 < itemCnt then
 		ui.SysMsg(ClMsg("CanTakeItemFromPostBox"));
 		return;
 	end
 
-	local msgInfo = session.postBox.GetMessageByID(id, dbType);
+	local msgInfo = session.postBox.GetMessageByID(id);
 	if msgInfo == nil then
 		return;
 	end

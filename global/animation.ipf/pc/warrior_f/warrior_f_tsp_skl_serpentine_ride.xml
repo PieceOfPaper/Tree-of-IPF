@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="EUC-KR"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mondu (IMCGames Co., Ltd) -->
 <ActionDesc>
 	<Particle frame="0" attachNode="Dummy_emitter_emitter" particleName="E_warrior_Serpentine_dash_ride" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
 	<Particle frame="8" attachNode="Dummy_emitter_pet" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
 	<Particle frame="8" attachNode="Dummy_emitter_pet" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
 	<Particle frame="18" attachNode="Dummy_emitter_pet" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
 	<Particle frame="18" attachNode="Dummy_emitter_pet" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
-	<Particle frame="34" attachNode="Dummy_trail" particleName="WeaponTrail_rap_Prepartion_01" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
 	<Particle frame="34" attachNode="Dummy_emitter_pet" particleName="F_ground068_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.6" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
 	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
 	<BlendOn frame="8" R="30" G="90" B="40" A="50"/>
@@ -44,5 +43,5 @@
 	<Sound frame="32.00" soundFile="skl_fgt_serpentine_final"/>
 	<Sound frame="33.00" soundFile="spear_whoosh"/>
 	<Sound frame="33.00" soundFile="skl_eff_skyline_spread"/>
-	<HeadRotBip frame="34" BipName="Bip01"/>
+	<HeadRotBip frame="0" BipName="Dummy_head"/>
 </ActionDesc>

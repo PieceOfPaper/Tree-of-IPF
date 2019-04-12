@@ -180,24 +180,51 @@ function UPDATE_ALLQUEST(frame, msg, isNew, questID, isNewQuest)
 		for i = 0, cnt -1 do
 			local questIES = GetClassByIndexFromList(clsList, i);
 			local questAutoIES = GetClass('QuestProgressCheck_Auto',questIES.ClassName)
-
-			if questIES.ClassName ~= "None" then
-				local ctrlName = "_Q_" .. questIES.ClassID;
-				local abandonCheck = QUEST_ABANDON_RESTARTLIST_CHECK(questIES, sobjIES)
-				if abandonCheck == 'NOTABANDON' or abandonCheck == 'ABANDON/NOTLIST' then
-
-					local result = SCR_QUEST_CHECK_C(pc, questIES.ClassName);
-					if IS_ABOUT_JOB(questIES) == true then
-						if result ~= 'IMPOSSIBLE' and result ~= 'None' then
-							posY = SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID);
-						end
-					else
-						posY = SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID);
-					end
-				else
-					questGbox:RemoveChild(ctrlName);
-				end
-			end
+            if questIES.QuestMode == 'MAIN' then
+    			if questIES.ClassName ~= "None" then
+    				local ctrlName = "_Q_" .. questIES.ClassID;
+    				local abandonCheck = QUEST_ABANDON_RESTARTLIST_CHECK(questIES, sobjIES)
+    				if abandonCheck == 'NOTABANDON' or abandonCheck == 'ABANDON/NOTLIST' then
+    
+    					local result = SCR_QUEST_CHECK_C(pc, questIES.ClassName);
+    					if IS_ABOUT_JOB(questIES) == true then
+    						if result ~= 'IMPOSSIBLE' and result ~= 'None' then
+    							posY = SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID);
+    						end
+    					else
+    						posY = SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID);
+    					end
+    				else
+    					questGbox:RemoveChild(ctrlName);
+    				end
+    			end
+    		end
+		end
+		
+		
+		local subQuestCount = 0
+		for i = 0, cnt -1 do
+			local questIES = GetClassByIndexFromList(clsList, i);
+			local questAutoIES = GetClass('QuestProgressCheck_Auto',questIES.ClassName)
+			
+            if questIES.QuestMode ~= 'MAIN' then
+    			if questIES.ClassName ~= "None" then
+    				local ctrlName = "_Q_" .. questIES.ClassID;
+    				local abandonCheck = QUEST_ABANDON_RESTARTLIST_CHECK(questIES, sobjIES)
+    				if abandonCheck == 'NOTABANDON' or abandonCheck == 'ABANDON/NOTLIST' then
+    					local result = SCR_QUEST_CHECK_C(pc, questIES.ClassName);
+    					if IS_ABOUT_JOB(questIES) == true then
+    						if result ~= 'IMPOSSIBLE' and result ~= 'None' then
+    							posY, subQuestCount = SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID, nil, subQuestCount);
+    						end
+    					else
+    						posY, subQuestCount = SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID, nil, subQuestCount);
+    					end
+    				else
+    					questGbox:RemoveChild(ctrlName);
+    				end
+    			end
+    		end
 		end
 	end
 
@@ -267,43 +294,47 @@ function LINKZONECHECK(fromZone, toZone)
     return result
 end
 
-function HIDE_IN_QUEST_LIST(pc, questIES, abandonResult)
+function HIDE_IN_QUEST_LIST(pc, questIES, abandonResult, subQuestCount)
 	local startMode = questIES.QuestStartMode;
 	local sObj = session.GetSessionObjectByName("ssn_klapeda");
 	if sObj ~= nil then
     	sObj = GetIES(sObj:GetIESObject());
     end
+    local result1
+    result1, subQuestCount = SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestCount)
     
 	if abandonResult == 'ABANDON/LIST' or questIES.PossibleUI_Notify == 'UNCOND' then
-	elseif SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES) == "HIDE" then
-	    return 1
+	elseif result1 == "HIDE" then
+	    return 1, subQuestCount
 	elseif startMode == 'NPCENTER_HIDE' then
-	    return 1
+	    return 1, subQuestCount
 	elseif startMode == "GETITEM" then
-	    return 1
+	    return 1, subQuestCount
 	elseif startMode == "USEITEM" then
-	    return 1
+	    return 1, subQuestCount
 	elseif IS_WORLDMAPPREOPEN(questIES.StartMap) == 'NO' then
-	    return 1
+	    return 1, subQuestCount
 	elseif sObj ~= nil and questIES.QuestMode == 'MAIN' and pc.Lv < 100 and questIES.QStartZone ~= 'None' and sObj.QSTARTZONETYPE ~= 'None' and questIES.QStartZone ~=  sObj.QSTARTZONETYPE and LINKZONECHECK(GetZoneName(pc), questIES.StartMap) == 'NO'  then
-	    return 1
+	    return 1, subQuestCount
 	elseif (questIES.QuestMode == 'MAIN' or questIES.QuestMode == 'REPEAT' or questIES.QuestMode == 'SUB') and LINKZONECHECK(GetZoneName(pc), questIES.StartMap) == 'NO' and QUEST_VIEWCHECK_LEVEL(pc, questIES) == 'NO' and SCR_ISFIRSTJOBCHANGEQUEST(questIES) == 'NO'  then
-		return 1
+		return 1, subQuestCount
 	end
 
-	return 0;
+	return 0, subQuestCount;
 end
 
-function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID, abandonResult)
+function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID, abandonResult, subQuestCount)
 
 	questGbox:RemoveChild(ctrlName);
-
 	if result == 'IMPOSSIBLE' or result == 'COMPLETE' then
-		return posY;
+		return posY, subQuestCount;
 	elseif result == 'POSSIBLE' then
 	    local pc = GetMyPCObject();
-		if HIDE_IN_QUEST_LIST(pc, questIES, abandonResult) == 1 then
-			return posY;
+	    local result
+	    
+	    result1, subQuestCount = HIDE_IN_QUEST_LIST(pc, questIES, abandonResult, subQuestCount)
+		if result1 == 1 then
+			return posY, subQuestCount;
 		end
 	end
 
@@ -385,7 +416,8 @@ function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, 
 	end
 
 	QUEST_CTRL_UPDATE_PARTYINFO(Quest_Ctrl, questIES);
-	return Quest_Ctrl:GetHeight() + posY + 5;
+	
+	return Quest_Ctrl:GetHeight() + posY + 5, subQuestCount;
 end
 
 function ADD_QUEST_DETAIL(frame, ctrl, argStr, questClassID, notUpdateRightUI)

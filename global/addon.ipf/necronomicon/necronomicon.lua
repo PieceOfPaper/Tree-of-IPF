@@ -192,7 +192,7 @@ function UPDATE_NECRONOMICON_UI(frame)
 				SET_ITEM_TOOLTIP_BY_OBJ(slotchild:GetIcon(), invitem);
 				SET_NECRO_CARD_STATE(frame, itemobj, i);
 			else
-				SET_SLOT_ICON(slotchild, 'monster_card');			
+				SET_SLOT_ICON(slotchild, 'bg2');			
 			end
 
 			local icon = slotchild:GetIcon();

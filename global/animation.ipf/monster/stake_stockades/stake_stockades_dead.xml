@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by yuna (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Particle frame="0" attachNode="None" particleName="F_smoke126" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
-    <Sound frame="0.00" soundFile="skl_eff_small_trap_end"/>
-    <Sound frame="4.00" soundFile="skl_cleric_buff_end"/>
+	<Particle frame="0" attachNode="None" particleName="F_smoke126" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
 	<Particle frame="7" attachNode="Dummy_smoke" particleName="F_ground068_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false"/>
 </ActionDesc>

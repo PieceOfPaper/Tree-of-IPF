@@ -79,6 +79,14 @@ function BEFORE_APPLIED_STATRESET_OPEN(invItem)
 		return;
 	end
 
+	local itemobj = GetIES(invItem:GetObject());
+
+	if itemobj.ItemLifeTimeOver == 1 then
+		ui.SysMsg(ClMsg("LessThanItemLifeTime"));
+		frame:ShowWindow(0)
+		return;
+	end
+
 	if 0 == frame:IsVisible() then
 		frame:ShowWindow(1)
 	end
@@ -94,7 +102,6 @@ function BEFORE_APPLIED_STATRESET_OPEN(invItem)
 		return false;
 	end
 
-	local itemobj = GetIES(invItem:GetObject());
 	local richtext = frame:GetChild("richtext");
 	richtext:SetTextByKey("value", ClMsg(itemobj.ClassName));
 

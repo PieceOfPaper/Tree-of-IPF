@@ -1,30 +1,5 @@
 -- map_fog.lua
-  
-function REVEAL_MAP_PICTURE(frame, mapName, info, i, forMinimap)
-
-	if info.group > 0 then
-		REVEAL_MAP_PICTURE_GROUP(frame, mapName, info.group, forMinimap);
-		return;
-	end
-
-	REVEAL_MAP_PICTURE_INDEX(frame, info, i);
-
-end
-
-function REVEAL_MAP_PICTURE_INDEX(frame, info, i)
-
-	info.revealed = 1;
-	local pic = frame:GetChild("map");
-	tolua.cast(pic, "ui::CPicture");
-	if 0 == pic:LockClonePicture() then
-		return;
-	end
-	WRITE_RECT_CLONE_PICTURE(pic, info);
-	pic:UnLockClonePicture();
-	
-
-end
-
+ 
 function UPDATE_FOG_HIDED_NPC(frame, mapName, onlyCheckNotVisible)
 
 	if 0 == MAP_USE_FOG(mapName) then
@@ -100,6 +75,7 @@ end
 
 function UPDATE_MAP_FOG_RATE(frame, mapName)
 
+	frame = tolua.cast(frame, "ui::CFrame");
 	if 0 == MAP_USE_FOG(mapName) then
 		return;
 	end
@@ -140,53 +116,6 @@ function CHECK_ACHIEVE_MAP(frame, mapName)
 
 end
 
-
-function REVEAL_MAP_PICTURE_GROUP(frame, mapName, group, forMinimap)
-
-	local pic = GET_CHILD(frame, "map", "ui::CPicture");
-	if 0 == pic:LockClonePicture() then
-		return;
-	end
-
-	local list = session.GetMapFogList(mapName);
-	local cnt = list:Count();
-	for i = 0 , cnt - 1 do
-		local info = list:PtrAt(i);
-		if (info.revealed == 0 or forMinimap ~= nil) and info.group == group then
-			info.revealed = 1;
-			WRITE_RECT_CLONE_PICTURE(pic, info);
-		end
-	end
-
-	pic:UnLockClonePicture();
-	pic:Invalidate();
-
-	if forMinimap ~= nil then
-		RUN_GROUP_REVEAL_EVENT(mapName, group);
-	end
-
-end
-
-function RUN_GROUP_REVEAL_EVENT(mapName, group)
-
-	local clsName = string.format("%s_%d", mapName, group);
-	local cls = GetClass("MapFogEvent", clsName);
-
-	if cls.Message ~= "None" then
-		addon.BroadMsg("NOTICE_Dm_GuildQuestSuccess", cls.Message, 3);
-	end
-
-	if cls.Sound ~= "None" then
-		--imcSound.PlaySoundItem(cls.Sound);
-	end
-
-	if cls.Script ~= "None" then
-		RunStringScript(cls.Script);
-	end
-
-	ui.OpenFrame("map");
-end
-
 function RUN_REVEAL_CHECKER(frame, mapName)
 
 	if 0 == MAP_USE_FOG(mapName) then
@@ -208,77 +137,8 @@ function UPDATE_CHECK_REVEAL(frame)
 		return 1;
 	end
 
+	packet.UpdateCheckReveal(mapName, frame);
 	frame:SetUserValue("BEFORE_X", mx);
 	frame:SetUserValue("BEFORE_Y", my);
-
-	local list = session.GetMapFogList(mapName);
-	local cnt = list:Count();
-
-	map_picture = GET_CHILD(frame,'map','ui::CPicture')
-
-	local px, py = GET_C_XY(map_picture);
-	mx = mx - px;
-	my = my - py;
-	mx = mx / map_picture:GetWidth() * map_picture:GetImageWidth();
-	my = my / map_picture:GetHeight() * map_picture:GetImageHeight();
-	mx = mx + myposition:GetWidth() / 2;
-	my = my + myposition:GetHeight() / 2;
-
-	local changed = 0;
-	for i = 0 , cnt - 1 do
-		local info = list:PtrAt(i);
-		if info.revealed == 0 then
-			if 1 == IS_IN_RECT(mx, my, info.x - info.w / 2, info.y - info.h / 2, info.w * 2, info.h * 2) then
-				REVEAL_MAP_PICTURE(frame, mapName, info, i);
-				changed = 1;
-			end
-		end
-	end
-
-	if changed == 1 then
-		packet.ReqSaveMapReveal(mapName);
-		UPDATE_MAP_FOG_RATE(frame, mapName)
-		--UPDATE_FOG_HIDED_NPC(frame, mapName, 1);
-	end
-
 	return 1;
 end
-
-
-function REVEAL_ALL_MAP()
-
-	local mapName = session.GetMapName();
-	local list = session.GetMapFogList(mapName);
-	local cnt = list:Count();
-	for i = 0 , cnt - 1 do
-		local info = list:PtrAt(i);
-		info.revealed = 1;
-	end
-
-	packet.ReqSaveMapReveal(mapName);
-
-	local frame = ui.GetFrame('map');
-	UPDATE_MAP(frame);
-
-end
-
-
-function FOG_ALL_MAP()
-
-	local mapName = session.GetMapName();
-	local list = session.GetMapFogList(mapName);
-	local cnt = list:Count();
-	for i = 0 , cnt - 1 do
-		local info = list:PtrAt(i);
-		info.revealed = 0;
-	end
-
-	local frame = ui.GetFrame('map');
-	UPDATE_MAP(frame);
-
-	frame = ui.GetFrame('minimap');
-	UPDATE_MINIMAP(frame);
-
-end
-
-

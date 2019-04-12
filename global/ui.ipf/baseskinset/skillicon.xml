@@ -580,8 +580,8 @@
 		<image name="ability_Warrior_Spear" file="\icon\icon_ability_warrior02.tga" imgrect="768 256 128 128" CMM_Caption="공통-한손창사용"/>
 		<image name="ability_Warrior_Sword" file="\icon\icon_ability_warrior02.tga" imgrect="896 256 128 128" CMM_Caption="공통-한손검"/>
 		<image name="ability_Warrior_Swordman16" file="\icon\icon_ability_warrior02.tga" imgrect="0 384 128 128" CMM_Caption="배쉬: 대미지 150%"/>
-		<image name="ability_Warrior_Swordman17" file="\icon\icon_ability_warrior02.tga" imgrect="128 384 128 128" CMM_Caption="배쉬: 대미지 200%"/>
 		<image name="ability_Warrior_Swordman18" file="\icon\icon_ability_warrior02.tga" imgrect="256 384 128 128" CMM_Caption="쓰러스트: 대미지 150%"/>
+		<image name="ability_Warrior_Swordman17" file="\icon\icon_ability_warrior02.tga" imgrect="128 384 128 128" CMM_Caption="배쉬: 대미지 200%"/>
 		<image name="ability_Warrior_Swordman19" file="\icon\icon_ability_warrior02.tga" imgrect="384 384 128 128" CMM_Caption="쓰러스트: 대미지 200%"/>
 		<image name="ability_Warrior_Swordman20" file="\icon\icon_ability_warrior02.tga" imgrect="512 384 128 128" CMM_Caption="겅호: 공격력 강화 150%"/>
 		<image name="ability_Warrior_Swordman21" file="\icon\icon_ability_warrior02.tga" imgrect="640 384 128 128" CMM_Caption="겅호: 공격력 강화 200%"/>
@@ -635,8 +635,8 @@
 		<image name="ability_Warrior_Rodelero16" file="\icon\icon_ability_warrior03.tga" imgrect="640 128 128 128" CMM_Caption="몬타노: 대미지 200%"/>
 		<image name="ability_Warrior_Rodelero17" file="\icon\icon_ability_warrior03.tga" imgrect="768 128 128 128" CMM_Caption="타지스매쉬: 대미지"/>
 		<image name="ability_Warrior_Rodelero18" file="\icon\icon_ability_warrior03.tga" imgrect="896 128 128 128" CMM_Caption="타지스매쉬: 대미지 150%"/>
-		<image name="ability_Warrior_Rodelero19" file="\icon\icon_ability_warrior03.tga" imgrect="0 384 128 128" CMM_Caption="타지스매쉬: 대미지 200%"/>
-		<image name="ability_Warrior_Rodelero20" file="\icon\icon_ability_warrior03.tga" imgrect="128 384 128 128" CMM_Caption="실드푸시: 대미지"/>
+		<image name="ability_Warrior_Rodelero19" file="\icon\icon_ability_warrior03.tga" imgrect="0 256 128 128" CMM_Caption="타지스매쉬: 대미지 200%"/>
+		<image name="ability_Warrior_Rodelero20" file="\icon\icon_ability_warrior03.tga" imgrect="128 256 128 128" CMM_Caption="실드푸시: 대미지"/>
 		<image name="ability_Warrior_Rodelero21" file="\icon\icon_ability_warrior03.tga" imgrect="256 256 128 128" CMM_Caption="실드푸시: 대미지 150%"/>
 		<image name="ability_Warrior_Rodelero22" file="\icon\icon_ability_warrior03.tga" imgrect="384 256 128 128" CMM_Caption="실드푸시: 대미지 200%"/>
 		<image name="ability_Warrior_Cataphract11" file="\icon\icon_ability_warrior03.tga" imgrect="512 256 128 128" CMM_Caption="돌격: 대미지"/>
@@ -693,7 +693,7 @@
 		<image name="ability_Warrior_Cataphract27" file="\icon\icon_ability_warrior04.tga" imgrect="896 0 128 128" CMM_Caption="스티드 챠지: 치명타"/>
 		<image name="ability_Warrior_Squire9" file="\icon\icon_ability_warrior04.tga" imgrect="0 128 128 128" CMM_Caption="포박: 방어력 약화"/>
 		<image name="ability_Warrior_Squire10" file="\icon\icon_ability_warrior04.tga" imgrect="128 128 128 128" CMM_Caption="리페어: 서비스"/>
-		<image name="ability_Warrior_Corsair7" file="\icon\icon_ability_warrior04.tga" imgrect="256 0 128 128" CMM_Caption="아이언 후크: 체인"/>
+		<image name="ability_Warrior_Corsair7" file="\icon\icon_ability_warrior04.tga" imgrect="256 128 128 128" CMM_Caption="아이언 후크: 체인"/>
 		<image name="ability_Warrior_Centurion1" file="\icon\icon_ability_warrior04.tga" imgrect="384 128 128 128" CMM_Caption="팔랑크스: 슬로우"/>
 		<image name="ability_Warrior_Centurion2" file="\icon\icon_ability_warrior04.tga" imgrect="512 128 128 128" CMM_Caption="테르시오: 포메이션 변경"/>
 		<image name="ability_Warrior_Centurion3" file="\icon\icon_ability_warrior04.tga" imgrect="640 128 128 128" CMM_Caption="학익진: 포메이션 변경"/>
@@ -1180,6 +1180,8 @@
 		<image name="ability_archer_Musketeer9" file="\icon\icon_ability_archer04.tga" imgrect="640 384 128 128" CMM_Caption="헤드샷: 스턴"/>
 		<image name="ability_archer_Musketeer10" file="\icon\icon_ability_archer04.tga" imgrect="768 384 128 128" CMM_Caption="스나이프: 스턴"/>
 	<image name="ability_archer_archer31" file="\icon\icon_ability_archer04.tga" imgrect="896 384 128 128" CMM_Caption="스위프트스텝:파티원버프"/>
+	<image name="ability_archer_Rogue13" file="\icon\icon_ability_archer04.tga" imgrect="0 512 128 128" CMM_Caption="최루: 대미지증가"/>
+	<image name="ability_archer_Falconer10" file="\icon\icon_ability_archer04.tga" imgrect="128 512 128 128" CMM_Caption="음속타:혼란"/>
 	</imagelist>
 	<imagelist category="abilityicon_cleric">
 		<image name="ability_cleric_Cleric1" file="\icon\icon_ability_cleric01.tga" imgrect="0 0 128 128" CMM_Caption="큐어-도트시간감소"/>
@@ -1229,8 +1231,7 @@
 		<image name="ability_cleric_Paladin5" file="\icon\icon_ability_cleric01.tga" imgrect="512 640 128 128" CMM_Caption="턴언데드-지혜"/>
 		<image name="ability_cleric_Paladin6" file="\icon\icon_ability_cleric01.tga" imgrect="640 640 128 128" CMM_Caption="개종-전수"/>
 		<image name="ability_cleric_monk1" file="\icon\icon_ability_cleric01.tga" imgrect="768 640 128 128" CMM_Caption="철사장_부딧침"/>
-		<image name="ability_cleric_monk2" file="\icon\icon_ability_cleric01.tga" imgrect="896 640 128 128" CMM_Caption="쌍쇄공_치명타회복"/>
-		<image name="ability_cleric_monk3" file="\icon\icon_ability_cleric01.tga" imgrect="0 768 128 128" CMM_Caption="철포삼_추가대미지"/>
+		<image name="ability_cleric_monk2" file="\icon\icon_ability_cleric01.tga" imgrect="0 768 128 128" CMM_Caption="철포삼_추가대미지"/>
 		<image name="ability_cleric_Cleric11" file="\icon\icon_ability_cleric01.tga" imgrect="256 768 128 128" CMM_Caption="큐어_대미지업"/>
 		<image name="ability_cleric_Cleric12" file="\icon\icon_ability_cleric01.tga" imgrect="384 768 128 128" CMM_Caption="힐_대미지업"/>
 		<image name="ability_cleric_Kriwi11" file="\icon\icon_ability_cleric01.tga" imgrect="512 768 128 128" CMM_Caption="자이바스_대미지업"/>
@@ -1370,10 +1371,12 @@
 	<image name="ability_cleric_chaplain1" file="\icon\icon_ability_cleric03.tga" imgrect="256 896 128 128" CMM_Caption="종부성사: 사기진작"/>
 		<image name="ability_cleric_chaplain3" file="\icon\icon_ability_cleric03.tga" imgrect="384 896 128 128" CMM_Caption="장엄구마: 강화"/>
 		<image name="ability_cleric_chaplain2" file="\icon\icon_ability_cleric03.tga" imgrect="512 896 128 128" CMM_Caption="카펠라 설치: 유지시간"/>
-	<image name="ability_cleric_Monk8" file="\icon\icon_ability_cleric03.tga" imgrect="640 896 128 128" CMM_Caption="카펠라 설치: 유지시간"/>
+	<image name="ability_cleric_Monk8" file="\icon\icon_ability_cleric03.tga" imgrect="640 896 128 128" CMM_Caption="양광수:넉다운제거"/>
 	<image name="ability_cleric_Priest23" file="\icon\icon_ability_cleric03.tga" imgrect="768 896 128 128" CMM_Caption="엑소사이즈:지속시간"/>
 	<image name="ability_cleric_cleric20" file="\icon\icon_ability_cleric03.tga" imgrect="896 896 128 128" CMM_Caption="세이프티존:방어횟수추가"/>
 	<image name="ability_cleric_druid8" file="\icon\icon_ability_cleric04.tga" imgrect="0 0 128 128" CMM_Caption="육식화:유지시간"/>
+	<image name="ability_cleric_Monk9" file="\icon\icon_ability_cleric04.tga" imgrect="128 0 128 128" CMM_Caption="관음장:넉다운제거"/>
+		<image name="ability_cleric_Monk3" file="\icon\icon_ability_cleric04.tga" imgrect="256 0 128 128" CMM_Caption="철사장:넉다운제거"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>

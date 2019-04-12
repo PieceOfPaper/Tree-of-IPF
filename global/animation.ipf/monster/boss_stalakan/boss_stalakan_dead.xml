@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+    <Sound frame="0.00" soundFile="mon_voice_saltistter_9"/>
+    <Particle frame="3" attachActor="None" attachNode="Bip001 Spine1" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="15" pause="true" targetPos="false"/>
+    <BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+    <Particle frame="15" attachActor="None" attachNode="Bip001 Spine1" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="20" pause="true" targetPos="false"/>
+    <BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+    <Shockwave frame="40" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="50" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="55" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="59" attachActor="None" attachNode="Dummy_deadbody" particleName="I_boss_stalakan_dead_mash" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="59" attachActor="None" attachNode="Dummy_deadeffect" particleName="F_explosion004_yellow" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Particle frame="59" attachActor="None" attachNode="Dummy_deadeffect" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+    <Particle frame="59" attachActor="None" attachNode="Dummy_deadeffect" particleName="F_explosion082" useAttach="true" hiddenObj="false" scale="7" pause="true" targetPos="false"/>
+    <Shockwave frame="60" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+    <BlendOff frame="70" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

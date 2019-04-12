@@ -2,7 +2,7 @@
 
 function REINFORCE_BY_MIX_ON_INIT(addon, frame)
 
-    addon:RegisterMsg("ITEM_EXP_STOP", "REINFORCE_MIX_ITEM_EXP_STOP");
+	addon:RegisterMsg("ITEM_EXP_STOP", "REINFORCE_MIX_ITEM_EXP_STOP");
 	addon:RegisterMsg("ITEM_EXPUP_END", "REINFORCE_MIX_ITEM_EXPUP_END");
 
 end
@@ -60,7 +60,7 @@ function CLOSE_REINFORCE_BY_MIX(frame)
 end
 
 function OPEN_REINFORCE_BY_MIX(frame)
-    frame:SetUserValue("EXECUTE_REINFORCE", 0);
+	frame:SetUserValue("EXECUTE_REINFORCE", 0);
 	CLEAR_REINFORCE_BY_MIX(frame);
 	ui.OpenFrame("inventory");
 end
@@ -311,7 +311,7 @@ function CLICK_ITEM_PIC_RBTN(ctrl)
 	if 1 == frame:GetUserIValue("EXECUTE_REINFORCE") then
 		return 0;
 	end
-	CLEAR_REINFORCE_BY_MIX(frame)
+	CLEAR_REINFORCE_BY_MIX(frame);
 
 end
 
@@ -471,7 +471,7 @@ function REINFORCE_MIX_INV_RBTN(itemObj, slot, selectall)
 	local reinfItem = GET_REINFORCE_MIX_ITEM();
 	local reinforceCls = GetClass("Reinforce", reinfItem.Reinforce_Type);
 	if 1 == _G[reinforceCls.MaterialScript](reinfItem, itemObj) then
-	
+
 		if true == invitem.isLockState then
 			ui.SysMsg(ClMsg("MaterialItemIsLock"));
 			return;
@@ -500,10 +500,10 @@ end
 
 function REINFORCE_BY_MIX_ADD_MATERIAL(frame, itemObj, count)	
 
-    if 1 == frame:GetUserIValue("EXECUTE_REINFORCE") then
+	if 1 == frame:GetUserIValue("EXECUTE_REINFORCE") then
 		return 0;
 	end
-	
+
 	local slots = GET_MAT_SLOT(frame);
 	local slot = GET_SLOT_BY_ITEMID(slots, GetIESID(itemObj))
 	
@@ -531,11 +531,11 @@ function REINFORCE_BY_MIX_ADD_MATERIAL(frame, itemObj, count)
 end
 
 function REINFORCE_BY_MIX_SLOT_RBTN(parent, slot)
-    local frame = ui.GetFrame("reinforce_by_mix");	
+	local frame = ui.GetFrame("reinforce_by_mix");	
 	if 1 == frame:GetUserIValue("EXECUTE_REINFORCE") then
 		return 0;
 	end
-	
+
 	local invItem = GET_SLOT_ITEM(slot);
 	local guid = invItem:GetIESID();
 
@@ -572,6 +572,7 @@ function REINFORCE_BY_MIX_EXECUTE(parent)
 		end
 	end
 
+
 	if ishavevalue == 1 then
 		local yesScp = string.format("_REINFORCE_BY_MIX_EXECUTE()");
 		ui.MsgBox(ScpArgMsg("IsValueAbleItem"), yesScp, "None");
@@ -585,7 +586,7 @@ function _REINFORCE_BY_MIX_EXECUTE()
 	local tgtItem = GET_REINFORCE_MIX_ITEM();
 	local frame = ui.GetFrame("reinforce_by_mix")
 
-    frame:SetUserValue("EXECUTE_REINFORCE", 1);
+	frame:SetUserValue("EXECUTE_REINFORCE", 1);
 
 	session.ResetItemList();
 

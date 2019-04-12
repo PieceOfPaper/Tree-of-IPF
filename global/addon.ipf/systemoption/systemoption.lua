@@ -102,25 +102,39 @@ end
 
 function INIT_GRAPHIC_CONFIG(frame)
 	local bloom = GET_CHILD(frame, "check_Bloom", "ui::CCheckBox");
+	if nil ~= bloom then
 	bloom:SetCheck(config.GetUseBloom());
+	end;
 
 	local warfog = GET_CHILD(frame, "check_warfog", "ui::CCheckBox");
+	if nil ~= warfog then
 	warfog:SetCheck(config.GetUseWarfog());
+	end;
 
 	local fxaa = GET_CHILD(frame, "check_fxaa", "ui::CCheckBox");
+	if nil ~= fxaa then
 	fxaa:SetCheck(config.GetUseFXAA());
+	end;
 
 	local glow = GET_CHILD(frame, "check_Glow", "ui::CCheckBox");
+	if nil ~= glow then
 	glow:SetCheck(config.GetUseGlow());
+	end;
 
---	local depth = GET_CHILD(frame, "check_Depth", "ui::CCheckBox");
+	local depth = GET_CHILD(frame, "check_Depth", "ui::CCheckBox");
+	if nil ~= depth then
 	depth:SetCheck(1);
+	end;
 
 	local softParticle = GET_CHILD(frame, "check_SoftParticle", "ui::CCheckBox");
+	if nil ~= softParticle then
 	softParticle:SetCheck(config.GetUseSoftParticle());
+	end;
 
 	local highTexture = GET_CHILD(frame, "check_highTexture", "ui::CCheckBox");
+	if nil ~= highTexture then
 	highTexture:SetCheck(config.GetHighTexture());
+	end;
 end
 
 function CONFIG_FIRST_OPEN(frame)

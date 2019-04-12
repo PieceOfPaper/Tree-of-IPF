@@ -8,9 +8,31 @@ function GUILD_ON_INIT(addon, frame)
 	addon:RegisterMsg("MYPC_GUILD_JOIN", "ON_MYPC_GUILD_JOIN");
 	addon:RegisterMsg("GUILD_ENTER", "ON_GUILD_ENTER");
 	addon:RegisterMsg("GUILD_OUT", "ON_GUILD_OUT");
+	addon:RegisterMsg("GUILD_MASTER_REQUEST", "ON_GUILD_MASTER_REQUEST");
 	addon:RegisterMsg("GUILD_EVENT_UPDATE", "ON_GUILD_INFO_UPDATE");
 		
 
+end
+
+function ON_GUILD_MASTER_REQUEST(frame, msg, argStr)
+	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+	if nil ==pcparty then
+		return;
+	end
+	local leaderAID = pcparty.info:GetLeaderAID();
+	local list = session.party.GetPartyMemberList(PARTY_GUILD);
+	local count = list:Count();
+	local leaderName = 'None'
+	for i = 0 , count - 1 do
+		local partyMemberInfo = list:Element(i);
+		if leaderAID == partyMemberInfo:GetAID() then
+			leaderName = partyMemberInfo:GetName();
+		end
+	end
+
+	local yesScp = string.format("ui.Chat('/agreeGuildMaster')");
+	local noScp = string.format("ui.Chat('/disagreeGuildMaster')");
+	ui.MsgBox(ScpArgMsg("DoYouWantGuildLeadr{N1}{N2}",'N1',leaderName,'N2', pcparty.info.name), yesScp, noScp);
 end
 
 function ON_GUILD_NEUTRALITY_UPDATE(frame, msg, strArg, numArg)
@@ -442,6 +464,10 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 	if isLeader == 1 and aid ~= myAid then
 		ui.AddContextMenuItem(context, ScpArgMsg("ChangeDuty"), string.format("GUILD_CHANGE_DUTY('%s')", name));
 		ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("GUILD_BAN('%s')", name));
+		local mapName = session.GetMapName();
+		if mapName == 'guild_agit_1' then
+			ui.AddContextMenuItem(context, ScpArgMsg("GiveGuildLeaderPermission"), string.format("SEND_REQ_GUILD_MASTER('%s')", name));
+		end
 	end
 
 	if isLeader == 1 then
@@ -462,6 +488,9 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 
 end
 
+function SEND_REQ_GUILD_MASTER(name)
+	ui.Chat("/guildleader " .. name)
+end
 
 function OUT_GUILD()
 	ui.Chat("/outguild");
@@ -491,6 +520,7 @@ function EXEC_GUILD_CHANGE_DUTY(frame, ctrl)
 	local memberInfo = session.party.GetPartyMemberInfoByName(PARTY_GUILD, name);
 		
 	party.ReqPartyNameChange(PARTY_GUILD, PARTY_STRING_DUTY, duty, memberInfo:GetAID());
+	print(PARTY_GUILD, PARTY_STRING_DUTY, duty, memberInfo:GetAID())
 	frame:ShowWindow(0);
 
 end

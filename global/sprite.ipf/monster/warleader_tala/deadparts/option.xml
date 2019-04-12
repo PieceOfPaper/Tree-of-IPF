@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by yuna (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <DeadParts>
 	<Effect Name="None"/>
 	<ForkParticle Name="F_explosion001"/>
 	<Anim Play="0" HideTime="2.000000"/>
+	<Sound Name="mon_die_effect" Time="0.000000"/>
+	<Sound Name="mon_goblin_warrior_dead" Time="0.200000"/>
 	<DeadParts Play="1"/>
 </DeadParts>

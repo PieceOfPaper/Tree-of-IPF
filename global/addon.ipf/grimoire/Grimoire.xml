@@ -30,7 +30,7 @@
         <richtext name="desc_Mattack" parent="descriptGbox" rect="0 0 250 95" margin="10 155 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="마법 공격력"/>
         <richtext name="desc_defen" parent="descriptGbox" rect="0 0 250 95" margin="10 185 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="방어력"/>
         <richtext name="desc_mdefen" parent="descriptGbox" rect="0 0 250 95" margin="10 215 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="마법 방어력"/>
-        <richtext name="desc_stat" parent="descriptGbox" rect="0 0 250 95" margin="5 250 0 0" layout_gravity="left top" fixwidth="false" fontname="white_18_b" format="{@st41}스텟"/>
+        <richtext name="desc_stat" parent="descriptGbox" rect="0 0 250 95" margin="5 250 0 0" layout_gravity="left top" fixwidth="false" fontname="white_18_b" format="{@st41}스탯"/>
         <richtext name="desc_power" parent="descriptGbox" rect="0 0 250 95" margin="10 280 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="힘"/>
         <richtext name="desc_con" parent="descriptGbox" rect="0 0 250 95" margin="10 310 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="체력"/>
         <richtext name="desc_int" parent="descriptGbox" rect="0 0 250 95" margin="10 340 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="지능"/>

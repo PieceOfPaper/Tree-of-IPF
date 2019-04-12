@@ -34,15 +34,13 @@ end
 function BOOKITEM_UI_CLOSE()
 	BOOKITEM_UI_INIT();
 
-	control.EnableControl(1);
+	control.ResetControl();
 end
 
 function ON_READ_BOOK_ITEM(frame, msg, argStr, argNum)
-
-	BOOKITEM_UI_INIT();
+	BOOKITEM_UI_CLOSE()
 	g_bookClassName = argStr;
-
-	control.EnableControl(0);
+	control.EnableControl(0,1);
 	VIEW_BOOKITEM_PAGE(frame, g_bookPage);
 	frame:ShowWindow(1);
 end

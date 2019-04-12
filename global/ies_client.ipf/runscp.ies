@@ -1,7 +1,7 @@
 ClassID,ClassName,Script,Name,Factor1,Factor2,Factor3,Factor4
 1,"SCR_SUITABLE_ITEM","SCR_SUITABLE_ITEM","현재 레벨에 맞는 장비 설정","2순위 레벨대 아이템 추가","특정 레벨 이하 검색","",""
 2,"cheat_start","cheat_start","치트 시작 설정","","","",""
-3,"NpcMove","npcmove","NPC 검색해서 좌표로 이동","존 검색어","NPC 검색어","인근(null)NPC위(1)",""
+3,"NpcMove","npcmove","NPC 검색해서 좌표로 이동","NPC 검색어","존 검색어","인근(null)NPC위(1)",""
 4,"SetLayer","set_layer","레이어 변경","레이어 값","","",""
 5,"GetLayer","get_layer","현재 레이어 확인","","","",""
 6,"skilllockopen","skilllockopen","스킬락 해제","검색어","","",""
@@ -37,6 +37,7 @@ ClassID,ClassName,Script,Name,Factor1,Factor2,Factor3,Factor4
 37,"TEST_EFFECT","TEST_EFFECT","이펙트 테스트","이펙트 이름","","",""
 38,"RESET_STAT","SCR_TX_RESET_STAT","스탯 초기화","","","",""
 39,"TRACK_PARTY_TEST","TRACK_PARTY_TEST","파티 트랙 테스트(강제)","퀘스트명","","",""
-40,"QuestStateModifyByGM","GM_QUEST_MODIFY","주변 PC 퀘스트 진행상태 변경","퀘스트 검색어","","",""
+40,"QuestStateModifyByGM","GM_QUEST_MODIFY","운영자 : 주변 PC 퀘스트 진행상태 변경","퀘스트 검색어","","",""
 41,"SetAchievePoint","SCR_SET_ACHIEVE_POINT","업적포인트 설정","업적 ClassName","AddPoint","",""
 42,"ResetLevel","SCR_RESET_LEVEL","레벨 리셋","","","",""
+43,"GM_NPC_HIDE_UNHIDE","GM_NPC_HIDE_UNHIDE","운영자 : 주변 PC의 NPC Hide/UnHide 변경","NPC 함수명","UnHide:0/Hide:1","",""

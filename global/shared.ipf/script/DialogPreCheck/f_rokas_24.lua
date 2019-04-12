@@ -69,3 +69,12 @@ function SCR_ROKAS25_REXIPHER2_BOSS_STONE_PRE_DIALOG(pc, dialog)
     end
     return 'NO'
 end
+
+
+function SCR_ROKAS24_RP_2_OBJ_PRE_DIALOG(pc, dialog)
+    local result = SCR_QUEST_CHECK(pc, 'ROKAS24_RP_2')
+    if result == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end

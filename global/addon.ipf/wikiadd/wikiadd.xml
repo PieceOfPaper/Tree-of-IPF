@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
 <uiframe name="wikiadd" x="0" y="0" width="320" height="150" create="open">
     <frame layout_gravity="right top" margin="0 340 30 0"/>
@@ -11,6 +11,6 @@
     <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
     <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
     <controls>
-        <richtext name="pickitemtext" parent="pickitem" rect="0 0 290 60" layout_gravity="center center" fixwidth="true" hittest="false" resizebytext="false" textalign="center top" updateparent="true"/>
+        <richtext name="pickitemtext" parent="pickitem" rect="0 0 290 60" layout_gravity="center center" fixwidth="true" hittest="true" resizebytext="false" textalign="center top" updateparent="true"/>
     </controls>
 </uiframe>

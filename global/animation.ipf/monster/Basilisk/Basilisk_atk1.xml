@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_reaverpede_run"/>
+    <Sound frame="4.09" soundFile="mon_goblin_warrior_run_vo"/>
+    <Sound frame="50.84" soundFile="mon_voice_saltistter_7"/>
+    <AfterImage frame="53" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+    <BlendOn frame="56" R="50" G="80" B="60" A="100"/>
+    <Particle frame="56" attachNode="Dummy_effect_atk" particleName="F_spread_out026_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="56" attachNode="Dummy_effect_atk" particleName="F_spread_out030_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="57" R="30" G="60" B="40" A="70"/>
+    <Shockwave frame="57" type="2" intensity="5" frequency="60" duration="0.5" range="1000"/>
+    <BlendOn frame="58" R="15" G="30" B="20" A="30"/>
+    <BlendOff frame="59" R="0" G="0" B="0" A="0"/>
+    <AfterImage frame="61" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+</ActionDesc>

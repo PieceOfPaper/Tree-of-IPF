@@ -75,6 +75,14 @@ function UPDATE_TIMER_CTRLSET_BY_SEC(ctrlSet)
 	local remainSec = ctrlSet:GetUserIValue("REMAIN_SEC");
 	remainSec = remainSec - elapsed;
 
+	if 0 > remainSec then
+		local mgameInfo = session.mission.GetMGameInfo();
+		if mgameInfo ~= nil and mgameInfo:GetUserValue("ToEndBattle") > 0 then
+			ctrlSet:StopUpdateScript("UPDATE_TIMER_CTRLSET_BY_SEC");
+			return 0;
+		end
+	end
+
 	local min, sec = GET_QUEST_MIN_SEC(remainSec);	
 	local m1time = GET_CHILD(ctrlSet, "m1time");
 	local m2time = GET_CHILD(ctrlSet, "m2time");

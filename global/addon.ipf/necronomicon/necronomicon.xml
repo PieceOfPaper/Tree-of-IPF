@@ -16,7 +16,7 @@
         <button name="close" rect="-10 0 44 44" margin="0 12 2 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;necronomicon&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}네크로노미콘 UI를 닫습니다{/}"/>
         <picture name="question" rect="0 0 44 44" margin="12 12 0 0" layout_gravity="left top" hittest="true" image="testquesten_button"/>
         <groupbox name="necoGbox" rect="0 0 470 800" margin="-10 82 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="true" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
-        <button name="btn_next" parent="necoGbox" rect="0 0 40 40" margin="350 60 0 0" layout_gravity="left top" LBtnUpScp="SET_NECRO_CARD_ROTATE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clickrgn="-40 -40 100 100" clicksound="button_click_big" image="button_right_select" oversound="button_over"/>
+        <button name="btn_next" parent="necoGbox" rect="0 0 40 40" margin="350 60 0 0" layout_gravity="left top" LBtnUpScp="SET_NECRO_CARD_ROTATE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clickrgn="-40 -40 100 100" clicksound="button_click_big" image="button_right_select2" oversound="button_over"/>
         <picture name="bgimage" parent="necoGbox" rect="0 0 470 200" margin="20 225 0 0" layout_gravity="center top" image="Magic_necro" stretch="false"/>
         <picture name="bgimage_ring" parent="necoGbox" rect="0 0 440 200" margin="10 150 0 0" layout_gravity="center top" image="Magic_necro_ring" stretch="false"/>
         <picture name="shadow2" parent="necoGbox" rect="0 0 103 26" margin="30 287 0 0" layout_gravity="left top" image="Magic_necro_shadow" stretch="false"/>
@@ -29,10 +29,10 @@
         <picture name="subboss2_bg" parent="necoGbox" rect="0 0 102 132" margin="30 160 0 0" layout_gravity="left top" image="bosscard_small_on" stretch="false"/>
         <picture name="subboss3_bg" parent="necoGbox" rect="0 0 102 132" margin="160 270 0 0" layout_gravity="left top" image="bosscard_small_on" stretch="false"/>
         <picture name="subboss4_bg" parent="necoGbox" rect="0 0 102 132" margin="0 210 30 0" layout_gravity="right top" image="bosscard_small_on" stretch="false"/>
-		<slot name="subboss1" parent="necoGbox" rect="0 0 130 174" margin="0 43 0 0" layout_gravity="center top" DropScp="NECRONOMICON_SLOT_DROP" PopScp="NECRONOMICON_SLOT_RESET" RBtnDownScp="NECRONOMICON_SLOT_RESET" image="monster_card" stretch="false"/>
-		<slot name="subboss2" parent="necoGbox" rect="0 0 91 121" margin="35 165 0 0" layout_gravity="left top" DropScp="NECRONOMICON_SLOT_DROP" PopScp="NECRONOMICON_SLOT_RESET" RBtnDownScp="NECRONOMICON_SLOT_RESET" image="monster_card" stretch="false"/>
-		<slot name="subboss3" parent="necoGbox" rect="0 0 91 121" margin="165 275 0 0" layout_gravity="left top" DropScp="NECRONOMICON_SLOT_DROP" PopScp="NECRONOMICON_SLOT_RESET" RBtnDownScp="NECRONOMICON_SLOT_RESET" image="monster_card" stretch="false"/>
-		<slot name="subboss4" parent="necoGbox" rect="0 0 91 121" margin="0 215 36 0" layout_gravity="right top" DropScp="NECRONOMICON_SLOT_DROP" PopScp="NECRONOMICON_SLOT_RESET" RBtnDownScp="NECRONOMICON_SLOT_RESET" image="monster_card" stretch="false"/>
+		<slot name="subboss1" parent="necoGbox" rect="0 0 130 174" margin="0 43 0 0" layout_gravity="center top" DropScp="NECRONOMICON_SLOT_DROP" PopScp="NECRONOMICON_SLOT_RESET" RBtnDownScp="NECRONOMICON_SLOT_RESET" stretch="false"/>
+		<slot name="subboss2" parent="necoGbox" rect="0 0 91 121" margin="35 165 0 0" layout_gravity="left top" DropScp="NECRONOMICON_SLOT_DROP" PopScp="NECRONOMICON_SLOT_RESET" RBtnDownScp="NECRONOMICON_SLOT_RESET" stretch="false"/>
+		<slot name="subboss3" parent="necoGbox" rect="0 0 91 121" margin="165 275 0 0" layout_gravity="left top" DropScp="NECRONOMICON_SLOT_DROP" PopScp="NECRONOMICON_SLOT_RESET" RBtnDownScp="NECRONOMICON_SLOT_RESET" stretch="false"/>
+		<slot name="subboss4" parent="necoGbox" rect="0 0 91 121" margin="0 215 36 0" layout_gravity="right top" DropScp="NECRONOMICON_SLOT_DROP" PopScp="NECRONOMICON_SLOT_RESET" RBtnDownScp="NECRONOMICON_SLOT_RESET" stretch="false"/>
         <richtext name="subbosstext1" parent="necoGbox" rect="0 0 80 150" margin="0 200 0 0" layout_gravity="center top" caption="1" stretch="false"/>
         <richtext name="subbosstext2" parent="necoGbox" rect="0 0 80 150" margin="-150 290 0 0" layout_gravity="center top" caption="2" stretch="false"/>
         <richtext name="subbosstext3" parent="necoGbox" rect="0 0 80 150" margin="-20 400 0 0" layout_gravity="center top" caption="3" stretch="false"/>

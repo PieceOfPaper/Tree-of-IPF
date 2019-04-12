@@ -522,6 +522,7 @@
 		<image name="mon_TreeAmbulo_red" file="\icon\monster\mon\mon_TreeAmbulo_red.png" imgrect="0 0 80 80"/>
 		<image name="mon_ ID_Long_Arm_remain" file="\icon\monster\mon\mon_long_arm.png" imgrect="0 0 80 80"/>
 		<image name="mon_long_arm" file="\icon\monster\mon\mon_long_arm.png" imgrect="0 0 80 80"/>
+		<image name="mon_FD_Long_Arm" file="\icon\monster\mon\mon_long_arm.png" imgrect="0 0 80 80"/>
 		<image name="mon_long_arm_red" file="\icon\monster\mon\mon_long_arm_red.png" imgrect="0 0 80 80"/>
 		<image name="mon_ID_Gravegolem_remain" file="\icon\monster\mon\mon_Tombstone_Golem.png" imgrect="0 0 80 80"/>
 		<image name="mon_Gravegolem" file="\icon\monster\mon\mon_Tombstone_Golem.png" imgrect="0 0 80 80"/>
@@ -535,10 +536,10 @@
 		<image name="mon_flying_flog_green" file="\icon\monster\mon\mon_flying_flog_green.png" imgrect="0 0 80 80"/>
 		<image name="mon_ID_Flying_Flog_white_remain" file="\icon\monster\mon\mon_flying_flog_white.png" imgrect="0 0 80 80"/>
 		<image name="mon_flying_flog_white" file="\icon\monster\mon\mon_flying_flog_white.png" imgrect="0 0 80 80"/>
-		<image name="mon_big_cockatries" file="\icon\monster\mon\mon_big_cockatries.png" imgrect="0 0 80 80"/>
+		<image name="mon_Big_Cockatries" file="\icon\monster\mon\mon_big_cockatries.png" imgrect="0 0 80 80"/>
 		<image name="mon_ID_Big_Cockatries_green_remain" file="\icon\monster\mon\mon_big_cockatries_green.png" imgrect="0 0 80 80"/>
-		<image name="mon_big_cockatries_green" file="\icon\monster\mon\mon_big_cockatries_green.png" imgrect="0 0 80 80"/>
-		<image name="mon_big_cockatries_red" file="\icon\monster\mon\mon_big_cockatries_red.png" imgrect="0 0 80 80"/>
+		<image name="mon_Big_Cockatries_green" file="\icon\monster\mon\mon_big_cockatries_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Big_Cockatries_red" file="\icon\monster\mon\mon_big_cockatries_red.png" imgrect="0 0 80 80"/>
 		<image name="mon_Rubabos" file="\icon\monster\mon\mon_Rubabos.png" imgrect="0 0 80 80"/>
 		<image name="mon_Rudas_loxodon" file="\icon\monster\mon\mon_Rudas_loxodon.png" imgrect="0 0 80 80"/>
 		<image name="mon_ID_Cockatries_remain" file="\icon\monster\mon\mon_cockatries.png" imgrect="0 0 80 80"/>
@@ -988,6 +989,7 @@
 		<image name="mon_Ashrong" file="\icon\monster\mon\mon_Ashrong.png" imgrect="0 0 80 80"/>
 		<image name="mon_Lizardman_orange" file="\icon\monster\mon\mon_Lizardman_orange.png" imgrect="0 0 80 80"/>
 		<image name="mon_NightMaiden" file="\icon\monster\mon\mon_NightMaiden.png" imgrect="0 0 80 80"/>
+		<image name="mon_FD_NightMaiden" file="\icon\monster\mon\mon_NightMaiden.png" imgrect="0 0 80 80"/>
 		<image name="mon_raffly_blue" file="\icon\monster\mon\mon_raffly_blue.png" imgrect="0 0 80 80"/>
 		<image name="mon_Tama_orange" file="\icon\monster\mon\mon_Tama_orange.png" imgrect="0 0 80 80"/>
 		<image name="mon_ID_PagDoper" file="\icon\monster\mon\mon_PagDoper.png" imgrect="0 0 80 80"/>
@@ -1001,5 +1003,15 @@
 		<image name="mon_bubbe_mage_priest" file="\icon\monster\mon\mon_bubbe_mage_priest.png" imgrect="0 0 80 80"/>
 		<image name="mon_Stoulet_blue" file="\icon\monster\mon\mon_Stoulet_blue.png" imgrect="0 0 80 80"/>
 		<image name="mon_escape_wendigo" file="\icon\monster\mon\mon_escape_wendigo.png" imgrect="0 0 80 80"/>
+		<image name="mon_operor_white" file="\icon\monster\mon\mon_operor_white.png" imgrect="0 0 80 80"/>
+	<image name="mon_Colifly_black" file="\icon\monster\mon\mon_Colifly_black.png" imgrect="0 0 80 80"/>
+		<image name="mon_pyran_green" file="\icon\monster\mon\mon_pyran_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_velffigy_green" file="\icon\monster\mon\mon_velffigy_green.png" imgrect="0 0 80 80"/>
+	<image name="mon_yognome_yellow" file="\icon\monster\mon\mon_yognome_yellow.png" imgrect="0 0 80 80"/>
+		<image name="mon_Egnome_yellow" file="\icon\monster\mon\mon_Egnome_yellow.png" imgrect="0 0 80 80"/>
+	</imagelist>
+	<imagelist category="Monster_icon_nor_08">
+		<image name="mon_Gazing_Golem_yellow" file="\icon\monster\mon\mon_Gazing_Golem_yellow.png" imgrect="0 0 80 80"/>
+		<image name="mon_Moya_yellow" file="\icon\monster\mon\mon_Moya_yellow.png" imgrect="0 0 80 80"/>
 	</imagelist>
 </skinset>

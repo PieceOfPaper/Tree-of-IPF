@@ -139,7 +139,7 @@
             <richtext name="name" layout_gravity="center top" fontname="yellow_18_ol" rect="0 0 494 60" fixwidth="true" hittest="false" updateparent="true" textalign="center center" margin="1 2 0 0" resizebytext="false"/>
             <richtext name="type" layout_gravity="center top" rect="0 0 160 20" fixwidth="false" hittest="false" updateparent="true" margin="0 70 0 0"/>
             <richtext name="desc" layout_gravity="center top" fontname="brown_16_b" rect="0 0 280 20" resizebytext="true" fixwidth="true" hittest="false" updateparent="true" margin="40 80 0 0"/>
-            <richtext name="trade_text" format="총 거래 불가: %s개" param1="count" layout_gravity="right top" textalign="right center" fontname="brown_16_b" rect="0 0 280 20" margin="0 70 20 0" fixwidth="true" hittest="false" updateparent="true"/>
+			<richtext name="trade_text" format="총 거래 불가: %s개" param1="count" layout_gravity="right top" textalign="right center" fontname="brown_16_b" rect="0 0 150 20" margin="0 70 20 0" fixwidth="true" hittest="false" updateparent="true"/>
         </controls>
     </tooltip>
     <tooltip name="skill_link" x="0" y="0" marginy="10" fixwidth="true" width="500" height="700" moveable="true" frameskin="test_skill_tooltip" blendtime="" UpdateScp="UPDATE_SKILL_TOOLTIP" CustomUpdate="UPDATE_SKILL_NEW_TIP">

@@ -100,9 +100,7 @@ function REFRESH_ABILITY_LIST_OLD(frame)
 		end
 	end
 
-
-
-	-- ActiveAbility  ì´ê±° ì•ˆì“¸ì˜ˆì •.
+	-- ActiveAbility  ÀÌ°Å ¾È¾µ¿¹Á¤.
 	--for i=0, MAX_ACTIVE_ABILITY do
 	--	local activeAbil = session.GetActiveAbility(i);
 	--	if activeAbil ~= nil then
@@ -126,11 +124,11 @@ function MAKE_ABILITY_ICON_OLD(frame, pc, grid, abilClass, posY, index)
 			prop = "LearnAbilityID_" ..i;
 		end
 		if pc[prop] ~= nil and pc[prop] == abilClass.ClassID then
-	-- í˜„ì¬ ë°°ìš°ëŠ” íŠ¹ì„±ì´ ìˆìœ¼ë©´ í•´ë‹¹íŠ¹ì„±ì€ ë‚¨ì€ì‹œê°„ í‘œì‹œ, í™œì„±ë²„íŠ¼ì€ ë§‰ê¸°
+	-- ÇöÀç ¹è¿ì´Â Æ¯¼ºÀÌ ÀÖÀ¸¸é ÇØ´çÆ¯¼ºÀº ³²Àº½Ã°£ Ç¥½Ã, È°¼º¹öÆ°Àº ¸·±â
 		local activeImg = GET_CHILD(classCtrl, "activeImg", "ui::CPicture");
 		activeImg:ShowWindow(0);
 	else
-		-- íŠ¹ì„± í™œì„±í™” ë²„íŠ¼
+		-- Æ¯¼º È°¼ºÈ­ ¹öÆ°
 		classCtrl:EnableHitTest(1);
 		classCtrl:SetEventScript(ui.LBUTTONUP, "TOGGLE_ABILITY_ACTIVE");
 		classCtrl:SetEventScriptArgString(ui.LBUTTONUP, abilClass.ClassName);
@@ -138,7 +136,7 @@ function MAKE_ABILITY_ICON_OLD(frame, pc, grid, abilClass, posY, index)
 		classCtrl:SetOverSound('button_over');
 		classCtrl:SetClickSound('button_click_big');
 
-		-- í™œì„±/ë¹„í™œì„±ì— ë”°ë¥¸ ì´ë¯¸ì§€ ì…‹íŒ…
+		-- È°¼º/ºñÈ°¼º¿¡ µû¸¥ ÀÌ¹ÌÁö ¼ÂÆÃ
 		local activeImg = GET_CHILD(classCtrl, "activeImg", "ui::CPicture");
 		local activeText = GET_CHILD(classCtrl, "abilActive", "ui::CRichText");
 
@@ -150,20 +148,20 @@ function MAKE_ABILITY_ICON_OLD(frame, pc, grid, abilClass, posY, index)
 		activeImg:ShowWindow(1);
 	end
 	end
-	-- íŠ¹ì„± ì•„ì´ì½˜
+	-- Æ¯¼º ¾ÆÀÌÄÜ
 	local classSlot = GET_CHILD(classCtrl, "slot", "ui::CSlot");
 	local icon = CreateIcon(classSlot);	
 	icon:SetImage(abilClass.Icon);
 
-	-- íŠ¹ì„± ì´ë¦„
+	-- Æ¯¼º ÀÌ¸§
 	local nameCtrl = GET_CHILD(classCtrl, "abilName", "ui::CRichText");
 	nameCtrl:SetText("{@st41}".. abilClass.Name);
 
-	-- íŠ¹ì„± ì„¤ëª…
+	-- Æ¯¼º ¼³¸í
 	local descCtrl = GET_CHILD(classCtrl, "abilDesc", "ui::CRichText");
 	descCtrl:SetText("{@st42b}".. abilClass.Desc);
 
-	-- íŠ¹ì„± ë ˆë²¨
+	-- Æ¯¼º ·¹º§
 	local abilIES = GetAbilityIESObject(pc, abilClass.ClassName);
 	for i = 0, RUN_ABIL_MAX_COUNT do
 		local prop = "None";
@@ -178,13 +176,13 @@ function MAKE_ABILITY_ICON_OLD(frame, pc, grid, abilClass, posY, index)
 		local levelCtrl = GET_CHILD(classCtrl, "abilLevel", "ui::CRichText");
 		levelCtrl:SetText("{@sti9}Lv.".. abilLv);
 
-		-- íŠ¹ì„± êµ¬ì…ì²˜
+		-- Æ¯¼º ±¸ÀÔÃ³
 		local shopCtrl = GET_CHILD(classCtrl, "abilShop", "ui::CRichText");
 		shopCtrl:SetText(ScpArgMsg("Auto_{@st42}{b}{#ff9900}JeonSuJa_:_").. "NPC");
 		shopCtrl:ShowWindow(1);
 	else
 
-		-- íŠ¹ì„± ë°°ìš°ëŠ”ì¤‘
+		-- Æ¯¼º ¹è¿ì´ÂÁß
 		local levelCtrl = GET_CHILD(classCtrl, "abilLevel", "ui::CRichText");
 		levelCtrl:SetText("{@st42}Lv.1");
 		if abilIES ~= nil then

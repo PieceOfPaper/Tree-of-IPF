@@ -21,7 +21,7 @@ function ITEM_DUNGEON_FOR_PARTY_ON_MSG(frame, msg, argStr, argNum)
 		local agrBtn = frame:GetChild("btn_excute");
 		agrBtn:SetEnable(1);
 	elseif msg == "REQ_ITEM_DUNGEON" then
-		-- ¾ËÄÉ¹Ì½ºÆ®°¡ ¿äÃ»À» ¹ÞÀ½
+		-- Â¾???Âº?Â°Â¡ Â¿åƒ»; Â¹?Â½
 		if 0 == argNum then
 			local str = ScpArgMsg("DoYouOpenItemDungeon{Name}", "Name", argStr);
 			local okScript = string.format("AGREE_OPEN_ITEM_DUNGEON_UI('%s', 1)", argStr);
@@ -75,7 +75,9 @@ function SET_LOCK_ITEM_AWEKING(targetItem, stoneItem)
 	if "None" ~= stoneItem then
 		invframe:SetUserValue("STONE_ITEM_GUID_IN_AWAKEN", stoneItem);
 	end
-	INVENTORY_ON_MSG(invframe, 'ITEM_PROP_UPDATE');
+
+	INVENTORY_ITEM_PROP_UPDATE(invframe, 'ITEM_PROP_UPDATE', targetItem);
+	INVENTORY_ITEM_PROP_UPDATE(invframe, 'ITEM_PROP_UPDATE', stoneItem);
 end
 
 function OPEN_ITEMDUNGEON(frame)
@@ -221,12 +223,12 @@ function UPDATEA_ITEMDUNGEON_STONE_ITEM(frame, msg, argStr, agrNum)
 	SET_SLOT_ITEM_CLS(stoneSlot, itemCls);
 end
 
-function SCR_ITEMDUNGEN_UI_CLOASE()
+function SCR_ITEMDUNGEN_UI_CLOSE()
 	local frame = ui.GetFrame("itemdungeon");
-	ITEMDUNGEN_UI_CLOASE(frame);
+	ITEMDUNGEN_UI_CLOSE(frame);
 end
 
-function ITEMDUNGEN_UI_CLOASE(frame)
+function ITEMDUNGEN_UI_CLOSE(frame)
 	local name = frame:GetUserValue("Name");
 	local open = frame:GetUserIValue("OPEN_UI");
 	if "None" ~= name  then
@@ -273,9 +275,9 @@ function ITEMDUNGEON_CLEARUI(frame)
 	local partySlot = GET_CHILD(bodyGbox, "partySlot"); 
 	partySlot:RemoveAllChild();
 	
-	local count = session.party.GetAlivePartyMemberList() -- ÆÄÆ¼¿øÀÌ ¾øÀ¸¸é 0À»Ä«¿îÆ®, ¿ëº´ Æ÷ÇÔ
+	local count = session.party.GetAlivePartyMemberList() -- ??Â¿???? 0;?Â¿?, Â¿ëº´ ??
 	local number = math.min(ItemAwakening.Level,count); 
-	if count == 0 then-- ±âº»ÀûÀ¸·Î ³ª´Â Ãß°¡ÇØÁÖÀÚ
+	if count == 0 then-- Â±?{8Â·?Â³ÂªÂ´ ?Â°Â¡??Z
 		number = 1;
 	end
 	local maxCount = 4;
@@ -287,7 +289,7 @@ function ITEMDUNGEON_CLEARUI(frame)
 		pic:SetEnableStretch(1);
 		pic:SetImage("house_change_man");
 
-		-- ¸¸¾à »ç¶÷ÀÌ ÀÖ³Ä, ÀÌ°Ç Å×½ºÆ®¿ë
+		-- Â¸Â¸Â¾??L VÂ³ï¿¢ LÂ°??Â½Âº?Â¿?		
 		if number > 0 then
 			pic:SetColorTone("00000000"); 
 			number = number - 1;
@@ -397,14 +399,13 @@ function ITEMDUNGEON_DROP_WEALTH_ITEM(parent, ctrl)
 		return;
 	end
 
-	if invItem.isLockState then 
-		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+	if itemObj.ItemLifeTimeOver > 0 then
+		ui.SysMsg(ScpArgMsg('LessThanItemLifeTime'));
 		return;
 	end
 
 	SET_SLOT_ITEM(slot, invItem, invItem.count);
 
-	local name = frame:GetUserIValue("Name");
 	if "None" ~= name then
 		local targetSlot = GET_CHILD(frame, "targetSlot");
 		local invItem = GET_SLOT_ITEM(targetSlot);
