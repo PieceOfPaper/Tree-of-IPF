@@ -535,17 +535,17 @@ function GET_MON_ILLUST(monCls)
 	end
 
 	local name = monCls.Journal;
-	if ui.IsImageExist(name) == 1 then
+	if ui.IsImageExist(name) == true then
 		return name;
 	end
 	
 	name = "mon_"..name
-	if ui.IsImageExist(name) == 1 then
+	if ui.IsImageExist(name) == true then
 		return name;
 	end
 
 	name = monCls.Icon;
-	if ui.IsImageExist(name) == 1 then
+	if ui.IsImageExist(name) == true then
 		return name;
 	end
 	

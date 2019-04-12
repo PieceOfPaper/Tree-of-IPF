@@ -350,11 +350,9 @@ end
 
 function SET_TOPMOST_FRAME_SHOWFRAME(show)
 	local sysmenu = ui.GetFrame("sysmenu");
-	local quickslotnexpbar = ui.GetFrame("quickslotnexpbar");
 	local charbaseinfo = ui.GetFrame("charbaseinfo");
 	local apps = ui.GetFrame("apps");
 	sysmenu:ShowWindow(show);	
-	quickslotnexpbar:ShowWindow(show);
 	charbaseinfo:ShowWindow(show);
 	apps:ShowWindow(show);	
 end

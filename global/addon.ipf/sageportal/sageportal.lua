@@ -85,9 +85,9 @@ function SAGEPORTAL_UPDATE_LIST(frame, skillName)
 					local picBox = gBox:GetChild("picBox");	
 					local pic = GET_CHILD(picBox, "pic", "ui::CPicture");
 					local mapName = sList[1]
-					local mapimage = ui.GetImage(mapName);
-					if mapimage == nil then
-						world.PreloadMinimap(mapName, true, true);
+					local isValid = ui.IsImageExist(mapName);
+					if isValid == false then
+						world.PreloadMinimap(mapName);
 					end
 
 					pic:SetImage(mapName);

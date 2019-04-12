@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="inventory" x="0" y="0" width="490" height="649">
 	<frame fullheight="true" fasthide="true" layout_gravity="right top" open="pip" margin="0 0 -480 0" keyboardselectframe="true"/>
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
@@ -40,7 +40,7 @@
 		<!-- Right -->
 		<slot name="SPECIALCOSTUME" rect="0 0 50 50" margin="117 75 0 0" layout_gravity="center top" DropScp="STATUS_SLOT_DROP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="spcostume_slot" texttooltip="{@st59}스페셜 코스튬{/}"/>
 		<slot name="EFFECTCOSTUME" rect="0 0 50 50" margin="190 65 0 0" layout_gravity="center top" DropScp="STATUS_SLOT_DROP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="effect_slot" texttooltip="{@st59}이펙트 코스튬{/}"/>
-		<slot name="WING" rect="0 0 50 50" margin="190 118 0 0" layout_gravity="center top" DropScp="STATUS_SLOT_DROP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="wing_slot" texttooltip="{@st59}날개{/}"/>
+		<slot name="WING" rect="0 0 50 50" margin="190 118 0 0" layout_gravity="center top" DropScp="STATUS_SLOT_DROP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="wing_slot" texttooltip="{@st59}등 코스튬{/}"/>
 		<slot name="NECK" rect="0 0 50 50" margin="190 171 0 0" layout_gravity="center top" DropScp="STATUS_SLOT_DROP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="necklace" texttooltip="{@st59}목걸이{/}"/>
 		<slot name="ARMBAND" rect="0 0 50 50" margin="190 224 0 0" layout_gravity="center top" DropScp="STATUS_SLOT_DROP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="armband" texttooltip="{@st59}암밴드{/}"/>
 		<slot name="RING2" rect="0 0 50 50" margin="190 275 0 0" layout_gravity="center top" DropScp="STATUS_SLOT_DROP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="ring" texttooltip="{@st59}팔찌2{/}"/>

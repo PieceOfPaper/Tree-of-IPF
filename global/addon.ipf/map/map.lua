@@ -266,8 +266,9 @@ function UI_TOGGLE_MAP()
 	end
 
 	local curmapname = session.GetMapName();
-	if ui.IsImageExist(curmapname) == 0 then
-		return;
+	if ui.IsImageExist(curmapname) == false then
+		local frame = ui.GetFrame("map");
+		UPDATE_MAP(frame);
 	end
 
 	ui.ToggleFrame('map');
@@ -1232,7 +1233,7 @@ function SCR_SHOW_LOCAL_MAP(zoneClassName, useMapFog, showX, showZ)
 	local myctrl = newframe:GetChild('my');
 	myctrl:ShowWindow(0);
 
-	world.PreloadMinimap(zoneClassName, false, false);
+	world.PreloadMinimap(zoneClassName);
 	local mappicturetemp = GET_CHILD(newframe,'map','ui::CPicture')	
 	if useMapFog == true then
 		mappicturetemp:SetImage(zoneClassName .. "_fog");

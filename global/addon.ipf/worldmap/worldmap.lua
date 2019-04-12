@@ -167,7 +167,7 @@ function CREATE_ALL_ZONE_TEXT(frame, changeDirection)
 	local currentDirection = config.GetConfig("WORLDMAP_DIRECTION", "s");
 	currentDirection = "s";
 
-	if changeDirection == true or ui.GetImage("worldmap_" .. currentDirection .. "_current") == nil then
+	if changeDirection == true or ui.IsImageExist("worldmap_" .. currentDirection .. "_current") == false then
 		makeWorldMapImage = true;
 	end
 
@@ -1198,7 +1198,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 		local nameRichText = GET_CHILD(tooltipframe, "richtext_mapname", "ui::CRichText");
 		nameRichText:SetTextByKey("mapname",camp_warp_class.Name);
 
-		world.PreloadMinimap(camp_warp_class.Zone, true, true);
+		world.PreloadMinimap(camp_warp_class.Zone);
 		local pic = GET_CHILD(tooltipframe, "picture_minimap", "ui::CPicture");
 		pic:SetImage(camp_warp_class.Zone);
 		
@@ -1256,7 +1256,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 		local nameRichText = GET_CHILD(tooltipframe, "richtext_mapname", "ui::CRichText");
 		nameRichText:SetTextByKey("mapname",camp_warp_class.Name);
 
-		world.PreloadMinimap(camp_warp_class.ClassName, true, true);
+		world.PreloadMinimap(camp_warp_class.ClassName);
 		local pic = GET_CHILD(tooltipframe, "picture_minimap", "ui::CPicture");
 		pic:SetImage(camp_warp_class.ClassName);
 

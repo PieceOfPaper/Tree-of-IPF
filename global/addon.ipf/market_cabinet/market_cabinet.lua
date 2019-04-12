@@ -144,7 +144,7 @@ function ON_CABINET_ITEM_LIST(frame)
         -- price
 		local totalPrice = GET_CHILD_RECURSIVELY(ctrlSet, "totalPrice");
         if itemObj.ClassName == MONEY_NAME or (whereFrom == 'market_sell' and etcShow == false) then
-			if cabinetItem.count > 50 then
+			if cabinetItem.count < 70 then
 				ClientRemoteLog("CABINET_ITEM_PRICE_ERROR - ".. cabinetItem.count);
 			end
 

@@ -3,6 +3,7 @@
 UI_UPDATE_STOP = 0;
 UI_UPDATE_CONTINUE = 1;
 UI_UPDATE_DESTROY = 2;
+TYPE_REINFORCEMENT = nil;
 
 function UI_EFFECT_GET_NAME(frame, key)
 	if key == nil then
@@ -16,7 +17,10 @@ function UI_EFFECT_GET_NAME(frame, key)
 	return name;
 end
 
-function UI_FORCE(forceName, fx, fy, tx, ty, delayTime, changeImage, imgSize)
+function UI_FORCE(forceName, fx, fy, tx, ty, delayTime, changeImage, imgSize, type)	
+	if forceName == 'reinf_result_' then
+		TYPE_REINFORCEMENT = type
+	end
 	
 	if changeImage == nil then
 		changeImage = "";
@@ -35,11 +39,15 @@ function UI_FORCE(forceName, fx, fy, tx, ty, delayTime, changeImage, imgSize)
 	end
 	
 	if delayTime ~= nil and delayTime > 0 then
-		local funcStr = string.format("UI_FORCE(\"%s\", %f, %f, %f, %f, 0.0, \"%s\", %f)", forceName, fx, fy, tx, ty, changeImage, imgSize);
+		local funcStr = string.format("UI_FORCE(\"%s\", %f, %f, %f, %f, 0.0, \"%s\", %f)", forceName, fx, fy, tx, ty, changeImage, imgSize, type);
 		ReserveScript(funcStr, delayTime);
 		return;
 	end
 
+	if TYPE_REINFORCEMENT == "Certificate" and forceName == "reinf_finish" then		
+		forceName = forceName .. "_certificate"
+	end
+	
 	local force = ui.force.Get(forceName);
 	if force == nil then
 		return;
@@ -59,18 +67,15 @@ function UI_FORCE(forceName, fx, fy, tx, ty, delayTime, changeImage, imgSize)
 				text:SetTextFixWidth(0);
 				text:SetText(line:GetImageName());
 				text:PlayForce(force, i, tx, ty, 1);
-				
-
 		else
 			local imgName = line:GetImageName();
 			if changeImage ~= "" then
 				imgName = changeImage;
 			end
 
-			local img = ui.GetImage(imgName);
-			if img ~= nil then
+			if ui.IsImageExist(imgName) == true then
 				local name = UI_EFFECT_GET_NAME(frame);
-				local selPic = frame:CreateControl("picture", name, fx, fy, img:GetWidth() * imgSize, img:GetHeight() * imgSize);
+				local selPic = frame:CreateControl("picture", name, fx, fy, ui.GetImageWidth(imgName) * imgSize, ui.GetImageHeight(imgName) * imgSize);
 				selPic = tolua.cast(selPic, "ui::CPicture");
 				selPic:SetEnableStretch(1);
 				selPic:ShowWindow(1);
@@ -79,6 +84,9 @@ function UI_FORCE(forceName, fx, fy, tx, ty, delayTime, changeImage, imgSize)
 				selPic:PlayForce(force, i, tx, ty, 1);
 			end
 		end
+	end
+	if forceName == 'reinf_finish' or forceName == 'Certificate_reinf_finish' then
+		TYPE_REINFORCEMENT = nil
 	end
 end
 

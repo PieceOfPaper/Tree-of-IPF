@@ -39,9 +39,9 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 
 		local drawMapName = drawCls.ClassName;
 		local pic = GET_CHILD(ctrlSet, "map", "ui::CPicture");
-		local mapimage = ui.GetImage(drawMapName .. "_fog");
-		if mapimage == nil then
-			world.PreloadMinimap(drawMapName, true, true);
+		local isValid = ui.IsImageExist(drawMapName .. "_fog");
+		if isValid == false then
+			world.PreloadMinimap(drawMapName);
 		end
 		pic:SetImage(drawMapName .. "_fog");
 		
