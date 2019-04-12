@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Particle frame="0" attachNode="Bip01 R Finger0" particleName="I_smoke045_spread_in" useAttach="true" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="true" targetPos="false"/>
-    <Sound frame="0.00" soundFile="mon_voice_lecifer_atk2"/>
-    <Sound frame="0.00" soundFile="mon_move_lecifer_atk2"/>
-    <Sound frame="8.00" soundFile="skl_eff_spread_2"/>
-    <Particle frame="15" attachNode="Bip01 R Finger0" particleName="I_spread_in010_mintdark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="0" attachNode="Bip001 R Finger0" particleName="I_smoke045_spread_in" useAttach="true" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_voice_lecifer_atk2"/>
+	<Sound frame="0.00" soundFile="mon_move_lecifer_atk2"/>
+	<Sound frame="8.00" soundFile="skl_eff_spread_2"/>
+	<Particle frame="15" attachNode="Bip001 R Finger0" particleName="I_spread_in010_mintdark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
 </ActionDesc>

@@ -138,6 +138,9 @@
 		<image name="icon_wizar_DimensionCompression" file="\icon\skill\wizard\icon_wizar_DimensionCompression.png" imgrect="0 0 128 128" CMM_Caption="디멘션 컴프레션"/>
 		<image name="icon_wizar_DemonScratch" file="\icon\skill\wizard\icon_wizar_DemonScratch.png" imgrect="0 0 128 128" CMM_Caption="데몬 스크래치"/>
 		<image name="icon_wizar_Enervation" file="\icon\skill\wizard\icon_wizar_Enervation.png" imgrect="0 0 128 128" CMM_Caption="에너베이션"/>
+		<image name="icon_wizar_StormDust" file="\icon\skill\wizard\icon_wizar_StormDust.png" imgrect="0 0 128 128" CMM_Caption="스톰 더스트"/>
+		<image name="icon_wizar_HeavyGravity" file="\icon\skill\wizard\icon_wizar_HeavyGravity.png" imgrect="0 0 128 128" CMM_Caption="헤비 그라비티"/>
+		<image name="icon_wizar_SpiritShock" file="\icon\skill\wizard\icon_wizar_SpiritShock.png" imgrect="0 0 128 128" CMM_Caption="스피릿 쇼크"/>
 	</imagelist>
 	<imagelist category="archer_skillicon">
 		<image name="icon_arch_doubleShot" file="\icon\skill\archer\icon_arch_doubleShot.png" imgrect="0 0 128 128" CMM_Caption="멀티샷"/>
@@ -582,6 +585,7 @@
 		<image name="icon_warri_SokChiang" file="\icon\skill\warrior\icon_warri_SokChiang.png" imgrect="0 0 128 128" CMM_Caption="쏙콴"/>
 		<image name="icon_warri_TeKha" file="\icon\skill\warrior\icon_warri_TeKha.png" imgrect="0 0 128 128" CMM_Caption="때카"/>
 		<image name="icon_warri_TeTrong" file="\icon\skill\warrior\icon_warri_TeTrong.png" imgrect="0 0 128 128" CMM_Caption="때트롱"/>
+		<image name="icon_warri_impaleDagger" file="\icon\skill\warrior\icon_warri_impaleDagger.png" imgrect="0 0 128 128" CMM_Caption="임페일 대거"/>
 	</imagelist>
 	<imagelist category="summon_skillicon">
 		<image name="icon_summon_Common_ForcedAttack" file="\icon\skill\summon\icon_summon_Common_ForcedAttack.png" imgrect="0 0 128 128" CMM_Caption="소환수 강제 공격"/>
@@ -597,6 +601,7 @@
 		<image name="icon_rest_card" file="\icon\rest_mode_icon.tga" imgrect="128 128 128 128" CMM_Caption="카드합성"/>
 		<image name="icon_beast_attack" file="\icon\rest_mode_icon.tga" imgrect="256 128 128 128" CMM_Caption="몬스터로변해서 어택"/>
 		<image name="icon_rest_certificate" file="\icon\rest_mode_icon.tga" imgrect="0 256 128 128" CMM_Caption="증표합성"/>
+		<image name="icon_rest_Legendcard" file="\icon\rest_mode_icon.tga" imgrect="128 256 128 128" CMM_Caption="레전드 카드 합성"/>
 	</imagelist>
 	<imagelist category="skillicon">
 		<image name="icon_war_thrust" file="\icon\skill_icon_warrior.tga" imgrect="0 0 64 64" CMM_Caption="쓰러스트"/>
@@ -996,6 +1001,10 @@
 		<image name="ability_Warrior_NakMuay2" file="\icon\icon_ability_warrior06.tga" imgrect="512 256 128 128" CMM_Caption="쏙콴: 강화"/>
 		<image name="ability_Warrior_NakMuay3" file="\icon\icon_ability_warrior06.tga" imgrect="640 256 128 128" CMM_Caption="때트롱: 강화"/>
 		<image name="ability_Warrior_NakMuay4" file="\icon\icon_ability_warrior06.tga" imgrect="768 256 128 128" CMM_Caption="카오로이: 강화"/>
+		<image name="ability_Warrior_Shinobi9" file="\icon\icon_ability_warrior06.tga" imgrect="896 256 128 128" CMM_Caption="쿠나이 치명적인 비수"/>
+		<image name="ability_Warrior_Peltasta32" file="\icon\icon_ability_warrior06.tga" imgrect="0 384 128 128" CMM_Caption="스워시 버클링 강력한 도발"/>
+		<image name="ability_Warrior_Peltasta31" file="\icon\icon_ability_warrior06.tga" imgrect="128 384 128 128" CMM_Caption="펠타스타 가디언"/>
+		<image name="ability_Warrior_Corsair19" file="\icon\icon_ability_warrior06.tga" imgrect="256 384 128 128" CMM_Caption="임페일 대거: 강화"/>
 	</imagelist>
 	<imagelist category="abilityicon_wizard">
 		<image name="ability_Wizard_Wizard1" file="\icon\icon_ability_wizard01.tga" imgrect="0 0 128 128" CMM_Caption="슬리프-단잠"/>
@@ -1245,10 +1254,36 @@
 		<image name="ability_Wizard_Featerfoot18" file="\icon\icon_ability_wizard04.tga" imgrect="384 768 128 128" CMM_Caption="레비테이션 저주받은 피"/>
 		<image name="ability_Wizard_Sage11" file="\icon\icon_ability_wizard04.tga" imgrect="512 768 128 128" CMM_Caption="마이크로 디멘션 축소 왜곡 후유증"/>
 		<image name="ability_Wizard_Sage12" file="\icon\icon_ability_wizard04.tga" imgrect="640 768 128 128" CMM_Caption="얼티밋 디멘션 확대 왜곡 후유증"/>
-		<image name="ability_Wizard_Warlock18" file="\icon\icon_ability_warrior04.tga" imgrect="768 768 128 128" CMM_Caption="다크써지 질긴 악령"/>
-		<image name="ability_Wizard_Enchanter3" file="\icon\icon_ability_warrior04.tga" imgrect="896 768 128 128" CMM_Caption="라이트닝 핸즈 마력 감전"/>
-		<image name="ability_Wizard_Shadowmancer4" file="\icon\icon_ability_warrior04.tga" imgrect="0 896 128 128" CMM_Caption="섀도우 쏜 그림자 밟기"/>
-		<image name="ability_Wizard_Shadowmancer5" file="\icon\icon_ability_warrior04.tga" imgrect="128 896 128 128" CMM_Caption="섀도우 컨저레이션 그림자 잠식"/>
+		<image name="ability_Wizard_Warlock18" file="\icon\icon_ability_wizard04.tga" imgrect="768 768 128 128" CMM_Caption="다크써지 질긴 악령"/>
+		<image name="ability_Wizard_Enchanter3" file="\icon\icon_ability_wizard04.tga" imgrect="896 768 128 128" CMM_Caption="라이트닝 핸즈 마력 감전"/>
+		<image name="ability_Wizard_Shadowmancer4" file="\icon\icon_ability_wizard04.tga" imgrect="0 896 128 128" CMM_Caption="섀도우 쏜 그림자 밟기"/>
+		<image name="ability_Wizard_Shadowmancer5" file="\icon\icon_ability_wizard04.tga" imgrect="128 896 128 128" CMM_Caption="섀도우 컨저레이션 그림자 잠식"/>
+		<image name="ability_Wizard_Elementalist26" file="\icon\icon_ability_wizard04.tga" imgrect="256 896 128 128" CMM_Caption="홍염: 추가 생성"/>
+		<image name="ability_Wizard_Elementalist27" file="\icon\icon_ability_wizard04.tga" imgrect="384 896 128 128" CMM_Caption="스톰 더스트: 강화"/>
+		<image name="ability_Wizard_Elementalist28" file="\icon\icon_ability_wizard04.tga" imgrect="512 896 128 128" CMM_Caption="스톰 더스트: 슬로우"/>
+		<image name="ability_Wizard_Elementalist29" file="\icon\icon_ability_wizard04.tga" imgrect="640 896 128 128" CMM_Caption="스톰 더스트: 후폭풍"/>
+		<image name="ability_Wizard_Elementalist30" file="\icon\icon_ability_wizard04.tga" imgrect="768 896 128 128" CMM_Caption="메테오 플레임 그라운드"/>
+		<image name="ability_Wizard_Wizard23" file="\icon\icon_ability_wizard04.tga" imgrect="896 896 128 128" CMM_Caption="어스퀘이크 넉다운 제거"/>
+		<image name="ability_Wizard_Sorcerer16" file="\icon\icon_ability_wizard05.tga" imgrect="0 0 128 128" CMM_Caption="서모닝: 불과 얼음의 악마"/>
+		<image name="ability_Wizard_Necromancer24" file="\icon\icon_ability_wizard05.tga" imgrect="128 0 128 128" CMM_Caption="레이즈 데드 불타는 해골 병사"/>
+		<image name="ability_Wizard_Necromancer25" file="\icon\icon_ability_wizard05.tga" imgrect="256 0 128 128" CMM_Caption="레이즈 스컬아처 얼음 화살"/>
+		<image name="ability_Wizard_Psychokino23" file="\icon\icon_ability_wizard05.tga" imgrect="384 0 128 128" CMM_Caption="헤비 그라비티 지속시간 증가"/>
+		<image name="ability_Wizard_Linker12" file="\icon\icon_ability_wizard05.tga" imgrect="512 0 128 128" CMM_Caption="스피리추얼 체인 마력 강화"/>
+		<image name="ability_Wizard_Thaumaturge16" file="\icon\icon_ability_wizard05.tga" imgrect="640 0 128 128" CMM_Caption="스웰 브레인 고속 연산"/>
+		<image name="ability_Wizard_Thaumaturge17" file="\icon\icon_ability_wizard05.tga" imgrect="768 0 128 128" CMM_Caption="왼팔 강화 소환수"/>
+		<image name="ability_Wizard_Wizard24" file="\icon\icon_ability_wizard05.tga" imgrect="896 0 128 128" CMM_Caption="레써지 마법진 특화"/>
+		<image name="ability_Wizard_Pyromancer29" file="\icon\icon_ability_wizard05.tga" imgrect="0 128 128 128" CMM_Caption="파이어 볼 잔열"/>
+		<image name="ability_Wizard_RuneCaster8" file="\icon\icon_ability_wizard05.tga" imgrect="128 128 128 128" CMM_Caption="파괴의 룬 마법 방어 파괴"/>
+		<image name="ability_Wizard_Enchanter4" file="\icon\icon_ability_wizard05.tga" imgrect="256 128 128 128" CMM_Caption="인챈트 라이트닝 사이킥"/>
+		<image name="ability_Wizard_Wizard25" file="\icon\icon_ability_wizard05.tga" imgrect="384 128 128 128" CMM_Caption="슬리프 꿈먹기"/>
+		<image name="ability_Wizard_Linker14" file="\icon\icon_ability_wizard05.tga" imgrect="512 128 128 128" CMM_Caption="스피릿 쇼크 혼란"/>
+		<image name="ability_Wizard_Linker15" file="\icon\icon_ability_wizard05.tga" imgrect="640 128 128 128" CMM_Caption="스피릿 쇼크 멘탈아웃"/>
+		<image name="ability_Wizard_Linker13" file="\icon\icon_ability_wizard05.tga" imgrect="768 128 128 128" CMM_Caption="스피릿 쇼크 강화"/>
+		<image name="ability_Wizard_Thaumaturge18" file="\icon\icon_ability_wizard05.tga" imgrect="896 128 128 128" CMM_Caption="오른팔 강화 소환수"/>
+		<image name="ability_Wizard_Pyromancer28" file="\icon\icon_ability_wizard05.tga" imgrect="0 256 128 128" CMM_Caption="파이어월 넉백"/>
+		<image name="ability_Wizard_Pyromancer27" file="\icon\icon_ability_wizard05.tga" imgrect="128 256 128 128" CMM_Caption="플레임 그라운드 열기 확산"/>
+		<image name="ability_Wizard_Psychokino21" file="\icon\icon_ability_wizard05.tga" imgrect="256 256 128 128" CMM_Caption="헤비 그라비티 강화"/>
+		<image name="ability_Wizard_Psychokino22" file="\icon\icon_ability_wizard05.tga" imgrect="384 256 128 128" CMM_Caption="헤비 그라비티 이동속도 감소"/>
 	</imagelist>
 	<imagelist category="abilityicon_archer">
 		<image name="ability_archer_Mark" file="\icon\icon_ability_archer01.tga" imgrect="0 0 128 128" CMM_Caption="멀티샷_치명타"/>
@@ -1838,6 +1873,7 @@
 		<image name="ability_cleric_Zealot6" file="\icon\icon_ability_cleric05.tga" imgrect="640 128 128 128" CMM_Caption="파나틱 일루전 명중 증가"/>
 		<image name="ability_cleric_Zealot7" file="\icon\icon_ability_cleric05.tga" imgrect="768 128 128 128" CMM_Caption="블라인드 페이쓰 신성한 충격"/>
 		<image name="ability_cleric_Kriwi21" file="\icon\icon_ability_cleric05.tga" imgrect="896 128 128 128" CMM_Caption="다이노: 추가 공격"/>
+		<image name="ability_cleric_Miko6" file="\icon\icon_ability_cleric05.tga" imgrect="0 256 128 128" CMM_Caption="박수 신령의 기운"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>

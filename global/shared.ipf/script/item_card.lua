@@ -42,7 +42,7 @@ function IS_ENABLE_EQUIPPED_CARD(pc, item)
 	local tempCount = 0
 
 
-	for i = 1, 12 do
+	for i = 1, MAX_NORMAL_MONSTER_CARD_SLOT_COUNT + LEGEND_CARD_SLOT_COUNT do
 		if pcEtc["EquipCardID_Slot" ..i] ~= 0 then
 			local cardID = pcEtc["EquipCardID_Slot" ..i]
 			local equipCard = GetClassByType('Item', cardID)

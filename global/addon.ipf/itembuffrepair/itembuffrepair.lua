@@ -12,7 +12,8 @@ function ITEMBUFF_REPAIR_UI_COMMON(groupName, sellType, handle)
 	-- 기본 탭은 "수리"
 	local tabObj		    = frame:GetChild('statusTab');
 	local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
-	itembox_tab:ChangeTab(0)
+	itembox_tab:ChangeTab(0);
+	ITEMBUFF_SHOW_TAB(itembox_tab, handle);
 
 	local groupInfo = session.autoSeller.GetByIndex(groupName, 0);
 	local sklName = GetClassByType("Skill", groupInfo.classID).ClassName;
@@ -38,7 +39,7 @@ function ITEMBUFF_REPAIR_UI_COMMON(groupName, sellType, handle)
 
 	-- 전체 선택 버튼 기본값은 선택 안된거
 	local selectAllBtn = bodyBox:GetChild('selectAllBtn')
-	selectAllBtn:SetUserValue('SELECTED', 'notselected')
+	frame:SetUserValue('SELECTED', 'NotSelected')
 
 	local frame = ui.GetFrame("itembuff");
 	if nil == frame then
@@ -71,6 +72,12 @@ function SCP_LBTDOWN_SQIOR_REPAIR(frame, ctrl)
 		totalcont = totalcont + needCount;
 	end
 
+	slotSet:MakeSelectionList();
+	UPDATE_SQIOR_REPAIR_MONEY(frame, totalcont);
+end
+
+function UPDATE_SQIOR_REPAIR_MONEY(frame, totalcont)
+
 	local repair = frame:GetTopParentFrame();
 	local repairbox = repair:GetChild("repair");
 	local reqitembox = repairbox:GetChild("materialGbox");
@@ -80,20 +87,28 @@ function SCP_LBTDOWN_SQIOR_REPAIR(frame, ctrl)
 		reqitemNeed:SetTextByKey("txt", totalcont  ..ClMsg("CountOfThings"));
 	else
 		local money = repairbox:GetChild("reqitemMoney");
-		money:SetTextByKey("txt", totalcont*repair:GetUserIValue("PRICE"));
+		local needMoneyStr = GET_COMMA_SEPARATED_STRING(totalcont*repair:GetUserIValue("PRICE"));
+		money:SetTextByKey("txt", needMoneyStr);
 	end
 end
 
 function SQUIRE_REAPIR_SELECT_ALL(frame, ctrl)
-	local isselected =  ctrl:GetUserValue("SELECTED");
-	local slotSet = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "slotlist", "ui::CSlotSet")
-	
+	local slotSet = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "slotlist", "ui::CSlotSet")	
 	local slotCount = slotSet:GetSlotCount();
+	local isselected =  frame:GetUserValue("SELECTED");
+	
+	for i = 0, slotCount - 1 do
+		local slot = slotSet:GetSlotByIndex(i);
+		if slot:GetIcon() ~= nil then
+			slot:Select(0)
+		end
+	end
+	
 	local totalcont = 0;
 	for i = 0, slotCount - 1 do
 		local slot = slotSet:GetSlotByIndex(i);
 		if slot:GetIcon() ~= nil then
-			if isselected == "selected" then
+			if isselected == "SelectedAll" then
 				slot:Select(0)
 			else
 				slot:Select(1)
@@ -106,26 +121,67 @@ function SQUIRE_REAPIR_SELECT_ALL(frame, ctrl)
 			end
 		end
 	end
-	slotSet:MakeSelectionList()
-	local repair = frame:GetTopParentFrame();
-	local repairbox = repair:GetChild("repair");
-	local reqitembox = repairbox:GetChild("materialGbox");
-	local reqitemNeed= reqitembox:GetChild("reqitemNeedCount");
-
-	if 0 == totalcont then
-		reqitemNeed:SetTextByKey("txt", "");
+	slotSet:MakeSelectionList();
+	
+	UPDATE_SQIOR_REPAIR_MONEY(frame, totalcont);
+	
+	if isSelectAllItem == false or isselected == "SelectedAll" then
+		frame:SetUserValue("SELECTED", "NotSelected");
 	else
-		if repair:GetUserIValue("HANDLE") ==  session.GetMyHandle() then
-			reqitemNeed:SetTextByKey("txt", totalcont  ..ClMsg("CountOfThings"));
-		else
-			local money = repairbox:GetChild("reqitemMoney");
-			money:SetTextByKey("txt", totalcont*repair:GetUserIValue("PRICE"));
+		frame:SetUserValue("SELECTED", "SelectedAll");
+	end
+end
+
+
+function SQUIRE_REAPIR_SELECT_EQUIPED_ITEMS(frame, ctrl)
+	local slotSet = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "slotlist", "ui::CSlotSet")	
+	local slotCount = slotSet:GetSlotCount();
+	local isselected =  frame:GetUserValue("SELECTED");
+	
+	for i = 0, slotCount - 1 do
+		local slot = slotSet:GetSlotByIndex(i);
+		if slot:GetIcon() ~= nil then
+			slot:Select(0)
 		end
 	end
-	if isselected == "selected" then
-		ctrl:SetUserValue("SELECTED", "notselected");
+	
+	local isSelectEquipedItem = false;
+	local equipList = session.GetEquipItemList();
+	local totalcont = 0;
+	for i = 0, slotCount - 1 do
+		local slot = slotSet:GetSlotByIndex(i);
+		if slot:GetIcon() ~= nil then
+			if isselected == "SelectedEquiped" then
+				slot:Select(0)
+			else
+
+				for i = 0, equipList:Count() - 1 do
+					local equipItem = equipList:Element(i);					
+					if equipItem:GetIESID() == slot:GetIcon():GetInfo():GetIESID() then						
+						slot:Select(1)
+						local Icon = slot:GetIcon();
+						local iconInfo = Icon:GetInfo();
+						local invitem = GET_ITEM_BY_GUID(iconInfo:GetIESID());
+						local itemobj = GetIES(invitem:GetObject());
+						local needItem, needCount = ITEMBUFF_NEEDITEM_Squire_Repair(GetMyPCObject(), itemobj);
+						totalcont = totalcont + needCount;
+
+						isSelectEquipedItem = true;
+						break;
+					end
+				end
+				
+			end
+		end
+	end
+	slotSet:MakeSelectionList();
+	
+	UPDATE_SQIOR_REPAIR_MONEY(frame, totalcont);
+
+	if isSelectEquipedItem == false or isselected == "SelectedEquiped" then	
+		frame:SetUserValue("SELECTED", "NotSelected");
 	else
-		ctrl:SetUserValue("SELECTED", "selected");
+		frame:SetUserValue("SELECTED", "SelectedEquiped");
 	end
 end
 
@@ -155,10 +211,18 @@ function SQIORE_REPAIR_EXCUTE(parent)
 
 		session.AddItemID(iconInfo:GetIESID());
 	end
-
+	
+	local money = targetbox:GetChild("reqitemMoney");
+	
+	local price = money:GetTextByKey("txt");
+	local yesScp = string.format("SQIORE_REPAIR_EXCUTE_RUN(%d, \"%s\")", handle, skillName);
+	ui.MsgBox(ScpArgMsg("ReallyRepair", 'Price', price), yesScp, "None");
+end
+---------
+function SQIORE_REPAIR_EXCUTE_RUN(handle, skillName)
 	session.autoSeller.BuyItems(handle, AUTO_SELL_SQUIRE_BUFF, session.GetItemIDList(), skillName);
 end
-
+---------
 function ITEMBUFF_REPAIR_UPDATE_HISTORY(frame)
 	local groupName = frame:GetUserValue("GroupName");	
 	local cnt = session.autoSeller.GetHistoryCount(groupName);

@@ -24,48 +24,6 @@ function REQ_EVENT_ITEM_SHOP2_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
-function REQ_EVENT_ITEM_SHOP4_OPEN()
-	local frame = ui.GetFrame("earthtowershop");
-	frame:SetUserValue("SHOP_TYPE", 'EventShop4');
-	ui.OpenFrame('earthtowershop');
-end
-
-function REQ_EVENT_ITEM_SHOP5_OPEN()
-	local frame = ui.GetFrame("earthtowershop");
-	frame:SetUserValue("SHOP_TYPE", 'EventShop5');
-	ui.OpenFrame('earthtowershop');
-end
-
-function REQ_EVENT_ITEM_SHOP6_1_OPEN()
-	local frame = ui.GetFrame("earthtowershop");
-	frame:SetUserValue("SHOP_TYPE", 'EventShop6_1');
-	ui.OpenFrame('earthtowershop');
-end
-
-function REQ_EVENT_ITEM_SHOP6_2_OPEN()
-	local frame = ui.GetFrame("earthtowershop");
-	frame:SetUserValue("SHOP_TYPE", 'EventShop6_2');
-	ui.OpenFrame('earthtowershop');
-end
-
-function REQ_EVENT_ITEM_SHOP6_3_OPEN()
-	local frame = ui.GetFrame("earthtowershop");
-	frame:SetUserValue("SHOP_TYPE", 'EventShop6_3');
-	ui.OpenFrame('earthtowershop');
-end
-
-function REQ_EVENT_ITEM_SHOP6_4_OPEN()
-	local frame = ui.GetFrame("earthtowershop");
-	frame:SetUserValue("SHOP_TYPE", 'EventShop6_4');
-	ui.OpenFrame('earthtowershop');
-end
-
-function REQ_EVENT_ITEM_SHOP6_5_OPEN()
-	local frame = ui.GetFrame("earthtowershop");
-	frame:SetUserValue("SHOP_TYPE", 'EventShop6_5');
-	ui.OpenFrame('earthtowershop');
-end
-
 function REQ_KEY_QUEST_TRADE_HETHRAN_LV1_OPEN()
 	local frame = ui.GetFrame("earthtowershop");
 	frame:SetUserValue("SHOP_TYPE", 'KeyQuestShop1');
@@ -81,12 +39,6 @@ end
 function HALLOWEEN_EVENT_ITEM_SHOP_OPEN()
 	local frame = ui.GetFrame("earthtowershop");
 	frame:SetUserValue("SHOP_TYPE", 'HALLOWEEN');
-	ui.OpenFrame('earthtowershop');
-end
-
-function REQ_EVENT_ITEM_SHOP7_OPEN()
-	local frame = ui.GetFrame("earthtowershop");
-	frame:SetUserValue("SHOP_TYPE", 'EventShop7');
 	ui.OpenFrame('earthtowershop');
 end
 
@@ -477,24 +429,12 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 		item.DialogTransaction("KEYQUESTSHOP1_SHOP_TREAD", resultlist, cntText);
 	elseif shopType == 'KeyQuestShop2' then
 		item.DialogTransaction("KEYQUESTSHOP2_SHOP_TREAD", resultlist, cntText);
-	elseif shopType == 'EventShop6_1' then
-		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD6_1", resultlist, cntText);
-	elseif shopType == 'EventShop6_2' then
-		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD6_2", resultlist, cntText);
-	elseif shopType == 'EventShop6_3' then
-		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD6_3", resultlist, cntText);
-	elseif shopType == 'EventShop6_4' then
-		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD6_4", resultlist, cntText);
-	elseif shopType == 'EventShop6_5' then
-		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD6_5", resultlist, cntText);
 	elseif shopType == 'HALLOWEEN' then
 		item.DialogTransaction("HALLOWEEN_SHOP_TREAD", resultlist, cntText);
 	elseif shopType == 'EventShop3' then
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD3", resultlist, cntText);	
 	elseif shopType == 'EventShop4' then
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD4", resultlist, cntText);
-	elseif shopType == 'EventShop7' then
-		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD7", resultlist, cntText);
 	end
 
 	frame:ShowWindow(0)

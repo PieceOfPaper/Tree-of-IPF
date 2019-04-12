@@ -90,12 +90,29 @@ function ADVENTURE_BOOK_QUEST_INIT_REGION(page_quest)
 	local sizeofctrl = frame:GetUserConfig("REGION_ELEM_HEIGHT");
 	local region_list = region_list_func();
     quest_list:RemoveAllChild();
-
+    
+    
+    local questzoneList = SCR_QUEST_SHOW_ZONE_LIST(page_quest)
+    local map_list_func = ADVENTURE_BOOK_MAP_CONTENT['MAP_LIST_BY_REGION_NAME'];
 	for i=1, #region_list do
         local regionName = region_list[i];
-		local region_info = region_info_func(regionName);
-		local ctrlSet = quest_list:CreateOrGetControlSet('adventure_book_map_region', "QUEST_REGION_" .. regionName, 0, 0);
-		ADVENTURE_BOOK_QEUST_INIT_REGION_CTRLSET(ctrlSet, regionName);
+        
+        local map_list = map_list_func(regionName);	
+        local flag = 0
+        for i = 1, #map_list do
+            local mapID = map_list[i];
+            local mapCls = GetClassByType('Map', mapID); 
+            if table.find(questzoneList, mapCls.ClassName) ~= 0 then
+                flag = 1
+                break
+            end
+        end
+        
+        if flag == 1 then
+    		local region_info = region_info_func(regionName);
+    		local ctrlSet = quest_list:CreateOrGetControlSet('adventure_book_map_region', "QUEST_REGION_" .. regionName, 0, 0);
+    		ADVENTURE_BOOK_QEUST_INIT_REGION_CTRLSET(ctrlSet, regionName);
+    	end
 	end
     GBOX_AUTO_ALIGN(quest_list, 0, 0, 0, true, false);
 end
@@ -148,6 +165,42 @@ function ADVENTURE_BOOK_QEUST_CLICK_REGION(parent, gb)
     ADVENTURE_BOOK_QUEST_INIT_MAP(quest_list, ctrlSet, regionName);    
 end
 
+function SCR_QUEST_SHOW_ZONE_LIST(nowframe)
+    local questList, cnt = GetClassList('QuestProgressCheck');
+    local topFrame = nowframe:GetTopParentFrame();
+    local questSearchEdit = GET_CHILD_RECURSIVELY(topFrame, 'questSearchEdit');
+    local searchText = questSearchEdit:GetText();
+    local zoneList = {}
+    
+    for index = 0, cnt - 1 do
+        local questCls = GetClassByIndexFromList(questList, index);
+        if table.find(zoneList, questCls.StartMap) == 0 then
+            if questCls.Level ~= 9999 then
+                if questCls.Lvup ~= -9999 then
+                    if questCls.PeriodInitialization == 'None' then
+                        local questMode = questCls.QuestMode;
+                        if questMode ~= 'KEYITEM' and questMode ~= 'PARTY' then
+                            local questCateDrop = GET_CHILD_RECURSIVELY(topFrame, 'questCateDrop');
+                            local cateIndex = questCateDrop:GetSelItemIndex();
+                            if cateIndex == 0 or (cateIndex == 1 and questCls.QuestMode == 'MAIN') or (cateIndex == 2 and questCls.QuestMode == 'SUB') or (cateIndex == 3 and questCls.QuestMode ~= 'MAIN' and questCls.QuestMode ~= 'SUB') then
+                                local questLevelDrop = GET_CHILD_RECURSIVELY(topFrame, 'questLevelDrop');
+                                local lvIndex = questLevelDrop:GetSelItemIndex();    
+                                if math.floor(questCls.Level / 100) == lvIndex then
+                                    if searchText == '' or string.find(questCls.Name, searchText) ~= nil then
+                                        zoneList[#zoneList + 1] = questCls.StartMap
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    
+    return zoneList
+end
+
 function ADVENTURE_BOOK_QUEST_INIT_MAP(quest_list, ctrlSet, regionName)
     local map_list_func = ADVENTURE_BOOK_MAP_CONTENT['MAP_LIST_BY_REGION_NAME'];
 	local map_list = map_list_func(regionName);	
@@ -159,10 +212,17 @@ function ADVENTURE_BOOK_QUEST_INIT_MAP(quest_list, ctrlSet, regionName)
     local width = ctrlSet:GetWidth();
     
     local questMapBox = ADVENTURE_BOOK_QUEST_CREATE_MAP_BOX(quest_list, width, 'questMapBox');    
+    
+    local questzoneList = SCR_QUEST_SHOW_ZONE_LIST(questMapBox)
+    
+    
+    
     for i = 1, mapCount do
         local mapID = map_list[i];
-        local mapCls = GetClassByType('Map', mapID);        	            
-        local quest_tree = ADVENTURE_BOOK_QUEST_CREATE_MAP_QUEST_TREE(questMapBox, mapCls);
+        local mapCls = GetClassByType('Map', mapID); 
+        if table.find(questzoneList, mapCls.ClassName) ~= 0 then
+            local quest_tree = ADVENTURE_BOOK_QUEST_CREATE_MAP_QUEST_TREE(questMapBox, mapCls);
+        end
     end
     ADVENTURE_BOOK_QUEST_REALIGN(quest_list:GetTopParentFrame(), ctrlSet);
 end

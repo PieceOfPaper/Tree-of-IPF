@@ -67,72 +67,82 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 		local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 		local img = string.format("{img dealok_image %d %d}", 55, 45) 
 		prop:SetTextByKey("value", img .. ScpArgMsg("AllowTradeByCount"));
-
+        if itemobj.NumberArg2 >= 30 then
 		img = string.format("{img dealok30_image2 %d %d}", 100, 45) 
+		elseif itemobj.NumberArg2 >= 15 then
+		    img = string.format("{img dealok15_image2 %d %d}", 100, 45) 
+		end
 		value:SetTextByKey("value", img);
 	else
 		gBox:RemoveChild("CTRLSET_TOKEN_TRADECOUNT");	
 	end	
 
-	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 6,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-    local prop = ctrlSet:GetChild("prop");
-    local imag = string.format("{img 1plus_image %d %d}", 55, 45) 
-    prop:SetTextByKey("value", imag..ClMsg("CanGetMoreBuff")); 
-    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
-    value:ShowWindow(0);
-
-	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 7,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 5,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img paid_pose_image %d %d}", 55, 45) 
     prop:SetTextByKey("value", imag..ClMsg("AllowPremiumPose")); 
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
-	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 8,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 6,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img paid_pose_image %d %d}", 55, 45)
     prop:SetTextByKey("value", imag..ClMsg("CanGetMoneyByMarketImmediately")); 
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
-	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 9,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 7,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img MarketLimitedRM_image %d %d}", 55, 45)
     prop:SetTextByKey("value", imag..ClMsg("CanRegisterMarketRegradlessOfLimit")); 
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
-local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 10,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 8,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img teamcabinet_image %d %d}", 55, 45)
     prop:SetTextByKey("value", imag..ClMsg("TeamWarehouseEnable")); 
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
+	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 9,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img 1plus_image %d %d}", 55, 45)
+    prop:SetTextByKey("value", imag..ClMsg("Mission_Reward")); 
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+    value:ShowWindow(0);
+
+local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 10,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img 2minus_image %d %d}", 55, 45)
+    prop:SetTextByKey("value", imag..ClMsg("RaidStance")); 
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+    value:ShowWindow(0);
+
 	ADD_2PLUS_IMAGE(gBox)
 
 	GBOX_AUTO_ALIGN(gBox, 0, 2, 0, true, false);
-  -- È¤½Ã³ª ÀúÃ³·³ °í»ıÇÏ½Ã´Â ºĞÀÌ »ı±æ°¡ Àû½À´Ï´Ù. ÇØ´ç ºÎºĞÀº ÅäÅ«ÀÇ ½ÇÁ¦ Àû¿ë ½Ã°£¿¡ ¿©À¯ºĞÀ» µÎ±â ¶§¹®¿¡ UI »ó Ãâ·Â½Ã°£À» º¸Á¤ÇÏ´Â °÷ÀÔ´Ï´Ù.
-  -- ¿©±â ÀÛ¼º ¾ÈÇÏ¸é °è¼Ó ½Ã°£ÀÌ ÀÌ»óÇÏ°Ô ³ª¿Ã°Å¿¡¿ä
+  -- í˜¹ì‹œë‚˜ ì €ì²˜ëŸ¼ ê³ ìƒí•˜ì‹œëŠ” ë¶„ì´ ìƒê¸¸ê°€ ì ìŠµë‹ˆë‹¤. í•´ë‹¹ ë¶€ë¶„ì€ í† í°ì˜ ì‹¤ì œ ì ìš© ì‹œê°„ì— ì—¬ìœ ë¶„ì„ ë‘ê¸° ë•Œë¬¸ì— UI ìƒ ì¶œë ¥ì‹œê°„ì„ ë³´ì •í•˜ëŠ” ê³³ì…ë‹ˆë‹¤.
+  -- ì—¬ê¸° ì‘ì„± ì•ˆí•˜ë©´ ê³„ì† ì‹œê°„ì´ ì´ìƒí•˜ê²Œ ë‚˜ì˜¬ê±°ì—ìš”
 	local arg1 = itemobj.NumberArg1;
 	if itemobj.ClassName == "PremiumToken" or itemobj.ClassName == "PremiumToken_event" then
-		arg1 = 2592000 --30ÀÏ
+		arg1 = 2592000 --30ì¼
 	elseif itemobj.ClassName == "PremiumToken_5d" or itemobj.ClassName == "PremiumToken_5d_Steam" or itemobj.ClassName == "PremiumToken_5d_event" then
-		arg1 = 432000 -- 5ÀÏ
+		arg1 = 432000 -- 5ì¼
 	elseif itemobj.ClassName == "PremiumToken_1d" or itemobj.ClassName == "PremiumToken_7d_Steam" then
-		arg1 = 604800 -- 7ÀÏ
+		arg1 = 604800 -- 7ì¼
 	elseif itemobj.ClassName == "PremiumToken_24h" then
-		arg1 = 86400 -- 1ÀÏ
+		arg1 = 86400 -- 1ì¼
 	elseif itemobj.ClassName == "PremiumToken_3d" or itemobj.ClassName == "PremiumToken_3d_Steam" or itemobj.ClassName == "PremiumToken_3d_event" then
-		arg1 = 259200 -- 3ÀÏ
+		arg1 = 259200 -- 3ì¼
 	elseif itemobj.ClassName == "PremiumToken_12h" then
-		arg1 = 43200 -- 12½Ã°£
+		arg1 = 43200 -- 12ì‹œê°„
 	elseif itemobj.ClassName == "PremiumToken_6h" then
-		arg1 = 21600 -- 6½Ã°£
+		arg1 = 21600 -- 6ì‹œê°„
 	elseif itemobj.ClassName == "PremiumToken_3h" or itemobj.ClassName == "PremiumToken_3h_event" then
-		arg1 = 10800 -- 3½Ã°£
-	elseif itemobj.ClassName == "PremiumToken_15d" or itemobj.ClassName == "PremiumToken_15d_Steam" then
-		arg1 = 1296000 -- 15ÀÏ
+		arg1 = 10800 -- 3ì‹œê°„
+	elseif itemobj.ClassName == "PremiumToken_15d" or itemobj.ClassName == "PremiumToken_15d_Steam" or itemobj.ClassName == "PremiumToken_15d_vk" then
+		arg1 = 1296000 -- 15ì¼
         elseif itemobj.ClassName == "PremiumToken_30d" then
 		arg1 = 2592000 -- 30O
 	elseif itemobj.ClassName == "PremiumToken_60d" then

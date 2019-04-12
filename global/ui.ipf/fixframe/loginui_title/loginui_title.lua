@@ -1,4 +1,4 @@
-﻿function LOGINUI_TITLE_ON_INIT(addon, frame)
+function LOGINUI_TITLE_ON_INIT(addon, frame)
 	login.LoadServerList();
 
 	TOGGLE_SINGLE_MODE_UI(frame);
@@ -48,6 +48,15 @@ end
 
 
 g_replayPerfRecordCheckBox = nil
+
+function TOGGLE_REPLAY_BUTTON()
+    local frame = ui.GetFrame('barrack_exit');
+    local btn = frame:CreateOrGetControl("button", "REPLAY_BUTTON", 160, 55, ui.RIGHT, ui.CENTER_VERT, 0, 18, 390, 0);
+    btn:SetSkinName("test_gray_button");
+    btn:SetEventScript(ui.LBUTTONDOWN, 'TOGGLE_REPLAY')
+    btn:EnableHitTest(1);
+    btn:SetText("{@st41b}Replay{/}")
+end
 
 function TOGGLE_REPLAY(frame)
 	local recordPerfCheck = GET_CHILD_RECURSIVELY(frame, "replayPerfRecord");

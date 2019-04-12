@@ -28,7 +28,8 @@ function StatueCaption_PVPStatue(handle, funcArg, familyName, pcName)
 
 	FRAME_AUTO_POS_TO_OBJ(frame, handle, - frame:GetWidth() * 0.35, 20, 0, 1, 1);
 	local result = 1.8 - ranking * 0.1;
-	return aniName, shaderName, result; 
+	local isEnableSelect = 0;
+	return isEnableSelect, aniName, shaderName, result;
 end
 
 
@@ -53,8 +54,8 @@ function StatueCaption_JournalStatue(handle, funcArg, familyName, pcName)
 	FRAME_AUTO_POS_TO_OBJ(frame, handle, - frame:GetWidth() * 0.35, 20, 0, 1, 1);
 	
 	local result = 1.8 - ranking * 0.1;
-	return aniName, shaderName, result;
-
+	local isEnableSelect = 0;
+	return isEnableSelect, aniName, shaderName, result;
 end
 
 function StatueCaption_FishRubbingStatue(handle, funcArg, familyName, pcName)
@@ -77,5 +78,6 @@ function StatueCaption_FishRubbingStatue(handle, funcArg, familyName, pcName)
 	FRAME_AUTO_POS_TO_OBJ(frame, handle, - frame:GetWidth() * 0.50, 20, 0, 1, 1);
 	
 	local result = 1.8 - ranking * 0.1;
-	return aniName, shaderName, result;
+	local isEnableSelect = 1;
+	return isEnableSelect, aniName, shaderName, result;
 end

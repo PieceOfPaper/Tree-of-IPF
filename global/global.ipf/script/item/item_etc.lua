@@ -1287,6 +1287,100 @@ function SCR_USE_VALENTINE_CHOCO_2018(pc)
     end
 end
 
+function SCR_USE_ITEM_AddBuff(self,argObj,BuffName,arg1,arg2)
+    if BuffName == 'EVENT_1708_JURATE_1' then
+        local teamlv = GetTeamLevel(self)
+        local teamName = GetTeamName(self);
+        IMCLOG_CONTENT("180206_VALENTINE_EVENT", "PClv:  ", self.Lv, "TeamLv:  ", teamlv, "TeamName:   ", teamName)
+    end
+    AddBuff(self, self, BuffName, arg1, 0, arg2, 1);
+	AddAchievePoint(self, "Potion", 1);
+
+end
+
+function SCR_USE_LEVELUP_REWARD_EV(pc)
+	local nextLv = 0
+	local nextlv_group = {330, 280, 235, 185, 135, 85, 45, 1}
+	local sObj = GetSessionObject(pc, 'ssn_klapeda')
+
+	-- if sObj.EVENT_VALUE_SOBJ01 >= 360 then
+	--     SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("BLACK_HOLE_CLEAR_BOX_MSG2"), 5)
+	--     return;
+	-- end
+	
+    if sObj.EVENT_VALUE_SOBJ02 > 10 then
+	    SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("BLACK_HOLE_CLEAR_BOX_MSG2"), 5)
+	    return;
+	end
+
+	if sObj.EVENT_VALUE_SOBJ01 <= pc.Lv or pc.Lv >= 360 then -- succ
+	    local reward = {
+	        {'Drug_Fortunecookie_14d', 5, 'Premium_indunReset_14d', 1},
+	        {'Drug_Fortunecookie_14d', 5, 'Premium_indunReset_14d', 1},
+            {'Drug_Fortunecookie_14d', 5, 'Premium_indunReset_14d', 2},
+            {'Drug_Fortunecookie_14d', 5, 'Event_Goddess_Statue_3d', 2},
+            {'Drug_Fortunecookie_14d', 5, 'Adventure_Reward_Seed_3d', 2}, -- 5
+            {'Drug_Fortunecookie_14d', 5, 'Premium_dungeoncount_Event', 3},
+            {'Drug_Fortunecookie_14d', 5, 'Premium_indunReset_14d', 2},
+            {'Drug_Fortunecookie_14d', 5, 'Premium_dungeoncount_Event', 3},
+            {'Drug_Fortunecookie_14d', 5, 'Moru_Silver', 1},
+            {'Ability_Point_Stone', 2, 'Moru_Gold_14d', 1},
+	    }
+	    
+	    for i = 1, table.getn(nextlv_group) do
+    	    if pc.Lv >= nextlv_group[i] then
+    	        nextLv = i + pc.Lv
+    	        break
+    	    end
+    	end
+
+    	local tx = TxBegin(pc)
+    	for j = 1,4, 2 do
+            TxGiveItem(tx, reward[sObj.EVENT_VALUE_SOBJ02 + 1][j], reward[sObj.EVENT_VALUE_SOBJ02 + 1][j + 1], 'LEVELUP_REWARD_EV')
+        end
+        TxSetIESProp(tx, sObj, 'EVENT_VALUE_SOBJ01', nextLv)
+        TxSetIESProp(tx, sObj, 'EVENT_VALUE_SOBJ02', sObj.EVENT_VALUE_SOBJ02 + 1)
+        local ret = TxCommit(tx)
+        if ret == 'SUCCESS' then
+            SendAddOnMsg(pc, 'NOTICE_Dm_Clear', ScpArgMsg("LevelUp_Event_Desc01", "REWARD", sObj.EVENT_VALUE_SOBJ02), 5)
+        end
+	else -- fail
+	    SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("LevelUp_Event_Desc02", "NEXTLV", sObj.EVENT_VALUE_SOBJ01), 5)
+	end
+end
+
+function SCR_USE_DAYQUEST_RAND(pc)
+  local sObj = GetSessionObject(pc, 'ssn_klapeda')
+  local attribute = {'Dark', 'Poison', 'Fire', 'Lightning', 'Ice', 'Earth'} -- EVENT_VALUE_SOBJ07
+  local RaceType = {'Forester', 'Klaida', 'Widling', 'Paramune', 'Velnias'} -- EVENT_VALUE_SOBJ08
+  
+  ShowOkDlg(pc, ScpArgMsg('DayQuest_Rand_Desc01', 'RACE', ScpArgMsg(sObj.EVENT_STRING_SOBJ02), 'LV', sObj.EVENT_VALUE_SOBJ09), 1)
+end
+
+-- event transform scroll
+function SCR_USE_EVENT_TRANSFORM_SCROLL(self, argObj, argstring, arg1, arg2)
+    RunScript("SCR_USE_EVENT_TRANSFORM_PLAY", self)
+end
+
+function SCR_USE_EVENT_TRANSFORM_PLAY(self)
+    local monlist = {
+        57991, 58402, 58102, 58702, 41448
+    }
+
+    local monClsID = monlist[IMCRandom(1, 5)]
+
+    local monClsName = GetClassString('Monster', monClsID, 'ClassName')
+    local iesObj = CreateGCIES('Monster', monClsName);
+	
+	if iesObj == nil then
+	    return;
+	end
+	
+    if 1 == TransformToMonster(self, monClsName, 'Event_Transform_NoSave') then
+		AddBuff(self, self, 'Event_Transform_NoSave', 1, 0, 600000, 1)
+	end
+end
+
 function ACHIEVE_HAPPY2YEAR_STEAM(pc)
     local tx = TxBegin(pc);
     TxAddAchievePoint(tx, 'Event_Happy2Year_Steam', 1)
@@ -1336,4 +1430,18 @@ function SCR_USE_EVENT_STEAM_2YEARS_WARP(pc)
             MoveZone(pc, 'c_Klaipe', 71.70, 149.21, 321.89);
         end
     end
+end
+
+function ACHIEVE_Steam_Honorary(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Event_Steam_Honorary', 1)
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_2YEARS_BOX(pc)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'Hat_628313', 1, '2YEARS_PACKAGE');
+    TxGiveItem(tx, 'Hat_628314', 1, '2YEARS_PACKAGE');
+    TxGiveItem(tx, 'Hat_628315', 1, '2YEARS_PACKAGE');
+    local ret = TxCommit(tx);
 end

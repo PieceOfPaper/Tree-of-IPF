@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uiframe name="rewardbidpopup" x="0" y="0" width="500" height="270" create="open">
-    <frame layout_gravity="center center" margin="0 0 0 0"/>
-    <draw drawtitlebar="false" drawframe="true" margin="0 0 0 0"/>
-    <option closebutton="false" hideable="true" margin="0 0 0 0"/>
-    <script margin="0 0 0 0"/>
-    <skin frameskin="recipe_skin"/>
-    <controls>
-        <button name="btn_join" rect="0 0 125 50" layout_gravity="center bottom" LBtnUpScp="REQ_REWARD_BID" clicksound="button_click" oversound="button_over" margin="-67 0 0 25" format="{@st42}%s{/}" param1="value" param1_def="입찰" skin="test_red_button"/>
-        <button name="btn_close" rect="0 0 125 50" layout_gravity="center bottom" LBtnUpScp="REQ_ClOSE_REWARDBID" clicksound="button_click" oversound="button_over" margin="77 0 0 25" format="{@st42}%s{/}" param1="value" param1_def="포기" skin="test_gray_button"/>
-        <gauge name="gauge" margin="165 126 0 0" rect="0 0 283 41" skin="jour_info_gauge" inverse="false" point="50" layout_gravity="left top"/>
-        <richtext name="txt_startwaittime" rect="0 0 70 27" margin="391 106 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{s18}%s{/}" maxwidth="0" param1="value" param1_def="6:23" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
-        <groupbox name="groupbox_1_1" margin="49 73 0 0" rect="0 0 110 110" hittestbox="false" skin="bg_test" layout_gravity="left top"/>
-        <picture name="ItemIcon" margin="54 78 0 0" rect="0 0 100 100" hittest="true" image="mainpc_crown" stretch="true" changecursor="false" layout_gravity="left top"/>
-        <richtext name="ItemName" margin="162 79 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="글라디우스" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-        <richtext name="itemCount" margin="122 155 0 0" rect="0 0 120 24" format="{@st42}X %s{/}" param1="count" param1_def="1" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-        <skin frameskin="None"/>
-        <skin frameskin="None"/>
-        <richtext name="ItemName_1" margin="161 108 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="남은 입찰 시간" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-        <richtext name="ItemName_2" margin="0 32 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="아이템 주사위" textalign="center cneter" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
-    </controls>
+	<frame layout_gravity="center center" margin="0 0 0 0"/>
+	<draw drawtitlebar="false" drawframe="true" margin="0 0 0 0"/>
+	<option closebutton="false" hideable="true" margin="0 0 0 0"/>
+	<script margin="0 0 0 0"/>
+	<skin frameskin="recipe_skin"/>
+	<controls>
+		<button name="btn_join" rect="0 0 125 50" layout_gravity="center bottom" LBtnUpScp="REQ_REWARD_BID" clicksound="button_click" oversound="button_over" margin="-67 0 0 25" format="{@st42}%s{/}" param1="value" param1_def="참가" skin="test_red_button"/>
+		<button name="btn_close" rect="0 0 125 50" layout_gravity="center bottom" LBtnUpScp="REQ_ClOSE_REWARDBID" clicksound="button_click" oversound="button_over" margin="77 0 0 25" format="{@st42}%s{/}" param1="value" param1_def="포기" skin="test_gray_button"/>
+		<gauge name="gauge" margin="165 126 0 0" rect="0 0 283 41" skin="jour_info_gauge" inverse="false" point="50" layout_gravity="left top"/>
+		<richtext name="txt_startwaittime" rect="0 0 70 27" margin="391 106 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{s18}%s{/}" maxwidth="0" param1="value" param1_def="6:23" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+		<groupbox name="groupbox_1_1" margin="49 73 0 0" rect="0 0 110 110" hittestbox="false" skin="bg_test" layout_gravity="left top"/>
+		<picture name="ItemIcon" margin="54 78 0 0" rect="0 0 100 100" hittest="true" image="mainpc_crown" stretch="true" changecursor="false" layout_gravity="left top"/>
+		<richtext name="ItemName" margin="162 79 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="글라디우스" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="itemCount" margin="122 155 0 0" rect="0 0 120 24" format="{@st42}X %s{/}" param1="count" param1_def="1" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<skin frameskin="None"/>
+		<skin frameskin="None"/>
+		<richtext name="ItemName_1" margin="161 108 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="남은 참가 시간" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="ItemName_2" margin="0 32 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="랜덤 획득" textalign="center cneter" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+	</controls>
 </uiframe>

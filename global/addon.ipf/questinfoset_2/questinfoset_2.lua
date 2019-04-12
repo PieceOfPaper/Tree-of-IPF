@@ -1074,14 +1074,7 @@ function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
 end
 
 function QUESTION_QUEST_WARP(frame, ctrl, argStr, questID)
-	local zoneName = GetZoneName(pc)
-
     if session.colonywar.GetIsColonyWarMap() == true then
-        ui.SysMsg(ClMsg('ThisLocalUseNot'));
-        return 0;
-    end
-
-	if 'E_f_tableland_11_1' == zoneName then
         ui.SysMsg(ClMsg('ThisLocalUseNot'));
         return 0;
     end

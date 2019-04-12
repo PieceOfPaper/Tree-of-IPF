@@ -1,4 +1,4 @@
---- skillshared.lua
+﻿--- skillshared.lua
 
 function SKILL_TARGET_ITEM_Swordman_Thrust(obj)
 	
@@ -10,17 +10,38 @@ function GET_NINJA_SKILLS()
 
 	local retList = {};
 	retList[#retList + 1] = "Shinobi_Kunai";
+	retList[#retList + 1] = "Shinobi_Mijin_no_jutsu";
+	retList[#retList + 1] = "Shinobi_Katon_no_jutsu";
 	retList[#retList + 1] = "Swordman_Thrust";
 	retList[#retList + 1] = "Swordman_Bash";
 	retList[#retList + 1] = "Swordman_DoubleSlash";
 	retList[#retList + 1] = "Swordman_PommelBeat";
 	retList[#retList + 1] = "Peltasta_UmboBlow";
 	retList[#retList + 1] = "Peltasta_RimBlow";
+	retList[#retList + 1] = "Peltasta_ButterFly";
+	retList[#retList + 1] = "Peltasta_Langort";
 	retList[#retList + 1] = "Highlander_Crown";
 	retList[#retList + 1] = "Highlander_Moulinet";
 	retList[#retList + 1] = "Hoplite_SynchroThrusting";
+	retList[#retList + 1] = "Barbarian_Cleave";
+	retList[#retList + 1] = "Barbarian_Seism";
 	retList[#retList + 1] = "Rodelero_ShootingStar";
 	retList[#retList + 1] = "Rodelero_ShieldBash";
+	retList[#retList + 1] = "Rodelero_TargeSmash";
+	retList[#retList + 1] = "Corsair_DustDevil";
+	retList[#retList + 1] = "Corsair_HexenDropper";
+	retList[#retList + 1] = "Corsair_ImpaleDagger";
+	retList[#retList + 1] = "Doppelsoeldner_Mordschlag";
+	retList[#retList + 1] = "Doppelsoeldner_Zwerchhau";
+	retList[#retList + 1] = "Doppelsoeldner_Sturzhau";
+	retList[#retList + 1] = "Fencer_SeptEtoiles";
+	retList[#retList + 1] = "Fencer_AttaqueComposee";
+	retList[#retList + 1] = "Fencer_Fleche";
+	retList[#retList + 1] = "Dragoon_Dragontooth";
+	retList[#retList + 1] = "Dragoon_Dragon_Soar";
+	retList[#retList + 1] = "NakMuay_Attack";
+	retList[#retList + 1] = "Templer_MortalSlash";
+	retList[#retList + 1] = "Squire_DeadlyCombo";
 	return retList;
 
 end
@@ -116,4 +137,28 @@ function HAS_GUILDGROWTH_SKL_OBJ(guildObj, sklName, sklLv)
 	end
 
 	return true;
+end
+function SCR_ARRAY_SHUFFLE(arr_val)
+    if arr_val ~= nil then
+        if type(arr_val) == 'table' then
+            local i;
+            local temp_arr;
+            local rnd;
+            for i = 1, #arr_val do
+                rnd = IMCRandom(i, #arr_val);
+                if rnd ~= i then
+                    temp_arr = arr_val[i];
+                    arr_val[i] = arr_val[rnd];
+                    arr_val[rnd] = temp_arr;
+                end
+            end
+            
+--            return arr_val;
+--        else
+--            print('ERR!! arr_val is not Arrange Value')
+        end
+--    else
+--        print('ERR!! arr_val is nil')
+    end
+    return arr_val;
 end

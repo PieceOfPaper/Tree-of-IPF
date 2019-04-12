@@ -251,31 +251,30 @@ function IMC_LOG(code, stringinfo)
     imclog(code, stringinfo);
 end
 
-
 -- new logger
 function IMCLOG_FATAL(logger, code, stringinfo)
-	ImcScriptLog(logger, "FATAL",code,stringinfo)
+    ImcScriptLog(logger, "FATAL",code,stringinfo)
 end
 function IMCLOG_ALERT(logger, code, stringinfo)
-	ImcScriptLog(logger, "ALERT",code,stringinfo)
+    ImcScriptLog(logger, "ALERT",code,stringinfo)
 end
 function IMCLOG_CRITICAL(logger, code, stringinfo)
-	ImcScriptLog(logger, "CRITICAL",code,stringinfo)
+    ImcScriptLog(logger, "CRITICAL",code,stringinfo)
 end
 function IMCLOG_ERROR(logger,code, stringinfo)
-	ImcScriptLog(logger, "ERROR",code,stringinfo)
+    ImcScriptLog(logger, "ERROR",code,stringinfo)
 end
 function IMCLOG_WARN(logger,code, stringinfo)
-	ImcScriptLog(logger, "WARN",code,stringinfo)
+    ImcScriptLog(logger, "WARN",code,stringinfo)
 end
 function IMCLOG_NOTICE(logger,code, stringinfo)
-	ImcScriptLog(logger, "NOTICE",code,stringinfo)
+    ImcScriptLog(logger, "NOTICE",code,stringinfo)
 end
 function IMCLOG_INFO(logger,code, stringinfo)
-	ImcScriptLog(logger, "INFO",code,stringinfo)
+    ImcScriptLog(logger, "INFO",code,stringinfo)
 end
 function IMCLOG_DEBUG(logger,code, stringinfo)
-	ImcScriptLog(logger, "DEBUG",code,stringinfo)
+    ImcScriptLog(logger, "DEBUG",code,stringinfo)
 end
 
 function IMCLOG_CONTENT(tag, ...)
@@ -1862,6 +1861,65 @@ function SCR_GET_ZONE_FACTION_OBJECT(zoneClassName, factionList, monRankList, re
     return monList
 end
 
+function GET_COMMA_SEPARATED_STRING(num)
+	local stringValue = tostring(num);
+	local retStr = stringValue;
+	local strLen = string.len(stringValue);
+	if strLen > 14 then
+		print('Can not use more than 14 digits!');
+		return num, "FAIL";
+--		retStr = GET_COMMA_SEPARATED_STRING_FOR_HIGH_VALUE(num);
+--		return retStr;
+	end
+	
+	local loop = math.floor((strLen - 1) / 3);
+	if loop >= 1 then
+		retStr = string.sub(stringValue, -3);
+		for i = 1, loop do
+			local tempStr = string.sub(stringValue, -3 * (i + 1), (-3 * i) - 1);
+			
+			retStr = tempStr .. ',' .. retStr;
+		end
+	end
+	
+	return retStr, "SUCCESS";
+end
+
+function GET_COMMA_SEPARATED_STRING_FOR_HIGH_VALUE(num)
+	local retStr = "";
+	local numValue = num;
+	
+	for i = 1, 1000 do	-- 무한루프 방지용 --
+		local tempValue = numValue % 1000;
+		if string.len(tempValue) < 3 then
+			for j = 1, 3 - string.len(tempValue) do
+				tempValue = tostring(0 .. tempValue);
+			end
+		end
+		
+		numValue = math.floor(numValue / 1000);
+		
+		if retStr == "" then
+			retStr = tempValue;
+		else
+			retStr = tempValue .. ',' .. retStr;
+		end
+		
+		if numValue < 1000 then
+			if numValue == 0 then
+				break;
+			end
+			
+			retStr = numValue .. ',' .. retStr;
+			break;
+		end
+	end
+	
+	return retStr, "SUCCESS";
+end
+
+-- 이 함수는 이제 사용하지 말 것 --
+-- 그래도 혹시 어디서 참조할지 몰라서 남겨두긴 함 --
 function GET_COMMAED_STRING(num) -- unsigned long 범위내에서 가능하게 수정함
     if num == nil then
         return "0";

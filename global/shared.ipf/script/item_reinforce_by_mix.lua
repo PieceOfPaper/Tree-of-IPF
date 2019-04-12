@@ -7,6 +7,20 @@ function SCR_CHECK_CARD_MATERIAL(reinfItem, matItem)
 	return 0;
 end
 
+function SCR_CHECK_REINFORCE_CARD_MATERIAL(reinfItem, matItem)
+	if TryGetProp(matItem, "Reinforce_Type") == "Card" and 0 == IsSameObject(reinfItem, matItem) then
+		return 1;
+	end
+	return 0;
+end
+
+function SCR_CHECK_LEGEND_CARD_MATERIAL(reinfItem, matItem)
+	if TryGetProp(matItem, "GroupName") == "Card" and 0 == IsSameObject(reinfItem, matItem) then
+		return 1;
+	end
+	return 0;
+end
+
 function SCR_CHECK_HETHRAN_MATERIAL(reinfItem, matItem)
 	if TryGetProp(matItem, "Reinforce_Type") == "Hethran" and 0 == IsSameObject(reinfItem, matItem) then
 		return 1;

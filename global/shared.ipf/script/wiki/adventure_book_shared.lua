@@ -210,7 +210,7 @@ function GET_ADVENTURE_BOOK_SHOP_POINT(pc)
 --    print("모험일지에 등록된 개인 상점 수: ", #idList);
     for i = 1, #idList do
         local earningPay = GetEarningPay(pc, idList[i]);
-        local skl = GetClassByType('Skill', idList[i]);
+        local skl = GetClassByType('Skill', idList[i]);        
         local money = 0
         if skl.ClassName == "Pardoner_SpellShop" then
             money = earningPay
@@ -286,8 +286,8 @@ function GET_ADVENTURE_BOOK_FISHING_POINT(pc)
     for i = 1, #idList do
         infoCount = GetFishingCount(pc, idList[i]);
         local cls = GetClassByType('Item', idList[i]);
-        if cls ~= nil then
-            if cls.ClassType2 == "Fishing" then
+        if cls ~= nil then            
+            if TryGetProp(cls, 'ClassType2') == "Fishing" then
                 if infoCount >= 1 then
                     fishing_cnt = fishing_cnt + infoCount
 --                    print("-- 물고기 이름: ", cls.ClassName);
@@ -311,7 +311,7 @@ function GET_ADVENTURE_BOOK_FISHING_POINT(pc)
         adv_fishing_point = ((fishing_cnt - 100)*0.2) + (50 *0.5) + (40*0.8) + (10 * 1)
         section = 4;
     elseif fishing_cnt > 1000 and fishing_cnt <= 5000 then
-        adv_fishing_point = ((fishing_cnt - 4000)*0.1) + (900*0.2) + (50 *0.5) + (40*0.8) + (10 * 1)
+        adv_fishing_point = ((fishing_cnt - 1000)*0.1) + (900*0.2) + (50 *0.5) + (40*0.8) + (10 * 1)
         section = 5;
     elseif fishing_cnt > 5000 then
         adv_fishing_point = ((fishing_cnt - 5000)*0) + (4000*0.1) + (900*0.2) + (50*0.5) + (40*0.8) + (10 * 1)
@@ -675,9 +675,9 @@ function ADVENTURE_ALL_CATEGORY(pc)
 end
 
 --Adventure Growth reward
-function ADVENTURE_GROWTH_CATEGORY(pc)
+function ADVENTURE_GROWTH_CATEGORY(pc)    
     local score = 0
-    
+
     score = score + GET_ADVENTURE_BOOK_TEAMLEVEL_POINT(pc)
     score = score + GET_ADVENTURE_BOOK_CLASS_POINT(pc)
     --print(score)

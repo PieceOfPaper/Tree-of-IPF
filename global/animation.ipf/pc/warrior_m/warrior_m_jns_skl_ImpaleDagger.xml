@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="6" type="2" intensity="2" frequency="70" duration="0.1" range="500"/>
+	<Shockwave frame="11" type="2" intensity="2" frequency="70" duration="0.1" range="500"/>
+	<Shockwave frame="16" type="2" intensity="2" frequency="70" duration="0.1" range="500"/>
+	<Shockwave frame="21" type="2" intensity="2" frequency="70" duration="0.1" range="500"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="6" R="130" G="120" B="100" A="100"/>
+	<BlendOn frame="7" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="11" R="130" G="120" B="100" A="100"/>
+	<BlendOn frame="12" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="16" R="130" G="120" B="100" A="100"/>
+	<BlendOn frame="17" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="21" R="130" G="120" B="100" A="100"/>
+	<BlendOn frame="22" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="23" R="0" G="0" B="0" A="0"/>
+	<Particle frame="10" attachNode="Dummy_emitter" particleName="I_warrior_dash_run_line4_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="I_warrior_dash_run_line4_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_ImpaleDagger" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+</ActionDesc>

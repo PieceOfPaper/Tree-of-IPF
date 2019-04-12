@@ -530,23 +530,20 @@ function GET_ITEM_ICON_IMAGE(itemCls, gender)
 	local iconImg = itemCls.Icon;
 		
 	-- costume icon is decided by PC's gender
-    if itemCls.ItemType == 'Equip' then
-        if itemCls.ClassType == 'Outer' or  itemCls.ClassType  == 'SpecialCostume' then
+    if itemCls.ItemType == 'Equip' and (itemCls.ClassType == 'Outer' or  itemCls.ClassType  == 'SpecialCostume') then    
+    	local tempiconname = string.sub(itemCls.Icon, string.len(itemCls.Icon) - 1 );
     
-    		local tempiconname = string.sub(itemCls.Icon, string.len(itemCls.Icon) - 1 );
-    
-    		if tempiconname ~= "_m" and tempiconname ~= "_f" then
-    			if gender == nil then
-    				gender = GETMYPCGENDER();
-    			end
-    
-        		if gender == 1 then
-        			iconImg = itemCls.Icon.."_m"
-        		else
-        			iconImg = itemCls.Icon.."_f"
-        		end
+    	if tempiconname ~= "_m" and tempiconname ~= "_f" then
+    		if gender == nil then
+    			gender = GETMYPCGENDER();
     		end
-    	end
+    
+        	if gender == 1 then
+        		iconImg = itemCls.Icon.."_m"
+        	else
+        		iconImg = itemCls.Icon.."_f"
+        	end
+    	end    	
 	else
 		local faceID = TryGetProp(itemCls, 'BriquettingIndex');
 		if nil ~= faceID and tonumber(faceID) > 0 then

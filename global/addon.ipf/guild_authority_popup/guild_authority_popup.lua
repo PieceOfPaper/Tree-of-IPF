@@ -42,9 +42,8 @@ function GUILD_AUTHORITY_POPUP_SET_OFFSET(frame)
 end
 
 function GUILD_AUTHORITY_POPUP_SET_MEMBER(frame)
-    local strCol = "ADD#REMOVE";	
+    local strCol = "ADD#REMOVE#EVENT";	
 	--strCol = strCol .. "#INVEN";
-	--strCol = strCol .. "#EVENT";
 	local sList = StringSplit(strCol, "#");
 
     local authBox = GET_CHILD_RECURSIVELY(frame, 'authBox');    
@@ -62,38 +61,44 @@ function GUILD_AUTHORITY_POPUP_SET_MEMBER(frame)
     local memberCount = memberCtrlBox:GetChildCount();
     local showCnt = 1;
     local maxOffset = 0;
+    local isOnlyOnline = config.GetXMLConfig('OnlyOnlineGuildMember')
     for i = 0, memberCount - 1 do
         local member = memberCtrlBox:GetChildByIndex(i);        
         if string.find(member:GetName(), 'MEMBER_') ~= nil then
-            local aid = member:GetUserValue('AID');
-            local authCtrlSet = authBox:CreateOrGetControlSet('guild_auth', 'AUTH_'..aid, 0, 0);            
-            
-            local inviteCheck = GET_CHILD(authCtrlSet, 'inviteCheck');
-            local outCheck = GET_CHILD(authCtrlSet, 'outCheck');
-            for j = 1, #sList do            
-                local checkCtrl = nil;
-                if sList[j] == 'ADD' then
-                    checkCtrl = inviteCheck;
-                elseif sList[j] == 'REMOVE' then
-                    checkCtrl = outCheck;
-                end
-                    
-                if checkCtrl ~= nil then
-                    if aid == leaderAID then -- 길마는 모든 권한을 가짐                    
-                        checkCtrl:SetCheck(1);
-				        checkCtrl:SetCheckWhenClicked(0);
-                    else
-				        checkCtrl:SetCheckWhenClicked(bLeader);
-				        checkCtrl:SetCheck(IS_GUILD_AUTHORITY(j, aid));
+            if isOnlyOnline == 0 or member:GetUserValue('IS_ONLINE') == "YES" then
+                local aid = member:GetUserValue('AID');
+                local authCtrlSet = authBox:CreateOrGetControlSet('guild_auth', 'AUTH_'..aid, 0, 0);            
+                
+                local inviteCheck = GET_CHILD(authCtrlSet, 'inviteCheck');
+                local outCheck = GET_CHILD(authCtrlSet, 'outCheck');
+                local eventCheck = GET_CHILD(authCtrlSet, 'eventCheck');
+                for j = 1, #sList do            
+                    local checkCtrl = nil;
+                    if sList[j] == 'ADD' then
+                        checkCtrl = inviteCheck;
+                    elseif sList[j] == 'REMOVE' then
+                        checkCtrl = outCheck;
+                    elseif sList[j] == 'EVENT' then
+                        checkCtrl = eventCheck;
                     end
-			        checkCtrl:SetEventScript(ui.LBUTTONUP, 'SET_AUTHO_MEMBER_CONFIG');
-			        checkCtrl:SetEventScriptArgString(ui.LBUTTONUP, aid);		
-			        checkCtrl:SetEventScriptArgNumber(ui.LBUTTONUP, j);
+                        
+                    if checkCtrl ~= nil then
+                        if aid == leaderAID then -- 길마는 모든 권한을 가짐                    
+                            checkCtrl:SetCheck(1);
+                            checkCtrl:SetCheckWhenClicked(0);
+                        else
+                            checkCtrl:SetCheckWhenClicked(bLeader);
+                            checkCtrl:SetCheck(IS_GUILD_AUTHORITY(j, aid));
+                        end
+                        checkCtrl:SetEventScript(ui.LBUTTONUP, 'SET_AUTHO_MEMBER_CONFIG');
+                        checkCtrl:SetEventScriptArgString(ui.LBUTTONUP, aid);		
+                        checkCtrl:SetEventScriptArgNumber(ui.LBUTTONUP, j);
+                    end
                 end
+                local memberOffsetY = member:GetY();
+                authCtrlSet:SetOffset(authCtrlSet:GetX(), memberOffsetY);
+                maxOffset = math.max(maxOffset, memberOffsetY);
             end
-            local memberOffsetY = member:GetY();
-            authCtrlSet:SetOffset(authCtrlSet:GetX(), memberOffsetY);
-            maxOffset = math.max(maxOffset, memberOffsetY);
         end
     end
 end

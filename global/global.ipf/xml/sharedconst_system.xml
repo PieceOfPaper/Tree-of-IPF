@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- 운영상의 이슈로 조정되는 값들이 아닌 시스템 옵션 값들을 관리하는 sharedconst. 민감한 값들이므로 프로그래머의 확인 후에 수정 하도록 합시다. sharedconst.xml의 classID와 겹치지 않도록 주의 -->
 <idspace id="SharedConst">
 	<Category Name="OnOff">
@@ -9,7 +9,6 @@
 		<Class ClassID="400007" ClassName="USE_COUNT_INDUN_USING_RATE" Value="1"/>
 	</Category>
 	<Category Name="System">
-		<Class ClassID="100037" ClassName="MAX_MIC_LEN" Value="500"/>
 		<Class ClassID="100056" ClassName="DLC_GET_DELAY" Value="0"/>
 		<Class ClassID="100057" ClassName="TRADABLE_DELAY" Value="604800"/>
 		<Class ClassID="100058" ClassName="USE_STEAM_INVENTORY" Value="1"/>

@@ -203,6 +203,15 @@ function SKL_CHECK_CHECK_BUFF_C(actor, skl, buffName)
     return 1;
 end
 
+function SKL_CHECK_CHECK_NOBUFF_C(actor, skl, buffName)
+
+    if actor:GetBuff():GetBuff(buffName) == nil then
+        return 1;
+    end
+    
+    return 0;
+end
+
 function SKL_CHECK_NEAR_PAD_C(actor, skl, padName, isExist, range, padStyle)
     local pos = actor:GetPos();
     local padCount = SelectPadCount_C(actor, padName, pos.x, pos.y, pos.z, range, padStyle);

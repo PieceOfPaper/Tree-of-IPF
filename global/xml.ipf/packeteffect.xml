@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <packeteffects>
-	<Category ID="204">
+	<Category ID="144">
+<Effect Name="F_pc_CardBook_ground_dark"/>
+        <Effect Name="I_smoke013_dark3_yellow"/>
+    </Category>
+    <Category ID="204">
 		<Effect Name="MISSION_EVENT_BLUEORB"/>
 	</Category>
 	<Category ID="142">
@@ -554,7 +558,12 @@
 		<Effect Name="ATKRUN"/>
 		<Effect Name="RIDE_OBEY"/>
 		<Effect Name="buildRoost_pad"/>
-		<Effect Name="F_archer_circling_ground"/>
+		<Effect Name="HeavyGravity_PAD"/>
+        <Effect Name="PercentUI"/>
+        <Effect Name="StormDust_Pad"/>
+        <Effect Name="Cryomancer_FrostPillar"/>
+        <Effect Name="F_archer_bodkinpoint_finish#Bip01 Head"/>
+        <Effect Name="Linker_blue"/>
 	</Category>
 	<Category ID="197">
 		<Effect Name="F_burstup030_fire1"/>
@@ -729,7 +738,21 @@
 		<Effect Name="F_cleric_blindfaith_buff_loop"/>
 		<Effect Name="F_cleric_blindfaith_buff"/>
 		<Effect Name="F_ground170_dark3"/>
-	</Category>
+	<Effect Name="MISSION_EVENT_CURSEDOOR"/>
+        <Effect Name="GFB_KURMIS_01"/>
+        <Effect Name="GFB_BEBRASPION_01"/>
+        <Effect Name="GFB_KIMELEECH_01"/>
+        <Effect Name="GFB_CACTUSVEL_01"/>
+        <Effect Name="GFB_PANTOREX_01"/>
+        <Effect Name="I_warrior_FishingNets_Throwing_2#Dummy_force_hamaya"/>
+        <Effect Name="I_warrior_FishingNets_Throwing_2#Dummy_force_hamaya"/>
+        <Effect Name="I_warrior_FishingNets_Throwing_2"/>
+        <Effect Name="F_ground071_smoke2"/>
+        <Effect Name="F_ground081_smoke"/>
+        <Effect Name="F_smoke174"/>
+        <Effect Name="E_wizard_refrigerwaves_shot_ground_new"/>
+<Effect Name="I_warrior_netdraw_1"/>
+    </Category>
 	<Category ID="197">
 		<Effect Name="F_burstup030_fire1"/>
 		<Effect Name="F_burstup030_fire_1"/>
@@ -4015,7 +4038,11 @@
 		<Effect Name="I_cleric_hamaya_arrow"/>
 		<Effect Name="I_cleric_hamaya_arrow#Dummy_effect_FingerFlickir"/>
 		<Effect Name="I_cleric_hamaya_arrow#Dummy_force_hamaya"/>
-	</Category>
+	<Effect Name="F_pc_CardBook_ground_red"/>
+        <Effect Name="F_pc_CardBook_ground_blue"/>
+        <Effect Name="F_pc_CardBook_ground_green"/>
+        <Effect Name="F_pc_CardBook_ground_violet"/>
+    </Category>
 	<Category ID="27">
 		<Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
 		<Effect Name="I_laser005_blue"/>

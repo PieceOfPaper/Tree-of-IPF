@@ -28,6 +28,12 @@ function REQ_EVENT_ITEM_SHOP6_5_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
+function REQ_EVENT_ITEM_SHOP7_OPEN()
+	local frame = ui.GetFrame("earthtowershop");
+	frame:SetUserValue("SHOP_TYPE", 'EventShop7');
+	ui.OpenFrame('earthtowershop');
+end
+
 function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 	local parentcset = ctrl:GetParent()
 

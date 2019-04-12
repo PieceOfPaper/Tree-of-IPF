@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <controlsetlist>
 	<controlset name="tokenDetail">
 		<controls>
@@ -102,7 +102,7 @@
 			<richtext name="richtext_1" margin="50 10 0 0" rect="0 0 120 24" caption="순위" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
 			<richtext name="richtext_2" margin="145 10 0 0" rect="0 0 120 24" caption="[서버] 길드명" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
 			<groupbox name="gbox_ctrls" margin="-3 50 0 0" rect="0 0 497 640" hittestbox="false" skin="none" layout_gravity="center top" scrollbar="false"/>
-			<richtext name="richtext_2_1" margin="0 0 0 0" rect="0 0 0 0" caption="전적 / 점수" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
+			<richtext name="richtext_2_1" margin="301 10 0 0" rect="0 0 156 21" caption="전적 / 점수" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
 		</controls>
 	</controlset>
 </controlsetlist>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <AIList>
 	<AI Name="3CMLAKE262_SQ11_CHECK" ActiveMessageMapInBattle="1">
 		<List>
@@ -8308,14 +8308,10 @@
 			</ToolScp>
 		</List>
 		<StartList>
-			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
 			<ToolScp Scp="S_AI_CRE_PAD" Client="NO" UseSleep="NO">
 				<Pos Angle="0" Dist="0" PosType="5"/>
 				<Angle Angle="0"/>
 				<Str Str="Guild_Colony_Invinciblation"/>
-			</ToolScp>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="SCR_GUILD_COLONY_ENTER_START"/>
 			</ToolScp>
 		</StartList>
 	</AI>

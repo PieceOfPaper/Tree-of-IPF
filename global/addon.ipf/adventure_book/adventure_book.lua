@@ -401,11 +401,10 @@ function OPEN_ADVENTURE_BOOK(frame, isopenbynpc)
         ADVENTURE_BOOK_MAIN_SELECT(frame);
     else
         if frame:GetUserValue('SHOW_REWARD') == 'None' then
-            isopenbynpc = 'NO';
-        else
-            ADVENTURE_BOOK_MAIN_SELECT(frame);
+            isopenbynpc = 'NO';        
         end
 	end
+    ADVENTURE_BOOK_MAIN_SELECT(frame);
     ADVENTURE_BOOK_MAIN_INIT(frame, frame:GetChild('page_main'), isopenbynpc);
 end
 

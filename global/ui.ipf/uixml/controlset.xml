@@ -2583,7 +2583,7 @@
 			<picture name="EventNameBG" margin="7 7 0 0" rect="0 0 520 37" hittest="false" image="test_com_namebg" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<button name="StartButton" margin="196 150 0 7" rect="0 0 110 44" layout_gravity="center top" caption="" skin="test_red_button" LBtnUpScp="ACCEPT_GUILD_EVENT"/>
 			<picture name="StartButtonImg" margin="5 0 0 0" rect="0 0 40 35" hittest="false" image="guild_event_start" stretch="true" changecursor="false" parent="StartButton" layout_gravity="center center"/>
-			<richtext name="EventName" margin="13 11 0 0" rect="0 0 120 24" format="{@st66d}%s{/}" param1="value" param1_def="길드 이벤트" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="EventName" margin="13 11 0 0" rect="0 0 120 24" format="{@st66d}%s{/}" param1="value" param1_def="길드 퀘스트" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<picture name="UserCountImg" margin="7 45 0 0" rect="0 0 30 30" hittest="false" image="house_change_man" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<picture name="TimeLimitImg" margin="117 47 0 0" rect="0 0 30 30" hittest="false" image="test_cooltime" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<richtext name="UserCount" margin="35 50 0 0" rect="0 0 150 24" format="{@st41c}%s명{/}" param1="value" param1_def="10" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
@@ -2888,8 +2888,8 @@
 			<labelline name="labelline_1" margin="9 86 0 0" rect="0 0 473 2" skin="labelline_2" layout_gravity="left top"/>
 			<richtext name="txt_total_exp_1" parent="charinfo" rect="0 0 120 24" margin="28 337 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_18" format="{#000000}%s" maxwidth="0" param1="value" param1_def="전적" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 			<labelline name="labelline_1_1" margin="16 322 0 0" rect="0 0 473 2" skin="none" layout_gravity="left top"/>
-			<richtext name="richtext_1" margin="27 363 0 0" rect="0 0 0 0" caption="{#000000}점수{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<richtext name="rp" parent="charinfo" rect="0 0 132 25" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_18" format="{#000000}%s 점{/}" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
+			<richtext name="richtext_1" margin="27 363 0 0" rect="0 0 120 24" caption="{#000000}점수{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="rp" parent="charinfo" rect="0 0 132 25" margin="334 363 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_18" format="{#000000}%s 점{/}" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
 			<groupbox name="gbox_playcnt" margin="4 93 0 0" rect="0 0 480 200" hittestbox="false" skin="none" layout_gravity="left top" scrollbar="false"/>
 			<richtext name="richtext_2" margin="21 168 0 0" rect="0 0 120 24" caption="{@brown_16}길드 참여{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox_playcnt"/>
 			<richtext name="todaycnt" margin="256 168 0 0" rect="0 0 120 24" format="{@brown_16}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox_playcnt"/>
@@ -2914,7 +2914,7 @@
 			<richtext name="richtext_1" margin="50 10 0 0" rect="0 0 120 24" caption="순위" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
 			<richtext name="richtext_2" margin="145 10 0 0" rect="0 0 120 24" caption="[서버] 길드명" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
 			<groupbox name="gbox_ctrls" margin="-3 50 0 0" rect="0 0 497 640" hittestbox="false" skin="none" layout_gravity="center top" scrollbar="false"/>
-			<richtext name="richtext_2_1" margin="0 0 0 0" rect="0 0 0 0" caption="전적 / 점수" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
+			<richtext name="richtext_2_1" margin="301 10 0 0" rect="0 0 156 21" caption="전적 / 점수" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
 		</controls>
 	</controlset>
 	<controlset name="guildbattle_rank_ctrl" hittest="true" width="500" height="64" hittestset="false" draw="true" skin="test_skin_01_btn">
@@ -3346,7 +3346,7 @@
 			<picture name="matchedIcon" rect="0 0 55 55" margin="13 5 0 0" layout_gravity="left top" image="indun_people_img" stretch="false"/>
 			<picture name="leader_img" rect="0 0 22 12" hittest="false" margin="0 0 0 0" layout_gravity="center top" image="party_leader_mark" stretch="true"/>
 			<richtext name="level_text" rect="0 0 58 10" margin="0 0 0 0" spacey="0" fontname="white_16_ol" layout_gravity="center bottom" hittest="false" textalign="center center" format="%s" param1="lv" param1_def="330"/>
-			<picture name="understaffAllowImg" rect="0 0 55 55" hittest="false" margin="0 5 0 0" image="indun_readycheck" stretch="false"/>
+			<picture name="understaffAllowImg" rect="0 0 57 57" hittest="false" margin="0 4 0 0" image="indun_readycheck" stretch="false"/>
 		</controls>
 	</controlset>
 	<controlset name="smallIndunMember" toggle="false" hittest="true" width="40" height="40" skin="">
@@ -3487,7 +3487,7 @@
 		<userconfig INITIALIZATION_CATEGORY_IMG="{img test_cooltime 22 22}"/>
 		<controls>
 			<gauge name="score_guage" margin="0 23 0 0" rect="0 0 290 20" skin="test_gauge_barrack_defence" inverse="false" point="10" maxpoint="120" text1="%v / %m" textoffset1="0 0" textfont1="white_14_ol" textalign1="center center"/>
-			<richtext name="name_text" margin="0 0 0 0" rect="0 -2 300 27" layout_gravity="left top" format="%s" param1="value" param1_def="카테고리" textalign="left top" resizebytext="true" spacey="0" fixwidth="true" fontname="white_18_ol"/>
+			<richtext name="name_text" margin="0 0 0 0" rect="0 -2 100 27" layout_gravity="left top" format="%s" param1="value" param1_def="카테고리" textalign="left top" resizebytext="true" spacey="0" fixwidth="true" fontname="white_18_ol"/>
 		</controls>
 	</controlset>
 	<controlset name="adventure_book_main_guage_with_reward" toggle="false" hittest="true" hittestset="false" width="400" height="60" skin="">
@@ -3894,8 +3894,9 @@
 	</controlset>
 	<controlset name="guild_auth" hittest="true" width="320" height="32" draw="false" hittestset="false">
 		<controls>
-			<checkbox name="inviteCheck" rect="0 0 20 20" margin="-80 0 0 0" layout_gravity="center center" skin="MCC_checkbox"/>
-			<checkbox name="outCheck" rect="0 0 20 20" margin="80 0 0 0" layout_gravity="center center" skin="MCC_checkbox"/>
+			<checkbox name="inviteCheck" rect="0 0 20 20" margin="-105 0 0 0" layout_gravity="center center" skin="MCC_checkbox"/>
+			<checkbox name="outCheck" rect="0 0 20 20" margin="0 0 0 0" layout_gravity="center center" skin="MCC_checkbox"/>
+			<checkbox name="eventCheck" rect="0 0 20 20" margin="110 0 0 0" layout_gravity="center center" skin="MCC_checkbox"/>
 			<picture name="line" rect="0 0 320 2" margin="0 0 0 0" layout_gravity="center bottom" stretch="true" image="guild_line_h2"/>
 		</controls>
 	</controlset>

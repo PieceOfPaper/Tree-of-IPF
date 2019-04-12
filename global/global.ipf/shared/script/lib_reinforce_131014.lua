@@ -1,4 +1,4 @@
-function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
+function GET_REINFORCE_131014_PRICE(fromItem, moruItem, pc)
     if moruItem.ClassName == "Moru_Potential" or moruItem.ClassName == "Moru_Potential14d" then
         return 0;
     end
@@ -76,7 +76,7 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
         value = 0;
     end
 
-    if moruItem.ClassName == "Moru_Gold_TA" or moruItem.ClassName == "Moru_Gold_TA_NR" then 
+    if moruItem.ClassName == "Moru_Gold_TA" or moruItem.ClassName == "Moru_Gold_TA_NR" or moruItem.ClassName == "Moru_Gold_EVENT_1710_NEWCHARACTER" then 
         value = 0;
     end
     

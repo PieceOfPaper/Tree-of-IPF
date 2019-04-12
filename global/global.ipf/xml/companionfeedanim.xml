@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!--Sleep은 1000이 1초 입니다.-->
+<!--Type = Normal 기본 애니메이션. -->
+<!--Type = Shoulder 공중형 펫이 어깨에 앉아있을 때 -->
+<idspace id="CompanionFeedAnim">
+	<Catergory>
+		<Class OverrideType="ADD" ClassID="24" ClassName="24" ComName="pet_goro_suit" Type="Normal" PCAnim="FEED_SIT" ComAnim="FEED" FeedAnim="None" Sleep="1500" ItemXac="artefact_ham_set" ItemAniName="artefact_ham_std.xsm" FeedClassName="None" FeedCreateTimeMS="0" FeedDist="0"/>
+	</Catergory>
+</idspace>

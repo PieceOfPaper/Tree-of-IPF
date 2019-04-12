@@ -38,7 +38,7 @@ function ADVENTURE_BOOK_INDUN_CONTENT.INDUN_INFO(indunClsID)
 	retTable['difficulty'] = ''
 	local indunLevel  = TryGetProp(indunCls, "Level")
 	if indunLevel ~= nil then
-		local rank = math.floor(indunLevel / 100)
+		local rank = math.floor((indunLevel - 1) / 100)
 		for i=0, rank do
 			retTable['difficulty'] = retTable['difficulty']..'{img star_mark 20 20}'
 		end

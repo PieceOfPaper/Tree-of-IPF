@@ -41,7 +41,6 @@ function GET_MSG_TITLE(msgInfo)
 end
 
 function UPDATE_POSTBOX_ITEM(ctrlSet, msgInfo)
-	--아이템들
 	local slotHeight = 50;
 	local itemcnt = msgInfo:GetItemVecSize();
 
@@ -134,15 +133,15 @@ function UPDATE_POSTBOX_LETTERS_LIST(gbox_list, onlyNewMessage, startindex)
 
 					if msgInfo:GetItemCount() > 0 then
 
-						if msgInfo:GetItemTakeCount() > 0 then -- 열린 아이콘
+						if msgInfo:GetItemTakeCount() > 0 then
 							titleText = "{img M_message_open 30 30 }" .. titleText
-						else -- 닫힌 아이콘
+						else
 							titleText = "{img M_message_Unopen 30 30 }" .. titleText
 						end
 
 					end
 
-					title:SetTextByKey("value", titleText); -- 여기에 길어지면 ... 넣어라
+					title:SetTextByKey("value", titleText);
 
 				
 					UPDATE_POSTBOX_ITEM(ctrlSet, msgInfo);
@@ -365,9 +364,36 @@ function EXEC_SELECT_POSTBOX_ITEM_PC(pcName)
 	if msgInfo == nil then
 		return;
 	end
-
+	
+	local indexList = SCR_STRING_CUT(itemIndexs, "/");
+	if indexList == nil or #indexList == 0 then
+		return;
+	end
+	
+	local noTeamTradeItem = 0;
+	for i = 1, #indexList do
+		local selectedIndex = indexList[i];
+		local itemInfo = msgInfo:GetItemByIndex(selectedIndex);
+		local itemCls = GetClassByType("Item", itemInfo.itemType);
+		
+		local teamTradeProp = TryGetProp(itemCls, 'TeamTrade');
+		local lifeTimeProp = TryGetProp(itemCls, 'LifeTime', 0);
+		if teamTradeProp ~= 'YES' or lifeTimeProp ~= 0 then
+			noTeamTradeItem = noTeamTradeItem + 1;
+		end
+	end
+	
+	if noTeamTradeItem > 0 then
+		local yesScp = string.format("EXEC_SELECT_POSTBOX_ITEM_PC_AFTER_TEAM_TRADE_CHECK(\"%s\", \"%s\", \"%s\", \"%s\")", dbType, letterID, pcInfo:GetCID(), itemIndexs);
+		ui.MsgBox(ScpArgMsg("ReallyGiveItemTo{PC}NoTeamTradeItem", "PC", pcName, "ItemCount", noTeamTradeItem), yesScp, "None");
+		return;
+	end
+	
 	barrack.ReqGetPostBoxItem(dbType, letterID, pcInfo:GetCID(), itemIndexs);
+end
 
+function EXEC_SELECT_POSTBOX_ITEM_PC_AFTER_TEAM_TRADE_CHECK(dbType, letterID, pcCID, itemIndexs)
+	barrack.ReqGetPostBoxItem(dbType, letterID, pcCID, itemIndexs);
 end
 
 function POSTBOX_DELETE(parent, ctrl)
@@ -411,11 +437,11 @@ function POSTBOX_UPDATE_LIST(msgID, result)
 
 end
 
-function POST_BOX_STATE_CHANGE(msgID) -- 차후 작성 될 여지가 있어 보인다.
+function POST_BOX_STATE_CHANGE(msgID)
 
 end
 
 	
-function POST_BOX_DETAIL_RESULT() -- 예전 형태(각 메시지 클릭 후 정보 받는)의 함수 호환용. 여기 작성해서 다시 쓰면 된다.
+function POST_BOX_DETAIL_RESULT()
 
 end

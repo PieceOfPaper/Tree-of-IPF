@@ -75,6 +75,13 @@
 		<Class ClassID="501097" OverrideType="ADD" ClassName="EVENT_SELECT_BOSSLV_SEL6" Data=" {nl}몬스터 정보{nl}Lv {LV1} {NAME1}{nl}Lv {LV2} {NAME2}{nl}Lv {LV3} {NAME3}"/>
 		<Class ClassID="501098" OverrideType="ADD" ClassName="EVENT_SELECT_BOSSLV_SEL7" Data=" {nl}이벤트 미션 정보{nl}최대 클리어 단계 : {MAX}"/>
 		<Class ClassID="501099" OverrideType="ADD" ClassName="EVENT_SURVIVAL_NAME" Data="서바이벌 이벤트"/>
+		<Class ClassID="501100" OverrideType="ADD" ClassName="EVENT_JUMP_MISSION_1" Data="크리스마스 이벤트 : 깊은 산속의 선물 상자"/>
+		<Class ClassID="501101" OverrideType="ADD" ClassName="EVENT_STEAM_CHRISTMAS_SEL1" Data="크리스마스 이벤트 : 착한 거짓말"/>
+		<Class ClassID="501102" OverrideType="ADD" ClassName="EVENT_STEAM_CHRISTMAS_SEL2" Data="어린이용 선물 상자 받기"/>
+		<Class ClassID="501103" OverrideType="ADD" ClassName="EVENT_STEAM_CHRISTMAS_SEL3" Data="산타클로스라고 말한다"/>
+		<Class ClassID="501104" OverrideType="ADD" ClassName="EVENT_STEAM_CHRISTMAS_SEL4" Data="거짓말을 할 수 없어"/>
+		<Class ClassID="501105" OverrideType="ADD" ClassName="EVENT_STEAM_CHRISTMAS_SEL5" Data="오늘의 착한 일 한 어린이 위치"/>
+		<Class ClassID="501106" OverrideType="ADD" ClassName="EVENT_STEAM_CHRISTMAS_SEL6" Data="오늘의 착한 일 한 어린이는{nl}{MAP}{nl}지역에 있습니다."/>
 		<Class ClassID="501112" OverrideType="ADD" ClassName="Indun_Enter_msg_180" Data="염원의 비석로 (권장 레벨:180)에 입장하시겠습니까?{nl}당신과 파티를 맺은 플레이어만이 함께 입장할 수 있습니다."/>
 		<Class ClassID="501113" OverrideType="ADD" ClassName="Indun_Enter_msg_230" Data="쇠락한 르귄가문의 저택 (권장 레벨:230)에 입장하시겠습니까?{nl}당신과 파티를 맺은 플레이어만이 함께 입장할 수 있습니다."/>
 		<Class ClassID="501114" OverrideType="ADD" ClassName="Indun_Enter_msg_300" Data="캐슬 지하 (권장 레벨:300)에 입장하시겠습니까?{nl}당신과 파티를 맺은 플레이어만이 함께 입장할 수 있습니다."/>
@@ -98,7 +105,32 @@
 		<Class ClassID="501150" OverrideType="ADD" ClassName="EVENT_WITH_GUILD_DLG2" Data="길드 출석 체크 및 보상이 지급되었습니다."/>
 	</Category>
 	<Category Name="Premium">
+		<Class ClassID="300174" OverrideType="ADD" ClassName="Ability_Point_Stone" Data="특성 포인트 1,000"/>
 		<Class ClassID="660001" OverrideType="ADD" ClassName="steam_PremiumToken_30day" Data="토큰:30일"/>
 		<Class ClassID="660002" OverrideType="ADD" ClassName="steam_PremiumToken_60d" Data="토큰:60일"/>
+	</Category>
+	<Category Name="Npc_Equip_Shop_270_315">
+		<Class ClassID="501107" OverrideType="ADD" ClassName="EVENT_STEAM_BEGINNER_SEL1" Data="초보 유저의 이벤트 : 가이드 상자 받기"/>
+		<Class ClassID="501108" OverrideType="ADD" ClassName="EVENT_STEAM_RETURN_SEL1" Data="복귀 유저의 이벤트 : 복귀 유저의 서 받기"/>
+		<Class ClassID="501109" OverrideType="ADD" ClassName="EVENT_STEAM_RETURN_SEL2" Data="내일부터 하루에 한 번{nl}복귀 유저의 서 5개{nl}를 획득할 수 있습니다."/>
+		<Class ClassID="501110" OverrideType="ADD" ClassName="EVENT_STEAM_SETTLE_SEL1" Data="정착 지원의 이벤트 : 보상 받기"/>
+		<Class ClassID="501111" OverrideType="ADD" ClassName="EVENT_STEAM_HAPPY_NEW_YEAR" Data="새해 소망 비는 중"/>
+		<Class ClassID="501115" OverrideType="ADD" ClassName="Event_LvupBuff_Desc01" Data=" {nl}{MAPNAME}으로 이동하여 몬스터를 처치하시오.{nl}진행률 : {COUNT} / 100 %"/>
+		<Class ClassID="501116" OverrideType="ADD" ClassName="Event_LvupBuff_Sel01" Data="이벤트 퀘스트 받기"/>
+		<Class ClassID="501117" OverrideType="ADD" ClassName="Event_LvupBuff_Sel02" Data="가문 버프"/>
+		<Class ClassID="501118" OverrideType="ADD" ClassName="Moru_Silver_14d" Data="은빛 모루(14일)"/>
+		<Class ClassID="501119" OverrideType="ADD" ClassName="EVENT_REWARD_DAY" Data=" {nl}{HOUR} 시간후에 보상을 수령할 수 있습니다."/>
+		<Class ClassID="501120" OverrideType="ADD" ClassName="Point_Stone_100" Data="특성 포인트 100"/>
+		<Class ClassID="501125" OverrideType="ADD" ClassName="EVENT_2018VALEN_SEL2" Data="이벤트 설명"/>
+		<Class ClassID="501126" OverrideType="ADD" ClassName="EVENT_2018VALEN_SEL3" Data=" {nl}{MAP} 에 있는 소년에게 초콜릿을 전달해 주세요.{nl}혹은 자신이 먹을 수도 있습니다.{nl}먹겠습니까?"/>
+		<Class ClassID="501127" OverrideType="ADD" ClassName="EVENT_2018VALEN_BOY_DLG1" Data="{ITEMNAME}이 없습니다."/>
+		<Class ClassID="501128" OverrideType="ADD" ClassName="EVENT_2018VALEN_BOY_DLG2" Data="{ITEMNAME}을 전달하였습니다."/>
+		<Class ClassID="501135" OverrideType="ADD" ClassName="EVENT_7DAY_EXP_SEL1" Data=' {nl}"{NAME} 구원자"는 "{DAY}일" 연속으로 출석하셨습니다.{nl} 2일 이상 연속으로 출석을 해야 경험치 버프를 받을 수 있습니다.{nl}경험치 버프는 연속 출석 일수에 따라 달라집니다.'/>
+		<Class ClassID="501136" OverrideType="ADD" ClassName="EVENT_7DAY_EXP_SEL2" Data="경험치 버프 받기"/>
+		<Class ClassID="501137" OverrideType="ADD" ClassName="EVENT_STEAM_TITLE_1" Data="주말 경험치"/>
+		<Class ClassID="501138" OverrideType="ADD" ClassName="EVENT_STEAM_TITLE_2" Data="출석 경험치"/>
+		<Class ClassID="501145" OverrideType="ADD" ClassName="EVENT_STEAM_2YEARS_MASTER_CHECK" Data="2주년 이벤트 - 마스터 명단 리스트 받기"/>
+		<Class ClassID="501146" OverrideType="ADD" ClassName="EVENT_STEAM_2YEARS_MASTER_CHECK_2" Data="이벤트 진행 상황 : {COUNT}/55{nl}오늘의 초대장을 확인할 마스터는{nl}{JOB} 마스터입니다."/>
+		<Class ClassID="501147" OverrideType="ADD" ClassName="EVENT_STEAM_2YEARS_MASTER_CHECK_3" Data="이벤트 진행 상황 : {COUNT}/55{nl}오늘의 초대장은 이미 확인했습니다."/>
 	</Category>
 </idspace>

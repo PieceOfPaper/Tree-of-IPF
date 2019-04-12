@@ -165,7 +165,21 @@ function GET_CURRENT_ENTERANCE_COUNT(resetGroupID)
     if etc == nil then
         return 0;
     end
-    return etc['InDunCountType_'..resetGroupID];
+    
+    local indunClsList, cnt = GetClassList('Indun');
+    local indunCls = nil;
+    for i = 0, cnt - 1 do
+        indunCls = GetClassByIndexFromList(indunClsList, i);
+        if indunCls ~= nil and indunCls.PlayPerResetType == resetGroupID and indunCls.Category ~= 'None' then
+            break;
+        end
+    end
+    
+    if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
+        return(etc['IndunWeeklyEnteredCount_'..resetGroupID])
+    else
+        return etc['InDunCountType_'..resetGroupID];
+    end
 end
 
 function GET_MAX_ENTERANCE_COUNT(resetGroupID)
@@ -193,7 +207,11 @@ function GET_MAX_ENTERANCE_COUNT(resetGroupID)
     if isTokenState == true then
         bonusCount = indunCls.PlayPerReset_Token
     end
-    return indunCls.PlayPerReset + bonusCount;
+    if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
+        return indunCls.WeeklyEnterableCount + bonusCount;
+    else
+        return indunCls.PlayPerReset + bonusCount;
+    end
 end
 
 function INDUNINFO_DETAIL_LBTN_CLICK(parent, detailCtrl)
@@ -507,12 +525,14 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
     local countItemData = GET_CHILD_RECURSIVELY(frame, 'countItemData');
     local admissionItemName = TryGetProp(indunCls, "AdmissionItemName");
     local admissionItemCount = TryGetProp(indunCls, "AdmissionItemCount");
+    local admissionPlayAddItemCount = TryGetProp(indunCls, "AdmissionPlayAddItemCount");
     local admissionItemCls = GetClass('Item', admissionItemName);
     local admissionItemIcon = TryGetProp(admissionItemCls, "Icon");
     local indunAdmissionItemImage = admissionItemIcon
     local etc = GetMyEtcObject();
     local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
-
+    local addCount = math.floor(nowCount * admissionPlayAddItemCount)
+    ---local etNowCount = TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
     
     if admissionItemCount == nil then
         admissionItemCount = 0;
@@ -520,7 +540,7 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
     
     admissionItemCount = math.floor(admissionItemCount);
     
-    if admissionItemName == "None" or admissionItemName == nil or admissionItemCount == 0 then
+    if admissionItemName == "None" or admissionItemName == nil then
     
         if isTokenState == true then
             tokenStatePic:SetImage(TOKEN_STATE_IMAGE);
@@ -546,7 +566,7 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
             tokenStatePic:SetImage(NOT_TOKEN_STATE_IMAGE);
             tokenStatePic:SetTextTooltip(ScpArgMsg('YouCanLittleIndunAdmissionItemWithToken', 'COUNT', indunCls.PlayPerReset_Token, 'TOKEN_STATE', ClMsg('NotApplied')));
         end
-        local nowAdmissionItemCount = admissionItemCount + nowCount - isTokenState
+        local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
         countItemData:SetTextByKey('admissionitem', '  {img '..indunAdmissionItemImage..' 30 30}  '..nowAdmissionItemCount..'')
         local countBox = GET_CHILD_RECURSIVELY(frame, 'countBox');
         local countText = GET_CHILD_RECURSIVELY(countBox, 'countText');

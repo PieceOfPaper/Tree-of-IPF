@@ -56,6 +56,7 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
     local admissionItemCls = GetClass('Item', admissionItemName);
     local admissionItemIcon = TryGetProp(admissionItemCls, "Icon");
     local admissionItemCount = TryGetProp(indunCls, "AdmissionItemCount");
+    local admissionPlayAddItemCount = TryGetProp(indunCls, "AdmissionPlayAddItemCount");
     local indunAdmissionItemImage = admissionItemIcon
     local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
     if isTokenState == true then
@@ -64,8 +65,9 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
         isTokenState = 0
     end
     local etc = GetMyEtcObject();
-    local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
-    local nowAdmissionItemCount = admissionItemCount + nowCount - isTokenState
+    local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")),0)
+    local addCount = math.floor(nowCount * admissionPlayAddItemCount);
+    local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
     if indunCls == nil then
         return;
     end
@@ -93,10 +95,13 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
     frame:SetUserValue("multipleCount", 0);
     
     if admissionItemName ~= "None" and admissionItemName ~= nil then
-        if admissionItemCount  ~= 0 then
+--        if admissionItemCount  ~= 0 then
             autoMatchText:SetTextByKey("image", '  {img '..indunAdmissionItemImage..' 24 24} - '..nowAdmissionItemCount..'')
             enterBtn:SetTextByKey("image", '  {img '..indunAdmissionItemImage..' 24 24} - '..nowAdmissionItemCount..'')
-        end
+--        end
+    else
+        autoMatchText:SetTextByKey("image", '')
+        enterBtn:SetTextByKey("image", '')
     end
 
     -- make controls
@@ -564,7 +569,9 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
     local admissionItemCls = GetClass('Item', admissionItemName);
     local admissionItemIcon = TryGetProp(admissionItemCls, "Icon");
     local admissionItemCount = TryGetProp(indunCls, "AdmissionItemCount");
+    local admissionPlayAddItemCount = TryGetProp(indunCls, "AdmissionPlayAddItemCount");
     local indunAdmissionItemImage = admissionItemIcon
+    local WeeklyEnterableCount = TryGetProp(indunCls, "WeeklyEnterableCount");
     
     if admissionItemCount == nil then
         admissionItemCount = 0;
@@ -572,12 +579,23 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
     
     admissionItemCount = math.floor(admissionItemCount);
     
-    if admissionItemName == "None" or admissionItemName == nil or admissionItemCount == 0 then
+    if admissionItemName == "None" or admissionItemName == nil then
         -- now play count
-        local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
+        local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")), 0)
+        
+        if WeeklyEnterableCount ~= nil and WeeklyEnterableCount ~= "None" and WeeklyEnterableCount ~= 0 then
+            nowCount = TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType")), 0)
+        end
+        
+        local addCount = math.floor(nowCount * admissionPlayAddItemCount);
         countData:SetTextByKey("now", nowCount);
         -- max play count
+
         local maxCount = TryGetProp(indunCls, 'PlayPerReset');
+        if WeeklyEnterableCount ~= nil and WeeklyEnterableCount ~= "None" and WeeklyEnterableCount ~= 0 then
+            maxCount = WeeklyEnterableCount
+        end
+        
         if session.loginInfo.IsPremiumState(ITEM_TOKEN) == true then
             local playPerResetToken = TryGetProp(indunCls, 'PlayPerReset_Token');
             if playPerResetToken ~= nil then
@@ -1651,8 +1669,9 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
     if indunCls ~= nil and indunCls.AdmissionItemName ~= 'None' then
         local admissionItemName = TryGetProp(indunCls, "AdmissionItemName");
         local admissionItemCount = TryGetProp(indunCls, "AdmissionItemCount");
-        
-        local nowAdmissionItemCount = admissionItemCount + nowCount - isTokenState
+        local admissionPlayAddItemCount = TryGetProp(indunCls, "AdmissionPlayAddItemCount");
+        local addCount = math.floor(nowCount * admissionPlayAddItemCount)
+        local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
         
         local cnt = GetInvItemCount(user, admissionItemName)
         local invItem = session.GetInvItemByName(indunCls.AdmissionItemName);

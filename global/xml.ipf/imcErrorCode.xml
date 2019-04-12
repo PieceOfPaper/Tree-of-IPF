@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by josungkwan (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <imcErrorCode>
 	<Code Code="FATAL_ASSERT" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다."/>
 	<Code Code="FATAL_ASSERT_EX" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다. 다음 정보를 참조하세요."/>
@@ -375,7 +375,6 @@
 	<Code Code="ERROR_ATTENDANCE" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="출석 시스템 관련 에러"/>
 	<Code Code="ERROR_RANK_RESET" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="랭크 초기화 관련 에러"/>
 	<Code Code="INFO_CONTENT_SCRIPT" Team="CONTENTDESIGN" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스크립트에서 사용 할 수 있는 로그의 에러코드. 추가되는 Property의 Tag 참고."/>
-	<Code Code="INFO_ETC_PROP_SEND" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="간헐적으로 인던 카운트 보이지 않는 문제 추적용"/>
 	<Code Code="ALERT_Machine_CPU" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 머신의 CPU 사용율"/>
 	<Code Code="ALERT_Machine_FreeDisk" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="드라이브의 남은 용량(MB)"/>
 	<Code Code="ALERT_Machine_DiskTime" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="초당 디스크 엑세스 비율(100% = 1초)"/>
@@ -519,6 +518,14 @@
 	<Code Code="INFO_MINIGAME_CONDITION" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="미니게임 컨디션 체크 이상 동작 확인용 로그"/>
 	<Code Code="FATAL_ZOMBIE_REF_COUNT" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="좀비 레프런스 카운트 안 줄어들어서 메모리 샐 여지가 있음"/>
 	<Code Code="INFO_RANK_RESET" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="랭크 초기화 관련 정보"/>
-	<Code Code="ERROR_SMTP" Team="PROGRAM" Category="LOGIC" Logger="root" Enabled="YES" CallStack="NO" Desc="SMTP 관련 에러"/>
-	<Code Code="ERROR_VERTEX_NAN_VALUE" Team="ART" Category="DATA" SubCategory="MODEL" Logger="root" Enabled="YES" CallStack="NO" Desc="모델의 정점중에 NAN 값이 발견됨."/>
+	<Code Code="ERROR_GUILD_EVENT" Team="PROGRAM" Category="GUILD" SubCategory="GUILD_EVENT" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 이벤트 에러"/>
+	<Code Code="WARNING_GUILD_EVENT" Team="PROGRAM" Category="GUILD" SubCategory="GUILD_EVENT" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 이벤트 경고"/>
+	<Code Code="INFO_GUILD_EVENT" Team="PROGRAM" Category="GUILD" SubCategory="GUILD_EVENT" Logger="root" Enabled="NO" CallStack="NO" Desc="길드 이벤트 정보"/>
+	<Code Code="ANYONE_SKILL" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="NO" CallStack="NO" Desc="AnyoneSkill 로 없는 스킬을 배워버리는 문제 확인용 로그"/>
+	<Code Code="WARNING_PACKET_LEN" Team="PROGRAM" Category="SYSTEM" Logger="root" Enabled="YES" CallStack="NO" Desc="패킷 길이 관련 예외처리함"/>
+	<Code Code="WARNING_REDIS" Team="PROGRAM" Category="REDIS" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="레디스 경고"/>
+	<Code Code="INFO_STATUE" Team="PROGRAM" Category="LOGIC" SubCategory="STATUE" Logger="root" Enabled="NO" CallStack="NO" Desc="동상 로드 확인"/>
+	<Code Code="INFO_CHECK_TIME" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="시간 체크"/>
+	<Code Code="INFO_CHECK_MEMORY" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="메모리 체크"/>
+	<Code Code="DEADLOCK_FIND_LOG" Team="PROGRAM" Category="LOGIC" SubCategory="DB_DEAD_LOCK" Logger="root" Enabled="YES" CallStack="NO" Desc="DB 데드락 찾기 위한 로그"/>
 </imcErrorCode>

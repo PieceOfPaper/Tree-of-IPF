@@ -689,6 +689,22 @@ function GET_COLLECTION_MAGIC_DESC(type)
 		end
 	end
 	end
+	local cls = GetClassByType('Collection', type)
+	local itemList = TryGetProp(cls, 'AccGiveItemList', 'None')
+	if itemList ~= 'None' then
+	    local itemList = SCR_STRING_CUT(itemList)
+	    local aObj = GetMyAccountObj()
+	    if aObj[itemList[1]] < itemList[2] then
+	        local count = itemList[2] - aObj[itemList[1]]
+    	    if #itemList >= 4 then
+    			ret = ret .. "{nl}"..ScpArgMsg('COLLECTION_REWARD_ITEM_MSG1','COUNT',count)..'{nl}'
+    	        for i = 2, #itemList/2 do
+    	            local item = GetClassString('Item',itemList[i*2 - 1],'Name')
+    	            ret = ret..ScpArgMsg('COLLECTION_REWARD_ITEM_MSG2','ITEM',item,'COUNT',itemList[i*2])
+    	        end
+    	    end
+    	end
+	end
 	return ret;
 end
 
