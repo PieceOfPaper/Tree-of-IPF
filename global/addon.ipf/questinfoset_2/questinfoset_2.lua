@@ -1090,12 +1090,12 @@ function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
 end
 
 function QUESTION_QUEST_WARP(frame, ctrl, argStr, questID)
---    local pc = GetMyPCObject()
---    local ZoneClassName = GetZoneName(pc) -- event V I V I D CICY --
---	if ZoneClassName == 'VIVID_c_Klaipe' or ZoneClassName == 'VIVID_c_orsha' or ZoneClassName == 'VIVID_c_fedimian' then
---        ui.SysMsg(ClMsg('ThisLocalUseNot'));
---        return 0;
---    end -- event V I V I D CICY --
+    local pc = GetMyPCObject()
+    local ZoneClassName = GetZoneName(pc) -- event V I V I D CICY --
+	if ZoneClassName == 'VIVID_c_Klaipe' or ZoneClassName == 'VIVID_c_orsha' or ZoneClassName == 'VIVID_c_fedimian' then
+        ui.SysMsg(ClMsg('ThisLocalUseNot'));
+        return 0;
+    end -- event V I V I D CICY --
     
     if session.colonywar.GetIsColonyWarMap() == true then
         ui.SysMsg(ClMsg('ThisLocalUseNot'));
