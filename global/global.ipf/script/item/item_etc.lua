@@ -1476,3 +1476,9 @@ function Achieve_Event_Grand_Contributor(pc)
     TxAddAchievePoint(tx, 'Achieve_Event_Grand_Contributor', 1)
     local ret = TxCommit(tx);
 end
+
+function Achieve_Event_Fashionista(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Achieve_Event_Fashionista', 1)
+    local ret = TxCommit(tx);
+end
