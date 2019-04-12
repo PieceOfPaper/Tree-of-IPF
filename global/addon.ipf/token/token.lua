@@ -185,9 +185,9 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	local prop = ctrlSet:GetChild("prop");
 	local imag = string.format("{img 30percent_image %d %d}", 55, 45);
 	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" then
-	    imag = string.format("{img 120percent_image %d %d}", 55, 45);
+	    imag = string.format("{img 150percent_image %d %d}", 55, 45);
 	elseif itemobj.ClassName == "Premium_boostToken03" or itemobj.ClassName == "Premium_boostToken03_event01" then
-	    imag = string.format("{img 240percent_image %d %d}", 55, 45);
+	    imag = string.format("{img 300percent_image %d %d}", 55, 45);
 	elseif itemobj.ClassName == "Premium_boostToken04" then
         imag = string.format("{img 50percent_image_1 %d %d}", 55, 45);
     else
@@ -197,9 +197,9 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	local value = ctrlSet:GetChild("value");
 
 	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" then
-    	value:SetTextByKey("value", string.format("{img 120percent_image2 %d %d}", 100, 45) );
+    	value:SetTextByKey("value", string.format("{img 150percent_image2 %d %d}", 100, 45) );
 	elseif itemobj.ClassName == "Premium_boostToken03" or itemobj.ClassName == "Premium_boostToken03_event01" then
-    	value:SetTextByKey("value", string.format("{img 240percent_image2 %d %d}", 100, 45) );
+    	value:SetTextByKey("value", string.format("{img 300percent_image2 %d %d}", 100, 45) );
 	elseif itemobj.ClassName == "Premium_boostToken04" then
     	value:SetTextByKey("value", string.format("{img 50percent_image3 %d %d}", 100, 45) );
 	else

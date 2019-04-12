@@ -4,12 +4,12 @@ function GET_MORE_EXP_BOOST_TOKEN(pc)
 	
 	-- 경험의서 8배
 	if 'YES' == IsBuffApplied(pc, 'Premium_boostToken03') then
-		return 2.4;
+		return 3.0;
 	end
 
 	-- 경험의서 4배
 	if 'YES' == IsBuffApplied(pc, 'Premium_boostToken02') then
-		return 1.2;
+		return 1.5;
 	end
 
 	-- 이벤트 경험의 서

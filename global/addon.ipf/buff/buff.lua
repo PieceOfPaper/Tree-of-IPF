@@ -113,16 +113,22 @@ function GET_BUFF_TIME_TXT(time, istooltip)
 end
 
 function REMOVE_BUF(frame, data, argStr, argNum)
-
 	packet.ReqRemoveBuff(argNum);
+end
 
+function HOLD_EXP_BOOK_TIME(frame, data, argStr, argNum)	
+	if pc.IsNonCombatZone() == 0 then				-- 전투지역에서만 토글 기능이 동작하도록 함(서버에서도 체크함)
+		if argNum == 70006 or argNum == 70007 then	-- Client에서 자체적으로 경험의서(x4, x8)인 경우만, Request를 하도록...(서버에서도 체크함)
+			--packet.ReqHoldExpBookTime(argNum);					
+		end
+	end	
 end
 
 function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)	
-
 	local icon 				= slot:GetIcon();
 	
 	local imageName 		= 'icon_' .. class.Icon;
+
 	icon:Set(imageName, 'BUFF', buffType, 0);
 	icon:SetUserValue("BuffIndex", buffIndex);	
 	if tonumber(handle) == nil then
@@ -144,6 +150,9 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 	slot:EnableDrop(0);
 	slot:EnableDrag(0);
 
+	--slot:SetEventScript(ui.LBUTTONUP, 'HOLD_EXP_BOOK_TIME');  -- 경험의서, 수동 on/off , 좌클릭시에 이벤트 발생
+	--slot:SetEventScriptArgNumber(ui.LBUTTONUP, buffType);     -- 인자로 buffID를 넘김
+	
 	capt:ShowWindow(1);
 	capt:SetText(GET_BUFF_TIME_TXT(buff.time, 0));
 	
@@ -177,7 +186,7 @@ function GET_BUFF_ARRAY_INDEX(i, colcnt)
 end
 
 --[[
--- �Ųٷ� ä�������� ����
+-- 거꾸로 채워나가는 버전
 function GET_BUFF_SLOT_INDEX(j, colcnt)
 	local row = math.floor(j / colcnt);
 	local col = j - row * colcnt;
@@ -186,7 +195,7 @@ function GET_BUFF_SLOT_INDEX(j, colcnt)
 end
 ]]
 
--- ������ ����
+-- 순방향 버젼
 function GET_BUFF_SLOT_INDEX(j, colcnt)
 	local row = math.floor(j / colcnt);
 	local col = j - row * colcnt;
@@ -250,7 +259,7 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 			slotlist = buff_ui["slotlist"][0];
 			slotcount = buff_ui["slotcount"][0];
 			captionlist = buff_ui["captionlist"][0];
-			-- targetbuff�ΰ� ������ .. �� �޾ƿ��� nil �̵Ǵµ� �ֿܼ� ? �� �ۼ��Ǽ� ����ó��
+			-- targetbuff인거 같은데 .. 못 받아오면 nil 이되는데 콘솔에 ? 로 작성되서 예외처리
 			if nil ~= buff_ui["slotsets"][0] then
 				colcnt = buff_ui["slotsets"][0]:GetCol();
 			end

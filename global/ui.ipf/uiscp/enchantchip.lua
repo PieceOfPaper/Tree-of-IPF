@@ -21,6 +21,11 @@ function CLIENT_ENCHANTCHIP(invItem)
 		return;
 	end
 	
+	-- check life time of enchant item
+	if TryGetProp(obj, "LifeTime") > 0 and TryGetProp(obj, "ItemLifeTimeOver") > 0 then
+		return
+	end
+
 	HAIRENCHANT_UI_RESET();
 
 	local enchantFrame = ui.GetFrame("hairenchant");
