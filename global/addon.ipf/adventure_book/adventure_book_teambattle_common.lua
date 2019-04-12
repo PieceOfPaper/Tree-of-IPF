@@ -11,21 +11,19 @@ function ADVENTURE_BOOK_TEAM_BATTLE_COMMON_INIT(adventureBookFrame, teamBattleRa
 	local join = GET_CHILD_RECURSIVELY(teamBattleRankingPage, 'teamBattleMatchingBtn');
 	join:SetEnable(0);
 	
-    if session.colonywar.GetIsColonyWarMap() == false then
-		local cnt = session.worldPVP.GetPlayTypeCount();
-		if cnt > 0 then
-			local isGuildBattle = 0;
-			for i = 1, cnt do
-				local type = session.worldPVP.GetPlayTypeByIndex(i);
-				if type == 210 then
-					isGuildBattle = 1;
-					break;
-				end
+	local cnt = session.worldPVP.GetPlayTypeCount();
+	if cnt > 0 then
+		local isGuildBattle = 0;
+		for i = 1, cnt do
+			local type = session.worldPVP.GetPlayTypeByIndex(i);
+			if type == 210 then
+				isGuildBattle = 1;
+				break;
 			end
+		end
 
-			if isGuildBattle == 0 then
-				join:SetEnable(1);
-			end
+		if isGuildBattle == 0 then
+			join:SetEnable(1);
 		end
 	end
 end
@@ -40,26 +38,19 @@ function ADVENTURE_BOOK_TEAM_BATTLE_COMMON_UPDATE(adventureBookFrame, msg, argSt
 	if pvpCls == nil then
 		return;
 	end
-	local pvpObj = GET_PVP_OBJECT_FOR_TYPE(pvpCls);        
+	local pvpObj = GET_PVP_OBJECT_FOR_TYPE(pvpCls);    
 	if nil == pvpObj then
 		return;
 	end
-    local winValue = pvpObj:GetPropValue(pvpCls.ClassName..'_WIN');
-    local loseValue = pvpObj:GetPropValue(pvpCls.ClassName..'_LOSE');
+    local winValue = pvpObj:GetPropValue(pvpCls.ClassName..'WIN');
+    local loseValue = pvpObj:GetPropValue(pvpCls.ClassName..'LOSE');
     local totalValue = winValue + loseValue;
     local battleHistoryValueText = GET_CHILD_RECURSIVELY(adventureBookFrame, 'battleHistoryValueText');    
     battleHistoryValueText:SetTextByKey('total', totalValue);
     battleHistoryValueText:SetTextByKey('win', winValue);
     battleHistoryValueText:SetTextByKey('lose', loseValue);
-        
-    local mySession = session.GetMySession();
-	local cid = mySession:GetCID();
-    local pointInfo = session.worldPVP.GetRankInfoByCID(cid);
-    local pointValue = pvpObj:GetPropValue(pvpCls.ClassName..'_RP', 1000);
-    if pointInfo ~= nil then
-        pointValue = pointInfo.point;
-    end
-
+    
+    local pointValue = pvpObj:GetPropValue(pvpCls.ClassName..'RP', 1000);
     local battlePointValueText = GET_CHILD_RECURSIVELY(adventureBookFrame, 'battlePointValueText');
     battlePointValueText:SetTextByKey('point', pointValue);
 end
@@ -98,11 +89,6 @@ function ADVENTURE_BOOK_TEAM_BATTLE_RANK_UPDATE(frame, msg, argStr, argNum)
 end
 
 function ADVENTURE_BOOK_JOIN_WORLDPVP(parent, ctrl)
-    if IS_IN_EVENT_MAP() == true then
-        ui.SysMsg(ClMSg('ImpossibleInCurrentMap'));
-        return;
-    end 
-
 	local accObj = GetMyAccountObj();
 	if IsBuffApplied(GetMyPCObject(), "TeamBattleLeague_Penalty_Lv1") == "YES" or IsBuffApplied(GetMyPCObject(), "TeamBattleLeague_Penalty_Lv2") == "YES" then
 		ui.SysMsg(ClMsg("HasTeamBattleLeaguePenalty"));
@@ -152,8 +138,8 @@ function JOIN_WORLDPVP_BY_TYPE(btn, pvpType)
 	local state = session.worldPVP.GetState();
 	if state == PVP_STATE_NONE then
 		if cls.Party == 0 then
-			if GETMYPCLEVEL() < WORLDPVP_MIN_LEVEL and cls.MatchType ~= "Guild" then
-				local msg = ScpArgMsg("OnlyAbleOver{LEVEL}", "LEVEL", WORLDPVP_MIN_LEVEL);
+			if session.GetPcTotalJobGrade() < WORLDPVP_MIN_JOB_GRADE and cls.MatchType ~= "Guild" then
+				local msg = ScpArgMsg("OnlyAbleOver{Rank}", "Rank", WORLDPVP_MIN_JOB_GRADE);
 				ui.MsgBox(msg);
 				 return;
 			end
@@ -248,12 +234,7 @@ function ADVENTURE_BOOK_TEAM_BATTLE_SEARCH(parent, ctrl)
     local page = control:GetCurPage();
     local adventureBookRankSearchEdit = GET_CHILD_RECURSIVELY(teamBattleRankSet, 'adventureBookRankSearchEdit');
     local teamBattleCls = GET_TEAM_BATTLE_CLASS();
-    local searchText = adventureBookRankSearchEdit:GetText();    
-    if searchText == nil or searchText == '' then
-		worldPVP.RequestPVPRanking(teamBattleCls.ClassID, 0, -1, 1, 0, '');
-	else		
-		worldPVP.RequestPVPRanking(teamBattleCls.ClassID, 0, -1, page, 0, adventureBookRankSearchEdit:GetText());
-	end
+	worldPVP.RequestPVPRanking(teamBattleCls.ClassID, 0, -1, page, 0, adventureBookRankSearchEdit:GetText());
 	ui.DisableForTime(control, 0.5);
 end
 

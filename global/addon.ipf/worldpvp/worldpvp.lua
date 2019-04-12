@@ -116,23 +116,21 @@ function OPEN_WORLDPVP(frame)
 	local join = charinfo:GetChild("join");
 	join:SetEnable(0);
 	
-    if session.colonywar.GetIsColonyWarMap() == false then
-		local cnt = session.worldPVP.GetPlayTypeCount();
-		if cnt > 0 then
-			local isGuildBattle = 0;
-			for i = 1, cnt do
-				local type = session.worldPVP.GetPlayTypeByIndex(i);
-				if type == 210 then
-					isGuildBattle = 1;
-					break;
-				end
-			end
-
-			if isGuildBattle == 0 then
-				join:SetEnable(1);
+	local cnt = session.worldPVP.GetPlayTypeCount();
+	if cnt > 0 then
+		local isGuildBattle = 0;
+		for i = 1, cnt do
+			local type = session.worldPVP.GetPlayTypeByIndex(i);
+			if type == 210 then
+				isGuildBattle = 1;
+				break;
 			end
 		end
-    end
+
+		if isGuildBattle == 0 then
+			join:SetEnable(1);
+		end
+	end
 
 	UPDATE_WORLDPVP(frame);
 	ON_PVP_STATE_CHANGE(frame);
@@ -342,8 +340,8 @@ function JOIN_WORLDPVP_BY_TYPE(frame, pvpType)
 	if state == PVP_STATE_NONE then
 
 		if cls.Party == 0 then
-			if GETMYPCLEVEL() < WORLDPVP_MIN_LEVEL and cls.MatchType ~= "Guild" then
-				local msg = ScpArgMsg("OnlyAbleOver{LEVEL}", "LEVEL", WORLDPVP_MIN_LEVEL);
+			if session.GetPcTotalJobGrade() < WORLDPVP_MIN_JOB_GRADE and cls.MatchType ~= "Guild" then
+				local msg = ScpArgMsg("OnlyAbleOver{Rank}", "Rank", WORLDPVP_MIN_JOB_GRADE);
 				ui.MsgBox(msg);
 				 return;
 			end
@@ -624,6 +622,7 @@ function UPDATE_PVP_RANK_CTRLSET(ctrlSet, info)
 	end
 
 	local imgName = GET_JOB_ICON(iconInfo.job);
+
 	local txt_name = ctrlSet:GetChild("txt_name");
 	local pic = GET_CHILD(ctrlSet, "pic");
 	ctrlSet:SetUserValue("CID", key);
@@ -638,12 +637,7 @@ function UPDATE_PVP_RANK_CTRLSET(ctrlSet, info)
 		txt_point:SetTextByKey("value", info.point);
 	end
 
-	if imgName ~= 'None' then
-		pic:SetImage(imgName);
-		pic:ShowWindow(1);
-	else
-		pic:ShowWindow(0);
-	end
+	pic:SetImage(imgName);
 
 	local txt_rank = ctrlSet:GetChild("txt_rank");
 	txt_rank:SetTextByKey("value", info.ranking + 1);
@@ -693,7 +687,7 @@ function ON_WORLDPVP_RANK_PAGE(frame)
 	local cid = session.GetMySession():GetCID();
 	local myRank = session.worldPVP.GetPrevRankInfoByCID(cid);
 	if myRank ~= nil then
-		-- 1,2,3ï¿½î¸¸ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
+		-- 1,2,3µî¸¸ º¸¿©ÁØ´Ù.
 		if myRank.ranking < 3 then
 			btnReward:SetVisible(1);
 		end
@@ -1002,13 +996,7 @@ function PVP_OPEN_POINT_SHOP(parent, ctrl)
 	TOGGLE_PROPERTY_SHOP("PVPShop");
 
 end
-
-function MINE_OPEN_POINT_SHOP(parent, ctrl)
-
-	TOGGLE_PROPERTY_SHOP("MINEShop");
-
-end
-
+   
 function PVP_REWARD(parent, ctrl)
 	local type = session.worldPVP.GetRankProp("Type");
 	local cls = GetClassByType("WorldPVPType", type);
@@ -1050,14 +1038,4 @@ function GUILD_PVP_MISSION_CREATED(roomGuid, gameType, isCreated, zonePCCount)
 		UPDATE_WORLDPVP(frame);
 	end
 
-end
-
-function GET_PVP_MINE_POINT_C()
-	local aObj = GetMyAccountObj();
-
-	if aObj == nil then
-		return 0;
-	end
-
-    return aObj.PVP_MINE_POINT
 end
