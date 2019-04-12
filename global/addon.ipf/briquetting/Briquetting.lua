@@ -143,12 +143,6 @@ function BRIQUETTING_SPEND_DROP(parent, ctrl)
 		return nil;
 	end
 
-	local abil = session.GetAbilityByName('Alchemist10')
-	if nil ~= abil then
-		local check2Name      = frame:GetChild("check2Name");
-		check2Name:SetTextByKey("txt", obj.Name);
-	end
-
 	-- 이름을 표시한다.
 	slotNametext:SetTextByKey("txt", obj.Name);
 	BRIQUETTING_SLOT_SET(slotNametext, invItem);

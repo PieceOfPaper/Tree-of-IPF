@@ -56,7 +56,8 @@ function ON_CABINET_ITEM_LIST(frame)
 		ctrlSet:Resize(1350, ctrlSet:GetHeight());
 
 		local pic = GET_CHILD(ctrlSet, "pic", "ui::CPicture");
-		pic:SetImage(itemObj.Icon);
+        local itemImage = GET_ITEM_ICON_IMAGE(itemObj);
+		pic:SetImage(itemImage);
 		local name = ctrlSet:GetChild("name");
 		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
 		name:SetOffset(name:GetX() + 10, name:GetY());

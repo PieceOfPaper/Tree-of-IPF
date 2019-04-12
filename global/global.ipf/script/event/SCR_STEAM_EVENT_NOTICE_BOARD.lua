@@ -1,5 +1,5 @@
 function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
-    EVENT_LVUP_13094(self,pc)
+  SCR_DAYQUEST_RANDOM_EV_DIALOG(self, pc)
 end
 
 function EVENT_PROPERTY_RESET(pc, aObj, sObj)
@@ -38,12 +38,12 @@ function EVENT_LVUP_13094(self,pc)
         local now_time = os.date('*t')
         local yday = now_time['yday']
         if 87 == yday then
-            if aObj.EVENT_VALUE_AOBJ05 == 0 then
+            if sObj.EVENT_VALUE_SOBJ07 == 0 then
                 local tx = TxBegin(pc)
                 TxGiveItem(tx, 'Event_Fire_Songpyeon', 3, 'Event_1year');
-                TxSetIESProp(tx, aObj, 'EVENT_VALUE_AOBJ05', 1)
+                TxSetIESProp(tx, sObj, 'EVENT_VALUE_SOBJ07', 1)
                 local ret = TxCommit(tx)
-            elseif aObj.EVENT_VALUE_AOBJ05 > 0 then
+            elseif sObj.EVENT_VALUE_SOBJ07 > 0 then
                 ShowOkDlg(pc,'NPC_EVENT_OneYear_2', 1)
             end
         else

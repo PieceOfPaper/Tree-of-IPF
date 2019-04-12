@@ -13,39 +13,55 @@ function STEAMTPINVENTORY_ON_INGAMESHOP_STATE_MSG(frame, msg, argStr, argNum)
 
     if argStr == "LoadFailTPItemList" then
 
+        local errCode = ""
+
         if argNum ~= nil then
-            argNum = tostring(argNum)
+            errCode = tostring(argNum)
         else 
-            argNum = 0
+            errCode = "0"
         end
 
-        ui.MsgBox_NonNested(ScpArgMsg("LoadFailTPItemList","Code",argNum),0x00000000)
+        ui.MsgBox_NonNested(ScpArgMsg("LoadFailTPItemList","Code",errCode),0x00000000)
+
+        ui.Chat("/ingameuilog "..argStr.."|"..errCode)
 
     elseif argStr == "DontHaveAnyItems" then
 
         ui.MsgBox_NonNested(ScpArgMsg("DontHaveAnyItems"),0x00000000)
 
+        ui.Chat("/ingameuilog "..argStr)
+
     elseif argStr == "NotOwnedItem" then
 
         ui.MsgBox_NonNested(ScpArgMsg("NotOwnedItem"),0x00000000)
 
+        ui.Chat("/ingameuilog "..argStr)
+
     elseif argStr == "BuyTPItemFailPlzRetry" then
 
+        local errCode = ""
+
         if argNum ~= nil then
-            argNum = tostring(argNum)
+            errCode = tostring(argNum)
         else 
-            argNum = 0
+            errCode = "0"
         end
 
-        ui.MsgBox_NonNested(ScpArgMsg("BuyTPItemFailPlzRetry","Code",argNum),0x00000000)
+        ui.MsgBox_NonNested(ScpArgMsg("BuyTPItemFailPlzRetry","Code",errCode),0x00000000)
+
+        ui.Chat("/ingameuilog "..argStr.."|"..errCode)
 
     elseif argStr == "BuyTPItemFailPlzWait" then
         
         ui.MsgBox_NonNested(ScpArgMsg("BuyTPItemFailPlzWait"),0x00000000)
 
+        ui.Chat("/ingameuilog "..argStr)
+
     elseif argStr == "TpChargeFail" then
         
         ui.MsgBox_NonNested(ScpArgMsg("TpChargeFail"),0x00000000)
+
+        ui.Chat("/ingameuilog "..argStr)
 
     elseif argStr == "TpChargeSuccess" then
         
@@ -55,9 +71,21 @@ function STEAMTPINVENTORY_ON_INGAMESHOP_STATE_MSG(frame, msg, argStr, argNum)
 
         ui.MsgBox_NonNested(ScpArgMsg("StillProcessingTryLater"),0x00000000)
 
+        ui.Chat("/ingameuilog "..argStr)
+
     elseif argStr == "TPItemProcessFail" then
 
-        ui.MsgBox_NonNested(ScpArgMsg("TPItemProcessFail","Code",argNum),0x00000000)
+        local errCode = ""
+
+        if argNum ~= nil then
+            errCode = tostring(argNum)
+        else 
+            errCode = "0"
+        end
+
+        ui.MsgBox_NonNested(ScpArgMsg("TPItemProcessFail","Code",errCode),0x00000000)
+
+        ui.Chat("/ingameuilog "..argStr.."|"..errCode)
 
     else
         ui.MsgBox_NonNested(argStr,0x00000000)
@@ -92,6 +120,8 @@ function STEAMTPINVENTORY_OPEN(frame)
 
     frame:CancelReserveScript("STEAMTPINVENTORY_RECEIVE_LIST_ERROR");
 	frame:ReserveScript("STEAMTPINVENTORY_RECEIVE_LIST_ERROR", 5, 0, "");
+
+    ui.Chat("/ingameuilog OPEN")
 end
 
 function STEAMTPINVENTORY_RECEIVE_LIST_ERROR(frame)
@@ -100,39 +130,60 @@ function STEAMTPINVENTORY_RECEIVE_LIST_ERROR(frame)
     status:SetText(ScpArgMsg("LoadFailTPItemList","Code","001"));
     SendSystemLog()
 
+    ui.Chat("/ingameuilog RECEIVE_LIST_ERROR")
+
 end
 
 function STEAMTPINVENTORY_ON_UPDATE_INGAME_SHOP_ITEM_LIST(frame)
 	
+    ui.Chat("/ingameuilog UPDATE_INGAME_SHOP_ITEM_LIST")
+
 	local listbox = GET_CHILD_RECURSIVELY(frame, "itemlist");
 	listbox:RemoveAllChild();
 
 	local cnt = session.ui.GetIngameShopItemListSize();
+    ui.Chat("/ingameuilog itemCnt:"..tostring(cnt))
 
 	for i = 0 , cnt-1 do
 
 		local iteminfo = session.ui.GetIngameShopItemInfo(i)
+
+        if iteminfo == nil then
+            ui.Chat("/ingameuilog iteminfo nil")
+        end
+
+        ui.Chat("/ingameuilog iteminfo:"..tostring(i))
 		
 		local ctrlSet = listbox:CreateControlSet('steamptinventory_item', "INGAMESHOP_ITEM_" .. i, (i % 2) * ui.GetControlSetAttribute("steamptinventory_item", "width") , math.floor(i / 2) * ui.GetControlSetAttribute("steamptinventory_item", "height"));
+        ui.Chat("/ingameuilog createcontril:"..ctrlSet:GetName())
+
 		local btn = GET_CHILD_RECURSIVELY(ctrlSet, "buyBtn");
+        btn:SetUserValue("ITEMGUID", iteminfo:GetItemGuid());
+        ui.Chat("/ingameuilog btnSet:"..iteminfo:GetItemGuid())
+
 		local title = GET_CHILD_RECURSIVELY(ctrlSet, "title");
+        title:SetText(iteminfo:GetName())
+        ui.Chat("/ingameuilog titleSet:")
+
 		local tpicon_change = GET_CHILD_RECURSIVELY(ctrlSet, "tpicon_change");
+        tpicon_change:SetImage(iteminfo:GetImgName())
+        ui.Chat("/ingameuilog imageSet:"..iteminfo:GetImgName())
+
 		local nxp = GET_CHILD_RECURSIVELY(ctrlSet, "nxp");
-		
-		title:SetText(iteminfo:GetName())
-		tpicon_change:SetImage(iteminfo:GetImgName())
 		nxp:SetText(tostring(iteminfo.addtp))
-		
-		btn:SetUserValue("ITEMGUID", iteminfo:GetItemGuid());
-
+		ui.Chat("/ingameuilog nxpSet:"..tostring(iteminfo.addtp))
 	end
-
-	frame:Invalidate()
 
     local status = GET_CHILD_RECURSIVELY(frame, "status");
     status:SetText(ScpArgMsg("LoadedTPItemList"));
+    ui.Chat("/ingameuilog statusSet")
+
+	frame:Invalidate()
+    
     frame:CancelReserveScript("STEAMTPINVENTORY_RECEIVE_LIST_ERROR");
     SendSystemLog()
+
+    ui.Chat("/ingameuilog UPDATE_INGAME_SHOP_ITEM_LIST_END")
 
 end
 
@@ -149,4 +200,12 @@ end
 function EXEC_STEAMTPINVENTORY_ITEM_PURCHASE(itemguid)
 
 	ui.BuyIngameShopItem(itemguid);
+end
+
+function STEAM_TP_REFRESH_BTN_CLICK()
+    ui.OpenIngameShopUI();
+end
+
+function STEAM_TP_RETRIEVE_ALL_BTN_CLICK()
+    ui.Chat("/retrieveAllItems")
 end

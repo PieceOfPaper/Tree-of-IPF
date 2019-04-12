@@ -23,6 +23,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	
 	addon:RegisterMsg('UPDATE_ITEM_REPAIR', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('SWITCH_GENDER_SUCCEED', 'INVENTORY_ON_MSG');
+	addon:RegisterMsg('APPRAISER_FORGERY', 'INVENTORY_ON_APPRAISER_FORGERY');
 
 	addon:RegisterOpenOnlyMsg('REFRESH_ITEM_TOOLTIP', 'ON_REFRESH_ITEM_TOOLTIP');
 	
@@ -112,24 +113,17 @@ function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 
 	local slotindex = invItem.invIndex - GET_BASE_SLOT_INDEX(invItem.invIndex) - 1;
 
-	-- 저장된 템의 최대 인덱스에 따라 자동으로 늘어나도록. 예를들어 해당 셋이 10000부터 시작하는데 10500 이 오면 500칸은 늘려야됨
-	while slotCount <= slotindex  do 
-		slotset:ExpandRow()
-		slotCount = slotset:GetSlotCount();
-	end
-
 	--검색 기능
 	local slot = nil;
 	if cap == "" then
 		slot = slotset:GetSlotByIndex(slotindex);
 	else
-		local cnt = slotset:GetUserIValue("SLOT_ITEM_COUNT");
-
+		local cnt = GET_SLOTSET_COUNT(tree, baseidcls.ClassName);
+		-- 저장된 템의 최대 인덱스에 따라 자동으로 늘어나도록. 예를들어 해당 셋이 10000부터 시작하는데 10500 이 오면 500칸은 늘려야됨
 		while slotCount <= cnt  do 
 			slotset:ExpandRow()
 			slotCount = slotset:GetSlotCount();
 		end
-
 
 		slot = slotset:GetSlotByIndex(cnt);
 		cnt = cnt + 1;
@@ -520,7 +514,7 @@ function TEMP_INV_REMOVE(frame, itemGuid)
 	local slotIndex = slot:GetSlotIndex();
 	slotset:ClearSlotAndPullNextSlots(slotIndex, "ONUPDATE_SLOT_INVINDEX");
 	
-	local cnt = slotset:GetUserIValue("SLOT_ITEM_COUNT");
+	local cnt = GET_SLOTSET_COUNT(tree, baseidcls.ClassName);
 	cnt = cnt - 1;
 	slotset:SetUserValue("SLOT_ITEM_COUNT", cnt)
 
@@ -980,6 +974,14 @@ function GET_INVTREE_GROUP_NAME(invIndex)
 
 end
 
+function GET_SLOTSET_COUNT(tree, baseIDClsName)
+	local titlestr = "ssettitle_" .. baseIDClsName;
+	local textcls = GET_CHILD(tree, titlestr, 'ui::CRichText');
+	local curCount = textcls:GetUserIValue("TOTAL_COUNT");
+
+	return curCount;
+end
+
 function SET_SLOTSETTITLE_COUNT(tree, basdidcls, addCount)
 
 	local clslist, cnt  = GetClassList("inven_baseid");
@@ -1375,7 +1377,7 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 			return 1;
 		end
 		local pc = GetMyPCObject();
-		local warpFrame = ui.GetFrame('inte_warp');
+		local warpFrame = ui.GetFrame('worldmap');
 		warpFrame:SetUserValue('SCROLL_WARP', itemobj.ClassName)
 		warpFrame:ShowWindow(1);
 		return 1;
@@ -1957,6 +1959,10 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 		if (result ~= "OK") or (resultLifeTimeOver == 1) then
 			icon:SetColorTone("FFFF0000");		
 		end
+			
+		if IS_NEED_APPRAISED_ITEM(itemobj) then
+			icon:SetColorTone("FFFF0000");		
+		end
 	end	
 	
 	SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemobj, count);
@@ -2033,7 +2039,7 @@ end
 
 function _INV_EQUIP_LIST_SET_ICON(slot, icon, equipItem)
 	local frame = slot:GetTopParentFrame();
-	ICON_SET_EQUIPITEM_TOOLTIP(icon, equipItem);
+	ICON_SET_EQUIPITEM_TOOLTIP(icon, equipItem, frame:GetName());
 	if frame:GetName() ~= "compare" then
 		icon:SetDumpScp('STATUS_DUMP_SLOT_SET');
 		slot:SetEventScript(ui.LBUTTONDOWN, 'CHECK_EQP_LBTN');
@@ -2073,6 +2079,8 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 	if  child  ==  nil  then
 		return;
 	end
+
+	local gender = tonumber(frame:GetTopParentFrame():GetUserIValue('COMPARE_PC_GENDER'));
 	local slot = tolua.cast(child, 'ui::CSlot');
 	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
 	controlset:ShowWindow(0);
@@ -2080,7 +2088,14 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 	if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
 		local icon = CreateIcon(slot);
 		local obj = GetIES(equipItem:GetObject());
-		local imageName = GET_EQUIP_ITEM_IMAGE_NAME(obj, 'Icon');
+		local imageName = ""
+
+		if gender > 0 then
+			imageName = GET_EQUIP_ITEM_IMAGE_NAME(obj, 'Icon', gender);
+		else
+			imageName = GET_EQUIP_ITEM_IMAGE_NAME(obj, 'Icon');
+		end
+
 		if IS_DUR_ZERO(obj) == true  then
 			icon:SetColorTone("FF990000");
 		elseif IS_DUR_UNDER_10PER(obj) == true  then
@@ -2118,7 +2133,8 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 					icon:SetColorTone("FFFFFFFF");
 				end
 
-				icon:Set(obj.Icon, 'Item', rhItem.type, rhItem.equipSpot, rhItem:GetIESID());
+                local iconImage = GET_EQUIP_ITEM_IMAGE_NAME(obj, 'Icon');
+				icon:Set(iconImage, 'Item', rhItem.type, rhItem.equipSpot, rhItem:GetIESID());
 				iconFunc(slot, icon, rhItem, ...);
 
 				if rhItem.isLockState == true then
@@ -2169,13 +2185,14 @@ function SET_EQUIP_LIST_ANIM(frame, equipItemList, iconFunc, ...)
 end
 
 function SET_EQUIP_LIST(frame, equipItemList, iconFunc, ...)
-
 	for i = 0, equipItemList:Count() - 1 do
 		local equipItem = equipItemList:Element(i);
 		
-		local spotName = item.GetEquipSpotName(equipItem.equipSpot);		
+		local spotName = item.GetEquipSpotName(equipItem.equipSpot);
 		if  spotName  ~=  nil  then
-			SET_EQUIP_SLOT(frame, i, equipItemList, _INV_EQUIP_LIST_SET_ICON)
+			if SET_EQUIP_ICON_FORGERY(frame, spotName) == false then
+				SET_EQUIP_SLOT(frame, i, equipItemList, _INV_EQUIP_LIST_SET_ICON);
+			end
 		end		
 	end
 	frame:Invalidate();
@@ -2313,7 +2330,7 @@ function UPDATE_INVENTORY_JUNGTAN(frame, ctrl, num, str, time)
 	if frame:IsVisible() == 0 then
 		return;
 	end
-	local jungtanID = frame:GetUserValue("JUNGTAN_EFFECT");
+	local jungtanID = frame:GetUserIValue("JUNGTAN_EFFECT");
 	if jungtanID == 0 then
 		return;
 	end
@@ -2666,4 +2683,9 @@ function IS_LIFETIME_OVER(itemobj)
 		]]
 	end;
 	return 0;
-end;
+end
+
+function INVENTORY_ON_APPRAISER_FORGERY(frame, msg, argStr, argNum)
+	frame:SetUserValue('FORGERY_BUFF_TIME', argNum);
+	STATUS_EQUIP_SLOT_SET(frame);
+end

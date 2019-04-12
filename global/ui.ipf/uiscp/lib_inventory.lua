@@ -530,6 +530,17 @@ function INVENTORY_SET_CUSTOM_RDBTNDOWN(scriptName)
 	frame:SetUserValue("CUSTOM_RDBTN_SCP", scriptName);
 end
 
+function GET_ITEM_ICON_IMAGE_BY_TAG_INFO(props, clsID)
+    local newobj = CreateIESByID("Item", clsID);
+	if props ~= 'nullval' then
+		SetModifiedPropertiesString(newobj, props);
+	end
+
+	local ret = GET_ITEM_ICON_IMAGE(newobj);
+	DestroyIES(newobj);
+	return ret;
+end
+
 function GET_ITEM_ICON_IMAGE(itemCls, gender)
 
 	local iconImg = itemCls.Icon;
@@ -585,6 +596,7 @@ function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
 		SET_SLOT_COUNT(slot, invItem.count)
 		SET_SLOT_COUNT_TEXT(slot, invItem.count);
 		SET_SLOT_IESID(slot, invItem:GetIESID())
+        SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemCls, nil)
 		slot:SetMaxSelectCount(invItem.count);
 		local icon = slot:GetIcon();
 		icon:SetTooltipArg(tooltipType, invItem.type, invItem:GetIESID());

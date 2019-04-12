@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -9518,24 +9518,29 @@
 	</Category>
 	<Category Name="GLOBAL">
 		<Class ClassID="500001" ClassName="EXPCARD_COMPANION_FAIL" Data="함께하고 있는 컴패니언 레벨이 낮아 사용할 수 없습니다."/>
-		<Class ClassID="501002" ClassName="Wihte_Select" Data="사탕 세트 제작서 구입"/>
-		<Class ClassID="501003" ClassName="Wihte_Select1" Data="사탕 세트 건네주기"/>
-		<Class ClassID="501004" ClassName="Wihte_Select2" Data="화이트데이 버프 받기"/>
-		<Class ClassID="501005" ClassName="Wihte_Select1_1" Data="화이트데이 목걸이"/>
-		<Class ClassID="501006" ClassName="Wihte_Select1_2" Data="화이트데이 팔찌"/>
-		<Class ClassID="501007" ClassName="Wihte_Select1_3" Data="화이트데이 밴드"/>
-		<Class ClassID="501008" ClassName="Wihte_Select1_4" Data="다시 생각해본다"/>
-		<Class ClassID="501009" ClassName="Wihte_Select3" Data="이벤트 참여 횟수 확인"/>
-		<Class ClassID="501010" ClassName="Wihte_Select3_1" Data="{WHITECOUNT}회 완료하셨습니다."/>
-		<Class ClassID="501011" ClassName="LevelUp_Event_Desc01" Data="{REWARD}회 보상을 수령하였습니다."/>
-		<Class ClassID="501012" ClassName="LevelUp_Event_Desc02" Data="{NEXTLV}레벨을 달성하면 보상을 받을 수 있습니다."/>
-		<Class ClassID="501013" ClassName="Steam_VerUP_Select01" Data="'레벨업 보상 상자' 받기"/>
-		<Class ClassID="501014" ClassName="Steam_VerUP_Select02" Data="'330 Level 보상' 받기"/>
-		<Class ClassID="501015" ClassName="Steam_VerUP_Select03" Data="목표레벨 확인"/>
-		<Class ClassID="501016" ClassName="steam_Premium_SkillReset" Data="스킬 초기화 포션"/>
-		<Class ClassID="501017" ClassName="steam_Premium_SkillReset_1" Data="스킬 초기화 포션"/>
-		<Class ClassID="501018" ClassName="steam_OneYear_1" Data="1주년 폭죽 받기"/>
-		<Class ClassID="501019" ClassName="ManWoo_1" Data="컴패니언 탑승 상태에서 사용할 수 없습니다."/>
-		<Class ClassID="501020" ClassName="ManWoo_2" Data="만우절 아이템 받기"/>
+		<Class ClassID="500002" ClassName="Wihte_Select" Data="사탕 세트 제작서 구입"/>
+		<Class ClassID="500003" ClassName="Wihte_Select1" Data="사탕 세트 건네주기"/>
+		<Class ClassID="500004" ClassName="Wihte_Select2" Data="화이트데이 버프 받기"/>
+		<Class ClassID="500005" ClassName="Wihte_Select1_1" Data="화이트데이 목걸이"/>
+		<Class ClassID="500006" ClassName="Wihte_Select1_2" Data="화이트데이 팔찌"/>
+		<Class ClassID="500007" ClassName="Wihte_Select1_3" Data="화이트데이 밴드"/>
+		<Class ClassID="500008" ClassName="Wihte_Select1_4" Data="다시 생각해본다"/>
+		<Class ClassID="500009" ClassName="Wihte_Select3" Data="이벤트 참여 횟수 확인"/>
+		<Class ClassID="500010" ClassName="Wihte_Select3_1" Data="{WHITECOUNT}회 완료하셨습니다."/>
+		<Class ClassID="500011" ClassName="LevelUp_Event_Desc01" Data="{REWARD}회 보상을 수령하였습니다."/>
+		<Class ClassID="500012" ClassName="LevelUp_Event_Desc02" Data="{NEXTLV}레벨을 달성하면 보상을 받을 수 있습니다."/>
+		<Class ClassID="500013" ClassName="Steam_VerUP_Select01" Data="'레벨업 보상 상자' 받기"/>
+		<Class ClassID="500014" ClassName="Steam_VerUP_Select02" Data="'330 Level 보상' 받기"/>
+		<Class ClassID="500015" ClassName="Steam_VerUP_Select03" Data="목표레벨 확인"/>
+		<Class ClassID="500016" ClassName="steam_Premium_SkillReset" Data="스킬 초기화 포션"/>
+		<Class ClassID="500017" ClassName="steam_Premium_SkillReset_1" Data="스킬 초기화 포션"/>
+		<Class ClassID="500018" ClassName="steam_OneYear_1" Data="1주년 폭죽 받기"/>
+		<Class ClassID="500019" ClassName="ManWoo_1" Data="컴패니언 탑승 상태에서 사용할 수 없습니다."/>
+		<Class ClassID="500020" ClassName="ManWoo_2" Data="만우절 아이템 받기"/>
+		<Class ClassID="500021" ClassName="DayQuest_Rand_Desc01" Data=" {nl}아래 특성을 가진 몬스터를 처치하고 증표 10개를 가지고 오십시오.{nl} - 종족 : {RACE}{{nl} - 레벨 : {LV} 이상"/>
+		<Class ClassID="500022" ClassName="DayQuest_Rand_Desc02" Data="퀘스트 수령 하기"/>
+		<Class ClassID="500023" ClassName="DayQuest_Rand_Desc03" Data="보상 받기"/>
+		<Class ClassID="500024" ClassName="DayQuest_Rand_Desc04" Data="일일 퀘스트 이벤트"/>
+		<Class ClassID="500025" ClassName="Retention_Select2" Data="다음 목표 레벨은 {LEVELCOUNT} 입니다."/>
 	</Category>
 </idspace>
