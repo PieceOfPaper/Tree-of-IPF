@@ -214,31 +214,14 @@ end
 
 function GET_GUILD_MAKE_PRICE()
 
-	local isSeasonServer = IS_SEASON_SERVER(nil);
-	if isSeasonServer == "YES" then
-		return 1000000 - (1000000 * 0.9)
-	end
-
-	return 1000000;
+	return 500000;
 
 end
 
 function GET_REMAIN_TICKET_COUNT(guildObj)
-	local TicketCount = guildObj.GuildEventTicketCount
-	return TicketCount - guildObj.UsedTicketCount;
+	local guildLevel = guildObj.Level;
+	return guildLevel - guildObj.UsedTicketCount;
 end
 
-function IS_ENABLE_GUILD_NEUTRALITY(guildObj)
-    if guildObj == nil then
-        return false;
-    end    
-    if guildObj.Level < MIN_LEVEL_FOR_GUILD_NEUTRALITY then
-        return false;
-    end
-    return true;
-end
 
-function GET_GUILD_NEUTRALITY_COST(guildObj)
-    local guildLevel = guildObj.Level;
-    return 0;
-end
+
