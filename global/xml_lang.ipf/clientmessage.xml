@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
@@ -862,6 +862,7 @@
     <Class ClassID="20167" ClassName="AreYouSureToUse" Data="정말로 사용하시겠습니까?"/>
     <Class ClassID="20168" ClassName="TpChargeSuccess" Data="TP가 충전되었습니다."/>
     <Class ClassID="20169" ClassName="TpChargeFail" Data="TP 충전에 실패하였습니다."/>
+    <Class ClassID="20170" ClassName="AreyouSureToProductBuy{ProductName}"  Data="{ProductName} 상품을 구매 하시겠습니까?"/>
   </Category>
 	<Category Name="ChatText">
 		<Class ClassID="20501" ClassName="Guard" Data="방어"/>
@@ -6684,7 +6685,7 @@ ClassID="33547" ClassName="CantUseThisInIntegrateServer" Data="통합 서버에�
 		<Class ClassID="7001" ClassName="WithdrawToCamp" Data="님께서 꺼내가셨습니다."/>
 		<Class ClassID="7002" ClassName="StoreToCamp" Data="님께서 저장하셨습니다."/>
 		<Class ClassID="7003" ClassName="FarFromFoodTable" Data="배식대와 거리가 멉니다. 음식을 먹으려면 가까이에서 시도하세요."/>
-		<Class ClassID="7004" ClassName="MissionInstanceFull" Data="미션 인스턴스 개수 초과 나중에 시도하세요"/>
+		<Class ClassID="7004" ClassName="MissionInstanceFull" Data="서버가 혼잡하여 미션 생성을 실패하였습니다. 잠시 후 다시 시도해주세요."/>
 		<Class ClassID="7005" ClassName="DonCreateMonThisAria" Data="해당 지역에서는 몬스터를 소환할 수 없습니다."/>
 		<Class ClassID="7006" ClassName="DonExecSkill" Data="해당 지역에서는 실행할 수 없는 스킬입니다."/>
 		<Class ClassID="7007" ClassName="MissionRoomFullCont" Data="해당 던전에 정원이 가득 찾습니다."/>
@@ -7152,8 +7153,10 @@ ClassID="33547" ClassName="CantUseThisInIntegrateServer" Data="통합 서버에�
 		<Class ClassID="550067" ClassName="CanGetMoreBuff" Data="최대 버프 적용 개수 증가"/>
 		<Class ClassID="550068" ClassName="Moreindunmission" Data="인던,미션 1회 추가 입장"/>
 		<Class ClassID="550072" ClassName="abilityMax_ForPC{COUNT}" Data="특성 동시 수련 가능 개수 증가"/>
-	<Class ClassID="550073" ClassName="TokenState" Data="토큰 사용"/>
-		<Class ClassID="550074" ClassName="NoneTokenState" Data="토큰 미사용"/></Category>
+  	<Class ClassID="550073" ClassName="TokenState" Data="토큰 사용"/>
+		<Class ClassID="550074" ClassName="NoneTokenState" Data="토큰 미사용"/>
+    <Class ClassID="550075" ClassName="NextTokenBuyableTime" Data="You will be able to purchase another Token at {Time}."/>
+  </Category>
 	<Category Name="TPHistory">
 		<Class ClassID="600001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
 		<Class ClassID="600002" ClassName="hirePC" Data="용병 고용"/>
