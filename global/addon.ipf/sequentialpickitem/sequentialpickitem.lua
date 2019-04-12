@@ -12,6 +12,9 @@ function SEQUENTIALPICKITEM_ON_INIT(addon, frame)
 end
 
 function SEQUENTIAL_PICKITEMON_MSG(frame, msg, arg1, type, class)
+    if IS_IN_EVENT_MAP() == true then
+        return;
+    end
 
 	if msg == 'INV_ITEM_ADD' then
 		if arg1 == 'UNEQUIP' then
@@ -60,7 +63,6 @@ function SEQUENTIAL_PICKITEMON_MSG(frame, msg, arg1, type, class)
 end
 
 function SEQUENTIALPICKITEM_OPEN(frame)
-
 	local index = string.find(frame:GetName(), "SEQUENTIAL_PICKITEM_");
 	local frameindex = string.sub(frame:GetName(), index + string.len("SEQUENTIAL_PICKITEM_"), string.len(frame:GetName()))
 	local nowcount = tonumber(frameindex);

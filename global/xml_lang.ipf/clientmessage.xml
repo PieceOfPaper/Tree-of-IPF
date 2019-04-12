@@ -334,6 +334,7 @@
 		<Class ClassID="4150" ClassName="Card_Summon_check_Use" Data="사용 시 330레벨의 보스 몬스터가 소환됩니다.{nl}정말 사용하시겠습니까?"/>
 		<Class ClassID="4151" ClassName="CannotRankResetBecauseUniqueTemplerMaster" Data="길드마스터이면서 팀내 유일한 템플러는 랭크 초기화를 할 수 없습니다."/>
 		<Class ClassID="4152" ClassName="Card_Summon_check_PVP" Data="친선 대결 중에는 사용하실 수 없습니다."/>
+		<Class ClassID="4165" ClassName="Event_Solmiki_Box_Title" Data="솔미키 선택 상자"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -4366,6 +4367,8 @@
 		<Class ClassID="27565" ClassName="TradSelectItemMsg1" Data="{#FF0000}{ITEM}{/} 코스튬을 정말 선택하시겠습니까?{nl}선택 후에는 다른 코스튬으로 교환할 수 없습니다."/>
 		<Class ClassID="27570" ClassName="EVENT_GOLDEN_WHALE_MSG1" Data="누적 완료 보상 받기"/>
 		<Class ClassID="27571" ClassName="EVENT_GOLDEN_WHALE_MSG2" Data="보상 획득 횟수 : {COUNT}회"/>
+		<Class ClassID="27735" ClassName="EVENT_HALLOWEEN_SHOP_NAME" Data="할로윈 상점"/>
+		<Class ClassID="27720" ClassName="Excnaged_AccountCount_Remind" Data="팀당 {COUNT}번 교환 가능 합니다."/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -5607,7 +5610,19 @@
 		<Class ClassID="90102" ClassName="CATACOMB_80_1_CRYSTAL_CONSUME" Data="이 곳에서는 사용할 수 없습니다"/>
 		<Class ClassID="90107" ClassName="MISSION_UPHILL_JOIN" Data="업힐 디펜스 미션 입장"/>
 		<Class ClassID="90108" ClassName="UPHILL_STORE" Data="업힐 디펜스 상점 열기"/>
-	</Category>
+		<Class ClassID="90173" ClassName="AGARIO_MSG1" Data="초 후 부활합니다"/>
+	<Class ClassID="90174" ClassName="AGARIO_SEL_MSG1" Data="던전 입장"/>
+		<Class ClassID="90175" ClassName="AGARIO_SEL_MSG2" Data="이벤트 상점"/>
+		<Class ClassID="90176" ClassName="AGARIO_SEL_MSG3" Data="취소"/>
+		<Class ClassID="90177" ClassName="HALLOWEEN_DTA_MSG" Data="포탈을 여는 중"/>
+		<Class ClassID="90178" ClassName="AGARIO_NOTICE1" Data="진행 시간이 10분 남았습니다"/>
+		<Class ClassID="90179" ClassName="AGARIO_NOTICE2" Data="진행 시간이 5분 남았습니다"/>
+		<Class ClassID="90180" ClassName="AGARIO_NOTICE3" Data="진행 시간이 1분 남았습니다"/>
+		<Class ClassID="90181" ClassName="AGARIO_NOTICE4" Data="던전이 종료되었습니다.{nl}할로윈 허수아비를 통해 나가시거나 1분후 마을로 이동됩니다."/>
+		<Class ClassID="90182" ClassName="AGARIO_ENTER_MSG1" Data="현재 입장 횟수는 {COUNT} / 3 회입니다."/>
+		<Class ClassID="90183" ClassName="AGARIO_SEL2_MSG1" Data="나가기"/>
+		<Class ClassID="90184" ClassName="AGARIO_ACHIEVE" Data="이미 획득한 칭호입니다"/>
+		</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
 		<Class ClassID="100002" ClassName="ADD_BUFF_{Auto_1}!" Data="{Auto_1}!"/>

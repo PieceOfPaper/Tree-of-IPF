@@ -123,7 +123,8 @@ function INIT_PCDEBUFF_EVENT_STAT(pc)
       end
       
       AddBuff(pc, pc, "Event_Penalty", 1, 0, 700000, 1);
-
+    elseif pc.ClassName == 'magicsquare_1_mini' then
+    
     else
         local petlist = {
           'Velhider',
@@ -146,7 +147,10 @@ function INIT_PCDEBUFF_EVENT_STAT(pc)
           'PetHanaming',
           'penguin_marine',
           'guineapig_white',
-          'Lesser_panda_gray'
+          'Lesser_panda_gray',
+          'Zombie_Overwatcher',
+          'summons_zombie',
+          'Zombie_hoplite'
         }
         
         for i = 1, table.getn(petlist) do
@@ -439,7 +443,7 @@ function SCR_EVENTITEM_DROP_BLUEORB(self, sObj, msg, argObj, argStr, argNum)
         local curMap = GetZoneName(self);
         local mapCls = GetClass("Map", curMap);
         
-        if self.Lv >= 10 and (mapCls.Mission == 'NO' and mapCls.MapType ~= 'City') then
+        if self.Lv >= 10 and (mapCls.WorldMap ~= 'None' and mapCls.MapType ~= 'City') and argObj.MonRank == 'Normal' then
             if self.Lv <= argObj.Lv + 20 then
                 local x, y, z = GetPos(argObj);
                 local itemObj = CreateGCIES('Monster', 'Event_Special_Etcitem');

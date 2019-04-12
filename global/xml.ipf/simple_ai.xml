@@ -472,7 +472,103 @@
 			</ToolScp>
 		</List>
 	</AI>
-	<AI Name="ALPHABLANDER_NPC" ActiveMessageMapInBattle="1">
+	<AI Name="AGARIO_TRIGGER" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_AGARIO_MINI"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="AGARIO_MINE1" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-838.85895" Y="241.05203" Z="317.21912"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-841.24658" Y="241.05203" Z="85.177719"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_circle012_blue" Arg="7"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="AGARIO_MINE2" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="64.66169" Y="-1.1565475" Z="-783.60437"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-160.63905" Y="-1.1574606" Z="-806.04138"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_circle012_blue" Arg="7"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="AGARIO_MINE3" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="687.25586" Y="-1.1565448" Z="-146.8215"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="673.44043" Y="-1.1565444" Z="135.05357"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_circle012_blue" Arg="7"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="AGARIO_MINE4" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-483.35498" Y="241.05203" Z="821.10516"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-236.99025" Y="241.05203" Z="820.66168"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_circle012_blue" Arg="7"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="AGARIO_TRIGGER" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_AGARIO_MINI"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="ALPHABLANDER_NPC" ActiveMessageMapInBattle="1">
 		<StartList>
 			<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
 				<Num Num="10"/>

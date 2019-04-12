@@ -154,7 +154,7 @@ function ON_SHOW_TARGET_UI(frame, msg, argStr, handle)
 end
 
 function OPEN_MONB_FRAME(frame, handle)	
-	if frame ~= nil and frame:IsVisible() == 0 then
+	if frame ~= nil and frame:IsVisible() == 0 and IS_IN_EVENT_MAP() == false then
 		frame:ShowWindow(1);
 		ui.UpdateCharBasePos(handle);
 	end	

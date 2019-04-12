@@ -216,7 +216,7 @@ function MAKE_ALL_DEFAULT_HAIR()
 end
 
 	
-function TEST_AYASE()    
+function TEST_AYASE()
     print("friend ui test");    
     session.friends.TestAddManyFriend(FRIEND_LIST_COMPLETE, 200);
     session.friends.TestAddManyFriend(FRIEND_LIST_BLOCKED, 100);
@@ -4212,3 +4212,9 @@ function BLOCK_MSG(blockName, sysTime)
 	
 end
 
+function UI_CHECK_NOT_EVENT_MAP()
+    if IS_IN_EVENT_MAP() == true then
+        return 0;
+    end
+    return 1;
+end

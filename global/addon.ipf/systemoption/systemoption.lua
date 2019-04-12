@@ -462,9 +462,11 @@ function ENABEL_VSYNC(frame)
 end
 
 function UPDATE_TITLE_OPTION(frame)
+    if IS_IN_EVENT_MAP() == true then    
+        return;
+    end
 
 	world.UpdateTitleOption();
-
 end
 
 function SET_DMG_FONT_SCALE_CONTROLLER(frame)

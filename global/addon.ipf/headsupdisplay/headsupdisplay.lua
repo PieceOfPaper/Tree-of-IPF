@@ -45,6 +45,11 @@ function CANT_JUMP_ALARM(frame, msg, argStr, argNum)
 end
 
 function MOVETOCAMP(aid)
+    if IS_IN_EVENT_MAP() == true then
+        ui.SysMsg(ClMsg('ImpossibleInCurrentMap'));
+        return;
+    end
+
 	session.party.RequestMoveToCamp(aid);
 end
 

@@ -1007,21 +1007,21 @@ function IS_WARPNPC(zoneClassName, npcFunc)
 end
 
 function table.find(t, ele)
-    local count = #t
-    if count > 0 then
-        for i = 1, count do
-            if type(t[i]) ~= type(ele) then
-                if type(t[i]) == 'number' then
-                    ele = tonumber(ele)
-                elseif type(t[i]) == 'string' then
-                    ele = tostring(ele)
+        local count = #t
+        if count > 0 then
+            for i = 1, count do
+                if type(t[i]) ~= type(ele) then
+                    if type(t[i]) == 'number' then
+                        ele = tonumber(ele)
+                    elseif type(t[i]) == 'string' then
+                        ele = tostring(ele)
+                    end
+                end
+                if t[i] == ele then
+                    return i
                 end
             end
-            if t[i] == ele then
-                return i
-            end
         end
-    end
     return 0
 end
 
@@ -1362,8 +1362,8 @@ function IS_NEED_APPRAISED_ITEM(item)
         return true;
     end
 
-    return false;
-end
+        return false;
+    end
 
 function INCR_PROP(self, obj, propName, propValue)
 
@@ -1827,3 +1827,11 @@ end
 --    
 --    return 'NO'
 --end
+
+function IS_IN_EVENT_MAP(pc)
+    if GetZoneName(pc) == 'c_Klaipe_event' then
+        return true;
+    end
+
+    return false;
+end

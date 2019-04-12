@@ -72,6 +72,10 @@ function ON_PVP_PLAYING_UPDATE(frame)
 end
 
 function WORLDPVP_START_ICON_NOTICE()
+    if IS_IN_EVENT_MAP() == true then
+        return;
+    end
+
 	local frame = ui.GetFrame("minimizedalarm");
 	local gbox = frame:GetChild("gbox");
 	local pic = gbox:GetChild("pic");
@@ -102,7 +106,7 @@ function OPEN_GUILDBATTLE_FRAME(frame)
 	local worldpvp =  ui.GetFrame("worldpvp");
 	worldpvp:ShowWindow(0);
 
---	OPEN_GUILDBATTLE_RANKING_TAB();
+	OPEN_GUILDBATTLE_RANKING_TAB();
 	
 	ui.OpenFrame("guildbattle_league");	
 	local pvpFrame = ui.GetFrame("guildbattle_league");
