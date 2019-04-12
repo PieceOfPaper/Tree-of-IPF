@@ -6,7 +6,7 @@ function SCR_EVENT_TODAY_NUMBER_DROPITEM(self, sObj, msg, argObj, argStr, argNum
     if ((month >= 7 and day >= 11) or (month >= 8)) and year >= 2017 then
         return
     end
-    if argObj.ClassID >= 45132 and argObj.ClassID <= 45136 then
+    if (argObj.ClassID >= 45132 and argObj.ClassID <= 45136) or (argObj.ClassID >= 45110 and argObj.ClassID <= 45111) then
         local rand = IMCRandom(1, 5)        
         if rand >= 3 then
             local tx = TxBegin(self);
