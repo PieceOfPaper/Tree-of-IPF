@@ -86,7 +86,7 @@ function GET_ENCHANTARMOR_OPTION(sklLv)
 	retList[#retList + 1] = "ENCHANTARMOR_HEALING";
 	retList[#retList + 1] = "ENCHANTARMOR_PROTECTIVE";
 	retList[#retList + 1] = "ENCHANTARMOR_BLESSING";
---	retList[#retList + 1] = "ENCHANTARMOR_HOLY";
+	retList[#retList + 1] = "ENCHANTARMOR_HOLY";
 	retList[#retList + 1] = "ENCHANTARMOR_VOLITIVE";
 	local maxCnt = math.min(sklLv+1, 6);
 	local tempList = {}
@@ -246,7 +246,7 @@ function SCR_GET_SWITCHGENDER_PRICE(shopClassName, mapClassName, buffClassName, 
 	return math.floor(price);
 end
 
--- deprecated: buff_seller_info.xml???�어주세??
+-- deprecated: buff_seller_info.xml에 적어주세요 
 -- function GET_BUFFSELLER_SPEND_ITEM_COUNT(sklClassName)
 -- 	if sklClassName == "Priest_Aspersion" then
 -- 		return 10;
@@ -307,7 +307,7 @@ function SCR_GET_APPRISE_PRICE(shopClassName, mapClassName, buffClassName, abilL
 	return math.floor(price);
 end
 
--- ?�당 skill??checkKeyword ?�워?��? 존재?�는지 체크. ?�으�?1 반환, ?�으�?0 반환.
+-- 해당 skill에 checkKeyword 키워드가 존재하는지 체크. 있으면 1 반환, 없으면 0 반환.
 function CHECK_SKILL_KEYWORD(skill, checkKeyword)
 	local skillKeyword = TryGetProp(skill, 'Keyword');
 	if skillKeyword ~= nil and skillKeyword ~= 'None' then
@@ -322,7 +322,7 @@ function CHECK_SKILL_KEYWORD(skill, checkKeyword)
 end
 
 
--- 버프 강화 ?�성 증�? 비율 계산-------
+-- 버프 강화 특성 증가 비율 계산-------
 function SCR_REINFORCEABILITY_FOR_BUFFSKILL(self, skill)
     local addRate = 1;
     if self ~= nil and skill ~= nil then
