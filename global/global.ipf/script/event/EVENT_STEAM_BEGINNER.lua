@@ -3,28 +3,28 @@ function SCR_STEAM_BEGINNER_EVENT_DIALOG(self,pc)
     local aObj = GetAccountObj(pc)
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
 
-    if aObj.EV171212_STEAM_SETTL_JOIN_CHECK == 1 then
+    if aObj.EV180109_STEAM_SETTL_JOIN_CHECK == 1 then
         ShowOkDlg(pc,'EVENT_STEAM_BEGINNER_DLG_1', 1)
         return
     end
 
-    if TeamLevel == 1 or aObj.EV171212_STEAM_BEGINNER_JOIN_CHECK == 1 then
-        if aObj.EV171212_STEAM_BEGINNER_COSTUM_CHECK == 0 then
+    if TeamLevel == 1 or aObj.EV180109_STEAM_BEGINNER_JOIN_CHECK == 1 then
+        if aObj.EV180109_STEAM_BEGINNER_COSTUM_CHECK == 0 then
            local tx = TxBegin(pc)
-           TxGiveItem(tx, 'costume_simple_festival_m', 1, 'EV171212_BEGINNER_COSTUME');
-           TxGiveItem(tx, 'costume_simple_festival_f', 1, 'EV171212_BEGINNER_COSTUME');
-           TxSetIESProp(tx, aObj, 'EV171212_STEAM_BEGINNER_COSTUM_CHECK', 1); 
-           TxSetIESProp(tx, aObj, 'EV171212_STEAM_BEGINNER_JOIN_CHECK', 1);
+           TxGiveItem(tx, 'costume_simple_festival_m', 1, 'EV180109_BEGINNER_COSTUME');
+           TxGiveItem(tx, 'costume_simple_festival_f', 1, 'EV180109_BEGINNER_COSTUME');
+           TxSetIESProp(tx, aObj, 'EV180109_STEAM_BEGINNER_COSTUM_CHECK', 1); 
+           TxSetIESProp(tx, aObj, 'EV180109_STEAM_BEGINNER_JOIN_CHECK', 1);
            local ret = TxCommit(tx)
         end
-        if aObj.EV171212_STEAM_BEGINNER_ACCOUNT_CHECK < 4 then
-            if sObj.EV171212_STEAM_BEGINNER_SESSION_CHECK == 0 then
+        if aObj.EV180109_STEAM_BEGINNER_ACCOUNT_CHECK < 4 then
+            if sObj.EV180109_STEAM_BEGINNER_SESSION_CHECK == 0 then
                 local tx = TxBegin(pc)
-                TxGiveItem(tx, 'Event_Nru2_Box_1', 1, 'EV171212_BEGINNER_BOX');
-                TxSetIESProp(tx, aObj, 'EV171212_STEAM_BEGINNER_ACCOUNT_CHECK', aObj.EV171212_STEAM_BEGINNER_ACCOUNT_CHECK + 1);
-                TxSetIESProp(tx, sObj, 'EV171212_STEAM_BEGINNER_SESSION_CHECK', sObj.EV171212_STEAM_BEGINNER_SESSION_CHECK + 1);
+                TxGiveItem(tx, 'Event_Nru2_Box_1', 1, 'EV180109_BEGINNER_BOX');
+                TxSetIESProp(tx, aObj, 'EV180109_STEAM_BEGINNER_ACCOUNT_CHECK', aObj.EV180109_STEAM_BEGINNER_ACCOUNT_CHECK + 1);
+                TxSetIESProp(tx, sObj, 'EV180109_STEAM_BEGINNER_SESSION_CHECK', sObj.EV180109_STEAM_BEGINNER_SESSION_CHECK + 1);
                 local ret = TxCommit(tx)
-                SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("steam_Nru_Always_2", "NRUCOUNT", aObj.EV171212_STEAM_BEGINNER_ACCOUNT_CHECK), 5)
+                SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("steam_Nru_Always_2", "NRUCOUNT", aObj.EV180109_STEAM_BEGINNER_ACCOUNT_CHECK), 5)
             else
                 ShowOkDlg(pc,'NPC_EVENT_NRU_ALWAYS_1', 1)
             end

@@ -1,4 +1,4 @@
-function ATTENDANCE_TOGGLE_VAKARINE_UI()
+function ATTENDANCE_TOGGLE_VAKARINE_UI() --VakarinePackege --
 	local vakarineCls = GetClass('TPEventAttendance', 'SteamNewRank');
 	local frame = ui.GetFrame('attendance');
 	if frame ~= nil and frame:IsVisible() == 1 then

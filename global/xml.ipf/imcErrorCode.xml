@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by josungkwan (IMCGames Co., Ltd) -->
 <imcErrorCode>
 	<Code Code="FATAL_ASSERT" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다."/>
 	<Code Code="FATAL_ASSERT_EX" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다. 다음 정보를 참조하세요."/>
@@ -359,14 +359,10 @@
 	<Code Code="WARNING_INVALID_LOG_PROPERTY" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="로그 프로퍼티 형식 오류 입니다."/>
 	<Code Code="NOTICE_PACKET_INFO" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="패킷 정보 입니다"/>
 	<Code Code="ALERT_REPORT_DBConnectionLost" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="데이터베이스 연결이 끊김 "/>
-
-<Code Code="ALERT_REPORT_NodeConnectionLost" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Node와의 연결이 끊김"/>
-
-<Code Code="ALERT_REPORT_DaemonCrash" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Daemon Crash"/>
-
-<Code Code="ERROR_NULLPTR_REFCOUNT_ZERO" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="참조 수가 0인 이미 지워진 객체입니다."/>
-
-<Code Code="INFO_ADVENTURE_BOOK" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="모험일지 관련 정보"/>	
+	<Code Code="ALERT_REPORT_NodeConnectionLost" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Node와의 연결이 끊김"/>
+	<Code Code="ALERT_REPORT_DaemonCrash" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Daemon Crash"/>
+	<Code Code="ERROR_NULLPTR_REFCOUNT_ZERO" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="참조 수가 0인 이미 지워진 객체입니다."/>
+	<Code Code="INFO_ADVENTURE_BOOK" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="모험일지 관련 정보"/>
 	<Code Code="ERROR_FAIL_DLL_LOAD" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DLL 을 로드하지 못했습니다."/>
 	<Code Code="STEAM_CHARGE_BACK_ERROR" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스팀 차지백 에러"/>
 	<Code Code="INFO_FISH_RUBBING" Team="PROGRAM" Category="LOGIC" SubCategory="FISHING" Logger="root" Enabled="YES" CallStack="NO" Desc="탁본 정보 로그"/>
@@ -379,10 +375,8 @@
 	<Code Code="ERROR_ATTENDANCE" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="출석 시스템 관련 에러"/>
 	<Code Code="ERROR_RANK_RESET" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="랭크 초기화 관련 에러"/>
 	<Code Code="INFO_CONTENT_SCRIPT" Team="CONTENTDESIGN" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스크립트에서 사용 할 수 있는 로그의 에러코드. 추가되는 Property의 Tag 참고."/>
-
-<Code Code="INFO_ETC_PROP_SEND" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="간헐적으로 인던 카운트 보이지 않는 문제 추적용"/>
-					
-<Code Code="ALERT_Machine_CPU" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 머신의 CPU 사용율"/>
+	<Code Code="INFO_ETC_PROP_SEND" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="간헐적으로 인던 카운트 보이지 않는 문제 추적용"/>
+	<Code Code="ALERT_Machine_CPU" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 머신의 CPU 사용율"/>
 	<Code Code="ALERT_Machine_FreeDisk" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="드라이브의 남은 용량(MB)"/>
 	<Code Code="ALERT_Machine_DiskTime" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="초당 디스크 엑세스 비율(100% = 1초)"/>
 	<Code Code="ALERT_Machine_Network" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="초당 네트워크 사용량(Bytes)"/>
@@ -522,4 +516,5 @@
 	<Code Code="ERROR_REPLAY" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="리플레이 관련 에러"/>
 	<Code Code="ERROR_CHALLENGE_MODE" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="챌린지모드 관련 에러"/>
 	<Code Code="LOGGING_ABILITY_CHECK" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="어빌리티 적용 여부 확인을 위한 로그"/>
+<Code Code="FATAL_ZOMBIE_REF_COUNT" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="좀비 레프런스 카운트 안 줄어들어서 메모리 샐 여지가 있음"/>
 </imcErrorCode>

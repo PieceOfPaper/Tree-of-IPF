@@ -10572,6 +10572,7 @@
 		<Class ClassID="300171" ClassName="attendance" Data="출석 보상 확인"/>
 		<Class ClassID="300172" ClassName="PremiumToken_15d_vk" Data="토큰:15일[바카리네]"/>
 		<Class ClassID="300173" ClassName="SelectPurchaseRestrictedItemByMonth" Data="해당 아이템은 한 달에 {Value}개만 구매할 수 있습니다.{nl}구매하시겠습니까?"/>
+		<Class ClassID="300174" ClassName="Ability_Point_Stone" Data="특성 포인트 1,000"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
@@ -10688,6 +10689,9 @@
 		<Class ClassID="501109" ClassName="EVENT_STEAM_RETURN_SEL2" Data="내일부터 하루에 한 번{nl}복귀 유저의 서 5개{nl}를 획득할 수 있습니다."/>
 		<Class ClassID="501110" ClassName="EVENT_STEAM_SETTLE_SEL1" Data="정착 지원의 이벤트 : 보상 받기"/>
 		<Class ClassID="501111" ClassName="EVENT_STEAM_HAPPY_NEW_YEAR" Data="새해 소망 비는 중"/>
+		<Class ClassID="501118" ClassName="Moru_Silver_14d" Data="은빛 모루(14일)"/>
+		<Class ClassID="501119" ClassName="EVENT_REWARD_DAY" Data=" {nl}{HOUR} 시간후에 보상을 수령할 수 있습니다."/>
+		<Class ClassID="501120" ClassName="Point_Stone_100" Data="특성 포인트 100"/>
 	</Category>
 	<Category Name="Skill_Misc_Shop">
 		<Class ClassID="510100" ClassName="Skill_Misc_Shop_Sel_Warrior" Data="전사 계열"/>
@@ -10866,6 +10870,8 @@
 		<Class ClassID="1000014" ClassName="AlreadyFailOrDestroy_ChallengeMode" Data="먼저 도전 중인 파티원이 도전 실패 또는 완료하여 참여할 수 없습니다.{nl}잠시 후 다시 시도해주십시오."/>
 		<Class ClassID="1000015" ClassName="CantResurrect_ChallengeMode" Data="도전에 실패하여 부활할 수 없습니다. 잠시 후 원래 장소로 돌아갑니다."/>
 		<Class ClassID="1000016" ClassName="CantJoinLowLevel_ChallengeMode" Data="캐릭터의 레벨이 너무 낮아 입장하실 수 없습니다."/>
+	<Class ClassID="1000017" ClassName="CantReJoin_DifferentLevel_ChallengeMode" Data="도전을 중지한 단계와 현재 파티원이 도전중인 단계가 달라 재입장할 수 없습니다."/>
+		<Class ClassID="1000018" ClassName="AcceptChallengeMode_ReJoin" Data="도전중인 챌린지 단계가 있습니다. 재입장 하시겠습니까?"/>
 	</Category>
 	<Category Name="RankReset">
 		<Class ClassID="1001000" ClassName="CannotChangeJobBecauseJobLevel" Data="클래스 레벨이 최대 레벨일 때에만 가능합니다."/>

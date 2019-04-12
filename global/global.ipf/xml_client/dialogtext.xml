@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="DialogText">
 	<Category Name="해외 이벤트">
 		<Class OverrideType="ADD" ClassID="5010018" ClassName="NPC_EVENT_VERUP_DLG1" Caption="이벤트 알림판" NextPage="None" ImgName="blank" VoiceName="None" Text="'쿠키와 함께 레벨업' 이벤트가 시작되었습니다.{nl}'레벨업 보상 상자' 10개를 지급해 드렸습니다." arg1="None" arg2="None" arg3="None" arg4="None"/>
@@ -88,5 +88,6 @@
 		<Class OverrideType="ADD" ClassID="5010113" ClassName="NPC_EVENT_STEAM_REWARD_1" Caption="이벤트 알림판" NextPage="None" ImgName="blank" VoiceName="None" Text="여신의 메달이 부족합니다." arg1="None" arg2="None" arg3="None" arg4="None"/>
 		<Class OverrideType="ADD" ClassID="5010114" ClassName="EVENT_SELECT_BOSSLV_08" Caption="이벤트 알림판" NextPage="None" ImgName="blank" VoiceName="None" Text="입장 가능 횟수가 부족합니다." arg1="None" arg2="None" arg3="None" arg4="None"/>
 		<Class OverrideType="ADD" ClassID="5010115" ClassName="EVENT_SELECT_BOSSLV_09" Caption="마법진" NextPage="None" ImgName="blank" VoiceName="None" Text="보스 레벨을 잘못 입력하였거나 너무 높습니다." arg1="None" arg2="None" arg3="None" arg4="None"/>
+		<Class OverrideType="ADD" ClassID="5010131" ClassName="EVENT_STEAM_NEW_YEAR_BOX_1" Caption="금괴" NextPage="None" ImgName="blank" VoiceName="None" Text="Lucky Key는 Facebook 이벤트에서 지급되었습니다.{nl}(2017년 12월 28일 ~ 2018년 1월 9일)" arg1="None" arg2="None" arg3="None" arg4="None"/>
 	</Category>
 </idspace>

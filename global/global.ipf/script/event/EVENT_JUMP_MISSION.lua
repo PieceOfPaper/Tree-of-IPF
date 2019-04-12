@@ -69,14 +69,15 @@ function SCR_EVENT_JUMP_MISSION_DIALOG(self, pc)
     local min = now_time['min']
     local ymin = (yday * 24 * 60) + hour * 60 + min
 
-    if sObj.EVENT_JUMP_BOX_REWARD >= 500000 then
+    if sObj.EVENT_JUMP_BOX_REWARD >= 500000 or sObj.EVENT_JUMP_NPC_REWARD >= 500000 then
         local tx = TxBegin(pc)
         TxGiveItem(tx, 'Ability_Point_Stone_500_14d', 1, "EVENT_JUMP_GET_Ability");
         TxSetIESProp(tx, sObj, 'EVENT_JUMP_BOX_REWARD', 0);
+        TxSetIESProp(tx, sObj, 'EVENT_JUMP_NPC_REWARD', 0);
         local ret = TxCommit(tx)
     end
 
-    if IsBuffApplied(pc, 'Event_Golden_Whale_2') == 'NO' then
+    if sObj.EVENT_JUMP_BOX_REWARD + 9 <= ymin and sObj.EVENT_JUMP_NPC_REWARD + 9 <= ymin then
         AUTOMATCH_INDUN_DIALOG(pc, nil, 'E_f_tableland_11_1')
     else
         SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("TryLater"), 5);
@@ -96,22 +97,13 @@ function SCR_EVENT_JUMP_NPC_DIALOG(self, pc)
     local min = now_time['min']
     local ymin = (yday * 24 * 60) + hour * 60 + min
     
-    if sObj.EVENT_JUMP_NPC_REWARD >= 500000 then
+    if sObj.EVENT_JUMP_NPC_REWARD + 9 <= ymin then    
         local tx = TxBegin(pc)
         TxEnableInIntegrate(tx)
-        TxSetIESProp(tx, sObj, 'EVENT_JUMP_NPC_REWARD', 0);
+        TxGiveItem(tx, 'GIMMICK_Drug_HPSP2', 2, "EVENT_JUMP_HPSP2");
+        TxSetIESProp(tx, sObj, 'EVENT_JUMP_NPC_REWARD', ymin);
         local ret = TxCommit(tx)
-    end
-
-    if IsBuffApplied(pc, 'Event_Golden_Whale_2') == 'NO' then
-        if sObj.EVENT_JUMP_NPC_REWARD + 9 <= ymin then    
-            local tx = TxBegin(pc)
-            TxEnableInIntegrate(tx)
-            TxGiveItem(tx, 'GIMMICK_Drug_HPSP2', 2, "EVENT_JUMP_HPSP2");
-            TxSetIESProp(tx, sObj, 'EVENT_JUMP_NPC_REWARD', ymin);
-            local ret = TxCommit(tx)
-            ShowOkDlg(pc, 'EVENT_JUMP_MISSION_NPC1', 1)
-        end
+        ShowOkDlg(pc, 'EVENT_JUMP_MISSION_NPC1', 1)
     end
 end
 
@@ -125,7 +117,7 @@ function SCR_EVENT_JUMP_BOX_DIALOG(self, pc)
     local zoneObj = GetLayerObject(pc);
 	local GOAL_COUNT = GetExProp(zoneObj, 'GOAL_COUNT')
 
-    if IsBuffApplied(pc, 'Event_Golden_Whale_2') == 'NO' then
+    if sObj.EVENT_JUMP_BOX_REWARD + 9 <= ymin then
         local TIME_COUNT = GetExProp(zoneObj, 'TIME_COUNT')
         if TIME_COUNT == 0 then
             local tx = TxBegin(pc)
@@ -143,10 +135,9 @@ function SCR_EVENT_JUMP_BOX_DIALOG(self, pc)
             TxEnableInIntegrate(tx)
             TxGiveItem(tx, 'Ability_Point_Stone_500_14d', 1, "EVENT_JUMP_GET_Ability");
             TxGiveItem(tx, 'Drug_Fortunecookie', 1, "EVENT_JUMP_GET_Fortun");
-            TxGiveItem(tx, 'GIMMICK_Drug_HPSP2', 2, "EVENT_JUMP_HPSP2");
+            TxSetIESProp(tx, sObj, 'EVENT_JUMP_BOX_REWARD', ymin);
             local ret = TxCommit(tx)
             if ret == 'SUCCESS' then
-                AddBuff(self, pc, 'Event_Golden_Whale_2', 1, 0, 540000, 1);
                 SetExProp(zoneObj, "GOAL_COUNT", GOAL_COUNT + 1);
                 GOAL_COUNT = GetExProp(zoneObj, 'GOAL_COUNT')
                 MoveZone(pc, 'E_f_tableland_11_1', -756.33, -109.71, 441.79);
@@ -155,10 +146,9 @@ function SCR_EVENT_JUMP_BOX_DIALOG(self, pc)
             local tx = TxBegin(pc)
             TxEnableInIntegrate(tx)
             TxGiveItem(tx, 'Ability_Point_Stone_500_14d', 1, "EVENT_JUMP_GET_Ability");
-            TxGiveItem(tx, 'GIMMICK_Drug_HPSP2', 2, "EVENT_JUMP_HPSP2");
+            TxSetIESProp(tx, sObj, 'EVENT_JUMP_BOX_REWARD', ymin);
             local ret = TxCommit(tx)
             if ret == 'SUCCESS' then
-                AddBuff(self, pc, 'Event_Golden_Whale_2', 1, 0, 540000, 1);
                 SetExProp(zoneObj, "GOAL_COUNT", GOAL_COUNT + 1);
                 GOAL_COUNT = GetExProp(zoneObj, 'GOAL_COUNT')
                 MoveZone(pc, 'E_f_tableland_11_1', -756.33, -109.71, 441.79);

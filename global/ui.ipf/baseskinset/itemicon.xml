@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -2833,6 +2833,9 @@
 		<image name="icon_item_papership" file="\icon\hairacc\icon_item_papership.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Hat_628008" file="\icon\hairacc\icon_item_Hat_628008.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_pumkin_helmet" file="\icon\hairacc\icon_item_pumkin_helmet.png" imgrect="0 0 256 256" CMM_Caption="17 할로윈 호박 모자"/>
+		<image name="icon_item_Hat_icecrown" file="\icon\hairacc\icon_item_Hat_icecrown.png" imgrect="0 0 256 256" CMM_Caption="눈꽃 헤어 악세"/>
+		<image name="icon_item_Hat_unicornhorn" file="\icon\hairacc\icon_item_Hat_unicornhorn.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Hac_iceglasses" file="\icon\hairacc\icon_item_Hac_iceglasses.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -4912,7 +4915,7 @@
 		<image name="icon_item_stone_box_S" file="\icon\payment\icon_item_stone_box_S.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_reinforce_card_10" file="\icon\payment\icon_item_reinforce_card_10.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_reinforce_card_book" file="\icon\payment\icon_item_reinforce_card_book.png" imgrect="0 0 256 256"/>
-                <image name="icon_item_wing_ice" file="\icon\payment\icon_item_wing_ice.png" imgrect="0 0 256 256" CMM_Caption="크리스마스 날개"/>
+		<image name="icon_item_wing_ice" file="\icon\payment\icon_item_wing_ice.png" imgrect="0 0 256 256" CMM_Caption="크리스마스 날개"/>
 		<image name="icon_item_christmastree01_popupbook" file="\icon\payment\icon_item_christmastree01_popupbook.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_christmastree02_popupbook" file="\icon\payment\icon_item_christmastree02_popupbook.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_helmet_Rudolph" file="\icon\payment\icon_item_helmet_Rudolph.png" imgrect="0 0 256 256"/>
@@ -4925,6 +4928,9 @@
 		<image name="icon_item_christmas_box" file="\icon\payment\icon_item_christmas_box.png" imgrect="0 0 256 256" CMM_Caption="17년 크리스마스 랜덤 박스"/>
 		<image name="icon_item_egg_sled" file="\icon\payment\icon_item_egg_sled.png" imgrect="0 0 256 256" CMM_Caption="17년 크리스마스 썰매 박스"/>
 		<image name="icon_item_2017rudolph_box" file="\icon\payment\icon_item_2017rudolph_box.png" imgrect="0 0 256 256" CMM_Caption="17년 크리스마스 루돌프 박스"/>
+		<image name="icon_item_snowflower_f" file="\icon\payment\icon_item_snowflower_f.png" imgrect="0 0 256 256" CMM_Caption="눈꽃 코스튬"/>
+		<image name="icon_item_snowflower_m" file="\icon\payment\icon_item_snowflower_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_snow_flower_effect" file="\icon\payment\icon_item_snow_flower_effect.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

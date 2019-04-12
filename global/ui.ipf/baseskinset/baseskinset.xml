@@ -5215,6 +5215,12 @@
 			<img name="cooltime" imgrect="1565 804 54 54"/>
 			<img name="selected" imgrect="1565 804 54 54"/>
 		</skin>
+		<skin name="effect_slot" texture="\skin\pip_test_item.tga">
+			<img name="slot" imgrect="1472 813 50 51"/>
+			<img name="mouseon" imgrect="1565 804 54 54"/>
+			<img name="cooltime" imgrect="1565 804 54 54"/>
+			<img name="selected" imgrect="1565 804 54 54"/>
+		</skin>
 	</skinlist>
 	<imagelist category="wearing_weapon">
 		<image name="weapon_OHS" file="\icon\wearing_weapon.tga" imgrect="0 0 20 20" CMM_Caption="한손검"/>

@@ -3,23 +3,23 @@
     local now_time = os.date('*t')
     local yday = now_time['yday']
 
-    if aObj.EVENT_1708_JURATE_START ~= 1 then
+    if aObj.EV180109_STEAM_RETURN_JOIN_CHECK ~= 1 then
         ShowOkDlg(pc,'EVENT_STEAM_RETURN_DLG_1', 1)
         return
     end
-    if aObj.EVENT_1708_JURATE_REWARD_COUNT ~= yday then
+    if aObj.EV180109_STEAM_RETURN_DAY_CHECK ~= yday then
         local tx = TxBegin(pc)
-        TxSetIESProp(tx, aObj, 'EVENT_1708_JURATE_REWARD_COUNT', yday);
-        TxSetIESProp(tx, aObj, 'EVENT_1708_JURATE_COUNT', 0);
+        TxSetIESProp(tx, aObj, 'EV180109_STEAM_RETURN_DAY_CHECK', yday);
+        TxSetIESProp(tx, aObj, 'EV180109_STEAM_RETURN_REWARD_CHECK', 0);
         local ret = TxCommit(tx)
     end
-    if aObj.EVENT_1708_JURATE_START == 1 and aObj.EVENT_1708_JURATE_COUNT == 0 then
+    if aObj.EV180109_STEAM_RETURN_JOIN_CHECK == 1 and aObj.EV180109_STEAM_RETURN_REWARD_CHECK == 0 then
         local tx = TxBegin(pc)
         TxGiveItem(tx, 'Event_Cb_Buff_Item', 5, "EVENT_RETURN")
-        TxSetIESProp(tx, aObj, 'EVENT_1708_JURATE_COUNT', 1);
+        TxSetIESProp(tx, aObj, 'EV180109_STEAM_RETURN_REWARD_CHECK', 1);
         local ret = TxCommit(tx)
         ShowOkDlg(pc,'NPC_EVENT_JP_DAY_CHECK_2', 1)
-    elseif aObj.EVENT_1708_JURATE_START == 1 and aObj.EVENT_1708_JURATE_COUNT == 1 then
+    elseif aObj.EV180109_STEAM_RETURN_JOIN_CHECK == 1 and aObj.EV180109_STEAM_RETURN_REWARD_CHECK == 1 then
         ShowOkDlg(pc,'NPC_EVENT_TODAY_NUMBER_5', 1)
     end
 end
@@ -37,9 +37,9 @@ function SCR_USE_EVENT_RETURN_BOX(pc)
     TxGiveItem(tx, 'Premium_StatReset14', 1, "EVENT_RETURN")
     TxGiveItem(tx, 'Event_Cb_Buff_Item', 5, "EVENT_RETURN")
     TxGiveItem(tx, 'Event_Cb_Buff_Potion', 1, "EVENT_RETURN")
-    TxSetIESProp(tx, aObj, 'EVENT_1708_JURATE_START', 1);
-    TxSetIESProp(tx, aObj, 'EVENT_1708_JURATE_COUNT', 1);
-    TxSetIESProp(tx, aObj, 'EVENT_1708_JURATE_REWARD_COUNT', yday);
+    TxSetIESProp(tx, aObj, 'EV180109_STEAM_RETURN_JOIN_CHECK', 1);
+    TxSetIESProp(tx, aObj, 'EV180109_STEAM_RETURN_REWARD_CHECK', 1);
+    TxSetIESProp(tx, aObj, 'EV180109_STEAM_RETURN_DAY_CHECK', yday);
     local ret = TxCommit(tx)
     if ret == 'SUCCESS' then
         SendAddOnMsg(pc, "NOTICE_Dm_!", ScpArgMsg("EVENT_STEAM_RETURN_SEL2"), 8);

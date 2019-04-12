@@ -673,6 +673,61 @@
 				</Job>
 			</Motion>
 		</Class>
+		<Class Costume="snowflower">
+			<Motion Name="WALK">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_effect_swashing_spark_ride" particleName="F_drop_snow002" useAttach="false" hiddenObj="false" scale="0.8" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ARUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_efffect_rush" particleName="F_drop_snow002_1" useAttach="true" hiddenObj="false" scale="1.5" pause="false" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Dummy_effect_swashing_spark_ride" particleName="F_drop_snow002" useAttach="false" hiddenObj="false" scale="0.8" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_efffect_rush" particleName="F_drop_snow002_1" useAttach="true" hiddenObj="false" scale="1.5" pause="false" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Dummy_effect_swashing_spark_ride" particleName="F_drop_snow002" useAttach="false" hiddenObj="false" scale="0.8" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WALK_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_efffect_rush" particleName="F_drop_snow002_1" useAttach="true" hiddenObj="false" scale="1.5" pause="false" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Dummy_effect_swashing_spark_ride" particleName="F_drop_snow002" useAttach="false" hiddenObj="false" scale="0.8" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_efffect_rush" particleName="F_drop_snow002_1" useAttach="true" hiddenObj="false" scale="1.5" pause="false" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Dummy_effect_swashing_spark_ride" particleName="F_drop_snow002" useAttach="false" hiddenObj="false" scale="0.8" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="None" particleName="F_drop_snow002_2" useAttach="true" hiddenObj="false" scale="2" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="4" attachNode="None" particleName="F_drop_snow002_2" useAttach="true" hiddenObj="false" scale="2" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
 	</Gender>
 	<Gender Name="Female">
 		<Class Costume="weddingdress01">
@@ -1508,6 +1563,61 @@
 				<Job Name="All">
 					<Event>
 						<Particle frame="5" attachNode="mid" particleName="F_light143_1" useAttach="true" hiddenObj="false" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="snowflower">
+			<Motion Name="WALK">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_effect_swashing_spark_ride" particleName="F_drop_snow002" useAttach="false" hiddenObj="false" scale="0.8" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ARUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_efffect_rush" particleName="F_drop_snow002_1" useAttach="true" hiddenObj="false" scale="1.5" pause="false" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Dummy_effect_swashing_spark_ride" particleName="F_drop_snow002" useAttach="false" hiddenObj="false" scale="0.8" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_efffect_rush" particleName="F_drop_snow002_1" useAttach="true" hiddenObj="false" scale="1.5" pause="false" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Dummy_effect_swashing_spark_ride" particleName="F_drop_snow002" useAttach="false" hiddenObj="false" scale="0.8" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WALK_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_efffect_rush" particleName="F_drop_snow002_1" useAttach="true" hiddenObj="false" scale="1.5" pause="false" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Dummy_effect_swashing_spark_ride" particleName="F_drop_snow002" useAttach="false" hiddenObj="false" scale="0.8" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_efffect_rush" particleName="F_drop_snow002_1" useAttach="true" hiddenObj="false" scale="1.5" pause="false" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Dummy_effect_swashing_spark_ride" particleName="F_drop_snow002" useAttach="false" hiddenObj="false" scale="0.8" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="0" attachNode="None" particleName="F_drop_snow002_2" useAttach="true" hiddenObj="false" scale="2" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="1000">
+					<Event>
+						<Particle frame="4" attachNode="None" particleName="F_drop_snow002_2" useAttach="true" hiddenObj="false" scale="2" pause="false" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
