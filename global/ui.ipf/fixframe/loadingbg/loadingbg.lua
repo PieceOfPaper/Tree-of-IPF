@@ -1,5 +1,48 @@
 
+function GET_LOADING_IMG_RANDOM_CLSID(clsList, cnt, loadingType)
 
+	local list = {};
+	for i = 0 , cnt - 1 do
+		local cls = GetClassByIndexFromList(clsList, i);
+		if cls.LoadingType == loadingType then
+			list[#list+1] = cls.ClassID;
+		end
+	end
+
+	if #list > 0 then
+		local index = OSRandom(1, #list);
+		return list[index];
+	end
+
+	return 0;
+end
+
+function CHANGE_LOADING_IMG_URLSTR()
+
+	local clsList, cnt  = GetClassList("loading_img");
+	local currentLoadingType = 'LoadingDefault';
+	if session.GetWasBarrack() == true then 
+		currentLoadingType = 'LoadingFirst'
+	elseif GetClass("Map", GetZoneName(pc)).MapType == 'City' then
+		currentLoadingType = 'LoadingCity'
+	end
+	
+	local clsID = GET_LOADING_IMG_RANDOM_CLSID(clsList, cnt, currentLoadingType);
+
+	if clsID == 0 and currentLoadingType == 'LoadingFirst' then
+		currentLoadingType = 'LoadingCity';
+		clsID = GET_LOADING_IMG_RANDOM_CLSID(clsList, cnt, currentLoadingType);
+	end
+
+	if clsID == 0 then
+		currentLoadingType = 'LoadingDefault';
+		clsID = GET_LOADING_IMG_RANDOM_CLSID(clsList, cnt, currentLoadingType);
+	end
+	local cls = GetClassByTypeFromList(clsList, clsID);
+	local url = config.GetLoadingImgURL();
+	local urlStr = string.format("%s%s", url, cls.FileName);
+	return urlStr;
+end
 
 function LOADINGBG_ON_INIT(addon, frame)
 
@@ -15,11 +58,7 @@ function LOADINGBG_ON_INIT(addon, frame)
 	local pic = GET_CHILD(frame, "pic", "ui::CWebPicture");
 	pic:Resize(frame:GetWidth(), frame:GetHeight());
 
-	local url = config.GetLoadingImgURL();
-	local urlCnt = config.GetLoadingImgCount();
-
-	local urlIndex = OSRandom(1, urlCnt);
-	local urlStr = string.format("%s%d.jpg", url, urlIndex);
+	local urlStr = CHANGE_LOADING_IMG_URLSTR();
 	pic:SetUrlInfo(urlStr);
 
 	local tipGroupbox 		= frame:GetChild('tip');

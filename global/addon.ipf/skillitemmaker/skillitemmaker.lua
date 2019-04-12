@@ -2,7 +2,8 @@ function SKILLITEMMAKER_ON_INIT(addon, frame)
 end
 
 function SKILLITEMMAKER_FIRST_OPEN(frame)
-	SKILLITEMMAKER_REGISTER(frame, 0);
+	CLEAR_SKILLITEMMAKER(frame);
+	_SKILLITEMMAKE_RESET(frame);
 end
 
 function POP_SKILLITEM_MAKER(frame)
@@ -165,9 +166,14 @@ function SKILLITEMMAKE_EXEC(frame)
 	local visCls = GetClass("Item", "Vis");
 	local myVis = session.GetInvItemCountByType(visCls.ClassID);
 	local myBottle = session.GetInvItemByName(bottleCls.ClassName);
-	if myVis < totalVis or myBottle == nil then
+	if myVis < totalVis then
 		ui.SysMsg(ClMsg("NotEnoughMoney"));
 		return;
+	end
+	
+	if myBottle == nil then
+	    ui.SysMsg(ClMsg("NotEnoughMaterial"));
+	    return;
 	end
 
 	if true == myBottle.isLockState then

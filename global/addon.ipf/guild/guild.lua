@@ -3,6 +3,7 @@ function GUILD_ON_INIT(addon, frame)
 	
 	addon:RegisterOpenOnlyMsg("GUILD_PROPERTY_UPDATE", "ON_GUILD_PROPERTY_UPDATE");
 	addon:RegisterOpenOnlyMsg("GUILD_INFO_UPDATE", "ON_GUILD_INFO_UPDATE");
+	addon:RegisterMsg("GUILD_NEUTRALITY_UPDATE", "ON_GUILD_NEUTRALITY_UPDATE");
 	addon:RegisterMsg("GAME_START_3SEC", "GUILD_GAME_START_3SEC");	
 	addon:RegisterMsg("MYPC_GUILD_JOIN", "ON_MYPC_GUILD_JOIN");
 	addon:RegisterMsg("GUILD_ENTER", "ON_GUILD_ENTER");
@@ -10,6 +11,102 @@ function GUILD_ON_INIT(addon, frame)
 	addon:RegisterMsg("GUILD_EVENT_UPDATE", "ON_GUILD_INFO_UPDATE");
 		
 
+end
+
+function ON_GUILD_NEUTRALITY_UPDATE(frame, msg, strArg, numArg)
+	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+	if pcparty == nil then
+		return;
+	end
+
+	if strArg ~= nil and strArg == "Change" then
+		if true == pcparty.info:GetNeutralityState() then
+			ui.SysMsg(ScpArgMsg("ChangeGuildNeutralityState{DAY}",'DAY',GET_TIME_TXT(GUILD_NEUTRALITY_TIME,1)));
+		else
+			ui.SysMsg(ScpArgMsg("ChangeGuildNoneNeutralityState{DAY}",'DAY',GET_TIME_TXT(GUILD_NEUTRALITY_TIME,1)));
+		end
+	end
+
+	ON_GUILD_UPDATE_NEUTRALITY(frame, pcparty);
+end
+
+function SHOW_GUILD_NEUTRALTY_REMAIN_TIME(ctrl)
+local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC");
+	local startSec = ctrl:GetUserIValue("REMAINSEC");
+	startSec = startSec - elapsedSec;
+	if 0 > startSec then
+		ctrl:SetTextByKey("value", "");
+		return 0;
+	end
+	local timeTxt = GET_TIME_TXT(startSec);
+	local str = ScpArgMsg("NeutralityChangeTime{TIME}",'TIME', timeTxt);
+	ctrl:SetTextByKey("value", str);
+	return 1;
+end
+
+function ON_GUILD_UPDATE_NEUTRALITY(frame, pcparty)
+	
+	local properties = frame:GetChild("properties");
+	local neutrality = GET_CHILD(properties, "neutrality", "ui::CCheckBox");
+	local state = 0;
+
+	if true == pcparty.info:GetNeutralityState() then
+		state = 1;
+	end
+	
+	neutrality:SetCheck(state);
+	local neutralityTime = properties:GetChild("neutralityTime");
+	local difSec = session.party.GetGuildNeutraltyRaminTime();
+	if difSec > 0 then
+		neutralityTime:ShowWindow(1);
+		neutralityTime:SetUserValue("REMAINSEC", difSec);
+		neutralityTime:SetUserValue("STARTSEC", imcTime.GetAppTime());
+		SHOW_GUILD_NEUTRALTY_REMAIN_TIME(neutralityTime);
+		neutralityTime:RunUpdateScript("SHOW_GUILD_NEUTRALTY_REMAIN_TIME", 1);
+	else
+		neutralityTime:SetTextByKey("value", "");
+		neutralityTime:StopUpdateScript("SHOW_GUILD_NEUTRALTY_REMAIN_TIME");
+	end
+end
+
+function ON_GUILD_SET_NEUTRALITY(frame)
+	local isLeader = AM_I_LEADER(PARTY_GUILD);
+	if 0 == isLeader then
+		ui.SysMsg(ScpArgMsg("OnlyLeaderAbleToDoThis"));
+		ON_GUILD_NEUTRALITY_UPDATE(ui.GetFrame("guild"));
+		return;
+	end
+
+	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+	if nil == pcparty then
+		return;
+	end
+
+	local yesScp = string.format("C_GUILD_SET_NEUTRALITY(%d)", 1);
+	local noScp = string.format("C_GUILD_SET_NEUTRALITY(%d)", 0);
+	if true == pcparty.info:GetNeutralityState() then
+		--중립상태 해제
+		ui.MsgBox(ScpArgMsg("WantTobeChangedNoneNeutralityState{DAY}",'DAY',GET_TIME_TXT(GUILD_NEUTRALITY_TIME,1)), yesScp, noScp);
+	else
+		--중립상태 원함
+		ui.MsgBox(ScpArgMsg("WantTobeChangedNeutralityState{DAY}",'DAY',GET_TIME_TXT(GUILD_NEUTRALITY_TIME,1)), yesScp, noScp);
+	end
+
+end
+
+function C_GUILD_SET_NEUTRALITY(change)
+	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+	if nil == pcparty then
+		return;
+	end
+	
+	if change == 0 then
+		local frame = ui.GetFrame("guild");
+		ON_GUILD_NEUTRALITY_UPDATE(frame);
+		return;
+	end
+
+	session.guildState.ChangeGuildNeutralityState(pcparty.info);
 end
 
 function ON_GUILD_OUT(frame)
@@ -69,6 +166,7 @@ function GUILD_GAME_START_3SEC(frame)
 end
 
 function UPDATE_GUILDINFO(frame)
+
 	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
 	if pcparty == nil then
 		frame:ShowWindow(0);
@@ -168,6 +266,8 @@ function UPDATE_GUILDINFO(frame)
 	else
 		frame:StopUpdateScript("UPDATE_REMAIN_GUILD_ENEMY_TIME");
 	end
+
+	ON_GUILD_UPDATE_NEUTRALITY(frame, pcparty);
 
 	GUILD_UPDATE_TOWERINFO(frame, pcparty, partyObj);
 

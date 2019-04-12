@@ -3196,6 +3196,17 @@
 			<img name="bottomcore" imgrect="1937 882 20 30"/>
 			<img name="bottomright" imgrect="2004 882 40 30"/>
 		</skin>
+    <skin name="skin_line" texture="\skin\HUD.tga">
+      <img name="topleft" imgrect="616 963 15 15"/>
+      <img name="topcore" imgrect="632 963 100 15"/>
+      <img name="topright" imgrect="733 963 15 15"/>
+      <img name="bodyleft" imgrect="616 979 15 20"/>
+      <img name="bodycore" imgrect="632 979 100 20"/>
+      <img name="bodyright" imgrect="733 979 15 20"/>
+      <img name="bottomleft" imgrect="616 1000 15 15"/>
+      <img name="bottomcore" imgrect="632 1000 100 15"/>
+      <img name="bottomright" imgrect="733 1000 15 15"/>
+    </skin>
 	</skinlist>
 	<skinlist category="slots">
 		<skin name="invenslot2" texture="\skin\pip_test.tga">
@@ -4315,6 +4326,7 @@
 		<image name="arrow_red_image" file="\skin\paid_skin.tga" imgrect="131 230 55 15" CMM_Caption="빨간화살표"/>
 		<image name="token_middle" file="\skin\paid_skin.tga" imgrect="288 0 316 165" CMM_Caption="토큰중간이미지"/>
 		<image name="expup_middle" file="\skin\paid_skin.tga" imgrect="605 0 316 165" CMM_Caption="경험의서이미지"/>
+    <image name="tpchange_middle" file="\skin\paid_skin.tga" imgrect="736 802 266 165" CMM_Caption="TP산거변경"/>
 		<image name="indunFreeEnter_middle" file="\skin\paid_skin.tga" imgrect="419 802 316 165" CMM_Caption="인던3일무제한"/>
 		<image name="resetSkill_middle" file="\skin\paid_skin.tga" imgrect="419 636 316 165" CMM_Caption="스킬초기화"/>
 		<image name="resetStat_middle" file="\skin\paid_skin_title.tga" imgrect="0 0 316 165" CMM_Caption="스텟 초기화"/>
@@ -5669,6 +5681,9 @@
 		<image name="inven_s" file="\skin\HUD.tga" imgrect="1070 96 58 34" CMM_Caption="인벤찾기버튼"/>
 		<image name="inven_s_cursoron" file="\skin\HUD.tga" imgrect="1070 131 58 34"/>
 		<image name="inven_s_clicked" file="\skin\HUD.tga" imgrect="1129 131 58 34"/>
+		<image name="steam_shop_btn" file="\skin\HUD.tga" imgrect="1489 916 66 66" CMM_Caption="Tp상점버튼_스팀"/>
+		<image name="steam_shop_btn_cursoron" file="\skin\HUD.tga" imgrect="1427 615 66 66"/>
+		<image name="steam_shop_btn_clicked" file="\skin\HUD.tga" imgrect="1427 615 66 66"/>
 	</imagelist>
 	<imagelist category="controlset item icon">
 		<image name="Item_View01_IDLE" file="\skin\mainframe_A.tga" imgrect="794 0 230 50" CMM_Caption="상점 아이템 슬롯"/>

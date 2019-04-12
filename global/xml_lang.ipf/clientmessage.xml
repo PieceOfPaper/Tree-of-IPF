@@ -859,7 +859,10 @@
 		<Class ClassID="20162" ClassName="CantTradePC" Data="상대방이 거래 가능한 상태가 아닙니다."/>
 		<Class ClassID="20165" ClassName="Delete_Target" Data="삭제"/>
 		<Class ClassID="20166" ClassName="CLASS_TYPE_Companion" Data="컴페니언"/>
-	</Category>
+    <Class ClassID="20167" ClassName="AreYouSureToUse" Data="정말로 사용하시겠습니까?"/>
+    <Class ClassID="20168" ClassName="TpChargeSuccess" Data="TP가 충전되었습니다."/>
+    <Class ClassID="20169" ClassName="TpChargeFail" Data="TP 충전에 실패하였습니다."/>
+  </Category>
 	<Category Name="ChatText">
 		<Class ClassID="20501" ClassName="Guard" Data="방어"/>
 		<Class ClassID="20502" ClassName="FrontShot!" Data="전방 사격!"/>
@@ -3549,8 +3552,8 @@
 		<Class ClassID="22415" ClassName="ReceivedItemFromGuildWareHouse_GetItFromBarrack" Data="길드 보관함에 아이템을 수령했습니다. 숙소에서 아이템을 확인하세요."/>
 		<Class ClassID="22418" ClassName="CannotChangeNeutralityState" Data="아직 중립상태를 변경할 수 없습니다."/>
 		<Class ClassID="22419" ClassName="YouCanBuildInTheOtherGuildAgit" Data="다른 길드 아지트에서는 사용하실 수 없습니다."/>
-		<Class ClassID="22421" ClassName="WantTobeChangedNeutralityState{DAY}" Data="길드 중립 상태로 변경하시길 원합니까?{nl}중립 상태에서는 필드 전쟁이 불가능합니다.{nl}상태는 {DAY}동안 유지됩니다."/>
-		<Class ClassID="22422" ClassName="WantTobeChangedNoneNeutralityState{DAY}" Data="길드 중립 상태로 변경하시길 원합니까?{nl}중립 상태에서는 필드 전쟁이 불가능합니다.{nl}상태는 {DAY}동안 유지됩니다."/>
+		<Class ClassID="22421" ClassName="WantTobeChangedNeutralityState{DAY}" Data="길드 중립 상태로 변경하시길 원합니까?{nl}중립 상태에서는 필드 전쟁이 불가능합니다.{nl}상태는 {DAY}동안 변경할 수 없습니다."/>
+		<Class ClassID="22422" ClassName="WantTobeChangedNoneNeutralityState{DAY}" Data="길드 중립 상태를 해제하시길 원합니까?{nl}해제 후엔 필드 전쟁이 가능합니다.{nl}상태는 {DAY}동안 변경할 수 없습니다."/>
 		<Class ClassID="22423" ClassName="ChangeGuildNeutralityState{DAY}" Data="길드가 중립 상태로 변경되었습니다. {DAY}이후에 상태를 재 변경 하실 수 있습니다."/>
 		<Class ClassID="22424" ClassName="ChangeGuildNoneNeutralityState{DAY}" Data="길드 중립 상태가 해지되었습니다. {DAY}이후에 상태를 재 변경 하실 수 있습니다."/>
 		<Class ClassID="22425" ClassName="CannotChangeCuzGuildWarState" Data="길드 전쟁 중엔 중립 상태로 변경하실 수 없습니다."/>
