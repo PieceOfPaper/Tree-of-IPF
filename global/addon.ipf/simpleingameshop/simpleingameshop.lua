@@ -4,7 +4,61 @@ function SIMPLEINGAMESHOP_ON_INIT(addon, frame)
 		addon:RegisterMsg("UPDATE_INGAME_SHOP_ITEM_LIST", "ON_UPDATE_INGAME_SHOP_ITEM_LIST");
 		addon:RegisterMsg("CLOSE_INGAMESHOP_UI", "ON_CLOSE_INGAMESHOP_UI");
 		addon:RegisterMsg("UPDATE_INGAME_SHOP_REMAIN_CASH", "ON_UPDATE_INGAME_SHOP_REMAIN_CASH");
-		
+		addon:RegisterMsg("INGAMESHOP_STATE_MSG", "ON_INGAMESHOP_STATE_MSG");
+end
+
+function ON_INGAMESHOP_STATE_MSG(frame, msg, argStr, argNum)
+    
+
+
+    if argStr == "LoadFailTPItemList" then
+
+        if argNum ~= nil then
+            argNum = tostring(argNum)
+        else 
+            argNum = 0
+        end
+
+        ui.MsgBox(ScpArgMsg("LoadFailTPItemList","Code",argNum))
+
+    elseif argStr == "DontHaveAnyItems" then
+
+        ui.MsgBox(ScpArgMsg("DontHaveAnyItems"))
+
+    elseif argStr == "NotOwnedItem" then
+
+        ui.MsgBox(ScpArgMsg("NotOwnedItem"))
+
+    elseif argStr == "BuyTPItemFailPlzRetry" then
+
+        if argNum ~= nil then
+            argNum = tostring(argNum)
+        else 
+            argNum = 0
+        end
+
+        ui.MsgBox(ScpArgMsg("BuyTPItemFailPlzRetry","Code",argNum))
+
+    elseif argStr == "BuyTPItemFailPlzWait" then
+        
+        ui.MsgBox(ScpArgMsg("BuyTPItemFailPlzWait"))
+
+    elseif argStr == "TpChargeFail" then
+        
+        ui.MsgBox(ScpArgMsg("TpChargeFail"))
+
+    elseif argStr == "TpChargeSuccess" then
+        
+        ui.MsgBox(ScpArgMsg("TpChargeSuccess"))
+
+    else
+        ui.MsgBox(argStr)
+
+    end
+
+
+
+    
 end
 
 function numWithCommas(n)

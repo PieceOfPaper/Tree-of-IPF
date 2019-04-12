@@ -1075,8 +1075,9 @@
     <Class ClassID="22516" ClassName="LoadFailTPItemList" Data="TP 지급 작업이 실패하였습니다. 에러코드 : {Code}"/>
     <Class ClassID="22517" ClassName="DontHaveAnyItems" Data="구매하신 아이템이 없습니다."/>
     <Class ClassID="22518" ClassName="NotOwnedItem" Data="현재 소유중인 아이템이 아닙니다."/>
-    <Class ClassID="22519" ClassName="BuyTPItemFailPlzRetry" Data="TP 지급 작업이 실패하였습니다. 다시 시도해 주세요."/>
+    <Class ClassID="22519" ClassName="BuyTPItemFailPlzRetry" Data="TP 지급 작업이 실패하였습니다. 다시 시도해 주세요. 에러코드 : {Code}"/>
     <Class ClassID="22520" ClassName="BuyTPItemFailPlzWait" Data="TP 지급 작업이 실패하였습니다. 자동으로 재지급을 시도하고 있습니다. 잠시만 기다려 주세요."/>
+    <Class ClassID="22521" ClassName="SteamAIDIsReplaced" Data="스팀 인벤토리 조회를 위한 AID가 {AID}으로 대체되었습니다."/>
   </Category>
 	<Category Name="CardBattle">
 		<Class ClassID="23001" ClassName="PutOnlyCardItem" Data="카드아이템만 놓을 수 있습니다."/>
@@ -9522,6 +9523,8 @@
 		<Class ClassID="501008" ClassName="Wihte_Select1_4" Data="다시 생각해본다"/>
 		<Class ClassID="501009" ClassName="Wihte_Select3" Data="이벤트 참여 횟수 확인"/>
 		<Class ClassID="501010" ClassName="Wihte_Select3_1" Data="{WHITECOUNT}회 완료하셨습니다."/>
+                <Class ClassID="501011" ClassName="LevelUp_Event_Desc01" Data="{REWARD}회 보상을 수령하였습니다."/>
+		<Class ClassID="501012" ClassName="LevelUp_Event_Desc02" Data="{NEXTLV}레벨을 달성하면 보상을 받을 수 있습니다."/>
 		<Class ClassID="501013" ClassName="Steam_VerUP_Select01" Data="'레벨업 보상 상자' 받기"/>
 		<Class ClassID="501014" ClassName="Steam_VerUP_Select02" Data="'330 Level 보상' 받기"/>
 		<Class ClassID="501015" ClassName="Steam_VerUP_Select03" Data="목표레벨 확인"/>

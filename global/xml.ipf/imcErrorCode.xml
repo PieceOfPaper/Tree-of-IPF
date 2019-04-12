@@ -305,6 +305,7 @@
 		<Code Code="ERRCODE_SYSTEM_INIT_FAIL" CallStack="NO" Desc="해당 항목의 초기화에 실패했습니다."/>
 		<Code Code="ERRCODE_SYSTEM_CANT_FIND" CallStack="NO" Desc="해당 항목을 찾을 수 없습니다."/>
 		<Code Code="ERRCODE_SYSTEM_CANT_RUN_THREAD" CallStack="NO" Desc="쓰레드를 시작할 수 없습니다. 다음 정보를 확인하세요."/>
+    <Code Code="ERRCODE_SYSTEM_DEBUG" CallStack="NO" Desc=" : "/>
 		</Type>
 	<Type Type="INFO">
 		<Code Code="ERRCODE_NOT_YET" CallStack="NO" Desc="아직 에러코드가 정의되지 않은 로그입니다."/>
