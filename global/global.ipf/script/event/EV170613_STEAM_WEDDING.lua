@@ -8,20 +8,21 @@ function SCR_STEAM_WEDDING_CHECK(self,pc)
     end
     for i = 1 , #invItemList do
 		local invItem = invItemList[i];
-        if invItem ~= nil and invItem.ClassName == "Event_Steam_Wedding_Card" and invItem.LifeTime ~= 0 and invItem.ItemLifeTimeOver == 0 then
-            local tx = TxBegin(pc) 
-            TxGiveItem(tx, 'Event_Steam_Wedding_Fire', 3, "STEAM_WEDDING")
-            TxTakeItem(tx, 'Event_Steam_Wedding_Card', 1, "STEAM_WEDDING")
-            TxSetIESProp(tx, aObj, 'EV170613_STEAM_WEDDING_2', aObj.EV170613_STEAM_WEDDING_2 + 1)  
-            local ret = TxCommit(tx)
-        else
+        if invItem ~= nil and invItem.ClassName == "Event_Steam_Wedding_Card" and invItem.LifeTime ~= 0 and invItem.ItemLifeTimeOver ~= 0 then
             local tx = TxBegin(pc) 
             TxGiveItem(tx, 'Event_Steam_Wedding_Fire', 1, "STEAM_WEDDING")
             TxTakeItem(tx, 'Event_Steam_Wedding_Card', 1, "STEAM_WEDDING")
             TxSetIESProp(tx, aObj, 'EV170613_STEAM_WEDDING_2', aObj.EV170613_STEAM_WEDDING_2 + 1)  
             local ret = TxCommit(tx)
+            break
+        elseif invItem ~= nil and invItem.ClassName == "Event_Steam_Wedding_Card" and invItem.LifeTime ~= 0 and invItem.ItemLifeTimeOver == 0 then
+            local tx = TxBegin(pc) 
+            TxGiveItem(tx, 'Event_Steam_Wedding_Fire', 3, "STEAM_WEDDING")
+            TxTakeItem(tx, 'Event_Steam_Wedding_Card', 1, "STEAM_WEDDING")
+            TxSetIESProp(tx, aObj, 'EV170613_STEAM_WEDDING_2', aObj.EV170613_STEAM_WEDDING_2 + 1)  
+            local ret = TxCommit(tx)
+            break
         end
-        break
     end
 end
 
@@ -44,16 +45,14 @@ function SCR_NPC_STEAM_WEDDING_DIALOG(self, pc)
     local aObj = GetAccountObj(pc); 
     local now_time = os.date('*t')
     local yday = now_time['yday']
-    local rand = IMCRandom(1, 15)
+    local rand = IMCRandom(1, 11)
     local weddingCard = GetInvItemCount(pc, "Event_Steam_Wedding_Card")
     local zone_npcList = {
         {'NPC_EVENT_STEAM_WEDDING_NPC_1', 1}, {'NPC_EVENT_STEAM_WEDDING_NPC_2', 2}, {'NPC_EVENT_STEAM_WEDDING_NPC_3', 3},
-        {'NPC_EVENT_STEAM_WEDDING_NPC_4', 4}, {'NPC_EVENT_STEAM_WEDDING_NPC_5', 5}, {'NPC_EVENT_STEAM_WEDDING_NPC_6', 6},
+        {'NPC_EVENT_STEAM_WEDDING_NPC_4', 4}, {'NPC_EVENT_STEAM_WEDDING_NPC_5', 5}, {'NPC_EVENT_STEAM_WEDDING_NPC_15', 6},
         {'NPC_EVENT_STEAM_WEDDING_NPC_7', 7}, {'NPC_EVENT_STEAM_WEDDING_NPC_8', 8}, {'NPC_EVENT_STEAM_WEDDING_NPC_9', 9},
-        {'NPC_EVENT_STEAM_WEDDING_NPC_10', 10}, {'NPC_EVENT_STEAM_WEDDING_NPC_11', 11}, {'NPC_EVENT_STEAM_WEDDING_NPC_12', 12},
-        {'NPC_EVENT_STEAM_WEDDING_NPC_13', 13}, {'NPC_EVENT_STEAM_WEDDING_NPC_14', 14}, {'NPC_EVENT_STEAM_WEDDING_NPC_15', 15},
+        {'NPC_EVENT_STEAM_WEDDING_NPC_10', 10}, {'NPC_EVENT_STEAM_WEDDING_NPC_14', 11}
     }
-    
     
     if aObj.EV170613_STEAM_WEDDING_2 >= 15 and aObj.EV170613_STEAM_WEDDING_3 == 0 then
         local tx = TxBegin(pc) 

@@ -1133,7 +1133,7 @@ function IS_ENABLE_TRADE_BY_TRADE_TYPE(invitem, property)
     elseif property == "MarketTrade" then
 	    return IS_ENABLED_MARKET_TRADE_ITEM(invitem)
     else
-        IMC_ERROR("NORMAL", "IS_ENABLE_TRADE_BY_TRADE_TYPE ERROR!!")
+        IMC_LOG("INFO_NORMAL", "IS_ENABLE_TRADE_BY_TRADE_TYPE ERROR!!")
     end
 end
 

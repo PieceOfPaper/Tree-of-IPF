@@ -13996,11 +13996,11 @@ end
 
 function SCR_GET_CarveLaima_Ratio3(skill)
     local pc = GetSkillOwner(skill)
---    local value = 20
-    local value = (skill.Level * 2) + 10
-        if IsPVPServer(self) == 1 then
-            value = 10
-        end
+    local value = skill.Level
+    if IsPVPServer(pc) == 1 then
+        value = math.floor(value * 0.5);
+    end
+    
     return value;
 end
 

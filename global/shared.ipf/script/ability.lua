@@ -26,7 +26,7 @@ function CHECK_ABILITY_LOCK(pc, ability)
             end
 
             if abilGroupClass == nil then
-                IMC_NORMAL_INFO("abilGroupClass is nil!!  jobCls.EngName : "..jobCls.EngName.."  ability.ClassName : "..ability.ClassName)
+                IMC_LOG("INFO_NORMAL", "abilGroupClass is nil!!  jobCls.EngName : "..jobCls.EngName.."  ability.ClassName : "..ability.ClassName)
                 return "UNLOCK"
             end
 
@@ -68,7 +68,7 @@ function CHECK_ABILITY_LOCK(pc, ability)
         end
     end
 
-    IMC_NORMAL_INFO("abilityUnlock Error");
+    IMC_LOG("INFO_NORMAL", "abilityUnlock Error");
     return "UNLOCK";
     
     

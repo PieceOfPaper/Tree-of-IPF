@@ -460,13 +460,13 @@ function GET_SLOTSET_SORT_SCORE(value)
 		local stringLen = string.len("sset_");
 		baseClassName = string.sub(value, stringLen + 1, string.len(value));
 	else
-		IMC_ERROR("NORMAL", "Inven sort fail " .. value);
+		IMC_LOG("INFO_NORMAL", "Inven sort fail " .. value);
 		return 1;
 	end
 
 	local baseCls = GetClass("inven_baseid", baseClassName);
 	if baseCls == nil then
-		IMC_ERROR("NORMAL", "Baseclass does not exist" .. baseClassName);
+		IMC_LOG("INFO_NORMAL", "Baseclass does not exist" .. baseClassName);
 		return 1;
 	end
 

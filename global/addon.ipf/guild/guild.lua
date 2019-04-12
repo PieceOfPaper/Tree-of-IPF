@@ -362,7 +362,7 @@ function UPDATE_GUILDINFO(frame)
 
 	local showOnlyConnected = config.GetXMLConfig("Guild_ShowOnlyConnected");
 
-    IMC_WARNING("ERRCODE_INFO_NORMAL", "[count:"..tostring(count));
+    IMC_LOG("INFO_NORMAL", "[count:"..tostring(count));
 
 	local connectionCount = 0;
 	for i = 0 , count - 1 do
@@ -378,7 +378,7 @@ function UPDATE_GUILDINFO(frame)
 			txt_teamname:SetTextByKey("value", partyMemberInfo:GetName());
 			txt_teamname:SetTextTooltip(partyMemberInfo:GetName());
 
-            IMC_WARNING("ERRCODE_INFO_NORMAL", "[name:"..partyMemberInfo:GetName());
+            IMC_LOG("INFO_NORMAL", "[name:"..partyMemberInfo:GetName());
 
 			local grade = partyMemberInfo.grade;
 			if leaderAID == partyMemberInfo:GetAID() then
