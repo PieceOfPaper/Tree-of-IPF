@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist category="Monster_icon_boss_02">
@@ -88,6 +88,22 @@
 		<image name="GRB_boss_SwordBallista" file="\icon\monster\boss\boss_SwordBallista.png" imgrect="0 0 80 80"/>
 		<image name="GRB_boss_sparnas" file="\icon\monster\boss\boss_sparnas.png" imgrect="0 0 80 80"/>
 		<image name="GRB_boss_Torment" file="\icon\monster\boss\boss_Torment.png" imgrect="0 0 80 80"/>
+		<image name="M_boss_GazingGolem" file="\icon\monster\boss\boss_Gazing_Golem.png" imgrect="0 0 80 80"/>
+		<image name="M_boss_TombLord" file="\icon\monster\boss\boss_TombLord.png" imgrect="0 0 80 80"/>
+		<image name="ET_boss_Pinscher" file="\icon\monster\boss\boss_Pinscher.png" imgrect="0 0 80 80"/>
+		<image name="ET_boss_Pyroego" file="\icon\monster\boss\boss_Pyroego.png" imgrect="0 0 80 80"/>
+		<image name="ET_boss_Gosarius" file="\icon\monster\boss\boss_Gosarius.png" imgrect="0 0 80 80"/>
+		<image name="ET_boss_Turtai" file="\icon\monster\boss\boss_Turtai.png" imgrect="0 0 80 80"/>
+		<image name="ET_boss_Neop" file="\icon\monster\boss\boss_Neop.png" imgrect="0 0 80 80"/>
+		<image name="ET_boss_Orkan" file="\icon\monster\boss\boss_Orkan.png" imgrect="0 0 80 80"/>
+		<image name="ET_boss_plokste" file="\icon\monster\boss\boss_plokste.png" imgrect="0 0 80 80"/>
+		<image name="M_boss_clymen_Q1" file="\icon\monster\boss\boss_clymen2.png" imgrect="0 0 80 80"/>
+		<image name="ID_boss_Armaox" file="\icon\monster\boss\boss_Armaox.png" imgrect="0 0 80 80"/>
+		<image name="ET_boss_Grimreaper" file="\icon\monster\boss\boss_Grimreaper.png" imgrect="0 0 80 80"/>
+		<image name="ID_boss_honeypin" file="\icon\monster\boss\boss_honeypin.png" imgrect="0 0 80 80"/>
+		<image name="ID_boss_Rambandgad_red" file="\icon\monster\boss\boss_Rambandgad_red.png" imgrect="0 0 80 80"/>
+		<image name="ID_boss_Riteris" file="\icon\monster\boss\boss_Riteris.png" imgrect="0 0 80 80"/>
+		<image name="M_boss_salamander" file="\icon\monster\boss\boss_salamander.png" imgrect="0 0 80 80"/>
 	</imagelist>
 	<imagelist category="Monster_icon_boss_01">
 		<image name="boss_FerretMarauder" file="\icon\monster\boss\boss_FerretMarauder.png" imgrect="0 0 80 80"/>
@@ -131,7 +147,6 @@
 		<image name="boss_Spector_f_boss" file="\icon\monster\boss\boss_Spector_f_boss.png" imgrect="0 0 80 80"/>
 		<image name="spector_f" file="\icon\monster\boss\spector_f.png" imgrect="0 0 80 80"/>
 		<image name="boss_Spector_gh" file="\icon\monster\boss\boss_Spector_gh.png" imgrect="0 0 80 80"/>
-		<image name="boss_salamander" file="\icon\monster\boss\boss_ifrit.png" imgrect="0 0 80 80"/>
 		<image name="boss_Carapace" file="\icon\monster\boss\boss_Carapace.png" imgrect="0 0 80 80"/>
 		<image name="boss_Strongholder" file="\icon\monster\boss\boss_Strongholder.png" imgrect="0 0 80 80"/>
 		<image name="boss_Stone_Whale" file="\icon\monster\boss\boss_Stone_Whale.png" imgrect="0 0 80 80"/>
@@ -252,6 +267,15 @@
 		<image name="boss_froster_lord" file="\icon\monster\boss\boss_froster_lord.png" imgrect="0 0 80 80"/>
 		<image name="boss_kurmis" file="\icon\monster\boss\boss_kurmis.png" imgrect="0 0 80 80"/>
 		<image name="boss_priest_of_dawn" file="\icon\monster\boss\boss_priest_of_dawn.png" imgrect="0 0 80 80"/>
+		<image name="boss_Armaox" file="\icon\monster\boss\boss_Armaox.png" imgrect="0 0 80 80"/>
+		<image name="boss_dionia" file="\icon\monster\boss\boss_dionia.png" imgrect="0 0 80 80"/>
+		<image name="boss_Grimreaper" file="\icon\monster\boss\boss_Grimreaper.png" imgrect="0 0 80 80"/>
+		<image name="boss_Hepatica_King" file="\icon\monster\boss\boss_Hepatica_King.png" imgrect="0 0 80 80"/>
+		<image name="boss_Rambandgad_red" file="\icon\monster\boss\boss_Rambandgad_red.png" imgrect="0 0 80 80"/>
+		<image name="boss_Riteris" file="\icon\monster\boss\boss_Riteris.png" imgrect="0 0 80 80"/>
+		<image name="boss_salamander" file="\icon\monster\boss\boss_salamander.png" imgrect="0 0 80 80"/>
+		<image name="katacom_cemetery_golem" file="\icon\monster\boss\katacom_cemetery_golem.png" imgrect="0 0 80 80"/>
+		<image name="boss_Naktis" file="\icon\monster\boss\boss_Naktis.png" imgrect="0 0 80 80"/>
 	</imagelist>
 	<imagelist category="Monster_icon_nor_01">
 		<image name="mon_onion" file="\icon\monster\mon\mon_onion.png" imgrect="0 0 80 80"/>
@@ -831,6 +855,7 @@
 		<image name="FD_kenol" file="\icon\monster\mon\mon_FD_kenol.png" imgrect="0 0 80 80"/>
 		<image name="mon_FD_Stoulet_mage_blue" file="\icon\monster\mon\mon_FD_Stoulet_mage_blue.png" imgrect="0 0 80 80"/>
 		<image name="mon_FD_Stoulet_mage_green" file="\icon\monster\mon\mon_FD_Stoulet_mage_green.png" imgrect="0 0 80 80"/>
+		<image name="mon_Stoulet_green" file="\icon\monster\mon\mon_FD_Stoulet_mage_green.png" imgrect="0 0 80 80"/>
 		<image name="mon_ferret_archer" file="\icon\monster\mon\mon_ferret_archer.png" imgrect="0 0 80 80"/>
 		<image name="mon_ferret_bearer_elite" file="\icon\monster\mon\mon_ferret_bearer_elite.png" imgrect="0 0 80 80"/>
 		<image name="mon_ferret_folk" file="\icon\monster\mon\mon_ferret_folk.png" imgrect="0 0 80 80"/>
@@ -1163,5 +1188,13 @@
 		<image name="mon_rocktanon" file="\icon\monster\mon\mon_rocktanon.png" imgrect="0 0 80 80"/>
 		<image name="mon_rompelnuka" file="\icon\monster\mon\mon_rompelnuka.png" imgrect="0 0 80 80"/>
 		<image name="mon_Slave" file="\icon\monster\mon\mon_Slave.png" imgrect="0 0 80 80"/>
+		<image name="mon_loftlem_blue" file="\icon\monster\mon\mon_loftlem_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Tetraffid" file="\icon\monster\mon\mon_Tetraffid.png" imgrect="0 0 80 80"/>
+		<image name="mon_Zolem_blue" file="\icon\monster\mon\mon_Zolem_blue.png" imgrect="0 0 80 80"/>
+		<image name="mon_Rondo_orange" file="\icon\monster\mon\mon_Rondo_orange.png" imgrect="0 0 80 80"/>
+		<image name="mon_Wendigo_brown" file="\icon\monster\mon\mon_Wendigo_brown.png" imgrect="0 0 80 80"/>
+		<image name="mon_Worg" file="\icon\monster\mon\mon_Worg.png" imgrect="0 0 80 80"/>
+		<image name="mon_moringbrid" file="\icon\monster\mon\mon_morningbrid.png" imgrect="0 0 80 80"/>
+		<image name="mon_nabu" file="\icon\monster\mon\mon_nabu.png" imgrect="0 0 80 80"/>
 	</imagelist>
 </skinset>

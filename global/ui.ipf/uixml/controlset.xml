@@ -2729,11 +2729,21 @@
 			<button name="button_1_1" margin="0 50 0 0" rect="0 0 530 50" layout_gravity="center top" skin="rank_btn" format="{@st63}%s" param1="value" param1_def="팀 배틀 리그 참여" LBtnUpScp="ui.ToggleFrame(&apos;worldpvp&apos;)"/>
 		</controls>
 	</controlset>
-	<controlset name="indun_ctrlset" hittest="true" width="550" height="60" hittestset="false" draw="false" skin="None">
+	<controlset name="indun_cate_ctrl" hittest="true" width="298" height="60" hittestset="false" draw="false" skin="None">
 		<controls>
-			<button name="button" hittest="false" margin="0 0 0 0" rect="0 0 540 60" layout_gravity="left top" skin="base_btn" format="{@st66b18}%s" param1="value" textalign="center center"/>
-			<richtext name="name" margin="10 4 0 0" rect="0 0 283 53" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{#000000}%s{/}" param1="value" param1_def="AAAAAAAAAAB sadsaid jsaiod jsaoidj soaidj oisadj osiaj "/>
-			<richtext name="lv" margin="0 17 20 0" rect="0 0 93 71" textalign="right center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" format="{#000000}%s{/}" param1="value" param1_def="651"/>
+			<button name="button" hittest="true" margin="0 0 0 0" rect="0 0 298 60" layout_gravity="left top" skin="base_btn" textalign="center center" LBtnUpScp="INDUN_CATE_LBTN_CILK"/>
+			<richtext name="name" margin="10 20 0 0" rect="0 0 100 35" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{#000000}%s{/}" param1="value"LBtnUpScp="INDUN_CATE_LBTN_CILK"/>
+			<richtext name="cnt" margin="0 20 10 0" rect="0 0 100 35" textalign="right center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" format="{#000000}%s/%s{/}" param1="cnt" param2="max"LBtnUpScp="INDUN_CATE_LBTN_CILK"/>
+		</controls>
+	</controlset>
+	<controlset name="indun_detail_ctrl" hittest="true" width="450" height="90" hittestset="true" draw="false" skin="None">
+		<controls>
+			<button name="button" hittest="false" margin="0 0 0 0" rect="0 0 450 90" layout_gravity="left top" skin="base_btn" format="{@st66b18}%s" param1="value" textalign="center center"/>
+			<picture name="indun_line_img" margin="5 53 0 0" rect="0 0 440 14" hittest="false" image="indun_line_img" stretch="true" layout_gravity="left top"/>
+			<richtext name="name" margin="11 33 0 0" rect="0 0 430 40" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="black_18_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="AAAAAAAAAAB"/>
+			<richtext name="grade" margin="10 10 0 0" rect="0 0 120 24" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{@st42}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ"/>
+			<richtext name="lv" margin="0 60 11 0" rect="0 0 93 71" textalign="right center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" format="{#000000}%s{/}" param1="value" param1_def="651"/>
+		<richtext name="map" margin="35 60 0 0" rect="0 0 120 24" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{@st66b}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ"/>
 		</controls>
 	</controlset>
 	<controlset name="keyconfig_tree" hittest="true" width="287" height="60" hittestset="false" draw="false" skin="none">
@@ -3055,6 +3065,15 @@
 		<controls>
 			<richtext name="name" margin="3 5 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="regTime" margin="20 5 2 0" rect="0 0 120 24" format="{@st42}[%s]{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
+		</controls>
+	</controlset>
+	<controlset name="indunMember" toggle="false" hittest="true" width="55" height="75" skin="">
+		<controls>
+			<picture name="jobportrait_bg" rect="0 0 55 55" hittest="true" margin="0 5 0 0" layout_gravity="center top" image="indun_people_loading" stretch="false"/>
+			<picture name="jobportrait" parent="jobportrait_bg" rect="0 0 55 55" hittest="true" margin="0 0 0 0" layout_gravity="left center" image="indun_people_btn" stretch="true"/>
+			<picture name="matchedIcon" rect="0 0 55 55" margin="13 5 0 0" layout_gravity="left top" image="indun_people_img" stretch="false"/>
+			<picture name="leader_img" rect="0 0 22 12" hittest="false" margin="0 0 0 0" layout_gravity="center top" image="party_leader_mark" stretch="true"/>
+			<richtext name="level_text" rect="0 0 58 10" margin="0 0 0 0" spacey="0" fontname="white_16_ol" layout_gravity="center bottom" hittest="false" textalign="center center" format="%s" param1="lv" param1_def="330"/>
 		</controls>
 	</controlset>
 </controlsetlist>

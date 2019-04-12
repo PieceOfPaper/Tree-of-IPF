@@ -46,13 +46,12 @@ function JOURNAL_PAGE_CHANGE_MONSTER(ctrl, ctrlset)
 end
 
 function GET_MON_ILLUST(monCls)
-
 	if monCls == nil then
 		return "unknown_monster";
 	end
 
-	local name = monCls.Journal;
-	if ui.IsImageExist(name) == 1 then
+	local name = monCls.Journal;		
+	if ui.IsImageExist(name) == 1 then	
 		return name;
 	end
 	
@@ -61,7 +60,7 @@ function GET_MON_ILLUST(monCls)
 		return name;
 	end
 
-	--¾ÆÀÌÄÜÀº ÀÌÁ¦ ¾²Áö ¾ÊÀ»²¨¶ó°í ÇØ¼­ ÀÏ´Ü ÁÖ¼®À» ÇÕ½Ã´Ù.
+	--ì•„ì´ì½˜ì€ ì´ì œ ì“°ì§€ ì•Šì„êº¼ë¼ê³  í•´ì„œ ì¼ë‹¨ ì£¼ì„ì„ í•©ì‹œë‹¤.
 	--name = monCls.Icon;
 	--if ui.IsImageExist(name) == 1 then
 	--	return name;
@@ -199,7 +198,7 @@ function UPDATE_ARTICLE_Monster(ctrlset)
 	if topAtkPropValue > 0 then
 		local sklCls = GetClassByType("Skill", topAtkPropValue);
 		skillName:SetTextByKey("value", sklCls.Name);
-		skillValue:SetTextByKey("value", "ÇÇÇØ·® " .. topAtkPropCount);
+		skillValue:SetTextByKey("value", "í”¼í•´ëŸ‰ " .. topAtkPropCount);
 		skillicon:SetImage("Icon_" .. sklCls.Icon);
 
 		skillValue:ShowWindow(1);

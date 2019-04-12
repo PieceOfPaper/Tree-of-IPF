@@ -1033,3 +1033,23 @@ function PVP_DESC_TOOLTIP(frame, ypos)
 
 	return pvpCtrlSet:GetY() + pvpCtrlSet:GetHeight() + 10
 end
+function UPDATE_MON_SIMPLE_TOOLTIP(frame, monName)
+	local monCls = GetClass("Monster", monName);
+	local image = GET_CHILD(frame, "image");
+	image:SetImage(GET_MON_ILLUST(monCls));
+
+	local name = GET_CHILD(frame, "name");
+	name:SetTextByKey("value", monCls.Name);
+
+	local racetype = GET_CHILD(frame, "racetype");
+	local racetypeText = ClMsg("RaceType") .. " {img " .. "Tribe_" .. monCls.RaceType .. " 32 32}";
+	racetype:SetTextByKey("value", racetypeText);
+	local attr = GET_CHILD(frame, "attr");
+	local attrText = ClMsg("Attribute") .. " {img " .. "attri_" ..monCls.Attribute .. " 32 32}";
+	attr:SetTextByKey("value", attrText);
+	
+	local t_desc = GET_CHILD(frame, "t_desc");
+	t_desc:SetTextByKey("value", monCls.Desc);
+
+	frame:Resize(frame:GetWidth(), t_desc:GetY() + t_desc:GetHeight() + 10);
+end

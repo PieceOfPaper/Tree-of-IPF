@@ -1,36 +1,31 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="indun" x="0" y="0" width="600" height="1200" create="open">
+<uiframe name="indun" x="0" y="0" width="800" height="1200" create="open">
 	<frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
 	<skin frameskin=" "/>
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
-	<layer layerlevel="80"/>
+	<layer layerlevel="97"/>
 	<option closebutton="false"/>
-	<script OpenScp="OPEN_DUNGEON"/>
+	<script OpenScp="INDUN_UI_OPEN"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<controls>
-		<groupbox name="bg3" rect="0 0 600 1000" margin="-1 30 0 0" layout_gravity="center top" draw="true" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
-		<groupbox name="pipwin_top" rect="0 0 600 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<groupbox name="bg3" rect="0 0 800 1000" margin="-1 30 0 0" layout_gravity="center top" draw="true" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="pipwin_top" rect="0 0 800 60" margin="-1 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<richtext name="title" rect="0 0 200 80" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}인스턴스 던전" textalign="left top"/>
-		<groupbox name="gbox" rect="0 0 578 750" margin="10 257 0 0" layout_gravity="left top" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
-		<tab name="statusTab" rect="0 0 560 40" layout_gravity="left top" LBtnDownScp="INDUN_TAB_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="28 90 0 0"/>
-		<button name="btn_showlocation" rect="0 0 284 56" layout_gravity="left top" LBtnUpScp="CHECK_INDUN_POS" caption="{@st41}위치 확인" skin="textbutton_nomal_joo" margin="13 951 0 94" visible="false"/>
-		<tabitem name="Itembox1" parent="statusTab" caption="{@st66b}던전{/}" width="100" layout_gravity="left top"/>
-		<tabitem name="Itembox2" parent="statusTab" caption="{@st66b}의뢰소{/}" width="100" layout_gravity="left top"/>
-		<tabitem name="Itembox3" parent="statusTab" caption="{@st66b}살러스 수녀원{/}" width="100" layout_gravity="left top"/>
-		<tabitem name="Itembox4" parent="statusTab" caption="{@st66b}대지의 탑{/}" width="100" layout_gravity="left top"/>
-		<tabitem name="Itembox5" parent="statusTab" caption="{@st66b}업힐 디펜스{/}" width="100" layout_gravity="left top"/>
-		<picture name="question" rect="0 0 44 44" margin="0 20 20 0" layout_gravity="right top" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}인스턴스 던전{nl}{@st59s}독립된 인스턴스 존에서 목표 달성을 위해 파티 단위로 진행하는 콘텐츠입니다.{nl}입장 전에 파티를 구성해 도전하거나 자동으로 파티를 찾아 도전할 수 있습니다.{nl} - 던전 : 각 레벨 대의 존에서 던전 입장  NPC를 통해 입장{nl} - 의뢰소 미션 : 페디미안 용병 의뢰소 접수원을 통해 입장{nl} - 살러스 수녀원 미션 : 살러스 수녀원에서 수녀 라사를 통해 입장{nl}{/}"/>
 		<button name="close" rect="0 0 44 44" margin="28 20 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;indun&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}인스턴스 던전을 닫습니다{/}"/>
-		<richtext name="richtext_1" margin="20 150 0 0" rect="0 0 120 24" caption="{@st66b18}입장 횟수{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-		<richtext name="count" margin="370 150 0 0" rect="0 0 200 24" format="{@st66b18}%s{/}" param1="value" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" param2="max"/>
-		<groupbox name="textGbox" margin="25 180 0 0" rect="0 0 550 35" hittestbox="false" skin="test_weight_skin" layout_gravity="left top"/>
-		<richtext name="indunText" margin="0 0 0 0" rect="0 0 120 50" format="{@st66b}%s{/}" param1="value" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="top center" parent="textGbox"/>
-		<groupbox name="groupbox_1" margin="10 256 0 0" rect="0 0 578 40" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
-		<richtext name="richtext_2" margin="16 7 0 0" rect="0 0 120 24" caption="{@st45tw2}이름{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="groupbox_1"/>
-		<richtext name="richtext_2_1" margin="0 7 20 0" rect="0 0 120 24" caption="{@st45tw2}입장레벨{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" parent="groupbox_1"/>
-		<groupbox name="groupbox_2" margin="-10 37 0 0" rect="0 0 590 710" hittestbox="true" layout_gravity="left top" parent="gbox" draw="false"/>
-		<checkbox name="levelUp" margin="0 220 310 0" rect="0 0 150 24" caption="레벨 오름차순{/}" LBtnDownScp="INDUN_SORT_OPTIN_CHECK" fontname="black_16_b" clicksound="button_click_big" oversound="button_over" layout_gravity="right top"/>
-		<checkbox name="levelDown" margin="0 220 50 0" rect="0 0 150 24" caption="레벨 내림차순{/}" LBtnDownScp="INDUN_SORT_OPTIN_CHECK" fontname="black_16_b" clicksound="button_click_big" oversound="button_over" layout_gravity="right top"/>
+		<richtext name="indunText" margin="20 106 0 0" rect="0 0 120 50" format="{@st66d_y}%s{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="resetTime" margin="20 80 0 0" rect="0 0 120 24" caption="{@st41}입장 횟수 초기화 : 매일 6시{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" />
+		<groupbox name="listgBox" rect="0 0 470 860" margin="316 120 0 0" layout_gravity="left top" hittestbox="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle" parent="bg3"/>
+		<groupbox name="listTile" rect="0 0 465 40" margin="2 1 0 0" hittestbox="false" skin="market_listbase" layout_gravity="left top"parent="listgBox"/>
+		<richtext name="richtext_2" margin="10 10 0 0" rect="0 0 120 24" caption="이름/위치" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="listTile"/>
+		<richtext name="richtext_2_1" margin="0 10 10 0" rect="0 0 120 24" caption="입장레벨" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" parent="listTile"/>
+		<checkbox name="levelUp" margin="0 80 17 0" rect="0 0 100 20" caption="레벨 오름차순{/}" LBtnDownScp="INDUN_SORT_OPTIN_CHECK" fontname="black_16_b" clicksound="button_click_big" oversound="button_over" layout_gravity="right top"/>
+		<checkbox name="levelDown" margin="0 106 17 0" rect="0 0 100 24" caption="레벨 내림차순{/}" LBtnDownScp="INDUN_SORT_OPTIN_CHECK" fontname="black_16_b" clicksound="button_click_big" oversound="button_over" layout_gravity="right top"/>
+	<groupbox name="categBox" rect="0 0 300 860" margin="12 119 0 0" layout_gravity="left top" hittestbox="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle" parent="bg3"/>
+		<groupbox name="listTile_1" margin="2 3 0 0" rect="0 0 295 40" hittestbox="false" skin="market_listbase" layout_gravity="left top" parent="categBox"/>
+		<richtext name="richtext_2_2" margin="10 10 0 0" rect="0 0 120 24" caption="카테고리" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="listTile_1"/>
+		<richtext name="richtext_2_2_1" margin="210 10 0 0" rect="0 0 120 24" caption="입장 횟수" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="listTile_1"/>
+		<groupbox name="cateList" margin="1 38 0 0" rect="0 0 300 815" hittestbox="false" skin="None" layout_gravity="left top" parent="categBox" scrollbar="true"/>
+		<groupbox name="indunList" margin="1 38 0 0" rect="0 0 470 810" hittestbox="true" skin="None" layout_gravity="left top" parent="listgBox" scrollbar="true"/>
 	</controls>
 </uiframe>

@@ -787,6 +787,8 @@
 		<Class ClassID="10449" ClassName="SeasonServerNotBuySlot" Data="해당 서버에서는 캐릭터 슬롯을 늘릴 수 없습니다."/>
 		<Class ClassID="10450" ClassName="SeasonServerNotEatCardLv280" Data="시즌 서버에서는 280 레벨 이상으로 올릴 수 없습니다."/>
 		<Class ClassID="10451" ClassName="InvalidGender" Data="착용할 수 있는 성별이 아닙니다."/>
+
+<Class ClassID="10452" ClassName="Indun1AddText" Data="  인스턴스 던전과 의뢰소 미션에 1회 더 입장 가능"/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -5736,13 +5738,26 @@
 		<Class ClassID="133006" ClassName="JustBefore" Data="로그아웃 : 방금 전"/>
 	</Category>
 	<Category Name="Indun">
-		<Class ClassID="134001" ClassName="CannotJoinIndunYet" Data="오늘의 인던 참여 회수를 초과하였습니다."/>
+		<Class ClassID="134001" ClassName="CannotJoinIndunYet" Data="오늘의 인던 참여 횟수를 초과하였습니다."/>
 		<Class ClassID="134002" ClassName="YourLevelIsLowThenIndun" Data="인던 제한 레벨보다 낮습니다"/>
 		<Class ClassID="134003" ClassName="MaxCountExplain{COUNT}" Data="매일 {HOUR}시에 초기화되며 {COUNT}회 입장할 수 있습니다."/>
 		<Class ClassID="134004" ClassName="NextEnterNeed" Data="인던 무제한 입장권을 사용중에 있습니다."/>
 		<Class ClassID="134005" ClassName="IndunMore{COUNT}ForTOKEN" Data="(토큰 혜택으로 {COUNT}번 추가 입장 하실 수 있습니다.)"/>
 		<Class ClassID="134006" ClassName="ReEnterAutoMatchIndun" Data="자동파티찾기 재입장"/>
 		<Class ClassID="134007" ClassName="FailLevelMatching" Data="레벨에 맞는 파티를 찾지 못했습니다.{nl}다시 시도합니다."/>
+	<Class ClassID="134008" ClassName="MatchWithParty" Data="파티원과 자동 매칭"/>
+		<Class ClassID="134009" ClassName="WaitingPartyMemeber" Data="파티원의 참여를 기다리고 있습니다. "/>
+		<Class ClassID="134010" ClassName="CancelMatching" Data="파티원과 자동매칭 기능을 취소하였습니다."/>
+		<Class ClassID="134011" ClassName="PartyMatching" Data='현재 {MEMBER}님이 {INDUN}을 매칭 신청중입니다. 해당 NPC에게 가서 "파티원과 자동매칭" 버튼을 누르면 함께 참여할 수 있습니다.'/>
+		<Class ClassID="134012" ClassName="CannotPartyOutDuringMatching" Data="파티 입장 신청 중에는 탈퇴할 수 없습니다."/>
+		<Class ClassID="134013" ClassName="AutoMatchIng" Data="자동매칭 중"/>
+		<Class ClassID="134014" ClassName="AutoMatchComplete" Data="자동매칭 완료"/>
+		<Class ClassID="134015" ClassName="AutoMatch" Data="자동매칭"/>
+		<Class ClassID="134016" ClassName="EnableWhenAutoMatching" Data="자동매칭 중에 이용 가능합니다."/>
+	<Class ClassID="134017" ClassName="EnterRightNow" Data="바로 입장하시겠습니까?"/>
+		<Class ClassID="134022" ClassName="PartyMatchInfo_Req" Data="파티원의 참여를 기다립니다.{nl}레벨대가 맞는 파티원에게는 메세지가 전송됩니다."/>
+		<Class ClassID="134023" ClassName="PartyMatchInfo_Go" Data="지금까지 모인 파티원과 함께 자동 매칭에 신청합니다."/>
+	<Class ClassID="134024" ClassName="SendMsgToMember" Data="{MEMBER}님께 메시지를 전송했습니다."/>
 	</Category>
 	<Category Name="AchieveReward">
 		<Class ClassID="135001" ClassName="GainAchieveHairBefore" Data="이미 업적 보상을 받았습니다."/>

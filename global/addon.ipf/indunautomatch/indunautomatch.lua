@@ -1,4 +1,15 @@
+-- indunautomatch.lua
 
+
+function INDUNAUTOMATCH_ON_INIT(addon, frame)
+
+	addon:RegisterMsg('UPDATE_PC_COUNT', 'INDUNAUTOMATCH_UPDATE_PC_COUNT');
+
+end
+
+function INDUNAUTOMATCH_UPDATE_PC_COUNT(frame, msg, argStr, argNum)
+--	print(frame, msg, argStr, argNum);
+end
 
 function INDUN_AUTOMATCH_TYPE(indunType)
 

@@ -150,16 +150,10 @@ function SET_EVENT_PC_CTRL_INFO(ctrl, info)
 	local portrait = GET_PORTRAIT_NAME(info.job, info.gender);
 	ctrl:SetImage(portrait);
 	ctrl:EnableHitTest(1);
-	local tooltip = ScpArgMsg("Auto_{Auto_1}_:_LeBel_{Auto_2}_{Auto_3}","Auto_1", info.name, "Auto_2",info.level,"Auto_3", GET_JOB_NAME(info.job))
+	local jobCls = GetClassByType("Job", info.job);
+	local tooltip = ScpArgMsg("Auto_{Auto_1}_:_LeBel_{Auto_2}_{Auto_3}","Auto_1", info.name, "Auto_2",info.level,"Auto_3", GET_JOB_NAME(jobCls, info.gender))
 	ctrl:SetTextTooltip(tooltip);
 	
-end
-
-function GET_JOB_NAME(job)
-
-	local cls = GetClassByType("Job", job);
-	return cls.Name;
-
 end
 
 function ON_FIELD_EVENT_LIST(frame)

@@ -1737,4 +1737,25 @@ return IMCRandom(6, 10);"/>
 			</KeyFrameList>
 		</Line>
 	</File>
+  <File FileName="slotsetDownMove" TotalSec="0.5">
+    <Line ImageName="{@st42}aaaaaaa" isText="0">
+      <KeyFrameList>
+        <KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+        <KeyFrame Time="0.2" Easing="1" x="0" y="17" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+        <KeyFrame Time="0.4" Easing="1" x="0" y="54" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+        <KeyFrame Time="0.5" Easing="1" x="0" y="67" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+      </KeyFrameList>
+    </Line>
+  </File>
+  <File FileName="slotsetUpMove" TotalSec="0.5">
+    <Line ImageName="{@st42}aaaaaaa" isText="0">
+      <KeyFrameList>
+        <KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+        <KeyFrame Time="0.2" Easing="1" x="0" y="-17" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+        <KeyFrame Time="0.4" Easing="1" x="0" y="-54" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+        <KeyFrame Time="0.5" Easing="1" x="0" y="-67" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+      </KeyFrameList>
+    </Line>
+  </File>
+
 </UIForce>

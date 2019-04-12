@@ -13,9 +13,15 @@ function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
         local min = now_time['min']
         
         if aobj.THANKSGIVINGDAY_DAY ~= yday then
+            local invent = GetInvItemCount(pc, 'Event_Seed_ThanksgivingDay')
+            
+            local tx = TxBegin(pc);
+            TxTakeItem(tx, 'Event_Seed_ThanksgivingDay', invent, 'EVENT_THANKSGIVINGDAY_DAY');
+            local ret = TxCommit(tx);
+            
             local tx = TxBegin(pc);
             TxSetIESProp(tx, aobj, 'THANKSGIVINGDAY_DAY', yday)
-            TxGiveItem(tx, 'Event_Seed_ThanksgivingDay', 1, "EVENT_THANKSGIVINGDAY_DAY")
+            TxGiveItem(tx, 'Event_Seed_ThanksgivingDay', invent + 1, "EVENT_THANKSGIVINGDAY_DAY")
             
             if aobj.Event_HiddenReward ~= 2 then
                 TxGiveItem(tx, 'NECK99_102', 1, "EVENT_THANKSGIVINGDAY_DAY")

@@ -2852,13 +2852,15 @@
     </AI>
     <AI Name="DCAPITAL_20_6_SQ_60_BOSS" ActiveMessageMapInBattle="1">
         <List>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="DCAPITAL_20_6_SQ_60_MON"/>
-            </ToolScp>
-        <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                 <Num Num="250"/>
             </ToolScp>
         </List>
+		<HitList>
+			<ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="DCAPITAL_20_6_SQ_60_MON"/>
+            </ToolScp>
+        </HitList>
         <StartList>
             <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                 <Str Str="Attack"/>
@@ -11237,7 +11239,10 @@ if self.HP == 0 then return 1; else return 0; end;">
     </AI>
     <AI Name="Sorcerer_Summoning" ActiveMessageMapInBattle="1">
         <List>
-            <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+            <ToolScp Scp="SAI_CHECK_OWNER_BATTLE_STATE" Client="NO" UseSleep="NO">
+				<Num Num="60"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
                 <Num Num="120"/>
             </ToolScp>
             <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -15017,7 +15022,21 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </List>
     </AI>
-    <AI Name="VPRISON511_MQ_02" UpdateMS="2000" ActiveMessageMapInBattle="1">
+    <AI Name="VELNIAS_WARP_GATE_EFFECT" ActiveMessageMapInBattle="1">
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_light079_blue_loop_att" Arg="1"/>
+				<Str Str="MID"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_levitation032_red_loop" Arg="3"/>
+				<Str Str="MID"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="VPRISON511_MQ_02" UpdateMS="2000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="VPRISON511_MQ_02_MAGIC"/>
@@ -16457,7 +16476,28 @@ return IMCRandom(300, 1000) * 0.001;"/>
             </ScpSet>
         </Attacked>
     </AI>
-    <AI Name="handler_magic_Lachrymator" ActiveMessageMapInBattle="1">
+    <AI Name="handler_magic_Disenchant" ActiveMessageMapInBattle="0">
+		<SkillUse>
+			<ScpSet RelationBit="7" CheckClassName="None" CheckClassNameByFunc="0">
+				<Cond>
+					<ToolScp Scp="SH_COND_BUFF_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="Blessing_Buff"/>
+					</ToolScp>
+					<ToolScp Scp="SH_COND_BUFF_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="Sacrament_Buff"/>
+					</ToolScp>
+				</Cond>
+				<Exec>
+					<ToolScp Scp="SH_USE_PCSKILL" Client="NO" UseSleep="NO">
+						<Str Str="PlagueDoctor_Disenchant"/>
+						<Num Num="3"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</Exec>
+			</ScpSet>
+		</SkillUse>
+	</AI>
+	<AI Name="handler_magic_Lachrymator" ActiveMessageMapInBattle="1">
         <InBattleState>
             <ScpSet RelationBit="7" CheckClassName="None" CheckClassNameByFunc="0">
                 <Cond>

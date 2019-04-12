@@ -178,14 +178,11 @@ end
 
 function DLC_BOX9(pc)
     local tx = TxBegin(pc);
-    TxGiveItem(tx, 'Drug_Premium_HP1', 150, 'DLC_BOX9');
-    TxGiveItem(tx, 'Drug_Premium_SP1', 150, 'DLC_BOX9');  
-    TxGiveItem(tx, 'Event_160908_7', 20, 'DLC_BOX9'); 
-    TxGiveItem(tx, 'Event_drug_160218', 20, 'DLC_BOX9');  
-    TxGiveItem(tx, 'Premium_Clear_dungeon_01', 10, 'DLC_BOX9'); 
-    TxGiveItem(tx, 'RestartCristal', 20, 'DLC_BOX9'); 
-    TxGiveItem(tx, 'Premium_WarpScroll', 30, 'DLC_BOX9');
-    TxGiveItem(tx, 'Premium_Enchantchip', 10, 'DLC_BOX9');
+    TxGiveItem(tx, 'Drug_Premium_HP1', 100, 'DLC_BOX9');
+    TxGiveItem(tx, 'Drug_Premium_SP1', 100, 'DLC_BOX9');  
+    TxGiveItem(tx, 'Event_160908_7', 10, 'DLC_BOX9'); 
+    TxGiveItem(tx, 'Event_drug_160218', 10, 'DLC_BOX9');  
+    TxGiveItem(tx, 'Premium_Clear_dungeon_01', 5, 'DLC_BOX9'); 
     TxGiveItem(tx, 'steam_Premium_SkillReset_1', 1, 'DLC_BOX9');
     TxGiveItem(tx, 'steam_Premium_StatReset_1', 1, 'DLC_BOX9');
     local ret = TxCommit(tx);

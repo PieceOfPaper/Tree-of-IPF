@@ -642,18 +642,6 @@ function SETEXP_SLOT(gbox)
 	local index = 0;
 	local percSum = 0;
 	
-	if IS_SEASON_SERVER(nil) == "YES" then
-		local cls1 = GetClass("SharedConst","JAEDDURY_MON_EXP_RATE");
-		local val1 = cls1.Value;
-	if val1 ~= nil then
-	if val1 > 0.0 then
-		local class  = GetClassByType('Buff', 4540);	
-		percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val1 * 100);
-		index = index + 1;
-		end
-	end
-	end
-
 	if 1 == session.loginInfo.GetPremiumState() then	
 	local cls2 = GetClass("SharedConst","JAEDDURY_NEXON_PC_EXP_RATE");
 local val2 = cls2.Value;	
@@ -665,38 +653,7 @@ local val2 = cls2.Value;
 			end
 	end
 	end
-	
-	--일반 파티 경험치 계산
-	local retParty = false;
-	local partyMember, addValue1 =	GET_ONLINE_PARTY_MEMBER_N_ADDEXP();	
-	SWITCH(math.floor(partyMember)) {				
-		[0] = function() end,
-		[1] = function() end,	
-		[4] = function() -- 4인 260 -> 280
-			local addValue2 = 0;
-			local cls = GetClass("SharedConst","PARTY_EXP_BONUS_MEMBER_COUNT_FOUR");
-			local val = cls.Value;	
-			if val ~= nil then
-				addValue2 = val;
-			end	
-			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue2 + addValue1, index, percSum);
-		end,
-		[5] = function() -- 5인 300 -> 350
-			local addValue2 = 0;
-			local cls = GetClass("SharedConst","PARTY_EXP_BONUS_MEMBER_COUNT_FIVE");
-			local val = cls.Value;	
-			if val ~= nil then
-				addValue2 = val;
-			end	
-			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue2 + addValue1, index, percSum);
-		end,
-		default = function() --		1인 100. 2인 180, 3인 220
-			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue1, index, percSum);
-		end,
-		}	
-	if retParty == true then
-		index = index + 1;
-	end
+
 	if slotcount ~= nil and slotcount >= 0 then
     	for i = 0, slotcount - 1 do
     		local slot		= slotlist[i];
@@ -731,16 +688,6 @@ local val2 = cls2.Value;
 										index = index + 1;
 									end
 								end	
-						end,
-						['PartyIndunExpBuff'] = function() 
-										local cls = GetClass("SharedConst","INDUN_AUTO_FIND_EXP_BONUS");
-										local val = cls.Value;
-										if val > 0.0 then
-											if partyMember > 1 then
-												percSum = SETSLOTCTRL_EXP(class, "cler_daino", expupBuffBox, index, percSum, val * 100 * partyMember);
-										index = index + 1;
-											end
-										end
 						end,
 						default = function() end,
 						}	
@@ -783,10 +730,12 @@ function SETSLOTCTRL_EXP(cls, strIcon, parent, index, sum, perc)
 			if nil ~= buff then
 				newicon:SetTooltipType('premium');		
 				newicon:SetTooltipArg(handle, cls.ClassID, buff.arg1);
+				newicon:SetTooltipOverlap(1);
 			end
 		else
 			newicon:SetTooltipType('buff');
 			newicon:SetTooltipArg(handle, cls.ClassID, "");
+			newicon:SetTooltipOverlap(1);
 		end
 	end
 	
