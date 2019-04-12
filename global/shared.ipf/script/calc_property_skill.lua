@@ -2251,7 +2251,7 @@ end
 
 function SCR_GET_Cyclone_Ratio2(skill)
 
- return 2 + skill.Level * 0.5
+ return 2.5 + skill.Level * 0.3
 
 end
 
@@ -5457,6 +5457,12 @@ function SCR_GET_FrostCloud_Ratio(skill)
 
 end
 
+function SCR_GET_FrostCloud_Ratio2(skill)
+
+    return 10 + skill.Level * 1
+
+end
+
 function SCR_Get_SkillFactor_FreezingSphere(skill)
 
 	local pc = GetSkillOwner(skill);
@@ -7340,7 +7346,7 @@ end
 function SCR_Get_SteadyAim_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = 3 * skill.Level
+    local value = 5 + skill.Level
 
     return math.floor(value)
 
@@ -9124,7 +9130,8 @@ end
 function SCR_GET_Concentrate_Ratio2(skill)
 
     local pc = GetSkillOwner(skill)
-    local value = 5.9 + (skill.Level - 1) * 1.5
+    local statValue = math.floor((pc.STR * 0.04 + pc.DEX * 0.02) * (skill.Level-1))
+    local value = 5.9 + (skill.Level - 1) * 1.5 + statValue;
 
     local Swordman22_abil = GetAbility(pc, "Swordman22")    -- 2rank Skill Damage multiple
     local Swordman23_abil = GetAbility(pc, "Swordman23")    -- 3rank Skill Damage multiple
@@ -9179,7 +9186,7 @@ end
 function SCR_GET_Restrain_Ratio(skill)
 
     local pc = GetSkillOwner(skill)
-    local value = skill.Level * 4
+    local value = skill.Level * 6
     
 	return math.floor(value);
 
@@ -9208,7 +9215,8 @@ end
 
 function SCR_GET_Frenzy_Ratio(skill)
     local pc = GetSkillOwner(skill)
-    local value = 10 + skill.Level;
+    local statValue = math.floor(pc.STR * 0.025)
+    local value = statValue + 10 + skill.Level;
 
 	return math.floor(value)
 
@@ -10333,8 +10341,13 @@ function SCR_Get_JointPenalty_Ratio(skill)
     return math.floor(value)
 end
 
+function SCR_Get_JointPenalty_Ratio2(skill)
+    local value = skill.Level * 10
+    return math.floor(value)
+end
+
 function SCR_Get_HangmansKnot_Bufftime(skill)
-    return skill.Level;
+    return 1 + skill.Level * 0.2;
 end
 
 

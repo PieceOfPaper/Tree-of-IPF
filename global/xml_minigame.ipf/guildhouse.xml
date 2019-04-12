@@ -8,6 +8,21 @@
                     <Obj Type="Monster" MonType="40001" Pos="323.22#-3.04#1301.73" angle="-43" genCount="1" genTime="20000" objectKey="1" propList="&apos;Enter&apos; &apos;AGIT_TO_YARD&apos; &apos;Range&apos; &apos;10&apos; "/>
                     <Obj Type="Monster" MonType="58046" Pos="33.55#0.23#27.03" genCount="1" genTime="20000" objectKey="2" propList="&apos;Dialog&apos; &apos;TOWER_IN_AGIT&apos; &apos;Faction&apos; &apos;Peaceful&apos; " AfterGenScript="INIT_AGIT_HOUSE"/>
                 </ObjList>
+                <StageEvents>
+                    <Event eventName="ValidPcCheck">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_NO_CONNECTED_PC" Client="NO" UseSleep="NO"/>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
             </Stage>
         </StageList>
         <WorldInitList>

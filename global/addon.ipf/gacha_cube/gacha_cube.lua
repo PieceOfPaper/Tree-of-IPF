@@ -4,59 +4,64 @@ function GACHA_CUBE_ON_INIT(addon, frame)
 
 end
 
--- Å¥ºê »Ì±â ±â´É Ãë¼Ò ºÎºÐ
+-- Å¥ï¿½ï¿½ ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Îºï¿½
 function CANCEL_GACHA_CUBE()
 	SET_MOUSE_FOLLOW_BALLOON(nil);
 	ui.SetEscapeScp("");
 
-	CancelGachaCube();												-- »Ì±â Ãë¼Ò¸¦ ¼­¹ö¿¡ ¾Ë¸².
+	CancelGachaCube();												-- ï¿½Ì±ï¿½ ï¿½ï¿½Ò¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½.
 
 	local gachaCubeFrame = ui.GetFrame("gacha_cube");	
-	GHACHA_CUBE_UI_RESET(gachaCubeFrame);							-- UI ¸®¼Â		
+	GHACHA_CUBE_UI_RESET(gachaCubeFrame);							-- UI ï¿½ï¿½ï¿½ï¿½		
 end
 
--- ¹öÆ° Å¬¸¯ (2, 3¹øÂ° »Ì±â)
+-- ï¿½ï¿½Æ° Å¬ï¿½ï¿½ (2, 3ï¿½ï¿½Â° ï¿½Ì±ï¿½)
 function GACHA_CUBE_OK_BTN(frame, ctrl)
-	item.DoPremiumItemGachaCube();	-- 1¹øÂ°¿Í ´Ù¸£°Ô ¼­¹ö¿¡ null°ª Á÷Á¢ Àü¼Û
+	item.DoPremiumItemGachaCube();	-- 1ï¿½ï¿½Â°ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nullï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 end
 
--- »Ì±â ¼º°ø ÈÄ, °á°ú UIÃ¢ »ý¼ºÇÏ¿© ¶ç¿ì±â 
+-- ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ UIÃ¢ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 function GACHA_CUBE_SUCEECD(invItemClsID, rewardItem, btnVisible)
-	-- UIÃ¢ ¾ò¾î¿Í¼­	 ÃÊ±âÈ­
+	-- UIÃ¢ ï¿½ï¿½ï¿½Í¼ï¿½	 ï¿½Ê±ï¿½È­
 	local gachaCubeFrame = ui.GetFrame("gacha_cube");	
 	GHACHA_CUBE_UI_RESET(gachaCubeFrame);	
 	GACHA_CUBE_SUCEECD_UI(gachaCubeFrame, invItemClsID, rewardItem, btnVisible);
 end
 
 
--- »Ì±â ¼º°ø ÈÄ, °á°ú UIÃ¢ ¿ä¼Ò ¹Ù²Ù±â
+-- ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ UIÃ¢ ï¿½ï¿½ï¿½ ï¿½Ù²Ù±ï¿½
 function GACHA_CUBE_SUCEECD_EX(invItemClsID, rewardItem, btnVisible)	
-	-- UIÃ¢ ¾ò¾î¿Í¼­	 
+	-- UIÃ¢ ï¿½ï¿½ï¿½Í¼ï¿½	 
 	local gachaCubeFrame = ui.GetFrame("gacha_cube");	
 	GACHA_CUBE_SUCEECD_UI(gachaCubeFrame, invItemClsID, rewardItem, btnVisible);
 end
 	
 --
 function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible)
-	-- UIÃ¢À» È£ÃâÇÑ Å¥ºê Á¤º¸ ¾ò¾î³õ±â
+	-- UIÃ¢ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½ Å¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	local cubeItem = GetClassByType("Item", invItemClsID);
 
-	-- UIÃ¢ÀÇ À§Ä¡ ¼³Á¤
+	-- UIÃ¢ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 	local invframe = ui.GetFrame("inventory");
 
-	-- °á°ú UI Ã¢ÀÌ ÀÖÀ»¶§¿¡´Â ³ª¸ÓÁö ¾ÆÀÌÅÛÀº ¸ðµÎ ¶ô »óÅÂ.
+	-- ï¿½ï¿½ï¿½ UI Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	SET_SLOT_APPLY_FUNC(invframe, "GHACHA_CUBE_ITEM_LOCK", "Consume");
 	
-	-- UIÃ¢ÀÇ Ãë¼Ò ¼³Á¤
+	-- UIÃ¢ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	ui.SetEscapeScp("CANCEL_GACHA_CUBE()");
 	
-	-- ÇÁ·¹ÀÓÀÇ È£ÃâÇÑ ¾ÆÀÌÅÛ ÀÌ¸§ ¹× ¹öÆ°ÀÇ ºñ¿ë ¼³Á¤	
+	-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
 	local CubeNameFrame = frame:GetChild("richtext_1");	
 	local sucName = string.format("{@st41b}%s", cubeItem.Name);	
 	CubeNameFrame:SetTextByKey("value", sucName);
 	local BtnFrame = frame:GetChild("button_1");	
 
 	local price = TryGet(cubeItem, "NumberArg1");
+	
+	if IS_SEASON_SERVER(nil) == 'YES' then
+	    price = math.floor(price/2)
+	end
+	
 	if price ~= nil then
 		price = GetCommaedText(price);
 	end
@@ -65,7 +70,7 @@ function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible)
 	BtnFrame:SetTextByKey("value", sucValue);	
 	BtnFrame:SetVisible(btnVisible);
 
-	-- ±âÈ¸¸¦ ¸ðµÎ ¼ÒÁøÇßÀ»¶§
+	-- ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	local EndFrame = frame:GetChild("richtext_4");
 	if btnVisible == '0'  then
 		EndFrame:SetVisible(1);
@@ -73,15 +78,15 @@ function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible)
 		EndFrame:SetVisible(0);
 	end
 
-	-- ¾ðÀº °æÇ° ÀÌ¸§À¸·Î ¿ÀºêÁ§Æ® Á¤º¸ Ã£±â
+	-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
 	local reward = GetClass("Item", rewardItem);
 		
-	-- »ÌÀº ÅÛÀ» ½½·Ô¿¡ ¼³Á¤
+	-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 	local slot  = frame:GetChild("slot");
-	SET_SLOT_ITEM_OBJ(slot, reward);							-- ¾ÆÀÌÅÛ ÀÌ¸§À¸·Î ¾ÆÀÌÄÜ ¼³Á¤
-	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), reward.ClassID);	-- ¾ÆÀÌÅÛ ÅøÆÁ Å¸ÀÔÀ¸·Î ¼³Á¤
+	SET_SLOT_ITEM_OBJ(slot, reward);							-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), reward.ClassID);	-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
-	-- »ÌÀº ÅÛ ÀÌ¸§ ¼³Á¤
+	-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	local rewardNameFrame = frame:GetChild("itemName");
 	rewardNameFrame:SetTextByKey("value", reward.Name);	
 	
@@ -91,52 +96,52 @@ function GACHA_CUBE_SUCEECD_UI(frame, invItemClsID, rewardItem, btnVisible)
 		imcSound.PlaySoundEvent('sys_cube_open_jackpot');	
 	end
 	
-	-- AnimPicture ¼³Á¤
+	-- AnimPicture ï¿½ï¿½ï¿½ï¿½
 	local startAnim = GET_CHILD(frame, 'animpic', 'ui::CAnimPicture');
 	startAnim:PlayAnimation();	
 	
-	-- ¼³Á¤ÇØ ³õÀº UIÃ¢ º¸ÀÌ±â
+	-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ UIÃ¢ ï¿½ï¿½ï¿½Ì±ï¿½
 	frame:ShowWindow(1);
 end
 
--- UI ¸®¼Â
+-- UI ï¿½ï¿½ï¿½ï¿½
 function GHACHA_CUBE_UI_RESET(frame)	
-	frame:SetUserValue("GACHA_CUBE", "None");		-- È£ÃâÇÑ ¾ÆÀÌÅÛ Á¤º¸ ÃÊ±âÈ­
-	local itemName = frame:GetChild("itemName");	-- °á°ú¹° ÀÌ¸§ ÇÁ·¹ÀÓ ¹Þ¾Æ¿À±â
-	itemName:SetTextByKey("value", "");				-- ÀÌ¸§ ÃÊ±âÈ­
+	frame:SetUserValue("GACHA_CUBE", "None");		-- È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
+	local itemName = frame:GetChild("itemName");	-- ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
+	itemName:SetTextByKey("value", "");				-- ï¿½Ì¸ï¿½ ï¿½Ê±ï¿½È­
 		
-	local slot  = frame:GetChild("slot");			-- °á°ú¹° ½½·Ô ÇÁ·¹ÀÓ ¹Þ¾Æ¿À±â
+	local slot  = frame:GetChild("slot");			-- ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
 	slot  = tolua.cast(slot, 'ui::CSlot');			
-	slot:ClearIcon();								-- ºó ½½·ÔÀ¸·Î ÃÊ±âÈ­
+	slot:ClearIcon();								-- ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 
-	frame:ShowWindow(0);							-- ÇÁ·¹ÀÓ ¼û±â±â
+	frame:ShowWindow(0);							-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	local invframe = ui.GetFrame("inventory");		-- ÀÎº¥Åä¸® ÇÁ·¹ÀÓ ¹Þ¾Æ¿À±â
+	local invframe = ui.GetFrame("inventory");		-- ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
 	SET_SLOT_APPLY_FUNC(invframe, "GHACHA_CUBE_ITEM_UNLOCK", "Consume");
-	SET_SLOT_APPLY_FUNC(invframe, "None", "Consume");			-- ÀÎº¥ ½½·Ô Á¢±Ù »óÅÂ ÃÊ±âÈ­
+	SET_SLOT_APPLY_FUNC(invframe, "None", "Consume");			-- ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 end
 
--- Inven ¿¡¼­ GHACHA_CUBE °ü·Ã ITEM¸¸ ¶ô ½ÃÅ°±â 
+-- Inven ï¿½ï¿½ï¿½ï¿½ GHACHA_CUBE ï¿½ï¿½ï¿½ï¿½ ITEMï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ 
 function GHACHA_CUBE_ITEM_LOCK(slot)
 	local item = GET_SLOT_ITEM(slot);
 	if nil == item then
 		return;
 	end
 	local obj = GetIES(item:GetObject());
-	if TryGetProp(obj, "Script") == "SCR_FIRST_USE_GHACHA_CUBE" then	-- GHACHA_CUBE °ü·Ã ITEM¸¸
-		slot:GetIcon():SetGrayStyle(1);						-- ÇØ´ç ¾ÆÀÌÅÛ ½½·Ô °Ë°Ô.
+	if TryGetProp(obj, "Script") == "SCR_FIRST_USE_GHACHA_CUBE" then	-- GHACHA_CUBE ï¿½ï¿½ï¿½ï¿½ ITEMï¿½ï¿½
+		slot:GetIcon():SetGrayStyle(1);						-- ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë°ï¿½.
 		slot:ReleaseBlink();
 	end	
 end
 
--- Inven ¿¡¼­ GHACHA_CUBE °ü·Ã ITEM¸¸ ¾ð¶ô ½ÃÅ°±â
+-- Inven ï¿½ï¿½ï¿½ï¿½ GHACHA_CUBE ï¿½ï¿½ï¿½ï¿½ ITEMï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Å°ï¿½ï¿½
 function GHACHA_CUBE_ITEM_UNLOCK(slot)
 	local item = GET_SLOT_ITEM(slot);
 	if nil == item then
 		return;
 	end
 	local obj = GetIES(item:GetObject());
-	if TryGetProp(obj, "Script") == "SCR_FIRST_USE_GHACHA_CUBE" then	-- GHACHA_CUBE °ü·Ã ITEM¸¸
+	if TryGetProp(obj, "Script") == "SCR_FIRST_USE_GHACHA_CUBE" then	-- GHACHA_CUBE ï¿½ï¿½ï¿½ï¿½ ITEMï¿½ï¿½
 	end	
 end
 

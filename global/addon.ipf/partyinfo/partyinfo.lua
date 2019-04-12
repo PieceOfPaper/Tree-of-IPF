@@ -233,11 +233,6 @@ function OPEN_PARTY_MEMBER_INFO(name)
 end
 
 function CONTEXT_PARTY(frame, ctrl, aid)
-
-	if session.world.IsIntegrateServer() == true then
-		return;
-	end
-	
 	local myAid = session.loginInfo.GetAID();
 	
 	local pcparty = session.party.GetPartyInfo();
@@ -250,7 +245,16 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 	local myInfo = session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, myAid);	
 	local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, aid);	
 	local context = ui.CreateContextMenu("CONTEXT_PARTY", "", 0, 0, 170, 100);
+	if session.world.IsIntegrateServer() == true then
+		if  session.world.IsIntegrateIndunServer() == false then
+		local actor = GetMyActor();
+			local execScp = string.format("ui.Chat(\"/changePVPObserveTarget %d 0\")", memberInfo:GetHandle());
+			ui.AddContextMenuItem(context, ScpArgMsg("Observe{PC}", 'PC',memberInfo:GetName() ), execScp);
+			ui.OpenContextMenu(context);
+		end
 
+		return;
+	end
 	if aid == myAid then
 		-- 1. 누구든 자기 자신.
 		ui.AddContextMenuItem(context, ScpArgMsg("WithdrawParty"), "OUT_PARTY()");			

@@ -7,9 +7,12 @@
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
 	<option hideable="false" closebutton="false"/>
 	<controls>
-		<labelline name="LL" margin="-200 40 0 0" rect="0 0 350 4" skin="None" layout_gravity="center top"/>
-		<groupbox name="scrollBox" parent="listGbox" rect="0 0 800 980" margin="0 42 0 0" skin="_pipwin_low" draw="true" hittest="true" layout_gravity="left top" leftscroll="true" resizebyparent="false" hittestbox="true" resizebyresolution="true"/>
-		<picture name="signboard" rect="0 0 346 50" margin="50 0 0 0" layout_gravity="left top" image="barrack_ace"/>
-		<richtext name="pccount" margin="94 8 400 0" rect="0 0 267 36" layout_gravity="left top" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" format="{@st41}%s (%s/%s){/}" param1="value" param1_def="캐릭터" param2="curpc" param3="maxpc"/>
-	</controls>
+    <groupbox name="gBox" rect="0 0 550 980" margin="48 2 0 0" skin="barrack_group_skin" draw="true" hittest="false" layout_gravity="left top" leftscroll="true" resizebyparent="false" hittestbox="false" resizebyresolution="true"/>
+		<groupbox name="scrollBox" rect="0 0 750 980" margin="54 33 0 0" Parent="gBox" skin="_pipwin_low" draw="true" hittest="true" layout_gravity="left top" leftscroll="true" resizebyparent="false" hittestbox="true" resizebyresolution="true"/>
+    <richtext name="pccount" margin="20 8 400 0" rect="0 0 267 36" layout_gravity="left top" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" format="{@st41}숙소%s (%s/%s){/}" param1="value" param1_def="1" param2="curpc" param3="maxpc"/>
+    <richtext name="layercount" margin="330 8 400 0" rect="0 0 267 36" layout_gravity="left top" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" format="{@st41}%s (%s/%s){/}" param1="value" param1_def="캐릭터" param2="curcount" param3="maxcount"/>
+    <labelline name="LL" margin="-200 40 0 0" rect="0 0 350 4" skin="None" layout_gravity="center top"/>
+    <button name="changeLayer1" rect="0 0 48 48" margin="5 0 0 0" layout_gravity="left top" LBtnUpArgNum="1" LBtnUpScp="SELECT_BARRACK_LAYER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="barrack_on_one_btn" oversound="button_over" texttooltip="{@st59}숙소를 이동합니다."/>
+    <button name="changeLayer2" rect="0 0 48 48" margin="5 50 0 0" layout_gravity="left top" LBtnUpArgNum="2" LBtnUpScp="SELECT_BARRACK_LAYER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="barrack_off_two_btn" oversound="button_over" texttooltip="{@st59}숙소를 이동합니다."/>
+  </controls>
 </uiframe>

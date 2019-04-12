@@ -27,25 +27,25 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
 		drawnowequip = 'false'
 	end
 
-	local ypos = DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnowequip); -- 장비라면 공통적으로 그리는 툴팁들
+	local ypos = DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnowequip);
 	
-	ypos = DRAW_ITEM_TYPE_N_WEIGHT(tooltipframe, invitem, ypos, mainframename) -- 타입, 무게.
+	ypos = DRAW_ITEM_TYPE_N_WEIGHT(tooltipframe, invitem, ypos, mainframename)
 
     if invitem.BasicTooltipProp ~= 'None' then
-        ypos = DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, ypos, mainframename, strarg) -- 공격력, 방어력, 타입 아이콘 
+        ypos = DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, ypos, mainframename, strarg)
     end
 
-	local addinfoGBox = GET_CHILD(tooltipframe, addinfoframename,'ui::CGroupBox') -- 젬 툴팁 위치 삽입
+	local addinfoGBox = GET_CHILD(tooltipframe, addinfoframename,'ui::CGroupBox')
 	addinfoGBox:SetOffset(addinfoGBox:GetX(),ypos)
 	addinfoGBox:Resize(addinfoGBox:GetOriginalWidth(),0)
 	
-	ypos = DRAW_EQUIP_PROPERTY(tooltipframe, invitem, ypos, mainframename) -- 각종 프로퍼티
-	ypos = DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename) -- 세트아이템
-	ypos = DRAW_EQUIP_MEMO(tooltipframe, invitem, ypos, mainframename) -- 제작 템 시 들어간 메모
-	ypos = DRAW_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename) -- 각종 프로퍼티
-	ypos = DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, ypos, mainframename) -- 장착제한, 거래제한, 소켓, 레벨 제한 등등
-	ypos = DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, ypos, mainframename) -- 포텐셜 및 내구도
-	ypos = DRAW_EQUIP_ONLY_PR(tooltipframe, invitem, ypos, mainframename) -- 포텐셜 만 있는 애들은 여기서 그림 (그릴 아이템인지 검사는 내부에서)
+	ypos = DRAW_EQUIP_PROPERTY(tooltipframe, invitem, ypos, mainframename)
+	ypos = DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
+	ypos = DRAW_EQUIP_MEMO(tooltipframe, invitem, ypos, mainframename)
+	ypos = DRAW_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename)
+	ypos = DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, ypos, mainframename)
+	ypos = DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, ypos, mainframename)
+	ypos = DRAW_EQUIP_ONLY_PR(tooltipframe, invitem, ypos, mainframename)
 	
 	local isHaveLifeTime = TryGetProp(invitem, "LifeTime");	
 	if 0 == isHaveLifeTime then
@@ -56,26 +56,26 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
 
 	local subframeypos = 0
 
-	--서브프레임쪽.
+
 	if IS_NEED_DRAW_GEM_TOOLTIP(invitem) == true then
-		subframeypos = DRAW_EQUIP_SOCKET(tooltipframe, invitem, subframeypos, addinfoframename) -- 소켓 및 옵션
+		subframeypos = DRAW_EQUIP_SOCKET(tooltipframe, invitem, subframeypos, addinfoframename)
 	end
 
 	if IS_NEED_DRAW_MAGICAMULET_TOOLTIP(invitem) == true then
-		subframeypos = DRAW_EQUIP_MAGICAMULET(tooltipframe, invitem, subframeypos, addinfoframename) -- 매직어뮬렛
+		subframeypos = DRAW_EQUIP_MAGICAMULET(tooltipframe, invitem, subframeypos, addinfoframename)
 	end
 
 	--tooltipframe:Resize(tooltipframe:GetOriginalWidth(), ypos);
 
 end
 
--- 기본 정보
+
 function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnowequip)
 
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveAllChild()
 
-    if invitem.ItemGrade == 0 then -- 유료 프리미엄 아이템 등급: 2~3만원 헤어
+    if invitem.ItemGrade == 0 then
         local SkinName  = GET_ITEM_TOOLTIP_SKIN(invitem);
     	gBox:SetSkinName('premium_skin');
     else
@@ -86,21 +86,19 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 	local equipCommonCSet = gBox:CreateControlSet('tooltip_equip_common', 'equip_common_cset', 0, 0);
 	tolua.cast(equipCommonCSet, "ui::CControlSet");
 
-	local GRADE_FONT_SIZE = equipCommonCSet:GetUserConfig("GRADE_FONT_SIZE"); -- 등급 나타내는 별 크기
+	local GRADE_FONT_SIZE = equipCommonCSet:GetUserConfig("GRADE_FONT_SIZE");
 
-	-- 아이템 배경 이미지 : grade기준
 	local item_bg = GET_CHILD(equipCommonCSet, "item_bg", "ui::CPicture");
 	local gradeBGName = GET_ITEM_BG_PICTURE_BY_GRADE(invitem.ItemGrade)
 	item_bg:SetImage(gradeBGName);
 
-	-- 아이템 이미지
 	local itemPicture = GET_CHILD(equipCommonCSet, "itempic", "ui::CPicture");
 	if invitem.TooltipImage ~= nil and invitem.TooltipImage ~= 'None' then
 	
     	if invitem.ClassType ~= 'Outer' then
     		itemPicture:SetImage(invitem.TooltipImage);
     		itemPicture:ShowWindow(1);
-    	else -- 코스튬은 남녀공용, 남자PC는 남자 코스튬 툴팁이미지, 여자PC는 여자 코스튬 툴팁이미지가 보임
+    	else
             local gender = 0;
             if GetMyPCObject() ~= nil then
                 local pc = GetMyPCObject();
@@ -130,7 +128,6 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 	end
 
 
-	-- 장착중 아이콘 
 	local itemNowEquip = GET_CHILD(equipCommonCSet, "nowequip");
 	if mainframename == 'equip_sub' and drawnowequip == 'true' then
 		itemNowEquip:ShowWindow(1)
@@ -139,7 +136,6 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 	end
 
 	
-	-- 거래불가 아이콘 (일단 거래불가 아이콘 표시하지 않음)
 	local itemCantSoldPicture = GET_CHILD(equipCommonCSet, "cantsold", "ui::CPicture");
 	local itemCantSoldText = GET_CHILD(equipCommonCSet, "cantsold_text", "ui::CRichText");
 
@@ -149,7 +145,7 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 	if blongProp ~= nil then
 		blongCnt = tonumber(blongProp);
 	end
-	if itemProp:IsExchangeable() == false or 0 <  blongCnt then
+	if itemProp:IsExchangeable() == false or GetTradeLockByProperty(invitem) ~= "None" or 0 <  blongCnt then
 		itemCantSoldPicture:ShowWindow(1);
 		itemCantSoldText:ShowWindow(1);
 	else
@@ -157,7 +153,6 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 		itemCantSoldText:ShowWindow(0);
 	end
 
-	-- 강화불가 
 	local itemCantRFPicture = GET_CHILD(equipCommonCSet, "cantreinforce", "ui::CPicture");
 	local itemCantRFText = GET_CHILD(equipCommonCSet, "cantrf_text", "ui::CPicture");
 	if invitem.Reinforce_Type == "None" then
@@ -168,10 +163,8 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 		itemCantRFText:ShowWindow(0);
 	end
 
-	-- 별 그리기
 	SET_GRADE_TOOLTIP(equipCommonCSet, invitem, GRADE_FONT_SIZE);
 
-	-- 아이템 이름 세팅
 	local fullname = GET_FULL_NAME(invitem, true);
 	local nameChild = GET_CHILD(equipCommonCSet, "name", "ui::CRichText");
 	nameChild:SetText(fullname);
@@ -184,20 +177,11 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, drawnow
 end
 
 
---아이템 타입 및 무게
 function DRAW_ITEM_TYPE_N_WEIGHT(tooltipframe, invitem, yPos, mainframename)
 	
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 
-	-- 아이템 타입 설정
 	gBox:RemoveChild('tooltip_equip_type_n_weight');
-
---	local classtype = TryGetProp(invitem, "ClassType"); -- 코스튬은 안뜨도록
---	if classtype ~= nil then
---		if classtype == "Outer" then
---			return yPos;
---		end
---	end
 
 	local tooltip_equip_type_n_weight_Cset = gBox:CreateOrGetControlSet('tooltip_equip_type_n_weight', 'tooltip_equip_type_n_weight', 0, yPos);
 
@@ -214,7 +198,6 @@ function DRAW_ITEM_TYPE_N_WEIGHT(tooltipframe, invitem, yPos, mainframename)
 end
 
 
---공격력 및 방어력
 function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg)
 
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
@@ -227,7 +210,6 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 	local arg2 = nil
 	local reinforceaddvalue = 0
 
-	-- 무기 타입 아이콘
 	local basicProp = invitem.BasicTooltipProp;
 	
 	if basicProp == 'ATK' then
@@ -264,11 +246,14 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 
 	yPos = SET_REINFORCE_TEXT(gBox, invitem, yPos);
 	
+	yPos = SET_TRANSCEND_TEXT(gBox, invitem, yPos);
+
+	yPos = SET_REINFORCE_BUFF_TEXT(gBox, invitem, yPos);
+	
 	gBox:Resize(gBox:GetWidth(),  yPos);
 	return yPos;
 end
 
--- 아이템에 의한 추가 속성 정보 (광역공격 +1)
 function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 
 	local gBox = GET_CHILD(tooltipframe,mainframename,'ui::CGroupBox')
@@ -326,8 +311,10 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 		end
 	end
 
-	if cnt <= 0 and (invitem.OptDesc == nil or invitem.OptDesc == "None") then -- 일단 그릴 프로퍼티가 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
+	if cnt <= 0 and (invitem.OptDesc == nil or invitem.OptDesc == "None" ) then
+		if invitem.ReinforceRatio == 100 then
 		return yPos
+	end
 	end
 	
 	local tooltip_equip_property_CSet = gBox:CreateOrGetControlSet('tooltip_equip_property', 'tooltip_equip_property', 0, yPos);
@@ -399,21 +386,27 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 	end
 
-	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	if invitem.ReinforceRatio > 100 then
+		local opName = ClMsg("ReinforceOption");
+		local strInfo = ABILITY_DESC_PLUS(opName, math.floor(10 * invitem.ReinforceRatio/100), ClMsg("ReinforceOption"));
+		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo.."0%"..ClMsg("ReinforceOptionAtk"), 0, inner_yPos);
+	end
+
+	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN");
 	tooltip_equip_property_CSet:Resize(tooltip_equip_property_CSet:GetWidth(),tooltip_equip_property_CSet:GetHeight() + property_gbox:GetHeight() + property_gbox:GetY() + BOTTOM_MARGIN);
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + tooltip_equip_property_CSet:GetHeight())
 	return tooltip_equip_property_CSet:GetHeight() + tooltip_equip_property_CSet:GetY();
 end
 
--- 제작 시 넣은 메모
+
 function DRAW_EQUIP_MEMO(tooltipframe, invitem, yPos, mainframename)
 
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_equip_memo');
 
 	local memo = invitem.Memo
-	if memo == "None" then -- 일단 메모가 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
+	if memo == "None" then
 		return yPos
 	end
 	
@@ -425,21 +418,21 @@ function DRAW_EQUIP_MEMO(tooltipframe, invitem, yPos, mainframename)
 	local inner_yPos = 0;
 	inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, memo, 0, inner_yPos);
 	
-	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN");
 	tooltip_equip_property_CSet:Resize(tooltip_equip_property_CSet:GetWidth(),tooltip_equip_property_CSet:GetHeight() + property_gbox:GetHeight() + property_gbox:GetY() + BOTTOM_MARGIN);
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + tooltip_equip_property_CSet:GetHeight())
 	return tooltip_equip_property_CSet:GetHeight() + tooltip_equip_property_CSet:GetY();
 end
 
--- 아이템에 의한 추가 속성 정보 (광역공격 +1 둥등)
+
 function DRAW_EQUIP_DESC(tooltipframe, invitem, yPos, mainframename)
 
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_equip_desc');
 
 	local desc = GET_ITEM_TOOLTIP_DESC(invitem);
-	if desc == "" then -- 일단 그릴 소켓이 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
+	if desc == "" then
 		return yPos
 	end
 	
@@ -449,14 +442,14 @@ function DRAW_EQUIP_DESC(tooltipframe, invitem, yPos, mainframename)
 	local inner_yPos = 0;
 	inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, desc, 0, inner_yPos);
 
-	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN");
 	tooltip_equip_property_CSet:Resize(tooltip_equip_property_CSet:GetWidth(),tooltip_equip_property_CSet:GetHeight() + property_gbox:GetHeight() + property_gbox:GetY() + BOTTOM_MARGIN);
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + tooltip_equip_property_CSet:GetHeight())
 	return tooltip_equip_property_CSet:GetHeight() + tooltip_equip_property_CSet:GetY();
 end
 
--- 소켓 정보
+
 function DRAW_EQUIP_SOCKET(tooltipframe, invitem, yPos, addinfoframename)
 	local gBox = GET_CHILD(tooltipframe, addinfoframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_equip_socket');
@@ -478,14 +471,13 @@ function DRAW_EQUIP_SOCKET(tooltipframe, invitem, yPos, addinfoframename)
 		end
 	end
 
-	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN");
 	tooltip_equip_socket_CSet:Resize(tooltip_equip_socket_CSet:GetWidth(),tooltip_equip_socket_CSet:GetHeight() + socket_gbox:GetHeight() + socket_gbox:GetY() + BOTTOM_MARGIN);
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + tooltip_equip_socket_CSet:GetHeight())
 	return tooltip_equip_socket_CSet:GetHeight() + tooltip_equip_socket_CSet:GetY();
 end
 
--- 매직어뮬렛 정보
 function DRAW_EQUIP_MAGICAMULET(subframe, invitem, yPos,addinfoframename)
 
 	local gBox = GET_CHILD(subframe, addinfoframename,'ui::CGroupBox')
@@ -525,14 +517,13 @@ function DRAW_EQUIP_MAGICAMULET(subframe, invitem, yPos,addinfoframename)
 
 	amulet_gbox:Resize(amulet_gbox:GetOriginalWidth(),inner_yPos);
 
-	local BOTTOM_MARGIN = subframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	local BOTTOM_MARGIN = subframe:GetUserConfig("BOTTOM_MARGIN");
 	CSet:Resize(CSet:GetWidth(),CSet:GetHeight() + amulet_gbox:GetHeight() + amulet_gbox:GetY() + BOTTOM_MARGIN);
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + CSet:GetHeight())
 	return CSet:GetHeight() + CSet:GetY();
 end
 
---세트 아이템
 function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 
 	local gBox = GET_CHILD(tooltipframe,mainframename,'ui::CGroupBox')
@@ -552,7 +543,6 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 	local cnt =	set:GetItemCount();
 
 
-	-- 세트아이템 이미지 그려주는 부분
 	local inner_yPos = 0;
 	local inner_xPos = 0;
 	local set_gbox_img_new_height = 0;
@@ -594,7 +584,6 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 	end
 	set_gbox_img:Resize( set_gbox_img:GetWidth() ,a_image_height + inner_yPos)
 
-	-- 세트아이템 세트 효과 텍스트 표시 부분
 	inner_yPos = 0;
 	inner_xPos = 0;
 	local curCnt = GET_EQUIPED_SET_COUNT(set);
@@ -629,7 +618,7 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 	set_gbox_prop:Resize( set_gbox_prop:GetWidth() ,inner_yPos)
 	set_gbox_prop:SetOffset(set_gbox_prop:GetX(),set_gbox_img:GetY()+set_gbox_img:GetHeight())
 
-	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN");
 	tooltip_CSet:Resize(tooltip_CSet:GetWidth(), set_gbox_prop:GetHeight() + set_gbox_prop:GetY() + BOTTOM_MARGIN);
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + tooltip_CSet:GetHeight())
 
@@ -638,7 +627,6 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 end
 
 
---각종 제한사항(렙제, 직업제한, 소켓 등등)
 function DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, yPos,mainframename)
 
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
@@ -654,26 +642,22 @@ function DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, yPos,mainframename)
 	--local AVAIABLE_PROP_FONT_COLOR = tooltip_available_property_CSet:GetUserConfig("AVAIABLE_PROP_FONT_COLOR")
 	--local UNAVAIABLE_PROP_FONT_COLOR = tooltip_available_property_CSet:GetUserConfig("UNAVAIABLE_PROP_FONT_COLOR")
 
-	--레벨제한 표시
 	if invitem.UseLv > 1 then
 		levelNusejob_text:SetTextByKey("level",invitem.UseLv..ScpArgMsg("EQUIP_LEVEL"));
 	else
 		levelNusejob_text:SetTextByKey("level",ScpArgMsg("UNLIMITED_ITEM_LEVEL"));
 	end
 
-	--장착제한 표시
 	levelNusejob_text:SetTextByKey("usejob",GET_USEJOB_TOOLTIP(invitem));
 
 	maxSocekt_text:SetOffset(maxSocekt_text:GetX(),levelNusejob_text:GetY() + levelNusejob_text:GetHeight() + 5)
 
-	--소켓제한 표시
 	if invitem.MaxSocket <= 0 then
 		maxSocekt_text:SetText(ScpArgMsg("CantAddSocket"))
 	else
 		maxSocekt_text:SetTextByKey("socketcount",invitem.MaxSocket);
 	end
 
-	--유저간 거래 제한 표시 : 아이콘만 표시하고 문구는 표시하지 않도록 바꿨다. (140718)
 	--[[
 	if invitem.UserTrade == "YES" then
 		usertradeNshoptrade_text:SetTextByKey("usertrade",ScpArgMsg("Auto_Kaein_KeoLae_KaNeung"));
@@ -683,7 +667,6 @@ function DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, yPos,mainframename)
 		usertradeNshoptrade_text:SetTextByKey("usertrade","ERROR! check item.UserTrade");
 	end
 
-	--상점 거래 제한 표시
 	if invitem.ShopTrade == "YES" then
 		usertradeNshoptrade_text:SetTextByKey("shoptrade",ScpArgMsg("Auto_SangJeom_PanMae_KaNeung"));
 	elseif invitem.ShopTrade == "NO" then
@@ -694,7 +677,7 @@ function DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, yPos,mainframename)
 	]]
 
 
-	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN");
 	tooltip_available_property_CSet:Resize(tooltip_available_property_CSet:GetWidth(),maxSocekt_text:GetY() + maxSocekt_text:GetHeight() + BOTTOM_MARGIN);
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + tooltip_available_property_CSet:GetHeight())
@@ -702,21 +685,20 @@ function DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, yPos,mainframename)
 end
 
 
---포텐 및 내구도
 function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_pr_n_dur');
 
 	local itemClass = GetClassByType("Item", invitem.ClassID);
-	if invitem.GroupName ~= "Armor" and invitem.GroupName ~= "Weapon" then -- 내구도 개념이 없는 템
+	if invitem.GroupName ~= "Armor" and invitem.GroupName ~= "Weapon" then
 
 	    if invitem.BasicTooltipProp == "None" then
     		return yPos;
 		end
 	end
 
-	local classtype = TryGetProp(invitem, "ClassType"); -- 코스튬은 안뜨도록
+	local classtype = TryGetProp(invitem, "ClassType");
 	if classtype ~= nil then
 		if (classtype == "Outer") 
 		or (classtype == "Hat") 
@@ -750,14 +732,13 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 		dur_gauge:SetPoint(temparg1, temparg2);
 	end
 
-	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN");
 	CSet:Resize(CSet:GetWidth(),CSet:GetHeight() + BOTTOM_MARGIN);
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + CSet:GetHeight())
 	return CSet:GetHeight() + CSet:GetY();
 end
 
---악세서리 등 포텐만 존재하는 녀석 들
 function DRAW_EQUIP_ONLY_PR(tooltipframe, invitem, yPos, mainframename)
 
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
@@ -765,7 +746,7 @@ function DRAW_EQUIP_ONLY_PR(tooltipframe, invitem, yPos, mainframename)
 
 	local itemClass = GetClassByType("Item", invitem.ClassID);
 
-	local classtype = TryGetProp(invitem, "ClassType"); -- 코스튬은 안뜨도록
+	local classtype = TryGetProp(invitem, "ClassType");
 		
 	if classtype ~= nil then
 		if (classtype ~= "Hat" and invitem.BasicTooltipProp ~= "None")
@@ -785,7 +766,7 @@ function DRAW_EQUIP_ONLY_PR(tooltipframe, invitem, yPos, mainframename)
 	local pr_gauge = GET_CHILD(CSet,'pr_gauge','ui::CGauge')
 	pr_gauge:SetPoint(invitem.PR, itemClass.PR);
 
-	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN");
 	CSet:Resize(CSet:GetWidth(),CSet:GetHeight() + BOTTOM_MARGIN);
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + CSet:GetHeight())

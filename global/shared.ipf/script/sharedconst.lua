@@ -1,63 +1,69 @@
-﻿--PLAYTIMEEVENT_REFLASH_HOUR = 6
---PLAYTIMEEVENT_REWARD_TIME = {0, 30, 60}
---PLAYTIMEEVENT_REWARD_BASIC = {{{'Event_160421',2}}, {{'Event_160421',4}}, {{'Event_160421',10}}}
---PLAYTIMEEVENT_REWARD_PREMIUM = {{{'Event_160421',4}}, {{'Event_160421',6}}, {{'Event_160421',14}}}
---PLAYTIMEEVENT_REWARD_ACC_TIME = {80, 110, 130, 192}
---PLAYTIMEEVENT_REWARD_ACC = {{{'Hat_628132',1}},{{'Premium_awakeningStone14',2}},{{'Premium_StatReset14', 1}},{{'Hat_628133',1}}}
+﻿DAYCHECK_EVENT_REWARD_HOUR = 30
+DAYCHECK_EVENT_TIME = {{{2016,7,14},{2016,7,27}},{{2016,7,28},{2016,8,10}},{{2016,8,11},{2016,8,25}}}
+DAYCHECK_EVENT_REWARD_ITEM = {{{'160714Event_box1',1},{'160714Event_box2',1},{'160714Event_box3',1},{'160714Event_box4',1},{'160714Event_box5',1},{'160714Event_box6',1},{'160714Event_box7',1},{'160714Event_box8',1},{'160714Event_box9',1},{'160714Event_box10',1}},
+                                {{'160714Event_box11',1},{'160714Event_box12',1},{'160714Event_box13',1},{'160714Event_box14',1},{'160714Event_box15',1},{'160714Event_box16',1},{'160714Event_box17',1},{'160714Event_box18',1},{'160714Event_box19',1},{'160714Event_box20',1}},
+                                {{'160714Event_box21',1},{'160714Event_box22',1},{'160714Event_box23',1},{'160714Event_box24',1},{'160714Event_box25',1},{'160714Event_box26',1},{'160714Event_box27',1},{'160714Event_box28',1},{'160714Event_box29',1},{'160714Event_box30',1}}}
 
-CITYATTACK_BOSS_EVENT_TIME_TABLE = {{2016,5,26,20,'boss_honeyspider'},
-                                    {2016,5,26,22,'Head_fish'},
-                                    {2016,5,27,20,'boss_honeyspider'},
-                                    {2016,5,27,22,'Head_fish'},
-                                    {2016,5,28,16,'boss_honeyspider'},
-                                    {2016,5,28,18,'Head_fish'},
-                                    {2016,5,28,20,'boss_honeyspider'},
-                                    {2016,5,28,22,'Head_fish'},
-                                    {2016,5,29,16,'boss_honeyspider'},
-                                    {2016,5,29,18,'Head_fish'},
-                                    {2016,5,29,20,'boss_honeyspider'},
-                                    {2016,5,29,22,'Head_fish'},
-                                    {2016,5,30,20,'boss_honeyspider'},
-                                    {2016,5,30,22,'Head_fish'},
-                                    {2016,5,31,20,'boss_honeyspider'},
-                                    {2016,5,31,22,'Head_fish'},
-                                    {2016,6,1,20,'boss_honeyspider'},
-                                    {2016,6,1,22,'Head_fish'},
-                                    {2016,6,2,20,'boss_honeyspider'},
-                                    {2016,6,2,22,'Head_fish'},
-                                    {2016,6,3,20,'boss_honeyspider'},
-                                    {2016,6,3,22,'Head_fish'},
-                                    {2016,6,4,16,'boss_honeyspider'},
-                                    {2016,6,4,18,'Head_fish'},
-                                    {2016,6,4,20,'boss_honeyspider'},
-                                    {2016,6,4,22,'Head_fish'},
-                                    {2016,6,5,16,'boss_honeyspider'},
-                                    {2016,6,5,18,'Head_fish'},
-                                    {2016,6,5,20,'boss_honeyspider'},
-                                    {2016,6,5,22,'Head_fish'},
-                                    {2016,6,6,16,'boss_honeyspider'},
-                                    {2016,6,6,18,'Head_fish'},
-                                    {2016,6,6,20,'boss_honeyspider'},
-                                    {2016,6,6,22,'Head_fish'},
-                                    {2016,6,7,20,'boss_honeyspider'},
-                                    {2016,6,7,22,'Head_fish'},
-                                    {2016,6,8,20,'boss_honeyspider'},
-                                    {2016,6,8,22,'Head_fish'},
-                                    {2016,6,9,20,'boss_honeyspider'},
-                                    {2016,6,9,22,'Head_fish'},
-                                    {2016,6,10,20,'boss_honeyspider'},
-                                    {2016,6,10,22,'Head_fish'},
-                                    {2016,6,11,16,'boss_honeyspider'},
-                                    {2016,6,11,18,'Head_fish'},
-                                    {2016,6,11,20,'boss_honeyspider'},
-                                    {2016,6,11,22,'Head_fish'},
-                                    {2016,6,12,16,'boss_honeyspider'},
-                                    {2016,6,12,18,'Head_fish'},
-                                    {2016,6,12,20,'boss_honeyspider'},
-                                    {2016,6,12,22,'Head_fish'}
-                                    }
+--PLAYTIMEEVENT_REFLASH_HOUR = 6
+--PLAYTIMEEVENT_REWARD_TIME = {0, 30, 60}
+--PLAYTIMEEVENT_REWARD_BASIC = {{{'Event_160609',1}}, {{'Event_160609',1}}, {{'Event_160609',1}}}
+--PLAYTIMEEVENT_REWARD_PREMIUM = {{{'Event_160609',1}}, {{'Event_160609',1}}, {{'Event_160609',1}}}
+--PLAYTIMEEVENT_REWARD_ACC_TIME = nil
+--PLAYTIMEEVENT_REWARD_ACC = nil
+
+--CITYATTACK_BOSS_EVENT_TIME_TABLE = {{2016,5,26,20,'boss_honeyspider'},
+--                                    {2016,5,26,22,'Head_fish'},
+--                                    {2016,5,27,20,'boss_honeyspider'},
+--                                    {2016,5,27,22,'Head_fish'},
+--                                    {2016,5,28,16,'boss_honeyspider'},
+--                                    {2016,5,28,18,'Head_fish'},
+--                                    {2016,5,28,20,'boss_honeyspider'},
+--                                    {2016,5,28,22,'Head_fish'},
+--                                    {2016,5,29,16,'boss_honeyspider'},
+--                                    {2016,5,29,18,'Head_fish'},
+--                                    {2016,5,29,20,'boss_honeyspider'},
+--                                    {2016,5,29,22,'Head_fish'},
+--                                    {2016,5,30,20,'boss_honeyspider'},
+--                                    {2016,5,30,22,'Head_fish'},
+--                                    {2016,5,31,20,'boss_honeyspider'},
+--                                    {2016,5,31,22,'Head_fish'},
+--                                    {2016,6,1,20,'boss_honeyspider'},
+--                                    {2016,6,1,22,'Head_fish'},
+--                                    {2016,6,2,20,'boss_honeyspider'},
+--                                    {2016,6,2,22,'Head_fish'},
+--                                    {2016,6,3,20,'boss_honeyspider'},
+--                                    {2016,6,3,22,'Head_fish'},
+--                                    {2016,6,4,16,'boss_honeyspider'},
+--                                    {2016,6,4,18,'Head_fish'},
+--                                    {2016,6,4,20,'boss_honeyspider'},
+--                                    {2016,6,4,22,'Head_fish'},
+--                                    {2016,6,5,16,'boss_honeyspider'},
+--                                    {2016,6,5,18,'Head_fish'},
+--                                    {2016,6,5,20,'boss_honeyspider'},
+--                                    {2016,6,5,22,'Head_fish'},
+--                                    {2016,6,6,16,'boss_honeyspider'},
+--                                    {2016,6,6,18,'Head_fish'},
+--                                    {2016,6,6,20,'boss_honeyspider'},
+--                                    {2016,6,6,22,'Head_fish'},
+--                                    {2016,6,7,20,'boss_honeyspider'},
+--                                    {2016,6,7,22,'Head_fish'},
+--                                    {2016,6,8,20,'boss_honeyspider'},
+--                                    {2016,6,8,22,'Head_fish'},
+--                                    {2016,6,9,20,'boss_honeyspider'},
+--                                    {2016,6,9,22,'Head_fish'},
+--                                    {2016,6,10,20,'boss_honeyspider'},
+--                                    {2016,6,10,22,'Head_fish'},
+--                                    {2016,6,11,16,'boss_honeyspider'},
+--                                    {2016,6,11,18,'Head_fish'},
+--                                    {2016,6,11,20,'boss_honeyspider'},
+--                                    {2016,6,11,22,'Head_fish'},
+--                                    {2016,6,12,16,'boss_honeyspider'},
+--                                    {2016,6,12,18,'Head_fish'},
+--                                    {2016,6,12,20,'boss_honeyspider'},
+--                                    {2016,6,12,22,'Head_fish'}
+--                                    }
                                     
-FLASHMOB_EVENT_REWARD_TABLE = {{{'Premium_tpBox_10',1}}}
+FLASHMOB_EVENT_REWARD_TABLE = {{{'Premium_eventTpBox_5_3',1}}}
 
 
 WORLD_SIZE = 10240;

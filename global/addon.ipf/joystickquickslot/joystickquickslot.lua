@@ -172,31 +172,10 @@ function JOYSTICK_QUICKSLOT_ON_MSG(frame, msg, argStr, argNum)
 	if msg == 'GAME_START' then
 		--ON_PET_SELECT(frame);
 	end
-
-	if msg == 'JOYSTICK_QUICKSLOT_LIST_GET' or msg == 'GAME_START' or msg == 'EQUIP_ITEM_LIST_GET' or msg == 'PC_PROPERTY_UPDATE' then
-		local quickSlotList = session.GetQuickSlotList();
-		for i = 0, MAX_SLOT_CNT-1 do
-			local quickSlotInfo 	= quickSlotList:Element(i);			
-			if quickSlotInfo.category  ~=  'NONE' then
-				local slot 			= frame:GetChildRecursively("slot"..i+1);
-				tolua.cast(slot, "ui::CSlot");
-				SET_QUICK_SLOT(slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, false);
-			end
-		end
-	end
-
-	-- 아이템 슬롯 비활성에 대해서 체크 한다
-	if msg == 'INV_ITEM_ADD' or msg == 'INV_ITEM_POST_REMOVE' or msg == 'INV_ITEM_CHANGE_COUNT'then
-		-- 퀵슬롯의 Icon 정보를 확인하고 Category가 'Item'인 목록을 찾아 개수를 파악 한다.
-		local quickSlotList = session.GetQuickSlotList();		-- 퀵슬롯 리스트 정보를 가지고 온다
-		for i = 0, MAX_QUICKSLOT_CNT-1 do
-			local quickSlotInfo 	= quickSlotList:Element(i);	-- 퀵슬롯 정보를 가지고 온다
-			if quickSlotInfo.category  ~=  'NONE' then
-				local slot = frame:GetChildRecursively("slot"..i+1);
-				tolua.cast(slot, "ui::CSlot");
-				SET_QUICK_SLOT(slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, 0);
-			end
-		end
+	
+	if msg == 'JOYSTICK_QUICKSLOT_LIST_GET' or msg == 'GAME_START' or msg == 'EQUIP_ITEM_LIST_GET' or msg == 'PC_PROPERTY_UPDATE' 
+	or  msg == 'INV_ITEM_ADD' or msg == 'INV_ITEM_POST_REMOVE' or msg == 'INV_ITEM_CHANGE_COUNT' then
+		DebounceScript("JOYSTICK_QUICKSLOT_UPDATE_ALL_SLOT", 0.1);
 	end
 
 	if msg == 'CHANGE_INVINDEX' then
@@ -280,6 +259,18 @@ function JOYSTICK_QUICKSLOT_REFRESH(curCnt)
 end
 
 
+function JOYSTICK_QUICKSLOT_UPDATE_ALL_SLOT()
+	local frame = ui.GetFrame('joystickquickslot');
+	local quickSlotList = session.GetQuickSlotList();
+	for i = 0, MAX_SLOT_CNT-1 do
+		local quickSlotInfo 	= quickSlotList:Element(i);			
+		if quickSlotInfo.category  ~=  'NONE' then
+			local slot 			= frame:GetChildRecursively("slot"..i+1);
+			tolua.cast(slot, "ui::CSlot");
+			SET_QUICK_SLOT(slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, false);
+		end
+	end
+end
 
 
 function JOYSTICK_QUICKSLOT_EXECUTE(slotIndex)

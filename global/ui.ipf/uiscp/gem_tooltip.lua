@@ -58,6 +58,9 @@ function DRAW_GEM_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 	-- 경험치 게이지
 	local level_gauge = GET_CHILD(CSet,'level_gauge','ui::CGauge')
 	local lv, curExp, maxExp = GET_ITEM_LEVEL_EXP(invitem);
+	if curExp > maxExp then
+		curExp = maxExp;
+	end
 	level_gauge:SetPoint(curExp, maxExp);
 
 	if maxExp == 0 then

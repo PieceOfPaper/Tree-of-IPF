@@ -48,6 +48,8 @@ ClassID,Value,ClassName,Desc,UseInScript
 256,1,"CHECK_LEARN_ABILITY","","NO"
 257,0,"JAEDDURY_NEXON_PC_EXP_RATE","넥슨 PC방 추가 경험치","YES"
 258,0.130000,"COMPANION_EXP_RATE","컴패니언 경험치율","NO"
+259,7,"GUILD_REJOIN_CHECK_TIME","길드 재가입 시, 패널티 여부를 체크하는 기간","NO"
+260,7,"GUILD_BATTLE_NEXT_JOINABLE_TIME","길드 재가입 후, 길드배틀 참여를 제한하는 기간","NO"
 10001,5,"MAX_FREE_TP","무료로 제공하는 TP 최대 개수","YES"
 10002,3600,"FREE_RESPECT_TIME","무료로 롤백할 수 있는 제한 시간","YES"
 10003,14400,"CHARGE_FREE_TP_TIME","7200초(2시간)마다 무료TP 충전","YES"

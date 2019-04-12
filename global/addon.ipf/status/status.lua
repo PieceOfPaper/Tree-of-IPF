@@ -1,4 +1,3 @@
-﻿
 g_reserve_reset = 0;
 MAX_INV_COUNT = 4999;
 
@@ -59,14 +58,14 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 
 	local tokenList = gToken:GetChild("tokenList");
 	tokenList:RemoveAllChild();
-
+	
 	if argNum ~= ITEM_TOKEN or "NO" == argStr then
 		return;
 	end
 
-		local sysTime = geTime.GetServerSystemTime();
+	local sysTime = geTime.GetServerSystemTime();
 	local endTime = session.loginInfo.GetTokenTime();
-		local difSec = imcTime.GetDifSec(endTime, sysTime);
+	local difSec = imcTime.GetDifSec(endTime, sysTime);
 		
 	if 0 < difSec then
 		time:ShowWindow(1);
@@ -78,18 +77,18 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 		time:SetTextByKey("value", "");
 		time:StopUpdateScript("SHOW_TOKEN_REMAIN_TIME");
 	end
-	
+
 	for i = 0 , 3 do
 		local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 		local str, value = GetCashInfo(ITEM_TOKEN, i)
 		if nil ~= str then
-		local prop = ctrlSet:GetChild("prop");
-		local normal = GetCashValue(0, str) 
-		local txt = "None"
-		if str == "marketSellCom" then
-			normal = normal + 0.01;
-			value = value + 0.01;
-				local img = string.format("{img 67percent_image %d %d}", 55, 45) 
+			local prop = ctrlSet:GetChild("prop");
+			local normal = GetCashValue(0, str) 
+			local txt = "None"
+			if str == "marketSellCom" then
+				normal = normal + 0.01;
+				value = value + 0.01;
+				local img = string.format("{img 67percent_image %d %d}",55, 45) 
 				prop:SetTextByKey("value", img..ClMsg(str)); 
 				txt = string.format("{img 67percent_image2 %d %d}", 100, 45) 
 			elseif str =="abilityMax" then
@@ -100,17 +99,17 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 				local img = string.format("{img 3plus_image %d %d}", 55, 45) 
 				prop:SetTextByKey("value",img.. ClMsg(str)); 
 				txt = string.format("{img 3plus_image2 %d %d}", 100, 45) 
-		else
+			else
 				local img = string.format("{img 9plus_image %d %d}", 55, 45) 
 				prop:SetTextByKey("value", img..ClMsg(str)); 
 				txt = string.format("{img 9plus_image2 %d %d}", 100, 45) 
-		end
+			end
 
-		local value = ctrlSet:GetChild("value");
+			local value = ctrlSet:GetChild("value");
 			if str =="abilityMax" then
 				value:ShowWindow(0);
 			else
-		value:SetTextByKey("value", txt); 
+				value:SetTextByKey("value", txt); 
 			end
 		else
 			return;
@@ -118,7 +117,7 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 	end
 
 	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 5,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-    local prop = ctrlSet:GetChild("prop");
+	local prop = ctrlSet:GetChild("prop");
     local imag = string.format(STATUS_OVERRIDE_GET_IMGNAME1(), 55, 45) 
 	prop:SetTextByKey("value", imag.. ScpArgMsg("Token_ExpUp{PER}", "PER", " ")); 
     local value = ctrlSet:GetChild("value");
@@ -128,16 +127,16 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 	local itemClassID = session.loginInfo.GetPremiumStateArg(ITEM_TOKEN)
 	local itemCls = GetClassByType("Item", itemClassID);
 	if nil ~= itemCls and itemCls.NumberArg2 > 0 then
-	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 6,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-	local prop = ctrlSet:GetChild("prop");
-	local img = string.format("{img dealok_image %d %d}", 55, 45) 
-	prop:SetTextByKey("value", img .. ScpArgMsg("AllowTradeByCount"));
-	
-	local value = ctrlSet:GetChild("value");
-	img = string.format("{img dealok30_image2 %d %d}", 100, 45) 
-	value:SetTextByKey("value", img);
+		local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 6,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+		local prop = ctrlSet:GetChild("prop");
+		local img = string.format("{img dealok_image %d %d}", 55, 45) 
+		prop:SetTextByKey("value", img .. ScpArgMsg("AllowTradeByCount"));
+
+		local value = ctrlSet:GetChild("value");
+		img = string.format("{img dealok30_image2 %d %d}", 100, 45) 
+		value:SetTextByKey("value", img);
 	end
-		
+	
 	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 7,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img 1plus_image %d %d}", 55, 45) 
@@ -220,7 +219,7 @@ function STATUS_ONLOAD(frame, obj, argStr, argNum)
 	ACHIEVE_RESET(frame);
 
 	STATUS_TAB_CHANGE(frame);
-	STATUS_INFO(frame);
+	STATUS_INFO();
 
 	--local invenFrame = ui.GetFrame('inventory');
 	--invenFrame:ShowWindow(1);
@@ -286,9 +285,8 @@ function STATUS_UPDATE(frame)
 		STAT_RESET(frame, 1);
 		g_reserve_reset = 0;
 	else
-		STATUS_INFO(frame);
+		DebounceScript("STATUS_INFO", 0.1);
 	end
-
 end
 
 function RESERVE_RESET(frame)
@@ -307,7 +305,7 @@ function STAT_RESET(frame, update)
 	end
 
 	if changed == 1 then
-		STATUS_INFO(frame);
+		STATUS_INFO();
 	end
 end
 
@@ -455,8 +453,7 @@ function REQ_STAT_UP(frame, control, argstr, argnum)
 
 	session.SetUserConfig(configName, curstat + 1);
 	frame = frame:GetTopParentFrame();
-	STATUS_INFO(frame);
-
+	STATUS_INFO();
 end
 
 function OPERATOR_REQ_STAT_UP(frame, control, argstr, argnum)
@@ -481,8 +478,7 @@ function OPERATOR_REQ_STAT_UP(frame, control, argstr, argnum)
 	end
 	session.SetUserConfig(configName, curstat + increase + remainder);
 	frame = frame:GetTopParentFrame();
-	STATUS_INFO(frame);
-
+	STATUS_INFO();
 end
 
 function GET_REMAIN_STAT_PTS()
@@ -563,8 +559,8 @@ function STATUS_BTN_UP_VISIBLE(frame, controlsetName, pc, visible)
 	btnUp:ShowWindow(visible);
 end
 
-function STATUS_INFO(frame)	
-
+function STATUS_INFO()
+	local frame = ui.GetFrame('status');
 	local MySession		= session.GetMyHandle()
 	local CharName		= info.GetName(MySession);
 --	local CharProperty	= GetProperty(MySession);
@@ -642,7 +638,7 @@ function STATUS_INFO(frame)
 	end
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "CRTHR", y);
 	y = returnY + 10;
-
+	
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "DEF", y);
 	if returnY ~= y then
 		y = returnY + 3;
@@ -665,7 +661,7 @@ function STATUS_INFO(frame)
 	end
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "CRTDR", y);
 	y = returnY + 10;
-    
+	
 	returnY = STATUS_ATTRIBUTE_VALUE_DIVISIONBYTHOUSAND_NEW(pc, opc, frame, gboxctrl, "MaxSta", y);
 	if returnY ~= y then
 		y = returnY + 3;
@@ -754,7 +750,7 @@ function STATUS_INFO(frame)
 	end
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "LargeSize_Atk", y);
 	y = returnY + 10;
-    
+	
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Cloth_Atk", y);
 	if returnY ~= y then
 		y = returnY + 3;
@@ -789,7 +785,7 @@ function STATUS_INFO(frame)
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Velnias_Atk", y);
 	y = returnY + 10;
 	
-	--STATUS_ATTRIBUTE_VALUE_RANGE(pc, opc, frame, gboxctrl, "PATK", "MINPATK", "MAXPATK");
+        --STATUS_ATTRIBUTE_VALUE_RANGE(pc, opc, frame, gboxctrl, "PATK", "MINPATK", "MAXPATK");
 	--STATUS_ATTRIBUTE_VALUE_RANGE(pc, opc, frame, gboxctrl, "MATK", "MINMATK", "MAXMATK");
 	--STATUS_ATTR_SET_PERCENT(pc, opc, frame, gboxctrl, "CRTHR");
 	--STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "CRTHR");
@@ -804,7 +800,7 @@ function STATUS_INFO(frame)
 
 
 
-	--STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "DEF");
+        --STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "DEF");
 	STATUS_ATTR_SET_PERCENT(pc, opc, frame, gboxctrl, "BLK");
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "CRTDR");
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "SDR");
@@ -845,7 +841,7 @@ function STATUS_SLOT_RBTNDOWN(frame, slot, argStr, equipSpot)
 	if true == BEING_TRADING_STATE() then
 		return;
 	end
-	-- 인벤에 자리있는지 먼저 확인
+	-- �κ��� �ڸ��ִ��� ���� Ȯ��
 	local isEmptySlot = false;
 
 	local invItemList = session.GetInvItemList();
@@ -1397,7 +1393,7 @@ function STATUS_ACHIEVE_INIT(frame)
 			eachAchiveDesc:SetText(cls.Desc);
 			eachAchiveGauge:SetPoint(nowpoint, cls.NeedCount);
 			eachAchiveName:SetTextByKey('name', cls.Name);
-			eachAchiveReward:SetTextByKey('reward', cls.Reward);
+        		eachAchiveReward:SetTextByKey('reward', cls.Reward);
 
 			if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 then
 				eachAchiveGauge:ShowWindow(0)
@@ -1561,7 +1557,7 @@ function GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(engname)
 	if engname == 'white' then
 		return "white_color"
 	end
-
+	
 	if engname == 'blond' then
 		return "blond_color"
 	end
@@ -1569,7 +1565,7 @@ function GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(engname)
 	if engname == 'red' then
 		return "red_color"
 	end
-
+	
 	if engname == 'green' then
 		return "green_color"
 	end
@@ -1577,7 +1573,10 @@ function GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(engname)
 	if engname == 'gray' then
 		return "gray_color"
 	end
-
+	
+	if engname == 'lightsalmon' then
+		return "lightsalmon_color"
+	end
 	return "basic_color"
 
 end
@@ -1622,3 +1621,81 @@ function STATUS_JOB_CHANGE(frame)
 	
 end
 
+
+--캐릭터 이름 변경
+function CHANGE_MYPC_NAME_BY_ITEM(invItem)
+	local newframe = ui.GetFrame("inputstring");
+
+	if invItem.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock")); 
+		newframe:ShowWindow(0);
+		return;
+	end
+
+	local charName = GETMYPCNAME();
+	newframe:SetUserValue("InputType", "InputNameForChange");
+	newframe:SetUserValue("ItemIES", invItem:GetIESID());
+	newframe:SetUserValue("ItemType", "PcName");
+	INPUT_STRING_BOX(ClMsg("InputNameForChange"), "EXEC_CHANGE_NAME_BY_ITEM", charName, 0, 16);
+end
+
+--팀 이름 변경
+function CHANGE_TEAM_NAME_BY_ITEM(invItem)
+	local newframe = ui.GetFrame("inputstring");
+
+	if invItem.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock")); 
+		newframe:ShowWindow(0);
+		return;
+	end
+
+	local charName = GETMYFAMILYNAME();
+	newframe:SetUserValue("InputType", "InputNameForChange");
+	newframe:SetUserValue("ItemIES", invItem:GetIESID());
+	newframe:SetUserValue("ItemType", "TeamName");
+	INPUT_STRING_BOX(ClMsg("ChangeFamilyName"), "EXEC_CHANGE_NAME_BY_ITEM", charName, 0, 16);
+end
+
+--길드 이름 변경
+function CHANGE_GUILD_NAME_BY_ITEM(invItem)
+	local newframe = ui.GetFrame("inputstring");
+
+	if invItem.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock")); 
+		newframe:ShowWindow(0);
+		return;
+	end
+
+	local guild = session.party.GetPartyInfo(PARTY_GUILD);
+	if guild == nil then
+		newframe:ShowWindow(0);
+		return;
+	end
+
+
+	local charName = guild.info.name;
+	newframe:SetUserValue("InputType", "InputNameForChange");
+	newframe:SetUserValue("ItemIES", invItem:GetIESID());
+	newframe:SetUserValue("ItemType", "GuildName");
+	INPUT_STRING_BOX(ClMsg("ChangeGuildName"), "EXEC_CHANGE_NAME_BY_ITEM", charName, 0, 16);
+end
+
+function EXEC_CHANGE_NAME_BY_ITEM(inputframe, ctrl)
+
+	if ctrl:GetName() == "inputstr" then
+		inputframe = ctrl;
+	end
+	local newframe = ui.GetFrame("inputstring");
+	local itemIES = nil;
+	local itemIES = newframe:GetUserValue("ItemIES");
+	local itemType = newframe:GetUserValue("ItemType");
+
+	local changedName = GET_INPUT_STRING_TXT(newframe);
+
+	if ui.IsValidCharacterName(changedName) == false then
+		ui.SysMsg(ClMsg("HadFobbidenWord"));
+		return;
+	end
+
+	OPEN_CHECK_USER_MIND_BEFOR_YES_BY_ITEM(inputframe, changedName, itemIES, itemType);
+end

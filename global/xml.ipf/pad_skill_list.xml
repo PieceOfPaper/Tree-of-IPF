@@ -1570,9 +1570,9 @@ return 10000 + obj.Level * 1000"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="Fade_Buff"/>
-                <Num Num="1" UseFunc="1" FuncTxt="local lastPadGuid = GetLastEnterPadID(self); local pad = GetPadByGuid(self, lastPadGuid); return GetPadArgNumber(pad, 1);"/>
+                <Num Num="1" UseFunc="1" FuncTxt="local lastPadGuid = GetLastEnterPadID(self); local pad = GetPadByGuid(self, lastPadGuid); if nil == pad then return 1; else return GetPadArgNumber(pad, 1); end"/>
                 <Num Num="0"/>
-                <Num Num="1000" UseFunc="1" FuncTxt="local lastPadGuid = GetLastEnterPadID(self); local pad = GetPadByGuid(self, lastPadGuid); return 10000 + GetPadArgNumber(pad, 1) * 2000"/>
+                <Num Num="1000" UseFunc="1" FuncTxt="local lastPadGuid = GetLastEnterPadID(self); local pad = GetPadByGuid(self, lastPadGuid); if nil == pad then return 2000; else return 10000 + GetPadArgNumber(pad, 1) * 2000 end"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
             </ToolScp>
@@ -4343,6 +4343,9 @@ end"/>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000"/>
                 <Num Num="1"/>
+            </ToolScp>
+        <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO" OverrideType="ADD">
+                <Num Num="1" UseFunc="1" FuncTxt="return 10 + obj.Level;"/>
             </ToolScp>
         </createEvent>
         <updateEvent>
@@ -7777,7 +7780,7 @@ return 30000 + obj.Level * 5000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Sapper_StakeStockades" CheckerType="1" Range="10" InnerRange="10" UpdateTerm="100" Relation="2" IsMagicType="0">
+    <PadSkill Name="Sapper_StakeStockades" CheckerType="1" Range="15" InnerRange="10" UpdateTerm="100" Relation="2" IsMagicType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="30000" UseFunc="1" FuncTxt="if IsPVPServer(self) == 1 then return 900000 else return 15000 end"/>
@@ -9997,14 +10000,28 @@ return obj.Level"/>
                 <Str Str="NEUTRAL"/>
                 <Num Num="0"/>
                 <Num Num="-1"/>
-                <Str Str="Cloaking_Buff"/>
+                <Str Str="Cover_Buff"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="60000" UseFunc="1" FuncTxt="return 60000 * obj.Level"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
             </ToolScp>
-        </enterEvent>
+        <ToolScp Scp="PAD_BUFF_MONRANK_SET_TIME" Client="NO" UseSleep="NO">
+                <Str Str="Cover_Buff"/>
+                <Str Str="MISC"/>
+                <Num Num="5000" UseFunc="1" FuncTxt="
+                
+return math.min(7000, obj.Level * 1500)"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_BUFF_MONRANK_SET_TIME" Client="NO" UseSleep="NO">
+                <Str Str="Cover_Buff"/>
+                <Str Str="NPC"/>
+                <Num Num="5000" UseFunc="1" FuncTxt="
+
+return math.min(7000, obj.Level * 1500)"/>
+            </ToolScp>
+		</enterEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="-500"/>

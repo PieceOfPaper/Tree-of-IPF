@@ -44,8 +44,8 @@
 		<slidebar name="totalVol" rect="0 0 360 20" margin="50 615 0 0" layout_gravity="left top" SlideScp="CONFIG_TOTALVOL" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
 		<slidebar name="minPksDelay" rect="0 0 360 20" margin="50 0 0 85" layout_gravity="left bottom" ConfigName="MinPksDelay" SlideScp="APPLY_PKS_DELAY" maxlevel="1000" minlevel="0" skin="slidebar" tabname="operator"/>
 		<slidebar name="maxPksDelay" rect="0 0 360 20" margin="50 0 0 145" layout_gravity="left bottom" ConfigName="MaxPksDelay" SlideScp="APPLY_PKS_DELAY" maxlevel="1000" minlevel="0" skin="slidebar" tabname="operator"/>
-		<richtext name="language_title" parent="pipwin_low" rect="0 0 120 24" margin="30 890 0 0" layout_gravity="left top" format="{@st43}언어 선택{/}"/>
-		<droplist name="languageList" parent="pipwin_low" rect="0 0 200 40" margin="240 900 0 0" layout_gravity="left top" SelectScp="APPLY_LANGUAGE" font="white_20_ol" frametextalign="left" skin="droplist_normal" textalign="left center" textoffset="10 0" visibleline="11"/>
+		<richtext name="language_title" parent="pipwin_low" rect="0 0 120 24" margin="30 860 0 0" layout_gravity="left top" format="{@st43}언어 선택{/}"/>
+		<droplist name="languageList" parent="pipwin_low" rect="0 0 200 40" margin="240 870 0 0" layout_gravity="left top" SelectScp="APPLY_LANGUAGE" font="white_20_ol" frametextalign="left" skin="droplist_normal" textalign="left center" textoffset="10 0" visibleline="11"/>
 		<timer name="addontimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
 		<picture name="titlepicture" rect="0 0 44 44" margin="0 6 -500 0" layout_gravity="right top" image="button_config"/>
 		<button name="close" rect="0 0 44 44" margin="28 20 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;systemoption&apos;)" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}게임 설정창을 닫습니다{/}"/>

@@ -93,6 +93,7 @@ function OPEN_WORLDPVP(frame)
 		loadingtext:ShowWindow(1);
 		charinfo:ShowWindow(0);
 	end
+
 	UPDATE_WORLDPVP(frame);
 	ON_PVP_STATE_CHANGE(frame);
 end
@@ -249,6 +250,14 @@ function JOIN_WORLDPVP(parent, ctrl)
 		return;
 	end
 
+	if cls.MatchType == "Guild" then
+	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+	if pcparty == nil then
+		ui.SysMsg(ScpArgMsg("PleaseJoinGuild"));
+		return;
+	end
+	end
+
 	local isLeader = AM_I_LEADER(PARTY_GUILD);
 
 	if cls.MatchType ~= "Guild" or isLeader == 0 then
@@ -264,8 +273,14 @@ function JOIN_WORLDPVP(parent, ctrl)
 
 	local myCnt = pvpObj:GetPropValue(cls.ClassName .. "_Cnt", 0);
 	local yesScp = string.format("NOTICE_AND_CHECK_PVP_COUNT(%d, %d)", pvpType, myCnt) 
-	local msg = ScpArgMsg("PVPEnter{COUNT}{MAX}",'COUNT',myCnt, 'MAX',cls.MaxPlayCount )
-	ui.MsgBox(msg, yesScp, "None");
+	
+	local state = session.worldPVP.GetState();
+	if state == PVP_STATE_PLAYING then
+		ui.MsgBox(ScpArgMsg("ExistsPlayingPVP"), yesScp, "None");
+	else
+		local msg = ScpArgMsg("PVPEnter{COUNT}{MAX}",'COUNT',myCnt, 'MAX',cls.MaxPlayCount )
+		ui.MsgBox(msg, yesScp, "None");
+	end
 end
 
 function NOTICE_AND_CHECK_PVP_COUNT(pvpType, playCnt)

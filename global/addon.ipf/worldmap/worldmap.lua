@@ -265,10 +265,24 @@ function MAPNAME_FONT_CHECK(mapLvValue)
     local pc = GetMyPCObject();
     local pcLv = pc.Lv
     local mapNameFont = ''
-	if mapLvValue < pcLv - 10 then
-	    mapNameFont = '{#99cc66}'
-	elseif mapLvValue > pcLv + 10 then
-	    mapNameFont = '{#ff9955}'
+
+	-- ê²€ì •
+	if mapLvValue > pcLv + 80 then 
+	    mapNameFont = '{@st66e}{#646464}{b}'
+	-- ë¹¨ê°•
+	elseif mapLvValue > pcLv + 60 then 
+	    mapNameFont = '{@st66e}{#e72100}{b}'
+	-- ë…¸ëž‘
+	elseif mapLvValue > pcLv + 40 then 
+	    mapNameFont = '{@st66e}{#ffc000}{b}'
+	-- ì´ˆë¡
+	elseif mapLvValue > pcLv + 20 then
+	    mapNameFont = '{@st66e}{#00c01b}{b}'
+	-- íŒŒëž‘
+	elseif mapLvValue > pcLv then 
+	    mapNameFont = '{@st66e}{#00a2ff}{b}'
+	else
+	    mapNameFont = '{@st66e}{#ffffff}{b}'
 	end
 	
 	return mapNameFont
@@ -320,13 +334,19 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
         if #nowGetTypeIES > 0 then
 		warpGoddessIcon_now = '{img minimap_goddess 24 24}'
 	end
-					
+	
 	local getTypeIES = SCR_GET_XML_IES('camp_warp','Zone', mapCls.ClassName)
 	local warpGoddessIcon = ''
-        if #getTypeIES > 0 then
+    if #getTypeIES > 0 then
 		warpGoddessIcon = '{img minimap_goddess 24 24}'
 	end
-
+	
+	local mapType = TryGetProp(mapCls, 'MapType');
+	local dungeonIcon = ''
+    if mapType == 'Dungeon' then
+		dungeonIcon = '{img minimap_dungeon 30 30}'
+	end
+	
 	local mapLvValue = mapLv
 	if mapLv == nil or mapLv == 'None' or mapLv == '' or mapLv == 0 then
 		mapLv = ''
@@ -346,9 +366,9 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 	end
 	
 	local mapNameFont = MAPNAME_FONT_CHECK(mapLvValue)
-	
+
 	if mainName ~= "None" then
-		text:SetTextByKey("value", mapNameFont..mainName..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge..'{/}{nl}'..GET_STAR_TXT(20,mapCls.MapRank));
+		text:SetTextByKey("value", dungeonIcon..'{nl}'..mapNameFont..mainName..'{nl}'..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge..'{/}{nl}'..GET_STAR_TXT(20,mapCls.MapRank));
 	else
 		if mapName ~= mapCls.ClassName and nowMapWorldPos[1] == x and nowMapWorldPos[2] == y then
 			local nowmapLv = nowMapIES.QuestLevel
@@ -357,9 +377,9 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
         	else
         		nowmapLv = '{nl}Lv.'..nowmapLv
         	end
-			text:SetTextByKey("value", mapNameFont..mapCls.Name..'{nl}'..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge..'{nl}'..warpGoddessIcon_now..questPossibleIcon..'{@st57}'..nowMapIES.Name..nowmapLv..'{/}'.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank))
+			text:SetTextByKey("value", dungeonIcon..'{nl}'..mapNameFont..mapCls.Name..'{nl}'..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge..'{nl}'..warpGoddessIcon_now..questPossibleIcon..'{@st57}'..nowMapIES.Name..nowmapLv..'{/}'.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank))
 		else
-    		text:SetTextByKey("value", mapNameFont..mapCls.Name..'{nl}'..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank));						
+    		text:SetTextByKey("value", dungeonIcon..'{nl}'..mapNameFont..mapCls.Name..'{nl}'..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank));						
     	end
 	end
 					
@@ -541,16 +561,68 @@ function WORLDMAP_LOCATE_LASTWARP(parent, ctrl)
 end
 
 function WORLDMAP_LOCATE_NOWPOS(parent, ctrl)
-
 	local mapName= session.GetMapName();
 	LOCATE_WORLDMAP_POS(parent:GetTopParentFrame(), mapName);
+end
 
+function GET_DUNGEON_LIST(below, above)
+    local pc = GetMyPCObject();
+    local pcLv = pc.Lv
+	local maxLevel = pc.Lv + above;
+	local minLevel = pc.Lv + below;
+
+	local recommendlist = {};
+	local clslist, cnt = GetClassList("Map");
+				
+	local etc = GetMyEtcObject();
+	for i = 0, cnt - 1 do
+		local mapCls = GetClassByIndexFromList(clslist, i);
+		if etc['HadVisited_' .. mapCls.ClassID] == 1 or FindCmdLine("-WORLDMAP") > 0 then
+			if mapCls.MapType == 'Dungeon' and mapCls.QuestLevel >= minLevel and mapCls.QuestLevel <= maxLevel then
+				recommendlist[#recommendlist + 1] = mapCls;
+			end	
+		end
+	end
+	return recommendlist;
+end
+
+function GET_RECOMMENDDED_DUNGEON(dungeonlist)
+    local pc = GetMyPCObject();
+    local pcLv = pc.Lv;
+	
+	local dungeon = dungeonlist[1];
+	if dungeon == nil then
+		return;
+	end
+	local dungeonDiff = math.abs(dungeon.QuestLevel - pcLv);
+	for i=1, #dungeonlist do
+		local newDiff = dungeonlist[i].QuestLevel - pcLv;
+		if math.abs(newDiff) < dungeonDiff then
+			dungeon = dungeonlist[i];
+			dungeonDiff = math.abs(dungeon.QuestLevel - pcLv);
+		end
+	end
+	return dungeon;
+end
+
+
+function WORLDMAP_LOCATE_RECOMMENDDED_DUNGEON(parent, ctrl)
+	local recommendlist = GET_DUNGEON_LIST(-10, 3)
+	local recommendded = GET_RECOMMENDDED_DUNGEON(recommendlist);
+
+	if TryGetProp(recommendded, "ClassName") ~= nil then
+		LOCATE_WORLDMAP_POS(parent:GetTopParentFrame(), recommendded.ClassName);
+	end
 end
 
 function LOCATE_WORLDMAP_POS(frame, mapName)
 
 	local gBox = GET_WORLDMAP_GROUPBOX(frame);
 	local mapCls = GetClass("Map", mapName);
+	if mapCls == nil then
+		
+		return
+	end
 	if mapCls.WorldMap == "None" then
 		return;
 	end
@@ -561,7 +633,7 @@ function LOCATE_WORLDMAP_POS(frame, mapName)
 	local childCtrl = gBox:GetChild(gBoxName);
 
 	if childCtrl == nil then
-		return; -- µî·ÏµÈ ¿©½Å»óÀÌ ¾øÀ¸¸é nilÀÎ°¡?
+		return; -- ï¿½ï¿½Ïµï¿½?ï¿½ï¿½ï¿½Å»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nilï¿½Î°ï¿½?
 	end
 
 	local x = childCtrl:GetX();
@@ -600,6 +672,48 @@ function LOCATE_WORLDMAP_POS(frame, mapName)
 
 end
 
+function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 
+	local inputSearch = frame:GetChild('input_search')
+	local searchText = inputSearch:GetText()
+	local oldSearchText = frame:GetUserValue('SEARCH_TEXT')
+	local oldSearchIdx = frame:GetUserValue('SEARCH_IDX')
+
+	if searchText == "" then
+		return
+	end
+
+	local etc = GetMyEtcObject();    
+	local mapList, cnt = GetClassList('Map')
+	if etc == nil or mapList == nil or cnt < 1 then -- valid check
+		return
+	end
+
+    local targetMap = {}
+	local targetCnt = 0
+	for i=0, cnt-1 do
+		local mapCls = GetClassByIndexFromList(mapList, i);
+		if mapCls ~= nil and mapCls.WorldMap ~= "None" and (etc['HadVisited_' .. mapCls.ClassID] == 1 or FindCmdLine("-WORLDMAP") > 0)then
+			local tempname = string.lower(dictionary.ReplaceDicIDInCompStr(mapCls.Name));		
+			local tempinputtext = string.lower(searchText)
+			if tempinputtext == "" or true == ui.FindWithChosung(tempinputtext, tempname) then
+				targetMap[targetCnt] = mapCls.ClassName
+				targetCnt = targetCnt + 1
+			end
+		end
+	end
+
+	local showIdx = 0
+	if oldSearchText == searchText then
+		showIdx = tonumber(oldSearchIdx) + 1
+		if showIdx >= targetCnt then
+			showIdx = showIdx - targetCnt
+		end
+	else
+		frame:SetUserValue('SEARCH_TEXT', searchText)
+	end
+	frame:SetUserValue('SEARCH_IDX', tostring(showIdx))
+	LOCATE_WORLDMAP_POS(frame, targetMap[showIdx]);
+end
 
 

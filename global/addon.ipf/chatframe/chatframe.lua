@@ -83,7 +83,7 @@ function CREATE_DEF_CHAT_GROUPBOX(frame)
 		local gbox = frame:CreateControl("groupbox", "chatgbox_"..i, frame:GetWidth() - (gboxleftmargin + gboxrightmargin), frame:GetHeight() - (gboxtopmargin + gboxbottommargin), ui.RIGHT, ui.BOTTOM, 0, 0, gboxrightmargin, gboxbottommargin);
 		_ADD_GBOX_OPTION_FOR_CHATFRAME(gbox)
 
-		--·ç¾Æ 5.1 ÆĞÄ¡ ÇßÀ¸¸é ÁÁ°Ú´Ù. ºñÆ®¿¬»ê Á» ¾²ÀÚ.
+		--ë£¨ì•„ 5.1 íŒ¨ì¹˜ í–ˆìœ¼ë©´ ì¢‹ê² ë‹¤. ë¹„íŠ¸ì—°ì‚° ì¢€ ì“°ì.
 		if i >= 4 and i < 8 then
 			gbox:SetUserValue("CHAT_ID", "party");
 			gbox:SetEventScript(ui.SCROLL, "SCROLL_CHAT");
@@ -236,7 +236,7 @@ function REMOVE_CHAT_CLUSTER(groupboxname, clusteridlist)
 
 end
 
---Ã¤ÆÃÃ¢ Àç»ı¼º ÇÔ¼ö 
+--ì±„íŒ…ì°½ ì¬ìƒì„± í•¨ìˆ˜ 
 function REDRAW_CHAT_MSG(groupboxname, size, roomId)
 	local framename = "chatframe";
 	local chatframe = ui.GetFrame(framename)
@@ -258,7 +258,7 @@ function REDRAW_CHAT_MSG(groupboxname, size, roomId)
 	DRAW_CHAT_MSG(groupboxname, size, 0, framename);
 end
 
---Ã¤ÆÃÃ¢ÀÇ Ãª±×·ìµéÀ» ±×·ÁÁÖ´Â ÇÔ¼ö 
+--ì±„íŒ…ì°½ì˜ ì±—ê·¸ë£¹ë“¤ì„ ê·¸ë ¤ì£¼ëŠ” í•¨ìˆ˜ 
 function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 	if startindex < 0 then
 		return;
@@ -303,7 +303,7 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 
 	for i = startindex , size - 1 do
 
-		-- ÀÏ´Ü ÀÌÀü Á¤º¸¸¦ ±â¹İÀ¸·Î ypos¸¦ Ã£À» °Í.
+		-- ì¼ë‹¨ ì´ì „ ì •ë³´ë¥¼ ê¸°ë°˜ìœ¼ë¡œ yposë¥¼ ì°¾ì„ ê²ƒ.
 		if i ~= 0 then
 			local clusterinfo = session.ui.GetChatMsgClusterInfo(groupboxname, i-1)
 			if clusterinfo ~= nil then
@@ -330,20 +330,26 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 		local fontSize = GET_CHAT_FONT_SIZE();	
 		local tempfontSize = string.format("{s%s}", fontSize);
 		local offsetX = chatframe:GetUserConfig("CTRLSET_OFFSETX");
-		
 		if textVer == 0 then
-			-- Ç³¼± ¹öÁ¯ 
+			-- í’ì„  ë²„ì ¼ 
 		roomID = clusterinfo:GetRoomID();
 
-			-- ÄÁÆ®·ÑÀº ÀÌ¹Ì ¸¸µé¾î ³õÀº°Ô ÀÖÀ»¼öµµ ÀÖÀ½. ÀÖÀ¸¸é ±×³É °¡Á®´Ù ¾¸			
+			-- ì»¨íŠ¸ë¡¤ì€ ì´ë¯¸ ë§Œë“¤ì–´ ë†“ì€ê²Œ ìˆì„ìˆ˜ë„ ìˆìŒ. ìˆìœ¼ë©´ ê·¸ëƒ¥ ê°€ì ¸ë‹¤ ì”€			
 		local cluster = GET_CHILD(groupbox, clustername);
-		if cluster ~= nil then -- ÀÖ´Ù¸é ¾÷µ¥ÀÌÆ®
+			if cluster ~= nil then -- ìˆë‹¤ë©´ ì—…ë°ì´íŠ¸
 			
 				local fontStyle = mainchatFrame:GetUserConfig("BALLONCHAT_FONTSTYLE");
+				local label = cluster:GetChild('bg');
+
 				if msgType == "System" then
 					fontStyle = mainchatFrame:GetUserConfig("BALLONCHAT_FONTSTYLE_SYSTEM");
+				elseif msgType == "friendmem" then
+					fontStyle = mainchatFrame:GetUserConfig("BALLONCHAT_FONTSTYLE_MEMBER");
+					cluster:RemoveChild("name");
+				elseif msgType == "guildmem" then
+					fontStyle = mainchatFrame:GetUserConfig("BALLONCHAT_FONTSTYLE_MEMBER");
+					cluster:RemoveChild("name");
 				end;
-			local label = cluster:GetChild('bg');
 			local txt = GET_CHILD(label, "text");
 				local tempMsg = string.gsub(clusterinfo:GetMsg(), "({/}{/})", "%1" .. fontStyle .. tempfontSize);
 				txt:SetTextByKey("text", tempMsg);
@@ -365,7 +371,7 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 					label:EnableHitTest(1)
 				end
 
-		else -- ¾ø´Ù¸é »õ·Î ±×¸®±â
+			else -- ì—†ë‹¤ë©´ ìƒˆë¡œ ê·¸ë¦¬ê¸°
 			
 			local chatCtrlName = 'chatu';
 			if true == ui.IsMyChatCluster(clusterinfo) then
@@ -378,8 +384,14 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 
 				local chatCtrl = groupbox:CreateOrGetControlSet(chatCtrlName, clustername, horzGravity, ui.TOP, marginLeft, ypos + 5, marginRight, 0);
 			chatCtrl:EnableHitTest(1);
+				
+				local label = chatCtrl:GetChild('bg');
 				local fontStyle = mainchatFrame:GetUserConfig("BALLONCHAT_FONTSTYLE");
-				if msgType ~= "System" then
+				if msgType == "friendmem" then
+					fontStyle = mainchatFrame:GetUserConfig("BALLONCHAT_FONTSTYLE_MEMBER");
+				elseif msgType == "guildmem" then
+					fontStyle = mainchatFrame:GetUserConfig("BALLONCHAT_FONTSTYLE_MEMBER");
+				elseif msgType ~= "System" then
 				chatCtrl:SetEventScript(ui.RBUTTONDOWN, 'CHAT_RBTN_POPUP');
 					chatCtrl:SetUserValue("TARGET_NAME", commnderName);
 				elseif msgType == "System" then
@@ -387,7 +399,6 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 			end			
 
 				local myColor, targetColor = GET_CHAT_COLOR(msgType);
-			local label = chatCtrl:GetChild('bg');
 			local txt = GET_CHILD(label, "text", "ui::CRichText");
 				local timeBox = GET_CHILD(chatCtrl, "timebox", "ui::CGroupBox");
 				local timeCtrl = GET_CHILD(timeBox, "time", "ui::CRichText");
@@ -406,11 +417,17 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 				label:SetColorTone(myColor);
 			else
 				label:SetColorTone(targetColor);
+					if commnderName == "guildmem" or commnderName == "friendmem" then
+						chatCtrl:RemoveChild("name");
+					elseif commnderName == 'System' then
+					nameText:SetText('{img chat_system_icon 65 18 }{/}');
+				else
 					nameText:SetText('{@st61}'..commnderName..'{/}');
+				end
 
 				local iconPicture = GET_CHILD(chatCtrl, "iconPicture", "ui::CPicture");
 				iconPicture:ShowWindow(0);
-				--[[ Ä³¸¯ÅÍ ¾ó±¼ »ì¸±°Å¸é ¿©±â
+					--[[ ìºë¦­í„° ì–¼êµ´ ì‚´ë¦´ê±°ë©´ ì—¬ê¸°
 				
 				if iconInfo == nil then
 					iconPicture:ShowWindow(0);
@@ -432,7 +449,7 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 				RESIZE_CHAT_CTRL(1, chatframe, chatCtrl, label, txt, timeBox, offsetX);
 			end;			
 		elseif textVer == 1 then
-			-- °£·«È­ ¹öÁ¯ 
+			-- ê°„ëµí™” ë²„ì ¼ 
 				local chatCtrlName = 'chatTextVer';
 				local horzGravity = ui.LEFT;
 				local chatCtrl = groupbox:CreateOrGetControlSet(chatCtrlName, clustername, horzGravity, ui.TOP, marginLeft, ypos -2 , marginRight, 0);						
@@ -455,7 +472,13 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 				label:SetAlpha(0);
 				end;
 
-				if msgType ~= "System" then
+				if msgType == "friendmem" then
+					fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_SYSTEM");
+					msgFront = "#86E57F";
+				elseif msgType == "guildmem" then
+					fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_SYSTEM");
+					msgFront = "#A566FF";
+				elseif msgType ~= "System" then
 					chatCtrl:SetEventScript(ui.RBUTTONDOWN, 'CHAT_RBTN_POPUP');
 					chatCtrl:SetUserValue("TARGET_NAME", commnderName);
 
@@ -471,10 +494,10 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 					elseif msgType == "Guild" then
 						fontStyle = CHAT_TEXT_IS_MINE_AND_SETFONT(mainchatFrame, msgIsMine, "TEXTCHAT_FONTSTYLE_GUILD");
 						msgFront = string.format("[%s][%s]", ScpArgMsg("ChatType_4"), commnderName);	
-					elseif msgType == "Notice" then		--°øÁö
+					elseif msgType == "Notice" then		--ê³µì§€
 						fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_NOTICE");	
 						msgFront = string.format("[%s]", ScpArgMsg("ChatType_6"));		
-					else	--±Ó¸»
+					else	--ê·“ë§
 						fontStyle = CHAT_TEXT_IS_MINE_AND_SETFONT(mainchatFrame, msgIsMine, "TEXTCHAT_FONTSTYLE_WHISPER");
 						msgFront = string.format("[%s][%s]", ScpArgMsg("ChatType_5"), commnderName);	
 					end;
@@ -484,13 +507,18 @@ function DRAW_CHAT_MSG(groupboxname, size, startindex, framename)
 					label:SetColorTone("FF000000");
 					label:SetAlpha(80);
 		end
-
-
+				local timeMsg = "";
 				for i = 1 , itemCnt do
-					--local tempMsg = string.gsub(clusterinfo:GetMsgItembyIndex(i-1), "({img %a+_%d+%s)%d+%s%d+(}{/})", "%1" .. (fontSize * 3) .. " " .. (fontSize * 3) .. "%2".. fontStyle .. tempfontSize); --ÀÌ¹ÌÁöÀÇ Å©±âµµ º¯°æ½ÃÅ°´Â ÄÚµå
+					--local tempMsg = string.gsub(clusterinfo:GetMsgItembyIndex(i-1), "({img %a+_%d+%s)%d+%s%d+(}{/})", "%1" .. (fontSize * 3) .. " " .. (fontSize * 3) .. "%2".. fontStyle .. tempfontSize); --ì´ë¯¸ì§€ì˜ í¬ê¸°ë„ ë³€ê²½ì‹œí‚¤ëŠ” ì½”ë“œ
 					local tempMsg = string.gsub(clusterinfo:GetMsgItembyIndex(i-1), "({/}{/})", "%1" .. fontStyle .. tempfontSize);
-					local msgStingAdd = string.format("%s : %s{nl}", msgFront, tempMsg);																										
+					local msgStingAdd = ' ';
+					if msgType == "friendmem" or  msgType == "guildmem" then
+						msgStingAdd = string.format("{%s}%s{nl}",msgFront, tempMsg);		
+					else
+						msgStingAdd = string.format("%s : %s{nl}", msgFront, tempMsg);		
+					end																									
 					msgString = msgString .. msgStingAdd;
+					--timeMsg = string.format("%s{nl}%s", timeMsg, clusterinfo:GetTimeStr());	
 				end;	
 				msgString = string.format("%s{/}", msgString);	
 				txt:SetTextByKey("font", fontStyle);				
@@ -550,7 +578,7 @@ end
 function RESIZE_CHAT_CTRL(isBallon, chatframe, chatCtrl, label, txt, timeBox, offsetX)
 
 	if isBallon == 1  then
-		-- Ç³¼±¹öÁ¯
+		-- í’ì„ ë²„ì ¼
 	local lablWidth = txt:GetWidth() + 40;
 	local chatWidth = chatCtrl:GetWidth();
 	label:Resize(lablWidth, txt:GetHeight() + 20);
@@ -575,7 +603,7 @@ function RESIZE_CHAT_CTRL(isBallon, chatframe, chatCtrl, label, txt, timeBox, of
 		end;
 
 	else
-		-- °£·«È­ ¹öÁ¯
+		-- ê°„ëµí™” ë²„ì ¼
 		local lablWidth = txt:GetWidth() + 40;
 		local chatWidth = chatframe:GetWidth();
 		label:Resize(chatWidth - offsetX, txt:GetHeight());
@@ -612,10 +640,13 @@ function GET_CHAT_COLOR(chatType)
 
 		myColor = frame:GetUserConfig("COLOR_GUILD_MY");
 		targetColor = frame:GetUserConfig("COLOR_GUILD");	
-
+	elseif chatType == "friendmem" then
+		targetColor = frame:GetUserConfig("COLOR_PARTY_INFO");
+	elseif chatType == "guildmem" then
+		targetColor = frame:GetUserConfig("COLOR_GUILD_INFO");
 	elseif chatType == "System" then
 		
-		myColor = frame:GetUserConfig("COLOR_NORMAL_MY"); -- ³ªÁß¿¡ ½Ã½ºÅÛ »ö Ã£¾Æ¼­ ¹Ù²Ü °Í
+		myColor = frame:GetUserConfig("COLOR_NORMAL_MY"); -- ë‚˜ì¤‘ì— ì‹œìŠ¤í…œ ìƒ‰ ì°¾ì•„ì„œ ë°”ê¿€ ê²ƒ
 		targetColor = frame:GetUserConfig("COLOR_NORMAL");
 
 	end
@@ -709,7 +740,7 @@ function CHAT_SET_FROM_TITLENAME(targetName, roomid)
 	name:SetTextByKey("title", titleText);
 
 
-	-- popupframeÀÇ Á¦¸ñµµ °°ÀÌ º¯°æ
+	-- popupframeì˜ ì œëª©ë„ ê°™ì´ ë³€ê²½
 	local popupframename = "chatpopup_" .. roomid
 	local popupframe = ui.GetFrame(popupframename);
 	if popupframe ~= nil and popupframe:IsVisible() == 1 then
@@ -720,7 +751,7 @@ end
 end
 
 
--- chat.lib·Î ¿Å±æ°Í
+-- chat.libë¡œ ì˜®ê¸¸ê²ƒ
 function SCROLL_CHAT(parent, ctrl, str, wheel)
 
 	if ctrl:IsVisible() == 0 then
@@ -749,7 +780,7 @@ end
 
 
 
-function CHAT_RBTN_POPUP(frame, chatCtrl) -- ÀÌ°Å »ì¸± ¼öµµ. ¿À´Ã ¸»°í.
+function CHAT_RBTN_POPUP(frame, chatCtrl) -- ì´ê±° ì‚´ë¦´ ìˆ˜ë„. ì˜¤ëŠ˜ ë§ê³ .
 
 	if session.world.IsIntegrateServer() == true then
 		ui.SysMsg(ScpArgMsg("CantUseThisInIntegrateServer"));
@@ -786,7 +817,7 @@ function CHAT_BLOCK_MSG(targetName)
 
 end
 
-function CHAT_FRAME_NOW_BTN_SKN() -- ±¸ ÇüÅÂÁö¸¸ ¾ÆÁ÷Àº ¾´´Ù.
+function CHAT_FRAME_NOW_BTN_SKN() -- êµ¬ í˜•íƒœì§€ë§Œ ì•„ì§ì€ ì“´ë‹¤.
 
 	local frame = ui.GetFrame('chatframe')
 
@@ -934,7 +965,7 @@ function RESIZE_CHAT_MSG(roomId, num)
 	end;
 end;
 
---½Ç½Ã°£ ÆùÆ® Å©±â º¯°æ ÇÔ¼ö
+--ì‹¤ì‹œê°„ í°íŠ¸ í¬ê¸° ë³€ê²½ í•¨ìˆ˜
 function CHAT_SET_FONTSIZE(chatframe, num) 
 	if chatframe == nil then
 		return;
@@ -959,11 +990,11 @@ function CHAT_SET_FONTSIZE(chatframe, num)
 					if chatCtrl:GetClassName() == "controlset" then
 						local label = chatCtrl:GetChild('bg');
 							if textVer == 0 then
-								--Ç³¼± ¹öÁ¯
+								--í’ì„  ë²„ì ¼
 								local txt = GET_CHILD(label, "text", "ui::CRichText");
 
 								if txt == nil then
-									--°³¹ß Áß°£¿¡ °£È¤ °£·«È­¹öÁ¯À¸·Î Ã£À»¶§°¡ ÀÖ¾î¼­ ¿¹¿ÜÃ³¸®ÇØµÎ¾ú´Ù. °íÃÄÁ³À» ¼öµµ ÀÖ´Ù.
+									--ê°œë°œ ì¤‘ê°„ì— ê°„í˜¹ ê°„ëµí™”ë²„ì ¼ìœ¼ë¡œ ì°¾ì„ë•Œê°€ ìˆì–´ì„œ ì˜ˆì™¸ì²˜ë¦¬í•´ë‘ì—ˆë‹¤. ê³ ì³ì¡Œì„ ìˆ˜ë„ ìˆë‹¤.
 									txt = GET_CHILD(chatCtrl, "text", "ui::CRichText");
 								end;	
 
@@ -973,7 +1004,7 @@ function CHAT_SET_FONTSIZE(chatframe, num)
 								local timeBox = GET_CHILD(chatCtrl, "timebox");
 								RESIZE_CHAT_CTRL(1, chatframe, chatCtrl, label, txt, timeBox, offsetX)				
 							else
-								--°£·«È­ ¹öÁ¯
+								--ê°„ëµí™” ë²„ì ¼
 								local txt = GET_CHILD(chatCtrl, "text", "ui::CRichText");
 								local msgString = CHAT_TEXT_CHAR_RESIZE(txt:GetTextByKey("text"), targetSize);
 								txt:SetTextByKey("text", msgString);
@@ -1000,19 +1031,19 @@ function CHAT_SET_FONTSIZE(chatframe, num)
 	chatframe:Invalidate();
 end
 
---°£·«È­ ¹öÁ¯ÀÎÁö È®ÀÎ ÇÔ¼ö
+--ê°„ëµí™” ë²„ì ¼ì¸ì§€ í™•ì¸ í•¨ìˆ˜
 function IS_TEXT_VER_CHAT()
 	local IsTextVer = config.GetXMLConfig("ToggleTextChat")
 	return IsTextVer;
 end
 
---½ºÅ©·Ñ¹Ù °­Á¦ ÇÏ´Ü ÀÌµ¿ °ü·Ã ¼³Á¤ È®ÀÎ ÇÔ¼ö
+--ìŠ¤í¬ë¡¤ë°” ê°•ì œ í•˜ë‹¨ ì´ë™ ê´€ë ¨ ì„¤ì • í™•ì¸ í•¨ìˆ˜
 function IS_BOTTOM_CHAT()
 	local IsBottomChat = config.GetXMLConfig("ToggleBottomChat")
 	return IsBottomChat;
 end
 
---¸Ş¼¼ÁöÀÇ ÆùÆ® Å©±â º¯°æÇÔ¼ö (¸Ş¼¼Áö¿¡ ÆùÆ®Å©±âº¯°æÅäÅ«ÀÌ ÀÖ¾î¾ß ÇÑ´Ù.)
+--ë©”ì„¸ì§€ì˜ í°íŠ¸ í¬ê¸° ë³€ê²½í•¨ìˆ˜ (ë©”ì„¸ì§€ì— í°íŠ¸í¬ê¸°ë³€ê²½í† í°ì´ ìˆì–´ì•¼ í•œë‹¤.)
 function CHAT_TEXT_CHAR_RESIZE(msg, fontSize)
 	if msg == nil then 
 		return;
@@ -1046,7 +1077,7 @@ end
 
 
 --[[
-function CHAT_LAST_TEN_UPDATED(frame, msg, argStr, argNum) -- ¾ÆÁ÷ Á¤Ã¼ ºÒ¸í. ³ªÁß¿¡ °íÄ¡´ø°¡ ÇÒ °Í
+function CHAT_LAST_TEN_UPDATED(frame, msg, argStr, argNum) -- ì•„ì§ ì •ì²´ ë¶ˆëª…. ë‚˜ì¤‘ì— ê³ ì¹˜ë˜ê°€ í•  ê²ƒ
 	
 	if 1 == 1 then
 		return

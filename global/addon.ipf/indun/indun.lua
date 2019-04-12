@@ -21,6 +21,8 @@ function INDUN_VIEW(frame, curtabIndex)
 		OPEN_ABBEY(frame);
 	elseif curtabIndex == 3 then
 		OPEN_EARTH(frame);
+	elseif curtabIndex == 4 then
+		OPEN_UPHILL(frame);
 	end
 
 end
@@ -54,17 +56,35 @@ function DRAW_INDUN_UI(frame, type)
 
 	local pCls = nil;
 	if 100 == type then
-		pCls = GetClass("Indun", "Indun_startower"); -- ¿Œ¥¯
+		pCls = GetClass("Indun", "Indun_startower"); -- Ïù∏Îçò
 	elseif 200 == type then
-		pCls = GetClass("Indun", "Request_Mission1"); -- ¿«∑⁄º“
+		pCls = GetClass("Indun", "Request_Mission1"); -- ÏùòÎ¢∞ÏÜå
 	elseif 300 == type then
-		pCls = GetClass("Indun", "Request_Mission7"); -- ªÏ∂ÛΩ∫ ºˆµµø¯
+		pCls = GetClass("Indun", "Request_Mission7"); -- ÏÇ¥ÎùºÏä§ ÏàòÎèÑÏõê
 	elseif 400 == type then
-		pCls = GetClass("Indun", "M_GTOWER_1"); -- ¥Î¡ˆ¿« ≈æ
+		pCls = GetClass("Indun", "M_GTOWER_1"); -- ÎåÄÏßÄÏùò ÌÉë
+	elseif 500 == type then
+		pCls = GetClass("Indun", "Request_Mission10"); -- ÏóÖÌûê ÎîîÌéúÏä§ ÎØ∏ÏÖò
 	end
 
 	if nil == pCls then
 		return;
+	end
+
+	local lvUpCheckBox = GET_CHILD(frame, "levelUp", "ui::CCheckBox");
+	local lvDownCheckBox = GET_CHILD(frame, "levelDown", "ui::CCheckBox");
+
+	-- Ïù∏Îçò ÌÉ≠ÏóêÏÑúÎßå Î†àÎ≤®Ïàú Ï†ïÎ†¨Í∏∞Îä• Ï†úÍ≥µ
+	if type == 100 then
+		lvUpCheckBox:ShowWindow(1)
+		lvDownCheckBox:ShowWindow(1)
+	else
+		lvUpCheckBox:ShowWindow(0)
+		lvDownCheckBox:ShowWindow(0)
+	end
+
+	if lvUpCheckBox:IsChecked() == 0 and lvDownCheckBox:IsChecked() == 0 then		
+		lvUpCheckBox:SetCheck(1) -- default option
 	end
 
 	local text = "";
@@ -109,8 +129,21 @@ function DRAW_INDUN_UI(frame, type)
 	local etcObj = GetMyEtcObject();
 	local clslist, cnt  = GetClassList("Indun");
 	local mylevel = info.GetLevel(session.GetMyHandle());
-	for i = 0 , cnt - 1 do
-		local pCls = GetClassByIndexFromList(clslist, i);
+
+	-- sort by level
+	local indunTable = {}
+	for i = 0, cnt - 1 do
+		indunTable[i + 1] = GetClassByIndexFromList(clslist, i);
+	end
+
+	if lvUpCheckBox:IsChecked() == 1 then
+		table.sort(indunTable, SORT_BY_LEVEL);
+	else
+		table.sort(indunTable, SORT_BY_LEVEL_REVERSE);
+	end
+
+	for i = 1 , cnt do
+		local pCls = indunTable[i]
 		if tonumber(pCls.PlayPerResetType) == type then
 			local name = pCls.Name;
 			local ctrlSet = gbox:CreateControlSet("indun_ctrlset", "CTRLSET_" .. i, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
@@ -120,9 +153,9 @@ function DRAW_INDUN_UI(frame, type)
 			name:SetTextByKey("value", pCls.Name);
 			lv:SetTextByKey("value", pCls.Level);
 			
-			if tonumber(pCls.Level) < mylevel then -- ø¨µŒ∂Û¿Œ
+			if tonumber(pCls.Level) < mylevel then -- Ïó∞ÎëêÎùºÏù∏
 				button:SetColorTone("FFC4DFB8");	
-			elseif tonumber(pCls.Level) > mylevel then -- ª°∞£∂Û¿Œ
+			elseif tonumber(pCls.Level) > mylevel then -- Îπ®Í∞ÑÎùºÏù∏
 				button:SetColorTone("FFFFCA91");
 			else
 				button:SetColorTone("FFFFFFFF");	
@@ -131,6 +164,20 @@ function DRAW_INDUN_UI(frame, type)
 	end
 
 	GBOX_AUTO_ALIGN(gbox, 0, -6, 0, true, false);
+end
+
+function SORT_BY_LEVEL(a, b)	
+	if TryGetProp(a, "Level") == nil or TryGetProp(b, "Level") == nil then
+		return false
+	end
+	return tonumber(a.Level) < tonumber(b.Level)
+end
+
+function SORT_BY_LEVEL_REVERSE(a, b)	
+	if TryGetProp(a, "Level") == nil or TryGetProp(b, "Level") == nil then
+		return false
+	end
+	return tonumber(a.Level) > tonumber(b.Level)
 end
 
 function OPEN_DUNGEON(frame, ctrl)
@@ -148,6 +195,9 @@ end
 function OPEN_EARTH(frame, ctrl)
 	DRAW_INDUN_UI(frame, 400);
 end
+function OPEN_UPHILL(frame, ctrl)
+	DRAW_INDUN_UI(frame, 500);
+end
 
 function INDUN_CANNOT_YET(msg)
 	ui.SysMsg(ScpArgMsg(msg));
@@ -164,4 +214,18 @@ end
 
 function GID_CANTFIND_MGAME(msg)
 	ui.SysMsg(ScpArgMsg(msg));
+end
+function INDUN_SORT_OPTIN_CHECK(frame, ctrl)
+	local lvUpCheckBox = GET_CHILD(frame, "levelUp", "ui::CCheckBox");
+	local lvDownCheckBox = GET_CHILD(frame, "levelDown", "ui::CCheckBox");
+
+	if lvUpCheckBox:GetName() == ctrl:GetName() then
+		lvUpCheckBox:SetCheck(1)
+		lvDownCheckBox:SetCheck(0)
+	else
+		lvUpCheckBox:SetCheck(0)
+		lvDownCheckBox:SetCheck(1)
+	end
+
+	INDUN_TAB_CHANGE(frame)
 end

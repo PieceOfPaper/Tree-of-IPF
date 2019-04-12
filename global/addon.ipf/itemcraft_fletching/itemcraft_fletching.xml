@@ -14,7 +14,7 @@
         <groupbox name="pipwin_top" rect="0 0 540 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
         <groupbox name="Recipe" rect="0 0 540 960" margin="0 60 0 0" layout_gravity="center top" draw="true" resizebyresolution="true" scrollbar="false" skin="none"/>
         <groupbox name="recipetree_Box" parent="Recipe" rect="0 0 540 865" margin="10 20 0 0" layout_gravity="left top" draw="true" resizebyresolution="true" scrollbar="true" skin="none"/>
-        <richtext name="title" margin="0 16 0 0" rect="0 0 200 30" format="{@st43}%s{/}" param1="value" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" />
+        <richtext name="title" margin="0 16 0 0" rect="0 0 200 30" format="{@st43}%s{/}" param1="value" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 		<tree name="recipetree" parent="recipetree_Box" rect="0 0 520 100" margin="0 0 0 0" layout_gravity="center top" drawline="true" selectioncolor="000000"/>
         <grid name="category" parent="Recipe" rect="0 0 0 200" margin="30 0 30 0" layout_gravity="none top" slotsize="100 70" slotspc="10 0"/>
         <checkbox name="showonlyhavemat" parent="" rect="0 0 150 30" margin="30 0 0 70" layout_gravity="left bottom" ConfigName="CraftMaterial" LBtnUpScp="CRAFT_CRAFT_OPTION" caption="{@st42b}재료가 있는 것만 보기{/}" clicksound="button_click_big" oversound="button_over"/>

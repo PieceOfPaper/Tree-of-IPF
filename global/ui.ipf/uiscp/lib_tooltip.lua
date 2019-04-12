@@ -70,16 +70,37 @@ function BALLOON_FRAME_SET_TEXT(tframe, text)
 	tframe:Resize(width, height);
 end
 
-function GET_STAR_TXT(imgSize, count)
+function GET_STAR_TXT(imgSize, count, obj)
+    local transcend = 0;
+    
+    if obj ~= nil and obj.ItemType == "Equip" then
+        transcend = TryGetProp(obj, "Transcend");
+    end
 	
 	local gradeString = "";
 	for i = 1 , count do
+	    if obj ~= nil and transcend > 0 then
+	        gradeString = gradeString .. string.format("{img star_mark3 %d %d}", imgSize, imgSize);
+		else
 		gradeString = gradeString .. string.format("{img star_mark %d %d}", imgSize, imgSize);
+	end
 	end
 
 	return gradeString;
 end
 
+function GET_STAR_TXT_REDUCED(imgSize, count, removeCount)
+    local transcend = 0;        
+	local gradeString = "";
+	for i = 1 , count - removeCount do
+    	gradeString = gradeString .. string.format("{img star_mark %d %d}", imgSize, imgSize);
+	end	
+	for i = 1 , removeCount do
+	   gradeString = gradeString .. string.format("{img star_mark2 %d %d}", imgSize, imgSize);
+	end
+
+	return gradeString;
+end
 
 function GET_ITEM_GRADE_TXT(obj, imgSize)
 
@@ -113,7 +134,7 @@ function GET_ITEM_STAR_TXT(obj, imgSize)
 		star = obj.ItemStar;
 	end
 	
-	return GET_STAR_TXT(imgSize, star);
+	return GET_STAR_TXT(imgSize, star, obj);
 end
 
 function SET_MOUSE_FOLLOW_BALLOON(msg, autoPos, x, y)

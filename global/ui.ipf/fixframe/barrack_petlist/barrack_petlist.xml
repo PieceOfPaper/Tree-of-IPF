@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="barrack_petlist" x="0" y="0" width="350" height="1080">
+<uiframe name="barrack_petlist" x="0" y="0" width="350" height="980">
     <frame title="캐릭터선택" margin="0 60 0 0" layout_gravity="right top" fullheight="true" scale_align="right center"/>
     <draw drawtitlebar="false" drawframe="false"/>
     <input moveable="false" hittestframe="false"/>
@@ -8,7 +8,7 @@
     <option hideable="false" closebutton="false"/>
     <controls>
         <labelline name="LL" margin="-10 40 0 0" rect="0 0 350 4" skin="None" layout_gravity="center top"/>
-        <groupbox name="bg" margin="-25 20 0 0" rect="0 0 380 1000" hittestbox="false" skin="bg" layout_gravity="left top" draw="false" resizebyresolution="true"/>
+        <groupbox name="bg" margin="-25 20 0 0" rect="0 0 380 880" hittestbox="false" skin="bg" layout_gravity="left top" draw="false" resizebyresolution="true"/>
         <picture name="signboard" rect="0 0 346 50" margin="0 0 0 0" layout_gravity="center top" image="barrack_ace"/>
         <richtext name="richtext_1" margin="0 16 0 0" rect="0 0 200 24" caption="{@st41}컴패니언{/}" layout_gravity="center top" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false"/>
     </controls>

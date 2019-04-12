@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="inventory" x="0" y="0" width="490" height="649">
 	<frame fullheight="true" fasthide="true" layout_gravity="right top" open="pip" margin="0 0 -480 0" keyboardselectframe="true"/>
@@ -17,7 +17,7 @@
 		<timer name="jungtantimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
 		<timer name="jungtandeftimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
 		<richtext name="title" rect="0 0 200 30" margin="0 18 0 0" layout_gravity="center top" caption="{@st43}인벤토리{/}"/>
-		<button name="colse" rect="0 0 44 44" margin="28 20 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;inventory&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}인벤토리를 닫습니다{/}"/>
+		<button name="colse" rect="0 0 44 44" margin="28 20 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="INVENTORY_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}인벤토리를 닫습니다{/}"/>
 		<groupbox name="equip" rect="0 0 480 300" margin="0 50 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin=""/>
 		<picture name="question" rect="0 0 44 44" margin="0 20 20 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}착용장비{nl}{@st59s} - 헤어/코스튬 : 외형 변경 가능 아이템 착용{nl} - 무기 : 한손 장비 및 양손 장비 착용 가능{nl}   (한손 장비 착용시 서브웨폰/방패 착용 가능 ){nl} - 방어구 : 상의, 하의, 장갑, 신발 착용{nl} - 악세서리 : 목걸이 1개, 팔찌 2개 착용{nl}   (팔찌2는 Alt키로 비교해 보기/장착 가능){/}"/>
 		<picture name="shihouette" parent="equip" rect="0 0 200 360" margin="0 10  0 0" layout_gravity="center top" hittest="true" image="inventory_F" oversound="button_cursor_over_3" stretch="true"/>
@@ -56,8 +56,13 @@
 		<animpicture name="RING2ANIM" rect="0 0 50 50" margin="190 285 0 0" layout_gravity="center top" animcount="4" blend="100" hideAnimEnd="true" hittest="false" image="inventory_ani" imagechangescp="INVENTORY_SLOTANIM_CHANGEIMG" loop="false" playanim="false" spacex="1" spacey="0" stretch="true" texelheight="74" texelwidth="74" texelx="0" texely="0" ticktime="0.04"/>
 		<animpicture name="ARMBANDANIM" rect="0 0 50 50" margin="190 211 0 0" layout_gravity="center top" animcount="4" blend="100" hideAnimEnd="true" hittest="false" image="inventory_ani" imagechangescp="INVENTORY_SLOTANIM_CHANGEIMG" loop="false" playanim="false" spacex="1" spacey="0" stretch="true" texelheight="74" texelwidth="74" texelx="0" texely="0" ticktime="0.04"/>
 		<animpicture name="LENSANIM" rect="0 0 50 50" margin="-115 80 0 0" layout_gravity="center top" animcount="4" blend="100" hideAnimEnd="true" hittest="false" image="inventory_ani" imagechangescp="INVENTORY_SLOTANIM_CHANGEIMG" loop="false" playanim="false" spacex="1" spacey="0" stretch="true" texelheight="74" texelwidth="74" texelx="0" texely="0" ticktime="0.04"/>
-		<groupbox name="inventoryGbox" rect="10 0 470 540" margin="0 345 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle"/>
+		<groupbox name="moncardGbox" rect="0 0 470 80" margin="10 345 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="None"/>
+		<groupbox name="inventoryGbox" rect="0 0 470 540" margin="10 345 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle"/>
 		<groupbox name="treeGbox" parent="inventoryGbox" rect="0 0 470 488" margin="2 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="None"/>
+		<slotset name="card_slotset" parent="moncardGbox" rect="0 0 240 160" margin="0 0 0 8" layout_gravity="center bottom" col="8" dropsound="icon_get_down" enableselect="false" maxselect="8" movepop="false" picksound="icon_pick_up" row="1" size="51 68" skin="invenslot2" spc="3 3" RBtnUpScp="CARD_SLOT_RBTNUP_ITEM_INFO" DropScp="CARD_SLOT_DROP"/>
+		<labelline name="card_labelline" parent="moncardGbox" rect="0 0 470 3" margin="0 0 0 0" layout_gravity="center top" skin="labelline_def_2"/>
+		<picture name="moncard_btn" rect="0 0 157 35" margin="308 345 0 0" layout_gravity="left top" hittest="true" LBtnUpScp="CHECK_BTN_OPNE_CARDINVEN" image="moncard_inven_image"/>
+		<richtext name="moncard_btn_text" parent="moncard_btn" margin="0 0 0 0" layout_gravity="center center" format="{img %s 12 12}{/} {@st66b}{s18}몬스터 카드{/}" param1="arrow" hittest="true" LBtnUpScp="CHECK_BTN_OPNE_CARDINVEN" param1_def="moncard_inven_down"/>
 		<tree name="inventree" parent="treeGbox" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false"/>
 		<labelline name="labelline" parent="inventoryGbox" rect="0 0 470 4" margin="0 0 0 50" layout_gravity="center bottom" skin="None"/>
 		<groupbox name="searchSkin" parent="inventoryGbox" rect="0 0 370 38" margin="0 0 7 7" layout_gravity="right bottom" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
@@ -76,7 +81,7 @@
 		<picture name="Pic_Medal" parent="medalGbox" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" hittest="true" image="icon_item_tospoint" oversound="button_over" stretch="true"/>
 		<richtext name="medalt" parent="medalGbox" rect="0 0 100 20" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}TP{/}" serviceNation="KOR"/>
 		<richtext name="medalt_JPN" parent="medalGbox" rect="0 0 100 20" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}メダル{/}" serviceNation="JP"/>
-		<richtext name="medalt_GLOBAL" parent="medalGbox" rect="0 0 100 20" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}TP{/}" serviceNation="GLOBAL"/>
+		<richtext name="medalt_GLOBAL" parent="medalGbox" rect="0 0 100 20" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}iCoin{/}" serviceNation="GLOBAL"/>
 		<richtext name="medalText" parent="medalGbox" rect="0 0 250 20" margin="0 0 10 0" layout_gravity="right center" fontname="white_20_ol" format="{@st41b}%s" hittest="false" param1="medal" param1_def="123!9" spacey="0"/>
 		<richtext name="medalFreeTime" parent="medalGbox" rect="0 0 250 20" margin="65 0 0 0" layout_gravity="left center" fontname="white_20_ol" format="{@st41b}%s" hittest="false" param1="medal" param1_def="123!9" spacey="0"/>
 		<groupbox name="moneyGbox" parent="bottomGbox" rect="0 0 420 38" margin="0 0 0 10" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>

@@ -68,8 +68,8 @@ function MARKET_SEARCH_GROUP_AND_CLASSTYPE(frame)
 	local groupName = frame:GetUserValue("Group");
 	local classType = frame:GetUserValue("ClassType");
 	if "None" == groupName or "None" == classType then
-		groupName = "ALL";
-		classType = "ALL";
+		groupName = "ShowAll";
+		classType = "ShowAll";
 	end
 
 	return groupName, classType;
@@ -93,7 +93,7 @@ function MARGET_FIND_PAGE(frame, page)
 	local rein_min = GET_CHILD_NUMBER_VALUE(gBox, "edit_2");
 	local rein_max = GET_CHILD_NUMBER_VALUE(gBox, "edit_2_1");
 	
-	-- µðÆúÆ®·Î ÃÖ±Ù	
+	-- ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö±ï¿½	
 	local sortype = 2;
 	if 1 == chip:IsChecked() then
 		sortype = 0;
@@ -229,6 +229,8 @@ end
 
 function MARKET_REQ_LIST(frame)
 	frame = frame:GetTopParentFrame();
+	frame:SetUserValue("Group", 'ShowAll');
+	frame:SetUserValue("ClassType", 'ShowAll');
 	MARGET_FIND_PAGE(frame, 0);
 end
 

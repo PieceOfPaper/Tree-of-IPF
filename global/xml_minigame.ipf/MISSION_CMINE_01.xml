@@ -184,8 +184,8 @@
                     <Obj Type="Monster" MonType="57143" Pos="-1.49#-0.55#99.77" angle="-93" range="170" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="2000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="47230" Pos="-1.47#2.03#534.54" angle="-89" genCount="1" genTime="20000" objectKey="2"/>
                     <Obj Type="Monster" MonType="47414" Pos="120.90#-0.52#50.56" angle="-83" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="2000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41255" Pos="18.58#-0.52#48.32" range="190" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="3000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="11160" Pos="41.12#-0.54#83.27" range="170" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="3000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41255" Pos="18.58#-0.52#48.32" range="190" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="3000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="11160" Pos="41.12#-0.54#83.27" range="170" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="3000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;scab&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="5minevent">
@@ -337,12 +337,12 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="41254" Pos="-499.63#-58.85#818.66" range="80" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;-200&apos; &apos;SurroundRate&apos; &apos;0&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41254" Pos="547.46#-58.85#665.38" angle="148" range="70" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;SurroundRate&apos; &apos;0&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41255" Pos="556.28#-58.85#781.65" angle="156" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;SurroundRate&apos; &apos;0&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="47150" Pos="-600.54#-58.85#775.63" angle="-12" genCount="1" genTime="20000" objectKey="3" propList="&apos;HPCount&apos; &apos;100&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
-                    <Obj Type="Monster" MonType="47150" Pos="623.04#-58.85#717.73" angle="190" genCount="1" genTime="20000" objectKey="4" propList="&apos;HPCount&apos; &apos;100&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
-                    <Obj Type="Monster" MonType="41253" Pos="-546.28#-58.85#739.37" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;SurroundRate&apos; &apos;0&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41254" Pos="-499.00#0.00#818.00" range="80" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;MHP_BM&apos; &apos;-200&apos; &apos;SurroundRate&apos; &apos;0&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41254" Pos="547.00#0.00#665.00" angle="148" range="70" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;SurroundRate&apos; &apos;0&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41255" Pos="556.00#0.00#781.00" angle="156" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;SurroundRate&apos; &apos;0&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47150" Pos="-600.00#0.00#775.00" angle="-12" genCount="1" genTime="20000" objectKey="3" propList="&apos;HPCount&apos; &apos;100&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
+                    <Obj Type="Monster" MonType="47150" Pos="623.00#0.00#717.00" angle="190" genCount="1" genTime="20000" objectKey="4" propList="&apos;HPCount&apos; &apos;100&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; "/>
+                    <Obj Type="Monster" MonType="41253" Pos="-546.00#0.00#739.00" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;SurroundRate&apos; &apos;0&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event execMS="15000" execCount="15" eventName="15sec_gen_1">

@@ -9,6 +9,11 @@ function ITEMBUFF_REPAIR_UI_COMMON(groupName, sellType, handle)
 	frame:SetUserValue("GroupName", groupName);
 	SQIORE_BUFF_VIEW(frame);
 
+	-- Í∏∞Î≥∏ ÌÉ≠ÏùÄ "ÏàòÎ¶¨"
+	local tabObj		    = frame:GetChild('statusTab');
+	local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
+	itembox_tab:ChangeTab(0)
+
 	local groupInfo = session.autoSeller.GetByIndex(groupName, 0);
 	local sklName = GetClassByType("Skill", groupInfo.classID).ClassName;
 	frame:SetUserValue("SKILLNAME", sklName)
@@ -26,10 +31,14 @@ function ITEMBUFF_REPAIR_UI_COMMON(groupName, sellType, handle)
 		money:SetTextByKey("txt", "");
 	end
 
-	-- ¿Â∫Ò¿« list, ∞∞¿∫ «‘ºˆ ≥ªøÎ¿ª ∑ŒµÂ«‘..
+	-- Ïû•ÎπÑÏùò list, Í∞ôÏùÄ Ìï®Ïàò ÎÇ¥Ïö©ÏùÑ Î°úÎìúÌï®..
 	UPDATE_REPAIR140731_LIST(frame);
 	SQUIRE_UPDATE_MATERIAL(frame);
 	ui.OpenFrame("inventory");
+
+	-- Ï†ÑÏ≤¥ ÏÑ†ÌÉù Î≤ÑÌäº Í∏∞Î≥∏Í∞íÏùÄ ÏÑ†ÌÉù ÏïàÎêúÍ±∞
+	local selectAllBtn = bodyBox:GetChild('selectAllBtn')
+	selectAllBtn:SetUserValue('SELECTED', 'notselected')
 
 	local frame = ui.GetFrame("itembuff");
 	if nil == frame then
@@ -77,7 +86,6 @@ end
 
 function SQUIRE_REAPIR_SELECT_ALL(frame, ctrl)
 	local isselected =  ctrl:GetUserValue("SELECTED");
-
 	local slotSet = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "slotlist", "ui::CSlotSet")
 	
 	local slotCount = slotSet:GetSlotCount();
@@ -163,7 +171,6 @@ function ITEMBUFF_REPAIR_UPDATE_HISTORY(frame)
 		local info = session.autoSeller.GetHistoryByIndex(groupName, i);
 		local ctrlSet = log_gbox:CreateControlSet("squire_rpair_history", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 
-		local ctrlY = ctrlSet:GetHeight();
 		local sList = StringSplit(info:GetHistoryStr(), "#");
 		local userName = sList[1];
 		local property = ctrlSet:GetChild("UserName");
@@ -172,7 +179,7 @@ function ITEMBUFF_REPAIR_UPDATE_HISTORY(frame)
 		local itemStr = "";
 		local priceStr = "";
 
-		-- ø©±‚∞° »Æ¿Â«ÿ ≥™∞°æﬂ..
+		-- Ïó¨Í∏∞Í∞Ä ÌôïÏû•Ìï¥ ÎÇòÍ∞ÄÏïº..
 		for i = 2, #sList do
 			if i % 2 == 0 then
 				local itemCls = GetClassByType("Item", sList[i]);
@@ -181,7 +188,6 @@ function ITEMBUFF_REPAIR_UPDATE_HISTORY(frame)
 				end
 			else
 				priceStr = priceStr .. ClMsg("REPAIR_PRICE") .. ":" .. sList[i].."{nl}";
-				ctrlY = ctrlY + 10;
 			end
 
 		end
@@ -190,7 +196,7 @@ function ITEMBUFF_REPAIR_UPDATE_HISTORY(frame)
 		itemname:SetTextByKey("value", itemStr);
 		local price = ctrlSet:GetChild("Price");
 		price:SetTextByKey("value", priceStr);
-		ctrlSet:Resize(ctrlSet:GetWidth(), ctrlY);
+		ctrlSet:Resize(ctrlSet:GetWidth(), price:GetY() + price:GetHeight())
 		ctrlSet:Invalidate();
 	end
 

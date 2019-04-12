@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <imcErrorCode>
 	<Type Type="LOGIC">
@@ -90,13 +90,18 @@
 		<Code Code="ERRCODE_LOGIC_ALREADY_DESTROYED" CallStack="NO" Desc="이미 소멸된 자원입니다."/>
 		<Code Code="ERRCODE_LOGIC_INCORRECT_CALL_SEQUENCE" CallStack="NO" Desc="호출 순서가 잘못됐습니다. 다음 정보를 참조하세요."/>
 		<Code Code="ERRCODE_LOGIC_OBJ_POOL" CallStack="NO" Desc="오브젝트 풀에서 에러가 발생했습니다. 다음 정보를 참조하세요."/>
-		<Code Code="ERRCODE_LOGIC_UPDATE_AUTHCODE" CallStack="NO" Desc="인증코드에러로 강제 로그아웃됩니다."/>
-		<Code Code="ERRCODE_LOGIC_MONSTER_CREATE_FAILED" CallStack="NO" Desc="랜덤 좌표를 받지 못하고 몬스터 생성에 실패했습니다."/>
-		<Code Code="ERRCODE_LOGIC_TOO_MANY_CHAT_ROOM" CallStack="NO" Desc="채팅 방 개수가 비정상 적으로 많습니다."/>
-		<Code Code="ERRCODE_LOGIC_CHAT_ROOM" CallStack="NO" Desc="채팅 방 오류"/>
+    <Code Code="ERRCODE_LOGIC_UPDATE_AUTHCODE" CallStack="NO" Desc="인증코드에러로 강제 로그아웃됩니다."/>
+    <Code Code="ERRCODE_LOGIC_MONSTER_CREATE_FAILED" CallStack="NO" Desc="랜덤 좌표를 받지 못하고 몬스터 생성에 실패했습니다."/>
+    <Code Code="ERRCODE_LOGIC_TOO_MANY_CHAT_ROOM" CallStack="NO" Desc="채팅 방 개수가 비정상 적으로 많습니다."/>
+
+    <Code Code="ERRCODE_LOGIC_CHAT_ROOM" CallStack="NO" Desc="채팅 방 오류"/>
+
+
 		<Code Code="ERRCODE_LOGIC" CallStack="NO" Desc="로직 오류"/>
-		<Code Code="ERRCODE_PRINT_CALL_STACK" CallStack="YES" Desc=" : "/>
+    <Code Code="ERRCODE_PRINT_CALL_STACK" CallStack="YES" Desc=" : "/>
     <Code Code="ERRCODE_LOGIC_STEAM_INVEN" CallStack="NO" Desc="스팀 인벤토리 로직 오류. 프로그래머에게 문의하세요."/>
+<Code Code="ERRCODE_LOGIC_INVALID_CHAR_SLOT_COUNT" CallStack="NO" Desc="슬롯갯수보다 캐릭터 갯수가 많음에도 클라이언트에서 게임시작 요청이 들어왔거나 갯수를 가져오는데 실패했습니다"/>
+
 	</Type>
 	<Type Type="DATA">
 		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>
@@ -183,10 +188,13 @@
 		<Code Code="ERRCODE_DATA_REMOVE_FAIL" CallStack="NO" Desc="해당 데이터의 삭제를 실패했습니다."/>
 		<Code Code="ERRCODE_DATA_COMPRESS_FAIL" CallStack="NO" Desc="해당 데이터의 압축에 실패했습니다."/>
 		<Code Code="ERRCODE_DATA_DOSENT_MATCH_SIZE" CallStack="NO" Desc="해당 데이터가 지정된 사이즈와 맞지 않습니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_TRANSLATED_DATA" CallStack="NO" Desc="잘못된 번역 데이터입니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_TRANSLATED_ENCODING" CallStack="NO" Desc=".tsv 파일의 인코딩은 반드시 UTF-8 whitout BOM 이어야 합니다."/>
+    <Code Code="ERRCODE_DATA_INVALID_TRANSLATED_DATA" CallStack="NO" Desc="잘못된 번역 데이터입니다."/>
+    <Code Code="ERRCODE_DATA_INVALID_TRANSLATED_ENCODING" CallStack="NO" Desc=".tsv 파일의 인코딩은 반드시 UTF-8 whitout BOM 이어야 합니다."/>
     <Code Code="ERRCODE_DATA_STEAM_INVALID_REGION" CallStack="NO" Desc="해당 지역에서 수행 불가능한 요청입니다."/>
-	</Type>
+	<Code Code="ERRCODE_DATA_ABILITY_MAX_LEVEL_GREATER_ZERO" CallStack="NO" Desc="어빌리티의 최대 레벨은 0보다 커야합니다."/>
+		<Code Code="ERRCODE_EQUIP_CARD_SYSTEM_DATA" CallStack="NO" Desc="카드 데이터에 문제가 있습니다. 확인해주세요."/>
+	<Code Code="ERRCODE_FIND_NOT_MONSTER" CallStack="NO" Desc="해당 몬스터를 찾지 못하였습니다. 확인해주세요."/>
+<Code Code="ERRCODE_DATA_INVLID_INDEX" CallStack="NO" Desc="잘못된 인덱스 입니다."/>	</Type>
 	<Type Type="SCRIPT">
 		<Code Code="ERRCODE_SCRIPT_IES_CANT_SUSPEND_MAIN_THREAD" CallStack="NO" Desc="메인 쓰레드는 sleep, tx등으로 중단시킬 수 없습니다. 해당 함수 내용을 확인하세요."/>
 		<Code Code="ERRCODE_SCRIPT_LUA_SCRIPT" CallStack="NO" Desc="루아 스크립트에서 에러가 발생하였습니다. 에러 메시지를 확인하세요."/>
@@ -199,7 +207,7 @@
 		<Code Code="ERRCODE_SCRIPT_NONE_UPDATE_SCRIPT" CallStack="NO" Desc="업데이트 스크립트가 None입니다."/>
 		<Code Code="ERRCODE_SCRIPT_CANT_USE_TX_IN_MAIN_THREAD" CallStack="NO" Desc="Main thread 에서는 tx를 사용할 수 없습니다. 커스텀 tx를 사용하세요."/>
 		<Code Code="ERRCODE_SCRIPT_CANT_FIND_LUA_SCRIPT" CallStack="NO" Desc="루아 스크립트 파일을 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_SCRIPT_INVALID_ARG_NUMBER" CallStack="NO" Desc="인자 갯수가 잘못되었습니다. 해당 함수를 올바르게 호출 하였는지 확인하세요."/>
+    <Code Code="ERRCODE_SCRIPT_INVALID_ARG_NUMBER" CallStack="NO" Desc="인자 갯수가 잘못되었습니다. 해당 함수를 올바르게 호출 하였는지 확인하세요."/>
 	</Type>
 	<Type Type="NETWORK">
 		<Code Code="ERRCODE_NETWORK_ERROR_MONGODB" CallStack="NO" Desc="몽고 DB에 연결하는데 실패하였습니다."/>
@@ -234,7 +242,7 @@
 		<Code Code="ERRCODE_NETWORK_READ_FAIL_SERVERLIST" CallStack="NO" Desc="월드 테이블에서 서버리스트를 읽어 올 수 없습니다. 또는 서버리스트가 비어있을 수 있습니다. daemon.xml을 확인하세요."/>
 		<Code Code="ERRCODE_NETWORK_RECEIVE_FAIL_FOR_REQUEST" CallStack="NO" Desc="요청에 대한 응답을 실패했습니다."/>
 		<Code Code="ERRCODE_NETWORK_IP_CONNECT_ERROR" CallStack="NO" Desc="해당 IP로의 연결에 실패했습니다."/>
-		<Code Code="ERRCODE_NETWORK_STEAM_VAC_BANNED" CallStack="NO" Desc="스팀 VAC에서 밴 되어있는 유저입니다."/>
+	  <Code Code="ERRCODE_NETWORK_STEAM_VAC_BANNED" CallStack="NO" Desc="스팀 VAC에서 밴 되어있는 유저입니다."/>
 		<Code Code="ERRCODE_NETWORK_FAIL_ONPACKET_FALSE" CallStack="NO" Desc="해당 패킷을 처리하는 로직이 없습니다."/>
     <Code Code="ERRCODE_NETWORK_CANT_GET_EXTERN_IP" CallStack="NO" Desc="외부 IP를 얻는데 실패하였습니다."/>
     <Code Code="ERRCODE_NETWORK_HTTP_JSON_PARSE_FALSE" CallStack="NO" Desc="HTTP 통신 데이터를 읽는데 실패하였습니다."/>
@@ -313,6 +321,7 @@
 		<Code Code="ERRCODE_INFO_OBB_TIMETEST" CallStack="NO" Desc="OBB TEST용 클릭 후 반응 시간"/>
 		<Code Code="ERRCODE_INFO_TIMEOUT" CallStack="NO" Desc="처리 시간 초과 로그"/>
 		<Code Code="ERRCODE_INFO_OLDMSG" CallStack="NO" Desc="다국어화 어순 이슈로 clientmessage.xml에서 %s 를 이용한 포맷은 쓰지 않기로 했습니다. "/>
+    <Code Code="ERRCODE_INFO_FAIL_GUILD_AGIT_ENTER" CallStack="NO" Desc="길드 아지트 입장 불가 로그"/>
     <Code Code="ERRCODE_INFO_DB_CONNECT" CallStack="NO" Desc=" : "/>
-	</Type>
+  </Type>
 </imcErrorCode>

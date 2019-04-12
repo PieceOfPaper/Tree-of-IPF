@@ -236,6 +236,8 @@ function SCR_Get_MHP(self)
 	local con = self.CON;	
 	local lv = self.Lv;
 
+	local byItemRatio = (1.0 + GetSumOfEquipItem(self, 'MHPRatio') * 0.01);
+
 	local byItem = GetSumOfEquipItem(self, 'MHP');
 	local byBuff = self.MHP_BM;
 	local byLevel = math.floor((lv -1) * 8.5 * 2);
@@ -243,7 +245,7 @@ function SCR_Get_MHP(self)
 
 	local rewardProperty = GET_REWARD_PROPERTY(self, "MHP")
 
-	local value = (jobObj.JobRate_HP * byLevel) + byItem + byStat + self.MHP_Bonus + byBuff + rewardProperty;
+	local value = ((jobObj.JobRate_HP * byLevel) + byStat) * byItemRatio + byItem + self.MHP_Bonus + byBuff + rewardProperty;
 	
 	if value < 1 then
 	    value = 1;
@@ -325,6 +327,7 @@ function SCR_Get_MAXPATK(self)
 	local byItem2 = GetSumOfEquipItem(self, 'PATK');
 	local byItem3 = GetSumOfEquipItem(self, 'ADD_MAXATK');
     local leftMaxAtk = 0;
+	local maxpatk_bm = self.MAXPATK_BM;
 	
     
 	if jobObj.CtrlType == 'Warrior' then
@@ -343,7 +346,7 @@ function SCR_Get_MAXPATK(self)
     	throwItemMaxAtk = rightHand.MAXATK;
     end
 	
-	local value = lv + str + byItem + byItem2 + byItem3 + buff - leftMaxAtk - throwItemMaxAtk;
+	local value = lv + str + byItem + byItem2 + byItem3 + buff - leftMaxAtk - throwItemMaxAtk + 0 + maxpatk_bm;
 	
 	return math.floor(value);
 end
@@ -379,6 +382,7 @@ function SCR_Get_MAXPATK_SUB(self)
 	local str = self.STR;	
 	local lv = self.Lv;
 	local buff = self.PATK_BM;
+	local sub_bm = self.MAXPATK_SUB_BM;
 
 	local byItem = GetSumOfEquipItem(self, 'MAXATK');
 	local byItem2 = GetSumOfEquipItem(self, 'PATK');
@@ -393,7 +397,7 @@ function SCR_Get_MAXPATK_SUB(self)
         	str = str * 1.3;
 	end
 
-	local value = lv + str + byItem + byItem2 + byItem3 + buff - rightMaxAtk;
+	local value = lv + str + byItem + byItem2 + byItem3 + buff + sub_bm - rightMaxAtk;
 	
 	return math.floor(value);
 end

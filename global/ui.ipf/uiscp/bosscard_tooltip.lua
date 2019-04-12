@@ -8,9 +8,9 @@ function ITEM_TOOLTIP_BOSSCARD(tooltipframe, invitem, strarg)
 	local mainframename = 'bosscard'
 
 	local ypos = DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename); -- 보스 카드라면 공통적으로 그리는 툴팁들
+	ypos = DRAW_BOSSCARD_ADDSTAT_TOOLTIP(tooltipframe, invitem, ypos, mainframename);
 	ypos = DRAW_BOSSCARD_EXP_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 경험치 바
 	ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
-
 end
 
 
@@ -25,7 +25,7 @@ function DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 	local GRADE_FONT_SIZE = CSet:GetUserConfig("GRADE_FONT_SIZE"); -- 등급 나타내는 별 크기
 
 	-- 아이템 이미지
-	local itemPicture = GET_CHILD(CSet, "itempic", "ui::CPicture");
+	local itemPicture = GET_CHILD(CSet, "itempic");
 	itemPicture:SetImage(invitem.TooltipImage);
 
 	-- 별 그리기
@@ -33,12 +33,12 @@ function DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 
 	-- 아이템 이름 세팅
 	local fullname = GET_FULL_NAME(invitem, true);
-	local nameChild = GET_CHILD(CSet, "name", "ui::CRichText");
+	local nameChild = GET_CHILD(CSet, "name");
 	nameChild:SetText(fullname);
 
 	-- 종족 세팅
 	local bossCls = GetClassByType('Monster', invitem.NumberArg1);
-	local typeRichtext = GET_CHILD(CSet, "type_text", "ui::CRichText");
+	local typeRichtext = GET_CHILD(CSet, "type_text");
 	typeRichtext:SetText(ScpArgMsg(bossCls.RaceType));
 
 
@@ -51,17 +51,36 @@ end
 --포텐 및 내구도
 function DRAW_BOSSCARD_EXP_TOOLTIP(tooltipframe, invitem, yPos, mainframename)
 
-	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
+	local gBox = GET_CHILD(tooltipframe, mainframename)
 	gBox:RemoveChild('tooltip_bosscard_exp');
 	
 	local CSet = gBox:CreateControlSet('tooltip_bosscard_exp', 'tooltip_bosscard_exp', 0, yPos);
-	tolua.cast(CSet, "ui::CControlSet");
 
 	--경험치 게이지
 	local gauge = GET_CHILD(CSet,'level_gauge','ui::CGauge')
 	local lv, curExp, maxExp = GET_ITEM_LEVEL_EXP(invitem);
+	if curExp > maxExp then
+		curExp = maxExp;
+	end
 	gauge:SetPoint(curExp, maxExp);
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + CSet:GetHeight())
 	return CSet:GetHeight() + CSet:GetY();
+end
+
+--스텟
+function DRAW_BOSSCARD_ADDSTAT_TOOLTIP(tooltipframe, invitem, yPos, mainframename)
+	local gBox = GET_CHILD(tooltipframe, mainframename)
+	gBox:RemoveChild('tooltip_bosscard_desc');
+	
+	local CSet = gBox:CreateControlSet('tooltip_bosscard_desc', 'tooltip_bosscard_desc', 0, yPos);
+		
+	--스텟
+	local desc_text = GET_CHILD(CSet,'desc_text')
+	desc_text:SetTextByKey("text", invitem.Desc);
+	CSet:Resize(CSet:GetWidth(), desc_text:GetHeight() + desc_text:GetOffsetY());
+	
+	
+	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + CSet:GetHeight() + 10)
+	return CSet:GetHeight() + CSet:GetY() + 10;
 end

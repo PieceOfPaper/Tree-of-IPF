@@ -1,4 +1,4 @@
-﻿function MONSTERQUICKSLOT_ON_INIT(addon, frame)
+function MONSTERQUICKSLOT_ON_INIT(addon, frame)
 
 end
 
@@ -60,8 +60,17 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 						hotKey = hotKeyTable.GetHotKeyString(slotString, 1);	
 					end
 
+					-- monster quick slot에 cooltime 추가
+					QUICKSLOT_MAKE_GAUGE(slot)
+					QUICKSLOT_SET_GAUGE_VISIBLE(slot, 1)
+					icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_SKILL_COOLDOWN');
+					icon:SetEnableUpdateScp('MONSTER_ICON_UPDATE_SKILL_ENABLE');
+					icon:SetColorTone("FFFFFFFF");
+					icon:ClearText();
+					quickSlot.OnSetSkillIcon(slot, type);
+
 					
-					-- �� ������ �����ؾ� �ϳ�? ���� ������ hotkey_joystic.xml�� Key, PressedKey�� ���ڰ� �����ϴ� ���̴�.
+					-- 이 땜빵을 어찌해아 하나? 제일 좋은건 hotkey_joystic.xml의 Key, PressedKey를 예쁘게 정리하는 것이다.
 					hotKey = string.gsub(hotKey, "JOY_BTN_1", "X");
 					hotKey = string.gsub(hotKey, "JOY_BTN_2", "A");
 					hotKey = string.gsub(hotKey, "JOY_BTN_3", "Y");
@@ -113,3 +122,4 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 	
 
 end
+

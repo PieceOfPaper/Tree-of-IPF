@@ -6,14 +6,12 @@ function ACCOUNTWAREHOUSE_ON_INIT(addon, frame)
 	addon:RegisterMsg("ACCOUNT_WAREHOUSE_ITEM_REMOVE", "ON_ACCOUNT_WAREHOUSE_ITEM_LIST");
 	addon:RegisterMsg("ACCOUNT_WAREHOUSE_ITEM_CHANGE_COUNT", "ON_ACCOUNT_WAREHOUSE_ITEM_LIST");
 	addon:RegisterMsg("ACCOUNT_WAREHOUSE_ITEM_IN", "ON_ACCOUNT_WAREHOUSE_ITEM_LIST");
-	
+
 	frame = ui.GetFrame("accountwarehouse");
 	local gbox = frame:GetChild("gbox");
 	local moneyInput = gbox:GetChild('moneyInput');
 	AUTO_CAST(moneyInput);
 	moneyInput:SetNumberMode(1);
-
-
 end
 
 function ON_OPEN_ACCOUNTWAREHOUSE(frame)
@@ -56,8 +54,14 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 		return;
 	end
 	
-if fromFrame:GetName() == "inventory" then
-	local maxCnt = invItem.count;
+	local reason = GetTradeLockByProperty(obj);
+	if reason ~= "None" then
+		ui.SysMsg(ScpArgMsg(reason));
+		return;
+	end
+
+	if fromFrame:GetName() == "inventory" then
+		local maxCnt = invItem.count;
 		if TryGetProp(obj, "BelongingCount") ~= nil then
 			maxCnt = invItem.count - obj.BelongingCount;
 			if maxCnt <= 0 then

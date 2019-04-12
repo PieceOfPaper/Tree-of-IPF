@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="chatpopup" x="0" y="0" width="450" height="280" create="open">
 	<frame title="{@st41}일반 대화{/}" fasthide="true" layout_gravity="left top" margin="50 200 0 0" scale_align="center bottom"/>
 	<draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
 	<input moveable="true" minwidth="450" minheight="150" hittestframe="false" resizerange="450 150 800 600"/>
 	<option visible="false" hideable="false" useimageitem="true" closebutton="false"/>
 	<layer layerlevel="79"/>
-	<userconfig GBOX_LEFT_MARGIN="0" GBOX_RIGHT_MARGIN="10" GBOX_TOP_MARGIN="29" GBOX_BOTTOM_MARGIN="37"CTRLSET_OFFSETX="30"/>
+	<userconfig GBOX_LEFT_MARGIN="0" GBOX_RIGHT_MARGIN="10" GBOX_TOP_MARGIN="29" GBOX_BOTTOM_MARGIN="37" CTRLSET_OFFSETX="30"/>
 	<controls>
 		<richtext name="name" hittest="false" rect="0 0 400 24" margin="25 0 0 0" layout_gravity="left top" fixheight="true" fixwidth="true" format="{@st42}%s{/}" param1="title" param1_def="전체" resizebytext="false" textalign="left center"/>
 		<groupbox name="group_titlebar" rect="0 0 440 30" margin="0 0 0 0" layout_gravity="left top" LBtnDownScp="MOVE_FRAME_POPUP_CHAT_START" LBtnUpScp="MOVE_FRAME_POPUP_CHAT_END" autoresize="1 0" border="0 0 0 0" draw="true" skin="chat_window" visiblevector="false" hittest="true"/>

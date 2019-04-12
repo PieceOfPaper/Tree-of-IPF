@@ -177,23 +177,53 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 
 	local token_middle = GET_CHILD(frame, "token_middle", "ui::CPicture");
 	token_middle:SetImage("expup_middle");
-
+	local itemobj = GetIES(invItem:GetObject());
 	local gBox = frame:GetChild("gBox");
 	gBox:RemoveAllChild();
 	
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_0",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
-	local imag = string.format("{img 30percent_image %d %d}", 55, 45) 
+	local imag = string.format("{img 30percent_image %d %d}", 55, 45);
+	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" then
+	    imag = string.format("{img 120percent_image %d %d}", 55, 45);
+	elseif itemobj.ClassName == "Premium_boostToken03" or itemobj.ClassName == "Premium_boostToken03_event01" then
+	    imag = string.format("{img 240percent_image %d %d}", 55, 45);
+	elseif itemobj.ClassName == "Premium_boostToken04" then
+        imag = string.format("{img 50percent_image_1 %d %d}", 55, 45);
+    else
+        imag = string.format("{img 30percent_image %d %d}", 55, 45);
+    end
 	prop:SetTextByKey("value", imag .. ClMsg("token_expup")); 
 	local value = ctrlSet:GetChild("value");
-	value:SetTextByKey("value", string.format("{img 30percent_image2 %d %d}", 100, 45) ); 
 
+	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" then
+    	value:SetTextByKey("value", string.format("{img 120percent_image2 %d %d}", 100, 45) );
+	elseif itemobj.ClassName == "Premium_boostToken03" or itemobj.ClassName == "Premium_boostToken03_event01" then
+    	value:SetTextByKey("value", string.format("{img 240percent_image2 %d %d}", 100, 45) );
+	elseif itemobj.ClassName == "Premium_boostToken04" then
+    	value:SetTextByKey("value", string.format("{img 50percent_image3 %d %d}", 100, 45) );
+	else
+	value:SetTextByKey("value", string.format("{img 30percent_image2 %d %d}", 100, 45) ); 
+    end
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_1",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
+	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" then
+    	imag = string.format("{img 5multiply_image %d %d}", 55, 45);
+	elseif itemobj.ClassName == "Premium_boostToken03" or itemobj.ClassName == "Premium_boostToken03_event01" then
+    	imag = string.format("{img 9multiply_image %d %d}", 55, 45) 
+	else
 	imag = string.format("{img 2multiply_image %d %d}", 55, 45) 
+    end	
 	prop:SetTextByKey("value",imag .. ClMsg("token_staup")); 
 	local value = ctrlSet:GetChild("value");
+	local itemobj = GetIES(invItem:GetObject());
+	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" then
+    	value:SetTextByKey("value", string.format("{img 4plus_image2 %d %d}", 100, 45) );
+	elseif itemobj.ClassName == "Premium_boostToken03" or itemobj.ClassName == "Premium_boostToken03_event01" then
+    	value:SetTextByKey("value", string.format("{img 9multiply_image2 %d %d}", 100, 45) );
+	else
 	value:SetTextByKey("value", string.format("{img 2plus_image2 %d %d}", 100, 45) ); 
+    end
 
 	GBOX_AUTO_ALIGN(gBox, 0, 2, 0, true, false);
 	local itemobj = GetIES(invItem:GetObject());
@@ -385,6 +415,27 @@ function REQ_TOKEN_ITEM(parent, ctrl)
 	elseif argList == "Premium_boostToken" or argList == "Premium_boostToken_14d" or argList == "Premium_boostToken_14d_test" then
 		local myHandle = session.GetMyHandle();
 		local buff = info.GetBuffByName(myHandle, 'Premium_boostToken');
+		if buff ~= nil then
+			ui.MsgBox(ScpArgMsg("IsAppliedToken{NAME}","NAME", itemName));
+			return;
+		end
+	elseif argList == "Premium_boostToken02" then
+		local myHandle = session.GetMyHandle();
+		local buff = info.GetBuffByName(myHandle, 'Premium_boostToken02');
+		if buff ~= nil then
+			ui.MsgBox(ScpArgMsg("IsAppliedToken{NAME}","NAME", itemName));
+			return;
+		end
+	elseif argList == "Premium_boostToken03" then
+		local myHandle = session.GetMyHandle();
+		local buff = info.GetBuffByName(myHandle, 'Premium_boostToken03');
+		if buff ~= nil then
+			ui.MsgBox(ScpArgMsg("IsAppliedToken{NAME}","NAME", itemName));
+			return;
+		end
+	elseif argList == "Premium_boostToken04" then
+		local myHandle = session.GetMyHandle();
+		local buff = info.GetBuffByName(myHandle, 'Premium_boostToken04');
 		if buff ~= nil then
 			ui.MsgBox(ScpArgMsg("IsAppliedToken{NAME}","NAME", itemName));
 			return;

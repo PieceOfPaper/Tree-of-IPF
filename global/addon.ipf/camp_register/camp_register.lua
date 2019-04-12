@@ -94,6 +94,7 @@ function CAMP_REGISTER_EXEC(parent, ctrl)
 	if nil == mapCls then
 		return;
 	end
+
 	if 'Field' ~= mapCls.MapType then
 		ui.SysMsg(ClMsg('DontBuildCampThisAria'));
 		return;
@@ -118,12 +119,14 @@ function _CAMP_REGISTER_EXEC(destoryOldCamp, sklName)
 	if nil == sklCls then
 		return;
 	end
+
 	control.CustomCommand("BUILD_CAMP", sklCls.ClassID, destoryOldCamp);	
 	frame:SetUserValue("SKILL_NAME", "None");
 	frame:ShowWindow(0);	
 end
 
 function ASK_DESTORY_OLD_CAMP(sklName)
+
 	local scp = string.format("_CAMP_REGISTER_EXEC(1, \"%s\")", sklName);
 	ui.MsgBox(ScpArgMsg("OnlyOneCampBuildable"), scp, "None");
 end

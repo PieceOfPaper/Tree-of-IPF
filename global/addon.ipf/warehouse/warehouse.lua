@@ -1,7 +1,6 @@
 function WAREHOUSE_ON_INIT(addon, frame)
 
 	REGISTER_WAREHOUSE_MSG(addon, frame);
-	print('1');
 end
 
 function WAREHOUSE_OPEN(frame)

@@ -68,6 +68,13 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execMS="150000" execCount="1" eventName="setPortal" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_GUILDBATTLE_PORTALPOS_SET"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                     <Event execMS="5000" execCount="1" eventName="Set_Faction">
                         <execList>
                             <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
@@ -107,7 +114,49 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="Check_Team2_Win">
+                    <Event execCount="1" eventName="Create_Portal">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="147"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+								<Str Str="{@st55_a}"/>
+								<Str Str="각 진영에 중앙으로 향하는 단방향 워프가 생성됩니다."/>
+								<Num Num="3"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Notice_Portal">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="151"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+								<Str Str="{@st55_a}"/>
+								<Str Str="워프는 한번 사용시 90초간 비활성화 되므로 신중히 사용하세요!"/>
+								<Num Num="3"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Remove_Portal">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="775"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+								<Str Str="{@st55_a}"/>
+								<Str Str="각 팀의 워프가 이제 곧 사라집니다."/>
+								<Num Num="3"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Check_Team2_Win">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="Battle/Tower_1"/>
@@ -233,6 +282,102 @@
             <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
                 <Str Str="Start_8"/>
                 <AbsPos X="-1050.7677" Y="64.234329" Z="-9.8550119"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_1"/>
+                <AbsPos X="-834.22498" Y="64.234329" Z="-722.5144"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_2"/>
+                <AbsPos X="-136.09531" Y="64.234337" Z="-1097.8837"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_3"/>
+                <AbsPos X="864.53418" Y="64.234322" Z="-709.54254"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_4"/>
+                <AbsPos X="1081.8508" Y="64.234329" Z="127.23021"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_5"/>
+                <AbsPos X="716.12506" Y="64.234329" Z="814.40338"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_6"/>
+                <AbsPos X="153.62733" Y="64.234329" Z="1046.1738"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_7"/>
+                <AbsPos X="-831.70135" Y="64.234329" Z="685.99048"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_8"/>
+                <AbsPos X="-1042.5153" Y="64.234329" Z="-163.11969"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_1"/>
+                <AbsPos X="-403.68555" Y="67.276466" Z="-431.11404"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_2"/>
+                <AbsPos X="11.483679" Y="67.533775" Z="-670.39008"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_3"/>
+                <AbsPos X="427.42902" Y="67.365639" Z="-439.66034"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_4"/>
+                <AbsPos X="667.37866" Y="67.069153" Z="-18.191212"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_5"/>
+                <AbsPos X="414.74506" Y="67.534966" Z="394.41745"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_6"/>
+                <AbsPos X="5.440567" Y="67.003067" Z="616.50024"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_7"/>
+                <AbsPos X="-394.672" Y="67.041161" Z="390.04025"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_8"/>
+                <AbsPos X="-618.50647" Y="66.976624" Z="-21.09569"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_1"/>
+                <AbsPos X="-596.76624" Y="64.234329" Z="-615.28802"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_2"/>
+                <AbsPos X="1.5957298" Y="64.234329" Z="-950.18079"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_3"/>
+                <AbsPos X="599.49054" Y="64.234329" Z="-616.88715"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_4"/>
+                <AbsPos X="929.70581" Y="63.921658" Z="-12.718966"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_5"/>
+                <AbsPos X="604.20679" Y="64.234329" Z="587.24609"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_6"/>
+                <AbsPos X="0.076164246" Y="62.778606" Z="898.10242"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_7"/>
+                <AbsPos X="-578.6344" Y="63.626274" Z="577.35791"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_8"/>
+                <AbsPos X="-904.44562" Y="62.93642" Z="-16.128189"/>
             </ToolScp>
             <ToolScp Scp="MGAME_INIT_RUN_SCRIPT" Client="NO" UseSleep="NO">
                 <Str Str="MGAME_GUILDBATTLE_RANDOMPOS_SET"/>

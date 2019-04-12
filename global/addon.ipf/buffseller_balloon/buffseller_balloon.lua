@@ -100,7 +100,7 @@ function CLOSE_SQUIRE_STORE(handle, skillID)
 	end
 
 	local skillName = GetClassByType("Skill", skillID).ClassName;
-	 -- GetUserIValue �� string, GetUserIValue inter!
+	 -- GetUserIValue 는 string, GetUserIValue inter!
 
 	if "Squire_Repair" == skillName then
 		local repair = ui.GetFrame("itembuffrepair");

@@ -480,6 +480,15 @@ function ICON_UPDATE_SKILL_COOLDOWN(icon)
 	end
 end
 
+ function MONSTER_ICON_UPDATE_SKILL_ENABLE(icon)		
+	local iconInfo = icon:GetInfo();
+	if iconInfo ~= nil then
+		local ret = control.IsMonSkillIconUsable(iconInfo.type);	
+		return ret;
+	end
+end
+
+
 
 function RETURN_DATATABLE(data, IESName, searchData)
 	local datatable = {};

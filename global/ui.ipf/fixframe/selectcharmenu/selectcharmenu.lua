@@ -8,6 +8,10 @@ end
 function SELECTCHARMENU_ON_MSG(frame, msg, argStr, argNum)
 	if msg == "SELECTCHARACTER_OPEN" then
 
+		if IS_SEASON_SERVER(nil) == 'YES' then
+			ui.MsgBox_NonNested_Ex(ScpArgMsg("ServerIsEnd"));
+		end
+
 		local selObj = barrack.GetSelectedObject();
 		if selObj == nil or false == GetBarrackSystem(selObj):IsMyAccount() then
 			frame:ShowWindow(0);

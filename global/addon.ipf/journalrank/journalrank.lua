@@ -19,7 +19,8 @@ function JOURNALRANK_FIRST_OPEN(frame)
 end
 
 function OPEN_JOURNALRANK(frame)
-	packet.CheckWikiRankTime();	-- 5ÃÊ¸¶´Ù ReqWikiCategoryRankPageInfo("Total" -1) °¡´É
+	packet.CheckWikiRankTime();	-- 5ï¿½Ê¸ï¿½ï¿½ï¿½ ReqWikiCategoryRankPageInfo("Total" -1) ï¿½ï¿½ï¿½ï¿½
+	--packet.CheckMgameRankTime();
 
 end
 
@@ -49,7 +50,11 @@ function JOURNALRANK_VIEW_PAGE(frame, page)
 end
 
 function ON_WIKI_RANK_PAGE(frame, msg, str, num)
-	JOURNAKRANK_SHOW_PAGE(frame, num);
+	if str == "Total" then
+		JOURNAKRANK_SHOW_PAGE(frame, num);
+	elseif str == "UpHill" then
+		MGAME_SHOW_PAGE(frame, num);
+	end
 end
 
 function JOURNAKRANK_SHOW_PAGE(frame, page)
@@ -87,6 +92,57 @@ function JOURNAKRANK_SHOW_PAGE(frame, page)
 			rankFont = frame:GetUserConfig("RANK_FONT_NAME");
 		end
 
+		local rankSet = bg_ctrls:CreateOrGetControlSet('journal_rank_set', "SET_MGAME_" .. rankInfo.ranking, 0, 0);
+		local rankStr = string.format("%s%d", rankFont, rankInfo.ranking+1, imgName);
+		local txt_score = rankSet:GetChild("txt_score");
+		txt_score:SetTextByKey("value", rankInfo.totalScore);
+		local txt_rank = rankSet:GetChild("txt_rank");
+		txt_rank:SetTextByKey("value", rankInfo.ranking+1);
+		local txt_name = rankSet:GetChild("txt_name");
+		local nameText =  rankInfo:GetIconInfo():GetGivenName() .. "{nl}" .. rankInfo:GetIconInfo():GetFamilyName();
+		txt_name:SetTextByKey("value", nameText);
+
+	end	
+	
+	GBOX_AUTO_ALIGN(bg_ctrls, 0, 0, 0, true, false);	
+	frame:Invalidate();
+		
+end
+
+function MGAME_SHOW_PAGE(frame, page)
+	local ranking = geServerUphill.GetMGameRank();
+
+	local ctrlSet = GET_CHILD(frame, "rank_3");
+	local pageCtrl = GET_CHILD(ctrlSet, 'control');
+	pageCtrl:SetCurPage(page);
+	local startRank = page * WIKI_RANK_PER_PAGE;
+	local bg_ctrls = GET_CHILD(ctrlSet, "bg_ctrls");
+	bg_ctrls:RemoveAllChild();
+	bg_ctrls:EnableHitTest(0);
+	local mySession = session.GetMySession();
+	local cid = mySession:GetCID();
+	for i = 0 , WIKI_RANK_PER_PAGE - 1 do
+
+		local rankIndex = ranking:GetIndexByRank(startRank + i);		
+		if rankIndex < 0 then
+			break;
+		end
+
+		local rankInfo = ranking:GetByIndex(rankIndex);
+		if rankInfo == nil and rankInfo.totalScore <= 0 then
+			break;
+		end
+
+		local key = rankInfo.ranking + 1;
+		--local imgName = ui.CaptureModelHeadImage_IconInfo(rankInfo:GetIconInfo());
+		local imgName = GET_JOB_ICON(rankInfo:GetIconInfo().job);
+		local rankFont;
+		if cid == rankInfo:GetStrCID() then
+			rankFont = frame:GetUserConfig("RANK_MY_FONT_NAME");
+		else
+			rankFont = frame:GetUserConfig("RANK_FONT_NAME");
+		end
+
 		local rankSet = bg_ctrls:CreateOrGetControlSet('journal_rank_set', "SET_" .. rankInfo.ranking, 0, 0);
 		local rankStr = string.format("%s%d", rankFont, rankInfo.ranking+1, imgName);
 		local txt_score = rankSet:GetChild("txt_score");
@@ -94,7 +150,7 @@ function JOURNAKRANK_SHOW_PAGE(frame, page)
 		local txt_rank = rankSet:GetChild("txt_rank");
 		txt_rank:SetTextByKey("value", rankInfo.ranking+1);
 		local txt_name = rankSet:GetChild("txt_name");
-		local nameText =  rankInfo:GetIconInfo():GetFamilyName() .. "{nl}" .. rankInfo:GetIconInfo():GetGivenName();
+		local nameText =  rankInfo:GetIconInfo():GetGivenName() .. "{nl}" .. rankInfo:GetIconInfo():GetFamilyName();
 		txt_name:SetTextByKey("value", nameText);
 
 	end	
@@ -115,8 +171,11 @@ function JOURNALRANK_PAGE(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	local rank_1 = frame:GetChild("rank_1");
 	local rank_2 = frame:GetChild("rank_2");
+	local rank_3 = frame:GetChild("rank_3");
+	
 	rank_1:ShowWindow(1);
 	rank_2:ShowWindow(0);
+	rank_3:ShowWindow(0);
 
 	
 end
@@ -126,11 +185,28 @@ function JOURNALRANK_PVP(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	local rank_1 = frame:GetChild("rank_1");
 	local rank_2 = frame:GetChild("rank_2");
+	local rank_3 = frame:GetChild("rank_3");
+
 	rank_1:ShowWindow(0);
 	rank_2:ShowWindow(1);
+	rank_3:ShowWindow(0);
 	
 	JOURNAL_REQUEST_PVPRANK(frame, 1, 1);
 
+end
+
+function JOURNALRANK_UP_HILL(parent, ctrl)
+
+	local frame = parent:GetTopParentFrame();
+	local rank_1 = frame:GetChild("rank_1");
+	local rank_2 = frame:GetChild("rank_2");
+	local rank_3 = frame:GetChild("rank_3");
+
+	rank_1:ShowWindow(0);
+	rank_2:ShowWindow(0);
+	rank_3:ShowWindow(1);
+	
+	MGAME_SHOW_PAGE(frame, 0);
 end
 
 function GET_JOUNNAL_PVP_TYPE(frame)
@@ -172,6 +248,11 @@ function UPDATE_PVP_RANK_CTRLSET_JOURNAL(ctrlSet, info)
 end
 
 function ON_JOURNAL_WORLDPVP_RANK_PAGE(frame)
+	local rank_type = session.worldPVP.GetRankProp("Type");
+	if rank_type == 200 then
+		OPEN_GUILDBATTLE_RANKING_FRAME();
+		return;
+	end
 
 	local rank_2 = frame:GetChild("rank_2");
 	local bg_ctrls = GET_CHILD(rank_2, "bg_ctrls");

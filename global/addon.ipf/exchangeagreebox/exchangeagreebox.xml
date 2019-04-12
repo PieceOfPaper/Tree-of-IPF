@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="exchangeagreebox" x="0" y="0" width="480" height="250">
+    <frame fullheight="false" fasthide="true" layout_gravity="center center" movebale="false"/>
+    <skin frameskin="none"/>
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <layer layerlevel="99"/>
+    <option closebutton="false" closebuttonpos="0 20"/>
+    <sound opensound="button_click_stats_OK" closesound="button_click_big_2"/>
+    <effect open="character_item_window_open" close="character_item_window_close"/>
+    <controls>
+        <groupbox name="bg2" rect="0 0 480 250" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_win_lastpopup2"/>
+        <groupbox name="itemList" margin="7 170 0 0" rect="0 0 430 40" hittestbox="false" skin="None" layout_gravity="center top" parent="bg2"/>
+        <button name="exchange" margin="46 0 0 67" rect="10 10 170 50" skin="test_red_button" layout_gravity="left bottom" caption="{@st41b}거래" LBtnUpScp="CHANGEAGREEBOX_FIANLAGREE_CLICK" parent="bg2"/>
+        <button name="cencel" margin="235 0 0 68" rect="10 10 170 50" skin="test_gray_button" layout_gravity="left bottom" caption="{@st41b}아니오" LBtnUpScp="ui.CloseFrame(&quot;exchangeagreebox&quot;);" parent="bg2"/>
+        <richtext name="tokenState" margin="-3 101 0 0" rect="0 0 120 24" caption="{@st66d}거래 대상 양측이 모두 토큰 사용으로{nl}아이템 속성이 변경되지 않습니다.{/}" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" parent="bg2"/>
+        <richtext name="NotokenState" margin="-3 101 0 0" rect="0 0 120 24" caption="{@st66d}거래 대상 양측이 모두 토큰 사용하지 않아{nl}아이템 속성이 변경 됩니다.{/}" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" parent="bg2"/>
+        <richtext name="richtext_1" margin="-9 -17 0 0" rect="0 0 120 40" caption="{@st42}거래 속성이 변경되는 아이템 목록{/}" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" parent="itemList"/>
+        <groupbox name="groupbox_1" margin="10 18 0 0" rect="0 0 400 30" hittestbox="false" skin="test_arow" layout_gravity="left top" parent="itemList"/>
+        <richtext name="list" margin="-2 32 0 0" rect="0 0 400 200" format="{@st42}%s{/}" param1="value" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" parent="itemList"/>
+    </controls>
+</uiframe>

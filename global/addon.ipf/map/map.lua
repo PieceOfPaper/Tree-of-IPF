@@ -64,7 +64,7 @@ function MAP_OPEN(frame)
 
 end
 
--- ÇØ»óµµ º¯°æµÇ¸é ½ÇÇà½ÃÄÑÁà¾ßµÊ.
+-- ï¿½Ø»ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµï¿½.
 function INIT_MAPUI_INFO(frame)
 	
 	local width = frame:GetWidth();
@@ -103,7 +103,7 @@ end
 function MAP_CLOSE(frame)
 end
 
-function MAKE_MAP_AREA_INFO(frame, mapClassName, font)
+function MAKE_MAP_AREA_INFO(frame, mapClassName, font, mapWidth, mapHeight, offsetX, offsetY)
 
 	INIT_MAPUI_PTR(frame);
 	DESTROY_CHILD_BYNAME(frame, 'MAP_AREA_');
@@ -134,10 +134,24 @@ function MAKE_MAP_AREA_INFO(frame, mapClassName, font)
 			centerY = centerY / posCnt;
 			centerZ = centerZ / posCnt;
 			
-			local mapPos = info.GetPositionInMap(centerX, centerY, centerZ, m_mapWidth, m_mapHeight);
+			if mapWidth == nil then
+				mapWidth = m_mapWidth;
+			end
+			if mapHeight == nil then
+				mapHeight = m_mapHeight;
+			end	
 
-			mapPos.x = mapPos.x + m_offsetX - 100;
-			mapPos.y = mapPos.y + m_offsetY - 30;
+			if offsetX == nil then
+				offsetX = m_offsetX - 100;
+			end
+			if offsetY == nil then
+				offsetY = m_offsetY - 30;
+			end
+
+			local mapPos = info.GetPositionInMap(centerX, centerY, centerZ, mapWidth, mapHeight);
+
+			mapPos.x = mapPos.x + offsetX;
+			mapPos.y = mapPos.y + offsetY;
 			
 			local areaNameCtrlSet = frame:CreateOrGetControlSet('mapAreaName', 'MAP_AREA_'.. cls.ClassName, mapPos.x, mapPos.y);
 			local nameRechText = GET_CHILD(areaNameCtrlSet, "areaname", "ui::CRichText");
@@ -353,7 +367,7 @@ function UPDATE_MAP(frame, isFirst)
 
 end
 
-function MAKE_MAP_NPC_ICONS(frame, mapname)
+function MAKE_MAP_NPC_ICONS(frame, mapname, mapWidth, mapHeight, offsetX, offsetY)
 	local mapprop = geMapTable.GetMapProp(mapname);
 	if mapprop.mongens == nil then
 		return;
@@ -365,21 +379,17 @@ function MAKE_MAP_NPC_ICONS(frame, mapname)
 	local questPropList = {};
 
 	GET_QUEST_NPC_NAMES(mapname, npclist, statelist, questIESlist, questPropList);
-	MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, questPropList);
+	MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, questPropList, mapWidth, mapHeight, offsetX, offsetY);
 	MAKE_TOP_QUEST_ICONS(frame);
 	MAKE_MY_CURSOR_TOP(frame);
 end
 
-function UPDATE_MAP_BY_NAME(frame, mapname, pic)
-	
+function UPDATE_MAP_BY_NAME(frame, mapname, pic, mapWidth, mapHeight, offsetX, offsetY)
 	INIT_MAPUI_PTR(frame);
 
 	MAKE_MAP_FOG_PICTURE(mapname, pic)
 	UPDATE_MAP_FOG_RATE(frame, mapname);
-
-	MAKE_MAP_NPC_ICONS(frame, mapname);
-	
-    
+	MAKE_MAP_NPC_ICONS(frame, mapname, mapWidth, mapHeight, offsetX, offsetY)
 end
 
 function UPDATE_NPC_STATE_COMMON(frame)
@@ -389,7 +399,7 @@ function UPDATE_NPC_STATE_COMMON(frame)
 	local cnt = mongens:Count();
 	
 	local typeCount = {};
-	-- MONGENÀ» ÅëÇÑ Äù½ºÆ® Á¤º¸ Ãâ·Â
+	-- MONGENï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	for i = 0 , cnt - 1 do
 	local MonProp = mongens:Element(i);
 		if MonProp.Minimap >= 1 then
@@ -473,7 +483,7 @@ function SET_RIGHT_QUESTLIST(groupCtrl, idx, MonProp, list_y, statelist, questIE
 	return list_y;
 end
 
-function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, questPropList)
+function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, questPropList, mapWidth, mapHeight, offsetX, offsetY)
 
 	local mylevel = info.GetLevel(session.GetMyHandle());
 	DESTORY_MAP_PIC(frame);
@@ -484,8 +494,21 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 	local cnt = mongens:Count();
 	local WorldPos;
 	local minimapPos;
+	
+	if mapWidth == nil then
+		mapWidth = m_mapWidth;
+	end
+	if mapHeight == nil then
+		mapHeight = m_mapHeight;
+	end
+	if offsetX == nil then
+		offsetX = m_offsetX;
+	end
+	if offsetY == nil then
+		offsetY = m_offsetY;
+	end
 
-	-- MONGENÀ» ÅëÇÑ Äù½ºÆ® Á¤º¸ Ãâ·Â
+	-- MONGENï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	for i = 0 , cnt - 1 do
 		local MonProp = mongens:Element(i);
 		
@@ -494,9 +517,9 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 			local GenCnt = GenList:Count();
 			for j = 0 , GenCnt - 1 do
 				WorldPos = GenList:Element(j);
-				local MapPos = mapprop:WorldPosToMinimapPos(WorldPos.x, WorldPos.z, m_mapWidth, m_mapHeight);
-				local XC = m_offsetX + MapPos.x - iconW / 2;
-				local YC = m_offsetY + MapPos.y - iconH / 2;
+				local MapPos = mapprop:WorldPosToMinimapPos(WorldPos.x, WorldPos.z, mapWidth, mapHeight);
+				local XC = offsetX + MapPos.x - iconW / 2;
+				local YC = offsetY + MapPos.y - iconH / 2;
 
 				local ctrlname = GET_GENNPC_NAME(frame, MonProp);
 				local PictureC = frame:CreateOrGetControl('picture', ctrlname, XC, YC, iconW, iconH);
@@ -506,7 +529,7 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 		end
 	end
 
-	-- questprogressÀÇ Location Á¤º¸
+	-- questprogressï¿½ï¿½ Location ï¿½ï¿½ï¿½ï¿½
 	local quemon = mapprop.questmonster;
 	if quemon ~= nil then
 
@@ -558,7 +581,7 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 		end
 	end
 
-	-- LocationÀ» ÅëÇÑ Äù½ºÆ® Á¤º¸ Ãâ·Â
+	-- Locationï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	local allmaptxt = "";
 
 	local mapname = mapprop:GetClassName();
@@ -615,7 +638,7 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 		end
 	end
 
-	-- QuestMapPointGroupÀ» ÅëÇÑ Äù½ºÆ® Á¤º¸ Ãâ·Â
+	-- QuestMapPointGroupï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	local cnt = #questIESlist;
 	for i = 1 , cnt do
 		local cls = questIESlist[i];
@@ -717,7 +740,7 @@ function GET_MONGEN_NPCPOS(mapprop, npcFuncName)
 	local WorldPos;
 	local minimapPos;
 
-	-- MONGENÀ» ÅëÇÑ Äù½ºÆ® Á¤º¸ Ãâ·Â
+	-- MONGENï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 	for i = 0 , cnt - 1 do
 		local MonProp = mongens:Element(i);
 
@@ -877,7 +900,7 @@ function UPDATE_MINIMAP_TOOLTIP(tooltipframe, strarg, questclassID, numarg1, mon
 			local color = GET_LEVEL_COLOR(mylevel, questcls.Level)
 			if divQuestState ~= 'COMPLETE' then
 							
-				-- ÀÌ°Å ¿Ö ÁË´Ù 4255·Î µé¾î¿È?? ÀÏ´Ü questclassID°¡ 0ÀÎ°Ç Ãâ·Â¾ÈµÇ°Ô ¸·À½.
+				-- ï¿½Ì°ï¿½ ï¿½ï¿½ ï¿½Ë´ï¿½ 4255ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½?? ï¿½Ï´ï¿½ questclassIDï¿½ï¿½ 0ï¿½Î°ï¿½ ï¿½ï¿½Â¾ÈµÇ°ï¿½ ï¿½ï¿½ï¿½ï¿½.
 				if questclassID ~= 0 then
 					local questIconImgName = GET_ICON_BY_STATE_MODE(divQuestState, questcls);
 					local questInfoText = "{img ".. questIconImgName .." 20 20}"..color .. "{ol}{ds}{s16}" ..  questcls.Name .."{/}{/}{nl}";
@@ -900,7 +923,7 @@ end
 
 function MAP_CHAR_UPDATE(frame, msg, argStr, argNum)
 
-	-- argNum ´Â ¿ÀºêÁ§Æ® ID -> ¿ÀºêÁ§Æ®ÀÇ Relation, À§Ä¡¿Í ¹æÇâ µî ÂüÁ¶.
+	-- argNum ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ID -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Relation, ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	local objHandle = argNum;
 	--local pos = info.GetPositionInMap(objHandle, m_mapWidth, m_mapHeight);
 	
@@ -941,7 +964,7 @@ function MAP_ON_MSG(frame, msg, argStr, argNum)
 	  elseif msg == 'MAP_CHARACTER_ADD' then
 
     elseif msg == 'MAP_CHARACTER_REMOVE' then
-		-- argStr ¿ÀºêÁ§Æ® ³×ÀÓ -> ÀÌ¹ÌÁö ¾ÆÀÌÅÛ »èÁ¦
+		-- argStr ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ -> ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	 end
      frame:Invalidate();

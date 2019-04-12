@@ -2285,7 +2285,7 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
                         quest_reason[x] = 'Lvdown'
                         x = x + 1
                     end
-                    if questIES.JobStep ~= 'None' then
+                    if questIES.JobStep > 0 then
                         quest_reason[x] = 'JobStep'
                         x = x + 1
                     end

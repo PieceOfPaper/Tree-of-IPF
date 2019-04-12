@@ -15,13 +15,13 @@ end
 
 function ITEM_DUNGEON_FOR_PARTY_ON_MSG(frame, msg, argStr, argNum)
 	if msg == "DISAGREE_ITEM_DUNGEON" then
-		ITEMDUNGEN_UI_CLOASE(frame);
+		ITEMDUNGEN_UI_CLOSE(frame);
 		return;
 	elseif msg == "EXC_ITEM_DUNGEON" then
 		local agrBtn = frame:GetChild("btn_excute");
 		agrBtn:SetEnable(1);
 	elseif msg == "REQ_ITEM_DUNGEON" then
-		-- ¾???º?°¡ ¿僻; ¹?½
+		-- ���ɹ̽�Ʈ�� ��û�� ����
 		if 0 == argNum then
 			local str = ScpArgMsg("DoYouOpenItemDungeon{Name}", "Name", argStr);
 			local okScript = string.format("AGREE_OPEN_ITEM_DUNGEON_UI('%s', 1)", argStr);
@@ -148,7 +148,7 @@ end
 function UPDATEA_ITEMDUNGEON_DROP_ITEM(frame, msg, argStr, agrNum)
 	local name = frame:GetUserValue("Name");
 	if argStr ~= name then
-		ITEMDUNGEN_UI_CLOASE(frame);
+		ITEMDUNGEN_UI_CLOSE(frame);
 		return;
 	end
 
@@ -164,48 +164,48 @@ function UPDATEA_ITEMDUNGEON_DROP_ITEM(frame, msg, argStr, agrNum)
 	local slot = frame:GetChild("targetSlot");
 	slot = tolua.cast(slot, slot:GetClassString());
 	SET_SLOT_ITEM_CLS(slot, itemCls);
-		local slotName = GET_CHILD(frame, "slotName");
-		slotName:SetTextByKey("value", GET_FULL_NAME(obj));
-		local pr_txt = GET_CHILD(frame, "nowPotentialStr");
-		pr_txt:ShowWindow(1);
+	local slotName = GET_CHILD(frame, "slotName");
+	slotName:SetTextByKey("value", GET_FULL_NAME(obj));
+	local pr_txt = GET_CHILD(frame, "nowPotentialStr");
+	pr_txt:ShowWindow(1);
 
-		local tempObj = CreateIESByID("Item", obj.ClassID);
-		if nil == tempObj then
-			return;
-		end
+	local tempObj = CreateIESByID("Item", obj.ClassID);
+	if nil == tempObj then
+		return;
+	end
 
-		local refreshScp = tempObj.RefreshScp;
-		if refreshScp ~= "None" then
-			refreshScp = _G[refreshScp];
-			refreshScp(tempObj);
-		end	
+	local refreshScp = tempObj.RefreshScp;
+	if refreshScp ~= "None" then
+		refreshScp = _G[refreshScp];
+		refreshScp(tempObj);
+	end	
 
-		frame:RemoveChild('tooltip_only_pr');
-		local nowPotential = frame:CreateControlSet('tooltip_only_pr', 'tooltip_only_pr', 30, pr_txt:GetY() - pr_txt:GetHeight());
-		tolua.cast(nowPotential, "ui::CControlSet");
-		local pr_gauge = GET_CHILD(nowPotential,'pr_gauge','ui::CGauge')
-		pr_gauge:SetPoint(obj.PR, tempObj.PR);
-		pr_txt = GET_CHILD(nowPotential,'pr_text','ui::CGauge')
-		pr_txt:SetVisible(0);
-		
-		DestroyIES(tempObj);
+	frame:RemoveChild('tooltip_only_pr');
+	local nowPotential = frame:CreateControlSet('tooltip_only_pr', 'tooltip_only_pr', 30, pr_txt:GetY() - pr_txt:GetHeight());
+	tolua.cast(nowPotential, "ui::CControlSet");
+	local pr_gauge = GET_CHILD(nowPotential,'pr_gauge','ui::CGauge')
+	pr_gauge:SetPoint(obj.PR, tempObj.PR);
+	pr_txt = GET_CHILD(nowPotential,'pr_text','ui::CGauge')
+	pr_txt:SetVisible(0);
+	
+	DestroyIES(tempObj);
 
-		local needItem, needCount = GET_ITEM_AWAKENING_PRICE(obj);
-		local needItemCls = GetClass("Item", needItem);
+	local needItem, needCount = GET_ITEM_AWAKENING_PRICE(obj);
+	local needItemCls = GetClass("Item", needItem);
 
-		local slot_needitem = GET_CHILD(frame, "slot_needitem"); 
-		SET_SLOT_ITEM_CLS(slot_needitem, needItemCls);
-		SET_SLOT_COUNT_TEXT(slot_needitem, needCount);
+	local slot_needitem = GET_CHILD(frame, "slot_needitem"); 
+	SET_SLOT_ITEM_CLS(slot_needitem, needItemCls);
+	SET_SLOT_COUNT_TEXT(slot_needitem, needCount);
 
-		local needitemcount = GET_CHILD(frame, "needitemcount");
-		local txt = needItemCls.Name .. " - " .. needCount .. " " .. ClMsg("Piece");
-		needitemcount:SetTextByKey("value", txt);
+	local needitemcount = GET_CHILD(frame, "needitemcount");
+	local txt = needItemCls.Name .. " - " .. needCount .. " " .. ClMsg("Piece");
+	needitemcount:SetTextByKey("value", txt);
 end
 
 function UPDATEA_ITEMDUNGEON_STONE_ITEM(frame, msg, argStr, agrNum)
 	local name = frame:GetUserValue("Name");
 	if argStr ~= name then
-		ITEMDUNGEN_UI_CLOASE(frame);
+		ITEMDUNGEN_UI_CLOSE(frame);
 		return;
 	end
 
@@ -275,9 +275,9 @@ function ITEMDUNGEON_CLEARUI(frame)
 	local partySlot = GET_CHILD(bodyGbox, "partySlot"); 
 	partySlot:RemoveAllChild();
 	
-	local count = session.party.GetAlivePartyMemberList() -- ??¿???? 0;?¿?, ¿뺴 ??
+	local count = session.party.GetAlivePartyMemberList() -- ��Ƽ���� ������ 0��ī��Ʈ, �뺴 ����
 	local number = math.min(ItemAwakening.Level,count); 
-	if count == 0 then-- ±?{8·?³ª´ ?°¡??Z
+	if count == 0 then-- �⺻������ ���� �߰�������
 		number = 1;
 	end
 	local maxCount = 4;
@@ -289,7 +289,7 @@ function ITEMDUNGEON_CLEARUI(frame)
 		pic:SetEnableStretch(1);
 		pic:SetImage("house_change_man");
 
-		-- ¸¸¾??L V³￢ L°??½º?¿?		
+		-- ���� ����� �ֳ�, �̰� �׽�Ʈ��
 		if number > 0 then
 			pic:SetColorTone("00000000"); 
 			number = number - 1;
@@ -453,18 +453,25 @@ function EXEC_ITEM_DUNGEON(parent, ctrl)
 	if "None" == name then
 		local nedItem = session.GetInvItemByName(needItemCls.ClassName);
 		if nil == nedItem or nedItem.count < needCount then
-		ui.SysMsg(ClMsg("NotEnoughRecipe"));
-		return;
+			ui.SysMsg(ClMsg("NotEnoughRecipe"));
+			return;
+		end
 	end
-	else
-	end
+
 	if true == invItem.isLockState then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
 
+	local stoneSlot = GET_CHILD(frame, "stoneSlot");
+	local stonItem = GET_SLOT_ITEM(stoneSlot);
+	if stonItem ~= nil and true == stonItem.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return;
+	end
+
 	if "None" == name then
-	ui.MsgBox(ClMsg("IfAwakenItem_PotentialIsConsumed_Continue?"), "_EXEC_ITEM_DUNGEON", "None");
+		ui.MsgBox(ClMsg("IfAwakenItem_PotentialIsConsumed_Continue?"), "_EXEC_ITEM_DUNGEON", "None");
 	else
 		local okScp = string.format("Alchemist.ReqExcItemDungeon('%s')", name);
 		local noscp = string.format("Alchemist.CloseItemDungeon('%s')", name);
@@ -478,11 +485,11 @@ function _EXEC_ITEM_DUNGEON()
 	local invItem = nil;
 	local stonItem = nil;
 	if "None" == name then
-	local targetSlot = GET_CHILD(frame, "targetSlot");
+		local targetSlot = GET_CHILD(frame, "targetSlot");
 		invItem = GET_SLOT_ITEM(targetSlot);
-	if invItem == nil then
-		return;
-	end
+		if invItem == nil then
+			return;
+		end
 		if true == invItem.isLockState then
 			ui.SysMsg(ClMsg("MaterialItemIsLock"));
 			return;
@@ -491,7 +498,7 @@ function _EXEC_ITEM_DUNGEON()
 		local stoneSlot = GET_CHILD(frame, "stoneSlot");
 		stonItem = GET_SLOT_ITEM(stoneSlot);
 		if stonItem ~= nil and true == stonItem.isLockState then
-		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+			ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		end
 	else
 		invItem = session.hardSkill.GetReciveItem();
@@ -502,13 +509,13 @@ function _EXEC_ITEM_DUNGEON()
 	end
 
 	if "None" == name then
-	session.ResetItemList();
-	session.AddItemID(invItem:GetIESID());
+		session.ResetItemList();
+		session.AddItemID(invItem:GetIESID());
 		if nil ~= stonItem then
 			session.AddItemID(stonItem:GetIESID());
 		end
-	local resultlist = session.GetItemIDList();
-	item.DialogTransaction("ITEM_AWAKENING_TX", resultlist);
+		local resultlist = session.GetItemIDList();
+		item.DialogTransaction("ITEM_AWAKENING_TX", resultlist);
 	else
 		local iesID = session.hardSkill.GetReciveItemGUID();
 		local obj = GetIES(invItem);
@@ -536,7 +543,7 @@ function _EXEC_ITEM_DUNGEON()
 
 	frame:SetUserValue("Name" , "None");
 	frame:SetUserValue("OPEN_UI", 0);
-
+	
 	ITEMDUNGEON_CLEARUI(frame);
 	session.hardSkill.CloseItemDungeon();
 	frame:ShowWindow(0);

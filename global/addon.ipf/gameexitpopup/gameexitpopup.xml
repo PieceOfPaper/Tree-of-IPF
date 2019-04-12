@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="gameexitpopup" x="0" y="0" width="500" height="220">
+	<frame layout_gravity="center center" margin="0 -200 0 0"/>
+	<skin frameskin="test_win_system"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<input moveable="false"/>
+	<layer topmostlayer="true" layerlevel="200"/>
+	<option closebutton="false" hideable="false"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+	<controls>
+    <richtext name="tip" rect="0 60 460 30" layout_gravity="center top" caption="{@st66b}{s20}캐릭터가 현재 {/}{s20}{#770000}전투 중{@st66b}{s20}입니다.{/}" fixwidth="true" textalign="center center"/>
+    <richtext name="txt_timeout" rect="0 90 460 30" layout_gravity="center top" format="{@st66b}{s20}%s{/}" param1="value" fixwidth="true" textalign="center center"/>
+    <button name="btn_cancel" skin="test_pvp_btn" rect="0 0 440 40" margin="30 130 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" LBtnUpScp="GAMEEXIT_TIMER_CANCEL" caption="{@st66b}취소{/}" clicksound="button_click_big" oversound="button_over" textalign="center center"/>
+	</controls>
+</uiframe>

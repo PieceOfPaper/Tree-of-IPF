@@ -184,9 +184,11 @@ function GET_BARN_OWL_TAMING_MODELMON(seedCls, obj)
 end
 
 function GET_GUILD_EXPUP_ITEM_INFO()
+    return "misc_talt", 20;
+end
 
-	return "misc_talt", 20;
-
+function GET_GUILD_EXPUP_ITEM_INFO2()
+    return "misc_talt_event", 20;
 end
 
 function GET_GUILD_LEVEL_BY_EXP(exp)
@@ -214,7 +216,12 @@ end
 
 function GET_GUILD_MAKE_PRICE()
 
-	return 500000;
+	local isSeasonServer = IS_SEASON_SERVER(nil);
+	if isSeasonServer == "YES" then
+		return 1000000 - (1000000 * 0.9)
+	end
+
+	return 1000000;
 
 end
 

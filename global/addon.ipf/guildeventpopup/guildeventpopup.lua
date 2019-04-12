@@ -3,14 +3,27 @@ function GUILDEVENTPOPUP_ON_INIT(addon, frame)
 
 	addon:RegisterMsg("GUILD_PROPERTY_UPDATE", "ON_UPDATE_GUILDEVENT_POPUP");
 	addon:RegisterMsg("GUILD_INFO_UPDATE", "ON_UPDATE_GUILDEVENT_POPUP");
-	addon:RegisterMsg('GAME_START', 'ON_UPDATE_GUILDEVENT_POPUP');
+	addon:RegisterMsg('GAME_START', 'ON_UPDATE_GUILDEVENT_POPUP');			
+end
+
+function OPEN_GUILDEVENTPOPUP(frame)
+	local isLeader = AM_I_LEADER(PARTY_GUILD);
+	if isLeader == 1 then
+		REQ_JOIN_GUILDEVENT(frame, nil, 1)
+	end
+
+	local btn_join = GET_CHILD(frame, "btn_join");
+	local btn_close = GET_CHILD(frame, "btn_close");
+
+	btn_join:SetTextByKey("value", ScpArgMsg("Join"));
+	btn_join:ShowWindow(1);
+	btn_close:SetTextByKey("value", ScpArgMsg("GuildEventAgree"));
+	btn_close:ShowWindow(1);
 end
 
 function UPDATE_GUILD_EVENT_POPUP()
-
 	local frame = ui.GetFrame("guildeventpopup");
 	ON_UPDATE_GUILDEVENT_POPUP(frame);
-
 end
 
 function ON_UPDATE_GUILDEVENT_POPUP(frame, msg, arg)
@@ -59,43 +72,28 @@ function ON_UPDATE_GUILDEVENT_POPUP(frame, msg, arg)
 	frame:SetUserValue("START_SEC", imcTime.GetAppTime());
 	if GuildInDunFlag == 1 or GuildBossSummonFlag == 1 then
 		local sList = StringSplit(LocInfo, ":");
-	local mapID = sList[1];
-	local genType = sList[2];
-	local genListIndex = sList[3];
-	local mapID = tonumber(sList[1]);
-	local genType = tonumber(sList[2]);
-	local genListIndex = tonumber(sList[3]);
+		local mapID = sList[1];
+		local genType = sList[2];
+		local genListIndex = sList[3];
+		local mapID = tonumber(sList[1]);
+		local genType = tonumber(sList[2]);
+		local genListIndex = tonumber(sList[3]);
 
-	local mapCls = GetClassByType("Map", mapID);
-	local mapprop = geMapTable.GetMapProp(mapCls.ClassName);
-	local genTypeProp = mapprop:GetMongen(genType);
-	local genList = genTypeProp.GenList;
-	local posInfo;
-	if genListIndex < genList:Count() then
-		posInfo = genList:Element(genListIndex);
-	end
-
-	local isLeader = AM_I_LEADER(PARTY_GUILD);
-	if isLeader == 1 then
-			REQ_JOIN_GUILDEVENT(nil, nil, 1)
-			--return;
-	end
-		local etcObj = GetMyEtcObject();
-
-		if etcObj.GuildEventSelectTime ~= "None" and IsLaterThanByStr(etcObj.GuildEventSelectTime) == 0 then
-			if etcObj.GuildEventStartTimeSave == partyObj.GuildEventBroadCastTime then
+		local mapCls = GetClassByType("Map", mapID);
+		local mapprop = geMapTable.GetMapProp(mapCls.ClassName);
+		local genTypeProp = mapprop:GetMongen(genType);
+		local genList = genTypeProp.GenList;
+		local posInfo;
+		if genListIndex < genList:Count() then
+			posInfo = genList:Element(genListIndex);
+		end
+		
+		local accObj = GetMyAccountObj();
+		if IsLaterOrSameStrByStr(accObj.GuildEventSelectTime, partyObj.GuildEventBroadCastTime) == 1 and accObj.GuildEventSeq ~= partyObj.GuildEventSeq then
 			frame:ShowWindow(0);
-			return;
-		end
-		end
-		
-		
-		frame:ShowWindow(1);
-		if etcObj.GuildEventSeq == partyObj.GuildEventSeq then
-			--frame:ShowWindow(0);
 		else
-	frame:ShowWindow(1);
-		end
+			frame:ShowWindow(1);	
+		end		
 
 		local goalInfo = GET_CHILD_RECURSIVELY(frame, "goalInfo")
 		goalInfo:SetTextByKey("value", guildEventCls.Name);
@@ -109,26 +107,17 @@ function ON_UPDATE_GUILDEVENT_POPUP(frame, msg, arg)
 		local aliveMemberCount = session.party.GetAliveMemberCount(PARTY_GUILD);
 		memberCount:SetTextByKey("value2", aliveMemberCount);
 		
-	frame:RunUpdateScript("GUILDEVENTPOPUP_UPDATE_STARTWAITSEC", 0, 0, 0, 1)
+		frame:RunUpdateScript("GUILDEVENTPOPUP_UPDATE_STARTWAITSEC", 0, 0, 0, 1)
 
-	local btn_join = GET_CHILD(frame, "btn_join");
+		local btn_join = GET_CHILD(frame, "btn_join");
 		local btn_close = GET_CHILD(frame, "btn_close");
 		
-		if isLeader == 1 then
-			btn_join:ShowWindow(0);
+		local isLeader = AM_I_LEADER(PARTY_GUILD);
+		if (IsLaterOrSameStrByStr(accObj.GuildEventSelectTime, partyObj.GuildEventBroadCastTime) == 1 and accObj.GuildEventSeq == partyObj.GuildEventSeq)
+			or isLeader == 1 then
+			btn_join:ShowWindow(0);	
 			btn_close:ShowWindow(0);
-		elseif etcObj.GuildEventSeq == partyObj.GuildEventSeq then
-			if IsLaterStrByStr(partyObj.GuildEventBroadCastTime, etcObj.GuildEventJoinSelectTime) == 1 then
-			else
-			btn_join:ShowWindow(0);
-				btn_close:ShowWindow(0);
-			end
-		else
-		btn_join:SetTextByKey("value", ScpArgMsg("Join"));
-		btn_join:ShowWindow(1);
-			btn_close:SetTextByKey("value", ScpArgMsg("GuildEventAgree"));
-			btn_close:ShowWindow(1);
-		end	
+		end		
 	elseif GuildRaidFlag == 1 then
 		local sList = StringSplit(LocInfo, " ");
 		local mapName = sList[1];
@@ -136,61 +125,40 @@ function ON_UPDATE_GUILDEVENT_POPUP(frame, msg, arg)
 		local posX = tonumber(sList[2]);
 		local posZ = tonumber(sList[4]);
 
-		local isLeader = AM_I_LEADER(PARTY_GUILD);
-
-		if isLeader == 1 then
-			REQ_JOIN_GUILDEVENT(nil, nil, 1)
-			--return;
-		end
-		frame:ShowWindow(1);
-		local etcObj = GetMyEtcObject();
-
-		if etcObj.GuildEventSelectTime ~= "None" and IsLaterThanByStr(etcObj.GuildEventSelectTime) == 0 then
-			if etcObj.GuildEventStartTimeSave == partyObj.GuildEventBroadCastTime then
-				frame:ShowWindow(0);
-				return;
-			end
-		end
-
-		if etcObj.GuildEventSeq == partyObj.GuildEventSeq then
-			--frame:ShowWindow(0);
+		local accObj = GetMyAccountObj();
+		if IsLaterOrSameStrByStr(accObj.GuildEventSelectTime, partyObj.GuildEventBroadCastTime) == 1 and accObj.GuildEventSeq ~= partyObj.GuildEventSeq then
+			frame:ShowWindow(0);
+			return;
 		else
 			frame:ShowWindow(1);
-		end
-
+				
+		end	
+		
 		local goalInfo = GET_CHILD_RECURSIVELY(frame, "goalInfo")
 		goalInfo:SetTextByKey("value", guildEventCls.Name);
 
 		local locationInfo = GET_CHILD_RECURSIVELY(frame, "locationInfo")
 		local txt_locinfo = MAKE_LINK_MAP_TEXT_NO_POS_NO_FONT(mapCls.ClassName, posX, posZ);
 		locationInfo:SetTextByKey("value", txt_locinfo);
-			
+
 		local memberCount =  GET_CHILD_RECURSIVELY(frame, "memberCount")
 		memberCount:SetTextByKey("value", partyObj.GuildEventJoinCount);
 		local aliveMemberCount = session.party.GetAliveMemberCount(PARTY_GUILD);
 		memberCount:SetTextByKey("value2", aliveMemberCount);
 	
 		frame:RunUpdateScript("GUILDEVENTPOPUP_UPDATE_STARTWAITSEC", 0, 0, 0, 1)
-
+		
 		local btn_join = GET_CHILD(frame, "btn_join");
 		local btn_close = GET_CHILD(frame, "btn_close");
-		if isLeader == 1 then
-			btn_join:ShowWindow(0);
+		
+		local isLeader = AM_I_LEADER(PARTY_GUILD);
+		if (IsLaterOrSameStrByStr(accObj.GuildEventSelectTime, partyObj.GuildEventBroadCastTime) == 1 and accObj.GuildEventSeq == partyObj.GuildEventSeq)
+			or isLeader == 1 then
+			btn_join:ShowWindow(0);	
 			btn_close:ShowWindow(0);
-		elseif etcObj.GuildEventSeq == partyObj.GuildEventSeq then
-			if IsLaterStrByStr(partyObj.GuildEventBroadCastTime, etcObj.GuildEventJoinSelectTime) == 1 then
-			else
-			btn_join:ShowWindow(0);
-			btn_close:ShowWindow(0);
-			end
-		else
-			btn_join:SetTextByKey("value", ScpArgMsg("Join"));
-			btn_join:ShowWindow(1);
-			btn_close:SetTextByKey("value", ScpArgMsg("GuildEventAgree"));
-			btn_close:ShowWindow(1);
-		end		
+		end	
 	end
-
+	
 	if nil ~= arg then
 		if nil ~= string.gmatch(arg, "AID") then
 			GUILDEVENTPOPUP_SET_UIITEM(frame, arg, partyObj, guildEventCls);
@@ -203,15 +171,25 @@ function REQ_JOIN_GUILDEVENT(parent, ctrl, isLeader)
 	if isLeader ~= 1 then
 		isLeader = 0
 	end
+
+	local frame = parent:GetTopParentFrame();
+	local btn_join = GET_CHILD(frame, "btn_join");
+	local btn_close = GET_CHILD(frame, "btn_close");
+
+	btn_join:ShowWindow(0);	
+	btn_close:ShowWindow(0);
 	control.CustomCommand("GUILDEVENT_JOIN", isLeader);
-
-
 end
 
 function REQ_ClOSE_GUILDEVENT(parent, ctrl)
 
 	local frame = parent:GetTopParentFrame();
-
+	local btn_join = GET_CHILD(frame, "btn_join");
+	local btn_close = GET_CHILD(frame, "btn_close");
+	
+	btn_join:ShowWindow(0);	
+	btn_close:ShowWindow(0);
+	
 	control.CustomCommand("GUILDEVENT_REFUSAL", frame:GetUserIValue("CLSSID"));
 
 	frame:ShowWindow(0);

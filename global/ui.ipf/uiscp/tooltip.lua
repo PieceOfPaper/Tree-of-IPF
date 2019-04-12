@@ -165,7 +165,7 @@ function SET_WIKI_MONRANK_INFO(frame, monName, isShow, offset)
 		end
 		SHOW_CHILD_LIST(damageGBox, isShow);
 	end
-
+	
 	for i = 1 , 3 do 
 		local frameLine = GET_CHILD(frame, "label_" ..i , "ui::CGroupBox");	
 		frameLine:SetPos(myGBox:GetOriginalX(), myGBox:GetOriginalY() + offset);
@@ -262,8 +262,8 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption)
 	    _obj.Level = 1
 	end
 	
-	--CloneIES_UseCP ¸¦ »ç¿ëÇÏ¸é Buff´Â Á¤»ó Attack´Â ºñÁ¤»ó
-	--CloneIES		 ¸¦ »ç¿ëÇÏ¸é Attack´Â Á¤»ó buff´Â ºñÁ¤»ó
+	--CloneIES_UseCP use -> buff normal, attack abnormal
+	--CloneIES		 use -> buff abnormal, attack normal
 
 	local valueType = TryGetProp(_obj, 'ClassName');
 
@@ -307,17 +307,17 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption)
 	end
 
 	local skillLevel = session.GetUserConfig("SKLUP_" .. nextObj.ClassName);
-	-- ¾ÆÁ÷ »õ¼Ç¿¡ ·¹º§¾÷À» ¾ÈÇò°Å³ª,
-	-- ±× ·¹º§ÀÌ ÇöÀç ·¹º§º¸´Ù ÀÛ°Å³ª
-	-- Ä¸¼Ç¼Ç·¹º§°ú ¿ÀºêÁ§Æ®ÀÇ ·¹º§ÀÌ ÀÏÄ¡ÇÒ ¶§
+	-- no level up in session
+	-- or the level is low than current level
+	-- caption level == object level
 	if 0 == skillLevel or skillLevel < _obj.Level or captionLevel == _obj.Level then
 		if hasSkil == true then
 			skillLevel = _obj.Level + skillLevel;
 		else
 		skillLevel = _obj.Level 
 		end
-	else-- ¾Æ´Ï¿´´Ù¸é, skl_pts_upÀ» ÇÏÁö ¾Ê¾Ò´Ù´Â °Í
-		skillLevel = skillLevel + 1;
+	else -- not skl_pts_up case
+			skillLevel = skillLevel + 1;
 	end
 
 	local LevelByDB = TryGetProp(nextObj, 'LevelByDB');
@@ -358,9 +358,9 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption)
 			end
 		end
 
-		-- ÇöÀç·¹º§
+		-- current level
 		caption, parsed = TRY_PARSE_PROPERTY(obj, nextObj, caption);
-		-- ´ÙÀ½·¹º§
+		-- next level
 		lvCaption, parsed = TRY_PARSE_PROPERTY(obj, nextObj, lvCaption);
 		if parsed == 0 then
 			break;
@@ -437,6 +437,7 @@ function UPDATE_ABILITY_TOOLTIP(frame, strarg, numarg1, numarg2)
 
 	if lvDescStart ~= nil and totalLevel ~= 0 then
 		skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));
+
 		while 1 do
 
 			local levelvalue = 2
@@ -454,6 +455,7 @@ function UPDATE_ABILITY_TOOLTIP(frame, strarg, numarg1, numarg2)
 			end
 			local lvDesc = string.sub(skillLvDesc, 2, lvDescStart -1);
 			skillLvDesc  = string.sub(skillLvDesc, lvDescEnd + levelvalue, string.len(skillLvDesc));
+			
 			ypos = SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, lvDesc, ypos, originalText);
 			lv = lv + 1;
 		end
@@ -463,7 +465,11 @@ function UPDATE_ABILITY_TOOLTIP(frame, strarg, numarg1, numarg2)
  end
 
 function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
-	DESTROY_CHILD_BYNAME(frame, 'SKILL_CAPTION_');
+
+	-- destroy skill, ability tooltip
+	DESTROY_CHILD_BYNAME(frame:GetChild('skill_desc'), 'SKILL_CAPTION_');
+	DESTROY_CHILD_BYNAME(frame:GetChild('ability_desc'), 'ABILITY_CAPTION_');
+
 	local abil = session.GetSkillByGuid(numarg2);
 	local obj = nil;
 	local objIsClone = false;
@@ -484,27 +490,29 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 	if obj == nil then
 		return;
 	end
-	local iconPicture = GET_CHILD(frame, "icon", "ui::CPicture");
+
+	--------------------------- skill description frame ------------------------------------
+	local skillFrame = GET_CHILD(frame, "skill_desc", "ui::CGroupBox")
+
+	-- set skill icon and name
+	local iconPicture = GET_CHILD(skillFrame, "icon", "ui::CPicture");
 	local iconname = "icon_" .. obj.Icon;
 	iconPicture:SetImage(iconname);
-
-	local name = frame:GetChild('name');
-	local nameText = '{@st43}'..obj.Name;
-	
+	local name = skillFrame:GetChild('name');
+	local nameText = '{@st43}'..obj.Name;	
 	local translatedData = dictionary.ReplaceDicIDInCompStr(obj.Name);
+
 	if obj.EngName ~= translatedData then
 		if config.GetServiceNation() ~= "GLOBAL" then
 			nameText = nameText .. "{/}{nl}" .. obj.EngName;
 		end
 	end
+	name:SetText(nameText);	
 
-	name:SetText(nameText);
-
-	local skillDesc = GET_CHILD(frame, "desc", "ui::CRichText");
-	
-	skillDesc:Resize(320, 20);
+	-- set skill description
+	local skillDesc = GET_CHILD(skillFrame, "desc", "ui::CRichText");	
+	skillDesc:Resize(skillDesc:GetWidth(), 20);
 	skillDesc:SetTextAlign("left", "top");
-	skillDesc:SetGravity(ui.CENTER_HORZ, ui.TOP);
 	local translatedData = dictionary.ReplaceDicIDInCompStr(obj.Caption);
 	if obj.Caption ~= translatedData then
 		skillDesc:SetDicIDText(obj.Caption)
@@ -512,10 +520,8 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 	skillDesc:SetText('{#1f100b}'..PARSE_TOOLTIP_CAPTION(obj, obj.Caption));
 	skillDesc:EnableSplitBySpace(0);
 
-
 	local stateLevel = session.GetUserConfig("SKLUP_" .. strarg, 0);
 	tooltipStartLevel = tooltipStartLevel + stateLevel;
-
 
 	local skilltreecls = GetClassByStrProp("SkillTree", "SkillName", obj.ClassName);
 	if skilltreecls ~= nil then
@@ -523,20 +529,42 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 			 tooltipStartLevel = skilltreecls.MaxLevel
 		end
 	end
+	
+	local iconEndPos = iconPicture:GetY() + iconPicture:GetHeight()
+	local ypos = skillDesc:GetY() + skillDesc:GetHeight()
 
-	local ypos = skillDesc:GetY() + skillDesc:GetHeight() + 40;
+	if ypos < iconEndPos then
+		ypos = iconEndPos + 10
+	end
+
+	-- set weapon info
+	local weaponBox = GET_CHILD(skillFrame, "weapon_box", "ui::CGroupBox")
+	local stancePic = weaponBox:GetChild("stance_pic")
+	stancePic:RemoveAllChild()
+	if TryGetProp(obj, 'ReqStance') ~= nil and TryGetProp(obj, 'EnableCompanion') ~= nil then		
+		MAKE_STANCE_ICON(stancePic, obj.ReqStance, obj.EnableCompanion)
+
+		local childCount = stancePic:GetChildCount()
+		for i=0, childCount-1 do
+			local child = stancePic:GetChildByIndex(i);
+			child:SetOffset(child:GetWidth() * i + 5, 10)
+		end
+	end
+	
+	weaponBox:SetOffset(0, ypos)
+	ypos = weaponBox:GetY() + weaponBox:GetHeight() + 5;
+
+
+	-- skill level description controlset
 	local skillCaption2 = MAKE_SKILL_CAPTION2(obj.ClassName, obj.Caption2, tooltipStartLevel);
-	
 	local originalText = ""
-	local translatedData2 = dictionary.ReplaceDicIDInCompStr(skillCaption2);
-	
+	local translatedData2 = dictionary.ReplaceDicIDInCompStr(skillCaption2);	
 	if skillCaption2 ~= translatedData2 then
 		originalText = skillCaption2
 	end
 	
 	local skillLvDesc = PARSE_TOOLTIP_CAPTION(obj, skillCaption2);
 	local lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");
-
 	local lv = 1;
 	if tooltipStartLevel > 0 then
 		lv = tooltipStartLevel;
@@ -561,31 +589,18 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 		end
 	end
 
-	if totalLevel == 0 and lvDescStart ~= nil then
-	
+	local currLvCtrlSet = nil
+
+	if totalLevel == 0 and lvDescStart ~= nil then	-- no have skill case
 		skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));
 		lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");
-		if lvDescStart ~= nil then
-	
+		if lvDescStart ~= nil then	
 			local lvDesc = string.sub(skillLvDesc, 2, lvDescStart -1);
 			skillLvDesc  = string.sub(skillLvDesc, lvDescEnd + 2	, string.len(skillLvDesc));
-			ypos = SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, lvDesc, ypos, originalText);
-
-			local lvDescCtrlSet = frame:GetChild("SKILL_CAPTION_1");
-			lvDescCtrlSet:SetDraw(1);
-			local descText = GET_CHILD(lvDescCtrlSet, "desc", "ui::CRichText");
-			local newfontstr = string.sub(descText:GetText(),9,string.len(descText:GetText()))
-			descText:SetText("{@st66b}"..newfontstr);
-		else -- 1·¹º§¹Û¿¡ ¾ø´Â ½ºÅ³ÀÇ °æ¿ì
+			ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
+		else -- max skill level = 1
 			local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));
-			ypos = SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, lvDesc, ypos, originalText);
-
-			local lvDescCtrlSet = frame:GetChild("SKILL_CAPTION_1");
-			lvDescCtrlSet:SetDraw(1);
-			local descText = GET_CHILD(lvDescCtrlSet, "desc", "ui::CRichText");
-			local newfontstr = string.sub(descText:GetText(),9,string.len(descText:GetText()))
-			descText:SetText("{@st66b}"..newfontstr);
-			
+			ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
 		end
 	
 	elseif lvDescStart ~= nil and totalLevel ~= 0 then
@@ -602,19 +617,19 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 
 			lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");
 
-			if lvDescStart == nil then
+			if lvDescStart == nil then -- max skill level = 1
 				local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));
-				ypos = SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, lvDesc, ypos, originalText);
+				ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
 				break;
 			end
 			local lvDesc = string.sub(skillLvDesc, 2, lvDescStart -1);
-			skillLvDesc  = string.sub(skillLvDesc, lvDescEnd + levelvalue	, string.len(skillLvDesc));
-			ypos = SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, lvDesc, ypos, originalText);
+			skillLvDesc  = string.sub(skillLvDesc, lvDescEnd + levelvalue, string.len(skillLvDesc));
+			ypos = SKILL_LV_DESC_TOOLTIP(skillFrame, obj, totalLevel, lv, lvDesc, ypos, originalText);
 			lv = lv + 1;
 		end
 	end
 	
-	local noTrade = GET_CHILD(frame, "trade_text", "ui::CRichText");
+	local noTrade = GET_CHILD(skillFrame, "trade_text", "ui::CRichText");
 	local itemID = frame:GetUserValue("SCROLL_ITEM_ID");
 	local noTradeCnt = nil;
 	if itemID ~= "None" then
@@ -636,15 +651,69 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 		noTrade:SetOffset(noTrade:GetOriginalX(),noTrade:GetOriginalY());
 		noTrade:ShowWindow(0);
 	end
-
 	noTrade:Invalidate();
-	frame:Resize(frame:GetWidth(), ypos + 10);
+	
+	--[[ pvp info: pvp info is not documented
+	ypos = PVP_DESC_TOOLTIP(skillFrame, ypos)	
+	]]--
+
+	skillFrame:Resize(frame:GetWidth(), ypos + 10)
+	frame:Resize(frame:GetWidth(), skillFrame:GetHeight() + 10)
+
+
+	------------------------ ability description frame ---------------------------------
+
+	local isShowNoHaveAbility = false
+	local abilFrame = GET_CHILD(frame, 'ability_desc', 'ui::CGroupBox')
+	abilFrame:SetOffset(0, ypos)
+	ypos = 20 -- init by ability frame
+
+	local pc = GetMyPCObject();
+
+	local abilList, abilCnt = GET_ABILITYLIST_BY_SKILL_NAME(obj.ClassName)
+	local pcAbilCnt = 0 -- ability count for showing
+	local pcAbilList = {}
+
+	for i = 0, abilCnt-1 do		
+		-- check pc have abilList[i]
+		local pcAbilIES = nil
+		pcAbilIES = GetAbilityIESObject(pc, abilList[i].ClassName);				
+		if isShowNoHaveAbility or (pcAbilIES ~= nil and pcAbilIES.ActiveState == 1) then
+			if pcAbilCnt > 0 then -- secondary ability: label line added
+				local labelLine = abilFrame:CreateOrGetControl('labelline', 'ABILITY_CAPTION_'..tostring(i), 0, ypos, 480, 2);
+				ypos = ypos + 10
+				labelLine:SetGravity(ui.CENTER_HORZ, ui.TOP)
+				labelLine:SetSkinName('labelline_def_2')
+			end
+			ypos = ABILITY_DESC_TOOLTIP(abilFrame, abilList[i], i, ypos, pc, pcAbilIES)
+		end
+
+		if isShowNoHaveAbility then
+			pcAbilList[pcAbilCnt] = abilList[i]
+			pcAbilCnt = pcAbilCnt + 1
+		elseif pcAbilIES ~= nil then
+			pcAbilList[pcAbilCnt] = pcAbilIES
+			pcAbilCnt = pcAbilCnt + 1
+		end
+	end
+
+	if totalLevel > 0 and pcAbilCnt > 0 then
+		ADD_SPEND_SKILL_LV_DESC_TOOLTIP(skillFrame:GetChild('SKILL_CAPTION_'..tostring(totalLevel)), pcAbilList)
+	end
+
+	if pcAbilCnt > 0 then
+		abilFrame:Resize(frame:GetWidth(), ypos)
+		frame:Resize(frame:GetWidth(), frame:GetHeight() + abilFrame:GetHeight());
+		abilFrame:ShowWindow(1)
+	else
+		abilFrame:ShowWindow(0)
+	end
 	frame:Invalidate();
 
 	if objIsClone == true then
 		DestroyIES(obj);
 	end
- end
+end
 
  function MAKE_SKILL_CAPTION2(className, caption2, curLv)
 
@@ -667,8 +736,8 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 			end
 		end
 	end
-
-	-- 1~maxLevel±îÁö ¸ðµç captionÀ» ÇÑ¹ø¿¡ °¡Á®¿À¸é ¹öÆÛ»çÀÌÁî ³Ñ¾î¼­ Å¬¶ó´Ù¿îµÊ. ÇÊ¿äÇÑ°Å 2°³¸¸ °¡Á®¿Àµµ·Ï ÇÔ.
+	
+	-- 1 ~ maxLevel caption cause to client down. use only two captions which you need
 	if curLv ~= nil then
 		if curLv == 0 then
 			beginLv = 1;
@@ -693,44 +762,82 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 	return caption;
  end
 
- function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext)
-
+function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext)
 	if totalLevel ~= lv and totalLevel + 1 ~= lv then
 		return ypos;
 	end
 
-	local lvDescCtrlSet = frame:CreateOrGetControlSet("skilllvdesc", "SKILL_CAPTION_"..tostring(lv), 100, ypos);
+	local lvDescCtrlSet = frame:CreateOrGetControlSet("skilllvdesc", "SKILL_CAPTION_"..tostring(lv), 0, ypos);
 	tolua.cast(lvDescCtrlSet, "ui::CControlSet");
+
+	-- user config
 	local LEVEL_FONTNAME = lvDescCtrlSet:GetUserConfig("LEVEL_FONTNAME")
 	local LEVEL_NEXTLV_FONTNAME = lvDescCtrlSet:GetUserConfig("LEVEL_NEXTLV_FONTNAME")
 	local DESC_FONTNAME = lvDescCtrlSet:GetUserConfig("DESC_FONTNAME")
 	local DESC_NEXTLV_FONTNAME = lvDescCtrlSet:GetUserConfig("DESC_NEXTLV_FONTNAME")
 
-	local lvText = lvDescCtrlSet:GetChild("level");
+	local LABEL_SKIN_NAME = lvDescCtrlSet:GetUserConfig("LABEL_SKIN_NAME")
+	local SKIN_NEXTLV_NAME = lvDescCtrlSet:GetUserConfig("SKIN_NEXTLV_NAME")
+	local SP_ICON = lvDescCtrlSet:GetUserConfig("SP_ICON")
 
-	lvText:SetText(LEVEL_FONTNAME..ScpArgMsg("Level{Level}","Level",lv));
+	local lvFont = LEVEL_FONTNAME
+	local descFont = DESC_FONTNAME
+
+	-- controls
+	local lvText = lvDescCtrlSet:GetChild("level");
+	local spText = lvDescCtrlSet:GetChild("sp_text");
+	local coolText = lvDescCtrlSet:GetChild("cool_text");
+	local padText = lvDescCtrlSet:GetChild("pad_text");
 	local descText = GET_CHILD(lvDescCtrlSet, "desc", "ui::CRichText");
+
+	-- data
+	local sp = 0
+	local coolTime = 0
+
+	padText:ShowWindow(0) -- skill type is not documented yet. padText is not used currently
 	descText:EnableSplitBySpace(0);
 
 	if dicidtext ~= nil and dicidtext ~= "" then
 		descText:SetDicIDText(dicidtext)
 	end
 
+	-- font and data setting
 	if totalLevel == lv then
 		lvDescCtrlSet:SetDraw(1);
-		lvText:SetText(LEVEL_FONTNAME..ScpArgMsg("Level{Level}","Level",lv));
-		descText:SetText(DESC_FONTNAME..desc);
-	else
-		lvDescCtrlSet:SetDraw(0);
-		lvText:SetText(LEVEL_NEXTLV_FONTNAME..ScpArgMsg("Level{Level}","Level",lv));
-		descText:SetText(DESC_NEXTLV_FONTNAME..desc);
+		lvFont = LEVEL_FONTNAME
+		descFont = DESC_FONTNAME
+	else		
+		lvDescCtrlSet:SetDraw(1);
+		lvDescCtrlSet:SetSkinName(SKIN_NEXTLV_NAME);
+		lvFont = LEVEL_NEXTLV_FONTNAME
+		descFont = DESC_NEXTLV_FONTNAME
+	end
+	
+	if TryGetProp(obj, 'BasicSP') ~= nil and TryGetProp(obj, 'LvUpSpendSp') ~= nil then
+		sp = obj.BasicSP + obj.LvUpSpendSp * (lv - 1)
+	end
+	if TryGetProp(obj, 'CoolDown') ~= nil then
+		coolTime = obj.BasicCoolDown * 0.001
 	end
 
-	lvDescCtrlSet:Resize(frame:GetWidth()-120, descText:GetY()+descText:GetHeight() + 15);
+	-- data setting
+	lvText:SetText(lvFont.."Lv."..tostring(lv));
+	spText:SetText(SP_ICON..lvFont.." "..math.floor(sp))
+	if coolTime == 0 then
+		coolText:SetText(lvFont..ScpArgMsg("{Sec}","Sec", 0))
+	else		
+		coolText:SetText(lvFont..GET_TIME_TXT_TWO_FIGURES(coolTime))
+	end
+	
+	-- trim desc
+	local trimedDesc = desc:match("^%s*(.+)")
+	descText:SetText(descFont..trimedDesc);
 
+	lvDescCtrlSet:SetGravity(ui.CENTER_HORZ, ui.TOP)
+	lvDescCtrlSet:Resize(frame:GetWidth() - 20, descText:GetY() + descText:GetHeight() + 15);
 	lvDescCtrlSet:ShowWindow(1);
-	return ypos + lvDescCtrlSet:GetHeight() + 5;
- end
+	return ypos + lvDescCtrlSet:GetHeight(), lvDescCtrlSet
+end
 
 function SET_TOOLTIP_ZOMBIECAPSULE_DESC(obj)
 
@@ -765,4 +872,145 @@ function SET_TOOLTIP_ZOMBIECAPSULE_DESC(obj)
 	return retString;
 end
 
+function GET_ABILITYLIST_BY_SKILL_NAME(skillName)
 
+	local abilList, abilCnt = GetClassList('Ability')
+	local retList = {}
+	local index = 0
+	local dummyCls = GetClassByIndexFromList(abilList, 0) -- for check exception
+
+	-- exception handle
+	if abilList == nil then
+		return nil
+	end
+	if abilCnt < 1 or dummyCls == nil then
+		return nil
+	end
+	if TryGetProp(dummyCls, 'SkillCategory') == nil then
+		return nil
+	end
+
+	-- get list
+	for i = 0, abilCnt do
+		local abilCls = GetClassByIndexFromList(abilList, i - 1)
+		if abilCls ~= nil and abilCls.SkillCategory == skillName then
+			retList[index] = abilCls
+			index = index + 1
+		end
+	end
+
+	return retList, index -- return list and count
+end
+
+function ABILITY_DESC_TOOLTIP(frame, abilCls, index, ypos, pc, pcAbilIES)
+	if abilCls == nil or TryGetProp(abilCls, 'Name') == nil or TryGetProp(abilCls, 'Desc') == nil then
+		return
+	end
+
+	-- CONTROL SET
+	local abilCtrlSet = frame:CreateOrGetControlSet('abilitydesc', "ABILITY_CAPTION_"..abilCls.ClassName, 0, ypos)
+	tolua.cast(abilCtrlSet, "ui::CControlSet");
+
+	-- USER CONFIG
+	local NAME_FONTNAME = abilCtrlSet:GetUserConfig("NAME_FONTNAME")
+
+	-- CONTROL
+	local slot = GET_CHILD(abilCtrlSet, "icon_slot", "ui::CSlot")
+	local level = abilCtrlSet:GetChild('abil_lv')
+	local name = abilCtrlSet:GetChild('abil_name')
+	local desc = abilCtrlSet:GetChild('abil_desc')
+	local icon = CreateIcon(slot);	
+	icon:SetImage(abilCls.Icon);
+
+	if pcAbilIES == nil then
+		icon:SetGrayStyle(1)
+		level:SetText(NAME_FONTNAME..level:GetText())
+	else
+		level:SetText(NAME_FONTNAME.."Lv."..tostring(pcAbilIES.Level))
+	end	
+	
+	name:SetText(NAME_FONTNAME..abilCls.Name)
+	desc:SetText(abilCls.Desc)
+
+	local amendSize = slot:GetHeight()
+	if amendSize < desc:GetY() + desc:GetHeight() then
+		amendSize = desc:GetY() + desc:GetHeight()
+	end
+
+	abilCtrlSet:Resize(frame:GetWidth(), amendSize + 10);
+	return abilCtrlSet:GetY() + abilCtrlSet:GetHeight() + 10, pcAbilIES
+end
+
+function ADD_SPEND_SKILL_LV_DESC_TOOLTIP(ctrlSet, pcAbilList)
+	if #pcAbilList < 1 then
+		return
+	end
+
+	if TryGetProp(pcAbilList[0], 'AddSpend') == nil then
+		return
+	end
+
+	local addValueSP = 0
+	local addValueCoolTime = 0	
+	local spText = ctrlSet:GetChild('sp_text')
+	local coolText = ctrlSet:GetChild('cool_text')
+	local ADD_ABILITY_STYLE = ctrlSet:GetUserConfig('ADD_ABILITY_STYLE')
+
+	for i = 0, #pcAbilList do
+		local addSpendStr = pcAbilList[i].AddSpend
+		if pcAbilList[i].ActiveState == 1 and addSpendStr ~= 'None' then
+			local addSpendList = GET_ADD_SPEND_LIST(addSpendStr)
+
+			for i = 0, #addSpendList, 2 do	-- AddSpendStrì€ prop/value pair
+				local addValueStr = addSpendList[i + 1]
+				local addValue = tonumber(addValueStr)
+		
+				if addSpendList[i] == "SP" then
+					addValueSP = addValueSP + addSpendList[i + 1]
+				end
+				if addSpendList[i] == "CoolDown" then
+					addValueCoolTime = addValueCoolTime + addSpendList[i + 1]
+				end
+			end	
+		end
+	end
+
+	if addValueSP ~= 0 then
+		local addValueStr = tostring(addValueSP)
+		if addValueSP > 0 then
+			addValueStr = "+"..addValueStr
+		end
+		spText:SetText(spText:GetText()..ADD_ABILITY_STYLE.."("..addValueStr..")")
+	end
+
+	if addValueCoolTime ~= 0 then		
+		local addValueStr = ""
+
+		addValueCoolTime = addValueCoolTime * 0.001 -- unit ammend
+		if addValueCoolTime > 0 then
+			addValueStr = "+"..GET_TIME_TXT_TWO_FIGURES(addValueCoolTime)
+		elseif addValueCoolTime < 0 then
+			addValueStr = "-"..GET_TIME_TXT_TWO_FIGURES(-addValueCoolTime)
+		end
+		coolText:SetText(coolText:GetText()..ADD_ABILITY_STYLE.."("..addValueStr..")")
+	end
+end
+
+function GET_ADD_SPEND_LIST(AddSpendStr)
+	local tokList = {}
+	local index = 0
+	for word in string.gmatch(AddSpendStr, '([^/]+)') do
+		tokList[index] = word
+		index = index + 1
+	end
+
+	return tokList
+end
+
+function PVP_DESC_TOOLTIP(frame, ypos)
+
+	local pvpCtrlSet = frame:CreateOrGetControlSet('pvpdesc', 'SKILL_CAPTION_PVP', 0, ypos)
+	pvpCtrlSet:ShowWindow(1)
+
+	return pvpCtrlSet:GetY() + pvpCtrlSet:GetHeight() + 10
+end

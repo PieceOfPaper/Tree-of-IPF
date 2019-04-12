@@ -42,7 +42,10 @@
                         <Str Str="raid_fail"/>
                         <Num Num="30"/>
                     </ToolScp>
-                </StartScpList>
+                <ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
+						<Str Str="Fail"/>
+					</ToolScp>
+				</StartScpList>
                 <ObjList/>
                 <StageEvents>
                     <Event execCount="1" eventName="Fail">
@@ -80,7 +83,10 @@
                         <Str Str="stage_start"/>
                         <Num Num="20"/>
                     </ToolScp>
-                </StartScpList>
+                <ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
+						<Str Str="Start"/>
+					</ToolScp>
+				</StartScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="100079" Pos="-4864.90#231.83#3910.09" angle="-95" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
@@ -718,7 +724,7 @@
             <Stage Name="OUT" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="대지의 탑 롤로펜서 구간의 목표를 모두 완료했습니다{nl}120초 후에 이스토라 유적지로 돌아갑니다"/>
+                        <Str Str="대지의 탑 롤로팬서 구간의 목표를 모두 완료했습니다{nl}120초 후에 이스토라 유적지로 돌아갑니다"/>
                         <Str Str="reward_box"/>
                         <Num Num="60"/>
                     </ToolScp>
@@ -728,7 +734,10 @@
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
                         <Num Num="120"/>
                     </ToolScp>
-                </StartScpList>
+                <ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
+						<Str Str="End"/>
+					</ToolScp>
+				</StartScpList>
                 <ObjList/>
                 <StageEvents>
                     <Event execCount="1" eventName="LEAVE">

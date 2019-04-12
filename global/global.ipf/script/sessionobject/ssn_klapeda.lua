@@ -14,3 +14,12 @@ function SCR_SSN_KLAPEDA_KillMonster_PARTY(self, party_pc, sObj, msg, argObj, ar
 --        SCR_ALPHABET_EVENT(self, sObj, msg, argObj, argStr, argNum, "YES")
 --    end
 end
+
+function SCR_SSN_KLAPEDA_KillMonster(self, sObj, msg, argObj, argStr, argNum)
+	PC_WIKI_KILLMON(self, argObj, true);
+	CHECK_SUPER_DROP(self);
+	SCR_SSN_KLAPEDA_KillMonster_Sub(self, sObj, msg, argObj, argStr, argNum)
+---- ALPHABET_EVENT
+--	SCR_ALPHABET_EVENT(self, sObj, msg, argObj, argStr, argNum)
+    SCR_STEAM_OBSERVER_EVENT(self, sObj, msg, argObj, argStr, argNum)
+end

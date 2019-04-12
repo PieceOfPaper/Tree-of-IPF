@@ -36,7 +36,7 @@ function EXCHANGE_ON_OPEN(frame)
 	local myfinalbutton = GET_CHILD_RECURSIVELY(frame,'myfinalagree','ui::CButton');
 	local oppfinalbutton = GET_CHILD_RECURSIVELY(frame,'opponentfinalagree','ui::CButton');
 	myfinalbutton:SetEnable(0);
-	oppfinalbutton:SetEnable(1);
+	oppfinalbutton:SetEnable(0);
 end
 
 function EXCHANGE_ON_CANCEL(frame)
@@ -70,23 +70,7 @@ end
 
 function EXCHANGE_ON_FINALAGREE(frame)
 	local oppoTokenState = frame:GetTopParentFrame():GetUserIValue("CHECK_TOKENSTATE_OPPO");
-	if (0 == oppoTokenState) or (false == session.loginInfo.IsPremiumState(ITEM_TOKEN) ) then	
- 		local itemCount = exchange.GetExchangeItemCount(1);	
-		local listStr = "";
-		for i = 0, itemCount-1 do
-			local itemData = exchange.GetExchangeItemInfo(1,i);
-			local class = GetClassByType('Item', itemData.type);
-			if class.ItemType == 'Equip' then
-				listStr = listStr .. string.format("%s",class.Name) .. "{nl}";
-			end
-		end
-		local msg = ScpArgMsg("NoTOKEN_USER_Trade_Warnning") .. " {nl} {nl}{#ff0000}" .. ScpArgMsg("NoTOKEN_USER_Trade_Warnning_ItemList") .. "{nl}" .. listStr;
-		msg = msg .. "{/}";
-		local execScript = string.format("exchange.SendFinalAgreeExchangeMsg()");
-		ui.MsgBox(msg, execScript, "None");
-	else
-   exchange.SendFinalAgreeExchangeMsg();
-end 
+	OPEN_EXCHANGE_FILNAL_BOX(oppoTokenState);
 end 
 
 function EXCHANGE_MSG_REQUEST(frame)
@@ -105,7 +89,7 @@ function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
 	inputframe:ShowWindow(0);
 	local iesid = inputframe:GetUserValue("ArgString");
 
-	-- ∞≥ºˆ√§≈©
+	-- Í∞úÏàòÏ±ÑÌÅ¨
 	local invItemList = session.GetInvItemList();
 	local i = invItemList:Head();
 	local count = 0;
@@ -145,7 +129,7 @@ function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
 			if tradeCount >= inputCnt then
 				exchange.SendOfferItem(iesid, inputCnt);
 			else
-				ui.AlarmMsg("ItemOverCount"); -- µÓ∑œºˆ∞° º“∫Ò∞≥ºˆ∫∏¥Ÿ ≈≠
+				ui.AlarmMsg("ItemOverCount"); -- Îì±Î°ùÏàòÍ∞Ä ÏÜåÎπÑÍ∞úÏàòÎ≥¥Îã§ ÌÅº
 			end
 			break;
 		end
@@ -183,6 +167,12 @@ function EXCHANGE_INV_RBTN(itemobj, slot)
 end
 
 function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
+	local reason = GetTradeLockByProperty(obj);
+	if reason ~= "None" then
+		ui.SysMsg(ScpArgMsg(reason));
+		return;
+	end
+
 	if true == item.isLockState then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
@@ -240,7 +230,7 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 			INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_INPUT_EXCHANGE_CNT", tradeCnt, 1, tradeCnt, nil, tostring(item:GetIESID()));
 			return;
 		else
-				ui.AlarmMsg("ItemOverCount"); -- µÓ∑œºˆ∞° º“∫Ò∞≥ºˆ∫∏¥Ÿ ≈≠
+			ui.AlarmMsg("ItemOverCount"); -- Îì±Î°ùÏàòÍ∞Ä ÏÜåÎπÑÍ∞úÏàòÎ≥¥Îã§ ÌÅº
 			end
 		end
 	if obj.ItemType == "Equip" then
@@ -318,75 +308,86 @@ function EXCHANGE_MSG_END(frame, msg, argStr, argNum)
 	--local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 	--timer:Stop();
 
-	local nameRichText = GET_CHILD_RECURSIVELY(frame,'opponentname','ui::CRichText');
-	nameRichText:SetTextByKey('oppName',argStr)
+	local opponenGBox = GET_CHILD(frame, 'opbgGbox');
+	local nameRichText = GET_CHILD_RECURSIVELY(opponenGBox,'opponentname','ui::CRichText');
+	nameRichText:SetTextByKey('value',argStr)
 	frame:ShowWindow(0);		
 end 
 
 function EXCHANGE_INIT_SLOT(frame)
  
-	local myslotset = GET_CHILD_RECURSIVELY(frame,'myslot','ui::CSlotSet')
+	local myGBox = GET_CHILD(frame, 'mybgGbox');
+	local myslotset = GET_CHILD_RECURSIVELY(myGBox,'myslot','ui::CSlotSet')	
 	myslotset:ClearIconAll();
 	
-	local oppslotset = GET_CHILD_RECURSIVELY(frame,'opponentslot','ui::CSlotSet')
+	local opponenGBox = GET_CHILD(frame, 'opbgGbox');
+	local oppslotset = GET_CHILD_RECURSIVELY(opponenGBox,'opponentslot','ui::CSlotSet')
 	oppslotset:ClearIconAll();
 
-	local visEdit = GET_CHILD_RECURSIVELY(frame, 'visEdit', "ui::CEditControl");
-	visEdit:SetText('0');
-	frame:SetUserValue("INPUT_VIS_COUNT", '0');
-
-	local opmoneyText = GET_CHILD_RECURSIVELY(frame, 'opponentVis', 'ui::CRichText');
-	opmoneyText:SetTextByKey('money',0);
-
-	local mymoneyText = GET_CHILD_RECURSIVELY(frame, 'myVis', 'ui::CRichText');
-	mymoneyText:SetTextByKey('money',0);
 end 
 
 function EXCHANGE_MSG_START(frame, msg, argStr, argNum)
 
-	local cls = GetClass("Item", "Vis");
-	if cls.UserTrade == "NO" then
-		local mybgGbox = frame:GetChild("mybgGbox");
-		SHOW_CHILD_BYNAME(mybgGbox, "editbox", 0);
-		SHOW_CHILD_BYNAME(mybgGbox, "visEdit", 0);
-		SHOW_CHILD_BYNAME(mybgGbox, "mysilver", 0);
-		SHOW_CHILD_BYNAME(mybgGbox, "myVis", 0);
-		local opbgGbox = frame:GetChild("opbgGbox");
-		SHOW_CHILD_BYNAME(opbgGbox, "opponentVis", 0);
-	end
-
 	EXCHANGE_INIT_SLOT(frame);
 	EXCHANGE_RESET_AGREE_BUTTON(frame);
 	
-	local nameRichText = GET_CHILD_RECURSIVELY(frame,'myname','ui::CRichText');
-	local Name = info.GetName(session.GetMyHandle());
+	local myGBox = GET_CHILD(frame, 'mybgGbox');	
+	local nameRichText = GET_CHILD_RECURSIVELY(myGBox,'myname','ui::CRichText');
+	local Name = info.GetFamilyName(session.GetMyHandle());
+	nameRichText:SetTextByKey('value',Name)
 	
-	nameRichText = GET_CHILD_RECURSIVELY(frame,'myState','ui::CRichText');
+	local opponenGBox = GET_CHILD(frame, 'opbgGbox');
+	nameRichText = GET_CHILD_RECURSIVELY(opponenGBox,'opponentname','ui::CRichText');
+	nameRichText:SetTextByKey('value',argStr)
+	local oppfinalbutton = GET_CHILD_RECURSIVELY(opponenGBox,'opponentfinalagree','ui::CButton');
+	oppfinalbutton:SetEnable(0);
+
+	local myToken = false;
 	local accountObj = GetMyAccountObj();
 	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) and accountObj.TradeCount > 0 then
-		nameRichText:SetTextByKey('state',ScpArgMsg("TokenState"))
-	else
-		nameRichText:SetTextByKey('state',ScpArgMsg("NoneTokenState"))
+		myToken = true;
 	end
 
-	nameRichText = GET_CHILD_RECURSIVELY(frame,'opponentname','ui::CRichText');
-	nameRichText:SetTextByKey('oppName',argStr)
-	
-	nameRichText = GET_CHILD_RECURSIVELY(frame,'opponentState','ui::CRichText');
-	if 0 ~= argNum then
-		nameRichText:SetTextByKey('state',ScpArgMsg("TokenState"))
-	else
-		nameRichText:SetTextByKey('state',ScpArgMsg("NoneTokenState"))
+	local targetToken = false;
+	 if 0 ~= argNum then
+		targetToken = true;
 	end
+
+	local equipCannotTrade = GET_CHILD(frame, 'equipCannotTrade');
+	local equipCanTrade = GET_CHILD(frame, 'equipCanTrade');
+	local TokenState = GET_CHILD(frame, 'TokenState');
+	local tradeStatePic = GET_CHILD(frame, 'tradeStatePic', "ui::CPicture");
+	
+	equipCannotTrade:ShowWindow(1);
+	equipCanTrade:ShowWindow(0);
+	TokenState:SetTextByKey('value',ScpArgMsg("NoneTokenState"))
+	local opponentState = GET_CHILD(tradeStatePic, 'opponentState');
+	local myState = GET_CHILD(tradeStatePic, 'myState');
+	opponentState:SetTextByKey('value',ScpArgMsg("TokenNoneAppliedAtExchange"))
+	myState:SetTextByKey('value',ScpArgMsg("TokenNoneAppliedAtExchange"))
+
+	if myToken == true and targetToken == true then
+		equipCannotTrade:ShowWindow(0);
+		equipCanTrade:ShowWindow(1);
+		TokenState:SetTextByKey('value',ScpArgMsg("TokenState"))
+		tradeStatePic:SetImage("deal_wehave");
+		opponentState:SetTextByKey('value',ScpArgMsg("TokenAppliedAtExchange"))
+		myState:SetTextByKey('value',ScpArgMsg("TokenAppliedAtExchange"))
+
+	elseif myToken == true and targetToken == false then
+		tradeStatePic:SetImage("deal_righthave");
+		myState:SetTextByKey('value',ScpArgMsg("TokenAppliedAtExchange"))
+	elseif myToken == false and targetToken == true then
+		tradeStatePic:SetImage("deal_lefthave");
+		opponentState:SetTextByKey('value',ScpArgMsg("TokenAppliedAtExchange"))
+	else
+		tradeStatePic:SetImage("deal_nonehave");
+	end
+
 	frame:SetUserValue("CHECK_TOKENSTATE_OPPO", argNum);
 
 	frame:ShowWindow(1);
 	ui.OpenFrame('inventory');
-	
-	--local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
-	--timer:SetUpdateScript("CHECK_VIS_INPUT");
-	--timer:Start(0.1);
-			
 end 
 
 function CHECK_VIS_INPUT(frame)
@@ -397,7 +398,7 @@ function CHECK_VIS_INPUT(frame)
 	local myvisTxt = GET_CHILD_RECURSIVELY(frame, "myVis", "ui::CRichText");
 	local curVis = tonumber( visEdit:GetText() );
 
-	-- πÆ¿⁄¿‘∑¬«œ∏È √ ±‚»≠Ω√ƒ—πˆ∏Æ±‚. ¿œ¥‹¿∫ ¿Ã∑∏∞‘. º“ºˆ¡°¿‘∑¬«—∞« æÓ¬Ó«“±Ó≥™??
+	-- Î¨∏ÏûêÏûÖÎ†•ÌïòÎ©¥ Ï¥àÍ∏∞ÌôîÏãúÏºúÎ≤ÑÎ¶¨Í∏∞. ÏùºÎã®ÏùÄ Ïù¥Î†áÍ≤å. ÏÜåÏàòÏ†êÏûÖÎ†•ÌïúÍ±¥ Ïñ¥Ï∞åÌï†ÍπåÎÇò??
 	if curVis == nil then
 		frame:SetUserValue("INPUT_VIS_COUNT", '0');
 		visEdit:SetText('0');
@@ -428,11 +429,6 @@ function EXCHANGE_UPDATE_SLOT(slotset,listindex)
  
 	slotset:ClearIconAll();
 	local frame = ui.GetFrame('exchange');
-	local moneyText = GET_CHILD_RECURSIVELY(frame, 'opponentVis', 'ui::CRichText');
-	if listindex == 1 then
-		moneyText:SetTextByKey('money',0);
-	end
-
 	local itemCount = exchange.GetExchangeItemCount(listindex);	
 	local index = 0 
 	for  i = 0, itemCount-1 do 		
@@ -504,7 +500,7 @@ function EXCHANGE_RESET_AGREE_BUTTON(frame)
 	oppbutton:SetEnable(1);
 
 	local oppfinalbutton = GET_CHILD_RECURSIVELY(frame,'opponentfinalagree','ui::CButton');
-	oppfinalbutton:SetEnable(1);
+	oppfinalbutton:SetEnable(0);
 end 
 
 function EXCHANGE_MSG_AGREE(frame, msg, argStr, argNum)

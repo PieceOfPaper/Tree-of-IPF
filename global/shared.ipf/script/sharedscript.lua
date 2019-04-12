@@ -1,4 +1,97 @@
-﻿
+function IS_SEASON_SERVER(pc)
+	
+	if pc ~= nil then
+		if IsServerObj(pc) == 1 then
+			if IsIndun(pc) == 1 then
+				local etc = GetETCObject(pc)
+				local serverGroupID = TryGetProp(etc, "MyWorldID");
+
+				--Test Server
+				--if GetServerNation() == "KOR" and serverGroupID == 1550 then
+				--	return "NO";
+				--else
+				--	return "YES";
+				--end
+
+				--Live Server
+				if GetServerNation() == "KOR" and serverGroupID == 3001 then
+					return "YES";
+				else
+					return "NO";
+				end
+			else
+				--Test Server
+				--if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
+				--	return "YES"
+				--else
+				--	return "NO"
+				--end
+    
+				--Live Server
+				if (GetServerNation() == "KOR" and GetServerGroupID() == 3001) then
+					return "YES"
+				else
+					return "NO"
+				end
+			end
+		else
+			if session.world.IsIntegrateServer() == true then
+				local pcEtc = GetMyEtcObject();
+					
+				local serverGroupID = TryGetProp(pcEtc, "MyWorldID");
+
+				--Test Server
+				--if GetServerNation() == "KOR" and serverGroupID == 1550 then
+				--	return "NO";
+				--else
+				--	return "YES";
+				--end
+
+				--Live Server
+				if GetServerNation() == "KOR" and serverGroupID == 3001 then
+					return "NO";
+				else
+					return "YES";
+				end
+			else
+				--Test Server
+				--if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
+				--	return 'YES'
+				--end
+	 
+				--Live Server
+			    if (GetServerNation() == "KOR" and GetServerGroupID() == 3001) then
+					return "YES"
+				else
+					return "NO"
+				end
+			end	
+		end
+	else
+		--Test Server
+		--if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
+		--	return 'YES'
+		--end
+    
+		--Live Server
+		if (GetServerNation() == "KOR" and GetServerGroupID() == 3001) then
+			return 'YES'
+		end			
+	end
+
+
+    --Test Server
+--    if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
+--        return 'YES'
+--    end
+    
+    --Live Server
+    if (GetServerNation() == "KOR" and GetServerGroupID() == 3001) then
+        return 'YES'
+    end
+    
+    return 'NO'
+end
 
 function IMC_FATAL(code, stringinfo)
 	imclog("Fatal",code,stringinfo)
@@ -349,7 +442,7 @@ function SCR_GET_XML_IES(idspace, column_name, target_value, option)
         end
     end
 
-        return return_list
+    return return_list
 end
 
 function SCR_JOBNAME_MATCHING(jobclassname)
@@ -1157,7 +1250,11 @@ function GET_SKILL_LEVEL(self, skillName)
 end
 
 function SCR_DIALOG_NPC_ANIM(animName)	
-	control.DestTgtPlayDialogAnim(animName);
+
+	--control.DestTgtPlayDialogAnim(animName);
+	local handle = session.GetTargetHandle();
+	movie.PlayAnim(handle, animName, 1.0, 1);
+
 end
 
 									-- 공용 라이브러리
@@ -1376,34 +1473,34 @@ function SCR_GET_ZONE_FACTION_OBJECT(zoneClassName, factionList, monRankList, re
         local gentypeIES = GetClassByIndex(zoneGentype, i)
         if gentypeIES ~= nil and table.find(factionList, gentypeIES.Faction) > 0 and gentypeIES.MaxPop > 0 then
             if respawnTime == nil or gentypeIES.RespawnTime <= respawnTime then
-            local monIES = GetClass('Monster', gentypeIES.ClassType)
-            if monIES ~= nil then
-                local rankFlag = 'YES'
-                if #monRankList > 0 and GetPropType(monIES,'MonRank') ~= nil and table.find(monRankList,monIES.MonRank) == 0 then
-                    rankFlag = 'NO'
-                end
-                if rankFlag == 'YES' then
-                    local flag = false
-                    if #monList > 0 then
-                        for j = 1, #monList do
-                            if monList[j][1] == gentypeIES.ClassType then
-                                monList[j][2] = monList[j][2] + gentypeIES.MaxPop
-                                flag = true
-                                break
+                local monIES = GetClass('Monster', gentypeIES.ClassType)
+                if monIES ~= nil then
+                    local rankFlag = 'YES'
+                    if #monRankList > 0 and GetPropType(monIES,'MonRank') ~= nil and table.find(monRankList,monIES.MonRank) == 0 then
+                        rankFlag = 'NO'
+                    end
+                    if rankFlag == 'YES' then
+                        local flag = false
+                        if #monList > 0 then
+                            for j = 1, #monList do
+                                if monList[j][1] == gentypeIES.ClassType then
+                                    monList[j][2] = monList[j][2] + gentypeIES.MaxPop
+                                    flag = true
+                                    break
+                                end
                             end
                         end
-                    end
-                    if flag == false then
-                        monList[#monList + 1] = {}
-                        monList[#monList][1] = gentypeIES.ClassType
-                        monList[#monList][2] = gentypeIES.MaxPop
-                        monList[#monList][3] = monIES.MonRank
-                        monList[#monList][4] = monIES.DropItemList
+                        if flag == false then
+                            monList[#monList + 1] = {}
+                            monList[#monList][1] = gentypeIES.ClassType
+                            monList[#monList][2] = gentypeIES.MaxPop
+                            monList[#monList][3] = monIES.MonRank
+                            monList[#monList][4] = monIES.DropItemList
+                        end
                     end
                 end
             end
         end
-    end
     end
     
     return monList

@@ -248,7 +248,7 @@ function POSTBOX_GET_SELECTED_ITEM(ctrlset)
 	postboxframe:SetUserValue("LETTER_ID", letterid);
 	postboxframe:SetUserValue("DB_TYPE", dbType);
 
-	local selectFrame = OPEN_BARRACK_SELECT_PC_FRAME("EXEC_SELECT_POSTBOX_ITEM_PC", "SelectCharacterToGetItem");
+	local selectFrame = OPEN_BARRACK_SELECT_PC_FRAME("EXEC_SELECT_POSTBOX_ITEM_PC", "SelectCharacterToGetItem", true);
 	selectFrame:SetUserValue("ITEM_INDEX_LIST",indexlist)
 end
 
@@ -278,7 +278,7 @@ function UPDATE_POSTBOX_LETTERS(frame, msg, argStr, argNum)
 end
 
 
-function OPEN_BARRACK_SELECT_PC_FRAME(execScriptName, msgKey)
+function OPEN_BARRACK_SELECT_PC_FRAME(execScriptName, msgKey, selectMyPC)
 
 	local selectFrame = ui.GetFrame("postbox_itemget");
 	selectFrame:ShowWindow(1);
@@ -293,7 +293,18 @@ function OPEN_BARRACK_SELECT_PC_FRAME(execScriptName, msgKey)
 	local cnt = accountInfo:GetPCCount();
 	for i = 0 , cnt - 1 do
 		local pcInfo = accountInfo:GetPCByIndex(i);
+		local addControlSet = true;
+		if selectMyPC == false then
+			local mySession = session.GetMySession();
+			if pcInfo:GetCID() == mySession:GetCID() then
+				addControlSet = false;
+			end
+		end
+
+		if addControlSet == true then
 		local ctrlSet = gbox_charlist:CreateControlSet("postbox_itemget", "PIC_" .. i, ui.LEFT, ui.TOP, 0, 0, 0, 0);
+			ctrlSet:SetOverSound('button_cursor_over_3');
+			ctrlSet:SetClickSound('button_click_big');
 		ctrlSet:ShowWindow(1);	
 
 		local pcApc = pcInfo:GetApc();
@@ -308,6 +319,7 @@ function OPEN_BARRACK_SELECT_PC_FRAME(execScriptName, msgKey)
 
 		ctrlSet:SetEventScript(ui.LBUTTONUP, "SELECT_POSTBOX_ITEM_PC");
 	end	
+	end	
 
 	GBOX_AUTO_ALIGN(gbox_charlist, 0, 1, 0, true, false);
 	return selectFrame;
@@ -316,10 +328,11 @@ end
 
 function SELECT_POSTBOX_ITEM_PC(parent, ctrl)
 
+	imcSound.PlaySoundEvent("sys_popup_open_1");
+
 	local frame = parent:GetTopParentFrame();
 	local pcName = ctrl:GetUserValue("PC_NAME");
 	local msgBoxString = ScpArgMsg("ReallyGiveItemTo{PC}", "PC", pcName);
-
 
 	local selectFrame = ui.GetFrame("postbox_itemget");
 	local itemType = selectFrame:GetUserIValue("ITEM_TYPE");
@@ -359,6 +372,8 @@ end
 
 function POSTBOX_DELETE(parent, ctrl)
 
+	imcSound.PlaySoundEvent("sys_popup_open_1");
+
 	local id = parent:GetUserValue("LETTER_ID");
 	local dbType = parent:GetUserValue("DB_TYPE");
 	local itemCnt = session.postBox.GetMessageRemainItemCountByID(id);
@@ -378,6 +393,9 @@ function POSTBOX_DELETE(parent, ctrl)
 end
 
 function EXEC_DELETE_POSTBOX(id, state, dbType)
+	
+	imcSound.PlaySoundEvent("system_latter_delete");
+
 	barrack.ReqChangePostBoxState(dbType, id, state);	
 end
 

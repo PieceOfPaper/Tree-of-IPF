@@ -7,9 +7,9 @@ end
 function CHAT_TYPE_CLOSE(frame)
 	local chattype_frame = ui.GetFrame('chattypelist');	chattype_frame:ShowWindow(0);end
 
---Ã¤ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã½ï¿½ Ã¤ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý¾ï¿½ï¿½Ø´ï¿½. 
+--Ã¤ÆÃ Å¸ÀÔ ¸ñ·Ï¿¡¼­ ¼±ÅÃ½Ã Ã¤ÆÃÅ¸ÀÔÀ» ¹Ù²ãÁÖ°í ¸ñ·ÏÀ» ´Ý¾ÆÁØ´Ù. 
 function CHAT_TYPE_SELECTION(frame, ctrl)
-	-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Éºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾Æºï¿½ï¿½ï¿½.
+	-- ¼³Á¤µÈ ½Éº¼·Î ¼±ÅÃµÈ Å¸ÀÔÀ» ¾Ë¾Æº»´Ù.
 	local typeIvalue = ctrl:GetUserIValue("CHAT_TYPE_CONFIG_VALUE");
 	if (nil == typeIvalue) or (0 == typeIvalue) or (typeIvalue > 5) then
 		return;
@@ -20,7 +20,7 @@ function CHAT_TYPE_SELECTION(frame, ctrl)
 	CHAT_TYPE_CLOSE(frame);
 end;
 
---Ã¤ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ 5ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ôµé¿¡ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½. 
+--Ã¤ÆÃ Å¸ÀÔ ¸ñ·Ï¿¡¼­ 5°¡Áö Å¸ÀÔµé¿¡ ´ëÇÏ¿© ¹öÆ°¸ñ·ÏµéÀ» ¸¸µé¾îÁØ´Ù. 
 function CHAT_TYPE_LISTSET(selected)
 	if selected == 0 then
 		return;
@@ -31,53 +31,44 @@ function CHAT_TYPE_LISTSET(selected)
 	local frame = ui.GetFrame('chat');		
 	frame:SetUserValue("CHAT_TYPE_SELECTED_VALUE", selected);
 	local chattype_frame = ui.GetFrame('chattypelist');
-	
-	local btn_type = GET_CHILD(frame, "button_type");
-	if btn_type == nil then
-		return;
-	end			
-	local w = btn_type:GetWidth();
-	local h = btn_type:GetHeight();
-
 	local j = 1;
 	for i = 1, 5 do
 
 		local color = frame:GetUserConfig("COLOR_BTN_" .. i);	
 		if selected ~= i then	
 			
-		-- ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ôµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½È­
+		-- ¼±ÅÃµÇÁö ¾ÊÀº Å¸ÀÔµéÀº ¸ñ·ÏÈ­
 		local btn_Chattype = GET_CHILD(chattype_frame, "button_type" .. j);
 			if btn_Chattype == nil then
 				return;
-			end						btn_Chattype:Resize(w, h);
-			
+			end						
 			local msg = "{@st60}".. ScpArgMsg("ChatType_" .. i)  .. "{/}";
 			btn_Chattype:SetText(msg);	
 			btn_Chattype:SetTextTooltip( ScpArgMsg("ChatType_" .. i .. "_ToolTip") );
 			btn_Chattype:SetPosTooltip(btn_Chattype:GetWidth() + 10 , (btn_Chattype:GetHeight() /2));
 			btn_Chattype:SetColorTone( "FF".. color);
 
-			--ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½Ù¿ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			--´Ù¸¥ ÇÁ·¹ÀÓ¿¡¼­ÀÇ ¹öÆ°´Ù¿îÀÌ µÇ¾úÀ»¶§µµ ºñÁÖ¾ó»ó ¹ÝÀÀÇÏ´Â °ÍÃ³·³ º¸ÀÌ°Ô ÇÏ±â À§ÇÑ ¼³Á¤
 			btn_Chattype:SetIsUpCheckBtn(true);
 
-			--ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÃµÇ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Éºï¿½ ï¿½ï¿½ï¿½ï¿½. 
+			--³ªÁß¿¡ ¸ñ·Ï Áß¿¡¼­ ¼±ÅÃµÇ¾úÀ»¶§¿¡ ÇØ´ç Å¸ÀÔÀ» Àü´ÞÇÏ±â À§ÇÑ ½Éº¼ ¼³Á¤. 
 			btn_Chattype:SetUserValue("CHAT_TYPE_CONFIG_VALUE", i);
 
-			--Ã¤ï¿½ï¿½Ã¢ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¼ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½ Ä«ï¿½ï¿½Æ®ï¿½È´ï¿½.
+			--Ã¤ÆÃÃ¢ÀÇ ¹öÆ°°ú ¸ñ·ÏµéÀº ¼­·Î ´Ù¸¥ ÇÁ·¹ÀÓÀ¸·Î¼­ ÇØ´ç ¹øÈ£´Â ¼­·Î ´Þ¸® Ä«¿îÆ®µÈ´Ù.
 			j = j + 1;
-			btn_Chattype:Invalidate();
 		else
 
-		--ï¿½ï¿½ï¿½Ãµï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½
+		--¼±ÅÃµÈ Å¸ÀÔÀº Ã¤ÆÃ¹ÙÀÇ ¹öÆ°À¸·Î
+			local btn_type = GET_CHILD(frame, "button_type");
+			if btn_type == nil then
+				return;
+			end			
 			local msg = "{@st60}".. ScpArgMsg("ChatType_" .. i) .. "{/}";
 			btn_type:SetText(msg);	
 			btn_type:SetColorTone("FF".. color);
 			config.SetConfig("ChatTypeNumber", i);
-			btn_type:Invalidate();
 		end;
 	end;
-	chattype_frame:Resize(w, chattype_frame:GetHeight());
-	chattype_frame:Invalidate();
 end;
 
 

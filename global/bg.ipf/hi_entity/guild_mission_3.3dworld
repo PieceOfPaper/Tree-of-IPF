@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi2" Path="\raid\guild_mission_3\"/>
+	<TexDir IpfName="bg_texture" Path="\maple\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<SubTexDir IpfName="bg_texture" Path="\zachariel\"/>
+	<SubTexDir IpfName="bg_texture" Path="\sky\"/>
+	<SubTexDir IpfName="bg_texture" Path="\cathedral\"/>
+	<SubTexDir IpfName="bg_texture" Path="\c_abbey\"/>
+	<LightMap File="guild_mission_3.jpg" Length="2400.0 2400.0" Offset="-44.105 231.81" Size="1024 1024"/>
+	<ShaTexDir IpfName="bg_hi2" Path="\raid\guild_mission_3\"/>
+	<Model File="guild_mission_3_ground.xac" Model="guild_mission_3_ground" ShadowMap="guild_mission_3_ground" pos="38.0461 7.6602 -27.1454" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_water.xac" Model="guild_mission_3_water" ShadowMap="guild_mission_3_water" pos="-10.1885 -134.9206 4.0164" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_grass.xac" Model="guild_mission_3_grass" ShadowMap="guild_mission_3_grass" pos="28.6037 73.3043 -39.6785" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_1area_tree.xac" Model="guild_mission_3_1area_tree" ShadowMap="guild_mission_3_1area_tree" pos="-244.1550 91.5820 -235.6277" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_blend2.xac" Model="guild_mission_3_blend2" ShadowMap="guild_mission_3_blend2" pos="35.3126 56.5180 -5.1269" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_1area_model.xac" Model="guild_mission_3_1area_model" ShadowMap="guild_mission_3_1area_model" pos="-253.9977 -336.7716 24.8516" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_2area_tree.xac" Model="guild_mission_3_2area_tree" ShadowMap="guild_mission_3_2area_tree" pos="292.3204 70.2416 292.7044" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_4area_model.xac" Model="guild_mission_3_4area_model" ShadowMap="guild_mission_3_4area_model" pos="747.4725 -21.7588 -727.2604" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_8area_model.xac" Model="guild_mission_3_8area_model" ShadowMap="guild_mission_3_8area_model" pos="763.4842 -21.7588 748.8848" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_3area_model.xac" Model="guild_mission_3_3area_model" ShadowMap="guild_mission_3_3area_model" pos="317.2715 61.4225 -337.4052" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_7area_model.xac" Model="guild_mission_3_7area_model" ShadowMap="guild_mission_3_7area_model" pos="-1018.7946 -63.8379 -637.0894" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_6area_model.xac" Model="guild_mission_3_6area_model" ShadowMap="guild_mission_3_6area_model" pos="-736.1395 -110.5664 820.6732" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_5area_model.xac" Model="guild_mission_3_5area_model" ShadowMap="guild_mission_3_5area_model" pos="-242.7717 -86.2504 735.1422" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_2area_model.xac" Model="guild_mission_3_2area_model" ShadowMap="guild_mission_3_2area_model" pos="98.4777 -276.7390 93.9371" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_fog.xac" Model="guild_mission_3_fog" pos="24.4238 74.7642 16.1359" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_b_model.xac" Model="guild_mission_3_b_model" ShadowMap="guild_mission_3_b_model" pos="-729.1724 -271.7863 745.9101" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_b_model02.xac" Model="guild_mission_3_b_model02" ShadowMap="guild_mission_3_b_model02" pos="-565.3598 -519.7338 572.7229" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="guild_mission_3_tree_out.xac" Model="guild_mission_3_tree_out" ShadowMap="guild_mission_3_tree_out" pos="-170.3342 -29.3340 316.9509" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

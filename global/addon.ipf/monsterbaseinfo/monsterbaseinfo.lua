@@ -114,7 +114,7 @@ function ON_TARGET_CLEAR(msgFrame, msg, argStr, handle)
 
 		local targetInfo = info.GetTargetInfo(handle);
 		if targetInfo.showHP == 1 then
-			visible = false; -- Å¸°ÔÆÃÁßÀÌ ¾Æ´Ñ ÀûÀº ÀÌ¸§Á¦°Å
+			visible = false; -- Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½
 		end
 		if visible == false then
 			frame:ShowWindow(0);
@@ -127,9 +127,9 @@ function UPDATE_MONB_HP(frame, handle)
 		return;
 	end
 
-	-- º¸½º´Â º¸½ºHP UI¿¡¼­ µû·Î º¸¿©ÁÜ. ÀÌ°Å¶«½Ã »¡°£hp, name ±ôºý°Å¸²
+	-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½HP UIï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. ï¿½Ì°Å¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½hp, name ï¿½ï¿½ï¿½ï¿½Å¸ï¿½
 	local targetInfo = info.GetTargetInfo(handle);
-	if targetInfo ~= nil and targetInfo.isBoss == true then
+	if targetInfo ~= nil and targetInfo.isBoss == true and targetInfo.isSummonedBoss ~= 1 then
 		frame:ShowWindow(0);
 		return;
 	end
@@ -155,6 +155,10 @@ function UPDATE_MONB_HP(frame, handle)
 
 	elseif hpGauge:GetMaxPoint() == 0 then
 		hpGauge:SetPoint(stat.HP, stat.maxHP);
+	end
+
+	if targetInfo.isSummonedBoss == 1 then
+		hpGauge:ShowWindow(1)
 	end
 end
 

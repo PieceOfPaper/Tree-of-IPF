@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="itemdungeon" x="0" y="0" width="450" height="1200" create="open">
-    <frame fullheight="true" fasthide="true" layout_gravity="left top" margin="0 0 -480 0" open="pip"/>
-    <skin frameskin=" "/>
-    <draw drawnotitlebar="false" drawtitlebar="false"/>
-    <layer layerlevel="80"/>
-    <sound opensound="skill_window_open" closesound="skill_window_close"/>
-    <effect open="skilltreeOpen" close="skilltreeClose"/>
-    <script OpenScp="OPEN_ITEMDUNGEON"/>
-    <controls>
-        <groupbox name="bg2" rect="0 0 450 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_low"/>
-        <groupbox name="bg3" rect="0 0 430 600" margin="0 340 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_midle"/>
-        <groupbox name="pip4" rect="0 0 450 61" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_wizard"/>
-        <groupbox name="bodyGbox" rect="0 0 453 960" margin="0 61 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
-        <richtext name="slotName" rect="0 0 343 48" margin="0 310 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="" format="{@st41}%s" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0"/>
-        <richtext name="SkillLevel" rect="0 0 343 48" margin="115 908 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="" format="{@st41}%s" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0"/>
-        <richtext name="partyCount" rect="0 0 343 48" margin="143 908 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" format="{@st41}%s" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0"/>
-        <richtext name="nowPotentialStr" rect="0 0 343 48" margin="30 360 0 0" layout_gravity="left top" caption="현재 포텐셜" drawbackground="false" fixwidth="false" fontname="white_16_ol" resizebytext="true" slideshow="false" textalign="left top"/>
-        <richtext name="SkillLevelStr" rect="0 0 343 48" margin="40 908 0 0" layout_gravity="left top" caption="{@st41}스킬레벨" drawbackground="false" fixwidth="false" fontname="white_16_ol" resizebytext="true" slideshow="false" textalign="left top"/>
-        <richtext name="partyTitleStr" rect="0 0 343 48" margin="26 872 0 548" layout_gravity="left top" caption="{@st41}입장가능 인원" drawbackground="false" fixwidth="false" fontname="white_16_ol" resizebytext="true" slideshow="false" textalign="left top"/>
-        <richtext name="Squire_ArmorTouchUp" rect="0 0 200 80" margin="0 13 0 0" layout_gravity="center top" caption="{@st43}아이템 각성 던전" resizebytext="false" textalign="left top"/>
-        <richtext name="richtext_1" rect="0 0 160 24" margin="30 480 0 0" layout_gravity="left top" caption="{@st41}필요 재료" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-        <richtext name="needitemcount" rect="0 0 269 62" margin="130 520 0 0" layout_gravity="left top" fontname="white_16_ol" format="{@st42}%s{/}" maxwidth="true" param1="value" resizebytext="true" slideshow="false" textalign="left center"/>
-        <button name="close" rect="10 0 44 44" margin="0 12 23 0" layout_gravity="right top" LBtnUpScp="ITEMDUNGEN_UI_CLOASE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59} UI를 닫습니다{/}"/>
-        <button name="btn_cencel" rect="10 10 140 50" margin="80 0 0 90" layout_gravity="center bottom" LBtnUpScp="ITEMDUNGEN_UI_CLOASE" caption="{@st42}취 소" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_gray_button"/>
-        <button name="btn_excute" rect="10 10 140 50" margin="-90 0 0 90" layout_gravity="center bottom" LBtnUpScp="EXEC_ITEM_DUNGEON" caption="{@st42}확 인" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>
-        <picture name="titlepicture" rect="0 0 440 240" margin="5 75 0 0" layout_gravity="center top" image="alch_item_dungeon"/>
-        <slot name="targetSlot" rect="0 0 200 200" margin="0 100 0 0" layout_gravity="center top" DropScp="ITEMDUNGEON_DROP_ITEM" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="skill_squaier_slot" texttooltip="{@st59}아이템을 올려주세요{/}"/>
-        <slot name="slot_needitem" rect="0 0 70 70" margin="40 515 0 0" layout_gravity="left top" DropScp="None" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}필요재료{/}"/>
-        <labelline name="Optionline" parent="bodyGbox" rect="0 0 420 1" margin="0 0 0 515" layout_gravity="center bottom" skin="None"/>
-        <labelline name="Optionline2" parent="bodyGbox" rect="0 0 420 1" margin="0 0 0 120" layout_gravity="center bottom" skin="None"/>
-        <richtext name="richtext_1_1" rect="0 0 160 24" margin="30 641 0 0" layout_gravity="left top" caption="{@st41}제물 재료" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-        <labelline name="Optionline2_1" parent="bodyGbox" rect="0 0 420 1" margin="0 0 0 350" layout_gravity="center bottom" skin="None"/>
-      <slot name="stoneSlot" rect="0 0 70 70" margin="40 680 0 0" layout_gravity="left top" DropScp="ITEMDUNGEON_DROP_WEALTH_ITEM" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}아이템을 올려주세요{/}"/>
-        <slot name="partySlot" rect="0 0 220 30" margin="170 908 0 0" layout_gravity="left top" DropScp="None" movepop="false"/>
-    </controls>
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="0 0 -480 0" open="pip"/>
+	<skin frameskin=" "/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="80"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<effect open="skilltreeOpen" close="skilltreeClose"/>
+	<script OpenScp="OPEN_ITEMDUNGEON"/>
+	<controls>
+		<groupbox name="bg2" rect="0 0 450 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_low"/>
+		<groupbox name="bg3" rect="0 0 430 600" margin="0 340 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_midle"/>
+		<groupbox name="pip4" rect="0 0 450 61" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_wizard"/>
+		<groupbox name="bodyGbox" rect="0 0 453 960" margin="0 61 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
+		<richtext name="slotName" rect="0 0 343 48" margin="0 310 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="" format="{@st41}%s" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0"/>
+		<richtext name="SkillLevel" rect="0 0 343 48" margin="115 908 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="" format="{@st41}%s" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0"/>
+		<richtext name="partyCount" rect="0 0 343 48" margin="143 908 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" format="{@st41}%s" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0"/>
+		<richtext name="nowPotentialStr" rect="0 0 343 48" margin="30 360 0 0" layout_gravity="left top" caption="현재 포텐셜" drawbackground="false" fixwidth="false" fontname="white_16_ol" resizebytext="true" slideshow="false" textalign="left top"/>
+		<richtext name="SkillLevelStr" rect="0 0 343 48" margin="40 908 0 0" layout_gravity="left top" caption="{@st41}스킬레벨" drawbackground="false" fixwidth="false" fontname="white_16_ol" resizebytext="true" slideshow="false" textalign="left top"/>
+		<richtext name="partyTitleStr" rect="0 0 343 48" margin="26 872 0 548" layout_gravity="left top" caption="{@st41}입장가능 인원" drawbackground="false" fixwidth="false" fontname="white_16_ol" resizebytext="true" slideshow="false" textalign="left top"/>
+		<richtext name="Squire_ArmorTouchUp" rect="0 0 200 80" margin="0 13 0 0" layout_gravity="center top" caption="{@st43}아이템 각성 던전" resizebytext="false" textalign="left top"/>
+		<richtext name="richtext_1" rect="0 0 160 24" margin="30 480 0 0" layout_gravity="left top" caption="{@st41}필요 재료" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="needitemcount" rect="0 0 269 62" margin="130 520 0 0" layout_gravity="left top" fontname="white_16_ol" format="{@st42}%s{/}" maxwidth="true" param1="value" resizebytext="true" slideshow="false" textalign="left center"/>
+		<button name="close" rect="10 0 44 44" margin="0 12 23 0" layout_gravity="right top" LBtnUpScp="ITEMDUNGEN_UI_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59} UI를 닫습니다{/}"/>
+		<button name="btn_cencel" rect="10 10 140 50" margin="80 0 0 90" layout_gravity="center bottom" LBtnUpScp="ITEMDUNGEN_UI_CLOSE" caption="{@st42}취 소" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_gray_button"/>
+		<button name="btn_excute" rect="10 10 140 50" margin="-90 0 0 90" layout_gravity="center bottom" LBtnUpScp="EXEC_ITEM_DUNGEON" caption="{@st42}확 인" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>
+		<picture name="titlepicture" rect="0 0 440 240" margin="5 75 0 0" layout_gravity="center top" image="alch_item_dungeon"/>
+		<slot name="targetSlot" rect="0 0 200 200" margin="0 100 0 0" layout_gravity="center top" DropScp="ITEMDUNGEON_DROP_ITEM" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="skill_squaier_slot" texttooltip="{@st59}아이템을 올려주세요{/}"/>
+		<slot name="slot_needitem" rect="0 0 70 70" margin="40 515 0 0" layout_gravity="left top" DropScp="None" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}필요재료{/}"/>
+		<labelline name="Optionline" parent="bodyGbox" rect="0 0 420 1" margin="0 0 0 515" layout_gravity="center bottom" skin="None"/>
+		<labelline name="Optionline2" parent="bodyGbox" rect="0 0 420 1" margin="0 0 0 120" layout_gravity="center bottom" skin="None"/>
+		<richtext name="richtext_1_1" rect="0 0 160 24" margin="30 641 0 0" layout_gravity="left top" caption="{@st41}제물 재료" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<labelline name="Optionline2_1" parent="bodyGbox" rect="0 0 420 1" margin="0 0 0 350" layout_gravity="center bottom" skin="None"/>
+		<slot name="stoneSlot" rect="0 0 70 70" margin="40 680 0 0" layout_gravity="left top" DropScp="ITEMDUNGEON_DROP_WEALTH_ITEM" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}아이템을 올려주세요{/}"/>
+		<slot name="partySlot" rect="0 0 220 30" margin="170 908 0 0" layout_gravity="left top" DropScp="None" movepop="false"/>
+	</controls>
 </uiframe>

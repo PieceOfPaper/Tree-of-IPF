@@ -1,4 +1,4 @@
-
+ï»¿
 
 
 function ON_CUSTOM_QUEST_DELETE(frame, msg, keyName, argNum)
@@ -15,18 +15,18 @@ function ON_CUSTOM_QUEST_DELETE(frame, msg, keyName, argNum)
 end
 
 function ON_CUSTOM_QUEST_UPDATE(frame, msg, keyName, argNum)
-	
+
 	local customQuest = geQuest.GetCustomQuest(keyName);
 	if customQuest == nil then
 		return;
 	end
 
 	local groupbox = frame:GetChild('questGbox');
-	local frame2 = ui.GetFrame("questinfoset_2");
+	local frame2 = ui.GetFrame("questinfoset_2");	
 	if customQuest.useMainUI == 1 then
 		local key = customQuest:GetKey();
 		local ctrlName = "_Q_CUSTOM_" .. key;
-		local quest_ctrl = groupbox:CreateOrGetControlSet('quest_list', ctrlName, 45, 0);
+		local quest_ctrl = groupbox:CreateOrGetControlSet('custom_quest_list', ctrlName, 45, 0);
 		local ret = CUSTOM_CONTROLSET_UPDATE(quest_ctrl, customQuest);
 		if ret == -1 then
 			groupbox:RemoveChild(ctrlName);
@@ -56,7 +56,7 @@ function QUESTINFOSET_2_MAKE_CUSTOM(frame, updateSize)
 		local customQuest = geQuest.GetCustomQuestByIndex(i);
 		local key = customQuest:GetKey();
 		local ctrlName = "_Q_CUSTOM_" .. key;
-		-- ¿©±â¼­ °°Àº ÀÌ¸§À¸·Î Ã£°í »ı¼ºÇÏ´Ï µ¤¾î¾º¾îÁü
+		-- ì—¬ê¸°ì„œ ê°™ì€ ì´ë¦„ìœ¼ë¡œ ì°¾ê³  ìƒì„±í•˜ë‹ˆ ë®ì–´ì”Œì–´ì§
 		--local ctrlset = GroupCtrl:CreateOrGetControlSet('emptyset2', ctrlName, 0, 0);
 		local ctrlset = GroupCtrl:CreateOrGetControlSet('emptyset2', ctrlName.."_"..i, 0, 0);
 		ctrlset:Resize(GroupCtrl:GetWidth() - 20, ctrlset:GetHeight());

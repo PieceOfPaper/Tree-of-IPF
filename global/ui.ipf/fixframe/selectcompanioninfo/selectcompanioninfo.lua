@@ -46,7 +46,7 @@ function UPDATE_BARRACK_COMPANION_INFO(actor)
 		gotopc:SetEnable(1);
 		gotopc:SetTextByKey("value", ScpArgMsg("GoTogether"));
 	end
-		
+	
 end
 
 function SEL_COMPANION_WITH_PC(parent, ctrl)
@@ -77,4 +77,11 @@ function COMPANION_SELECT_PC(selActor)
 
 end
 
-
+function SEL_COMPANION_MOVE_BARRACK_LAYER(parent, ctrl)
+		
+	local frame = ui.GetFrame("selectcompanioninfo");
+	local petGuid = frame:GetUserValue("PET_GUID");
+	barrack.ChangeBarrackLayer(petGuid)
+	parent:ShowWindow(0);
+	ui.SysMsg(ClMsg("MoveBarrackLayer"));
+end

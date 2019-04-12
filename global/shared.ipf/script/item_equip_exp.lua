@@ -1,3 +1,29 @@
+-- item_equip_exp.lua
+
+function GET_MORE_EXP_BOOST_TOKEN(pc)
+	
+	-- 경험의서 8배
+	if 'YES' == IsBuffApplied(pc, 'Premium_boostToken03') then
+		return 2.4;
+	end
+
+	-- 경험의서 4배
+	if 'YES' == IsBuffApplied(pc, 'Premium_boostToken02') then
+		return 1.2;
+	end
+
+	-- 이벤트 경험의 서
+	if 'YES' == IsBuffApplied(pc, 'Premium_boostToken04') then
+		return 0.5;
+	end
+
+	-- 경험의 서 경험치
+	if 'YES' == IsBuffApplied(pc, 'Premium_boostToken') then
+		return 0.3;
+	end
+
+	return 0.0;
+end
 
 function GET_MIX_MATERIAL_EXP(item)
 
@@ -55,6 +81,15 @@ function GET_ITEM_LEVEL_EXP(item, itemExp)
 	end
 
 	local prop = geItemTable.GetProp(item.ClassID);
+	local lv = prop:GetLevel(itemExp);
+	local curExp = prop:GetCurExp(itemExp);
+	local maxExp = prop:GetMaxExp(itemExp);
+	return lv, curExp, maxExp;
+
+end
+
+function GET_ITEM_LEVEL_EXP_BYCLASSID(ClassID, itemExp)
+	local prop = geItemTable.GetProp(ClassID);
 	local lv = prop:GetLevel(itemExp);
 	local curExp = prop:GetCurExp(itemExp);
 	local maxExp = prop:GetMaxExp(itemExp);

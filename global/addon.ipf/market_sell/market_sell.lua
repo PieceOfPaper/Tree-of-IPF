@@ -84,6 +84,10 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 
 		local cashValue = GetCashValue(marketItem.premuimState, "marketSellCom") * 0.01;
 		local stralue = GetCashValue(marketItem.premuimState, "marketSellCom");
+		if itemObj.ClassID == 490000 then
+			 cashValue = 0;
+			 stralue = 0;
+		end
 		priceStr = string.format("{img icon_item_silver %d %d}%d[%d%%]", 20, 20, marketItem.sellPrice * marketItem.count * cashValue, stralue) 
 		local silverFee = ctrlSet:GetChild("silverFee");
 		silverFee:SetTextByKey("value", priceStr);
@@ -145,6 +149,12 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
 
 		local obj = GetIES(invItem:GetObject());
+	local reason = GetTradeLockByProperty(obj);
+	if reason ~= "None" then
+		ui.SysMsg(ScpArgMsg(reason));
+		return;
+	end
+
 		if obj.GroupName == "Premium" then
 			edit_count:SetText("1");
 			edit_count:SetMaxNumber(1);

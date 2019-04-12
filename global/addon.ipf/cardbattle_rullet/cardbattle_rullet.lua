@@ -322,7 +322,7 @@ function RUN_CARDBATTLE_RULLET(frame, elapsedTime)
 	pic_rullet:SetAngle(angle);
 
 	local last_Random_Section = frame:GetUserIValue("LASTRANDOM");
-	local randomSection = math.floor(angle / 45);
+	local randomSection = math.floor(angle / 52);
 	if randomSection ~= last_Random_Section then
 		local txt_nowcondition = frame:GetChild("txt_nowcondition");
 		local desc = GET_CARDBATTLE_DECISION_DESC(randomSection);
