@@ -1,39 +1,57 @@
 function SCR_ADD_KILL_WHALE(self, killer, tgtType, buffName, lv, arg2, applyTime, over, rate)
-    local objList, objCount = SelectObjectNear(self, self, 200, 'ENEMY');
+    local objList, objCount = GetWorldObjectList(self, "PC", 200)
     local time = 3600000
     for i = 1, objCount do
         local obj = objList[i];
         if obj.ClassName == 'PC' then
             ADDBUFF(self, obj, 'Event_Golden_Whale_1', 0, 0, time, 1);
+            if IsBuffApplied(obj, 'Event_Golden_Whale_2') == 'YES' then
+                RemoveBuff(obj, 'Event_Golden_Whale_2')
+            end
         end
     end
 end
-   
+
 function SCR_GOLDEN_WHALE_EVENT_DIALOG(self,pc)
     if GetServerNation() ~= 'GLOBAL' then
         return
     end
-    local isrunning = GetExProp(pc, "EVENT_GOLDEN_WHALE"); 
     local aObj = GetAccountObj(pc);
     local now_time = os.date('*t')
     local yday = now_time['yday']
     local select = ShowSelDlg(pc, 0, 'NPC_EVENT_GOLDEN_WHALE_1', ScpArgMsg("Event_GOLDEN_WHALE_2"), ScpArgMsg("Cancel"))
     if select == 1 then
+        if  aObj.EV170711_GOLDEN_WHALE_2 ~= yday then
+            local tx = TxBegin(pc)
+            TxSetIESProp(tx, aObj, 'EV170711_GOLDEN_WHALE_1', 0);
+            TxSetIESProp(tx, aObj, 'EV170711_GOLDEN_WHALE_2', yday);
+            local ret = TxCommit(tx)
+        elseif aObj.PlayTimeEventPlayMin ~= 'EVENT_GOLDEN_WHALE' and yday == 193 then
+            local tx = TxBegin(pc)
+            TxSetIESProp(tx, aObj, 'EV170711_GOLDEN_WHALE_1', 0);
+            TxSetIESProp(tx, aObj, 'PlayTimeEventPlayMin', 'EVENT_GOLDEN_WHALE');
+            local ret = TxCommit(tx)
+        end
+        
         if aObj.EV170711_GOLDEN_WHALE_1 > 3 and aObj.EV170711_GOLDEN_WHALE_2 == yday then
             ShowOkDlg(pc, 'NPC_EVENT_TODAY_NUMBER_5', 1)
             return
         end
-        if IsBuffApplied(pc, 'Event_Golden_Whale_1') == 'YES' and isrunning == 1 then
+        if IsBuffApplied(pc, 'Event_Golden_Whale_1') == 'YES' and IsBuffApplied(pc, 'Event_Golden_Whale_2') == 'NO' then
             local tx = TxBegin(pc)
             TxGiveItem(tx, 'Event_Golden_Whale_Box', 1, 'Event_Golden_Whale');
             TxSetIESProp(tx, aObj, 'EV170711_GOLDEN_WHALE_1', aObj.EV170711_GOLDEN_WHALE_1 + 1);
             TxSetIESProp(tx, aObj, 'EV170711_GOLDEN_WHALE_2', yday);
             local ret = TxCommit(tx)
-            SetExProp(pc, "EVENT_GOLDEN_WHALE", 0);
+            if ret == "SUCCESS" then
+                local buff = GetBuffByName(pc, 'Event_Golden_Whale_1')
+                local remainTime = GetBuffRemainTime(buff);
+                AddBuff(self, pc, 'Event_Golden_Whale_2', 1, 0, remainTime, 1);
+            end            
         elseif IsBuffApplied(pc, 'Event_Golden_Whale_1') == 'NO' then
             ShowOkDlg(pc, 'NPC_EVENT_GOLDEN_WHALE_2', 1)
             return
-        elseif IsBuffApplied(pc, 'Event_Golden_Whale_1') == 'YES' and isrunning == 0 then
+        elseif IsBuffApplied(pc, 'Event_Golden_Whale_1') == 'YES' and  IsBuffApplied(pc, 'Event_Golden_Whale_2') == 'YES' then
             ShowOkDlg(pc, 'NPC_EVENT_GOLDEN_WHALE_3', 1)
             return   
         end
@@ -43,7 +61,6 @@ end
 function SCR_BUFF_ENTER_Event_Golden_Whale_1(self, buff, arg1, arg2, over)
     self.MSPD_BM = self.MSPD_BM + 3;
     self.MaxSta_BM = self.MaxSta_BM + 20
-    SetExProp(self, "EVENT_GOLDEN_WHALE", 1);
 end
 
 function SCR_BUFF_UPDATE_Event_Golden_Whale_1(self, buff, arg1, arg2, RemainTime, ret, over)
@@ -56,6 +73,19 @@ end
 function SCR_BUFF_LEAVE_Event_Golden_Whale_1(self, buff, arg1, arg2, over)
     self.MSPD_BM = self.MSPD_BM - 3;
     self.MaxSta_BM = self.MaxSta_BM - 20
+end
+
+function SCR_BUFF_ENTER_Event_Golden_Whale_2(self, buff, arg1, arg2, over)
+end
+
+function SCR_BUFF_UPDATE_Event_Golden_Whale_2(self, buff, arg1, arg2, RemainTime, ret, over)
+    if RemainTime > 3600000 then
+        SetBuffRemainTime(self, buff.ClassName, 3600000)
+    end
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Event_Golden_Whale_2(self, buff, arg1, arg2, over)
 end
 
 function SCR_EVENT_GOLDEN_WHALE_TS_BORN_ENTER(self)

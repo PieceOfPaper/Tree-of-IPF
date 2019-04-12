@@ -269,3 +269,45 @@ function SCR_USE_ITEM_AddBuff_Item(self,argObj,BuffName,arg1,arg2)
 
 	AddBuff(self, self, BuffName, arg1, 0, arg2, 1);
 end
+
+function SCR_USE_HiddenJobUnlock(self,argObj, StringArg, Numarg1, Numarg2)
+    local jobNameKOR = GetClassString('Job', StringArg, 'EngName')
+    local select_1 = ShowSelDlg(self, 0, 'HIDDEN_JOB_UNLOCK_ITEM_DLG1\\'..ScpArgMsg('HIDDEN_JOB_UNLOCK_VIEW_MSG6','JOBNAME', jobNameKOR), ScpArgMsg('Yes'), ScpArgMsg('No'))
+    if select_1 == 1 then
+        if StringArg == 'Char4_18' then
+            if self.Gender ~= 2 then
+                local select_2 = ShowSelDlg(self, 0, 'HIDDEN_JOB_UNLOCK_ITEM_DLG2', ScpArgMsg('Yes'), ScpArgMsg('No')) 
+                if select_2 ~= 1 then
+                    return
+                end
+            end
+        end
+        local result = SCR_HIDDEN_JOB_UNLOCK(self, StringArg)
+        if result == 'SUCCESS' then
+            if StringArg == 'Char4_18' then
+                if isHideNPC(self, 'MIKO_MASTER') == 'YES' then
+                    UnHideNPC(self, 'MIKO_MASTER')
+                end
+                if isHideNPC(self, 'MIKO_SOUL_SPIRIT') == 'YES' then
+                    UnHideNPC(self, 'MIKO_SOUL_SPIRIT')
+                end
+            elseif StringArg == 'Char3_13' then
+                if isHideNPC(self, 'FEDIMIAN_APPRAISER') == 'NO' then
+                    HideNPC(self, 'FEDIMIAN_APPRAISER')
+                end
+                if isHideNPC(self, 'FEDIMIAN_APPRAISER_NPC') == 'YES' then
+                    UnHideNPC(self, 'FEDIMIAN_APPRAISER_NPC')
+                end
+            elseif StringArg == 'Char2_17' then
+                if isHideNPC(self, 'RUNECASTER_MASTER') == 'YES' then
+                    UnHideNPC(self, 'RUNECASTER_MASTER')
+                end
+            elseif StringArg == 'Char1_13' then
+                if isHideNPC(self, 'SHINOBI_MASTER') == 'YES' then
+                    UnHideNPC(self, 'SHINOBI_MASTER')
+                end
+            end
+            SCR_SEND_NOTIFY_REWARD(self, ScpArgMsg('HIDDEN_JOB_UNLOCK_VIEW_MSG4','JOBNAME', jobNameKOR), ScpArgMsg('HIDDEN_JOB_UNLOCK_VIEW_MSG5','RANK', Numarg1,'JOBNAME', jobNameKOR))
+        end
+    end
+end

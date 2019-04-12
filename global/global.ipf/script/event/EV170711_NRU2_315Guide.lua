@@ -7,6 +7,13 @@ function SCR_EVENT_NRU2_315GUIDE_DIALOG(self, pc)
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
     
     if ((month >= 7 and day >= 11) or (month >= 8)) and year >= 2017 then
+        if aObj.EV170711_NRU2_1 == 0 then
+           local tx = TxBegin(pc)
+           TxGiveItem(tx, 'costume_simple_festival_m', 1, 'EV170711_NRU2');
+           TxGiveItem(tx, 'costume_simple_festival_f', 1, 'EV170711_NRU2');
+           TxSetIESProp(tx, aObj, 'EV170711_NRU2_1', 1);
+           local ret = TxCommit(tx) 
+        end
         if aObj.DAYCHECK_EVENT_LAST_DATE ~= 'Nru2' then -- 현재 진행중인 이벤트
             local tx = TxBegin(pc)
             TxSetIESProp(tx, aObj, 'DAYCHECK_EVENT_LAST_DATE', 'Nru2');

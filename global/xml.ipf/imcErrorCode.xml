@@ -495,4 +495,5 @@
 		<Code Code="ERRCODE_LOGIC_CHN_MACHINECODE_GAIN_FAIL" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc="머신코드 획득 실패."/>
 		<Code Code="ERRCODE_LOGIC_CYOU_LOGIN_FAIL" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc="AID 획득 실패."/>
 	<Code Code="ERRCODE_COMMANDER_SAVE_NAN_POS" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc="커맨더 세이버에서 y 포지션에 nan 들어와서 자꾸 DB에러 나는거 잡기 위한 용도"/>
+	<Code Code="ERROR_NULLPTR_REFCOUNT_ZERO" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="참조 수가 0인 이미 지워진 객체입니다."/>
 </imcErrorCode>

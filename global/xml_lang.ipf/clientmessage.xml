@@ -4243,6 +4243,13 @@
 		<Class ClassID="27382" ClassName="EVENT_1705_CORSAIR_MSG3" Data="이벤트 시작 후 {MIN}분이 지났습니다"/>
 		<Class ClassID="27383" ClassName="EVENT_1705_CORSAIR_MSG4" Data="오늘은 이미 이벤트에 참여하셨습니다"/>
 		<Class ClassID="27410" ClassName="QUEST_CHEAT_MSG1" Data="퀘스트 '{QUESTNAME}'{nl} 치트를 실행하시려면 '예'{nl} 퀘스트 툴을 실행하시려면 '아니오' {nl}ESC 키를 클릭하시면 취소 됩니다."/>
+		<Class ClassID="27500" ClassName="HIDDEN_JOB_UNLOCK_VIEW_MSG1" Data="해금 완료 : {JOBNAME}"/>
+		<Class ClassID="27501" ClassName="HIDDEN_JOB_UNLOCK_VIEW_MSG2" Data="이미 해금되어있어서 아이템을 사용할 수 없습니다."/>
+		<Class ClassID="27502" ClassName="HIDDEN_JOB_UNLOCK_VIEW_MSG3" Data="클래스 계열이 달라서 아이템을 사용할 수 없습니다."/>
+		<Class ClassID="27503" ClassName="HIDDEN_JOB_UNLOCK_VIEW_MSG4" Data="{JOBNAME} 클래스 해금 성공"/>
+		<Class ClassID="27504" ClassName="HIDDEN_JOB_UNLOCK_VIEW_MSG5" Data="'{RANK}랭크' 달성 시 '{JOBNAME}' 클래스 선택가능!"/>
+		<Class ClassID="27505" ClassName="HIDDEN_JOB_UNLOCK_VIEW_MSG6" Data="해금권을 사용해 {JOBNAME} 클래스를 해금하시겠습니까?"/>
+		<Class ClassID="27510" ClassName="EVENT_REINFORCE_DISCOUNT_MSG1" Data="(할인 50%)"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>

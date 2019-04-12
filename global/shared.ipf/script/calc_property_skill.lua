@@ -8299,7 +8299,9 @@ function SCR_Get_SkillFactor_CarveOwl2(skill)
     local pc = GetOwner(owl);
     if pc ~= nil then
         local carveOwlSkl = GetSkill(pc, "Dievdirbys_CarveOwl")
-        value = carveOwlSkl.SkillFactor
+        if carveOwlSkl ~= nil then
+            value = carveOwlSkl.SkillFactor
+        end
     end
 
     return math.floor(value)
@@ -11335,6 +11337,16 @@ function SCR_GET_Forecast_Ratio(skill)
     end
     
     return value
+end
+
+function SCR_GET_CounterSpell_Bufftime(skill)
+    local value = 30
+    local pc = GetSkillOwner(skill)
+--    if IsPVPServer(pc) == 1 then
+        value = value / 3
+--    end
+    
+    return math.floor(value);
 end
 
 function SCR_GET_CounterSpell_Ratio(skill)
