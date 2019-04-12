@@ -304,7 +304,6 @@ function STATUS_UPDATE(frame)
     else
         DebounceScript("STATUS_INFO", 0.1);
     end
-    STATUS_INFO();
 end
 
 function RESERVE_RESET(frame)

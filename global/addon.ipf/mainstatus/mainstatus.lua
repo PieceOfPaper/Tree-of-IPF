@@ -1,12 +1,6 @@
 
 
-
 function MAINSTATUS_ON_INIT(addon, frame)
-
-	addon:RegisterMsg('PC_PROPERTY_UPDATE', 'MAINSTATUS_UPDATE');
-	addon:RegisterMsg('GAME_START', 'MAINSTATUS_UPDATE');
-	addon:RegisterMsg('STAT_UPDATE', 'MAINSTATUS_UPDATE');
-	
 end
 
 function MAIN_STATUS_SET_PROP(frame, pc, propName, addProp, multiPly, tailTxt)
@@ -69,22 +63,4 @@ function MAIN_STATUS_SET_PROP_RANGE(frame, pc, minProp, maxProp, addProp)
 	
 	txt:SetText(setTxt);	
 end
-
-function MAINSTATUS_UPDATE(frame, msg, str, num)
-
-	local pc = GetMyPCObject();
-	--MAIN_STATUS_SET_PROP_RANGE(frame, pc, "MINATK", "MAXATK", "ATK_BM");
-	--MAIN_STATUS_SET_PROP(frame, pc, "SkillPower", "SkillPower_BM");
-	--MAIN_STATUS_SET_PROP(frame, pc, "DEF", "DEF_BM");
-	--MAIN_STATUS_SET_PROP(frame, pc, "CRTHR", "CRTHR_BM", 0.01, "%");
-
-end
-
-
-
-
-
-
-
-
 

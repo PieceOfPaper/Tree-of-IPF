@@ -7,6 +7,7 @@
 		<Class ClassID="400001" ClassName="USE_GET_ACC_CREATETIME" Value="1"/>
 		<Class ClassID="400002" ClassName="USE_MARKET_REPORT" Value="1"/>
 		<Class ClassID="400007" ClassName="USE_COUNT_INDUN_USING_RATE" Value="1"/>
+		<Class ClassID="400012" ClassName="MINIGAME_COND_CHECK_BUG_LOG" Value="0"/>
 	</Category>
 	<Category Name="System">
 		<Class ClassID="100056" ClassName="DLC_GET_DELAY" Value="0"/>
@@ -16,7 +17,7 @@
 	</Category>
 	<Category Name="Market">
 		<Class ClassID="200012" ClassName="IGNORE_ITEM_AVG_TABLE_FOR_TOKEN" Value="1" Desc="토큰 사용자는 상/하안가에 영향을 받지 않는다." UseInScript="YES"/>
-<Class ClassID="200013" ClassName="UNLIMIT_TRADE_TOKEN" Value="1" Desc="토큰은 마켓에서 거래한 이후에도 계속 거래 가능하게 할 것인가?(1:거래가능, 0:거래불가)" UseInScript="NO"/>
+		<Class ClassID="200013" ClassName="UNLIMIT_TRADE_TOKEN" Value="1" Desc="토큰은 마켓에서 거래한 이후에도 계속 거래 가능하게 할 것인가?(1:거래가능, 0:거래불가)" UseInScript="NO"/>
 	</Category>
 	<Category Name="BotReport">
 		<Class ClassID="290000" ClassName="USE_REPORT_BOT_TO_STEAM" Value="1"/>

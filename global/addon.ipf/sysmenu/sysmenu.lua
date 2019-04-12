@@ -34,7 +34,6 @@ end
 
 function SYSMENU_ON_MSG(frame, msg, argStr, argNum)
 	if msg == "GAME_START" then
-		frame:RunUpdateScript("JANSORI", 0.01, 0.0, 0, 1);
 		SYSMENU_CHECK_HIDE_VAR_ICONS(frame);
 	end
 

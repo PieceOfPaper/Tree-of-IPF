@@ -1202,7 +1202,7 @@ end
 
 function SCR_USE_Adventurebook_HighRank_Reward_1d(pc)
     local tx = TxBegin(pc);
-    TxGiveItem(tx, 'Companion_Exchange_Ticket', 12, 'Adventurebook_HighRank_Reward');
+    TxGiveItem(tx, 'Companion_Exchange_Ticket2', 12, 'Adventurebook_HighRank_Reward');
     TxGiveItem(tx, 'Vis', 500000, 'Adventurebook_HighRank_Reward');
     TxGiveItem(tx, 'Premium_boostToken02', 3, 'Adventurebook_HighRank_Reward');
     TxGiveItem(tx, 'Adventure_dungeoncount_01', 3, 'Adventurebook_HighRank_Reward');
@@ -1212,7 +1212,7 @@ end
 
 function SCR_USE_Adventurebook_ThirdRank_Reward_1d(pc)
     local tx = TxBegin(pc);
-    TxGiveItem(tx, 'Companion_Exchange_Ticket', 7, 'Adventurebook_ThirdRank_Reward');
+    TxGiveItem(tx, 'Companion_Exchange_Ticket2', 7, 'Adventurebook_ThirdRank_Reward');
     TxGiveItem(tx, 'Vis', 300000, 'Adventurebook_ThirdRank_Reward');
     TxGiveItem(tx, 'Premium_boostToken02', 3, 'Adventurebook_ThirdRank_Reward');
     TxGiveItem(tx, 'Adventure_dungeoncount_01', 3, 'Adventurebook_ThirdRank_Reward');
@@ -1222,7 +1222,7 @@ end
 
 function SCR_USE_Adventurebook_FourthRank_Reward_1d(pc)
     local tx = TxBegin(pc);
-    TxGiveItem(tx, 'Companion_Exchange_Ticket', 5, 'Adventurebook_FourthRank_Reward');
+    TxGiveItem(tx, 'Companion_Exchange_Ticket2', 5, 'Adventurebook_FourthRank_Reward');
     TxGiveItem(tx, 'Vis', 200000, 'Adventurebook_FourthRank_Reward');
     TxGiveItem(tx, 'Premium_boostToken02', 2, 'Adventurebook_FourthRank_Reward');
     TxGiveItem(tx, 'Adventure_dungeoncount_01', 2, 'Adventurebook_FourthRank_Reward');
@@ -1232,7 +1232,7 @@ end
 
 function SCR_USE_Adventurebook_FifthRank_Reward_1d(pc)
     local tx = TxBegin(pc);
-    TxGiveItem(tx, 'Companion_Exchange_Ticket', 4, 'Adventurebook_FifthRank_Reward');
+    TxGiveItem(tx, 'Companion_Exchange_Ticket2', 4, 'Adventurebook_FifthRank_Reward');
     TxGiveItem(tx, 'Premium_boostToken02', 1, 'Adventurebook_FifthRank_Reward');
     TxGiveItem(tx, 'Adventure_Point_Stone2', 3, 'Adventurebook_FifthRank_Reward');
     TxGiveItem(tx, 'Vis', 100000, 'Adventurebook_FifthRank_Reward');
@@ -1463,4 +1463,10 @@ function SCR_USE_CS_IndunReset_GTower_1(self)
             end
         end
     end
+end
+
+function ACHIEVE_Steam_Magazine_Num1(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'EVENT_Steam_Magazine_Num1', 1)
+    local ret = TxCommit(tx);
 end

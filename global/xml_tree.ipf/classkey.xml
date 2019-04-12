@@ -823,6 +823,9 @@
         <Key Name="STEAM_2YEARS_MASTER_DLC_CHECK" Value="102260"/>
         <Key Name="STEAM_2YEARS_MASTER_YDAY" Value="102258"/>
         <Key Name="STEAM_2YEARS_MASTER_COSTUME_CHECK" Value="102261"/>
+        <Key Name="EVENT_1804_ROOT_DATE" Value="102267"/>
+        <Key Name="EVENT_MAGAZINE_NUM1_ACHIEVE" Value="102268"/>
+        <Key Name="GOLD_STATUE_FIRST_DATA" Value="102263"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>
@@ -8021,6 +8024,8 @@
         <Key Name="EVENT_FLOWER_HIDDEN_S" Value="102252"/>
         <Key Name="MG_Last_EVENT_FLOWER_MISSION" Value="102251"/>
         <Key Name="STEAM_2YEARS_MASTER_LIST_CHECK" Value="102257"/>
+        <Key Name="EVENT_CurrentZone" Value="102266"/>
+        <Key Name="EVENT_STrigger_Time" Value="102265"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PC">
         <Key Name="SP" Value="7052"/>
@@ -9102,6 +9107,7 @@
         <Key Name="InheritanceItemName" Value="102231"/>
         <Key Name="LegendGroup" Value="102230"/>
         <Key Name="LegendPrefix" Value="102232"/>
+        <Key Name="ItemExpString" Value="102262"/>
     </KeyIDSpc>
     <KeyIDSpc Name="ZoneObject">
         <Key Name="Hero_Line" Value="118"/>
@@ -16498,6 +16504,7 @@
         <Key Name="SIAULIAI16_SEARCH1_TRACK" Value="8211"/>
         <Key Name="SIAULIAI_SPIRIT_TRACK" Value="7817"/>
         <Key Name="SUBMASTER_LINKER1_2_TRACK" Value="102093"/>
+        <Key Name="Kill_d_raid_velcoffer_fallen_statue_gray" Value="102264"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="CategoryType" Value="51"/>

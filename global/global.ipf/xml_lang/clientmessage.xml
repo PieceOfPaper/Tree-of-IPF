@@ -7,8 +7,8 @@
 		<Class ClassID="302027" OverrideType="ADD" ClassName="Valen_Select3" Data="대화 종료"/>
 	</Category>
 	<Category Name="GLOBAL">
-		<Class ClassID="501016" OverrideType="None" ClassName="steam_Premium_SkillReset" Data="스킬 초기화 포션"/>
-		<Class ClassID="501017" OverrideType="None" ClassName="steam_Premium_SkillReset_1" Data="스킬 초기화 포션"/>
+		<Class ClassID="501016" ClassName="steam_Premium_SkillReset" Data="스킬 초기화 포션"/>
+		<Class ClassID="501017" ClassName="steam_Premium_SkillReset_1" Data="스킬 초기화 포션"/>
 		<Class ClassID="501018" OverrideType="ADD" ClassName="steam_OneYear_1" Data="1주년 폭죽 받기"/>
 		<Class ClassID="501021" OverrideType="ADD" ClassName="DayQuest_Rand_Desc01" Data=" {nl}아래 특성을 가진 몬스터를 처치하고 증표 10개를 가지고 오십시오.{nl} - 종족 : {RACE}{{nl} - 레벨 : {LV} 이상"/>
 		<Class ClassID="501022" OverrideType="ADD" ClassName="DayQuest_Rand_Desc02" Data="퀘스트 수령 하기"/>
@@ -103,6 +103,9 @@
 		<Class ClassID="501148" OverrideType="ADD" ClassName="EVENT_COOPERATION_DLG4" Data="길드 출석 및 보상 받기"/>
 		<Class ClassID="501149" OverrideType="ADD" ClassName="EVENT_WITH_GUILD_DLG1" Data="{GUILD} 길드{nl} {nl}어제 출석인원 수 : {COUNT1}{nl}오늘 출석인원 수 : {COUNT2}"/>
 		<Class ClassID="501150" OverrideType="ADD" ClassName="EVENT_WITH_GUILD_DLG2" Data="길드 출석 체크 및 보상이 지급되었습니다."/>
+		<Class ClassID="501151" OverrideType="ADD" ClassName="NPC_EVENT_MAGAZINE_NUM1_SEL1" Data="칭호 받기"/>
+		<Class ClassID="501152" OverrideType="ADD" ClassName="NPC_EVENT_MAGAZINE_NUM1_SEL2" Data="버프 받기"/>
+		<Class ClassID="501153" OverrideType="ADD" ClassName="NPC_EVENT_MAGAZINE_NUM1_SEL3" Data="첫 번째 세계관 이벤트 : 수정광산"/>
 	</Category>
 	<Category Name="Premium">
 		<Class ClassID="300174" OverrideType="ADD" ClassName="Ability_Point_Stone" Data="특성 포인트 1,000"/>

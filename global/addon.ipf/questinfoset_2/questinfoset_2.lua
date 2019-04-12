@@ -1049,9 +1049,7 @@ function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
     				local genList = npcProp.GenList;
     				if genList ~= nil then
         				local genPos = genList:Element(0);
-    
-    					JANSORI_SET_VALUE("Quest_Returnable", 1);
-    
+       
         				picture:SetImage("questinfo_return");
         				picture:SetEventScript(ui.LBUTTONUP, "QUESTION_QUEST_WARP");
 						picture:SetUserValue("PC_FID", GET_QUESTINFO_PC_FID());
@@ -1139,8 +1137,6 @@ function QUESTION_QUEST_WARP(frame, ctrl, argStr, questID)
 
 	movie.QuestWarp(session.GetMyHandle(), cheat, isMoveMap);
 	packet.ClientDirect("QuestWarp");
-	_JANSORI_SET_NOTIFIED("Quest_Returnable");
-    
 end
 
 function MAKE_COMPLETE_QUEST_GROUP_CTRL_CHILD(ctrlSet, questCls, beforeQuestCls, xPos, yPos, width, height, line_count, line_maxcount)

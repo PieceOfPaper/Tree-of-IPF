@@ -23,11 +23,7 @@ function SHOP_UI_OPEN(frame)
 
 	--HIDE_OR_SHOW_REPAIR_BUTTON(frame)
 	OPEN_SHOPUI_COMMON();
-
-	--jansori.lua 의 함수
-	JS_SHOP_OPEN(frame)
 	ui.EnableSlotMultiSelect(1);
-
 	FINALPRICE = GET_TOTAL_MONEY();
 
 	return 1;
@@ -73,9 +69,6 @@ function SHOP_UI_CLOSE(frame, obj, argStr, argNum)
 		frame = ui.GetFrame('shop');
 	end
 	control.DialogOk()
-
-	--jansori.lua 의 함수
-	JS_SHOP_CLOSE(frame)
 	ui.EnableSlotMultiSelect(0);
 	SHOP_SELECT_ITEM_LIST = {}
 
@@ -1243,7 +1236,6 @@ function CONTEXT_SOLD_ITEM(frame, slot, str, num)
 	local context = ui.CreateContextMenu("SOLD_ITEM_CONTEXT", "{@st41}".. GET_FULL_NAME(obj).. "{@st42b}..",0, 0, 100, 100);
 	local strScp = string.format("SHOP_REQ_CANCEL_SELL(%d, '%s')", num, topFrame:GetName());
 
-	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}JaeMaeip"), strScp);
 	strScp = string.format("SHOP_REQ_DELETE_SOLDITEM(%d)", num);
 	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}yeongKuJeKeo"), strScp);
 	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}ChwiSo"), "SHOP_SOLDED_CANCEL");
