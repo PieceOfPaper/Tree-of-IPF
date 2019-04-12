@@ -824,8 +824,8 @@
 		<Class ClassID="10431" ClassName="TeamLevel" Data="팀 레벨"/>
 		<Class ClassID="10432" ClassName="ExpGetAmount" Data="경험치 획득량"/>
 		<Class ClassID="10433" ClassName="AccessFailByNoDLC" Data="DLC를 구매하여야 접속 가능합니다."/>
-		<Class ClassID="10434" ClassName="NoTOKEN_USER_Trade_Warnning" Data="한 명 이라도 토큰을 사용하지 않으면 교환 후 아이템이 거래 불가 상태가 됩니다."/>
-		<Class ClassID="10435" ClassName="NoTOKEN_USER_Trade_Warnning_ItemList" Data="거래 속성이 변경되는 아이템 목록"/>
+		<Class ClassID="10434" ClassName="NoTOKEN_USER_Trade_Warnning" Data="한 명 이라도 토큰을 사용하지 않으면 교환 후 아이템이 {#ffba00}팀 창고 이동 및 거래 불가{/} 상태가 됩니다."/>
+		<Class ClassID="10435" ClassName="NoTOKEN_USER_Trade_Warnning_ItemList" Data="팀 창고 이동 및 거래 속성이 변경되는 아이템 목록"/>
 		<Class ClassID="10436" ClassName="RefusedInviteRequest_Public" Data="공개 파티 가입이 거절되었습니다."/>
 		<Class ClassID="10437" ClassName="DruidTransformFailed" Data="해당 몬스터로 변신할 수 없습니다."/>
 		<Class ClassID="10438" ClassName="AbilityLevelMax" Data="해당 특성은 이미 최대 레벨입니다."/>
@@ -10493,7 +10493,7 @@
 		<Class ClassID="300076" ClassName="Premium_StatReset" Data="스탯 초기화 포션"/>
 		<Class ClassID="300077" ClassName="CarGoPremiumItem" Data="현재 장착중이거나 소지중인 헤어스타일은 추가로 보유할 수 없습니다."/>
 		<Class ClassID="300078" ClassName="TokenAppliedAtExchange" Data="토큰 사용"/>
-		<Class ClassID="300079" ClassName="TokenNoneAppliedAtExchange" Data="토큰 미사용"/>
+		<Class ClassID="300079" ClassName="TokenNoneAppliedAtExchange" Data="{@st63_red}{s18}거래 가능 횟수 0{/}{/}"/>
 		<Class ClassID="300080" ClassName="PremiumToken_60d" Data="토큰:60일"/>
 		<Class ClassID="300081" ClassName="NextTokenBuyableTime" Data="다음 토큰 구입 가능 시간은 {Year}년 {Month}월 {Day}일 {Hour}시 {Minute}분 입니다."/>
 		<Class ClassID="300082" ClassName="FamilyShareCantRecv" Data="패밀리 쉐어링중인 계정으로는 수령 불가능합니다."/>

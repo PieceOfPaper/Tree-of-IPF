@@ -1193,3 +1193,9 @@ function SCR_USE_MONSTERCARDALBUM_TAIWAN(pc, target, string1, arg1, arg2, itemID
     TxGiveItem(tx, 'Purple_Card_Book', 1, 'MONSTERCARDALBUM_TAIWAN');
     local ret = TxCommit(tx);
 end
+
+function ACHIEVE_NEWCLASSARTIST(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'NewClassArtist_Steam', 1)
+    local ret = TxCommit(tx);
+end
