@@ -73,6 +73,12 @@ end
 
 function GUILD_ABILITY_UP(parent, ctrl)
 
+	local isLeader = AM_I_LEADER(PARTY_GUILD);
+	if isLeader == 0 then
+		ui.MsgBox(ScpArgMsg("OnlyGuildLeader"));
+		return;
+	end
+
 	local clsID = parent:GetUserIValue("CLASSID");
 	local yesScp = string.format("_EXEC_GUILD_ABILITY_UP(%d)", clsID);
 	ui.MsgBox( ScpArgMsg("ExecLearnAbility"), yesScp, "None");
@@ -232,6 +238,14 @@ end
 
 function EXEC_GUILD_GROWTH_TALT(parent, ctrl)
 
+	local pic = GET_CHILD(parent, "pic");
+
+	local item = GET_SLOT_ITEM(pic);
+	if nil == item then
+		ui.SysMsg(ClMsg('NoTaltinTheSlot'));
+		return;
+	end;
+
 	local yesScp = "_EXEC_GUILD_GROWTH_TALT()";
 	ui.MsgBox(ScpArgMsg('REALLY_DO'), yesScp, "None");
 
@@ -257,7 +271,6 @@ function GUILDGROWTH_GUILD_PROPERTY_UPDATE(frame)
 	GUILDGROWTH_OPEN(frame);	
 
 end
-
 
 
 

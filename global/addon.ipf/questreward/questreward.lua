@@ -166,10 +166,32 @@ function QUEST_REWARD_TEST(frame, questID)
 --    	y = y + 20
     end
     
+	
+	local cancelBtn = frame:GetChild('CancelBtn');
+	local useBtn = frame:GetChild('UseBtn');
+
+	    --[[
 	box:Resize(box:GetWidth(), y);
 
 	frame:ShowWindow(1);
 	frame:Resize(frame:GetWidth(), box:GetY()+ box:GetHeight() + 20);
+		]]
+	box:Resize(box:GetWidth(), y);
+	local maxSizeHeightFrame = box:GetY() + box:GetHeight() + 20;
+	local maxSizeHeightWnd = ui.GetSceneHeight();
+	if maxSizeHeightWnd < (maxSizeHeightFrame + 50) then 
+		local margin = maxSizeHeightWnd/2;
+		box:EnableScrollBar(1);
+		box:Resize(box:GetWidth() + 15, margin - useBtn:GetHeight() - 40);
+		box:SetScrollBar(margin - useBtn:GetHeight() - 40);
+		box:InvalidateScrollBar();
+		frame:Resize(frame:GetWidth() + 10, margin);
+	else
+		box:EnableScrollBar(0);
+		box:Resize(box:GetWidth(), y);
+		frame:Resize(frame:GetWidth() + 10, maxSizeHeightFrame);
+	end;
+	frame:ShowWindow(1);
 
 	
 	local selectExist = 0;
@@ -182,11 +204,6 @@ function QUEST_REWARD_TEST(frame, questID)
 		end 
 	end
 
-
-	local cancelBtn = frame:GetChild('CancelBtn');
-	local useBtn = frame:GetChild('UseBtn');
-    
-    
     local flag = false
     
     local dlgShowState = SCR_QUEST_SUCC_REWARD_DLG(pc, questCls, cls, sObj)

@@ -190,7 +190,6 @@ function GET_GUILD_EXPUP_ITEM_INFO()
 end
 
 function GET_GUILD_LEVEL_BY_EXP(exp)
-
 	local lv = 1;
 	local clsList, cnt = GetClassList("GuildExp");
 	for i = 0 , cnt - 1 do
@@ -199,7 +198,6 @@ function GET_GUILD_LEVEL_BY_EXP(exp)
 			lv = cls.ClassID;
 		end
 	end
-
 	return lv;
 
 end

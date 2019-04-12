@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="itembuffrepair" x="0" y="0" width="450" height="1200" create="open">
 	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="0 0 -680 0" open="pip"/>
 	<skin frameskin=" "/>
@@ -29,8 +29,8 @@
 		<richtext name="reqitemImage" parent="materialGbox" rect="0 0 343 48" margin="50 85 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="brown_16_b" format="%s" maxwidth="0" param1="txt" param2="guid" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<richtext name="count" parent="materialGbox" rect="0 0 200 80" margin="130 110 0 0" layout_gravity="left top" caption="남은 개수" fontname="brown_16_b" textalign="left top"/>
 		<richtext name="reqitemCount" parent="materialGbox" rect="0 0 343 48" margin="0 110 30 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="brown_16_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-		<button name="btn_cencel" parent="repair" rect="10 10 140 55" margin=" 80 0 0 40" layout_gravity="center bottom" LBtnUpScp="SQIORE_BUFF_CENCEL_CHECK" caption="{@st42}취 소" skin="test_gray_button"clicksound="button_click_3"/>
-		<button name="btn_excute" parent="repair" rect="10 10 140 55" margin="-90 0 0 40" layout_gravity="center bottom" LBtnUpScp="SQIORE_REPAIR_EXCUTE" caption="{@st42}확 인" skin="test_red_button"clicksound="button_click_repair"/>
+		<button name="btn_cencel" parent="repair" rect="10 10 140 55" margin=" 80 0 0 40" layout_gravity="center bottom" LBtnUpScp="SQIORE_BUFF_CENCEL_CHECK" caption="{@st42}취 소" skin="test_gray_button" clicksound="button_click_3"/>
+		<button name="btn_excute" parent="repair" rect="10 10 140 55" margin="-90 0 0 40" layout_gravity="center bottom" LBtnUpScp="SQIORE_REPAIR_EXCUTE" caption="{@st42}확 인" skin="test_red_button" clicksound="button_click_repair"/>
 		<groupbox name="reqitem_slot" parent="materialGbox" rect="0 0 70 70" margin="40 0 0 155" layout_gravity="left bottom" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
 		<groupbox name="TitleSkin" parent="repair" rect="0 0 250 35" margin="25 94 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
 		<groupbox name="log_gbox" parent="log" rect="0 5 420 800" margin="0 69 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>

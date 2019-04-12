@@ -3563,6 +3563,7 @@
 		<Class ClassID="22428" ClassName="YourGuildIsNeutralityState" Data="당신의 길드는 현재 중립 상태에 있어 전쟁 선포를 하실 수 없습니다."/>
 		<Class ClassID="22429" ClassName="GuildEnemyCountMAX" Data="전쟁 선포는 최대 3개의 길드까지만 가능합니다."/>
 		<Class ClassID="22430" ClassName="NeedGuildTower" Data="길드 타워가 없으면 전쟁 선포를 하실 수 없습니다."/>
+		<Class ClassID="22431" ClassName="NoTaltinTheSlot" Data="사용할 탈트를 먼저 올려놓아야 합니다."/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="22501" ClassName="THSword" Data="양손검"/>
@@ -3647,6 +3648,11 @@
 		<Class ClassID="22836" ClassName="NotEnoughTradePossibleCount" Data="거래 가능 횟수가 부족합니다."/>
 		<Class ClassID="22838" ClassName="WANNING_DecreasePotaionWhenPutItToAccountWareHouse_Continue?" Data="{#FF0000}남은 거래 횟수 : {COUNT}{nl}{#0f0f0f}해당 아이템을 팀 창고에 넣으면{nl}포텐셜이 감소합니다.{nl}하지만 팀 창고에서 꺼낼땐 포텐셜이 감소하지 않습니다.{nl}그래도 넣으시겠습니까?"/>
 		<Class ClassID="22839" ClassName="WANNING_IfPutItemToWareHouse_TradePossibleItemWillBePut_Continue?" Data="{#FF0000}남은 거래 횟수 : {COUNT}{nl}{#0f0f0f}해당 아이템을 팀 창고에 넣으면{nl}거래 가능한 아이템의 수량만큼 차감됩니다.{nl}그래도 넣으시겠습니까?"/>
+    <Class ClassID="22840" ClassName="ReallyReport" Data="정말 신고하시겠습니까?"/>
+    <Class ClassID="22841" ClassName="MarketReportOK" Data="해당 거래를 신고하였습니다."/>
+    <Class ClassID="22842" ClassName="AlreadyMarketReport" Data="이미 신고한 거래입니다."/>
+    <Class ClassID="22843" ClassName="CanNotBuyThisItem" Data="구매 불가능한 상품입니다."/>
+    <Class ClassID="22844" ClassName="ReportedItem" Data="거래 중지 된 아이템입니다."/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="22900" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
@@ -6694,6 +6700,7 @@ ClassID="33547" ClassName="CantUseThisInIntegrateServer" Data="통합 서버에�
 		<Class ClassID="7010" ClassName="CheckCardType" Data="카드 속성을 확인해주세요."/>
 		<Class ClassID="7011" ClassName="CannotRideState" Data="해당 스킬 중엔 탑승을 시도할 수 없습니다."/>
 		<Class ClassID="7012" ClassName="CannotTryEquipAndUnEquip" Data="해당 스킬 중엔 장비 장착 및 해제를 할 수 없습니다."/>
+<Class ClassID="200019" ClassName="SkillSamsaraFail" Data="환생마법이 실패하였습니다.{nl}해당 몬스터는 더 이상 환생 효과가 적용되지 않습니다."/>
 	</Category>
 	<Category Name="HotKey">
 		<Class ClassID="7200" ClassName="Minimap_-" Data="미니맵 -"/>

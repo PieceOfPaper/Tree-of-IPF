@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="pub_createchar" x="0" y="0" width="1920" height="1080">
 	<draw drawtitlebar="false"/>
 	<skin frameskin="22"/>
@@ -17,7 +17,7 @@
 		<groupbox name="maingroup" margin="5 105 0 0" rect="0 0 524 575" hittestbox="false" draw="false" skin="test_frame_low" layout_gravity="left top" frameOpenAnim="popup_start" frameCloseAnim="popup_end" scrollbar="false" resizebyresolution="true"/>
 		<groupbox name="start_map_group" margin="0 0 0 0" rect="0 0 524 182" hittestbox="false" draw="true" skin="none" layout_gravity="left bottom" frameOpenAnim="popup_start" frameCloseAnim="popup_end" scrollbar="false" resizebyresolution="false"/>
 		<groupbox name="customgroup" margin="5 714 0 0" rect="0 0 524 149" hittestbox="false" draw="false" skin="test_frame_low" layout_gravity="left top" frameOpenAnim="popup_start" frameCloseAnim="popup_end" scrollbar="false" resizebyresolution="true"/>
-		<groupbox name="topgroup" margin="5 0 0 0" rect="0 0 524 130" hittestbox="false" draw="true" skin="test_frame_top" layout_gravity="left top" frameOpenAnim="popup_start" frameCloseAnim="popup_end" scrollbar="false"resizebyresolution="true"/>
+		<groupbox name="topgroup" margin="5 0 0 0" rect="0 0 524 130" hittestbox="false" draw="true" skin="test_frame_top" layout_gravity="left top" frameOpenAnim="popup_start" frameCloseAnim="popup_end" scrollbar="false" resizebyresolution="true"/>
 		<picture name="topbg" margin="0 0 0 0" rect="0 0 524 104" hittest="false" image="" stretch="false" changecursor="false" layout_gravity="center center" parent="topgroup"/>
 		<picture name="classBg_wing" margin="33 22 0 0" rect="0 0 470 140" hittest="false" image="barrack_class_symbol" stretch="true" changecursor="false" frameOpenAnim="simbol_ani_1" layout_gravity="left top"/>
 		<picture name="L2" margin="35 29 0 0" rect="0 0 170 55" hittest="false" image="barrack_chainL_2" stretch="true" changecursor="false" frameOpenAnim="simbol_ani_1" layout_gravity="left top"/>

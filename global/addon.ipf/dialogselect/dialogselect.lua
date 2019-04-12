@@ -19,6 +19,7 @@ end
 function DIALOGSELECT_ITEM_ADD(frame, msg, argStr, argNum)
 	if argNum == 1 then
 		if DIALOGSELECT_QUEST_REWARD_ADD(frame, argStr) == 1 then
+			frame:SetUserValue("FIRSTORDER_MAXHEIGHT", 1);			
 			return;
 		else
 			local questRewardBox = frame:GetChild('questreward');
@@ -36,29 +37,55 @@ function DIALOGSELECT_ITEM_ADD(frame, msg, argStr, argNum)
 	local controlName = 'item' .. argNum .. 'Btn'
 	local ItemBtn		= frame:GetChild(controlName);
 	local ItemBtnCtrl	= tolua.cast(ItemBtn, 'ui::CButton');
+	local locationUI = DialogSelect_offsetY - argNum * 37 - 10;
 
-	--if argNum > 5 then
---		frame:SetOffset(frame:GetX() ,  DialogSelect_offsetY - argNum * 17 - 10);
-	--else
-	--	if DialogSelect_offsetY ~= 0 then
-	--		frame:SetOffset(frame:GetX(), DialogSelect_offsetY);
-	--	end
-	--	DialogSelect_offsetY = frame:GetY();
-	--end
+	ItemBtnCtrl:SetGravity(ui.CENTER_HORZ, ui.TOP);
     
 	if questRewardBox ~= nil then
 		local width  = questRewardBox:GetWidth();
 		local height = questRewardBox:GetHeight();
-		ItemBtnCtrl:SetOffset(0, height + 10 +((argNum-1) * 40));
-		frame:Resize(600, height + ((argNum) * 40 + 40));
-		questRewardBox:Resize(35, 10, width, height);
+		local offset = 10 + ((argNum-1) * 40);
+		local offsetEx = 10 + ((argNum) * 40);
+		local y = tonumber(frame:GetUserValue("QUESTFRAME_HEIGHT"));	
+		local frameHeight = offset + y + 50;
+		local maxHeight = ui.GetSceneHeight();
 		
-		frame:SetOffset(frame:GetX() ,  DialogSelect_offsetY - argNum * 17 - height);
+		questRewardBox:SetGravity(ui.CENTER_HORZ, ui.TOP);		
+				
+		local spaceBtnHeight = (10 + (argNum * 40) + 40) - 40 ;
+		questRewardBox:SetOffset(0, 50);	
+		if tonumber(frame:GetUserValue("FIRSTORDER_MAXHEIGHT")) == 1 then			
+			if (y + (maxHeight - frame:GetY())) > (maxHeight) then	
+				local frameMaxHeight = maxHeight/2;
+				frameHeight = offset + frameMaxHeight + 50;		
+					
+				local boxHeight = frameMaxHeight - spaceBtnHeight;		
+				questRewardBox:Resize(width + 10, boxHeight );
+				questRewardBox:SetScrollBar(boxHeight );
+				frame:SetUserValue("IsScroll", "YES");		
+				ItemBtnCtrl:SetOffset(0, boxHeight + offsetEx);	
+			else				
+				frame:SetUserValue("IsScroll", "NO");	
+				ItemBtnCtrl:SetOffset(0, height + offset + 10);			
+			end;
+			frame:SetUserValue("FIRSTORDER_MAXHEIGHT", 0);
+		else			
+			if frame:GetUserValue("IsScroll") == "NO" then
+				height = y;	
+				frameHeight = height + offset + 50;	
+				ItemBtnCtrl:SetOffset(0, height + offset + 10);
+			else
+				frameHeight = height + offsetEx + 50;	
+				ItemBtnCtrl:SetOffset(0, height + offsetEx);
+			end
+		end;		
+		frame:Resize(600, frameHeight + 10);			
+		frame:ShowWindow(1);	
+		
 	else
-		ItemBtnCtrl:SetOffset(0, (argNum-1) * 40 + 60);
+		ItemBtnCtrl:SetOffset(0, (argNum-1) * 40 + 40);
 		frame:Resize(600, argNum * 40 + 90);
-		
-        frame:SetOffset(frame:GetX() ,  DialogSelect_offsetY - argNum * 37 - 10);
+        frame:SetOffset(frame:GetX(),  locationUI);
 	end
 
 	ItemBtnCtrl:SetEventScript(ui.LBUTTONDOWN, 'control.DialogSelect(' .. argNum .. ')');
@@ -83,7 +110,7 @@ function DIALOGSELECT_QUEST_REWARD_ADD(frame, argStr)
 	tolua.cast(questRewardBox, "ui::CGroupBox");
 	questRewardBox:DeleteAllControl();
 	questRewardBox:EnableDrawFrame(0);
-	questRewardBox:EnableScrollBar(0);
+	questRewardBox:EnableScrollBar(1);
 	questRewardBox:EnableResizeByParent(0);
 	questRewardBox:ShowWindow(1);
     
@@ -107,7 +134,7 @@ function DIALOGSELECT_QUEST_REWARD_ADD(frame, argStr)
 	    questName = questCls.Name
 	end
 	
-	local y = 50;
+	local y = 0;
 	if questCls.QuestMode == 'MAIN' then
 	    y = BOX_CREATE_RICHTEXT(questRewardBox, "title", y, 50, "{@st41}{#FFCC00}"..ScpArgMsg("Auto_[Mein]_")..questName);
 	else
@@ -168,7 +195,7 @@ function DIALOGSELECT_QUEST_REWARD_ADD(frame, argStr)
     y = MAKE_BASIC_REWARD_RANDOM_CTRL(questRewardBox, questCls, cls, y)
 	y = MAKE_BASIC_REWARD_REPE_CTRL(questRewardBox, questCls, cls, y)
 	questRewardBox:Resize(10, 10, questRewardBox:GetWidth(), y+30);
-
+	frame:SetUserValue("QUESTFRAME_HEIGHT",  y+30);
 	frame:Invalidate();
 	return 1;
 end
@@ -232,7 +259,7 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
 		DialogSelect_count = argNum;
 
 		local ItemBtn = frame:GetChild('item1Btn');
-		local itemWidth = ItemBtn:GetWidth()
+		local itemWidth = ItemBtn:GetWidth();
 		local x, y = GET_SCREEN_XY(ItemBtn,itemWidth/2.5);
 
 		DialogSelect_index = 1;
@@ -241,6 +268,9 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
 		mouse.SetHidable(0);
 
 	elseif  msg == 'DIALOG_CLOSE'  then
+		frame:SetUserValue("QUESTFRAME_HEIGHT",  0);
+		frame:SetUserValue("FIRSTORDER_MAXHEIGHT", 0);			
+		frame:SetUserValue("IsScroll", "NO");	
 		ui.CloseFrame(frame:GetName());
 		DialogSelect_index = 0;
 		DialogSelect_count = 0;
@@ -270,7 +300,12 @@ end
 function DIALOGSELECT_ITEM_SELECT(frame)
 	local childName = 'item' .. DialogSelect_index .. 'Btn'
 	local ItemBtn = frame:GetChild(childName);
-    local itemWidth = ItemBtn:GetWidth()
+
+	if ItemBtn == nil then
+		return;
+	end;
+
+    local itemWidth = ItemBtn:GetWidth();
 	local x, y = GET_SCREEN_XY(ItemBtn,itemWidth/2.5);
 	mouse.SetPos(x, y);
 	mouse.SetHidable(0);
