@@ -80,18 +80,15 @@ end
 
 function SCR_USE_ITEM_Guide_Cube_1(pc) 
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
-    local aObj = GetAccountObj(pc);
-
-    --EVENT_PROPERTY_RESET(pc, aObj, sObj)
     local CheckList = {
         {5, "Premium_boostToken_14d", 2, "Premium_WarpScroll", 5, "RestartCristal", 5, "Event_drug_steam_1h", 10},
         {10, "Premium_boostToken_14d", 2, "Premium_WarpScroll", 5, "RestartCristal", 5, "Mic", 10, "NECK99_107", 1, "Scroll_Warp_Klaipe", 1, "JOB_VELHIDER_COUPON", 1, "E_SWD04_106", 1, "E_TSW04_106", 1, "E_MAC04_108", 1, "E_TSF04_106", 1, "E_STF04_107", 1, "E_SPR04_103", 1, "E_TSP04_107", 1, "E_BOW04_106", 1, "E_TBW04_106", 1, "E_SHD04_102", 1},
-        {15, "Premium_boostToken_14d", 2, "Premium_WarpScroll", 5, "RestartCristal", 5, "Mic", 10, "Hat_628051", 1, "Event_drug_steam_1h", 10},
+        {15, "Premium_boostToken_14d", 2, "PremiumToken_1d", 1, "Premium_WarpScroll", 5, "RestartCristal", 5, "Mic", 10, "Hat_628051", 1, "Event_drug_steam_1h", 10},
         {30, "Premium_boostToken02_event01", 2, "BRC99_103", 1, "BRC99_104", 1},
         {50, "Premium_boostToken02_event01", 2, "Premium_indunReset_14d", 1, "Mic", 10, "Event_Warp_Dungeon_Lv50", 1, "E_FOOT04_101", 1},
         {80, "Premium_boostToken02_event01", 4, "Premium_indunReset_14d", 2, "Premium_WarpScroll", 5, "RestartCristal", 5, "GIMMICK_Drug_HPSP1", 20, "Event_Warp_Dungeon_Lv80", 1, "E_costume_Com_4", 1, "E_HAIR_M_116", 1, "E_HAIR_F_117", 1},
         {100 ,"Premium_boostToken03_event01", 1, "RestartCristal", 5, "Mic", 10, "Scroll_Warp_Fedimian", 1, "Event_Warp_Dungeon_Lv100_2", 1, "Event_Warp_Dungeon_Lv100", 1, "Hat_628061", 1},
-        {110 ,"Premium_boostToken03_event01", 2, "Premium_indunReset_14d", 1, "Event_Warp_Dungeon_Lv110", 1},
+        {110 ,"Premium_boostToken03_event01", 2, "Premium_indunReset_14d", 1, "Event_Warp_Dungeon_Lv110", 1, "PremiumToken_1d", 1},
         {120 ,"Premium_boostToken03_event01", 2, "Premium_indunReset_14d", 1, "Event_Warp_Dungeon_Lv120", 1, "Mic", 10, "Premium_Enchantchip14", 2},
         {140 ,"Premium_boostToken03_event01", 2, "Event_Warp_Dungeon_Lv140", 1, "GIMMICK_Drug_HPSP2", 20, "ABAND01_118", 1},
         {150 ,"Premium_boostToken03_event01", 2, "Premium_WarpScroll", 5, "RestartCristal", 10, "Event_Warp_Dungeon_Lv150", 1, "E_BRC04_101", 1, "E_BRC02_109", 1},
@@ -104,30 +101,17 @@ function SCR_USE_ITEM_Guide_Cube_1(pc)
         {260 ,"Premium_boostToken03", 2, "Event_Warp_Dungeon_Lv260", 1, "Event_Warp_Dungeon_Lv260_2", 1, "Hat_628133", 1},
         {290 ,"Premium_boostToken03", 2, "Premium_Enchantchip14", 4, "Event_Warp_Dungeon_Lv290", 1, "Gacha_G_013", 1}
     }
-
     for i = 0, table.getn(CheckList)-1 do
         if CheckList[i+1][1] <= pc.Lv and sObj.EVENT_VALUE_SOBJ11 == i then
             local result = i + 1
+            --print(#CheckList[result])
             local tx = TxBegin(pc) 
             for j = 2, #CheckList[result], 2 do
                 TxGiveItem(tx, CheckList[result][j] , CheckList[result][j+1], "Retention_Event")
+                TxSetIESProp(tx, sObj, 'EVENT_VALUE_SOBJ11', sObj.EVENT_VALUE_SOBJ11 + 1)
             end
-            if aObj.DAYCHECK_EVENT_LAST_DATE ~= 'retention' then -- 현재 진행중인 이벤트
-                TxSetIESProp(tx, aObj, 'DAYCHECK_EVENT_LAST_DATE', 'retention');
-                TxSetIESProp(tx, aObj, 'EVENT_WHITE_R1', 0);
-                TxSetIESProp(tx, aObj, 'EVENT_WHITE_R2', 0);
-            end
-            if 15 <= pc.Lv and aObj.EVENT_WHITE_R1 == 0 and sObj.EVENT_VALUE_SOBJ11 == 2 then
-              TxGiveItem(tx, "PremiumToken_1d", 1, "Retention_Event")
-              TxSetIESProp(tx, aObj, 'EVENT_WHITE_R1', aObj.EVENT_WHITE_R1 + 1) 
-            end
-            if 110 <= pc.Lv and aObj.EVENT_WHITE_R2 == 0 and sObj.EVENT_VALUE_SOBJ11 == 7 then
-              TxGiveItem(tx, "PremiumToken_1d", 1, "Retention_Event")
-              TxSetIESProp(tx, aObj, 'EVENT_WHITE_R2', aObj.EVENT_WHITE_R2 + 1) 
-            end
-            TxSetIESProp(tx, sObj, 'EVENT_VALUE_SOBJ11', sObj.EVENT_VALUE_SOBJ11 + 1)
             local ret = TxCommit(tx)
-            SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("Retention_Select2", "LEVELCOUNT", CheckList[i+2][1]), 5)           
+            SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("Retention_Select2", "LEVELCOUNT", CheckList[i+2][1]), 5)
             break 
         elseif CheckList[i+1][1] > pc.Lv and sObj.EVENT_VALUE_SOBJ11 == i then
             SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("Retention_Select2", "LEVELCOUNT", CheckList[i+1][1]), 5)
