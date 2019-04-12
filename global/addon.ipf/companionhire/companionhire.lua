@@ -122,6 +122,13 @@ function TRY_CECK_BARRACK_SLOT_BY_COMPANION_EXCHANGE(select)
 			return;
 		end
 		itemIES = item:GetIESID();
+	elseif 3 == select then
+		itemCls = GetClass('Item', 'JOB_HOGLAN_COUPON')
+		local item = session.GetInvItemByName("JOB_HOGLAN_COUPON");
+		if nil == item then
+			return;
+		end
+		itemIES = item:GetIESID();
 	end
 
 	if nil == itemCls then

@@ -137,7 +137,7 @@
             <richtext name="desc" layout_gravity="center top" fontname="brown_16_b" rect="0 230 280 20" fixwidth="true" hittest="false" updateparent="true"/>
         </controls>
     </tooltip>
-    <tooltip name="buff" x="0" y="0" fixwidth="true" width="200" height="200" moveable="true" frameskin="downbox" UpdateScp="UPDATE_BUFF_TOOLTIP">
+    <tooltip name="buff" x="0" y="0" fixwidth="true" width="200" height="100" moveable="true" frameskin="downbox" UpdateScp="UPDATE_BUFF_TOOLTIP">
         <controls>
             <richtext name="name" rect="5 12 160 20" fixwidth="false" updateparent="true"/>
             <richtext name="comment" rect="5 45 160 100" fixwidth="false" updateparent="true"/>
@@ -251,19 +251,19 @@
             <richtext name="text" margin="-1 21 0 0" rect="0 0 120 24" format="{@st53}제조 중인 아이템" textalign="center center" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" layout_gravity="center top"/>
         </controls>
     </tooltip>
-    <tooltip name="premium" x="0" y="0" width="300" height="270" frameskin="none" UpdateScp="UPDATE_PREMIUM_TOOLTIP" lifetime="90000" blendtime="1500" skin="">
-        <controls>
-            <groupbox name="gbox" margin="0 0 0 0" rect="0 0 300 250" hittestbox="false" skin="test_skin_01_btn_clicked" layout_gravity="left top"/>
-            <labelline name="labelline_1" margin="10 35 0 0" rect="0 0 280 2" skin="labelline_def" layout_gravity="left top"/>
-            <richtext name="richtext_1" margin="9 10 0 0" rect="0 0 120 24" format="{@st42}%s 혜택적용{/}" param1="value" param1_def="혜택" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-            <richtext name="marketSellCom" margin="10 70 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-            <richtext name="marketUpMax" margin="10 95 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-            <richtext name="abilityMax" margin="10 45 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-            <richtext name="speedUp" margin="10 120 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-            <richtext name="token_expup" margin="10 145 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<richtext name="token_staup" margin="10 170 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+  <tooltip name="premium" x="0" y="0" width="300" height="270" frameskin="none" UpdateScp="UPDATE_PREMIUM_TOOLTIP" lifetime="90000" blendtime="1500" skin="">
+    <controls>
+      <groupbox name="gbox" margin="0 0 0 0" scrollbar="false" rect="0 0 300 250" hittestbox="false" skin="test_skin_01_btn_clicked" layout_gravity="left top"/>
+      <labelline name="labelline_1" margin="10 35 0 0" rect="0 0 280 2" skin="labelline_def" layout_gravity="left top"/>
+      <richtext name="richtext_1" margin="9 10 0 0" rect="0 0 120 24" format="{@st42}%s 혜택적용{/}" param1="value" param1_def="혜택" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+      <richtext name="marketSellCom" margin="10 70 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+      <richtext name="marketUpMax" margin="10 95 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+      <richtext name="abilityMax" margin="10 45 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+      <richtext name="speedUp" margin="10 120 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+      <richtext name="token_expup" margin="10 145 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+      <richtext name="token_staup" margin="10 170 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
       <richtext name="token_buffCountUp" margin="10 195 0 0" rect="0 0 120 24" format="최대 버프 적용 개수 증가" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
       <richtext name="token_tradecount" margin="10 220 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-		</controls>
-    </tooltip>
+    </controls>
+  </tooltip>
 </tooltipset>
