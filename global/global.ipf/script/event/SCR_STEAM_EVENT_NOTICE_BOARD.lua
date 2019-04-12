@@ -3,21 +3,28 @@ function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
 --    if select == 1 then
 --        SCR_KIND_DONNES_DIALOG(self,pc)
 --    elseif select == 2 then
-        SCR_NRU_ALWAYS_DIALOG(self,pc)--EV170516~Always
+--        SCR_NRU_ALWAYS_DIALOG(self,pc)--EV170516~Always
 --    end
     
 --    SCR_DAYQUEST_RANDOM_EV_DIALOG(self, pc)
 end
 
 function EVENT_PROPERTY_RESET(pc, aObj, sObj)
-    if aObj.DAYCHECK_EVENT_LAST_DATE ~= 'Fortune' then -- 현재 진행중인 이벤트
+    local now_time = os.date('*t')
+    local yday = now_time['yday']
+    
+--    if aObj.DAYCHECK_EVENT_LAST_DATE ~= 'Pet_Event' then -- 현재 진행중인 이벤트
+--        local tx = TxBegin(pc)
+--        TxSetIESProp(tx, aObj, 'DAYCHECK_EVENT_LAST_DATE', "Pet_Event");
+--        TxSetIESProp(tx, aObj, 'EVENT_VALEN_R1', 0);
+--    	local ret = TxCommit(tx)
+--    end
+    
+    if aObj.DAYCHECK_EVENT_PLAYMIN ~= yday then
         local tx = TxBegin(pc)
-        TxSetIESProp(tx, aObj, 'DAYCHECK_EVENT_LAST_DATE', "Fortune");
+        TxSetIESProp(tx, aObj, 'DAYCHECK_EVENT_PLAYMIN', yday);
         TxSetIESProp(tx, aObj, 'PlayTimeEventRewardCount', 0);
-        TxSetIESProp(tx, aObj, 'Event_HiddenReward', 0);
-        TxSetIESProp(tx, etcObj, 'InDunCountType_900', 0);
     	local ret = TxCommit(tx)
-    	print(ret)
     end
 end
 
