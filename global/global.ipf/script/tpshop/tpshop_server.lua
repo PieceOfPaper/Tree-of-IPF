@@ -1,15 +1,14 @@
 -- tpshop_server.lua
-
-
 function SCR_TX_TP_SHOP(pc, argList)
-
 	if #argList < 1 then
+		IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: argError- aid['..GetPcAIDStr(pc)..']');
 		return
 	end
 
 	local aobj = GetAccountObj(pc);
 	local etcObj = GetETCObject(pc);
 	if aobj == nil or etcObj == nil then
+		IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: account or etc object is nil- aid['..GetPcAIDStr(pc)..']');
 		return
 	end
 
@@ -33,8 +32,15 @@ function SCR_TX_TP_SHOP(pc, argList)
 						curYear = curYear + 1
 					end
 
+                    local curYear = curTime.wYear
+                    local endYear = curTime.wYear
+                    startTime, curYear = CONVERT_NEWTIME_FORMAT_TO_OLDTIME_FORMAT_SERVER(startTime)
+                    endTime, endYear = CONVERT_NEWTIME_FORMAT_TO_OLDTIME_FORMAT_SERVER(endTime)
+                    startTime = tonumber(startTime)
+                    endTime = tonumber(endTime)
+
 					local startSysTimeStr = string.format("%04d%09d%02d", curYear, startTime, '00')	
-					local endSysTimeStr = string.format("%04d%09d%02d", curYear, endTime, '00')
+					local endSysTimeStr = string.format("%04d%09d%02d", endYear, endTime, '00')
 
 					local curSysTime = imcTime.GetSysTimeByStr(curSysTimeStr)
 					local startSysTime = imcTime.GetSysTimeByStr(startSysTimeStr)
@@ -158,15 +164,37 @@ function SCR_TX_TP_SHOP(pc, argList)
 		if isLimitPaymentState == true then
 			TX_LIMIT_PAYMENT_STATE(pc, tx, tpitem.Price, freeMedal)
 		end
+		--if ENABLE_USE_PCBANG_POINT_SHOP_EVERYBODY == 1 then
 
+			local premiumDiff = 0; -- steam event --
+			local currentFreeMedal = aobj.GiftMedal + aobj.Medal
+			if tpitem.Price > currentFreeMedal then
+				premiumDiff = tpitem.Price - currentFreeMedal
+			end
+			TxAddIESProp(tx, aobj, "EVENT_STEAM_TPSHOP_BUY_PRICE", premiumDiff, "PoPo_Shop_Prop"); -- steam event --
+		--end
 		local ret = TxCommit(tx);
 		if ret == "SUCCESS" then
+			--if ENABLE_USE_PCBANG_POINT_SHOP_EVERYBODY == 1 then
+				if premiumDiff > 0 then 
+					local premiumDiff_Popo = premiumDiff * 2 -- steam event --
+					CustomMongoLog(pc, "GivePCBangPointShopPoint", "Type", "Try", "ex_point", premiumDiff_Popo)
+					local pointResult = GivePCBangPointShopPoint(pc, premiumDiff_Popo, "PoPo_Shop")
+					local point_Type = "fail"
+					if pointResult == 1 then
+						point_Type = 'SUCCESS'
+					end
+					CustomMongoLog(pc, "GivePCBangPointShopPoint", "Type", point_Type, "point", premiumDiff_Popo) -- steam event --
+				end
+			--end
 			CustomMongoLog(pc,"TpshopBuyList","AllPrice",tostring(allprice),"Items", itemcls.ClassName)
+			CustomMongoCashLog(pc,"TpshopBuyList","AllPrice",tostring(allprice),"Items", itemcls.ClassName)
 			SendAddOnMsg(pc, "TPSHOP_BUY_SUCCESS", "", 0);
+		else
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: Tx Fail- aid['..GetPcAIDStr(pc)..'], tpitem['..tpitem.ClassName..']');
 		end
 	end
 end
-
 
 function TX_LIMIT_PAYMENT_STATE(pc, tx, itemPrice, freeMedal)
 	local aobj = GetAccountObj(pc);

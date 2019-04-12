@@ -1523,8 +1523,8 @@ end
 
 function SCR_USE_ITEM_1902_NEWYEAR_PACKAGE_03(pc, target, string1, arg1, arg2, itemID)
     local tx = TxBegin(pc);
-        TxGiveItem(tx, "Moru_Silver_Team_Trade", 5, '1902_NEW_YEAR_PACKAGE_03') -- steam count change -- 
-        TxGiveItem(tx, "Moru_Gold_Team_Trade", 3, '1902_NEW_YEAR_PACKAGE_03') -- steam count change -- 
+        TxGiveItem(tx, "Moru_Silver_Team_Trade", 10, '1902_NEW_YEAR_PACKAGE_03') -- steam count change -- 
+        TxGiveItem(tx, "Moru_Gold_Team_Trade", 5, '1902_NEW_YEAR_PACKAGE_03') -- steam count change -- 
         TxGiveItem(tx, "Transcend_Scroll_8", 1, '1902_NEW_YEAR_PACKAGE_03')
         TxGiveItem(tx, "R_Steam_HP_Potion_1Day", 5, '1902_NEW_YEAR_PACKAGE_03') -- steam add -- 
         TxGiveItem(tx, "R_Steam_SP_Potion_1Day", 5, '1902_NEW_YEAR_PACKAGE_03') -- steam add -- 
@@ -1542,8 +1542,8 @@ function SCR_USE_ITEM_1902_NEWYEAR_PACKAGE_ALL(pc, target, string1, arg1, arg2, 
     local tx = TxBegin(pc);
     TxGiveItem(tx, "1902_NewYear_Package_01", 1, '1902_NEW_YEAR_PACKAGE_ALL')
     TxGiveItem(tx, "1902_NewYear_Package_03", 1, '1902_NEW_YEAR_PACKAGE_ALL')
-    TxGiveItem(tx, "Steam_HP_Potion_7Day", 1, '1902_NEW_YEAR_PACKAGE_ALL') -- steam add -- 
-    TxGiveItem(tx, "Steam_SP_Potion_7Day", 1, '1902_NEW_YEAR_PACKAGE_ALL') -- steam add -- 
+    TxGiveItem(tx, "R_Steam_HP_Potion_7Day", 1, '1902_NEW_YEAR_PACKAGE_ALL') -- steam add -- 
+    TxGiveItem(tx, "R_Steam_SP_Potion_7Day", 1, '1902_NEW_YEAR_PACKAGE_ALL') -- steam add -- 
     TxGiveItem(tx, "widnium_piece_Premium", 3, '1902_NEW_YEAR_PACKAGE_ALL')
     TxSetIESProp(tx, accountObject, "NEWYEAR_PACKAGE_1902_EXCHANGE_ITEM", tostring(today))
     local ret = TxCommit(tx);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="Item">
 	<Category Name="Consume">
 		<Category Name="Potion">
@@ -32,6 +32,7 @@
 			<Class ClassID="640406" ClassName="Drug_BlueApple_PC" CT_Name="[PC방] SP 회복 소형 엘릭서 " CT_Weight="3" CT_TooltipImage="icon_item_random_spellixerbox_pp" CT_Icon="icon_item_random_spellixerbox_pp"/>
 			<Class ClassID="640408" ClassName="Ghaca_PC_Event_Csoume01" CT_Name="[PC방] 버틀러와 메이드 코스튬 선택 상자" CT_TooltipImage="icon_item_box_pc_basic_pp" CT_Icon="icon_item_box_pc_basic_pp"/>
 			<Class ClassID="640410" ClassName="Drug_Looting_Potion_100_pc" CT_Name="[PC방] 루팅 찬스: 300" CT_TooltipImage="icon_item_pp_looting300" CT_Icon="icon_item_pp_looting300"/>
+			<Class ClassID="640442" ClassName="Ghaca_PC_Event_Csoume03" CT_Name="[PC방] 붉은 겨울밤 코스튬 선택 상자" CT_TooltipImage="icon_item_box_pc_basic_pp" CT_Icon="icon_item_box_pc_basic_pp"/>
 		</Category>
 		<Category Name="Premium_Consume">
 			<Class OverrideType="ADD" ClassID="641810" ClassName="Leticia_Steam_Wep_Box315" CT_Name="LV315 주무기 재료 상자" CT_ItemType="Consume" MarketCategory="Consume_Cube" CT_Weight="0" Journal="TRUE" CT_GroupName="Drug" CT_EquipXpGroup="None" CT_MergeTable1="None" CT_MergeClass1="None" CT_MergeTable2="Item_Consume" CT_MergeClass2="Self" CT_MergeTable3="Item_Common" CT_MergeClass3="Item_Common" CT_ToolTipScp="ETC" CT_ItemGrade="0" CT_ItemStar="0" CT_TooltipImage="icon_item_event_weaponbox1" CT_Icon="icon_item_event_weaponbox1" CT_UseLv="1" CT_MaterialPrice="0" CT_Price="0" CT_PriceRatio="100" CT_SellPrice="0" CT_RepairPriceRatio="100" CT_MaxStack="32767" CT_ReqToolTip="마우스 오른쪽 버튼 클릭으로 사용" CT_TooltipValue="None" CT_Desc="몬스터 카드 중에 무작위로 1장을 획득할 수 있습니다." CT_Scale="0.1" CT_DropSound="item_drop_hp_1" CT_DropSoundTime="0" CT_EquipSound="None" CT_InOutScp="None" CT_Script="SCR_USE_LETICIA_ETC_WEP315" CT_Destroyable="NO" CT_TeamTrade="YES" CT_ShopTrade="NO" CT_MarketTrade="NO" CT_UserTrade="NO" DeadBreakRatio="0" CT_RefreshScp="None" CT_DropStyle="Normal" CT_StringArg="None" CT_NumberArg1="0" CT_NumberArg2="0" CT_Usable="YES" CT_PreCheckScp="SCR_PRECHECK_CONSUME" CT_Consumable="TX" CT_UseAnim="None" CT_ClientScp="None" CT_ParticleName="None" CT_UseTx="YES" CP_CoolDown_NT="SCR_GET_ITEM_COOLDOWN" CT_ItemCoolDown="10000" CT_CoolDownGroup="QuestItem2" AllowDuplicate="YES" CT_NotExist="NO" CT_LogoutSave="No" BelongingCount_NT="0" CT_PVPMap="NO" LifeTime_NT="0" ItemLifeTime_NT="None" ItemLifeTimeOver_NT="0" CT_DynamicCalcLifeTimeFunc="None" CT_DynamicLifeTime="0"/>
