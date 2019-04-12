@@ -511,12 +511,15 @@ function SCR_Get_BLK(self)
 end
 
 function SCR_Get_BLK_BREAK(self)
-	
+	local jobObj = GetJobObject(self);
 	local blk = GetSumOfEquipItem(self, 'BLK_BREAK');
 	local byLevel = self.Lv;
 	local stat = self.MNA;
-	local value = byLevel * 0.5 + stat + blk + self.BLK_BREAK_BM;
-
+	local str = self.STR;
+	local value = byLevel * 0.5 + stat + blk + self.BLK_BREAK_BM + str;
+	if jobObj.CtrlType == 'Warrior' then
+        	value = value + str * 0.2;
+	end
 	return math.floor(value);
 end
 

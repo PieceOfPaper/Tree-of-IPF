@@ -214,7 +214,7 @@ end
 
 function GET_GUILD_MAKE_PRICE()
 
-	return 1000000;
+	return 500000;
 
 end
 

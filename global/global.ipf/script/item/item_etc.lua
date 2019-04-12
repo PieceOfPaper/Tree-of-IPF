@@ -76,3 +76,9 @@ function DLC_BOX7(pc)
     TxGiveItem(tx, 'Premium_indunReset', 5, 'DLC_BOX7');
     local ret = TxCommit(tx);
 end
+
+function SCR_USE_ITEM_BUYPOINT(self, argObj, StringArg, Numarg1, Numarg2)
+    local tx = TxBegin(self);
+    TxAddWorldPVPProp(tx, "ShopPoint", Numarg1);
+    local ret = TxCommit(tx);
+end

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
@@ -7780,6 +7780,7 @@
 		<Class ClassID="300080" ClassName="PremiumToken_60d" Data="토큰:60일"/>
 		<Class ClassID="300081" ClassName="NextTokenBuyableTime" Data="다음 토큰 구입 가능 시간은 {Time}입니다."/>
 		<Class ClassID="300082" ClassName="FamilyShareCantRecv" Data="패밀리 쉐어링중인 계정으로는 수령 불가능합니다."/>
+		<Class ClassID="300083" ClassName="steam_PremiumToken_7d" Data="Token 7 Days[Event]"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>

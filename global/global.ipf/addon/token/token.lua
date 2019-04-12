@@ -108,32 +108,32 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 
 	local arg1 = itemobj.NumberArg1;
 	if itemobj.ClassName == "PremiumToken" then
-		arg1 = 2592000 --30¿œ
+		arg1 = 2592000 --30O
 	elseif itemobj.ClassName == "PremiumToken_5d" then
-		arg1 = 432000 -- 5¿œ
+		arg1 = 432000 -- 5O
 	elseif itemobj.ClassName == "PremiumToken_1d" then
-		arg1 = 604800 -- 7¿œ
+		arg1 = 604800 -- 7O
 	elseif itemobj.ClassName == "PremiumToken_24h" then
-		arg1 = 86400 -- 1¿œ
+		arg1 = 86400 -- 1O
 	elseif itemobj.ClassName == "PremiumToken_3d" then
-		arg1 = 259200 -- 3¿œ
+		arg1 = 259200 -- 3O
 	elseif itemobj.ClassName == "PremiumToken_12h" then
-		arg1 = 43200 -- 12Ω√∞£
+		arg1 = 43200 -- 12¬Ω√∞Ôø°
 	elseif itemobj.ClassName == "PremiumToken_6h" then
-		arg1 = 21600 -- 6Ω√∞£
+		arg1 = 21600 -- 6¬Ω√∞Ôø°
 	elseif itemobj.ClassName == "PremiumToken_3h" then
-		arg1 = 10800 -- 3Ω√∞£
+		arg1 = 10800 -- 3¬Ω√∞Ôø°
 	elseif itemobj.ClassName == "PremiumToken_15d" then
-		arg1 = 1296000 -- 15¿œ
+		arg1 = 1296000 -- 15O
 	elseif itemobj.ClassName == "PremiumToken_30d" then
-		arg1 = 2592000 -- 30¿œ
+		arg1 = 2592000 -- 30O
 	elseif itemobj.ClassName == "PremiumToken_60d" then
-		arg1 = 5184000 -- 60¿œ
+		arg1 = 5184000 -- 60O
 	elseif itemobj.ClassName == "steam_PremiumToken_30day" then
-		arg1 = 2592000 -- 30¿œ
+		arg1 = 2592000 -- 30O
 	elseif itemobj.ClassName == "steam_PremiumToken_60d" then
-		arg1 = 5184000 -- 60¿œ
-        elseif itemobj.ClassName == "steam_PremiumToken_1d" then
+		arg1 = 5184000 -- 60O
+        elseif itemobj.ClassName == "steam_PremiumToken_7d" then
 		arg1 = 604800 -- 70
 	end
 	local endTime = GET_TIME_TXT(arg1, 1)

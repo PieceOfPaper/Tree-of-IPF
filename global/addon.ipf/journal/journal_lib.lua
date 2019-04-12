@@ -22,13 +22,13 @@ function JOURNALTREE_CLICK(parent, ctrl, str, num)
 		group = sList[2]; -- monrank
 	end
 	if #sList >= 3 then
-		groupValue = sList[3]; -- ÀÏ¹İ?º¸½º
+		groupValue = sList[3]; -- ì¼ë°˜?ë³´ìŠ¤
 	end
 	if #sList >= 4 then
 		cate = sList[4]; -- category
 	end
 	if #sList >= 5 then
-		cateValue = sList[5]; -- ½Ä¹°?¾Ç¸¶?
+		cateValue = sList[5]; -- ì‹ë¬¼?ì•…ë§ˆ?
 	end
 	
 	local frame = parent:GetParent(); -- gbox
@@ -215,7 +215,7 @@ function SET_ITEM_CATEGORY_BY_PROP(tree)
 end
 
 function SET_CATEGORY_BY_PROP(tree, idSpace, groupName, classType, clMsgHeader, list, marginY)
-
+	
 	tree:Clear();
 	local typeList = nil;
 	local typeCnt = 0;
@@ -369,14 +369,14 @@ function JOURNAL_CHECK_FILTER(cls, filterName1, filterValue1, filterName2, filte
 	if filterValue1 ~= "All" then
 		local val = TryGetProp(cls, filterName1);
 		if val ~= filterValue1 then
-    		    return false;
-    		end
+			return false;
+		end
 	else
 		local val = TryGetProp(cls, filterName1);
-		if val == 'Material' then
-    			return false;
-    		end
-    	end
+		if val == 'Material' and filterName1=='MonRank' then
+			return false;
+		end
+	end
 
 
 	if filterValue2 ~= "All" then
@@ -415,8 +415,8 @@ function JOURNAL_UPDATE_SCORE(frame, monsterGroup, category)
 	local rate = myCount / cnt;
 
 	local pc = GetMyPCObject();
-	-- °»½ÅÀÌ ¾ÈµÈ´Ù´Â ¹ö±×Ã³·³ Á¦º¸µÊ...¿ì¼± UIÇ¥±â´Â ±×³É °»½ÅÁ¡¼ö·Î ÇÏÀÚ.
-	-- ±âÈ¹ÀÌ °è¼Ó ¹Ù²î´Ùº¸´Ï ¹¹°¡¹ö±×°í ¾Æ´ÑÁö ºĞ°£µµ ¾È°¡°í... ¿ì¼± ¾Æ·¡Ã³·³ ÇØ³õÀÚ.
+	-- ê°±ì‹ ì´ ì•ˆëœë‹¤ëŠ” ë²„ê·¸ì²˜ëŸ¼ ì œë³´ë¨...ìš°ì„  UIí‘œê¸°ëŠ” ê·¸ëƒ¥ ê°±ì‹ ì ìˆ˜ë¡œ í•˜ì.
+	-- ê¸°íšì´ ê³„ì† ë°”ë€Œë‹¤ë³´ë‹ˆ ë­ê°€ë²„ê·¸ê³  ì•„ë‹Œì§€ ë¶„ê°„ë„ ì•ˆê°€ê³ ... ìš°ì„  ì•„ë˜ì²˜ëŸ¼ í•´ë†“ì.
 	local score = session.GetUpdatedWikiScore(GetWikiCategoryEnum(category));
 	if score < session.GetMyWikiScore(GetWikiCategoryEnum(category)) then
 		score = session.GetMyWikiScore(GetWikiCategoryEnum(category))
