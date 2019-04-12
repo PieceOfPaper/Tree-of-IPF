@@ -109,10 +109,9 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			strScp = string.format("PARTY_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
 			ui.AddContextMenuItem(context, ClMsg("PARTY_INVITE"), strScp);
                         
-			if AM_I_LEADER(PARTY_GUILD) == 1 or IS_GUILD_AUTHORITY(1, session.loginInfo.GetAID()) == 1 then
-				strScp = string.format("GUILD_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
-				ui.AddContextMenuItem(context, ClMsg("GUILD_INVITE"), strScp);
-			end
+            strScp = string.format("GUILD_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
+			ui.AddContextMenuItem(context, ClMsg("GUILD_INVITE"), strScp);
+
 
 			strscp = string.format("barrackNormal.Visit(%d)", handle);
 			ui.AddContextMenuItem(context, ScpArgMsg("VisitBarrack"), strscp);
@@ -153,7 +152,7 @@ function SHOW_PC_CONTEXT_MENU(handle)
 
         -- report guild emblem
         if  pcObj:IsGuildExist() == true then
-            ui.AddContextMenuItem(context, ScpArgMsg("Report_GuildEmblem"), string.format("REPORT_GUILDEMBLEM_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
+            ui.AddContextMenuItem(context, ScpArgMsg("Report_GuildEmblem"), string.format("REPORT_GUILDEMBLEM_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));        
         end
 
 		-- 보호모드, 강제킥
@@ -232,7 +231,11 @@ function PARTY_INVITE(name)
 end
 
 function GUILD_INVITE(name)
-	party.ReqDirectInvite(PARTY_GUILD, name);
+	party.GuildMemberInviteByWeb(name)
+end
+
+function GUILD_INVITE_BY_WEB(name)    
+    party.GuildMemberInviteByWeb(name)
 end
 
 function PROPERTY_COMPARE(handle)

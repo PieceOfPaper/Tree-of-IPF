@@ -7,7 +7,7 @@
 	<layer layerlevel="80"/>
 	<option closebutton="false"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
-	<userconfig Font_Gray="{@st42_gray}" Font_MaxLevel="{@st42_yellow}" Font_Normal="{@st42_green}" IndSize="40" ControlX="50" ControlY="170" ControlWidth="260" ControlHeight="90" MarginX="15" MarginY="80"/>
+	<userconfig Font_Gray="{@st42_gray}" Font_MaxLevel="{@st42_yellow}" Font_Normal="{@st42_green}" IndSize="40" ControlX="50" ControlY="170" ControlWidth="260" ControlHeight="90" MarginX="15" MarginY="80" CommonTypeIconImage="c_melee"/>
 	<effect open="skilltreeOpen" close="skilltreeClose"/>
 	<script OpenScp="SKILLTREE_OPEN" CloseScp="SKILLTREE_CLOSE"/>
 	<controls>

@@ -80,9 +80,6 @@
             </Stage>
         </StageList>
         <EnterList>
-            <ToolScp Scp="MGAME_CHANGE_TO_TEMP_PC" Client="NO" UseSleep="NO">
-                <Str Str="MCy" />
-            </ToolScp>
             <ToolScp Scp="MGAME_CRE_SOBJ" Client="NO" UseSleep="NO">
                 <Num Num="2.000000" />
                 <Str Str="ssn_mission" />

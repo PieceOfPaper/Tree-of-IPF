@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="steamtpinventory" x="0" y="0" width="460" height="800" create="open">
-  <frame title="{@st43}{s22}스팀 인벤토리 아이템" titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top" margin="0 -20 0 0"/>
-  <option closebutton="false"/>
-  <draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
-  <script OpenScp="STEAMTPINVENTORY_OPEN"/>
-  <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
-  <layer layerlevel="99"/>
-  <controls>
-    <groupbox name="bg" rect="0 0 460 800" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="token_skin2"/>
-    <picture name="shop_middle" rect="0 0 316 165" margin="115 0 0 0" layout_gravity="left top" hittest="true" image="tpchange_middle"/>
-    <richtext name="notice" parent="bg" margin="0 140 0 0" rect="0 0 420 100" caption="{@st66}Non-refundable once TP is obtained.{nl}Please refer to Steam's Refund policy and our Official Site's FAQ for details.{/}" fixwidth="true" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
-    <richtext name="errorNotice" parent="bg" margin="0 210 0 0" rect="0 0 420 100" caption="{@st66}일시적인 오류로 구매 내역이 표시되지 않을 경우, 전체 수령 버튼을 클릭하여 수령을 시도해 보시기 바랍니다.{/}" fixwidth="true" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
-    <button name="refresh" rect="0 0 80 40" margin="0 280 100 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st68}새로고침" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_pvp_btn" LBtnDownScp="STEAM_TP_REFRESH_BTN_CLICK"/>
-    <button name="retrieveAll" rect="0 0 80 40" margin="0 280 18 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st68}전체수령" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_pvp_btn" LBtnDownScp="STEAM_TP_RETRIEVE_ALL_BTN_CLICK"/>
-    <groupbox name="itemlist" rect="0 0 421 435" margin="0 320 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
-    <button name="close" rect="0 0 44 44" margin="0 75 0 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;steamtpinventory&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}마켓 창을 닫습니다{/}"/>
-    <richtext name="status" parent="bg" margin="0 750 0 0" rect="0 0 420 30" caption="" fixwidth="true" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
-  </controls>
+	<frame title="{@st43}{s22}스팀 인벤토리 아이템" titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top" margin="0 -20 0 0"/>
+	<option closebutton="false"/>
+	<draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
+	<script OpenScp="STEAMTPINVENTORY_OPEN"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<layer layerlevel="99"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 460 800" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="token_skin2"/>
+		<picture name="shop_middle" rect="0 0 316 165" margin="115 0 0 0" layout_gravity="left top" hittest="true" image="tpchange_middle"/>
+		<richtext name="notice" parent="bg" margin="0 140 0 0" rect="0 0 420 170" caption="{@st66}* Non-refundable once TP is obtained.{nl}Please refer to Steam's Refund policy and our Official Site's FAQ for details.{nl}* Players who have made fewer purchases on Steam since creating their account may be restricted from using more than 300 TP in-game per month for a short period of time.{/}" fixwidth="true" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<richtext name="errorNotice" parent="bg" margin="0 250 0 0" rect="0 0 420 140" caption="{@st66}일시적인 오류로 구매 내역이 표시되지 않을 경우, 전체 수령 버튼을 클릭하여 수령을 시도해 보시기 바랍니다.{/}" fixwidth="true" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<button name="refresh" rect="0 0 80 40" margin="0 280 100 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st68}새로고침" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_pvp_btn" LBtnDownScp="STEAM_TP_REFRESH_BTN_CLICK"/>
+		<button name="retrieveAll" rect="0 0 80 40" margin="0 280 18 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st68}전체수령" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_pvp_btn" LBtnDownScp="STEAM_TP_RETRIEVE_ALL_BTN_CLICK"/>
+		<groupbox name="itemlist" rect="0 0 421 355" margin="0 400 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
+		<button name="close" rect="0 0 44 44" margin="0 75 0 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;steamtpinventory&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}마켓 창을 닫습니다{/}"/>
+		<richtext name="status" parent="bg" margin="0 750 0 0" rect="0 0 420 30" caption="" fixwidth="true" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+	</controls>
 </uiframe>

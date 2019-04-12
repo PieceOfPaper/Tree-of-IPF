@@ -308,10 +308,22 @@ function EXCHANGE_INIT_SLOT(frame)
 	local myGBox = GET_CHILD(frame, 'mybgGbox');
 	local myslotset = GET_CHILD_RECURSIVELY(myGBox,'myslot','ui::CSlotSet')	
 	myslotset:ClearIconAll();
-	
+	myslotset:SetSkinName("invenslot2")
+	local myslotsetCnt = myslotset:GetSlotCount();
+	for i = 0, myslotsetCnt - 1 do
+		local tempSlot = myslotset:GetSlotByIndex(i)
+		DESTROY_CHILD_BYNAME(tempSlot, "styleset_")		
+	end
+
 	local opponenGBox = GET_CHILD(frame, 'opbgGbox');
 	local oppslotset = GET_CHILD_RECURSIVELY(opponenGBox,'opponentslot','ui::CSlotSet')
 	oppslotset:ClearIconAll();
+	oppslotset:SetSkinName("invenslot2")
+	local oppslotsetCnt = oppslotset:GetSlotCount();
+	for i = 0, oppslotsetCnt - 1 do
+		local tempSlot = oppslotset:GetSlotByIndex(i)
+		DESTROY_CHILD_BYNAME(tempSlot, "styleset_")		
+	end
 
 end 
 
@@ -435,6 +447,7 @@ function EXCHANGE_UPDATE_SLOT(slotset,listindex)
 			elseif class.ItemType ~= 'Unused' then
 				local icon = SET_SLOT_ITEM_INFO(slot, itemObj, itemData.count);
 				SET_ITEM_TOOLTIP_ALL_TYPE(icon, itemData, class.ClassName, 'exchange', itemData.type, i * 10 + listindex);
+				SET_SLOT_STYLESET(slot, itemObj)
 				--[[
 				SET_SLOT_ITEM_OBJ(slot, class);							
 				SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), class.ClassID);		

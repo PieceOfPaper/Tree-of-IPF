@@ -16,6 +16,7 @@ function BARRACK_CHARLIST_ON_INIT(addon, frame)
 	
 	addon:RegisterMsg("BARRACK_NAME_CHANGE_RESULT", "SELECTTEAM_ON_MSG");
 	addon:RegisterMsg("BARRACK_ACCOUNT_PROP_UPDATE", "SELECTTEAM_ON_MSG");
+	addon:RegisterMsg('RESULT_CHECK_MARKET', 'ON_RESULT_CHECK_MARKET');
 
 	frame:SetUserValue("BarrackMode", "Barrack");
 	SET_CHILD_USER_VALUE(frame, "upgrade", "Barrack", "YES");
@@ -253,7 +254,7 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 	local barrackMode = frame:GetUserValue("BarrackMode");
 	local name = actor:GetName();
 	local brk = GetBarrackSystem(actor);
-	local key = brk:GetCID();
+	local key = brk:GetCIDStr();
 	local bpc = barrack.GetBarrackPCInfoByCID(key);
 	if bpc == nil then
 		return;
@@ -272,18 +273,17 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 	btn:SetEventScript(ui.LBUTTONUP, "SELECT_CHARBTN_LBTNUP");
 	btn:SetEventScriptArgString(ui.LBUTTONUP, key);
 
-	if session.barrack.GetMyAccount():GetByStrCID(key) ~= nil 
-		and "Barrack" == barrackMode then
-			btn:SetEventScript(ui.LBUTTONDBLCLICK, "BARRACK_TO_GAME");
-			btn:SetEventScriptArgString(ui.LBUTTONDBLCLICK, key);
+	if session.barrack.GetMyAccount():GetByStrCID(key) ~= nil and "Barrack" == barrackMode then
+		btn:SetEventScript(ui.LBUTTONDBLCLICK, "BARRACK_TO_GAME");
+		btn:SetEventScriptArgString(ui.LBUTTONDBLCLICK, key);
 	end
 		
 	btn:ShowWindow(1);
 	btn:SetUserValue("MY_CTRL", "YES");
 
 	local apc = bpc:GetApc();
-	local gender					= apc:GetGender();
-	local jobid						= apc:GetJob();
+	local gender = apc:GetGender();
+	local jobid = apc:GetJob();
 	local pic = GET_CHILD(mainBox, "char_icon", "ui::CPicture");
 	local headIconName = ui.CaptureModelHeadImageByApperance(apc);
 	pic:SetImage(headIconName);
@@ -383,7 +383,6 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 
 	if barrackMode == "Barrack" then
 		CREATE_SCROLL_NEW_CHAR(frame);
---
 	end
 
 	GBOX_AUTO_ALIGN(scrollBox, 10, 10, 10, true, false);
@@ -481,8 +480,7 @@ function SELECT_CHARBTN_LBTNUP(parent, ctrl, cid, argNum)
 	UPDATE_PET_BTN_SELECTED();
 end
 
-function DELETE_CHAR_SCROLL(ctrl, btn, cid, argNum)
-
+function DELETE_CHAR_SCROLL(ctrl, btn, cid, argNum)	
 	-- 스크롤 캐릭터 삭제 버튼
 	local acc = session.barrack.GetMyAccount();
 	local petVec = acc:GetPetVec();
@@ -529,12 +527,12 @@ function DELETE_CHAR_SCROLL(ctrl, btn, cid, argNum)
 		end
 	end
 
-	
-	
+	CHECK_MARKET_REGISTERED(cid);
+end
+
+function CHECK_MARKET_REGISTERED(cid)
 	barrack.SelectCharacterByCID(cid);
-	local jobName = barrack.GetSelectedCharacterJob();
-	local charName = barrack.GetSelectedCharacterName();
-	ui.MsgBox("{nl} {nl}{s22}"..jobName.." {@st43}"..charName..ScpArgMsg("Auto_{/}{nl}{s22}KaeLigTeoLeul_SagJeHaKessSeupNiKka?"), 'SELECTCHARINFO_DELETECHARACTER', 'SELECTCHARINFO_DELETECHARACTER_CANCEL');
+	barrack.CheckMarketRegistered();	
 end
 
 function SELECTCHARINFO_DELETECHARACTER(frame, obj, argStr, argNum)
@@ -562,7 +560,7 @@ function SELECTTEAM_UPDATE_BTN_TITLE(frame)
 		local pcActor = barrack.GetPCByID(pcID);
 		if pcActor ~= nil then
 			local brk = GetBarrackSystem(pcActor);
-			local btn = frame:GetChild("btn_" .. brk:GetCID());
+			local btn = frame:GetChild("btn_" .. brk:GetCIDStr());
 			if btn ~= nil then
 				local x = btn:GetX();
 				local y  = btn:GetY();
@@ -1100,7 +1098,7 @@ function REQUEST_DELETE_PET(parent, ctrl)
 	
 	local nameStr = string.format("%s (%s)", petInfo:GetName(), monCls.Name);
 	local msg = ScpArgMsg("ReallyDelete{Name}", "Name", nameStr);
-	local execScript = string.format("_EXEC_DELETE_PET(\"%s\", \"%s\")", petGuid, brkSystem:GetCID());
+	local execScript = string.format("_EXEC_DELETE_PET(\"%s\", \"%s\")", petGuid, brkSystem:GetCIDStr());
 	ui.MsgBox(msg, execScript, "None");
 end
 
@@ -1113,4 +1111,15 @@ function CHAR_N_PET_LIST_LOCKMANGED(unlock)
 	local petFrame = ui.GetFrame("barrack_petlist");
 	charFrame:SetEnable(unlock);
 	petFrame:SetEnable(unlock);
+end
+
+function ON_RESULT_CHECK_MARKET(frame, msg, cid, registered)	
+	barrack.SelectCharacterByCID(cid);
+	local jobName = barrack.GetSelectedCharacterJob();
+	local charName = barrack.GetSelectedCharacterName();
+	local clmsg = "{nl} {nl}{s22}"..jobName.." {@st43}"..charName..ScpArgMsg("Auto_{/}{nl}{s22}KaeLigTeoLeul_SagJeHaKessSeupNiKka?");
+	if registered == 1 then	
+		clmsg = ClMsg('RegisterItemAtMarketPC')..clmsg;
+	end
+	ui.MsgBox(clmsg, 'SELECTCHARINFO_DELETECHARACTER', 'SELECTCHARINFO_DELETECHARACTER_CANCEL');
 end

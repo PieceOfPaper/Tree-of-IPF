@@ -450,6 +450,7 @@ function DROP_PET_EQUIP(parent, slot, str, num)
 
 	local isAble = petInfo:IsEquipable(itemEnum, typeEnum, slotSpot);
 	if isAble == false then
+		ui.SysMsg(ClMsg("NotEquipableSlot"));
 		return;
 	end
 	

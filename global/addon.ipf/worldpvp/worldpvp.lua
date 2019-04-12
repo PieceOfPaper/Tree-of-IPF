@@ -1000,7 +1000,13 @@ function PVP_OPEN_POINT_SHOP(parent, ctrl)
 	TOGGLE_PROPERTY_SHOP("PVPShop");
 
 end
-   
+
+function MINE_OPEN_POINT_SHOP(parent, ctrl)
+
+	TOGGLE_PROPERTY_SHOP("MINEShop");
+
+end
+
 function PVP_REWARD(parent, ctrl)
 	local type = session.worldPVP.GetRankProp("Type");
 	local cls = GetClassByType("WorldPVPType", type);
@@ -1042,4 +1048,14 @@ function GUILD_PVP_MISSION_CREATED(roomGuid, gameType, isCreated, zonePCCount)
 		UPDATE_WORLDPVP(frame);
 	end
 
+end
+
+function GET_PVP_MINE_POINT_C()
+	local aObj = GetMyAccountObj();
+
+	if aObj == nil then
+		return 0;
+	end
+
+    return aObj.PVP_MINE_POINT
 end

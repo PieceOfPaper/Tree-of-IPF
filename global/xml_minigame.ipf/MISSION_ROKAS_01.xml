@@ -518,45 +518,6 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Trigger" triggerName="Trigger">
-                        <Area>
-                            <Pos Value="692.126404 181.943298 -342.038757"/>
-                            <Pos Value="822.573792 181.943298 -207.999283"/>
-                            <Pos Value="758.040771 181.943298 -85.673645"/>
-                            <Pos Value="601.720459 181.943298 -226.002441"/>
-                        </Area>
-                        <enterScpList>
-                            <ToolScp Scp="MGAME_TRG_START_STAGE" Client="NO" UseSleep="NO">
-                                <Str Str="mrokas_gate_03"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_TRG_CK_MGAME_DIRECT" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_GATE_03"/>
-                                <Num Num="0"/>
-                                <Str Str="MROKAS_ENT_TRIGER"/>
-                            </ToolScp>
-                        </enterScpList>
-                    </Obj>
-                    <Obj Type="Trigger" triggerName="Trigger">
-                        <Area>
-                            <Pos Value="738.010559 181.943298 246.466858"/>
-                            <Pos Value="738.209290 181.943298 248.295609"/>
-                            <Pos Value="737.709412 181.943298 248.885193"/>
-                            <Pos Value="746.591980 181.943298 229.164749"/>
-                            <Pos Value="808.958984 181.943298 272.378235"/>
-                            <Pos Value="697.397888 181.943298 422.642822"/>
-                            <Pos Value="621.847900 181.943298 376.790588"/>
-                        </Area>
-                        <enterScpList>
-                            <ToolScp Scp="MGAME_TRG_START_STAGE" Client="NO" UseSleep="NO">
-                                <Str Str="mrokas_gate_03"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_TRG_CK_MGAME_DIRECT" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_GATE_03"/>
-                                <Num Num="0"/>
-                                <Str Str="MROKAS_ENT_TRIGER"/>
-                            </ToolScp>
-                        </enterScpList>
-                    </Obj>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="c_end">
@@ -572,6 +533,9 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="stage_c_02"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="mrokas_gate_03"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -790,14 +754,6 @@
                 </StageEvents>
             </Stage>
             <Stage Name="mrokas_gate_03" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_CAMERA_TO" Client="YES" UseSleep="NO">
-                        <AbsPos X="422.85541" Y="181.9433" Z="-10.857562" Random="50"/>
-                        <Num Num="3"/>
-                        <Num Num="1"/>
-                        <Num Num="0.5"/>
-                    </ToolScp>
-                </StartScpList>
                 <CompleteScpList>
                     <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
                         <Str Str="stage_e"/>
@@ -840,24 +796,28 @@
                             </List>
                         </SelfAI>
                     </Obj>
+                    <Obj Type="Trigger" triggerName="Trigger">
+                        <Area>
+                            <Pos Value="279.770203 168.704910 9.410886"/>
+                            <Pos Value="285.244446 169.748596 -48.981415"/>
+                            <Pos Value="348.250031 179.441513 -50.818771"/>
+                            <Pos Value="344.029510 179.056915 21.635361"/>
+                        </Area>
+                        <enterScpList>
+                            <ToolScp Scp="MGAME_TRG_EL_OBJ" Client="NO" UseSleep="NO">
+                                <Str Str="MROKAS_ENT_TRIGER"/>
+                            </ToolScp>
+                        </enterScpList>
+                    </Obj>
+                    <Obj Type="Monster" MonType="40001" Pos="313.90#175.09#-18.16" angle="15" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;이동&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="gate_03">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_GATE_03"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="mrokas_gate_03/0/mrokas_gate_03/1/mrokas_gate_03/2"/>
                                 <Num Num="1"/>
                                 <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
-                                <AbsPosRange X="467.06702" Y="181.94327" Z="-16.124086"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -1084,13 +1044,13 @@
                         <execList>
                             <ToolScp Scp="MGAME_EXEC_PRECHECK_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_NUNNERY_CUBE_REWARD_CHECK"/>
-                                <Str Str="Gacha_M_Rokas_1/2"/>
+                                <Str Str="Gacha_M_Rokas_1/3"/>
                                 <Str Str="None"/>
                                 <Str Str="None"/>
                                 <Str Str="None"/>
                                 <Str Str="MISSION_ROKAS_01"/>
                                 <Str Str="None"/>
-                                <Num Num="1"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>

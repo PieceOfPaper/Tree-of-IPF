@@ -1,4 +1,7 @@
-﻿function GUILDINFO_ON_INIT(addon, frame)
+﻿local json = require "json"
+
+local firstOpen = true;
+function GUILDINFO_ON_INIT(addon, frame)
 	addon:RegisterMsg("GUILD_NEUTRALITY_UPDATE", 'ON_GUILD_NEUTRALITY_UPDATE');
     addon:RegisterMsg('GUILD_UPDATE_PROFILE', 'ON_GUILD_UPDATE_PROFILE');
 	addon:RegisterMsg("UPDATE_GUILD_ONE_SAY", "GUILDINFO_COMMUNITY_INIT_ONELINE");
@@ -18,6 +21,7 @@
     addon:RegisterMsg('COLONY_OCCUPATION_INFO_UPDATE', 'GUILDINFO_COLONY_UPDATE_OCCUPY_INFO');
     addon:RegisterMsg("GUILD_MASTER_REQUEST", "ON_GUILD_MASTER_REQUEST");
 
+    firstOpen = true;
     g_ENABLE_GUILD_MEMBER_SHOW = false;
 end
 
@@ -29,10 +33,39 @@ function UI_CHECK_GUILD_UI_OPEN(propname, propvalue)
 	return 1;
 end
 
+
 function GUILDINFO_OPEN_UI(frame)
+
+    
+    local myActor = GetMyActor();
+    if myActor == nil or myActor:IsGuildExist() == false then
+        return;
+    end
+
+    local frame = ui.GetFrame("guildinfo");
+    
+    GetClaimList("ON_CLAIM_GET")
+    if firstOpen == true then
+        
+        --todo여기에 처음 로드할때만 요청할 바인드함수 추가
+        GUILDINFO_OPTION_INIT(frame, frame);
+        firstOpen = false
+        
+    end
+    GUILDINFO_COLONY_INIT(frame, frame)
+    INIT_UI_BY_CLAIM();
+
     GUILDINFO_INIT_TAB(frame);
    GUILDINFO_INIT_PROFILE(frame); 
-end
+    GUILDINFO_OPTION_INIT_SETTING_CLAIM_TAB();
+    
+	GetGuildInfo("GUILDINFO_GET");
+
+    local guild = GET_MY_GUILD_INFO();
+	local leaderAID = guild.info:GetLeaderAID()
+    local myAID = session.loginInfo.GetAID()
+        GUILD_APPLICANT_INIT()
+    end
 
 function GUILDINFO_INIT_PROFILE(frame)
     local guild = session.party.GetPartyInfo(PARTY_GUILD);
@@ -42,15 +75,16 @@ function GUILDINFO_INIT_PROFILE(frame)
     end
 
     local guildObj = GET_MY_GUILD_OBJECT();
-    local profileBox = GET_CHILD_RECURSIVELY(frame, 'profileBox');
+    local guildInfoTab = GET_CHILD_RECURSIVELY(frame, "guildinfo_");
+    local guildName = GET_CHILD_RECURSIVELY(frame, "guildname");
+    guildName:SetTextByKey("name", guild.info.name);
 
-    -- level and name
-    local nameText = GET_CHILD_RECURSIVELY(profileBox, 'nameText');    
-    nameText:SetTextByKey('level', guildObj.Level);
-    nameText:SetTextByKey('name', guild.info.name);
+    local guildLvl = GET_CHILD_RECURSIVELY(guildInfoTab, "guildLvl");
+    guildLvl:SetTextByKey('level', guildObj.Level);
+    
 
     -- leader name
-    local masterText = GET_CHILD_RECURSIVELY(profileBox, 'masterText');
+    local masterText = GET_CHILD_RECURSIVELY(guildInfoTab, 'guildMasterName');
     local leaderAID = guild.info:GetLeaderAID();
 	local list = session.party.GetPartyMemberList(PARTY_GUILD);
 	local count = list:Count();
@@ -58,50 +92,43 @@ function GUILDINFO_INIT_PROFILE(frame)
 		local partyMemberInfo = list:Element(i);
 		if leaderAID == partyMemberInfo:GetAID() then
 			leaderName = partyMemberInfo:GetName();
-            masterText:SetTextByKey('name', leaderName);
+            masterText:SetText("{@st66b}" .. leaderName .. "{/}");
             break;
 		end
 	end
 
     -- opening date
-    local openText = GET_CHILD_RECURSIVELY(profileBox, 'openText');
+    local openText = GET_CHILD_RECURSIVELY(guildInfoTab, 'foundtxt');
     local openDate = imcTime.ImcTimeToSysTime(guild.info.createTime);
     local openDateStr = string.format('%04d.%02d.%02d', openDate.wYear, openDate.wMonth, openDate.wDay); -- yyyy.mm.dd
     openText:SetTextByKey('date', openDateStr);
 
     -- member
-    local memberText = GET_CHILD_RECURSIVELY(profileBox, 'memberText');
+    local memberText = GET_CHILD_RECURSIVELY(guildInfoTab, 'memberNum');
+    --print(count)
     memberText:SetTextByKey('current', count);
     memberText:SetTextByKey('max',  guild:GetMaxGuildMemberCount());
 
     -- asset
-   GUILDINFO_PROFILE_INIT_ASSET(frame);
-
-    -- notice
-    local notifyText = GET_CHILD_RECURSIVELY(profileBox, 'notifyText');
-    notifyText:SetText(guild.info:GetNotice());
-
-    -- introduce
-    local introduceText = GET_CHILD_RECURSIVELY(profileBox, 'introduceText');
-    introduceText:SetText(guild.info:GetProfile());
+   GUILDINFO_PROFILE_INIT_ASSET(guildInfoTab);
 
     -- embelem
     GUILDINFO_PROFILE_INIT_EMBLEM(frame);
 end
 
 function GUILDINFO_PROFILE_INIT_ASSET(frame)
-    local profileBox = GET_CHILD_RECURSIVELY(frame, 'profileBox');
-    local moneyText = GET_CHILD_RECURSIVELY(profileBox, 'moneyText');
+
+    local moneyText = GET_CHILD_RECURSIVELY(frame, 'guildFund');
     local guildObj = GET_MY_GUILD_OBJECT();
     local guildAsset = guildObj.GuildAsset;    
     if guildAsset == nil or guildAsset == 'None' then
         guildAsset = 0;
     end
-    moneyText:SetTextByKey('money', GET_COMMAED_STRING(guildAsset));
+    moneyText:SetText("{@st66b}" .. GET_COMMAED_STRING(guildAsset) .. "{/}");
 end
 
 function GUILDINFO_INIT_TAB(frame)
-    local mainTab = GET_CHILD(frame, 'mainTab');
+    local mainTab = GET_CHILD_RECURSIVELY(frame, 'mainTab');
     mainTab:SelectTab(0);
 end
 
@@ -132,6 +159,12 @@ function ON_UPDATE_GUILD_ASSET(frame, msg, argStr, argNum)
 end
 
 function GUILDINFO_UPDATE_INFO(frame, msg, argStr, argNum)
+  --  print("msg:" .. msg)
+    if frame == nil then
+       -- print("frame is nil")
+    else
+       -- print("frame is not nil")
+    end
     GUILDINFO_INIT_PROFILE(frame);
     _GUILDINFO_INIT_MEMBER_TAB(frame);
 end
@@ -156,9 +189,9 @@ end
 
 function GUILDINFO_CLOSE_UI(frame)    
     ui.CloseFrame('guildinven_send');
-    ui.CloseFrame('guild_authority_popup');
     ui.CloseFrame('guildemblem_change');
-
+    ui.CloseFrame("loadimage")
+    ui.CloseFrame("previewpicture")
     frame:ShowWindow(0);
 end
 
@@ -183,7 +216,7 @@ function GUILDINFO_PROFILE_INIT_EMBLEM(frame)
     local worldID = session.party.GetMyWorldIDStr();    
     local emblemImgName = guild.GetEmblemImageName(guildInfo.info:GetPartyID(),worldID);  
     local isRegisteredEmblem = session.party.IsRegisteredEmblem();
-    DRAW_GUILD_EMBLEM(frame,false,  isRegisteredEmblem, emblemImgName)
+    DRAW_GUILD_EMBLEM(frame, false, isRegisteredEmblem, emblemImgName)
     GUILDINFO_OPTION_UPDATE_EMBLEM(frame)
 end 
 
@@ -197,21 +230,31 @@ function DRAW_GUILD_EMBLEM(frame, isPreView, isRegisteredEmblem, emblemName)
     end
 
     if isOpenGuildInfoUI == true then
-        local emblemFront = GET_CHILD_RECURSIVELY(frame_guildInfo, 'emblemPic_upload');
-        local emblemBack = GET_CHILD_RECURSIVELY(frame_guildInfo, 'emblemPic');
-        emblemFront:ShowWindow(0)
-        emblemBack:ShowWindow(0);
+        local default_emblem = frame_guildInfo:GetUserConfig("DEFAULT_EMBLEM_IMAGE");
+        
+        local emblemBack = GET_CHILD_RECURSIVELY(frame_guildInfo, "emblem");
+
+        local previewEmblem = GET_CHILD_RECURSIVELY(frame_guildInfo, 'emblemPreview');
 
         if isPreView == true then
-            emblemFront:SetImage(""); -- clear clone image
-            emblemFront:SetFileName(emblemName);
-            emblemFront:ShowWindow(1); 
+            previewEmblem:SetImage("")
+            previewEmblem:SetFileName(emblemName);
         else
-            if isRegisteredEmblem == true and emblemName ~= 'None' then
-                emblemBack:SetImage(emblemName); 
-            else
-                local default_emblem = frame_guildInfo:GetUserConfig("DEFAULT_EMBLEM_IMAGE");
+            --길드 엠블렘 변경중. 창을 닫으면 자동으로 기존엠블렘으로 업데이트됨.
+            local frame_emblemChange = ui.GetFrame("guildemblem_change");
+            if frame_emblemChange ~= nil and frame_emblemChange:IsVisible() == 1 then
+                return
+            end
+            emblemBack:SetImage("")
+            previewEmblem:SetImage("")
+
+            if emblemName ~= 'None' and isRegisteredEmblem == true then
+
+                emblemBack:SetFileName(emblemName); 
+                previewEmblem:SetFileName(emblemName);
+            else          
                 emblemBack:SetImage(default_emblem);
+                previewEmblem:SetImage(default_emblem);
             end
             emblemBack:ShowWindow(1);
         end
@@ -223,19 +266,16 @@ function ON_UPDATE_GUILD_EMBLEM(frame,  msg, argStr, argNum)
    GUILDINFO_PROFILE_INIT_EMBLEM(frame)
 end
 
-function REGISTER_GUILD_EMBLEM(frame)
-   GUILDEMBLEM_CHANGE_INIT(frame);
-end
 
 function UI_TOGGLE_GUILD()
     if app.IsBarrackMode() == true then
 		return;
 	end
 
-	local guildinfo = session.GetGuildInfo();
-	if guildinfo == nil then
-		return;
-	end
+    local guildinfo = session.GetGuildInfo();
+    if guildinfo == nil then
+        return;
+    end
     g_ENABLE_GUILD_MEMBER_SHOW = true;
 	ui.ToggleFrame('guildinfo');
 end
@@ -256,7 +296,7 @@ function ON_GUILD_MASTER_REQUEST(frame, msg, argStr)
 		end
 	end
 
-	local yesScp = string.format("ui.Chat('/agreeGuildMaster')");
+	local yesScp = string.format("ui.Chat('/agreeGuildMasterByWeb')");
 	local noScp = string.format("ui.Chat('/disagreeGuildMaster')");
 	ui.MsgBox(ScpArgMsg("DoYouWantGuildLeadr{N1}{N2}",'N1',leaderName,'N2', pcparty.info.name), yesScp, noScp);
 end

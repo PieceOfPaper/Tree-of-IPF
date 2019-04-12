@@ -120,12 +120,18 @@ function ICON_ON_ENABLE(frame, object, argStr, argNum)
  
   function SCR_DISPEL_DEBUFF_TOGGLE(invItem)
 	-- debuff dispel on/off 토글
+	local curZone = GetZoneName();
+    local mapCls = GetClass('Map', curZone);
     local isColonyMap = session.colonywar.GetIsColonyWarMap();
     if isColonyMap == true then
         if IsBuffApplied(GetMyPCObject(), 'Safe') == 'YES' then
             return
         end
     end
+	if mapCls.ClassName == 'pvp_Mine' then
+		return;
+	end
+
 	if invItem ~= nil then
 		local itemobj = GetIES(invItem:GetObject());
 		item.ToggleDispelDebuff(itemobj.ClassID);
@@ -230,14 +236,15 @@ function ICON_USE(object, reAction)
 				ITEM_EQUIP_BY_ID(icon:GetTooltipIESID());
 				return;
 			else
-				local groupName = itemObj.ItemType;
-				if groupName == 'Consume' or groupName == "Quest" or TryGetProp(itemObj, "GroupName") == "Cube" then
+				local itemType = itemObj.ItemType;
+				local groupName = TryGetProp(itemObj, "GroupName");
+				if itemType == 'Consume' or itemType == "Quest" or groupName == "Cube" or groupName == "ExpOrb" then
 					local usable = itemObj.Usable;
 					if usable ~= 'ITEMTARGET' then						
 						local invenItemInfo = GET_ICON_ITEM(iconInfo);
 						if invenItemInfo ~= nil then
-							local itemtype = iconInfo.type;
-							local curTime = item.GetCoolDown(itemtype);
+							local iconInfoType = iconInfo.type;
+							local curTime = item.GetCoolDown(iconInfoType);
 							local stat = info.GetStat(session.GetMyHandle());
 							if curTime ~= 0 or stat.HP <= 0 then
 								imcSound.PlaySoundEvent("skill_cooltime");

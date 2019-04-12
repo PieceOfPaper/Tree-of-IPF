@@ -19,7 +19,7 @@
                     <Obj Type="Monster" MonType="59038" Pos="-1039.19#137.14#73.05" angle="240" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;STAGE_ONE_STATUE_SUMMON&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Range&apos; &apos;40&apos; &apos;Enter&apos; &apos;VELCOFFER_STATUE_NOTICE&apos; "/>
                     <Obj Type="Monster" MonType="150015" Pos="-1213.01#137.14#-116.33" genCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;STAGE_ONE_GIVE_BUFF_GIMMICK&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
                     <Obj Type="Monster" MonType="58872" Pos="-1424.64#143.68#146.97" genCount="1" genTime="20000" objectKey="6" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Enter&apos; &apos;VELCOFFER_ENTER_NOTICE&apos; &apos;Range&apos; &apos;40&apos; &apos;SkillType&apos; &apos;None&apos; &apos;ClassName&apos; &apos;HiddenTrigger6_Velcoffer_Riad_trap&apos; &apos;ClassID&apos; &apos;59044&apos; "/>
-                    <Obj Type="Monster" MonType="20053" Pos="-1206.06#121.35#-535.75" angle="98" genCount="1" genTime="20000" objectKey="7" propList="&apos;SimpleAI&apos; &apos;Hidden_door_Effect&apos; "/>
+                    <Obj Type="Monster" MonType="20053" Pos="-1207.34#125.53#-529.12" angle="98" genCount="1" genTime="20000" objectKey="7" propList="&apos;SimpleAI&apos; &apos;Hidden_door_Effect&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="문열림">
@@ -36,6 +36,19 @@
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
                                 <Str Str="사악한 기운으로 가로막혀있던 길이 열렸습니다."/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="2번방실행">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="STAGE1/7"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE2"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -168,7 +181,8 @@
             <Stage Name="START">
                 <ObjList>
                     <Obj Type="Monster" MonType="20053" Pos="-1692.89#41.10#420.41" angle="50" genCount="1" genTime="20000" objectKey="0"/>
-                    <Obj Type="Monster" MonType="103022" Pos="-1969.65#-17.07#636.25" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;curseDebuffer&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;HitProof&apos; &apos;YES&apos; &apos;Hittable&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="103022" Pos="-1969.28#-17.07#635.80" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;curseDebuffer&apos; &apos;Faction&apos; &apos;Trap&apos; &apos;HitProof&apos; &apos;YES&apos; &apos;Hittable&apos; &apos;NO&apos; &apos;TargetMark&apos; &apos;0&apos; &apos;UseTitle&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="154064" Pos="-1867.09#-17.07#596.88" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;Enter&apos; &apos;VELCOFFER_MQ_START_IN&apos; &apos;Range&apos; &apos;100&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="입장 멘트">
@@ -208,9 +222,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="STAGE1"/>
                             </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE2"/>
-                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="MGameValueSet">
@@ -225,6 +236,22 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO" CondFunc="">
                                 <Str Str="DebuffCheck"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="DeathCheck">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+                                <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="END"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -257,7 +284,7 @@
             </Stage>
             <Stage Name="Door" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="59052" Pos="2132.14#167.18#-456.22" angle="46" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;10&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;TargetWindow&apos; &apos;1&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;MonRank&apos; &apos;Normal&apos; "/>
+                    <Obj Type="Monster" MonType="59052" Pos="2132.14#167.18#-456.22" angle="46" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;10&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;TargetWindow&apos; &apos;1&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;MonRank&apos; &apos;Normal&apos; &apos;EXP_Rate&apos; &apos;0&apos; &apos;JEXP_Rate&apos; &apos;0&apos; "/>
                     <Obj Type="Monster" MonType="20054" Pos="2166.43#180.81#-413.38" angle="50" genCount="1" genTime="20000" objectKey="1"/>
                 </ObjList>
                 <StageEvents>
@@ -302,9 +329,26 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="60min">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="FAIL"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="Boss_Final" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="Raid_Velcoffer_guard"/>
+                    </ToolScp>
+                </StartScpList>
                 <CompleteScpList>
                     <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
                         <Str Str="벨코퍼를 처치 하였습니다"/>
@@ -313,9 +357,9 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="58738" Pos="2306.23#188.75#-10.91" angle="2" genCount="1" genTime="20000" objectKey="0"/>
-                    <Obj Type="Monster" MonType="58738" Pos="2675.06#188.75#-303.91" genCount="1" genTime="20000" objectKey="1"/>
-                    <Obj Type="Monster" MonType="58690" Pos="2568.71#188.75#-61.82" angle="-92" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="58738" Pos="2306.23#188.75#-10.91" angle="2" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="58738" Pos="2675.06#188.75#-303.91" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="58690" Pos="2568.71#188.75#-61.82" angle="-92" genCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" searchRange="500" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="end넘어가기">
@@ -331,6 +375,17 @@
                             </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_VELCOFFR_RAID_PC_DEBUFF_REMOVE"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE2_TX" Client="NO" UseSleep="NO">
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="VELCOFFER_KILL/1"/>
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Num Num="0"/>
+                                <Str Str="Raid_Velcoffer_guard"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="Boss_Final"/>
@@ -384,6 +439,37 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="MiddleBoss"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="FAIL" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Fail">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+                                <Str Str="제한시간이 초과하였습니다."/>
+                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE4"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Boss_Final"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="MiddleBoss"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="END"/>
                             </ToolScp>
                         </execList>
                     </Event>

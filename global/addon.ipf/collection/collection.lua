@@ -424,7 +424,7 @@ function SET_COLLECTION_SET(frame, ctrlSet, type, coll, posY)
 	if frame:GetUserIValue('DETAIL_VIEW_TYPE') == type then		
 		ctrlsetHeight = ctrlsetHeight + gbox_items:GetHeight();
 		ctrlSet:Resize(ctrlSet:GetWidth(), ctrlsetHeight);
-		newposY = newposY + gbox_items:GetHeight(); --hs_comment:
+		newposY = newposY + gbox_items:GetHeight();
 	end
 	
 	-- 리턴할 때는 y위치를 갱신해서.

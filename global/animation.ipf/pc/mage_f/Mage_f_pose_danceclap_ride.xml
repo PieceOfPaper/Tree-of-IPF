@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-	<Particle frame="0" attachNode="Bip01 HeadNub" particleName="F_PC_pose_dance_ride" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false" soft2DValue="0"/>
-	<Particle frame="0" attachNode="Dummy_emitter_pet" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
-	<Particle frame="6" attachNode="Dummy_emitter_pet" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
-	<Particle frame="3" attachNode="Dummy_emitter_pet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
-	<Sound frame="0.00" soundFile="atk_cloth_s_l1"/>
-	<Sound frame="7.00" soundFile="atk_cloth_s_r1"/>
+	<Particle frame="8" attachNode="Bip01 R Finger11" particleName="F_levitation041_music" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false" soft2DValue="200"/>
+	<Particle frame="8" attachNode="Bip01 R Finger11" particleName="I_cleric_kasiwade_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" soft2DValue="200"/>
+	<Particle frame="24" attachNode="Bip01 L Finger22" particleName="F_levitation041_music" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false" soft2DValue="200"/>
+	<Particle frame="24" attachNode="Bip01 L Finger22" particleName="I_cleric_kasiwade_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" soft2DValue="200"/>
+	<Sound frame="7.00" soundFile="skl_eff_move_clap"/>
+	<Sound frame="23.00" soundFile="skl_eff_move_clap"/>
 </ActionDesc>

@@ -22,8 +22,8 @@ function SHOW_WEAPON_SWAP_TEMP_IMAGE(weaponID_RH, weaponID_LH, curSwapIndex)
 	RHslot = tolua.cast(RHslot, 'ui::CSlot');
 	LHslot = tolua.cast(LHslot, 'ui::CSlot');
 	
-	local Rguid = session.GetWeaponQuicSlot(curSwapIndex + 0);
-	local Lguid = session.GetWeaponQuicSlot(curSwapIndex + 1);
+	local Rguid = quickslot.GetSwapWeaponGuid(curSwapIndex + 0);
+	local Lguid = quickslot.GetSwapWeaponGuid(curSwapIndex + 1);
 
 	if weaponID_RH ~= nil then
 		if nil ~= Rguid then

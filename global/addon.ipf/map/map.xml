@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by alexel (EMBRACE) -->
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="map" x="0" y="0" width="1920" height="1080" create="open">
 	<frame stretch="true" fullwidth="true" fullheight="true" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true"/>
 	<skin frameskin="property_screenbg"/>
@@ -17,6 +17,7 @@
 		<groupbox name="bg" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="center center" hittest="false" skin="property_screenbg" stretch="true"/>
 		<picture name="map" rect="0 0 1024 1024" layout_gravity="center center" hittest="false" stretch="true"/>
 		<picture name="my" rect="64 64 84 84" layout_gravity="left top" hittest="false" image="minimap_leader" stretch="true"/>
+		<groupbox name="textGbox" rect="0 0 1024 1024" margin="0 0 0 0" layout_gravity="center center" hittest="false" stretch="true" parent="map" skin="none"/>
 		<richtext name="title" rect="0 25 200 30" layout_gravity="center top" caption="지역 지도" format="{@st43}%s{/}" param1="mapname"/>
 		<richtext name="monlv" parent="map" rect="0 80 200 30" layout_gravity="center top" caption="Lv" fontname="yellow_24_ol" format="{ds}권장 레벨 : %s" hittest="false" param1="text" spacey="0"/>
 		<richtext name="mapRank" parent="map" rect="0 48 200 30" layout_gravity="center top" caption="" fontname="white_20" hittest="false" spacey="0"/>

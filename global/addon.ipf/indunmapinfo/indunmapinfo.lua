@@ -19,34 +19,47 @@ function INDUNMAPINFO_SET_PICTURE(frame)
     return worldMapPic;
 end
 
-function INDUNMAPINFO_RESET_MAP_CTRL(frame, worldMapPic, mustShowID)
+function INDUNMAPINFO_RESET_MAP_CTRL(frame, worldMapPic, mustShowID)	
     local mapClsList, cnt = GetClassList('Map');
     local accObj = GetMyAccountObj();
-    if mapClsList == nil or cnt < 1 or accObj == nil then
+    if mapClsList == nil or cnt < 1 or accObj == nil then    	
         return nil;
     end
     worldMapPic:RemoveAllChild();
     local mustShowCtrl = nil;
     for i = 0, cnt - 1 do
-        local mapCls = GetClassByIndexFromList(mapClsList, i);        
+        local mapCls = GetClassByIndexFromList(mapClsList, i);
         if mapCls ~= nil and mapCls.WorldMap ~= 'None' then
             local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);            
-			if mustShowID == mapCls.ClassID then
+			if mustShowID == mapCls.ClassID then				
 				local gBoxName = INDUNMAPINFO_GET_MAP_INFO_CTRL_NAME(x, y);
-				if worldMapPic:GetChild(gBoxName) == nil then
-                    local ctrl = INDUNMAPINFO_CREATE_MAP_CTRL(worldMapPic, mapCls, x, y, true);
-                    if mustShowCtrl == nil then
-                        mustShowCtrl = ctrl;
-                    end
+				local ctrl = worldMapPic:GetChild(gBoxName);							
+				if ctrl == nil then
+                    ctrl = INDUNMAPINFO_CREATE_MAP_CTRL(worldMapPic, mapCls, x, y, true);                    
+                else
+                	local ctrlSet = nil;
+                	local childCnt = ctrl:GetChildCount();
+                	for j = 0, childCnt - 1 do
+                		local child = ctrl:GetChildByIndex(j);
+                		if string.find(child:GetName(), 'ZONE_CTRL_') ~= nil then
+                			ctrlSet = child;
+                		end
+                	end
+                	
+                	if ctrlSet ~= nil then
+        				INDUNMAPINFO_SET_TOOLTIP(frame, ctrl, ctrlSet, mapCls);
+        			end
 				end
+				mustShowCtrl = ctrl;
             elseif accObj['HadVisited_' .. mapCls.ClassID] == 1 then
                 local gBoxName = INDUNMAPINFO_GET_MAP_INFO_CTRL_NAME(x, y);
-                if worldMapPic:GetChild(gBoxName) == nil then
-					local ctrl = INDUNMAPINFO_CREATE_MAP_CTRL(worldMapPic, mapCls, x, y, false);
-                    if mustShowCtrl == nil then
-                        mustShowCtrl = ctrl;
-                    end
+                local ctrl = worldMapPic:GetChild(gBoxName);
+                if ctrl == nil then
+					ctrl = INDUNMAPINFO_CREATE_MAP_CTRL(worldMapPic, mapCls, x, y, false);                    
 				end
+				if mustShowCtrl == nil then
+                    mustShowCtrl = ctrl;
+                end
 			end
         end
     end    
@@ -57,7 +70,7 @@ function INDUNMAPINFO_GET_MAP_INFO_CTRL_NAME(x, y)
     return "ZONE_GBOX_" .. x .. "_" .. y;
 end
 
-function INDUNMAPINFO_CREATE_MAP_CTRL(parentGBox, mapCls, x, y, needTooltip)    
+function INDUNMAPINFO_CREATE_MAP_CTRL(parentGBox, mapCls, x, y, needTooltip)
     local startX = -120;
 	local startY = parentGBox:GetHeight() - 40;	
 	local spaceX = 65.25;
@@ -133,16 +146,11 @@ function INDUNMAPINFO_CREATE_MAP_CTRL(parentGBox, mapCls, x, y, needTooltip)
     SET_WORLDMAP_RICHTEXT(starText);
     starText:SetText(GET_STAR_TXT(20,mapCls.MapRank));
     totalCtrlHeight = totalCtrlHeight + starText:GetHeight();
-    maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, starText:GetWidth());
-	    
+    maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, starText:GetWidth());    
+
     if needTooltip == true then
         local topFrame = gbox:GetTopParentFrame();
-        local indunClassID = topFrame:GetUserIValue('INDUN_CLASS_ID');
-        gbox:EnableHitTest(1);
-		ctrlSet:SetTooltipType('indun_tooltip');
-		ctrlSet:SetTooltipStrArg(mapCls.ClassName);
-		ctrlSet:SetTooltipNumArg(indunClassID);
-        ctrlSet:SetTooltipOverlap(1);
+        INDUNMAPINFO_SET_TOOLTIP(topFrame, gbox, ctrlSet, mapCls);
     else
         gbox:EnableHitTest(0);
     end
@@ -165,7 +173,16 @@ function INDUNMAPINFO_CREATE_MAP_CTRL(parentGBox, mapCls, x, y, needTooltip)
     return nil;
 end
 
-function INDUNMAPINFO_SET_INDUN_POS(frame, pic, mustShowMapCtrl, selectedMapID)
+function INDUNMAPINFO_SET_TOOLTIP(frame, gbox, ctrlSet, mapCls)
+	local indunClassID = frame:GetUserIValue('INDUN_CLASS_ID');
+    gbox:EnableHitTest(1);
+	ctrlSet:SetTooltipType('indun_tooltip');
+	ctrlSet:SetTooltipStrArg(mapCls.ClassName);
+	ctrlSet:SetTooltipNumArg(indunClassID);
+    ctrlSet:SetTooltipOverlap(1);
+end
+
+function INDUNMAPINFO_SET_INDUN_POS(frame, pic, mustShowMapCtrl, selectedMapID)	
     -- set offset
     local worldMapBox = pic:GetParent();
     local x = mustShowMapCtrl:GetX() + mustShowMapCtrl:GetWidth() - frame:GetWidth() / 2;

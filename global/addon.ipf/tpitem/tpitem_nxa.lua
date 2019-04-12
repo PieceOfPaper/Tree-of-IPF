@@ -23,7 +23,7 @@ end
 function ON_NEXON_AMERICA_BALANCE_NOT_ENOUGH(frame, msg, str, num)
 	local yesScp = string.format("REQ_NEXON_AMERICA_PURCHASE(%d, 0)", num);
 	local noScp = string.format("ON_NEXON_AMERICA_PURCHASE_CANCELLED()");
-	ui.MsgBox(ScpArgMsg("NXABillingNotEnoughNXCashQueryRefill"), yesScp, noScp);
+	ui.MsgBox(ScpArgMsg("NXABillingNotEnoughBalanceQueryRefill"), yesScp, noScp);
 end
 
 function ON_NEXON_AMERICA_BUY_ITEM(parent, control, ItemClassIDstr, itemid)
@@ -89,7 +89,7 @@ function UPDATE_NEXON_AMERICA_SELLITEMLIST()
 
 		SET_SLOT_IMG(slot, itemCls.Icon);
 		
-		staticTPbox:SetText("{img Nexon_cash_mark 30 30}{/}{@st43}{s18}".. price .."{/}");
+		staticTPbox:SetText("{img THB_cash_mark 30 30}{/}{@st43}{s18}".. price .."{/}");
 		title:SetText(itemName);
 
 		local icon = slot:GetIcon();

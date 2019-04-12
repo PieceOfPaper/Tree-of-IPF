@@ -5,10 +5,11 @@ function ITEMTRANSCEND_REMOVE_ON_INIT(addon, frame)
 
 end
 
-function ON_OPEN_DLG_ITEMTRANSCEND_REMOVE(frame)
+function ON_OPEN_DLG_ITEMTRANSCEND_REMOVE(frame, msg, argStr, isLegendShop)
 	frame:ShowWindow(1);	
 	ui.SetHoldUI(false);
 	frame:SetUserValue("ANIMETION_PROG_WIP", 0);
+	frame:SetUserValue('IS_LEGEND_SHOP', isLegendShop);
 end
 
 function ITEMTRASCEND_REMOVE_OPEN(frame)
@@ -81,9 +82,9 @@ end
 
  function ITEM_TRANSEND_REMOVE_DROP(frame, icon, argStr, argNum)
 
-	local liftIcon 				= ui.GetLiftIcon();
-	local FromFrame 			= liftIcon:GetTopParentFrame();
-	local toFrame				= frame:GetTopParentFrame();
+	local liftIcon = ui.GetLiftIcon();
+	local FromFrame = liftIcon:GetTopParentFrame();
+	local toFrame = frame:GetTopParentFrame();
 
 	local iconInfo = liftIcon:GetInfo();
 	ITEM_TRANSCEND_REMOVE_REG_TARGETITEM(frame, iconInfo:GetIESID());
@@ -115,6 +116,13 @@ function ITEM_TRANSCEND_REMOVE_REG_TARGETITEM(frame, itemID)
 
 	if transcend == 0 then
 		ui.MsgBox(ScpArgMsg("YouCanRemoveOnlyTreancendedItem"));
+		return;
+	end
+
+	if TryGetProp(obj, 'LegendGroup', 'None') ~= 'None' then
+		control.CustomCommand("REQ_LEGEND_ITEM_DIALOG", 1);
+		ui.CloseFrame('itemtranscend_remove');
+		ui.CloseFrame('inventory');
 		return;
 	end
 
@@ -261,13 +269,14 @@ function ITEMTRANSCEND_REMOVE_EXEC(frame)
 	
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_BTN_OK_SOUND"));
 	ui.SetHoldUI(true);
-	ui.MsgBox_NonNested(ScpArgMsg("IfYouRemoveTranscend_YouCannotReceieveTranscendStones_Continue?"), frame:GetName(), "_ITEMTRANSCEND_REMOVE_EXEC_MSG", "_ITEMTRANSCEND_REMOVE_CANCEL");		
-	
+--	ui.MsgBox_NonNested(ScpArgMsg("IfYouRemoveTranscend_YouCannotReceieveTranscendStones_Continue?"), frame:GetName(), "_ITEMTRANSCEND_REMOVE_EXEC_MSG", "_ITEMTRANSCEND_REMOVE_CANCEL");		
+	WARNINGMSGBOX_FRAME_OPEN(ScpArgMsg("IfYouRemoveTranscend_YouCannotReceieveTranscendStones_Continue?"), "_ITEMTRANSCEND_REMOVE_EXEC_MSG", "_ITEMTRANSCEND_REMOVE_CANCEL")		
 	frame:SetUserValue("ANIMETION_PROG_WIP", 1);
 end
 
 function _ITEMTRANSCEND_REMOVE_EXEC_MSG()
-	ui.MsgBox(ScpArgMsg("TranscendValueWillBeZero_Continue?"), "_ITEMTRANSCEND_REMOVE_EXEC", "_ITEMTRANSCEND_REMOVE_CANCEL");	
+	--ui.MsgBox(ScpArgMsg("TranscendValueWillBeZero_Continue?"), "_ITEMTRANSCEND_REMOVE_EXEC", "_ITEMTRANSCEND_REMOVE_CANCEL");	
+	WARNINGMSGBOX_FRAME_OPEN(ScpArgMsg("TranscendValueWillBeZero_Continue?"), "_ITEMTRANSCEND_REMOVE_EXEC", "_ITEMTRANSCEND_REMOVE_CANCEL")		
 end
 
 function _ITEMTRANSCEND_REMOVE_CANCEL()

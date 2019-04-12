@@ -458,62 +458,59 @@ function BUFF_TIME_UPDATE(handle, buff_ui)
 	if updated == 1 then
 		ui.UpdateVisibleToolTips("buff");
 	end
-
-
 end
 
-
-function GET_QUEST_NPC_NAMES(mapname, npclist, statelist, questIESList, questPropList)
-
+function CHECK_QUEST_NPC_NAME(mapname, index)
 	local idx = 1;
 	local pc = GetMyPCObject();
 	local questIES = nil;
 	local cnt = GetClassCount('QuestProgressCheck')
 	local subQuestZoneList = {}
-	for i = 0, cnt - 1 do
-		questIES = GetClassByIndex('QuestProgressCheck', i);
-		if questIES.ClassName ~= 'None' then
-    		local result = SCR_QUEST_CHECK_C(pc,questIES.ClassName);
 
-    		if result ~= 'IMPOSSIBLE' then
-    		    local flag = 0
-    		    
-    		    if questIES.PossibleUI_Notify == 'UNCOND' or result ~= 'POSSIBLE' then
-    		        flag = 1
-    		    end
-    		    
-    		    if flag == 0 then
-    		        if questIES.QuestStartMode == 'NPCENTER_HIDE' 
-    		        or questIES.QuestStartMode == 'GETITEM' 
-    		        or questIES.QuestStartMode == 'USEITEM'
-    		        or questIES.PossibleUI_Notify == 'NO' then
-    				else
-    				    flag = 1
-    				end
-    		    end
-    		    local result2
-    		    result2, subQuestZoneList = SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, 'ZoneMap')
-    		    if result == "POSSIBLE" and result2 == "HIDE" then
-    		        flag = 0
-    		    end
-    		    
-    		    if flag == 1 then
-    		        local State = CONVERT_STATE(result);
-        			local questMap = questIES[State .. 'Map'];
-					local npcname = questIES[State .. 'NPC'];
-                    
-					--if npcname ~= 'None' then
-						npclist[idx] = npcname;
-						statelist[idx] = result;
-						questIESList[idx] = questIES;
-						questPropList[idx] = geQuestTable.GetPropByIndex(i);
-						idx = idx + 1;
-					--end
-    		    end
+	questIES = GetClassByIndex('QuestProgressCheck', index);
+	if questIES.ClassName ~= 'None' then
+    	local result = SCR_QUEST_CHECK_C(pc,questIES.ClassName);
+    	if result ~= 'IMPOSSIBLE' then
+    		local flag = 0;
+
+    		if questIES.PossibleUI_Notify == 'UNCOND' or result ~= 'POSSIBLE' then
+    		    flag = 1
     		end
-		end
+
+    		if flag == 0 then
+    		    if questIES.QuestStartMode == 'NPCENTER_HIDE' 
+    		    or questIES.QuestStartMode == 'GETITEM' 
+    		    or questIES.QuestStartMode == 'USEITEM'
+    		    or questIES.PossibleUI_Notify == 'NO' then
+    			else
+    				flag = 1
+    			end
+    		end
+
+    		local result2
+    		result2, subQuestZoneList = SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, 'ZoneMap')
+    		if result == "POSSIBLE" and result2 == "HIDE" then
+    		    flag = 0
+    		end
+
+    		if flag == 1 then
+    		    local State = CONVERT_STATE(result);
+        		local questMap = questIES[State .. 'Map'];
+				local npcname = questIES[State .. 'NPC'];
+				
+				return result, npcname, "YES";
+    		end
+    	end
 	end
 
+	return "None", "None", "NO";
+end
+
+function GET_QUEST_NPC_NAMES(mapname)
+	RequestUpdateMinimap(mapname, 0);
+	local npclist, statelist, questIESList, questPropList = GetQuestNpcNames(mapname);
+	
+	return npclist, statelist, questIESList, questPropList;
 end
 
 function GET_JOB_ICON(job)

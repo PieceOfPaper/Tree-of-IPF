@@ -3335,7 +3335,7 @@ function SCR_GET_Mijin_no_jutsu_Ratio2(skill)
 end
 
 function SCR_GET_Bunshin_no_jutsu_Ratio(skill)
-    local value = 15 + skill.Level
+    local value = 20
 	
 	return value
 end
@@ -3696,17 +3696,15 @@ function SCR_GET_Sturzhau_Ratio3(skill)
 end
 
 function SCR_Get_SkillFactor_Fleche(skill)
-
-    local pc = GetSkillOwner(skill);
+	local pc = GetSkillOwner(skill);
     local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
-
---  local abil = GetAbility(pc, "Fencer8")      -- Skill Damage add
---    if abil ~= nil then
---        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
---    end
-
+	
+	local abil = GetAbility(pc, "Fencer10")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+	
     return math.floor(value)
-
 end
 
 function SCR_Get_SkillFactor_BalestraFente(skill)
@@ -6827,7 +6825,7 @@ function SCR_Get_SkillFactor_ParthianShaft(skill)
     local pc = GetSkillOwner(skill);
     local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
-    local abil = GetAbility(pc, "Mergen7")      -- Skill Damage add
+    local abil = GetAbility(pc, "Mergen10")      -- Skill Damage add
     if abil ~= nil then
         value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
     end
@@ -12764,32 +12762,19 @@ end
 
 
 function SCR_GET_Guardian_Bufftime(skill)
-
-    return 60 + skill.Level * 5;
-
+	
+    return 17 + skill.Level * 3;
 end
 
 function SCR_GET_Guardian_Ratio(skill)
-
-    local pc = GetSkillOwner(skill)
---    local value = 10.2 + 1.8 * (skill.Level - 1);
-    local value = 10 + (skill.Level * 3)
-
-    local Peltasta19_abil = GetAbility(pc, "Peltasta19")    -- 2rank Skill Damage multiple
-    local Peltasta20_abil = GetAbility(pc, "Peltasta20")    -- 3rank Skill Damage multiple
-    if Peltasta20_abil ~= nil then
-        value = value * 1.44
-    elseif Peltasta20_abil == nil and Peltasta19_abil ~= nil then
-        value = value * 1.38
-    end
-
-    local Peltasta13_abil = GetAbility(pc, "Peltasta13")
-    if Peltasta13_abil ~= nil then
-        value = value + Peltasta13_abil.Level;
-    end
-
-    return math.floor(value);
-
+	local value = 100
+	local pc = GetSkillOwner(skill)
+	local abilPeltasta34 = GetAbility(pc, "Peltasta34")
+	if abilPeltasta34 ~= nil and abilPeltasta34.ActiveState == 1 then
+		value = 200
+	end
+	
+    return value;
 end
 
 function SCR_GET_Guardian_Ratio2(skill)
@@ -13814,8 +13799,7 @@ end
 
 function SCR_GET_HighGuard_Ratio(skill)
     local pc = GetSkillOwner(skill);
---  local value = 150 + (skill.Level - 1) * 10
-    local value = 100 + (skill.Level - 1) * 30
+    local value = 100 + (skill.Level * 30)
     
     return math.floor(value)
 
@@ -15962,5 +15946,15 @@ end
 
 function SCR_GET_Retiarii_EquipDesrption_Ratio2(skill)
     local value = 4 + skill.Level;
+    return value;
+end
+
+function SCR_GET_Kraujas_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    local value = pc.RHP;
+    if pc ~= nil then
+        value = pc.RHP * 10;
+    end
+    
     return value;
 end

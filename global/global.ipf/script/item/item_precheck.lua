@@ -22,7 +22,7 @@ end
 function SCR_PRECHECK_CONSUME_ZOMBIECAPSUL(self)
     local curMap = GetZoneName(self);
     local mapCls = GetClass("Map", curMap);
-    if mapCls.MapType == 'City' then
+    if mapCls.MapType == 'City' and mapCls.ClassName ~= 'pvp_Mine' then
         SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("NotAllowedInTown"), 3);
         return 0;
     end
@@ -105,21 +105,4 @@ function SCR_PRECHECK_HALOWEEN_2017_ACHIEVE2(self)
         end
     end
     return 0;
-end
-
-function SCR_PRE_CS_IndunReset_GTower_1(self)
-    if IS_BASIC_FIELD_DUNGEON(self) == 'YES' or GetClassString('Map', GetZoneName(self), 'MapType') == 'City' then
-        local pcetc = GetETCObject(self)
-        if pcetc ~= nil then
-            if pcetc.InDunCountType_400 > 0 or pcetc.IndunWeeklyEnteredCount_400 > 0 then
-                return 1
-            else
-                SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("CS_IndunReset_GTower_1_MSG2"), 10);
-            end
-        end
-    else
-        SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("CS_IndunReset_GTower_1_MSG3"), 10);
-    end
-    
-    return 0
 end

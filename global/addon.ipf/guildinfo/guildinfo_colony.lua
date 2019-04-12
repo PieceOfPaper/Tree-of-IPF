@@ -1,7 +1,6 @@
-function GUILDINFO_COLONY_INIT(frame, colonyBox)
-    ui.CloseFrame('guild_authority_popup');    
+function GUILDINFO_COLONY_INIT(frame, colonyBox)   
     GUILDINFO_COLONY_INIT_RADIO(colonyBox);
-    GUILDINFO_COLONY_INIT_INFO(colonyBox);
+    --GUILDINFO_COLONY_INIT_INFO(colonyBox);
     GUILDINFO_COLONY_UPDATE_OCCUPY_INFO(frame);
 end
 
@@ -70,7 +69,6 @@ function GUILDINFO_COLONY_UPDATE_OCCUPY_INFO(frame, msg, argStr, argNum)
     local COLONY_EVEN_SKIN = frame:GetUserConfig('COLONY_EVEN_SKIN');
     local occupyInfoBox = GET_CHILD_RECURSIVELY(frame, 'occupyInfoBox');
     occupyInfoBox:RemoveAllChild();
-
     local occupyCount = session.colonywar.GetOccupationInfoCount();    
     for i = 0, occupyCount - 1 do
         local occupyInfo = session.colonywar.GetOccupationInfoByIndex(i);

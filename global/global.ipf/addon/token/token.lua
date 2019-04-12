@@ -1,11 +1,3 @@
-function TOKEN_GET_IMGNAME1()
-	return "{img 30percent_image %d %d}"
-end
-
-function TOKEN_GET_IMGNAME2()
-	return "{img 30percent_image2 %d %d}"
-end
-
 function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	local frame = ui.GetFrame("token");
 	if invItem.isLockState then 
@@ -105,19 +97,19 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
-	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 9,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-    local prop = ctrlSet:GetChild("prop");
-    local imag = string.format("{img 1plus_image %d %d}", 55, 45)
-    prop:SetTextByKey("value", imag..ClMsg("Mission_Reward")); 
-    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
-    value:ShowWindow(0);
+--    local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 9,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+--    local prop = ctrlSet:GetChild("prop");
+--    local imag = string.format("{img 1plus_image %d %d}", 55, 45)
+--    prop:SetTextByKey("value", imag..ClMsg("Mission_Reward")); 
+--    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+--    value:ShowWindow(0);
 
-local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 10,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-    local prop = ctrlSet:GetChild("prop");
-    local imag = string.format("{img 2minus_image %d %d}", 55, 45)
-    prop:SetTextByKey("value", imag..ClMsg("RaidStance")); 
-    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
-    value:ShowWindow(0);
+--    local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 10,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+--    local prop = ctrlSet:GetChild("prop");
+--    local imag = string.format("{img 2minus_image %d %d}", 55, 45)
+--    prop:SetTextByKey("value", imag..ClMsg("RaidStance")); 
+--    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+--    value:ShowWindow(0);
 
 	ADD_2PLUS_IMAGE(gBox)
 

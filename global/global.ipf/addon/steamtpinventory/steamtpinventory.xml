@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="steamtpinventory" x="0" y="0" width="460" height="800" create="open">
 	<controls>
-		<button name="refresh" rect="-25 0 80 40" margin="0 280 100 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st68}새로고침" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_pvp_btn" LBtnDownScp="STEAM_TP_REFRESH_BTN_CLICK"/>
-		<button name="retrieveAll" rect="0 0 100 40" margin="0 280 18 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st68}전체수령" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_pvp_btn" LBtnDownScp="STEAM_TP_RETRIEVE_ALL_BTN_CLICK"/>
+		<button name="refresh" rect="-25 0 80 40" margin="0 350 100 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st68}새로고침" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_pvp_btn" LBtnDownScp="STEAM_TP_REFRESH_BTN_CLICK"/>
+		<button name="retrieveAll" rect="0 0 100 40" margin="0 350 18 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st68}전체수령" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_pvp_btn" LBtnDownScp="STEAM_TP_RETRIEVE_ALL_BTN_CLICK"/>
 	</controls>
 </uiframe>

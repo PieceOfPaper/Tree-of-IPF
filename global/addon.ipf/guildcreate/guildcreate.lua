@@ -66,7 +66,7 @@ function CREATE_GUILD(frame)
 
 	local editbox = GET_CHILD(frame, 'input');
 	if ui.IsValidCharacterName(editbox:GetText()) == true then
-		ui.Chat("/makeguild " .. editbox:GetText() );
+        CreateGuild(editbox:GetText())
 	end
 		frame:ShowWindow(0);
 	

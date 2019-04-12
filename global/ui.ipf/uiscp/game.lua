@@ -975,7 +975,7 @@ function GET_ITEM_SET_EFFECT_TEXT(set, onlyEquip, GroupCtrl, y)
 				color = '{#050505}';
 			end
 
-			local setTitle = ScpArgMsg("Auto_{s18}{Auto_1}{Auto_2}_SeTeu_HyoKwa_:_", "Auto_1",color, "Auto_2",i + 1);
+			local setTitle = ScpArgMsg("Auto_{s18}{Auto_1}{Auto_2}_SeTeu_HyoKwa__{nl}", "Auto_1",color, "Auto_2",i + 1);
 			local setDesc = string.format("{s18}%s%s", color, setEffect:GetDesc());
 
 			local setTitleText = GroupCtrl:CreateOrGetControl("richtext", "SET_LIST_EFT_"..i, 15, y, 350, 20);
@@ -1246,23 +1246,25 @@ end
 function GET_ITEM_BG_PICTURE_BY_GRADE(rank, needAppraisal, needRandomOption)
 
 	local pic = 'None'
+	local flag = 3
+	
+	if needAppraisal == 1 or needRandomOption == 1 then
+		flag = 4
+	end
 	if rank == 1 then
-		pic = "one_two_star_item_bg";
+		pic = "one_two_star_item_bg" .. flag;
 	elseif rank == 2 then
-		pic ="three_star_item_bg";
+		pic ="three_star_item_bg" .. flag;
 	elseif rank == 3 then
-		pic = "four_star_item_bg";
+		pic = "four_star_item_bg" .. flag;
 	elseif rank == 4 then
-		pic = "five_item_bg";
+		pic = "five_item_bg" .. flag;
 	elseif rank == 5 then
-	    pic = "six_item_bg";
+	    pic = "six_item_bg" .. flag;
 	elseif rank == 0 then
 		return "premium_item_bg";
 	end
 
-	if needAppraisal == 1 or needRandomOption == 1 then
-		pic = pic..'2';
-	end
 	return pic;
 end
 
@@ -1370,9 +1372,14 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 end
 
 function GET_NAME_OWNED(item)
+	local itemName = item.Name
+	local legendPrefix = TryGetProp(item, "LegendPrefix")
+	if legendPrefix ~= nil then
+		itemName = GET_LEGEND_PREFIX_ITEM_NAME(item)
+	end
 
 	if item.ItemType == "Equip" and item.IsPrivate == "YES" and item.Equiped == 0 then
-		return ClMsg("LOST_ITEM") .. " " .. item.Name;
+		return ClMsg("LOST_ITEM") .. " " ..itemName;
 	end
 
 	local customTooltip = TryGetProp(item, "CustomToolTip");
@@ -1386,11 +1393,11 @@ function GET_NAME_OWNED(item)
 	if GetPropType(item, 'CustomName') ~= nil then
 		local customName = item.CustomName;
 		if customName ~= "None" then
-			return customName..'('..item.Name..')';
+			return customName..'('..itemName..')';
 		end
 	end
 
-	return item.Name;
+	return itemName;
 
 end
 
@@ -1734,7 +1741,7 @@ function SHOW_MONSTER_HELP(monsterID)
 	txt:SetText(strarg);
 
 	local imgname = "npc_icon_" .. moncls.ClassName;
-	if ui.IsImageExist(imgname) == 1 then
+	if ui.IsImageExist(imgname) == true then
 		local img = tooltipframe:GetChild("img");
 		tolua.cast(img, "ui::CPicture");
 		img:SetImage(imgname);
@@ -3430,6 +3437,26 @@ function HAVE_ACHIEVE_FIND(achieveType)
 	return 0;
 end
 
+function GET_ACHIEVE_COUNT(exceptPeriodAchieve)
+	local list = session.GetAchieveList();
+	local cnt = list:Count();
+	local noPeriodAchieveCnt = 0
+
+	for i = 0 , cnt - 1 do
+		local classID = list:Element(i)
+		local cls = GetClassByType("Achieve", classID)
+
+		if cls.PeriodAchieve == 'NO' then
+			noPeriodAchieveCnt = noPeriodAchieveCnt + 1
+		end
+	end
+
+	if exceptPeriodAchieve == 1 then
+		return noPeriodAchieveCnt
+	else
+		return cnt
+	end
+end
 
 function CLEAR_ITEM_SLOTSET(slots, overSound)
 
@@ -3581,11 +3608,14 @@ function SCR_TREASURE_MARK_BYMAP(zoneClassName, xPos, yPos, zPos)
 
 	local mappicturetemp = GET_CHILD(newframe,'map','ui::CPicture')	
 	mappicturetemp:SetImage(zoneClassName);
+	
+	local width = ui.GetImageWidth(zoneClassName .. "_fog");
+	local height = ui.GetImageHeight(zoneClassName .. "_fog");
 
 	local treasureMarkPic = newframe:CreateOrGetControl('picture', 'treasuremark', 0, 0, 32, 32);
 	tolua.cast(treasureMarkPic, "ui::CPicture");
 	treasureMarkPic:SetImage('trasuremapmark');
-	local MapPos = mapprop:WorldPosToMinimapPos(xPos, zPos, 1024, 1024);
+	local MapPos = mapprop:WorldPosToMinimapPos(xPos, zPos, width, height);
 	treasureMarkPic:SetEnableStretch(1);
 
 	local offsetX = mappicturetemp:GetX();
@@ -3626,6 +3656,9 @@ function SCR_TREASURE_MARK_LIST_MAP(zoneClassName, posVec)
 	local mappicturetemp = GET_CHILD(newframe,'map','ui::CPicture')	
 	mappicturetemp:SetImage(zoneClassName);
 	
+	local width = ui.GetImageWidth(zoneClassName .. "_fog");
+	local height = ui.GetImageHeight(zoneClassName .. "_fog");
+
 	local cnt = GetLuaPosCount(posVec);
 	for i = 0 , cnt - 1 do
 		local pos = GetLuaPosByIndex(posVec, i);
@@ -3637,7 +3670,8 @@ function SCR_TREASURE_MARK_LIST_MAP(zoneClassName, posVec)
 		treasureMarkPic:SetImage('trasuremapmark');
 		local mappicturetemp = GET_CHILD(newframe,'map','ui::CPicture')	
 		mappicturetemp:SetImage(zoneClassName);
-		local MapPos = mapprop:WorldPosToMinimapPos(xPos, zPos, 1024, 1024);
+
+		local MapPos = mapprop:WorldPosToMinimapPos(xPos, zPos, width, height);
 		treasureMarkPic:SetEnableStretch(1);
 	
 		local offsetX = mappicturetemp:GetX();

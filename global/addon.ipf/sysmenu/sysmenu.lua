@@ -86,9 +86,9 @@ function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
 
     local extraBag = frame:GetChild('extraBag');
 	local rankBtn = frame:GetChild("rankBtn");	
-	local offsetX = rankBtn:GetX() - extraBag:GetX();
-	local rightMargin = extraBag:GetMargin().right + offsetX;
-
+    local guildRank = frame:GetChild('guildRank');
+    local offsetX = extraBag:GetX() - guildRank:GetX()
+	local rightMargin = guildRank:GetMargin().right + offsetX;
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "guildinfo", "guildinfo", "sysmenu_guild", rightMargin, offsetX, "Guild");    
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "necronomicon", "necronomicon", "sysmenu_card", rightMargin, offsetX);
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "grimoire", "grimoire", "sysmenu_neacro", rightMargin, offsetX);

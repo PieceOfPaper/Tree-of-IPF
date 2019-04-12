@@ -248,7 +248,12 @@ function ADVENTURE_BOOK_TEAM_BATTLE_SEARCH(parent, ctrl)
     local page = control:GetCurPage();
     local adventureBookRankSearchEdit = GET_CHILD_RECURSIVELY(teamBattleRankSet, 'adventureBookRankSearchEdit');
     local teamBattleCls = GET_TEAM_BATTLE_CLASS();
-	worldPVP.RequestPVPRanking(teamBattleCls.ClassID, 0, -1, page, 0, adventureBookRankSearchEdit:GetText());
+    local searchText = adventureBookRankSearchEdit:GetText();    
+    if searchText == nil or searchText == '' then
+		worldPVP.RequestPVPRanking(teamBattleCls.ClassID, 0, -1, 1, 0, '');
+	else		
+		worldPVP.RequestPVPRanking(teamBattleCls.ClassID, 0, -1, page, 0, adventureBookRankSearchEdit:GetText());
+	end
 	ui.DisableForTime(control, 0.5);
 end
 

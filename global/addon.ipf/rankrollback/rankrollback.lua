@@ -164,12 +164,42 @@ function RANKROLLBACK_ITEM_USE_BUTTON_CLICK(frame, ctrl)
 		ui.SysMsg(ScpArgMsg("CantUseRankRest1Rank"));
 	    return;
 	end
+
+    local armor_check = GET_CHILD_RECURSIVELY(frame, 'armor_check');
+    if armor_check:IsChecked() == 0 then
+    	ui.SysMsg(ClMsg('CannotEquipState'));
+    	return;
+    end
+
+    local ability_check = GET_CHILD_RECURSIVELY(frame, 'ability_check');
+    if ability_check:IsChecked() == 0 then
+    	ui.SysMsg(ClMsg('YouareLearningAbil'));
+    	return;
+    end
+
+    local com_check = GET_CHILD_RECURSIVELY(frame, 'com_check');
+    if com_check:IsChecked() == 0 then
+    	ui.SysMsg(ClMsg('HaveToPutPetAtBarrack'));
+    	return;
+    end
 	
     local mapprop = session.GetCurrentMapProp();
 	local mapCls = GetClassByType("Map", mapprop.type);
     if mapCls == nil or mapCls.MapType ~= "City" then
         ui.SysMsg(ClMsg("AllowedInTown"));
         return;
+    end
+
+    local shop_check = GET_CHILD_RECURSIVELY(frame, 'shop_check');
+    if shop_check:IsChecked() == 0 then
+    	ui.SysMsg(ClMsg('StateOpenAutoSeller'));
+    	return;
+    end
+
+    local timeaction_check = GET_CHILD_RECURSIVELY(frame, 'timeaction_check');
+    if timeaction_check:IsChecked() == 0 then
+    	ui.SysMsg(ClMsg('CannotInCurrentState'));
+    	return;
     end
      
     if CHECK_INVENTORY_HAS_RANK_CARD() == true then

@@ -4,15 +4,61 @@
 function SCR_TX_TP_SHOP(pc, argList)
 
 	if #argList < 1 then
+		IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: argError- aid['..GetPcAIDStr(pc)..']');
 		return
 	end
 
 	local aobj = GetAccountObj(pc);
 	local etcObj = GetETCObject(pc);
 	if aobj == nil or etcObj == nil then
+		IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: account or etc object is nil- aid['..GetPcAIDStr(pc)..']');
 		return
 	end
 
+	local tpitem = nil;
+	
+	for i = 1, #argList do
+		tpitem = GetClassByType("TPitem", argList[i])
+		
+		if tpitem ~= nil then 
+			local startProp = TryGetProp(tpitem, "SellStartTime");
+			local endProp = TryGetProp(tpitem, "SellEndTime");
+
+			if startProp ~= nil and endProp ~= nil then
+				if startProp ~= "None" and endProp ~= "None" then
+					local curTime = GetDBTime()
+					local curSysTimeStr = string.format("%04d%02d%01d%02d%02d%02d%02d", curTime.wYear, curTime.wMonth, '0', curTime.wDay, curTime.wHour, curTime.wMinute, curTime.wSecond)
+					local startTime = TryGetProp(tpitem, "SellStartTime")
+					local endTime = TryGetProp(tpitem, "SellEndTime");
+					local curYear = curTime.wYear
+					if startTime > endTime then
+						curYear = curYear + 1
+					end
+
+					local startSysTimeStr = string.format("%04d%09d%02d", curYear, startTime, '00')	
+					local endSysTimeStr = string.format("%04d%09d%02d", curYear, endTime, '00')
+
+					local curSysTime = imcTime.GetSysTimeByStr(curSysTimeStr)
+					local startSysTime = imcTime.GetSysTimeByStr(startSysTimeStr)
+					local endSysTime = imcTime.GetSysTimeByStr(endSysTimeStr)
+					
+					local startDifSec = imcTime.GetDifSec(startSysTime, curSysTime);
+					local difSec = imcTime.GetDifSec(endSysTime, curSysTime);
+		
+					if 0 >= difSec then
+						SendSysMsg(pc, "ExistSaleTimeExpiredItem")
+						return
+					end
+
+					if 0 <= startDifSec then
+						SendSysMsg(pc, "ExistSaleTimeExpiredItem")
+						return
+					end
+				end
+			end
+		end
+	end
+	
 	local isLimitPaymentState = nil;
 	local isGlobalServer = GetServerNation() == 'GLOBAL';
 
@@ -21,7 +67,7 @@ function SCR_TX_TP_SHOP(pc, argList)
 		isLimitPaymentState = CHECK_LIMIT_PAYMENT_STATE(pc);
 		if isLimitPaymentState == nil then
 			isLimitPaymentState = false;
-		end	
+		end
 	end
 
 	if isLimitPaymentState == true then
@@ -48,7 +94,7 @@ function SCR_TX_TP_SHOP(pc, argList)
 	end
 
 	local freeMedal = aobj.GiftMedal + aobj.Medal
-
+	
 	for i = 1, #argList do
 		local tpitem = GetClassByType("TPitem",argList[i])
 		if tpitem == nil then
@@ -69,12 +115,12 @@ function SCR_TX_TP_SHOP(pc, argList)
 				return;
 			end
 		end
-
+		
 		local tx = TxBegin(pc);
 		if tx == nil then
 			return
 		end
-
+		
 		if itemcls.ClassName == "PremiumToken" and pc.Lv < 150 then
 
 			local curDBTime = GetDBTime()
@@ -103,7 +149,13 @@ function SCR_TX_TP_SHOP(pc, argList)
 		logType = logType ..tostring(itemcls.ClassID)..":";
 		logType = logType ..tostring(itemID);
 		TxAddIESProp(tx, aobj, "Medal", -tpitem.Price, "NpcShop:"..itemcls.ClassID..":"..itemID, cmdIdx);
-
+        
+        local limitcountcheck = TryGetProp(tpitem,"AccountLimitCount")
+        
+		if limitcountcheck  ~= nil and limitcountcheck > 0  then
+			local limitResult = TxAddBuyLimitCount(tx, 0, tpitem.ClassID, 1, tpitem.AccountLimitCount);
+		end
+		
 		--스팀 카드 도용관련 프로퍼티 증가
 		if isLimitPaymentState == true then
 			TX_LIMIT_PAYMENT_STATE(pc, tx, tpitem.Price, freeMedal)
@@ -112,7 +164,10 @@ function SCR_TX_TP_SHOP(pc, argList)
 		local ret = TxCommit(tx);
 		if ret == "SUCCESS" then
 			CustomMongoLog(pc,"TpshopBuyList","AllPrice",tostring(allprice),"Items", itemcls.ClassName)
+			CustomMongoCashLog(pc,"TpshopBuyList","AllPrice",tostring(allprice),"Items", itemcls.ClassName)
 			SendAddOnMsg(pc, "TPSHOP_BUY_SUCCESS", "", 0);
+		else
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: Tx Fail- aid['..GetPcAIDStr(pc)..'], tpitem['..tpitem.ClassName..']');
 		end
 	end
 end

@@ -502,3 +502,27 @@ function SET_CONFIG_HUD_OFFSET(frame)
 
     config.SetHUDConfigRatio(name, x / width, y / height);
 end
+
+function SHOW_GUILD_HTTP_ERROR(code, msg, funcName)
+	local errNamePrefix = 'WebService_';
+	local errName = errNamePrefix;
+	if code == nil then
+		local splitmsg = StringSplit(msg, " ");
+		code = splitmsg[1];
+		errName = errName .. code
+		local errString = "code:" .. code .. ", msg:" .. msg .. ", funcName:" .. funcName .. " errName:" ..  ClMsg(errName);
+		IMC_LOG("ERROR_WEBSERVICE_SCRIPT", errString)
+		ShowErrorInfoMsg('CannotConnectWebServer');
+		return
+	end
+	local splitStr = StringSplit(msg, " ");
+	errName = errName .. splitStr[1];
+	local errString = "code:" .. code .. ", msg:" .. msg .. ", funcName:" .. funcName .. " errName:" ..  ClMsg(errName);
+	IMC_LOG("ERROR_WEBSERVICE_SCRIPT", errString)
+	
+	if errName == errNamePrefix then
+		ShowErrorInfoMsg('CannotConnectWebServer');
+	else
+	ui.MsgBox(ClMsg(errName));
+end
+end

@@ -592,25 +592,25 @@ end
 
 -- xml 중 특정 컬럼의 값과 일치/유사 한 IES 리스트를 찾아줌 (option 1이면 유사 값, 아니면 일치)
 function SCR_GET_XML_IES(idspace, column_name, target_value, option)
+    local return_list = {}
     if idspace == nil then
-        return;
+        return return_list;
     end
 
     if GetClassByIndex(idspace, 0) == nil then
-        return;
+        return return_list;
     end
 
     local obj = GetClassByIndex(idspace, 0)
     if column_name == nil then
-        return;
+        return return_list;
     end
     
     if GetPropType(GetClassByIndex(idspace, 0),column_name) == nil then    
-        return;
+        return return_list;
     end
 
     local class_count = GetClassCount(idspace)
-    local return_list = {}
         
     for y = 0, class_count -1 do
         local classIES = GetClassByIndex(idspace, y)
@@ -952,7 +952,16 @@ function SCR_STRING_TO_TABLE(a)
     
     return ret
 end
-
+function SCR_DATE_TO_YHOUR_BASIC_2000_STR(str)
+    if str == nil or type(str) ~= 'string' then
+        return
+    end
+    
+    local date = SCR_STRING_CUT(str)
+    if #date == 4 then
+        return SCR_DATE_TO_YHOUR_BASIC_2000(date[1], date[2], date[3], date[4])
+    end
+end
 function SCR_DATE_TO_YHOUR_BASIC_2000(yy, mm, dd, hh)
     local days, monthdays, leapyears, nonleapyears, nonnonleapyears
 
@@ -2085,31 +2094,31 @@ function SCR_REINFORCE_COUPON_PRECHECK(pc, price)
     return price, retCouponList
 end
 
+--EVENT_1804_TRANSCEND_REINFORCE
 function SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc)
-    if GetServerNation() ~= "KOR" then
-        return 'NO'
-    end
-    
-    local now_time = os.date('*t')
---    local year = now_time['year']
-    local month = now_time['month']
-    local day = now_time['day']
-    
-    if IsServerSection(pc) ~= 1 then
-        local serverTime = imcTime.GetCurdateNumber()
-        month = tonumber(string.sub(serverTime,3, 4))
-        day = tonumber(string.sub(serverTime,5, 6))
-    end
-    
-    local dateList = {{12,24},{12,25}}
-    
-    for i = 1, #dateList do
-        if month == dateList[i][1] and day == dateList[i][2] then
-            return 'YES'
-        end
-    end
-    
-    return 'NO'
+   if GetServerNation() ~= "GLOBAL" then
+       return 'NO'
+   end
+   
+   local now_time = os.date('*t')
+   local year = now_time['year']
+   local month = now_time['month']
+   local day = now_time['day']
+   
+   if IsServerSection(pc) ~= 1 then
+       local serverTime = imcTime.GetCurdateNumber()
+       year = 2000 + tonumber(string.sub(serverTime,1, 2))
+       month = tonumber(string.sub(serverTime,3, 4))
+       day = tonumber(string.sub(serverTime,5, 6))
+   end
+   
+   local nowbasicyday = SCR_DATE_TO_YDAY_BASIC_2000(year, month, day)
+
+   if nowbasicyday >= SCR_DATE_TO_YDAY_BASIC_2000(2018, 5, 29) and nowbasicyday <= SCR_DATE_TO_YDAY_BASIC_2000(2018, 6, 26) then
+       return 'YES'
+   end
+   
+   return 'NO'
 end
 
 
@@ -2192,4 +2201,131 @@ function GET_INDUN_SILVER_RATIO(myLevel, indunLevel)
     end
     
     return value;
+end
+
+function SCR_TEXT_HIGHLIGHT(dialogClassName, text)
+    local targetZoneWordList = {}
+    local targetMonWordList = {}
+    
+    local exceptList, exceptcnt  = GetClassList("DialogExceptionText");
+    local exceptdialog = {}
+    local exceptword = {}
+    for i = 0 , exceptcnt - 1 do
+        local cls = GetClassByIndexFromList(exceptList, i);
+        local clstype = TryGetProp(cls,'Type', 'None')
+        local clsword = TryGetProp(cls,'Word', 'None')
+        local clsdialog = TryGetProp(cls,'Dialog', 'None')
+        if clstype == 'WORD' then
+            exceptdialog[#exceptdialog + 1] = clsdialog
+            exceptword[#exceptword + 1] = SCR_STRING_CUT(clsword)
+        end
+    end
+    
+    local exceptIndex = table.find(exceptdialog, dialogClassName)
+    
+--    if #TEXT_ZONENAMELIST == 0 then
+--        local maplist, mapcnt  = GetClassList("Map");
+--        for i = 0 , mapcnt - 1 do
+--            local cls = GetClassByIndexFromList(maplist, i);
+--            local zoneName = TryGetProp(cls,'Name', 'None')
+--            if zoneName ~= 'None' and table.find(TEXT_ZONENAMELIST, zoneName) == 0 then
+--                TEXT_ZONENAMELIST[#TEXT_ZONENAMELIST + 1] = zoneName
+--            end
+--        end
+--        
+--        local arealist, areacnt  = GetClassList("Map_Area");
+--        for i = 0 , areacnt - 1 do
+--            local cls = GetClassByIndexFromList(arealist, i);
+--            local zoneName = TryGetProp(cls,'Name', 'None')
+--            if zoneName ~= 'None' and table.find(TEXT_ZONENAMELIST, zoneName) == 0 then
+--                TEXT_ZONENAMELIST[#TEXT_ZONENAMELIST + 1] = zoneName
+--            end
+--        end
+--    end
+    
+    local maxi1 = #TEXT_ZONENAMELIST
+    for i = 1, maxi1 do
+        local findIndex = string.find(text, TEXT_ZONENAMELIST[i])
+        if findIndex ~= nil then
+            local beforeChar = string.sub(text,findIndex -1,findIndex -1)
+            local beforeNum = string.byte(beforeChar)
+            if findIndex == 1 or beforeChar == ' ' or (beforeNum >= 33 and beforeNum <= 47) or (beforeNum >= 58 and beforeNum <= 64) or (beforeNum >= 91 and beforeNum <= 96) or (beforeNum >= 123 and beforeNum <= 126) then
+                if exceptIndex == 0 then
+                    targetZoneWordList[#targetZoneWordList + 1] = TEXT_ZONENAMELIST[i]
+                else
+                    if table.find(exceptword[exceptIndex], TEXT_ZONENAMELIST[i]) == 0 then
+                        targetZoneWordList[#targetZoneWordList + 1] = TEXT_ZONENAMELIST[i]
+                    end
+                end
+            end
+        end
+    end
+    
+--    if #TEXT_MONNAMELIST == 0 then
+--        local monlist, moncnt  = GetClassList("Monster");
+--        for i = 0 , moncnt - 1 do
+--            local cls = GetClassByIndexFromList(monlist, i);
+--            local monName = TryGetProp(cls,'Name', 'None')
+--            if monName ~= 'None' and table.find(TEXT_ZONENAMELIST, monName) == 0 then
+--                TEXT_MONNAMELIST[#TEXT_MONNAMELIST + 1] = monName
+--            end
+--        end
+--    end
+    
+    
+    local maxi2 = #TEXT_MONNAMELIST
+    for i = 1, maxi2 do
+        local findIndex = string.find(text, TEXT_MONNAMELIST[i])
+        if findIndex ~= nil then
+            local beforeChar = string.sub(text,findIndex -1,findIndex -1)
+            local beforeNum = string.byte(beforeChar)
+            if findIndex == 1 or beforeChar == ' ' or (beforeNum >= 33 and beforeNum <= 47) or (beforeNum >= 58 and beforeNum <= 64) or (beforeNum >= 91 and beforeNum <= 96) or (beforeNum >= 123 and beforeNum <= 126) then
+                if exceptIndex == 0 then
+                    targetMonWordList[#targetMonWordList + 1] = TEXT_MONNAMELIST[i]
+                else
+                    if table.find(exceptword[exceptIndex], TEXT_MONNAMELIST[i]) == 0 then
+                        targetMonWordList[#targetMonWordList + 1] = TEXT_MONNAMELIST[i]
+                    end
+                end
+            end
+        end
+    end
+    
+    if #targetZoneWordList > 0 then
+        for i = 1, #targetZoneWordList - 1 do
+            for r = i + 1, #targetZoneWordList do
+                if string.len(targetZoneWordList[i]) < string.len(targetZoneWordList[r]) then
+                    local tempStr = targetZoneWordList[i]
+                    targetZoneWordList[i] = targetZoneWordList[r]
+                    targetZoneWordList[r] = tempStr
+                end
+            end
+        end
+    end
+    
+    if #targetMonWordList > 0 then
+        for i = 1, #targetMonWordList - 1 do
+            for r = i + 1, #targetMonWordList do
+                if string.len(targetMonWordList[i]) < string.len(targetMonWordList[r]) then
+                    local tempStr = targetMonWordList[i]
+                    targetMonWordList[i] = targetMonWordList[r]
+                    targetMonWordList[r] = tempStr
+                end
+            end
+        end
+    end
+    
+    if #targetZoneWordList > 0 then
+        for i = 1, #targetZoneWordList do
+            text = string.gsub(text, targetZoneWordList[i], '{#003399}'..targetZoneWordList[i]..'{/}')
+        end
+    end
+    
+    if #targetMonWordList > 0 then
+        for i = 1, #targetMonWordList do
+            text = string.gsub(text, targetMonWordList[i], '{#003399}'..targetMonWordList[i]..'{/}')
+        end
+    end
+    
+    return text
 end

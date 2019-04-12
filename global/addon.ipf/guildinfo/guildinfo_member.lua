@@ -11,14 +11,14 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
         return;
     end
 
-    local memberBox = GET_CHILD_RECURSIVELY(frame, 'memberBox');
+    local memberBox = GET_CHILD_RECURSIVELY(frame, 'guildinfo_');
     if memberBox:IsVisible() == 0 then
         return;
     end
 
     GUILDINFO_MEMBER_INIT_ONLINE_CHECKBOX(frame);
 
-    local memberCtrlBox = GET_CHILD_RECURSIVELY(memberBox, 'memberCtrlBox');
+    local memberCtrlBox = GET_CHILD_RECURSIVELY(frame, 'memberCtrlBox');
     DESTROY_CHILD_BYNAME(memberCtrlBox, 'MEMBER_');
 
     local leaderAID = guild.info:GetLeaderAID();
@@ -29,20 +29,20 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
 	for i = 0 , count - 1 do
             		local partyMemberInfo = list:Element(i);                            
                     local aid = partyMemberInfo:GetAID();
-        local memberCtrlSet = memberCtrlBox:CreateOrGetControlSet('guild_memberinfo', 'MEMBER_'..aid, 0, 0);
+                    local memberCtrlSet = memberCtrlBox:CreateOrGetControlSet('guild_memberinfo', 'MEMBER_'..aid, 0, 0);
                     memberCtrlSet = AUTO_CAST(memberCtrlSet);
                     memberCtrlSet:SetUserValue('AID', aid);
 
                     local isOnline = true;
-                    local pic_online = GET_CHILD(memberCtrlSet, 'pic_online');
-                    local txt_location = memberCtrlSet:GetChild('txt_location');
+                    local pic_online = GET_CHILD_RECURSIVELY(memberCtrlSet, 'pic_online');
+                    local txt_location = GET_CHILD_RECURSIVELY(memberCtrlSet, 'txt_location');
                     local ONLINE_IMG = memberCtrlSet:GetUserConfig('ONLINE_IMG');
                     local OFFLINE_IMG = memberCtrlSet:GetUserConfig('OFFLINE_IMG');
                     local MY_CHAR_BG_SKIN = memberCtrlSet:GetUserConfig('MY_CHAR_BG_SKIN');
 
                     -- bg
                     if aid == session.loginInfo.GetAID() then
-                        local bg = memberCtrlSet:GetChild('bg');
+                        local bg = GET_CHILD_RECURSIVELY(memberCtrlSet,'bg');
                         bg:SetSkinName(MY_CHAR_BG_SKIN);
                     end
 
@@ -71,7 +71,7 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
                     txt_location:SetTextTooltip(locationText);
 
                     -- name
-                    local txt_teamname = memberCtrlSet:GetChild('txt_teamname');
+                    local txt_teamname = GET_CHILD_RECURSIVELY(memberCtrlSet, 'txt_teamname');
                     local name = partyMemberInfo:GetName();
                     txt_teamname:SetTextByKey('value', partyMemberInfo:GetName());
                     txt_teamname:SetTextTooltip(partyMemberInfo:GetName());
@@ -81,31 +81,33 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
                     local jobCls = GetClassByType('Job', jobID);
                     local jobName = TryGetProp(jobCls, 'Name');        
                     if jobName ~= nil then
-                        local jobText = memberCtrlSet:GetChild('jobText')
+                        local jobText = GET_CHILD_RECURSIVELY(memberCtrlSet, 'jobText')
                         jobText:SetTextByKey('job', jobName);
                     end
                     
                     -- level
                     if isOnline == true then
-                        local levelText = memberCtrlSet:GetChild('levelText');
+                        local levelText = GET_CHILD_RECURSIVELY(memberCtrlSet, 'levelText');
                         levelText:SetTextByKey('level', partyMemberInfo:GetLevel());
                     end
-
-                    -- duty
-                    local txt_duty = memberCtrlSet:GetChild('txt_duty');        
-                    local grade = partyMemberInfo.grade;        
+                    -- claim
+                    local txt_duty = GET_CHILD_RECURSIVELY(memberCtrlSet, 'txt_duty');        
+                    local grade = partyMemberInfo.grade;    
             		if leaderAID == partyMemberInfo:GetAID() then
             			local dutyName = "{ol}{#FFFF00}" .. ScpArgMsg("GuildMaster") .. "{/}{/}";
             			dutyName = dutyName .. " " .. guild:GetDutyName(grade);
             			txt_duty:SetTextByKey("value", dutyName);
             		else
-            			local dutyName = guild:GetDutyName(grade);
-            			txt_duty:SetTextByKey("value", dutyName);
+                        local claimName = GET_CLAIM_NAME_BY_AIDX(partyMemberInfo:GetAID())
+                        if claimName == nil then
+                            claimName = ""
+            		end
+            			txt_duty:SetTextByKey("value", claimName);
             		end
 
                     -- contribution
                     local memberObj = GetIES(partyMemberInfo:GetObject());
-                    local contributionText = memberCtrlSet:GetChild('contributionText');
+                    local contributionText =GET_CHILD_RECURSIVELY(memberCtrlSet, 'contributionText');
                     contributionText:SetTextByKey('contribution', memberObj.Contribution);
 
                     memberCtrlSet:SetEventScript(ui.RBUTTONDOWN, 'POPUP_GUILD_MEMBER');
@@ -122,13 +124,7 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
 
     GUILDINFO_MEMBER_LEADER_ON_TOP(frame, leaderAID);
 
-    local inviteBtn = GET_CHILD_RECURSIVELY(frame, 'inviteBtn');
-    if IS_GUILD_AUTHORITY(1, session.loginInfo.GetAID()) == 1 or AM_I_LEADER(PARTY_GUILD) == 1 then
-        inviteBtn:SetEnable(1);
-    else
-        inviteBtn:SetEnable(0);
     end
-end
 
 function GUILDINFO_MEMBER_LEADER_ON_TOP(frame, leaderAID)
     local memberCtrlBox = GET_CHILD_RECURSIVELY(frame, 'memberCtrlBox');
@@ -190,15 +186,10 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 	local contextMenuCtrlName = string.format("{@st41}%s{/}", name);
 	local context = ui.CreateContextMenu("PC_CONTEXT_MENU", name, 0, 0, 170, 100);
 	
-	if isLeader == 1 and aid ~= myAid then
-		ui.AddContextMenuItem(context, ScpArgMsg("ChangeDuty"), string.format("GUILD_CHANGE_DUTY('%s')", name));
-	end
 
-	if (isLeader == 1 or IS_GUILD_AUTHORITY(2) == 1) and aid ~= myAid then
-		ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("GUILD_BAN('%s')", aid));
-	end
-
-	
+    if isLeader == 1 or HAS_KICK_CLAIM() then
+        ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("GUILD_BAN('%s')", aid));        
+    end
 	if isLeader == 1 and aid ~= myAid then
 		local mapName = session.GetMapName();
 		if mapName == 'guild_agit_1' then
@@ -210,7 +201,7 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 
 		local list = session.party.GetPartyMemberList(PARTY_GUILD);
 		if list:Count() == 1 then
-			ui.AddContextMenuItem(context, ScpArgMsg("Disband"), "ui.Chat('/destroyguild')");
+			ui.AddContextMenuItem(context, ScpArgMsg("Disband"), "ui.Chat('/destroyguildbyweb')");            
 		end
 	else
 		if aid == myAid then
@@ -395,35 +386,21 @@ function _SEND_REQ_GUILD_MASTER(name)
 end
 
 function OUT_GUILD()
-	ui.Chat("/outguild");
+	ui.Chat("/outguildbyweb");
     ui.CloseFrame('guildinfo');
 end
 
-function GUILD_CHANGE_DUTY(name)
-	local memberInfo = session.party.GetPartyMemberInfoByName(PARTY_GUILD, name);
-	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-	local grade = memberInfo.grade;
-	local dutyName = pcparty:GetDutyName(grade);
-
-	local inputFrame = INPUT_STRING_BOX("", "EXEC_GUILD_CHANGE_DUTY", dutyName, nil, 64);
-	inputFrame:SetUserValue("InputType", "InputNameForChange");
-	inputFrame:SetUserValue("NAME", name);	
-end
-
-function EXEC_GUILD_CHANGE_DUTY(frame, ctrl)
-	if ctrl:GetName() == "inputstr" then
-		frame = ctrl;
-	end
-
-	local duty = GET_INPUT_STRING_TXT(frame);
-	local name = frame:GetUserValue("NAME");
-	local memberInfo = session.party.GetPartyMemberInfoByName(PARTY_GUILD, name);		
-	party.ReqPartyNameChange(PARTY_GUILD, PARTY_STRING_DUTY, duty, memberInfo:GetAID());
-	frame:ShowWindow(0);
+function OUT_GUILD_BY_WEB()
+    ui.Chat("/outguildbyweb");
+    ui.CloseFrame('guildinfo');
 end
 
 function GUILD_BAN(name)
-	ui.Chat("/partybanByAID " .. PARTY_GUILD.. " " .. name);	
+    ui.Chat("/guildbanByAID " .. name);	
+end
+
+function GUILD_BAN_BY_WEB(aid)
+    ui.Chat("/guildbanByAID " .. aid);
 end
 
 function GUILDINFO_MEMBER_INIT_ONLINE_CHECKBOX(frame)

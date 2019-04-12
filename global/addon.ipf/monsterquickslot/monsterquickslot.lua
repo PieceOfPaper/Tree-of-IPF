@@ -5,10 +5,10 @@ end
 function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 	local frame = ui.GetFrame("monsterquickslot");
 	if isOn == 1 then
-		-- 라이칸스트로피 거나 쉐잎쉬ㅍ프팅, 트랜스폼이면
+		-- 라이칸스트로피 거나 쉐잎쉬ㅍ프팅, 트랜스폼 ,서모닝이면
 		-- monsterquickslot을 사용하지 않겠다.
 		local monsterQuickslotNotUse = false;
-		if buffType == 6012 or buffType == 6026 then
+		if buffType == 6012 or buffType == 6026 or buffType == 3038 then
 			monsterQuickslotNotUse = true;
 		end
 
@@ -78,7 +78,7 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 					icon:SetEnableUpdateScp('MONSTER_ICON_UPDATE_SKILL_ENABLE');
 					icon:SetColorTone("FFFFFFFF");
 					icon:ClearText();
-					quickSlot.OnSetSkillIcon(slot, type);
+					quickslot.OnSetSkillIcon(slot, type);
 
 					
 					-- 이 땜빵을 어찌해아 하나? 제일 좋은건 hotkey_joystic.xml의 Key, PressedKey를 예쁘게 정리하는 것이다.
@@ -114,7 +114,7 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 		local beforeframename = frame:GetUserValue("BEFORE_FRAME");
 
 		local preBuff = frame:GetUserIValue('BUFFTYPE');
-		if preBuff == 6012 or preBuff == 6026 then
+		if preBuff == 6012 or preBuff == 6026 or preBuff == 3038 then
 			if	beforeframename == "joystickquickslot" then
 				JOYSTICK_QUICKSLOT_MY_MONSTER_SKILL(isOn, monName, buffType);
 			else
@@ -123,7 +123,7 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 			frame:SetUserValue('BUFFTYPE', 0);
 			return;
 		end
-
+		
 		if beforeframename ~= "None" then
 			ui.OpenFrame(beforeframename);
 		else
@@ -194,7 +194,7 @@ function EXEC_INSTANT_QUICKSLOT(isOn)
 				icon:SetEnableUpdateScp('MONSTER_ICON_UPDATE_SKILL_ENABLE');
 				icon:SetColorTone("FFFFFFFF");
 				icon:ClearText();
-				quickSlot.OnSetSkillIcon(slot, type);
+				quickslot.OnSetSkillIcon(slot, type);
 					
 				-- 이 땜빵을 어찌해아 하나? 제일 좋은건 hotkey_joystic.xml의 Key, PressedKey를 예쁘게 정리하는 것이다.
 				hotKey = JOYSTICK_QUICKSLOT_REPLACE_HOTKEY_STRING(true, hotKey);

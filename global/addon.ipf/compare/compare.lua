@@ -191,9 +191,6 @@ function SHOW_PC_COMPARE(cid)
 		local iconname = cls.Icon;
 		icon:SetImage(iconname);
 
-		local upCtrl = GET_CHILD(classCtrl, "upbtn", "ui::CButton");
-		upCtrl:ShowWindow(0);
-
 		-- 클래스 이름
 		local nameCtrl = GET_CHILD(classCtrl, "name", "ui::CRichText");
 		nameCtrl:SetText("{@st41}".. cls.Name);

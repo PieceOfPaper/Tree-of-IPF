@@ -309,9 +309,17 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 		msg = ScpArgMsg('ItemDecomposeWarningPropMessage', 'WARNINGPROP', warningProp, 'DEFAULTMSG', msg);
 	end
 	
-	local msgBox = ui.MsgBox(msg, "ITEM_DECOMPOSE_EXECUTE_COMMIT", "None");
+--local msgBox = ui.MsgBox(msg, "ITEM_DECOMPOSE_EXECUTE_COMMIT", "None");
+	local msgBox = WARNINGMSGBOX_FRAME_OPEN(msg, "ITEM_DECOMPOSE_EXECUTE_COMMIT", "None")
+	local msgBoxFrame = ui.GetFrame("warningmsgbox")
+	if msgBoxFrame == nil then
+		return
+	end
 	
-	msgBox:SetYesButtonSound("button_click_repair");
+	local yesBtn = GET_CHILD_RECURSIVELY(msgBoxFrame, "yes")
+	yesBtn:SetClickSound("button_click_repair")
+
+--	msgBox:SetYesButtonSound("button_click_repair");
 end
 
 function ITEM_DECOMPOSE_EXECUTE_COMMIT()

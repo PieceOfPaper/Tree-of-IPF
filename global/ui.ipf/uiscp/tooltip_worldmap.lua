@@ -1,7 +1,6 @@
 --- tooltip_worldmap.lua --
 
 function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
-
     local mapCls = GetClass('Map', mapName)
 	local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
 
@@ -33,12 +32,12 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 			ratestr = " {img minimap_complete 24 24}"
 		end
 
-		local mapnameCtrl = ctrlSet:GetChild("mapname");
+		local mapnameCtrl = GET_CHILD_RECURSIVELY(ctrlSet, "mapname");
 		mapnameCtrl:SetTextByKey("text", mapNameFont..drawCls.Name..ratestr);
 		
 
 		local drawMapName = drawCls.ClassName;
-		local pic = GET_CHILD(ctrlSet, "map", "ui::CPicture");
+		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "map", "ui::CPicture");
 		local isValid = ui.IsImageExist(drawMapName .. "_fog");
 		if isValid == false then
 			world.PreloadMinimap(drawMapName);
@@ -62,11 +61,10 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 
 		UPDATE_MAP_BY_NAME(iconGroup, drawMapName, pic, mapWidth, mapHeight, offsetX, offsetY)
 		pic:EnableCopyOtherImage(nil);
-
 		offsetX = 340;
 		offsetY = 180;
 		MAKE_MAP_AREA_INFO(nameGroup, drawMapName, "{s15}", mapWidth, mapHeight, offsetX, offsetY)
-					
+
 		for i = 0, iconGroup:GetChildCount()-1 do
 			local child = iconGroup:GetChildByIndex(i);
 			
@@ -80,14 +78,14 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 			child:Move( -1*worldMapWidth*(23/100), 0);
 			child:Move( 0, -1*mapHeight*(40/100));
 		end
-
+		
 		local questlv = drawCls.QuestLevel
 		local maptype = drawCls.MapType
 		if questlv > 0 and (maptype == 'Field' or maptype == 'Dungeon') then
-			ctrlSet:GetChild("monlv"):SetVisible(1)
-			ctrlSet:GetChild("monlv"):SetTextByKey("text",tostring(questlv))
+			GET_CHILD_RECURSIVELY(ctrlSet, "monlv"):SetVisible(1)
+			GET_CHILD_RECURSIVELY(ctrlSet, "monlv"):SetTextByKey("text",tostring(questlv))
 		else
-			ctrlSet:GetChild("monlv"):SetVisible(0)
+			GET_CHILD_RECURSIVELY(ctrlSet, "monlv"):SetVisible(0)
 		end	
 		WORLDMAP_TOOLTIP_POSSIBLE_QUESTLIST(frame, mapName, numarg, ctrlSet, drawCls);
 	end

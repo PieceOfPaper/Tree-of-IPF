@@ -173,7 +173,6 @@ INV_ITEM_INFO_C*		GetInvItem(int invIndex);
 EQUIP_ITEM_LIST_INFO*	GetEquipItemList();
 SKILL_LIST_INFO*		GetSkillList();
 SKILL_INFO_C*			GetSkill(int type);
-QUICKSLOT_LIST_INFO*	GetQuickSlotList();
 SHOP_ITEM_LIST_INFO*	GetShopItemList();
 int						GetEXP();
 int						GetMaxEXP();
@@ -303,9 +302,7 @@ float		GetAngle(int handle);
 
 namespace path
 {
-
-const char*				GetDataPath();
-
+	const char*				GetDataPath();
 };
 
 void	PlayIdleAnim(int objHandle, const char* fileName);
@@ -322,13 +319,13 @@ bool	RemoveTextReaction(int obj);
 
 namespace movie
 {
-void	Pc(int handle, int job, int gender, int x, int y, int cell, float dirX, float dirY);
-void	NPC(int handle, int type, int x, int y, int cell, float dirX, float dirY);
-void	Equip(int handle, int iSpot, int itemID);
-void	Stance(int handle, int stanceID, int attackID);
-void	PlayAnim(int handle, const char* animID, float speed);
-void	PlayEffect(const char* effectName, float x, float y, float z, float scale);
-void	PlaySound(const char* soundName, float x, float y, float z);
-void	MoveTo(int handle, float speed, int x, int y, int cell);
-void	Rotate(int handle, float x, float z);
+	void	Pc(int handle, int job, int gender, int x, int y, int cell, float dirX, float dirY);
+	void	NPC(int handle, int type, int x, int y, int cell, float dirX, float dirY);
+	void	Equip(int handle, int iSpot, int itemID);
+	void	Stance(int handle, int stanceID, int attackID);
+	void	PlayAnim(int handle, const char* animID, float speed);
+	void	PlayEffect(const char* effectName, float x, float y, float z, float scale);
+	void	PlaySound(const char* soundName, float x, float y, float z);
+	void	MoveTo(int handle, float speed, int x, int y, int cell);
+	void	Rotate(int handle, float x, float z);
 };

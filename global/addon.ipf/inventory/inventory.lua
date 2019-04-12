@@ -19,6 +19,8 @@ function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterMsg('CHANGE_INVINDEX', 'ON_CHANGE_INVINDEX');
 	addon:RegisterMsg('ACCOUNT_UPDATE', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('JUNGTAN_SLOT_UPDATE', 'JUNGTAN_SLOT_INVEN_ON_MSG');
+	addon:RegisterMsg('EXP_ORB_ITEM_ON', 'EXP_ORB_SLOT_INVEN_ON_MSG');
+	addon:RegisterMsg('EXP_ORB_ITEM_OFF', 'EXP_ORB_SLOT_INVEN_ON_MSG');
 	addon:RegisterOpenOnlyMsg('WEIGHT_UPDATE', 'INVENTORY_WEIGHT_UPDATE');
 	
 	addon:RegisterMsg('UPDATE_ITEM_REPAIR', 'INVENTORY_ON_MSG');
@@ -832,7 +834,6 @@ function INVENTORY_LIST_GET(frame, setpos, slotSetName)
 	local funcStr = frame:GetUserValue("SLOT_APPLY_FUNC");
 	if funcStr ~= "None" then
 		for i = 1 , #SLOTSET_NAMELIST do
-
 			local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
 			for typeNo = 1, #g_invenTypeStrList do
 				local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
@@ -864,7 +865,6 @@ function INVENTORY_SLOTSET_INIT(frame, slotSet, slotCount)
 		slot:SetText('', 'count', 'right', 'bottom', -2, 1);
 		slot:SetOverSound('button_cursor_over_3');
 		slot:ClearIcon()
-		
 	end
 end
 
@@ -1065,7 +1065,7 @@ function INIT_INVEN_SLOT(slot)
 	if shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1 or companionshop:IsVisible() == 1 then
 		slot:SetSelectedImage('socket_slot_check')  -- 거래시에만 체크 셀렉 아이콘 사용	
 	end
-	
+
 	slot:EnableHideInDrag(true)
 	slot:SetPickSound(picksound)
 	slot:SetDropSound(dropsound)
@@ -1200,13 +1200,21 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 				if itemCls ~= nil then
 					local makeSlot = true;
 					if cap ~= "" then
-						local itemname = string.lower(dictionary.ReplaceDicIDInCompStr(itemCls.Name));		
+						--인벤토리 안에 있는 아이템을 찾기 위한 로직
+						local itemname = string.lower(dictionary.ReplaceDicIDInCompStr(itemCls.Name));
+						--접두어도 포함시켜 검색해야되기 때문에, 접두를 찾아서 있으면 붙여주는 작업
+						local prefixClassName = TryGetProp(itemCls, "LegendPrefix")
+						if prefixClassName ~= nil and prefixClassName ~= "None" then
+							local prefixCls = GetClass('LegendSetItem', prefixClassName)
+							local prefixName = string.lower(dictionary.ReplaceDicIDInCompStr(prefixCls.Name));
+							itemname = prefixName .. " " .. itemname;
+						end
+
 						local tempcap = string.lower(cap);
 						local a = string.find(itemname, tempcap);
 						if a == nil then
 							makeSlot = false;
-						end
-
+						end			
 					end				
 
 					if makeSlot == true then
@@ -1321,7 +1329,7 @@ function CHECK_INV_LBTN(frame, object, argStr, argNum)
 		end
 	end
 	
-	if keyboard.IsPressed(KEY_CTRL) == 1 then
+	if keyboard.IsKeyPressed("LCTRL") == 1 then
 		local invitem = session.GetInvItem(argNum);
 		LINK_ITEM_TEXT(invitem);
 		return;
@@ -1355,7 +1363,8 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 		end
 	end
 	
-	if IsBuffApplied(pc, 'Event_Penalty') == 'YES' and (itemobj.ClassID == 640022 or itemobj.ClassID == 640022 or itemobj.ClassID == 640079 or itemobj.ClassID == 490006 or itemobj.ClassID == 490110)then
+	if (IsBuffApplied(pc, 'Event_Penalty') == 'YES' or IsBuffApplied(pc, 'PVP_MINE_BUFF1') == 'YES' or IsBuffApplied(pc, 'PVP_MINE_BUFF2') == 'YES') 
+	and (itemobj.ClassID == 640022 or itemobj.ClassID == 640079 or itemobj.ClassID == 490006 or itemobj.ClassID == 490110) then
 		ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
 		return 0;
 	end
@@ -1414,7 +1423,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		return;
 	end
 	
-	if keyboard.IsPressed(KEY_CTRL) == 1 then
+	if keyboard.IsKeyPressed("LCTRL") == 1 then
 		local obj = GetIES(invitem:GetObject());
 		IES_MAN_IESID(invitem:GetIESID());
 		return;
@@ -1435,12 +1444,18 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		imcSound.PlaySoundEvent("icon_get_down");
 		return;
 	end
-    -- market sell
-	local market_sell = ui.GetFrame("market_sell");
-	if market_sell:IsVisible() == 1 then
-		MARKET_SELL_RBUTTON_ITEM_CLICK(market_sell, invitem);
+
+	if INVENTORY_RBTN_LEGENDPREFIX(invitem) == true then
 		return;
 	end
+
+	if INVENTORY_RBTN_LEGENDDECOMPOSE(invitem) == true then
+		return;
+	end
+
+    if INVENTORY_RBTN_MARKET_SELL(invitem) == true then
+    	return;
+    end
 
 	local invFrame = ui.GetFrame("inventory");	
 	invFrame:SetUserValue("INVITEM_GUID", invitem:GetIESID());
@@ -1477,7 +1492,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
 		if itemProp:IsEnableShopTrade() == true then
 				if IS_SHOP_SELL(invitem, Itemclass.MaxStack, frame) == 1 then
-					if keyboard.IsPressed(KEY_SHIFT) == 1 then
+					if keyboard.IsKeyPressed("LSHIFT") == 1 then
 						local sellableCount = invitem.count;
 						local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", sellableCount);
 						INPUT_NUMBER_BOX(invFrame, titleText, "EXEC_SHOP_SELL", 1, 1, sellableCount);
@@ -1528,9 +1543,10 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 
 		if true == RUN_CLIENT_SCP(invitem) then        
             return;
-        end
-		local groupName = itemobj.ItemType;
-		if groupName == 'Consume' or groupName == 'Quest' or groupName == 'Cube' then
+		end
+		local groupName = itemobj.GroupName;
+		local itemType = itemobj.ItemType;
+		if itemType == 'Consume' or itemType == 'Quest' or itemType == 'Cube' or groupName == 'ExpOrb' then
 			if itemobj.Usable == 'ITEMTARGET' then
 				local invFrame = ui.GetFrame('inventory');
 				USE_ITEMTARGET_ICON(invFrame, itemobj, argNum);
@@ -1541,13 +1557,13 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 					invItemAllowReopen = TryGetProp(itemobj, 'AllowReopen')
 				end
 				local gachaCubeFrame = ui.GetFrame('gacha_cube')
-				if groupName == 'Consume' and gachaCubeFrame ~= nil and gachaCubeFrame:IsVisible() == 1 and invItemAllowReopen == 'YES' then
+				if itemType == 'Consume' and gachaCubeFrame ~= nil and gachaCubeFrame:IsVisible() == 1 and invItemAllowReopen == 'YES' then
 					return
 				end
 
 				INV_ICON_USE(invItem);
 			end
-		elseif groupName == 'Gem' then
+		elseif itemType == 'Gem' then
 			if itemobj.Usable == 'ITEMTARGET' then
 				local invFrame = ui.GetFrame('inventory');
 				USE_ITEMTARGET_ICON(invFrame, itemobj, argNum);
@@ -1761,7 +1777,7 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 			-- 상점 Sell Slot으로 다 넘긴다.
 			SHOP_SELL(invitem, invitem.count, frame);
 			return;
-		end
+        end
 	end
 
 	ui.SysMsg(ClMsg("CannoTradeToNPC"));
@@ -2092,7 +2108,8 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	local itemType = invItem.type;
 	ICON_SET_ITEM_COOLDOWN(icon, itemType);	
 
-	icon:Set(imageName, 'Item', itemType, invItem.invIndex, invItem:GetIESID(), invItem.count);
+	local iconImgName  = GET_ITEM_ICON_IMAGE(itemobj);
+	icon:Set(iconImgName, 'Item', itemType, invItem.invIndex, invItem:GetIESID(), invItem.count);
 
 	ICON_SET_INVENTORY_TOOLTIP(icon, invItem, nil, class);
 	
@@ -2107,7 +2124,8 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 			icon:SetColorTone("FFFF0000");		
 		end
 	end	
-	
+
+	SET_SLOT_STYLESET(slot, itemobj)
 	SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemobj, count);
 	
 	--아이템이 선택되었을 때의 스크립트를 선택한다
@@ -2139,14 +2157,16 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	elseif invItem.isLockState == true then
 		local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
 	elseif true == IS_TEMP_LOCK(frame, invItem) then
-		slot:SetFrontImage('item_Lock');
-    elseif invItem.hasLifeTime == true  then
-        ICON_SET_ITEM_REMAIN_LIFETIME(icon)
-        slot:SetFrontImage('clock_inven');
+		slot:SetFrontImage('item_Lock');    
 	else
 		slot:SetFrontImage('None');
 	end
-	
+
+    if invItem.hasLifeTime == true  then
+        ICON_SET_ITEM_REMAIN_LIFETIME(icon)
+        slot:SetFrontImage('clock_inven');
+    end
+			
 	if invItem.isNew == true  then
 		slot:SetHeaderImage('new_inventory_icon');
 	elseif IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem) then
@@ -2155,24 +2175,24 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 		slot:SetHeaderImage('None');
 	end
 end
-	
+
 function IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem)
 	if invItem == nil then		
 		return;
 	end
 
-	local slot1 = session.GetWeaponQuicSlot(0)
-	local slot2 = session.GetWeaponQuicSlot(1)	
-	local slot3 = session.GetWeaponQuicSlot(2)
-	local slot4 = session.GetWeaponQuicSlot(3)
+	local slot1 = quickslot.GetSwapWeaponGuid(0);
+	local slot2 = quickslot.GetSwapWeaponGuid(1);	
+	local slot3 = quickslot.GetSwapWeaponGuid(2);
+	local slot4 = quickslot.GetSwapWeaponGuid(3);
 
-	return invItem : GetIESID() == slot1 or invItem : GetIESID() == slot2 or invItem : GetIESID() == slot3 or invItem : GetIESID() == slot4
+	return invItem:GetIESID() == slot1 or invItem:GetIESID() == slot2 or invItem:GetIESID() == slot3 or invItem:GetIESID() == slot4;
 end
 
 function STATUS_SLOT_DROP(frame, icon, argStr, argNum)
-	local liftIcon 				= ui.GetLiftIcon();
-	local FromFrame 			= liftIcon:GetTopParentFrame();
-	local toFrame				= frame:GetTopParentFrame();
+	local liftIcon = ui.GetLiftIcon();
+	local FromFrame = liftIcon:GetTopParentFrame();
+	local toFrame = frame:GetTopParentFrame();
 	if FromFrame:GetName() == 'inventory' then
 		local iconInfo = liftIcon:GetInfo();
 		ITEM_EQUIP(iconInfo.ext, icon:GetName());
@@ -2300,23 +2320,23 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 		end
 	end
 		
-	if session.GetWeaponCurrentSlotLine() == 0 then
+	if quickslot.GetActiveWeaponLine() == 0 then
 		frame:SetUserValue('CURRENT_WEAPON_INDEX', 1)
 	else
 		frame:SetUserValue('CURRENT_WEAPON_INDEX', 2)
 	end
 	
 	if spotName == 'RH' then
-		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then        
-			session.SetWeaponQuicSlot(0, equipItem : GetIESID(), false);
+		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then     
+			quickslot.SetSwapWeaponInfo(0, equipItem:GetIESID());
 			
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_RH', equipItem.type)
 			else
 				frame:SetUserValue('CURRENT_WEAPON_RH', 0)
 			end
-		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then        
-			session.SetWeaponQuicSlot(2, equipItem : GetIESID(), false);
+		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
+			quickslot.SetSwapWeaponInfo(2, equipItem:GetIESID());
 					
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_RH', equipItem.type)
@@ -2328,8 +2348,8 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 
 	if spotName == 'LH' then
 		
-		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then        
-			session.SetWeaponQuicSlot(1, equipItem : GetIESID(), false);
+		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
+			quickslot.SetSwapWeaponInfo(1, equipItem:GetIESID());
 			
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_LH', equipItem.type)
@@ -2337,7 +2357,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 				frame:SetUserValue('CURRENT_WEAPON_LH', 0)
 			end
 		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then        
-			session.SetWeaponQuicSlot(3, equipItem : GetIESID(), false);
+			quickslot.SetSwapWeaponInfo(3, equipItem:GetIESID());
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_LH', equipItem.type)
 			else
@@ -2454,6 +2474,8 @@ end
 
 
 s_dropDeleteItemIESID = '';
+s_dropDeleteItemCount = 0;
+s_dropDeleteItemName = '';
 
 function INVENTORY_DELETE(itemIESID, itemType)
 	if GetCraftState() == 1 then
@@ -2493,18 +2515,53 @@ function INVENTORY_DELETE(itemIESID, itemType)
 	end
 
 	--if cls.UserTrade == 'YES' or cls.ShopTrade == 'YES' then
+	if invItem.count > 1 then
+		local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", invItem.count);
 		s_dropDeleteItemIESID = itemIESID;
-		local yesScp = string.format("EXEC_DELETE_ITEMDROP()");
-		ui.MsgBox(ScpArgMsg("Auto_JeongMal_[")..cls.Name..ScpArgMsg("Auto_]_eul_BeoLiSiKessSeupNiKka?"), yesScp, "None");
+		s_dropDeleteItemName = cls.Name;
+		INPUT_NUMBER_BOX(invFrame, titleText, "CHECK_EXEC_DELETE_ITEMDROP", 1, 1, invItem.count);
+	else
+		s_dropDeleteItemIESID = itemIESID;
+		s_dropDeleteItemCount = 1;
+		s_dropDeleteItemName = cls.Name;
+		local yesScp = string.format("EXEC_DELETE_ITEMDROP");
+        local clmsg = ScpArgMsg('ReallyDestroy{ITEM}', 'ITEM', s_dropDeleteItemName);
+	--	ui.MsgBox(clmsg, yesScp, "None");
+		WARNINGMSGBOX_FRAME_OPEN(clmsg, yesScp, "None")
+	end
 	--end
 end
 
-function EXEC_DELETE_ITEMDROP()
-	item.DropDelete(s_dropDeleteItemIESID);
-	s_dropDeleteItemIESID = '';
+function CHECK_EXEC_DELETE_ITEMDROP(count)
+	s_dropDeleteItemCount = tonumber(count);
+	local yesScp = string.format("EXEC_DELETE_ITEMDROP");
+    local clmsg = ScpArgMsg('ReallyDestroy{ITEM}{COUNT}', 'ITEM', s_dropDeleteItemName, 'COUNT', s_dropDeleteItemCount);
+	--ui.MsgBox(clmsg, yesScp, "None");
+	WARNINGMSGBOX_FRAME_OPEN(clmsg, yesScp, "None")
 end
 
-function JUNGTAN_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)	
+function EXEC_DELETE_ITEMDROP()
+	IMC_LOG("INFO_NORMAL", "EXEC_DELETE_ITEMDROP")
+	item.DropDelete(s_dropDeleteItemIESID, s_dropDeleteItemCount);
+	s_dropDeleteItemIESID = '';
+	s_dropDeleteItemCount = 0;
+end
+
+function EXP_ORB_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)	
+	local timer = GET_CHILD(frame, "exporbtimer", "ui::CAddOnTimer");
+	if msg == "EXP_ORB_ITEM_OFF" then
+		frame:SetUserValue("EXP_ORB_EFFECT", 0);
+		timer:Stop();
+		imcSound.PlaySoundEvent('sys_booster_off');
+	elseif msg == "EXP_ORB_ITEM_ON" then
+		frame:SetUserValue("EXP_ORB_EFFECT", str);
+		timer:SetUpdateScript("UPDATE_INVENTORY_EXP_ORB");
+		timer:Start(1);
+		imcSound.PlaySoundEvent('sys_atk_booster_on');
+	end
+end
+
+function JUNGTAN_SLOT_INVEN_ON_MSG(frame, msg, str, num)
 	if str == 'JUNGTAN_OFF' then
 
 		frame:SetUserValue("JUNGTAN_EFFECT", 0);
@@ -2533,6 +2590,27 @@ function JUNGTAN_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)
 		local timer = GET_CHILD(frame, "jungtandeftimer", "ui::CAddOnTimer");
 		timer:SetUpdateScript("UPDATE_INVENTORY_JUNGTANDEF");
 		timer:Start(1);		
+	end
+end
+
+function UPDATE_INVENTORY_EXP_ORB(frame, ctrl, num, str, time)
+	if frame:IsVisible() == 0 then
+		return;
+	end
+	local itemGuid = frame:GetUserValue("EXP_ORB_EFFECT");
+	if itemGuid == "None" then
+		return;
+	end
+	
+	local slot = INV_GET_SLOT_BY_ITEMGUID(itemGuid);
+	if slot == nil then
+		return;
+	end
+	local posX, posY = GET_SCREEN_XY(slot);
+
+	if slot:IsVisibleRecursively() == true then
+		local size = frame:GetUserConfig("EXP_ORB_EFFECT_SIZE");	
+		slot:PlayOnceUIEffect('I_sys_item_slot', size);
 	end
 end
 
@@ -2611,7 +2689,7 @@ function EQUIP_RING(itemobj, argNum)
 		return;
 	end
 
-	if keyboard.IsPressed(KEY_ALT) == 1 then
+	if keyboard.IsKeyPressed("LALT") == 1 then
 		ITEM_EQUIP(argNum, "RING2");
 		return;
 	else
@@ -2894,11 +2972,9 @@ function IS_LIFETIME_OVER(itemobj)
 		end;
 		
 		-- ItemLifeTimeOver으로 검사하는 함수		
-		--[[
 		if 0 ~= itemobj.ItemLifeTimeOver then
 			return 1;
 		end;
-		]]
 	end;
 	return 0;
 end
@@ -2911,7 +2987,7 @@ end
 function GET_WEAPON_SWAP_INDEX()
 	local curIndex = 0
 	for i = 0, 3 do
-		local guid = session.GetWeaponQuicSlot(i);
+		local guid = quickslot.GetSwapWeaponGuid(i);
 		if nil ~= guid then
 			local item = session.GetEquipItemByGuid(guid);
 			if nil ~= item then
@@ -3027,13 +3103,13 @@ function DO_WEAPON_SWAP(frame, index)
 	local weaponSwap2 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_2")
 
 	local WEAPONSWAP_UP_IMAGE = frame:GetUserConfig('WEAPONSWAP_UP_IMAGE')
-	local WEAPONSWAP_DOWN_IMAGE = frame : GetUserConfig('WEAPONSWAP_DOWN_IMAGE')
+	local WEAPONSWAP_DOWN_IMAGE = frame:GetUserConfig('WEAPONSWAP_DOWN_IMAGE')
 
 	if index == 1 then
 		weaponSwap1:SetImage(WEAPONSWAP_UP_IMAGE);
 		weaponSwap2:SetImage(WEAPONSWAP_DOWN_IMAGE);
 	elseif index == 2 then
-		weaponSwap1 : SetImage(WEAPONSWAP_DOWN_IMAGE);
+		weaponSwap1:SetImage(WEAPONSWAP_DOWN_IMAGE);
 		weaponSwap2:SetImage(WEAPONSWAP_UP_IMAGE);
 	end
 
@@ -3041,17 +3117,17 @@ function DO_WEAPON_SWAP(frame, index)
 		return;
 	end
 
-	frame : SetUserValue('CURRENT_WEAPON_INDEX', index)
-	session.SetWeaponSwap(1);
+	frame:SetUserValue('CURRENT_WEAPON_INDEX', index)
+	quickslot.SwapWeapon();
 
 	local abil = GetAbility(pc, "SwapWeapon");
 
 	if abil ~= nil then
-		weaponSwap1 : ShowWindow(1)
-		weaponSwap2 : ShowWindow(1)
+		weaponSwap1:ShowWindow(1);
+		weaponSwap2:ShowWindow(1);
 	else
-		weaponSwap1 : ShowWindow(0)
-		weaponSwap2 : ShowWindow(0)
+		weaponSwap1:ShowWindow(0);
+		weaponSwap2:ShowWindow(0);
 	end
 
 	local tempIndex = 0;
@@ -3061,7 +3137,7 @@ function DO_WEAPON_SWAP(frame, index)
 		tempIndex = 0
 	end
 
-	SHOW_WEAPON_SWAP_TEMP_IMAGE(frame:GetUserIValue('CURRENT_WEAPON_RH'), frame : GetUserIValue('CURRENT_WEAPON_LH'), tempIndex)
+	SHOW_WEAPON_SWAP_TEMP_IMAGE(frame:GetUserIValue('CURRENT_WEAPON_RH'), frame:GetUserIValue('CURRENT_WEAPON_LH'), tempIndex)
 end
 
 function DO_WEAPON_SWAP_1(frame)
@@ -3108,4 +3184,31 @@ function ON_LOCK_FAIL(frame, msg, argStr, argNum)
     invframe:SetUserValue('LOCK_SLOT_PARENT_NAME', "None");
     invframe:SetUserValue('LOCK_SLOT_NAME', "None");
 
+end
+
+function INVENTORY_RBTN_LEGENDPREFIX(invItem)
+	local legendprefix = ui.GetFrame('legendprefix');
+	if legendprefix ~= nil and legendprefix:IsVisible() == 0 then
+		return false;
+	end
+	_LEGENDPREFIX_SET_TARGET(legendprefix, invItem:GetIESID());
+	return true;
+end
+
+function INVENTORY_RBTN_MARKET_SELL(invitem)
+	local market_sell = ui.GetFrame('market_sell');
+	if market_sell ~= nil and market_sell:IsVisible() == 0  then
+		return false;		
+	end
+	MARKET_SELL_RBUTTON_ITEM_CLICK(market_sell, invitem);
+	return true;
+end
+
+function INVENTORY_RBTN_LEGENDDECOMPOSE(invItem)
+	local legenddecompose = ui.GetFrame('legenddecompose');
+	if legenddecompose ~= nil and legenddecompose:IsVisible() == 0 then
+		return false;
+	end
+	_LEGENDDECOMPOSE_SET_TARGET(legenddecompose, invItem:GetIESID());
+	return true;
 end

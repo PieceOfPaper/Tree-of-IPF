@@ -57,12 +57,6 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 		return;
 	end
 	
-	local reason = GetTradeLockByProperty(obj);
-	if reason ~= "None" then
-		ui.SysMsg(ScpArgMsg(reason));
-		return;
-	end
-
 	if fromFrame:GetName() == "inventory" then
 		local maxCnt = invItem.count;
 		if TryGetProp(obj, "BelongingCount") ~= nil then
@@ -176,14 +170,31 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 			if slot == nil then
 				slot = GET_EMPTY_SLOT(slotset);
 			end
-            slot:SetSkinName('invenslot2')
-
-			local itemCls = GetIES(invItem:GetObject());
+			slot:SetSkinName('invenslot2')
+			local itemCls = GetIES(invItem : GetObject());
 			local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
-			
+
+
+
 			SET_SLOT_IMG(slot, iconImg)
-			SET_SLOT_COUNT(slot, invItem.count)
-			SET_SLOT_COUNT_TEXT(slot, invItem.count);
+		--	SET_SLOT_BG_BY_ITEMGRADE(slot, itemCls.ItemGrade, index)
+
+			if itemCls.ItemType ~= "Equip" then
+				SET_SLOT_COUNT(slot, invItem.count)
+				SET_SLOT_COUNT_TEXT(slot, invItem.count);
+			end
+
+		--	SET_SLOT_TRANSCEND_LEVEL(slot, TryGetProp(obj, 'Transcend'), index);
+		--	local needAppraisal = nil
+		--	local needRandomOption = nil
+		--	if obj ~= nil then
+		--		needAppraisal = TryGetProp(obj, "NeedAppraisal");
+		--		needRandomOption = TryGetProp(obj, "NeedRandomOption");
+		--	end
+
+		--	SET_SLOT_NEED_APPRAISAL(slot, needAppraisal, needRandomOption, index)
+		--	SET_SLOT_REINFORCE_LEVEL(slot, TryGetProp(obj, 'Reinforce_2'), index)
+			SET_SLOT_STYLESET(slot, itemCls)
 			SET_SLOT_IESID(slot, invItem:GetIESID())
             SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, nil)
 			slot:SetMaxSelectCount(invItem.count);
@@ -203,6 +214,7 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
         local slot = slotset:GetSlotByIndex(i);
         if slot ~= nil then
             slot:SetSkinName('invenslot2');
+            slot:RemoveAllChild();
         end
     end
 

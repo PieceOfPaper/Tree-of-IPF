@@ -157,9 +157,6 @@ void Chat(const char* txt);
 
 namespace session
 {
-
-void SetQuickSlotInfo(int slotIndex, const char* category, int type, int ext);
-void ClearQuickSlotInfo(int slotIndex);
 int  GetTargetHandle();
 
 }

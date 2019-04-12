@@ -72,9 +72,10 @@ function REINFORCE_131014_UPDATE_MORU_COUNT(frame)
 	local price = GET_REINFORCE_131014_PRICE(fromItemObj, moruObj, pc);
 	local msg = GET_COMMAED_STRING(price)
 
-	if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
-	    msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
-	end
+--    --EVENT_1804_TRANSCEND_REINFORCE
+--	if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
+--	    msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
+--	end
     
     local retPrice, retCouponList = SCR_REINFORCE_COUPON_PRECHECK(pc, price)
     
@@ -107,7 +108,6 @@ function REINFORCE_131014_IS_ABLE(frame)
 end
 
 function REINFORCE_131014_MSGBOX(frame)
-	
 	local fromItem, fromMoru = UPGRADE2_GET_ITEM(frame);
 	local fromItemObj = GetIES(fromItem:GetObject());
 	local curReinforce = fromItemObj.Reinforce_2;
@@ -124,7 +124,7 @@ function REINFORCE_131014_MSGBOX(frame)
 	end
 	
 	local classType = TryGetProp(fromItemObj,"ClassType");
-    
+    DISABLE_BUTTON_DOUBLECLICK("reinforce_131014","exec", 1)
     --if moruObj.ClassName ~= "Moru_Potential" and moruObj.ClassName ~= "Moru_Potential14d" then
     if fromItemObj.GroupName == 'Weapon' or (fromItemObj.GroupName == 'SubWeapon' and  classType ~='Shield') then
     	if curReinforce >= 5 then
@@ -132,7 +132,8 @@ function REINFORCE_131014_MSGBOX(frame)
                     ui.MsgBox(ScpArgMsg("GOLDMORUdontbrokenitemProcessReinforce?", "Auto_1", 3), "REINFORCE_131014_EXEC", "None");
                    	return;
                	else
-    		ui.MsgBox(ScpArgMsg("WeaponWarningMSG", "Auto_1", 5), "REINFORCE_131014_EXEC", "None");
+    	--	ui.MsgBox(ScpArgMsg("WeaponWarningMSG", "Auto_1", 5), "REINFORCE_131014_EXEC", "None");
+    		WARNINGMSGBOX_FRAME_OPEN(ScpArgMsg("WeaponWarningMSG", "Auto_1", 5), "REINFORCE_131014_EXEC", "None")
     		return;
     	end
         	end
@@ -142,7 +143,8 @@ function REINFORCE_131014_MSGBOX(frame)
                     ui.MsgBox(ScpArgMsg("GOLDMORUdontbrokenitemProcessReinforce?", "Auto_1", 3), "REINFORCE_131014_EXEC", "None");
                    	return;
                	else
-    		ui.MsgBox(ScpArgMsg("Over_+{Auto_1}_ReinforceItemCanBeBroken_ProcessReinforce?", "Auto_1", 5), "REINFORCE_131014_EXEC", "None");
+    	--	ui.MsgBox(ScpArgMsg("Over_+{Auto_1}_ReinforceItemCanBeBroken_ProcessReinforce?", "Auto_1", 5), "REINFORCE_131014_EXEC", "None");
+    		WARNINGMSGBOX_FRAME_OPEN(ScpArgMsg("Over_+{Auto_1}_ReinforceItemCanBeBroken_ProcessReinforce?", "Auto_1", 5), "REINFORCE_131014_EXEC", "None")
     		return;
     	end
     end

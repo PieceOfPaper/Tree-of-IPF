@@ -75,7 +75,7 @@ function INIT_MAPUI_INFO(frame)
 	frame:Resize(width,width*ratio);
 	frame:SetAngle(0);
 
-	myposition = frame:GetChild('my');
+	myposition = GET_CHILD_RECURSIVELY(frame, 'my');
 	tolua.cast(myposition, "ui::CPicture");
 
 	INIT_MAPUI_PTR(frame);
@@ -87,7 +87,7 @@ end
 
 function INIT_MAPUI_PTR(frame)
 	if frame:GetName() == "map" then
-		map_picture = frame:GetChild('map');
+		map_picture = GET_CHILD_RECURSIVELY(frame, 'map');
 		tolua.cast(map_picture, "ui::CPicture");
 
 		frame:UpdateData();
@@ -107,9 +107,12 @@ function MAP_CLOSE(frame)
 end
 
 function MAKE_MAP_AREA_INFO(frame, mapClassName, font, mapWidth, mapHeight, offsetX, offsetY)
-
 	INIT_MAPUI_PTR(frame);
+		
 	DESTROY_CHILD_BYNAME(frame, 'MAP_AREA_');
+	if frame:GetName() == "map" then
+		frame = GET_CHILD_RECURSIVELY(frame, "textGbox")
+	end
 
 	local clsList, cnt = GetClassList("Map_Area");
 	for i = 0, cnt -1 do
@@ -132,7 +135,6 @@ function MAKE_MAP_AREA_INFO(frame, mapClassName, font, mapWidth, mapHeight, offs
 			if posCnt == 0 then
 				return;
 			end
-			
 			centerX = centerX / posCnt;
 			centerY = centerY / posCnt;
 			centerZ = centerZ / posCnt;
@@ -152,12 +154,11 @@ function MAKE_MAP_AREA_INFO(frame, mapClassName, font, mapWidth, mapHeight, offs
 			end
 
 			local mapPos = info.GetPositionInMap(centerX, centerY, centerZ, mapWidth, mapHeight);
+			mapPos.x = mapPos.x - 100;
+			mapPos.y = mapPos.y - 30
 
-			mapPos.x = mapPos.x + offsetX;
-			mapPos.y = mapPos.y + offsetY;
-			
 			local areaNameCtrlSet = frame:CreateOrGetControlSet('mapAreaName', 'MAP_AREA_'.. cls.ClassName, mapPos.x, mapPos.y);
-			local nameRechText = GET_CHILD(areaNameCtrlSet, "areaname", "ui::CRichText");
+			local nameRechText = GET_CHILD_RECURSIVELY(areaNameCtrlSet, "areaname", "ui::CRichText");
 			if font == nil then
 				nameRechText:SetText(cls.Name);
 			else
@@ -175,14 +176,14 @@ function CUSTOM_MAP_INIT(frame, MapName)
 	local KorName = GetClassString('Map', MapName, 'Name');
 	frame:SetTitleName('{ds}'..KorName);
 
-	local myctrl = frame:GetChild('my');
+	local myctrl = GET_CHILD_RECURSIVELY(frame, 'my');
 	tolua.cast(myctrl, "ui::CPicture");
 	myctrl:ShowWindow(0);
 
 	INIT_MAP_UI_COMMON(frame, MapName);
 
 	local mapname = mapprop:GetClassName();
-	UPDATE_MAP_BY_NAME(frame, mapname, GET_CHILD(frame, "map"));
+	UPDATE_MAP_BY_NAME(frame, mapname, GET_CHILD_RECURSIVELY(frame, "map"));
 
 	ui.SetTopMostFrame(frame);
     
@@ -190,7 +191,7 @@ end
 
 function INIT_MAP_UI_COMMON(frame, mapName)
 
-	local pictureui  =	frame:GetChild('map');
+	local pictureui  = GET_CHILD_RECURSIVELY(frame, 'map');
 	local mappicture = tolua.cast(pictureui, 'ui::CPicture');
 	mappicture:SetImage(mapName .. "_fog");
 
@@ -201,16 +202,18 @@ function INIT_MAP_UI_COMMON(frame, mapName)
 	end
 
 	local mapCls = GetClass("Map", mapName);
-	local title = GET_CHILD(frame, "title", "ui::CRichText");
+	local title = GET_CHILD_RECURSIVELY(frame, "title", "ui::CRichText");
 	title:SetTextByKey("mapname", mapCls.Name);
     
     local questlv = mapCls.QuestLevel
     local maptype = mapCls.MapType
     if questlv > 0 and (maptype == 'Field' or maptype == 'Dungeon') then
-        frame:GetChild("map"):GetChild("monlv"):SetVisible(1)
-        frame:GetChild("map"):GetChild("monlv"):SetTextByKey("text",tostring(questlv))
+    	local tempMap = GET_CHILD_RECURSIVELY(frame, 'map')
+        tempMap:GetChild("monlv"):SetVisible(1)
+        tempMap:GetChild("monlv"):SetTextByKey("text",tostring(questlv))
     else
-        frame:GetChild("map"):GetChild("monlv"):SetVisible(0)
+    	local tempMap = GET_CHILD_RECURSIVELY(frame, 'map')
+        tempMap:GetChild("monlv"):SetVisible(0)
     end
 	local mapRankObj = GET_CHILD_RECURSIVELY(frame,"mapRank")
 
@@ -221,7 +224,7 @@ end
 
 function MAP_LBTN_DOWN(parent, ctrl)
 
-	if keyboard.IsPressed(KEY_CTRL) ~= 1 then
+	if keyboard.IsKeyPressed("LCTRL") ~= 1 then
 		return;
 	end
 
@@ -236,12 +239,12 @@ end
 function CHECK_MAP_ICON(frame, object, argStr, argNum)
 	frame = frame:GetTopParentFrame();
 
-	local myctrl = frame:GetChild('check');
+	local myctrl = GET_CHILD_RECURSIVELY(frame, 'check');
 	tolua.cast(myctrl, "ui::CPicture");
 	myctrl:SetImage("questmap");
 	myctrl:SetAlpha(30);
 
-	local pNpcIcon = frame:GetChild(object:GetName() .. "_0");
+	local pNpcIcon = GET_CHILD_RECURSIVELY(frame, object:GetName() .. "_0");
 	if pNpcIcon == nil then
 		myctrl:ShowWindow(0);
 		return;
@@ -315,17 +318,17 @@ function SHOW_QUEST_NPC(mapname, npcname)
 
 	CUSTOM_MAP_INIT(frame, mapname);
 
-	local closeBtn = frame:GetChild('colse');
+	local closeBtn =  GET_CHILD_RECURSIVELY(frame, 'colse');
 	closeBtn:SetEventScript(ui.LBUTTONUP, 'ui.CloseFrame("Map_Custom")', true);
 
-	local pNpcIcon = frame:GetChild("_NPC_"..  monnpcprop:GetType() .. "_0");
+	local pNpcIcon = GET_CHILD_RECURSIVELY(frame, "_NPC_"..  monnpcprop:GetType() .. "_0");
 	if pNpcIcon == nil then
 		return;
 	end
 
 	tolua.cast(pNpcIcon, "ui::CPicture");
 
-	local myctrl = frame:GetChild('check');
+	local myctrl = GET_CHILD_RECURSIVELY(frame, 'check')
 	tolua.cast(myctrl, "ui::CPicture");
 	myctrl:SetImage("minimap_check");
 
@@ -366,7 +369,7 @@ end
 function UPDATE_MAP(frame)
 
 	local curmapname = session.GetMapName()
-	UPDATE_MAP_BY_NAME(frame, curmapname, GET_CHILD(frame, "map"));
+	UPDATE_MAP_BY_NAME(frame, curmapname, GET_CHILD_RECURSIVELY(frame, "map"));
 	RUN_REVEAL_CHECKER(frame, curmapname);
 
 end
@@ -376,13 +379,8 @@ function MAKE_MAP_NPC_ICONS(frame, mapname, mapWidth, mapHeight, offsetX, offset
 	if mapprop.mongens == nil then
 		return;
 	end
-
-	local npclist = {};
-	local statelist = {};
-	local questIESlist  = {};
-	local questPropList = {};
-
-	GET_QUEST_NPC_NAMES(mapname, npclist, statelist, questIESlist, questPropList);
+	
+	local npclist, statelist, questIESlist, questPropList = GET_QUEST_NPC_NAMES(mapname);
 	MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, questPropList, mapWidth, mapHeight, offsetX, offsetY);
 	MAKE_TOP_QUEST_ICONS(frame);
 	MAKE_MY_CURSOR_TOP(frame);
@@ -390,7 +388,6 @@ end
 
 function UPDATE_MAP_BY_NAME(frame, mapname, pic, mapWidth, mapHeight, offsetX, offsetY)
 	INIT_MAPUI_PTR(frame);
-
 	MAKE_MAP_FOG_PICTURE(mapname, pic, true)
 	UPDATE_MAP_FOG_RATE(frame, mapname);
 	MAKE_MAP_NPC_ICONS(frame, mapname, mapWidth, mapHeight, offsetX, offsetY)
@@ -420,7 +417,7 @@ function UPDATE_NPC_STATE_COMMON(frame)
 				end
 
 				local ctrlname = GET_GENNPC_NAME(frame, MonProp);
-				local picture = GET_CHILD(frame, ctrlname, "ui::CPicture");
+				local picture = GET_CHILD_RECURSIVELY(frame, ctrlname, "ui::CPicture");
 
 				if picture ~= nil then
 					SET_MONGEN_NPC_VISIBLE(picture, mapprop, mapNpcState, MonProp);
@@ -474,7 +471,7 @@ function SET_RIGHT_QUESTLIST(groupCtrl, idx, MonProp, list_y, statelist, questIE
 	local CurState = statelist[idx];
 	if IS_STATE_PRINT(CurState) == 1 then
 		local ctrlname = "_NPC_GEN_" .. MonProp:GetType();
-		if groupCtrl:GetChild(ctrlname) == nil then
+		if GET_CHILD_RECURSIVELY(groupCtrl, ctrlname) == nil then
 			local qstctrl		= groupCtrl:CreateControlSet('richtxt', ctrlname, 10, list_y);
 			list_y = list_y + 20;
 			local questIES = questIESlist[idx];
@@ -488,7 +485,6 @@ function SET_RIGHT_QUESTLIST(groupCtrl, idx, MonProp, list_y, statelist, questIE
 end
 
 function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, questPropList, mapWidth, mapHeight, offsetX, offsetY)
-
 	local mylevel = info.GetLevel(session.GetMyHandle());
 	DESTORY_MAP_PIC(frame);
 
@@ -511,7 +507,7 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 	if offsetY == nil then
 		offsetY = m_offsetY;
 	end
-
+	
 	-- MONGEN을 통한 퀘스트 정보 출력
     local isColonyMap = session.colonywar.GetIsColonyWarMap();
 	for i = 0 , cnt - 1 do
@@ -578,7 +574,7 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 
 				local CurState = statelist[idx];
 				ctrlname = "_NPC_MAP" .. idx;
-				if GroupCtrl:GetChild(ctrlname) == nil then
+				if GET_CHILD_RECURSIVELY(GroupCtrl, ctrlname) == nil then
 					local qstctrl		= GroupCtrl:CreateControlSet('richtxt', ctrlname, 10, list_y);
 					list_y = list_y + 20;
 					local questIES = questIESlist[idx];
@@ -599,11 +595,11 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 	local mapname = mapprop:GetClassName();
 	local cnt = #questPropList;
 	for i = 1 , cnt do
-		local questprop = questPropList[i];
+		local questprop = geQuestTable.GetPropByIndex(questPropList[i]);
 		local cls = questIESlist[i];
 		local stateidx = STATE_NUMBER(statelist[i]);
 
-		if stateidx ~= -1 then
+		if questprop ~= nil and stateidx ~= -1 then
 			local locationlist = questprop:GetLocation(stateidx);
 			if locationlist ~= nil then
 				local loccnt = locationlist:Count();
@@ -878,7 +874,7 @@ function UPDATE_MINIMAP_TOOLTIP(tooltipframe, strarg, questclassID, numarg1, mon
 
 	tooltipframe:ShowFrame(0);
 
-	local txt = tooltipframe:GetChild("name");
+	local txt = GET_CHILD_RECURSIVELY(tooltipframe, "name");
 	local tooltiptxt = '';
 
 	local divCount = 0;
@@ -936,7 +932,7 @@ end
 
 
 function MAP_CHAR_UPDATE(frame, msg, argStr, argNum)
-
+--	frame = GET_CHILD_RECURSIVELY(frame, "textGbox")
 	-- argNum 는 오브젝트 ID -> 오브젝트의 Relation, 위치와 방향 등 참조.
 	local objHandle = argNum;
 	--local pos = info.GetPositionInMap(objHandle, m_mapWidth, m_mapHeight);
@@ -950,7 +946,7 @@ function MAP_CHAR_UPDATE(frame, msg, argStr, argNum)
 
 	local treasureMap = ui.GetFrame('Map_TreasureMark');
 	if treasureMap ~= nil and treasureMap:IsVisible() == 1 then
-		local myCtrl = treasureMap:GetChild('my');
+		local myCtrl = GET_CHILD_RECURSIVELY(treasureMap, 'my');
 		local mapprop = session.GetCurrentMapProp();
 		local angle = info.GetAngle(objHandle) - mapprop.RotateAngle;
 		myCtrl:SetAngle(angle);
@@ -1050,7 +1046,7 @@ function CREATE_PM_PICTURE(frame, pcInfo, type, mapprop)
 	map_partymember_iconset:SetTooltipType("partymap");
 	map_partymember_iconset:SetTooltipArg(pcInfo:GetName(), type);
 
-	local pm_name_rtext = GET_CHILD(map_partymember_iconset,"pm_name","ui::CRichText")
+	local pm_name_rtext = GET_CHILD_RECURSIVELY(map_partymember_iconset,"pm_name","ui::CRichText")
 	pm_name_rtext:SetTextByKey("pm_fname",pcInfo:GetName())
 
 	local iconinfo = pcInfo:GetIconInfo();
@@ -1061,7 +1057,7 @@ end
 
 function SET_PM_MINIMAP_ICON(map_partymember_iconset, pcHP, pcJobID)
 	local jobCls = GetClassByType("Job", pcJobID);
-	local pm_icon = GET_CHILD(map_partymember_iconset,"pm_icon","ui::CPicture")
+	local pm_icon = GET_CHILD_RECURSIVELY(map_partymember_iconset,"pm_icon","ui::CPicture")
 	if pcHP > 0 then
 		if nil ~= jobCls then
 			pm_icon:SetImage(jobCls.CtrlType.."_party");
@@ -1096,7 +1092,7 @@ function MAP_UPDATE_PARTY_INST(frame, msg, str, partyType)
 		if myInfo ~= pcInfo then
 			local instInfo = pcInfo:GetInst();
 			local name = header .. pcInfo:GetAID();
-			local pic = frame:GetChild(name);
+			local pic = GET_CHILD_RECURSIVELY(frame, name);
 			if pic ~= nil then
 				local iconinfo = pcInfo:GetIconInfo();
 				SET_PM_MINIMAP_ICON(pic, instInfo.hp, iconinfo.job);
@@ -1135,13 +1131,13 @@ end
 function _MINIMAP_ICON_ADD(parent, key, info)
 	local ctrlName = "CUSTOM_ICON_" .. key;
 
-	local resize = parent:GetChild(ctrlName);
+	local resize = GET_CHILD_RECURSIVELY(parent, ctrlName);
 	local ctrlSet = parent:CreateOrGetControlSet('map_customicon', ctrlName, 0, 0);
 	ctrlSet:SetUserValue("EXTERN", "YES");
-	local text = GET_CHILD(ctrlSet, "name");
+	local text = GET_CHILD_RECURSIVELY(ctrlSet, "name");
 	text:SetTextByKey("value", info:GetName());
 
-	local icon = GET_CHILD(ctrlSet, "icon");
+	local icon = GET_CHILD_RECURSIVELY(ctrlSet, "icon");
 	icon:SetImage(info:GetImage());
 	
 	if info:IsBlink() == true then
@@ -1211,40 +1207,49 @@ function SCR_SHOW_LOCAL_MAP(zoneClassName, useMapFog, showX, showZ)
 	newframe:EnableCloseButton(1);
 	newframe:SetLayerLevel(100);
 	
-	local originCloseBtn = GET_CHILD(newframe, "close_map");
+	local originCloseBtn = GET_CHILD_RECURSIVELY(newframe, "close_map");
 	originCloseBtn:ShowWindow(0);
 
 	DESTORY_MAP_PIC(newframe);
 	local mapprop = geMapTable.GetMapProp(zoneClassName);
 	local KorName = GetClassString('Map', zoneClassName, 'Name');
 
-	local title = GET_CHILD(newframe, "title", "ui::CRichText");
+	local title = GET_CHILD_RECURSIVELY(newframe, "title", "ui::CRichText");
 	title:SetText('{@st46}'..KorName);
 
-	local rate = newframe:GetChild('rate');
+	local rate = GET_CHILD_RECURSIVELY(newframe, 'rate');
 	rate:ShowWindow(0);
-	local mapPicture = newframe:GetChild("map");
-	local monlv = mapPicture:GetChild("monlv");
+	local mapPicture =  GET_CHILD_RECURSIVELY(newframe, 'map');
+	local monlv = GET_CHILD_RECURSIVELY(mapPicture, "monlv");
 	MAKE_MAP_NPC_ICONS(newframe, zoneClassName);
 	if monlv ~= nil then
 		monlv:ShowWindow(0);
 	end
 
-	local myctrl = newframe:GetChild('my');
+	local myctrl = GET_CHILD_RECURSIVELY(newframe, 'my');
 	myctrl:ShowWindow(0);
 
 	world.PreloadMinimap(zoneClassName);
-	local mappicturetemp = GET_CHILD(newframe,'map','ui::CPicture')	
+	local mappicturetemp = GET_CHILD_RECURSIVELY(newframe,'map','ui::CPicture');
+
+	local width = 0;
+	local height = 0;
 	if useMapFog == true then
 		mappicturetemp:SetImage(zoneClassName .. "_fog");
+
+		width = ui.GetImageWidth(zoneClassName .. "_fog");
+		height = ui.GetImageHeight(zoneClassName .. "_fog");
 	else
 		mappicturetemp:SetImage(zoneClassName);
-	end
 
+		width = ui.GetImageWidth(zoneClassName);
+		height = ui.GetImageHeight(zoneClassName);
+	end
+	
 	local treasureMarkPic = newframe:CreateOrGetControl('picture', 'treasuremark', 0, 0, 64, 64);
 	tolua.cast(treasureMarkPic, "ui::CPicture");
 	treasureMarkPic:SetImage('trasuremapmark');
-	local MapPos = mapprop:WorldPosToMinimapPos(showX, showZ, 1024, 1024);
+	local MapPos = mapprop:WorldPosToMinimapPos(showX, showZ, width, height);
 	treasureMarkPic:SetEnableStretch(1);
 	
 	local offsetX = mappicturetemp:GetX();
@@ -1283,11 +1288,15 @@ function MAP_COLONY_MONSTER(frame, msg, posStr, monID)
     local colonyMonPic = frame:CreateControl('picture', 'colonyMonPic_'..monID, 0, 0, MONSTER_SIZE, MONSTER_SIZE);    
     colonyMonPic = AUTO_CAST(colonyMonPic);    
     colonyMonPic:SetImage(COLONY_MON_IMG);
-
+	
     local zoneClassName = GetZoneName();
     local mapprop = geMapTable.GetMapProp(zoneClassName);
-    local MapPos = mapprop:WorldPosToMinimapPos(x, z, 1024, 1024);
-    local mappicturetemp = GET_CHILD(frame, 'map', 'ui::CPicture');
+
+	local width = ui.GetImageWidth(zoneClassName .. "_fog");
+	local height = ui.GetImageHeight(zoneClassName .. "_fog");
+
+    local MapPos = mapprop:WorldPosToMinimapPos(x, z, width, height);
+    local mappicturetemp = GET_CHILD_RECURSIVELY(frame, 'map', 'ui::CPicture');
     local offsetX = mappicturetemp:GetX();
 	local offsetY = mappicturetemp:GetY();
     local _x = offsetX + MapPos.x - MONSTER_SIZE / 2;

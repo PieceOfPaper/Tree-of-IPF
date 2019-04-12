@@ -1419,17 +1419,10 @@ function DLC_BOX_2YEARS(pc)
 end
 
 function SCR_USE_EVENT_STEAM_2YEARS_WARP(pc)
-    local aObj = GetAccountObj(pc);
-    local select = ShowSelDlg(pc, 0, 'NPC_EVENT_2YEARS_DLG6',  ScpArgMsg("Cancel"), ScpArgMsg("Yes")) 
-
-    if select == 2 then
-        local tx = TxBegin(pc)
-        TxSetIESProp(tx, aObj, 'STEAM_2YEARS_MASTER_DLC_CHECK', 1);
-        local ret = TxCommit(tx)
-        if ret =="SUCCESS" then
-            MoveZone(pc, 'c_Klaipe', 71.70, 149.21, 321.89);
-        end
-    end
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'costume_1709_NewField_m', 1, 'EVENT_STEAM_2YEARS');
+    TxGiveItem(tx, 'costume_1709_NewField_f', 1, 'EVENT_STEAM_2YEARS');
+    local ret = TxCommit(tx);
 end
 
 function ACHIEVE_Steam_Honorary(pc)
@@ -1446,24 +1439,6 @@ function SCR_USE_2YEARS_BOX(pc)
     local ret = TxCommit(tx);
 end
 
-function SCR_USE_CS_IndunReset_GTower_1(self)
-    if IS_BASIC_FIELD_DUNGEON(self) == 'YES' or GetClassString('Map', GetZoneName(self), 'MapType') == 'City' then
-    local pcetc = GetETCObject(self)
-        if pcetc ~= nil then
-            local tx = TxBegin(self);
-                if pcetc.InDunCountType_400 > 0 then	
-                    TxSetIESProp(tx, pcetc, 'InDunCountType_400', pcetc.InDunCountType_400 - 1);
-                end
-                if pcetc.IndunWeeklyEnteredCount_400 > 0 then
-                    TxSetIESProp(tx, pcetc, 'IndunWeeklyEnteredCount_400', pcetc.IndunWeeklyEnteredCount_400 - 1);
-                end
-            local ret = TxCommit(tx);	
-            if ret == 'SUCCESS' then
-            SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("CS_IndunReset_GTower_1_MSG1"), 10)
-            end
-        end
-    end
-end
 
 function ACHIEVE_Steam_Magazine_Num1(pc)
     local tx = TxBegin(pc);

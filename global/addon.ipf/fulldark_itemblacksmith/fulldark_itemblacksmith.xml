@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="fulldark_itemblacksmith" x="0" y="0" width="1920" height="1080">
+	<frame snapclient="true" snapframe="true" fasthide="false"/>
+	<draw drawframe="false" drawtitlebar="false"/>
+	<option closebutton="false" autoopen="false"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<layer layerlevel="97"/>
+	<userconfig BLACKSMITH_RESULT_EFFECT="I_gacha_end03_velcoffer" BLACKSMITH_RESULT_EFFECT_SCALE="9" FRAME_DURATION="6"/>
+	<animation frameCloseAnim="chat_balloon_end2"/>
+	<script OpenScp="" CloseScp=""/>
+	<controls>
+		<groupbox name="resultGbox" rect="0 0 1000 600" margin="0 0 0 0" hittest="false" layout_gravity="center center" skin="None"/>
+		<picture name="screenmask" rect="0 0 1920 1080" margin="0 0 0 0" hittest="false" image="fullblack" alpha="60" stretch="true"/>
+		<picture name="image" rect="0 0 942 570" margin="0 0 0 0" parent="resultGbox" hittest="false" image="LegendEquip_big_01" alpha="100" stretch="true" layout_gravity="center center"/>
+		<picture name="itemIcon" rect="0 0 200 200" margin="0 -20 0 0" parent="resultGBox" hittest="false" image="None" alpha="100" stretch="true" layout_gravity="center center"/>
+	</controls>
+</uiframe>

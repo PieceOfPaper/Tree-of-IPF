@@ -44,9 +44,9 @@ function GET_MORE_EVENT_EXP(pc)
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_WhiteDay_Buff');	-- 화이트데이
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Goddess');	-- 여신의 조각상
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_RedOrb_GM');	-- 이벤트 참여
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Danoh_3'); --대만 단오절
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Danoh_3'); --대만 단오절
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_WeddingCake'); -- 웨딩 케잌
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1706_FREE_EXPUP'); --이런 이벤트
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1706_FREE_EXPUP'); --이런 이벤트.
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Wedding'); --스팀 웨딩 이벤트
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Nru_Buff_Item'); --해외 신규 유저 이벤트
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Monster_EXP_UP'); --해외 페이스북 컴패니언 이벤트
@@ -65,7 +65,8 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1802_CHOCO_BUFF4'); --발렌타인 초콜릿
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1802_CHOCO_BUFF5'); --발렌타인 초콜릿
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_1802_weekend'); --3월 주말 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Last_Winter'); --마지막 겨울
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1804_ARBOR_BUFF_7'); --2018년 식목일 이벤트
+		sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Last_Winter'); --마지막 겨울
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Base_Buff'); --해외 버프
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_1'); --출석 체크
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_2'); --출석 체크

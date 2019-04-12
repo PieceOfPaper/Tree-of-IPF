@@ -109,7 +109,6 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
     		showAppraisalPic = true;
 		end
 	end
-	
 	-- 비교?�팁
 	-- ?�팁 비교??무기?� ?�비?�만 ?�당?�다. (미감???�외)
 
@@ -166,7 +165,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 
 			if equiptype == 'RING' then
 
-				if keyboard.IsPressed(KEY_ALT) == 1 then
+				if keyboard.IsKeyPressed("LALT") == 1 then
 					equiptype = 'RING2'
 				else
 					equiptype = 'RING1'
@@ -174,9 +173,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 			end
 
 			local equitSpot = item.GetEquipSpotNum(equiptype);
-
 			local item = session.GetEquipItemBySpot(equitSpot);
-
 			if item ~= nil then
 				local equipItem = GetIES(item:GetObject());
 
@@ -386,7 +383,7 @@ function DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, yPos, mainframename)
 	
 	local height = gBox:GetHeight() + tooltip_lifeTimeinfo_CSet:GetHeight();
 	gBox:Resize(gBox:GetWidth(), height);
-	return height;
+	return tooltip_lifeTimeinfo_CSet:GetY() + tooltip_lifeTimeinfo_CSet:GetHeight()
 end;
 
 function SHOW_REMAIN_LIFE_TIME(ctrl)
@@ -442,7 +439,7 @@ function GET_ITEM_PROP_NAME_LIST(obj)
 			propNameList[#propNameList]["PropName"] = propName;
 
             local propValue = math.floor(obj[propName]);
-            if propName == 'CoolDown' and propValue == 0 then -- 인벤토리가 아닌 아이템의 경우 CP계산을 못해요
+            if propName == 'CoolDown' and propValue == 0 then -- ?�벤?�리가 ?�닌 ?�이?�의 경우 CP계산??못해?
                 propValue = obj.ItemCoolDown;
             end
 
@@ -607,4 +604,101 @@ function ICON_SET_EQUIPITEM_TOOLTIP(icon, equipitem, topParentFrameName)
 	if topParentFrameName ~= nil then
 		icon:SetTooltipTopParentFrame(topParentFrameName);
 	end
+end
+
+-- ?�션 추출 ?�이???�팁
+function ITEM_TOOLTIP_EXTRACT_OPTION(tooltipframe, invitem, mouseOverFrameName)
+	local targetItem = GetClass('Item', invitem.InheritanceItemName);
+	if targetItem == nil then
+		return;
+	end
+
+	tolua.cast(tooltipframe, "ui::CTooltipFrame");
+	local mainframename = 'extract_option';
+	local ypos, commonCtrlSet = DRAW_EXTRACT_OPTION_COMMON_TOOLTIP(tooltipframe, invitem, targetItem, mainframename);	
+	local line1 = commonCtrlSet:GetChild('line1');
+	if IS_EXIST_RANDOM_OPTION(invitem) == true then		
+		ypos = DRAW_EXTRACT_OPTION_RANDOM_OPTION(tooltipframe, invitem, mainframename, ypos);	
+	end
+
+	ypos = DRAW_EQUIP_PROPERTY(tooltipframe, targetItem, ypos, mainframename, nil, false);
+	ypos = DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, targetItem, mainframename, ypos);
+	ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename);
+	ypos = DRAW_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename);
+	ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
+end
+
+function DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, targetItem, mainframename, ypos)
+	local gBox = GET_CHILD(tooltipframe, mainframename);
+	local descCtrlset = gBox:CreateControlSet('tooltip_extract_option_equip_limit', 'equipLimitCtrlSet', 0, ypos);
+    local descText = GET_CHILD(descCtrlset, 'descText');
+    descText:SetText(ScpArgMsg('{LEVEL}LimitEquip', 'LEVEL', GET_OPTION_EQUIP_LIMIT_LEVEL(targetItem)));
+    descCtrlset:Resize(descCtrlset:GetWidth(), descText:GetY() + descText:GetHeight());
+
+	ypos = ypos + descCtrlset:GetHeight() + 10;
+	gBox:Resize(gBox:GetWidth(), ypos);
+	return ypos;
+end
+
+function DRAW_EXTRACT_OPTION_COMMON_TOOLTIP(tooltipframe, invitem, targetItem, mainframename)
+	local gBox = GET_CHILD(tooltipframe, mainframename);
+	gBox:RemoveAllChild();
+	
+	local ctrlset = gBox:CreateControlSet('tooltip_extract_option', 'EXTRACT_OPTION_CTRLSET', 0, 0);
+	local nameText = GET_CHILD(ctrlset, 'nameText');
+	nameText:SetText(invitem.Name);
+
+	local itemPic = GET_CHILD(ctrlset, 'itemPic');
+	itemPic:SetImage(invitem.Icon);
+
+	local groupText = GET_CHILD(ctrlset, 'groupText');
+	groupText:SetText(ClMsg(invitem.GroupName));
+
+	local weightText = GET_CHILD(ctrlset, 'weightText');
+	weightText:SetTextByKey('weight', invitem.Weight)
+
+	local classTypeText = GET_CHILD(ctrlset, 'classTypeText');	
+	classTypeText:SetText(ClMsg(targetItem.ClassType));
+
+	gBox:Resize(gBox:GetWidth(), gBox:GetHeight() + ctrlset:GetHeight());
+	return ctrlset:GetHeight(), ctrlset;
+end
+
+function DRAW_EXTRACT_OPTION_RANDOM_OPTION(tooltipframe, invitem, mainframename, ypos)
+	local gBox = GET_CHILD(tooltipframe, mainframename);
+	local randomOptionBox = gBox:CreateControl('groupbox', 'randomOptionBox', 0, ypos + 5, gBox:GetWidth(), 0);
+	randomOptionBox:SetSkinName('None');
+	local inner_yPos = 0;
+
+	for i = 1 , 6 do
+	    local propGroupName = "RandomOptionGroup_"..i;
+		local propName = "RandomOption_"..i;
+		local propValue = "RandomOptionValue_"..i;
+		local clientMessage = 'None'
+		
+		if invitem[propGroupName] == 'ATK' then
+		    clientMessage = 'ItemRandomOptionGroupATK'
+		elseif invitem[propGroupName] == 'DEF' then
+		    clientMessage = 'ItemRandomOptionGroupDEF'
+		elseif invitem[propGroupName] == 'UTIL_WEAPON' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif invitem[propGroupName] == 'UTIL_ARMOR' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif invitem[propGroupName] == 'UTIL_SHILED' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif invitem[propGroupName] == 'STAT' then
+		    clientMessage = 'ItemRandomOptionGroupSTAT'
+		end
+		
+		if invitem[propValue] ~= 0 and invitem[propName] ~= "None" then
+			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(invitem[propName]));
+			local strInfo = ABILITY_DESC_NO_PLUS(opName, invitem[propValue], 0);
+			inner_yPos = ADD_ITEM_PROPERTY_TEXT(randomOptionBox, strInfo, 0, inner_yPos);
+		end
+	end
+
+	randomOptionBox:Resize(randomOptionBox:GetWidth(), inner_yPos);
+	ypos = randomOptionBox:GetY() + randomOptionBox:GetHeight() + 10;
+	gBox:Resize(gBox:GetWidth(), ypos);
+	return ypos;
 end

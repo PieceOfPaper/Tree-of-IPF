@@ -33,7 +33,7 @@ function PUT_ITEM_TO_WAREHOUSE(parent, slot)
 		return;
 	end
 	local obj = GetIES(invItem:GetObject());
-	
+
 	if CHECK_EMPTYSLOT(frame, obj) == 1 then
 		return
 	end
