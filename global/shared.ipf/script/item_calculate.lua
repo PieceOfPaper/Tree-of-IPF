@@ -709,9 +709,6 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
     item.MDEF = mdef;
     item.DefRatio = defRatio;
     item.MDefRatio = mdefRatio;
-    item.ADD_FIRE = fireAtk;
-    item.ADD_ICE = iceAtk;
-    item.ADD_LIGHTNING = lightningAtk;
 
 
 

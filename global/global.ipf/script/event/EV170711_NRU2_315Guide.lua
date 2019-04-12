@@ -6,7 +6,7 @@ function SCR_EVENT_NRU2_315GUIDE_DIALOG(self, pc)
     local aObj = GetAccountObj(pc);
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
     
-    if ((month >= 7 and day >= 11) or (month >= 8)) and year >= 2017 then
+    if ((month >= 9 and day >= 12) or (month >= 10)) and year >= 2017 then
         if aObj.EV170711_NRU2_1 == 0 then
            local tx = TxBegin(pc)
            TxGiveItem(tx, 'costume_simple_festival_m', 1, 'EV170711_NRU2');
@@ -14,9 +14,9 @@ function SCR_EVENT_NRU2_315GUIDE_DIALOG(self, pc)
            TxSetIESProp(tx, aObj, 'EV170711_NRU2_1', 1);
            local ret = TxCommit(tx) 
         end
-        if aObj.DAYCHECK_EVENT_LAST_DATE ~= 'Nru2' then -- 현재 진행중인 이벤트
+        if aObj.DAYCHECK_EVENT_LAST_DATE ~= 'Nru0912' then -- 현재 진행중인 이벤트
             local tx = TxBegin(pc)
-            TxSetIESProp(tx, aObj, 'DAYCHECK_EVENT_LAST_DATE', 'Nru2');
+            TxSetIESProp(tx, aObj, 'DAYCHECK_EVENT_LAST_DATE', 'Nru0912');
             TxSetIESProp(tx, aObj, 'EV170516_NRU_ALWAYS_AOBJ', 0);
             TxSetIESProp(tx, sObj, 'EV170516_NRU_ALWAYS_SOBJ', 0);
             local ret = TxCommit(tx)

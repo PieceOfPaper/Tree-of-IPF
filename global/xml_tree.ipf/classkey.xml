@@ -431,6 +431,7 @@
         <Key Name="CustomToolTip" Value="7340"/>
         <Key Name="KeyWord_2" Value="9721"/>
         <Key Name="CardGroupName" Value="101052"/>
+        <Key Name="NeedRandomOption" Value="101226"/>
     </KeyIDSpc>
     <KeyIDSpc Name="SessionObject">
         <Key Name="HT_PATRIFICATION_7" Value="34296"/>
@@ -6655,6 +6656,20 @@
         <Key Name="TUTO_FISHING" Value="101054"/>
         <Key Name="EVENT_1708_JURATE_WDAY_CHECK" Value="101072"/>
         <Key Name="MG_Last_MISSION_EVENT_1708_JURATE" Value="101071"/>
+        <Key Name="FIELD_CO_OP_POINT" Value="101213"/>
+        <Key Name="F_CO_OP_HOLY_WATER" Value="101215"/>
+        <Key Name="F_CO_OP_PILGRIMROAD_46" Value="101216"/>
+        <Key Name="F_CO_OP_REMAINS_40" Value="101225"/>
+        <Key Name="F_CO_OP_SIAULIAI_50" Value="101223"/>
+        <Key Name="MG_Last_170628_Rain_Mission" Value="101227"/>
+        <Key Name="MG_Last_F_CO_OP_PILGRIMROAD_46" Value="101220"/>
+        <Key Name="MG_Last_F_CO_OP_REMAINS_40" Value="101224"/>
+        <Key Name="MG_Last_F_CO_OP_SIAULIAI_50" Value="101217"/>
+        <Key Name="MG_Last_GUILD_COLONY_F_CASTLE_20_3" Value="101218"/>
+        <Key Name="MG_Last_GUILD_COLONY_F_PILGRIMROAD_49" Value="101221"/>
+        <Key Name="MG_Last_GUILD_COLONY_F_ROKAS_36_1" Value="101219"/>
+        <Key Name="STARTOWER762_EVENT2_DAILY" Value="101222"/>
+        <Key Name="STARTOWER762_EVENT3_DAILY" Value="101214"/>
     </KeyIDSpc>
     <KeyIDSpc Name="ZoneObject">
         <Key Name="Law_Phase" Value="116"/>
@@ -6726,6 +6741,9 @@
         <Key Name="Hide_1312" Value="7758"/>
         <Key Name="Hide_1313" Value="7759"/>
         <Key Name="IsPrivate" Value="9890"/>
+        <Key Name="FIELD_CO_OP_MGAME_SUCCESS" Value="101211"/>
+        <Key Name="FIELD_CO_OP_TIMECHECK" Value="101212"/>
+        <Key Name="SUMMON_BOSS_MONSTER_COUNT" Value="101202"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Guild">
         <Key Name="GuildAuthorityBitFlag_8" Value="34704"/>
@@ -6936,6 +6954,9 @@
         <Key Name="GuildRaidSelectID" Value="9383"/>
         <Key Name="MaxCount" Value="7691"/>
         <Key Name="MiningLevel" Value="9329"/>
+        <Key Name="EnableEnterColonyWar" Value="101209"/>
+        <Key Name="GuildAsset" Value="101210"/>
+        <Key Name="GuildNeutralityAlarm" Value="101208"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PartyMember">
         <Key Name="Shared_Quest" Value="7224"/>
@@ -7746,6 +7767,13 @@
         <Key Name="HadVisited_4340" Value="101070"/>
         <Key Name="EV170816_YOUR_CHOICE_4" Value="101076"/>
         <Key Name="EV170816_YOUR_CHOICE_5" Value="101077"/>
+        <Key Name="EV170711_GOLDEN_WHALE_COUNT" Value="101204"/>
+        <Key Name="EV170711_GOLDEN_WHALE_COUNT_REWARD" Value="101203"/>
+        <Key Name="EVENT_TOGETHER_MASTER_DATE" Value="101229"/>
+        <Key Name="EVENT_TOGETHER_MASTER_DATE_COUNT" Value="101230"/>
+        <Key Name="FIELD_CO_OP_DAYCHECK" Value="101206"/>
+        <Key Name="FIELD_CO_OP_REWARD" Value="101205"/>
+        <Key Name="HadVisited_522" Value="101231"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Hide_648" Value="4747"/>
@@ -14512,6 +14540,132 @@
         <Key Name="Kill_EVENT_boss_Lapene" Value="101059"/>
         <Key Name="Kill_EVENT_boss_hydra" Value="101061"/>
         <Key Name="Kill_EVENT_boss_sparnas" Value="101060"/>
+        <Key Name="HadVisited_522" Value="101228"/>
+        <Key Name="Kill_Colony_Boss_Golem_balck" Value="101207"/>
+        <Key Name="Kill_M_random_boss_Abomination" Value="101197"/>
+        <Key Name="Kill_M_random_boss_Achat" Value="101093"/>
+        <Key Name="Kill_M_random_boss_Basilisk" Value="101088"/>
+        <Key Name="Kill_M_random_boss_BiteRegina" Value="101106"/>
+        <Key Name="Kill_M_random_boss_Blud" Value="101082"/>
+        <Key Name="Kill_M_random_boss_Canceril" Value="101199"/>
+        <Key Name="Kill_M_random_boss_Carapace" Value="101168"/>
+        <Key Name="Kill_M_random_boss_Centaurus" Value="101169"/>
+        <Key Name="Kill_M_random_boss_Chapparition" Value="101089"/>
+        <Key Name="Kill_M_random_boss_Clymen" Value="101172"/>
+        <Key Name="Kill_M_random_boss_Colimencia" Value="101171"/>
+        <Key Name="Kill_M_random_boss_Confinedion" Value="101185"/>
+        <Key Name="Kill_M_random_boss_Crabil" Value="101120"/>
+        <Key Name="Kill_M_random_boss_Deathweaver" Value="101101"/>
+        <Key Name="Kill_M_random_boss_Denoptic" Value="101194"/>
+        <Key Name="Kill_M_random_boss_Devilglove" Value="101127"/>
+        <Key Name="Kill_M_random_boss_FerretMarauder" Value="101104"/>
+        <Key Name="Kill_M_random_boss_Fireload" Value="101174"/>
+        <Key Name="Kill_M_random_boss_Flammidus" Value="101097"/>
+        <Key Name="Kill_M_random_boss_Frogola" Value="101190"/>
+        <Key Name="Kill_M_random_boss_Gaigalas" Value="101128"/>
+        <Key Name="Kill_M_random_boss_GazingGolem" Value="101123"/>
+        <Key Name="Kill_M_random_boss_Genmagnus" Value="101121"/>
+        <Key Name="Kill_M_random_boss_GiantWoodGoblin" Value="101167"/>
+        <Key Name="Kill_M_random_boss_GiantWoodGoblin_red" Value="101084"/>
+        <Key Name="Kill_M_random_boss_Glackuman" Value="101192"/>
+        <Key Name="Kill_M_random_boss_Glass_mole" Value="101085"/>
+        <Key Name="Kill_M_random_boss_Goblin_Warrior" Value="101180"/>
+        <Key Name="Kill_M_random_boss_Goblin_Warrior_red" Value="101134"/>
+        <Key Name="Kill_M_random_boss_Golem" Value="101129"/>
+        <Key Name="Kill_M_random_boss_Gorgon" Value="101124"/>
+        <Key Name="Kill_M_random_boss_Gremlin" Value="101115"/>
+        <Key Name="Kill_M_random_boss_Grinender" Value="101122"/>
+        <Key Name="Kill_M_random_boss_Harpeia" Value="101177"/>
+        <Key Name="Kill_M_random_boss_Iltiswort" Value="101109"/>
+        <Key Name="Kill_M_random_boss_Ironbaum" Value="101092"/>
+        <Key Name="Kill_M_random_boss_Kerberos" Value="101170"/>
+        <Key Name="Kill_M_random_boss_Kimeleech" Value="101095"/>
+        <Key Name="Kill_M_random_boss_Kubas" Value="101200"/>
+        <Key Name="Kill_M_random_boss_Lithorex" Value="101118"/>
+        <Key Name="Kill_M_random_boss_MagBurk" Value="101132"/>
+        <Key Name="Kill_M_random_boss_Malletwyvern" Value="101184"/>
+        <Key Name="Kill_M_random_boss_Mandara" Value="101142"/>
+        <Key Name="Kill_M_random_boss_Manticen" Value="101143"/>
+        <Key Name="Kill_M_random_boss_Marionette" Value="101080"/>
+        <Key Name="Kill_M_random_boss_Marnoks" Value="101087"/>
+        <Key Name="Kill_M_random_boss_Merge" Value="101144"/>
+        <Key Name="Kill_M_random_boss_Minotaurs" Value="101149"/>
+        <Key Name="Kill_M_random_boss_Moldyhorn" Value="101147"/>
+        <Key Name="Kill_M_random_boss_Mothstem" Value="101145"/>
+        <Key Name="Kill_M_random_boss_Moyabruka" Value="101195"/>
+        <Key Name="Kill_M_random_boss_Mummyghast" Value="101081"/>
+        <Key Name="Kill_M_random_boss_Mushcaria" Value="101133"/>
+        <Key Name="Kill_M_random_boss_Naktis" Value="101113"/>
+        <Key Name="Kill_M_random_boss_Neop" Value="101114"/>
+        <Key Name="Kill_M_random_boss_Nepenthes" Value="101079"/>
+        <Key Name="Kill_M_random_boss_NetherBovine" Value="101125"/>
+        <Key Name="Kill_M_random_boss_Nuaelle" Value="101193"/>
+        <Key Name="Kill_M_random_boss_Prisoncutter" Value="101175"/>
+        <Key Name="Kill_M_random_boss_Pyroego" Value="101117"/>
+        <Key Name="Kill_M_random_boss_Rajapearl" Value="101078"/>
+        <Key Name="Kill_M_random_boss_Rajatoad" Value="101130"/>
+        <Key Name="Kill_M_random_boss_Ravinepede" Value="101099"/>
+        <Key Name="Kill_M_random_boss_Reaverpede" Value="101139"/>
+        <Key Name="Kill_M_random_boss_RingCrawler" Value="101102"/>
+        <Key Name="Kill_M_random_boss_Riteris" Value="101140"/>
+        <Key Name="Kill_M_random_boss_Rocktortuga" Value="101137"/>
+        <Key Name="Kill_M_random_boss_Saltistter" Value="101107"/>
+        <Key Name="Kill_M_random_boss_Sequoia" Value="101156"/>
+        <Key Name="Kill_M_random_boss_ShadowGaoler" Value="101155"/>
+        <Key Name="Kill_M_random_boss_Shnayim" Value="101157"/>
+        <Key Name="Kill_M_random_boss_Sparnanman" Value="101112"/>
+        <Key Name="Kill_M_random_boss_Spector_F" Value="101178"/>
+        <Key Name="Kill_M_random_boss_Spector_m" Value="101158"/>
+        <Key Name="Kill_M_random_boss_Strongholder" Value="101153"/>
+        <Key Name="Kill_M_random_boss_Templeshooter" Value="101182"/>
+        <Key Name="Kill_M_random_boss_Teraox" Value="101188"/>
+        <Key Name="Kill_M_random_boss_Throneweaver" Value="101159"/>
+        <Key Name="Kill_M_random_boss_TombLord" Value="101201"/>
+        <Key Name="Kill_M_random_boss_Unknocker" Value="101161"/>
+        <Key Name="Kill_M_random_boss_Velniamonkey" Value="101151"/>
+        <Key Name="Kill_M_random_boss_Velorchard" Value="101152"/>
+        <Key Name="Kill_M_random_boss_Yeti" Value="101198"/>
+        <Key Name="Kill_M_random_boss_Zawra" Value="101166"/>
+        <Key Name="Kill_M_random_boss_archon" Value="101160"/>
+        <Key Name="Kill_M_random_boss_bearkaras" Value="101083"/>
+        <Key Name="Kill_M_random_boss_bebraspion" Value="101150"/>
+        <Key Name="Kill_M_random_boss_bramble" Value="101105"/>
+        <Key Name="Kill_M_random_boss_capria" Value="101187"/>
+        <Key Name="Kill_M_random_boss_chafer" Value="101110"/>
+        <Key Name="Kill_M_random_boss_deadbone" Value="101126"/>
+        <Key Name="Kill_M_random_boss_durahan" Value="101136"/>
+        <Key Name="Kill_M_random_boss_ellaganos" Value="101162"/>
+        <Key Name="Kill_M_random_boss_fallen_statue" Value="101135"/>
+        <Key Name="Kill_M_random_boss_ginklas" Value="101183"/>
+        <Key Name="Kill_M_random_boss_golem_Gray" Value="101179"/>
+        <Key Name="Kill_M_random_boss_helgasercle" Value="101098"/>
+        <Key Name="Kill_M_random_boss_honeypin" Value="101103"/>
+        <Key Name="Kill_M_random_boss_hydra" Value="101186"/>
+        <Key Name="Kill_M_random_boss_lecifer" Value="101086"/>
+        <Key Name="Kill_M_random_boss_lepus" Value="101138"/>
+        <Key Name="Kill_M_random_boss_merregina" Value="101191"/>
+        <Key Name="Kill_M_random_boss_mineloader" Value="101141"/>
+        <Key Name="Kill_M_random_boss_mirtis" Value="101090"/>
+        <Key Name="Kill_M_random_boss_moa" Value="101146"/>
+        <Key Name="Kill_M_random_boss_molich" Value="101148"/>
+        <Key Name="Kill_M_random_boss_necrovanter" Value="101100"/>
+        <Key Name="Kill_M_random_boss_nuodai" Value="101119"/>
+        <Key Name="Kill_M_random_boss_onion_the_great" Value="101181"/>
+        <Key Name="Kill_M_random_boss_plokste" Value="101176"/>
+        <Key Name="Kill_M_random_boss_poata" Value="101096"/>
+        <Key Name="Kill_M_random_boss_salamander" Value="101154"/>
+        <Key Name="Kill_M_random_boss_simorph" Value="101196"/>
+        <Key Name="Kill_M_random_boss_sparnas" Value="101111"/>
+        <Key Name="Kill_M_random_boss_spector_gh" Value="101131"/>
+        <Key Name="Kill_M_random_boss_stone_whale" Value="101091"/>
+        <Key Name="Kill_M_random_boss_tutu" Value="101173"/>
+        <Key Name="Kill_M_random_boss_unicorn" Value="101094"/>
+        <Key Name="Kill_M_random_boss_velnewt" Value="101116"/>
+        <Key Name="Kill_M_random_boss_velpede" Value="101189"/>
+        <Key Name="Kill_M_random_boss_werewolf" Value="101165"/>
+        <Key Name="Kill_M_random_boss_woodhoungan" Value="101164"/>
+        <Key Name="Kill_M_random_boss_yekub" Value="101108"/>
+        <Key Name="Kill_M_random_boss_yonazolem" Value="101163"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PC">
         <Key Name="Tutorial" Value="7159"/>

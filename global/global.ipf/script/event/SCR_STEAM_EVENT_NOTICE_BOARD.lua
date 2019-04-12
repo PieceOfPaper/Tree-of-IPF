@@ -1,14 +1,17 @@
 function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
     local year, month, day, hour, min = GetAccountCreateTime(pc)
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
---    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("steam_Event_Select_1"), ScpArgMsg("steam_Event_Select_2"), ScpArgMsg("Cancel"))
---    if select == 1 then
---        SCR_KIND_DONNES_DIALOG(self,pc)
---    elseif select == 2 then
---        SCR_NRU_ALWAYS_DIALOG(self,pc)--EV170516~Always
---    end
+    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("Event_Steam_Together_Master_3"), ScpArgMsg("Event_Nru2_Guide_1"), ScpArgMsg("Event_CB_1"), ScpArgMsg("Event_Today_Number_1"), ScpArgMsg("Cancel")) 
     
---    SCR_DAYQUEST_RANDOM_EV_DIALOG(self, pc)
+    if select == 1 then
+        SCR_EVENT_TOGETHER_MASTER_DIALOG(self, pc)   
+    elseif select == 2 then
+        SCR_EVENT_NRU2_315GUIDE_DIALOG(self,pc)  
+    elseif select == 3 then
+        SCR_EVENT_CB_DIALOG(self,pc)
+    elseif select == 4 then
+        SCR_EVENT_TODAY_NUMBER_DIALOG(self, pc)
+    end
 end
 
 function EVENT_PROPERTY_RESET(pc, aObj, sObj)
