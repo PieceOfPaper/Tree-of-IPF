@@ -1,5 +1,9 @@
 -- gacha_cube_legend.lua --
 
+function GACHA_CUBE_LEGEND_ON_INIT(addon, frame)	
+    addon:RegisterMsg('CLOSE_GACHA_CUBE_LEGEND', 'CANCEL_GACHA_CUBE_LEGEND')
+end
+
 -- 뽑기 성공 후, 결과 UI창 생성하여 띄우기 
 function GACHA_CUBE_LEGEND_SUCEECD(invItemClsID, rewardItem, btnVisible, reopenCount)
 	-- UI창 얻어와서	 초기화    
@@ -15,7 +19,7 @@ function GACHA_LEGEND_CUBE_LEGEND_SUCEECD_EX(invItemClsID, rewardItem, btnVisibl
 	GACHA_CUBE_SUCEECD_UI(gachaCubeFrame, invItemClsID, rewardItem, btnVisible, reopenCount);
 end
 
-function CANCEL_GACHA_CUBE_LEGEND(frame, msg, argStr, argNum)
+function CANCEL_GACHA_CUBE_LEGEND(frame, msg, argStr, argNum)        
 	SET_MOUSE_FOLLOW_BALLOON(nil);
 	ui.SetEscapeScp("");
 

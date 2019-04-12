@@ -350,7 +350,7 @@ function RESET_NAME_N_MEMO(frame)
 	partynoteText:SetText(nowPartyNote)
 	local partyNameText_setting = GET_CHILD_RECURSIVELY(frame, 'partyname_edit')
 	partyNameText_setting:SetText(nowPartyName)
-	local partyNameText = GET_CHILD_RECURSIVELY(frame, 'partyName')
+	local partyNameText = GET_CHILD_RECURSIVELY(frame, 'partyname')
 	partyNameText:SetTextByKey("PartyName", nowPartyName);
 	
 	local createPartyBtn = GET_CHILD_RECURSIVELY(frame, 'createPartyBtn');

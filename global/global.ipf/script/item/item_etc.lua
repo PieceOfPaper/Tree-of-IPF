@@ -1493,3 +1493,9 @@ function Achieve_Event_Game_Guide_Creator(pc)
     TxAddAchievePoint(tx, 'Achieve_Event_Game_Guide_Creator', 1)
     local ret = TxCommit(tx);
 end
+
+function Achieve_Event_Horror_Night(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Achieve_Event_Horror_Night', 1)
+    local ret = TxCommit(tx);
+end
