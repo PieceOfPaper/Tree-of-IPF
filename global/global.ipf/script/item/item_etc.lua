@@ -235,7 +235,6 @@ end
 function SCR_BUFF_LEAVE_Premium_Fortunecookie_5(self, buff, arg1, arg2, over)
 	self.MSPD_BM = self.MSPD_BM - 5;
 end
-
 function DLC_BOX10(pc)
     local tx = TxBegin(pc);
     TxGiveItem(tx, 'PremiumToken_7d_Steam', 1, 'DLC_BOX4');

@@ -688,12 +688,12 @@ function SSN_CLIENT_UPDATE_QUEST_POSSIBLE(sObj, list, questPossible)
                     else
                         local mapCls = GetClass('Map', questIES.StartMap)
                         if mapCls ~= nil and GetPropType(mapCls, 'WorldMapPreOpen') ~= nil and mapCls.WorldMapPreOpen == 'YES' then
-                            local etc = GetMyEtcObject();
+							local accObj = GetMyAccountObj();
                             if table.find(questPossible,mapCls.ClassID) == 0 then
                                 questPossible[#questPossible + 1] = mapCls.ClassID
                             end
                                     
-                        	if etc['HadVisited_' .. mapCls.ClassID] ~= 1 then
+                        	if accObj['HadVisited_' .. mapCls.ClassID] ~= 1 then
                         		control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 5);
                         	end
                         end
@@ -1036,12 +1036,12 @@ function PREV_SSN_CLIENT_UPDATE_FOR_QA(pc)
                             else
                                 local mapCls = GetClass('Map', questIES.StartMap)
                                 if mapCls ~= nil and GetPropType(mapCls, 'WorldMapPreOpen') ~= nil and mapCls.WorldMapPreOpen == 'YES' then
-                                    local etc = GetMyEtcObject();
+                                    local accObj = GetMyAccountObj();
                                     if table.find(questPossible,mapCls.ClassID) == 0 then
                                         questPossible[#questPossible + 1] = mapCls.ClassID
                                     end
                                     
-                        			if etc['HadVisited_' .. mapCls.ClassID] ~= 1 then
+                        			if accObj['HadVisited_' .. mapCls.ClassID] ~= 1 then
                         			    control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 5);
                         			end
                         		end

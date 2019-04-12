@@ -28,12 +28,8 @@
 		<groupbox name="effectGbox" parent="repair" rect="0 0 439 300" margin="0 400 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
 		<labelline name="effectline" parent="effectGbox" rect="0 0 400 4" margin="0 0 0 225" layout_gravity="center bottom" skin="None"/>
 		<richtext name="effect" parent="effectGbox" rect="0 0 200 80" margin="30 50 0 0" layout_gravity="left top" caption="{@st41b}효과" textalign="left top"/>
-		<richtext name="time" parent="effectGbox" rect="0 0 200 80" margin="32 80 0 0" layout_gravity="left top" caption="지속 시간" fontname="white_16_ol" textalign="left top"/>
-		<richtext name="maxpower" parent="effectGbox" rect="0 0 200 80" margin="32 100 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
-		<richtext name="minpower" parent="effectGbox" rect="0 0 200 80" margin="32 120 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
-		<richtext name="timestr" parent="effectGbox" rect="0 0 343 48" margin="0 80 20 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
-		<richtext name="maxpowerstr" parent="effectGbox" rect="0 0 343 48" margin="0 100 20 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
-		<richtext name="minpowerstr" parent="effectGbox" rect="0 0 343 48" margin="0 120 20 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
+		<richtext name="time" parent="effectGbox" rect="0 0 200 80" margin="25 80 0 0" layout_gravity="left top" caption="지속 시간" fontname="white_16_ol" textalign="left top"/>		
+		<richtext name="timestr" parent="effectGbox" rect="0 0 343 48" margin="0 80 12 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>		
 		<groupbox name="materialGbox" parent="repair" rect="0 0 439 300" margin="0 700 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
 		<labelline name="line" parent="materialGbox" rect="0 0 400 4" margin="0 0 0 225" layout_gravity="center bottom" skin="None"/>
 		<richtext name="material" parent="materialGbox" rect="0 0 200 80" margin="30 50 0 0" layout_gravity="left top" caption="{@st41b}소비재료" textalign="left top"/>
@@ -48,5 +44,7 @@
 		<groupbox name="log_gbox" parent="log" rect="0 5 420 800" margin="0 69 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
 		<groupbox name="reqitem_slot" parent="materialGbox" rect="0 0 70 70" margin="20 0 0 145" layout_gravity="left bottom" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
 		<button name="btn_excute" parent="log" rect="10 10 140 55" margin="0 0 0 45" layout_gravity="center bottom" LBtnUpScp="SQUIRE_BUFF_CLOSE" caption="{@st42}폐점" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>
+		<!-- Basic Property Box -->
+		<groupbox name="basicPropBox" parent="bg_mid" rect="0 0 430 240" margin="0 72 0 0" layout_gravity="center top" draw="false"/>	
 	</controls>
 </uiframe>

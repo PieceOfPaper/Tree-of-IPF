@@ -155,7 +155,7 @@ function EXEC_INGAMESHOP_ITEM_PURCHASE(itemguid)
 	ui.BuyIngameShopItem(itemguid);
 end
 
-function UI_CHECK_SIMPLEINGAMESHOP_UI_OPEN() -- ¿À¹ö¶óÀÌµå·Î »ç¿ëÇØ¶ó
+function UI_CHECK_SIMPLEINGAMESHOP_UI_OPEN() -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¶ï¿½
 	
 	return 1
 end

@@ -1,18 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
-<idspace id="Skill">
-	<Category Name="Warrior">
-		<Class ClassName="Highlander_SkyLiner" CT_BasicCoolDown="15000" CT_SklUseOverHeat="15000" CT_OverHeatDelay="15000" CT_OverHeatGroup="SkyLiner_OH"/>
-	</Category>
-	<Category Name="Wizard">
-		<Class ClassName="Linker_Physicallink" CT_BasicCoolDown="22000"/>
-		<Class ClassName="Linker_JointPenalty" CT_BasicCoolDown="22000"/>
-		<Class ClassName="Linker_HangmansKnot" CT_BasicCoolDown="15000"/>
-	</Category>
-	<Category Name="Archer">
-		<Class ClassName="Ranger_SteadyAim" CT_Caption2="공격력 #{CaptionRatio}#% 증가{nl}특성 추가 대미지 #{CaptionRatio2}#{nl}지속시간 10초"/>
-	</Category>
-	<Category Name="Cleric">
-		<Class ClassName="Sadhu_AstralBodyExplosion" CT_SklSR="10"/>
-	</Category>
-</idspace>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<idspace/>

@@ -37,35 +37,35 @@ function NECRONOMICON_STATE_UI_RESET(frame, i)
 end
 
 function NECRONOMICON_STATE_TEXT_RESET(descriptGbox)
-	-- Ã¼·Â
+	-- ì²´ë ¥
 	local myHp = GET_CHILD(descriptGbox,'desc_hp',"ui::CRichText")
 	myHp:SetTextByKey("value", 0);
 
-	-- ¹°¸® °ø°İ·Â
+	-- ë¬¼ë¦¬ ê³µê²©ë ¥
 	local richText = GET_CHILD(descriptGbox,'desc_fower',"ui::CRichText")
 	richText:SetTextByKey("value", 0);
 
-	-- ¹æ¾î·Â
+	-- ë°©ì–´ë ¥
 	richText = GET_CHILD(descriptGbox,'desc_defense',"ui::CRichText")
 	richText:SetTextByKey("value", 0);
 
-	-- Èû
+	-- í˜
 	richText = GET_CHILD(descriptGbox,'desc_Str',"ui::CRichText")
 	richText:SetTextByKey("value", 0);
 	
-	-- Ã¼·Â
+	-- ì²´ë ¥
 	richText = GET_CHILD(descriptGbox,'desc_Con',"ui::CRichText")
 	richText:SetTextByKey("value", 0);
 	
-	-- Áö´É
+	-- ì§€ëŠ¥
 	richText = GET_CHILD(descriptGbox,'desc_Int',"ui::CRichText")
 	richText:SetTextByKey("value", 0);
 	
-	-- ¹ÎÃ¸
+	-- ë¯¼ì²©
 	richText = GET_CHILD(descriptGbox,'desc_Dex',"ui::CRichText")
 	richText:SetTextByKey("value", 0);
 	
-	-- Á¤½Å
+	-- ì •ì‹ 
 	richText = GET_CHILD(descriptGbox,'desc_Mna',"ui::CRichText")
 	richText:SetTextByKey("value", 0);
 end
@@ -103,7 +103,7 @@ function SET_NECRO_CARD_STATE(frame, bosscardcls, i)
 		return;
 	end
 
-	-- °¡»ó¸÷À» »ı¼ºÇÕ½Ã´Ù.
+	-- ê°€ìƒëª¹ì„ ìƒì„±í•©ì‹œë‹¤.
 	local tempObj = CreateGCIES("Monster", monCls.ClassName);
 	if nil == tempObj then
 		return;
@@ -111,42 +111,42 @@ function SET_NECRO_CARD_STATE(frame, bosscardcls, i)
 
 	CLIENT_SORCERER_SUMMONING_MON(tempObj, GetMyPCObject(), GetIES(skl:GetObject()), bosscardcls);
 	
-	-- Ã¼·Â
+	-- ì²´ë ¥
 	local myHp = GET_CHILD(descriptGbox,'desc_hp',"ui::CRichText")
 	local hp = math.floor(SCR_Get_MON_MHP(tempObj));
 	myHp:SetTextByKey("value", hp);
 
-	-- ¹°¸® °ø°İ·Â
+	-- ë¬¼ë¦¬ ê³µê²©ë ¥
 	local richText = GET_CHILD(descriptGbox,'desc_fower',"ui::CRichText")
 	richText:SetTextByKey("value", math.floor(SCR_Get_MON_MAXPATK(tempObj)));
 
-	-- ¹æ¾î·Â
+	-- ë°©ì–´ë ¥
 	richText = GET_CHILD(descriptGbox,'desc_defense',"ui::CRichText")
 	richText:SetTextByKey("value", math.floor(SCR_Get_MON_DEF(tempObj)));
 
-	-- Èû
+	-- í˜
 	richText = GET_CHILD(descriptGbox,'desc_Str',"ui::CRichText")
 	richText:SetTextByKey("value", GET_MON_STAT(tempObj, tempObj.Lv, "STR"));
 
-	-- Ã¼·Â
+	-- ì²´ë ¥
 	richText = GET_CHILD(descriptGbox,'desc_Con',"ui::CRichText")
-	 -- ±âº»ÀûÀ¸·Î GET_MON_STATÀ» ¾²Áö¸¸ Ã¼·ÂÀº µû·ÎÇØ´Ş¶ó´Â ÆòÁ÷¾¾ÀÇ ¿äÃ»
-	local con = math.floor(GET_MON_STAT_CON(tempObj, tempObj.Lv, "CON"));
+	 -- ê¸°ë³¸ì ìœ¼ë¡œ GET_MON_STATì„ ì“°ì§€ë§Œ ì²´ë ¥ì€ ë”°ë¡œí•´ë‹¬ë¼ëŠ” í‰ì§ì”¨ì˜ ìš”ì²­
+	local con = math.floor(GET_MON_STAT(tempObj, tempObj.Lv, "CON"));
 	richText:SetTextByKey("value", con);
 
-	-- Áö´É
+	-- ì§€ëŠ¥
 	richText = GET_CHILD(descriptGbox,'desc_Int',"ui::CRichText")
 	richText:SetTextByKey("value", GET_MON_STAT(tempObj, tempObj.Lv, "INT"));
 
-	-- ¹ÎÃ¸
+	-- ë¯¼ì²©
 	richText = GET_CHILD(descriptGbox,'desc_Dex',"ui::CRichText")
 	richText:SetTextByKey("value", GET_MON_STAT(tempObj, tempObj.Lv, "DEX"));
 
-	-- Á¤½Å
+	-- ì •ì‹ 
 	richText = GET_CHILD(descriptGbox,'desc_Mna',"ui::CRichText")
 	richText:SetTextByKey("value", GET_MON_STAT(tempObj, tempObj.Lv, "MNA"));
 	
-	-- »ı¼ºÇÑ °¡»ó¸÷À» Áö¿ö¾ßÁ®
+	-- ìƒì„±í•œ ê°€ìƒëª¹ì„ ì§€ì›Œì•¼ì ¸
 	DestroyIES(tempObj);
 end
 
@@ -154,10 +154,10 @@ function UPDATE_NECRONOMICON_UI(frame)
 		
 	local etc_pc = GetMyEtcObject();
 
-	local MAX_CARD_COUNT = 4; -- ¼³¸¶ ÀÌ ¼ıÀÚ°¡ ´Ã¾î³ª·Á³ª. ³¢¿ì´Â Ä«µå ¼ö. 1Àº ¸ŞÀÎ Ä«µå.(¼ÒÈ¯) 2,3,4´Â ¼­ºêÄ«µå
+	local MAX_CARD_COUNT = 4; -- ì„¤ë§ˆ ì´ ìˆ«ìê°€ ëŠ˜ì–´ë‚˜ë ¤ë‚˜. ë¼ìš°ëŠ” ì¹´ë“œ ìˆ˜. 1ì€ ë©”ì¸ ì¹´ë“œ.(ì†Œí™˜) 2,3,4ëŠ” ì„œë¸Œì¹´ë“œ
 
-	--µ¥µåÆÄÃ÷°³¼ö ¾÷µ¥ÀÌÆ®
-	-- ³×Å©·Î ÆÄÃ÷ 1Á¾
+	--ë°ë“œíŒŒì¸ ê°œìˆ˜ ì—…ë°ì´íŠ¸
+	-- ë„¤í¬ë¡œ íŒŒì¸  1ì¢…
 	local deadPartsCnt = etc_pc.Necro_DeadPartsCnt
 
 	local deadpartsGbox = GET_CHILD(frame,'deadpartsGbox',"ui::CGroupBox")
@@ -175,7 +175,7 @@ function UPDATE_NECRONOMICON_UI(frame)
 	    totalCount = totalCount + abilObj.Level * 100
 	end
 	
-	part_gauge:SetPoint(deadPartsCnt, totalCount) -- ±âÈ¹ º¯°æÀ¸·Î 100°³ ¾¿ 3°³ÀÖ´ø°É 300°³·Î º¯°æ
+	part_gauge:SetPoint(deadPartsCnt, totalCount) -- ê¸°íš ë³€ê²½ìœ¼ë¡œ 100ê°œ ì”© 3ê°œìˆë˜ê±¸ 300ê°œë¡œ ë³€ê²½
 
 
 	local gbox = GET_CHILD(frame,'necoGbox',"ui::CGroupBox")
@@ -322,7 +322,7 @@ function SET_NECRO_CARD_COMMIT(slotname, type)
 	end
 
 	local argStr = string.format("%s %s", tostring(slotnumber), iType);
-	item.DialogTransaction("SET_NECRO_CARD", resultlist, argStr); -- ¼­¹öÀÇ SCR_SET_CARD()°¡ È£ÃâµÈ´Ù.
+	item.DialogTransaction("SET_NECRO_CARD", resultlist, argStr); -- ì„œë²„ì˜ SCR_SET_CARD()ê°€ í˜¸ì¶œëœë‹¤.
 
 end
 

@@ -60,7 +60,7 @@
 		<Class ClassID="2003" ClassName="CanNotEnchantMore" Data="더 이상 강화 할 수 없습니다"/>
 		<Class ClassID="2004" ClassName="PotentialItem" Data="강화 포텐셜이 0인 아이템만 제련 가능합니다."/>
 		<Class ClassID="2005" ClassName="DestroyReinforceItem" Data="강화 포텐셜이 0이하인 아이템을 강화할 경우 소멸될 수도 있습니다."/>
-		<Class ClassID="2006" ClassName="Over_+{Auto_1}_ReinforceItemCanBeBroken_ProcessReinforce?" Data="+{Auto_1} 이상의 방어구, 팔찌, 목걸이 아이템 강화 실패 시 포텐셜이 소모되며 포텐셜이 0일 때는 아이템이 소멸 됩니다. 강화를 진행하시겠습니까?"/>
+		<Class ClassID="2006" ClassName="Over_+{Auto_1}_ReinforceItemCanBeBroken_ProcessReinforce?" Data="+{Auto_1} 이상의 방어구, 방패, 팔찌, 목걸이 아이템 강화 실패 시 포텐셜이 소모되며 포텐셜이 0일 때는 아이템이 소멸 됩니다. 강화를 진행하시겠습니까?"/>
 		<Class ClassID="2007" ClassName="NewReinforce" Data="신규 강화"/>
 		<Class ClassID="2008" ClassName="REINFORCE_SUCCESS" Data="아이템 강화에 성공하였습니다"/>
 		<Class ClassID="2009" ClassName="REINFORCE_FAIL" Data="아이템 강화에 실패하였습니다"/>
@@ -101,7 +101,7 @@
 		<Class ClassID="2044" ClassName="TranscendRemove" Data="초월이 제거되었습니다."/>
 		<Class ClassID="2045" ClassName="YouCanRemoveOnlyTreancendedItem" Data="초월된 아이템만 제거가 가능합니다."/>
 		<Class ClassID="2046" ClassName="ThisItemIsNotAbleToTranscend" Data="초월이 불가능한 아이템입니다."/>
-		<Class ClassID="2047" ClassName="TranscendValueIsTooSmallSoReturnItemDoesNotExist" Data="사용된 초월의 돌이 부족하여 분해할 수 없습니다."/>
+		<Class ClassID="2047" ClassName="TranscendValueIsTooSmallSoReturnItemDoesNotExist" Data="초월 단계가 부족하여 분해할 수 없습니다."/>
 		<Class ClassID="2048" ClassName="MaxPR" Data="최대 포텐셜인 아이템에는 사용하실 수 없습니다."/>
 		<Class ClassID="2049" ClassName="ThisItemIsNotTranscended" Data="초월되지 않은 아이템입니다."/>
 		<Class ClassID="2050" ClassName="ThisItemIsNotAbleToTranscendBreak" Data="축복석 추출가 불가능한 아이템입니다."/>
@@ -312,6 +312,11 @@
 		<Class ClassID="4131" ClassName="Right" Data="오른쪽"/>
 		<Class ClassID="4132" ClassName="Left" Data="왼쪽"/>
 		<Class ClassID="4133" ClassName="CannotReinforceAndTranscendBy{BUFFNAME}" Data="{BUFFNAME} 적용 중에는 강화 또는 초월할 수 없습니다."/>
+		<Class ClassID="4134" ClassName="OnlyEnableUseAt{LAST_RANK}not{CUR_RANK}" Data="{LAST_RANK}랭크일 때에만 사용 가능합니다. 현재 랭크는 {CUR_RANK}랭크 입니다."/>
+		<Class ClassID="4135" ClassName="YouHaveRankCardReallyRankReset?" Data="사용하지 않은 랭크 카드가 있습니다.{nl}랭크 카드 및 클래스 경험치 복구 카드를 사용한 후에 랭크 초기화를 할 수 있습니다."/>
+		<Class ClassID="4136" ClassName="NotEnoughStoredMoney" Data="보관 중인 금액이 부족합니다."/>
+		<Class ClassID="4137" ClassName="DeleteCardBecauseYourRankTooHigh" Data="이미 사용할 수 있는 랭크를 초과하였습니다.{nl}확인을 누르면 카드가 삭제됩니다."/>
+		<Class ClassID="4140" ClassName="YouDontHaveEquipAbility" Data="착용할 수 있는 특성이 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -351,7 +356,7 @@
 		<Class ClassID="5035" ClassName="MHPTranscendBy{Count}" Data="초월 {Count}단계 체력 증가"/>
 		<Class ClassID="5036" ClassName="MDEFTranscendBy{Count}" Data="초월 {Count}단계 마법 방어력 증가"/>
 		<Class ClassID="5037" ClassName="CanNotTradeTranscendedItem" Data="초월된 아이템은 거래할 수 없습니다."/>
-		<Class ClassID="5038" ClassName="Soul_Atk_BM" Data="염속성 공격력"/>
+		<Class ClassID="5038" ClassName="Soul_Atk_BM" Data="염속성 추가 대미지"/>
 		<Class ClassID="5039" ClassName="MarketTradeAble" Data="마켓 거래 가능"/>
 	</Category>
 	<Category Name="PeriodicTitle">
@@ -424,13 +429,13 @@
 		<Class ClassID="8057" ClassName="Pet_BLK" Data="블럭"/>
 		<Class ClassID="8058" ClassName="Pet_CRTDEF" Data="치명타 저항"/>
 		<Class ClassID="8059" ClassName="Pet_MSPD" Data="이동 속도"/>
-		<Class ClassID="8060" ClassName="Pet_ADD_FIRE" Data="불 속성 공격력"/>
-		<Class ClassID="8061" ClassName="Pet_ADD_ICE" Data="얼음 속성 공격력"/>
-		<Class ClassID="8062" ClassName="Pet_ADD_LIGHTNING" Data="전기 속성 공격력"/>
-		<Class ClassID="8063" ClassName="Pet_ADD_EARTH" Data="땅 속성 공격력"/>
-		<Class ClassID="8064" ClassName="Pet_ADD_POISON" Data="독 속성 공격력"/>
-		<Class ClassID="8065" ClassName="Pet_ADD_HOLY" Data="신성 속성 공격력"/>
-		<Class ClassID="8066" ClassName="Pet_ADD_DARK" Data="어둠 속성 공격력"/>
+		<Class ClassID="8060" ClassName="Pet_ADD_FIRE" Data="불 속성 추가 대미지"/>
+		<Class ClassID="8061" ClassName="Pet_ADD_ICE" Data="얼음 속성 추가 대미지"/>
+		<Class ClassID="8062" ClassName="Pet_ADD_LIGHTNING" Data="전기 속성 추가 대미지"/>
+		<Class ClassID="8063" ClassName="Pet_ADD_EARTH" Data="땅 속성 추가 대미지"/>
+		<Class ClassID="8064" ClassName="Pet_ADD_POISON" Data="독 속성 추가 대미지"/>
+		<Class ClassID="8065" ClassName="Pet_ADD_HOLY" Data="신성 속성 추가 대미지"/>
+		<Class ClassID="8066" ClassName="Pet_ADD_DARK" Data="어둠 속성 추가 대미지"/>
 		<Class ClassID="8067" ClassName="Pet_Fire_Def" Data="불 속성 저항력"/>
 		<Class ClassID="8068" ClassName="Pet_Ice_Def" Data="얼음 속성 저항력"/>
 		<Class ClassID="8069" ClassName="Pet_Lightning_Def" Data="전기 속성 저항력"/>
@@ -457,7 +462,7 @@
 		<Class ClassID="8090" ClassName="CantUseThisEgg" Data="해당 캐릭터는 이 컴패니언의 알을 사용할 수 있는 직업이 아닙니다."/>
 		<Class ClassID="8091" ClassName="MoveBarrackLayer" Data="숙소를 이동합니다."/>
 		<Class ClassID="8092" ClassName="Auto_{/}{nl}{s22}MoveBarrackLayer?" Data="{/}{nl}{s22}숙소를 이동하겠습니까?"/>
-		<Class ClassID="8093" ClassName="Pet_ADD_SOUL" Data="염 속성 공격력"/>
+		<Class ClassID="8093" ClassName="Pet_ADD_SOUL" Data="염 속성 추가 대미지"/>
 		<Class ClassID="8094" ClassName="Pet_Soul_Def" Data="염 속성 저항력"/>
 		<Class ClassID="8095" ClassName="HaveToPutPetAtBarrack" Data="컴패니언과 함께하는 중에는 사용할 수 없습니다."/>
 		<Class ClassID="8096" ClassName="AutoAtk" Data="자동 공격"/>
@@ -557,7 +562,7 @@
 		<Class ClassID="10086" Data="결투신청을 할 수 없습니다"/>
 		<Class ClassID="10087" Data="결투신청을 받아들일 수 없습니다"/>
 		<Class ClassID="10088" Data="새로운 패치가 이루어졌습니다{nl}게임을 종료한 후에 다시 실행하여{nl}패치를 받아주세요 CODE({Auto_1})"/>
-		<Class ClassID="10089" Data="착용 할 수 있는 클래스가 아닙니다"/>
+		<Class ClassID="10089" Data="착용할 수 있는 클래스가 아닙니다"/>
 		<Class ClassID="10090" Data="이동 중에는 사용할 수 없습니다"/>
 		<Class ClassID="10091" Data="시야에서 벗어났습니다"/>
 		<Class ClassID="10092" Data="체력이 부족합니다"/>
@@ -708,7 +713,7 @@
 		<Class ClassID="10332" ClassName="YouCannotGetBackHireMoney_ReallyFire?" Data="고용비용을 돌려받을 수 없습니다. 정말 해고하시겠습니까?"/>
 		<Class ClassID="10333" ClassName="WrongDropItem" Data="기간이 만료된 아이템이거나 등록할 수 없는 아이템입니다.."/>
 		<Class ClassID="10334" ClassName="shoptutorial_Rclick" Data="{gr gradation2}{s19}{ol}{b}{#ffcc00}우측 클릭 : 판매/구매 버튼{/}{/}{nl}한 아이템을 여러 개 판매하고 싶다면 Shift+우클릭을 하세요.{nl}더블 우클릭시 전체 판매를 할 수 있습니다."/>
-		<Class ClassID="10335" ClassName="LowWeaponStar" Data="소비재료는 합성무기보다 별이 높거나 같아야 합니다."/>
+		<Class ClassID="10335" ClassName="LowWeaponStar" Data="소비재료는 합성무기보다 사용 레벨이 높거나 같아야 합니다."/>
 		<Class ClassID="10336" ClassName="ThisItemIsNotAbleToWakenUp" Data="이 아이템은 각성이 불가능합니다."/>
 		<Class ClassID="10337" ClassName="ThisItemIsAlreadyAwaken" Data="이미 아이템이 각성되어 있습니다."/>
 		<Class ClassID="10338" ClassName="Piece" Data="개"/>
@@ -818,7 +823,6 @@
 		<Class ClassID="10461" ClassName="CantLogoutWhileMatching" Data="매칭 요청 중에는 로그아웃 할 수 없습니다."/>
 		<Class ClassID="10462" ClassName="ExceedMaxAbilityPoint" Data="특성 포인트 보유 한도를 초과합니다."/>
 		<Class ClassID="10463" ClassName="NotEnoughAbilityPoint" Data="특성 포인트가 부족합니다."/>
-		<Class ClassID="10464" ClassName="CantMoveZoneWhileMatching" Data="매칭 요청 중에는 맵 이동을 할 수 없습니다."/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -1065,7 +1069,7 @@
 		<Class ClassID="21239" ClassName="MoreNeedRecycleMedal" Data="소유중인 리사이클 메달이 부족합니다."/>
 		<Class ClassID="21240" ClassName="YouCanChargeOnWeb" Data="넥슨캐시 충전은 홈페이지에서 가능합니다."/>
 		<Class ClassID="21241" ClassName="NotLearnedYet" Data="미습득"/>
-		<Class ClassID="21242" ClassName="TargetNameGiant" Data="자이언트"/>
+		<Class ClassID="21242" ClassName="TargetNameElite" Data="엘리트"/>
 		<Class ClassID="21243" ClassName="LimitMaxChatRoomCnt" Data="더 이상 새로운 채팅방을 생성할 수 없습니다."/>
 		<Class ClassID="21244" ClassName="LimitMaxChatRoomCntTo" Data="더 이상 상대방이 새로운 채팅방을 생성할 수 없습니다."/>
 		<Class ClassID="21245" ClassName="ParenthesesPlus{Add}" Data="(+{Add})"/>
@@ -1521,8 +1525,8 @@
 		<Class ClassID="24380" ClassName="ROKAS28_QM1_MSG01" Data="가짜 봉인이었습니다!"/>
 		<Class ClassID="24381" ClassName="ROKAS25_SQ_06_MSG01" Data="이미 찾은 기둥입니다!"/>
 		<Class ClassID="24382" ClassName="PILGRIM46_SQ_020_MSG01" Data="여린잎을 채취 하는 중"/>
-		<Class ClassID="24383" ClassName="PILGRIM46_SQ_020_MSG02" Data="여린 잎을 채취했지만 실수로 질긴 잎에 베였습니다!"/>
-		<Class ClassID="24384" ClassName="PILGRIM46_SQ_020_MSG03" Data="질긴 잎에 손을 크게 베였습니다!"/>
+		<Class ClassID="24383" ClassName="PILGRIM46_SQ_020_MSG02" Data="여린 잎을 채취했습니다!"/>
+		<Class ClassID="24384" ClassName="PILGRIM46_SQ_020_MSG03" Data="여린 잎을 채취했지만 실수로 질긴 잎에 베였습니다!"/>
 		<Class ClassID="24385" ClassName="PILGRIM46_SQ_030_MSG01" Data="무덤을 만들어 준다"/>
 		<Class ClassID="24386" ClassName="PILGRIM46_SQ_030_MSG02" Data="무시한다"/>
 		<Class ClassID="24387" ClassName="PILGRIM46_SQ_030_MSG03" Data="릴리야의 무덤을 만드는 중"/>
@@ -1533,7 +1537,7 @@
 		<Class ClassID="24392" ClassName="PILGRIM46_SQ_050_MSG05" Data="순례자 율리우스"/>
 		<Class ClassID="24393" ClassName="PILGRIM46_SQ_060_MSG01" Data="어린 잎 채취 중"/>
 		<Class ClassID="24394" ClassName="PILGRIM46_SQ_060_MSG02" Data="아셀루의 어린 잎을 채취했습니다!"/>
-		<Class ClassID="24395" ClassName="PILGRIM46_SQ_060_MSG03" Data="아셀루의 뿌리에서 케파리가 튀어 나왔습니다!"/>
+		<Class ClassID="24395" ClassName="PILGRIM46_SQ_060_MSG03" Data="아셀루의 어린 잎을 채집했지만, 뿌리에서 케파리가 튀어 나왔습니다!"/>
 		<Class ClassID="24396" ClassName="PILGRIM46_SQ_100_MSG01" Data="식량더미를 헤치는 중"/>
 		<Class ClassID="24397" ClassName="PILGRIM46_SQ_100_MSG02" Data="이쉬플라쉬 광장의 식량더미에서 음식 찌꺼기를 더 가져오세요!"/>
 		<Class ClassID="24398" ClassName="PILGRIM46_SQ_100_MSG03" Data="몬스터가 없습니다"/>
@@ -1774,7 +1778,7 @@
 		<Class ClassID="24633" ClassName="FARM47_2_SQ_080_MSG02" Data="여신상을 받아 오세요"/>
 		<Class ClassID="24634" ClassName="FARM47_2_SQ_030_MSG01" Data="나무 망치를 만드는 중"/>
 		<Class ClassID="24635" ClassName="FARM47_2_SQ_030_MSG02" Data="망치를 만들 재료를 찾는 중"/>
-		<Class ClassID="24636" ClassName="FARM47_2_SQ_030_MSG03" Data="쓸 만한 재료를 찾지 못했습니다!"/>
+		<Class ClassID="24636" ClassName="FARM47_2_SQ_030_MSG03" Data="더 이상 재료를 모을 필요가 없습니다{nl}V키를 눌러 나무 망치를 만드세요!"/>
 		<Class ClassID="24637" ClassName="FARM47_2_SQ_030_MSG04" Data="쓸 만한 재료 대신 주황 단델이 튀어 나왔습니다!"/>
 		<Class ClassID="24638" ClassName="FARM47_1_SQ_120_MSG01" Data="연판장에 대한 설명 중"/>
 		<Class ClassID="24639" ClassName="FARM47_FARMER01_1_YES" Data="기꺼이 내 준다"/>
@@ -1964,8 +1968,8 @@
 		<Class ClassID="24823" ClassName="ZACHA2F_SQ_01_COMPLETE" Data="수호자의 기운을 흡수했습니다!"/>
 		<Class ClassID="24824" ClassName="WS_ZACHA2F_01_TO_02_ANSWER_GO" Data="이동한다"/>
 		<Class ClassID="24825" ClassName="WS_ZACHA2F_01_TO_02_ANSWER_NO" Data="이동하지 않는다"/>
-		<Class ClassID="24826" ClassName="MNA_UI_MSG1" Data="{@st59}SP최대량 증가, SP회복력 증가, 블럭 관통 증가, 마법 방어력 증가{/}"/>
-		<Class ClassID="24827" ClassName="MNA_UI_MSG2" Data="{@st59}SP최대량 증가, SP회복력 증가, 블럭 관통 증가, 마법 방어력 증가{/}"/>
+		<Class ClassID="24826" ClassName="MNA_UI_MSG1" Data="{@st59}최대 SP, SP 회복력, 소환수의 피해량, 소환수의 체력 증가{/}"/>
+		<Class ClassID="24827" ClassName="MNA_UI_MSG2" Data="{@st59}최대 SP, SP 회복력, 소환수의 피해량, 소환수의 체력 증가{/}"/>
 		<Class ClassID="24828" ClassName="QuestTrackSuccessNotice" Data=" 퀘스트 {nl}목표 달성"/>
 		<Class ClassID="24829" ClassName="Auto_KATYN71_SOLDIER01_1" Data="내가 봤어. 분명 데드본은 아냐. "/>
 		<Class ClassID="24830" ClassName="Auto_KATYN71_SOLDIER01_2" Data="데드본 아니라니까."/>
@@ -2002,7 +2006,7 @@
 		<Class ClassID="24861" ClassName="CHATHEDRAL53_MQ_BISHOP_DLG01" Data="대성당이 지어진 시기"/>
 		<Class ClassID="24862" ClassName="CHATHEDRAL53_MQ_BISHOP_DLG02" Data="나크티스에 대해"/>
 		<Class ClassID="24863" ClassName="CHATHEDRAL53_MQ01_ITEM_GET" Data="영혼의 정수를 획득하였습니다!"/>
-		<Class ClassID="24864" ClassName="CHATHEDRAL53_MQ01_MONSTER" Data="흩날리는 먼지가 몬스터를 자극합니다"/>
+		<Class ClassID="24864" ClassName="CHATHEDRAL53_MQ01_MONSTER" Data="영혼의 정수를 획득하였습니다!{nl}흩날리는 먼지가 몬스터를 자극했습니다"/>
 		<Class ClassID="24865" ClassName="CHATHEDRAL53_MQ01_NOTHING" Data="영혼의 정수가 먼지처럼 허공에 흩날립니다"/>
 		<Class ClassID="24866" ClassName="CHATHEDRAL53_CANDLESTICK01" Data="1개를 킨다"/>
 		<Class ClassID="24867" ClassName="CHATHEDRAL53_CANDLESTICK02" Data="2개를 킨다"/>
@@ -3588,7 +3592,7 @@
 		<Class ClassID="26447" ClassName="UNDERFORTRESS_68_2_MSG13" Data="사나딜마 마법진의 작동이 성공했습니다."/>
 		<Class ClassID="26448" ClassName="ABBEY643_EDMONDA_AI_NAME" Data="에드문다스"/>
 		<Class ClassID="26449" ClassName="ABBEY642_MQ02_MSG02" Data="수정 기둥을 파괴했습니다!"/>
-		<Class ClassID="26450" ClassName="ABBEY642_MQ02_MSG03" Data="수정 기둥에서 나온 사악한 기운에 중독되었습니다"/>
+		<Class ClassID="26450" ClassName="ABBEY642_MQ02_MSG03" Data="수정 기둥을 파괴했지만{nl}수정기둥에서 나온 사악한 기운에 중독되었습니다"/>
 		<Class ClassID="26451" ClassName="ABBEY642_MQ02_MSG04" Data="네 개의 수정 기둥이 에드문다스를 고통스럽게 하고 있는 것 같습니다{nl}수정 기둥을 파괴하세요!"/>
 		<Class ClassID="26452" ClassName="BRACKEN633_SQ02_MSG01" Data="보호막 생성 장치 끄는 중"/>
 		<Class ClassID="26453" ClassName="BRACKEN633_SQ02_MSG02" Data="보호막 생성 장치가 정지되었습니다"/>
@@ -4164,6 +4168,8 @@
 		<Class ClassID="27132" ClassName="CATACOMB_HALLOWEEN_MSG3" Data="3회 참여 보상을 받는다"/>
 		<Class ClassID="27133" ClassName="CATACOMB_HALLOWEEN_MSG4" Data="30회 참여 보상을 받는다"/>
 		<Class ClassID="27182" ClassName="GACHA_SITEM_GET_ALLMSG" Data="{s24}축하드립니다!{nl}{PC} 님이 레티샤의 비밀 큐브에서{nl}{ITEMNAME} 를(을) 획득하셨습니다!"/>
+		<Class ClassID="27212" ClassName="EV170119_NEWYEAR_MSG1" Data="이벤트에 참여하지 않으셨습니다"/>
+		<Class ClassID="27213" ClassName="EV170119_NEWYEAR_MSG2" Data="이벤트 참여 횟수 : {COUNT}회"/>
 		<Class ClassID="27220" ClassName="EV161124_DAYCHECK_MSG1" Data="이전에 선택하신 번호는 {nl}{NUMLIST}{nl}입니다."/>
 		<Class ClassID="27221" ClassName="EV161124_DAYCHECK_MSG2" Data="이전에 선택하신 번호가 없습니다.{nl}첫번째 선택입니다."/>
 		<Class ClassID="27222" ClassName="EV161124_DAYCHECK_MSG3" Data="선택 번호 : {NUM}{nl}보상 :"/>
@@ -4198,9 +4204,12 @@
 		<Class ClassID="27267" ClassName="EV161229_DICE_MSG8" Data="다음 도전까지 남은 시간 : {HOUR}"/>
 		<Class ClassID="27268" ClassName="EV161229_DICE_MSG9" Data="참가하신 기록이 없습니다"/>
 		<Class ClassID="27280" ClassName="EVENT_MONEYBOX_MSG1" Data="실버 상자"/>
+		<Class ClassID="27290" ClassName="ExecAbilityShopMsg1" Data="특성을 배우시겠습니까?{nl}{PRICE} 포인트"/>
 		<Class ClassID="27300" ClassName="KEYITEM" Data="증표"/>
 		<Class ClassID="27301" ClassName="KeyQuestShopTitle1" Data="헤스란 증표 Lv1"/>
 		<Class ClassID="27302" ClassName="KeyQuestShopTitle2" Data="헤스란 증표 Lv2"/>
+		<Class ClassID="27310" ClassName="EV170216_EVENTCOUNTING" Data="총 {MAXCOUNT}회 중 {COUNT}회 완료하셨습니다."/>
+		<Class ClassID="27311" ClassName="EV170216_MSG1" Data="왕국의 잃어버린 보물"/>
 		<Class ClassID="27212" ClassName="EV170119_NEWYEAR_MSG1" Data="이벤트에 참여하지 않으셨습니다"/>
 		<Class ClassID="27213" ClassName="EV170119_NEWYEAR_MSG2" Data="이벤트 참여 횟수 : {COUNT}회"/>
 		<Class ClassID="27315" ClassName="CHAPLE577_MQ_06_1_BUFFEND_MSG" Data="변신이 풀렸습니다{nl}자신감 버프가 없다면 폰델과 폰드를 처치 후 변신 스크롤을 사용하세요!"/>
@@ -4211,6 +4220,10 @@
 		<Class ClassID="27341" ClassName="JournalMonsterKillRewardMSG2" Data="'{MONSTER}' {COUNT}마리를 처치하면 경험치 카드를 받으실 수 있습니다!{nl}경험치 카드는 바이보라의 날개에서 받으실 수 있습니다."/>
 		<Class ClassID="27342" ClassName="JournalMapFogRewardAll" Data="'{ZONE}'의 맵탐색률 100%를 달성!{nl}바이보라의 날개를 찾아가셔서 경험치 카드를 받으세요!"/>
 		<Class ClassID="27343" ClassName="JournalMapFogPreReward" Data="'{ZONE}'의 맵탐색률 {PERCENT}%를 올리시면 경험치 카드를 받으실 수 있습니다!{nl}경험치 카드는 바이보라의 날개에서 받으실 수 있습니다."/>
+		<Class ClassID="27350" ClassName="EVENT_170427_DAYCHECK_MSG1" Data="출석 보상 받기 [누적 : {COUNT1} 회]"/>
+		<Class ClassID="27351" ClassName="EVENT_170427_DAYCHECK_MSG2" Data="초청장 출석 보상 받기 [누적 : {COUNT2} 회]"/>
+		<Class ClassID="27352" ClassName="EVENT_170427_DAYCHECK_MSG3" Data="이번 출석 보상은 '칭호'로 다른 캐릭터로 이전할 수 없습니다."/>
+		<Class ClassID="27353" ClassName="EVENT_170427_DAYCHECK_MSG4" Data="이번 출석 보상은 '랭크 초기화권 (60일)'로 다른 캐릭터로 이전할 수 없습니다."/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -4875,6 +4888,12 @@
 		<Class ClassID="50318" ClassName="JOB_APPRAISER5_2_MSG4" Data="펜서 마스터에게 가{nl}가보와 품질 인증서를 전달하세요"/>
 		<Class ClassID="50319" ClassName="CHAR313_MSTEP13_1_MSG1" Data="공식 위임장 전해준다"/>
 		<Class ClassID="50320" ClassName="CHAR313_MSTEP13_1_MSG2" Data="신경 쓰지 말라고 한다"/>
+		<Class ClassID="50321" ClassName="BRACKEN43_2_SUBQ3_GET1" Data="덜 자란 파마르 고사리를 채집했습니다"/>
+		<Class ClassID="50322" ClassName="BRACKEN43_2_SUBQ3_GET2" Data="다 자란 파마르 고사리를 채집했습니다"/>
+		<Class ClassID="50323" ClassName="BRACKEN43_2_SUBQ3_ANIM" Data="파마르 고사리가 있는지 살펴보는 중"/>
+		<Class ClassID="50439" ClassName="JOB_PLAGUEDOCTOR71_MSG1" Data="탐지기 확인 중"/>
+		<Class ClassID="50440" ClassName="JOB_PLAGUEDOCTOR71_MSG2" Data="결과 보고서를 획득했습니다"/>
+		<Class ClassID="50441" ClassName="JOB_PLAGUEDOCTOR71_MSG3" Data="결과 보고서를 확인한 수집기입니다"/>
 		<Class ClassID="60001" ClassName="GTOWER32_NPC_CHAT_1" Data="여러분 덕에 여기까지 올 수 있었습니다"/>
 		<Class ClassID="60002" ClassName="GTOWER32_NPC_CHAT_2" Data="이 봉인은 제가 풀겠습니다"/>
 		<Class ClassID="60003" ClassName="GTOWER23_DEAD_MSG_1" Data="포자를 뒤집어 썼습니다{nl}정체불명의 거대알을 공격하세요"/>
@@ -5118,6 +5137,8 @@
 		<Class ClassID="70076" ClassName="DCAPITAL103_SQ13_1" Data="그 위는 괜찮나요?"/>
 		<Class ClassID="70077" ClassName="DCAPITAL103_SQ13_2" Data="역시 온전한 책이 많군요!{nl}조금만 더 버텨주세요!"/>
 		<Class ClassID="70078" ClassName="DCAPITAL103_SQ13_3" Data="됐습니다! 올라가겠습니다!"/>
+		<Class ClassID="70079" ClassName="ROKAS26_MQ1_FAIL01" Data="열쇠를 얻었으나 알 수 없는 힘에 튕겨졌습니다!"/>
+		<Class ClassID="70080" ClassName="ROKAS26_MQ1_FAIL02" Data="열쇠를 얻었으나 알 수 없는 힘에 끌려가다 튕겨졌습니다!"/>
 		<Class ClassID="80001" ClassName="LIMESTONE_52_1_CRYSTAL_ING" Data="불안정한 마력핵 설치 중"/>
 		<Class ClassID="80002" ClassName="LIMESTONE_52_1_SQ_1_TAKE" Data="목걸이 빼앗는 중"/>
 		<Class ClassID="80003" ClassName="LIMESTONE_52_2_MQ_7_SUCC_MSG" Data="구속장치가 요동치기 시작합니다!"/>
@@ -5177,7 +5198,7 @@
 		<Class ClassID="80218" ClassName="FARM49_3_SQ07_OBJ_MSG1" Data="약초를 채집하는 중"/>
 		<Class ClassID="80219" ClassName="FARM49_3_SQ07_OBJ_MSG2" Data="약초를 채집하는데 성공했습니다"/>
 		<Class ClassID="80220" ClassName="FARM49_3_SQ07_OBJ_MSG3" Data="채집하는 도중 약초가 뜯겨나갔습니다"/>
-		<Class ClassID="80221" ClassName="FARM49_3_SQ07_OBJ_MSG4" Data="약초 뿌리에서 분홍 나무뿌리 두더지가 튀어나왔습니다!"/>
+		<Class ClassID="80221" ClassName="FARM49_3_SQ07_OBJ_MSG4" Data="약초를 채집하자 분홍 나무뿌리 두더지가 튀어나왔습니다!"/>
 		<Class ClassID="80222" ClassName="FARM49_3_SQ08_OBJ1_MSG1" Data="희귀한 꽃을 살펴보는 중"/>
 		<Class ClassID="80223" ClassName="FARM49_3_SQ08_OBJ2_MSG1" Data="몰려오는 몬스터들을 먼저 처치하세요!"/>
 		<Class ClassID="80224" ClassName="FARM49_3_SQ08_OBJ2_MSG2" Data="희귀한 꽃을 채집하는 중"/>
@@ -5248,7 +5269,7 @@
 		<Class ClassID="80328" ClassName="THORN39_1_MQ04_MSG" Data="가시나무 밑둥의 진한 독을 획득했습니다"/>
 		<Class ClassID="80329" ClassName="THORN39_1_MQ05_MSG1" Data="샘에 고인 독액을 획득했습니다"/>
 		<Class ClassID="80330" ClassName="THORN39_1_MQ05_MSG2" Data="맹독 표본을 모두 수집했습니다{nl}헌터 나타샤에게 돌아가 수집한 맹독 표본들을 전해주세요"/>
-		<Class ClassID="80331" ClassName="THORN39_1_MQ06_MSG" Data="우르드와의 잎사귀를 획득했습니다{nl}헌터 나타샤에게 돌아가세요"/>
+		<Class ClassID="80331" ClassName="THORN39_1_MQ06_MSG" Data="우드르와의 잎사귀를 모두 획득했습니다{nl}헌터 나타샤에게 돌아가세요"/>
 		<Class ClassID="80332" ClassName="THORN39_1_SQ01_MSG1" Data="체바스가 찾아낸 약초를 획득했습니다"/>
 		<Class ClassID="80333" ClassName="THORN39_1_SQ01_MSG2" Data="약초를 충분히 수집했습니다{nl}헌터 바스틸에게 돌아가세요"/>
 		<Class ClassID="80334" ClassName="THORN39_1_SQ02_MSG1" Data="빈 벌집을 획득했습니다"/>
@@ -5400,6 +5421,20 @@
 		<Class ClassID="90060" ClassName="LOWLV_BOASTER_SQ_30_MSG1" Data="낙엽을 채취하는 중"/>
 		<Class ClassID="90061" ClassName="LOWLV_BOASTER_SQ_30_MSG2" Data="마른 낙엽을 얻었습니다"/>
 		<Class ClassID="90062" ClassName="CATACOMB_33_1_SQ_BOX_FAIL2" Data="상자가 잠겨있습니다"/>
+		<Class ClassID="90063" ClassName="CATACOMB_80_1_MSG1" Data="제 2구역, 제 3구역, 제 4구역에 마족들이 나타났습니다"/>
+		<Class ClassID="90064" ClassName="CATACOMB_80_1_MSG2" Data="제 2구역, 제 3구역, 제 4구역에 마족들이 몰려오고 있습니다"/>
+		<Class ClassID="90065" ClassName="CATACOMB_80_CRYSTAL_MSG1" Data="신속의 마력을 부여한다"/>
+		<Class ClassID="90066" ClassName="CATACOMB_80_CRYSTAL_MSG2" Data="분노의 마력을 부여한다"/>
+		<Class ClassID="90067" ClassName="CATACOMB_80_CRYSTAL_MSG3" Data="계략의 마력을 부여한다"/>
+		<Class ClassID="90068" ClassName="CATACOMB_80_CRYSTAL_MSG4" Data="무시한다"/>
+		<Class ClassID="90069" ClassName="CATACOMB_80_CRYSTAL_ITEM_MSG1" Data="신속의 마석을 얻었습니다"/>
+		<Class ClassID="90070" ClassName="CATACOMB_80_CRYSTAL_ITEM_MSG2" Data="분노의 마석을 얻었습니다"/>
+		<Class ClassID="90071" ClassName="CATACOMB_80_CRYSTAL_ITEM_MSG3" Data="계략의 마석을 얻었습니다"/>
+		<Class ClassID="90072" ClassName="CATACOMB_80_2_MSG1" Data="밸러암 주둔지 어딘가에 마족들이 출몰했습니다"/>
+		<Class ClassID="90073" ClassName="CATACOMB_80_2_MSG2" Data="마법진에서 알 수 없는 빛이 납니다"/>
+		<Class ClassID="90074" ClassName="CATACOMB_80_3_MSG1" Data="미크마쉬 사원으로 마족들이 몰려듭니다"/>
+		<Class ClassID="90075" ClassName="CATACOMB_80_3_MSG2" Data="미크마쉬 사원 곳곳에 마족들이 나타납니다"/>
+		<Class ClassID="90102" ClassName="CATACOMB_80_1_CRYSTAL_CONSUME" Data="이 곳에서는 사용할 수 없습니다"/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
@@ -5950,11 +5985,11 @@
 		<Class ClassID="111057" ClassName="RSP" Data="SP 회복력"/>
 		<Class ClassID="111058" ClassName="MSTA" Data="스태미나"/>
 		<Class ClassID="111059" ClassName="CannotBeSold" Data="판매 불가능"/>
-		<Class ClassID="111060" ClassName="Fire_Atk" Data="불 속성 공격력"/>
-		<Class ClassID="111061" ClassName="Ice_Atk" Data="얼음 속성 공격력"/>
-		<Class ClassID="111062" ClassName="Poison_Atk" Data="독 속성 공격력"/>
-		<Class ClassID="111063" ClassName="Holy_Atk" Data="신성 속성 공격력"/>
-		<Class ClassID="111064" ClassName="Dark_Atk" Data="어둠 속성 공격력"/>
+		<Class ClassID="111060" ClassName="Fire_Atk" Data="불 속성 추가 대미지"/>
+		<Class ClassID="111061" ClassName="Ice_Atk" Data="얼음 속성 추가 대미지"/>
+		<Class ClassID="111062" ClassName="Poison_Atk" Data="독 속성 추가 대미지"/>
+		<Class ClassID="111063" ClassName="Holy_Atk" Data="신성 속성 추가 대미지"/>
+		<Class ClassID="111064" ClassName="Dark_Atk" Data="어둠 속성 추가 대미지"/>
 		<Class ClassID="111065" ClassName="DefRating" Data="회피"/>
 		<Class ClassID="111066" ClassName="MSPD" Data="이동 속도"/>
 		<Class ClassID="111067" ClassName="RHP" Data="HP 회복력"/>
@@ -5962,12 +5997,12 @@
 		<Class ClassID="111069" ClassName="ADD_WIDLING" Data="야수형 대상 공격력"/>
 		<Class ClassID="111070" ClassName="ADD_VELIAS" Data="악마형 대상 공격력"/>
 		<Class ClassID="111071" ClassName="ADD_PARAMUNE" Data="변이형 대상 공격력"/>
-		<Class ClassID="111072" ClassName="ADD_FIRE" Data="불 속성 공격력"/>
-		<Class ClassID="111073" ClassName="ADD_ICE" Data="얼음 속성 공격력"/>
-		<Class ClassID="111074" ClassName="ADD_POISON" Data="독 속성 공격력"/>
-		<Class ClassID="111075" ClassName="ADD_WIND" Data="바람 속성 공격력"/>
-		<Class ClassID="111076" ClassName="ADD_HOLY" Data="신성 속성 공격력"/>
-		<Class ClassID="111077" ClassName="ADD_DARK" Data="어둠 속성 공격력"/>
+		<Class ClassID="111072" ClassName="ADD_FIRE" Data="불 속성 추가 대미지"/>
+		<Class ClassID="111073" ClassName="ADD_ICE" Data="얼음 속성 추가 대미지"/>
+		<Class ClassID="111074" ClassName="ADD_POISON" Data="독 속성 추가 대미지"/>
+		<Class ClassID="111075" ClassName="ADD_WIND" Data="바람 속성 추가 대미지"/>
+		<Class ClassID="111076" ClassName="ADD_HOLY" Data="신성 속성 추가 대미지"/>
+		<Class ClassID="111077" ClassName="ADD_DARK" Data="어둠 속성 추가 대미지"/>
 		<Class ClassID="111078" ClassName="RES_FIRE" Data="불 속성 저항력"/>
 		<Class ClassID="111079" ClassName="RES_ICE" Data="얼음 속성 저항력"/>
 		<Class ClassID="111080" ClassName="RES_POISON" Data="독 속성 저항력"/>
@@ -6006,7 +6041,7 @@
 		<Class ClassID="111113" ClassName="collection_06002" Data="공격시 2% 확률로 추가데미지 +300"/>
 		<Class ClassID="111114" ClassName="collection_06003" Data="피격시 3% 확률로 HP 20%만큼 지속 피해"/>
 		<Class ClassID="111115" ClassName="collection_06004" Data="마법 피격시 4% 확률로 30초 모든저항 +100"/>
-		<Class ClassID="111116" ClassName="Lightning_Atk" Data="전기 속성 공격력"/>
+		<Class ClassID="111116" ClassName="Lightning_Atk" Data="전기 속성 추가 대미지"/>
 		<Class ClassID="111117" ClassName="KDPow" Data="넉백 파워"/>
 		<Class ClassID="111118" ClassName="ADD_SMALLSIZE" Data="소형 대상 공격력"/>
 		<Class ClassID="111119" ClassName="ADD_MIDDLESIZE" Data="중형 대상 공격력"/>
@@ -6031,7 +6066,7 @@
 		<Class ClassID="111138" ClassName="ADD_MINATK" Data="최소 공격력"/>
 		<Class ClassID="111139" ClassName="ADD_MAXATK" Data="최대 공격력"/>
 		<Class ClassID="111140" ClassName="ADD_KLAIDA" Data="곤충형 대상 공격력"/>
-		<Class ClassID="111141" ClassName="ADD_EARTH" Data="땅 속성 공격력"/>
+		<Class ClassID="111141" ClassName="ADD_EARTH" Data="땅 속성 추가 대미지"/>
 		<Class ClassID="111142" ClassName="RES_EARTH" Data="땅 속성 저항력"/>
 		<Class ClassID="111143" ClassName="ResEarth_BM" Data="땅 속성 저항력"/>
 		<Class ClassID="111144" ClassName="MDEF_BM" Data="마법 방어력"/>
@@ -6050,7 +6085,7 @@
 		<Class ClassID="111157" ClassName="ResHoly" Data="신성 속성 저항력"/>
 		<Class ClassID="111158" ClassName="ResDark" Data="어둠 속성 저항력"/>
 		<Class ClassID="111159" ClassName="ResEarth" Data="땅 속성 저항력"/>
-		<Class ClassID="111160" ClassName="Earth_Atk" Data="땅 속성 공격력"/>
+		<Class ClassID="111160" ClassName="Earth_Atk" Data="땅 속성 추가 대미지"/>
 		<Class ClassID="111161" ClassName="MaxWeight" Data="휴대 가능무게"/>
 		<Class ClassID="111162" ClassName="ADD_MATK" Data="마법 공격력"/>
 		<Class ClassID="111163" ClassName="ADD_MDEF" Data="마법 방어력"/>
@@ -6068,7 +6103,7 @@
 		<Class ClassID="111175" ClassName="Ghost_Atk" Data="유체 방어 대상 공격력"/>
 		<Class ClassID="111176" ClassName="MaxSta" Data="스태미나"/>
 		<Class ClassID="111177" ClassName="AwakenOption" Data="각성 옵션"/>
-		<Class ClassID="111178" ClassName="ADD_LIGHTNING" Data="전기 속성 공격력"/>
+		<Class ClassID="111178" ClassName="ADD_LIGHTNING" Data="전기 속성 추가 대미지"/>
 		<Class ClassID="111179" ClassName="MAXSTA_Bonus" Data="스태미나"/>
 		<Class ClassID="111180" ClassName="MaxWeight_Bonus" Data="휴대 가능무게"/>
 		<Class ClassID="111181" ClassName="Debuff_Resister" Data="효과 저항"/>
@@ -6083,10 +6118,10 @@
 		<Class ClassID="111190" ClassName="EnchantOption" Data="인챈트 옵션"/>
 		<Class ClassID="111191" ClassName="ReinforceOption" Data="모루에 의한 강화효율이"/>
 		<Class ClassID="111192" ClassName="ReinforceOptionAtk" Data="로 향상됨"/>
-		<Class ClassID="111193" ClassName="ADD_SOUL" Data="염 속성 공격력"/>
+		<Class ClassID="111193" ClassName="ADD_SOUL" Data="염 속성 추가 대미지"/>
 		<Class ClassID="111194" ClassName="RES_SOUL" Data="염 속성 저항력"/>
 		<Class ClassID="111195" ClassName="ResSoul_BM" Data="염 속성 저항력"/>
-		<Class ClassID="111196" ClassName="Soul_Atk" Data="염 속성 공격력"/>
+		<Class ClassID="111196" ClassName="Soul_Atk" Data="염 속성 추가 대미지"/>
 		<Class ClassID="111197" ClassName="ResSoul" Data="염 속성 저항력"/>
 	</Category>
 	<Category Name="Quest">
@@ -6182,8 +6217,8 @@
 	</Category>
 	<Category Name="BarrackMsg">
 		<Class ClassID="118001" ClassName="BarrackThemaChanged" Data="숙소 테마가 변경되었습니다."/>
-		<Class ClassID="118002" ClassName="TeamNameChanged" Data="팀 이름 변경에 성공했습니다."/>
-		<Class ClassID="118003" ClassName="TeamNameChangeFailed" Data="팀 이름 변경에 실패했습니다."/>
+		<Class ClassID="118002" ClassName="TeamNameChanged" Data="팀 이름이 적용되었습니다."/>
+		<Class ClassID="118003" ClassName="TeamNameChangeFailed" Data="팀 이름 적용에 실패했습니다."/>
 		<Class ClassID="118004" ClassName="InputTeamNameFirst" Data="우선 팀 이름을 설정해주세요. 팀 이름은 남들에게 보여지는 이름입니다."/>
 		<Class ClassID="118005" ClassName="TheTeamNameAlreadyExist" Data="해당 팀 이름이 이미 존재합니다."/>
 		<Class ClassID="118006" ClassName="IsApplied" Data="적용중"/>
@@ -7055,7 +7090,7 @@
 		<Class ClassID="136500" ClassName="Auto_MonSeuTeoLeul_BalKyeonHaessSeupNiDa._LinTeueKe_BoKoHaSeyo!" Data="몬스터를 발견했습니다! 린트에게 보고하세요!"/>
 		<Class ClassID="136501" ClassName="Auto_MonSeuTeo_BalKyeon!" Data="몬스터 발견!"/>
 		<Class ClassID="136502" ClassName="Auto_SauKaSeuKa_KaemPeuLo_HyangHaKo_issSeupNiDa._{nl}SanginKwa_SaHagJaKa_wiHeomHapNiDa!" Data="사우가스가 캠프로 향하고 있습니다{nl}상인과 사학자가 위험합니다!"/>
-		<Class ClassID="136503" ClassName="Auto_KongKan_BuyuLyeong_ChulHyeon!" Data="틈새에서 웬디고가 튀어나왔습니다!"/>
+		<Class ClassID="136503" ClassName="Auto_KongKan_BuyuLyeong_ChulHyeon!" Data="열쇠와 함께 틈새에서 웬디고가 튀어나왔습니다!"/>
 		<Class ClassID="136504" ClassName="Auto_HP_Mulyag(Dae)_HoegDeug!" Data="HP 물약(대)를 획득하였습니다!"/>
 		<Class ClassID="136505" ClassName="Auto_KongKanui_Ki_HoegDeug!" Data="대왕의 열쇠를 찾았습니다!"/>
 		<Class ClassID="136506" ClassName="Auto_LauJiNuTe" Data="라우지누테"/>
@@ -7438,7 +7473,7 @@
 		<Class ClassID="136883" ClassName="Auto_LeBeleop_txSilPae._DoelTtaeKkaJi_LepeoptxyoCheong" Data="레벨업 tx실패. 될때까지 렙업tx요청"/>
 		<Class ClassID="136884" ClassName="Auto_KiBoDeu_'U'Leul_NulLeo_SeuTaeseul_olLil_Su_issSeupNiDa" Data="키보드 'F1'를 눌러 스탯을 올릴 수 있습니다"/>
 		<Class ClassID="136885" ClassName="Auto_KiBoDeu_'['Leul_NulLeo_TeugSeongeul_Baeul_Su_issSeupNiDa" Data="키보드 'F3'를 눌러 특성을 배울 수 있습니다"/>
-		<Class ClassID="136886" ClassName="Auto_KeulLeSeu_LeBeli_SangSeungHayeossSeupNiDa" Data="클레스 레벨이 상승하였습니다"/>
+		<Class ClassID="136886" ClassName="Auto_KeulLeSeu_LeBeli_SangSeungHayeossSeupNiDa" Data="클래스 레벨이 상승하였습니다"/>
 		<Class ClassID="136887" ClassName="Auto_KiBoDeu_'K'Leul_NulLeo_SeuKileul_Baeul_Su_issSeupNiDa" Data="키보드 'F3'를 눌러 스킬을 배울 수 있습니다"/>
 		<Class ClassID="136888" ClassName="Auto_MopJen_SeongKong_:_" Data="몹젠 성공 : "/>
 		<Class ClassID="136889" ClassName="Auto_KeunCheoe_MonJen_eopeum" Data="근처에 몬젠 없음"/>
@@ -7861,7 +7896,7 @@
 		<Class ClassID="137306" ClassName="Auto_MiyongSil_iyongJungeNeun_aiTemeul_JangChag_Hal_Su_eopSeupNiDa." Data="미용실 이용 중에는 아이템을 장착 할 수 없습니다."/>
 		<Class ClassID="137307" ClassName="Auto_HaeDang_aiTemeun_ChagyongSi_KwiSogDoeeo_KeoLaeHal_Su_eopSeupNiDa._ChagyongHaSiKessSeupNiKka?" Data="해당 아이템은 착용시 귀속되어 거래할 수 없습니다. 착용하시겠습니까?"/>
 		<Class ClassID="137308" ClassName="Auto_LeBeli_BuJogHapNiDa._aiTem_SeolMyeongeSeo_JangChag_KaNeungHan_LeBeleul_HwaginHaSeyo" Data="레벨이 부족합니다. 아이템 설명에서 장착 가능한 레벨을 확인하세요"/>
-		<Class ClassID="137309" ClassName="Auto_Chagyong_Hal_Su_issNeun_Jigeopi_aNipNiDa" Data="착용 할 수 있는 직업이 아닙니다"/>
+		<Class ClassID="137309" ClassName="Auto_Chagyong_Hal_Su_issNeun_Jigeopi_aNipNiDa" Data="착용할 수 있는 클래스가 아닙니다"/>
 		<Class ClassID="137310" ClassName="Auto_yeoSeongeun_ChagyongHal_Su_eopSeupNiDa._aiTem_SeolMyeongeSeo_JangChag_KaNeungHan_SeongByeolKwa_LeBeleul_HwaginHaSeyo" Data="여성은 착용할 수 없습니다. 아이템 설명에서 장착 가능한 성별과 레벨을 확인하세요"/>
 		<Class ClassID="137311" ClassName="Auto_NamSeongeun_ChagyongHal_Su_eopSeupNiDa._aiTem_SeolMyeongeSeo_JangChag_KaNeungHan_SeongByeolKwa_LeBeleul_HwaginHaSeyo" Data="남성은 착용할 수 없습니다. 아이템 설명에서 장착 가능한 성별과 레벨을 확인하세요"/>
 		<Class ClassID="137312" ClassName="Auto_uiLoe_KiyeoDo_:_" Data="의뢰 기여도 : "/>
@@ -8042,14 +8077,14 @@
 		<Class ClassID="137487" ClassName="Auto_ui_KeSiPan" Data="의 게시판"/>
 		<Class ClassID="137488" ClassName="Auto_SeuTeiSeuTeoSeu_ChoKiHwae_" Data="스테이스터스 초기화에 "/>
 		<Class ClassID="137489" ClassName="Auto__MeDali_PilyoHapNiDa.{nl}_ChoKiHwa_HaSiKessSeupNiKka?" Data="TP가 필요합니다.{nl} 초기화 하시겠습니까?"/>
-		<Class ClassID="137490" ClassName="Auto_{@st59}KongKyeogLyeoge_yeongHyangeul_Jum{/}" Data="{@st59}물리 공격력, 치명타 공격력 증가, 블럭 관통 증가, 최대 소지량 증가{/}"/>
-		<Class ClassID="137491" ClassName="Auto_{@st59}KongKyeogLyeogeul_JeungKa_SiKinDa{/}" Data="{@st59}물리 공격력, 치명타 공격력 증가, 블럭 관통 증가, 최대 소지량 증가{/}"/>
-		<Class ClassID="137492" ClassName="Auto_{@st59}ChoeDae_HPe_yeongHyangeul_Jum{/}" Data="{@st59}HP, HP회복력, 치명타 저항, 최대 소지량 증가{/}"/>
-		<Class ClassID="137493" ClassName="Auto_{@st59}ChoeDae_HPLeul_JeungKa_SiKinDa{/}" Data="{@st59}HP, HP회복력, 치명타 저항, 최대 소지량 증가{/}"/>
+		<Class ClassID="137490" ClassName="Auto_{@st59}KongKyeogLyeoge_yeongHyangeul_Jum{/}" Data="{@st59}물리 공격력, 명중 증가{/}"/>
+		<Class ClassID="137491" ClassName="Auto_{@st59}KongKyeogLyeogeul_JeungKa_SiKinDa{/}" Data="{@st59}물리 공격력, 명중 증가{/}"/>
+		<Class ClassID="137492" ClassName="Auto_{@st59}ChoeDae_HPe_yeongHyangeul_Jum{/}" Data="{@st59}최대 HP, HP 회복력, 최대 스태미나, 블록 증가{/}"/>
+		<Class ClassID="137493" ClassName="Auto_{@st59}ChoeDae_HPLeul_JeungKa_SiKinDa{/}" Data="{@st59}최대 HP, HP 회복력, 최대 스태미나, 블록 증가{/}"/>
 		<Class ClassID="137494" ClassName="Auto_{@st59}ChoeDae_SPe_yeongHyangeul_Jum{/}" Data="{@st59}마법 공격력 증가{/}"/>
 		<Class ClassID="137495" ClassName="Auto_{@st59}ChoeDae_SPLeul_JeungKa_SiKinDa{/}" Data="{@st59}마법 공격력 증가{/}"/>
-		<Class ClassID="137496" ClassName="Auto_{@st59}ChiMyeongTa_Mich_HoePie_yeongHyangeul_Jum{/}" Data="{@st59}명중, 회피, 치명타 발생 증가{/}"/>
-		<Class ClassID="137497" ClassName="Auto_{@st59}ChiMyeongTa_Mich_HoePiLeul_JeungKa_SiKinDa{/}" Data="{@st59}명중, 회피, 치명타 발생 증가{/}"/>
+		<Class ClassID="137496" ClassName="Auto_{@st59}ChiMyeongTa_Mich_HoePie_yeongHyangeul_Jum{/}" Data="{@st59}기본 공격 속도, 치명타 공격력, 블록 관통, 회피 증가{/}"/>
+		<Class ClassID="137497" ClassName="Auto_{@st59}ChiMyeongTa_Mich_HoePiLeul_JeungKa_SiKinDa{/}" Data="{@st59}기본 공격 속도, 치명타 공격력, 블록 관통, 회피 증가{/}"/>
 		<Class ClassID="137498" ClassName="Auto_]_KaDeuLeul_SayongHaSiKessSeupNiKka?" Data="] 를 사용하시겠습니까?"/>
 		<Class ClassID="137499" ClassName="Auto_{/}__{/}" Data="{/} {img white_right_arrow 18 18} {/}"/>
 		<Class ClassID="137500" ClassName="Auto_KeoLi_" Data="거리 "/>
@@ -9505,6 +9540,12 @@
 		<Class ClassID="300150" ClassName="PremiumToken_3d_event" Data="토큰:3일[증정용]"/>
 		<Class ClassID="300151" ClassName="FAILED_PURCHASED_30" Data="고객님의 넥슨캐시 보호를 위해 선물하기가 제한되었습니다."/>
 		<Class ClassID="300152" ClassName="FAILED_PURCHASED_31" Data="고객님의 넥슨캐시 보호를 위해 구매하기가 제한되었습니다."/>
+		<Class ClassID="300153" ClassName="Premium_StatReset_1d" Data="스탯 초기화 포션 (1일)"/>
+		<Class ClassID="300154" ClassName="Premium_StatReset_60d" Data="스탯 초기화 포션 (60일)"/>
+		<Class ClassID="300155" ClassName="Premium_SkillReset_1d" Data="스킬 초기화 포션 (1일)"/>
+		<Class ClassID="300156" ClassName="Premium_SkillReset_60d" Data="스킬 초기화 포션 (60일)"/>
+		<Class ClassID="300157" ClassName="Event_1704_Premium_indunReset_1add" Data="[레벨업 이벤트] 인스턴스 던전 1회 입장권"/>
+		<Class ClassID="300158" ClassName="Event_1704_Premium_indunReset" Data="[레벨업 이벤트] 인스턴스 던전 입장 횟수 초기화권"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
@@ -9548,6 +9589,7 @@
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>
 		<Class ClassID="303002" ClassName="AccountUse2MoreRank" Data="실버 입금 및 출금은 2랭크 이상 가능합니다."/>
 		<Class ClassID="303003" ClassName="YouHaveWrongJob" Data="등록되지 않은 직업을 가지고 있습니다. 운영팀에 문의해주세요."/>
+		<Class ClassID="303004" ClassName="CannotPutBecauseMasSlot" Data="더 이상 팀 창고에 보관할 수 없습니다."/>
 	</Category>
 	<Category Name="Notice">
 		<Class ClassID="304001" ClassName="NoticeFrameName" Data="공지사항"/>
@@ -9580,6 +9622,9 @@
 		<Class ClassID="306011" ClassName="ENCHANTARMOR_HOLY_DESC" Data="성직자의 버프 지속시간이 5% 증가(주문판매상점 제외)"/>
 		<Class ClassID="306012" ClassName="ENCHANTARMOR_VOLITIVE_DESC" Data="자신의 정신 스탯 20 당 체력 스탯 1의 포인트 획득"/>
 	</Category>
+	<Category Name="Test_Server">
+		<Class ClassID="310000" ClassName="TEST_SERVER_GM" Data="큐폴 서버 지원병"/>
+	</Category>
 	<Category Name="GLOBAL">
 		<Class ClassID="500001" ClassName="EXPCARD_COMPANION_FAIL" Data="함께하고 있는 컴패니언 레벨이 낮아 사용할 수 없습니다."/>
 		<Class ClassID="501002" ClassName="Wihte_Select" Data="사탕 세트 제작서 구입"/>
@@ -9607,11 +9652,34 @@
 		<Class ClassID="501024" ClassName="Retention_Select2" Data="다음 목표 레벨은 {LEVELCOUNT} 입니다."/>
 		<Class ClassID="501025" ClassName="WhiteTree_Core_Desc01" Data="검은 수정 획득 중"/>
 		<Class ClassID="501026" ClassName="WhiteTree_Core_Desc02" Data="검은 수정 넣는 중"/>
-		<Class ClassID="501027" ClassName="WhiteTree_Core_Desc03" Data="검은 수정 : {COUNT} / 20개"/>
+		<Class ClassID="501027" ClassName="WhiteTree_Core_Desc03" Data="검은 수정 : {COUNT} / 50개"/>
 		<Class ClassID="501028" ClassName="WhiteTree_Core_Desc04" Data="이벤트 던전 참가"/>
 		<Class ClassID="501036" ClassName="steam_Premium_StatReset_1" Data="스탯 초기화 포션"/>
 		<Class ClassID="501037" ClassName="steam_KindDonnes_1" Data="도네스의 증표 건네주기"/>
 		<Class ClassID="501038" ClassName="steam_KindDonnes_2" Data="건네준 도네스의 증표 개수 확인"/>
 		<Class ClassID="501039" ClassName="steam_KindDonnes_3" Data="{DONNESCOUNT}회 완료하셨습니다."/>
+		<Class ClassID="501040" ClassName="steam_KindDonnes_Select" Data="도네스의 증표 교환"/>
+		<Class ClassID="501041" ClassName="Event_Returner_Desc01" Data="오늘은 더 이상 진행할 수 없습니다. 내일 다시 시도해 주세요."/>
+		<Class ClassID="501042" ClassName="Event_Returner_Desc02" Data=" {nl}나무뿌리를 부시고 복귀자의 증표 10개를 획득하세요."/>
+		<Class ClassID="501043" ClassName="Dungeoncount_14d_Name" Data="인스턴스 던전 배수 토큰 (14일)"/>
+		<Class ClassID="501044" ClassName="CS_IndunReset_GTower_14d" Data="대지의 탑 1회 입장권 (14일)"/>
+		<Class ClassID="501045" ClassName="CS_IndunReset_Nunnery_14d" Data="살러스 미션 1회 입장권 (14일)"/>
+		<Class ClassID="501046" ClassName="steam_Nru_Always_1" Data="신규 유저 가이드 상자 받기"/>
+		<Class ClassID="501047" ClassName="steam_Nru_Always_2" Data="앞으로 {NRUCOUNT}개의 캐릭터 보상이 남았습니다."/>
+		<Class ClassID="501048" ClassName="steam_Premium_StatReset" Data="스탯 초기화 포션"/>
+		<Class ClassID="501050" ClassName="steam_Event_Select_1" Data="친절한 도네스 이벤트"/>
+		<Class ClassID="501051" ClassName="steam_Event_Select_2" Data="신규 유저 이벤트"/>
+	</Category>
+	<Category Name="Npc_Equip_Shop_270_315">
+		<Class ClassID="510200" ClassName="NPC_SHOP_WEAPON_NORMAL_270_315" Data="무기"/>
+		<Class ClassID="510201" ClassName="NPC_SHOP_ARMOR_NORMAL_270_315" Data="방어구"/>
+		<Class ClassID="501046" ClassName="steam_Nru_Always_1" Data="신규 유저 가이드 상자 받기"/>
+		<Class ClassID="501047" ClassName="steam_Nru_Always_2" Data="앞으로 {NRUCOUNT}개의 캐릭터 보상이 남았습니다."/>
+	</Category>
+	<Category Name="Skill_Misc_Shop">
+		<Class ClassID="510100" ClassName="Skill_Misc_Shop_Sel_Warrior" Data="전사 계열"/>
+		<Class ClassID="510101" ClassName="Skill_Misc_Shop_Sel_Archer" Data="궁수 계열"/>
+		<Class ClassID="510102" ClassName="Skill_Misc_Shop_Sel_Mage" Data="마법사 계열"/>
+		<Class ClassID="510103" ClassName="Skill_Misc_Shop_Sel_Cleric" Data="성직자 계열"/>
 	</Category>
 </idspace>

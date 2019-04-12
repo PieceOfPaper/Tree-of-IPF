@@ -8,7 +8,6 @@ end
 function PUB_CANCEL_CREATECHAR(frame)
 
 	frame:ShowWindow(0);
-	selectMap = 0;
 	GetBarrackPub():EnableFocusChar(false);
 
 end
@@ -44,22 +43,7 @@ function PUB_CHARFRAME_UPDATE(frame, actor)
 	job_desc:SetTextByKey("value", jobCls.Caption1);
 
 	SET_HEAD_NAME(frame, gender, headType);
-	--SET_HEAD_COLOR_NAME(frame, gender, headType);
-
-
-	if selectMap == 0 then
-		local KlaipeBtn_mark = GET_CHILD_RECURSIVELY(frame, "KlaipeBtn_mark", "ui::CPicture");
-		local OrshaBtn_mark = GET_CHILD_RECURSIVELY(frame, "OrshaBtn_mark", "ui::CPicture");
-		KlaipeBtn_mark:ShowWindow(0);
-		OrshaBtn_mark:ShowWindow(0);
-
-		local klaipeBtn = GET_CHILD_RECURSIVELY(frame, "KlaipeBtn")
-		local orshaBtn = GET_CHILD_RECURSIVELY(frame, "OrshaBtn")
-		klaipeBtn:SetEnable(1);
-		orshaBtn:SetEnable(1);
-	end
-
-	
+	--SET_HEAD_COLOR_NAME(frame, gender, headType);	
 end
 
 function SET_HEAD_COLOR_NAME(frame, gender, headType)
@@ -331,21 +315,8 @@ function PUB_BARRACK_NEWCHARACTER(frame)
 	local input_name = GET_CHILD(frame, "input_name", "ui::CEditControl");
 	input_name:ClearText();
 end
-selectMap = 0;
 
 function OPEN_PUB_CREATECHAR(frame)
-
-	local OrshaBtn_mark = GET_CHILD_RECURSIVELY(frame, "OrshaBtn_mark")
-	local KlaipeBtn_mark = GET_CHILD_RECURSIVELY(frame, "KlaipeBtn_mark")
-
-	KlaipeBtn_mark:ShowWindow(0);
-	OrshaBtn_mark:ShowWindow(0);
-
-	local klaipeBtn = GET_CHILD_RECURSIVELY(frame, "KlaipeBtn")
-	local orshaBtn = GET_CHILD_RECURSIVELY(frame, "OrshaBtn")
-	klaipeBtn:SetEnable(1);
-	orshaBtn:SetEnable(1);
-	selectMap = 0;
 
 end
 
@@ -354,12 +325,6 @@ function CLOSE_PUB_CREATECHAR(frame)
 end
 
 function PUB_EXEC_CREATECHAR(parent, ctrl)
-
-	if selectMap == 0 then
-		ui.SysMsg(ClMsg("NotChooseStartMap"));
-		return;
-	end
-
 	local accountInfo = session.barrack.GetMyAccount();
 	if accountInfo:GetPCCount() > 0 then
 		
@@ -379,33 +344,7 @@ function _PUB_EXEC_CREATECHAR(viewOpening)
 	local text = input_name:GetText();
 
 	local actor = GetBarrackPub():GetSelectedActor();
-	barrack.RequestCreateCharacter(text, actor, selectMap);
-	GetBarrackPub():EnablePlayOpening(viewOpening, selectMap);
+	barrack.RequestCreateCharacter(text, actor);
+	GetBarrackPub():EnablePlayOpening(viewOpening);
 
-end
-
-function SELECT_START_MAP_KLAIPE(parent, ctrl)
-	ctrl:SetEnable(0);
-	local KlaipeBtn_mark = parent:GetChild("KlaipeBtn_mark");
-	local OrshaBtn_mark = parent:GetChild("OrshaBtn_mark");
-	
-	OrshaBtn_mark:ShowWindow(0);
-	KlaipeBtn_mark:ShowWindow(1);
-
-	local orshaBtn = parent:GetChild("OrshaBtn");
-	orshaBtn:SetEnable(1);
-	selectMap = 1;
-end
-
-function SELECT_START_MAP_ORSHA(parent, ctrl)
-	ctrl:SetEnable(0);
-	local OrshaBtn_mark = parent:GetChild("OrshaBtn_mark");
-	local KlaipeBtn_mark = parent:GetChild("KlaipeBtn_mark");
-
-	KlaipeBtn_mark:ShowWindow(0);
-	OrshaBtn_mark:ShowWindow(1);
-
-	local klaipeBtn = parent:GetChild("KlaipeBtn");
-	klaipeBtn:SetEnable(1);
-	selectMap = 2;
 end

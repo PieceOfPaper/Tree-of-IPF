@@ -1649,7 +1649,8 @@
 			<richtext name="abilTime" margin="160 60 0 0" rect="0 0 265 30" layout_gravity="left top" resizebytext="true" textalign="left top" fixwidth="true" fixheight="false" hittest="false" fontname="brown_16_b"/>
 			<richtext name="abilLevelMax" margin="375 38 0 0" rect="0 0 100 30" layout_gravity="left top" resizebytext="false" textalign="left top" fixwidth="true" fixheight="true" hittest="false" fontname="brown_16_b" format="%s{/}" param1="value" param1_def="aaaaa"/>
 			<richtext name="abilDesc" margin="15 90 0 0" rect="0 0 410 70" skin="ability_deck" layout_gravity="left top" resizebytext="true" textalign="left top" fixwidth="true" hittest="false" fontname="brown_16"/>
-			<richtext name="abilPrice" margin="20 0 0 13" rect="0 0 200 30" layout_gravity="left bottom" resizebytext="false" textalign="center center" fixwidth="true" fixheight="true" hittest="false" fontname="white_16_ol"/>
+      <richtext name="abilPointText" parent="bg2" rect="0 0 100 30" margin="10 0 0 0" layout_gravity="left center" caption="필요 포인트" fontname="black_16"/>
+			<richtext name="abilPrice" parent="bg2" rect="0 0 50 30" margin="0 0 20 0" layout_gravity="right center" hittest="false" fontname="black_16"/>
 			<button name="abilAdd" rect="0 0 45 45" margin="230 0 0 1" image="market_plus2_btn" layout_gravity="left bottom"/>
 			<button name="abilRevert" rect="0 0 45 45" margin="270 0 0 5" image="market_reset2_btn" layout_gravity="left bottom"/>
 			<button name="abilLearn" rect="0 0 120 45" margin="310 0 0 5" skin="test_pvp_btn" layout_gravity="left bottom" caption="{@st66b}배우기"/>
@@ -3330,12 +3331,12 @@
 			<picture name="item_pic" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 60 60" margin="5 5 0 0"/>
 		</controls>
 	</controlset>
-	<controlset name="basic_property_set" hittest="false" width="400" height="40">
-		<controls>
-			<richtext name="minPowerStr" rect="0 0 120 24" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
-			<richtext name="minPower" rect="0 0 120 24" margin="0 0 0 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
-			<richtext name="maxPowerStr" rect="0 0 120 24" margin="0 20 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
-			<richtext name="maxPower" rect="0 0 120 24" margin="0 20 0 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
-		</controls>
-	</controlset>
+  <controlset name="basic_property_set" hittest="false" width="400" height="40">
+    <controls>
+      <richtext name="minPowerStr" rect="0 0 120 24" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
+      <richtext name="minPower" rect="0 0 120 24" margin="0 0 0 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
+      <richtext name="maxPowerStr" rect="0 0 120 24" margin="0 20 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
+      <richtext name="maxPower" rect="0 0 120 24" margin="0 20 0 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
+    </controls>
+  </controlset>
 </controlsetlist>

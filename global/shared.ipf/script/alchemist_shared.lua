@@ -24,15 +24,15 @@ function ALCHEMIST_CHECK_Alchemist_Briquetting(self, item)
 		return 0;
 	end
 
-	--°°Àº ¹«±âÇÕ¼öÀÔ´Ï´Ù.
-	return ITEMBUFF_CHECK_Squire_WeaponTouchUp(sefl, item)
+	--ê°™ì€ ë¬´ê¸°í•©ìˆ˜ì…ë‹ˆë‹¤.
+	return ITEMBUFF_CHECK_Squire_WeaponTouchUp(self, item);
 end
 
 function ALCHEMIST_VALUE_Alchemist_Briquetting(skillLevel, itemValue)
-	-- ·¹º§ 1ÀÏ ¶§, ±âº» ÃÊ±âÈ­
+	-- ë ˆë²¨ 1ì¼ ë•Œ, ê¸°ë³¸ ì´ˆê¸°í™”
 	local minPercent = 0.955 - skillLevel * 0.005;
 	local maxPerCent = 1.045 + skillLevel * 0.005;
-	-- ÃÖ¼Ò, ÃÖ´ë
+	-- ìµœì†Œ, ìµœëŒ€
 	return math.floor(itemValue * minPercent), math.floor(itemValue * maxPerCent);
 end
 

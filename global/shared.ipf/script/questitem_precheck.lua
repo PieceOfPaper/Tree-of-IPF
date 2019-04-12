@@ -548,9 +548,9 @@ end
 
 function SCR_PRE_ZACHA3F_MQ_02_ITEM(self, argstring, argnum1, argnum2)
     if GetZoneName(self) == "d_zachariel_34" then
-    local fndList, fndCount = SelectObject(self, 40, 'ALL');
-	local i
-    local result = SCR_QUEST_CHECK(self, 'ZACHA3F_MQ_03')
+        local fndList, fndCount = SelectObject(self, 40, 'ALL');
+    	local i
+        local result = SCR_QUEST_CHECK(self, 'ZACHA3F_MQ_03')
         if result == 'PROGRESS' then
             for i = 1, fndCount do
                 if fndList[i].ClassName == "wolf_statue_mage_pollution" then
@@ -1772,7 +1772,7 @@ function SCR_PRE_CATHEDRAL54_SQ_04_ITEM(self, argstring, argnum1, argnum2)
                 local i
                 if cnt > 0 then
                 for i = 1 , cnt do
-                    if list[i].ClassName == "Stoulet_blue" then
+                    if list[i].ClassName == "Stoulet_blue" or list[i].ClassName == "NightMaiden_mage" then
                         return GetHandle(list[i])
                     end
                 end
@@ -3824,7 +3824,7 @@ function SCR_PRE_THORN39_1_MQ03_BOWL(self, argstring, argnum1, argnum2)
         if GetZoneName(self) == 'd_thorn_39_1' then
             if GetLayer(self) == 0 then
                 local itemCnt = GetInvItemCount(self, 'THORN39_1_MQ05_ITEM')
-                if itemCnt <= 4 then
+                if itemCnt <= 6 then
                     local list, cnt = SelectObject(self, 30, 'ALL', 1)
                     local i
                     for i = 1, cnt do
@@ -4410,7 +4410,7 @@ function SCR_PRE_TABLELAND28_2_SQ06_ITEM1(self, argstring, argnum1, argnum2)
         if GetZoneName(self) == 'f_tableland_28_2' then
             if GetLayer(self) == 0 then
                 local itemCnt = GetInvItemCount(self, 'TABLELAND28_2_SQ06_ITEM2')
-                if itemCnt <= 7 then
+                if itemCnt <= 9 then
                     local list, cnt = SelectObject(self, 20, 'ALL', 1)
                     local i
                     for i = 1, cnt do
@@ -4515,7 +4515,9 @@ function SCR_PRE_PILGRIM_48_SQ_030_ITEM_1(self, argObj, argstring, arg1, arg2)
             local i
             for i = 1, pc_cnt do
                 if pc_list[i].ClassName == 'PC' then
-                    if pc_list[i].Lv >= 1 and  pc_list[i].Lv <= 25 then
+                
+                    if pc_list[i].Lv <= 25 and pc_list[i].Lv >= 1 then
+                        --print(pc_list[i].Name, pc_list[i].Lv)
 
 --                        local pc_sObj = GetSessionObject(pc_list[i], "ssn_klapeda")
 --                        if pc_sObj.PILGRIM_48_SQ_030_BUFF ~= 300 then
@@ -6758,7 +6760,7 @@ function SCR_PRE_DCAPITAL103_SQ03_ITEM1(self, argstring, argnum1, argnum2)
         if GetZoneName(self) == 'f_dcapital_103' then
             if GetLayer(self) == 0 then
                 local itemCnt = GetInvItemCount(self, 'DCAPITAL103_SQ03_ITEM2')
-                if itemCnt <= 7 then
+                if itemCnt <= 10 then
                     local list, cnt = SelectObject(self, 20, 'ALL', 1)
                     local i
                     for i = 1, cnt do
@@ -6798,6 +6800,15 @@ function SCR_PRE_DCAPITAL103_SQ09_ITEM1(self, argstring, argnum1, argnum2)
     end
     return 0
 end
+
+
+
+
+--KEY_QUEST_COMMON
+function SCR_PRE_KEY_QUEST_COMMON_1(self, argstring, argnum1, argnum2)
+    return 1
+end
+
 
 --SCR_PRE_UNDER67_HIDDENQ1_ITEM1
 function SCR_PRE_UNDER67_HIDDENQ1_ITEM1(self, argstring, argnum1, argnum2)
@@ -6894,7 +6905,7 @@ function SCR_PRE_ORSHA_HIDDENQ3_ITEM1(self, strArg, num1, num2, itemType)
         		if petObj.Lv >= 300 then
             		local petCls = GetClassByStrProp("Companion", "ClassName", petObj.ClassName)
             		local foodGroup = 0;
-            
+                    
             		if petCls ~= nil and petCls.FoodGroup ~= "None" then
             			foodGroup = tonumber(petCls.FoodGroup);
             		end
@@ -6948,6 +6959,26 @@ function SCR_PRE_TABLE281_HIDDENQ1_ITEM5(self, argObj, argstring, arg1, arg2)
     end
     return 0
 end
+--PILGRIMROAD55_SQ12_ITEM
+function SCR_PRE_PILGRIMROAD55_SQ12_ITEM(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'f_pilgrimroad_55' then
+        if GetLayer(self) == 0 then 
+            local result1 = SCR_QUEST_CHECK(self, 'PILGRIMROAD55_SQ12')
+            if result1 == 'PROGRESS' then
+                local fndList, fndCnt = SelectObject(self, 100, 'ENEMY', 1)
+                local i 
+                for i = 1, fndCnt do
+                    if fndList[i].ClassName == 'Burialer' then
+                        if GetHpPercent(fndList[i]) <= 0.3 then
+                            return GetHandle(fndList[i])
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
 
 --LOWLV_BOASTER_SQ_20_ITEM
 function SCR_PRE_LOWLV_BOASTER_SQ_20_ITEM(self, argObj, argstring, arg1, arg2)
@@ -6975,4 +7006,218 @@ function SCR_PRE_LOWLV_BOASTER_SQ_20_ITEM(self, argObj, argstring, arg1, arg2)
         end
     end
     return 0; 
+end
+
+
+--THORN39_1_SQ04_ITEM1
+function SCR_PRE_THORN39_1_SQ04_ITEM1(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'd_thorn_39_1' then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'THORN39_1_SQ04')
+            if result == 'PROGRESS' then
+                local list, Cnt = SelectObject(self, 100, 'ENEMY', 1)
+                local i 
+                for i = 1, Cnt do
+                    if list[i].ClassName == 'Pandroceum' then
+                        if GetHpPercent(list[i]) <= 0.5 then
+                            return GetHandle(list[i])
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--THORN39_1_SQ06_ITEM
+function SCR_PRE_THORN39_1_SQ06_ITEM(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'd_thorn_39_1' then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'THORN39_1_SQ06')
+            if result == 'PROGRESS' then
+                local x, y, z = GetPos(self)
+                local sObj = GetSessionObject(self, 'SSN_THORN39_1_SQ06')
+                if SCR_POINT_DISTANCE(x, z, 1298, -1288) < 50 then
+                    if sObj.Goal1 == 2 then
+                    return 0
+                    elseif sObj.Goal1 == 0 then
+                    return 1
+                    end
+                elseif SCR_POINT_DISTANCE(x, z, 1443, -1432) < 50 then
+                    if sObj.Goal2 == 2 then
+                    return 0
+                    elseif sObj.Goal2 == 0 then
+                    return 1
+                    end
+                elseif SCR_POINT_DISTANCE(x, z, 1122, -1467) < 50 then
+                    if sObj.Goal3 == 2 then
+                    return 0
+                    elseif sObj.Goal3 == 0 then
+                    return 1
+                    end
+                elseif SCR_POINT_DISTANCE(x, z, 1271, -1603) < 50 then
+                    if sObj.Goal4 == 2 then
+                    return 0
+                    elseif sObj.Goal4 == 0 then
+                    return 1
+                    end
+                end
+            end
+        end
+    end
+    return 0;
+end
+
+--THORN39_3_SQ07_ITEM
+function SCR_PRE_THORN39_3_SQ07_ITEM(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'd_thorn_39_3' then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'THORN39_3_SQ07')
+            if result == 'PROGRESS' then
+                local x, y, z = GetPos(self)
+                if SCR_POINT_DISTANCE(x, z, 759, -858) < 50 then
+                    if isHideNPC(self, 'THORN39_3_SQ07_OBJ1') == 'YES' then
+                    return 1
+                    else
+                    return 0;
+                    end
+                end
+                if SCR_POINT_DISTANCE(x, z, 1366, -1181) < 50 then
+                    if isHideNPC(self, 'THORN39_3_SQ07_OBJ2') == 'YES' then
+                    return 1
+                    else
+                    return 0;
+                    end
+                end
+                if SCR_POINT_DISTANCE(x, z, 2062, -822) < 50 then
+                    if isHideNPC(self, 'THORN39_3_SQ07_OBJ3') == 'YES' then
+                    return 1
+                    else
+                    return 0;
+                    end
+                end
+            end
+        end
+    end
+    return 0;
+end
+
+--PILGRIMROAD362_HIDDENQ1_ITEM3
+function SCR_PRE_PILGRIMROAD362_HIDDENQ1_ITEM3(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'f_pilgrimroad_36_2' then
+        if GetLayer(self) == 0  then
+            return 1;
+        end
+    end
+    return 0
+end
+
+--SCR_PRE_PILGRIM48_HIDDENQ1_PREITEM
+function SCR_PRE_PILGRIM48_HIDDENQ1_PREITEM(self, argObj, argstring, arg1, arg2)
+    if GetLayer(self) == 0  then
+        return 1;
+    end
+    return 0
+end
+
+
+--SCR_PRE_PILGRIM48_HIDDENQ1_ITEM3
+function SCR_PRE_PILGRIM48_HIDDENQ1_ITEM3(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'PILGRIM48_HQ1')
+    if result == 'PROGRESS' then
+        if GetZoneName(self) == 'f_pilgrimroad_49' then
+            if GetLayer(self) == 0 then
+                return 1;
+            end
+        end
+    end
+    return 0;
+end
+
+--SCR_PRE_CATHEDRAL1_HIDDENQ1_ITEM1
+function SCR_PRE_CATHEDRAL1_HIDDENQ1_ITEM1(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'f_remains_39' then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'CATHEDRAL1_HQ1')
+            if result == 'PROGRESS' then
+                local list, Cnt = SelectObject(self, 100, 'ALL', 1)
+                for i = 1, Cnt do
+                    if list[i].ClassName == 'noshadow_npc_8' then
+--                        if list[i].Dialog == 'CATHEDRAL1_HIDDEN_NPC_CHAT' then
+                            return GetHandle(list[i])
+--                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--SCR_PRE_CATACOMB38_2_HIDDENQ1_ITEM1
+function SCR_PRE_CATACOMB38_2_HIDDENQ1_ITEM1(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'id_catacomb_38_2' then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'CATACOMB38_2_HQ1')
+            if result == 'PROGRESS' then
+                local list, Cnt = SelectObject(self, 100, 'ALL', 1)
+                for i = 1, Cnt do
+                    if list[i].ClassName == 'Hiddennpc_move' then
+--                        if IsServerSection(self) == 1 then
+--                            if list[i].Dialog == 'CATACOMB382_HIDDENQ1_SPIRIT' then
+--                            if list[i].Faction == "Neutral" then
+                                return GetHandle(list[i])
+--                            end
+--                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+
+
+--SCR_PRE_FTOWER692_KQ_1_ITEM
+function SCR_PRE_FTOWER692_KQ_1_ITEM(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'd_firetower_69_2' then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'FTOWER692_KQ_1')
+            if result == 'PROGRESS' then
+                return 1
+            end
+        end
+    end
+    return 0
+end
+
+
+--PILGRIM412_KQ_1
+function SCR_PRE_PILGRIM412_KQ_1_ITEM(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'f_pilgrimroad_41_2' then
+        if GetLayer(self) == 0 then 
+            
+            local result = SCR_QUEST_CHECK(self, 'PILGRIM412_KQ_1')
+            if result == 'PROGRESS' then
+                return 1
+            end
+        end
+    end
+    return 0
+end
+
+
+--LSCAVE521_KQ_1
+function SCR_PRE_LSCAVE521_KQ_1_ITEM(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'd_limestonecave_52_1' then
+        if GetLayer(self) == 0 then 
+            local result = SCR_QUEST_CHECK(self, 'LSCAVE521_KQ_1')
+            if result == 'PROGRESS' then
+                return 1
+            end
+        end
+    end
+    return 0
 end

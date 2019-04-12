@@ -24,6 +24,11 @@ function REINFORCE_131014_ITEM_LOCK(guid)
 	local invframe = ui.GetFrame("inventory");
 	invframe:SetUserValue("ITEM_GUID_IN_MORU", guid);
 	INVENTORY_ON_MSG(invframe, 'UPDATE_ITEM_REPAIR');
+
+	local rankresetFrame = ui.GetFrame("rankreset");
+	if 1 == rankresetFrame:IsVisible() then
+		RANKRESET_PC_TIMEACTION_STATE(rankresetFrame)
+	end
 end
 
 function REINFORCE_131014_OPEN(frame)
@@ -92,9 +97,11 @@ function REINFORCE_131014_MSGBOX(frame)
 		ui.AddText("SystemMsgFrame", ScpArgMsg('NotEnoughMoney'));
 		return;
 	end
+	
+	local classType = TryGetProp(fromItemObj,"ClassType");
     
     if moruObj.ClassName ~= "Moru_Potential" and moruObj.ClassName ~= "Moru_Potential14d" then
-    if fromItemObj.GroupName == 'Weapon' then
+    if fromItemObj.GroupName == 'Weapon' or (fromItemObj.GroupName == 'SubWeapon' and  classType ~='Shield') then
     	if curReinforce >= 5 then
                	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" then
                     ui.MsgBox(ScpArgMsg("GOLDMORUdontbrokenitemProcessReinforce?", "Auto_1", 3), "REINFORCE_131014_EXEC", "None");

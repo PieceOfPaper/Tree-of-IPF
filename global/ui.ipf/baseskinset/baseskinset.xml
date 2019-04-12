@@ -4955,10 +4955,12 @@
 		<image name="three_star_item_bg" file="\skin\pip_test_item.tga" imgrect="418 0 417 272" CMM_Caption="푸른색아이템배경"/>
 		<image name="four_star_item_bg" file="\skin\pip_test_item.tga" imgrect="0 273 417 272" CMM_Caption="보라색아이템배경"/>
 		<image name="five_item_bg" file="\skin\pip_test_item.tga" imgrect="418 273 412 272" CMM_Caption="붉은색아이템배경"/>
+		<image name="six_item_bg" file="\skin\tooltip_skin_3.tga" imgrect="0 1052 417 272" CMM_Caption="노란색아이템배경"/>
 		<image name="one_two_star_item_bg2" file="\skin\USsentiment.tga" imgrect="0 0 417 272" CMM_Caption="노말아이템_미감정"/>
 		<image name="three_star_item_bg2" file="\skin\USsentiment.tga" imgrect="418 0 417 272" CMM_Caption="푸른색아이템_미감정"/>
 		<image name="four_star_item_bg2" file="\skin\USsentiment.tga" imgrect="0 273 417 272" CMM_Caption="보라색아이템_미감정"/>
 		<image name="five_item_bg2" file="\skin\USsentiment.tga" imgrect="418 273 412 272" CMM_Caption="붉은색아이템_미감정"/>
+		<image name="six_item_bg2" file="\skin\tooltip_skin_3.tga" imgrect="0 778 417 272" CMM_Caption="노란색아이템_미감정"/>
 		<image name="USsentiment_message" file="\skin\USsentiment.tga" imgrect="0 546 481 46" CMM_Caption="미감정입니다"/>
 		<image name="USsentiment_top" file="\skin\USsentiment.tga" imgrect="482 546 160 54" CMM_Caption="미감정_탑"/>
 		<image name="test_socket_top" file="\skin\pip_test_item.tga" imgrect="0 645 453 70" CMM_Caption="소켓_탑"/>
@@ -5348,10 +5350,12 @@
 		<image name="Collar_Lollipop" file="\skin\keynbet.tga" imgrect="309 507 20 20 " CMM_Caption="칭호 롤리팝"/>
 		<image name="Collar_Brush" file="\skin\keynbet.tga" imgrect="330 507 20 20" CMM_Caption="칭호 붓"/>
 		<image name="indun_readycheck" file="\skin\indun_skin.tga" imgrect="811 58 57 57" CMM_Caption="인던 4인 이하 준비표시"/>
+		<image name="tooltip_speedofatk" file="\skin\tooltip_skin_3.tga" imgrect="743 111 18 18" CMM_Caption="공격속도 아이콘"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
 		<image name="clock_3" file="\skin\pip_test.tga" imgrect="1797 211 20 20" CMM_Caption="기간제 팝업창용 시계"/>
+		<image name="exp_reset" file="\skin\min_hud.tga" imgrect="13 113 755 40" CMM_Caption="경험치초기화구간"/>
 	</imagelist>
 	<imagelist category="MCC_image">
 		<image name="MCC_one" file="\skin\MCC_skin.tga" imgrect="237 0 50 50"/>

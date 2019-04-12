@@ -1,94 +1,100 @@
+function IS_KOR_TEST_SERVER()
+    if GetServerNation() == 'KOR' and GetServerGroupID() == 9001 then
+        return true
+    end
+    return false
+end
 function IS_SEASON_SERVER(pc)
     
---    if pc ~= nil then
---        if IsServerObj(pc) == 1 then
---            if IsIndun(pc) == 1 then
---                local etc = GetETCObject(pc)
---                local serverGroupID = TryGetProp(etc, "MyWorldID");
---
---                --Test Server
---                --if GetServerNation() == "KOR" and serverGroupID == 1550 then
---				--	return "NO";
---                --else
---				--	return "YES";
---                --end
---
---                --Live Server
---                if GetServerNation() == "KOR" and ( serverGroupID == 3001 or serverGroupID == 8801) then
---                    return "YES";
---                else
---                    return "NO";
---                end
---            else
---                --Test Server
---                --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
---				--	return "YES"
---                --else
---				--	return "NO"
---                --end
---    
---                --Live Server
---                if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
---                    return "YES"
---                else
---                    return "NO"
---                end
---            end
---        else
---            if session.world.IsIntegrateServer() == true then
---                local pcEtc = GetMyEtcObject();
---                    
---                local serverGroupID = TryGetProp(pcEtc, "MyWorldID");
---
---                --Test Server
---                --if GetServerNation() == "KOR" and serverGroupID == 1550 then
---				--	return "NO";
---                --else
---				--	return "YES";
---                --end
---
---                --Live Server
---                if GetServerNation() == "KOR" and ( serverGroupID == 3001 or serverGroupID == 8801) then
---                    return "NO";
---                else
---                    return "YES";
---                end
---            else
---                --Test Server
---                --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
---				--	return 'YES'
---                --end
---     
---                --Live Server
---                if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
---                    return "YES"
---                else
---                    return "NO"
---                end
---            end 
---        end
---    else
---        --Test Server
---        --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
---		--	return 'YES'
---        --end
---    
---        --Live Server
---        if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
---            return 'YES'
---        end         
---    end
---
---
---    --Test Server
---    --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
---	--	return 'YES'
---    --end
---    
---    --Live Server
---    --if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
---    --   return 'YES'
---    --end
+    if pc ~= nil then
+        if IsServerObj(pc) == 1 then
+            if IsIndun(pc) == 1 then
+                local etc = GetETCObject(pc)
+                local serverGroupID = TryGetProp(etc, "MyWorldID");
+
+                --Test Server
+                --if GetServerNation() == "KOR" and serverGroupID == 1550 then
+                --  return "NO";
+                --else
+                --  return "YES";
+                --end
+
+                --Live Server
+                if GetServerNation() == "KOR" and ( serverGroupID == 3001 or serverGroupID == 8801) then
+                    return "YES";
+                else
+                    return "NO";
+                end
+            else
+                --Test Server
+                --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
+                --  return "YES"
+                --else
+                --  return "NO"
+                --end
+    
+                --Live Server
+                if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
+                    return "YES"
+                else
+                    return "NO"
+                end
+            end
+        else
+            if session.world.IsIntegrateServer() == true then
+                local pcEtc = GetMyEtcObject();
+                    
+                local serverGroupID = TryGetProp(pcEtc, "MyWorldID");
+
+                --Test Server
+                --if GetServerNation() == "KOR" and serverGroupID == 1550 then
+                --  return "NO";
+                --else
+                --  return "YES";
+                --end
+
+                --Live Server
+                if GetServerNation() == "KOR" and ( serverGroupID == 3001 or serverGroupID == 8801) then
+                    return "NO";
+                else
+                    return "YES";
+                end
+            else
+                --Test Server
+                --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
+                --  return 'YES'
+                --end
+     
+                --Live Server
+                if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
+                    return "YES"
+                else
+                    return "NO"
+                end
+            end 
+        end
+    else
+        --Test Server
+        --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
+        --  return 'YES'
+        --end
+    
+        --Live Server
+        if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
+            return 'YES'
+        end         
+    end
+
+
+    --Test Server
+    --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
+    --  return 'YES'
+    --end
+    
+    --Live Server
+    --if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
+    --   return 'YES'
+    --end
     
     return 'NO'
 end
@@ -1003,7 +1009,7 @@ function GET_CLS_GROUP(idSpace, groupName)
     while 1 do
 
         local name = groupName .. "_" .. index;
-		local cls =	GetClassByNameFromList(clsList, name);
+        local cls = GetClassByNameFromList(clsList, name);
         if cls == nil then
             return retList;
         end
@@ -1034,13 +1040,11 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
         value = 500;
     end
     
-    if (pcLv - 20) > monLv then
-        local lvRatio = 1 - ((pcLv - monLv - 20) * 0.05);
-        value = value * lvRatio;
-    end
+    local levelGap = math.abs(pcLv - monLv);
     
-    if monLv > (pcLv + 20) then
-        local lvRatio = 1 - ((monLv - pcLv - 20) * 0.033);
+    
+    if levelGap > 30 then
+        local lvRatio = 1 - ((levelGap - 30) * 0.05);
         value = value * lvRatio;
     end
     
@@ -1049,7 +1053,6 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
     end
     
     return value;
-
 end
 
 function GET_ADD_SPRAY_USE(colCnt, obj)
@@ -1377,9 +1380,9 @@ function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
         
 
         local sList = StringSplit(cls["ChangeJobCondition" .. i], ";");
-		local conditionCount = #sList / 2;	-- 해당직업 전직조건 체크갯수
+        local conditionCount = #sList / 2;  -- 해당직업 전직조건 체크갯수
         
-		local completeCount = 0;			-- 전직조건에 몇개나 만족하는지
+        local completeCount = 0;            -- 전직조건에 몇개나 만족하는지
         for j = 1, conditionCount do
             -- 직업가지고있고 요구레벨보다 높은지 체크
             for n=0, #haveJobNameList do
@@ -1478,15 +1481,18 @@ function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, chType)
             if table.find(checkZoneList, questIES.StartMap) == 0 then
                 checkZoneList[#checkZoneList + 1] = questIES.StartMap
             end
-            if #checkZoneList > 0 then
-                for i = 1, #checkZoneList do
-                    if subQuestZoneList == nil or table.find(subQuestZoneList, checkZoneList[i]) > 0 then
-                        subQuestFlag = 1
-                        break
-                    end
-                end
+            if subQuestZoneList == nil then
             else
-                subQuestFlag = 2
+                if #checkZoneList > 0 then
+                    for i = 1, #checkZoneList do
+                        if table.find(subQuestZoneList, checkZoneList[i]) > 0 then
+                            subQuestFlag = 1
+                            break
+                        end
+                    end
+                else
+                    subQuestFlag = 2
+                end
             end
             
             if subQuestFlag == 0 then
@@ -1501,7 +1507,7 @@ function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, chType)
         subQuestFlag = 3
     end
     
-	local zonecheckFun = _G['LINKZONECHECK'];
+    local zonecheckFun = _G['LINKZONECHECK'];
     if chType == 'Set2' then
         ret = "OPEN"
         return ret, subQuestZoneList
@@ -1647,4 +1653,26 @@ function IS_ITEM_IN_LIST(list, item)
     end
 
     return false;
+end
+
+
+function EXIST_ITEM(list, element)
+    if list == nil or #list < 1 then
+        return false;
+    end
+    for i = 1, #list do
+        if list[i] == element then
+            return true;
+        end
+    end
+    return false;
+end
+
+function PUSH_BACK_IF_NOT_EXIST(list, element)
+    if EXIST_ITEM(list, element) == true then
+        return list;
+    end
+
+    list[#list + 1] = element;
+    return list;
 end

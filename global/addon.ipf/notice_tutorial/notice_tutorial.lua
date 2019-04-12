@@ -305,7 +305,7 @@ function UPDATE_KEYBOARD_TUTORIAL(frame)
 	end
 	if keyboard.IsKeyDown("UP") == 1 then
 		frame:SetUserValue("move3", 'off')
-		local img = moveGroupBox:GetChild('move_u');
+		local img = GET_CHILD_RECURSIVELY(moveGroupBox, 'move_u');
 		img:SetBlink(0, 1, '0xFF000000');
 	end
 	if keyboard.IsKeyDown("DOWN") == 1 then

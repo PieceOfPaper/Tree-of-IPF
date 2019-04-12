@@ -212,6 +212,7 @@ function UPDATE_PUZZLECRAFT_TARGETS()
 	end		
 	
 	local cnt = geItemPuzzle.GetCombinationCount();
+    local totalNeedSecond = 0;
 	for i = 0 , cnt - 1 do
 		local info = geItemPuzzle.GetCombinationByIndex(i);
 		local resultInfo = geItemPuzzle.GetByClassID(info.classID);
@@ -235,8 +236,23 @@ function UPDATE_PUZZLECRAFT_TARGETS()
 		local itemCls = GetClass("Item", resultInfo:GetTargetItemName());
 		SET_SLOT_ITEM_CLS(retSlot, itemCls);
 		SET_SLOT_COUNT_TEXT(retSlot, ptCount)
+
+        totalNeedSecond = totalNeedSecond + resultInfo.needSec * ptCount;
 	end
 
+    PUZZLECRAFT_UPDATE_TOTAL_TIME(frame, totalNeedSecond);
+end
+
+function PUZZLECRAFT_UPDATE_TOTAL_TIME(frame, totalNeedSecond)
+    if totalNeedSecond < 0 then
+        totalNeedSecond = 0;
+    end
+    
+    local richtext_1 = GET_CHILD_RECURSIVELY(frame, 'richtext_1');
+    local minute = totalNeedSecond / 60;
+    local second = totalNeedSecond % 60;
+    local timeStr = string.format('%d:%02d', minute, second);
+    richtext_1:SetTextByKey('value', timeStr);
 end
 
 function PUZZLE_ANIM_EXCUTE()
@@ -312,7 +328,8 @@ function PUZZLE_COMPLETE()
 		CLEAR_SLOT_ITEM_INFO(slot);
 		slot:SetUserValue("SELECTED", 0);
 	end		
-		
+    
+    PUZZLECRAFT_UPDATE_TOTAL_TIME(frame, 0);
 end
 
 function PUZZLE_MAKING_BALLOON(handle, itemCount)
@@ -366,6 +383,3 @@ function UPDATE_PUZZLECRAFT_MAKING_TOOLTIP(frame, strArg, numArg)
 	frame:Resize(frame:GetWidth(), gbox:GetY() + gbox:GetHeight() + 10)
 
 end
-
-
-

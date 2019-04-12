@@ -1,5 +1,6 @@
 ﻿function INDUNENTER_ON_INIT(addon, frame)
 	addon:RegisterMsg('MOVE_ZONE', 'INDUNENTER_CLOSE');
+    addon:RegisterMsg('CLOSE_UI', 'INDUNENTER_CLOSE');
 	addon:RegisterMsg('ESCAPE_PRESSED', 'INDUNENTER_ON_ESCAPE_PRESSED');
 
 	g_indunMultipleItem = "Premium_dungeoncount_01";
@@ -54,10 +55,7 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 	frame:SetUserValue('INDUN_NAME', indunCls.Name);
 	frame:SetUserValue('AUTOMATCH_MODE', 'NO');
 	frame:SetUserValue('WITHMATCH_MODE', 'NO');
-	frame:SetUserValue('MON_TOGGLE_OPEN', 'NO');
-	frame:SetUserValue('REWARD_TOGGLE_OPEN', 'NO');
 	frame:SetUserValue('AUTOMATCH_FIND', 'NO');
-
     frame:SetUserValue("multipleCount", 0);
 
 
@@ -104,7 +102,7 @@ function INDUNENTER_INIT_REENTER_UNDERSTAFF_BUTTON(frame, enableReenter)
         understaffEnterAllowBtn:ShowWindow(1);
         understaffEnterAllowBtn:SetEnable(0);
     end
-    smallUnderstaffEnterAllowBtn:ShowWindow(1);
+    smallUnderstaffEnterAllowBtn:ShowWindow(1);    
     frame:SetUserValue('ENABLE_REENTER', enableReenter);
 end
 
@@ -145,12 +143,12 @@ function INDUNENTER_MAKE_MONLIST(frame, indunCls)
 	end
 
 	local monSlotSet = GET_CHILD_RECURSIVELY(frame, 'monSlotSet');
-	local monSlotSet_extra = GET_CHILD_RECURSIVELY(frame, 'monSlotSet_extra');
+    local monRightBtn = GET_CHILD_RECURSIVELY(frame, 'monRightBtn');
+    local monLeftBtn = GET_CHILD_RECURSIVELY(frame, 'monLeftBtn');
 	
 	-- init
-	monSlotSet_extra:SetPos(monSlotSet_extra:GetOriginalX(), monSlotSet_extra:GetOriginalY());
 	monSlotSet:ClearIconAll();
-	monSlotSet_extra:ClearIconAll();
+    monSlotSet:SetUserValue('CURRENT_SLOT', 1);
 
 	-- data set
 	local bossList = TryGetProp(indunCls, 'BossList');
@@ -171,12 +169,7 @@ function INDUNENTER_MAKE_MONLIST(frame, indunCls)
 		end
 
 		if monIcon ~= nil then
-			local slot = nil;
-			if i > 5 then
-				slot = monSlotSet_extra:GetSlotByIndex(10 - i);
-			else -- 5개까지는 기본적으로 보여지는 슬롯셋에 아이콘 추가
-				slot = monSlotSet:GetSlotByIndex(i - 1);
-			end
+			local slot = monSlotSet:GetSlotByIndex(i - 1);
 			if slot ~= nil then
 				local slotIcon = CreateIcon(slot);
 				slotIcon:SetImage(monIcon);
@@ -189,6 +182,14 @@ function INDUNENTER_MAKE_MONLIST(frame, indunCls)
 			end
 		end
 	end
+
+    if #bossTable > 5 then
+        monRightBtn:SetEnable(1);
+        monLeftBtn:SetEnable(0);
+    else
+        monRightBtn:SetEnable(0);
+        monLeftBtn:SetEnable(0);
+    end
 end
 
 function INDUNENTER_MAKE_REWARDLIST(frame, indunCls)
@@ -197,12 +198,12 @@ function INDUNENTER_MAKE_REWARDLIST(frame, indunCls)
 	end
 
 	local rewardSlotSet = GET_CHILD_RECURSIVELY(frame, 'rewardSlotSet');
-	local rewardSlotSet_extra = GET_CHILD_RECURSIVELY(frame, 'rewardSlotSet_extra');
+	local rewardRightBtn = GET_CHILD_RECURSIVELY(frame, 'rewardRightBtn');
+    local rewardLeftBtn = GET_CHILD_RECURSIVELY(frame, 'rewardLeftBtn');
 
-	-- init
-	rewardSlotSet_extra:SetPos(rewardSlotSet_extra:GetOriginalX(), rewardSlotSet_extra:GetOriginalY());
+	-- init	
 	rewardSlotSet:ClearIconAll();
-	rewardSlotSet_extra:ClearIconAll();
+	
 
 	-- data set	
 	local itemList = TryGetProp(indunCls, 'ItemList');
@@ -222,21 +223,21 @@ function INDUNENTER_MAKE_REWARDLIST(frame, indunCls)
 		end
 
 		if itemIcon ~= nil then
-			if i > 5 then
-				local slot = rewardSlotSet_extra:GetSlotByIndex(10 - i);
-				local slotIcon = CreateIcon(slot);
-				slotIcon:SetImage(itemIcon);
-				SET_ITEM_TOOLTIP_BY_NAME(slot:GetIcon(), itemTable[i]);
-				slotIcon:SetTooltipOverlap(1);
-			else -- 5개까지는 기본적으로 보여지는 슬롯셋에 아이콘 추가
-				local slot = rewardSlotSet:GetSlotByIndex(i - 1);
-				local slotIcon = CreateIcon(slot);
-				slotIcon:SetImage(itemIcon);
-				SET_ITEM_TOOLTIP_BY_NAME(slot:GetIcon(), itemTable[i]);
-				slotIcon:SetTooltipOverlap(1);
-			end
+			local slot = rewardSlotSet:GetSlotByIndex(i - 1);
+			local slotIcon = CreateIcon(slot);
+			slotIcon:SetImage(itemIcon);
+			SET_ITEM_TOOLTIP_BY_NAME(slot:GetIcon(), itemTable[i]);
+			slotIcon:SetTooltipOverlap(1);
 		end
 	end
+
+    if #itemTable > 5 then
+        rewardRightBtn:SetEnable(1);
+        rewardLeftBtn:SetEnable(0);
+    else
+        rewardRightBtn:SetEnable(0);
+        rewardLeftBtn:SetEnable(0);
+    end
 end
 
 function INDUNENTER_MAKE_MULTI_BOX(frame, indunCls)
@@ -910,46 +911,100 @@ function INDUNENTER_REENTER(frame, ctrl)
 	ReqMoveToIndun(4, textCount);
 end
 
-function INDUNENTER_MON_TOGGLE(frame, ctrl)
-	local topFrame = frame:GetTopParentFrame();
-	local monSlotSet_extra = GET_CHILD_RECURSIVELY(frame, 'monSlotSet_extra');
-	local monSlotCnt = topFrame:GetUserIValue('MON_SLOT_CNT');
-
+function INDUNENTER_MON_CLICK_RIGHT(parent, ctrl)
+    local topFrame = parent:GetTopParentFrame();
+    local monSlotCnt = topFrame:GetUserIValue('MON_SLOT_CNT');
 	if monSlotCnt < 6 then
 		return;
 	end
 
-	monSlotCnt = monSlotCnt - 5; -- 더 보여줄 슬롯의 개수
-	if topFrame:GetUserValue('MON_TOGGLE_OPEN') == 'NO' then
-		topFrame:SetUserValue('MON_TOGGLE_OPEN', 'YES');
-		ctrl:SetImage(topFrame:GetUserConfig('MINUS_BTN_IMAGE'));
-		UI_PLAYFORCE(monSlotSet_extra, "slotsetRightMove_"..tostring(monSlotCnt));
-	else
-		topFrame:SetUserValue('MON_TOGGLE_OPEN', 'NO');
-		ctrl:SetImage(topFrame:GetUserConfig('PLUS_BTN_IMAGE'));
-		UI_PLAYFORCE(monSlotSet_extra, "slotsetLeftMove_"..tostring(monSlotCnt));		
-	end
+    local monSlotSet = GET_CHILD_RECURSIVELY(topFrame, 'monSlotSet');
+    local currentSlot = monSlotSet:GetUserIValue('CURRENT_SLOT');
+    if currentSlot + 4 == monSlotCnt then
+        return;
+    end
+            
+	UI_PLAYFORCE(monSlotSet, "slotsetLeftMove_1");
+    monSlotSet:SetUserValue('CURRENT_SLOT', currentSlot + 1);
+
+    -- button enable
+    if currentSlot + 5 == monSlotCnt then
+       ctrl:SetEnable(0);
+    end
+    local leftBtn = GET_CHILD_RECURSIVELY(topFrame, 'monLeftBtn');
+    leftBtn:SetEnable(1);
 end
 
-function INDUNENTER_REWARD_TOGGLE(frame, ctrl)
-	local topFrame = frame:GetTopParentFrame();
-	local rewardSlotSet_extra = GET_CHILD_RECURSIVELY(frame, 'rewardSlotSet_extra');
-	local rewardSlotCnt = topFrame:GetUserIValue('REWARD_SLOT_CNT');
+function INDUNENTER_MON_CLICK_LEFT(parent, ctrl)
+    local topFrame = parent:GetTopParentFrame();
+    local monSlotCnt = topFrame:GetUserIValue('MON_SLOT_CNT');
+	if monSlotCnt < 6 then
+		return;
+	end
 
+    local monSlotSet = GET_CHILD_RECURSIVELY(topFrame, 'monSlotSet');
+    local currentSlot = monSlotSet:GetUserIValue('CURRENT_SLOT');
+    if currentSlot == 1 then
+        return;
+    end
+        
+	UI_PLAYFORCE(monSlotSet, "slotsetRightMove_1");
+    monSlotSet:SetUserValue('CURRENT_SLOT', currentSlot - 1);
+
+     -- button enable
+    if currentSlot - 1 == 1 then
+       ctrl:SetEnable(0);
+    end
+    local rightBtn = GET_CHILD_RECURSIVELY(topFrame, 'monRightBtn');
+    rightBtn:SetEnable(1);
+end
+
+function INDUNENTER_REWARD_CLICK_RIGHT(parent, ctrl)
+    local topFrame = parent:GetTopParentFrame();
+    local rewardSlotCnt = topFrame:GetUserIValue('REWARD_SLOT_CNT');
 	if rewardSlotCnt < 6 then
 		return;
 	end
 
-	rewardSlotCnt = rewardSlotCnt - 5; -- 더 보여줄 슬롯의 개수
-	if topFrame:GetUserValue('ITEM_TOGGLE_OPEN') == 'NO' then
-		topFrame:SetUserValue('ITEM_TOGGLE_OPEN', 'YES');
-		ctrl:SetImage(topFrame:GetUserConfig('MINUS_BTN_IMAGE'));
-		UI_PLAYFORCE(rewardSlotSet_extra, "slotsetRightMove_"..tostring(rewardSlotCnt));
-	else
-		topFrame:SetUserValue('ITEM_TOGGLE_OPEN', 'NO');
-		ctrl:SetImage(topFrame:GetUserConfig('PLUS_BTN_IMAGE'));
-		UI_PLAYFORCE(rewardSlotSet_extra, "slotsetLeftMove_"..tostring(rewardSlotCnt));		
+    local rewardSlotSet = GET_CHILD_RECURSIVELY(topFrame, 'rewardSlotSet');
+    local currentSlot = rewardSlotSet:GetUserIValue('CURRENT_SLOT');
+    if currentSlot + 4 == rewardSlotCnt then
+        return;
+    end
+        
+	UI_PLAYFORCE(rewardSlotSet, "slotsetLeftMove_1");
+    rewardSlotSet:SetUserValue('CURRENT_SLOT', currentSlot + 1);
+
+    -- button enable
+    if currentSlot + 5 == rewardSlotCnt then
+       ctrl:SetEnable(0);
+    end
+    local leftBtn = GET_CHILD_RECURSIVELY(topFrame, 'rewardLeftBtn');
+    leftBtn:SetEnable(1);   
+end
+
+function INDUNENTER_REWARD_CLICK_LEFT(parent, ctrl)
+    local topFrame = parent:GetTopParentFrame();
+    local rewardSlotCnt = topFrame:GetUserIValue('REWARD_SLOT_CNT');
+	if rewardSlotCnt < 6 then
+		return;
 	end
+
+    local rewardSlotSet = GET_CHILD_RECURSIVELY(topFrame, 'rewardSlotSet');
+    local currentSlot = rewardSlotSet:GetUserIValue('CURRENT_SLOT');
+    if currentSlot == 1 then
+        return;
+    end
+        
+	UI_PLAYFORCE(monSlotSet, "slotsetRightMove_1");
+    rewardSlotSet:SetUserValue('CURRENT_SLOT', currentSlot - 1);
+
+    -- button enable
+    if currentSlot - 1 == 1 then
+       ctrl:SetEnable(0);
+    end
+    local rightBtn = GET_CHILD_RECURSIVELY(topFrame, 'rewardRightBtn');
+    rightBtn:SetEnable(1);
 end
 
 function INDUNENTER_MULTI_EXEC(frame, ctrl)
@@ -1127,10 +1182,14 @@ function INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW(parent, ctrl)
         
     -- 파티원과 자동매칭인 경우 처리
     local yesScpStr = '_INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW()';
+    local clientMsg = ScpArgMsg('ReallyAllowUnderstaffMatchingWith{MIN_MEMBER}?', 'MIN_MEMBER', UnderstaffEnterAllowMinMember);
+    if INDUNENTER_CHECK_UNDERSTAFF_MODE_WITH_PARTY(topFrame) == true then
+        clientMsg = ClMsg('CancelUnderstaffMatching');
+    end
     if withMatchMode == 'YES' then
         yesScpStr = 'ReqUnderstaffEnterAllowModeWithParty('..indunType..')';
     end
-    ui.MsgBox(ScpArgMsg('ReallyAllowUnderstaffMatchingWith{MIN_MEMBER}?', 'MIN_MEMBER', UnderstaffEnterAllowMinMember), yesScpStr, "None");
+    ui.MsgBox(clientMsg, yesScpStr, "None");
 end
 
 function _INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW()
@@ -1152,4 +1211,21 @@ function INDUNENTER_UNDERSTAFF_BTN_ENABLE(frame, enable)
     if understaffEnterAllowBtn:IsVisible() == 1 then
         reEnterBtn:ShowWindow(0);
     end
+end
+
+function INDUNENTER_CHECK_UNDERSTAFF_MODE_WITH_PARTY(frame)
+    local withMatchMode = frame:GetUserValue('WITHMATCH_MODE');
+    if withMatchMode ~= 'YES' then
+        return false;
+    end
+    
+    local memberInfo = frame:GetUserValue('MEMBER_INFO');
+    local memberInfoTable = StringSplit(memberInfo, '/');
+    if #memberInfoTable < PC_INFO_COUNT then
+        return false;
+    end
+    if memberInfoTable[PC_INFO_COUNT] ~= 'YES' then
+        return false;
+    end
+    return true;
 end

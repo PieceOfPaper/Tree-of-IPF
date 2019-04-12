@@ -293,6 +293,9 @@ end
 function CRAFT_INSERT_CRAFT(cls, tree, slotHeight, haveMaterial)
 
 	local item = GetClass('Item', cls.TargetItem);
+    	if item == nil then
+    	    return 0;
+    	end
 	local groupName = item.GroupName;
 	local classType = nil;
 	if GetPropType(item, "ClassType") ~= nil then

@@ -351,7 +351,7 @@ function UPDATE_MINIMAP(frame, isFirst)
 							elseif count == 4 then
 								range = tonumber(locationMapName);
 
-								local MapPos = mapprop:WorldPosToMinimapPos(x, z);
+								local MapPos = mapprop:WorldPosToMinimapPos(x, z,minimapw, minimaph);
 								local XC, YC, RangeX, RangeY = GET_MINIMAP_POS_BY_SESSIONOBJ(MapPos, range, mapprop, minimapw, minimaph);
 								MAKE_LOC_CLICK_ICON(npcList, i, stateidx, 'minimapgroup'..roundCount, XC, YC, RangeX, RangeY, 30);
 
@@ -444,8 +444,8 @@ function MAKE_LOC_ICON_BY_ICON_NAME(parent, i, stateidx, k, XC, YC, iconW, iconH
 
 	SET_NPC_STATE_ICON(PictureC, IconName, state, classID, worldPos);
 
-	-- ?�라 ?�운?�는 ?�상???�어???�전 방식?�로 롤백?�니??
-	-- ?�인 : UPDATE_MINIMAP_TOOLTIP()??보면 'minimap' ?�팁?�의 UserData??MonProp?�어???�나 ?�기?�는 MapPos�??�용 �?
+	-- ?�라 ?�운?�는 ?�상???�어???�전 방식?�로 롤백?�니??
+	-- ?�인 : UPDATE_MINIMAP_TOOLTIP()??보면 'minimap' ?�팁?�의 UserData??MonProp?�어???�나 ?�기?�는 MapPos�??�용 �?
 
 	--[[
 	PictureC:ShowWindow(1);

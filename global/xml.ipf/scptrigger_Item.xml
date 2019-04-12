@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <SpcItemList>
 	<SpcItem Name="Default">
 		<TriggerList Act="Equip">
@@ -10,6 +10,216 @@
 		<TriggerList Act="UnEquip">
 			<Trigger CondScript="" CustomScp=" RESTORE_PROP(self, obj,&quot;DEF_BM&quot;);">
 				<ExecList/>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="CAN04_101">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonShot"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_ShootDown"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SiegeBurst"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonBlast"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonBarrage"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SmokeGrenade"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_Bazooka"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonShot"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_ShootDown"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SiegeBurst"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonBlast"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonBarrage"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SmokeGrenade"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_Bazooka"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="CAN04_102">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonShot"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_ShootDown"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SiegeBurst"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonBlast"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonBarrage"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SmokeGrenade"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_Bazooka"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonShot"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_ShootDown"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SiegeBurst"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonBlast"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonBarrage"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SmokeGrenade"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_Bazooka"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="BOW04_108">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_RunningShot"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_RapidFire"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_Teardown"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_StonePicking"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_StoneShot"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_ScatterCaltrop"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_DeployPavise"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_DeployPavise"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_ScatterCaltrop"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_StoneShot"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_Teardown"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_RapidFire"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_RunningShot"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="QuarrelShooter_StonePicking"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
@@ -523,9 +733,9 @@
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Rogue_Backstab"/>
-						<Num Num="2"/>
+						<Num Num="1.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -681,6 +891,164 @@
 				<ExecList>
 					<ToolScp Scp="SPCI_DAGGER_MULTIPLE_HIT" Client="BOTH" UseSleep="NO">
 						<Num Num="2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="SHD04_104">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_UmboBlow"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_RimBlow"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_SwashBuckling"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_Guardian"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_ShieldLob"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_HighGuard"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_ButterFly"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_UmboThrust"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_Langort"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_TargeSmash"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_ShieldCharge"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_ShieldPush"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_ShieldShoving"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_ShieldBash"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_Slithering"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_HighKick"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_ShootingStar"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_Montano"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_UmboBlow"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_RimBlow"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_SwashBuckling"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_Guardian"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_ShieldLob"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_HighGuard"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_ButterFly"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_UmboThrust"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_Langort"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_TargeSmash"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_ShieldCharge"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_ShieldPush"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_ShieldShoving"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_ShieldBash"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_Slithering"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_HighKick"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_ShootingStar"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_Montano"/>
+						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -1343,75 +1711,6 @@
 		</TriggerList>
 	</SpcItem>
 	<SpcItem Name="RAP04_101">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_AttaqueComposee"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_Lunge"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_SeptEtoiles"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_AttaqueCoquille"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_EsquiveToucher"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_Flanconnade"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_Preparation"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_BalestraFente"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_AttaqueAuFer"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_EpeeGarde"/>
-						<Num Num="-2"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Fencer_Fleche"/>
-						<Num Num="-2"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="BeforeAttack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
-						<Num Num="3"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
-						<Num Num="1" UseFunc="1" FuncTxt="if IS_PC(self) == true then
-
-return self.Holy_Atk
-else
-return 0;
-end"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
 		<TriggerList Act="Equip">
 			<Trigger>
 				<ExecList>
@@ -1458,6 +1757,75 @@ end"/>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Fencer_Fleche"/>
 						<Num Num="2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="3"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="1" UseFunc="1" FuncTxt="if IS_PC(self) == true then
+
+return self.Holy_Atk
+else
+return 0;
+end"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_AttaqueComposee"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_Lunge"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_SeptEtoiles"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_AttaqueCoquille"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_EsquiveToucher"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_Flanconnade"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_Preparation"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_BalestraFente"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_AttaqueAuFer"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_EpeeGarde"/>
+						<Num Num="-2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Fencer_Fleche"/>
+						<Num Num="-2"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -2071,7 +2439,7 @@ end"/>
 		<TriggerList Act="BeforeAttack">
 			<Trigger>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Hoplite_ThrouwingSpear"/>
 						<Num Num="0.5"/>
 					</ToolScp>
@@ -2493,7 +2861,7 @@ return self.MNA;"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
 						<Num Num="10000" UseFunc="1" FuncTxt="
-return math.floor(self.MINMATK+ self.MAXMATK);"/>
+return math.floor(self.MINMATK);"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3531,9 +3899,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_FireBall"/>
-						<Num Num="2.8"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3544,9 +3912,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_FireWall"/>
-						<Num Num="2.6"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3557,9 +3925,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_Flare"/>
-						<Num Num="3.1"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3570,9 +3938,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_FirePillar"/>
-						<Num Num="2.9"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3583,9 +3951,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_HellBreath"/>
-						<Num Num="2.45"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3596,9 +3964,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_FlameGround"/>
-						<Num Num="1.6"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3609,9 +3977,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Elementalist_Meteor"/>
-						<Num Num="0.996"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3622,9 +3990,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="PlagueDoctor_Incineration"/>
-						<Num Num="1.044"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3635,9 +4003,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Elementalist_Prominence"/>
-						<Num Num="1.86"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>

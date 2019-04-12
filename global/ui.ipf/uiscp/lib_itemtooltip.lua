@@ -319,7 +319,6 @@ function ADD_ITEM_PROPERTY_TEXT(GroupCtrl, txt, xmargin, yPos )
 	end
 
 	local cnt = GroupCtrl:GetChildCount();
-	
 	local ControlSetObj			= GroupCtrl:CreateControlSet('tooltip_item_prop_richtxt', "ITEM_PROP_" .. cnt , 0, yPos);
 	local ControlSetCtrl		= tolua.cast(ControlSetObj, 'ui::CControlSet');
 	local richText = GET_CHILD(ControlSetCtrl, "text", "ui::CRichText");
@@ -769,7 +768,15 @@ function SHOW_REMAIN_BUFF_COUNT(ctrl)
 	return 1;
 end
 
-function SET_TRANSCEND_TEXT(gBox, invitem, yPos, ignoreTranscend)
+function SET_TRANSCEND_TEXT(gBox, invitem, yPos, isEquiped)
+    if isEquiped == nil then
+		isEquiped = 0;
+	end
+	local pc = GetMyPCObject();
+	local ignoreTranscend = TryGetProp(pc, 'IgnoreReinforce');
+	if isEquiped == 0 then
+		ignoreTranscend = 0;
+	end
     local transcend = TryGetProp(invitem, "Transcend");
 	if ignoreTranscend == 1 then
 		transcend = 0;
@@ -804,7 +811,7 @@ function SET_TRANSCEND_TEXT(gBox, invitem, yPos, ignoreTranscend)
 	return yPos;
 end
 
-function SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped)
+function SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped, basicProp)
 	if isEquiped == nil then
 		isEquiped = 0;
 	end
@@ -830,11 +837,11 @@ function SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped)
 		local reinforceValue = 0;
 
 		if invitem.GroupName == "Armor" then
-			reinforceValue = GET_REINFORCE_ADD_VALUE(invitem.BasicTooltipProp, invitem, ignoreReinf, bonusReinf);
+			reinforceValue = GET_REINFORCE_ADD_VALUE(basicProp, invitem, ignoreReinf, bonusReinf);
 		elseif invitem.GroupName == "Weapon" then
-			reinforceValue = GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf);
+			reinforceValue = GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf, basicProp);
 		elseif invitem.GroupName == "SubWeapon" then
-			reinforceValue = GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf);
+			reinforceValue = GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf, basicProp);
 		end
 
 		if invitem.BuffValue > 0 then
@@ -1113,20 +1120,6 @@ function TOGGLE_TRADE_OPTION(tradabilityCset, invitem, pictureName, richtextName
     else
 	    picture:SetImage('tradecondition_off')
         richtext:SetTextByKey('style', styleTradeOff);
-    end
-end
-
-function IS_ENABLE_TRADE_BY_TRADE_TYPE(invitem, property)
-    if property == "ShopTrade" then
-	    return IS_ENABLED_SHOP_TRADE_ITEM(invitem)
-    elseif property == "UserTrade" then
-	    return IS_ENABLED_USER_TRADE_ITEM(invitem)
-    elseif property == "TeamTrade" then
-	    return IS_ENABLED_TEAM_TRADE_ITEM(invitem)
-    elseif property == "MarketTrade" then
-	    return IS_ENABLED_MARKET_TRADE_ITEM(invitem)
-    else
-        IMC_ERROR("NORMAL", "IS_ENABLE_TRADE_BY_TRADE_TYPE ERROR!!")
     end
 end
 

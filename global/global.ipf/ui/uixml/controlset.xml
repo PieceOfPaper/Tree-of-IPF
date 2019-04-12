@@ -62,4 +62,47 @@
 			<richtext name="richtext_2_1" margin="0 0 0 0" rect="0 0 0 0" caption="전적 / 점수" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
 		</controls>
 	</controlset>
+	<controlset name="pvp_charinfo" hittest="true" width="487" height="400" hittestset="false" draw="false" skin="none">
+		<controls>
+			<richtext name="win" parent="charinfo" rect="0 0 132 25" margin="334 341 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_18" format="" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
+			<button name="join" parent="charinfo" rect="0 0 168 60" margin="290 20 0 0" layout_gravity="left top" image="pvp_leageue_btn" LBtnUpScp="JOIN_WORLDPVP" textalign="center center" format="{s18}{ol}{#FFFFFF}%s" param1="text" param1_def="JOIN"/>
+			<droplist name="droplist" parent="charinfo" rect="0 0 259 61" margin="21 38 207 0" layout_gravity="left top" SelectScp="WORLDPVP_TYPE_SELECT" font="white_20_ol" frametextalign="left" skin="droplist_normal" textalign="left center" textoffset="20 0" visibleline="11"/>
+			<groupbox name="gbox_pointshop" margin="0 93 0 0" rect="0 0 487 120" hittestbox="false" skin="none" layout_gravity="left top" scrollbar="false"/>
+			<richtext name="txt_exp_2" parent="gbox_pointshop" rect="0 0 166 45" margin="17 1 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_18" format="{#000000}%s" param1="value" param1_def="일일 획득 포인트" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+			<gauge name="shopgauge" parent="gbox_pointshop" rect="0 0 248 32" margin="215 6 0 0" layout_gravity="left top" inverse="false" point="50" skin="jour_info_gauge" text1="%v / %m" textalign1="center center" textfont1="white_18_ol" textoffset1="0 -1"/>
+			<button name="pointshop" parent="gbox_pointshop" rect="0 0 170 50" margin="290 52 14 0" layout_gravity="right top" caption="{@st66b}포인트샵" skin="test_pvp_btn" LBtnUpScp="PVP_OPEN_POINT_SHOP"/>
+			<richtext name="txt_total_exp" parent="gbox_pointshop" rect="0 0 167 44" margin="17 55 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_18" format="{#000000}%s" param1="value" param1_def="현재 구매 포인트" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+			<richtext name="txt_curshoppoint" parent="gbox_pointshop" rect="0 0 120 24" margin="172 63 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_20" format="{#000000}%s" maxwidth="0" param1="value" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
+			<labelline name="labelline_1" margin="9 86 0 0" rect="0 0 473 2" skin="labelline_2" layout_gravity="left top"/>
+			<richtext name="txt_total_exp_1" parent="charinfo" rect="0 0 120 24" margin="28 337 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_18" format="" maxwidth="0" param1="value" param1_def="전적" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+			<labelline name="labelline_1_1" margin="16 322 0 0" rect="0 0 473 2" skin="none" layout_gravity="left top"/>
+			<richtext name="richtext_1" margin="27 363 0 0" rect="0 0 0 0" caption="" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="rp" parent="charinfo" rect="0 0 132 25" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_18" format="" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
+			<groupbox name="gbox_playcnt" margin="4 93 0 0" rect="0 0 480 200" hittestbox="false" skin="none" layout_gravity="left top" scrollbar="false"/>
+			<richtext name="richtext_2" margin="21 168 0 0" rect="0 0 120 24" caption="{@brown_16}길드 참여{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox_playcnt"/>
+			<richtext name="todaycnt" margin="256 168 0 0" rect="0 0 120 24" format="{@brown_16}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox_playcnt"/>
+			<richtext name="richtext_3" margin="13 141 0 0" rect="0 0 120 24" caption="{@black_18_b}일간{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox_playcnt"/>
+			<richtext name="richtext_3_1" margin="13 35 0 0" rect="0 0 120 24" caption="{@black_18_b}주간(월요일마다 초기화){/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox_playcnt"/>
+			<richtext name="guildCnt" margin="257 64 0 0" rect="0 0 120 24" format="{@brown_16}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox_playcnt"/>
+			<richtext name="myCnt" margin="257 87 0 0" rect="0 0 120 24" format="{@brown_16}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox_playcnt"/>
+			<richtext name="richtext_2_1" margin="20 61 0 0" rect="0 0 120 24" caption="{@brown_16}길드 참여{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox_playcnt"/>
+			<richtext name="richtext_2_1_1" margin="19 87 0 0" rect="0 0 120 24" caption="{@brown_16}개인 참여{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox_playcnt"/>
+		</controls>
+	</controlset>
+	<controlset name="guildbattle_ranking_page" hittest="true" width="520" height="800" hittestset="false" draw="false" skin="none">
+		<controls>
+			<groupbox name="groupbox_1" margin="4 3 0 0" rect="0 0 510 780" hittestbox="false" skin="test_frame_midle" resizebyresolution="true" layout_gravity="left top"/>
+			<pagecontroller name="control" hittest="true" rect="0 0 450 30" margin="0 0 0 30" layout_gravity="center bottom" space="50 0 0 20" slot="35 25" type="button" image="{@st41b}{#444444} {@st41b}{b}" selectScp="GUILDBATTLE_RANKING_SELECT" prevScp="GUILDBATTLE_RANKING_SELECT_PREV" nextScp="GUILDBATTLE_RANKING_SELECT_NEXT" parent="bg_ranking" movebyone="true">
+				<prev size="40 30" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}"/>
+				<next size="40 30" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}"/>
+			</pagecontroller>
+			<groupbox name="title_1" rect="0 0 505 40" margin="6 6 0 0" hittestbox="false" skin="market_listbase" layout_gravity="left top" scrollbar="false"/>
+			<edit name="input_findname" margin="20 0 0 70" rect="0 0 480 35" fontname="white_18_ol" maxlen="16" usetag="true" EnterKeyScp="GUILDBATTLE_RANKING_SELECT" numbermode="false" OffsetForDraw="10 3" layout_gravity="left bottom" skin="test_weight_skin"/>
+			<button name="btn_find" margin="0 0 22 71" image="inven_s" rect="0 0 60 38" layout_gravity="right bottom" format="{s20}{#000000}%s" param1="value" param1_def="" LBtnUpScp="GUILDBATTLE_RANKING_SELECT"/>
+			<richtext name="richtext_1" margin="50 10 0 0" rect="0 0 120 24" caption="순위" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
+			<richtext name="richtext_2" margin="145 10 0 0" rect="0 0 120 24" caption="[서버] 길드명" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
+			<groupbox name="gbox_ctrls" margin="-3 50 0 0" rect="0 0 497 640" hittestbox="false" skin="none" layout_gravity="center top" scrollbar="false"/>
+			<richtext name="richtext_2_1" margin="0 0 0 0" rect="0 0 0 0" caption="전적 / 점수" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
+		</controls>
+	</controlset>
 </controlsetlist>

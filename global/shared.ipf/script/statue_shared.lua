@@ -50,3 +50,7 @@ function GET_JOB_NAME(jobCls, gender)
 	end
 	return jobName;	
 end
+function SCR_ABILITY_COUPONLIST()
+ local couponList = {{'Event_Ability_Coupon_1',500000, 0, 1000000},{'Event_Ability_Coupon_2',100000, 0, 200000},{'Event_Ability_Coupon_3',50000, 0, 100000},{'Event_Ability_Coupon_4',10000, 0, 20000},{'Event_Ability_Coupon_5',5000, 0, 10000},{'Event_Ability_Coupon_6',1000, 0, 2000}}
+ return couponList
+end

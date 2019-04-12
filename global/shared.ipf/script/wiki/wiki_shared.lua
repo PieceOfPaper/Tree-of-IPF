@@ -188,16 +188,8 @@ function GET_WIKI_SCORE(pc, type)
 		local cnt = GetNPCStatePoint(pc);
 		return cnt * W_PTS_NPC;
 	elseif type == WIKI_MAP then
-
-		local totalScore = 0;
-		local list = GetPCCategoryWikiList(pc, type);
-		for i = 1 , #list do
-			local wiki = list[i];
-			local recoverRate = GetWikiIntProp(wiki, "RevealRate");
-			totalScore = totalScore + recoverRate;
-		end
-		
-		return math.floor(totalScore * 0.1);
+        local score = GetMapRevealScore(pc);
+        return score;
 	elseif type == WIKI_SETITEM then
 		
 	elseif type == WIKI_MGAME then

@@ -8,12 +8,13 @@ function FRIEND_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg("ADD_FRIEND", "ON_ADD_FRIEND");
 	addon:RegisterOpenOnlyMsg("GAME_START", "FRIEND_GAME_START");
 	addon:RegisterOpenOnlyMsg("UPDATE_FRIEND_LIST", "ON_UPDATE_FRIEND_LIST");
-	addon:RegisterOpenOnlyMsg("FRIEND_SESSION_CHANGE", "ON_FRIEND_SESSION_CHANGE");
-	addon:RegisterOpenOnlyMsg("RELATED_SESSION_COUNT", "ON_UPDATE_FRIEND_LIST");
+	addon:RegisterOpenOnlyMsg("FRIEND_SESSION_CHANGE", "ON_FRIEND_SESSION_CHANGE");	
+	addon:RegisterOpenOnlyMsg("RELATED_SESSION_COUNT", "ON_UPDATE_FRIEND_LIST");	
 	addon:RegisterOpenOnlyMsg("RELATED_HISTORY", "ON_UPDATE_FRIEND_LIST");
 
 	addon:RegisterOpenOnlyMsg("TREE_NODE_RCLICK", "ON_TREE_NODE_RCLICK");
-	
+	addon:RegisterMsg("FRIEND_NAME_CHANGED", "ON_UPDATE_FRIEND_LIST");
+
     FRIEND_EXPAND_UNIT = 10;
 	
 end
@@ -87,9 +88,10 @@ function FRIEND_GAME_START(frame)
 	local requesttree = GET_CHILD_RECURSIVELY(frame, 'friendtree_request','ui::CTreeControl')
 
 	normaltree:Clear();
-	normaltree:EnableDrawTreeLine(false)
-	normaltree:EnableDrawFrame(false)
-	normaltree:SetFitToChild(true,100)
+	normaltree:EnableDrawTreeLine(false);
+	normaltree:EnableDrawFrame(false);
+    normaltree:EnableScrollBar(0);
+	normaltree:SetFitToChild(true,100);
 	normaltree:SetFontName("brown_18_b");
 	normaltree:SetTabWidth(0);
 	normaltree:OpenNodeAll();
@@ -99,13 +101,14 @@ function FRIEND_GAME_START(frame)
     moreFriendBtn:SetEnable(1);
 
 	requesttree:Clear();
-	requesttree:EnableDrawTreeLine(false)
-	requesttree:EnableDrawFrame(false)
-	requesttree:SetFitToChild(true,100)
+	requesttree:EnableDrawTreeLine(false);
+	requesttree:EnableDrawFrame(false);
+    requesttree:EnableScrollBar(0);
+	requesttree:SetFitToChild(true,100);
 	requesttree:SetFontName("brown_18_b");
 	requesttree:SetTabWidth(0);
 	requesttree:OpenNodeAll();
-
+    
     UPDATE_FRIEND_LIST_COMPLETE(frame, true);
 end
 
@@ -187,7 +190,7 @@ function UPDATE_FRIEND_LIST(frame)
 
 	normaltree:Clear();
 	requesttree:Clear();
-	
+
     local moreFriendBtn = GET_CHILD_RECURSIVELY(frame, 'moreFriendBtn');
     moreFriendBtn:SetEnable(1);
 	
@@ -287,7 +290,7 @@ function BUILD_FRIEND_LIST(frame, listType, groupName, iscustom)
 	local friendListGroup = tree:FindByValue(groupName);
 	if tree:IsExist(friendListGroup) == 0 then
 		if iscustom == "custom" and listType == FRIEND_LIST_COMPLETE then
-			local grouptext = tree:CreateOrGetControl('richtext',groupName,0,0,200,30) 
+			local grouptext = tree:CreateOrGetControl('richtext',groupName,0,0,200,30)
 			friendListGroup = tree:Add(groupName, groupName);
 		else
 			friendListGroup = tree:Add(ScpArgMsg(groupName), groupName);
@@ -316,7 +319,7 @@ function BUILD_FRIEND_LIST(frame, listType, groupName, iscustom)
 		page:SetBorder(5, 0, 0, 0)
 		
 		
-		tree:Add(friendListGroup, page);	
+		tree:Add(friendListGroup, page);
 	end
 
 	if listType == FRIEND_LIST_COMPLETE then
@@ -329,7 +332,7 @@ function BUILD_FRIEND_LIST(frame, listType, groupName, iscustom)
 	local cnt = session.friends.GetFriendCount(listType);
 	for i = 0 , cnt - 1 do
 		local friendInfo = session.friends.GetFriendByIndex(listType, i);
-
+        	
 		if (showOnlyOnline == 0 and (isNormalTree == false or i < visibleInfoCnt)) or 
         (showOnlyOnline == 1 and friendInfo.mapID ~= 0) or
         (showOnlyOnline == 1 and FRIEND_LIST_COMPLETE ~= listType) then
@@ -359,7 +362,7 @@ function BUILD_FRIEND_LIST(frame, listType, groupName, iscustom)
 			else
 				ismakenewset = true;
 			end
-
+            
 			if ismakenewset == true then
 				local ctrlSet = page:CreateOrGetControlSet(GET_FRIEND_CTRLSET_NAME(listType), "FR_" .. listType .. "_" .. friendInfo:GetInfo():GetACCID(), 0, 0, 0);
 				if listType == FRIEND_LIST_COMPLETE then
@@ -430,8 +433,8 @@ function UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet, mapID, channel, info, drawN
 	local map_name_text = ctrlSet:GetChild("map_name_text");
 	local map_name_channel_text = ctrlSet:GetChild("map_name_channel_text");
 	local level_text = GET_CHILD(ctrlSet, "level_text", "ui::CRichText");
-
-	team_name_text:SetTextByKey("name", info:GetFamilyName());
+    
+	team_name_text:SetTextByKey("name", info:GetFamilyName());	
 	if mapID == 0 then
 
 		team_name_text:SetColorTone("FF1f100b");		
@@ -600,7 +603,7 @@ function ON_REMOVE_FRIEND(frame, msg, aid, listType)
 end
 
 function ON_ADD_FRIEND(frame, msg, aid, listType)
-	ON_UPDATE_FRIEND_LIST(frame);
+	ON_UPDATE_FRIEND_LIST(frame);	
 end
 
 function ON_FRIEND_SESSION_CHANGE(frame, msg, aid, listType)
@@ -692,7 +695,7 @@ function UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, f)
 	local memo = f:GetMemo();
 	local frame = ctrlSet:GetTopParentFrame();
 	
-	if listType == FRIEND_LIST_COMPLETE then
+	if listType == FRIEND_LIST_COMPLETE then	
 		ctrlSet:SetEventScript(ui.RBUTTONUP, "POPUP_FRIEND_COMPLETE_CTRLSET");
 	elseif listType == FRIEND_LIST_REJECTED or listType == FRIEND_LIST_BLOCKED or listType == FRIEND_LIST_REQUEST then
 		ctrlSet:SetEventScript(ui.RBUTTONUP, "POPUP_FRIEND_DELETE_CTRLSET");

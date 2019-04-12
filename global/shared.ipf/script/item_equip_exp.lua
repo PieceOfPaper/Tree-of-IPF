@@ -58,7 +58,7 @@ function GET_MIX_MATERIAL_EXP(item)
 	
 	if itemExp ~= nil then
 	    if item.ItemType == "Equip" then
-	        return item.ItemLv;
+	        return item.UseLv;
 	    elseif item.EquipXpGroup == 'hethran_material' then
 			return itemExp;
 	    end

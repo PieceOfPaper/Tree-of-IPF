@@ -83,7 +83,7 @@ function INIT_SCREEN_CONFIG(frame)
 	if autoPerfBtn ~= nil then
 		autoPerfBtn:Select();
 	end
-	
+
 	local chkOptimization = GET_CHILD_RECURSIVELY(frame, "check_optimization", "ui::CCheckBox");
 	if nil ~= chkOptimization then
 		chkOptimization:SetCheck(imcperfOnOff.IsEnableOptimization());
@@ -214,13 +214,16 @@ function APPLY_PERFMODE(frame)
 	
 	local parent = frame:GetTopParentFrame();
 	local highTexture = GET_CHILD(parent, "check_highTexture", "ui::CCheckBox");
+	local softParticle = GET_CHILD(parent, "check_SoftParticle", "ui::CCheckBox");
 	local otherPCDamage = GET_CHILD(parent, "check_ShowOtherPCDamageEffect", "ui::CCheckBox");
 	if 0 == perfType then
 		graphic.EnableHighTexture(0);
 		config.EnableOtherPCDamageEffect(0);
+		softParticle:SetCheck(0);
 	else
 		graphic.EnableHighTexture(1);
 		config.EnableOtherPCDamageEffect(1);
+		softParticle:SetCheck(1);
 	end
 	highTexture:SetCheck(config.GetHighTexture());
 	otherPCDamage:SetCheck(config.GetOtherPCDamageEffect());
