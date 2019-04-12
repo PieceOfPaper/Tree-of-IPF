@@ -1,7 +1,204 @@
 <?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <TextureInfo>
+	<Texture Name="light047_red4" File="light047_red4.dds" Size="128 128"/>
+	<Texture Name="light047_red3" File="light047_red3.dds" Size="128 128"/>
+	<Texture Name="light047_red2" File="light047_red2.dds" Size="128 128"/>
+	<Texture Name="light047_red" File="light047_red.dds" Size="128 128"/>
+	<Texture Name="light027_red1" File="light027_red1.dds" Size="128 128"/>
+	<Texture Name="sprite038_orange" File="sprite038_orange.dds" Size="128 256"/>
+	<Texture Name="sprit012_orange" File="sprit012_orange.dds" Size="256 256"/>
+	<Texture Name="pattern028_2" File="pattern028_2.dds" Size="128 128"/>
+	<Texture Name="pattern028_1" File="pattern028_1.dds" Size="256 256"/>
+	<Texture Name="sprite038" File="sprite038.dds" Size="128 256"/>
+	<Texture Name="skillrange_box" File="skillrange_box.dds" Size="512 512"/>
+	<Texture Name="skillrange_donut88" File="skillrange_donut88.dds" Size="512 512"/>
+	<Texture Name="skillrange_donut75" File="skillrange_donut75.dds" Size="512 512"/>
+	<Texture Name="skillrange_donut50" File="skillrange_donut50.dds" Size="512 512"/>
+	<Texture Name="skillrange_donut25" File="skillrange_donut25.dds" Size="512 512"/>
+	<Texture Name="skillrange_donut0" File="skillrange_donut0.dds" Size="512 512"/>
+	<Texture Name="skillrange_270" File="skillrange_270.dds" Size="512 512"/>
+	<Texture Name="skillrange_240" File="skillrange_240.dds" Size="512 512"/>
+	<Texture Name="skillrange_135" File="skillrange_135.dds" Size="512 512"/>
+	<Texture Name="skillrange_180" File="skillrange_180.dds" Size="512 512"/>
+	<Texture Name="skillrange_120" File="skillrange_120.dds" Size="512 512"/>
+	<Texture Name="skillrange_90" File="skillrange_90.dds" Size="512 512"/>
+	<Texture Name="skillrange_60" File="skillrange_60.dds" Size="512 512"/>
+	<Texture Name="skillrange_45" File="skillrange_45.dds" Size="512 512"/>
+	<Texture Name="skillrange_36" File="skillrange_36.dds" Size="512 512"/>
+	<Texture Name="skillrange_30" File="skillrange_30.dds" Size="512 512"/>
+	<Texture Name="skillrange_20" File="skillrange_20.dds" Size="512 512"/>
+	<Texture Name="skillrange_15" File="skillrange_15.dds" Size="512 512"/>
+	<Texture Name="pattern027_circle" File="pattern027_circle.dds" Size="256 256"/>
+	<Texture Name="pattern027_square" File="pattern027_square.dds" Size="256 256"/>
+	<Texture Name="pattern004_blue" File="pattern004_blue.dds" Size="32 32"/>
+	<Texture Name="light046_violet" File="light046_violet.dds" Size="256 256"/>
+	<Texture Name="light045_alpha" File="light045_alpha.dds" Size="128 128"/>
+	<Texture Name="light044_alpha" File="light044_alpha.dds" Size="128 128"/>
+	<Texture Name="sprite040_circle_green" File="sprite040_circle_green.dds" Size="1024 1024"/>
+	<Texture Name="pattern025_2" File="pattern025_2.dds" Size="256 256"/>
+	<Texture Name="circle053_blue1" File="circle053_blue1.dds" Size="64 64"/>
+	<Texture Name="circle053_blue" File="circle053_blue.dds" Size="64 64"/>
+	<Texture Name="circle053" File="circle053.dds" Size="64 64"/>
+	<Texture Name="circle052_nature" File="circle052_nature.dds" Size="256 256"/>
+	<Texture Name="circle051" File="circle051.dds" Size="256 256"/>
+	<Texture Name="circle050" File="circle050.dds" Size="128 128"/>
+	<Texture Name="circle049" File="circle049.dds" Size="128 128"/>
+	<Texture Name="circle048" File="circle048.dds" Size="128 128"/>
+	<Texture Name="circle047" File="circle047.dds" Size="128 128"/>
+	<Texture Name="circle046" File="circle046.dds" Size="128 128"/>
+	<Texture Name="circle045" File="circle045.dds" Size="64 64"/>
+	<Texture Name="leaf005" File="leaf005.dds" Size="32 32"/>
+	<Texture Name="leaf004" File="leaf004.dds" Size="32 32"/>
+	<Texture Name="leaf003" File="leaf003.dds" Size="32 32"/>
+	<Texture Name="leaf001_green2" File="leaf001_green2.dds" Size="32 32"/>
+	<Texture Name="tri001" File="tri001.dds" Size="32 32"/>
+	<Texture Name="light043_green" File="light043_green.dds" Size="128 128"/>
+	<Texture Name="light042_red004" File="light042_red004.dds" Size="256 256"/>
+	<Texture Name="light042_red003" File="light042_red003.dds" Size="256 256"/>
+	<Texture Name="light042_red002" File="light042_red002.dds" Size="256 256"/>
+	<Texture Name="light042_red001" File="light042_red001.dds" Size="256 256"/>
+	<Texture Name="pattern026_ItemLink" File="pattern026_ItemLink.dds" Size="512 512"/>
+	<Texture Name="sptire039_ItemLink" File="sptire039_ItemLink.dds" Size="1024 1024"/>
+	<Texture Name="sptire038_ItemLink" File="sptire038_ItemLink.dds" Size="1024 1024"/>
+	<Texture Name="card_glow" File="card_glow.dds" Size="128 128"/>
+	<Texture Name="boss_card_sheet_blue" File="boss_card_sheet_blue.dds" Size="1024 512"/>
+	<Texture Name="sprite037" File="sprite037.dds" Size="1024 1024"/>
+	<Texture Name="login_line003" File="login_line003.dds" Size="1024 256"/>
+	<Texture Name="login_line002" File="login_line002.dds" Size="512 128"/>
+	<Texture Name="login_line001" File="login_line001.dds" Size="512 128"/>
+	<Texture Name="fail_logo" File="fail_logo.dds" Size="1024 512"/>
+	<Texture Name="destroy_logo_add" File="destroy_logo_add.dds" Size="1024 1024"/>
+	<Texture Name="destroy_logo" File="destroy_logo.dds" Size="1024 1024"/>
+	<Texture Name="success_logo_add" File="success_logo_add.dds" Size="512 512"/>
+	<Texture Name="success_logo" File="success_logo.dds" Size="1024 1024"/>
+	<Texture Name="sprite036" File="sprite036.dds" Size="512 512"/>
+	<Texture Name="sprite035" File="sprite035.dds" Size="512 512"/>
+	<Texture Name="light039_orange7" File="light039_orange7.dds" Size="256 256"/>
+	<Texture Name="light039_orange6" File="light039_orange6.dds" Size="256 256"/>
+	<Texture Name="light039_orange5" File="light039_orange5.dds" Size="256 256"/>
+	<Texture Name="light039_orange4" File="light039_orange4.dds" Size="256 256"/>
+	<Texture Name="light039_orange3" File="light039_orange3.dds" Size="256 256"/>
+	<Texture Name="light039_orange2" File="light039_orange2.dds" Size="256 256"/>
+	<Texture Name="light041_orange1" File="light041_orange1.dds" Size="256 256"/>
+	<Texture Name="legend_card" File="legend_card.dds" Size="256 256"/>
+	<Texture Name="legend_carding_sheet" File="legend_carding_sheet.dds" Size="1024 1024"/>
+	<Texture Name="light039_puple7" File="light039_puple7.dds" Size="256 256"/>
+	<Texture Name="light040_puple" File="light040_puple.dds" Size="256 256"/>
+	<Texture Name="light039_puple6" File="light039_puple6.dds" Size="256 256"/>
+	<Texture Name="light039_puple5" File="light039_puple5.dds" Size="256 256"/>
+	<Texture Name="light039_puple4" File="light039_puple4.dds" Size="256 256"/>
+	<Texture Name="light039_puple3" File="light039_puple3.dds" Size="256 256"/>
+	<Texture Name="light039_puple2" File="light039_puple2.dds" Size="256 256"/>
+	<Texture Name="light039_puple1" File="light039_puple1.dds" Size="256 256"/>
+	<Texture Name="card_decal_add_sheet" File="card_decal_add_sheet.dds" Size="512 512"/>
+	<Texture Name="light038" File="light038.dds" Size="256 256"/>
+	<Texture Name="card_base_crack_shine4" File="card_base_crack_shine4.dds" Size="256 256"/>
+	<Texture Name="card_base_crack_shine3" File="card_base_crack_shine3.dds" Size="256 256"/>
+	<Texture Name="card_base_crack_shine2" File="card_base_crack_shine2.dds" Size="256 256"/>
+	<Texture Name="light037" File="light037.dds" Size="128 128"/>
+	<Texture Name="card_base_last" File="card_base_last.dds" Size="256 256"/>
+	<Texture Name="card_base_crack_shine" File="card_base_crack_shine.dds" Size="256 256"/>
+	<Texture Name="card_crack_sheet" File="card_crack_sheet.dds" Size="1024 1024"/>
+	<Texture Name="light035_2" File="light035_2.dds" Size="256 256"/>
+	<Texture Name="card_base_frame" File="card_base_frame.dds" Size="256 256"/>
+	<Texture Name="chain_base_glow" File="chain_base_glow.dds" Size="256 256"/>
+	<Texture Name="chain_base_1" File="chain_base_1.dds" Size="256 256"/>
+	<Texture Name="card_decal_sheet" File="card_decal_sheet.dds" Size="512 512"/>
+	<Texture Name="lock_up" File="lock_up.dds" Size="64 64"/>
+	<Texture Name="lock_bottom" File="lock_bottom.dds" Size="64 64"/>
+	<Texture Name="card_shine" File="card_shine.dds" Size="256 256"/>
+	<Texture Name="chain_multi" File="chain_multi.dds" Size="1024 1024"/>
+	<Texture Name="chain_add" File="chain_add.dds" Size="1024 1024"/>
+	<Texture Name="ground008" File="ground008.dds" Size="256 256"/>
+	<Texture Name="ice005" File="ice005.dds" Size="256 256"/>
+	<Texture Name="sprite024_bat3" File="sprite024_bat3.dds" Size="512 512"/>
+	<Texture Name="sprite024_bat2" File="sprite024_bat2.dds" Size="512 512"/>
+	<Texture Name="sprite024_bat" File="sprite024_bat.dds" Size="512 512"/>
+	<Texture Name="Ghost002" File="Ghost002.dds" Size="128 256"/>
+	<Texture Name="Ghost001" File="Ghost001.dds" Size="128 256"/>
+	<Texture Name="Halloween_012" File="Halloween_012.dds" Size="128 128"/>
+	<Texture Name="Halloween_011" File="Halloween_011.dds" Size="128 128"/>
+	<Texture Name="Halloween_010" File="Halloween_010.dds" Size="128 128"/>
+	<Texture Name="Halloween_009" File="Halloween_009.dds" Size="128 128"/>
+	<Texture Name="Halloween_008" File="Halloween_008.dds" Size="128 128"/>
+	<Texture Name="Halloween_007" File="Halloween_007.dds" Size="128 128"/>
+	<Texture Name="Halloween_006" File="Halloween_006.dds" Size="128 128"/>
+	<Texture Name="Halloween_005" File="Halloween_005.dds" Size="128 128"/>
+	<Texture Name="Halloween_004" File="Halloween_004.dds" Size="128 128"/>
+	<Texture Name="Halloween_003" File="Halloween_003.dds" Size="128 128"/>
+	<Texture Name="Halloween_002" File="Halloween_002.dds" Size="128 128"/>
+	<Texture Name="Halloween_001" File="Halloween_001.dds" Size="128 128"/>
+	<Texture Name="icon_event_dungeon_Halloween1" File="icon_event_dungeon_Halloween1.tga" Size="95 90"/>
+	<Texture Name="icon_event_dungeon_Halloween2" File="icon_event_dungeon_Halloween2.tga" Size="95 90"/>
+	<Texture Name="icon_event_dungeon_Halloween3" File="icon_event_dungeon_Halloween3.tga" Size="95 90"/>
+	<Texture Name="icon_event_dungeon_Halloween4" File="icon_event_dungeon_Halloween4.tga" Size="95 90"/>
+	<Texture Name="magic_decal_UI_2" File="magic_decal_UI_2.dds" Size="256 256"/>
+	<Texture Name="sprite034" File="sprite034.dds" Size="512 512"/>
+	<Texture Name="magic_decal_UI" File="magic_decal_UI.dds" Size="256 256"/>
+	<Texture Name="ripple010" File="ripple010.dds" Size="128 128"/>
+	<Texture Name="ripple011" File="ripple011.dds" Size="128 128"/>
+	<Texture Name="card001" File="card001.dds" Size="256 256"/>
+	<Texture Name="light036" File="light036.dds" Size="512 256"/>
+	<Texture Name="light035" File="light035.dds" Size="512 512"/>
+	<Texture Name="light034" File="light034.dds" Size="256 128"/>
+	<Texture Name="V_spelling_gold" File="V_spelling_gold.dds" Size="256 128"/>
+	<Texture Name="V_main_blur" File="V_main_blur.dds" Size="256 256"/>
+	<Texture Name="V_wing_sheet_blur" File="V_wing_sheet_blur.dds" Size="256 256"/>
+	<Texture Name="light033" File="light033.dds" Size="256 256"/>
+	<Texture Name="light032" File="light032.dds" Size="128 128"/>
+	<Texture Name="V_wing_sheet_light" File="V_wing_sheet_light.dds" Size="1024 1024"/>
+	<Texture Name="L_main_frame" File="L_main_frame.dds" Size="1024 1024"/>
+	<Texture Name="V_spelling_main_sheet" File="V_spelling_main_sheet.dds" Size="1024 512"/>
+	<Texture Name="V_spelling_light_sheet" File="V_spelling_light_sheet.dds" Size="1024 512"/>
+	<Texture Name="L_wing_main_sheet" File="L_wing_main_sheet.dds" Size="1024 1024"/>
+	<Texture Name="L_wing_light_sheet" File="L_wing_light_sheet.dds" Size="1024 1024"/>
+	<Texture Name="L_top_main_sheet" File="L_top_main_sheet.dds" Size="1024 512"/>
+	<Texture Name="L_top_light_sheet" File="L_top_light_sheet.dds" Size="1024 512"/>
+	<Texture Name="L_spelling_main" File="L_spelling_main.dds" Size="1024 512"/>
+	<Texture Name="L_spelling_light_sheet" File="L_spelling_light_sheet.dds" Size="1024 512"/>
+	<Texture Name="L_ripple_sheet" File="L_ripple_sheet.dds" Size="1024 2048"/>
+	<Texture Name="V_wing_sheet" File="V_wing_sheet.dds" Size="1024 1024"/>
+	<Texture Name="V_ripple_sheet" File="V_ripple_sheet.dds" Size="1024 2048"/>
+	<Texture Name="V_main_frame" File="V_main_frame.dds" Size="1024 1024"/>
+	<Texture Name="V_light_sheet" File="V_light_sheet.dds" Size="1024 1024"/>
+	<Texture Name="sprite033" File="sprite033.dds" Size="512 512"/>
+	<Texture Name="circle044" File="circle044.dds" Size="128 128"/>
+	<Texture Name="status_icon_angrycat" File="status_icon_angrycat.tga" Size="100 100"/>
+	<Texture Name="hit001_red_side" File="hit001_red_side.dds" Size="128 128"/>
+	<Texture Name="dash010" File="dash010.dds" Size="128 128"/>
+	<Texture Name="fire012" File="fire012.dds" Size="128 128"/>
+	<Texture Name="trail008_1" File="trail008_1.dds" Size="128 64"/>
+	<Texture Name="sprite031_orange" File="sprite031_orange.dds" Size="512 256"/>
+	<Texture Name="sprite032" File="sprite032.dds" Size="512 256"/>
+	<Texture Name="sprite031_alpha" File="sprite031_alpha.dds" Size="512 256"/>
+	<Texture Name="sprite031" File="sprite031.dds" Size="512 256"/>
+	<Texture Name="sprite030" File="sprite030.tga" Size="584 700"/>
+	<Texture Name="sprite029" File="sprite029.dds" Size="1024 512"/>
+	<Texture Name="trail006_blur" File="trail006_blur.dds" Size="256 256"/>
+	<Texture Name="light031" File="light031.dds" Size="128 128"/>
+	<Texture Name="trail010" File="trail010.dds" Size="256 128"/>
+	<Texture Name="trail009" File="trail009.dds" Size="128 64"/>
+	<Texture Name="trail008" File="trail008.dds" Size="128 64"/>
+	<Texture Name="trail007" File="trail007.dds" Size="128 64"/>
+	<Texture Name="trail006" File="trail006.dds" Size="256 256"/>
+	<Texture Name="trail005" File="trail005.dds" Size="256 256"/>
+	<Texture Name="ripple029_add" File="ripple029_add.dds" Size="512 128"/>
+	<Texture Name="sprite027_add" File="sprite027_add.dds" Size="512 512"/>
+	<Texture Name="sprite028_add" File="sprite028_add.dds" Size="512 512"/>
+	<Texture Name="sprite028" File="sprite028.dds" Size="512 512"/>
+	<Texture Name="sprite027" File="sprite027.dds" Size="512 512"/>
+	<Texture Name="ui_title" File="ui_title.dds" Size="756 68"/>
+	<Texture Name="sprite026" File="sprite026.dds" Size="512 256"/>
+	<Texture Name="leaf002_green" File="leaf002_green.dds" Size="128 128"/>
+	<Texture Name="ripple007_green" File="ripple007_green.dds" Size="256 256"/>
+	<Texture Name="light024_green" File="light024_green.dds" Size="32 32"/>
+	<Texture Name="line005" File="line005.dds" Size="64 64"/>
+	<Texture Name="sprite025" File="sprite025.dds" Size="512 256"/>
+	<Texture Name="sprite024" File="sprite024.dds" Size="512 256"/>
+	<Texture Name="water_mesh001" File="water_mesh001.dds" Size="128 128"/>
+	<Texture Name="pattern025" File="pattern025.dds" Size="128 128"/>
 	<Texture Name="circle043" File="circle043.dds" Size="128 128"/>
 	<Texture Name="ripple009" File="ripple009.dds" Size="128 128"/>
 	<Texture Name="ripple008" File="ripple008.dds" Size="256 256"/>
@@ -122,6 +319,7 @@
 	<Texture Name="feather001_alpha" File="feather001_alpha.dds" Size="64 64"/>
 	<Texture Name="fire001_alpha" File="fire001_alpha.dds" Size="64 64"/>
 	<Texture Name="pattern014" File="pattern014.dds" Size="64 64"/>
+	<Texture Name="leaf001_alpha_glow" File="leaf001_alpha_glow.dds" Size="64 64"/>
 	<Texture Name="leaf001_alpha" File="leaf001_alpha.dds" Size="64 64"/>
 	<Texture Name="leaf001_violet" File="leaf001_violet.dds" Size="32 32"/>
 	<Texture Name="ground007" File="ground007.dds" Size="128 128"/>
@@ -168,6 +366,7 @@
 	<Texture Name="light014" File="light014.dds" Size="64 64"/>
 	<Texture Name="pattern009" File="pattern009.dds" Size="64 64"/>
 	<Texture Name="light011" File="light011.dds" Size="64 64"/>
+	<Texture Name="dash008_reverse" File="dash008_reverse.dds" Size="64 256"/>
 	<Texture Name="dash008" File="dash008.dds" Size="64 256"/>
 	<Texture Name="dash007" File="dash007.dds" Size="128 128"/>
 	<Texture Name="pattern008" File="pattern008.dds" Size="32 256"/>
@@ -205,6 +404,7 @@
 	<Texture Name="fire001_blue" File="fire001_blue.dds" Size="64 64"/>
 	<Texture Name="fire001" File="fire001.dds" Size="64 64"/>
 	<Texture Name="dash003" File="dash003.dds" Size="128 64"/>
+	<Texture Name="dash001_alpha" File="dash001_alpha.dds" Size="32 16"/>
 	<Texture Name="dash001_pink" File="dash001_pink.dds" Size="32 16"/>
 	<Texture Name="dash001" File="dash001.dds" Size="32 16"/>
 	<Texture Name="circle024" File="circle024.dds" Size="64 64"/>
@@ -244,6 +444,8 @@
 	<Texture Name="arrow_arrow_2" File="arrow_arrow_2.dds" Size="256 256"/>
 	<Texture Name="arrow_arrow_1" File="arrow_arrow_1.dds" Size="256 256"/>
 	<Texture Name="blood002_violet" File="blood002_violet.DDS" Size="36 36"/>
+	<Texture Name="rize009" File="rize009.dds" Size="64 64"/>
+	<Texture Name="rize008" File="rize008.dds" Size="64 64"/>
 	<Texture Name="rize006" File="rize006.dds" Size="128 128"/>
 	<Texture Name="cloudkill_01" File="cloudkill_01.dds" Size="128 128"/>
 	<Texture Name="circle021_green" File="circle021_green.dds" Size="64 64"/>
@@ -527,8 +729,12 @@
 	<Texture Name="digit_expup_text" File="digit_extra_exp_mark.tga" Size="64 40"/>
 	<Texture Name="item_glossy" File="item_glossy.tga" Size="64 64"/>
 	<Texture Name="dice_effect" File="dice_xX_effect.tga" Size="600 100"/>
+	<Texture Name="fx_trail04_1" File="fx_trail004_1.dds" Size="64 64"/>
+	<Texture Name="fx_trail04" File="fx_trail004.dds" Size="64 64"/>
 	<Texture Name="fx_trail03" File="fx_trail003.dds" Size="64 64"/>
 	<Texture Name="fx_trail01" File="fx_trail001.dds" Size="128 128"/>
 	<Texture Name="fx_trail02" File="fx_trail002.dds" Size="64 64"/>
 	<Texture Name="fx_trail_giantaxe" File="fx_trail_giantaxe.dds" Size="256 256"/>
+	<Texture Name="critical_bg1" File="critical_bg1.tga" Size="237 96"/>
+	<Texture Name="critical_bg2" File="critical_bg2.tga" Size="237 96"/>
 </TextureInfo>

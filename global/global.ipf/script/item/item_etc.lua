@@ -1625,3 +1625,53 @@ function SCR_USE_Event_Steam_Popo_Point_1000_PLAY(pc, strArg, argnum1, arg2, ite
         GivePCBangPointShopPoint(pc, TP_premium_Popo, "BUY_TP_PoPo_Point")
     end
 end
+
+function SCR_USE_EVENT_KOR_Fortunecookie(self,argObj,argstr,arg1,arg2)
+    -- local list = {
+    --     {10, 'PremiumToken_1d', 1},
+    --     {20, 'Event_drug_steam', 10},
+    --     {30, 'card_Xpupkit01_event', 1},
+    --     {40, 'misc_gemExpStone_randomQuest4_14d', 1},
+    --     {50, 'Moru_Silver', 1},
+    --     {60, 'Hat_628290', 1}
+    -- }
+    
+    local aObj = GetAccountObj(self);
+    local result = 0;
+    local BuffName
+
+    if IsBuffApplied(self, 'Premium_Fortunecookie_1') == 'YES' then
+        BuffName = 'Premium_Fortunecookie_2'
+    elseif IsBuffApplied(self, 'Premium_Fortunecookie_2') == 'YES' then
+        BuffName = 'Premium_Fortunecookie_3'
+    elseif IsBuffApplied(self, 'Premium_Fortunecookie_3') == 'YES' then
+        BuffName = 'Premium_Fortunecookie_4'
+    elseif IsBuffApplied(self, 'Premium_Fortunecookie_4') == 'YES' then
+        BuffName = 'Premium_Fortunecookie_5'
+    elseif IsBuffApplied(self, 'Premium_Fortunecookie_5') == 'YES' then
+        BuffName = 'Premium_Fortunecookie_5'
+    else
+        BuffName = 'Premium_Fortunecookie_1'
+    end
+
+	--EVENT_PROPERTY_RESET(self, aObj, sObj)
+
+	-- for i = 1, table.getn(list) do
+    --     if aObj.EVENT_KOR_Fortunecookie_COUNT + 1 == list[i][1] then
+    --         result = i
+    --         break;
+    --     end
+    -- end
+
+	local tx = TxBegin(self);
+    TxAddIESProp(tx, aObj, 'EVENT_KOR_Fortunecookie_COUNT', 1);
+    -- if result ~= 0 then
+    --     TxGiveItem(tx, list[result][2], list[result][3], 'EVENT_KOR_Fortunecookie');
+    -- end
+    local ret = TxCommit(tx);
+    if ret == 'SUCCESS' then
+        AddBuff(self, self, BuffName, 0, 0, 1800000, 1);
+        -- local msg = ScpArgMsg("Fortunecookie_Count","COUNT", aObj.EVENT_KOR_Fortunecookie_COUNT)
+        -- SendAddOnMsg(self, "NOTICE_Dm_scroll",msg, 10)
+    end
+end

@@ -44,10 +44,6 @@ local function _ADD_ITEM_TO_EXCHANGEANTIQUE_FROM_INV(frame, item)
 	local isAbleExchange = 1;
 	local itemClass = GetClassByType("Item", item.ClassID);
 	local exchangeAntique = GET_EXCHANGE_ANTIQUE_INFO(item.ClassName);
-	if exchangeAntique.ExchangeGroup == 'RebuildCare' then
-		return;
-	end
-	
 	if exchangeAntique == nil then
 		ui.SysMsg(ClMsg('WrongDropItem'));
 		return;
