@@ -757,3 +757,17 @@ function GET_INV_ITEM_COUNT_BY_PROPERTY(propCondList)
     end
     return count, matchedList;
 end
+
+function SELECT_INV_SLOT_BY_GUID(guid, isSelect)
+	local invSlot = GET_SLOT_BY_ITEMID(nil, guid);
+	if invSlot == nil then
+		return;
+	end
+	invSlot:Select(isSelect);
+
+	local invSlot_All = GET_SLOT_BY_ITEMID(nil, guid, 1);
+	if invSlot_All == nil then
+		return;
+	end
+	invSlot_All:Select(isSelect);
+end

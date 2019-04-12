@@ -130,18 +130,7 @@ function BRIQUETTING_SELECT_INVENTORY_ITEM(slot, isSelect)
 		if guid == 'None' then
 			return;
 		end
-
-		local invSlot = GET_SLOT_BY_ITEMID(nil, guid);
-		if invSlot == nil then
-			return;
-		end
-		invSlot:Select(0);
-
-		local invSlot_All = GET_SLOT_BY_ITEMID(nil, guid, 1);
-		if invSlot_All == nil then
-			return;
-		end
-		invSlot_All:Select(0);
+		SELECT_INV_SLOT_BY_GUID(guid, 0);
 	end
 end
 

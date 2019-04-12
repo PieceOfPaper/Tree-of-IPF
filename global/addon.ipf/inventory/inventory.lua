@@ -850,8 +850,7 @@ function INV_SLOT_UPDATE(frame, invItem, itemSlot)
 	INV_ICON_SETINFO(frame, itemSlot, invItem, customFunc, scriptArg, remainInvItemCount);	
 end
 
-function INVENTORY_UPDATE_ITEM_BY_GUID(frame, itemGuid)
-
+function INVENTORY_UPDATE_ITEM_BY_GUID(frame, itemGuid)	
 	local invItem = session.GetInvItemByGuid(itemGuid);
 	if invItem == nil then
 		return;
@@ -872,8 +871,6 @@ function INVENTORY_UPDATE_ITEM_BY_GUID(frame, itemGuid)
 			INV_SLOT_UPDATE(frame, invItem, itemSlot_All)
 		end
 	end
-	
-	
 end
 
 ----- 아이템 조합 컨텐츠 (inventory_mix.lua에서 복사해옴)
@@ -1089,21 +1086,6 @@ function INVENTORY_SLOTSET_INIT(frame, slotSet, slotCount)
 		DESTROY_CHILD_BYNAME(slot, "styleset_")
 
 	end
-end
-
--- 거래슬롯에 올려두었으면 인벤토리에 카운트 차이만큼만 표시되도록 체크 
-function CHECK_EXCHANGE_ITEM_LIST(invItem, remaincount)
-
-	local itemCount = exchange.GetExchangeItemCount(0);	
-	for  i = 0, itemCount-1 do 		
-		local itemData = exchange.GetExchangeItemInfo(0,i);
-		if itemData ~= nil then
-			if tostring(itemData:GetGUID() ) == tostring(invItem:GetIESID()) then
-				return remaincount - itemData.count;
-			end
-		end
-	end
-	return remaincount;
 end
 
 function GET_SLOTSET_NAME(invIndex)
@@ -1375,9 +1357,7 @@ function SEARCH_ITEM_INVENTORY(a,b,c)
 end
 
 function GET_REMAIN_INVITEM_COUNT(invItem)
-
-	local remainInvItemCount = invItem.count
-	remainInvItemCount = CHECK_EXCHANGE_ITEM_LIST(invItem, remainInvItemCount);	 
+	local remainInvItemCount = invItem.count;
 	for iesid, selllistcount in pairs(SHOP_SELECT_ITEM_LIST) do
 		local item = GetObjectByGuid(iesid);
 		if item ~= nil then
