@@ -1,4 +1,4 @@
-﻿
+
 -- tpitem.lua : (tp shop)
 
 function TPITEM_ON_INIT(addon, frame)
@@ -25,7 +25,7 @@ function TPITEM_ON_INIT(addon, frame)
 	
 	local limitTime = TPSHOP_ISNEW_CHECK_TIME();	
 	local tpitemframe = ui.GetFrame("tpitem");
-	tpitemframe:SetUserValue("TPSHOP_LIMIT_TIMEDATE", limitTime);
+	tpitemframe:SetUserValue("TPSHOP_LIMIT_TIMEDATE", limitTime);	
 end
 
 function ON_SHOP_BUY_LIMIT_INFO(frame)	--해당 아이템에 대하여 월별 구매 제한 기능. 으로 추정
@@ -60,7 +60,7 @@ function TPSHOP_REDRAW_TPITEMLIST()
 			gBox:SetSkinName("baseyellow_btn");
 	end
 	tpitemtree:CloseNodeAll();
-	frame:SetUserValue("LAST_OPEN_SUB_CATEGORY", "None");	
+	frame:SetUserValue("LAST_OPEN_SUB_CATEGORY", "None");		
 	frame:SetUserValue("SHOWITEM_OPTION", typeIndex);	
 	
 	TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, 1, 0, nil, typeIndex);
@@ -78,10 +78,10 @@ function TPITEM_OPEN(frame)
 
 	if (config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP") then
 	if 0 == IsMyPcGM_FORNISMS() then
-	local btn1 = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn")
-	local btn2 = GET_CHILD_RECURSIVELY(frame,"ncChargebtn")
-	btn1:SetEnable(0)
-	btn2:SetEnable(0)
+		local btn1 = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn")
+		local btn2 = GET_CHILD_RECURSIVELY(frame,"ncChargebtn")
+		btn1:SetEnable(0)
+		btn2:SetEnable(0)
 	end
 end
 end
@@ -98,48 +98,48 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 	screenbgTemp:ShowWindow(0);
 	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
 	local rcycle_basketgbox = GET_CHILD_RECURSIVELY(frame,'rcycle_basketgbox');
-	
+		
 	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
-	if curtabIndex == 0 then	
-		TPITEM_DRAW_NC_TP();
-		TPSHOP_SHOW_CASHINVEN_ITEMLIST();
-		basketgbox:SetVisible(0);
-		previewgbox:SetVisible(0);
-		previewStaticTitle:SetVisible(0);	
-		cashInvGbox:SetVisible(1);
-		rcycle_basketgbox:SetVisible(0);
+		if curtabIndex == 0 then	
+			TPITEM_DRAW_NC_TP();
+			TPSHOP_SHOW_CASHINVEN_ITEMLIST();
+			basketgbox:SetVisible(0);
+			previewgbox:SetVisible(0);
+			previewStaticTitle:SetVisible(0);	
+			cashInvGbox:SetVisible(1);
+			rcycle_basketgbox:SetVisible(0);
 			tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 			tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
-	elseif curtabIndex == 1 then
-		basketgbox:SetVisible(1);
-		previewgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);
-		cashInvGbox:SetVisible(0);
-		rcycle_basketgbox:SetVisible(0);
-	elseif curtabIndex == 2 then -- 리사이클 샵
-		rcycle_basketgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);	
-		previewgbox:SetVisible(1);
-		basketgbox:SetVisible(0);
-		cashInvGbox:SetVisible(0);
-		RECYCLE_SHOW_TO_ITEM()
-	end
+		elseif curtabIndex == 1 then
+			basketgbox:SetVisible(1);
+			previewgbox:SetVisible(1);
+			previewStaticTitle:SetVisible(1);
+			cashInvGbox:SetVisible(0);
+			rcycle_basketgbox:SetVisible(0);
+		elseif curtabIndex == 2 then -- 리사이클 샵
+			rcycle_basketgbox:SetVisible(1);
+			previewStaticTitle:SetVisible(1);	
+			previewgbox:SetVisible(1);
+			basketgbox:SetVisible(0);
+			cashInvGbox:SetVisible(0);
+			RECYCLE_SHOW_TO_ITEM()
+		end
 	else
-	if curtabIndex == 0 then
-		basketgbox:SetVisible(1);
-		previewgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);
-		cashInvGbox:SetVisible(0);
-		rcycle_basketgbox:SetVisible(0);
-	elseif curtabIndex == 1 then -- 리사이클 샵
-		rcycle_basketgbox:SetVisible(1);
-		previewStaticTitle:SetVisible(1);	
-		previewgbox:SetVisible(1);
-		basketgbox:SetVisible(0);
-		cashInvGbox:SetVisible(0);
-		RECYCLE_SHOW_TO_ITEM()
+		if curtabIndex == 0 then
+			basketgbox:SetVisible(1);
+			previewgbox:SetVisible(1);
+			previewStaticTitle:SetVisible(1);
+			cashInvGbox:SetVisible(0);
+			rcycle_basketgbox:SetVisible(0);
+		elseif curtabIndex == 1 then -- 리사이클 샵
+			rcycle_basketgbox:SetVisible(1);
+			previewStaticTitle:SetVisible(1);	
+			previewgbox:SetVisible(1);
+			basketgbox:SetVisible(0);
+			cashInvGbox:SetVisible(0);
+			RECYCLE_SHOW_TO_ITEM()
+		end
 	end
-end
 end
 
 function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
@@ -147,21 +147,18 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	ui.CloseAllOpenedUI();
 	ui.OpenIngameShopUI();	-- Tpshop을 열었을때에 Tpitem에 대한 정보와 NexonCash 정보 등을 서버에 요청한다.
 
-	frame:ShowWindow(1);
+	frame:ShowWindow(1);	
 	local leftgFrame = frame:GetChild("leftgFrame");	
 	local leftgbox = leftgFrame:GetChild("leftgbox");
 	local shopTab = leftgbox:GetChild('shopTab');
 	local itembox_tab		= tolua.cast(shopTab, "ui::CTabControl");
 	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
-	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
-		banner:SetImage("market_event_test");	--market_default
-	banner:SetUserValue("URL_BANNER", "");
-	banner:SetUserValue("NUM_BANNER", 0);
-	banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
-	else
 		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
-		banner:ShowWindow(0);
-
+		banner:SetImage("market_event_test");	--market_default
+		banner:SetUserValue("URL_BANNER", "");
+		banner:SetUserValue("NUM_BANNER", 0);
+		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+	else
 		local haveStaticNCbox = GET_CHILD_RECURSIVELY(frame,"haveStaticNCbox");	
 		haveStaticNCbox:ShowWindow(0);
 		
@@ -182,7 +179,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 			itembox_tab:SetItemsFixWidth(170);
 		end
 	end
-	
+		
 	
 	MAKE_CATEGORY_TREE();
 	
@@ -197,7 +194,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	local ratio = option.GetClientHeight()/option.GetClientWidth();
 	local limitMaxWidth = ui.GetSceneWidth() / ui.GetRatioWidth();
 	local limitMaxHeight = limitMaxWidth * ratio;
-
+	
 	if limitMaxWidth < option.GetClientWidth() then
 		limitMaxWidth = option.GetClientWidth();
 	end
@@ -208,7 +205,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		div = 6;
 	end
 	frame:Resize(0,0 , limitMaxWidth * 1.2, limitMaxHeight * 1.2);
-
+		
 	--session.shop.RequestLoadShopBuyLimit();
 	SET_TOPMOST_FRAME_SHOWFRAME(0);	
 	
@@ -240,7 +237,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 
 	--ui.SetHoldUI(frame:GetName());
 	UPDATE_BASKET_MONEY(frame);
-	UPDATE_RECYCLE_BASKET_MONEY(frame,"sell");
+	UPDATE_RECYCLE_BASKET_MONEY(frame,"sell");	
 	
 	local rightFrame = frame:GetChild('rightFrame');
 	local leftgFrame = frame:GetChild("leftgFrame");	
@@ -249,7 +246,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	local alignTypeList = GET_CHILD_RECURSIVELY(frame,"alignTypeList");	
 	local showTypeList = GET_CHILD_RECURSIVELY(frame,"showTypeList");	
 	showTypeList:ClearItems();
-
+	
 	local resol = math.floor((limitMaxHeight - leftgFrame:GetHeight()) / div);
 	if resol < 0  then
 		resol = 0;
@@ -268,16 +265,15 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	alignTypeList:ClearItems();
 
 	for i = 0 , 3 do
-	local resString = string.format("{@st42b}{s16}%s{/}", ScpArgMsg("ALIGN_ITEM_TYPE_" .. i));
-		alignTypeList:AddItem(i, resString);
+			local resString = string.format("{@st42b}{s16}%s{/}", ScpArgMsg("ALIGN_ITEM_TYPE_" .. i));
+			alignTypeList:AddItem(i, resString);
 	end
 	alignTypeList:SelectItem(0);
 	
 	local tempGbox_for_scroll = GET_CHILD_RECURSIVELY(frame,"tempGbox_for_scroll")
 	tempGbox_for_scroll:SetEventScript(ui.MOUSEWHEEL, "TPSHOP_PREVIEW_ZOOM");
-
+			
 	control.EnableControl(0);
-	ui.SetUILock(true);
 end
 
 function SET_TOPMOST_FRAME_SHOWFRAME(show)
@@ -412,27 +408,30 @@ function MAKE_CATEGORY_TREE()
 			firstTreeItem = htreeitem;
 		end
 
-			
-		end
 
+	end
+	--[[
+	tpitemtree:EnableDrawFrame(false);
+	tpitemtree:Select(firstTreeItem)
+	return tpitemtree:GetLastSelectedNode();]]
+	
 	tpitemtree:Select(firstTreeItem);
 	local tnode = tpitemtree:GetLastSelectedNode();
 	TPITEM_SELECT_TREENODE(tnode);	
+	--TPITEM_SELECT_TREENODE(nil);	
 end
 
 
 function TPITEM_CLOSE(frame)
 	
-	ui.SetUILock(false);
-
 	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
 	tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 
 	if (1 == IsMyPcGM_FORNISMS()) and (config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP") then
-	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
-	banner:SetUserValue("URL_BANNER", "");
-	banner:SetUserValue("NUM_BANNER", 0);
-	banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
+		banner:SetUserValue("URL_BANNER", "");
+		banner:SetUserValue("NUM_BANNER", 0);
+		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
 	end
 
 	--ui.SetHoldUI("");
@@ -487,6 +486,13 @@ function TPITEM_SELECT_TREENODE(tnode)
 					CHECK_SUBCATEGORY_N_DRAW_ITEMS(frame, tnodeChild:GetValue(), 1, 0);		
 					tree:Select(tree:FindByValue(tnodeChild:GetValue()));
 				end
+				--[[
+				if i == 0 then	-- 처음시도할때에는 초기화					
+					CHECK_SUBCATEGORY_N_DRAW_ITEMS(frame, tnodeChild:GetValue(), 1, 0);
+				else	--다음부터는 초기화 없이 인덱스를 이어 그린다.
+					CHECK_SUBCATEGORY_N_DRAW_ITEMS(frame, tnodeChild:GetValue(), 0, 0);
+				end
+				]]
 			end;
 		end;
 		
@@ -523,11 +529,11 @@ function TPITEM_SELECT_TREENODE(tnode)
 			tree:ShowTreeNode(htreeitem, 0);
 		end;
 	end;
-
+	
 	-- 현재 클릭된 하위 항목의 상위 항목 기억하기
 	categorySubGbox:SetUserValue("CTRLNAME", obj:GetName());
 	tree:InvalidateTree();
-end
+	end
 
 --TP상점의 카테고리 트리에서 항목 클릭시
 function TPITEM_TREE_CLICK(parent, ctrl, str, num)
@@ -671,8 +677,8 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 					local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
 					TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
 				end
+			end
 		end
-	end
 		
 	end
 	--mainSubGbox:Resize(mainSubGbox:GetOriginalWidth(), y + ui.GetControlSetAttribute("tpshop_item", 'height'))
@@ -1099,7 +1105,7 @@ function _TPSHOP_TPITEM_SET_SPECIAL()
 	if index == 0 then
 		return;
 	end
-	
+
 	for i = 1, index do
 		local itemcset = mainSubGbox:GetControlSet('tpshop_item', 'eachitem_'..i);
 		if itemcset == nil then
@@ -1116,7 +1122,7 @@ function _TPSHOP_TPITEM_SET_SPECIAL()
 		
 		TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, classID);
 	end	
-	
+		
 	DebounceScript("TPSHOP_CREATE_TOP5_CTRLSET", 1);
 end
 
@@ -1985,7 +1991,7 @@ function TPITEM_DRAW_NC_TP()
 	local clsList, listcnt = GetClassList("item_package");	
 	local jobNum = GETPACKAGE_JOBNUM_BYJOBNGENDER();
 	-- 해당 카테고리의 노드들의 프레임을 만들기.
-
+	
 	for i = cnt -1,0, -1 do
 		local iteminfo = session.ui.Get_NISMS_ItemInfo(i)
 		if iteminfo == nil then
@@ -2017,11 +2023,11 @@ function TPITEM_DRAW_NC_TP()
 								return;
 							end
 							SET_SLOT_IMG(slot, cls.Icon);
-							
+
 							staticTPbox:SetText("{img Nexon_cash_mark 30 30}{/}{@st43}{s18}".. itemPrice .."{/}");
 							title:SetText(ItemClassName);
 
-							local icon = slot:GetIcon();
+							local icon = slot:GetIcon();	
 
 							buyBtn = GET_CHILD_RECURSIVELY(itemcset, "buyBtn");	
 							buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
@@ -2275,7 +2281,14 @@ function TPSHOP_SELECTED_SPECIALGOODS(parent, control, strArg, numArg)
 	if numArg > 0 then
 		TPSHOP_SELECTED_SPECIALGOODS_BANNER(parent, control, strArg, numArg);
 	elseif numArg == 0 then
-		TPSHOP_SELECTED_SPECIALPACKAGES_BANNER(parent, control, strArg, numArg);		
+		TPSHOP_SELECTED_SPECIALPACKAGES_BANNER(parent, control, strArg, numArg);
+		--[[
+		local tpPackageTab = GET_CHILD_RECURSIVELY(frame,'tpPackageTab');	
+		local itembox_tab		= tolua.cast(tpPackageTab, "ui::CTabControl");
+		
+		local gender = GETMYPCGENDER();
+		itembox_tab:SelectTab(gender - 1);
+		]]
 	end
 	parent:Invalidate();
 	frame:Invalidate();
@@ -2328,7 +2341,7 @@ function TPSHOP_SELECTED_SPECIALPACKAGES_BANNER(tpSubgbox, control, strArg, numA
 	else
 		retNum = numArg;
 	end	
-
+	
 	local listIndex = control:GetUserValue("LISTINDEX_".. retNum);
 	local iteminfo = session.ui.Get_NISMS_ItemInfo(listIndex)
 	if iteminfo == nil then
@@ -2436,11 +2449,11 @@ end
 
 --///////////////////////////////////////////////////////////////////////////////////////////TPITEM DRAW Code end
 
-function TPSHOP_REFLASH_REMAINCASH(parent, control, strArg, numArg)
+function TPSHOP_REFLASH_REMAINCASH(parent, control, strArg, numArg)	
 	if 1 == IsMyPcGM_FORNISMS() then
 		DebounceScript("ON_TPSHOP_REFLASH_REMAINCASH", 5);
 	else
-	ui.MsgBox(ClMsg("YouCanChargeOnWeb"));
+		ui.MsgBox(ClMsg("YouCanChargeOnWeb"));
 	end
 end
 
@@ -2448,7 +2461,7 @@ function ON_TPSHOP_REFLASH_REMAINCASH()
 	ui.ReqRemainNexonCash();
 end
 
-function TPSHOP_SELECTED_SPECIALGOODS_BANNER_CLICK(parent, control, strArg, numArg)	
+function TPSHOP_SELECTED_SPECIALGOODS_BANNER_CLICK(parent, control, strArg, numArg)
 	local frame = ui.GetFrame("tpitem");
 	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 	local strURL = banner:GetUserValue("URL_BANNER");
@@ -2462,7 +2475,7 @@ function TPSHOP_TRY_BUY_TPITEM_BY_NEXONCASH(parent, control, ItemClassIDstr, ite
 	
 	local frame = ui.GetFrame("tpitem");	
 	
-	local nMaxCnt = session.ui.Get_NISMS_CashInven_ItemListSize();
+	local nMaxCnt = session.ui.Get_NISMS_CashInven_ItemListSize();	
 	if nMaxCnt >= 18 then
 		strMsg = string.format("{@st43d}{s20}%s{/}", ScpArgMsg("MAX_CASHINVAN"));
 		ui.MsgBox_NonNested(strMsg, 0x00000000, frame:GetName(), "None", "None");	
@@ -2471,7 +2484,7 @@ function TPSHOP_TRY_BUY_TPITEM_BY_NEXONCASH(parent, control, ItemClassIDstr, ite
 	
 	local screenbgTemp = frame:GetChild('screenbgTemp');	
 	screenbgTemp:ShowWindow(1);	
-
+	
 	local listIndex = control:GetUserValue("LISTINDEX");
 	local iteminfo = session.ui.Get_NISMS_ItemInfo(listIndex)
 	if iteminfo == nil then
@@ -2583,17 +2596,17 @@ end
 
 function WEB_TPSHOP_OPEN_URL_NEXONCASH()
 	if 1 == IsMyPcGM_FORNISMS() then
-	ON_TPSHOP_FREE_UI();
-	local frame = ui.GetFrame("tpitem");	
-	TPSHOP_TAB_VIEW(frame, 0);
-	
-	local leftgFrame = frame:GetChild("leftgFrame");	
-	local leftgbox = leftgFrame:GetChild("leftgbox");
-	local shopTab = leftgbox:GetChild('shopTab');
-	local itembox_tab		= tolua.cast(shopTab, "ui::CTabControl");
-	itembox_tab:SelectTab(0);
-
-	ui.Embedded_Browser_forNC(ui.ExcNCurl());
+		ON_TPSHOP_FREE_UI();
+		local frame = ui.GetFrame("tpitem");	
+		TPSHOP_TAB_VIEW(frame, 0);
+		
+		local leftgFrame = frame:GetChild("leftgFrame");	
+		local leftgbox = leftgFrame:GetChild("leftgbox");
+		local shopTab = leftgbox:GetChild('shopTab');
+		local itembox_tab		= tolua.cast(shopTab, "ui::CTabControl");
+		itembox_tab:SelectTab(0);
+		
+		ui.Embedded_Browser_forNC(ui.ExcNCurl());
 	else
 		ui.MsgBox(ClMsg("YouCanChargeOnWeb"));
 	end
@@ -2626,12 +2639,12 @@ function TPSHOP_SHOW_CASHINVEN_ITEMLIST()
 				if cls == nil  then
 					return;
 				end
-				
+							
 				local icon = CreateIcon(slot);
 				if icon ~= nil then		
 					SET_SLOT_IMG(slot, cls.Icon);
 				end;
-
+				
 				icon:SetUserValue("itemClassID", iteminfo.ItemClsId);
 				icon:SetUserValue("OrderNo", iteminfo.OrderNo);						
 				icon:SetUserValue("ProductNo", iteminfo.ProductNo);					
@@ -2656,13 +2669,13 @@ function TPSHOP_CASHINVEN_ITEM_CLICKED(parent, ctrl)
 	TPITEM_SELECTED_OPEN(ctrl);
 end
 
-function _TPSHOP_BANNER(parent, control, argStr, argNum)
+function _TPSHOP_BANNER(parent, control, argStr, argNum)	
 	local size = session.ui.GetSize_TPITEM_Banner_INFOList();
-
+	
 	local frame = ui.GetFrame("tpitem");
 	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 	banner = tolua.cast(banner, "ui::CWebPicture");	
-
+	
 	if size <= 1 then
 		banner:SetImage("market_event_test");	--market_default
 	else
