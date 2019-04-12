@@ -37,7 +37,8 @@ function _SHOW_PC_CONTEXT_MENU(handle)
 end
 
 function SHOW_PC_CONTEXT_MENU(handle)
-	if world.IsPVPMap() == true or session.colonywar.GetIsColonyWarMap() == true or IS_IN_EVENT_MAP() == true then
+
+	if world.IsPVPMap() == true then
 		return;
 	end
 
@@ -108,33 +109,19 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			ui.AddContextMenuItem(context, ClMsg("WHISPER"), strWhisperScp);
 			strScp = string.format("PARTY_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
 			ui.AddContextMenuItem(context, ClMsg("PARTY_INVITE"), strScp);
-                        
-            --[[
-			if AM_I_LEADER(PARTY_GUILD) == 1 or IS_GUILD_AUTHORITY(1, session.loginInfo.GetAID()) == 1 then
-				strScp = string.format("GUILD_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
-				ui.AddContextMenuItem(context, ClMsg("GUILD_INVITE"), strScp);
-			end
-			--]]
-			if session.party.GetPartyInfo(PARTY_GUILD) ~= nil and targetInfo.hasGuild == false then
+
+			if AM_I_LEADER(PARTY_GUILD) == 1 or IS_GUILD_AUTHORITY(1) then
 				strScp = string.format("GUILD_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
 				ui.AddContextMenuItem(context, ClMsg("GUILD_INVITE"), strScp);
 			end
 
 			strscp = string.format("barrackNormal.Visit(%d)", handle);
 			ui.AddContextMenuItem(context, ScpArgMsg("VisitBarrack"), strscp);
-			strscp = string.format("ui.ToggleHeaderText(%d)", handle);
-			if pcObj:GetHeaderText() ~= nil and string.len(pcObj:GetHeaderText()) ~= 0 then
-				if pcObj:IsHeaderTextVisible() == true  then			
-					ui.AddContextMenuItem(context, ClMsg("BlockTitleText"), strscp);
-				else
-					ui.AddContextMenuItem(context, ClMsg("UnblockTitleText"), strscp);
-				end
-			end
 		end
 
 		strscp = string.format("PROPERTY_COMPARE(%d)", handle);
 		ui.AddContextMenuItem(context, ScpArgMsg("Auto_SalPyeoBoKi"), strscp);
-			
+
 		if session.world.IsIntegrateServer() == false then
 			local strRequestAddFriendScp = string.format("friends.RequestRegister('%s')", pcObj:GetPCApc():GetFamilyName());
 			ui.AddContextMenuItem(context, ScpArgMsg("ReqAddFriend"), strRequestAddFriendScp);
@@ -154,26 +141,16 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			end
 		end
 
+
 		ui.AddContextMenuItem(context, ScpArgMsg("Report_AutoBot"), string.format("REPORT_AUTOBOT_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
 
-        -- report guild emblem
-        if  pcObj:IsGuildExist() == true then
-            ui.AddContextMenuItem(context, ScpArgMsg("Report_GuildEmblem"), string.format("REPORT_GUILDEMBLEM_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));        
-        end
 
 		-- 보호모드, 강제킥
 		if 1 == session.IsGM() then
 			ui.AddContextMenuItem(context, ScpArgMsg("GM_Order_Protected"), string.format("REQUEST_GM_ORDER_PROTECTED(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
 			ui.AddContextMenuItem(context, ScpArgMsg("GM_Order_Kick"), string.format("REQUEST_GM_ORDER_KICK(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
 		end
-		
-		if session.world.IsDungeon() and session.world.IsIntegrateIndunServer() == true then
-			local aid = pcObj:GetPCApc():GetAID();
-			local serverName = GetServerNameByGroupID(GetServerGroupID());
-			local playerName = pcObj:GetPCApc():GetFamilyName();
-			local scp = string.format("SHOW_INDUN_BADPLAYER_REPORT(\"%s\", \"%s\", \"%s\")", aid, serverName, playerName);
-			ui.AddContextMenuItem(context, ScpArgMsg("IndunBadPlayerReport"), scp);
-		end
+
 
 		ui.AddContextMenuItem(context, ClMsg("Cancel"), "None");
 		ui.OpenContextMenu(context);
@@ -195,22 +172,6 @@ function REPORT_AUTOBOT(teamName)
 	local msgStr = ScpArgMsg("ThxReportAuto{Name}", "Name", teamName);
 	ui.SysMsg(msgStr);
 end
-
-function REPORT_GUILDEMBLEM_MSGBOX(teamName)
-
-	local msgBoxString = ScpArgMsg("DoYouReportGuildEmblem{Name}?", "Name", teamName);
-	local yesScp = string.format("REPORT_GUILDEMBLEM( \"%s\" )", teamName);
-	
-	ui.MsgBox(msgBoxString, yesScp, "None");	
-end
-
-function REPORT_GUILDEMBLEM(teamName)
-
-	packet.ReportGuildEmblem(teamName);
-	local msgStr = ScpArgMsg("ThxReportGuildEmblem{Name}", "Name", teamName);
-	ui.SysMsg(msgStr);
-end
-
 
 function REQUEST_GM_ORDER_PROTECTED(teamName)
 	packet.RequestGmOrderMsg(teamName, 'protected');
@@ -244,11 +205,7 @@ function PARTY_INVITE(name)
 end
 
 function GUILD_INVITE(name)
-	party.GuildMemberInviteByWeb(name)
-end
-
-function GUILD_INVITE_BY_WEB(name)    
-    party.GuildMemberInviteByWeb(name)
+	party.ReqDirectInvite(PARTY_GUILD, name);
 end
 
 function PROPERTY_COMPARE(handle)

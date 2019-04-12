@@ -15,8 +15,9 @@ function SCR_FLASH_58_GRASS_PRE_DIALOG(pc, dialog)
 end
 
 function SCR_FLASH_58_PETRIFACTION_PRE_DIALOG(pc, dialog)
-    local result = SCR_QUEST_CHECK(pc,'FLASH_58_SQ_050')
-    if result == 'PROGRESS' then
+    local result1 = SCR_QUEST_CHECK(pc,'FLASH_58_SQ_050')
+    local result2 = SCR_QUEST_CHECK(pc,'FLASH29_1_HQ1')
+    if result1 == 'PROGRESS' or result2 == "IMPOSSIBLE" then
         return 'YES'
     end
     return 'NO'

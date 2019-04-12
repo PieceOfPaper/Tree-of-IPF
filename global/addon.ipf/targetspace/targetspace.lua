@@ -29,8 +29,6 @@ function TARGETSPACE_SET(frame, type)
 		return;
 	end
 
-	local isCompanion = COMPANION_SPACE_PRECHECK(handle, targetinfo.companionName) == 1;
-
 	local frame = ui.GetFrame("targetSpace_"..handle);
 	if frame == nil then
 		ui.CreateTargetSpace(handle);
@@ -43,55 +41,35 @@ function TARGETSPACE_SET(frame, type)
 
 		local spaceObj = GET_CHILD(frame, "space", "ui::CAnimPicture");
 		local LbtnObj  = GET_CHILD(frame, 'mouseLbtn', 'ui::CPicture');
-		local RbtnObj = GET_CHILD(frame, 'mouseRbtn', 'ui::CPicture');
 		local joyBbtn  = GET_CHILD(frame, 'joyBbtn', 'ui::CPicture');
 	
 		if type == 1 then
 			spaceObj:ShowWindow(0);
 			LbtnObj:ShowWindow(0);
-			RbtnObj:ShowWindow(0);
 			joyBbtn:ShowWindow(1);
 		elseif type == 2 then
 			spaceObj:PlayAnimation();
 			spaceObj:ShowWindow(1);
 			LbtnObj:ShowWindow(0);
-			RbtnObj:ShowWindow(0);
 			joyBbtn:ShowWindow(0);
+
 		elseif type == 3 then
 			spaceObj:ShowWindow(0);
-			if isCompanion == true then
-				LbtnObj:ShowWindow(0);
-				RbtnObj:ShowWindow(1);
-			else
 			LbtnObj:ShowWindow(1);
-				RbtnObj:ShowWindow(0);
-			end
 			joyBbtn:ShowWindow(0);
 		elseif type == 0 then -- �ڵ����
 			if IsJoyStickMode() == 1 then
 				spaceObj:ShowWindow(0);
 				LbtnObj:ShowWindow(0);
-				RbtnObj:ShowWindow(0);
 				joyBbtn:ShowWindow(1);
 			else
-				local spaceMarkHeightOffset = 0;
-				local actor = world.GetActor(handle);
-				if actor ~= nil then
-					local cls = GetClassByType("Monster", actor:GetType());
-					if cls ~= nil then
-						spaceMarkHeightOffset = TryGet(cls, "SpaceMarkHeightOffset");
-					end
-				end
-				
-				spaceObj:SetMargin(0, 0, 0, spaceMarkHeightOffset);
-
 				spaceObj:PlayAnimation();
 				spaceObj:ShowWindow(1);
 				LbtnObj:ShowWindow(0);
-				RbtnObj:ShowWindow(0);
 				joyBbtn:ShowWindow(0);
 			end
 		end
+		
 	end	
 end
 
@@ -145,14 +123,10 @@ function TARGETSPACE_PRECHECK(handle)
 			return 1;
 		end
 	end
-	
+
 	if dialog == 'None' then
         return 0
     else
-        if session.config.IsMouseMode() == true then
-            return 1
-        end
-        
         local npcselectIES = GetClass('NPCSelectDialog',dialog)
         local ret = 0
         local questNPCFlag = false

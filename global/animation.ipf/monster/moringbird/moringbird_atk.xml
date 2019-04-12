@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_haming_atk2_cast"/>
-    <Sound frame="2.00" soundFile="mon_katyn_bug_skl_cast"/>
-    <Sound frame="10.00" soundFile="mon_katyn_bug_atk2_shot"/>
+	<Particle frame="11" attachNode="Dummy_effect_atk" particleName="I_dash001_yellow3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.25" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<BlendOn frame="8" R="100" G="100" B="100" A="50"/>
+	<BlendOn frame="10" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="12" R="100" G="100" B="100" A="50"/>
+	<BlendOff frame="14" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="mon_haming_atk2_cast"/>
+	<Sound frame="2.00" soundFile="mon_katyn_bug_skl_cast"/>
+	<Sound frame="10.00" soundFile="mon_katyn_bug_atk2_shot"/>
 </ActionDesc>

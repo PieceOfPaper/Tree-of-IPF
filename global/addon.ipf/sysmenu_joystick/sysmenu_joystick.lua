@@ -27,9 +27,7 @@ end
 	pic:SetImage(button:GetImageName());
 
 	if pic:GetName() == 'slot_center' then
-        local script = button:GetEventScript(ui.LBUTTONUP);
-        local byFullString = string.find(script, ')') ~= nil;
-		pic:SetEventScript(ui.LBUTTONUP, script, byFullString);
+		pic:SetEventScript(ui.LBUTTONUP, button:GetEventScript(ui.LBUTTONUP));
 	end
  end
 

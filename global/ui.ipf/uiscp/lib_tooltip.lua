@@ -89,26 +89,18 @@ function GET_STAR_TXT(imgSize, count, obj, isEquiped)
 	    if obj ~= nil and transcend > 0 then
 	        gradeString = gradeString .. string.format("{img star_mark3 %d %d}", imgSize, imgSize);
 		else
-			if obj ~= nil and obj.ToolTipScp == 'LEGEND_BOSSCARD' then
-				gradeString = gradeString .. string.format("{img mon_legendstar %d %d}", imgSize, imgSize);
-			else
-				gradeString = gradeString .. string.format("{img star_mark %d %d}", imgSize, imgSize);
-			end
-		end
+		gradeString = gradeString .. string.format("{img star_mark %d %d}", imgSize, imgSize);
+	end
 	end
 
 	return gradeString;
 end
 
-function GET_STAR_TXT_REDUCED(imgSize, obj, count, removeCount)
+function GET_STAR_TXT_REDUCED(imgSize, count, removeCount)
     local transcend = 0;        
 	local gradeString = "";
 	for i = 1 , count - removeCount do
-		if obj ~= nil and obj.ToolTipScp == 'LEGEND_BOSSCARD' then
-			gradeString = gradeString .. string.format("{img mon_legendstar %d %d}", imgSize, imgSize);
-		else
-			gradeString = gradeString .. string.format("{img star_mark %d %d}", imgSize, imgSize);
-		end
+    	gradeString = gradeString .. string.format("{img star_mark %d %d}", imgSize, imgSize);
 	end	
 	for i = 1 , removeCount do
 	   gradeString = gradeString .. string.format("{img star_mark2 %d %d}", imgSize, imgSize);
@@ -118,17 +110,26 @@ function GET_STAR_TXT_REDUCED(imgSize, obj, count, removeCount)
 end
 
 function GET_ITEM_GRADE_TXT(obj, imgSize, isEquiped)
-	return GET_ITEM_STAR_TXT(obj, imgSize, isEquiped);
+	return GET_ITEM_STAR_TXT(obj, imgSize, isEquiped)
+
+	--[[ 이제 별과 그레이드는 관계 없어졌다. 스펙 확정되면 이 함수 날리고 GET_ITEM_STAR_TXT만 쓰면 됨
+	local grade = obj.ItemGrade;	
+	if grade == nil or grade == 'None' then
+		grade = 1;
+	end
+
+	return GET_STAR_TXT(imgSize, grade);
+	]]
 end
 
 
 function GET_ITEM_STAR_TXT(obj, imgSize, isEquiped)
 	local star = nil
-	if obj.GroupName == "Gem" or obj.GroupName == "Card"  then		
+	if obj.GroupName == "Gem" or  obj.GroupName == "Card"  then
 		local lv = GET_ITEM_LEVEL_EXP(obj);
 		star = lv
 	else
-		return "";
+		star = obj.ItemStar;
 	end
 	return GET_STAR_TXT(imgSize, star, obj, isEquiped);
 end

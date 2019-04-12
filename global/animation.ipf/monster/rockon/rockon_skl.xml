@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="skl_eff_body_atk_34"/>
-    <Sound frame="0.00" soundFile="mon_mushroom_boy_atk1_shot"/>
-    <Sound frame="11.57" soundFile="skl_eff_body_atk_25"/>
-    <Sound frame="11.57" soundFile="skl_eff_body_atk_8"/>
+	<AfterImage frame="8" term="30" blendTime="100" r="50" g="50" b="50" a="255"/>
+	<AfterImage frame="15" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="10" attachNode="Dummy_effect_skl" particleName="I_dash002_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="skl_eff_body_atk_34"/>
+	<Sound frame="0.00" soundFile="mon_mushroom_boy_atk1_shot"/>
+	<Sound frame="11.57" soundFile="skl_eff_body_atk_25"/>
+	<Sound frame="11.57" soundFile="skl_eff_body_atk_8"/>
 </ActionDesc>

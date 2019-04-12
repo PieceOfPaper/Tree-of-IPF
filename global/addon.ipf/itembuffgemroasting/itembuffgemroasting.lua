@@ -4,7 +4,7 @@ function ITEMBUFFGEMROASTING_ON_INIT(addon, frame)
 end
 
 function ITEMBUFFGEMROASTING_UI_COMMON(groupName, sellType, handle)
-    lock_state_check.clear_lock_state()
+
 	local frame = ui.GetFrame("itembuffgemroasting");
 	GEMROASTING_UI_RESET(frame);
 	frame:ShowWindow(1);
@@ -57,7 +57,7 @@ function GEMROASTING_LOG_VIEW(frame)
 	local gboxctrl = frame:GetChild("roasting");
 	gboxctrl:ShowWindow(0);
 	local gboxctrl = frame:GetChild("log");
-	gboxctrl:ShowWindow(1);    
+	gboxctrl:ShowWindow(1);
 end
 
 function GEMROASTING_SLOT_POP(parent, ctrl)
@@ -104,7 +104,7 @@ function GEMROASTING_SLOT_DROP(parent, ctrl)
 	local checkFunc = _G["ITEMBUFF_NEEDITEM_" .. frame:GetUserValue("SKILLNAME")];
 	local name, cnt = checkFunc(pc, obj);
 
-	SET_SLOT_ITEM_IMAGE(slot, invItem);
+	SET_SLOT_ITEM_IMANGE(slot, invItem);
 	slot:SetUserValue("GEM_IESID", iconInfo:GetIESID());
 	local roastingbox = frame:GetChild("roasting");
 	local slotNametext = roastingbox:GetChild("slotName");
@@ -199,6 +199,7 @@ function GEMROASTING_SLOT_DROP(parent, ctrl)
 end
 
 function GEMROASTING_UI_RESET(frame)
+
 	frame = frame:GetTopParentFrame();
 	local roastingbox = frame:GetChild("roasting");
 	local effectBox = GET_CHILD(roastingbox, "effectGbox",'ui::CGroupBox')
@@ -245,21 +246,18 @@ end
 
 function GEMROASTING_SUCCEED()
 	local frame = ui.GetFrame("itembuffgemroasting");
-    local targetbox = frame:GetChild("roasting")
-    local slot = GET_CHILD(targetbox, "slot", "ui::CSlot")
-    local itemIESID = slot:GetUserValue("GEM_IESID")
-    lock_state_check.enable_lock_state(itemIESID)
-
 	GEMROASTING_UI_RESET(frame);
-	GEMROASTING_UPDATE_MATERIAL(frame);    
+	GEMROASTING_UPDATE_MATERIAL(frame);
 end
 
 function GEMROASTING_TARGET_UI_CENCEL()
-	ui.CloseFrame("itembuffgemroasting");    
+	ui.CloseFrame("itembuffgemroasting");
 end
 
-function GEMROASTING_EXCUTE(parent)	
+function GEMROASTING_EXCUTE(parent)
+	
 	session.ResetItemList();
+
 	local frame = parent:GetTopParentFrame();
 	local targetbox = frame:GetChild("roasting");
 	local slot = GET_CHILD(targetbox, "slot", "ui::CSlot");
@@ -269,34 +267,22 @@ function GEMROASTING_EXCUTE(parent)
 		return;
 	end
 
-    local target_item = session.GetInvItemByGuid(itemIESID)
-    if target_item == nil then
-        ui.SysMsg(ClMsg("CantFindMaterialItem"))
-        return
-    else
-        if target_item.isLockState == true then
-            ui.SysMsg(ClMsg("MaterialItemIsLock"))
-            return
-        end
-    end
-
 	session.AddItemID(itemIESID);
 	local handle = frame:GetUserValue("HANDLE");
 	local skillName = frame:GetUserValue("SKILLNAME");
 
-    lock_state_check.disable_lock_state(itemIESID)
 	session.autoSeller.BuyItems(handle, AUTO_SELL_GEM_ROASTING, session.GetItemIDList(), skillName);
 end
 
-function GEMROASTING_CENCEL_CHECK(frame)    
+function GEMROASTING_CENCEL_CHECK(frame)
 	frame = frame:GetTopParentFrame();
 	local handle = frame:GetUserIValue("HANDLE");
+	if handle == session.GetMyHandle() then
+		GEMROASTING_CENCEL();
+		return;
+	end
 
-    local targetbox = frame:GetChild("roasting")
-    local slot = GET_CHILD(targetbox, "slot", "ui::CSlot")
-    local itemIESID = slot:GetUserValue("GEM_IESID")
-    lock_state_check.enable_lock_state(itemIESID)    
-	session.autoSeller.BuyerClose(AUTO_SELL_GEM_ROASTING, handle)
+	session.autoSeller.BuyerClose(AUTO_SELL_GEM_ROASTING, handle);
 end
 
 function GEMROASTING_UPDATE_HISTORY(frame)
@@ -309,11 +295,11 @@ function GEMROASTING_UPDATE_HISTORY(frame)
 
 	for i = cnt -1 , 0, -1 do
 		local info = session.autoSeller.GetHistoryByIndex(groupName, i);
-		local ctrlSet = log_gbox:CreateControlSet("alchemist_roasting_history", "CTRLSET_" .. i,  ui.LEFT, ui.TOP, 20, 0, 0, 0);
+		local ctrlSet = log_gbox:CreateControlSet("alchemist_roasting_history", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 		local sList = StringSplit(info:GetHistoryStr(), "#");
 
 		local txt = ctrlSet:GetChild("txt");
-		txt:SetTextByKey("text", sList[1]);		
+		txt:SetTextByKey("text", sList[1]);
 		local itemClsID = sList[2];
 		local itemCls = GetClassByType("Item", itemClsID);
 

@@ -265,8 +265,6 @@ function GET_COLLECT_ABLE_ITEM_COUNT(coll, type)
 end
 
 function SET_COLLECTION_SET(frame, ctrlSet, type, coll, posY)
-	local oldPosY = posY;
-
 	-- 컨트롤을 입력하고 y값을 리턴함.
 	ctrlSet:SetUserValue("COLLECTION_TYPE", type);
 	local cls = GetClassByType("Collection", type);
@@ -392,6 +390,8 @@ function SET_COLLECTION_SET(frame, ctrlSet, type, coll, posY)
 		txtmagic:SetTextByKey("value", desc);
 	end
 
+	
+
 	-- 텍스트의 높이를 가져온다
 	local txtHeight = txtmagic:GetHeight();
 	
@@ -408,27 +408,16 @@ function SET_COLLECTION_SET(frame, ctrlSet, type, coll, posY)
 	curPosY = DETAIL_UPDATE(frame, coll, gbox_items ,type, curPosY ,isUnknown);
 
 	--마지막으로 컨트롤셋과 gbox_collection의 크기조절
-	local gbox_collection = GET_CHILD(ctrlSet,"gb_collection","ui::CGroupBox");	
-	gbox_collection:Resize(gbox_collection:GetWidth(), ctrlSet:GetOriginalHeight()); -- 이위치에서 리사이즈해야한다. 디테일뷰가 켜지면 그안에 +버튼을 눌러야하니까 히트는 나머지영역만으로 제한
+	local gbox_collection = GET_CHILD(ctrlSet,"gb_collection","ui::CGroupBox");
+	gbox_collection:Resize(gbox_collection:GetWidth(), curPosY); -- 이위치에서 리사이즈해야한다. 디테일뷰가 켜지면 그안에 +버튼을 눌러야하니까 히트는 나머지영역만으로 제한
 
 	curPosY = curPosY + gbox_items:GetHeight() + tonumber(frame:GetUserConfig("SLOT_BOTTOM_MARGIN"));
 	gbox_complete:Resize(ctrlSet:GetWidth(), curPosY);
-
-	-- ctrlset 크기 조절
-	local newposY = posY + ctrlSet:GetHeight() + 10;
-	local ctrlsetHeight = math.max(newposY - oldPosY, gbox_magic:GetY() + txtmagic:GetHeight() + 15);	
-	newposY = posY + ctrlsetHeight;
-	ctrlSet:Resize(ctrlSet:GetWidth(), ctrlsetHeight);
-
-	-- 선택된 경우 하단부 커져야 해	
-	if frame:GetUserIValue('DETAIL_VIEW_TYPE') == type then		
-		ctrlsetHeight = ctrlsetHeight + gbox_items:GetHeight();
-		ctrlSet:Resize(ctrlSet:GetWidth(), ctrlsetHeight);
-		newposY = newposY + gbox_items:GetHeight(); --hs_comment:
-	end
+	ctrlSet:Resize(ctrlSet:GetWidth(), curPosY);
 	
+
 	-- 리턴할 때는 y위치를 갱신해서.
-	return newposY;
+	return posY + ctrlSet:GetHeight();
 end
 
 function UPDATE_COLLECTION_LIST(frame, addType, removeType)
@@ -472,6 +461,7 @@ function UPDATE_COLLECTION_LIST(frame, addType, removeType)
 	collectionViewCount.showUnknownCollections = 0 ;
 	collectionViewCount.showIncompleteCollections = 0;
 
+
 	-- 콜렉션 정보를 만듬
 	local pc = session.GetMySession();
 	local collectionList = pc:GetCollection();
@@ -490,12 +480,10 @@ function UPDATE_COLLECTION_LIST(frame, addType, removeType)
 		local collectionInfo = GET_COLLECTION_INFO(collectionClass, collection,etcObject, collectionCompleteMagicList);
 		if CHECK_COLLECTION_INFO_FILTER(collectionInfo, searchText, collectionClass, collection) == true then
 		    -- data input
-		    if collectionClass.Journal == 'TRUE' then
-    			collectionInfoList[collectionInfoIndex] = {cls = collectionClass, 
-    													   coll = collection, 
-    													   info = collectionInfo };
-    			collectionInfoIndex = collectionInfoIndex +1;
-    		end
+			collectionInfoList[collectionInfoIndex] = {cls = collectionClass, 
+													   coll = collection, 
+													   info = collectionInfo };
+			collectionInfoIndex = collectionInfoIndex +1;
 		end
 	end
 	
@@ -570,11 +558,9 @@ function CHECK_COLLECTION_INFO_FILTER(collectionInfo,  searchText,  collectionCl
 
 	-- 콜렉션 이름을 가져온다
 	local collectionName = collectionInfo.name;
-	collectionName = dic.getTranslatedStr(collectionName)
 	collectionName = string.lower(collectionName); -- 소문자로 변경
 	-- 콜렉션 효과에서도 필터링한다.
 	local desc = GET_COLLECTION_MAGIC_DESC(collectionClass.ClassID);
-	desc = dic.getTranslatedStr(desc)
 	desc = string.lower(desc); -- 소문자로 변경
 
 	-- 검색문자열 검색해서 nil이면 false
@@ -586,11 +572,6 @@ function CHECK_COLLECTION_INFO_FILTER(collectionInfo,  searchText,  collectionCl
 end
 
 function OPEN_DECK_DETAIL(parent, ctrl)
-	local topFrame = parent:GetTopParentFrame();
-	if topFrame:GetName() == 'adventure_book' then
-		ADVENTURE_BOOK_COLLECTION_DETAIL(parent, ctrl);
-		return;
-	end
 
 	imcSound.PlaySoundEvent('cllection_inven_open');
 	local type = parent:GetUserValue("COLLECTION_TYPE");
@@ -699,22 +680,6 @@ function GET_COLLECTION_MAGIC_DESC(type)
 		end
 	end
 	end
-	local cls = GetClassByType('Collection', type)
-	local itemList = TryGetProp(cls, 'AccGiveItemList', 'None')
-	if itemList ~= 'None' then
-	    local itemList = SCR_STRING_CUT(itemList)
-	    local aObj = GetMyAccountObj()
-	    if aObj[itemList[1]] < itemList[2] then
-	        local count = itemList[2] - aObj[itemList[1]]
-    	    if #itemList >= 4 then
-    			ret = ret .. "{nl}"..ScpArgMsg('COLLECTION_REWARD_ITEM_MSG1','COUNT',count)..'{nl}'
-    	        for i = 2, #itemList/2 do
-    	            local item = GetClassString('Item',itemList[i*2 - 1],'Name')
-    	            ret = ret..ScpArgMsg('COLLECTION_REWARD_ITEM_MSG2','ITEM',item,'COUNT',itemList[i*2])
-    	        end
-    	    end
-    	end
-	end
 	return ret;
 end
 
@@ -734,6 +699,7 @@ function DETAIL_UPDATE(frame, coll, detailView ,type, posY ,playEffect, isUnknow
 		-- 디테일 뷰에 그려질 라인을 구한다.
 		local lineCnt = math.ceil(maxCount / 7); -- 첫째자리에서 올림한다.
 		-- 뷰의 크기를 결정한다
+		detailView:SetOffset(detailView:GetX(),posY);
 		detailView:Resize(detailView:GetWidth(),math.floor(detailView:GetHeight() * lineCnt));
 		detailView:ShowWindow(1);
 
@@ -780,6 +746,7 @@ function DETAIL_UPDATE(frame, coll, detailView ,type, posY ,playEffect, isUnknow
 		end -- loop i
 	else
 		-- deactive면 슬롯칸을 없앤다.
+		detailView:SetOffset(detailView:GetX(),posY);
 		detailView:Resize(detailView:GetWidth(),0);
 		detailView:ShowWindow(0);
 	end

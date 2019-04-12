@@ -666,6 +666,21 @@ function SSN_CLIENT_UPDATE_QUEST_POSSIBLE(sObj, list, questPossible)
                    	control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 2);
             end
 
+            -- Possible Add NPC Unhide Check
+			if GetPropType(questIES, 'PossibleUnHideNPC') ~= nil and questIES.PossibleUnHideNPC ~= 'None' then
+			    local npcList = SCR_STRING_CUT(questIES.PossibleUnHideNPC)
+			    local flag = 0
+			    for index = 1, #npcList do
+			        if IsHideNPC_C(self, npcList[index]) == 'YES' then
+			            flag = 1
+			            break
+			        end
+			    end
+			    if flag == 1 then
+    	            control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 7);
+			    end
+            end
+
 			-- QUEST MAP INFO CHECK
 			if questIES.QuestMode == 'MAIN' then
                 if questIES.StartMap ~= 'None' then
@@ -752,6 +767,38 @@ function SSN_CLIENT_UPDATE_QUEST_SUCCESS(sObj, list)
 				control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 4);
 			end
 
+			
+            -- Success Add NPC Unhide Check
+        	if GetPropType(questIES, 'SuccessUnHideNPC') ~= nil and questIES.SuccessUnHideNPC ~= 'None' then
+        	    local npcList = SCR_STRING_CUT(questIES.SuccessUnHideNPC)
+        	    local flag = 0
+        	    for index = 1, #npcList do
+        	        if IsHideNPC_C(self, npcList[index]) == 'YES' then
+        	            flag = 1
+        	            break
+        	        end
+        	    end
+        	    if flag == 1 then
+                    control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 9);
+        	    end
+            end
+            
+            if GetLayer(self) > 0 and questIES.QuestEndMode ~= 'SYSTEM' then
+                local zoneLayerObj = GetClientZoneObject()
+                if zoneLayerObj ~= nil and zoneLayerObj.EventName == questIES.ClassName then
+                    local questIES_auto = GetClass('QuestProgressCheck_Auto', questIES.ClassName)
+                    if questIES_auto.Track1 ~= 'None' and questIES_auto.Track_Auto_Complete ~= 'NO' then
+                        local nowSec = math.floor(os.clock())
+                        if sObj.TRACK_AUTO_COMPLETE_LAST_QUEST == questIES.ClassName and sObj.TRACK_AUTO_COMPLETE_LAST_TIME + 15 > nowSec then
+                        else
+                            sObj.TRACK_AUTO_COMPLETE_LAST_QUEST = questIES.ClassName
+                            sObj.TRACK_AUTO_COMPLETE_LAST_TIME = nowSec
+            				control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 10);
+            			end
+                    end
+                end
+            end
+
 		end
 	end
 end
@@ -766,7 +813,7 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 	
 	s_nextTime = now + 2;
 
-	--QA Test ¿ëµµ
+	--QA Test ï¿½ëµµ
 	if imcperfOnOff.IsEnableOptQuestLoop() == 0 then
 		PREV_SSN_CLIENT_UPDATE_FOR_QA(pc);
 		return;
@@ -824,8 +871,10 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 		end
 	end
 	
-	-- Session Object°¡ ÀÖ´Â °æ¿ì Progress »óÅÂÀÎ Äù½ºÆ®´Â ÀçºÐ·ùÇÑ´Ù. 
+	-- Session Objectï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ Progress ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Ð·ï¿½ï¿½Ñ´ï¿½. 
+	local progressQuestListArrange = {}
 	for i = 1, #progressQuestList do
+	    local flag = 0
 		local questIES = progressQuestList[i];
 		local prop = TryGetProp(sObj, questIES.QuestPropertyName);
 		if nil ~= prop and TryGetProp(questIES,'Quest_SSN') ~= nil and questIES.Quest_SSN ~= 'None' then
@@ -834,10 +883,33 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 				local state = SCR_QUEST_CHECK_C(pc, questIES.ClassName);
 				if state == "SUCEESS" then
 					successQuestList[#successQuestList + 1] = progressQuestList[i];
+					flag = 1
 				elseif state == "POSSIBLE" then
 					possibleQuestList[#possibleQuestList + 1] = progressQuestList[i];
+					flag = 2
 				end
 			end
+		end
+		if flag == 0 then
+		    progressQuestListArrange[#progressQuestListArrange + 1] = progressQuestList[i]
+				end
+			end
+	
+    -- Progress Add NPC Unhide Check
+	for i = 1, #progressQuestListArrange do
+		local questIES = progressQuestListArrange[i];
+    	if GetPropType(questIES, 'ProgressUnHideNPC') ~= nil and questIES.ProgressUnHideNPC ~= 'None' then
+    	    local npcList = SCR_STRING_CUT(questIES.ProgressUnHideNPC)
+    	    local flag = 0
+    	    for index = 1, #npcList do
+    	        if IsHideNPC_C(pc, npcList[index]) == 'YES' then
+    	            flag = 1
+    	            break
+    	        end
+    	    end
+    	    if flag == 1 then
+                control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 8);
+    	    end
 		end
 	end
 
@@ -861,7 +933,7 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 
 end
 
--- QA TEST ¿ëµµ
+-- QA TEST ï¿½ëµµ
 function PREV_SSN_CLIENT_UPDATE_FOR_QA(pc)
     local questPossible = {}
 	

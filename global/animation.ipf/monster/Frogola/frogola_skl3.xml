@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_light102_violet_crazy" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Sound frame="0.00" soundFile="mon_spector_born"/>
-    <Sound frame="5.00" soundFile="skl_wiz_manasphere_spell_1"/>
-    <Sound frame="5.77" soundFile="skl_eff_poison_3"/>
-    <Particle frame="10" attachNode="Dummy_bufficon" particleName="F_levitation041_music2" useAttach="true" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="20" attachNode="Dummy_emitter" particleName="F_light102_violet_crazy" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="30" attachNode="Dummy_bufficon" particleName="F_levitation041_music2" useAttach="true" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="40" attachNode="Dummy_emitter" particleName="F_light102_violet_crazy" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="50" attachNode="Bip001 HeadNub" particleName="F_levitation041_music2" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="60" attachNode="Dummy_emitter" particleName="F_light102_violet_crazy" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="70" attachNode="Dummy_bufficon" particleName="F_levitation041_music2" useAttach="true" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Sound frame="73.00" soundFile="skl_eff_dock"/>
-    <Sound frame="73.00" soundFile="mon_hori_warrior_born"/>
-    <Sound frame="73.00" soundFile="skl_eff_skyline_spread"/>
-    <Shockwave frame="80" type="2" intensity="5" frequency="60" duration="2" range="1000"/>
-    <Particle frame="80" attachNode="Dummy_emitter" particleName="F_light102_violet_crazy" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="90" attachNode="Bip001 HeadNub" particleName="F_levitation041_music2" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="120" attachNode="Dummy_effect_lip" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-    <Particle frame="130" attachNode="Dummy_effect_lip" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_light102_violet_crazy" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_spector_born_1"/>
+	<Sound frame="5.00" soundFile="skl_wiz_manasphere_spell_1"/>
+	<Sound frame="5.77" soundFile="skl_eff_poison_3"/>
+	<Particle frame="10" attachNode="Dummy_bufficon" particleName="F_levitation041_music2" useAttach="true" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="20" attachNode="Dummy_emitter" particleName="F_light102_violet_crazy" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="30" attachNode="Dummy_bufficon" particleName="F_levitation041_music2" useAttach="true" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Dummy_emitter" particleName="F_light102_violet_crazy" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="50" attachNode="Bip001 HeadNub" particleName="F_levitation041_music2" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Dummy_emitter" particleName="F_light102_violet_crazy" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="70" attachNode="Dummy_bufficon" particleName="F_levitation041_music2" useAttach="true" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Sound frame="73.00" soundFile="skl_eff_dock"/>
+	<Sound frame="73.00" soundFile="mon_hori_warrior_born"/>
+	<Sound frame="73.00" soundFile="skl_eff_skyline_spread"/>
+	<Shockwave frame="80" type="2" intensity="5" frequency="60" duration="2" range="1000"/>
+	<Particle frame="80" attachNode="Dummy_emitter" particleName="F_light102_violet_crazy" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="Bip001 HeadNub" particleName="F_levitation041_music2" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="120" attachNode="Dummy_effect_lip" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="130" attachNode="Dummy_effect_lip" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
 </ActionDesc>

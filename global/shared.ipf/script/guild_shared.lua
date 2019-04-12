@@ -189,6 +189,12 @@ function GET_GUILD_EXPUP_ITEM_INFO()
 
 end
 
+function GET_GUILD_EXPUP_ITEM_INFO2()
+
+	return "misc_talt_event", 20;
+
+end
+
 function GET_GUILD_LEVEL_BY_EXP(exp)
 	local lv = 1;
 	local clsList, cnt = GetClassList("GuildExp");
@@ -214,7 +220,12 @@ end
 
 function GET_GUILD_MAKE_PRICE()
 
-	return 500000;
+	local isSeasonServer = IS_SEASON_SERVER(nil);
+	if isSeasonServer == "YES" then
+		return 1000000 - (1000000 * 0.9)
+	end
+
+	return 1000000;
 
 end
 

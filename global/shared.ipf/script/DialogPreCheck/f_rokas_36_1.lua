@@ -18,3 +18,7 @@ function SCR_ROKAS_36_1_SQ_040_STONE_PRE_DIALOG(pc, dialog)
     end
     return 'NO'
 end
+
+function SCR_REMAINS38_HIDDEN_RUNE_PRE_DIALOG(pc, dialog)
+        return 'YES'
+end

@@ -1,11 +1,12 @@
-QUEST_TITLE_FONT = "{@st41b}";
+﻿QUEST_TITLE_FONT = "{@st41b}";
 QUEST_GROUP_TITLE_FONT = "{@st42b}";
 QUEST_NORMAL_FONT = "{@st42b}";
 ABANDON_TEXT = ScpArgMsg("Auto_{@st45tw}PoKiHaKi");
 GUILD_QUEST_FONT = "{@st42b}";
 ABANDON_BTN_SKIN_NAME = "button_abandon";
 SUCCESS_QUEST_INFO = {};
-IES_CTRL_OFFSET = 20;
+IES_CTRL_OFFSET = 25;
+SCROLL_WIDTH = 20;
 
 function QUESTINFOSET_2_ON_INIT(addon, frame)
 
@@ -201,9 +202,6 @@ function QUESTINFOSET_2_REMOVE_QUEST(frame, questID)
 end
 
 function UPDATE_QUESTINFOSET_2(frame, msg, check, updateQuestID)
-
-
-
 --	local warpFrame = ui.GetFrame('questwarp');
 --	for i=0, QUESTWARP_MAX_BTN-1 do
 --		warpFrame:SetUserValue("QUEST_WARP_CLASSNAME_"..i, "None");
@@ -230,10 +228,8 @@ function UPDATE_QUESTINFOSET_2(frame, msg, check, updateQuestID)
 	end
 	
 	local GroupCtrl = GET_CHILD(frame, "member", "ui::CGroupBox");
-	GroupCtrl:Resize(frame:GetWidth() - 20 , 100);
 	GroupCtrl:DeleteAllControl();
 
-	
 	for i = 0 , cnt - 1 do
 		local questID = quest.GetCheckQuest(i);
 		local questcls = GetClassByType("QuestProgressCheck", questID);
@@ -264,7 +260,7 @@ function CHEAK_QUEST_MONSTER(questIES)
 		end
 		
 		if questIES.Succ_Check_MonKill > 0 then
-    		if quest_sObj['KillMonster'..i] < questIES["Succ_MonKillCount" .. i] then
+    		if quest_sObj ~= nil and quest_sObj['KillMonster'..i] < questIES["Succ_MonKillCount" .. i] then
         		ADD_QUEST_CHECK_MONSTER(questIES.ClassID, monname);
         	else
         	    local cutStr = SCR_STRING_CUT(monname);
@@ -331,6 +327,27 @@ function CHEAK_QUEST_MONSTER(questIES)
     	        end
     	    end
     	end
+	end
+	
+	
+	for i = 1 , QUEST_MAX_MON_CHECK do
+		local monname = questIES["Succ_Journal_MonKillName" .. i];
+		if monname == "None" then
+			break;
+		end
+		
+		if GetPropType(questIES, 'Succ_Journal_MonKillName'..i) ~= nil and questIES["Succ_Journal_MonKillName" .. i] ~= 'None' then
+		    local wiki = GetWikiByName(questIES['Succ_Journal_MonKillName'..i])
+		    local killCount
+            if wiki ~= nil then
+                killCount = GetWikiIntProp(wiki, "KillCount");
+            end
+            if killCount ~= nil and killCount < questIES["Succ_Journal_MonKillCount" .. i] then
+                ADD_QUEST_CHECK_MONSTER(questIES.ClassID, monname);
+            else
+                quest.RemoveCheckQuestMonsterList(questIES.ClassID, monname)
+            end
+        end
 	end
 
 	CHECK_QUEST_MONSTER_GROUP(questIES);
@@ -604,6 +621,8 @@ function GET_QUESTINFOSET_ICON_BY_STATE_MODE(state, questIES)
         modeicon = 'PERIOD'
     elseif tail == '_party' then
         modeicon = 'PARTY'
+    elseif tail == '_key' then
+        modeicon = 'KEYQUEST'
     end
     
 	if state == 'SUCCESS' then
@@ -636,13 +655,22 @@ function SCR_ISFIRSTJOBCHANGEQUEST(questIES)
     return ret
 end
 
-function MAKE_QUEST_INFO(GroupCtrl, questIES, msg)
-    
+function MAKE_QUEST_INFO(GroupCtrl, questIES, msg, progVal) -- progVal이 nil이면 내 pc의 퀘스트임
 	local ctrlname = "_Q_" .. questIES.ClassID;
 	local pc = SCR_QUESTINFO_GET_PC();
 	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
 
-	
+	-- 공유중인 퀘스트가 성공한 시점에는 퀘스트 세션 정보를 파티에 보내주자
+	local myPartyInfo = GET_MY_PARTY_INFO_C()
+	local sharedQuestID = TryGetProp(myPartyInfo, 'Shared_Quest')
+	if sharedQuestID == questIES.ClassID and progVal == nil and result ~= TryGetProp(myPartyInfo, 'Shared_Progress') then		
+		party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Progress", quest.GetQuestStateValue(result))
+	end
+
+	if progVal ~= nil then
+		result = quest.GetQuestStateString(tonumber(progVal))
+	end
+
 	if result == "COMPLETE" or result == "IMPOSSIBLE" then
 		GroupCtrl:RemoveChild(ctrlname);
 		return nil;
@@ -695,7 +723,8 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg)
 
 	local y = 7;
 
-    local content = ctrlset:CreateOrGetControl('richtext', 'groupQuest_title', titleX + 50, y, titleWidth, 10);
+	local startx = titleX + 50;
+    local content = ctrlset:CreateOrGetControl('richtext', 'groupQuest_title', startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
     local questName
     if questIES.QuestMode == 'REPEAT' then
         local sObj = GetSessionObject(pc, 'ssn_klapeda')
@@ -729,7 +758,7 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg)
     	end
 		
 		
-		y = MAKE_QUESTINFO_MAP(ctrlset, questIES, titleX + 60, y, s_obj)
+		y = MAKE_QUESTINFO_MAP(ctrlset, questIES, titleX + 60, y, s_obj, result)
 		
 		y = MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, titleX + 60, y)
 		
@@ -760,17 +789,21 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg)
 		]]
 		txt = desc;
 		
-    	local content = ctrlset:CreateOrGetControl('richtext', 'PROGDESC', titleX + 60, y, titleWidth - 25, 10);
+		local startx = titleX + 60;
+    	local content = ctrlset:CreateOrGetControl('richtext', 'PROGDESC', startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
     	content:SetTextFixWidth(1);
     	content:SetText('{s16}{ol}{#ffcc33}'..txt);
 		content:EnableHitTest(0);
     	y = y + content:GetHeight();
 
         if SCR_QUESTINFOSETVIEW_CHECK(questIES.QuestInfosetView, 'SUCCESS') == 'YES' then
-            y = MAKE_QUESTINFO_SUCCESS_STORY(ctrlset, questIES, titleX+60, y, s_obj);
+            y = MAKE_QUESTINFO_SUCCESS_STORY(ctrlset, questIES, titleX+60, y, s_obj, result);
         end
 
-		quest.RemoveAllQuestCheckItem(questIES.ClassID);
+		-- 파티원이 공유 설정한 퀘스트 완료한 경우에는 지우지 않게 수정
+		if progVal == nil then
+			quest.RemoveAllQuestCheckItem(questIES.ClassID);
+		end
 
 		local height = math.max(64, y + 10);
 		ctrlset:Resize(GroupCtrl:GetWidth(), height);
@@ -791,17 +824,16 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg)
 	return ctrlset;
 end
 
-function MAKE_QUEST_INFO_C(gBox, questIES, msg)
-    gBox:Resize(gBox:GetOriginalWidth() + 160, gBox:GetOriginalHeight());
+function MAKE_QUEST_INFO_C(gBox, questIES, msg, progVal)
+	gBox:Resize(gBox:GetParent():GetWidth() - gBox:GetX(), gBox:GetOriginalHeight());
 	if questIES.QuestGroup == "None" then
-		return MAKE_QUEST_INFO(gBox, questIES, msg);
+		return MAKE_QUEST_INFO(gBox, questIES, msg, progVal);
 	else
-		return MAKE_QUEST_GROUP_INFO(gBox, questIES, msg);
+		return MAKE_QUEST_GROUP_INFO(gBox, questIES, msg, progVal);
 	end
 end
 
-function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg)
-
+function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg, progVal)
 	local translated_QuestGroup = dictionary.ReplaceDicIDInCompStr(questIES.QuestGroup); 
 
 	local strFindStart, strFindEnd = string.find(translated_QuestGroup, "/");
@@ -815,6 +847,17 @@ function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg)
 
 	local pc = SCR_QUESTINFO_GET_PC();
 	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
+
+	-- 공유중인 퀘스트 프로그레스 바뀌면 파티원에게도 업데이트 해줌
+	local myPartyInfo = GET_MY_PARTY_INFO_C()
+	local sharedQuestID = TryGetProp(myPartyInfo, 'Shared_Quest')
+	if sharedQuestID == questIES.ClassID and progVal == nil and result ~= TryGetProp(myPartyInfo, 'Shared_Progress') then		
+		party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Progress", quest.GetQuestStateValue(result))
+	end
+	
+	if progVal ~= nil then
+		result = quest.GetQuestStateString(tonumber(progVal))
+	end
 
 	if result == "COMPLETE" or result == "IMPOSSIBLE" then
 		return nil;
@@ -837,7 +880,7 @@ function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg)
 	tolua.cast(ctrlset, 'ui::CControlSet');
 	ctrlset:SetValue2(questIES.ClassID);
 	ctrlset:SetSValue(result);
-	ctrlset:Resize(gBox:GetWidth() - 70, ctrlset:GetHeight());
+	ctrlset:Resize(gBox:GetWidth() - gBox:GetX(), ctrlset:GetHeight());
 
 	local titleWidth = ctrlset:GetWidth() - 10;
 	local titleX = 0;
@@ -851,7 +894,8 @@ function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg)
 	picture:SetEnableStretch(1);
 
 	local y = 7;
-	local content = ctrlset:CreateOrGetControl('richtext', 'groupQuest_title', titleX + 50, y, titleWidth, 10);
+	local startx = titleX + 50;
+	local content = ctrlset:CreateOrGetControl('richtext', 'groupQuest_title', startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
 	content:SetTextFixWidth(0);
 
     if questIES.QuestMode == 'REPEAT' then
@@ -879,65 +923,24 @@ function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg)
 
 	content:EnableHitTest(0);
 	y = y + content:GetHeight();
-
-
-	--[[
-
-
-
-
-
+	
+	--[[ 2013년에 주석처리된 부분인데 혹시 몰라서 일단 안지움
 	local btnsize = 24;
 	local cbtn = ctrlset:CreateOrGetControl('button', "cancelbtn", picture:GetX() + 10, picture:GetHeight() + 25, btnsize, btnsize);
 	tolua.cast(cbtn, "ui::CButton");
 	cbtn:SetEventScript(ui.LBUTTONUP, "ABANDON_QUEST");
 	cbtn:SetEventScriptArgNumber(ui.LBUTTONUP, questIES.ClassID);
 	cbtn:SetImage(ABANDON_BTN_SKIN_NAME);
-	]]
+	]]--
 
     local s_obj = SCR_QUEST_GET_SOBJ(pc, questIES.Quest_SSN);
-  	
-	
---	local beforeQuestCls = nil;
---
---	local line_count = 0
---	local line_maxcount = 1
---
---	local beforeQuestCls_2 = nil
---	for i= 1, questGroupIndex-1 do
---		local groupQuestId 	 = geQuestTable.GetQuestIDByGroupIndex(questGroupName, i);
---		local groupQuestCls  = GetClassByType("QuestProgressCheck", groupQuestId);
---		local questDesc = {groupQuestCls.StartDesc, groupQuestCls.ProgDesc, groupQuestCls.EndDesc};
---    	local questCtrlName = {"StartDesc", "ProgDesc", "EndDesc"};
---
---    	for i=1, #questDesc do
---    	    if questDesc[i] ~= 'None' then
---        		if questDesc[i] ~= questDesc[i-1] then
---        			if i == 1 and beforeQuestCls_2 ~= nil and beforeQuestCls_2.EndDesc == questDesc.StartDesc then
---        			else
---        			    line_count = line_count + 1
---        			end
---        		end
---        	end
---    	end
---		beforeQuestCls_2 = groupQuestCls;
---	end
 
---	for i= 1, questGroupIndex-1 do
---		local groupQuestId 	 = geQuestTable.GetQuestIDByGroupIndex(questGroupName, i);
---		local groupQuestCls  = GetClassByType("QuestProgressCheck", groupQuestId);
---		
---		y, line_count = MAKE_COMPLETE_QUEST_GROUP_CTRL_CHILD(ctrlset, groupQuestCls, beforeQuestCls, titleX+60, y, titleWidth, 10, line_count, line_maxcount);
---		beforeQuestCls = groupQuestCls;
---	end
-
-		    local pc = SCR_QUESTINFO_GET_PC();
-
+	local pc = SCR_QUESTINFO_GET_PC();
 	MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result);
 
 	if result == 'SUCCESS' then
 
-  		y = MAKE_QUESTINFO_MAP(ctrlset, questIES, titleX + 60, y, s_obj);
+  		y = MAKE_QUESTINFO_MAP(ctrlset, questIES, titleX + 60, y, s_obj, result);
   		
   		y = MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, titleX + 60, y)
   		
@@ -958,9 +961,7 @@ function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg)
 			end
 		end
 
-		local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
 		local State = CONVERT_STATE(result);
-
 		local questDesc = {questIES.StartDesc, questIES.ProgDesc, questIES.EndDesc};
 		local questCtrlName = {"StartDesc", "ProgDesc", "EndDesc"};
 	    local questState = State.."Desc";
@@ -981,8 +982,9 @@ function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg)
 
 			if isQuestView == true then
 				local desc = questIES[questCtrlName[i]];
-				if desc ~= 'None' and g_isPartyMembetQuest == nil then
-					local content = ctrlset:CreateOrGetControl('richtext', questCtrlName[i], titleX+60, y, ctrlset:GetWidth() - 25 , 10);
+				if desc ~= 'None' then --and g_isPartyMembetQuest == nil then -- 파티멤버퀘스트도 desc 보여주게 함. 왜 안보여주게 했을까? 기획의도인가?
+					local startx = titleX + 60;
+					local content = ctrlset:CreateOrGetControl('richtext', questCtrlName[i], startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
 					tolua.cast(content, "ui::CRichText");
     				if questState == questCtrlName[i] then
     					content:EnableHitTest(0);
@@ -999,10 +1001,14 @@ function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg)
     			end
 			end
 		end
-		
-		quest.RemoveAllQuestCheckItem(questIES.ClassID);
+
+		-- 파티원이 공유 설정한 퀘스트 완료시에는 지우지 않도록 수정
+		if progVal == nil then
+			quest.RemoveAllQuestCheckItem(questIES.ClassID);
+		end
+
 		if SCR_QUESTINFOSETVIEW_CHECK(questIES.QuestInfosetView, 'SUCCESS') == 'YES' then
-            y = MAKE_QUESTINFO_SUCCESS_STORY(ctrlset, questIES, titleX+60, y, s_obj);
+            y = MAKE_QUESTINFO_SUCCESS_STORY(ctrlset, questIES, titleX+60, y, s_obj, result);
         end
 		local height = math.max(64, y + 10);
 		ctrlset:Resize(gBox:GetWidth(), height);
@@ -1187,17 +1193,18 @@ function MAKE_QUESTINFO_BY_IES(ctrlset, questIES, startx, y, s_obj, result, isQu
         end
     end
     
-    y = MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj);
+    y = MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj, result);
     
     y = MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y)
     
     if result ~= 'POSSIBLE' and result ~= 'IMPOSSIBLE' and flag == 'YES' then
     	local starty = y;
-    	y = MAKE_QUESTINFO_BASIC_BY_IES(ctrlset, questIES, startx, y);
+    	y = MAKE_QUESTINFO_BASIC_BY_IES(ctrlset, questIES, startx, y, result);
     	y = MAKE_QUESTINFO_BUFF_BY_IES(ctrlset, questIES, startx, y);
     	y = MAKE_QUESTINFO_EQUIP_BY_IES(ctrlset, questIES, startx, y);
     	y = MAKE_QUESTINFO_ITEM_BY_IES(ctrlset, questIES, startx, s_obj, y);
     	y = MAKE_QUESTINFO_MONSTER_BY_IES(ctrlset, questIES, startx, y, s_obj);
+    	y = MAKE_QUESTINFO_JOURNALMONSTER_BY_IES(ctrlset, questIES, startx, y, s_obj);
     	y = MAKE_QUESTINFO_OVERKILL_BY_IES(ctrlset, questIES, startx, y, s_obj);
     	y = MAKE_QUESTINFO_ETC_BY_IES(ctrlset, questIES, startx, y, s_obj, isQuestDetail);
     	y = MAKE_QUESTINFO_MAPFOGSEARCH_BY_IES(ctrlset, questIES, startx, y);
@@ -1205,7 +1212,7 @@ function MAKE_QUESTINFO_BY_IES(ctrlset, questIES, startx, y, s_obj, result, isQu
     	y = MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y);
         
     	if starty == y  then
-    		y = MAKE_QUESTINFO_PROG_DESC(ctrlset, questIES, startx, y, s_obj);
+    		y = MAKE_QUESTINFO_PROG_DESC(ctrlset, questIES, startx, y, s_obj, result);
     	end
     	
         if SCR_QUESTINFOSETVIEW_CHECK(questIES.QuestInfosetView, 'PROGRESS')  == 'YES'  and isQuestDetail ~= 1 then
@@ -1215,13 +1222,13 @@ function MAKE_QUESTINFO_BY_IES(ctrlset, questIES, startx, y, s_obj, result, isQu
     	return y;
     else
         local starty = y;
-        y = MAKE_QUESTINFO_POSSIBLE_DESC(ctrlset, questIES, startx, y, s_obj, isQuestDetail);
+        y = MAKE_QUESTINFO_POSSIBLE_DESC(ctrlset, questIES, startx, y, s_obj, isQuestDetail, result);
         if result == 'POSSIBLE' and SCR_QUESTINFOSETVIEW_CHECK(questIES.QuestInfosetView, 'POSSIBLE') == 'YES' and isQuestDetail ~= 1  then 
-            y = MAKE_QUESTINFO_POSSIBLE_STORY(ctrlset, questIES, startx, y, s_obj);
+            y = MAKE_QUESTINFO_POSSIBLE_STORY(ctrlset, questIES, startx, y, s_obj, result);
         elseif result == 'PROGRESS' and SCR_QUESTINFOSETVIEW_CHECK(questIES.QuestInfosetView, 'PROGRESS') == 'YES' and isQuestDetail ~= 1  then 
-            y = MAKE_QUESTINFO_PROG_STORY(ctrlset, questIES, startx, y, s_obj);
+            y = MAKE_QUESTINFO_PROG_STORY(ctrlset, questIES, startx, y, s_obj, result);
         elseif result == 'SUCCESS' and SCR_QUESTINFOSETVIEW_CHECK(questIES.QuestInfosetView, 'SUCCESS') == 'YES' and isQuestDetail ~= 1  then 
-            y = MAKE_QUESTINFO_SUCCESS_STORY(ctrlset, questIES, startx, y, s_obj);
+            y = MAKE_QUESTINFO_SUCCESS_STORY(ctrlset, questIES, startx, y, s_obj, result);
         end
         
         return y;
@@ -1229,10 +1236,10 @@ function MAKE_QUESTINFO_BY_IES(ctrlset, questIES, startx, y, s_obj, result, isQu
 
 end
 
-function MAKE_QUESTINFO_BASIC_BY_IES(ctrlset, questIES, startx, y)
+function MAKE_QUESTINFO_BASIC_BY_IES(ctrlset, questIES, startx, y, result)
 
-	local pc = SCR_QUESTINFO_GET_PC();
-	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
+	--local pc = SCR_QUESTINFO_GET_PC();
+	--local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
 	local State = CONVERT_STATE(result);
 
 	local txt = questIES[State .. 'Desc'];
@@ -1243,7 +1250,7 @@ function MAKE_QUESTINFO_BASIC_BY_IES(ctrlset, questIES, startx, y)
 
 	local Succ_Lv = questIES.Succ_Lv;
 	if Succ_Lv ~= 0  then
-		local content = ctrlset:CreateOrGetControl('richtext', "Succ_Lv", startx, y, ctrlset:GetWidth() , 10);
+		local content = ctrlset:CreateOrGetControl('richtext', "Succ_Lv", startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
 		content:EnableHitTest(0);
 		content:SetTextFixWidth(0);
 		content:SetText('{s16}{ol}{#ffcc33}'..txt);
@@ -1252,7 +1259,7 @@ function MAKE_QUESTINFO_BASIC_BY_IES(ctrlset, questIES, startx, y)
 
 	local Succ_Atkup = questIES.Succ_Atkup;
 	if Succ_Atkup ~= 0  then
-		local content = ctrlset:CreateOrGetControl('richtext', "Succ_Atkup", startx, y, ctrlset:GetWidth() , 10);
+		local content = ctrlset:CreateOrGetControl('richtext', "Succ_Atkup", startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
 		content:EnableHitTest(0);
 		content:SetTextFixWidth(0);
 		content:SetText('{s16}{ol}{#ffcc33}'..txt);
@@ -1261,7 +1268,7 @@ function MAKE_QUESTINFO_BASIC_BY_IES(ctrlset, questIES, startx, y)
 
 	local Succ_Defup = questIES.Succ_Defup;
 	if Succ_Defup ~= 0  then
-		local content = ctrlset:CreateOrGetControl('richtext', "Succ_Defup", startx, y, ctrlset:GetWidth() , 10);
+		local content = ctrlset:CreateOrGetControl('richtext', "Succ_Defup", startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
 		content:EnableHitTest(0);
 		content:SetTextFixWidth(0);
 		content:SetText('{s16}{ol}{#ffcc33}'..txt);
@@ -1270,7 +1277,7 @@ function MAKE_QUESTINFO_BASIC_BY_IES(ctrlset, questIES, startx, y)
 
 	local Succ_Mhpup = questIES.Succ_Mhpup;
 	if Succ_Mhpup ~= 0  then
-		local content = ctrlset:CreateOrGetControl('richtext', "Succ_Mhpup", startx, y, ctrlset:GetWidth() , 10);
+		local content = ctrlset:CreateOrGetControl('richtext', "Succ_Mhpup", startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
 		content:EnableHitTest(0);
 		content:SetTextFixWidth(0);
 		content:SetText('{s16}{ol}{#ffcc33}'..txt);
@@ -1300,7 +1307,7 @@ function MAKE_QUESTINFO_BUFF_BY_IES(ctrlset, questIES, startx, y)
 			txt = ScpArgMsg("Auto_{Auto_1}_BeoPeu", "Auto_1", buffName);
 		end
 
-		local content = ctrlset:CreateOrGetControl('richtext', "BUFF" .. i, startx, y, ctrlset:GetWidth() , 10);
+		local content = ctrlset:CreateOrGetControl('richtext', "BUFF" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
 		content:EnableHitTest(0);
 		content:SetTextFixWidth(0);
 		content:SetText('{s16}{ol}{#ffcc33}'..txt);
@@ -1345,7 +1352,7 @@ function MAKE_QUESTINFO_EQUIP_BY_IES(ctrlset, questIES, startx, y)
     		local item = session.GetEquipItemByType(itemclass.ClassID);
     		if item == nil then
     			local itemtxt = ScpArgMsg("Auto_{Auto_1}_(JangChaganDoem)","Auto_1", itemclass.Name);
-    			local content = ctrlset:CreateOrGetControl('richtext', "EQUIP" .. i, startx, y, ctrlset:GetWidth() , 10);
+    			local content = ctrlset:CreateOrGetControl('richtext', "EQUIP" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
 				content:EnableHitTest(0);
     			content:SetTextFixWidth(0);
     			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
@@ -1410,8 +1417,8 @@ function MAKE_QUESTINFO_ITEM_BY_IES(ctrlset, questIES, startx, s_obj, y)
         				imcSound.PlaySoundEvent('quest_count');
         				ctrlset:GetParent():SetUserValue('QuestCntAlarmSound', itemcount);
         			end
-        
-        			local content = ctrlset:CreateOrGetControl('richtext', "ITEM_" .. i, startx, y, ctrlset:GetWidth() - IES_CTRL_OFFSET, 10);
+					
+        			local content = ctrlset:CreateOrGetControl('richtext', "ITEM_" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
         			tolua.cast(content, "ui::CRichText");
         			content:EnableSplitBySpace(0);
         			content:EnableHitTest(0);
@@ -1457,7 +1464,7 @@ function MAKE_QUESTINFO_ITEM_BY_IES(ctrlset, questIES, startx, s_obj, y)
             				ctrlset:GetParent():SetUserValue('QuestCntAlarmSound', itemcount);
             			end
             
-            			local content = ctrlset:CreateOrGetControl('richtext', "ITEM_" .. i, startx, y, ctrlset:GetWidth() - IES_CTRL_OFFSET, 10);
+            			local content = ctrlset:CreateOrGetControl('richtext', "ITEM_" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
             			tolua.cast(content, "ui::CRichText");
             			content:EnableSplitBySpace(0);
             			content:EnableHitTest(0);
@@ -1480,6 +1487,64 @@ function MAKE_QUESTINFO_ITEM_BY_IES(ctrlset, questIES, startx, s_obj, y)
 	return y;
 end
 
+function MAKE_QUESTINFO_JOURNALMONSTER_BY_IES(ctrlset, questIES, startx, y, s_obj, ssninfo)
+    local returnFlag1 = true
+	local monUIIndex = 0
+    
+	if GetPropType(questIES, 'Succ_Check_JournalMonKillCount') ~= nil and questIES.Succ_Check_JournalMonKillCount > 0 then
+		returnFlag1 = false
+	end
+    
+    if returnFlag1 == true then
+        return y
+    end
+    
+    if returnFlag1 == false then
+    	for i = 1 , QUEST_MAX_MON_CHECK do
+    	    if GetPropType(questIES, "Succ_Journal_MonKillName" .. i) == nil or questIES["Succ_Journal_MonKillName" .. i] == 'None' or questIES["Succ_Journal_MonKillName" .. i] == '' then
+    	        break
+    	    end
+    		local monname = GetClassString('Monster',questIES["Succ_Journal_MonKillName" .. i], 'Name');
+            local wiki = GetWikiByName(questIES['Succ_Journal_MonKillName'..i])
+            local curcnt = 0
+            if wiki ~= nil then
+                curcnt = GetWikiIntProp(wiki, "KillCount");
+            end
+            
+            if GetPropType(questIES, "Succ_Journal_MonKillCount" .. i) == nil or questIES["Succ_Journal_MonKillCount" .. i] > 0 then
+                local needcnt = questIES["Succ_Journal_MonKillCount" .. i];
+                if curcnt < needcnt then
+                    local itemtxt
+        			local monClassName = questIES["Succ_Journal_MonKillName" .. i]
+        			local monbasicname = monname
+        			itemtxt = ScpArgMsg("JOURNAL_SUCC_MONKILL")..string.format(monname.." (%d/%d)", curcnt, needcnt);
+        			
+        			if curcnt ~= 0 and curcnt ~= tonumber(ctrlset:GetParent():GetUserValue('KillCntAlarmSound')) then
+        				imcSound.PlaySoundEvent('sys_alarm_mon_kill_count');
+        				ctrlset:GetParent():SetUserValue('KillCntAlarmSound', curcnt);
+        			end
+                    
+                    monUIIndex = i
+        			local content = ctrlset:CreateOrGetControl('richtext', "JOURNAL_MON_" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
+        			content:EnableHitTest(0);
+        			content:SetTextFixWidth(1);
+        			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
+        			y = y + content:GetHeight();
+        
+        			local pictureCtrl = GET_CHILD(ctrlset, "statepicture", "ui::CPicture");
+        			if pictureCtrl ~= nil then
+        				pictureCtrl:SetPartitionImage("quest_count");
+        				pictureCtrl:SetPartitionRate(curcnt / needcnt);
+        				--pictureCtrl:Invalidate();
+        			end
+                end
+            end
+    	end
+    end
+	
+
+	return y;
+end 
 function MAKE_QUESTINFO_MONSTER_BY_IES(ctrlset, questIES, startx, y, s_obj, ssninfo)
     local returnFlag1 = true
     local returnFlag2 = true
@@ -1552,7 +1617,7 @@ function MAKE_QUESTINFO_MONSTER_BY_IES(ctrlset, questIES, startx, y, s_obj, ssni
     			end
                 
                 monUIIndex = i
-    			local content = ctrlset:CreateOrGetControl('richtext', "MON_" .. i, startx, y, ctrlset:GetWidth() - 25 , 10);
+    			local content = ctrlset:CreateOrGetControl('richtext', "MON_" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
     			content:EnableHitTest(0);
     			content:SetTextFixWidth(1);
     			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
@@ -1587,7 +1652,7 @@ function MAKE_QUESTINFO_MONSTER_BY_IES(ctrlset, questIES, startx, y, s_obj, ssni
                                         if monKORName ~= "None" then
                             			    itemtxt = string.format(ScpArgMsg("QUEST_KILL_MON_UI_MSG1","MONSTER", monKORName).." (%d/%d)", nowCount, needCount);
                             			    
-                            			    local content = ctrlset:CreateOrGetControl('richtext', "MON_" .. (monUIIndex + i), startx, y, ctrlset:GetWidth() - 25 , 10);
+                            			    local content = ctrlset:CreateOrGetControl('richtext', "MON_" .. (monUIIndex + i), startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
                                 			content:EnableHitTest(0);
                                 			content:SetTextFixWidth(1);
                                 			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
@@ -1658,7 +1723,7 @@ function MAKE_QUESTINFO_OVERKILL_BY_IES(ctrlset, questIES, startx, y, s_obj, ssn
 			
 			
 
-			local content = ctrlset:CreateOrGetControl('richtext', "MON_" .. i, startx, y, ctrlset:GetWidth() , 10);
+			local content = ctrlset:CreateOrGetControl('richtext', "MON_" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
 			content:EnableHitTest(0);
 			content:SetTextFixWidth(0);
 			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
@@ -1689,7 +1754,7 @@ function MAKE_QUESTINFO_ETC_BY_IES(ctrlset, questIES, startx, y, s_obj, isQuestD
 			break;
 		end
 
-		local textWidth = ctrlset:GetWidth() - startx;
+		local textWidth = ctrlset:GetWidth() - startx - 15;
 
 		local curcnt = s_obj["QuestInfoValue" .. i];
 		local needcnt = s_obj["QuestInfoMaxCount" .. i];
@@ -1702,7 +1767,7 @@ function MAKE_QUESTINFO_ETC_BY_IES(ctrlset, questIES, startx, y, s_obj, isQuestD
 --        		else
 --        		    itemtxt = string.format("%s (%d/%d)", questname, curcnt, needcnt);
 --        		end
-    			local content = ctrlset:CreateOrGetControl('richtext', "ETC_" .. i, startx, y, textWidth , 10);
+    			local content = ctrlset:CreateOrGetControl('richtext', "ETC_" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
 				content:EnableHitTest(0);
     			content:SetTextFixWidth(0);
 
@@ -1724,7 +1789,7 @@ function MAKE_QUESTINFO_ETC_BY_IES(ctrlset, questIES, startx, y, s_obj, isQuestD
 
     		else
     		    local itemtxt = string.format("%s : %s", questname, string.char(curcnt));
-    			local content = ctrlset:CreateOrGetControl('richtext', "ETC_" .. i, startx, y, textWidth , 10);
+    			local content = ctrlset:CreateOrGetControl('richtext', "ETC_" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
 				content:EnableHitTest(0);
     			content:SetTextFixWidth(0);
 
@@ -1745,7 +1810,7 @@ function MAKE_QUESTINFO_ETC_BY_IES(ctrlset, questIES, startx, y, s_obj, isQuestD
 --    		else
 --				itemtxt = string.format("%s (%d/%d)", questname, curcnt, needcnt);
 --			end
-			local content = ctrlset:CreateOrGetControl('richtext', "ETC_" .. i, startx, y, textWidth , 10);
+			local content = ctrlset:CreateOrGetControl('richtext', "ETC_" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
 			content:EnableHitTest(0);
 			content:SetTextFixWidth(1);
 
@@ -1831,7 +1896,7 @@ function MAKE_QUESTINFO_MAPFOGSEARCH_BY_IES(ctrlset, questIES, startx, y)
                 else
                     txt = ScpArgMsg("Auto_{cl}{@st42b}{Auto_1}_TamSaegLyul_wanLyo","Auto_1",zoneIES.Name,"Auto_2",percent)
                 end
-                local content = ctrlset:CreateOrGetControl('richtext', "MAPFOGSEARCH"..x, startx, y, ctrlset:GetWidth() , 10);
+                local content = ctrlset:CreateOrGetControl('richtext', "MAPFOGSEARCH"..x, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
             	content:EnableHitTest(0);
             	content:SetTextFixWidth(0);
             	content:SetText('{s16}{ol}{#ffcc33}'..txt);
@@ -1868,7 +1933,7 @@ function MAKE_QUESTINFO_HONORPOINT_BY_IES(ctrlset, questIES, startx, y)
         end
     end
 
-    local content = ctrlset:CreateOrGetControl('richtext', "HONORPOINT", startx, y, ctrlset:GetWidth() , 10);
+    local content = ctrlset:CreateOrGetControl('richtext', "HONORPOINT", startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
 	content:EnableHitTest(0);
 	content:SetTextFixWidth(0);
 	content:SetText('{s16}{ol}{#ffcc33}'..txt);
@@ -1922,7 +1987,7 @@ function MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y)
                     end
                     
                     if itemtxt ~= nil then
-            			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. i, startx, y, ctrlset:GetWidth() , 10);
+            			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
         				content:EnableHitTest(0);
             			content:SetTextFixWidth(0);
             			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
@@ -1962,7 +2027,7 @@ function MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y)
                     end
                     
                     if itemtxt ~= nil then
-            			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. i, startx, y, ctrlset:GetWidth() , 10);
+            			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
         				content:EnableHitTest(0);
             			content:SetTextFixWidth(0);
             			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
@@ -2005,7 +2070,7 @@ function MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y)
     end
     
     if qRewardExp > 0 and session.GetMaxEXP() - session.GetEXP() - qRewardExp <= 0 then
-        local content = ctrlset:CreateOrGetControl('richtext', 'QUESTINFOREWARDLVUP', startx, y, ctrlset:GetWidth() , 10);
+        local content = ctrlset:CreateOrGetControl('richtext', 'QUESTINFOREWARDLVUP', startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
     	content:EnableHitTest(0);
     	content:SetTextFixWidth(0);
     	content:SetText(ScpArgMsg('QUESTINFOREWARDLVUP','Auto_1',pc.Lv + 1));
@@ -2014,12 +2079,14 @@ function MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y)
     
 	return y;
 end
-function MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj)
+function MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj, sharedProgress)
     local pc = SCR_QUESTINFO_GET_PC();
 	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
+	if sharedProgress ~= nil then -- 공유중인 퀘스트는 공유 퀘스트 상태로 보여줘야 함
+		result = sharedProgress;
+	end
 	local State = CONVERT_STATE(result);
-
-
+	
     local mapListUI = questIES[State .. 'MapListUI']
 	local map = questIES[State .. 'Map'];
 	local location = questIES[State .. 'Location'];
@@ -2144,7 +2211,7 @@ function MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj)
             end
         end
     end
-    
+
     if txt == '' and location ~= '' and location ~= 'None' then
         local strList = SCR_STRING_CUT(location,' ')
         local i = 1
@@ -2190,8 +2257,7 @@ function MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj)
 --    		txt = txt;
 --    	end
 --    end
-
-	local content = ctrlset:CreateOrGetControl('richtext', 'QUESTINFOMAP', startx, y, ctrlset:GetWidth() + 10 , 10);
+	local content = ctrlset:CreateOrGetControl('richtext', 'QUESTINFOMAP', startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH , 10);
 	content:EnableHitTest(0);
 	content:SetTextFixWidth(1);
 	content:SetText('{@st42b}'..txt);
@@ -2199,9 +2265,12 @@ function MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj)
 	return y;
 end
 
-function MAKE_QUESTINFO_PROG_DESC(ctrlset, questIES, startx, y, s_obj)
+function MAKE_QUESTINFO_PROG_DESC(ctrlset, questIES, startx, y, s_obj, sharedProgress)
 	local pc = SCR_QUESTINFO_GET_PC();
 	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
+	if sharedProgress ~= nil then
+		result = sharedProgress;
+	end	
 	local State = CONVERT_STATE(result);
 
 	local desc = questIES[State .. 'Desc'];
@@ -2218,7 +2287,7 @@ function MAKE_QUESTINFO_PROG_DESC(ctrlset, questIES, startx, y, s_obj)
 	]]
 	txt = desc;
 	
-	local content = ctrlset:CreateOrGetControl('richtext', 'PROGDESC', startx, y, ctrlset:GetWidth() - 25 , 10);
+	local content = ctrlset:CreateOrGetControl('richtext', 'PROGDESC', startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
 	content:EnableHitTest(0);
 	content:SetTextFixWidth(1);
 	content:SetText('{s16}{ol}{#ffcc33}'..txt);
@@ -2227,16 +2296,22 @@ function MAKE_QUESTINFO_PROG_DESC(ctrlset, questIES, startx, y, s_obj)
 	return y;
 end
 
-function MAKE_QUESTINFO_POSSIBLE_STORY(ctrlset, questIES, startx, y, s_obj)
+function MAKE_QUESTINFO_POSSIBLE_STORY(ctrlset, questIES, startx, y, s_obj, sharedProg)
 	local pc = SCR_QUESTINFO_GET_PC();
 	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
+
+	-- 공유 퀘스트인 경우에는 내 pc가 아니라 파티원 pc의 프로그레스를 참조해서 그려줘야 한다.
+	if sharedProg ~= nil then
+		result = sharedProg
+	end
+
 	local State = CONVERT_STATE(result);
 
 	local story = questIES[State .. 'Story'];
 
 	if story ~= 'None' then
     	local txt = story;
-    	local content = ctrlset:CreateOrGetControl('richtext', 'STARTSTORY', startx, y, ctrlset:GetWidth()- 20, 10);
+    	local content = ctrlset:CreateOrGetControl('richtext', 'STARTSTORY', startx, y, ctrlset:GetWidth()- startx - SCROLL_WIDTH, 10);
     	tolua.cast(content, "ui::CRichText");
     	content:EnableHitTest(0);
     	content:SetTextFixWidth(1);
@@ -2248,9 +2323,14 @@ function MAKE_QUESTINFO_POSSIBLE_STORY(ctrlset, questIES, startx, y, s_obj)
 	return y;
 end
 
-function MAKE_QUESTINFO_PROG_STORY(ctrlset, questIES, startx, y, s_obj)
+function MAKE_QUESTINFO_PROG_STORY(ctrlset, questIES, startx, y, s_obj, sharedProg)
 	local pc = SCR_QUESTINFO_GET_PC();
 	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
+
+	if sharedProg ~= nil then
+		result = sharedProg
+	end
+
 	local State = CONVERT_STATE(result);
 
 	local story = questIES[State .. 'Story'];
@@ -2258,7 +2338,7 @@ function MAKE_QUESTINFO_PROG_STORY(ctrlset, questIES, startx, y, s_obj)
 	if story ~= 'None' then
     	local txt = story;
 
-    	local content = ctrlset:CreateOrGetControl('richtext', 'PROGSTORY', startx, y, ctrlset:GetWidth() - 20, 10);
+    	local content = ctrlset:CreateOrGetControl('richtext', 'PROGSTORY', startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
     	tolua.cast(content, "ui::CRichText");
     	content:EnableHitTest(0);
     	content:SetTextFixWidth(1);
@@ -2270,9 +2350,14 @@ function MAKE_QUESTINFO_PROG_STORY(ctrlset, questIES, startx, y, s_obj)
 	return y;
 end
 
-function MAKE_QUESTINFO_SUCCESS_STORY(ctrlset, questIES, startx, y, s_obj)
+function MAKE_QUESTINFO_SUCCESS_STORY(ctrlset, questIES, startx, y, s_obj, sharedProg)
 	local pc = SCR_QUESTINFO_GET_PC();
 	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
+
+	if sharedProg ~= nil then
+		result = sharedProg
+	end
+
 	local State = CONVERT_STATE(result);
 
 	local story = questIES[State .. 'Story'];
@@ -2280,7 +2365,7 @@ function MAKE_QUESTINFO_SUCCESS_STORY(ctrlset, questIES, startx, y, s_obj)
 	if story ~= 'None' then
     	local txt = story;
 
-    	local content = ctrlset:CreateOrGetControl('richtext', 'ENDSTORY', startx, y, ctrlset:GetWidth() - 20, 10);
+    	local content = ctrlset:CreateOrGetControl('richtext', 'ENDSTORY', startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
     	tolua.cast(content, "ui::CRichText");
     	content:EnableHitTest(0);
     	content:SetTextFixWidth(1);
@@ -2292,11 +2377,16 @@ function MAKE_QUESTINFO_SUCCESS_STORY(ctrlset, questIES, startx, y, s_obj)
 	return y;
 end
 
-function MAKE_QUESTINFO_POSSIBLE_DESC(ctrlset, questIES, startx, y, s_obj, isQuestDetail)
+function MAKE_QUESTINFO_POSSIBLE_DESC(ctrlset, questIES, startx, y, s_obj, isQuestDetail, sharedRes)
 	local pc = SCR_QUESTINFO_GET_PC();
 	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
-	local State = CONVERT_STATE(result);
 
+	-- override shared quest progress
+	if sharedRes ~= nil then
+		result = sharedRes
+	end
+
+	local State = CONVERT_STATE(result);
 	local questDesc = {questIES.StartDesc, questIES.ProgDesc, questIES.EndDesc};
 	local questCtrlName = {"StartDesc", "ProgDesc", "EndDesc"};
 
@@ -2305,7 +2395,7 @@ function MAKE_QUESTINFO_POSSIBLE_DESC(ctrlset, questIES, startx, y, s_obj, isQue
 		local desc = questIES[questCtrlName[i]];
 		if desc == 'None' then
 		else
-			local content = ctrlset:CreateOrGetControl('richtext', questCtrlName[i], startx, y, ctrlset:GetWidth() , 10);
+			local content = ctrlset:CreateOrGetControl('richtext', questCtrlName[i], startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
 			tolua.cast(content, "ui::CRichText");
     		if questState == questCtrlName[i] then
     			content:EnableHitTest(0);
@@ -2464,7 +2554,6 @@ function QUESTINFOSET_2_QUEST_ANGLE(frame, msg, argStr, argNum)
 				if destX == nil then
 					local State    = CONVERT_STATE(childObj:GetSValue());
 
-
 					local questMapname  = questIES[State .. 'Map'];
 					local npcname  = questIES[State .. 'NPC'];
 					local monProp = GET_MONGEN_NPC_MONPROP(questMapname, npcname);
@@ -2533,7 +2622,7 @@ function QUEST_PARTY_MEMBER_PROP_UPDATE(frame)
 		local pcInfo = list:Element(i);
 		if pcInfo ~= myInfo and pcInfo:GetMapID() > 0 then
 			local memberObj = GetIES(pcInfo:GetObject());
-			if memberObj.Shared_Quest > 0 or memberObj.Before_Quest > 0 then
+			if memberObj.Shared_Quest > 0 then --or memberObj.Before_Quest > 0 then (beforeQuest 혼선만 줘서 삭제함)
 				drawCount = drawCount + 1;
 			end
 		end
@@ -2564,8 +2653,7 @@ function QUEST_PARTY_MEMBER_PROP_UPDATE(frame)
 
 				local questID = memberObj.Shared_Quest;
 				local beforeQuest = memberObj.Before_Quest;
-				
-				if questID > 0 or beforeQuest > 0 then
+				if questID > 0 then --or beforeQuest > 0 then (beforeQuest는 혼선만 줘서 삭제함)
 					local ctrlTxt = bg:CreateOrGetControl("richtext", "_NAME_" .. pcInfo:GetAID() , 0, 0, bg:GetWidth(), 20);
 					ctrlTxt:ShowWindow(1);
 					ctrlTxt:SetText("{@sti9}" .. ScpArgMsg("QuestOf{Name}", "Name", pcInfo:GetName()));
@@ -2573,9 +2661,12 @@ function QUEST_PARTY_MEMBER_PROP_UPDATE(frame)
 
 				if questID > 0 then
 					local questIES = GetClassByType("QuestProgressCheck", questID);
-					MAKE_QUEST_INFO_C(bg, questIES);
+					MAKE_QUEST_INFO_C(bg, questIES, nil, TryGetProp(memberObj, 'Shared_Progress'))
 				end
 
+				--[[	공유설정한 퀘스트 UI에서 이전 퀘스트 워프 안보여주게 함.
+						만약 이전 퀘스트 완료 여부를 보여주게 하고 싶으면 주석을 풀면 됨.(가장 최근의 완료된 퀘스트가 계속 떠있게됨)
+						이전 퀘스트가 보이면 혼선만 줘서 없앤다는 로그있길래 주석처리함
 				if beforeQuest > 0 then
 					local questIES = GetClassByType("QuestProgressCheck", beforeQuest);
 					local returnSet = bg:CreateOrGetControlSet("beforereturnbtn", "RETURN_CTRL", ui.LEFT, ui.TOP, 30, 0, 0, 0);
@@ -2593,6 +2684,7 @@ function QUEST_PARTY_MEMBER_PROP_UPDATE(frame)
 					pic:SetAngleLoop(-3);
 					returnSet:Resize(ctrlSetWidth, name:GetY() + name:GetHeight() + 10);
 				end
+				]]--
 
 				g_currentPartyMemberInfo = nil;
 				g_questCheckPC = nil;

@@ -73,9 +73,10 @@ function UI_FORCE(forceName, fx, fy, tx, ty, delayTime, changeImage, imgSize, ty
 				imgName = changeImage;
 			end
 
-			if ui.IsImageExist(imgName) == true then
+			local img = ui.GetImage(imgName);
+			if img ~= nil then
 				local name = UI_EFFECT_GET_NAME(frame);
-				local selPic = frame:CreateControl("picture", name, fx, fy, ui.GetImageWidth(imgName) * imgSize, ui.GetImageHeight(imgName) * imgSize);
+				local selPic = frame:CreateControl("picture", name, fx, fy, img:GetWidth() * imgSize, img:GetHeight() * imgSize);
 				selPic = tolua.cast(selPic, "ui::CPicture");
 				selPic:SetEnableStretch(1);
 				selPic:ShowWindow(1);

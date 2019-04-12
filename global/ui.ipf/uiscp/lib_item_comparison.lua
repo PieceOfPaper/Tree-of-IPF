@@ -37,7 +37,7 @@ function GET_DEF_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "CRTATK";
     list[#list+1] = "KDPow";
     list[#list+1] = "SkillPower";
-    list[#list+1] = "CRTMATK";
+    list[#list+1] = "MHR";
     list[#list+1] = "MDEF";
     list[#list+1] = "SkillRange";
     list[#list+1] = "SkillAngle";
@@ -84,7 +84,6 @@ function GET_DEF_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "StrikeDEF";
     list[#list+1] = "HR";
     list[#list+1] = "DR";
-    list[#list+1] = "LootingChance";
 	return list;
 
 end
@@ -113,7 +112,7 @@ function GET_ATK_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "CRTATK";
     list[#list+1] = "KDPow";
     list[#list+1] = "SkillPower";
-    list[#list+1] = "CRTMATK";
+    list[#list+1] = "MHR";
     list[#list+1] = "MDEF";
     list[#list+1] = "SkillRange";
     list[#list+1] = "SkillAngle";
@@ -158,7 +157,6 @@ function GET_ATK_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "StrikeDEF";
     list[#list+1] = "HR";
     list[#list+1] = "DR";
-    list[#list+1] = "LootingChance";
 	return list;
 
 end
@@ -188,7 +186,8 @@ function GET_DEF_PROP_LIST()
     list[#list+1] = "SkillPower";
     list[#list+1] = "ADD_HR";
     list[#list+1] = "ADD_DR";
-    list[#list+1] = "CRTMATK";
+    list[#list+1] = "MHR";
+    list[#list+1] = "ADD_MHR";
     list[#list+1] = "MDEF";
     list[#list+1] = "ADD_MDEF";
     list[#list+1] = "SkillRange";
@@ -236,7 +235,6 @@ function GET_DEF_PROP_LIST()
     list[#list+1] = "StrikeDEF";
     list[#list+1] = "HR";
     list[#list+1] = "DR";
-    list[#list+1] = "LootingChance";
 	return list;
 
 end
@@ -269,7 +267,8 @@ function GET_ATK_PROP_LIST()
     list[#list+1] = "SkillPower";
     list[#list+1] = "ADD_HR";
     list[#list+1] = "ADD_DR";
-    list[#list+1] = "CRTMATK";
+    list[#list+1] = "MHR";
+    list[#list+1] = "ADD_MHR";
     list[#list+1] = "MDEF";
     list[#list+1] = "ADD_MDEF";
     list[#list+1] = "SkillRange";
@@ -315,7 +314,6 @@ function GET_ATK_PROP_LIST()
     list[#list+1] = "StrikeDEF";
     list[#list+1] = "HR";
     list[#list+1] = "DR";
-    list[#list+1] = "LootingChance";
 	return list;
 
 end
@@ -359,12 +357,12 @@ end
 function GET_EUQIPITEM_PROP_LIST()
 	
 	local list = {};
---  list[#list+1] = "Strike";
---  list[#list+1] = "Strike_Range";
---  list[#list+1] = "Slash_Range";
---  list[#list+1] = "Slash";
---  list[#list+1] = "Aries_Range";
---  list[#list+1] = "Aries";
+	list[#list+1] = "Strike";
+	list[#list+1] = "Strike_Range";
+	list[#list+1] = "Slash_Range";
+	list[#list+1] = "Slash";
+	list[#list+1] = "Aries_Range";
+	list[#list+1] = "Aries";
 	list[#list+1] = "HitCount";
 	list[#list+1] = "BackHit";
 	return list;
@@ -413,14 +411,12 @@ function GET_MAIN_PROP_LIST(itemObj)
 end
 
 
-function GET_CHECK_OVERLAP_EQUIPPROP_LIST(propList, prop, list)
+function GET_CHECK_OVERLAP_EQUIPPROP_LIST(propList, prop)
     local checkList = propList;
-    if list == nil then
-        list = {};
-    end
+    local list = {};
     for i = 1, #checkList do
         if checkList[i] ~= prop then
-            list = PUSH_BACK_IF_NOT_EXIST(list, checkList[i]);
+            list[#list+1] = checkList[i];
         end
     end
     

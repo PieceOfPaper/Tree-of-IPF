@@ -1,17 +1,19 @@
 --- tooltip_worldmap.lua --
 
 function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
+
     local mapCls = GetClass('Map', mapName)
 	local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
 
 	local drawList = {};
 	drawList[#drawList + 1] = mapCls;
-	local accObj = GetMyAccountObj();
+	
+	local etc = GetMyEtcObject();
 
 	local clsList, cnt = GetClassList('Map');	
 	for i = 0, cnt-1 do
 		local otherMap = GetClassByIndexFromList(clsList, i);
-		if otherMap.ClassID ~= mapCls.ClassID and accObj['HadVisited_' .. otherMap.ClassID] == 1 then
+		if otherMap.ClassID ~= mapCls.ClassID and etc['HadVisited_' .. otherMap.ClassID] == 1 then
 			local ox, oy, odir, oindex = GET_WORLDMAP_POSITION(otherMap.WorldMap);
 			if ox == x and oy == y then
 				drawList[#drawList + 1] = otherMap;
@@ -31,18 +33,19 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 			ratestr = " {img minimap_complete 24 24}"
 		end
 
-		local mapnameCtrl = GET_CHILD_RECURSIVELY(ctrlSet, "mapname");
+		local mapnameCtrl = ctrlSet:GetChild("mapname");
 		mapnameCtrl:SetTextByKey("text", mapNameFont..drawCls.Name..ratestr);
 		
 
 		local drawMapName = drawCls.ClassName;
-		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "map", "ui::CPicture");
-		local isValid = ui.IsImageExist(drawMapName .. "_fog");
-		if isValid == false then
+		local pic = GET_CHILD(ctrlSet, "map", "ui::CPicture");
+		local mapimage = ui.GetImage(drawMapName .. "_fog");
+		if mapimage == nil then
 			world.PreloadMinimap(drawMapName);
 		end
 		pic:SetImage(drawMapName .. "_fog");
 		
+
 		local worldMapWidth = ui.GetFrame("worldmap"):GetWidth()
 		local worldMapHeight = ui.GetFrame("worldmap"):GetHeight()
 
@@ -60,10 +63,11 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 
 		UPDATE_MAP_BY_NAME(iconGroup, drawMapName, pic, mapWidth, mapHeight, offsetX, offsetY)
 		pic:EnableCopyOtherImage(nil);
+
 		offsetX = 340;
 		offsetY = 180;
 		MAKE_MAP_AREA_INFO(nameGroup, drawMapName, "{s15}", mapWidth, mapHeight, offsetX, offsetY)
-
+					
 		for i = 0, iconGroup:GetChildCount()-1 do
 			local child = iconGroup:GetChildByIndex(i);
 			
@@ -77,14 +81,14 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 			child:Move( -1*worldMapWidth*(23/100), 0);
 			child:Move( 0, -1*mapHeight*(40/100));
 		end
-		
+
 		local questlv = drawCls.QuestLevel
 		local maptype = drawCls.MapType
 		if questlv > 0 and (maptype == 'Field' or maptype == 'Dungeon') then
-			GET_CHILD_RECURSIVELY(ctrlSet, "monlv"):SetVisible(1)
-			GET_CHILD_RECURSIVELY(ctrlSet, "monlv"):SetTextByKey("text",tostring(questlv))
+			ctrlSet:GetChild("monlv"):SetVisible(1)
+			ctrlSet:GetChild("monlv"):SetTextByKey("text",tostring(questlv))
 		else
-			GET_CHILD_RECURSIVELY(ctrlSet, "monlv"):SetVisible(0)
+			ctrlSet:GetChild("monlv"):SetVisible(0)
 		end	
 		WORLDMAP_TOOLTIP_POSSIBLE_QUESTLIST(frame, mapName, numarg, ctrlSet, drawCls);
 	end

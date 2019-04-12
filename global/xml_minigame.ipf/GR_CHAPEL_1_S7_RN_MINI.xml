@@ -4,7 +4,7 @@
         <StageList>
             <Stage Name="SETTING">
                 <ObjList>
-                    <Obj Type="Monster" MonType="154005" Pos="-25.32#48.56#-140.48" genCount="1" genTime="20000" objectKey="0">
+                    <Obj Type="Monster" MonType="154005" Pos="-82.00#137.52#-46.00" genCount="1" genTime="20000" objectKey="0">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <StartList>
                                 <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
@@ -15,8 +15,8 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="147357" Pos="-941.93#48.35#-106.21" angle="-45" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;Name&apos; &apos;아우카 제단&apos; &apos;HPCount&apos; &apos;15&apos; "/>
-                    <Obj Type="Monster" MonType="147357" Pos="1516.17#48.43#-104.01" angle="-45" genCount="1" genTime="20000" objectKey="2" autoDestroy="0" propList="&apos;Name&apos; &apos;말다 제단&apos; &apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;25&apos; "/>
+                    <Obj Type="Monster" MonType="147357" Pos="-688.00#95.06#-55.00" angle="-45" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;Name&apos; &apos;아우카 제단&apos; &apos;HPCount&apos; &apos;15&apos; &apos;Hittable&apos; &apos;YES&apos; "/>
+                    <Obj Type="Monster" MonType="147357" Pos="1514.00#95.56#-182.00" angle="-45" genCount="1" genTime="20000" objectKey="2" autoDestroy="0" propList="&apos;Name&apos; &apos;말다 제단&apos; &apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;25&apos; &apos;Hittable&apos; &apos;YES&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="Init">
@@ -55,16 +55,6 @@
                 </StageEvents>
             </Stage>
             <Stage Name="SUCCESS" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="보상을 선택하세요"/>
-                        <Str Str="reward_box"/>
-                        <Num Num="10"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="10"/>
-                    </ToolScp>
-                </StartScpList>
                 <ObjList/>
                 <StageEvents>
                     <Event execCount="1" eventName="END">
@@ -840,7 +830,7 @@
                     </Event>
                 </StageEvents>
             </Stage>
-            <Stage Name="END">
+            <Stage Name="END" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
                         <Str Str="[다시 찾아온 위기] 이벤트를 완료했습니다"/>
@@ -851,26 +841,7 @@
                         <Num Num="10"/>
                     </ToolScp>
                 </StartScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="58210" Pos="-749.98#35.92#-236.28" range="200" genCount="1" genTime="20000" objectKey="0">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="200"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-21.677656" Y="48.555744" Z="-142.43187" Random="150"/>
-                                </ToolScp>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                </ObjList>
+                <ObjList/>
                 <StageEvents>
                     <Event execCount="1" eventName="reward">
                         <condList>
@@ -879,10 +850,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="RAID_END_REWARD" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="SUCCESS"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_GUILD_REWARD" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                 </StageEvents>

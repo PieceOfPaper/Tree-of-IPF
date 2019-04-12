@@ -1,4 +1,4 @@
-﻿function TOKEN_ON_INIT(addon, frame)
+function TOKEN_ON_INIT(addon, frame)
 end
 
 function BEFORE_APPLIED_TOKEN_OPEN(invItem)
@@ -44,17 +44,17 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 		end
 
 		local value = ctrlSet:GetChild("value");
-			value:SetTextByKey("value", txt); 
-		end
+		value:SetTextByKey("value", txt); 
+	end
 
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 4,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-    local prop = ctrlSet:GetChild("prop");
-    local imag = string.format(TOKEN_GET_IMGNAME1(), 55, 45) 
+	local prop = ctrlSet:GetChild("prop");
+	local imag = string.format(TOKEN_GET_IMGNAME1(), 55, 45) 
 	prop:SetTextByKey("value", imag.. ScpArgMsg("Token_ExpUp{PER}", "PER", " ")); 
-    local value = ctrlSet:GetChild("value");
+	local value = ctrlSet:GetChild("value");
 	imag = string.format(TOKEN_GET_IMGNAME2(), 100, 45) 
-    value:SetTextByKey("value", imag);
-
+	value:SetTextByKey("value", imag); 
+	
 	local itemobj = GetIES(invItem:GetObject());
 	if itemobj.NumberArg2 > 0 then
 		local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_TOKEN_TRADECOUNT",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
@@ -86,7 +86,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	ADD_2PLUS_IMAGE(gBox)
 
 	GBOX_AUTO_ALIGN(gBox, 0, 2, 0, true, true);
-	
+
 	local arg1 = itemobj.NumberArg1;
 	if itemobj.ClassName == "PremiumToken" then
 		arg1 = 2592000 --30일
@@ -127,7 +127,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 
 	local indunStr = bg2:GetChild("indunStr");
 	indunStr:ShowWindow(0);
-    
+
 	local forToken = bg2:GetChild("forToken");
 	forToken:ShowWindow(1);
 
@@ -151,6 +151,7 @@ function TOKEN_GET_IMGNAME2()
 end
 
 function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)	
+	
 	local obj = GetIES(invItem:GetObject());
 	
 	if obj.ItemLifeTimeOver > 0 then
@@ -178,7 +179,7 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_0",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
 	local imag = string.format("{img 30percent_image %d %d}", 55, 45);
-	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" or itemobj.ClassName == "Premium_boostToken02_1d" then
+	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" or itemobj.ClassName == "Event_160908_6_14d" or itemobj.ClassName == "Premium_boostToken02_1d" then
 	    imag = string.format("{img 150percent_image %d %d}", 55, 45);
 	elseif itemobj.ClassName == "Premium_boostToken03" or itemobj.ClassName == "Premium_boostToken03_event01" then
 	    imag = string.format("{img 300percent_image %d %d}", 55, 45);
@@ -190,33 +191,33 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
 	prop:SetTextByKey("value", imag .. ClMsg("token_expup")); 
 	local value = ctrlSet:GetChild("value");
 
-	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" or itemobj.ClassName == "Premium_boostToken02_1d" then
+	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" or itemobj.ClassName == "Event_160908_6_14d" or itemobj.ClassName == "Premium_boostToken02_1d" then
     	value:SetTextByKey("value", string.format("{img 150percent_image2 %d %d}", 100, 45) );
 	elseif itemobj.ClassName == "Premium_boostToken03" or itemobj.ClassName == "Premium_boostToken03_event01" then
     	value:SetTextByKey("value", string.format("{img 300percent_image2 %d %d}", 100, 45) );
 	elseif itemobj.ClassName == "Premium_boostToken04" then
     	value:SetTextByKey("value", string.format("{img 50percent_image3 %d %d}", 100, 45) );
 	else
-	value:SetTextByKey("value", string.format("{img 30percent_image2 %d %d}", 100, 45) ); 
+    	value:SetTextByKey("value", string.format("{img 30percent_image2 %d %d}", 100, 45) );
     end
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_1",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
-	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" or itemobj.ClassName == "Premium_boostToken02_1d" then
+	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" then
     	imag = string.format("{img 5multiply_image %d %d}", 55, 45);
 	elseif itemobj.ClassName == "Premium_boostToken03" or itemobj.ClassName == "Premium_boostToken03_event01" then
     	imag = string.format("{img 9multiply_image %d %d}", 55, 45) 
 	else
-	imag = string.format("{img 2multiply_image %d %d}", 55, 45) 
+    	imag = string.format("{img 2multiply_image %d %d}", 55, 45) 
     end	
 	prop:SetTextByKey("value",imag .. ClMsg("token_staup")); 
 	local value = ctrlSet:GetChild("value");
 	local itemobj = GetIES(invItem:GetObject());
-	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" or itemobj.ClassName == "Premium_boostToken02_1d" then
+	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" or itemobj.ClassName == "Event_160908_6_14d" or itemobj.ClassName == "Premium_boostToken02_1d" then
     	value:SetTextByKey("value", string.format("{img 4plus_image2 %d %d}", 100, 45) );
 	elseif itemobj.ClassName == "Premium_boostToken03" or itemobj.ClassName == "Premium_boostToken03_event01" then
     	value:SetTextByKey("value", string.format("{img 9multiply_image2 %d %d}", 100, 45) );
 	else
-	value:SetTextByKey("value", string.format("{img 2plus_image2 %d %d}", 100, 45) ); 
+    	value:SetTextByKey("value", string.format("{img 2plus_image2 %d %d}", 100, 45) );
     end
 
 	GBOX_AUTO_ALIGN(gBox, 0, 2, 0, true, false);
@@ -279,7 +280,7 @@ function BEFORE_APPLIED_INDUNRESET_OPEN(invItem)
 	
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_INDUNFREE",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
-	
+
 	if obj.ClassName == 'Premium_indunReset_1add' or obj.ClassName == 'Premium_indunReset_1add_14d' or obj.ClassName == 'indunReset_1add_14d_NoStack' then
 	    prop:SetTextByKey("value", ClMsg('Indun1AddText'));
 	else
@@ -294,7 +295,7 @@ function BEFORE_APPLIED_INDUNRESET_OPEN(invItem)
 	local itemobj = GetIES(invItem:GetObject());
 	local endTxt = frame:GetChild("endTime");
 	endTxt:ShowWindow(0);
-
+	
 	local strTxt = frame:GetChild("richtext_1");
 	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
 
@@ -306,10 +307,10 @@ function BEFORE_APPLIED_INDUNRESET_OPEN(invItem)
 
 	local endTime2 = bg2:GetChild("endTime2");
 	endTime2:ShowWindow(0);
-    
+
 	local strTxt = bg2:GetChild("str");
 	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
-    
+
 	local forToken = bg2:GetChild("forToken");
 	forToken:ShowWindow(1);
 
@@ -420,7 +421,7 @@ function REQ_TOKEN_ITEM(parent, ctrl)
 			ui.MsgBox(ScpArgMsg("IsAppliedToken{NAME}","NAME", itemName));
 			return;
 		end
-	elseif argList == "Premium_boostToken02" or argList == "Premium_boostToken02_1d" then
+	elseif argList == "Premium_boostToken02" then
 		local myHandle = session.GetMyHandle();
 		local buff = info.GetBuffByName(myHandle, 'Premium_boostToken02');
 		if buff ~= nil then

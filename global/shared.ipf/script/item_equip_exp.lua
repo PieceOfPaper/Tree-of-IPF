@@ -9,21 +9,6 @@ function GET_MORE_EXP_BOOST_TOKEN(pc)
 	return sumExp;
 end
 
-function GET_MORE_LEGEND_EXP_UP_CARD(pc)
-	local sumExp = 0.0;
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV1');	-- 레전드 카드 ---
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV2');	-- 레전드 카드 ---
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV3');	-- 레전드 카드 ---
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV4');	-- 레전드 카드 ---
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV5');	-- 레전드 카드 ---
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV6');	-- 레전드 카드 ---
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV7');	-- 레전드 카드 ---
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV8');	-- 레전드 카드 ---
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV9');	-- 레전드 카드 ---
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV10');	-- 레전드 카드 ---
-	return sumExp;
-end
-
 function GET_MORE_EVENT_EXP(pc)
 	local sumExp = 0.0;
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_LargeSongPyeon');	-- 대왕송편
@@ -41,53 +26,7 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Premium_Fortunecookie_5'); -- 포춘 쿠키 5단계
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Rice_Soup');	-- 떡국
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_LargeRice_Soup');	-- 특대 떡국
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_WhiteDay_Buff');	-- 화이트데이
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_FireSongPyeon'); --폭죽 버프
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Base_Buff'); --해외 버프
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Nru_Buff_Item'); --해외 신규 유저 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_1'); --출석 체크
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_2'); --출석 체크
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_3'); --출석 체크
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_4'); --출석 체크
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_5'); --출석 체크
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_6'); --출석 체크
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Happy_New_Year'); --해외 신년 이벤트	
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Goddess');	-- 여신의 조각상
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_RedOrb_GM');	-- 이벤트 참여
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_WeddingCake'); -- 웨딩 케잌
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Wedding'); --스팀 웨딩 이벤트
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1706_FREE_EXPUP'); --이런 이벤트
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1712_SECOND_BUFF'); --2주년 기념수의 축복
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1712_XMAS_FIRE'); --크리스마스 폭죽 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1802_CHOCO_BUFF1'); --발렌타인 초콜릿
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1802_CHOCO_BUFF2'); --발렌타인 초콜릿
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1802_CHOCO_BUFF3'); --발렌타인 초콜릿
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1802_CHOCO_BUFF4'); --발렌타인 초콜릿
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1802_CHOCO_BUFF5'); --발렌타인 초콜릿
-    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_1802_weekend'); --3월 주말 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1804_ARBOR_BUFF_7'); --2018년 식목일 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1805_CHILDREN'); --2018년 트린이날 폭죽 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1805_WEEKEND_BUFF'); --EVENT_1805_WEEKEND
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1805_NEWUSER_BUFF_1'); --너, 내 동료가 돼라 이벤트 1
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1805_NEWUSER_BUFF_2'); --너, 내 동료가 돼라 이벤트 2
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Danoh_3'); --대만 단오절
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Monster_EXP_UP'); --해외 페이스북 컴패니언 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_1'); --비 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_2'); --비 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_3'); --비 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_4'); --비 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_5'); --비 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1708_JURATE_1'); --비 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Last_Winter'); --마지막 겨울
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Friend_Rookie'); --친구 추천 버프_신규
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Friend_Savior'); --친구 추천 버프_기존
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Server_Buff'); --스팀 버전업 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1807_POOL_TABLE_BUFF'); --[Summer Festa] 휴식
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1807_BALL_CRACKER'); --[Summer Festa] 폭죽
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1807_WEEKEND_BUFF_1'); --[For 10] 경험치 버닝
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1810_FALL_LEAF_BUFF4'); --ENTER_EVENT_1810_FALL_LEAF
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1810_GUILD_EXPUP'); --길드 있어 트오세 있다 시즌2
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_ThanksgivingDay'); --붉은 씨앗
+
 	return sumExp; 
 end
 
@@ -114,11 +53,9 @@ function GET_MIX_MATERIAL_EXP(item)
 	
 	if itemExp ~= nil then
 	    if item.ItemType == "Equip" then
-	        return item.UseLv;
+	        return item.ItemLv;
 	    elseif item.EquipXpGroup == 'hethran_material' then
 			return itemExp;
-		elseif item.EquipXpGroup =='Gem' and itemExp > 0 then
-		    return itemExp;
 	    end
 		return prop:GetMaterialExp(itemExp);
 	end

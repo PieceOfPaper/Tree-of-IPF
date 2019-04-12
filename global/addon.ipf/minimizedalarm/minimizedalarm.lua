@@ -72,10 +72,6 @@ function ON_PVP_PLAYING_UPDATE(frame)
 end
 
 function WORLDPVP_START_ICON_NOTICE()
-    if IS_IN_EVENT_MAP() == true then
-        return;
-    end
-
 	local frame = ui.GetFrame("minimizedalarm");
 	local gbox = frame:GetChild("gbox");
 	local pic = gbox:GetChild("pic");

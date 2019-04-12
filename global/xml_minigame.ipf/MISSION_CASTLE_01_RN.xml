@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="MISSION_CASTLE_01_RN" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_d_castle_67_2" playerCountCheckDestroy="1" startWaitSec="-1526726657">
+    <Game Name="MISSION_CASTLE_01_RN" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_d_castle_67_2" startWaitSec="-1526726657">
         <StageList>
             <Stage Name="Setting">
                 <StartScpList>
@@ -204,7 +204,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="705006" Pos="558.21#91.02#380.44" angle="169" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" tendency="1">
+                    <Obj Type="Monster" MonType="705006" Pos="553.74#91.02#386.22" angle="169" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -385,7 +385,6 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="154025" Pos="550.39#91.02#382.78" genCount="1" genTime="20000" objectKey="4"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="GEN1">
@@ -406,7 +405,6 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName=""/>
                 </StageEvents>
             </Stage>
             <Stage Name="live_moth" AutoStart="0">
@@ -501,7 +499,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="154005" Pos="547.91#91.02#381.95" angle="15" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1">
+                    <Obj Type="Monster" MonType="154005" Pos="546.53#91.02#382.44" angle="15" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1">
                         <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -831,27 +829,6 @@
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="Time_over">
-                <ObjList/>
-                <StageEvents>
-                    <Event eventName="TimeCheck">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="960"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="Fail_out"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="미션에 실패하였습니다."/>
-                                <Num Num="5"/>
                             </ToolScp>
                         </execList>
                     </Event>

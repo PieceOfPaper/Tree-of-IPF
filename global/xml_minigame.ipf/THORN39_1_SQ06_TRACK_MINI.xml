@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="THORN39_1_SQ06_TRACK_MINI" minLv="0" maxLv="0" startWaitSec="193737008">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41197" Pos="880.86#1216.38#-1579.54" genCount="1" genTime="20000" autoGen="0" objectKey="0" SimpleAI="THORN39_1_SQ06_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41197" Pos="1008.10#1216.38#-1715.05" genCount="1" genTime="20000" autoGen="0" objectKey="1" SimpleAI="THORN39_1_SQ06_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41197" Pos="924.74#1216.38#-1597.44" genCount="1" genTime="20000" autoGen="0" objectKey="2" SimpleAI="THORN39_1_SQ06_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41197" Pos="1060.07#1216.38#-1729.48" genCount="1" genTime="20000" autoGen="0" objectKey="3" SimpleAI="THORN39_1_SQ06_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41197" Pos="1602.94#1216.38#-1237.32" angle="-137" genCount="1" genTime="20000" autoGen="0" objectKey="4" SimpleAI="THORN39_1_SQ06_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41197" Pos="1532.41#1216.38#-1198.92" angle="-135" genCount="1" genTime="20000" autoGen="0" objectKey="5" SimpleAI="THORN39_1_SQ06_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57653" Pos="1019.82#1216.38#-1755.41" genCount="1" genTime="20000" autoGen="0" objectKey="6" SimpleAI="THORN39_1_SQ06_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57653" Pos="878.99#1216.38#-1623.81" genCount="1" genTime="20000" autoGen="0" objectKey="7" SimpleAI="THORN39_1_SQ06_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57653" Pos="1520.21#1216.38#-1163.74" genCount="1" genTime="20000" autoGen="0" objectKey="8" SimpleAI="THORN39_1_SQ06_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57653" Pos="1613.08#1216.38#-1204.17" genCount="1" genTime="20000" autoGen="0" objectKey="9" SimpleAI="THORN39_1_SQ06_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57653" Pos="1550.57#1216.38#-1159.14" genCount="1" genTime="20000" autoGen="0" objectKey="10" SimpleAI="THORN39_1_SQ06_TRACK_MINI_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="1ST" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/6"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="2ND" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/5/DefGroup/9/DefGroup/10"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="40000" eventName="3RD" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/6/DefGroup/7"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/3/DefGroup/7"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="40000" eventName="4RD" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/4/DefGroup/5/DefGroup/8/DefGroup/9/DefGroup/10"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/4/DefGroup/8"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

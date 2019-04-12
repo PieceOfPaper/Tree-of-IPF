@@ -59,18 +59,24 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
 		value = value / 2;
 	end
 	
-    if moruItem.ClassName == "Moru_Silver" or moruItem.ClassName == "Moru_Silver_test" or moruItem.ClassName == "Moru_Silver_NoDay" or moruItem.ClassName == "Moru_Silver_TA" then 
+    if moruItem.ClassName == "Moru_Silver" or moruItem.ClassName == "Moru_Silver_test" or moruItem.ClassName == "Moru_Silver_NoDay" or moruItem.ClassName == "Moru_Silver_TA" or moruItem.ClassName == "Moru_Silver_TA2" then 
+		value = 0;
+	end
+
+    if moruItem.ClassName == "Moru_Gold_TA" then 
 		value = 0;
 	end
 	
-    if moruItem.ClassName == "Moru_Event160609" then
+    if moruItem.ClassName == "Moru_Event160609" or moruItem.ClassName == "Moru_Event160929_14d" then
 		value = 0;
 	end
     if moruItem.ClassName == "Moru_Potential" or moruItem.ClassName == "Moru_Potential14d" then
 		value = 0;
 	end
-	
-    value = math.floor(value)
+
+    value = math.floor((value*1.0)+0.5) / 1.0; 
+    -- 클라이언트와 서버의 소수점 정밀도 문제로 인해 위와 같은 수식을 사용했습니다.
+  
 	return math.floor(value);
 
 end

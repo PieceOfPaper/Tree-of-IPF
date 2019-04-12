@@ -59,7 +59,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="lutha">
+                    <Event execCount="1" eventName="lutha" execWithStart="0" isEnabled="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="5"/>
@@ -73,7 +73,7 @@
                     </Event>
                 </StageEvents>
             </Stage>
-            <Stage Name="lutha" AutoStart="0">
+            <Stage Name="lutha">
                 <ObjList>
                     <Obj Type="Monster" MonType="57580" Pos="-5784.69#239.93#6796.56" angle="-1" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;큐폴 루타&apos; &apos;BTree&apos; &apos;None&apos; &apos;Dialog&apos; &apos;GT41_LUTHA_NPC&apos; "/>
                 </ObjList>

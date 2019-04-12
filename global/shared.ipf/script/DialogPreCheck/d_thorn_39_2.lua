@@ -21,3 +21,11 @@ function SCR_THORN392_SQ_03_M_PRE_DIALOG(pc, dialog)
     end
     return 'NO'
 end
+
+function SCR_THORN392_SQ07_OBJ1_PRE_DIALOG(pc, dialog)
+    local result = SCR_QUEST_CHECK(pc, 'THORN39_2_SQ05')
+    if result == 'COMPLETE' then
+        return 'YES'
+    end
+    return 'NO'
+end

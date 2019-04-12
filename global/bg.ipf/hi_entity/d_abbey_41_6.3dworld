@@ -1,13 +1,13 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by vv (IMCGames Co., Ltd) -->
 <World>
-	<ModelDir IpfName="bg_hi2" Path="\dungeon\d_abbey_41_6\"/>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_abbey_41_6\"/>
 	<LightMap File="d_abbey_41_6_lightmap.jpg" Length="4600 4600" Offset="483.783 -82.794" Size="1024 1024"/>
 	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
 	<AnimationDir IpfName="bg_hi2" Path="\dungeon\d_abbey_41_6\"/>
-	<AutoHeightMap Length="6000.0 6000.0" Offset="-65 900" Height="1000 -2000"/>
+	<AutoHeightMap Length="4600 4600" Offset="483.783 -82.794" Height="4000 -4000"/>
 	<TexDir IpfName="bg_texture" Path="\abbey\"/>
-	<ShaTexDir IpfName="bg_hi2" Path="\dungeon\d_abbey_41_6\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_abbey_41_6\"/>
 	<Model File="d_abbey_41_6_2area_model.xac" Model="d_abbey_41_6_2area_model" ShadowMap="d_abbey_41_6_2area_model" pos="106.7036 4.1515 -1001.933" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_abbey_41_6_ground.xac" Model="d_abbey_41_6_ground" ShadowMap="d_abbey_41_6_ground" pos="87.2679 -29.7094 -67.3872" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_abbey_41_6_light.xac" Model="d_abbey_41_6_light" ShadowMap="d_abbey_41_6_light" pos="345.096 118.267 539.187" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
@@ -19,13 +19,16 @@
 	<Model File="d_abbey_41_6_4area_model.xac" Model="d_abbey_41_6_4area_model" ShadowMap="d_abbey_41_6_4area_model" pos="129.6443 77.8409 45.8964" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_abbey_41_6_5area_model.xac" Model="d_abbey_41_6_5area_model" ShadowMap="d_abbey_41_6_5area_model" pos="1203.2825 71.5898 -841.6005" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_abbey_41_6_6area_model.xac" Model="d_abbey_41_6_6area_model" ShadowMap="d_abbey_41_6_6area_model" pos="580.8120 -23.8273 85.5984" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_abbey_41_6_b_model03.xac" Model="d_abbey_41_6_b_model03" ShadowMap="d_abbey_41_6_b_model03" pos="1159.9722 -119.764 1109.508" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_41_6_b_model03.xac" Model="d_abbey_41_6_b_model03" ShadowMap="d_abbey_41_6_b_model03" pos="1178.323 -119.372 1134.989" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_41_6_anitree03.xac" Model="d_abbey_41_6_anitree03" ShadowMap="d_abbey_41_6_b_model03" pos="1110.706 -119.764 1109.508" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_abbey_41_6_7area_model.xac" Model="d_abbey_41_6_7area_model" ShadowMap="d_abbey_41_6_7area_model" pos="1272.0435 -12.1481 737.1830" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_abbey_41_6_8area_model.xac" Model="d_abbey_41_6_8area_model" ShadowMap="d_abbey_41_6_8area_model" pos="956.0002 -25.1213 746.0591" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_abbey_41_6_b_model04.xac" Model="d_abbey_41_6_b_model04" ShadowMap="d_abbey_41_6_b_model04" pos="399.0986 23.822 388.559" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_41_6_b_model04.xac" Model="d_abbey_41_6_b_model04" ShadowMap="d_abbey_41_6_b_model04" pos="399.099 23.822 578.958" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_41_6_anitree01.xac" Model="d_abbey_41_6_anitree01" ShadowMap="d_abbey_41_6_b_model04" pos="41.341 9.686 -801.075" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_abbey_41_6_grass02.xac" Model="d_abbey_41_6_grass02" ShadowMap="d_abbey_41_6_grass02" pos="1234.29 264.674 -991.709" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_abbey_41_6_water.xac" Model="d_abbey_41_6_water" ShadowMap="d_abbey_41_6_water" pos="267.3944 0.1929 -197.5252" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_abbey_41_6_b_model01.xac" Model="d_abbey_41_6_b_model01" ShadowMap="d_abbey_41_6_b_model01" pos="-1229.6129 -109.6804 -645.3696" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_41_6_b_model01.xac" Model="d_abbey_41_6_b_model01" ShadowMap="d_abbey_41_6_b_model01" pos="-1234.165 -109.68 -655.727" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_41_6_anitree02.xac" Model="d_abbey_41_6_anitree02" ShadowMap="d_abbey_41_6_b_model01" pos="-1229.613 -104.911 -644.453" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_abbey_41_6_obbcol.xac" Model="d_abbey_41_6_obbcol" pos="476.09 38.376 -235.145" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_abbey_41_6_ani01.xac" Model="d_abbey_41_6_ani01" AniFile="d_abbey_41_6_ani01.xsm" pos="-225.5682 277.8685 -0.3631" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_abbey_41_6_ani02.xac" Model="d_abbey_41_6_ani02" AniFile="d_abbey_41_6_ani02.xsm" pos="-198.7263 272.1979 -8.6676" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
@@ -38,7 +41,7 @@
 	<Model File="d_abbey_41_6_ani09.xac" Model="d_abbey_41_6_ani09" AniFile="d_abbey_41_6_ani09.xsm" pos="-156.6070 269.8217 -44.1171" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_abbey_41_6_ani10.xac" Model="d_abbey_41_6_ani10" AniFile="d_abbey_41_6_ani10.xsm" pos="-191.2488 269.8217 24.3742" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_abbey_41_6_flag01.xac" Model="d_abbey_41_6_flag01" AniFile="d_abbey_41_6_flag01.xsm" pos="993.526 143.474 779.114" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_abbey_41_6_flag02.xac" Model="d_abbey_41_6_flag02" AniFile="d_abbey_41_6_flag02.xsm" pos="1016.794 144.811 808.281" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_abbey_41_6_flag03.xac" Model="d_abbey_41_6_flag03" AniFile="d_abbey_41_6_flag03.xsm" pos="445.936 114.247 240.101" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_abbey_41_6_flag04.xac" Model="d_abbey_41_6_flag04" AniFile="d_abbey_41_6_flag04.xsm" pos="499.698 115.016 291.461" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_41_6_flag01.xac" Model="d_abbey_41_6_flag01" AniFile="d_abbey_41_6_flag01.xsm" pos="1016.794 144.811 808.281" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_41_6_flag01.xac" Model="d_abbey_41_6_flag01" AniFile="d_abbey_41_6_flag01.xsm" pos="445.936 114.247 240.101" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_41_6_flag01.xac" Model="d_abbey_41_6_flag01" AniFile="d_abbey_41_6_flag01.xsm" pos="499.698 115.016 291.461" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

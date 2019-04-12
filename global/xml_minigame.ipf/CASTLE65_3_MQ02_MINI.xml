@@ -26,13 +26,13 @@
                                     <Str_Arg Str="F_light019" Arg="1"/>
                                     <Str Str="MID"/>
                                 </ToolScp>
-                                <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="SCR_CASTLE653_MQ_02_MINI_CORE_BORN"/>
                                 </ToolScp>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58289" Pos="-849.90#166.69#1171.55" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;BTree&apos; &apos;TrackMonster&apos; &apos;Lv&apos; &apos;80&apos; &apos;PATK_BM&apos; &apos;-99999&apos; &apos;MATK_BM&apos; &apos;-99999&apos; &apos;CRTATK_BM&apos; &apos;-99999&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="58289" Pos="-849.90#166.69#1171.55" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;BTree&apos; &apos;TrackMonster&apos; &apos;Lv&apos; &apos;80&apos; &apos;PATK_BM&apos; &apos;-99999&apos; &apos;MATK_BM&apos; &apos;-99999&apos; &apos;CRTATK_BM&apos; &apos;-99999&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
@@ -298,6 +298,11 @@
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage01/1"/>
                                 <Str Str="SCR_CASTLE653_MQ_02_MINI_CHAT1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="마력핵이 모습을 드러냈습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
                             </ToolScp>
                         </execList>
                     </Event>

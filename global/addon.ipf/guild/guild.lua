@@ -172,7 +172,7 @@ end
 
 
 function ON_GUILD_ENTER(frame, msg, str, isEnter)
-	ThrottleScript("UPDATE_GUILDINFO", 5.0);	
+	UPDATE_GUILDINFO(frame);	
 end
 
 function ON_MYPC_GUILD_JOIN(frame)
@@ -191,12 +191,12 @@ end
 
 function ON_GUILD_INFO_UPDATE(frame, msg)
 
-	ThrottleScript("UPDATE_GUILDINFO", 5.0);
+	UPDATE_GUILDINFO(frame);
 
 end
 
 function ON_GUILD_PROPERTY_UPDATE(frame, msg)
-	ThrottleScript("UPDATE_GUILDINFO", 5.0);
+	UPDATE_GUILDINFO(frame);
 
 end
 
@@ -317,11 +317,6 @@ function GUILD_UPDATE_SKL_OBJ_INFO(frame, guildObj)
 end
 
 function UPDATE_GUILDINFO(frame)
-	
-	if frame == nil then
-		frame = ui.GetFrame("guild");
-	end
-
 	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
 	if pcparty == nil then
 		frame:ShowWindow(0);
@@ -763,7 +758,7 @@ end
 function GUILD_SHOW_ONLY_CONNECTED(parent, ctrl)
 
 	local frame = parent:GetTopParentFrame();
-	ThrottleScript("UPDATE_GUILDINFO", 5.0);
+	UPDATE_GUILDINFO(frame);
 
 	local guild_authority_popup = ui.GetFrame("guild_authority_popup");	
 	guild_authority_popup:ShowWindow(0);

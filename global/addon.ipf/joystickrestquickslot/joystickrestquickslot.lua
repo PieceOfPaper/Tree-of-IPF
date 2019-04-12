@@ -32,7 +32,7 @@ function JOYSTICKRESTQUICKSLOT_ON_INIT(addon, frame)
 			SLOT_NAME_INDEX = 0;
 		end
 
-		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..string, 'default', ui.LEFT, ui.TOP, 2, 1);
+		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..string, 'default', 'left', 'top', 2, 1);
 	end
 	
 end
@@ -88,11 +88,6 @@ function ON_JOYSTICK_RESTQUICKSLOT_CLOSE(frame, msg, argStr, argNum)
 
 	frame = ui.GetFrame("joystickrestquickslot");
 
-	local flutFrame = ui.GetFrame("fluting_keyboard");
-	if flutFrame:IsVisible() == 1 then
-		flutFrame:ShowWindow(0);
-	end
-	
 	frame:ShowWindow(0);
 
 	if IsJoyStickMode() == 0 then
@@ -135,7 +130,7 @@ function SET_JOYSTICK_REST_QUICK_SLOT(slot, cls)
 			slot:GetIcon():SetGrayStyle(1);
 		end
 
-		slot:GetIcon():SetText('{s18}{ol}{b}'.. itemCount, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
+		slot:GetIcon():SetText('{s18}{ol}{b}'.. itemCount, 'count', 'right', 'bottom', -2, 1);
 	end
 
 	local enableScp = cls.EnableScript;
@@ -244,10 +239,4 @@ function UPDATE_JOYSTICK_REST_INPUT(frame)
 		gbox:SetSkinName(padslot_offskin);
 	end
 
-end
-
-function OPEN_JOYSTICK_REST_QUICKSLOT(frame)
-end
-
-function CLOSE_JOYSTICK_REST_QUICKSLOT(frame)
 end

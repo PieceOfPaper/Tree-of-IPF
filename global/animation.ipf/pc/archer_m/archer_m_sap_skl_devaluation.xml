@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-	<AttachModel frame="0" XAC="artefact_paper_devaluation" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="artefact_paper_ani.xsm"/>
-	<Sound frame="2.00" soundFile="skl_fgt_tackle_shot"/>
-	<Sound frame="2.00" soundFile="atk_cloth_m_l1"/>
-	<Particle frame="8" attachNode="Dummy_emitter_overestimate" particleName="F_archer_Overestimate_buff" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-	<Particle frame="8" attachNode="Dummy_Claymore" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-	<Particle frame="8" attachNode="Dummy_emitter" particleName="E_archer_Devaluation" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <AttachModel frame="0" XAC="artefact_paper_devaluation" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="artefact_paper_ani.xsm"/>
+    <Sound frame="2.00" soundFile="skl_fgt_tackle_shot"/>
+    <Sound frame="2.00" soundFile="atk_cloth_m_l1"/>
+    <Particle frame="4" attachNode="Dummy_emitter_overestimate" particleName="F_archer_Overestimate_buff" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="4" attachNode="Dummy_Claymore" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="E_archer_Devaluation" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
 </ActionDesc>

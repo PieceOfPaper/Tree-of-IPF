@@ -1,56 +1,47 @@
 function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
-    local serverID = GetServerGroupID()
-    local select = 0;
-
-    if IsBuffApplied(pc, 'Event_Steam_Secret_Market') == 'YES' then
-        RemoveBuff(pc, 'Event_Steam_Secret_Market')
-    end
-
-    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("EVENT_STEAM_2018REWARD_DLG1"), ScpArgMsg("EVENT_STEAM_2018REWARD_DLG2"), ScpArgMsg("EventShop"), ScpArgMsg("Cancel"))
-  
-    if select == 1 then
-        SCR_EV2018_REWARD_GUIDE_DIALOG(self, pc)
-    elseif select == 2 then
-        SCR_EV2018_REWARD_DAYDAY_DIALOG(self, pc)
-    elseif select == 3 then
-        ExecClientScp(pc, "REQ_EVENT_ITEM_SHOP2_OPEN()")
-    end
-end
-
-function SCR_STEAM_2018_TREASURE_EVENT_DIALOG(self,pc) -- 국내 수확 이벤트 함수명 바꿔서 사용 --
-      -- SCR_STEAM_TREASURE_EVENT_DIALOG -- 검색 로그 남김 --
-    if pc.Lv < 50 then
-        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1801_ORB_MSG8","LV",50), 10);
+    if pc.Lv < 100 then
+        ShowOkDlg(pc, 'EV_PRISON_DESC2', 1)
         return
     end
-    local select = ShowSelDlg(pc,0, 'EV_DAILYBOX_SEL', ScpArgMsg("Get_RedSeed"), ScpArgMsg("Cancel"))
-
+    local aObj = GetAccountObj(pc);
+    
+    EVENT_PROPERTY_RESET(pc, aObj, sObj)
+    
+    if pc.MHP - pc.HP > 0 then
+        AddHP(pc, pc.MHP - pc.HP);
+    end
+    
+    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("Prison_Select1"), ScpArgMsg("Prison_Select3"), ScpArgMsg("Prison_Select2", "COUNT", aObj.PlayTimeEventRewardCount), ScpArgMsg("Cancel"))
+    
     if select == 1 then
-        local aobj = GetAccountObj(pc);
-        local now_time = os.date('*t')
-        local yday = now_time['yday']
-        local hour = now_time['hour']
-        local min = now_time['min']
-        
-        if aobj.THANKSGIVINGDAY_DAY ~= yday then
-            local tx = TxBegin(pc);
-            TxSetIESProp(tx, aobj, 'THANKSGIVINGDAY_DAY', yday)
-            TxGiveItem(tx, 'Event_Seed_ThanksgivingDay', 1, "EVENT_THANKSGIVINGDAY_DAY")
-            
-            if aobj.Event_HiddenReward ~= 2 then
-                TxGiveItem(tx, 'NECK99_102_team', 1, "EVENT_THANKSGIVINGDAY_DAY")
-                TxSetIESProp(tx, aobj, 'Event_HiddenReward', 2)
-            end
-            local ret = TxCommit(tx);
+        AUTOMATCH_INDUN_DIALOG(pc, nil, 'Indun_d_prison_62_1_event')
+    elseif select == 2 then
+        AUTOMATCH_INDUN_DIALOG(pc, nil, 'Indun_d_prison_event_easy')
+    elseif select == 3 then
+        if aObj.PlayTimeEventRewardCount >= 10 and aObj.Event_HiddenReward == 0 then
+            local tx = TxBegin(pc)
+            TxAddIESProp(tx, aObj, 'Event_HiddenReward', 1);
+            TxGiveItem(tx, 'Premium_Enchantchip14', 3, 'Prison_Event');
+        	local ret = TxCommit(tx)
+        elseif aObj.PlayTimeEventRewardCount >= 20 and aObj.Event_HiddenReward == 1 then
+            local tx = TxBegin(pc)
+            TxAddIESProp(tx, aObj, 'Event_HiddenReward', 1);
+            TxGiveItem(tx, 'Hat_628290', 1, 'Prison_Event');
+        	local ret = TxCommit(tx)
         else
-            SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg('EVENT_1705_CORSAIR_MSG4'),10)
-        end
+            ShowOkDlg(pc, 'EV_PRISON_DESC1')
+    	end
     end
 end
 
-function SCR_STEAM_TREASURE_EVENT_FEDIMIAN_DIALOG(self,pc)
-    local select = ShowSelDlg(pc,0, 'EV_DAILYBOX_SEL', ScpArgMsg("Event_Fedimian_1"), ScpArgMsg("Cancel"))   
-    if select == 1 then
-        SCR_EVENT171018_FEDIMIAN_RAID_DIALOG(self,pc)
+function EVENT_PROPERTY_RESET(pc, aObj, sObj)
+    if aObj.DAYCHECK_EVENT_LAST_DATE ~= 'Fortune' then -- 현재 진행중인 이벤트
+        local tx = TxBegin(pc)
+        TxSetIESProp(tx, aObj, 'DAYCHECK_EVENT_LAST_DATE', "Fortune");
+        TxSetIESProp(tx, aObj, 'PlayTimeEventRewardCount', 0);
+        TxSetIESProp(tx, aObj, 'Event_HiddenReward', 0);
+        TxSetIESProp(tx, etcObj, 'InDunCountType_900', 0);
+    	local ret = TxCommit(tx)
+    	print(ret)
     end
 end

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
 <ActionDesc>
-	<Particle frame="7" attachNode="Bip01 HeadNub" particleName="F_pose_OTL_ride" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
+    <Sound frame="2.00" soundFile="atk_cloth_m_r2"/>
+    <Particle frame="7" attachNode="Bip01 HeadNub" particleName="F_pose_OTL_ride" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
 </ActionDesc>

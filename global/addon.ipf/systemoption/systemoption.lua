@@ -83,11 +83,6 @@ function INIT_SCREEN_CONFIG(frame)
 	if autoPerfBtn ~= nil then
 		autoPerfBtn:Select();
 	end
-	
-	local chkOptimization = GET_CHILD_RECURSIVELY(frame, "check_optimization", "ui::CCheckBox");
-	if nil ~= chkOptimization then
-		chkOptimization:SetCheck(imcperfOnOff.IsEnableOptimization());
-	end;
 
 	local syncMode = option.IsEnableVSync()
 	local syncBtn = GET_CHILD_RECURSIVELY(frame,"vsync_" .. syncMode,"ui::CRadioButton");
@@ -139,6 +134,11 @@ function INIT_GRAPHIC_CONFIG(frame)
 	local highTexture = GET_CHILD(frame, "check_highTexture", "ui::CCheckBox");
 	if nil ~= highTexture then
 	highTexture:SetCheck(config.GetHighTexture());
+	end;
+
+	local otherPCDamage = GET_CHILD(frame, "check_ShowOtherPCDamageEffect", "ui::CCheckBox");
+	if nil ~= otherPCDamage then
+		otherPCDamage:SetCheck(config.GetOtherPCDamageEffect());
 	end;
 end
 
@@ -209,24 +209,20 @@ function APPLY_PERFMODE(frame)
 	
 	local parent = frame:GetTopParentFrame();
 	local highTexture = GET_CHILD(parent, "check_highTexture", "ui::CCheckBox");
+	local otherPCDamage = GET_CHILD(parent, "check_ShowOtherPCDamageEffect", "ui::CCheckBox");
 	if 0 == perfType then
 		graphic.EnableHighTexture(0);
+		config.EnableOtherPCDamageEffect(0);
 	else
 		graphic.EnableHighTexture(1);
+		config.EnableOtherPCDamageEffect(1);
 	end
 	highTexture:SetCheck(config.GetHighTexture());
+	otherPCDamage:SetCheck(config.GetOtherPCDamageEffect());
 
 	config.SetAutoAdjustLowLevel(perfType)
 	config.SaveConfig();
 
-end
-
-function APPLY_OPTIMIZATION(frame)
-	if imcperfOnOff.IsEnableOptimization() == 1 then
-		imcperfOnOff.EnableOptimization(0);
-	else
-		imcperfOnOff.EnableOptimization(1);
-	end
 end
 
 function APPLY_SCREEN(frame)

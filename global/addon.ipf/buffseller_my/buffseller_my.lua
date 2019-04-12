@@ -1,4 +1,7 @@
+
 function BUFFSELLER_MY_ON_INIT(addon, frame)
+
+
 
 end
 
@@ -13,8 +16,14 @@ function UPDATE_PERSONALSHOP_CTRLSET_MY(ctrlSet, info)
 end
 
 function UPDATE_BUFFSELLER_SLOT_MY(ctrlSet, info)
-	local buffCls = GetClassByType('Buff', info.classID);
-	SET_BUFFSELLER_CTRLSET(ctrlSet, buffCls.ClassName, info.level, 'Pardoner_SpellShop', info.price, info.remainCount);
+	local skill_slot = GET_CHILD(ctrlSet, "skill_slot", "ui::CSlot");
+	SET_SLOT_SKILL_BY_LEVEL(skill_slot, info.classID, info.level)
+	local sklObj = GetClassByType("Skill", info.classID);
+	ctrlSet:SetUserValue("Type", info.classID);
+	ctrlSet:GetChild("skillname"):SetTextByKey("value", sklObj.Name);
+	ctrlSet:GetChild("skilllevel"):SetTextByKey("value", info.level);
+	ctrlSet:GetChild("remaincount"):SetTextByKey("value", info.remainCount);
+	ctrlSet:GetChild("price"):SetTextByKey("value", info.price);
 end
 
 function MY_AUTOSELL_LIST(groupName, sellType)
@@ -62,15 +71,16 @@ function MY_AUTOSELL_LIST(groupName, sellType)
 
 	GBOX_AUTO_ALIGN(selllist, 10, 10, 10, true, false);
 	frame:ShowWindow(1);
+
 end
 
-local function _UPDATE_AUTOSELL_HISTORY_CTRLSET(ctrlSet, info)
+function UPDATE_AUTOSELL_HISTORY_CTRLSET(ctrlSet, info)
 	local itemCls = GetClassByType("Item", info.itemType);
 	local slot = GET_CHILD(ctrlSet, "slot");
 
 	if nil == itemCls then
-		itemCls = GetClassByType("Buff", info.itemType);
-		imageName = GET_BUFF_ICON_NAME(itemCls);
+		itemCls = GetClassByType("Skill", info.itemType);
+		imageName = 'icon_' .. GetClassString('Skill', info.itemType, 'Icon');
 		SET_SLOT_IMG(slot, imageName);
 	else
 		SET_SLOT_ITEM_CLS(slot, itemCls);
@@ -121,14 +131,6 @@ function MY_AUTOSELL_HISTORY(groupName, sellType)
 		local appraisal_pc = ui.GetFrame('appraisal_pc');
 		APPRAISAL_PC_UPDATE_HISTORY(appraisal_pc);
 		return;
-    elseif sellType == AUTO_SELL_PORTAL then
-        local portal_seller = ui.GetFrame('portal_seller');
-        PORTAL_SELLER_UPDATE_HISTORY(portal_seller);
-        return;
-    elseif sellType == AUTO_SELL_AWAKENING then
-        local itemdungeon = ui.GetFrame('itemdungeon');
-        ITEMDUNGEON_UPDATE_HISTORY(itemdungeon);
-        return;
 	end
 
 	local frame = ui.GetFrame("buffseller_my");
@@ -141,7 +143,7 @@ function MY_AUTOSELL_HISTORY(groupName, sellType)
 	for i = cnt -1 , 0, -1 do
 		local info = session.autoSeller.GetHistoryByIndex(groupName, i);
 		local ctrlSet = history:CreateControlSet(ctrlsetType, "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-		_UPDATE_AUTOSELL_HISTORY_CTRLSET(ctrlSet, info);		
+		UPDATE_AUTOSELL_HISTORY_CTRLSET(ctrlSet, info);		
 	end
 
 	GBOX_AUTO_ALIGN(history, 10, 10, 10, true, false);
@@ -151,4 +153,7 @@ function BUFFSELLER_MY_CLOSE(frame)
 	frame = frame:GetTopParentFrame();
 	local groupName = frame:GetUserValue("GroupName");
 	session.autoSeller.Close(groupName);
+	-- frame:ShowWindow(0);
 end
+
+

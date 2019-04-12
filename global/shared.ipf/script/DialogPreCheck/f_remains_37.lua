@@ -56,3 +56,11 @@ function SCR_REMAIN37_SQ04_PRE_DIALOG(pc, dialog)
     end
     return 'NO'
 end
+
+function SCR_HTA_REMAINS_40_SMOKE_PRE_DIALOG(pc, dialog)
+    local hta_item = GetInvItemCount(pc, 'HTA_REMAINS_40_WATERPOT_ITEM1')    
+    if hta_item >= 1 then
+        return 'YES'
+    end
+    return 'NO'
+end

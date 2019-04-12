@@ -6,9 +6,10 @@ function APPRAISAL_PC_UI_COMMON(groupName, sellType, handle)
 	-- set user value
 	local frame = ui.GetFrame("appraisal_pc");
 	local groupInfo = session.autoSeller.GetByIndex(groupName, 0);
-    AUTOSELLER_SET_SELLER_VALUE(frame, groupName, sellType, handle);
-
-	local sklName = GetClassByType("Skill", groupInfo.classID).ClassName;	
+	local sklName = GetClassByType("Skill", groupInfo.classID).ClassName;
+	frame:SetUserValue("GroupName", groupName);
+	frame:SetUserValue("SELL_TYPE", sellType);
+	frame:SetUserValue("HANDLE", handle);
 	frame:SetUserValue("SKILLNAME", sklName)
 
 	-- default tab: appraisalBox
@@ -21,12 +22,6 @@ function APPRAISAL_PC_UI_COMMON(groupName, sellType, handle)
 	APPRAISAL_PC_REFRESH(frame);
 	
 	frame:ShowWindow(1);
-end
-
-function AUTOSELLER_SET_SELLER_VALUE(frame, groupName, sellType, handle)
-    frame:SetUserValue("GroupName", groupName);
-	frame:SetUserValue("SELL_TYPE", sellType);
-	frame:SetUserValue("HANDLE", handle);
 end
 
 function APPRAISAL_PC_CALC_NEEDCOUNT(frame)
@@ -119,7 +114,7 @@ end
 
 function APPRAISAL_PC_EXECUTE(frame)
 	local frame = frame:GetTopParentFrame();
-	local handle = frame:GetUserIValue("HANDLE");
+	local handle = frame:GetUserValue("HANDLE");
 	local skillName = frame:GetUserValue("SKILLNAME");
 	local slotSet = GET_CHILD_RECURSIVELY(frame, "slotlist", "ui::CSlotSet")
 	
@@ -132,7 +127,7 @@ function APPRAISAL_PC_EXECUTE(frame)
 	end
 
 	-- check money
-	if handle ~= session.GetMyHandle() and IsGreaterThanForBigNumber(frame:GetUserIValue('TOTAL_MONEY'), GET_TOTAL_MONEY_STR()) == 1 then
+	if GET_TOTAL_MONEY() < frame:GetUserIValue('TOTAL_MONEY') then
 		ui.MsgBox(ScpArgMsg("Auto_SoJiKeumi_BuJogHapNiDa."));
 		return;
 	end
@@ -164,12 +159,12 @@ function APPRAISAL_PC_UPDATE_HISTORY(frame)
 	local groupName = frame:GetUserValue("GroupName");	
 	local cnt = session.autoSeller.GetHistoryCount(groupName);
 	local gboxctrl = frame:GetChild("historyBox");
-	local historyStrBox = gboxctrl:GetChild("historyStrBox");
-	historyStrBox:RemoveAllChild();
+	local log_gbox = gboxctrl:GetChild("historyStrBox");
+	log_gbox:RemoveAllChild();
 
 	for i = cnt -1 , 0, -1 do
 		local info = session.autoSeller.GetHistoryByIndex(groupName, i);
-		local ctrlSet = historyStrBox:CreateControlSet("squire_rpair_history", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+		local ctrlSet = log_gbox:CreateControlSet("squire_rpair_history", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 
 		local sList = StringSplit(info:GetHistoryStr(), "#");
 		local userName = sList[1];
@@ -195,11 +190,11 @@ function APPRAISAL_PC_UPDATE_HISTORY(frame)
 		itemname:SetTextByKey("value", itemStr);
 		local price = ctrlSet:GetChild("Price");
 		price:SetTextByKey("value", priceStr);
-		ctrlSet:Resize(historyStrBox:GetWidth() - 40, price:GetY() + price:GetHeight()); -- 40: SCROLL_WIDTH
+		ctrlSet:Resize(ctrlSet:GetWidth(), price:GetY() + price:GetHeight())
 		ctrlSet:Invalidate();
 	end
 
-	GBOX_AUTO_ALIGN(historyStrBox, 20, 3, 10, true, false);
+	GBOX_AUTO_ALIGN(log_gbox, 20, 3, 10, true, false);
 end
 
 function APPRAISAL_PC_REFRESH(frame)

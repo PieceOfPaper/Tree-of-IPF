@@ -12,9 +12,6 @@ function SEQUENTIALPICKITEM_ON_INIT(addon, frame)
 end
 
 function SEQUENTIAL_PICKITEMON_MSG(frame, msg, arg1, type, class)
-    if IS_IN_EVENT_MAP() == true then
-        return;
-    end
 
 	if msg == 'INV_ITEM_ADD' then
 		if arg1 == 'UNEQUIP' then
@@ -63,6 +60,7 @@ function SEQUENTIAL_PICKITEMON_MSG(frame, msg, arg1, type, class)
 end
 
 function SEQUENTIALPICKITEM_OPEN(frame)
+
 	local index = string.find(frame:GetName(), "SEQUENTIAL_PICKITEM_");
 	local frameindex = string.sub(frame:GetName(), index + string.len("SEQUENTIAL_PICKITEM_"), string.len(frame:GetName()))
 	local nowcount = tonumber(frameindex);
@@ -94,6 +92,8 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 		return
 	end
 
+	local wiki = GetWikiByName(class.ClassName);
+
 	SEQUENTIALPICKITEM_openCount = SEQUENTIALPICKITEM_openCount + 1;
 	local frameName = "SEQUENTIAL_PICKITEM_"..tostring(SEQUENTIALPICKITEM_openCount);
 
@@ -108,10 +108,12 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	frame:SetUserValue("ITEMGUID_N_COUNT",tablekey)
 	
 	local duration = tonumber(frame:GetUserConfig("POPUP_DURATION"))
-	local PickItemGropBox	= GET_CHILD(frame,'pickitem')
-	--PickItemGropBox:RemoveAllChild();  -- Ïó¨Í∏∞ÏÑú ÏûêÏãùÎì§ÏùÑ Ï£ΩÏó¨ÏÑú ÏûêÏãùÏúºÎ°ú ÎÑ£ÏùÄ ÌîΩÏ≥êÍ∞Ä ÏïàÎÇòÏôîÏùå.
 
-	-- ControlSet Ïù¥Î¶Ñ ÏÑ§Ï†ï
+
+	local PickItemGropBox	= GET_CHILD(frame,'pickitem')
+	--PickItemGropBox:RemoveAllChild();  -- ø©±‚º≠ ¿⁄ΩƒµÈ¿ª ¡◊ø©º≠ ¿⁄Ωƒ¿∏∑Œ ≥÷¿∫ «»√ƒ∞° æ»≥™ø‘¿Ω.
+
+	-- ControlSet ¿Ã∏ß º≥¡§
 	local img = GET_ITEM_ICON_IMAGE(class);
 
 	local PickItemCountObj		= PickItemGropBox:CreateControlSet('pickitemset_Type', 'pickitemset', 0, 0);
@@ -121,18 +123,13 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	local ConSetBySlot 	= PickItemCountCtrl:GetChild('slot');
 	local slot			= tolua.cast(ConSetBySlot, "ui::CSlot");
 	local icon = CreateIcon(slot);
-
-	-- ÏïÑÏù¥ÌÖú Ïù¥Î¶ÑÍ≥º ÌöçÎìùÎüâ Ï∂úÎ†•
-	local invItem = session.GetInvItemByGuid(itemGuid);
-	local nameObj = class;
 	local iconName = img;
-	if invItem ~= nil and invItem:GetObject() ~= nil then
-		nameObj = GetIES(invItem:GetObject());
-		iconName = GET_ITEM_ICON_IMAGE(nameObj);
-	end	
+
 	icon:Set(iconName, 'PICKITEM', itemCount, 0);
 
-	local printName	 = '{@st41}' ..GET_FULL_NAME(nameObj);
+
+	-- æ∆¿Ã≈€ ¿Ã∏ß∞˙ »πµÊ∑Æ √‚∑¬
+	local printName	 = '{@st41}' ..GET_FULL_NAME(class);
 	local printCount = '{@st41b}'..ScpArgMsg("GetByCount{Count}", "Count", itemCount);
 
 	PickItemCountCtrl:SetTextByKey('ItemName', printName);
@@ -140,10 +137,11 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	
 	local AddWiki = GET_CHILD(PickItemCountCtrl,'AddWiki')
 	if addMsg == nil then
-		if class.Journal == 'TRUE' and IsExistItemInAdventureBook(pc, class.ClassID) == 'YES' and false == fromWareHouse then
+		if wiki ~= nil and false == fromWareHouse then	
 
-			local total = GetItemObtainCount(pc, class.ClassID);
+			local total = GetWikiIntProp(wiki, "Total");
 			if total ~= nil then
+
 				local totalCount = total;
 
 				if totalCount > 1 then
@@ -164,21 +162,20 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 		AddWiki:ShowWindow(1);
 	end
 
-	-- ÏïÑÏù¥ÌÖúÏù¥Î¶Ñ ÎÑàÎ¨¥Í∏∏Îïå Ïß§Î†§ÏÑú resize ÏùºÎã® ÏÖãÌåÖ.
+	-- æ∆¿Ã≈€¿Ã∏ß ≥ π´±Ê∂ß ¬©∑¡º≠ resize ¿œ¥‹ º¬∆√.
 	local itemName = GET_CHILD(PickItemCountCtrl,'ItemName');
-	-- Î¶¨ÏÇ¨Ïù¥Ï¶à ÌïòÎ†§Îäî ÏÇ¨Ïù¥Ï¶àÍ∞Ä ÏõêÎûò ÌîÑÎ†àÏûÑ ÏÇ¨Ïù¥Ï¶àÎ≥¥Îã§ ÏûëÏúºÎ©¥ Î¶¨ÏÇ¨Ïù¥Ï¶à ÌïòÏßÄ ÏïäÏùå.
+	-- ∏ÆªÁ¿Ã¡Ó «œ∑¡¥¬ ªÁ¿Ã¡Ó∞° ø¯∑° «¡∑π¿” ªÁ¿Ã¡Ó∫∏¥Ÿ ¿€¿∏∏È ∏ÆªÁ¿Ã¡Ó «œ¡ˆ æ ¿Ω.
 	local newWidth =itemName:GetX()+itemName:GetTextWidth()+ 20;
 	if newWidth > frame:GetOriginalWidth() then
 		frame:Resize(newWidth,  frame:GetOriginalHeight());
 		PickItemGropBox:Resize(newWidth, PickItemGropBox:GetOriginalHeight());
-		PickItemCountCtrl:Resize(newWidth, PickItemCountCtrl:GetOriginalHeight());		
 	end
 
-		
+
 	PickItemGropBox:UpdateData();
 	PickItemGropBox:Invalidate();
 
-	--ÎÇ¥Ïö© ÎÅù
+	--≥ªøÎ ≥°
 
 	frame:ShowWindow(1);
 	frame:SetDuration(duration);

@@ -57,8 +57,8 @@ function SCR_SIAULIAI46_1_HIDDEN_EVENT_PRE_DIALOG(pc, dialog, handle)
         if obj_list[i].ClassName == "stone_monument3" then
 --        print("2222222222222")
             if obj_list[i].NumArg2 < 1 then
---                print("33333333", obj_list[i].NumArg2, obj_list[i].ClassName)
-                return 'YES'
+--                print("33333333", obj_list[i].Faction, obj_list[i].NumArg1)
+                return 'NO'
             elseif obj_list[i].NumArg2 >= 1 then
 --                print("4444444")
                 return 'YES'

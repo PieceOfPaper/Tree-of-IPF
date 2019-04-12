@@ -35,8 +35,8 @@ function DIALOGSELECT_ITEM_ADD(frame, msg, argStr, argNum)
 	end
 	
 	local controlName = 'item' .. argNum .. 'Btn'
-	local ItemBtn = frame:GetChild(controlName);
-	local ItemBtnCtrl = tolua.cast(ItemBtn, 'ui::CButton');
+	local ItemBtn		= frame:GetChild(controlName);
+	local ItemBtnCtrl	= tolua.cast(ItemBtn, 'ui::CButton');
 	local locationUI = DialogSelect_offsetY - argNum * 37 - 10;
 	
 	ItemBtnCtrl:SetGravity(ui.CENTER_HORZ, ui.TOP);
@@ -45,51 +45,58 @@ function DIALOGSELECT_ITEM_ADD(frame, msg, argStr, argNum)
 		local width  = questRewardBox:GetWidth();
 		local height = questRewardBox:GetHeight();
 		local offset = 10 + ((argNum-1) * 40);
-		local offsetEx = 20 + ((argNum) * 40);
+		local offsetEx = 10 + ((argNum) * 40);
 		local y = tonumber(frame:GetUserValue("QUESTFRAME_HEIGHT"));	
 		local frameHeight = offset + y + 50;
 		local maxHeight = ui.GetSceneHeight();
 		
 		questRewardBox:SetGravity(ui.CENTER_HORZ, ui.TOP);		
 				
-		questRewardBox:SetOffset(0, 50);
-		if frame:GetUserIValue("FIRSTORDER_MAXHEIGHT") == 1 then			
+		local spaceBtnHeight = (10 + (argNum * 40) + 40) - 40 ;
+		questRewardBox:SetOffset(0, 50);	
+		if tonumber(frame:GetUserValue("FIRSTORDER_MAXHEIGHT")) == 1 then			
 			if (y + (maxHeight - frame:GetY())) > (maxHeight) then	
 				local frameMaxHeight = maxHeight/2;
-				frameHeight = offset + frameMaxHeight + 50;
+				frameHeight = offset + frameMaxHeight + 50;		
+					
+				local boxHeight = frameMaxHeight - spaceBtnHeight;		
+				questRewardBox:Resize(width + 10, boxHeight );
+				questRewardBox:SetScrollBar(boxHeight );
 				frame:SetUserValue("IsScroll", "YES");		
-
-				ItemBtnCtrl:SetOffset(0, questRewardBox:GetY() + questRewardBox:GetHeight() + 10);	
+				ItemBtnCtrl:SetOffset(0, boxHeight + offsetEx);	
 			else				
-				frame:SetUserValue("IsScroll", "NO");
-				ItemBtnCtrl:SetOffset(0, height + offset + 10 + ItemBtnCtrl:GetHeight());
+				frame:SetUserValue("IsScroll", "NO");	
+				ItemBtnCtrl:SetOffset(0, height + offset + 10 + ItemBtnCtrl:GetHeight());			
 			end;
 			frame:SetUserValue("FIRSTORDER_MAXHEIGHT", 0);
-		else
+		else			
 			if frame:GetUserValue("IsScroll") == "NO" then
 				height = y + ItemBtnCtrl:GetHeight();	
 				frameHeight = height + offset + 50;	
-				ItemBtnCtrl:SetOffset(0, height + offset + 10);				
+				ItemBtnCtrl:SetOffset(0, height + offset + 10);
 			else
 				frameHeight = height + offsetEx + 50;	
 				ItemBtnCtrl:SetOffset(0, height + offsetEx);
 			end
 		end
 
-		frame:Resize(600, frameHeight + 10);
+		frame:Resize(600, frameHeight + 10);			
 		frame:ShowWindow(1);	
 		
 	else
 		ItemBtnCtrl:SetOffset(0, (argNum-1) * 40 + 40);
-		frame:Resize(600, (argNum + 1) * 40 + 10);
+		frame:Resize(600, (argNum + 1) * 40 + 10);		
+        frame:SetOffset(frame:GetX(),  locationUI);
 	end
 
-    ItemBtnCtrl:SetEventScript(ui.LBUTTONUP, 'control.DialogSelect(' .. argNum .. ')', true);
+	ItemBtnCtrl:SetEventScript(ui.LBUTTONDOWN, 'control.DialogSelect(' .. argNum .. ')');
 	ItemBtnCtrl:ShowWindow(1);
 	ItemBtnCtrl:SetText('{s18}{b}{#2f1803}'..argStr);
-
 	frame:Update();
 end
+
+
+
 
 function DIALOGSELECT_QUEST_REWARD_ADD(frame, argStr)
 	local questCls = GetClass("QuestProgressCheck", argStr);
@@ -100,7 +107,7 @@ function DIALOGSELECT_QUEST_REWARD_ADD(frame, argStr)
 		return 0;
 	end
 
-	local questRewardBox = frame:CreateOrGetControl('groupbox', 'questreward', 10, 10, frame:GetWidth() - 70, 400);
+	local questRewardBox = frame:CreateOrGetControl('groupbox', 'questreward', 10, 10, frame:GetWidth()-70, frame:GetHeight());
 	tolua.cast(questRewardBox, "ui::CGroupBox");
 	questRewardBox:DeleteAllControl();
 	questRewardBox:EnableDrawFrame(0);
@@ -162,60 +169,42 @@ function DIALOGSELECT_QUEST_REWARD_ADD(frame, argStr)
     	y = MAKE_BASIC_REWARD_BUFF_CTRL(questRewardBox, cls, y);
     	y = MAKE_BASIC_REWARD_HONOR_CTRL(questRewardBox, cls, y);
     	y = MAKE_BASIC_REWARD_PCPROPERTY_CTRL(questRewardBox, cls, y);
-    	y = MAKE_BASIC_REWARD_JOURNEYSHOP_CTRL(questRewardBox, cls, y);
     end
     
 	local succExp = cls.Success_Exp;
-	local succJobExp = 0;
 	if repeat_reward_exp > 0 then
 	    succExp = succExp + repeat_reward_exp
 	end
 	
-    if succExp > 0 then
-        succJobExp = succJobExp + math.floor(succExp * 77 /100)
-    end
-    
-    if cls.Success_Lv_Exp > 0 then
-        local xpIES = GetClass('Xp', pc.Lv)
+	if cls.Success_Lv_Exp > 0 then
+        local xpIES = GetClass('Xp', questCls.Level)
         if xpIES ~= nil then
             local lvexpvalue =  math.floor(xpIES.QuestStandardExp * cls.Success_Lv_Exp)
-            if lvexpvalue ~= nil and lvexpvalue > 0 and pc.Lv < PC_MAX_LEVEL then
+            if lvexpvalue ~= nil and lvexpvalue > 0 then
 	            succExp = succExp + lvexpvalue
-            end
-            local lvjobexpvalue =  math.floor(xpIES.QuestStandardJobExp * cls.Success_Lv_Exp)
-            if lvjobexpvalue ~= nil and lvjobexpvalue > 0 and GetJobLv(pc) < 15 then
-	            succJobExp = succJobExp + lvjobexpvalue
             end
         end
     end
     
 	if succExp > 0 then
-	    succExp = GET_COMMAED_STRING(succExp)
-	    y = y + 5
-		y = BOX_CREATE_RICHTEXT(questRewardBox, "t_successExp", y, 50, ScpArgMsg("Auto_{@st41}KyeongHeomChi_:_") .."{s18}{#FFFF00}"..  succExp.."{/}", 10);
-		local tempY = y
-		y = MAKE_QUESTINFO_REWARD_LVUP(questRewardBox, questCls, 20, y, '{@st41b}')
-		if tempY ~= y then
-		    y = y - 5
-		end
-	end
-	if succJobExp > 0 then
-	    succJobExp = GET_COMMAED_STRING(succJobExp)
-		y = BOX_CREATE_RICHTEXT(questRewardBox, "t_successJobExp", y , 50, ScpArgMsg("SuccessJobExpGiveMSG1") .."{s18}{#FFFF00}"..  succJobExp.."{/}", 10);
+		y = BOX_CREATE_RICHTEXT(questRewardBox, "t_successExp", y, 50, ScpArgMsg("Auto_{@st41}KyeongHeomChi_:_") .."{s20}{#FFFF00}"..  succExp.."{/}");
+		
+		y = MAKE_QUESTINFO_REWARD_LVUP(questRewardBox, questCls, 10, y)
 	end
 
 	y = MAKE_REWARD_ITEM_CTRL(questRewardBox, cls, y);
     y = MAKE_BASIC_REWARD_RANDOM_CTRL(questRewardBox, questCls, cls, y)
-    y = MAKE_REWARD_STEP_ITEM_CTRL(questRewardBox, questCls, cls, y)
 	y = MAKE_BASIC_REWARD_REPE_CTRL(questRewardBox, questCls, cls, y)
-	questRewardBox:Resize(questRewardBox:GetWidth(), math.min(questRewardBox:GetHeight(), y));
-	frame:SetUserValue("QUESTFRAME_HEIGHT",  questRewardBox:GetHeight());
+	questRewardBox:Resize(10, 10, questRewardBox:GetWidth(), y+30);
+	frame:SetUserValue("QUESTFRAME_HEIGHT",  y+30);
 	frame:Invalidate();
 	return 1;
 end
 
 function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
-	frame:SetMargin(0, 0, 0, 300);
+	frame:Invalidate();
+	frame:SetOffset(frame:GetX(),frame:GetY())
+
     if  msg == 'DIALOG_CHANGE_SELECT'  then
 		for i = 1, 11 do
 			local childName = 'item' .. i .. 'Btn'
@@ -242,7 +231,6 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
 		numberEdit:Resize(70, 40);
 		numberEdit:ShowWindow(1);
 		numberEdit:SetNumberMode(1);
-        numberEdit:SetMaxLen(16)
 		numberEdit:AcquireFocus();
 		frame:Resize(400, 100);
 		DialogSelect_Type = 1;
@@ -253,10 +241,11 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
 		numberEdit:Resize(360, 40);
 		numberEdit:ShowWindow(1);
 		numberEdit:SetNumberMode(0);
-        numberEdit:SetMaxLen(32)
 		numberEdit:AcquireFocus();
 		frame:Resize(400, 100);
 		DialogSelect_Type = 2;
+		frame:SetOffset(frame:GetX(),math.floor(ui.GetSceneHeight()*0.7))
+		
 		local questreward = frame:GetChild('questreward');
 		if questreward ~= nil then
     		questreward:ShowWindow(0)
@@ -335,6 +324,7 @@ end
 
 function DIALOGSELECT_NUMBER_ENTER(frame, ctrl)
 	local strText = ctrl:GetText();
+
 	if strText ~= nil then
 		if DialogSelect_Type == 1 then
 			local number = tonumber(strText);
@@ -347,66 +337,10 @@ end
 
 function DIALOGSELECT_STRING_ENTER(frame, ctrl)
 	local strText = ctrl:GetText();
+
 	if strText ~= nil then
 		control.DialogStringSelect(strText);
 	end
-end
-
-function MAKE_REWARD_STEP_ITEM_CTRL(box, questCls, cls, y, state)
-    if TryGetProp(cls, 'StepRewardList1') ~= nil and TryGetProp(cls, 'StepRewardList1') ~= 'None' then
-        local duplicate = TryGetProp(cls, 'StepRewardDuplicatePayments')
-        local lastReward
-        local pc = GetMyPCObject();
-        if duplicate == 'NODUPLICATE' then
-            local sObj = GetSessionObject(pc, 'ssn_klapeda')
-            local lastRewardList = TryGetProp(sObj, questCls.QuestPropertyName..'_SRL')
-            if lastRewardList ~= nil and lastRewardList ~= 'None' then
-                lastReward = SCR_STRING_CUT(lastRewardList)
-            end
-        end
-        local maxRewardIndex
-        if state == 'SUCCESS' then
-            for index = 1, 10 do
-                if table.find(lastReward, index) == 0 then
-                    local stepRewardFuncList = TryGetProp(cls, 'StepRewardFunc'..index)
-                    if stepRewardFuncList ~= nil and stepRewardFuncList ~= 'None' then
-                        stepRewardFuncList = SCR_STRING_CUT(stepRewardFuncList)
-                        local stepRewardFunc = _G[stepRewardFuncList[1]]
-                        if stepRewardFunc ~= nil then
-                            local result = stepRewardFunc(pc, stepRewardFuncList)
-                            if result == 'YES' then
-                                maxRewardIndex = index
-                            end
-                        end
-                    end
-                end
-            end
-        end
-        local titleFlag = 0
-        for index = 1, 10 do
-            if (state == nil and table.find(lastReward, index) == 0) or (state == 'SUCCESS' and maxRewardIndex == index) then
-                if titleFlag == 0 then
-                    y = y + 10
-                    y = BOX_CREATE_RICHTEXT(box, "t_stepReward", y, 50, '{@st54}{b}'..ScpArgMsg("QUEST_STEPREWARD_MSG1"), 0);
-                    titleFlag = 1
-                end
-                local rewardList = SCR_TABLE_TYPE_SEPARATE(SCR_STRING_CUT(TryGetProp(cls, 'StepRewardList'..index)), {'ITEM'})
-                local itemList = rewardList['ITEM']
-                if itemList ~= nil and itemList[1] ~= 'None' and #itemList > 0 then
-                    y = y + 7
-                    y = BOX_CREATE_RICHTEXT(box, "s_stepReward_text_"..index, y, 50, '{@st41b}'..ScpArgMsg("QUEST_STEPREWARD_MSG2", "STEP", index), 10);
-                    y = y - 5
-                    for i2 = 1, #itemList/2 do
-                        local itemName = itemList[i2*2 - 1]
-                        local itemCount = itemList[i2*2]
-                        y = MAKE_ITEM_TAG_TEXT_CTRL(y, box, "s_stepReward_item_", itemName, itemCount, index*10+i2);
-                        y = y - 10
-                    end
-                end
-            end
-        end
-    end
-    return y;
 end
 
 function MAKE_REWARD_ITEM_CTRL(box, cls, y)

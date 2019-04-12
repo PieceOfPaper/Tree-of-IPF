@@ -12,6 +12,11 @@ function ITEMBUFF_SET_SKILLTYPE(frame, skillName, skillLevel, titleName)
 	title:SetTextByKey("txt", titleName);
 end
 
+function ITEM_STOR_FAIL()
+	ui.SysMsg(ClMsg("CannotState"));
+	ui.CloseFrame("itembuff");
+end
+
 function ITEMBUFF_REFRESH_LIST(frame)
 	local reqitembox = frame:GetChild("Material");
 	local reqitemtext = reqitembox:GetChild("reqitemCount");
@@ -29,7 +34,7 @@ function ITEMBUFF_REFRESH_LIST(frame)
 	reqitemtext:SetTextByKey("txt", text);
 end
 
-function ITEM_BUFF_CREATE_STORE(frame)    
+function ITEM_BUFF_CREATE_STORE(frame)
 	ITEM_BUFF_CLOSE();
 	local optionBox = frame:GetChild("OptionBox");
 	local edit = GET_CHILD(optionBox, "TitleInput")
@@ -92,7 +97,6 @@ function ITEM_BUFF_CREATE_STORE(frame)
 		return;
 	end
 	session.autoSeller.RequestRegister("ItemBuffStore", storeGroupName, edit:GetText(), sklName);
-    packet.SendMoveStopMyCharacter()
 end
 
 function OPEN_MY_ITEMBUFF_UI(groupName, sellType, handle)
@@ -110,9 +114,6 @@ function OPEN_MY_ITEMBUFF_UI(groupName, sellType, handle)
 		return;
 	elseif sklName == 'Appraiser_Apprise' then
 		APPRAISAL_PC_UI_COMMON(groupName, sellType, handle);
-		return;
-    elseif groupName == 'Portal' then
-		PORTAL_SELLER_OPEN_UI(groupName, sellType, handle);
 		return;
 	end
 
@@ -143,9 +144,6 @@ function OPEN_ITEMBUFF_UI(groupName, sellType, handle)
 	elseif sklName == 'Appraiser_Apprise' then
 		APPRAISAL_PC_UI_COMMON(groupName, sellType, handle);
 		return;
-    elseif groupName == 'Portal' then
-		PORTAL_SELLER_OPEN_UI(groupName, sellType, handle);
-		return;
 	end
 
 	OPEN_ITEMBUFF_UI_COMMON(groupName, sellType, handle);
@@ -173,7 +171,7 @@ function SQUIRE_HIDE_UI(frame)
 	material:SetVisible(0);
 end
 
-function OPEN_ITEMBUFF_UI_COMMON(groupName, sellType, handle)	
+function OPEN_ITEMBUFF_UI_COMMON(groupName, sellType, handle)
 	if 	groupName == "None" then
 		ui.CloseFrame("itembuffopen");
 		ui.CloseFrame("inventory");	
@@ -188,7 +186,20 @@ function OPEN_ITEMBUFF_UI_COMMON(groupName, sellType, handle)
 	local statusTab = open:GetChild('statusTab');
 	ITEMBUFF_SHOW_TAB(statusTab, handle);
 
-	local sklName = GetClassByType("Skill", groupInfo.classID).ClassName;	
+	local sklName = GetClassByType("Skill", groupInfo.classID).ClassName;
+	local armor = open:GetChild("Squire_ArmorTouchUp");
+	local Weapon = open:GetChild("Squire_WeaponTouchUp");
+	
+	if 'Squire_WeaponTouchUp' == sklName then 
+
+		armor:SetVisible(0);
+		Weapon:SetVisible(1);
+	else
+
+		armor:SetVisible(1);
+		Weapon:SetVisible(0);
+	end
+	
 	open:SetUserValue("SKILLNAME", sklName)
 	open:SetUserValue("SKILLLEVEL", groupInfo.level);
 	open:SetUserValue("HANDLE", handle);
@@ -203,8 +214,8 @@ function OPEN_ITEMBUFF_UI_COMMON(groupName, sellType, handle)
 	
 	open:SetUserValue("PRICE", groupInfo.price)
 	
-	local tabObj = open:GetChild('statusTab');
-	local itembox_tab = tolua.cast(tabObj, "ui::CTabControl");
+	local tabObj		    = open:GetChild('statusTab');
+	local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
 	itembox_tab:SelectTab(0);
 	SQIORE_BUFF_VIEW(open);
 	SQUTE_UI_RESET(open);
@@ -232,56 +243,4 @@ function ITEMBUFF_SHOW_TAB(tabCtrl, handle)
 	else
 		tabCtrl:ShowWindow(0);
 	end
-end
-
-function ITEMBUFF_INIT_USER_PRICE(frame, sklClassName)
-	local MoneyInput = GET_CHILD_RECURSIVELY(frame, 'MoneyInput');
-	PROCESS_USER_SHOP_PRICE(sklClassName, MoneyInput);
-end
-
-local function GET_PC_ABILITY_OBJECT_LIST()
-    local abilObjList = {};
-    local pcSession = session.GetMySession();
-	local abilList = pcSession.abilityList;
-	local abilListCnt = 0;
-	if abilList ~= nil then
-		abilListCnt = abilList:Count();
-	end
-
-	for i=0, abilListCnt - 1 do
-		local abil = abilList:Element(i);
-		if abil ~= nil and abil:GetObject() ~= nil then
-            abilObjList[#abilObjList + 1] = GetIES(abil:GetObject());
-		end
-    end
-    return abilObjList;
-end
-
-function PROCESS_USER_SHOP_PRICE(sklClassName, editCtrl, buffClassID)
-	local userPriceCls = GetClass('UserShopPrice', sklClassName);	
-	if userPriceCls ~= nil then
-		local priceType = userPriceCls.PriceType;
-		local price = 0;
-		if priceType == 'UnitPrice' then
-			price = userPriceCls.DefaultPrice;
-		elseif priceType == 'ConstantPrice' then
-			local GetPriceScp = _G[TryGetProp(userPriceCls, 'Price', 'None')];
-			if GetPriceScp ~= nil then
-				local buffCls = GetClassByType('Buff', buffClassID);
-				local argStr = '';
-				if buffSklCls ~= nil then
-					argStr = buffCls.ClassName;
-				end
-
-				price = GetPriceScp(sklClassName, GetZoneName(), argStr, GET_PC_ABILITY_OBJECT_LIST());
-				if price < 1 then
-					IMC_LOG('ERROR_LOGIC', 'PROCESS_USER_SHOP_PRICE: price error- shop['..sklClassName..'], argStr['..argStr..']');
-				end
-			end	
-		end
-		editCtrl:SetText(price);
-			editCtrl:EnableHitTest(0);
-			return;
-		end
-	editCtrl:EnableHitTest(1);
 end

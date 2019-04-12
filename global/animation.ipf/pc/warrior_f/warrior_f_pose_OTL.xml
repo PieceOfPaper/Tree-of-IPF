@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
 <ActionDesc>
-	<Particle frame="7" attachNode="Dummy_emitter" particleName="E_PC_pose_OTL" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
+    <Sound frame="2.00" soundFile="skl_eff_move_sitdown"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="E_PC_pose_OTL" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="200"/>
 </ActionDesc>

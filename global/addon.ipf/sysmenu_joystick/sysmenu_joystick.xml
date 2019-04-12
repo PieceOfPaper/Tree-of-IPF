@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="sysmenu_joystick" x="0" y="0" width="700" height="200">
-	<frame layout_gravity="center top" margin="0 250 0 0" padding="0 0 0 0" fasthide="true" hideprocess="true" scale_align="center center" keyboardselectframe="true"/>
-	<skin frameskin="systemmenu_vertical 잠정제거"/>
-	<layer layerlevel="20"/>
-	<option visible="true" closebutton="false"/>
+	<frame layout_gravity="center top" margin="0 250 0 0" padding="0 0 0 0" fasthide="true" hideprocess="true" scale_align="center center" keyboardselectframe="true" draw="false"/>
+	<skin frameskin ="none"/>	<layer layerlevel="20"/>
+  
+<option visible="false" closebutton="false" alwaysVisible="false"/>
 	<draw drawframe="true" drawtitlebar="false"/>
 	<animation frameOpenAnim="dialog_start2" frameCloseAnim="dialog_end"/>
 	<input hittest="true" hittestframe="false"/>
 	<controls>
-		<button name="slot_center" rect="0 0 60 65" margin="0 0 0 0" layout_gravity="center center" clickrgn="0 0 60 65" clicksound="button_click_2" image="sysmenu_sys" oversound="button_over" skin="textbutton" stretch="false" />
+		<button name="slot_center" rect="0 0 60 65" margin="0 0 0 0" layout_gravity="center center" clickrgn="0 0 60 65" clicksound="button_click_2" image="sysmenu_sys" oversound="button_over" skin="textbutton" stretch="false"/>
 		<picture name="slot_left1" rect="0 0 55 60" margin="-60 0 0 0" layout_gravity="center center" clickrgn="0 0 55 60" image="sysmenu_sys" skin="textbutton" stretch="true"/>
 		<picture name="slot_left2" rect="0 0 55 60" margin="-115 0 0 0" layout_gravity="center center" clickrgn="0 0 55 60" image="sysmenu_sys" skin="textbutton" stretch="true"/>
 		<picture name="slot_left3" rect="0 0 55 60" margin="-170 0 0 0" layout_gravity="center center" clickrgn="0 0 55 60" image="sysmenu_sys" skin="textbutton" stretch="true"/>

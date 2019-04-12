@@ -4,5 +4,7 @@
     <Particle frame="0" attachNode="Dummy_emitter" particleName="I_warrior_dash_run_line3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
     <Particle frame="0" attachNode="Dummy_q_Force" particleName="I_leaf002" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
     <Particle frame="0" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="0.00" soundFile="walk_left"/>
     <Particle frame="7" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="9.00" soundFile="walk_left"/>
 </ActionDesc>

@@ -6,8 +6,7 @@
 				<ObjList>
 					<Obj Type="Monster" MonType="58437" Pos="-315.78#-229.30#-202.73" genCount="1" genTime="20000" objectKey="0" searchRange="800" tendency="1"/>
 					<Obj Type="Monster" MonType="58437" Pos="-317.27#-229.30#-277.18" genCount="1" genTime="20000" objectKey="1" searchRange="800" tendency="1"/>
-					<Obj Type="Monster" MonType="58437" Pos="-364.69#-229.30#-87.91" genCount="1" genTime="20000" objectKey="3" searchRange="800" tendency="1"/>
-				</ObjList>
+					</ObjList>
 				<StageEvents>
 					<Event eventName="1-2">
 						<condList>
@@ -83,9 +82,7 @@
 			<Stage Name="3rd" AutoStart="0">
 				<ObjList>
 					<Obj Type="Monster" MonType="58437" Pos="-310.74#-229.30#-156.17" genCount="1" genTime="20000" objectKey="0" searchRange="800" tendency="1"/>
-					<Obj Type="Monster" MonType="58437" Pos="-429.61#-229.30#-36.86" genCount="1" genTime="20000" objectKey="1" searchRange="800" tendency="1"/>
 					<Obj Type="Monster" MonType="58475" Pos="-381.65#-229.30#-106.87" genCount="1" genTime="20000" objectKey="3" searchRange="800" tendency="1"/>
-					<Obj Type="Monster" MonType="58475" Pos="-399.08#-229.30#-38.95" genCount="1" genTime="20000" objectKey="4" searchRange="800" tendency="1"/>
 					<Obj Type="Monster" MonType="58433" Pos="-398.73#-229.30#-17.86" genCount="1" genTime="20000" objectKey="6" searchRange="800" tendency="1"/>
 					</ObjList>
 			</Stage>

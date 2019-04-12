@@ -38,10 +38,10 @@ function SCR_KATYN_SUCH_POINT_05_PRE_DIALOG(pc, dialog)
     return 'NO'
 end
 
---function SCR_KATYN7_MQ06_TRACK_PRE_DIALOG(pc, dialog, handle)
---    local result = SCR_QUEST_CHECK(pc, 'KATYN71_MQ_06')
---    if result == 'PROGRESS' then
---        return 'YES'
---    end
---    return 'NO'
---end
+function SCR_KATYN7_MQ06_TRACK_PRE_DIALOG(pc, dialog, handle)
+    local result = SCR_QUEST_CHECK(pc, 'KATYN71_MQ_06')
+    if result == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end

@@ -3,7 +3,7 @@
 <uiframe name="event_reward_notify" x="0" y="0" width="1024" height="300">
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 -200 0 0" draw="false"/>
 	<skin frameskin="none"/>
-	<draw drawtitlebar="false"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<option visible="false" hideable="false" closebutton="false" autoresize="1 1" fixwidth="false" resizeframe="true" autoresizebychild="true" alwaysVisible="false"/>
 	<userconfig TEXT_MARGIN="120" DURATION="7" QUOTES="'"/>
 	<layer layerlevel="100"/>

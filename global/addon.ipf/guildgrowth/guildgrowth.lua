@@ -68,6 +68,13 @@ function UPDATE_GUILD_ABILITY_CTRLSET(ctrlSet, cls, guildObj)
 end
 
 function GUILD_ABILITY_UP(parent, ctrl)
+
+	local isLeader = AM_I_LEADER(PARTY_GUILD);
+	if isLeader == 0 then
+		ui.MsgBox(ScpArgMsg("OnlyGuildLeader"));
+		return;
+	end
+
 	local clsID = parent:GetUserIValue("CLASSID");
 	local yesScp = string.format("_EXEC_GUILD_ABILITY_UP(%d)", clsID);
 	ui.MsgBox( ScpArgMsg("ExecLearnAbility"), yesScp, "None");
@@ -143,6 +150,7 @@ function GUILDGROWTH_OPEN(frame)
 
 	GUILDGROWTH_UPDATE_CONTRIBUTION(frame, guildObj)
 	GUILDGROWTH_UPDATE_ABILITY(frame, guildObj);
+	GUILDGROWTH_UPDATE_SKIL(frame, guildObj);
 end
 
 function GUILD_SKILL_UP(frame, ctrl)
@@ -186,6 +194,54 @@ function _EXEC_GUILD_SKILL_UP(sklName)
 	local scpString = string.format("/learnguildskl %s", sklName);
 	ui.Chat(scpString);
 
+end
+
+function GUILDGROWTH_UPDATE_SKIL(frame, guildObj)
+	local ctrlset_growth = frame:GetChild("abilities");
+	local sklgBox = ctrlset_growth:GetChild("sklgBox");
+	local skl_list = sklgBox:GetChild("skl_list");
+	skl_list:RemoveAllChild();
+	local sklLIst = GET_TEMPLAR_GUILD_SKIL_LIST();
+
+	for i = 1 , #sklLIst do
+		local ctrlSet = skl_list:CreateControlSet("guild_skl_ctrl", "CTRLSET_" .. sklLIst[i],  ui.LEFT, ui.TOP, 0, 0, 0, 0);
+		local skl = session.GetSkillByName(sklLIst[i])		
+		local learnsklgBox = ctrlSet:GetChild("learnsklgBox");
+
+		 if nil ~= skl then
+			learnsklgBox:ShowWindow(0);
+			local level = TryGetProp(guildObj, sklLIst[i] .. '_Lv');
+			if nil == level then
+				level = 0;
+			end
+
+			local t_level = ctrlSet:GetChild("t_level");
+			t_level:SetTextByKey('value', level);
+			
+			local obj = GetIES(skl:GetObject());	
+			local t_skl_name = ctrlSet:GetChild("t_skl_name");
+			t_skl_name:SetTextByKey('value', obj.Name);
+
+			local t_skl_desc = ctrlSet:GetChild("t_skl_desc");
+			t_skl_desc:SetTextByKey('value', PARSE_TOOLTIP_CAPTION(obj, obj.Caption)); 
+			local pic = GET_CHILD(ctrlSet, "pic");
+			pic:SetImage( "icon_"..obj.Icon);
+			
+			ctrlSet:SetUserValue('SKLNAME', obj.ClassName);
+		 else
+			local cls = GetClass('Skill', sklLIst[i]);		
+			learnsklgBox:SetTextByKey('value', cls.Name);
+			local pic = ctrlSet:GetChild("pic");
+			pic:ShowWindow(0);
+
+			local t_level = ctrlSet:GetChild("t_level");
+			t_level:ShowWindow(0); 
+			local btn= ctrlSet:GetChild("btn");
+			btn:ShowWindow(0);
+		 end
+	end
+
+	GBOX_AUTO_ALIGN(skl_list, 10, 10, 10, true, false);
 end
 
 function GUILDGROWTH_UPDATE_CONTRIBUTION(frame, guildObj)
@@ -242,20 +298,13 @@ function DROP_GUILDGROWTH_TALT(parent, ctrl)
 	local invItem = GET_DRAG_INVITEM_INFO();
 
 	local dropItemCls = GetClassByType("Item", invItem.type);
-	local itemGuildCheck = TryGetProp(dropItemCls, "StringArg")
-	if itemGuildCheck ~= "Guild_EXP" then
-	    local text = ScpArgMsg("ItemOnlyForGuildExpUpPlz");
+	local itemName = GET_GUILD_EXPUP_ITEM_INFO();
+	local taltCls = GetClass("Item", itemName);
+	if itemName ~= dropItemCls.ClassName then
+		local text = ScpArgMsg("DropItem{Name}ForGuildExpUp", "Name", taltCls.Name);
 		ui.SysMsg(text);
 		return;
 	end
-	
---	local itemName = GET_GUILD_EXPUP_ITEM_INFO();
---	local taltCls = GetClass("Item", itemName);
---	if itemName ~= dropItemCls.ClassName then
---		local text = ScpArgMsg("DropItem{Name}ForGuildExpUp", "Name", taltCls.Name);
---		ui.SysMsg(text);
---		return;
---	end
 
 	local frame = parent:GetTopParentFrame();
 	INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_DROP_GUILDTALT", invItem.count, 1, invItem.count);
