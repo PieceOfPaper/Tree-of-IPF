@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="DialogText">
 	<Category Name="해외 이벤트">
 		<Class OverrideType="ADD" ClassID="5010018" ClassName="NPC_EVENT_VERUP_DLG1" Caption="이벤트 알림판" NextPage="None" ImgName="blank" VoiceName="None" Text="'쿠키와 함께 레벨업' 이벤트가 시작되었습니다.{nl}'레벨업 보상 상자' 10개를 지급해 드렸습니다." arg1="None" arg2="None" arg3="None" arg4="None"/>
@@ -89,5 +89,11 @@
 		<Class OverrideType="ADD" ClassID="5010114" ClassName="EVENT_SELECT_BOSSLV_08" Caption="이벤트 알림판" NextPage="None" ImgName="blank" VoiceName="None" Text="입장 가능 횟수가 부족합니다." arg1="None" arg2="None" arg3="None" arg4="None"/>
 		<Class OverrideType="ADD" ClassID="5010115" ClassName="EVENT_SELECT_BOSSLV_09" Caption="마법진" NextPage="None" ImgName="blank" VoiceName="None" Text="보스 레벨을 잘못 입력하였거나 너무 높습니다." arg1="None" arg2="None" arg3="None" arg4="None"/>
 		<Class OverrideType="ADD" ClassID="5010131" ClassName="EVENT_STEAM_NEW_YEAR_BOX_1" Caption="금괴" NextPage="None" ImgName="blank" VoiceName="None" Text="Lucky Key는 Facebook 이벤트에서 지급되었습니다.{nl}(2017년 12월 28일 ~ 2018년 1월 9일)" arg1="None" arg2="None" arg3="None" arg4="None"/>
+		<Class OverrideType="ADD" ClassID="5010136" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_DLG_1" Caption="경계하는 남자" NextPage="None" ImgName="blank" VoiceName="None" Text="마을에 머물게 해주셔서 감사합니다.{nl}헌데.. 이렇게 누추한 곳까지 어쩐 일이신가요?{nl}제게.. 볼 일이라도...?{nl}없다면 돌아가 주시길 부탁드립니다." arg1="None" arg2="None" arg3="None" arg4="None"/>
+		<Class OverrideType="ADD" ClassID="5010137" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_DLG_2" Caption="경계하는 남자" NextPage="None" ImgName="blank" VoiceName="None" Text="알고 있다고.. 모두가 들어갈 수는 없습니다." arg1="None" arg2="None" arg3="None" arg4="None"/>
+		<Class OverrideType="ADD" ClassID="5010138" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_DLG_3" Caption="경계하는 남자" NextPage="None" ImgName="blank" VoiceName="None" Text="하하하.. 뭐 이런 걸.. 원한 건 아닙니다만..{nl}자.. 들어가 보겠습니까?" arg1="None" arg2="None" arg3="None" arg4="None"/>
+		<Class OverrideType="ADD" ClassID="5010139" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_DLG_4" Caption="경계하는 남자" NextPage="None" ImgName="blank" VoiceName="None" Text="볼 일 없으면 그만 돌아가 주시길 부탁드립니다." arg1="None" arg2="None" arg3="None" arg4="None"/>
+		<Class OverrideType="ADD" ClassID="5010140" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_DLG_5" Caption="야시장 관리인" NextPage="None" ImgName="blank" VoiceName="None" Text="마음에 드는 물건은 있었나?{nl}운이 좋으면 다음에 또 볼 수 있기를 바라지..." arg1="None" arg2="None" arg3="None" arg4="None"/>
+		<Class OverrideType="ADD" ClassID="5010141" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_DLG_6" Caption="경계하는 남자" NextPage="None" ImgName="blank" VoiceName="None" Text="당신은 모험을 시작한 지 얼마 되지 않아 보이는군요.{nl}아직 이곳에 오기에 이릅니다." arg1="None" arg2="None" arg3="None" arg4="None"/>
 	</Category>
 </idspace>

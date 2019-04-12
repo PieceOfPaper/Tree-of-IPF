@@ -18,6 +18,10 @@
     if IsSameActor(self, party_pc) ~= "YES" and GetDistance(self, party_pc) < PARTY_SHARE_RANGE then
         SCR_DROP_LVUPBUFF(self, sObj, msg, argObj, argStr, argNum)
     end
+    --EVENT_STEAM_SECRET_NIGHT_MARKET
+    if IsSameActor(self, party_pc) ~= "YES" and GetDistance(self, party_pc) < PARTY_SHARE_RANGE then
+        SCR_EVENT_SECRET_MARKET_DROPITEM(self, sObj, msg, argObj, argStr, argNum)
+    end
 end
 
 function SCR_SSN_KLAPEDA_KillMonster(self, sObj, msg, argObj, argStr, argNum)
@@ -31,4 +35,7 @@ function SCR_SSN_KLAPEDA_KillMonster(self, sObj, msg, argObj, argStr, argNum)
 
     --upgrade buff
     SCR_DROP_LVUPBUFF(self, sObj, msg, argObj, argStr, argNum)
+
+    --EVENT_STEAM_SECRET_NIGHT_MARKET
+    SCR_EVENT_SECRET_MARKET_DROPITEM(self, sObj, msg, argObj, argStr, argNum)
 end

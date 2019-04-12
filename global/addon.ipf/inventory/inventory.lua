@@ -1373,6 +1373,12 @@ end
 
 function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 	local pc = GetMyPCObject();
+	local ZoneClassName = GetZoneName(self)
+    if ZoneClassName == 'c_request_1' then
+        ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
+        return 0;
+    end
+   
 	if pc == nil or IsPVPServer(pc) == 1 then
 		local isEnableUseInPVPMap = TryGetProp(itemobj, "PVPMap");
 		if isEnableUseInPVPMap ~= "YES" then

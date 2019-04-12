@@ -10704,7 +10704,11 @@
 	        <Class ClassID="501118" ClassName="Moru_Silver_14d" Data="은빛 모루(14일)"/>
 		<Class ClassID="501119" ClassName="EVENT_REWARD_DAY" Data=" {nl}{HOUR} 시간후에 보상을 수령할 수 있습니다."/>
 		<Class ClassID="501120" ClassName="Point_Stone_100" Data="특성 포인트 100"/>
-		</Category>
+		<Class ClassID="501121" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_SEL1" Data="비밀 야시장에 대해 알고 있다."/>
+		<Class ClassID="501122" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_SEL2" Data="탈트 10개를 건네준다."/>
+		<Class ClassID="501123" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_SEL3" Data="비밀 야시장으로 들어간다."/>
+		<Class ClassID="501124" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_SEL4" Data="비밀 야시장을 나간다."/>
+	</Category>
 	<Category Name="Skill_Misc_Shop">
 		<Class ClassID="510100" ClassName="Skill_Misc_Shop_Sel_Warrior" Data="전사 계열"/>
 		<Class ClassID="510101" ClassName="Skill_Misc_Shop_Sel_Archer" Data="궁수 계열"/>

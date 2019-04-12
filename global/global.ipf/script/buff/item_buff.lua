@@ -165,3 +165,18 @@ function SCR_BUFF_LEAVE_Premium_Fortunecookie_5(self, buff, arg1, arg2, over)
     self.MSPD_BM = self.MSPD_BM - 5;
     self.MHP_BM = self.MHP_BM - 2000;
 end
+
+function SCR_BUFF_ENTER_Event_Steam_Drug_RedOx(self, buff, arg1, arg2, over)
+    self.SR_BM = self.SR_BM + 1
+    self.MSP_BM = self.MSP_BM + 1000;
+end
+
+function SCR_BUFF_UPDATE_Event_Steam_Drug_RedOx(self, buff, arg1, arg2, RemainTime, ret, over)
+    AddStamina(self, 99999);
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_Event_Steam_Drug_RedOx(self, buff, arg1, arg2, over)
+    self.SR_BM = self.SR_BM - 1
+    self.MSP_BM = self.MSP_BM - 1000
+end

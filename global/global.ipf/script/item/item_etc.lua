@@ -1238,3 +1238,7 @@ function SCR_USE_Adventurebook_FifthRank_Reward_1d(pc)
     TxGiveItem(tx, 'Vis', 100000, 'Adventurebook_FifthRank_Reward');
     local ret = TxCommit(tx);
 end
+
+function SCR_USE_ITEM_Event_Steam_Night_Market_RedOxBuff(self,argObj,BuffName,arg1,arg2)
+    AddBuff(self, self, 'Event_Steam_Drug_RedOx');
+end

@@ -75,6 +75,10 @@
 		<Class ClassID="501097" OverrideType="ADD" ClassName="EVENT_SELECT_BOSSLV_SEL6" Data=" {nl}몬스터 정보{nl}Lv {LV1} {NAME1}{nl}Lv {LV2} {NAME2}{nl}Lv {LV3} {NAME3}"/>
 		<Class ClassID="501098" OverrideType="ADD" ClassName="EVENT_SELECT_BOSSLV_SEL7" Data=" {nl}이벤트 미션 정보{nl}최대 클리어 단계 : {MAX}"/>
 		<Class ClassID="501099" OverrideType="ADD" ClassName="EVENT_SURVIVAL_NAME" Data="서바이벌 이벤트"/>
+		<Class ClassID="501121" OverrideType="ADD" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_SEL1" Data="비밀 야시장에 대해 알고 있다."/>
+		<Class ClassID="501122" OverrideType="ADD" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_SEL2" Data="탈트 10개를 건네준다."/>
+		<Class ClassID="501123" OverrideType="ADD" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_SEL3" Data="비밀 야시장으로 들어간다."/>
+		<Class ClassID="501124" OverrideType="ADD" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_SEL4" Data="비밀 야시장을 나간다."/>
 	</Category>
 	<Category Name="Premium">
 		<Class ClassID="660001" OverrideType="ADD" ClassName="steam_PremiumToken_30day" Data="토큰:30일"/>
