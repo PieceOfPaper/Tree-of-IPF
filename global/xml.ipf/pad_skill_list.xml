@@ -4274,6 +4274,9 @@ end"/>
     </PadSkill>
     <PadSkill Name="Elementalist_FrostCloud" CheckerType="0" PadHeight="10" Range="50" UpdateTerm="300">
         <createEvent>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="1" UseFunc="1" FuncTxt="return 10 + obj.Level;"/>
+            </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="F_wizard_FrostCloud_loop" Arg="1"/>
                 <Pos Angle="0" Dist="0"/>
