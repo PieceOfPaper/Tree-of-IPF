@@ -359,12 +359,15 @@
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
-                                <MGameObjPtr List="트랩조건/0"/>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="트랩조건"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
                                 <Str Str="철문이 열렸습니다!!"/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="트랩조건"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="trap"/>
@@ -378,7 +381,9 @@
             </Stage>
             <Stage Name="트랩조건">
                 <ObjList>
-                    <Obj Type="Monster" MonType="147337" Pos="295.51#108.89#-400.83" angle="-46" genCount="1" genTime="20000" objectKey="0" propList="&apos;OBBSize&apos; &apos;130;100;500&apos; "/>
+                    <Obj Type="Monster" MonType="147337" Pos="295.51#108.89#-400.83" angle="-46" genCount="1" genTime="20000" objectKey="0" propList="&apos;OBBSize&apos; &apos;130;100;500&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1">
@@ -393,9 +398,6 @@
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="트랩조건"/>
-                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="trap"/>
                             </ToolScp>

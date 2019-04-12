@@ -142,7 +142,7 @@ function UPDATE_NEAR_PARTY_LIST(frame, msg, str, page)
 			if IS_JOINABLE_PARTY(eachpartyinfo, eachpartymemberlist) == true then
 				bgbox:EnableHitTest(1)
 				bgbox:SetColorTone("FFFFFFFF");
-				bgbox:SetEventScript(ui.LBUTTONDOWN, "LCLICK_NEAR_PARTY_LIST");
+				bgbox:SetEventScript(ui.LBUTTONDOWN, "LCLICK_PARTY_LIST");
 				bgbox:SetEventScriptArgString(ui.LBUTTONDOWN, eachpartyinfo.info.leaderName );
 				bgbox:SetTooltipType("partyinfotooltip");
 				bgbox:SetTooltipArg("", i)
@@ -160,27 +160,5 @@ function UPDATE_NEAR_PARTY_LIST(frame, msg, str, page)
 	end
 
 	frame:Invalidate()
-
-end
-
-function LCLICK_NEAR_PARTY_LIST(frame, ctrl, familyName, argNum)	
-
-	-- 내가 이미 파티에 가입되어있는지 확인 후 없을때만 요청.
-	if session.party.GetPartyInfo() ~= nil then
-		ui.SysMsg(ClMsg('HadMyParty'));
-		return;
-	end
-
-	local str = ScpArgMsg("AreYouWantReqJoinTheParty");
-	local yesScp = string.format("REQUEST_JOIN_NEAR_PARTY(\"%s\")", familyName);
-	ui.MsgBox(str, yesScp, "None");
-
-end
-
-function REQUEST_JOIN_NEAR_PARTY(familyName)
-	
-	if familyName ~= nil and familyName ~= "" then
-		party.ReqInviteMe(familyName)
-	end
 
 end

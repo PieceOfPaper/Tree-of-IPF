@@ -18,7 +18,13 @@ end
 function SHOW_MEMBER_RECOMMEND(cid, recommendType)
 
 	--팝업프레임 세팅
+	local frame = ui.GetFrame("memberrecommend");
 	local popupframe = ui.GetFrame("memberrecommend_popup");
+	
+	if (frame:IsVisible() == 1) and (recommendType ~= 0) then	
+		return
+	end
+
 	if popupframe:IsVisible() == 1 then
 		return
 	end
@@ -64,10 +70,6 @@ function SHOW_MEMBER_RECOMMEND(cid, recommendType)
 	popupframe:SetUserValue("RECOMMEND_TYPE",recommendType);
 	popupframe:SetUserValue("RECOMMEND_FNAME", fname);
 	
-
-
-	local frame = ui.GetFrame("memberrecommend");
-
 	local description = GET_CHILD_RECURSIVELY(frame,"description")
 
 	if recommendType ~= 0 then
