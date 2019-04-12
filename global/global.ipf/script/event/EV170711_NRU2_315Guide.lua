@@ -18,23 +18,41 @@ function SCR_EVENT_NRU2_315GUIDE_DIALOG(self, pc)
             local tx = TxBegin(pc)
             TxSetIESProp(tx, aObj, 'DAYCHECK_EVENT_LAST_DATE', 'Nru0912');
             TxSetIESProp(tx, aObj, 'EV170516_NRU_ALWAYS_AOBJ', 0);
-            TxSetIESProp(tx, sObj, 'EV170516_NRU_ALWAYS_SOBJ', 0);
+            TxSetIESProp(tx, sObj, 'ALPHABET_EVENT_1_1', 0);
             local ret = TxCommit(tx)
         end
-        if aObj.EV170516_NRU_ALWAYS_AOBJ < 4 then
-            if sObj.EV170516_NRU_ALWAYS_SOBJ == 0 then
-                local tx = TxBegin(pc)
-                TxGiveItem(tx, 'Event_Nru2_Box_1', 1, 'EV170711_NRU2');
-                TxSetIESProp(tx, aObj, 'EV170516_NRU_ALWAYS_AOBJ', aObj.EV170516_NRU_ALWAYS_AOBJ + 1);
-                TxSetIESProp(tx, sObj, 'EV170516_NRU_ALWAYS_SOBJ', sObj.EV170516_NRU_ALWAYS_SOBJ + 1);
-                local ret = TxCommit(tx)
-                SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("steam_Nru_Always_2", "NRUCOUNT", 4 - aObj.EV170516_NRU_ALWAYS_AOBJ), 5)
-             else
-                ShowOkDlg(pc,'NPC_EVENT_NRU_ALWAYS_1', 1)
+        if aObj.DAYCHECK_EVENT_REWARD_DATE ~= 'Nru0912' and aObj.DAYCHECK_EVENT_LAST_DATE == 'Nru0912' then
+            local tx = TxBegin(pc)
+            TxSetIESProp(tx, aObj, 'DAYCHECK_EVENT_REWARD_DATE', 'Nru0912');
+            TxSetIESProp(tx, sObj, 'ALPHABET_EVENT_1_1', 0);
+            local ret = TxCommit(tx)
+        end 
+        
+        local guideboxList = {
+                                {'Event_Nru2_Box_1',34},{'Event_Nru2_Box_2',33},{'Event_Nru2_Box_3',33},{'Event_Nru2_Box_4',33},{'Event_Nru2_Box_5',33},
+                                {'Event_Nru2_Box_6',33},{'Event_Nru2_Box_7',33},{'Event_Nru2_Box_8',33},{'Event_Nru2_Box_9',33},{'Event_Nru2_Box_10',33},
+                                {'Event_Nru2_Box_11',33},{'Event_Nru2_Box_12',33},{'Event_Nru2_Box_13',33},{'Event_Nru2_Box_14',33},{'Event_Nru2_Box_15',33},
+                                {'Event_Nru2_Box_16',33},{'Event_Nru2_Box_17',33},{'Event_Nru2_Box_18',33},{'Event_Nru2_Box_19',33},
+                            }       
+        for i = 1, #guideboxList do
+            if GetInvItemCount(pc,guideboxList[i][1]) > 0 then
+                return
             end
-        else
-            ShowOkDlg(pc,'NPC_EVENT_NRU_ALWAYS_2', 1)
         end
+            if aObj.EV170516_NRU_ALWAYS_AOBJ < 4 then
+                if sObj.ALPHABET_EVENT_1_1 == 0 then
+                    local tx = TxBegin(pc)
+                    TxGiveItem(tx, 'Event_Nru2_Box_1', 1, 'EV170711_NRU2');
+                    TxSetIESProp(tx, aObj, 'EV170516_NRU_ALWAYS_AOBJ', aObj.EV170516_NRU_ALWAYS_AOBJ + 1);
+                    TxSetIESProp(tx, sObj, 'ALPHABET_EVENT_1_1', sObj.ALPHABET_EVENT_1_1 + 1);
+                    local ret = TxCommit(tx)
+                    SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("steam_Nru_Always_2", "NRUCOUNT", 4 - aObj.EV170516_NRU_ALWAYS_AOBJ), 5)
+                 else
+                    ShowOkDlg(pc,'NPC_EVENT_NRU_ALWAYS_1', 1)
+                end
+            else
+                ShowOkDlg(pc,'NPC_EVENT_NRU_ALWAYS_2', 1)
+            end
     else
         ShowOkDlg(pc,'NPC_EVENT_NRU2_1', 1)
     end

@@ -1,15 +1,35 @@
 function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
+    -- select box
+    local ltemlist_event = {
+        {'Event_Sol_BOX_1', 'E2_SWD03_306','E2_TSW03_306','E2_MAC03_306','E2_TSF03_306','E2_STF03_306','E2_DAG03_306','E2_SPR03_308','E2_TSP03_306','E2_RAP03_304','E2_BOW03_306','E2_TBW03_306','E2_PST03_304','E2_CAN03_104','E2_MUS03_107','E2_SHD03_306'},
+        {'Event_Sol_BOX_2', 'E2_TOP03_130', 'E2_TOP03_131', 'E2_TOP03_132'},
+        {'Event_Sol_BOX_3', 'E2_LEG03_130', 'E2_LEG03_131', 'E2_LEG03_132'},
+        {'Event_Sol_BOX_4', 'E2_FOOT03_130', 'E2_FOOT03_131', 'E2_FOOT03_132'},
+        {'Event_Sol_BOX_5', 'E2_HAND03_130', 'E2_HAND03_131', 'E2_HAND03_132'},
+        {'Event_Sol_BOX_6', 'E2_NECK03_112', 'E2_NECK03_113', 'E2_BRC03_112', 'E2_BRC03_113'}
+    }
+    
+    for i = 1, table.getn(ltemlist_event) do
+        local itemcount = GetInvItemCount(pc, ltemlist_event[i][1])
+        if itemcount > 0 then
+            local tx = TxBegin(pc)
+            for j = 2, table.getn(ltemlist_event[i]) do
+                TxGiveItem(tx, ltemlist_event[i][j], 1, '14day_event');
+            end
+            TxTakeItem(tx, ltemlist_event[i][1], 1, "14day_event")
+            local ret = TxCommit(tx)
+        end
+    end
+    
     local year, month, day, hour, min = GetAccountCreateTime(pc)
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
-    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("Event_Steam_Together_Master_3"), ScpArgMsg("Event_Nru2_Guide_1"), ScpArgMsg("Event_CB_1"), ScpArgMsg("Event_Today_Number_1"), ScpArgMsg("Cancel")) 
+    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("Event_Nru2_Guide_1"), ScpArgMsg("Event_CB_1"), ScpArgMsg("Event_Today_Number_1"), ScpArgMsg("Cancel")) 
     
     if select == 1 then
-        SCR_EVENT_TOGETHER_MASTER_DIALOG(self, pc)   
+        SCR_EVENT_NRU2_315GUIDE_DIALOG(self,pc) 
     elseif select == 2 then
-        SCR_EVENT_NRU2_315GUIDE_DIALOG(self,pc)  
-    elseif select == 3 then
         SCR_EVENT_CB_DIALOG(self,pc)
-    elseif select == 4 then
+    elseif select == 3 then
         SCR_EVENT_TODAY_NUMBER_DIALOG(self, pc)
     end
 end

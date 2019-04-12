@@ -24,6 +24,12 @@ function REQ_EVENT_ITEM_SHOP2_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
+function REQ_EVENT_ITEM_SHOP3_OPEN()
+	local frame = ui.GetFrame("earthtowershop");
+	frame:SetUserValue("SHOP_TYPE", 'EventShop3');
+	ui.OpenFrame('earthtowershop');
+end
+
 function REQ_KEY_QUEST_TRADE_HETHRAN_LV1_OPEN()
 	local frame = ui.GetFrame("earthtowershop");
 	frame:SetUserValue("SHOP_TYPE", 'KeyQuestShop1');
@@ -109,7 +115,7 @@ function EARTH_TOWER_INIT(frame, shopType)
 	tree:SetFontName("brown_18_b");
 	tree:SetTabWidth(5);
 		
-	--��� ���� ������ ����.
+	--??? ???? ?????? ????.
 
 	local clslist = GetClassList("ItemTradeShop");
 	if clslist == nil then return end
@@ -268,7 +274,7 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 				CRAFT_DETAIL_CTRL_INIT(itemSet);
 				local slot = GET_CHILD(itemSet, "slot", "ui::CSlot");
 				local needcountTxt = GET_CHILD(itemSet, "needcount", "ui::CSlot");
-				needcountTxt:SetTextByKey("count",recipeItemCnt)--���ۿ� �ʿ��� ������ ī��Ʈ
+				needcountTxt:SetTextByKey("count",recipeItemCnt)--????? ????? ?????? ????
 				local itemtext = GET_CHILD(itemSet, "item", "ui::CRichText");
 				SET_SLOT_ITEM_CLS(slot, dragRecipeItem);
 				slot:SetEventScript(ui.DROP, "ITEMCRAFT_ON_DROP");

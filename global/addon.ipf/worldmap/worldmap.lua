@@ -39,7 +39,7 @@ end
 
 function WORLDMAP_UPDATE_PICSIZE(frame, currentDirection)
 
-	local curMode = frame:GetUserValue("Mode");
+	local curMode = 'WorldMap';
 
 	local imgName = "worldmap_" .. currentDirection .. "_bg";
 	local pic = GET_CHILD(frame, "pic");
