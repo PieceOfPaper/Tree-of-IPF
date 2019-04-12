@@ -4077,6 +4077,9 @@
 		<Class ClassID="29950" ClassName="GM_Order_Protected" Data="보호모드 적용"/>
 		<Class ClassID="29951" ClassName="GM_Order_Kick" Data="강제 킥"/>
 		<Class ClassID="29955" ClassName="GM_Order_Move" Data="이동하기"/>
+		<Class ClassID="29956" ClassName="Report_AutoBot" Data="오토 의심유저 신고하기"/>
+		<Class ClassID="29957" ClassName="DoYouReportAuto{Name}?" Data="{Name}님을 오토 유저로 신고하시겠습니까?"/>
+		<Class ClassID="29958" ClassName="ThxReportAuto{Name}" Data="{Name}님에 대한 오토신고가 접수되었습니다. 감사합니다."/>
 	</Category>
 	<Category Name="BlackMarket">
 		<Class ClassID="30000" ClassName="Deposit" Data="계약금"/>

@@ -104,7 +104,7 @@
 					</ToolScp>
 				</CompleteScpList>
 				<ObjList>
-					<Obj Type="Monster" MonType="47356" Pos="-45.00#0.00#-734.00" angle="-85" range="100" genCount="1" genTime="20000" objectKey="0" searchRange="1500" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'EquipDropType' 'Raidmonster2' 'BTree' 'None' 'CustomAttack' '-10' 'CustomDefence' '-30' " tendency="1">
+					<Obj Type="Monster" MonType="47356" Pos="-45.00#0.00#-734.00" angle="-85" range="100" genCount="1" genTime="20000" objectKey="0" searchRange="1500" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'BTree' 'None' 'CustomAttack' '-10' 'CustomDefence' '-30' " tendency="1">
 						<SelfAI>
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -113,7 +113,7 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="47357" Pos="17.25#0.00#-784.66" angle="-82" range="70" genCount="1" genTime="20000" objectKey="1" searchRange="1500" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'EquipDropType' 'Raidmonster2' 'CustomAttack' '0' 'BTree' 'None' " tendency="1">
+					<Obj Type="Monster" MonType="47357" Pos="17.25#0.00#-784.66" angle="-82" range="70" genCount="1" genTime="20000" objectKey="1" searchRange="1500" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'CustomAttack' '0' 'BTree' 'None' " tendency="1">
 						<SelfAI>
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -122,7 +122,7 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="47417" Pos="-108.64#0.00#-768.99" angle="-79" range="80" genCount="1" genTime="20000" objectKey="2" searchRange="1500" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'CustomDefence' '-30' 'EquipDropType' 'Raidmonster2' 'CustomAttack' '-10' 'BTree' 'None' " tendency="1">
+					<Obj Type="Monster" MonType="47417" Pos="-108.64#0.00#-768.99" angle="-79" range="80" genCount="1" genTime="20000" objectKey="2" searchRange="1500" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'CustomDefence' '-30' 'CustomAttack' '-10' 'BTree' 'None' " tendency="1">
 						<SelfAI>
 							<List>
 								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -179,10 +179,10 @@
 					</ToolScp>
 				</CompleteScpList>
 				<ObjList>
-					<Obj Type="Monster" MonType="47358" Pos="-33.10#-0.54#-61.59" angle="-40" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="1500" propList="'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'EquipDropType' 'Raidmonster2' " tendency="1"/>
-					<Obj Type="Monster" MonType="41209" Pos="-1.49#-0.55#99.77" angle="-93" range="170" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="1500" propList="'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'CustomDefence' '0' 'EquipDropType' 'Raidmonster2' 'DropItemList' 'M_boss_stone_whale' " tendency="1"/>
+					<Obj Type="Monster" MonType="47358" Pos="-33.10#-0.54#-61.59" angle="-40" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="1500" propList="'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' " tendency="1"/>
+					<Obj Type="Monster" MonType="41209" Pos="-1.49#-0.55#99.77" angle="-93" range="170" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="1500" propList="'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'CustomDefence' '0' 'DropItemList' 'M_boss_stone_whale' " tendency="1"/>
 					<Obj Type="Monster" MonType="47230" Pos="19.91#1.10#524.87" angle="-89" genCount="1" genTime="20000" objectKey="2"/>
-					<Obj Type="Monster" MonType="47414" Pos="120.90#-0.52#50.56" angle="-83" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="1500" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'CustomAttack' '0' 'CustomDefence' '0' 'EquipDropType' 'Raidmonster2' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' " tendency="1"/>
+					<Obj Type="Monster" MonType="47414" Pos="120.90#-0.52#50.56" angle="-83" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="1500" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'CustomAttack' '0' 'CustomDefence' '0' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' " tendency="1"/>
 					<Obj Type="Monster" MonType="47230" Pos="58.00#1.83#-210.00" genCount="1" genTime="20000" objectKey="4"/>
 					<Obj Type="Monster" MonType="41255" Pos="18.58#-0.52#48.32" range="190" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="3000" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'DropItemList' 'scab_raid' " tendency="1"/>
 					<Obj Type="Monster" MonType="11160" Pos="41.12#-0.54#83.27" range="170" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="3000" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'DropItemList' 'Goblin_Spear_raid' " tendency="1"/>
@@ -616,9 +616,9 @@
 				</CompleteScpList>
 				<ObjList>
 					<Obj Type="Monster" MonType="47230" Pos="7.30#0.00#773.26" angle="92" genCount="1" genTime="20000" objectKey="0"/>
-					<Obj Type="Monster" MonType="47415" Pos="-9.76#-6.44#1218.46" angle="-58" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="1500" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'EquipDropType' 'Raidmonster2' 'CustomDefence' '15' 'CustomAttack' '10' 'FixedLife' '1000' " tendency="1"/>
-					<Obj Type="Monster" MonType="47359" Pos="96.68#-6.44#1237.06" angle="-116" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="1500" propList="'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'CustomAttack' '15' 'CustomDefence' '30' 'EquipDropType' 'Raidmonster2' 'FixedLife' '2300' " tendency="1"/>
-					<Obj Type="Monster" MonType="47360" Pos="43.38#-6.44#1146.34" angle="-91" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="1500" propList="'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'CustomAttack' '35' 'EquipDropType' 'Raidmonster2' 'CustomDefence' '17' 'FixedLife' '5000' " tendency="1"/>
+					<Obj Type="Monster" MonType="47415" Pos="-9.76#-6.44#1218.46" angle="-58" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="1500" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'CustomDefence' '15' 'CustomAttack' '10' 'FixedLife' '1000' " tendency="1"/>
+					<Obj Type="Monster" MonType="47359" Pos="96.68#-6.44#1237.06" angle="-116" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="1500" propList="'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'CustomAttack' '15' 'CustomDefence' '30' 'FixedLife' '2300' " tendency="1"/>
+					<Obj Type="Monster" MonType="47360" Pos="43.38#-6.44#1146.34" angle="-91" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="1500" propList="'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'CustomAttack' '35' 'CustomDefence' '17' 'FixedLife' '5000' " tendency="1"/>
 					<Obj Type="Monster" MonType="40030" Pos="56.00#1.83#1319.00" angle="-90" range="20" genCount="1" genTime="20000" autoGen="0" objectKey="4" propList="'Dialog' 'TEST_1_TREASUREBOX_3' 'Enter' 'None' 'Leave' 'None' 'Tactics' 'MON_DUMMY' "/>
 				</ObjList>
 				<StageEvents>

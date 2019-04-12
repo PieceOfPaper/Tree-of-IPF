@@ -115,7 +115,7 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47353" Pos="-144.92#0.00#-802.98" angle="-85" range="30" genCount="1" genTime="20000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;EquipDropType&apos; &apos;Raidmonster2&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47353" Pos="-144.92#0.00#-802.98" angle="-85" range="30" genCount="1" genTime="20000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -124,7 +124,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47357" Pos="5.56#0.00#-799.36" angle="-82" range="20" genCount="1" genTime="20000" objectKey="1" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;EquipDropType&apos; &apos;Raidmonster2&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47357" Pos="5.56#0.00#-799.36" angle="-82" range="20" genCount="1" genTime="20000" objectKey="1" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -180,10 +180,10 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47358" Pos="-33.10#-0.54#-61.59" angle="-40" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="2000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;EquipDropType&apos; &apos;Raidmonster2&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57143" Pos="-1.49#-0.55#99.77" angle="-93" range="170" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="2000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;EquipDropType&apos; &apos;Raidmonster2&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47358" Pos="-33.10#-0.54#-61.59" angle="-40" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="2000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57143" Pos="-1.49#-0.55#99.77" angle="-93" range="170" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="2000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="47230" Pos="-1.47#2.03#534.54" angle="-89" genCount="1" genTime="20000" objectKey="2"/>
-                    <Obj Type="Monster" MonType="47414" Pos="120.90#-0.52#50.56" angle="-83" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="2000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;EquipDropType&apos; &apos;Raidmonster2&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47414" Pos="120.90#-0.52#50.56" angle="-83" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="2000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="41255" Pos="18.58#-0.52#48.32" range="190" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="3000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="11160" Pos="41.12#-0.54#83.27" range="170" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="3000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
                 </ObjList>
@@ -562,9 +562,9 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47415" Pos="-9.76#-6.44#1218.46" angle="-58" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;EquipDropType&apos; &apos;Raidmonster2&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="47359" Pos="96.68#-6.44#1237.06" angle="-116" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;EquipDropType&apos; &apos;Raidmonster2&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="47360" Pos="57.39#-6.44#1165.25" angle="-91" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;EquipDropType&apos; &apos;Raidmonster2&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47415" Pos="-9.76#-6.44#1218.46" angle="-58" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47359" Pos="96.68#-6.44#1237.06" angle="-116" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47360" Pos="57.39#-6.44#1165.25" angle="-91" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="firstboss">

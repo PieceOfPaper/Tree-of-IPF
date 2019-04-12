@@ -1126,15 +1126,15 @@
 	<Model name="closing_device_dead" model="closing_device_dead.xac" motion="closing_device_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true"/>
 	<Model name="boss_stalakan_dead" model="boss_stalakan_dead.xac" motion="boss_stalakan_dead_ani.xsm" texturepath="char_texture\monster\boss_stalakan\" overlap="false"/>
 	<Model name="boss_kurmis_dead" model="boss_kurmis_dead.xac" motion="boss_kurmis_dead_ani.xsm" texturepath="char_texture\monster\kurmis\" overlap="false"/>
-	<Text name="Text_damage_self" caption="" fontfilename="nngothicExtraBold.ttf" fontsize="24" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
-	<Text name="Text_damage_decision" caption="" fontfilename="nngothicExtraBold.ttf" fontsize="20" bold="1" italic="0" outline="1" dropshadow="0" mindistance="50.00" maxdistance="150.00"/>
-	<Text name="Text_destination" caption="" fontfilename="nngothicExtraBold.ttf" fontsize="28" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
-	<Text name="Text_card_effect" caption="" fontfilename="nngothicExtraBold.ttf" fontsize="12" bold="1" italic="0" outline="0" dropshadow="1" mindistance="50.00" maxdistance="150.00"/>
-	<Text name="Text_unicode_effect" caption="" fontfilename="nngothicExtraBold.ttf" fontsize="15" bold="1" italic="0" outline="0" dropshadow="1" mindistance="50.00" maxdistance="150.00"/>
-	<Text name="Text_damage" caption="" fontfilename="nngothicExtraBold.ttf" fontsize="48" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
-	<Text name="Text_Block" caption=" " fontfilename="MTCORSVA.ttf" fontsize="48" bold="0" italic="0" outline="1" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
-	<Text name="Text_damage_critical" caption="" fontfilename="HGOINDB.ttf" fontsize="48" bold="0" italic="1" outline="1" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
-	<Text name="Text_atkindex" caption="" fontfilename="IMCM.ttf" fontsize="24" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
+	<Text name="Text_damage_self" caption="" fontfilename="ORIGINAL" fontsize="24" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
+	<Text name="Text_damage_decision" caption="" fontfilename="ORIGINAL" fontsize="20" bold="1" italic="0" outline="1" dropshadow="0" mindistance="50.00" maxdistance="150.00"/>
+	<Text name="Text_destination" caption="" fontfilename="ORIGINAL" fontsize="28" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
+	<Text name="Text_card_effect" caption="" fontfilename="ORIGINAL" fontsize="12" bold="1" italic="0" outline="0" dropshadow="1" mindistance="50.00" maxdistance="150.00"/>
+	<Text name="Text_unicode_effect" caption="" fontfilename="ORIGINAL" fontsize="15" bold="1" italic="0" outline="0" dropshadow="1" mindistance="50.00" maxdistance="150.00"/>
+	<Text name="Text_damage" caption="" fontfilename="ORIGINAL" fontsize="48" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
+	<Text name="Text_Block" caption=" " fontfilename="ORIGINAL" fontsize="48" bold="0" italic="0" outline="1" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
+	<Text name="Text_damage_critical" caption="" fontfilename="ORIGINAL" fontsize="48" bold="0" italic="1" outline="1" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
+	<Text name="Text_atkindex" caption="" fontfilename="ORIGINAL" fontsize="24" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
 	<Digit name="OverKillDigit" texture="digit_damage" overkilltexture="overkill" width="2.00" height="3.00" pivot_x="0.50" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="100" texel_height="128" randomangle="false"/>
 	<Digit name="Digitdamage_heal" texture="digit_damage" overkilltexture="" width="2" height="3" pivot_x="0" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="100.00" texel_height="128.00" randomangle="false"/>
 	<Digit name="Digitdamage" texture="digit_damage" overkilltexture="" width="3.00" height="4.00" pivot_x="0" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="100.00" texel_height="128.00" randomangle="false"/>

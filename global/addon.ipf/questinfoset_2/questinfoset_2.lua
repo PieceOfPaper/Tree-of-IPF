@@ -1052,7 +1052,7 @@ function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
     					picture:SetAngleLoop(-3);
     					picture:SetUserValue("RETURN_QUEST_NAME", questIES.ClassName);
                     else
-                        ErrorLog("Error : Quest", questIES.ClassID.." : "..questIES.ClassName.." : "..questnpc_state..'Map'.." : "..questnpc_state..'NPC'.." search data null")
+                        ErrorLog("Error : Quest ".. questIES.ClassID.." : "..questIES.ClassName.." : "..questnpc_state..'Map'.." : "..questnpc_state..'NPC'.." search data null")
                     end
     			end
     		end
@@ -1170,7 +1170,7 @@ end
 function MAKE_QUESTINFO_BY_IES(ctrlset, questIES, startx, y, s_obj, result, isQuestDetail)
     local questautoIES = GetClass('QuestProgressCheck_Auto', questIES.ClassName);
 	if questautoIES == nil then
-		ErrorLog('ERROR : questautoIES is nil', questIES.ClassName)
+		ErrorLog('ERROR : questautoIES is nil :'.. questIES.ClassName)
 		return y;
 	end
     
