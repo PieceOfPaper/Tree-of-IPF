@@ -40,7 +40,7 @@ function SCR_TX_TP_SHOP(pc, argList)
 		end
 
 		if itemcls.ClassName == "PremiumToken" and pc.Lv < 150 then
-
+		
 			local now = os.time()
 			local nowtime = os.date("%c",now)
 			local nextbuyabletime = os.date("%c",now+(60*60*24))
@@ -51,15 +51,19 @@ function SCR_TX_TP_SHOP(pc, argList)
 			if buyabletime == "None" then
 				TxSetIESProp(tx, aobj, 'NextBuyTokenTime', nextbuyabletime);
 			else
-				--if buyabletime < nowtime then 
-					TxSetIESProp(tx, aobj, 'NextBuyTokenTime', nextbuyabletime);
-				--else
-					--SendSysMsg(pc, "NextTokenBuyableTime", 0, "Time", buyabletime);
-					--TxRollBack(tx);
-					--return;
-				--end
-			end
 
+				local ymhbuyabletime = string.sub(buyabletime,7,8) .. string.sub(buyabletime,0,5) .. string.sub(buyabletime,9)
+				local ymhnowtime = string.sub(nowtime,7,8) .. string.sub(nowtime,0,5) .. string.sub(nowtime,9)
+
+				if ymhbuyabletime < ymhnowtime then 
+					TxSetIESProp(tx, aobj, 'NextBuyTokenTime', nextbuyabletime);
+				else
+					SendSysMsg(pc, "NextTokenBuyableTime", 0, "Time", buyabletime);
+					TxRollBack(tx);
+					return;
+				end
+			end
+			
 		end
 
 		local cmdIdx = TxGiveItem(tx, itemcls.ClassName, 1, "NpcShop");

@@ -1,56 +1,44 @@
 function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
---    if pc.Lv < 50 then
+--    if pc.Lv < 100 then
 --        return
 --    end
+--    local aObj = GetAccountObj(pc);
+--    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("Prison_Select1"), ScpArgMsg("Prison_Select2", "COUNT", aObj.PlayTimeEventRewardCount), ScpArgMsg("Cancel"))
 --    
---    local select = ShowSelDlg(pc,0, 'EV_DAILYBOX_SEL', ScpArgMsg("GivingTree_title"), ScpArgMsg("Cancel"))
+--    EVENT_PROPERTY_RESET(pc, aObj, sObj)
 --    
 --    if select == 1 then
---        local aObj = GetAccountObj(pc);
---        local now_time = os.date('*t')
---        local year = now_time['year']
---        local yday = now_time['yday']
---        local hour = now_time['hour']
---        local min = now_time['min']
---
---        EVENT_PROPERTY_RESET(pc, aObj, sObj)
---        
---        if aObj.PlayTimeEventPlayMin ~= year.."/"..yday then
---            local select1 = ShowSelDlg(pc, 0, 'EV_GIVINGTREE_REWARD01', 
---            ScpArgMsg("GivingTree_Reward1"), ScpArgMsg("GivingTree_Reward2"), ScpArgMsg("GivingTree_Reward3"), ScpArgMsg("GivingTree_Reward4"), 
---            ScpArgMsg("GivingTree_Reward5"), ScpArgMsg("GivingTree_Reward6"), ScpArgMsg("Cancel"))
---            
---            if select1 == nil or select1 == 7 then
---                return
---            elseif select1 >= 1 and select1 <= 6 then
---                local reward = {
---                    'indunReset_1add_14d_NoStack', 'misc_gemExpStone_randomQuest3_14d', 'Premium_eventTpBox_3',
---                    'Premium_Enchantchip14_NoStack', 'Premium_boostToken_14d', 'Event_160908_6_14d'
---                }
---  
---                local tx = TxBegin(pc)
---                TxSetIESProp(tx, aObj, 'PlayTimeEventPlayMin', year.."/"..yday);
---                TxSetIESProp(tx, aObj, 'PlayTimeEventRewardCount', select1);
---                TxGiveItem(tx, 'Premium_boostToken02_1d', 1, 'GivingTree');
---                
---                if aObj.PlayTimeEventRewardCount == 0 then
---                    TxGiveItem(tx, 'NECK99_102', 1, 'GivingTree');
---                else
---                    TxGiveItem(tx, reward[aObj.PlayTimeEventRewardCount], 1, 'GivingTree');
---                end
---            	local ret = TxCommit(tx)
---            end
---            
---            ShowOkDlg(pc, 'EV_GIVINGTREE_REWARD02')
---        end
+--        AUTOMATCH_INDUN_DIALOG(pc, nil, 'Indun_d_prison_62_1_event')
+--    elseif select == 2 then
+--        if aObj.PlayTimeEventRewardCount >= 10 and aObj.Event_HiddenReward == 0 then
+--            local tx = TxBegin(pc)
+--            TxAddIESProp(tx, aObj, 'Event_HiddenReward', 1);
+--            TxGiveItem(tx, 'Premium_Enchantchip14', 3, 'Prison_Event');
+--        	local ret = TxCommit(tx)
+--        elseif aObj.PlayTimeEventRewardCount >= 20 and aObj.Event_HiddenReward == 1 then
+--            local tx = TxBegin(pc)
+--            TxAddIESProp(tx, aObj, 'Event_HiddenReward', 1);
+--            TxGiveItem(tx, 'Hat_628290', 1, 'Prison_Event');
+--        	local ret = TxCommit(tx)
+--    	end
 --    end
 end
 
 function EVENT_PROPERTY_RESET(pc, aObj, sObj)
-    if aObj.DAYCHECK_EVENT_LAST_DATE ~= 'Fortune' then -- 현재 진행중인 이벤트
+    if aObj.DAYCHECK_EVENT_LAST_DATE ~= 'Prison' then -- 현재 진행중인 이벤트
         local tx = TxBegin(pc)
-        TxSetIESProp(tx, aObj, 'DAYCHECK_EVENT_LAST_DATE', "Fortune");
+        TxSetIESProp(tx, aObj, 'DAYCHECK_EVENT_LAST_DATE', "Prison");
         TxSetIESProp(tx, aObj, 'PlayTimeEventRewardCount', 0);
+        TxSetIESProp(tx, aObj, 'Event_HiddenReward', 0);
     	local ret = TxCommit(tx)
     end
+end
+
+function INIT_PRISON_EVENT_STAT(self)
+
+	if IsDummyPC(self) == 1 then
+		return;
+	end
+
+	AddBuff(self, self, 'Event_Penalty', 1, 0, 700000, 1);
 end
