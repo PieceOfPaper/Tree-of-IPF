@@ -72,7 +72,7 @@
 		<groupbox name="memberBox" parent="bottomBox" rect="0 0 350 85" margin="10 0 0 10" layout_gravity="left bottom" draw="false" hittestbox="true"/>
 		<picture name="partyLine" parent="memberBox" rect="0 0 15 50" margin="40 -10 0 0" layout_gravity="left center" image="indun_partyline" stretch="true"/>
 		<groupbox name="memberCntBox" parent="bottomBox" rect="0 0 300 35" skin="notice_more" margin="0 10 0 0" layout_gravity="left top" draw="true" hittestbox="false"/>
-		<richtext name="memberCntText" parent="memberCntBox" rect="0 0 300 35" margin="15 0 0 0" layout_gravity="left center" textalign="left center" fontname="black_16_b" format="총 대기인원: %s명" param1="cnt" param1_def="100"/>
+		<richtext name="memberCntText" parent="memberCntBox" rect="0 0 300 35" margin="15 0 0 0" layout_gravity="left center" textalign="left center" fontname="black_16_b" format="총 대기인원: %s" param1="cnt" param1_def="정보를 요청 중 입니다."/>
 		<richtext name="partyAskText" parent="memberCntBox" rect="0 0 300 35" margin="15 0 0 0" layout_gravity="left center" textalign="left center" fontname="black_16_b" format="%s" param1="value" param1_def="파티원의 참여를 기다리고 있습니다."/>
 		<!-- Small Mode -->
 		<groupbox name="smallmode" rect="0 0 400 250" margin="0 0 0 0" layout_gravity="left top" skin="indun_skin" hittestbox="false"/>

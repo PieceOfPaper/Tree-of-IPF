@@ -157,8 +157,7 @@ end
 
 function WAREHOUSE_SORT()
 	local context = ui.CreateContextMenu("CONTEXT_INV_SORT", "", 0, 0, 170, 100);
-	local scpScp = string.format("REQ_INV_SORT(%d, %d)", IT_WAREHOUSE, BY_PRICE);
-	ui.AddContextMenuItem(context, ScpArgMsg("SortByPrice"), scpScp);	
+	local scpScp = "";
 	scpScp = string.format("REQ_INV_SORT(%d, %d)", IT_WAREHOUSE, BY_LEVEL);
 	ui.AddContextMenuItem(context, ScpArgMsg("SortByLevel"), scpScp);	
 	scpScp = string.format("REQ_INV_SORT(%d, %d)",IT_WAREHOUSE, BY_WEIGHT);

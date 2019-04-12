@@ -43,12 +43,12 @@ function SCR_EVENT_TODAY_NUMBER_DIALOG(self, pc)
     {29, 'Event_drug_steam_1h', 2, 'misc_gemExpStone_randomQuest4_14d', 1},{30, 'Premium_StatReset14', 1},
     }
     
-    if aObj.CurrentEventName ~= 'Returner0912' then -- 현재 진행중인 이벤트
+    if aObj.DAYCHECK_EVENT_REWARD_DATE ~= 'Returner0912' then -- 현재 진행중인 이벤트
         local tx = TxBegin(pc)
-        TxSetIESProp(tx, aObj, 'CurrentEventName', 'Returner0912');
+        TxSetIESProp(tx, aObj, 'DAYCHECK_EVENT_REWARD_DATE', 'Returner0912');
         TxSetIESProp(tx, aObj, 'EV170711_TODAY_NUMBER_1', 0);
-        TxSetIESProp(tx, sObj, 'EV170711_TODAY_NUMBER_2', 0);
-        TxSetIESProp(tx, sObj, 'EV170711_TODAY_NUMBER_3', 0);
+        TxSetIESProp(tx, aObj, 'EV170711_TODAY_NUMBER_2', 0);
+        TxSetIESProp(tx, aObj, 'EV170711_TODAY_NUMBER_3', 0);
         local ret = TxCommit(tx)
     end
         
