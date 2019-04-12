@@ -132,11 +132,11 @@
                         <execList>
                             <ToolScp Scp="MGAME_SET_TIMER" Client="NO" UseSleep="NO">
                                 <Str Str="Battle"/>
-                                <Num Num="300"/>
+                                <Num Num="180"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="RoundMaxTime"/>
-                                <Num Num="300"/>
+                                <Num Num="180"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="Team_1_Damage"/>
@@ -223,7 +223,7 @@
                             </ToolScp>
                         </listExec>
                     </Event>
-                    <Event execMS="300000" execCount="1" eventName="checkTimer_team2_win" execWithStart="0">
+                    <Event execMS="180000" execCount="1" eventName="checkTimer_team2_win" execWithStart="0">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
                                 <Str Str="CHECK_TEAM2_HP_MORE"/>
@@ -236,7 +236,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount= "1" eventName="exec_team_2_win" execWithStart="0" isEnabled="0">
+                    <Event execCount="1" eventName="exec_team_2_win" execWithStart="0" isEnabled="0">
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="Team2_Score"/>
@@ -291,7 +291,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execMS="300000" execCount="1" eventName="checktimer_team1_win" execWithStart="0">
+                    <Event execMS="180000" execCount="1" eventName="checktimer_team1_win" execWithStart="0">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
                                 <Str Str="CHECK_TEAM1_HP_MORE"/>
@@ -304,7 +304,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execMS="300000" execCount="1" eventName="checktimer_draw" execWithStart="0">
+                    <Event execMS="180000" execCount="1" eventName="checktimer_draw" execWithStart="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE_COMPARE" Client="NO" UseSleep="NO">
                                 <Str Str="Team_1_Damage"/>
@@ -420,7 +420,7 @@
                 </StartScpList>
                 <ObjList/>
                 <StageEvents>
-                    <Event execMS="60000" execCount="1" eventName="wait" execWithStart="0">
+                    <Event execMS="20000" execCount="1" eventName="wait" execWithStart="0">
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="WaitStart"/>
@@ -433,7 +433,7 @@
                     <Event execCount="1" eventName="setui">
                         <execList>
                             <ToolScp Scp="MGAME_COUNTDOWN" Client="NO" UseSleep="YES">
-                                <Num Num="60"/>
+                                <Num Num="20"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -497,6 +497,13 @@
                                 <Num Num="1"/>
                             </ToolScp>
                         </listExec>
+                    </Event>
+                    <Event eventName="waitbuff">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="BATTLEFILD_WAIT_BUFF"/>
+                            </ToolScp>
+                        </execList>
                     </Event>
                 </StageEvents>
             </Stage>

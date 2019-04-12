@@ -3109,6 +3109,15 @@ function SCR_GET_PC_LIMIT_BUFF_COUNT(self)
 end
 
 function GET_MAXHATE_COUNT(self)
+    local owner = GetTopOwner(self);
+    if IS_PC(owner) == true and IS_PC(self) == false then
+        return 100;
+    end
+    
+    if TryGetProp(self, "Faction") == "Summon" then
+        return 100;
+    end
+    
     local mapID = GetMapID(self);
     local cls = GetClassByType('Map', mapID);
     if cls ~= nil then

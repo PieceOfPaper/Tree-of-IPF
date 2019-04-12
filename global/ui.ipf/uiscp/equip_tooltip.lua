@@ -317,10 +317,9 @@ end
 
 -- 아이템에 의한 추가 속성 정보 (광역공격 +1)
 function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
-
 	local gBox = GET_CHILD(tooltipframe,mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_equip_property');
-
+	
 	local baseicList = GET_EQUIP_TOOLTIP_PROP_LIST(invitem);
     local list = {};
     local basicTooltipPropList = StringSplit(invitem.BasicTooltipProp, ';');
@@ -329,7 +328,7 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
         list = GET_CHECK_OVERLAP_EQUIPPROP_LIST(baseicList, basicTooltipProp, list);
     end
 	local list2 = GET_EUQIPITEM_PROP_LIST();
-
+	
 	local cnt = 0;
 	for i = 1 , #list do
 
@@ -363,7 +362,7 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 			cnt = cnt +1
 		end
 	end
-
+	
 	if cnt <= 0 and (invitem.OptDesc == nil or invitem.OptDesc == "None" ) then -- 일단 그릴 프로퍼티가 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
 		if invitem.ReinforceRatio == 100 then
     		return yPos
@@ -447,6 +446,10 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 	end
 
 	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	BOTTOM_MARGIN = tonumber(BOTTOM_MARGIN)
+	if BOTTOM_MARGIN == nil then
+		BOTTOM_MARGIN = 0
+	end
 	tooltip_equip_property_CSet:Resize(tooltip_equip_property_CSet:GetWidth(),tooltip_equip_property_CSet:GetHeight() + property_gbox:GetHeight() + property_gbox:GetY() + BOTTOM_MARGIN);
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + tooltip_equip_property_CSet:GetHeight())

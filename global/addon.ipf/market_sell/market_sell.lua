@@ -159,8 +159,10 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 		edit_count:SetText("1");
 		edit_count:SetMaxNumber(1);
 		edit_price:SetMaxNumber(TOKEN_MARKET_REG_MAX_PRICE * invItem.count);
+		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 	else
 		edit_price:SetMaxNumber(2147483647);
+		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3); -- , 텍스트로 변환		
 	end
 
 	local itemProp = geItemTable.GetProp(obj.ClassID);
@@ -293,6 +295,7 @@ function ON_MARKET_MINMAX_INFO(frame, msg, argStr, argNum)
 	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
 	edit_price:SetText("0");
 	edit_price:SetMaxNumber(2147483647);
+	edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 
 	if argNum == 1 then	
 		local tokenList = TokenizeByChar(argStr, ";");
@@ -310,11 +313,14 @@ function ON_MARKET_MINMAX_INFO(frame, msg, argStr, argNum)
 		if IGNORE_ITEM_AVG_TABLE_FOR_TOKEN == 1 then
 			if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
 				edit_price:SetMaxNumber(maxAllow);
+				edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 			else
 				edit_price:SetMaxNumber(2147483647);
+				edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 			end
 		else
 			edit_price:SetMaxNumber(maxAllow);
+			edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 		end
 		return;
 	end

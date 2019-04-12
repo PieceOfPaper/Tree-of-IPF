@@ -92,8 +92,6 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 		return
 	end
 
-	local wiki = GetWikiByName(class.ClassName);
-
 	SEQUENTIALPICKITEM_openCount = SEQUENTIALPICKITEM_openCount + 1;
 	local frameName = "SEQUENTIAL_PICKITEM_"..tostring(SEQUENTIALPICKITEM_openCount);
 
@@ -111,9 +109,9 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 
 
 	local PickItemGropBox	= GET_CHILD(frame,'pickitem')
-	PickItemGropBox:RemoveAllChild();
+	--PickItemGropBox:RemoveAllChild();  -- 여기서 자식들을 죽여서 자식으로 넣은 픽쳐가 안나왔음.
 
-	-- ControlSet �̸� ����
+	-- ControlSet 이름 설정
 	local img = GET_ITEM_ICON_IMAGE(class);
 
 	local PickItemCountObj		= PickItemGropBox:CreateControlSet('pickitemset_Type', 'pickitemset', 0, 0);
@@ -127,7 +125,8 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 
 	icon:Set(iconName, 'PICKITEM', itemCount, 0);
 
-	-- ������ �̸��� ȹ�淮 ���
+
+	-- 아이템 이름과 획득량 출력
 	local printName	 = '{@st41}' ..GET_FULL_NAME(class);
 	local printCount = '{@st41b}'..ScpArgMsg("GetByCount{Count}", "Count", itemCount);
 
@@ -136,11 +135,10 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	
 	local AddWiki = GET_CHILD(PickItemCountCtrl,'AddWiki')
 	if addMsg == nil then
-		if wiki ~= nil and false == fromWareHouse then	
+		if IsExistItemInAdventureBook(pc, class.ClassID) == 'YES' and false == fromWareHouse then
 
-			local total = GetWikiIntProp(wiki, "Total");
+			local total = GetItemObtainCount(pc, class.ClassID);
 			if total ~= nil then
-
 				local totalCount = total;
 
 				if totalCount > 1 then
@@ -161,22 +159,20 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 		AddWiki:ShowWindow(1);
 	end
 
-
-	-- �������̸� �ʹ��涧 ©���� resize �ϴ� ����.
-	--PickItemGropBox:Resize(250, 120);
-	--frame:Resize(250, 120);
-	local textLen = string.len(printName);
-	local rate = 6;
-	if textLen < 20 then
-		rate = 2;
+	-- 아이템이름 너무길때 짤려서 resize 일단 셋팅.
+	local itemName = GET_CHILD(PickItemCountCtrl,'ItemName');
+	-- 리사이즈 하려는 사이즈가 원래 프레임 사이즈보다 작으면 리사이즈 하지 않음.
+	local newWidth =itemName:GetX()+itemName:GetTextWidth()+ 20;
+	if newWidth > frame:GetOriginalWidth() then
+		frame:Resize(newWidth,  frame:GetOriginalHeight());
+		PickItemGropBox:Resize(newWidth, PickItemGropBox:GetOriginalHeight());
 	end
-	--PickItemGropBox:Resize(PickItemGropBox:GetWidth() + (textLen*rate), PickItemGropBox:GetHeight());
-	--frame:Resize(PickItemGropBox:GetWidth() + (textLen*rate), PickItemGropBox:GetHeight());
+
 
 	PickItemGropBox:UpdateData();
 	PickItemGropBox:Invalidate();
 
-	--���� ��
+	--내용 끝
 
 	frame:ShowWindow(1);
 	frame:SetDuration(duration);

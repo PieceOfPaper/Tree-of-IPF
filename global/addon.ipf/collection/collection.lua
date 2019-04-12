@@ -574,6 +574,11 @@ function CHECK_COLLECTION_INFO_FILTER(collectionInfo,  searchText,  collectionCl
 end
 
 function OPEN_DECK_DETAIL(parent, ctrl)
+	local topFrame = parent:GetTopParentFrame();
+	if topFrame:GetName() == 'adventure_book' then
+		ADVENTURE_BOOK_COLLECTION_DETAIL(parent, ctrl);
+		return;
+	end
 
 	imcSound.PlaySoundEvent('cllection_inven_open');
 	local type = parent:GetUserValue("COLLECTION_TYPE");

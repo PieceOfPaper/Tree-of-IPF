@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by alexel (EMBRACE) -->
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="hair_gacha_fullscreen" x="0" y="0" width="1920" height="1080" create="open">
 	<frame stretch="true" fullwidth="true" fullheight="true" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true"/>
 	<skin frameskin="property_screenbg"/>
@@ -13,10 +13,13 @@
   <userconfig GACHA_EFT_1="I_gacha_end01" GACHA_EFT_SCALE_1="7.0" GACHA_EFT_2="I_gacha_end02" GACHA_EFT_SCALE_2="7.0" GACHA_EFT_3="I_gacha_end03" GACHA_EFT_SCALE_3="7.0"/>
   <script OpenScp="HAIR_GACHA_FULLSCREEN_OPEN" CloseScp="HAIR_GACHA_FULLSCREEN_CLOSE"/>
 	<controls>
-    <picture name="bigitembgimg" rect="0 0 758 508" margin="0 0 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="gacha_big_01" stretch="true"/>
-    <picture name="bigitemimg" rect="0 0 256 256" margin="0 0 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="gacha_big_01" stretch="true"/>
-    <richtext name="itemname" rect="0 0 200 30" margin="0 250 0 0" layout_gravity="center center" format="{@st43}%s 획득!{/}" param1="name" param1_def="def"/>
-    <button name="skip_gacha_btn" rect="0 0 124 50" margin="0 300 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_3" oversound="button_cursor_over_2" image="gachanext_btn" LBtnDownScp="HAIR_GACHA_FULLSCREEN_DO_CLOSE"/>
-    <picture name="bonusimg" rect="0 0 170 170" margin="130 -130 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="gacha_bonus" stretch="true"/>
+		<picture name="bigitembgimg" rect="0 0 758 508" margin="0 0 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="gacha_big_01" stretch="true"/>
+		<picture name="bigitemimg" rect="0 0 200 200" margin="0 0 0 40" layout_gravity="center center" changecursor="false" hittest="false" image="gacha_big_01" stretch="true"/>
+		<richtext name="itemname" rect="0 0 200 30" margin="0 250 0 0" layout_gravity="center center" format="{@st43}%s 획득!{/}" param1="name" param1_def="def"/>
+		<button name="skip_gacha_btn" rect="0 0 124 50" margin="0 300 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_3" oversound="button_cursor_over_2" image="gachanext_btn" LBtnDownScp="HAIR_GACHA_FULLSCREEN_DO_CLOSE"/>
+		<groupbox name="leticiaBox" rect="0 0 400 60" margin="0 300 0 0" layout_gravity="center center" draw="false"/>
+		<button name="continueBtn" rect="0 0 250 60" parent="leticiaBox" margin="0 0 0 0" layout_gravity="left center" skin="test_red_button" caption="{@st42b}{s20}연속 구매" fontname="white_16_b_ol" LBtnDownScp="LETICIA_MORE_CLICK_CONTINUE_ONE"/>
+		<button name="closeBtn" rect="0 0 150 60" parent="leticiaBox" margin="0 0 0 0" layout_gravity="right center" skin="test_gray_button" caption="{@st42b}{s20}닫기" fontname="white_16_b_ol" LBtnDownScp="HAIR_GACHA_SKIP_BTN_CLICK"/>
+		<picture name="bonusimg" rect="0 0 170 170" margin="130 -130 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="gacha_bonus" stretch="true"/>
 	</controls>
 </uiframe>

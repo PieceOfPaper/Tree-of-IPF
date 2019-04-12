@@ -812,6 +812,44 @@ function SCR_DATE_TO_YMIN_BASIC_2000(yy, mm, dd, hh, min)
 
     return ymin
 end
+function SCR_DATE_TO_YDAY_BASIC_2000_REVERSE(yday)
+    local yy,mm,dd
+    local startY = 2000
+    local monthdays= { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
+    
+    while 1 do
+        local leapDay = 0
+        if startY % 400 == 0 then
+            leapDay = 1
+        elseif startY % 100 == 0 then
+        elseif startY % 4 == 0 then
+            leapDay = 1
+        end
+        
+        leapDay = monthdays[2] + leapDay
+        
+        for i = 1, #monthdays do
+            local monDay = monthdays[i]
+            if i == 2 then
+                monDay = leapDay
+            end
+            
+            if yday < monDay then
+                yy = startY
+                mm = i
+                dd = yday
+                return yy,mm,dd
+            else
+                yday = yday - monDay
+            end
+            
+        end
+        startY = startY + 1
+    end
+    
+    
+    return yy,mm,dd
+end
 
 function SCR_DATE_TO_YDAY_BASIC_2000(yy, mm, dd)
     local days, monthdays, leapyears, nonleapyears, nonnonleapyears
@@ -1248,22 +1286,6 @@ function SCR_GET_MCY_BUY_PRICE(itemIndex, curValue)
 
 end
 
-function GET_WIKI_ITEM_SET_COUNT(wiki)
-
-    local setProp = geItemTable.GetSetByName( GetWikiTargetClassName(wiki) );
-    local setCnt = setProp:GetItemCount();
-    local curCnt = 0;        
-    for j = 0 , setCnt - 1 do
-        local isGetItem = GetWikiBoolProp(wiki, "Get_" .. j);
-        if isGetItem == 1 then
-            curCnt = curCnt + 1;
-        end
-    end
-    
-    return curCnt, setCnt;
-end
-
-
 function GET_ABIL_LEVEL(self, abilName)
 
     local abil = GetAbility(self, abilName);
@@ -1545,6 +1567,10 @@ function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, chType)
         subQuestFlag = 3
     end
     
+    if subQuestZoneList == nil then
+        subQuestZoneList = {}
+    end
+    
     local zonecheckFun = _G['LINKZONECHECK'];
     if chType == 'Set2' then
         ret = "OPEN"
@@ -1715,30 +1741,89 @@ function PUSH_BACK_IF_NOT_EXIST(list, element)
     return list;
 end
 
+function SCR_REINFORCE_COUPON()
+    local couponList = {'Event_Reinforce_100000coupon'}
+    return couponList
+end
 
-function SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc)
-    if GetServerNation() ~= "KOR" then
-        return 'NO'
-    end
+function SCR_REINFORCE_COUPON_PRECHECK(pc, price)
+    local retCouponList = {}
     
-    local now_time = os.date('*t')
---    local year = now_time['year']
-    local month = now_time['month']
-    local day = now_time['day']
-    
-    if IsServerSection(pc) ~= 1 then
-        local serverTime = imcTime.GetCurdateNumber()
-        month = tonumber(string.sub(serverTime,3, 4))
-        day = tonumber(string.sub(serverTime,5, 6))
-    end
-    
-    local dateList = {{7,1},{7,2},{7,8},{7,9},{7,15},{7,16},{7,22},{7,23},{7,29},{7,30}}
-    
-    for i = 1, #dateList do
-        if month == dateList[i][1] and day == dateList[i][2] then
-            return 'YES'
+    local couponList = SCR_REINFORCE_COUPON()
+    local couponValueList = {}
+    for i = 1, #couponList do
+        local itemIES = GetClass('Item',couponList[i])
+        if itemIES ~= nil then
+            local value = TryGetProp(itemIES, 'NumberArg1')
+            if value ~= nil then
+                local itemCount = GetInvItemCount(pc, couponList[i])
+                if itemCount > 0 then
+                    couponValueList[#couponValueList + 1] = {couponList[i], value, itemCount}
+                end
+            end
         end
     end
     
-    return 'NO'
+    for i = 1, #couponValueList - 1 do
+        for x = i + 1, #couponValueList do
+            if couponValueList[i][2] < couponValueList[x][2] then
+                local temp = {couponValueList[i][1],couponValueList[i][2],couponValueList[i][3]}
+                couponValueList[i] = {couponValueList[x][1],couponValueList[x][2],couponValueList[x][3]}
+                couponValueList[x] = temp
+            end
+        end
+    end
+    if #couponValueList > 0 then
+        for i = 1, #couponValueList do
+            for x = 1, couponValueList[i][3] do
+                if price >= couponValueList[i][2] then
+                    price = price - couponValueList[i][2]
+                    if #retCouponList > 0 then
+                        local flag = 0
+                        for y = 1, #retCouponList do
+                            if retCouponList[y][1] == couponValueList[i][1] then
+                                retCouponList[y][3] = retCouponList[y][3] + 1
+                                flag = 1
+                                break
+                            end
+                        end
+                        if flag == 0 then
+                            retCouponList[#retCouponList + 1] = {couponValueList[i][1],couponValueList[i][2], 1}
+                        end
+                    else
+                        retCouponList[#retCouponList + 1] = {couponValueList[i][1],couponValueList[i][2], 1}
+                    end
+                end
+            end
+        end
+    end
+    
+    return price, retCouponList
 end
+
+--function SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc)
+--    if GetServerNation() ~= "KOR" then
+--        return 'NO'
+--    end
+--    
+--    local now_time = os.date('*t')
+----    local year = now_time['year']
+--    local month = now_time['month']
+--    local day = now_time['day']
+--    
+--    if IsServerSection(pc) ~= 1 then
+--        local serverTime = imcTime.GetCurdateNumber()
+--        month = tonumber(string.sub(serverTime,3, 4))
+--        day = tonumber(string.sub(serverTime,5, 6))
+--    end
+--    
+--    local dateList = {{7,1},{7,2},{7,8},{7,9},{7,15},{7,16},{7,22},{7,23},{7,29},{7,30}}
+--    
+--    for i = 1, #dateList do
+--        if month == dateList[i][1] and day == dateList[i][2] then
+--            return 'YES'
+--        end
+--    end
+--    
+--    return 'NO'
+--end

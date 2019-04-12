@@ -576,6 +576,7 @@ function GET_TOTAL_ABILITY_PRICE(pc, scrCalcPrice, abilName, abilLevel, maxLevel
 end
 
 function GET_TOTAL_ABILITY_PRICE_BY_PRICE_COLUMN(abilGroup, abilName, abilLevel)
+    print("---------------------------------------")
     local price = 0;
     if abilGroup == nil or abilName == nil or abilLevel == nil then
         return price;
@@ -595,6 +596,8 @@ function GET_TOTAL_ABILITY_PRICE_BY_PRICE_COLUMN(abilGroup, abilName, abilLevel)
             price = price + priceCol;
         end
     end
-
+    
+    IMC_LOG(abilName, abilLevel, price)
+    print(abilName, abilLevel, price)
     return price;
 end

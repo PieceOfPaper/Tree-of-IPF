@@ -9,9 +9,9 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="41248" Pos="-447.66#-74.46#-1312.18" range="80" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 티니&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41248" Pos="-353.75#-74.46#-1316.50" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 티니&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="400041" Pos="-398.93#-74.46#-1319.93" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 치넨시&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41248" Pos="-447.66#-74.46#-1312.18" range="80" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 티니&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41248" Pos="-353.75#-74.46#-1316.50" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 티니&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="400041" Pos="-398.93#-74.46#-1319.93" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="300" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 치넨시&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="setPosPC">
@@ -133,15 +133,15 @@
             <Stage Name="st2" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                        <Str Str="회색 골렘을 처치하세요!"/>
+                        <Str Str="보스몬스터를 처치하세요!"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="회색 골렘을 처치하세요!"/>
+                        <Str Str="보스몬스터를 처치하세요!"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="47241" Pos="-202.25#-74.46#-403.61" angle="-78" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;HPCount&apos; &apos;150&apos; "/>
-                    <Obj Type="Monster" MonType="47353" Pos="-228.43#-74.46#-585.45" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47353" Pos="-228.43#-74.46#-585.45" range="90" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;BornScript&apos; &apos;@GET_raid_siauliai1_RANDOM_BOSS&apos; &apos;DropItemList&apos; &apos;@GET_REQUEST_MISSION_RANDOM_BOSS_DROP&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -150,8 +150,8 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="41317" Pos="-265.09#-74.46#-671.35" range="210" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;SET&apos; &apos;monster_Sparnicht_raid&apos; &apos;Name&apos; &apos;싸늘한 스파니히트&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="401341" Pos="-275.26#-74.46#-655.93" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 포쿠부&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41317" Pos="-265.09#-74.46#-671.35" range="210" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;SET&apos; &apos;monster_Sparnicht_raid&apos; &apos;Name&apos; &apos;싸늘한 스파니히트&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401341" Pos="-275.26#-74.46#-655.93" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 포쿠부&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="stSuccess" isEnabled="0">
@@ -266,9 +266,9 @@
                 <ObjList>
                     <Obj Type="Monster" MonType="47242" Pos="-70.52#1.83#130.80" angle="-40" genCount="1" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;Faction&apos; &apos;Law&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HPCount&apos; &apos;70&apos; "/>
                     <Obj Type="Monster" MonType="47241" Pos="9.24#1.83#351.04" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1"/>
-                    <Obj Type="Monster" MonType="41250" Pos="-46.28#1.83#64.33" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 골렘릿&apos; " SimpleAI="raid_siauliai1_ST3" tendency="1"/>
-                    <Obj Type="Monster" MonType="41295" Pos="-64.90#1.83#63.70" range="260" genCount="1" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 스톤오르카&apos; " SimpleAI="raid_siauliai1_ST3" tendency="1"/>
-                    <Obj Type="Monster" MonType="41248" Pos="-44.61#1.83#97.52" range="200" genCount="1" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 티니&apos; " SimpleAI="raid_siauliai1_ST3" tendency="1"/>
+                    <Obj Type="Monster" MonType="41250" Pos="-46.28#1.83#64.33" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 골렘릿&apos; &apos;Journal&apos; &apos;None&apos; " SimpleAI="raid_siauliai1_ST3" tendency="1"/>
+                    <Obj Type="Monster" MonType="41295" Pos="-64.90#1.83#63.70" range="260" genCount="1" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 스톤오르카&apos; &apos;Journal&apos; &apos;None&apos; " SimpleAI="raid_siauliai1_ST3" tendency="1"/>
+                    <Obj Type="Monster" MonType="41248" Pos="-44.61#1.83#97.52" range="200" genCount="1" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Name&apos; &apos;싸늘한 티니&apos; &apos;Journal&apos; &apos;None&apos; " SimpleAI="raid_siauliai1_ST3" tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="keyNPCGen">
@@ -496,7 +496,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47352" Pos="59.16#1.78#1064.01" angle="-86" range="30" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47352" Pos="59.16#1.78#1064.01" angle="-86" range="30" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;BornScript&apos; &apos;@GET_raid_siauliai1_RANDOM_BOSS&apos; &apos;DropItemList&apos; &apos;@GET_REQUEST_MISSION_RANDOM_BOSS_DROP&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -505,7 +505,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47354" Pos="301.96#1.80#984.63" angle="-109" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47354" Pos="301.96#1.80#984.63" angle="-109" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;BornScript&apos; &apos;@GET_raid_siauliai1_RANDOM_BOSS&apos; &apos;DropItemList&apos; &apos;@GET_REQUEST_MISSION_RANDOM_BOSS_DROP&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -514,7 +514,7 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="47355" Pos="170.42#8.66#1020.12" angle="-101" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="47355" Pos="170.42#8.66#1020.12" angle="-101" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;BornScript&apos; &apos;@GET_raid_siauliai1_RANDOM_BOSS&apos; &apos;DropItemList&apos; &apos;@GET_REQUEST_MISSION_RANDOM_BOSS_DROP&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -590,6 +590,9 @@
             </Stage>
             <Stage Name="success" AutoStart="0">
                 <StartScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="Request_Mission1"/>
+                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
                         <Num Num="60"/>
                     </ToolScp>
@@ -636,6 +639,18 @@
                                 <Str Str="ssn_klapeda"/>
                                 <Str Str="REQUESTMISSION_CLEAR1"/>
                                 <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="giveItem">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
+                                <Str Str="Gacha_E_001/1"/>
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="Request_Mission1_SUCCESS"/>
+                                <Str Str="YES"/>
                             </ToolScp>
                         </execList>
                     </Event>

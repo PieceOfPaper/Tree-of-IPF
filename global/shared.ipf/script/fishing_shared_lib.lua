@@ -160,7 +160,7 @@ function SCR_PRE_SPREAD_BAIT(self, argstring, argnum1, argnum2)
         end
         
         if fishingPlace ~= nil then
-            if IsBuffApplied(list[i], "Fishing_SpreadBait") == "YES" then
+            if IsBuffApplied(fishingPlace, "Fishing_SpreadBait") == "YES" then
                 -- 낚시터에 이미 떡밥이 적용 중입니다. --
                 SendAddOnMsg(self, "NOTICE_Dm_Fishing", ScpArgMsg("TheSpreadBaitIsAlreadyInTheFishingPlace"), 5);
                 return 0;
@@ -180,7 +180,20 @@ function SCR_PRE_SPREAD_BAIT(self, argstring, argnum1, argnum2)
 end
 
 function SCR_USE_SPREAD_BAIT(self, argObj, argstring, arg1, arg2, itemID)
-    AddBuff(argObj, argObj, "Fishing_SpreadBait", 99, arg1, 600000, 1);
+    if argstring == nil or argstring == "None" then
+        argstring = "F_fish_foreshadow_blue";
+    end
+    
+    SetExProp_Str(argObj, "FishingSpreadBaitEffect", argstring);
+    
+    -- 낚시터에 떡밥 버프 적용 --
+    local addBuffTime = 600000;
+    AddBuff(argObj, argObj, "Fishing_SpreadBait", 99, arg1, addBuffTime, 1);
+    
+    -- 낚시 중이라면 자신은 바로 버프 적용 --
+    if IsFishingState(self) == 1 then
+        AddBuff(argObj, self, "Fishing_SpreadBait_PC", 99, 0, addBuffTime, 1);
+    end
     
     local teamName = GetTeamName(self)
     SendAddOnMsg(self, "NOTICE_Dm_Fishing", ScpArgMsg("{TeamName}_SprinkledTheSpeadBait", "TeamName", teamName), 5);
@@ -196,6 +209,7 @@ function SCR_USE_SPREAD_BAIT(self, argObj, argstring, arg1, arg2, itemID)
                         if IsSameObject(argObj, fishingPlace) == 1 then -- 내가 떡밥을 뿌린 낚시터와 같은 낚시터라면 메시지 전송 --
                             -- xx님이 떡밥을 뿌렸습니다! --
                             SendAddOnMsg(list[i], "NOTICE_Dm_Fishing", ScpArgMsg("{TeamName}_SprinkledTheSpeadBait", "TeamName", teamName), 5);
+                            AddBuff(argObj, list[i], "Fishing_SpreadBait_PC", 99, 0, addBuffTime, 1);
                         end
                     end
                 end
@@ -353,13 +367,37 @@ end
 
 
 -- 최대 낚시 성공 횟수 --
-function SCR_GET_MAX_FISHING_SUCCESS_COUNT(pc)
+function SCR_GET_MAX_FISHING_SUCCESS_COUNT(pc, upgradeCnt)
     local count = 0;
     if IsServerObj(pc) == 1 then -- for server
         count = GetMaxFishingItemBagSlotCount(pc);
     else -- for client
         local account = session.barrack.GetMyAccount();
-        count = account:GetMaxFishingItemBagSlotCount();
+        if upgradeCnt == nil then
+            upgradeCnt = 0;
+        end
+        count = account:GetMaxFishingItemBagSlotCount(upgradeCnt);
     end
     return count;
+end
+
+-- 살림통 업그레이드할 때 소모될 tp --
+function GET_FISHING_ITEM_BAG_UPGRADE_COST(pc, currentExpandCount)
+    if currentExpandCount == nil then
+        return 0;   -- 0 반환하면 업그레이드 안시켜주게 해놓을 거에요
+    end
+    
+    local nowSlot = GetMaxFishingItemBagSlotCount(pc);
+    if nowSlot == nil then
+        return 0;
+    end
+    
+    if nowSlot < MAX_FISHING_ITEM_BAG_SLOT_COUNT then  -- 현재 살림통이 최대 업그레이드 상태가 아니어야 업그레이드 가능 --
+        local cost = 20;    -- 기본 20 TP --
+        
+        cost = cost * (2 ^ currentExpandCount); -- 업그레이드를 한 번 할 때 마다 2배씩 늘음, 20.. 40.. 80..
+        return cost;
+    end
+    
+    return 0;
 end

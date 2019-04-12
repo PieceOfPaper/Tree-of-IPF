@@ -23,9 +23,9 @@ function REINFORCE_ABLE_131014(item)
 end
 
 function GET_REINFORCE_131014_PRICE(fromItem, moruItem, pc)
-    if moruItem.ClassName == "Moru_Potential" or moruItem.ClassName == "Moru_Potential14d" then
-        return 0;
-    end
+	if moruItem.ClassName == "Moru_Potential" or moruItem.ClassName == "Moru_Potential14d" then
+		return 0;
+	end
 
     local reinforcecount = TryGetProp(fromItem, "Reinforce_2");
     if reinforcecount == nil then
@@ -64,7 +64,7 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem, pc)
         end
     end
     
-    local value = 0;
+    local value, value_diamond = 0, 0;
 
     local priceRatio = 1;
 
@@ -97,13 +97,13 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem, pc)
     end
     
     if moruItem.ClassName == "Moru_Silver" or moruItem.ClassName == "Moru_Silver_test" or moruItem.ClassName == "Moru_Silver_NoDay" or moruItem.ClassName == "Moru_Silver_TA" or moruItem.ClassName == "Moru_Silver_TA2" or moruItem.ClassName == "Moru_Silver_Event_1704" or moruItem.ClassName == 'Moru_Silver_TA_Recycle'or moruItem.ClassName == 'Moru_Silver_TA_V2' then 
-        value = 0;
-    end
+		value = 0;
+	end
 
     if moruItem.ClassName == "Moru_Gold_TA" or moruItem.ClassName == "Moru_Gold_TA_NR"then 
-        value = 0;
-    end
-    
+		value = 0;
+	end
+	
     if moruItem.ClassName == "Moru_Event160609" or moruItem.ClassName == "Moru_Event160929_14d" then
         value = 0;
     end
@@ -115,9 +115,9 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem, pc)
         value = value + (value_diamond * 2.1)
     end
     
-    if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
-        value = value/2
-    end
+--    if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
+--        value = value/2
+--    end
     return SyncFloor(value);
 
 end

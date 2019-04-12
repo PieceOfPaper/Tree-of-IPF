@@ -1,5 +1,4 @@
 function WORLDPVP_ON_INIT(addon, frame)
-
 	addon:RegisterMsg("PVP_TIME_TABLE", "ON_PVP_TIME_TABLE");
 	addon:RegisterMsg("PVP_PC_INFO", "ON_PVP_PC_INFO");
 	addon:RegisterMsg("PVP_STATE_CHANGE", "ON_PVP_STATE_CHANGE");
@@ -8,7 +7,7 @@ function WORLDPVP_ON_INIT(addon, frame)
 	addon:RegisterMsg("WORLDPVP_RANK_PAGE", "ON_WORLDPVP_RANK_PAGE");
 	addon:RegisterMsg("WORLDPVP_RANK_ICON", "ON_WORLDPVP_RANK_ICON");
 	addon:RegisterMsg("PLAY_COUNT_MAX", "ON_PLAY_COUNT_MAX");
-			
+    addon:RegisterMsg('UPDATE_WORLDPVP_GAME_LIST', 'WORLDPVP_PUBLIC_GAME_LIST');
 end
 
 g_enablePVPExp = 1;
@@ -213,23 +212,6 @@ function UPDATE_WORLDPVP(frame)
 	local todayGetShopPointName = GetPVPPointPropName(clsName, "TodayGetShopPoint");
 	local shopPointName = GetPVPPointPropName(clsName, "ShopPoint");
     
-	local gbox_pointshop = GET_CHILD(charinfo, "gbox_pointshop");
-	gbox_pointshop:ShowWindow(0);
-	if shopPointName ~= "None" then
-		local todayGetShopPoint = 0;
-		if curDateString == pvpObj:GetPropValue(lastPointGetDateName) then
-			todayGetShopPoint = pvpObj:GetPropValue(todayGetShopPointName);
-		end
-
-		local shopgauge = GET_CHILD(gbox_pointshop, "shopgauge");
-		shopgauge:SetPoint(todayGetShopPoint, PVP_DAY_MAX_SHOP_POINT);
-
-		local txt_curshoppoint = GET_CHILD(gbox_pointshop, "txt_curshoppoint");
-		txt_curshoppoint:SetTextByKey("value", pvpObj:GetPropValue(shopPointName));
-
-		gbox_pointshop:ShowWindow(1);
-	end
-
 	local joinBtn = charinfo:GetChild("join");
 	local isPlaying = session.worldPVP.IsPlayingType(pvpType);
 	if isPlaying == true then
@@ -326,10 +308,14 @@ end
 
 function JOIN_WORLDPVP_BY_TYPE(frame, pvpType)
 	local bg = frame:GetChild("bg");
-	local charinfo = bg:GetChild("charinfo");
-
 	local cls = GetClassByType("WorldPVPType", pvpType);
-	local join = charinfo:GetChild("join");
+    local join = nil;
+    if bg ~= nil then
+	    local charinfo = bg:GetChild("charinfo");
+	    join = charinfo:GetChild("join");
+    else
+        join = GET_CHILD_RECURSIVELY(frame, 'teamBattleMatchingBtn');
+    end
 	local state = session.worldPVP.GetState();
 	if state == PVP_STATE_NONE then
 
@@ -682,7 +668,7 @@ function ON_WORLDPVP_RANK_PAGE(frame)
 	control:SetUserValue("PAGE", page);
 	
 	local btnReward = bg_ranking:GetChild("btn_reward");
-
+    
 	local cid = session.GetMySession():GetCID();
 	local myRank = session.worldPVP.GetPrevRankInfoByCID(cid);
 	if myRank ~= nil then
@@ -925,54 +911,6 @@ function WORLDPVP_PUBLIC_GAME_LIST_BY_TYPE(isGuildPVP)
 	end
 
 	return gameIndexList;
-end
-
-function WORLDPVP_PUBLIC_GAME_LIST()
-	local isGuildPVP=0;
-	local frame = ui.GetFrame("worldpvp");
-	if 0 == frame:IsVisible() then
-		frame = ui.GetFrame("guildbattle_league");
-		isGuildPVP=1;
-	end
-	local bg_observer = frame:GetChild("bg_observer");
-	local gbox = bg_observer:GetChild("gbox");
-	gbox:RemoveAllChild();
-
-	local gameIndexList = WORLDPVP_PUBLIC_GAME_LIST_BY_TYPE(isGuildPVP);
-	
-	local maxCnt = 3;
-	local cnt = math.min(#gameIndexList, maxCnt);
-	for i = 1 , cnt do
-		local index = gameIndexList[i];
-		if index ~= nil then
-			local info = session.worldPVP.GetPublicGameByIndex(index);
-			local ctrlSet = gbox:CreateControlSet("pvp_observe_ctrlset", "CTRLSET_" .. i, ui.LEFT, ui.TOP, 0, 0, 0, 0);		
-			ctrlSet:SetUserValue("GAME_ID", info.guid);
-
-			local gbox_pc = ctrlSet:GetChild("gbox_pc");
-			local teamVec1 = info:CreateTeamInfo(1);
-			local teamVec2 = info:CreateTeamInfo(2);
-			local gbox_ctrlSet = ctrlSet:GetChild("gbox");
-			local gbox_whole = ctrlSet:GetChild("gbox_whole");
-			local gbox_1 = ctrlSet:GetChild("gbox_1");
-			local gbox_2 = ctrlSet:GetChild("gbox_2");
-
-			local guildName1 = WORLDPVP_PUBLIC_GAME_SET_PCTEAM(frame, gbox_1, teamVec1, 1);
-
-			SET_VS_NAMES(frame, ctrlSet, 1, WORLDPVP_PUBLIC_GAME_SET_PCTEAM(frame, gbox_1, teamVec1, 1));
-			SET_VS_NAMES(frame, ctrlSet, 2, WORLDPVP_PUBLIC_GAME_SET_PCTEAM(frame, gbox_2, teamVec2, 2));		
-
-			local heightAddValue = 7;
-			local height = math.max(gbox_1:GetHeight(), gbox_2:GetHeight()) + heightAddValue;
-			gbox_ctrlSet:Resize(gbox_ctrlSet:GetWidth(), height);
-
-			local btn = ctrlSet:GetChild("btn");
-			ctrlSet:Resize(ctrlSet:GetWidth(), height + btn:GetHeight() + heightAddValue +45);
-			gbox_whole:Resize(ctrlSet:GetWidth(), height + btn:GetHeight() + heightAddValue +50 );
-		end
-	end
-
-	GBOX_AUTO_ALIGN(gbox, 10, 3, 10, true, true);
 end
 
 function SET_VS_NAMES(frame, ctrlSet, num, name)

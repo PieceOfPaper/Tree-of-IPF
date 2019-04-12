@@ -494,7 +494,7 @@ function CHEATOTHERS_UPDATE_OTHERS(frame)
 	frame = frame:GetTopParentFrame();
 	local othersGroup = frame:GetChild("OthersGroup");
 	local edit = GET_CHILD(othersGroup, "ForkName", "ui::CEditControl");
-	local cap = edit:GetText();
+	local cap = string.upper(edit:GetText());
 
 	local cheatTree = CheatList_tree_array[3];
 	cheatTree:Clear();
@@ -515,7 +515,7 @@ function CHEATOTHERS_UPDATE_OTHERS(frame)
 
 	for i = 0 , cnt - 1 do
 		local cls = GetClassByIndexFromList(clslist, i);
-		local name = dictionary.ReplaceDicIDInCompStr(cls.Name);		
+		local name = string.upper(dictionary.ReplaceDicIDInCompStr(cls.Name));		
 		if cap == "" or nil ~= string.find(name, cap) then
 			local curItem 	= cheatTree:Add(parentItem, "{@st43b}" .. cls.Name, cls.ClassID);
 		end
@@ -533,7 +533,7 @@ function CHEATOTHERS_UPDATE_OTHERS(frame)
 
 	for i = 0 , cnt - 1 do
 		local cls = GetClassByIndexFromList(clslist, i);
-		local name = dictionary.ReplaceDicIDInCompStr(cls.Name);		
+		local name = string.upper(dictionary.ReplaceDicIDInCompStr(cls.Name));		
 		if cap == "" or nil ~= string.find(name, cap) then
 			local curItem 	= cheatTree:Add(parentItem, "{@st43b}" .. cls.Name, cls.ClassID);
 		end

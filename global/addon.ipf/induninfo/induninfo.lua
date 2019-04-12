@@ -6,6 +6,9 @@ function INDUNINFO_ON_INIT(addon, frame)
 end
 
 function UI_TOGGLE_INDUN()
+    if app.IsBarrackMode() == true then
+		return;
+	end
     ui.ToggleFrame('induninfo');
 end
 

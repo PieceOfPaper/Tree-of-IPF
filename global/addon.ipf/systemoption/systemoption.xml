@@ -1,84 +1,93 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="systemoption" x="0" y="0" width="600" height="1200">
 	<frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
-	<skin frameskin=" "/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
-	<layer layerlevel="80"/>
-	<option closebutton="false"/>
-	<sound opensound="skill_window_open" closesound="skill_window_close"/>
-	<effect open="skilltreeOpen" close="skilltreeClose"/>
-	<script OpenScp="SYS_OPTION_OPEN" CloseScp="SYS_OPTION_CLOSE"/>
-	<controls>
-		<groupbox name="bg2" rect="0 0 600 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_low"/>
-		<groupbox name="pip4" rect="0 0 600 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
-		<groupbox name="pipwin_low" rect="0 0 600 930" margin="0 90 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
-		<richtext name="title" rect="0 0 200 80" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}게임 설정{/}" textalign="left top"/>		
-		<button name="close" rect="0 0 44 44" margin="28 20 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;systemoption&apos;)" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}게임 설정창을 닫습니다{/}"/>
-		<!-- Game & UI Mode -->
-		<groupbox name="gameUIModeBox" rect="0 0 560 250" parent="bg2" margin="0 40 0 0" layout_gravity="center top" draw="false"/>
-		<groupbox name="gameBox" rect="0 0 280 250" parent="gameUIModeBox" margin="0 0 0 0" layout_gravity="left top" draw="false"/>	
-		<richtext name="game_title" rect="0 0 120 24" parent="gameBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}게임{/}"/>
-		<checkbox name="viewCharInfoBase" rect="0 0 120 30" parent="gameBox" margin="20 50 0 0" layout_gravity="left top" ConfigName="ViewCharInfoBase" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}캐릭터 기본 정보 보기{/}" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="HideGivenName" rect="0 0 120 30" parent="gameBox" margin="20 80 0 0" layout_gravity="left top" ConfigName="HideGivenName" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}팀 이름만 표시{/}" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="ShowOtherPcName" rect="0 0 120 30" parent="gameBox" margin="20 110 0 0" layout_gravity="left top" ConfigName="ShowOtherPCName" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}다른 캐릭터 이름 표시{/}" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="ShowHpSpGauge" rect="0 0 120 30" parent="gameBox" margin="20 140 0 0" layout_gravity="left top" ConfigName="ShowHpSpGauge" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}캐릭터 아래에 HP, SP 표시{/}" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="JoyPadVibration" rect="0 0 120 30" parent="gameBox" margin="20 170 0 0" layout_gravity="left top" ConfigName="JoyPadVibration" LBtnUpScp="" caption="{@st66b}조이패드 진동{/}" clicksound="button_click_big" oversound="button_over"/>
-		<richtext name="sklCtrlSpd_text" rect="0 0 120 24" parent="gameBox" margin="20 200 0 0" layout_gravity="left top" format="{@st66b}스킬조작 속도 (%s){/}" param1="opValue"/>
-		<slidebar name="sklCtrlSpd" rect="0 0 200 20" parent="gameBox" margin="20 220 0 0" layout_gravity="left top" SlideScp="CONFIG_SKL_CTRL_SPD" clicksound="button_click_big_2" maxlevel="1000" minlevel="10" oversound="button_over" skin="slidebar"/>
-		<groupbox name="uiModeBox" rect="0 0 280 250" parent="gameUIModeBox" margin="0 0 0 0" layout_gravity="right top" draw="false"/>
-		<richtext name="rtext_uimode" rect="0 0 120 24" parent="uiModeBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}UI 모드{/}"/>
-		<radiobutton name="controltype_0" parent="uiModeBox" rect="0 0 200 24" margin="20 50 0 0" layout_gravity="left top" ConfigName="ControlMode" LBtnDownScp="APPLY_CONTROLMODE" caption="{@st66b}자동{/}" clicksound="button_click_big" group="controlType" oversound="button_over"/>
-		<radiobutton name="controltype_1" parent="uiModeBox" rect="0 0 200 24" margin="20 80 0 0" layout_gravity="left top" ConfigName="ControlMode" LBtnDownScp="APPLY_CONTROLMODE" caption="{@st66b}조이패드{/}" clicksound="button_click_big" group="controlType" oversound="button_over"/>
-		<button name="padImg" rect="0 0 60 36" parent="uiModeBox" margin="0 75 20 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.OpenFrame(&quot;joysticktutorial&quot;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}?" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" texttooltip="{@st59}조이패드 안내{/}"/>
-		<radiobutton name="controltype_2" parent="uiModeBox" rect="0 0 200 24" margin="20 110 0 0" layout_gravity="left top" ConfigName="ControlMode" LBtnDownScp="APPLY_CONTROLMODE" caption="{@st66b}키보드{/}" clicksound="button_click_big" group="controlType" oversound="button_over"/>
-		<radiobutton name="controltype_3" parent="uiModeBox" rect="0 0 200 24" margin="20 140 0 0" layout_gravity="left top" ConfigName="ControlMode" LBtnDownScp="APPLY_CONTROLMODE" caption="{@st66b}마우스" clicksound="button_click_big" group="controlType" oversound="button_over"/>
-		<button name="mouseImg_1" rect="0 0 208 35" parent="uiModeBox" margin="20 180 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.ToggleFrame(&quot;keyconfig&quot;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}키 설정" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn"/>
-		<!-- Display -->
-		<groupbox name="displayBox" parent="bg2" rect="0 0 560 140" margin="0 290 0 0" layout_gravity="center top" draw="false"/>
-		<labelline name="boardLine 1" parent="displayBox" rect="0 0 560 4" margin="0 0 0 0" layout_gravity="left top" skin="None" visible="true"/>
-		<richtext name="screen_title" rect="0 0 120 24" parent="displayBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}화면{/}"/>
-		<radiobutton name="scrtype_1" parent="displayBox" rect="0 0 200 24" margin="20 50 0 0" layout_gravity="left top" LBtnDownScp="APPLY_SCREEN" caption="{@st66b}전체 화면{/}" clicksound="button_click_big" group="screenType" oversound="button_over"/>
-		<radiobutton name="scrtype_2" parent="displayBox" rect="0 0 200 24" margin="20 80 0 0" layout_gravity="left top" LBtnDownScp="APPLY_SCREEN" caption="{@st66b}창모드{/}" clicksound="button_click_big" group="screenType" oversound="button_over"/>
-		<droplist name="resolutionList" parent="displayBox" rect="0 0 200 40" margin="20 110 0 0" layout_gravity="left top" SelectScp="APPLY_SCREEN" clicksound="button_click_big_2" font="white_20_ol" frametextalign="left" oversound="button_over" skin="droplist_normal" textalign="left center" textoffset="10 0" visibleline="11"/>
-		<radiobutton name="vsync_1" parent="displayBox" rect="0 0 300 24" margin="300 50 0 0" layout_gravity="left top" LBtnDownScp="ENABEL_VSYNC" caption="{@st66b}수직 동기화 켜기{/}" clicksound="button_click_big" group="syncType" oversound="button_over"/>
-		<radiobutton name="vsync_0" parent="displayBox" rect="0 0 300 24" margin="300 80 0 0" layout_gravity="left top" LBtnDownScp="ENABEL_VSYNC" caption="{@st66b}수직 동기화 끄기{/}" clicksound="button_click_big" group="syncType" oversound="button_over"/>
-		<!-- Sound & Performance -->
-		<groupbox name="soundPerfBox" rect="0 0 560 180" parent="bg2" margin="0 430 0 0" layout_gravity="center top" draw="false"/>
-		<labelline name="boardLine2" parent="soundPerfBox" rect="0 0 460 4" margin="0 0 0 0" layout_gravity="left top" skin="None" visible="true"/>
-		<groupbox name="soundBox" rect="0 0 280 180" parent="soundPerfBox" margin="0 0 0 0" layout_gravity="left top" draw="false"/>
-		<richtext name="sound_title" rect="0 0 120 24" parent="soundBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}사운드{/}"/>
-		<richtext name="soundVol_text" rect="0 0 120 24" parent="soundBox" margin="20 50 0 0" layout_gravity="left top" format="{@st66b}효과음 크기 (%s){/}" param1="opValue"/>
-		<slidebar name="soundVol" rect="0 0 280 20" parent="soundBox" margin="20 70 0 0" layout_gravity="left top" SlideScp="CONFIG_SOUNDVOL" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
-		<richtext name="musicVol_text" rect="0 0 120 24" parent="soundBox" margin="20 90 0 0" layout_gravity="left top" format="{@st66b}음악 크기 (%s){/}" param1="opValue"/>
-		<slidebar name="musicVol" rect="0 0 280 20" parent="soundBox" margin="20 110 0 0" layout_gravity="left top" SlideScp="CONFIG_MUSICVOL" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
-		<richtext name="totalVol_text" rect="0 0 120 24" parent="soundBox" margin="20 130 0 0" layout_gravity="left top" format="{@st66b}사운드 전체 크기 (%s){/}" param1="opValue"/>
-		<slidebar name="totalVol" rect="0 0 280 20" parent="soundBox" margin="20 150 0 0" layout_gravity="left top" SlideScp="CONFIG_TOTALVOL" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
-		<groupbox name="perfBox" rect="0 0 280 180" parent="soundPerfBox" margin="0 0 0 0" layout_gravity="right top" draw="false"/>
-		<richtext name="graphic_txt2" rect="0 0 120 24" parent="perfBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}성능 조정{/}"/>
-		<radiobutton name="perftype_0" parent="perfBox" rect="0 0 200 24" margin="20 50 0 0" layout_gravity="left top" LBtnDownScp="APPLY_PERFMODE" caption="{@st66b}저사양모드{/}" clicksound="button_click_big" group="perfType" oversound="button_over"/>
-		<radiobutton name="perftype_1" parent="perfBox" rect="0 0 200 24" margin="20 80 0 0" layout_gravity="left top" LBtnDownScp="APPLY_PERFMODE" caption="{@st66b}자동조정{/}" clicksound="button_click_big" group="perfType" oversound="button_over"/>
-		<radiobutton name="perftype_2" parent="perfBox" rect="0 0 200 24" margin="20 110 0 0" layout_gravity="left top" LBtnDownScp="APPLY_PERFMODE" caption="{@st66b}사용안함{/}" clicksound="button_click_big" group="perfType" oversound="button_over"/>
-		<checkbox name="check_optimization" parent="perfBox" rect="0 0 200 24" margin="20 140 0 0" layout_gravity="left top" LBtnDownScp="APPLY_OPTIMIZATION" caption="{@st66b}멀티스레드 사용(Beta){/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}멀티스레드 업데이트(Beta)를 적용합니다.{/}"/>
-		<!-- Graphic -->
-		<groupbox name="graphicBox" rect="0 0 560 240" parent="bg2" margin="0 610 0 0" layout_gravity="center top" draw="false"/>
-		<labelline name="boardLine 3" parent="graphicBox" rect="0 0 560 4" margin="0 0 0 0" layout_gravity="left top" skin="None" visible="true"/>
-		<richtext name="graphic_txt" rect="0 0 120 24" parent="graphicBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}그래픽 설정{/}"/>
-		<checkbox name="check_Bloom" rect="0 0 120 30" parent="graphicBox" margin="20 50 0 0" layout_gravity="left top" ConfigName="EnableBloom" LBtnUpScp="ENABLE_BLOOM" caption="{@st66b}블룸 적용{/}" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="check_SoftParticle" rect="0 0 120 30" parent="graphicBox" margin="20 80 0 0" layout_gravity="left top" ConfigName="EnableSoftParticle" LBtnUpScp="ENABLE_SOFTPARTICLE" caption="{@st66b}SoftParticle 적용{/}" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="check_ShowOtherPCEffect" rect="0 0 120 30" parent="graphicBox" margin="20 110 0 0" layout_gravity="left top" ConfigName="EnableOtherPCEffect" caption="{@st66b}다른 캐릭터 이펙트 보기" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="check_EnableDeadParts" rect="0 0 120 30" parent="graphicBox" margin="20 140 0 0" layout_gravity="left top" ConfigName="EnableDeadParts" caption="{@st66b} 데드 파츠 적용" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="UseCamShockWave" rect="0 0 120 30" parent="graphicBox" margin="20 170 0 0" layout_gravity="left top" ConfigName="UseCamShockWave" LBtnUpScp="" caption="{@st66b}카메라 진동 사용{/}" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="UseItemDropEffect" rect="0 0 120 30" parent="graphicBox" margin="20 200 0 0" layout_gravity="left top" ConfigName="UseItemDropEffect" caption="{@st66b}아이템 드랍 이펙트 사용" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="check_fxaa" rect="0 0 120 30" parent="graphicBox" margin="300 50 0 0" layout_gravity="left top" ConfigName="EnableFXAA" LBtnUpScp="ENABLE_FXAA" caption="{@st66b}FXAA 적용{/}" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="check_highTexture" rect="0 0 120 30" parent="graphicBox" margin="300 80 0 0" layout_gravity="left top" ConfigName="EnableHighTexture" LBtnUpScp="ENABLE_HIGHTTEXTURE" caption="{@st66b}고사양 텍스쳐 적용{/}" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="check_EnableNaturalEffect" rect="0 0 120 30" parent="graphicBox" margin="300 110 0 0" layout_gravity="left top" ConfigName="EnableNaturalEffect" caption="{@st66b} 환경 이펙트 적용" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="check_EnableCharSilhouette" rect="0 0 120 30" parent="graphicBox" margin="300 140 0 0" layout_gravity="left top" ConfigName="EnableCharSilhouette" caption="{@st66b} 캐릭터 실루엣 적용" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="check_ShowOtherPCDamageEffect" rect="0 0 120 30" parent="graphicBox" margin="300 170 0 0" layout_gravity="left top" ConfigName="EnableOtherPCDamageEffect" caption="{@st66b}다른 캐릭터 대미지 보기" clicksound="button_click_big" oversound="button_over"/>
-		<!-- Language -->
-		<groupbox name="languageBox" rect="0 0 560 80" parent="bg2" margin="0 850 0 0" layout_gravity="center top" draw="false"/>
-		<labelline name="boardLine 4" parent="languageBox" rect="0 0 560 4" margin="0 0 0 0" layout_gravity="left top" skin="None" visible="true"/>
-		<richtext name="language_title" parent="languageBox" rect="0 0 120 24" margin="10 10 0 0" layout_gravity="left top" format="{@st43}언어 선택{/}"/>
-		<droplist name="languageList" parent="languageBox" rect="0 0 200 40" margin="20 50 0 0" layout_gravity="left top" SelectScp="APPLY_LANGUAGE" font="white_20_ol" frametextalign="left" skin="droplist_normal" textalign="left center" textoffset="10 0" visibleline="11"/>
-	</controls>
+    <skin frameskin=" "/>
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <layer layerlevel="80"/>
+    <option closebutton="false"/>
+    <sound opensound="skill_window_open" closesound="skill_window_close"/>
+    <effect open="skilltreeOpen" close="skilltreeClose"/>
+    <script OpenScp="SYS_OPTION_OPEN" CloseScp="SYS_OPTION_CLOSE"/>
+    <controls>
+        <groupbox name="bg2" rect="0 0 600 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_low"/>
+        <groupbox name="pip4" rect="0 0 600 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+        <groupbox name="pipwin_low" rect="0 0 600 930" margin="0 90 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
+        <richtext name="title" rect="0 0 200 80" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}게임 설정{/}" textalign="left top"/>
+        <button name="close" rect="0 0 44 44" margin="28 20 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;systemoption&apos;)" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}게임 설정창을 닫습니다{/}"/>
+        <!-- Game & UI Mode -->
+		<groupbox name="gameUIModeBox" rect="0 0 560 500" parent="bg2" margin="0 40 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
+		<groupbox name="gameBox" rect="0 0 280 400" parent="gameUIModeBox" margin="0 0 0 0" layout_gravity="left top" scrollbar="false" draw="false"/>
+		<groupbox name="gamePVPSetting" rect="0 0 280 400" parent="gameUIModeBox" margin="0 0 0 0" layout_gravity="right top" scrollbar="false" draw="false"/>
+        <richtext name="game_title" rect="0 0 120 24" parent="gameBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}게임{/}"/>
+        <checkbox name="viewCharInfoBase" rect="0 0 120 30" parent="gameBox" margin="20 50 0 0" layout_gravity="left top" ConfigName="ViewCharInfoBase" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}캐릭터 기본 정보 보기{/}" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="HideGivenName" rect="0 0 120 30" parent="gameBox" margin="20 80 0 0" layout_gravity="left top" ConfigName="HideGivenName" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}팀 이름만 표시{/}" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="ShowPartyName" rect="0 0 120 30" parent="gameBox" margin="20 110 0 0" layout_gravity="left top" ConfigName="ShowPartyName" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}파티 이름 표시{/}" clicksound="button_click_big" oversound="button_over"/>
+
+		<checkbox name="ShowOtherPcName" rect="0 0 120 30" parent="gameBox" margin="20 140 0 0" layout_gravity="left top" ConfigName="ShowOtherPCName" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}다른 캐릭터 이름 표시{/}" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="ShowHpSpGauge" rect="0 0 120 30" parent="gameBox" margin="20 170 0 0" layout_gravity="left top" ConfigName="ShowHpSpGauge" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}캐릭터 아래에 HP, SP 표시{/}" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="JoyPadVibration" rect="0 0 120 30" parent="gameBox" margin="20 200 0 0" layout_gravity="left top" ConfigName="JoyPadVibration" LBtnUpScp="" caption="{@st66b}조이패드 진동{/}" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="PumpRecipe" rect="0 0 120 30" parent="gameBox" margin="20 230 0 0" layout_gravity="left top" ConfigName="PumpRecipe" LBtnUpScp="" caption="{@st66b}레시피 재료 획득 시 팝업{/}" clicksound="button_click_big" oversound="button_over"/>
+        <richtext name="sklCtrlSpd_text" rect="0 0 120 24" parent="gameBox" margin="20 260 0 0" layout_gravity="left top" format="{@st66b}스킬조작 속도 (%s){/}" param1="opValue"/>
+        <slidebar name="sklCtrlSpd" rect="0 0 200 20" parent="gameBox" margin="20 280 0 0" layout_gravity="left top" SlideScp="CONFIG_SKL_CTRL_SPD" clicksound="button_click_big_2" maxlevel="1000" minlevel="10" oversound="button_over" skin="slidebar"/>
+        <groupbox name="uiModeBox" rect="0 0 280 250" parent="gameUIModeBox" margin="0 0 0 0" layout_gravity="right top" scrollbar="false" draw="false"/>
+        <richtext name="rtext_uimode" rect="0 0 120 24" parent="uiModeBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}UI 모드{/}"/>
+        <radiobutton name="controltype_0" parent="uiModeBox" rect="0 0 200 24" margin="20 50 0 0" layout_gravity="left top" ConfigName="ControlMode" LBtnDownScp="APPLY_CONTROLMODE" caption="{@st66b}자동{/}" clicksound="button_click_big" group="controlType" oversound="button_over"/>
+        <radiobutton name="controltype_1" parent="uiModeBox" rect="0 0 200 24" margin="20 80 0 0" layout_gravity="left top" ConfigName="ControlMode" LBtnDownScp="APPLY_CONTROLMODE" caption="{@st66b}조이패드{/}" clicksound="button_click_big" group="controlType" oversound="button_over"/>
+        <button name="padImg" rect="0 0 60 36" parent="uiModeBox" margin="0 75 20 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.OpenFrame(&quot;joysticktutorial&quot;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}?" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" texttooltip="{@st59}조이패드 안내{/}"/>
+        <radiobutton name="controltype_2" parent="uiModeBox" rect="0 0 200 24" margin="20 110 0 0" layout_gravity="left top" ConfigName="ControlMode" LBtnDownScp="APPLY_CONTROLMODE" caption="{@st66b}키보드{/}" clicksound="button_click_big" group="controlType" oversound="button_over"/>
+        <radiobutton name="controltype_3" parent="uiModeBox" rect="0 0 200 24" margin="20 140 0 0" layout_gravity="left top" ConfigName="ControlMode" LBtnDownScp="APPLY_CONTROLMODE" caption="{@st66b}마우스" clicksound="button_click_big" group="controlType" oversound="button_over"/>
+        <button name="mouseImg_1" rect="0 0 208 35" parent="uiModeBox" margin="20 180 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.ToggleFrame(&quot;keyconfig&quot;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}키 설정" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn"/>
+		<groupbox name="uiPVPSetting" rect="0 0 280 250" parent="gamePVPSetting" margin="0 0 0 0" layout_gravity="right top" scrollbar="false" draw="false"/>
+		<richtext name="rtext_uimode" rect="0 0 120 24" parent="gamePVPSetting" margin="10 225 0 0" layout_gravity="left top" format="{@st43}PVP 설정{/}"/>
+		<richtext name="dmgFontSizeController_text" rect="0 0 120 24" parent="gamePVPSetting" margin="20 265 0 0" layout_gravity="left top" format="{@st66b}대미지 폰트 스케일 (%s){/}" param1="ctrlValue"/>
+		<slidebar name="dmgFontSizeController" rect="0 0 200 20" parent="gamePVPSetting" margin="20 285 0 0" layout_gravity="left top" SlideScp="CONFIG_DMG_FONT_SCALE_CONTROLLER" clicksound="button_click_big_2" maxlevel="300" minlevel="50" oversound="button_over" skin="slidebar"/>
+		<checkbox name="chkShowPadSkillRange" rect="0 0 120 30" parent="gamePVPSetting" margin="20 315 0 0" layout_gravity="left top" LBtnUpScp="CONFIG_SHOW_PAD_SKILL_RANGE" caption="{@st66b}장판 범위 표시{/}" clicksound="button_click_big" oversound="button_over"/>
+        <!-- Display -->
+		<groupbox name="displayBox" parent="bg2" rect="0 0 560 160" margin="0 420 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
+        <labelline name="boardLine 1" parent="displayBox" rect="0 0 560 4" margin="0 0 0 0" layout_gravity="left top" skin="None" visible="true"/>
+        <richtext name="screen_title" rect="0 0 120 24" parent="displayBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}화면{/}"/>
+        <radiobutton name="scrtype_1" parent="displayBox" rect="0 0 200 24" margin="20 50 0 0" layout_gravity="left top" LBtnDownScp="APPLY_SCREEN" caption="{@st66b}전체 화면{/}" clicksound="button_click_big" group="screenType" oversound="button_over"/>
+        <radiobutton name="scrtype_2" parent="displayBox" rect="0 0 200 24" margin="20 80 0 0" layout_gravity="left top" LBtnDownScp="APPLY_SCREEN" caption="{@st66b}창모드{/}" clicksound="button_click_big" group="screenType" oversound="button_over"/>
+        <droplist name="resolutionList" parent="displayBox" rect="0 0 200 40" margin="20 110 0 0" layout_gravity="left top" SelectScp="APPLY_SCREEN" clicksound="button_click_big_2" font="white_20_ol" frametextalign="left" oversound="button_over" skin="droplist_normal" textalign="left center" textoffset="10 0" visibleline="11"/>
+        <radiobutton name="vsync_1" parent="displayBox" rect="0 0 300 24" margin="300 50 0 0" layout_gravity="left top" LBtnDownScp="ENABEL_VSYNC" caption="{@st66b}수직 동기화 켜기{/}" clicksound="button_click_big" group="syncType" oversound="button_over"/>
+        <radiobutton name="vsync_0" parent="displayBox" rect="0 0 300 24" margin="300 80 0 0" layout_gravity="left top" LBtnDownScp="ENABEL_VSYNC" caption="{@st66b}수직 동기화 끄기{/}" clicksound="button_click_big" group="syncType" oversound="button_over"/>
+        <!-- Sound & Performance -->
+		<groupbox name="soundPerfBox" rect="0 0 560 180" parent="bg2" margin="0 560 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
+        <labelline name="boardLine2" parent="soundPerfBox" rect="0 0 460 4" margin="0 0 0 0" layout_gravity="left top" skin="None" visible="true"/>
+		<groupbox name="soundBox" rect="0 0 280 180" parent="soundPerfBox" margin="0 0 0 0" layout_gravity="left top" scrollbar="false" draw="false"/>
+        <richtext name="sound_title" rect="0 0 120 24" parent="soundBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}사운드{/}"/>
+        <richtext name="soundVol_text" rect="0 0 120 24" parent="soundBox" margin="20 50 0 0" layout_gravity="left top" format="{@st66b}효과음 크기 (%s){/}" param1="opValue"/>
+        <slidebar name="soundVol" rect="0 0 280 20" parent="soundBox" margin="20 70 0 0" layout_gravity="left top" SlideScp="CONFIG_SOUNDVOL" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
+        <richtext name="musicVol_text" rect="0 0 120 24" parent="soundBox" margin="20 90 0 0" layout_gravity="left top" format="{@st66b}음악 크기 (%s){/}" param1="opValue"/>
+        <slidebar name="musicVol" rect="0 0 280 20" parent="soundBox" margin="20 110 0 0" layout_gravity="left top" SlideScp="CONFIG_MUSICVOL" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
+        <richtext name="totalVol_text" rect="0 0 120 24" parent="soundBox" margin="20 130 0 0" layout_gravity="left top" format="{@st66b}사운드 전체 크기 (%s){/}" param1="opValue"/>
+        <slidebar name="totalVol" rect="0 0 280 20" parent="soundBox" margin="20 150 0 0" layout_gravity="left top" SlideScp="CONFIG_TOTALVOL" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
+		<groupbox name="perfBox" rect="0 0 280 180" parent="soundPerfBox" margin="0 0 0 0" layout_gravity="right top" scrollbar="false" draw="false"/>
+        <richtext name="graphic_txt2" rect="0 0 120 24" parent="perfBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}성능 조정{/}"/>
+        <radiobutton name="perftype_0" parent="perfBox" rect="0 0 200 24" margin="20 50 0 0" layout_gravity="left top" LBtnDownScp="APPLY_PERFMODE" caption="{@st66b}저사양모드{/}" clicksound="button_click_big" group="perfType" oversound="button_over"/>
+        <radiobutton name="perftype_1" parent="perfBox" rect="0 0 200 24" margin="20 80 0 0" layout_gravity="left top" LBtnDownScp="APPLY_PERFMODE" caption="{@st66b}자동조정{/}" clicksound="button_click_big" group="perfType" oversound="button_over"/>
+        <radiobutton name="perftype_2" parent="perfBox" rect="0 0 200 24" margin="20 110 0 0" layout_gravity="left top" LBtnDownScp="APPLY_PERFMODE" caption="{@st66b}사용안함{/}" clicksound="button_click_big" group="perfType" oversound="button_over"/>
+        <!-- Graphic -->
+		<groupbox name="graphicBox" rect="0 0 560 240" parent="bg2" margin="0 740 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
+        <labelline name="boardLine 3" parent="graphicBox" rect="0 0 560 4" margin="0 0 0 0" layout_gravity="left top" skin="None" visible="true"/>
+        <richtext name="graphic_txt" rect="0 0 120 24" parent="graphicBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}그래픽 설정{/}"/>
+        <checkbox name="check_Bloom" rect="0 0 120 30" parent="graphicBox" margin="20 50 0 0" layout_gravity="left top" ConfigName="EnableBloom" LBtnUpScp="ENABLE_BLOOM" caption="{@st66b}블룸 적용{/}" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="check_SoftParticle" rect="0 0 120 30" parent="graphicBox" margin="20 80 0 0" layout_gravity="left top" ConfigName="EnableSoftParticle" LBtnUpScp="ENABLE_SOFTPARTICLE" caption="{@st66b}SoftParticle 적용{/}" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="check_ShowOtherPCEffect" rect="0 0 120 30" parent="graphicBox" margin="20 110 0 0" layout_gravity="left top" ConfigName="EnableOtherPCEffect" caption="{@st66b}다른 캐릭터 이펙트 보기" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="check_EnableDeadParts" rect="0 0 120 30" parent="graphicBox" margin="20 140 0 0" layout_gravity="left top" ConfigName="EnableDeadParts" caption="{@st66b} 데드 파츠 적용" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="UseCamShockWave" rect="0 0 120 30" parent="graphicBox" margin="20 170 0 0" layout_gravity="left top" ConfigName="UseCamShockWave" LBtnUpScp="" caption="{@st66b}카메라 진동 사용{/}" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="UseItemDropEffect" rect="0 0 120 30" parent="graphicBox" margin="20 200 0 0" layout_gravity="left top" ConfigName="UseItemDropEffect" caption="{@st66b}아이템 드랍 이펙트 사용" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="check_fxaa" rect="0 0 120 30" parent="graphicBox" margin="300 50 0 0" layout_gravity="left top" ConfigName="EnableFXAA" LBtnUpScp="ENABLE_FXAA" caption="{@st66b}FXAA 적용{/}" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="check_highTexture" rect="0 0 120 30" parent="graphicBox" margin="300 80 0 0" layout_gravity="left top" ConfigName="EnableHighTexture" LBtnUpScp="ENABLE_HIGHTTEXTURE" caption="{@st66b}고사양 텍스쳐 적용{/}" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="check_EnableNaturalEffect" rect="0 0 120 30" parent="graphicBox" margin="300 110 0 0" layout_gravity="left top" ConfigName="EnableNaturalEffect" caption="{@st66b} 환경 이펙트 적용" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="check_EnableCharSilhouette" rect="0 0 120 30" parent="graphicBox" margin="300 140 0 0" layout_gravity="left top" ConfigName="EnableCharSilhouette" caption="{@st66b} 캐릭터 실루엣 적용" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="check_ShowOtherPCDamageEffect" rect="0 0 120 30" parent="graphicBox" margin="300 170 0 0" layout_gravity="left top" ConfigName="EnableOtherPCDamageEffect" caption="{@st66b}다른 캐릭터 대미지 보기" clicksound="button_click_big" oversound="button_over"/>
+        <checkbox name="check_HitGlow" rect="0 0 120 30" parent="graphicBox" margin="300 200 0 0" layout_gravity="left top" ConfigName="EnableHitGlow" caption="{@st66b}타격 효과 사용" clicksound="button_click_big" oversound="button_over" LBtnUpScp="ENABLE_HITGLOW"/>
+        <!-- Language -->
+        <groupbox name="languageBox" rect="0 0 560 80" parent="bg2" margin="0 1000 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
+        <labelline name="boardLine 4" parent="languageBox" rect="0 0 560 4" margin="0 0 0 0" layout_gravity="left top" skin="None" visible="true"/>
+        <richtext name="language_title" parent="languageBox" rect="0 0 120 24" margin="10 10 0 0" layout_gravity="left top" format="{@st43}언어 선택{/}"/>
+        <droplist name="languageList" parent="languageBox" rect="0 0 200 40" margin="20 50 0 0" layout_gravity="left top" SelectScp="APPLY_LANGUAGE" font="white_20_ol" frametextalign="left" skin="droplist_normal" textalign="left center" textoffset="10 0" visibleline="11"/>
+    </controls>
 </uiframe>

@@ -78,7 +78,11 @@ function NOTICE_ON_INIT(addon, frame)
     
     addon:RegisterMsg('NOTICE_Dm_Fishing', 'NOTICE_ON_MSG');
     
-    
+    addon:RegisterMsg('NOTICE_Dm_BossAppear', 'NOTICE_ON_MSG');
+
+    addon:RegisterMsg('NOTICE_Dm_GuildColony', 'NOTICE_ON_MSG');    
+    addon:RegisterMsg('NOTICE_Dm_GuildColony2', 'NOTICE_ON_MSG');
+    addon:RegisterMsg('NOTICE_Dm_GuildColony3', 'NOTICE_ON_MSG');
 end
 
 function NOTICE_CLOSE(frame)
@@ -411,8 +415,16 @@ function NOTICE_ON_MSG(frame, msg, argStr, argNum)
         exeText = '{@st41}'..noticeText ;
     elseif msg == 'NOTICE_Dm_Fishing' then
         exeText = '{@st41}'..noticeText ;
+    elseif msg == 'NOTICE_Dm_BossAppear' then
+        exeText = '{@st41}'..noticeText ;
+    elseif msg == 'NOTICE_Dm_GuildColony' then
+        exeText = '{@st41}'..noticeText ;
+    elseif msg == 'NOTICE_Dm_GuildColony2' then
+        exeText = '{@st41}'..noticeText ;
+    elseif msg == 'NOTICE_Dm_GuildColony3' then
+        exeText = '{@st41}'..noticeText ;
     end
-
+    
     textObj:SetText(exeText);
     if pictureObj ~= nil then
         pictureObj:SetImage(msg);

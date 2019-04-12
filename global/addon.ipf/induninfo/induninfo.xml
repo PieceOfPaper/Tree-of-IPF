@@ -9,7 +9,7 @@
 	<script OpenScp="INDUNINFO_UI_OPEN" CloseScp="INDUNINFO_UI_CLOSE"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
-	<userconfig STAR_IMAGE="star_mark" TOKEN_STATE_IMAGE="token_on" NOT_TOKEN_STATE_IMAGE="token_off"/>
+	<userconfig STAR_IMAGE="star_mark" RANDOM_ICON="indun_bossrandom" TOKEN_STATE_IMAGE="token_on" NOT_TOKEN_STATE_IMAGE="token_off"/>
 	<controls>
 		<groupbox name="bgBox" rect="0 0 1095 620" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_low" hittest="false"/>
 		<groupbox name="headerBox" rect="0 0 1095 60" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_top" hittest="false"/>

@@ -3,6 +3,7 @@ function PROPERTYSHOP_ON_INIT(addon, frame)
 	addon:RegisterMsg('PROPERTY_SHOP_UI_OPEN', 'PROPERTY_SHOP_DO_OPEN');
 	addon:RegisterMsg('UPDATE_PROPERTY_SHOP', 'ON_UPDATE_PROPERTY_SHOP');
 	addon:RegisterOpenOnlyMsg('PVP_PROPERTY_UPDATE', 'ON_UPDATE_PROPERTY_SHOP');
+	addon:RegisterMsg("PVP_PC_INFO", "ON_PVP_POINT_UPDATE");
 end
 
 function PROPERTY_SHOP_DO_OPEN(frame, msg, shopName, argNum)
@@ -48,6 +49,7 @@ function TOGGLE_PROPERTY_SHOP(shopName)
 end
 
 function OPEN_PROPERTY_SHOP(shopName)
+	local ret = worldPVP.RequestPVPInfo();
 
 	local frame = ui.GetFrame("propertyshop");
 	frame:ShowWindow(1);
@@ -71,8 +73,6 @@ function OPEN_PROPERTY_SHOP(shopName)
 	itemlist:AddBarInfo("Name", "{@st42b}" .. ClMsg("Item"), 250);
 	itemlist:AddBarInfo("Price", "{@st42b}" .. ClMsg("Price"), 120);
 	itemlist:AddBarInfo("BuyCount", "{@st42b}" .. ClMsg("BuyCount"), 120);
-	itemlist:LoadUserSize();
-
 	itemlist:RemoveAllChild();
 
 	local itemBoxFont = frame:GetUserConfig("ItemBoxFont");
@@ -219,7 +219,14 @@ end
 function GET_PROPERTY_SHOP_MY_POINT(frame)
 	local shopName = frame:GetUserValue("SHOPNAME");
 	local shopInfo = gePropertyShop.Get(shopName);
+    if shopInfo == nil then
+        return 0;
+    end
 	local clientScp = _G[shopInfo:GetPointScript() .. "_C"];
 	return clientScp();
 end
 
+function ON_PVP_POINT_UPDATE(frame, msg, argStr, argNum)	
+	local t_mymoney = GET_CHILD_RECURSIVELY(frame, "t_mymoney");
+	t_mymoney:SetTextByKey("value", GET_PROPERTY_SHOP_MY_POINT(frame));
+end

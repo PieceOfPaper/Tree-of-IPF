@@ -244,6 +244,10 @@ function GET_CHILD_MAX_Y(ctrl)
 	return maxY;
 end
 
+function SET_TEXT(parentCtrl, textCtrlName, key, value)
+	local ctrl = GET_CHILD(parentCtrl, textCtrlName, "ui::CRichText");
+	ctrl:SetTextByKey(key, value);
+end
 function GET_CHILD(frame, name, typeName)
 
 	if frame == nil then

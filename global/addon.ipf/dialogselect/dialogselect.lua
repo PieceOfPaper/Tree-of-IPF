@@ -243,6 +243,7 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
         numberEdit:Resize(70, 40);
         numberEdit:ShowWindow(1);
         numberEdit:SetNumberMode(1);
+        numberEdit:SetMaxLen(16)
         numberEdit:AcquireFocus();
         frame:Resize(400, 100);
         DialogSelect_Type = 1;
@@ -253,6 +254,7 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
         numberEdit:Resize(360, 40);
         numberEdit:ShowWindow(1);
         numberEdit:SetNumberMode(0);
+        numberEdit:SetMaxLen(32)
         numberEdit:AcquireFocus();
         frame:Resize(400, 100);
         DialogSelect_Type = 2;
@@ -274,8 +276,8 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
         if questRewardBox ~= nil then
             argNum = argNum - 1;
             
-            -- questreward가 있는 경우, DIALOGSELECT_ITEM_ADD 함수에서 버튼의 layout_gravity가 ui.TOP으로 바뀌면서
-            -- GET_SCRREN_XY의 반환 값에 questreward가 반영되어 계산됨.
+            -- questreward가 ?�는 경우, DIALOGSELECT_ITEM_ADD ?�수?�서 버튼??layout_gravity가 ui.TOP?�로 바뀌면??
+            -- GET_SCRREN_XY??반환 값에 questreward가 반영?�어 계산??
             y = y - questRewardBox:GetY();
         end
         DialogSelect_count = argNum;

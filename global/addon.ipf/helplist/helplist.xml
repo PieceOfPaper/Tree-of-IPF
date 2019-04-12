@@ -5,7 +5,7 @@
 	<skin frameskin=" "/>
 	<frame title="" fullheight="true" fasthide="true" layout_gravity="right top" open="pip" piptype="right"/>
 	<input maxwidth="1280" moveable="false"/>
-	<layer layerlevel="80"/>
+	<layer layerlevel="93"/>
 	<option closebutton="false"/>
 	<script OpenScp="HELPLIST_OPEN" CloseScp="HELPLIST_CLOSE"/>
 	<sound opensound="window_open" closesound="window_close"/>
@@ -14,7 +14,7 @@
 		<groupbox name="bg2" rect="0 0 450 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
 		<groupbox name="bg" rect="0 0 450 900" margin="0 90 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
 		<groupbox name="gbox" rect="0 0 440 950" margin="0 70 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>
-		<groupbox name="pipwin_top" rect="0 0 450 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>		
+		<groupbox name="pipwin_top" rect="0 0 450 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<picture name="question" rect="0 0 44 44" margin="0 20 20 0" layout_gravity="right top" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}도움말 목록{nl}{@st59s} - 읽었던 도움말들을 목록에서 다시 확인 가능{nl} - 원하는 항목을 선택해서 상세 보기{/}"/>
 		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}도움말 목록{/}"/>
 		<button name="close" rect="0 0 44 44" margin="28 20 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;helplist&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}도움말 목록 창을 닫습니다{/}"/>

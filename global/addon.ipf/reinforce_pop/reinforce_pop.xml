@@ -1,23 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uitile name="reinforce_pop" x="35" y="-45" width="370" height="500" bodycolor="#ffffff" bodyalpha="0" create="open">
-    <frame title="{@st44}아이템 강화{/}" layout_gravity="left bottom" fasthide="true"/>
-    <draw drawnotitlebar="false" drawtitlebar="false"/>
-    <input moveable="false" maxwidth="1280"/>
-    <option closebutton="false"/>
-    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
-    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
-    <Script OpenScp="UPDATE_CUR_ITEM_REIN"/>
-    <controls>
-        <slot name="reinslot" rect="0 175 80 80" layout_gravity="center top" DropScp="REINFORCE_DROP" PopScp="REINFORCE_POP" dropsound="icon_get_down" movepop="true" picksound="icon_pick_up" skin="reinforce_slot" texttooltip="{@st59}코스튬{/}"/>
-        <gauge name="perc" rect="0 297 250 20" layout_gravity="center top " hittest="false" skin="gauge" text1="%p %" textalign1="center center" textfont1="white_12_ol" textoffset1="0 -2"/>
-        <richtext name="complete" rect="0 390 250 24" layout_gravity="center top" caption="{s24}{b}{#000000}강화 완료!" hittest="false"/>
-        <richtext name="t_item" rect="0 275 300 20" layout_gravity="center top" fontname="black_20" hittest="false"/>
-        <richtext name="applyTxt" rect="40 320 310 20" autowiki="false" caption="ZZZZ" fixwidth="true" fontname="black_20" hittest="false" resizebytext="false"/>
-        <richtext name="tailTxt" rect="40 390 310 20" autowiki="false" caption="ZZZZ" fixwidth="true" fontname="black_20" resizebytext="false"/>
-        <button name="REOK" rect="35 445 80 30" layout_gravity="left top" LBtnUpScp="RE_REQ_ITEM_REINF" caption="{@st41}재강화{/}" clicksound="button_click_big" oversound="button_over" skin="textbutton" tooltipwidth="256"/>
-        <button name="OK" rect="-120 445 80 30" layout_gravity="right top" LBtnUpScp="REQ_ITEM_REINF" caption="" clicksound="button_click_big" oversound="button_over" skin="textbutton" tooltipwidth="256"/>
-        <button name="CANCEL" rect="-35 445 80 30" layout_gravity="right top" LBtnUpScp="CLOSE_UI" caption="{@st41}닫기{/}" clicksound="button_click_big" oversound="button_over" skin="textbutton" tooltipwidth="256"/>
-        <timer name="addontimer" rect="0 0 10 10"/>
-    </controls>
-</uitile>
+<uiframe name="reinforce_pop" x="0" y="0" width="0" height="0" create="open">
+</uiframe>

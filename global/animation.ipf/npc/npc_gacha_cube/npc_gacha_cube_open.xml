@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="npc_gacha_cube_open"/>
+    <Particle frame="7" attachNode="Dummy_inbox" particleName="F_light003_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Particle frame="14" attachNode="Dummy_inbox" particleName="F_light003_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Particle frame="15" attachNode="Dummy_inbox" particleName="F_hit_rize3" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+    <Particle frame="15" attachNode="Dummy_inbox" particleName="F_rize014" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+    <Sound frame="20.00" soundFile="skl_eff_claymore_shot"/>
+    <Shockwave frame="20" type="2" intensity="1" frequency="70" duration="7" range="1000"/>
+    <Particle frame="20" attachNode="Dummy_inbox" particleName="F_hit_rize3" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+    <Particle frame="20" attachNode="Dummy_inbox" particleName="F_light003_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Particle frame="25" attachNode="Dummy_inbox" particleName="F_rize014" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+    <Particle frame="25" attachNode="Dummy_inbox" particleName="F_light003_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Particle frame="25" attachNode="Dummy_inbox" particleName="F_light115_explosion_blue2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Sound frame="27.00" soundFile="sys_card_battle_end_boom"/>
+    <Particle frame="30" attachNode="Dummy_inbox" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Particle frame="35" attachNode="Dummy_inbox" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Particle frame="40" attachNode="Dummy_inbox" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Particle frame="45" attachNode="Dummy_inbox" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Particle frame="50" attachNode="Dummy_inbox" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Particle frame="55" attachNode="Dummy_inbox" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Sound frame="56.00" soundFile="skl_eff_photowall_open"/>
+    <Sound frame="62.00" soundFile="skl_eff_siegeburst_magicground_boom"/>
+    <Shockwave frame="63" type="2" intensity="15" frequency="70" duration="0.5" range="1000"/>
+    <Particle frame="63" attachNode="Dummy_inbox" particleName="F_light115_explosion_blue3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Particle frame="63" attachNode="Dummy_inbox" particleName="F_explosion066_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Particle frame="65" attachNode="Dummy_inbox" particleName="F_rize014" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Particle frame="68" attachNode="Dummy_inbox" particleName="F_explosion066_blue_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Shockwave frame="70" type="2" intensity="1" frequency="60" duration="1" range="1000"/>
+    <Particle frame="70" attachNode="Dummy_inbox" particleName="F_hit_rize3" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Particle frame="75" attachNode="Dummy_inbox" particleName="F_rize014" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+</ActionDesc>

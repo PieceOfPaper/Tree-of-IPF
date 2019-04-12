@@ -1,27 +1,2 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="journalrank" x="0" y="0" width="550" height="1200" create="open">
-	<frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
-	<skin frameskin=" "/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
-	<layer layerlevel="80"/>
-	<option closebutton="false"/>
-	<sound opensound="skill_window_open" closesound="skill_window_close"/>
-	<effect open="journalrankOpen" close="journalrankClose"/>
-	<script OpenScp="OPEN_JOURNALRANK"/>
-	<userconfig RANK_FONT_NAME="{@st41}" RANK_MY_FONT_NAME="{@st42_yellow}{s20}"/>
-	<controls>
-		<groupbox name="bg3" rect="0 0 550 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
-		<groupbox name="pipwin_top" rect="0 0 550 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
-		<richtext name="title" rect="0 0 200 30" margin="0 18 0 0" layout_gravity="center top" caption="{@st43}모험일지 랭킹{/}"/>
-		<button name="btn_journal" margin="110 90 0 0" rect="0 0 66 66" layout_gravity="left top" image="journal_rank_icon" LBtnUpScp="JOURNALRANK_PAGE"/>
-		<button name="btn_pvp" margin="0 90 240 0" rect="0 0 66 66" layout_gravity="right top" image="journal_pvp_icon" LBtnUpScp="JOURNALRANK_PVP"/>
-		<button name="btn_uphill" margin="0 90 110 0" rect="0 0 66 66" layout_gravity="right top" image="journal_uphill_icon" LBtnUpScp="JOURNALRANK_UP_HILL"/>
-		<richtext name="richtext_1" margin="18 160 0 0" rect="0 0 250 26" format="{@st66b}%s{/}" param1="value" param1_def="모험일지" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-		<richtext name="richtext_1_1" margin="0 160 150 0" rect="0 0 250 26" format="{@st66b}%s{/}" param1="value" param1_def="팀 배틀 리그" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
-		<richtext name="richtext_1_2" margin="0 160 18 0" rect="0 0 250 26" format="{@st66b}%s{/}" param1="value" param1_def="업힐 디펜스" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
-		<controlset name="rank_1" type="journal_rank_page" margin="0 190 0 0" rect="0 0 150 4 " hittest="true" layout_gravity="center top"/>
-		<controlset name="rank_2" type="journal_rank_page_pvp" margin="0 190 0 0" rect="0 0 150 4 " hittest="true" layout_gravity="center top"/>
-		<controlset name="rank_3" type="journal_rank_page" margin="0 190 0 0" rect="0 0 150 4 " hittest="true" layout_gravity="center top"/>
-	</controls>
+<uiframe name="journalrank" x="0" y="0" width="0" height="0" create="open">
 </uiframe>

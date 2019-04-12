@@ -854,3 +854,21 @@ function TX_SCR_SET_ABIL_HEADSHOT_OPTION(pc, tx, active)
     TxSetIESProp(tx, skl, "OverHeatDelay", overValue);
     return true;
 end
+
+function SCR_ABIL_DRAGOON14_ACTIVE(self, ability)
+
+    local skl = GetSkill(self, "Dragoon_Dethrone")
+    if skl ~= nil then
+        skl.KnockDownHitType = 1
+    end
+    
+end
+
+function SCR_ABIL_DRAGOON14_INACTIVE(self, ability)
+
+    local skl = GetSkill(self, "Dragoon_Dethrone")
+    if skl ~= nil then
+        skl.KnockDownHitType = 3
+    end
+
+end

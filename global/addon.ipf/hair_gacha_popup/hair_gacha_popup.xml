@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="hair_gacha_popup" x="0" y="0" width="250" height="300">
-	<frame fullheight="false" fasthide="false" layout_gravity="center center" margin="0 -75 0 0" scale_align="right center"/>
-	<skin frameskin="none"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
-	<layer layerlevel="96"/>
-	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
-	<animation frameOpenAnim="popup_start_up" frameCloseAnim="popup_end3"/>
-	<effect open="character_item_window_open" close="character_item_window_close"/>
+<frame fullheight="false" fasthide="false" layout_gravity="center center" margin="0 -75 0 0" scale_align="right center"/>
+<skin frameskin="none"/>
+<draw drawnotitlebar="false" drawtitlebar="false"/>
+<layer layerlevel="96"/>
+<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+<animation frameOpenAnim="popup_start_up" frameCloseAnim="popup_end3"/>
+<effect open="character_item_window_open" close="character_item_window_close"/>
   <option hideable="false" alwaysVisible="false" autoopen="false"/>
   <controls>
 		<picture name="itembgimg" rect="0 0 120 120" margin="0 0 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="gacha_01" stretch="true"/>
-    <picture name="itemimg" rect="0 0 70 70" margin="0 25 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="gacha_01" stretch="true"/>
+    	<picture name="itemimg" rect="0 0 70 70" margin="0 25 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="gacha_01" stretch="true"/>
 		<richtext name="title" rect="0 0 200 30" margin="0 120 0 0" layout_gravity="center top" caption="{@st43}{/}"/>
-    <picture name="bonusimg" rect="0 0 45 45" margin="30 10 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="gacha_bonus" stretch="true"/>
+    	<picture name="bonusimg" rect="0 0 45 45" margin="30 10 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="gacha_bonus" stretch="true"/>    	
 	</controls>
 </uiframe>

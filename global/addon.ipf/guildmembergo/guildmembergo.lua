@@ -145,17 +145,24 @@ function _GUILD_GO_EXEC(frameName)
 end
 
 function GUILD_MEMBER_SKILL_INVITE(argList)
-
+    
 	local sList = StringSplit(argList, "#");
+    
 	local aid = sList[1];
 	local skillType = tonumber( sList[2] );
+    
+    local callMember = session.party.GetPartyMemberInfoByAID(PARTY_GUILD, aid);
+	local callMemberName = callMember:GetName();
 	
 	local sklCls = GetClassByType("Skill", skillType);
-	local msgString = ScpArgMsg("GuildLeaderUse{SkillName}Skill_WillYouToAccept?", "SkillName", sklCls.Name);
-	local yesScp = string.format("ACCEPT_GUILD_SKILL(\"%s\", %d)", aid, skillType);
+	local msgString = ScpArgMsg("{CallMemberName}Use{SkillName}Skill_WillYouToAccept?", "CallMemberName", callMemberName, "SkillName", sklCls.Name);
+    
+    if callMemberName == nil then
+        msgString = ScpArgMsg("GuildLeaderUse{SkillName}Skill_WillYouToAccept?", "SkillName", sklCls.Name);
+    end
+    
+    local yesScp = string.format("ACCEPT_GUILD_SKILL(\"%s\", %d)", aid, skillType);
 	ui.MsgBox(msgString, yesScp, "None");
-
-
 end
 
 function ACCEPT_GUILD_SKILL(aid, skillType)

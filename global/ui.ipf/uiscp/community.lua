@@ -44,7 +44,7 @@ function SHOW_PC_CONTEXT_MENU(handle)
 
 	local targetInfo= info.GetTargetInfo(handle);
 	if targetInfo.IsDummyPC == 1 then
-		if targetInfo.isSkillObj == 0 then --¿Ø√º¿Ã≈ª¿∫ ≈¨∏Ø«ÿµµ æ∆π´π›¿¿ æ¯µµ∑œ «—¥Ÿ.
+		if targetInfo.isSkillObj == 0 then --Ïú†Ï≤¥Ïù¥ÌÉàÏùÄ ÌÅ¥Î¶≠Ìï¥ÎèÑ ÏïÑÎ¨¥Î∞òÏùë ÏóÜÎèÑÎ°ù ÌïúÎã§.
 			POPUP_DUMMY(handle, targetInfo);
 		end
 		return
@@ -99,20 +99,18 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			
 		local contextMenuCtrlName = string.format("{@st41}%s (%d){/}", pcObj:GetPCApc():GetFamilyName(), handle);
 		local context = ui.CreateContextMenu("PC_CONTEXT_MENU", pcObj:GetPCApc():GetFamilyName(), 0, 0, 170, 100);
-		-- ø©±‚ø° ƒ≥∏Ø≈Õ ¡§∫∏∫∏±‚, ∑Œ±◊æ∆øÙPC∞¸∑√ ∏ﬁ¥∫ √ﬂ∞°«œ∏Èµ 
-		local strWhisperScp = string.format("ui.WhisperTo('%s')", pcObj:GetPCApc():GetFamilyName());
-		--if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+
+		-- Ïó¨Í∏∞Ïóê Ï∫êÎ¶≠ÌÑ∞ Ï†ïÎ≥¥Î≥¥Í∏∞, Î°úÍ∑∏ÏïÑÏõÉPCÍ¥ÄÎ†® Î©îÎâ¥ Ï∂îÍ∞ÄÌïòÎ©¥Îê®
+		if session.world.IsIntegrateServer() == false then
 			local strScp = string.format("exchange.RequestChange(%d)", pcObj:GetHandleVal());
 			ui.AddContextMenuItem(context, ClMsg("Exchange"), strScp);
-		--end
 		
-		local strScp = "";
-		if session.world.IsIntegrateServer() == false then
+			local strWhisperScp = string.format("ui.WhisperTo('%s')", pcObj:GetPCApc():GetFamilyName());
 			ui.AddContextMenuItem(context, ClMsg("WHISPER"), strWhisperScp);
 			strScp = string.format("PARTY_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
 			ui.AddContextMenuItem(context, ClMsg("PARTY_INVITE"), strScp);
-
-			if AM_I_LEADER(PARTY_GUILD) == 1 or IS_GUILD_AUTHORITY(1) then
+                        
+			if AM_I_LEADER(PARTY_GUILD) == 1 or IS_GUILD_AUTHORITY(1, session.loginInfo.GetAID()) == 1 then
 				strScp = string.format("GUILD_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
 				ui.AddContextMenuItem(context, ClMsg("GUILD_INVITE"), strScp);
 			end
@@ -146,8 +144,12 @@ function SHOW_PC_CONTEXT_MENU(handle)
 
 		ui.AddContextMenuItem(context, ScpArgMsg("Report_AutoBot"), string.format("REPORT_AUTOBOT_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
 
+        -- report guild emblem
+        if  pcObj:IsGuildExist() == true then
+            ui.AddContextMenuItem(context, ScpArgMsg("Report_GuildEmblem"), string.format("REPORT_GUILDEMBLEM_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
+        end
 
-		-- ∫∏»£∏µÂ, ∞≠¡¶≈±
+		-- Î≥¥Ìò∏Î™®Îìú, Í∞ïÏ†úÌÇ•
 		if 1 == session.IsGM() then
 			ui.AddContextMenuItem(context, ScpArgMsg("GM_Order_Protected"), string.format("REQUEST_GM_ORDER_PROTECTED(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
 			ui.AddContextMenuItem(context, ScpArgMsg("GM_Order_Kick"), string.format("REQUEST_GM_ORDER_KICK(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
@@ -174,6 +176,22 @@ function REPORT_AUTOBOT(teamName)
 	local msgStr = ScpArgMsg("ThxReportAuto{Name}", "Name", teamName);
 	ui.SysMsg(msgStr);
 end
+
+function REPORT_GUILDEMBLEM_MSGBOX(teamName)
+
+	local msgBoxString = ScpArgMsg("DoYouReportGuildEmblem{Name}?", "Name", teamName);
+	local yesScp = string.format("REPORT_GUILDEMBLEM( \"%s\" )", teamName);
+	
+	ui.MsgBox(msgBoxString, yesScp, "None");	
+end
+
+function REPORT_GUILDEMBLEM(teamName)
+
+	packet.ReportGuildEmblem(teamName);
+	local msgStr = ScpArgMsg("ThxReportGuildEmblem{Name}", "Name", teamName);
+	ui.SysMsg(msgStr);
+end
+
 
 function REQUEST_GM_ORDER_PROTECTED(teamName)
 	packet.RequestGmOrderMsg(teamName, 'protected');

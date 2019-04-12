@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <EquipExpList>
 	<EquipExp Group="Card">
 		<Exp Level="1" GiveExp="100" TotalExp="200" PriceMultiple="1.0">
@@ -35,6 +35,11 @@
 	</EquipExp>
 	<EquipExp Group="Card_Gacha_dummy01">
 		<Exp Level="1" GiveExp="500" TotalExp="0" PriceMultiple="1.0">
+			<Prop/>
+		</Exp>
+	</EquipExp>
+	<EquipExp Group="Old_Card_TP">
+		<Exp Level="1" GiveExp="1000" TotalExp="0" PriceMultiple="1.0">
 			<Prop/>
 		</Exp>
 	</EquipExp>

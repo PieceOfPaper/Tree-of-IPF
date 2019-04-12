@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <GameList>
 	<Game Name="MISSION_3CMLAKE_01" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_f_3cmlake_84" startWaitSec="-1526726657">
 		<StageList>
 			<Stage Name="DefGroup">
 				<ObjList>
 					<Obj Type="Monster" MonType="57866" Pos="-680.32#269.60#458.74" angle="315" range="60" genCount="1" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;DropItemList&apos; &apos;M_boss_durahan&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="41418" Pos="-657.67#269.60#531.90" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="57402" Pos="-735.25#259.64#472.68" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="57330" Pos="-707.67#259.64#422.82" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="41418" Pos="-620.91#263.83#375.40" range="180" genCount="1" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" searchRange="200" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="57402" Pos="-587.34#259.64#477.79" range="190" genCount="1" genTime="20000" autoGen="0" objectKey="5" UseAiOutOfPc="1" searchRange="200" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="57330" Pos="-788.30#259.64#426.98" range="180" genCount="1" genTime="20000" autoGen="0" objectKey="6" UseAiOutOfPc="1" searchRange="200" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="41418" Pos="-657.67#269.60#531.90" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57402" Pos="-735.25#259.64#472.68" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57330" Pos="-707.67#259.64#422.82" range="230" genCount="1" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="41418" Pos="-620.91#263.83#375.40" range="180" genCount="1" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" searchRange="200" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57402" Pos="-587.34#259.64#477.79" range="190" genCount="1" genTime="20000" autoGen="0" objectKey="5" UseAiOutOfPc="1" searchRange="200" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57330" Pos="-788.30#259.64#426.98" range="180" genCount="1" genTime="20000" autoGen="0" objectKey="6" UseAiOutOfPc="1" searchRange="200" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
 				</ObjList>
 				<StageEvents>
 					<Event execCount="1" eventName="sec50">

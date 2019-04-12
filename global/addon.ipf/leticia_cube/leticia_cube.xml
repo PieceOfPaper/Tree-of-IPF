@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="leticia_cube" x="0" y="0" width="860" height="550" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin="test_frame_low"/>
+	<frame title="" fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="true"/>
+	<layer layerlevel="81"/>
+	<option closebutton="false"/>
+	<sound opensound="inven_win_open" closesound="inven_win_close"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
+	<script OpenScp="LETICIA_CUBE_OPEN" CloseScp="LETICIA_CUBE_CLOSE"/>
+	<userconfig TP_IMG="icon_item_tpBox_30" ITEM_LIST_INTERVAL="-3"/>
+	<controls>
+		<groupbox name="headerBox" rect="0 0 862 72" margin="0 0 0 0" layout_gravity="left top" skin="TPshop_title"/>
+		<richtext name="headerText" rect="0 0 300 30" parent="headerBox" margin="0 0 0 0" layout_gravity="center center" caption="{@st43}{s22}레티샤 시크릿 큐브{/}"/>
+		<button name="closeBtn" rect="0 0 60 60" margin="0 15 5 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame('leticia_cube')"/>
+		<picture name="cubeBox" rect="0 0 450 345" margin="13 70 0 0" layout_gravity="left top" image="cube_item_bg" stretch="true" skin="None"/>
+		<picture name="cubePic" rect="0 0 200 200" parent="cubeBox" margin="0 0 0 0" layout_gravity="center center" image="testclose_button" stretch="true"/>
+		<richtext name="cubeText" rect="0 0 300 30" parent="cubeBox" margin="0 0 0 15" layout_gravity="center bottom" caption="큐브 이름이다" fontname="white_18_b_ol"/>
+		<groupbox name="cubeListBox" rect="0 0 382 341" margin="0 73 13 0" layout_gravity="right top" skin="test_frame_midle" fixheight="true" scrollbar="true"/>
+		<button name="openBtn" rect="0 0 281 63" margin="0 0 0 52" layout_gravity="center bottom" skin="test_red_button" format="{nl}{img %s 40 40}{@st42b}{s20}큐브 개봉  " fontname="white_18_b_ol" LBtnUpScp="LETICIA_CUBE_OPEN_BUTTON" param1="icon" param1_def="icon_item_tpBox_30"/>
+		<richtext name="infoText" rect="0 0 670 30" margin="0 0 0 17" layout_gravity="center bottom" caption="ⓘ확률성 아이템의 확률은 공식 홈페이지에서 확인할 수 있습니다." fontname="black_16_b"/>
+	</controls>
+</uiframe>

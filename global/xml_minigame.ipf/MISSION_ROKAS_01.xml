@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <GameList>
 	<Game Name="MISSION_ROKAS_01" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_rokas_01" checkSec="0" checkSecStart="2400" msgTxt="None" portrait="None">
 		<StageList>
 			<Stage Name="SETTING">
 				<StartScpList>
 					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-						<Str Str="60초 뒤 미션이 시작됩니다"/>
+						<Str Str="30초 뒤 미션이 시작됩니다"/>
 					</ToolScp>
 				</StartScpList>
 				<ObjList/>
@@ -73,7 +74,7 @@
 					<Event execCount="1" eventName="start">
 						<condList>
 							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="60"/>
+								<Num Num="30"/>
 							</ToolScp>
 						</condList>
 						<execList>
@@ -86,7 +87,7 @@
 							</ToolScp>
 						</execList>
 					</Event>
-					<Event execCount="1" eventName="sec50">
+					<Event execCount="1" eventName="sec20">
 						<condList>
 							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
 								<Num Num="10"/>
@@ -94,21 +95,7 @@
 						</condList>
 						<execList>
 							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="50초 후에 시작됩니다"/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="sec30">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="30"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="30초 후에 시작됩니다"/>
+								<Str Str="20초 후에 시작됩니다"/>
 								<Str Str="scroll"/>
 								<Num Num="8"/>
 							</ToolScp>
@@ -117,7 +104,7 @@
 					<Event execCount="1" eventName="sec10">
 						<condList>
 							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="50"/>
+								<Num Num="20"/>
 							</ToolScp>
 						</condList>
 						<execList>
@@ -137,20 +124,20 @@
 					</ToolScp>
 				</StartScpList>
 				<ObjList>
-					<Obj Type="Monster" MonType="41433" Pos="-562.67#181.94#-280.35" range="60" genCount="1" genTime="60000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="41433" Pos="-728.66#181.94#-207.14" range="70" genCount="1" genTime="60000" objectKey="1" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="401121" Pos="-614.64#181.94#-287.59" genCount="1" maxStackCount="1" genTime="7000" objectKey="2" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="401121" Pos="-675.37#181.94#-344.67" genCount="1" maxStackCount="1" genTime="7000" objectKey="3" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="41433" Pos="-666.71#181.94#-305.60" range="60" genCount="1" genTime="60000" objectKey="4" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="41433" Pos="-827.32#181.94#-113.97" range="70" genCount="1" genTime="60000" objectKey="5" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="401121" Pos="-593.13#181.94#-226.86" genCount="1" maxStackCount="1" genTime="7000" objectKey="6" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="401121" Pos="-719.12#181.94#-246.01" genCount="1" maxStackCount="1" genTime="7000" objectKey="7" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="41433" Pos="-611.57#181.94#-204.94" range="70" genCount="1" genTime="60000" objectKey="8" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="401121" Pos="-682.73#181.94#0.34" genCount="1" maxStackCount="1" genTime="7000" objectKey="9" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="41433" Pos="-796.18#181.94#-20.42" range="60" genCount="1" genTime="60000" objectKey="10" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="41433" Pos="-677.02#181.94#-63.50" range="60" genCount="1" genTime="60000" objectKey="11" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="401121" Pos="-879.69#181.94#-94.30" genCount="1" maxStackCount="1" genTime="7000" objectKey="12" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="401121" Pos="-762.04#181.94#-23.73" genCount="1" maxStackCount="1" genTime="7000" objectKey="13" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="41433" Pos="-562.67#181.94#-280.35" range="60" genCount="1" genTime="60000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="41433" Pos="-728.66#181.94#-207.14" range="70" genCount="1" genTime="60000" objectKey="1" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="401121" Pos="-614.64#181.94#-287.59" genCount="1" maxStackCount="1" genTime="7000" objectKey="2" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="401121" Pos="-675.37#181.94#-344.67" genCount="1" maxStackCount="1" genTime="7000" objectKey="3" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="41433" Pos="-666.71#181.94#-305.60" range="60" genCount="1" genTime="60000" objectKey="4" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="41433" Pos="-827.32#181.94#-113.97" range="70" genCount="1" genTime="60000" objectKey="5" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="401121" Pos="-593.13#181.94#-226.86" genCount="1" maxStackCount="1" genTime="7000" objectKey="6" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="401121" Pos="-719.12#181.94#-246.01" genCount="1" maxStackCount="1" genTime="7000" objectKey="7" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="41433" Pos="-611.57#181.94#-204.94" range="70" genCount="1" genTime="60000" objectKey="8" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="401121" Pos="-682.73#181.94#0.34" genCount="1" maxStackCount="1" genTime="7000" objectKey="9" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="41433" Pos="-796.18#181.94#-20.42" range="60" genCount="1" genTime="60000" objectKey="10" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="41433" Pos="-677.02#181.94#-63.50" range="60" genCount="1" genTime="60000" objectKey="11" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="401121" Pos="-879.69#181.94#-94.30" genCount="1" maxStackCount="1" genTime="7000" objectKey="12" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="401121" Pos="-762.04#181.94#-23.73" genCount="1" maxStackCount="1" genTime="7000" objectKey="13" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
 				</ObjList>
 				<StageEvents>
 					<Event execCount="1" eventName="a_start">
@@ -429,9 +416,9 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="41435" Pos="190.73#181.94#-491.41" angle="142" genCount="1" genTime="20000" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41435" Pos="179.06#181.94#-602.86" angle="141" genCount="1" genTime="20000" objectKey="2" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41435" Pos="51.44#181.94#-594.44" angle="140" genCount="1" genTime="20000" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="190.73#181.94#-491.41" angle="142" genCount="1" genTime="20000" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="179.06#181.94#-602.86" angle="141" genCount="1" genTime="20000" objectKey="2" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="51.44#181.94#-594.44" angle="140" genCount="1" genTime="20000" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
 				</ObjList>
 				<StageEvents>
 					<Event execCount="1" eventName="b_end">
@@ -630,12 +617,12 @@
 					<Obj Type="Monster" MonType="47202" Pos="935.73#181.94#-190.69" angle="83" range="60" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;나뭇잎 더미&apos; &apos;Dialog&apos; &apos;MROKAS_BOMB_FLOWER&apos; ">
 						<SelfAI ActiveMessageMapInBattle="1"/>
 					</Obj>
-					<Obj Type="Monster" MonType="41433" Pos="890.83#181.94#-264.81" genCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="900.81#181.94#-431.51" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="1018.09#181.94#-155.97" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="927.72#181.94#-368.30" genCount="1" genTime="20000" autoGen="0" objectKey="8" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="1206.47#181.94#-420.29" angle="158" genCount="1" genTime="20000" autoGen="0" objectKey="7" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="1228.77#181.94#-249.41" angle="-175" genCount="1" genTime="20000" autoGen="0" objectKey="9" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="890.83#181.94#-264.81" genCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="900.81#181.94#-431.51" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="1018.09#181.94#-155.97" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="927.72#181.94#-368.30" genCount="1" genTime="20000" autoGen="0" objectKey="8" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="1206.47#181.94#-420.29" angle="158" genCount="1" genTime="20000" autoGen="0" objectKey="7" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="1228.77#181.94#-249.41" angle="-175" genCount="1" genTime="20000" autoGen="0" objectKey="9" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
 				</ObjList>
 				<StageEvents>
 					<Event eventName="c_02_end">
@@ -760,12 +747,12 @@
 					<Obj Type="Monster" MonType="46212" Pos="899.50#181.94#628.91" angle="90" genCount="1" genTime="20000" objectKey="1" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Dialog&apos; &apos;MROKAS_FUSE&apos; "/>
 					<Obj Type="Monster" MonType="46212" Pos="1062.05#181.94#703.56" angle="90" genCount="1" genTime="20000" objectKey="2" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Dialog&apos; &apos;MROKAS_FUSE&apos; "/>
 					<Obj Type="Monster" MonType="46212" Pos="904.44#181.94#646.44" angle="90" genCount="1" genTime="20000" objectKey="3" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Dialog&apos; &apos;MROKAS_FUSE&apos; "/>
-					<Obj Type="Monster" MonType="401121" Pos="860.40#181.94#429.02" genCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="401121" Pos="896.16#181.94#382.72" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="401121" Pos="980.95#181.94#367.19" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="401121" Pos="895.40#181.94#308.97" genCount="1" genTime="20000" autoGen="0" objectKey="7" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="401121" Pos="1005.38#181.94#306.70" genCount="1" genTime="20000" autoGen="0" objectKey="8" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="401121" Pos="786.02#181.94#378.84" genCount="1" genTime="20000" autoGen="0" objectKey="9" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="860.40#181.94#429.02" genCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="896.16#181.94#382.72" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="980.95#181.94#367.19" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="895.40#181.94#308.97" genCount="1" genTime="20000" autoGen="0" objectKey="7" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="1005.38#181.94#306.70" genCount="1" genTime="20000" autoGen="0" objectKey="8" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="786.02#181.94#378.84" genCount="1" genTime="20000" autoGen="0" objectKey="9" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
 				</ObjList>
 				<StageEvents>
 					<Event eventName="d_02_end">
@@ -1011,14 +998,14 @@
 							</List>
 						</SelfAI>
 					</Obj>
-					<Obj Type="Monster" MonType="41441" Pos="-105.51#262.80#558.54" genCount="1" genTime="20000" objectKey="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41441" Pos="-31.39#262.80#529.81" genCount="1" genTime="20000" objectKey="2" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41435" Pos="-191.40#258.84#492.01" genCount="1" genTime="20000" objectKey="3" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41435" Pos="-151.75#262.09#455.66" genCount="1" genTime="20000" objectKey="4" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41435" Pos="-189.50#254.48#551.39" genCount="1" genTime="20000" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="-95.93#262.80#608.80" genCount="1" genTime="20000" objectKey="6" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="-17.76#262.80#588.50" genCount="1" genTime="20000" objectKey="7" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="28.87#262.80#505.98" genCount="1" genTime="20000" objectKey="8" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41441" Pos="-105.51#262.80#558.54" genCount="1" genTime="20000" objectKey="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level3&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41441" Pos="-31.39#262.80#529.81" genCount="1" genTime="20000" objectKey="2" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level3&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="-191.40#258.84#492.01" genCount="1" genTime="20000" objectKey="3" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="-151.75#262.09#455.66" genCount="1" genTime="20000" objectKey="4" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="-189.50#254.48#551.39" genCount="1" genTime="20000" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="-95.93#262.80#608.80" genCount="1" genTime="20000" objectKey="6" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="-17.76#262.80#588.50" genCount="1" genTime="20000" objectKey="7" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="28.87#262.80#505.98" genCount="1" genTime="20000" objectKey="8" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
 				</ObjList>
 				<StageEvents>
 					<Event execCount="1" eventName="f_end">
@@ -1180,34 +1167,34 @@
 			</Stage>
 			<Stage Name="normalMonGen" AutoStart="0">
 				<ObjList>
-					<Obj Type="Monster" MonType="41441" Pos="1165.60#181.94#-213.12" angle="-135" genCount="1" genTime="20000" objectKey="0" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41441" Pos="1161.04#181.94#-399.94" angle="-175" genCount="1" genTime="20000" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41441" Pos="1040.38#181.94#-132.93" angle="-118" genCount="1" genTime="20000" objectKey="2" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos;  "/>
-					<Obj Type="Monster" MonType="41441" Pos="927.91#181.94#-357.89" angle="160" genCount="1" genTime="20000" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41441" Pos="690.22#181.94#-219.05" angle="132" genCount="1" genTime="20000" objectKey="4" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41441" Pos="602.68#181.94#140.13" angle="-129" genCount="1" genTime="20000" objectKey="5" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="730.33#181.94#-158.59" angle="141" genCount="1" genTime="20000" objectKey="6" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="724.04#181.94#-296.49" angle="129" genCount="1" genTime="20000" objectKey="7" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="848.06#181.94#-377.51" angle="142" genCount="1" genTime="20000" objectKey="8" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="1131.92#181.94#-323.11" angle="174" genCount="1" genTime="20000" objectKey="9" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="1064.88#181.94#-435.50" angle="152" genCount="1" genTime="20000" objectKey="10" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="999.02#181.94#-184.57" angle="-128" genCount="1" genTime="20000" objectKey="11" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="1128.47#181.94#-131.46" angle="-135" genCount="1" genTime="20000" objectKey="12" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="588.38#181.94#71.01" angle="-129" genCount="1" genTime="20000" objectKey="13" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41433" Pos="654.99#181.94#33.31" angle="-139" genCount="1" genTime="20000" objectKey="14" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41435" Pos="780.37#181.94#-267.48" angle="141" genCount="1" genTime="20000" objectKey="15" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41435" Pos="994.44#181.94#-389.27" angle="172" genCount="1" genTime="20000" objectKey="16" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41435" Pos="1070.04#181.94#-161.14" angle="-139" genCount="1" genTime="20000" objectKey="17" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="41435" Pos="1202.61#181.94#-346.03" angle="-175" genCount="1" genTime="20000" objectKey="18" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="401121" Pos="974.00#181.94#449.58" angle="-135" genCount="1" genTime="20000" objectKey="19" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="401121" Pos="943.29#181.94#571.99" angle="-126" genCount="1" genTime="20000" objectKey="20" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="401121" Pos="1046.71#181.94#342.02" angle="177" genCount="1" genTime="20000" objectKey="21" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="401121" Pos="926.50#181.94#372.01" angle="-175" genCount="1" genTime="20000" objectKey="22" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="401121" Pos="1128.13#181.94#494.12" angle="-140" genCount="1" genTime="20000" objectKey="23" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="401121" Pos="1073.26#181.94#577.84" angle="-135" genCount="1" genTime="20000" objectKey="24" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="401121" Pos="1127.70#181.94#571.26" angle="-137" genCount="1" genTime="20000" objectKey="25" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="401121" Pos="1125.75#181.94#352.76" angle="168" genCount="1" genTime="20000" objectKey="26" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="401121" Pos="1064.59#181.94#483.31" angle="-142" genCount="1" genTime="20000" objectKey="27" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41441" Pos="1165.60#181.94#-213.12" angle="-135" genCount="1" genTime="20000" objectKey="0" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level3&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41441" Pos="1161.04#181.94#-399.94" angle="-175" genCount="1" genTime="20000" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level3&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41441" Pos="1040.38#181.94#-132.93" angle="-118" genCount="1" genTime="20000" objectKey="2" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level3&apos; &apos;Journal&apos; &apos;None&apos;  "/>
+					<Obj Type="Monster" MonType="41441" Pos="927.91#181.94#-357.89" angle="160" genCount="1" genTime="20000" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level3&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41441" Pos="690.22#181.94#-219.05" angle="132" genCount="1" genTime="20000" objectKey="4" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level3&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41441" Pos="602.68#181.94#140.13" angle="-129" genCount="1" genTime="20000" objectKey="5" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level3&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="730.33#181.94#-158.59" angle="141" genCount="1" genTime="20000" objectKey="6" searchRange="500" propList="&apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="724.04#181.94#-296.49" angle="129" genCount="1" genTime="20000" objectKey="7" searchRange="500" propList="&apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="848.06#181.94#-377.51" angle="142" genCount="1" genTime="20000" objectKey="8" searchRange="500" propList="&apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="1131.92#181.94#-323.11" angle="174" genCount="1" genTime="20000" objectKey="9" searchRange="500" propList="&apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="1064.88#181.94#-435.50" angle="152" genCount="1" genTime="20000" objectKey="10" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="999.02#181.94#-184.57" angle="-128" genCount="1" genTime="20000" objectKey="11" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="1128.47#181.94#-131.46" angle="-135" genCount="1" genTime="20000" objectKey="12" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="588.38#181.94#71.01" angle="-129" genCount="1" genTime="20000" objectKey="13" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="654.99#181.94#33.31" angle="-139" genCount="1" genTime="20000" objectKey="14" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="780.37#181.94#-267.48" angle="141" genCount="1" genTime="20000" objectKey="15" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="994.44#181.94#-389.27" angle="172" genCount="1" genTime="20000" objectKey="16" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="1070.04#181.94#-161.14" angle="-139" genCount="1" genTime="20000" objectKey="17" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="1202.61#181.94#-346.03" angle="-175" genCount="1" genTime="20000" objectKey="18" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="974.00#181.94#449.58" angle="-135" genCount="1" genTime="20000" objectKey="19" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="943.29#181.94#571.99" angle="-126" genCount="1" genTime="20000" objectKey="20" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="1046.71#181.94#342.02" angle="177" genCount="1" genTime="20000" objectKey="21" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="926.50#181.94#372.01" angle="-175" genCount="1" genTime="20000" objectKey="22" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="1128.13#181.94#494.12" angle="-140" genCount="1" genTime="20000" objectKey="23" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="1073.26#181.94#577.84" angle="-135" genCount="1" genTime="20000" objectKey="24" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="1127.70#181.94#571.26" angle="-137" genCount="1" genTime="20000" objectKey="25" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="1125.75#181.94#352.76" angle="168" genCount="1" genTime="20000" objectKey="26" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="1064.59#181.94#483.31" angle="-142" genCount="1" genTime="20000" objectKey="27" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; &apos;Journal&apos; &apos;None&apos; "/>
 				</ObjList>
 			</Stage>
 		</StageList>

@@ -6,7 +6,7 @@
     <Sound frame="0.00" soundFile="skl_eff_stone_underground_1"/>
     <Shockwave frame="2" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
     <Particle frame="2" attachNode="Dummy_emitter" particleName="F_smoke089" useAttach="true" hiddenObj="false" changeEffect="None" scale="20" pause="true" use2DEffect="true" targetPos="false"/>
-    <Particle frame="2" attachNode="Dummy_emitter" particleName="F_burstup007_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="2" attachNode="Dummy_emitter" particleName="F_burstup007_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" sound=""/>
     <Shockwave frame="3" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
     <Shockwave frame="4" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
     <Shockwave frame="5" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>

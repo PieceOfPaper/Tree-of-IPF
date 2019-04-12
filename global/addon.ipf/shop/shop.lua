@@ -487,13 +487,6 @@ function GET_SHOP_ITEM_MY_CNT(shopItem)
 		end
 
 		return item.count;
-	elseif shopItem:GetIDSpace() == "Wiki" then
-		local wiki = GetWiki(shopItem.type);
-		if wiki == nil then
-			return 0;
-		end
-
-		return 1;
 	end
 
 

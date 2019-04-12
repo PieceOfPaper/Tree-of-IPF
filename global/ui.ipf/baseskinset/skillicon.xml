@@ -893,6 +893,8 @@
 		<image name="ability_Warrior_Barbarian30" file="\icon\icon_ability_warrior05.tga" imgrect="256 768 128 128" CMM_Caption="워크라이: 디버프 지속"/>
 		<image name="ability_Warrior_Cataphract32" file="\icon\icon_ability_warrior05.tga" imgrect="384 768 128 128" CMM_Caption="스티드 챠지 강화"/>
 		<image name="ability_Warrior_Peltasta30" file="\icon\icon_ability_warrior05.tga" imgrect="512 768 128 128" CMM_Caption="스워시 버클링: 프로보크 특화"/>
+		<image name="ability_Warrior_Dragoon14" file="\icon\icon_ability_warrior05.tga" imgrect="640 768 128 128" CMM_Caption="디쓰론: 넉백 제거"/>
+		<image name="ability_Warrior_Templar2" file="\icon\icon_ability_warrior05.tga" imgrect="768 768 128 128" CMM_Caption="버프 공유 : 범위 증가"/>
 	</imagelist>
 	<imagelist category="abilityicon_wizard">
 		<image name="ability_Wizard_Wizard1" file="\icon\icon_ability_wizard01.tga" imgrect="0 0 128 128" CMM_Caption="슬리프-단잠"/>
@@ -1406,6 +1408,7 @@
 		<image name="ability_archer_Appraiser2" file="\icon\icon_ability_archer05.tga" imgrect="896 128 128 128" CMM_Caption="평가절하: 확률 증가"/>
 		<image name="ability_archer_Appraiser3" file="\icon\icon_ability_archer05.tga" imgrect="0 256 128 128" CMM_Caption="약점공격: 치명타 공격"/>
 		<image name="ability_archer_Appraiser4" file="\icon\icon_ability_archer05.tga" imgrect="128 256 128 128" CMM_Caption="약점공격: 강화"/>
+		<image name="ability_archer_Hackapell8" file="\icon\icon_ability_archer05.tga" imgrect="256 256 128 128" CMM_Caption="카발리 챠지: 방어"/>
 	</imagelist>
 	<imagelist category="abilityicon_cleric">
 		<image name="ability_cleric_Cleric1" file="\icon\icon_ability_cleric01.tga" imgrect="0 0 128 128" CMM_Caption="큐어-도트시간감소"/>
@@ -1643,7 +1646,9 @@
 		<image name="ability_cleric_Paladin10" file="\icon\icon_ability_cleric04.tga" imgrect="384 640 128 128" CMM_Caption="개종: 신성공격"/>
 		<image name="ability_cleric_Monk10" file="\icon\icon_ability_cleric04.tga" imgrect="512 640 128 128" CMM_Caption="쌍쇄공: 스태미나 감소"/>
 		<image name="ability_cleric_Monk26" file="\icon\icon_ability_cleric04.tga" imgrect="640 640 128 128" CMM_Caption="몽크: 때리기 지속"/>
-		<image name="ability_cleric_Paladin19" file="\icon\icon_ability_cleric04.tga" imgrect="768 640 128 128" CMM_Caption="배리어：범위 증가 특성 제작"/>
+		<image name="ability_cleric_Paladin19" file="\icon\icon_ability_cleric04.tga" imgrect="768 640 128 128" CMM_Caption="배리어: 범위 증가 특성"/>
+		<image name="ability_cleric_Paladin20" file="\icon\icon_ability_cleric04.tga" imgrect="896 640 128 128" CMM_Caption="배리어：헌신"/>
+		<image name="ability_cleric_THMace" file="\icon\icon_ability_cleric04.tga" imgrect="0 768 128 128" CMM_Caption="양손둔기 사용"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>

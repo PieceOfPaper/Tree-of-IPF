@@ -365,7 +365,13 @@ function GET_REINFORCE_ADD_VALUE(prop, item, ignoreReinf, reinfBonusValue)
     
     reinforceValue = reinforceValue + reinfBonusValue;
     
-    value = math.floor((reinforceValue + (lv * (reinforceValue * (0.08 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.015 )))) / typeRatio)) * gradeRatio;
+    value = math.floor((reinforceValue + (lv * (reinforceValue * (0.12 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.0225 )))) / typeRatio)) * gradeRatio;
+    --    value = math.floor((reinforceValue + (lv * (reinforceValue * (0.08 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.015 )))) / typeRatio)) * gradeRatio;
+    
+    if classType == 'Neck' or classType == 'Ring' then
+     --ACC is reinforce /#16818 --
+          value = math.floor((reinforceValue + (lv * (reinforceValue * (0.08 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.015 )))) / typeRatio)) * gradeRatio;
+    end
     value = value * (item.ReinforceRatio / 100) + buffValue;
 
     return SyncFloor(value);
@@ -424,6 +430,8 @@ function GET_BASIC_ATK(item)
             itemATK = itemATK * 1.1;
         elseif classType == 'Mace' then
             itemATK = itemATK * 0.9;
+        elseif classType == 'THMace' then
+            itemATK = itemATK * 1.08;
         elseif classType == 'Bow' or classType == 'Rapier' then
             itemATK = itemATK * 1.0;
         else
@@ -496,6 +504,8 @@ function GET_BASIC_MATK(item)
         itemATK = itemATK * 1.0;
     elseif classType == 'Mace' then
         itemATK = itemATK * 0.9;
+    elseif classType == 'THMace' then
+        itemATK = itemATK * 1.08;
     else
         return 0;
     end
@@ -667,12 +677,14 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
         if basicProp == 'DEF' then
             def = ((20 + lv*3)/equipRatio) * gradeRatio;
             upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_DEF_RATIO(item, ignoreReinfAndTranscend) / 100;            
-            if item.Material == 'Cloth' then
-                def = def * 0.6;
-            elseif equipMaterial == 'Leather' then
-                def = def * 0.6;
-            elseif equipMaterial == 'Iron' then
+            if equipMaterial == 'Cloth' then
                 def = def * 1.0;
+            elseif equipMaterial == 'Leather' then
+                def = def * 1.0;
+            elseif equipMaterial == 'Iron' then
+                def = def * 2.0;
+            elseif classType == 'Shield' then
+                def = def * 2.0;
             end
            
             if def < 1 then
@@ -686,11 +698,13 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
             mdef = ((20 + lv*3)/equipRatio) * gradeRatio;
             upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_MDEF_RATIO(item, ignoreReinfAndTranscend) / 100;
             if equipMaterial == 'Cloth' then
-                mdef = mdef * 1.0;
+                mdef = mdef * 2.0;
             elseif equipMaterial == 'Leather' then
-                mdef = mdef * 0.6;
+                mdef = mdef * 1.0;
             elseif equipMaterial == 'Iron' then
-                mdef = mdef * 0.6;
+                mdef = mdef * 1.0;
+            elseif classType == 'Shield' then
+                mdef = mdef * 2.0;
             end
             
             if mdef < 1 then
@@ -1180,7 +1194,7 @@ function GET_REINFORCE_PR(obj)
 end
 
 function GET_APPRAISAL_PRICE(item, SellPrice)
-    -- ???????캿추�?¸??μ???
+    -- ???????캿추??¸??μ???
     local lv = TryGetProp(item,"UseLv");
     local grade = TryGetProp(item,"ItemGrade")
     local priceRatio = 100;
@@ -1814,7 +1828,7 @@ function SCR_GET_MAX_SOKET(item)
 end
 
 function SRC_KUPOLE_GROWTH_ITEM(item, Reinforce)
-    -- ?�폴 ?�버 ?�이?�을 ?�장?�으�??�작?�기 ?�한 ?�크립트 --
+    -- ??폴 ??버 ??이??을 ??장??으????작??기 ??한 ??크립트 --
     local itemName = TryGetProp(item,"ClassName");
     if itemName == nil then
         return 0;

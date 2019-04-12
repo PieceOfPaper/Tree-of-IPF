@@ -1013,6 +1013,9 @@
             </Stage>
             <Stage Name="FINAL" AutoStart="0">
                 <StartScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="M_GTOWER_2"/>
+                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
                         <Str Str="대지의 성소로 통하는 길이 열렸습니다{nl}제미나 여신을 알현하세요"/>
                         <Str Str="move_to_point"/>

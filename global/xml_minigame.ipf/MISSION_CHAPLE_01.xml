@@ -1,961 +1,965 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <GameList>
-    <Game Name="MISSION_CHAPLE_01" rankScript="RAID_RANK_SCP" minLv="31" maxLv="45" mapName="mission_chaple_01" playerCnt="10" checkSec="3600" startWaitSec="4" checkScript="CHECK_MGAME_COMMON" msgTxt="{@st41b}성당의 결계가 위협받고 있다고 합니다. 성당을 구해 주세요." portrait="Dlg_port_BOCOR">
-        <StageList>
-            <Stage Name="1st_stage" AutoStart="0">
-                <ObjList>
-                    <Obj Type="Monster" MonType="147350" Pos="-155.93#39.54#682.66" angle="-93" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
-                    <Obj Type="Monster" MonType="147357" Pos="-976.82#67.22#-423.93" angle="-34" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HitProof&apos; &apos;NO&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;MHP_BM&apos; &apos;500&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Name&apos; &apos;성당의 첫 번째 결계&apos; " SimpleAI="mission_chaple_sphere_AI">
-                        <SelfAI ActiveMessageMapInBattle="1"/>
-                    </Obj>
-                    <Obj Type="Monster" MonType="147357" Pos="671.67#67.04#-425.11" angle="-41" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" autoDestroy="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HitProof&apos; &apos;NO&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;MHP_BM&apos; &apos;500&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Name&apos; &apos;성당의 두 번째 결계&apos; " SimpleAI="mission_chaple_sphere_AI"/>
-                    <Obj Type="Monster" MonType="147357" Pos="706.38#67.87#314.32" angle="-36" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" autoDestroy="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HitProof&apos; &apos;NO&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;MHP_BM&apos; &apos;500&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Name&apos; &apos;성당의 세 번째 결계&apos; " SimpleAI="mission_chaple_sphere_AI"/>
-                    <Obj Type="Monster" MonType="147357" Pos="-954.51#67.87#320.35" angle="-49" genCount="1" genTime="20000" objectKey="4" autoDestroy="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HitProof&apos; &apos;NO&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;MHP_BM&apos; &apos;500&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Name&apos; &apos;성당의 네 번째 결계&apos; " SimpleAI="mission_chaple_sphere_AI"/>
-                    <Obj Type="Monster" MonType="57376" Pos="-1024.84#54.38#-554.57" genCount="1" genTime="20000" objectKey="6" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57376" Pos="-1108.76#54.38#-407.84" genCount="1" genTime="20000" objectKey="7" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="-1051.24#54.38#-313.06" genCount="1" genTime="20000" objectKey="8" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="-952.06#54.38#-581.16" genCount="1" genTime="20000" objectKey="9" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="-1105.52#54.38#-347.73" genCount="1" genTime="20000" objectKey="10" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="-852.44#54.38#-537.70" genCount="1" genTime="20000" objectKey="11" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="-849.47#54.38#-333.84" genCount="1" genTime="20000" objectKey="12" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="-903.55#54.38#-297.40" genCount="1" genTime="20000" objectKey="13" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="-1095.00#54.38#-484.79" genCount="1" genTime="20000" objectKey="14" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="-976.97#54.38#-284.02" genCount="1" genTime="20000" objectKey="15" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="658.85#54.38#-590.89" genCount="1" genTime="20000" objectKey="16" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="750.35#54.38#-577.34" genCount="1" genTime="20000" objectKey="17" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="812.76#54.38#-535.98" genCount="1" genTime="20000" objectKey="18" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="846.88#54.38#-473.48" genCount="1" genTime="20000" objectKey="19" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="827.24#54.38#-388.02" genCount="1" genTime="20000" objectKey="20" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="756.43#54.38#-314.63" genCount="1" genTime="20000" objectKey="21" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="658.72#54.38#-295.85" genCount="1" genTime="20000" objectKey="22" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="579.80#54.38#-317.39" genCount="1" genTime="20000" objectKey="23" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="517.42#54.38#-410.75" genCount="1" genTime="20000" objectKey="24" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57376" Pos="616.26#54.38#-535.97" genCount="1" genTime="20000" objectKey="25" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="47376" Pos="850.55#55.99#323.29" angle="-135" genCount="1" genTime="20000" objectKey="26" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " SimpleAI="ATK_COMMON" tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57367" Pos="862.34#56.48#276.36" genCount="1" genTime="20000" objectKey="27" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="825.70#56.16#221.87" genCount="1" genTime="20000" objectKey="28" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="774.24#55.94#192.83" genCount="1" genTime="20000" objectKey="29" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="811.33#55.65#384.17" genCount="1" genTime="20000" objectKey="30" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="776.44#55.80#435.14" genCount="1" genTime="20000" objectKey="31" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="706.13#55.41#433.88" genCount="1" genTime="20000" objectKey="32" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="645.57#55.90#183.63" genCount="1" genTime="20000" objectKey="33" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="555.95#55.98#267.80" genCount="1" genTime="20000" objectKey="34" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="564.11#55.84#368.92" genCount="1" genTime="20000" objectKey="35" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="623.56#55.61#424.58" genCount="1" genTime="20000" objectKey="36" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="47376" Pos="-992.29#55.98#471.21" genCount="1" genTime="20000" objectKey="37" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " SimpleAI="ATK_COMMON" tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57367" Pos="-1120.62#56.16#334.31" genCount="1" genTime="20000" objectKey="38" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="-1131.11#56.40#271.92" genCount="1" genTime="20000" objectKey="39" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="-1086.56#56.23#212.96" genCount="1" genTime="20000" objectKey="40" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="-1016.40#56.11#169.66" genCount="1" genTime="20000" objectKey="41" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="-925.40#55.88#171.93" genCount="1" genTime="20000" objectKey="42" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="-839.34#55.91#228.77" genCount="1" genTime="20000" objectKey="43" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="-845.21#55.88#415.39" genCount="1" genTime="20000" objectKey="44" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="-1051.13#55.98#442.45" genCount="1" genTime="20000" objectKey="45" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="-917.07#55.87#461.95" genCount="1" genTime="20000" objectKey="46" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57367" Pos="-1093.65#55.97#390.53" genCount="1" genTime="20000" objectKey="47" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="20044" Pos="-160.01#39.78#733.92" genCount="1" genTime="20000" objectKey="48"/>
-                    <Obj Type="Monster" MonType="20045" Pos="-112.42#39.68#712.67" angle="91" genCount="1" genTime="20000" objectKey="49"/>
-                    <Obj Type="Monster" MonType="20045" Pos="-100.10#39.66#708.53" angle="-89" genCount="1" genTime="20000" objectKey="50"/>
-                    <Obj Type="Monster" MonType="20045" Pos="-89.45#39.66#708.55" angle="91" genCount="1" genTime="20000" objectKey="51"/>
-                    <Obj Type="Monster" MonType="20045" Pos="-196.63#39.72#720.36" angle="88" genCount="1" genTime="20000" objectKey="52"/>
-                    <Obj Type="Monster" MonType="20045" Pos="909.57#57.28#290.15" angle="90" genCount="1" genTime="20000" objectKey="53"/>
-                    <Obj Type="Monster" MonType="20045" Pos="-192.13#39.73#720.55" angle="90" genCount="1" genTime="20000" objectKey="54"/>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="1st_sphere_on">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/6/1st_stage/7/1st_stage/8/1st_stage/9/1st_stage/10/1st_stage/11/1st_stage/12/1st_stage/13/1st_stage/14/1st_stage/15"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/1"/>
-                                <Str Str="MCHAPLE_SPHERE_ON"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="1st_sphere_on"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="첫 번째 결계가 작동하기 시작했습니다."/>
-                                <Num Num="15"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="2nd_sphere_on">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/16/1st_stage/17/1st_stage/18/1st_stage/19/1st_stage/20/1st_stage/21/1st_stage/22/1st_stage/23/1st_stage/24/1st_stage/25"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/2"/>
-                                <Str Str="MCHAPLE_SPHERE_ON"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="2nd_sphere_on"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="두 번째 결계가 작동하기 시작했습니다."/>
-                                <Num Num="15"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="3rd_sphere_on">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/26"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/3"/>
-                                <Str Str="MCHAPLE_SPHERE_ON"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="3rd_sphere_on"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="세 번째 결계가 작동하기 시작했습니다."/>
-                                <Num Num="15"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="4th_sphere_on">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/37"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/4"/>
-                                <Str Str="MCHAPLE_SPHERE_ON"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="4th_sphere_on"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="네 번째 결계가 작동하기 시작했습니다."/>
-                                <Num Num="15"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execMS="5000" eventName="1stage_Mission_fail">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="600"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="1st_stage"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="fail"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="1st_stage_msg">
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="작동이 중지되어 있는 4개의 결계를 모두 작동시키세요."/>
-                                <Num Num="15"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="controller1-2">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="1st_sphere_on"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="2nd_sphere_on"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="3rd_sphere_on"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="4th_sphere_on"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="2nd_stage"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="1st_stage"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="1st_sphere_effect">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/6/1st_stage/7/1st_stage/8/1st_stage/9/1st_stage/10/1st_stage/11/1st_stage/12/1st_stage/13/1st_stage/14/1st_stage/15"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/1"/>
-                                <Str Str="MCHAPLE_SPHERE_ON_EFFECT"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="2nd_sphere_effect">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/16/1st_stage/17/1st_stage/18/1st_stage/19/1st_stage/20/1st_stage/21/1st_stage/22/1st_stage/23/1st_stage/24/1st_stage/25"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/2"/>
-                                <Str Str="MCHAPLE_SPHERE_ON_EFFECT"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="3rd_sphere_effect">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/26"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/3"/>
-                                <Str Str="MCHAPLE_SPHERE_ON_EFFECT"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="4th_sphere_effect">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/37"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/4"/>
-                                <Str Str="MCHAPLE_SPHERE_ON_EFFECT"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="2nd_stage" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="120"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="몬스터들로부터 성당결계를 지키세요.{nl}파괴되지 않은 성당 결계마다 이로운 효과를 부여합니다."/>
-                        <Str Str="scroll"/>
-                        <Num Num="10"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="57366" Pos="-1134.81#54.38#-452.66" genCount="1" genTime="20000" objectKey="0" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57370" Pos="-1096.74#54.38#-515.06" genCount="1" genTime="20000" objectKey="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57366" Pos="-1032.43#54.38#-560.15" genCount="1" genTime="20000" objectKey="2" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57370" Pos="-969.79#54.38#-578.56" genCount="1" genTime="20000" objectKey="3" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57366" Pos="-896.14#54.38#-540.57" genCount="1" genTime="20000" objectKey="4" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57370" Pos="-859.86#54.38#-532.74" genCount="1" genTime="20000" objectKey="5" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57366" Pos="-871.12#54.38#-366.39" genCount="1" genTime="20000" objectKey="6" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57370" Pos="-930.56#54.38#-299.45" genCount="1" genTime="20000" objectKey="7" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57366" Pos="-1022.19#54.38#-280.04" genCount="1" genTime="20000" objectKey="8" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57370" Pos="-1092.80#54.38#-322.84" genCount="1" genTime="20000" objectKey="9" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57366" Pos="-1131.00#54.38#-378.53" genCount="1" genTime="20000" objectKey="10" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57370" Pos="517.63#54.38#-341.73" genCount="1" genTime="20000" objectKey="11" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57366" Pos="591.89#54.38#-295.48" genCount="1" genTime="20000" objectKey="12" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57370" Pos="671.00#54.38#-286.81" genCount="1" genTime="20000" objectKey="13" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57366" Pos="759.70#54.38#-328.28" genCount="1" genTime="20000" objectKey="14" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57370" Pos="796.62#54.38#-406.09" genCount="1" genTime="20000" objectKey="15" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57366" Pos="798.17#54.38#-468.99" genCount="1" genTime="20000" objectKey="16" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-                                    <Num Num="0"/>
-                                    <Str_Arg Str="I_light010" Arg="1"/>
-                                    <Str Str="BOT"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57370" Pos="748.49#54.38#-531.50" genCount="1" genTime="20000" objectKey="17" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57366" Pos="692.58#54.38#-562.58" genCount="1" genTime="20000" objectKey="18" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57370" Pos="609.93#54.38#-570.38" genCount="1" genTime="20000" objectKey="19" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57366" Pos="531.43#54.38#-516.06" genCount="1" genTime="20000" objectKey="20" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1"/>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57371" Pos="669.89#67.87#351.64" genCount="1" genTime="20000" objectKey="21" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1"/>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57018" Pos="633.14#56.09#462.12" genCount="1" genTime="20000" objectKey="22" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 갈록&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57371" Pos="704.15#56.66#494.12" genCount="1" genTime="20000" objectKey="23" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57371" Pos="799.80#55.93#426.61" genCount="1" genTime="20000" objectKey="25" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57371" Pos="739.97#67.87#266.75" genCount="1" genTime="20000" objectKey="27" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57371" Pos="626.18#55.84#196.79" genCount="1" genTime="20000" objectKey="29" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57371" Pos="-923.26#67.87#334.96" genCount="1" genTime="20000" objectKey="31" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57371" Pos="-1054.55#55.98#439.96" genCount="1" genTime="20000" objectKey="33" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57371" Pos="-1169.15#56.84#351.34" genCount="1" genTime="20000" objectKey="35" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57018" Pos="-959.68#55.69#183.66" genCount="1" genTime="20000" objectKey="36" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 갈록&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57371" Pos="-1112.63#56.47#216.55" genCount="1" genTime="20000" objectKey="37" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="57371" Pos="-897.94#67.87#303.75" genCount="1" genTime="20000" objectKey="39" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; " tendency="1"/>
-                </ObjList>
-                <StageEvents>
-                    <Event eventName="sphere_faction">
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/1/1st_stage/2/1st_stage/3/1st_stage/4"/>
-                                <Str Str="Our_Forces"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" isOr="1" eventName="controller2-3">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="120"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="2nd_stage/0/2nd_stage/1/2nd_stage/2/2nd_stage/3/2nd_stage/4/2nd_stage/5/2nd_stage/6/2nd_stage/7/2nd_stage/8/2nd_stage/9/2nd_stage/10/2nd_stage/11/2nd_stage/12/2nd_stage/13/2nd_stage/14/2nd_stage/15/2nd_stage/16/2nd_stage/17/2nd_stage/18/2nd_stage/19/2nd_stage/20/2nd_stage/21/2nd_stage/22/2nd_stage/23/2nd_stage/24/2nd_stage/25/2nd_stage/26/2nd_stage/27/2nd_stage/28/2nd_stage/29/2nd_stage/30/2nd_stage/31/2nd_stage/32/2nd_stage/33/2nd_stage/34/2nd_stage/35/2nd_stage/36/2nd_stage/37/2nd_stage/38/2nd_stage/39/2nd_stage/40"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="3rd_stage"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
-                                <MGameObjPtr List="1st_stage/48"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="2nd_stage"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-                                <Str Str="None"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="2nd_stage_msg">
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="결계를 몬스터에게서 보호해 {nl}지켜낸 수 만큼 버프를 받으세요"/>
-                                <Num Num="20"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_SET_TIMER" Client="NO" UseSleep="NO">
-                                <Str Str=""/>
-                                <Num Num="120"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="1st_sphere_off">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="첫 번째 결계가 몬스터의 공격에 파괴 되었습니다"/>
-                                <Num Num="15"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="1st_sphere_off"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/1"/>
-                                <Str Str="MCHAPLE_SPHERE_OFF_EFFECT"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="2nd_sphere_off">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/2"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="두 번째 결계가 몬스터의 공격에 의해 파괴 되었습니다"/>
-                                <Num Num="15"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="2nd_sphere_off"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/2"/>
-                                <Str Str="MCHAPLE_SPHERE_OFF_EFFECT"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="3rd_sphere_off">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/3"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="세 번째 결계가 몬스터의 공격에 의해 파괴 되었습니다"/>
-                                <Num Num="15"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="3rd_sphere_off"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/3"/>
-                                <Str Str="MCHAPLE_SPHERE_OFF_EFFECT"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="4th_sphere_off">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/4"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="네 번째 결계가 몬스터의 공격에 의해 파괴 되었습니다"/>
-                                <Num Num="15"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="4th_sphere_off"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/4"/>
-                                <Str Str="MCHAPLE_SPHERE_OFF_EFFECT"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event eventName="all_sphere_off">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="1st_stage_off"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="2nd_sphere_off"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="3rd_sphere_off"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="4th_sphere_off"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="모든 결계가 사라져 버렸습니다. 잠시 후 다섯 번 째 결계의 방이 열립니다."/>
-                                <Num Num="15"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-                                <Str Str="2nd_stage"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="3rd_stage" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="180"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="다섯 번 째 방이 열렸습니다 {nl}제한 시간 내에 보스 몬스터를 모두 처치하세요"/>
-                        <Str Str="scroll"/>
-                        <Num Num="10"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="57131" Pos="-139.42#67.18#1257.88" angle="-85" genCount="1" genTime="20000" objectKey="0" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;Name&apos; &apos;고르곤&apos; " SimpleAI="ATK_COMMON" tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="200"/>
-                                </ToolScp>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="57135" Pos="-111.26#67.18#1053.53" angle="-89" genCount="1" genTime="20000" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;Name&apos; &apos;드라페리운&apos; " SimpleAI="ATK_COMMON" tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="200"/>
-                                </ToolScp>
-                            </List>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="success_stage">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="3rd_stage/0/3rd_stage/1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO" RunCount="0">
-                                <MGameObj List="1st_stage/5"/>
-                                <Str Str="MCHAPLE_SPHERE_ON"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="3rd_stage"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="SUCCESS"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="3nd_mission_fail_2">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="180"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="success_stage"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
-                                <MGameObjPtr List="3rd_stage/0/3rd_stage/1/3rd_stage/2"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="fail"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="buff over1">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/1/1st_stage/2/1st_stage/3/1st_stage/4"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
-                                <Str Str="MCHAPLE_BUFF_01"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="buff over 2">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/1/1st_stage/2/1st_stage/3/1st_stage/4"/>
-                                <Num Num="2"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
-                                <Str Str="MCHAPLE_BUFF_02"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="buff over 3">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/1/1st_stage/2/1st_stage/3/1st_stage/4"/>
-                                <Num Num="3"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
-                                <Str Str="MCHAPLE_BUFF_03"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="buff over 4">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/1/1st_stage/2/1st_stage/3/1st_stage/4"/>
-                                <Num Num="4"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
-                                <Str Str="MCHAPLE_BUFF_04"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="gate_open_msg">
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/0"/>
-                                <Str Str="on"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="sphere_faction">
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/5"/>
-                                <Str Str="Our_Forces"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event eventName="sphere_on_effect">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="3rd_stage/0/3rd_stage/1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="1st_stage/5"/>
-                                <Str Str="MCHAPLE_SPHERE_ON_EFFECT"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="SUCCESS" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="미션 성공 : 약 1분 후 원래 존으로 돌아갑니다"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList/>
-                <StageEvents>
-                    <Event execCount="1" eventName="SetPos">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="미션 성공 : 약 1분 후 원래 존으로 돌아갑니다"/>
-                                <Num Num="20"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EXEC_RAIDSSN_MODIFY" Client="NO" UseSleep="NO">
-                                <Str Str="MISSION_CHAPLE_01_REWARD1"/>
-                                <Num Num="0"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="ComeBackHome">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="SUCCESS"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="clearPoint">
-                        <execList>
-                            <ToolScp Scp="MGAME_EXEC_SSN_ADD" Client="NO" UseSleep="NO">
-                                <Str Str="ssn_klapeda"/>
-                                <Str Str="REQUESTMISSION_CLEAR3"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="fail" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="30"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList/>
-                <StageEvents>
-                    <Event execCount="1" eventName="goback">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="ready">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="60초 뒤 미션이 시작됩니다"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="147350" Pos="-142.72#0.34#-709.67" angle="-90" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
-                    <Obj Type="Monster" MonType="147374" Pos="-123.05#0.34#-711.41" genCount="1" genTime="20000" objectKey="1"/>
-                    <Obj Type="Monster" MonType="20046" Pos="-202.69#0.34#-709.74" genCount="1" genTime="20000" objectKey="2"/>
-                    <Obj Type="Monster" MonType="20046" Pos="-87.31#0.34#-709.79" genCount="1" genTime="20000" objectKey="3"/>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="50s">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="50초 뒤 미션이 시작됩니다."/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="40s">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="40초 뒤 미션이 시작됩니다."/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="30s">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="30초 뒤 미션이 시작됩니다."/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="20s">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="40"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="20초 뒤 미션이 시작됩니다."/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="10s">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="50"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="10초 뒤 미션이 시작됩니다."/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="Start">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="ready"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="1st_stage"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="미션이 시작됩니다."/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
-                                <MGameObjPtr List="ready/1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
-                                <MGameObj List="ready/0"/>
-                                <Str Str="on"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="TimeOver">
-                <ObjList/>
-                <StageEvents>
-                    <Event execCount="1" eventName="Warning1">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="3000"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="10분 뒤 미션이 종료됩니다"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="Warning2">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="3300"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="5분 뒤 미션이 종료됩니다"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="TimeOver">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="3600"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="allDie">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
-                                <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
-                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="TimeOver"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="fail"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-        </StageList>
-        <EnterList>
-            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
-                <Str Str="Request_Mission3"/>
-            </ToolScp>
-        </EnterList>
-    </Game>
+	<Game Name="MISSION_CHAPLE_01" rankScript="RAID_RANK_SCP" minLv="31" maxLv="45" mapName="mission_chaple_01" playerCnt="10" checkSec="3600" startWaitSec="4" checkScript="CHECK_MGAME_COMMON" msgTxt="{@st41b}성당의 결계가 위협받고 있다고 합니다. 성당을 구해 주세요." portrait="Dlg_port_BOCOR">
+		<StageList>
+			<Stage Name="1st_stage" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="147350" Pos="-155.93#39.54#682.66" angle="-93" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="147357" Pos="-976.82#67.22#-423.93" angle="-34" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HitProof&apos; &apos;NO&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;MHP_BM&apos; &apos;500&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Name&apos; &apos;성당의 첫 번째 결계&apos; " SimpleAI="mission_chaple_sphere_AI">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="147357" Pos="671.67#67.04#-425.11" angle="-41" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" autoDestroy="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HitProof&apos; &apos;NO&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;MHP_BM&apos; &apos;500&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Name&apos; &apos;성당의 두 번째 결계&apos; " SimpleAI="mission_chaple_sphere_AI"/>
+					<Obj Type="Monster" MonType="147357" Pos="706.38#67.87#314.32" angle="-36" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" autoDestroy="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HitProof&apos; &apos;NO&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;MHP_BM&apos; &apos;500&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Name&apos; &apos;성당의 세 번째 결계&apos; " SimpleAI="mission_chaple_sphere_AI"/>
+					<Obj Type="Monster" MonType="147357" Pos="-954.51#67.87#320.35" angle="-49" genCount="1" genTime="20000" objectKey="4" autoDestroy="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HitProof&apos; &apos;NO&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;MHP_BM&apos; &apos;500&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Name&apos; &apos;성당의 네 번째 결계&apos; " SimpleAI="mission_chaple_sphere_AI"/>
+					<Obj Type="Monster" MonType="57376" Pos="-1024.84#54.38#-554.57" genCount="1" genTime="20000" objectKey="6" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57376" Pos="-1108.76#54.38#-407.84" genCount="1" genTime="20000" objectKey="7" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="-1051.24#54.38#-313.06" genCount="1" genTime="20000" objectKey="8" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="-952.06#54.38#-581.16" genCount="1" genTime="20000" objectKey="9" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="-1105.52#54.38#-347.73" genCount="1" genTime="20000" objectKey="10" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="-852.44#54.38#-537.70" genCount="1" genTime="20000" objectKey="11" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos;  " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="-849.47#54.38#-333.84" genCount="1" genTime="20000" objectKey="12" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="-903.55#54.38#-297.40" genCount="1" genTime="20000" objectKey="13" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="-1095.00#54.38#-484.79" genCount="1" genTime="20000" objectKey="14" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="-976.97#54.38#-284.02" genCount="1" genTime="20000" objectKey="15" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="658.85#54.38#-590.89" genCount="1" genTime="20000" objectKey="16" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="750.35#54.38#-577.34" genCount="1" genTime="20000" objectKey="17" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="812.76#54.38#-535.98" genCount="1" genTime="20000" objectKey="18" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="846.88#54.38#-473.48" genCount="1" genTime="20000" objectKey="19" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="827.24#54.38#-388.02" genCount="1" genTime="20000" objectKey="20" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="756.43#54.38#-314.63" genCount="1" genTime="20000" objectKey="21" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="658.72#54.38#-295.85" genCount="1" genTime="20000" objectKey="22" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="579.80#54.38#-317.39" genCount="1" genTime="20000" objectKey="23" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="517.42#54.38#-410.75" genCount="1" genTime="20000" objectKey="24" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57376" Pos="616.26#54.38#-535.97" genCount="1" genTime="20000" objectKey="25" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 로프틀렘&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="47376" Pos="850.55#55.99#323.29" angle="-135" genCount="1" genTime="20000" objectKey="26" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " SimpleAI="ATK_COMMON" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57367" Pos="862.34#56.48#276.36" genCount="1" genTime="20000" objectKey="27" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="825.70#56.16#221.87" genCount="1" genTime="20000" objectKey="28" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="774.24#55.94#192.83" genCount="1" genTime="20000" objectKey="29" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="811.33#55.65#384.17" genCount="1" genTime="20000" objectKey="30" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="776.44#55.80#435.14" genCount="1" genTime="20000" objectKey="31" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="706.13#55.41#433.88" genCount="1" genTime="20000" objectKey="32" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="645.57#55.90#183.63" genCount="1" genTime="20000" objectKey="33" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="555.95#55.98#267.80" genCount="1" genTime="20000" objectKey="34" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="564.11#55.84#368.92" genCount="1" genTime="20000" objectKey="35" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="623.56#55.61#424.58" genCount="1" genTime="20000" objectKey="36" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="47376" Pos="-992.29#55.98#471.21" genCount="1" genTime="20000" objectKey="37" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " SimpleAI="ATK_COMMON" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57367" Pos="-1120.62#56.16#334.31" genCount="1" genTime="20000" objectKey="38" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="-1131.11#56.40#271.92" genCount="1" genTime="20000" objectKey="39" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="-1086.56#56.23#212.96" genCount="1" genTime="20000" objectKey="40" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="-1016.40#56.11#169.66" genCount="1" genTime="20000" objectKey="41" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="-925.40#55.88#171.93" genCount="1" genTime="20000" objectKey="42" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="-839.34#55.91#228.77" genCount="1" genTime="20000" objectKey="43" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="-845.21#55.88#415.39" genCount="1" genTime="20000" objectKey="44" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="-1051.13#55.98#442.45" genCount="1" genTime="20000" objectKey="45" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="-917.07#55.87#461.95" genCount="1" genTime="20000" objectKey="46" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57367" Pos="-1093.65#55.97#390.53" genCount="1" genTime="20000" objectKey="47" searchRange="500" propList="&apos;Name&apos; &apos;끈질긴 스타울리트&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="20044" Pos="-160.01#39.78#733.92" genCount="1" genTime="20000" objectKey="48"/>
+					<Obj Type="Monster" MonType="20045" Pos="-112.42#39.68#712.67" angle="91" genCount="1" genTime="20000" objectKey="49"/>
+					<Obj Type="Monster" MonType="20045" Pos="-100.10#39.66#708.53" angle="-89" genCount="1" genTime="20000" objectKey="50"/>
+					<Obj Type="Monster" MonType="20045" Pos="-89.45#39.66#708.55" angle="91" genCount="1" genTime="20000" objectKey="51"/>
+					<Obj Type="Monster" MonType="20045" Pos="-196.63#39.72#720.36" angle="88" genCount="1" genTime="20000" objectKey="52"/>
+					<Obj Type="Monster" MonType="20045" Pos="909.57#57.28#290.15" angle="90" genCount="1" genTime="20000" objectKey="53"/>
+					<Obj Type="Monster" MonType="20045" Pos="-192.13#39.73#720.55" angle="90" genCount="1" genTime="20000" objectKey="54"/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="1st_sphere_on">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/6/1st_stage/7/1st_stage/8/1st_stage/9/1st_stage/10/1st_stage/11/1st_stage/12/1st_stage/13/1st_stage/14/1st_stage/15"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/1"/>
+								<Str Str="MCHAPLE_SPHERE_ON"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="1st_sphere_on"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="첫 번째 결계가 작동하기 시작했습니다."/>
+								<Num Num="15"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="2nd_sphere_on">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/16/1st_stage/17/1st_stage/18/1st_stage/19/1st_stage/20/1st_stage/21/1st_stage/22/1st_stage/23/1st_stage/24/1st_stage/25"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/2"/>
+								<Str Str="MCHAPLE_SPHERE_ON"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="2nd_sphere_on"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="두 번째 결계가 작동하기 시작했습니다."/>
+								<Num Num="15"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="3rd_sphere_on">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/26"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/3"/>
+								<Str Str="MCHAPLE_SPHERE_ON"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="3rd_sphere_on"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="세 번째 결계가 작동하기 시작했습니다."/>
+								<Num Num="15"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="4th_sphere_on">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/37"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/4"/>
+								<Str Str="MCHAPLE_SPHERE_ON"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="4th_sphere_on"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="네 번째 결계가 작동하기 시작했습니다."/>
+								<Num Num="15"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="5000" eventName="1stage_Mission_fail">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="600"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="1st_stage"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="fail"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="1st_stage_msg">
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="작동이 중지되어 있는 4개의 결계를 모두 작동시키세요."/>
+								<Num Num="15"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="controller1-2">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="1st_sphere_on"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="2nd_sphere_on"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="3rd_sphere_on"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="4th_sphere_on"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="2nd_stage"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="1st_stage"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="1st_sphere_effect">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/6/1st_stage/7/1st_stage/8/1st_stage/9/1st_stage/10/1st_stage/11/1st_stage/12/1st_stage/13/1st_stage/14/1st_stage/15"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/1"/>
+								<Str Str="MCHAPLE_SPHERE_ON_EFFECT"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="2nd_sphere_effect">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/16/1st_stage/17/1st_stage/18/1st_stage/19/1st_stage/20/1st_stage/21/1st_stage/22/1st_stage/23/1st_stage/24/1st_stage/25"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/2"/>
+								<Str Str="MCHAPLE_SPHERE_ON_EFFECT"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="3rd_sphere_effect">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/26"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/3"/>
+								<Str Str="MCHAPLE_SPHERE_ON_EFFECT"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="4th_sphere_effect">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/37"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/4"/>
+								<Str Str="MCHAPLE_SPHERE_ON_EFFECT"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="2nd_stage" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="120"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="몬스터들로부터 성당결계를 지키세요.{nl}파괴되지 않은 성당 결계마다 이로운 효과를 부여합니다."/>
+						<Str Str="scroll"/>
+						<Num Num="10"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="57366" Pos="-1134.81#54.38#-452.66" genCount="1" genTime="20000" objectKey="0" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57370" Pos="-1096.74#54.38#-515.06" genCount="1" genTime="20000" objectKey="1" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57366" Pos="-1032.43#54.38#-560.15" genCount="1" genTime="20000" objectKey="2" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57370" Pos="-969.79#54.38#-578.56" genCount="1" genTime="20000" objectKey="3" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57366" Pos="-896.14#54.38#-540.57" genCount="1" genTime="20000" objectKey="4" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57370" Pos="-859.86#54.38#-532.74" genCount="1" genTime="20000" objectKey="5" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57366" Pos="-871.12#54.38#-366.39" genCount="1" genTime="20000" objectKey="6" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57370" Pos="-930.56#54.38#-299.45" genCount="1" genTime="20000" objectKey="7" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57366" Pos="-1022.19#54.38#-280.04" genCount="1" genTime="20000" objectKey="8" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57370" Pos="-1092.80#54.38#-322.84" genCount="1" genTime="20000" objectKey="9" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57366" Pos="-1131.00#54.38#-378.53" genCount="1" genTime="20000" objectKey="10" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57370" Pos="517.63#54.38#-341.73" genCount="1" genTime="20000" objectKey="11" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57366" Pos="591.89#54.38#-295.48" genCount="1" genTime="20000" objectKey="12" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57370" Pos="671.00#54.38#-286.81" genCount="1" genTime="20000" objectKey="13" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57366" Pos="759.70#54.38#-328.28" genCount="1" genTime="20000" objectKey="14" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57370" Pos="796.62#54.38#-406.09" genCount="1" genTime="20000" objectKey="15" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57366" Pos="798.17#54.38#-468.99" genCount="1" genTime="20000" objectKey="16" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="I_light010" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57370" Pos="748.49#54.38#-531.50" genCount="1" genTime="20000" objectKey="17" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57366" Pos="692.58#54.38#-562.58" genCount="1" genTime="20000" objectKey="18" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57370" Pos="609.93#54.38#-570.38" genCount="1" genTime="20000" objectKey="19" searchRange="600" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57366" Pos="531.43#54.38#-516.06" genCount="1" genTime="20000" objectKey="20" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 벨리글러&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="57371" Pos="669.89#67.87#351.64" genCount="1" genTime="20000" objectKey="21" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="57018" Pos="633.14#56.09#462.12" genCount="1" genTime="20000" objectKey="22" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 갈록&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57371" Pos="704.15#56.66#494.12" genCount="1" genTime="20000" objectKey="23" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57371" Pos="799.80#55.93#426.61" genCount="1" genTime="20000" objectKey="25" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57371" Pos="739.97#67.87#266.75" genCount="1" genTime="20000" objectKey="27" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57371" Pos="626.18#55.84#196.79" genCount="1" genTime="20000" objectKey="29" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57371" Pos="-923.26#67.87#334.96" genCount="1" genTime="20000" objectKey="31" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57371" Pos="-1054.55#55.98#439.96" genCount="1" genTime="20000" objectKey="33" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57371" Pos="-1169.15#56.84#351.34" genCount="1" genTime="20000" objectKey="35" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57018" Pos="-959.68#55.69#183.66" genCount="1" genTime="20000" objectKey="36" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 갈록&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57371" Pos="-1112.63#56.47#216.55" genCount="1" genTime="20000" objectKey="37" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57371" Pos="-897.94#67.87#303.75" genCount="1" genTime="20000" objectKey="39" searchRange="600" propList="&apos;Name&apos; &apos;끈질긴 푸른 폰델&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;@GET_MON_RANK_DropItem_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="sphere_faction">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/1/1st_stage/2/1st_stage/3/1st_stage/4"/>
+								<Str Str="Our_Forces"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" isOr="1" eventName="controller2-3">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="120"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="2nd_stage/0/2nd_stage/1/2nd_stage/2/2nd_stage/3/2nd_stage/4/2nd_stage/5/2nd_stage/6/2nd_stage/7/2nd_stage/8/2nd_stage/9/2nd_stage/10/2nd_stage/11/2nd_stage/12/2nd_stage/13/2nd_stage/14/2nd_stage/15/2nd_stage/16/2nd_stage/17/2nd_stage/18/2nd_stage/19/2nd_stage/20/2nd_stage/21/2nd_stage/22/2nd_stage/23/2nd_stage/24/2nd_stage/25/2nd_stage/26/2nd_stage/27/2nd_stage/28/2nd_stage/29/2nd_stage/30/2nd_stage/31/2nd_stage/32/2nd_stage/33/2nd_stage/34/2nd_stage/35/2nd_stage/36/2nd_stage/37/2nd_stage/38/2nd_stage/39/2nd_stage/40"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="3rd_stage"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+								<MGameObjPtr List="1st_stage/48"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="2nd_stage"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="None"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="2nd_stage_msg">
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="결계를 몬스터에게서 보호해 {nl}지켜낸 수 만큼 버프를 받으세요"/>
+								<Num Num="20"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_SET_TIMER" Client="NO" UseSleep="NO">
+								<Str Str=""/>
+								<Num Num="120"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="1st_sphere_off">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="첫 번째 결계가 몬스터의 공격에 파괴 되었습니다"/>
+								<Num Num="15"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="1st_sphere_off"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/1"/>
+								<Str Str="MCHAPLE_SPHERE_OFF_EFFECT"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="2nd_sphere_off">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/2"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="두 번째 결계가 몬스터의 공격에 의해 파괴 되었습니다"/>
+								<Num Num="15"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="2nd_sphere_off"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/2"/>
+								<Str Str="MCHAPLE_SPHERE_OFF_EFFECT"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="3rd_sphere_off">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/3"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="세 번째 결계가 몬스터의 공격에 의해 파괴 되었습니다"/>
+								<Num Num="15"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="3rd_sphere_off"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/3"/>
+								<Str Str="MCHAPLE_SPHERE_OFF_EFFECT"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="4th_sphere_off">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/4"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="네 번째 결계가 몬스터의 공격에 의해 파괴 되었습니다"/>
+								<Num Num="15"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="4th_sphere_off"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/4"/>
+								<Str Str="MCHAPLE_SPHERE_OFF_EFFECT"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="all_sphere_off">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="1st_stage_off"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="2nd_sphere_off"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="3rd_sphere_off"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="4th_sphere_off"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="모든 결계가 사라져 버렸습니다. 잠시 후 다섯 번 째 결계의 방이 열립니다."/>
+								<Num Num="15"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="2nd_stage"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="3rd_stage" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="180"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="다섯 번 째 방이 열렸습니다 {nl}제한 시간 내에 보스 몬스터를 모두 처치하세요"/>
+						<Str Str="scroll"/>
+						<Num Num="10"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="57131" Pos="-139.42#67.18#1257.88" angle="-85" genCount="1" genTime="20000" objectKey="0" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;Name&apos; &apos;고르곤&apos; " SimpleAI="ATK_COMMON" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57135" Pos="-111.26#67.18#1053.53" angle="-89" genCount="1" genTime="20000" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;Name&apos; &apos;드라페리운&apos; " SimpleAI="ATK_COMMON" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+									<Str Str="Attack"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="success_stage">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="3rd_stage/0/3rd_stage/1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO" RunCount="0">
+								<MGameObj List="1st_stage/5"/>
+								<Str Str="MCHAPLE_SPHERE_ON"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="3rd_stage"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="SUCCESS"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="3nd_mission_fail_2">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="180"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="success_stage"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+								<MGameObjPtr List="3rd_stage/0/3rd_stage/1/3rd_stage/2"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="fail"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="buff over1">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/1/1st_stage/2/1st_stage/3/1st_stage/4"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="MCHAPLE_BUFF_01"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="buff over 2">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/1/1st_stage/2/1st_stage/3/1st_stage/4"/>
+								<Num Num="2"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="MCHAPLE_BUFF_02"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="buff over 3">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/1/1st_stage/2/1st_stage/3/1st_stage/4"/>
+								<Num Num="3"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="MCHAPLE_BUFF_03"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="buff over 4">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/1/1st_stage/2/1st_stage/3/1st_stage/4"/>
+								<Num Num="4"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="MCHAPLE_BUFF_04"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="gate_open_msg">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/0"/>
+								<Str Str="on"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="sphere_faction">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/5"/>
+								<Str Str="Our_Forces"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="sphere_on_effect">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="3rd_stage/0/3rd_stage/1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="1st_stage/5"/>
+								<Str Str="MCHAPLE_SPHERE_ON_EFFECT"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="SUCCESS" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+						<Str Str="Request_Mission3"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="미션 성공 : 약 1분 후 원래 존으로 돌아갑니다"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="60"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="SetPos">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="5"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="미션 성공 : 약 1분 후 원래 존으로 돌아갑니다"/>
+								<Num Num="20"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EXEC_RAIDSSN_MODIFY" Client="NO" UseSleep="NO">
+								<Str Str="MISSION_CHAPLE_01_REWARD1"/>
+								<Num Num="0"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="ComeBackHome">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="60"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="SUCCESS"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="clearPoint">
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_SSN_ADD" Client="NO" UseSleep="NO">
+								<Str Str="ssn_klapeda"/>
+								<Str Str="REQUESTMISSION_CLEAR3"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="fail" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="30"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="goback">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="ready">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="60초 뒤 미션이 시작됩니다"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="147350" Pos="-142.72#0.34#-709.67" angle="-90" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="147374" Pos="-123.05#0.34#-711.41" genCount="1" genTime="20000" objectKey="1"/>
+					<Obj Type="Monster" MonType="20046" Pos="-202.69#0.34#-709.74" genCount="1" genTime="20000" objectKey="2"/>
+					<Obj Type="Monster" MonType="20046" Pos="-87.31#0.34#-709.79" genCount="1" genTime="20000" objectKey="3"/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="50s">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="50초 뒤 미션이 시작됩니다."/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="40s">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="20"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="40초 뒤 미션이 시작됩니다."/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="30s">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="30초 뒤 미션이 시작됩니다."/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="20s">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="40"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="20초 뒤 미션이 시작됩니다."/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="10s">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="50"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="10초 뒤 미션이 시작됩니다."/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Start">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="60"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="ready"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="1st_stage"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="미션이 시작됩니다."/>
+								<Num Num="5"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+								<MGameObjPtr List="ready/1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+								<MGameObj List="ready/0"/>
+								<Str Str="on"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="TimeOver">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="Warning1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="10분 뒤 미션이 종료됩니다"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Warning2">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3300"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="5분 뒤 미션이 종료됩니다"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="TimeOver">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3600"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="allDie">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+								<Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+								<Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="TimeOver"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="fail"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+		<EnterList>
+			<ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+				<Str Str="Request_Mission3"/>
+			</ToolScp>
+		</EnterList>
+	</Game>
 </GameList>

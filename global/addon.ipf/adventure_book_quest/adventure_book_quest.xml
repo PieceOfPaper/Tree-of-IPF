@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="adventure_book_quest" x="0" y="0" width="450" height="700">
+	<frame title="{@st43}{s22}퀘스트 정보{/}" titlepos="0 0" layout_gravity="left top" snapclient="true" snapframe="true" scale_align="center top" margin="800 200 0 0"/>
+	<skin frameskin="mainwindow2"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<layer layerlevel="101"/>
+	<option closebutton="false"/>
+	<input moveable="true"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+	<userconfig CHAR_NAME_FONT="white_16_ol"/>
+	<controls>
+		<richtext name="title" rect="0 0 100 30" margin="0 25 0 0" layout_gravity="center top" caption="{@st43}{s22}퀘스트 정보{/}" fontname="default" spacey="0"/>
+		<button name="close" rect="0 0 44 44" margin="0 7 7 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;adventure_book_quest&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}퀘스트 정보를 닫습니다{/}"/>
+		<richtext name="titleText" rect="0 0 300 30" margin="30 75 0 0" layout_gravity="left top" format="{@st42}{s18}%s{/}" param1="title" param1_def=""/>
+		<richtext name="regionText" rect="0 0 300 30" margin="40 110 0 0" layout_gravity="left top" format="지역:%s" fontname="white_16_ol" param1="region" param1_def="지역 이름"/>
+		<groupbox name="rewardBox" rect="0 0 420 200" margin="0 140 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="completeBox" rect="0 0 400 200" margin="0 0 0 30" layout_gravity="center bottom" draw="false"/>
+		<richtext name="completeText" rect="0 0 300 30" parent="completeBox" margin="0 0 0 0" layout_gravity="left top" caption="{@st42}{s18}완료한 내 캐릭터 목록" fontname="white_16_ol"/>
+		<groupbox name="listBox" rect="0 0 390 170" parent="completeBox" margin="0 0 0 0" layout_gravity="center bottom" skin="bg_test" fixheight="true" scrollbar="true"/>
+	</controls>
+</uiframe>

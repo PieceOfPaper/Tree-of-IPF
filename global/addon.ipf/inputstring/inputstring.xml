@@ -2,22 +2,22 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
 <uiframe name="inputstring" x="0" y="0" width="500" height="320" create="open">
-    <frame title="" layout_gravity="center top" margin="0 180 0 0" fasthide="true" scale_align="center top"/>
-    <draw drawtitlebar="false" drawnotitlebar="false" drawframe="true"/>
-    <skin frameskin="test_win_system"/>
-    <input moveintitlebar="false"/>
-    <layer layerlevel="95"/>
-    <option hideable="true" closebutton="false"/>
-    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
-    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
-    <controls>
-        <richtext name="title" rect="0 0 400 50" margin="50 50 0 0" layout_gravity="left top" caption="수량을 입력하세요" fixwidth="true" fontname="brown_18_b" resizebytext="false" textalign="left center"/>
-        <groupbox name="input_name_skin" rect="0 0 400 50" margin="0 95 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+	<frame title="" layout_gravity="center top" margin="0 180 0 0" fasthide="true" scale_align="center top"/>
+	<draw drawtitlebar="false" drawnotitlebar="false" drawframe="true"/>
+	<skin frameskin="test_win_system"/>
+	<input moveintitlebar="false"/>
+	<layer layerlevel="95"/>
+	<option hideable="true" closebutton="false"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+	<controls>
+		<richtext name="title" rect="0 0 400 50" margin="50 50 0 0" layout_gravity="left top" caption="수량을 입력하세요" fixwidth="true" fontname="brown_18_b" resizebytext="false" textalign="left center"/>
+		<groupbox name="input_name_skin" rect="0 0 400 50" margin="0 95 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
 		<edit name="input" rect="0 0 390 36" margin="0 100 0 0" layout_gravity="center top" OffsetForDraw="0 0" clicksound="button_click" drawbackground="false" fontname="white_20_ol" maxlen="8" oversound="button_over" skin="None" textalign="center center" texttooltip="{@st59}내용을 입력합니다{/}" typingsound="chat_typing" typingscp="UPDATE_TYPING_SCRIPT"/>
-        <richtext name="title2" rect="0 0 400 20" margin="50 230 0 0" layout_gravity="left top" caption="개수를 입력하세요" fixwidth="true" fontname="brown_18_b" resizebytext="false" textalign="left center"/>
-        <groupbox name="input_name_skin2" rect="0 0 400 50" margin="0 255 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
-        <edit name="input2" rect="0 0 390 36" margin="0 260 0 0" layout_gravity="center top" OffsetForDraw="0 0" drawbackground="false" fontname="white_20_ol" maxlen="32" skin="None" textalign="center center" texttooltip="{@st59}내용을 입력합니다{/}"/>
-        <button name="confirm" rect="-85 -20 160 45" layout_gravity="center bottom" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}확인" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" texttooltip="{@st59}입력 내용을 확인합니다{/}"/>
-        <button name="close" rect="85 -20 160 45" layout_gravity="center bottom" LBtnUpScp="ui.CloseFrame(&apos;inputstring&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}닫기" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" texttooltip="{@st59}입력을 취소합니다{/}"/>
-    </controls>
+		<richtext name="title2" rect="0 0 400 20" margin="50 230 0 0" layout_gravity="left top" caption="개수를 입력하세요" fixwidth="true" fontname="brown_18_b" resizebytext="false" textalign="left center"/>
+		<groupbox name="input_name_skin2" rect="0 0 400 50" margin="0 255 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<edit name="input2" rect="0 0 390 36" margin="0 260 0 0" layout_gravity="center top" OffsetForDraw="0 0" drawbackground="false" fontname="white_20_ol" maxlen="32" skin="None" textalign="center center" texttooltip="{@st59}내용을 입력합니다{/}"/>
+		<button name="confirm" rect="-85 -20 160 45" layout_gravity="center bottom" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66}확인" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" texttooltip="{@st59}입력 내용을 확인합니다{/}"/>
+		<button name="close" rect="85 -20 160 45" layout_gravity="center bottom" LBtnUpScp="ui.CloseFrame(&apos;inputstring&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66}닫기" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" texttooltip="{@st59}입력을 취소합니다{/}"/>
+	</controls>
 </uiframe>
