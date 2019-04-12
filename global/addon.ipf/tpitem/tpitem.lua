@@ -1825,12 +1825,11 @@ function CHECK_LIMIT_PAYMENT_STATE_C()
 			if limitPaymentStateBySteam == "Trusted" or limitPaymentStateByGM == "Trusted" then
 				return true;
 			else
-				--return false;
-				return true;
+				return false;
 			end
 		end
 	end
-	return true;
+	return false;
 end
 
 function POPUP_LIMIT_PAYMENT(clientMsg, parentName, allPrice)
