@@ -165,4 +165,5 @@
   <Property Name="ZoneInstance_PC"                   Type="Number" Desc="존 인스턴스에 있는 PC수"/>
   <Property Name="ZoneInstance_Zombie"               Type="Number" Desc="존 인스턴스에 있는 좀비수"/>
   <Property Name="ZoneInstance_UpdateMs"             Type="Number" Desc="Update에 걸리는 시간"/>
+  <Property Name="ZoneInstance_FPS"             Type="Number" Desc="존 인스턴스의 개별 FPS"/>
 </LogPropertyTable>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ClaimCodes Name="ClaimCodes">
 	<Class Code="1" Desc="Disband Guild"/>
 	<Class Code="2" Desc="Transfer Master Authorities"/>
@@ -18,6 +18,8 @@
 	<Class Code="19" Desc="Accept Application"/>
 	<!-- don't delate and modify (default) string -->
 	<Class Code="103" Desc="Deposit Guild Funds (default)"/>
+	<Class Code="104" Desc="Shared Storage Deposit"/>
+	<Class Code="105" Desc="Shared Storage Withdrawal"/>
 	<Class Code="202" Desc="Write Announcement"/>
 	<Class Code="203" Desc="Write Promotional Post"/>
 	<Class Code="204" Desc="See Community Posts (default)"/>

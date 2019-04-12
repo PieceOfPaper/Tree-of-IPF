@@ -1,26 +1,23 @@
-
 function ITEMTRANSCEND_ON_INIT(addon, frame)
-
 	addon:RegisterMsg("OPEN_DLG_ITEMTRANSCEND", "ON_OPEN_DLG_ITEMTRANSCEND");
-
 end
 
-function ON_OPEN_DLG_ITEMTRANSCEND(frame)
+function ON_OPEN_DLG_ITEMTRANSCEND(frame, msg, argStr, isLegendShop)
+	frame:SetUserValue('IS_LEGEND_SHOP', isLegendShop);
 	frame:ShowWindow(1);	
 	ui.SetHoldUI(false);
 end
 
-function ITEMTRASCEND_OPEN(frame)
-	
+function ITEMTRASCEND_OPEN(frame)	
 	local slot = GET_CHILD(frame, "slot");
 	slot:StopActiveUIEffect();
 	slot:ClearIcon();
+	ITEMTRANSCEND_LOCK_ITEM("None");
 	SET_TRANSCEND_RESET(frame);
 	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_GUIDE_FIRST"));	
-	SETTEXT_GUIDE(frame, 3, needTxt);
 
 	UPDATE_TRANSCEND_ITEM(frame);
-	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEMTRANSCEND_INV_RBTN")	
+	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEMTRANSCEND_INV_RBTN");
 	ui.OpenFrame("inventory");	
 	frame:StopUpdateScript("TIMEWAIT_STOP_ITEMTRANSCEND");
 	
@@ -28,15 +25,30 @@ function ITEMTRASCEND_OPEN(frame)
 	slotTemp:StopActiveUIEffect();
 	slotTemp:ShowWindow(0);	
 	frame:SetUserValue("ONANIPICTURE_PLAY", 0);
+
+	local text_bg = GET_CHILD_RECURSIVELY(frame, "text_bg")
+	text_bg:ShowWindow(0);
+
+	local textEdit = GET_CHILD_RECURSIVELY(frame, "textEdit");
+	textEdit:SetTextByKey("value", " ");
+
+	local richtext_1 = GET_CHILD_RECURSIVELY(frame, 'richtext_1');
+	if frame:GetUserIValue('IS_LEGEND_SHOP') ~= 1 then	
+		richtext_1:SetTextByKey('value', ClMsg('itemtranscend'));
+	else
+		richtext_1:SetTextByKey('value', ClMsg('legenditemtranscend'));
+	end
 end
 
 function ITEMTRANSCEND_CLOSE(frame)
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
+
 	local slot_material = GET_CHILD(frame, "slot_material");
 	slot_material:StopActiveUIEffect();
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
+	ITEMTRANSCEND_LOCK_ITEM("None");
 	frame:ShowWindow(0);
 	control.DialogOk();
 	ui.CloseFrame("inventory");
@@ -44,29 +56,28 @@ function ITEMTRANSCEND_CLOSE(frame)
  end
 
 function TRANSCEND_UPDATE(isSuccess)
-	local frame = ui.GetFrame("itemtranscend");
+	local frame = ui.GetFrame("itemtranscend");	
 	UPDATE_TRANSCEND_ITEM(frame);
 	UPDATE_TRANSCEND_RESULT(frame, isSuccess);
 end
 
 function ITEM_TRANSEND_DROP(frame, icon, argStr, argNum)
-
 	if frame:GetUserIValue("ONANIPICTURE_PLAY") == 1 then
 		return;
 	end
-	local liftIcon 				= ui.GetLiftIcon();
-	local FromFrame 			= liftIcon:GetTopParentFrame();
-	local toFrame				= frame:GetTopParentFrame();
+
+	local liftIcon = ui.GetLiftIcon();
+	local FromFrame = liftIcon:GetTopParentFrame();
+	local toFrame = frame:GetTopParentFrame();
 
 	-- 드레그 드롭이 인벤토리에서만 가능하게
 	if FromFrame:GetName() == 'inventory' then
 		local iconInfo = liftIcon:GetInfo();
 		ITEM_TRANSCEND_REG_TARGETITEM(frame, iconInfo:GetIESID());
-	end;
-end;
+	end
+end
 
 function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
-
 	local invItem = GET_PC_ITEM_BY_GUID(itemID);
 	if invItem == nil then
 		return;
@@ -78,8 +89,15 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 		return;
 	end
 
-	if IS_NEED_APPRAISED_ITEM(obj) == true then 
+	if IS_NEED_APPRAISED_ITEM(obj) == true or IS_NEED_RANDOM_OPTION_ITEM(obj) == true then 
 		ui.SysMsg(ClMsg("NeedAppraisd"));
+		return;
+	end
+
+	if frame:GetUserIValue('IS_LEGEND_SHOP') ~= 1 and TryGetProp(obj, 'LegendGroup', 'None') ~= 'None' then
+		control.CustomCommand("REQ_LEGEND_ITEM_DIALOG", 0);
+		ui.CloseFrame('itemtranscend');
+		ui.CloseFrame('inventory');
 		return;
 	end
 
@@ -88,13 +106,58 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
-	
+
 	local slot = GET_CHILD(frame, "slot");
 	SET_SLOT_ITEM(slot, invItem);
+	ITEMTRANSCEND_LOCK_ITEM(invItem:GetIESID());
 	SET_TRANSCEND_RESET(frame);	
 	ITEM_TRANSCEND_NEED_GUIDE(frame, obj);
 	UPDATE_TRANSCEND_ITEM(frame);	
+	
+	local transcend = obj.Transcend;
+	ITEM_TRANSCEND_NEEDMATERIAL_TEXT_UPDATE(frame, obj);
+
+	--local transcendCls = GetClass("ItemTranscend", transcend + 1);
+	--if transcendCls == nil then
+		--return;
+	--end
+		
+--	--EVENT_1804_TRANSCEND_DISCOUNT
+--	SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, obj)
+
+    -- EVENT_1811_WEEKEND
+--    if SCR_EVENT_1811_WEEKEND_CHECK('TRANSCEND') == 'YES' then
+--        SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, obj)
+--    end
 end
+
+-- 아아템 초월시 여신의 축복석 Text 갱신 함수.
+function ITEM_TRANSCEND_NEEDMATERIAL_TEXT_UPDATE(frame, targetobj)
+	local material_MaxCnt = GET_TRANSCEND_MAXCOUNT(targetobj);
+	local material_MaxCnt_Text = tostring(material_MaxCnt);
+
+	local slot_mtrl = GET_CHILD_RECURSIVELY(frame, "slot_material");
+	local count = slot_mtrl:GetUserIValue("MTRL_COUNT");
+	local count_text = tostring(count);
+
+	local ret = count_text .. "/" .. material_MaxCnt_Text;
+	local textEdit = GET_CHILD_RECURSIVELY(frame, "textEdit");
+	textEdit:SetTextByKey("value", ret);
+end
+
+-- --EVENT_1811_WEEKEND
+-- function SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, itemObj)
+--    local transcendCount = TryGetProp(itemObj, "Transcend");
+--    local gbox = GET_CHILD(frame, "gbox");
+--    local gbox2 = GET_CHILD(gbox, "gbox2");
+--    local reg = GET_CHILD(gbox2, "reg");
+--	if transcendCount % 2 == 1 then
+--	    reg:SetTextByKey("value", ScpArgMsg('ItemDecomposeWarningProp_Transcend')..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1'));
+--	else
+--	    reg:SetTextByKey("value", ScpArgMsg('ItemDecomposeWarningProp_Transcend'));
+--	end
+-- end
+
 
 -- 안내메세지로 필요한 아이템을 보여주기 위함. 
 function ITEM_TRANSCEND_NEED_GUIDE(frame, obj)
@@ -107,25 +170,13 @@ function ITEM_TRANSCEND_NEED_GUIDE(frame, obj)
 		return;
 	end		
 		
-	if obj.Transcend >= 10 then		
-		SETTEXT_GUIDE(frame, 1, string.format("{@st43b}{s16}%s{/}", ScpArgMsg("CantTrasncendMore")));
-		return;
-	end
-		
 	local needTxt = "";
-	needTxt = string.format("{img %s 30 30}{/}{@st43_green}{s16}%s{/}{@st42b}{s16}%s{nl}%s{/}", mtrlCls.Icon, mtrlCls.Name, ScpArgMsg("Need_Item"), GET_TRANSCEND_MAXCOUNT_TXT(obj));			
-	SETTEXT_GUIDE(frame, 1, needTxt);
+	needTxt = string.format("{img %s 30 30}{/}{@st43_green}{s16}%s{/}{@st42b}{s16}%s{nl}%s{/}", mtrlCls.Icon, mtrlCls.Name, ScpArgMsg("Need_Item"), GET_TRANSCEND_MAXCOUNT_TXT(obj));				
 end;
 
 -- 초월 성공률 100%에 필요한 갯수 얻기
 function GET_TRANSCEND_MAXCOUNT(obj)
-	local transcendCls = GetClass("ItemTranscend", obj.Transcend + 1);
-	if transcendCls == nil then
-		ui.MsgBox(ScpArgMsg("CantTrasncendMore"));
-		return;
-	end
-
-	return GET_TRANSCEND_MATERIAL_COUNT(obj, transcendCls);
+	return GET_TRANSCEND_MATERIAL_COUNT(obj, nil);
 end;
 
 -- 초월 성공률 100%에 필요한 갯수 표시
@@ -163,7 +214,7 @@ end;
 
 -- 초월 아이템 제거시
 function REMOVE_TRANSCEND_TARGET_ITEM(frame)
-	
+
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
@@ -171,14 +222,17 @@ function REMOVE_TRANSCEND_TARGET_ITEM(frame)
 	frame = frame:GetTopParentFrame();
 	local slot = GET_CHILD(frame, "slot");
 	slot:ClearIcon();
+	ITEMTRANSCEND_LOCK_ITEM("None");
 	SET_TRANSCEND_RESET(frame);
 	UPDATE_TRANSCEND_ITEM(frame);
 	
-	local needTxt = string.format("{@st43b}{s18}%s{/}", ScpArgMsg("ITEMTRANSCEND_GUIDE_FIRST"));	
-	SETTEXT_GUIDE(frame, 3, needTxt);
-	
+	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_GUIDE_FIRST"));	
 	local popupFrame = ui.GetFrame("itemtranscendresult");
 	popupFrame:ShowWindow(0);	
+
+	local textEdit = GET_CHILD_RECURSIVELY(frame, "textEdit");
+	textEdit:SetTextByKey("value", " ");
+
 end
 
 -- 재료 슬롯과 성공률, 버튼을 초기화 시킴.
@@ -188,14 +242,13 @@ function SET_TRANSCEND_RESET(frame)
 	slot_material:StopActiveUIEffect();
 	slot_material:ClearIcon();
 	slot_material:SetText("");
-		
-	local text_successratio = frame:GetChild("text_successratio");	
-	text_successratio:ShowWindow(0);
+			
+	local text_bg = GET_CHILD_RECURSIVELY(frame, "text_bg")
+	text_bg:ShowWindow(0);
 
 	local gbox = frame:GetChild("gbox");
-	local reg = GET_CHILD(gbox, "reg");
-	reg:ShowWindow(0);
-end;
+	local reg = GET_CHILD_RECURSIVELY(gbox, "reg");
+end
 
 -- 올려져있는 재료 아이템 클릭시 
 function REMOVE_TRANSCEND_MTRL_ITEM(frame, slot)
@@ -203,26 +256,49 @@ function REMOVE_TRANSCEND_MTRL_ITEM(frame, slot)
 	if materialItem == nil then
 		return;
 	end
-	local count = slot:GetUserIValue("MTRL_COUNT");			if keyboard.IsPressed(KEY_SHIFT) == 1 then
-		count = count - 5;	elseif keyboard.IsPressed(KEY_ALT) == 1 then
-		count = 0;	else
+	local count = slot:GetUserIValue("MTRL_COUNT");		
+	if keyboard.IsKeyPressed("LSHIFT") == 1 then
+		count = count - 5;
+	elseif keyboard.IsKeyPressed("LALT") == 1 then
+		count = 0;
+	else
 		count = count - 1;
 	end
 	
+	--초월석 갯수 표시
+	local invItem = GET_SLOT_ITEM(slot);
+	if invItem == nil then
+		return;
+	end
+	
+	local targetobj = GetIES(invItem:GetObject());
+	if targetobj == nil then
+		return;
+	end
+
+	local material_MaxCnt = GET_TRANSCEND_MAXCOUNT(targetobj);
+	local material_MaxCnt_Text = tostring(material_MaxCnt);
+	local count_text = tostring(count);
+	local textEdit = GET_CHILD_RECURSIVELY(frame, "textEdit")
+
 	if count <= 0 then
 		local frame = ui.GetFrame("itemtranscend");
 		SET_TRANSCEND_RESET(frame);
 		local slot = GET_CHILD(frame, "slot");
-		local invItem = GET_SLOT_ITEM(slot);
+		invItem = GET_SLOT_ITEM(slot);
 		if invItem == nil then
 			return;
 		end
 		ITEM_TRANSCEND_NEED_GUIDE(frame, GetIES(invItem:GetObject()));
+		textEdit:SetTextByKey("value", " ");
 		return;
-	end;
+	else
+		local ret = count_text .. "/" .. material_MaxCnt_Text;
+		textEdit:SetTextByKey("value", ret);
+	end
 	
 		
-	local text_itemtranscend = frame:GetChild("text_itemtranscend");
+	local text_itemtranscend = GET_CHILD_RECURSIVELY(frame, "text_itemtranscend");
 	text_itemtranscend:StopColorBlend();
 	EXEC_INPUT_CNT_TRANSCEND_MATERIAL(materialItem:GetIESID(), count);
 end;
@@ -237,8 +313,12 @@ function UPDATE_TRANSCEND_ITEM(frame)
 	local materialItem = GET_SLOT_ITEM(slot_material);
 
 	local text_material = frame:GetChild("text_material");
-	local text_successratio = frame:GetChild("text_successratio");	
+
+	local text_bg = GET_CHILD_RECURSIVELY(frame, "text_bg")
+	text_bg:ShowWindow(0);
+	local text_successratio = GET_CHILD_RECURSIVELY(frame, "text_successratio");
 	text_successratio:ShowWindow(0);
+
 	local text_itemstar = frame:GetChild("text_itemstar");
 	local text_itemtranscend = frame:GetChild("text_itemtranscend");	
 	if invItem == nil then
@@ -264,6 +344,8 @@ function UPDATE_TRANSCEND_ITEM(frame)
 	if materialItem == nil or invItem == nil then
 		slot_material:StopActiveUIEffect();
 		text_successratio:ShowWindow(0);
+		text_bg:ShowWindow(0);
+
 	else
 		local targetObj = GetIES(invItem:GetObject());		
 		local transcend = targetObj.Transcend;
@@ -279,8 +361,14 @@ function UPDATE_TRANSCEND_ITEM(frame)
 		local color1, color2 = GET_RATIO_FONT_COLOR(successRatio)
 		text_successratio:SetTextByKey("value", ratioText);		
 		text_successratio:ShowWindow(1);		
+		text_bg:ShowWindow(1)
 		text_successratio:StopColorBlend();
 		text_successratio:SetColorBlend(2, color1, color2, true);
+	end
+
+	if invItem ~= nil then
+		local Obj = GetIES(invItem:GetObject());
+		ITEM_TRANSCEND_NEEDMATERIAL_TEXT_UPDATE(frame, Obj);
 	end
 end
 
@@ -309,7 +397,7 @@ function GET_RATIO_FONT_COLOR(ratio)
 end
 
 -- 재료 아이템을 넣을때
-function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
+function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID, isMax)
 
 	local invItem = GET_PC_ITEM_BY_GUID(itemID);
 	if invItem == nil then
@@ -317,7 +405,6 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 	end
 	
 	local obj = GetIES(invItem:GetObject());
-
 	local slot = GET_CHILD(frame, "slot");
 	local targetItem = GET_SLOT_ITEM(slot);
 	if targetItem == nil then
@@ -325,6 +412,7 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 	end
 	
 	local targetObj = GetIES(targetItem:GetObject());
+
 	local transcend = targetObj.Transcend;
 	local transcendCls = GetClass("ItemTranscend", transcend + 1);
 	if transcendCls == nil then
@@ -339,7 +427,12 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 		return;
 	end
 	
-	local maxItemCount = GET_TRANSCEND_MATERIAL_COUNT(targetObj, transcendCls)
+	local maxItemCount = GET_TRANSCEND_MATERIAL_COUNT(targetObj,nil);
+	
+	if maxItemCount == nil or maxItemCount == 0 then
+	    return 0;
+	end
+	
 	local slot_material = GET_CHILD(frame, "slot_material");
 	local count = slot_material:GetUserIValue("MTRL_COUNT");	
 	if count >= maxItemCount then
@@ -349,20 +442,24 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 		end;
 		ui.MsgBox_NonNested(ScpArgMsg("ITEMTRANSCEND_TOO_MANY"), frame:GetName(), nil, nil);		
 		return;
-	end;
+	end;
+
 	local invframe = ui.GetFrame("inventory");
 	if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end		
 
-	if IS_NEED_APPRAISED_ITEM(obj) == true then 
+	if IS_NEED_APPRAISED_ITEM(obj) == true  or IS_NEED_RANDOM_OPTION_ITEM(obj) == true then 
 		ui.SysMsg(ClMsg("NeedAppraisd"));
 		return;
 	end
 
-	if keyboard.IsPressed(KEY_SHIFT) == 1 then
-		count = count + 5;	elseif keyboard.IsPressed(KEY_ALT) == 1 then		count = maxItemCount;	else
+	if keyboard.IsKeyPressed("LSHIFT") == 1 then
+		count = count + 5;
+elseif keyboard.IsKeyPressed("LALT") == 1 or isMax == true then
+		count = maxItemCount;
+	else
 		count = count + 1;
 	end
 	
@@ -370,23 +467,29 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 		count = maxItemCount;
 	end;
 
+	ITEM_TRANSCEND_NEEDMATERIAL_TEXT_UPDATE(frame, targetObj);
+
 	EXEC_INPUT_CNT_TRANSCEND_MATERIAL(invItem:GetIESID(), count);
-	--[[	
-	-- 메세지박스로 수량으로 넣는 방법
-	INPUT_NUMBER_BOX(frame, string.format("%s(%d ~ %d)", ScpArgMsg("InputCount"), 1, maxItemCount), "EXEC_INPUT_CNT_TRANSCEND_MATERIAL", maxItemCount, 1, maxItemCount, nil, tostring(invItem:GetIESID()));
-	]]
+	
+--	--EVENT_1804_TRANSCEND_DISCOUNT
+--	SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, targetObj)
+    
+    -- EVENT_1811_WEEKEND
+--    if SCR_EVENT_1811_WEEKEND_CHECK('TRANSCEND') == 'YES' then
+--        SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, targetObj)
+--    end
 end
 
 -- 재료를 드레그 드롭했을 경우
 function DROP_TRANSCEND_MATERIAL(frame, icon, argStr, argNum)
 
-	local liftIcon 				= ui.GetLiftIcon();
-	local FromFrame 			= liftIcon:GetTopParentFrame();
+	local liftIcon = ui.GetLiftIcon();
+	local FromFrame = liftIcon:GetTopParentFrame();
 	local iconInfo = liftIcon:GetInfo();
 	
 	-- 드레그 드롭이 인벤토리에서만 가능하게
 	if FromFrame:GetName() == 'inventory' then
-		ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID());
+		ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID(), false);
 	end
 end
 
@@ -411,8 +514,7 @@ function TRANSCEND_SET_MATERIAL_ITEM(frame, iesID, count)
 	slot_material:PlayActiveUIEffect();
 	
 	UPDATE_TRANSCEND_ITEM(frame);
-	
-	
+		
 	local slot = GET_CHILD(frame, "slot");
 	local targetItem = GET_SLOT_ITEM(slot);
 	if targetItem == nil then
@@ -422,11 +524,8 @@ function TRANSCEND_SET_MATERIAL_ITEM(frame, iesID, count)
 	local tooltipFont = "{@st42b}{s16}";
 
 	local needTxt = string.format("{@st43b}{s16}%s{/}{nl}%s{/}{nl}%s{/}", ScpArgMsg("ITEMTRANSCEND_MTRL_NUM_TOOLTIP{font}", "font", tooltipFont), ScpArgMsg("ITEMTRANSCEND_GUIDE_SECOND"), GET_TRANSCEND_MAXCOUNT_TXT(targetObj));	
-	SETTEXT_GUIDE(frame, 3, needTxt);
-	
 	local gbox = frame:GetChild("gbox");
-	local reg = GET_CHILD(gbox, "reg");
-	reg:ShowWindow(1);
+	local reg = GET_CHILD_RECURSIVELY(gbox, "reg");
 end
 
 
@@ -434,17 +533,6 @@ function EXEC_INPUT_CNT_TRANSCEND_MATERIAL(iesid, count)
 	local frame = ui.GetFrame("itemtranscend");	
 	TRANSCEND_SET_MATERIAL_ITEM(frame, iesid, count)	
 end
-
---[[
--- 메세지박스로 수량으로 넣는 방법
-function EXEC_INPUT_CNT_TRANSCEND_MATERIAL(frame, count, inputframe, fromFrame)
-	inputframe:ShowWindow(0);
-	local iesid = inputframe:GetUserValue("ArgString");
-
-	local frame = ui.GetFrame("itemtranscend");
-	TRANSCEND_SET_MATERIAL_ITEM(frame, iesid, count)	
-end
-]]
 
 function ITEMTRANSCEND_EXEC(frame)
 	-- 특정 버프 사용 중에는 강화/초월 막아달라고 하셨음.
@@ -478,27 +566,46 @@ function ITEMTRANSCEND_EXEC(frame)
 	if potential ~= nil and potential > 0  then
 		clmsg = ScpArgMsg("ReallyExecTranscend");
 	end
+    
+    local legendGroup = TryGetProp(itemObj, "LegendGroup");
+	if legendGroup == nil then
+		return;
+	end
+    
+	if frame:GetUserIValue('IS_LEGEND_SHOP') == 1 and  legendGroup ~= nil and legendGroup ~= 'None' then
+		clmsg = ClMsg('LegendItemCannotBreakOrRemove');
+	end	
 
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_BTN_OK_SOUND"));
-	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEMTRANSCEND_EXEC", "_ITEMTRANSCEND_CANCEL");			
+	--ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEMTRANSCEND_EXEC", "_ITEMTRANSCEND_CANCEL");	
+	WARNINGMSGBOX_FRAME_OPEN(clmsg, "_ITEMTRANSCEND_EXEC", "_ITEMTRANSCEND_CANCEL")		
 end
 
 function _ITEMTRANSCEND_CANCEL()
 	local frame = ui.GetFrame("itemtranscend");
 end;
 
-function _ITEMTRANSCEND_EXEC()
-
+function _ITEMTRANSCEND_EXEC(checkRebuildFlag)
 	local frame = ui.GetFrame("itemtranscend");
 	if frame:IsVisible() == 0 then
 		return;
 	end
+
+	local slot = GET_CHILD(frame, "slot");
+	local invItem = GET_SLOT_ITEM(slot);
+	if checkRebuildFlag ~= false then
+		local invItemObj = GetIES(invItem:GetObject());
+		if TryGetProp(invItemObj, 'Rebuildchangeitem', 0) > 0 then		
+			ui.MsgBox(ScpArgMsg('IfUDoCannotExchangeWeaponType'), '_ITEMTRANSCEND_EXEC(false)', 'None');
+			return;
+		end
+	end
+
 	frame:SetUserValue("ONANIPICTURE_PLAY", 1);
 	
 	ui.SetHoldUI(true);
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_EVENT_EXEC"));
-	local slot = GET_CHILD(frame, "slot");
-	local invItem = GET_SLOT_ITEM(slot);
+	
 	
 	local slot_material = GET_CHILD(frame, "slot_material");
 	local materialItem = GET_SLOT_ITEM(slot_material);	
@@ -507,8 +614,7 @@ function _ITEMTRANSCEND_EXEC()
 	end
 	
 	local gbox = frame:GetChild("gbox");
-	local reg = GET_CHILD(gbox, "reg");
-	reg:ShowWindow(0);
+	local reg = GET_CHILD_RECURSIVELY(gbox, "reg");
 
 	slot_material:StopActiveUIEffect();
 	local materialCount = slot_material:GetIcon():GetInfo().count;	
@@ -518,17 +624,19 @@ function _ITEMTRANSCEND_EXEC()
 	local resultlist = session.GetItemIDList();
 	local cntText = string.format("%d", materialCount);
 	item.DialogTransaction("ITEM_TRANSCEND_TX", resultlist, cntText);
-	
+
 	slot_material:SetUserValue("MTRL_COUNT", 0);
 	slot_material:ClearIcon();
+	ITEMTRANSCEND_LOCK_ITEM("None");
 	slot_material:SetText("");
 	UPDATE_TRANSCEND_ITEM(frame);
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_CAST"));
 	
 	local popupFrame = ui.GetFrame("itemtranscendresult");
 	popupFrame:ShowWindow(0);	
-	
-	SETTEXT_GUIDE(frame, 0, nil);
+
+	local textEdit = GET_CHILD_RECURSIVELY(frame, "textEdit");
+	textEdit:SetTextByKey("value", " ");
 end
 
 -- 인벤에서 오른쪽 클릭시 
@@ -555,13 +663,78 @@ function ITEMTRANSCEND_INV_RBTN(itemObj, slot)
 	text_itemtranscend:StopColorBlend();
 
 	if slotInvItem ~= nil then
-		if ("Premium_itemUpgradeStone_Weapon" == obj.ClassName) or ("Premium_itemUpgradeStone_Armor" == obj.ClassName) or ("Premium_itemUpgradeStone_Acc" == obj.ClassName) then
-			ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID());	-- 재료일 경우
+		if ("Premium_item_transcendence_Stone" == obj.ClassName) then
+			ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID(), false);	-- 재료일 경우
 			return;
 		end;
 	end;
-	ITEM_TRANSCEND_REG_TARGETITEM(frame, iconInfo:GetIESID());  -- 재료가 아닐 경, 초월 당하는 아이템	
+	ITEM_TRANSCEND_REG_TARGETITEM(frame, iconInfo:GetIESID());  -- 재료가 아닐 경, 초월 당하는 아이템
 end
+
+function ITEMTRANSCEND_UPBTN(frame)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+
+	if frame == nil then
+		return
+	end
+		
+	local topFrame = frame:GetTopParentFrame()
+	if topFrame == nil then
+		return
+	end
+
+	local item = session.GetInvItemByType(646045);
+	
+	if item == nil then
+		return
+	end
+
+	ITEM_TRANSCEND_REG_MATERIAL(topFrame, item:GetIESID(), false)
+end
+
+function ITEMTRANSCEND_DOWNBTN(frame)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+
+	if frame == nil then
+		return
+	end
+
+	local topFrame = frame:GetTopParentFrame()
+	if topFrame == nil then
+		return
+	end
+
+	local slot = GET_CHILD_RECURSIVELY(topFrame, "slot_material")
+	REMOVE_TRANSCEND_MTRL_ITEM(topFrame, slot)
+end
+
+function ITEMTRANSCEND_MAXBTN(frame)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+
+	if frame == nil then
+		return
+	end
+		
+	local topFrame = frame:GetTopParentFrame()
+	if topFrame == nil then
+		return
+	end
+
+	local item = session.GetInvItemByType(646045);
+	
+	if item == nil then
+		return
+	end
+
+	ITEM_TRANSCEND_REG_MATERIAL(topFrame, item:GetIESID(), true)
+end
+
 
 -- 애니픽쳐의 애니메이션 틱에 따른 결과 UIeffect 설정
 function ITEMTRANSCEND_BG_ANIM_TICK(ctrl, str, tick)
@@ -599,13 +772,11 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 	
 	local timesecond = 0;
 	if isSuccess == 1 then
-		ui.SysMsg(ScpArgMsg("SuccessToTranscend"));
 		imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_SUCCESS_SOUND"));
 		slot:StopActiveUIEffect();
 		slot:PlayActiveUIEffect();
 		timesecond = 2;
 	else
-		ui.SysMsg(ScpArgMsg("FailedToTranscend"));
 		imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_FAIL_SOUND"));
 		local slotTemp = GET_CHILD(frame, "slotTemp");
 		slotTemp:ShowWindow(1);
@@ -616,16 +787,15 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 			
 	
 	local gbox = frame:GetChild("gbox");
-	local reg = GET_CHILD(gbox, "reg");
-	reg:ShowWindow(0);	
-	
+	local reg = GET_CHILD_RECURSIVELY(gbox, "reg");
+
 	local invItem = GET_SLOT_ITEM(slot);
-	if invItem == nil then
-		if isSuccess == 0 then
-			ui.SysMsg(ClMsg('ItemDeleted'));
-		end
+	if invItem == nil then		
 		ui.SetHoldUI(false);
 		slot:ClearIcon();
+		ITEMTRANSCEND_LOCK_ITEM("None");
+		frame:StopUpdateScript("TIMEWAIT_STOP_ITEMTRANSCEND");
+		frame:SetUserValue("ONANIPICTURE_PLAY", 0);
 		return;
 	end
 	local obj = GetIES(invItem:GetObject());
@@ -677,7 +847,7 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 
 		resultTxt = string.format("%s%s%s%s%s", resultTxt, upfont, ScpArgMsg(propName), operTxt, addedValue);
 		resultTxt = resultTxt .. "%{/}";
-		local ctrlSet = gbox:CreateControlSet("transcend_result_text", "RV_" .. propName, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+		local ctrlSet = gbox:CreateOrGetControlSet("transcend_result_text", "RV_" .. propName, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 		local text = ctrlSet:GetChild("text");
 		text:SetTextByKey("propname", ScpArgMsg(propName));
 		text:SetTextByKey("propoper", operTxt);
@@ -686,7 +856,6 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 	
 	end
 		
-	SETTEXT_GUIDE(frame, 2, resultTxt);
 	GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true , true);
 	
 	ui.SetTopMostFrame(popupFrame);
@@ -705,7 +874,7 @@ function TIMEWAIT_STOP_ITEMTRANSCEND()
 	local slotTemp = GET_CHILD(frame, "slotTemp");
 	slotTemp:ShowWindow(0);
 	slotTemp:StopActiveUIEffect();
-		
+
 	local popupFrame = ui.GetFrame("itemtranscendresult");
 	local gbox = popupFrame:GetChild("gbox");
 	popupFrame:ShowWindow(1);	
@@ -728,10 +897,20 @@ function IS_ENABLE_BUFF_STATE_TO_REINFORCE_OR_TRANSCEND_C()
 	if info.GetBuffByName(myHandle, 'OverEstimate_Buff') ~= nil then
 		return 'OverEstimate_Buff';
 	end
+	
+	if info.GetBuffByName(myHandle, 'OverReinforce_Buff') ~= nil then
+		return 'OverReinforce_Buff';
+	end
 
 	if info.GetBuffByName(myHandle, 'Devaluation_Debuff') ~= nil then
 		return 'Devaluation_Debuff';
 	end
 
 	return 'YES';
+end
+
+function ITEMTRANSCEND_LOCK_ITEM(guid)
+	local invframe = ui.GetFrame("inventory");
+	invframe:SetUserValue("ITEM_GUID_IN_TRANSCEND", guid);
+	INVENTORY_ON_MSG(invframe, 'UPDATE_ITEM_REPAIR');
 end
