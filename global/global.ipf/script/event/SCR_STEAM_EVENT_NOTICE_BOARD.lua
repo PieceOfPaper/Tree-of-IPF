@@ -1,54 +1,58 @@
 function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
-    local serverID = GetServerGroupID()
-    local select = 0;
 
-    if IsBuffApplied(pc, 'Event_Steam_Secret_Market') == 'YES' then
-        RemoveBuff(pc, 'Event_Steam_Secret_Market')
+    local year, month, day, hour, min = GetAccountCreateTime(pc)
+    local aObj = GetAccountObj(pc)
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("Steam_VerUP_Select01"), ScpArgMsg("EVENT_SELECT_BOSSLV_SEL5"), ScpArgMsg("EVENT_STEAM_BEGINNER_SEL1"), ScpArgMsg("EVENT_STEAM_RETURN_SEL1"), ScpArgMsg("EVENT_STEAM_SETTLE_SEL1"), ScpArgMsg("Cancel")) 
+    local TeamLevel = GetTeamLevel(pc);
+
+    if TeamLevel == 1 then
+        local tx = TxBegin(pc)
+    	TxSetIESProp(tx, aObj, 'EV171114_STEAM_NRU_JOIN_CHECK', 1);
+    	local ret = TxCommit(tx)
     end
-
-    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("EVENT_STEAM_2018REWARD_DLG1"), ScpArgMsg("EVENT_STEAM_2018REWARD_DLG2"), ScpArgMsg("Cancel"))
-  
+    
     if select == 1 then
-        SCR_EV2018_REWARD_GUIDE_DIALOG(self, pc)
-    elseif select == 2 then
-        SCR_EV2018_REWARD_DAYDAY_DIALOG(self, pc)
-    end
-end
-
-function SCR_STEAM_2018_TREASURE_EVENT_DIALOG(self,pc) -- 국내 수확 이벤트 함수명 바꿔서 사용 --
-      -- SCR_STEAM_TREASURE_EVENT_DIALOG -- 검색 로그 남김 --
-    if pc.Lv < 50 then
-        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1801_ORB_MSG8","LV",50), 10);
-        return
-    end
-    local select = ShowSelDlg(pc,0, 'EV_DAILYBOX_SEL', ScpArgMsg("Get_RedSeed"), ScpArgMsg("Cancel"))
-
-    if select == 1 then
-        local aobj = GetAccountObj(pc);
-        local now_time = os.date('*t')
-        local yday = now_time['yday']
-        local hour = now_time['hour']
-        local min = now_time['min']
-        
-        if aobj.THANKSGIVINGDAY_DAY ~= yday then
-            local tx = TxBegin(pc);
-            TxSetIESProp(tx, aobj, 'THANKSGIVINGDAY_DAY', yday)
-            TxGiveItem(tx, 'Event_Seed_ThanksgivingDay', 1, "EVENT_THANKSGIVINGDAY_DAY")
-            
-            if aobj.Event_HiddenReward ~= 2 then
-                TxGiveItem(tx, 'NECK99_102_team', 1, "EVENT_THANKSGIVINGDAY_DAY")
-                TxSetIESProp(tx, aobj, 'Event_HiddenReward', 2)
-            end
-            local ret = TxCommit(tx);
-        else
-            SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg('EVENT_1705_CORSAIR_MSG4'),10)
+        if aObj.EVENT_WHITE_R1 ~= 171212 then -- reset
+            local tx = TxBegin(pc)
+            TxSetIESProp(tx, aObj, 'EVENT_WHITE_R1', 171212)
+            TxSetIESProp(tx, aObj, 'EVENT_WHITE_R2', 0)
+            local ret = TxCommit(tx)
         end
-    end
-end
 
-function SCR_STEAM_TREASURE_EVENT_FEDIMIAN_DIALOG(self,pc)
-    local select = ShowSelDlg(pc,0, 'EV_DAILYBOX_SEL', ScpArgMsg("Event_Fedimian_1"), ScpArgMsg("Cancel"))   
-    if select == 1 then
-        SCR_EVENT171018_FEDIMIAN_RAID_DIALOG(self,pc)
+        if sObj.EVENT_VALUE_SOBJ03 ~= 171212 and (pc.Lv <= 350 and pc.Lv >= 50) then
+            local nextLv = 0
+	        local nextlv_group = {330, 280, 235, 185, 135, 85, 45, 1}
+	        for i = 1, table.getn(nextlv_group) do
+        	    if pc.Lv >= nextlv_group[i] then
+        	        nextLv = i + pc.Lv
+        	        break
+        	    end
+        	end
+            ShowOkDlg(pc,'NPC_EVENT_VERUP_DLG1', 1)
+            local tx = TxBegin(pc)
+            TxAddIESProp(tx, sObj, 'EVENT_VALUE_SOBJ03', 171212);
+            TxSetIESProp(tx, sObj, 'EVENT_VALUE_SOBJ02', 0)
+            TxSetIESProp(tx, sObj, 'EVENT_VALUE_SOBJ01', nextLv)
+            TxGiveItem(tx, 'LevelUp_Reward_EV', 10, 'Event_VerUP_Box');
+            local ret = TxCommit(tx)
+        elseif pc.Lv == 360 and aObj.EVENT_WHITE_R2 == 0 then
+            local tx = TxBegin(pc)
+            TxSetIESProp(tx, aObj, 'EVENT_WHITE_R2', 171212)
+            TxGiveItem(tx, 'Premium_RankReset_60d', 1, 'Event_VerUP_Box2');
+            local ret = TxCommit(tx)
+        elseif sObj.EVENT_VALUE_SOBJ03 > 0 then
+            ShowOkDlg(pc,'NPC_EVENT_VERUP_DLG2', 1)
+        else
+            SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("ICantLikeMe"), 5)
+        end
+    elseif select == 2 then
+        SCR_BLUEORB_MONLVUP_DIALOG(self,pc)
+    elseif select == 3 then
+        SCR_STEAM_BEGINNER_EVENT_DIALOG(self,pc)
+    elseif select == 4 then
+        SCR_STEAM_RETURN_EVENT_DIALOG(self,pc)
+    elseif select == 5 then
+        SCR_STEAM_SETTLE_EVENT_DIALOG(self,pc)
     end
 end
