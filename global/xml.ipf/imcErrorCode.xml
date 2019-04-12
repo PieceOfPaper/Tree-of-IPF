@@ -374,6 +374,7 @@
 	<Code Code="INFO_DB_INIT" Team="PROGRAM" Category="INFO" Logger="root" Enabled="YES" CallStack="NO" Desc="DB 초기화 관련 정보"/>
 	<Code Code="ERROR_ATTENDANCE" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="출석 시스템 관련 에러"/>
 	<Code Code="ERROR_RANK_RESET" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="랭크 초기화 관련 에러"/>
+  <Code Code="ERROR_CTRLTYPE_RESET" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="계열 변경 관련 에러"/>
 	<Code Code="INFO_CONTENT_SCRIPT" Team="CONTENTDESIGN" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스크립트에서 사용 할 수 있는 로그의 에러코드. 추가되는 Property의 Tag 참고."/>
 	<Code Code="ALERT_Machine_CPU" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 머신의 CPU 사용율"/>
 	<Code Code="ALERT_Machine_FreeDisk" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="드라이브의 남은 용량(MB)"/>
