@@ -74,23 +74,64 @@ function GET_TRANSCEND_MATERIAL_ITEM(target)
 	return "";
 end
 
+function GET_TRANSCEND_MATERIAL_COUNT(targetItem, transcendCls)
+    if targetItem.GroupName == "Armor" then
+	    local clsType = targetItem.ClassType;
+	    if clsType == "Boots" or clsType == "Gloves" then
+	    	return transcendCls.SubArmorItemCount;
+    	elseif clsType ~= "Neck" and clsType ~= "Ring" then
+	    	return transcendCls.ArmorItemCount;
+    	else
+	    	return transcendCls.AccesoryItemCount;
+    	end
+    end
+	return transcendCls.WeaponItemCount;
+end
+
 function GET_TRANSCEND_BREAK_ITEM()
 	return "Premium_itemDissassembleStone";
 end
 
 function GET_TRANSCEND_BREAK_ITEM_COUNT(itemObj)
+--return math.floor(itemObj.Transcend_MatCount * 0.4);
+    local transcendClsList = GetClassList("ItemTranscend");
+    local cnt = 0;
+    local transcend = itemObj.Transcend;
+        for i = 0, transcend - 1 do
+    	local cls = GetClassByIndexFromList(transcendClsList, i);
+	    if nil ~= cls then
+		    local clsCnt = GET_TRANSCEND_MATERIAL_COUNT(itemObj, cls);
+    		cnt = cnt + GET_TRANSCEND_MATERIAL_COUNT(itemObj, cls);
+	    end
+    end
 
-	return math.floor(itemObj.Transcend_MatCount * 0.4);
+    local itemCls = GetClass("Item", itemObj.ClassName);
+    local itemMPR = 0;
+        if itemCls ~= nil then
+    	itemMPR = itemCls.PR;
+        end
 
-end
+    local itemPR = TryGetProp(itemObj, "PR")
+    if nil == itemPR then
+	    itemPR = itemMPR;
+    end
+
+    local giveCnt = cnt * (0.2 + ((itemPR / itemMPR) * 0.7))
+    giveCnt = math.floor(giveCnt);
+        if giveCnt <= 0 then
+        	giveCnt = 1;
+        end
+
+    return giveCnt;
+	end
 
 function GET_TRANSCEND_BREAK_SILVER(itemObj)
 	return GET_TRANSCEND_BREAK_ITEM_COUNT(itemObj) * 10000;
 end
 
-function GET_TRANSCEND_SUCCESS_RATIO(cls, itemCount)
+function GET_TRANSCEND_SUCCESS_RATIO(itemObj, cls, itemCount)
 
-	local maxItemCls = cls.ItemCount;
+	local maxItemCls = GET_TRANSCEND_MATERIAL_COUNT(itemObj, cls);
 	return math.floor(itemCount * 100 / maxItemCls);
 
 end

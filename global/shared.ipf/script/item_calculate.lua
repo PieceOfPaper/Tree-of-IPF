@@ -468,25 +468,15 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate)
 	item.MDEF = mdef;
 	item.DefRatio = defRatio;
 	item.MDefRatio = mdefRatio;
-	local MHPRatio = TryGetProp(item, 'MHPRatio')
-	if nil ~= MHPRatio then
-		item.MHPRatio = 0;
-	end
-
+	
 	local propNames, propValues = GET_ITEM_TRANSCENDED_PROPERTY(item);
 	for i = 1 , #propNames do
 		local propName = propNames[i];
 		local propValue = propValues[i];
 
 		if propName == "MHP" then
-			local MHPRatio = TryGetProp(item, 'MHPRatio')
-			if nil ~= MHPRatio then
 				item.MHPRatio = propValue;
 			else
-				MHPRatio = 0;
-			end
-
-		else
 			local upgradeRatio = 1 + propValue / 100;
 			item[propName] = math.floor( item[propName] * upgradeRatio );
 		end		
@@ -565,7 +555,7 @@ function SCR_REFRESH_CARD(item)
 	item.Level = GET_ITEM_LEVEL(item);
 end
 
--- ?�켓 기능 ?�용
+-- ??켓 기능 ??용
 function APPLY_OPTION_SOCKET(item)
 
 	local curcnt = GET_SOCKET_CNT(item);
@@ -586,14 +576,14 @@ function APPLY_OPTION_SOCKET(item)
 	end
 	]]
 	
-	-- �??�션 ?�용(종족�?추�?)
+	-- ????션 ??용(종족??추??)
 	for i=0, curcnt-1 do
 		local runeID = GetIESProp(item, 'Socket_Equip_' .. i);
 		if runeID > 0 then
 			local runeItem = GetClassByType('Item', runeID);
 			if runeItem ~= nil then
 				
-				-- StringArg??룬옵?�을 ?�용???�크립트가 ?��??�으면됨
+				-- StringArg??룬옵??을 ??용????크립트가 ??????으면됨
 				if runeItem.StringArg ~= 'None' and item ~= nil then
 					local func = _G[runeItem.StringArg];
 					if func ~= nil then
@@ -666,7 +656,7 @@ function SCR_ENTER_PERI(item, arg1, arg2)
 end
 
 
--- Upgrade ?�션
+-- Upgrade ??션
 function SCR_OPT_ATK(item, optvalue)
 	item.MINATK = item.MINATK + optvalue;
 	item.MAXATK = item.MAXATK + optvalue;
@@ -685,7 +675,7 @@ function SCR_OPT_RR(item, optvalue)
 end
 
 
--- Enchant ?�션
+-- Enchant ??션
 function SCR_OPT_Aries(item, optvalue)
 	item.Aries = item.Aries + optvalue;
 end
@@ -710,12 +700,12 @@ function SCR_OPT_StrikeDEF(item, optvalue)
 	item.StrikeDEF = item.StrikeDEF + optvalue;
 end
 
--- 치명?�
+-- 치명??
 function SCR_OPT_CRTHR(item, optvalue)
 	item.CRTHR = item.CRTHR + optvalue;
 end
 
--- ?�턴?�율
+-- ??턴??율
 function SCR_OPT_StunRate(item, optvalue)
 	item.StunRate = item.StunRate + optvalue;
 end
@@ -1372,12 +1362,7 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_DEF(item)
     
-    local star = item.ItemStar;
-    local grade = item.ItemGrade;
-    local value = 280;
-    
-    value = value * 0.1 * 0.4;
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(41, 110)
     
     if result < 1 then
         result = 1;
@@ -1388,12 +1373,7 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_DEFATTRIBUTE(item)
     
-    local star = item.ItemStar;
-    local grade = item.ItemGrade;
-    local value = 280;
-    
-    value = value * 0.1;
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(40, 84)
     
     if result < 1 then
         result = 1;
@@ -1404,13 +1384,7 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_ATK(item)
     
-    local star = item.ItemStar;
-    local grade = item.ItemGrade;
-    local value = 280;
-    
-    value = value * 0.15;
-    
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(61, 126)
     
     if result < 1 then
         result = 1;
@@ -1421,13 +1395,7 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_CRTATK(item)
     
-    local star = item.ItemStar;
-    local grade = item.ItemGrade;
-    local value = 280;
-    
-    value = value * 0.225;
-    
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(91, 189)
     
     if result < 1 then
         result = 1;
@@ -1438,11 +1406,7 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_ATTRIBUTEATK(item)
 
-    local value = 280;
-    
-    value = math.floor(value * 0.12);
-    
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(46, 99)
     
     if result < 1 then
         result = 1;
@@ -1468,11 +1432,8 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_MHP(item)
     
-    local value = 280;
     
-    value = math.floor(value * 0.08 * 34);
-    
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(1138, 2283)
     
     if result < 1 then
         result = 1;
@@ -1483,11 +1444,8 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_MSP(item)
     
-    local value = 280;
     
-    value = math.floor(value * 0.08 * 6.7);
-    
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(223, 450)
     
     if result < 1 then
         result = 1;
@@ -1498,11 +1456,7 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_RHP(item)
     
-    local value = 280;
-    
-    value = math.floor(value * 0.2);
-    
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(28, 56)
     
     if result < 1 then
         result = 1;
@@ -1513,11 +1467,7 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_RSP(item)
     
-    local value = 280;
-    
-    value = math.floor(value * 0.15);
-    
-    local result = IMCRandom(value * 0.5, value)
+    local result = IMCRandom(21, 42)
     
     if result < 1 then
         result = 1;
@@ -1534,7 +1484,7 @@ function SCR_GET_MAXPROP_ENCHANT_SR(item)
     return 1;
 end
 function SCR_GET_MAXPROP_ENCHANT_SDR(item)
-    return 1;
+    return 4;
 end
 
 function IS_SAME_TYPE_GEM_IN_ITEM(invItem, gemType, sckCnt)

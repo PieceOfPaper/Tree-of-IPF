@@ -58,7 +58,7 @@ function ITEM_TRANSEND_DROP(frame, icon, argStr, argNum)
 	local FromFrame 			= liftIcon:GetTopParentFrame();
 	local toFrame				= frame:GetTopParentFrame();
 
-	-- �巹�� ����� �κ��丮������ �����ϰ�
+	-- 드레그 드롭이 인벤토리에서만 가능하게
 	if FromFrame:GetName() == 'inventory' then
 		local iconInfo = liftIcon:GetInfo();
 		ITEM_TRANSCEND_REG_TARGETITEM(frame, iconInfo:GetIESID());
@@ -78,7 +78,8 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 		return;
 	end
 
-	if true == invItem.isLockState then
+	local invframe = ui.GetFrame("inventory");
+	if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
@@ -90,7 +91,7 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 	UPDATE_TRANSCEND_ITEM(frame);	
 end
 
--- �ȳ��޼����� �ʿ��� �������� �����ֱ� ����. 
+-- 안내메세지로 필요한 아이템을 보여주기 위함. 
 function ITEM_TRANSCEND_NEED_GUIDE(frame, obj)
 	local mtrlName = GET_TRANSCEND_MATERIAL_ITEM(obj);	
 	if string.len(mtrlName) <= 0 then
@@ -111,18 +112,18 @@ function ITEM_TRANSCEND_NEED_GUIDE(frame, obj)
 	SETTEXT_GUIDE(frame, 1, needTxt);
 end;
 
--- �ʿ� ������ 100%�� �ʿ��� ���� ���
+-- 초월 성공률 100%에 필요한 갯수 얻기
 function GET_TRANSCEND_MAXCOUNT(obj)
-	local transcend = obj.Transcend;
-	local transcendCls = GetClass("ItemTranscend", transcend + 1);
+	local transcendCls = GetClass("ItemTranscend", obj.Transcend + 1);
 	if transcendCls == nil then
 		ui.MsgBox(ScpArgMsg("CantTrasncendMore"));
 		return;
 	end
-	return transcendCls.ItemCount;
+
+	return GET_TRANSCEND_MATERIAL_COUNT(obj, transcendCls);
 end;
 
--- �ʿ� ������ 100%�� �ʿ��� ���� ǥ��
+-- 초월 성공률 100%에 필요한 갯수 표시
 function GET_TRANSCEND_MAXCOUNT_TXT(obj)
 	local numColor = "{#FFE400}";
 	local mtrl_num = ScpArgMsg("ITEMTRANSCEND_MTRL_NUM{color}{num}", "num", GET_TRANSCEND_MAXCOUNT(obj), "color", numColor);
@@ -130,7 +131,7 @@ function GET_TRANSCEND_MAXCOUNT_TXT(obj)
 	return guideTxt;
 end;
 
--- �ʿ� ������ �� ���� �ȳ��޼���.
+-- 초월 아이템 에 대한 안내메세지.
 function SETTEXT_GUIDE(frame, type, text)
 	local title_result = frame:GetChildRecursively("title_result");
 	local txt_result = frame:GetChildRecursively("txt_result");
@@ -155,7 +156,7 @@ function SETTEXT_GUIDE(frame, type, text)
 	txt_result:ShowWindow(1);
 end;
 
--- �ʿ� ������ ���Ž�
+-- 초월 아이템 제거시
 function REMOVE_TRANSCEND_TARGET_ITEM(frame)
 	
 	if ui.CheckHoldedUI() == true then
@@ -175,7 +176,7 @@ function REMOVE_TRANSCEND_TARGET_ITEM(frame)
 	popupFrame:ShowWindow(0);	
 end
 
--- ��� ���԰� ������, ��ư�� �ʱ�ȭ ��Ŵ.
+-- 재료 슬롯과 성공률, 버튼을 초기화 시킴.
 function SET_TRANSCEND_RESET(frame)
 	local slot_material = GET_CHILD(frame, "slot_material");
 	slot_material:SetUserValue("MTRL_COUNT", 0);
@@ -191,7 +192,7 @@ function SET_TRANSCEND_RESET(frame)
 	reg:ShowWindow(0);
 end;
 
--- �÷����ִ� ��� ������ Ŭ���� 
+-- 올려져있는 재료 아이템 클릭시 
 function REMOVE_TRANSCEND_MTRL_ITEM(frame, slot)
 	local materialItem = GET_SLOT_ITEM(slot);	
 	if materialItem == nil then
@@ -221,7 +222,7 @@ function REMOVE_TRANSCEND_MTRL_ITEM(frame, slot)
 	EXEC_INPUT_CNT_TRANSCEND_MATERIAL(materialItem:GetIESID(), count);
 end;
 
--- ��ῡ ���� �������� �������� �ʿ� �ܰ� ������Ʈ
+-- 재료에 따른 성공률과 아이템의 초월 단계 업데이트
 function UPDATE_TRANSCEND_ITEM(frame)
 
 	local slot = GET_CHILD(frame, "slot");
@@ -268,7 +269,7 @@ function UPDATE_TRANSCEND_ITEM(frame)
 
 		local materialCount = slot_material:GetIcon():GetInfo().count;
 		local materialObj = GetIES(materialItem:GetObject());
-		local successRatio = GET_TRANSCEND_SUCCESS_RATIO(transcendCls, materialCount);
+		local successRatio = GET_TRANSCEND_SUCCESS_RATIO(targetObj, transcendCls, materialCount);
 		local ratioText = string.format("{s20}%s{/}", ScpArgMsg("TranscendSuccessRatio{P}%", "P", successRatio));
 		local color1, color2 = GET_RATIO_FONT_COLOR(successRatio)
 		text_successratio:SetTextByKey("value", ratioText);		
@@ -278,8 +279,8 @@ function UPDATE_TRANSCEND_ITEM(frame)
 	end
 end
 
--- �������� ���� ���� �� ��ȯ
--- ���� �ʿ� (������ �������� �ʾƼ� ���� �˸��� ������ �� �������. �켱 �ϵ��ڵ� �س�����.)
+-- 성공률에 따른 글자 색 변환
+-- 수정 필요 (색상값이 정해지지 않아서 아직 알맞은 계산식을 못 세우겠음. 우선 하드코딩 해놓겠음.)
 function GET_RATIO_FONT_COLOR(ratio)	
 	local color1 = 0xFF0000;
 	local color2 = 0xFFBB00;
@@ -302,7 +303,7 @@ function GET_RATIO_FONT_COLOR(ratio)
 	return color1, color2;		
 end
 
--- ��� �������� ������
+-- 재료 아이템을 넣을때
 function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 
 	local invItem = GET_PC_ITEM_BY_GUID(itemID);
@@ -333,17 +334,23 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 		return;
 	end
 	
-	local maxItemCount = math.min(invItem.count, transcendCls.ItemCount);
+	local maxItemCount = GET_TRANSCEND_MATERIAL_COUNT(targetObj, transcendCls)
 	local slot_material = GET_CHILD(frame, "slot_material");
 	local count = slot_material:GetUserIValue("MTRL_COUNT");	
 	if count >= maxItemCount then
-		if transcendCls.ItemCount > invItem.count then
+		if maxItemCount > invItem.count then
 			ui.MsgBox_NonNested(ScpArgMsg("ITEMTRANSCEND_TOO_LACK"), frame:GetName(), nil, nil);		
 			return;
 		end;
 		ui.MsgBox_NonNested(ScpArgMsg("ITEMTRANSCEND_TOO_MANY"), frame:GetName(), nil, nil);		
 		return;
 	end;
+	local invframe = ui.GetFrame("inventory");
+	if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return;
+	end		
+
 	if keyboard.IsPressed(KEY_SHIFT) == 1 then
 		count = count + 5;	elseif keyboard.IsPressed(KEY_ALT) == 1 then		count = maxItemCount;	else
 		count = count + 1;
@@ -355,25 +362,25 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 
 	EXEC_INPUT_CNT_TRANSCEND_MATERIAL(invItem:GetIESID(), count);
 	--[[	
-	-- �޼����ڽ��� �������� �ִ� ���
+	-- 메세지박스로 수량으로 넣는 방법
 	INPUT_NUMBER_BOX(frame, string.format("%s(%d ~ %d)", ScpArgMsg("InputCount"), 1, maxItemCount), "EXEC_INPUT_CNT_TRANSCEND_MATERIAL", maxItemCount, 1, maxItemCount, nil, tostring(invItem:GetIESID()));
 	]]
 end
 
--- ��Ḧ �巹�� ������� ���
+-- 재료를 드레그 드롭했을 경우
 function DROP_TRANSCEND_MATERIAL(frame, icon, argStr, argNum)
 
 	local liftIcon 				= ui.GetLiftIcon();
 	local FromFrame 			= liftIcon:GetTopParentFrame();
 	local iconInfo = liftIcon:GetInfo();
 	
-	-- �巹�� ����� �κ��丮������ �����ϰ�
+	-- 드레그 드롭이 인벤토리에서만 가능하게
 	if FromFrame:GetName() == 'inventory' then
 		ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID());
 	end
 end
 
--- ��Ḧ ������ ���� ���Կ� �ֱ�
+-- 재료를 수량에 따라 슬롯에 넣기
 function TRANSCEND_SET_MATERIAL_ITEM(frame, iesID, count)
 
 	local invItem = GET_PC_ITEM_BY_GUID(iesID);
@@ -381,10 +388,13 @@ function TRANSCEND_SET_MATERIAL_ITEM(frame, iesID, count)
 		return;
 	end
 	
+	if invItem.count < count then
+		count = invItem.count;
+	end
 
 
 	local slot_material = GET_CHILD(frame, "slot_material");
-	-- ����ǥ�ø� ������ ���κ����� ���� 
+	-- 수량표시를 슬롯의 위부분으로 수정 
 	SET_SLOT_INVITEM(slot_material, invItem, count);
 	slot_material:SetUserValue("MTRL_COUNT", count);
 	slot_material:StopActiveUIEffect();
@@ -416,7 +426,7 @@ function EXEC_INPUT_CNT_TRANSCEND_MATERIAL(iesid, count)
 end
 
 --[[
--- �޼����ڽ��� �������� �ִ� ���
+-- 메세지박스로 수량으로 넣는 방법
 function EXEC_INPUT_CNT_TRANSCEND_MATERIAL(frame, count, inputframe, fromFrame)
 	inputframe:ShowWindow(0);
 	local iesid = inputframe:GetUserValue("ArgString");
@@ -490,7 +500,7 @@ function _ITEMTRANSCEND_EXEC()
 	SETTEXT_GUIDE(frame, 0, nil);
 end
 
--- �κ����� ������ Ŭ���� 
+-- 인벤에서 오른쪽 클릭시 
 function ITEMTRANSCEND_INV_RBTN(itemObj, slot)
 	
 	local frame = ui.GetFrame("itemtranscend");
@@ -515,14 +525,14 @@ function ITEMTRANSCEND_INV_RBTN(itemObj, slot)
 
 	if slotInvItem ~= nil then
 		if ("Premium_itemUpgradeStone_Weapon" == obj.ClassName) or ("Premium_itemUpgradeStone_Armor" == obj.ClassName) or ("Premium_itemUpgradeStone_Acc" == obj.ClassName) then
-		ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID());	-- ����� ���
+			ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID());	-- 재료일 경우
 			return;
 		end;
 	end;
-		ITEM_TRANSCEND_REG_TARGETITEM(frame, iconInfo:GetIESID());  -- ��ᰡ �ƴ� ��, �ʿ� ���ϴ� ������
-	end
-	
--- �ִ������� �ִϸ��̼� ƽ�� ���� ��� UIeffect ����
+	ITEM_TRANSCEND_REG_TARGETITEM(frame, iconInfo:GetIESID());  -- 재료가 아닐 경, 초월 당하는 아이템	
+end
+
+-- 애니픽쳐의 애니메이션 틱에 따른 결과 UIeffect 설정
 function ITEMTRANSCEND_BG_ANIM_TICK(ctrl, str, tick)
 
 	if tick == 14 then
@@ -552,7 +562,7 @@ function UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 	end;
 end
 
--- ������ �������ο� ���� UI����Ʈ�� ��� ������Ʈ 
+-- 서버의 성공여부에 따른 UI이펙트와 결과 업데이트 
 function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)			
 	local slot = GET_CHILD(frame, "slot");
 
@@ -654,8 +664,8 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 end
 
 -------------------------
--- ����� ���� UIeffect�� �˾� ��� UI�� ������ ������ 
--- �ð����� �˾� ��� UI�� ����ֱ� ���� UpdateScript.
+-- 결과에 따른 UIeffect가 팝업 결과 UI를 가리는 이유로 
+-- 시간차로 팝업 결과 UI를 띄워주기 위한 UpdateScript.
 function TIMEWAIT_STOP_ITEMTRANSCEND()
 	local frame = ui.GetFrame("itemtranscend");
 	local slotTemp = GET_CHILD(frame, "slotTemp");

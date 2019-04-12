@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
@@ -191,7 +191,7 @@
 		<Class ClassID="4023" ClassName="Money" Data="돈"/>
 		<Class ClassID="4024" ClassName="SubWeapon" Data="보조장비"/>
 		<Class ClassID="4025" ClassName="Wood" Data="나무"/>
-		<Class ClassID="4026" ClassName="Gem" Data="보석"/>
+		<Class ClassID="4026" ClassName="Gem" Data="젬"/>
 		<Class ClassID="4027" ClassName="Wand" Data="완드"/>
 		<Class ClassID="4028" ClassName="Spear" Data="창"/>
 		<Class ClassID="4029" ClassName="Artefact" Data="보조무기"/>
@@ -283,6 +283,8 @@
 		<Class ClassID="4115" ClassName="ThisLocalUseNot" Data="해당 지역에서는 사용이 불가능 합니다."/>
 		<Class ClassID="4116" ClassName="ThisWorldExistIndunClear" Data="이미 해당 지역에서는 인스턴스 소탕권이 사용중입니다."/>
 		<Class ClassID="4117" ClassName="Cube" Data="큐브"/>
+	        <Class ClassID="4118" ClassName="ETC" Data="기타"/>
+		<Class ClassID="4119" ClassName="Accessory" Data="장신구"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
@@ -5078,7 +5080,8 @@
 		<Class ClassID="106045" ClassName="ReportedItem" Data="거래 중지 된 아이템입니다."/>
 		<Class ClassID="106046" ClassName="CantReceiveItem" Data="아이템 수령에 실패하였습니다. 잠시 후 다시 시도해주세요."/>
 		<Class ClassID="106047" ClassName="IsBlackItem" Data="비정상 거래로 확인된 아이템입니다. 구매하실 수 없습니다."/>
-	</Category>
+		<Class ClassID="106049" ClassName="InvalidFindItemQueryMin" Data="Search terms must be longer than 1 character."/>
+		<Class ClassID="106050" ClassName="InvalidFindItemQueryMax" Data="Search terms cannot exceed 20 characters."/>	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="107001" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
 		<Class ClassID="107002" ClassName="OnlySkillWithSpendItemIsAble" Data="해당 스킬은 등록할 수 없습니다."/>
