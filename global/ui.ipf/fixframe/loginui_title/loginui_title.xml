@@ -10,13 +10,20 @@
 	<controls>
 		<picture name="bgbg" rect="0 0 6000 8000" margin="0 0 0 0" layout_gravity="center center" image="bg_w" stretch="true"/>
 		<picture name="login_bg" rect="0 0 1920 1080" margin="0 0 0 0 " layout_gravity="center center" image="login_bg2" stretch="false">
-			<uieffect effect="I_screen_logo006" scale="13" sound="None" offset="-150 -140" playtime="1.5" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_logo002" scale="8" sound="None" offset="525 -175" playtime="1.5" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_main_leaf002_light" scale="1.3" sound="None" offset="-500 0" playtime="10" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_main_leaf002" scale="1" sound="None" offset="0 0" playtime="1.5" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_main_leaf004" scale="2.2" sound="None" offset="-150 150" playtime="2" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_main_leaf004" scale="2.2" sound="None" offset="600 -150" playtime="3" duration="0" conditon="Always" event="None"/>
-			<uieffect effect="I_screen_main_leaf003" scale="1" sound="None" offset="-300 400" playtime="2" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo006" scale="15" sound="None" offset="0 0" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo006" scale="10" sound="None" offset="-250 20" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo006" scale="10" sound="None" offset="250 20" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo006" scale="12" sound="None" offset="580 90" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo006" scale="15" sound="None" offset="-550 90" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo006" scale="10" sound="None" offset="-15 400" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="8" sound="None" offset="90 -395" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="5" sound="None" offset="105 -321" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="10" sound="None" offset="45 -50" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="6" sound="None" offset="-80 -110" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_logo002" scale="10" sound="None" offset="-15 -2" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_main_leaf005_light" scale="1" sound="None" offset="-15 -500" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_main_leaf005_light_reverse" scale="1" sound="None" offset="-200 -400" playtime="1.5" duration="0" conditon="Always" event="None"/>
+			<uieffect effect="I_screen_main_leaf002_light_reverse" scale="0.1" sound="None" offset="-330 -350" playtime="1.5" duration="0" conditon="Always" event="None"/>
 		</picture>
 		<picture name="r1_logo1" rect="0 0 0 0" margin="0 -220 0 0" layout_gravity="center center" image="login2" stretch="true"/>
 		<picture name="r1_logo_title_kor" rect="0 0 0 0" margin="0 0 0 0" layout_gravity="center center" image="login1" serviceNation="KOR" stretch="true"/>
