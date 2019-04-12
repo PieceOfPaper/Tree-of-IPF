@@ -104,6 +104,7 @@
 
 		<Code Code="ERRCODE_LOGIC_INVALID_ACCOUNT_ID" CallStack="NO" Desc="Account ID의 값이 비정상입니다."/>
 		<Code Code="ERRCODE_LOGIC_MISSION_ROOM_EXIT" CallStack="NO" Desc="미션룸 삭제"/>
+<Code Code="ERRCODE_LOGIC_ERROR_LOGOUT" CallStack="NO" Desc="존 입장 실패"/>
 	</Type>
 	<Type Type="DATA">
 		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>
