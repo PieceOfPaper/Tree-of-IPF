@@ -1355,14 +1355,17 @@ function SORT_PURE_INVITEMLIST(a,b)
         local lv_a, curExp_a, maxExp_a = GET_ITEM_LEVEL_EXP(itemobj_a);
         local lv_b, curExp_b, maxExp_b = GET_ITEM_LEVEL_EXP(itemobj_b);
         
-        if maxExp_a > maxExp_b then
-            return maxExp_a < maxExp_b;
-        elseif maxExp_a == maxExp_b then
-            if curExp_a > curExp_b then
-                return curExp_a < curExp_b;
+        if maxExp_a < maxExp_b then			
+            return true;
+        elseif maxExp_a > maxExp_b then
+			return false;
+		else
+			if curExp_a < curExp_b then
+                return true;
+            else
+				return false;
             end
         end
-        
     end
     
 	return a:GetIESID() < b:GetIESID()
@@ -1381,12 +1384,9 @@ function GET_ONLY_PURE_INVITEMLIST(type)
 		
 		local invItem = invItemList:Element(index);
 		if invItem ~= nil then
-
-			if invItem.type == type then
+			if invItem.type == type and invItem.isLockState == false then
 				local itemobj = GetIES(invItem:GetObject());			
-
 				resultlist[#resultlist+1] = invItem
-
 			end
 		end
 

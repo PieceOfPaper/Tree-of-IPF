@@ -211,6 +211,7 @@ function ON_INTE_WARP(frame, changeDirection)
 				gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
 				gbox:SetEventScript(ui.MOUSEWHEEL, "WORLDMAP_MOUSEWHEEL");
 				gbox:SetEventScript(ui.LBUTTONDOWN, "WORLDMAP_LBTNDOWN");
+				gbox:SetEventScript(ui.LBUTTONUP, "WORLDMAP_LBTNUP");
 				gbox:SetSkinName("downbox");
 				gbox = tolua.cast(gbox, "ui::CGroupBox");
 				gbox:EnableScrollBar(0)
@@ -521,12 +522,23 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 	end
 	
 	tooltipframe:Invalidate()
-	
-
 end
 
 function WARP_TO_AREA(frame, cset, argStr, argNum)
 	local warpFrame = ui.GetFrame('inte_warp');
+	
+	local x, y = GET_MOUSE_POS();
+
+	if first_click_x ~= nil and first_click_y ~= nil then	-- 클릭 좌표점이 존재한다면 마우스를 클릭하고 드래그 했다가, 워프 지점으로 도달했다는 경우다.
+		if math.abs(first_click_x - x) > 5 or math.abs(first_click_y - y) > 5 then	-- 마우스 다운과 업의 좌표의 차이가 각각 5초과라는 소리는 드래그하다 여기 들어왔다는 소리
+			first_click_x = nil		-- 워프시키지 않고 좌표를 리셋하고 끝냄
+			fifst_click_y = nil
+			return;
+		end
+	end
+
+	first_click_x = nil	-- 정상적으로 클릭해서 워프를 해도 좌표를 리셋
+	first_click_y = nil
 	
 --	if warpFrame:IsVisible() == 1 then
 --		ui.CloseFrame('inte_warp')

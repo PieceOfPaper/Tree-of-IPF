@@ -1365,8 +1365,8 @@
 			<richtext name="desc" margin="90 64 0 0" rect="0 0 320 24" caption="XXXXXXXXXXXXXXXXXXXXXXXXX" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="tradeable" margin="90 89 0 0" rect="0 0 320 24" caption="거래 불가" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<labelline name="labelline" margin="85 84 0 0" rect="0 0 300 2" skin="labelline_def_2" layout_gravity="left top"/>
-			<button name="previewBtn" rect="0 0 100 40" margin="0 5 115 7" layout_gravity="right bottom" skin="test_gray_button" scrollbar="false" hittest="true" caption="{@st49}미리보기{/}" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_ITEM_PREVIEW"/>
-			<button name="buyBtn" rect="0 0 110 40" margin="0 5 7 7" layout_gravity="right bottom" skin="test_red_button" scrollbar="false" hittest="true" caption="{@st49}담기{/}" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_ITEM_TO_BASKET"/>
+			<button name="previewBtn" rect="0 0 100 40" margin="0 5 115 7" layout_gravity="right bottom" skin="test_gray_button" scrollbar="false" hittest="true" caption="{@st49}미리보기{/}" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_ITEM_PREVIEW_PREPROCESSOR"/>
+			<button name="buyBtn" rect="0 0 110 40" margin="0 5 7 7" layout_gravity="right bottom" skin="test_red_button" scrollbar="false" hittest="true" caption="{@st49}담기{/}" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_ITEM_TO_BASKET_PREPROCESSOR"/>
 		</controls>
 	</controlset>
 	<controlset name="tpshop_itemtp" hittest="true" width="304" height="350" hittestset="true" draw="true" skin="test_skin_01_btn" stateskin="false">
@@ -1376,7 +1376,7 @@
 			<slot name="icon" margin="0 70 0 0" rect="0 0 170 170" layout_gravity="center top" enabledrop="false" enablepop="false" hittest="true"/>
 			<button name="staticTPbox" rect="0 0 270 30" margin="0 0 0 60" layout_gravity="center bottom" hittestbox="false" draw="true" hittest="false" skin="categoryselect_skin" textalign="center center" fontname="black_16_b" caption="{@st42}{s18}  TP {/}{img icon_item_tospoint 20 20}{/}"/>
 			<labelline name="labelline14" margin="10 60 0 0" rect="0 0 270 2" skin="none" layout_gravity="left top"/>
-			<button name="buyBtn" rect="0 0 135 42" margin="0 0 0 10" layout_gravity="center bottom" skin="test_red_button" scrollbar="false" hittest="true" caption="{@st42b}{s16}충전하기{/}" fontname="black_16_b" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_TRY_BUY_TPITEM_BY_NEXONCASH"/>
+			<button name="buyBtn" rect="0 0 135 42" margin="0 0 0 10" layout_gravity="center bottom" skin="test_red_button" scrollbar="false" hittest="true" caption="{@st42b}{s16}구매하기{/}" fontname="black_16_b" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_TRY_BUY_TPITEM_BY_NEXONCASH"/>
 		</controls>
 	</controlset>
 	<controlset name="tpshop_item" hittest="true" width="286" height="350" hittestset="true" draw="true" skin="test_skin_01_btn" stateskin="false">
@@ -1386,7 +1386,7 @@
 			<richtext name="subtitle" margin="0 43 0 0" rect="0 0 210 40" caption="WWWWWWWWWWWWW" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 			<picture name="shawdow" margin="0 20 0 0" rect="0 0 110 40 " hittest="false" layout_gravity="center center" stretch="true" image="skill-name_bg"/>
 			<slot name="icon" margin="0 70 0 0" rect="0 0 135 135" layout_gravity="center top" enabledrop="false" enablepop="false" hittest="true"/>
-			<button name="noneBtnPreSlot_2" margin="0 0 0 0 " rect="0 0 280 350" layout_gravity="left top" skin="premium_case_skin" scrollbar="false" hittest="false"/>
+			<button name="noneBtnPreSlot_2" margin="0 0 0 0 " rect="0 0 287 350" layout_gravity="left top" skin="premium_case_skin" scrollbar="false" hittest="false"/>
 			<button name="staticTPbox" margin="0 0 0 105" rect="0 0 255 30" layout_gravity="center bottom" hittestbox="false" draw="true" hittest="false" skin="categoryselect_skin" textalign="left center" fontname="black_16_b" caption="{@st42}{s18}  TP {/}{img icon_item_tospoint 20 20}{/}"/>
 			<labelline name="labelline14" margin="10 60 0 0" rect="0 0 270 2" skin="none" layout_gravity="left top"/>
 			<richtext name="nxp" margin="0 0 20 100" rect="0 0 217 30" caption="999" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right bottom"/>
@@ -1397,7 +1397,39 @@
 			<picture name="noneBtnPreSlot_3" margin="0 55 0 0" rect="0 0 100 30" hittest="false" image="premium_img" stretch="true" changecursor="false" layout_gravity="center top"/>
 			<picture name="isNew_mark" margin="0 60 0 0" rect="0 0 72 34" hittest="false" image="new_mark2" changecursor="false" layout_gravity="left top"/>
 			<picture name="isHot_mark" margin="0 94 0 0" rect="0 0 72 34" hittest="false" image="hot_mark2" changecursor="false" layout_gravity="left top"/>
-			<picture name="isEvent_mark" margin="0 128 0 0" rect="0 0 72 34" hittest="false" image="event_mark2" changecursor="false" layout_gravity="left top"/>
+			<picture name="isEvent_mark" margin="0 128 0 0" rect="0 0 72 34" hittest="false" image="recommend_mark2" changecursor="false" layout_gravity="left top"/>
+		</controls>
+	</controlset>
+	<controlset name="tpshop_recycle" hittest="true" width="286" height="350" hittestset="true" draw="true" skin="test_skin_01_btn" stateskin="false">
+		<controls>
+			<button name="noneBtnPreSlot_1" margin="0 5 0 0" rect="0 0 275 48" layout_gravity="left top" skin="premium_title_line" scrollbar="false" hittest="false"/>
+			<richtext name="title" margin="0 20 0 0" rect="0 0 210 40" caption="ZZZZZZZZZZZ" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="black_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+			<richtext name="subtitle" margin="0 43 0 0" rect="0 0 210 40" caption="WWWWWWWWWWWWW" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+			<picture name="shawdow" margin="0 20 0 0" rect="0 0 110 40 " hittest="false" layout_gravity="center center" stretch="true" image="skill-name_bg"/>
+			<slot name="icon" margin="0 70 0 0" rect="0 0 135 135" layout_gravity="center top" enabledrop="false" enablepop="false" hittest="true"/>
+			<button name="noneBtnPreSlot_2" margin="0 0 0 0 " rect="0 0 280 350" layout_gravity="left top" skin="premium_case_skin" scrollbar="false" hittest="false"/>
+			<button name="staticBuyMedalbox" margin="0 0 0 105" rect="0 0 255 30" layout_gravity="center bottom" hittestbox="false" draw="true" hittest="false" skin="categoryselect_skin" textalign="left center" fontname="black_16_b" caption="{@st42}{s16}  소모메달 {/}{img icon_item_recyclemedal 20 20}{/}"/>
+			<button name="staticSellMedalbox" margin="0 0 0 105" rect="0 0 255 30" layout_gravity="center bottom" hittestbox="false" draw="true" hittest="false" skin="categoryselect_skin" textalign="left center" fontname="black_16_b" caption="{@st42}{s16}  획득메달 {/}{img icon_item_recyclemedal 20 20}{/}"/>
+			<labelline name="labelline14" margin="10 60 0 0" rect="0 0 270 2" skin="none" layout_gravity="left top"/>
+			<richtext name="nxp" margin="0 0 20 100" rect="0 0 217 30" caption="999" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right bottom"/>
+			<richtext name="desc" margin="20 0 0 75" rect="0 0 260 24" caption="XXXXXXXXXXXXXXXXXXXXXXXXX" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left bottom"/>
+			<richtext name="tradeable" margin="20 0 0 55" rect="0 0 260 24" caption="거래 불가" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left bottom"/>
+			<richtext name="remaincnt" margin="0 0 20 70" rect="0 0 217 30" format="보유 수량 : %s" param1="cnt" param1_def="def" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right bottom"/>
+			<button name="previewBtn" rect="0 0 130 44" margin="11 0 0 10" layout_gravity="left bottom" skin="test_pvp_btn" scrollbar="false" hittest="true" caption="{@st66b}{s16}미리보기{/}" fontname="brown_16_b" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_ITEM_RECYCLE_PREVIEW_PREPROCESSOR"/>
+			<button name="buyBtn" rect="0 0 130 44" margin="0 0 11 10" layout_gravity="right bottom" skin="test_red_button" scrollbar="false" hittest="true" caption="{@st42b}{s16}구매{/}" fontname="black_16_b" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_ITEM_TO_RECYCLE_BUY_BASKET_PREPROCESSOR"/>
+			<button name="sellBtn" rect="0 0 180 42" margin="0 0 50 10" layout_gravity="right bottom" skin="test_red_button" scrollbar="false" hittest="true" caption="{@st42b}{s16}메달로 교환{/}" fontname="black_16_b" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TPSHOP_ITEM_TO_RECYCLE_SELL_BASKET_PREPROCESSOR"/>
+			<picture name="noneBtnPreSlot_3" margin="0 55 0 0" rect="0 0 100 30" hittest="false" image="premium_img" stretch="true" changecursor="false" layout_gravity="center top"/>
+		</controls>
+	</controlset>
+	<controlset name="tpshop_recycle_popup" hittest="true" width="440" height="90" hittestset="false" draw="true" skin="" stateskin="false">
+		<controls>
+			<groupbox name="slot_bg" rect="0 0 425 30" margin="0 5 0 0" layout_gravity="left top" skin="guild_base_skin" scrollbar="false"/>
+			<picture name="rightarrow" margin="50 40 0 0" rect="0 0 30 20" hittest="false" image="market_rightarrow" stretch="true" changecursor="false" layout_gravity="center top"/>
+			<slot name="itemicon" margin="10 0 0 0" rect="0 0 80 80" layout_gravity="left center" enabledrop="false" enablepop="false" hittest="true" stretch="true"/>
+			<richtext name="itemname" margin="100 10 0 0" rect="0 0 210 40" caption="ZZZZZZZZZZZ" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="itemStaticprice_buy" margin="100 40 0 0" rect="0 0 210 40" caption="소비 메달" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+			<richtext name="itemStaticprice_sell" margin="100 40 0 0" rect="0 0 210 40" caption="획득 메달" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+			<richtext name="itemprice" margin="150 40 0 0" rect="0 0 210 40" caption="ZZZZZZZZZZZ" textalign="right center" resizebytext="true" spacey="0" maxwidth="280" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 		</controls>
 	</controlset>
 	<controlset name="nearparty_each_member_info" toggle="false" hittest="true" width="400" height="30" skin="none" stateskin="false" draw="false">
@@ -1513,7 +1545,7 @@
 			<richtext name="name" hittest="false" rect="0 -10 80 80" layout_gravity="center bottom" caption="어프렌티스 소드"/>
 		</controls>
 	</controlset>
-	<controlset toggle="false" width="80" height="150">
+	<controlset name="itemset" toggle="false" width="80" height="150">
 		<controls>
 			<slot name="image" hittest="true" rect="0 20 48 48" layout_gravity="center top" stretch="true"/>
 			<richtext name="name" hittest="false" rect="0 -10 80 80" layout_gravity="center bottom" caption="어프렌티스 소드"/>
@@ -2071,11 +2103,11 @@
 		</controls>
 	</controlset>
 	<controlset name="partyquestfolder" toggle="false" hittest="true" width="400" height="200" skin="listbox" stateskin="false" draw="false">
-	<controls>
-		<richtext name="name" rect="0 0 453 31" format="{@sti9}파티원 퀘스트 (%s){/}" margin="64 5 0 0" layout_gravity="left top" textalign="left top" param1="value" param1_def="99" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" hittest="false"/>
-		<button name="btn" margin="26 6 0 83" rect="0 0 25 25" layout_gravity="left top" image="btn_plus" stretch="false" LBtnUpScp="TOGGLE_PARTY_QUEST_FOLDER"/>
-		<groupbox name="bg" margin="30 31 0 0" rect="0 0 370 371" hittestbox="false" skin="bg" layout_gravity="left top" draw="false" scrollbar="false"/>
-	</controls>
+		<controls>
+			<richtext name="name" rect="0 0 453 31" format="{@sti9}파티원 퀘스트 (%s){/}" margin="64 5 0 0" layout_gravity="left top" textalign="left top" param1="value" param1_def="99" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" hittest="false"/>
+			<button name="btn" margin="26 6 0 83" rect="0 0 25 25" layout_gravity="left top" image="btn_plus" stretch="false" LBtnUpScp="TOGGLE_PARTY_QUEST_FOLDER"/>
+			<groupbox name="bg" margin="30 31 0 0" rect="0 0 370 371" hittestbox="false" skin="bg" layout_gravity="left top" draw="false" scrollbar="false"/>
+		</controls>
 </controlset>
 	<controlset name="beforereturnbtn" toggle="false" hittest="true" width="250" height="50" skin="listbox" stateskin="false" draw="false">
 		<controls>

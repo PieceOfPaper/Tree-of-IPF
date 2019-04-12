@@ -11,7 +11,7 @@
     <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
     <script OpenScp="OPEN_WORLDMAP"/>
     <controls>
-        <picture name="pic" rect="0 0 3480 7250" margin="0 0 0 0" layout_gravity="left top" LBtnDownScp="WORLDMAP_LBTNDOWN" MouseWheelScp="WORLDMAP_MOUSEWHEEL" changecursor="false" hittest="true" image="worldmap_s_bg" stretch="true"/>
+        <picture name="pic" rect="0 0 3480 7250" margin="0 0 0 0" layout_gravity="left top" LBtnUpScp="WORLDMAP_LBTNUP" LBtnDownScp="WORLDMAP_LBTNDOWN" MouseWheelScp="WORLDMAP_MOUSEWHEEL" changecursor="false" hittest="true" image="worldmap_s_bg" stretch="true"/>
         <picture name="worldmap_mark" rect="0 0 360 300" margin="0 60 0 0" layout_gravity="right top" changecursor="false" hittest="false" image="worldmap_mark" stretch="true"/>
         <groupbox name="scalebg" rect="0 0 140 30" margin="0 347 110 0" layout_gravity="right top" hittest="false" draw="true" scrollbar="false" skin="bg"/>
         <richtext name="t_scale" margin="0 347 110 0" rect="0 0 140 30" format="{@st42}x %s{/}" param1="value" param1_def="scale" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>

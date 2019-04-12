@@ -2970,6 +2970,17 @@
 			<img name="bottomcore" imgrect="150 311 162 150"/>
 			<img name="bottomright" imgrect="312 311 150 150"/>
 		</skin>
+		<skin name="normal_item_tootip_skin" texture="\skin\normal_item_tootip.tga">
+			<img name="topleft" imgrect="0 0 130 70"/>
+			<img name="topcore" imgrect="131 0 109 70"/>
+			<img name="topright" imgrect="241 0 130 70"/>
+			<img name="bodyleft" imgrect="0 71 130 76"/>
+			<img name="bodycore" imgrect="131 71 109 76"/>
+			<img name="bodyright" imgrect="241 71 130 76"/>
+			<img name="bottomleft" imgrect="0 148 130 30"/>
+			<img name="bottomcore" imgrect="131 148 109 30"/>
+			<img name="bottomright" imgrect="241 148 130 30"/>
+		</skin>
 	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
@@ -4535,6 +4546,7 @@
 		<image name="guild_offline" file="\skin\pip_test.tga" imgrect="1799 589 20 20" CMM_Caption="길드_오프라인"/>
 		<image name="v_mark" file="\skin\barrack.tga" imgrect="1067 330 84 84" CMM_Caption="브이마크"/>
 		<image name="guild_talt" file="\skin\pip_test_item.tga" imgrect="1612 87 190 190" CMM_Caption="길드탈트넣는곳"/>
+		<image name="market_event_test" file="\skin\market_event_test.png" imgrect="0 0 520 250" CMM_Caption="마켓배너준비(테스트)"/>
 		<image name="market_default" file="\skin\market_default.png" imgrect="0 0 520 250" CMM_Caption="마켓배너준비(작은거)"/>
 		<image name="market_default2" file="\skin\market_default2.png" imgrect="0 0 1230 400" CMM_Caption="마켓배너준비(큰거)"/>
 		<image name="market_default3" file="\skin\market_default3.png" imgrect="0 0 512 246" CMM_Caption="마켓닫기버튼으로쓸이미지"/>
@@ -4640,6 +4652,10 @@
 		<image name="market_lens" file="\skin\market_skin.tga" imgrect="1988 383 60 60" CMM_Caption="마켓_렌즈"/>
 		<image name="market_F_gender" file="\skin\market_skin.tga" imgrect="1746 0 50 50" CMM_Caption="마켓_여자성별"/>
 		<image name="market_M_gender" file="\skin\market_skin.tga" imgrect="1797 0 50 50" CMM_Caption="마켓_남자성별"/>
+		<image name="market_re_M" file="\skin\market_skin.tga" imgrect="1719 246 65 65" CMM_Caption="메달로바꾸기"/>
+		<image name="market_re_I" file="\skin\market_skin.tga" imgrect="1719 312 65 65" CMM_Caption="아이템으로바꾸기"/>
+		<image name="market_rightarrow" file="\skin\market_skin.tga" imgrect="1277 350 30 20" CMM_Caption="오른쪽으로화살표"/>
+		<image name="market_bottomarrow" file="\skin\market_skin.tga" imgrect="1181 344 22 24" CMM_Caption="밑으로화살표"/>
 		<image name="indun_line_img" file="\skin\pip_test.tga" imgrect="1548 872 100 14" CMM_Caption="인던맵구분선"/>
 		<image name="gacha_big_01" file="\skin\gacha_big_one.tga" imgrect="0 0 758 508" CMM_Caption="가챠_좋은거_큰거"/>
 		<image name="gacha_big_02" file="\skin\gacha_big_two.tga" imgrect="0 0 758 508" CMM_Caption="가챠_그냥저냥_큰거"/>
@@ -4647,7 +4663,8 @@
 		<image name="gacha_01" file="\skin\gacha_ui.tga" imgrect="0 78 170 170" CMM_Caption="가챠_좋은거"/>
 		<image name="gacha_02" file="\skin\gacha_ui.tga" imgrect="171 78 170 170" CMM_Caption="가챠_그냥저냥"/>
 		<image name="gacha_03" file="\skin\gacha_ui.tga" imgrect="342 78 170 170" CMM_Caption="가챠_노말"/>
-		<image name="gacha_skin" file="\skin\gacha_skin.tga" imgrect="0 0 450 580" CMM_Caption="가챠_팝업"/>
+		<image name="gacha_bonus" file="\skin\gacha_ui.tga" imgrect="0 249 170 170" CMM_Caption="가챠_보너스"/>
+		<image name="gacha_skin" file="\skin\gacha_skin.tga" imgrect="0 0 450 480" CMM_Caption="가챠_팝업"/>
 		<image name="expup_img" file="\skin\pip_test.tga" imgrect="868 544 70 62" CMM_Caption="expup_이미지"/>
 	</imagelist>
 	<imagelist category="MCC_image">
@@ -4958,6 +4975,15 @@
 		<image name="market_reset_btn" file="\skin\market_skin.tga" imgrect="374 97 49 49" CMM_Caption="마켓_새로고침버튼"/>
 		<image name="market_reset_btn_cursoron" file="\skin\market_skin.tga" imgrect="424 97 49 49"/>
 		<image name="market_reset_btn_clicked" file="\skin\market_skin.tga" imgrect="474 97 49 49"/>
+		<image name="market_plus_btn" file="\skin\market_skin.tga" imgrect="524 97 49 49" CMM_Caption="마켓_플러스버튼"/>
+		<image name="market_plus_btn_cursoron" file="\skin\market_skin.tga" imgrect="574 97 49 49"/>
+		<image name="market_plus_btn_clicked" file="\skin\market_skin.tga" imgrect="624 97 49 49"/>
+		<image name="market_reset2_btn" file="\skin\market_skin.tga" imgrect="812 97 45 45" CMM_Caption="마켓_새로고침버튼2"/>
+		<image name="market_reset2_btn_cursoron" file="\skin\market_skin.tga" imgrect="858 97 45 45"/>
+		<image name="market_reset2_btn_clicked" file="\skin\market_skin.tga" imgrect="904 97 45 45"/>
+		<image name="market_plus2_btn" file="\skin\market_skin.tga" imgrect="674 97 49 49" CMM_Caption="마켓_플러스버튼2"/>
+		<image name="market_plus2_btn_cursoron" file="\skin\market_skin.tga" imgrect="720 97 49 49"/>
+		<image name="market_plus2_btn_clicked" file="\skin\market_skin.tga" imgrect="766 97 49 49"/>
 		<image name="market_cleric_btn" file="\skin\market_skin.tga" imgrect="1429 0 64 63" CMM_Caption="마켓_클레릭버튼"/>
 		<image name="market_cleric_btn_cursoron" file="\skin\market_skin.tga" imgrect="1429 64 64 63"/>
 		<image name="market_cleric_btn_clicked" file="\skin\market_skin.tga" imgrect="1429 0 64 63"/>
@@ -4991,6 +5017,21 @@
 		<image name="market_number2_btn" file="\skin\market_skin.tga" imgrect="1812 51 35 38" CMM_Caption="마켓_번호버튼2"/>
 		<image name="market_number2_btn_cursoron" file="\skin\market_skin.tga" imgrect="1812 51 35 38"/>
 		<image name="market_number2_btn_clicked" file="\skin\market_skin.tga" imgrect="1812 51 35 38"/>
+		<image name="gachaskip_btn" file="\skin\gacha_ui.tga" imgrect="0 0 124 50" CMM_Caption="스킵버튼"/>
+		<image name="gachaskip_btn_cursoron" file="\skin\gacha_ui.tga" imgrect="125 0 124 50"/>
+		<image name="gachaskip_btn_clicked" file="\skin\gacha_ui.tga" imgrect="250 0 124 50"/>
+		<image name="gachanext_btn" file="\skin\normal_item_tootip.tga" imgrect="0 0 124 50" CMM_Caption="가챠 다음버튼"/>
+		<image name="gachanext_btn_cursoron" file="\skin\normal_item_tootip.tga" imgrect="125 0 124 50"/>
+		<image name="gachanext_btn_clicked" file="\skin\normal_item_tootip.tga" imgrect="250 0 124 50"/>
+		<image name="indun_small_btn" file="\skin\indun_skin.tga" imgrect="683 0 34 34" CMM_Caption="인던_최소화버튼"/>
+		<image name="indun_small_btn_cursoron" file="\skin\indun_skin.tga" imgrect="683 35 34 34"/>
+		<image name="indun_small_btn_clicked" file="\skin\indun_skin.tga" imgrect="683 70 34 34"/>
+		<image name="indun_close_btn" file="\skin\indun_skin.tga" imgrect="718 0 34 34" CMM_Caption="인던_취소버튼"/>
+		<image name="indun_close_btn_cursoron" file="\skin\indun_skin.tga" imgrect="718 35 34 34"/>
+		<image name="indun_close_btn_clicked" file="\skin\indun_skin.tga" imgrect="718 70 34 34"/>
+		<image name="indun_people_btn" file="\skin\indun_skin.tga" imgrect="753 0 57 57" CMM_Caption="인던_파티원초대버튼"/>
+		<image name="indun_people_btn_cursoron" file="\skin\indun_skin.tga" imgrect="811 0 57 57"/>
+		<image name="indun_people_btn_clicked" file="\skin\indun_skin.tga" imgrect="869 0 57 57"/>
 	</imagelist>
 	<imagelist category="hair_color">
 		<image name="basic_color" file="\skin\barrack.tga" imgrect="949 492 35 35" CMM_Caption="기본컬러"/>
@@ -6426,7 +6467,7 @@
 		<image name="icon_nexonpc2" file="\icon\buff_icon.tga" imgrect="768 1280 128 128" CMM_Caption="넥슨피시방"/>
 		<image name="icon_expup_total" file="\icon\buff_icon.tga" imgrect="896 1280 128 128" CMM_Caption="경험치버프토탈"/>
 		<image name="icon_eventbuff" file="\icon\buff_icon.tga" imgrect="0 1408 128 128" CMM_Caption="이벤트버프"/>
-	<image name="icon_Pumkincandy" file="\icon\buff_icon.tga" imgrect="128 1408 128 128" CMM_Caption="할로윈 사탕 버프"/>
+		<image name="icon_Pumkincandy" file="\icon\buff_icon.tga" imgrect="128 1408 128 128" CMM_Caption="할로윈 사탕 버프"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

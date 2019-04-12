@@ -155,6 +155,7 @@ function ICON_ON_ENABLE(frame, object, argStr, argNum)
 		local scp = _G[itemobj.ClientScp];
 		if scp == nil then
 			ErrorLog(itemobj.ClientScp);
+			return false;
 		end
 		scp(invItem);
 		return true;

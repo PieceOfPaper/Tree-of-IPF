@@ -127,7 +127,7 @@ function _PROCESS_MOVING_MOVE_FRAME_FOR_TPITEM_EXCHANGE(frame)
 		wndX = MaxWidth - limitOffset - wndW;
 	end;
 	
-	if wndY > (MaxHeight - limitOffset - wndH - 60) then	-- ï¿½ï¿½ 60ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	if wndY > (MaxHeight - limitOffset - wndH - 60) then	-- ¿Ö 60¸¸Å­ Â÷ÀÌ ³ª´ÂÁö ¸ğ¸£°ÚÀ½.
 		wndY = MaxHeight - limitOffset - wndH - 60;
 	end;
 	
@@ -199,7 +199,7 @@ function _PROCESS_MOVING_RESIZE_FRAME_FOR_TPITEM_EXCHANGE(frame)
 		width = MaxWidth - limitOffset - wndX;
 	end;
 	
-	if height > (MaxHeight - limitOffset - wndY - 60) then	-- ï¿½ï¿½ 60ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	if height > (MaxHeight - limitOffset - wndY - 60) then	-- ¿Ö 60¸¸Å­ Â÷ÀÌ ³ª´ÂÁö ¸ğ¸£°ÚÀ½.
 		height = MaxHeight - limitOffset - wndY - 60;
 	end;
 

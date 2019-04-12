@@ -2,6 +2,13 @@
 -- tpitem_package.lua : (tp shop)
 
 function TPITEM_PACKAGE_OPEN(parent, control, ItemClassIDstr, itemid)
+		
+		local listIndex = control:GetUserValue("LISTINDEX");
+		local iteminfo = session.ui.Get_NISMS_ItemInfo(listIndex);
+		if iteminfo == nil then
+			return;
+		end
+		
 		local frame = ui.GetFrame("tpitem");
 		local screenbgTemp = frame:GetChild('screenbgTemp');	
 		screenbgTemp:ShowWindow(1);	
@@ -13,7 +20,8 @@ function TPITEM_PACKAGE_OPEN(parent, control, ItemClassIDstr, itemid)
 		local puchaseBtn = GET_CHILD(stdBox,"puchaseBtn");
 		puchaseBtn:SetEventScriptArgString(ui.LBUTTONUP, ItemClassIDstr);
 		puchaseBtn:SetEventScriptArgNumber(ui.LBUTTONUP, itemid);
-		local price = control:GetUserIValue("itemPrice");
+						
+		local price = iteminfo.price;	--local price = control:GetUserIValue("itemPrice");
 		if price ~= nil then
 			puchaseBtn:SetUserValue("itemPrice", price);
 		end		
@@ -30,6 +38,14 @@ end
 
 function TPSHOP_TRY_BUY_PACKAGE_BY_NEXONCASH(parent, control, ItemClassIDstr, itemid)
 	local frame = ui.GetFrame("tpitem");
+	
+	local nMaxCnt = session.ui.Get_NISMS_CashInven_ItemListSize();
+	if nMaxCnt >= 18 then
+		strMsg = string.format("{@st43d}{s20}%s{/}", ScpArgMsg("MAX_CASHINVAN"));
+		ui.MsgBox_NonNested(strMsg, 0x00000000, frame:GetName(), "None", "None");	
+		return;
+	end
+
 	local screenbgTemp = frame:GetChild('screenbgTemp');	
 	screenbgTemp:ShowWindow(1);	
 

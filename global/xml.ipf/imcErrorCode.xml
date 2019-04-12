@@ -100,9 +100,12 @@
 		<Code Code="ERRCODE_LOGIC" CallStack="NO" Desc="로직 오류"/>
     <Code Code="ERRCODE_PRINT_CALL_STACK" CallStack="YES" Desc=" : "/>
     <Code Code="ERRCODE_LOGIC_STEAM_INVEN" CallStack="NO" Desc="스팀 인벤토리 로직 오류. 프로그래머에게 문의하세요."/>
-<Code Code="ERRCODE_LOGIC_INVALID_CHAR_SLOT_COUNT" CallStack="NO" Desc="슬롯갯수보다 캐릭터 갯수가 많음에도 클라이언트에서 게임시작 요청이 들어왔거나 갯수를 가져오는데 실패했습니다"/>
+		<Code Code="ERRCODE_LOGIC_INVALID_CHAR_SLOT_COUNT" CallStack="NO" Desc="슬롯갯수보다 캐릭터 갯수가 많음에도 클라이언트에서 게임시작 요청이 들어왔거나 갯수를 가져오는데 실패했습니다"/>
 
-		<Code Code="ERRCODE_LOGIC_INVALID_ACCOUNT_ID" CallStack="NO" Desc="Account ID의 값이 비정상입니다."/>
+<Code Code="ERRCODE_LOGIC_INVALID_ACCOUNT_ID" CallStack="NO" Desc="Account ID의 값이 비정상입니다."/>
+	<Code Code="ERRCODE_LOGIC_CHN_COMMANDLINE_PARSING_FAIL" CallStack="NO" Desc="런처 커맨드라인으로 온 정보의 파싱이 실패했습니다."/>
+		<Code Code="ERRCODE_LOGIC_CHN_MACHINECODE_GAIN_FAIL" CallStack="NO" Desc="머신코드 획득 실패."/>
+		<Code Code="ERRCODE_LOGIC_CYOU_LOGIN_FAIL" CallStack="NO" Desc="AID 획득 실패."/>
 	</Type>
 	<Type Type="DATA">
 		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>
@@ -194,8 +197,10 @@
     <Code Code="ERRCODE_DATA_STEAM_INVALID_REGION" CallStack="NO" Desc="해당 지역에서 수행 불가능한 요청입니다."/>
 	<Code Code="ERRCODE_DATA_ABILITY_MAX_LEVEL_GREATER_ZERO" CallStack="NO" Desc="어빌리티의 최대 레벨은 0보다 커야합니다."/>
 		<Code Code="ERRCODE_EQUIP_CARD_SYSTEM_DATA" CallStack="NO" Desc="카드 데이터에 문제가 있습니다. 확인해주세요."/>
-	<Code Code="ERRCODE_FIND_NOT_MONSTER" CallStack="NO" Desc="해당 몬스터를 찾지 못하였습니다. 확인해주세요."/>
-<Code Code="ERRCODE_DATA_INVLID_INDEX" CallStack="NO" Desc="잘못된 인덱스 입니다."/>	</Type>
+	<Code Code="ERRCODE_FIND_NOT_MONSTER" CallStack="NO" Desc="해당 몬스터를 찾지 못하였습니다. 확인해주세요."/><Code Code="ERRCODE_DATA_INVLID_INDEX" CallStack="NO" Desc="잘못된 인덱스 입니다."/>
+		<Code Code="ERRCODE_DATA_INVALID_NISMS_GOODS_MAP" CallStack="NO" Desc="잘못된 상품 목록 DataMap 입니다."/>
+		<Code Code="ERRCODE_DATA_INVALID_NISMS_GOODS_ITEM" CallStack="NO" Desc="잘못된 상품 정보 Data 입니다."/>
+		<Code Code="ERRCODE_DATA_INVALID_CLASS_IN_PRODUCTS" CallStack="NO" Desc="NISMS에 등록된 상품의 클래스 또는 이름이 무효합니다. 해당 계정의 캐시 인벤에 표시가 안되고 있으며, NISMS에 잘못 등록된 아이템을 구입한 계정 입니다."/>	</Type>
 	<Type Type="SCRIPT">
 		<Code Code="ERRCODE_SCRIPT_IES_CANT_SUSPEND_MAIN_THREAD" CallStack="NO" Desc="메인 쓰레드는 sleep, tx등으로 중단시킬 수 없습니다. 해당 함수 내용을 확인하세요."/>
 		<Code Code="ERRCODE_SCRIPT_LUA_SCRIPT" CallStack="NO" Desc="루아 스크립트에서 에러가 발생하였습니다. 에러 메시지를 확인하세요."/>
@@ -247,6 +252,10 @@
 		<Code Code="ERRCODE_NETWORK_FAIL_ONPACKET_FALSE" CallStack="NO" Desc="해당 패킷을 처리하는 로직이 없습니다."/>
     <Code Code="ERRCODE_NETWORK_CANT_GET_EXTERN_IP" CallStack="NO" Desc="외부 IP를 얻는데 실패하였습니다."/>
     <Code Code="ERRCODE_NETWORK_HTTP_JSON_PARSE_FALSE" CallStack="NO" Desc="HTTP 통신 데이터를 읽는데 실패하였습니다."/>
+	<Code Code="ERRCODE_NETWORK_HTTP_SOAP_PARSE_FALSE" CallStack="NO" Desc="HTTP 통신 데이터를 읽는데 실패하였습니다."/>
+		<Code Code="ERRCODE_NETWORK_EMBEDDED_BROWSER_ERROE" CallStack="YES" Desc="Embedded_Browser에 문제가 발생하였습니다."/>
+		<Code Code="ERRCODE_NISMS_LOADFAIL" CallStack="NO" Desc="NISMS 상품 목록을 얻어오는데에 실패했습니다. 강제종료 시킵니다. 만약 넥슨 인게임샵 기능을 사용하지 않는다면, serverconfig.xml의 UseNISMS를 NO로 설정하세요. "/>
+		<Code Code="ERRCODE_NISMS_INVALIED_WORLDID" CallStack="NO" Desc="NISMS를 위한 월드의 domainType 값을 잘못 얻어왔습니다."/>
 	</Type>
 	<Type Type="DB">
 		<Code Code="ERRCODE_DB_WORLDTABLE" CallStack="NO" Desc="월드 테이블 세팅에 실패하였습니다. WorldTable DB 테이블 및 ODBC 세팅을 확인하세요."/>

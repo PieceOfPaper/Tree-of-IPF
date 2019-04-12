@@ -1,3 +1,6 @@
+first_click_x = nil  -- 월드맵에서 드래그를 위해서 클릭할 때, 최초 좌표를 기억한다.
+first_click_y = nil
+
 
 function WORLDMAP_ON_INIT(addon, frame)
 
@@ -386,6 +389,7 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 --	local gbox_bg = ctrlSet:GetChild("gbox_bg");
 --	gbox_bg:Resize(text:GetWidth() + 10, text:GetHeight() + 10);
 	ctrlSet:SetEventScript(ui.LBUTTONDOWN, "WORLDMAP_LBTNDOWN");
+	ctrlSet:SetEventScript(ui.LBUTTONUP, "WORLDMAP_LBTNUP");
 	ctrlSet:SetEventScript(ui.MOUSEWHEEL, "WORLDMAP_MOUSEWHEEL");
 				
 	ctrlSet:SetTooltipType('worldmap');
@@ -471,17 +475,24 @@ function WORLDMAP_MOUSEWHEEL(parent, ctrl, s, n)
 end
 
 function WORLDMAP_LBTNDOWN(parent, ctrl)
-		
 	local frame = parent:GetTopParentFrame();
 	local pic = frame:GetChild("pic");
 	local x, y = GET_MOUSE_POS();
 	pic:SetUserValue("MOUSE_X", x);
 	pic:SetUserValue("MOUSE_Y", y);
 	
+	first_click_x = x	-- 드래그할 때, 클릭한 좌표를 기억한다.
+	first_click_y = y
+	
 	ui.EnableToolTip(0);
 	mouse.ChangeCursorImg("MOVE_MAP", 1);
 	pic:RunUpdateScript("WORLDMAP_PROCESS_MOUSE");
+end
 
+function WORLDMAP_LBTNUP(parent, ctrl)
+	-- 워프 위치에서 마우스를 떼지 않았다면 클릭한 좌표를 리셋한다.
+	first_click_x = nil		
+	first_click_y = nil
 end
 
 function WORLDMAP_PROCESS_MOUSE(ctrl)
