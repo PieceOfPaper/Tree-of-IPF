@@ -14,7 +14,23 @@
 			<picture name="isEvent_mark" margin="0 128 0 0" rect="0 0 72 34" hittest="false" image="recommend_mark2" changecursor="false" layout_gravity="left top"/>
 		</controls>
 	</controlset>
-  <controlset name="guild_warinfo">
-    <button name="guildwarehouse" LBtnUpScp=""/>    
-  </controlset>
+	<controlset name="guild_warinfo">
+		<button name="guildwarehouse" LBtnUpScp=""/>
+	</controlset>
+	<controlset name="guildbattle_ranking_page" hittest="true" width="520" height="800" hittestset="false" draw="false" skin="none">
+		<controls>
+			<groupbox name="groupbox_1" margin="4 3 0 0" rect="0 0 510 780" hittestbox="false" skin="test_frame_midle" resizebyresolution="true" layout_gravity="left top"/>
+			<pagecontroller name="control" hittest="true" rect="0 0 450 30" margin="0 0 0 30" layout_gravity="center bottom" space="50 0 0 20" slot="35 25" type="button" image="{@st41b}{#444444} {@st41b}{b}" selectScp="GUILDBATTLE_RANKING_SELECT" prevScp="GUILDBATTLE_RANKING_SELECT_PREV" nextScp="GUILDBATTLE_RANKING_SELECT_NEXT" parent="bg_ranking" movebyone="true">
+				<prev size="40 30" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}"/>
+				<next size="40 30" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}"/>
+			</pagecontroller>
+			<groupbox name="title_1" rect="0 0 505 40" margin="6 6 0 0" hittestbox="false" skin="market_listbase" layout_gravity="left top" scrollbar="false"/>
+			<edit name="input_findname" margin="20 0 0 70" rect="0 0 480 35" fontname="white_18_ol" maxlen="16" usetag="true" EnterKeyScp="GUILDBATTLE_RANKING_SELECT" numbermode="false" OffsetForDraw="10 3" layout_gravity="left bottom" skin="test_weight_skin"/>
+			<button name="btn_find" margin="0 0 22 71" image="inven_s" rect="0 0 60 38" layout_gravity="right bottom" format="{s20}{#000000}%s" param1="value" param1_def="" LBtnUpScp="GUILDBATTLE_RANKING_SELECT"/>
+			<richtext name="richtext_1" margin="50 10 0 0" rect="0 0 120 24" caption="순위" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
+			<richtext name="richtext_2" margin="145 10 0 0" rect="0 0 120 24" caption="[서버] 길드명" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
+			<groupbox name="gbox_ctrls" margin="-3 50 0 0" rect="0 0 497 640" hittestbox="false" skin="none" layout_gravity="center top" scrollbar="false"/>
+			<richtext name="richtext_2_1" margin="0 0 0 0" rect="0 0 0 0" caption="전적 / 점수" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
+		</controls>
+	</controlset>
 </controlsetlist>

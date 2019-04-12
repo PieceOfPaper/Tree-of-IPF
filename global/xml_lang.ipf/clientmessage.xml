@@ -9004,6 +9004,9 @@
 		<Class ClassID="302025" ClassName="Valen_Select1" Data="사랑의 초콜릿 레서피 구입."/>
 		<Class ClassID="302026" ClassName="Valen_Select2" Data="사랑의 초콜릿을 건네준다."/>
 		<Class ClassID="302027" ClassName="Valen_Select3" Data="대화 종료"/>
+		<Class ClassID="302030" ClassName="Goddess_Statue1" Data="여신의 축복 적용."/>
+		<Class ClassID="302031" ClassName="Goddess_Statue2" Data="더 이상 여신의 축복을 받을 수 없습니다."/>
+		<Class ClassID="302032" ClassName="Goddess_Statue3" Data="여신의 조각상은 5분간 유지 됩니다."/>
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>
@@ -9040,5 +9043,17 @@
 		<Class ClassID="306010" ClassName="ENCHANTARMOR_BLESSING_DESC" Data="1% 확률로 적의 공격 무효"/>
 		<Class ClassID="306011" ClassName="ENCHANTARMOR_HOLY_DESC" Data="성직자의 버프 지속시간이 5% 증가(주문판매상점 제외)"/>
 		<Class ClassID="306012" ClassName="ENCHANTARMOR_VOLITIVE_DESC" Data="자신의 정신 스탯 20 당 체력 스탯 1의 포인트 획득"/>
+	</Category>
+	<Category Name="GLOBAL">
+		<Class ClassID="500001" ClassName="EXPCARD_COMPANION_FAIL" Data="함께하고 있는 컴패니언 레벨이 낮아 사용할 수 없습니다."/>
+		<Class ClassID="501002" ClassName="Wihte_Select" Data="사탕 세트 제작서 구입"/>
+		<Class ClassID="501003" ClassName="Wihte_Select1" Data="사탕 세트 건네주기"/>
+		<Class ClassID="501004" ClassName="Wihte_Select2" Data="화이트데이 버프 받기"/>
+		<Class ClassID="501005" ClassName="Wihte_Select1_1" Data="화이트데이 목걸이"/>
+		<Class ClassID="501006" ClassName="Wihte_Select1_2" Data="화이트데이 팔찌"/>
+		<Class ClassID="501007" ClassName="Wihte_Select1_3" Data="화이트데이 밴드"/>
+		<Class ClassID="501008" ClassName="Wihte_Select1_4" Data="다시 생각해본다"/>
+		<Class ClassID="501009" ClassName="Wihte_Select3" Data="이벤트 참여 횟수 확인"/>
+		<Class ClassID="501010" ClassName="Wihte_Select3_1" Data="{WHITECOUNT}회 완료하셨습니다."/>
 	</Category>
 </idspace>

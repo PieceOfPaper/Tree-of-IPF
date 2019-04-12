@@ -6,8 +6,8 @@
 	<Category Name="소모품 /잡화">
 		<SecondCategory Name="프리미엄 아이템">
 			<Class ClassID="1" ClassName="ClassName1" OverrideType="None" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="PremiumToken" Price="99" Job="None" JobGrade="0"/>
-			<!--<Class ClassID="4" ClassName="ClassName4" OverrideType="ADD" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="Gacha_HairAcc_001" Price="30" Job="None" JobGrade="0"/>
-			<Class ClassID="5" ClassName="ClassName5" OverrideType="ADD" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="Gacha_HairAcc_010" Price="300" Job="None" JobGrade="0"/>-->
+			<Class ClassID="4" ClassName="ClassName4" OverrideType="ADD" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="Gacha_HairAcc_001" Price="30" Job="None" JobGrade="0"/>
+			<Class ClassID="5" ClassName="ClassName5" OverrideType="ADD" Category="TP_Premium" SubCategory="TP_Useable" ItemClassName="Gacha_HairAcc_010" Price="300" Job="None" JobGrade="0"/>
 		</SecondCategory>
 		<SecondCategory Name="소모품">
 			<Class ClassID="101" ClassName="ClassName101" Category="TP_Premium" SubCategory="TP_Consume" ItemClassName="Mic_bundle10" Price="8" Job="None" JobGrade="0"/>
