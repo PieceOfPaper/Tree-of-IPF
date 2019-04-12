@@ -18,6 +18,11 @@ function EVENT_LVUP_13094(self,pc)
     local aObj = GetAccountObj(pc);
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
     
+    if pc.Lv < 50 then
+        SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("NeedMorePcLevel"), 5)
+        return
+    end
+    
     local select = 0
     
     if sObj.EVENT_VALUE_SOBJ01 ~= 0 then
@@ -29,7 +34,7 @@ function EVENT_LVUP_13094(self,pc)
     if select == 2 then
         if sObj.EVENT_VALUE_SOBJ03 == 0 then
             local nextLv = 0
-	        local nextlv_group = {280, 235, 185, 135, 85, 45}
+	        local nextlv_group = {280, 235, 185, 135, 85, 45, 1}
 	        for i = 1, table.getn(nextlv_group) do
         	    if pc.Lv >= nextlv_group[i] then
         	        nextLv = i + pc.Lv

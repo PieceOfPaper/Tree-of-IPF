@@ -1069,6 +1069,15 @@
 		<Class ClassID="22005" ClassName="Retreat!" Data="후퇴!"/>
 		<Class ClassID="22006" ClassName="Withdrawal!" Data="철수!"/>
 	</Category>
+  <Category Name="Ayase">
+    <Class ClassID="22514" ClassName="LoadingTPItemList" Data="구매 목록을 불러오는 중입니다."/>
+    <Class ClassID="22515" ClassName="LoadedTPItemList" Data="조회 완료"/>
+    <Class ClassID="22516" ClassName="LoadFailTPItemList" Data="TP 지급 작업이 실패하였습니다. 에러코드 : {Code}"/>
+    <Class ClassID="22517" ClassName="DontHaveAnyItems" Data="구매하신 아이템이 없습니다."/>
+    <Class ClassID="22518" ClassName="NotOwnedItem" Data="현재 소유중인 아이템이 아닙니다."/>
+    <Class ClassID="22519" ClassName="BuyTPItemFailPlzRetry" Data="TP 지급 작업이 실패하였습니다. 다시 시도해 주세요."/>
+    <Class ClassID="22520" ClassName="BuyTPItemFailPlzWait" Data="TP 지급 작업이 실패하였습니다. 자동으로 재지급을 시도하고 있습니다. 잠시만 기다려 주세요."/>
+  </Category>
 	<Category Name="CardBattle">
 		<Class ClassID="23001" ClassName="PutOnlyCardItem" Data="카드아이템만 놓을 수 있습니다."/>
 		<Class ClassID="23002" ClassName="CardNotRegistered" Data="카드를 등록하지 않았습니다."/>
@@ -9516,6 +9525,7 @@
 		<Class ClassID="501013" ClassName="Steam_VerUP_Select01" Data="'레벨업 보상 상자' 받기"/>
 		<Class ClassID="501014" ClassName="Steam_VerUP_Select02" Data="'330 Level 보상' 받기"/>
 		<Class ClassID="501015" ClassName="Steam_VerUP_Select03" Data="목표레벨 확인"/>
-		<Class ClassID="501016" ClassName="Event_DaeWhaJongRyo" Data="대화 종료"/>
+		<Class ClassID="501016" ClassName="steam_Premium_SkillReset" Data="스킬 초기화 포션"/>
+		<Class ClassID="501017" ClassName="steam_Premium_SkillReset_1" Data="스킬 초기화 포션"/>
 	</Category>
 </idspace>
