@@ -35,6 +35,18 @@
                             <ToolScp Scp="EARTH_TOWER_SAVE_PC_LIST" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="InCount_Notice">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_SCP_LEADER" Client="NO" UseSleep="NO">
+                                <Str Str="GT_INCOUNT_COMPARE_RUN"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="FAIL" AutoStart="0">
@@ -158,7 +170,7 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="CHECK"/>
+                                <Str Str="InCount_Compare"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
                                 <Str Str="STAGE_1_PROG"/>
@@ -862,10 +874,42 @@
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
-                <Event execCount="1" eventName="Reward">
+                    <Event execCount="1" eventName="Reward">
                         <execList>
                             <ToolScp Scp="REWARD_EARTH_TOWER" Client="NO" UseSleep="NO">
                                 <Str Str="GT_SELECT_STAGE_20"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="InCount_Compare" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Go_OUT">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="GT_INCOUNT_COMPARE_COND_CHECK"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="CHECK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Go_CHECK">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="GT_INCOUNT_COMPARE_COND_OUT"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="OUT"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="InCount_Compare"/>
                             </ToolScp>
                         </execList>
                     </Event>
