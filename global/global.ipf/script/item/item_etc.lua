@@ -961,6 +961,12 @@ function ACHIEVE_GIVINGSHADE(pc)
    AddAchievePoint(pc, "Event_170823_Fanart_Steam", 1); 
 end
 
+function ACHIEVE_STEAM2018HAPPYNEWYEAR(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, '2018Happy_New_Year_Steam', 1)
+    local ret = TxCommit(tx);
+end
+
 function DLC_BOX12(pc)
     local tx = TxBegin(pc);
     TxGiveItem(tx, 'Hat_628254', 1, 'DLC_BOX12');

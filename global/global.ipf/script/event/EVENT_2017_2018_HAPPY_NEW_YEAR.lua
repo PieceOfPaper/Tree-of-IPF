@@ -4,7 +4,7 @@ function SCR_HAPPY_NEW_YEAR_TREE_DIALOG(self, pc)
         return
     end
 
-    local result = DOTIMEACTION_R(pc, ScpArgMsg("CannotMoreBuff"), 'PRAY', 30)
+    local result = DOTIMEACTION_R(pc, ScpArgMsg("EVENT_STEAM_HAPPY_NEW_YEAR"), 'PRAY', 30)
     
     if result == 1 then
         local tx = TxBegin(pc)

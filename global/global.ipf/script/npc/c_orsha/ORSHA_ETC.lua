@@ -39,13 +39,25 @@ function SCR_ORSHA_PETSHOP_DIALOG(self,pc)
         jobFreeCompanionMsg[#jobFreeCompanionMsg + 1] = ScpArgMsg('FREE_COMPANION_MSG1','JOB', GetClassString('Job',jobClassName[i], 'Name'),'COMPANION',GetClassString('Monster',companionClassName[i], 'Name'))
     end
     
+    local sObj = nil
+    local hidden_Matador = nil
+    if SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char1_19') == "NO" then
+        local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char1_19')
+        if prop >= 20 then
+            sObj = GetSessionObject(pc, "SSN_MATADOR_UNLOCK")
+            if sObj.Step3 < 1 or sObj.Goal3 < 1 then
+                hidden_Matador = ScpArgMsg("CHAR119_MSTEP3_TXT9")
+            end
+        end
+    end
+    
     local list = GetSummonedPetList(pc);
     if quest1 == "IMPOSSIBLE" and  #list >= 1 then
         local seldialog = { 'PETSHOP_ORSHA_basic1',
                             'PETSHOP_ORSHA_HQ1_BASICDLG1'
                           }
         local ran = IMCRandom(1, 2)
-        local select = ShowSelDlg(pc, 0, seldialog[ran], vel, hawk, hoglan, ScpArgMsg('shop_companion'), ScpArgMsg('shop_companion_learnabil'), ScpArgMsg('shop_companion_info'), jobFreeCompanionMsg[1], jobFreeCompanionMsg[2], ScpArgMsg('Auto_DaeHwa_JongLyo'));
+        local select = ShowSelDlg(pc, 0, seldialog[ran], vel, hawk, hoglan, ScpArgMsg('shop_companion'), ScpArgMsg('shop_companion_learnabil'), ScpArgMsg('shop_companion_info'), jobFreeCompanionMsg[1], jobFreeCompanionMsg[2], hidden_Matador, ScpArgMsg('Auto_DaeHwa_JongLyo'));
         
         if select == 1 or select == 2 or select == 3 then
            local scp = string.format("TRY_CECK_BARRACK_SLOT_BY_COMPANION_EXCHANGE(%d)", select);
@@ -61,9 +73,17 @@ function SCR_ORSHA_PETSHOP_DIALOG(self,pc)
             SCR_FREE_COMPANION_CREATE(pc, companionClassName[1])
         elseif select == 8 then
             SCR_FREE_COMPANION_CREATE(pc, companionClassName[2])
+        elseif select == 9 then
+            ShowOkDlg(pc, "CHAR119_MSTEP3_3_DLG1", 1)
+            ShowBalloonText(pc, "CHAR119_MSTEP3_3_PC_DLG1", 5)
+            if  sObj.Goal3 < 1 then
+                sObj.Goal3 = 1
+                SaveSessionObject(pc, sObj)
+                UnHideNPC(pc, "CHAR119_MSTEP3_3_1_NPC")
+            end
         end
     else
-        local select = ShowSelDlg(pc, 0, 'PETSHOP_ORSHA_basic1', vel, hawk, hoglan, ScpArgMsg('shop_companion'), ScpArgMsg('shop_companion_learnabil'), ScpArgMsg('shop_companion_info'), jobFreeCompanionMsg[1], jobFreeCompanionMsg[2], ScpArgMsg('Auto_DaeHwa_JongLyo'));
+        local select = ShowSelDlg(pc, 0, 'PETSHOP_ORSHA_basic1', vel, hawk, hoglan, ScpArgMsg('shop_companion'), ScpArgMsg('shop_companion_learnabil'), ScpArgMsg('shop_companion_info'), jobFreeCompanionMsg[1], jobFreeCompanionMsg[2], hidden_Matador, ScpArgMsg('Auto_DaeHwa_JongLyo'));
         
         if select == 1 or select == 2 or select == 3 then
            local scp = string.format("TRY_CECK_BARRACK_SLOT_BY_COMPANION_EXCHANGE(%d)", select);
@@ -79,6 +99,14 @@ function SCR_ORSHA_PETSHOP_DIALOG(self,pc)
             SCR_FREE_COMPANION_CREATE(pc, companionClassName[1])
         elseif select == 8 then
             SCR_FREE_COMPANION_CREATE(pc, companionClassName[2])
+        elseif select == 9 then
+            ShowOkDlg(pc, "CHAR119_MSTEP3_3_DLG1", 1)
+            ShowBalloonText(pc, "CHAR119_MSTEP3_3_PC_DLG1", 5)
+            if  sObj.Goal3 < 1 then
+                sObj.Goal3 = 1
+                SaveSessionObject(pc, sObj)
+                UnHideNPC(pc, "CHAR119_MSTEP3_3_1_NPC")
+            end
         end
     end
 end
