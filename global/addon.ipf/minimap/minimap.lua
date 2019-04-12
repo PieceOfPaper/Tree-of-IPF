@@ -169,7 +169,6 @@ function UPDATE_MINIMAP(frame)
 	
 	local mongens = mapprop.mongens;
 	if mongens ~= nil then
-		local mapNpcState = session.GetMapNPCState(mapprop:GetClassName());
 		local cnt = mongens:Count();
 		local WorldPos;
 		local minimapPos;
@@ -192,7 +191,7 @@ function UPDATE_MINIMAP(frame)
 					PictureC:SetUserValue("GlobalX", PictureC:GetGlobalX());
 					PictureC:SetUserValue("GlobalY", PictureC:GetGlobalY());
 				
-					SET_MAP_MONGEN_NPC_INFO(PictureC, mapprop, WorldPos, MonProp, mapNpcState, npclist, statelist, questIESlist);				
+					SET_MAP_MONGEN_NPC_INFO(PictureC, mapprop, WorldPos, MonProp, npclist, statelist, questIESlist);				
 					if PictureC:GetUserIValue("IsHide") == 1 then
 						PictureC:ShowWindow(0);                       
 					end

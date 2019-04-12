@@ -236,8 +236,13 @@ function UPDATE_PUZZLECRAFT_TARGETS()
 		local itemCls = GetClass("Item", resultInfo:GetTargetItemName());
 		SET_SLOT_ITEM_CLS(retSlot, itemCls);
 		SET_SLOT_COUNT_TEXT(retSlot, ptCount)
-
-        totalNeedSecond = totalNeedSecond + resultInfo.needSec * ptCount;
+        
+        local needSec = 1
+        if resultInfo ~= nil then
+            needSec = resultInfo.needSec
+        end
+        
+        totalNeedSecond = totalNeedSecond + needSec * ptCount;
 	end
 
     PUZZLECRAFT_UPDATE_TOTAL_TIME(frame, totalNeedSecond);

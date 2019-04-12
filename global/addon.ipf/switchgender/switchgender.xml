@@ -16,13 +16,13 @@
 		<tabitem name="Itembox1" parent="statusTab" caption="{@st66b}변환{/}" width="160" layout_gravity="left top"/>
 		<tabitem name="Itembox2" parent="statusTab" caption="{@st66b}기록{/}" width="160" layout_gravity="left top"/>
 		<button name="close" rect="10 0 44 44" margin="0 10 20 0" layout_gravity="right top" LBtnUpScp="SWITCHGENDER_TRY_UI_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}스위치 젠더 UI를 닫습니다{/}"/>
-		<groupbox name="repair" rect="0 0 439 900" margin="0 200 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" resizebyresolution="true" scrollbar="flase" skin="" parent="Itembox1"/>
-		<groupbox name="bg_mid" rect="0 0 433 250" margin="9 680 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle" parent="Itembox1"/>
-		<groupbox name="moneyGbox" rect="0 0 405 35" margin="0 174 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin" parent="Itembox1"/>
+		<groupbox name="repair" rect="0 0 439 900" margin="0 200 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" resizebyresolution="true" skin=""/>
+		<groupbox name="bg_mid" rect="0 0 433 250" margin="9 680 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle"/>
+		<groupbox name="moneyGbox" rect="0 0 405 35" margin="0 174 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
 		<richtext name="moneyStr" parent="moneyGbox" rect="0 0 200 80" margin="6 1 0 0" layout_gravity="left center" caption="받는 가격 {img silver 20 20} " textalign="left top" fontname="brown_16_b"/>
 		<richtext name="money" parent="moneyGbox" rect="0 0 343 48" margin="130 1 0 0" layout_gravity="left center" drawbackground="false" fixwidth="false" fontname="brown_16_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
 		<edit name="moneyInput" margin="108 -8 0 0" rect="0 10 290 27" fontname="brown_16" maxlen="16" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="moneyGbox" skin=""/>
-		<groupbox name="titleGbox" parent="Itembox1" rect="0 0 405 35" margin="0 135 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<groupbox name="titleGbox" rect="0 0 405 35" margin="0 135 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
 		<richtext name="titleStr" parent="titleGbox" rect="0 0 200 80" margin="2 1 0 0" layout_gravity="left center" caption=" 상점 이름" textalign="left top" fontname="brown_16_b"/>
 		<richtext name="title_1" parent="titleGbox" rect="0 0 343 48" margin="130 1 0 0" layout_gravity="left center" drawbackground="false" fixwidth="false" fontname="brown_16_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
 		<edit name="titleInput" margin="95 -7 0 0" rect="0 10 290 27" fontname="brown_18" maxlen="32" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="titleGbox" skin=""/>
@@ -45,7 +45,7 @@
 		<button name="btn_cencel" parent="repair" rect="0 0 160 50" margin="220 0 0 95" layout_gravity="left bottom" LBtnUpScp="SWITCHGENDER_TRY_UI_CLOSE" caption="{@st41b}취 소" skin="test_gray_button"/>
 		<button name="btn_excute" parent="repair" rect="0 0 160 50" margin="47 0 0 95" layout_gravity="left bottom" LBtnUpScp="SWITCHGENDER_BUFF_EXCUTE_BTN" caption="{@st41b}확 인" skin="test_red_button"/>
 		<button name="btn_excute_1" parent="repair" rect="0 0 160 50" margin="47 0 0 95" layout_gravity="left bottom" LBtnUpScp="SWITCHGENDER_STORE_OPEN_EXCUTE" caption="{@st41b}열 기" skin="test_red_button"/>
-		<groupbox name="log" parent="Itembox2" rect="0 0 439 900" margin="-2 106 0 10" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin=""/>
+		<groupbox name="log" rect="0 0 439 900" margin="-2 106 0 10" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin=""/>
 		<groupbox name="log_gbox" parent="log" rect="0 5 420 800" margin="0 0 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
 		<button name="btn_close" parent="log" rect="0 0 160 50" margin="0 0 0 1" layout_gravity="center bottom" LBtnUpScp="SWITCHGENDER_STORE_CLOSE" caption="{@st41b}폐점" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>
 		<richtext name="effName" margin="29 81 0 0" rect="0 0 120 24" format="{@st42}%s{nl}{@st42}%s{nl}{@st42}%s{/}" param1="v1" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="effectGbox" param2="v2" param3="v3"/>

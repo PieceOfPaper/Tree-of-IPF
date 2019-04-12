@@ -1,7 +1,7 @@
 
 function SKILLABILITY_GET_JOB_ID_LIST()
     local mySession = session.GetMySession();
-    local jobhistory = mySession.pcJobInfo;
+    local jobhistory = mySession:GetPCJobInfo();
     local joblist = {}
     local hash = {}
     for i=0, jobhistory:GetJobCount()-1 do
@@ -27,12 +27,12 @@ function SKILLABILITY_GET_JOB_TAB_INFO_LIST()
         local jobid = joblist[i];
         local jobcls = GetClassByTypeFromList(clslist, jobid);
         local jobName = GET_JOB_NAME(jobcls, gender);
-        list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_"..jobid, "gb_"..jobid, textstyle..jobName, jobcls.ClassName);
+        list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_"..jobid, "gb_"..jobid, textstyle..jobName, jobcls.ClassName, false);
     end
     
 	local commonSkillCount = session.skill.GetCommonSkillCount();	
 	if commonSkillCount > 0 then		
-        list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_"..0, "gb_"..0, textstyle..ClMsg("Common"), "Common");
+        list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_"..0, "gb_"..0, textstyle..ClMsg("Common"), "Common", false);
 	end
 
     return list;
@@ -43,8 +43,17 @@ function SKILLABILITY_GET_ABILITY_GROUP_NAME(jobEngName)--Ability_Peltasta
     return abilGroupName;
 end
 
-function SKILLABILITY_GET_ABILITY_NAME_LIST(jobEngName)
+function SKILLABILITY_GET_ABILITY_NAME_LIST(jobClsName, jobEngName)
     local retList = {}
+    local jobCls = GetClass("Job", jobClsName);
+    
+    if jobCls.DefHaveAbil ~= "None" then
+	    local sList = StringSplit(jobCls.DefHaveAbil, "#");
+        for i=1, #sList do
+            retList[#retList+1] = sList[i];
+        end
+    end
+
     local abilGroupName = SKILLABILITY_GET_ABILITY_GROUP_NAME(jobEngName);
     local list, cnt = GetClassList(abilGroupName);
     
@@ -62,6 +71,10 @@ function SKILLABILITY_GET_ABILITY_NAME_LIST(jobEngName)
 end
 
 function GET_ABILITY_CONDITION_UNLOCK(abilIES, groupClass)
+    if groupClass == nil then
+        return nil;
+    end
+
 	local unlockFuncName = groupClass.UnlockScr;
 	if unlockFuncName ~= 'None' then
 		local scp = _G[unlockFuncName];
@@ -90,6 +103,10 @@ function SKILLABILITY_GET_ABILITY_CONDITION(abilIES, groupClass, isMax)
 end
 
 function IS_ABILITY_MAX(pc, groupClass, abilClass)
+    if groupClass == nil then
+        return nil;
+    end
+
 	local abilIES = GetAbilityIESObject(pc, abilClass.ClassName);
 	local curLv = 0;
 	if abilIES ~= nil then
@@ -136,7 +153,7 @@ end
 
 function GET_TREE_INFO_BY_CLSNAME(name)
     local mySession = session.GetMySession();
-	local skillList = mySession.skillList;
+	local skillList = mySession:GetSkillList();
     local cls = GetClass("SkillTree", name);
     if cls == nil then
         return;
@@ -165,7 +182,7 @@ function GET_TREE_INFO_VEC(jobName)
     local treelist = {};
     
     local mySession = session.GetMySession();
-	local skillList = mySession.skillList;
+	local skillList = mySession:GetSkillList();
 	
     local clslist, cnt  = GetClassList("SkillTree");
     local index = 1;
@@ -395,17 +412,6 @@ function COMMIT_SKILLABILITY_SKILL(jobClsName)
     return isReq;
 end
 
-function GET_SKILLABILITY_ABILITY_POINT_REMAIN_AMOUNT()
-    -- ability point
-    local pc = GetMyPCObject();
-    local abilityPoint = pc.AbilityPoint;
-    if abilityPoint == 'None' then
-        return 0;
-    end
-    
-    return tonumber(abilityPoint);
-end
-
 function GET_SKILLABILITY_LEARN_COUNT(ability_gb, abilClsName)
     local val = ability_gb:GetUserValue(abilClsName)
     if val == "None" then
@@ -422,7 +428,7 @@ end
 function CLEAR_SKILLABILITY_LEARN_COUNT_BY_JOB(ability_gb, jobClsName)
     local jobCls = GetClass("Job", jobClsName);
     local jobEngName = jobCls.EngName;
-    local list = SKILLABILITY_GET_ABILITY_NAME_LIST(jobEngName)--Ability_Peltasta
+    local list = SKILLABILITY_GET_ABILITY_NAME_LIST(jobClsName, jobEngName)--Ability_Peltasta
 
     for i=1, #list do
         local abilClass = GetClass("Ability", list[i]);
@@ -436,7 +442,7 @@ function GET_CHANGED_SKILLABILITY_ABILITY(ability_gb, abilGroupName, jobClsName)
     
     local jobCls = GetClass("Job", jobClsName);
     local jobEngName = jobCls.EngName;
-    local list = SKILLABILITY_GET_ABILITY_NAME_LIST(jobEngName)--Ability_Peltasta
+    local list = SKILLABILITY_GET_ABILITY_NAME_LIST(jobClsName, jobEngName)--Ability_Peltasta
     
     for i=1, #list do
         local clsName = list[i];

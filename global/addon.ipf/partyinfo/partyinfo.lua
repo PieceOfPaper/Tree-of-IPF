@@ -4,8 +4,55 @@ function PARTYINFO_ON_INIT(addon, frame)
 	addon:RegisterMsg("PARTY_BUFFLIST_UPDATE", "ON_PARTYINFO_BUFFLIST_UPDATE");
 	addon:RegisterMsg("PARTY_INST_UPDATE", "ON_PARTYINFO_INST_UPDATE");
 	addon:RegisterMsg("PARTY_OUT", "ON_PARTYINFO_DESTROY");
-
 	addon:RegisterMsg("PARTY_INVITE_CANCEL", "ON_PARTY_INVITE_CANCEL");
+	
+	addon:RegisterMsg("GAME_START", "PARTYINFO_CONTROL_INIT");
+end
+
+function PARTYINFO_CONTROL_INIT()
+	-- need summonUI check
+	local frame = ui.GetFrame("partyinfo");
+	local summonsUI = ui.GetFrame("summonsinfo");
+	local button = GET_CHILD_RECURSIVELY(frame, "partyinfobutton");
+	local buttonText = GET_CHILD_RECURSIVELY(frame, "buttontitle");
+	local title_gbox = GET_CHILD_RECURSIVELY(frame, "titlegbox");
+	if IS_NEED_SUMMON_UI() == 0 then
+		if title_gbox ~= nil and button ~= nil and buttonText ~= nil then
+			title_gbox:EnableDrawFrame(0);
+			button:SetVisible(0);
+			buttonText:SetVisible(0);
+		end
+	elseif IS_NEED_SUMMON_UI() == 1 and summonsUI ~= nil and summonsUI:IsVisible() then
+		if button ~= nil and buttonText ~= nil then
+			button:SetVisible(0);
+			buttonText:SetVisible(0);
+		end
+	end
+
+	if button ~= nil then
+		button:SetTextTooltip(ClMsg("SummonsInfo_ConvertSummonsInfo_ToolTip"));
+		button:EnableHitTest(1);
+	end
+	
+	if buttonText ~= nil then
+		buttonText:SetTextByKey("title", ClMsg("SummonsInfo_PartyInfo"));
+	end
+end
+
+function PARTYINFO_BUTTON_UI_CHECK(isVisible)
+	local frame = ui.GetFrame("partyinfo");
+	if frame == nil then
+		return; 
+	end
+
+	local title_gbox = GET_CHILD_RECURSIVELY(frame, "titlegbox");
+	local button = GET_CHILD_RECURSIVELY(frame, "partyinfobutton");
+	local buttonText = GET_CHILD_RECURSIVELY(frame, "buttontitle");
+	if title_gbox ~= nil and button ~= nil and buttonText ~= nil then
+		title_gbox:EnableDrawFrame(isVisible);
+		button:SetVisible(isVisible);
+		buttonText:SetVisible(isVisible);
+	end
 end
 
 function ON_PARTYINFO_INST_UPDATE(frame, msg, argStr, argNum)
@@ -40,14 +87,27 @@ function ON_PARTYINFO_INST_UPDATE(frame, msg, argStr, argNum)
 end
 
 function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
+	local summonsinfo = ui.GetFrame("summonsinfo");
 	local pcparty = session.party.GetPartyInfo();
 	if pcparty == nil then
 		DESTROY_CHILD_BYNAME(frame, 'PTINFO_');
 		frame:ShowWindow(0);
+
+		if summonsinfo ~= nil then
+			SUMMONSINFO_TOGGLE_BUTTON(summonsinfo, 0)
+		end
+
+		local button = GET_CHILD_RECURSIVELY(summonsinfo, "summonsinfobutton");
+		if button ~= nil then
+			button:SetVisible(0);
+			button:EnableHitTest(0);
+			button:SetTextTooltip("");
+		end
 		return;
 	end
 
 	frame:ShowWindow(1);
+	frame:SetVisible(1);
 	local partyInfo = pcparty.info;
 	local obj = GetIES(pcparty:GetObject());
 	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
@@ -55,6 +115,7 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 	local memberIndex = 0;
 	local myAid = session.loginInfo.GetAID();	
     local partyID = pcparty.info:GetPartyID();
+
 	for i = 0 , count - 1 do
 		local partyMemberInfo = list:Element(i);
 		if partyMemberInfo:GetAID() ~= myAid then
@@ -91,8 +152,21 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 		end
 	end
 	-- DESTROY_CHILD_BYNAME(frame, 'PTINFO_');
-	GBOX_AUTO_ALIGN(frame, 10, 0, 0, true, false);
+	PARTYINFO_CONTROLSET_AUTO_ALIGN(frame);
 	frame:Invalidate();
+
+	-- invite party member visible check
+	if summonsinfo:IsVisible() == 1 then
+		frame:SetVisible(0);
+		local button = GET_CHILD_RECURSIVELY(summonsinfo, "summonsinfobutton");
+		if button ~= nil then
+			button:SetVisible(1);
+			button:SetTextTooltip(ClMsg("SummonsInfo_ConvertPartyInfo_ToolTip"));
+			button:EnableHitTest(1);
+			CHANGE_BUTTON_TITLE(summonsinfo, ClMsg("SummonsInfo_SummonsInfo"));
+			summonsinfo:Invalidate();
+		end
+	end
 end
 
 function IS_PARTY_INFO_SHOWICON(showIcon)
@@ -219,7 +293,6 @@ function OPEN_PARTY_INFO()
 end
 
 function OUT_PARTY()
-
 	if session.GetCurrentMapProp():GetUsePartyOut() == "NO" then
 		ui.SysMsg(ScpArgMsg("ThatMapCannotPartyOut"));
 		return;
@@ -243,7 +316,6 @@ function BAN_PARTY_MEMBER(name)
 end
 
 function GIVE_PARTY_LEADER(name)
-	
 	if session.GetCurrentMapProp():GetUsePartyOut() == "NO" then
 		ui.SysMsg(ScpArgMsg("ThatMapCannotChangePartyLeader"));
 		return;
@@ -253,7 +325,7 @@ function GIVE_PARTY_LEADER(name)
 end
 
 function OPEN_PARTY_MEMBER_INFO(handle)
-
+	
 	ui.PropertyCompare(handle, 1);
 end
 function CONTEXT_PARTY(frame, ctrl, aid)	
@@ -274,7 +346,6 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		local execScp = string.format("ui.Chat(\"/changePVPObserveTarget %d 0\")", memberInfo:GetHandle());
 		ui.AddContextMenuItem(context, ScpArgMsg("Observe{PC}", 'PC',memberInfo:GetName() ), execScp);
 		ui.OpenContextMenu(context);
-
 		return;
 	end
 	if aid == myAid then
@@ -316,7 +387,6 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 	
 	ui.AddContextMenuItem(context, ScpArgMsg("Cancel"), "None");
 	ui.OpenContextMenu(context);
-
 end
 
 function UPDATE_PARTYINFO_HP(partyInfoCtrlSet, partyMemberInfo)
@@ -329,13 +399,11 @@ function UPDATE_PARTYINFO_HP(partyInfoCtrlSet, partyMemberInfo)
 	spGauge:SetPoint(stat.sp, stat.maxsp);
 
 	local hpRatio = stat.hp / stat.maxhp;
-
 	if  hpRatio <= 0.3 and hpRatio > 0 then
 		hpGauge:SetBlink(0.0, 1.0, 0xffff3333); -- (duration, 주기, ?�상)
 	else
 		hpGauge:ReleaseBlink();
 	end
-
 end
 
 function PARTY_HP_UPDATE(actor, partyMemberInfo)
@@ -377,11 +445,6 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 		return nil;
 	end	
 
-	--if partyMemberInfo:GetHandle() == myHandle then
-	--	frame:RemoveChild(ctrlName);
-	--	return nil;
-	--end
-	
 	local partyInfoCtrlSet = frame:CreateOrGetControlSet('partyinfo', ctrlName, 10, count * 100);
 		
 	UPDATE_PARTYINFO_HP(partyInfoCtrlSet, partyMemberInfo);
@@ -484,7 +547,7 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 		spGauge:SetStatAlign(0, ui.CENTER_HORZ, ui.CENTER_VERT);
 		spGauge:SetStatFont(0, 'white_12_ol');
 	end
-			
+
 	-- 파티원 레벨 표시 -- 
 	local lvbox = partyInfoCtrlSet:GetChild('lvbox');
 	local levelObj = partyInfoCtrlSet:GetChild('lvbox');
@@ -771,7 +834,7 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName, isChangeMainClass)
 		nowjobcls = nowJobName; 
 	else
 		nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);        
-	end; 
+	end
 
 	local OTHERPCJOBS = {}	
 	for i = 0, otherpcinfo:GetJobCount()-1 do
@@ -780,17 +843,16 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName, isChangeMainClass)
 			OTHERPCJOBS[tempjobinfo.jobID] = 1;
 		end
 	end
+
 	local jobtext = ("");
 	for jobid, grade in pairs(OTHERPCJOBS) do
 		-- 클래스 이름{@st41}
 		local cls = GetClassByTypeFromList(clslist, jobid);
-
 		if cls.Name == nowjobcls.Name then
 			jobtext = jobtext .. ("{@st41_yellow}").. GET_JOB_NAME(cls, gender);
 		else
 			jobtext = jobtext .. ("{@st41}").. GET_JOB_NAME(cls, gender);
 		end
-		
 		jobtext = jobtext ..('{nl}');
 	end
 	uiChild:SetTextTooltip(jobtext);
@@ -804,6 +866,7 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 		return 0;
 	end		 
 			 	
+
 	local otherpcinfo = session.otherPC.GetByStrCID(cid);
 	local nowjobinfo, jobCount;	
     local gender;
@@ -813,25 +876,26 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
         nowjobinfo = otherpcinfo:GetJobInfoByIndex(jobCount - 1);
 	    gender = otherpcinfo:GetIconInfo().gender;
     else
-		jobCount = mySession.pcJobInfo:GetJobCount();
-        nowjobinfo = mySession.pcJobInfo:GetJobInfoByIndex(jobCount - 1);
+		jobCount = mySession:GetPCJobInfo():GetJobCount();
+        nowjobinfo = mySession:GetPCJobInfo():GetJobInfoByIndex(jobCount - 1);
         gender = info.GetGender(session.GetMyHandle());
     end
+
 	local clslist, cnt  = GetClassList("Job");
-	
 	local nowjobcls;
 	if nil == nowjobinfo then
 		nowjobcls = nowJobName; 
 	else
 		nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
-	end; 
+	end
+
 	local OTHERPCJOBS = {}
 	for i = 0, jobCount - 1 do		
 		local tempjobinfo;
 		if otherpcinfo ~= nil then
 			tempjobinfo = otherpcinfo:GetJobInfoByIndex(i);
 		else
-			tempjobinfo = mySession.pcJobInfo:GetJobInfoByIndex(i);
+			tempjobinfo = mySession:GetPCJobInfo():GetJobInfoByIndex(i);
 		end
 
 		if OTHERPCJOBS[tempjobinfo.jobID] == nil then
@@ -859,6 +923,7 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 			jobtext = jobtext .. ("{@st41}").. GET_JOB_NAME(cls, gender)..'{nl}{/}';
 		end
 	end
+
 	icon:SetTextTooltip(jobtext);
 	icon:EnableHitTest(1);
 	return 1;
@@ -869,14 +934,16 @@ function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName, isChangeMainClass)
 	if nil == icon then 
 		return 0;
 	end		 	
+
    	local mySession = session.GetMySession();
-	local pcJobInfo = mySession.pcJobInfo;
-	local jobhistory = mySession.pcJobInfo;
+	local pcJobInfo = mySession:GetPCJobInfo();
+	local jobhistory = mySession:GetPCJobInfo();
     local gender = info.GetGender(session.GetMyHandle());
 	local clslist, cnt  = GetClassList("Job");
 	
 	local nowjobinfo = jobhistory:GetJobInfoByIndex(jobhistory:GetJobCount()-1);
 	local nowjobcls;
+	
 	if nil == nowjobinfo or (isChangeMainClass ~= nil and isChangeMainClass == 1) then
 		nowjobcls = nowJobName; 
 	else
@@ -894,7 +961,6 @@ function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName, isChangeMainClass)
 	end
 
 	local jobtext = ("");
-
 	for jobid, grade in pairs(MYPCJOBS) do
 		-- 클래스 이름{@st41}
 		local cls = GetClassByTypeFromList(clslist, jobid);
@@ -907,7 +973,89 @@ function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName, isChangeMainClass)
 		
 		jobtext = jobtext ..('{nl}');
 	end
+	
 	icon:SetTextTooltip(jobtext);
 	icon:EnableHitTest(1);
 	return 1;
+end
+
+-- grave hotkey down
+function PARTYINFO_TOGGLE()
+local frame = ui.GetFrame("partyinfo");
+	if frame == nil then
+		return;
+	end
+
+	local pcparty = session.party.GetPartyInfo();
+	if frame ~= nil and pcparty ~= nil then
+		PARTYINFO_UPDATE_BUTTON(frame);
+	end
+end
+
+-- partyinfo update button input
+function PARTYINFO_UPDATE_BUTTON(frame)
+	local summonsinfo = ui.GetFrame("summonsinfo"); 
+	local isNeedSummonUI = IS_NEED_SUMMON_UI();
+	if isNeedSummonUI == 0 then
+		return;
+	end
+
+	local button = GET_CHILD_RECURSIVELY(frame, "partyinfobutton");
+	local buttonText = GET_CHILD_RECURSIVELY(frame, "buttontitle");
+	local title_gbox = GET_CHILD_RECURSIVELY(frame, "titlegbox");
+
+	local changeFlag = tonumber(frame:GetUserConfig("CHANGE_FLAG"));
+	if changeFlag == 0 then -- summonsinfo	
+		PARTYINFO_REMOVE_CONTROLSET(frame);
+
+		frame:SetVisible(0);
+		frame:SetUserConfig("CHANGE_FLAG", "1");
+		title_gbox:EnableDrawFrame(0);
+
+		if button ~= nil and buttonText ~= nil then
+			button:SetVisible(0);
+			buttonText:SetVisible(0);
+		end
+	elseif changeFlag == 1 then	-- partyinfo
+		ON_PARTYINFO_UPDATE(frame);
+
+		frame:SetVisible(1);
+		frame:SetUserConfig("CHANGE_FLAG", "0");
+		title_gbox:EnableDrawFrame(1);
+
+		if button ~= nil and buttonText ~= nil then
+			-- button tooltip
+			button:SetVisible(1);
+			button:SetTextTooltip(ClMsg("SummonsInfo_ConvertSummonsInfo_ToolTip"));
+			button:EnableHitTest(1);
+
+			buttonText:SetVisible(1);
+			buttonText:SetTextByKey("title", ClMsg("SummonsInfo_PartyInfo"));
+		end
+	end
+
+	SUMMONSINFO_TOGGLE_BUTTON(summonsinfo, changeFlag);
+	PARTYINFO_CONTROLSET_AUTO_ALIGN(frame);
+end
+
+-- partyinfo controlset Remove
+function PARTYINFO_REMOVE_CONTROLSET(frame)
+	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
+	local count = list:Count();
+	
+	for i = 0, count - 1 do
+		local partyMemberInfo = list:Element(i);
+		local partyInfoCtrlSet = GET_CHILD_RECURSIVELY(frame, 'PTINFO_'.. partyMemberInfo:GetAID()); 
+		if partyInfoCtrlSet ~= nil then
+			frame:RemoveChild(partyInfoCtrlSet:GetName());
+		end
+	end
+
+	frame:Invalidate();
+	PARTYINFO_CONTROLSET_AUTO_ALIGN(frame);
+end
+
+function PARTYINFO_CONTROLSET_AUTO_ALIGN(frame)
+	GBOX_AUTO_ALIGN(frame, 10, 0, 0, true, false);
+	frame:Invalidate();
 end

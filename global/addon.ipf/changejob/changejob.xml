@@ -65,7 +65,7 @@
 		<!-- Class Info: Skill -->
 		<richtext name="class_ex_text" parent="explainBox" rect="0 0 500 30" margin="10 10 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" format="{@st43}클래스 정보{/}" maxwidth="0" param1_def="스킬" resizebytext="false" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<richtext name="skilltext" parent="explainBox" rect="0 0 500 30" margin="10 210 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" format="{@st43}스킬{/}" maxwidth="0" param1_def="스킬" resizebytext="false" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-		<groupbox name="groupbox_skills" parent="explainBox" rect="0 0 550 130" margin="10 250 0 0" layout_gravity="left top" hittestbox="5 5" draw="false"/>
+		<groupbox name="groupbox_skills" parent="explainBox" rect="0 0 550 130" margin="10 250 0 0" layout_gravity="left top" draw="false"/>
 		<picture name="rollbackInfoBox" rect="0 0 886 1080" margin="0 0 0 0" layout_gravity="left top" hittestbox="true" image="fullblack" stretch="true" alpha="90" resizebyparent="true" resizebyresolution="true"/>
 		<button name="rollbackCloseBtn" parent="rollbackInfoBox" rect="0 0 44 44" margin="0 15 10 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CHANGEJOB_CLOSE_ROLLBACK_MODE" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" texttooltip="클래스 변경 모드를 종료합니다."/>
 		<richtext name="infoText" parent="rollbackInfoBox" rect="0 0 800 50" margin="0 0 0 0" layout_gravity="center center" caption="{@st43}변경 할 클래스를 선택한 후에 전직하기 버튼을 눌러주세요."/>

@@ -1,4 +1,7 @@
-﻿function GUILDINFO_ON_INIT(addon, frame)
+﻿local json = require "json_imc"
+
+local firstOpen = true;
+function GUILDINFO_ON_INIT(addon, frame)
 	addon:RegisterMsg("GUILD_NEUTRALITY_UPDATE", 'ON_GUILD_NEUTRALITY_UPDATE');
     addon:RegisterMsg('GUILD_UPDATE_PROFILE', 'ON_GUILD_UPDATE_PROFILE');
 	addon:RegisterMsg("UPDATE_GUILD_ONE_SAY", "GUILDINFO_COMMUNITY_INIT_ONELINE");
@@ -9,6 +12,7 @@
     addon:RegisterMsg('GUILD_WAREHOUSE_ITEM_LIST', 'GUILDINFO_INVEN_UPDATE_INVENTORY');
     addon:RegisterMsg('GUILD_ASSET_LOG_UPDATE', 'ON_GUILD_ASSET_LOG');
     addon:RegisterMsg('GUILD_INFO_UPDATE', 'GUILDINFO_UPDATE_INFO');
+    addon:RegisterMsg('GUILD_MEMBER_INFO_UPDATE', 'GUILDINFO_UPDATE_INFO');
 	addon:RegisterMsg("GUILD_ENTER", "GUILDINFO_UPDATE_INFO");
 	addon:RegisterMsg("GUILD_OUT", "ON_GUILD_OUT");
     addon:RegisterMsg('MYPC_GUILD_JOIN', 'GUILDINFO_OPEN_UI');
@@ -17,8 +21,9 @@
     addon:RegisterMsg('COLONY_ENTER_CONFIG_FAIL', 'GUILDINFO_COLONY_INIT_RADIO');
     addon:RegisterMsg('COLONY_OCCUPATION_INFO_UPDATE', 'GUILDINFO_COLONY_UPDATE_OCCUPY_INFO');
     addon:RegisterMsg("GUILD_MASTER_REQUEST", "ON_GUILD_MASTER_REQUEST");
-    addon:RegisterMsg("GUILD_EVENT_UPDATE", "UPDATE_GUILD_EVENT_INFO");    
-
+    addon:RegisterMsg("GUILD_JOINT_INV_ITEM_LIST", "ON_GUILD_JOINT_INV_ITEM_LIST_GET");
+    addon:RegisterMsg("UPDATE_GUILD_MILEAGE", "ON_UPDATE_GUILD_MILEAGE");    
+    firstOpen = true;
     g_ENABLE_GUILD_MEMBER_SHOW = false;
 end
 
@@ -30,10 +35,64 @@ function UI_CHECK_GUILD_UI_OPEN(propname, propvalue)
 	return 1;
 end
 
+
 function GUILDINFO_OPEN_UI(frame)
-    GUILDINFO_INIT_TAB(frame);
+    local myActor = GetMyActor();
+    if myActor == nil or myActor:IsGuildExist() == false then
+        return;
+    end
+
+    local frame = ui.GetFrame("guildinfo");
+ 
+    GetClaimList("ON_CLAIM_GET")
+
+    local mainTab = GET_CHILD_RECURSIVELY(frame, 'maintab');
+    if firstOpen == true then
+
+        --todo여기에 처음 로드할때만 요청할 바인드함수 추가
+        GUILDINFO_OPTION_INIT(frame, frame);
+        mainTab:SelectTab(0);
+        firstOpen = false    
+    end
+
+    GUILDINFO_COLONY_INIT(frame, frame)
+    INIT_UI_BY_CLAIM();
+
     GUILDINFO_INIT_PROFILE(frame); 
+    GUILDINFO_OPTION_INIT_SETTING_CLAIM_TAB();
+    
+	GetGuildInfo("GUILDINFO_GET");
+
+    GUILD_APPLICANT_INIT()
+
+    session.party.ReqGuildAsset();
+    session.party.ReqMemberLogoutTime();
+
+    GetGuildNotice("GUILDNOTICE_GET")
+    
+    local guildObj = GET_MY_GUILD_OBJECT();
+    if guildObj.Level == nil or guildObj.Level < 8 then
+        mainTab:SetTabVisible(5, false)
+    else
+        mainTab:SetTabVisible(5, true)
+    end
+
 end
+
+function GUILDNOTICE_GET(code, ret_json)
+    if code ~= 200 then
+        SHOW_GUILD_HTTP_ERROR(code, ret_json, "GUILDNOTICE_GET")
+    end
+
+    local frame = ui.GetFrame("guildinfo")
+    local notifyText = GET_CHILD_RECURSIVELY(frame, 'noticeEdit');
+    if notifyText:IsHaveFocus() == 0 then
+        notifyText:SetText(ret_json)
+        notifyText:Invalidate()
+    end
+
+end
+
 
 function GUILDINFO_INIT_PROFILE(frame)
     local guild = session.party.GetPartyInfo(PARTY_GUILD);
@@ -43,15 +102,16 @@ function GUILDINFO_INIT_PROFILE(frame)
     end
 
     local guildObj = GET_MY_GUILD_OBJECT();
-    local profileBox = GET_CHILD_RECURSIVELY(frame, 'profileBox');
+    local guildInfoTab = GET_CHILD_RECURSIVELY(frame, "guildinfo_");
+    local guildName = GET_CHILD_RECURSIVELY(frame, "guildname");
+    guildName:SetTextByKey("name", guild.info.name);
 
-    -- level and name
-    local nameText = GET_CHILD_RECURSIVELY(profileBox, 'nameText');    
-    nameText:SetTextByKey('level', guildObj.Level);
-    nameText:SetTextByKey('name', guild.info.name);
+    local guildLvl = GET_CHILD_RECURSIVELY(guildInfoTab, "guildLvl");
+    guildLvl:SetTextByKey('level', guildObj.Level);
+    
 
     -- leader name
-    local masterText = GET_CHILD_RECURSIVELY(profileBox, 'masterText');
+    local masterText = GET_CHILD_RECURSIVELY(guildInfoTab, 'guildMasterName');
     local leaderAID = guild.info:GetLeaderAID();
 	local list = session.party.GetPartyMemberList(PARTY_GUILD);
 	local count = list:Count();
@@ -59,51 +119,33 @@ function GUILDINFO_INIT_PROFILE(frame)
 		local partyMemberInfo = list:Element(i);
 		if leaderAID == partyMemberInfo:GetAID() then
 			leaderName = partyMemberInfo:GetName();
-            masterText:SetTextByKey('name', leaderName);
+            masterText:SetText("{@st66b}" .. leaderName .. "{/}");
             break;
 		end
 	end
 
     -- opening date
-    local openText = GET_CHILD_RECURSIVELY(profileBox, 'openText');
+    local openText = GET_CHILD_RECURSIVELY(guildInfoTab, 'foundtxt');
     local openDate = imcTime.ImcTimeToSysTime(guild.info.createTime);
     local openDateStr = string.format('%04d.%02d.%02d', openDate.wYear, openDate.wMonth, openDate.wDay); -- yyyy.mm.dd
     openText:SetTextByKey('date', openDateStr);
 
     -- member
-    local memberText = GET_CHILD_RECURSIVELY(profileBox, 'memberText');
+    local memberText = GET_CHILD_RECURSIVELY(guildInfoTab, 'memberNum');
     memberText:SetTextByKey('current', count);
     memberText:SetTextByKey('max',  guild:GetMaxGuildMemberCount());
 
     -- asset
-   GUILDINFO_PROFILE_INIT_ASSET(frame);
+   GUILDINFO_PROFILE_INIT_ASSET(guildInfoTab);
 
-    -- notice
-    local notifyText = GET_CHILD_RECURSIVELY(profileBox, 'notifyText');
-    notifyText:SetText(guild.info:GetNotice());
-
-    -- introduce
-    local introduceText = GET_CHILD_RECURSIVELY(profileBox, 'introduceText');
-    introduceText:SetText(guild.info:GetProfile());
-
-    -- embelem
+    -- emblem
     GUILDINFO_PROFILE_INIT_EMBLEM(frame);
 end
 
-function GUILDINFO_PROFILE_INIT_ASSET(frame)
-    local profileBox = GET_CHILD_RECURSIVELY(frame, 'profileBox');
-    local moneyText = GET_CHILD_RECURSIVELY(profileBox, 'moneyText');
-    local guildObj = GET_MY_GUILD_OBJECT();
-    local guildAsset = guildObj.GuildAsset;    
-    if guildAsset == nil or guildAsset == 'None' then
-        guildAsset = 0;
-    end
-    moneyText:SetTextByKey('money', GET_COMMAED_STRING(guildAsset));
-end
-
-function GUILDINFO_INIT_TAB(frame)
-    local mainTab = GET_CHILD(frame, 'mainTab');
-    mainTab:SelectTab(0);
+function GUILDINFO_PROFILE_INIT_ASSET(frame)    
+    local moneyText = GET_CHILD_RECURSIVELY(frame, 'guildFund');
+    local guild = session.party.GetPartyInfo(PARTY_GUILD);    
+    moneyText:SetText("{@st66b}" .. GET_COMMAED_STRING(guild.info:GetAssetAmount()) .. "{/}");
 end
 
 function GET_MY_GUILD_INFO()
@@ -132,7 +174,7 @@ function ON_UPDATE_GUILD_ASSET(frame, msg, argStr, argNum)
     GUILDINFO_INIT_PROFILE(frame);
 end
 
-function GUILDINFO_UPDATE_INFO(frame, msg, argStr, argNum)
+function GUILDINFO_UPDATE_INFO(frame, msg, argStr, argNum)    
     GUILDINFO_INIT_PROFILE(frame);
     _GUILDINFO_INIT_MEMBER_TAB(frame);
 end
@@ -141,8 +183,7 @@ function GUILDINFO_FORCE_CLOSE_UI()
     local frame = ui.GetFrame("guildinfo");
     if frame ~= nil then
         if frame:IsVisible() == 1 then
-        
-        GUILDINFO_CLOSE_UI(frame)
+            GUILDINFO_CLOSE_UI(frame)
         end
     end
 end
@@ -157,9 +198,9 @@ end
 
 function GUILDINFO_CLOSE_UI(frame)    
     ui.CloseFrame('guildinven_send');
-    ui.CloseFrame('guild_authority_popup');
     ui.CloseFrame('guildemblem_change');
-
+    ui.CloseFrame("loadimage")
+    ui.CloseFrame("previewpicture")
     frame:ShowWindow(0);
 end
 
@@ -174,17 +215,15 @@ function GUILDINFO_UPDATE_PROPERTY(frame, msg, argStr, argNum)
     elseif argStr == 'GuildOnlyAgit' then
         GUILDINFO_OPTION_INIT(frame, frame);
         return;
-    elseif argStr == 'GuildAsset' then
-        ON_UPDATE_GUILD_ASSET(frame, msg, argStr, argNum);
     end
 end
 
 function GUILDINFO_PROFILE_INIT_EMBLEM(frame)
-    local guildInfo = GET_MY_GUILD_INFO();    
+    local guildInfo = GET_MY_GUILD_INFO();
     local worldID = session.party.GetMyWorldIDStr();    
     local emblemImgName = guild.GetEmblemImageName(guildInfo.info:GetPartyID(),worldID);  
     local isRegisteredEmblem = session.party.IsRegisteredEmblem();
-    DRAW_GUILD_EMBLEM(frame,false,  isRegisteredEmblem, emblemImgName)
+    DRAW_GUILD_EMBLEM(frame, false, isRegisteredEmblem, emblemImgName)
     GUILDINFO_OPTION_UPDATE_EMBLEM(frame)
 end 
 
@@ -198,21 +237,29 @@ function DRAW_GUILD_EMBLEM(frame, isPreView, isRegisteredEmblem, emblemName)
     end
 
     if isOpenGuildInfoUI == true then
-        local emblemFront = GET_CHILD_RECURSIVELY(frame_guildInfo, 'emblemPic_upload');
-        local emblemBack = GET_CHILD_RECURSIVELY(frame_guildInfo, 'emblemPic');
-        emblemFront:ShowWindow(0)
-        emblemBack:ShowWindow(0);
+        local default_emblem = frame_guildInfo:GetUserConfig("DEFAULT_EMBLEM_IMAGE");
+        
+        local emblemBack = GET_CHILD_RECURSIVELY(frame_guildInfo, "emblem");
+
+        local previewEmblem = GET_CHILD_RECURSIVELY(frame_guildInfo, 'emblemPreview');
 
         if isPreView == true then
-            emblemFront:SetImage(""); -- clear clone image
-            emblemFront:SetFileName(emblemName);
-            emblemFront:ShowWindow(1); 
+            previewEmblem:SetImage("")
+            previewEmblem:SetFileName(emblemName);
         else
-            if isRegisteredEmblem == true and emblemName ~= 'None' then
-                emblemBack:SetImage(emblemName); 
-            else
-                local default_emblem = frame_guildInfo:GetUserConfig("DEFAULT_EMBLEM_IMAGE");
+            --길드 엠블렘 변경중. 창을 닫으면 자동으로 기존엠블렘으로 업데이트됨.
+            local frame_emblemChange = ui.GetFrame("guildemblem_change");
+            if frame_emblemChange ~= nil and frame_emblemChange:IsVisible() == 1 then
+                return
+            end
+            emblemBack:SetImage("")
+            previewEmblem:SetImage("")
+            if emblemName ~= 'None' and isRegisteredEmblem == true then
+                emblemBack:SetFileName(emblemName); 
+                previewEmblem:SetFileName(emblemName);
+            else          
                 emblemBack:SetImage(default_emblem);
+                previewEmblem:SetImage(default_emblem);
             end
             emblemBack:ShowWindow(1);
         end
@@ -224,26 +271,27 @@ function ON_UPDATE_GUILD_EMBLEM(frame,  msg, argStr, argNum)
    GUILDINFO_PROFILE_INIT_EMBLEM(frame)
 end
 
-function REGISTER_GUILD_EMBLEM(frame)
-   GUILDEMBLEM_CHANGE_INIT(frame);
-end
 
 function UI_TOGGLE_GUILD()
     if app.IsBarrackMode() == true then
 		return;
-	end
+    end
+    if session.world.IsIntegrateServer() == true then
+        ui.SysMsg(ScpArgMsg("CantUseThisInIntegrateServer"));
+        return;
+    end
 
-	local guildinfo = session.GetGuildInfo();
-	if guildinfo == nil then
-		return;
-	end
+    local guildinfo = session.GetGuildInfo();
+    if guildinfo == nil then
+        return;
+    end
     g_ENABLE_GUILD_MEMBER_SHOW = true;
 	ui.ToggleFrame('guildinfo');
 end
 
 function ON_GUILD_MASTER_REQUEST(frame, msg, argStr)
 	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-	if nil ==pcparty then
+	if nil == pcparty then
 		return;
 	end
 	local leaderAID = pcparty.info:GetLeaderAID();
@@ -257,59 +305,7 @@ function ON_GUILD_MASTER_REQUEST(frame, msg, argStr)
 		end
 	end
 
-	local yesScp = string.format("ui.Chat('/agreeGuildMaster')");
+	local yesScp = string.format("ui.Chat('/agreeGuildMasterByWeb')");
 	local noScp = string.format("ui.Chat('/disagreeGuildMaster')");
 	ui.MsgBox(ScpArgMsg("DoYouWantGuildLeadr{N1}{N2}",'N1',leaderName,'N2', pcparty.info.name), yesScp, noScp);
-end
-
-function UPDATE_GUILD_EVENT_INFO(frame)
-    local pcparty = GET_MY_GUILD_INFO();
-    local partyObj = GET_MY_GUILD_OBJECT();
-    if pcparty == nil or partyObj == nil then
-        return;
-    end
-
-	local pcAcc = GetMyAccountObj();
-	if partyObj["GuildBossSummonFlag"] ~= 1 then
-		session.minimap.RemoveIconInfo("GuildBossSummon");
-	end
-	if partyObj["GuildInDunFlag"] ~= 1 then
-		session.minimap.RemoveIconInfo("GuildIndun");
-	end
-
-	if partyObj["GuildBossSummonFlag"] == 1 and pcAcc.GuildEventSeq == partyObj.GuildEventSeq then
-		local locInfo = geClientGuildEvent.GetGuildEventLocaionInfo(pcparty, "GuildBossSummonLocInfo");
-		if locInfo ~= nil then
-			local mapCls = GetClassByType("Map", locInfo.mapID);
-			local pos = geClientPartyQuest.GetLocInfoPos(locInfo);
-			local mapprop = session.GetCurrentMapProp();
-			if locInfo.mapID == mapprop.type then
-				session.minimap.AddIconInfo("GuildBossSummon", "trasuremapmark", pos, ClMsg("GuildEventLocal"), true, "None", 1.5);
-			end
-		end
-	elseif partyObj["GuildInDunFlag"] == 1 then
-		local locInfo = geClientGuildEvent.GetGuildEventLocaionInfo(pcparty, "GuildInDunLocInfo");
-		if locInfo ~= nil then
-			local mapCls = GetClassByType("Map", locInfo.mapID);
-			local pos = geClientPartyQuest.GetLocInfoPos(locInfo);
-			local mapprop = session.GetCurrentMapProp();
-			if locInfo.mapID == mapprop.type then
-				session.minimap.AddIconInfo("GuildIndun", "trasuremapmark", pos, ClMsg("GuildEventLocal"), true, "None", 1.5);
-			end
-		end
-	end
-
-	if partyObj["GuildRaidFlag"] == 1 then
-		if partyObj["GuildRaidStage"] > 1 then
-			local raidStage = string.format("raidStage%d", partyObj["GuildRaidStage"] - 1);
-			session.minimap.RemoveIconInfo(raidStage);
-		end
-		local stageMapID = geClientGuildEvent.GetStageMapID(pcparty)
-		local mapprop = session.GetCurrentMapProp();
-		if mapprop.type == stageMapID then
-			local pos = geClientGuildEvent.GetStagePos(pcparty)
-			local raidStage = string.format("raidStage%d", partyObj["GuildRaidStage"]);
-			session.minimap.AddIconInfo(raidStage, "trasuremapmark", pos, ClMsg("GuildEventLocal"), true, "None", 1.5);
-		end
-	end
 end

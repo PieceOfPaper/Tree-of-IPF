@@ -42,7 +42,13 @@ function CAMP_REG_INIT(frame, skillName, sklLevel)
 
 	local silver, itemList = CAMP_NEED_PRICE(skillName, sklLevel);
 	local silver_text = GET_CHILD(gbox, "silver_text");
-	silver_text:SetTextByKey("value", GET_MONEY_IMG(20) .. " " .. silver);
+	local item = session.GetInvItemByType(900011);
+	if item ~= nil then
+	    local total_silver = item.count;
+	    silver_text:SetTextByKey("value", GET_MONEY_IMG(20) .. " " .. silver .. " / " .. total_silver);
+	else
+	    silver_text:SetTextByKey("value", GET_MONEY_IMG(20) .. " " .. silver);
+	end
 
 	local gbox_material = GET_CHILD(gbox, "gbox_material");
 	gbox_material:RemoveAllChild();
@@ -57,7 +63,13 @@ function CAMP_REG_INIT(frame, skillName, sklLevel)
 		local itemname = GET_CHILD(ctrlSet, "itemname");
 		itemname:SetTextByKey("value", itemCls.Name);
 		local count = GET_CHILD(ctrlSet, "count");
-		count:SetTextByKey("value", itemCount .. " " .. ClMsg("CountOfThings"));
+		local item = session.GetInvItemByType(645570);
+		if item ~= nil then
+		    local totalItemCount = item.count;
+		    count:SetTextByKey("value", itemCount .. " " .. ClMsg("CountOfThings") .. " / " .. totalItemCount .. " " .. ClMsg("CountOfThings"));
+		else
+	         count:SetTextByKey("value", itemCount .. " " .. ClMsg("CountOfThings"));
+	    end
 	end
 	
 	GBOX_AUTO_ALIGN(gbox_material, 15, 3, 10, true, false);

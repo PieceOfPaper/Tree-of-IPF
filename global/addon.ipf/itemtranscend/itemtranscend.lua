@@ -145,8 +145,8 @@ function ITEM_TRANSCEND_NEEDMATERIAL_TEXT_UPDATE(frame, targetobj)
 	textEdit:SetTextByKey("value", ret);
 end
 
--- --EVENT_1811_WEEKEND
--- function SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, itemObj)
+--EVENT_1811_WEEKEND
+function SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, itemObj)
 --    local transcendCount = TryGetProp(itemObj, "Transcend");
 --    local gbox = GET_CHILD(frame, "gbox");
 --    local gbox2 = GET_CHILD(gbox, "gbox2");
@@ -156,7 +156,7 @@ end
 --	else
 --	    reg:SetTextByKey("value", ScpArgMsg('ItemDecomposeWarningProp_Transcend'));
 --	end
--- end
+end
 
 
 -- 안내메세지로 필요한 아이템을 보여주기 위함. 

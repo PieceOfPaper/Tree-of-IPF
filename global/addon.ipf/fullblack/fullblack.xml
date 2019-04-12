@@ -7,6 +7,6 @@
 	<sound opensound="win_open" closesound="win_close"/>
 	<layer topmostlayer="true"/>
 	<controls>
-		<picture name="screenmask" rect="0 0 4096 2048" hittest="false" image="fullblack" stretch="true" layout_gravity="none none"/>
+		<picture name="screenmask" rect="0 0 4096 2048" hittest="false" image="fullblack" stretch="true"/>
 	</controls>
 </uiframe>

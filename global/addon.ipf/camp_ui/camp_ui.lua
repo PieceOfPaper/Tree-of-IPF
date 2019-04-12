@@ -81,11 +81,18 @@ function ON_OPEN_CAMP_UI(frame, msg, str, forceOpenUI, isOwner)
 	local t_extendTime = gbox:GetChild("t_extendTime");
 	t_extendTime:SetTextByKey("price", needSilver);
 
-	local tab = frame:GetChild("itembox");
-	if isOwner == 0 then
-		tab:SetVisible(0);
+	local destoryButton = GET_CHILD_RECURSIVELY(frame, "destroycampbutton");
+	local regButton = GET_CHILD_RECURSIVELY(frame, "reg");
+	--local regText = GET_CHILD_RECURSIVELY(gBox, "t_extendTime");
+
+	if isOwner == 1 then
+		destoryButton:SetVisible(1);
+		regButton:SetVisible(1);
+		t_extendTime:SetVisible(1);
 	else
-		tab:SetVisible(1);
+		destoryButton:SetVisible(0);
+		regButton:SetVisible(0);
+		t_extendTime:SetVisible(0);
 	end
 end
 

@@ -16,8 +16,8 @@
 		<groupbox name="Recipe" rect="0 0 575 880" margin="0 100 0 0" layout_gravity="left top" draw="false" hittestbox="true" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
 		<groupbox name="recipetree_Box" parent="Recipe" rect="0 0 560 870" margin="15 20 0 0" layout_gravity="left top" draw="true" resizebyresolution="true" scrollbar="true" skin="none"/>
 		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}유물 수집상{/}"/>
-		<tree name="recipetree" parent="recipetree_Box" rect="0 0 570 100" margin="0 0 0 0" layout_gravity="center top" drawline="true" selectioncolor="000000"/>
-		<grid name="category" parent="Recipe" rect="0 0 0 200" margin="0 0 0 0" layout_gravity="none top" slotsize="100 70" slotspc="10 0"/>		
+		<tree name="recipetree" parent="recipetree_Box" rect="0 0 570 100" margin="0 0 0 0" layout_gravity="center top" drawline="true" selectioncolor="000000" scrollbar="false"/>
+		<grid name="category" parent="Recipe" rect="0 0 0 200" margin="0 0 0 0" layout_gravity="left top" slotsize="100 70" slotspc="10 0"/>		
 		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;earthtowershop&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
 		<checkbox name="showonlyhavemat" parent="" rect="0 0 150 30" margin="30 0 0 70" layout_gravity="left bottom" ConfigName="CraftMaterial" LBtnUpScp="EARTH_TOWER_SHOP_OPTION" caption="{@st42b}재료가 있는 것만 보기{/}" clicksound="button_click_big" oversound="button_over"/>
 	</controls>

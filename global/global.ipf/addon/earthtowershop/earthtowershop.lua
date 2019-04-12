@@ -139,6 +139,8 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 		item.DialogTransaction("PVP_MINE_SHOP", resultlist, cntText);
 	elseif shopType == 'MCShop1' then
 		item.DialogTransaction("MASSIVE_CONTENTS_SHOP_TREAD1", resultlist, cntText);
+	elseif shopType == 'DailyRewardShop' then
+		item.DialogTransaction("DAILY_REWARD_SHOP_1_TREAD1", resultlist, cntText);
 	end
 
 	frame:ShowWindow(0)

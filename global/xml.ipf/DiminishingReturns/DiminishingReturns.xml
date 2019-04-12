@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- CC(Crowd Control) 점감관련 상수들, 점감 관련 상수를 세팅할 시에, Name에 RefleshTime, ApplyingCount, Ratio 을 사용하여야 한다. -->
 <!-- 상수 관련 Name은 RefleshTime, ApplyingCount, Ratio 을 반드시 사용하여야 한다. -->
 <!-- 그룹 구분은 반드시 [Group_숫자] 형식을 따라야 한다.-->
@@ -7,8 +7,8 @@
 	<Category Name="Group_1">
 		<Category Name="Constant">
 			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
-			<Class Name="ApplyingCount" Value="4" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
-			<Class Name="Ratio" Value="0.2" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
+			<Class Name="ApplyingCount" Value="3" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
+			<Class Name="Ratio" Value="0.25" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
 		</Category>
 		<Category Name="Buff">
 			<Class Name="Cryomancer_Freeze" BuffID="238" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="90" R="100" G="90" B="70" A="100"/>
+	<BlendOn frame="91" R="70" G="60" B="50" A="100"/>
+	<BlendOff frame="93" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="91" type="2" intensity="1" frequency="60" duration="0.3" range="1000"/>
+	<Particle frame="25" attachNode="Dummy_emitter1" particleName="I_smoke013_dark3_yellow2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Bip001 L Finger22" particleName="I_cleric_1inchpunch_cast_smoke_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Bip001 R Finger22" particleName="I_cleric_1inchpunch_cast_smoke_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_succubus_turn_wing"/>
+	<Sound frame="15.00" soundFile="mon_voice_screech_11"/>
+	<Sound frame="30.00" soundFile="mon_move_lecifer_skl1"/>
+	<Sound frame="82.00" soundFile="skl_eff_archer_broadhead_shot"/>
+	<Sound frame="84.86" soundFile="mon_voice_succubus_atk_2"/>
+	<Sound frame="98.00" soundFile="mon_succubus_turn_wing"/>
+</ActionDesc>

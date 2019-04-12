@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="65" type="2" intensity="2" frequency="80" duration="0.3" range="1000"/>
+	<Particle frame="65" attachNode="Dummy_eff_skl2" particleName="I_swordtrail033_violet" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="65" attachNode="Dummy_emitter" particleName="F_smoke008" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Sound frame="0.70" soundFile="mon_voice_hogma_archer_atk"/>
+	<Sound frame="20.07" soundFile="m_kerberos_atk"/>
+	<Sound frame="58.00" soundFile="mon_molich_atk_shot"/>
+	<Sound frame="59.00" soundFile="mon_voice5_l_5"/>
+</ActionDesc>

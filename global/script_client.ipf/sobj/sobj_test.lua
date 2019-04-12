@@ -1,15 +1,15 @@
-function SSN_TEST_ENTER_C(pc, sObj)
-
-	RegisterHookMsg_C(pc, sObj, "HPUpdate", "SSN_TEST_HPUPDATE");
-	RegisterHookMsg_C(pc, sObj, "ItemRemove", "SSN_TEST_ITEM_REMOVE");
-	RegisterHookMsg_C(pc, sObj, "ItemAdd", "SSN_TEST_ITEM_ADD");
-	RegisterHookMsg_C(pc, sObj, "ItemUse", "SSN_TEST_ITEM_USE");
-	RegisterHookMsg_C(pc, sObj, "ItemChangeCount", "SSN_TEST_ITEM_CHANGECOUNT");
-	RegisterHookMsg_C(pc, sObj, "EnterTrigger", "SSN_TEST_ENTER_TRIGGER");
-	
-	SetSObjTimeScp_C(pc, sObj, "SSN_CLIENT_SCP_UPDATE", 500);
-	CLIENT_SMARTGEN_INIT();
-
+function SSN_TEST_ENTER_C(pc, sObj, isPCData)
+    if isPCData ~= 0 then
+    	RegisterHookMsg_C(pc, sObj, "HPUpdate", "SSN_TEST_HPUPDATE");
+    	RegisterHookMsg_C(pc, sObj, "ItemRemove", "SSN_TEST_ITEM_REMOVE");
+    	RegisterHookMsg_C(pc, sObj, "ItemAdd", "SSN_TEST_ITEM_ADD");
+    	RegisterHookMsg_C(pc, sObj, "ItemUse", "SSN_TEST_ITEM_USE");
+    	RegisterHookMsg_C(pc, sObj, "ItemChangeCount", "SSN_TEST_ITEM_CHANGECOUNT");
+    	RegisterHookMsg_C(pc, sObj, "EnterTrigger", "SSN_TEST_ENTER_TRIGGER");
+    	
+    	SetSObjTimeScp_C(pc, sObj, "SSN_CLIENT_SCP_UPDATE", 500);
+    	CLIENT_SMARTGEN_INIT();
+    end
 end
 
 function SSN_TEST_LEAVE_C(pc, sObj)
@@ -17,10 +17,16 @@ function SSN_TEST_LEAVE_C(pc, sObj)
 end
 
 function SSN_CLIENT_SCP_UPDATE(pc)
-	SSN_CLIENT_UPDATE_QUEST(pc);
-	SSN_CLIENT_SMARTGEN(pc);
-	SSN_CLIENT_PARTYQUEST_REFRESH(pc)
-	SSN_CLIENT_GIMMICKCOUNTREFLASH(pc)
+	--SSN_CLIENT_UPDATE_QUEST(pc);
+	--SSN_CLIENT_SMARTGEN(pc);
+
+	-- 위 두 로직은 루아에서 돌리기에는 너무 느려서 cpp로 뺌--
+	-- 시간 나시면 아래 두 로직도 cpp로 옮겨주세여 --
+	quest.ClientUpdateQuest();
+	quest.ClientSmartGen();
+
+	SSN_CLIENT_PARTYQUEST_REFRESH(pc);
+	SSN_CLIENT_GIMMICKCOUNTREFLASH(pc);
 end
 
 function SSN_CLIENT_GIMMICKCOUNTREFLASH(pc)
@@ -126,6 +132,8 @@ function SMARGEN_NEAR_NPC_EXIST_CLIENT(self)
 			end
 		end
 	end
+
+	return 0;
 end
 
 function CLIENT_SMARTGEN_INIT()
@@ -143,7 +151,16 @@ function CLIENT_SMARTGEN_INIT()
 	if sObj.ZoneGenPoint == 0 then
 		sObj.ZoneGenPoint = -1;
 	end
-
+    
+--    local pc = GetMyPCObject()
+--	if pc.Lv <= 50 then
+--    	local nowZoneClassName = GetZoneName(pc)
+--    	if nowZoneClassName == 'd_cmine_01' or nowZoneClassName == 'd_cmine_02' or nowZoneClassName == 'd_cmine_6' or nowZoneClassName == 'd_prison_62_1' or nowZoneClassName == 'd_prison_62_2' or nowZoneClassName == 'd_prison_62_3'  then
+--    	    if GetInvItemCount(pc,'gem_circle_1') > 0 or GetInvItemCount(pc,'gem_square_1') > 0 or GetInvItemCount(pc,'gem_diamond_1') > 0 or GetInvItemCount(pc,'gem_star_1') > 0 then
+--    	        ui.MsgBox_NonNested(ScpArgMsg('DungeonEnterWarningMsg1','ZONE', GetClassString('Map',nowZoneClassName,'Name')),0x00000000)
+--            end
+--        end
+--    end
 end
 
 function SSN_CLIENT_SMARTGEN(self)
@@ -521,7 +538,12 @@ function SCR_SMARTGEN_QUESTMON_CREATE_CLIENT_SUB1(self, questIES)
 end
 
 function SCR_SMARTGEN_MON_CREATE_CLIENT(myActor, sObj, DuplCreatePass_OPT, AccruePass_OPT)
-    
+	
+    local mon_summon = 'NO'
+	if session.colonywar.GetIsColonyWarMap() == true then
+		return mon_summon;
+	end
+
 	local mapProp = session.GetCurrentMapProp();
     local zone_name = mapProp:GetClassName();
 	local myFaction = myActor:GetFactionStr();
@@ -532,7 +554,6 @@ function SCR_SMARTGEN_MON_CREATE_CLIENT(myActor, sObj, DuplCreatePass_OPT, Accru
 
     local min_mongen_range = nil
     local min_mongen = {};
-    local mon_summon = 'NO'
     
     local pc = GetMyPCObject();
     if pc ~= nil then
@@ -688,12 +709,12 @@ function SSN_CLIENT_UPDATE_QUEST_POSSIBLE(sObj, list, questPossible)
                     else
                         local mapCls = GetClass('Map', questIES.StartMap)
                         if mapCls ~= nil and GetPropType(mapCls, 'WorldMapPreOpen') ~= nil and mapCls.WorldMapPreOpen == 'YES' then
-                            local etc = GetMyEtcObject();
+							local accObj = GetMyAccountObj();
                             if table.find(questPossible,mapCls.ClassID) == 0 then
                                 questPossible[#questPossible + 1] = mapCls.ClassID
                             end
                                     
-                        	if etc['HadVisited_' .. mapCls.ClassID] ~= 1 then
+                        	if accObj['HadVisited_' .. mapCls.ClassID] ~= 1 then
                         		control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 5);
                         	end
                         end
@@ -707,7 +728,8 @@ function SSN_CLIENT_UPDATE_QUEST_POSSIBLE(sObj, list, questPossible)
                     
                 if questIES.StartMap ~= 'None' and questIES.StartNPC ~= 'None' and GetZoneName(self) == questIES.StartMap then
                     local result2
-                    result2, subQuestCount = SCR_POSSIBLE_UI_OPEN_CHECK(self, questIES, subQuestCount, 'ZoneMap')
+                    local subQuestZoneList = {}
+                    result2, subQuestZoneList = SCR_POSSIBLE_UI_OPEN_CHECK(self, questIES, subQuestZoneList, 'ZoneMap')
                             
                     if result2 == 'OPEN' then
                         local genDlgIESList = SCR_GET_XML_IES('GenType_'..questIES.StartMap, 'Dialog', questIES.StartNPC)
@@ -730,11 +752,10 @@ function SSN_CLIENT_UPDATE_QUEST_POSSIBLE(sObj, list, questPossible)
                            	        
                            	if genType ~= nil and ( genIES.Minimap == 1 or genIES.Minimap == 3) and string.find(genIES.ArgStr1, 'NPCStateLocal/') == nil and string.find(genIES.ArgStr2, 'NPCStateLocal/') == nil and string.find(genIES.ArgStr3, 'NPCStateLocal/') == nil  then
                            	    local mapprop = session.GetCurrentMapProp();
-                                local mapNpcState = session.GetMapNPCState(mapprop:GetClassName());
-                                local curState = mapNpcState:FindAndGet(genType);
-                                if curState < 1 then
+								local curState = GetNPCState(mapprop:GetClassName(), genType);
+								if curState ~= nil and curState < 1 then
                                     control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 6);
-                                end
+								end
                            	end
                         end
                     end
@@ -744,12 +765,47 @@ function SSN_CLIENT_UPDATE_QUEST_POSSIBLE(sObj, list, questPossible)
 	end
 end
 
+function SSN_CLIENT_UPDATE_QUEST_POSSIBLE_UI_OPEN_CHECK(self, questIES)
+	local result2
+    local subQuestZoneList = {}
+    result2, subQuestZoneList = SCR_POSSIBLE_UI_OPEN_CHECK(self, questIES, subQuestZoneList, 'ZoneMap')
+
+    if result2 == 'OPEN' then
+        local genDlgIESList = SCR_GET_XML_IES('GenType_'..questIES.StartMap, 'Dialog', questIES.StartNPC)
+        local genEntIESList = SCR_GET_XML_IES('GenType_'..questIES.StartMap, 'Enter', questIES.StartNPC)
+        local genLevIESList = SCR_GET_XML_IES('GenType_'..questIES.StartMap, 'Leave', questIES.StartNPC)
+
+        if #genDlgIESList > 0 or #genEntIESList > 0 or #genLevIESList > 0 then
+            local genType
+            local genIES
+            if #genDlgIESList > 0 then
+                genIES = genDlgIESList[1]
+                genType = genDlgIESList[1].GenType
+            elseif  #genEntIESList > 0 then
+                genIES = genEntIESList[1]
+                genType = genEntIESList[1].GenType
+            elseif  #genLevIESList > 0 then
+                genIES = genLevIESList[1]
+                genType = genLevIESList[1].GenType
+            end
+
+            if genType ~= nil and ( genIES.Minimap == 1 or genIES.Minimap == 3) and string.find(genIES.ArgStr1, 'NPCStateLocal/') == nil and string.find(genIES.ArgStr2, 'NPCStateLocal/') == nil and string.find(genIES.ArgStr3, 'NPCStateLocal/') == nil  then
+                local mapprop = session.GetCurrentMapProp();
+				local curState = GetNPCState(mapprop:GetClassName(), genType);
+				if curState ~= nil and curState < 1 then
+                    control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 6);
+				end
+            end
+        end
+    end
+end
+
 function SSN_CLIENT_UPDATE_QUEST_SUCCESS(sObj, list)
 	local self = GetMyPCObject();
 	if self == nil then
 		return;
 	end
-	
+
 
 	for i = 1, #list do
 		local questIES = list[i];
@@ -813,9 +869,11 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 	
 	s_nextTime = now + 2;
 
-	--QA Test �뵵
+	--QA Test ?뵵
 	if imcperfOnOff.IsEnableOptQuestLoop() == 0 then
+		tracer.BeginEvent("PREV_SSN_CLIENT_UPDATE_FOR_QA");
 		PREV_SSN_CLIENT_UPDATE_FOR_QA(pc);
+		tracer.EndEvent(true);
 		return;
 	end	
 	
@@ -834,7 +892,8 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 	local progressQuestList = GetQuestProgressClassByState("PROGRESS");
 	local possibleQuestList = GetQuestProgressClassByState("POSSIBLE");
 	local successQuestList = GetQuestProgressClassByState("SUCCESS");
-
+	
+	tracer.BeginEvent("progressQuestList");
 	for i = 1, #progressQuestList do
 		local questIES = progressQuestList[i];
 		local prop = TryGetProp(sObj, questIES.QuestPropertyName);
@@ -852,7 +911,9 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 			control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 4);
 		end
 	end
-
+	tracer.EndEvent(true);
+	
+	tracer.BeginEvent("possibleQuestList");
 	for i = 1, #possibleQuestList do
 		local questIES = possibleQuestList[i];
 		local prop = TryGetProp(sObj, questIES.QuestPropertyName);
@@ -870,8 +931,10 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 			control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 4);
 		end
 	end
+	tracer.EndEvent(true);
 	
-	-- Session Object�� �ִ� ��� Progress ������ ����Ʈ�� ��з��Ѵ�. 
+	-- Session Object?? ??? ??? Progress ?????? ??????? ??з????. 
+	tracer.BeginEvent("progressQuestList");
 	local progressQuestListArrange = {}
 	for i = 1, #progressQuestList do
 	    local flag = 0
@@ -891,11 +954,13 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 			end
 		end
 		if flag == 0 then
-		    progressQuestListArrange[#progressQuestListArrange + 1] = progressQuestList[i]
-				end
-			end
+			progressQuestListArrange[#progressQuestListArrange + 1] = progressQuestList[i]
+		end
+	end
+	tracer.EndEvent(true);
 	
     -- Progress Add NPC Unhide Check
+	tracer.BeginEvent("progressQuestListArrange");
 	for i = 1, #progressQuestListArrange do
 		local questIES = progressQuestListArrange[i];
     	if GetPropType(questIES, 'ProgressUnHideNPC') ~= nil and questIES.ProgressUnHideNPC ~= 'None' then
@@ -912,10 +977,17 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
     	    end
 		end
 	end
-
+	tracer.EndEvent(true);
+	
+	tracer.BeginEvent("SSN_CLIENT_UPDATE_QUEST_POSSIBLE");
 	SSN_CLIENT_UPDATE_QUEST_POSSIBLE(sObj, possibleQuestList, questPossible);
+	tracer.EndEvent(true);
+	
+	tracer.BeginEvent("SSN_CLIENT_UPDATE_QUEST_SUCCESS");
 	SSN_CLIENT_UPDATE_QUEST_SUCCESS(sObj, successQuestList);
+	tracer.EndEvent(true);
     
+	tracer.BeginEvent("questPossible");
     if #questPossible > 0 then
         sObj.MQ_POSSIBLE_LIST = 'None'
         for i = 0 , #questPossible do
@@ -928,12 +1000,10 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
             end
         end
     end
-	
-
-
+	tracer.EndEvent(true);
 end
 
--- QA TEST �뵵
+-- QA TEST ?뵵
 function PREV_SSN_CLIENT_UPDATE_FOR_QA(pc)
     local questPossible = {}
 	
@@ -952,7 +1022,7 @@ function PREV_SSN_CLIENT_UPDATE_FOR_QA(pc)
 		return;
 	end
 	
-	local subQuestCount = 0
+	local subQuestZoneList = {}
 	
     for i = 0, class_count-1 do
         local questIES = GetClassByIndex('QuestProgressCheck', i);
@@ -1035,12 +1105,12 @@ function PREV_SSN_CLIENT_UPDATE_FOR_QA(pc)
                             else
                                 local mapCls = GetClass('Map', questIES.StartMap)
                                 if mapCls ~= nil and GetPropType(mapCls, 'WorldMapPreOpen') ~= nil and mapCls.WorldMapPreOpen == 'YES' then
-                                    local etc = GetMyEtcObject();
+                                    local accObj = GetMyAccountObj();
                                     if table.find(questPossible,mapCls.ClassID) == 0 then
                                         questPossible[#questPossible + 1] = mapCls.ClassID
                                     end
                                     
-                        			if etc['HadVisited_' .. mapCls.ClassID] ~= 1 then
+                        			if accObj['HadVisited_' .. mapCls.ClassID] ~= 1 then
                         			    control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 5);
                         			end
                         		end
@@ -1056,7 +1126,7 @@ function PREV_SSN_CLIENT_UPDATE_FOR_QA(pc)
                     if result == 'POSSIBLE' then
                         if questIES.StartMap ~= 'None' and questIES.StartNPC ~= 'None' and GetZoneName(self) == questIES.StartMap then
                             local result2
-                            result2, subQuestCount = SCR_POSSIBLE_UI_OPEN_CHECK(self, questIES, subQuestCount, 'ZoneMap')
+                            result2, subQuestZoneList = SCR_POSSIBLE_UI_OPEN_CHECK(self, questIES, subQuestZoneList, 'ZoneMap')
                             
                             if result2 == 'OPEN' then
                             	local genDlgIESList = SCR_GET_XML_IES('GenType_'..questIES.StartMap, 'Dialog', questIES.StartNPC)
@@ -1079,9 +1149,8 @@ function PREV_SSN_CLIENT_UPDATE_FOR_QA(pc)
                            	        
                            	        if genType ~= nil and ( genIES.Minimap == 1 or genIES.Minimap == 3) and string.find(genIES.ArgStr1, 'NPCStateLocal/') == nil and string.find(genIES.ArgStr2, 'NPCStateLocal/') == nil and string.find(genIES.ArgStr3, 'NPCStateLocal/') == nil  then
                            	            local mapprop = session.GetCurrentMapProp();
-                                    	local mapNpcState = session.GetMapNPCState(mapprop:GetClassName());
-                                    	local curState = mapNpcState:FindAndGet(genType);
-                                    	if curState < 1 then
+										local curState = GetNPCState(mapprop:GetClassName(), genType);
+										if curState ~= nil and curState < 1 then
                                     	    control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 6);
                                     	end
                            	        end
@@ -1180,7 +1249,6 @@ function SSN_TEST_ITEM_USE(self, sObj, msg, argObj, argStr, argNum)
 
 end
 
-
 function SSN_TEST_ITEM_CHANGECOUNT(self, sObj, msg, argObj, argStr, argNum)
     if sObj.HELP_SHOP == 0 then
         local hpItem = GetInvItemCount(self, 'Drug_HP1')
@@ -1192,5 +1260,3 @@ function SSN_TEST_ITEM_CHANGECOUNT(self, sObj, msg, argObj, argStr, argNum)
         end
     end
 end
-
-

@@ -4,22 +4,22 @@ function SCR_EVENT_1811_WEEKEND_CHECK(inputType)
     local day = now_time['day']
     
     local t = {
+                {12,8,{'REINFORCE'}},
+                {12,9,{'TRANSCEND'}},
+                {12,15,{'ITEMRANDOMRESET'}},
+                {12,16,{'LOOTINGCHANCE'}},
+                {12,22,{'REINFORCE'}},
+                {12,23,{'TRANSCEND'}},
+                {12,25,{'ITEMRANDOMRESET','LOOTINGCHANCE'}},
+                {12,29,{'REINFORCE'}},
+                {12,30,{'TRANSCEND'}},
+                {1,1,{'ITEMRANDOMRESET','LOOTINGCHANCE'}},
+                {1,5,{'REINFORCE'}},
+                {1,6,{'TRANSCEND'}},
+                {1,12,{'ITEMRANDOMRESET'}},
+                {1,13,{'LOOTINGCHANCE'}},
                 {1,19,{'REINFORCE'}},
-                {1,20,{'TRANSCEND'}},
-                {1,26,{'ITEMRANDOMRESET'}},
-                {1,27,{'LOOTINGCHANCE'}},
-                {2,2,{'REINFORCE'}},
-                {2,3,{'TRANSCEND'}},
-                --{12,25,{'ITEMRANDOMRESET','LOOTINGCHANCE'}},
-                {2,9,{'REINFORCE'}},
-                {2,10,{'TRANSCEND'}},
-                --{1,1,{'ITEMRANDOMRESET','LOOTINGCHANCE'}},
-                {2,16,{'REINFORCE'}},
-                {2,17,{'TRANSCEND'}},
-                {2,23,{'ITEMRANDOMRESET'}},
-                {2,24,{'LOOTINGCHANCE'}},
-                {3,2,{'REINFORCE'}},
-                {3,3,{'TRANSCEND'}}
+                {1,20,{'TRANSCEND'}}
                 }
     for i = 1, #t do
         if t[i][1] == month and t[i][2] == day then
@@ -63,7 +63,7 @@ function SCR_RAID_EVENT_20190102(pc, isServer)
     local month = sysTime.wMonth
     local day = sysTime.wDay
    
-    if (month == 2 and day >= 19 ) or (month == 3 and day <= 19) then
+    if (month == 2 and day >= 18 ) or (month == 3 and day <= 20) then
         return true
     else
         return false

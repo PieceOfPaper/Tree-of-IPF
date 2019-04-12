@@ -1,4 +1,4 @@
-﻿-- inuninfo.lua
+-- inuninfo.lua
 function INDUNINFO_ON_INIT(addon, frame)
     addon:RegisterMsg('CHAT_INDUN_UI_OPEN', 'INDUNINFO_CHAT_OPEN');
 
@@ -100,7 +100,7 @@ function INDUNINFO_CREATE_CATEGORY(frame)
                 end
 
                 categoryCtrl:SetUserValue('RESET_GROUP_ID', resetGroupID);
-                if i == 0 then -- 디폴트는 첫번째가 클릭되게 함                              
+                if firstBtn == nil then -- 디폴트는 첫번째가 클릭되게 함                              
                     firstBtn = btn;
                 end
             elseif categoryCtrl ~= nil and category ~= 'None' then
@@ -703,6 +703,16 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         
             cycleImage:ShowWindow(0);
         end
+
+--        if indunCls.MGame == 'MISSION_EVENT_BLUEORB' then
+--            local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
+--            if isTokenState == true then
+--                isTokenStateCount = TryGetProp(indunCls, "PlayPerReset_Token");
+--                nowAdmissionItemCount = nowAdmissionItemCount - isTokenStateCount
+--            end
+--            countItemData:SetTextByKey('admissionitem', '  {img '..indunAdmissionItemImage..' 30 30}  '..nowAdmissionItemCount..'')
+--            cycleImage:ShowWindow(0);
+--        end
 
         countData:ShowWindow(0)
         countItemData:ShowWindow(1)

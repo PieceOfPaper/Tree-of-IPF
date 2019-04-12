@@ -88,6 +88,14 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1810_FALL_LEAF_BUFF4'); --ENTER_EVENT_1810_FALL_LEAF
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1810_GUILD_EXPUP'); --길드 있어 트오세 있다 시즌2
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_ThanksgivingDay'); --붉은 씨앗
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'BaseCamp_Buff'); --베이스 캠프
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1902_WEEKEND_BUFF_1'); --EVENT_1902_WEEKEND
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'GuildColony_Attendance_Reward_EXP_Buff_1'); --콜로니전  참여 보상 1단계
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'GuildColony_Attendance_Reward_EXP_Buff_2'); --콜로니전  참여 보상 2단계
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'GuildColony_Attendance_Reward_EXP_Buff_3'); --콜로니전  참여 보상 3단계
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'GuildColony_Attendance_Reward_EXP_Buff_4'); --콜로니전  참여 보상 4단계
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'GuildColony_Attendance_Reward_EXP_Buff_5'); --콜로니전  참여 보상 5단계
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Carnival_Fire_2'); --스팀 카니발 불꽃축제 이벤트 --
 	return sumExp; 
 end
 

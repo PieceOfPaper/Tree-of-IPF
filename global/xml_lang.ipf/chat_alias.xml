@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ChatAlias">
 	<Category>
 		<Class ClassID="1" ClassName="/s" Alias="/ㄴ" ConvertWhenSend="0"/>
@@ -14,9 +14,12 @@
 		<Class ClassID="10" ClassName="/indun" Alias="/인던" ConvertWhenSend="1"/>
 		<Class ClassID="11" ClassName="/guild" Alias="/길드초대" ConvertWhenSend="1"/>
 		<Class ClassID="12" ClassName="/g" Alias="/ㅎ" ConvertWhenSend="0"/>
-		<Class ClassID="13" ClassName="/uicallscp_newyearevent" Alias="/이벤트확인" ConvertWhenSend="1"/>
 		<Class ClassID="14" ClassName="/uicallscp_test" Alias="/테스트" ConvertWhenSend="1"/>
 		<Class ClassID="15" ClassName="/cpattack" Alias="/자동공격" ConvertWhenSend="1"/>
 		<Class ClassID="16" ClassName="/comeon" Alias="/이리와" ConvertWhenSend="1"/>
+		<Class ClassID="25" ClassName="/uicallscp_ctrltypereset" Alias="/계열변경기간" ConvertWhenSend="1"/>
+		<Class ClassID="26" ClassName="/uicallscp_newcharactersub1" Alias="/몬스터처치" ConvertWhenSend="1"/>
+		<Class ClassID="27" ClassName="/uicallscp_newcharactersub2" Alias="/레이드클리어" ConvertWhenSend="1"/>
+		<!-- 		<Class ClassID="25" ClassName="/uicallscp_event1810guildquest" Alias="/길드퀘스트" ConvertWhenSend="1"/> -->
 	</Category>
 </idspace>

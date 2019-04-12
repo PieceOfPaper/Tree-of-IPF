@@ -650,6 +650,7 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="tantaliser_skl2" model="tantaliser_skl2.xac" motion="tantaliser_skl2_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="thornbush" model="thornbush.xac" motion="thornbush_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="wing_boruta" model="wing_boruta.xac" motion="wing_boruta_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
 	<Model name="stone006_mesh" model="stone006_mesh.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
@@ -765,6 +766,7 @@
 	<Model name="skullarcher_dead" model="skullarcher_dead.xac" motion="skullarcher_dead_ani.xsm" texturepath="char_texture\monster\skullarcher\" overlap="false" AlphaType="TEST"/>
 	<Model name="effect_spear_13_hexa" model="effect_spear_13_hexa.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
 	<Model name="monster_froster_lord_dead" model="monster_froster_lord_dead.xac" motion="monster_froster_lord_dead_ani.xsm" texturepath="char_texture\monster\froster_lord\" overlap="false" AlphaType="TEST"/>
+	<Model name="boss_Tantaliser_dead" model="boss_Tantaliser_dead.xac" motion="boss_Tantaliser_dead_ani.xsm" texturepath="char_texture\monster\boss_Tantaliser\" overlap="false" AlphaType="TEST"/>
 	<Model name="boss_TealSpecter_dead" model="boss_TealSpecter_dead.xac" motion="boss_TealSpecter_dead_ani.xsm" texturepath="char_texture\monster\boss_TealSpecter\" overlap="false" AlphaType="TEST"/>
 	<Model name="boss_pbeta_dead" model="boss_pbeta_dead.xac" motion="boss_pbeta_dead_ani.xsm" texturepath="char_texture\monster\pbeta\" overlap="false" AlphaType="TEST"/>
 	<Model name="boss_PervadingQueen_dead" model="boss_PervadingQueen_dead.xac" motion="boss_PervadingQueen_dead_ani.xsm" texturepath="char_texture\monster\boss_PervadingQueen\" overlap="false" AlphaType="TEST"/>

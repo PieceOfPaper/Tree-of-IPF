@@ -152,6 +152,6 @@ function SCR_ITEM_GACHA_TP(pc, rewGroup, gachaClassName, gachacnt, gachaLog, gac
 		SendSysMsg(pc, "TryLater");
 	end
 
-	sleep(2000) -- 가챠 연속 사용시의 UI 처리를 위해 5초 정도 있다 리턴. 
+	sleep(5000) -- 가챠 연속 사용시의 UI 처리를 위해 5초 정도 있다 리턴. 
 
 end

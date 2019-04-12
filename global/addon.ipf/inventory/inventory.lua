@@ -3,6 +3,8 @@ g_lock_state_item_guid = 0
 lock_state_check = {}
 g_weapon_swap_request_index = nil
 
+local item_grade = 5
+
 lock_state_check.can_lock = function(item_guid)
     if g_lock_state_item_guid == item_guid then return false
     else return true end
@@ -80,6 +82,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	local dropscp = frame:GetUserConfig("TREE_SLOT_DROPSCRIPT");
 	frame:SetEventScript(ui.DROP, dropscp);
 	INVENTORY_LIST_GET(frame);    
+	RESET_INVENTORY_ICON();
 end
 
 function UI_TOGGLE_INVENTORY()
@@ -2658,7 +2661,7 @@ function INVENTORY_OP_POP(frame, slot, str, num)
 
 end
 
-function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count) --hs_comment
+function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	local icon = CreateIcon(slot);
 	local class = GetClassByType('Item', invItem.type);
 	if class == nil then		
@@ -3349,30 +3352,40 @@ function INVENTORY_DELETE(itemIESID, itemType)
 	end
 
 	--if cls.UserTrade == 'YES' or cls.ShopTrade == 'YES' then
-	if invItem.count > 1 then
+	if invItem.count > 1 then        
 		local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", invItem.count);
 		s_dropDeleteItemIESID = itemIESID;
 		s_dropDeleteItemName = cls.Name;
 		local inputstringframe = ui.GetFrame("inputstring");
-		inputstringframe:SetUserValue("ITEM_CLASSNAME", cls.ClassName)
+		inputstringframe:SetUserValue("ITEM_CLASSNAME", cls.ClassName)        
+        item_grade = GetIES(invItem:GetObject()).ItemGrade
 		INPUT_NUMBER_BOX(invFrame, titleText, "CHECK_EXEC_DELETE_ITEMDROP", 1, 1, invItem.count);
 			
 	else
 		s_dropDeleteItemIESID = itemIESID;
 		s_dropDeleteItemCount = 1;
 		s_dropDeleteItemName = cls.Name;
+        item_grade = GetIES(invItem:GetObject()).ItemGrade
 		local yesScp = string.format("EXEC_DELETE_ITEMDROP");
         local clmsg = ScpArgMsg('ReallyDestroy{ITEM}', 'ITEM', s_dropDeleteItemName);
+        if item_grade >= 3 then
+            clmsg = ScpArgMsg('HighItemGradeReallyDestroy{ITEM}', 'ITEM', s_dropDeleteItemName);
+        end
+
 	--	ui.MsgBox(clmsg, yesScp, "None");
 		WARNINGMSGBOX_FRAME_OPEN(clmsg, yesScp, "None", itemIESID)
 	end
 	--end
 end
 
-function CHECK_EXEC_DELETE_ITEMDROP(count, className)
+function CHECK_EXEC_DELETE_ITEMDROP(count, className)    
 	s_dropDeleteItemCount = tonumber(count);
 	local yesScp = string.format("EXEC_DELETE_ITEMDROP");
     local clmsg = ScpArgMsg('ReallyDestroy{ITEM}{COUNT}', 'ITEM', s_dropDeleteItemName, 'COUNT', s_dropDeleteItemCount);
+    if item_grade >= 3 then
+        clmsg = ScpArgMsg('HighItemGradeReallyDestroy{ITEM}{COUNT}', 'ITEM', s_dropDeleteItemName, 'COUNT', s_dropDeleteItemCount);
+    end
+
 	--ui.MsgBox(clmsg, yesScp, "None");
 	local inputstringframe = ui.GetFrame("inputstring");
 	local itemGuid = s_dropDeleteItemIESID

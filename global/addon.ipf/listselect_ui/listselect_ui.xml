@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="listselect_ui" x="0" y="0" width="450" height="300">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
+	<skin frameskin="none"/>
+	<draw drawframe="false" drawtitlebar="false"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<option closebutton="false"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
+	<layer layerlevel="100"/>
+	<script OpenScp="" CloseScp=""/>
+	<controls>
+		<groupbox name="listselect_gb" rect="0 0 450 300" margin="0 0 0 0" layout_gravity="center center" skin="test_frame_low" hittest="false"/>
+		<groupbox name="list" rect="0 0 430 220" margin="0 0 0 10" layout_gravity="center bottom" skin="test_frame_midle_light" hittest="true" fixheight="true" scrollbar="true"/>
+		<groupbox name="title_gb" rect="0 0 450 60" margin="0 0 0 0" layout_gravity="center top" skin="test_frame_top_r" hittest="false"/>
+		<richtext name="title" parent="title_gb" rect="0 0 450 130" margin="0 20 0 0" layout_gravity="center top" format="%s" param1="value" param1_def="내용" fontname="white_18_ol" spacey="0"/>
+		<button name="closeBtn" rect="0 0 44 44" margin="0 18 27 0" layout_gravity="right top" LBtnUpScp="LISTSELECT_UI_CLOSE_CLICK" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}창을 닫습니다{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
+	</controls>
+</uiframe>

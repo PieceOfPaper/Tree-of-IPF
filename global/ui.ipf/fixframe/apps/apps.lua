@@ -41,7 +41,8 @@ function APPS_TRY_LOGOUT()
 end
 
 function APPS_TRY_EXIT()
-    APPS_TRY_LEAVE("Exit");
+    local yesScp = string.format("APPS_TRY_LEAVE(\"%s\")", "Exit");
+	ui.MsgBox(ClMsg("AskReallyExit"), yesScp, "None");
 end
 
 function APPS_INIT_BUTTONS(frame)    

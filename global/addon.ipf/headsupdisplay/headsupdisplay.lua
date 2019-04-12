@@ -69,6 +69,7 @@ end
 function CONTEXT_MY_INFO(frame, ctrl)
 	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
 	local count = list:Count();
+
 	-- 파티원이 존재 할 때
 	if 0 < count then
 		local context = ui.CreateContextMenu("CONTEXT_PARTY", "", 0, 0, 170, 100);
@@ -258,11 +259,15 @@ function HEDADSUPDISPLAY_CAMP_BTN_CLICK(parent, ctrl)
 			local partyMemberInfo = list:Element(i);
 			local map = GetClassByType("Map", partyMemberInfo.campMapID);
 			if  nil ~= map then
-				campCount = campCount +1;
+				campCount = campCount + 1;
 			end
 		end
+
 		if 0 < campCount then
 			local str =  string.format("{@st41b}%s(%d)", ClMsg("MoveToCampChar"), campCount);
+			ui.AddContextMenuItem(context, str, "None");
+		else
+			local str =  string.format("{@st41b}%s", ClMsg("MoveToCampChar"));
 			ui.AddContextMenuItem(context, str, "None");
 		end
 		
@@ -301,10 +306,18 @@ function HEDADSUPDISPLAY_CAMP_BTN_CLICK(parent, ctrl)
 	local context = ui.CreateContextMenu("CONTEXT_PARTY", "", 0, 0, 170, 100);
 	local str =  string.format("{@st41b}%s(1)", ClMsg("MoveToCampChar"));
 	ui.AddContextMenuItem(context, str, "None");
-
 	local obj = GetMyPCObject();
-	str = string.format("      {@st59s}{#FFFF00}%s {#FFFFFF}%s",obj.Name, map.Name);
+	local actor = world.GetActorByFamilyName(tostring(obj.Name));
+	if actor ~= nil then
+		if actor:IsMyPC() == 1 then
+			str = string.format("      {@st59s}{#FFFF00}%s {#FFFFFF}%s", obj.Name, map.Name);
+		else
+			str = string.format("      {@st59s}{#FFFF00}%s {#FFFFFF}%s {#FF0000}%s", obj.Name, map.Name, ClMsg("CanNotMoveCamp"));
+		end
+	end
+
 	ui.AddContextMenuItem(context, str, string.format("MOVETOCAMP(\"%s\")", session.loginInfo.GetAID()));
+	
 	ui.AddContextMenuItem(context, ScpArgMsg("Cancel"), "None");
 	ui.OpenContextMenu(context);
 end

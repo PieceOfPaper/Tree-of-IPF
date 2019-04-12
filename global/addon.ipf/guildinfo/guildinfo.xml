@@ -76,7 +76,7 @@
 										<layoutsection name="lvl" size="5%">
 											<richtext name="guildLvl" format="{@st66d_y}{s18}%s{/}" margin="0 0 10 0" param1="level" textalign="right center"/>
 										</layoutsection>
-										<layoutsection>
+										<layoutsection name="expGuageSection">
 											<gauge name="expGuage" skin="gauge_barrack_guild" inverse="false" point="50" maxpoint="100" text1="%v / %m" textfont1="white_14_ol" textalign1="center center"/>
 										</layoutsection>
 										<layoutsection name="blankSection" size="5">
@@ -188,22 +188,22 @@
 												<groupbox name="guildMemberHeaderBg" skin="market_listbase"/>
 												<layout name="guildMemberHeaderLayout">
 													<layoutsection name="nameSortSection">
-														<richtext name="nameSortText" textalign="center center" format="길드원{img %s 13 13}" param1="arrow" param1_def="guild_arrow_down" fontname="black_18" LBtnUpScp=""/>
+														<richtext name="nameSortText" textalign="center center" format="길드원{img %s 13 13}" margin="15 0 0 0" param1="arrow" param1_def="guild_arrow_down" fontname="black_18" LBtnUpScp=""/>
 													</layoutsection>
 													<layoutsection name="jobSection">
-														<richtext name="jobText" textalign="center center" caption="직업" fontname="black_18"/>
+														<richtext name="jobText" textalign="center center" caption="직업" margin="0 0 0 0"  fontname="black_18"/>
 													</layoutsection>
 													<layoutsection name="levelSection">
-														<richtext name="levelText" textalign="center center" format="레벨{img %s 13 13}" param1="arrow" param1_def="guild_arrow_down" fontname="black_18" LBtnUpScp=""/>
+														<richtext name="levelText" textalign="center center" format="레벨{img %s 13 13}" margin="0 0 20 0" param1="arrow" param1_def="guild_arrow_down" fontname="black_18" LBtnUpScp=""/>
 													</layoutsection>
 													<layoutsection name="dutySection">
-														<richtext name="dutyText" textalign="center center" format="직급{img %s 13 13}" param1="arrow" param1_def="guild_arrow_down" fontname="black_18" LBtnUpScp=""/>
+														<richtext name="dutyText" textalign="center center" format="직급{img %s 13 13}" margin="0 0 40 0" param1="arrow" param1_def="guild_arrow_down" fontname="black_18" LBtnUpScp=""/>
 													</layoutsection>
 													<layoutsection name="contribSection">
-														<richtext name="contributionText" textalign="center center" caption="기여도" fontname="black_18"/>
+														<richtext name="contributionText" textalign="center center" caption="기여도"  margin="0 0 70 0" fontname="black_18"/>
 													</layoutsection>
 													<layoutsection name="mapSection">
-														<richtext name="mapText" textalign="center center" caption="위치" fontname="black_18"/>
+														<richtext name="mapText" textalign="center center" caption="위치" margin="0 0 0 0" fontname="black_18"/>
 													</layoutsection>
 												</layout>
 											</overlap>

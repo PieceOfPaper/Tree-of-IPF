@@ -11,20 +11,11 @@ function ABILITY_POINT_EXTRACTOR_OPEN(frame)
     SET_FRAME_OFFSET_TO_RIGHT_TOP(frame, sklAbilFrame);
 end
 
-function ABILITY_POINT_EXTRACTOR_GET_ABILITY_POINT()
-    local pc = GetMyPCObject();
-    local abilityPoint = pc.AbilityPoint;
-    if abilityPoint == 'None' then
-        abilityPoint = '0';
-    end
-    return tonumber(abilityPoint);
-end
-
 function ABILITY_POINT_EXTRACTOR_RESET(frame)
     local extractScrollEdit = GET_CHILD_RECURSIVELY(frame, 'extractScrollEdit');
     local money = GET_TOTAL_MONEY_STR();
     local enableCountByMoney = math.floor(tonumber(money) / ABILITY_POINT_EXTRACTOR_FEE);
-    local enableCountByPoint = math.floor(ABILITY_POINT_EXTRACTOR_GET_ABILITY_POINT() / ABILITY_POINT_SCROLL_RATE);
+    local enableCountByPoint = math.floor(session.ability.GetAbilityPoint() / ABILITY_POINT_SCROLL_RATE);
     local enableCount = math.min(enableCountByMoney, enableCountByPoint)
     frame:SetUserValue('ENABLE_COUNT', enableCount);
 
@@ -44,7 +35,7 @@ function ABILITY_POINT_EXTRACTOR_UP(parent, ctrl, argstr, argnum)
     local extractScrollEdit = parent:GetChild('extractScrollEdit');
     local topFrame = parent:GetTopParentFrame();
     local currentCount = topFrame:GetUserIValue('SCROLL_COUNT');
-    local enableCountByPoint = math.floor(ABILITY_POINT_EXTRACTOR_GET_ABILITY_POINT() / ABILITY_POINT_SCROLL_RATE);
+    local enableCountByPoint = math.floor(session.ability.GetAbilityPoint() / ABILITY_POINT_SCROLL_RATE);
     ABILITY_POINT_EXTRACTOR_SET_EDIT(extractScrollEdit, math.min(enableCountByPoint, tonumber(currentCount) + argnum));
     ABILITY_POINT_EXTRACTOR_UPDATE_MONEY(parent:GetTopParentFrame());
 end
@@ -61,7 +52,7 @@ function ABILITY_POINT_EXTRACTOR_MAX(parent, ctrl, argstr, argnum)
     local extractScrollEdit = parent:GetChild('extractScrollEdit');
     local topFrame = parent:GetTopParentFrame();
     local currentCount = topFrame:GetUserIValue('SCROLL_COUNT');
-    local enableCountByPoint = math.floor(ABILITY_POINT_EXTRACTOR_GET_ABILITY_POINT() / ABILITY_POINT_SCROLL_RATE);
+    local enableCountByPoint = math.floor(session.ability.GetAbilityPoint() / ABILITY_POINT_SCROLL_RATE);
     ABILITY_POINT_EXTRACTOR_SET_EDIT(extractScrollEdit, enableCountByPoint);
     ABILITY_POINT_EXTRACTOR_UPDATE_MONEY(parent:GetTopParentFrame());
 end
@@ -95,7 +86,7 @@ function ABILITY_POINT_EXTRACTOR_UPDATE_MONEY(frame)
     local consumePoint = ABILITY_POINT_EXTRACTOR_GET_CONSUME_POINT(frame);
     local consumePointStr = GET_COMMAED_STRING(consumePoint);
     
-    local abilityPoint = ABILITY_POINT_EXTRACTOR_GET_ABILITY_POINT();
+    local abilityPoint = session.ability.GetAbilityPoint();
     local expectAbilityPoint = abilityPoint - tonumber(consumePoint);
     local expectAbilityPointStr = "";
     if expectAbilityPoint < 0 then

@@ -1,6 +1,10 @@
 -- lib_itemtooltip.lua
 
 function GET_EQUIP_ITEM_IMAGE_NAME(invitem, imageType, gender)
+    if TryGetProp(invitem, 'ClassType', 'None') == 'Outer' then
+        imageType = 'Icon'; -- 브리케팅 할 일이 없는 코스튬      
+    end
+    
 	if 'TooltipImage' == imageType then
 		local changeItemcls = nil;
 		local faceID = TryGetProp(invitem, 'BriquettingIndex');
@@ -16,26 +20,28 @@ function GET_EQUIP_ITEM_IMAGE_NAME(invitem, imageType, gender)
 		if nil ~= imageName then
 			return tostring(imageName)
 		end
-	elseif 'Icon' == imageType then
+	elseif 'Icon' == imageType then    
 		return GET_ITEM_ICON_IMAGE(invitem, gender);
 	end
 
 	return 'None'
 end
 
-function IS_NEED_DRAW_GEM_TOOLTIP(invitem)
-
-	local cnt = 0
-	for i=0, invitem.MaxSocket-1 do
-		if invitem['Socket_' .. i] > 0 then
+function IS_NEED_DRAW_GEM_TOOLTIP(itemObj)
+	local invitem = GET_INV_ITEM_BY_ITEM_OBJ(itemObj);	
+	if invitem == nil then
+		return false;
+	end
+	local cnt = 0;
+	for i = 0, itemObj.MaxSocket - 1 do
+		if invitem:IsAvailableSocket(i) == true then
 			cnt = cnt + 1;
 		end
 	end
 
 	if cnt <= 0 then 
-	return false
+		return false;
 	end
-
 	return true
 
 end
@@ -90,39 +96,68 @@ function GET_USEJOB_TOOLTIP(invitem)
 	if usejob == "All" then
 		resultstr =  ScpArgMsg("USEJOB_ALL")
 	else
-		local char1 = string.find(usejob, 'Char1')
-
-		if char1 ~= nil then
-			if resultstr ~= '' then
-				resultstr = resultstr..', '
-			end
-			resultstr = resultstr .. ScpArgMsg("USEJOB_WAR")
+	    local jobOnly = TryGetProp(invitem,'JobOnly')
+	    if jobOnly ~= nil and jobOnly ~= 'None' then
+	        local jobOnlyIES = GetClass('Job',jobOnly)
+	        if jobOnlyIES ~= nil then
+    	        local jobName = TryGetProp(jobOnlyIES,'Name')
+    	        if jobName ~= nil then
+        	        local jobGrade = TryGetProp(invitem,'JobGrade')
+        	        if jobGrade ~= nil and jobGrade > 1 then
+            			if resultstr ~= '' then
+            				resultstr = resultstr..', '
+            			end
+            			resultstr = resultstr..jobName..ScpArgMsg("JOB_ONLY_EQUIP_ITEM_MSG1").." "..jobGrade..ScpArgMsg("JOB_ONLY_EQUIP_ITEM_MSG2")
+        	        else
+            			if resultstr ~= '' then
+            				resultstr = resultstr..', '
+            			end
+            			resultstr = resultstr..jobName..ScpArgMsg("JOB_ONLY_EQUIP_ITEM_MSG1")
+        	        end
+        	    end
+    	    end
+	    else
+    		local char1 = string.find(usejob, 'Char1')
+    
+    		if char1 ~= nil then
+    			if resultstr ~= '' then
+    				resultstr = resultstr..', '
+    			end
+    			resultstr = resultstr .. ScpArgMsg("USEJOB_WAR")
+    		end
+    		local char2 = string.find(usejob, 'Char2')
+    
+    		if char2 ~= nil then
+    			if resultstr ~= '' then
+    				resultstr = resultstr..', '
+    			end
+    			resultstr = resultstr .. ScpArgMsg("USEJOB_WIZ")
+    		end
+    		local char3 = string.find(usejob, 'Char3')
+    
+    		if char3 ~= nil then
+    			if resultstr ~= '' then
+    				resultstr = resultstr..', '
+    			end
+    			resultstr = resultstr .. ScpArgMsg("USEJOB_ARC")
+    		end
+    		local char4 = string.find(usejob, 'Char4')
+    
+    		if char4 ~= nil then
+    			if resultstr ~= '' then
+    				resultstr = resultstr..', '
+    			end
+    			resultstr = resultstr .. ScpArgMsg("USEJOB_CLE")
+    		end
+    		local char5 = string.find(usejob, 'Char5')
+    
+    		if char5 ~= nil then
+    			if resultstr ~= '' then
+    				resultstr = resultstr..', '
+    			end
+    			resultstr = resultstr .. ScpArgMsg("USEJOB_SCO")
+    		end
 		end
-		local char2 = string.find(usejob, 'Char2')
-
-		if char2 ~= nil then
-			if resultstr ~= '' then
-				resultstr = resultstr..', '
-			end
-			resultstr = resultstr .. ScpArgMsg("USEJOB_WIZ")
-		end
-		local char3 = string.find(usejob, 'Char3')
-
-		if char3 ~= nil then
-			if resultstr ~= '' then
-				resultstr = resultstr..', '
-			end
-			resultstr = resultstr .. ScpArgMsg("USEJOB_ARC")
-		end
-		local char4 = string.find(usejob, 'Char4')
-
-		if char4 ~= nil then
-			if resultstr ~= '' then
-				resultstr = resultstr..', '
-			end
-			resultstr = resultstr .. ScpArgMsg("USEJOB_CLE")
-		end
-		
 	end
 
 	if resultstr ~= '' then
@@ -193,112 +228,13 @@ end
 
 function GET_ICONNAME_BY_WHENEQUIPSTR(innerCSet, str)
 
-	if str == 'WhenEquipToWeapon' then
+	if str == 'WhenEquipToMainOrSubWeapon' then
 		return innerCSet:GetUserConfig("SWORD_ICON")
-	elseif str == 'WhenEquipToSubWeapon' then
-		return innerCSet:GetUserConfig("DEFENSE_ICON")
 	elseif str == 'WhenEquipToShirtsOrPants' then
-		return innerCSet:GetUserConfig("ARMOR_ICON")
-	elseif str == 'WhenEquipToBoots' then
-		return innerCSet:GetUserConfig("SHOES_ICON")
-	elseif str == 'WhenEquipToGlove' then
-		return innerCSet:GetUserConfig("GLOVE_ICON")
+		return innerCSet:GetUserConfig("DEFENSE_ICON")
+	elseif str == 'WhenEquipToHandOrFoot' then
+		return innerCSet:GetUserConfig("DEFENSE_ICON")
 	end
-
-end
-
-function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yPos )
-	if GroupCtrl == nil then
-		return 0;
-	end
-
-	local cnt = GroupCtrl:GetChildCount();
-	
-	local ControlSetObj			= GroupCtrl:CreateControlSet('tooltip_item_prop_socket', "ITEM_PROP_" .. cnt , 0, yPos);
-	local ControlSetCtrl		= tolua.cast(ControlSetObj, 'ui::CControlSet');
-
-	local socket_image = GET_CHILD(ControlSetCtrl, "socket_image", "ui::CPicture");
-	local socket_property_text = GET_CHILD(ControlSetCtrl, "socket_property", "ui::CRichText");
-	local gradetext = GET_CHILD_RECURSIVELY(ControlSetCtrl,"grade","ui::CRichText");
-
-	local NEGATIVE_COLOR = ControlSetObj:GetUserConfig("NEGATIVE_COLOR")
-	local POSITIVE_COLOR = ControlSetObj:GetUserConfig("POSITIVE_COLOR")
-	local STAR_SIZE = ControlSetObj:GetUserConfig("STAR_SIZE")
-
-	if gem == 0 then
-		local socketCls = GetClassByType("Socket", socket);
-		socketicon = socketCls.SlotIcon
-		local socket_image_name = socketCls.SlotIcon
-		socket_image:SetImage(socket_image_name)		
-		socket_property_text:ShowWindow(0)
-		gradetext:ShowWindow(0)
-	else
-
-		local gemclass = GetClassByType("Item", gem);
-		local socket_image_name = gemclass.Icon
-		socket_image:SetImage(socket_image_name)		
-		local lv = GET_ITEM_LEVEL_EXP(gemclass, gemExp);
-		
-		local prop = geItemTable.GetProp(gem);
-		
-		local desc = "";
-		local socketProp = prop:GetSocketPropertyByLevel(lv);
-		local type = invitem.ClassID;
-		local cnt = socketProp:GetPropCountByType(type);
-		gradetext:SetText(GET_STAR_TXT(STAR_SIZE,lv))
-		gradetext:ShowWindow(1)
-
-		for i = 0 , cnt - 1 do
-			local addProp = socketProp:GetPropAddByType(type, i);
-
-			local tempvalue = addProp.value
-
-			local plma_mark = POSITIVE_COLOR .. "{img green_up_arrow 16 16}"..'{/}';
-			if tempvalue < 0 then
-				plma_mark = NEGATIVE_COLOR .. "{img red_down_arrow 16 16}"..'{/}';
-				tempvalue = tempvalue * -1
-			end
-
-			if addProp:GetPropName() == "OptDesc" then
-				desc = addProp:GetPropDesc().."{nl}";
-			else
-				desc = desc .. ScpArgMsg(addProp:GetPropName()) .. " : ".. plma_mark .. tempvalue.."{nl}";
-			end
-
-		end
-
-		local cnt2 = socketProp:GetPropPenaltyCountByType(type);
-
-		local penaltyLv = lv - gemLv;
-		if 0 > penaltyLv then
-			penaltyLv = 0;
-		end
-		local socketPenaltyProp = prop:GetSocketPropertyByLevel(penaltyLv);
-		for i = 0 , cnt2 - 1 do
-			local addProp = socketPenaltyProp:GetPropPenaltyAddByType(type, i);
-			local tempvalue = addProp.value
-			local plma_mark = POSITIVE_COLOR .. "{img green_up_arrow 16 16}"..'{/}';
-
-			if tempvalue < 0 then
-				plma_mark = NEGATIVE_COLOR .. "{img red_down_arrow 16 16}"..'{/}';			
-			end
-
-			if gemLv > 0 then
-				if 0 < penaltyLv then
-					desc = desc .. ScpArgMsg(addProp:GetPropName()) .. " : ".. plma_mark .. tempvalue.."{nl}";
-				end
-			else
-				desc = desc .. ScpArgMsg(addProp:GetPropName()) .. " : ".. plma_mark .. tempvalue.."{nl}";
-			end
-		end
-			
-		socket_property_text:SetText(desc)
-		socket_property_text:ShowWindow(1)
-	end
-
-	GroupCtrl:ShowWindow(1)
-	GroupCtrl:Resize(GroupCtrl:GetWidth(),GroupCtrl:GetHeight() + ControlSetObj:GetHeight())
-	return ControlSetCtrl:GetHeight() + ControlSetCtrl:GetY();
 
 end
 
@@ -319,7 +255,6 @@ function ADD_ITEM_PROPERTY_TEXT(GroupCtrl, txt, xmargin, yPos )
 	end
 
 	local cnt = GroupCtrl:GetChildCount();
-	
 	local ControlSetObj			= GroupCtrl:CreateControlSet('tooltip_item_prop_richtxt', "ITEM_PROP_" .. cnt , 0, yPos);
 	local ControlSetCtrl		= tolua.cast(ControlSetObj, 'ui::CControlSet');
 	local richText = GET_CHILD(ControlSetCtrl, "text", "ui::CRichText");
@@ -350,6 +285,28 @@ function SET_GRADE_TOOLTIP(parent, invitem, starsize)
 	end
 end
 
+function SET_CARD_EDGE_TOOLTIP(parent, invitem)
+	local cardEdge = GET_CHILD(parent, "card_edge", "ui::CPicture");
+	if cardEdge ~= nil and invitem.CardGroupName ~= 'None' then
+		local cardGroupName = invitem.CardGroupName
+		
+		if cardGroupName == 'ATK' then
+			cardEdge:SetImage('moncard_red')
+		elseif cardGroupName == 'DEF' then
+			cardEdge : SetImage('moncard_blue')
+		elseif cardGroupName == 'UTIL' then
+			cardEdge : SetImage('moncard_purple')
+		elseif cardGroupName == 'STAT' then
+			cardEdge : SetImage('moncard_green')
+		elseif cardGroupName == 'LEG' then
+			cardEdge : SetImage('moncard_yellow')
+		elseif cardGroupName == 'REINFORCE_CARD' then
+			cardEdge : SetImage('moncard_gray')
+		else 
+			cardEdge:SetImage('moncard_red')
+		end
+	end
+end
 
 function ITEM_COMPARISON_SET_OFFSET(tooltipframe, isReadObj)
 	local equipChild = tooltipframe:GetChild('equip');
@@ -360,7 +317,7 @@ function ITEM_COMPARISON_SET_OFFSET(tooltipframe, isReadObj)
 end
 
 function COMPARISON_BY_PROPLIST(list, invitem, eqpItem, tooltipframe, equipchange, ispickitem)
-
+	local ShowEquipItemComparison = config.GetXMLConfig("ShowEquipItemComparison")
 	local valueList = GET_COMPARE_VALUE_LIST(list, invitem, eqpItem);
 
 	local IsNeedShowTooltip = 0;
@@ -372,7 +329,7 @@ function COMPARISON_BY_PROPLIST(list, invitem, eqpItem, tooltipframe, equipchang
 		end
 	end
 
-	if IsNeedShowTooltip == 0 then
+	if ShowEquipItemComparison == 0 or IsNeedShowTooltip == 0 then
 		return 0;
 	else
 		local cnt = equipchange:GetChildCount();
@@ -445,10 +402,6 @@ function IS_DRAG_RECIPE_ITEM(itemObj)
 
 	local recipeProp = itemProp.dragRecipe;
 	if recipeProp == nil then
-		return 0;
-	end
-
-	if GetWiki(recipeProp.needWikiID) == nil then
 		return 0;
 	end
 
@@ -545,11 +498,10 @@ function IS_DRAW_ETC_ITEM_DAMAGE(invitem)
 end
 
 function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
-
 	local invitem = nil;
 	if strarg == 'select' then
 		invitem = session.GetSelectItemByIndex(guid);
-	elseif strarg == 'soldItem' then
+	elseif strarg == 'soldItem' then		
 		invitem = GET_SOLDITEM_BY_INDEX(guid);
 	elseif strarg == 'equip' then
 		invitem = GET_ITEM_BY_GUID(guid, 1);
@@ -559,11 +511,11 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 	elseif strarg == 'dummyPC' then
 		invitem = GET_DUMMYPC_ITEM(guid, numarg1);
 	elseif strarg == "warehouse" then
-		invitem = session.GetWarehouseItemByGuid(guid);
+		invitem = session.GetWarehouseItemByGuid(guid);		
 	elseif strarg == "accountwarehouse" then
 		invitem = session.GetEtcItemByGuid(IT_ACCOUNT_WAREHOUSE, guid);
 	elseif strarg == "party" then
-		invitem = GetItemByID(guid, session.party.GetPartyInfo().inv);
+		return; -- deprecated
 	elseif strarg == "exchange" then
 		local idx = math.floor(guid / 10);
 		local listIndex = guid % 10;
@@ -574,22 +526,6 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 			return GetIES(obj);
 		end
 	elseif strarg == "collection" then
-		--[[
-		local colls = session.GetMySession():GetCollection();
-		local coll = colls:Get(numarg1);
-		if coll ~= nil then
-			local collItem = coll:GetByItemID(guid);
-			if collItem == nil then
-				local item = GetClassByType("Item", guid);
-				return item;
-			end
-
-			if collItem ~= nil then
-				return GetIES(collItem:GetObject());
-			end
-		end
-		]]--
-		-- collection parameter(guid) is classID.
 		local item = GetClassByType("Item", guid);
 		return item;
 	elseif strarg == "market" then
@@ -622,17 +558,31 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 			end
 		end
 	elseif strarg == "guildwarehouse" then
-		invitem = session.GetEtcItemByGuid(IT_GUILD, guid);
+		invitem = session.GetEtcItemByGuid(IT_GUILD_JOINT, guid);
+	elseif strarg == 'forgery' or strarg == 'link' then
+		invitem = session.link.GetGCLinkObject(guid);
+	elseif strarg == 'attendance' then
+		local itemObj = GetClassByType("Item", guid)
+		viewObj = CloneIES_UseCP(itemObj);
+		if guid == '699008' then
+			local temp_obj = GetClassByType("RewardAttendance", numarg1)
+			viewObj.Level = temp_obj.AppendPropertyStatus;			
+			return viewObj, 1;
+		end
 	else
 		invitem = GET_ITEM_BY_GUID(guid, 0);
 	end
-
-	if invitem ~= nil then
-		return GetIES(invitem:GetObject()), 0;
+    
+	if invitem ~= nil and invitem:GetObject() ~= nil then
+		local itemObj = GetIES(invitem:GetObject());		
+		if itemObj.ClassName ~= MONEY_NAME then	
+            local temp_obj = CloneIES_UseCP(itemObj)
+			return temp_obj, 0, invitem;
+		end
 	end
 
 	local itemObj = GetClassByType("Item", numarg1)
-	viewObj = CloneIES_NotUseCalc(itemObj);
+	viewObj = CloneIES_UseCP(itemObj);
 	if nil ~= viewObj then
 		local refreshScp = viewObj.RefreshScp;
 		if refreshScp ~= "None" then
@@ -668,6 +618,11 @@ function SET_BUFF_TEXT(gBox, invitem, yPos, strarg)
 		local sysTime = geTime.GetServerSystemTime();
 		local endTime = imcTime.GetSysTimeByStr(invitem.BuffEndTime);
 		local difSec = imcTime.GetDifSec(endTime, sysTime);
+
+		if difSec < 0 then
+			return yPos;
+		end
+
 		content:SetUserValue("REMAINSEC", difSec);
 		content:SetUserValue("STARTSEC", imcTime.GetAppTime());
 		SHOW_REMAIN_BUFF_TIME(content);
@@ -727,6 +682,11 @@ function SET_BUFF_TEXT(gBox, invitem, yPos, strarg)
 		local sysTime = geTime.GetServerSystemTime();
 		local endTime = imcTime.GetSysTimeByStr(invitem.EnchanterBuffEndTime);
 		local difSec = imcTime.GetDifSec(endTime, sysTime);
+
+		if difSec < 0 then
+			return yPos;
+		end
+
 		content:SetUserValue("REMAINSEC", difSec);
 		content:SetUserValue("STARTSEC", imcTime.GetAppTime());
 		content:SetUserValue("ENCHANT", 1);
@@ -769,7 +729,15 @@ function SHOW_REMAIN_BUFF_COUNT(ctrl)
 	return 1;
 end
 
-function SET_TRANSCEND_TEXT(gBox, invitem, yPos, ignoreTranscend)
+function SET_TRANSCEND_TEXT(gBox, invitem, yPos, isEquiped)
+    if isEquiped == nil then
+		isEquiped = 0;
+	end
+	local pc = GetMyPCObject();
+	local ignoreTranscend = TryGetProp(pc, 'IgnoreReinforce');
+	if isEquiped == 0 then
+		ignoreTranscend = 0;
+	end
     local transcend = TryGetProp(invitem, "Transcend");
 	if ignoreTranscend == 1 then
 		transcend = 0;
@@ -804,21 +772,27 @@ function SET_TRANSCEND_TEXT(gBox, invitem, yPos, ignoreTranscend)
 	return yPos;
 end
 
-function SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped)
+function SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped, basicProp)
 	if isEquiped == nil then
 		isEquiped = 0;
 	end
 	local pc = GetMyPCObject();
-	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce');
-	local bonusReinf = TryGetProp(pc, 'BonusReinforce');
+	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce', 0);
+	local bonusReinf = TryGetProp(pc, 'BonusReinforce', 0);
+	local overReinf = TryGetProp(pc, 'OverReinforce', 0);
+
 	if TryGetProp(invitem, 'EquipGroup') ~= 'SubWeapon' or isEquiped == 0 then
+		overReinf = 0;
+	end
+	if TryGetProp(invitem, 'GroupName') ~= 'Weapon' or isEquiped == 0 then
 		bonusReinf = 0;
 	end
 	if isEquiped == 0 then
 		ignoreReinf = 0;
 	end
-	local itemReinf = invitem.Reinforce_2 + bonusReinf;
-
+    
+	local itemReinf = invitem.Reinforce_2 + bonusReinf + overReinf;
+   
 	if itemReinf > 0  then
 		local y = GET_CHILD_MAX_Y(gBox);
 		local reinforceText = gBox:CreateOrGetControl('richtext', "REINFORCE_TEXT", 20, yPos, gBox:GetWidth() - 30, 20);
@@ -830,11 +804,11 @@ function SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped)
 		local reinforceValue = 0;
 
 		if invitem.GroupName == "Armor" then
-			reinforceValue = GET_REINFORCE_ADD_VALUE(invitem.BasicTooltipProp, invitem, ignoreReinf, bonusReinf);
+			reinforceValue = GET_REINFORCE_ADD_VALUE(basicProp, invitem, ignoreReinf, bonusReinf + overReinf);
 		elseif invitem.GroupName == "Weapon" then
-			reinforceValue = GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf);
+			reinforceValue = GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf + overReinf, basicProp);
 		elseif invitem.GroupName == "SubWeapon" then
-			reinforceValue = GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf);
+			reinforceValue = GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf + overReinf, basicProp);
 		end
 
 		if invitem.BuffValue > 0 then
@@ -847,6 +821,9 @@ function SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped)
 		local infoText = ScpArgMsg("MoruReinforce");
 		if bonusReinf > 0 then
 			infoText = ScpArgMsg("OverEstimate");
+		end
+		if overReinf > 0 then
+		    infoText = ScpArgMsg("OverReinforce");
 		end
 		if ignoreReinf == 1 then
 			infoText = ScpArgMsg("Devaluation");
@@ -911,7 +888,7 @@ end
 function ABILITY_CHANGEVALUE_SKINSET(tooltipframe, itemtype, invitem, equipItem)
 	local valueUp = IS_VALUE_UP_BY_CHANGE_ITEM(itemtype, invitem, equipItem);
 	local gbox = GET_CHILD(tooltipframe,'changevalue','ui::CGroupBox')
-
+	
 	if valueUp == 0 then
 		gbox:SetSkinName("comparisonballoon_negative");
 	else
@@ -1060,7 +1037,7 @@ function ABILITY_DESC_PLUS_OLD(desc, basic, cur, color)
 	end
 end
 
-function ABILITY_DESC_PLUS(desc, cur)
+function ABILITY_DESC_PLUS(desc, cur)   
 
     if cur < 0 then
         return string.format(" - %s "..ScpArgMsg("PropDown").."%d", desc, math.abs(cur));
@@ -1068,6 +1045,25 @@ function ABILITY_DESC_PLUS(desc, cur)
     	return string.format(" - %s "..ScpArgMsg("PropUp").."%d", desc, math.abs(cur));
 	end
 
+end
+
+function GET_OPTION_VALUE_OR_PERCECNT_STRING(optionName, optionValue)
+	local commonPropList = GET_COMMON_PROP_LIST();
+	for i = 1, #commonPropList do
+		if optionName == commonPropList[i] then
+			return ABILITY_DESC_PLUS(ClMsg(optionName), optionValue);
+		end
+	end
+	local percentText = string.format('%d', optionValue / 10);
+	return ' - '..ScpArgMsg(optionName, 'value', percentText);
+end
+
+function ABILITY_DESC_NO_PLUS(desc, cur)
+    if cur < 0 then
+        return string.format(" %s "..ScpArgMsg("PropDown").."%d", desc, math.abs(cur));
+    else
+    	return string.format(" %s "..ScpArgMsg("PropUp").."%d", desc, math.abs(cur));
+	end
 end
 
 function ABILITY_DESC_GENERAL(desc, basic, cur, color)
@@ -1100,4 +1096,188 @@ function GET_DUR_TEXT(invitem)
 	return dureinfo;
 end
 
+function TOGGLE_TRADE_OPTION(tradabilityCset, invitem, pictureName, richtextName, property)
+    local styleTradeOn = tradabilityCset:GetUserConfig('STYLE_TRADE_ON');
+    local styleTradeOff = tradabilityCset:GetUserConfig('STYLE_TRADE_OFF');
 
+	local picture = GET_CHILD(tradabilityCset, pictureName, 'ui::CPicture')
+	local richtext = GET_CHILD(tradabilityCset, richtextName, 'ui::CRichText')
+
+	if IS_ENABLE_TRADE_BY_TRADE_TYPE(invitem, property) == true then
+		picture:SetImage('tradecondition_on')
+        richtext:SetTextByKey('style', styleTradeOn);
+    else
+	    picture:SetImage('tradecondition_off')
+        richtext:SetTextByKey('style', styleTradeOff);
+    end
+end
+
+function IS_ENABLE_TRADE_BY_TRADE_TYPE(invitem, property)
+    if property == "ShopTrade" then
+	    return IS_ENABLED_SHOP_TRADE_ITEM(invitem)
+    elseif property == "UserTrade" then
+	    return IS_ENABLED_USER_TRADE_ITEM(invitem)
+    elseif property == "TeamTrade" then
+	    return IS_ENABLED_TEAM_TRADE_ITEM(invitem)
+    elseif property == "MarketTrade" then
+	    return IS_ENABLED_MARKET_TRADE_ITEM(invitem)
+    else
+        IMC_LOG("INFO_NORMAL", "IS_ENABLE_TRADE_BY_TRADE_TYPE ERROR!!")
+    end
+end
+
+function ON_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC()
+	local frame = ui.GetFrame("inventory")
+    if frame == nil then
+        return;
+	end
+	
+	local wholeitem = ui.GetTooltip("wholeitem");
+	local wholeitem_link = ui.GetFrame("wholeitem_link");
+	local item_tooltip = ui.GetFrame('item_tooltip');	
+	local function _IsVisible(_frame)
+		if _frame ~= nil and _frame:IsVisible() == 1 then
+			return true;
+		end
+		return false;
+	end
+
+    local is_frame_visible = _IsVisible(frame);
+    local is_wholeitem_visible = _IsVisible(wholeitem);
+	local is_wholeitem_link_visible = _IsVisible(wholeitem_link);
+	local is_item_tooltip_visible = _IsVisible(item_tooltip);
+    
+    if is_frame_visible == false and is_wholeitem_link_visible == false and is_item_tooltip_visible == false then
+        return;
+	end
+	
+    isToggle = IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC()
+	if isToggle == 1 then
+		frame:SetUserValue("IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC", 0);
+	else
+        frame:SetUserValue("IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC", 1);
+	end
+
+    ON_REFRESH_ITEM_TOOLTIP();
+end
+
+function IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC()
+    local frame = ui.GetFrame("inventory")
+    if frame == nil then
+        return 0;
+    end
+    local value = frame:GetUserIValue("IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC");
+	return tonumber(value)
+end
+
+TRADE_TYPE_MARKET = 0;
+TRADE_TYPE_SHOP = 1;
+TRADE_TYPE_USER = 2;
+TRADE_TYPE_TEAM = 3;
+
+function IS_DISABLED_TRADE(invitem, type)
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+	local blongProp = TryGetProp(invitem, "BelongingCount");
+	local blongCnt = 0;
+	
+	if blongProp ~= nil then
+		blongCnt = tonumber(blongProp);
+	end
+
+	local prProp = TryGetProp(invitem, "PR");
+	local prCount = 0;
+	if prProp ~= nil then
+		prCount = tonumber(prProp);
+	end
+
+	if type == TRADE_TYPE_USER then
+		if invitem.MaxStack <= 1 and prCount <= 0 and (GetTradeLockByProperty(invitem) ~= "None" or 0 < blongCnt) or 
+		(invitem.MaxStack <= 1 and (GetTradeLockByProperty(invitem) ~= "None" or 0 < blongCnt)) or
+		(invitem.ItemType == 'Equip' and invitem.ClassType ~= 'Helmet' and invitem.ClassType ~= 'Armband' and prCount <= 0) or
+		(invitem.ItemType == 'Equip' and invitem.Transcend > 0) then
+			return true;
+		end
+	elseif type == TRADE_TYPE_MARKET then
+		if invitem.MaxStack <= 1 and 
+		((invitem.ItemType == 'Equip' and invitem.ClassType ~= 'Helmet' and invitem.ClassType ~= 'Armband' and prCount <= 0) or 
+		0 < blongCnt or 
+		(TryGetProp(invitem, 'ClassType', 'None') == 'Armband' and invitem.MarketTrade == "NO")) then
+			return true;
+		end
+	else
+		if invitem.MaxStack <= 1 and (0 <  blongCnt) then
+			return true;
+		end
+	end
+
+    return false;
+end
+
+function IS_ENABLED_SHOP_TRADE_ITEM(invitem)
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+    if false == itemProp:IsEnableShopTrade() then
+        return false;
+    else
+        return true;
+    end
+end
+
+function IS_ENABLED_USER_TRADE_ITEM(invitem)
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+
+	if false == itemProp:IsEnableUserTrade()then
+        return false;
+	elseif true == IS_DISABLED_TRADE(invitem, TRADE_TYPE_USER) then
+        return false;
+    else
+        return true;
+	end
+end
+
+function IS_ENABLED_MARKET_TRADE_ITEM(invitem)
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+
+    if false == itemProp:IsEnableMarketTrade() then
+        return false;
+    elseif true == IS_DISABLED_TRADE(invitem, TRADE_TYPE_MARKET) then
+        return false;
+    else
+        return true;
+    end
+end
+
+function IS_ENABLED_TEAM_TRADE_ITEM(invitem)
+	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
+
+    if false == itemProp:IsEnableTeamTrade() then
+        return false;
+    elseif true == IS_DISABLED_TRADE(invitem, TRADE_TYPE_TEAM) then
+        return false;
+    else
+        return true;
+	end
+end
+
+function GET_ENABLE_TRADE_MSG(itemProp)
+	if itemProp == nil then
+		return "";
+	elseif itemProp : IsEnableUserTrade() == true then
+		return ScpArgMsg("UserTradeAble");
+	elseif itemProp : IsEnableMarketTrade() == true then
+		return ScpArgMsg("MarketTradeAble");
+	else
+		return ScpArgMsg("UserTradeUnable")
+	end
+end
+
+function GET_ITEM_NAME_WITH_LEVEL(item, itemLv)
+	if item == nil then
+		return nil;
+	end
+
+	if IS_ENCHANT_JEWELL_ITEM(item) == true then
+		return '['..string.format('LV. %d', itemLv)..'] '..item.Name;
+	end
+
+	return item.Name;
+end

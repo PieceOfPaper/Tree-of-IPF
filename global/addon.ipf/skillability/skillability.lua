@@ -461,19 +461,32 @@ function SKILLABILITY_FILL_ABILITY_GB(skillability_job, ability_gb, jobClsName)
     local jobCls = GetClass("Job", jobClsName);
     local jobEngName = jobCls.EngName;
     local abilGroupName = SKILLABILITY_GET_ABILITY_GROUP_NAME(jobEngName);
-    local list = SKILLABILITY_GET_ABILITY_NAME_LIST(jobEngName)--Ability_Peltasta
+    local list = SKILLABILITY_GET_ABILITY_NAME_LIST(jobClsName, jobEngName)--Ability_Peltasta
 
-    local clsList = {};
-
+    local clsSortList = {};
     for i=1, #list do
         local abilClass = GetClass("Ability", list[i]);
-        clsList[#clsList+1] = abilClass;
+        clsSortList[#clsSortList+1] = {}
+        clsSortList[#clsSortList]["cls"] = abilClass;
+        clsSortList[#clsSortList]["isDefaultAbil"] = IS_ABILITY_KEYWORD(abilClass, "DEFAULT_ABIL");
     end
 
     -- sort them. 
-    table.sort(clsList, function(lhs, rhs)
-        return lhs.ActiveGroup < rhs.ActiveGroup;
+    table.sort(clsSortList, function(lhs, rhs)
+        if lhs["isDefaultAbil"] == rhs["isDefaultAbil"] then
+            return false
+        elseif lhs["isDefaultAbil"] then
+            return false
+        elseif rhs["isDefaultAbil"] then
+            return true
+        end
+        return lhs["cls"].ActiveGroup < rhs["cls"].ActiveGroup;
     end);
+
+    local clsList = {};
+    for i=1, #clsSortList do
+        clsList[#clsList+1] = clsSortList[i]["cls"]
+    end
 
     CLEAR_SKILLABILITY_LEARN_COUNT_BY_JOB(ability_gb, jobClsName);
 
@@ -501,7 +514,7 @@ function SKILLABILITY_FILL_ABILITY_GB(skillability_job, ability_gb, jobClsName)
 
     --point
     local abilitypoint_text = GET_CHILD_RECURSIVELY(skillability_job, "abilitypoint_text");
-    local pointAmount = GET_SKILLABILITY_ABILITY_POINT_REMAIN_AMOUNT();
+    local pointAmount = session.ability.GetAbilityPoint();
     abilitypoint_text:SetTextByKey("value", GetCommaedText(pointAmount));
 end
 
@@ -603,23 +616,28 @@ function SKILLABILITY_FILL_ABILITY_CTRLSET(ability_gb, classCtrl, abilClass, gro
     local abilMasterPic = GET_CHILD(classCtrl, "abilMasterPic");
     local toggle = GET_CHILD(classCtrl, "toggle");
         
-	local maxLevel = tonumber(groupClass.MaxLevel)
     local abilIES = GetAbilityIESObject(GetMyPCObject(), abilClass.ClassName);
-    local isMax = IS_ABILITY_MAX(GetMyPCObject(), groupClass, abilClass);
     local abilLv = 0;
+    local maxLevel = 0;
+    local isMax = 0;
+    if groupClass ~= nil then
+        maxLevel = tonumber(groupClass.MaxLevel)
+        isMax = IS_ABILITY_MAX(GetMyPCObject(), groupClass, abilClass);
+    else
+        maxLevel = 1;
+        isMax = 1;
+    end
+
     if isMax == 1 then
-        abilLv = groupClass.MaxLevel;
+        abilLv = maxLevel;
     elseif abilIES ~= nil then
         abilLv = abilIES.Level;
     end
+    
     if maxLevel < abilLv then
-        abilLv = groupClass.MaxLevel;
+        abilLv = maxLevel;
     end
     
-    local notMax = 1;
-    if isMax == 1 then
-        notMax = 0;
-    end
     local learnCount = GET_SKILLABILITY_LEARN_COUNT(ability_gb, abilClass.ClassName)
     
 	-- icon.
@@ -669,7 +687,9 @@ function SKILLABILITY_FILL_ABILITY_CTRLSET(ability_gb, classCtrl, abilClass, gro
         abilLevelText:SetTextByKey("arrow", "");
         abilLevelText:SetTextByKey("after", "");
     end
-    abilLevelMaxText:SetTextByKey("value", "Lv."..groupClass.MaxLevel);
+    if maxLevel ~= nil then
+        abilLevelMaxText:SetTextByKey("value", "Lv."..maxLevel);
+    end
 
     -- condition.
     local condition = SKILLABILITY_GET_ABILITY_CONDITION(abilIES, groupClass, isMax);
@@ -678,8 +698,13 @@ function SKILLABILITY_FILL_ABILITY_CTRLSET(ability_gb, classCtrl, abilClass, gro
 
     -- master.
     abilMasterPic:SetVisible(isMax);
+
     local abilPointGB = GET_CHILD(classCtrl, "abilPointGB");
-    abilPointGB:SetVisible(notMax);
+    if isMax == 1 then
+        abilPointGB:SetVisible(0);
+    else
+        abilPointGB:SetVisible(1);
+    end
 
     -- skin
     local unlockScpRet = GET_ABILITY_CONDITION_UNLOCK(abilIES, groupClass);
@@ -931,7 +956,7 @@ end
 function ON_SKILLABILITY_BUY_ABILITY_POINT(frame, msg, argmsg, argnum)
     local gb = SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(frame);
     local abilitypoint_text = GET_CHILD_RECURSIVELY(gb, "abilitypoint_text");
-    local pointAmount = GET_SKILLABILITY_ABILITY_POINT_REMAIN_AMOUNT();
+    local pointAmount = session.ability.GetAbilityPoint();
     abilitypoint_text:SetTextByKey("value", GetCommaedText(pointAmount));
 
 end
@@ -978,7 +1003,7 @@ end
 function ON_SKILLABILITY_UPDATE_ABILITY_POINT(frame, msg, argStr, argNum)
     local gb = SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(frame);
     local abilitypoint_text = GET_CHILD_RECURSIVELY(gb, "abilitypoint_text");
-    local pointAmount = GET_SKILLABILITY_ABILITY_POINT_REMAIN_AMOUNT();
+    local pointAmount = session.ability.GetAbilityPoint();
     abilitypoint_text:SetTextByKey("value", GetCommaedText(pointAmount));
 end
 
@@ -1149,7 +1174,7 @@ function SKILLTREE_MAKE_COMMON_TYPE_SKILL_EMBLEM(frame)
 	local grid = GET_CHILD_RECURSIVELY(frame, 'skill', 'ui::CGrid');
 	local cid = frame:GetUserValue("TARGET_CID");
 	local pcSession = session.GetSessionByCID(cid);
-	local pcJobInfo = pcSession.pcJobInfo;
+	local pcJobInfo = pcSession:GetPCJobInfo();
 	local jobCount = pcJobInfo:GetJobCount();
 	local childCount = grid:GetChildCount();
 	if jobCount + 1 > childCount then

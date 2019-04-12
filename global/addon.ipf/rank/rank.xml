@@ -13,41 +13,41 @@
         <richtext name="title" rect="0 0 200 30" margin="0 13 0 0" layout_gravity="center top" caption="{@st43}랭킹{/}"/>
         <picture name="titlepicture" rect="0 0 44 44" margin="0 6 8 0" layout_gravity="right top" image="button_ranking"/>
         <button name="colse" rect="0 0 44 44" margin="8 6 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;rank&apos;)" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}랭킹창을 닫습니다{/}"/>
-        <page name="main" parent="group_main" rect="0 0 0 0" margin="30 80 30 40" layout_gravity="none none" border="5 5 5 5" skin="bg2" slotsize="400 70" slotspc="0 30"/>
-        <groupbox name="group_killTop" rect="0 0 0 0" margin="30 80 30 30" layout_gravity="none none" draw="false" scrollbar="false"/>
-        <page name="page" parent="group_killTop" rect="0 0 0 0" margin="0 230 0 40" layout_gravity="none none" border="10 10 10 10" skin="bg2" slotsize="400 70" slotspc="0 5"/>
+        <page name="main" parent="group_main" rect="0 0 0 0" margin="30 80 30 40" border="5 5 5 5" skin="bg2" slotsize="400 70" slotspc="0 30"/>
+        <groupbox name="group_killTop" rect="0 0 0 0" margin="30 80 30 30" draw="false" scrollbar="false"/>
+        <page name="page" parent="group_killTop" rect="0 0 0 0" margin="0 230 0 40" border="10 10 10 10" skin="bg2" slotsize="400 70" slotspc="0 5"/>
         <picture name="pic" parent="group_killTop" rect="0 0 64 64" margin="0 0 0 0" layout_gravity="center top" image="atk_icon" stretch="true"/>
         <richtext name="group_killTop_title" parent="group_killTop" rect="0 0 200 30" margin="0 60 0 0" layout_gravity="center top" caption="{@st41}몬스터 킬 Top 100{/}" fixheight="true" fixwidth="true" resizebytext="false" textalign="center center"/>
         <pagecontroller name="control" parent="group_killTop" rect="0 0 430 30" margin="0 0 0 5" layout_gravity="center bottom" image="{@st41b}{#666666} {@st43}" nextScp="RANK_PAGE_CHANGE_KILLTOP" prevScp="RANK_PAGE_CHANGE_KILLTOP" selectScp="RANK_PAGE_CHANGE_KILLTOP" slot="35 25" space="33 0 0 33" type="richtext">
             <prev size="30 25" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}"/>
             <next size="30 25" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}"/>
         </pagecontroller>
-        <groupbox name="group_attackTop" rect="0 0 0 0" margin="30 80 30 30" layout_gravity="none none" draw="false" scrollbar="false"/>
-        <page name="page" parent="group_attackTop" rect="0 0 0 0" margin="0 230 0 40" layout_gravity="none none" border="10 10 10 10" skin="bg2" slotsize="400 70" slotspc="0 5"/>
+        <groupbox name="group_attackTop" rect="0 0 0 0" margin="30 80 30 30" draw="false" scrollbar="false"/>
+        <page name="page" parent="group_attackTop" rect="0 0 0 0" margin="0 230 0 40" border="10 10 10 10" skin="bg2" slotsize="400 70" slotspc="0 5"/>
         <picture name="pic" parent="group_attackTop" rect="0 0 64 64" margin="0 0 0 0" layout_gravity="center top" image="armorbreak_icon" stretch="true"/>
         <richtext name="group_attackTop_title" parent="group_attackTop" rect="0 0 200 30" margin="0 60 0 0" layout_gravity="center top" caption="{@st41}데미지 Top 100{/}" fixheight="true" fixwidth="true" resizebytext="false" textalign="center center"/>
         <pagecontroller name="control" parent="group_attackTop" rect="0 0 430 30" margin="0 0 0 5" layout_gravity="center bottom" image="{@st41b}{#666666} {@st43}" nextScp="RANK_PAGE_CHANGE_ATTACKTOP" prevScp="RANK_PAGE_CHANGE_ATTACKTOP" selectScp="RANK_PAGE_CHANGE_ATTACKTOP" slot="35 25" space="33 0 0 33" type="richtext">
             <prev size="30 25" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}"/>
             <next size="30 25" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}"/>
         </pagecontroller>
-        <groupbox name="group_moneyTop" rect="0 0 0 0" margin="30 80 30 30" layout_gravity="none none" draw="false" scrollbar="false"/>
-        <page name="page" parent="group_moneyTop" rect="0 0 0 0" margin="0 230 0 40" layout_gravity="none none" border="15 10 0 10" skin="bg2" slotsize="400 70" slotspc="0 5"/>
+        <groupbox name="group_moneyTop" rect="0 0 0 0" margin="30 80 30 30" draw="false" scrollbar="false"/>
+        <page name="page" parent="group_moneyTop" rect="0 0 0 0" margin="0 230 0 40" border="15 10 0 10" skin="bg2" slotsize="400 70" slotspc="0 5"/>
         <picture name="pic" parent="group_moneyTop" rect="0 0 64 64" margin="0 0 0 0" layout_gravity="center top" image="icon_item_silver" stretch="true"/>
         <richtext name="group_moneyTop_title" parent="group_moneyTop" rect="0 0 200 30" margin="0 60 0 0" layout_gravity="center top" caption="{@st41}머니머니 Top 100{/}" fixheight="true" fixwidth="true" resizebytext="false" textalign="center center"/>
         <pagecontroller name="control" parent="group_moneyTop" rect="0 0 430 30" margin="0 0 0 5" layout_gravity="center bottom" image="{@st41b}{#666666} {@st43}" nextScp="RANK_PAGE_CHANGE_MONEYTOP" prevScp="RANK_PAGE_CHANGE_MONEYTOP" selectScp="RANK_PAGE_CHANGE_MONEYTOP" slot="35 25" space="33 0 0 33" type="richtext">
             <prev size="30 25" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}"/>
             <next size="30 25" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}"/>
         </pagecontroller>
-        <groupbox name="group_levelTop" rect="0 0 0 0" margin="30 80 30 30" layout_gravity="none none" draw="false" scrollbar="false"/>
-        <page name="page" parent="group_levelTop" rect="0 0 0 0" margin="0 230 0 40" layout_gravity="none none" border="15 10 0 10" skin="bg2" slotsize="400 70" slotspc="0 5"/>
+        <groupbox name="group_levelTop" rect="0 0 0 0" margin="30 80 30 30" draw="false" scrollbar="false"/>
+        <page name="page" parent="group_levelTop" rect="0 0 0 0" margin="0 230 0 40" border="15 10 0 10" skin="bg2" slotsize="400 70" slotspc="0 5"/>
         <picture name="pic" parent="group_levelTop" rect="0 0 64 64" margin="0 0 0 0" layout_gravity="center top" image="hpdrain_icon" stretch="true"/>
         <richtext name="group_levelTop_title" parent="group_levelTop" rect="0 0 200 30" margin="0 60 0 0" layout_gravity="center top" caption="{@st41}레벨업 Top 100{/}" fixheight="true" fixwidth="true" resizebytext="false" textalign="center center"/>
         <pagecontroller name="control" parent="group_levelTop" rect="0 0 430 30" margin="0 0 0 5" layout_gravity="center bottom" image="{@st41b}{#666666} {@st43}" nextScp="RANK_PAGE_CHANGE_LEVELTOP" prevScp="RANK_PAGE_CHANGE_LEVELTOP" selectScp="RANK_PAGE_CHANGE_LEVELTOP" slot="35 25" space="33 0 0 33" type="richtext">
             <prev size="30 25" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}"/>
             <next size="30 25" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}"/>
         </pagecontroller>
-        <groupbox name="group_journalTop" rect="0 0 0 0" margin="35 70 30 70" layout_gravity="none none"/>
-        <page name="page" parent="group_journalTop" rect="0 0 0 0" margin="0 230 0 50" layout_gravity="none none" border="15 10 0 10" slotsize="400 70" slotspc="0 5"/>
+        <groupbox name="group_journalTop" rect="0 0 0 0" margin="35 70 30 70"/>
+        <page name="page" parent="group_journalTop" rect="0 0 0 0" margin="0 230 0 50" border="15 10 0 10" slotsize="400 70" slotspc="0 5"/>
         <button name="back" rect="0 0 60 30" margin="50 135 0 0" layout_gravity="left top" LBtnUpScp="RANK_BACK_MAIN" caption="{@st41b}메뉴{/}" clicksound="button_click_big" oversound="button_over"/>
     </controls>
 </uiframe>

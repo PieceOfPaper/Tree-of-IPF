@@ -1051,22 +1051,18 @@ function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 	end
 	
 	-- search npc
-	local npcStates = session.GetNPCStateMap();
-	local idx = npcStates:Head();
-	while idx ~= npcStates:InvalidIndex() do
-		local mapName = npcStates:KeyPtr(idx):c_str();
+	local npcStateMaps = GetNPCStateMaps();
+	for i = 1, #npcStateMaps do
+		local mapName = npcStateMaps[i];
 		local mapCls = GetClass("Map", mapName);
-		local npcList = npcStates:Element(idx);		
-		local npcIdx = npcList:Head();
-		while npcIdx ~= npcList:InvalidIndex() do
-			local type = npcList:Key(npcIdx);
+		if mapCls ~= nil then
+			local npcGenTypes = GetNPCStateGenTypes(mapName);
+			for j = 1, #npcGenTypes do
+				local genType = npcGenTypes[j];
 
-			local genCls = GetGenTypeClass(mapName, type);			
-			if nil == genCls then
-				break;
-			end;
-
-			if TryGetProp(genCls, 'ClassType') ~= 'Warp_arrow' then -- 워프 제외한 npc
+				local genCls = GetGenTypeClass(mapName, genType);			
+				if genCls ~= nil then
+					if TryGetProp(genCls, "ClassType") ~= "Warp_arrow" then -- 워프 제외한 npc
 						local name = GET_GENCLS_NAME(genCls);
 						local tempname = string.lower(dictionary.ReplaceDicIDInCompStr(name));		
 						local tempinputtext = string.lower(searchText);
@@ -1075,9 +1071,9 @@ function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 							targetCnt = targetCnt + 1;
 						end
 					end
-			npcIdx = npcList:Next(npcIdx);
+				end;
+			end
 		end
-		idx = npcStates:Next(idx);
 	end
 
 	local showIdx = 0

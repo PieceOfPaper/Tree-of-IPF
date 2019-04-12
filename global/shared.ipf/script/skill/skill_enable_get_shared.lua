@@ -28,7 +28,7 @@ local function GET_LIMIT_SKILL_LEVEL(pc, targetSkillTreeCls, targetSkillJobName,
 			jobSeq = GetJobSequence(pc, targetSkillJobCls.ClassID);
 		else
 			local mainSession = session.GetMainSession();			
-			local jobHistoryVec = mainSession.pcJobInfo;
+			local jobHistoryVec = mainSession:GetPCJobInfo();
 			local jobInfo = jobHistoryVec:GetJobInfo(targetSkillJobCls.ClassID);
 			if jobInfo ~= nil then
 				jobSeq = jobInfo.index;

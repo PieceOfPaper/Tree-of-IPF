@@ -1537,20 +1537,12 @@ end
 
 
 function SCR_USE_ITEM_1902_NEWYEAR_PACKAGE_ALL(pc, target, string1, arg1, arg2, itemID)
-    local accountObject = GetAccountObj(pc)
-    local today = SCR_JOB_SHADOWMANCER_TIME_CHECK(pc)
     local tx = TxBegin(pc);
     TxGiveItem(tx, "1902_NewYear_Package_01", 1, '1902_NEW_YEAR_PACKAGE_ALL')
     TxGiveItem(tx, "1902_NewYear_Package_03", 1, '1902_NEW_YEAR_PACKAGE_ALL')
     TxGiveItem(tx, "R_Steam_HP_Potion_7Day", 1, '1902_NEW_YEAR_PACKAGE_ALL') -- steam add -- 
     TxGiveItem(tx, "R_Steam_SP_Potion_7Day", 1, '1902_NEW_YEAR_PACKAGE_ALL') -- steam add -- 
-    TxGiveItem(tx, "widnium_piece_Premium", 3, '1902_NEW_YEAR_PACKAGE_ALL')
-    TxSetIESProp(tx, accountObject, "NEWYEAR_PACKAGE_1902_EXCHANGE_ITEM", tostring(today))
     local ret = TxCommit(tx);
-    
-    local sObj = GetSessionObject(pc, "ssn_klapeda")
-    sObj.NEWYEAR_PACKAGE_1902_INFORM = 0
-    SaveSessionObject(pc, sObj)
 end
 
 function SCR_USE_Event_Steam_Popo_Point(pc, strArg, argnum1, arg2, itemClassID)

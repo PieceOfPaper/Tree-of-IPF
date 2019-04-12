@@ -8,12 +8,10 @@
 	<option closebutton="false" hideable="false" useimageitem="true"/>
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
 	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
-	<!-- <userconfig hairShopName_male="헤어 샵(남)" hairShopName_female="헤어 샵(여)" costumeShopName_male ="코스튬 샵(남)" costumeShopName_female ="코스튬 샵(여)"/> -->
 	<controls>
 		<!-- default frame -->
 		<groupbox name="gbBackGround" rect="0 0 578 848" margin="0 0 0 0" layout_gravity="left top" skin="test_pvp_skin" draw="true" resizebyparent="true" scrollbar="false" hittest="true" hittestbox="false"/>
 		<groupbox name="bigModeBox" rect="0 0 578 848" margin="0 0 0 0" layout_gravity="left top" draw="false" resizebyparent="true" scrollbar="false" hittest="true" hittestbox="false"/>
-		<groupbox name="gbTitle" parent="gbBackGround" rect="0 0 470 40" margin="0 20 0 0" layout_gravity="center top" skin="test_frame_low" draw="false" resizebyparent="treu" scrollbar="false" hittest="false"/>
 		<groupbox name="gbBody" parent="bigModeBox" rect="0 0 422 500" margin="0 100 0 0" layout_gravity="center top" skin="test_weight_skin" draw="false" resizebyparent="true" scrollbar="false" hittest="true"/>
 		<groupbox name="gbPurchase" parent="bigModeBox" rect="0 0 420 320" margin="0 0 0 20" layout_gravity="center bottom" skin="test_weight_skin" draw="false" resizebyparent="true" scrollbar="false" hittest="true"/>
 		<!-- title -->
