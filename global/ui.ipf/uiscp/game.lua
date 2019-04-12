@@ -146,7 +146,7 @@ function TEST_MAPMAKE()
 end
 
 
-
+	
 function TEST_AYASE2(x,y)
 
 
@@ -216,10 +216,10 @@ function MAKE_ALL_DEFAULT_HAIR()
 end
 
 	
-function TEST_AYASE()
-
-ui.Chat("/w 이동익 {img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}{img emoticon_0012 2147483647 2147483647}{/}");
-
+function TEST_AYASE()    
+    print("friend ui test");    
+    session.friends.TestAddManyFriend(FRIEND_LIST_COMPLETE, 200);
+    session.friends.TestAddManyFriend(FRIEND_LIST_BLOCKED, 100);
 end
 
 function JOB_COMMAND()
@@ -1254,25 +1254,25 @@ function GET_ITEM_TOOLTIP_SKIN(cls)
 	return "Item_tooltip_consumable";
 end
 
-function GET_ITEM_BG_PICTURE_BY_GRADE(rank)
+function GET_ITEM_BG_PICTURE_BY_GRADE(rank, needAppraisal)
 
-	if rank == nil then
-		return "None";
-	end
-
+	local pic = 'None'
 	if rank == 1 then
-		return "one_two_star_item_bg";
+		pic = "one_two_star_item_bg";
 	elseif rank == 2 then
-		return "three_star_item_bg";
+		pic ="three_star_item_bg";
 	elseif rank == 3 then
-		return "four_star_item_bg";
+		pic = "four_star_item_bg";
 	elseif rank == 4 then
-		return "five_item_bg";
+		pic = "five_item_bg";
 	elseif rank == 0 then
 		return "premium_item_bg";
 	end
 
-	return "None";
+	if needAppraisal == 1 then
+		pic = pic..'2';
+	end
+	return pic;
 end
 
 function GET_ITEM_BG_PICTURE_BY_ITEMLEVEL(itemlv) 
@@ -1336,12 +1336,24 @@ function GET_FULL_GRADE_NAME(itemCls, gradeSize)
 	return GET_FULL_NAME(itemCls) .. "{nl}" .. gradeTxt;
 end
 
-function GET_FULL_NAME(item, useNewLine)
-
+function GET_FULL_NAME(item, useNewLine, isEquiped)
+	if isEquiped == nil then
+		isEquiped = 0;
+	end
 	local ownName = GET_NAME_OWNED(item);
-
 	local reinforce_2 = TryGetProp(item, "Reinforce_2");
 	local isHaveLifeTime = TryGetProp(item, "LifeTime");
+	local pc = GetMyPCObject();
+	local bonusReinf = TryGetProp(pc, 'BonusReinforce');
+	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce');
+	if bonusReinf ~= nil then
+		if TryGetProp(item, 'EquipGroup') == 'SubWeapon' and isEquiped > 0 then
+			reinforce_2 = reinforce_2 + bonusReinf;
+		end
+	end
+	if isEquiped > 0 and ignoreReinf == 1 then
+		reinforce_2 = 0;
+	end	
 	
 	if 0 ~= isHaveLifeTime then
 		ownName = string.format("{img test_cooltime 30 30 }%s", ownName);
@@ -3208,7 +3220,7 @@ function SCR_GEM_ITEM_SELECT(argNum, luminItem, frameName)
 		return
 	end
 
-	-- 몬스터젬만 중복검사
+	-- 몬스?�젬�?중복검?
 	local gemClass = GetClassByType("Item", luminItem.type)
 	if gemClass ~= nil then
 		local gemEquipGroup = TryGetProp(gemClass, "EquipXpGroup")
@@ -3227,6 +3239,11 @@ function SCR_GEM_ITEM_SELECT(argNum, luminItem, frameName)
 				return
 			end
 		end
+	end
+
+	if IS_ENABLE_EQUIP_GEM(itemobj, gemClass.ClassID) == false then
+		ui.SysMsg(ScpArgMsg("ValidDupEquipGemBy{VALID_CNT}", "VALID_CNT", VALID_DUP_GEM_CNT));
+		return;
 	end
 
 	local cnt = 0;
@@ -3645,8 +3662,8 @@ end
 
 function SCR_QUEST_CHECK_C(pc, questname)
 	local questState = GetQuestState(questname);
-	if "PROGRESS" == questState then -- ¸??O¶§, ¼¼¼?:끧?´ μ쿲?®N?º¸μμ·??Z.
-	-- ¸¶¹??½º?°¡ °≫½??μ???±?¹®¿¡
+	if "PROGRESS" == questState then -- ¸??O¶§, ¼¼¼?:??´ μ�?®N?º¸μμ·??Z.
+	-- ¸¶¹??½º?°¡ °?��??μ???±?¹®¿¡
 		local questIES = GetClass('QuestProgressCheck', questname);
 		local sObj_quest = GetSessionObject(pc, questIES.Quest_SSN);
 		if nil ~= sObj_quest then
@@ -4102,7 +4119,7 @@ function CHEAT_LIST_OPEN()
 end
 
 function ON_RIDING_VEHICLE(onoff)
-
+    
 	if control.HaveNearCompanionToRide() == true then
 		local fsmActor = GetMyActor();
 
@@ -4123,16 +4140,7 @@ function ON_RIDING_VEHICLE(onoff)
 		end
 
 		local ret = control.RideCompanion(onoff);
-
-		local isSit = control.IsRestSit();
-
-		if onoff == 1 and isSit == true then
-			ui.SysMsg(ClMsg('SitState_Vehicle'));
-			return;
-		end
-
-		if onoff == 1 and ret == false then
-			--ui.SysMsg(ClMsg('DistanceIsTooFar'));
+		if ret == false then
 			return;
 		end
 	else
@@ -4232,7 +4240,7 @@ function UPDATE_COMPANION_TITLE(frame, handle)
 		local petObj = GetIES(pet:GetObject());
 		gauge_stamina:SetPoint(petObj.Stamina, petObj.MaxStamina);
 		
-		local petInfo = info.GetStat(handle); --IESObject 정보 사용시 HP는 실시간으로 동기화 되지 않는다.
+		local petInfo = info.GetStat(handle); --IESObject ?�보 ?�용??HP???�시간으�??�기???��? ?�는??
 		gauge_HP:SetPoint(petInfo.HP, petInfo.maxHP);		
 	end
 
@@ -4265,7 +4273,7 @@ end
 function TEST_TIARUA()
 
 ReloadHotKey()
---print("由щ줈?쒗빂??)
+--print("?�щ줈??�빂??)
 --ui.OpenFrame("joystickrestquickslot");
 --[[
 local quickFrame = ui.GetFrame('quickslotnexpbar')
@@ -4373,7 +4381,7 @@ function UI_MODE_CHANGE(index)
 end
 
 function KEYBOARD_INPUT()
-	
+
 	if GetChangeUIMode() == 1 then
 		return;
 	end
@@ -4485,4 +4493,3 @@ function BLOCK_MSG(blockName, sysTime)
 	ui.SysMsg(msgStr);
 	
 end
-
