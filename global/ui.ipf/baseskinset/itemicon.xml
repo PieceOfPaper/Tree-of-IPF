@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -2591,6 +2591,18 @@
 		<image name="icon_item_RootTile_dagger" file="\icon\weapon\icon_item_RootTile_dagger.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_MoonRabbit_staff" file="\icon\weapon\icon_item_MoonRabbit_staff.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_MoonRabbit_cannon" file="\icon\weapon\icon_item_MoonRabbit_cannon.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_halloween_dagger" file="\icon\weapon\icon_item_halloween_dagger.png" imgrect="0 0 256 256" CMM_Caption="2018 10테마 할로윈 무기"/>
+		<image name="icon_item_halloween_mace" file="\icon\weapon\icon_item_halloween_mace.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_halloween_musket" file="\icon\weapon\icon_item_halloween_musket.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_halloween_pistol" file="\icon\weapon\icon_item_halloween_pistol.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_halloween_rapier" file="\icon\weapon\icon_item_halloween_rapier.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_halloween_spear" file="\icon\weapon\icon_item_halloween_spear.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_halloween_sword" file="\icon\weapon\icon_item_halloween_sword.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_halloween_thbow" file="\icon\weapon\icon_item_halloween_thbow.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_halloween_thmace" file="\icon\weapon\icon_item_halloween_thmace.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_halloween_thspear" file="\icon\weapon\icon_item_halloween_thspear.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_halloween_thstaff" file="\icon\weapon\icon_item_halloween_thstaff.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_halloween_thsword" file="\icon\weapon\icon_item_halloween_thsword.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -3056,6 +3068,11 @@
 		<image name="icon_item_accessory_Satgat" file="\icon\hairacc\icon_item_accessory_Satgat.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_accessory_Gat" file="\icon\hairacc\icon_item_accessory_Gat.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_accessory_HorsePlate" file="\icon\hairacc\icon_item_accessory_HorsePlate.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_blackcat" file="\icon\hairacc\icon_item_accessory_blackcat.png" imgrect="0 0 256 256" CMM_Caption="2018 10테마 할로윈"/>
+		<image name="icon_item_accessory_pumpkin" file="\icon\hairacc\icon_item_accessory_pumpkin.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_witchHat1" file="\icon\hairacc\icon_item_accessory_witchHat1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_witchHat2" file="\icon\hairacc\icon_item_accessory_witchHat2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_wolfmask" file="\icon\hairacc\icon_item_accessory_wolfmask.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -4852,6 +4869,7 @@
 		<image name="icon_item_HairCoupon_100_pp" file="\icon\item\icon_item_HairCoupon_100_pp.png" imgrect="0 0 256 256" CMM_Caption="[스팀]헤어 100"/>
 		<image name="icon_item_DyeCoupon_50_pp" file="\icon\item\icon_item_DyeCoupon_50_pp.png" imgrect="0 0 256 256" CMM_Caption="[스팀]염색 50"/>
 		<image name="icon_item_DyeCoupon_100_pp" file="\icon\item\icon_item_DyeCoupon_100_pp.png" imgrect="0 0 256 256" CMM_Caption="[스팀]염색 100"/>
+		<image name="icon_item_box_pc_basic_pp" file="\icon\item\icon_item_box_pc_basic_pp.png" imgrect="0 0 256 256" CMM_Caption="[스팀]상자"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -5586,6 +5604,22 @@
 		<image name="icon_item_Inspector01_Box" file="\icon\payment\icon_item_Inspector01_Box.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Inspector02_Box" file="\icon\payment\icon_item_Inspector02_Box.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Inspector03_Box" file="\icon\payment\icon_item_Inspector03_Box.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_HalloweenBat_Unifom_f" file="\icon\payment\icon_item_HalloweenBat_Unifom_f.png" imgrect="0 0 256 256" CMM_Caption="2018 10 테마 할로윈"/>
+		<image name="icon_item_HalloweenBat_Unifom_m" file="\icon\payment\icon_item_HalloweenBat_Unifom_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_HalloweenCat_Unifom_f" file="\icon\payment\icon_item_HalloweenCat_Unifom_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_HalloweenCat_Unifom_m" file="\icon\payment\icon_item_HalloweenCat_Unifom_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_HalloweenJack_Unifom_f" file="\icon\payment\icon_item_HalloweenJack_Unifom_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_HalloweenJack_Unifom_m" file="\icon\payment\icon_item_HalloweenJack_Unifom_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_HalloweenWolf_Unifom_f" file="\icon\payment\icon_item_HalloweenWolf_Unifom_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_HalloweenWolf_Unifom_m" file="\icon\payment\icon_item_HalloweenWolf_Unifom_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_wing_cat" file="\icon\payment\icon_item_wing_cat.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_wing_ghost" file="\icon\payment\icon_item_wing_ghost.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_wing_pumpkin" file="\icon\payment\icon_item_wing_pumpkin.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Effect_Ghost" file="\icon\payment\icon_item_Effect_Ghost.png" imgrect="0 0 256 256" CMM_Caption="할로윈 이펙트_유령"/>
+		<image name="icon_item_PumpkinStamp" file="\icon\payment\icon_item_PumpkinStamp.png" imgrect="0 0 256 256" CMM_Caption="할로윈 이펙트_호박"/>
+		<image name="icon_item_Halloween_box01" file="\icon\payment\icon_item_Halloween_box01.png" imgrect="0 0 256 256" CMM_Caption="2018 10월 코스튬 박스"/>
+		<image name="icon_item_Halloween_box02" file="\icon\payment\icon_item_Halloween_box02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Halloween_box03" file="\icon\payment\icon_item_Halloween_box03.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

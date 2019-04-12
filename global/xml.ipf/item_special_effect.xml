@@ -16,4 +16,31 @@
 			<effect TargetNode="Dummy001" effect="F_pc_costume_inspector_uniform01_light_loop" scale="1" offsetX="0" offsetY="0" ReinforceValue="0" UseAttach="YES" PlayType="All"/>
 		</ItemList>
 	</Effect_Item>
+	<Effect_Item>
+		<ItemList ItemClassName="Artefact_634028">
+			<effect TargetNode="Dummy_eff" effect="F_halloweenlight_weapon_light001_loop" scale="1.5" offsetX="0" offsetY="0" ReinforceValue="0" UseAttach="YES" PlayType="All"/>
+			<effect TargetNode="Dummy_eff" effect="F_halloweenlight_weapon_light001_loop" scale="1.5" offsetX="0" offsetY="0" ReinforceValue="1" UseAttach="YES" PlayType="All"/>
+			<effect TargetNode="Dummy_eff" effect="F_halloweenlight_weapon_light001_loop" scale="2" offsetX="0" offsetY="0" ReinforceValue="16" UseAttach="YES" PlayType="All"/>
+			<effect TargetNode="Dummy_eff" effect="F_halloweenlight_weapon_light001_loop" scale="2.5" offsetX="0" offsetY="0" ReinforceValue="18" UseAttach="YES" PlayType="All"/>
+			<effect TargetNode="Dummy_eff" effect="F_halloweenlight_weapon_light001_loop" scale="3" offsetX="0" offsetY="0" ReinforceValue="21" UseAttach="YES" PlayType="All"/>
+		</ItemList>
+	</Effect_Item>
+	<Effect_Item>
+		<ItemList ItemClassName="Artefact_634032">
+			<effect TargetNode="Dummy_trail01" effect="F_halloweenlight_weapon_light001_loop" scale="0.7" offsetX="0" offsetY="0" ReinforceValue="0" UseAttach="YES" PlayType="All"/>
+			<effect TargetNode="Dummy_trail01" effect="F_halloweenlight_weapon_light001_loop" scale="0.7" offsetX="0" offsetY="0" ReinforceValue="1" UseAttach="YES" PlayType="All"/>
+			<effect TargetNode="Dummy_trail01" effect="F_halloweenlight_weapon_light001_loop" scale="1" offsetX="0" offsetY="0" ReinforceValue="16" UseAttach="YES" PlayType="All"/>
+			<effect TargetNode="Dummy_trail01" effect="F_halloweenlight_weapon_light001_loop" scale="1.2" offsetX="0" offsetY="0" ReinforceValue="18" UseAttach="YES" PlayType="All"/>
+			<effect TargetNode="Dummy_trail01" effect="F_halloweenlight_weapon_light001_loop" scale="1.5" offsetX="0" offsetY="0" ReinforceValue="21" UseAttach="YES" PlayType="All"/>
+		</ItemList>
+	</Effect_Item>
+	<Effect_Item>
+		<ItemList ItemClassName="Artefact_634033">
+			<effect TargetNode="dummy_effect" effect="F_pc_costume_inspector_uniform01_light_loop" scale="0.7" offsetX="0" offsetY="0" ReinforceValue="0" UseAttach="YES" PlayType="All"/>
+			<effect TargetNode="dummy_effect" effect="F_pc_costume_inspector_uniform01_light_loop" scale="0.7" offsetX="0" offsetY="0" ReinforceValue="1" UseAttach="YES" PlayType="All"/>
+			<effect TargetNode="dummy_effect" effect="F_pc_costume_inspector_uniform01_light_loop" scale="1" offsetX="0" offsetY="0" ReinforceValue="16" UseAttach="YES" PlayType="All"/>
+			<effect TargetNode="dummy_effect" effect="F_pc_costume_inspector_uniform01_light_loop" scale="1.2" offsetX="0" offsetY="0" ReinforceValue="18" UseAttach="YES" PlayType="All"/>
+			<effect TargetNode="dummy_effect" effect="F_pc_costume_inspector_uniform01_light_loop" scale="1.5" offsetX="0" offsetY="0" ReinforceValue="21" UseAttach="YES" PlayType="All"/>
+		</ItemList>
+	</Effect_Item>
 </List>
