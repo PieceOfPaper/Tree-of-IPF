@@ -2,79 +2,9 @@
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="Anchor_c_Klaipe">
 	<Category>
-		<Class ClassID="1" GenType="1" PosX="510.70291" PosY="-1.2928795" PosZ="-349.31937" Direction="0" Name="잡화 상인" NPCID="20031" AnchorRange="1"/>
-		<Class ClassID="2" GenType="2" PosX="394" PosY="-1" PosZ="-475" Direction="0" Name="장비 상인 " NPCID="20067" AnchorRange="1"/>
-		<Class ClassID="3" GenType="3" PosX="268.70773" PosY="-1.3437729" PosZ="-610.94006" Direction="0" Name="악세서리 상인 " NPCID="20066" AnchorRange="1"/>
-		<Class ClassID="4" GenType="4" PosX="-474" PosY="149" PosZ="82" Direction="315" Name="기사단장 우스카" NPCID="20113" AnchorRange="1"/>
-		<Class ClassID="5" GenType="113" PosX="-409" PosY="149" PosZ="174" Direction="315" Name="[클레릭 마스터]{nl}로잘리야" NPCID="0" AnchorRange="10"/>
-		<Class ClassID="7" GenType="7" PosX="-9" PosY="156" PosZ="131" Direction="-68.96" Name="마을사람" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="8" GenType="8" PosX="-60" PosY="148" PosZ="42" Direction="-8.43" Name="병사의 어머니" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="10" GenType="114" PosX="-196.47" PosY="148.83" PosZ="350.73" Direction="-90" Name="[프리스트 마스터]{nl}보러블" NPCID="0" AnchorRange="10"/>
-		<Class ClassID="11" GenType="10004" PosX="-201" PosY="-1" PosZ="-1182" Direction="-100" Name="샤울레이 서쪽 숲" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="12" GenType="209" PosX="-80" PosY="148" PosZ="387" Direction="-60" Name="공고(대성당광고)" NPCID="40090" AnchorRange="1"/>
-		<Class ClassID="13" GenType="13" PosX="600" PosY="-1" PosZ="-83" Direction="0" Name="대장장이" NPCID="20105" AnchorRange="1"/>
-		<Class ClassID="14" GenType="115" PosX="-1108" PosY="240" PosZ="512" Direction="315" Name="[크리비 마스터]{nl}헤르쿠스" NPCID="0" AnchorRange="10"/>
-		<Class ClassID="15" GenType="11" PosX="-409" PosY="-1" PosZ="-647" Direction="-92.29" Name="들떠있는 아가씨" NPCID="20114" AnchorRange="1"/>
-		<Class ClassID="17" GenType="2001" PosX="-60" PosY="79" PosZ="-446" Direction="-78.69" Name="폐도 피난민" NPCID="41219" AnchorRange="10"/>
-		<Class ClassID="18" GenType="21" PosX="799" PosY="-1" PosZ="331" Direction="45" Name="샤울레이 동쪽 숲" NPCID="40001" AnchorRange="1"/>
-		<Class ClassID="19" GenType="2002" PosX="254.74931" PosY="79.859558" PosZ="225.74277" Direction="0" Name="폐도 피난민" NPCID="0" AnchorRange="1"/>
-		<Class ClassID="20" GenType="101" PosX="-325" PosY="148" PosZ="17" Direction="171" Name="얼음 땡 관리" NPCID="20042" AnchorRange="1"/>
-		<Class ClassID="102" GenType="102" PosX="-976" PosY="-1" PosZ="-502" Direction="135" Name="보코르 마스터의 집" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="103" GenType="103" PosX="-225" PosY="97" PosZ="-385" Direction="-100" Name="펠타스타 마스터" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="104" GenType="104" PosX="223" PosY="80" PosZ="-95" Direction="135" Name="하이랜더 마스터룸" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="105" GenType="105" PosX="-2" PosY="96" PosZ="-290" Direction="110" Name="파이로맨서 마스터룸" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="106" GenType="106" PosX="-205" PosY="79" PosZ="-515" Direction="6.17" Name="크리오맨서 마스터" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="107" GenType="107" PosX="-336" PosY="79" PosZ="-548" Direction="6.17" Name="크리오맨서 전직 퀘스트 트리거" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="108" GenType="108" PosX="-236" PosY="241" PosZ="867" Direction="225" Name="쿼렐슈터 마스터" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="109" GenType="109" PosX="-488.78" PosY="148.61" PosZ="27" Direction="6.17" Name="레인저 마스터" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="110" GenType="110" PosX="-92" PosY="241" PosZ="784" Direction="225" Name="아처 마스터" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="111" GenType="111" PosX="-100" PosY="96" PosZ="-275" Direction="-90" Name="위저드 마스터" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="112" GenType="112" PosX="-949" PosY="241" PosZ="308" Direction="315" Name="아처 마스터" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="130" GenType="130" PosX="-66" PosY="-1" PosZ="-752" Direction="-92.99" Name="알림판" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="131" GenType="131" PosX="195" PosY="-1" PosZ="-641" Direction="-78.69" Name="알림판" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="132" GenType="132" PosX="58" PosY="79" PosZ="-359" Direction="-56.66" Name="알림판" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="133" GenType="133" PosX="-63" PosY="148" PosZ="-108" Direction="-7.13" Name="알림판" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="134" GenType="134" PosX="-165" PosY="-1" PosZ="-958" Direction="-26.57" Name="알림판" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="135" GenType="135" PosX="744" PosY="-1" PosZ="192" Direction="-126.23" Name="알림판" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="136" GenType="136" PosX="-125" PosY="148" PosZ="-11" Direction="-48.01" Name="알림판" NPCID="40070" AnchorRange="1"/>
-		<Class ClassID="137" GenType="10005" PosX="617" PosY="-1" PosZ="61" Direction="0" Name="휴무 안내" NPCID="0" AnchorRange="1"/>
-		<Class ClassID="138" GenType="10006" PosX="615.23" PosY="-1.35" PosZ="132.44" Direction="0" Name="리리아나" NPCID="0" AnchorRange="1"/>
-		<Class ClassID="141" GenType="10009" PosX="6" PosY="-1" PosZ="-760" Direction="270" Name="컴패니언 상인" NPCID="0" AnchorRange="0"/>
-		<Class ClassID="143" GenType="10011" PosX="-22" PosY="-1" PosZ="-757" Direction="270" Name="벨하이더" NPCID="0" AnchorRange="0"/>
-		<Class ClassID="145" GenType="10013" PosX="68.443634" PosY="148.83879" PosZ="485.89539" Direction="-104" Name="[바이보라의 날개]{nl}레나"/>
-		<Class ClassID="146" GenType="10014" PosX="-292" PosY="149" PosZ="291" Direction="315" Name="[마법협회 클라페다 지부]{nl}헤느리카"/>
-		<Class ClassID="147" GenType="10015" PosX="240.65375" PosY="148.80952" PosZ="895.66296" Direction="64" Name="기티스의 개척지"/>
-		<Class ClassID="148" GenType="10016" PosX="307.89343" PosY="79.859558" PosZ="298.52103" Direction="0" Name="[창고지기]{nl}리타"/>
-		<Class ClassID="149" GenType="117" PosX="-1118" PosY="240" PosZ="283" Direction="0" Name="[오라클 마스터]{nl}아폴로니야 바르보라"/>
-		<Class ClassID="150" GenType="10017" PosX="-206.57397" PosY="148.8251" PosZ="98.639732" Direction="-45" Name="여신 아우슈리네의 상"/>
-		<Class ClassID="151" GenType="10018" PosX="282.72168" PosY="79.859558" PosZ="148.80867" Direction="0" Name="[TP상인]{nl}레티샤"/>
-		<Class ClassID="152" GenType="10019" PosX="379.7536" PosY="-1.3437729" PosZ="-1056.5519" Direction="0" Name="HIDDEN_MIKO_FUKUROKUSHU_TRIGGER"/>
-		<Class ClassID="302" GenType="302" PosX="-638" PosY="240" PosZ="1017" Direction="315" Name="None"/>
-		<Class ClassID="303" GenType="303" PosX="-609" PosY="241" PosZ="867" Direction="315" Name="None"/>
-		<Class ClassID="304" GenType="304" PosX="-457" PosY="241" PosZ="895" Direction="270" Name="None"/>
-		<Class ClassID="305" GenType="305" PosX="-542" PosY="241" PosZ="882" Direction="315" Name="None"/>
-		<Class ClassID="306" GenType="306" PosX="-77.60321" PosY="149.07088" PosZ="-142.18346" Direction="0"/>
-		<Class ClassID="1001" GenType="10020" PosX="-605.33813" PosY="-1.34" PosZ="-479.09741" Direction="-93" Name="마을 아가씨"/>
-		<Class ClassID="1002" GenType="10021" PosX="-949" PosY="241" PosZ="365" Direction="315" Name="아렐르노 남작"/>
-		<Class ClassID="1004" GenType="10022" PosX="547.71" PosY="-1.33" PosZ="382.05" Direction="0" Name="None"/>
-		<Class ClassID="5002" GenType="5002" PosX="82.39" PosY="149.19" PosZ="73.38" Direction="180" Name="None"/>
-		<Class ClassID="5057" GenType="10023" PosX="-827.23492" PosY="217.91046" PosZ="729.85529" Direction="0"/>
-		<Class ClassID="5076" GenType="10024" PosX="-645" PosY="241" PosZ="694" Direction="-45"/>
-		<Class ClassID="5077" GenType="10025" PosX="-616" PosY="241" PosZ="723" Direction="-45"/>
-		<Class ClassID="5078" GenType="10026" PosX="-1032.8224" PosY="217.91046" PosZ="436.12369" Direction="0"/>
-		<Class ClassID="5079" GenType="10026" PosX="-1019.7822" PosY="248.23239" PosZ="101.67175" Direction="0"/>
-		<Class ClassID="5080" GenType="10026" PosX="-554.46735" PosY="217.91046" PosZ="975.00092" Direction="0"/>
-		<Class ClassID="5081" GenType="10023" PosX="-162.75032" PosY="240.72682" PosZ="974.88794" Direction="0"/>
-		<Class ClassID="5082" GenType="10027" PosX="-389.74805" PosY="241.05203" PosZ="605.10419" Direction="0"/>
-		<Class ClassID="5085" GenType="10028" PosX="284.7182" PosY="79.859558" PosZ="91.908585" Direction="0"/>
-		<Class ClassID="5088" GenType="10029" PosX="519.84357" PosY="-1.1565475" PosZ="326.14377" Direction="0"/>
-		<Class ClassID="5092" GenType="10061" PosX="-321.11346" PosY="241.05203" PosZ="896.6875" Direction="-90"/>
-		<Class ClassID="118" GenType="118" PosX="-589" PosY="149" PosZ="-161" Direction="0" Name="[음양사 마스터]{nl}아히로 세이메이"/>
-		<Class ClassID="5171" GenType="10062" PosX="-384.01584" PosY="240.72682" PosZ="1061.6567" Direction="-90"/>
-		<Class ClassID="5178" GenType="10063" PosX="-1040.1908" PosY="240.72975" PosZ="681.19208" Direction="152"/>
-		<Class ClassID="5185" GenType="5185" PosX="-435" PosY="149" PosZ="-144" Direction="90" Name="계열 변경 도우미"/>
-		<Class ClassID="5186" GenType="5186" PosX="71" PosY="149" PosZ="155" Direction="180" Name="큐폴 다이나"/>
-		<Class ClassID="5214" GenType="10064" PosX="-958.80035" PosY="241.05203" PosZ="188.26331" Direction="0"/>
-		<Class ClassID="5215" GenType="10065" PosX="40.347191" PosY="149.10968" PosZ="261.51379" Direction="-180"/>
+		<Class OverrideType="ADD" ClassID="10001" GenType="50001" PosX="94.879028" PosY="148.82733" PosZ="390.55286" Direction="180" Name="게시판"/>
+		<Class OverrideType="REMOVE" ClassID="10002" GenType="50002" PosX="-889.64" PosY="246.15" PosZ="74.97" Direction="-45" Name="성장 지원 도우미"/>
+		<Class OverrideType="REMOVE" ClassID="10004" GenType="50004" PosX="302.3" PosY="79.9" PosZ="73" Direction="0" Name="보너스 큐브"/>
+		<Class OverrideType="REMOVE" ClassID="10005" GenType="50005" PosX="59" PosY="149" PosZ="305" Direction="180" Name="친구 추천 도우미"/>
 	</Category>
 </idspace>
