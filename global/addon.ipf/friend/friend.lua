@@ -2,8 +2,7 @@
 FRIEND_MINIMIZE_HEIGHT = 100;
 
 function FRIEND_ON_INIT(addon, frame)
-
-	addon:RegisterMsg("GAME_START_3SEC", "CHECK_FRIEND_NEW_INVITE");
+    -- open msg
 	addon:RegisterOpenOnlyMsg("REMOVE_FRIEND", "ON_REMOVE_FRIEND");
 	addon:RegisterOpenOnlyMsg("ADD_FRIEND", "ON_ADD_FRIEND");
 	addon:RegisterOpenOnlyMsg("GAME_START", "FRIEND_GAME_START");
@@ -11,9 +10,11 @@ function FRIEND_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg("FRIEND_SESSION_CHANGE", "ON_FRIEND_SESSION_CHANGE");	
 	addon:RegisterOpenOnlyMsg("RELATED_SESSION_COUNT", "ON_UPDATE_FRIEND_LIST");	
 	addon:RegisterOpenOnlyMsg("RELATED_HISTORY", "ON_UPDATE_FRIEND_LIST");
-
 	addon:RegisterOpenOnlyMsg("TREE_NODE_RCLICK", "ON_TREE_NODE_RCLICK");
+
+    -- common msg
 	addon:RegisterMsg("FRIEND_NAME_CHANGED", "ON_UPDATE_FRIEND_LIST");
+	addon:RegisterMsg("GAME_START_3SEC", "CHECK_FRIEND_NEW_INVITE");
 
     FRIEND_EXPAND_UNIT = 10;
 	
@@ -331,46 +332,51 @@ function BUILD_FRIEND_LIST(frame, listType, groupName, iscustom)
 
 	local cnt = session.friends.GetFriendCount(listType);
 	for i = 0 , cnt - 1 do
-		local friendInfo = session.friends.GetFriendByIndex(listType, i);
-        	
-		if (showOnlyOnline == 0 and (isNormalTree == false or i < visibleInfoCnt)) or 
-        (showOnlyOnline == 1 and friendInfo.mapID ~= 0) or
-        (showOnlyOnline == 1 and FRIEND_LIST_COMPLETE ~= listType) then
+		local friendInfo = session.friends.GetFriendByIndex(listType, i);        	
+        if isNormalTree == false or i < visibleInfoCnt then
+		    if (showOnlyOnline == 0) or 
+            (showOnlyOnline == 1 and friendInfo.mapID ~= 0) or
+            (showOnlyOnline == 1 and FRIEND_LIST_COMPLETE ~= listType) then
 
-			local ismakenewset = false;
-			if listType == FRIEND_LIST_COMPLETE then
+			    local ismakenewset = false;
+			    if listType == FRIEND_LIST_COMPLETE then
 
-				local eachGroupName = friendInfo:GetGroupName();
-				if iscustom == "custom" then
-					if eachGroupName == groupName then
-						ismakenewset = true;
-					end
-				else
-					if eachGroupName == nil or eachGroupName == "" or eachGroupName == "None" then
-						ismakenewset = true;
-					end
-				end
+				    local eachGroupName = friendInfo:GetGroupName();
+				    if iscustom == "custom" then
+					    if eachGroupName == groupName then
+						    ismakenewset = true;
+					    end
+				    else
+					    if eachGroupName == nil or eachGroupName == "" or eachGroupName == "None" then
+						    ismakenewset = true;
+					    end
+				    end
 
-				if ismakenewset == true then
-					--검색 기능
-					local edit = GET_CHILD_RECURSIVELY(frame, "friendSearch");
-					local cap = edit:GetText();
-					if string.len(cap) > 0 and ui.FindWithChosung(cap, friendInfo:GetInfo():GetFamilyName()) == false then
-						ismakenewset = false;
-					end 
-				end
-			else
-				ismakenewset = true;
-			end
+				    if ismakenewset == true then
+					    --검색 기능
+					    local edit = GET_CHILD_RECURSIVELY(frame, "friendSearch");
+					    local cap = edit:GetText();
+					    if string.len(cap) > 0 and ui.FindWithChosung(cap, friendInfo:GetInfo():GetFamilyName()) == false then
+						    ismakenewset = false;
+					    end 
+				    end
+			    else
+				    ismakenewset = true;
+			    end
             
-			if ismakenewset == true then
-				local ctrlSet = page:CreateOrGetControlSet(GET_FRIEND_CTRLSET_NAME(listType), "FR_" .. listType .. "_" .. friendInfo:GetInfo():GetACCID(), 0, 0, 0);
-				if listType == FRIEND_LIST_COMPLETE then
-					ctrlSet:Resize(ctrlSet:GetOriginalWidth(),FRIEND_MINIMIZE_HEIGHT);
-				end
-				UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, friendInfo);
-			end
-		end
+			    if ismakenewset == true then
+                    local ctrlSetName = GET_FRIEND_CTRLSET_NAME(listType);
+                    if listType == FRIEND_LIST_COMPLETE and friendInfo.mapID == 0 then
+                        ctrlSetName = ctrlSetName .. '_not_online';
+                    end
+				    local ctrlSet = page:CreateOrGetControlSet(ctrlSetName, "FR_" .. listType .. "_" .. friendInfo:GetInfo():GetACCID(), 0, 0, 0);
+				    if listType == FRIEND_LIST_COMPLETE and friendInfo.mapID > 0 then
+					    ctrlSet:Resize(ctrlSet:GetOriginalWidth(), FRIEND_MINIMIZE_HEIGHT);
+				    end                    
+				    UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, friendInfo);
+			    end
+		    end
+        end
 	end
 	
 	tree:OpenNodeAll();
@@ -543,7 +549,7 @@ function FRIEND_PAGE_FOCUS(ctrlSet, button)
 	local row = page:GetObjectRow(ctrlSet);
 	local curFocus = page:GetFocusedRow();
 	local minimized = page:GetUserIValue("minimized");
-	local slotHeight = FRIEND_MINIMIZE_HEIGHT
+	local slotHeight = FRIEND_MINIMIZE_HEIGHT    
 
 	if ctrlSet:GetHeight() > FRIEND_MINIMIZE_HEIGHT then
 		--page:SetFocusedRowHeight(-1, slotHeight, 0.2, 0.7, 5);
@@ -587,7 +593,7 @@ function FREIND_PAGE_SET_DETAIL(ctrlset, detailMode)
 
 	ctrlset:SetUserValue("DETAILMODE", detailMode);
 
-	if detailMode == 0 then
+	if detailMode == 0 then    
 		ctrlset:Resize(ctrlset:GetOriginalWidth(), FRIEND_MINIMIZE_HEIGHT);
 		return 0;
 	else
@@ -634,7 +640,7 @@ function ON_FRIEND_SESSION_CHANGE(frame, msg, aid, listType)
 	
 	if nil == ctrlSet then	
 		ctrlSet = page:CreateOrGetControlSet(GET_FRIEND_CTRLSET_NAME(listType), "FR_" .. listType .. "_" .. f:GetInfo():GetACCID(), 0, 0);
-		if listType == FRIEND_LIST_COMPLETE then
+		if listType == FRIEND_LIST_COMPLETE and f.mapID > 0 then
 			ctrlSet:Resize(ctrlSet:GetOriginalWidth(),FRIEND_MINIMIZE_HEIGHT)
 		end;		
 	end;
@@ -688,11 +694,21 @@ function EXED_FRIEND_SET_GROUP(frame, groupname)
 end
 
 
-function UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, f)
-	local info = f:GetInfo();
+function UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, friendInfo)
+	local info = friendInfo:GetInfo();    
 	ctrlSet:SetUserValue("AID", info:GetACCID());
 
-	local memo = f:GetMemo();
+    -- 접속 안한 친구는 별도 컨트롤셋 적용
+    if listType == FRIEND_LIST_COMPLETE and friendInfo.mapID == 0 then
+        local logoutText = ctrlSet:GetChild('logoutText');
+        local logoutTime = imcTime.GetDiffSecFromNow(info.logoutTime);
+                
+        logoutText:SetTextByKey('name', info:GetFamilyName());
+        logoutText:SetTextByKey('time', GET_DIFF_TIME_TXT(logoutTime));
+        return;
+    end
+
+	local memo = friendInfo:GetMemo();
 	local frame = ctrlSet:GetTopParentFrame();
 	
 	if listType == FRIEND_LIST_COMPLETE then	
@@ -706,7 +722,7 @@ function UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, f)
 		memortext:SetTextByKey('memo',memo);
 	end
 
-	UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet,  f.mapID, f.channel, info, true);
+	UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet,  friendInfo.mapID, friendInfo.channel, info, true);
 	
 end
 

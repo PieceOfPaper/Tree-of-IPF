@@ -1,10 +1,10 @@
 function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
-    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("steam_Event_Select_1"), ScpArgMsg("steam_Event_Select_2"), ScpArgMsg("Cancel"))
-    if select == 1 then
-        SCR_KIND_DONNES_DIALOG(self,pc)
-    elseif select == 2 then
+--    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("steam_Event_Select_1"), ScpArgMsg("steam_Event_Select_2"), ScpArgMsg("Cancel"))
+--    if select == 1 then
+--        SCR_KIND_DONNES_DIALOG(self,pc)
+--    elseif select == 2 then
         SCR_NRU_ALWAYS_DIALOG(self,pc)--EV170516~Always
-    end
+--    end
     
 --    SCR_DAYQUEST_RANDOM_EV_DIALOG(self, pc)
 end

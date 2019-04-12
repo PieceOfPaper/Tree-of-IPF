@@ -74,7 +74,13 @@ function COSTUME_GACHA_START_2()
 end
 
 function GACHA_START(type)
-
+    local pc = GetMyPCObject()
+    
+    if pc.Lv < 40 then
+        --SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("NeedMorePcLevel"), 5)
+        return;
+    end
+    
 	local cnt = 0;
 
 	if type == "hair1" or type == "rbox1" or type == "rbox100" or type == "hair1_1" or type == 'costumebox' or type == 'costumebox_1' then
