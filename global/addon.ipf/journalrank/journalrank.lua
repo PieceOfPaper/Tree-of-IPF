@@ -29,6 +29,11 @@ function JOURNALRANK_ON_RECV_MY(frame)
 	local ctrlSet = GET_CHILD(frame, "rank_1");
 	local pageCtrl = GET_CHILD(ctrlSet, 'control');
 	local maxPage = ranking.totalCount / WIKI_RANK_PER_PAGE + 1;
+	
+	if maxPage > 2000 then
+		maxPage = 2000
+	end
+
 	pageCtrl:SetMaxPage(maxPage);
 end
 

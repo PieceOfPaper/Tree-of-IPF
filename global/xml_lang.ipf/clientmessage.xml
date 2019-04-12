@@ -833,7 +833,7 @@
 		<Class ClassID="20136" ClassName="TP_Ring" Data="반지"/>
 		<Class ClassID="20137" ClassName="TP_NewCostume" Data="신규 코스튬"/>
 		<Class ClassID="20138" ClassName="TP_LimitCostume" Data="한정 코스튬"/>
-		<Class ClassID="20139" ClassName="TP_Pet" Data="펫"/>
+		<Class ClassID="20139" ClassName="TP_Pet" Data="컴패니언"/>
 		<Class ClassID="20140" ClassName="TP_Premium" Data="프리미엄"/>
 		<Class ClassID="20141" ClassName="TP_Consume" Data="소모품"/>
 		<Class ClassID="20142" ClassName="TP_Hair_M" Data="남자 헤어"/>
@@ -7156,6 +7156,7 @@ ClassID="33547" ClassName="CantUseThisInIntegrateServer" Data="통합 서버에�
   	<Class ClassID="550073" ClassName="TokenState" Data="토큰 사용"/>
 		<Class ClassID="550074" ClassName="NoneTokenState" Data="토큰 미사용"/>
     <Class ClassID="550075" ClassName="NextTokenBuyableTime" Data="You will be able to purchase another Token at {Time}."/>
+    <Class ClassID="550076" ClassName="FamilyShareCantRecv" Data="패밀리 쉐어링중인 계정으로는 수령 불가능합니다."/>
   </Category>
 	<Category Name="TPHistory">
 		<Class ClassID="600001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>

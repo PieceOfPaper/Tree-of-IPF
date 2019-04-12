@@ -40,9 +40,7 @@ function EXCHANGE_ON_OPEN(frame)
 end
 
 function EXCHANGE_ON_CANCEL(frame)
- 
-	local nameRichText = GET_CHILD_RECURSIVELY(frame,'opponentState','ui::CRichText');
-	nameRichText:SetUserValue("CHECK_TOKENSTATE_OPPO", 0);
+	frame:SetUserValue("CHECK_TOKENSTATE_OPPO", 0);
 
 	exchange.SendCancelExchangeMsg();
 
@@ -54,7 +52,6 @@ function EXCHANGE_ON_CANCEL(frame)
 end 
 
 function EXCHANGE_ON_AGREE(frame)
- 
  	local itemCount = exchange.GetExchangeItemCount(1);	
 	local isEquip = false;
 	for  i = 0, itemCount-1 do 		
@@ -72,7 +69,7 @@ function EXCHANGE_ON_AGREE(frame)
 end 
 
 function EXCHANGE_ON_FINALAGREE(frame)
-	local oppoTokenState = frame:GetUserIValue("CHECK_TOKENSTATE_OPPO");	
+	local oppoTokenState = frame:GetTopParentFrame():GetUserIValue("CHECK_TOKENSTATE_OPPO");
 	if (0 == oppoTokenState) or (false == session.loginInfo.IsPremiumState(ITEM_TOKEN) ) then	
  		local itemCount = exchange.GetExchangeItemCount(1);	
 		local listStr = "";
@@ -365,7 +362,8 @@ function EXCHANGE_MSG_START(frame, msg, argStr, argNum)
 	local Name = info.GetName(session.GetMyHandle());
 	
 	nameRichText = GET_CHILD_RECURSIVELY(frame,'myState','ui::CRichText');
-	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+	local accountObj = GetMyAccountObj();
+	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) and accountObj.TradeCount > 0 then
 		nameRichText:SetTextByKey('state',ScpArgMsg("TokenState"))
 	else
 		nameRichText:SetTextByKey('state',ScpArgMsg("NoneTokenState"))
@@ -380,7 +378,7 @@ function EXCHANGE_MSG_START(frame, msg, argStr, argNum)
 	else
 		nameRichText:SetTextByKey('state',ScpArgMsg("NoneTokenState"))
 	end
-	nameRichText:SetUserValue("CHECK_TOKENSTATE_OPPO", argNum);
+	frame:SetUserValue("CHECK_TOKENSTATE_OPPO", argNum);
 
 	frame:ShowWindow(1);
 	ui.OpenFrame('inventory');
@@ -446,10 +444,12 @@ function EXCHANGE_UPDATE_SLOT(slotset,listindex)
 			if class.ItemType == 'Unused' and listindex == 1 then
 				moneyText:SetTextByKey('money', GetCommaedText(itemData.count));
 			elseif class.ItemType ~= 'Unused' then
-
 				local icon = SET_SLOT_ITEM_INFO(slot, class, itemData.count);
 				SET_ITEM_TOOLTIP_ALL_TYPE(icon, itemData, class.ClassName, 'exchange', itemData.type, i * 10 + listindex);
-
+				--[[
+				SET_SLOT_ITEM_OBJ(slot, class);							
+				SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), class.ClassID);		
+				]]
 				if listindex == 0 then 
 					icon:SetDumpScp('EXCHANGE_DUMP_ICON');	
 				end 
@@ -477,7 +477,6 @@ function EXCHANGE_DUMP_ICON(parent, icon, argStr, argNum)
     exchange.SendRemoveOfferItem(slot:GetSlotIndex());
 
 end 
-
 
 function EXCHANGE_MSG_UPDATE(frame, msg, argStr, argNum)
 
@@ -543,5 +542,4 @@ function EXCHANGE_MSG_FINALAGREE(frame, msg, argStr, argNum)
 	--local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 	--timer:Stop();
 end 
-
 

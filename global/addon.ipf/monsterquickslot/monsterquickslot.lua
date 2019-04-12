@@ -69,6 +69,7 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 					hotKey = string.gsub(hotKey, "JOY_BTN_5", "L1");
 					
 					slot:SetText('{s14}{ol}{b}'..hotKey, 'count', 'left', 'top', 2, 1);
+					slot:EnableDrag(0);
 				end
 			end
 		else
@@ -95,6 +96,7 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 		hotKey = string.gsub(hotKey, "JOY_BTN_5", "L1");
 
 		lastSlot:SetText('{s14}{ol}{b}'..hotKey, 'count', 'left', 'top', 2, 1);
+		lastSlot:EnableDrag(0);
 
 	else
 

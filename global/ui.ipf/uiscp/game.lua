@@ -217,9 +217,10 @@ end
 	
 function TEST_AYASE()
 	
-
-		
-
+		--ui.ToggleFrame("market") 
+		--ui.ToggleFrame("repair140731")
+		--ui.ToggleFrame("warehouse")
+		--ui.ToggleFrame("accountwarehouse")
 
 end
 
@@ -4131,8 +4132,7 @@ function UPDATE_COMPANION_TITLE(frame, handle)
 
 	frame = tolua.cast(frame, "ui::CObject");
 
-	local petguid  = session.pet.GetPetGuidByHandle(handle)
-
+	local petguid  = session.pet.GetPetGuidByHandle(handle);
 
 	local mycompinfoBox = GET_CHILD_RECURSIVELY(frame, "mycompinfo");
 	if mycompinfoBox == nil then
@@ -4160,18 +4160,17 @@ function UPDATE_COMPANION_TITLE(frame, handle)
 
 		local mynameRtext = GET_CHILD_RECURSIVELY(frame, "myname");
 		local gauge_stamina = GET_CHILD_RECURSIVELY(frame, "StGauge");
-		local hp_stamina = GET_CHILD_RECURSIVELY(frame, "HpGauge");
+		local gauge_HP = GET_CHILD_RECURSIVELY(frame, "HpGauge");
 
-		local petInfo = session.pet.GetPetByGUID(petguid);	
+		local pet = session.pet.GetPetByGUID(petguid);
+		mynameRtext:SetText(pet:GetName())
 
-		local obj = GetIES(petInfo:GetObject());
-		gauge_stamina:SetPoint(obj.Stamina, obj.MaxStamina);
-		hp_stamina:SetPoint(obj.HP, obj.MHP);
-		mynameRtext:SetText(petInfo:GetName())
+		local petObj = GetIES(pet:GetObject());
+		gauge_stamina:SetPoint(petObj.Stamina, petObj.MaxStamina);
 
+		local petInfo = info.GetStat(handle);
+		gauge_HP:SetPoint(petInfo.HP, petInfo.maxHP);		
 	end
-
-
 
 	frame:Invalidate()
 
