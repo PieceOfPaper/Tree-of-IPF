@@ -5681,6 +5681,17 @@
         <Key Name="PILGRIM41_4_SQ11" Value="32497"/>
         <Key Name="PRISON_79_MQ_8" Value="32498"/>
         <Key Name="PILGRIM41_2_SQ10_R" Value="32499"/>
+        <Key Name="REQUESTMISSION_CLEAR1" Value="32563"/>
+        <Key Name="REQUESTMISSION_CLEAR2" Value="32564"/>
+        <Key Name="REQUESTMISSION_CLEAR3" Value="32565"/>
+        <Key Name="REQUESTMISSION_CLEAR4" Value="32566"/>
+        <Key Name="REQUESTMISSION_CLEAR5" Value="32567"/>
+        <Key Name="REQUESTMISSION_CLEAR6" Value="32568"/>
+        <Key Name="CHUSEOK_MON_TIME" Value="32569"/>
+        <Key Name="CHUSEOK_MON_KILL" Value="32570"/>
+        <Key Name="CHUSEOK_MON_NOKILL_TIEM" Value="32571"/>
+        <Key Name="CHUSEOK_MON_KILL_TIEM" Value="32572"/>
+        <Key Name="CHUSEOK_CURRENTZONE" Value="32573"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="FromMission" Value="3907"/>
@@ -12200,6 +12211,8 @@
         <Key Name="Transcend_MatCount" Value="32504"/>
         <Key Name="PackageTradeCount" Value="32556"/>
         <Key Name="PackageTradeAble" Value="32557"/>
+        <Key Name="PackTradeAble" Value="32560"/>
+        <Key Name="Package" Value="32561"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Guild">
         <Key Name="MaxCount" Value="7691"/>

@@ -133,7 +133,7 @@ function SCR_USE_ALICEPACK_2016(pc)
     
     local costume = {
         { 'costume_war_m_011', 'costume_war_f_011' },
-        { 'costume_war_f_011', 'costume_wiz_f_011' },
+        { 'costume_wiz_m_011', 'costume_wiz_f_011' },
         { 'costume_arc_m_012', 'costume_arc_f_012' },
         { 'costume_clr_m_012', 'costume_clr_f_012' }
     }

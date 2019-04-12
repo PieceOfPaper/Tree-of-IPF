@@ -1,8 +1,8 @@
 CHAT_LINE_HEIGHT = 100;
 
 function CHAT_ON_INIT(addon, frame)	
-
-	-- ¸¶¿ì½º È£¹ö¸µÀ» À§ÇÑ ¸¶¿ì½º ¾÷ÇÒ¶§ ´İ±â ÀÌº¥Æ® ¼³Á¤ ºÎºĞ.
+	
+	-- ë§ˆìš°ìŠ¤ í˜¸ë²„ë§ì„ ìœ„í•œ ë§ˆìš°ìŠ¤ ì—…í• ë•Œ ë‹«ê¸° ì´ë²¤íŠ¸ ì„¤ì • ë¶€ë¶„.
 	--{	
 	local btn_emo = GET_CHILD(frame, "button_emo");
 	btn_emo:SetEventScript(ui.MOUSEMOVE, "CHAT_OPEN_EMOTICON");
@@ -11,22 +11,29 @@ function CHAT_ON_INIT(addon, frame)
 	btn_type:SetEventScript(ui.MOUSEMOVE, "CHAT_OPEN_TYPE");	
 	--}
 
-	--ÃÊ±â Ã¤ÆÃ Å¸ÀÔ ¼³Á¤Àº 'ÀÏ¹İÀ¸·Î
+	--ì´ˆê¸° ì±„íŒ… íƒ€ì… ì„¤ì •ì€ 'ì¼ë°˜ìœ¼ë¡œ
 	config.SetConfig("ChatTypeNumber", 1);
 end
 
---Ã¤ÆÃ¹Ù¸¦ OpenÇÒ¶§¸¶´Ù ºÒ·¯¿À±â·Î.
+--ì±„íŒ…ë°”ë¥¼ Opení• ë•Œë§ˆë‹¤ ë¶ˆëŸ¬ì˜¤ê¸°ë¡œ.
 function CHAT_OPEN_INIT()
-	--'Ã¤ÆÃ Å¸ÀÔ'¿¡ µû¸¥ Ã¤ÆÃ¹ÙÀÇ 'Ã¤ÆÃÅ¸ÀÔ ¹öÆ° ¸ñ·Ï'ÀÌ °áÁ¤µÈ´Ù.
-	CHAT_TYPE_LISTSET(config.GetConfigInt("ChatTypeNumber"));
-	CHAT_SET_RESIZE_EDITBOX();
+	--'ì±„íŒ… íƒ€ì…'ì— ë”°ë¥¸ ì±„íŒ…ë°”ì˜ 'ì±„íŒ…íƒ€ì… ë²„íŠ¼ ëª©ë¡'ì´ ê²°ì •ëœë‹¤.
+	CHAT_TYPE_LISTSET(config.GetConfigInt("ChatTypeNumber"));	
+	if config.GetServiceNation() == "JP" or config.GetServiceNation() == "GLOBAL" then
+		local frame = ui.GetFrame('chat');	
+		local chatEditCtrl = frame:GetChild('mainchat');
+		local btn_emo = GET_CHILD(frame, "button_emo");
+		local btn_option = GET_CHILD(frame, "button_option");
+		local titleCtrl = GET_CHILD(frame,'edit_to_bg');	
+		chatEditCtrl:Resize(chatEditCtrl:GetOriginalWidth() - btn_emo:GetWidth() - btn_option:GetWidth() - titleCtrl:GetWidth() - 28, chatEditCtrl:GetOriginalHeight());
+	end
 end;
 
 function CHAT_CLOSE_SCP()
 	CHAT_CLICK_CHECK();
 end;
 
-function CHAT_ROOM_UPDATE(roomID) -- ±×·ì Ã¤ÆÃ ¸®½ºÆ® ¾÷µ¥ÀÌÆ®. ±Ó¸» ¸ñ·Ï ±×°ÅÀÓ
+function CHAT_ROOM_UPDATE(roomID) -- ê·¸ë£¹ ì±„íŒ… ë¦¬ìŠ¤íŠ¸ ì—…ë°ì´íŠ¸. ê·“ë§ ëª©ë¡ ê·¸ê±°ì„
 
 	local frame = ui.GetFrame("chatframe")
 
@@ -53,12 +60,12 @@ function CHAT_ROOM_UPDATE(roomID) -- ±×·ì Ã¤ÆÃ ¸®½ºÆ® ¾÷µ¥ÀÌÆ®. ±Ó¸» ¸ñ·Ï ±×°ÅÀÓ
 	end
 
 
-	--±×·ì ÀüÃ¼ noticecountÇ¥½Ã
+	--ê·¸ë£¹ ì „ì²´ noticecountí‘œì‹œ
 	local whisper_btn = GET_CHILD_RECURSIVELY(frame,"btn_whisper") 
 	SET_COUNT_NOTICE(whisper_btn, session.chat.GetAllGroupChatNotReadMsgCount() );
 	local whisper_pic_btn = GET_CHILD_RECURSIVELY(frame,"btn_whisper_pic") 
 	SET_COUNT_NOTICE(whisper_pic_btn, session.chat.GetAllGroupChatNotReadMsgCount() );
-
+	
 	frame:Invalidate();
 
 end
@@ -288,7 +295,7 @@ function CHAT_CREATE_GROUP_LIST(frame, roomID)
 		groupbox:SetEventScript(ui.SCROLL, "SCROLL_CHAT");
 	end
 
-	--±×·ì ÀüÃ¼ noticecountÇ¥½Ã
+	--ê·¸ë£¹ ì „ì²´ noticecountí‘œì‹œ
 	local whisper_btn = GET_CHILD_RECURSIVELY(frame,"btn_whisper") 
 	SET_COUNT_NOTICE(whisper_btn, session.chat.GetAllGroupChatNotReadMsgCount() );
 	local whisper_pic_btn = GET_CHILD_RECURSIVELY(frame,"btn_whisper_pic") 
@@ -335,7 +342,7 @@ function CHAT_GROUP_CREATE(roomID, autoFocusToRoom)
 	end
 
 	local popupframe = ui.GetFrame("chatpopup_"..roomID);
-	if (popupframe ~= nil and popupframe:IsVisible() == 1) or groupbox:IsVisible() == 1 then -- ÀÌ¹Ì ¸Ş½ÃÁö°¡ Ç¥½Ã ÁßÀÌ¸é ¹Ù·Î ¾÷µ¥ÀÌÆ®
+	if (popupframe ~= nil and popupframe:IsVisible() == 1) or groupbox:IsVisible() == 1 then -- ì´ë¯¸ ë©”ì‹œì§€ê°€ í‘œì‹œ ì¤‘ì´ë©´ ë°”ë¡œ ì—…ë°ì´íŠ¸
 		chat.UpdateReadFlag(roomID);
 		chat.CheckNewMessage(roomID);
 	end
@@ -374,7 +381,8 @@ function CHAT_SYSTEM(msg)
 end
 
 
---Ã¤ÆÃÅ¸ÀÔ¿¡ µû¶ó 'Ã¤ÆÃ¹ÙÀÇ ÀÔ·Â±â' À§Ä¡¿Í Å©±â ¼³Á¤. 
+--ì±„íŒ…íƒ€ì…ì— ë”°ë¼ 'ì±„íŒ…ë°”ì˜ ì…ë ¥ê¸°' ìœ„ì¹˜ì™€ í¬ê¸° ì„¤ì •. 
+
 function CHAT_SET_TO_TITLENAME(chatType, targetName, count)
 	local frame = ui.GetFrame('chat');
 	local chatEditCtrl = frame:GetChild('mainchat');
@@ -383,11 +391,12 @@ function CHAT_SET_TO_TITLENAME(chatType, targetName, count)
 	local name  = GET_CHILD(titleCtrl,'title_to');		
 	local btn_ChatType = GET_CHILD(frame,'button_type');
 
-	local offsetX = btn_ChatType:GetWidth() - 18;
+	-- ê·“ì†ë§ ctrlì˜ ì‹œì‘ìœ„ì¹˜ëŠ” type btn ë’¤ìª½ì—.
+	titleCtrl:SetOffset(btn_ChatType:GetOriginalWidth(), titleCtrl:GetOriginalY());
+	local offsetX = btn_ChatType:GetOriginalWidth(); -- ì‹œì‘ offsetì€ type btn ë„“ì´ ë‹¤ìŒìœ¼ë¡œ.
 	local titleText = '';
 	local isVisible = 0;
-	
-	-- ±Ó¸»°ú ±×·ìÃ¤ÆÃ¿¡ µû¸¥ »ó´ë¸¦ Ç¥½ÃÇØ¾ß ÇÒ °æ¿ì 
+	-- ê·“ë§ê³¼ ê·¸ë£¹ì±„íŒ…ì— ë”°ë¥¸ ìƒëŒ€ë¥¼ í‘œì‹œí•´ì•¼ í•  ê²½ìš° 
 	if chatType == 'whisperchat' or chatType == 'whisperFromchat' or chatType == 'whisperTochat' then
 		isVisible = 1;
 		titleText = ScpArgMsg('WhisperChat','Who',targetName);
@@ -399,33 +408,29 @@ function CHAT_SET_TO_TITLENAME(chatType, targetName, count)
 		end
 		isVisible = 1;
 	end
-
-	-- ÀÌ¸§À» ¸ÕÀú ¼³Á¤ÇØÁà¾ß Å©±â¿Í À§Ä¡ ¼³Á¤ÀÌ ÀÌ·ç¾îÁø´Ù.
-	name:SetText(titleText);
-	titleCtrl:Resize(name:GetWidth() + 20,titleCtrl:GetOriginalHeight())
-	
+		
+	-- ì´ë¦„ì„ ë¨¼ì € ì„¤ì •í•´ì¤˜ì•¼ í¬ê¸°ì™€ ìœ„ì¹˜ ì„¤ì •ì´ ì´ë£¨ì–´ì§„ë‹¤.
+	name:SetText(titleText);	
+	if titleText ~= '' then
+		titleCtrl:Resize(name:GetWidth() + 20, titleCtrl:GetOriginalHeight())
+	else
+		titleCtrl:Resize(name:GetWidth(), titleCtrl:GetOriginalHeight())
+	end
+		
 	if isVisible == 1 then
 		titleCtrl:SetVisible(1);
-		offsetX = offsetX + 30;
+		offsetX = offsetX + titleCtrl:GetWidth();
 	else
 		titleCtrl:SetVisible(0);
 	end;
-
-	chatEditCtrl:SetOffset(titleCtrl:GetWidth() + offsetX, chatEditCtrl:GetOriginalY());
-	chatEditCtrl:Resize(chatEditCtrl:GetOriginalWidth() - titleCtrl:GetWidth() - offsetX + 10, chatEditCtrl:GetOriginalHeight())
+		
+	local width = chatEditCtrl:GetOriginalWidth() - titleCtrl:GetWidth() - btn_ChatType:GetWidth();
+	chatEditCtrl:Resize(width, chatEditCtrl:GetOriginalHeight())
+	chatEditCtrl:SetOffset(offsetX, chatEditCtrl:GetOriginalY());			
 end
 
-function CHAT_SET_RESIZE_EDITBOX()
-	local frame = ui.GetFrame('chat');
-	local chatEditCtrl = frame:GetChild('mainchat');
-	local btn_ChatType = GET_CHILD(frame,'button_type');
-	local titleCtrl = GET_CHILD(frame,'edit_to_bg');
-	local offsetX = btn_ChatType:GetWidth() - 18;
-	chatEditCtrl:SetOffset(titleCtrl:GetWidth() + offsetX, chatEditCtrl:GetOriginalY());
-	chatEditCtrl:Resize(chatEditCtrl:GetOriginalWidth() - titleCtrl:GetWidth() - offsetX + 10, chatEditCtrl:GetOriginalHeight())
-end
 
--- Ã¤ÆÃÃ¢ÀÇ ÀÌ¸ğÆ¼ÄÜ¼±ÅÃÃ¢°ú ¿É¼ÇÃ¢ÀÇ Open ½ºÅ©¸³Æ®
+-- ì±„íŒ…ì°½ì˜ ì´ëª¨í‹°ì½˜ì„ íƒì°½ê³¼ ì˜µì…˜ì°½ì˜ Open ìŠ¤í¬ë¦½íŠ¸
 --{
 function CHAT_OPEN_OPTION(frame)
 	CHAT_SET_OPEN(frame, 1);
@@ -436,7 +441,7 @@ function CHAT_OPEN_EMOTICON(frame)
 end
 --}
 
--- Ã¤ÆÃÃ¢ÀÇ ÀÌ¸ğÆ¼ÄÜ¼±ÅÃÃ¢°ú ¿É¼ÇÃ¢ÀÌ ¿­·ÁÀÖÀ» °æ¿ì¿¡ ´Ù¸¥ °÷ Å¬¸¯½Ã ÇØ´ç Ã¢µéÀ» Close
+-- ì±„íŒ…ì°½ì˜ ì´ëª¨í‹°ì½˜ì„ íƒì°½ê³¼ ì˜µì…˜ì°½ì´ ì—´ë ¤ìˆì„ ê²½ìš°ì— ë‹¤ë¥¸ ê³³ í´ë¦­ì‹œ í•´ë‹¹ ì°½ë“¤ì„ Close
 function CHAT_CLICK_CHECK(frame)
 	local type_frame = ui.GetFrame('chattypelist');
 	local emo_frame = ui.GetFrame('chat_emoticon');
@@ -446,7 +451,7 @@ function CHAT_CLICK_CHECK(frame)
 	type_frame:ShowWindow(0);
 end;
 
---ÀÌ¸ğÆ¼ÄÜ¼±ÅÃÃ¢°ú ¿É¼ÇÃ¢ÀÇ À§Ä¡¸¦ Ã¤ÆÃ¹Ù¿¡ µû¶ó ±³Á¤ÇÏ°í Open °ü¸®
+--ì´ëª¨í‹°ì½˜ì„ íƒì°½ê³¼ ì˜µì…˜ì°½ì˜ ìœ„ì¹˜ë¥¼ ì±„íŒ…ë°”ì— ë”°ë¼ êµì •í•˜ê³  Open ê´€ë¦¬
 function CHAT_SET_OPEN(frame, numFrame)
 	local opt_frame = ui.GetFrame('chat_option');
 	opt_frame:SetPos(frame:GetX() + frame:GetWidth() - 35, frame:GetY() - opt_frame:GetHeight());
@@ -463,7 +468,7 @@ function CHAT_SET_OPEN(frame, numFrame)
 	end;
 end;
 
--- Ã¤ÆÃÃ¢ÀÇ 'Å¸ÀÔ ¸ñ·Ï ¿­±â ¹öÆ°'À» Å¬¸¯½Ã 'Å¸ÀÔ ¸ñ·Ï'ÀÇ À§Ä¡¸¦ Ã¤ÆÃ¹Ù¿¡ µû¶ó ±³Á¤ÇÏ°í Open
+-- ì±„íŒ…ì°½ì˜ 'íƒ€ì… ëª©ë¡ ì—´ê¸° ë²„íŠ¼'ì„ í´ë¦­ì‹œ 'íƒ€ì… ëª©ë¡'ì˜ ìœ„ì¹˜ë¥¼ ì±„íŒ…ë°”ì— ë”°ë¼ êµì •í•˜ê³  Open
 function CHAT_OPEN_TYPE()
 	local chatFrame = ui.GetFrame('chat');
 	local frame = ui.GetFrame('chattypelist');
@@ -471,37 +476,3 @@ function CHAT_OPEN_TYPE()
 	frame:ShowWindow(1);	
 	frame:SetDuration(3);
 end;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

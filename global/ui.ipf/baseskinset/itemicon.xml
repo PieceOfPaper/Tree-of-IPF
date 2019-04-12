@@ -368,7 +368,7 @@
 		<image name="icon_item_gloves_nobleLeather_yellow" file="\icon\equip\gloves_nobleLeather_yellow.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_boots_nobleLeather_yellow" file="\icon\equip\boots_nobleLeather_yellow.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_gloves_intathurta" file="\icon\equip\gloves_intathurta.png" imgrect="0 0 256 256" CMM_Caption="블러드배쓰장갑"/>
-		</imagelist>
+	</imagelist>
 	<imagelist category="256_costume_icons">
 		<image name="icon_item_Alchemist_f" file="\icon\equip\Alchemist_f_icon.png" imgrect="0 0 256 256" CMM_Caption="알케미스트"/>
 		<image name="icon_item_Alchemist_m" file="\icon\equip\Alchemist_m_icon.png" imgrect="0 0 256 256"/>
@@ -518,7 +518,7 @@
 		<image name="icon_item_archer_quarreelshooter01_3_f" file="\icon\equip\archer_f_quarreelshooter01_3.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Cleric_dievdirbys01_3_m" file="\icon\equip\Cleric_dievdirbys01_3_m.png" imgrect="0 0 256 256" CMM_Caption="3랭크코스튬_딥디르비"/>
 		<image name="icon_item_Cleric_dievdirbys01_3_f" file="\icon\equip\Cleric_dievdirbys01_3_f.png" imgrect="0 0 256 256"/>
-		</imagelist>
+	</imagelist>
 	<imagelist category="256_weapone_icons">
 		<image name="icon_item_artefact_210011" file="\icon\weapon\icon_item_artefact_210011.png" imgrect="0 0 256 256" CMM_Caption="요령"/>
 		<image name="icon_item_artefact_210012" file="\icon\weapon\icon_item_artefact_210012.png" imgrect="0 0 256 256" CMM_Caption="섀도엄브렐러"/>
@@ -2030,7 +2030,7 @@
 		<image name="coritos_up_purple" file="\icon\weapon\coritos_up_purple.png" imgrect="0 0 256 256"/>
 		<image name="OTL_flag" file="\icon\weapon\OTL_flag.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_balloon_pipe" file="\icon\weapon\icon_item_balloon_pipe.png" imgrect="0 0 256 256"/>
-		</imagelist>
+	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
 		<image name="item_necklace_02" file="\icon\acc\item_necklace_2.png" imgrect="0 0 256 256"/>
@@ -3474,7 +3474,144 @@
 		<image name="icon_item_spellneedle" file="\icon\item\icon_item_spellneedle.png" imgrect="0 0 128 128" CMM_Caption="마력흡수침"/>
 		<image name="icon_item_sheepskin" file="\icon\item\icon_item_sheepskin.png" imgrect="0 0 128 128" CMM_Caption="양피지문서"/>
 		<image name="icon_item_vlnerope" file="\icon\item\icon_item_vlnerope.png" imgrect="0 0 128 128" CMM_Caption="덩굴뭉치"/>
-		</imagelist>
+		<image name="icon_item_BlokenMirror" file="\icon\item\icon_item_BlokenMirror.png" imgrect="0 0 128 128" CMM_Caption="전환의수정조각"/>
+		<image name="icon_item_TruthMirror" file="\icon\item\icon_item_TruthMirror.png" imgrect="0 0 128 128" CMM_Caption="진실의거울"/>
+		<image name="icon_item_confrost" file="\icon\item\icon_item_confrost.png" imgrect="0 0 128 128" CMM_Caption="잡곡"/>
+		<image name="icon_item_MagicPowder" file="\icon\item\icon_item_MagicPowder.png" imgrect="0 0 80 80" CMM_Caption="매직파우더"/>
+		<image name="icon_item_guehwangji" file="\icon\item\icon_item_guehwangji.png" imgrect="0 0 128 128" CMM_Caption="괴황지"/>
+		<image name="icon_item_event160818_1" file="\icon\item\icon_item_event160818_1.png" imgrect="0 0 128 128" CMM_Caption="문자 트"/>
+		<image name="icon_item_event160818_2" file="\icon\item\icon_item_event160818_2.png" imgrect="0 0 128 128" CMM_Caption="문자 리"/>
+		<image name="icon_item_event160818_3" file="\icon\item\icon_item_event160818_3.png" imgrect="0 0 128 128" CMM_Caption="문자 오"/>
+		<image name="icon_item_event160818_4" file="\icon\item\icon_item_event160818_4.png" imgrect="0 0 128 128" CMM_Caption="문자 브"/>
+		<image name="icon_item_event160818_5" file="\icon\item\icon_item_event160818_5.png" imgrect="0 0 128 128" CMM_Caption="문자 세"/>
+		<image name="icon_item_event160818_6" file="\icon\item\icon_item_event160818_6.png" imgrect="0 0 128 128" CMM_Caption="문자 이"/>
+		<image name="icon_item_event160818_7" file="\icon\item\icon_item_event160818_7.png" imgrect="0 0 128 128" CMM_Caption="문자 비"/>
+		<image name="icon_item_event160818_8" file="\icon\item\icon_item_event160818_8.png" imgrect="0 0 128 128" CMM_Caption="문자 어"/>
+		<image name="icon_item_grape" file="\icon\item\icon_item_grape.png" imgrect="0 0 128 128" CMM_Caption="포도"/>
+		<image name="icon_item_Pa" file="\icon\item\icon_item_Pa.png" imgrect="0 0 128 128" CMM_Caption="파"/>
+		<image name="icon_item_BBQ" file="\icon\item\icon_item_BBQ.png" imgrect="0 0 128 128" CMM_Caption="바베큐"/>
+		<image name="icon_item_brokenwheel" file="\icon\item\icon_item_brokenwheel.png" imgrect="0 0 128 128" CMM_Caption="휠조각"/>
+		<image name="icon_item_emptySpellBook" file="\icon\item\icon_item_emptySpellBook.png" imgrect="0 0 128 128" CMM_Caption="빈 스펠북"/>
+		<image name="icon_item_recipe_Songpyeon" file="\icon\item\icon_item_recipe_Songpyeon.png" imgrect="0 0 128 128" CMM_Caption="레시피 송편"/>
+		<image name="icon_item_recipe_Large_Songpyeon" file="\icon\item\icon_item_recipe_Large_Songpyeon.png" imgrect="0 0 128 128" CMM_Caption="레시피 대왕 송편"/>
+		<image name="icon_item_sesami" file="\icon\item\icon_item_sesami.png" imgrect="0 0 128 128" CMM_Caption="깨"/>
+		<image name="icon_item_sugar" file="\icon\item\icon_item_sugar.png" imgrect="0 0 128 128" CMM_Caption="설탕"/>
+		<image name="icon_item_ricepowder" file="\icon\item\icon_item_ricepowder.png" imgrect="0 0 128 128" CMM_Caption="맵쌀가루"/>
+		<image name="icon_item_chestnuts" file="\icon\item\icon_item_chestnuts.png" imgrect="0 0 128 128" CMM_Caption="밤"/>
+		<image name="icon_item_Songpyeon" file="\icon\item\icon_item_Songpyeon.png" imgrect="0 0 128 128" CMM_Caption="송편"/>
+		<image name="icon_item_Large_Songpyeon" file="\icon\item\icon_item_Large_Songpyeon.png" imgrect="0 0 128 128" CMM_Caption="대왕송편"/>
+		<image name="icon_item_Largehoney_Songpyeon" file="\icon\item\icon_item_Largehoney_Songpyeon.png" imgrect="0 0 128 128" CMM_Caption="대왕꿀송편"/>
+		<image name="icon_item_misc04_01" file="\icon\item\icon_item_misc04_01.png" imgrect="0 0 128 128" CMM_Caption="검은 샤드스태튜 날개"/>
+		<image name="icon_item_misc04_02" file="\icon\item\icon_item_misc04_02.png" imgrect="0 0 128 128" CMM_Caption="검은 샤드스태튜 밧줄"/>
+		<image name="icon_item_misc04_03" file="\icon\item\icon_item_misc04_03.png" imgrect="0 0 128 128" CMM_Caption="검은 샤울라브 궁수 가면"/>
+		<image name="icon_item_misc04_04" file="\icon\item\icon_item_misc04_04.png" imgrect="0 0 128 128" CMM_Caption="검은 샤울라브 메이지 스태프"/>
+		<image name="icon_item_misc04_05" file="\icon\item\icon_item_misc04_05.png" imgrect="0 0 128 128" CMM_Caption="검은 템플슬레이브 암살자 단검"/>
+		<image name="icon_item_misc04_06" file="\icon\item\icon_item_misc04_06.png" imgrect="0 0 128 128" CMM_Caption="검은 템플슬레이브 암살자 망토"/>
+		<image name="icon_item_misc04_07" file="\icon\item\icon_item_misc04_07.png" imgrect="0 0 128 128" CMM_Caption="검은 템플슬레이브 석궁"/>
+		<image name="icon_item_misc04_08" file="\icon\item\icon_item_misc04_08.png" imgrect="0 0 128 128" CMM_Caption="검은 템플슬레이브 장갑"/>
+		<image name="icon_item_misc04_09" file="\icon\item\icon_item_misc04_09.png" imgrect="0 0 128 128" CMM_Caption="나콩버그 열매"/>
+		<image name="icon_item_misc04_10" file="\icon\item\icon_item_misc04_10.png" imgrect="0 0 128 128" CMM_Caption="나콩플라이 뿔"/>
+		<image name="icon_item_misc04_11" file="\icon\item\icon_item_misc04_11.png" imgrect="0 0 128 128" CMM_Caption="노란 페이그 쉬어러 무기"/>
+		<image name="icon_item_misc04_12" file="\icon\item\icon_item_misc04_12.png" imgrect="0 0 128 128" CMM_Caption="노란 페이그 클램퍼 집게"/>
+		<image name="icon_item_misc04_13" file="\icon\item\icon_item_misc04_13.png" imgrect="0 0 128 128" CMM_Caption="누더기 도살자 고리"/>
+		<image name="icon_item_misc04_14" file="\icon\item\icon_item_misc04_14.png" imgrect="0 0 128 128" CMM_Caption="누덕새 깃털"/>
+		<image name="icon_item_misc04_15" file="\icon\item\icon_item_misc04_15.png" imgrect="0 0 128 128" CMM_Caption="누덕새 날개"/>
+		<image name="icon_item_misc04_16" file="\icon\item\icon_item_misc04_16.png" imgrect="0 0 128 128" CMM_Caption="누카롱 더듬이"/>
+		<image name="icon_item_misc04_17" file="\icon\item\icon_item_misc04_17.png" imgrect="0 0 128 128" CMM_Caption="누카롱 손목장식"/>
+		<image name="icon_item_misc04_18" file="\icon\item\icon_item_misc04_18.png" imgrect="0 0 128 128" CMM_Caption="다롱이 머리카락"/>
+		<image name="icon_item_misc04_19" file="\icon\item\icon_item_misc04_19.png" imgrect="0 0 128 128" CMM_Caption="라콘 날개"/>
+		<image name="icon_item_misc04_20" file="\icon\item\icon_item_misc04_20.png" imgrect="0 0 128 128" CMM_Caption="로데나콩 열매"/>
+		<image name="icon_item_misc04_21" file="\icon\item\icon_item_misc04_21.png" imgrect="0 0 128 128" CMM_Caption="로데내그 가시줄기"/>
+		<image name="icon_item_misc04_22" file="\icon\item\icon_item_misc04_22.png" imgrect="0 0 128 128" CMM_Caption="로데도우 꼬리"/>
+		<image name="icon_item_misc04_23" file="\icon\item\icon_item_misc04_23.png" imgrect="0 0 128 128" CMM_Caption="로데도우 열매"/>
+		<image name="icon_item_misc04_24" file="\icon\item\icon_item_misc04_24.png" imgrect="0 0 128 128" CMM_Caption="로데리옷 망치"/>
+		<image name="icon_item_misc04_25" file="\icon\item\icon_item_misc04_25.png" imgrect="0 0 128 128" CMM_Caption="로데리옷 목마"/>
+		<image name="icon_item_misc04_26" file="\icon\item\icon_item_misc04_26.png" imgrect="0 0 128 128" CMM_Caption="로데바살 채찍"/>
+		<image name="icon_item_misc04_27" file="\icon\item\icon_item_misc04_27.png" imgrect="0 0 128 128" CMM_Caption="로데요켈 나무창"/>
+		<image name="icon_item_misc04_28" file="\icon\item\icon_item_misc04_28.png" imgrect="0 0 128 128" CMM_Caption="로데타드 열매"/>
+		<image name="icon_item_misc04_29" file="\icon\item\icon_item_misc04_29.png" imgrect="0 0 128 128" CMM_Caption="로데타드 잎"/>
+		<image name="icon_item_misc04_30" file="\icon\item\icon_item_misc04_30.png" imgrect="0 0 128 128" CMM_Caption="론도 껍질"/>
+		<image name="icon_item_misc04_31" file="\icon\item\icon_item_misc04_31.png" imgrect="0 0 128 128" CMM_Caption="론도 뿔"/>
+		<image name="icon_item_misc04_32" file="\icon\item\icon_item_misc04_32.png" imgrect="0 0 128 128" CMM_Caption="볏짚걸음 낫"/>
+		<image name="icon_item_misc04_33" file="\icon\item\icon_item_misc04_33.png" imgrect="0 0 128 128" CMM_Caption="붉은 마이즈 포자"/>
+		<image name="icon_item_misc04_34" file="\icon\item\icon_item_misc04_34.png" imgrect="0 0 128 128" CMM_Caption="붉은 샤울라브 가면"/>
+		<image name="icon_item_misc04_35" file="\icon\item\icon_item_misc04_35.png" imgrect="0 0 128 128" CMM_Caption="뿔골렘 뿔"/>
+		<image name="icon_item_misc04_36" file="\icon\item\icon_item_misc04_36.png" imgrect="0 0 128 128" CMM_Caption="엘더 로데 지팡이"/>
+		<image name="icon_item_misc04_37" file="\icon\item\icon_item_misc04_37.png" imgrect="0 0 128 128" CMM_Caption="초록 고블린 마법사 스태프"/>
+		<image name="icon_item_misc04_38" file="\icon\item\icon_item_misc04_38.png" imgrect="0 0 128 128" CMM_Caption="초록 고블린 전사 어깨장식"/>
+		<image name="icon_item_misc04_39" file="\icon\item\icon_item_misc04_39.png" imgrect="0 0 128 128" CMM_Caption="초록 고블린 주술사 엄니"/>
+		<image name="icon_item_misc04_40" file="\icon\item\icon_item_misc04_40.png" imgrect="0 0 128 128" CMM_Caption="초록 고블린 이빨"/>
+		<image name="icon_item_misc04_41" file="\icon\item\icon_item_misc04_41.png" imgrect="0 0 128 128" CMM_Caption="초록 러블렘 돌"/>
+		<image name="icon_item_misc04_42" file="\icon\item\icon_item_misc04_42.png" imgrect="0 0 128 128" CMM_Caption="초록 바본 날개"/>
+		<image name="icon_item_misc04_43" file="\icon\item\icon_item_misc04_43.png" imgrect="0 0 128 128" CMM_Caption="초록 바본 뿔"/>
+		<image name="icon_item_misc04_44" file="\icon\item\icon_item_misc04_44.png" imgrect="0 0 128 128" CMM_Caption="초록 엘로마고 꼬리"/>
+		<image name="icon_item_misc04_45" file="\icon\item\icon_item_misc04_45.png" imgrect="0 0 128 128" CMM_Caption="초록 우드고블린 뿔"/>
+		<image name="icon_item_misc04_46" file="\icon\item\icon_item_misc04_46.png" imgrect="0 0 128 128" CMM_Caption="초록 페이그 널스 석장"/>
+		<image name="icon_item_misc04_47" file="\icon\item\icon_item_misc04_47.png" imgrect="0 0 128 128" CMM_Caption="초록 플라마그 도끼"/>
+		<image name="icon_item_misc04_48" file="\icon\item\icon_item_misc04_48.png" imgrect="0 0 128 128" CMM_Caption="초록 플라마그 뿔"/>
+		<image name="icon_item_misc04_49" file="\icon\item\icon_item_misc04_49.png" imgrect="0 0 128 128" CMM_Caption="초록 플라메 궁수 부러진 활"/>
+		<image name="icon_item_misc04_50" file="\icon\item\icon_item_misc04_50.png" imgrect="0 0 128 128" CMM_Caption="초록 플라메 뿔"/>
+		<image name="icon_item_misc04_51" file="\icon\item\icon_item_misc04_51.png" imgrect="0 0 128 128" CMM_Caption="초록 플라메 지팡이"/>
+		<image name="icon_item_misc04_52" file="\icon\item\icon_item_misc04_52.png" imgrect="0 0 128 128" CMM_Caption="초록 플라밀 무기 조각"/>
+		<image name="icon_item_misc04_53" file="\icon\item\icon_item_misc04_53.png" imgrect="0 0 128 128" CMM_Caption="초록 플락 도끼"/>
+		<image name="icon_item_misc04_54" file="\icon\item\icon_item_misc04_54.png" imgrect="0 0 128 128" CMM_Caption="탈라 궁수 머리장식깃털"/>
+		<image name="icon_item_misc04_55" file="\icon\item\icon_item_misc04_55.png" imgrect="0 0 128 128" CMM_Caption="탈라 마법사 지팡이"/>
+		<image name="icon_item_misc04_56" file="\icon\item\icon_item_misc04_56.png" imgrect="0 0 128 128" CMM_Caption="탈라 전투 대장 망치"/>
+		<image name="icon_item_misc04_57" file="\icon\item\icon_item_misc04_57.png" imgrect="0 0 128 128" CMM_Caption="투스리콘 꼬리"/>
+		<image name="icon_item_misc04_58" file="\icon\item\icon_item_misc04_58.png" imgrect="0 0 128 128" CMM_Caption="투스리콘 날개"/>
+		<image name="icon_item_misc04_59" file="\icon\item\icon_item_misc04_59.png" imgrect="0 0 128 128" CMM_Caption="푸른 우드르와 손톱"/>
+		<image name="icon_item_misc04_60" file="\icon\item\icon_item_misc04_60.png" imgrect="0 0 128 128" CMM_Caption="푸른 페이그 도퍼 약병"/>
+		<image name="icon_item_misc04_61" file="\icon\item\icon_item_misc04_61.png" imgrect="0 0 128 128" CMM_Caption="허수아비 낫"/>
+		<image name="icon_item_misc04_62" file="\icon\item\icon_item_misc04_62.png" imgrect="0 0 128 128" CMM_Caption="호박개 고깔모자"/>
+		<image name="icon_item_misc04_63" file="\icon\item\icon_item_misc04_63.png" imgrect="0 0 128 128" CMM_Caption="나부 꼬리"/>
+		<image name="icon_item_misc04_64" file="\icon\item\icon_item_misc04_64.png" imgrect="0 0 128 128" CMM_Caption="노란 리프넛 꼬리"/>
+		<image name="icon_item_misc04_65" file="\icon\item\icon_item_misc04_65.png" imgrect="0 0 128 128" CMM_Caption="노란 리프넛 날개"/>
+		<image name="icon_item_misc04_66" file="\icon\item\icon_item_misc04_66.png" imgrect="0 0 128 128" CMM_Caption="노란 이르마 꼬리"/>
+		<image name="icon_item_misc04_67" file="\icon\item\icon_item_misc04_67.png" imgrect="0 0 128 128" CMM_Caption="노란 이르마 뿔"/>
+		<image name="icon_item_misc04_68" file="\icon\item\icon_item_misc04_68.png" imgrect="0 0 128 128" CMM_Caption="노란 카로 더듬이"/>
+		<image name="icon_item_misc04_69" file="\icon\item\icon_item_misc04_69.png" imgrect="0 0 128 128" CMM_Caption="노란 파이란 꼬리"/>
+		<image name="icon_item_misc04_70" file="\icon\item\icon_item_misc04_70.png" imgrect="0 0 128 128" CMM_Caption="동굴 러바인러바 가시"/>
+		<image name="icon_item_misc04_71" file="\icon\item\icon_item_misc04_71.png" imgrect="0 0 128 128" CMM_Caption="롬펠누카 뿔"/>
+		<image name="icon_item_misc04_72" file="\icon\item\icon_item_misc04_72.png" imgrect="0 0 128 128" CMM_Caption="롬펠누카 손목장식"/>
+		<image name="icon_item_misc04_73" file="\icon\item\icon_item_misc04_73.png" imgrect="0 0 128 128" CMM_Caption="모닝버드 꼬리"/>
+		<image name="icon_item_misc04_74" file="\icon\item\icon_item_misc04_74.png" imgrect="0 0 128 128" CMM_Caption="모닝버드 날개"/>
+		<image name="icon_item_misc04_75" file="\icon\item\icon_item_misc04_75.png" imgrect="0 0 128 128" CMM_Caption="모링가가 날개"/>
+		<image name="icon_item_misc04_76" file="\icon\item\icon_item_misc04_76.png" imgrect="0 0 128 128" CMM_Caption="모링가가 더듬이"/>
+		<image name="icon_item_misc04_77" file="\icon\item\icon_item_misc04_77.png" imgrect="0 0 128 128" CMM_Caption="붉은 슬라임 사슬"/>
+		<image name="icon_item_misc04_78" file="\icon\item\icon_item_misc04_78.png" imgrect="0 0 128 128" CMM_Caption="붉은 슬라임 점액"/>
+		<image name="icon_item_misc04_79" file="\icon\item\icon_item_misc04_79.png" imgrect="0 0 128 128" CMM_Caption="붉은 위저드 주술 인형 천조가리"/>
+		<image name="icon_item_misc04_80" file="\icon\item\icon_item_misc04_80.png" imgrect="0 0 128 128" CMM_Caption="붉은 콜리맨 꽃잎"/>
+		<image name="icon_item_misc04_81" file="\icon\item\icon_item_misc04_81.png" imgrect="0 0 128 128" CMM_Caption="빌카스 궁수 활"/>
+		<image name="icon_item_misc04_82" file="\icon\item\icon_item_misc04_82.png" imgrect="0 0 128 128" CMM_Caption="빌카스 궁수 후드"/>
+		<image name="icon_item_misc04_83" file="\icon\item\icon_item_misc04_83.png" imgrect="0 0 128 128" CMM_Caption="빌카스 나무방망이"/>
+		<image name="icon_item_misc04_84" file="\icon\item\icon_item_misc04_84.png" imgrect="0 0 128 128" CMM_Caption="빌카스 메이지 꼬리"/>
+		<image name="icon_item_misc04_85" file="\icon\item\icon_item_misc04_85.png" imgrect="0 0 128 128" CMM_Caption="빌카스 메이지 후드"/>
+		<image name="icon_item_misc04_86" file="\icon\item\icon_item_misc04_86.png" imgrect="0 0 128 128" CMM_Caption="빌카스 암살자 단검"/>
+		<image name="icon_item_misc04_87" file="\icon\item\icon_item_misc04_87.png" imgrect="0 0 128 128" CMM_Caption="빌카스 암살자 밸트"/>
+		<image name="icon_item_misc04_88" file="\icon\item\icon_item_misc04_88.png" imgrect="0 0 128 128" CMM_Caption="빌카스 창병 창"/>
+		<image name="icon_item_misc04_89" file="\icon\item\icon_item_misc04_89.png" imgrect="0 0 128 128" CMM_Caption="주황 그루머 날개"/>
+		<image name="icon_item_misc04_90" file="\icon\item\icon_item_misc04_90.png" imgrect="0 0 128 128" CMM_Caption="주황 그루머 더듬이"/>
+		<image name="icon_item_misc04_91" file="\icon\item\icon_item_misc04_91.png" imgrect="0 0 128 128" CMM_Caption="초록 블라인들렘 이끼 돌"/>
+		<image name="icon_item_misc04_92" file="\icon\item\icon_item_misc04_92.png" imgrect="0 0 128 128" CMM_Caption="초록 블라인들렘 이빨"/>
+		<image name="icon_item_misc04_93" file="\icon\item\icon_item_misc04_93.png" imgrect="0 0 128 128" CMM_Caption="초록 차로그 뿔"/>
+		<image name="icon_item_misc04_94" file="\icon\item\icon_item_misc04_94.png" imgrect="0 0 128 128" CMM_Caption="초록 차로그 손톱"/>
+		<image name="icon_item_misc04_95" file="\icon\item\icon_item_misc04_95.png" imgrect="0 0 128 128" CMM_Caption="초록 차콜워커 뿔"/>
+		<image name="icon_item_misc04_96" file="\icon\item\icon_item_misc04_96.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 누마니 모자"/>
+		<image name="icon_item_misc04_97" file="\icon\item\icon_item_misc04_97.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 누마니 방울"/>
+		<image name="icon_item_misc04_98" file="\icon\item\icon_item_misc04_98.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 리오니 뿔"/>
+		<image name="icon_item_misc04_99" file="\icon\item\icon_item_misc04_99.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 발저 꽃바구니"/>
+		<image name="icon_item_misc04_100" file="\icon\item\icon_item_misc04_100.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 발저 땋은머리"/>
+		<image name="icon_item_misc04_101" file="\icon\item\icon_item_misc04_101.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 소미 리본"/>
+		<image name="icon_item_misc04_102" file="\icon\item\icon_item_misc04_102.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 소미 템버린"/>
+		<image name="icon_item_misc04_103" file="\icon\item\icon_item_misc04_103.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 심바니 검"/>
+		<image name="icon_item_misc04_104" file="\icon\item\icon_item_misc04_104.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 심바니 모자장식"/>
+		<image name="icon_item_misc04_105" file="\icon\item\icon_item_misc04_105.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 자비 심벌즈"/>
+		<image name="icon_item_misc04_106" file="\icon\item\icon_item_misc04_106.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 자비 탈"/>
+		<image name="icon_item_misc04_107" file="\icon\item\icon_item_misc04_107.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 저이니 천조각"/>
+		<image name="icon_item_misc04_108" file="\icon\item\icon_item_misc04_108.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 제피 장식"/>
+		<image name="icon_item_misc04_109" file="\icon\item\icon_item_misc04_109.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 토트 목걸이"/>
+		<image name="icon_item_misc04_110" file="\icon\item\icon_item_misc04_110.png" imgrect="0 0 128 128" CMM_Caption="쿠게리 토트 열매"/>
+	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
 		<image name="icon_item_hpPotionPremium_bundle" file="\icon\payment\icon_item_hpPotionPremium_bundle.png" imgrect="0 0 256 256" CMM_Caption="HP포션 묶음"/>

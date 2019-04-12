@@ -2923,7 +2923,7 @@
 			<img name="bottomcore" imgrect="1924 285 95 30"/>
 			<img name="bottomright" imgrect="2020 285 28 30"/>
 		</skin>
-	<skin name="market_coupon_skin" texture="\skin\market_skin.tga">
+		<skin name="market_coupon_skin" texture="\skin\market_skin.tga">
 			<img name="topleft" imgrect="903 425 30 20"/>
 			<img name="topcore" imgrect="934 425 100 20"/>
 			<img name="topright" imgrect="1035 425 30 20"/>
@@ -4869,7 +4869,7 @@
 		<image name="barrack_message_btn" file="\skin\barrack.tga" imgrect="949 600 90 50" CMM_Caption="메시지버튼"/>
 		<image name="barrack_message_btn_cursoron" file="\skin\barrack.tga" imgrect="949 651 90 50"/>
 		<image name="barrack_message_btn_clicked" file="\skin\barrack.tga" imgrect="949 702 90 50"/>
-	<image name="barrack_menu_btn" file="\skin\barrack.tga" imgrect="1276 772 50 50" CMM_Caption="메뉴버튼"/>
+		<image name="barrack_menu_btn" file="\skin\barrack.tga" imgrect="1276 772 50 50" CMM_Caption="메뉴버튼"/>
 		<image name="barrack_menu_btn_cursoron" file="\skin\barrack.tga" imgrect="1276 823 50 50"/>
 		<image name="barrack_menu_btn_clicked" file="\skin\barrack.tga" imgrect="1276 874 50 50"/>
 		<image name="barrack_move_btn" file="\skin\barrack.tga" imgrect="1327 772 50 50" CMM_Caption="이동버튼"/>
@@ -6305,6 +6305,11 @@
 		<image name="icon_expup" file="\icon\buff_icon.tga" imgrect="768 1152 128 128" CMM_Caption="경험의서버프"/>
 		<image name="icon_teamexpup" file="\icon\buff_icon.tga" imgrect="896 1152 128 128" CMM_Caption="팀경험치"/>
 		<image name="icon_fieldboss" file="\icon\buff_icon.tga" imgrect="0 1280 128 128" CMM_Caption="필드보스패널티"/>
+		<image name="icon_GreaterDEF" file="\icon\buff_icon.tga" imgrect="128 1280 128 128" CMM_Caption="광역방어버프"/>
+		<image name="icon_GreaterATK" file="\icon\buff_icon.tga" imgrect="256 1280 128 128" CMM_Caption="광역공격버프"/>
+		<image name="icon_L_Songpyeon" file="\icon\buff_icon.tga" imgrect="384 1280 128 128" CMM_Caption="대왕송편버프"/>
+		<image name="icon_Songpyeon" file="\icon\buff_icon.tga" imgrect="512 1280 128 128" CMM_Caption="송편버프"/>
+		<image name="icon_L_H_Songpyeon" file="\icon\buff_icon.tga" imgrect="640 1280 128 128" CMM_Caption="꿀떡버프"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>
