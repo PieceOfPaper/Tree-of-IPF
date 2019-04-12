@@ -7665,3 +7665,28 @@ function SCR_PRE_JOB_ZEALOT_QUEST_COSTUME_ITEM(self, argstring, argnum1, argnum2
     end
     return 0;
 end
+
+
+--CHAR120_HOSHINBOO_ITEM
+function SCR_PRE_CHAR120_HOSHINBOO_ITEM(self, argstring, argnum1, argnum2)
+    if GetLayer(self) < 1 then
+        return 1
+    end
+    return 0;
+end
+
+--CHAR120_MSTEP5_4_ITEM3
+function SCR_PRE_CHAR120_MSTEP5_4_ITEM3(self, argstring, argnum1, argnum2)
+    if GetInvItemCount(self, "CHAR120_MSTEP5_4_ITEM3") >= 1 then
+        if GetZoneName(self) == "f_flash_64" then
+            if GetLayer(self) < 1 then
+                return 1
+            end
+        end
+    end
+end
+
+--SCR_PRE_CHAR120_MSTEP5_5_ITEM1
+function SCR_PRE_CHAR120_MSTEP5_5_ITEM1(self, argstring, argnum1, argnum2)
+    return 1
+end

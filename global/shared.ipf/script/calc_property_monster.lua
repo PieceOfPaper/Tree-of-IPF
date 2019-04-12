@@ -1287,19 +1287,45 @@ function SCR_Get_MON_SR(self)
 end
 
 function SCR_Get_MON_SDR(self)
+	local fixedSDR = TryGetProp(self, 'FixedMinSDR_BM');
+	if fixedSDR ~= nil and fixedSDR ~= 0 then
+		return 1;
+	end
+	
     local value = 5;
     
-    if self.MonSDR < 0 then -- ?º??
-        return -1;
-    elseif self.Size == 'S' then
+    local monSDR = TryGetProp(self, 'MonSDR');
+    if monSDR == nil then
+    	monSDR = 1;
+    end
+    
+    local monSize = TryGetProp(self, 'Size');
+    if monSize == nil then
+    	monSize = 'S';
+    end
+    
+    if monSDR < 1 then
         value = 1;
-    elseif self.Size == 'M' then
+    elseif monSize == 'S' then
+        value = 1;
+    elseif monSize == 'M' then
         value = 2;
-    elseif self.Size == 'L' then
+    elseif monSize == 'L' then
         value = 3;
     end
     
-    return value + self.SDR_BM;
+    local byBuff = TryGetProp(self, 'SDR_BM');
+    if byBuff == nil then
+    	byBuff = 0;
+    end
+    
+    value = value + byBuff;
+    
+    if value < 1 then
+    	value = 1;
+    end
+    
+    return value;
 end
 
 function SCR_GET_MONSKL_COOL(skill)

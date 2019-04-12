@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="MISSION_CASTLE_01" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_d_castle_67_2_nunnery" startWaitSec="-1526726657">
+    <Game Name="MISSION_CASTLE_01" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_d_castle_67_2_nunnery" playerCountCheckDestroy="1" startWaitSec="-1526726657">
         <StageList>
             <Stage Name="DefGroup">
                 <ObjList>
@@ -97,12 +97,12 @@
                     <Obj Type="Monster" MonType="20175" Pos="799.24#92.44#-1081.25" angle="225" genCount="1" genTime="20000" autoGen="0" objectKey="3" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_CASTLE_DICE&apos; &apos;$DICETYPE&apos; &apos;4&apos; &apos;Interactive&apos; &apos;NO&apos; "/>
                     <Obj Type="Monster" MonType="20176" Pos="-32.04#105.32#-1222.21" genCount="1" genTime="20000" autoGen="0" objectKey="4" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_CASTLE_DICE&apos; &apos;$DICETYPE&apos; &apos;5&apos; &apos;Interactive&apos; &apos;NO&apos; "/>
                     <Obj Type="Monster" MonType="20177" Pos="-753.27#85.46#-729.68" angle="200" genCount="1" genTime="20000" autoGen="0" objectKey="5" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_CASTLE_DICE&apos; &apos;$DICETYPE&apos; &apos;6&apos; &apos;Interactive&apos; &apos;NO&apos; "/>
-                    <Obj Type="Monster" MonType="147475" Pos="-410.34#95.06#152.17" genCount="1" genTime="20000" autoGen="0" objectKey="6" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;1&apos; &apos;Name&apos; &apos;큐브&apos; "/>
-                    <Obj Type="Monster" MonType="147475" Pos="562.38#91.02#431.37" angle="255" genCount="1" genTime="20000" autoGen="0" objectKey="7" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;2&apos; &apos;Name&apos; &apos;큐브&apos; "/>
-                    <Obj Type="Monster" MonType="147475" Pos="1475.61#85.52#-403.69" genCount="1" genTime="20000" autoGen="0" objectKey="8" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;3&apos; &apos;Name&apos; &apos;큐브&apos; "/>
-                    <Obj Type="Monster" MonType="147475" Pos="851.46#92.44#-1135.35" angle="225" genCount="1" genTime="20000" autoGen="0" objectKey="9" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;4&apos; &apos;Name&apos; &apos;큐브&apos; "/>
-                    <Obj Type="Monster" MonType="147475" Pos="-32.37#105.32#-1292.45" genCount="1" genTime="20000" autoGen="0" objectKey="10" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;5&apos; &apos;Name&apos; &apos;큐브&apos; "/>
-                    <Obj Type="Monster" MonType="147475" Pos="-819.32#85.46#-746.93" angle="200" genCount="1" genTime="20000" autoGen="0" objectKey="11" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;6&apos; &apos;Name&apos; &apos;큐브&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="-410.34#95.06#152.17" genCount="1" genTime="20000" autoGen="0" objectKey="6" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;1&apos; &apos;Name&apos; &apos;큐브&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="562.38#91.02#431.37" angle="255" genCount="1" genTime="20000" autoGen="0" objectKey="7" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;2&apos; &apos;Name&apos; &apos;큐브&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="1475.61#85.52#-403.69" genCount="1" genTime="20000" autoGen="0" objectKey="8" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;3&apos; &apos;Name&apos; &apos;큐브&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="851.46#92.44#-1135.35" angle="225" genCount="1" genTime="20000" autoGen="0" objectKey="9" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;4&apos; &apos;Name&apos; &apos;큐브&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="-32.37#105.32#-1292.45" genCount="1" genTime="20000" autoGen="0" objectKey="10" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;5&apos; &apos;Name&apos; &apos;큐브&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="-819.32#85.46#-746.93" angle="200" genCount="1" genTime="20000" autoGen="0" objectKey="11" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;6&apos; &apos;Name&apos; &apos;큐브&apos; "/>
                     <Obj Type="Monster" MonType="58520" Pos="130.18#187.38#-266.15" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="12" autoDestroy="0" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="58519" Pos="233.61#187.38#-355.38" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="13" autoDestroy="0" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="58878" Pos="401.86#187.38#-509.13" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="14" autoDestroy="0" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
@@ -497,6 +497,19 @@
                                 <Num Num="1"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="successItemGive">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
+                                <Str Str="Gacha_M_Castle_1/2"/>
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="MISSION_CASTLE_01"/>
+                                <Str Str="None"/>
+                                <Num Num="1"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>

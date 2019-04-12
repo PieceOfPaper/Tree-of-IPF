@@ -152,6 +152,8 @@ function TARGETINFOTOBOSS_ON_MSG(frame, msg, argStr, argNum)
         raceStr = monsterRaceSet:GetUserConfig('IMG_RACE_PLANT');
     elseif raceType == 'Paramune' then
         raceStr = monsterRaceSet:GetUserConfig('IMG_RACE_VARIATION');
+    elseif raceType == 'None' then
+        raceStr = monsterRaceSet:GetUserConfig('IMG_RACE_NONE');
     end
     return raceStr;
  end

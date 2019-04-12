@@ -75,6 +75,9 @@
 		<Class ClassID="501097" OverrideType="ADD" ClassName="EVENT_SELECT_BOSSLV_SEL6" Data=" {nl}몬스터 정보{nl}Lv {LV1} {NAME1}{nl}Lv {LV2} {NAME2}{nl}Lv {LV3} {NAME3}"/>
 		<Class ClassID="501098" OverrideType="ADD" ClassName="EVENT_SELECT_BOSSLV_SEL7" Data=" {nl}이벤트 미션 정보{nl}최대 클리어 단계 : {MAX}"/>
 		<Class ClassID="501099" OverrideType="ADD" ClassName="EVENT_SURVIVAL_NAME" Data="서바이벌 이벤트"/>
+		<Class ClassID="501112" OverrideType="ADD" ClassName="Indun_Enter_msg_180" Data="염원의 비석로 (권장 레벨:180)에 입장하시겠습니까?{nl}당신과 파티를 맺은 플레이어만이 함께 입장할 수 있습니다."/>
+		<Class ClassID="501113" OverrideType="ADD" ClassName="Indun_Enter_msg_230" Data="쇠락한 르귄가문의 저택 (권장 레벨:230)에 입장하시겠습니까?{nl}당신과 파티를 맺은 플레이어만이 함께 입장할 수 있습니다."/>
+		<Class ClassID="501114" OverrideType="ADD" ClassName="Indun_Enter_msg_300" Data="캐슬 지하 (권장 레벨:300)에 입장하시겠습니까?{nl}당신과 파티를 맺은 플레이어만이 함께 입장할 수 있습니다."/>
 		<Class ClassID="501121" OverrideType="ADD" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_SEL1" Data="비밀 야시장에 대해 알고 있다."/>
 		<Class ClassID="501122" OverrideType="ADD" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_SEL2" Data="탈트 10개를 건네준다."/>
 		<Class ClassID="501123" OverrideType="ADD" ClassName="EVENT_STEAM_SECRET_NIGHT_MARKET_SEL3" Data="비밀 야시장으로 들어간다."/>
@@ -82,6 +85,9 @@
 		<Class ClassID="501129" OverrideType="ADD" ClassName="EVENT_STEAM_2018REWARD_DLG1" Data="초보, 복귀 이벤트"/>
 		<Class ClassID="501130" OverrideType="ADD" ClassName="EVENT_STEAM_2018REWARD_DLG2" Data="매일매일 출석체크 이벤트"/>
 		<Class ClassID="501131" OverrideType="ADD" ClassName="EVENT_STEAM_2018REWARD_DLG3" Data=" {nl}{COUNT}일차 보상을 받았습니다.{nl}내일 또 오세요~"/>
+		<Class ClassID="501132" OverrideType="ADD" ClassName="EVENT_STEAM_LAST_WINTER_SEL1" Data="마지막 겨울 이벤트"/>
+		<Class ClassID="501133" OverrideType="ADD" ClassName="EVENT_STEAM_LAST_WINTER_SEL2" Data="마지막 겨울 버프 받기"/>
+		<Class ClassID="501134" OverrideType="ADD" ClassName="EVENT_STEAM_LAST_WINTER_SEL3" Data="마지막 겨울 선물 받기"/>
 	</Category>
 	<Category Name="Premium">
 		<Class ClassID="660001" OverrideType="ADD" ClassName="steam_PremiumToken_30day" Data="토큰:30일"/>

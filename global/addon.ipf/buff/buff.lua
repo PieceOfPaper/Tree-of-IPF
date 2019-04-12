@@ -15,8 +15,14 @@ function BUFF_ON_INIT(addon, frame)
 	addon:RegisterMsg('BUFF_REMOVE', 'BUFF_ON_MSG');
 	addon:RegisterMsg('BUFF_UPDATE', 'BUFF_ON_MSG');
 
+	addon:RegisterMsg('TEST_ADDON_MSG_DUMP_MSG', 'TEST_ADDON_MSG_DUMP');
+
 	INIT_BUFF_UI(frame, s_buff_ui, "MY_BUFF_TIME_UPDATE");
 	INIT_PREMIUM_BUFF_UI(frame);
+end
+
+function TEST_ADDON_MSG_DUMP(frame)
+	test.TestFunction();
 end
 
 function INIT_PREMIUM_BUFF_UI(frame)
@@ -65,12 +71,12 @@ function GET_BUFF_TIME_TXT(time, istooltip)
 	sec = sec - day * 86400;
 
 	-- 버프를 분단위로 표시하기위해 주석
---	local hour = math.floor(sec / 3600);
---	if hour < 0 then
---		hour = 0;
---	end
+	local hour = math.floor(sec / 3600);
+	if hour < 0 then
+		hour = 0;
+	end
 
---	sec = sec - hour * 3600;
+	sec = sec - hour * 3600;
 
 	local min = math.floor(sec / 60);
 	if min < 0 then
@@ -85,26 +91,36 @@ function GET_BUFF_TIME_TXT(time, istooltip)
 		if istooltip == 1 then
 			txt = txt .. day .. ScpArgMsg("Auto_il");
 		else
-			return "{#FFFF00}{ol}{s12}" .. day + 1 .. ScpArgMsg("Auto_il");
+		    if day == 1 then
+		        return "{#FFFF00}{ol}{s12}" .. hour + day*24 .. ScpArgMsg("Auto_SiKan");
+		    else
+    			return "{#FFFF00}{ol}{s12}" .. day .. ScpArgMsg("Auto_il");
+    		end
 		end
 	end
 
 	-- 버프를 분단위로 표시하기 위해 주석
---	if hour > 0 then
---		if istooltip == 1 then
---			print("hour return no");
---			txt = txt .. hour .. ScpArgMsg("Auto_SiKan");
---		else
---			print("hour return");
---			return "{#FFFF00}{ol}{s12}" .. hour + 1 .. ScpArgMsg("Auto_SiKan");
---		end
---	end
+	if hour > 0 then
+		if istooltip == 1 then
+			txt = txt .. hour .. ScpArgMsg("Auto_SiKan");
+		else
+		    if hour == 1 then
+		        return "{#FFFF00}{ol}{s12}" .. min + hour*60 .. ScpArgMsg("Auto_Bun");
+		    else
+    			return "{#FFFF00}{ol}{s12}" .. hour .. ScpArgMsg("Auto_SiKan");
+    		end
+		end
+	end
 
 	if min > 0 then
 		if istooltip == 1 then
 			txt = txt .. min .. ScpArgMsg("Auto_Bun")
 		else
-			return "{#FFFF00}{ol}{s12}" .. min .. ScpArgMsg("Auto_Bun");
+		    if min == 1 then
+		        return "{#FFFF00}{ol}{s12}" .. sec + min * 60 .. ScpArgMsg("Auto_Cho");
+		    else
+    			return "{#FFFF00}{ol}{s12}" .. min .. ScpArgMsg("Auto_Bun");
+    		end
 		end
 	end
 

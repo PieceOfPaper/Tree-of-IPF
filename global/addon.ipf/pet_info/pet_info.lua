@@ -319,6 +319,15 @@ function TOGGLE_PET_ACTIVITY(parent, ctrl)
 	local pet_guid = frame:GetUserValue("PET_GUID");
 
 	ui.DisableForTime(ctrl, 3);
+	
+	local petInfo = session.pet.GetPetByGUID(pet_guid);
+	local obj = petInfo:GetObject();
+	obj = GetIES(obj);
+
+	local isActivated = TryGet(obj, "IsActivated");
+	if isActivated == 1 then
+		world.Leave(petInfo:GetHandle(), 0);
+	end
 
 	control.CustomCommand("PET_ACTIVATE", 0);	
 end
@@ -680,4 +689,40 @@ function PET_INFO_GET_STAT_SILVER(ctrl, pc, pet, trainCnt)
 		statCost = statCost + needSilver;
 	end
 	return statCost;
+end
+
+function CHANGE_MYPET_NAME(frame, btn)
+    local topFrame = frame:GetTopParentFrame()
+    local petGuid = topFrame:GetUserValue('PET_GUID')
+    if petGuid == nil or petGuid == "None" then
+        ui.SysMsg(ClMsg("SummonedPetDoesNotExist"));
+        return;
+    end
+
+    local petInfo = session.pet.GetPetByGUID(petGuid);
+    if petInfo == nil then
+        return;
+    end
+
+    local beforeName = petInfo:GetName();
+    local newframe = ui.GetFrame("inputstring");
+    newframe:SetUserValue("InputType", "PetName");
+    INPUT_STRING_BOX(ClMsg("PetName"), "EXEC_CHANGE_NAME_PET", petName, 0, 16);
+end
+
+function EXEC_CHANGE_NAME_PET(inputframe, ctrl)
+    if ctrl:GetName() == "inputstr" then
+        inputframe = ctrl;
+    end
+
+    local changedName = GET_INPUT_STRING_TXT(inputframe);
+    
+    local petInfoFrame = ui.GetFrame("pet_info");
+    local petGuid = petInfoFrame:GetUserValue("PET_GUID");
+    local petInfo = session.pet.GetPetByGUID(petGuid);
+    if petInfo == nil then
+	return;
+    end
+
+    OPEN_CHECK_USER_MIND_BEFOR_YES(inputframe, "petName", changedName, petInfo:GetName(), petGuid);
 end

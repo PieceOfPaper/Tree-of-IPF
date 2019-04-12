@@ -9,7 +9,7 @@
 	<draw drawtitlebar="false" margin="-100 -100 0 0"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
 	<layer layerlevel="100" margin="-100 -100 0 0"/>
-	<script CloseScp="INDUNENTER_CLOSE"/>
+	<script OpenScp="INDUNENTER_UI_RESET" CloseScp="INDUNENTER_CLOSE"/>
 	<userconfig SLOT_SKIN="invenslot2" SLOT_SIZE="65" MULTI_DEFAULT="0" MULTI_MIN="0" SMALLMODE_WIDTH="400" FIND_WAIT_TIME="10" NO_MATCH_SKIN="indun_people_btn" YES_MATCH_SKIN="indun_people_img" PLUS_BTN_IMAGE="btn_plus" MINUS_BTN_IMAGE="btn_minus" RANDOM_ICON="indun_bossrandom" MATCH_FINDED_SOUND="sys_pvp_battle_party_user_full" MEMBER_FINDED_SOUND="sys_pvp_battle_party_user_in" UNDERSTAFF_CHECK_SOUND="sys_pvp_battle_party_user_4"/>
 	<controls>
 		<!-- Big Mode -->
@@ -53,16 +53,17 @@
 		<groupbox name="monBox_dummy" parent="monBox" rect="0 0 340 65" margin="35 0 0 0" layout_gravity="left bottom" draw="false"/>
 		<slotset name="monSlotSet" parent="monBox_dummy" rect="0 0 370 60" margin="5 0 0 0" layout_gravity="left top" row="1" col="10" size="65 65" skin="invenslot2" spc="2 2" enabledrop="false" enablepop="false"/>
 		<!-- Reward Box -->
-		<groupbox name="rewardBox" parent="noPicBox" rect="0 0 412 90" margin="0 210 0 0" layout_gravity="left top" draw="false" hittestbox="false"/>
-		<button name="rewardRightBtn" parent="rewardBox" rect="0 0 40 50" margin="0 30 0 0" layout_gravity="right top" image="button_right_select2" LBtnUpScp="INDUNENTER_REWARD_CLICK_RIGHT"/>
-		<button name="rewardLeftBtn" parent="rewardBox" rect="0 0 40 50" margin="0 30 0 0" layout_gravity="left top" image="button_left_select2" LBtnUpScp="INDUNENTER_REWARD_CLICK_LEFT"/>
-		<picture name="rewardPic" parent="rewardBox" rect="0 0 27 27" margin="5 0 0 0" layout_gravity="left top" image="indun_item"/>
-		<richtext name="rewardText" parent="rewardBox" rect="0 0 190 30" margin="35 0 0 0" layout_gravity="left top" caption="대표 획득 아이템" fontname="brown_18_b"/>
-		<groupbox name="rewardBox_dummy" parent="rewardBox" rect="0 0 340 65" margin="35 0 0 0" layout_gravity="left bottom" draw="false"/>
-		<slotset name="rewardSlotSet" parent="rewardBox_dummy" rect="0 0 370 60" margin="5 0 0 0" layout_gravity="left bottom" row="1" col="10" size="65 65" skin="invenslot2" spc="2 2" enabledrop="false" enablepop="false"/>
+		<groupbox name="rewardBox" parent="noPicBox" rect="0 0 412 110" margin="0 210 0 0" layout_gravity="left top" draw="false" hittestbox="false"/>
+		<picture name="rewardPic" parent="rewardBox" rect="0 0 27 27" margin="5 8 0 0" layout_gravity="left top" image="indun_item"/>
+		<richtext name="rewardText" parent="rewardBox" rect="0 8 190 30" margin="35 0 0 0" layout_gravity="left top" caption="획득 아이템" fontname="brown_18_b"/>
 		<button name="autoMatchBtn" parent="noPicBox" rect="0 0 250 70" margin="0 0 75 155" layout_gravity="right bottom" skin="test_red_button" oversound="button_over" LBtnUpScp="INDUNENTER_AUTOMATCH"/>
 		<button name="reEnterBtn" parent="noPicBox" rect="0 0 250 55" margin="0 0 75 100" layout_gravity="right bottom" skin="test_pvp_btn" caption="{@st66b}자동매칭{nl}재입장" oversound="button_over" LBtnUpScp="INDUNENTER_REENTER" texttooltip="이전에 매칭된 곳으로 입장합니다."/>
 		<button name="understaffEnterAllowBtn" parent="noPicBox" rect="0 0 250 55" margin="0 0 75 100" layout_gravity="right bottom" skin="test_gray_button" caption="{@st41b}4인 이하 입장{/}" oversound="button_over" LBtnUpScp="INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW"/>
+		<picture name="weaponBtn" parent="rewardBox" rect="0 0 68 68" margin="35 35 0 0" layout_gravity="left top" image="indun_weapon" oversound="button_over" stretch="true" LBtnUpScp="INDUNENTER_MAKE_DROPBOX"/>
+		<picture name="subweaponBtn" parent="rewardBox" rect="0 0 68 68" margin="103 35 0 0" layout_gravity="left top" image="indun_shield" oversound="button_over" stretch="true" LBtnUpScp="INDUNENTER_MAKE_DROPBOX"/>
+		<picture name="armourBtn" parent="rewardBox" rect="0 0 68 68" margin="171 35 0 0" layout_gravity="left top" image="indun_armour" oversound="button_over" stretch="true" LBtnUpScp="INDUNENTER_MAKE_DROPBOX"/>
+		<picture name="accBtn" parent="rewardBox" rect="0 0 68 68" margin="239 35 0 0" layout_gravity="left top" image="indun_acc" oversound="button_over" stretch="true" LBtnUpScp="INDUNENTER_MAKE_DROPBOX"/>
+		<picture name="materialBtn" parent="rewardBox" rect="0 0 68 68" margin="307 35 0 0" layout_gravity="left top" image="indun_material" oversound="button_over" stretch="true" LBtnUpScp="INDUNENTER_MAKE_DROPBOX"/>
 		<richtext name="autoMatchText" parent="autoMatchBtn" rect="0 0 250 80" margin="0 0 0 0" layout_gravity="center center" textalign="center center" format="자동매칭%s" param1="image" fontname="white_18_ol" hittest="false"/>
 		<richtext name="autoMatchTime" parent="autoMatchBtn" rect="0 0 250 80" margin="0 0 0 0" layout_gravity="center center" textalign="center center" caption="00:00" fontname="white_18_b" hittest="false" draw="false"/>
 		<!-- Bottom Box -->

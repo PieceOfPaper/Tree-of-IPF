@@ -42,7 +42,15 @@ function GET_MORE_EVENT_EXP(pc)
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_4'); --비 이벤트
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_5'); --비 이벤트
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1708_JURATE_1'); --비 이벤트
-
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1712_SECOND_BUFF'); --2주년 기념수의 축복
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1712_XMAS_FIRE'); --크리스마스 폭죽 이벤트
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Last_Winter'); --마지막 겨울
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_1'); --출석 체크
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_2'); --출석 체크
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_3'); --출석 체크
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_4'); --출석 체크
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_5'); --출석 체크
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_6'); --출석 체크
 	return sumExp; 
 end
 

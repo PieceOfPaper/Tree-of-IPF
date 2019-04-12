@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<Particle frame="6" attachNode="Dummy_dead_effect" particleName="F_smoke080" useAttach="ture" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20"/>
-	<Particle frame="7" attachNode="Dummy_dead_effect" particleName="F_smoke080" useAttach="ture" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20"/>
+    <Sound frame="3.91" soundFile="skl_eff_photowall_landing_s"/>
+    <Particle frame="6" attachNode="Dummy_dead_effect" particleName="F_smoke080" useAttach="ture" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="7" attachNode="Dummy_dead_effect" particleName="F_smoke080" useAttach="ture" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="17.00" soundFile="skl_eff_photowall_open"/>
 </ActionDesc>

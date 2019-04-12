@@ -2,7 +2,7 @@ function INDUNENTER_ON_INIT(addon, frame)
     addon:RegisterMsg('MOVE_ZONE', 'INDUNENTER_CLOSE');
     addon:RegisterMsg('CLOSE_UI', 'INDUNENTER_CLOSE');
     addon:RegisterMsg('ESCAPE_PRESSED', 'INDUNENTER_ON_ESCAPE_PRESSED');
-
+    
     PC_INFO_COUNT = 5;
 end
 
@@ -16,10 +16,31 @@ function INDUNENTER_CLOSE(frame, msg, argStr, argNum)
     INDUNENTER_AUTOMATCH_CANCEL();
     INDUNENTER_PARTYMATCH_CANCEL();
         
-    INDUNENTER_MULTI_CANCEL(frame)
-
+    INDUNENTER_MULTI_CANCEL(frame);
+    
     ui.CloseFrame('indunenter');
     CloseIndunEnterDialog();
+end
+
+function INDUNENTER_UI_RESET(frame)
+    local topFrame = ui.GetFrame('indunenter');
+    local rewardBox = GET_CHILD_RECURSIVELY(topFrame, 'rewardBox');
+    local weaponBtn = GET_CHILD_RECURSIVELY(rewardBox, 'weaponBtn');
+    local materialBtn = GET_CHILD_RECURSIVELY(rewardBox, 'materialBtn');
+    local accBtn = GET_CHILD_RECURSIVELY(rewardBox, 'accBtn');
+    local armourBtn = GET_CHILD_RECURSIVELY(rewardBox, 'armourBtn');
+    local subweaponBtn = GET_CHILD_RECURSIVELY(rewardBox, 'subweaponBtn');
+    
+    weaponBtn:SetImage("indun_weapon")
+    frame:SetUserValue('weaponBtn','NO')
+    materialBtn:SetImage("indun_material")
+    frame:SetUserValue('materialBtn','NO')
+    accBtn:SetImage("indun_acc")
+    frame:SetUserValue('accBtn','NO')
+    armourBtn:SetImage("indun_armour")
+    frame:SetUserValue('armourBtn','NO')
+    subweaponBtn:SetImage("indun_shield")
+    frame:SetUserValue('subweaponBtn','NO')
 end
 
 function INDUNENTER_AUTOMATCH_CANCEL()
@@ -86,7 +107,6 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
     INDUNENTER_MAKE_MULTI_BOX(frame, indunCls);
     INDUNENTER_UPDATE_PC_COUNT(frame, nil, "None", 0);
     INDUNENTER_MAKE_MONLIST(frame, indunCls);
-    INDUNENTER_MAKE_REWARDLIST(frame, indunCls);
 
     -- setting
     INDUNENTER_INIT_MEMBERBOX(frame);
@@ -128,7 +148,7 @@ end
 function REFRESH_REENTER_UNDERSTAFF_BUTTON(isEnableReEnter)
     local frame = ui.GetFrame('indunenter');
 
-	INDUNENTER_INIT_REENTER_UNDERSTAFF_BUTTON(frame, isEnableReEnter);
+    INDUNENTER_INIT_REENTER_UNDERSTAFF_BUTTON(frame, isEnableReEnter);
 end
 
 function INDUNENTER_INIT_MEMBERBOX(frame)
@@ -218,52 +238,251 @@ function INDUNENTER_MAKE_MONLIST(frame, indunCls)
     end
 end
 
-function INDUNENTER_MAKE_REWARDLIST(frame, indunCls)
-    if frame == nil then
-        return;
-    end
-
-    local rewardSlotSet = GET_CHILD_RECURSIVELY(frame, 'rewardSlotSet');
-    local rewardRightBtn = GET_CHILD_RECURSIVELY(frame, 'rewardRightBtn');
-    local rewardLeftBtn = GET_CHILD_RECURSIVELY(frame, 'rewardLeftBtn');
-
-    -- init 
-    rewardSlotSet:ClearIconAll();
-    rewardSlotSet:SetOffset(rewardSlotSet:GetOriginalX(), rewardSlotSet:GetY());
+function INDUNENTER_DROPBOX_ITEM_LIST(parent, control)
+    local frame = ui.GetFrame('indunenter');
+    local rewardBox = GET_CHILD_RECURSIVELY(frame, 'rewardBox');
+    local controlName = control:GetName();
+    -- ?�기??부??
+    local topFrame = frame:GetTopParentFrame();
+    local indunType = topFrame:GetUserValue('INDUN_TYPE');
+    local indunCls = GetClassByType('Indun', indunType);
+    local dungeonType = TryGetProp(indunCls, 'DungeonType')
+    local indunClsName = TryGetProp(indunCls, 'ClassName')
+    local rewardItem = GetClass('Indun_reward_item', indunClsName)
+    local indunRewardItem = TryGetProp(rewardItem, 'Reward_Item')
+    local itemCls = GetClass('Item', indunRewardItem)
+    local itemStringArg = TryGetProp(itemCls, 'StringArg')
     
-
-    -- data set 
-    local itemList = TryGetProp(indunCls, 'ItemList');
-    if itemList == nil or itemList == 'None' then
-        return;
-    end
-    local itemTable = StringSplit(itemList, '/');
-    frame:SetUserValue('REWARD_SLOT_CNT', #itemTable);
-
-    for i = 1, #itemTable do
-        local itemIcon = nil;
-        if itemTable[i] == "Random" then
-            itemIcon = frame:GetUserConfig('RANDOM_ICON');
-        else
-            local itemCls = GetClass('Item', itemTable[i]);
-            itemIcon = TryGetProp(itemCls, 'Icon');
+    local indunRewardItemList = { };
+    indunRewardItemList['weaponBtn'] = { };
+    indunRewardItemList['subweaponBtn'] = { };
+    indunRewardItemList['armourBtn'] = { };
+    indunRewardItemList['accBtn'] = { };
+    indunRewardItemList['materialBtn'] = { };
+    if dungeonType == "Indun" or dungeonType == "UniqueRaid" or dungeonType == "Raid" then
+        local allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_indun');
+        for j = 0, allIndunRewardItemCount - 1  do
+            local indunRewardItemClass = GetClassByIndexFromList(allIndunRewardItemList, j);
+            if indunRewardItemClass ~= nil and TryGetProp(indunRewardItemClass, 'Group') == itemStringArg then
+                local item = GetClass('Item', indunRewardItemClass.ItemName);
+                if item ~= nil then   -- ?�다�??�이??--
+                    local itemType = TryGetProp(item, 'GroupName');
+                    local itemClassType = TryGetProp(item, 'ClassType');
+                    if itemType == 'Recipe' then
+                        local recipeItemCls = GetClass('Recipe', item.ClassName);
+                        local targetItem = TryGetProp(recipeItemCls, 'TargetItem');
+                        if targetItem ~= nil then
+                            local targetItemCls = GetClass('Item', targetItem);
+                            if targetItemCls ~= nil then
+                                itemType = TryGetProp(targetItemCls, 'GroupName');
+                                itemClassType = TryGetProp(targetItemCls, 'ClassType');
+                            end
+                        end
+                    end
+                    if itemType ~= nil then
+                        if itemType == 'Weapon' then
+                            if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
+                                indunRewardItemList['weaponBtn'][#indunRewardItemList['weaponBtn'] + 1] = item;
+                            end
+                        elseif itemType == 'SubWeapon' then
+                            if itemClassType == 'Armband' then
+                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['accBtn'],item.ClassName) == false then
+                                    indunRewardItemList['accBtn'][#indunRewardItemList['accBtn'] + 1] = item;
+                                end
+                            else 
+                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
+                                    indunRewardItemList['subweaponBtn'][#indunRewardItemList['subweaponBtn'] + 1] = item;
+                                end
+                            end
+                        elseif itemType == 'Armor' then
+                            if itemClassType == 'Neck' or itemClassType == 'Ring' then
+                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['accBtn'],item.ClassName) == false then
+                                    indunRewardItemList['accBtn'][#indunRewardItemList['accBtn'] + 1] = item;
+                                end
+                            elseif itemClassType == 'Shield' then
+                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
+                                    indunRewardItemList['subweaponBtn'][#indunRewardItemList['subweaponBtn'] + 1] = item;
+                                end
+                            else
+                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['armourBtn'],item.ClassName) == false then
+                                    indunRewardItemList['armourBtn'][#indunRewardItemList['armourBtn'] + 1] = item;
+                                end
+                            end
+                        else
+                            if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['materialBtn'],item.ClassName) == false then
+                                indunRewardItemList['materialBtn'][#indunRewardItemList['materialBtn'] + 1] = item;
+                            end
+                        end
+                    end
+                end
+            end
         end
-
-        if itemIcon ~= nil then
-            local slot = rewardSlotSet:GetSlotByIndex(i - 1);
-            local slotIcon = CreateIcon(slot);
-            slotIcon:SetImage(itemIcon);
-            SET_ITEM_TOOLTIP_BY_NAME(slot:GetIcon(), itemTable[i]);
-            slotIcon:SetTooltipOverlap(1);
-        end
-    end
-
-    if #itemTable > 5 then
-        rewardRightBtn:SetEnable(1);
-        rewardLeftBtn:SetEnable(0);
     else
-        rewardRightBtn:SetEnable(0);
-        rewardLeftBtn:SetEnable(0);
+        local rewardCube = TryGetProp(rewardItem, 'Reward_Item');
+        local cubeList = SCR_STRING_CUT(rewardCube, '/');
+        
+        for e = 1, #cubeList do
+            local cubeCls = GetClass('Item', cubeList[e]);
+            indunRewardItemList['materialBtn'][#indunRewardItemList['materialBtn'] + 1] = cubeCls
+        end
+    end
+
+    if #indunRewardItemList[controlName] == 0 then
+        local dropListFrame = ui.MakeDropListFrame(control, 0, 0, 300, 600, 1, ui.LEFT, "INDUNENTER_DROPBOX_AFTER_BTN_DOWN",nil,nil);
+            ui.AddDropListItem(ClMsg('IndunRewardItem_Empty'))
+        return;
+    elseif #indunRewardItemList[controlName] ~= 0 and #indunRewardItemList[controlName] < 10 then
+        local dropListSize = #indunRewardItemList[controlName] * 1
+        local dropListFrame = ui.MakeDropListFrame(control, 0, 0, 300, 600, dropListSize, ui.LEFT, "GET_INDUNENTER_DROPBOX_LIST_TOOLTIP_VIEW","GET_INDUNENTER_DROPBOX_LIST_MOUSE_OVER","GET_INDUNENTER_DROPBOX_LIST_MOUSE_OUT");
+    else
+        local dropListFrame = ui.MakeDropListFrame(control, 0, 0, 300, 600, 10, ui.LEFT, "GET_INDUNENTER_DROPBOX_LIST_TOOLTIP_VIEW","GET_INDUNENTER_DROPBOX_LIST_MOUSE_OVER","GET_INDUNENTER_DROPBOX_LIST_MOUSE_OUT");
+    end
+
+    if #indunRewardItemList[controlName] >= 1 then
+        for l = 1, #indunRewardItemList[controlName] do
+            local dropBoxItem = indunRewardItemList[controlName][l];
+            ui.AddDropListItem(dropBoxItem.Name, nil, dropBoxItem.ClassName)
+        end
+    end
+    
+    local itemFrame = ui.GetFrame("wholeitem_link");
+    if itemFrame == nil then
+        itemFrame = ui.GetNewToolTip("wholeitem_link", "wholeitem_link");
+    end
+    itemFrame:SetUserValue('MouseClickedCheck','NO')
+    -- ?�기까�?
+end 
+
+function INDUNENTER_MAKE_DROPBOX(parent, control)
+    local frame = ui.GetFrame('indunenter');
+    local rewardBox = GET_CHILD_RECURSIVELY(frame, 'rewardBox');
+    local controlName = control:GetName();
+    
+    local btnList, imgList = GET_INDUNENTER_MAKE_DROPBOX_BTN_LIST();
+    for i = 1, #btnList do
+        local btnName = btnList[i];
+        local imgName = imgList[i];
+        
+        if controlName == btnName then
+            if control:GetUserValue(btnName) == 'NO' then
+                control:SetImage(imgName .. '_clicked');
+                control:SetUserValue(btnName, 'YES');
+            else
+                control:SetImage(imgName);
+                control:SetUserValue(btnName, 'NO');
+            end
+        else
+            local btn = GET_CHILD_RECURSIVELY(rewardBox, btnName);
+            btn:SetImage(imgName);
+            btn:SetUserValue(btnName, 'NO');
+        end
+        if control:GetUserValue(btnName) == 'NO' then
+            return ;
+        end
+    end
+    INDUNENTER_DROPBOX_ITEM_LIST(parent, control)
+end
+
+function GET_INDUNENTER_MAKE_DROPBOX_BTN_LIST()
+    local btnList = {
+                        'weaponBtn',
+                        'subweaponBtn',
+                        'armourBtn',
+                        'accBtn',
+                        'materialBtn'
+                    };
+    
+    local imgList = {
+                        'indun_weapon',
+                        'indun_shield',
+                        'indun_armour',
+                        'indun_acc',
+                        'indun_material'
+                    };
+    
+    return btnList, imgList;
+end
+
+function INDUNENTER_DROPBOX_AFTER_BTN_DOWN(index, classname)
+    local frame = ui.GetFrame('indunenter');
+    local rewardBox = GET_CHILD_RECURSIVELY(frame, 'rewardBox');
+    local weaponBtn = GET_CHILD_RECURSIVELY(rewardBox, 'weaponBtn');
+    local materialBtn = GET_CHILD_RECURSIVELY(rewardBox, 'materialBtn');
+    local accBtn = GET_CHILD_RECURSIVELY(rewardBox, 'accBtn');
+    local armourBtn = GET_CHILD_RECURSIVELY(rewardBox, 'armourBtn');
+    local subweaponBtn = GET_CHILD_RECURSIVELY(rewardBox, 'subweaponBtn');
+    
+    weaponBtn:SetImage("indun_weapon")
+    frame:SetUserValue('weaponBtn','NO')
+    materialBtn:SetImage("indun_material") 
+    frame:SetUserValue('materialBtn','NO')
+    accBtn:SetImage("indun_acc")
+    frame:SetUserValue('accBtn','NO')
+    armourBtn:SetImage("indun_armour")
+    frame:SetUserValue('armourBtn','NO')
+    subweaponBtn:SetImage("indun_shield")
+    frame:SetUserValue('subweaponBtn','NO')
+end
+
+function GET_INDUNENTER_DROPBOX_LIST_MOUSE_OVER(index, classname)
+    local indunenterFrame = ui.GetFrame("indunenter")
+    local itemFrame = ui.GetFrame("wholeitem_link");
+    if itemFrame == nil then
+        itemFrame = ui.GetNewToolTip("wholeitem_link", "wholeitem_link");
+    end
+    tolua.cast(itemFrame, 'ui::CTooltipFrame');
+
+    local newobj = CreateIES('Item', classname);
+    itemFrame:SetTooltipType('wholeitem');
+    newobj = tolua.cast(newobj, 'imcIES::IObject');
+    itemFrame:SetToolTipObject(newobj);
+
+    currentFrame = itemFrame;
+    currentFrame:RefreshTooltip();
+    currentFrame:ShowWindow(1);
+    if indunenterFrame ~= nil then
+        itemFrame:SetOffset(indunenterFrame:GetX()+720,indunenterFrame:GetY())
+    end
+    INDUNENTER_DROPBOX_AFTER_BTN_DOWN(index, classname)
+end
+
+function GET_INDUNENTER_DROPBOX_LIST_TOOLTIP_VIEW(index, classname)
+    local indunenterFrame = ui.GetFrame("indunenter")
+    local itemFrame = ui.GetFrame("wholeitem_link");
+    if itemFrame == nil then
+        itemFrame = ui.GetNewToolTip("wholeitem_link", "wholeitem_link");
+    end
+    tolua.cast(itemFrame, 'ui::CTooltipFrame');
+
+    local newobj = CreateIES('Item', classname);
+    itemFrame:SetTooltipType('wholeitem');
+    newobj = tolua.cast(newobj, 'imcIES::IObject');
+    itemFrame:SetToolTipObject(newobj);
+
+    currentFrame = itemFrame;
+    currentFrame:RefreshTooltip();
+    currentFrame:ShowWindow(1);
+
+    if indunenterFrame ~= nil then
+        itemFrame:SetOffset(indunenterFrame:GetX()+720,indunenterFrame:GetY())
+    end
+    INDUNENTER_DROPBOX_AFTER_BTN_DOWN(index, classname)
+    itemFrame:SetUserValue('MouseClickedCheck','YES')
+    
+end
+
+function GET_INDUNENTER_DROPBOX_LIST_MOUSE_OUT()
+    local indunenterframe = ui.GetFrame('indunenter');
+    local itemFrame = ui.GetFrame("wholeitem_link");
+    if itemFrame == nil then
+        itemFrame = ui.GetNewToolTip("wholeitem_link", "wholeitem_link");
+    end
+    if itemFrame:GetUserValue('MouseClickedCheck') == 'NO' then
+        itemFrame:ShowWindow(0)
+    end
+    if  itemFrame:GetUserValue('MouseClickedCheck') == 'YES' then
+        itemFrame:ShowWindow(1)
+        itemFrame:SetUserValue('MouseClickedCheck','NO')
     end
 end
 
@@ -411,7 +630,7 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable, understaffCount)
     local memberBox = GET_CHILD_RECURSIVELY(frame, 'memberBox');
     local memberCnt = #memberTable / PC_INFO_COUNT;
 
-    if pcCount < 1 then -- member초기화해주자
+    if pcCount < 1 then -- member초기?�해주자
         memberCnt = 0;
     end
 
@@ -458,8 +677,8 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable, understaffCount)
         matchedIcon:ShowWindow(0);
         understaffAllowImg:ShowWindow(0);
 
-        if i <= pcCount then -- 참여한 인원만큼 보여주는 부분
-            if i * PC_INFO_COUNT <= #memberTable then -- 파티원인 경우      
+        if i <= pcCount then -- 참여???�원만큼 보여주는 부�?
+            if i * PC_INFO_COUNT <= #memberTable then -- ?�티?�인 경우      
                 -- show leader
                 local aid = memberTable[i * PC_INFO_COUNT - (PC_INFO_COUNT - 1)];
                 local pcparty = session.party.GetPartyInfo(PARTY_NORMAL);
@@ -489,7 +708,7 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable, understaffCount)
                     understaffAllowImg:ShowWindow(1);
                     understaffShowCount = understaffShowCount + 1;
                 end
-            else -- 파티원은 아닌데 매칭된 사람
+            else -- ?�티?��? ?�닌??매칭???�람
                 jobIcon:ShowWindow(0);
                 matchedIcon:ShowWindow(1);
 
@@ -628,6 +847,18 @@ end
 function INDUNENTER_ENTER(frame, ctrl)
     local topFrame = frame:GetTopParentFrame();
     local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+    local indunType = topFrame:GetUserValue('INDUN_TYPE');
+    local indunCls = GetClassByType('Indun', indunType);
+    local indunMinPCRank = TryGetProp(indunCls, 'PCRank')
+    local totaljobcount = session.GetPcTotalJobGrade()
+    
+    if indunMinPCRank ~= nil then
+        if indunMinPCRank > totaljobcount and indunMinPCRank ~= totaljobcount then
+            ui.SysMsg(ScpArgMsg('IndunEnterNeedPCRank', 'NEED_RANK', indunMinPCRank))
+            return;
+        end
+    end
+    
     if useCount > 0 then
         local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
         for i = 1, #multipleItemList do
@@ -653,6 +884,18 @@ end
 function INDUNENTER_AUTOMATCH(frame, ctrl)
     local topFrame = frame:GetTopParentFrame();
     local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+    local indunType = topFrame:GetUserValue('INDUN_TYPE');
+    local indunCls = GetClassByType('Indun', indunType);
+    local indunMinPCRank = TryGetProp(indunCls, 'PCRank')
+    local totaljobcount = session.GetPcTotalJobGrade()
+    
+    if indunMinPCRank ~= nil then
+        if indunMinPCRank > totaljobcount and indunMinPCRank ~= totaljobcount then
+            ui.SysMsg(ScpArgMsg('IndunEnterNeedPCRank', 'NEED_RANK', indunMinPCRank))
+            return;
+        end
+    end
+    
     if useCount > 0 then
         local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
         for i = 1, #multipleItemList do
@@ -681,6 +924,18 @@ end
 function INDUNENTER_PARTYMATCH(frame, ctrl)
     local topFrame = frame:GetTopParentFrame();
     local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+    local indunType = topFrame:GetUserValue('INDUN_TYPE');
+    local indunCls = GetClassByType('Indun', indunType);
+    local indunMinPCRank = TryGetProp(indunCls, 'PCRank')
+    local totaljobcount = session.GetPcTotalJobGrade()
+    
+    if indunMinPCRank ~= nil then
+        if indunMinPCRank > totaljobcount and indunMinPCRank ~= totaljobcount then
+            ui.SysMsg(ScpArgMsg('IndunEnterNeedPCRank', 'NEED_RANK', indunMinPCRank))
+            return;
+        end
+    end
+    
     if useCount > 0 then
         local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
         for i = 1, #multipleItemList do
@@ -894,7 +1149,7 @@ function INDUNENTER_SET_ENABLE(enter, autoMatch, withParty, multi)
     withPartyBtn:SetEnable(withParty);
     INDUNENTER_SET_ENABLE_MULTI(multi);
 
-    -- multi btn: 배수토큰 있어야 사용 가능. 인던/의뢰소 미션만 사용가능
+    -- multi btn: 배수?�큰 ?�어???�용 가?? ?�던/?�뢰??미션�??�용가??
     local indunCls = GetClassByType('Indun', frame:GetUserIValue('INDUN_TYPE'));
     local resetType = TryGetProp(indunCls, 'PlayPerResetType');
     local itemCount = GET_INDUN_MULTIPLE_ITEM_LIST();
@@ -1038,6 +1293,23 @@ end
 function INDUNENTER_REENTER(frame, ctrl)
     local topFrame = frame:GetTopParentFrame();
     local textCount = topFrame:GetUserIValue("multipleCount");
+    local indunType = topFrame:GetUserValue('INDUN_TYPE');
+    local indunCls = GetClassByType('Indun', indunType);
+    local indunMinPCRank = TryGetProp(indunCls, 'PCRank')
+    local totaljobcount = session.GetPcTotalJobGrade()
+    
+    if indunMinPCRank ~= nil then
+        if indunMinPCRank > totaljobcount and indunMinPCRank ~= totaljobcount then
+            ui.SysMsg(ScpArgMsg('IndunEnterNeedPCRank', 'NEED_RANK', indunMinPCRank))
+            return;
+        end
+    end
+    
+    if textCount > 0 then
+        local yesscp = string.format('ReqMoveToIndun(4, %d)', textCount);
+        ui.MsgBox(ClMsg('ReenterMultipleNotAllowed'), yesscp, 'None');
+        return;
+    end
     ReqMoveToIndun(4, textCount);
 end
 
@@ -1312,7 +1584,7 @@ function INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW(parent, ctrl)
         return;
     end
         
-    -- 파티원과 자동매칭인 경우 처리
+    -- ?�티?�과 ?�동매칭??경우 처리
     local yesScpStr = '_INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW()';
     local clientMsg = ScpArgMsg('ReallyAllowUnderstaffMatchingWith{MIN_MEMBER}?', 'MIN_MEMBER', UnderstaffEnterAllowMinMember);
     if INDUNENTER_CHECK_UNDERSTAFF_MODE_WITH_PARTY(topFrame) == true then
@@ -1399,6 +1671,15 @@ end
 
 function INDUN_ALREADY_PLAYING()
     local yesScp = string.format("AnsGiveUpPrevPlayingIndun(%d)", 1);
-	local noScp = string.format("AnsGiveUpPrevPlayingIndun(%d)", 0);
-	ui.MsgBox(ClMsg("IndunAlreadyPlaying_AreYouGiveUp"), yesScp, noScp);
+    local noScp = string.format("AnsGiveUpPrevPlayingIndun(%d)", 0);
+    ui.MsgBox(ClMsg("IndunAlreadyPlaying_AreYouGiveUp"), yesScp, noScp);
+end
+
+function IS_EXIST_CLASSNAME_IN_LIST(list, value)
+    for i =1, #list do
+        if list[i].ClassName == value then
+            return true;
+        end
+    end
+    return false;
 end

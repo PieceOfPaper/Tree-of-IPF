@@ -2013,80 +2013,122 @@ function MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y)
         local Succ_req_quest_check = 0;
         local i
         local flag = false
+        local addIndex = 0
+        local tempList = {}
         for i = 1, 10 do
             if questIES['Succ_QuestName'..i] ~= 'None' then
                 local ret = SCR_QUEST_SUCC_CHECK_MODULE_QUEST_SUB(pc, questIES, sObj_main, i)
                 if ret == 'NO' then
-                    local msg
-                    if questIES['Succ_QuestCount'..i] <= 0 then
-                        msg = '{#ffff00}'..ScpArgMsg('Quest_POSSIBLE')..'{/}'
-                    elseif questIES['Succ_QuestCount'..i] == 1 then
-                        msg = '{#44ccff}'..ScpArgMsg('Quest_PROGRESS')..'{/}'
-                    elseif questIES['Succ_QuestCount'..i] == 200 then
-                        msg = '{#00ffff}'..ScpArgMsg('Quest_SUCCESS')..'{/}'
-                    elseif questIES['Succ_QuestCount'..i] == 300 then
-                        msg = '{#00ff00}'..ScpArgMsg('Quest_COMPLETE')..'{/}'
+                    local t1, t2, t3 = SCR_QUEST_LINK_FIRST(pc,questIES['Succ_QuestName'..i])
+                    for i2 = 1, #t2 do
+                        if table.find(tempList, t2[i2]) == 0 then
+                            local questCount, questTerms
+                            for i3 = 1, #t3 do
+                                if t2[i2] == t3[i3][1] then
+                                    questCount = t3[i3][2]
+                                    questTerms = t3[i3][3]
+                                end
+                            end
+                            
+                            if questIES['Succ_QuestName'..i] == t2[i2] then
+                                questCount = questIES['Succ_QuestCount'..i]
+                            end
+                            
+                            local msg
+                            if questCount <= 0 then
+                                msg = '{#ffff00}'..ScpArgMsg('Quest_POSSIBLE')..'{/}'
+                            elseif questCount == 1 then
+                                msg = '{#44ccff}'..ScpArgMsg('Quest_PROGRESS')..'{/}'
+                            elseif questCount == 200 then
+                                msg = '{#00ffff}'..ScpArgMsg('Quest_SUCCESS')..'{/}'
+                            elseif questCount == 300 then
+                                msg = '{#00ff00}'..ScpArgMsg('Quest_COMPLETE')..'{/}'
+                            end
+                            
+                            local itemtxt = ''
+                            if flag == false then
+                                flag = true
+                                itemtxt = ScpArgMsg('QUESTINFO_QUEST')
+                            end
+                            local succQuestIES = GetClass('QuestProgressCheck',t2[i2])
+                            if succQuestIES ~= nil then
+                    			itemtxt = itemtxt..msg..' '..succQuestIES.Name
+                    		else
+                    		    itemtxt = itemtxt..t2[i2]
+                            end
+                            
+                            if itemtxt ~= nil then
+                                tempList[#tempList + 1] = t2[i2]
+                                addIndex = addIndex + 1
+                    			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. addIndex, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
+                				content:EnableHitTest(0);
+                    			content:SetTextFixWidth(0);
+                    			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
+                    			y = y + content:GetHeight();
+                    		end
+                    	end
                     end
-                    
-                    local itemtxt = ''
-                    if flag == false then
-                        flag = true
-                        itemtxt = ScpArgMsg('QUESTINFO_QUEST')
-                    end
-                    local succQuestIES = GetClass('QuestProgressCheck',questIES['Succ_QuestName'..i])
-                    if succQuestIES ~= nil then
-            			itemtxt = itemtxt..msg..' '..succQuestIES.Name
-            		else
-            		    itemtxt = itemtxt..questIES['Succ_QuestName'..i]
-                    end
-                    
-                    if itemtxt ~= nil then
-            			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
-        				content:EnableHitTest(0);
-            			content:SetTextFixWidth(0);
-            			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
-            			y = y + content:GetHeight();
-            		end
                 end
             end
         end
     elseif questIES.Succ_Quest_Condition == 'OR' then
         local i
         local flag = false
+        local addIndex = 0
+        local tempList = {}
         for i = 1, 10 do
             if questIES['Succ_QuestName'..i] ~= 'None' then
                 local ret = SCR_QUEST_SUCC_CHECK_MODULE_QUEST_SUB(pc, questIES, sObj_main, i)
                 if ret == 'NO' then
-                    local msg
-                    if questIES['Succ_QuestCount'..i] <= 0 then
-                        msg = '{#ffff00}'..ScpArgMsg('Quest_POSSIBLE')..'{/}'
-                    elseif questIES['Succ_QuestCount'..i] == 1 then
-                        msg = '{#44ccff}'..ScpArgMsg('Quest_PROGRESS')..'{/}'
-                    elseif questIES['Succ_QuestCount'..i] == 200 then
-                        msg = '{#00ffff}'..ScpArgMsg('Quest_SUCCESS')..'{/}'
-                    elseif questIES['Succ_QuestCount'..i] == 300 then
-                        msg = '{#00ff00}'..ScpArgMsg('Quest_COMPLETE')..'{/}'
+                    local t1, t2, t3 = SCR_QUEST_LINK_FIRST(pc,questIES['Succ_QuestName'..i])
+                    for i2 = 1, #t2 do
+                        if table.find(tempList, t2[i2]) == 0 then
+                            local questCount, questTerms
+                            for i3 = 1, #t3 do
+                                if t2[i2] == t3[i3][1] then
+                                    questCount = t3[i3][2]
+                                    questTerms = t3[i3][3]
+                                end
+                            end
+                            
+                            if questIES['Succ_QuestName'..i] == t2[i2] then
+                                questCount = questIES['Succ_QuestCount'..i]
+                            end
+                            
+                            local msg
+                            if questCount <= 0 then
+                                msg = '{#ffff00}'..ScpArgMsg('Quest_POSSIBLE')..'{/}'
+                            elseif questCount == 1 then
+                                msg = '{#44ccff}'..ScpArgMsg('Quest_PROGRESS')..'{/}'
+                            elseif questCount == 200 then
+                                msg = '{#00ffff}'..ScpArgMsg('Quest_SUCCESS')..'{/}'
+                            elseif questCount == 300 then
+                                msg = '{#00ff00}'..ScpArgMsg('Quest_COMPLETE')..'{/}'
+                            end
+                            
+                            local itemtxt = ''
+                            if flag == false then
+                                flag = true
+                                itemtxt = ScpArgMsg('QUESTINFO_QUEST')
+                            end
+                            local succQuestIES = GetClass('QuestProgressCheck',t2[i2])
+                            if succQuestIES ~= nil then
+                    			itemtxt = itemtxt..msg..' '..succQuestIES.Name
+                    		else
+                    		    itemtxt = itemtxt..t2[i2]
+                            end
+                            
+                            if itemtxt ~= nil then
+                                tempList[#tempList + 1] = t2[i2]
+                                addIndex = addIndex + 1
+                    			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. addIndex, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
+                				content:EnableHitTest(0);
+                    			content:SetTextFixWidth(0);
+                    			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
+                    			y = y + content:GetHeight();
+                    		end
+                    	end
                     end
-                    
-                    local itemtxt = ''
-                    if flag == false then
-                        flag = true
-                        itemtxt = ScpArgMsg('QUESTINFO_QUEST')
-                    end
-                    local succQuestIES = GetClass('QuestProgressCheck',questIES['Succ_QuestName'..i])
-                    if succQuestIES ~= nil then
-            			itemtxt = itemtxt..msg..' '..succQuestIES.Name
-            		else
-            		    itemtxt = itemtxt..questIES['Succ_QuestName'..i]
-                    end
-                    
-                    if itemtxt ~= nil then
-            			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. i, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
-        				content:EnableHitTest(0);
-            			content:SetTextFixWidth(0);
-            			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
-            			y = y + content:GetHeight();
-            		end
                 end
             end
         end

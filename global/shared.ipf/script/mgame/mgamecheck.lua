@@ -72,3 +72,20 @@ function CALCULATE_ELO_SYSTEM_POINT(pvpType, pvpObjList)
     	end
     end
 end
+
+function SCR_IS_ENABLE_MATCHING(time, team1Point, team2Point)
+	-- 시간 1분당 200점차이를 허용한다.
+	-- 최대 600점 차이까지 허용
+	local pointDifToleance = 200 * time / 60;
+	pointDifToleance = math.min(pointDifToleance, 600);
+	if time <= 10 then
+	    pointDifToleance = 60
+	end
+	
+	local pointDiff = math.abs(team1Point - team2Point);
+	if pointDiff <= pointDifToleance then
+		return "YES";
+	end
+	
+	return "NO";
+end

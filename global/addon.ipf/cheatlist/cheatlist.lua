@@ -264,6 +264,9 @@ function CHEATLIST_RUNSCRIPT(frame)
 			break;
 		else
 			local argText = eobj:GetText();
+			if string.find(argText, ' ') ~= nil then
+                argText = string.gsub(argText, ' ', '/')
+            end
 			if argText == "" then
 				argText = "None";
 			end
@@ -288,7 +291,7 @@ function PREVIEW_CHEATLIST_MAP(frame, classID)
 		return;
 	end
 
-	world.PreloadMinimap(cls.ClassName);
+	world.PreloadMinimap(cls.ClassName, true, true);
 	local mapFrame = ui.GetFrame('showminimap');
 	local pic = GET_CHILD(mapFrame, "pic", "ui::CPicture");
 	pic:SetImage(cls.ClassName);

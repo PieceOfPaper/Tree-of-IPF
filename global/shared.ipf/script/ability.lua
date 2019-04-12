@@ -866,26 +866,6 @@ function SCR_ABIL_MONK9_INACTIVE(self, ability)
 
 end
 
-function TX_SCR_SET_ABIL_HEADSHOT_OPTION(pc, tx, active)
-    local skl = GetSkill(pc, 'Musketeer_HeadShot')
-    if nil == skl then
-        return true -- 스킬이 없어도 true를 반환하여, tx가 롤백되지 않도록 한다.
-    end
-
-    local sklValue, overValue = 0, 0;
-    if active == 1 then
-        sklValue = 20000;
-        overValue = 20000;
-        SetExProp(skl, "CoolTimeForceStart", 0);
-    else -- no active state: no overheat 
-        sklValue = 0;
-        overValue = 0;
-        SetExProp(skl, "CoolTimeForceStart", 1);
-    end
-    TxSetIESProp(tx, skl, "SklUseOverHeat", sklValue);
-    TxSetIESProp(tx, skl, "OverHeatDelay", overValue);
-    return true;
-end
 
 function SCR_ABIL_DRAGOON14_ACTIVE(self, ability)
 

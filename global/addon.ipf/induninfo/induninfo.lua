@@ -220,7 +220,265 @@ function INDUNINFO_DETAIL_LBTN_CLICK(parent, detailCtrl)
     parent:SetUserValue('SELECTED_DETAIL', indunClassID);
     
     local topFrame = parent:GetTopParentFrame();
+    
+    -- 인스턴스 던전 정보 처리를 위한 임시 처리 시작 --
+    -- INDUNINFO_DROPBOX_ITEM_LIST 에서 parent의 SELECTED_DETAIL 값을 불러올 수 있도록 같은 프레임을 호출하도록 변경해야 함 --
+    local categoryBox = GET_CHILD_RECURSIVELY(topFrame,'categoryBox')
+    local indunListBox = GET_CHILD_RECURSIVELY(categoryBox, 'INDUN_LIST_BOX');
+    indunListBox:SetUserValue('SELECTED_DETAIL', indunClassID);
+    -- 인스턴스 던전 정보 처리를 위한 임시 처리 끝 --
+    
     INDUNINFO_MAKE_DETAIL_INFO_BOX(topFrame, indunClassID);
+end
+
+function INDUNINFO_DROPBOX_ITEM_LIST(parent, control)
+    local topFrame = parent:GetTopParentFrame();
+    local categoryBox = GET_CHILD_RECURSIVELY(topFrame,'categoryBox')
+    local indunListBox = GET_CHILD_RECURSIVELY(categoryBox, 'INDUN_LIST_BOX');
+    local indunClassID = indunListBox:GetUserIValue('SELECTED_DETAIL');
+    local preSelectedCtrl = indunListBox:GetChild('DETAIL_CTRL_'..indunClassID);
+    
+    local controlName = control:GetName();
+    -- 여기서 부터
+    local indunCls = GetClassByType('Indun', indunClassID);
+    local dungeonType = TryGetProp(indunCls, 'DungeonType')
+    local indunClsName = TryGetProp(indunCls, 'ClassName')
+    local rewardItem = GetClass('Indun_reward_item', indunClsName)
+    local indunRewardItem = TryGetProp(rewardItem, 'Reward_Item')
+    local itemCls = GetClass('Item', indunRewardItem)
+    local itemStringArg = TryGetProp(itemCls, 'StringArg')
+    local indunRewardItemList = { };
+    indunRewardItemList['weaponBtn'] = { };
+    indunRewardItemList['subweaponBtn'] = { };
+    indunRewardItemList['armourBtn'] = { };
+    indunRewardItemList['accBtn'] = { };
+    indunRewardItemList['materialBtn'] = { };
+    if dungeonType == "Indun" or dungeonType == "UniqueRaid" or dungeonType == "Raid" then
+        local allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_indun');
+        for j = 0, allIndunRewardItemCount - 1  do
+            local indunRewardItemClass = GetClassByIndexFromList(allIndunRewardItemList, j);
+            if indunRewardItemClass ~= nil and TryGetProp(indunRewardItemClass, 'Group') == itemStringArg then
+                local item = GetClass('Item', indunRewardItemClass.ItemName);
+                if item ~= nil then   -- 있다면 아이템 --
+                    local itemType = TryGetProp(item, 'GroupName');
+                    local itemClassType = TryGetProp(item, 'ClassType');
+                    if itemType == 'Recipe' then
+                        local recipeItemCls = GetClass('Recipe', item.ClassName);
+                        local targetItem = TryGetProp(recipeItemCls, 'TargetItem');
+                        if targetItem ~= nil then
+                            local targetItemCls = GetClass('Item', targetItem);
+                            if targetItemCls ~= nil then
+                                itemType = TryGetProp(targetItemCls, 'GroupName');
+                                itemClassType = TryGetProp(targetItemCls, 'ClassType');
+                            end
+                        end
+                    end
+                    if itemType ~= nil then
+                        if itemType == 'Weapon' then
+                            if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
+                                indunRewardItemList['weaponBtn'][#indunRewardItemList['weaponBtn'] + 1] = item;
+                            end
+                        elseif itemType == 'SubWeapon' then
+                            if itemClassType == 'Armband' then
+                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['accBtn'],item.ClassName) == false then
+                                    indunRewardItemList['accBtn'][#indunRewardItemList['accBtn'] + 1] = item;
+                                end
+                            else 
+                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
+                                    indunRewardItemList['subweaponBtn'][#indunRewardItemList['subweaponBtn'] + 1] = item;
+                                end
+                            end
+                        elseif itemType == 'Armor' then
+                            if itemClassType == 'Neck' or itemClassType == 'Ring' then
+                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['accBtn'],item.ClassName) == false then
+                                    indunRewardItemList['accBtn'][#indunRewardItemList['accBtn'] + 1] = item;
+                                end
+                            elseif itemClassType == 'Shield' then
+                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
+                                    indunRewardItemList['subweaponBtn'][#indunRewardItemList['subweaponBtn'] + 1] = item;
+                                end
+                            else
+                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['armourBtn'],item.ClassName) == false then
+                                    indunRewardItemList['armourBtn'][#indunRewardItemList['armourBtn'] + 1] = item;
+                                end
+                            end
+                        else
+                            if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['materialBtn'],item.ClassName) == false then
+                                indunRewardItemList['materialBtn'][#indunRewardItemList['materialBtn'] + 1] = item;
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    else
+        local rewardCube = TryGetProp(rewardItem, 'Reward_Item');
+        local cubeList = SCR_STRING_CUT(rewardCube, '/');
+        
+        for e = 1, #cubeList do
+            local cubeCls = GetClass('Item', cubeList[e]);
+            indunRewardItemList['materialBtn'][#indunRewardItemList['materialBtn'] + 1] = cubeCls
+        end
+    end
+
+    if #indunRewardItemList[controlName] == 0 then
+        local dropListFrame = ui.MakeDropListFrame(control, 0, 0, 300, 600, 1, ui.LEFT, "INDUNINFO_DROPBOX_AFTER_BTN_DOWN",nil,nil);
+        ui.AddDropListItem(ClMsg('IndunRewardItem_Empty'))
+        return;
+    elseif #indunRewardItemList[controlName] ~= 0 and #indunRewardItemList[controlName] < 10 then
+        local dropListSize = #indunRewardItemList[controlName] * 1
+        local dropListFrame = ui.MakeDropListFrame(control, 0, 0, 300, 600, dropListSize, ui.LEFT, "GET_INDUNINFO_DROPBOX_LIST_TOOLTIP_VIEW","GET_INDUNINFO_DROPBOX_LIST_MOUSE_OVER","GET_INDUNINFO_DROPBOX_LIST_MOUSE_OUT");
+    else
+        local dropListFrame = ui.MakeDropListFrame(control, 0, 0, 300, 600, 10, ui.LEFT, "GET_INDUNINFO_DROPBOX_LIST_TOOLTIP_VIEW","GET_INDUNINFO_DROPBOX_LIST_MOUSE_OVER","GET_INDUNINFO_DROPBOX_LIST_MOUSE_OUT");
+    end
+    
+    if #indunRewardItemList[controlName] >= 1 then
+        for l = 1, #indunRewardItemList[controlName] do
+            local dropBoxItem = indunRewardItemList[controlName][l];
+            ui.AddDropListItem(dropBoxItem.Name, nil, dropBoxItem.ClassName)
+        end
+    end
+    
+    local itemFrame = ui.GetFrame("wholeitem_link");
+    if itemFrame == nil then
+        itemFrame = ui.GetNewToolTip("wholeitem_link", "wholeitem_link");
+    end
+    itemFrame:SetUserValue('MouseClickedCheck','NO')
+    -- 여기까지
+end 
+
+function INDUNINFO_MAKE_DROPBOX(parent, control)
+    local frame = ui.GetFrame('induninfo');
+    local rewardBox = GET_CHILD_RECURSIVELY(frame, 'rewardBox');
+    local controlName = control:GetName();
+    
+    local btnList, imgList = GET_INDUNINFO_MAKE_DROPBOX_BTN_LIST();
+    for i = 1, #btnList do
+        local btnName = btnList[i];
+        local imgName = imgList[i];
+        
+        if controlName == btnName then
+            if control:GetUserValue(btnName) == 'NO' then
+                control:SetImage(imgName .. '_clicked');
+                control:SetUserValue(btnName, 'YES');
+            else
+                control:SetImage(imgName);
+                control:SetUserValue(btnName, 'NO');
+            end
+        else
+            local btn = GET_CHILD_RECURSIVELY(rewardBox, btnName);
+            btn:SetImage(imgName);
+            btn:SetUserValue(btnName, 'NO');
+        end
+        if control:GetUserValue(btnName) == 'NO' then
+            return ;
+        end
+    end
+    INDUNINFO_DROPBOX_ITEM_LIST(parent, control)
+end
+
+function GET_INDUNINFO_MAKE_DROPBOX_BTN_LIST()
+    local btnList = {
+                        'weaponBtn',
+                        'subweaponBtn',
+                        'armourBtn',
+                        'accBtn',
+                        'materialBtn'
+                    };
+    
+    local imgList = {
+                        'indun_weapon',
+                        'indun_shield',
+                        'indun_armour',
+                        'indun_acc',
+                        'indun_material'
+                    };
+    
+    return btnList, imgList;
+end
+
+function INDUNINFO_DROPBOX_AFTER_BTN_DOWN(index, classname)
+    local frame = ui.GetFrame('induninfo');
+    local rewardBox = GET_CHILD_RECURSIVELY(frame, 'rewardBox');
+    local weaponBtn = GET_CHILD_RECURSIVELY(rewardBox, 'weaponBtn');
+    local materialBtn = GET_CHILD_RECURSIVELY(rewardBox, 'materialBtn');
+    local accBtn = GET_CHILD_RECURSIVELY(rewardBox, 'accBtn');
+    local armourBtn = GET_CHILD_RECURSIVELY(rewardBox, 'armourBtn');
+    local subweaponBtn = GET_CHILD_RECURSIVELY(rewardBox, 'subweaponBtn');
+    
+    weaponBtn:SetImage("indun_weapon")
+    frame:SetUserValue('weaponBtn','NO')
+    materialBtn:SetImage("indun_material") 
+    frame:SetUserValue('materialBtn','NO')
+    accBtn:SetImage("indun_acc")
+    frame:SetUserValue('accBtn','NO')
+    armourBtn:SetImage("indun_armour")
+    frame:SetUserValue('armourBtn','NO')
+    subweaponBtn:SetImage("indun_shield")
+    frame:SetUserValue('subweaponBtn','NO')
+end
+
+function GET_INDUNINFO_DROPBOX_LIST_MOUSE_OVER(index, classname)
+    local induninfoFrame = ui.GetFrame("induninfo")
+    local itemFrame = ui.GetFrame("wholeitem_link");
+    if itemFrame == nil then
+        itemFrame = ui.GetNewToolTip("wholeitem_link", "wholeitem_link");
+    end
+    tolua.cast(itemFrame, 'ui::CTooltipFrame');
+
+    local newobj = CreateIES('Item', classname);
+    itemFrame:SetTooltipType('wholeitem');
+    newobj = tolua.cast(newobj, 'imcIES::IObject');
+    itemFrame:SetToolTipObject(newobj);
+
+    currentFrame = itemFrame;
+    currentFrame:RefreshTooltip();
+    currentFrame:ShowWindow(1);
+    
+    if induninfoFrame ~= nil then
+        itemFrame:SetOffset(induninfoFrame:GetX()+1090,induninfoFrame:GetY())
+    end
+    INDUNINFO_DROPBOX_AFTER_BTN_DOWN(index, classname)
+end
+
+function GET_INDUNINFO_DROPBOX_LIST_TOOLTIP_VIEW(index, classname)
+    local induninfoFrame = ui.GetFrame("induninfo")
+    local itemFrame = ui.GetFrame("wholeitem_link");
+    if itemFrame == nil then
+        itemFrame = ui.GetNewToolTip("wholeitem_link", "wholeitem_link");
+    end
+    tolua.cast(itemFrame, 'ui::CTooltipFrame');
+
+    local newobj = CreateIES('Item', classname);
+    itemFrame:SetTooltipType('wholeitem');
+    newobj = tolua.cast(newobj, 'imcIES::IObject');
+    itemFrame:SetToolTipObject(newobj);
+
+    currentFrame = itemFrame;
+    currentFrame:RefreshTooltip();
+    currentFrame:ShowWindow(1);
+    
+    if induninfoFrame ~= nil then
+        itemFrame:SetOffset(induninfoFrame:GetX()+1090,induninfoFrame:GetY())
+    end
+    INDUNINFO_DROPBOX_AFTER_BTN_DOWN(index, classname)
+    itemFrame:SetUserValue('MouseClickedCheck','YES')
+    
+end
+
+function GET_INDUNINFO_DROPBOX_LIST_MOUSE_OUT()
+    local induninfoframe = ui.GetFrame('induninfo');
+    local itemFrame = ui.GetFrame("wholeitem_link");
+    if itemFrame == nil then
+        itemFrame = ui.GetNewToolTip("wholeitem_link", "wholeitem_link");
+    end
+    if itemFrame:GetUserValue('MouseClickedCheck') == 'NO' then
+        itemFrame:ShowWindow(0)
+    end
+    if  itemFrame:GetUserValue('MouseClickedCheck') == 'YES' then
+        itemFrame:ShowWindow(1)
+        itemFrame:SetUserValue('MouseClickedCheck','NO')
+    end
 end
 
 function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
@@ -330,7 +588,6 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
     end
 
     INDUNENTER_MAKE_MONLIST(frame, indunCls);
-    INDUNENTER_MAKE_REWARDLIST(frame, indunCls)
 end
 
 function INDUNINFO_RESET_TIME_TEXT(frame)

@@ -2,14 +2,52 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
 <TextureInfo>
+	<Texture Name="login_line003" File="login_line003.dds" Size="1024 256"/>
+	<Texture Name="login_line002" File="login_line002.dds" Size="512 128"/>
+	<Texture Name="login_line001" File="login_line001.dds" Size="512 128"/>
+	<Texture Name="fail_logo" File="fail_logo.dds" Size="1024 512"/>
+	<Texture Name="destroy_logo_add" File="destroy_logo_add.dds" Size="1024 1024"/>
+	<Texture Name="destroy_logo" File="destroy_logo.dds" Size="1024 1024"/>
+	<Texture Name="success_logo_add" File="success_logo_add.dds" Size="512 512"/>
+	<Texture Name="success_logo" File="success_logo.dds" Size="1024 1024"/>
+	<Texture Name="sprite036" File="sprite036.dds" Size="512 512"/>
+	<Texture Name="sprite035" File="sprite035.dds" Size="512 512"/>
+	<Texture Name="light039_orange7" File="light039_orange7.dds" Size="256 256"/>
+	<Texture Name="light039_orange6" File="light039_orange6.dds" Size="256 256"/>
+	<Texture Name="light039_orange5" File="light039_orange5.dds" Size="256 256"/>
+	<Texture Name="light039_orange4" File="light039_orange4.dds" Size="256 256"/>
+	<Texture Name="light039_orange3" File="light039_orange3.dds" Size="256 256"/>
+	<Texture Name="light039_orange2" File="light039_orange2.dds" Size="256 256"/>
+	<Texture Name="light041_orange1" File="light041_orange1.dds" Size="256 256"/>
+	<Texture Name="legend_card" File="legend_card.dds" Size="256 256"/>
+	<Texture Name="legend_carding_sheet" File="legend_carding_sheet.dds" Size="1024 1024"/>
+	<Texture Name="light039_puple7" File="light039_puple7.dds" Size="256 256"/>
+	<Texture Name="light040_puple" File="light040_puple.dds" Size="256 256"/>
+	<Texture Name="light039_puple6" File="light039_puple6.dds" Size="256 256"/>
+	<Texture Name="light039_puple5" File="light039_puple5.dds" Size="256 256"/>
+	<Texture Name="light039_puple4" File="light039_puple4.dds" Size="256 256"/>
+	<Texture Name="light039_puple3" File="light039_puple3.dds" Size="256 256"/>
+	<Texture Name="light039_puple2" File="light039_puple2.dds" Size="256 256"/>
+	<Texture Name="light039_puple1" File="light039_puple1.dds" Size="256 256"/>
+	<Texture Name="card_decal_add_sheet" File="card_decal_add_sheet.dds" Size="512 512"/>
+	<Texture Name="light038" File="light038.dds" Size="256 256"/>
+	<Texture Name="card_base_crack_shine4" File="card_base_crack_shine4.dds" Size="256 256"/>
+	<Texture Name="card_base_crack_shine3" File="card_base_crack_shine3.dds" Size="256 256"/>
+	<Texture Name="card_base_crack_shine2" File="card_base_crack_shine2.dds" Size="256 256"/>
+	<Texture Name="light037" File="light037.dds" Size="128 128"/>
+	<Texture Name="card_base_last" File="card_base_last.dds" Size="256 256"/>
+	<Texture Name="card_base_crack_shine" File="card_base_crack_shine.dds" Size="256 256"/>
+	<Texture Name="card_crack_sheet" File="card_crack_sheet.dds" Size="1024 1024"/>
+	<Texture Name="light035_2" File="light035_2.dds" Size="256 256"/>
+	<Texture Name="card_base_frame" File="card_base_frame.dds" Size="256 256"/>
+	<Texture Name="chain_base_glow" File="chain_base_glow.dds" Size="256 256"/>
+	<Texture Name="chain_base_1" File="chain_base_1.dds" Size="256 256"/>
 	<Texture Name="card_decal_sheet" File="card_decal_sheet.dds" Size="512 512"/>
 	<Texture Name="lock_up" File="lock_up.dds" Size="64 64"/>
 	<Texture Name="lock_bottom" File="lock_bottom.dds" Size="64 64"/>
 	<Texture Name="card_shine" File="card_shine.dds" Size="256 256"/>
-	<Texture Name="card_base_1" File="card_base_1.dds" Size="128 128"/>
 	<Texture Name="chain_multi" File="chain_multi.dds" Size="1024 1024"/>
 	<Texture Name="chain_add" File="chain_add.dds" Size="1024 1024"/>
-	<Texture Name="card_base" File="card_base.dds" Size="512 512"/>
 	<Texture Name="ground008" File="ground008.dds" Size="256 256"/>
 	<Texture Name="ice005" File="ice005.dds" Size="256 256"/>
 	<Texture Name="sprite024_bat3" File="sprite024_bat3.dds" Size="512 512"/>

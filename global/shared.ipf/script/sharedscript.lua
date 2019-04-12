@@ -1,3 +1,125 @@
+function SCR_QUEST_LINK_FIRST(pc,questname)
+    return SCR_QUEST_LINK_FIRST_SUB(pc,{questname}, {}, {})
+end
+
+function SCR_QUEST_LINK_FIRST_SUB(pc,t, ext, statet)
+    if #t == 0 then
+        return t, ext, statet
+    end
+    
+    local list1 = {}
+    local removeList1 = {}
+    if #t > 0 then
+        for i = 1, #t do
+            if table.find(ext,t[i]) == 0 then
+                local flag = 0
+                for i2 = 1, 4 do
+                    local questIES = GetClass('QuestProgressCheck',t[i])
+                    local before = TryGetProp(questIES,'QuestName'..i2, 'None')
+                    if before ~= 'None' then
+                        local beforeCount = TryGetProp(questIES,'QuestCount'..i2, 0)
+                        local state = SCR_QUEST_CHECK(pc, before)
+                        if beforeCount == 300 then
+                            if state ~= 'COMPLETE' then
+                                if table.find(list1, before) == 0 then
+                                    list1[#list1 + 1] = before
+                                    statet[#statet + 1] = {before, beforeCount, '>='}
+                                end
+                                flag = 1
+                            end
+                        elseif beforeCount == 200 then
+                            local terms = TryGetProp(questIES,'QuestTerms'..i2, '==')
+                            if terms == '>=' then
+                                if state ~= 'COMPLETE' and state ~= 'SUCCESS' then
+                                    if table.find(list1, before) == 0 then
+                                        list1[#list1 + 1] = before
+                                        statet[#statet + 1] = {before, beforeCount, terms}
+                                    end
+                                    flag = 1
+                                end
+                            else
+                                if state ~= 'SUCCESS' then
+                                    if table.find(list1, before) == 0 then
+                                        list1[#list1 + 1] = before
+                                        statet[#statet + 1] = {before, beforeCount, terms}
+                                    end
+                                    flag = 1
+                                end
+                            end
+                        elseif beforeCount == 1 then
+                            local terms = TryGetProp(questIES,'QuestTerms'..i2, '==')
+                            if terms == '>=' then
+                                if state ~= 'COMPLETE' and state ~= 'SUCCESS' and state ~= 'PROGRESS' then
+                                    if table.find(list1, before) == 0 then
+                                        list1[#list1 + 1] = before
+                                        statet[#statet + 1] = {before, beforeCount, terms}
+                                    end
+                                    flag = 1
+                                end
+                            else
+                                if state ~= 'PROGRESS' then
+                                    if table.find(list1, before) == 0 then
+                                        list1[#list1 + 1] = before
+                                        statet[#statet + 1] = {before, beforeCount, terms}
+                                    end
+                                    flag = 1
+                                end
+                            end
+--                        elseif beforeCount == 0 then
+--                            local terms = TryGetProp(questIES,'QuestTerms'..i2, '==')
+--                            if terms == '>=' then
+--                                if state ~= 'COMPLETE' and state ~= 'SUCCESS' and state ~= 'PROGRESS' and state ~= 'POSSIBLE' then
+--                                    if table.find(list1, before) == 0 then
+--                                        list1[#list1 + 1] = before
+--                                    end
+--                                    flag = 1
+--                                end
+--                            else
+--                                if state ~= 'POSSIBLE' then
+--                                    if table.find(list1, before) == 0 then
+--                                        list1[#list1 + 1] = before
+--                                    end
+--                                    flag = 1
+--                                end
+--                            end
+                        end
+                    end
+                end
+                if flag == 1 then
+                    if table.find(removeList1, t[i]) == 0 then
+                        removeList1[#removeList1 + 1] = t[i]
+                    end
+                else
+                    if table.find(ext, t[i]) == 0 then
+                        ext[#ext + 1] = t[i]
+                    end
+                end
+            end
+        end
+    end
+    if #ext > 0 then
+        for i = 1, #ext do
+            local index = table.find(list1, ext[i])
+            if index > 0 then
+                table.remove(list1,index)
+            end
+        end
+    end
+    if #removeList1 > 0 then
+        for i = 1, #removeList1 do
+            local index = table.find(list1, removeList1[i])
+            if index > 0 then
+                table.remove(list1,index)
+            end
+        end
+    end
+    
+    local ret1, ret2, ret3 = SCR_QUEST_LINK_FIRST_SUB(pc,list1, ext, statet)
+    if #ret1 == 0 then
+        return ret1, ret2, ret3
+    end
+end
+
 function JOB_CHAPLAIN_PRE_CHECK(pc)
     local jobCircle = 0
     if IsServerSection(pc) == 1 then
@@ -827,6 +949,34 @@ function SCR_STRING_TO_TABLE(a)
     return ret
 end
 
+function SCR_DATE_TO_YHOUR_BASIC_2000(yy, mm, dd, hh)
+    local days, monthdays, leapyears, nonleapyears, nonnonleapyears
+
+    monthdays= { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 }
+
+    leapyears=math.floor((yy-2000)/4);
+    nonleapyears=math.floor((yy-2000)/100)
+    nonnonleapyears=math.floor((yy-1600)/400)
+
+    if ((math.mod(yy,4)==0) and mm<3) then
+      leapyears = leapyears - 1
+    end
+
+    days= 365 * (yy-2000) + leapyears - nonleapyears + nonnonleapyears - 1
+    
+    local c=1
+    while (c<mm) do
+      days = days + monthdays[c]
+    c=c+1
+    end
+
+    days=days+dd+1
+    
+    local yhour = days * 24 + hh
+
+    return yhour
+end
+
 function SCR_DATE_TO_YMIN_BASIC_2000(yy, mm, dd, hh, min)
     local days, monthdays, leapyears, nonleapyears, nonnonleapyears
 
@@ -850,7 +1000,7 @@ function SCR_DATE_TO_YMIN_BASIC_2000(yy, mm, dd, hh, min)
 
     days=days+dd+1
     
-    ymin = days * 1440 + hh * 60 + min
+    local ymin = days * 1440 + hh * 60 + min
 
     return ymin
 end
@@ -1872,32 +2022,32 @@ function SCR_REINFORCE_COUPON_PRECHECK(pc, price)
     return price, retCouponList
 end
 
---function SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc)
---    if GetServerNation() ~= "KOR" then
---        return 'NO'
---    end
---    
---    local now_time = os.date('*t')
-----    local year = now_time['year']
---    local month = now_time['month']
---    local day = now_time['day']
---    
---    if IsServerSection(pc) ~= 1 then
---        local serverTime = imcTime.GetCurdateNumber()
---        month = tonumber(string.sub(serverTime,3, 4))
---        day = tonumber(string.sub(serverTime,5, 6))
---    end
---    
---    local dateList = {{7,1},{7,2},{7,8},{7,9},{7,15},{7,16},{7,22},{7,23},{7,29},{7,30}}
---    
---    for i = 1, #dateList do
---        if month == dateList[i][1] and day == dateList[i][2] then
---            return 'YES'
---        end
---    end
---    
---    return 'NO'
---end
+function SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc)
+    if GetServerNation() ~= "KOR" then
+        return 'NO'
+    end
+    
+    local now_time = os.date('*t')
+--    local year = now_time['year']
+    local month = now_time['month']
+    local day = now_time['day']
+    
+    if IsServerSection(pc) ~= 1 then
+        local serverTime = imcTime.GetCurdateNumber()
+        month = tonumber(string.sub(serverTime,3, 4))
+        day = tonumber(string.sub(serverTime,5, 6))
+    end
+    
+    local dateList = {{12,24},{12,25}}
+    
+    for i = 1, #dateList do
+        if month == dateList[i][1] and day == dateList[i][2] then
+            return 'YES'
+        end
+    end
+    
+    return 'NO'
+end
 
 
 
@@ -1958,4 +2108,25 @@ function INDUN_AUTO_MATCHING_PARTY_EXP_BOUNS_RATE(partyMemberCount)
 	end
 	
 	return expUpRatio;
+end
+
+function GET_INDUN_SILVER_RATIO(myLevel, indunLevel)
+    local pcLv = myLevel;
+    local dungeonLv = indunLevel;
+    local value = 1;
+        
+    local standardLevel = 30;
+    local levelGap = math.abs(pcLv - dungeonLv);
+    
+    if levelGap > standardLevel then
+    	local penaltyRatio = 0.02;	-- 저레벨 인던 사냥 시 실버 페널티--
+	    local lvRatio = 1 - ((levelGap - standardLevel) * penaltyRatio);
+        value = value * lvRatio;        
+    end
+    
+    if value < 0 then
+        value = 0;
+    end
+    
+    return value;
 end

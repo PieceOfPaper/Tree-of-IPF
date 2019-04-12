@@ -668,6 +668,13 @@ function FRIEND_BLOCK(parent)
 end
 
 function EXED_FRIEND_REGISTER(frame, friendName)
+	if friendName ~= nil then
+		friendName = string.gsub(friendName, ' ', ''); -- 이름에 공백 안됨
+	end
+
+    if friendName == nil or friendName == '' then        
+        return;
+    end
 	friends.RequestRegister(friendName);
 end
 

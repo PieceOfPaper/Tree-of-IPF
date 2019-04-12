@@ -196,7 +196,7 @@ function DELETE_FOG_SELECTED_GROUP()
 end
 
 function SELECT_MOUSEIN_CONTROL(frame, x, y)
-
+print("asdf");
 	local changed = 0;
 	local px, py = GET_MAPFOG_PIC_OFFSET(frame);
 	x = x + px;

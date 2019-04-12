@@ -259,7 +259,16 @@ function HEDADSUPDISPLAY_CAMP_BTN_CLICK(parent, ctrl)
 			local str =  string.format("{@st41b}%s(%d)", ClMsg("MoveToCampChar"), campCount);
 			ui.AddContextMenuItem(context, str, "None");
 		end
-
+		
+		if session.loginInfo.GetSquireMapID() ~= nil and session.loginInfo.GetSquireMapID() ~= 0 then
+			local map = GetClassByType("Map", session.loginInfo.GetSquireMapID());
+			if nil ~= map then
+				local obj = GetMyPCObject();
+				str = string.format("      {@st59s}{#FFFF00}%s {#FFFFFF}%s",obj.Name, map.Name);
+				ui.AddContextMenuItem(context, str, string.format("MOVETOCAMP(\"%s\")", session.loginInfo.GetAID()));
+			end
+		end
+		
 		for i = 0 , count - 1 do
 			local partyMemberInfo = list:Element(i);
 			if partyMemberInfo.campMapID ~= 0 then
@@ -271,6 +280,7 @@ function HEDADSUPDISPLAY_CAMP_BTN_CLICK(parent, ctrl)
 				end
 			end
 		end
+		
 		ui.AddContextMenuItem(context, ScpArgMsg("Cancel"), "None");
 		ui.OpenContextMenu(context);
 		return;

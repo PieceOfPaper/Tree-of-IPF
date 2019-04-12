@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="indun_badplayer_report" x="0" y="0" width="470" height="300">
+	<skin frameskin="test_pvp_skin"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<frame layout_gravity="left center" keyboardselectframe="false" margin="330 0 20 0"/>
+	<layer layerlevel="60"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<option hideable="false" closebutton="false" alwaysVisible="false" autoopen="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<userconfig DISABLE_REWARD_STYLE="{@st42}" ENABLE_REWARD_STYLE="{@st66d_y}"/>
+	<controls>
+		<groupbox name="gboxBadPlayerInfo" scrollbar="false" rect="0 0 350 60" margin="0 -15 0 0" hittestbox="false" skin="test_frame_midle" layout_gravity="center center"/>
+		<groupbox name="gboxReason" scrollbar="false" rect="0 0 350 30" margin="0 35 0 0" hittestbox="false" skin="test_frame_midle" layout_gravity="center center"/>
+		<richtext name="badplayer_server" rect="0 0 100 30" margin="10 -15 0 0" layout_gravity="left center" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42b}%s{/}" maxwidth="0" param1="value" param1_def="서버" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" parent="gboxBadPlayerInfo"/>
+		<richtext name="badplayer_name" rect="0 0 100 30" margin="10 15 0 0" layout_gravity="left center" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42b}%s{/}" maxwidth="0" param1="value" param1_def="캐릭터명" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" parent="gboxBadPlayerInfo"/>
+		<richtext name="badplayer_server_value" rect="0 0 100 30" margin="10 -15 0 0" layout_gravity="center center" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42b}%s{/}" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" parent="gboxBadPlayerInfo"/>
+		<richtext name="badplayer_name_value" rect="0 0 100 30" margin="10 15 0 0" layout_gravity="center center" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42b}%s{/}" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" parent="gboxBadPlayerInfo"/>
+		<richtext name="curReason" rect="0 0 120 24" margin="10 0 0 0" layout_gravity="left center" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42b}%s{/}" maxwidth="0" param1="value" param1_def="사유" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" parent="gboxReason"/>
+		<richtext name="curReason_value" rect="0 0 120 24" margin="10 0 0 0" layout_gravity="center center" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42b}%s{/}" maxwidth="0" param1="value" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" parent="gboxReason"/>
+		<richtext name="title" rect="0 0 120 24" margin="0 70 0 0" layout_gravity="center top" caption="{@st43}{s24}불량유저 신고" fontname="brown_20_b"/>
+		<button name="btn" rect="0 0 30 30" margin="0 0 5 0" layout_gravity="right center" LBtnDownScp="POPUP_REPORT_REASON_LIST" caption="" image="count_down_btn" parent="gboxReason" stretch="false"/>
+		<button name="btnSendReport" rect="0 0 140 42" margin="-80 0 0 45" layout_gravity="center bottom" LBtnUpArgNum="" LBtnUpScp="SEND_INDUN_BADPLAYER_REPORT" caption="{@st41b}신고" clicksound="button_click_big" skin="test_red_button" oversound="button_over" texttooltip="신고합니다."/>
+		<button name="btnCancel" rect="0 0 140 42" margin="80 0 0 45" layout_gravity="center bottom" LBtnUpArgNum="" LBtnUpScp="CANCEL_INDUN_BADPLAYER_REPORT" caption="{@st41b}취소" clicksound="button_click_big" skin="test_red_button" oversound="button_over" texttooltip="취소합니다."/>
+	</controls>
+</uiframe>

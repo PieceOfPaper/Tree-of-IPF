@@ -18,6 +18,11 @@ function REINFORCE_ABLE_131014(item)
     if prop ~= 'DEF' and prop ~= 'MDEF' and prop ~= 'ADD_FIRE' and prop ~= 'ADD_ICE' and prop ~= 'ADD_LIGHTNING' and prop ~= 'DEF;MDEF' and prop ~= 'ATK;MATK' and prop ~= 'MATK' and prop ~= 'ATK' then
         return 0;
     end
+    
+    local reinforceValue = TryGetProp(item,"Reinforce_2")
+    if reinforceValue == nil or reinforceValue >= 40 then
+        return 0;
+    end
 
     return 1;
 end
@@ -118,6 +123,7 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem, pc)
 --    if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
 --        value = value/2
 --    end
+    
     return SyncFloor(value);
 
 end

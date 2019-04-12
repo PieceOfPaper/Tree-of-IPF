@@ -305,3 +305,26 @@ function WTREES22_1_SQ1_PRECHECK(pc)
 --        end
     end
 end
+
+
+----GELE_57_3_HQ_01_QUEST CHECK FUNCTION
+function GELE_57_3_HQ_01_OPEN(pc, questname, scriptInfo)
+--    local main_ssn = GetSessionObject(pc, "ssn_klapeda")
+    
+    local MonWiki_Point = GET_ADVENTURE_BOOK_MONSTER_POINT(pc)
+    
+    local item1 = GetInvItemCount(pc, "misc_0013")
+    local item2 = GetInvItemCount(pc, "misc_0018")
+    local item3 = GetInvItemCount(pc, "misc_0048")
+    local item4 = GetInvItemCount(pc, "misc_0061")
+    
+--    if main_ssn.GELE_57_3_HQ_01 ~= 0 then
+--        return "YES"
+--    end
+    
+    if MonWiki_Point >= 100 and item1 >= 60 and item2 >= 60 and item3 >= 60 and item4 >= 60 then
+        return "YES"
+    else
+        return "NO"
+    end
+end

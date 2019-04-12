@@ -306,7 +306,7 @@ function ON_INTE_WARP(frame, changeDirection)
 
 				local warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName),info.Zone);
 				
-                warpcost = 0      --EV161110
+--                warpcost = 0      --EV161110
                 
 				if nowZoneName == 'infinite_map' then
 					warpcost = 0;
@@ -436,7 +436,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 		local nameRichText = GET_CHILD(tooltipframe, "richtext_mapname", "ui::CRichText");
 		nameRichText:SetTextByKey("mapname",camp_warp_class.Name);
 
-		world.PreloadMinimap(camp_warp_class.Zone);
+		world.PreloadMinimap(camp_warp_class.Zone, true, true);
 		local pic = GET_CHILD(tooltipframe, "picture_minimap", "ui::CPicture");
 		pic:SetImage(camp_warp_class.Zone);
 
@@ -490,7 +490,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 		local nameRichText = GET_CHILD(tooltipframe, "richtext_mapname", "ui::CRichText");
 		nameRichText:SetTextByKey("mapname",camp_warp_class.Name);
 
-		world.PreloadMinimap(camp_warp_class.ClassName);
+		world.PreloadMinimap(camp_warp_class.ClassName, true, true);
 		local pic = GET_CHILD(tooltipframe, "picture_minimap", "ui::CPicture");
 		pic:SetImage(camp_warp_class.ClassName);
 
