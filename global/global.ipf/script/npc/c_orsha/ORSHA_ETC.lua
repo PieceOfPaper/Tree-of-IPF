@@ -1,4 +1,4 @@
-
+﻿
 function SCR_ORSHA_PETSHOP_DIALOG(self,pc)
     AddHelpByName(pc, 'TUTO_PETSHOP')
     TUTO_PIP_CLOSE_QUEST(pc)

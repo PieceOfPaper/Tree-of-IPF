@@ -11,6 +11,17 @@ function CAMP_REG_OPEN(frame)
 	
 end
 
+function CAMP_REG_UI_CLOSE()
+
+	local frame = ui.GetFrame("camp_register")
+	if ui ~= nil then
+		ui.CloseFrame("camp_register");	
+	else
+		print("UI(camp_register) is nil. Check uiframe.name from camp_register.xml file")
+	end
+
+end
+
 function CAMP_REG_INIT(frame, skillName, sklLevel)
 
 	frame:SetUserValue("SKILL_NAME", skillName);

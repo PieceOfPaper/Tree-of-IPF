@@ -312,5 +312,6 @@
 		<Code Code="ERRCODE_INFO_TIMEOUT" CallStack="NO" Desc="처리 시간 초과 로그"/>
 		<Code Code="ERRCODE_INFO_OLDMSG" CallStack="NO" Desc="다국어화 어순 이슈로 clientmessage.xml에서 %s 를 이용한 포맷은 쓰지 않기로 했습니다. "/>
 		<Code Code="ERRCODE_INFO_DB_CONNECT" CallStack="NO" Desc=" : "/>
+    <Code Code="ERRCODE_INFO_TRACE_DISCONNECT" CallStack="YES" Desc=" : "/>
 	</Type>
 </imcErrorCode>

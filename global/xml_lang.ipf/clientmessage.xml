@@ -557,6 +557,8 @@
 		<Class ClassID="10798" ClassName="EnchantOptionNone" Data="옵션없음"/>
 		<Class ClassID="10799" ClassName="WhileChangeItem_ItemPropertyChanged_TryAgain" Data="거래 진행 중, 아이템의 속성이 변경되었습니다. 다시 시도해주세요."/>
 		<Class ClassID="10800" ClassName="Money{MAX}Over" Data="최대 {MAX} 소지금을 초과하여 습득 할 수 없습니다."/>
+		<Class ClassID="10832" ClassName="NoHaveZombiefySkill" Data="좀비만들기 스킬이 없어 좀비를 생성할 수 없습니다."/>
+		<Class ClassID="10833" ClassName="IsMaxCountZombie" Data="좀비 최대 생성수에 도달하여 좀비를 생성할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="10801" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
