@@ -117,6 +117,12 @@ function MAKE_MAP_AREA_INFO(frame, mapClassName, font, mapWidth, mapHeight, offs
 	local clsList, cnt = GetClassList("Map_Area");
 	for i = 0, cnt -1 do
 		local cls = GetClassByIndexFromList(clsList, i);
+        local check_word = "GuildColony_"
+        local sStart, sEnd = string.find(mapClassName, check_word)
+        if sStart ~= nil then
+            local sLength = string.len(mapClassName)
+            mapClassName = string.sub(mapClassName, sEnd+1, sLength)
+        end
 		if cls ~= nil and mapClassName == cls.ZoneClassName then
 
 			local centerX, centerY, centerZ, posCnt = 0, 0, 0, 0;
@@ -233,7 +239,7 @@ function MAP_LBTN_DOWN(parent, ctrl)
 	local mapprop = geMapTable.GetMapProp(mapName);
 	local worldPos = mapprop:MinimapPosToWorldPos(x, y, ctrl:GetWidth(), ctrl:GetHeight());
 	LINK_MAP_POS(mapName, worldPos.x ,worldPos.y);
-			
+
 end
 
 function CHECK_MAP_ICON(frame, object, argStr, argNum)
@@ -512,7 +518,6 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
     local isColonyMap = session.colonywar.GetIsColonyWarMap();
 	for i = 0 , cnt - 1 do
 		local MonProp = mongens:Element(i);
-		
 		if MonProp.Minimap >= 1 then
 			local GenList = MonProp.GenList;
 			local GenCnt = GenList:Count();
@@ -523,7 +528,7 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 				local YC = offsetY + MapPos.y - iconH / 2;
 
 				local ctrlname = GET_GENNPC_NAME(frame, MonProp);
-				local PictureC = frame:CreateOrGetControl('picture', ctrlname, XC, YC, iconW, iconH);                
+				local PictureC = frame:CreateOrGetControl('picture', ctrlname, XC, YC, iconW, iconH);
 				tolua.cast(PictureC, "ui::CPicture");
 				local idx, Icon = SET_MAP_MONGEN_NPC_INFO(PictureC, mapprop, WorldPos, MonProp, mapNpcState, npclist, statelist, questIESlist);
                 if isColonyMap == true then
@@ -1229,7 +1234,7 @@ function SCR_SHOW_LOCAL_MAP(zoneClassName, useMapFog, showX, showZ)
 	local myctrl = GET_CHILD_RECURSIVELY(newframe, 'my');
 	myctrl:ShowWindow(0);
 
-	world.PreloadMinimap(zoneClassName);
+	world.PreloadMinimap(zoneClassName, 1024);
 	local mappicturetemp = GET_CHILD_RECURSIVELY(newframe,'map','ui::CPicture');
 
 	local width = 0;
@@ -1250,14 +1255,16 @@ function SCR_SHOW_LOCAL_MAP(zoneClassName, useMapFog, showX, showZ)
 	tolua.cast(treasureMarkPic, "ui::CPicture");
 	treasureMarkPic:SetImage('trasuremapmark');
 	local MapPos = mapprop:WorldPosToMinimapPos(showX, showZ, width, height);
-	treasureMarkPic:SetEnableStretch(1);
-	
+	MapPos.x = MapPos.x * (mappicturetemp:GetWidth() / width);
+	MapPos.y = MapPos.y * (mappicturetemp:GetHeight() / height);
+
 	local offsetX = mappicturetemp:GetX();
 	local offsetY = mappicturetemp:GetY();
 	
 	local x = offsetX + MapPos.x - treasureMarkPic:GetWidth() / 2;
 	local y = offsetY + MapPos.y - treasureMarkPic:GetHeight() / 2;
-
+	
+	treasureMarkPic:SetEnableStretch(1);
 	treasureMarkPic:SetOffset(x, y);
 
 	treasureMarkPic:SetBlink(0.0, 1.0, "FFFF5555");

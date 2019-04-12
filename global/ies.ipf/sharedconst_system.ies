@@ -265,6 +265,7 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 290000,1,0,"USE_REPORT_BOT_TO_STEAM","1일 경우 스팀 VAC에 봇 신고 기능 사용","NO"
 290001,1,0,"USE_REPORT_BOT_TO_CLASSIFIER","1일 경우 분류기를 통한 봇 검출 기능 사용","NO"
 300000,1,0,"COLONY_WAR_OPEN","콜로니전 열꺼면 1 아니면 0","NO"
+300001,100,0,"COLONY_CHANGE_STATE_INTERVAL_MS","콜로니전 상태전이 간격(ms)","NO"
 500000,360,0,"GUILD_INFO_UPDATE_DELAY_MINUTE","제공하는 길드 정보의 업데이트 딜레이(6시간)","YES"
 500001,140,0,"LIMIT_ONELINE_MESSAGE_LENGTH","한줄 게시판 최대 길이","YES"
 500002,720,0,"TEAMNAME_UPDATE_DELAY_MINUTE","제공하는 팀이름 정보의 업데이트 딜레이(12시간)","NO"

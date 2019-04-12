@@ -545,6 +545,11 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 
     -- colony occupation info    
     if IS_COLONY_SPOT(mapCls.ClassName) == true then
+        local check_word = "GuildColony_"
+        local colonyMapCls = GetClassByStrProp("Map", "ClassName", check_word..mapCls.ClassName)
+        if colonyMapCls ~= nil then
+            mapCls = colonyMapCls
+        end
         local topFrame = ctrlSet:GetTopParentFrame();
         local COLONY_IMG_SIZE = tonumber(topFrame:GetUserConfig('COLONY_IMG_SIZE'));
 
@@ -881,6 +886,15 @@ end
 
 function WORLDMAP_LOCATE_NOWPOS(parent, ctrl)
 	local mapName= session.GetMapName();
+	local isColonyMap = session.colonywar.GetIsColonyWarMap();
+	if isColonyMap == true then
+        local check_word = "GuildColony_"
+        local sStart, sEnd = string.find(mapName, check_word)
+        if sStart ~= nil then
+            local sLength = string.len(mapName)
+            mapName = string.sub(mapName, sEnd+1, sLength)
+        end
+	end
 	LOCATE_WORLDMAP_POS(parent:GetTopParentFrame(), mapName);
 end
 
