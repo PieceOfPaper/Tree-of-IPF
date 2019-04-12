@@ -286,25 +286,17 @@ function SCR_USE_HiddenJobUnlock(self,argObj, StringArg, Numarg1, Numarg2)
         if result == 'SUCCESS' then
             if StringArg == 'Char4_18' then
                 if isHideNPC(self, 'MIKO_MASTER') == 'YES' then
-                    UnHideNPC(self, 'MIKO_MASTER')
-                end
-                if isHideNPC(self, 'MIKO_SOUL_SPIRIT') == 'YES' then
-                    UnHideNPC(self, 'MIKO_SOUL_SPIRIT')
+                    SCR_NPC_HIDE_UNHIDE_NPC_HANDLER(self, nil, nil, 'MIKO_MASTER/MIKO_SOUL_SPIRIT')
                 end
             elseif StringArg == 'Char3_13' then
-                if isHideNPC(self, 'FEDIMIAN_APPRAISER') == 'NO' then
-                    HideNPC(self, 'FEDIMIAN_APPRAISER')
-                end
-                if isHideNPC(self, 'FEDIMIAN_APPRAISER_NPC') == 'YES' then
-                    UnHideNPC(self, 'FEDIMIAN_APPRAISER_NPC')
-                end
+                SCR_NPC_HIDE_UNHIDE_NPC_HANDLER(self, nil, 'FEDIMIAN_APPRAISER', 'FEDIMIAN_APPRAISER_NPC')
             elseif StringArg == 'Char2_17' then
                 if isHideNPC(self, 'RUNECASTER_MASTER') == 'YES' then
-                    UnHideNPC(self, 'RUNECASTER_MASTER')
+                    SCR_NPC_HIDE_UNHIDE_NPC_HANDLER(self, nil, nil, 'RUNECASTER_MASTER')
                 end
-            elseif StringArg == 'Char1_13' then
+            elseif StringArg == 'Char5_6' then
                 if isHideNPC(self, 'SHINOBI_MASTER') == 'YES' then
-                    UnHideNPC(self, 'SHINOBI_MASTER')
+                    SCR_NPC_HIDE_UNHIDE_NPC_HANDLER(self, nil, nil, 'SHINOBI_MASTER')
                 end
             end
             SCR_SEND_NOTIFY_REWARD(self, ScpArgMsg('HIDDEN_JOB_UNLOCK_VIEW_MSG4','JOBNAME', jobNameKOR), ScpArgMsg('HIDDEN_JOB_UNLOCK_VIEW_MSG5','RANK', Numarg1,'JOBNAME', jobNameKOR))

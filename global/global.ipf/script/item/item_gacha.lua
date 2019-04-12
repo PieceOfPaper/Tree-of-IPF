@@ -93,7 +93,7 @@ function SCR_ITEM_GACHA_TP(pc, rewGroup, gachaClassName, gachacnt, gachaLog, gac
 				    break;
 			    end
 		    end
-		    
+		end    
 		if isSkipAnimation == "NO" then
 		    PlayAnim(pc, "std", 1)
 		end

@@ -1160,6 +1160,7 @@
 		<Class ClassID="10512" ClassName="AddBarrackCharacterSlotSuccess{count}" Data="[{count}]개의 슬롯이 성공적으로 추가 되었습니다."/>
 		<Class ClassID="10513" ClassName="CanAddMoreSlotBecauseFullSlot" Data="더 이상 캐릭터 슬롯을 추가할 수 없습니다."/>
 		<Class ClassID="10514" ClassName="CharacterLengthLimit" Data="{COUNT}자 이내로만 입력 가능합니다."/>
+		<Class ClassID="10515" ClassName="AskReallyDelete" Data="정말로 삭제하시겠습니까?"/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -13203,5 +13204,5 @@
 		<Class ClassID="516023" ClassName="WebDataExtraction_Abil_AlwaysActive_YES" Data="토글 불가"/>
 		<Class ClassID="516024" ClassName="WebDataExtraction_Abil_AlwaysActive_NO" Data="토글 가능"/>
 		<Class ClassID="516025" ClassName="WebDataExtraction_Abil_AlwaysActive_None" Data="없음"/>
-	</Category>
+		</Category>
 </idspace>
