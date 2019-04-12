@@ -74,7 +74,7 @@ function APPRAISAL_RESET_CAL_MONEY(frame)
 	repairprice:SetText('0')
 end
 
-function APPRAISAL_UPDATE_MONEY(frame)
+function APPRAISAL_UPDATE_MONEY(frame)    
 	local frame = frame:GetTopParentFrame();
 	local slotSet = GET_CHILD_RECURSIVELY(frame,"slotlist","ui::CSlotSet")
 	local totalprice = 0;
@@ -104,13 +104,13 @@ function APPRAISAL_UPDATE_MONEY(frame)
 	repairprice:SetText(GET_COMMAED_STRING(totalprice))
 
 	local calcprice = GET_CHILD_RECURSIVELY_AT_TOP(frame, "remainInvenZeny", "ui::CRichText")
-
-	if totalprice <= 0 then
+    
+	if totalprice <= 0 then        
 		calcprice:SetText(GET_COMMAED_STRING(GET_TOTAL_MONEY()))
 		return;
 	end
-
-	local mymoney = GET_COMMAED_STRING(GET_TOTAL_MONEY()-totalprice);
+    
+	local mymoney = GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY(), -1 * totalprice));    
 	calcprice:SetText(mymoney)
 
 	frame:SetUserValue('TOTAL_MONEY', totalprice);

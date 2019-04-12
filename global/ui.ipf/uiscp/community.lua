@@ -147,7 +147,6 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			end
 		end
 
-
 		ui.AddContextMenuItem(context, ScpArgMsg("Report_AutoBot"), string.format("REPORT_AUTOBOT_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
 
         -- report guild emblem
@@ -160,7 +159,14 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			ui.AddContextMenuItem(context, ScpArgMsg("GM_Order_Protected"), string.format("REQUEST_GM_ORDER_PROTECTED(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
 			ui.AddContextMenuItem(context, ScpArgMsg("GM_Order_Kick"), string.format("REQUEST_GM_ORDER_KICK(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
 		end
-
+		
+		if session.world.IsDungeon() and session.world.IsIntegrateIndunServer() == true then
+			local aid = pcObj:GetPCApc():GetAID();
+			local serverName = GetServerNameByGroupID(GetServerGroupID());
+			local playerName = pcObj:GetPCApc():GetFamilyName();
+			local scp = string.format("SHOW_INDUN_BADPLAYER_REPORT(\"%s\", \"%s\", \"%s\")", aid, serverName, playerName);
+			ui.AddContextMenuItem(context, ScpArgMsg("IndunBadPlayerReport"), scp);
+		end
 
 		ui.AddContextMenuItem(context, ClMsg("Cancel"), "None");
 		ui.OpenContextMenu(context);

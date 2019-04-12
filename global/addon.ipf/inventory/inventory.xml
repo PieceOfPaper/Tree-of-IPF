@@ -6,7 +6,7 @@
 	<skin frameskin="none"/>
 	<input moveable="false" maxwidth="1280"/>
 	<layer layerlevel="95"/>
-	<userconfig TREE_GROUP_FONT="white_20_ol" TREE_TAB_WIDTH="30" TREE_GROUP_BOTTOM_MARGIN="20" TREE_SLOT_SIZE="58" TREE_COL_COUNT="7" TREE_SLOTSETTEXT_WIDTH="400" TREE_SLOTSETTEXT_HEIGHT="30" TREE_SLOTSETTEXT_FONT="white_18_ol" TREE_SLOT_PICKSOUND="icon_pick_up" TREE_SLOT_DROPSOUND="icon_get_down" TREE_SLOT_DROPSCRIPT="INVENTORY_ON_DROP" TREE_SLOT_POPSCRIPT="INVENTORY_OP_POP" TREE_SEARCH_BLINK_COLOR="FF003300" SHIHOUETTE_IMGNAME_MALE="inventory_M" SHIHOUETTE_IMGNAME_FEMALE="inventory_F" WEAPONSWAP_UP_IMAGE="weapon_swap_pageup" WEAPONSWAP_DOWN_IMAGE="weapon_swap_pagedown" EXP_ORB_EFFECT_SIZE="2.0" EQUIPSLOT_PIC_MAGIC="invenslot_pic_magic" EQUIPSLOT_PIC_RARE="invenslot_pic_rare" EQUIPSLOT_PIC_UNIQUE="invenslot_pic_unique" EQUIPSLOT_PIC_LEGEND="invenslot_pic_legend"/>
+	<userconfig TREE_GROUP_FONT="white_20_ol" TREE_TAB_WIDTH="30" TREE_GROUP_BOTTOM_MARGIN="20" TREE_SLOT_SIZE="58" TREE_COL_COUNT="7" TREE_SLOTSETTEXT_WIDTH="400" TREE_SLOTSETTEXT_HEIGHT="30" TREE_SLOTSETTEXT_FONT="white_18_ol" TREE_SLOT_PICKSOUND="icon_pick_up" TREE_SLOT_DROPSOUND="icon_get_down" TREE_SLOT_DROPSCRIPT="INVENTORY_ON_DROP" TREE_SLOT_POPSCRIPT="INVENTORY_OP_POP" TREE_SEARCH_BLINK_COLOR="FF003300" SHIHOUETTE_IMGNAME_MALE="inventory_M" SHIHOUETTE_IMGNAME_FEMALE="inventory_F" WEAPONSWAP_UP_IMAGE="weapon_swap_pageup" WEAPONSWAP_DOWN_IMAGE="weapon_swap_pagedown" EXP_ORB_EFFECT_SIZE="2.0" DISPEL_EFFECT_SIZE="2.0" EQUIPSLOT_PIC_MAGIC="invenslot_pic_magic" EQUIPSLOT_PIC_RARE="invenslot_pic_rare" EQUIPSLOT_PIC_UNIQUE="invenslot_pic_unique" EQUIPSLOT_PIC_LEGEND="invenslot_pic_legend" TOGGLE_ITEM_EFFECT_SIZE="2.0"/>
 	<option closebutton="false"/>
 	<sound opensound="inven_win_open" closesound="inven_win_close"/>
 	<script OpenScp="INVENTORY_OPEN" CloseScp="INVENTORY_CLOSE"/>
@@ -15,6 +15,7 @@
 		<groupbox name="pipwin_top" rect="0 0 490 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_top"/>
 		<timer name="jungtantimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
 		<timer name="jungtandeftimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
+		<timer name="dispeldebufftimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
 		<timer name="exporbtimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
 		<richtext name="title" rect="0 0 200 30" margin="0 18 0 0" layout_gravity="center top" caption="{@st43}인벤토리{/}"/>
 		<button name="colse" rect="0 0 44 44" margin="28 20 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="INVENTORY_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}인벤토리를 닫습니다{/}"/>

@@ -121,20 +121,19 @@ function ITEM_OPTIONEXTRACT_DROP(frame, icon, argStr, argNum)
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
-	local liftIcon 				= ui.GetLiftIcon();
-	local FromFrame 			= liftIcon:GetTopParentFrame();
-	local toFrame				= frame:GetTopParentFrame();
+	local liftIcon = ui.GetLiftIcon();
+	local FromFrame = liftIcon:GetTopParentFrame();
+	local toFrame = frame:GetTopParentFrame();
 	CLEAR_ITEMOPTIONEXTRACT_UI()
 	if FromFrame:GetName() == 'inventory' then
 		local iconInfo = liftIcon:GetInfo();
 		ITEM_OPTIONEXTRACT_REG_TARGETITEM(toFrame, iconInfo:GetIESID());
-	end;
-end;
+	end
+end
 
 function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 	local gBox = GET_CHILD_RECURSIVELY(frame, "bodyGbox1_1")
 	gBox:RemoveChild('tooltip_equip_property');
-
 
 	if ui.CheckHoldedUI() == true then
 		return;
@@ -144,7 +143,6 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 		return;
 	end
 
-	
 	local item = GetIES(invItem:GetObject());
 	local itemCls = GetClassByType('Item', item.ClassID)
 	local invitem = item
@@ -307,6 +305,11 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 
 			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 		end
+	end
+
+	local rareOptionText = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(invitem);
+	if rareOptionText ~= nil then
+		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, rareOptionText, 0, inner_yPos);
 	end
 
 	for i = 1 , #list2 do

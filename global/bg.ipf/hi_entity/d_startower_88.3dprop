@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by k (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <Prop>
 	<Model Path="d_startower88_b_model.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
 	<Model Path="d_startower88_bl01.xac" RenderType="RT_MUD_BLEND" IsBloom="0" Type="" NoCol="0"/>
@@ -44,7 +44,7 @@
 	<Model Path="d_startower88_tp14.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
 	<Model Path="d_startower88_tp15.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
 	<Model Path="d_startower88_tp16.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
-	<Model Path="d_startower88_water.xac" RenderType="RT_PLANELIGHT" IsBloom="1" Type="" NoCol="1"/>
+	<Model Path="d_startower88_water.xac" RenderType="RT_WATER" IsBloom="1" Type="" IsWater="1" WaterDiffDir="-0.05" WaterSwaySpeed="0.6" WaterSwayRange="0.03 0" waterSwayPower="0.05" RefractionNormalSize="0.01" RefractionDir="-0.05" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.01" WaterSprayRange="1" WaterSpraycolor="0.1 0.3 0.4" NoCol="1"/>
 	<Model Path="d_startower_wheel01_00.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
 	<Model Path="d_startower_wheel01_01.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
 	<Model Path="d_startower_wheel01_02.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>

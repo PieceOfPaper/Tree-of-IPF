@@ -275,6 +275,14 @@ function SORT_GUILDINVEN_SEND_BY_NAME(a, b)
     local aNameCtrl = aChild:GetChild('nameText');
     local bNameCtrl = bChild:GetChild('nameText');
     
+    if aNameCtrl == nil or bNameCtrl == nil then
+        return false
+    end
+
+    if aNameCtrl:GetText() == nil or aNameCtrl:GetText() == "" or bNameCtrl:GetText() == nil or bNameCtrl:GetText() == "" then
+        return false
+    end
+
     return aNameCtrl:GetText() < bNameCtrl:GetText();
 end
 
@@ -284,6 +292,15 @@ function SORT_GUILDINVEN_SEND_BY_NAME_REVERSE(a, b)
     local bChild = GET_CHILD_RECURSIVELY(guildinven_send, b);
     local aNameCtrl = aChild:GetChild('nameText');
     local bNameCtrl = bChild:GetChild('nameText');
-    
+
+    if aNameCtrl == nil or bNameCtrl == nil then
+        return false
+    end
+
+    if aNameCtrl:GetText() == nil or aNameCtrl:GetText() == "" or bNameCtrl:GetText() == nil or bNameCtrl:GetText() == "" then
+        return false
+    end
+
+
     return aNameCtrl:GetText() > bNameCtrl:GetText();
 end

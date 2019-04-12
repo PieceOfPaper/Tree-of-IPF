@@ -329,11 +329,11 @@ function BEFORE_APPLIED_INDUNRESET_OPEN(invItem)
 	endTxt:ShowWindow(0);
 	
 	local strTxt = frame:GetChild("richtext_1");
-	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
+	strTxt:SetTextByKey("value", GetClassString('Item', itemobj.ClassName, 'Name')); 
 
 	local bg2 = frame:GetChild("bg2");
 	local indunStr = bg2:GetChild("indunStr");
-	indunStr:SetTextByKey("value", ClMsg(itemobj.ClassName)..ScpArgMsg("Premium_itemEun")); 
+	indunStr:SetTextByKey("value", GetClassString('Item', itemobj.ClassName, 'Name')..ScpArgMsg("Premium_itemEun")); 
     indunStr:SetTextByKey("value2", ScpArgMsg("Premium_character")); 
     indunStr:ShowWindow(1);
 
@@ -341,7 +341,7 @@ function BEFORE_APPLIED_INDUNRESET_OPEN(invItem)
 	endTime2:ShowWindow(0);
 
 	local strTxt = bg2:GetChild("str");
-	strTxt:SetTextByKey("value", ClMsg(itemobj.ClassName)); 
+	strTxt:SetTextByKey("value", GetClassString('Item', itemobj.ClassName, 'Name')); 
 
 	local forToken = bg2:GetChild("forToken");
 	forToken:ShowWindow(1);

@@ -15,11 +15,27 @@
 		<groupbox name="nameimg3" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="center center" hittest="false" skin="none"/>
 		<groupbox name="nameimg4" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="center center" hittest="false" skin="none"/>
 		<groupbox name="nameimg5" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="center center" hittest="false" skin="none"/>
-		<picture parent="nameimg1" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v18_1" imagealign="center bottom" stretch="false"/>
-		<picture parent="nameimg2" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v18_2" imagealign="center bottom" stretch="false"/>
-		<picture parent="nameimg3" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v18_3" imagealign="center bottom" stretch="false"/>
-		<picture parent="nameimg4" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v18_4" imagealign="center bottom" stretch="false"/>
-		<picture parent="nameimg5" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v18_5" imagealign="center bottom" stretch="false"/>
+		<groupbox name="nameimg6" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="center center" hittest="false" skin="none"/>
+		<groupbox name="nameimg7" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="center center" hittest="false" skin="none"/>
+		<groupbox name="nameimg8" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="center center" hittest="false" skin="none"/>
+		<groupbox name="nameimg9" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="center center" hittest="false" skin="none"/>
+		<groupbox name="nameimg10" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="center center" hittest="false" skin="none"/>
+		<groupbox name="nameimg11" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="center center" hittest="false" skin="none"/>
+		<groupbox name="nameimg12" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="center center" hittest="false" skin="none"/>
+		<groupbox name="nameimg13" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="center center" hittest="false" skin="none"/>
+		<picture parent="nameimg1" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v19_1" imagealign="center bottom" stretch="false"/>
+		<picture parent="nameimg2" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v19_2" imagealign="center bottom" stretch="false"/>
+		<picture parent="nameimg3" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v19_3" imagealign="center bottom" stretch="false"/>
+		<picture parent="nameimg4" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v19_4" imagealign="center bottom" stretch="false"/>
+		<picture parent="nameimg5" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v19_5" imagealign="center bottom" stretch="false"/>
+		<picture parent="nameimg6" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v19_6" imagealign="center bottom" stretch="false"/>
+		<picture parent="nameimg7" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v19_7" imagealign="center bottom" stretch="false"/>
+		<picture parent="nameimg8" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v19_8" imagealign="center bottom" stretch="false"/>
+		<picture parent="nameimg9" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v19_9" imagealign="center bottom" stretch="false"/>
+		<picture parent="nameimg10" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v19_10" imagealign="center bottom" stretch="false"/>
+		<picture parent="nameimg11" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v19_11" imagealign="center bottom" stretch="false"/>
+		<picture parent="nameimg12" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v19_12" imagealign="center bottom" stretch="false"/>
+		<picture parent="nameimg13" name="img1" margin="0 0 0 0" rect="0 0 1920 1080" layout_gravity="center center" hittest="false" image="tos_credit_v19_13" imagealign="center bottom" stretch="false"/>
 		<button name="nextbtn" rect="0 0 44 44" margin="0 0 20 20" layout_gravity="right bottom" LBtnUpScp="NEWCREDIT_NEXT_PAGE()" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" oversound="button_over" image="nextBtn"/>
 		<picture name="fadeout" rect="0 0 4096 2048" hittest="false" image="fullblack" stretch="true"/>
 		<picture name="fadein" rect="0 0 4096 2048" hittest="false" image="fullblack" stretch="true"/>

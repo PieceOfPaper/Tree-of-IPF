@@ -11,10 +11,7 @@ end
 
 function BARRACK_CHANGE_NAME_USE_TP(frame, ctrl)
 	frame:ShowWindow(0);
-
-	local inputframeName = frame:GetUserValue("inputframe");
-	local inputframe = ui.GetFrame(inputframeName)
-	inputframe:ShowWindow(0);
+	
 	local changeName = frame:GetUserValue("changeName")
 	BARRACk_SETTING_CHECK_TP(changeName);
 end
@@ -25,7 +22,7 @@ function BARRACK_CHECK_USER_MIND_BEFOR_YES(inputframe, changedName)
 	
 	if changedName == charName then
 		ui.SysMsg(ClMsg("SameName"));
-		inputframe:ShowWindow(0);
+
 		return;
 	end
 

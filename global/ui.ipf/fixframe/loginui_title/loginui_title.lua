@@ -3,21 +3,7 @@ function LOGINUI_TITLE_ON_INIT(addon, frame)
 
 	TOGGLE_SINGLE_MODE_UI(frame);
 	
-	local view1 = GET_CHILD(frame, "login_img", "ui::CPicture")
-	if view1 ~= nil then
-        view1:ShowWindow(0)
-    end
-    local view2 = GET_CHILD(frame, "login_img2", "ui::CPicture")
-    if view2 ~= nil then
-        view2:ShowWindow(0)
-    end
-    
-    local rand = IMCRandom(1,2)
-    if rand == 1 then
-        view1:ShowWindow(1)
-    elseif rand == 2 then
-        view2:ShowWindow(1)
-    end
+	ENABLE_ANIMATE_BACKGROUND_ILLUSTRATION();
 end
 
 function TOGGLE_SINGLE_MODE_UI(frame)
@@ -92,13 +78,39 @@ function EXEC_LOAD_REPLAY(fileName)
 end
 
 function GO_TO_SINGLEMODE(frame)
-
 	frame = frame:GetTopParentFrame();
 	local fr = frame:GetChild("loginserverlist");
 	local mapList = GET_CHILD(fr, "l_singleMaps", "ui::CListBox");
 	local mapID = mapList:GetSelItemValue();
 	app.ClientSingleMode(mapID);
-
-
 end
 
+function TITLE_SHOW_SPINE_PIC(frame, name, isShow)
+	local child = frame:GetChild(name);
+	child:ShowWindow(isShow);
+end
+
+function ENABLE_ANIMATE_BACKGROUND_ILLUSTRATION()
+	local frame = ui.GetFrame("loginui_title");
+
+	local isEnableSpine = config.GetXMLConfig("EnableAnimateBackgroundIllustration");
+	if isEnableSpine == 1 then
+		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Background_1", 1);
+		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Background_2", 1);
+		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Bail", 1);
+		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Detective", 1);
+		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_egnas", 1);
+		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_LittleWitch", 1);
+		
+		TITLE_SHOW_SPINE_PIC(frame, "login_img", 0);
+	else
+		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Background_1", 0);
+		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Background_2", 0);
+		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Bail", 0);
+		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Detective", 0);
+		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_egnas", 0);
+		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_LittleWitch", 0);
+
+		TITLE_SHOW_SPINE_PIC(frame, "login_img", 1);
+	end
+end

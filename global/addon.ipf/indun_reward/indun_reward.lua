@@ -35,6 +35,7 @@ function INDUN_REWARD_SET(frame, msg, str, arg)
 --	    addMsg = ' '..ScpArgMsg('EVENT_1806_WEEKEND_MSG1')
 --	end
 
+
 	local textRewardSilver_value = GET_CHILD(gboxRewardList2, "textRewardSilver_value");
 	textRewardSilver_value:SetText(GET_COMMAED_STRING(silver)..addMsg);
 

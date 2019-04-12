@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -3705,6 +3705,17 @@
 			<img name="bottomcore" imgrect="1 421 453 88"/>
 			<img name="bottomright" imgrect="454 421 1 88"/>
 		</skin>
+		<skin name="equip_detail_skin" texture="\skin\pip_test2.tga">
+			<img name="topleft" imgrect="373 153 24 12"/>
+			<img name="topcore" imgrect="398 153 230 12"/>
+			<img name="topright" imgrect="629 153 24 12"/>
+			<img name="bodyleft" imgrect="373 166 24 12"/>
+			<img name="bodycore" imgrect="398 166 230 12"/>
+			<img name="bodyright" imgrect="629 166 24 12"/>
+			<img name="bottomleft" imgrect="373 179 24 12"/>
+			<img name="bottomcore" imgrect="398 179 230 12"/>
+			<img name="bottomright" imgrect="629 179 24 12"/>
+		</skin>
 	</skinlist>
 	<skinlist category="testmin_frames">
 		<skin name="monstercard" texture="\skin\monstercard.tga">
@@ -3821,6 +3832,17 @@
 			<img name="bottomleft" imgrect="1458 1576 21 17"/>
 			<img name="bottomcore" imgrect="1480 1576 255 17"/>
 			<img name="bottomright" imgrect="1736 1576 21 17"/>
+		</skin>
+		<skin name="brownbox_is" texture="\skin\pip_test2.tga">
+			<img name="topleft" imgrect="234 118 20 20"/>
+			<img name="topcore" imgrect="255 118 96 20"/>
+			<img name="topright" imgrect="352 118 20 20"/>
+			<img name="bodyleft" imgrect="234 139 20 96"/>
+			<img name="bodycore" imgrect="255 139 96 96"/>
+			<img name="bodyright" imgrect="352 139 20 96"/>
+			<img name="bottomleft" imgrect="234 236 20 20"/>
+			<img name="bottomcore" imgrect="255 236 96 20"/>
+			<img name="bottomright" imgrect="352 236 20 20"/>
 		</skin>
 	</skinlist>
 	<skinlist category="buttons">
@@ -5187,6 +5209,30 @@
 			<img name="barmiddle" imgrect="1521 367 500 41"/>
 			<img name="barright" imgrect="2021 367 1 41"/>
 		</skin>
+		<skin name="pcbang_point_gauge_s" texture="\skin\pip_test2.tga">
+			<img name="bgleft" imgrect="240 257 1 26"/>
+			<img name="bgmiddle" imgrect="241 257 104 26"/>
+			<img name="bgright" imgrect="345 257 1 26"/>
+			<img name="barleft" imgrect="240 257 1 26"/>
+			<img name="barmiddle" imgrect="234 284 104 26"/>
+			<img name="barright" imgrect="345 257 1 26"/>
+		</skin>
+		<skin name="pcbang_point_gauge_max" texture="\skin\pip_test2.tga">
+			<img name="bgleft" imgrect="240 257 1 26"/>
+			<img name="bgmiddle" imgrect="241 257 104 26"/>
+			<img name="bgright" imgrect="345 257 1 26"/>
+			<img name="barleft" imgrect="240 257 1 26"/>
+			<img name="barmiddle" imgrect="339 284 104 26"/>
+			<img name="barright" imgrect="345 257 1 26"/>
+		</skin>
+		<skin name="pcbang_point_gauge_L" texture="\skin\pip_test2.tga">
+			<img name="bgleft" imgrect="8 476 1 36"/>
+			<img name="bgmiddle" imgrect="9 476 796 36"/>
+			<img name="bgright" imgrect="805 476 1 36"/>
+			<img name="barleft" imgrect="8 476 1 36"/>
+			<img name="barmiddle" imgrect="0 439 796 36"/>
+			<img name="barright" imgrect="805 476 1 36"/>
+		</skin>
 		<skin name="barbershop_couponbook_gauge" texture="\skin\PVP_skin.tga">
 			<img name="bgleft" imgrect="504 585 1 45"/>
 			<img name="bgmiddle" imgrect="505 585 471 45"/>
@@ -5516,6 +5562,7 @@
 		<image name="Map_Pilgrimroad" file="\skin\indunmap\Map_Pilgrimroad.png" imgrect="0 0 295 450" CMM_Caption="순례자의 길"/>
 		<image name="Map_Highlander" file="\skin\indunmap\Map_Highlander.png" imgrect="0 0 295 450" CMM_Caption="하이랜더 마스터룸"/>
 		<image name="Map_Playground" file="\skin\indunmap\Map_Playground.png" imgrect="0 0 295 450" CMM_Caption="천하제일 축구장"/>
+		<image name="Map_Request_Mission17" file="\skin\indunmap\Map_Request_Mission17.png" imgrect="0 0 295 450" CMM_Caption="란코 호수 던전"/>
 	</imagelist>
 	<imagelist category="jootest_image">
 		<image name="market_hairacc" file="\skin\market_skin.tga" imgrect="1927 447 60 60" CMM_Caption="마켓_헤어악세사리"/>
@@ -6034,6 +6081,28 @@
 		<image name="solodungeon_rank_img_8" file="\skin\PVP_skin.tga" imgrect="1667 409 60 61" CMM_Caption="1인던전 등수이미지8"/>
 		<image name="solodungeon_rank_img_9" file="\skin\PVP_skin.tga" imgrect="1728 409 60 61" CMM_Caption="1인던전 등수이미지9"/>
 		<image name="solodungeon_rank_img_10" file="\skin\PVP_skin.tga" imgrect="1789 409 60 61" CMM_Caption="1인던전 등수이미지10"/>
+		<image name="pcbang_user_icon" file="\skin\pip_test2.tga" imgrect="353 257 21 16" CMM_Caption="피시방 유저 표시 아이콘"/>
+		<image name="pcbang_timer_bg" file="\skin\pip_test2.tga" imgrect="373 76 155 75" CMM_Caption="피시방 타이머 배경"/>
+		<image name="pcbang_clock_icon_s" file="\skin\pip_test2.tga" imgrect="201 34 27 27" CMM_Caption="피시방 시계 아이콘 : 소"/>
+		<image name="pcbang_clock_icon_l" file="\skin\pip_test2.tga" imgrect="857 37 37 38" CMM_Caption="피시방 시계 아이콘 : 대"/>
+		<image name="pcbang_rental_shop_badge_5" file="\skin\pip_test2.tga" imgrect="529 76 76 76" CMM_Caption="피시방 대여 휘장아이콘5"/>
+		<image name="pcbang_rental_shop_badge_10" file="\skin\pip_test2.tga" imgrect="606 76 76 76" CMM_Caption="피시방 대여 휘장아이콘10"/>
+		<image name="pcbang_point_icon" file="\skin\pip_test2.tga" imgrect="763 0 38 30" CMM_Caption="피시방 포인트 아이콘"/>
+		<image name="pcbang_point_gauge_s_left" file="\skin\pip_test2.tga" imgrect="234 257 6 26" CMM_Caption="피시방 포인트게이지 : 소 좌"/>
+		<image name="pcbang_point_gauge_s_right" file="\skin\pip_test2.tga" imgrect="346 257 6 26" CMM_Caption="피시방 포인트게이지 : 소 우"/>
+		<image name="pcbang_point_gauge_L_left" file="\skin\pip_test2.tga" imgrect="0 476 8 36" CMM_Caption="피시방 포인트게이지 : 대 좌"/>
+		<image name="pcbang_point_gauge_L_right" file="\skin\pip_test2.tga" imgrect="806 476 8 36" CMM_Caption="피시방 포인트게이지 : 대 우"/>
+		<image name="frame_classguide_l" file="\skin\mainframe_07.tga" imgrect="0 903 188 35" CMM_Caption="클래스 가이드 프레임 좌"/>
+		<image name="frame_classguide_r" file="\skin\mainframe_07.tga" imgrect="0 939 188 35" CMM_Caption="클래스 가이드 프레임 우"/>
+		<image name="indun_icon_week_l" file="\skin\indun_skin.tga" imgrect="699 573 41 20" CMM_Caption="던전 주간 표시 : 대"/>
+		<image name="indun_icon_day_l" file="\skin\indun_skin.tga" imgrect="699 552 41 20" CMM_Caption="던전 일간 표시 : 대"/>
+		<image name="indun_icon_week_s" file="\skin\indun_skin.tga" imgrect="741 573 27 20" CMM_Caption="던전 주간 표시 : 소"/>
+		<image name="indun_icon_day_s" file="\skin\indun_skin.tga" imgrect="741 552 27 20" CMM_Caption="던전 일간 표시 : 소"/>
+		<image name="indun_icon_week_l_eng" file="\skin\indun_skin.tga" imgrect="699 615 48 20" CMM_Caption="던전 주간 표시 : 대_영문"/>
+		<image name="indun_icon_day_l_eng" file="\skin\indun_skin.tga" imgrect="699 594 48 20" CMM_Caption="던전 일간 표시 : 대_영문"/>
+		<image name="indun_icon_week_s_eng" file="\skin\indun_skin.tga" imgrect="748 615 27 20" CMM_Caption="던전 주간 표시 : 소_영문"/>
+		<image name="indun_icon_day_s_eng" file="\skin\indun_skin.tga" imgrect="748 594 27 20" CMM_Caption="던전 일간 표시 : 소_영문"/>
+		<image name="pp_point_icon" file="\skin\pip_test2.tga" imgrect="895 31 35 36" CMM_Caption="스팀 홈프리미엄 포인트 아이콘"/>
 	</imagelist>
 	<imagelist category="testje_image">
 		<image name="test_betrum_scoreboardT_skin" file="\skin\keynbet.tga" imgrect="0 528 352 88" CMM_Caption="배틀럼블 스코어 페이지"/>
@@ -6303,6 +6372,22 @@
 		<image name="couponbook_ribbon_r" file="\skin\attendance_sheet_skin.tga" imgrect="1 787 154 216" CMM_Caption="리본 우"/>
 		<image name="barbershop_scissors_pic" file="\skin\attendance_sheet_skin.tga" imgrect="977 539 41 36" CMM_Caption="헤어샵 가위 아이콘"/>
 		<image name="briquetting_bg_skin" file="\skin\briquetting_bg_skin.tga" imgrect="0 0 710 520" CMM_Caption="브리케팅 완성 bg"/>
+		<image name="cancle_gold_pic" file="\skin\pip_test2.tga" imgrect="802 0 31 31" CMM_Caption="금색 x "/>
+		<image name="market_zem_3" file="\skin\pip_test2.tga" imgrect="834 0 12 12" CMM_Caption="마켓 젬 아이콘"/>
+		<image name="market_zem_4" file="\skin\pip_test2.tga" imgrect="847 0 12 12"/>
+		<image name="market_zem_5" file="\skin\pip_test2.tga" imgrect="860 0 12 12"/>
+		<image name="market_zem_6" file="\skin\pip_test2.tga" imgrect="873 0 12 12"/>
+		<image name="market_zem_7" file="\skin\pip_test2.tga" imgrect="834 13 12 12"/>
+		<image name="market_zem_2" file="\skin\pip_test2.tga" imgrect="847 13 12 12"/>
+		<image name="market_zem_1" file="\skin\pip_test2.tga" imgrect="860 13 12 12"/>
+		<image name="market_zem_8" file="\skin\pip_test2.tga" imgrect="873 13 12 12"/>
+		<image name="market_etc_pic" file="\skin\pip_test2.tga" imgrect="886 0 30 30"/>
+		<image name="market_search_pic" file="\skin\pip_test2.tga" imgrect="917 0 27 27"/>
+	</imagelist>
+	<imagelist category="se_button">
+		<image name="sysmenu_pp" file="\skin\pip_test2.tga" imgrect="815 423 38 44" CMM_Caption="스팀 홈프리미엄메뉴"/>
+		<image name="sysmenu_pp_cursoron" file="\skin\pip_test2.tga" imgrect="854 423 38 44"/>
+		<image name="sysmenu_pp_clicked" file="\skin\pip_test2.tga" imgrect="893 423 38 44"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -6928,6 +7013,11 @@
 		<image name="guildinfo_colony" file="\skin\guild_skin.tga" imgrect="249 190 59 59"/>
 		<image name="guildinfo_colony_cursoron" file="\skin\guild_skin.tga" imgrect="439 70 59 59"/>
 		<image name="guildinfo_colony_clicked" file="\skin\guild_skin.tga" imgrect="630 406 59 59"/>
+	</imagelist>
+	<imagelist category="se_button">
+		<image name="sysmenu_pcbang" file="\skin\pip_test2.tga" imgrect="815 468 38 44" CMM_Caption="피시방 메뉴 "/>
+		<image name="sysmenu_pcbang_cursoron" file="\skin\pip_test2.tga" imgrect="854 468 38 44"/>
+		<image name="sysmenu_pcbang_clicked" file="\skin\pip_test2.tga" imgrect="893 468 38 44"/>
 	</imagelist>
 	<imagelist category="min_button">
 		<image name="adventure_main" file="\skin\adventure_diary.tga" imgrect="579 115 100 74" CMM_Caption="메인"/>
@@ -8300,6 +8390,11 @@
 		<image name="Dlg_port_henryswyn" file="\npcimg\henryswyn.png" imgrect="0 0 739 1000" CMM_Caption="헤어샵 남"/>
 		<image name="Dlg_port_anabellswyn" file="\npcimg\anabellswyn.png" imgrect="0 0 830 980" CMM_Caption="헤어샵 여"/>
 		<image name="Dlg_port_Kastytis" file="\npcimg\Kastytis.png" imgrect="0 0 700 1000" CMM_Caption="의상실"/>
+		<image name="Dlg_port_Ignas" file="\npcimg\Ignas.png" imgrect="0 0 680 1000" CMM_Caption="샤펜스타 단장 이그나스"/>
+		<image name="Dlg_port_Owynia_Dilben" file="\npcimg\Owynia_Dilben.png" imgrect="0 0 750 900" CMM_Caption="오위니아 딜벤"/>
+		<image name="Dlg_port_Auguste_dupin" file="\npcimg\Auguste_dupin.png" imgrect="0 0 750 1000" CMM_Caption="오귀스트 뒤팽"/>
+		<image name="Dlg_port_Bayl" file="\npcimg\Bayl.png" imgrect="0 0 830 1000" CMM_Caption="샤펜스타 저항군 총사령관 바일"/>
+		<image name="Dlg_port_Kartas" file="\npcimg\Kartas.png" imgrect="0 0 800 1000" CMM_Caption="카르타스"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>
@@ -8455,11 +8550,16 @@
 		<image name="icon_grass_irritation" file="\icon\buff_icon2.tga" imgrect="256 128 128 128" CMM_Caption="풀독"/>
 		<image name="icon_the_scent_of_a_flower" file="\icon\buff_icon2.tga" imgrect="384 128 128 128" CMM_Caption="꽃향기"/>
 		<image name="icon_token_guild_1" file="\icon\buff_icon2.tga" imgrect="512 128 128 128" CMM_Caption="길드원 증표 버프"/>
+		<image name="icon_thurible02" file="\icon\buff_icon2.tga" imgrect="640 128 128 128" CMM_Caption="향로 이미지"/>
+		<image name="icon_thurible01" file="\icon\buff_icon2.tga" imgrect="768 128 128 128" CMM_Caption="켜진 향로 이미지"/>
 		<image name="icon_solidarity_medal" file="\icon\buff_icon2.tga" imgrect="896 128 128 128" CMM_Caption="결속의 증표 버프"/>
 		<image name="icon_Frostbite_DeBuff" file="\icon\buff_icon2.tga" imgrect="0 256 128 128" CMM_Caption="수속성 디버프 슬로우"/>
 		<image name="icon_weddingbird_have" file="\icon\buff_icon2.tga" imgrect="128 256 128 128" CMM_Caption="홍관조 버프"/>
-		<image name="icon_thurible02" file="\icon\buff_icon2.tga" imgrect="640 128 128 128" CMM_Caption="향로 이미지"/>
-		<image name="icon_thurible01" file="\icon\buff_icon2.tga" imgrect="768 128 128 128" CMM_Caption="켜진 향로 이미지"/>
+		<image name="icon_FatalBlow" file="\icon\buff_icon2.tga" imgrect="256 256 128 128" CMM_Caption="치명타"/>
+		<image name="icon_Transfer" file="\icon\buff_icon2.tga" imgrect="384 256 128 128" CMM_Caption="소환수에게 능력치 이전"/>
+		<image name="icon_KnockBack" file="\icon\buff_icon2.tga" imgrect="512 256 128 128" CMM_Caption="넉백"/>
+		<image name="icon_nexonpc3" file="\icon\buff_icon2.tga" imgrect="640 256 128 128" CMM_Caption="넥슨피시방 경험치"/>
+		<image name="icon_indun_penalty" file="\icon\buff_icon2.tga" imgrect="768 256 128 128" CMM_Caption="인던 입장제한 페널티"/>
 		<image name="icon_event_1807_pool_table" file="\icon\buff_icon2.tga" imgrect="896 256 128 128" CMM_Caption="2018 7월 이벤트 버프 아이콘"/>
 		<image name="icon_event_1807_pool_food1_1" file="\icon\buff_icon2.tga" imgrect="0 384 128 128"/>
 		<image name="icon_event_1807_pool_food1_2" file="\icon\buff_icon2.tga" imgrect="128 384 128 128"/>
@@ -8467,6 +8567,8 @@
 		<image name="icon_event_1807_pool_food2_1" file="\icon\buff_icon2.tga" imgrect="384 384 128 128"/>
 		<image name="icon_event_1807_pool_food2_2" file="\icon\buff_icon2.tga" imgrect="512 384 128 128"/>
 		<image name="icon_event_1807_pool_food2_3" file="\icon\buff_icon2.tga" imgrect="640 384 128 128"/>
+		<image name="icon_cler_meltArmor" file="\icon\buff_icon2.tga" imgrect="768 384 128 128" CMM_Caption="멜트 아머"/>
+		<image name="icon_wizar_NecromancerPoison" file="\icon\buff_icon2.tga" imgrect="0 640 128 128" CMM_Caption="네크로맨서 시독 버프"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>
@@ -8804,6 +8906,7 @@
 		<image name="151_boss_Kucarry_Balzermancer" file="\skin\bosscard\151_boss_Kucarry_Balzermancer.tga" imgrect="0 0 330 440"/>
 		<image name="boss_bg_slot" file="\skin\bosscard\boss_bg_slot.tga" imgrect="0 0 330 440"/>
 		<image name="Card_Bg_Demon" file="\skin\bosscard\Card_Bg_Demon.tga" imgrect="0 0 330 440"/>
+		<image name="144_boss_varleking" file="\skin\bosscard\144_boss_varleking.tga" imgrect="0 0 330 440"/>
 	</imagelist>
 	<imagelist category="sub_card3">
 		<image name="legend_card_fragment_lv1" file="\skin\bosscard\legend_card_fragment_lv1.tga" imgrect="0 0 330 440"/>
@@ -8815,6 +8918,121 @@
 		<image name="market_wing_skin" file="\skin\market_wing_skin.tga" imgrect="0 0 348 840"/>
 		<image name="btshop_bg" file="\skin\btshop_bg.tga" imgrect="0 0 1238 843"/>
 		<image name="btshop_banner_1" file="\skin\btshop_banner_1.tga" imgrect="0 0 600 180"/>
+		<image name="pcbang_banner" file="\skin\pcbang_banner.tga" imgrect="0 0 348 596"/>
+	</imagelist>
+	<imagelist category="class_guide_card">
+		<image name="shop_craft_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="0 0 216 272" CMM_Caption=""/>
+		<image name="mount_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="188 0 216 272" CMM_Caption=""/>
+		<image name="party_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="376 0 216 272" CMM_Caption=""/>
+		<image name="target_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="564 0 216 272" CMM_Caption=""/>
+		<image name="provoke_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="752 0 216 272" CMM_Caption=""/>
+		<image name="summon_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="0 244 216 272" CMM_Caption=""/>
+		<image name="magnitude_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="188 244 216 272" CMM_Caption=""/>
+		<image name="accompany_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="376 244 216 272" CMM_Caption=""/>
+		<image name="magic_arrow_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="564 244 216 272" CMM_Caption=""/>
+		<image name="transform_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="752 244 216 272" CMM_Caption=""/>
+		<image name="install_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="0 488 216 272" CMM_Caption=""/>
+		<image name="buff_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="188 488 216 272" CMM_Caption=""/>
+		<image name="hide_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="376 488 216 272" CMM_Caption=""/>
+		<image name="debuff_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="564 488 216 272" CMM_Caption=""/>
+		<image name="dark_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="752 488 216 272" CMM_Caption=""/>
+		<image name="lightning_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="0 732 216 272" CMM_Caption=""/>
+		<image name="poison_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="188 732 216 272" CMM_Caption=""/>
+		<image name="fire_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="376 732 216 272" CMM_Caption=""/>
+		<image name="psychokinesis_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="564 732 216 272" CMM_Caption=""/>
+		<image name="earth_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="753 732 216 272" CMM_Caption=""/>
+		<image name="ice_icon" file="\skin\class_guide\class_guide_card.tga" imgrect="0 0 216 272" CMM_Caption=""/>
+		<image name="attack_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="188 0 216 272" CMM_Caption=""/>
+		<image name="defense_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="376 0 216 272" CMM_Caption=""/>
+		<image name="support_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="564 0 216 272" CMM_Caption=""/>
+		<image name="bow_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="752 0 216 272" CMM_Caption=""/>
+		<image name="short_range_attack_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="0 244 216 272" CMM_Caption=""/>
+		<image name="long_range_attack_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="188 244 216 272" CMM_Caption=""/>
+		<image name="close_range_weapon_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="376 244 216 272" CMM_Caption=""/>
+		<image name="cannon_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="564 244 216 272" CMM_Caption=""/>
+		<image name="pistol_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="752 244 216 272" CMM_Caption=""/>
+		<image name="one_handed_weapon_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="0 488 216 272" CMM_Caption=""/>
+		<image name="two_handed_weapon_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="188 488 216 272" CMM_Caption=""/>
+		<image name="cleric_one_handed_weapon_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="376 488 216 272" CMM_Caption=""/>
+		<image name="cleric_two_handed_weapon_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="564 488 216 272" CMM_Caption=""/>
+		<image name="musket_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="752 488 216 272" CMM_Caption=""/>
+		<image name="easy_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="0 732 216 272" CMM_Caption=""/>
+		<image name="normal_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="188 732 216 272" CMM_Caption=""/>
+		<image name="high_difficulty_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="376 732 216 272" CMM_Caption=""/>
+		<image name="wizard_icon" file="\skin\class_guide\wizard_icon.png" imgrect="0 0 160 216" CMM_Caption=""/>
+		<image name="swordsman_icon" file="\skin\class_guide\swordsman_icon.png" imgrect="0 0 160 216" CMM_Caption=""/>
+		<image name="cleric_icon" file="\skin\class_guide\cleric_icon.png" imgrect="0 0 160 216" CMM_Caption=""/>
+		<image name="archer_icon" file="\skin\class_guide\archer_icon.png" imgrect="0 0 160 216" CMM_Caption=""/>
+	</imagelist>
+	<imagelist category="class_guide_master">
+		<image name="alchemist_master" file="\skin\class_guide\alchemist_master.png" imgrect="0 0 412 418"/>
+		<image name="archer_master" file="\skin\class_guide\archer_master.png" imgrect="0 0 412 418"/>
+		<image name="barbarian_master" file="\skin\class_guide\barbarian_master.png" imgrect="0 0 412 418"/>
+		<image name="bokor_master" file="\skin\class_guide\bokor_master.png" imgrect="0 0 412 418"/>
+		<image name="bulletmarker_master" file="\skin\class_guide\bulletmarker_master.png" imgrect="0 0 412 418"/>
+		<image name="cannoneer_master" file="\skin\class_guide\cannoneer_master.png" imgrect="0 0 412 418"/>
+		<image name="cataphract_master" file="\skin\class_guide\cataphract_master.png" imgrect="0 0 412 418"/>
+		<image name="chronomancer_master" file="\skin\class_guide\chronomancer_master.png" imgrect="0 0 412 418"/>
+		<image name="cleric_master" file="\skin\class_guide\cleric_master.png" imgrect="0 0 412 418"/>
+		<image name="corsair_master" file="\skin\class_guide\corsair_master.png" imgrect="0 0 412 418"/>
+		<image name="cryomancer_master" file="\skin\class_guide\cryomancer_master.png" imgrect="0 0 412 418"/>
+		<image name="dievdirbys_master" file="\skin\class_guide\dievdirbys_master.png" imgrect="0 0 412 418"/>
+		<image name="doppelsoeldner_master" file="\skin\class_guide\doppelsoeldner_master.png" imgrect="0 0 412 418"/>
+		<image name="dragoon_master" file="\skin\class_guide\dragoon_master.png" imgrect="0 0 412 418"/>
+		<image name="druid_master" file="\skin\class_guide\druid_master.png" imgrect="0 0 412 418"/>
+		<image name="elementalist_master" file="\skin\class_guide\elementalist_master.png" imgrect="0 0 412 418"/>
+		<image name="enchanter_master" file="\skin\class_guide\enchanter_master.png" imgrect="0 0 412 418"/>
+		<image name="exorcist_master" file="\skin\class_guide\exorcist_master.png" imgrect="0 0 412 418"/>
+		<image name="falconer_master" file="\skin\class_guide\falconer_master.png" imgrect="0 0 412 418"/>
+		<image name="featherfoot_master" file="\skin\class_guide\featherfoot_master.png" imgrect="0 0 412 418"/>
+		<image name="fencer_master" file="\skin\class_guide\fencer_master.png" imgrect="0 0 412 418"/>
+		<image name="fletcher_master" file="\skin\class_guide\fletcher_master.png" imgrect="0 0 412 418"/>
+		<image name="hackapell_master" file="\skin\class_guide\hackapell_master.png" imgrect="0 0 412 418"/>
+		<image name="highlander_master" file="\skin\class_guide\highlander_master.png" imgrect="0 0 412 418"/>
+		<image name="hoplite_master" file="\skin\class_guide\hoplite_master.png" imgrect="0 0 412 418"/>
+		<image name="hunter_master" file="\skin\class_guide\hunter_master.png" imgrect="0 0 412 418"/>
+		<image name="inquisitor_master" file="\skin\class_guide\inquisitor_master.png" imgrect="0 0 412 418"/>
+		<image name="kabbalist_master" file="\skin\class_guide\kabbalist_master.png" imgrect="0 0 412 418"/>
+		<image name="krivis_master" file="\skin\class_guide\krivis_master.png" imgrect="0 0 412 418"/>
+		<image name="lancer_master" file="\skin\class_guide\lancer_master.png" imgrect="0 0 412 418"/>
+		<image name="linker_master" file="\skin\class_guide\linker_master.png" imgrect="0 0 412 418"/>
+		<image name="matador_master" file="\skin\class_guide\matador_master.png" imgrect="0 0 412 418"/>
+		<image name="mergen_master" file="\skin\class_guide\mergen_master.png" imgrect="0 0 412 418"/>
+		<image name="monk_master" file="\skin\class_guide\monk_master.png" imgrect="0 0 412 418"/>
+		<image name="murmillo_master" file="\skin\class_guide\murmillo_master.png" imgrect="0 0 412 418"/>
+		<image name="musketeer_master" file="\skin\class_guide\musketeer_master.png" imgrect="0 0 412 418"/>
+		<image name="necromancer_master" file="\skin\class_guide\necromancer_master.png" imgrect="0 0 412 418"/>
+		<image name="onmyoji_master" file="\skin\class_guide\onmyoji_master.png" imgrect="0 0 412 418"/>
+		<image name="oracle_master" file="\skin\class_guide\oracle_master.png" imgrect="0 0 412 418"/>
+		<image name="paladin_master" file="\skin\class_guide\paladin_master.png" imgrect="0 0 412 418"/>
+		<image name="pardoner_master" file="\skin\class_guide\pardoner_master.png" imgrect="0 0 412 418"/>
+		<image name="peltasta_master" file="\skin\class_guide\peltasta_master.png" imgrect="0 0 412 418"/>
+		<image name="piedpiper_master" file="\skin\class_guide\piedpiper_master.png" imgrect="0 0 412 418"/>
+		<image name="plaguedoctor_master" file="\skin\class_guide\plaguedoctor_master.png" imgrect="0 0 412 418"/>
+		<image name="priest_master" file="\skin\class_guide\priest_master.png" imgrect="0 0 412 418"/>
+		<image name="psychokino_master" file="\skin\class_guide\psychokino_master.png" imgrect="0 0 412 418"/>
+		<image name="pyromancer_master" file="\skin\class_guide\pyromancer_master.png" imgrect="0 0 412 418"/>
+		<image name="quarrelshooter_master" file="\skin\class_guide\quarrelshooter_master.png" imgrect="0 0 412 418"/>
+		<image name="ranger_master" file="\skin\class_guide\ranger_master.png" imgrect="0 0 412 418"/>
+		<image name="retiarius_master" file="\skin\class_guide\retiarius_master.png" imgrect="0 0 412 418"/>
+		<image name="rodelero_master" file="\skin\class_guide\rodelero_master.png" imgrect="0 0 412 418"/>
+		<image name="rogue_master" file="\skin\class_guide\rogue_master.png" imgrect="0 0 412 418"/>
+		<image name="sadhu_master" file="\skin\class_guide\sadhu_master.png" imgrect="0 0 412 418"/>
+		<image name="sage_master" file="\skin\class_guide\sage_master.png" imgrect="0 0 412 418"/>
+		<image name="sapper_master" file="\skin\class_guide\sapper_master.png" imgrect="0 0 412 418"/>
+		<image name="schwarzerreiter_master" file="\skin\class_guide\schwarzerreiter_master.png" imgrect="0 0 412 418"/>
+		<image name="scout_master" file="\skin\class_guide\scout_master.png" imgrect="0 0 412 418"/>
+		<image name="shadowmancer_master" file="\skin\class_guide\shadowmancer_master.png" imgrect="0 0 412 418"/>
+		<image name="sorcerer_master" file="\skin\class_guide\sorcerer_master.png" imgrect="0 0 412 418"/>
+		<image name="squire_master" file="\skin\class_guide\squire_master.png" imgrect="0 0 412 418"/>
+		<image name="swordsman_master" file="\skin\class_guide\swordsman_master.png" imgrect="0 0 412 418"/>
+		<image name="taoist_master" file="\skin\class_guide\taoist_master.png" imgrect="0 0 412 418"/>
+		<image name="templar_master" file="\skin\class_guide\templar_master.png" imgrect="0 0 412 418"/>
+		<image name="thaumaturge_master" file="\skin\class_guide\thaumaturge_master.png" imgrect="0 0 412 418"/>
+		<image name="warlock_master" file="\skin\class_guide\warlock_master.png" imgrect="0 0 412 418"/>
+		<image name="wizard_master" file="\skin\class_guide\wizard_master.png" imgrect="0 0 412 418"/>
+		<image name="wugushi_master" file="\skin\class_guide\wugushi_master.png" imgrect="0 0 412 418"/>
+		<image name="zealot_master" file="\skin\class_guide\zealot_master.png" imgrect="0 0 412 418"/>
 	</imagelist>
 	<effectimagelist category="effectlist">
 		<image name="blue_orb" file="\icon\blue_orb.tga" imgrect="0 0 256 256"/>

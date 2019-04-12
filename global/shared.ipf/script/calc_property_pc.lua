@@ -1191,15 +1191,16 @@ function SCR_CALC_BASIC_MDEF(self)
 end
 
 function SCR_Get_BLKABLE(self)
-    local abilMatador3 = GetAbility(self, "Matador3");
-    if abilMatador3 ~= nil and abilMatador3.ActiveState == 1 then
-    	return 0;
-    end
-    
     local equipLH = GetEquipItem(self, 'LH');
     local isShield = TryGetProp(equipLH, 'ClassType');
     if isShield == 'Shield' then
-        return 1;
+        local Fencer11_abil = GetAbility(self, "Fencer11")
+        if Fencer11_abil ~= nil and Fencer11_abil.ActiveState == 1 then
+            return 0;
+        else
+            return 1;
+        end
+        
     end
     
 --    local isShield = GetSumOfEquipItem(self, 'BlockRate');
@@ -1207,7 +1208,7 @@ function SCR_Get_BLKABLE(self)
 --        return 1;
 --    end
     
-    local buffList = { "CrossGuard_Buff", "NonInvasiveArea_Buff", "DaggerGuard_Buff"};
+    local buffList = { "CrossGuard_Buff", "NonInvasiveArea_Buff"};
     for i = 1, #buffList do
         if IsBuffApplied(self, buffList[i]) == 'YES' then
             return 2;
@@ -1251,25 +1252,30 @@ function SCR_Get_BLK(self)
     
     local value = byLevel + byStat + byItem + byBlockRate;
     
-    local byAbil = 0;
-    local abilList = { { 'Peltasta5', 0.05 } };
-    for i = 1, #abilList do
-        local abilTemp = GetAbility(self, abilList[i][1]);
-        if abilTemp ~= nil then
-            local abilLevel = abilTemp.Level;
-            local abilRate = abilList[i][2];
-            byAbil = byAbil + (abilLevel * abilRate);
-        end
+    local byItemRareOption = TryGetProp(self, 'ITEM_BlockRate');
+    if byItemRareOption == nil then
+        byItemRareOption = 0;
     end
     
-    byAbil = value * byAbil;
+    byItemRareOption = math.floor(value * (byItemRareOption / 1000));
+    
+    local byAbil = 0;
+--    local abilList = { { 'Peltasta5', 0.05 } };
+--    for i = 1, #abilList do
+--        local abilTemp = GetAbility(self, abilList[i][1]);
+--        if abilTemp ~= nil then
+--            local abilLevel = abilTemp.Level;
+--            local abilRate = abilList[i][2];
+--            byAbil = byAbil + (abilLevel * abilRate);
+--        end
+--    end
     
     local byBuff = TryGetProp(self, "BLK_BM");
     if byBuff == nil then
         byBuff = 0;
     end
     
-    value = value + byAbil + byBuff;
+    value = value + byItemRareOption + byAbil + byBuff;
     
     if value < 0 then
         value = 0;
@@ -1298,6 +1304,15 @@ function SCR_Get_BLK_BREAK(self)
         byItem = 0;
     end
     
+    local value = byLevel + byStat + byItem;
+    
+    local byItemRareOption = TryGetProp(self, 'ITEM_BlockBreakRate');
+    if byItemRareOption == nil then
+        byItemRareOption = 0;
+    end
+    
+    byItemRareOption = math.floor(value * (byItemRareOption / 1000));
+    
     local byBuff = TryGetProp(self, "BLK_BREAK_BM");
     if byBuff == nil then
         byBuff = 0;
@@ -1308,7 +1323,7 @@ function SCR_Get_BLK_BREAK(self)
         byAbil = 0
     end
     
-    local value = byLevel + byStat + byItem + byBuff + byAbil;
+    local value = value + byItemRareOption + byBuff + byAbil;
     
     return math.floor(value);
 end
@@ -1339,12 +1354,21 @@ function SCR_Get_HR(self)
         byItem = byItem + byItemTemp;
     end
     
+    local value = byLevel + byStat + byItem;
+    
+    local byItemRareOption = TryGetProp(self, 'ITEM_HitRate');
+    if byItemRareOption == nil then
+        byItemRareOption = 0;
+    end
+    
+    byItemRareOption = math.floor(value * (byItemRareOption / 1000));
+    
     local byBuff = TryGetProp(self, "HR_BM");
     if byBuff == nil then
         byBuff = 0;
     end
     
-    local value = byLevel + byStat + byItem + byBuff;
+    value = value + byItemRareOption + byBuff;
     
     if value < 0 then
     	value = 0
@@ -1379,12 +1403,21 @@ function SCR_Get_DR(self)
         byItem = byItem + byItemTemp;
     end
     
+    local value = byLevel + byStat + byItem;
+    
+    local byItemRareOption = TryGetProp(self, 'ITEM_DodgeRate');
+    if byItemRareOption == nil then
+        byItemRareOption = 0;
+    end
+    
+    byItemRareOption = math.floor(value * (byItemRareOption / 1000));
+    
     local byBuff = TryGetProp(self, "DR_BM");
     if byBuff == nil then
         byBuff = 0;
     end
     
-    local value = byLevel + byStat + byItem + byBuff;
+    value = value + byItemRareOption + byBuff;
     
     return math.floor(value);
 end
@@ -1424,12 +1457,21 @@ function SCR_Get_CRTHR(self)
         byItem = 0;
     end
     
-    local byBuff = TryGetProp(self, "CRTHR_BM");
-    if byBuff == nil then
-        byBuff = 1;
+    local value = byLevel + byItem;
+    
+    local byItemRareOption = TryGetProp(self, 'ITEM_CriticalHitRate');
+    if byItemRareOption == nil then
+        byItemRareOption = 0;
     end
     
-    local value = byLevel + byItem + byBuff;
+    byItemRareOption = math.floor(value * (byItemRareOption / 1000));
+    
+    local byBuff = TryGetProp(self, "CRTHR_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    value = value + byItemRareOption + byBuff;
     
     return math.floor(value);
 end
@@ -1447,13 +1489,22 @@ function SCR_Get_CRTDR(self)
         byItem = 0;
     end
     
-    local byBuff = TryGetProp(self, "CRTDR_BM");
-    if byBuff == nil then
-        byBuff = 1;
+    local value = byLevel + byItem;
+    
+    local byItemRareOption = TryGetProp(self, 'ITEM_CriticalDodgeRate');
+    if byItemRareOption == nil then
+        byItemRareOption = 0;
     end
     
-    local value = byLevel + byItem + byBuff;
+    byItemRareOption = math.floor(value * (byItemRareOption / 1000));
     
+    local byBuff = TryGetProp(self, "CRTDR_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    value = value + byItemRareOption + byBuff;
+	
     return math.floor(value);
 end
 
@@ -1844,7 +1895,7 @@ function SCR_Get_KDArmorType(self)
         value = 1;
     end
     
-    local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff" };
+    local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff", "Marschierendeslied_Buff", "Methadone_Buff" };
     for i = 1, #buffList do
         if IsBuffApplied(self, buffList[i]) == 'YES' then
             value = 99999;
@@ -1873,6 +1924,10 @@ function SCR_Get_MSPD(self)
     
     if IsBuffApplied(self, 'SnipersSerenity_Buff') == 'YES' then
     	return 10;
+    end
+    
+    if IsBuffApplied(self, 'MissileHole_MSPD_Buff') == 'YES' then
+    	return 60;
     end
     
     local value = 30.0;
@@ -1977,6 +2032,10 @@ function SCR_Get_MSPD(self)
     
     value = value * SERV_MSPD_FIX;
     
+    if value < 10 then
+    	value = 10
+    end
+    
     return math.floor(value);
 end
 
@@ -2044,7 +2103,7 @@ function SCR_Get_SR(self)
     end
     
     local byAbil = 0;
-    local abilPropList = { 'ABIL_THSWORD_SR', 'ABIL_THSTAFF_SR' };
+    local abilPropList = { 'ABIL_THSWORD_SR', 'ABIL_THSTAFF_SR', 'ABIL_THMACE_SR' };
     for i = 1, #abilPropList do
         local abilProp = GetExProp(self, abilPropList[i])
         if abilProp == nil then
@@ -2183,7 +2242,7 @@ function SCR_PC_MOVINGSHOTABLE(pc)
         return 1;
     end
     
-    local buffList = { "Warrior_EnableMovingShot_Buff", "Warrior_RushMove_Buff" }
+    local buffList = { "Warrior_EnableMovingShot_Buff", "Warrior_RushMove_Buff", "Cyclone_EnableMovingShot_Buff" }
     for i = 1, #buffList do
         if IsBuffApplied(pc, buffList[i]) == "YES" then
             return 1;
@@ -2210,6 +2269,10 @@ function SCR_MOVING_SHOT_SPEED(pc) -- archer moving shot
             
             value = value + byBuff;
         end
+    end
+    
+    if value > 5 then
+    	value = 5
     end
     
     return value;
@@ -2301,6 +2364,10 @@ function SCR_Get_Sta_Run(self)
     addRateConsumptionSTA = addRateConsumptionSTA + byRateBuff;
     
     value = value + (value * addRateConsumptionSTA);
+    
+    if IsBuffApplied(self, 'Sprint_Buff') == 'YES' then
+        value = 0;
+    end
     
     return math.floor(value);
 end
@@ -3712,4 +3779,117 @@ function SCR_Get_HEAL_PWR(self)
     end
     
     return math.floor(value);
+end
+
+
+
+-- PC ITEM PROP LIST --
+
+function SCR_GET_ITEM_MAIN_WEAPON_DAMAGE_RATE(self)
+	local propName = "RareOption_MainWeaponDamageRate";
+	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+function SCR_GET_ITEM_SUB_WEAPON_DAMAGE_RATE(self)
+	local propName = "RareOption_SubWeaponDamageRate";
+
+	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+function SCR_GET_ITEM_BOSS_DAMAGE_RATE(self)
+	local propName = "RareOption_BossDamageRate";
+	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+function SCR_GET_ITEM_MELEE_REDUCED_RATE(self)
+	local propName = "RareOption_MeleeReducedRate";
+	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+function SCR_GET_ITEM_MAGIC_REDUCED_RATE(self)
+	local propName = "RareOption_MagicReducedRate";
+	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+function SCR_GET_ITEM_PVP_DAMAGE_RATE(self)
+	local propName = "RareOption_PVPDamageRate";
+	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+function SCR_GET_ITEM_PVP_REDUCED_RATE(self)
+	local propName = "RareOption_PVPReducedRate";
+	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+function SCR_GET_ITEM_CRITICAL_DAMAGE_RATE(self)
+	local propName = "RareOption_CriticalDamage_Rate";
+	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+function SCR_GET_ITEM_CRITICAL_HIT_RATE(self)
+	local propName = "RareOption_CriticalHitRate";
+	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+function SCR_GET_ITEM_CRITICAL_DODGE_RATE(self)
+	local propName = "RareOption_CriticalDodgeRate";
+	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+function SCR_GET_ITEM_HIT_RATE(self)
+	local propName = "RareOption_HitRate";
+	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+function SCR_GET_ITEM_DODGE_RATE(self)
+	local propName = "RareOption_DodgeRate";
+	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+function SCR_GET_ITEM_BLOCKBREAK_RATE(self)
+	local propName = "RareOption_BlockBreakRate";
+	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+function SCR_GET_ITEM_BLOCK_RATE(self)
+	local propName = "RareOption_BlockRate";
+	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+-- PC ITEM PROP COMMON CHECK --
+function SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName)
+	local optionValue = GetTopRandomOptionRare(self, propName);
+	if optionValue == nil then
+		optionValue = 0;
+	end
+	
+	return optionValue;
 end

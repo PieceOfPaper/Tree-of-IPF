@@ -165,4 +165,10 @@
 	<Category Name="ColonyWar">
 		<Class ClassID="801047" OverrideType="ADD" ClassName="STEAM_COLONY_WAR_ONEDAY_REWARD_MSG{itemName}{itemCount}{nowCount}{limitCount}" Data="길드 콜로니전 참여 보상으로  [{itemName}] x {itemCount} 개 지급{nl}(일일 지급 횟수 : {nowCount}/{limitCount} 회)"/>
 	</Category>
+	<Category Name="UIText">
+		<Class ClassID="21293" ClassName="pcbang_shop" Data="Popo Shop"/>
+		<Class ClassID="21294" ClassName="PCBangPointShopPurchasePleaseRefresh" Data="Popo Shop의 재시도 버튼을 클릭해주세요"/>
+		<Class ClassID="21298" ClassName="PCBangPointShopPurchaseFailed" Data="Popo Shop 아이템 구매에 실패했습니다. 다시 시도해 주세요."/>
+		<Class ClassID="21302" ClassName="PCBangLackOfPoint" Data="Popo Shop 포인트가 부족합니다."/>
+	</Category>
 </idspace>

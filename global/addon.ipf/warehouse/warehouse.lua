@@ -151,17 +151,34 @@ function WAREHOUSE_INV_RBTN(itemObj, slot)
 	local icon = slot:GetIcon();
 	local iconInfo = icon:GetInfo();
 	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
+	
 	local obj = GetIES(invItem:GetObject());
-	if CHECK_EMPTYSLOT(frame, obj) == 1 then
+	if CHECK_EMPTYSLOT(frame, obj) == 1 then        
 		return
 	end
 
-
-	local fromFrame = slot:GetTopParentFrame()
+	if true == invItem.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));        
+		return;
+	end
 	
-	if fromFrame:GetName() == "inventory" then
+	local itemCls = GetClassByType("Item", invItem.type);
+	if itemCls.ItemType == 'Quest' then
+		ui.MsgBox(ScpArgMsg("IT_ISNT_REINFORCEABLE_ITEM"));
+		return;
+	end
+	
+	if tonumber(itemCls.LifeTime) > 0 then
+		ui.MsgBox(ScpArgMsg("IsItemLifeTime"));
+		return;
+	end
+    	
+	AUTO_CAST(slot);
+	local fromFrame = slot:GetTopParentFrame();
+
+	if fromFrame:GetName() == "inventory" then        
 		if invItem.count > 1 then
-			INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_PUT_ITEM_TO_WAREHOUSE", invItem.count, 1, invItem.count, nil, tostring(invItem:GetIESID()), 1);
+			INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_PUT_ITEM_TO_WAREHOUSE", invItem.count, 1, invItem.count, nil, tostring(invItem:GetIESID()));
 		else
 			item.PutItemToWarehouse(IT_WAREHOUSE, invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
 		end

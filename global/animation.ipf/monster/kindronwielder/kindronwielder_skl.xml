@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<Particle frame="4" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
-	<AfterImage frame="3" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
-	<AfterImage frame="5" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
-	<Shockwave frame="4" type="2" intensity="0.8" frequency="50" duration="0.2" range="500"/>
-	<Sound frame="0.00" soundFile="mon_voice_rooto_11"/>
-	<Sound frame="4.00" soundFile="mon_rudas_loxodon_kback"/>
-	<Sound frame="4.00" soundFile="mon_saurman_priest_dead"/>
+    <Sound frame="0.00" soundFile="mon_voice_rooto_11"/>
+    <AfterImage frame="3" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+    <Particle frame="4" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+    <Shockwave frame="4" type="2" intensity="0.8" frequency="50" duration="0.2" range="500"/>
+    <AfterImage frame="5" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
 </ActionDesc>

@@ -33,3 +33,15 @@ function FOODTABLE_NEED_PRICE(skillName, sklLevel)
 	
 end
 
+function IS_ENALBE_APPLY_CAMP_BUFF(self, buffName)
+    local buffCls = GetClass('Buff', buffName);
+    if buffCls == nil then
+        return 0;
+    end
+    
+    if IS_CONTAIN_KEYWORD_BUFF(buffCls, "CampBuffTime") == true then
+        return 0; -- 0반환하면 안해줌
+    end
+    
+    return 1;
+end

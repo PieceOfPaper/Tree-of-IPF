@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe>
+	<controls>
+		<picture name="computer_pic" rect="0 0 38 40" margin="5 2 0 0" parent="point_gb" layout_gravity="left center" image="pp_point_icon" stretch="true"/>
+		<!--메뉴 탭-->
+		<tabitem name="main_tab" parent="tab" layout_gravity="left top" caption="{@st66b}{/}" width="0"/>
+	</controls>
+</uiframe>

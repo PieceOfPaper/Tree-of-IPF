@@ -145,15 +145,16 @@ function HOLD_EXP_BOOK_TIME(frame, data, argStr, argNum)
 end
 
 function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)	
-	local icon 				= slot:GetIcon();
-	local imageName 		= 'icon_' .. class.Icon;
+	local icon = slot:GetIcon();
+	local imageName = 'icon_' .. class.Icon;
 
 	icon:Set(imageName, 'BUFF', buffType, 0);
 	icon:SetUserValue("BuffIndex", buffIndex);	
 	if tonumber(handle) == nil then
-		return
+		return;
 	end
-	local buff 					= info.GetBuff(tonumber(handle), buffType);
+
+	local buff = info.GetBuff(tonumber(handle), buffType);
 	if nil == buff then
 		return;
 	end
@@ -168,12 +169,10 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
     	slot:SetEventScript(ui.RBUTTONUP, 'REMOVE_BUF');
     	slot:SetEventScriptArgNumber(ui.RBUTTONUP, buffType);
 	end
+
 	slot:EnableDrop(0);
 	slot:EnableDrag(0);
 
-	--slot:SetEventScript(ui.LBUTTONUP, 'HOLD_EXP_BOOK_TIME');  -- 경험의서, 수동 on/off , 좌클릭시에 이벤트 발생
-	--slot:SetEventScriptArgNumber(ui.LBUTTONUP, buffType);     -- 인자로 buffID를 넘김
-	
 	capt:ShowWindow(1);
 	capt:SetText(GET_BUFF_TIME_TXT(buff.time, 0));
 	
@@ -192,14 +191,11 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 		icon:SetTooltipType('premium');
 		icon:SetTooltipArg(handle, buffType, buff.arg1);
 	else
-	icon:SetTooltipType('buff');
-	icon:SetTooltipArg(handle, buffType, buffIndex);
+	    icon:SetTooltipType('buff');
+	    icon:SetTooltipArg(handle, buffType, buffIndex);
 	end
 
-	--slot:SetSkinName(class.SlotType);
-
 	slot:Invalidate();
-
 end
 
 function SET_DEBUFF_CAPTION_OFFSET(slotset, buff_ui)
@@ -273,6 +269,7 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 	if "None" == buffIndex or nil == buffIndex then
 		buffIndex = 0;
 	end
+    buffIndex = tonumber(buffIndex);
 
 	local class = GetClassByType('Buff', buffType);
 	if class.ShowIcon == "FALSE" then
@@ -339,17 +336,15 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 			end
 		end
 
-	elseif msg == "UPDATE" then
-
-			for i = 0, slotcount - 1 do
-
-			local slot		= slotlist[i];
-			local text		= captionlist[i];
-			local oldIcon 		= slot:GetIcon();
+	elseif msg == "UPDATE" then    
+		for i = 0, slotcount - 1 do
+			local slot = slotlist[i];
+			local text = captionlist[i];
+			local oldIcon = slot:GetIcon();
 
 			if slot:IsVisible() == 1 then
 				local iconInfo = oldIcon:GetInfo();
-				if iconInfo.type == buffType and oldIcon:GetUserIValue("BuffIndex") == buffIndex then
+				if iconInfo.type == buffType and oldIcon:GetUserIValue("BuffIndex") == buffIndex then                
 					SET_BUFF_SLOT(slot, captionlist[i], class, buffType, handle, slotlist, buffIndex);
 					break;
 				end

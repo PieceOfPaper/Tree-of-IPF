@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
 <uiframe name="loginui_autojoin" x="0" y="0" width="1920" height="1080">
 	<frame title="로그인" margin="0 0 0 0" fullheight="true" layout_gravity="center bottom" scale_align="center bottom"/>
 	<layer layerlevel="11"/>
@@ -35,10 +35,11 @@
 			<uieffect effect="UI_light013_spark_blue2" scale="10" overlab="No" sound="None" offset="5 -2" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"/>
 			<uieffect effect="I_screen_button_start" scale="10" overlab="No" sound="None" offset="3 0" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"/>
 		</button>
-		<button name="replay" caption="{@st41b}리플레이{/}" rect="0 0 160 50" layout_gravity="right bottom" margin="0 0 390 -2025" textoffset="0 0" textalign="center center" skin="test_gray_button" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TOGGLE_REPLAY"/>
-		<button name="singleMode" caption="{@st41b}싱글 모드{/}" rect="0 0 160 50" layout_gravity="right bottom" margin="0 0 220 -2025" textoffset="0 0" textalign="center center" skin="test_gray_button" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="app.ClientSingleBarrack()"/>
+		<button name="replay" caption="{@st41b}리플레이{/}" rect="0 0 160 50" layout_gravity="right bottom" margin="0 0 390 -1925" textoffset="0 0" textalign="center center" skin="test_gray_button" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="TOGGLE_REPLAY"/>
+		<button name="singleMode" caption="{@st41b}싱글 모드{/}" rect="0 0 160 50" layout_gravity="right bottom" margin="0 0 220 -1925" textoffset="0 0" textalign="center center" skin="test_gray_button" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="app.ClientSingleBarrack()"/>
 		<button name="SYS.EXITAPP" caption="{@st41b}게임 종료{/}" rect="0 0 160 50" layout_gravity="right bottom" margin="0 0 50 25" textoffset="0 0" textalign="center center" skin="test_graytored_button" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" tooltipcaption="{@st59}게임을 종료합니다{/}" tooltipwidth="256" LBtnUpScp="app.Quit()"/>
 		<button name="creditbtn" caption="{@st41b}크레디트{/}" rect="0 0 160 50" layout_gravity="right bottom" margin="0 0 50 85" textoffset="0 0" textalign="center center" skin="test_gray_button" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" tooltipcaption="{@st59}크레디트{/}" tooltipwidth="256" LBtnUpScp='ui.ToggleFrame("newcredit")'/>
-		<checkbox name="save" caption="저장" fontname="white_20_ol" rect="0 0 100 30" layout_gravity="center bottom" margin="180 0 0 -2445" oversound="button_over" clicksound="button_click" tooltipcaption="{@st59}체크하면 계정을 저장합니다{/}" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" tooltipwidth="256"/>
+		<checkbox name="save" caption="저장" fontname="white_20_ol" rect="0 0 100 30" layout_gravity="right bottom" margin="0 0 330 -2025" oversound="button_over" clicksound="button_click" tooltipcaption="{@st59}체크하면 계정을 저장합니다{/}" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" tooltipwidth="256"/>
+		<checkbox name="check_EnableAnimateBackgroundIllustration" rect="0 0 120 30" margin="0 0 250 30" layout_gravity="right bottom" ConfigName="EnableAnimateBackgroundIllustration" caption="움직이는 일러스트 켜기" clicksound="button_click_big" fontname="white_20_ol" oversound="button_over" LBtnUpScp="ENABLE_ANIMATE_BACKGROUND_ILLUSTRATION"/>
 	</controls>
 </uiframe>

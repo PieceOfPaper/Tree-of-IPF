@@ -7,6 +7,7 @@
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<userconfig DROPBOX_TEXT="{@st41d}               숙소"/>
 	<layer layerlevel="80"/>
+  <script CloseScp="CLOSE_INPUT_DROPLIST_BOX"/>
 	<controls>
 		<groupbox name="bg" rect="0 0 478 196" margin="0 42 0 0" layout_gravity="center top" draw="false"/>
 		<richtext name="richtext_1" rect="0 0 469 49" margin="0 25 0 0" layout_gravity="center top" parent="bg" format="{@st66d}{s20}%s {@st66d_y}{s20}%s{@st66b}{s18}의{nl}숙소를 이동하겠습니까?" param1="JobName" param1_def="wizard" param2="CharName" param2_def="kkk" textalign="center center" fixwidth="true"/>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="induninfo">
+	<controls>
+		<groupbox name="countBox"/>
+		<picture name="countPic" parent="countBox" rect="0 0 27 27" margin="0 0 0 0" layout_gravity="left center" image="indun_entrance"/>
+		<picture name="cyclePic" parent="countBox" rect="0 0 48 27" margin="140 2 0 0" layout_gravity="left center" image="indun_icon_week_l"/>
+	</controls>
+</uiframe>

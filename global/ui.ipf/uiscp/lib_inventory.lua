@@ -308,6 +308,15 @@ function INV_GET_SLOTSET_NAME_BY_ITEMGUID(itemGUID)
 
 end
 
+function INV_GET_SLOT_BY_TYPE(type, frame, isAll)
+	local invitem = session.GetInvItemByType(type);
+	if invitem == nil then
+		return;
+	end
+	local slot = INV_GET_SLOT_BY_ITEMGUID(invitem:GetIESID(), frame, isAll);
+	return slot;
+end
+
 function INV_GET_SLOT_BY_ITEMGUID(itemGUID, frame)
 
 	if frame == nil then
@@ -601,11 +610,8 @@ function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
 		local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
 
 		SET_SLOT_IMG(slot, iconImg)
+		SET_SLOT_COUNT(slot, invItem.count)
 
-		if itemCls.ItemType ~= "Equip" then
-			SET_SLOT_COUNT(slot, invItem.count)
-			SET_SLOT_COUNT_TEXT(slot, invItem.count);
-		end
         local icon = slot:GetIcon();
 
         if itemCls.ItemType == 'Equip' then
@@ -645,11 +651,8 @@ function SET_SLOT_INFO_FOR_WAREHOUSE(slot, invItem, tooltipType)
     local itemCls = GetIES(invItem:GetObject());
 	local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
     SET_SLOT_IMG(slot, iconImg)
-
-	if itemCls.ItemType ~= "Equip" then
-		SET_SLOT_COUNT(slot, invItem.count)
-		SET_SLOT_COUNT_TEXT(slot, invItem.count);
-	end
+	SET_SLOT_COUNT(slot, invItem.count)
+	
     local icon = slot:GetIcon();
     
     if itemCls.ItemType == 'Equip' then

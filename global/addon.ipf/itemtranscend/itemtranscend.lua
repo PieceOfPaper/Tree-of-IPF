@@ -715,13 +715,11 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 	
 	local timesecond = 0;
 	if isSuccess == 1 then
-		ui.SysMsg(ScpArgMsg("SuccessToTranscend"));
 		imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_SUCCESS_SOUND"));
 		slot:StopActiveUIEffect();
 		slot:PlayActiveUIEffect();
 		timesecond = 2;
 	else
-		ui.SysMsg(ScpArgMsg("FailedToTranscend"));
 		imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_FAIL_SOUND"));
 		local slotTemp = GET_CHILD(frame, "slotTemp");
 		slotTemp:ShowWindow(1);
@@ -735,10 +733,7 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 	local reg = GET_CHILD_RECURSIVELY(gbox, "reg");
 
 	local invItem = GET_SLOT_ITEM(slot);
-	if invItem == nil then
-		if isSuccess == 0 then
-			ui.SysMsg(ClMsg('ItemDeleted'));
-		end
+	if invItem == nil then		
 		ui.SetHoldUI(false);
 		slot:ClearIcon();
 		ITEMTRANSCEND_LOCK_ITEM("None");
@@ -842,6 +837,10 @@ function IS_ENABLE_BUFF_STATE_TO_REINFORCE_OR_TRANSCEND_C()
 
 	if info.GetBuffByName(myHandle, 'OverEstimate_Buff') ~= nil then
 		return 'OverEstimate_Buff';
+	end
+	
+	if info.GetBuffByName(myHandle, 'OverReinforce_Buff') ~= nil then
+		return 'OverReinforce_Buff';
 	end
 
 	if info.GetBuffByName(myHandle, 'Devaluation_Debuff') ~= nil then

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<AttachModel frame="0" XAC="matador_cpae" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="matador_cpae_skl_Capote.xsm"/>
+	<Sound frame="0.00" soundFile="skl_eff_matador_capote"/>
+	<Particle frame="1" attachNode="dummy_emitter" particleName="F_spread_out032_red_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<BlendOn frame="3" R="120" G="60" B="50" A="100"/>
+	<BlendOff frame="10" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

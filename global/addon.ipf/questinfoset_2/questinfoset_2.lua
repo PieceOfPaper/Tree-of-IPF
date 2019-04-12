@@ -1058,7 +1058,7 @@ function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
     
 	if table.find(banQuestWarpZone,GetZoneName(pc)) == 0 and GetLayer(pc) == 0 and ( (result == 'POSSIBLE' and questIES.POSSI_WARP == 'YES') or (result == 'PROGRESS' and questIES.PROG_WARP == 'YES') or (result == 'SUCCESS' and questIES.SUCC_WARP == 'YES')) then
         local questnpc_state = GET_QUEST_NPC_STATE(questIES, result);
-
+        
         if questnpc_state ~= nil then
     		local mapProp = geMapTable.GetMapProp(questIES[questnpc_state..'Map']);
     		if mapProp ~= nil then
@@ -2168,6 +2168,10 @@ function MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y, font)
         return y
     end
     
+    if GET_QUESTINFO_PC_FID() ~= 0 then
+        return y
+    end
+    
     local quest_auto = GetClassByType("QuestProgressCheck_Auto", questIES.ClassID);
     
     local repeat_reward_item = {}
@@ -2204,7 +2208,7 @@ function MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y, font)
         font = '{@st42b}'
     end
     
-    if qRewardExp > 0 and session.GetMaxEXP() - session.GetEXP() - qRewardExp <= 0 then
+    if pc.Lv < PC_MAX_LEVEL and qRewardExp > 0 and session.GetMaxEXP() - session.GetEXP() - qRewardExp <= 0 then
         local content = ctrlset:CreateOrGetControl('richtext', 'QUESTINFOREWARDLVUP', startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
     	content:EnableHitTest(0);
     	content:SetTextFixWidth(0);

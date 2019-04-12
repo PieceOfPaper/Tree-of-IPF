@@ -109,7 +109,7 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
     local mon_attribute_img = TARGETINFO_GET_ATTRIBUTE_SKIN_ANG_IMG(frame, targetinfo, targetHandle);
     local attribute = targetinfo.attribute
     local attributeImgName = "attribute_"..attribute
-	if attributeImgName == "None" then
+	if attributeImgName == "None" or attribute == "None" then
 		mon_attribute_img:ShowWindow(0)
 	else
 		mon_attribute_img:ShowWindow(1)

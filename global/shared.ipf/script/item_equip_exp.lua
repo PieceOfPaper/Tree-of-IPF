@@ -71,9 +71,7 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1805_NEWUSER_BUFF_2'); --너, 내 동료가 돼라 이벤트 2
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Danoh_3'); --대만 단오절
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Wedding'); --스팀 웨딩 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Nru_Buff_Item'); --해외 신규 유저 이벤트
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Monster_EXP_UP'); --해외 페이스북 컴패니언 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Happy_New_Year'); --해외 신년 이벤트
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_1'); --비 이벤트
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_2'); --비 이벤트
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_3'); --비 이벤트
@@ -81,19 +79,12 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_5'); --비 이벤트
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1708_JURATE_1'); --비 이벤트
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Last_Winter'); --마지막 겨울
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Base_Buff'); --해외 버프
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Friend_Rookie'); --친구 추천 버프_신규
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Friend_Savior'); --친구 추천 버프_기존
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_1'); --출석 체크
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_2'); --출석 체크
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_3'); --출석 체크
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_4'); --출석 체크
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_5'); --출석 체크
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_6'); --출석 체크
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Server_Buff'); --스팀 버전업 이벤트
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_FireSongPyeon'); --폭죽 버프
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1807_POOL_TABLE_BUFF'); --[Summer Festa] 휴식
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1807_BALL_CRACKER'); --[Summer Festa] 폭죽
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1807_WEEKEND_BUFF_1'); --[For 10] 경험치 버닝
 	return sumExp; 
 end
 

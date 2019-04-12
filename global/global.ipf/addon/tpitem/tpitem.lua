@@ -196,9 +196,6 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	
 	local tempGbox_for_scroll = GET_CHILD_RECURSIVELY(frame,"tempGbox_for_scroll")
 	tempGbox_for_scroll:SetEventScript(ui.MOUSEWHEEL, "TPSHOP_PREVIEW_ZOOM");
-
-	control.EnableControl(0);
-	ui.SetUILock(true);
 end
 
 function CHECK_LIMIT_PAYMENT_STATE_C()

@@ -155,15 +155,25 @@ function HIDE_CHILD(frame, name)
 	end
 end
 
-function SHOW_CHILD_BY_USERVALUE(frame, valueName, value, isVisible)
+--다른 유저 숙소 방문시에는 [캐릭 생성, 삭제, 숙소 이동, ▲, ▼, 로그아웃, 게임종료] 버튼 숨김
+function SHOW_BTNS(frame, onoff)
+	local createCharBtn = GET_CHILD_RECURSIVELY(frame, "button_new_char")
+	local deleteCharBtn = GET_CHILD_RECURSIVELY(frame, "button_char_del")
+	local barrackChangeBtn = GET_CHILD_RECURSIVELY(frame, "button_barrack_change")
+	local upBtn = GET_CHILD_RECURSIVELY(frame, "button_up")
+	local downBtn = GET_CHILD_RECURSIVELY(frame, "button_down")
+	createCharBtn:ShowWindow(onoff);
+	deleteCharBtn:ShowWindow(onoff);
+	barrackChangeBtn:ShowWindow(onoff)
+	upBtn:ShowWindow(onoff)
+	downBtn:ShowWindow(onoff)
 
-	local cnt = frame:GetChildCount();
-	for  i = 0, cnt -1 do
-		local slot = frame:GetChildByIndex(i);
-		if slot:GetUserValue(valueName) == value then
-			slot:ShowWindow(isVisible);
-		end
-	end
+
+	local exitFrame = ui.GetFrame("barrack_exit")
+	local logoutBtn = GET_CHILD_RECURSIVELY(exitFrame, "logout")
+	local exitBtn = GET_CHILD_RECURSIVELY(exitFrame, "exit")
+	logoutBtn:ShowWindow(onoff)
+	exitBtn:ShowWindow(onoff)
 end
 
 function DESTROY_CHILD_BYNAME_EXCEPT(frame, searchname, exceptName)

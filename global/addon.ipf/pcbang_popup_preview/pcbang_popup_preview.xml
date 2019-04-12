@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="pcbang_popup_preview" x="0" y="0" width="550" height="400">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
+	<skin frameskin="test_win_system"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<layer layerlevel="101"/>
+	<controls>
+		<richtext name="item_name" rect="0 0 200 30" margin="0 50 0 0" layout_gravity="center top" caption="item name" fontname="brown_18_b" spacey="0"/>
+		<picture name="silhouette_male_pic" rect="0 0 200 352" margin="80 30 0 0" layout_gravity="left center" hittest="false" scrollbar="false" scale_align="center center" oversound="button_cursor_over_3" stretch="true"/>
+		<picture name="silhouette_female_pic" rect="0 0 200 352" margin="0 30 80 0" layout_gravity="right center" hittest="false" scrollbar="false" scale_align="center center" oversound="button_cursor_over_3" stretch="true"/>
+		<button name="left_btn" rect="0 0 50 50" margin="20 200 0 0" layout_gravity="left top" LBtnUpScp="ON_ROTATE_LEFT_PCBANG_POPUP_PREVIEW_SILHOUETTE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" oversound="button_cursor_over_2" image="button_left_select2" textalign="center center"/>
+		<button name="right_btn" rect="0 0 50 50" margin="0 200 20 0" layout_gravity="right top" LBtnUpScp="ON_ROTATE_RIGHT_PCBANG_POPUP_PREVIEW_SILHOUETTE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" oversound="button_cursor_over_2" image="button_right_select2" textalign="center center"/>
+		<button name="ok_btn" rect="0 0 130 40" margin="0 0 0 20" layout_gravity="center bottom" LBtnUpScp="ON_PCBANG_POPUP_PREVIEW_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}확인{/}" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_pvp_btn" textalign="center center"/>
+	</controls>
+</uiframe>

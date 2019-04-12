@@ -30,8 +30,11 @@ function PAD_SET_HOLD(actor, obj, padGuid)
 
 end
 
-function C_PAD_EFFECT_POS(actor, obj, padGuid, eftName, scl, x, y, z, lifeTime, activeEffect)
-	effect.PlayPadEffect(actor, eftName, scl, x, y, z, lifeTime, activeEffect, padGuid);
+function C_PAD_EFFECT_POS(actor, obj, padGuid, eftName, scl, x, y, z, lifeTime, activeEffect, activeEffect_arg, isEnablePositionCompensation)
+	if isEnablePositionCompensation == nil then
+		isEnablePositionCompensation = 1;
+	end
+	effect.PlayPadEffect(actor, eftName, scl, x, y, z, lifeTime, activeEffect, padGuid, isEnablePositionCompensation);
 end
 
 function C_FORM_PAD_CHANGE_ACTIVE_EFFECT(actor, obj, padGuid, index, activeEffect)

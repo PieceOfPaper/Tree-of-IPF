@@ -1,8 +1,5 @@
 -- tpshop_server.lua
-
-
 function SCR_TX_TP_SHOP(pc, argList)
-
 	if #argList < 1 then
 		IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: argError- aid['..GetPcAIDStr(pc)..']');
 		return
@@ -35,8 +32,15 @@ function SCR_TX_TP_SHOP(pc, argList)
 						curYear = curYear + 1
 					end
 
+                    local curYear = curTime.wYear
+                    local endYear = curTime.wYear
+                    startTime, curYear = CONVERT_NEWTIME_FORMAT_TO_OLDTIME_FORMAT_SERVER(startTime)
+                    endTime, endYear = CONVERT_NEWTIME_FORMAT_TO_OLDTIME_FORMAT_SERVER(endTime)
+                    startTime = tonumber(startTime)
+                    endTime = tonumber(endTime)
+
 					local startSysTimeStr = string.format("%04d%09d%02d", curYear, startTime, '00')	
-					local endSysTimeStr = string.format("%04d%09d%02d", curYear, endTime, '00')
+					local endSysTimeStr = string.format("%04d%09d%02d", endYear, endTime, '00')
 
 					local curSysTime = imcTime.GetSysTimeByStr(curSysTimeStr)
 					local startSysTime = imcTime.GetSysTimeByStr(startSysTimeStr)
@@ -171,7 +175,6 @@ function SCR_TX_TP_SHOP(pc, argList)
 		end
 	end
 end
-
 
 function TX_LIMIT_PAYMENT_STATE(pc, tx, itemPrice, freeMedal)
 	local aobj = GetAccountObj(pc);

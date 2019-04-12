@@ -136,10 +136,8 @@ function GET_INPUT2_STRING_TXT(frame)
 
 end
 
-
-
 function INPUT_DROPLIST_BOX(barrackFrame, strscp, charName, jobName, minNumber, maxNumber)
-	if barrackFrame == nil then
+    if barrackFrame == nil then
 		return
 	end
 
@@ -167,14 +165,15 @@ function INPUT_DROPLIST_BOX(barrackFrame, strscp, charName, jobName, minNumber, 
 	for i = minNumber, maxNumber do
 		dropListText_i = dropListText .. ' ' .. i
 		dropList:AddItem(i, dropListText_i)
-	end
+	end    
 end
 
-function CLOSE_INPUT_DROPLIST_BOX(frame)
-	local frame = ui.GetFrame("barrack_move_popup")
-	if frame ~= nil then
-		ui.CloseFrame("barrack_move_popup")
-	end
+function CLOSE_INPUT_DROPLIST_BOX(frame)    
+	if frame == nil then
+	    frame = ui.GetFrame("barrack_move_popup")
+	end    
+    ui.CloseFrame("barrack_move_popup")
+    enable_char_btn(frame)    
 end
 
 function INPUT_DROPLIST_BOX_EXEC(frame)
@@ -191,5 +190,216 @@ function INPUT_DROPLIST_BOX_EXEC(frame)
 	local resultString = dropList:GetSelItemKey()
 	execScp(frame, resultString, frame);
 	
-	ui.CloseFrame("barrack_move_popup")
+	ui.CloseFrame("barrack_move_popup")    
+end
+
+function INPUT_GETALL_MSG_BOX(frame, ctrl, now, flag, moneyItem)
+
+	-- market 완료 모두받기
+	local marketFrame = ui.GetFrame("market_cabinet");
+	local gBox = GET_CHILD_RECURSIVELY(frame, 'listGbox');
+	if gBox == nil then
+		return
+	end
+	gBox:RemoveAllChild()
+
+	local sysTime = geTime.GetServerSystemTime();
+	local inner_yPos = 0;
+	local count = session.market.GetCabinetItemCount()
+	for i = 0, count - 1 do
+		local cabinetItem = session.market.GetCabinetItemByIndex(i);
+		local whereFrom = cabinetItem:GetWhereFrom();
+
+		-- Time
+		local registerTime = cabinetItem:GetRegSysTime();
+		local difSec = imcTime.GetDifSec(registerTime, sysTime);
+		
+		if whereFrom == 'market_sell' and (difSec <= 0 or difSec == nil) then
+			--Draw ControlSet
+			local soldItemCtrl = gBox:CreateControlSet('market_cabinet_item_sold', 'Item_GetAll_Ctrl_'..i, 0, inner_yPos)
+			inner_yPos = inner_yPos + soldItemCtrl:GetHeight()
+
+			--팝업 UI Text 설정.
+			local itemName = GET_CHILD_RECURSIVELY(soldItemCtrl, "ItemName")
+			local itemObj = GetIES(cabinetItem:GetObject());
+
+			if itemObj.MaxStack <= 1 then
+				local itemReinforce_Level = TryGetProp(itemObj, "Reinforce_2", 0);
+				if itemReinforce_Level > 0 then
+					local levelStr = string.format("+%s ", itemReinforce_Level);
+					itemName:SetTextByKey("value1", levelStr)
+				end
+			end
+
+			itemName:SetTextByKey("value2", itemObj.Name)
+			itemName:SetTextByKey("value3", cabinetItem.sellItemAmount)		
+			itemName:SetTextByKey("value4", GET_COMMAED_STRING(cabinetItem.count))
+
+			--수수료 계산 / 추후 작업
+			--local fees, fessPercent;
+			--if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+				--fees = cabinetItem.count * 0.1
+				--fessPercent = 10;
+			--elseif false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+				--fees = cabinetItem.count * 0.3   	
+				--fessPercent = 30;		
+			--end
+
+		elseif whereFrom ~= 'market_sell' and (difSec <= 0 or difSec == nil)  then 
+			--Draw ControlSet
+			local buyItemCtrl = gBox:CreateControlSet('market_cabinet_item_etc', 'Item_GetAll_Ctrl_'..i, 0, inner_yPos)
+			inner_yPos = inner_yPos + buyItemCtrl:GetHeight()
+
+			--PopUp Text Setting
+			local itemName = GET_CHILD_RECURSIVELY(buyItemCtrl, "ItemName")
+			local itemObj = GetIES(cabinetItem:GetObject());
+			
+			if itemObj.MaxStack <= 1 then
+				local itemReinforce_Level = TryGetProp(itemObj, "Reinforce_2", 0);
+				if itemReinforce_Level > 0 then
+					local levelStr = string.format("+%s ", itemReinforce_Level);
+					itemName:SetTextByKey("value1", levelStr)
+				end
+			end
+
+			itemName:SetTextByKey("value2", itemObj.Name)
+			itemName:SetTextByKey("value3", cabinetItem.count)		
+		end
+	end
+
+	--yes & no Btn
+	local noBtn = GET_CHILD_RECURSIVELY(frame, "button_1")
+	noBtn:SetEventScript(ui.LBUTTONUP, "CLOSE_INPUT_GETALL_MSG_BOX")
+	local yesBtn = GET_CHILD_RECURSIVELY(frame, "button_2")
+	yesBtn:SetEventScript(ui.LBUTTONUP, "CABINET_GET_ALL_LIST")
+	yesBtn:SetEventScriptArgNumber(ui.LBUTTONUP, now)
+end
+
+function CLOSE_INPUT_GETALL_MSG_BOX(frame)
+	local frame = ui.GetFrame("market_cabinet_soldlist")
+	if frame ~= nil then
+		ui.CloseFrame("market_cabinet_soldlist")
+	end
+end
+
+function INPUT_TEXTMSG_BOX(marketFrame, strscp, charName, jobName, minNumber, maxNumber, guid)    
+	-- market 완료 받기
+	if marketFrame == nil then
+		return
+	end
+
+	local cabinetItem = session.market.GetCabinetItemByItemID(guid);
+	local cabinetItem_Obj = GetIES(cabinetItem:GetObject())	
+	local whereFrom = cabinetItem:GetWhereFrom()
+
+	if whereFrom == 'market_sell' then
+		ui.OpenFrame("market_cabinet_popup")
+		frame = ui.GetFrame("market_cabinet_popup")
+    else
+	    ui.OpenFrame("market_cabinet_popup_etc")
+	    frame = ui.GetFrame("market_cabinet_popup_etc")        
+	end
+	if frame == nil then
+		return
+	end
+
+	local gBox = GET_CHILD_RECURSIVELY(frame, 'bg')
+	if gBox == nil then
+		return
+	end
+
+	--아이템 이름 & 갯수 ( & 가격 ) 
+	local itemReinforce_Level = TryGetProp(cabinetItem_Obj, "Reinforce_2", 0);
+	local richText_1 = GET_CHILD_RECURSIVELY(frame, "richtext_1");
+	richText_1:SetTextByKey("itemName", cabinetItem_Obj.Name);	
+	
+	if whereFrom == 'market_sell' then
+		--실 수령 금액 계산
+
+		--수수료 계산 / 추후 작업
+		--local frame, fees, fessPercent;
+		--if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then	
+			--fees = cabinetItem.count * 0.1
+			--fessPercent = 10;
+		--elseif false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+			--fees = cabinetItem.count * 0.3   			
+			--fessPercent = 30;
+		--end
+		if cabinetItem_Obj.MaxStack <= 1 then
+			local levelStr = "";
+			if itemReinforce_Level > 0 then
+				levelStr = string.format("+%s ", itemReinforce_Level);
+			end
+			richText_1:SetTextByKey("item_reinforce_level", levelStr);
+		end
+		richText_1:SetTextByKey("itemCount", cabinetItem.sellItemAmount);
+		richText_1:SetTextByKey("itemPrice", GET_COMMAED_STRING(cabinetItem.count));
+
+		--no btn ( market_sell )
+		local noBtn = GET_CHILD_RECURSIVELY(frame, "button_1")
+		noBtn:SetEventScript(ui.LBUTTONUP, "CLOSE_INPUT_TEXTMSG_BOX")
+		local yesBtn = GET_CHILD_RECURSIVELY(frame, "button_2")
+		yesBtn:SetEventScript(ui.LBUTTONUP, strscp)        
+		yesBtn:SetEventScriptArgString(ui.LBUTTONUP, guid)
+    else 
+		richText_1:SetTextByKey("itemCount", cabinetItem.count);
+		--Reinforce Level Setting
+		local maxStack = cabinetItem_Obj.MaxStack;
+		if maxStack == nil then	
+			maxStack = 1;
+		end
+
+		if maxStack <= 1 then
+			local levelStr = "";
+			if itemReinforce_Level > 0 then
+				levelStr = string.format("+%s ", itemReinforce_Level);
+			end
+			richText_1:SetTextByKey("item_reinforce_level", levelStr);
+		end
+
+		--yes & no btn ( market .. etc )
+		local noBtn = GET_CHILD_RECURSIVELY(frame, "button_1")
+		noBtn:SetEventScript(ui.LBUTTONUP, "CLOSE_INPUT_TEXTMSG_BOX_ETC")
+		local yesBtn = GET_CHILD_RECURSIVELY(frame, "button_2")
+		yesBtn:SetEventScript(ui.LBUTTONUP, strscp)
+		yesBtn:SetEventScriptArgString(ui.LBUTTONUP, guid)
+	end
+end
+
+function CLOSE_INPUT_TEXTMSG_BOX(frame)
+	local frame = ui.GetFrame("market_cabinet_popup")
+	local richText_1 = GET_CHILD_RECURSIVELY(frame, "richtext_1");
+	richText_1:SetTextByKey("itemName", "");	
+	richText_1:SetTextByKey("itemPrice", "");
+	richText_1:SetTextByKey("itemCount", "");
+	richText_1:SetTextByKey("item_reinforce_level", "");
+	
+	if frame ~= nil then
+		ui.CloseFrame("market_cabinet_popup")
+	end
+end
+
+function CLOSE_INPUT_TEXTMSG_BOX_ETC(frame)
+	local frame = ui.GetFrame("market_cabinet_popup_etc")
+	local richText_1 = GET_CHILD_RECURSIVELY(frame, "richtext_1");
+	richText_1:SetTextByKey("itemName", "");	
+	richText_1:SetTextByKey("itemCount", "");
+	richText_1:SetTextByKey("item_reinforce_level", "");
+
+	if frame ~= nil then
+		ui.CloseFrame("market_cabinet_popup_etc")
+	end
+end
+
+function INPUT_TEXTMSG_BOX_EXEC(frame)
+	local frame = ui.GetFrame("market_cabinet_popup")
+	if frame == nil then
+		return
+	end
+
+	local scpName = frame:GetSValue();
+	local execScp = _G[scpName];
+	execScp(frame, resultString, frame);
+	
+	ui.CloseFrame("market_cabinet_popup")
 end

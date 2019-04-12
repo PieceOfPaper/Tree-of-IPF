@@ -292,10 +292,7 @@ function INTRO_IMAGE_UPLOADED(code, ret_json)
 		end
         return;
 	end
-
-
 	ui.MsgBox(ClMsg("ImageUploadSuccess"))
-	--os.remove(tempfilePath)
 end
 
 function SAVE_GUILD_PROMOTE(frame, control)

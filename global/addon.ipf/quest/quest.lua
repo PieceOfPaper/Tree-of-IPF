@@ -1,4 +1,3 @@
-
 function QUEST_ON_INIT(addon, frame)
 	addon:RegisterMsg('GAME_START', 'UPDATE_ALLQUEST');
 	addon:RegisterMsg('QUEST_UPDATE', 'UPDATE_ALLQUEST');
@@ -16,6 +15,8 @@ function QUEST_ON_INIT(addon, frame)
 	addon:RegisterMsg('QUEST_UPDATE_', "UPDATE_ALLQUEST_")
 end
 
+local is_updated_abandonlist = false
+
 function UI_TOGGLE_QUEST()
 	if app.IsBarrackMode() == true then
 		return;
@@ -32,13 +33,13 @@ function IS_ABOUT_JOB(questIES)
 end
 
 
-function ALIGN_QUEST_CTRLS(groupBox)
+function ALIGN_QUEST_CTRLS(groupBox)    
 	ALIGN_CHILDS(groupBox, 0, 10, nil, "_Q_")
 end
 
 s_curtabIndex = 0;
 
-function QUEST_FRAME_OPEN(frame)
+function QUEST_FRAME_OPEN(frame)    
 	local groupbox			= frame:GetChild('questGbox');
 	local questbox_tab 		= GET_CHILD(frame, 'questbox', "ui::CTabControl");
 
@@ -58,14 +59,20 @@ function QUEST_FRAME_CLOSE(frame)
 	end
 end
 
-function NEW_QUEST_ADD(frame, msg, argStr, argNum)
-
+function NEW_QUEST_ADD(frame, msg, argStr, argNum)    
 	local questIES = GetClassByType("QuestProgressCheck", argNum);
 	local sobjIES = GET_MAIN_SOBJ();
 
 	local ret = QUEST_ABANDON_RESTARTLIST_CHECK(questIES, sobjIES);
-	if ret == 'NOTABANDON' then
-		UPDATE_ALLQUEST(frame, nil, 1, argNum, 1);
+	local questState = SCR_QUEST_CHECK(sobjIES, questIES.ClassName);
+	--퀘스트 중 대화만 끝나면 바로 success인 퀘스트가 있다. 이런 퀘스트도 수락시 지령창에 표시함
+	if ret == 'NOTABANDON' or questState == 'SUCCESS' then
+        local isNew = 1        
+        if quest.IsCheckQuest(argNum) == false then isNew = 0 end
+        if questState == 'SUCCESS' or (questIES.QuestMode ~= nil and questIES.QuestMode == 'MAIN') then
+            isNew = 1
+        end
+		UPDATE_ALLQUEST(frame, nil, isNew, argNum, 1);
 	elseif ret == 'ABANDON/LIST' then
 		UPDATE_ALLQUEST_ABANDONLIST(frame);
 	end
@@ -73,8 +80,7 @@ function NEW_QUEST_ADD(frame, msg, argStr, argNum)
 	CHECK_PARTY_QUEST_ADD(frame, argNum)
 end
 
-function ON_AVANDON_QUEST_RESTART(frame, msg, argStr, argNum)
-
+function ON_AVANDON_QUEST_RESTART(frame, msg, argStr, argNum)    
 	UPDATE_ALLQUEST(frame, nil, 1, argNum, 0);
 end
 
@@ -91,7 +97,7 @@ function ON_QUEST_DELETED(frame, msg, argStr, argNum)
 	CHECK_PARTY_QUEST_DELETE(frame, argNum)
 end
 
-function COMPLETE_QUEST_CHECK(frame, obj, argStr, argNum)
+function COMPLETE_QUEST_CHECK(frame, obj, argStr, argNum)    
 	UPDATE_ALLQUEST(frame);
 end
 
@@ -120,7 +126,7 @@ function SHOW_QUEST_BY_ID(frame, ctrl, argstr, clsid)
 end
 
 function UPDATE_ALLQUEST_ABANDONLIST(frame)
-
+    is_updated_abandonlist = true    
 	local pc = GetMyPCObject();
 	local posY = 60;
 	local questGbox = frame:GetChild('abandonbox');
@@ -150,11 +156,11 @@ function UPDATE_ALLQUEST_ABANDONLIST(frame)
 	frame:Invalidate();
 end
 
-function UPDATE_ALLQUEST_(frame)
+function UPDATE_ALLQUEST_(frame)    
 	UPDATE_ALLQUEST(frame, nil, nil, nil, nil)
 end
 
-function UPDATE_ALLQUEST(frame, msg, isNew, questID, isNewQuest)
+function UPDATE_ALLQUEST(frame, msg, isNew, questID, isNewQuest)    
 	local pc = GetMyPCObject();
 	local mylevel = info.GetLevel(session.GetMyHandle());
 	local posY = 60;
@@ -168,8 +174,6 @@ function UPDATE_ALLQUEST(frame, msg, isNew, questID, isNewQuest)
 		local result = SCR_QUEST_CHECK_C(pc, questIES.ClassName);
 		local ctrlName = "_Q_" .. questIES.ClassID;
 
-
-		-- ???? ????? ?????????? ???? ?????????? ui???? ???? ????.
 		if isNewQuest == 0 and isNew == 1 then
 			questGbox:RemoveChild(ctrlName);
 		elseif QUEST_ABANDON_RESTARTLIST_CHECK(questIES, sobjIES) == 'NOTABANDON' then
@@ -235,7 +239,7 @@ function UPDATE_ALLQUEST(frame, msg, isNew, questID, isNewQuest)
 	end
 
 	ALIGN_QUEST_CTRLS(questGbox);
-	if isNewQuest == nil then
+	if isNewQuest == nil then    
 		UPDATE_QUEST_DETAIL(frame, questID);
 	elseif questID ~= nil and isNewQuest > 0 then
 		local questIES = GetClassByType("QuestProgressCheck", questID);
@@ -330,8 +334,7 @@ function HIDE_IN_QUEST_LIST(pc, questIES, abandonResult, subQuestZoneList)
 	return 0, subQuestZoneList;
 end
 
-function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID, abandonResult, subQuestZoneList)
-
+function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID, abandonResult, subQuestZoneList)    
 	questGbox:RemoveChild(ctrlName);
 	if result == 'IMPOSSIBLE' or result == 'COMPLETE' then
 		return posY, subQuestZoneList;
@@ -415,7 +418,7 @@ function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, 
 		Quest_Ctrl:SetSkinName('test_mainquest_skin');
 	elseif questIES.QuestMode == 'SUB' then
 		Quest_Ctrl:SetSkinName('test_subquest_skin');
-	elseif questIES.PeriodInitialization ~= "None" then -- 일일 퀘스트
+	elseif questIES.PeriodInitialization ~= "None" then
 		Quest_Ctrl:SetSkinName('test_dayquest_skin');
 	elseif questIES.QuestMode == 'REPEAT' then
 		Quest_Ctrl:SetSkinName('test_repeatquest_skin');
@@ -430,17 +433,17 @@ function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, 
 	return Quest_Ctrl:GetHeight() + posY + 5, subQuestZoneList;
 end
 
-function ADD_QUEST_DETAIL(frame, ctrl, argStr, questClassID, notUpdateRightUI)
+function ADD_QUEST_DETAIL(frame, ctrl, argStr, questClassID, notUpdateRightUI)        
 	tolua.cast(ctrl, "ui::CCheckBox");
 	if ctrl:IsChecked() == 1 then
-		quest.AddCheckQuest(questClassID);
+		quest.AddCheckQuest(questClassID);        
 		if quest.GetCheckQuestCount() > 5 then
 			ctrl:SetCheck(0);
 			quest.RemoveCheckQuest(questClassID);
 			return;
 		end
 	else
-		quest.RemoveCheckQuest(questClassID);
+		quest.RemoveCheckQuest(questClassID);        
 	end
 
 	if notUpdateRightUI ~= true then
@@ -449,8 +452,7 @@ function ADD_QUEST_DETAIL(frame, ctrl, argStr, questClassID, notUpdateRightUI)
 	end
 end
 
-function UPDATE_QUEST_DETAIL(frame, questID)
-
+function UPDATE_QUEST_DETAIL(frame, questID)    
 	local questframe2 = ui.GetFrame("questinfoset_2");
 
 	frame = frame:GetTopParentFrame();
@@ -466,7 +468,7 @@ function UPDATE_QUEST_DETAIL(frame, questID)
 		local questID = quest.GetCheckQuest(i);
 		if questID == -1 then
 			local qctrl = frame:GetChild("gquest");
-			if qctrl == nil then
+			if qctrl == nil then                
 				quest.RemoveCheckQuestByIndex(i);
 			else
 				local checkBox = qctrl:GetChild("save");
@@ -477,13 +479,13 @@ function UPDATE_QUEST_DETAIL(frame, questID)
 		else
 			local ctrlname = "_Q_" .. questID;
 			local questexist = 1;
-			local Quest_Ctrl = nil;
+			local Quest_Ctrl = nil;            
 			local qctrl = groupbox:GetChild(ctrlname);
-
+            
 			if qctrl ~= nil then
 				Quest_Ctrl = qctrl;
 			end
-
+            
 			if Quest_Ctrl ~= nil then
 				tolua.cast(Quest_Ctrl, "ui::CControlSet");
 				if Quest_Ctrl:IsEnable() == 0 then
@@ -500,14 +502,18 @@ function UPDATE_QUEST_DETAIL(frame, questID)
 				UPDATE_QUESTINFOSET_2(questframe2, nil, 1, questID);
 				i = i + 1;
 			else
-				quest.RemoveCheckQuestByIndex(i);
+                local exist_quest = GetClassByType("QuestProgressCheck", questID)                
+                if exist_quest == nil or (is_updated_abandonlist == true and exist_quest ~= nil) then
+				    quest.RemoveCheckQuestByIndex(i);
+                else
+                    i = i + 1
+                end
 			end
 		end
 	end
 end
 
-function ABANDON_QUEST(frame, ctrl, argStr, argNum)
-
+function ABANDON_QUEST(frame, ctrl, argStr, argNum)        
 	local questDetailFrame = ui.GetFrame('questdetail');
 
 	if questDetailFrame:IsVisible() == 1 then
@@ -551,8 +557,7 @@ function ABANDON_QUEST(frame, ctrl, argStr, argNum)
 
 end
 
-function EXEC_ABANDON_QUEST(questID)
-
+function EXEC_ABANDON_QUEST(questID)    
 	local frame = ui.GetFrame('quest');
 	local Quest_Ctrl = frame:GetChild("_Q_" .. questID);
 	if Quest_Ctrl ~= nil then
@@ -568,8 +573,7 @@ function EXEC_ABANDON_QUEST(questID)
 	frame:ShowWindow(0);
 end
 
-function QUEST_INFO_S(frame, ctrl, argStr, argNum)
-
+function QUEST_INFO_S(frame, ctrl, argStr, argNum)    
 	local questIES = GetClassByType('QuestProgressCheck', argNum);
 	local pc = GetMyPCObject();
 	local result = SCR_QUEST_CHECK_C(pc, questIES.ClassName);
@@ -582,8 +586,7 @@ function QUEST_INFO_S(frame, ctrl, argStr, argNum)
 
 end
 
-function QUEST_CLICK_INFO(frame, slot, argStr, argNum)
-
+function QUEST_CLICK_INFO(frame, slot, argStr, argNum)        
 	if argNum == 0 then
 		return;
 	else
@@ -594,7 +597,7 @@ function QUEST_CLICK_INFO(frame, slot, argStr, argNum)
 	end
 end
 
-function Q_CTRL_BASIC_SET(Quest_Ctrl, classID, isNew)
+function Q_CTRL_BASIC_SET(Quest_Ctrl, classID, isNew)    
     Quest_Ctrl:SetEnableSelect(1);
     Quest_Ctrl:SetSelectGroupName('Q_GROUP');
     Quest_Ctrl:EnableToggle(1);
@@ -608,15 +611,11 @@ function Q_CTRL_BASIC_SET(Quest_Ctrl, classID, isNew)
 
 	local checkBox = GET_CHILD(Quest_Ctrl, "save", "ui::CCheckBox");
 	checkBox:SetTextTooltip(ScpArgMsg("Auto_{@st59}CheKeu_HaMyeon_HwaMyeon_oLeunJjoge_KweSeuTeu_alLiMiKa_NaopNiDa{nl}KweSeuTeu_alLiMiNeun_ChoeDae_5KaeKkaJi_DeungLog_KaNeungHapNiDa{/}"))
-
-	if isNew == 1 or quest.IsCheckQuest(classID) == true then
-
+	if isNew == 1 or quest.IsCheckQuest(classID) == true then        
 		local pc = GetMyPCObject();
 		local questIES = GetClassByType("QuestProgressCheck", classID);
 		local result = SCR_QUEST_CHECK_C(pc, questIES.ClassName);
-		if result == "POSSIBLE" and SCR_ISFIRSTJOBCHANGEQUEST(questIES) == 'NO' and questIES.POSSI_WARP ~= 'YES' then
-			
-			--????? ????? ?????? ?????? ????????
+		if (result == "POSSIBLE" or result == "SUCCESS") and SCR_ISFIRSTJOBCHANGEQUEST(questIES) == 'NO' and questIES.POSSI_WARP ~= 'YES' then			
 			checkBox:SetCheck(1);
 			ADD_QUEST_DETAIL(Quest_Ctrl:GetTopParentFrame(), checkBox, 'None', classID, true);	
 		else
@@ -636,8 +635,7 @@ function RUN_EDIT_QUEST_REWARD(frame, ctrl, str, questID)
 end
 
 
-function Q_CTRL_TITLE_SET(Quest_Ctrl, questIES, questname, result)
-
+function Q_CTRL_TITLE_SET(Quest_Ctrl, questIES, questname, result)    
 	local translated_QuestGroup = dictionary.ReplaceDicIDInCompStr(questIES.QuestGroup); -- ????? ?????? ????? ???? ?????? ???? ???? ???? dicID?? ?? ???????? ?? ???????? ?????????
     local questTab = questIES.QuestMode;
 	local questIconImgName = GET_ICON_BY_STATE_MODE(result, questIES);
@@ -682,15 +680,17 @@ function Q_CTRL_TITLE_SET(Quest_Ctrl, questIES, questname, result)
 		nametxt:SetText(questIES.Name)		-- ???? ??????? ?????????
 
 --		y = nametxt:GetY() + nametxt:GetHeight() + 10;
-		local descTxt = Quest_Ctrl:CreateOrGetControl("richtext", "state", 55, y, titleWidth, 18);
 		local desc = questIES[CONVERT_STATE(result) .. 'Desc'];
-		tolua.cast(descTxt, "ui::CRichText");
-		descTxt:SetFontName("brown_16_b");
-		descTxt:SetTextFixWidth(1);
-		descTxt:EnableResizeByText(1);
-		descTxt:SetText(ScpArgMsg("QuestDescBasicTxt")..desc);
-
-		y = y + descTxt:GetHeight() + 5;
+		if desc ~= '' and desc ~= 'None' then
+    		local descTxt = Quest_Ctrl:CreateOrGetControl("richtext", "state", 55, y, titleWidth, 18);
+    		tolua.cast(descTxt, "ui::CRichText");
+    		descTxt:SetFontName("brown_16_b");
+    		descTxt:SetTextFixWidth(1);
+    		descTxt:EnableResizeByText(1);
+    		descTxt:SetText(ScpArgMsg("QuestDescBasicTxt")..desc);
+    
+    		y = y + descTxt:GetHeight() + 5;
+    	end
 
 	else
 		Quest_Ctrl:RemoveChild("state");
@@ -816,7 +816,14 @@ function Q_CTRL_TITLE_SET(Quest_Ctrl, questIES, questname, result)
 --		end
 	end
 
-	Quest_Ctrl:Resize(Quest_Ctrl:GetWidth(), y + 20);
+	-- y가 컨트롤의 기본 높이보다 낮으면 기본높이로 조절한다. 
+	if Quest_Ctrl:GetOriginalHeight() > y then
+		y = Quest_Ctrl:GetOriginalHeight()
+	else 
+		y = y +20; -- 아래 공간을 확보해야 하기 때문에 20 크게 잡아줌.
+	end
+
+	Quest_Ctrl:Resize(Quest_Ctrl:GetWidth(), y );
 end
 
 function QUESTTREE_CHOICE(questTabName)
@@ -897,8 +904,7 @@ function QUEST_ABANDON_RESTARTLIST_CHECK(questIES, sObj_main)
     return result
 end
 
-function QUEST_CTRL_UPDATE_PARTYINFO(ctrlSet, questIES)
-
+function QUEST_CTRL_UPDATE_PARTYINFO(ctrlSet, questIES)    
 	local pcparty = session.party.GetPartyInfo();
 	ctrlSet:RemoveChild("SHARE_PARTY");
 	if pcparty == nil then
@@ -1072,7 +1078,7 @@ function CHECK_PARTY_QUEST_ADD(frame, questID)
 end
 
 function REQUEST_SHARED_QUEST_PROGRESS(questClsID)
-	party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Progress", -1) -- 값을 초기화해야 바뀜
+	party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Progress", -1)
 
 	local myInfo = session.party.GetMyPartyObj(PARTY_NORMAL);
 	if nil == myInfo then

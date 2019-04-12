@@ -22,6 +22,8 @@ function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterMsg('JUNGTAN_SLOT_UPDATE', 'JUNGTAN_SLOT_INVEN_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_ON', 'EXP_ORB_SLOT_INVEN_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_OFF', 'EXP_ORB_SLOT_INVEN_ON_MSG');
+	addon:RegisterMsg('TOGGLE_ITEM_SLOT_ON', 'TOGGLE_ITEM_SLOT_INVEN_ON_MSG');
+	addon:RegisterMsg('TOGGLE_ITEM_SLOT_OFF', 'TOGGLE_ITEM_SLOT_INVEN_ON_MSG');
 	addon:RegisterOpenOnlyMsg('WEIGHT_UPDATE', 'INVENTORY_WEIGHT_UPDATE');
 	
 	addon:RegisterMsg('UPDATE_ITEM_REPAIR', 'INVENTORY_ON_MSG');
@@ -40,6 +42,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	GROUP_NAMELIST = {};
 	
 	SHOP_SELECT_ITEM_LIST = {};
+	INVENTORY_TOGGLE_ITEM_LIST = {};
 
 	--검색 용 변수
 	searchEnterCount = 1
@@ -105,7 +108,7 @@ function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 		treeNode:SetUserValue("BASE_CAPTION", baseidcls.TreeGroupCaption);
 		GROUP_NAMELIST[#GROUP_NAMELIST + 1] = treegroupname
 	end
-
+	
 	--슬롯셋 없으면 만들기
 	local slotsetname = GET_SLOTSET_NAME(invItem.invIndex)
 	local slotsetnode = tree:FindByValue(treegroup, slotsetname);
@@ -318,11 +321,11 @@ function INVENTORY_WEIGHT_UPDATE(frame)
 	local rate = 0;
 	if pc.MaxWeight ~= 0 then
 		newwidth =  math.floor( pc.NowWeight * weightPicture:GetOriginalWidth() / pc.MaxWeight )
-		rate = math.floor(pc.NowWeight*100 / pc.MaxWeight)
+		rate = math.floor(pc.NowWeight * 100 / pc.MaxWeight)
 	end
-
-	local weightscptext = ScpArgMsg("Weight{All}{Max}","All", string.format("%.1f", pc.NowWeight),"Max",string.format("%.1f", pc.MaxWeight))
-	local weightratetext = ScpArgMsg("Weight{Rate}","Rate", tostring(rate))
+		
+	local weightscptext = ScpArgMsg("Weight{All}{Max}", "All", string.format("%.1f", pc.NowWeight), "Max", string.format("%.1f", pc.MaxWeight))
+	local weightratetext = ScpArgMsg("Weight{Rate}", "Rate", tostring(rate))
 
 	if newwidth > weightPicture:GetOriginalWidth() then
 		newwidth = weightPicture:GetOriginalWidth();
@@ -332,7 +335,7 @@ function INVENTORY_WEIGHT_UPDATE(frame)
 	
 	local weightGbox = GET_CHILD(bottomgroup, 'weightGbox','ui::CGroupBox')
 	weightGbox:SetTextTooltip(weightscptext)
-	
+
 	local arrowPicture = GET_CHILD(bottomgroup, 'inventory_arrow','ui::CPicture')
 	arrowPicture:SetOffset(newwidth + weightPicture:GetX() - 7 ,arrowPicture:GetOriginalY() )
 
@@ -598,7 +601,7 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
     if msg == 'INV_ITEM_ADD' then
         TEMP_INV_ADD(frame, argNum)
     end
-	if  msg == 'EQUIP_ITEM_LIST_GET' then		
+	if  msg == 'EQUIP_ITEM_LIST_GET' then	
 		STATUS_EQUIP_SLOT_SET_ANIM(frame);
 		STATUS_EQUIP_SLOT_SET(frame);
 	end
@@ -636,7 +639,6 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
 end
 
 function INVENTORY_ITEM_PROP_UPDATE(frame, msg, itemGuid)
-	
 	local itemSlot = INV_GET_SLOT_BY_ITEMGUID(itemGuid);
 	if itemSlot ~= nil then
 		local invItem = GET_PC_ITEM_BY_GUID(itemGuid);
@@ -737,27 +739,26 @@ end
 function INVENTORY_GET_SLOT_BY_INVITEM(frame, changeTargetItem)
 
 	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-	
+
 	for typeNo = 1, #g_invenTypeStrList do
 		local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
 		local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 
-	for i = 1 , #SLOTSET_NAMELIST do
+		for i = 1 , #SLOTSET_NAMELIST do
 		local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
-		if slotSet ~= nil then
-			for j = 0 , slotSet:GetChildCount() - 1 do
-				local slot = slotSet:GetChildByIndex(j);
-				local invItem = GET_SLOT_ITEM(slot); 
-				if invItem == changeTargetItem then
-					return slot;
+			if slotSet ~= nil then
+				for j = 0 , slotSet:GetChildCount() - 1 do
+					local slot = slotSet:GetChildByIndex(j);
+					local invItem = GET_SLOT_ITEM(slot); 
+					if invItem == changeTargetItem then
+						return slot;
+					end
 				end
 			end
 		end
 	end
-	end
 
 	return nil;
-
 end
 
 function INVENTORY_UPDATE_ICON_BY_INVITEM(frame, changeTargetItem)
@@ -803,7 +804,7 @@ function SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
 		if invItem ~= nil then
 			local itemCls = GetIES(invItem:GetObject());
 			UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
-			INV_SLOT_UPDATE(frame, invItem, slot); 
+			INV_SLOT_UPDATE(frame, invItem, slot);
 		end
 	end
 end
@@ -815,11 +816,11 @@ function INVENTORY_UPDATE_ICONS(frame)
 		local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
 		local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 
-	for i = 1 , #SLOTSET_NAMELIST do
+		for i = 1 , #SLOTSET_NAMELIST do
 			local slotSet = GET_CHILD(tree, SLOTSET_NAMELIST[i],'ui::CSlotSet')	
-		SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
+			SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
+		end
 	end
-end
 end
 
 --특정 경우에서 모든 아이템 리스트를 돌 필요는 없기 떄문에
@@ -879,11 +880,9 @@ end
 function CHECK_EXCHANGE_ITEM_LIST(invItem, remaincount)
 
 	local itemCount = exchange.GetExchangeItemCount(0);	
-	
 	for  i = 0, itemCount-1 do 		
 		local itemData = exchange.GetExchangeItemInfo(0,i);
 		if itemData ~= nil then
-
 			if tostring(itemData:GetGUID() ) == tostring(invItem:GetIESID()) then
 				return remaincount - itemData.count;
 			end
@@ -1068,7 +1067,9 @@ function INIT_INVEN_SLOT(slot)
 	local shopframe = ui.GetFrame("shop");
 	local exchangeframe  = ui.GetFrame("exchange");
 	local companionshop = ui.GetFrame('companionshop');	
-	if shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1 or companionshop:IsVisible() == 1 then
+	local oblationSell = ui.GetFrame("oblation_sell");
+
+	if shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1 or companionshop:IsVisible() == 1 or oblationSell:IsVisible() == 1 then
 		slot:SetSelectedImage('socket_slot_check')  -- 거래시에만 체크 셀렉 아이콘 사용	
 	end
 
@@ -1145,33 +1146,33 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 		local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
 		local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 
-	local groupfontname = frame:GetUserConfig("TREE_GROUP_FONT");
-	local tabwidth = frame:GetUserConfig("TREE_TAB_WIDTH");
+		local groupfontname = frame:GetUserConfig("TREE_GROUP_FONT");
+		local tabwidth = frame:GetUserConfig("TREE_TAB_WIDTH");
 
-	tree:Clear();
-	tree:EnableDrawFrame(false)
-	tree:SetFitToChild(true,60)
-	tree:SetFontName(groupfontname);
-	tree:SetTabWidth(tabwidth);
+		tree:Clear();
+		tree:EnableDrawFrame(false)
+		tree:SetFitToChild(true,60)
+		tree:SetFontName(groupfontname);
+		tree:SetTabWidth(tabwidth);
 
-	for i = 1 , #SLOTSET_NAMELIST do
-		SLOTSET_NAMELIST[i] = nil
-	end
-
-	for i = 1 , #GROUP_NAMELIST do
-		GROUP_NAMELIST[i] = nil
-	end
-
-	local customFunc = nil;
-	local scriptName = frame:GetUserValue("CUSTOM_ICON_SCP");
-	local scriptArg = nil;
-	if scriptName ~= nil then
-		customFunc = _G[scriptName];
-		local getArgFunc = _G[frame:GetUserValue("CUSTOM_ICON_ARG_SCP")];
-		if getArgFunc ~= nil then
-			scriptArg = getArgFunc();
+		for i = 1 , #SLOTSET_NAMELIST do
+			SLOTSET_NAMELIST[i] = nil
 		end
-	end
+
+		for i = 1 , #GROUP_NAMELIST do
+			GROUP_NAMELIST[i] = nil
+		end
+
+		local customFunc = nil;
+		local scriptName = frame:GetUserValue("CUSTOM_ICON_SCP");
+		local scriptArg = nil;
+		if scriptName ~= nil then
+			customFunc = _G[scriptName];
+			local getArgFunc = _G[frame:GetUserValue("CUSTOM_ICON_ARG_SCP")];
+			if getArgFunc ~= nil then
+				scriptArg = getArgFunc();
+			end
+		end
 	end
 
 	local baseidclslist, baseidcnt  = GetClassList("inven_baseid");
@@ -1197,7 +1198,7 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 		for j = 0 , invItemCount - 1 do
 			local invItem			= sortedList:at(j);
 			if invItem ~= nil then
-					local itemCls = GetIES(invItem:GetObject());	
+				local itemCls = GetIES(invItem:GetObject());	
 				local typeStr = "Item"	
 				if itemCls.ItemType == "Equip" then
 					typeStr = itemCls.ItemType; 
@@ -1241,41 +1242,41 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 							end
 						end
 					end
+				end
 			end
 		end
-	end
 	end
 
 	for typeNo = 1, #g_invenTypeStrList do
 		local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
 		local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 	--아이템 없는 빈 슬롯은 숨겨라
-	for i = 1 , #SLOTSET_NAMELIST do
+		for i = 1 , #SLOTSET_NAMELIST do
 			slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet');
 			if slotset ~= nil then
 				HIDE_EMPTY_SLOT(slotset);
 			end			
-	end
+		end
 
-	ADD_GROUP_BOTTOM_MARGIN(frame,tree)
+		ADD_GROUP_BOTTOM_MARGIN(frame,tree)
 
 	tree:OpenNodeAll();
 
-	--검색결과 스크롤 세팅은 여기서 하자. 트리 업데이트 후에 위치가 고정된 다음에.
-	for i = 1 , #SLOTSET_NAMELIST do
+		--검색결과 스크롤 세팅은 여기서 하자. 트리 업데이트 후에 위치가 고정된 다음에.
+		for i = 1 , #SLOTSET_NAMELIST do
 		slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
 
-		local slotsetnode = tree:FindByValue(SLOTSET_NAMELIST[i]);
-		if setpos == 'setpos' then
+			local slotsetnode = tree:FindByValue(SLOTSET_NAMELIST[i]);
+			if setpos == 'setpos' then
 
-			local savedPos = frame:GetUserValue("INVENTORY_CUR_SCROLL_POS");
-		
-			if savedPos == 'None' then
-				savedPos = 0
+				local savedPos = frame:GetUserValue("INVENTORY_CUR_SCROLL_POS");
+			
+				if savedPos == 'None' then
+					savedPos = 0
+				end
+					
+				tree_box:SetScrollPos( tonumber(savedPos) )
 			end
-				
-			tree_box:SetScrollPos( tonumber(savedPos) )
-		end
 		end		
 	end
 end
@@ -1403,10 +1404,10 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 
 end
 
-function IS_TEMP_LOCK(invFrame, invitem)
+function IS_TEMP_LOCK(invFrame, invitem)	
 	if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
 		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_TRANSCEND")
-		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_TRANSCEND_SCROLL") then
+		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_TRANSCEND_SCROLL") then		
 			return true;
 	end
 
@@ -1419,7 +1420,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
     if invitem == nil then
 		return;
 	end
-	
+
 	if keyboard.IsKeyPressed("LCTRL") == 1 then
 		local obj = GetIES(invitem:GetObject());
 		IES_MAN_IESID(invitem:GetIESID());
@@ -1427,7 +1428,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	end
 
 	local itemobj = GetIES(invitem:GetObject());
-	
+
     -- custom
 	local customRBtnScp = frame:GetTopParentFrame():GetUserValue("CUSTOM_RBTN_SCP");	
 	if customRBtnScp == "None" then
@@ -1468,7 +1469,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		if groupName == 'Money' then
 			return;
 		end
-		
+
 		local invFrame = ui.GetFrame("inventory");
 		local invGbox = invFrame:GetChild('inventoryGbox');
 		if true == IS_TEMP_LOCK(invFrame, invitem) then
@@ -1480,7 +1481,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		if Itemclass.ItemType == "Equip" then
 			typeStr = Itemclass.ItemType; 
 		end		
-		
+	
 		local tree_box = invGbox:GetChild('treeGbox_'.. typeStr);
 		local tree = tree_box:GetChild('inventree_'.. typeStr);
 		local slotsetname = GET_SLOTSET_NAME(argNum)
@@ -1488,21 +1489,21 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 
 		local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
 		if itemProp:IsEnableShopTrade() == true then
-				if IS_SHOP_SELL(invitem, Itemclass.MaxStack, frame) == 1 then
-					if keyboard.IsKeyPressed("LSHIFT") == 1 then
-						local sellableCount = invitem.count;
-						local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", sellableCount);
-						INPUT_NUMBER_BOX(invFrame, titleText, "EXEC_SHOP_SELL", 1, 1, sellableCount);
-						invFrame:SetUserValue("SELL_ITEM_GUID", invitem:GetIESID());
-						return;
-					end
-					-- 상점 Sell Slot으로 넘긴다.
-					SHOP_SELL(invitem, 1, frame);
-					return;
-				else
-					ui.SysMsg(ClMsg("CannotSellMore"));
+			if IS_SHOP_SELL(invitem, Itemclass.MaxStack, frame) == 1 then
+				if keyboard.IsKeyPressed("LSHIFT") == 1 then
+					local sellableCount = invitem.count;
+					local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", sellableCount);
+					INPUT_NUMBER_BOX(invFrame, titleText, "EXEC_SHOP_SELL", 1, 1, sellableCount);
+					invFrame:SetUserValue("SELL_ITEM_GUID", invitem:GetIESID());
 					return;
 				end
+				-- 상점 Sell Slot으로 넘긴다.
+				SHOP_SELL(invitem, 1, frame);
+				return;
+			else
+	        	ui.SysMsg(ClMsg("CannotSellMore"));
+					return;
+			end
 			else
 				ui.SysMsg(ClMsg("CannoTradeToNPC"));
 			return;
@@ -1512,7 +1513,6 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
     -- mixer
 	local mixerFrame = ui.GetFrame("mixer");
 	if mixerFrame:IsVisible() == 1 then
-
 		local slotSet = INV_GET_SLOTSET_BY_INVINDEX(argNum-1)
 		local slot = slotSet:GetSlotByIndex(argNum-1);
 		MIXER_INVEN_RBOTTUNDOWN(itemobj, argNum);
@@ -1774,7 +1774,7 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
 	if itemProp:IsEnableShopTrade() == true then
 		if IS_SHOP_SELL(invitem, Itemclass.MaxStack, frame) == 1 then
-			 --상점 Sell Slot으로 다 넘긴다.
+			-- 상점 Sell Slot으로 다 넘긴다.
 			SHOP_SELL(invitem, invitem.count, frame);
 			return;
 		else
@@ -1782,9 +1782,9 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
             return;
         end
 	else
-		ui.SysMsg(ClMsg("CannoTradeToNPC"));
-		return;
-	end
+	ui.SysMsg(ClMsg("CannoTradeToNPC"));
+	return;
+end
 end
 
 function EXEC_SHOP_SELL(frame, cnt)
@@ -1913,7 +1913,6 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 	local toFrame				= frame:GetTopParentFrame();
 	
 	toFrame:SetValue(1);
-		
 	if	FromFrame == toFrame then
 		local parentSlot = liftIcon:GetParent();
 		local parentSlotSet = parentSlot:GetParent();
@@ -1942,7 +1941,7 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 				
 				item.SwapSlotIndex(IT_INVENTORY, fromInvIndex, toInvIndex);
 				ON_CHANGE_INVINDEX(toFrame, nil, fromInvIndex, toInvIndex);
-
+				
 				
 				parentSlotSet:SwapSlot(fromSlotIndex, toSlotIndex, "ONUPDATE_SLOT_INVINDEX");
 				QUICKSLOT_ON_CHANGE_INVINDEX(fromInvIndex, toInvIndex);
@@ -2117,10 +2116,14 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 
 	ICON_SET_INVENTORY_TOOLTIP(icon, invItem, nil, class);
 	
+	local resultLifeTimeOver = IS_LIFETIME_OVER(itemobj);
+	if resultLifeTimeOver == 1 then
+		icon:SetColorTone("FFFF0000");	
+	end
+	
 	if class.ItemType == 'Equip' then
-		local resultLifeTimeOver = IS_LIFETIME_OVER(itemobj);
 		local result = CHECK_EQUIPABLE(itemType);
-		if (result ~= "OK") or (resultLifeTimeOver == 1) then
+		if result ~= "OK" then
 			icon:SetColorTone("FFFF0000");		
 		end
 			
@@ -2161,7 +2164,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	elseif invItem.isLockState == true then
 		local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
 		controlset:SetGravity(ui.RIGHT, ui.TOP)
-	elseif true == IS_TEMP_LOCK(frame, invItem) then
+	elseif true == IS_TEMP_LOCK(frame, invItem) then		
 		slot:SetFrontImage('item_Lock');    
 	else
 		slot:SetFrontImage('None');
@@ -2204,6 +2207,183 @@ function STATUS_SLOT_DROP(frame, icon, argStr, argNum)
 		ITEM_EQUIP(iconInfo.ext, icon:GetName());
 		STATUS_EQUIP_SLOT_SET(toFrame);
 	end
+end
+
+--머리 보이기/안보이기 아이콘에 의한 염색 버튼 보이기/안보이기
+function SET_VISIBLE_DYE_BTN_BY_VISIBLE(frame, IsVisible)
+	local hairColorBtn = GET_CHILD_RECURSIVELY(frame:GetTopParentFrame(), "HAIR_COLOR");
+	if hairColorBtn == nil then
+		return;
+	end
+
+	local pcSession = session.GetMySession()
+	if pcSession == nil then
+		return
+	end
+	local apc = pcSession:GetPCDummyApc()
+
+
+	--뷰티샵 헤어인가
+    local etc = GetMyEtcObject();
+	local isBeautyshopHair = TryGetProp(etc, "BeautyshopStartHair");
+
+	if IsVisible == 1 then	--보이기 상태
+		local Icon = frame:GetIcon();
+		if Icon ~= nil then	--무언가 착용중
+			hairColorBtn:ShowWindow(1);
+
+			--HAIR slot의 아이템 오브젝트의 카테고리 알아냄
+			if apc:GetEquipItem(ES_HELMET) ~= 10000 then	-- Name == Helmet인 헬맷 착용중
+				hairColorBtn:ShowWindow(0);
+			else		-- Name == Hair인 무언가 착용중
+				local slot = tolua.cast(frame, "ui::CSlot");
+				local icon = slot:GetIcon();
+				local iconInfo = icon:GetInfo();
+				local invIteminfo = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
+				if invIteminfo ~= nil then
+					local itemObj = GetIES(invIteminfo:GetObject())
+					if itemObj.Category == "Look_Helmet" then
+						hairColorBtn:ShowWindow(0);
+					elseif itemObj.Category == "Look_Wig" then
+						hairColorBtn:ShowWindow(1);
+					end
+				end
+			end
+
+		else				--미착용중
+			if isBeautyshopHair == "Yes" then
+				hairColorBtn:ShowWindow(0);		--뷰티샵
+			else
+				hairColorBtn:ShowWindow(1);		--기본헤어
+			end
+		end
+	else	--안보이기 상태
+		if isBeautyshopHair == "Yes" then
+			hairColorBtn:ShowWindow(0);		--뷰티샵
+		else
+			hairColorBtn:ShowWindow(1);		--기본헤어
+		end
+	end
+end
+
+--아이템 착용에 의한 염색 버튼 보이기/안보이기
+function SET_VISIBLE_DYE_BTN_BY_ITEM_EQUIP(frame)
+	local hairColorBtn = GET_CHILD_RECURSIVELY(frame, "HAIR_COLOR");
+	if hairColorBtn == nil then
+		return;
+	end
+	local etc = GetMyEtcObject();
+	local hairFrame = GET_CHILD_RECURSIVELY(frame, "HAIR")
+	local slot = tolua.cast(hairFrame, "ui::CSlot");
+	local icon = slot:GetIcon();
+	if icon == nil then	--헤어 미착용중
+		local isBeautyshopHair = TryGetProp(etc, "BeautyshopStartHair");
+		if isBeautyshopHair == "Yes" then
+			hairColorBtn:ShowWindow(0);		--뷰티샵
+		else
+			hairColorBtn:ShowWindow(1);		--기본헤어
+		end
+	else				--헤어 착용중
+		local iconInfo = icon:GetInfo();
+		local invIteminfo = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
+		if invIteminfo ~= nil then
+			local itemObj = GetIES(invIteminfo:GetObject());
+			if itemObj.Category == "Look_Helmet" then
+				hairColorBtn:ShowWindow(0);
+			elseif itemObj.Category == "Look_Wig" then
+				hairColorBtn:ShowWindow(1);
+			end
+			SET_VISIBLE_DYE_BTN_BY_VISIBLE(hairFrame, etc.HAIR_WIG_Visible);
+		end
+	end
+end
+
+--현재 가지고 있는 염색의 종류를 haveHairColorList에 넣음
+function CHANGE_HAIR_COLOR(frame)
+	local hairColorBtn = GET_CHILD_RECURSIVELY(frame, "HAIR_COLOR");
+	if hairColorBtn == nil then
+		return;
+	end
+
+	local pc = GetMyPCObject()
+    local etc = GetMyEtcObject();
+
+	local haveHairColorList = {}
+	local haveHairColorEList = {}
+
+    local Rootclasslist = imcIES.GetClassList('HairType');
+    local Selectclass = Rootclasslist:GetClass(pc.Gender);
+    local Selectclasslist = Selectclass:GetSubClassList();
+    local nowHeadIndex = item.GetHeadIndex()
+	local nowHairCls = Selectclasslist:GetByIndex(nowHeadIndex - 1);
+	local nowPCHairEngName = imcIES.GetString(nowHairCls, 'EngName');	--현재 내가 '헤어'슬롯에 착용한 아이템
+
+	for i = 0, Selectclasslist:Count() do
+		local eachcls = Selectclasslist:GetByIndex(i);
+		if eachcls ~= nil then
+			local eachHairEngName = imcIES.GetString(eachcls, 'EngName');
+			if eachHairEngName == nowPCHairEngName then
+				-- eachColor, eachColorE : 게임 내 전체 헤어 컬러(한글이름, 영어이름)
+				local eachColor = imcIES.GetString(eachcls, 'Color');	
+				local eachColorE = imcIES.GetString(eachcls, 'ColorE');	
+				eachColorE = string.lower(eachColorE);
+				-- 전체 헤어 컬러 목록에서 유저가 가진 헤어 컬러 목록을 드롭 리스트에 넣음
+				if TryGetProp(etc, "HairColor_" .. eachColorE) == 1 then
+					haveHairColorList[#haveHairColorList + 1] = eachColor;
+					haveHairColorEList[#haveHairColorEList + 1] = eachColorE;
+				end
+			end
+		end
+	end
+	SORT_HAIR_COLORLIST(hairColorBtn, haveHairColorList, haveHairColorEList)
+	CREATE_HAIR_DYE_DROPLIST(hairColorBtn, haveHairColorList, haveHairColorEList);
+end
+
+function IS_CONTAIN_ITEM(tbl, item)
+    for key, value in pairs(tbl) do
+        if value == item then 
+			return key 
+		end
+    end
+    return false
+end
+
+--코카트리스 헤드같은 경우 염색 리스트가 바뀌는 버그가 있어 재정렬하고 droplist에 넣어줘야 한다.
+function SORT_HAIR_COLORLIST(ctrl, colorKList, colorEList)
+	if colorEList == nil then
+		return;
+	end
+
+	local hairOrder = {"default", "black", "blue", "pink", "white", "blond", "red", "green", "gray", "lightsalmon", "purple", "orange", "brown", "midnightblue"};
+	local curPosColorEList = 1;
+	local curPosHairOrder = 1;
+	while curPosHairOrder < #hairOrder + 1 do
+		local idx = IS_CONTAIN_ITEM(colorEList, hairOrder[curPosHairOrder]);
+
+		if idx ~= false then
+			if colorEList[curPosColorEList] == hairOrder[curPosHairOrder] then
+				curPosColorEList = curPosColorEList + 1;
+			else
+				if idx ~= curPosColorEList then
+					colorEList[curPosColorEList], colorEList[idx] = colorEList[idx], colorEList[curPosColorEList]
+					colorKList[curPosColorEList], colorKList[idx] = colorKList[idx], colorKList[curPosColorEList]
+					curPosHairOrder = curPosHairOrder - 1;
+				end
+			end
+		end
+		curPosHairOrder = curPosHairOrder + 1;
+	end
+end
+
+function CREATE_HAIR_DYE_DROPLIST(control, colorList, colorEList)
+	local dropListFrame = ui.MakeDropListFrame(control, 0, 0, 150, 600, #colorList, ui.LEFT, "SELECT_HAIR_DYE_IN_DROPLIST", nil, nil);
+	for i = 0, #colorList do
+		ui.AddDropListItem(colorList[i + 1], nil, colorEList[i + 1]);
+	end
+end
+
+function SELECT_HAIR_DYE_IN_DROPLIST(select, color)
+    item.ReqChangeHead(color);
 end
 
 function STATUS_DUMP_SLOT_SET(a,s,d)
@@ -2318,22 +2498,22 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 		icon:Set(imageName, 'Item', equipItem.type, equipItem.equipSpot, equipItem:GetIESID());
 		iconFunc(slot, icon, equipItem, ...);
 		
-	else
-		slot:ClearIcon();
-		slot:SetEventScript(ui.RBUTTONDOWN, 'None');
-		slot:SetOverSound('button_cursor_over_3');
-		slot:SetText("");
-		DESTROY_CHILD_BYNAME(slot, "styleset_")
+		else
+			slot:ClearIcon();
+			slot:SetEventScript(ui.RBUTTONDOWN, 'None');
+			slot:SetOverSound('button_cursor_over_3');
+			slot:SetText("");
+			DESTROY_CHILD_BYNAME(slot, "styleset_")
 
-		local slot_bg = GET_CHILD_RECURSIVELY(frame, slot:GetName() .. "_bg")
-		if slot_bg ~= nil then
-			slot:SetSkinName(slot_bg:GetSkinName())
-			slot_bg:ShowWindow(0)
-		end
+			local slot_bg = GET_CHILD_RECURSIVELY(frame, slot:GetName() .. "_bg")
+			if slot_bg ~= nil then
+				slot:SetSkinName(slot_bg:GetSkinName())
+				slot_bg:ShowWindow(0)
+			end
 	end
 		
-
 	-- LH아이콘은 RH에 양손무기가 장착중인지 확인후 아이콘 셋팅
+    local alreadyProcessedTH = false;
 	if spotName == 'LH' then		
 		local checkRH = frame:GetChild('RH');
 		if checkRH ~= nil then
@@ -2360,8 +2540,15 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 				iconFunc(slot, icon, rhItem, ...);
 
 				if rhItem.isLockState == true then
-					controlset:ShowWindow(1);
+					controlset:ShowWindow(1);                    
 				end
+
+                if IS_TEMP_LOCK(frame, rhItem) == true then                
+                    slot:SetFrontImage('item_Lock');                    
+                else
+                    slot:SetFrontImage('None');                    
+                end
+                alreadyProcessedTH = true;
 			end
 		end
 	end
@@ -2421,8 +2608,8 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 		slot:SetFrontImage('item_Lock');
 	elseif equipItem.isLockState == true then
 		controlset:ShowWindow(1);			
-	else
-		slot:SetFrontImage('None');
+	elseif alreadyProcessedTH == false then
+		slot:SetFrontImage('None');        
 	end
 end
 
@@ -2447,7 +2634,7 @@ function SET_EQUIP_LIST_ANIM(frame, equipItemList, iconFunc, ...)
 
 			if  spotName  ~=  nil  then
 				local child = frame:GetChild(spotName.."ANIM");			
-				if  child  ~=  nil  then			
+				if  child  ~=  nil  then	
 					local slot = tolua.cast(child, 'ui::CAnimPicture');
 					slot:PlayAnimation();
 				end
@@ -2617,7 +2804,54 @@ function EXP_ORB_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)
 	end
 end
 
-function JUNGTAN_SLOT_INVEN_ON_MSG(frame, msg, str, num)
+--토글.
+function TOGGLE_ITEM_SLOT_INVEN_ON_MSG(frame, msg, argstr, argnum)
+	if msg == "TOGGLE_ITEM_SLOT_ON" then
+		INVENTORY_TOGGLE_ITEM_LIST[argnum] = 1;
+	elseif msg == "TOGGLE_ITEM_SLOT_OFF" then
+		INVENTORY_TOGGLE_ITEM_LIST[argnum] = nil;
+	end
+
+	local cnt = 0;
+	for k, v in pairs(INVENTORY_TOGGLE_ITEM_LIST) do
+		cnt = cnt + 1;
+end
+
+	if cnt > 0 then
+		frame:RunUpdateScript("UPDATE_INVENTORY_TOGGLE_ITEM", 1.0);
+	else
+		frame:StopUpdateScript("UPDATE_INVENTORY_TOGGLE_ITEM");
+	end
+end
+	
+--업데이트.
+function UPDATE_INVENTORY_TOGGLE_ITEM(frame)
+	if frame:IsVisible() == 0 then
+		return;
+	end
+	local invenTab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
+	if invenTab == nil then
+		return;
+	end
+	
+	local tabIndex = invenTab:GetSelectItemIndex()
+	for type, v in pairs(INVENTORY_TOGGLE_ITEM_LIST) do
+		local slot = INV_GET_SLOT_BY_TYPE(type);
+		if tabIndex == 0 then
+			slot = INV_GET_SLOT_BY_TYPE(type, nil, 1)
+		end	
+		if slot ~= nil and slot:IsVisible() == 1 then
+	if slot:IsVisibleRecursively() == true then
+		local size = frame:GetUserConfig("TOGGLE_ITEM_EFFECT_SIZE");	
+		slot:PlayOnceUIEffect('I_sys_item_slot', size);
+		slot:Invalidate();
+	end
+		end
+	end
+	return 1;
+end
+
+function JUNGTAN_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)
 	if str == 'JUNGTAN_OFF' then
 
 		frame:SetUserValue("JUNGTAN_EFFECT", 0);
@@ -2646,6 +2880,49 @@ function JUNGTAN_SLOT_INVEN_ON_MSG(frame, msg, str, num)
 		local timer = GET_CHILD(frame, "jungtandeftimer", "ui::CAddOnTimer");
 		timer:SetUpdateScript("UPDATE_INVENTORY_JUNGTANDEF");
 		timer:Start(1);		
+		
+	elseif str == 'DISPELDEBUFF_ON' then
+		frame:SetUserValue("DISPELDEBUFF_EFFECT", itemType);
+		local timer = GET_CHILD(frame, "dispeldebufftimer", "ui::CAddOnTimer");
+		timer:SetUpdateScript("UPDATE_INVENTORY_DISPEL_DEBUFF");
+		timer:Start(1);
+		imcSound.PlaySoundEvent('sys_def_booster_on');
+	elseif str == 'DISPELDEBUFF_OFF' then
+
+		frame:SetUserValue("DISPELDEBUFF_EFFECT", 0);
+		local timer = GET_CHILD(frame, "dispeldebufftimer", "ui::CAddOnTimer");
+		timer:Stop();
+		imcSound.PlaySoundEvent('sys_booster_off');
+	end
+end
+
+function UPDATE_INVENTORY_DISPEL_DEBUFF(frame, ctrl, num, str, time)
+	if frame:IsVisible() == 0 then
+		return;
+	end
+	local dispelID = tonumber( frame:GetUserValue("DISPELDEBUFF_EFFECT") );
+	if dispelID == 0 then
+		return;
+	end
+	local invenTab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
+	if invenTab == nil then
+		return
+	end
+
+	local tabIndex = invenTab:GetSelectItemIndex()
+	local slot = INV_GET_SLOT_BY_TYPE(dispelID)
+	if tabIndex == 0 then
+		slot = INV_GET_SLOT_BY_TYPE(dispelID, nil, 1)
+	end	
+	
+	if(slot == nil ) then
+		return;
+	end
+	local posX, posY = GET_SCREEN_XY(slot);
+	
+	if slot:IsVisibleRecursively() == true then
+		local size = frame:GetUserConfig("DISPEL_EFFECT_SIZE");	
+		slot:PlayOnceUIEffect('I_sys_item_slot', size);
 	end
 end
 
@@ -2662,8 +2939,6 @@ function UPDATE_INVENTORY_EXP_ORB(frame, ctrl, num, str, time)
 	if slot == nil then
 		return;
 	end
-	local posX, posY = GET_SCREEN_XY(slot);
-
 	if slot:IsVisibleRecursively() == true then
 		local size = frame:GetUserConfig("EXP_ORB_EFFECT_SIZE");	
 		slot:PlayOnceUIEffect('I_sys_item_slot', size);
@@ -2894,32 +3169,36 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 end
 
 function INV_ITEM_LOCK_SAVE_FAIL(frame, msg, argStr, agrNum)
+    local found = false;
 	for typeNo = 1, #g_invenTypeStrList do
 		local tree = GET_CHILD_RECURSIVELY(frame, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
-	for i = 1 , #SLOTSET_NAMELIST do
-		local slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
-		if nil ~= slotset then
-			local slotCount = slotset:GetSlotCount();
-			for i = 0, slotCount - 1 do
-				local slot		= slotset:GetSlotByIndex(i );
-				AUTO_CAST(slot);
-				local invItem = GET_SLOT_ITEM(slot);
-				if invItem ~= nil and invItem:GetIESID() == argStr then
-					invItem.isLockState = argNum;
-					ui.SysMsg(ClMsg("ItemLockSaveFail"));
-					local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
-					controlset:SetGravity(ui.RIGHT, ui.TOP)
-					if 1 == agrNum then
-						controlset:ShowWindow(1);
-					else
-						controlset:ShowWindow(0);
-					end
-				end
+	    for i = 1 , #SLOTSET_NAMELIST do
+		    local slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
+		    if nil ~= slotset then
+			    local slotCount = slotset:GetSlotCount();
+			    for i = 0, slotCount - 1 do
+				    local slot = slotset:GetSlotByIndex(i );
+				    AUTO_CAST(slot);
+				    local invItem = GET_SLOT_ITEM(slot);
+				    if invItem ~= nil and invItem:GetIESID() == argStr then
+					    invItem.isLockState = argNum;
+					    local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
+					    controlset:SetGravity(ui.RIGHT, ui.TOP);
+                        found = true;
+					    if 1 == agrNum then
+						    controlset:ShowWindow(1);
+					    else
+						    controlset:ShowWindow(0);
+					    end
+				    end
 
-			end	
-		end
+			    end	
+		    end
 		end
 	end
+    if found == true then
+        ui.SysMsg(ClMsg("ItemLockSaveFail"));
+    end
 end
 
 function INV_HAT_VISIBLE_STATE(frame)
@@ -3297,7 +3576,7 @@ function ON_LOCK_FAIL(frame, msg, argStr, argNum)
 
     if slot ~= nil then        
         local lockPic = slot:GetChild('itemlock');
-        if lockPic ~= nil then            
+        if lockPic ~= nil then
             lockPic:ShowWindow(0);
         end
     end

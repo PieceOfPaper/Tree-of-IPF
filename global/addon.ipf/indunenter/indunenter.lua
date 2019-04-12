@@ -1170,7 +1170,7 @@ end
 function INDUNENTER_SET_ENABLE(enter, autoMatch, withParty, multi)
     local frame = ui.GetFrame('indunenter');
     local enterBtn = GET_CHILD_RECURSIVELY(frame, 'enterBtn');
-    local autoMatchBtn = GET_CHILD_RECURSIVELY(frame, 'autoMatchBtn');
+local autoMatchBtn = GET_CHILD_RECURSIVELY(frame, 'autoMatchBtn');
     local withPartyBtn = GET_CHILD_RECURSIVELY(frame, 'withBtn');
     local multiBtn = GET_CHILD_RECURSIVELY(frame, 'multiBtn');
     local multiCancelBtn = GET_CHILD_RECURSIVELY(frame, 'multiCancelBtn');
@@ -1675,6 +1675,10 @@ function INDUNENTER_UNDERSTAFF_BTN_ENABLE(frame, enable)
 
     understaffEnterAllowBtn:SetEnable(enable);
     smallUnderstaffEnterAllowBtn:SetEnable(enable);
+
+    if enable == 1 then
+        understaffEnterAllowBtn:ShowWindow(1);
+    end
 
     local reEnterBtn = GET_CHILD_RECURSIVELY(frame, 'reEnterBtn');
     if understaffEnterAllowBtn:IsVisible() == 1 then

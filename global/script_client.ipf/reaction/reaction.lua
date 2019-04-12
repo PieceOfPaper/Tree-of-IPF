@@ -24,6 +24,10 @@ function C_SHOCKWAVE(actor, obj, intensity, time, freq, range)
     world.ShockWave(actor, 2, range, intensity, time, freq, 0);
 end
 
+function C_SHOCKWAVE_PAD(actor, obj, padGuid, intensity, time, freq, range)
+    world.ShockWave(actor, 2, range, intensity, time, freq, 0);
+end
+
 function C_SKL_LOCK_MOVE(actor, obj, isOn)
     local key = "SKL_" .. obj.type;
     actor:LockMoveByKey(key, isOn);
@@ -135,12 +139,17 @@ function C_VOICE_SOUND(actor, obj, maleVoice, femaleVoice)
 
     local gender = customize.GetGender( actor:GetHandleVal() );
     
+    local isMyPC = true;
+    if actor:IsMyPC() == 0 then
+        isMyPC = false;
+    end
+
     if gender == 0 then
         return;
     elseif gender == 1 then
-        actor:GetEffect():PlaySound(maleVoice);
+        actor:GetEffect():PlaySound(maleVoice, -1, false, isMyPC);
     else
-        actor:GetEffect():PlaySound(femaleVoice);
+        actor:GetEffect():PlaySound(femaleVoice, -1, false, isMyPC);
     end
     
 end

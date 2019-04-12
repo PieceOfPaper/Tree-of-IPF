@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="nearpartylist" x="0" y="0" width="250" height="500">
+<uiframe name="nearpartylist" x="0" y="0" width="0" height="0">
 	<frame layout_gravity="left top" scale_align="center top" margin="10 170 0 0" keyboardselectframe="false" tooltipoverlap="false"/>
 	<layer layerlevel="60"/>
 	<option visible="true" hideable="false" closebutton="false" alwaysVisible="true"/>
 	<draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
-	<animation frameOpenAnim="dialog_start2" frameCloseAnim="dialog_end"/>
-  <script OpenScp="OPEN_NEARPARTYLIST"/>
-	<controls>
-		<groupbox name="mainGbox" margin="0 130 0 0" rect="0 0 250 470" scrollbar="false" draw="false" hittestbox="false" layout_gravity="left top" resizebyparent="false"/>
-		<richtext name="titleText" parent="mainGbox" rect="0 0 250 20" margin="5 0 0 0" layout_gravity="left top" caption="주변 파티 정보" fixwidth="true" fontname="white_18_ol" hittest="false" spacey="0" textalign="left center"/>
+	<animation frameOpenAnim="dialog_start2" frameCloseAnim="dialog_end"/>  
+	<controls>		
 	</controls>
 </uiframe>

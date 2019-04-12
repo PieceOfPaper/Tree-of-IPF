@@ -1,7 +1,62 @@
 ---- lib_reinforce_131014.lua
+function IS_MORU_FREE_PRICE(moruItem)
+    if moruItem == nil then
+        return false;
+    end
 
-function REINFORCE_ABLE_131014(item)
+    if moruItem.ClassName == "Moru_Silver" 
+        or moruItem.ClassName == "Moru_Silver_test" 
+        or moruItem.ClassName == "Moru_Silver_NoDay" 
+        or moruItem.ClassName == "Moru_Silver_TA" 
+        or moruItem.ClassName == "Moru_Silver_TA2" 
+        or moruItem.ClassName == "Moru_Silver_Event_1704" 
+        or moruItem.ClassName == 'Moru_Silver_TA_Recycle' 
+        or moruItem.ClassName == 'Moru_Silver_TA_V2' 
+        or moruItem.ClassName == "Moru_Gold_TA"        
+        or moruItem.ClassName == "Moru_Gold_TA_NR"
+        or moruItem.ClassName == "Moru_Gold_EVENT_1710_NEWCHARACTER"
+        or moruItem.ClassName == "Moru_Event160609" 
+        or moruItem.ClassName == "Moru_Event160929_14d" 
+        or moruItem.ClassName == "Moru_Potential" 
+        or moruItem.ClassName == "Moru_Potential14d"
+        or moruItem.StringArg == 'SILVER' then
+        return true;
+    end
+
+    return false;
+end
+
+function IS_MORU_DISCOUNT_50_PERCENT(moruItem)
+    if moruItem == nil then
+        return false;
+    end
+
+    if moruItem.ClassName == "Moru_Platinum_Premium" then
+        return true;
+    end
+
+    return false;
+end
+
+function IS_MORU_NOT_DESTROY_TARGET_ITEM(moruItem)
+    if moruItem == nil then
+        return false;
+    end
+
+    if moruItem.ClassName == "Moru_Premium" 
+        or moruItem.ClassName == "Moru_Gold" 
+        or moruItem.ClassName == "Moru_Gold_14d" 
+        or moruItem.ClassName == "Moru_Gold_TA" 
+        or moruItem.ClassName == "Moru_Gold_TA_NR" 
+        or moruItem.ClassName == "Moru_Gold_Team_Trade" 
+        or moruItem.ClassName == "Moru_Gold_EVENT_1710_NEWCHARACTER" then
+        return true;
+    end
+
+    return false;
+end
     
+function REINFORCE_ABLE_131014(item)    
     if item.ItemType ~= 'Equip' then
         return 0;
     end
@@ -19,7 +74,7 @@ function REINFORCE_ABLE_131014(item)
         return 0;
     end
     
-    local reinforceValue = TryGetProp(item,"Reinforce_2")
+    local reinforceValue = TryGetProp(item, "Reinforce_2");
     if reinforceValue == nil or reinforceValue >= 40 then
         return 0;
     end
@@ -27,11 +82,7 @@ function REINFORCE_ABLE_131014(item)
     return 1;
 end
 
-function GET_REINFORCE_131014_PRICE(fromItem, moruItem, pc)
-	if moruItem.ClassName == "Moru_Potential" or moruItem.ClassName == "Moru_Potential14d" then
-		return 0;
-	end
-
+function GET_REINFORCE_PRICE(fromItem, moruItem, pc)
     local reinforcecount = TryGetProp(fromItem, "Reinforce_2");
     if reinforcecount == nil then
         return 0;
@@ -69,6 +120,11 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem, pc)
         end
     end
     
+    local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(fromItem);
+    if pcBangItemLevel ~= nil then
+        lv = pcBangItemLevel;
+    end
+    
     local value, value_diamond = 0, 0;
 
     local priceRatio = 1;
@@ -97,22 +153,11 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem, pc)
     value = math.floor((500 + (lv ^ 1.1 * (5 + (reinforcecount * 2.5)))) * (2 + (math.max(0, reinforcecount - 9) * 0.5))) * priceRatio * gradeRatio;
     value_diamond = math.floor((500 + (lv ^ 1.1 * (5 + (reinforcecount_diamond * 2.5)))) * (2 + (math.max(0, reinforcecount - 9) * 0.5))) * priceRatio * gradeRatio;
     
-    if moruItem.ClassName == "Moru_Platinum_Premium" then
+    if IS_MORU_DISCOUNT_50_PERCENT(moruItem) == true then
         value = value / 2;
     end
     
-    if moruItem.ClassName == "Moru_Silver" or moruItem.ClassName == "Moru_Silver_test" or moruItem.ClassName == "Moru_Silver_NoDay" or moruItem.ClassName == "Moru_Silver_TA" or moruItem.ClassName == "Moru_Silver_TA2" or moruItem.ClassName == "Moru_Silver_Event_1704" or moruItem.ClassName == 'Moru_Silver_TA_Recycle'or moruItem.ClassName == 'Moru_Silver_TA_V2' then 
-		value = 0;
-	end
-
-    if moruItem.ClassName == "Moru_Gold_TA" or moruItem.ClassName == "Moru_Gold_TA_NR" or moruItem.ClassName == "Moru_Gold_EVENT_1710_NEWCHARACTER" then 
-		value = 0;
-	end
-	
-    if moruItem.ClassName == "Moru_Event160609" or moruItem.ClassName == "Moru_Event160929_14d" then
-        value = 0;
-    end
-    if moruItem.ClassName == "Moru_Potential" or moruItem.ClassName == "Moru_Potential14d" then
+    if IS_MORU_FREE_PRICE(moruItem) == true then
         value = 0;
     end
 
@@ -120,27 +165,10 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem, pc)
         value = value + (value_diamond * 2.1)
     end
     
-    if moruItem.StringArg == 'SILVER' then
-        value = 0;
-    end
-    
---    --EVENT_1804_TRANSCEND_REINFORCE
---    if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
---        value = value/2
---    end
-    
     return SyncFloor(value);
 
 end
 
-
-function GET_REINFORCE_131014_HITCOUNT(fromItem, moru)
-
-    local moruRank = string.sub(moru.ClassName, 6, 7);
-    moruRank = tonumber(moruRank);
-    local ItemStar = fromItem.ItemStar;
-    
-    local prop = geItemTable.GetProp(fromItem.ClassID);
+function GET_REINFORCE_HITCOUNT(fromItem, moru)
     return 3;
-
 end

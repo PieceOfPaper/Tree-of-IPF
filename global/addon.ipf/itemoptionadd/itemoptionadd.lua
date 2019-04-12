@@ -57,8 +57,6 @@ function CLEAR_ITEMOPTIONADD_UI()
 	local putOnItem = GET_CHILD_RECURSIVELY(frame, "text_putonitem")
 	putOnItem:ShowWindow(1)
 
-	local text_material = GET_CHILD_RECURSIVELY(frame, "text_material")
-	text_material:ShowWindow(1)
 	local text_beforeadd = GET_CHILD_RECURSIVELY(frame, "text_beforeadd")
 	text_beforeadd:ShowWindow(1)
 	local text_afteradd = GET_CHILD_RECURSIVELY(frame, "text_afteradd")
@@ -85,10 +83,6 @@ function CLEAR_ITEMOPTIONADD_UI()
 
 	local bodyGbox1 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox1');
 	bodyGbox1:ShowWindow(1)
-	local bodyGbox2 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox2');
-	bodyGbox2:ShowWindow(1)
-	local bodyGbox2_1 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox2_1');
-	bodyGbox2_1:ShowWindow(1)
 	local bodyGbox3 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox3');
 	bodyGbox3:ShowWindow(0)
 
@@ -96,8 +90,6 @@ function CLEAR_ITEMOPTIONADD_UI()
 	local bodyGbox1_1 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox1_1');
 	bodyGbox1_1:Resize(bodyGbox1:GetWidth(), bodyGbox1:GetHeight())
 	bodyGbox1_1 : RemoveAllChild();
-	local bodyGbox2_1 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox2_1');
-	bodyGbox2_1: RemoveAllChild();
 	local bodyGbox3_1 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox3_1');
 	bodyGbox3_1: RemoveAllChild();
 
@@ -207,77 +199,6 @@ function ITEM_OPTIONADD_REG_MAIN_ITEM(frame, itemID)
 
 	local materialItemSlot = 2;
 	frame:SetUserValue('MAX_EXCHANGEITEM_CNT', exchangeItemSlot);
-
-	local materialItemName = ScpArgMsg('NotDecidedYet')
-	for i = 1 , materialItemSlot do
-		local materialItemIndex = "MaterialItem_" .. i
-		local materialItemCount = 0
-		local ItemGrade = itemCls.ItemGrade		
-	
-		local bodyGbox2_1 = GET_CHILD_RECURSIVELY(frame, "bodyGbox2_1")
-		local materialClsCtrl = bodyGbox2_1:CreateOrGetControlSet('eachmaterial_in_itemoptionadd', 'MATERIAL_CSET_'..i, 0, 0);
-		materialClsCtrl = AUTO_CAST(materialClsCtrl)
-		local pos_y = materialClsCtrl:GetUserConfig("POS_Y")
-		materialClsCtrl:Move(0, pos_y * (i-1))
-		local material_icon = GET_CHILD_RECURSIVELY(materialClsCtrl, "material_icon", "ui::CPicture");
-		local material_questionmark = GET_CHILD_RECURSIVELY(materialClsCtrl, "material_questionmark", "ui::CPicture");
-		local material_name = GET_CHILD_RECURSIVELY(materialClsCtrl, "material_name", "ui::CRichText");
-		local material_count = GET_CHILD_RECURSIVELY(materialClsCtrl, "material_count", "ui::CRichText");
-		local gradetext2 = GET_CHILD_RECURSIVELY(materialClsCtrl, "grade", "ui::CRichText");
-	
-		if i == 1 then
-			materialItemName = GET_OPTION_EQUIP_CAPITAL_MATERIAL_NAME();
-			materialItemCount = GET_OPTION_EQUIP_NEED_CAPITAL_COUNT(slotInvItemCls);
-			frame:SetUserValue('MATERIAL_ITEM_COUNT', materialItemCount);
-		else
-			materialItemName = GET_OPTION_EXTRACT_MATERIAL_NAME();
-			materialItemCount = GET_OPTION_EQUIP_NEED_MATERIAL_COUNT(slotInvItemCls);
-			frame:SetUserValue('MATERIAL_ITEM_COUNT', materialItemCount);
-		end
-
-		if i == materialItemSlot then
-			local labelline = GET_CHILD_RECURSIVELY(materialClsCtrl, "labelline2")
-			labelline:ShowWindow(0)
-		end
-		
-		local itemIcon = 'question_mark'
-		material_icon:ShowWindow(1)
-		material_questionmark:ShowWindow(0)
-		if item ~= nil then
-			local materialCls = GetClass("Item", materialItemName);
-			if i <= materialItemSlot and materialCls ~= 'None' then
-				materialClsCtrl:ShowWindow(1)
-				itemIcon = materialCls.Icon;
-				materialItemName = materialCls.Name;
-				local itemCount = GetInvItemCount(pc, materialCls.ClassName)
-				local invMaterial = session.GetInvItemByName(materialCls.ClassName)
-
-				local type = item.ClassID;
-				
-				if itemCount < materialItemCount then
-					material_count:SetTextByKey("color", "{#EE0000}");
-					isAbleExchange = isAbleExchange * 0;
-				elseif invMaterial.isLockState == true then
-					isAbleExchange = -1;
-				else 
-					material_count:SetTextByKey("color", nil);
-				end
-				material_count:SetTextByKey("curCount", itemCount);
-				material_count:SetTextByKey("needCount", materialItemCount)
-					
-				session.AddItemID(materialCls.ClassID, materialItemCount);
-	
-			else
-				materialClsCtrl:ShowWindow(0)
-			end
-
-		else
-			materialClsCtrl:ShowWindow(0)
-		end
-
-		material_icon:SetImage(itemIcon)
-		material_name:SetText(materialItemName)
-	end
 	frame:SetUserValue("isAbleExchange", isAbleExchange)
 
 
@@ -497,6 +418,11 @@ function ITEM_OPTIONADD_REG_ADD_ITEM(frame, itemID)
 		end
 	end
 
+	local rareOptionText = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(invitem);
+	if rareOptionText ~= nil then
+		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, rareOptionText, 0, inner_yPos);
+	end
+
 	for i = 1 , #list2 do
 		local propName = list2[i];
 		local propValue = targetItem[propName];
@@ -598,8 +524,6 @@ function _ITEMOPTIONADD_EXEC()
 	text_beforeadd:ShowWindow(0)
 	local text_afteradd = GET_CHILD_RECURSIVELY(frame, "text_afteradd")
 	text_afteradd:ShowWindow(1)
-	local bodyGbox2 = GET_CHILD_RECURSIVELY(frame, "bodyGbox2")
-	bodyGbox2:ShowWindow(0)
 	local bodyGbox3 = GET_CHILD_RECURSIVELY(frame, "bodyGbox3")
 	bodyGbox3:ShowWindow(0)
 
@@ -688,15 +612,6 @@ ui.SetHoldUI(false);
 	local sendOK = GET_CHILD_RECURSIVELY(frame, "send_ok")
 	sendOK:ShowWindow(1)
 
-
-	local bodyGbox2 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox2');
-	bodyGbox2:ShowWindow(0)
-	local bodyGbox2_1 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox2_1');
-	bodyGbox2_1:ShowWindow(0)
-
-	local text_material = GET_CHILD_RECURSIVELY(frame, "text_material")
-	text_material:ShowWindow(0)
-
 	local text_beforeadd = GET_CHILD_RECURSIVELY(frame, "text_beforeadd")
 	text_beforeadd:ShowWindow(0)
 	local text_afteradd = GET_CHILD_RECURSIVELY(frame, "text_afteradd")
@@ -720,7 +635,8 @@ ui.SetHoldUI(false);
 		refreshScp(obj);
 	end
 
-
+	local gBox = GET_CHILD_RECURSIVELY(frame, "bodyGbox3_1");
+    local ypos = 0;
 	for i = 1 , MAX_OPTION_EXTRACT_COUNT do
 	    local propGroupName = "RandomOptionGroup_"..i;
 		local propName = "RandomOption_"..i;
@@ -744,15 +660,23 @@ ui.SetHoldUI(false);
 		if obj[propValue] ~= 0 and obj[propName] ~= "None" then
 			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(obj[propName]));
 			local strInfo = ABILITY_DESC_NO_PLUS(opName, obj[propValue], 0);
-
-			local gBox = GET_CHILD_RECURSIVELY(frame, "bodyGbox3_1")
 			local itemClsCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_'..i, 0, 0);
 			itemClsCtrl = AUTO_CAST(itemClsCtrl)
 			local pos_y = itemClsCtrl:GetUserConfig("POS_Y")
-			itemClsCtrl : Move(0, i * pos_y)
+			itemClsCtrl:Move(0, i * pos_y);
 			local propertyList = GET_CHILD_RECURSIVELY(itemClsCtrl, "property_name", "ui::CRichText");
 			propertyList:SetText(strInfo)
+            ypos = i * pos_y + propertyList:GetHeight();
 		end
+	end
+    
+	local rareOptionText = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(obj);
+	if rareOptionText ~= nil then
+		local rareOptionCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_RARE', 0, 0);
+		rareOptionCtrl = AUTO_CAST(rareOptionCtrl);	
+		rareOptionCtrl:Move(0, ypos);
+		local propertyList = GET_CHILD_RECURSIVELY(rareOptionCtrl, "property_name", "ui::CRichText");
+		propertyList:SetText(rareOptionText);
 	end
 
 	local resultItemImg = GET_CHILD_RECURSIVELY(frame, "result_item_img")

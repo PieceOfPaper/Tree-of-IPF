@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="STARTOWER_91_MQ_10_MINIGAME" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="-1">
+        <StageList>
+            <Stage Name="DefGroup">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="마족들이 진지로 기습했습니다!{nl}기습한 마족들을 물리치세요!"/>
+                        <Str Str="scroll"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="59116" Pos="2420.84#1211.03#-1357.71" genCount="1" maxStackCount="1" genTime="1000" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="59116" Pos="2533.40#1211.03#-1385.19" genCount="1" maxStackCount="1" genTime="1000" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="59116" Pos="2628.40#1211.03#-1324.65" genCount="1" maxStackCount="1" genTime="1000" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="59116" Pos="2455.18#1143.50#-1525.65" genCount="1" maxStackCount="1" genTime="1000" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="59116" Pos="2117.11#1173.39#-1299.61" genCount="1" maxStackCount="1" genTime="1000" objectKey="4" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="1ST_START" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="7"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="1ST_WAVE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="1ST_WAVE" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="마족들이 추가로 몰려왔습니다!{nl}계속해서 습격하는 마족을 처치하세요!"/>
+                        <Str Str="scroll"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="59116" Pos="2120.99#1173.39#-1272.49" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="59090" Pos="2110.63#1173.39#-1236.79" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="59116" Pos="2059.50#1156.66#-1208.77" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="59090" Pos="2166.80#1173.39#-1274.66" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="59116" Pos="2144.71#1173.39#-1322.34" genCount="1" maxStackCount="1" genTime="20000" objectKey="4" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="2ND_START" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1ST_WAVE/0/1ST_WAVE/1/1ST_WAVE/2/1ST_WAVE/3/1ST_WAVE/4"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2ND_WAVE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="LAST_START" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1ST_WAVE/0/1ST_WAVE/1/1ST_WAVE/2/1ST_WAVE/3/1ST_WAVE/4"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="2ND_WAVE/0/2ND_WAVE/1/2ND_WAVE/2/2ND_WAVE/3/2ND_WAVE/4"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="LAST_WAVE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="1ST_END" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/1ST_WAVE/0/1ST_WAVE/1/1ST_WAVE/2/1ST_WAVE/3/1ST_WAVE/4/2ND_WAVE/0/2ND_WAVE/1/2ND_WAVE/2/2ND_WAVE/3/2ND_WAVE/4/LAST_WAVE/0/LAST_WAVE/1/LAST_WAVE/2/LAST_WAVE/3/LAST_WAVE/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="1ST_WAVE"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="1ST_WAVE"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="1ST_WAVE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="2ND_WAVE" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="진지의 앞쪽으로 마족이 기습했습니다!{nl}계속해서 습격하는 마족을 처치하세요!"/>
+                        <Str Str="scroll"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="59116" Pos="2440.64#1143.50#-1513.82" genCount="1" maxStackCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="59090" Pos="2497.22#1143.50#-1508.60" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="59090" Pos="2550.54#1143.50#-1497.47" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="59116" Pos="2357.65#1143.50#-1465.18" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="59090" Pos="2624.09#1143.50#-1454.55" genCount="1" maxStackCount="1" genTime="20000" objectKey="4" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="2ND_END" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="2ND_WAVE/0/2ND_WAVE/1/2ND_WAVE/2/2ND_WAVE/3/2ND_WAVE/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="2ND_WAVE"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="2ND_WAVE"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="2ND_WAVE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="LAST_WAVE" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="마족들이 진지 안으로 급습했습니다!{nl}계속해서 습격하는 마족을 처치하세요!"/>
+                        <Str Str="scroll"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="59090" Pos="2384.88#1211.03#-1157.85" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="59090" Pos="2390.13#1211.03#-1211.96" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="59090" Pos="2586.49#1210.87#-1190.94" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" tendency="1"/>
+                    <Obj Type="Monster" MonType="59090" Pos="2577.17#1210.79#-1241.97" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" tendency="1"/>
+                    <Obj Type="Monster" MonType="59090" Pos="2461.26#1211.03#-1145.20" genCount="1" maxStackCount="1" genTime="20000" objectKey="4" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="LAST_END">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="LAST_WAVE/0/LAST_WAVE/1/LAST_WAVE/2/LAST_WAVE/3/LAST_WAVE/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="LAST_WAVE"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="LAST_WAVE"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="LAST_WAVE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

@@ -1,6 +1,10 @@
 -- lib_itemtooltip.lua
 
 function GET_EQUIP_ITEM_IMAGE_NAME(invitem, imageType, gender)
+    if TryGetProp(invitem, 'ClassType', 'None') == 'Outer' then
+        imageType = 'Icon'; -- 브리케팅 할 일이 없는 코스튬        
+    end
+    
 	if 'TooltipImage' == imageType then
 		local changeItemcls = nil;
 		local faceID = TryGetProp(invitem, 'BriquettingIndex');
@@ -16,7 +20,7 @@ function GET_EQUIP_ITEM_IMAGE_NAME(invitem, imageType, gender)
 		if nil ~= imageName then
 			return tostring(imageName)
 		end
-	elseif 'Icon' == imageType then
+	elseif 'Icon' == imageType then    
 		return GET_ITEM_ICON_IMAGE(invitem, gender);
 	end
 
@@ -882,14 +886,20 @@ function SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped, basicProp)
 	local pc = GetMyPCObject();
 	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce');
 	local bonusReinf = TryGetProp(pc, 'BonusReinforce');
+	local overReinf = TryGetProp(pc, 'OverReinforce');
+
 	if TryGetProp(invitem, 'EquipGroup') ~= 'SubWeapon' or isEquiped == 0 then
 		bonusReinf = 0;
+	end
+	if TryGetProp(invitem, 'GroupName') ~= 'Weapon' or isEquiped == 0 then
+		overReinf = 0;
 	end
 	if isEquiped == 0 then
 		ignoreReinf = 0;
 	end
-	local itemReinf = invitem.Reinforce_2 + bonusReinf;
-
+    
+	local itemReinf = invitem.Reinforce_2 + bonusReinf + overReinf;
+   
 	if itemReinf > 0  then
 		local y = GET_CHILD_MAX_Y(gBox);
 		local reinforceText = gBox:CreateOrGetControl('richtext', "REINFORCE_TEXT", 20, yPos, gBox:GetWidth() - 30, 20);
@@ -901,11 +911,11 @@ function SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped, basicProp)
 		local reinforceValue = 0;
 
 		if invitem.GroupName == "Armor" then
-			reinforceValue = GET_REINFORCE_ADD_VALUE(basicProp, invitem, ignoreReinf, bonusReinf);
+			reinforceValue = GET_REINFORCE_ADD_VALUE(basicProp, invitem, ignoreReinf, bonusReinf + overReinf);
 		elseif invitem.GroupName == "Weapon" then
-			reinforceValue = GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf, basicProp);
+			reinforceValue = GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf + overReinf, basicProp);
 		elseif invitem.GroupName == "SubWeapon" then
-			reinforceValue = GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf, basicProp);
+			reinforceValue = GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf + overReinf, basicProp);
 		end
 
 		if invitem.BuffValue > 0 then
@@ -918,6 +928,9 @@ function SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped, basicProp)
 		local infoText = ScpArgMsg("MoruReinforce");
 		if bonusReinf > 0 then
 			infoText = ScpArgMsg("OverEstimate");
+		end
+		if overReinf > 0 then
+		    infoText = ScpArgMsg("OverReinforce");
 		end
 		if ignoreReinf == 1 then
 			infoText = ScpArgMsg("Devaluation");
@@ -1255,6 +1268,7 @@ function IS_DISABLED_TRADE(invitem, type)
 	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
 	local blongProp = TryGetProp(invitem, "BelongingCount");
 	local blongCnt = 0;
+	
 	if blongProp ~= nil then
 		blongCnt = tonumber(blongProp);
 	end
@@ -1266,14 +1280,17 @@ function IS_DISABLED_TRADE(invitem, type)
 	end
 
 	if type == TRADE_TYPE_USER then
-		if invitem.MaxStack <= 1 and (GetTradeLockByProperty(invitem) ~= "None" or 0 <  blongCnt) then
+		if invitem.MaxStack <= 1 and prCount <= 0 and (GetTradeLockByProperty(invitem) ~= "None" or 0 < blongCnt) or 
+		(invitem.MaxStack <= 1 and (GetTradeLockByProperty(invitem) ~= "None" or 0 < blongCnt)) or
+		(invitem.ItemType == 'Equip' and invitem.ClassType ~= 'Helmet' and invitem.ClassType ~= 'Armband' and prCount <= 0) or
+		(invitem.ItemType == 'Equip' and invitem.Transcend > 0) then
 			return true;
 		end
 	elseif type == TRADE_TYPE_MARKET then
 		if invitem.MaxStack <= 1 and 
-		((invitem.ItemType == 'Equip' and invitem.ClassType ~= 'Helmet' and invitem.ClassType ~= 'Armband' and prCount <= 0) 
-		or 0 < blongCnt 
-		or (TryGetProp(invitem, 'ClassType', 'None') == 'Armband' and invitem.MarketTrade == "NO")) then
+		((invitem.ItemType == 'Equip' and invitem.ClassType ~= 'Helmet' and invitem.ClassType ~= 'Armband' and prCount <= 0) or 
+		0 < blongCnt or 
+		(TryGetProp(invitem, 'ClassType', 'None') == 'Armband' and invitem.MarketTrade == "NO")) then
 			return true;
 		end
 	else

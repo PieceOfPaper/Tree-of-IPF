@@ -665,9 +665,15 @@ function SCR_Get_MON_MINPATK(self)
     
     value = value * (byATKRate * raceTypeRate);
     
-    local byBuff = TryGetProp(self, "PATK_BM");
-    if byBuff == nil then
-        byBuff = 0;
+    local byBuff = 0;
+    local byBuffList = { "PATK_BM", "MINPATK_BM" };
+    for i = 1, #byBuffList do
+        local byBuffTemp = TryGetProp(self, byBuffList[i]);
+        if byBuffTemp == nil then
+            byBuffTemp = 0;
+        end
+        
+        byBuff = byBuff + byBuffTemp;
     end
     
     local rateBuffList = {'PATK_RATE_BM', 'MINPATK_RATE_BM' };
@@ -748,9 +754,15 @@ function SCR_Get_MON_MAXPATK(self)
     
     value = value * (byATKRate * raceTypeRate);
     
-    local byBuff = TryGetProp(self, "PATK_BM");
-    if byBuff == nil then
-        byBuff = 0;
+    local byBuff = 0;
+    local byBuffList = { "PATK_BM", "MAXPATK_BM" };
+    for i = 1, #byBuffList do
+        local byBuffTemp = TryGetProp(self, byBuffList[i]);
+        if byBuffTemp == nil then
+            byBuffTemp = 0;
+        end
+        
+        byBuff = byBuff + byBuffTemp;
     end
     
     local rateBuffList = {'PATK_RATE_BM', 'MAXPATK_RATE_BM' };
@@ -831,9 +843,15 @@ function SCR_Get_MON_MINMATK(self)
     
     value = value * (byATKRate * raceTypeRate);
     
-    local byBuff = TryGetProp(self, "MATK_BM");
-    if byBuff == nil then
-        byBuff = 0;
+    local byBuff = 0;
+    local byBuffList = { "MATK_BM", "MINMATK_BM" };
+    for i = 1, #byBuffList do
+        local byBuffTemp = TryGetProp(self, byBuffList[i]);
+        if byBuffTemp == nil then
+            byBuffTemp = 0;
+        end
+        
+        byBuff = byBuff + byBuffTemp;
     end
     
     local rateBuffList = {'MATK_RATE_BM', 'MINMATK_RATE_BM' };
@@ -917,9 +935,15 @@ function SCR_Get_MON_MAXMATK(self)
     
     value = value * (byATKRate * raceTypeRate);
     
-    local byBuff = TryGetProp(self, "MATK_BM");
-    if byBuff == nil then
-        byBuff = 0;
+    local byBuff = 0;
+    local byBuffList = { "MATK_BM", "MAXMATK_BM" };
+    for i = 1, #byBuffList do
+        local byBuffTemp = TryGetProp(self, byBuffList[i]);
+        if byBuffTemp == nil then
+            byBuffTemp = 0;
+        end
+        
+        byBuff = byBuff + byBuffTemp;
     end
     
     local rateBuffList = {'MATK_RATE_BM', 'MAXMATK_RATE_BM' };
@@ -1014,9 +1038,15 @@ function SCR_Get_MON_KDArmorType(self)
     if self.HPCount > 0 then
         return 9999;
     end
-
-
+	
     local value = self.KDArmor;
+    local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff", "Marschierendeslied_Buff", "Methadone_Buff", "Mon_PainBarrier_Buff" };
+    for i = 1, #buffList do
+        if IsBuffApplied(self, buffList[i]) == 'YES' then
+            value = 9999;
+        end
+    end
+    
     return value;
 end
 
@@ -1609,6 +1639,10 @@ function SCR_RACE_TYPE_RATE(self, prop)
     
     for i = 1, #raceList do
         local raceType = TryGetProp(self, "RaceType");
+        if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
+            raceType = GetExProp_Str(self, "SHADOW_INFERNAL_RACETYPE");
+        end
+        
         if raceType == raceList[i] then
             if raceRateList[i] ~= nil and raceRateList[i] > 0 then
                 raceTypeRate = raceRateList[i];
@@ -1643,6 +1677,10 @@ function SCR_SIZE_TYPE_RATE(self, prop)
     
     for i = 1, #sizeList do
         local sizeType = TryGetProp(self, "Size");
+        if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
+            sizeType = GetExProp_Str(self, "SHADOW_INFERNAL_SIZE");
+        end
+        
         if sizeType == sizeList[i] then
             if sizeRateList[i] ~= nil and sizeRateList[i] > 0 then
                 sizeTypeRate = sizeRateList[i];
@@ -1677,6 +1715,9 @@ function SCR_MON_ITEM_GRADE_RATE(self, lv)
     
     local basicGradeRatio = 1;
     local reinforceGradeRatio = 1;
+    if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
+        monRank = GetExProp_Str(self, "SHADOW_INFERNAL_MONRANK");
+    end
     
     if monRank == "Normal" or monRank == "Material" then
         basicGradeRatio = 0.9;  --normal

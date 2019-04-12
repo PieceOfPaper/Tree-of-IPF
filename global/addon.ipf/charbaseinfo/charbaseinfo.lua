@@ -26,7 +26,7 @@ function ON_JOB_EXP_UPDATE(frame, msg, str, exp, tableinfo)
 		curExp = tableinfo.before:GetLevelExp();
 		maxExp = curExp;
 
-		-- ÀüÁ÷ÀÌ °¡´ÉÇØÁö¸é Å¬·¡½º & ½ºÅ³ÂÊ ¾÷µ¥ÀÌÆ®ÇÏ±â
+		-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ & ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ï±ï¿½
 		REFRESH_SKILL_TREE( ui.GetFrame('skilltree') );
 	end
 
@@ -54,14 +54,21 @@ end
 function CHARBASEINFO_ON_MSG(frame, msg, argStr, argNum)
 	if msg == 'EXP_UPDATE'  or  msg == 'STAT_UPDATE' or msg == 'LEVEL_UPDATE' or msg == 'CHANGE_COUNTRY' then
 		local expGauge 			= GET_CHILD(frame, "exp", "ui::CGauge");
-		expGauge:SetPoint(session.GetEXP(), session.GetMaxEXP());
-		--expGauge:SetTextTooltip(string.format("{@st42b}%d / %d{/}", session.GetEXP(), session.GetMaxEXP()));
+		local exp = session.GetEXP()
+		local maxExp = session.GetMaxEXP()
+		local percent = 0.0;
 		ui.UpdateVisibleToolTips();
-		local percent = session.GetEXP() / session.GetMaxEXP() * 100;
+		if maxExp ~= 0 and maxExp > 0 then
+			percent = exp / maxExp * 100;
+			expGauge:SetPoint(exp, maxExp);
+		elseif maxExp == 0 then
+			percent = 100.0;
+			expGauge:SetPoint(1,1);				
+		end
+		
 		if percent > 100 then
 			percent = 100.0;
 		end
-
 
 		local levelPercentObject    = GET_CHILD(frame, 'levelexppercent', 'ui::CRichText');
 		levelPercentObject:SetText(''..string.format('{@st42b}{s14}%.1f',percent)..'{s14}%{/}');

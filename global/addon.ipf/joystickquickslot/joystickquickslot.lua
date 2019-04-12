@@ -17,6 +17,8 @@ function JOYSTICKQUICKSLOT_ON_INIT(addon, frame)
 	addon:RegisterMsg('JUNGTAN_SLOT_UPDATE', 'JOYSTICK_JUNGTAN_SLOT_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_ON', 'JOYSTICK_EXP_ORB_SLOT_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_OFF', 'JOYSTICK_EXP_ORB_SLOT_ON_MSG');
+	addon:RegisterMsg('TOGGLE_ITEM_SLOT_ON', 'JOYSTICK_TOGGLE_ITEM_SLOT_ON_MSG');
+	addon:RegisterMsg('TOGGLE_ITEM_SLOT_OFF', 'JOYSTICK_TOGGLE_ITEM_SLOT_ON_MSG');
 
 	addon:RegisterMsg('JOYSTICK_RESTQUICKSLOT_OPEN', 'JOYSTICK_ON_RESTQUICKSLOT_OPEN');
 	addon:RegisterMsg('JOYSTICK_RESTQUICKSLOT_CLOSE', 'ON_JOYSTICK_RESTQUICKSLOT_CLOSE');
@@ -56,6 +58,8 @@ function JOYSTICKQUICKSLOT_ON_INIT(addon, frame)
 	local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 	timer:SetUpdateScript("UPDATE_JOYSTICK_QUICKSLOT_OVERHEAT");
 	timer:Start(0.1);
+
+	JOYSTICKQUICKSLOT_TOGGLE_ITEM_LIST={}
 
 end
 
@@ -219,11 +223,7 @@ function JOYSTICK_QUICKSLOT_ON_MSG(frame, msg, argStr, argNum)
 	curCnt = 40;
 
 	JOYSTICK_QUICKSLOT_REFRESH(curCnt);
-
-	--UI_MODE_CHANGE()
-
 end
-
 
 function JOYSTICK_QUICKSLOT_REFRESH(curCnt)
 	if curCnt < 20 or curCnt > 40 then
@@ -557,6 +557,36 @@ function JOYSTICK_EXP_ORB_SLOT_ON_MSG(frame, msg, str, num)
 	DebounceScript("JOYSTICK_QUICKSLOT_UPDATE_ALL_SLOT", 0.1);
 end
 
+--토글
+function JOYSTICK_TOGGLE_ITEM_SLOT_ON_MSG(frame, msg, argstr, argnum)
+	if msg == "TOGGLE_ITEM_SLOT_ON" then
+		JOYSTICKQUICKSLOT_TOGGLE_ITEM_LIST[argnum] = 1;
+		imcSound.PlaySoundEvent('sys_atk_booster_on');
+	elseif msg == "TOGGLE_ITEM_SLOT_OFF" then
+		JOYSTICKQUICKSLOT_TOGGLE_ITEM_LIST[argnum] = nil;
+		imcSound.PlaySoundEvent('sys_booster_off');
+	end
+
+	local cnt = 0;
+	for k, v in pairs(JOYSTICKQUICKSLOT_TOGGLE_ITEM_LIST) do
+		cnt = cnt + 1;
+	end
+	
+	if cnt > 0 then
+		frame:RunUpdateScript("UPDATE_JOYSTICKQUICKSLOT_TOGGLE_ITEM", 1.0);
+	else
+		frame:StopUpdateScript("UPDATE_JOYSTICKQUICKSLOT_TOGGLE_ITEM");
+	end
+end
+
+--업데이트
+function UPDATE_JOYSTICKQUICKSLOT_TOGGLE_ITEM(frame)
+	for k, v in pairs(QUICKSLOT_TOGGLE_ITEM_LIST) do
+		PLAY_JOYSTICKQUICKSLOT_UIEFFECT(frame, k);
+	end
+	return 1
+end
+
 function JOYSTICK_JUNGTAN_SLOT_ON_MSG(frame, msg, str, itemType)
 
 	-- atk jungtan
@@ -818,4 +848,9 @@ function JOYSTICK_QUICKSLOT_MY_MONSTER_SKILL(isOn, monName, buffType)
 
 	end
 	frame:SetUserValue('SKL_MAX_CNT',0)
+end
+
+function JOYSTICKQUICKSLOT_DRAW()
+    JOYSTICK_QUICKSLOT_UPDATE_ALL_SLOT();
+    JOYSTICK_QUICKSLOT_REFRESH(40);
 end

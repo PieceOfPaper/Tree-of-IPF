@@ -85,7 +85,6 @@ function UPDATE_ABILITYLIST(frame, msg, argStr, argNum)
 end
 
 function MAKE_CLASS_INFO_LIST(frame, resetCommonType)
-
 	local clslist, cnt  = GetClassList("Job");
 	local haveJobNameList = {};
 	local haveJobGradeList = {};
@@ -109,7 +108,7 @@ function MAKE_CLASS_INFO_LIST(frame, resetCommonType)
 
 	local lastclassCtrlcount = 0
 	local cnt = pcJobInfo:GetJobCount();
-
+	
 	for i = 0 , cnt - 1 do
 		local jobID = pcJobInfo:GetJobByIndex(i);
 		if jobID == -1 then
@@ -122,6 +121,7 @@ function MAKE_CLASS_INFO_LIST(frame, resetCommonType)
 		end
 
 		local classCtrl = grid:CreateOrGetControlSet('classtreeIcon', 'classCtrl_'..cls.ClassName, 0, 0);
+		
 		classCtrl:ShowWindow(1);
 
 		classCtrl:SetEventScript(ui.LBUTTONUP, "OPEN_SKILL_INFO");
@@ -180,10 +180,10 @@ function MAKE_CLASS_INFO_LIST(frame, resetCommonType)
 
 	local detail = GET_CHILD_RECURSIVELY(frame,'detailGBox','ui::CGroupBox')
 	detail:SetOffset(detail:GetOriginalX(),grid:GetY() + detailypos)
-
+	
     local commonSkillCount = session.skill.GetCommonSkillCount();
-    if resetCommonType ~= true and commonSkillCount > 0 then
-        SKILLTREE_MAKE_COMMON_TYPE_SKILL_EMBLEM(frame);
+ 	  if resetCommonType ~= true and commonSkillCount > 0 then
+      SKILLTREE_MAKE_COMMON_TYPE_SKILL_EMBLEM(frame);
     end
 end
 
@@ -1109,12 +1109,23 @@ function ON_UPDATE_COMMON_SKILL_LIST(frame, msg, argStr, argNum)
 	if commonSkillCount < 1 then		
 		return;
 	end
-
+	
 	SKILLTREE_MAKE_COMMON_TYPE_SKILL_EMBLEM(frame);
 end
 
 function SKILLTREE_MAKE_COMMON_TYPE_SKILL_EMBLEM(frame)
 	local grid = GET_CHILD_RECURSIVELY(frame, 'skill', 'ui::CGrid');
+	local cid = frame:GetUserValue("TARGET_CID");
+	local pcSession = session.GetSessionByCID(cid);
+	local pcJobInfo = pcSession.pcJobInfo;
+	local jobCount = pcJobInfo:GetJobCount();
+	local childCount = grid:GetChildCount();
+	if jobCount + 1 > childCount then
+		local detailypos = (math.floor((jobCount + 1) /3) + 1) * 140
+		local detail = GET_CHILD_RECURSIVELY(frame,'detailGBox','ui::CGroupBox')
+		detail:SetOffset(detail:GetOriginalX(), grid:GetY() + detailypos)
+	end
+
 	local emblemCtrlSet = grid:CreateOrGetControlSet('classtreeIcon', 'classCtrl_CommonType', 0, 0);
 	emblemCtrlSet:SetEventScript(ui.LBUTTONUP, "OPEN_COMMON_TYPE_SKILL");
 	emblemCtrlSet:SetOverSound("button_over");

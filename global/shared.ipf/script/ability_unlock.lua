@@ -207,3 +207,64 @@ function UNLOCK_PELTASTA34(pc, sklName, limitLevel, abilIES)
 	
 	return "LOCK_GRADE";
 end
+
+function UNLOCK_LANCER14(pc, sklName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, 'Char1_17');
+	local skillPrevent = GetSkill(pc, "Rancer_Prevent")
+	if skillPrevent ~= nil and skillPrevent.LevelByDB >= 6 and jobGrade ~= nil and jobGrade >= 3 then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end
+
+function UNLOCK_LANCER_RHONGOMIANT(pc, sklName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, 'Char1_17');
+	local skillChage = GetSkill(pc, "Rancer_Chage")
+	if skillChage ~= nil and skillChage.LevelByDB >= 6 and jobGrade ~= nil and jobGrade >= 3 then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end
+
+function UNLOCK_HACKAPELL14(pc, abilName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, 'Char3_7');
+	local skillCavalry = GetSkill(pc, "Hackapell_CavalryCharge")
+	if skillCavalry ~= nil and skillCavalry.LevelByDB >= 1 and jobGrade ~= nil and jobGrade >= 3 then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end
+
+function UNLOCK_ONMYOJI10(pc, sklName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, 'Char2_20');
+	local skillWaterShikigami = GetSkill(pc, "Onmyoji_WaterShikigami")
+	if skillWaterShikigami ~= nil and skillWaterShikigami.LevelByDB >= 11 and jobGrade ~= nil and jobGrade >= 3 then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end
+
+function UNLOCK_LANCER17(pc, sklName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, 'Char1_17');
+	local skillSpillAttack = GetSkill(pc, "Rancer_SpillAttack")
+	if skillSpillAttack ~= nil and skillSpillAttack.LevelByDB >= 6 and jobGrade ~= nil and jobGrade >= 3 then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end
+
+function UNLOCK_ABIL_CIRCLE_AND_RANK(pc, jobName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, jobName);
+	local rank = GetTotalJobCount(pc)
+	local limitRank = 10
+	if jobGrade >= limitLevel and rank >= limitRank then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end

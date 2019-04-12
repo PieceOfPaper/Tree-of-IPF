@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="market_cabinet_popup" x="0" y="0" width="580" height="300" create="open">
+	<frame fullheight="false" fasthide="true" drawtitlebar="false" layout_gravity="center center " margin="0 -80 0 0"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<skin frameskin="test_win_system"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<userconfig/>
+	<layer layerlevel="130"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 580 250" margin="0 92 0 0" layout_gravity="center top" draw="false"/>
+		<richtext name="richtext_1" rect="0 0 469 49" margin="0 20 0 0" layout_gravity="center top" fontname="brown_18_b" parent="bg" format="{#8e0000}[%s%s]{/}{/}아이템 {#8e0000}[%s개]{/}{/}의{nl}판매금액 {#002d93}%s실버{/}{/}를 수령하겠습니까?" param1="item_reinforce_level" param1_def="" param2="itemName" param2_def="" param3="itemCount" param3_def="1" param4="itemPrice" param4_def="0" textalign="center center" fixwidth="true"/>
+		<button name="button_1" rect="0 0 145 42" margin="-73 0 0 18" layout_gravity="center bottom" skin="test_gray_button" caption="{@st41b}취소"/>
+		<button name="button_2" rect="0 0 145 42" margin="73 0 0 18" layout_gravity="center bottom" skin="test_red_button" caption="{@st41b}받기"/>
+	</controls>
+</uiframe>

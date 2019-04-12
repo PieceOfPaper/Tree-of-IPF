@@ -105,10 +105,10 @@ function SHOW_PC_COMPARE(cid)
 	local clslist, cnt  = GetClassList("Job");
 	local nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
 
-	local jobRank = nowjobinfo.grade
+	local jobRank = jobhistory:GetJobHistoryCount()
 	local jobName = GET_JOB_NAME(nowjobcls, gender);
 	local level = obj.Lv
-
+	
 	jobInfoRTxt:SetTextByKey("rank", jobRank);
 	jobInfoRTxt:SetTextByKey("job", jobName);
 	jobInfoRTxt:SetTextByKey("lv", level);

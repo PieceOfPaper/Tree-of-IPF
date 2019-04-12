@@ -754,6 +754,8 @@ function SETEXP_SLOT(gbox, addBuffClsName, isAdd)
             local expupValue = 0;
             if buffCls.ClassName == 'GoldenFishEvent' then
                 expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName, GOLDEN_FISH_EXP_RATE);
+            elseif buffCls.ClassName == 'Premium_Nexon_PartyExp' then
+                expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName, (NEXON_PC_PARTY_EXP_RATE + JAEDDURY_NEXON_PC_PARTY_EXP_RATE)*100);
             else
                 expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName);
             end
@@ -1126,8 +1128,26 @@ function STATUS_INFO()
     STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResHoly");
     STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResDark");
     y = y + 10;
-
-
+	
+	
+	
+--	returnY = STATUS_ATTRIBUTE_BOX_TITLE(pc, opc, frame, gboxctrl, ScpArgMsg("ItemRareOption"), y);
+--    if returnY ~= y then
+--        y = returnY + 5;
+--    end
+--	
+--	local itemRareOptionList = { 'ITEM_MainWeaponDamageRate', 'ITEM_SubWeaponDamageRate', 'ITEM_BossDamageRate', 'ITEM_MeleeReducedRate', 'ITEM_MagicReducedRate', 'ITEM_PVPDamageRate', 'ITEM_PVPReducedRate', 'ITEM_CriticalDamage_Rate', 'ITEM_CriticalHitRate', 'ITEM_CriticalDodgeRate', 'ITEM_HitRate', 'ITEM_DodgeRate', 'ITEM_BlockBreakRate', 'ITEM_BlockRate' };
+--	
+--	for i = 1, #itemRareOptionList do
+--		local itemRareOption = itemRareOptionList[i];
+--	    returnY = STATUS_ITEM_RARE_OPTION_VALUE(pc, opc, frame, gboxctrl, itemRareOption, y);
+--	    if returnY ~= y then
+--	        y = returnY + 3;
+--	    end
+--	end
+--    
+--	y = y + 10;
+	
     frame:Invalidate();
 
     if vpc ~= nil then
@@ -1451,6 +1471,70 @@ function STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, attibuteName, y)
     return y + controlSet:GetHeight();
 end
 
+
+
+function STATUS_ITEM_RARE_OPTION_VALUE(pc, opc, frame, gboxctrl, attibuteName, y)
+    local controlSet = gboxctrl:CreateOrGetControlSet('status_stat', attibuteName, 0, y);
+    tolua.cast(controlSet, "ui::CControlSet");
+    local title = GET_CHILD(controlSet, "title", "ui::CRichText");
+    title:SetText(ScpArgMsg(attibuteName));
+	
+    local stat = GET_CHILD(controlSet, "stat", "ui::CRichText");
+    title:SetUseOrifaceRect(true)
+    stat:SetUseOrifaceRect(true)
+    
+    local grayStyle, value = SET_VALUE_ZERO(pc[attibuteName]);
+	
+    if 1 == grayStyle then
+        stat:SetText('');
+        controlSet:Resize(controlSet:GetWidth(), stat:GetHeight());
+        return y + controlSet:GetHeight();
+    end
+    
+    -- value 값 String 및 소수점 처리 시작 --
+    local stringValue = tostring(math.abs(value));
+    if value ~= 0 and math.abs(value) < 10 then
+    	stringValue = "0." .. stringValue;
+    else
+    	stringValue = string.sub(stringValue, 1, -2) .. "." .. string.sub(stringValue, -1, -1);
+    end
+    
+    if value < 0 then
+    	stringValue = ScpArgMsg("MinusSymbol") .. stringValue;
+    end
+	-- value 값 String 및 소수점 처리 끝 --
+	
+    if opc ~= nil and opc[attibuteName] ~= value then
+        local colBefore = frame:GetUserConfig("BEFORE_STAT_COLOR");
+        local colStr = frame:GetUserConfig("ADD_STAT_COLOR")
+
+        local beforeGray, beforeValue = SET_VALUE_ZERO(opc[attibuteName]);
+		
+        if beforeValue ~= value then
+            stat:SetText(colBefore .. beforeValue .. ScpArgMsg("Auto_{/}__{/}") .. colStr .. stringValue .. ScpArgMsg("PercentSymbol"));
+        else
+            stat:SetText(stringValue .. ScpArgMsg("PercentSymbol"));
+        end
+    else
+        stat:SetText(stringValue .. ScpArgMsg("PercentSymbol"));
+    end
+
+    controlSet:Resize(controlSet:GetWidth(), stat:GetHeight());
+    return y + controlSet:GetHeight();
+end
+
+function STATUS_ATTRIBUTE_BOX_TITLE(pc, opc, frame, gboxctrl, titleText, y)
+    local controlSet = gboxctrl:CreateOrGetControlSet('status_stat', titleText, 0, y);
+    tolua.cast(controlSet, "ui::CControlSet");
+    local title = GET_CHILD(controlSet, "title", "ui::CRichText");
+    title:SetText("{@st41}{s20}" .. titleText .. "{/}{/}");
+	
+    controlSet:Resize(controlSet:GetWidth(), title:GetHeight());
+    return y + controlSet:GetHeight();
+end
+
+
+
 function STATUS_ATTRIBUTE_VALUE_DIVISIONBYTHOUSAND_NEW(pc, opc, frame, gboxctrl, attibuteName, y)
 
     local controlSet = gboxctrl:CreateOrGetControlSet('status_stat', attibuteName, 0, y);
@@ -1697,19 +1781,22 @@ function STATUS_ACHIEVE_INIT_HAIR_COLOR(gbox)
     local pc = GetMyPCObject()
     local etc = GetMyEtcObject();
 
-    local nowheadindex = item.GetHeadIndex()
+	local haveHairColorList = {}
+	local haveHairColorEList = {}
+
+    local nowHeadIndex = item.GetHeadIndex()
     local Rootclasslist = imcIES.GetClassList('HairType');
     local Selectclass = Rootclasslist:GetClass(pc.Gender);
     local Selectclasslist = Selectclass:GetSubClassList();
 
-    local nowhaircls = Selectclasslist:GetByIndex(nowheadindex - 1);
-    if nil == nowhaircls then
+    local nowHairCls = Selectclasslist:GetByIndex(nowHeadIndex - 1);
+    if nil == nowHairCls then
         return;
     end
 
-    local nowengname = imcIES.GetString(nowhaircls, 'EngName')
-    local nowcolor = imcIES.GetString(nowhaircls, 'ColorE')
-    nowcolor = string.lower(nowcolor)
+    local nowPCHairEngName = imcIES.GetString(nowHairCls, 'EngName')
+    local nowPCHairColor = imcIES.GetString(nowHairCls, 'ColorE')
+    nowPCHairColor = string.lower(nowPCHairColor)
 
     -- 헤어 컬러가 많아질 경우 UI 벽을 뚫게 된다. row, col로 나눔.
     local max_width = customizingGBox:GetWidth()
@@ -1727,14 +1814,14 @@ function STATUS_ACHIEVE_INIT_HAIR_COLOR(gbox)
     local bueatyShopHair = TryGetProp(etc, "BeautyshopStartHair")
     
     -- 기본헤어와 현재헤어 이름이 같고, 뷰티샵에서 변경한 헤어 일 때 신규 헤어다.
-    if startHairName == nowengname and bueatyShopHair == "Yes" then 
+    if startHairName == nowPCHairEngName and bueatyShopHair == "Yes" then 
             -- 타이틀 변경
             if colorTitle ~= nil then
                 colorTitle:SetTextByKey("text", ClMsg('Status_Hair_Color') );
             end
 
             local startHairColorName =  TryGetProp(etc, "StartHairColorName")
-            local color = imcIES.GetString(nowhaircls, 'Color')
+            local color = imcIES.GetString(nowHairCls, 'Color')
 
             -- 한개만 그림.
             local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_' .. startHairColorName,col_left_margin + (width * col), row_top_margin +  (height * row), width, height);
@@ -1755,7 +1842,7 @@ function STATUS_ACHIEVE_INIT_HAIR_COLOR(gbox)
             local eachcls = Selectclasslist:GetByIndex(i);
             if eachcls ~= nil then
                 local eachengname = imcIES.GetString(eachcls, 'EngName')
-                if eachengname == nowengname then
+                if eachengname == nowPCHairEngName then
 
                     local eachColorE = imcIES.GetString(eachcls, 'ColorE')
                     local eachColor = imcIES.GetString(eachcls, 'Color')
@@ -1763,36 +1850,53 @@ function STATUS_ACHIEVE_INIT_HAIR_COLOR(gbox)
 
                     -- 업적 받으면 헤어 컬러 사라지는 현상이 있다고 해서 HairColor 프로퍼티 값으로도 확인
                     if TryGetProp(etc, "HairColor_" .. eachColorE) == 1 then
-                        -- row 변경 조건 검사
-                        local temp_offset_x = col_left_margin + width * col;
-                        local temp_max_width = temp_offset_x + width;
-                        if temp_max_width >= max_width then
-                            row = row +1
-                            col = 0
-                        end
-
-                        local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_' .. eachColorE, col_left_margin + (width * col), row_top_margin +  (height * row), width, height);
-                        tolua.cast(eachhairimg, "ui::CPicture");
-
-                        local colorimgname = GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(eachColorE)
-                        eachhairimg:SetImage(colorimgname);
-                        eachhairimg:SetTextTooltip(eachColor)
-                        eachhairimg:SetEventScript(ui.LBUTTONDOWN, "REQ_CHANGE_HAIR_COLOR");
-                        eachhairimg:SetEventScriptArgString(ui.LBUTTONDOWN, eachColorE);
-
-                        -- 선택 이미지 표시.
-                        if nowcolor == eachColorE then
-                            local selectedimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_Selected', col_left_margin + width * col, select_margin +  (height * row), width, height);
-                            tolua.cast(selectedimg, "ui::CPicture");
-                            selectedimg:SetImage('color_check');
-                        end
-                        col = col +1
+                        haveHairColorList[#haveHairColorList + 1] = eachColor;
+                        haveHairColorEList[#haveHairColorEList + 1] = eachColorE;
                     end
                 end
             end
         end
+        --코카트리스 헤드같은 경우 염색 리스트가 바뀌는 버그가 있어 재정렬하고 하고 아이콘을 생성해줘야한다
+	    SORT_HAIR_COLORLIST(hairColorBtn, haveHairColorList, haveHairColorEList)
+        SET_HAIR_COLOR_LIST(customizingGBox, row_top_margin, col_left_margin, select_margin, max_width, width, height, nowPCHairColor, haveHairColorList, haveHairColorEList)
+    end
+end
+
+function SET_HAIR_COLOR_LIST(gbox, row_top_margin, col_left_margin, select_margin, max_width, width, height, nowPCHairColor, haveHairColorList, haveHairColorEList)
+    if #haveHairColorList ~= #haveHairColorEList then
+        return;
+    end
+    local row = 1
+    local col = 0
+
+    -- row 변경 조건 검사
+    local temp_offset_x = col_left_margin + width * col;
+    local temp_max_width = temp_offset_x + width;
+    if temp_max_width >= max_width then
+        row = row +1
+        col = 0
     end
 
+    for i = 1, #haveHairColorEList do
+        local eachColorE = haveHairColorEList[i];
+        local eachColor = haveHairColorList[i];
+        local eachhairimg = gbox:CreateOrGetControl('picture', 'hairColor_' .. eachColorE, col_left_margin + (width * col), row_top_margin +  (height * row), width, height);
+        tolua.cast(eachhairimg, "ui::CPicture");
+
+        local colorimgname = GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(eachColorE)
+        eachhairimg:SetImage(colorimgname);
+        eachhairimg:SetTextTooltip(eachColor)
+        eachhairimg:SetEventScript(ui.LBUTTONDOWN, "REQ_CHANGE_HAIR_COLOR");
+        eachhairimg:SetEventScriptArgString(ui.LBUTTONDOWN, eachColorE);
+
+        -- 선택 이미지 표시.
+        if nowPCHairColor == eachColorE then
+            local selectedimg = gbox:CreateOrGetControl('picture', 'hairColor_Selected', col_left_margin + width * col, select_margin +  (height * row), width, height);
+            tolua.cast(selectedimg, "ui::CPicture");
+            selectedimg:SetImage('color_check');
+        end
+        col = col + 1
+    end
 end
 
 function STATUS_ACHIEVE_INIT(frame)

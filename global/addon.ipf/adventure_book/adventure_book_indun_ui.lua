@@ -24,28 +24,27 @@ function ADVENTURE_BOOK_INDUN.CLEAR()
 	list_box:RemoveAllChild();
 end
 
-function ADVENTURE_BOOK_INDUN.FILL_INDUN_LIST()
+function ADVENTURE_BOOK_INDUN.FILL_INDUN_LIST()	
 	local frame = ui.GetFrame('adventure_book');
 	local page = GET_CHILD(frame, "page_indun", "ui::CGroupBox");
 	local list_box = GET_CHILD(page, "indun_list", "ui::CGroupBox");
 	local sort_opt_list = GET_CHILD(page, "sort_opt_list", "ui::CDropList");
 	local category_opt_list = GET_CHILD(page, "category_opt_list", "ui::CDropList");
 	local search_editbox = GET_CHILD(page, "search_editbox");
-	list_box:RemoveAllChild();
-	
-	local indun_list_func = ADVENTURE_BOOK_INDUN_CONTENT["INDUN_LIST"];
+	list_box:RemoveAllChild();	
+	local indun_list_func = ADVENTURE_BOOK_INDUN_CONTENT["INDUN_LIST"];    
 	local indun_info_func = ADVENTURE_BOOK_INDUN_CONTENT["INDUN_INFO"];
 	local filter_func = ADVENTURE_BOOK_INDUN_CONTENT['FILTER_LIST']
 
 	if indun_list_func == nil or indun_info_func == nil then
 		return;
 	end
-	local indun_list = indun_list_func();
-	indun_list = filter_func(indun_list, sort_opt_list:GetSelItemIndex(), category_opt_list:GetSelItemIndex(), search_editbox:GetText())
-	for i=1, #indun_list do
-		local indunClsID = indun_list[i]
-		local indun_info =  indun_info_func(indunClsID)
-		local height = frame:GetUserConfig("INDUN_ELEM_HEIGHT")
+	local indun_list = indun_list_func();    
+	indun_list = filter_func(indun_list, sort_opt_list:GetSelItemIndex(), category_opt_list:GetSelItemIndex(), search_editbox:GetText());
+	for i=1, #indun_list do		
+		local indunClsID = indun_list[i]		        
+		local indun_info =  indun_info_func(indunClsID);
+		local height = frame:GetUserConfig("INDUN_ELEM_HEIGHT");
 
 		local ctrlSet = list_box:CreateOrGetControlSet("adventure_book_indun_elem", "list_indun_" .. i, ui.LEFT, ui.TOP, 0, (i-1)*height, 0, 0);
 		SET_TEXT(ctrlSet, "name_text", "value", indun_info['name'])

@@ -192,7 +192,9 @@ function ITEM_REVERT_RANDOM_REG_TARGETITEM(frame, itemID, reReg)
 
 	local itemName = GET_CHILD_RECURSIVELY(frame, "text_itemname")
 	itemName:SetText(obj.Name)
-
+    
+	local gBox = GET_CHILD_RECURSIVELY(frame:GetTopParentFrame(), "bodyGbox1_1");
+    local ypos = 0;
 	for i = 1 , MAX_RANDOM_OPTION_COUNT do
 	    local propGroupName = "RandomOptionGroup_"..i;
 		local propName = "RandomOption_"..i;
@@ -216,15 +218,23 @@ function ITEM_REVERT_RANDOM_REG_TARGETITEM(frame, itemID, reReg)
 		if obj[propValue] ~= 0 and obj[propName] ~= "None" then
 			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(obj[propName]));
 			local strInfo = ABILITY_DESC_NO_PLUS(opName, obj[propValue], 0);
-
-			local gBox = GET_CHILD_RECURSIVELY(frame:GetTopParentFrame(), "bodyGbox1_1")
 			local itemClsCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_'..i, 0, 0);
 			itemClsCtrl = AUTO_CAST(itemClsCtrl)
 			local pos_y = itemClsCtrl:GetUserConfig("POS_Y")
 			itemClsCtrl:Move(0, i * pos_y)
 			local propertyList = GET_CHILD_RECURSIVELY(itemClsCtrl, "property_name", "ui::CRichText");
-			propertyList:SetText(strInfo)
+			propertyList:SetText(strInfo);
+            ypos = i * pos_y + propertyList:GetHeight() + 5;
 		end
+	end
+
+	local rareOptionText = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(obj);
+	if rareOptionText ~= nil then
+		local rareOptionCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_RARE', 0, 0);
+		rareOptionCtrl = AUTO_CAST(rareOptionCtrl);	
+		rareOptionCtrl:Move(0, ypos);
+		local propertyList = GET_CHILD_RECURSIVELY(rareOptionCtrl, "property_name", "ui::CRichText");
+		propertyList:SetText(rareOptionText);
 	end
 
 	local isAbleExchange = 1;
@@ -374,6 +384,8 @@ ui.SetHoldUI(false);
 		refreshScp(obj);
 	end
 
+	local gBox = GET_CHILD_RECURSIVELY(frame, "bodyGbox2_1");
+    local ypos = 0;
 	for i = 1 , MAX_RANDOM_OPTION_COUNT do
 	    local propGroupName = "RandomOptionGroup_"..i;
 		local propName = "RandomOption_"..i;
@@ -397,15 +409,23 @@ ui.SetHoldUI(false);
 		if obj[propValue] ~= 0 and obj[propName] ~= "None" then
 			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(obj[propName]));
 			local strInfo = ABILITY_DESC_NO_PLUS(opName, obj[propValue], 0);
-
-			local gBox = GET_CHILD_RECURSIVELY(frame, "bodyGbox2_1")
 			local itemClsCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_'..i, 0, 0);
 			itemClsCtrl = AUTO_CAST(itemClsCtrl)
 			local pos_y = itemClsCtrl:GetUserConfig("POS_Y")
 			itemClsCtrl:Move(0, i * pos_y)
 			local propertyList = GET_CHILD_RECURSIVELY(itemClsCtrl, "property_name", "ui::CRichText");
-			propertyList:SetText(strInfo)
+			propertyList:SetText(strInfo);
+            ypos = i * pos_y + propertyList:GetHeight() + 5;
 		end
+	end
+    
+	local rareOptionText = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(obj);
+	if rareOptionText ~= nil then
+		local rareOptionCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_RARE', 0, 0);
+		rareOptionCtrl = AUTO_CAST(rareOptionCtrl);	
+		rareOptionCtrl:Move(0, ypos);
+		local propertyList = GET_CHILD_RECURSIVELY(rareOptionCtrl, "property_name", "ui::CRichText");
+		propertyList:SetText(rareOptionText);
 	end
 
 	UPDATE_REMAIN_MASTER_GLASS_COUNT(frame)
@@ -727,27 +747,56 @@ function _SHOW_REVERT_ITEM_RESULT(itemGuid)
 			end
 		end
 	end
-
+    
+	local gBox = GET_CHILD_RECURSIVELY(frame, "bodyGbox2_1");
+    local ypos = 0;
 	for i = 1 , #propNameList do
 		if clientMessage[optionIndex] ~= nil and opName[optionIndex] ~= nil and opValue[optionIndex] ~= nil then
 			local temp = string.format("%s %s", ClMsg(clientMessage[optionIndex]), ScpArgMsg(opName[optionIndex]));	
 			strInfo[optionIndex] = ABILITY_DESC_NO_PLUS(temp, tonumber(opValue[optionIndex]), 0);
 
-			local gBox = GET_CHILD_RECURSIVELY(frame, "bodyGbox2_1")
 			local itemClsCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_'..optionIndex, 0, 0);
 			itemClsCtrl = AUTO_CAST(itemClsCtrl)
 			local pos_y = itemClsCtrl:GetUserConfig("POS_Y")
 			itemClsCtrl:Move(0, optionIndex * pos_y)
 			local propertyList = GET_CHILD_RECURSIVELY(itemClsCtrl, "property_name", "ui::CRichText");
-			propertyList:SetText(strInfo[optionIndex])	
+			propertyList:SetText(strInfo[optionIndex]);
+            ypos = optionIndex * pos_y + propertyList:GetHeight() + 5;
 			optionIndex = optionIndex + 1
 		end
 	end
 
+    local rareOptionName, rareOptionValue = GET_RARE_OPTION_INFO_IN_PROPLIST(propNameList, propValueList);
+    if rareOptionName ~= nil and rareOptionValue ~= nil then
+        local rareClMsg = _GET_RANDOM_OPTION_RARE_CLIENT_TEXT(rareOptionName, rareOptionValue);
+        if rareClMsg ~= nil then
+            local itemClsCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_RARE', 0, 0);
+			itemClsCtrl = AUTO_CAST(itemClsCtrl);
+			itemClsCtrl:Move(0, ypos)
+			local propertyList = GET_CHILD_RECURSIVELY(itemClsCtrl, "property_name", "ui::CRichText");
+			propertyList:SetText(rareClMsg);
+        end
+    end
+
 	UPDATE_REMAIN_MASTER_GLASS_COUNT(frame)
 	local do_revertrandom = GET_CHILD_RECURSIVELY(frame, "do_revertrandom")
-	do_revertrandom:ShowWindow(0)
+	do_revertrandom:ShowWindow(0);
+end
 
+function GET_RARE_OPTION_INFO_IN_PROPLIST(_propNameList, _propValueList)
+    local rareOptionName, rareOptionValue;
+    for i = 1, #_propNameList do
+        if _propNameList[i] == 'RandomOptionRare' then
+            rareOptionName = _propValueList[i];
+        elseif _propNameList[i] == 'RandomOptionRareValue' then
+            rareOptionValue = _propValueList[i];
+        end
+
+        if rareOptionName ~= nil and rareOptionValue ~= nil then
+            break;
+        end
+    end
+    return rareOptionName, rareOptionValue;
 end
 
 function ITEMREVERTRANDOM_SEND_ANSWER(parent, ctrl, argStr, argNum)

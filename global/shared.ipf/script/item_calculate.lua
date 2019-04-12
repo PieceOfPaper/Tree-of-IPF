@@ -80,7 +80,23 @@ function GET_COMMON_PROP_LIST()
         'RES_EARTH',
         'RES_HOLY',
         'RES_DARK',
-        'LootingChance'
+        'LootingChance',
+        'RareOption_MainWeaponDamageRate',
+        'RareOption_MainWeaponDamageRate',
+        'RareOption_SubWeaponDamageRate' ,
+        'RareOption_BossDamageRate',
+        'RareOption_MeleeReducedRate',
+        'RareOption_MagicReducedRate',
+        'RareOption_PVPDamageRate',
+        'RareOption_PVPReducedRate',
+        'RareOption_CriticalDamage_Rate',
+        'RareOption_CriticalHitRate',
+        'RareOption_CriticalDodgeRate',
+        'RareOption_HitRate',
+        'RareOption_DodgeRate',
+        'RareOption_BlockBreakRate',
+        'RareOption_BlockRate'
+
     };
 end
 
@@ -130,6 +146,11 @@ function GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinf, reinfBonusValue, basicTo
         elseif kupoleItemLv > 0 then
             lv = kupoleItemLv;
         end
+    end
+    
+    local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(item);
+    if pcBangItemLevel ~= nil then
+        lv = pcBangItemLevel;
     end
     
     local value = 0;
@@ -268,6 +289,11 @@ function GET_REINFORCE_ADD_VALUE(prop, item, ignoreReinf, reinfBonusValue)
         end
     end
     
+    local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(item);
+    if pcBangItemLevel ~= nil then
+        lv = pcBangItemLevel;
+    end
+    
     local classType = TryGetProp(item,"ClassType");
     if classType == nil then
         return 0;
@@ -328,6 +354,11 @@ function GET_BASIC_ATK(item)
         elseif kupoleItemLv > 0 then
             lv = kupoleItemLv;
         end
+    end
+    
+    local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(item);
+    if pcBangItemLevel ~= nil then
+        lv = pcBangItemLevel;
     end
     
     local grade = TryGetProp(item, "ItemGrade");
@@ -424,6 +455,11 @@ function GET_BASIC_MATK(item)
         end
     end
 
+    local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(item);
+    if pcBangItemLevel ~= nil then
+        lv = pcBangItemLevel;
+    end
+    
     local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "BasicRatio");
     local itemATK = (20 + ((lv)*3)) * gradeRatio;
     local classType = TryGetProp(item,"ClassType");
@@ -510,6 +546,7 @@ function SCR_REFRESH_WEAPON(item, enchantUpdate, ignoreReinfAndTranscend, reinfB
     APPLY_AWAKEN(item);
     APPLY_ENCHANTCHOP(item);
     APPLY_RANDOM_OPTION(item);
+    APPLY_RARE_RANDOM_OPTION(item);
     if item.MINATK < 0 then
         item.MINATK = 0;
     end
@@ -558,6 +595,11 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
         elseif kupoleItemLv > 0 then
             lv = kupoleItemLv;
         end
+    end
+    
+    local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(item);
+    if pcBangItemLevel ~= nil then
+        lv = pcBangItemLevel;
     end
     
     local def=0;
@@ -664,6 +706,7 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
     APPLY_AWAKEN(item);
     APPLY_ENCHANTCHOP(item);
     APPLY_RANDOM_OPTION(item);
+    APPLY_RARE_RANDOM_OPTION(item);
     MakeItemOptionByOptionSocket(item);
 
 end
@@ -706,6 +749,11 @@ function SCR_REFRESH_ACC(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonu
         elseif kupoleItemLv > 0 then
             lv = kupoleItemLv;
         end
+    end
+    
+    local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(item);
+    if pcBangItemLevel ~= nil then
+        lv = pcBangItemLevel;
     end
     
     local def=0;
@@ -848,6 +896,11 @@ end
 --        end
 --    end
 --    
+--    local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(item);
+--    if pcBangItemLevel ~= nil then
+--        lv = pcBangItemLevel;
+--    end
+    
 --    local classType = TryGetProp(item,"ClassType");
 --    if classType == nil then
 --        return 0;
@@ -996,6 +1049,17 @@ function APPLY_RANDOM_OPTION(item)
             local propData = item[prop]
             item[prop] = propData + item[propValue];
         end
+    end
+end
+
+function APPLY_RARE_RANDOM_OPTION(item)
+    local propName = "RandomOptionRare";
+    local propValue = "RandomOptionRareValue";
+    local getProp = TryGetProp(item, propName);
+    if getProp ~= nil and item[propValue] ~= 0 and item[propName] ~= "None" then
+        local prop = item[propName];
+        local propData = item[prop]
+        item[prop] = propData + item[propValue];
     end
 end
 
@@ -1941,7 +2005,7 @@ function SCR_GET_MAX_SOKET(item)
 end
 
 function SRC_KUPOLE_GROWTH_ITEM(item, Reinforce)
-    -- ??????ë²?????????????????????ê¸????????¬ë¦½??--
+
     local itemName = TryGetProp(item,"ClassName");
     if itemName == nil then
         return 0;
@@ -1980,8 +2044,6 @@ function SRC_KUPOLE_GROWTH_ITEM(item, Reinforce)
     end
     return lv;
 end
-
-
 
 function SCR_GET_ITEM_GRADE_RATIO(grade, prop)
     local class = GetClassByNumProp("item_grade", "Grade", grade)
