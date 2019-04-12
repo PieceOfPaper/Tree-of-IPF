@@ -118,3 +118,54 @@ function SCR_USE_SET01_COMPANION_STEAM(pc)
     TxGiveItem(tx, 'food_cereal', 50, 'EGG009_PACK');
     local ret = TxCommit(tx);
 end
+
+function SCR_USE_ALICEPACK_2016(pc)
+    local job = GetClassString('Job', pc.JobName, 'CtrlType')
+    local jobList = { 'Warrior', 'Wizard', 'Archer', 'Cleric' }
+    local i, j, jobNum = 0, 0, 0
+    
+    for j = 1, table.getn(jobList) do
+        if job == jobList[j] then
+            jobNum = j
+            break
+        end
+    end
+    
+    local costume = {
+        { 'costume_war_m_011', 'costume_war_f_011' },
+        { 'costume_war_f_011', 'costume_wiz_f_011' },
+        { 'costume_arc_m_012', 'costume_arc_f_012' },
+        { 'costume_clr_m_012', 'costume_clr_f_012' }
+    }
+    
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, costume[jobNum][pc.Gender], 1, 'ALICEPACK_2016');
+    TxGiveItem(tx, 'AliceHairBox_2016', 1, 'ALICEPACK_2016');
+    TxGiveItem(tx, 'Premium_Enchantchip', 10, 'ALICEPACK_2016');
+    local ret = TxCommit(tx);
+    if ret ~= "SUCCESS" then
+        SendSysMsg(pc, "DataError");
+        return;
+    end
+end
+
+function SCR_USE_ALICEHAIRBOX_2016(pc)
+    local select = ShowSelDlg(pc, 0, 'SUMMERHAIR_2016_SEL', 
+    ScpArgMsg("ALICEHAIRACC01"), ScpArgMsg("ALICEHAIRACC02"), ScpArgMsg("ALICEHAIRACC03"), ScpArgMsg("ALICEHAIRACC04"), ScpArgMsg("ALICEHAIRACC05"), 
+    ScpArgMsg("ALICEHAIRACC06"), ScpArgMsg("ALICEHAIRACC07"), ScpArgMsg("ALICEHAIRACC08"), ScpArgMsg("Cancel"))
+    local summerhair = { 
+        'Hat_628152', 'Hat_628153', 'Hat_628154', 'Hat_628155', 'Hat_628156', 'Hat_628157', 'Hat_628158', 'Hat_628159'
+    }
+    
+    if select == 9 or select == nil then
+        return
+    else
+        local tx = TxBegin(pc);
+        TxGiveItem(tx, summerhair[select], 1, 'ALICEHAIRBOX_2016');
+        local ret = TxCommit(tx);
+        if ret ~= "SUCCESS" then
+            SendSysMsg(pc, "DataError");
+            return;
+        end
+    end
+end

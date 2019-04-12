@@ -368,7 +368,7 @@
 		<image name="icon_item_gloves_nobleLeather_yellow" file="\icon\equip\gloves_nobleLeather_yellow.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_boots_nobleLeather_yellow" file="\icon\equip\boots_nobleLeather_yellow.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_gloves_intathurta" file="\icon\equip\gloves_intathurta.png" imgrect="0 0 256 256" CMM_Caption="블러드배쓰장갑"/>
-	</imagelist>
+		</imagelist>
 	<imagelist category="256_costume_icons">
 		<image name="icon_item_Alchemist_f" file="\icon\equip\Alchemist_f_icon.png" imgrect="0 0 256 256" CMM_Caption="알케미스트"/>
 		<image name="icon_item_Alchemist_m" file="\icon\equip\Alchemist_m_icon.png" imgrect="0 0 256 256"/>
@@ -463,7 +463,7 @@
 		<image name="icon_item_shinobi_m" file="\icon\equip\shinobi_m.png" imgrect="0 0 256 256" CMM_Caption="시노비"/>
 		<image name="icon_item_shinobi_f" file="\icon\equip\shinobi_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_daoshi_m" file="\icon\equip\daoshi_m.png" imgrect="0 0 256 256" CMM_Caption="도사"/>
-		<image name="icon_item_cleric_daoshi_f" file="\icon\equip\cleric_f_daoshi.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_daoshi_f" file="\icon\equip\cleric_f_daoshi.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_falconer_m" file="\icon\equip\archer_m_falconer.png" imgrect="0 0 256 256" CMM_Caption="응사"/>
 		<image name="icon_item_falconer_f" file="\icon\equip\archer_f_falconer.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_fencer_m" file="\icon\equip\fencer_m_icon.png" imgrect="0 0 256 256" CMM_Caption="펜서"/>
@@ -518,7 +518,7 @@
 		<image name="icon_item_archer_quarreelshooter01_3_f" file="\icon\equip\archer_f_quarreelshooter01_3.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Cleric_dievdirbys01_3_m" file="\icon\equip\Cleric_dievdirbys01_3_m.png" imgrect="0 0 256 256" CMM_Caption="3랭크코스튬_딥디르비"/>
 		<image name="icon_item_Cleric_dievdirbys01_3_f" file="\icon\equip\Cleric_dievdirbys01_3_f.png" imgrect="0 0 256 256"/>
-	</imagelist>
+		</imagelist>
 	<imagelist category="256_weapone_icons">
 		<image name="icon_item_artefact_210011" file="\icon\weapon\icon_item_artefact_210011.png" imgrect="0 0 256 256" CMM_Caption="요령"/>
 		<image name="icon_item_artefact_210012" file="\icon\weapon\icon_item_artefact_210012.png" imgrect="0 0 256 256" CMM_Caption="섀도엄브렐러"/>
@@ -2030,7 +2030,7 @@
 		<image name="coritos_up_purple" file="\icon\weapon\coritos_up_purple.png" imgrect="0 0 256 256"/>
 		<image name="OTL_flag" file="\icon\weapon\OTL_flag.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_balloon_pipe" file="\icon\weapon\icon_item_balloon_pipe.png" imgrect="0 0 256 256"/>
-	</imagelist>
+		</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
 		<image name="item_necklace_02" file="\icon\acc\item_necklace_2.png" imgrect="0 0 256 256"/>
@@ -2486,7 +2486,7 @@
 		<image name="SiaulMapIncomplete" file="\icon\item\SiaulMapIncomplete.png" imgrect="0 0 80 80" CMM_Caption="지도"/>
 		<image name="Siaul_Act3_Confirmation" file="\icon\item\Siaul_Act3_Confirmation.png" imgrect="0 0 80 80" CMM_Caption="루긴 운송단 전투 기여 확인서"/>
 		<image name="RootCrystal_Piece" file="\icon\item\RootCrystal_Piece.png" imgrect="0 0 80 80" CMM_Caption="나무뿌리 수정 조각"/>
-		<image name="CalmIncense" file="\icon\item\CalmIncense" imgrect="0 0 80 80" CMM_Caption="평안의 향"/>
+		<image name="icon_item_CalmIncense" file="\icon\item\CalmIncense.png" imgrect="0 0 80 80" CMM_Caption="평안의 향"/>
 		<image name="Goblin_Spear_Elite_Keepsake" file="\icon\item\Goblin_Spear_Elite_Keepsake.png" imgrect="0 0 80 80" CMM_Caption="부베 엘리트 증표"/>
 		<image name="Act4_BishopRing" file="\icon\item\Act4_BishopRing.png" imgrect="0 0 80 80" CMM_Caption="주교의 인장"/>
 		<image name="removed_item" file="\icon\item\removed_item.png" imgrect="0 0 80 80" CMM_Caption="삭제대상 아이템"/>
@@ -3474,7 +3474,7 @@
 		<image name="icon_item_spellneedle" file="\icon\item\icon_item_spellneedle.png" imgrect="0 0 128 128" CMM_Caption="마력흡수침"/>
 		<image name="icon_item_sheepskin" file="\icon\item\icon_item_sheepskin.png" imgrect="0 0 128 128" CMM_Caption="양피지문서"/>
 		<image name="icon_item_vlnerope" file="\icon\item\icon_item_vlnerope.png" imgrect="0 0 128 128" CMM_Caption="덩굴뭉치"/>
-	</imagelist>
+		</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
 		<image name="icon_item_hpPotionPremium_bundle" file="\icon\payment\icon_item_hpPotionPremium_bundle.png" imgrect="0 0 256 256" CMM_Caption="HP포션 묶음"/>
@@ -3662,6 +3662,23 @@
 		<image name="Hat_cle_swim_m" file="\icon\payment\Hat_cle_swim_m.png" imgrect="0 0 256 256"/>
 		<image name="Hat_cle_swim_f" file="\icon\payment\Hat_cle_swim_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_package_parrotbill" file="\icon\payment\icon_item_package_parrotbill.png" imgrect="0 0 256 256" CMM_Caption="뱁새패키지"/>
+		<image name="icon_item_flakebundle" file="\icon\payment\icon_item_flakebundle.png" imgrect="0 0 256 256" CMM_Caption="후레이크번들"/>
+		<image name="icon_item_archer_alice_f" file="\icon\payment\icon_item_archer_alice_f.png" imgrect="0 0 256 256" CMM_Caption="앨리스_코스튬"/>
+		<image name="icon_item_archer_alice_m" file="\icon\payment\icon_item_archer_alice_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Cleric_alice_m" file="\icon\payment\icon_item_Cleric_alice_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Cleric_alice_f" file="\icon\payment\icon_item_Cleric_alice_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mage_alice_f" file="\icon\payment\icon_item_mage_alice_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mage_alice_m" file="\icon\payment\icon_item_mage_alice_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_warrior_alice_f" file="\icon\payment\icon_item_warrior_alice_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_warrior_alice_m" file="\icon\payment\icon_item_warrior_alice_m.png" imgrect="0 0 256 256"/>
+		<image name="Hat_war_alice_m" file="\icon\payment\Hat_war_alice_m.png" imgrect="0 0 256 256" CMM_Caption="앨리스_헤어악세"/>
+		<image name="Hat_war_alice_f" file="\icon\payment\Hat_war_alice_f.png" imgrect="0 0 256 256"/>
+		<image name="Hat_mage_alice_m" file="\icon\payment\Hat_mage_alice_m.png" imgrect="0 0 256 256"/>
+		<image name="Hat_mage_alice_f" file="\icon\payment\Hat_mage_alice_f.png" imgrect="0 0 256 256"/>
+		<image name="Hat_arc_alice_m" file="\icon\payment\Hat_arc_alice_m.png" imgrect="0 0 256 256"/>
+		<image name="Hat_arc_alice_f" file="\icon\payment\Hat_arc_alice_f.png" imgrect="0 0 256 256"/>
+		<image name="Hat_cle_alice_m" file="\icon\payment\Hat_cle_alice_m.png" imgrect="0 0 256 256"/>
+		<image name="Hat_cle_alice_f" file="\icon\payment\Hat_cle_alice_f.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>
