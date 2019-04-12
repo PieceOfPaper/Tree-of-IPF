@@ -7,6 +7,7 @@ end
 
 function SCR_OPER_RELOAD_HOTKEY(handle)
 	ReloadHotKey();
+    SHOW_SOULCRYSTAL_COUNT(nil, 1)
 end
 
 function TEST_CLIENT_CHAT_PET_EXP()

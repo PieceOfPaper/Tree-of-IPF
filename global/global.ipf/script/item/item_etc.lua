@@ -1470,3 +1470,9 @@ function ACHIEVE_Steam_Magazine_Num1(pc)
     TxAddAchievePoint(tx, 'EVENT_Steam_Magazine_Num1', 1)
     local ret = TxCommit(tx);
 end
+
+function Achieve_Event_Grand_Contributor(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Achieve_Event_Grand_Contributor', 1)
+    local ret = TxCommit(tx);
+end

@@ -37,4 +37,132 @@
   <Property Name="ReplayLogicVersion" Type="Number" Desc="리플레이 로직 버전"/>
   <Property Name="ReplayDate" Type="String" Desc="리플레이 날짜"/>
   <Property Name="ReplayRevision" Type="Number" Desc="리플레이 리비전"/>
+  <Property Name="Machine_CPU"                       Type="Number" Desc="해당 머신의 CPU 사용율"/>
+  <Property Name="Machine_FreeDisk"                  Type="Number" Desc="드라이브의 남은 용량(MB)	"/>
+  <Property Name="Machine_AccessDiskRatio"                  Type="Number" Desc="초당 디스크 엑세스 비율(100%% = 1초)"/>
+  <Property Name="Machine_Network"                   Type="Number" Desc="초당 네트워크 사용량(Bytes)"/>
+  <Property Name="Machine_Memory"                    Type="Number" Desc="남은 총 메모리 용량(KBytes)"/>
+  <Property Name="Daemon_FPS"                        Type="Number" Desc="해당 서버의 초당 프레임"/>
+  <Property Name="Daemon_RDB"                        Type="Number" Desc="해당 서버의 리소스 디비 사용량"/>
+  <Property Name="Daemon_GDB"                        Type="Number" Desc="해당 서버의 게임 디비 사용량"/>
+  <Property Name="Daemon_Memory"                     Type="Number" Desc="해당 서버가 사용하는 메모리량"/>
+  <Property Name="Daemon_Tx"                         Type="Number" Desc="해당 서버가 사용하는 TX량"/>
+  <Property Name="Daemon_FatalCount"                 Type="Number" Desc="해당 서버의 Fatal 오류 횟수"/>
+  <Property Name="Daemon_DBConnectionCount"          Type="Number" Desc="해당 서버의 디비 연결 실패 횟수"/>
+  <Property Name="Daemon_TotalSendPacketCount"       Type="Number" Desc="해당 서버가 보낸 총 패킷 갯수	"/>
+  <Property Name="Daemon_TotalSendPacketSize"        Type="Number" Desc="해당 서버가 보낸 총 패킷 크기	"/>
+  <Property Name="Daemon_TotalRecvPacketCount"       Type="Number" Desc="해당 서버가 받은 총 패킷 갯수	"/>
+  <Property Name="Daemon_TotalRecvPacketSize"        Type="Number" Desc="해당 서버가 받은 총 패킷 크기	"/>
+  <Property Name="Barrack_User"                      Type="Number" Desc="배럭서버에 있는 유저 수"/>
+  <Property Name="Barrack_ClientSendPacketCount"     Type="Number" Desc="배럭서버에서 클라이언트로 보낸 패킷 개수"/>
+  <Property Name="Barrack_ClientSendPacketSize"      Type="Number" Desc="배력서버에서 클라이언트로 보낸 패킷 크기"/>
+  <Property Name="Barrack_ClientRecvPacketCount"     Type="Number" Desc="배럭서버가 클라이언트로 부터 받은 패킷 개수	"/>
+  <Property Name="Barrack_ClientRecvPacketSize"      Type="Number" Desc="배럭서버가 클라이언트로 부터 받은 패킷 크기	"/>
+  <Property Name="Barrack_GlobalSendPacketCount"     Type="Number" Desc="배럭서버에서 글로벌로 보낸 패킷 개수"/>
+  <Property Name="Barrack_GlobalSendPacketSize"      Type="Number" Desc="배럭서버에서 글로벌로 보낸 패킷 크기"/>
+  <Property Name="Barrack_GlobalRecvPacketCount"     Type="Number" Desc="배럭서버가 글로벌로 부터 받은 패킷 개수"/>
+  <Property Name="Barrack_GlobalRecvPacketSize"      Type="Number" Desc="배럭서버가 글로벌 부터 받은 패킷 개수"/>
+  <Property Name="Global_User"                       Type="Number" Desc="글로벌 서버에 있는 유저 수"/>
+  <Property Name="Global_InstanceMission_TotalCount" Type="Number" Desc="미션 인스턴스 총 개수"/>
+  <Property Name="Global_InstanceMission_Empty"      Type="Number" Desc="미션 인스턴스 비활성 개수"/>
+  <Property Name="Global_InstanceMission_Play"       Type="Number" Desc="미션 인스턴스 활성 개수"/>
+  <Property Name="Global_InstanceMission_Wait"       Type="Number" Desc="미션 인스턴스 비활성대기 개수	"/>
+  <Property Name="Global_InstanceMission_Close"      Type="Number" Desc="미션 인스턴스 종료 개수"/>
+  <Property Name="Global_BarrackSendPacketCount"     Type="Number" Desc="글로벌서버에서 배럭서버로 보낸 패킷 개수"/>
+  <Property Name="Global_BarrackSendPacketSize"      Type="Number" Desc="글로벌서버에서 배럭서버로 보낸 패킷 크기"/>
+  <Property Name="Global_BarrackRecvPacketCount"     Type="Number" Desc="글로벌서버가 배럭서버로 부터 받은 패킷 개수"/>
+  <Property Name="Global_BarrackRecvPacketSize"      Type="Number" Desc="글로벌서버가 배럭서버로 부터 받은 패킷 크기"/>
+  <Property Name="Global_ZoneSendPacketCount"        Type="Number" Desc="글로벌서버에서 존서버로 보낸 패킷 개수"/>
+  <Property Name="Global_ZoneSendPacketSize"         Type="Number" Desc="글로벌서버에서 존서버로 보낸 패킷 크기"/>
+  <Property Name="Global_ZoneRecvPacketCount"        Type="Number" Desc="글로벌서버가 존서버로 부터 받은 패킷 개수"/>
+  <Property Name="Global_ZoneRecvPacketSize"         Type="Number" Desc="글로벌서버가 존서버로 부터 받은 패킷 크기"/>
+  <Property Name="Global_ChatSendPacketCount"        Type="Number" Desc="글로벌서버에서 채팅서버로 보낸 패킷 개수"/>
+  <Property Name="Global_ChatSendPacketSize"         Type="Number" Desc="글로벌서버에서 채팅서버로 보낸 패킷 크기"/>
+  <Property Name="Global_ChatRecvPacketCount"        Type="Number" Desc="글로벌서버가 채팅서버로 부터 받은 패킷 개수"/>
+  <Property Name="Global_ChatRecvPacketSize"         Type="Number" Desc="글로벌서버가 채팅서버로 부터 받은 패킷 크기"/>
+  <Property Name="Global_RelationSendPacketCount"    Type="Number" Desc="글로벌서버에서 릴레이션서버로 보낸 패킷 개수"/>
+  <Property Name="Global_RelationSendPacketSize"     Type="Number" Desc="글로벌서버에서 릴레이션서버로 보낸 패킷 크기"/>
+  <Property Name="Global_RelationRecvPacketCount"    Type="Number" Desc="글로벌서버가 릴레이션서버로 부터 받은 패킷 개수"/>
+  <Property Name="Global_RelationRecvPacketSize"     Type="Number" Desc="글로벌서버가 릴레이션서버로 부터 받은 패킷 크기"/>
+  <Property Name="Global_IntegrateSendPacketCount"   Type="Number" Desc="글로벌서버에서 인티그서버로 보낸 패킷 개수"/>
+  <Property Name="Global_IntegrateSendPacketSize"    Type="Number" Desc="글로벌서버에서 인티그서버로 보낸 패킷 크기"/>
+  <Property Name="Global_IntegrateRecvPacketCount"   Type="Number" Desc="글로벌서버가 인티그서버로 부터 받은 패킷 개수"/>
+  <Property Name="Global_IntegrateRecvPacketSize"    Type="Number" Desc="글로벌서버가 인티그서버로 부터 받은 패킷 크기"/>
+  <Property Name="Zone_Client"                       Type="Number" Desc="존서버에 입장 중인 유저 수"/>
+  <Property Name="Zone_Commander"                    Type="Number" Desc="존서버에 입장한 유저 수"/>
+  <Property Name="Zone_GlobalConnected"              Type="Number" Desc="글로벌 서버와 연결 유무"/>
+  <Property Name="Zone_MongoDB"                      Type="Number" Desc="몽고로그 사용량"/>
+  <Property Name="Zone_ObjectCount"                  Type="Number" Desc="존서버에 배치된 오브젝트 수"/>
+  <Property Name="Zone_ThreadCount"                  Type="Number" Desc="쓰레드 수"/>
+  <Property Name="Zone_StringIDCount"                Type="Number" Desc="StringID 사용량"/>
+  <Property Name="Zone_NetStream"                    Type="Number" Desc="연결된 소켓 개수"/>
+  <Property Name="Zone_Zombie"                       Type="Number" Desc="제거될 유저 수"/>
+  <Property Name="Zone_BTree"                        Type="Number" Desc="BTree 사용개수"/>
+  <Property Name="Zone_BroadPool"                    Type="Number" Desc="현재 브로드 캐스팅 개수"/>
+  <Property Name="Zone_IndunMatchRegister"           Type="Number" Desc="통합 인던 매칭 요청 횟수	"/>
+  <Property Name="Zone_IndunMatchReEnter"            Type="Number" Desc="통합 인던 매칭 재입장 횟	수"/>
+  <Property Name="Zone_IndunMatchSuccess"            Type="Number" Desc="통합 인던 매칭 성공 횟수	"/>
+  <Property Name="Zone_IndunMatchCancel"             Type="Number" Desc="통합 인던 매칭 취소 횟수	"/>
+  <Property Name="Zone_GlobalSendPacketCount"        Type="Number" Desc="존서버에서 글로벌서버로 보낸 패킷 개수"/>
+  <Property Name="Zone_GlobalSendPacketSize"         Type="Number" Desc="존서버에서 글로벌서버로 보낸 패킷 크기"/>
+  <Property Name="Zone_GlobalRecvPacketCount"        Type="Number" Desc="존서버가 글로벌서버로 부터 받은 패킷 개수"/>
+  <Property Name="Zone_GlobalRecvPacketSize"         Type="Number" Desc="존서버가 글로벌서버로 부터 받은 패킷 크기"/>
+  <Property Name="Zone_ChatSendPacketCount"          Type="Number" Desc="글로벌 존서버에서 채팅서버로 보낸 패킷 개수	"/>
+  <Property Name="Zone_ChatSendPacketSize"           Type="Number" Desc="글로벌 존서버에서 채팅서버로 보낸 패킷 크기	"/>
+  <Property Name="Zone_ChatRecvPacketCount"          Type="Number" Desc="글로벌 존서버가 채팅서버로 부터 받은 패킷 개수"/>
+  <Property Name="Zone_ChatRecvPacketSize"           Type="Number" Desc="글로벌 존서버가 채팅서버로 부터 받은 패킷 크기"/>
+  <Property Name="Zone_RelationSendPacketCount"      Type="Number" Desc="글로벌 존서버에서 릴레이션서버로 보낸 패킷 개수"/>
+  <Property Name="Zone_RelationSendPacketSize"       Type="Number" Desc="글로벌 존서버에서 릴레이션서버로 보낸 패킷 크기"/>
+  <Property Name="Zone_RelationRecvPacketCount"      Type="Number" Desc="글로벌 존서버가 릴레이션서버로 부터 받은 패킷 개"/>수
+  <Property Name="Zone_RelationRecvPacketSize"       Type="Number" Desc="글로벌 존서버가 릴레이션서버로 부터 받은 패킷 크"/>기
+  <Property Name="Zone_ClientSendPacketCount"        Type="Number" Desc="글로벌 존서버에서 클라이언트로 보낸 패킷 개수"/>
+  <Property Name="Zone_ClientSendPacketSize"         Type="Number" Desc="글로벌 존서버에서 클라이언트로 보낸 패킷 크기"/>
+  <Property Name="Zone_ClientRecvPacketCount"        Type="Number" Desc="글로벌 존서버가 클라이언트로 부터 받은 패킷 개수"/>
+  <Property Name="Zone_ClientRecvPacketSize"         Type="Number" Desc="글로벌 존서버가 클라이언트로 부터 받은 패킷 크기"/>
+  <Property Name="Chat_User"                         Type="Number" Desc="채팅서버에 입장 중인 유저 수"/>
+  <Property Name="Chat_MongoDB"                      Type="Number" Desc="채팅서버몽고로그 입력수"/>
+  <Property Name="Chat_GlobalSendPacketCount"        Type="Number" Desc="채팅서버에서 글로벌서버로 보낸 패킷 개수"/>
+  <Property Name="Chat_GlobalSendPacketSize"         Type="Number" Desc="채팅서버에서 글로벌서버로 보낸 패킷 크기"/>
+  <Property Name="Chat_GlobalRecvPacketCount"        Type="Number" Desc="채팅서버가 글로벌서버로 부터 받은 패킷 개수"/>
+  <Property Name="Chat_GlobalRecvPacketSize"         Type="Number" Desc="채팅서버가 글로벌서버로 부터 받은 패킷 크기"/>
+  <Property Name="Chat_ZoneSendPacketCount"          Type="Number" Desc="채팅서버에서 존서버로 보낸 패킷 개수"/>
+  <Property Name="Chat_ZoneSendPacketSize"           Type="Number" Desc="채팅서버에서 존서버로 보낸 패킷 크기"/>
+  <Property Name="Chat_ZoneRecvPacketCount"          Type="Number" Desc="채팅서버가 존서버로 부터 받은 패킷 개수"/>
+  <Property Name="Chat_ZoneRecvPacketSize"           Type="Number" Desc="채팅서버가 존서버로 부터 받은 패킷 크기"/>
+  <Property Name="Chat_IntegrateSendPacketCount"     Type="Number" Desc="채팅서버에서 인티그서버로 보낸 패킷 개수"/>
+  <Property Name="Chat_IntegrateSendPacketSize"      Type="Number" Desc="채팅서버에서 인티그서버로 보낸 패킷 크기"/>
+  <Property Name="Chat_IntegrateRecvPacketCount"     Type="Number" Desc="채팅서버가 인티그서버로 부터 받은 패킷 개수"/>
+  <Property Name="Chat_IntegrateRecvPacketSize"      Type="Number" Desc="채팅서버가 인티그서버로 부터 받은 패킷 크기"/>
+  <Property Name="Chat_ClientSendPacketCount"        Type="Number" Desc="채팅서버에서 클라이언트로 보낸 패킷 개수"/>
+  <Property Name="Chat_ClientSendPacketSize"         Type="Number" Desc="채팅서버에서 클라이언트로 보낸 패킷 크기"/>
+  <Property Name="Chat_ClientRecvPacketCount"        Type="Number" Desc="채팅서버가 클라이언트로 부터 받은 패킷 개수"/>
+  <Property Name="Chat_ClientRecvPacketSize"         Type="Number" Desc="채팅서버가 클라이언트로 부터 받은 패킷 크기"/>
+  <Property Name="Relation_User"                     Type="Number" Desc="릴레이션서버에 연결 중인 유저 수"/>
+  <Property Name="Relation_GlobalSendPacketCount"    Type="Number" Desc="릴레이션서버에서 글로벌서버로 보낸 패킷 개수"/>
+  <Property Name="Relation_GlobalSendPacketSize"     Type="Number" Desc="릴레이션서버에서 글로벌서버로 보낸 패킷 크기"/>
+  <Property Name="Relation_GlobalRecvPacketCount"    Type="Number" Desc="릴레이션서버가 글로벌서버로 부터 받은 패킷 개수"/>
+  <Property Name="Relation_GlobalRecvPacketSize"     Type="Number" Desc="릴레이션서버가 글로벌서버로 부터 받은 패킷 크기"/>
+  <Property Name="Relation_ZoneSendPacketCount"      Type="Number" Desc="릴레이션서버에서 존서버로 보낸 패킷 개수"/>
+  <Property Name="Relation_ZoneSendPacketSize"       Type="Number" Desc="릴레이션서버에서 존서버로 보낸 패킷 크기"/>
+  <Property Name="Relation_ZoneRecvPacketCount"      Type="Number" Desc="릴레이션서버가 존서버로 부터 받은 패킷 개수"/>
+  <Property Name="Relation_ZoneRecvPacketSize"       Type="Number" Desc="릴레이션서버가 존서버로 부터 받은 패킷 크기"/>
+  <Property Name="Relation_ClientSendPacketCount"    Type="Number" Desc="릴레이션서버에서 클라이언트로 보낸 패킷 개수"/>
+  <Property Name="Relation_ClientSendPacketSize"     Type="Number" Desc="릴레이션서버에서 클라이언트로 보낸 패킷 크기"/>
+  <Property Name="Relation_ClientRecvPacketCount"    Type="Number" Desc="릴레이션서버가 클라이언트로 부터 받은 패킷 개수"/>
+  <Property Name="Relation_ClientRecvPacketSize"     Type="Number" Desc="릴레이션서버가 클라이언트로 부터 받은 패킷 크기"/>
+  <Property Name="Integrate_User"                    Type="Number" Desc="인티그 서버와 연결된 유저수"/>
+  <Property Name="Integrate_ChatSendPacketCount"     Type="Number" Desc="인티그서버에서 채팅서버로 보낸 패킷 개수"/>
+  <Property Name="Integrate_ChatSendPacketSize"      Type="Number" Desc="인티그서버에서 채팅서버로 보낸 패킷 크기"/>
+  <Property Name="Integrate_ChatRecvPacketCount"     Type="Number" Desc="인티그서버가 채팅서버로 부터 받은 패킷 개수"/>
+  <Property Name="Integrate_ChatRecvPacketSize"      Type="Number" Desc="인티그서버가 채팅서버로 부터 받은 패킷 크기"/>
+  <Property Name="Integrate_GlobalSendPacketCount"   Type="Number" Desc="인티그서버에서 글로벌서버로 보낸 패킷 개수"/>
+  <Property Name="Integrate_GlobalSendPacketSize"    Type="Number" Desc="인티그서버에서 글로벌서버로 보낸 패킷 크기"/>
+  <Property Name="Integrate_GlobalRecvPacketCount"   Type="Number" Desc="인티그서버가 글로벌서버로 부터 받은 패킷 개수"/>
+  <Property Name="Integrate_GlobalRecvPacketSize"    Type="Number" Desc="인티그서버가 글로벌서버로 부터 받은 패킷 크기"/>
+  <Property Name="ZoneInstance_Updating"             Type="Number" Desc="Update 작동 유무"/>
+  <Property Name="ZoneInstance_ObjectCount"          Type="Number" Desc="존 인스턴스에 있는 오브젝트 개수"/>
+  <Property Name="ZoneInstance_Layer"                Type="Number" Desc="존 인스턴스 레이어 개수"/>
+  <Property Name="ZoneInstance_PC"                   Type="Number" Desc="존 인스턴스에 있는 PC수"/>
+  <Property Name="ZoneInstance_Zombie"               Type="Number" Desc="존 인스턴스에 있는 좀비수"/>
+  <Property Name="ZoneInstance_UpdateMs"             Type="Number" Desc="Update에 걸리는 시간"/>
 </LogPropertyTable>

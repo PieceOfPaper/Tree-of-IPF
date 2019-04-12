@@ -140,7 +140,7 @@ function QUEST_REWARD_TEST(frame, questID)
 	    succExp = succExp + repeat_reward_exp
 	end
 	
-	if cls.Success_Lv_Exp > 0 then
+	if cls.Success_Lv_Exp > 0 and pc.Lv < PC_MAX_LEVEL then
         local xpIES = GetClass('Xp', pc.Lv)
         if xpIES ~= nil then
             local lvexpvalue =  math.floor(xpIES.QuestStandardExp * cls.Success_Lv_Exp)
@@ -561,7 +561,9 @@ end
 function MAKE_BASIC_REWARD_PCPROPERTY_CTRL(box, cls, y)
     local pcProperty = GetClass('reward_property', cls.ClassName)
     if pcProperty ~= nil then
-        y = MAKE_PCPROPERTY_TAG_TEXT_CTRL(y, box, "reward_PcProperty", pcProperty.Property, pcProperty.Value, 1);
+        if pcProperty.Property ~= "AchievePoint" then
+            y = MAKE_PCPROPERTY_TAG_TEXT_CTRL(y, box, "reward_PcProperty", pcProperty.Property, pcProperty.Value, 1);
+        end
     end
     
 	return y;

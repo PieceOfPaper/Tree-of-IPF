@@ -224,14 +224,22 @@ function SELECT_BARRACK_LAYER(frame, ctrl, arg, layer)
 	local pccount = GET_CHILD(frame, "pccount", "ui::CRichText");
 	local layerCtrl_1 = GET_CHILD(frame, "changeLayer1", "ui::CButton");
 	local layerCtrl_2 = GET_CHILD(frame, "changeLayer2", "ui::CButton");
+	local layerCtrl_3 = GET_CHILD(frame, "changeLayer3", "ui::CButton");
 	if ctrl:GetName() == 'changeLayer1' then
 		layerCtrl_1:SetImage('barrack_on_one_btn');
 		layerCtrl_2:SetImage('barrack_off_two_btn');
+		layerCtrl_3:SetImage('barrack_off_three_btn');
 		pccount:SetTextByKey("value", '1');
-	else
+	elseif ctrl:GetName() == 'changeLayer2' then
 		layerCtrl_1:SetImage('barrack_off_one_btn');
 		layerCtrl_2:SetImage('barrack_on_two_btn');
+		layerCtrl_3:SetImage('barrack_off_three_btn');
 		pccount:SetTextByKey("value", '2');
+	else
+		layerCtrl_1:SetImage('barrack_off_one_btn');
+		layerCtrl_2:SetImage('barrack_off_two_btn');
+		layerCtrl_3:SetImage('barrack_on_three_btn');
+		pccount:SetTextByKey("value", '3');
 	end
 
 	barrack.SelectBarrackLayer(layer);

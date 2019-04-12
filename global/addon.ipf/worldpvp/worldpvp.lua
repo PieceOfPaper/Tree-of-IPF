@@ -639,7 +639,9 @@ function UPDATE_PVP_RANK_CTRLSET(ctrlSet, info)
 		txt_point:SetTextByKey("value", info.point);
 	end
 
-	pic:SetImage(imgName);
+	if imgName ~= 'None' then
+		pic:SetImage(imgName);
+	end
 
 	local txt_rank = ctrlSet:GetChild("txt_rank");
 	txt_rank:SetTextByKey("value", info.ranking + 1);

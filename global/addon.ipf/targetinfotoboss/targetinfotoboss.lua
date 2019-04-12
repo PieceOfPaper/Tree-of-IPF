@@ -54,17 +54,15 @@ function TARGETINFOTOBOSS_TARGET_SET(frame, msg, argStr, argNum)
 		return;
 	end
 
-	local birth_buff_skin = GET_CHILD_RECURSIVELY(frame, "birth_buff_skin");
-	local birth_buff_img = GET_CHILD_RECURSIVELY(frame, "birth_buff_img");
+	local boss_attribute_img = GET_CHILD_RECURSIVELY(frame, "boss_attribute_img");
+	local attribute = targetinfo.attribute
+    local attributeImgName = "attribute_"..attribute
 
-	local birthBuffImgName = GET_BIRTH_BUFF_IMG_NAME(session.GetTargetBossHandle());
-	if birthBuffImgName == "None" then
-		birth_buff_skin:ShowWindow(0)
-		birth_buff_img:ShowWindow(0)
+	if attributeImgName == "None" then
+		boss_attribute_img:ShowWindow(0)
 	else
-		birth_buff_skin:ShowWindow(1)
-		birth_buff_img:ShowWindow(1)
-		birth_buff_img:SetImage(birthBuffImgName)
+		boss_attribute_img:ShowWindow(1)
+		boss_attribute_img:SetImage(attributeImgName)
 	end
 
 	-- name

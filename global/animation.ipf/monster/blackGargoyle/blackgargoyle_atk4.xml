@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="36" type="2" intensity="2" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="48" type="2" intensity="2" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="69" type="2" intensity="2" frequency="70" duration="0.5" range="1000"/>
+	<Shockwave frame="107" type="2" intensity="20" frequency="70" duration="0.5" range="1000"/>
+	<Particle frame="0" attachNode="Dummy_effect_mouth" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_mouth" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_mouth" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="15" attachNode="Bone_WP_UP4" particleName="I_smoke013_dark3_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="30" attachNode="Bone_WP_UP4" particleName="I_smoke013_dark3_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="33" attachNode="Bone_WP_UP4" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="33" attachNode="Dummy_effect_wepon" particleName="I_force017_trail5" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="35" attachNode="Bone_WP_UP4" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="35" attachNode="Bone_tail4" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="35" attachNode="Bone_wing_L3" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="35" attachNode="Bone_wing_R3" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="35" attachNode="Bip001 Spine1" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="35" attachNode="Dummy_effect_mouth" particleName="F_drop001_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="35" attachNode="Dummy_effect_mouth" particleName="F_drop001_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="35" attachNode="Bip001 Head" particleName="F_drop_water002_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="36" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="36" attachNode="Dummy_effect_atk4_001" particleName="I_swordtrail047_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="45" attachNode="Bone_WP_UP4" particleName="I_smoke013_dark3_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="48" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="48" attachNode="Dummy_effect_atk4_002" particleName="I_swordtrail047_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="48" attachNode="Dummy_effect_wepon" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="60" attachNode="Bone_WP_UP4" particleName="I_smoke013_dark3_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="69" attachNode="Dummy_emitter" particleName="F_smoke062_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="69" attachNode="Dummy_effect_atk4_003" particleName="I_swordtrail047_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="5.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="70" attachNode="Bone_WP_UP4" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="70" attachNode="Bone_tail4" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="70" attachNode="Bone_wing_L3" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="70" attachNode="Bone_wing_R3" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="70" attachNode="Bip001 Spine1" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="70" attachNode="Dummy_effect_mouth" particleName="F_drop001_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="70" attachNode="Dummy_effect_mouth" particleName="F_drop001_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="70" attachNode="Bip001 Head" particleName="F_drop_water002_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="71" attachNode="Dummy_effect_wepon" particleName="I_force017_trail5" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="75" attachNode="Bone_WP_UP4" particleName="I_smoke013_dark3_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="105" attachNode="Bone_WP_UP4" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="105" attachNode="Bone_tail4" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="105" attachNode="Bone_wing_L3" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="105" attachNode="Bone_wing_R3" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="105" attachNode="Bip001 Spine1" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="105" attachNode="Dummy_effect_mouth" particleName="F_drop001_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="105" attachNode="Dummy_effect_mouth" particleName="F_drop001_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="105" attachNode="Bip001 Head" particleName="F_drop_water002_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="106" attachNode="Dummy_emitter" particleName="F_smoke062_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="106" attachNode="Dummy_emitter" particleName="F_spread_out026_dark_low" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="105" attachNode="Dummy_emitter002" particleName="F_ground082_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="107" attachNode="Dummy_emitter002" particleName="F_ground082_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_molich_skl_ready"/>
+	<Sound frame="26.00" soundFile="skl_eff_atk_move_l_4"/>
+	<Sound frame="28.00" soundFile="skl_eff_scythe_attack"/>
+	<Sound frame="29.69" soundFile="mon_voice_onion_the_great_2"/>
+	<Sound frame="42.79" soundFile="mon_voice_onion_the_great_3"/>
+	<Sound frame="44.53" soundFile="skl_eff_scythe_attack"/>
+	<Sound frame="65.05" soundFile="skl_eff_atk_move_l_19"/>
+	<Sound frame="68.00" soundFile="mon_voice_screech_10"/>
+	<Sound frame="68.11" soundFile="skl_eff_scythe_attack"/>
+	<Sound frame="68.11" soundFile="skl_eff_synchrothrusting"/>
+	<Sound frame="78.00" soundFile="skl_eff_atk_move_l_1"/>
+	<Sound frame="105.00" soundFile="skl_eff_stone_born_l_1"/>
+	<Sound frame="105.00" soundFile="skl_eff_stone_blow_m"/>
+</ActionDesc>

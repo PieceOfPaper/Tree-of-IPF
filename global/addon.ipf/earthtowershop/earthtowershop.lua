@@ -24,6 +24,12 @@ function REQ_EVENT_ITEM_SHOP2_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
+function REQ_EVENT_ITEM_SHOP3_OPEN()
+	local frame = ui.GetFrame("earthtowershop");
+	frame:SetUserValue("SHOP_TYPE", 'EventShop3');
+	ui.OpenFrame('earthtowershop');
+end
+
 function REQ_KEY_QUEST_TRADE_HETHRAN_LV1_OPEN()
 	local frame = ui.GetFrame("earthtowershop");
 	frame:SetUserValue("SHOP_TYPE", 'KeyQuestShop1');
@@ -91,6 +97,8 @@ function EARTH_TOWER_INIT(frame, shopType)
 	elseif shopType == 'EventShop' then
 		title:SetText('{@st43}'..ScpArgMsg("EventShop"));
 	elseif shopType == 'EventShop2' then
+		title:SetText('{@st43}'..ScpArgMsg("EventShop"));
+	elseif shopType == 'EventShop3' then
 		title:SetText('{@st43}'..ScpArgMsg("EventShop"));
 	elseif shopType == 'KeyQuestShop1' then
 	    title:SetText('{@st43}'..ScpArgMsg("KeyQuestShopTitle1"));

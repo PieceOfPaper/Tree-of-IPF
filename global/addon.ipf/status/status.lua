@@ -1812,7 +1812,17 @@ function STATUS_ACHIEVE_INIT(frame)
     local nowcolor = imcIES.GetString(nowhaircls, 'ColorE')
     nowcolor = string.lower(nowcolor)
 
-    local haircount = 0;
+    -- 헤어 컬러가 많아질 경우 UI 벽을 뚫게 된다. row, col로 나눔.
+    local max_width = customizingGBox:GetWidth()
+    local row = 1
+    local col = 0
+    -- 아래 하드코딩 되어 있던 것들 이쪽으로 이동.
+    local row_top_margin = 20
+    local col_left_margin = 30
+    local height = 35
+    local width = 35
+    local select_margin = row_top_margin - 10
+
     for i = 0, Selectclasslist:Count() do
         local eachcls = Selectclasslist:GetByIndex(i);
         if eachcls ~= nil then
@@ -1825,8 +1835,15 @@ function STATUS_ACHIEVE_INIT(frame)
 
                 -- 업적 받으면 헤어 컬러 사라지는 현상이 있다고 해서 HairColor 프로퍼티 값으로도 확인
                 if TryGetProp(etc, "HairColor_" .. eachColorE) == 1 then
+                    -- row 변경 조건 검사
+                    local temp_offset_x = col_left_margin + width * col;
+                    local temp_max_width = temp_offset_x + width;
+                    if temp_max_width >= max_width then
+                        row = row +1
+                        col = 0
+                    end
 
-                    local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_' .. eachColorE, 30 + 35 * haircount, 55, 35, 35);
+                    local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_' .. eachColorE, col_left_margin + (width * col), row_top_margin +  (height * row), width, height);
                     tolua.cast(eachhairimg, "ui::CPicture");
 
                     local colorimgname = GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(eachColorE)
@@ -1836,21 +1853,38 @@ function STATUS_ACHIEVE_INIT(frame)
                     eachhairimg:SetEventScriptArgString(ui.LBUTTONDOWN, eachColorE);
 
                     if nowcolor == eachColorE then
-                        local selectedimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_Selected', 30 + 35 * haircount, 45, 35, 35);
+                        local selectedimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_Selected', col_left_margin + width * col, select_margin +  (height * row), width, height);
                         tolua.cast(selectedimg, "ui::CPicture");
                         selectedimg:SetImage('color_check');
                     end
-
-                    haircount = haircount + 1
+                    col = col +1
                 end
             end
         end
     end
-
+   
     DESTROY_CHILD_BYNAME(customizingGBox, "ACHIEVE_RICHTEXT_");
     local index = 0;
     local x = 40;
     local y = 145;
+    
+
+	local useableTitleList = GET_CHILD_RECURSIVELY(frame, "useableTitleList", "ui::CDropList");
+	useableTitleList:SelectItemByKey(config.GetXMLConfig("SelectAchieveKey"))
+	if equipAchieveName == nil or equipAchieveName == 'None' then
+		useableTitleList:ClearItems()
+	end
+	local myAchieveCount = 0;
+	local myAchieveCount_ExceptPeriod = 0
+	local currentAchieveCls = nil
+	local nextAchieveCls = nil
+	frame:SetUserValue("ShowNextStatReward", 0)
+	local showNextStatRewardCheckBox = GET_CHILD_RECURSIVELY(frame, 'showNextStatReward')
+	showNextStatRewardCheckBox:SetCheck(0)
+
+	local defaultTitleText = frame:GetUserConfig("DEFAULT_TITLE_TEXT")
+
+	useableTitleList:AddItem(0, defaultTitleText)
 
     for i = 0, clscnt - 1 do
 
@@ -1867,25 +1901,154 @@ function STATUS_ACHIEVE_INIT(frame)
         end
 
         if isHasAchieve == 1 and cls.Name ~= "None" then
-
-            local achiveRichCtrl = customizingGBox:CreateOrGetControl('richtext', 'ACHIEVE_RICHTEXT_' .. i, x, y, frame:GetWidth() -5, 20);
-
-            if equipAchieveName == cls.Name then
-                achiveRichCtrl:SetText('{@stx2}' .. cls.Name .. ScpArgMsg('Auto__(SayongJung)'));
-            else
-                achiveRichCtrl:SetText('{@st41b}' .. cls.Name);
-            end
-            achiveRichCtrl:SetEventScript(ui.LBUTTONDOWN, "ACHIEVE_EQUIP");
-            achiveRichCtrl:SetEventScriptArgNumber(ui.LBUTTONDOWN, cls.ClassID);
-            achiveRichCtrl:SetTextTooltip(cls.Desc);
-            achiveRichCtrl:SetTooltipMaxWidth(350);
-            y = y + achiveRichCtrl:GetHeight() + 10;
-
+			local itemString = string.format("{@st42b}%s{/}", cls.Name);
+			useableTitleList:AddItem(i, itemString);
+			myAchieveCount = myAchieveCount + 1			
+			if cls.PeriodAchieve ~= "YES" then
+				myAchieveCount_ExceptPeriod = myAchieveCount_ExceptPeriod + 1
+			end
         end
     end
+				
+	local nextAchieveCount = 0
+	local list, cnt = GetClassList("AchieveStatReward");
 
-    frame:Invalidate();
+	for i = 0, cnt - 1 do
+		local cls = GetClassByIndexFromList(list, i);
 
+		if i + 1 <= cnt - 1 then
+			local achieveCount = cls.AchieveCount
+			local tempNextAchieveCls = GetClassByIndexFromList(list, i + 1);
+			nextAchieveCount = tempNextAchieveCls.AchieveCount
+			if achieveCount <= myAchieveCount_ExceptPeriod and myAchieveCount_ExceptPeriod < nextAchieveCount then
+				currentAchieveCls = cls
+				nextAchieveCls = tempNextAchieveCls
+				break
+			end
+		else
+			currentAchieveCls = cls
+			nextAchieveCls = cls
+		end		
+	end
+
+	local titleListStatic = GET_CHILD_RECURSIVELY(frame, "titleListStatic")
+	titleListStatic:SetTextByKey("value1", myAchieveCount)
+
+	local currentbuffText = GET_CHILD_RECURSIVELY(frame, "currentbuffText")
+	local nextbuffText = GET_CHILD_RECURSIVELY(frame, "nextbuffText")
+	if myAchieveCount_ExceptPeriod == 0 then
+		currentbuffText:SetTextByKey("value", 0)
+		nextbuffText:SetTextByKey("value", 1)
+    elseif myAchieveCount_ExceptPeriod >= 60 then
+        currentbuffText:SetTextByKey("value", currentAchieveCls.ClassID - 1)
+        nextbuffText:SetTextByKey("value", 0)
+	else
+		currentbuffText:SetTextByKey("value", currentAchieveCls.ClassID - 1)
+		nextbuffText:SetTextByKey("value", nextAchieveCount - myAchieveCount_ExceptPeriod)
+	end
+					
+	frame : SetUserValue("currentAchieveClassID", currentAchieveCls.ClassID)
+	frame : SetUserValue("nextAchieveClassID", nextAchieveCls.ClassID)
+
+	CHANGE_STAT_FONT(frame, 'STR', currentAchieveCls.STR_BM, 1)
+	CHANGE_STAT_FONT(frame, 'CON', currentAchieveCls.CON_BM, 1)
+	CHANGE_STAT_FONT(frame, 'INT', currentAchieveCls.INT_BM, 1)
+	CHANGE_STAT_FONT(frame, 'MNA', currentAchieveCls.MNA_BM, 1)
+	CHANGE_STAT_FONT(frame, 'DEX', currentAchieveCls.DEX_BM, 1)
+	CHANGE_STAT_FONT(frame, 'PATK', currentAchieveCls.PATK_BM, 1)
+	CHANGE_STAT_FONT(frame, 'MATK', currentAchieveCls.MATK_BM, 1)
+	CHANGE_STAT_FONT(frame, 'DEF', currentAchieveCls.DEF_BM, 1)
+	CHANGE_STAT_FONT(frame, 'MDEF', currentAchieveCls.MDEF_BM, 1)
+	CHANGE_STAT_FONT(frame, 'MSP', currentAchieveCls.MSP_BM, 1)
+				
+	frame:Invalidate();
+end
+
+function SHOW_NEXT_STATS_REWARD(frame)
+	local frame = ui.GetFrame("status");
+	local currentAchieveClassID = frame:GetUserIValue("currentAchieveClassID")
+	local nextAchieveClassID = frame:GetUserIValue("nextAchieveClassID")
+
+	local isShowNext = frame:GetUserIValue("ShowNextStatReward")
+	if isShowNext == 0 then
+		local nextAchieveCls = GetClassByType("AchieveStatReward", nextAchieveClassID)
+		
+		CHANGE_STAT_FONT(frame, 'STR', nextAchieveCls.STR_BM)
+		CHANGE_STAT_FONT(frame, 'CON', nextAchieveCls.CON_BM)
+		CHANGE_STAT_FONT(frame, 'INT', nextAchieveCls.INT_BM)
+		CHANGE_STAT_FONT(frame, 'MNA', nextAchieveCls.MNA_BM)
+		CHANGE_STAT_FONT(frame, 'DEX', nextAchieveCls.DEX_BM)
+		CHANGE_STAT_FONT(frame, 'PATK', nextAchieveCls.PATK_BM)
+		CHANGE_STAT_FONT(frame, 'MATK', nextAchieveCls.MATK_BM)
+		CHANGE_STAT_FONT(frame, 'DEF', nextAchieveCls.DEF_BM)
+		CHANGE_STAT_FONT(frame, 'MDEF', nextAchieveCls.MDEF_BM)
+		CHANGE_STAT_FONT(frame, 'MSP', nextAchieveCls.MSP_BM)
+
+		frame:SetUserValue("ShowNextStatReward", 1)
+	elseif isShowNext == 1 then
+		local currentAchieveCls = GetClassByType("AchieveStatReward", currentAchieveClassID)
+		
+		CHANGE_STAT_FONT(frame, 'STR', currentAchieveCls.STR_BM)
+		CHANGE_STAT_FONT(frame, 'CON', currentAchieveCls.CON_BM)
+		CHANGE_STAT_FONT(frame, 'INT', currentAchieveCls.INT_BM)
+		CHANGE_STAT_FONT(frame, 'MNA', currentAchieveCls.MNA_BM)
+		CHANGE_STAT_FONT(frame, 'DEX', currentAchieveCls.DEX_BM)
+		CHANGE_STAT_FONT(frame, 'PATK', currentAchieveCls.PATK_BM)
+		CHANGE_STAT_FONT(frame, 'MATK', currentAchieveCls.MATK_BM)
+		CHANGE_STAT_FONT(frame, 'DEF', currentAchieveCls.DEF_BM)
+		CHANGE_STAT_FONT(frame, 'MDEF', currentAchieveCls.MDEF_BM)
+		CHANGE_STAT_FONT(frame, 'MSP', currentAchieveCls.MSP_BM)
+
+		frame:SetUserValue("ShowNextStatReward", 0)
+	end
+end
+
+--isInit 처음 창을 띄우는 경우인지를 판단하는 flag
+function CHANGE_STAT_FONT(frame, stat, value, isInit)
+	local currentAchieveClassID = frame:GetUserIValue("currentAchieveClassID")
+	local nextAchieveClassID = frame:GetUserIValue("nextAchieveClassID")
+	local changeStatFontname = frame:GetUserConfig("CHANGE_STAT_FONTNAME")
+	local defaultStatValueFontname = frame : GetUserConfig("DEFAULT_STAT_VALUE_FONTNAME")
+	local defaultStatNameFontname = frame : GetUserConfig("DEFAULT_STAT_NAME_FONTNAME")
+	local currentAchieveCls = GetClassByType("AchieveStatReward", currentAchieveClassID)
+	local nextAchieveCls = GetClassByType("AchieveStatReward", nextAchieveClassID)
+	local showNextStatReward = frame:GetUserIValue("ShowNextStatReward")
+
+	local text = value
+	text = '+' .. value
+
+	if isInit == 1 then
+		local statValue = GET_CHILD_RECURSIVELY(frame, stat .. '_VALUE')
+		statValue : SetTextByKey("value", text)
+		statValue : SetFontName(defaultStatValueFontname)
+		local statText = GET_CHILD_RECURSIVELY(frame, stat .. '_TEXT')
+		statText : SetFontName(defaultStatNameFontname)
+		return
+	end
+
+	if currentAchieveCls[stat .. '_BM'] ~= nextAchieveCls[stat .. '_BM'] and showNextStatReward == 0 then
+		local statValue = GET_CHILD_RECURSIVELY(frame, stat .. '_VALUE')
+		statValue:SetTextByKey("value", text)
+		statValue:SetFontName(changeStatFontname)
+		local statText = GET_CHILD_RECURSIVELY(frame, stat .. '_TEXT')
+		statText:SetFontName(changeStatFontname)
+	else
+		local statValue = GET_CHILD_RECURSIVELY(frame, stat .. '_VALUE')
+		statValue:SetTextByKey("value", text)
+		statValue:SetFontName(defaultStatValueFontname)
+		local statText = GET_CHILD_RECURSIVELY(frame, stat .. '_TEXT')
+		statText:SetFontName(defaultStatNameFontname)
+	end
+end
+
+
+function SELECT_ACHIEVE_TITLE(frame)
+	local useableTitleList = GET_CHILD_RECURSIVELY(frame, "useableTitleList")
+	local i = useableTitleList:GetSelItemKey()
+	local list, cnt = GetClassList("Achieve");
+	local cls = GetClassByIndexFromList(list, i);
+	config.ChangeXMLConfig("SelectAchieveKey", i);
+	ACHIEVE_EQUIP(frame, nil, nil, cls.ClassID)
 end
 
 function REQ_ACHIEVE_REWARD(frame, ctrl)

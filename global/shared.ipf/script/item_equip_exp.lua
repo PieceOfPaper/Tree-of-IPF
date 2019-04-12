@@ -59,6 +59,12 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1708_JURATE_1'); --비 이벤트
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1712_SECOND_BUFF'); --2주년 기념수의 축복
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1712_XMAS_FIRE'); --크리스마스 폭죽 이벤트
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1802_CHOCO_BUFF1'); --발렌타인 초콜릿
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1802_CHOCO_BUFF2'); --발렌타인 초콜릿
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1802_CHOCO_BUFF3'); --발렌타인 초콜릿
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1802_CHOCO_BUFF4'); --발렌타인 초콜릿
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1802_CHOCO_BUFF5'); --발렌타인 초콜릿
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_1802_weekend'); --3월 주말 이벤트
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Last_Winter'); --마지막 겨울
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Base_Buff'); --해외 버프
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_7Day_Exp_1'); --출석 체크

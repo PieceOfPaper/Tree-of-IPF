@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="60" type="2" intensity="10" frequency="100" duration="0.5" range="1000"/>
+	<Shockwave frame="140" type="2" intensity="10" frequency="100" duration="0.5" range="1000"/>
+	<Shockwave frame="204" type="2" intensity="10" frequency="100" duration="0.5" range="1000"/>
+	<Particle frame="58" attachNode="None" particleName="F_linedown002_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="138" attachNode="None" particleName="F_linedown002_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="202" attachNode="None" particleName="F_linedown002_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="60" attachNode="None" particleName="F_linedown002" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="60" attachNode="None" particleName="F_ground045_smoke_violet2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="140" attachNode="None" particleName="F_ground045_smoke_violet2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="204" attachNode="None" particleName="F_ground045_smoke_violet2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="10" attachNode="Bip001 Spine" particleName="I_smoke013_dark_glow2" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="20" attachNode="None" particleName="F_ground166" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_12"/>
+	<Sound frame="15.00" soundFile="mon_voice5_l_cast_4"/>
+	<Sound frame="15.00" soundFile="skl_eff_atk_move_l_3"/>
+	<Sound frame="57.00" soundFile="skl_eff_atk_move_l_7"/>
+	<Sound frame="60.00" soundFile="mon_voice5_l_cast_1"/>
+	<Sound frame="97.00" soundFile="skl_eff_atk_move_l_2"/>
+	<Sound frame="130.00" soundFile="mon_voice5_l_2"/>
+	<Sound frame="130.00" soundFile="skl_eff_atk_move_l_3"/>
+	<Sound frame="160.00" soundFile="skl_eff_atk_move_l_7"/>
+	<Sound frame="200.00" soundFile="skl_eff_atk_move_l_3"/>
+	<Sound frame="205.00" soundFile="mon_voice5_l_cast_2"/>
+	<Sound frame="240.00" soundFile="skl_eff_atk_move_l_2"/>
+</ActionDesc>

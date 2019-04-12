@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="10" R="50" G="0" B="40" A="100"/>
+	<BlendOn frame="60" R="80" G="30" B="60" A="100"/>
+	<BlendOn frame="90" R="100" G="50" B="80" A="100"/>
+	<BlendOff frame="120" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="0" term="50" blendTime="300" r="160" g="30" b="150" a="160"/>
+	<AfterImage frame="50" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Shockwave frame="60" type="2" intensity="10" frequency="100" duration="2" range="1000"/>
+	<Particle frame="0" attachNode="None" particleName="F_spread_in032_dark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="60" attachNode="None" particleName="E_dummy_scale" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="55" attachNode="Bip001" particleName="F_spread_out050" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="70" attachNode="Bip001" particleName="F_spread_out050" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="85" attachNode="Bip001" particleName="F_spread_out050" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="100" attachNode="Bip001" particleName="F_spread_out050" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_12"/>
+	<Sound frame="0.00" soundFile="m_ironbaum_skl1_voice"/>
+	<Sound frame="15.00" soundFile="skl_eff_atk_move_l_3"/>
+	<Sound frame="50.00" soundFile="mon_voice_onion_the_great_1"/>
+	<Sound frame="51.00" soundFile="skl_eff_ultimatedimension_ground"/>
+	<Sound frame="52.00" soundFile="skl_eff_gust_spread_1"/>
+</ActionDesc>

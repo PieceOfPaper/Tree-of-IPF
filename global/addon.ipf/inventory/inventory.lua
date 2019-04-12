@@ -642,7 +642,7 @@ function INVENTORY_ITEM_PROP_UPDATE(frame, msg, itemGuid)
 	if itemSlot ~= nil then
 		local invItem = GET_PC_ITEM_BY_GUID(itemGuid);
 		AUTO_CAST(itemSlot);
-		local eqpItemList = session.GetEquipItemList();
+		local eqpItemList = session.GetEquipItemList();        
 		SET_EQUIP_SLOT_BY_SPOT(frame, invItem, eqpItemList, _INV_EQUIP_LIST_SET_ICON);
 		frame:Invalidate();
 		return;
@@ -1392,7 +1392,9 @@ end
 function IS_TEMP_LOCK(invFrame, invitem)
 	if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
 		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
+		or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN")
+		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_TRANSCEND")
+		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_TRANSCEND_SCROLL") then
 			return true;
 	end
 
@@ -2299,16 +2301,16 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 	end
 	
 	if spotName == 'RH' then
-		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
-			session.SetWeaponQuicSlot(0, equipItem : GetIESID());
+		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then        
+			session.SetWeaponQuicSlot(0, equipItem : GetIESID(), false);
 			
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_RH', equipItem.type)
 			else
 				frame:SetUserValue('CURRENT_WEAPON_RH', 0)
 			end
-		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
-			session.SetWeaponQuicSlot(2, equipItem : GetIESID());
+		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then        
+			session.SetWeaponQuicSlot(2, equipItem : GetIESID(), false);
 					
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_RH', equipItem.type)
@@ -2320,16 +2322,16 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 
 	if spotName == 'LH' then
 		
-		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
-			session.SetWeaponQuicSlot(1, equipItem : GetIESID());
+		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then        
+			session.SetWeaponQuicSlot(1, equipItem : GetIESID(), false);
 			
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_LH', equipItem.type)
 			else
 				frame:SetUserValue('CURRENT_WEAPON_LH', 0)
 			end
-		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
-			session.SetWeaponQuicSlot(3, equipItem : GetIESID());
+		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then        
+			session.SetWeaponQuicSlot(3, equipItem : GetIESID(), false);
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_LH', equipItem.type)
 			else
@@ -2340,6 +2342,10 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 	
 
 	if equipItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_MORU') then
+		slot:SetFrontImage('item_Lock');
+	elseif equipItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_TRANSCEND') then
+		slot:SetFrontImage('item_Lock');
+	elseif equipItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_TRANSCEND_SCROLL') then
 		slot:SetFrontImage('item_Lock');
 	elseif equipItem.isLockState == true then
 		controlset:ShowWindow(1);			
@@ -2354,7 +2360,7 @@ function SET_EQUIP_SLOT(frame, i, equipItemList, iconFunc, ...)
 		equipItemList = session.GetEquipItemList();
 	end
 
-	local equipItem = equipItemList:Element(i);
+	local equipItem = equipItemList:Element(i);    
 	SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, equipItemList, iconFunc, ...);
 	
 	frame:Invalidate();
@@ -2444,6 +2450,9 @@ end
 s_dropDeleteItemIESID = '';
 
 function INVENTORY_DELETE(itemIESID, itemType)
+	if GetCraftState() == 1 then
+		return;
+	end
 	if true == BEING_TRADING_STATE() then
 		return;
 	end

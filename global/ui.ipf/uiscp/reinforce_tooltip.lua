@@ -21,8 +21,19 @@ function UPDATE_REINFORCE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 	if viewObj == nil then
 		return;
 	end
+
+	if strarg == "transcendscroll" then
+		local scrollCls = GetClassByType("Item", numarg1)
+		local transcend, rate = GET_ANTICIPATED_TRANSCEND_SCROLL_SUCCESS(viewObj, scrollCls);
+		if transcend == nil then
+			DestroyIES(viewObj);
+			return;
+		end
+		viewObj.Transcend = transcend;
+	else
 	-- 강회데이터를 위해 +1
-	viewObj.Reinforce_2 = viewObj.Reinforce_2+1;
+		viewObj.Reinforce_2 = viewObj.Reinforce_2+1;
+	end
 
 	-- 갱신
 	if viewObj.RefreshScp ~= 'None' then

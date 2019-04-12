@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="110" R="100" G="100" B="100" A="50"/>
+	<BlendOn frame="112" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="114" R="100" G="100" B="100" A="50"/>
+	<BlendOff frame="116" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="111" type="2" intensity="15" frequency="50" duration="0.3" range="1000"/>
+	<Sound frame="10.00" soundFile="mon_molich_skl_ready"/>
+	<Sound frame="18.00" soundFile="mon_voice_roar"/>
+	<Sound frame="26.00" soundFile="mon_hydra_turn"/>
+	<Sound frame="79.00" soundFile="mon_voice_onion_the_great_2"/>
+	<Sound frame="80.00" soundFile="mon_bramble_skl_ready"/>
+	<Sound frame="82.00" soundFile="skl_eff_atk_move_l_13"/>
+	<Sound frame="105.29" soundFile="skl_eff_breakingwheel_hit_ground"/>
+</ActionDesc>

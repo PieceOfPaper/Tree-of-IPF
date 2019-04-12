@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0" soundFile="m_malletwyvern_dead"/>
+	<Shockwave frame="0" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="2" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="4" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="6" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="8" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<BlendOn frame="0" R="50" G="10" B="50" A="30"/>
+	<BlendOn frame="5" R="150" G="100" B="150" A="150"/>
+	<BlendOn frame="10" R="200" G="150" B="200" A="200"/>
+	<BlendOff frame="15" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_dead_effect" particleName="I_malletwyvern_dead_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false" use2DEffect="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Bip01 Spine" particleName="F_light001_violet" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false" use2DEffect="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Bip01 Spine" particleName="F_light001_violet" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false" use2DEffect="false"/>
+</ActionDesc>

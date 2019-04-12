@@ -1,4 +1,4 @@
-﻿QUEST_TITLE_FONT = "{@st41b}";
+QUEST_TITLE_FONT = "{@st41b}";
 QUEST_GROUP_TITLE_FONT = "{@st42b}";
 QUEST_NORMAL_FONT = "{@st42b}";
 ABANDON_TEXT = ScpArgMsg("Auto_{@st45tw}PoKiHaKi");
@@ -312,7 +312,7 @@ function CHEAK_QUEST_MONSTER(questIES)
     	    if quest_sObj ~= nil then
     	        if quest_sObj.SSNMonKill ~= 'None' then
     	            local monInfo = SCR_STRING_CUT(quest_sObj.SSNMonKill, ":")
-                    if #monInfo >= 3 and #monInfo % 3 == 0 then
+                    if #monInfo >= 3 and #monInfo % 3 == 0 and monInfo[1] ~= 'ZONEMONKILL' then
                         local ssnMonListCount = #monInfo / 3
                         local flag = 0
                         for i = 1, QUEST_MAX_MON_CHECK do
@@ -321,6 +321,23 @@ function CHEAK_QUEST_MONSTER(questIES)
                                 local nowCount = quest_sObj['KillMonster'..i]
                                 if nowCount < needCount and GetZoneName(pc) == monInfo[i*3] then
                                     ADD_QUEST_CHECK_MONSTER(questIES.ClassID, monInfo[i*3 - 2]);
+                                end
+                            else
+                                break
+                            end
+                        end
+                    elseif monInfo[1] == 'ZONEMONKILL'  then
+                        for i = 1, QUEST_MAX_MON_CHECK do
+                            if #monInfo - 1 >= i then
+                                local index = i + 1
+                                local zoneMonInfo = SCR_STRING_CUT(monInfo[index])
+                                local needCount = tonumber(zoneMonInfo[2])
+                                local nowCount = quest_sObj['KillMonster'..i]
+                                if nowCount < needCount and GetZoneName(pc) == zoneMonInfo[1] then
+                                    local targetMonList = SCR_GET_ZONE_FACTION_OBJECT(zoneMonInfo[1], 'Monster', 'Normal/Material/Elite', 120000)
+                                    for i2 = 1, #targetMonList do
+                                        ADD_QUEST_CHECK_MONSTER(questIES.ClassID, targetMonList[i2][1]);
+                                    end
                                 end
                             else
                                 break
@@ -743,7 +760,8 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg, progVal) -- progVal이 nil이
 	elseif questIES.QuestMode == 'PARTY' then
 	    local sObj = GetSessionObject(pc, 'ssn_klapeda')
 	    if sObj ~= nil then
-	        questName = questIES.Name..ScpArgMsg("Auto__-_BanBog({Auto_1}/{Auto_2})","Auto_1", sObj.PARTY_Q_COUNT1 + 1, "Auto_2",CON_PARTYQUEST_DAYMAX1)
+	    	local curCnt = math.min(sObj.PARTY_Q_COUNT1 + 1, CON_PARTYQUEST_DAYMAX1);
+	        questName = questIES.Name..ScpArgMsg("Auto__-_BanBog({Auto_1}/{Auto_2})","Auto_1", curCnt, "Auto_2",CON_PARTYQUEST_DAYMAX1);
 	    end
 	end
 	if questName == nil then
@@ -1682,7 +1700,7 @@ function MAKE_QUESTINFO_MONSTER_BY_IES(ctrlset, questIES, startx, y, s_obj, ssni
         	    if quest_sObj ~= nil then
         	        if quest_sObj.SSNMonKill ~= 'None' then
         	            local monInfo = SCR_STRING_CUT(quest_sObj.SSNMonKill, ":")
-                        if #monInfo >= 3 and #monInfo % 3 == 0 then
+                        if #monInfo >= 3 and #monInfo % 3 == 0 and monInfo[1] ~= 'ZONEMONKILL' then
                             local ssnMonListCount = #monInfo / 3
                             local flag = 0
                             for i = 1, QUEST_MAX_MON_CHECK do
@@ -1700,13 +1718,29 @@ function MAKE_QUESTINFO_MONSTER_BY_IES(ctrlset, questIES, startx, y, s_obj, ssni
                                 			content:SetTextFixWidth(1);
                                 			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
                                 			y = y + content:GetHeight();
-                                            
-    --                            			local pictureCtrl = GET_CHILD(ctrlset, "statepicture", "ui::CPicture");
-    --                            			if pictureCtrl ~= nil then
-    --                            				pictureCtrl:SetPartitionImage("quest_count");
-    --                            				pictureCtrl:SetPartitionRate(curcnt / needcnt);
-    --                            				--pictureCtrl:Invalidate();
-    --                            			end
+                            			end
+                                    end
+                                else
+                                    break
+                                end
+                            end
+                        elseif monInfo[1] == 'ZONEMONKILL'  then
+                            for i = 1, QUEST_MAX_MON_CHECK do
+                                if #monInfo - 1 >= i then
+                                    local index = i + 1
+                                    local zoneMonInfo = SCR_STRING_CUT(monInfo[index])
+                                    local needCount = tonumber(zoneMonInfo[2])
+                                    local nowCount = quest_sObj['KillMonster'..i]
+                                    if nowCount < needCount then
+                                        local zoneName = GetClassString("Map", zoneMonInfo[1], "Name")
+                                        if zoneName ~= "None" then
+                            			    itemtxt = string.format(ScpArgMsg("QUEST_KILL_MON_UI_MSG2","ZONE", zoneName).." (%d/%d)", nowCount, needCount);
+                            			    
+                            			    local content = ctrlset:CreateOrGetControl('richtext', "MON_" .. (monUIIndex + i), startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
+                                			content:EnableHitTest(0);
+                                			content:SetTextFixWidth(1);
+                                			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
+                                			y = y + content:GetHeight();
                             			end
                                     end
                                 else
@@ -2156,7 +2190,7 @@ function MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y, font)
         qRewardExp = qRewardExp + repeat_reward_exp
     end
     
-    if quest_auto.Success_Lv_Exp > 0 then
+    if quest_auto.Success_Lv_Exp > 0 and pc.Lv < PC_MAX_LEVEL then
         local xpIES = GetClass('Xp', pc.Lv)
         if xpIES ~= nil then
             local lvexpvalue =  math.floor(xpIES.QuestStandardExp * quest_auto.Success_Lv_Exp)
@@ -2257,18 +2291,39 @@ function MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj, sharedProgress)
         
         if sObj_quest ~= nil and sObj_quest.SSNMonKill ~= 'None' then
             local monList = SCR_STRING_CUT(sObj_quest.SSNMonKill, ':')
-            local maxCount = math.floor(#monList/3)
-            for i = 1, maxCount do
-                local zoneTemp = monList[i*3]
-                local zoneName = GetClassString('Map', zoneTemp, 'Name')
-                if table.find(txtList, zoneName) == 0 then
-                    if txt == '' then
-                        txt = txt..zoneName
-                        firstInpu = true
-                    else
-                        txt = txt..'{nl}'..zoneName
+            if #monList >= 3 and #monList % 3 == 0 and monList[1] ~= 'ZONEMONKILL' then
+                local maxCount = math.floor(#monList/3)
+                for i = 1, maxCount do
+                    local zoneTemp = monList[i*3]
+                    local zoneName = GetClassString('Map', zoneTemp, 'Name')
+                    if table.find(txtList, zoneName) == 0 then
+                        if txt == '' then
+                            txt = txt..zoneName
+                            firstInpu = true
+                        else
+                            txt = txt..'{nl}'..zoneName
+                        end
+                        txtList[#txtList + 1] = zoneName
                     end
-                    txtList[#txtList + 1] = zoneName
+                end
+            elseif monList[1] == 'ZONEMONKILL'  then
+                for i = 1, QUEST_MAX_MON_CHECK do
+                    if #monList - 1 >= i then
+                        local index = i + 1
+                        local zoneMonInfo = SCR_STRING_CUT(monList[index])
+                        local zoneName = GetClassString("Map", zoneMonInfo[1], "Name")
+                        if zoneName ~= "None" then
+                            if table.find(txtList, zoneName) == 0 then
+                                if txt == '' then
+                                    txt = txt..zoneName
+                                    firstInpu = true
+                                else
+                                    txt = txt..'{nl}'..zoneName
+                                end
+                                txtList[#txtList + 1] = zoneName
+                            end
+            			end
+                    end
                 end
             end
         end

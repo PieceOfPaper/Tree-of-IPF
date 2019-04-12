@@ -379,11 +379,15 @@ function ACCOUNT_WAREHOUSE_EXTEND(frame, slot)
 			ui.SysMsg(ScpArgMsg("WareHouseMax"))
 			return;
 		end
-		price = price * GetPow(2, slotDiff);
+		if slotDiff < 4 then
+		    price = price * GetPow(2, slotDiff);
+		else
+		    --Form the fifth slot, it will be fixde at 2000000 silver
+		    price = price * 10
+		end
 	end
 
 	local str = ScpArgMsg("ExtendWarehouseSlot{Silver}{SLOT}", "Silver", GetCommaedText(price), "SLOT", 1);
-
 	local yesScp = string.format("CHECK_USER_MEDAL_FOR_EXTEND_ACCOUNT_WAREHOUSE(%d)", price) 
 	ui.MsgBox(str, yesScp, "None");
 
@@ -396,7 +400,7 @@ function CHECK_USER_MEDAL_FOR_EXTEND_ACCOUNT_WAREHOUSE(price)
 		ui.SysMsg(ScpArgMsg("NotEnoughMoney"))
 		return;
 	end
-
+    
 	item.ExtendWareHouse(IT_ACCOUNT_WAREHOUSE);
 end
 

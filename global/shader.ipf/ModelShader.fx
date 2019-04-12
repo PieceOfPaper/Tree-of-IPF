@@ -5,7 +5,6 @@
 #define MAX_INSTANCE_COUNT 10
 
 float4x4 g_ViewTM;
-float4x4 g_ProjTM;
 float4x4 g_InvViewTM;
 float4x4 g_ViewProjTM;
 
@@ -71,7 +70,6 @@ float4x4 GetMatrixInstance(int idx, int type)
 #else
 float4x4 g_WorldTM;
 float4x4 g_WorldViewTM;
-float4x4 g_WorldViewProjTM;
 float4 g_BlendColor = float4(0.5f, 0.5f, 0.5f, 1.f);
 float4 g_BlendColorAdd = float4(0.f, 0.f, 0.f, 0.f);
 float4 g_auraColor = float4(0.f, 0.f, 0.f, 0.f);
@@ -1187,11 +1185,15 @@ float4 PS_TEST(VS_OUT In) : COLOR
 }
 
 #ifdef ENABLE_DEPTH_MRT
-OUT_COLOR PS_CharacterShader(VS_OUT In)
+OUT_COLOR PS_CharacterShader(VS_OUT In, uniform const bool isLowQuality)
 #else
-float4 PS_CharacterShader(VS_OUT In) : COLOR
+float4 PS_CharacterShader(VS_OUT In, uniform const bool isLowQuality) : COLOR
 #endif
 {
+#ifdef ENABLE_INSTANCING
+	int instanceID = (int)(In.worldz_tmIndex_fog.y + 1e-5f);
+#endif
+
 	float4 diffTexColor = 1.f;
 	float alpha = 0.f;
 	float3 farColor = 1.f;
@@ -1200,10 +1202,17 @@ float4 PS_CharacterShader(VS_OUT In) : COLOR
 
 #ifdef ENABLE_DIFFUSETEX
 	diffTexColor = tex2D(diffuseTex, In.diffuseTexCoord.xy);
-	alpha = diffTexColor.a;
+	if (isLowQuality == true && diffTexColor.a > (48.f / 255.f))
+	{
+		alpha = max(254.f / 255.f, diffTexColor.a);
+	}
+	else
+	{
+		alpha = diffTexColor.a;
+	}
 #endif
 
-	float3 OutColor = 1.f;
+	float4 OutColor = 1.f;
 	float falloff = 0.f;
 	float distValue = 0.f;
 
@@ -1228,9 +1237,8 @@ float4 PS_CharacterShader(VS_OUT In) : COLOR
 	Out.a = alpha;
 
 #ifdef ENABLE_INSTANCING
-	int tmIndex = (int)(In.worldz_tmIndex_fog.y + 1e-5f);
-	float4 blendColor = g_InstanceVecArray[g_InstanceCount + tmIndex];
-	float4 blendColorAdd = g_InstanceVecArray[g_InstanceCount * 2 + tmIndex];
+	float4 blendColor = g_InstanceVecArray[g_InstanceCount + instanceID];
+	float4 blendColorAdd = g_InstanceVecArray[g_InstanceCount * 2 + instanceID];
 #else
 	float4 blendColor = g_BlendColor;
 	float4 blendColorAdd = g_BlendColorAdd;
@@ -1240,7 +1248,10 @@ float4 PS_CharacterShader(VS_OUT In) : COLOR
 	Out.rgb += blendColorAdd.rgb;
 
 #ifdef ENABLE_CHARACTER_RENDER
-	Out.a *= blendColor.a;
+	if (isLowQuality == false)
+	{
+		Out.a *= blendColor.a;
+	}
 #endif
 
 	Out = saturate(Out);
@@ -1357,16 +1368,24 @@ float4 PS_CharacterShaderOption(VS_OUT In, uniform const int optionType) : COLOR
 }
 
 #ifdef ENABLE_DEPTH_MRT
-OUT_COLOR PS_BillBoardHead(VS_OUT In)
+OUT_COLOR PS_BillBoardHead(VS_OUT In, uniform const bool isLowQuality)
 #else
-float4 PS_BillBoardHead(VS_OUT In) : COLOR
+float4 PS_BillBoardHead(VS_OUT In, uniform const bool isLowQuality) : COLOR
 #endif
 {
 	float4 diffTexColor = 0.f;
 	float alpha = 0.f;
 #ifdef ENABLE_DIFFUSETEX
 	diffTexColor = tex2D(diffuseTex, In.diffuseTexCoord.xy);
-	alpha = diffTexColor.a;
+
+	if (isLowQuality == true)
+	{
+		alpha = max(48.f / 255.f, diffTexColor.a);
+	}
+	else
+	{
+		alpha = diffTexColor.a;
+	}
 #endif
 
 	float4 Out = diffTexColor;
@@ -1380,7 +1399,10 @@ float4 PS_BillBoardHead(VS_OUT In) : COLOR
 		float4 blendColorAdd = g_BlendColorAdd;
 	#endif
 
-	Out.a *= blendColor.a;
+	if (isLowQuality == false)
+	{
+		Out.a *= blendColor.a;
+	}
 	Out.rgb *= blendColor.rgb * 2.f;
 	Out.rgb += blendColorAdd.rgb;
 	Out = saturate(Out);
@@ -1546,7 +1568,7 @@ technique CharacterShadingTq
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
 		VertexShader = compile vs_3_0 VS_ModelShader();
-		PixelShader = compile ps_3_0 PS_CharacterShader();
+		PixelShader = compile ps_3_0 PS_CharacterShader(false);
 	}
 
 	pass P1
@@ -1558,7 +1580,7 @@ technique CharacterShadingTq
 		AlphaBlendEnable = true;
 		ZFunc = LessEqual;
 		VertexShader = compile vs_3_0 VS_ModelShader();
-		PixelShader = compile ps_3_0 PS_CharacterShader();
+		PixelShader = compile ps_3_0 PS_CharacterShader(false);
 	}
 
 	pass P2
@@ -1599,7 +1621,7 @@ technique CharacterOutlineShadingTq
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
 		VertexShader = compile vs_3_0 VS_ModelShader();
-		PixelShader = compile ps_3_0 PS_CharacterShader();
+		PixelShader = compile ps_3_0 PS_CharacterShader(false);
 	}
 
 	pass P1
@@ -1611,7 +1633,7 @@ technique CharacterOutlineShadingTq
 		AlphaBlendEnable = true;
 		ZFunc = LessEqual;
 		VertexShader = compile vs_3_0 VS_ModelShader();
-		PixelShader = compile ps_3_0 PS_CharacterShader();
+		PixelShader = compile ps_3_0 PS_CharacterShader(false);
 	}
 
 	pass P2
@@ -1640,7 +1662,7 @@ technique CharacterShadingTq_LowQuality
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
 		VertexShader = compile vs_3_0 VS_ModelShader();
-		PixelShader = compile ps_3_0 PS_CharacterShader();
+		PixelShader = compile ps_3_0 PS_CharacterShader(true);
 	}
 }
 
@@ -1656,7 +1678,7 @@ technique CharacterOutlineShadingTq_LowQuality
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
 		VertexShader = compile vs_3_0 VS_ModelShader();
-		PixelShader = compile ps_3_0 PS_CharacterShader();
+		PixelShader = compile ps_3_0 PS_CharacterShader(true);
 	}
 
 	pass P2
@@ -1682,12 +1704,29 @@ technique BillboardHeadTq
 		AlphaTestEnable = true;
 		AlphaRef = 0x30;
 		AlphaFunc = Greater;
+		ZEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_BillBoardHead(false);
+	}
+}
+
+technique BillboardHeadTq_Low
+{
+	pass P0
+	{
+		SRGBWRITEENABLE = FALSE;
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
 		AlphaBlendEnable = false;
 		ZEnable = true;
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
 		VertexShader = compile vs_3_0 VS_ModelShader();
-		PixelShader = compile ps_3_0 PS_BillBoardHead();
+		PixelShader = compile ps_3_0 PS_BillBoardHead(true);
 	}
 }
 
@@ -1705,7 +1744,7 @@ technique BillboardHeadSnapShotTq
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
 		VertexShader = compile vs_3_0 VS_ModelShader();
-		PixelShader = compile ps_3_0 PS_BillBoardHead();
+		PixelShader = compile ps_3_0 PS_BillBoardHead(false);
 	}
 }
 
@@ -1781,14 +1820,32 @@ technique BillboardHeadAddTq
 		AlphaTestEnable = true;
 		AlphaRef = 0x30;
 		AlphaFunc = Greater;
+		ZEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_BillBoardHead(false);
+	}
+}
+
+technique BillboardHeadAddTq_Low
+{
+	pass P0
+	{
+		SRGBWRITEENABLE = FALSE;
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
 		AlphaBlendEnable = false;
 		ZEnable = true;
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
 		VertexShader = compile vs_3_0 VS_ModelShader();
-		PixelShader = compile ps_3_0 PS_BillBoardHead();
+		PixelShader = compile ps_3_0 PS_BillBoardHead(false);
 	}
 }
+
 #else
 technique WaterRenderTq
 {

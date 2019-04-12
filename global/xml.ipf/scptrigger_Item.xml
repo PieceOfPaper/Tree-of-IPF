@@ -320,6 +320,44 @@
 		</TriggerList>
 	</SpcItem>
 	<SpcItem Name="CAN04_102">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonShot"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_ShootDown"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SiegeBurst"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonBlast"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_CannonBarrage"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SmokeGrenade"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_Bazooka"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Cannoneer_SweepingCannon"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
 		<TriggerList Act="Equip">
 			<Trigger>
 				<ExecList>
@@ -351,39 +389,9 @@
 						<Str Str="Cannoneer_Bazooka"/>
 						<Num Num="1"/>
 					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_CannonShot"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_ShootDown"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_SiegeBurst"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_CannonBlast"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_CannonBarrage"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_SmokeGrenade"/>
-						<Num Num="-1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cannoneer_Bazooka"/>
-						<Num Num="-1"/>
+						<Str Str="Cannoneer_SweepingCannon"/>
+						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -4569,6 +4577,252 @@ return self.RSP;"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Elementalist_Prominence"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Fire"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Alchemist_Combustion"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Fire"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Zealot_Immolation"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="NECK02_128">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Lightning"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Elementalist_Electrocute"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Lightning"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Kriwi_Zaibas"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Lightning"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Daoshi_DivinePunishment"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Lightning"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Zealot_FanaticIllusion"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="NECK02_129">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Ice"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Cryomancer_IceBolt"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Ice"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Cryomancer_IciclePike"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Ice"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Cryomancer_IceBlast"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Ice"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Cryomancer_SnowRolling"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Ice"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Cryomancer_FrostPillar"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Ice"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Elementalist_Hail"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Ice"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Elementalist_FreezingSphere"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Ice"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Onmyoji_WaterShikigami"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="NECK02_132">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Earth"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Elementalist_StormDust"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Earth"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Wizard_EarthQuake"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Earth"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Onmyoji_GreenwoodShikigami"/>
+						<Num Num="0.5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
+						<Str Str="Earth"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
+						<Str Str="Onmyoji_Toyou"/>
 						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>

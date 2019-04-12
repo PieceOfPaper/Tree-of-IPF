@@ -18,7 +18,12 @@ function SCR_QUEST_LINK_FIRST_SUB(pc,t, ext, statet)
                     local before = TryGetProp(questIES,'QuestName'..i2, 'None')
                     if before ~= 'None' then
                         local beforeCount = TryGetProp(questIES,'QuestCount'..i2, 0)
-                        local state = SCR_QUEST_CHECK(pc, before)
+                        local state
+                        if IsServerSection(pc) == 1 then
+                            state = SCR_QUEST_CHECK(pc, before)
+                        else
+                            state = SCR_QUEST_CHECK_C(pc, before)
+                        end
                         if beforeCount == 300 then
                             if state ~= 'COMPLETE' then
                                 if table.find(list1, before) == 0 then
