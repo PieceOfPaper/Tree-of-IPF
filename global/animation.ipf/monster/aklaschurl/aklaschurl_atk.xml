@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="skl_eff_rifle_cast_move"/>
-    <Sound frame="0.00" soundFile="mon_zombie_m_atk_shot"/>
-    <Sound frame="6.00" soundFile="skl_eff_rifle_atk_move_s"/>
-    <Sound frame="8.00" soundFile="skl_eff_snipe"/>
-    <Sound frame="8.00" soundFile="mon_zombie_m_atk_shot"/>
+	<Shockwave frame="9" type="2" intensity="3" frequency="70" duration="0.3" range="400"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="9" R="120" G="90" B="150" A="100"/>
+	<BlendOff frame="10" R="0" G="0" B="0" A="0"/>
+	<Particle frame="9" attachNode="Dummy_effect_atk" particleName="I_hit001_pistol" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Bone003" particleName="I_archer_pistol_atk_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="skl_eff_rifle_cast_move"/>
+	<Sound frame="0.00" soundFile="mon_zombie_m_atk_shot"/>
+	<Sound frame="6.00" soundFile="skl_eff_rifle_atk_move_s"/>
+	<Sound frame="8.00" soundFile="skl_eff_snipe"/>
+	<Sound frame="8.00" soundFile="mon_zombie_m_atk_shot"/>
 </ActionDesc>

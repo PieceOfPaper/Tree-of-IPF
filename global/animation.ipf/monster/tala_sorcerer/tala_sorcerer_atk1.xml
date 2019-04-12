@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_saurman_warrior_atk1_cast"/>
-    <Sound frame="5.00" soundFile="mon_saurman_warrior_atk1_shot"/>
+	<Particle frame="0" attachNode="Dummy_force" particleName="I_spread_out009_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_saurman_warrior_atk1_cast"/>
+	<Sound frame="5.00" soundFile="mon_saurman_warrior_atk1_shot"/>
 </ActionDesc>

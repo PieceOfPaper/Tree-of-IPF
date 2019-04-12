@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_hydra_turn"/>
-    <Sound frame="20.00" soundFile="skl_eff_atk_sperad"/>
-    <Sound frame="22.00" soundFile="mon_voice_netherbovine_6"/>
+	<Shockwave frame="33" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="0.00" soundFile="mon_hydra_turn"/>
+	<Sound frame="20.00" soundFile="skl_eff_atk_sperad"/>
+	<Sound frame="22.00" soundFile="mon_voice_netherbovine_6"/>
 </ActionDesc>

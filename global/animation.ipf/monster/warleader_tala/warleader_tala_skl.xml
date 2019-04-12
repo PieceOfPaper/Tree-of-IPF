@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_goblinwarrior_atk2_cast"/>
-    <Sound frame="5.24" soundFile="mon_goblinwarrior_atk2_shot"/>
-    <Sound frame="7.74" soundFile="mon_goblin_warrior_atk_shot"/>
+	<Particle frame="0" attachNode="Dummy_weapon1" particleName="I_spread_out009_yellow_tran" useAttach="ture" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_weapon1" particleName="I_spread_out009_yellow" useAttach="ture" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_goblinwarrior_atk2_cast"/>
+	<Sound frame="5.24" soundFile="mon_goblinwarrior_atk2_shot"/>
+	<Sound frame="7.74" soundFile="mon_goblin_warrior_atk_shot"/>
 </ActionDesc>
