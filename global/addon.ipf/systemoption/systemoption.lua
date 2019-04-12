@@ -10,6 +10,7 @@ function SYSTEMOPTION_CREATE(frame)
 	INIT_LANGUAGE_CONFIG(frame);
 	INIT_GRAPHIC_CONFIG(frame);
 	INIT_CONTROL_CONFIG(frame);
+	SET_SKL_CTRL_CONFIG(frame);
 end
 
 function INIT_LANGUAGE_CONFIG(frame)
@@ -266,6 +267,23 @@ function SET_SLIDE_VAL(frame, ctrlName, txtname, value)
 	rate = math.floor(rate);
 	txt:SetTextByKey("opValue", rate);
 
+end
+
+function SET_SKL_CTRL_CONFIG(frame)
+	local value = config.GetSklCtrlSpd();
+	local slide = GET_CHILD(frame, "sklCtrlSpd", "ui::CSlideBar");
+	slide:SetLevel(value);
+	local txt = GET_CHILD(frame, "sklCtrlSpd_text", "ui::CRichText");
+	local rate = value / 10;
+	rate = math.floor(rate);
+	txt:SetTextByKey("opValue", rate);
+end
+
+function CONFIG_SKL_CTRL_SPD(frame, ctrl, str, num)
+
+	tolua.cast(ctrl, "ui::CSlideBar");
+	config.SetSklCtrlSpd(ctrl:GetLevel());
+	SET_SKL_CTRL_CONFIG(frame);
 end
 
 function CONFIG_SOUNDVOL(frame, ctrl, str, num)

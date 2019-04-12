@@ -16,6 +16,7 @@ ClassID,Value,ClassName,Desc,UseInScript
 15,10,"BATTLE_STATE_TIME","전투상태 유지시간","NO"
 16,0.100000,"JUST_FRAME_TOLERANCE","HIT 이후 저스트 프레임 캔슬 허용시간","NO"
 17,0,"USE_MOVE_ACCEL","PC가 이동시에 가속도를 사용하는가","NO"
+18,500,"SKILL_CANCLE_COOLTIME","스킬 캔슬 재사용시간 설정, 시간 단위 : ms (테스트용)","NO"
 100,60000,"PC_INIT_INVINCIBLE_TIME","PC최초 접속시 무적시간","NO"
 101,10000,"PC_WARP_INVINCIBLE_TIME","PC Warp (SetPos등) 무적시간","NO"
 102,280,"PC_MAX_LEVEL","플레이어의 최대 레벨","YES"

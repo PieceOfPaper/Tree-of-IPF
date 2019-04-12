@@ -50,6 +50,7 @@
 		<Code Code="ERRCODE_LOGIC_CLIENT_MGR_INSERT_FAIL" CallStack="NO" Desc="클라이언트 매니저를 생성하는데 실패하였습니다. 해당 ip와의 연결을 종료합니다."/>
 		<Code Code="ERRCODE_LOGIC_INVALID_CONNECTION_TYPE" CallStack="NO" Desc="잘못된 타입의 커넥션 연결이 시도되었습니다."/>
 		<Code Code="ERRCODE_LOGIC_GEMSCOOL_LOGIN_FAIL" CallStack="NO" Desc="젬스쿨 로그인 서버와의 통신이 실패하였습니다. 다음 에러 정보를 참조하세요."/>
+    <Code Code="ERRCODE_LOGIC_GEMSCOOL_PREMIUM_FAIL" CallStack="NO" Desc="젬스쿨 프리미엄 PC 인증이 실패하였습니다. 다음 에러 정보를 참조하세요."/>
 		<Code Code="ERRCODE_LOGIC_NEXON_NOT_IMPLEMENTED_SYNC_TYPE" CallStack="NO" Desc="세션 정보와 넥슨 세션 서버와의 동기화가 실패하였습니다. 알 수 없는 싱크 타입입니다."/>
 		<Code Code="ERRCODE_LOGIC_GETPOS_NEAR_FROM_TARGET" CallStack="NO" Desc="MaxLoopCount내에 유효좌표를 얻지 못했습니다."/>
 		<Code Code="ERRCODE_LOGIN_TOO_MANY_DB_RESULT" CallStack="NO" Desc="DB의 결과값이 너무 많습니다."/>
@@ -95,6 +96,7 @@
 		<Code Code="ERRCODE_LOGIC_CHAT_ROOM" CallStack="NO" Desc="채팅 방 오류"/>
 		<Code Code="ERRCODE_LOGIC" CallStack="NO" Desc="로직 오류"/>
 		<Code Code="ERRCODE_PRINT_CALL_STACK" CallStack="YES" Desc=" : "/>
+    <Code Code="ERRCODE_LOGIC_STEAM_INVEN" CallStack="NO" Desc="스팀 인벤토리 로직 오류. 프로그래머에게 문의하세요."/>
 	</Type>
 	<Type Type="DATA">
 		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>
@@ -183,6 +185,7 @@
 		<Code Code="ERRCODE_DATA_DOSENT_MATCH_SIZE" CallStack="NO" Desc="해당 데이터가 지정된 사이즈와 맞지 않습니다."/>
 		<Code Code="ERRCODE_DATA_INVALID_TRANSLATED_DATA" CallStack="NO" Desc="잘못된 번역 데이터입니다."/>
 		<Code Code="ERRCODE_DATA_INVALID_TRANSLATED_ENCODING" CallStack="NO" Desc=".tsv 파일의 인코딩은 반드시 UTF-8 whitout BOM 이어야 합니다."/>
+    <Code Code="ERRCODE_DATA_STEAM_INVALID_REGION" CallStack="NO" Desc="해당 지역에서 수행 불가능한 요청입니다."/>
 	</Type>
 	<Type Type="SCRIPT">
 		<Code Code="ERRCODE_SCRIPT_IES_CANT_SUSPEND_MAIN_THREAD" CallStack="NO" Desc="메인 쓰레드는 sleep, tx등으로 중단시킬 수 없습니다. 해당 함수 내용을 확인하세요."/>
