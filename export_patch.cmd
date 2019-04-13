@@ -50,6 +50,13 @@ for /f %%a in (ipflist_patch.txt) do (
 	git push
 )
 
+::===== music file Copy & Commit & Push
+xcopy /y /s %TosPath%\release\bgm\*.* %TempPath%\release\bgm\*.*
+cd %ExportPath%
+git add --all
+git commit -m "%2 bgm update"
+git push
+
 
 ::====== temp data clear
 cd %RootPath%
