@@ -12302,6 +12302,7 @@
 		<Class ClassID="138407" ClassName="miss_match_confirm_text" Data="확인 문자가 일치하지 않습니다."/>
 		<Class ClassID="138408" ClassName="HighItemGradeReallyDestroy{ITEM}{COUNT}" Data="{#fe7e00}[{ITEM}]{/}을/를 {#fe7e00}[{COUNT}]{/}개 파괴하실려면 숫자 [0000] 을 입력해주세요."/>
 		<Class ClassID="138409" ClassName="HighItemGradeReallyDestroy{ITEM}" Data="정말 {#fe7e00}[{ITEM}]{/}을/를 파괴하실려면 숫자 [0000] 을 입력해주세요."/>
+    <Class ClassID="138411" ClassName="ReallyWantToPartyForChallengeMode" Data="챌린지 모드 진행중 파티를 탈퇴하는 경우, 챌린지 모드가 정상적으로 진행되지 않습니다. 정말 파티를 탈퇴하시겠습니까?"/>
 		</Category>
 	<Category Name="SkillMsg">
 		<Class ClassID="200001" ClassName="DontBuildCampThisAria" Data="해당 지역에서는 거점을 설치할 수 없습니다."/>
