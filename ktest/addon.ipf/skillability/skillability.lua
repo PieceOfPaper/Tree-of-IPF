@@ -15,8 +15,8 @@ function SKILLABILITY_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('ABILITY_LIST_GET', 'SKILLABILITY_ON_FULL_UPDATE');
 	addon:RegisterOpenOnlyMsg('RESET_ABILITY_UP', 'SKILLABILITY_ON_FULL_UPDATE');
 	addon:RegisterOpenOnlyMsg('UPDATE_COMMON_SKILL_LIST', 'ON_UPDATE_COMMON_SKILL_LIST');
-	addon:RegisterOpenOnlyMsg('POPULAR_SKILL_INFO', 'ON_POPULAR_SKILL_INFO');
-
+    addon:RegisterOpenOnlyMsg('POPULAR_SKILL_INFO', 'ON_POPULAR_SKILL_INFO');
+    
     addon:RegisterMsg('SKILL_LIST_GET', 'SKILLABILITY_ON_FULL_UPDATE');
     addon:RegisterMsg('DELETE_QUICK_SKILL', 'SKILLABILITY_ON_FULL_UPDATE');
 end
@@ -489,13 +489,13 @@ function SKILLABILITY_FILL_SKILL_INFO(infoctrl, info)
 
     if overHeat == 0 then
         if obj ~= nil then
-            sp = GET_SPENDSP_BY_LEVEL(obj);
+            sp = GET_SPENDSP_BY_LEVEL(obj, lv);
             overHeat = GET_SKILL_OVERHEAT_COUNT(obj);
             coolDown = obj.CoolDown / 1000;
         else
             local tempObj = CreateGCIESByID("Skill", sklCls.ClassID);
             tempObj.Level = lv;
-            sp = GET_SPENDSP_BY_LEVEL(tempObj);
+            sp = GET_SPENDSP_BY_LEVEL(tempObj, lv);
             coolDown = tempObj.CoolDown / 1000;
             overHeat = GET_SKILL_OVERHEAT_COUNT(tempObj);
         end
@@ -1069,6 +1069,8 @@ function ON_SKILLABILITY_UPDATE_PROPERTY(frame, msg, argstr, argnum)
     end
 
     local skillability_job = GET_CHILD_RECURSIVELY(gb, "skillability_job_"..jobClsName);
+    SKILLABILITY_FILL_JOB_GB(skillability_job, jobClsName)
+
     local ability_gb = GET_CHILD_RECURSIVELY(gb, "ability_gb");
     SKILLABILITY_FILL_ABILITY_GB(skillability_job, ability_gb, jobClsName);
 end

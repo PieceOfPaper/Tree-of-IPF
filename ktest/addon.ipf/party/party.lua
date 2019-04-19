@@ -46,14 +46,13 @@ function ON_PARTY_INST_UPDATE(frame)
 end
 
 function PARTY_OPEN(frame)
-
-	ui.OpenFrame('party_search')
+	
 	RESET_NAME_N_MEMO(frame)
 
 end
 
 function PARTY_CLOSE(frame)
-	ui.CloseFrame('party_search');
+
 end
 
 function UI_TOGGLE_PARTY()

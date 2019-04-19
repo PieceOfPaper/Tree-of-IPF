@@ -1,0 +1,1521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="LEGEND_RAID_WHITE_CROW" minLv="0" maxLv="0" mapName="shadow_raid_main" playerCountCheckDestroy="1" startWaitSec="-1">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="153195" Pos="-1085.76#28.56#365.98" angle="-45" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;SHADOW_RAID_WHITE_CROW&apos; &apos;MaxDialog&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59273" Pos="2513.00#33.00#-960.00" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" searchRange="999" tendency="1"/>
+                    <Obj Type="Monster" MonType="150199" Pos="1689.92#28.51#-654.45" angle="-5" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="150199" Pos="2442.41#28.51#-78.77" angle="-92" genCount="1" genTime="20000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="150199" Pos="1914.32#28.51#-1706.83" angle="-120" genCount="1" genTime="20000" objectKey="4"/>
+                    <Obj Type="Monster" MonType="150199" Pos="3248.45#28.51#-321.88" angle="-20" genCount="1" genTime="20000" objectKey="5"/>
+                    <Obj Type="Monster" MonType="150199" Pos="3106.65#28.51#-1572.80" angle="130" genCount="1" genTime="20000" objectKey="6"/>
+                    <Obj Type="Monster" MonType="59262" Pos="2513.00#33.00#-960.00" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="7" UseAiOutOfPc="1" searchRange="999" tendency="1"/>
+                    <Obj Type="Monster" MonType="147500" Pos="2142.50#28.51#-1347.10" genCount="1" genTime="20000" objectKey="9" propList="&apos;NumArg1&apos; &apos;2&apos; "/>
+                    <Obj Type="Monster" MonType="147500" Pos="2060.05#28.51#-700.57" genCount="1" genTime="20000" objectKey="11" propList="&apos;NumArg1&apos; &apos;4&apos; "/>
+                    <Obj Type="Monster" MonType="147500" Pos="2435.86#28.51#-543.80" genCount="1" genTime="20000" objectKey="13" propList="&apos;NumArg1&apos; &apos;6&apos; "/>
+                    <Obj Type="Monster" MonType="147500" Pos="2870.25#28.51#-631.00" genCount="1" genTime="20000" objectKey="15" propList="&apos;NumArg1&apos; &apos;8&apos; "/>
+                    <Obj Type="Monster" MonType="147500" Pos="2865.23#28.51#-1307.64" genCount="1" genTime="20000" objectKey="17" propList="&apos;NumArg1&apos; &apos;10&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154066" Pos="-1027.69#28.56#395.98" maxStackCount="1" genTime="1000" autoGen="0" objectKey="26" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;포탈&apos; &apos;Dialog&apos; &apos;SHADOW_RAID_WHITE_CROW_PORTAL&apos; &apos;MaxDialog&apos; &apos;1&apos; ">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_circle25_red" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150203" Pos="2516.10#33.81#-967.09" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="27" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;Dialog&apos; &apos;None&apos; "/>
+                    <Obj Type="Monster" MonType="59279" Pos="2523.99#33.81#-957.98" genCount="1" genTime="10000" autoGen="0" objectKey="28" autoDestroy="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/7"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150187" Pos="2499.93#30.28#265.35" angle="-45" genCount="1" genTime="20000" objectKey="18" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;봉인석&apos; "/>
+                    <Obj Type="Monster" MonType="150187" Pos="3655.78#30.89#-341.23" angle="-45" genCount="1" genTime="20000" objectKey="19" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;봉인석&apos; "/>
+                    <Obj Type="Monster" MonType="150199" Pos="2127.44#28.51#-1404.19" angle="-120" genCount="1" genTime="20000" objectKey="20"/>
+                    <Obj Type="Monster" MonType="150199" Pos="2904.61#28.51#-1338.91" angle="-50" genCount="1" genTime="20000" objectKey="21"/>
+                    <Obj Type="Monster" MonType="150199" Pos="2900.00#28.51#-572.78" angle="60" genCount="1" genTime="20000" objectKey="22"/>
+                    <Obj Type="Monster" MonType="150199" Pos="2436.47#28.51#-484.77" angle="-90" genCount="1" genTime="20000" objectKey="23"/>
+                    <Obj Type="Monster" MonType="150199" Pos="1980.63#28.51#-689.73" angle="-7" genCount="1" genTime="20000" objectKey="24"/>
+                    <Obj Type="Monster" MonType="150204" Pos="3002.28#28.51#-1453.08" angle="-50" genCount="1" genTime="20000" objectKey="25"/>
+                    <Obj Type="Monster" MonType="150204" Pos="3039.11#28.51#-364.06" angle="-30" genCount="1" genTime="20000" objectKey="29"/>
+                    <Obj Type="Monster" MonType="150204" Pos="3088.10#28.51#-318.14" angle="-20" genCount="1" genTime="20000" objectKey="30"/>
+                    <Obj Type="Monster" MonType="150204" Pos="2430.71#28.51#-250.54" genCount="1" genTime="20000" objectKey="31"/>
+                    <Obj Type="Monster" MonType="150204" Pos="1836.39#28.51#-658.19" angle="-5" genCount="1" genTime="20000" objectKey="32"/>
+                    <Obj Type="Monster" MonType="150204" Pos="1985.32#28.51#-1569.29" angle="60" genCount="1" genTime="20000" objectKey="33"/>
+                    <Obj Type="Monster" MonType="150204" Pos="2025.49#28.51#-1523.22" angle="60" genCount="1" genTime="20000" objectKey="34"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Start" execWithStart="0" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ANIM_END"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/1/DefGroup/27"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Gimmick_Name"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Str Str="SHADOW_RAID_BOSS_HPLOCK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" execCount="1" eventName="Set_Warp" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/14"/>
+                                <Str Str="SCR_GIMMICK_WARP_OWNER_SET"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="ChangeBoss" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+                                <Str Str="ANIM_END"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/7"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SUBPHASE"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ANIM_END"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Str Str="SHADOW_RAID_BOSS_HPLOCK"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Str Str="SHADOW_LEGEND_NAME_BOSS_BUFF"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/28"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="Gimmick_Name"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="PowerUp_End"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Clear">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Num Num="1"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DIRECTION" Client="NO" UseSleep="NO">
+                                <Str Str="SHADOWMANCER_RAID_TRACK03"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Str Str="SHADOW_RAID_BOSS_KILL"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="SUCCESS"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Boss_PowerUp">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Num Num="40"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="보스가 강해집니다"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/8/DefGroup/9/DefGroup/10/DefGroup/11/DefGroup/12/DefGroup/13/DefGroup/14/DefGroup/15/DefGroup/16/DefGroup/17"/>
+                                <Str Str="SHADOW_RAID_CLEAR_WARP_AI"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Str Str="SHADOW_RAID_NOT_RUN_CHECK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Ani1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SUBPHASE"/>
+                                <Str Str="OVER"/>
+                                <Num Num="4"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Num Num="5"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="DefGroup/1/DefGroup/27"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ANIM_END"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DIRECTION" Client="NO" UseSleep="NO">
+                                <Str Str="SHADOWMANCER_RAID_TRACK02"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="ChangeBoss"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/26"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Ani2" execWithStart="0" isEnabled="0"/>
+                    <Event execCount="1" eventName="PORTAL_SUMMON" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="PORTAL_SUMMON"/>
+                                <Str Str="OVER"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/26"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="섀도우맨서 마스터가 내부로 들어가는 봉인을 열었습니다!{nl}포탈을 타고 안으로 이동하세요."/>
+                                <Str Str="Clear"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="execute" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="PORTAL_SUMMON"/>
+                                <Str Str="OVER"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ANIM_END"/>
+                                <Str Str="OVER"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Start"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="PowerUp_End" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="START"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1200"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Str Str="SHADOW_RAID_MAX_POWER"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="soulcrystal_set">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_SOUL_CRISTAL_LIMIT" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Gimmick_Name" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="150188" Pos="2178.60#28.51#-956.40" angle="-45" genCount="1" autoGen="0" objectKey="0" UseAiOutOfPc="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_ACTORSCP" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="SHADOW_RAID_NAME_ORB_DEAD"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150188" Pos="2843.97#28.51#-946.10" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_ACTORSCP" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="SHADOW_RAID_NAME_ORB_DEAD"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150188" Pos="2501.00#28.00#-1294.00" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_ACTORSCP" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="SHADOW_RAID_NAME_ORB_DEAD"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150188" Pos="2523.60#28.51#-637.46" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_ACTORSCP" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="SHADOW_RAID_NAME_ORB_DEAD"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gimmick1_1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Num Num="70"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SUBPHASE"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="ShadowmancerMaster_Gimmick1"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Str Str="SHADOW_LEGEND_NAME_ORB_FOCUS"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Notice01"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Gimmick1_2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SUBPHASE"/>
+                                <Str Str="=="/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Num Num="40"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Notice01"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="ShadowmancerMaster_Gimmick1"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Str Str="SHADOW_LEGEND_NAME_ORB_FOCUS"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Gimmick1_3">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SUBPHASE"/>
+                                <Str Str="=="/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Num Num="10"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="ShadowmancerMaster_Gimmick1"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Str Str="SHADOW_LEGEND_NAME_ORB_FOCUS"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Notice01"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Gimmick1_4" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SUBPHASE"/>
+                                <Str Str="=="/>
+                                <Num Num="4"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Num Num="20"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Notice01"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="ShadowmancerMaster_Gimmick1"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Str Str="SHADOW_LEGEND_NAME_ORB_FOCUS"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" isOr="1" eventName="Gimmick_End" execWithStart="0" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Str Str="SHADOW_LEGEND_NAME_ORB_RESET"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SUBPHASE"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Setting">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Gimmick_Name/0/Gimmick_Name/1/Gimmick_Name/2/Gimmick_Name/3"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SUBPHASE"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Str Str="SHADOW_RAID_NAME_ORB_RELATE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="10000" eventName="Notice01" execWithStart="0" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_SHADOW_RAID_1PHASE_MSG_20"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Notice02"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="10000" eventName="Notice02" execWithStart="0" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_SHADOW_RAID_1PHASE_MSG_10"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Notice03"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" eventName="Notice03" execWithStart="0" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_SHADOW_RAID_1PHASE_MSG_5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Gimmick_End"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Gimmick_Ordering">
+                <ObjList>
+                    <Obj Type="Monster" MonType="150187" Pos="3310.42#30.74#-1849.44" angle="-45" genCount="1" genTime="20000" genReadyTime="5000" objectKey="10" propList="&apos;NumArg2&apos; &apos;5&apos; &apos;Dialog&apos; &apos;SHADOW_LEGEND_ORDERING_STONE&apos; &apos;Name&apos; &apos;봉인석&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/17"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150188" Pos="3422.80#28.10#-1751.32" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;NumArg1&apos; &apos;1&apos; &apos;Dialog&apos; &apos;SHADOW_LEGEND_ORDERING_ORB&apos; &apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="Gimmick_Ordering/10"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150188" Pos="3403.26#27.23#-1946.67" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="11" propList="&apos;NumArg1&apos; &apos;2&apos; &apos;Dialog&apos; &apos;SHADOW_LEGEND_ORDERING_ORB&apos; &apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="Gimmick_Ordering/10"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150188" Pos="3207.60#27.19#-1941.27" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="12" propList="&apos;NumArg1&apos; &apos;3&apos; &apos;Dialog&apos; &apos;SHADOW_LEGEND_ORDERING_ORB&apos; &apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="Gimmick_Ordering/10"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150188" Pos="3219.22#27.26#-1749.23" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="13" propList="&apos;NumArg1&apos; &apos;4&apos; &apos;Dialog&apos; &apos;SHADOW_LEGEND_ORDERING_ORB&apos; &apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="Gimmick_Ordering/10"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59250" Pos="3228.98#26.91#-1915.98" genCount="1" genTime="20000" autoGen="0" objectKey="1"/>
+                    <Obj Type="Monster" MonType="59250" Pos="3380.44#26.88#-1919.85" genCount="1" genTime="20000" autoGen="0" objectKey="2"/>
+                    <Obj Type="Monster" MonType="59250" Pos="3330.88#30.74#-1871.52" genCount="1" genTime="20000" autoGen="0" objectKey="3"/>
+                    <Obj Type="Monster" MonType="59250" Pos="3392.39#27.59#-1768.58" genCount="1" genTime="20000" autoGen="0" objectKey="4"/>
+                    <Obj Type="Monster" MonType="59250" Pos="3240.59#26.96#-1772.17" genCount="1" genTime="20000" autoGen="0" objectKey="5"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Setting">
+                        <condList>
+                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+                                <Str Str="GIMMICK_NUM"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ORDERING_ON"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SCORE_ORDERING"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="ShadowmancerMaster_Gimmick2"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/17"/>
+                                <Str Str="SHADOW_RAID_WARP_ON"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Gimmick_Ordering/0/Gimmick_Ordering/11/Gimmick_Ordering/12/Gimmick_Ordering/13"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Success" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SCORE_ORDERING"/>
+                                <Str Str="OVER"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_SHADOW_RAID_2PHASE_GIMMICK_SUCCESS"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Ordering/10/Gimmick_Ordering/0/Gimmick_Ordering/11/Gimmick_Ordering/12/Gimmick_Ordering/13/Gimmick_Ordering/1/Gimmick_Ordering/2/Gimmick_Ordering/3/Gimmick_Ordering/4/Gimmick_Ordering/5"/>
+                                <Str Str="SHADOW_LEGEND_ORDERING_REMOVE"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Mon_Gen"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Ordering/10"/>
+                                <Str Str="SHADOW_RAID_GIMMICK_PC_BARRIER"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Barrior"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Timer"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Ordering/10"/>
+                                <Str Str="SCR_GIMMICK_TIME_OVER_SET"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Fail" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="90"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_SHADOW_RAID_2PHASE_GIMMICK_FAIL"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="GIMMICK_FAIL_STACK"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Ordering/10"/>
+                                <Str Str="SHADOW_RAID_GIMMICK_FAIL_DEBUFF"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Ordering/10/Gimmick_Ordering/0/Gimmick_Ordering/11/Gimmick_Ordering/12/Gimmick_Ordering/13/Gimmick_Ordering/1/Gimmick_Ordering/2/Gimmick_Ordering/3/Gimmick_Ordering/4/Gimmick_Ordering/5/Gimmick_Ordering/6/Gimmick_Ordering/7/Gimmick_Ordering/8/Gimmick_Ordering/9"/>
+                                <Str Str="SHADOW_LEGEND_ORDERING_REMOVE"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Mon_Gen"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Barrior"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Str Str="SHADOW_RAID_GIMMICK_WARP_FAIL"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Timer"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Ordering/10"/>
+                                <Str Str="SCR_GIMMICK_TIME_OVER_SET"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Barrior" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Ordering/10"/>
+                                <Str Str="SHADOW_RAID_GIMMICK_PC_BARRIER"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" eventName="Mon_Gen" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Ordering/1/Gimmick_Ordering/2/Gimmick_Ordering/3/Gimmick_Ordering/4/Gimmick_Ordering/5"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Gimmick_Ordering/1/Gimmick_Ordering/2/Gimmick_Ordering/3/Gimmick_Ordering/4/Gimmick_Ordering/5"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="200" eventName="Timer" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Ordering/10"/>
+                                <Str Str="SHADOW_RAID_GIMMICK_TIMER_AI"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Gimmick_Color">
+                <ObjList>
+                    <Obj Type="Monster" MonType="150187" Pos="1503.46#31.47#-1900.48" angle="-45" genCount="1" genTime="20000" genReadyTime="5000" objectKey="0" propList="&apos;Dialog&apos; &apos;SHADOW_LEGEND_COLOR_STONE&apos; &apos;NumArg2&apos; &apos;1&apos; &apos;Name&apos; &apos;봉인석&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/9"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150188" Pos="1642.10#28.51#-1859.91" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Faction&apos; &apos;Chaos&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;HPCount&apos; &apos;1&apos; ">
+                        <SelfAI UpdateMS="2000" ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="HPLock"/>
+                                    <Num Num="1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150188" Pos="1593.46#28.51#-1989.35" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Faction&apos; &apos;Chaos&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;HPCount&apos; &apos;1&apos; ">
+                        <SelfAI UpdateMS="2000" ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="HPLock"/>
+                                    <Num Num="1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150188" Pos="1460.40#28.51#-2020.63" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Faction&apos; &apos;Chaos&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;HPCount&apos; &apos;1&apos; ">
+                        <SelfAI UpdateMS="2000" ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="HPLock"/>
+                                    <Num Num="1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150188" Pos="1376.82#28.51#-1932.13" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="4" propList="&apos;Faction&apos; &apos;Chaos&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;HPCount&apos; &apos;1&apos; ">
+                        <SelfAI UpdateMS="2000" ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="HPLock"/>
+                                    <Num Num="1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150188" Pos="1427.15#28.51#-1813.66" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Faction&apos; &apos;Chaos&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;HPCount&apos; &apos;1&apos; ">
+                        <SelfAI UpdateMS="2000" ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="HPLock"/>
+                                    <Num Num="1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150188" Pos="1554.91#28.51#-1778.58" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="6" propList="&apos;Faction&apos; &apos;Chaos&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;HPCount&apos; &apos;1&apos; ">
+                        <SelfAI UpdateMS="2000" ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="HPLock"/>
+                                    <Num Num="1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59250" Pos="1599.23#28.51#-1873.50" genCount="1" genTime="20000" autoGen="0" objectKey="7"/>
+                    <Obj Type="Monster" MonType="59250" Pos="1496.81#28.51#-2022.31" genCount="1" genTime="20000" autoGen="0" objectKey="8"/>
+                    <Obj Type="Monster" MonType="59250" Pos="1546.46#28.51#-1817.01" genCount="1" genTime="20000" autoGen="0" objectKey="9"/>
+                    <Obj Type="Monster" MonType="59250" Pos="1455.81#28.51#-1839.66" genCount="1" genTime="20000" autoGen="0" objectKey="10"/>
+                    <Obj Type="Monster" MonType="59250" Pos="1407.53#28.51#-1919.41" genCount="1" genTime="20000" autoGen="0" objectKey="11"/>
+                    <Obj Type="Monster" MonType="59250" Pos="1422.75#28.51#-2009.33" genCount="1" genTime="20000" autoGen="0" objectKey="12"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Setting">
+                        <condList>
+                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+                                <Str Str="GIMMICK_NUM"/>
+                                <Str Str="=="/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="COLOR_ON"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SCORE_COLOR"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="ShadowmancerMaster_Gimmick2"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/9"/>
+                                <Str Str="SHADOW_RAID_WARP_ON"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Gimmick_Color/1/Gimmick_Color/2/Gimmick_Color/3/Gimmick_Color/4/Gimmick_Color/5/Gimmick_Color/6"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Color/0"/>
+                                <Str Str="SHADOW_LEGEND_COLOR_SET_OWNER"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Success" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SCORE_COLOR"/>
+                                <Str Str="OVER"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_SHADOW_RAID_2PHASE_GIMMICK_SUCCESS"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Color/0/Gimmick_Color/1/Gimmick_Color/2/Gimmick_Color/3/Gimmick_Color/4/Gimmick_Color/5/Gimmick_Color/6/Gimmick_Color/7/Gimmick_Color/8/Gimmick_Color/9/Gimmick_Color/10/Gimmick_Color/11/Gimmick_Color/12"/>
+                                <Str Str="SHADOW_LEGEND_COLOR_REMOVE"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Mon_Gen"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Color/0"/>
+                                <Str Str="SHADOW_RAID_GIMMICK_PC_BARRIER"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Barrior"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Timer"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Color/0"/>
+                                <Str Str="SCR_GIMMICK_TIME_OVER_SET"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Fail" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_SHADOW_RAID_2PHASE_GIMMICK_FAIL"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="GIMMICK_FAIL_STACK"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Color/0"/>
+                                <Str Str="SHADOW_RAID_GIMMICK_FAIL_DEBUFF"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Color/0/Gimmick_Color/1/Gimmick_Color/2/Gimmick_Color/3/Gimmick_Color/4/Gimmick_Color/5/Gimmick_Color/6/Gimmick_Color/7/Gimmick_Color/8/Gimmick_Color/9/Gimmick_Color/10/Gimmick_Color/11/Gimmick_Color/12"/>
+                                <Str Str="SHADOW_LEGEND_COLOR_REMOVE"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Mon_Gen"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Barrior"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Str Str="SHADOW_RAID_GIMMICK_WARP_FAIL"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Timer"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Color/0"/>
+                                <Str Str="SCR_GIMMICK_TIME_OVER_SET"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Barrior" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Color/0"/>
+                                <Str Str="SHADOW_RAID_GIMMICK_PC_BARRIER"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="10000" eventName="Mon_Gen" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Gimmick_Color/7/Gimmick_Color/8/Gimmick_Color/9/Gimmick_Color/10/Gimmick_Color/11/Gimmick_Color/12"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" eventName="FixAnim" execWithStart="0" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Color/1/Gimmick_Color/2/Gimmick_Color/3/Gimmick_Color/4/Gimmick_Color/5/Gimmick_Color/6"/>
+                                <Str Str="SHADOW_LEGEND_COLOR_ORB_COLOR_FIX"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="200" eventName="Timer" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Color/0"/>
+                                <Str Str="SHADOW_RAID_GIMMICK_TIMER_AI"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Gimmick_Number">
+                <ObjList>
+                    <Obj Type="Monster" MonType="150185" Pos="1554.46#28.51#-422.35" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Dialog&apos; &apos;SHADOW_LEGEND_NUMBER_DEVICE_CHECK&apos; &apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="Gimmick_Number/4"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150185" Pos="1271.07#28.51#-345.68" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Dialog&apos; &apos;SHADOW_LEGEND_NUMBER_DEVICE_CHECK&apos; &apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="Gimmick_Number/4"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150185" Pos="1334.43#28.51#-609.34" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Dialog&apos; &apos;SHADOW_LEGEND_NUMBER_DEVICE_CHECK&apos; &apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="Gimmick_Number/4"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150187" Pos="1377.05#30.05#-460.05" angle="-45" genCount="1" genTime="20000" genReadyTime="5000" objectKey="4" propList="&apos;NumArg2&apos; &apos;2&apos; &apos;Dialog&apos; &apos;SHADOW_LEGEND_NUMBER_STONE&apos; &apos;Name&apos; &apos;봉인석&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/11"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Setting">
+                        <condList>
+                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+                                <Str Str="GIMMICK_NUM"/>
+                                <Str Str="=="/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="NUMBER_ON"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SCORE_NUMBER"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="ShadowmancerMaster_Gimmick2"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/11"/>
+                                <Str Str="SHADOW_RAID_WARP_ON"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Gimmick_Number/0/Gimmick_Number/1/Gimmick_Number/2/Gimmick_Number/3"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Success" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SCORE_NUMBER"/>
+                                <Str Str="OVER"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_SHADOW_RAID_2PHASE_GIMMICK_SUCCESS"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Number/4"/>
+                                <Str Str="SHADOW_LEGEND_NUMBER_END"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Number/4"/>
+                                <Str Str="SCR_GIMMICK_TIME_OVER_SET"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Number/4"/>
+                                <Str Str="SHADOW_RAID_GIMMICK_PC_BARRIER"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Barrior"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Mon_Gen"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Timer"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Fail" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="GIMMICK_FAIL_STACK"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_SHADOW_RAID_2PHASE_GIMMICK_FAIL"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Number/4"/>
+                                <Str Str="SHADOW_RAID_GIMMICK_FAIL_DEBUFF"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Number/4"/>
+                                <Str Str="SHADOW_LEGEND_NUMBER_END"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Mon_Gen"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Barrior"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Str Str="SHADOW_RAID_GIMMICK_WARP_FAIL"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Timer"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Number/4"/>
+                                <Str Str="SCR_GIMMICK_TIME_OVER_SET"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Barrior" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Number/4"/>
+                                <Str Str="SHADOW_RAID_GIMMICK_PC_BARRIER"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="200" eventName="Timer" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Number/4"/>
+                                <Str Str="SHADOW_RAID_GIMMICK_TIMER_AI"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Pattern_Curse">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Curse3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Num Num="70"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SHADOW_LEGEND_MAKE_CURSE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Curse2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Num Num="40"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SHADOW_LEGEND_MAKE_CURSE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Curse3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Num Num="10"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SHADOW_LEGEND_MAKE_CURSE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Gimmick_Open">
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="5000" execCount="1" eventName="Gimmick1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Num Num="90"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Str Str="SHADOW_LEGEND_SET_GIMMICK_NUM"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" execCount="1" eventName="Gimmick2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Num Num="75"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Str Str="SHADOW_LEGEND_SET_GIMMICK_NUM"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" execCount="1" eventName="Gimmick3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Num Num="60"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Str Str="SHADOW_LEGEND_SET_GIMMICK_NUM"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="FAIL_CHECK">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="ALL_PC_DEAD">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="FAIL"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="모든 유저가 전투 불능이 되어 레이드에 실패했습니다.{nl}30초 후 이동했던 곳으로 돌아갑니다."/>
+                                <Str Str="!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="NOT_IN_PC">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_NO_CONNECTED_PC" Client="NO" UseSleep="NO"/>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="FAIL"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="REMAIN_30MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1800"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="레이드 종료까지 30분 남았습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="REMAIN_15MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="2700"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="레이드 종료까지 15분 남았습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="REMAIN_5MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3300"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="레이드 종료까지 5분 남았습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="TIMEOUT">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="FAIL"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="제한 시간이 경과되어 레이드에 실패했습니다.{nl}30초 후 이동했던 곳으로 돌아갑니다."/>
+                                <Str Str="!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="FAIL" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="레이드 실패!{nl}30초 뒤, 입장한 곳으로 돌아갑니다."/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="RAID_STOP">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Gimmick_Name"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Gimmick_Ordering"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Gimmick_Color"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Gimmick_Number"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Pattern_Curse"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Gimmick_Open"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="FAIL_CHECK"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="SUCCESS"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Gimmick_Name"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Gimmick_Ordering"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Gimmick_Color"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Gimmick_Number"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Pattern_Curse"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Gimmick_Open"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Pattern_Curse"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FAIL_CHECK"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="SUCCESS"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="20&apos;s">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="20초 후 입장했던 곳으로 돌아갑니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="10&apos;s">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10초 후 입장했던 곳으로 돌아갑니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="RETURN_ZONE">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="SUCCESS" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="Raid_boss_Skiaclipse"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="레이드 성공!{nl}60초 뒤, 입장한 곳으로 돌아갑니다."/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="156162" Pos="2342.21#28.51#-1137.56" genCount="1" maxStackCount="1" genTime="1000" objectKey="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;NPC_DUNGEON_GACHA_CUBE&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="RETURN_ZONE">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

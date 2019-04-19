@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="90" attachNode="Bip001 L Hand" particleName="F_hit009_rize_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="90" attachNode="Dummy_R_hand" particleName="F_hit009_rize_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="40" attachNode="Bone_Spine1" particleName="I_smoke013_whiteDark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="45" attachNode="Dummy_R_hand" particleName="I_force018_trail_rize_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="45" attachNode="Bip001 L Hand" particleName="I_force018_trail_rize_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="45" attachNode="Bip001 L Hand2" particleName="I_force018_trail_rize_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="45" attachNode="Bip001 R Hand2" particleName="I_force018_trail_rize_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="50" attachNode="Dummy_emitter" particleName="F_explosion99_white2" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="94" attachNode="Dummy_emitter" particleName="E_skiaclipse_boss" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="effect002" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="35" attachNode="effect003" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="50" attachNode="effect002" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="50" attachNode="effect003" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="70" attachNode="effect002" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="70" attachNode="effect003" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<BlendOn frame="93" R="100" G="100" B="100" A="50"/>
+	<BlendOn frame="94" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="95" R="100" G="100" B="100" A="50"/>
+	<BlendOff frame="96" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="94" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

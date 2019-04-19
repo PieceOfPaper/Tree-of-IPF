@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="13" R="140" G="140" B="150" A="100"/>
+	<BlendOn frame="14" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="21" R="140" G="140" B="150" A="100"/>
+	<BlendOn frame="22" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="41" R="50" G="50" B="50" A="100"/>
+	<BlendOn frame="42" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="43" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="41" type="2" intensity="8" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="64" type="2" intensity="9" frequency="65" duration="2" range="1000"/>
+	<Shockwave frame="120" type="2" intensity="5" frequency="65" duration="0.2" range="1000"/>
+	<Particle frame="21" attachNode="Dummy_ROOT" particleName="F_spread_out059" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="13" attachNode="Dummy_ROOT" particleName="F_spread_out059" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="21" attachNode="Dummy_ROOT" particleName="I_sphere014_mesh" useAttach="false" hiddenObj="false" changeEffect="None" scale="55" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="13" attachNode="Dummy_ROOT" particleName="I_sphere014_mesh" useAttach="false" hiddenObj="false" changeEffect="None" scale="55" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_ROOT" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="41" attachNode="Dummy_ROOT" particleName="F_smoke050_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_ROOT" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="64" attachNode="Dummy_ROOT" particleName="F_smoke141_violet_dark_spread_out" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="64" attachNode="Dummy_ROOT" particleName="F_spread_out026_blue2" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="70" attachNode="Dummy_ROOT" particleName="F_spread_out026_blue2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="75" attachNode="Dummy_ROOT" particleName="F_spread_out026_blue2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="80" attachNode="Dummy_ROOT" particleName="F_spread_out026_blue2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="85" attachNode="Dummy_ROOT" particleName="F_spread_out026_blue2" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="90" attachNode="Dummy_ROOT" particleName="F_spread_out026_blue2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="95" attachNode="Dummy_ROOT" particleName="F_spread_out026_blue2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="115" attachNode="Dummy_ROOT" particleName="F_smoke050_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="120" attachNode="Dummy_ROOT" particleName="F_smoke050_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="64" attachNode="Dummy_ROOT" particleName="I_cylinder_test" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="80" attachNode="Dummy_ROOT" particleName="I_cylinder_test" useAttach="false" hiddenObj="false" changeEffect="None" scale="6.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+</ActionDesc>

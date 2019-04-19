@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi2" Path="\dungeon\d_shadow_raid_mini_dungeon\"/>
+	<TexDir IpfName="bg_texture" Path="\zachariel\"/>
+	<SubTexDir IpfName="bg_texture" Path="\cathedral\"/>
+	<SubTexDir IpfName="bg_texture" Path="\velniasprison\"/>
+	<ShaTexDir IpfName="bg_hi2" Path="\dungeon\d_shadow_raid_mini_dungeon\"/>
+	<LightMap File="d_shadow_raid_mini_dungeon_lightmap.jpg" Length="700.0 700.0" Offset="-183.141 173.966" Size="1024 1024"/>
+	<Model File="d_shadow_raid_mini_dungeon_bloom.xac" Model="d_shadow_raid_mini_dungeon_bloom" pos="-493.2493 -213.8232 488.4720" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_shadow_raid_mini_dungeon_b_model.xac" Model="d_shadow_raid_mini_dungeon_b_model" ShadowMap="d_shadow_raid_mini_dungeon_b_model" pos="-406.8324 -1203.3057 375.5767" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_shadow_raid_mini_dungeon_light.xac" Model="d_shadow_raid_mini_dungeon_light" pos="-507.3491 -630.7273 595.7314" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_shadow_raid_mini_dungeon_model.xac" Model="d_shadow_raid_mini_dungeon_model" ShadowMap="d_shadow_raid_mini_dungeon_model" pos="-340.6796 -637.6720 559.1815" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_shadow_raid_mini_dungeon_ground1.xac" Model="d_shadow_raid_mini_dungeon_ground1" ShadowMap="d_shadow_raid_mini_dungeon_ground1" pos="-168.0804 -9.0815 174.3040" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_shadow_raid_mini_dungeon_ground2.xac" Model="d_shadow_raid_mini_dungeon_ground2" ShadowMap="d_shadow_raid_mini_dungeon_ground2" pos="-190.8780 58.0605 198.2037" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

@@ -102,6 +102,7 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption, predictSkillPoint)
         local skillAttribute = TryGetProp(obj,"Attribute","None")
         local skillAffectedByAttackSpeedRate = TryGetProp(obj,"AffectedByAttackSpeedRate","None")
         local skillEnableCompanion = TryGetProp(obj,"EnableCompanion","None")
+        local skillHitType = TryGetProp(obj, "HitType", "None")
         
         if skillValueType == "Attack" then
             if skillClassType == "Melee" then
@@ -158,6 +159,16 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption, predictSkillPoint)
         elseif skillEnableCompanion == "YES" then
             addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG20').."{nl}"
         end
+        
+        if skillHitType == "Pad" then
+            if skillClassType == "Magic" then
+                addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG21').."{nl}"
+            else
+                addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG22').."{nl}"
+            end
+        elseif skillHitType == "Installation" then
+            addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG23').."{nl}"
+        end        
         
         if addCaption ~= "" then
             addCaption = "{#DD5500}{ol}"..addCaption.."{/}{/}"
@@ -1034,4 +1045,43 @@ function UPDATE_MON_SIMPLE_TOOLTIP(frame, monName)
     t_desc:SetTextByKey("value", monCls.Desc);
 
     frame:Resize(frame:GetWidth(), t_desc:GetY() + t_desc:GetHeight() + 10);
+end
+
+function UPDATE_RESTRICT_INFO_TOOLTIP(frame, mapKeyword)
+    local titleBox = GET_CHILD_RECURSIVELY(frame, "titleBox");
+    local INNER_Y = frame:GetUserConfig("INNER_Y");
+    local ypos = titleBox:GetHeight();
+
+    local restrictList, cnt = GetClassList("SkillRestrict");
+    for i = 0, cnt - 1 do
+        local skillRestrict = GetClassByIndexFromList(restrictList, i);
+        local keyword = TryGetProp(skillRestrict, "Keyword");
+        
+        if string.find(keyword, mapKeyword) ~= nil then
+            ypos = MAKE_RESTRICT_INFO(frame, skillRestrict, ypos + INNER_Y);
+        end
+    end
+
+    frame:Resize(frame:GetWidth(), ypos + INNER_Y);
+end
+
+function MAKE_RESTRICT_INFO(frame, skillRestrict, ypos)
+    local className = TryGetProp(skillRestrict, "ClassName");
+    local skill = GetClass("Skill", TryGetProp(skillRestrict, "ClassName"));
+    local imgName = TryGetProp(skill, "Icon");
+    local ICON_SIZE = frame:GetUserConfig("ICON_SIZE");
+    local img = string.format("{img %s %d %d}", "icon_"..imgName, ICON_SIZE, ICON_SIZE);
+    local name = TryGetProp(skill, "Name");
+    local caption = TryGetProp(skillRestrict, "Desc");
+
+    local INNER_X = frame:GetUserConfig("INNER_X");
+    local ctrlSet = frame:CreateOrGetControlSet("skill_restrict_info_list", "SKILL_RESTRICT_INFO_" .. className, INNER_X, ypos);
+    local text = GET_CHILD_RECURSIVELY(ctrlSet, "skill_info");
+    text:SetTextByKey("img", img);
+    text:SetTextByKey("name", name);
+    text:SetTextByKey("caption", caption);
+
+    ctrlSet:Resize(ctrlSet:GetWidth(), text:GetHeight());
+
+    return ypos + ctrlSet:GetHeight();
 end

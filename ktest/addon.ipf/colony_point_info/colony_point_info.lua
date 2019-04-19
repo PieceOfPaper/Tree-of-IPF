@@ -126,7 +126,9 @@ function ON_UPDATE_COLONY_POINT(frame, msg, argStr, argNum)
             local worldID = session.party.GetMyWorldIDStr();
             local emblemPic = GET_CHILD(rankingBox, 'emblemPic');
             local emblemImgName = guild.GetEmblemImageName(guildID,worldID);
-            emblemPic:SetImage("")
+            emblemPic:SetImage("");
+            emblemPic:SetFileName("");
+
             if emblemImgName ~= 'None' then
                 emblemPic:SetFileName(emblemImgName);
             else
@@ -171,7 +173,9 @@ function COLONY_POINT_INFO_UPDATE_EMBLEM(frame, msg, argStr, argNum)
         local worldID = session.party.GetMyWorldIDStr();
         local emblemImgName = guild.GetEmblemImageName(argStr,worldID);
         emblemCtrl:SetImage("");
-        if emblemImgName ~= 'None' then   
+        emblemCtrl:SetFileName("");
+
+        if emblemImgName ~= 'None' then           
             emblemCtrl:SetFileName(emblemImgName);
         else
             GetGuildEmblemImage("COLONY_POINT_INFO_UPDATE_EMBLEM_GET_IMAGE", argStr)

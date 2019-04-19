@@ -8,6 +8,68 @@ function SQIORE_SLOT_POP(parent, ctrl)
 	SQUTE_UI_RESET(frame);
 end
 
+local function _GET_SOCKET_ADD_VALUE(item, invItem, i)    
+	
+    if invItem:IsAvailableSocket(i) == false then
+        return;
+	end
+	
+	local gem = invItem:GetEquipGemID(i);
+    if gem == 0 then
+        return;
+    end
+    
+	local gemExp = invItem:GetEquipGemExp(i);
+	local roastingLv = invItem:GetEquipGemRoastingLv(i);
+    local props = {};
+    local gemclass = GetClassByType("Item", gem);
+    local lv = GET_ITEM_LEVEL_EXP(gemclass, gemExp);
+    local prop = geItemTable.GetProp(gem);
+    local socketProp = prop:GetSocketPropertyByLevel(lv);
+    local type = item.ClassID;
+    local benefitCnt = socketProp:GetPropCountByType(type);
+    for i = 0 , benefitCnt - 1 do
+        local benefitProp = socketProp:GetPropAddByType(type, i);
+        props[#props + 1] = {benefitProp:GetPropName(), benefitProp.value}
+    end
+    
+    local penaltyCnt = socketProp:GetPropPenaltyCountByType(type);
+    local penaltyLv = lv - roastingLv;
+    if 0 > penaltyLv then
+        penaltyLv = 0;
+    end
+    local socketPenaltyProp = prop:GetSocketPropertyByLevel(penaltyLv);
+    for i = 0 , penaltyCnt - 1 do
+        local penaltyProp = socketPenaltyProp:GetPropPenaltyAddByType(type, i);
+        local value = penaltyProp.value
+        penaltyProp:GetPropName()
+        props[#props + 1] = {penaltyProp:GetPropName(), penaltyProp.value}
+    end
+    return props;
+end
+
+local function _GET_ITEM_SOCKET_ADD_VALUE(targetPropName, item)
+	local invItem, where = GET_INV_ITEM_BY_ITEM_OBJ(item);
+
+    local value = 0;
+    local sockets = {};
+    if item.MaxSocket > 100 then item.MaxSocket = 0 end
+    for i=0, item.MaxSocket - 1 do
+        sockets[#sockets + 1] = _GET_SOCKET_ADD_VALUE(item, invItem, i);
+    end
+
+    for i = 1, #sockets do
+        local props = sockets[i];
+        for j = 1, #props do
+            local prop = props[j]
+            if prop[1] == targetPropName then                
+                value = value + prop[2];
+            end
+        end
+    end
+    return value;
+end
+
 function SQIORE_SLOT_DROP(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	local liftIcon = ui.GetLiftIcon();
@@ -93,8 +155,9 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 		    if basicTooltipProp == "ATK" then -- 최대, 최소 공격력
 			    maxtext:SetTextByKey("txt", obj.MAXATK .." > ".. nextObj.MAXATK);
 			    mintext:SetTextByKey("txt", obj.MINATK .." > ".. nextObj.MINATK);
-		    elseif basicTooltipProp == "MATK" then -- 마법공격력
-			    mintext:SetTextByKey("txt", obj.MATK .." > ".. nextObj.MATK);
+			elseif basicTooltipProp == "MATK" then -- 마법공격력
+				local socketaddvalue =  _GET_ITEM_SOCKET_ADD_VALUE(basicTooltipProp, obj)
+			    mintext:SetTextByKey("txt", obj.MATK - socketaddvalue .." > ".. nextObj.MATK + socketaddvalue);
 			    maxtext:SetTextByKey("txt", "");
                 propertyCtrl:Resize(propertyCtrl:GetWidth(), mintext:GetHeight());
 		    end

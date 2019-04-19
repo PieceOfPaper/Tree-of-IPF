@@ -123,7 +123,6 @@ function TPSHOP_REDRAW_ALIGN_LIST()
 end
 
 function TPSHOP_REDRAW_TPITEMLIST()
-	
 	local frame = ui.GetFrame("tpitem");
 	local category = frame:GetUserValue("LAST_OPEN_CATEGORY");
 	local subcategory = frame:GetUserValue("LAST_OPEN_SUB_CATEGORY");	
@@ -155,10 +154,14 @@ function TPSHOP_REDRAW_TPITEMLIST()
 
 	tpitemtree:CloseNodeAll();
 	frame:SetUserValue("LAST_OPEN_SUB_CATEGORY", "None");	
-	frame:SetUserValue("SHOWITEM_OPTION", typeIndex);	
+	frame:SetUserValue("SHOWITEM_OPTION", typeIndex);
 	
-	TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, 1, 0, nil, typeIndex);
-	
+	-- LAST_OPEN_CATEGORY이 Total, 즉 전체 탭이었을 경우 따로 처리해줌
+	if category == "Total" then
+		TPITEM_DRAW_ITEM_TOTAL(frame);
+	else
+		TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, 1, 0, nil, typeIndex);
+	end
 end
 
 function TPSHOP_GET_INDEX_BY_TAB_NAME(name)
@@ -695,24 +698,48 @@ function MAKE_CATEGORY_TREE()
 	end
 
 	local firstTreeItem = nil;
-    local itemOnSale= {};
+	local itemOnSale= {};
+
 	for i = 0, cnt - 1 do
 		local obj = GetClassByIndexFromList(clsList, i);
 
 		if obj.Category == 'TP_Premium_Sale' then
-            itemOnSale[#itemOnSale + 1] = obj;
-	    else
-            
+			itemOnSale[#itemOnSale + 1] = obj;
+		end
+	end
+	
+	-- 할인 탭 존재 여부를 체크하여 전체 탭 생성
+	local htreeitem = nil;
+	if #itemOnSale ~= 0 then
+		categoryCset = tpitemtree:CreateControlSet("tpshop_tree", "TPSHOP_CT_TP_Total", ui.LEFT, 0, 0, 0, 0, 0);
+		local part = GET_CHILD(categoryCset, "part");
+		part:SetTextByKey("value", ScpArgMsg("TP_Total"));
+		local foldimg = GET_CHILD(categoryCset,"foldimg");
+		foldimg:SetImage("tp_shop_all");
+		foldimg:ShowWindow(1);
+
+		htreeitem = tpitemtree:Add(categoryCset, "Total");
+	end
+
+	for i = 0, cnt - 1 do
+		local obj = GetClassByIndexFromList(clsList, i);
+
+		if obj.Category ~= 'TP_Premium_Sale' then
             firstTreeItem = CREATE_TPITEM_TREE(obj, tpitemtree, i, firstTreeItem);
         end
 	end
-    --할인카테고리 추가
+
+    --할인카테고리 추가, 추후 카테고리가 추가될 시 이 아래에 해당 아이템이 카테고리에 속하는지 확인해 주는 코드 작성이 필요함
     for i = 1, #itemOnSale do
         firstTreeItem = CREATE_TPITEM_TREE(itemOnSale[i], tpitemtree, i, firstTreeItem);
-    end
+	end
+
 	tpitemtree:Select(firstTreeItem);
 	local tnode = tpitemtree:GetLastSelectedNode();
-	TPITEM_SELECT_TREENODE(tnode);	
+	if htreeitem ~= nil then
+		tnode = tpitemtree:GetNodeByTreeItem(htreeitem);
+	end
+	TPITEM_SELECT_TREENODE(tnode);
 end
 
 function CREATE_TPITEM_TREE(obj, tpitemtree, i, firstTreeItem)
@@ -819,15 +846,30 @@ function TPITEM_SELECT_TREENODE(tnode)
 	local categorySubGbox = GET_CHILD_RECURSIVELY(frame, "categorySubGbox");
 	local tree = GET_CHILD_RECURSIVELY(frame, "tpitemtree");
 	local obj = tnode:GetObject();
-	
-	if obj ~= nil then
+
+	if tnode:GetValue() == "Total" then
+		-- 상위 항목 중 전체 탭을 클릭했을 시 예외적으로 처리함
+		TPITEM_DRAW_ITEM_TOTAL(frame);
+		tree:Select(tree:FindByValue("Total"));
+
+		-- 상위 항목의 버튼 색 변경
+		local gBox = obj:GetChild("group");
+		gBox:SetSkinName("baseyellow_btn");
+		tree:OpenNode(tnode, true, true);
+
+	elseif obj ~= nil then
 		-- 상위항목 클릭시에 대한 그의 하위항목들의 모든 아이템들을 그리기
-		local cnt = tnode:GetChildNodeCount();		
+		local cnt = tnode:GetChildNodeCount();
+		
 		for i = 0, cnt - 1 do
 			local tnodeChild = tnode:GetChildNodeByIndex(i);	
 			if tnodeChild ~= nil then 	
-				if i == 0 then			
-					CHECK_SUBCATEGORY_N_DRAW_ITEMS(frame, tnodeChild:GetValue(), 1, 0);		
+				if i == 0 then
+					if tnodeChild:GetValue() == "None" then
+						CHECK_SUBCATEGORY_N_DRAW_ITEMS(frame, tnodeChild:GetValue(), 1, 0);
+					else
+						CHECK_SUBCATEGORY_N_DRAW_ITEMS(frame, tnodeChild:GetValue(), 1, 1);	
+					end	
 					tree:Select(tree:FindByValue(tnodeChild:GetValue()));
 				end
 			end;
@@ -837,6 +879,7 @@ function TPITEM_SELECT_TREENODE(tnode)
 		local gBox = obj:GetChild("group");
 		gBox:SetSkinName("baseyellow_btn");
 		tree:OpenNode(tnode, true, true);
+
 	else	
 		--검색결과 적용
 		local input = GET_CHILD_RECURSIVELY(frame, "input");
@@ -937,13 +980,62 @@ function IS_ITEM_WILL_CHANGE_APC(type)
 		return 0
 	end
 	
-
+ 
 	if defaultEqpSlot == "RH" or defaultEqpSlot == "LH" or defaultEqpSlot == "HAT_L" or defaultEqpSlot == "HAT_T" or defaultEqpSlot == "HAIR" or defaultEqpSlot == "HAT" or defaultEqpSlot ==  "OUTER" or defaultEqpSlot ==  "ARMBAND" then
 		return 1
 	end
 
 	return 0
 
+end
+
+--전체 탭을 클릭했을 시 tp상점의 아이템들을 그리는 함수
+function TPITEM_DRAW_ITEM_TOTAL(frame)
+	local mainText = GET_CHILD_RECURSIVELY(frame,"mainText");
+	local mainSubGbox = GET_CHILD_RECURSIVELY(frame,"mainSubGbox");
+	local leftgFrame = frame:GetChild("leftgFrame");	
+	local leftgbox = leftgFrame:GetChild("leftgbox");
+
+	mainText:SetText(ScpArgMsg("TP_Total"));
+	frame:SetUserValue("LAST_OPEN_CATEGORY", "Total");
+	frame:SetUserValue("LAST_OPEN_SUB_CATEGORY", "None");	
+
+	local index = 0;
+	DESTROY_CHILD_BYNAME(mainSubGbox, "eachitem_");
+	frame:SetUserValue("CHILD_ITEM_INDEX", index);
+
+	local clsList, cnt = GetClassList('TPitem');
+	if cnt == 0 or clsList == nil then
+		return;
+	end
+
+	local x, y;
+	local alignmentgbox = GET_CHILD(leftgbox,"alignmentgbox");
+	for i = 0, cnt - 1 do
+		local obj = GetClassByIndexFromList(clsList, i);
+		local itemobj = GetClass("Item", obj.ItemClassName);
+		local isFounded = false;
+
+		if itemobj == nil then
+			IMC_NORMAL_INFO("ItemClassName not found in item.xml:TPITEM_DRAW_ITEM_TOTAL. obj.ItemClassName:" ..obj.ItemClassName);
+		else
+			local itemcset = nil;
+			if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
+				if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
+					index = index + 1;
+					x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width');
+					y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1);
+					itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
+					TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+				end
+			end
+        end
+	end
+
+	frame:SetUserValue("CHILD_ITEM_INDEX", index);
+	TPSHOP_TPITEM_ALIGN_LIST(index);
+	mainSubGbox:Invalidate();
+	frame:Invalidate();
 end
 
 --tp상점의 아이템들을 그리는 함수  
@@ -2430,7 +2522,7 @@ function CHECK_LIMIT_PAYMENT_STATE_C()
 	return false;
 end
 
-function POPUP_LIMIT_PAYMENT(clientMsg, parentName, allPrice)
+function POPUP_LIMIT_PAYMENT(clientMsg, parentName, allPrice, ClickFuncName, CancelFuncName)
 	local frame = ui.GetFrame("tpitem");
 	frame:SetUserValue("LIMIT_PAYMENT_MSG", clientMsg);
 	frame:SetUserValue("PARENT_NAME", parentName);
@@ -2444,9 +2536,15 @@ function POPUP_LIMIT_PAYMENT(clientMsg, parentName, allPrice)
 		local nowUsePaymentValue = tonumber(VALVE_PURCHASESTATUS_ACTIVE_MONTHLY_PREMIUM_TP_SPENDLIMIT) - spentPaymentValue;
 		local paymentValue = tonumber(VALVE_PURCHASESTATUS_ACTIVE_MONTHLY_PREMIUM_TP_SPENDLIMIT) - (spentPaymentValue + allPrice);
 		if paymentValue >= 0 then
-			ui.MsgBox_OneBtnScp(ScpArgMsg("LimitPaymentGuidMsg","Value", nowUsePaymentValue), "POPUP_POPUP_LIMIT_PAYMENT_CLICK")
+			if ClickFuncName == nil then
+				ClickFuncName = "POPUP_POPUP_LIMIT_PAYMENT_CLICK"
+			end
+			ui.MsgBox_OneBtnScp(ScpArgMsg("LimitPaymentGuidMsg","Value", nowUsePaymentValue), ClickFuncName)
 		else
-			ui.MsgBox_OneBtnScp(ScpArgMsg("LimitPaymentExcessMsg","Value", paymentValue), "POPUP_POPUP_LIMIT_PAYMENT_CANCEL")
+			if CancelFuncName == nil then
+				CancelFuncName ="POPUP_POPUP_LIMIT_PAYMENT_CANCEL"
+			end
+			ui.MsgBox_OneBtnScp(ScpArgMsg("LimitPaymentExcessMsg","Value", paymentValue), CancelFuncName)
 		end
 	end
 end

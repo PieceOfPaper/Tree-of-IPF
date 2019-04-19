@@ -154,23 +154,46 @@ end
 function UPDATE_EVENTBANNER_RANKING(ctrlset, name, set_func)
 	local title_text = GET_CHILD_RECURSIVELY(ctrlset, "title_text");
 	title_text:SetTextByKey("value", name);
-	
-	local x = tonumber(ctrlset:GetUserConfig("OffsetX"));
-	local y = tonumber(ctrlset:GetUserConfig("OffsetY"));
-	local eachHeight = ui.GetControlSetAttribute("news_ranking_each_rank", "height");
-	local list_bg = GET_CHILD_RECURSIVELY(ctrlset, "list_bg");
-	for i = 1, 3 do 
-		local eachctrl = list_bg:CreateOrGetControlSet("news_ranking_each_rank", "news_ranking_each_rank_"..i, x, y+(i-1)*eachHeight);
-		AUTO_CAST(eachctrl);
-		local picName = eachctrl:GetUserConfig("RankingPic_"..i);
-		local skinName = eachctrl:GetUserConfig("RankingSkin_"..i);
-		local bg = GET_CHILD_RECURSIVELY(eachctrl, "bg");
-		bg:SetSkinName(skinName);
-		local ranking_pic = GET_CHILD_RECURSIVELY(eachctrl, "ranking_pic");
-		ranking_pic:SetImage(picName);
+
+	local detail_btn = GET_CHILD(ctrlset, "detail_btn");
+
+	local sysTime = geTime.GetServerSystemTime();
+	if sysTime.wDayOfWeek == 1 then
+		-- 월요일일 경우 랭킹 정보 표시 안함
+		detail_btn:ShowWindow(0);
+
+		local listbg = GET_CHILD(ctrlset, "list_bg");
+		listbg:RemoveAllChild();
+
+		local topFrame = ctrlset:GetTopParentFrame();
+		local RANK_GUID_FONT_NAME = topFrame:GetUserConfig('RANK_GUID_FONT_NAME');		
 		
-		local func = _G[set_func];
-		func(eachctrl, name, i);
+		local text = listbg:CreateControl('richtext', 'text', 0, 0, 0, 0);	
+		text:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+		text:SetFontName(RANK_GUID_FONT_NAME);
+		text:SetText(ClMsg("news_ranking_guide_msg"));
+
+	else
+		detail_btn:ShowWindow(1);
+
+		local x = tonumber(ctrlset:GetUserConfig("OffsetX"));
+		local y = tonumber(ctrlset:GetUserConfig("OffsetY"));
+		local eachHeight = ui.GetControlSetAttribute("news_ranking_each_rank", "height");
+		local list_bg = GET_CHILD_RECURSIVELY(ctrlset, "list_bg");
+		for i = 1, 3 do 
+			local eachctrl = list_bg:CreateOrGetControlSet("news_ranking_each_rank", "news_ranking_each_rank_"..i, x, y+(i-1)*eachHeight);
+			AUTO_CAST(eachctrl);
+			local picName = eachctrl:GetUserConfig("RankingPic_"..i);
+			local skinName = eachctrl:GetUserConfig("RankingSkin_"..i);
+			local bg = GET_CHILD_RECURSIVELY(eachctrl, "bg");
+			bg:SetSkinName(skinName);
+			local ranking_pic = GET_CHILD_RECURSIVELY(eachctrl, "ranking_pic");
+			ranking_pic:SetImage(picName);
+		
+			local func = _G[set_func];
+			func(eachctrl, name, i);
+		end
+
 	end
 	
 end

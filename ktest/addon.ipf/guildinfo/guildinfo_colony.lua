@@ -38,10 +38,32 @@ function GUILDINFO_COLONY_ENTER_CONFIG(parent, ctrl)
     end
 
     local changeValue = GET_RADIOBTN_NUMBER(ctrl);
-    if changeValue == 0 and session.colonywar.GetOccupationInfoByGuildID(guild.info:GetPartyID()) ~= nil then
-        ui.SysMsg(ClMsg('CannotChangeConfigBecauseOccupation'));
-        GUILDINFO_COLONY_INIT_RADIO(parent);
-        return;
+
+    if session.colonywar.GetProgressState() == false then
+        local isCityLordGuildID = 0
+        local class_cnt = GetClassCount("guild_colony")
+        for i = 0, class_cnt - 1 do
+            local index = GetClassByIndex("guild_colony", i)
+            if TryGetProp(index, "ID") ~= 0 then
+                local cityMapName = TryGetProp(index, "TaxApplyCity")
+                if cityMapName ~= nil or cityMapName ~= "None" then
+                    local cityMapCls = GetClass("Map", cityMapName);
+                    local taxRateInfo = session.colonytax.GetColonyTaxRate(cityMapCls.ClassID)
+                    if taxRateInfo ~= nil then
+                		if taxRateInfo:GetGuildID() == guild.info:GetPartyID() then
+                            isCityLordGuildID = 1
+                            break
+                        end
+                    end
+                end
+            end
+        end
+        if (changeValue == 0 and session.colonywar.GetOccupationInfoByGuildID(guild.info:GetPartyID()) ~= nil) or
+            (changeValue == 0 and isCityLordGuildID ~= 0) then
+            ui.SysMsg(ClMsg('CannotChangeConfigBecauseOccupation'));
+            GUILDINFO_COLONY_INIT_RADIO(parent);
+            return;
+        end
     end
 
     local yesscp = string.format('control.CustomCommand("CHANGE_COLONY_CONFIG", %d)', changeValue);

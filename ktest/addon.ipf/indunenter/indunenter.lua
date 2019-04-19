@@ -158,6 +158,7 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, en
     -- make controls
     INDUNENTER_MAKE_HEADER(frame);
     INDUNENTER_MAKE_PICTURE(frame, indunCls);
+    INDUNENTER_MAKE_ALERT(frame, indunCls);
     INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls);
     INDUNENTER_MAKE_LEVEL_BOX(frame, noPicBox, indunCls);
     INDUNENTER_MAKE_MULTI_BOX(frame, indunCls);
@@ -241,6 +242,27 @@ function INDUNENTER_MAKE_PICTURE(frame, indunCls)
     local indunPic = GET_CHILD_RECURSIVELY(frame, 'indunPic');
     if mapImage ~= 'None' then
         indunPic:SetImage(mapImage);
+    end
+end
+
+-- 스킬 제한 경고문
+function INDUNENTER_MAKE_ALERT(frame, indunCls)
+    local restrictBox = GET_CHILD_RECURSIVELY(frame, 'restrictBox');
+    restrictBox:ShowWindow(0);
+
+    local mapName = TryGetProp(indunCls, "MapName");
+    if mapName ~= nil and mapName ~= "None" then
+        local indunMap = GetClass("Map", mapName);
+        local mapKeyword = TryGetProp(indunMap, "Keyword");
+        if string.find(mapKeyword, "IsRaidField") ~= nil then
+            restrictBox:ShowWindow(1);
+            restrictBox:SetTooltipOverlap(1);
+            local TOOLTIP_POSX = frame:GetUserConfig("TOOLTIP_POSX");
+            local TOOLTIP_POSY = frame:GetUserConfig("TOOLTIP_POSY");
+            restrictBox:SetPosTooltip(TOOLTIP_POSX, TOOLTIP_POSY);
+            restrictBox:SetTooltipType("skillRestrictList");
+            restrictBox:SetTooltipArg("IsRaidField");
+        end
     end
 end
 

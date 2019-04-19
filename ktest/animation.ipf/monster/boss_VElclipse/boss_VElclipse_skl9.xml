@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="34" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="58" type="2" intensity="8" frequency="60" duration="2" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="34" R="150" G="110" B="120" A="100"/>
+	<BlendOn frame="35" R="120" G="100" B="105" A="100"/>
+	<BlendOn frame="36" R="80" G="70" B="75" A="100"/>
+	<BlendOn frame="37" R="60" G="50" B="55" A="100"/>
+	<BlendOn frame="38" R="30" G="20" B="25" A="100"/>
+	<BlendOn frame="39" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="58" R="150" G="150" B="150" A="100"/>
+	<BlendOn frame="59" R="200" G="200" B="200" A="100"/>
+	<BlendOn frame="60" R="100" G="100" B="100" A="100"/>
+	<BlendOff frame="61" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="None" particleName="F_buff_skiaclipse_black" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="None" particleName="F_smoke169_shockwave_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="58" attachNode="Dummy_ROOT" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="58" attachNode="Dummy_ROOT" particleName="F_ground071_smoke3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="59" attachNode="Bip001 R Finger21" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="59" attachNode="Bip001 L Finger21" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Bip001 R Finger21" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Bip001 L Finger21" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="28" attachNode="Bip001 R Finger21" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="17" attachNode="Bip001 L Finger21" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="None" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Bone_BWR_06" particleName="F_spread_out031_fether_white1" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Bone_BWL_06" particleName="F_spread_out031_fether_white1" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="None" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="91" attachNode="Dummy_effect_SB_emitter01" particleName="F_smoke062_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_effect_SB_emitter01" particleName="F_smoke062_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Dummy_bird_Body" particleName="F_spread_out031_fether_white1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="20" attachNode="Dummy_bird_Body" particleName="F_spread_out031_fether_white1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="30" attachNode="Dummy_bird_Body" particleName="F_spread_out031_fether_white1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="40" attachNode="Dummy_bird_Body" particleName="F_spread_out031_fether_white1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="50" attachNode="Dummy_bird_Body" particleName="F_spread_out031_fether_white1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Dummy_bird_Body" particleName="F_spread_out031_fether_white1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="70" attachNode="Dummy_bird_Body" particleName="F_spread_out031_fether_white1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="80" attachNode="Dummy_bird_Body" particleName="F_spread_out031_fether_white1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="None" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+</ActionDesc>

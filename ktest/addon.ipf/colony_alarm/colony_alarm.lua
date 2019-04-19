@@ -19,15 +19,19 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
                 if config.GetServiceNation() == 'KOR' then
                     imcSound.PlaySoundEvent('battle_start_before');
                 else
+                if config.GetServiceNation() ~= 'JP' then
                     imcSound.PlaySoundEvent('S1_battle_start_before_1');
                 end
+            end
         elseif diffSec == 0 then
             clmsg = ClMsg('Guild_Colony_Start_Msg');
                 if config.GetServiceNation() == 'KOR' then
                     imcSound.PlaySoundEvent('battle_start');
                 else
+                if config.GetServiceNation() ~= 'JP' then
                     imcSound.PlaySoundEvent('S1_battle_start');
                 end
+        end
         end
     elseif argStr == 'END' then
         if diffSec == -1800 then
@@ -35,28 +39,36 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
             if config.GetServiceNation() == 'KOR' then
                 imcSound.PlaySoundEvent('battle_end_before_30min');
             else
+                if config.GetServiceNation() ~= 'JP' then
                 imcSound.PlaySoundEvent('S1_battle_end_before_30min');
+            end
             end
         elseif diffSec == -600 then
             clmsg = ClMsg('Guild_Colony_End_Msg_Before_10min');
             if config.GetServiceNation() == 'KOR' then
                 imcSound.PlaySoundEvent('battle_end_before_10min');
             else
+                if config.GetServiceNation() ~= 'JP' then
                 imcSound.PlaySoundEvent('S1_battle_end_before_10min');
+            end
             end
         elseif diffSec == -300 then
             clmsg = ClMsg('Guild_Colony_End_Msg_Before_5min');
             if config.GetServiceNation() == 'KOR' then
                 imcSound.PlaySoundEvent('battle_end_before_5min');
             else
+                if config.GetServiceNation() ~= 'JP' then
                 imcSound.PlaySoundEvent('S1_battle_end_before_5min');
+            end
             end
         elseif diffSec == -60 then
             clmsg = ClMsg('Guild_Colony_End_Msg_Before_1min');
             if config.GetServiceNation() == 'KOR' then
                 imcSound.PlaySoundEvent('battle_end_before_1min');
             else
+                if config.GetServiceNation() ~= 'JP' then
                 imcSound.PlaySoundEvent('S1_battle_end_before_1min');
+            end
             end
         elseif diffSec >= -10 and diffSec < 0 then
             local countdownSec = -diffSec;
@@ -64,16 +76,20 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
             if config.GetServiceNation() == 'KOR' then
                 imcSound.PlaySoundEvent('countdown_'..countdownSec);
             else
+                if config.GetServiceNation() ~= 'JP' then
                 imcSound.PlaySoundEvent('S1_countdown_'..countdownSec);
+            end
             end
         elseif diffSec == 0 then
             clmsg = ClMsg('Guild_Colony_End_Msg');
                 if config.GetServiceNation() == 'KOR' then
                     imcSound.PlaySoundEvent('battle_end');
                 else
+                if config.GetServiceNation() ~= 'JP' then
                     imcSound.PlaySoundEvent('S1_battle_end');
                 end
         end
+    end
     end
 
     text:SetText(clmsg);

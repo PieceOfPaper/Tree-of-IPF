@@ -1,586 +1,580 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-	<Game Name="F_CO_OP_REMAINS_40" minLv="0" maxLv="0" playerCountCheckDestroy="0" AllowDummyPC="YES" startWaitSec="-1539054011">
-		<StageList>
-			<Stage Name="FIELD_CO-OP">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-						<Str Str="떨어뜨린 교역품을 모두 되찾아라!"/>
-					</ToolScp>
-				</StartScpList>
-				<CompleteScpList>
-					<ToolScp Scp="MGAME_DISABLE" Client="NO" UseSleep="NO">
-						<Str Str="FIELD_CO-OP"/>
-					</ToolScp>
-					<ToolScp Scp="MGAME_DISABLE" Client="NO" UseSleep="NO">
-						<Str Str="PLUS_REGEN"/>
-					</ToolScp>
-					<ToolScp Scp="MGAME_CLEAR_STAGE" Client="NO" UseSleep="NO">
-						<Str Str="FIELD_CO-OP"/>
-					</ToolScp>
-					<ToolScp Scp="MGAME_CLEAR_STAGE" Client="NO" UseSleep="NO">
-						<Str Str="PLUS_REGEN"/>
-					</ToolScp>
-				</CompleteScpList>
-				<ObjList>
-					<Obj Type="Monster" MonType="151067" Pos="-1470.00#340.00#-575.00" range="300" maxStackCount="30" genTime="1000" objectKey="0" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; &apos;MinimapIcon&apos; &apos;1&apos; "/>
-					<Obj Type="Monster" MonType="151067" Pos="-1020.00#304.00#-1108.00" range="300" maxStackCount="30" genTime="1000" objectKey="1" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
-					<Obj Type="Monster" MonType="151067" Pos="-395.00#642.00#-226.00" range="300" maxStackCount="30" genTime="1000" objectKey="2" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
-					<Obj Type="Monster" MonType="151067" Pos="16.00#442.00#-1072.00" range="300" maxStackCount="30" genTime="1000" objectKey="3" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
-					<Obj Type="Monster" MonType="151067" Pos="-1493.00#315.00#-1733.00" range="300" maxStackCount="30" genTime="1000" objectKey="4" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
-					<Obj Type="Monster" MonType="155008" Pos="-1470.00#340.00#-575.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 큰 교역품&apos; ">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-									<Num Num="0"/>
-									<Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="3"/>
-									<Str Str="BOT"/>
-								</ToolScp>
-							</List>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="155008" Pos="-1020.00#304.00#-1108.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="6" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 큰 교역품&apos; ">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-									<Num Num="0"/>
-									<Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="3"/>
-									<Str Str="BOT"/>
-								</ToolScp>
-							</List>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="155008" Pos="-395.00#642.00#-226.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="7" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 큰 교역품&apos; ">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-									<Num Num="0"/>
-									<Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="3"/>
-									<Str Str="BOT"/>
-								</ToolScp>
-							</List>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="155008" Pos="16.00#442.00#-1072.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="8" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 큰 교역품&apos; ">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-									<Num Num="0"/>
-									<Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="3"/>
-									<Str Str="BOT"/>
-								</ToolScp>
-							</List>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="155008" Pos="-1493.00#315.00#-1733.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="9" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 큰 교역품&apos; ">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-									<Num Num="0"/>
-									<Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="3"/>
-									<Str Str="BOT"/>
-								</ToolScp>
-							</List>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="147466" Pos="-1470.00#340.00#-575.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="10" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;빼곡하게 적힌 책&apos; ">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-									<Num Num="0"/>
-									<Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="2"/>
-									<Str Str="BOT"/>
-								</ToolScp>
-							</List>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="147466" Pos="-1020.00#304.00#-1108.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="11" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;빼곡하게 적힌 책&apos; ">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-									<Num Num="0"/>
-									<Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="2"/>
-									<Str Str="BOT"/>
-								</ToolScp>
-							</List>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="147466" Pos="-395.00#642.00#-226.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="12" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;빼곡하게 적힌 책&apos; ">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-									<Num Num="0"/>
-									<Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="2"/>
-									<Str Str="BOT"/>
-								</ToolScp>
-							</List>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="147466" Pos="16.00#442.00#-1072.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="13" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;빼곡하게 적힌 책&apos; ">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-									<Num Num="0"/>
-									<Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="2"/>
-									<Str Str="BOT"/>
-								</ToolScp>
-							</List>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="147466" Pos="-1493.00#315.00#-1733.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="14" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;빼곡하게 적힌 책&apos; ">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-									<Num Num="0"/>
-									<Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="2"/>
-									<Str Str="BOT"/>
-								</ToolScp>
-							</List>
-						</SelfAI>
-					</Obj>
-				</ObjList>
-				<StageEvents>
-					<Event execCount="1" eventName="SUMMON1-1" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="OVER"/>
-								<Num Num="100"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="FIELD_CO-OP/5/FIELD_CO-OP/6/FIELD_CO-OP/7/FIELD_CO-OP/8/FIELD_CO-OP/9"/>
-								<Num Num="1"/>
-								<Num Num="1"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="SUMMON1-2" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="OVER"/>
-								<Num Num="200"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="FIELD_CO-OP/5/FIELD_CO-OP/6/FIELD_CO-OP/7/FIELD_CO-OP/8/FIELD_CO-OP/9"/>
-								<Num Num="1"/>
-								<Num Num="1"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="SUMMON2" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="OVER"/>
-								<Num Num="300"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="FIELD_CO-OP/10/FIELD_CO-OP/11/FIELD_CO-OP/12/FIELD_CO-OP/13/FIELD_CO-OP/14"/>
-								<Num Num="1"/>
-								<Num Num="1"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="EVENT1-1" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="OVER"/>
-								<Num Num="100"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="교역품이 조금씩 모이기 시작했습니다!{nl}분실된 교역품이 90초 동안 더 잘 보이게 됩니다!"/>
-								<Str Str="Clear"/>
-								<Num Num="8"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="PLUS_REGEN"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="EVENT1-2" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="OVER"/>
-								<Num Num="200"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="분실된 교역품의 절반을 되찾았습니다!{nl}분실된 교역품이 90초 동안 더 잘 보이게 됩니다!"/>
-								<Str Str="Clear"/>
-								<Num Num="8"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
-								<Str Str="PLUS_REGEN"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_FINAL_MSPD_BUFF"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="EVENT2" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="OVER"/>
-								<Num Num="300"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="교역품을 거의 다 되찾았습니다!{nl}90초 동안 교역품의 채집 속도와 이동 속도가 빨라지고 획득량이 상승합니다!"/>
-								<Str Str="Clear"/>
-								<Num Num="8"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="EVENT2"/>
-								<Num Num="1"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="EVENT2_END" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="EVENT2"/>
-								<Str Str="=="/>
-								<Num Num="1"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="90"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="시간이 지나 모든 효과가 원래대로 돌아갑니다."/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="EVENT2"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="CLEAR">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO" CondFunc="">
-								<Str Str="CLEAR1"/>
-								<Str Str="EQ"/>
-								<Num Num="1"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO" CondFunc="">
-								<Str Str="CLEAR2"/>
-								<Str Str="EQ"/>
-								<Num Num="1"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="행상인이 분실한 교역품들을 모두 회수했습니다!{nl}행상인에게 돌아가서 보상을 받으세요."/>
-								<Str Str="Clear"/>
-								<Num Num="8"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_CO-OP"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="PLUS_REGEN"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_CO-OP"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="PLUS_REGEN"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_CO-OP"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="PLUS_REGEN"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_REWARD"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="FAIL">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3600"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="UNDER"/>
-								<Num Num="399"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="시간 내에 교역품을 모두 회수하지 못했습니다.{nl}10분 후 행상인이 사라집니다."/>
-								<Str Str="!"/>
-								<Num Num="8"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_CO-OP"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="PLUS_REGEN"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_REWARD"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_CO-OP"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="PLUS_REGEN"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_REWARD"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="30MIN">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="1800"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="UNDER"/>
-								<Num Num="399"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="30분 남았습니다."/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="10MIN">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3000"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="UNDER"/>
-								<Num Num="399"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="10분 남았습니다."/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="5MIN">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3300"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="UNDER"/>
-								<Num Num="399"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="5분 남았습니다."/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="1MIN">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3540"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="UNDER"/>
-								<Num Num="399"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="1분 남았습니다."/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event eventName="ENTER">
-						<execList>
-							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
-								<Str Str="SCR_F_CO_OP_REMAINS_40_TEXT"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="CLEAR_CON1">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="900"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="CLEAR1"/>
-								<Num Num="1"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="CLEAR_CON2">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO" CondFunc="">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="OVER"/>
-								<Num Num="400"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="CLEAR2"/>
-								<Num Num="1"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="START">
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="페디미안으로 교역하러 온 행상인이 모든 교역품을 떨어뜨렸다고 합니다!{nl}페디미안 외곽 주변에 있는 교역품들을 모아 행상인에게 전해주세요!"/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="GOAL_IN">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO" CondFunc="">
-								<Str Str="CLEAR1"/>
-								<Str Str="DIF"/>
-								<Num Num="1"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO" CondFunc="">
-								<Str Str="CLEAR2"/>
-								<Str Str="EQ"/>
-								<Num Num="1"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="대다수의 교역품을 되찾았습니다.{nl}아직 놓친 교역품이 있을지도 모르니 조금만 더 찾아주세요!"/>
-								<Str Str="Clear"/>
-								<Num Num="5"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="5S">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3595"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="UNDER"/>
-								<Num Num="399"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="잠시 후 기믹이 종료됩니다."/>
-								<Str Str="scroll"/>
-								<Num Num="5"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="PLUS_REGEN" AutoStart="0">
-				<ObjList>
-					<Obj Type="Monster" MonType="151067" Pos="-1470.83#340.28#-575.50" range="300" maxStackCount="30" genTime="1000" objectKey="0" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
-					<Obj Type="Monster" MonType="151067" Pos="-1020.68#304.30#-1108.41" range="300" maxStackCount="30" genTime="1000" objectKey="1" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
-					<Obj Type="Monster" MonType="151067" Pos="-395.61#642.74#-226.55" range="300" maxStackCount="30" genTime="1000" objectKey="2" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
-					<Obj Type="Monster" MonType="151067" Pos="16.00#442.00#-1072.00" range="300" maxStackCount="30" genTime="1000" objectKey="3" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
-					<Obj Type="Monster" MonType="151067" Pos="-1493.45#315.34#-1733.21" range="300" maxStackCount="30" genTime="1000" objectKey="4" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
-				</ObjList>
-				<StageEvents>
-					<Event execCount="2" eventName="EVENT1_END" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="OVER"/>
-								<Num Num="100"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
-								<Num Num="90"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="시간이 지나 모든 효과가 원래대로 돌아갑니다."/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="PLUS_REGEN"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="PLUS_REGEN"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="FIELD_REWARD" AutoStart="0">
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="END">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="600"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_REWARD"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="PLUS_REGEN"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_CO-OP"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="DefGroup"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-		</StageList>
-	</Game>
+    <Game Name="F_CO_OP_REMAINS_40" minLv="0" maxLv="0" AllowDummyPC="YES" startWaitSec="-1539054011">
+        <StageList>
+            <Stage Name="FIELD_CO-OP">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="떨어뜨린 교역품을 모두 되찾아라!"/>
+                    </ToolScp>
+                </StartScpList>
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_DISABLE" Client="NO" UseSleep="NO">
+                        <Str Str="FIELD_CO-OP"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_DISABLE" Client="NO" UseSleep="NO">
+                        <Str Str="PLUS_REGEN"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_CLEAR_STAGE" Client="NO" UseSleep="NO">
+                        <Str Str="FIELD_CO-OP"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_CLEAR_STAGE" Client="NO" UseSleep="NO">
+                        <Str Str="PLUS_REGEN"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="151067" Pos="-1470.00#340.00#-575.00" range="300" maxStackCount="30" genTime="1000" objectKey="0" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; &apos;MinimapIcon&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="151067" Pos="-1020.00#304.00#-1108.00" range="300" maxStackCount="30" genTime="1000" objectKey="1" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
+                    <Obj Type="Monster" MonType="151067" Pos="-395.00#642.00#-226.00" range="300" maxStackCount="30" genTime="1000" objectKey="2" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
+                    <Obj Type="Monster" MonType="151067" Pos="16.00#442.00#-1072.00" range="300" maxStackCount="30" genTime="1000" objectKey="3" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
+                    <Obj Type="Monster" MonType="151067" Pos="-1493.00#315.00#-1733.00" range="300" maxStackCount="30" genTime="1000" objectKey="4" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
+                    <Obj Type="Monster" MonType="155008" Pos="-1470.00#340.00#-575.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 큰 교역품&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="3"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155008" Pos="-1020.00#304.00#-1108.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="6" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 큰 교역품&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="3"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155008" Pos="-395.00#642.00#-226.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="7" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 큰 교역품&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="3"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155008" Pos="16.00#442.00#-1072.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="8" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 큰 교역품&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="3"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="155008" Pos="-1493.00#315.00#-1733.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="9" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 큰 교역품&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="3"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="147466" Pos="-1470.00#340.00#-575.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="10" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;빼곡하게 적힌 책&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="147466" Pos="-1020.00#304.00#-1108.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="11" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;빼곡하게 적힌 책&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="147466" Pos="-395.00#642.00#-226.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="12" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;빼곡하게 적힌 책&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="147466" Pos="16.00#442.00#-1072.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="13" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;빼곡하게 적힌 책&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="147466" Pos="-1493.00#315.00#-1733.00" range="200" genCount="1" maxStackCount="1" genTime="20000" autoGen="0" objectKey="14" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;빼곡하게 적힌 책&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_buff_Cleric_HolyEnchant_Buff" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="SUMMON1-1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="OVER"/>
+                                <Num Num="100"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="FIELD_CO-OP/5/FIELD_CO-OP/6/FIELD_CO-OP/7/FIELD_CO-OP/8/FIELD_CO-OP/9"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="SUMMON1-2" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="OVER"/>
+                                <Num Num="200"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="FIELD_CO-OP/5/FIELD_CO-OP/6/FIELD_CO-OP/7/FIELD_CO-OP/8/FIELD_CO-OP/9"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="SUMMON2" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="OVER"/>
+                                <Num Num="300"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="FIELD_CO-OP/10/FIELD_CO-OP/11/FIELD_CO-OP/12/FIELD_CO-OP/13/FIELD_CO-OP/14"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="EVENT1-1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="OVER"/>
+                                <Num Num="100"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="교역품이 조금씩 모이기 시작했습니다!{nl}분실된 교역품이 90초 동안 더 잘 보이게 됩니다!"/>
+                                <Str Str="Clear"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="PLUS_REGEN"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="EVENT1-2" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="OVER"/>
+                                <Num Num="200"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="분실된 교역품의 절반을 되찾았습니다!{nl}분실된 교역품이 90초 동안 더 잘 보이게 됩니다!"/>
+                                <Str Str="Clear"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
+                                <Str Str="PLUS_REGEN"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_FINAL_MSPD_BUFF"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="EVENT2" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="OVER"/>
+                                <Num Num="300"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="교역품을 거의 다 되찾았습니다!{nl}90초 동안 교역품의 채집 속도와 이동 속도가 빨라지고 획득량이 상승합니다!"/>
+                                <Str Str="Clear"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT2"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="EVENT2_END" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT2"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="90"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="시간이 지나 모든 효과가 원래대로 돌아갑니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="CLEAR">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO" CondFunc="">
+                                <Str Str="CLEAR1"/>
+                                <Str Str="EQ"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO" CondFunc="">
+                                <Str Str="CLEAR2"/>
+                                <Str Str="EQ"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="행상인이 분실한 교역품들을 모두 회수했습니다!{nl}행상인에게 돌아가서 보상을 받으세요."/>
+                                <Str Str="Clear"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_CO-OP"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="PLUS_REGEN"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_CO-OP"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="PLUS_REGEN"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_REWARD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="FAIL">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="399"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="시간 내에 교역품을 모두 회수하지 못했습니다.{nl}10분 후 행상인이 사라집니다."/>
+                                <Str Str="!"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_CO-OP"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="PLUS_REGEN"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_REWARD"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_CO-OP"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="PLUS_REGEN"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_REWARD"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="30MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1800"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="399"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="30분 남았습니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="10MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3000"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="399"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10분 남았습니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="5MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3300"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="399"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="5분 남았습니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="1MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3540"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="399"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="1분 남았습니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="ENTER">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_F_CO_OP_REMAINS_40_TEXT"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="CLEAR_CON1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="900"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="CLEAR1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="CLEAR_CON2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO" CondFunc="">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="OVER"/>
+                                <Num Num="400"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="CLEAR2"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="START">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="페디미안으로 교역하러 온 행상인이 모든 교역품을 떨어뜨렸다고 합니다!{nl}페디미안 외곽 주변에 있는 교역품들을 모아 행상인에게 전해주세요!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="GOAL_IN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO" CondFunc="">
+                                <Str Str="CLEAR1"/>
+                                <Str Str="DIF"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO" CondFunc="">
+                                <Str Str="CLEAR2"/>
+                                <Str Str="EQ"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="대다수의 교역품을 되찾았습니다.{nl}아직 놓친 교역품이 있을지도 모르니 조금만 더 찾아주세요!"/>
+                                <Str Str="Clear"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="5S">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3595"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="399"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="잠시 후 기믹이 종료됩니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="PLUS_REGEN" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="151067" Pos="-1470.83#340.28#-575.50" range="300" maxStackCount="30" genTime="1000" objectKey="0" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
+                    <Obj Type="Monster" MonType="151067" Pos="-1020.68#304.30#-1108.41" range="300" maxStackCount="30" genTime="1000" objectKey="1" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
+                    <Obj Type="Monster" MonType="151067" Pos="-395.61#642.74#-226.55" range="300" maxStackCount="30" genTime="1000" objectKey="2" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
+                    <Obj Type="Monster" MonType="151067" Pos="16.00#442.00#-1072.00" range="300" maxStackCount="30" genTime="1000" objectKey="3" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
+                    <Obj Type="Monster" MonType="151067" Pos="-1493.45#315.34#-1733.21" range="300" maxStackCount="30" genTime="1000" objectKey="4" propList="&apos;Dialog&apos; &apos;F_CO_OP_REMAINS_40_TRADE_GOODS&apos; &apos;Name&apos; &apos;분실된 교역품&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="2" eventName="EVENT1_END" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="OVER"/>
+                                <Num Num="100"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="90"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="시간이 지나 모든 효과가 원래대로 돌아갑니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="PLUS_REGEN"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="PLUS_REGEN"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="FIELD_REWARD" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="END">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_REWARD"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="PLUS_REGEN"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_CO-OP"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
 </GameList>

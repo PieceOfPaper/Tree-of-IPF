@@ -90,6 +90,7 @@
 		<Class ClassID="510" ClassName="camp_and_warehouse" Data="베이스 캠프 / 개인창고"/>
 		<Class ClassID="511" ClassName="camp_buff_active" Data="베이스 캠프 버프 활성화"/>
 		<Class ClassID="512" ClassName="camp_decomposition" Data="장비 아이템 분해"/>
+		<Class ClassID="513" ClassName="CannotUseSkillInArea" Data="해당 지역에서 사용이 제한된 스킬입니다."/>
 	</Category>
 	<Category Name="SimpleWords">
 		<Class ClassID="1100" ClassName="ValidTime" Data="지속 시간"/>
@@ -224,6 +225,8 @@
 		<Class ClassID="2094" ClassName="AdditionalItemCountIsMax" Data="마정석 개수를 최대로 사용하여 최대 확률로 강화를 시도합니다."/>
 		<Class ClassID="2095" ClassName="AdditionalItemCountIsNotMax" Data="현재 마정석 개수가 최대가 아닙니다."/>
 		<Class ClassID="2096" ClassName="SealReinforceInfo" Data="아이템을 강화할 경우 재료 인장은 {#8e0000}소멸{/}되고, 실패할 경우{@st41b}{#ffa200}주 옵션 인장{/}{/}이{#8e0000}소멸{/}됩니다."/>
+		<Class ClassID="2097" ClassName="hairenchant_close" Data="마법 부여 스크롤 창을 닫습니다."/>
+		<Class ClassID="2098" ClassName="master_hairenchant_close" Data="장인의 마법 부여 스크롤 창을 닫습니다."/>
 	</Category>
 	<Category Name="ItemContents">
 		<Class ClassID="2200" ClassName="ClickSocketTargetItem" Data="소켓을 추가 할 아이템을 선택해주세요"/>
@@ -624,6 +627,7 @@
 		<Class ClassID="4233" ClassName="MYSTIC_SAVIOR_CHAGE_HEART" Data="정열의 마음을 담아! 미스틱 세이비어 하트!"/>
 		<Class ClassID="4234" ClassName="IcorductilityError01" Data="등록된 장비와 같은 부위의 장비를 등록해주세요"/>
 		<Class ClassID="4235" ClassName="CantUseJob" Data="사용 할 수 없는 직업입니다."/>
+		<Class ClassID="4236" ClassName="MagicEnchant" Data="마법 부여"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -1184,7 +1188,7 @@
 		<Class ClassID="10513" ClassName="CanAddMoreSlotBecauseFullSlot" Data="더 이상 캐릭터 슬롯을 추가할 수 없습니다."/>
 		<Class ClassID="10514" ClassName="CharacterLengthLimit" Data="{COUNT}자 이내로만 입력 가능합니다."/>
 		<Class ClassID="10515" ClassName="AskReallyDelete" Data="정말로 삭제하시겠습니까?"/>
-		<Class ClassID="10516" ClassName="AskReallyExit" Data="정말로 종료하시겠습니까?"/>
+	<Class ClassID="10516" ClassName="AskReallyExit" Data="정말로 종료하시겠습니까?"/>
 		<Class ClassID="10517" ClassName="ItemOptionLegendExtractMessage_1" Data="등록된 재료는 모두 사라지고 아이커가 연성됩니다."/>
 		<Class ClassID="10518" ClassName="ItemOptionLegendExtractMessage_2" Data="아이커 연성에 실패 할 수 있습니다.{nl}실패시 등록된 재료는 모두 {#aa0000}파괴{/}됩니다."/>
 		<Class ClassID="10519" ClassName="CharacterNameTooShort" Data="캐릭터 이름이 너무 짧거나, 사용할 수 없는 문자가 포함되어 있습니다."/>
@@ -1522,8 +1526,10 @@
 		<Class ClassID="21330" ClassName="Attendance_infoText_1" Data="* 출석 보상은 1일 1회, 당일 첫 접속한 캐릭터 인벤토리로 자동 지급됩니다."/>
 		<Class ClassID="21331" ClassName="Attendance_infoText_2" Data="* 출석 체크 기간 동안에만 출석 보상을 받을 수 있으며, 기간 경과 시 더 이상 지급되지 않습니다"/>
 		<Class ClassID="21332" ClassName="Attendance_infoText_3" Data="* 신규/복귀 출석체크 시작 일자는 구원자님의 신규/복귀 일자에 따라 다를 수 있습니다."/>
-    <Class ClassID="21333" ClassName="TransferBarrackSkillReset" Data="{nl}스킬 초기화에 성공하면 숙소로 이동합니다."/>    
-    <Class ClassID="21334" ClassName="UI_Hour_2" Data="시간"/>
+		<Class ClassID="21333" ClassName="TransferBarrackSkillReset" Data="{nl}스킬 초기화에 성공하면 숙소로 이동합니다."/>
+		<Class ClassID="21334" ClassName="UI_Hour_2" Data="시간"/>
+		<Class ClassID="21335" ClassName="TP_Total" Data="전체"/>
+		<Class ClassID="21336" ClassName="news_ranking_guide_msg" Data="랭킹 정보는 매주 화요일부터 표시됩니다."/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -3518,7 +3524,7 @@
 		<Class ClassID="25929" ClassName="PARTY_Q5_ITEM03" Data="원한 흡수 중"/>
 		<Class ClassID="25930" ClassName="PARTY_Q5_ITEM03_NAME" Data="위로의 구슬"/>
 		<Class ClassID="25931" ClassName="PARTY_Q5_ITEM03_USE" Data="구슬이 안데일 마을 주민의 원한을 흡수합니다!"/>
-		<Class ClassID="25932" ClassName="THORN_BUFF_WARNIG" Data="가시 덩굴이 내뿜는 사악학 기운에 중독되었습니다!"/>
+		<Class ClassID="25932" ClassName="THORN_BUFF_WARNIG" Data="가시 덩굴이 내뿜는 사악한 기운에 중독되었습니다!"/>
 		<Class ClassID="25933" ClassName="PARTY_Q7_ICEITEM_USE" Data="냉기 수정 사용 중"/>
 		<Class ClassID="25934" ClassName="PARTY_Q7_ICEITEM_SUCC" Data="몬스터가 얼어붙었습니다!"/>
 		<Class ClassID="25935" ClassName="PARTY_Q7_ICEITEM_FAIL" Data="결빙에 실패했습니다!"/>
@@ -5146,6 +5152,9 @@
 		<Class ClassID="28297" ClassName="SKILL_CAPTION_MSG18" Data="[공격 속도]"/>
 		<Class ClassID="28298" ClassName="SKILL_CAPTION_MSG19" Data="[탑승 호환]"/>
 		<Class ClassID="28299" ClassName="SKILL_CAPTION_MSG20" Data="[탑승 전용]"/>
+		<Class ClassID="28300" ClassName="SKILL_CAPTION_MSG21" Data="[마법진]"/>
+		<Class ClassID="28301" ClassName="SKILL_CAPTION_MSG22" Data="[범위 지속형]"/>
+		<Class ClassID="28302" ClassName="SKILL_CAPTION_MSG23" Data="[설치물]"/>
 		<Class ClassID="28310" ClassName="EVENT_1812_GILTINE_PROXYWAR_MSG1" Data="소환 중"/>
 		<Class ClassID="28311" ClassName="EVENT_1812_GILTINE_PROXYWAR_MSG2" Data="나는 당신이 지혜롭다고 믿어요.{nl}어떤가요?{nl}무력한 여신의 뒤에? 아니면 나를 따라 세상을 움직여 볼 건가요?"/>
 		<Class ClassID="28312" ClassName="EVENT_1812_GILTINE_PROXYWAR_MSG3" Data="길티네를 따라 : 클라페다 대격돌"/>
@@ -7660,6 +7669,31 @@
 		<Class ClassID="70495" ClassName="CASTLE95_NPC_03_2" Data="이럴 땐 꼭 예상이 빗나가질 않네요.."/>
 		<Class ClassID="70496" ClassName="CASTLE95_MAIN05_TAKE_ITEM" Data="아이템을 배치했습니다. "/>
 		<Class ClassID="70497" ClassName="CASTLE95_MAIN03_MSG07" Data="화약 상자를 모두 배치했습니다!{nl}이제 화약 상자나 폭약통에서 투척용 폭탄을 찾으세요."/>
+		<Class ClassID="70498" ClassName="1PHASE_GIMMICK_CLEAR" Data="오브가 파괴되지 않았습니다!"/>
+		<Class ClassID="70499" ClassName="1PHASE_GIMMICK_FAIL" Data="오브가 파괴됐습니다!{nl}스키아클립스의 분노가 축적됩니다!"/>
+		<Class ClassID="70500" ClassName="1PHASE_GIMMICK_TIME_20" Data="파괴 주문이 발동되기까지 20초 남았습니다!"/>
+		<Class ClassID="70501" ClassName="1PHASE_GIMMICK_TIME_10" Data="파괴 주문이 발동되기까지 10초 남았습니다!"/>
+		<Class ClassID="70502" ClassName="1PHASE_GIMMICK_TIME_5" Data="파괴 주문이 곧 발동합니다! 서두르십시오!"/>
+		<Class ClassID="70503" ClassName="2PHASE_GIMMICK_MOVE" Data="포탈을 통해 이동했습니다.{nl}봉인석을 작동시키세요!"/>
+		<Class ClassID="70504" ClassName="2PHASE_GIMMICK_START_01" Data="봉인석이 작동됐습니다!{nl}주변에 있는 오브들을 모두 같은 색으로 통일시키세요!"/>
+		<Class ClassID="70505" ClassName="2PHASE_GIMMICK_START_02" Data="봉인석이 작동됐습니다!{nl}주변의 장치들이 반짝이는 순서와 동일하게 장치를 작동시키세요!"/>
+		<Class ClassID="70506" ClassName="2PHASE_GIMMICK_START_03" Data="봉인석이 작동됐습니다!{nl}오브 위에 표시된 숫자만큼 몬스터를 계속해서 잡은 뒤 전등 장치를 작동해주세요!"/>
+		<Class ClassID="70507" ClassName="2PHASE_GIMMICK_SUCCESS" Data="시간 내에 성공하여 스키아클립스가 강해지는 걸 막았습니다!"/>
+		<Class ClassID="70508" ClassName="2PHASE_GIMMICK_FAIL" Data="시간 내에 성공하지 못했습니다.{nl}스키아클립스가 강해지며 잠시 동안 나갈 수 없게 됩니다."/>
+		<Class ClassID="70509" ClassName="2PHASE_CURSE_START" Data="스키아클립스가 당신에게 저주를 걸었습니다!{nl}빠른 시간 내에 다른 파티원에게 저주를 전달해주세요!"/>
+		<Class ClassID="70510" ClassName="2PHASE_CURSE_NOTICE_START" Data="스키아클립스가 당신의 파티원에게 저주를 걸었습니다!{nl}파티원이 사망하지 않도록 저주가 발동되기 전에 저주를 서로서로 받아주세요!"/>
+		<Class ClassID="70511" ClassName="2PHASE_CURSE_SHIFT_GIVER" Data="저주를 보냈습니다!{nl}잠시 동안 다른 파티원으로부터 저주를 받지 못합니다."/>
+		<Class ClassID="70512" ClassName="2PHASE_CURSE_SHIFT_TAKER" Data="저주를 받았습니다!{nl}빠른 시간 내에 다른 파티원에게 저주를 전달해주세요!"/>
+		<Class ClassID="70513" ClassName="2PHASE_CURSE_END" Data="시간이 지나 스키아클립스의 저주가 풀렸습니다!"/>
+		<Class ClassID="70514" ClassName="2PHASE_CURSE_ACTIVE" Data="저주의 힘이 발동되어 사망했습니다."/>
+		<Class ClassID="70515" ClassName="2PHASE_GIMMICK_ORDERING_CORRECT" Data="순서대로 오브를 작동했습니다!{nl}계속해서 오브가 켜지는 순서에 따라 오브를 작동시켜주세요.{nl}"/>
+		<Class ClassID="70516" ClassName="2PHASE_GIMMICK_ORDERING_INCORRECT" Data="작동시켜야 할 오브의 순서를 틀렸습니다.{nl}나타난 몬스터를 모두 처치 후 다시 오브의 순서를 보고 순서대로 작동시켜주세요."/>
+		<Class ClassID="70517" ClassName="2PHASE_GIMMICK_COLOR_CORRECT" Data="모든 오브의 색상을 통일했습니다!{nl}다시 초기화된 오브도 같은 색상으로 일치시켜주세요.{nl}"/>
+		<Class ClassID="70518" ClassName="2PHASE_GIMMICK_NUMBER_CORRECT" Data="장치 위의 숫자와 같게 몬스터를 처치했습니다!{nl}다음 차례도 동일하게 장치 위의 숫자와 같게 몬스터를 처치하고 장치를 작동해주세요.{nl}"/>
+		<Class ClassID="70519" ClassName="2PHASE_GIMMICK_NUMBER_INCORRECT" Data="장치 위의 숫자와 몬스터의 처치 수가 일치하지 않습니다.{nl}다시 장치 위의 숫자와 동일하게 몬스터를 처치 후 장치를 작동해주세요."/>
+		<Class ClassID="70520" ClassName="SHADOW_RAID_THANKYOU_FOR_PLAYING01" Data="여러분 덕분에 봉인을 무사히 마칠 수 있었습니다. 도와주셔서 감사합니다."/>
+		<Class ClassID="70521" ClassName="SHADOW_RAID_THANKYOU_FOR_PLAYING02" Data="여러분들끼리 먼저 돌아가십시오. 저는 마지막으로 확인한 뒤 가겠습니다."/>
+		<Class ClassID="70522" ClassName="SHADOW_RAID_THANKYOU_FOR_PLAYING03" Data="모든 힘을 봉인에 다 써서 어지럽네요. 괜찮습니다. 약간 쉬면 괜찮아지겠죠."/>
 		<Class ClassID="80001" ClassName="LIMESTONE_52_1_CRYSTAL_ING" Data="불안정한 마력핵 설치 중"/>
 		<Class ClassID="80002" ClassName="LIMESTONE_52_1_SQ_1_TAKE" Data="목걸이 빼앗는 중"/>
 		<Class ClassID="80003" ClassName="LIMESTONE_52_2_MQ_7_SUCC_MSG" Data="구속장치가 요동치기 시작합니다!"/>
@@ -8249,7 +8283,7 @@
 		<Class ClassID="80974" ClassName="F_MAPLE_243_MQ_05_MSG9" Data="나뭇잎을 바닥에 내려두는 중"/>
 		<Class ClassID="80975" ClassName="F_MAPLE_243_MQ_05_MSG_FAIL" Data="아무런 반응이 없습니다."/>
 		<Class ClassID="80976" ClassName="F_MAPLE_243_MQ_05_MSG10" Data="나뭇잎이 나비로 변해 꽃 위를 날아다닙니다"/>
-		<Class ClassID="80977" ClassName="F_MAPLE_243_MQ_05_MSG11" Data="모든 꽃 위에 나비들이 날아다니자,{nl}자리에서 투명한 결정을 획득했습니다."/>
+		<Class ClassID="80977" ClassName="F_MAPLE_243_MQ_05_MSG11" Data="모든 꽃 위에 나비들이 날아다니자,{nl}그 자리에서 투명한 결정을 획득했습니다."/>
 		<Class ClassID="80978" ClassName="F_MAPLE_243_MQ_07_MSG1" Data="주문서를 사용하는 중"/>
 		<Class ClassID="80979" ClassName="F_MAPLE_243_MQ_07_MSG2" Data="무사하셨군요!"/>
 		<Class ClassID="80980" ClassName="F_MAPLE_243_MQ_07_MSG3" Data="마법석의 마력도 봉인되었네요!"/>
@@ -8271,7 +8305,7 @@
 		<Class ClassID="80996" ClassName="F_MAPLE_241_MQ_03_MSG1" Data="씨앗의 기운이 스며드는 중"/>
 		<Class ClassID="80997" ClassName="F_MAPLE_241_MQ_03_MSG2" Data="생기가 도는 풀을 채집했습니다."/>
 		<Class ClassID="80998" ClassName="F_MAPLE_241_MQ_04_1_MSG1" Data="씨앗의 기운이 스며드는 중"/>
-		<Class ClassID="80999" ClassName="F_MAPLE_241_MQ_04_1_MSG2" Data="어린 단풍나무가 급격히 성장했습니다!"/>
+		<Class ClassID="80999" ClassName="F_MAPLE_241_MQ_04_1_MSG2" Data="어린 단풍나무가 급격히 성장했습니다!{nl}성장한 단풍나무에서 나뭇가지를 채집하세요! "/>
 		<Class ClassID="81000" ClassName="F_MAPLE_241_MQ_04_1_MSG3" Data="나뭇가지 채집 중"/>
 		<Class ClassID="81001" ClassName="F_MAPLE_241_MQ_04_1_MSG4" Data="신성한 기운이 감도는 나뭇가지를 채집했습니다."/>
 		<Class ClassID="81002" ClassName="F_MAPLE_241_MQ_04_2_MSG1" Data="씨앗에 반응하는지 확인 중"/>
@@ -8294,6 +8328,8 @@
 		<Class ClassID="81019" ClassName="F_MAPLE_242_MQ_08_MSG1" Data="마법석의 마력이 무사히 봉인되었습니다!"/>
 		<Class ClassID="81020" ClassName="F_MAPLE_242_MQ_10_MSG1" Data="메데이나 여신을 보호하는데 실패했습니다."/>
 		<Class ClassID="81021" ClassName="F_MAPLE_242_MQ_11_MSG1" Data="지금까지 일어난 일을 얘기하는 중"/>
+		<Class ClassID="81022" ClassName="F_MAPLE_241_MQ_02_MSG1" Data="메데이나님!"/>
+		<Class ClassID="81023" ClassName="F_MAPLE_241_MQ_04_1_MSG5" Data="신성한 기운이 감도는 나뭇가지를 충분히 채집했습니다!"/>
 		<Class ClassID="90001" ClassName="CORAL_32_2_SQ_6_FAIL2" Data="퀘스트를 포기했습니다"/>
 		<Class ClassID="90002" ClassName="DCAPITAL_20_5_SQ_30" Data="작은 돌 파편을 얻었습니다"/>
 		<Class ClassID="90003" ClassName="DCAPITAL_20_5_SQ_60_ITEM_DTA" Data="신성력 감지 구슬 사용중"/>
@@ -9399,6 +9435,12 @@
 		<Class ClassID="112012" ClassName="Abandon" Data="포기"/>
 		<Class ClassID="112013" ClassName="WarpToCompleteArea" Data="완료지점으로 워프"/>
 		<Class ClassID="112014" ClassName="QuestDescBasicTxt" Data="목표 : "/>
+		<Class ClassID="112015" ClassName="ViewQuestDialog" Data="퀘스트의 대사를 확인합니다."/>
+		<Class ClassID="112016" ClassName="ViewDialog" Data="대사 보기"/>
+		<Class ClassID="112017" ClassName="ViewQuestLocation" Data="퀘스트의 위치를 표시합니다."/>
+		<Class ClassID="112018" ClassName="ViewLocation" Data="위치 보기"/>
+		<Class ClassID="112019" ClassName="RestartQuest" Data="퀘스트를 재시작합니다."/>
+		<Class ClassID="112020" ClassName="Restart" Data="재시작"/>
 		<Class ClassID="112021" ClassName="NormalParticipateCount" Data="보통 - 선택 파티원 수"/>
 		<Class ClassID="112022" ClassName="HardParticipateCount" Data="어려움 - 선택 파티원 수"/>
 	</Category>
@@ -9693,9 +9735,18 @@
 		<Class ClassID="124052" ClassName="AllowManufacture" Data="진행하시겠습니까?"/>
 	</Category>
 	<Category Name="Quest">
+		<Class ClassID="125001" ClassName="QuestAlignFilter_All" Data="모든 퀘스트"/>
+		<Class ClassID="125002" ClassName="QuestAlignFilter_Main" Data="메인 퀘스트"/>
+		<Class ClassID="125003" ClassName="QuestAlignFilter_Sub" Data="서브 퀘스트"/>
+		<Class ClassID="125004" ClassName="QuestAlignFilter_Repeat" Data="반복 퀘스트"/>
+		<Class ClassID="125005" ClassName="QuestAlignFilter_Party" Data="파티 퀘스트"/>
+		<Class ClassID="125006" ClassName="QuestAlignFilter_KeyItem" Data="증표 퀘스트"/>
+		<Class ClassID="125007" ClassName="QuestAlignFilter_Chase" Data="추적 퀘스트"/>
 		<Class ClassID="130001" ClassName="ClickToSharedQuestWithParty" Data="{@st59}버튼을 클릭하면 파티원에게 노출합니다."/>
 		<Class ClassID="130002" ClassName="ThisQuestIsSharedToParty" Data="{@st59}파티원에게 현재 노출되는 퀘스트입니다."/>
 		<Class ClassID="130003" ClassName="QuestOf{Name}" Data="{Name}의 퀘스트"/>
+		<Class ClassID="130004" ClassName="EtcMapQuestTitle" Data="기타 퀘스트"/>
+		<Class ClassID="130005" ClassName="quest_command_window" Data="퀘스트 지령창"/>
 		</Category>
 	<Category Name="WorldPVP">
 		<Class ClassID="131001" ClassName="PVP_State_None" Data="참여"/>
@@ -12302,6 +12353,7 @@
 		<Class ClassID="138407" ClassName="miss_match_confirm_text" Data="확인 문자가 일치하지 않습니다."/>
 		<Class ClassID="138408" ClassName="HighItemGradeReallyDestroy{ITEM}{COUNT}" Data="{#fe7e00}[{ITEM}]{/}을/를 {#fe7e00}[{COUNT}]{/}개 파괴하실려면 숫자 [0000] 을 입력해주세요."/>
 		<Class ClassID="138409" ClassName="HighItemGradeReallyDestroy{ITEM}" Data="정말 {#fe7e00}[{ITEM}]{/}을/를 파괴하실려면 숫자 [0000] 을 입력해주세요."/>
+    <Class ClassID="138411" ClassName="ReallyWantToPartyForChallengeMode" Data="챌린지 모드 진행중 파티를 탈퇴하는 경우, 챌린지 모드가 정상적으로 진행되지 않습니다. 정말 파티를 탈퇴하시겠습니까?"/>
 		</Category>
 	<Category Name="SkillMsg">
 		<Class ClassID="200001" ClassName="DontBuildCampThisAria" Data="해당 지역에서는 거점을 설치할 수 없습니다."/>
@@ -13007,8 +13059,6 @@
 		<Class ClassID="501013" ClassName="Steam_VerUP_Select01" Data="'레벨업 보상 상자' 받기"/>
 		<Class ClassID="501014" ClassName="Steam_VerUP_Select02" Data="'330 Level 보상' 받기"/>
 		<Class ClassID="501015" ClassName="Steam_VerUP_Select03" Data="목표레벨 확인"/>
-		<Class ClassID="501016" ClassName="ManWoo_1" Data="컴패니언 탑승 상태에서 사용할 수 없습니다."/>
-		<Class ClassID="501017" ClassName="ManWoo_2" Data="만우절 아이템 받기"/>
 		<Class ClassID="501072" ClassName="Event_Nru2_Guide_2" Data="장비 선택"/>
 		</Category>
 		<Category Name="Npc_Equip_Shop_270_315">
@@ -13048,6 +13098,8 @@
 		<Class ClassID="501180" ClassName="EVENT_1806_PENALTY_MSG8" Data="승부의 신 랭킹"/>
 		<Class ClassID="501197" ClassName="EVENT_1903_SPROUT_MSG1" Data='오늘 씨앗을 총 {@st66d_y}{s18}{GET}{/}{/}개 획득하였습니다. {@st66d_y}{s18}{REMAIN}{/}{/}개의 씨앗을 더 획득할 수 있습니다.'/>
 		<Class ClassID="501198" ClassName="EVENT_1903_SPROUT_MSG2" Data="곧 새싹이 지급됩니다. 새싹 지급 전 종료시 정상적으로 아이템이 지급되지 않을 수 있습니다."/>
+		<Class ClassID="501201" ClassName="EVENT_STEAM_Secret_Buff_1" Data="이미 어둠의 기운 버프가 적용 중입니다."/>
+		<Class ClassID="501202" ClassName="EVENT_STEAM_SEED_MS01" Data="씨앗을 땅에 심었습니다.{nl}1분마다 단계별로 새싹 버프가 획득됩니다."/>
 	</Category>
 	<Category Name="GEM_GACHA">
 		<Class ClassID="510001" ClassName="GEM_GACHA_SEL1" Data="젬 1회 뽑기"/>
@@ -13342,6 +13394,7 @@
 		<Class ClassID="801152" ClassName="Guild_Colony_Attendance_Reward_MSG11" Data="특성 포인트 받기"/>
 		<Class ClassID="801153" ClassName="Guild_Colony_Attendance_Reward_MSG12" Data="[{itemName}] {Cnt}개가 지급되었습니다."/>
 		<Class ClassID="801154" ClassName="Guild_Colony_Attendance_Reward_MSG13" Data="이미 특성 포인트를 받았습니다."/>
+		<Class ClassID="801155" ClassName="Guild_Colony_Attendance_Reward_MSG14" Data="콜로니전 진행중에는 참여 보상을 받을 수 없습니다."/>
 	</Category>
 	<Category Name="ColonyTax">
 		<Class ClassID="810000" ClassName="ColonyTaxRateDetail{Default}{Min}{Max}{ModifyDelay}{DisableModifyDelay1}{DisableModifyDelay2}" Data="- 스팟 지역을 점령한 길드는 각 도시의 적립요율을 조정할 수 있습니다.({Min}% ~ {Max}%) {nl}- 도시 적립요율은 기본적으로 표준 요율({Default}%)이 적용되어 있습니다.{nl}- 도시 적립요율 조정은 길드 마스터 또는 해당 권한을 가진 일원만 가능합니다.{nl}- 도시 적립요율은 조정 후, {ModifyDelay}시간 뒤에 재조정이 가능합니다.{nl}- 콜로니전 시작 {DisableModifyDelay1}시간 전부터 종료 {DisableModifyDelay2}분 후까지 도시 적립요율 조정이 제한됩니다.{nl}- 매 콜로니전 종료 후, 최종 점령 길드가 지난번 점령 길드와 다른 경우 도시 적립요율은 표준 요율({Default}%)로 조정됩니다.{nl}- 점령 길드에 가입된 인원들은 해당 적립요율 적용 도시에 한해 최소 요율({Min}%)로 고정되어 적용됩니다.{nl}- 적립금 누적 기간 동안 [적립요율 적용 항목]의 실버 소비 시, 적용된 요율에 따라 적립금이 누적됩니다.{nl}   (적립금 누적 기간 : 콜로니전 종료 5분 후 시각을 기점으로 다음 콜로니전 종료 시 까지){nl}- 적립금 누적 기간이 끝나면 [적립금 분배] 탭에서 수령된 적립금을 길드원에게 분배할 수 있습니다."/>

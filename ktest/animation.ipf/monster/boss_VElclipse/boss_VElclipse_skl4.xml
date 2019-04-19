@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="5" attachNode="None" particleName="F_smoke120_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="30" attachNode="Dummy_R_hand" particleName="I_force018_trail_rize_white2" useAttach="true" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="40" attachNode="effect002" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="40" attachNode="effect003" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<BlendOn frame="54" R="100" G="100" B="100" A="50"/>
+	<BlendOn frame="55" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="56" R="100" G="100" B="100" A="50"/>
+	<BlendOff frame="57" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="57" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

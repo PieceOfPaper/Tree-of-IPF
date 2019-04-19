@@ -10,8 +10,11 @@
 	<animation frameOpenAnim="chat_balloon_start" margin="-100 -100 0 0"/>
 	<userconfig ITEM_PICTURE_SIZE="256" ITEM_PICTURE_MARGIN="0 50 0 0" ITEM_PICTURE_LAYOUT_GRAVITY="center center" CTRLSET_WIDTH="500" CTRLSET_HEIGHT="400" TEXT_STYLE="{@st43}" BG_PIC_IMAGE="re_appraisal_image2_1" BG_PIC_SIZE="337" BG_PIC_MARGIN="0 140 0 0" BG_PIC_LAYOUT_GRAVITY="center center" EFFECT_NAME="I_gacha_end_ENCHANT" EFFECT_SIZE="8"/>
 	<controls>
-		<picture name="bg" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="center center" hittest="false" image="fullblack" stretch="true" alpha="80"/>
-		<groupbox name="itemBgBox" rect="0 0 720 520" margin="0 0 0 0" layout_gravity="center center" draw="false"/>
-		<button name="btn_close" parent="" rect="0 0 180 60" margin="0 250 0 0" layout_gravity="center center" hittestbox="true" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2" image="gachanext_btn" LBtnUpScp="ui.CloseFrame('item_result')"/>
+		<picture name="bg" rect="0 0 4096 2048" margin="0 -420 0 0" layout_gravity="center center" hittest="false" image="fullblack" stretch="true" alpha="50"/>
+		<groupbox name="itemBgBox" rect="0 0 720 520" margin="0 -230 0 0" layout_gravity="center center" draw="false"/>
+		<button name="btn_close" parent="" rect="0 0 180 60" margin="0 460 0 0" layout_gravity="center center" hittestbox="true" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2" image="gachanext_btn" LBtnUpScp="ui.CloseFrame('item_result')"/>
+		<groupbox name="infogb" rect="0 0 620 300" margin="0 200 0 0" layout_gravity="center center" draw="true" skin="blackbox_op_50"/>
+		<richtext name="infotitle" rect="0 0 300 30" parent="infogb" margin="0 25 0 0" layout_gravity="center top" textalign="center center" caption="{@st43}{s20}분해 상세정보"/>
+		<groupbox name="listgb" rect="0 0 610 200" parent="infogb" margin="0 75 0 0" layout_gravity="center top" skin="None" scroll="true"/>
 	</controls>
 </uiframe>

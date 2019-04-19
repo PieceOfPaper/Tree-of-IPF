@@ -48,3 +48,10 @@ function SCR_F_3CMLAKE_27_1_SQ_6_NPC3_2_PRE_DIALOG(pc, dialog)
     return 'NO'
 end
 
+function SCR_F_3CMLAKE_27_1_SQ2_HNPC_PRE_DIALOG(pc, dialog)
+    local result = SCR_QUEST_CHECK(pc, 'F_3CMLAKE_27_1_SQ_2')
+    if result == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end

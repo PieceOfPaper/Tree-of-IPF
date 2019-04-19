@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <controlsetlist>
 	<controlset name="barrack_pet_mini" toggle="false" hittest="true" width="400" height="60" skin="">
@@ -1290,24 +1290,37 @@
 			<richtext name="text" rect="0 0 200 24" layout_gravity="center top" fixwidth="false" hittest="false" fontname="white_14"/>
 		</controls>
 	</controlset>
-	<controlset name="quest_list" toggle="false" width="500" height="150" skin="bg" updateparent="true" stateskin="false" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff">
+	<controlset name="quest_list_oneline" toggle="false" width="500" height="30" updateparent="true" stateskin="false" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff">
+		<userconfig MAIN_FONT="{@s16}" MAIN_COLOR="{#ff9b0d}" SUB_FONT="{@s16}" SUB_COLOR="{#09bcff}" REPEAT_FONT="{@s16}" REPEAT_COLOR ="{#55EE55}" PARTY_FONT="{@s16}" PARTY_COLOR ="{#FF8800}" KEYITEM_FONT="{@s16}" KEYITEM_COLOR="{#ff6fa2}"/>
 		<controls>
-			<checkbox name="save" rect="0 0 30 30" layout_gravity="left top" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" margin="20 15 0 0"/>
-			<picture name="questmark" rect="0 0 30 30" layout_gravity="left top" stretch="true" margin="50 15 0 0"/>
-			<richtext name="name" rect="0 0 335 18" layout_gravity="left top" margin="85 20 0 0" fixwidth="true" resizebytext="true" hittest="false" fontname="yellow_16_ol"/>
-			<button name="avandonquest_try" margin="0 0 40 15" rect="0 0 45 45" image="test_restartjjsm_btn" layout_gravity="right bottom" format="{@st42b}{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_ABANDON_QUEST_TRY" texttooltip="{@st59}퀘스트 재시작{/}"/>
-			<button name="dialogReplay" margin="0 0 80 15" rect="0 0 46 46" image="quest_dialog_btn" layout_gravity="right bottom" format="{@st42b}{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_DIALOG_REPLAY" texttooltip="{@st59}퀘스트 대사 보기{/}"/>
-			<button name="abandon" margin="0 0 40 15" rect="0 0 46 46" image="quest_giveup_btn" layout_gravity="right bottom" format="{@st42b}{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_ABANDON_SELECT" texttooltip="{@st59}퀘스트 포기{/}"/>
+			<checkbox name="chase" rect="0 0 26 26" layout_gravity="left center" margin="0 0 0 0" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
+			<richtext name="level" rect="0 0 50 18" layout_gravity="left center" margin="35 0 0 0" fixwidth="false" resizebytext="true" hittest="false" fontname="yellow_16_ol"/>
+			<picture name="questmark" rect="0 0 24 24" layout_gravity="left center" stretch="true" margin="100 0 0 0"/>
+			<richtext name="name" rect="0 0 400 20" layout_gravity="left center" margin="130 0 0 0" fixwidth="true" resizebytext="false" hittest="false" fontname="yellow_16_ol"/>
+			<checkbox name="shareParty" margin="0 0 69 0" rect="0 0 22 22" skin="quest_share_btn" layout_gravity="right center"  oversound="button_over"  clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_SHARE_PARTY_MEMBER" texttooltip="{@st59}파티원에게 노출{/}"/>
+			<button name="questPositionCheck" margin="0 0 53 0" rect="0 0 22 22" stretch="false" image="quest_location_btn" layout_gravity="right center" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_VIEW_QUEST_LOCATION" texttooltip="{@st59}퀘스트 위치 확인{/}"/>
+			<button name="abandonquest_try" margin="0 0 7 0" rect="0 0 22 22" stretch="false" image="quest_again_btn" layout_gravity="right center" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_ABANDON_QUEST_TRY" texttooltip="{@st59}퀘스트 재시작{/}"/>
+			<button name="dialogReplay" margin="0 0 30 0" rect="0 0 22 22" stretch="false" image="quest_dialogue_btn" layout_gravity="right center" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_DIALOG_REPLAY" texttooltip="{@st59}퀘스트 대사 보기{/}"/>
+			<button name="abandon" margin="0 0 7 0" rect="0 0 22 22" stretch="false" image="quest_cancel_btn" layout_gravity="right center" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_ABANDON_SELECT" texttooltip="{@st59}퀘스트 포기{/}"/>
 		</controls>
 	</controlset>
-	<controlset name="custom_quest_list" toggle="false" width="470" height="150" skin="earth_T_shop_skin" updateparent="true" stateskin="false" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff">
+	<controlset name="quest_list_title" toggle="false" width="520" height="34" updateparent="true" stateskin="false" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff">
+		<userconfig QUEST_CTRL_HEIGHT="32" QUEST_CTRL_TITLE_HEIGHT="32" OPENED_CTRL_IMAGE="btn_plus" CLOSED_CTRL_IMAGE="btn_minus"/>
 		<controls>
-			<checkbox name="save" rect="0 0 30 30" layout_gravity="left top" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" margin="25 15 0 0"/>
-			<picture name="questmark" rect="0 0 30 30" layout_gravity="left top" stretch="true" margin="50 15 0 0"/>
+			<groupbox name="questMapTitleGbox" rect="0 0 510 32" margin="0 0 0 0" layout_gravity="left top" skin="quest_titlebar_skin" draw="true" hittestbox="true" LBtnUpScp="CLICK_QUEST_MAP_TITLE" resizebyparent="false" scrollbar="false"/>
+			<picture name="openMark" parent="questMapTitleGbox" rect="0 0 26 26" margin="10 9 0 0" layout_gravity="left top" stretch="false" hittestbox="false" hittest="false" image="btn_minus"/>
+			<richtext name="questMapNameText" parent="questMapTitleGbox" rect="0 0 335 18"	margin="35 8 0 0" layout_gravity="left top" format="{@st66b}%s (%s)" param1="mapName" param1_def="" param2="count" param2_def="" fixwidth="true" resizebytext="true" hittest="false" fontname="yellow_16_ol"/>
+			<groupbox name="questListGbox" rect="0 0 510 0"	margin="0 34 0 0" layout_gravity="left top" draw="false" hittestbox="true" resizebyparent="false" scrollbar="false"/>
+		</controls>
+	</controlset>
+	<controlset name="custom_quest_list" toggle="false" width="510" height="150" skin="earth_T_shop_skin" updateparent="true" stateskin="false" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff">
+		<controls>
+			<checkbox name="save" rect="0 0 30 30" layout_gravity="left top" margin="25 15 0 0" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
+			<picture name="questmark" rect="0 0 30 30" layout_gravity="left top" margin="50 15 0 0" stretch="true" />
 			<richtext name="name" rect="0 0 335 18" layout_gravity="left top" margin="50 20 0 0" fixwidth="true" resizebytext="true" hittest="false" fontname="yellow_16_ol"/>
-			<button name="avandonquest_try" margin="0 0 103 15" rect="0 0 120 43" skin="test_pvp_btn" layout_gravity="right bottom" format="{@st66b}재시작{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_ABANDON_QUEST_TRY"/>
-			<button name="dialogReplay" margin="0 0 60 15" rect="0 0 46 46" image="quest_dialog_btn" layout_gravity="right bottom" format="{@st42b}{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_DIALOG_REPLAY" texttooltip="{@st59}퀘스트 대사 보기{/}"/>
-			<button name="abandon" margin="0 0 20 15" rect="0 0 46 46" image="quest_giveup_btn" layout_gravity="right bottom" format="{@st42b}{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_ABANDON_SELECT" texttooltip="{@st59}퀘스트 포기{/}"/>
+			<button name="avandonquest_try" rect="0 0 120 43" layout_gravity="right bottom" margin="0 0 103 15" skin="test_pvp_btn" format="{@st66b}재시작{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_ABANDON_QUEST_TRY"/>
+			<button name="dialogReplay" rect="0 0 46 46" layout_gravity="right bottom" margin="0 0 60 15"  image="quest_dialog_btn"  format="{@st42b}{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_DIALOG_REPLAY" texttooltip="{@st59}퀘스트 대사 보기{/}"/>
+			<button name="abandon" rect="0 0 46 46" layout_gravity="right bottom" margin="0 0 20 15" image="quest_giveup_btn" format="{@st42b}{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_ABANDON_SELECT" texttooltip="{@st59}퀘스트 포기{/}"/>
 		</controls>
 	</controlset>
 	<controlset name="joblist_by_rank" toggle="false" width="1400" height="200" skin="bg" updateparent="true" stateskin="false">
@@ -3387,9 +3400,9 @@
 			<button name="worldMapBtn" rect="0 0 30 30" margin="0 0 0 0" layout_gravity="right center" image="indun_map_btn" LBtnDownScp="INDUNINFO_OPEN_INDUN_MAP" stretch="false"/>
 		</controls>
 	</controlset>
-	<controlset name="indunmap_emphasize" hittest="true" width="180" height="200" skin="">
+	<controlset name="indunmap_emphasize" hittest="true" width="200" height="200" skin="">
 		<controls>
-			<animpicture name="animpic" blend="100" texelx="0" texely="0" texelwidth="200" texelheight="200" spacex="1" spacey="0" loop="true" ticktime="0.02" animcount="14" layout_gravity="left top" rect="0 0 200 200" margin="0 0 0 0" image="notice_pos" hittest="false" playanim="true" stretch="true" hideAnimEnd="true"/>
+			<animpicture name="animpic" blend="100" texelx="0" texely="0" texelwidth="200" texelheight="200" spacex="1" spacey="0" loop="true" ticktime="0.02" animcount="14" layout_gravity="left top" rect="0 0 200 200" margin="0 0 0 0" image="notice_pos" hittest="false" playanim="true" stretch="false" hideAnimEnd="true"/>
 		</controls>
 	</controlset>
 	<controlset name="fishing_rank_page" hittest="true" width="530" height="810" hittestset="false" draw="false" skin="none" resizebyresolution="true">
@@ -4641,6 +4654,19 @@
 			<picture name="ranking_dot1" rect="0 0 5 21" margin="-130 5 0 0" layout_gravity="center center" stretch="true" image="icon_ranking_dot" draw="true"/>
 			<picture name="ranking_dot2" rect="0 0 5 21" margin="-55 5 0 0" layout_gravity="center center" stretch="true" image="icon_ranking_dot" draw="true"/>
 			<picture name="ranking_dot3" rect="0 0 5 21" margin="105 5 0 0" layout_gravity="center center" stretch="true" image="icon_ranking_dot" draw="true"/>
+		</controls>
+	</controlset>
+	<controlset name="skill_restrict_info_list" hittest="false" width="340" height="30" hittestset="false" draw="false">
+		<controls>
+			<richtext name="skill_info" rect="0 0 340 30" margin="0 0 0 0" layout_gravity="left center" fixwidth="true" fixheight="false" format="{@st43}{s16}* {ol}%s{/}{#5ae2e7}%s : %s" param1="img" param2="name" param3="caption" hittest="false" resizebytext="true" updateparent="true"/>
+		</controls>
+	</controlset>
+	<controlset name="item_result" hittest="true" width="600" height="36" skin="None" hittestset="false" draw="true">
+		<controls>
+			<picture name="itempic" rect="0 0 32 32" margin="25 0 0 0" layout_gravity="left center" stretch="true" image="" draw="true"/>
+			<richtext name="itemname" rect="0 0 280 36" margin="75 0 0 0" layout_gravity="left center" draw="true" textalign="left center" format="%s" param1="value" param1_def="아이템 명" fontname="white_16_ol"/>
+			<picture name="arrow" rect="0 0 20 20" margin="300 0 0 0" layout_gravity="left center" image="icon_white_arrow" draw="true"/>
+			<richtext name="result" rect="0 0 250 36" margin="350 0 0 0" layout_gravity="left center" draw="true" textalign="left center" format="{@st66d_y}{s16}%s x 1" param1="value" param1_def="인첸트 아이템 명" fontname="yellow_16_ol"/>
 		</controls>
 	</controlset>
 </controlsetlist>

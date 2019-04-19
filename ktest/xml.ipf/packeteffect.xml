@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <packeteffects>
+    <Category ID="39">
+        <Effect Name="Skiaclipse_pad_2"/>
+        <Effect Name="Skiaclipse_pad_1"/>
+        <Effect Name="F_sys_target_pc2##1"/>
+        <Effect Name="Skiaclipse"/>
+        <Effect Name="F_smoke174_dark"/>
+        <Effect Name="Skiaclipse_pad_3"/>
+        <Effect Name="F_sys_target_boss1##0.5"/>
+    </Category>
     <Category ID="146">
         <Effect Name="beginner"/>
         <Effect Name="Phase0"/>
         <Effect Name="Phase1_Game"/>
+        <Effect Name="LEGEND_RAID_WHITE_CROW"/>
+        <Effect Name="UNIQUE_RAID_WHITE_CROW"/>
+        <Effect Name="FAIL_CHECK"/>
+        <Effect Name="on_white"/>
+        <Effect Name="Gimmick_Open"/>
+        <Effect Name="run_loop"/>
+        <Effect Name="on_green"/>
+        <Effect Name="Pattern_Curse"/>
+        <Effect Name="Gimmick_Name"/>
+        <Effect Name="Gimmick_Number"/>
+        <Effect Name="Skiaclipse_pad_3"/>
+        <Effect Name="Gimmick_Color"/>
+        <Effect Name="Gimmick_Ordering"/>
+        <Effect Name="I_laser003_shot_loop"/>
+        <Effect Name="F_circle007_green_loop"/>
     </Category>
     <Category ID="135">
         <Effect Name="HaveToPutPetAtBarrack"/>
@@ -170,6 +194,7 @@
         <Effect Name="Boss_2"/>
         <Effect Name="F_cleric_KaguraDance_buff"/>
         <Effect Name="F_cleric_Incineration_loop"/>
+        <Effect Name="F_levitation005_dark_green3"/>
     </Category>
     <Category ID="188">
         <Effect Name="170628_Rain_Mission"/>
@@ -629,6 +654,15 @@
         <Effect Name="I_sphere007_mash_moto"/>
         <Effect Name="F_bg_light001_green"/>
         <Effect Name="I_pc_question_arrow_mash_ride"/>
+        <Effect Name="F_light115_explosion_blue_dark"/>
+        <Effect Name="F_explosion078_dark#Bip001 Head"/>
+        <Effect Name="F_wizard_ShadowThorn_ground_dark"/>
+        <Effect Name="LEGEND_RAID_WHITE_CROW"/>
+        <Effect Name="UNIQUE_RAID_WHITE_CROW"/>
+        <Effect Name="I_seal_cage_dead"/>
+        <Effect Name="I_cylinder_003"/>
+        <Effect Name="F_pose_magical2_light01"/>
+        <Effect Name="F_light103_white_line"/>
     </Category>
     <Category ID="83">
         <Effect Name="SKL_ARIES"/>
@@ -1306,6 +1340,21 @@
         <Effect Name="F_scout_Granata_explosion"/>
         <Effect Name="F_scout_Ritirarsi"/>
         <Effect Name="E_scout_TreGranata#Dummy_R_HAND"/>
+        <Effect Name="I_force083_leaf_orange#Bone_BWL_032"/>
+        <Effect Name="F_rize015_1_drop_white"/>
+        <Effect Name="I_force075_pink#Bone_BWR_02"/>
+        <Effect Name="F_explosion131_light"/>
+        <Effect Name="I_force018_trail_psychokinesis3_3#Bone_BWR_02"/>
+        <Effect Name="I_force018_trail_psychokinesis3_3#Bone_BWL_032"/>
+        <Effect Name="I_force018_trail_psychokinesis3_4#Bone_BWL_032"/>
+        <Effect Name="I_force018_trail_psychokinesis3_4#Bone_BWR_02"/>
+        <Effect Name="Skiaclipse"/>
+        <Effect Name="Skiaclipse_pad_2"/>
+        <Effect Name="Skiaclipse_pad_1"/>
+        <Effect Name="I_force018_trail_earth_long_stone"/>
+        <Effect Name="I_force018_trail_earth_long_stone2"/>
+        <Effect Name="F_ground106_smoke"/>
+        <Effect Name="F_ground106_smokeUP"/>
     </Category>
     <Category ID="124">
         <Effect Name="rope_pad_abil"/>
@@ -1918,6 +1967,7 @@
         <Effect Name="SHOW_REMOVE_BUFF_{Auto_1}"/>
         <Effect Name="SHOW_REMOVE_BUFF"/>
         <Effect Name="Matross_CanisterShot_End"/>
+        <Effect Name="Cannoneer_SiegeBurst_FlashBomb"/>
     </Category>
     <Category ID="84">
         <Effect Name="M_PAST_FLIBRARY_1"/>
@@ -4417,6 +4467,10 @@
         <Effect Name="I_boruta_skl2_force#Bone025"/>
         <Effect Name="F_smoke168_pink"/>
         <Effect Name="F_archer_musket_smoke_white2"/>
+        <Effect Name="I_force018_trail_psychokinesis2#EYE_BL"/>
+        <Effect Name="Dummy_R_hand"/>
+        <Effect Name="I_force018_trail_psychokinesis2#EYE_BR"/>
+        <Effect Name="Dummy_R_hand"/>
     </Category>
     <Category ID="45">
         <Effect Name="Cleric_Barrier"/>
@@ -5551,6 +5605,34 @@
         <Effect Name="F_smoke141_darkblue_spread_out3"/>
         <Effect Name="F_smoke141_violet_dark_spread_out"/>
         <Effect Name="LEGEND_RAID_SHADOWMANCER_MASTER"/>
+        <Effect Name="I_force018_trail_psychokinesis2#EYE_BL"/>
+        <Effect Name="F_archer_BombardmentOrdeads_red"/>
+        <Effect Name="I_force018_trail_psychokinesis2#EYE_BR"/>
+        <Effect Name="I_force106_eye#EYE_BR"/>
+        <Effect Name="I_force106_eye#EYE_BL"/>
+        <Effect Name="F_smoke141_grey_dark_spread_out"/>
+        <Effect Name="I_cleric_1inchpunch_hit_circle"/>
+        <Effect Name="F_archer_highanchoring_hit_splash_blue"/>
+        <Effect Name="F_archer_ParthianShaft_hit_splash"/>
+        <Effect Name="F_bottom_hit"/>
+        <Effect Name="F_buff_basic053_white"/>
+        <Effect Name="F_explosion114_flower_white"/>
+        <Effect Name="F_explosion128_white"/>
+        <Effect Name="E_cleric_Entrenchment_hit"/>
+        <Effect Name="F_explosion114_feather_white"/>
+        <Effect Name="F_wizard_HoleOfDarkness"/>
+        <Effect Name="I_light013_spark_orange_2"/>
+        <Effect Name="F_archer_CannonShot_explosion_orange#Dummy_ROOT"/>
+        <Effect Name="F_wizard_Algiz_shot"/>
+        <Effect Name="F_archer_BombardmentOrdeads_shot"/>
+        <Effect Name="I_force107_dark"/>
+        <Effect Name="I_force018_trail_flower_800_gray"/>
+        <Effect Name="I_force018_trail_psychokinesis3_4"/>
+        <Effect Name="I_force106_eye"/>
+        <Effect Name="I_force071_dark5"/>
+        <Effect Name="F_explosion132_white_black"/>
+        <Effect Name="Skiaclipse_pad_2"/>
+        <Effect Name="Skiaclipse_pad_1"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>

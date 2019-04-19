@@ -15,7 +15,7 @@ function PUSH_BACK_UNIQUE_INTO_INDUN_CATEGORY_LIST(cateType)
             return;
         end
     end
-    g_indunCategoryList[#g_indunCategoryList + 1] = cateType;    
+    g_indunCategoryList[#g_indunCategoryList + 1] = cateType;
 end
 
 function UI_TOGGLE_INDUN()
@@ -664,6 +664,25 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
     -- count
     local countData = GET_CHILD_RECURSIVELY(frame, 'countData');
     local cycleImage = GET_CHILD_RECURSIVELY(frame, 'cyclePic');
+
+    -- skill restriction
+    local restrictBox = GET_CHILD_RECURSIVELY(frame, 'restrictBox');
+    restrictBox:ShowWindow(0);
+
+    local mapName = TryGetProp(indunCls, "MapName");
+    if mapName ~= nil and mapName ~= "None" then
+        local indunMap = GetClass("Map", mapName);
+        local mapKeyword = TryGetProp(indunMap, "Keyword");
+        if string.find(mapKeyword, "IsRaidField") ~= nil then
+            restrictBox:ShowWindow(1);
+            restrictBox:SetTooltipOverlap(1);
+            local TOOLTIP_POSX = frame:GetUserConfig("TOOLTIP_POSX");
+            local TOOLTIP_POSY = frame:GetUserConfig("TOOLTIP_POSY");
+            restrictBox:SetPosTooltip(TOOLTIP_POSX, TOOLTIP_POSY);
+            restrictBox:SetTooltipType("skillRestrictList");
+            restrictBox:SetTooltipArg("IsRaidField");
+        end
+    end
     
     --local tokenStatePic = GET_CHILD_RECURSIVELY(frame, 'tokenStatePic');
     local resetGroupID = indunCls.PlayPerResetType;    

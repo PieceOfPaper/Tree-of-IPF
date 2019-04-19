@@ -8,128 +8,645 @@ function QUESTDETAIL_ON_MSG(frame, msg, argStr, argNum)
 
 end
 
-function QUESTDETAIL_INFO(questID, xPos)
-
-	local frame = ui.GetFrame('questdetail');
-	local box = frame:GetChild('box');
-	tolua.cast(box, "ui::CGroupBox");
-	box:DeleteAllControl();
-
-	local y = 5;
-
-	local questCls = GetClassByType("QuestProgressCheck", questID);
-	local cls = GetClassByType("QuestProgressCheck_Auto", questID);
-
-	local titleStory = 'None';
-	local pc = GetMyPCObject();
-	local result = SCR_QUEST_CHECK_C(pc, questCls.ClassName);
-	local State = CONVERT_STATE(result);
-    local sObj = GetSessionObject(pc, 'ssn_klapeda')
-	local titleText = GET_QUEST_DETAIL_TITLE(questCls, sObj);    
-	
-	titleStory = questCls[State..'Story'];
-
-	y = BOX_CREATE_RICHTEXT(box, "title", y, 20, "{@st41}"..titleText);
-
-	local s_obj		= GetClass("SessionObject", questCls.Quest_SSN);
-	local s_info	= nil;
-	if s_obj ~= nil then
-		local s_info = session.GetSessionObject(s_obj.ClassID);
-		if s_info ~= nil then
-			s_obj = GetIES(s_info:GetIESObject());
-			box:SetValue(s_info.type);
-		end
+function QUESTDETAIL_MAKE_TITLE_CTRL(frame, questIES ) 
+	if frame == nil then
+		frame = ui.GetFrame('questdetail');
 	end
-	
-	y = MAKE_QUESTINFO_BY_IES(box, questCls, 20, y, s_obj, result, 1);
 
-    if titleStory ~= 'None' and titleStory ~= questCls[State..'Desc'] then
-    	y = BOX_CREATE_RICHTEXT(box, "story", y + 10, 20, "{#150800}{b}"..titleStory);
-    end
-    
-    local repeat_reward_item = {}
-    local repeat_reward_achieve = {}
-    local repeat_reward_achieve_point = {}
-    local repeat_reward_exp = 0;
-    local repeat_reward_npc_point = 0
-    local repeat_reward_select = false
-    local repeat_reward_select_use = false
-    
-    repeat_reward_item, repeat_reward_achieve, repeat_reward_achieve_point, repeat_reward_exp, repeat_reward_npc_point, repeat_reward_select, repeat_reward_select_use = SCR_REPEAT_REWARD_CHECK(pc, questCls, cls, sObj)
-    
-	y = y + 10;
-    if result == 'PROGRESS' or result == 'SUCCESS' then
-    	y = MAKE_DETAIL_TAKE_CTRL(box, questCls, y);
-    end
-	y = MAKE_SELECT_REWARD_CTRL(box, y, cls);
+	local pc = SCR_QUESTINFO_GET_PC();
+	local sObj = GetSessionObject(pc, 'ssn_klapeda')
+	local titleText = GET_QUEST_DETAIL_TITLE(questIES, sObj);    
 
-    local reward_result = QUEST_REWARD_CHECK(questCls.ClassName)
-    if #reward_result > 0 then
-    	y = BOX_CREATE_RICHTEXT(box, "t_addreward", y, 20, ScpArgMsg("Auto_{@st41}BoSang"));
-    	y = MAKE_BASIC_REWARD_MONEY_CTRL(box, cls, y);
-    	y = MAKE_BASIC_REWARD_BUFF_CTRL(box, cls, y);
-    	y = MAKE_BASIC_REWARD_HONOR_CTRL(box, cls, y);
-    	y = MAKE_BASIC_REWARD_PCPROPERTY_CTRL(box, cls, y);
-    	y = MAKE_BASIC_REWARD_JOURNEYSHOP_CTRL(box, cls, y);
-    end
+	local title = GET_CHILD_RECURSIVELY(frame, 'title');
+	local level = GET_CHILD_RECURSIVELY(frame, 'level');
 
-	local succExp = cls.Success_Exp;
-	local succJobExp = 0;
-	if repeat_reward_exp > 0 then
-	    succExp = succExp + repeat_reward_exp
-	end
-	
-    if succExp > 0 then
-        succJobExp = succJobExp + math.floor(succExp * 77 /100)
-    end
-	
-	if cls.Success_Lv_Exp > 0 then
-        local xpIES = GetClass('Xp', pc.Lv)
-        if xpIES ~= nil then
-            local lvexpvalue =  math.floor(xpIES.QuestStandardExp * cls.Success_Lv_Exp)
-            if lvexpvalue ~= nil and lvexpvalue > 0 and pc.Lv < PC_MAX_LEVEL then
-	            succExp = succExp + lvexpvalue
+	title:SetTextByKey("text", titleText)
+	level:SetTextByKey("text", ScpArgMsg("Level{Level}","Level",questIES.Level));
+end
+
+
+function  GET_QUEST_LOCATION_MAPUILIST(questIES, state, txt, txtList)
+	local mapListUI = questIES[state .. 'MapListUI']
+	if mapListUI ~= '' and mapListUI ~= 'None' then
+		local list = SCR_STRING_CUT(mapListUI)
+        for i = 1, #list do
+            local zoneName
+            if GetClass('Map', list[i]) ~= nil then
+                zoneName = GetClassString('Map', list[i], 'Name')
             end
-            local lvjobexpvalue =  math.floor(xpIES.QuestStandardJobExp * cls.Success_Lv_Exp)
-            if lvjobexpvalue ~= nil and lvjobexpvalue > 0 and GetJobLv(pc) < 15 then
-	            succJobExp = succJobExp + lvjobexpvalue
+            if zoneName == nil or zoneName == 'None' then
+                if GetClass('Map_Area', list[i]) ~= nil then
+                    local areaZone = GetClassString('Map_Area', list[i], 'ZoneClassName')
+                    local areaName = GetClassString('Map_Area', list[i], 'Name')
+                    
+                    if areaName == nil or areaName == 'None' then
+                        zoneName = list[i]
+                    else
+                        zoneName = GetClassString('Map', areaZone, 'Name')..'('..areaName..')'
+                    end
+                end
+            end
+            
+            if zoneName == nil then
+                zoneName = list[i]
+            end
+            
+            if table.find(txtList, zoneName) == 0 then
+                if txt == '' then
+                    txt = zoneName
+                else
+                    txt = txt..'{nl}'..zoneName
+                end
+                txtList[#txtList + 1] = zoneName
+            end
+        end
+	end
+	return txt, txtList
+end
+
+function  GET_QUEST_LOCATION_MAPLIST(questIES, state, txt, txtList)
+	local map = questIES[state .. 'Map'];
+	if map ~= '' and map ~= 'None' then
+		local zoneName = GetClassString('Map', map, 'Name')
+        if zoneName ~= nil and table.find(txtList, zoneName) == 0 then
+            txt = zoneName
+            txtList[#txtList + 1] = zoneName
+        end
+	end
+	return txt, txtList
+end
+
+function GET_QUEST_LOCATION_SESSIONOBJ(questIES, result, txt, txtList )
+
+	if questIES.Quest_SSN ~= 'None' then
+		local pc = SCR_QUESTINFO_GET_PC();
+		local sObj_quest = GetSessionObject(pc, questIES.Quest_SSN)
+        if sObj_quest ~= nil and sObj_quest.SSNInvItem ~= 'None' then
+            local itemList = SCR_STRING_CUT(sObj_quest.SSNInvItem, ':')
+            local maxCount = math.floor(#itemList/3)
+            for i = 1, maxCount do
+                local zoneTemp = itemList[i*3]
+                local zoneName = GetClassString('Map', zoneTemp, 'Name')
+                if table.find(txtList, zoneName) == 0 then
+                    if txt == '' then
+                        txt = txt..zoneName
+                        firstInpu = true
+                    else
+                        txt = txt..'{nl}'..zoneName
+                    end
+                    txtList[#txtList + 1] = zoneName
+                end
+            end
+        end
+        
+        if sObj_quest ~= nil and sObj_quest.SSNMonKill ~= 'None' then
+            local monList = SCR_STRING_CUT(sObj_quest.SSNMonKill, ':')
+            if #monList >= 3 and #monList % 3 == 0 and monList[1] ~= 'ZONEMONKILL' then
+                local maxCount = math.floor(#monList/3)
+                for i = 1, maxCount do
+                    local zoneTemp = monList[i*3]
+                    local zoneName = GetClassString('Map', zoneTemp, 'Name')
+                    if table.find(txtList, zoneName) == 0 then
+                        if txt == '' then
+                            txt = txt..zoneName
+                            firstInpu = true
+                        else
+                            txt = txt..'{nl}'..zoneName
+                        end
+                        txtList[#txtList + 1] = zoneName
+                    end
+                end
+            elseif monList[1] == 'ZONEMONKILL'  then
+                for i = 1, QUEST_MAX_MON_CHECK do
+                    if #monList - 1 >= i then
+                        local index = i + 1
+                        local zoneMonInfo = SCR_STRING_CUT(monList[index])
+                        local zoneName = GetClassString("Map", zoneMonInfo[1], "Name")
+                        if zoneName ~= "None" then
+                            if table.find(txtList, zoneName) == 0 then
+                                if txt == '' then
+                                    txt = txt..zoneName
+                                    firstInpu = true
+                                else
+                                    txt = txt..'{nl}'..zoneName
+                                end
+                                txtList[#txtList + 1] = zoneName
+                            end
+            			end
+                    end
+                end
+            end
+        end
+        
+        if result == 'PROGRESS' then
+            local ssnIES = GetClass('SessionObject',questIES.Quest_SSN)
+            if ssnIES ~= nil then
+                for x = 1, 10 do
+                    if ssnIES['QuestMapPointGroup'..x] ~= 'None' then
+                        local strList = SCR_STRING_CUT(ssnIES['QuestMapPointGroup'..x],' ')
+                        local i = 1
+                        while i < #strList do
+                            local mapTemp 
+                            if tonumber(strList[i + 1]) ~= nil then
+                                mapTemp = strList[i]
+                                i = i + 5
+                            else
+                                if IS_WARPNPC(strList[i], strList[i + 1]) == 'NO' then
+                                    mapTemp = strList[i]
+                                end
+                                i = i + 3
+                            end
+                            
+                        
+                            if mapTemp ~= nil then
+                                if GetClass('Map', mapTemp) ~= nil then
+                                    local zoneName = GetClassString('Map', mapTemp, 'Name')
+                                    if table.find(txtList, zoneName) == 0 then
+                                        if txt == '' then
+                                            txt = zoneName
+                                        else
+                                            txt = txt..'{nl}'..zoneName
+                                        end
+                                        txtList[#txtList + 1] = zoneName
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+	return txt, txtList
+end
+
+function GET_QUEST_LOCATION_LIST(questIES, State, txt, txtList)
+
+	local location = questIES[State .. 'Location'];
+	if txt == '' and location ~= '' and location ~= 'None' then
+        local strList = SCR_STRING_CUT(location,' ')
+        local i = 1
+        while i < #strList do
+            local mapTemp 
+            if tonumber(strList[i + 1]) ~= nil then
+                mapTemp = strList[i]
+                i = i + 5
+            else
+                if IS_WARPNPC(strList[i], strList[i + 1]) == 'NO' then
+                    mapTemp = strList[i]
+                end
+                i = i + 3
+            end
+            
+            if mapTemp ~= nil then
+                if GetClass('Map', mapTemp) ~= nil then
+                    local zoneName = GetClassString('Map', mapTemp, 'Name')
+                    if table.find(txtList, zoneName) == 0 then
+                        if txt == '' then
+                            txt = zoneName
+                        else
+                            txt = txt..'{nl}'..zoneName
+                        end
+                        txtList[#txtList + 1] = zoneName
+                    end
+                end
+            end
+        end
+	end
+	
+	return txt, txtList
+end
+
+-- 위치 컨트롤
+function QUESTDETAIL_MAKE_LOCATION_CTRL(gbBody, x, y, questIES )
+	local pc = GetMyPCObject();
+	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
+	local State = CONVERT_STATE(result);
+    local height =0; 
+	local txt =""
+	local txtList = {}
+	txt, txtList = GET_QUEST_LOCATION_MAPUILIST(questIES, State, txt, txtList)
+	txt, txtList = GET_QUEST_LOCATION_MAPLIST(questIES, State, txt, txtList)
+	txt, txtList = GET_QUEST_LOCATION_SESSIONOBJ(questIES, result, txt, txtList)
+	txt, txtList = GET_QUEST_LOCATION_LIST(questIES, State, txt, txtList)
+	
+	local topFrame = gbBody:GetTopParentFrame();
+    if txt ~= '' then
+        -- 제목 
+        local tagText = topFrame:GetUserConfig('QUEST_LOC_TEXT');
+        if tagText == nil then
+            tagText = "{@st38}Loc{/}"
+        end
+        local contentTitle = gbBody:CreateOrGetControl('richtext', 'QuestLocation', x, y + height, gbBody:GetWidth() - x - SCROLL_WIDTH , 10);
+        contentTitle:EnableHitTest(0);
+        contentTitle:SetTextFixWidth(1);
+        contentTitle:SetText(tagText);
+        height = height + contentTitle:GetHeight();
+
+         -- 내용 
+        local font =topFrame:GetUserConfig('QUEST_LOC_FONT'); 
+        if font == nil then
+            font = "{@st38}"
+        end
+        txt = font .. txt
+
+        local offsetX = topFrame:GetUserConfig('QUEST_LOC_X'); 
+        if offsetX == nil then
+            offsetX = 10
+        end
+
+        local content = gbBody:CreateOrGetControl('richtext', 'QuestLocationDesc', x + offsetX, y + height, gbBody:GetWidth() - x - SCROLL_WIDTH , 10);
+        content:EnableHitTest(0);
+        content:SetTextFixWidth(1);
+        content:SetText(txt);
+        height = height + content:GetHeight();
+    end
+
+	return height;
+end
+
+-- 개요 컨트롤
+function QUESTDETAIL_MAKE_SUMMARY_CTRL(gbBody, x, y, questIES )
+	local pc = GetMyPCObject();
+	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
+	local State = CONVERT_STATE(result);
+	local txt = questIES[State..'Story']; 
+	local topFrame = gbBody:GetTopParentFrame();
+    local height =0; 
+	-- 값이 있으면 항목 설정.
+    if txt ~= '' then
+        -- 제목 
+		local tagText = topFrame:GetUserConfig('QUEST_SUMMARY_TEXT');
+		if tagText == nil then
+			tagText = "{@st41}Summary{/}"
+        end
+    
+        local contentTitle = gbBody:CreateOrGetControl('richtext', 'QuestSummary', x, y + height, gbBody:GetWidth() - x - SCROLL_WIDTH , 10);
+        contentTitle:EnableHitTest(0);
+        contentTitle:SetTextFixWidth(1);
+        contentTitle:SetText(tagText);
+        height = height + contentTitle:GetHeight();
+
+        -- 내용 
+		local font =topFrame:GetUserConfig('QUEST_SUMMARY_FONT'); 
+		if font == nil then
+			font = "{@st41}"
+		end
+        txt = font .. txt
+        
+        local offsetX = topFrame:GetUserConfig('QUEST_SUMMARY_X'); 
+        if offsetX == nil then
+            offsetX = 10
+        end
+
+        local content = gbBody:CreateOrGetControl('richtext', 'QuestSummaryDesc', x + offsetX, y + height, gbBody:GetWidth() - x - SCROLL_WIDTH , 10);
+        content:EnableHitTest(0);
+        content:SetTextFixWidth(1);
+        content:SetText(txt);
+        height = height + content:GetHeight();
+
+    end
+    
+    return height;
+end
+
+-- 선행 퀘스트 목록 설정.
+function QUESTDETAIL_MAKE_PREQUEST_LIST_CTRL(ctrlset, x, y, questIES)
+
+	if questIES.Succ_Check_QuestCount == 0 then
+		return 0;
+	end
+
+	local pc = SCR_QUESTINFO_GET_PC();
+	
+	local sObj_main = GetSessionObject(pc, 'ssn_klapeda');
+    if sObj_main == nil then
+        return 0;
+    end
+	
+	local height = 0;
+
+    if questIES.Succ_Quest_Condition == 'AND' then
+        local Succ_req_quest_check = 0;
+        local i
+        local flag = false
+        local addIndex = 0
+        local tempList = {}
+        for i = 1, 10 do
+            if questIES['Succ_QuestName'..i] ~= 'None' then
+                local ret = SCR_QUEST_SUCC_CHECK_MODULE_QUEST_SUB(pc, questIES, sObj_main, i)
+                if ret == 'NO' then
+                    local t1, t2, t3 = SCR_QUEST_LINK_FIRST(pc,questIES['Succ_QuestName'..i])
+                    for i2 = 1, #t2 do
+                        if table.find(tempList, t2[i2]) == 0 then
+                            local questCount, questTerms
+                            for i3 = 1, #t3 do
+                                if t2[i2] == t3[i3][1] then
+                                    questCount = t3[i3][2]
+                                    questTerms = t3[i3][3]
+                                end
+                            end
+                            
+                            if questIES['Succ_QuestName'..i] == t2[i2] then
+                                questCount = questIES['Succ_QuestCount'..i]
+                            end
+                            
+                            local msg
+                            if questCount <= 0 then
+                                msg = '{#ffff00}'..ScpArgMsg('Quest_POSSIBLE')..'{/}'
+                            elseif questCount == 1 then
+                                msg = '{#44ccff}'..ScpArgMsg('Quest_PROGRESS')..'{/}'
+                            elseif questCount == 200 then
+                                msg = '{#00ffff}'..ScpArgMsg('Quest_SUCCESS')..'{/}'
+                            elseif questCount == 300 then
+                                msg = '{#00ff00}'..ScpArgMsg('Quest_COMPLETE')..'{/}'
+                            end
+                            
+                            local itemtxt = ''
+                            if flag == false then
+                                flag = true
+                                itemtxt = ScpArgMsg('QUESTINFO_QUEST')
+                            end
+                            local succQuestIES = GetClass('QuestProgressCheck',t2[i2])
+                            if succQuestIES ~= nil then
+                    			itemtxt = itemtxt..msg..' '..succQuestIES.Name
+                    		else
+                    		    itemtxt = itemtxt..t2[i2]
+                            end
+                            
+                            if itemtxt ~= nil then
+                                tempList[#tempList + 1] = t2[i2]
+                                addIndex = addIndex + 1
+                    			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. addIndex, x, y + height, ctrlset:GetWidth() - x - SCROLL_WIDTH, 10);
+                				content:EnableHitTest(0);
+                    			content:SetTextFixWidth(0);
+                    			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
+                    			height = height + content:GetHeight();
+                    		end
+                    	end
+                    end
+                end
+            end
+        end
+    elseif questIES.Succ_Quest_Condition == 'OR' then
+        local i
+        local flag = false
+        local addIndex = 0
+        local tempList = {}
+        for i = 1, 10 do
+            if questIES['Succ_QuestName'..i] ~= 'None' then
+                local ret = SCR_QUEST_SUCC_CHECK_MODULE_QUEST_SUB(pc, questIES, sObj_main, i)
+                if ret == 'NO' then
+                    local t1, t2, t3 = SCR_QUEST_LINK_FIRST(pc,questIES['Succ_QuestName'..i])
+                    for i2 = 1, #t2 do
+                        if table.find(tempList, t2[i2]) == 0 then
+                            local questCount, questTerms
+                            for i3 = 1, #t3 do
+                                if t2[i2] == t3[i3][1] then
+                                    questCount = t3[i3][2]
+                                    questTerms = t3[i3][3]
+                                end
+                            end
+                            
+                            if questIES['Succ_QuestName'..i] == t2[i2] then
+                                questCount = questIES['Succ_QuestCount'..i]
+                            end
+                            
+                            local msg
+                            if questCount <= 0 then
+                                msg = '{#ffff00}'..ScpArgMsg('Quest_POSSIBLE')..'{/}'
+                            elseif questCount == 1 then
+                                msg = '{#44ccff}'..ScpArgMsg('Quest_PROGRESS')..'{/}'
+                            elseif questCount == 200 then
+                                msg = '{#00ffff}'..ScpArgMsg('Quest_SUCCESS')..'{/}'
+                            elseif questCount == 300 then
+                                msg = '{#00ff00}'..ScpArgMsg('Quest_COMPLETE')..'{/}'
+                            end
+                            
+                            local itemtxt = ''
+                            if flag == false then
+                                flag = true
+                                itemtxt = ScpArgMsg('QUESTINFO_QUEST')
+                            end
+                            local succQuestIES = GetClass('QuestProgressCheck',t2[i2])
+                            if succQuestIES ~= nil then
+                    			itemtxt = itemtxt..msg..' '..succQuestIES.Name
+                    		else
+                    		    itemtxt = itemtxt..t2[i2]
+                            end
+                            
+                            if itemtxt ~= nil then
+                                tempList[#tempList + 1] = t2[i2]
+                                addIndex = addIndex + 1
+                    			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. addIndex, x, y + height, ctrlset:GetWidth() - x - SCROLL_WIDTH, 10);
+                				content:EnableHitTest(0);
+                    			content:SetTextFixWidth(0);
+                    			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
+                    			height = height + content:GetHeight();
+                    		end
+                    	end
+                    end
+                end
             end
         end
     end
     
-	if succExp > 0 then
-	    succExp = GET_COMMAED_STRING(succExp)
-	    y = y + 5
-		y = BOX_CREATE_RICHTEXT(box, "t_successExp", y, 20, ScpArgMsg("Auto_{@st41}KyeongHeomChi_:_") .."{s20}{ol}{#FFFF00}"..  succExp.."{/}", 10);
-		local tempY = y
-		y = MAKE_QUESTINFO_REWARD_LVUP(box, questCls, 20, y, '{@st41b}')
-		if tempY ~= y then
-		    y = y - 5
-		end
-	end
-	if succJobExp > 0 then
-	    succJobExp = GET_COMMAED_STRING(succJobExp)
-		y = BOX_CREATE_RICHTEXT(box, "t_successJobExp", y, 20, ScpArgMsg("SuccessJobExpGiveMSG1") .."{s20}{#FFFF00}"..  succJobExp.."{/}", 10);
-	end
+	return height;
+end
 
-	y = MAKE_BASIC_REWARD_ITEM_CTRL(box, cls, y);
-    
-    y = MAKE_BASIC_REWARD_RANDOM_CTRL(box, questCls, cls, y + 20);
-    
-    y = MAKE_REWARD_STEP_ITEM_CTRL(box, questCls, cls, y, 'SUCCESS')
-    
-	y = MAKE_BASIC_REWARD_REPE_CTRL(box, questCls, cls, y + 20);
-
-    if questCls.AbandonUI == 'YES' then
-        if result == 'PROGRESS' or result == 'SUCCESS' then
-        	y = MAKE_ABANDON_CTRL(frame, box, y);
-        	y = y + 30;
-    	end
+-- 목표 컨트롤
+function QUESTDETAIL_MAKE_OBJECTIVE_CTRL(gbBody, x, y, questIES )
+	local pc = GetMyPCObject();
+	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
+	local State = CONVERT_STATE(result);
+	local txt = questIES[State.."Desc"]  -- 목표
+    local height = 0;
+    local topFrame = gbBody:GetTopParentFrame();
+    local offsetX = topFrame:GetUserConfig('QUEST_OBJECTIVE_X'); 
+    if offsetX == nil then
+        offsetX = 10
     end
 
+	-- 값이 있으면 항목 설정.
+    if txt ~= '' then
+         -- 제목 
+		local tagText = topFrame:GetUserConfig('QUEST_OBJECTIVE_TEXT');
+		if tagText == nil then
+			tagText = "{@st41}Obj{/}"
+        end
+
+        local contentTitle = gbBody:CreateOrGetControl('richtext', 'QuestObjective', x, y + height, gbBody:GetWidth() - x - SCROLL_WIDTH , 10);
+        contentTitle:EnableHitTest(0);
+        contentTitle:SetTextFixWidth(1);
+        contentTitle:SetText(tagText);
+        height = height + contentTitle:GetHeight();
+        -- 내용
+		local font =topFrame:GetUserConfig('QUEST_OBJECTIVE_FONT'); 
+		if font == nil then
+			font = "{@st41}"
+		end
+        txt = font .. txt
+
+        local content = gbBody:CreateOrGetControl('richtext', 'QuestObjectiveDesc', x + offsetX, y + height, gbBody:GetWidth() - x - SCROLL_WIDTH , 10);
+        content:EnableHitTest(0);
+        content:SetTextFixWidth(1);
+        content:SetText(txt);
+        height = height + content:GetHeight();
+	end
+
+	-- 선행퀘스트 목록 설정.
+	height = height + QUESTDETAIL_MAKE_PREQUEST_LIST_CTRL(gbBody, x + offsetX, y+height, questIES);
+
+	return height;
+end
+
+-- 보상 컨트롤
+function QUESTDETAIL_MAKE_REWARD_CTRL(gbBody, x, y, questIES)
+
+	local height = 0;
+	-- 퀘스트가 진행중이거나 완료 상태 일때 필요한 아이템이 있는지 확인하고 그리기
+	if result == 'PROGRESS' or result == 'SUCCESS' then
+		height = height + QUESTDETAIL_MAKE_REWARD_TAKE_CTRL(gbBody, x, y + height, questIES);
+	end
+	
+	-- 선택 보상 컨트롤 만들기
+	height = height + QUESTDETAIL_MAKE_SELECT_REWARD_CTRL(gbBody,  x, y + height, questIES);
+	
+	-- 퀘스트 보상 정보.
+    local reward_result = QUEST_REWARD_CHECK(questIES.ClassName)
+   if #reward_result > 0 then
+        local topFrame = gbBody:GetTopParentFrame();
+        local titleText = topFrame:GetUserConfig('QUEST_REWARD_TEXT');
+        if titleText == nil then
+			titleText =  ScpArgMsg("Auto_{@st41}BoSang");
+		end
+        
+		height = height +  QUESTDETAIL_BOX_CREATE_RICHTEXT(gbBody, x, y + height, gbBody:GetWidth() - 30, 20, "t_addreward", titleText); -- 타이틀
+		height = height +  QUESTDETAIL_MAKE_REWARD_MONEY_CTRL(gbBody, x, y + height, questIES);			-- 실버
+		height = height +  QUESTDETAIL_MAKE_REWARD_BUFF_CTRL(gbBody, x, y + height, questIES);    		-- 버프
+		height = height +  QUESTDETAIL_MAKE_REWARD_HONOR_CTRL(gbBody, x , y + height, questIES);		-- 칭호
+		height = height +  QUESTDETAIL_MAKE_REWARD_PCPROPERTY_CTRL(gbBody, x, y + height, questIES); 	-- 프로퍼티(업적, 스탯등)
+		height = height +  QUESTDETAIL_MAKE_REWARD_JOURNEYSHOP_CTRL(gbBody, x, y + height, questIES); 	-- 저니샵??
+   end
+   
+	height = height +  QUESTDETAIL_MAKE_EXP_REWARD_CTRL(gbBody, x, y + height, questIES); 				-- 경험치
+	height = height +  QUESTDETAIL_MAKE_REWARD_ITEM_CTRL(gbBody, x, y + height, questIES);    			-- 아이템
+	height = height +  QUESTDETAIL_MAKE_REWARD_RANDOM_CTRL(gbBody, x, y + height, questIES); 			-- 랜덤 ?
+	height = height +  QUESTDETAIL_MAKE_REWARD_STEP_ITEM_CTRL(gbBody, x, y + height, questIES); 		-- 단계별 ?
+	height = height +  QUESTDETAIL_MAKE_REWARD_REPEAT_CTRL(gbBody, x, y + height, questIES); 			-- 반복보상
+
+	return height
+end
+
+function QUESTDETAIL_CLOSE_FRAME(ctrl, ct)
+    ui.CloseFrame("questdetail");
+end
+
+-- 버튼 컨트롤
+function QUESTDETAIL_MAKE_BTN_CTRL(gbBody, x, y, questIES, isCompleteQuest)
+    
+    local pc = GetMyPCObject();
+	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
+	local State = CONVERT_STATE(result);
+    local questCls = GetClassByType("QuestProgressCheck_Auto", questIES.ClassID);
+    local sobjIES = GET_MAIN_SOBJ();
+	local abandonCheck = QUEST_ABANDON_RESTARTLIST_CHECK(questIES, sobjIES); -- 포기퀘스트 체크
+            
+
+    local height =0; 
+    local frame = ui.GetFrame("questdetail");
+    local isLocation = false;
+    local isAbandon = false;
+    local isRestart = false;
+
+    -- 완료 퀘스트인가? 
+    if isCompleteQuest ~= nil and isCompleteQuest == true then
+        height = height + QUESTDETAIL_MAKE_DIALOG_BTN(frame, gbBody, x, y+height, questIES)
+    else
+        -- 포기 버튼이 나와야 하는 퀘스트인가
+        if  questIES.AbandonUI == 'YES' and  (result == 'PROGRESS' or result == 'SUCCESS') then 
+            isAbandon = true;
+        end
+
+        -- 재시작 버튼을 만들어야 하는가
+        if  abandonCheck == 'ABANDON/LIST' and result == 'POSSIBLE' then
+            isRestart = true;
+        end
+
+        -- 위치표시가 되어야 하는 퀘스트인가
+        if CHECK_QUEST_LOCATION(questIES) == true then
+            isLocation = true;
+        end
+       
+        -- 위치보기, 포기 버튼 생성
+        if isLocation == true and (isAbandon == true or isRestart == true ) then
+            -- 위치보기 버튼 좌측 (margin,gravity 설정)
+            height = height +  QUESTDETAIL_MAKE_LOCATION_BTN(frame, gbBody, x, y+height, questIES,
+            { horz = ui.LEFT, vert = ui.BOTTOM },
+            { 20, 0, 0, 10});
+
+            -- 포기/재시작 버튼 우측(margin,gravity 설정)
+            if isRestart == true then
+                height = height + QUESTDETAIL_MAKE_RESTART_BTN(frame, gbBody, x, y+height, questIES, 
+                { horz = ui.RIGHT, vert = ui.BOTTOM },
+                { 0, 0, 20, 10});
+            else
+                height = height + QUESTDETAIL_MAKE_ABANDON_BTN(frame, gbBody, x, y+height, questIES,
+                { horz = ui.RIGHT, vert = ui.BOTTOM },
+                { 0, 0, 20, 10});
+            end
+
+        elseif isLocation == true then
+            height = height +  QUESTDETAIL_MAKE_LOCATION_BTN(frame, gbBody, x, y+height, questIES);
+        elseif isAbandon == true then
+            height = height + QUESTDETAIL_MAKE_ABANDON_BTN(frame, gbBody, x, y+height, questIES);
+        elseif isRestart == true then
+            height = height + QUESTDETAIL_MAKE_RESTART_BTN(frame, gbBody, x, y+height, questIES);
+        end
+    end
+
+	return height;
+end
+
+function QUESTDETAIL_INFO(questID, xPos, prop)
+	local frame = ui.GetFrame('questdetail');
+	local gbBody = frame:GetChild('gbBody');
+	tolua.cast(gbBody, "ui::CGroupBox");
+	gbBody:DeleteAllControl();
+
+	local questIES = GetClassByType("QuestProgressCheck", questID);
+
+	local y = 0;
+	local spaceY = 10
+	local x = 10;
+    
+	if prop.isCompleteQuest == true then    -- 완료 퀘스트
+	 	QUESTDETAIL_MAKE_TITLE_CTRL(frame, questIES ) -- 퀘스트 제목, 레벨
+	 	-- 개요
+		y = y + QUESTDETAIL_MAKE_SUMMARY_CTRL(gbBody, x, y, questIES) + spaceY;
+		-- 목표
+		y = y + QUESTDETAIL_MAKE_OBJECTIVE_CTRL(gbBody, x, y, questIES) + spaceY;
+		-- 보상
+		y = y + QUESTDETAIL_MAKE_REWARD_CTRL(gbBody, x, y, questIES) + spaceY;
+		-- 버튼 - 대사 보기 버튼.
+		y = y + QUESTDETAIL_MAKE_BTN_CTRL(gbBody, 0, y, questIES, prop.isCompleteQuest) + spaceY;
+	 else -- 진행중 퀘스트
+		QUESTDETAIL_MAKE_TITLE_CTRL(frame, questIES) -- 퀘스트 제목, 레벨
+		 -- 위치
+		y = y + QUESTDETAIL_MAKE_LOCATION_CTRL(gbBody, x, y, questIES) + spaceY;
+		 -- 개요
+		y = y + QUESTDETAIL_MAKE_SUMMARY_CTRL(gbBody, x, y, questIES) + spaceY;
+		 -- 목표
+		y = y + QUESTDETAIL_MAKE_OBJECTIVE_CTRL(gbBody,x, y, questIES) + spaceY;
+		 -- 보상
+		y = y + QUESTDETAIL_MAKE_REWARD_CTRL(gbBody, x, y, questIES) + spaceY;
+		-- 버튼 - 위치보기 / [포기/재시작] 버튼
+		y = y + QUESTDETAIL_MAKE_BTN_CTRL(gbBody, 0, y, questIES, prop.isCompleteQuest) + spaceY;
+     end
+     
 	frame:ShowWindow(1);
-	box:Resize(box:GetWidth(), y);
-	frame:Resize(xPos, frame:GetY(), frame:GetWidth(), y + 100);
+	gbBody:Resize(gbBody:GetWidth(), y);
+	frame:Resize(xPos, frame:GetY(), frame:GetWidth(), y + 120);
 	frame:Invalidate()
 end
 
@@ -153,56 +670,9 @@ function GET_QUEST_DETAIL_TITLE(questCls, sObj)
 	    titleText = questCls.Name;
 	end
 	
-	titleText = "["..ScpArgMsg("Level{Level}","Level",questCls.Level).."] "..titleText;    
     return titleText;
 end
 
-function MAKE_DETAIL_TAKE_CTRL(box, cls, y)
-  y = y + 10;
-    local flag = false
-    local pc
-    local sObj_quest
-    if cls.Quest_SSN ~= 'None' then
-	    pc = GetMyPCObject();
-        sObj_quest = GetSessionObject(pc, cls.Quest_SSN)
-        if sObj_quest ~= nil and sObj_quest.SSNInvItem ~= 'None' then
-            flag = true
-        end
-    end
-	if cls.Succ_InvItemName1 ~= "None" or cls.Succ_EqItemName1 ~= "None" or flag == true then
-		y = BOX_CREATE_RICHTEXT(box, "need_item", y, 20, ScpArgMsg("Auto_{@st41}Pilyo_aiTem"));
-		for i = 1 , QUEST_MAX_INVITEM_CHECK do
-			local propName = "Succ_InvItemName" .. i;
-			if cls[propName] ~= "None" then
-				y = MAKE_ITEM_TAG_TEXT_CTRL(y, box, "need_Item", cls[propName], cls["Succ_InvItemCount" .. i], i);
-			end
-		end
-		
-		for i = 1 , QUEST_MAX_EQUIP_CHECK do
-			local propName = "Succ_EqItemName" .. i;
-			if cls[propName] ~= "None" then
-				y = MAKE_ITEM_TAG_TEXT_CTRL(y, box, "need_Item", cls[propName], 1, i);
-			end
-		end
-		
-		if cls.Quest_SSN ~= 'None' then
-            if sObj_quest ~= nil and sObj_quest.SSNInvItem ~= 'None' then
-                local itemList = SCR_STRING_CUT(sObj_quest.SSNInvItem, ':')
-                local maxCount = math.floor(#itemList/3)
-                for i = 1, maxCount do
-            		local InvItemName = itemList[i*3 - 2]
-            		local needcnt = itemList[i*3 - 1]
-            		local itemclass = GetClass("Item", InvItemName);
-            		if itemclass ~= nil then
-            		    y = MAKE_ITEM_TAG_TEXT_CTRL(y, box, "need_Item", InvItemName, needcnt, i);
-            		end
-            	end
-            end
-		end
-	end
-    
-	return y;
-end
 
 function MAKE_ABANDON_CTRL(frame, box, y)
 	local abandonBtn = box:CreateControl('button', 'abandon_btn', -15, -40, 160, 50);
@@ -221,6 +691,3 @@ function MAKE_ABANDON_CTRL(frame, box, y)
 
 	return y + abandonBtn:GetHeight();
 end
-
-
-

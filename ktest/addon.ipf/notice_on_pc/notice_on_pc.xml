@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="notice_on_pc" x="0" y="0" width="100" height="100" create="open">
+	<frame title="notice_on_pc" layout_gravity="center center" margin="0 0 0 0"/>
+	<skin frameskin="none"/>
+	<draw drawtitlebar="false" drawnotitlebar="false"/>
+	<option hideable="false" closebutton="false"/>
+	<controls>
+        <picture name="icon" layout_gravity="right top" hittest="false" rect="0 0 100 100" image="None" margin="0 0 0 0"/>
+	</controls>
+</uiframe>

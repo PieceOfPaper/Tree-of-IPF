@@ -1,437 +1,434 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-	<Game Name="F_CO_OP_SIAULIAI_50" minLv="0" maxLv="0" playerCountCheckDestroy="0" AllowDummyPC="YES" startWaitSec="-1392508929">
-		<StageList>
-			<Stage Name="FIELD_CO-OP">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-						<Str Str="말라죽은 농작물을 모두 모아 태워라!"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList>
-					<Obj Type="Monster" MonType="47201" Pos="932.07#0.21#-1369.74" range="50" maxStackCount="6" genTime="3000" objectKey="0" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="-197.75#0.21#-1519.84" range="50" maxStackCount="6" genTime="3000" objectKey="1" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="321.77#0.21#-1153.14" range="50" maxStackCount="6" genTime="3000" objectKey="2" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="-113.70#0.21#-1668.78" range="50" maxStackCount="6" genTime="3000" objectKey="3" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="-6.19#0.21#-1261.02" range="50" maxStackCount="6" genTime="3000" objectKey="4" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="-283.15#0.21#-1672.92" range="50" maxStackCount="6" genTime="3000" objectKey="5" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="1332.50#0.21#-1342.91" range="50" maxStackCount="6" genTime="3000" objectKey="6" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="415.12#0.21#-1534.38" range="50" maxStackCount="6" genTime="3000" objectKey="7" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="-149.81#0.21#-1064.47" range="50" maxStackCount="6" genTime="3000" objectKey="8" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="253.23#0.21#-1639.12" range="50" maxStackCount="6" genTime="3000" objectKey="9" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="1318.33#0.21#-1539.71" range="50" maxStackCount="6" genTime="3000" objectKey="10" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="-323.31#-117.91#240.50" range="50" maxStackCount="6" genTime="3000" objectKey="11" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="1150.49#0.21#-1563.30" range="50" maxStackCount="6" genTime="3000" objectKey="12" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="-319.67#-117.91#682.54" range="50" maxStackCount="6" genTime="3000" objectKey="13" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="-137.57#-117.91#224.77" range="50" maxStackCount="6" genTime="3000" objectKey="14" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="105.61#-117.91#244.05" range="50" maxStackCount="6" genTime="3000" objectKey="15" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="159.82#-117.91#785.24" range="50" maxStackCount="6" genTime="3000" objectKey="16" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="-26.26#-117.91#836.56" range="50" maxStackCount="6" genTime="3000" objectKey="17" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="334.82#-117.91#655.38" range="50" maxStackCount="6" genTime="3000" objectKey="18" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="258.98#-117.91#334.96" range="50" maxStackCount="6" genTime="3000" objectKey="19" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="-460.13#-117.91#541.24" range="50" maxStackCount="6" genTime="3000" objectKey="20" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="-1535.61#-209.70#-263.24" range="50" maxStackCount="6" genTime="3000" objectKey="21" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="-1769.05#-209.70#-245.02" range="50" maxStackCount="6" genTime="3000" objectKey="22" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="-1548.79#-209.70#-41.01" range="50" maxStackCount="6" genTime="3000" objectKey="23" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-					<Obj Type="Monster" MonType="47201" Pos="-1845.96#-209.70#-48.32" range="50" maxStackCount="6" genTime="3000" objectKey="24" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
-				</ObjList>
-				<StageEvents>
-					<Event execCount="1" eventName="EVENT1" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="OVER"/>
-								<Num Num="100"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="EVENT1"/>
-								<Num Num="1"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="농작물이 많이 모이자 장작에 타오르는 불꽃이 강해졌습니다!{nl}90초 동안 획득량이 2배로 늘어납니다!"/>
-								<Str Str="Clear"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="EVENT2" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="OVER"/>
-								<Num Num="200"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="EVENT1"/>
-								<Num Num="2"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="농작물이 많이 모이자 장작에 타오르는 불꽃이 강해졌습니다!{nl}90초 동안 획득량이 2배로 늘어납니다!"/>
-								<Str Str="Clear"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="EVENT3" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="OVER"/>
-								<Num Num="300"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="EVENT2"/>
-								<Num Num="1"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="처리할 농작물이 얼마 남지 않았습니다!{nl}90초 동안 아이템의 채집 속도와 이동 속도가 빨라지고 획득량이 늘어납니다!"/>
-								<Str Str="Clear"/>
-								<Num Num="8"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_FINAL_MSPD_BUFF"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="EVENT1_END" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="EVENT1"/>
-								<Str Str="EQ"/>
-								<Num Num="1"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="90"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="EVENT1"/>
-								<Num Num="0"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="시간이 지나 모든 효과가 원래대로 돌아갑니다."/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="EVENT3_END" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="EVENT2"/>
-								<Str Str="=="/>
-								<Num Num="1"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="90"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="EVENT2"/>
-								<Num Num="0"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="시간이 지나 모든 효과가 원래대로 돌아갑니다."/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="CLEAR">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="CLEAR1"/>
-								<Str Str="=="/>
-								<Num Num="1"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="CLEAR2"/>
-								<Str Str="=="/>
-								<Num Num="1"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="개척지의 죽은 농작물을 모두 소각했습니다!{nl}개척민에게 돌아가 보상을 받으세요!"/>
-								<Str Str="Clear"/>
-								<Num Num="8"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_CO-OP"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_CO-OP"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_CO-OP"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_REWARD"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="FAIL">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3600"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="UNDER"/>
-								<Num Num="399"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="시간 내에 모든 농작물을 처리하지 못했습니다.{nl}10분 후 개척민이 사라집니다."/>
-								<Str Str="!"/>
-								<Num Num="8"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_CO-OP"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_REWARD"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_CO-OP"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_REWARD"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="30MIN">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="1800"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="UNDER"/>
-								<Num Num="399"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="30분 남았습니다."/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="10MIN">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3000"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="UNDER"/>
-								<Num Num="399"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="10분 남았습니다."/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="5MIN">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3300"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="UNDER"/>
-								<Num Num="399"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="5분 남았습니다."/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="1MIN">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3540"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="UNDER"/>
-								<Num Num="399"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="1분 남았습니다."/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event eventName="ENTER">
-						<execList>
-							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
-								<Str Str="SCR_F_CO_OP_SIAULIAI_50_TEXT"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="EVENT2_END" execWithStart="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="EVENT1"/>
-								<Str Str="EQ"/>
-								<Num Num="2"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="90"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="EVENT1"/>
-								<Num Num="0"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="시간이 지나 모든 효과가 원래대로 돌아갑니다."/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="CLEAR_CON1">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="900"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="CLEAR1"/>
-								<Num Num="1"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="CLEAR_CON2">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="OVER"/>
-								<Num Num="400"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="CLEAR2"/>
-								<Num Num="1"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="START">
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="흉작으로 죽은 농작물의 처리 때문에 개척민들이 난처해 하고 있습니다.{nl}개척지 주변의 밭에서 농작물을 모아 모닥불에 태워주세요!"/>
-								<Str Str="scroll"/>
-								<Num Num="8"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="GOAL_IN">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="CLEAR1"/>
-								<Str Str="DIF"/>
-								<Num Num="1"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="CLEAR2"/>
-								<Str Str="EQ"/>
-								<Num Num="1"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="개척민이 부탁한 양만큼 전부 처리했지만 아직 많이 남아있습니다.{nl}개척민을 위해서라도 조금만 더 농작물을 처리해주세요!"/>
-								<Str Str="Clear"/>
-								<Num Num="5"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="5S">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3595"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="F_CO_OP_GOAL"/>
-								<Str Str="UNDER"/>
-								<Num Num="399"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="잠시 후 기믹이 종료됩니다."/>
-								<Str Str="scroll"/>
-								<Num Num="5"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="FIELD_REWARD" AutoStart="0">
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="END">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="600"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_REWARD"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_CO-OP"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_FAIL"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="DefGroup"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_CO-OP"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="FIELD_FAIL"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-		</StageList>
-	</Game>
+    <Game Name="F_CO_OP_SIAULIAI_50" minLv="0" maxLv="0" AllowDummyPC="YES" startWaitSec="-1392508929">
+        <StageList>
+            <Stage Name="FIELD_CO-OP">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="말라죽은 농작물을 모두 모아 태워라!"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="47201" Pos="932.07#0.21#-1369.74" range="50" maxStackCount="6" genTime="3000" objectKey="0" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="-197.75#0.21#-1519.84" range="50" maxStackCount="6" genTime="3000" objectKey="1" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="321.77#0.21#-1153.14" range="50" maxStackCount="6" genTime="3000" objectKey="2" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="-113.70#0.21#-1668.78" range="50" maxStackCount="6" genTime="3000" objectKey="3" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="-6.19#0.21#-1261.02" range="50" maxStackCount="6" genTime="3000" objectKey="4" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="-283.15#0.21#-1672.92" range="50" maxStackCount="6" genTime="3000" objectKey="5" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="1332.50#0.21#-1342.91" range="50" maxStackCount="6" genTime="3000" objectKey="6" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="415.12#0.21#-1534.38" range="50" maxStackCount="6" genTime="3000" objectKey="7" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="-149.81#0.21#-1064.47" range="50" maxStackCount="6" genTime="3000" objectKey="8" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="253.23#0.21#-1639.12" range="50" maxStackCount="6" genTime="3000" objectKey="9" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="1318.33#0.21#-1539.71" range="50" maxStackCount="6" genTime="3000" objectKey="10" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="-323.31#-117.91#240.50" range="50" maxStackCount="6" genTime="3000" objectKey="11" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="1150.49#0.21#-1563.30" range="50" maxStackCount="6" genTime="3000" objectKey="12" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="-319.67#-117.91#682.54" range="50" maxStackCount="6" genTime="3000" objectKey="13" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="-137.57#-117.91#224.77" range="50" maxStackCount="6" genTime="3000" objectKey="14" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="105.61#-117.91#244.05" range="50" maxStackCount="6" genTime="3000" objectKey="15" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="159.82#-117.91#785.24" range="50" maxStackCount="6" genTime="3000" objectKey="16" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="-26.26#-117.91#836.56" range="50" maxStackCount="6" genTime="3000" objectKey="17" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="334.82#-117.91#655.38" range="50" maxStackCount="6" genTime="3000" objectKey="18" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="258.98#-117.91#334.96" range="50" maxStackCount="6" genTime="3000" objectKey="19" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="-460.13#-117.91#541.24" range="50" maxStackCount="6" genTime="3000" objectKey="20" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="-1535.61#-209.70#-263.24" range="50" maxStackCount="6" genTime="3000" objectKey="21" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="-1769.05#-209.70#-245.02" range="50" maxStackCount="6" genTime="3000" objectKey="22" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="-1548.79#-209.70#-41.01" range="50" maxStackCount="6" genTime="3000" objectKey="23" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                    <Obj Type="Monster" MonType="47201" Pos="-1845.96#-209.70#-48.32" range="50" maxStackCount="6" genTime="3000" objectKey="24" propList="&apos;Dialog&apos; &apos;F_CO_OP_SIAULIAI_50_GRESS&apos; &apos;Name&apos; &apos;말라죽은 농작물&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="EVENT1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="OVER"/>
+                                <Num Num="100"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="농작물이 많이 모이자 장작에 타오르는 불꽃이 강해졌습니다!{nl}90초 동안 획득량이 2배로 늘어납니다!"/>
+                                <Str Str="Clear"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="EVENT2" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="OVER"/>
+                                <Num Num="200"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT1"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="농작물이 많이 모이자 장작에 타오르는 불꽃이 강해졌습니다!{nl}90초 동안 획득량이 2배로 늘어납니다!"/>
+                                <Str Str="Clear"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="EVENT3" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="OVER"/>
+                                <Num Num="300"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT2"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="처리할 농작물이 얼마 남지 않았습니다!{nl}90초 동안 아이템의 채집 속도와 이동 속도가 빨라지고 획득량이 늘어납니다!"/>
+                                <Str Str="Clear"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_FINAL_MSPD_BUFF"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="EVENT1_END" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT1"/>
+                                <Str Str="EQ"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="90"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="시간이 지나 모든 효과가 원래대로 돌아갑니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="EVENT3_END" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT2"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="90"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="시간이 지나 모든 효과가 원래대로 돌아갑니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="CLEAR">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="CLEAR1"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="CLEAR2"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="개척지의 죽은 농작물을 모두 소각했습니다!{nl}개척민에게 돌아가 보상을 받으세요!"/>
+                                <Str Str="Clear"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_CO-OP"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_CO-OP"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_REWARD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="FAIL">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="399"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="시간 내에 모든 농작물을 처리하지 못했습니다.{nl}10분 후 개척민이 사라집니다."/>
+                                <Str Str="!"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_CO-OP"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_REWARD"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_CO-OP"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_REWARD"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="30MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1800"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="399"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="30분 남았습니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="10MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3000"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="399"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10분 남았습니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="5MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3300"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="399"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="5분 남았습니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="1MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3540"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="399"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="1분 남았습니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="ENTER">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_F_CO_OP_SIAULIAI_50_TEXT"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="EVENT2_END" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT1"/>
+                                <Str Str="EQ"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="90"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="시간이 지나 모든 효과가 원래대로 돌아갑니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="CLEAR_CON1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="900"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="CLEAR1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="CLEAR_CON2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="OVER"/>
+                                <Num Num="400"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="CLEAR2"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="START">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="흉작으로 죽은 농작물의 처리 때문에 개척민들이 난처해 하고 있습니다.{nl}개척지 주변의 밭에서 농작물을 모아 모닥불에 태워주세요!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="GOAL_IN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="CLEAR1"/>
+                                <Str Str="DIF"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="CLEAR2"/>
+                                <Str Str="EQ"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="개척민이 부탁한 양만큼 전부 처리했지만 아직 많이 남아있습니다.{nl}개척민을 위해서라도 조금만 더 농작물을 처리해주세요!"/>
+                                <Str Str="Clear"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="5S">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3595"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_CO_OP_GOAL"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="399"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="잠시 후 기믹이 종료됩니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="FIELD_REWARD" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="END">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_REWARD"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_CO-OP"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_FAIL"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_CO-OP"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="FIELD_FAIL"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
 </GameList>

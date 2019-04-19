@@ -19,7 +19,8 @@ function SYSTEMOPTION_CREATE(frame)
 	SET_SHOW_PAD_SKILL_RANGE(frame);
 	SET_SIMPLIFY_BUFF_EFFECTS(frame);
 	SET_SIMPLIFY_MODEL(frame);
-    SET_RENDER_SHADOW(frame);
+	SET_RENDER_SHADOW(frame);
+	SET_QUESTINFOSET_TRANSPARENCY(frame);
 end
 
 function INIT_LANGUAGE_CONFIG(frame)
@@ -648,4 +649,16 @@ function ENABLE_SOUND_REVERB(parent, ctrl)
 	local value = config.IsEnableSoundReverb();
 	config.EnableSoundReverb(1-value);
 	config.SaveConfig();
+end
+
+function CONFIG_QUESTINFOSET_TRANSPARENCY(frame, ctrl, str, num)
+    tolua.cast(ctrl, "ui::CSlideBar");
+	config.SetQuestinfosetTransparency(ctrl:GetLevel());
+	SET_QUESTINFOSET_TRANSPARENCY(frame);
+end
+
+
+function SET_QUESTINFOSET_TRANSPARENCY(frame)
+	SET_SLIDE_VAL(frame, "questinfosetTransparency", "questinfosetTransparency_text", config.GetQuestinfosetTransparency());
+	UPDATE_QUESTINFOSET_TRANSPARENCY(nil)
 end

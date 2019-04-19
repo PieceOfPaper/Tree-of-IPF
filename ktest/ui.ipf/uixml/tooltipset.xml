@@ -155,7 +155,7 @@
 			<picture name="icon" layout_gravity="center top" rect="0 0 100 100" stretch="true" margin="0 25 0 0"/>
 			<richtext name="name" layout_gravity="center top" rect="0 150 280 20" fixwidth="false" hittest="false" updateparent="true"/>
 			<richtext name="type" layout_gravity="center top" rect="0 190 160 20" fixwidth="false" hittest="false" updateparent="true"/>
-			<richtext name="desc" layout_gravity="center top" fontname="brown_16" rect="0 230 440 20" fixwidth="true" hittest="false" updateparent="true"/>
+			<richtext name="desc" layout_gravity="center top" fontname="brown_16" rect="0 230 440 20" fixwidth="true" hittest="false" updateparent="true" fixwidthusespace="false"/>
 		</controls>
 	</tooltip>
 	<tooltip name="buff" x="0" y="0" fixwidth="true" width="200" height="100" moveable="true" frameskin="downbox" UpdateScp="UPDATE_BUFF_TOOLTIP">
@@ -332,4 +332,11 @@
 			
 		</controls>
 			</tooltip>
+	<tooltip name="skillRestrictList" x="0" y="0" width="350" height="100" fixwidth="true" fixheight="false" moveable="false" frameskin="downbox" UpdateScp="UPDATE_RESTRICT_INFO_TOOLTIP">
+		<userconfig INNER_X="5" INNER_Y="5" ICON_SIZE="23"/>
+		<controls>
+			<groupbox name="titleBox" rect="0 0 340 30" margin="5 5 0 0" fixwidth="true" fixheight="false" draw="false" updateparent="true" scrollbar="false"/>
+			<richtext name="title" parent="titleBox" rect="0 0 340 30" margin="5 5 0 0" fixwidth="true" fixheight="false" updateparent="true" caption="{@st43}{s16}특정 종류의 스킬 사용을 일정 부분 제한합니다.{/}" resizebytext="true"/>
+		</controls>
+	</tooltip>
 </tooltipset>

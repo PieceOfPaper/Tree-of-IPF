@@ -1254,6 +1254,19 @@ function SCR_GET_MONSKL_COOL(skill)
     return value;
 end
 
+function SCR_GET_MONSKL_SKIACLIPSE_METEOR_COOL(skill)
+    local value = TryGetProp(skill, "BasicCoolDown", 0);
+    local mon = GetSkillOwner(skill);
+    if mon ~= nil then
+        local num = GetMGameValue(mon, "GIMMICK_FAIL_STACK");
+        if num ~= nil then
+            value = value - (10000 * num);
+        end
+    end
+    
+    return value;
+end
+
 function SCR_MON_COMBOABLE(mon)
     if TryGetProp(mon, "GroupName") == "Monster" then
         return 1;
