@@ -3209,7 +3209,7 @@ return math.floor(self.Lv/3);"/>
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_JOB_ALL_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cryomancer"/>
+						<Str Str="FrostMage"/>
 						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>
@@ -3219,7 +3219,7 @@ return math.floor(self.Lv/3);"/>
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_JOB_ALL_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Cryomancer"/>
+						<Str Str="FrostMage"/>
 						<Num Num="-1"/>
 					</ToolScp>
 				</ExecList>
@@ -5082,6 +5082,9 @@ end"/>
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_SEAL_UNEQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO"/>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="Concentration_Buff"/>
+					</ToolScp>
 				</ExecList>
 			</Trigger>
 		</TriggerList>

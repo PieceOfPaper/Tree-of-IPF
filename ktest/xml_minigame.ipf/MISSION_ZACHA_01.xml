@@ -110,7 +110,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="MZACHA_FC_ACHAT">
+                    <Event execCount="1" eventName="MZACHA_FC_ACHAT">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="MZACHA_FC_ACHAT"/>

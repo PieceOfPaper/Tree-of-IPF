@@ -72,3 +72,7 @@ end
 function UPDATE_SILHOUETTE(value)
 	config.EnableCharSilhouette(tonumber(value));
 end
+
+function UPDATE_GIZMOTARGETAIM(value)
+	config.EnableSkillGizmoTargetAim(tonumber(value));
+end

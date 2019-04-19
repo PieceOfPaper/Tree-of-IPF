@@ -7,46 +7,72 @@
 	<option closebutton="false" visible="false" useimageitem="true"/>
 	<input resize="false" minwidth="128" minheight="128" hittestframe="false" hittesttitlebar="false"/>
 	<sound opensound="sys_map_open" closesound="sys_map_close"/>
-	<userconfig WIN_EFFECT_NAME="UI_colony_V" LOSE_EFFECT_NAME="UI_colony_L" EFFECT_SCALE="10"/>
+	<userconfig WIN_EFFECT_NAME="UI_colony_V" LOSE_EFFECT_NAME="UI_colony_L" EFFECT_SCALE="10" MVP_LIST_RECT_OFFSET="50" MVP_RANK_MAX_COUNT="5"/>
 	<controls>
 		<picture name="bg" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="center center" hittest="false" image="fullblack" stretch="true" alpha="80"/>
 		<button name="closeBtn" rect="0 0 70 70" margin="0 10 10 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame('pvp_mine_result')" texttooltip="닫기"/>
-		<richtext name="infoText" rect="0 0 500 30" margin="0 0 280 105" layout_gravity="center bottom" format="{@st66d}{s20}%s초 후에 귀환됩니다.{/}" param1="time" param1_def="60" fontname="white_18_b_ol"/>
-		<button name="returnBtn" rect="0 0 220 60" margin="0 0 20 30" layout_gravity="center bottom" skin="test_red_button" caption="{@st66d}귀환{/}" fontname="white_18_b_ol" LBtnUpScp="PVP_MINE_RESULT_REQ_RETURN_CITY"/>
+		<richtext name="infoText" rect="0 0 500 30" margin="420 0 0 95" layout_gravity="center bottom" format="{@st66d}{s20}%s초 후에 귀환됩니다.{/}" param1="time" param1_def="60" fontname="white_18_b_ol"/>
+		<button name="returnBtn" rect="0 0 220 60" margin="650 0 0 80" layout_gravity="center bottom" skin="test_red_button" caption="{@st66d}마을로 돌아가기{/}" fontname="white_18_b_ol" LBtnUpScp="PVP_MINE_RESULT_REQ_RETURN_CITY"/>
+		<groupbox name="GetPoint_gb" rect="0 0 600 50" margin="0 0 0 140" layout_gravity="center bottom" draw="true" skin="text_bg_lightbrown"/>
+		<richtext name="GetPoint_Desc" rect="0 0 70 60"  parent="GetPoint_gb" margin="0 0 0 0" layout_gravity="center center" format="{@st43}{s26}습득 증표 : %s 개 획득" param1="point" param1_def="0" fontname="orange_32_b_ol_ds"/>
+		<richtext name="GetPoint_Bouns_Desc" rect="0 0 70 60" margin="0 420 0 0" layout_gravity="center center" format="{@st66d_y}{s22}랭킹 보너스 증표 + %s" param1="point" param1_def="0" fontname="yellow_30_b_ol"/>
 		<!-- Win -->
-		<groupbox name="winBox" rect="0 0 1300 700" margin="0 -150 0 0" layout_gravity="center center" draw="false"/>
-		<groupbox name="winUIBox" rect="0 0 1300 700" margin="0 -100 0 0" layout_gravity="center center" draw="false"/>
-		<picture name="winWingLeft" rect="0 0 626 444" parent="winUIBox" margin="-320 60 0 0" layout_gravity="center top" image="colony_vic_wingL"/>
-		<picture name="winWingRight" rect="0 0 626 444" parent="winUIBox" margin="320 60 0 0" layout_gravity="center top" image="colony_vic_wingR"/>
-		<picture name="winPic" rect="0 0 581 532" parent="winUIBox" margin="0 0 0 0" layout_gravity="center top" image="colony_vic_frame"/>
-		<richtext name="winText" rect="0 0 423 142" parent="winPic" margin="0 75 0 0" layout_gravity="center center" caption="{@st41_yellow}{s70}승리" fontname="white_24_b_ol"/>
+		<groupbox name="winBox" rect="0 0 1300 700" margin="0 -130 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="winUIBox" rect="0 0 1300 550" margin="0 -200 0 0" layout_gravity="center top" draw="false"/>
+		<picture name="winWingLeft" rect="0 0 500 355" parent="winUIBox" margin="-260 50 0 0" layout_gravity="center top" image="colony_vic_wingL" stretch="true"/>
+		<picture name="winWingRight" rect="0 0 500 355" parent="winUIBox" margin="260 50 0 0" layout_gravity="center top" image="colony_vic_wingR" stretch="true"/>
+		<picture name="winPic" rect="0 0 465 425" parent="winUIBox" margin="0 0 0 0" layout_gravity="center top" image="colony_vic_frame" stretch="true"/>
+		<richtext name="winText" rect="0 0 338 114" parent="winPic" margin="0 60 0 0" layout_gravity="center center" caption="{@st41_yellow}{s70}승리" fontname="white_24_b_ol" stretch="true"/>
 		<!-- Lose -->
-		<groupbox name="loseBox" rect="0 0 1300 900" margin="0 -150 0 0" layout_gravity="center center" draw="false"/>
-		<groupbox name="loseUIBox" rect="0 0 1300 900" margin="0 -75 0 0" layout_gravity="center center" draw="false"/>
-		<picture name="loseWingLeft" rect="0 0 442 422" parent="loseUIBox" margin="-400 155 0 0" layout_gravity="center top" image="colony_lose_wingL"/>
-		<picture name="loseWingRight" rect="0 0 442 422" parent="loseUIBox" margin="400 155 0 0" layout_gravity="center top" image="colony_lose_wingR"/>
-		<picture name="losePic" rect="0 0 581 532" parent="loseUIBox" margin="0 80 0 0" layout_gravity="center top" image="colony_lose_frame"/>
-		<richtext name="loseText" rect="0 0 423 142" parent="losePic" margin="0 75 0 0" layout_gravity="center center" caption="{@st41_yellow}{s70}패배" fontname="white_24_b_ol"/>
-		<groupbox name="winnerInfoBox" rect="0 0 800 230" parent="loseBox" margin="0 30 0 0" layout_gravity="center bottom" draw="false"/>
-		<!-- Draw-->
-		<groupbox name="drawBox" rect="0 0 1300 700" margin="0 -150 0 0" layout_gravity="center center" draw="false"/>
-		<!-- MVP-->
-		<groupbox name="mvpBox2" rect="0 0 805 200" margin="0 250 0 0" hittestbox="false" skin="guildbattle_win_bg" layout_gravity="center center"/>
-		<groupbox name="mvpBox" rect="0 0 805 200" margin="0 250 0 0" hittestbox="false" skin="guildbattle_win_bg" layout_gravity="center center"/>
-		<groupbox name="grayBox_3" rect="0 0 744 45" margin="0 -26 0 0" parent="mvpBox" hittestbox="false" skin="graybox_op_45" layout_gravity="center center"/>
-		<groupbox name="grayBox_4" rect="0 0 744 45" margin="0 26 0 0" parent="mvpBox" hittestbox="false" skin="graybox_op_45" layout_gravity="center center"/>
-		<groupbox name="grayBox_1" rect="0 0 744 45" margin="0 -26 0 0" parent="mvpBox" hittestbox="false" skin="graybox_op_45" layout_gravity="center center"/>
-		<groupbox name="grayBox_2" rect="0 0 744 45" margin="0 26 0 0" parent="mvpBox" hittestbox="false" skin="graybox_op_45" layout_gravity="center center"/>
-		<picture name="pic_1" rect="0 0 510 120" margin="0 106 0 0" layout_gravity="center center" hittest="false" image="test_pvp_reslut_center" stretch="true"/>
-		<richtext name="MVP_Title" rect="0 -80 0 0" margin="0 5 0 0" parent="mvpBox" layout_gravity="center center" format="{@st42}{s32}MVP{/}" fontname="white_24_b_gr2"/>
-		<richtext name="Kill_MVP_Desc" rect="0 0 0 0" margin="0 0 0 0" parent="grayBox_1" layout_gravity="center center" format="{s22}%s" param1="KillName" param1_def="0" fontname="white_24_b_ol"/>
-		<richtext name="Kill_MVP_Point" rect="-20 0 0 0" margin="0 0 0 0" parent="grayBox_1" layout_gravity="right center" format="{s22}%s 처치" param1="KillCount" param1_def="0" fontname="white_24_b_ol"/>
-		<richtext name="Point_MVP_Desc" rect="0 0 0 0" margin="0 0 0 0" parent="grayBox_2" layout_gravity="center center" format="{s22}%s" param1="PointName" param1_def="0" fontname="white_24_b_ol"/>
-		<richtext name="Point_MVP_Point" rect="-20 0 0 0" margin="0 0 0 0" parent="grayBox_2" layout_gravity="right center" format="{s22}%s 점" param1="PointCount" param1_def="0" fontname="white_24_b_ol"/>
-		<richtext name="GetPoint_Desc" rect="0 70 0 0" margin="0 2 0 0" parent="mvpBox" layout_gravity="center center" format="{s26}증표 [ %s 개] 획득" param1="point" param1_def="0" fontname="orange_32_b_ol_ds"/>
-		<richtext name="killmvp" rect="0 0 0 0" margin="42 0 0 0" parent="grayBox_1" layout_gravity="left center" format="{@st42}{b}{s20}KILL" param1="point" fontname="orange_32_b_ol_ds"/>
-		<richtext name="pointmvp" rect="0 0 0 0" margin="42 0 0 0" parent="grayBox_2" layout_gravity="left center" format="{@st42}{b}{s20}SCORE" param1="point" fontname="orange_32_b_ol_ds"/>
-		<picture name="pic_2" rect="0 0 100 100" margin="20 -2 0 0" layout_gravity="left center" hittest="false" image="mine_pvp_killmvp_emblem" stretch="false" parent="mvpBox"/>
-		<picture name="pic_3" rect="0 0 100 100" margin="20 50 0 0" layout_gravity="left center" hittest="false" image="mine_pvp_scoremvp_emblem" stretch="false" parent="mvpBox"/>
+		<groupbox name="loseBox" rect="0 0 1300 900" margin="0 -230 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="loseUIBox" rect="0 0 1300 650" margin="0 -100 0 0" layout_gravity="center top" draw="false" stretch="true"/>
+		<picture name="loseWingLeft" rect="0 0 353 353" parent="loseUIBox" margin="-330 155 0 0" layout_gravity="center top" image="colony_lose_wingL" stretch="true"/>
+		<picture name="loseWingRight" rect="0 0 353 353" parent="loseUIBox" margin="340 155 0 0" layout_gravity="center top" image="colony_lose_wingR" stretch="true"/>
+		<picture name="losePic" rect="0 0 465 425" parent="loseUIBox" margin="0 100 0 0" layout_gravity="center top" image="colony_lose_frame" stretch="true"/>
+		<richtext name="loseText" rect="0 0 338 114" parent="losePic" margin="0 60 0 0" layout_gravity="center center" caption="{@st41_yellow}{s70}패배" fontname="white_24_b_ol" stretch="true"/>
+		<!-- Enemy Team -->
+		<groupbox name="E_gb" rect="0 0 688 476" margin="-380 100 0 0" layout_gravity="center center" draw="false"/>
+		<groupbox name="E_result_gb" rect="0 0 688 476" parent="E_gb" margin="0 0 0 0" layout_gravity="center center" draw="true" skin="test_frame_low"/>
+		<groupbox name="E_kill_gb" rect="0 0 332 384" parent="E_result_gb" margin="-167 32 0 0" layout_gravity="center center" draw="true" skin="test_frame_midle" scroll="false"/>
+		<groupbox name="E_score_gb" rect="0 0 332 384" parent="E_result_gb" margin="167 32 0 0" layout_gravity="center center" draw="true" skin="test_frame_midle" scroll="false"/>
+		<picture name="E_result_bg" rect="0 0 688 77" parent="E_gb" margin="0 0 0 0" layout_gravity="center top" image="title_frame_mine_pvp_lose"/>
+		<picture name="E_team_icon" rect="0 0 44 44" parent="E_gb" margin="-60 12 0 0" layout_gravity="center top" image="mine_pvp_teamicon_bladetryst_s"/>
+		<richtext name="E_team_name" rect="0 0 688 30" parent="E_gb" margin="20 25 0 0" layout_gravity="center top" format="{@st43}{s20}%s{/}" param1="value" param1_def="Enemy Team Name"/>
+		<groupbox name="E_kill_title_gb" rect="0 0 333 66" parent="E_kill_gb" margin="0 0 0 0" layout_gravity="center top" draw="true" skin="test_skin_01_btn"/>
+		<picture name="E_kill_icon" rect="0 0 52 52" parent="E_kill_title_gb" margin="0 0 0 0" layout_gravity="center center" image="mine_pvp_killmvp_emblem"/>
+		<groupbox name="E_kill_mvp_listbase_gb" rect="0 0 331 42" parent="E_kill_gb" margin="0 63 0 0" layout_gravity="center top" draw="true" skin="market_listbase"/>
+		<richtext name="E_kill_mvp_text_rank" rect="0 0 688 30" parent="E_kill_mvp_listbase_gb" margin="-130 0 0 0" layout_gravity="center center" caption="{@st66b}순위{/}" fontname="white_18_b_ol"/>
+		<richtext name="E_kill_mvp_text_teamname" rect="0 0 688 30" parent="E_kill_mvp_listbase_gb" margin="-50 0 0 0" layout_gravity="center center" caption="{@st66b}팀명{/}" fontname="white_18_b_ol"/>
+		<richtext name="E_kill_mvp_text_score" rect="0 0 688 30" parent="E_kill_mvp_listbase_gb" margin="110 0 0 0" layout_gravity="center center" caption="{@st66b}점수{/}" fontname="white_18_b_ol"/>
+		<groupbox name="E_kill_mvp_list_gb" rect="0 0 332 270" parent="E_kill_gb" margin="0 110 0 0" layout_gravity="center top" draw="false" skin="" scroll="false"/>
+		<groupbox name="E_score_title_gb" rect="0 0 332 66" parent="E_score_gb" margin="0 0 0 0" layout_gravity="center top" draw="true" skin="test_skin_01_btn"/>
+		<picture name="E_score_icon" rect="0 0 52 52" parent="E_score_title_gb" margin="0 0 0 0" layout_gravity="center center" image="mine_pvp_scoremvp_emblem"/>
+		<groupbox name="E_score_mvp_listbase_gb" rect="0 0 331 42" parent="E_score_gb" margin="0 63 0 0" layout_gravity="center top" draw="true" skin="market_listbase"/>
+		<richtext name="E_score_mvp_text_rank" rect="0 0 688 30" parent="E_score_mvp_listbase_gb" margin="-130 0 0 0" layout_gravity="center center" caption="{@st66b}순위{/}" fontname="white_18_b_ol"/>
+		<richtext name="E_score_mvp_text_teamname" rect="0 0 688 30" parent="E_score_mvp_listbase_gb" margin="-50 0 0 0" layout_gravity="center center" caption="{@st66b}팀명{/}" fontname="white_18_b_ol"/>
+		<richtext name="E_score_mvp_text_score" rect="0 0 688 30" parent="E_score_mvp_listbase_gb" margin="110 0 0 0" layout_gravity="center center" caption="{@st66b}점수{/}" fontname="white_18_b_ol"/>		
+		<groupbox name="E_score_mvp_list_gb" rect="0 0 332 270" parent="E_score_gb" margin="0 110 0 0" layout_gravity="center top" draw="false" skin="" scroll="false"/>
+		<!-- My Team -->
+		<groupbox name="M_gb" rect="0 0 688 476" margin="380 100 0 0" layout_gravity="center center" draw="false"/>
+		<groupbox name="M_result_gb" rect="0 0 688 476" parent="M_gb" margin="0 0 0 0" layout_gravity="center center" draw="true" skin="test_frame_low"/>
+		<groupbox name="M_kill_gb" rect="0 0 332 384" parent="M_result_gb" margin="-167 32 0 0" layout_gravity="center center" draw="true" skin="test_frame_midle" scroll="false"/>
+		<groupbox name="M_score_gb" rect="0 0 332 384" parent="M_result_gb" margin="167 32 0 0" layout_gravity="center center" draw="true" skin="test_frame_midle" scroll="false"/>
+		<picture name="M_result_bg" rect="0 0 688 77" parent="M_gb" margin="0 0 0 0" layout_gravity="center top" image="title_frame_mine_pvp_lose"/>
+		<picture name="M_team_icon" rect="0 0 44 44" parent="M_gb" margin="-60 14 0 0" layout_gravity="center top" image="mine_pvp_teamicon_goldencroon_s"/>
+		<richtext name="M_team_name" rect="0 0 688 30" parent="M_gb" margin="20 25 0 0" layout_gravity="center top" format="{@st43}{s20}%s{/}" param1="value" param1_def="My Team Name"/>
+		<groupbox name="M_kill_title_gb" rect="0 0 333 66" parent="M_kill_gb" margin="0 0 0 0" layout_gravity="center top" draw="true" skin="test_skin_01_btn"/>
+		<picture name="M_kill_icon" rect="0 0 52 52" parent="M_kill_title_gb" margin="0 0 0 0" layout_gravity="center center" image="mine_pvp_killmvp_emblem"/>
+		<groupbox name="M_kill_mvp_listbase_gb" rect="0 0 331 42" parent="M_kill_gb" margin="0 63 0 0" layout_gravity="center top" draw="true" skin="market_listbase"/>
+		<richtext name="M_kill_mvp_text_rank" rect="0 0 688 30" parent="M_kill_mvp_listbase_gb" margin="-130 0 0 0" layout_gravity="center center" caption="{@st66b}순위{/}" fontname="white_18_b_ol"/>
+		<richtext name="M_kill_mvp_text_teamname" rect="0 0 688 30" parent="M_kill_mvp_listbase_gb" margin="-50 0 0 0" layout_gravity="center center" caption="{@st66b}팀명{/}" fontname="white_18_b_ol"/>
+		<richtext name="M_kill_mvp_text_score" rect="0 0 688 30" parent="M_kill_mvp_listbase_gb" margin="110 0 0 0" layout_gravity="center center" caption="{@st66b}점수{/}" fontname="white_18_b_ol"/>
+		<groupbox name="M_kill_mvp_list_gb" rect="0 0 332 270" parent="M_kill_gb" margin="0 110 0 0" layout_gravity="center top" draw="false" skin="" scroll="false"/>
+		<groupbox name="M_score_title_gb" rect="0 0 332 66" parent="M_score_gb" margin="0 0 0 0" layout_gravity="center top" draw="true" skin="test_skin_01_btn"/>
+		<picture name="M_score_icon" rect="0 0 52 52" parent="M_score_title_gb" margin="0 0 0 0" layout_gravity="center center" image="mine_pvp_scoremvp_emblem"/>
+		<groupbox name="M_score_mvp_listbase_gb" rect="0 0 331 42" parent="M_score_gb" margin="0 63 0 0" layout_gravity="center top" draw="true" skin="market_listbase"/>
+		<richtext name="M_score_mvp_text_rank" rect="0 0 688 30" parent="M_score_mvp_listbase_gb" margin="-130 0 0 0" layout_gravity="center center" caption="{@st66b}순위{/}" fontname="white_18_b_ol"/>
+		<richtext name="M_score_mvp_text_teamname" rect="0 0 688 30" parent="M_score_mvp_listbase_gb" margin="-50 0 0 0" layout_gravity="center center" caption="{@st66b}팀명{/}" fontname="white_18_b_ol"/>
+		<richtext name="M_score_mvp_text_score" rect="0 0 688 30" parent="M_score_mvp_listbase_gb" margin="110 0 0 0" layout_gravity="center center" caption="{@st66b}점수{/}" fontname="white_18_b_ol"/>		
+		<groupbox name="M_score_mvp_list_gb" rect="0 0 332 270" parent="M_score_gb" margin="0 110 0 0" layout_gravity="center top" draw="false" skin="" scroll="false"/>
 	</controls>
 </uiframe>

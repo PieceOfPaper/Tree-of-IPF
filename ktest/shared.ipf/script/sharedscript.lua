@@ -25,7 +25,7 @@ end
 
 -- str = yyyy-mm-dd hh:mm:ss
 date_time.get_date_time = function(str)
-    if str == nil then
+    if str == nil or str == 'None' then
         return nil
     end
 
@@ -54,13 +54,19 @@ date_time.get_date_time = function(str)
     return year, month, day, hour, minute, second
 end
 
-date_time.get_lua_datetime = function(_year, _month, _day, _hour, _minute, _sencond)
-    if _year == nil or _month == nil or _day == nil or _hour == nil or _minute == nil or _sencond == nil then
-        return nil
-    end
-    return os.time { year = _year, month = _month, day = _day, hour = _hour, minute = _minute, second = _second }
+-- 문자열 시간으로부터 루아시간을 가져온다.
+date_time.get_lua_datetime_from_str = function(str)
+    return date_time.get_lua_datetime(date_time.get_date_time(str))
 end
 
+date_time.get_lua_datetime = function(_year, _month, _day, _hour, _min, _sec)
+    if _year == nil or _month == nil or _day == nil or _hour == nil or _min == nil or _sec == nil then
+        return nil
+    end
+    return os.time { year = _year, month = _month, day = _day, hour = _hour, min = _min, sec = _sec }
+end
+
+-- 루아 시간으로 현재시간을 가져온다.
 date_time.get_lua_now_datetime = function()
     local now_time = os.date('*t')
     local year = now_time['year']
@@ -71,6 +77,66 @@ date_time.get_lua_now_datetime = function()
     local sec = now_time['sec']
     local now = date_time.get_lua_datetime(year, month, day, hour, min, sec)
     return now
+end
+
+-- 루아 타임으로 현재시간을 가져온다.
+date_time.get_lua_now_datetime_str = function()
+    local ret = date_time.lua_datetime_to_str(date_time.get_lua_now_datetime())
+    return ret
+end
+
+-- start_datetime, end_datetime = yyyy-mm-dd hh:mm:ss (string)
+-- 현재 시간이 start, end 사이에 존재하는가
+date_time.is_between_time = function(start_datetime, end_datetime)
+    if start_datetime == nil or end_datetime == nil or start_datetime == 'None' or end_datetime == 'None' then
+        return false
+    end
+
+    local lua_start_datetime = date_time.get_lua_datetime_from_str(start_datetime)
+    local lua_end_datetime = date_time.get_lua_datetime_from_str(end_datetime)
+
+    if lua_start_datetime == nil or lua_end_datetime == nil then
+        return false
+    end
+
+    local now = date_time.get_lua_now_datetime()
+    if lua_start_datetime <= now and now <= lua_end_datetime then
+        return true
+    else
+        return false
+    end
+end
+
+-- 루아 시간을 yyyy-mm-dd hh:mm:ss 로 변환한다
+date_time.lua_datetime_to_str = function(lua_datetime)
+    local ret_time = os.date('*t', lua_datetime)
+    local year = ret_time['year']
+    local month = ret_time['month']
+    local day = ret_time['day']
+    local hour = ret_time['hour']
+    local min = ret_time['min']
+    local sec = ret_time['sec']
+
+    local ret_str = string.format('%04d-%02d-%02d %02d:%02d:%02d', year, month, day, hour, min, sec)
+    return ret_str
+end
+
+-- pivot = yyyy-mm-dd hh:mm:ss (string)
+-- pivot 에 sec를 더한 string을 반환
+date_time.add_time = function(pivot, sec)
+    local ret = date_time.get_lua_datetime_from_str(pivot)
+    ret = ret + tonumber(sec)
+
+    local ret_time = os.date('*t', ret)
+    local year = ret_time['year']
+    local month = ret_time['month']
+    local day = ret_time['day']
+    local hour = ret_time['hour']
+    local min = ret_time['min']
+    local sec = ret_time['sec']
+
+    local ret_str = string.format('%04d-%02d-%02d %02d:%02d:%02d', year, month, day, hour, min, sec)
+    return ret_str
 end
 
 function is_balance_patch_care_period()

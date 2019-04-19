@@ -30,8 +30,9 @@ function CLIENT_ENCHANTCHIP(invItem)
 
 	local enchantFrame = ui.GetFrame("hairenchant");
 	local invframe = ui.GetFrame("inventory");
+	invframe:ShowWindow(1);
 	enchantFrame:ShowWindow(1);
-	enchantFrame:SetOffset(invframe:GetX() - enchantFrame:GetWidth(), enchantFrame:GetY());
+	enchantFrame:SetMargin(0, 65, invframe:GetWidth(), 0);
 	enchantFrame:SetUserValue("Enchant", invItem:GetIESID());
 	local cnt = enchantFrame:GetChild("scrollCnt");
 	cnt:SetTextByKey("value", tostring(invItem.count));

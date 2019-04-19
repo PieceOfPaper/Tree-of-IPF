@@ -45,12 +45,22 @@ function UPDATE_SKILL_BY_SKILLMAKECOSTUME_MAGICAL(resStr)
             end
         end
 
-         session.skill.ReqCommonSkillList();
-         frame:Invalidate();
+        session.skill.ReqCommonSkillList();
+        frame:Invalidate();
     end
 end
 
 function SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum)
+    local commSkillCnt = session.skill.GetCommonSkillCount();
+    if commSkillCnt <= 0 then
+        local job_tab = GET_CHILD_RECURSIVELY(frame, "job_tab");
+        if job_tab ~= nil then
+            local tabIndex = job_tab:GetIndexByName("tab_0");
+            job_tab:DeleteTab(tabIndex);
+        end
+        return;
+    end
+    
     local skillability_job = GET_CHILD_RECURSIVELY(frame, "skillability_job_Common");
     if skillability_job == nil then return end
     
@@ -1250,6 +1260,11 @@ end
 function ON_UPDATE_COMMON_SKILL_LIST(frame, msg, argStr, argNum)
 	local commonSkillCount = session.skill.GetCommonSkillCount();	
 	if commonSkillCount < 1 then		
+        local job_tab = GET_CHILD_RECURSIVELY(frame, "job_tab");
+        if job_tab ~= nil then
+            local tabIndex = job_tab:GetIndexByName("tab_0");
+            job_tab:DeleteTab(tabIndex);
+        end
 		return;
 	end
 	

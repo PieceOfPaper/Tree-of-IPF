@@ -1600,6 +1600,7 @@
 		<image name="ability_Wizard_Wizard29" file="\icon\icon_ability_wizard06.tga" imgrect="768 256 128 128" CMM_Caption="레써지: 인챈트 레써지"/>
 		<image name="ability_Wizard_Psychokino25" file="\icon\icon_ability_wizard06.tga" imgrect="896 256 128 128" CMM_Caption="사이코키노: 텔레포테이션"/>
 		<image name="ability_Wizard_Sage20" file="\icon\icon_ability_wizard06.tga" imgrect="0 384 128 128" CMM_Caption="세이지 : 홀 오브 다크니스"/>
+		<image name="ability_Wizard_Elementalist32" file="\icon\icon_ability_wizard06.tga" imgrect="128 384 128 128" CMM_Caption="엘리멘탈 에센스: 밸런스"/>
 	</imagelist>
 	<imagelist category="abilityicon_archer">
 		<image name="ability_archer_Mark" file="\icon\icon_ability_archer01.tga" imgrect="0 0 128 128" CMM_Caption="멀티샷_치명타"/>
@@ -1999,6 +2000,8 @@
 		<image name="ability_archer_Matross12" file="\icon\icon_ability_archer07.tga" imgrect="640 0 128 128" CMM_Caption="캐니스터 샷: 지속시간"/>
 		<image name="ability_archer_Matross13" file="\icon\icon_ability_archer07.tga" imgrect="768 0 128 128" CMM_Caption="캐니스터 샷: 강화"/>
 		<image name="ability_archer_TigerHunter8" file="\icon\icon_ability_archer07.tga" imgrect="896 0 128 128" CMM_Caption="추적: 사냥개시"/>
+		<image name="ability_archer_Appraiser6" file="\icon\icon_ability_archer07.tga" imgrect="0 128 128 128" CMM_Caption="과대평가: 파티원 강화"/>
+		<image name="ability_archer_Appraiser7" file="\icon\icon_ability_archer07.tga" imgrect="128 128 128 128" CMM_Caption="약점공격: 강화"/>
 	</imagelist>
 	<imagelist category="abilityicon_cleric">
 		<image name="ability_cleric_Cleric1" file="\icon\icon_ability_cleric01.tga" imgrect="0 0 128 128" CMM_Caption="큐어-도트시간감소"/>
@@ -2355,6 +2358,7 @@
 		<image name="ability_cleric_Pardoner13" file="\icon\icon_ability_cleric06.tga" imgrect="0 512 128 128" CMM_Caption="축복 신성 추가 대미지: 강화"/>
 		<image name="ability_cleric_Pardoner14" file="\icon\icon_ability_cleric06.tga" imgrect="128 512 128 128" CMM_Caption="축복 마법 방어력 증가: 강화"/>
 		<image name="ability_cleric_Pardoner15" file="\icon\icon_ability_cleric06.tga" imgrect="256 512 128 128" CMM_Caption="축복 물리 방어력 증가: 강화"/>
+		<image name="ability_cleric_Miko8" file="\icon\icon_ability_cleric06.tga" imgrect="384 512 128 128" CMM_Caption="카구라: 꾀꼬리 춤"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>

@@ -38,7 +38,7 @@
 		<picture name="gauge_pic_l" parent="main_gb2" rect="0 0 8 36" margin="50 48 0 0" layout_gravity="left top" image="pcbang_point_gauge_L_left" stretch="true"/>
 		<picture name="gauge_pic_r" parent="main_gb2" rect="0 0 8 36" margin="0 48 23 0" layout_gravity="right top" image="pcbang_point_gauge_L_right" stretch="true"/>
 		<gauge name="point_gauge" parent="main_gb2" rect="0 0 798 36" margin="0 48 30 0" layout_gravity="right top" inverse="false" point="0" maxpoint="100" text1="{s16}{b}{ds}%v / %m" textfont1="white_14_ol" textalign1="center center" skin="pcbang_point_gauge_L"/>
-		<richtext name="point_gauge_text" parent="main_gb2" rect="0 0 300 30" margin="0 93 20 0" layout_gravity="right top" caption="{s14}※최대 20000포인트까지 누적되며, 매 분기(1,4,7,10월 1일 06시)마다 초기화 됩니다." textalign="" fontname="brown_16_b"/>
+		<richtext name="point_gauge_text" parent="main_gb2" rect="0 0 300 30" margin="0 93 20 0" layout_gravity="right top" caption="{s14}※최대 20000포인트까지 누적되며, 매 분기(1,4,7,10월 1일 00시)마다 초기화 됩니다." textalign="" fontname="brown_16_b"/>
 		<richtext name="today_point_text" parent="point_title_gb" rect="0 0 300 30" margin="0 0 10 0" layout_gravity="right center" format="{s14}{@st42}오늘 획득한 포인트: %s" param1="value" param1_def="0" textalign="right center" fontname="brown_16_b"/>
 		<groupbox name="reward_title_gb" parent="main_gb2" rect="0 0 875 40" margin="0 120 10 0" layout_gravity="left top" scrollbar="false" draw="true" resizebyparent="false" skin="market_listbase"/>
 		<richtext name="reward_title_text" parent="reward_title_gb" rect="0 0 300 30" margin="10 0 0 0" layout_gravity="left center" caption="접속 보상" fontname="black_16_b" textalign="left top" fixwidth="true"/>

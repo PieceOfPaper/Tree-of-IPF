@@ -101,7 +101,7 @@ function LISTBTN_GROUP()
 	CHAT_GROUPLIST_SELECT_LISTTYPE(3)
 end
 
-function CHAT_GROUPLIST_SELECT_LISTTYPE(type) -- 1 : Ä£±¸ / 2 : 1:1 / 3 : ±×·ì
+function CHAT_GROUPLIST_SELECT_LISTTYPE(type) -- 1 : Ä£ï¿½ï¿½ / 2 : 1:1 / 3 : ï¿½×·ï¿½
 
 	local frame = ui.GetFrame('chat_grouplist');
 	if frame == nil then
@@ -301,7 +301,7 @@ function UPDATE_ROOM_READ_CNT(roomID)
 
 	
 	
-    -- 1. ±×·ì¸®½ºÆ®ÀÇ °¢ ¹æÀÇ ¸®µåÄ«¿îÆ® °»½Å
+    -- 1. ï¿½×·ì¸®ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä«ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
     local info = session.chat.GetByStringID(roomID);
 	if info ~= nil	then
 
@@ -330,7 +330,7 @@ function UPDATE_ROOM_READ_CNT(roomID)
 	
 
 
-	-- 2. ±×·ì¸®½ºÆ® ¿ÞÂÊ ÅÇÀÇ Å¸ÀÔº° ¸®µå Ä«¿îÆ® °»½Å
+	-- 2. ï¿½×·ì¸®ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ôºï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	local grouplistframegbox = nil
 	local typereadcnt = 0
 	local friendcnttext = GET_CHILD_RECURSIVELY(grouplistframe, "readcnt_friend");
@@ -384,7 +384,7 @@ function UPDATE_ROOM_READ_CNT(roomID)
 	end
 
 
-	-- 3. chatframe ±×·ìÃ¤ÆÃ ¹öÆ°ÂÊ¿¡ ÀüÃ¼ ¸®µå Ä«¿îÆ® °»½Å
+	-- 3. chatframe ï¿½×·ï¿½Ã¤ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½Ê¿ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	local allreadcounttext = GET_CHILD_RECURSIVELY(chatframe, "readcnt_all") 
 	allreadcounttext:ShowWindow(0)
 	local allreadcounttextbg = GET_CHILD_RECURSIVELY(chatframe, "readcnt_all_bg") 
@@ -401,7 +401,7 @@ function UPDATE_ROOM_READ_CNT(roomID)
 	end
 
 
-	-- 4. °¢ ÆË¾÷ ÇÁ·¹ÀÓ ¹× ÆË¾÷ ÇÁ·¹ÀÓÀÇ Æúµå ÇÁ·¹ÀÓ¿¡ ´ëÇÑ ¸®µå Ä«¿îÆ® °»½Å
+	-- 4. ï¿½ï¿½ ï¿½Ë¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ë¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	
 	grouplistframe:Invalidate()
 
@@ -807,4 +807,11 @@ function GROUPCHAT_OUT(parent, ctrl)
         ui.SetChatType(0)
     end
 
+end
+
+function RECEIVE_GROUPCHAT_INVITE(inviterAid, name, roomID, roomname)
+	local msg = ScpArgMsg("{Inviter}InviteYouToGroupChat_DoYouAccept?", "Inviter", name);
+	local yesScp = string.format("chat.AcceptGroupChatInvite(\"%s\", \"%s\", \"%s\", 1)", inviterAid, roomID, roomname);
+	local noScp = string.format("chat.AcceptGroupChatInvite(\"%s\", \"%s\", \"%s\", 0)", inviterAid, roomID, roomname);
+	ui.MsgBox(msg, yesScp, noScp);
 end

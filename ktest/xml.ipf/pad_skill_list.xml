@@ -5577,7 +5577,7 @@ return value;"/>
                 <Str_Arg Str="I_wizard_hail_force" Arg="0.5"/>
                 <Str_Arg Str="F_wizard_hail_hit_ice" Arg="0.5"/>
                 <Str_Arg Str="None" Arg="1"/>
-                <Num Num="18"/>
+                <Num Num="25"/>
                 <Num Num="0"/>
                 <Num Num="0.60000002"/>
                 <Num Num="200"/>
@@ -5597,7 +5597,7 @@ return value;"/>
                 <Str_Arg Str="I_wizard_hail_force" Arg="0.5"/>
                 <Str_Arg Str="F_wizard_hail_hit_ice" Arg="0.5"/>
                 <Str_Arg Str="None" Arg="1"/>
-                <Num Num="18"/>
+                <Num Num="25"/>
                 <Num Num="0"/>
                 <Num Num="0.60000002"/>
                 <Num Num="200"/>
@@ -6458,10 +6458,10 @@ return obj.Level"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="FireClaw_Pad" CheckerType="0" Range="20" AllowOverlap="1">
+    <PadSkill Name="FireClaw_Pad" CheckerType="0" ApplyFlyMon="1" Range="20" AllowOverlap="1">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="5000"/>
+                <Num Num="1500"/>
                 <Num Num="999999"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -6471,6 +6471,9 @@ return obj.Level"/>
                 <Str_Arg Str="None" Arg="1"/>
                 <Num Num="1"/>
             </ToolScp>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="10"/>
+            </ToolScp>            
         </createEvent>
         <enterEvent>
             <ToolScp Scp="PAD_TGT_DAMAGE" Client="NO" UseSleep="NO">
@@ -6481,15 +6484,10 @@ return obj.Level"/>
             </ToolScp>
         </enterEvent>
         <updateEvent>
-            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
-                <Num Num="1"/>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="-500"/>
                 <Num Num="0"/>
-                <Str_Arg Str="None" Arg="1"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="None"/>
-            </ToolScp>
+            </ToolScp>        
         </updateEvent>
     </PadSkill>
     <PadSkill Name="FireWall">
@@ -8147,7 +8145,7 @@ return value"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Matross_CanisterShot" CheckerType="0" Range="80" Relation="6" AllowOverlap="1" IsMagicType="0">
+    <PadSkill Name="Matross_CanisterShot" CheckerType="0" Range="120" Relation="6" AllowOverlap="1" IsMagicType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000" UseFunc="1" FuncTxt="return  4500 + GET_ABIL_LEVEL(self, &apos;Matross12&apos;) * 1000"/>
@@ -8179,7 +8177,7 @@ return value"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Matross_CanisterShot_End" CheckerType="0" PadHeight="-10" Range="80" UpdateTerm="100" ApplyFlyMon="1" Relation="6" AllowOverlap="1" EnableSearch="0">
+    <PadSkill Name="Matross_CanisterShot_End" CheckerType="0" PadHeight="-10" Range="120" UpdateTerm="100" ApplyFlyMon="1" Relation="6" AllowOverlap="1" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
                 <Num Num="10"/>
@@ -8189,7 +8187,7 @@ return value"/>
                 <Num Num="9999"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_archer_Matross_CanisterShot_explosion" Arg="1"/>
+                <Str_Arg Str="F_archer_Matross_CanisterShot_explosion" Arg="1.5"/>
                 <Pos Angle="0" Dist="0"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
@@ -8372,10 +8370,10 @@ return value"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Miko_Hamaya" CheckerType="0" Range="30" UpdateTerm="300" ApplyFlyMon="1" IsMineType="0">
+    <PadSkill Name="Miko_Hamaya" CheckerType="0" Range="30" UpdateTerm="1000" ApplyFlyMon="1" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="10000" UseFunc="1" FuncTxt="return 8000"/>
+                <Num Num="10000"/>
                 <Num Num="9999"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -8388,9 +8386,28 @@ return value"/>
                 <Num Num="10"/>
             </ToolScp>
         </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_PAD_DESTROY_HAMAYA"/>
+            </ToolScp>
+        </destroyEvent>        
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="-1"/>
+                <Str Str="Hamaya_TakeDamage"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
+                <Num Num="0"/>
+                <Num Num="100"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>        
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="-300"/>
+                <Num Num="-1000"/>
                 <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
@@ -8404,7 +8421,7 @@ return value"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Miko_Hamaya_TakeDamage" CheckerType="0" Range="30" ApplyFlyMon="1" EnableSearch="0" IsMineType="0">
+    <PadSkill Name="Miko_Hamaya_TakeDamage" CheckerType="0" Range="30" UpdateTerm="50" ApplyFlyMon="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="1000"/>
@@ -8432,7 +8449,7 @@ return value"/>
         </enterEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="-500"/>
+                <Num Num="-999"/>
                 <Num Num="0"/>
             </ToolScp>
         </updateEvent>

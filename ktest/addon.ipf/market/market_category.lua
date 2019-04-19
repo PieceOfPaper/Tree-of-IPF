@@ -772,7 +772,7 @@ function MARKET_REFRESH_SEARCH_OPTION(parent, ctrl)
 	if gradeCheckSet ~= nil and gradeCheckSet:IsVisible() == 1 then
 		for i = 1, 5 do
 			local check = GET_CHILD_RECURSIVELY(gradeCheckSet, 'gradeCheck_'..i);
-			check:SetCheck(0);
+			check:SetCheck(1);
 		end
 	end
 
@@ -792,11 +792,16 @@ function MARKET_REFRESH_SEARCH_OPTION(parent, ctrl)
 		end
 	end
 
-	-- detail setting
+	local detailBox = GET_CHILD_RECURSIVELY(frame, 'detailBox');
+	-- detail setting	
 	local detailOptionSet = GET_CHILD_RECURSIVELY(frame, 'detailOptionSet');
 	if detailOptionSet ~= nil and detailOptionSet:IsVisible() == 1 then
 		DESTROY_CHILD_BYNAME(detailOptionSet, 'SELECT_');
 		detailOptionSet:SetUserValue('ADD_SELECT_COUNT', 0);
+
+		local market_detail_setting = detailBox:CreateOrGetControlSet('market_detail_setting', 'detailOptionSet', 0, 0);
+		MARKET_ADD_SEARCH_DETAIL_SETTING(market_detail_setting, nil, true);
+
 		ALIGN_OPTION_GROUP_SET(detailOptionSet);
 	end
 
@@ -805,6 +810,10 @@ function MARKET_REFRESH_SEARCH_OPTION(parent, ctrl)
 	if optionGroupSet ~= nil and optionGroupSet:IsVisible() == 1 then
 		DESTROY_CHILD_BYNAME(optionGroupSet, 'SELECT_');
 		optionGroupSet:SetUserValue('ADD_SELECT_COUNT', 0);
+		
+		local market_option_group = detailBox:CreateOrGetControlSet('market_option_group', 'optionGroupSet', 0, 0);
+		MARKET_ADD_SEARCH_OPTION_GROUP(market_option_group, nil, true);
+
 		ALIGN_OPTION_GROUP_SET(optionGroupSet);
 	end
 

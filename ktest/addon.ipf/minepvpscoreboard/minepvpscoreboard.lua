@@ -69,7 +69,11 @@ function MINEPVP_SCORE_UPDATE(LeftTeamMember, RightTeamMember, LeftTeamPoint, Ri
 	end
 
 	local effectGbox = GET_CHILD_RECURSIVELY(frame, 'effectGbox');
-	effectGbox:Move(LeftTeamPoint/totalPoint * score:GetWidth() - effectGbox:GetX() - effectGbox:GetWidth()/2, 0)
+	if totalPoint == -1 then
+		effectGbox:Move(0, 0)
+	else
+		effectGbox:Move(LeftTeamPoint/totalPoint * score:GetWidth() - effectGbox:GetX() - effectGbox:GetWidth()/2, 0)
+	end
 
 end
 

@@ -8,7 +8,7 @@
 	<sound opensound="button_click_stats_OK" closesound="button_click_big_2"/>
 	<effect open="character_item_window_open" close="character_item_window_close"/>
 	<script CloseScp="SKILLSTAT_SELEC_CANCLE"/>
-	<userconfig HEIGHT_SKILLRESET="420" HEIGHT_STATRESET="480" FONT_STATCOUNT="{#FF0000}"/>
+	<userconfig HEIGHT_SKILLRESET="480" HEIGHT_STATRESET="480" FONT_STATCOUNT="{#FF0000}"/>
 	<controls>
 		<groupbox name="bg2" rect="0 0 480 470" margin="0 1 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="token_skin2"/>
 		<richtext name="richtext" margin="20 160 0 0" rect="0 0 120 24" format="{@st42}%s 혜택{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>

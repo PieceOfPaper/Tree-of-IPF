@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -44,8 +44,6 @@
 		<Class ClassID="40" ClassName="ServerListToolTip" Data="{@st59}접속을 원하는 서버를 선택하여 주세요."/>
 		<Class ClassID="41" ClassName="InsufficientMemory" Data="메모리가 부족합니다."/>
 		<Class ClassID="42" ClassName="SyncErrorPlzReLoadCommander" Data="데이터 응답을 받지 못했습니다. 해당 기능 이용을 위해서는 채널 이동 또는 캐릭터 선택이 필요합니다."/>
-		<Class ClassID="43" ClassName="UserXmlFileError" Data="release/user.xml 파일 로드에 실패했습니다. 문제가 지속된다면 해당 파일을 삭제한 후, 재시도 해 주세요."/>
-		<Class ClassID="44" ClassName="UserXmlFileSaveError" Data="release/user.xml 파일 저장에 실패했습니다. 문제가 발생할 가능성이 있기에 해당 파일을 삭제한 후, 클라이언트를 재실행 해 주세요."/>
 	</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="300" ClassName="TemporarilyUnavailable_1" Data="일시적으로 중지된 기능입니다."/>
@@ -625,6 +623,7 @@
 		<Class ClassID="4232" ClassName="MYSTIC_SAVIOR_CHAGE_DIAMOND" Data="눈부신 반짝임을 담아! 미스틱 세이비어 다이아!"/>
 		<Class ClassID="4233" ClassName="MYSTIC_SAVIOR_CHAGE_HEART" Data="정열의 마음을 담아! 미스틱 세이비어 하트!"/>
 		<Class ClassID="4234" ClassName="IcorductilityError01" Data="등록된 장비와 같은 부위의 장비를 등록해주세요"/>
+		<Class ClassID="4235" ClassName="CantUseJob" Data="사용 할 수 없는 직업입니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -1524,6 +1523,7 @@
 		<Class ClassID="21331" ClassName="Attendance_infoText_2" Data="* 출석 체크 기간 동안에만 출석 보상을 받을 수 있으며, 기간 경과 시 더 이상 지급되지 않습니다"/>
 		<Class ClassID="21332" ClassName="Attendance_infoText_3" Data="* 신규/복귀 출석체크 시작 일자는 구원자님의 신규/복귀 일자에 따라 다를 수 있습니다."/>
     <Class ClassID="21333" ClassName="TransferBarrackSkillReset" Data="{nl}스킬 초기화에 성공하면 숙소로 이동합니다."/>    
+    <Class ClassID="21334" ClassName="UI_Hour_2" Data="시간"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -1560,7 +1560,9 @@
 		<Class ClassID="22522" ClassName="StillProcessingTryLater" Data="이전 지급 요청이 진행중입니다. 잠시 후 다시 시도해 주세요."/>
 		<Class ClassID="22523" ClassName="TPItemProcessFail" Data="TP 지급 작업이 실패하였습니다.{nl}잠시 후 다시 시도해주세요.{nl}문제가 지속되는 경우 에러코드를 문의 사서함에 접수해주시기 바랍니다.{nl}에러코드 : {Code}"/>
 		<Class ClassID="22524" ClassName="TemporarilyUnavailable" Data="일시적으로 사용 불가능한 기능입니다"/>
-		</Category>
+		<Class ClassID="22529" ClassName="{Inviter}InviteYouToGroupChat_DoYouAccept?" Data="{Inviter}님이 당신을 그룹 채팅방에 초대했습니다. 수락하시겠습니까?"/>
+		<Class ClassID="22530" ClassName="InviteRejected" Data="초대 요청이 거절되었습니다."/>
+	</Category>
 	<Category Name="CardBattle">
 		<Class ClassID="23001" ClassName="PutOnlyCardItem" Data="카드아이템만 놓을 수 있습니다."/>
 		<Class ClassID="23002" ClassName="CardNotRegistered" Data="카드를 등록하지 않았습니다."/>
@@ -6771,6 +6773,8 @@
 		<Class ClassID="66118" ClassName="RVR_BK_URUBAS_SIGN_1" Data="우르바스 증표가 필요합니다"/>
 		<Class ClassID="66119" ClassName="RVR_BK_REWARD_GET_PC_NOT_THERE" Data="현재 충분히 기여한 인원이 없습니다"/>
 		<Class ClassID="66120" ClassName="RVR_BK_NOTYET_QUEST_1" Data="{Q_NAME} 퀘스트는 {Q_LV}레벨부터 진행할 수 있습니다"/>
+		<Class ClassID="66121" ClassName="RVR_BK_LIMIT_RETURN_ZONE_1" Data="우르바스 증표의 효과가 만료되었습니다.{nl}{COUNT} 초 후 베다 고원으로 탈출합니다"/>
+		<Class ClassID="66122" ClassName="RVR_BK_LIMIT_RETURN_ZONE_2" Data="우르바스 증표의 효과를 받을 수 없습니다.{nl}내일 오후 10시에 다시 시도해주세요."/>
 		<Class ClassID="67000" ClassName="JOB_SHINOBI_HIDDEN_ITEM_5_book2" Data="글자가 보이는 두루마리"/>
 		<Class ClassID="67001" ClassName="Nebulas_Book" Data="네뷸라스와 칼레이마스"/>
 		<Class ClassID="67002" ClassName="Mirtis_Book" Data="미르티스 이야기"/>
@@ -7055,6 +7059,7 @@
 		<Class ClassID="67294" ClassName="EVENT_1901_RANKRESET_NPC_1" Data="지원 대상 클래스를 확인한다"/>
 		<Class ClassID="67295" ClassName="EVENT_1901_RANKRESET_SEL_1" Data="클래스 변경 포인트로 지원 받는다"/>
 		<Class ClassID="67296" ClassName="EVENT_1901_RANKRESET_SEL_2" Data="아이템으로 지원 받는다"/>
+		<Class ClassID="67297" ClassName="EVENT_1901_RANKRESET_SEL_3" Data="클래스 변경 포인트와 아이템을 지원 받는다"/>
 		<Class ClassID="67300" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG1" Data="격리 예정지로 향하는 포탈이 생성되었습니다.{nl}2분간 지속 됩니다."/>
 		<Class ClassID="67301" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG2" Data="격리 예정지"/>
 		<Class ClassID="67302" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG3" Data="확장 예정지로 향하는 포탈이 생성되었습니다.{nl}2분간 지속 됩니다."/>
@@ -7165,6 +7170,11 @@
 		<Class ClassID="67407" ClassName="SCR_CASTLE96_MQ_2_RUN_NPC_DLG_MSG_1" Data="난 약속은 꼭 지킨다!"/>
 		<Class ClassID="67408" ClassName="SCR_CASTLE96_MQ_2_RUN_NPC_DLG_MSG_2" Data="부끄러운 줄 아세요!"/>
 		<Class ClassID="67409" ClassName="CASTLE96_MQ_7_S_MSG_1" Data="별 수 없네요{nl}몬스터를 잡읍시다"/>
+		<Class ClassID="67410" ClassName="SCR_CREATE_SSN_PAYAUTA_EP11_WARP" Data="이제 파야우타를 통해 [에피소드 11] 퀘스트 시작 지점으로 이동하실 수 있습니다"/>
+		<Class ClassID="67411" ClassName="PAYAUTA_EP11_NPC_CITY_1_NORMAL_2" Data="이용가능 횟수 : {COUNT}"/>
+		<Class ClassID="67412" ClassName="F_3CMLAKE_27_1_SQ_1_W_MSG" Data="바린웰 27수역으로 이동"/>
+		<Class ClassID="67413" ClassName="CASTLE93_MAIN01_W_MSG" Data="외성벽 제 11구역으로 이동"/>
+		<Class ClassID="67414" ClassName="F_MAPLE_24_3_MQ_01_W_MSG" Data="북부 파리아스 숲으로 이동"/>
 		<Class ClassID="70001" ClassName="FARM49_2_MQ06_DRAW" Data="우물 물을 긷는 중"/>
 		<Class ClassID="70002" ClassName="FARM49_2_MQ06_SUCCESS" Data="우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
 		<Class ClassID="70003" ClassName="FARM49_2_MQ06_ALREADY" Data="이미 우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
@@ -8556,6 +8566,7 @@
 		<Class ClassID="100085" ClassName="skill_SpellShop_Aspersion" Data="축복: 물리 방어력 증가"/>
 		<Class ClassID="100086" ClassName="attendance_word" Data="{@st42}{s16}출석"/>
 		<Class ClassID="100087" ClassName="REMOVE_BUFF_{Auto_1}" Data="버프 {Auto_1}개 제거!"/>
+    <Class ClassID="100088" ClassName="UnableToJoinChallengeModeCuzMaxTeamCount" Data="현재 채널에서 활성화 중인 챌린지 모드 파티의 수가 최대치에 도달하여 입장하실 수 없습니다. 다른 지역을 이용해 주세요."/>
 	</Category>
 	<Category Name="Party">
 		<Class ClassID="101001" ClassName="GULID_OUT" Data="길드 탈퇴"/>
@@ -12930,7 +12941,7 @@
 		<Class ClassID="302024" ClassName="Prison_Select3" Data="아샤크 지하 감옥 입장(쉬움)"/>
 		<Class ClassID="302028" ClassName="Valentine2017_Select1" Data="이벤트 보상 받기"/>
 		<Class ClassID="302029" ClassName="Valentine2017_Select2" Data="숨겨진 보상 받기"/>
-		<Class ClassID="302030" ClassName="Goddess_Statue1" Data="여신의 축복 적용."/>
+		<Class ClassID="302030" ClassName="Goddess_Statue1" Data="여신의 축복 적용"/>
 		<Class ClassID="302031" ClassName="Goddess_Statue2" Data="더 이상 여신의 축복을 받을 수 없습니다."/>
 		<Class ClassID="302032" ClassName="Goddess_Statue3" Data="여신의 조각상은 5분간 유지 됩니다."/>
 		<Class ClassID="302035" ClassName="Leticia_Cube" Data="레티샤의 시크릿 큐브"/>
@@ -13127,11 +13138,13 @@
 		<Class ClassID="510718" ClassName="pvp_mine_get_crystal" Data="{COUNT} 획득!"/>
 		<Class ClassID="510719" ClassName="pvp_mine_before_30m" Data="자원 쟁탈전 시작 30분 전입니다."/>
 		<Class ClassID="510720" ClassName="pvp_mine_before_10m" Data="자원 쟁탈전 시작 10분 전입니다."/>
-		<Class ClassID="510721" ClassName="pvp_mine_before_5m" Data="자원 쟁탈전 시작 5분 전입니다.{nl}샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
-		<Class ClassID="510722" ClassName="pvp_mine_before_start" Data="자원 쟁탈전이 시작되었습니다!{nl}샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
-		<Class ClassID="510723" ClassName="pvp_mine_2nd_before_3m" Data="2회차 자원 쟁탈전 시작 3분 전입니다.{nl}샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
-		<Class ClassID="510724" ClassName="pvp_mine_2nd_before_start" Data="2회차 자원 쟁탈전이 시작되었습니다!{nl}샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
+		<Class ClassID="510721" ClassName="pvp_mine_before_5m" Data="자원 쟁탈전 시작 5분 전입니다.{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
+		<Class ClassID="510722" ClassName="pvp_mine_before_start" Data="자원 쟁탈전이 시작되었습니다!{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
+		<Class ClassID="510723" ClassName="pvp_mine_2nd_before_3m" Data="2회차 자원 쟁탈전 시작 3분 전입니다.{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
+		<Class ClassID="510724" ClassName="pvp_mine_2nd_before_start" Data="2회차 자원 쟁탈전이 시작되었습니다!{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
 		<Class ClassID="510725" ClassName="pvp_mine_start_time_check" Data="특정 시간외에는 출입이 금지됩니다. 출입 가능 시간은 다음과 같습니다.{nl}{HOUR}시 {MINf}분 ~ {HOUR}시 {MINf2}분{nl}{HOUR}시 {MINs}분 ~ {HOUR}시 {MINs2}분"/>
+		<Class ClassID="510726" ClassName="bladetryst" Data="칼날 서약단"/>
+		<Class ClassID="510727" ClassName="goldencroon" Data="황금 노래단"/>
 	</Category>
 	<Category Name="Beauty_Shop">
 		<Class ClassID="510801" ClassName="Beauty_Shop_IN" Data="뷰티샵 입장"/>
@@ -13585,6 +13598,7 @@
 		<Class ClassID="514007" ClassName="NicopolisGimmickMsg" Data="마력 장치 작동중.."/>
 		<Class ClassID="514008" ClassName="NicopolisItemMsg" Data="마나 램프를 사용하려면 대기중의 마나를 수집해야 합니다."/>
 		<Class ClassID="514009" ClassName="UniqStarTowerMsg" Data="마법진 너머로 이동중.."/>
+		<Class ClassID="514010" ClassName="TableLand_ReturnCity{SEC}" Data="잠시 후 베다 고원으로 귀환됩니다. ({SEC}초)"/>
 		</Category>
 	<Category Name="SoloDungeon">
 		<Class ClassID="513001" ClassName="SoloDungeonStageMSG" Data="스테이지의 몬스터가 몰려옵니다. 모두 처치해 주세요!"/>
