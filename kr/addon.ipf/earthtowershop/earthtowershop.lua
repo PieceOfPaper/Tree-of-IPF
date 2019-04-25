@@ -125,11 +125,6 @@ function REQ_SPROUT_SHOP_1_OPEN()
     frame:SetUserValue("SHOP_TYPE", 'SproutShop');
     ui.OpenFrame('earthtowershop');
 end
-function REQ_SPROUT_PREMIUM_SHOP_1_OPEN()
-    local frame = ui.GetFrame("earthtowershop");
-    frame:SetUserValue("SHOP_TYPE", 'SproutPremiumShop');
-    ui.OpenFrame('earthtowershop');
-end
 
 
 function EARTH_TOWER_SHOP_OPEN(frame)
@@ -214,9 +209,6 @@ function EARTH_TOWER_INIT(frame, shopType)
     elseif shopType == 'SproutShop' then
         title:SetText('{@st43}'..ScpArgMsg("SPROUT_SHOP_1"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("SPROUT_SHOP_1")));
-    elseif shopType == 'SproutPremiumShop' then
-        title:SetText('{@st43}'..ScpArgMsg("SPROUT_PREMIUM_SHOP_1"));
-        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("SPROUT_PREMIUM_SHOP_1")));
     end
 
 
@@ -601,8 +593,6 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
         item.DialogTransaction("NEW_CHAR_SHOP_1_TREAD1", resultlist, cntText);
     elseif shopType == 'SproutShop' then
         item.DialogTransaction("SPROUT_SHOP_1_TREAD1", resultlist, cntText);
-    elseif shopType == 'SproutPremiumShop' then
-        item.DialogTransaction("SPROUT_PREMIUM_SHOP_1_TREAD1", resultlist, cntText);
     end
 
     EARTH_TOWER_SHOP_TRADE_LEAVE()

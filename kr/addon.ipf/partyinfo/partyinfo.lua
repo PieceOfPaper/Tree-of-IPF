@@ -292,8 +292,8 @@ function OPEN_PARTY_INFO()
 	ui.ToggleFrame("party");
 end
 
-function OUT_PARTY()
-	if session.GetCurrentMapProp():GetUsePartyOut() == "NO" then
+function POST_OUT_PARTY()
+    if session.GetCurrentMapProp():GetUsePartyOut() == "NO" then
 		ui.SysMsg(ScpArgMsg("ThatMapCannotPartyOut"));
 		return;
 	end
@@ -305,10 +305,22 @@ function OUT_PARTY()
 		return;
 	end
 
-	ui.Chat("/partyout");	
+    packet.ReqPartyOut()
+	
 	local headsup = ui.GetFrame("headsupdisplay");
 	local leaderMark = GET_CHILD(headsup, "Isleader", "ui::CPicture");
 	leaderMark:SetImage('None_Mark');
+end
+
+function OUT_PARTY()
+    local buff = 'ChallengeMode_Player'
+    local pc = GetMyPCObject()
+    if IsBuffApplied(pc, buff) == 'YES' then
+        local yesScp = "POST_OUT_PARTY()"
+	    ui.MsgBox(ScpArgMsg("ReallyWantToPartyForChallengeMode"), yesScp, "None");
+    else
+        POST_OUT_PARTY()
+    end
 end
 
 function BAN_PARTY_MEMBER(name)

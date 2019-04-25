@@ -105,7 +105,7 @@ function HAIRENCHANT_DRAW_HIRE_ITEM(slot, invItem)
 
 	local obj = GetIES(invItem:GetObject());
 	if ENCHANTCHIP_ABLIE(obj) ~= 1 then
-		ui.SysMsg(ClMsg("CannotDropItem"));
+		ui.SysMsg(ClMsg("MagicEnchant").." "..ClMsg("IT_ISNT_REINFORCEABLE_ITEM"));
 		return;
 	end
 

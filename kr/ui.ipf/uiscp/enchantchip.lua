@@ -44,6 +44,32 @@ function CLIENT_ENCHANTCHIP(invItem)
 	tolua.cast(tab, "ui::CTabControl");
 	tab:SelectTab(1);
 
+	if obj.ClassName == 'STEAM_MASTER_Premium_Enchantchip' then
+		local text1 = enchantFrame:GetChild("richtext_1")
+		tolua.cast(text1, "ui::CRichText");
+		text1:SetText(obj.Name)
+
+		local text2 = enchantFrame:GetChild("richtext_2")
+		tolua.cast(text2, "ui::CRichText");
+		text2:SetTextByKey("value", obj.Name)
+
+		local close = enchantFrame:GetChild("close")
+		tolua.cast(close, "ui::CRichText");
+		close:SetTextTooltip(ClMsg("master_hairenchant_close"));
+	else
+		local text1 = GET_CHILD_RECURSIVELY(enchantFrame, "richtext_1")
+		tolua.cast(text1, "ui::CRichText");
+		text1:SetText(obj.Name)
+
+		local text2 = GET_CHILD_RECURSIVELY(enchantFrame, "richtext_2")
+		tolua.cast(text2, "ui::CRichText");
+		text2:SetTextByKey("value", obj.Name)	
+
+		local close = enchantFrame:GetChild("close")
+		tolua.cast(close, "ui::CRichText");
+		close:SetTextTooltip(ClMsg("hairenchant_close"));
+	end
+
 	SET_INV_LBTN_FUNC(invframe, "ENCHANTCHIP_LBTN_CLICK");
 	ui.GuideMsg("SelectItem");
 	CHANGE_MOUSE_CURSOR("MORU", "MORU_UP", "CURSOR_CHECK_ENCHANTCHIP");

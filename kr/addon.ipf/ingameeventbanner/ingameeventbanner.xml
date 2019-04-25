@@ -10,6 +10,7 @@
 	<option closebutton="false"/>
 	<sound opensound="window_open" closesound="window_close"/>
 	<script OpenScp="EVENTBANNER_FRAME_OPEN" CloseScp="EVENTBANNER_FRAME_CLOSE"/>
+	<userconfig RANK_GUID_FONT_NAME="white_20_ol_ds"/>
 	<controls>
 		<groupbox name="bg" rect="0 0 1060 700" margin="0 0 0 0" layout_gravity="center top" draw="true" skin="test_frame_low"/>
 		<groupbox name="pip4" rect="0 0 1060 80" margin="0 0 0 0" layout_gravity="center top" draw="true" skin="test_frame_top"/>

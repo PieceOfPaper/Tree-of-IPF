@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="23" R="120" G="100" B="105" A="100"/>
+	<BlendOn frame="24" R="30" G="20" B="25" A="100"/>
+	<BlendOn frame="25" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="54" R="120" G="100" B="105" A="100"/>
+	<BlendOn frame="55" R="30" G="20" B="25" A="100"/>
+	<BlendOn frame="56" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="90" R="150" G="150" B="150" A="100"/>
+	<BlendOn frame="92" R="30" G="20" B="25" A="100"/>
+	<BlendOn frame="95" R="100" G="100" B="100" A="100"/>
+	<BlendOn frame="97" R="30" G="20" B="25" A="100"/>
+	<BlendOn frame="99" R="100" G="100" B="100" A="100"/>
+	<BlendOn frame="101" R="30" G="20" B="25" A="100"/>
+	<BlendOn frame="103" R="60" G="60" B="60" A="100"/>
+	<BlendOn frame="105" R="30" G="20" B="25" A="100"/>
+	<BlendOn frame="107" R="80" G="80" B="80" A="100"/>
+	<BlendOn frame="109" R="30" G="20" B="25" A="100"/>
+	<BlendOn frame="111" R="60" G="60" B="60" A="100"/>
+	<BlendOn frame="113" R="15" G="15" B="15" A="100"/>
+	<BlendOn frame="115" R="80" G="80" B="80" A="100"/>
+	<BlendOn frame="117" R="30" G="30" B="30" A="100"/>
+	<BlendOn frame="119" R="60" G="60" B="60" A="100"/>
+	<BlendOn frame="122" R="20" G="20" B="20" A="100"/>
+	<BlendOn frame="125" R="40" G="40" B="40" A="100"/>
+	<BlendOn frame="128" R="10" G="10" B="10" A="100"/>
+	<BlendOff frame="129" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="24" type="2" intensity="6" frequency="70" duration="0.5" range="1000"/>
+	<Shockwave frame="55" type="2" intensity="7" frequency="60" duration="0.5" range="1000"/>
+	<Shockwave frame="91" type="2" intensity="8" frequency="60" duration="2" range="1000"/>
+	<Particle frame="89" attachNode="Dummy_ROOT" particleName="F_spread_out045_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="89" attachNode="Dummy_ROOT" particleName="F_spread_out026_dark_low" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="89" attachNode="Dummy_ROOT" particleName="F_spread_out002" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="52" attachNode="Dummy_ROOT" particleName="F_spread_out046" useAttach="false" hiddenObj="false" changeEffect="None" scale="6.3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="21" attachNode="Dummy_ROOT" particleName="F_spread_out046" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="20" attachNode="Dummy_ROOT" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="90" attachNode="Dummy_ROOT" particleName="F_smoke174_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="22.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="90" attachNode="Dummy_ROOT" particleName="F_smoke174_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="18" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="90" attachNode="Dummy_ROOT" particleName="F_smoke174_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="7.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="55" attachNode="Dummy_ROOT" particleName="F_smoke174_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="12" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="24" attachNode="Dummy_ROOT" particleName="F_smoke174_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="8.3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_ROOT" particleName="I_stone018_mesh" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="20" attachNode="Dummy_ROOT" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="24" attachNode="Dummy_ROOT" particleName="F_ground189_circle_crack" useAttach="false" hiddenObj="false" changeEffect="None" scale="7.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="55" attachNode="Dummy_ROOT" particleName="F_ground189_circle_crack" useAttach="false" hiddenObj="false" changeEffect="None" scale="7.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="91" attachNode="Dummy_ROOT" particleName="F_ground191_circle_crack" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="100" attachNode="Dummy_ROOT" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="110" attachNode="Dummy_ROOT" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="120" attachNode="Dummy_ROOT" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20"/>
+</ActionDesc>

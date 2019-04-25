@@ -1696,6 +1696,10 @@ function BEAUTYSHOP_GET_PREIVEW_SLOT(equipType, itemClassName)
 end
 
 function BEAUTYSHOP_BUY_BASKET_BTN_CLICK(parent, ctrl)
+	if IS_ENABLE_BUY_TP_ITEM() == false then
+		return;
+	end
+
     local frame = parent:GetTopParentFrame();
     local list = GET_CURRENT_BASKET_ITEM_LIST(frame);
     if #list < 1 then

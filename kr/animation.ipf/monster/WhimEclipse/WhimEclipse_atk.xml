@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="2" R="80" G="80" B="50" A="100"/>
+	<BlendOn frame="3" R="50" G="50" B="50" A="100"/>
+	<BlendOff frame="4" R="0" G="0" B="0" A="0"/>
+	<Particle frame="2" attachNode="Dummy_effect_headeye" particleName="F_warrior_Krumphau_cast_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.25" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Bip01 Spine2" particleName="F_light128_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="F_ground071_smoke3" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="13" attachNode="Dummy_emitter" particleName="F_ground071_smoke3" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_effect_atk001" particleName="I_swordtrail046_red_reverse" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="14" attachNode="Dummy_effect_atk002" particleName="I_swordtrail046_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+</ActionDesc>

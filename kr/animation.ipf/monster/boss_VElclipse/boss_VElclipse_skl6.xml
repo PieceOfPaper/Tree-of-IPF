@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="15" attachNode="None" particleName="F_smoke174_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="30" attachNode="None" particleName="F_smoke174_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="50" attachNode="None" particleName="F_smoke174_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="70" attachNode="None" particleName="F_smoke174_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="95" attachNode="None" particleName="F_smoke174_dark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="15" attachNode="effect002" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="15" attachNode="effect003" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="30" attachNode="effect002" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="30" attachNode="effect003" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="50" attachNode="effect002" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="50" attachNode="effect003" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="70" attachNode="effect002" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<Particle frame="70" attachNode="effect003" particleName="F_drop_feather002" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="40"/>
+	<BlendOn frame="103" R="100" G="100" B="100" A="50"/>
+	<BlendOn frame="104" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="105" R="100" G="100" B="100" A="50"/>
+	<BlendOff frame="106" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="101" type="2" intensity="5" frequency="70" duration="0.4" range="1000"/>
+</ActionDesc>

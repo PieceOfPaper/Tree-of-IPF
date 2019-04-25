@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="quest_filter" x="0" y="" width="300" height="250" create="open">
+	<frame fullheight="false" fasthide="true" layout_gravity="left top" margin="0 0 0 0"/>
+	<draw drawframe="false" drawtitlebar="false"/>
+	<input moveable="true"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<userconfig TITLE_MARGIN_Y="10" BODY_MARGIN_Y="10"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 200 220" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="chat_window"/>
+		<richtext name="mode_all_text" parent="bg" rect="0 0 200 30" margin="5 10 0 0" layout_gravity="left top" fontname="white_18_b" caption="{ol}모든 퀘스트"/>
+		<checkbox name="mode_all_check" parent="bg" rect="0 0 30 30" margin="0 10 0 5" layout_gravity="right top" fontname="black_18_b" caption="" LBtnUpScp="QUEST_FILTER_UPDATE" clicksound="button_click_big" oversound="button_over"/>
+		<richtext name="mode_main_text" parent="bg" rect="0 0 200 30" margin="5 40 0 0" layout_gravity="left top" fontname="white_18_b" caption="{ol}메인 퀘스트"/>
+		<checkbox name="mode_main_check" parent="bg" rect="0 0 30 30" margin="0 40 0 5" layout_gravity="right top" fontname="black_18_b" caption="" LBtnUpScp="QUEST_FILTER_UPDATE" clicksound="button_click_big" oversound="button_over"/>
+		<richtext name="mode_sub_text" parent="bg" rect="0 0 200 30" margin="5 70 0 0" layout_gravity="left top" fontname="white_18_b" caption="{ol}서브 퀘스트"/>
+		<checkbox name="mode_sub_check" parent="bg" rect="0 0 30 30" margin="0 70 0 5" layout_gravity="right top" fontname="black_18_b" caption="" LBtnUpScp="QUEST_FILTER_UPDATE" clicksound="button_click_big" oversound="button_over"/>
+		<richtext name="mode_repeat_text" parent="bg" rect="0 0 200 30" margin="5 100 0 0" layout_gravity="left top" fontname="white_18_b" caption="{ol}반복 퀘스트"/>
+		<checkbox name="mode_repeat_check" parent="bg" rect="0 0 30 30" margin="0 100 0 5" layout_gravity="right top" fontname="black_18_b" caption="" LBtnUpScp="QUEST_FILTER_UPDATE" clicksound="button_click_big" oversound="button_over"/>
+		<richtext name="mode_party_text" parent="bg" rect="0 0 200 30" margin="5 130 0 0" layout_gravity="left top" fontname="white_18_b" caption="{ol}파티 퀘스트"/>
+		<checkbox name="mode_party_check" parent="bg" rect="0 0 30 30" margin="0 130 0 5" layout_gravity="right top" fontname="black_18_b" caption="" LBtnUpScp="QUEST_FILTER_UPDATE" clicksound="button_click_big" oversound="button_over"/>
+		<richtext name="mode_keyitem_text" parent="bg" rect="0 0 200 30" margin="5 160 0 0" layout_gravity="left top" fontname="white_18_b" caption="{ol}증표 퀘스트"/>
+		<checkbox name="mode_keyitem_check" parent="bg" rect="0 0 30 30" margin="0 160 0 5" layout_gravity="right top" fontname="black_18_b" caption="" LBtnUpScp="QUEST_FILTER_UPDATE" clicksound="button_click_big" oversound="button_over"/>
+		<richtext name="mode_chase_text" parent="bg" rect="0 0 200 30" margin="5 190 0 0" layout_gravity="left top" fontname="white_18_b" caption="{ol}추적 퀘스트"/>
+		<checkbox name="mode_chase_check" parent="bg" rect="0 0 30 30" margin="0 190 0 5" layout_gravity="right top" fontname="black_18_b" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" LBtnUpScp="QUEST_FILTER_UPDATE" clicksound="button_click_big" oversound="button_over"/>
+	</controls>
+</uiframe>

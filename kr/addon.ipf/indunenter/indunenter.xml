@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by asdasd (IMCGames Co., Ltd) -->
 <uiframe name="indunenter" x="0" y="0" width="1020" height="650" create="open">
 	<frame titlepos="0 0" layout_gravity="center center" margin="-100 -100 0 0"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
@@ -10,7 +10,7 @@
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
 	<layer layerlevel="100" margin="-100 -100 0 0"/>
 	<script OpenScp="INDUNENTER_UI_RESET" CloseScp="INDUNENTER_CLOSE"/>
-	<userconfig SLOT_SKIN="invenslot2" SLOT_SIZE="65" MULTI_DEFAULT="0" MULTI_MIN="0" SMALLMODE_WIDTH="400" FIND_WAIT_TIME="10" NO_MATCH_SKIN="indun_people_btn" YES_MATCH_SKIN="indun_people_img" PLUS_BTN_IMAGE="btn_plus" MINUS_BTN_IMAGE="btn_minus" RANDOM_ICON="indun_bossrandom" MATCH_FINDED_SOUND="sys_pvp_battle_party_user_full" MEMBER_FINDED_SOUND="sys_pvp_battle_party_user_in" UNDERSTAFF_CHECK_SOUND="sys_pvp_battle_party_user_4"/>
+	<userconfig SLOT_SKIN="invenslot2" SLOT_SIZE="65" MULTI_DEFAULT="0" MULTI_MIN="0" SMALLMODE_WIDTH="400" FIND_WAIT_TIME="10" NO_MATCH_SKIN="indun_people_btn" YES_MATCH_SKIN="indun_people_img" PLUS_BTN_IMAGE="btn_plus" MINUS_BTN_IMAGE="btn_minus" RANDOM_ICON="indun_bossrandom" MATCH_FINDED_SOUND="sys_pvp_battle_party_user_full" MEMBER_FINDED_SOUND="sys_pvp_battle_party_user_in" UNDERSTAFF_CHECK_SOUND="sys_pvp_battle_party_user_4" TOOLTIP_POSX="5" TOOLTIP_POSY="42"/>
 	<controls>
 		<!-- Big Mode -->
 		<groupbox name="bigmode" rect="0 0 1020 680" margin="0 0 0 0" layout_gravity="left top" draw="false" hittestbox="false"/>
@@ -34,6 +34,8 @@
 		<groupbox name="bottomBox" parent="bigmode" rect="0 0 708 145" margin="12 0 0 40" layout_gravity="left bottom" hittestbox="false" skin="indun_bottom_skin"/>
 		<groupbox name="noPicBox" parent="mainBox" rect="0 0 420 550" margin="0 45 3 0" layout_gravity="right top" draw="false"/>
 		<picture name="indunPic" parent="bigmode" rect="0 0 295 450" margin="10 45 0 0" layout_gravity="left top" image="027_boss_Gaigalas" stretch="true" hittestbox="false"/>
+		<groupbox name="restrictBox" rect="0 0 196 40" parent="bigmode" margin="10 45 0 0" layout_gravity="left top" draw="false" image="text_bg_black"/>
+		<richtext name="restrictText" rect="0 0 200 30" parent="restrictBox" margin="5 0 0 0" layout_gravity="left center" caption="{img NOTICE_Dm_! 30 30}{@st43}{s16}스킬 제한{/}" hittest="false"/>
 		<groupbox name="countBox" parent="noPicBox" rect="0 0 390 30" margin="5 10 0 0" layout_gravity="left top" draw="false" hittestbox="false"/>
 		<picture name="countPic" parent="countBox" rect="0 0 27 27" margin="0 0 0 0" layout_gravity="left top" image="indun_entrance"/>
 		<picture name="cycleCtrlPic" parent="countBox" rect="0 0 52 20" margin="0 0 80 0" layout_gravity="right center" image="indun_icon_event_l_eng"/>

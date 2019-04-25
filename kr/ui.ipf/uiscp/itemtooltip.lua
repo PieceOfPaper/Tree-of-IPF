@@ -621,7 +621,7 @@ function ITEM_TOOLTIP_EXTRACT_OPTION(tooltipframe, invitem, mouseOverFrameName)
 	end
 
 	ypos = DRAW_EQUIP_PROPERTY(tooltipframe, targetItem, ypos, mainframename, nil, false);
-	ypos = DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, targetItem, mainframename, ypos, ScpArgMsg('{LEVEL}LimitEquip', 'LEVEL'));
+	--ypos = DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, targetItem, mainframename, ypos, ScpArgMsg('{LEVEL}LimitEquip', 'LEVEL'));
 	ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename);
 	ypos = DRAW_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename);
 	ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);

@@ -13,6 +13,28 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="DAG04_118">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_DAMTYPE" Client="NO" UseSleep="NO">
+						<Num Num="4"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF2" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_Dagger"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="15000"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="SWD04_119">
 		<TriggerList Act="UnEquip">
 			<Trigger>
@@ -66,11 +88,11 @@
 		</TriggerList>
 	</SpcItem>
 	<SpcItem Name="Effect_Ghost">
-		<TriggerList Act="UnEquip">
+        <TriggerList Act="UnEquip">
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
-						<Str Str="GHOST_EFFECT"/>
+		<Str Str="GHOST_EFFECT"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -90,7 +112,7 @@
 				</ExecList>
 			</Trigger>
 		</TriggerList>
-	</SpcItem>
+		</SpcItem>
 	<SpcItem Name="Effect_AURORA">
 		<TriggerList Act="Equip">
 			<Trigger>
@@ -159,7 +181,7 @@
 				</ExecList>
 			</Trigger>
 		</TriggerList>
-		<TriggerList Act="UnEquip">
+	<TriggerList Act="UnEquip">
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
@@ -2555,6 +2577,49 @@ return self.MNA;"/>
 						<Num Num="55"/>
 					</ToolScp>
 				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="SWD04_122">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_SWORD_PRE"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_SWORD_PRE"/>
+						<Num Num="99"/>
+						<Num Num="1000"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TMAC04_113">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_THMACE"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="5000"/>
+						<Num Num="1"/>
+						<Num Num="5"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
@@ -5767,6 +5832,308 @@ end"/>
 					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
 						<Str Str="EFFECT_MAGICSQUARE_YELLOW"/>
 						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="SPR04_123">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_THROWINGFISHINGNET_TIMEUP"/>
+						<Num Num="-5000"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_THROWINGFISHINGNET_TIMEUP"/>
+						<Num Num="5000"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSF04_122">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_INVOCATION_ADDSUMMON"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_INVOCATION_ADDSUMMON"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSP04_124">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_THSPEAR_PRE"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_THSPEAR_PRE"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="BOW04_122">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_QuarrelShooter_DeployPavise_Ballista"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_TARGET_RUNSCP_EQUIP" Client="NO" UseSleep="NO">
+						<Str Str="SCR_UNEQUIP_UNSUMMON"/>
+						<Str Str="pcskill_Ballista"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_QuarrelShooter_DeployPavise_Ballista"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="CAN04_114">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SIEGEBURST_FLASHBOMB"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SIEGEBURST_FLASHBOMB"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="MAC04_124">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_JOB_ALL_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Monk"/>
+						<Num Num="2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_JOB_ALL_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Monk"/>
+						<Num Num="-2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TBW04_122">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_AROORWRAIN_SKLRANGE"/>
+						<Num Num="-9"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_AROORWRAIN_SKLRANGE"/>
+						<Num Num="9"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="MUS04_114">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_EYEOFBEAST_HITCOUNT"/>
+						<Num Num="-2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_EYEOFBEAST_HITCOUNT"/>
+						<Num Num="2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="STF04_123">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_RAISESKELETON_SUMMONCOUNT"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_RAISESKELETON_SUMMONCOUNT"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="RAP04_119">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_ODERSSKILL_ALLWOOVERLAP"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_ODERSSKILL_ALLWOOVERLAP"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="SHD04_118">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_GUARDIAN_DURATIONTIMEUP"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_GUARDIAN_DURATIONTIMEUP"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="PST04_117">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_PISTOL_PRE"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_PISTOL_PRE"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSW04_122">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_THSWORD_PRE"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_THSWORD_PRE"/>
+						<Num Num="99"/>
 						<Num Num="0"/>
 						<Num Num="0"/>
 						<Num Num="1"/>

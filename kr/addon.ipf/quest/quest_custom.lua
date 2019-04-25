@@ -1,13 +1,116 @@
+-- quest_custom.lua
+
+local customQuestList = nil;
+
+local function _GET_CUSTOM_QUEST_LIST()
+
+	if customQuestList == nil then
+		customQuestList = {}
+	end
+
+	return customQuestList;
+end
 
 
-
-function ON_CUSTOM_QUEST_DELETE(frame, msg, keyName, argNum)
-	local groupbox = frame:GetChild('questGbox');
+local function _REMOVE_CUSTOM_QUEST_INFO(keyName)
+	local list = _GET_CUSTOM_QUEST_LIST()
+	if list == nil then
+		return nil
+	end
 	
-	local ctrlName = "_Q_CUSTOM_" .. keyName;
-	groupbox:RemoveChild(ctrlName);
-	ALIGN_QUEST_CTRLS(groupbox);
+	for id=#list, 1, -1 do
+		local customQuestInfo = list[id]
+		if customQuestInfo.Key == keyName then
+			table.remove(list, id);
+		end
+	end
 
+end
+
+local function _GET_CUSTOM_QUEST_INFO(keyName)
+	local list = _GET_CUSTOM_QUEST_LIST()
+	if list == nil then
+		return nil
+	end
+
+	for index,customQuestInfo in pairs(list) do
+		if customQuestInfo.Key == keyName then
+			return customQuestInfo;
+		end
+	end
+
+	return nil;
+end
+
+local function _SET_CUSTOM_QUEST_INFO(keyName)
+	local list = _GET_CUSTOM_QUEST_LIST()
+	if list == nil then
+		return
+	end
+
+	-- 이미 있으면 그냥 리턴.
+	for index, questInfo in pairs(list) do
+		if questInfo.Key == keyName then
+			return
+		end
+	end
+	
+	-- 없으면 끝에 추가.
+	local questIndex = #list;
+	list[questIndex + 1] = { Key = keyName}
+	
+end
+
+-- 커스텀 퀘스트 그리기.
+function DRAW_CUSTOM_QUEST_LIST(frame, y)	
+	if frame == nil then
+		frame = ui.GetFrame('quest')
+	end
+
+	local bgCtrl = GET_CHILD_RECURSIVELY(frame, 'questGbox');
+	local questList = _GET_CUSTOM_QUEST_LIST()
+	local height = 0;
+	for notUse, customQuestInfo in pairs(questList) do
+		height = height + DRAW_CUSTOM_QUEST_CTRL(bgCtrl, customQuestInfo, y + height)
+	end
+
+	return height;
+end
+
+function DRAW_CUSTOM_QUEST_CTRL(bgCtrl, customQuestInfo, y)
+	if bgCtrl == nil then
+		return 0;
+	end
+
+	local customQuest = geQuest.GetCustomQuest(customQuestInfo.Key);
+	if customQuest == nil then
+		_REMOVE_CUSTOM_QUEST_INFO(customQuestInfo.Key)
+		return 0;
+	end
+
+	local frame2 = ui.GetFrame("questinfoset_2");
+	local key = customQuest:GetKey();
+	local ctrlName = "_Q_CUSTOM_" .. key;
+	local quest_ctrl = bgCtrl:CreateOrGetControlSet('custom_quest_list', ctrlName, 0, 0);
+	local ret = CUSTOM_CONTROLSET_UPDATE(quest_ctrl, customQuest);
+	if ret == -1 then
+		bgCtrl:RemoveChild(ctrlName);
+		
+		local GroupCtrl = GET_CHILD(frame2, "member", "ui::CGroupBox");
+		GroupCtrl:RemoveChild(ctrlName);
+		return 0; -- 지령창에만 표시하는 커스텀 컨트롤이므로 0을 리턴.
+	end
+
+	return quest_ctrl:GetHeight()
+end
+
+	
+function ON_CUSTOM_QUEST_DELETE(frame, msg, keyName, argNum)
+	_REMOVE_CUSTOM_QUEST_INFO(keyName)
+
+	DRAW_QUEST_LIST(frame)
+
+	-- INFOSET
 	local frame2 = ui.GetFrame("questinfoset_2");    
 	local GroupCtrl = GET_CHILD(frame2, "member", "ui::CGroupBox");
 	GroupCtrl:RemoveChild(ctrlName);
@@ -15,31 +118,22 @@ function ON_CUSTOM_QUEST_DELETE(frame, msg, keyName, argNum)
 end
 
 function ON_CUSTOM_QUEST_UPDATE(frame, msg, keyName, argNum)
-
 	local customQuest = geQuest.GetCustomQuest(keyName);
 	if customQuest == nil then
-		return;
+		_REMOVE_CUSTOM_QUEST_INFO(keyName)
+		return 
 	end
 
-	local groupbox = frame:GetChild('questGbox');
-	local frame2 = ui.GetFrame("questinfoset_2");	
 	if customQuest.useMainUI == 1 then
-		local key = customQuest:GetKey();
-		local ctrlName = "_Q_CUSTOM_" .. key;
-		local quest_ctrl = groupbox:CreateOrGetControlSet('custom_quest_list', ctrlName, 20, 0);
-		local ret = CUSTOM_CONTROLSET_UPDATE(quest_ctrl, customQuest);
-		if ret == -1 then
-			groupbox:RemoveChild(ctrlName);
-			
-			local GroupCtrl = GET_CHILD(frame2, "member", "ui::CGroupBox");
-			GroupCtrl:RemoveChild(ctrlName);
-		end
+		_SET_CUSTOM_QUEST_INFO(keyName)
 	end
 
-	ALIGN_QUEST_CTRLS(groupbox);    
+	DRAW_QUEST_LIST(frame);
+
+	-- INFOSET
+	local frame2 = ui.GetFrame("questinfoset_2");	
 	QUESTINFOSET_2_MAKE_CUSTOM(frame2, true);
 	frame2:ShowWindow(1);
-
 end
 
 function CUSTOM_CONTROLSET_UPDATE(quest_ctrl, quest)
@@ -56,8 +150,6 @@ function QUESTINFOSET_2_MAKE_CUSTOM(frame, updateSize)
 		local customQuest = geQuest.GetCustomQuestByIndex(i);
 		local key = customQuest:GetKey();
 		local ctrlName = "_Q_CUSTOM_" .. key;
-		-- ���⼭ ���� �̸����� ã�� �����ϴ� �������
-		--local ctrlset = GroupCtrl:CreateOrGetControlSet('emptyset2', ctrlName, 0, 0);
 		local ctrlset = GroupCtrl:CreateOrGetControlSet('emptyset2', ctrlName.."_"..i, 0, 0);
 		ctrlset:Resize(GroupCtrl:GetWidth() - 20, ctrlset:GetHeight());
 		CUSTOM_CONTROLSET_UPDATE(ctrlset, customQuest)

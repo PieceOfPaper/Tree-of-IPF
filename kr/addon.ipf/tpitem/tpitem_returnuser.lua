@@ -591,7 +591,7 @@ function TPSHOP_RETURNUSER_ITEM_BASKET_BUY(parent, control)
 			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
         		ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_RETURNUSER_MARKET_ITEM", "TPSHOP_RETURNUSER_ITEM_BASKET_BUY_CANCEL");	
 			else
-				POPUP_LIMIT_PAYMENT(ScpArgMsg("ReallyBuy?"), parent:GetName(), allPrice)
+				POPUP_LIMIT_PAYMENT(ScpArgMsg("ReallyBuy?"), parent:GetName(), allPrice, "TPSHOP_RETURNUSER_POPUP_POPUP_LIMIT_PAYMENT_CLICK","TPSHOP_RETURNUSER_POPUP_POPUP_LIMIT_PAYMENT_CANCEL")
 			end			
 		else
 			ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_RETURNUSER_MARKET_ITEM", "TPSHOP_RETURNUSER_ITEM_BASKET_BUY_CANCEL");	
@@ -669,6 +669,26 @@ function EXEC_BUY_RETURNUSER_MARKET_ITEM()
 	local frame = ui.GetFrame("tpitem");
 	frame:ShowWindow(0);
 	TPITEM_CLOSE(frame);
+end
+
+
+function TPSHOP_RETURNUSER_POPUP_POPUP_LIMIT_PAYMENT_CLICK()
+	local frame = ui.GetFrame("tpitem");
+	local msg = frame:GetUserValue("LIMIT_PAYMENT_MSG");
+	local parentName = frame:GetUserValue("PARENT_NAME");
+	
+	ui.MsgBox_NonNested_Ex(msg, 0x00000004, parentName, "EXEC_BUY_RETURNUSER_MARKET_ITEM", "TPSHOP_RETURNUSER_ITEM_BASKET_BUY_CANCEL");	
+
+
+	local frame = ui.GetFrame("tpitem")
+	local btn = GET_CHILD_RECURSIVELY(frame,"returnuser_toitemBtn");
+	btn:SetEnable(1);
+end
+
+function TPSHOP_RETURNUSER_POPUP_POPUP_LIMIT_PAYMENT_CANCEL()
+	local frame = ui.GetFrame("tpitem")
+	local btn = GET_CHILD_RECURSIVELY(frame,"returnuser_toitemBtn");
+	btn:SetEnable(1);	
 end
 
 function TPSHOP_RETURNUSER_ITEM_BASKET_BUY_CANCEL()

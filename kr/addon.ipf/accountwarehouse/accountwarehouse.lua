@@ -468,10 +468,15 @@ function ACCOUNT_WAREHOUSE_EXTEND(parent, slot)
 
 	local price = GET_ACCOUNT_WAREHOUSE_EXTEND_PRICE(aObj, GET_COLONY_TAX_RATE_CURRENT_MAP())
 	local str = ScpArgMsg("ExtendWarehouseSlot{Silver}{SLOT}", "Silver", GetCommaedText(price), "SLOT", 1);
+
 	if session.colonytax.IsEnabledColonyTaxShop() == true then
+    	local curMapID = session.GetMapID()
+    	local cityMapID = session.colonytax.GetColonyCityID(curMapID)
+    	local taxRateInfo = session.colonytax.GetColonyTaxRate(cityMapID)
+    	if taxRateInfo ~= nil then
 		str = str .. string.format("%s%s%s%s%s", STYLE_TAX_RATE, START_TAX_RATE, GET_COLONY_TAX_APPLIED_STRING(true, TAX_ICON_WIDTH, TAX_ICON_HEIGHT), END_TAX_RATE, "{/}");
 	end
-
+    end
 	local yesScp = string.format("CHECK_USER_MEDAL_FOR_EXTEND_ACCOUNT_WAREHOUSE(%d)", price) 
 	local msgBox = ui.MsgBox_NonNested(str, "EXTEND_ACCOUNT_WAREHOUSE", yesScp, "None");
 

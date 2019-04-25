@@ -3549,6 +3549,7 @@ function UPDATE_INVENTORY_EXP_ORB(frame, ctrl, num, str, time)
 	if frame:IsVisible() == 0 then
 		return;
 	end
+
 	local itemGuid = frame:GetUserValue("EXP_ORB_EFFECT");
 	if itemGuid == "None" then
 		return;
@@ -3564,12 +3565,17 @@ function UPDATE_INVENTORY_EXP_ORB(frame, ctrl, num, str, time)
 	if tabIndex == 0 then
 		slot = INV_GET_SLOT_BY_ITEMGUID(itemGuid, nil, 1)
 	end	
+
 	if slot == nil then
 		return;
 	end
+	
 	if slot:IsVisibleRecursively() == true then
 		local size = frame:GetUserConfig("EXP_ORB_EFFECT_SIZE");	
 		slot:PlayOnceUIEffect('I_sys_item_slot', size);
+		
+		local posX, posY = GET_SCREEN_XY(slot);
+		movie.PlayUIEffect("I_sys_item_slot", posX, posY, 0.8);		
 	end
 end
 

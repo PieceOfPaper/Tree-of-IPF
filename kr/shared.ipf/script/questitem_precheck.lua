@@ -5460,6 +5460,12 @@ function SCR_PRE_ITEM_Escape(self, argObj, BuffName, arg1, arg2)
             SendSysMsg(self, "ThisLocalUseNot");
             return 0;
         end
+        
+        if zone == "shadow_raid_main" then
+            SendSysMsg(self, "ThisLocalUseNot");
+            return 0;
+        end
+        
         if obj.Type == "MISSION" then
             SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("EscapeDisabled"), 5);
             return 0
@@ -8354,12 +8360,14 @@ function SCR_PRE_STARTOWER_91_MQ_70_ITEM(self, argObj, argstring, arg1, arg2)
             if GetZoneName(self) == "d_startower_91" then
                 if GetLayer(self) == 0 then
                     local x, y, z = GetPos(self)
-                    local objectList, objectCount = SelectObject(self, 300, "ALL")
-                    if objectCount ~= nil then
-                        for i = 1, objectCount do
-                            if objectList[i].ClassName == "Waglog" or objectList[i].ClassName == "glovegolem" then
-                                if IsBuffApplied(objectList[i], 'STARTOWER_91_MQ_80_KEY_RESONATE_BUFF') == 'NO' then
-                                    return GetHandle(objectList[i])
+                    if SCR_POINT_DISTANCE(x,z,-1534,1060) <= 300 then
+                        local objectList, objectCount = SelectObject(self, 300, "ALL")
+                        if objectCount ~= nil then
+                            for i = 1, objectCount do
+                                if objectList[i].ClassName == "Waglog" or objectList[i].ClassName == "glovegolem" then
+                                    if IsBuffApplied(objectList[i], 'STARTOWER_91_MQ_80_KEY_RESONATE_BUFF') == 'NO' then
+                                        return GetHandle(objectList[i])
+                                    end
                                 end
                             end
                         end
@@ -8651,11 +8659,11 @@ function SCR_PRE_NICOPOLIS_811_SUBQ5_ITEM1(self, argObj, argstring, arg1, arg2)
         if GetLayer(self) < 1 then
             local quest = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_1_SQ_05")
             if quest == "PROGRESS" then
-                local obj_list, obj_cnt = SelectObject(self, 40, "ALL", 1)
+                local obj_list, obj_cnt = SelectObject(self, 40, "ALL")
                 if obj_cnt >= 1 then
                     for i = 1, obj_cnt do
-                        if obj_list[i].ClassName == "Hiddennpc" then
-                            return GetHandle(obj_list[i])
+                        if obj_list[i].ClassName == "HiddenTrigger6" then
+                            return 1
                         end
                     end
                 end

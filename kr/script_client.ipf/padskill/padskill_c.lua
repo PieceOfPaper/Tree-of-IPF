@@ -5,6 +5,7 @@ function C_EFFECT_REMOVE_KEY()
 end
 
 function C_PAD_MONSTER(actor, obj, padGuid, monName, scale, animName, aniXmlKey, lifeTime)
+	-- actor 는 nil 일 수도 있다.
 	
 	if lifeTime == nil then
 		lifeTime = 3.0;
@@ -25,12 +26,14 @@ function C_GET_PAD_GRASS_POS(actor, x, y, z, padName, range)
 end
 
 function PAD_SET_HOLD(actor, obj, padGuid)
-	
-	geClientPadSkill.SetPadHoldMove(padGuid);
+	-- actor 는 nil 일 수도 있다.
 
+	geClientPadSkill.SetPadHoldMove(padGuid);
 end
 
 function C_PAD_EFFECT_POS(actor, obj, padGuid, eftName, scl, x, y, z, lifeTime, activeEffect, activeEffect_arg, isEnablePositionCompensation)
+	-- actor 는 nil 일 수도 있다.
+
 	if isEnablePositionCompensation == nil then
 		isEnablePositionCompensation = 1;
 	end
@@ -38,8 +41,9 @@ function C_PAD_EFFECT_POS(actor, obj, padGuid, eftName, scl, x, y, z, lifeTime, 
 end
 
 function C_FORM_PAD_CHANGE_ACTIVE_EFFECT(actor, obj, padGuid, index, activeEffect)
+	-- actor 는 nil 일 수도 있다.
 
-	effect.ChangeFormationPadActiveEffect(actor, index, activeEffect, padGuid);
+	effect.ChangeFormationPadActiveEffect(index, activeEffect, padGuid);
 end
 
 function C_PAD_DESTROY_EFFECT_POS(pad, obj, padGuid, x, y, z, eftName, scl, lifeTime, delay)
@@ -54,23 +58,30 @@ function C_PAD_DESTROY_EFFECT_POS(pad, obj, padGuid, x, y, z, eftName, scl, life
 end
 
 function C_PAD_EFFECT_FORCE(actor, obj, padGuid, eftName, scl, fixHeight)
+	-- actor 는 nil 일 수도 있다.
+
 	effect.PlayPadForceEffect(actor, eftName, scl, fixHeight, padGuid);
 end
 
 function C_PAD_CHANGE_EFFECT(actor, obj, padGuid, padName, range, padStyle, eftName, scl)
-	local pos = actor:GetPos();
-	local padList = SelectPad_C(actor, padName, pos.x, pos.y, pos.z, range, padStyle);
-	if #padList == 0 then
-		return;
-	end
+	-- actor 는 nil 일 수도 있다.
 
-	for i = 1, #padList do
-		local pad = tolua.cast(padList[i], "CClientPadSkill");
-		effect.ChangePadEffect(actor, eftName, scl, pad:GetGuid());
+	if actor ~= nil then
+		local pos = actor:GetPos();
+		local padList = SelectPad_C(actor, padName, pos.x, pos.y, pos.z, range, padStyle);
+		if #padList == 0 then
+			return;
+		end
+
+		for i = 1, #padList do
+			local pad = tolua.cast(padList[i], "CClientPadSkill");
+			effect.ChangePadEffect(actor, eftName, scl, pad:GetGuid());
+		end
 	end
 end
 
 function PAD_PLANT_ATTACK_C(actor, obj, padGuid)
+	-- actor 는 nil 일 수도 있다.
 	geClientPadSkill.SetPadPlantAttack(padGuid);
 end
 

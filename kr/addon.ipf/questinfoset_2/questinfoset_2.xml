@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by LEE (EMBRACE) -->
 <uiframe name="questinfoset_2" x="0" y="0" width="400" height="630">
-	<frame title="퀘스트 정보" layout_gravity="right top" margin="0 445 20 0" scale_align="right top"/>
+	<frame title="퀘스트 정보" layout_gravity="right top" margin="0 445 00 0" scale_align="right top"/>
 	<option visible="false" closebutton="false" hideable="false" alwaysVisible="true"/>
 	<sound opensound="win_open" closesound="win_close"/>
 	<draw drawframe="false" drawtitlebar="false"/>
@@ -10,8 +10,12 @@
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
 	<input hittestframe="false"/>
 	<lockopenscript scp="UI_CHECK_NOT_PVP_MAP"/>
+	<userconfig FOLD="quest_arrow_r_btn" EXPEND="quest_arrow_l_btn" CTRLSETSKINNAME="quest_bg_black_op_50" CTRLSET_SPACE_Y="0" CTRLSET_MARGIN_TOP="7" CTRLSET_MARGIN_BOTTOM="7" CTRLSET_TITLE_SPACE_Y="10" CTRLSET_TITLE_OFFSET_X="48" CTRLSET_BODY_OFFSET_X="60" QUESTINFO_ICON_PREFIX="minimap" QUESTINFO_ICON_STATE_POSSIBLE="1" QUESTINFO_ICON_STATE_PROGRESS="2" QUESTINFO_ICON_STATE_SUCCESS="3" QUESTINFO_ICON_MODE_MAIN="MAIN" QUESTINFO_ICON_MODE_SUB="SUB" QUESTINFO_ICON_MODE_REPEAT="REPEAT" QUESTINFO_ICON_MODE_PERIOD="PERIOD" QUESTINFO_ICON_MODE_PARTY="PARTY" QUESTINFO_ICON_MODE_KEY="KEYQUEST"/>
 	<controls>
-		<groupbox name="member" rect="0 0 400 500" layout_gravity="left top" draw="false" hittestbox="true" resizebyparent="true" resizebyresolution="true" scroll="true"/>
 		<timer name="warptimer" rect="0 0 10 10"/>
+		<groupbox name="gbQuestInfoTitle" rect="0 0 25 25" margin="0 0 0 0" layout_gravity="right top" skin="quest_titlebar_skin" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false"/>
+		<picture name="openMark" parent="gbQuestInfoTitle" rect="0 0 20 20" margin="0 5 0 0" layout_gravity="left top" stretch="false" image="quest_arrow_r_btn" LBtnUpScp="TOGGLE_QUEST_INFOSET_FOLDER"/>
+		<groupbox name="member" rect="0 0 400 500" margin="0 26 0 0" layout_gravity="right top" draw="false" hittestbox="true" resizebyparent="true" resizebyresolution="true" scroll="true"/>
+		<richtext name="name" margin="0 4 30 0" rect="0 0 220 30" layout_gravity="right top" caption="{@st43b}{s16}퀘스트 목록" fixwidth="true" textalign="right top"/>
 	</controls>
 </uiframe>

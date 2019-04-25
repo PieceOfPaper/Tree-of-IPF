@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="induninfo" x="0" y="0" width="1095" height="570" create="open">
 	<frame fasthide="true" layout_gravity="center center" margin="0 -75 0 0"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
@@ -9,7 +9,7 @@
 	<script OpenScp="INDUNINFO_UI_OPEN" CloseScp="INDUNINFO_UI_CLOSE"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
-	<userconfig STAR_IMAGE="star_mark" RANDOM_ICON="indun_bossrandom" TOKEN_STATE_IMAGE="token_on" NOT_TOKEN_STATE_IMAGE="indun_icon_day_l" FIRST_OPEN="TRUE"/>
+	<userconfig STAR_IMAGE="star_mark" RANDOM_ICON="indun_bossrandom" TOKEN_STATE_IMAGE="token_on" NOT_TOKEN_STATE_IMAGE="indun_icon_day_l" FIRST_OPEN="TRUE" TOOLTIP_POSX="5" TOOLTIP_POSY="42"/>
 	<controls>
 		<groupbox name="bgBox" rect="0 0 1095 570" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_low" hittest="true"/>
 		<groupbox name="headerBox" rect="0 0 1095 60" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_top" hittest="false"/>
@@ -23,6 +23,8 @@
 		<groupbox name="nameBox" rect="0 0 420 45" parent="infoBox" margin="0 0 0 0" layout_gravity="right top" draw="false" image="test_com_namebg"/>
 		<richtext name="nameText" rect="0 0 500 30" parent="nameBox" margin="10 0 0 0" layout_gravity="left center" format="{@st66d}%s{/}" param1="name" param1_def="던전 이름"/>
 		<picture name="indunPic" rect="0 0 295 450" parent="infoBox" margin="0 0 0 0" layout_gravity="left top" image="027_boss_Gaigalas" stretch="true"/>
+		<groupbox name="restrictBox" rect="0 0 196 40" parent="infoBox" margin="2 2 0 0" layout_gravity="left top" draw="false" image="text_bg_black"/>
+		<richtext name="restrictText" rect="0 0 200 30" parent="restrictBox" margin="5 0 0 0" layout_gravity="left center" caption="{img NOTICE_Dm_! 30 30}{@st43}{s16}스킬 제한{/}" hittest="false"/>
 		<!-- Count -->
 		<groupbox name="countBox" parent="infoBox" rect="0 0 412 60" margin="0 44 0 0" layout_gravity="right top" draw="false" hittestbox="false"/>
 		<picture name="countPic" parent="countBox" rect="0 0 27 27" margin="0 0 0 0" layout_gravity="left center" image="indun_entrance"/>

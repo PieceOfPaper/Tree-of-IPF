@@ -2456,7 +2456,7 @@ function SCR_MOVING_SHOT_SPEED(pc) -- archer moving shot
     return value;
 end
 
-function SCR_Get_MSTA(self)
+function SCR_Get_MaxSta(self)
     local defaultMSTA = 25000;
     
     local byItem = GetSumOfEquipItem(self, 'MSTA');

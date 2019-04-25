@@ -55,6 +55,9 @@
 		<checkbox name="chkSimplifyModel" rect="0 0 120 30" parent="gamePVPSetting" margin="20 375 0 0" layout_gravity="left top" LBtnUpScp="CONFIG_SIMPLIFY_MODEL" caption="{@st66b}모델 간소화{/}" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="chkShowGuildInColony" rect="0 0 120 30" parent="gamePVPSetting" margin="20 405 0 0" layout_gravity="left top" ConfigName="ShowGuildInColony" LBtnUpScp="UPDATE_COLONY_WAR_TITLE_OPTION" caption="{@st66b}콜로니전 길드 이름, 팀 이름 보기{/}" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="chkShowGuildInColonyEffectCostume" rect="0 0 120 30" parent="gamePVPSetting" margin="20 435 0 0" layout_gravity="left top" ConfigName="ShowGuildInColonyEffectCostume" LBtnUpScp="SHOW_COLONY_EFFECTCOSTUME" caption="{@st66b}콜로니전 이펙트 코스튬 효과 켜기{/}" clicksound="button_click_big" oversound="button_over"/>
+		<richtext name="questinfosetTransparency_text" rect="0 0 120 24" parent="gameBox" margin="20 520 0 0" layout_gravity="left top" format="{@st66b}지령창 배경 투명도 (%s){/}" param1="opValue"/>
+		<slidebar name="questinfosetTransparency" rect="0 0 200 20" parent="gameBox" margin="20 540 0 0" layout_gravity="left top" SlideScp="CONFIG_QUESTINFOSET_TRANSPARENCY" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
+
 		<!-- Display -->
 		<groupbox name="displayBox" parent="bg2" rect="0 0 560 160" margin="0 640 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
 		<labelline name="boardLine 1" parent="displayBox" rect="0 0 560 4" margin="0 0 0 0" layout_gravity="left top" skin="None" visible="true"/>
