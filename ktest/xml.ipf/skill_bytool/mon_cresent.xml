@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Cresent_moya_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="3.9874226e-36" />
+					<Num Num="70" />
+					<Num Num="5" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Anim Anim="skl" Speed="0.80000001" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="3.9874226e-36" PosType="9" />
+					<Str_Arg Arg="0.55000001" Str="F_sys_target_monster##0.3" />
+					<Num Num="750" />
+					<Str_Arg Arg="1" Str="F_rize015_1_yellow_drop" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="3.9874226e-36" PosType="9" />
+					<Str_Arg Arg="0.55000001" Str="F_sys_target_monster##0.3" />
+					<Num Num="750" />
+					<Str_Arg Arg="1" Str="F_rize015_1_yellow_drop" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_ellogua_skl_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="700" UseSleep="NO">
+					<Str Str="mon_ellomago_skl_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Cresent_moya_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="10" />
+					<Pos Angle="0" Dist="85" />
+					<Str_Arg Arg="0.40000001" Str="F_sys_arrow_monster##0.5" />
+					<Num Num="12" />
+					<Num Num="0.0099999998" />
+					<Num Num="0.5" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="I_explosion004_yellow" />
+					<Num Num="10" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="12" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_ellogua_atk_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="350" UseSleep="NO">
+					<Str Str="mon_ellogua_born_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

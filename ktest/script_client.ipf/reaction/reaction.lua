@@ -25,6 +25,8 @@ function C_SHOCKWAVE(actor, obj, intensity, time, freq, range)
 end
 
 function C_SHOCKWAVE_PAD(actor, obj, padGuid, intensity, time, freq, range)
+	-- actor 는 nil 일 수도 있다.
+
     world.ShockWave(actor, 2, range, intensity, time, freq, 0);
 end
 

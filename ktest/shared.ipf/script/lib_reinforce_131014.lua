@@ -170,9 +170,9 @@ function GET_REINFORCE_PRICE(fromItem, moruItem, pc)
     end
     
     -- EVENT_1903_WEEKEND
-    if SCR_EVENT_1903_WEEKEND_CHECK('REINFORCE', IsServerSection() == 1) == 'YES' then
-        value = value/2
-    end
+    --if SCR_EVENT_1903_WEEKEND_CHECK('REINFORCE', isServer) == 'YES' then
+    --    value = value/2
+    --end
     
     return SyncFloor(value);
 

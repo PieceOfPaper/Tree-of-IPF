@@ -432,13 +432,16 @@ end
 function SCR_ABIL_LEATHER_ACTIVE(self, ability)
     local count, lowestGrade = CHECK_ARMORMATERIAL(self, "Leather")
 	
-    local value = 0;
+    local crtValue = 0;
+    local damageValue = 0;
     
     if count >= 4 then
-	    value = 200;  -- 20%
+	    crtValue = 200;        -- 20%
+	    damageValue = 150;   -- 15%
 	end
     
-    SetExProp(self, "LEATHER_ARMOR_ABIL_VALUE", value);
+    SetExProp(self, "LEATHER_ARMOR_ABIL_VALUE", crtValue);
+    SetExProp(self, "LEATHER_ARMOR_ABIL_VALUE_DAMAGE", damageValue);
 end
 
 function SCR_ABIL_LEATHER_INACTIVE(self, ability)

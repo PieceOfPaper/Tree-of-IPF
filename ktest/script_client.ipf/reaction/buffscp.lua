@@ -667,6 +667,16 @@ function YellowBlink_LEAVE(actor, obj, buff)
     actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 0 , 1);
 end
 
+--금색
+function GoldenBlink_ENTER(actor, obj, buff)
+    actor:GetEffect():SetColorBlink(0.3,0.22,0.08,0,0,0,0,0, 2, 1);
+end
+
+function GoldenBlink_LEAVE(actor, obj, buff)
+    actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 0 , 1);
+end
+
+
 -- 포인팅 디버프 블링크
 function Pointing_ENTER(actor, obj, buff)
     actor:GetEffect():SetColorBlink(0,0,0,0,1,0,0,1, 3.0, 1);
@@ -1012,11 +1022,16 @@ end
 
 function DashRunBlend_ENTER(actor, obj, buff)
 
-    effect.PlayActorEffect(actor, 'I_warrior_dash_run_line2', 'Dummy_emitter', 2.0, 1.7);
+    if actor:GetVehicleActor() ~= nil then
+        effect.PlayActorEffect(actor, 'I_warrior_dash_run_line2', 'Dummy_emitter_pet', 2.0, 1.7);
+    else
+        effect.PlayActorEffect(actor, 'I_warrior_dash_run_line2', 'Dummy_emitter', 2.0, 1.7);
+    end
+
     actor:GetEffect():SetColorBlend("DashRun", 100, 100, 100, 100, true, 0, true, 0.15);
 
-    local dir = actor:GetHorizonalDir();
-    actor:GetEffect():SetStartDirection("I_warrior_dash_run_line2", -dir.x, 0, -dir.y);
+    --local dir = actor:GetHorizonalDir();
+    --actor:GetEffect():SetStartDirection("I_warrior_dash_run_line2", -dir.x, 0, -dir.y);
     
 end
 
@@ -1065,7 +1080,7 @@ function RamMuay_ENTER(actor, obj, buff)
     actor:GetAnimation():SetChangeJumpAnim(true);
     actor:GetAnimation():SetSTDAnim("SKL_NAKMUAY_ASTD");
     actor:GetAnimation():SetRUNAnim("SKL_NAKMUAY_ARUN");
-    actor:GetAnimation():SetTURNAnim("SKL_NAKMUAY_ATURN");
+    actor:GetAnimation():SetTURNAnim("SKL_NAKMUAY_ASTD");
     actor:GetAnimation():SetRAISEAnim("SKL_NAKMUAY_ARAISE");
     actor:GetAnimation():SetOnAIRAnim("SKL_NAKMUAY_AONAIR")
     actor:GetAnimation():SetFALLAnim("SKL_NAKMUAY_AFALL");

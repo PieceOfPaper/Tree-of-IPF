@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_boor_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1350" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="1150" Type="SQUARE" Width="12" />
+				<Frame Angle="0" AniTime="1550" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="1350" Type="SQUARE" Width="12" />
+				<Frame Angle="0" AniTime="1750" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="1550" Type="SQUARE" Width="12" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_boor_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="25" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="12" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

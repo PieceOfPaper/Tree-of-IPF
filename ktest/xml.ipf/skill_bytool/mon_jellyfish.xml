@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_jellyfish_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="150" Dist="0" ForceATK="0" HitCount="1" Length="25" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359903" TermMax="0" TermMin="0" Time="1550" Type="FAN" Width="25" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK" Speed="1" Time="0" />
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="UC_shock" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="5000" />
+					<Num Num="1" />
+					<Num Num="15" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

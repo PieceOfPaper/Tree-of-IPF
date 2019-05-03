@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="TestSIJ2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="150" Dist="0" ForceATK="0" HitCount="3" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="100" Time="100" Type="FAN" Width="30" />
+				<Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="3" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="100" Time="200" Type="FAN" Width="30" />
+			</HitList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="Stun" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="3000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

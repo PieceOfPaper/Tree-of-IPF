@@ -312,7 +312,6 @@ local function _RESET_QUEST_LEVEL_OPTION(frame)
 		end
 
 		-- 적정 레벨
-		-- 적정 레벨 옵션 체크 확인
 		local suitableCtrlName = preFixName .. 'LeveLFilterOpt_2';
 		local suitableCtrlRadio = GET_CHILD_RECURSIVELY(frame, suitableCtrlName);
 		if suitableCtrlRadio ~= nil then
@@ -1090,7 +1089,7 @@ function CHECK_PROGRESS_QUEST_VIEW_FILTER(titlename, questInfo)
 			break;
 		end
 	end
-
+	
 	-- 추적 필터
 	if quest.IsCheckQuest(questClassID) == true and questViewOptions.modeFilterOptions['Chase'] == true then
 		isModeCorrect = true; 
@@ -1106,15 +1105,21 @@ function CHECK_PROGRESS_QUEST_VIEW_FILTER(titlename, questInfo)
 			return false;
 		end
 	end
-	
-	
+
+	-- add sub mode filter
+	if CHECK_QUEST_MODE_ALL(questIES) == false then
+	 if  CHECK_SUB_MODE_FILER(questIES) == false then
+		return false;
+	 end
+	end
+
 	-- search text filter
 	local frame = ui.GetFrame('quest')
 	local searchEdit = GET_CHILD_RECURSIVELY(frame, "questSearch", "ui::CEditBox");
 	if searchEdit == nil then
 		return true;
 	end
-
+	
 	local searchText = searchEdit:GetText();
 	if searchText == nil or string.len(searchText) == 0 then
 		return true;
@@ -1140,12 +1145,51 @@ function CHECK_PROGRESS_QUEST_VIEW_FILTER(titlename, questInfo)
 	local questName = questIES.Name;
 	questName = dic.getTranslatedStr(questName)
 	questName = string.lower(questName); 
-	
+
 	if string.find(questName, searchText) == nil then
 		return false;
 	end 
 
 	return true
+end
+
+function CHECK_QUEST_MODE_ALL(questIES)
+	-- allcheck 확인.
+	local allCheck = true
+	for k, modeFilter in pairs(questViewOptions.modeFilterOptions) do
+		if modeFilter == false then
+			allCheck = false;
+			break;
+		end
+	end
+
+	if allCheck == true and questViewOptions.modeFilterOptions['Chase'] == true then
+		return true;
+	end
+
+	return false;
+end
+
+function CHECK_SUB_MODE_FILER(questIES)
+
+	local pc = GetMyPCObject();
+	if pc == nil then
+		return true;
+	end
+
+	local isCorrect = false;
+	if questIES.QuestMode == 'SUB' and questViewOptions.modeFilterOptions['Sub'] == true then
+		isCorrect = true;
+	else 
+		return true;
+	end
+
+	if isCorrect == true and LINKZONECHECK(GetZoneName(pc), questIES.StartMap) == 'YES'  and QUEST_SUB_VIEWCHECK_LEVEL(pc, questIES) == 'YES' then
+
+		return true
+	end
+	
+	return false
 end
 
 function CHECK_COMPLETE_QUEST_VIEW_FILTER(titlename, questInfo)
@@ -1648,6 +1692,20 @@ function QUEST_VIEWCHECK_LEVEL(pc, questIES)
 	--    return 'NO'
 
 	return 'YES'
+end
+
+function QUEST_SUB_VIEWCHECK_LEVEL(pc, questIES)
+	   if pc.Lv < 30 then
+	      if questIES.Level <= pc.Lv + 30 then
+	           return 'YES'
+	       end
+	   else
+	       if questIES.Level <= pc.Lv + 30 and questIES.Level >= pc.Lv - 30 then
+	           return 'YES'
+	       end
+	   end
+	   
+	   return 'NO'
 end
 
 function LINKZONECHECK(fromZone, toZone)

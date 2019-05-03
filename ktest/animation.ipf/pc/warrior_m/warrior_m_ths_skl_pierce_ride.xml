@@ -3,8 +3,8 @@
 <ActionDesc>
 	<Sound frame="0.00" soundFile="skl_eff_cast_force"/>
 	<Sound frame="4.00" soundFile="skl_eff_body_atk_2"/>
-	<Particle frame="12" attachNode="Dummy_jns_pierce_effect" particleName="I_dash021_twirl" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="true" targetPos="false"/>
-	<Particle frame="14" attachNode="Dummy_emitter" particleName="E_warrior_pierce" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="12" attachNode="Dummy_emitter_pet" particleName="E_warrior_pierce_ride" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="14" attachNode="Dummy_emitter_pet" particleName="E_warrior_pierce" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
 	<Particle frame="12" attachNode="Dummy_emitter_pet" particleName="F_smoke174" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
 	<Sound frame="12.00" soundFile="skl_fgt_horizontalcrasher_shot"/>
 	<Sound frame="12.00" soundFile="skl_fgt_execution"/>

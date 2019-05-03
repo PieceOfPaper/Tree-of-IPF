@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_elder_rode_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1000" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="30" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Str_Arg Arg="2" Str="I_explosion004_yellow_mage01_3" />
+					<Num Num="40" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="10" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="Mon_Magic_Shield_Debuff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_elder_rode_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="1" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="8" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk1" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_force015_white#Bip001 Prop1" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="I_explosion014_white" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

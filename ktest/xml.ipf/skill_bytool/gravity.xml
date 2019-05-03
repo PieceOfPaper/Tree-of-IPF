@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Gravity_1">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_FLOAT_MONSTER" UseSleep="NO">
+				<Num Num="0.000000" />
+				<Num Num="0.200000" />
+				<Num Num="0.500000" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_TGTLIST_SHOCKWAVE" UseSleep="NO">
+				<Num Num="0.000000" />
+				<Num Num="0.750000" />
+				<Num Num="30.000000" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="3.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="1.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInput>
+		<KeyCancelScp>
+			<ToolScp Client="NO" Scp="SKL_TGTLIST_SHOCKWAVE" UseSleep="NO">
+				<Num Num="0.000000" />
+				<Num Num="0.750000" />
+				<Num Num="30.000000" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_FLOAT_MONSTER" UseSleep="NO">
+				<Num Num="0.000000" />
+				<Num Num="0.200000" />
+				<Num Num="2.000000" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_SYNC_START" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_TGT_DMG" UseSleep="NO">
+				<Num Num="1.000000" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="S_SHOCKWAVE" UseSleep="NO">
+				<Num Num="5.000000" />
+				<Num Num="1.000000" />
+				<Num Num="60.000000" />
+				<Num Num="999.000000" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_TGT_KNOCKDOWN" UseSleep="NO">
+				<Num Num="4.000000" />
+				<Num Num="0.000000" />
+				<Num Num="150.000000" />
+				<Num Num="30.000000" />
+				<Num Num="0.000000" />
+				<Num Num="1.000000" />
+				<Num Num="5.000000" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_SYNC_END" UseSleep="NO">
+				<Num Num="0.200000" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" Length="30.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="0.000000" />
+					<Num Num="80.000000" />
+					<Num Num="5" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGTLIST_SHOCKWAVE" Time="0" UseSleep="NO">
+					<Num Num="10.000000" />
+					<Num Num="0.750000" />
+					<Num Num="30.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_FLOAT_MONSTER" Time="0" UseSleep="NO">
+					<Num Num="80.000000" />
+					<Num Num="0.500000" />
+					<Num Num="0.500000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Gravity_3">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_TGTLIST_SHOCKWAVE" UseSleep="NO">
+				<Num Num="0.000000" />
+				<Num Num="0.750000" />
+				<Num Num="30.000000" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_PSYCHIC_PRESSURE_SHOT" />
+				<Num Num="1.000000" />
+				<Num Num="0.000000" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="5.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="1.000000" />
+				<Num Num="1.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInput>
+		<KeyCancelScp>
+			<ToolScp Client="NO" Scp="SKL_TGTLIST_SHOCKWAVE" UseSleep="NO">
+				<Num Num="0.000000" />
+				<Num Num="0.750000" />
+				<Num Num="30.000000" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_TGT_DMG" UseSleep="NO">
+				<Num Num="1.000000" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_TGT_KNOCKDOWN" UseSleep="NO">
+				<Num Num="4.000000" />
+				<Num Num="3.000000" />
+				<Num Num="200.000000" />
+				<Num Num="30.000000" />
+				<Num Num="0.000000" />
+				<Num Num="1.000000" />
+				<Num Num="2.000000" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_TGTLIST_RUNFROM" UseSleep="NO">
+				<Num Num="0.000000" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SOUND" UseSleep="NO">
+				<Str Str="skl_wiz_psy_spell" />
+			</ToolScp>
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" Length="30.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="CRE_MON_CONTROL" Time="0" UseSleep="NO">
+					<Str Str="Missile" />
+					<Pos Angle="0.017826" Dist="22.400183" />
+					<Angle Angle="0.000000" />
+					<Str Str="" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+					<Str Str="gravity_attract" />
+					<MonProp List="FIXMSPD_BM#100" />
+					<Str_Arg Arg="3.000000" Str="I_force003_green" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Str Str="None" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TARGET_RESET" Time="0" UseSleep="NO" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Gravity_4">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_TGTLIST_SHOCKWAVE" UseSleep="NO">
+				<Num Num="0.000000" />
+				<Num Num="0.750000" />
+				<Num Num="30.000000" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="3.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="1.000000" />
+				<Num Num="1.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInput>
+		<KeyCancelScp>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" Length="150.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" LoopTime="500" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="0.000000" />
+					<Angle Angle="0.000000" />
+					<Num Num="150.000000" />
+					<Num Num="80.000000" />
+					<Num Num="5" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGTLIST_SHOCKWAVE" Time="100" UseSleep="NO">
+					<Num Num="2.000000" />
+					<Num Num="0.750000" />
+					<Num Num="30.000000" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SKL_MAKE_LINKEFT_NODE" Time="100" UseSleep="NO">
+					<Str Str="Dummy_L_HAND" />
+					<Angle Angle="0.000000" />
+					<Num Num="150.000000" />
+					<Str Str="Linker" />
+					<Num Num="2.500000" />
+					<Num Num="0.150000" />
+					<Num Num="0.100000" />
+				</Scp>
+				<Scp Client="NO" LoopTime="500" Scp="SKL_TGT_ATTRACT_SQUARE" Time="100" UseSleep="YES">
+					<Pos Angle="0.000000" Dist="0.000000" />
+					<Angle Angle="0.000000" />
+					<Num Num="150.000000" />
+					<Num Num="10.000000" />
+					<Num Num="0.500000" />
+					<Num Num="3.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.200000" />
+				</Scp>
+				<Scp Client="NO" LoopTime="500" Scp="SKL_TGT_DMG" Time="1000" UseSleep="NO">
+					<Num Num="0.200000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

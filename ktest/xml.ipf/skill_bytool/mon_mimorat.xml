@@ -1,0 +1,320 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Mimorat_green_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="30" />
+					<Pos Angle="0" Dist="120" />
+					<Str_Arg Arg="0.40000001" Str="F_sys_arrow_monster" />
+					<Num Num="15" />
+					<Num Num="0.0099999998" />
+					<Num Num="0.5" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="E_Mimorat_green" />
+					<Num Num="15" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="17" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_cleric_StereaTrofh_shot_shield_poison" />
+					<Str Str="Bip001 Spine" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_voice_ferret_m_atk_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_blessing_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+					<Str Str="skl_wiz_SafetyZone_buff" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="910" UseSleep="NO">
+					<Str Str="mon_voice_ferret_m_skl_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="930" UseSleep="NO">
+					<Str Str="mon_flower_blue_atk1_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="940" UseSleep="NO">
+					<Str Str="skl_eff_body_atk_6" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="940" UseSleep="NO">
+					<Str Str="skl_eff_atk_move_s_10" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Mimorat_green_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="2" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="300" Time="500" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_voice_ferret_m_skl_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="300" UseSleep="NO">
+					<Str Str="mon_Kepari_hit" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="350" UseSleep="NO">
+					<Str Str="skl_eff_body_atk_8" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="350" UseSleep="NO">
+					<Str Str="mon_voice_ferret_m_skl_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Mimorat_pink_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1100" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="900" Type="CIRCLE" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_lantern_mushroom_hit" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_haming_atk1_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="400" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="50" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1.3" Str="F_burstup045_violet2" />
+					<Num Num="40" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="25" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="680" UseSleep="NO">
+					<Str Str="skl_eff_body_atk_1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="720" UseSleep="NO">
+					<Str Str="mon_Kepari_knockdown" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="F_burstup013_2" />
+					<Pos Angle="0" Dist="50" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Mimorat_pink_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="850" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.87266469" TermMax="0" TermMin="0" Time="650" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_haming_atk2_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="4" Str="I_swordtrail029_red" />
+					<Str Str="dummy_eff_atk" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="600" UseSleep="NO">
+					<Str Str="mon_haming_atk2_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="600" UseSleep="NO">
+					<Str Str="mon_Kepari_atk_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="610" UseSleep="NO">
+					<Str Str="skl_eff_body_atk_2" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Mimorat_white_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="25" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="700" />
+					<Str_Arg Arg="0.5" Str="F_burstup003_3" />
+					<Num Num="30" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="m_slime_dark_atk_ready" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="m_new_desmodus_born" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="480" UseSleep="NO">
+					<Str Str="m_new_desmodus_atk2_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="590" UseSleep="NO">
+					<Str Str="skl_eff_hammer_badak" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Mimorat_white_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="10" />
+					<Pos Angle="0" Dist="90" />
+					<Str_Arg Arg="0.40000001" Str="F_sys_arrow_monster" />
+					<Num Num="15" />
+					<Num Num="0.0099999998" />
+					<Num Num="0.30000001" />
+					<Num Num="700" />
+					<Str_Arg Arg="1" Str="F_explosion012_3" />
+					<Num Num="15" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="18" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="m_slime_dark_atk_ready" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="450" UseSleep="NO">
+					<Str Str="m_thornball_atk1_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="450" UseSleep="NO">
+					<Str Str="m_matsum_born_voice" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Mimorat_purple_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="4.3243728e-36" />
+					<Num Num="100" />
+					<Num Num="5" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_voice_ferret_f_skl_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="650" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_trail_psychokinesis3_1#hat_Bone004" />
+					<Str_Arg Arg="1" Str="I_explosion002_blue_violet" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0" Dist="4.3243728e-36" PosType="9" />
+					<Num Num="20" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0.2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="750" UseSleep="NO">
+					<Str Str="mon_voice_ferret_f_skl_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="750" UseSleep="NO">
+					<Str Str="skl_eff_darksight_force" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Mimorat_purple_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="4.3283676e-36" />
+					<Num Num="80" />
+					<Num Num="20" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_voice_ferret_f_atk_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="100" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_circle006_violet#Bip001 R Finger0" />
+					<Str_Arg Arg="1" Str="I_explosion002_blue_violet" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0" Dist="4.3283676e-36" PosType="8" />
+					<Num Num="10" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="500" UseSleep="NO">
+					<Str Str="skl_eff_twistoffate_force" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="500" UseSleep="NO">
+					<Str Str="mon_voice_ferret_f_atk_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

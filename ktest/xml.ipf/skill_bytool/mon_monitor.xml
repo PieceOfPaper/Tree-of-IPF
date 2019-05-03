@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Monitor_lizard_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.78539819" TermMax="0" TermMin="0" Time="800" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_chupaluka_skl_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="380" UseSleep="NO">
+					<Str Str="mon_katynforest_zombie_03_atk1_ready" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+					<Str Str="m_new_desmodus_raiseup" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="420" UseSleep="NO">
+					<Str Str="skl_eff_body_atk_6" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="430" UseSleep="NO">
+					<Str Str="mon_kowak_kdown" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="450" UseSleep="NO">
+					<Str Str="skl_eff_fire" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Monitor_lizard_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="22" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_kowak_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+					<Str Str="mon_chupaluka_atk_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="420" UseSleep="NO">
+					<Str Str="skl_eff_atk_move_m_2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="420" UseSleep="NO">
+					<Str Str="mon_kowak_kdown" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="430" UseSleep="NO">
+					<Str Str="skl_eff_rapid_fire_force" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

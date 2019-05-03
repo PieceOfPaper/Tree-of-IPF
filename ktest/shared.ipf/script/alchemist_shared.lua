@@ -258,6 +258,22 @@ function IS_ENABLE_GIVE_HIDDEN_PROP_ITEM(item)
 	if star < 0 or TryGetProp(item, 'LifeTime', 1) ~= 0 then
 		return false;		
 	end
+
+	if false == IS_EQUIP(item) then
+		return false;
+	end
+		
+	if IS_NEED_APPRAISED_ITEM(item) == true or IS_NEED_RANDOM_OPTION_ITEM(item) then 
+		return false;
+	end
 	
+	if item.HiddenProp == "None" then
+		return false;
+	end
+
+	if item.ItemLifeTimeOver > 0 then
+		return false;
+	end
+
 	return true;
 end

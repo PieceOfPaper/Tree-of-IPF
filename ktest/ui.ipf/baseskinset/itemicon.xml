@@ -557,7 +557,7 @@
 		<image name="icon_item_arkishknight_pants_black" file="\icon\equip\icon_item_arkishknight_pants_black.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_arkishknight_boots_black" file="\icon\equip\icon_item_arkishknight_boots_black.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_arkishknight_armor_black" file="\icon\equip\icon_item_arkishknight_armor_black.png" imgrect="0 0 256 256"/>
-	<image name="icon_item_Skiaclipse_cotton_amor" file="\icon\equip\icon_item_Skiaclipse_cotton_amor.png" imgrect="0 0 256 256" CMM_Caption="스키아클립스"/>
+		<image name="icon_item_Skiaclipse_cotton_amor" file="\icon\equip\icon_item_Skiaclipse_cotton_amor.png" imgrect="0 0 256 256" CMM_Caption="스키아클립스"/>
 		<image name="icon_item_Skiaclipse_cotton_boots" file="\icon\equip\icon_item_Skiaclipse_cotton_boots.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Skiaclipse_cotton_glove" file="\icon\equip\icon_item_Skiaclipse_cotton_glove.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Skiaclipse_cotton_pants" file="\icon\equip\icon_item_Skiaclipse_cotton_pants.png" imgrect="0 0 256 256"/>
@@ -2787,6 +2787,10 @@
 		<image name="icon_item_staff_Skiaclipse" file="\icon\weapon\icon_item_staff_Skiaclipse.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_cannon_Skiaclipse" file="\icon\weapon\icon_item_cannon_Skiaclipse.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_spear_twohand_Skiaclipse" file="\icon\weapon\icon_item_spear_twohand_Skiaclipse.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_romance_pistol" file="\icon\weapon\icon_item_romance_pistol.png" imgrect="0 0 256 256" CMM_Caption="2019 5테마 무기"/>
+		<image name="icon_item_romance_musket" file="\icon\weapon\icon_item_romance_musket.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_romance_rapier" file="\icon\weapon\icon_item_romance_rapier.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_romance_cannon" file="\icon\weapon\icon_item_romance_cannon.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -2966,6 +2970,7 @@
 		<image name="icon_item_bracelet_aloneDungeon2" file="\icon\acc\icon_item_bracelet_aloneDungeon2.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_bracelet_aloneDungeon1" file="\icon\acc\icon_item_bracelet_aloneDungeon1.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_armband_chick01" file="\icon\acc\icon_item_armband_chick01.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_popolion" file="\icon\acc\icon_item_armband_popolion.png" imgrect="0 0 256 256" CMM_Caption="포포리온 암밴드"/>
 	</imagelist>
 	<imagelist category="hair_accesory">
 		<image name="hairacc_1_egg" file="\icon\hairacc\hairacc_1_egg.png" imgrect="0 0 256 256"/>
@@ -3295,6 +3300,12 @@
 		<image name="icon_item_magicalRib02" file="\icon\hairacc\icon_item_magicalRib02.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_hair_chick" file="\icon\hairacc\icon_item_hair_chick.png" imgrect="0 0 256 256" CMM_Caption="2019 04 헤어악세"/>
 		<image name="icon_sprout_event01" file="\icon\hairacc\icon_sprout_event01.png" imgrect="0 0 256 256" CMM_Caption="2019 04 헤어악세 새싹"/>
+		<image name="icon_item_helmet_romance01" file="\icon\hairacc\icon_item_helmet_romance01.png" imgrect="0 0 256 256" CMM_Caption="2019 05 헤어악세"/>
+		<image name="icon_item_helmet_romance02" file="\icon\hairacc\icon_item_helmet_romance02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_romance01" file="\icon\hairacc\icon_item_accessory_romance01.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_romance02" file="\icon\hairacc\icon_item_accessory_romance02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_romance03" file="\icon\hairacc\icon_item_accessory_romance03.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_romance04" file="\icon\hairacc\icon_item_accessory_romance04.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -5175,6 +5186,9 @@
 		<image name="icon_item_Gacha_PC_Event_Costume01" file="\icon\item\icon_item_Gacha_PC_Event_Costume01.png" imgrect="0 0 256 256" CMM_Caption="우주선 테마 큐브_주황색"/>
 		<image name="icon_item_misc_Skiaclipse" file="\icon\item\icon_item_misc_Skiaclipse.png" imgrect="0 0 256 256" CMM_Caption="스키아클립스 깃털"/>
 		<image name="icon_item_Skiaclipse_stone" file="\icon\item\icon_item_Skiaclipse_stone.png" imgrect="0 0 256 256" CMM_Caption="스키아클립스 정수"/>
+		<image name="icon_item_1905_popolion_badge" file="\icon\item\icon_item_1905_popolion_badge.png" imgrect="0 0 128 128" CMM_Caption="포포리온 뱃지"/>
+		<image name="icon_item_1905_rainbow_powder_middle" file="\icon\item\icon_item_1905_rainbow_powder_middle.png" imgrect="0 0 128 128" CMM_Caption="중급 무지개빛 가루"/>
+		<image name="icon_item_1905_rainbow_powder_higher" file="\icon\item\icon_item_1905_rainbow_powder_higher.png" imgrect="0 0 128 128" CMM_Caption="상급 무지개빛 가루"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -6071,7 +6085,17 @@
 		<image name="icon_item_egg_chick_crowtit" file="\icon\payment\icon_item_egg_chick_crowtit.png" imgrect="0 0 256 256" CMM_Caption="병아리 알"/>
 		<image name="icon_item_enchantScroll_bundle_01" file="\icon\payment\icon_item_enchantScroll_bundle_01.png" imgrect="0 0 256 256" CMM_Caption="장인의 마법 부여 스크롤_다발 상품"/>
 		<image name="icon_item_enchantScroll_01" file="\icon\payment\icon_item_enchantScroll_01.png" imgrect="0 0 256 256" CMM_Caption="장인의 마법 부여 스크롤_단품 상품"/>
-		<image name="icon_item_Challenge_box_S" file="\icon\payment\icon_item_Challenge_box_S.png" imgrect="0 0 256 256" CMM_Caption="챌린지 초대형 상자"/>
+		<image name="icon_item_romance_selectbox01" file="\icon\payment\icon_item_romance_selectbox01.png" imgrect="0 0 256 256" CMM_Caption="2019 5월 테마"/>
+		<image name="icon_item_romance_selectbox02" file="\icon\payment\icon_item_romance_selectbox02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_romance_selectbox03" file="\icon\payment\icon_item_romance_selectbox03.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_romance_comic01_f" file="\icon\payment\icon_item_romance_comic01_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_romance_comic01_m" file="\icon\payment\icon_item_romance_comic01_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_romance_comic02_f" file="\icon\payment\icon_item_romance_comic02_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_romance_comic02_m" file="\icon\payment\icon_item_romance_comic02_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_romance_comic03_f" file="\icon\payment\icon_item_romance_comic03_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_romance_comic03_m" file="\icon\payment\icon_item_romance_comic03_m.png" imgrect="0 0 256 256" CMM_Caption="챌린지 초대형 상자"/>
+		<image name="icon_item_effect_flutting_rose" file="\icon\payment\icon_item_effect_flutting_rose.png" imgrect="0 0 256 256" CMM_Caption="장미 이펙트"/>
+		<image name="icon_item_wing_corolla" file="\icon\payment\icon_item_wing_corolla.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

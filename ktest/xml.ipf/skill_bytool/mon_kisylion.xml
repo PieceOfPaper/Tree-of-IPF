@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_kisylion_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-0.39277875" Dist="2.1003475" Gravity="800" Height="0" JumpPower="500" MoveType="0" Time="900" />
+				<Frame Accel="1" Angle="-0.010000342" Dist="44.592274" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="1200" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_popolion_atk2_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="800" UseSleep="NO">
+					<Str Str="mon_popolion_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="850" UseSleep="NO">
+					<Str Str="skl_eff_body_atk_2" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_HIT_SQUARE" Time="1200" UseSleep="NO">
+					<PosDist Angle="0.017504288" Dist="11.10604" Height="1" Rand="20" />
+					<PosDist Angle="-0.019162722" Dist="48.835022" />
+					<Num Num="12" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kisylion_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1300" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1100" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_popolion_atk2_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="700" UseSleep="NO">
+					<Str Str="mon_popolion_atk2_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

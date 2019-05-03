@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Karas_mage_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="1" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="0.40000001" Str="I_force039_orange" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.2" Str="I_explosion009_orange" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Karas_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" Length="35.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.349066" TermMax="0" TermMin="0" Time="1200" Type="FAN" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Karas_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.34906599" TermMax="0" TermMin="0" Time="1200" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="4" Str="F_circle014_dark" />
+					<Str Str="Karas_weapon" />
+					<Num Num="0.5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_spread_in009_violet" />
+					<Str Str="Karas_weapon" />
+					<Num Num="0.5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="5" Str="I_circle006_violet" />
+					<Str Str="Karas_weapon" />
+					<Num Num="0.40000001" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="Mon_Def_down" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="6000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+				<ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_buff_basic001_violet" />
+					<Pos Angle="0" Dist="0" PosType="1" />
+					<Num Num="3" />
+					<Num Num="0" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

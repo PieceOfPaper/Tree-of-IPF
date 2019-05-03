@@ -2712,12 +2712,12 @@ function IS_KANNUSHI_GENDER_CHANGE_FLAG(pc, targetJobClassName)
 
     if IsServerSection(pc) == 1 then
         local pcEtc = GetETCObject(pc)
-        if targetJobClassName == jobclass and pcEtc.IS_KANNUSHI_GENDER_CHANGE == 300 then
+        if targetJobClassName == jobclass then
             return 'YES'
         end
     else
         local myPCetc = GetMyEtcObject();
-        if targetJobClassName == jobclass and myPCetc.IS_KANNUSHI_GENDER_CHANGE == 300 then
+        if targetJobClassName == jobclass then
             return 'YES'
         end
     end

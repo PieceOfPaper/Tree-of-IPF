@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Infroholder_bow_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="1" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_smoke013_dark" />
+					<Str Str="Bip001 L Hand" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="0.40000001" Str="I_arrow003_dark#Bip001 L Finger0Nub" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="150" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="F_explosion096_dark" />
+					<Str Str="Dummy_effect_atk_bow" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGT_BUFF" UseSleep="NO">
+					<Str Str="UC_deprotect" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="6000" />
+					<Num Num="1" />
+					<Num Num="10" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Infroholder_bow_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="1" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_smoke013_dark" />
+					<Str Str="Bip001 L Hand" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_explosion096_dark" />
+					<Str Str="Dummy_effect_atk_bow" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_arrow009_1#Bip001 L Finger0Nub" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="FAST" />
+					<Num Num="250" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Infroholder_mage_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="1000" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="700" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="25" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="500" />
+					<Str_Arg Arg="1" Str="I_spread_out011_dark" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="500" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="3" />
+					<Num Num="0" />
+					<Num Num="10" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="900" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="25" />
+					<Str_Arg Arg="0.40000001" Str="None" />
+					<Num Num="500" />
+					<Str_Arg Arg="0.5" Str="F_ground004_yellow" />
+					<Num Num="30" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="500" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="17" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGT_BUFF" UseSleep="NO">
+					<Str Str="UC_silence" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="6000" />
+					<Num Num="1" />
+					<Num Num="10" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Infroholder_mage_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="1" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1000" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_smoke012_dark#Bip001 R Finger2" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.60000002" Str="F_ground093_dark" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="150" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Infroholder_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<EtcList>
+				<Anim Anim="atk" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

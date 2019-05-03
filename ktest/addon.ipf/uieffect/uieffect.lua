@@ -26,7 +26,7 @@ function GET_CURRENT_SNIPE_POS()
 	return pos.x, pos.y;
 end
 
-function GET_USERVALUE_CURPOS()
+--[[function GET_USERVALUE_CURPOS()
 	local frame = ui.GetFrame("uieffect");
 	if frame == nil then return end
 
@@ -44,7 +44,7 @@ function GET_CURRENT_SNIPE_POS_MOUSE()
 	local frame = ui.GetFrame("uieffect");
 	local pt = frame:ScreenPosToFramePos(x, y);
 	return pt.x, pt.y;
-end
+end]]
 
 function change_client_size(frame)
 	frame:MoveFrame(0, 0);
@@ -159,15 +159,14 @@ function UPDATE_SNIPE_POSITION(posX, posY)
 
     local pivot = 1920;
     local ratio = option.GetClientHeight() / option.GetClientWidth();
-   
     if option.GetClientWidth() > 1920 then 
 		pivot = option.GetClientWidth(); 
 	end
     
     local height = pivot * ratio
     local pos = ui.GetFrame("uieffect"):ScreenPosToFramePos(pivot, height)
-    if posX >= pivot then x = pos.x end
-	if posY >= height then y = pos.y end
+    if posX >= pivot then posX = pos.x end
+	if posY >= height then posY = pos.y end
 
 	SNIPE_SETPOS(child, posX, posY);
 end
@@ -178,15 +177,14 @@ function SNIPE_SETPOS(child, x, y)
 	y = CLAMP(y, 0, frame:GetHeight());
 
 	local child = frame:GetChild("SNIPER");
-	child:SetUserValue("CURX", x);
-	child:SetUserValue("CURY", y);
-
 	local childName = child:GetUserValue("CENTERNAME");
 	local centerChild = child:GetChild(childName);	
+
+	child:SetUserValue("CURX", x);
+	child:SetUserValue("CURY", y);
 		
 	local childCenterX = x - centerChild:GetX() - centerChild:GetWidth() * 0.5;
 	local childCenterY = y - centerChild:GetY() - centerChild:GetHeight() * 0.5;
-		
 	child:SetOffset(childCenterX, childCenterY);
 end
 

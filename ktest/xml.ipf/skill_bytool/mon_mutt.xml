@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Mutt_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="150" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="5" />
+					<Num Num="100" />
+					<Num Num="5" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="800" UseSleep="NO">
+					<Str Str="skl_eff_atk_move_m_10" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="800" UseSleep="NO">
+					<Str Str="mon_slime_elite_hit" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="800" UseSleep="NO">
+					<Str Str="mon_sakmoli_hit" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="800" UseSleep="NO">
+					<Str Str="skl_eff_atk_move_l_13" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_dash015_white3_reverse" />
+					<Str Str="eff_skl" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1000" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_trail_water#Bip001 R Finger2" />
+					<Str_Arg Arg="0.5" Str="F_explosion98_water3_2#Bone002" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="3.8255448e-43" PosType="1" />
+					<Num Num="15" />
+					<Num Num="0.80000001" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss##0.5" />
+					<Num Num="600" />
+					<Num Num="0" />
+					<Num Num="120" />
+					<Num Num="3" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1350" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_trail_water#Bip001 L Finger1" />
+					<Str_Arg Arg="0.5" Str="F_explosion98_water3_2#Bone002" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="3.8255448e-43" PosType="1" />
+					<Num Num="15" />
+					<Num Num="0.80000001" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss##0.5" />
+					<Num Num="600" />
+					<Num Num="0" />
+					<Num Num="120" />
+					<Num Num="3" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="atk" Speed="1" StartTime="0.30000001" Time="1600" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Mutt_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="2" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="500" Time="800" Type="FAN" Width="35" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="800" UseSleep="NO">
+					<Str Str="mon_sakmoli_falldown" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

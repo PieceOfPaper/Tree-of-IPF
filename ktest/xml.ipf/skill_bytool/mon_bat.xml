@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Bat_big_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="500" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk2" Speed="1.5" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_bat007" />
+					<Str Str="Dummy_bufficon" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

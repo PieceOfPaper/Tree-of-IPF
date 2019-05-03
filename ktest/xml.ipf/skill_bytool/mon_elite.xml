@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_elite_spector_F_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.017453" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MSL_BUCK" Time="600" UseSleep="YES">
+					<Pos Angle="-0.697686" Dist="0.493587" Height="10.000000" />
+					<Angle Angle="0.000000" />
+					<Num Num="3.000000" />
+					<Num Num="10.000000" />
+					<Num Num="120.000000" />
+					<Num Num="180.000000" />
+					<Num Num="3.000000" />
+					<Num Num="0.000000" />
+					<Num Num="50.000000" />
+					<Num Num="50.000000" />
+					<Num Num="3.000000" />
+					<Str_Arg Arg="1.000000" Str="I_force036_green" />
+					<Num Num="1.000000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

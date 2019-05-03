@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Elet_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="10" />
+					<Pos Angle="0" Dist="70" />
+					<Str_Arg Arg="0.60000002" Str="None" />
+					<Num Num="15" />
+					<Num Num="0.0099999998" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0.60000002" Str="F_explosion100_blue" />
+					<Num Num="12" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="15" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_light004_blue" />
+					<Str Str="Dummy_effect_hand_r_skl" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_light004_blue" />
+					<Str Str="Dummy_effect_hand_l_skl" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_smoke013_dark3" />
+					<Str Str="Dummy_effect_hand_r_skl" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_smoke013_dark3" />
+					<Str Str="Dummy_effect_hand_l_skl" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_lineup005_blue" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke013_dark3" />
+					<Str Str="Bip001 Pelvis" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGT_BUFF" UseSleep="NO">
+					<Str Str="UC_curse" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="6000" />
+					<Num Num="1" />
+					<Num Num="15" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Elet_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="1" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_smoke013_dark3" />
+					<Str Str="Dummy_effect_hand_R" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_light004_blue" />
+					<Str Str="Dummy_effect_hand_R" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke013_dark3" />
+					<Str Str="Bip001 Pelvis" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_force019_blue#Dummy_effect_atk2" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.30000001" Str="F_explosion050_fire_blue" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="70" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="F_hit001_light_dark_blue" />
+					<Str Str="Dummy_effect_atk" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

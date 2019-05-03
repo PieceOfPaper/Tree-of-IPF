@@ -29,8 +29,12 @@ function PARTYINFO_CONTROL_INIT()
 		end
 	end
 
+	local hotkey = summonsUI:GetUserConfig("SUMMONINFO_HOTKEY_TEXT");
+	SUMMONSINFO_BUTTON_TOOLTIP_CHANGE(hotkey);
 	if button ~= nil then
-		button:SetTextTooltip(ClMsg("SummonsInfo_ConvertSummonsInfo_ToolTip"));
+		if hotkey ~= nil and hotkey ~= "" then
+			button:SetTextTooltip(ClMsg("SummonsInfo_ConvertSummonsInfo_ToolTip").."( "..hotkey.." )");
+		end
 		button:EnableHitTest(1);
 	end
 	
@@ -159,9 +163,12 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 	if summonsinfo:IsVisible() == 1 then
 		frame:SetVisible(0);
 		local button = GET_CHILD_RECURSIVELY(summonsinfo, "summonsinfobutton");
+		local hotkey = summonsinfo:GetUserConfig("SUMMONINFO_HOTKEY_TEXT");
 		if button ~= nil then
 			button:SetVisible(1);
-			button:SetTextTooltip(ClMsg("SummonsInfo_ConvertPartyInfo_ToolTip"));
+			if hotkey ~= nil and hotkey ~= "" then
+				button:SetTextTooltip(ClMsg("SummonsInfo_ConvertPartyInfo_ToolTip").."( "..hotkey.." )");
+			end
 			button:EnableHitTest(1);
 			CHANGE_BUTTON_TITLE(summonsinfo, ClMsg("SummonsInfo_SummonsInfo"));
 			summonsinfo:Invalidate();
@@ -1034,15 +1041,18 @@ function PARTYINFO_UPDATE_BUTTON(frame)
 		frame:SetVisible(1);
 		frame:SetUserConfig("CHANGE_FLAG", "0");
 		title_gbox:EnableDrawFrame(1);
-
+		
+		local hotkey = summonsinfo:GetUserConfig("SUMMONINFO_HOTKEY_TEXT");
 		if button ~= nil and buttonText ~= nil then
 			-- button tooltip
+			if hotkey ~= nil and hotkey ~= "" then
+				button:SetTextTooltip(ClMsg("SummonsInfo_ConvertSummonsInfo_ToolTip").."( "..hotkey.." )");
+			end
 			button:SetVisible(1);
-			button:SetTextTooltip(ClMsg("SummonsInfo_ConvertSummonsInfo_ToolTip"));
 			button:EnableHitTest(1);
 
 			buttonText:SetVisible(1);
-			buttonText:SetTextByKey("title", ClMsg("SummonsInfo_PartyInfo"));
+		buttonText:SetTextByKey("title", ClMsg("SummonsInfo_PartyInfo"));
 		end
 	end
 

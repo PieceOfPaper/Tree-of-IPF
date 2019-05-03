@@ -2889,6 +2889,13 @@ function EXEC_BUY_MARKET_ITEM()
 		ui.CloseFrame('tpitem_popupmsg');
 		return;
 	end
+	
+	if IS_ENABLE_BUY_TP_ITEM() == false then
+		local frame = ui.GetFrame("tpitem");
+		frame:ShowWindow(0);
+		TPITEM_CLOSE(frame);
+		return;
+	end
 
 	pc.ReqExecuteTx_NumArgs("SCR_TX_TP_SHOP", itemListStr);	
 	btn:SetEnable(1);
@@ -2914,7 +2921,7 @@ function TPITEM_DRAW_NC_TP()
 	DESTROY_CHILD_BYNAME(tpSubgbox, "specialProduct_");
 
 	local cnt = session.ui.Get_NISMS_ItemListSize();
-	if cnt == 0 then		
+	if cnt == 0 then
 		return;
 	end
 	
@@ -3429,6 +3436,10 @@ function TPSHOP_TRY_BUY_TPITEM_BY_NEXONCASH(parent, control, ItemClassIDstr, ite
 	else
 		local frame = ui.GetFrame("tpitem");	
 		
+		if IS_ENABLE_BUY_TP_ITEM() == false then
+			return;
+		end
+
 		local nMaxCnt = session.ui.Get_NISMS_CashInven_ItemListSize();
 		if nMaxCnt >= 18 then
 			strMsg = string.format("{@st43d}{s20}%s{/}", ScpArgMsg("MAX_CASHINVAN"));
@@ -3851,4 +3862,15 @@ function TPITEM_CREATE_CATEGORY_ITEM(ctrlSet, categoryTree, categoryKey, subCate
 		local foldimg = GET_CHILD(ctrlSet,"foldimg");
 		foldimg:ShowWindow(1);
     end
+end
+
+function IS_ENABLE_BUY_TP_ITEM()
+	if config.GetServiceNation() == "KOR" then
+		if GETMYPCLEVEL() < 15 then
+			ui.MsgBox(ScpArgMsg("YouCanUseItFromLevel15OrHigher"));
+			return false;
+		end
+	end
+
+	return true;
 end

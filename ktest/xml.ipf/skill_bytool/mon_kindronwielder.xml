@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_KindronWielder_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10991" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10791" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="470" UseSleep="NO">
+					<Str Str="mon_rudas_loxodon_kback" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="825" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="25" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="F_explosion001_white" />
+					<Num Num="25" />
+					<Num Num="125" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="3" />
+					<Num Num="20" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_KindronWielder_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="650" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="450" Type="SQUARE" Width="15" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="500" UseSleep="NO">
+					<Str Str="mon_voice_rootopus_hit" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="600" UseSleep="NO">
+					<Str Str="skl_eff_body_atk_7" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Hammer_Attack">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="340" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="140" Type="FAN" Width="30" />
+			</HitList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+						<Str Str="Aspergillum_Buff" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<HitList>
+						<Frame Angle="0" AniTime="340" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="140" Type="FAN" Width="30" />
+					</HitList>
+					<EtcList>
+						<Scp Client="YES" Scp="C_EFFECT" Time="250" UseSleep="NO">
+							<Str_Arg Arg="2.0999999" Str="I_cleric_Aspergillum_shot_water" />
+							<Str Str="Dummy_effect_moneybag_hit" />
+							<Num Num="0" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	</ToolSkill>

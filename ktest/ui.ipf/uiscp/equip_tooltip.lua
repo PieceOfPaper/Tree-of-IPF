@@ -461,10 +461,15 @@ gradeName:SetText(gradeText)
 	
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+equipCommonCSet:GetHeight())
 
+	local retxpos = equipCommonCSet:GetWidth();
 	local retypos = equipCommonCSet:GetHeight();
 
-	local value_type = GET_CHILD_RECURSIVELY(equipCommonCSet, "value_type")
+	local picxpos = GET_CHILD_RECURSIVELY(equipCommonCSet, "itempic"):GetWidth();
+	local typexpos = GET_CHILD_RECURSIVELY(equipCommonCSet, "bg_type"):GetWidth();
+
+	local value_type = GET_CHILD_RECURSIVELY(equipCommonCSet, "value_type", "ui::CRichText");
 	value_type:SetTextByKey("type", GET_REQ_TOOLTIP(invitem));
+	value_type:AdjustFontSizeByWidth(retxpos-picxpos-typexpos-20);
 
 	local value_level = GET_CHILD_RECURSIVELY(equipCommonCSet, "value_level")
 

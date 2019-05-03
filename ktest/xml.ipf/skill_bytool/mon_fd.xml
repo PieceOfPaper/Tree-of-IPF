@@ -1,0 +1,1456 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_FD_spectra_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl_cast" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_spin021_green" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="100" UseSleep="YES">
+					<Pos Angle="0" Dist="60" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="1300" />
+					<Str_Arg Arg="1" Str="F_explosion074_green" />
+					<Num Num="20" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="100" UseSleep="YES">
+					<Pos Angle="0.95993108" Dist="60" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="1300" />
+					<Str_Arg Arg="1" Str="F_explosion074_green" />
+					<Num Num="20" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="100" UseSleep="YES">
+					<Pos Angle="-0.95993108" Dist="60" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="1300" />
+					<Str_Arg Arg="1" Str="F_explosion074_green" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Anim Anim="skl_shot" Speed="1.2" Time="600" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="1600" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_spin021_green" />
+					<Str Str="None" />
+				</Scp>
+				<Anim Anim="skl_cast" Speed="1" Time="1900" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2300" UseSleep="YES">
+					<Pos Angle="0" Dist="20" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_explosion074_green" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2300" UseSleep="YES">
+					<Pos Angle="-0.78539819" Dist="70" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_explosion074_green" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2300" UseSleep="YES">
+					<Pos Angle="0.78539819" Dist="70" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_explosion074_green" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Anim Anim="skl_shot" Speed="1" Time="2500" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_FD_spectra_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="25" />
+					<Str_Arg Arg="0.80000001" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="20" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Anim Anim="ATK1" Speed="1.2" Time="500" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_FD_boss_Chapparition_Skill_6">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="100199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl1" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="250" />
+					<Num Num="30" />
+					<Num Num="2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
+					<Str_Arg Arg="2.5" Str="F_smoke013_green" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1200" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green" />
+					<Str Str="Dummy_effect_hand_L" />
+					<Num Num="1.5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="2100" UseSleep="NO">
+					<Str_Arg Arg="2.5" Str="F_smoke013_green" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2500" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2700" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2900" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="3000" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect#1.5" />
+					<Str_Arg Arg="1" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" Height="1" PosType="10" Rand="110" />
+					<Num Num="20" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="2.5" Str="F_sys_target_boss##0.5" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="3000" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green" />
+					<Str Str="Dummy_effect_hand_L" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3100" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3300" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3500" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3700" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4000" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4100" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4400" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Anim Anim="skl1" Speed="1" Time="4400" />
+				<Scp Client="NO" Scp="MSL_FALL" Time="4600" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="20" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="5000" UseSleep="NO">
+					<Str_Arg Arg="2.5" Str="F_smoke013_green" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="5800" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green" />
+					<Str Str="Dummy_effect_hand_L" />
+					<Num Num="1.5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="7000" UseSleep="NO">
+					<Str_Arg Arg="2.5" Str="F_smoke013_green" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7500" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7650" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7800" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="7800" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green" />
+					<Str Str="Dummy_effect_hand_L" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7950" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="8000" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect#1.5" />
+					<Str_Arg Arg="1" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" Height="1" PosType="10" Rand="110" />
+					<Num Num="20" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="2.5" Str="F_sys_target_boss##0.5" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8100" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8250" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8400" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8550" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8750" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8800" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9000" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9000" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9200" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9400" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_sphere009_green#Dummy_skl1_effect" />
+					<Str_Arg Arg="1.2" Str="F_explosion050_fire_green" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="130" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2.5" Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="9600" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke013_dark1" />
+					<Str Str="Dummy_skl1_effect" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="UC_silence" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="6000" />
+					<Num Num="1" />
+					<Num Num="10" />
+					<Num Num="-1" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="UC_fear" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="5" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_FD_boss_Chapparition_Skill_5">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl1" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_smoke013_dark1" />
+					<Str Str="Dummy_effect_hand_L" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="4" Str="I_smoke013_dark2" />
+					<Str Str="Bip001 Spine1" />
+					<Num Num="6" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="3" Str="I_smoke013_dark2" />
+					<Str Str="Dummy_effect_wepon1" />
+					<Num Num="6" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
+					<Str_Arg Arg="3" Str="I_smoke013_dark2" />
+					<Str Str="Dummy_effect_wepon2" />
+					<Num Num="6" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="900" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_pattern007_dark_green_loop##1" />
+					<Num Num="6" />
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_DETACH" Time="4000" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_pattern007_dark_green_loop" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="4500" UseSleep="NO">
+					<Str Str="Skill_F_boss_Chapparition_Dummy" />
+					<Pos Angle="-0.083690628" Dist="41.018452" Height="1" Rand="60" />
+					<Angle Angle="0" />
+					<Str Str="채퍼리션의 그림자" />
+					<Str Str="BasicMonster_ATK" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+					<MonProp />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_FD_boss_Chapparition_Skill_4">
+		<CondList>
+			<Scp Client="NO" Scp="SCOND_USE_CNT" Time="0" UseSleep="NO">
+				<Num Num="4" />
+			</Scp>
+		</CondList>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl1" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke013_dark1" />
+					<Str Str="Dummy_effect_hand_L" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="4" Str="I_smoke013_dark2" />
+					<Str Str="Bip001 Spine1" />
+					<Num Num="6" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="3000" UseSleep="NO">
+					<Str_Arg Arg="4" Str="I_smoke013_dark3" />
+					<Str Str="Bip001 Spine1" />
+					<Num Num="4" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="3000" UseSleep="NO">
+					<Str_Arg Arg="0.30000001" Str="I_light004_green" />
+					<Str Str="Dummy_eye_L" />
+					<Num Num="0.5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="3000" UseSleep="NO">
+					<Str_Arg Arg="0.30000001" Str="I_light004_green" />
+					<Str Str="Dummy_eye_R" />
+					<Num Num="0.5" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="4000" UseSleep="NO">
+					<Str Str="pawnd_Field" />
+					<Pos Angle="0.88003796" Dist="118.72406" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="BasicMonster_ATK" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+					<MonProp />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="4000" UseSleep="NO">
+					<Str Str="pawnd_Field" />
+					<Pos Angle="-0.87505126" Dist="83.394989" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="BasicMonster_ATK" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+					<MonProp />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="4000" UseSleep="NO">
+					<Str Str="pawnd_Field" />
+					<Pos Angle="-2.3652983" Dist="163.33537" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="BasicMonster_ATK" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+					<MonProp />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="4000" UseSleep="NO">
+					<Str Str="pawnd_Field" />
+					<Pos Angle="2.3718026" Dist="168.19145" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="BasicMonster_ATK" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+					<MonProp />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="4000" UseSleep="NO">
+					<Str Str="Pawndel_Field" />
+					<Pos Angle="2.4798541" Dist="143.24695" Height="1" PosType="1" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="BasicMonster_ATK" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+					<MonProp />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="4000" UseSleep="NO">
+					<Str Str="Pawndel_Field" />
+					<Pos Angle="2.4798541" Dist="143.24695" Height="1" PosType="1" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="BasicMonster_ATK" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+					<MonProp />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="4000" UseSleep="NO">
+					<Str Str="Rodelin_Field" />
+					<Pos Angle="2.4798541" Dist="143.24695" Height="1" PosType="1" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="BasicMonster_ATK" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+					<MonProp />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="4000" UseSleep="NO">
+					<Str Str="Rodelin_Field" />
+					<Pos Angle="2.4798541" Dist="143.24695" Height="1" PosType="1" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="BasicMonster_ATK" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+					<MonProp />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="4000" UseSleep="NO">
+					<Str Str="Rodelin_Field" />
+					<Pos Angle="2.4798541" Dist="143.24695" Height="1" PosType="1" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="BasicMonster_ATK" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+					<MonProp />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="4000" UseSleep="NO">
+					<Str Str="Rodelin_Field" />
+					<Pos Angle="2.4798541" Dist="143.24695" Height="1" PosType="1" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="BasicMonster_ATK" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+					<MonProp />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_FD_boss_Chapparition_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="100199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="250" />
+					<Num Num="25" />
+					<Num Num="2" />
+				</Scp>
+				<Anim Anim="skl3" Speed="0.69999999" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke013_dark1" />
+					<Str Str="Dummy_effect_hand_L" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
+					<Str_Arg Arg="3" Str="I_smoke013_dark3" />
+					<Str Str="Bip001 Spine1" />
+					<Num Num="10" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke013_dark3" />
+					<Str Str="Bip001 Prop1" />
+					<Num Num="8" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke013_dark3" />
+					<Str Str="Dummy_effect_wepon1" />
+					<Num Num="13" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="900" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="3000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke013_dark3" />
+					<Str Str="Dummy_effect_wepon2" />
+					<Num Num="13" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1000" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="3300" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1100" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke013_dark3" />
+					<Str Str="Dummy_effect_wepon3" />
+					<Num Num="13" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1100" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="3500" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1300" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="3500" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1500" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="3600" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1600" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="3900" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1700" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="4000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1800" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="4000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2000" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="4000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2200" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="4000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2500" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="4000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2700" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="4000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2700" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="4000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2900" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="4000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2900" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="4000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="3700" UseSleep="NO">
+					<Num Num="7" />
+					<Num Num="2.5" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="4800" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="4000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="5100" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="4000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="5400" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="4000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="5600" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="4000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="6000" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="4000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Anim Anim="skl3" Speed="0.69999999" Time="6000" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="6000" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke013_dark1" />
+					<Str Str="Dummy_effect_hand_L" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="8000" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="2" PosType="10" Rand="160" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="2000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="8300" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="2" PosType="10" Rand="160" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="2000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="8600" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="2" PosType="10" Rand="160" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="2000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="8900" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="2" PosType="10" Rand="160" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="2000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="9200" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="2" PosType="10" Rand="160" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="2000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="9500" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="2" PosType="10" Rand="200" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="2000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="9800" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="2000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="10100" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="2000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="10400" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="2000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="10700" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="2000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="11000" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="2000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="11300" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="100" />
+					<Str_Arg Arg="2.3" Str="None" />
+					<Num Num="2000" />
+					<Str_Arg Arg="0.40000001" Str="F_rize006_green2" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="UC_fear" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="5" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_FD_boss_Chapparition_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl2" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2.5" Str="I_smoke013_dark" />
+					<Str Str="Bip001 L Finger2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1000" UseSleep="YES">
+					<Pos Angle="-0.024529886" Dist="93.990662" />
+					<Str_Arg Arg="5.5" Str="None" />
+					<Num Num="1100" />
+					<Str_Arg Arg="2" Str="F_fire003_green" />
+					<Num Num="80" />
+					<Num Num="0" />
+					<Num Num="200" />
+					<Num Num="7" />
+					<Num Num="1500" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="2100" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_ground009_2" />
+					<Pos Angle="0" Dist="80" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="2100" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="F_spread_in006_dark" />
+					<Pos Angle="0" Dist="80" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="2100" UseSleep="NO">
+					<Num Num="3" />
+					<Num Num="4" />
+					<Num Num="50" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2500" UseSleep="YES">
+					<Pos Angle="0" Dist="80" />
+					<Str_Arg Arg="2" Str="None" />
+					<Num Num="2100" />
+					<Str_Arg Arg="3" Str="F_burstup002_dark" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="3000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2500" UseSleep="YES">
+					<Pos Angle="0" Dist="80" />
+					<Str_Arg Arg="2" Str="None" />
+					<Num Num="2100" />
+					<Str_Arg Arg="3" Str="F_burstup002_dark" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="3000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2700" UseSleep="YES">
+					<Pos Angle="0" Dist="80" />
+					<Str_Arg Arg="2" Str="None" />
+					<Num Num="2100" />
+					<Str_Arg Arg="6" Str="F_stone005" />
+					<Num Num="80" />
+					<Num Num="250" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="3000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2700" UseSleep="YES">
+					<Pos Angle="0" Dist="80" />
+					<Str_Arg Arg="2" Str="None" />
+					<Num Num="2100" />
+					<Str_Arg Arg="4" Str="I_smoke013_dark" />
+					<Num Num="80" />
+					<Num Num="250" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="3000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="4400" UseSleep="NO">
+					<Str Str="skl_eff_born_stone_1_far" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="4400" UseSleep="NO">
+					<Num Num="9" />
+					<Num Num="1" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="UC_silence" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="6000" />
+					<Num Num="1" />
+					<Num Num="10" />
+					<Num Num="-1" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="UC_fear" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="5" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

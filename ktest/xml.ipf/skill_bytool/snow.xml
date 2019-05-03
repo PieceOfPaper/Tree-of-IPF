@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Snow_2">
+		<EndScripts>
+			<ToolScp Client="YES" Scp="C_SKL_MON_ATTACH_NODE" UseSleep="NO">
+				<Str Str="Snow_Sphere" />
+				<Str Str="Bip01 L Hand" />
+				<Num Num="0.000000" />
+				<Str Str="None" />
+				<Num Num="0.000000" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="3.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="C_SKL_MON_ATTACH_NODE" UseSleep="NO">
+				<Str Str="Snow_Sphere" />
+				<Str Str="Dummy_L_HAND" />
+				<Num Num="1.000000" />
+				<Str Str="None" />
+				<Num FuncTxt="return 0.2 + obj.Level * 0.003;" Num="0.000000" UseFunc="1" />
+			</ToolScp>
+		</KeyInputStart>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" Length="150.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SKL_MON_ANIM" Time="0" UseSleep="NO">
+					<Str Str="Snow_Sphere" />
+					<Str Str="WLK" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="50" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="0.000000" />
+					<Angle Angle="0.000000" />
+					<Num Num="60.000000" />
+					<Num Num="15.000000" />
+					<Num Num="5" />
+				</Scp>
+				<Scp Client="NO" LoopTime="400" Scp="SKL_TGT_ATTACH_CL_MON" Time="50" UseSleep="NO">
+					<Str Str="Snow_Sphere" />
+					<Str Str="Dummy_snow" />
+					<Num Num="20.000000" />
+					<Str Str="DOWN" />
+					<Num Num="0.001000" />
+					<Num Num="20.000000" />
+					<Num Num="0.900000" />
+				</Scp>
+				<Scp Client="NO" LoopTime="400" Scp="SKL_TGT_AI_HOLD" Time="50" UseSleep="NO">
+					<Num Num="1000.000000" />
+				</Scp>
+				<Scp Client="NO" LoopTime="400" Scp="SKL_TARGET_SET_3DPOS" Time="50" UseSleep="NO">
+					<Pos Angle="0.029932" Dist="165.000229" PosType="6.000000" />
+				</Scp>
+				<Scp Client="NO" LoopTime="400" Scp="SKL_SYNC_START" Time="50" UseSleep="NO" />
+				<Scp Client="NO" LoopTime="400" Scp="SKL_TGT_DMG" Time="50" UseSleep="NO">
+					<Num Num="1.000000" />
+				</Scp>
+				<Scp Client="NO" LoopTime="400" Scp="SKL_TGT_KNOCKDOWN" Time="50" UseSleep="NO">
+					<Num Num="4.000000" />
+					<Num Num="3.000000" />
+					<Num Num="200.000000" />
+					<Num Num="30.000000" />
+					<Num Num="0.000000" />
+					<Num Num="1.000000" />
+					<Num Num="2.000000" />
+				</Scp>
+				<Scp Client="NO" LoopTime="400" Scp="SKL_SYNC_SAVE" Time="50" UseSleep="NO">
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SKL_MON_MOVE" Time="300" UseSleep="NO">
+					<Str Str="Snow_Sphere" />
+					<Pos Angle="-0.010904" Dist="179.356339" />
+					<Num Num="1.000000" />
+					<Num Num="1.300000" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="350" UseSleep="NO">
+					<Pos Angle="-0.005814" Dist="57.959633" />
+					<Angle Angle="0.000000" />
+					<Num Num="60.000000" />
+					<Num Num="15.000000" />
+					<Num Num="5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SKL_MON_ATTACH_NODE" Time="400" UseSleep="NO">
+					<Str Str="Snow_Sphere" />
+					<Str Str="Dummy_L_HAND" />
+					<Num Num="2.000000" />
+					<Str Str="None" />
+					<Num FuncTxt="return 0.2 + obj.Level * 0.003;" Num="0.200000" UseFunc="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="750" UseSleep="NO">
+					<Pos Angle="-0.006744" Dist="116.237061" />
+					<Angle Angle="0.000000" />
+					<Num Num="40.000000" />
+					<Num Num="15.000000" />
+					<Num Num="5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SKL_MON_EFT" Time="1500" UseSleep="NO">
+					<Str Str="Snow_Sphere" />
+					<Str_Arg Arg="0.750000" Str="3D_F_mon_skl_gust_sand" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SKL_MON_ATTACH_NODE" Time="1500" UseSleep="NO">
+					<Str Str="Snow_Sphere" />
+					<Str Str="Bip01 L Hand" />
+					<Num Num="0.000000" />
+					<Str Str="None" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="YES" Scp="SKL_SYNC_EXEC_C" Time="1500" UseSleep="NO" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

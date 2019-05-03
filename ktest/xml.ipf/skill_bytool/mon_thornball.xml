@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_thornball_Attack2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ASTD" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="800" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="BubeMageNormal_ReflectShield" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_thornball_Attack1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="800" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

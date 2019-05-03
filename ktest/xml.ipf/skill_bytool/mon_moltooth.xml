@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Moltooth_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="2" Length="10" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="400" Time="400" Type="CIRCLE" Width="25" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+					<Str Str="skl_eff_body_atk_1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+					<Str Str="mon_hori_warrior_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
+					<Str_Arg Arg="0.40000001" Str="F_spin011_mint2" />
+					<Pos Angle="0" Dist="4.3780564e-36" Height="2.5" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1200" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="F_smoke033_2" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Moltooth_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="500" Type="FAN" Width="35" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="500" UseSleep="NO">
+					<Str Str="mon_chupaluka_skl_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="530" UseSleep="NO">
+					<Str Str="skl_eff_body_atk_6" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="0.80000001" Str="F_smoke050" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_swordtrail050_white" />
+					<Str Str="Dummy_effect001" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

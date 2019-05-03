@@ -3,7 +3,7 @@
 <ActionDesc>
 	<BlendOn frame="2" R="100" G="150" B="100" A="50"/>
 	<BlendOff frame="4" R="0" G="0" B="0" A="0"/>
-	<Particle frame="3" attachNode="Dummy_emitter_ride" particleName="F_warrior_finestra_switch_shot_light2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="false" use2DEffect="false"/>
-	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_warrior_finestra_switch_shot_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="6.5" pause="false" use2DEffect="false"/>
+	<Particle frame="3" attachNode="Dummy_emitter" particleName="F_warrior_finestra_switch_shot_light2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="false" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter_pet" particleName="F_warrior_finestra_switch_shot_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="6.5" pause="false" use2DEffect="false"/>
 	<Particle frame="7" attachNode="Dummy_L_HAND" particleName="F_warrior_finestra_switch_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="false" use2DEffect="false"/>
 </ActionDesc>

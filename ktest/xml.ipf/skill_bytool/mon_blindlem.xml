@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_blindlem_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="60" />
+					<Num Num="5" />
+					<Num Num="2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_force001_yellow" />
+					<Str_Arg Arg="1" Str="F_explosion008_yellow" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="60" />
+					<Num Num="12" />
+					<Num Num="1" />
+					<Num Num="1.2" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="0.5" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_force001_yellow" />
+					<Str_Arg Arg="1" Str="F_explosion008_yellow" />
+					<Str_Arg Arg="1" Str="" />
+					<Pos Angle="0" Dist="0" PosType="8" Rand="70" />
+					<Num Num="12" />
+					<Num Num="1" />
+					<Num Num="1.2" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="0.5" Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_smoke031" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

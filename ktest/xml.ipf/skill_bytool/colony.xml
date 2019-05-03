@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Colony_Siege_Tower_Cannon_Attack">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="3" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="200" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="NO" Scp="SKL_TARGET_RESET" UseSleep="NO" />
+		</KeyInputStart>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="1300" UseSleep="NO">
+					<Pos Angle="0" Dist="3.8658037e-36" PosType="3" />
+					<Num Num="40" />
+					<Num Num="10" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="0.44999999" Str="I_archer_canon_force_forge#Dummy002" />
+					<Str_Arg Arg="1.5" Str="I_explosion002_orange" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Num Num="30" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0.80000001" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1.3" Str="F_sys_target_monster##1" />
+					<Num Num="700" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="800" UseSleep="NO">
+					<Str Str="SCR_COLONY_SIEGE_TOWER_CANNON_ATTACK_EFFECT" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_DMG_COLONY_SIEGE_TOWER" Time="1400" UseSleep="NO">
+					<Num Num="2000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

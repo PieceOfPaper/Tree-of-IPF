@@ -1948,11 +1948,11 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 	-- 워프 주문서 예외처리. 실제 워프가 이루어질때 아이템이 소비되도록.
 	local warpscrolllistcls = GetClass("warpscrolllist", itemobj.ClassName);
 	if warpscrolllistcls ~= nil then
---		local ZoneClassName = GetZoneName(pc) -- event V I V I D CICY --
---		if ZoneClassName == 'VIVID_c_Klaipe' or ZoneClassName == 'VIVID_c_orsha' or ZoneClassName == 'VIVID_c_fedimian' then
---			ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
---			return 0;
---		end -- event V I V I D CICY --
+		local ZoneClassName = GetZoneName(pc) -- event V I V I D CICY --
+		if ZoneClassName == 'VIVID_c_Klaipe' or ZoneClassName == 'VIVID_c_orsha' or ZoneClassName == 'VIVID_c_fedimian' then
+			ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
+			return 0;
+		end -- event V I V I D CICY --
 		
 		if tonumber(itemobj.LifeTime) > 0 and tonumber(itemobj.ItemLifeTimeOver) > 0 then
 			ui.SysMsg(ScpArgMsg("LessThanItemLifeTime"));
@@ -3415,6 +3415,7 @@ function EXP_ORB_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)
 		frame:SetUserValue("EXP_ORB_EFFECT", 0);
 		timer:Stop();
 		imcSound.PlaySoundEvent('sys_booster_off');
+		STOP_INVENTORY_EXP_ORB(frame);
 	elseif msg == "EXP_ORB_ITEM_ON" then
 		frame:SetUserValue("EXP_ORB_EFFECT", str);
 		timer:SetUpdateScript("UPDATE_INVENTORY_EXP_ORB");
@@ -3549,6 +3550,7 @@ function UPDATE_INVENTORY_EXP_ORB(frame, ctrl, num, str, time)
 	if frame:IsVisible() == 0 then
 		return;
 	end
+
 	local itemGuid = frame:GetUserValue("EXP_ORB_EFFECT");
 	if itemGuid == "None" then
 		return;
@@ -3564,12 +3566,53 @@ function UPDATE_INVENTORY_EXP_ORB(frame, ctrl, num, str, time)
 	if tabIndex == 0 then
 		slot = INV_GET_SLOT_BY_ITEMGUID(itemGuid, nil, 1)
 	end	
+
 	if slot == nil then
 		return;
 	end
+
+	local slotset = slot:GetParent();
+	if slotset:GetHeight() == 0 then
+		return;
+	end
+
+	local offset = frame:GetUserConfig("EFFECT_DRAW_OFFSET");	
+	if slot:GetDrawY() <= invenTab:GetDrawY() or invenTab:GetDrawY() + invenTab:GetHeight() + offset <= slot:GetDrawY() then
+		return;
+	end
+	
 	if slot:IsVisibleRecursively() == true then
-		local size = frame:GetUserConfig("EXP_ORB_EFFECT_SIZE");	
-		slot:PlayOnceUIEffect('I_sys_item_slot', size);
+		slot:PlayUIEffect("I_sys_item_slot", 2.2, "Inventory_Exp_ORB", true);	
+	end
+end
+
+function STOP_INVENTORY_EXP_ORB(frame)
+	if frame:IsVisible() == 0 then
+		return;
+	end 
+
+	local itemGuid = frame:GetUserValue("EXP_ORB_EFFECT");
+	if itemGuid == "None" then
+		return;
+	end
+
+	local invenTab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
+	if invenTab == nil then
+		return
+	end
+
+	local tabIndex = invenTab:GetSelectItemIndex()
+	local slot = INV_GET_SLOT_BY_ITEMGUID(itemGuid);
+	if tabIndex == 0 then
+		slot = INV_GET_SLOT_BY_ITEMGUID(itemGuid, nil, 1)
+	end	
+
+	if slot == nil then
+		return;
+	end
+		
+	if slot:IsVisibleRecursively() == true then
+		slot:StopUIEffect("Inventory_Exp_ORB", true, 0.0);
 	end
 end
 

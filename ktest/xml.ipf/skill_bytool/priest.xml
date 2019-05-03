@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Priest_MassHeal">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_massheal_shot" />
+					<Str Str="voice_cleric_massheal_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="600" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_cleric_MassHeal_spread_out" />
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="800" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="140" />
+					<Num Num="5" />
+					<Num Num="4" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="800" UseSleep="NO">
+					<Str Str="MassHeal_Buff" />
+					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+					<Num FuncTxt="local addHeal = 0; local Ayin_sof_buff = GetBuffByName(self, 'Ayin_sof_Buff'); if Ayin_sof_buff ~= nil then addHeal = GetBuffArgs(Ayin_sof_buff); end return addHeal;" Num="0" UseFunc="1" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="800" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="140" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="800" UseSleep="NO">
+					<Str Str="MassHeal_Buff" />
+					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+					<Num FuncTxt="local addHeal = 0; local Ayin_sof_buff = GetBuffByName(self, 'Ayin_sof_Buff'); if Ayin_sof_buff ~= nil then addHeal = GetBuffArgs(Ayin_sof_buff); end return addHeal;" Num="0" UseFunc="1" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Priest_Dodola">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_cleric_m_heal_shot" />
+					<Str Str="voice_cleric_heal_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="200" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="Priest_Dodola" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Priest_Exorcise">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_cleric_m_exorcise_shot" />
+					<Str Str="voice_cleric_exorcise_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="700" UseSleep="NO">
+					<Pos Angle="0" Dist="20" />
+					<Angle Angle="0" />
+					<Str Str="Priest_Exorcise" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Priest_TurnUndead">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="50" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_turnundead_shot" />
+					<Str Str="voice_cleric_turnundead_shot" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_COND_SCRIPT" UseSleep="NO">
+					<Str Str="TURNUNDEAD_AFTER_RUN" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Priest_Resurrection">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="F_cleric_resurrection_cast_loop" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="I_force069_yellow" />
+				<Num Num="0" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_PARTY_TARGET_BY_KEY" UseSleep="NO">
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_RESURRECTION_CAST" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+				<Str Str="SKL_RESURRECTION_LOOP" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="1.3" Str="F_cleric_resurrection_cast_loop" />
+				<Str Str="Dummy_emitter" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="1.3" Str="I_force069_yellow" />
+				<Str Str="Dummy_effect_r_hand" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
+				<Str Str="voice_cleric_m_resurrection_shot" />
+				<Str Str="voice_cleric_resurrection_shot" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="F_cleric_resurrection_cast_loop" />
+				<Num Num="0.30000001" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="I_force069_yellow" />
+				<Num Num="0.30000001" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
+				<Str Str="voice_war_atk_short" />
+				<Str Str="voice_atk_short_war_f" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.61086529" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="20" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_EFFECT_DETACH" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_cleric_resurrection_cast_loop" />
+					<Num Num="0.5" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO">
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="450" UseSleep="NO">
+					<Str Str="Resurrection_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="5000" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
+					<Num Num="4" />
+					<Num Num="0" />
+					<Num Num="250" />
+					<Num Num="35" />
+					<Num Num="0" />
+					<Num Num="3" />
+					<Num Num="2" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Priest_Monstrance">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="50" />
+					<Num Num="40" />
+					<Num Num="99" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_cleric_m_monstrance_shot" />
+					<Str Str="voice_cleric_monstrance_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="800" UseSleep="NO">
+					<Str Str="Monstrance_Debuff" />
+					<Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="30000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Priest_Sacrament">
+		<EndScripts>
+			<ToolScp Client="YES" Scp="C_SKL_LOCK_MOVE" UseSleep="NO">
+				<Num Num="0" />
+			</ToolScp>
+		</EndScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_archer_recuper_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_sacrament_shot" />
+					<Str Str="voice_cleric_sacrament_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="200" UseSleep="NO">
+					<Pos Angle="-0.00069000002" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="Cleric_New_HolyEnchant" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Priest_Blessing">
+		<EndScripts>
+			<ToolScp Client="YES" Scp="C_SKL_LOCK_MOVE" UseSleep="NO">
+				<Num Num="0" />
+			</ToolScp>
+		</EndScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_cleric_m_blessing_shot" />
+					<Str Str="voice_cleric_blessing_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
+					<Str Str="Blessing_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1800000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="500" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="150" />
+					<Num FuncTxt="return 2 + GET_ABIL_LEVEL(self, &quot;Priest6&quot;)" Num="5" UseFunc="1" />
+					<Num Num="4" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="500" UseSleep="NO">
+					<Str Str="Blessing_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="300000" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="700" UseSleep="NO">
+					<Str_Arg Arg="1.2" Str="F_cleric_blessing_spread_out" />
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Priest_Aspersion">
+		<EndScripts>
+			<ToolScp Client="YES" Scp="C_SKL_LOCK_MOVE" UseSleep="NO">
+				<Num Num="0" />
+			</ToolScp>
+		</EndScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_aspersion_shot" />
+					<Str Str="voice_cleric_aspersion_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
+					<Str Str="Aspersion_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1800000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="500" UseSleep="NO">
+					<Pos Angle="0" Dist="-20" />
+					<Num Num="1" />
+					<Num Num="150" />
+					<Num Num="60" />
+					<Num Num="10" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="500" UseSleep="NO">
+					<Str Str="Aspersion_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1800000" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Priest_Revive">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_restoration" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_revive_shot" />
+					<Str Str="voice_cleric_revive_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="250" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="150" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="250" UseSleep="NO">
+					<Str Str="Cleric_Revival_Buff" />
+					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num FuncTxt="if IsPVPServer(self) == 1 then return 30000 else return 90000 + GET_ABIL_LEVEL(self, 'Priest21') * 7000 end" Num="5000" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

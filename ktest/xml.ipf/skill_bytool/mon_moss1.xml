@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Moss1_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="3.0793941" AniTime="600" Dist="27.321354" ForceATK="0" HitCount="1" Length="30" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="600" Type="CIRCLE" Width="25" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK1_SHOT" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_smoke058_violet" />
+					<Str Str="Dummy_eff_atk" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="5" Str="F_spark005_violet" />
+					<Str Str="Dummy_eff_atk" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="5" Str="F_spark005_violet" />
+					<Str Str="Dummy_eff_atk" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="UC_sleep" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="3000" />
+					<Num Num="1" />
+					<Num Num="10" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

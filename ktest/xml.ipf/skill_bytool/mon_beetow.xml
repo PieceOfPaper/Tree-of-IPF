@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Beetow_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="300" Type="CIRCLE" Width="13" />
+			</HitList>
+			<ResultList>
+				<ToolScp Client="YES" Scp="C_SR_EFT2" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_smoke064_red1" />
+					<Pos Angle="0" Dist="0" PosType="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Beetow_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="600" Type="CIRCLE" Width="30" />
+				<Frame Angle="0" AniTime="950" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="750" Type="CIRCLE" Width="30" />
+				<Frame Angle="0" AniTime="1100" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="900" Type="CIRCLE" Width="30" />
+			</HitList>
+			<ResultList>
+				<ToolScp Client="YES" Scp="C_SR_EFT2" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_smoke064_red1" />
+					<Pos Angle="0" Dist="0" PosType="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_half_mangosting_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="650" Dist="0" ForceATK="0" HitCount="1" Length="28" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="1.0471976" TermMax="0" TermMin="0" Time="450" Type="FAN" Width="25" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_half_mangosting_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="25" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_scratch001_red" />
+					<Str Str="Dummy_eff_atk" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_scratch001_red" />
+					<Str Str="Dummy_eff_atk2" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_half_mangosting_Skill_1">
+		<CondList>
+			<Scp Client="NO" Scp="SCOND_DISTANCE_CHECK" Time="0" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="10" />
+				<Num Num="40" />
+			</Scp>
+		</CondList>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-0.00034511092" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="650" />
+				<Frame Accel="1" Angle="0.011313248" Dist="39.175423" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="800" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="0.80000001" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="750" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="32" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

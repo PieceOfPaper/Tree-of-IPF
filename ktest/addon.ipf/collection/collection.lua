@@ -45,8 +45,8 @@ function COLLECTION_ON_INIT(addon, frame)
 end
 
 function COLLECTION_DO_OPEN(frame)
-    ui.ToggleFrame('collection')
 	ui.ToggleFrame('inventory')
+    ui.ToggleFrame('collection')
 	RUN_CHECK_LASTUIOPEN_POS(frame)
 end
 
@@ -55,8 +55,8 @@ function UI_TOGGLE_COLLECTION()
 	if app.IsBarrackMode() == true then
 		return;
 	end
-	ui.ToggleFrame('collection')
 	ui.ToggleFrame('inventory')
+	ui.ToggleFrame('collection')
 end
 
 function COLLECTION_ON_RELOAD(frame)

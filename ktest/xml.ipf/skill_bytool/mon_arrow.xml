@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_arrow_trap_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="80.000000" />
+					<Num Num="100.000000" />
+					<Num Num="10.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" UseSleep="YES">
+					<Str_Arg Arg="0.500000" Str="I_archer_turret_force_circle#Dummy_hole006" />
+					<Str_Arg Arg="0.200000" Str="F_archer_turret_hit_explosion" />
+					<Str_Arg Arg="1.000000" Str="Noen" />
+					<Pos Angle="0.000000" Dist="80.000000" Option="1" PosType="8.000000" Rand="90.000000" />
+					<Num Num="8.000000" />
+					<Num Num="1.200000" />
+					<Num Num="0.000000" />
+					<Num Num="600.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="0.400000" Str="F_sys_target_pc" />
+					<Num Num="860.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" UseSleep="YES">
+					<Str_Arg Arg="0.500000" Str="I_archer_turret_force_circle#Dummy_hole006" />
+					<Str_Arg Arg="0.200000" Str="F_archer_turret_hit_explosion" />
+					<Str_Arg Arg="1.000000" Str="Noen" />
+					<Pos Angle="0.000000" Dist="80.000000" Option="1" PosType="8.000000" Rand="90.000000" />
+					<Num Num="8.000000" />
+					<Num Num="1.200000" />
+					<Num Num="0.000000" />
+					<Num Num="600.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="0.400000" Str="F_sys_target_pc" />
+					<Num Num="860.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" UseSleep="YES">
+					<Str_Arg Arg="0.500000" Str="I_archer_turret_force_circle#Dummy_hole006" />
+					<Str_Arg Arg="0.200000" Str="F_archer_turret_hit_explosion" />
+					<Str_Arg Arg="1.000000" Str="Noen" />
+					<Pos Angle="0.000000" Dist="80.000000" Option="1" PosType="8.000000" Rand="90.000000" />
+					<Num Num="8.000000" />
+					<Num Num="1.200000" />
+					<Num Num="0.000000" />
+					<Num Num="600.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="0.400000" Str="F_sys_target_pc" />
+					<Num Num="860.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" UseSleep="YES">
+					<Str_Arg Arg="0.500000" Str="I_archer_turret_force_circle#Dummy_hole006" />
+					<Str_Arg Arg="0.200000" Str="F_archer_turret_hit_explosion" />
+					<Str_Arg Arg="1.000000" Str="Noen" />
+					<Pos Angle="0.000000" Dist="80.000000" Option="1" PosType="8.000000" Rand="90.000000" />
+					<Num Num="8.000000" />
+					<Num Num="1.200000" />
+					<Num Num="0.000000" />
+					<Num Num="600.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="0.400000" Str="F_sys_target_pc" />
+					<Num Num="860.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" UseSleep="YES">
+					<Str_Arg Arg="0.500000" Str="I_archer_turret_force_circle#Dummy_hole006" />
+					<Str_Arg Arg="0.200000" Str="F_archer_turret_hit_explosion" />
+					<Str_Arg Arg="1.000000" Str="Noen" />
+					<Pos Angle="0.000000" Dist="80.000000" Option="1" PosType="8.000000" Rand="90.000000" />
+					<Num Num="8.000000" />
+					<Num Num="1.200000" />
+					<Num Num="0.000000" />
+					<Num Num="600.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="0.400000" Str="F_sys_target_pc" />
+					<Num Num="860.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Anim Anim="atk2" Speed="1.000000" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="780" UseSleep="NO">
+					<Str_Arg Arg="1.500000" Str="F_archer_turret_shot_explosion#Dummy_hole006" />
+					<Pos Angle="0.000000" Dist="0.000000" Height="10.000000" />
+					<Num Num="0.000000" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="780" UseSleep="NO">
+					<Num Num="8.000000" />
+					<Num Num="1.000000" />
+					<Num Num="45.000000" />
+					<Num Num="999.000000" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="2100" UseSleep="NO">
+					<Str Str="skl_eff_aukuras_fire" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="2100" UseSleep="NO">
+					<Num Num="8.000000" />
+					<Num Num="1.000000" />
+					<Num Num="45.000000" />
+					<Num Num="999.000000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Hunter_Howling">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TGT_COMPANION" Time="0" UseSleep="NO">
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_archer_m_growling_shot" />
+					<Str Str="voice_archer_growling_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="400" UseSleep="NO">
+					<Str Str="Howling_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Hunter_Growling">
+		<EnableScripts>
+			<ToolScp Client="NO" Scp="SKL_CHECK_BY_SCRIPT" UseSleep="NO">
+				<Str Str="PET_SKILL_PRE_CHECK" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TGT_COMPANION" Time="0" UseSleep="NO">
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_archer_m_growling_shot" />
+					<Str Str="voice_archer_growling_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="400" UseSleep="NO">
+					<Str Str="Growling_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="600000" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Hunter_RushDog">
+		<EnableScripts>
+			<ToolScp Client="NO" Scp="SKL_CHECK_BY_SCRIPT" UseSleep="NO">
+				<Str Str="PET_SKILL_PRE_CHECK" />
+			</ToolScp>
+		</EnableScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="3" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="200" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Num Num="50" />
+					<Num Num="10" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_archer_m_rushdog_shot" />
+					<Str Str="voice_archer_rushdog_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="400" UseSleep="NO">
+					<Str Str="TARGET_CHECK_HIDEFROM_MON" />
+				</Scp>
+				<Scp Client="NO" Scp="TGT_COMPANION_SKILL" Time="400" UseSleep="NO">
+					<Num Num="0" />
+					<Num Num="30" />
+					<Num Num="150" />
+					<Str Str="Mon_Velhider_Skill_2" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="300" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Hunter_Snatching">
+		<EnableScripts>
+			<ToolScp Client="NO" Scp="SKL_CHECK_BY_SCRIPT" UseSleep="NO">
+				<Str Str="PET_SKILL_PRE_CHECK" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO" />
+				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="400" UseSleep="NO">
+					<Str Str="TARGET_CHECK_HIDEFROM_MON" />
+				</Scp>
+				<Scp Client="NO" Scp="TGT_COMPANION_SKILL" Time="400" UseSleep="NO">
+					<Num Num="0" />
+					<Num Num="20" />
+					<Num Num="150" />
+					<Str Str="Mon_Velhider_Skill_3" />
+					<Num FuncTxt="return 3" Num="1" UseFunc="1" />
+					<Num Num="100" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
+					<Str Str="voice_archer_m_snatching_shot" />
+					<Str Str="voice_archer_snatching_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Hunter_Hounding">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TGT_COMPANION" Time="0" UseSleep="NO">
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="400" UseSleep="NO">
+					<Str Str="Hounding_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="90000" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="Hounding_Caster_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="90000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
+					<Str Str="voice_archer_m_hounding_shot" />
+					<Str Str="voice_archer_hounding_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Hunter_Praise">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TGT_COMPANION" Time="0" UseSleep="NO">
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_archer_m_praise_shot" />
+					<Str Str="voice_archer_praise_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="300" UseSleep="NO">
+					<Str Str="Praise_Buff" />
+					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1800000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Hunter_Retrieve">
+		<EnableScripts>
+			<ToolScp Client="NO" Scp="SKL_CHECK_BY_SCRIPT" UseSleep="NO">
+				<Str Str="PET_SKILL_PRE_CHECK" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO" />
+				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="400" UseSleep="NO">
+					<Str Str="TARGET_CHECK_HIDEFROM_MON" />
+				</Scp>
+				<Scp Client="NO" Scp="TGT_COMPANION_BITE" Time="400" TimeSync="0" UseSleep="NO">
+					<Num Num="0" />
+					<Num Num="10" />
+					<Num Num="150" />
+					<Num FuncTxt="return 5" Num="7" UseFunc="1" />
+					<Str Str="feed_loop" />
+					<Str Str="Retrieve_Debuff" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Str Str="BITE_WLK" />
+					<Num FuncTxt="return 20 - obj.Level * 1;" Num="20" UseFunc="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
+					<Str Str="voice_archer_m_retrieve_shot" />
+					<Str Str="voice_archer_retrieve_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Hunter_Pointing">
+		<EnableScripts>
+			<ToolScp Client="NO" Scp="SKL_CHECK_BY_SCRIPT" UseSleep="NO">
+				<Str Str="PET_SKILL_PRE_CHECK" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TGT_COMPANION" Time="0" UseSleep="NO">
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="400" UseSleep="NO">
+					<Str Str="Pointing_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="90000" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
+					<Str Str="voice_archer_m_pointing_shot" />
+					<Str Str="voice_archer_pointing_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Hunter_Coursing">
+		<EnableScripts>
+			<ToolScp Client="NO" Scp="SKL_CHECK_BY_SCRIPT" UseSleep="NO">
+				<Str Str="PET_SKILL_PRE_CHECK" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO" />
+				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="400" UseSleep="NO">
+					<Str Str="TARGET_CHECK_HIDEFROM_MON" />
+				</Scp>
+				<Scp Client="NO" Scp="TGT_COMPANION_BITE" Time="400" TimeSync="0" UseSleep="NO">
+					<Num Num="0" />
+					<Num Num="30" />
+					<Num Num="150" />
+					<Num FuncTxt="return 5.5" Num="10" UseFunc="1" />
+					<Str Str="SKL_COURSING_LOOP" />
+					<Str Str="Coursing_Debuff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Str Str="skl_Rush_loop" />
+					<Num Num="20" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="520" UseSleep="NO">
+					<Str Str="voice_archer_m_coursing_shot" />
+					<Str Str="voice_archer_coursing_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

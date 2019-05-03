@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Kriwi_Daino">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_daino_shot" />
+					<Str Str="voice_cleric_daino_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
+					<Str Str="Daino_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num FuncTxt="return 10000 + obj.Level * 2000;" Num="0" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Kriwi_Zalciai">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_zalciai_shot" />
+					<Str Str="voice_cleric_zalciai_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="100" UseSleep="NO">
+					<Pos Angle="0" Dist="40" />
+					<Angle Angle="0" />
+					<Str Str="Cleric_Zalciai" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Kriwi_Aukuras">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_aukuras_shot" />
+					<Str Str="voice_cleric_aukuras_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+					<Str Str="skl_eff_aukuras_fire" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="300" UseSleep="NO">
+					<Pos Angle="0" Dist="20" />
+					<Angle Angle="0" />
+					<Str Str="Cleric_New_Aukuras" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="300" UseSleep="NO">
+					<Pos Angle="0" Dist="20" />
+					<Angle Angle="0" />
+					<Str Str="Aukuras_ReduceDebuffTime" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Kriwi_DivineStigma">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_divinestigma_shot" />
+					<Str Str="voice_cleric_divinestigma_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_fire_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="50" />
+					<Num Num="50" />
+					<Num Num="5" />
+					<Num Num="2" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_ATTACH_FORCE" Time="550" UseSleep="NO">
+					<Num Num="0.25" />
+					<Num Num="1" />
+					<Str_Arg Arg="0.5" Str="I_cleric_devinestigma_force_dark#Dummy_effect_lada" />
+					<Str Str="TOP" />
+					<Str_Arg Arg="1" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="700" UseSleep="NO">
+					<Str Str="DivineStigma_Debuff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="15000" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Kriwi_Melstis">
+		<EndScripts>
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Cleric_Melstis" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Cleric_Melstis_abil" />
+			</ToolScp>
+		</EndScripts>
+		<KeyCancelScp>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Cleric_Melstis" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Cleric_Melstis_abil" />
+			</ToolScp>
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_melstis_shot" />
+					<Str Str="voice_cleric_melstis_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="800" UseSleep="NO">
+					<Str Str="Melstis_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+						<Str Str="Kriwi10" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<EtcList>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+							<Str Str="voice_cleric_m_melstis" />
+							<Str Str="voice_cleric_melstis_shot" />
+						</Scp>
+						<Scp Client="NO" LoopTime="1000" Scp="SKL_CONSUME_SP" Time="300" UseSleep="NO">
+							<Num FuncTxt="return self.MSP * 0.05" Num="3" UseFunc="1" />
+						</Scp>
+						<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="300" UseSleep="NO">
+							<Pos Angle="29" Dist="0" />
+							<Angle Angle="0" />
+							<Str Str="Cleric_Melstis_abil" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Kriwi_Zaibas">
+		<EndScripts>
+			<ToolScp Client="YES" Scp="C_SKL_LOCK_MOVE" UseSleep="NO">
+				<Num Num="0" />
+			</ToolScp>
+		</EndScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="1" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="SQUARE" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SKL_LOCK_MOVE" Time="0" UseSleep="NO">
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_zaibas_shot" />
+					<Str Str="voice_cleric_zaibas_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+					<Str Str="skl_cleric_haste_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0" Dist="40" />
+					<Angle Angle="0" />
+					<Str Str="Cleric_Zaibas" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SKL_LOCK_MOVE" Time="500" UseSleep="NO">
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

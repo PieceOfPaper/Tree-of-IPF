@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_bramble_mini_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" Length="60.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="1250" Type="SQUARE" Width="20.000000" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK1_SHOT" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_bramble_mini_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<EtcList>
+				<Anim Anim="SKL_CAST" Speed="1.000000" Time="0" />
+				<Anim Anim="SKL_SHOT" Speed="1.000000" Time="2730" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3170" UseSleep="YES">
+					<Pos Angle="0.764532" Dist="53.932648" PosType="1.000000" Rand="10.000000" />
+					<Str_Arg Arg="1.000000" Str="F_ground070" />
+					<Num Num="1000.000000" />
+					<Str_Arg Arg="0.500000" Str="bramble_test" />
+					<Num Num="20.000000" />
+					<Num Num="100.000000" />
+					<Num Num="200.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1000.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3670" UseSleep="YES">
+					<Pos Angle="0.516880" Dist="36.489651" PosType="1.000000" Rand="20.000000" />
+					<Str_Arg Arg="1.000000" Str="F_ground070" />
+					<Num Num="1000.000000" />
+					<Str_Arg Arg="0.500000" Str="bramble_test" />
+					<Num Num="20.000000" />
+					<Num Num="100.000000" />
+					<Num Num="200.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1000.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="4170" UseSleep="YES">
+					<Pos Angle="-1.044248" Dist="42.004822" PosType="1.000000" Rand="20.000000" />
+					<Str_Arg Arg="1.000000" Str="F_ground070" />
+					<Num Num="1000.000000" />
+					<Str_Arg Arg="0.500000" Str="bramble_test" />
+					<Num Num="20.000000" />
+					<Num Num="100.000000" />
+					<Num Num="200.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1000.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="4670" UseSleep="YES">
+					<Pos Angle="-0.044008" Dist="39.259525" PosType="1.000000" Rand="20.000000" />
+					<Str_Arg Arg="1.000000" Str="F_ground070" />
+					<Num Num="1000.000000" />
+					<Str_Arg Arg="0.500000" Str="bramble_test" />
+					<Num Num="20.000000" />
+					<Num Num="100.000000" />
+					<Num Num="200.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1000.000000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

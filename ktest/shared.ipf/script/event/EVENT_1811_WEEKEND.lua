@@ -21,8 +21,8 @@ function SCR_EVENT_1903_WEEKEND_CHECK(inputType, isServer)
                 {4,27,{'EXP'}},
                 {4,28,{'LOOTINGCHANCE','ITEMRANDOMRESET'}},
                 {5,4,{'REINFORCE', 'TRANSCEND'}},
-                {5,5,{'EXP'}},
-                {5,6,{'LOOTINGCHANCE','ITEMRANDOMRESET'}},
+                {5,11,{'EXP','LOOTINGCHANCE','ITEMRANDOMRESET'}},
+                {5,12,{'EXP','LOOTINGCHANCE','ITEMRANDOMRESET'}},
                 }
     for i = 1, #t do
         if t[i][1] == month and t[i][2] == day then

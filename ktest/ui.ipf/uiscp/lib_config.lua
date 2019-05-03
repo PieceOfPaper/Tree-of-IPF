@@ -76,3 +76,8 @@ end
 function UPDATE_GIZMOTARGETAIM(value)
 	config.EnableSkillGizmoTargetAim(tonumber(value));
 end
+
+function UPDATE_ENABLE_RENDERSHADOW(value)
+	config.SetRenderShadow(tonumber(value));
+	imcperfOnOff.EnableRenderShadow(tonumber(value));
+end

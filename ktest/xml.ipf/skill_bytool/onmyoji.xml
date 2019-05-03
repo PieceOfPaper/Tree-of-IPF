@@ -1,0 +1,890 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Onmyoji_FireFoxShikigami">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1.5" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_ONMYOJI_FIREFOXSHIKIGAMI" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="4" Str="F_fire044_8_loop" />
+				<Str Str="None" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SOUND" UseSleep="NO">
+				<Str Str="skl_eff_firefoxshikigama_cast" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_m_firefoxshikigami_cast" />
+				<Str Str="voice_wiz_f_firefoxshikigami_cast" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="LH" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="RH" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="4" Str="F_fire044_8_loop" />
+				<Num Num="0.5" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MaxChargeEvent>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="4" Str="F_burstup048_fire_2" />
+				<Str Str="None" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="6" Str="F_buff_basic048_2" />
+				<Str Str="None" />
+				<Num Num="0" />
+			</ToolScp>
+		</MaxChargeEvent>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_KILL_FOL_EXPROP" Time="0" UseSleep="NO">
+					<Str Str="ONMYOJI_FIREFOXSHIKIGAMI" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="RH" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="LH" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_firefoxshikigama_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_firefoxshikigami_shot" />
+					<Str Str="voice_wiz_f_firefoxshikigami_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="400" UseSleep="NO">
+					<Str FuncTxt="   local mon = &quot;pcskill_FireFoxShikigami&quot;     local abil = GetAbility(self, &quot;Onmyoji3&quot;)     if abil ~= nil and TryGetProp(abil, &quot;ActiveState&quot;) == 1 then         if IMCRandom(1, 100) &lt; 50 then             mon = &quot;pcskill_Big_FireFoxShikigami&quot;         end     end     return mon" Str="" UseFunc="1" />
+					<Pos Angle="0" Dist="3.2281915e-38" />
+					<Angle Angle="0" />
+					<Str Str="불여우 식신령" />
+					<Str Str="PC_Summon_FireFox" />
+					<Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Str Str="None" />
+					<MonProp />
+					<Str Str="SCR_FIREFOXSHIKIGAMI" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="800" UseSleep="NO">
+					<Str Str="ONMYOJI_FIREFOXSHIKIGAMI" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Onmyoji_YinYangConsonance">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" UseSleep="YES">
+				<Str Str="Skill_SuperArmor_Buff" />
+				<Num Num="500" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="LH" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="RH" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="4" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="0" Str="" />
+				<Str Str="" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="LH" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="RH" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="1" Str="I_light004_violet2" />
+				<Str Str="Dummy_effect_hand_L" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="1" Str="I_light004_violet2" />
+				<Str Str="Dummy_effect_hand_R" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_COLORBLEND_ACTOR" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="0.050000001" />
+				<Num Num="0.1" />
+				<Num Num="0.07" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_ONMYOJI_HARMONYOFYINANDYANG" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+				<Str Str="SKL_ONMYOJI_HARMONYOFYINANDYANG_LOOP" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="MONSKL_CRE_PAD" UseSleep="NO">
+				<Pos Angle="0" Dist="150" />
+				<Angle Angle="0" />
+				<Str Str="YinYangConsonance_Pad" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_SET_IMMUNE_STATE" UseSleep="NO">
+				<Str Str="Skill_SuperArmor_Buff" />
+				<Num Num="100" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="skl_eff_yinyangconsonance_ground" />
+				<Num Num="0" />
+				<Str Str="skl_eff_yinyangconsonance_ground" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_f_yinyangconsonance_cast" />
+				<Num Num="0" />
+				<Str Str="voice_wiz_m_yinyangconsonance_cast" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="YinYangConsonance_Pad" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_BUFF_ABIL" UseSleep="NO">
+				<Str Str="Onmyoji20" />
+				<Str Str="YinYangTuner_Buff" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num FuncTxt="local value = 0 local abil = GetAbility(self, &quot;Onmyoji20&quot;) if abil ~= nil and abil.ActiveState == 1 then value = 1000 * abil.Level end return value" Num="0" UseFunc="1" />
+				<Num Num="1" />
+				<Num Num="100" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_f_yinyangconsonance_cast" />
+				<Str Str="voice_wiz_m_yinyangconsonance_cast" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_COLORBLEND_ACTOR" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="I_light004_violet2" />
+				<Num Num="0.5" />
+			</ToolScp>
+		</KeyInputEnd>
+		<KeyCancelScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="RH" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="LH" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="999999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="999799" Type="FAN" Width="30" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Onmyoji_GreenwoodShikigami">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="1.5" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="200" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="LH" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="RH" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_ONMYOJI_GREENWOODSHIKIGAMI" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="1" Str="I_light004_green_is2D2" />
+				<Str Str="Dummy_effect_hand_R" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_m_greenwoodshikigami_cast" />
+				<Str Str="voice_wiz_f_greenwoodshikigami_cast" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SOUND" UseSleep="NO">
+				<Str Str="skl_eff_greenwoodshikigami_cast" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="I_light004_green_is2D2" />
+				<Num Num="0.5" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="0.80000001" Str="F_wizard_GreenwoodShikigami_shot_light" />
+				<Str Str="Dummy_effect_hand_R" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="LH" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="RH" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="CRE_MON_ATTRACT" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Str Str="pcskill_greenwood" />
+					<Str_Arg Arg="1" Str="" />
+					<Num Num="5.5" />
+					<Num Num="0" />
+					<Num Num="2" />
+					<Num Num="100" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
+					<Str Str="skl_eff_greenwoodshikigami_born" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_wiz_m_greenwoodshikigami_shot" />
+					<Str Str="voice_wiz_f_greenwoodshikigami_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0" Dist="3.2752818e-38" PosType="3" />
+					<Angle Angle="0" />
+					<Str Str="GreenwoodShikigami_Pad_Effect" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0" Dist="3.2281915e-38" PosType="3" />
+					<Angle Angle="0" />
+					<Str Str="GreenwoodShikigami_Pad" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Onmyoji_Toyou">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="200" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="LH" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="RH" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_ONMYOJI_TOYOU" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="0.69999999" Str="F_smoke171_up" />
+				<Str Str="None" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_m_toyou_cast" />
+				<Str Str="voice_wiz_f_toyou_cast" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SOUND" UseSleep="NO">
+				<Str Str="skl_eff_toyou_cast" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="0.69999999" Str="F_smoke171_up" />
+				<Num Num="0.5" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="3.2281915e-38" PosType="3" />
+					<Angle Angle="0" />
+					<Str Str="Toyou_Pad" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="0" UseSleep="NO">
+					<Num Num="3" />
+					<Num Num="2.5" />
+					<Num Num="55" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="3.8255448e-43" PosType="3" />
+					<Num Num="150" />
+					<Num Num="99" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="LH" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="RH" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_toyou_shot" />
+					<Str Str="voice_wiz_f_toyou_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
+					<Str Str="skl_eff_toyou_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF_ABIL" Time="100" UseSleep="NO">
+					<Str Str="Onmyoji15" />
+					<Str Str="Toyou_Debuff" />
+					<Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
+					<Num Num="-1" />
+					<Num Num="3000" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+					<Str Str="Onmyoji14" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_COND_RANDOM" UseSleep="NO">
+					<Num FuncTxt="return GET_ABIL_LEVEL(self, &quot;Onmyoji14&quot;)" Num="0" UseFunc="1" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
+					<Num Num="4" />
+					<Num Num="0" />
+					<Num Num="150" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="2" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Onmyoji_GenbuArmor">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="GenbuArmor_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="60000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="LH" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="RH" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_genbuarmor_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_wiz_m_genbuarmor_shot" />
+					<Str Str="voice_wiz_f_genbuarmor_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Onmyoji_WhiteTigerHowling">
+		<EndScripts>
+			<ToolScp Client="YES" Scp="C_COLORBLEND_ACTOR" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0.5" />
+				<Num Num="0.5" />
+				<Num Num="0.5" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0.5" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="1" Str="I_light004_white" />
+				<Str Str="Dummy_effect_hand_R" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_ONMYOJI_WHITETIGERHOWLING" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_COLORBLEND_ACTOR" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="0.050000001" />
+				<Num Num="0.1" />
+				<Num Num="0.07" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_m_whitetigerhowling_cast" />
+				<Str Str="voice_wiz_f_whitetigerhowling_cast" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SOUND" UseSleep="NO">
+				<Str Str="skl_eff_whitetigerhowling_cast" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="LH" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="RH" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="I_light004_white" />
+				<Num Num="0.5" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="0.80000001" Str="F_wizard_whitetiger001" />
+				<Str Str="Dummy_effect_hand_R" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_COLORBLEND_ACTOR" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0.5" />
+				<Num Num="0.5" />
+				<Num Num="0.5" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="3.8255448e-43" />
+					<Num Num="200" />
+					<Num FuncTxt="return 4 + obj.Level" Num="0" UseFunc="1" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="0" UseSleep="NO">
+					<Str Str="Onmyoji8" />
+					<Str Str="WhiteTigerHowling_Buff" />
+					<Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_fire048" />
+					<Str Str="Dummy_bufficon" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2.3" Str="I_wizard_whitetigerhowling1" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="12" Str="F_spread_out007_circle2" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_whitetigerhowling_ground" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="LH" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="RH" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="20" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.2" />
+					<Num Num="0.40000001" />
+					<Num Num="0.34999999" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="70" UseSleep="NO">
+					<Num Num="1.5" />
+					<Num Num="1.5" />
+					<Num Num="130" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+					<Str Str="skl_eff_whitetigerhowling_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="500" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="700" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="800" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0.1" />
+					<Num Num="0.2" />
+					<Num Num="0.15000001" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="900" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="UC_fear" />
+					<Num FuncTxt="return skill.Level" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="7000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Onmyoji_WaterShikigami">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="LH" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="RH" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_ONMYOJI_WATERSHIKIGAMI" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="3.5" Str="F_water004" />
+				<Str Str="None" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="4.5" Str="F_water005" />
+				<Str Str="Bip01 Pelvis" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_m_watershikigami_cast" />
+				<Str Str="voice_wiz_f_watershikigami_cast" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SOUND" UseSleep="NO">
+				<Str Str="skl_eff_watershikigami_cast" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="3.5" Str="F_water004" />
+				<Num Num="0.5" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="4.5" Str="F_water005" />
+				<Num Num="0.5" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="3.8255448e-43" />
+					<Num Num="0" />
+					<Num Num="250" />
+					<Num Num="100" />
+					<Num Num="12" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="E_WaterShikigami" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="RH" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="LH" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_watershikigami_shot" />
+					<Str Str="voice_wiz_f_watershikigami_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_watershikigami_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="300" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="450" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="600" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="750" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="900" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

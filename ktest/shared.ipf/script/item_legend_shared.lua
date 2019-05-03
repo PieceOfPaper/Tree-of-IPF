@@ -169,3 +169,25 @@ function IS_100PERCENT_SUCCESS_EXTRACT_ICOR_ITEM(item)
 
     return item.StringArg == 'Extract_kit_Gold_NotFail' or item.StringArg == 'Extract_kit_Gold_NotFail_Rand' or item.StringArg == 'Extract_kit_Gold_NotFail_Recipe';
 end
+
+function IS_ENABLE_RELEASE_OPTION(item)
+    if TryGetProp(item, 'ItemType', 'None') == 'Equip' and TryGetProp(item, 'InheritanceItemName', 'None') ~= 'None' then
+        return true;
+    end
+
+    return false;
+end;
+
+function GET_OPTION_RELEASE_COST(item, taxRate)
+    if item == nil then
+        return 0;
+    end;
+
+    local price = TryGetProp(item, 'UseLv');
+    price = price * 10000;
+    if taxRate ~= nil then
+        price = tonumber(CALC_PRICE_WITH_TAX_RATE(price, taxRate));
+    end;
+    
+    return SyncFloor(price);
+end;

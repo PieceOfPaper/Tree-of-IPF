@@ -1,0 +1,586 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_kucarry_zeuni_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk1" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="150" />
+					<Num Num="20" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="Mon_PoleofAgony" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_Zeffi_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="1" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_force014_ice2#Jeffi" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.2" Str="F_explosion092_ice" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_Zeffi_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-0.00048792365" Dist="0" Gravity="600" Height="0" JumpPower="150" MoveType="0" Time="900" />
+				<Frame Accel="1" Angle="-0.071236387" Dist="28.862682" Gravity="600" Height="0" JumpPower="160" MoveType="1" Time="1400" />
+				<Frame Accel="1" Angle="-0.00048792365" Dist="0" Gravity="600" Height="0" JumpPower="160" MoveType="1" Time="2000" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="CIRCLE" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk1" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1400" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="30" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Str_Arg Arg="0.34999999" Str="F_ground117_ice" />
+					<Num Num="15" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_balzer_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="80" />
+					<Num Num="6" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="900" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="F_circle002#Bone044" />
+					<Str_Arg Arg="0.30000001" Str="F_explosion033_orange3" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="9" Rand="80" />
+					<Num Num="15" />
+					<Num Num="1" />
+					<Num Num="0.30000001" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1100" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="F_circle002#Bone044" />
+					<Str_Arg Arg="0.30000001" Str="F_explosion033_orange3" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="9" Rand="80" />
+					<Num Num="15" />
+					<Num Num="1" />
+					<Num Num="0.30000001" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1300" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="F_circle002#Bone044" />
+					<Str_Arg Arg="0.30000001" Str="F_explosion033_orange3" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="9" Rand="80" />
+					<Num Num="15" />
+					<Num Num="1" />
+					<Num Num="0.30000001" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_balzer_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="800" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk1" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="3" Str="I_spread_out009_white" />
+					<Str Str="Bip001 R Hand" />
+					<Num Num="0.80000001" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="6" Str="F_breath004_pink" />
+					<Str Str="Dummy001" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="UC_silence" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="8" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_zeuni_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-0.00059771544" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="750" />
+				<Frame Accel="1" Angle="0.0010565147" Dist="78.800522" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="1200" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1.2" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="600" UseSleep="YES">
+					<Pos Angle="0" Dist="0" />
+					<Pos Angle="0" Dist="95" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="25" />
+					<Num Num="0.0099999998" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="23" />
+					<Num Num="0.13" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_zeuni_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="1" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk1" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_force019_pink#Bone011" />
+					<Str Str="skl_wiz_magneticforce_cast" />
+					<Str_Arg Arg="0.2" Str="F_circle011_dark" />
+					<Str Str="skl_ice_explosion_blow_finish" />
+					<Str Str="SLOW" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_force019_pink#Bone003" />
+					<Str Str="skl_wiz_magneticforce_cast" />
+					<Str_Arg Arg="0.2" Str="F_circle011_dark" />
+					<Str Str="skl_ice_explosion_blow_finish" />
+					<Str Str="SLOW" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_zabbi_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="1" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="600" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk1" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_force019_mint" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.25" Str="F_explosion007_green" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_zabbi_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_light004_green_2" />
+					<Str Str="Bone041" />
+					<Num Num="0.80000001" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="1000" UseSleep="YES">
+					<Pos Angle="1.3962634" Dist="13" />
+					<Pos Angle="-0.052359879" Dist="86" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="25" />
+					<Num Num="0.0099999998" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="10" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="20" />
+					<Num Num="0.02" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="30" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="1250" UseSleep="YES">
+					<Pos Angle="-0.052359879" Dist="86" />
+					<Pos Angle="-1.7453293" Dist="12" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="25" />
+					<Num Num="0.0099999998" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="10" />
+					<Num Num="150" />
+					<Num Num="10" />
+					<Num Num="20" />
+					<Num Num="0.02" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="30" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_symbani_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-0.0009729864" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="500" />
+				<Frame Accel="2" Angle="-0.01664445" Dist="58.11488" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="700" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="500" UseSleep="YES">
+					<Pos Angle="0" Dist="10" />
+					<Pos Angle="0" Dist="75" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="1" />
+					<Num Num="0.0099999998" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="15" />
+					<Num Num="160" />
+					<Num Num="0" />
+					<Num Num="15" />
+					<Num Num="0.039999999" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="UC_bleed" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="5000" />
+					<Num Num="1" />
+					<Num Num="8" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_symbani_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="950" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="750" Type="FAN" Width="40" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk1" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_numani_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="1100" UseSleep="YES">
+					<Pos Angle="0" Dist="20" />
+					<Pos Angle="0" Dist="90" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="25" />
+					<Num Num="0.0099999998" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Str_Arg Arg="0.30000001" Str="F_burstup001_yellow##1" />
+					<Num Num="15" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="22" />
+					<Num Num="0.30000001" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="10" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_numani_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="1" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="600" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk1" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_spread_out001_light" />
+					<Str Str="Bone008" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_force019_mint" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="F_light029_mint" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_explosion007_light" />
+					<Str Str="Bone008" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_lioni_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="600" Type="FAN" Width="40" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="F_spread_out025_blue_2" />
+					<Str Str="Bip001 R Hand" />
+					<Num Num="0.80000001" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_lioni_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1100" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="900" Type="FAN" Width="40" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="F_circle018" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_buff_ice_spread" />
+					<Str Str="effect_dum" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_Somy_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="2" Length="70" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="500" Time="800" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_spread_out001_light#Bone041" />
+					<Str Str="Bone041" />
+					<Num Num="1.5" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_Somy_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="1" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk1" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_force015_white" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="I_explosion007_light" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="950" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_explosion007_light" />
+					<Str Str="Bone041" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_Tot_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="200" Type="FAN" Width="40" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_kucarry_Tot_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="600" Type="FAN" Width="40" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

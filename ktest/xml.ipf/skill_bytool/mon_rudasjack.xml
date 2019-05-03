@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Rudasjack_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="700" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_light004_red" />
+					<Str Str="Dummy002" />
+					<Num Num="0.30000001" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_smoke013_dark3" />
+					<Str Str="Dummy002" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_light004_red" />
+					<Str Str="Dummy002" />
+					<Num Num="0.5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_smoke013_dark2" />
+					<Str Str="Dummy_effect_atk" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="950" UseSleep="NO">
+					<Str_Arg Arg="2.5" Str="I_light013_spark" />
+					<Str Str="Dummy_effect_atk" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

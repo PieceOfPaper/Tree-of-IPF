@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_blossom_beetle_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="1" HitCount="1" Length="130" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="13" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="150" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_force013_dark" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="125" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_blossom_beetle_Skill_1">
+		<CondList>
+			<Scp Client="NO" Scp="SCOND_DISTANCE_CHECK" Time="0" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="25" />
+			</Scp>
+		</CondList>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="25" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

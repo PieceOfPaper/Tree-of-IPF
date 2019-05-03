@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_StonOrca_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="buff" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="BLK_UP" />
+					<Num Num="3" />
+					<Num Num="0" />
+					<Num Num="5000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_sphere008_boss_barrier_mash_loop" />
+					<Str Str="Bone002" />
+					<Num Num="5" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_StonOrca_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_ArchGargoyle_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-0.0003525019" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="700" />
+				<Frame Accel="1" Angle="-0.00063414586" Dist="127.15479" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="1300" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_voice_netherbovine_4" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="250" UseSleep="NO">
+					<Str Str="mon_rudas_loxodon_skl" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="260" UseSleep="NO">
+					<Str Str="mon_voice_netherbovine_2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="350" UseSleep="NO">
+					<Str Str="skl_eff_atk_sperad" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_HIT_SQUARE" Time="900" UseSleep="NO">
+					<PosDist Angle="0" Dist="0" />
+					<PosDist Angle="0" Dist="65" />
+					<Num Num="30" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_HIT_SQUARE" Time="1100" UseSleep="NO">
+					<PosDist Angle="0" Dist="60" />
+					<PosDist Angle="-0" Dist="145" />
+					<Num Num="30" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_ArchGargoyle_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="1.0471976" TermMax="0" TermMin="0" Time="600" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_drapeliun_born" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

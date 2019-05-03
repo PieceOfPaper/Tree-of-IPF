@@ -3,8 +3,8 @@
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
 <ActionDesc>
 	<Particle frame="1" attachNode="Dummy_emitter_pet" particleName="F_warrior_swashbuckling_shot_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="false"/>
-	<Particle frame="1" attachNode="Dummy_effect_swashing_spark" particleName="F_warrior_swashbuckling_shot_spark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="1" attachNode="Dummy_emitter" particleName="E_warrior_swashbuckling" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
 	<Particle frame="7" attachNode="Dummy_emitter_pet" particleName="F_warrior_swashbuckling_shot_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="false"/>
-	<Particle frame="7" attachNode="Dummy_effect_swashing_spark" particleName="F_warrior_swashbuckling_shot_spark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="E_warrior_swashbuckling" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
 	<Sound frame="0.00" soundFile="skl_fgt_swashbuckling"/>
 </ActionDesc>

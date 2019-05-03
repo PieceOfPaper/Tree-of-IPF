@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Moving_trap_Attack1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="0" HitCount="1" Length="70" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="10" TermMax="0" TermMin="0" Time="1200" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK1" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_caltrops001_mash#Dummy_atk_down_02" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="15" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_caltrops001_mash#Dummy_atk_up_01" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="15" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_caltrops001_mash#Dummy_atk_down_01" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="15" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_caltrops001_mash#Dummy_atk_center" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="15" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_caltrops001_mash#Dummy_atk_up_02" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="15" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Moving_trap_Attack2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="1300" Dist="0.000000" ForceATK="0" HitCount="1" Length="30.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="1500" Type="SQUARE" Width="10.000000" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK2" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Moving_trap_Skill">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="1700" Dist="0.000000" ForceATK="0" HitCount="1" Length="70.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="1700" Type="SQUARE" Width="10.000000" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL" Speed="1.000000" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1500" UseSleep="NO">
+					<Str_Arg Arg="1.000000" Str="I_caltrops001_mash#Dummy_atk_center" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Angle_Abs Angle="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="5.000000" />
+					<Num Num="15.000000" />
+					<Num Num="0.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Str Str="None" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1500" UseSleep="NO">
+					<Str_Arg Arg="1.000000" Str="I_caltrops001_mash#Dummy_atk_up_02" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Angle_Abs Angle="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="5.000000" />
+					<Num Num="15.000000" />
+					<Num Num="0.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Str Str="None" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1500" UseSleep="NO">
+					<Str_Arg Arg="1.000000" Str="I_caltrops001_mash#Dummy_atk_up_01" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Angle_Abs Angle="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="5.000000" />
+					<Num Num="15.000000" />
+					<Num Num="0.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Str Str="None" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1500" UseSleep="NO">
+					<Str_Arg Arg="1.000000" Str="I_caltrops001_mash#Dummy_atk_down_01" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Angle_Abs Angle="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="5.000000" />
+					<Num Num="15.000000" />
+					<Num Num="0.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Str Str="None" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1500" UseSleep="NO">
+					<Str_Arg Arg="1.000000" Str="I_caltrops001_mash#Dummy_atk_down_02" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Angle_Abs Angle="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="5.000000" />
+					<Num Num="15.000000" />
+					<Num Num="0.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Str Str="None" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

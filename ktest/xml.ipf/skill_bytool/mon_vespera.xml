@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_vespera_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="3.7849024e-36" />
+					<Pos Angle="0" Dist="100" />
+					<Str_Arg Arg="0.5" Str="F_sys_arrow_monster" />
+					<Num Num="18" />
+					<Num Num="0.0099999998" />
+					<Num Num="0.2" />
+					<Num Num="1500" />
+					<Str_Arg Arg="0.5" Str="F_spread_out026_blue2#Bone_beak_down_001" />
+					<Num Num="15" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="18" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke058_violet4" />
+					<Str Str="Bip001 Xtra01Opp04" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke058_violet4" />
+					<Str Str="Bip001 Xtra0104" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_simorph_skl_3" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_atk_move_l_22" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="500" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.30000001" />
+					<Num Num="0.30000001" />
+					<Num Num="0.30000001" />
+					<Num Num="0.30000001" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_spread_in011_3" />
+					<Str Str="Bip001 Xtra01" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke058_violet4" />
+					<Str Str="Bip001 Xtra0104" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke058_violet4" />
+					<Str Str="Bip001 Xtra01Opp04" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="700" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="900" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.40000001" />
+					<Num Num="0.40000001" />
+					<Num Num="0.40000001" />
+					<Num Num="0.40000001" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="1100" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="1200" UseSleep="NO">
+					<Str Str="skl_eff_two_spin_1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1200" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke058_violet4" />
+					<Str Str="Bip001 Xtra0104" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1200" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke058_violet4" />
+					<Str Str="Bip001 Xtra01Opp04" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="1300" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="1400" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.69999999" />
+					<Num Num="0.5" />
+					<Num Num="0.80000001" />
+					<Num Num="0.5" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="1500" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.15000001" />
+					<Num Num="0.2" />
+					<Num Num="0.30000001" />
+					<Num Num="0.30000001" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="1800" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1800" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke058_violet4" />
+					<Str Str="Bip001 Xtra0104" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1800" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke058_violet4" />
+					<Str Str="Bip001 Xtra01Opp04" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_vespera_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="1" HitCount="1" Length="85" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke058_violet5" />
+					<Str Str="Bip001 Xtra01Opp04" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke058_violet5" />
+					<Str Str="Bip001 Xtra0104" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_simorph_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke058_violet4" />
+					<Str Str="Bip001 Xtra01Opp04" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke058_violet4" />
+					<Str Str="Bip001 Xtra0104" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="600" UseSleep="NO">
+					<Str Str="skl_wiz_psy_spell" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="600" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.40000001" />
+					<Num Num="0.40000001" />
+					<Num Num="0.44999999" />
+					<Num Num="0.5" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="650" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_force019_blue_2#Dummy_effect_atk_force" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.60000002" Str="F_explosion050_fire_blue2" />
+					<Str Str="arrow_blow" />
+					<Str Str="FAST" />
+					<Num Num="150" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="3.7849024e-36" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="800" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.30000001" />
+					<Num Num="0.2" />
+					<Num Num="0.60000002" />
+					<Num Num="0.5" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="950" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

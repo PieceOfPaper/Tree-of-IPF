@@ -1,0 +1,332 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Arditi_Granata">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_GRANATA" />
+					<Num Num="1.5" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+					<Str Str="voice_war_atk_short" />
+					<Str Str="voice_atk_short_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="570" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="0.60000002" Str="I_archer_Lachrymator_force_mash_short#Dummy_R_HAND" />
+					<Str_Arg Arg="2.5" Str="F_scout_Granata_explosion" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="70" PosType="6" />
+					<Num Num="60" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Arditi_TreGranata">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_TREGRANATA" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_war_atk_short" />
+					<Str Str="voice_atk_short_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_PAD_THROW" Time="550" UseSleep="YES">
+					<Str_Arg Arg="0.75" Str="E_scout_TreGranata#Dummy_R_HAND" />
+					<Str_Arg Arg="2.5" Str="F_explosion125_explosion2" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0.69813168" Dist="60" PosType="6" />
+					<Num Num="0" />
+					<Num Num="0.44999999" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Angle Angle="0" />
+					<Str Str="Arditi_TreGranata" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_PAD_THROW" Time="550" UseSleep="YES">
+					<Str_Arg Arg="0.75" Str="E_scout_TreGranata#Dummy_R_HAND" />
+					<Str_Arg Arg="2.5" Str="F_explosion125_explosion2" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="75" PosType="6" />
+					<Num Num="0" />
+					<Num Num="0.44999999" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Angle Angle="0" />
+					<Str Str="Arditi_TreGranata" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_PAD_THROW" Time="550" UseSleep="YES">
+					<Str_Arg Arg="0.75" Str="E_scout_TreGranata#Dummy_R_HAND" />
+					<Str_Arg Arg="2.5" Str="F_explosion125_explosion2" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="-0.69813168" Dist="60" PosType="6" />
+					<Num Num="0" />
+					<Num Num="0.44999999" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Angle Angle="0" />
+					<Str Str="Arditi_TreGranata" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Arditi_Ritirarsi">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" UseSleep="YES">
+				<Str Str="Skill_NoDamage_Buff" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+		</EndScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_RITIRARSI" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
+					<Str Str="Skill_NoDamage_Buff" />
+					<Num Num="100" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+					<Str Str="voice_war_atk_long_cast" />
+					<Str Str="voice_atk_long_cast_f" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW_SYNC" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="0.75" Str="I_archer_Lachrymator_force_mash002#Dummy_R_HAND" />
+					<Str_Arg Arg="4" Str="F_scout_Ritirarsi" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="40" PosType="6" />
+					<Num Num="60" />
+					<Num Num="0.64999998" />
+					<Num Num="0" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0.1" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_MOVE" Time="900" UseSleep="YES">
+					<Num Num="30" />
+					<Num Num="65" />
+					<Num FuncTxt="local value = GetDirection(self) return 180-value" Num="180" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0.5" />
+					<Num Num="0.34999999" />
+					<Num Num="0.69999999" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="MONSKL_C_STOP_ANIM" Time="1200" UseSleep="NO" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Arditi_Recupero">
+		<EndScripts>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="LH" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+		</EndScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_RECUPERO" />
+					<Num Num="1.3" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="LH" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+					<Str Str="voice_archer_m_atk" />
+					<Str Str="voice_archer_f_atk" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="600" UseSleep="NO">
+					<Str Str="Recupero_Buff" />
+					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Arditi_Invasione">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="55" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="250" Type="SQUARE" Width="30" />
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="55" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="30" />
+				<Frame Angle="0" AniTime="950" Dist="0" ForceATK="0" HitCount="1" Length="55" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="750" Type="SQUARE" Width="30" />
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="0" HitCount="1" Length="55" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="1000" Type="SQUARE" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_INVASIONE" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="200" UseSleep="NO">
+					<Str Str="Arditi6" />
+					<Str Str="Invasione_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+					<Str Str="voice_war_atk_long_cast" />
+					<Str Str="voice_atk_long_cast_f" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Arditi_Taglio">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Arditi_Taglio" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="2" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="0" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
+				<Str Str="Taglio_Buff" />
+				<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="100" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
+				<Str Str="Skill_SuperArmor_Buff" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="2000" />
+				<Num Num="1" />
+				<Num Num="100" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="MONSKL_CRE_PAD" UseSleep="NO">
+				<Pos Angle="0" Dist="35" />
+				<Angle Angle="0" />
+				<Str Str="Arditi_Taglio" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_atk_long_cast_f" />
+				<Num Num="0" />
+				<Str Str="voice_war_atk_long_cast" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_CONSUME_SKILL_COOLDOWN" UseSleep="NO" />
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+				<Str Str="Taglio_Buff" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+				<Str Str="Skill_SuperArmor_Buff" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Arditi_Taglio" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="voice_atk_long_cast_f" />
+				<Str Str="voice_war_atk_long_cast" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

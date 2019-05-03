@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_mushroom_boy_red_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="600" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_mushroom_boy_red_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1400" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="1200" Type="FAN" Width="30" />
+				<Frame Angle="0" AniTime="1450" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="1250" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK2" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_mushroom_boy_red_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="20" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="500" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK1" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_mushroom_ent_color_Attack2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.34906599" TermMax="0" TermMin="0" Time="800" Type="FAN" Width="30" />
+				<Frame Angle="0" AniTime="1120" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.0061086528" TermMax="0" TermMin="0" Time="920" Type="FAN" Width="30" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_mushroom_boy_Skill">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="25" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="10" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_mushroom_boy_Attack2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="1150" Dist="0.000000" ForceATK="0" HitCount="1" Length="30.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="850" Type="FAN" Width="30.000000" />
+				<Frame Angle="0.000000" AniTime="1500" Dist="0.000000" ForceATK="0" HitCount="1" Length="30.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="1200" Type="FAN" Width="30.000000" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_mushroom_boy_color_Attack1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="20" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="1000" Type="FAN" Width="30" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_mushroom_boy_color_Attack2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="1200" Type="FAN" Width="30" />
+				<Frame Angle="0" AniTime="1450" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="1250" Type="FAN" Width="30" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_mushroom_boy_color_Skill">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="1500" Dist="0.000000" ForceATK="0" HitCount="1" Length="30.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="1500" Type="FAN" Width="30.000000" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_mushroom_ent_Attack2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1100" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.34906599" TermMax="0" TermMin="0" Time="800" Type="FAN" Width="30" />
+				<Frame Angle="0" AniTime="1120" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.34906599" TermMax="0" TermMin="0" Time="820" Type="FAN" Width="30" />
+				<Frame Angle="0" AniTime="1140" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.34906599" TermMax="0" TermMin="0" Time="840" Type="FAN" Width="30" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_mushroom_ent_color_Attack1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="15" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_mushroom_ent_color_Skill">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="SQUARE" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="20" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="I_explosion002_green" />
+					<Num Num="30" />
+					<Num Num="20" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_mushroom_ent_black_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1550" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="1350" Type="SQUARE" Width="20" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_mushroom_ent_black_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.34906599" TermMax="0" TermMin="0" Time="800" Type="FAN" Width="30" />
+				<Frame Angle="0" AniTime="1120" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.34906599" TermMax="0" TermMin="0" Time="820" Type="FAN" Width="30" />
+				<Frame Angle="0" AniTime="1040" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.34906599" TermMax="0" TermMin="0" Time="840" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK02" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_mushroom_ent_black_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="15" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK01" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

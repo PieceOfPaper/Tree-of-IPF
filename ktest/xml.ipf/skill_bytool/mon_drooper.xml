@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_drooper_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="0" HitCount="2" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.87266469" TermMax="0" TermMin="250" Time="600" Type="FAN" Width="20" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.15000001" Str="F_light024_orange2" />
+					<Str Str="Dummy_eff_candle1" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="atk" Speed="1" StartTime="0.30000001" Time="1200" />
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="1250" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="0.69999999" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1250" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="40" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="F_explosion91#Dummy_eff_skl3" />
+					<Num Num="33" />
+					<Num Num="125" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="20" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_drooper_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.78539819" TermMax="0" TermMin="0" Time="600" Type="FAN" Width="30" />
+				<Frame Angle="0" AniTime="1050" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.78539819" TermMax="0" TermMin="0" Time="850" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_drooper_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="675" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="475" Type="SQUARE" Width="20" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

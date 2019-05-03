@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Lapasape_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="500" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_lapasape_mage_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="1" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_light004_green" />
+					<Str Str="Dummy_effect_wepon" />
+					<Num Num="0.5" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="0.40000001" Str="I_force083_leaf" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.30000001" Str="F_spread_out030_leaf2" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="150" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_lapasape_bow_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="1" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="3.5" Str="F_levitation005_green" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="1.2" Str="F_explosion031_green" />
+					<Str Str="Dummy_effect_atk" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="0.40000001" Str="I_force011_green2" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.40000001" Str="F_explosion009_green2" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

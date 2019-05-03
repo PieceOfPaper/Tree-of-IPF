@@ -83,10 +83,11 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'GuildColony_Attendance_Reward_EXP_Buff_3'); --콜로니전  참여 보상 3단계
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'GuildColony_Attendance_Reward_EXP_Buff_4'); --콜로니전  참여 보상 4단계
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'GuildColony_Attendance_Reward_EXP_Buff_5'); --콜로니전  참여 보상 5단계
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_ep11_Expup'); --자라나라 나무나무 성장 버프 --
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_ep11_Expup_base'); --자라나라 나무나무 성장 버프 --
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Carnival_Fire_2'); --스팀 카니발 불꽃축제 이벤트 --
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_ep11_Expup'); --자라나라 나무나무 주말 앤 버닝 이벤트 -- --EVENT_1903_WEEKEND
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_ep11_Expup_base'); --자라나라 나무나무 주말 앤 버닝 이벤트 --
 	if  TryGetProp(pc, 'Lv', 0) < 380 then
-	    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_ep11_sprout3'); --자라나라 나무나무 성장 버프 --
+	    sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1905_TOS_CHIILD_BUFF1'); --자라나라 나무나무 성장 버프 --
 	end
 	return sumExp; 
 end

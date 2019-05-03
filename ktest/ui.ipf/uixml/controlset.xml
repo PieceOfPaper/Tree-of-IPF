@@ -2104,6 +2104,10 @@
 			<richtext name="itemName" margin="38 35 0 0" rect="0 0 335 24" format="{@st41b}%s{/}" param1="value" param1_def="행복한 나라로 오세요" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" omitbywidth="true" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<labelline name="labelline_1" margin="0 0  0 0" skin="labelline_def" rect="0 0 480 2" layout_gravity="center top"/>
 			<richtext name="exchangeCount" margin="0  0 0 0" rect="0 0 10 10" format="{#FF0000}%s{/}" param1="value" param1_def="?" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_20_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+			<groupbox name="gbox" rect="0 0 200 50" margin="0 170 20 0" layout_gravity="right top" draw="true" hittestbox="true" skin="None"/>
+			<edit name="itemcount" parent="gbox" rect="0 0 100 30" margin="10 0 0 0" layout_gravity="center top" textalign="center center" fontname="white_18_ol" numbermode="true" skin="test_weight_skin" typingscp="UPDATE_EARTHTOWERSHOP_CHANGECOUNT" EnterKeyScp="None" param1="value" param1_def="0"/>
+			<button name="upBtn" parent="gbox" stretch="true" rect="0 0 60 60" margin="75 1 0 0" layout_gravity="center top" image="test_up_w_btn" oversound="button_over" LBtnUpScp="EARTHTOWERSHOP_UPBTN"/>
+			<button name="downBtn" parent="gbox" stretch="true" rect="0 0 60 60" margin="75 16 0 0" layout_gravity="center top" image="test_down_w_btn" oversound="button_over" LBtnUpScp="EARTHTOWERSHOP_DOWNBTN"/>
 		</controls>
 	</controlset>
 	<controlset name="craftRecipe_alchemist" hittest="true" width="470" height="60" skin="test_skin_01" hittestset="true" draw="true" stateskin="false">
@@ -3778,6 +3782,7 @@
 	<!--모험일지 끝-->
 	<!-- 팀배틀리그 랭킹 -->
 	<controlset name="team_battle_rank_page" hittest="true" width="530" height="750" hittestset="false" draw="false" skin="None" resizebyresolution="false">
+		<userconfig EACH_RANK_SET_HEIGHT_FOR_TB="60"/>
 		<c RANK_PAGE_FONT="{@st42}"/>
 		<controls>
 			<richtext name="infoText1" rect="0 0 300 30" margin="32 20 0 0" layout_gravity="left top" caption="순위" fontname="brown_18_b"/>

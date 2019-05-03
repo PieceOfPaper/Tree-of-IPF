@@ -39,6 +39,7 @@ function KEYCONFIG_UPDATE_KEY_TEXT(txt_key)
 	end
 
 	txt = txt .. key;
+
 	txt_key:SetTextByKey("value", txt);
 	local hotkeyID = txt_key:GetParent():GetUserValue("ID");
 	if hotkeyID == 'QuestItemUse' then
@@ -49,6 +50,9 @@ function KEYCONFIG_UPDATE_KEY_TEXT(txt_key)
 		end
 	end
 	
+	if hotkeyID == "PartyMemberInfo" then
+		SUMMONSINFO_BUTTON_TOOLTIP_CHANGE(txt);
+	end
 end
 function KEYCONFIG_RESTORE_KEY_TEXT(txt_key)
 	local parent = txt_key:GetParent();

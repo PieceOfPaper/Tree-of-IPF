@@ -1,0 +1,427 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Common_treewateringcan">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="100" UseSleep="NO">
+					<Str Str="farmer_plant_step_01" />
+					<Pos Angle="0" Dist="25" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="" />
+					<Num Num="0" />
+					<Num Num="6" />
+					<Str Str="None" />
+					<MonProp />
+					<Str Str="SCR_FARMER_PLANT_STEP_01_AFTER_SUMMON" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_SummonRemove">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="0" UseSleep="NO">
+					<Str Str="SCR_SUMMON_CANCLE" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_summonremove" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="150" UseSleep="NO">
+					<Str_Arg Arg="0.30000001" Str="F_levitation007_blue2" />
+					<Pos Angle="0" Dist="0" Height="10" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="250" UseSleep="NO">
+					<Str_Arg Arg="0.40000001" Str="F_lineup022_red2" />
+					<Pos Angle="1.7453293" Dist="2" Height="10" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_pc_SummonRemove" />
+					<Str Str="Dummy_effect_wepon2" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_SommonRemove">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_buff_basic023_red_fire" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="0" UseSleep="NO">
+					<Str Str="SCR_SUMMON_CANCLE" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_ForcedAttackCancel">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="0" UseSleep="NO">
+					<Str Str="SCR_SUMMON_FORCED_ATTACK_STOP" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="150" UseSleep="NO">
+					<Str_Arg Arg="0.30000001" Str="F_levitation007_blue2" />
+					<Pos Angle="0" Dist="0" Height="10" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_war_atk_short" />
+					<Str Str="voice_atk_short_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="250" UseSleep="NO">
+					<Str_Arg Arg="0.40000001" Str="F_lineup022_blue2" />
+					<Pos Angle="1.7453293" Dist="2" Height="10" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_pc_ForcedAttackCancel" />
+					<Str Str="Dummy_effect_wepon2" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_ForcedAttack">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_atk_short" />
+					<Str Str="voice_atk_short_war_f" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_mining">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="0" UseSleep="NO">
+					<Str Str="MINING_SKL" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_StaffAttack">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="15" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_MusketAttack">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="15" />
+			</HitList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+					<Str Str="Musketeer27" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_COND_NO_BUFF" UseSleep="NO">
+					<Str Str="MusketAttack_CoolDown_Buff" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_MOVE_JUMP" UseSleep="YES">
+					<Num Num="0" />
+					<Num FuncTxt="local value = 0;  local pc = GetSkillOwner(skill); value = 70; local x, y, z = GetFrontPos(pc, -35); PlayEffectToGround(pc, 'I_dash001_yellow', x, y, z, 1.5, nil, nil, GetDirectionByAngle(pc));  return value;" Num="0" UseFunc="1" />
+					<Num Num="180" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0.2" />
+					<Num Num="1" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_SELFBUFF" UseSleep="NO">
+					<Str Str="MusketAttack_CoolDown_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="15000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_shovel">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="3300" UseSleep="NO">
+					<Str Str="item_shovel_buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_vuvuzela">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="450" UseSleep="NO">
+					<Str Str="skl_eff_spitem_vuvuzela" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_balloonpipe">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList />
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_wateringcan">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="700" UseSleep="NO">
+					<Str Str="WATERINGCAN_ITEM_USE" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_snowspray">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="700" UseSleep="NO">
+					<Pos Angle="0" Dist="25" />
+					<Angle Angle="0" />
+					<Str Str="SubWeapon_SnowSpray" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_BubbleStick">
+		<EndScripts>
+			<ToolScp Client="YES" Scp="C_SKL_LOCK_MOVE" UseSleep="NO">
+				<Num Num="0" />
+			</ToolScp>
+		</EndScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="0" UseSleep="NO">
+					<Str Str="skill_bubble" />
+					<Pos Angle="0" Dist="30" Rand="10" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="" />
+					<Num Num="0" />
+					<Num Num="3.5" />
+					<Str Str="BubbleStick_skill" />
+					<MonProp />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="0" UseSleep="NO">
+					<Str Str="skill_bubble" />
+					<Pos Angle="0" Dist="50" Rand="10" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="" />
+					<Num Num="0" />
+					<Num Num="3.5" />
+					<Str Str="BubbleStick_skill" />
+					<MonProp />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="0" UseSleep="NO">
+					<Str Str="skill_bubble" />
+					<Pos Angle="0" Dist="70" Rand="10" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="" />
+					<Num Num="0" />
+					<Num Num="3.5" />
+					<Str Str="BubbleStick_skill" />
+					<MonProp />
+				</Scp>
+				<Scp Client="YES" Scp="C_SKL_LOCK_MOVE" Time="0" UseSleep="NO">
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SKL_LOCK_MOVE" Time="5000" UseSleep="NO">
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_DaggerAries">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="10" />
+			</HitList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="BOTH" Scp="SKL_SELECT_CTRLTYPE" UseSleep="NO">
+						<Str Str="Char5_1" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<HitList>
+						<Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="20" />
+					</HitList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Common_Zaibas">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="-2.933774" AniTime="300" Dist="14.998313" ForceATK="1" HitCount="1" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="0" Type="CIRCLE" Width="600.000000" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str Str="skl_eff_born_acidburn" />
+					<Str Str="SLOW" />
+					<Num Num="400.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Angle_Abs Angle="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="5.000000" />
+					<Num Num="10.000000" />
+					<Num Num="0.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="700" UseSleep="NO">
+					<Num Num="7.000000" />
+					<Num Num="1.000000" />
+					<Num Num="45.000000" />
+					<Num Num="999.000000" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
+					<Str_Arg Arg="1.000000" Str="F_cleric_zaibas_shot_rize" />
+					<Pos Angle="0.000000" Dist="0.000000" PosType="1.000000" />
+					<Num Num="0.000000" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_dumbbell">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL_ASSISTATTACK_DUMBELL" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="subweapon_dumbbell" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="600000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_FirePillar">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="2" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="140" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="Dummy_emitter" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="3" />
+				<Num Num="0.2" />
+				<Num Num="100" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_firepillar_cast" />
+				<Num Num="0" />
+				<Str Str="voice_wiz_m_firepillar_cast" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+				<Str Str="SKL_ENERGYBOLT2_LOOP" />
+				<Str Str="None" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+					<Str Str="voice_wiz_m_firepillar_shot" />
+					<Str Str="voice_wiz_firepillar_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="550" UseSleep="NO">
+					<Num Num="3" />
+					<Num Num="1" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="550" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Angle Angle="0" />
+					<Str Str="Wizard_New_FirePillar" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Common_metaldetector">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL_ASSISTATTACK_METALDETECTOR" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_BUFF" Time="3200" UseSleep="NO">
+					<Str Str="subweapon_metaldetector" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

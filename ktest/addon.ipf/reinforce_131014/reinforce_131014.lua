@@ -71,9 +71,9 @@ function REINFORCE_131014_UPDATE_MORU_COUNT(frame)
 	local msg = GET_COMMAED_STRING(price)
     
     -- EVENT_1903_WEEKEND
-    if SCR_EVENT_1903_WEEKEND_CHECK('REINFORCE', false) == 'YES' then
-        msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
-    end
+    --if SCR_EVENT_1903_WEEKEND_CHECK('REINFORCE', false) == 'YES' then
+    --    msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')
+    --end
   
     if toItemObj.StringArg =='Reinforce_Discount_50' then
         msg = msg..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1')

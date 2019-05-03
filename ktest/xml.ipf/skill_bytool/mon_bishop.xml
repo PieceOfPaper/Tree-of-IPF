@@ -1,0 +1,420 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_bishop_hart_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="40" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="2" Str="F_hit017" />
+					<Num Num="30" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="30" />
+					<Pos Angle="0.52359879" Dist="120" />
+					<Str_Arg Arg="0.5" Str="F_sys_arrow_monster" />
+					<Num Num="15" />
+					<Num Num="0.0099999998" />
+					<Num Num="0.30000001" />
+					<Num Num="1300" />
+					<Str_Arg Arg="0.69999999" Str="F_explosion94" />
+					<Num Num="15" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="18" />
+					<Num Num="0.050000001" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="30" />
+					<Pos Angle="-0.52359879" Dist="120" />
+					<Str_Arg Arg="0.5" Str="F_sys_arrow_monster" />
+					<Num Num="15" />
+					<Num Num="0.0099999998" />
+					<Num Num="0.30000001" />
+					<Num Num="1300" />
+					<Str_Arg Arg="0.69999999" Str="F_explosion94" />
+					<Num Num="15" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="18" />
+					<Num Num="0.050000001" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="30" />
+					<Pos Angle="0" Dist="120" />
+					<Str_Arg Arg="0.5" Str="F_sys_arrow_monster" />
+					<Num Num="15" />
+					<Num Num="0.0099999998" />
+					<Num Num="0.30000001" />
+					<Num Num="1300" />
+					<Str_Arg Arg="0.69999999" Str="F_explosion94" />
+					<Num Num="15" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="18" />
+					<Num Num="0.050000001" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_voice_mushwort_11" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_voice_mushwort_8" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
+					<Str_Arg Arg="3" Str="I_light004_orange2" />
+					<Str Str="Bip001 R Finger02" />
+					<Num Num="0.60000002" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="700" UseSleep="NO">
+					<Str Str="skl_eff_skyline_spread" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="1.7" Str="I_swordtrail033_orage_reverse" />
+					<Str Str="slash_dum2" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_bishop_hart_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.69813174" TermMax="0" TermMin="0" Time="500" Type="FAN" Width="50" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_voice_mushwort_1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="300" UseSleep="NO">
+					<Str Str="skl_eff_atk_move_m_7" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="1.7" Str="I_swordtrail033_orage_reverse" />
+					<Str Str="slash_dum" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_bishop_blanco_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="0.80000001" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="15" />
+					<Pos Angle="0" Dist="100" />
+					<Str_Arg Arg="0.5" Str="F_sys_arrow_monster" />
+					<Num Num="18" />
+					<Num Num="0.1" />
+					<Num Num="0.2" />
+					<Num Num="800" />
+					<Str_Arg Arg="0.2" Str="F_explosion033_orange" />
+					<Num Num="15" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="15" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="15" />
+					<Pos Angle="-0.52359879" Dist="100" />
+					<Str_Arg Arg="0.5" Str="F_sys_arrow_monster" />
+					<Num Num="18" />
+					<Num Num="0.1" />
+					<Num Num="0.2" />
+					<Num Num="800" />
+					<Str_Arg Arg="0.2" Str="F_explosion033_orange" />
+					<Num Num="15" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="15" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="15" />
+					<Pos Angle="0.52359879" Dist="100" />
+					<Str_Arg Arg="0.5" Str="F_sys_arrow_monster" />
+					<Num Num="18" />
+					<Num Num="0.1" />
+					<Num Num="0.2" />
+					<Num Num="800" />
+					<Str_Arg Arg="0.2" Str="F_explosion033_orange" />
+					<Num Num="15" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="15" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_bg_light009_yellow2" />
+					<Str Str="Bip001" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_mushroom_ent_atk1_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+					<Str Str="mon_mushroom_ent_dead" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_bishop_blanco_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="1" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="600" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_mushroom_ent_atk2_shot" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_force015_yellow" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="F_light048_yellow2" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="250" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="3.8255448e-43" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="500" UseSleep="NO">
+					<Str Str="skl_wiz_psy_spell" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_bishop_point_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="1" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="1" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="1" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1000" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="600" UseSleep="NO">
+					<Str Str="mon_voice13_cast11" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_light132_orange" />
+					<Str Str="Dummy_body" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_arrow002_white#Dummy_body" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.2" Str="F_hit001_light_yellow" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="3.8255448e-43" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_light132_orange" />
+					<Str Str="Dummy_body" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_arrow002_white#Dummy_body" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.2" Str="F_hit001_light_yellow" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="3.8255448e-43" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1300" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_light132_orange" />
+					<Str Str="Dummy_body" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1300" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_arrow002_white#Dummy_body" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.2" Str="F_hit001_light_yellow" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="3.8255448e-43" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_bishop_point_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="1" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="600" UseSleep="NO">
+					<Str Str="mon_voice13_cast11" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_arrow002_white#Dummy_body" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.2" Str="F_hit001_light_yellow" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="3.8255448e-43" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_bishop_gray_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_smoke013_dark_glow2" />
+					<Str Str="effect_dum2" />
+					<Num Num="0.5" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="20" />
+					<Pos Angle="0" Dist="100" />
+					<Str_Arg Arg="0.30000001" Str="F_sys_arrow_monster" />
+					<Num Num="18" />
+					<Num Num="0.0099999998" />
+					<Num Num="0.30000001" />
+					<Num Num="800" />
+					<Str_Arg Arg="0.40000001" Str="F_burstup007_dark" />
+					<Num Num="15" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="18" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
+					<Str Str="mon_voice13_cast4" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_bishop_gray_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1.5" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+					<Str Str="mon_voice13_shot7" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="250" UseSleep="NO">
+					<Str Str="skl_eff_body_atk_2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
+					<Str_Arg Arg="3.5" Str="I_dash014_dark2" />
+					<Str Str="effect_dum" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

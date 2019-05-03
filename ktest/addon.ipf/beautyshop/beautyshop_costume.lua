@@ -44,7 +44,7 @@ function COSTUMESHOP_GET_SHOP_ITEM_LIST(gender)
 end
 
 function COSTUMESHOP_REGISTER_ITEM_LIST()
-	-- Beauty_Shop_Hair.xml의 정보.
+	-- Beauty_Shop_Costume.xml의 정보.
 	
 	if CostumeItemList == nil then
 		CostumeItemList={}
@@ -77,6 +77,9 @@ function COSTUMESHOP_REGISTER_ITEM_LIST()
 			if data.Gender == "M" then
 				table.insert(CostumeItemList["Male"], data)
 			elseif data.Gender == "F" then
+				table.insert(CostumeItemList["Female"], data)
+			else -- 공용
+				table.insert(CostumeItemList["Male"], data)
 				table.insert(CostumeItemList["Female"], data)
 			end
 			

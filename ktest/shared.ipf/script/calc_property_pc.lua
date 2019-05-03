@@ -710,7 +710,10 @@ function SCR_Get_MINPATK(self)
     if IsBuffApplied(self, 'Warrior_RH_VisibleObject') == 'YES' and rightHand ~= nil then
         throwItemMinAtk = rightHand.MINATK;
     end
-    REFRESH_ITEM(self, rightHand);
+
+    if IsServerSection(self) == 1 then
+        REFRESH_ITEM(self, rightHand);
+    end
 
     value = value - leftMinAtk - throwItemMinAtk;
 
@@ -793,7 +796,10 @@ function SCR_Get_MAXPATK(self)
     if IsBuffApplied(self, 'Warrior_RH_VisibleObject') == 'YES' and rightHand ~= nil then
         throwItemMaxAtk = rightHand.MAXATK;
     end
-    REFRESH_ITEM(self, rightHand);
+
+    if IsServerSection(self) == 1 then
+        REFRESH_ITEM(self, rightHand);
+    end
     
     value = value - leftMaxAtk - throwItemMaxAtk;
     
@@ -865,7 +871,10 @@ function SCR_Get_MINPATK_SUB(self)
     if rightHand ~= nil then
         rightMinAtk = rightHand.MINATK;
     end
-    REFRESH_ITEM(self, rightHand);
+
+    if IsServerSection(self) == 1 then
+        REFRESH_ITEM(self, rightHand);
+    end
     
     value = value - rightMinAtk;
     
@@ -942,7 +951,10 @@ function SCR_Get_MAXPATK_SUB(self)
     if rightHand ~= nil then
         rightMaxAtk = rightHand.MAXATK;
     end
-    REFRESH_ITEM(self, rightHand);
+
+    if IsServerSection(self) == 1 then
+        REFRESH_ITEM(self, rightHand);
+    end
     
     value = value - rightMaxAtk;
     
@@ -1014,7 +1026,10 @@ function SCR_Get_MINMATK(self)
     if IsBuffApplied(self, 'Warrior_RH_VisibleObject') == 'YES' and rightHand ~= nil then
         throwItemMinMAtk = rightHand.MATK;
     end
-    REFRESH_ITEM(self, rightHand);
+
+    if IsServerSection(self) == 1 then
+        REFRESH_ITEM(self, rightHand);
+    end
     
     value = value - throwItemMinMAtk;
     
@@ -1091,7 +1106,10 @@ function SCR_Get_MAXMATK(self)
     if IsBuffApplied(self, 'Warrior_RH_VisibleObject') == 'YES' and rightHand ~= nil then
         throwItemMaxMAtk = rightHand.MATK;
     end
-    REFRESH_ITEM(self, rightHand);
+
+    if IsServerSection(self) == 1 then
+        REFRESH_ITEM(self, rightHand);
+    end
     
     value = value - throwItemMaxMAtk;
     
@@ -1150,7 +1168,10 @@ function SCR_Get_DEF(self)
     if IsBuffApplied(self, 'Warrior_LH_VisibleObject') == 'YES' and leftHand ~= nil then
         throwItemDef = leftHand.DEF;
     end
-    REFRESH_ITEM(self, leftHand);
+
+    if IsServerSection(self) == 1 then
+        REFRESH_ITEM(self, leftHand);
+    end
     
     value = value - throwItemDef;
     

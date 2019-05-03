@@ -1,0 +1,507 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Psychokino_HeavyGravity">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="3" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="200" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="300" UseSleep="NO">
+					<Str Str="skl_eff_heavygravity_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="500" UseSleep="NO">
+					<Num Num="5" />
+					<Num Num="1" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0" Dist="2.722733e-38" PosType="3" />
+					<Angle Angle="0" />
+					<Str Str="HeavyGravity_PAD" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="600" UseSleep="NO">
+					<Num Num="2" />
+					<Num Num="5.5" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Psychokino_Telekinesis">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_telekinesis_cast" />
+					<Str Str="voice_wiz_telekinesis_cast" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Psychokino_GravityPole">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="I_wizard_gravitational_linkchain" />
+				<Num Num="0.5" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="GravityPole_PVP" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="10" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="0" Str="" />
+				<Str Str="" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_GRAVITATIONAL_READY" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+				<Str Str="SKL_GRAVITATIONAL_SHOT_LOOP" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_TARGET_RESET" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_SET_TGT_EMPTY_TO_ME" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_TGT_BUFF_ABIL" UseSleep="NO">
+				<Str Str="Psychokino3" />
+				<Str Str="Wizard_SklCasting_Avoid" />
+				<Num Num="1" />
+				<Num Num="-1" />
+				<Num Num="60000" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="100" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+				<Str Str="Wizard_SklCasting_Avoid" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+		</KeyInputEnd>
+		<KeyCancelScp>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="I_wizard_gravitational_linkchain" />
+				<Num Num="0.5" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="GravityPole_PVP" />
+			</ToolScp>
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" LoopTime="500" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" />
+					<Num Num="150" />
+					<Num Num="30" />
+					<Num FuncTxt="if IsPVPServer(self) == 1 then return obj.Level else return 10 + obj.Level * 1; end" Num="20" UseFunc="1" />
+					<Num Num="2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_gravitypole_shot" />
+					<Str Str="voice_wiz_gravitypole_shot" />
+				</Scp>
+				<Scp Client="NO" LoopTime="1000" Scp="SKL_CONSUME_SP" Time="550" UseSleep="NO">
+					<Num FuncTxt="local value = 47 local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect &gt;= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) local abil = GetAbility(self, &quot;Psychokino20&quot;) if abil ~= nil and abil.ActiveState == 1 then value = value * 1.2 end return math.floor(value)" Num="8" UseFunc="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="550" UseSleep="NO">
+					<Pos Angle="0" Dist="75" />
+					<Angle Angle="0" />
+					<Str Str="GravityPole_PVP" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="550" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_wizard_gravitational_linkchain" />
+					<Str Str="Dummy_effect_gravitational" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" LoopTime="500" Scp="SKL_TGT_ATTRACT_SQUARE" Time="550" UseSleep="YES">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Num Num="150" />
+					<Num Num="10" />
+					<Num Num="2" />
+					<Num Num="3" />
+					<Num Num="0" />
+					<Num Num="0.2" />
+				</Scp>
+				<Scp Client="NO" LoopTime="500" Scp="SKL_TGT_DMG" Time="600" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Psychokino_Raise">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_wiz_m_raise_shot" />
+					<Str Str="voice_wiz_raise_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="580" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="Psychokino_Raise" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Psychokino_Swap">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="2" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="140" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="Dummy_emitter" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="3" />
+				<Num Num="0.2" />
+				<Num Num="100" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_m_swap_shot" />
+				<Str Str="voice_wiz_swap_shot" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+				<Str Str="ASTD" />
+				<Str Str="None" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str Str="None" />
+				<Str Str="ASTD" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_SWAP" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_wiz_m_swap_shot" />
+					<Str Str="voice_wiz_swap_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+					<Str Str="skl_wiz_swap" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SWAP_POS" Time="700" TimeSync="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Str_Arg Arg="1" Str="F_wizard_swap_shot" />
+					<Num Num="20" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Str Str="ENEMY" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+						<Str Str="Psychokino7" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<HitList>
+						<Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+					</HitList>
+					<EtcList>
+						<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+							<Str Str="skl_wiz_swap" />
+						</Scp>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="250" UseSleep="NO">
+							<Str Str="voice_wiz_m_swap_shot" />
+							<Str Str="voice_wiz_swap_shot" />
+						</Scp>
+						<Scp Client="NO" Scp="SKL_SWAP_POS" Time="1100" TimeSync="0" UseSleep="NO">
+							<Pos Angle="0" Dist="0" PosType="3" />
+							<Str_Arg Arg="1" Str="F_wizard_swap_shot" />
+							<Num Num="20" />
+							<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+							<Str Str="FRIEND" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Psychokino_MagneticForce">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="2" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="140" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="Dummy_emitter" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="3" />
+				<Num Num="0.2" />
+				<Num Num="100" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_magneticforce_shot" />
+				<Num Num="0" />
+				<Str Str="voice_wiz_m_magneticforce_shot" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+				<Str Str="ASTD" />
+				<Str Str="None" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str Str="None" />
+				<Str Str="ASTD" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="CRE_MON_MAGNETIC" Time="600" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Str Str="HiddenFlameSeed" />
+					<Str_Arg Arg="0.89999998" Str="F_wizard_magneticforce_shot_ground2" />
+					<Num Num="3" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="1200" UseSleep="NO">
+					<Num Num="2" />
+					<Num Num="6.5" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Psychokino_PsychicPressure">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+				<Str Str="PsychicPressure_Buff" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="PsychicPressure_Pad" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="10" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="0" Str="" />
+				<Str Str="" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_PSYCHIC_PRESSURE_CAST" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+				<Str Str="SKL_PSYCHIC_PRESSURE_LOOP" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_psychicpressure_shot" />
+				<Num Num="0" />
+				<Str Str="voice_wiz_m_psychicpressure_shot" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_BUFF_ABIL" UseSleep="NO">
+				<Str Str="Psychokino10" />
+				<Str Str="PsychicPressure_Buff" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="100" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+				<Str Str="PsychicPressure_Buff" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="PsychicPressure_Pad" />
+			</ToolScp>
+		</KeyInputEnd>
+		<KeyCancelScp>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="ASTD" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_psychicpressure_shot" />
+				<Str Str="voice_wiz_m_psychicpressure_shot" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="PsychicPressure_Pad" />
+			</ToolScp>
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="15" />
+					<Angle Angle="0" />
+					<Str Str="PsychicPressure_Pad" />
+				</Scp>
+				<Scp Client="NO" LoopTime="500" Scp="SKL_SET_TARGET_SQUARE" Time="350" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" />
+					<Num FuncTxt="local value = 40 if IsBuffApplied(self, &quot;FireFoxShikigami_Buff&quot;) == &quot;YES&quot; then     value = value + 50 end return value" Num="0" UseFunc="1" />
+					<Num Num="25" />
+					<Num FuncTxt="return 4 + obj.Level * 1;" Num="1" UseFunc="1" />
+					<Num Num="2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" LoopTime="500" Scp="SKL_HIT_SQUARE" Time="400" UseSleep="NO">
+					<PosDist Angle="0" Dist="0" />
+					<PosDist Angle="0.016295999" Dist="43.468147" />
+					<Num Num="15" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" LoopTime="500" Scp="SKL_TGT_BUFF" Time="400" UseSleep="NO">
+					<Str Str="Stun" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num FuncTxt="return obj.Level * 10;" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" LoopTime="1000" Scp="SKL_CONSUME_SP" Time="400" UseSleep="NO">
+					<Num FuncTxt="local value = 42 local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect &gt;= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) local abil = GetAbility(self, &quot;Psychokino10&quot;) if abil ~= nil and abil.ActiveState == 1 then value = value * 1.2 end return math.floor(value)" Num="3" UseFunc="1" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="YES" Scp="C_SR_EFT" UseSleep="NO">
+					<Str_Arg Arg="0.2" Str="F_wizard_psyckicpressure_hit_spread_out" />
+					<Pos Angle="0" Dist="0" Height="12" PosType="2" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

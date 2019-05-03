@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Drapel_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="1" HitCount="1" Length="70" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="600" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_light004_orange" />
+					<Str Str="Dummy_effect_eye" />
+					<Num Num="0.60000002" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="0.2" Str="I_force039_orange#Dummy_effect_atk" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.25" Str="F_explosion028_orange" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_smoke126" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

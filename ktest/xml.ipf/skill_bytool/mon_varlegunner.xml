@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_VarleGunner_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="1" HitCount="1" Length="140" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="600" Type="SQUARE" Width="13" />
+				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="1" HitCount="1" Length="140" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="13" />
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="1" HitCount="1" Length="140" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="13" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_archer_canon_force3#Bone_cannon_2" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.5" Str="F_smoke071_stone" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1200" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_archer_canon_force3#Bone_cannon_2" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.5" Str="F_smoke071_stone" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1400" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_archer_canon_force3#Bone_cannon_2" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.5" Str="F_smoke071_stone" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_VarleGunner_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="1" HitCount="1" Length="140" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1000" Type="SQUARE" Width="13" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_archer_canon_force3#Bone_cannon_2" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.5" Str="F_smoke071_stone" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

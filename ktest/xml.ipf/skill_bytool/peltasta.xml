@@ -1,0 +1,347 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Peltasta_Guardian">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="100" UseSleep="NO">
+					<Str Str="Guardian_Buff" />
+					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num FuncTxt="local value = 15000; local isItem = GetExProp(self, &quot;ITEM_GUARDIAN_DURATIONTIMEUP&quot;); if isItem == 1 then value = value * 2 end return value" Num="15000" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Peltasta_Langort">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="70" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="20" />
+				<Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="70" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="20" />
+				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="70" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="20" />
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="70" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="20" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="0" UseSleep="NO">
+					<Str Str="Peltasta28" />
+					<Str Str="Langort_BlkAbil" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="750" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Peltasta_UmboThrust">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="25" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="UC_armorbreak" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="3000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Peltasta_HardShield">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="HardShield_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="300000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_buff_15" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+					<Str Str="skl_eff_sanctuary_ground_buff" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Peltasta_ButterFly">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="25" />
+				<Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="30" />
+				<Frame Angle="0" AniTime="750" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="550" Type="SQUARE" Width="35" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_archer_m_atk" />
+					<Str Str="voice_archer_f_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
+					<Num Num="3" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="700" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Peltasta_HighGuard">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_HIGHGUARD_SWITCH" />
+					<Num Num="1.5" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
+					<Str Str="Normal_Attack" />
+					<Str Str="ATK" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="HighGuard_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="30000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_archer_m_atk" />
+					<Str Str="voice_archer_f_atk" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+						<Str Str="HighGuard_Buff" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<EtcList>
+						<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+							<Str Str="SKL_HIGHGUARD_SWITCH2" />
+							<Num Num="1.5" />
+							<Num Num="1" />
+							<Num Num="0" />
+						</Scp>
+						<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="0" UseSleep="NO">
+							<Str Str="HighGuard_Buff" />
+						</Scp>
+						<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
+							<Str Str="Normal_Attack" />
+							<Str Str="None" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Peltasta_ShieldLob">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="3" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="150" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="0" Str="" />
+				<Str Str="" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_THROW_EQUIP_OBJECT" Time="950" TimeSync="0" UseSleep="YES">
+					<Str Str="warrior_f_" />
+					<Str Str="LH" />
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Str_Arg Arg="10" Str="F_smoke098" />
+					<Num Num="50" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="2500" />
+					<Num Num="1" />
+					<Str Str="Shield" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="1250" UseSleep="NO">
+					<Num Num="8" />
+					<Num Num="1" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Peltasta_SwashBuckling">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_archer_m_cloaking_shot" />
+					<Str Str="voice_archer_cloaking_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="0" UseSleep="NO">
+					<Str Str="Peltasta1" />
+					<Str Str="SwashBucklingReduceDamage_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="3.8255448e-43" />
+					<Num Num="400" />
+					<Num FuncTxt="return 9 + obj.Level;" Num="5" UseFunc="1" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF_IF_NOBUFF" Time="0" UseSleep="NO">
+					<Str Str="ProvocationImmunity_Debuff" />
+					<Str Str="SwashBuckling_Debuff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num FuncTxt="local buffTime = 10000; local abil = GetAbility(self, &quot;Peltasta32&quot;)     if abil ~= nil and abil.ActiveState == 1 then         buffTime = buffTime + (abil.Level * 1000)     end local target = GetHardSkillTargetList(self);     for i = 1, #target do         local targetList = target[i]         if targetList.MonRank == &quot;Boss&quot; then             buffTime = buffTime * 0.5         end     end return buffTime" Num="5000" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="100" UseSleep="NO">
+					<Str Str="SwashBuckling_Buff" />
+					<Num FuncTxt=" return obj.Level" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="35000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Peltasta_RimBlow">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="380" Dist="0" ForceATK="0" HitCount="1" Length="55" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="180" Type="SQUARE" Width="25" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_atk_long_shot" />
+					<Str Str="voice_atk_long_war_f" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_COND_TGTNOBUFF" UseSleep="NO">
+					<Str Str="ProvocationImmunity_Debuff" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="Common_Provoke" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num FuncTxt=" return 10000" Num="3000" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Peltasta_UmboBlow">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="650" Dist="0" ForceATK="0" HitCount="1" Length="25" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="450" Type="CIRCLE" Width="45" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="UmboBlow_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="570" UseSleep="NO">
+					<Num Num="5" />
+					<Num Num="1" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_COND_TGTNOBUFF" UseSleep="NO">
+					<Str Str="ProvocationImmunity_Debuff" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="Common_Provoke" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num FuncTxt=" return 10000" Num="3000" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

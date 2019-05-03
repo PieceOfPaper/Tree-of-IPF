@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_banshee_Attack1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK1" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_banshee_Attack2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="950" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="750" Type="CIRCLE" Width="35" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK2" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="20" />
+					<Pos Angle="0" Dist="70" />
+					<Str_Arg Arg="0.80000001" Str="F_sys_arrow_monster" />
+					<Num Num="20" />
+					<Num Num="0.0099999998" />
+					<Num Num="0.30000001" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="I_wizard_refrigerwaves_shot_mash" />
+					<Num Num="15" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="20" />
+					<Num Num="0.079999998" />
+					<Num Num="1" />
+					<Num Num="1000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

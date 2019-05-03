@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_ghosbebe_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="80" />
+					<Num Num="5" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss##0.5" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0.40000001" Str="F_explosion028_mint2" />
+					<Num Num="25" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_sakmoli_falldown" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="50" UseSleep="NO">
+					<Str Str="mon_mushroom_boy_atk2_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="650" UseSleep="NO">
+					<Str Str="mon_mushroom_boy_atk1_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_ghosbebe_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.69813174" TermMax="0" TermMin="0" Time="700" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_sakmoli_atk_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="550" UseSleep="NO">
+					<Str Str="mon_bokchoy_atk1_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="550" UseSleep="NO">
+					<Str Str="mon_mushroom_boy_atk1_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="F_explosion062_liquid" />
+					<Str Str="effect001" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

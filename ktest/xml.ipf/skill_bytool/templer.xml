@@ -1,0 +1,521 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Templer_FlyingColors">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_war_m_flyingcolors_cast" />
+					<Str Str="voice_war_f_flyingcolors_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_partsshooting_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
+					<Str Str="skl_eff_enchantedpowder_shot_motion" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0" Dist="20" />
+					<Angle Angle="0" />
+					<Str Str="Templer_FlyingColors" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Templer_AdvancedOrders">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_REMOVE_PAD" Time="0" UseSleep="NO">
+					<Str Str="Templer_BattleOrders" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="Templer_AdvancedOrders" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="BOTH" Scp="SKL_CHECK_EXARGPROPERTY" UseSleep="NO">
+						<Str Str="ITEM_ODERSSKILL_ALLWOOVERLAP" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSaaPDToUsePos="0" ScrLock="None">
+					<HitList>
+						<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+					</HitList>
+					<EtcList>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+							<Str Str="voice_war_atk_medium" />
+							<Str Str="voice_atk_medium_war_f" />
+						</Scp>
+						<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+							<Pos Angle="0" Dist="0" />
+							<Angle Angle="0" />
+							<Str Str="Templer_AdvancedOrders" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Templer_HorseRiding">
+		<EnableScripts>
+			<ToolScp Client="NO" Scp="SKL_CHECK_BY_SCRIPT" UseSleep="NO">
+				<Str Str="SKL_CHECK_HORSE_RIDING" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_HORSERIDING_ON" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_royaltemplar_horse_born" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="450" UseSleep="NO">
+					<Str Str="HorseRiding_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+						<Str Str="HorseRiding_Buff" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<HitList>
+						<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+					</HitList>
+					<EtcList>
+						<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+							<Str Str="SKL_HORSERIDING_OFF" />
+							<Num Num="1" />
+							<Num Num="1" />
+							<Num Num="0" />
+						</Scp>
+						<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="550" UseSleep="NO">
+							<Str Str="HorseRiding_Buff" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Templer_NonInvasiveArea">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Templer_NonInvasiveArea" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Templer_NonInvasiveArea_HorseRiding" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="10" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="0" Str="" />
+				<Str Str="" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_NONINVASIVEAREA_CAST" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+				<Str Str="SKL_NONINVASIVEAREA_LOOP" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="skl_eff_templer_nonlnvasivearea_ground" />
+				<Num Num="0" />
+				<Str Str="skl_eff_templer_nonlnvasivearea_ground" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Templer_NonInvasiveArea" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Templer_NonInvasiveArea_HorseRiding" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="skl_eff_templer_nonlnvasivearea_ground" />
+				<Str Str="skl_eff_templer_nonlnvasivearea_ground" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="Templer_NonInvasiveArea" />
+				</Scp>
+				<Scp Client="NO" LoopTime="1000" Scp="SKL_CONSUME_SP" Time="500" UseSleep="NO">
+					<Num FuncTxt="local value = 42 + obj.Level*2 return value;" Num="9" UseFunc="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+						<Str Str="HorseRiding_Buff" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<HitList>
+						<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
+					</HitList>
+					<EtcList>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+							<Str Str="voice_war_atk_medium" />
+							<Str Str="voice_atk_medium_war_f" />
+						</Scp>
+						<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+							<Pos Angle="0" Dist="0" />
+							<Angle Angle="0" />
+							<Str Str="Templer_NonInvasiveArea_HorseRiding" />
+						</Scp>
+						<Scp Client="NO" LoopTime="1000" Scp="SKL_CONSUME_SP" Time="500" UseSleep="NO">
+							<Num FuncTxt="local value = 42 + obj.Level*2 return value;" Num="9" UseFunc="1" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Templer_ShareBuff">
+		<EndScripts>
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Templer_ShareBuff" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_SHAREBUFF_END" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num FuncTxt="return 5 + (obj.Level * 2);" Num="20" UseFunc="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="0" Str="" />
+				<Str Str="" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_SHAREBUFF_CAST" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+				<Str Str="SKL_SHAREBUFF_LOOP" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str FuncTxt="local pc = GetSkillOwner(obj) local abil = GetAbility(pc, &quot;Templar2&quot;) if abil ~= nil  and abil.ActiveState == 1 then return &quot;Templer_ShareBuff_Abil&quot; end return &quot;Templer_ShareBuff&quot;" Str="Templer_ShareBuff" UseFunc="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_SHAREBUFF_END" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInputEnd>
+		<KeyCancelScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Templer_ShareBuff" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_SHAREBUFF_END" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_buff_basic003_red" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Str FuncTxt="local pc = GetSkillOwner(obj) local abil = GetAbility(pc, &quot;Templar2&quot;) if abil ~= nil  and abil.ActiveState == 1 then return &quot;Templer_ShareBuff_Abil&quot; end return &quot;Templer_ShareBuff&quot;" Str="" UseFunc="1" />
+				</Scp>
+				<Scp Client="NO" LoopTime="1000" Scp="SKL_CONSUME_SP" Time="500" UseSleep="NO">
+					<Num FuncTxt="local value = 42 + obj.Level*2 return value;" Num="9" UseFunc="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Templer_MortalSlash">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="35" />
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="35" />
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="35" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
+					<Num Num="3" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_war_atk_short" />
+					<Str Str="voice_atk_short_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="800" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Templer_BuildForge">
+		<EnableScripts>
+			<ToolScp Client="NO" Scp="SKL_CHECK_BY_SCRIPT" UseSleep="NO">
+				<Str Str="ENABLE_FORGE_CHECK" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_KILL_FOL_EXPROP" Time="0" UseSleep="NO">
+					<Str Str="EXIST_MON" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="100" UseSleep="NO">
+					<Str Str="Forge" />
+					<Pos Angle="-0.070860364" Dist="13.83" />
+					<Angle Angle="0" />
+					<Str Str="포지" />
+					<Str Str="PC_Summon_Holding_Forge" />
+					<Num Num="0" />
+					<Num FuncTxt="local value = 50 + obj.Level * 2; if IsPVPServer(self) == 1 then return value * 0.5 else  return value end" Num="90" UseFunc="1" />
+					<Str Str="None" />
+					<MonProp />
+					<Str Str="FORGE_MON" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="120" UseSleep="NO">
+					<Str Str="EXIST_MON" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="MONSKL_C_STOP_ANIM" Time="1700" UseSleep="NO" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Templer_BuildShieldCharger">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="0" UseSleep="NO">
+					<Str Str="Shieldcharger" />
+					<Pos Angle="-0.070860364" Dist="13.83" />
+					<Angle Angle="0" />
+					<Str Str="실드 차져" />
+					<Str Str="" />
+					<Num Num="0" />
+					<Num Num="22" />
+					<Str Str="None" />
+					<MonProp />
+					<Str Str="ShieldCharger_MON" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1700" UseSleep="NO">
+					<Pos Angle="-0.070860364" Dist="13.83" />
+					<Angle Angle="0" />
+					<Str Str="Templer_BuildShieldCharger" />
+				</Scp>
+				<Scp Client="YES" Scp="MONSKL_C_STOP_ANIM" Time="1800" UseSleep="NO" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Templer_BuildGuildTower">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Templer_WarpToGuildMember">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Templer_SummonGuildMember">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Templer_BattleOrders">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_REMOVE_PAD" Time="0" UseSleep="NO">
+					<Str Str="Templer_AdvancedOrders" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="Templer_BattleOrders" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="BOTH" Scp="SKL_CHECK_EXARGPROPERTY" UseSleep="NO">
+						<Str Str="ITEM_ODERSSKILL_ALLWOOVERLAP" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<HitList>
+						<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+					</HitList>
+					<EtcList>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+							<Str Str="voice_war_atk_medium" />
+							<Str Str="voice_atk_medium_war_f" />
+						</Scp>
+						<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+							<Pos Angle="0" Dist="0" />
+							<Angle Angle="0" />
+							<Str Str="Templer_BattleOrders" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Templer_ReduceCraftTime">
+		<EnableScripts>
+			<ToolScp Client="NO" Scp="SKL_CHECK_BY_SCRIPT" UseSleep="NO">
+				<Str Str="SKL_CHECK_NEAR_GUILDTOWER" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+					<Str Str="voice_war_atk_short" />
+					<Str Str="voice_atk_short_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1050" UseSleep="NO">
+					<Str Str="pcskill_warrior_skl_templar" />
+					<Pos Angle="0" Dist="0" Rand="10" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+					<MonProp List="Enter#DECREASE_CRAFT#Leave#DECREASE_CRAFT#Range#100" />
+					<Str Str="INIT_DECREASE_CRAFT_FLAG" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

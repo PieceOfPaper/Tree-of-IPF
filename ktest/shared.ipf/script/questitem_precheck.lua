@@ -5460,6 +5460,12 @@ function SCR_PRE_ITEM_Escape(self, argObj, BuffName, arg1, arg2)
             SendSysMsg(self, "ThisLocalUseNot");
             return 0;
         end
+        
+        if zone == "shadow_raid_main" then
+            SendSysMsg(self, "ThisLocalUseNot");
+            return 0;
+        end
+        
         if obj.Type == "MISSION" then
             SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("EscapeDisabled"), 5);
             return 0

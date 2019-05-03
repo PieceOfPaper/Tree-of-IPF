@@ -1,0 +1,477 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_AWK_boss_PantoRex_Skill_4">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl3" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" Height="1" />
+					<Num Num="200" />
+					<Num Num="20" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1600" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="10" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1750" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="9" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1900" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="10" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2050" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="9" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2200" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="10" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2350" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="9" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="10" />
+					<Num Num="200" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2500" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="10" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2650" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="9" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2800" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="10" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2950" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="9" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3100" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="10" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3250" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="9" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3400" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="10" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3550" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="9" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="10" />
+					<Num Num="200" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3700" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="10" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3850" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" Height="1" PosType="9" Rand="140" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_burstup029_smoke_dark2" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_AWK_boss_PantoRex_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl2" Speed="1" StartTime="0.5" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="3" Str="I_smoke013_dark" />
+					<Str Str="Dummy_effect_wepon002" />
+					<Num Num="9" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="50" UseSleep="NO">
+					<Str_Arg Arg="3" Str="I_smoke013_dark" />
+					<Str Str="Dummy_effect_wepon004" />
+					<Num Num="9" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
+					<Str_Arg Arg="3" Str="I_smoke013_dark" />
+					<Str Str="Dummy_effect_wepon006" />
+					<Num Num="9" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="150" UseSleep="NO">
+					<Str_Arg Arg="3" Str="I_smoke013_dark" />
+					<Str Str="Dummy_effect_wepon007" />
+					<Num Num="9" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="150" UseSleep="NO">
+					<Str_Arg Arg="3" Str="I_smoke013_dark" />
+					<Str Str="Dummy_effect_wepon008" />
+					<Num Num="9" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
+					<Str_Arg Arg="4" Str="I_smoke013_dark" />
+					<Str Str="Bip001 Xtra01" />
+					<Num Num="9" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
+					<Str_Arg Arg="7" Str="I_smoke013_dark" />
+					<Str Str="Bip001 Spine1" />
+					<Num Num="9" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="300" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_spread_in011" />
+					<Pos Angle="0" Dist="0" Height="30" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="350" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_light004_blue" />
+					<Str Str="Dummy_effect_eye_R" />
+					<Num Num="1.5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="350" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_light004_blue" />
+					<Str Str="Dummy_effect_eye_L" />
+					<Num Num="1.5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="2400" UseSleep="NO">
+					<Str_Arg Arg="4" Str="I_smoke013_dark" />
+					<Str Str="Dummy_effect_wepon008" />
+					<Num Num="3" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="2400" UseSleep="NO">
+					<Str_Arg Arg="9" Str="F_ground093_dark" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_PAD_LOOK_DIR_MSL" Time="2800" UseSleep="YES">
+					<Pos Angle="0" Dist="10" />
+					<Str Str="boss_pnatorex_missile" />
+					<Num Num="200" />
+					<Num Num="3" />
+					<Num Num="250" />
+					<Num Num="0" />
+					<Num Num="250" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_AWK_boss_PantoRex_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl1" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_smoke133_white_grey" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="5" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="2500" UseSleep="YES">
+					<Pos Angle="0" Dist="20" />
+					<Pos Angle="0" Dist="250" />
+					<Str_Arg Arg="0.60000002" Str="F_ground074_dark##1" />
+					<Num Num="30" />
+					<Num Num="0.050000001" />
+					<Num Num="1" />
+					<Num Num="500" />
+					<Str_Arg Arg="0.80000001" Str="F_burstup029_smoke_grey" />
+					<Num Num="25" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="25" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="4" />
+					<Num Num="60" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="2500" UseSleep="YES">
+					<Pos Angle="-0.69813168" Dist="20" />
+					<Pos Angle="-0.78539819" Dist="250" />
+					<Str_Arg Arg="0.60000002" Str="F_ground074_dark##1" />
+					<Num Num="30" />
+					<Num Num="0.050000001" />
+					<Num Num="1" />
+					<Num Num="500" />
+					<Str_Arg Arg="0.80000001" Str="F_burstup029_smoke_grey" />
+					<Num Num="25" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="25" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="4" />
+					<Num Num="60" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="2500" UseSleep="YES">
+					<Pos Angle="-0.34906584" Dist="20" />
+					<Pos Angle="-0.43633232" Dist="250" />
+					<Str_Arg Arg="0.60000002" Str="F_ground074_dark##1" />
+					<Num Num="30" />
+					<Num Num="0.050000001" />
+					<Num Num="1" />
+					<Num Num="500" />
+					<Str_Arg Arg="0.80000001" Str="F_burstup029_smoke_grey" />
+					<Num Num="25" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="25" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="4" />
+					<Num Num="60" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="2500" UseSleep="YES">
+					<Pos Angle="0.69813168" Dist="20" />
+					<Pos Angle="0.78539819" Dist="250" />
+					<Str_Arg Arg="0.60000002" Str="F_ground074_dark##1" />
+					<Num Num="30" />
+					<Num Num="0.050000001" />
+					<Num Num="1" />
+					<Num Num="500" />
+					<Str_Arg Arg="0.80000001" Str="F_burstup029_smoke_grey" />
+					<Num Num="25" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="25" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="4" />
+					<Num Num="60" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="2500" UseSleep="YES">
+					<Pos Angle="0.43633232" Dist="20" />
+					<Pos Angle="0.34906584" Dist="250" />
+					<Str_Arg Arg="0.60000002" Str="F_ground074_dark##1" />
+					<Num Num="30" />
+					<Num Num="0.050000001" />
+					<Num Num="1" />
+					<Num Num="500" />
+					<Str_Arg Arg="0.80000001" Str="F_burstup029_smoke_grey" />
+					<Num Num="25" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="25" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="4" />
+					<Num Num="60" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_AWK_boss_PantoRex_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1500" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.69813174" TermMax="0" TermMin="0" Time="1300" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

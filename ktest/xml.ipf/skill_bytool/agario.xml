@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Agario_Attack3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="330" Dist="0" ForceATK="0" HitCount="1" Length="55" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="130" Type="SQUARE" Width="11" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Agario_Attack2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="330" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="130" Type="SQUARE" Width="11" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Agario_Attack4">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="330" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="130" Type="SQUARE" Width="11" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Agario_CandyDash">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="Agario_Haste" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="3000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Agario_Attack">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="330" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="130" Type="SQUARE" Width="11" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

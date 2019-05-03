@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="EUC-KR"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
 	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
 	<BlendOn frame="3" R="30" G="15" B="10" A="50"/>
@@ -12,5 +12,5 @@
 	<Sound frame="8.0" soundFile="skl_fgt_tackle_shot"/>
 	<Particle frame="4" attachNode="Dummy_helmet" particleName="F_buff_basic029_red_line" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="false"/>
 	<Particle frame="4" attachNode="Dummy_helmet" particleName="F_wizard_increasespeed_cast" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false"/>
-	<Particle frame="13" attachNode="Dummy_effect_hand_L" particleName="F_wizard_increasespeed_cast1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false"/>
+	<Particle frame="13" attachNode="Dummy_effect_hand_L" particleName="F_wizard_increasespeed_cast1_ride" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false"/>
 </ActionDesc>

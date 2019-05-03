@@ -1,0 +1,355 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Deadbornscab_bow_green_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0.61086529" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="600" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="950" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="750" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="1100" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="-0.61086529" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="900" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_light004_violet2" />
+					<Str Str="Dummy_body" />
+					<Num Num="0.5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_light004_violet2" />
+					<Str Str="Dummy_body" />
+					<Num Num="0.2" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_arrow009_2#Dummy_effect_skl1#0.3" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="FAST" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0.52359879" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="850" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_light004_violet2" />
+					<Str Str="Dummy_body" />
+					<Num Num="0.2" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="850" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_arrow009_2#Dummy_effect_skl2#0.3" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="FAST" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_light004_violet2" />
+					<Str Str="Dummy_body" />
+					<Num Num="0.2" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_arrow009_2#Dummy_effect_skl3#0.3" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="FAST" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="-0.52359879" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Deadbornscab_bow_green_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="1" HitCount="1" Length="85" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_arrow009_1" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Deadbornscab_green_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="700" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Deadbornscab_bow_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0.61086529" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="600" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="950" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="750" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="1100" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="-0.61086529" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="900" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_light004_violet2" />
+					<Str Str="Dummy_body" />
+					<Num Num="0.5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_light004_violet2" />
+					<Str Str="Dummy_body" />
+					<Num Num="0.2" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_arrow009_2#Dummy_effect_skl1#0.3" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="FAST" />
+					<Num Num="150" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0.52359879" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="850" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_light004_violet2" />
+					<Str Str="Dummy_body" />
+					<Num Num="0.2" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="850" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_arrow009_2#Dummy_effect_skl2#0.3" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="FAST" />
+					<Num Num="150" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_light004_violet2" />
+					<Str Str="Dummy_body" />
+					<Num Num="0.2" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_arrow009_2#Dummy_effect_skl3#0.3" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="FAST" />
+					<Num Num="150" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="-0.52359879" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Deadbornscab_bow_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="1" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_arrow009_1#Dummy_body" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="FAST" />
+					<Num Num="250" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Deadbornscab_mage_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_light004_violet2" />
+					<Str Str="Dummy_effect_wepon" />
+					<Num Num="0.30000001" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1.2" Str="I_force076_dark" />
+					<Str Str="Dummy_effect_wepon" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="800" UseSleep="YES">
+					<Pos Angle="-1.0471976" Dist="16.930073" />
+					<Pos Angle="0.2617994" Dist="80" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="16" />
+					<Num Num="0.0099999998" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Str_Arg Arg="0.5" Str="F_burstup029_smoke_violet" />
+					<Num Num="10" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="15" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGT_BUFF" UseSleep="NO">
+					<Str Str="UC_silence" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="6000" />
+					<Num Num="1" />
+					<Num Num="10" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Deadbornscab_mage_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="1" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_light004_violet2" />
+					<Str Str="Dummy_effect_wepon" />
+					<Num Num="0.30000001" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_light004_violet2" />
+					<Str Str="Dummy_effect_L_hand" />
+					<Num Num="0.30000001" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_force019_violet#Dummy_effect_atk" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.25" Str="F_explosion028_violet" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="150" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Deadbornscab_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" Length="35.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.349066" TermMax="0" TermMin="0" Time="900" Type="FAN" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Catapract_1">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_SELECT_CELL" UseSleep="NO">
+				<Num Num="8.000000" />
+				<Num Num="25.000000" />
+				<Num Num="3.000000" />
+				<Num Num="0.000000" />
+				<Str_Arg Arg="0.200000" Str="F_jangpan_sagak_test" />
+				<Str_Arg Arg="0.200000" Str="F_jangpan_sagak_red_test" />
+				<Str_Arg Arg="1.000000" Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" Length="30.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_CELL_SIZE" Time="0" UseSleep="NO">
+					<Num Num="25.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_MOVESTOP" Time="0" UseSleep="NO" />
+				<Scp Client="NO" Scp="SKL_MOVE" Time="0" UseSleep="YES">
+					<Pos Angle="2.479415" Dist="0.000000" PosType="7.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.300000" />
+					<Num Num="0.000000" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Num Num="2.000000" />
+				</Scp>
+				<Scp Client="NO" LoopTime="400" Scp="SKL_MOVESTOP" Time="300" UseSleep="NO" />
+				<Scp Client="NO" LoopTime="300" Scp="SKL_MOVE" Time="300" TimeSync="0" UseSleep="YES">
+					<Pos Angle="-0.555189" Dist="0.000000" PosType="7.000000" />
+					<Num Num="0.700000" />
+					<Num Num="0.300000" />
+					<Num Num="0.000000" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Num Num="2.000000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Catapract_2">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_PRESS" UseSleep="NO">
+				<Num Num="0.500000" />
+				<Num Num="0.200000" />
+				<Num Num="4.000000" />
+			</ToolScp>
+		</KeyInput>
+		<KeyCancelScp>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None" />
+	</Skill>
+	<Skill Name="Catapract_3">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_PRESS" UseSleep="NO">
+				<Num Num="0.500000" />
+				<Num Num="0.200000" />
+				<Num Num="4.000000" />
+			</ToolScp>
+		</KeyInput>
+		<KeyCancelScp>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None" />
+	</Skill>
+	<Skill Name="Catapract_4">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_PRESS" UseSleep="NO">
+				<Num Num="0.500000" />
+				<Num Num="0.200000" />
+				<Num Num="4.000000" />
+			</ToolScp>
+		</KeyInput>
+		<KeyCancelScp>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None" />
+	</Skill>
+	</ToolSkill>

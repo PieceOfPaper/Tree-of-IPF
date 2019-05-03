@@ -76,6 +76,7 @@ function ON_EVENTBANNER_SOLODUNGEON(frame)
 	local indunName = TryGetProp(GetClass("Indun", "Solo_dungeon"), "Name");
 	local detail_btn = GET_CHILD(ranking_solo_dungeon, "detail_btn");
 	detail_btn:SetEventScript(ui.LBUTTONUP, "ON_EVENTBANNER_DETAIL_BTN_SOLODUNGEON");
+	detail_btn:ShowWindow(1);
 	UPDATE_EVENTBANNER_RANKING(ranking_solo_dungeon, indunName, "UPDATE_EVENTBANNER_RANKING_SOLODUNGEON")
 end
 
@@ -84,6 +85,7 @@ function ON_EVENTBANNER_TEAMBATTLE(frame, msg, strarg, numarg)
 	local name = ClMsg("TeamBattleLeagueText");
 	local detail_btn = GET_CHILD(ranking_team_battle, "detail_btn");
 	detail_btn:SetEventScript(ui.LBUTTONUP, "ON_EVENTBANNER_DETAIL_BTN_TEAMBATTLE");
+	detail_btn:ShowWindow(1);
 	UPDATE_EVENTBANNER_RANKING(ranking_team_battle, name, "UPDATE_EVENTBANNER_RANKING_TEAMBATTLE")
 end
 
@@ -99,7 +101,7 @@ function UPDATE_EVENTBANNER_RANKING_SOLODUNGEON(eachctrl, name, i)
 		name_text:SetVisible(0);
 		job_pic:SetVisible(0);
 		score_text:SetTextByKey("value", "-");
-		return;
+		return false;
 	end
 	
 	noranker_text:SetVisible(0);
@@ -111,6 +113,8 @@ function UPDATE_EVENTBANNER_RANKING_SOLODUNGEON(eachctrl, name, i)
 	name_text:SetTextByKey("lv", scoreInfo.level);
 	name_text:SetTextByKey("name", scoreInfo.familyName);
 	score_text:SetTextByKey("value", scoreInfo.stage);
+
+	return true;
 end
 
 function UPDATE_EVENTBANNER_RANKING_TEAMBATTLE(eachctrl, name, i)
@@ -126,17 +130,17 @@ function UPDATE_EVENTBANNER_RANKING_TEAMBATTLE(eachctrl, name, i)
 
     local rank_type = session.worldPVP.GetRankProp("Type");    
 	if rank_type == 210 then
-        return;
+        return false;
 	end
 	
 	local info = session.worldPVP.GetRankInfoByIndex(i-1);
 	if info == nil then
-		return;
+		return false;
 	end
 	
 	local iconinfo = info:GetIconInfo();
 	if iconinfo == nil then
-		return;
+		return false;
 	end
 	
 	noranker_text:SetVisible(0);
@@ -149,53 +153,56 @@ function UPDATE_EVENTBANNER_RANKING_TEAMBATTLE(eachctrl, name, i)
 	name_text:SetTextByKey("lv", iconinfo:GetLevel());
 	name_text:SetTextByKey("name", iconinfo:GetFamilyName());
 	score_text:SetTextByKey("value", info.point);
+
+	return true;
 end
 
 function UPDATE_EVENTBANNER_RANKING(ctrlset, name, set_func)
 	local title_text = GET_CHILD_RECURSIVELY(ctrlset, "title_text");
 	title_text:SetTextByKey("value", name);
-
-	local detail_btn = GET_CHILD(ctrlset, "detail_btn");
-
-	local sysTime = geTime.GetServerSystemTime();
-	if sysTime.wDayOfWeek == 1 then
-		-- 월요일일 경우 랭킹 정보 표시 안함
-		detail_btn:ShowWindow(0);
-
-		local listbg = GET_CHILD(ctrlset, "list_bg");
-		listbg:RemoveAllChild();
-
-		local topFrame = ctrlset:GetTopParentFrame();
-		local RANK_GUID_FONT_NAME = topFrame:GetUserConfig('RANK_GUID_FONT_NAME');		
-		
-		local text = listbg:CreateControl('richtext', 'text', 0, 0, 0, 0);	
-		text:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
-		text:SetFontName(RANK_GUID_FONT_NAME);
-		text:SetText(ClMsg("news_ranking_guide_msg"));
-
-	else
-		detail_btn:ShowWindow(1);
-
-		local x = tonumber(ctrlset:GetUserConfig("OffsetX"));
-		local y = tonumber(ctrlset:GetUserConfig("OffsetY"));
-		local eachHeight = ui.GetControlSetAttribute("news_ranking_each_rank", "height");
-		local list_bg = GET_CHILD_RECURSIVELY(ctrlset, "list_bg");
-		for i = 1, 3 do 
-			local eachctrl = list_bg:CreateOrGetControlSet("news_ranking_each_rank", "news_ranking_each_rank_"..i, x, y+(i-1)*eachHeight);
-			AUTO_CAST(eachctrl);
-			local picName = eachctrl:GetUserConfig("RankingPic_"..i);
-			local skinName = eachctrl:GetUserConfig("RankingSkin_"..i);
-			local bg = GET_CHILD_RECURSIVELY(eachctrl, "bg");
-			bg:SetSkinName(skinName);
-			local ranking_pic = GET_CHILD_RECURSIVELY(eachctrl, "ranking_pic");
-			ranking_pic:SetImage(picName);
-		
-			local func = _G[set_func];
-			func(eachctrl, name, i);
-		end
-
-	end
 	
+	local rankcount = 0;
+	local x = tonumber(ctrlset:GetUserConfig("OffsetX"));
+	local y = tonumber(ctrlset:GetUserConfig("OffsetY"));
+	local eachHeight = ui.GetControlSetAttribute("news_ranking_each_rank", "height");
+	local list_bg = GET_CHILD_RECURSIVELY(ctrlset, "list_bg");
+	for i = 1, 3 do 
+		local eachctrl = list_bg:CreateOrGetControlSet("news_ranking_each_rank", "news_ranking_each_rank_"..i, x, y+(i-1)*eachHeight);
+		AUTO_CAST(eachctrl);
+		local picName = eachctrl:GetUserConfig("RankingPic_"..i);
+		local skinName = eachctrl:GetUserConfig("RankingSkin_"..i);
+		local bg = GET_CHILD_RECURSIVELY(eachctrl, "bg");
+		bg:SetSkinName(skinName);
+		local ranking_pic = GET_CHILD_RECURSIVELY(eachctrl, "ranking_pic");
+		ranking_pic:SetImage(picName);
+		
+		local func = _G[set_func];
+		local result = func(eachctrl, name, i);
+		if result == true then
+			rankcount = rankcount + 1;
+		end
+	end
+
+	if rankcount == 0 then
+		local sysTime = geTime.GetServerSystemTime();
+		if sysTime.wDayOfWeek == 1 or sysTime.wDayOfWeek == 2 then
+			-- 월요일이거나 화요일이고 랭킹 정보가 하나도 없을 때 안내 문구 출력
+			local detail_btn = GET_CHILD(ctrlset, "detail_btn");
+			detail_btn:ShowWindow(0);
+
+			local listbg = GET_CHILD(ctrlset, "list_bg");
+			listbg:RemoveAllChild();
+	
+			local topFrame = ctrlset:GetTopParentFrame();
+			local RANK_GUID_FONT_NAME = topFrame:GetUserConfig('RANK_GUID_FONT_NAME');		
+			
+			local text = listbg:CreateControl('richtext', 'text', 0, 0, 0, 0);	
+			text:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+			text:SetFontName(RANK_GUID_FONT_NAME);
+			text:SetText(ClMsg("news_ranking_guide_msg"));
+		end
+	end
+
 end
 
 function UPDATE_EVENTBANNER_RANKINGS(frame)
