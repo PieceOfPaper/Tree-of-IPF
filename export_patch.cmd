@@ -43,6 +43,10 @@ for /f %%a in (ipflist_patch.txt) do (
 	::del /s /q Temp
 	del /s /q extract
 	
+	::===== Create File List
+	cd %ExportPath%
+	dir /a /s /b > filelist.txt
+	
 	::===== Commit & Push
 	cd %ExportPath%
 	git add --all
@@ -54,6 +58,7 @@ for /f %%a in (ipflist_patch.txt) do (
 cd %ExportPath%
 if not exist bgm mkdir bgm
 xcopy /y /s %TosPath%\release\bgm\*.* %ExportPath%\bgm\*.*
+dir /a /s /b > filelist.txt
 git add --all
 git commit -m "%2 bgm update"
 git push
