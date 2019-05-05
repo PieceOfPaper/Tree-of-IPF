@@ -48,6 +48,8 @@ for /f %%a in (ipflist_patch.txt) do (
 	::dir /a /s /b > filelist.txt
 	cd %ExportPath%\ies_ability.ipf
 	dir /a /s /b > filelist.txt
+	cd %ExportPath%\xml.ipf\skill_bytool\
+	dir /a /s /b > filelist.txt
 	
 	::===== Commit & Push
 	cd %ExportPath%
