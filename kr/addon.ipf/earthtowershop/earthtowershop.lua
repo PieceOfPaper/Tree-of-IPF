@@ -806,7 +806,11 @@ function EARTHTOWERSHOP_CHANGECOUNT(frame, ctrl, change)
                 
                 -- item Name Setting
                 local targetItemName_text = GET_CHILD_RECURSIVELY(ctrlset, "itemName");
-                targetItemName_text:SetTextByKey("value", targetItem.Name.."["..countText..ScpArgMsg("Piece").."]");
+                if targetItem.StringArg == "EnchantJewell" then
+                    targetItemName_text:SetTextByKey("value", "[Lv. "..recipecls.TargetItemAppendValue.."] "..targetItem.Name .. " [" .. countText .. ScpArgMsg("Piece") .. "]");
+                else
+                    targetItemName_text:SetTextByKey("value", targetItem.Name.."["..countText..ScpArgMsg("Piece").."]");
+                end            
 
                 for j = 1, 5 do
                     if recipecls["Item_"..j.."_1"] ~= "None" then
