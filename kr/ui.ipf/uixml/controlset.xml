@@ -3778,6 +3778,7 @@
 	<!--모험일지 끝-->
 	<!-- 팀배틀리그 랭킹 -->
 	<controlset name="team_battle_rank_page" hittest="true" width="530" height="750" hittestset="false" draw="false" skin="None" resizebyresolution="false">
+		<userconfig EACH_RANK_SET_HEIGHT_FOR_TB="60"/>
 		<c RANK_PAGE_FONT="{@st42}"/>
 		<controls>
 			<richtext name="infoText1" rect="0 0 300 30" margin="32 20 0 0" layout_gravity="left top" caption="순위" fontname="brown_18_b"/>

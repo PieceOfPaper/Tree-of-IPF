@@ -80,6 +80,20 @@ function ADVENTURE_BOOK_RANKING_PAGE_SELECT(parent, ctrl, argStr, pageNum)
     ADVENTURE_BOOK_RANK_PAGE_INIT(parent);
 end
 
+function ADVENTURE_BOOK_RANKING_PAGE_SELECT_PREV(parent, ctrl)
+    local page = parent:GetCurPage();
+    if page ~= 0 then
+        ADVENTURE_BOOK_RANKING_PAGE_SELECT(parent, nil, '', page-1);
+    end
+end
+
+function ADVENTURE_BOOK_RANKING_PAGE_SELECT_NEXT(parent, ctrl)
+    local page = parent:GetCurPage();
+    if page ~= parent:GetMaxPage()-1 then
+        ADVENTURE_BOOK_RANKING_PAGE_SELECT(parent, nil, '', page+1);
+    end
+end
+
 function ADVENTURE_BOOK_RANKING_SHOW_PAGE(adventureBookFrame, page)    
     local adventureBookRankingSet = GET_CHILD_RECURSIVELY(adventureBookFrame, 'adventureBookRankingSet');
     local EACH_RANK_SET_HEIGHT = tonumber(adventureBookRankingSet:GetUserConfig('EACH_RANK_SET_HEIGHT'));
@@ -139,6 +153,11 @@ function ADVENTURE_BOOK_RANK_PAGE_INIT(frame)
         maxPage = 2000;
     end
     pageCtrl:SetMaxPage(maxPage);
+
+    local prevBtn = GET_CHILD_RECURSIVELY(pageCtrl, 'prev');
+    local nextBtn = GET_CHILD_RECURSIVELY(pageCtrl, 'next');
+    prevBtn:SetEventScript(ui.LBUTTONUP, 'ADVENTURE_BOOK_RANKING_PAGE_SELECT_PREV');
+    nextBtn:SetEventScript(ui.LBUTTONUP, 'ADVENTURE_BOOK_RANKING_PAGE_SELECT_NEXT');
 end
 
 function ADVENTURE_BOOK_RANKING_SHOW_BY_SEARCH(adventureBookFrame, name, rank, score)    

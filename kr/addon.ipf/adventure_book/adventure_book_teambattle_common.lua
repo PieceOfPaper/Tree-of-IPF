@@ -65,7 +65,15 @@ function ADVENTURE_BOOK_TEAM_BATTLE_COMMON_UPDATE(adventureBookFrame, msg, argSt
 end
 
 function ADVENTURE_BOOK_TEAM_BATTLE_RANK(parent, teamBattleRankingBox)
-    ADVENTURE_BOOK_RANKING_PAGE_SELECT(parent, teamBattleRankingBox, 'TeamBattle', 1);
+	ADVENTURE_BOOK_RANKING_PAGE_SELECT(parent, teamBattleRankingBox, 'TeamBattle', 1);
+
+	local topFrame = parent:GetTopParentFrame();
+	local teamBattleRankSet = GET_CHILD_RECURSIVELY(topFrame, 'teamBattleRankSet');
+	local pageCtrl = GET_CHILD(teamBattleRankSet, 'control');
+	local prevBtn = GET_CHILD_RECURSIVELY(pageCtrl, 'prev');
+	local nextBtn = GET_CHILD_RECURSIVELY(pageCtrl, 'next');
+	prevBtn:SetEventScript(ui.LBUTTONUP, 'ADVENTURE_BOOK_RANKING_PAGE_SELECT_PREV');
+	nextBtn:SetEventScript(ui.LBUTTONUP, 'ADVENTURE_BOOK_RANKING_PAGE_SELECT_NEXT');
 end
 
 function ADVENTURE_BOOK_TEAM_BATTLE_RANK_UPDATE(frame, msg, argStr, argNum)
@@ -74,6 +82,7 @@ function ADVENTURE_BOOK_TEAM_BATTLE_RANK_UPDATE(frame, msg, argStr, argNum)
         return;
 	end
 	local teamBattleRankSet = GET_CHILD_RECURSIVELY(frame, 'teamBattleRankSet');
+	local EACH_RANK_SET_HEIGHT_FOR_TB = tonumber(teamBattleRankSet:GetUserConfig('EACH_RANK_SET_HEIGHT_FOR_TB'));
     local rankingBox = GET_CHILD(teamBattleRankSet, 'rankingBox');
 	rankingBox:RemoveAllChild();
     local pvpCls = GET_TEAM_BATTLE_CLASS();
@@ -87,7 +96,7 @@ function ADVENTURE_BOOK_TEAM_BATTLE_RANK_UPDATE(frame, msg, argStr, argNum)
 		local info = session.worldPVP.GetRankInfoByIndex(i);
 		local ctrlSet = rankingBox:CreateControlSet("pvp_rank_ctrl", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 		UPDATE_PVP_RANK_CTRLSET(ctrlSet, info);
-        ctrlSet:Resize(rankingBox:GetWidth(), ctrlSet:GetHeight());
+        ctrlSet:Resize(rankingBox:GetWidth(), EACH_RANK_SET_HEIGHT_FOR_TB);
 	end
 	GBOX_AUTO_ALIGN(rankingBox, 0, 0, 0, true, false);
 
