@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_aclis_angel_Skill_2">
+		<CondList>
+			<Scp Client="NO" Scp="SCOND_DISTANCE_CHECK" Time="0" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="50" />
+				<Num Num="120" />
+			</Scp>
+		</CondList>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="MSL_BUCK" Time="1500" UseSleep="YES">
+					<Pos Angle="0" Dist="20" />
+					<Angle Angle="0" />
+					<Num Num="3" />
+					<Num Num="10" />
+					<Num Num="120" />
+					<Num Num="0" />
+					<Num Num="60" />
+					<Num Num="3" />
+					<Num Num="0" />
+					<Num Num="75" />
+					<Num Num="150" />
+					<Num Num="0.75" />
+					<Str_Arg Arg="1" Str="I_force071_dark" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_BUCK" Time="1700" UseSleep="YES">
+					<Pos Angle="0" Dist="20" />
+					<Angle Angle="0" />
+					<Num Num="3" />
+					<Num Num="10" />
+					<Num Num="120" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="3" />
+					<Num Num="0" />
+					<Num Num="75" />
+					<Num Num="150" />
+					<Num Num="0.75" />
+					<Str_Arg Arg="1" Str="I_force071_dark" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_BUCK" Time="1900" UseSleep="YES">
+					<Pos Angle="0" Dist="20" />
+					<Angle Angle="0" />
+					<Num Num="3" />
+					<Num Num="10" />
+					<Num Num="120" />
+					<Num Num="0" />
+					<Num Num="140" />
+					<Num Num="3" />
+					<Num Num="0" />
+					<Num Num="75" />
+					<Num Num="150" />
+					<Num Num="0.75" />
+					<Str_Arg Arg="1" Str="I_force071_dark" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_aclis_angel_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="400" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

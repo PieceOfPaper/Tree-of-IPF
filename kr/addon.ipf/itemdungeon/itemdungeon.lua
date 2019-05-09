@@ -56,7 +56,7 @@ end
 function ITEMDUNGEON_CLEARUI(frame)
 	ITEMDUNGEON_CLEAR_TARGET(frame);
 	ITEMDUNGEON_RESET_STONE(frame);
-	--ITEMDUNGEON_RESET_ABRASIVE(frame);
+	ITEMDUNGEON_RESET_ABRASIVE(frame);
 
 	ITEMDUNGEON_UPDATE_PRICE(frame);
 end
@@ -119,28 +119,6 @@ function ITEMDUNGEON_DROP_ITEM(parent, ctrl)
 	end
 
 	local itemObj = GetIES(invItem:GetObject());	
-	
-	local lifeTime = TryGetProp(itemObj, 'LifeTime', 0)
-	if false == IS_EQUIP(itemObj) or lifeTime > 0 then
-		ui.SysMsg(ClMsg("WrongDropItem"));
-		return;
-	end
-
-	if IS_NEED_APPRAISED_ITEM(itemObj) == true or IS_NEED_RANDOM_OPTION_ITEM(itemObj) then 
-		ui.SysMsg(ClMsg("NeedAppraisd"));
-		return;
-	end
-
-	if itemObj.HiddenProp == "None" then
-		ui.SysMsg(ClMsg("ThisItemIsNotAbleToWakenUp"));
-		return;
-	end
-
-	if itemObj.ItemLifeTimeOver > 0 then
-		ui.SysMsg(ClMsg('LessThanItemLifeTime'));
-		return;
-	end
-
 	if IS_ENABLE_GIVE_HIDDEN_PROP_ITEM(itemObj) == false then
 		ui.SysMsg(ClMsg('ItemIsNotEnchantable1'));
 		return;
@@ -194,25 +172,25 @@ function ITEMDUNGEON_DROP_WEALTH_ITEM(parent, ctrl)
 		local stoneNameText = GET_CHILD_RECURSIVELY(frame, 'stoneNameText');
 		stoneNameText:SetTextByKey('name', itemObj.Name);
 		stoneNameText:ShowWindow(1);
-	-- elseif slot:GetName() == 'abrasiveSlot' then
-	-- 	if itemObj.StringArg ~= "AbrasiveStone" then
-	-- 		ui.SysMsg(ClMsg("WrongDropItem"));
-	-- 		return;
-	-- 	end
+	elseif slot:GetName() == 'abrasiveSlot' then
+		if itemObj.StringArg ~= "AbrasiveStone" then
+			ui.SysMsg(ClMsg("WrongDropItem"));
+			return;
+		end
 
-	-- 	local icon = imcSlot:SetItemInfo(slot, invItem, invItem.count);
-	-- 	icon:SetColorTone('FFFFFFFF');
+		local icon = imcSlot:SetItemInfo(slot, invItem, invItem.count);
+		icon:SetColorTone('FFFFFFFF');
 
-	-- 	local abrasiveCountText = GET_CHILD_RECURSIVELY(frame, 'abrasiveCountText');
-	-- 	abrasiveCountText:SetColorTone('FFFFFFFF');
-	-- 	abrasiveCountText:SetTextByKey('cur', '1');
+		local abrasiveCountText = GET_CHILD_RECURSIVELY(frame, 'abrasiveCountText');
+		abrasiveCountText:SetColorTone('FFFFFFFF');
+		abrasiveCountText:SetTextByKey('cur', '1');
 
-	-- 	local abrasiveInfoText = GET_CHILD_RECURSIVELY(frame, 'abrasiveInfoText');
-	-- 	abrasiveInfoText:ShowWindow(0);
+		local abrasiveInfoText = GET_CHILD_RECURSIVELY(frame, 'abrasiveInfoText');
+		abrasiveInfoText:ShowWindow(0);
 
-	-- 	local abrasiveNameText = GET_CHILD_RECURSIVELY(frame, 'abrasiveNameText');
-	-- 	abrasiveNameText:SetTextByKey('name', itemObj.Name);
-	-- 	abrasiveNameText:ShowWindow(1);
+		local abrasiveNameText = GET_CHILD_RECURSIVELY(frame, 'abrasiveNameText');
+		abrasiveNameText:SetTextByKey('name', itemObj.Name);
+		abrasiveNameText:ShowWindow(1);
 	end
 
 	
@@ -360,7 +338,7 @@ function ITEMDUNGEON_INIT_FOR_BUYER(frame, isSeller)
 	ITEMDUNGEON_SET_TITLE(frame, false);
 	ITEMDUNGEON_SET_OFFSET_BUY_BTN(frame);
 	ITEMDUNGEON_RESET_STONE(frame);
-	--ITEMDUNGEON_RESET_ABRASIVE(frame);
+	ITEMDUNGEON_RESET_ABRASIVE(frame);
 end
 
 function ITEMDUNGEON_SET_OFFSET_BUY_BTN(frame)
@@ -409,12 +387,12 @@ function _ITEMDUNGEON_BUY_ITEM(checkRebuildFlag)
 		materialItemGuid = stoneIcon:GetInfo():GetIESID();
 	end
 
-	-- local abrasiveSlot = GET_CHILD_RECURSIVELY(frame, 'abrasiveSlot');
-	-- local abrasiveIcon = abrasiveSlot:GetIcon();
-	-- local secondmaterialItemGuid = '0';
-	-- if abrasiveIcon ~= nil then
-	-- 	secondmaterialItemGuid = abrasiveIcon:GetInfo():GetIESID();
-	-- end
+	local abrasiveSlot = GET_CHILD_RECURSIVELY(frame, 'abrasiveSlot');
+	local abrasiveIcon = abrasiveSlot:GetIcon();
+	local secondmaterialItemGuid = '0';
+	if abrasiveIcon ~= nil then
+		secondmaterialItemGuid = abrasiveIcon:GetInfo():GetIESID();
+	end
 
 
 	local targetItemObj = targetItem:GetObject();
@@ -437,8 +415,7 @@ function _ITEMDUNGEON_BUY_ITEM(checkRebuildFlag)
 
 	local sklCls = GetClass('Skill', 'Alchemist_ItemAwakening');
 	local handle = frame:GetUserIValue('HANDLE');	
-	--session.autoSeller.BuyWithPluralMaterialItem(handle, sklCls.ClassID, AUTO_SELL_AWAKENING, targetItemGuid, materialItemGuid, secondmaterialItemGuid);
-	session.autoSeller.BuyWithMaterialItem(handle, sklCls.ClassID, AUTO_SELL_AWAKENING, targetItemGuid, materialItemGuid);
+	session.autoSeller.BuyWithPluralMaterialItem(handle, sklCls.ClassID, AUTO_SELL_AWAKENING, targetItemGuid, materialItemGuid, secondmaterialItemGuid);
 end
 
 function ITEMDUNGEON_BUY_ITEM(parent, ctrl)
@@ -450,26 +427,26 @@ function ITEMDUNGEON_BUY_ITEM(parent, ctrl)
 		materialItemGuid = stoneIcon:GetInfo():GetIESID();
 	end
 	
-	-- local abrasiveSlot = GET_CHILD_RECURSIVELY(frame, 'abrasiveSlot');
-	-- local abrasiveIcon = abrasiveSlot:GetIcon();
-	-- local awakematerialItemGuid = '0';
-	-- if abrasiveIcon ~= nil then
-	-- 	awakematerialItemGuid = abrasiveIcon:GetInfo():GetIESID();
-	-- end
+	local abrasiveSlot = GET_CHILD_RECURSIVELY(frame, 'abrasiveSlot');
+	local abrasiveIcon = abrasiveSlot:GetIcon();
+	local awakematerialItemGuid = '0';
+	if abrasiveIcon ~= nil then
+		awakematerialItemGuid = abrasiveIcon:GetInfo():GetIESID();
+	end
 
 	local warningmsg;
 
-	-- if awakematerialItemGuid == '0' then
-	-- 	warningmsg = ClMsg("IsSureNotUseAbrasive")..' {nl}';
-	-- else
-	-- 	warningmsg = ClMsg("IsSureUseAbrasive")..' {nl}';
-	-- end
+	if awakematerialItemGuid == '0' then
+		warningmsg = ClMsg("IsSureNotUseAbrasive")..' {nl}';
+	else
+		warningmsg = ClMsg("IsSureUseAbrasive")..' {nl}';
+	end
 
 	if materialItemGuid == '0' then
-		warningmsg = ClMsg("IsSureNotUseStone")..'{nl}'..ClMsg("IsSureItemdungeon");
-	else
-		warningmsg = ClMsg("IsSureItemdungeon");
+		warningmsg = warningmsg .. ClMsg("IsSureNotUseStone")..' {nl}';
 	end
+
+	warningmsg = warningmsg .. ClMsg("IsSureItemdungeon");
 	
 	WARNINGMSGBOX_FRAME_OPEN(warningmsg, '_ITEMDUNGEON_BUY_ITEM', 'None');
 end
@@ -583,37 +560,16 @@ function ITEMDUNGEON_INV_RBTN(itemobj, invslot, invguid)
 			ui.SysMsg(ClMsg("CannotDropItem"));
 			return;
 		end
-	
+
 		if true == invItem.isLockState then
 			ui.SysMsg(ClMsg("MaterialItemIsLock"));
 			return;
 		end
 	
-		local itemObj = GetIES(invItem:GetObject());	
-		if itemObj.ItemLifeTimeOver > 0 then
-			ui.SysMsg(ClMsg('LessThanItemLifeTime'));
-			return;
-		end
-	
+		local itemObj = GetIES(invItem:GetObject());
 		local targetSlot = GET_CHILD_RECURSIVELY(frame, "targetSlot");
 		if IS_EQUIP(itemObj) == true then
-			local lifeTime = TryGetProp(itemObj, 'LifeTime', 0)
-			if lifeTime > 0 then
-				ui.SysMsg(ClMsg("WrongDropItem"));
-				return;
-			end
-
-			-- 장비 등록
-			if IS_NEED_APPRAISED_ITEM(itemObj) == true or IS_NEED_RANDOM_OPTION_ITEM(itemObj) then 
-				ui.SysMsg(ClMsg("NeedAppraisd"));
-				return;
-			end
-		
-			if itemObj.HiddenProp == "None" then
-				ui.SysMsg(ClMsg("ThisItemIsNotAbleToWakenUp"));
-				return;
-			end
-		
+			-- 장비 등록		
 			if IS_ENABLE_GIVE_HIDDEN_PROP_ITEM(itemObj) == false then
 				ui.SysMsg(ClMsg('ItemIsNotEnchantable1'));
 				return;
@@ -628,6 +584,11 @@ function ITEMDUNGEON_INV_RBTN(itemobj, invslot, invguid)
 			end
 
 			-- 각성석
+			if itemObj.ItemLifeTimeOver > 0 then
+				ui.SysMsg(ScpArgMsg('LessThanItemLifeTime'));
+				return;
+			end
+
 			local stoneSlot = GET_CHILD_RECURSIVELY(frame, "stoneSlot");
 			local icon = imcSlot:SetItemInfo(stoneSlot, invItem, invItem.count);
 			icon:SetColorTone('FFFFFFFF');
@@ -643,27 +604,27 @@ function ITEMDUNGEON_INV_RBTN(itemobj, invslot, invguid)
 			stoneNameText:SetTextByKey('name', itemObj.Name);
 			stoneNameText:ShowWindow(1);
 
-		-- elseif itemObj.StringArg == "AbrasiveStone" then
-		-- 	if GET_SLOT_ITEM(targetSlot) == nil then
-		-- 		return;
-		-- 	end
+		elseif itemObj.StringArg == "AbrasiveStone" then
+			if GET_SLOT_ITEM(targetSlot) == nil then
+				return;
+			end
 			
-		-- 	-- 각성 연마재
-		-- 	local abrasiveslot = GET_CHILD_RECURSIVELY(frame, "abrasiveSlot");
+			-- 각성 연마재
+			local abrasiveslot = GET_CHILD_RECURSIVELY(frame, "abrasiveSlot");
 
-		-- 	local icon = imcSlot:SetItemInfo(abrasiveslot, invItem, invItem.count);
-		-- 	icon:SetColorTone('FFFFFFFF');
+			local icon = imcSlot:SetItemInfo(abrasiveslot, invItem, invItem.count);
+			icon:SetColorTone('FFFFFFFF');
 		
-		-- 	local abrasiveCountText = GET_CHILD_RECURSIVELY(frame, 'abrasiveCountText');
-		-- 	abrasiveCountText:SetColorTone('FFFFFFFF');
-		-- 	abrasiveCountText:SetTextByKey('cur', '1');
+			local abrasiveCountText = GET_CHILD_RECURSIVELY(frame, 'abrasiveCountText');
+			abrasiveCountText:SetColorTone('FFFFFFFF');
+			abrasiveCountText:SetTextByKey('cur', '1');
 		
-		-- 	local abrasiveInfoText = GET_CHILD_RECURSIVELY(frame, 'abrasiveInfoText');
-		-- 	abrasiveInfoText:ShowWindow(0);
+			local abrasiveInfoText = GET_CHILD_RECURSIVELY(frame, 'abrasiveInfoText');
+			abrasiveInfoText:ShowWindow(0);
 		
-		-- 	local abrasiveNameText = GET_CHILD_RECURSIVELY(frame, 'abrasiveNameText');
-		-- 	abrasiveNameText:SetTextByKey('name', itemObj.Name);
-		-- 	abrasiveNameText:ShowWindow(1);
+			local abrasiveNameText = GET_CHILD_RECURSIVELY(frame, 'abrasiveNameText');
+			abrasiveNameText:SetTextByKey('name', itemObj.Name);
+			abrasiveNameText:ShowWindow(1);
 
 		else
 			ui.SysMsg(ClMsg("WrongDropItem"));

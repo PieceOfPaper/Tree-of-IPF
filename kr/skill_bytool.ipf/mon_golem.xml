@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Golem_NoTex_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="2000" UseSleep="NO">
+					<Num Num="3" />
+					<Num Num="1" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2200" UseSleep="YES">
+					<Pos Angle="0" Dist="45" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="35" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_COLL_DPARTS" UseSleep="NO" />
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

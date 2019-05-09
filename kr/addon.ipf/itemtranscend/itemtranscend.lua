@@ -126,9 +126,9 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 	--SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, obj)
 
     -- EVENT_1903_WEEKEND
-    if SCR_EVENT_1903_WEEKEND_CHECK('TRANSCEND', false) == 'YES' then
-        SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, obj)
-    end
+    --if SCR_EVENT_1903_WEEKEND_CHECK('TRANSCEND', false) == 'YES' then
+    --    SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, obj)
+    --end
 end
 
 -- 아아템 초월시 여신의 축복석 Text 갱신 함수.
@@ -475,9 +475,9 @@ elseif keyboard.IsKeyPressed("LALT") == 1 or isMax == true then
 --	SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, targetObj)
     
     -- EVENT_1903_WEEKEND
-    if SCR_EVENT_1903_WEEKEND_CHECK('TRANSCEND', false) == 'YES' then
-        SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, targetObj)
-    end
+    --if SCR_EVENT_1903_WEEKEND_CHECK('TRANSCEND', false) == 'YES' then
+    --    SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, targetObj)
+    --end
 end
 
 -- 재료를 드레그 드롭했을 경우

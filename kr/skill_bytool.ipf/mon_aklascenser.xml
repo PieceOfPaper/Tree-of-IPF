@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_aklascenser_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_smoke013_dark3" />
+					<Str Str="Dummy001" />
+					<Num Num="1.5" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_BUCK" Time="1300" UseSleep="YES">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Num Num="3" />
+					<Num Num="15" />
+					<Num Num="0" />
+					<Num Num="10" />
+					<Num Num="30" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="200" />
+					<Num Num="0" />
+					<Num Num="0.80000001" />
+					<Str_Arg Arg="1" Str="I_smoke001_dark_2" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_BUCK" Time="1600" UseSleep="YES">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Num Num="3" />
+					<Num Num="15" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="30" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="200" />
+					<Num Num="0" />
+					<Num Num="0.80000001" />
+					<Str_Arg Arg="1" Str="I_smoke001_dark_2" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_aklascenser_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="700" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

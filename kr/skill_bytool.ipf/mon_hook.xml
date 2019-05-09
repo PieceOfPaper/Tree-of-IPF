@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_hook_red_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="800" Dist="0.000000" ForceATK="0" HitCount="1" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="100" Type="CIRCLE" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK1_SHOT" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_hook_red_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK2_SHOT" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1000" UseSleep="NO">
+					<Pos Angle="-0.066049971" Dist="32.546391" />
+					<Angle Angle="0" />
+					<Str Str="Mon_FirePilla" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_hook_red_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="0" HitCount="1" Length="10" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="600" Type="CIRCLE" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL_SHOT" Speed="1" Time="0" />
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
+					<Num Num="3" />
+					<Num Num="0" />
+					<Num Num="150" />
+					<Num Num="60" />
+					<Num Num="20" />
+					<Num Num="1" />
+					<Num Num="5" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_hook_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="1.0143766" AniTime="700" Dist="145.41887" ForceATK="0" HitCount="1" Length="10" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="500" Type="CIRCLE" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_light027_orange" />
+					<Str Str="hook" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="ATK1_SHOT" Speed="1" Time="400" />
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="Mon_Atk_down" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="5000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_hook_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK2_SHOT" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_hook_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="-3.067658" AniTime="600" Dist="30.738672" ForceATK="0" HitCount="1" Length="35.000000" PosType="1" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="600" Type="CIRCLE" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL_SHOT" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

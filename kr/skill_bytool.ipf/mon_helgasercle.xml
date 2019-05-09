@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_helgasercle_phantom_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="80" />
+					<Num Num="70" />
+					<Num Num="20" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_spread_in008_red#Bip001 R Hand" />
+					<Str_Arg Arg="0.30000001" Str="F_explosion046_red" />
+					<Str_Arg Arg="0.30000001" Str="None" />
+					<Pos Angle="0" Dist="60" Option="1" PosType="8" Rand="70" />
+					<Num Num="20" />
+					<Num Num="0.60000002" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="0.5" Str="F_sys_target_monster##1.0" />
+					<Num Num="700" />
+					<Num Num="0.050000001" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

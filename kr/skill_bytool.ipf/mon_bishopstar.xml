@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_bishopstar_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="3.8255448e-43" />
+					<Num Num="80" />
+					<Num Num="5" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="3.8255448e-43" PosType="9" />
+					<Str_Arg Arg="0.5" Str="F_pattern020_ground_mint" />
+					<Num Num="1200" />
+					<Str_Arg Arg="1.2" Str="F_explosion012_2" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_light004_green_3" />
+					<Str Str="Dummy_effectt_wepon" />
+					<Num Num="1.5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="F_light143_mint_attach" />
+					<Str Str="Dummy_effectt_wepon" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_cleric_cure_body" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
+					<Str_Arg Arg="1.2" Str="F_light143_mint_attach" />
+					<Str Str="Dummy_effectt_wepon" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="2.2" Str="F_light143_mint_attach" />
+					<Str Str="Dummy_effectt_wepon" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_force102_trail_ice" />
+					<Str Str="Dummy_effectt_wepon" />
+					<Num Num="0.69999999" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="600" UseSleep="NO">
+					<Str Str="mon_lantern_mushroom_atk1_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="650" UseSleep="NO">
+					<Str Str="skl_eff_blessing_cast" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_bishopstar_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="750" Dist="0" ForceATK="0" HitCount="1" Length="55" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="550" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_light004_green_3" />
+					<Str Str="Dummy_effectt_wepon" />
+					<Num Num="1.5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="F_light143_mint_attach" />
+					<Str Str="Dummy_effectt_wepon" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="550" UseSleep="NO">
+					<Str Str="mon_mushroom_boy_atk1_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="570" UseSleep="NO">
+					<Str Str="skl_eff_body_atk_2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_force102_trail_ice" />
+					<Str Str="Dummy_effectt_wepon" />
+					<Num Num="0.69999999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

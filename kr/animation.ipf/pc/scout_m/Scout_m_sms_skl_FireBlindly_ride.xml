@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ÀÌÁ¤¿ë (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <HeadRotBip frame="0" BipName="None"/>
-    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
-    <Shockwave frame="0" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
-    <Particle frame="0" attachNode="dummy_emitter" particleName="E_scout_fireblindly001" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Sound frame="0.00" soundFile="skl_eff_outlaw_fireblindly"/>
-    <HeadRotBip frame="2" BipName="None"/>
-    <BlendOn frame="3" R="50" G="50" B="10" A="50"/>
-    <HeadRotBip frame="4" BipName="Dummy_head"/>
-    <Shockwave frame="5" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
-    <Shockwave frame="10" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
-    <Shockwave frame="15" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
-    <Shockwave frame="20" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
-    <Shockwave frame="25" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
-    <Shockwave frame="30" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
-    <Shockwave frame="35" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
-    <Shockwave frame="42" type="2" intensity="4" frequency="40" duration="0.3" range="1000"/>
-    <HeadRotBip frame="44" BipName="Dummy_head"/>
-    <BlendOff frame="45" R="0" G="0" B="0" A="0"/>
-    <HeadRotBip frame="50" BipName="None"/>
+	<Sound frame="0.00" soundFile="skl_eff_outlaw_fireblindly"/>
+	<HeadRotBip frame="0" BipName="None"/>
+	<HeadRotBip frame="2" BipName="None"/>
+	<HeadRotBip frame="4" BipName="Dummy_head"/>
+	<HeadRotBip frame="44" BipName="Dummy_head"/>
+	<HeadRotBip frame="50" BipName="None"/>
+	<Particle frame="0" attachNode="Dummy_emitter_pet" particleName="E_scout_fireblindly001" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Shockwave frame="0" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="5" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="10" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="15" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="20" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="25" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="30" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="35" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="42" type="2" intensity="4" frequency="40" duration="0.3" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="3" R="50" G="50" B="10" A="50"/>
+	<BlendOff frame="45" R="0" G="0" B="0" A="0"/>
 </ActionDesc>

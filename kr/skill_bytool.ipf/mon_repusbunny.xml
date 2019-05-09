@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Repusbunny_mage_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="1" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_levitation007_blue2" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_light004_blue" />
+					<Str Str="Dummy_effect_wepon" />
+					<Num Num="0.80000001" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_force015_white#Bip001 L Finger1Nub" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.40000001" Str="F_explosion035_blue" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="150" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Repusbunny_bow_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1100" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="900" Type="SQUARE" Width="5" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_light015_2" />
+					<Str Str="Dummy001" />
+					<Num Num="0.30000001" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_smoke008" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="850" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_swordtrail018_white_2" />
+					<Str Str="Dummy_effect_atk2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="850" UseSleep="NO">
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.5" Str="F_explosion035_blue" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="150" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_ground071_smoke" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="UC_bleed" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="6000" />
+					<Num Num="1" />
+					<Num Num="20" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Repusbunny_bow_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="750" Dist="0" ForceATK="1" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="550" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_light015_2" />
+					<Str Str="Dummy001" />
+					<Num Num="0.30000001" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="0.40000001" Str="I_kunai_mash##0.2" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1.5" Str="I_light013_spark_blue" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="750" UseSleep="NO">
+					<Str_Arg Arg="0.40000001" Str="F_dash007_2" />
+					<Str Str="Dummy_effect_atk" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Repusbunny_mage_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.0029670598" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_light004_blue" />
+					<Str Str="Dummy_effect_wepon" />
+					<Num Num="0.80000001" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_levitation007_blue2" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="500" UseSleep="YES">
+					<Pos Angle="0.17453292" Dist="30" />
+					<Pos Angle="-0.52359879" Dist="100" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="10" />
+					<Num Num="0.0099999998" />
+					<Num Num="1" />
+					<Num Num="670" />
+					<Str_Arg Arg="0.30000001" Str="F_smoke139_blue" />
+					<Num Num="15" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="16" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="3" />
+					<Num Num="10" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="500" UseSleep="YES">
+					<Pos Angle="0.17453292" Dist="30" />
+					<Pos Angle="0" Dist="100" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="10" />
+					<Num Num="0.0099999998" />
+					<Num Num="1" />
+					<Num Num="670" />
+					<Str_Arg Arg="0.30000001" Str="F_smoke139_blue" />
+					<Num Num="15" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="16" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="3" />
+					<Num Num="10" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="500" UseSleep="YES">
+					<Pos Angle="0.17453292" Dist="30" />
+					<Pos Angle="0.52359879" Dist="100" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="10" />
+					<Num Num="0.0099999998" />
+					<Num Num="1" />
+					<Num Num="670" />
+					<Str_Arg Arg="0.30000001" Str="F_smoke139_blue" />
+					<Num Num="15" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="16" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="3" />
+					<Num Num="10" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1200" UseSleep="NO">
+					<Str_Arg Arg="3.5" Str="I_light004_blue" />
+					<Str Str="Dummy_effect_wepon" />
+					<Num Num="0.1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Repusbunny_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="700" Dist="0.000000" ForceATK="0" HitCount="1" Length="30.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.523599" TermMax="0" TermMin="0" Time="400" Type="FAN" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

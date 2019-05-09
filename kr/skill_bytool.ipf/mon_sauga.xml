@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Sauga_s_Attack1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="930" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359903" TermMax="0" TermMin="0" Time="730" Type="FAN" Width="30" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Sauga_s_Attack2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.69813174" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="4" Str="I_sphere008_boss_barrier_mash_loop" />
+					<Str Str="Bip001 Head" />
+					<Num Num="10" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="1000" UseSleep="NO">
+					<Str Str="Rage_Rockto_def" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_DETACH" Time="10000" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_sphere008_boss_barrier_mash_loop" />
+					<Num Num="0.5" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Sauga_s_Attack3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.34906587" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
 <ActionDesc>
 	<Sound frame="0" soundFile="atk_swordswing_1"/>
 	<Sound frame="9" soundFile="voice_war_atk_short"/>
-	<Particle frame="11" attachNode="Dummy_emitter" particleName="E_warrior_atk_ride_tspear" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true"/>
+	<Particle frame="11" attachNode="Dummy_emitter_pet" particleName="E_warrior_atk" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true"/>
 </ActionDesc>

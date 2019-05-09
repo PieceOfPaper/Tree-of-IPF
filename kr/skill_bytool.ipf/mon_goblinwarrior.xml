@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_GoblinWarrior_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="900" Type="CIRCLE" Width="15" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="1000" UseSleep="NO">
+					<Num Num="5" />
+					<Num Num="1" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1100" UseSleep="YES">
+					<Pos Angle="0.17453292" Dist="55" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="30" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_GoblinWarrior_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1500" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="1400" Type="SQUARE" Width="25" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Goblinwarrior_Attack2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" Length="70.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="10.000000" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="25.000000" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="200" UseSleep="NO">
+					<Num Num="5.000000" />
+					<Num Num="0.500000" />
+					<Num Num="45.000000" />
+					<Num Num="999.000000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Goblinwarrior_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" Length="80.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="1400" Type="SQUARE" Width="30.000000" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Goblinwarrior_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.496277" AniTime="250" Dist="49.045750" ForceATK="0" HitCount="1" Length="30.000000" PosType="1" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="900" Type="CIRCLE" Width="40.000000" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="950" UseSleep="NO">
+					<Num Num="5.000000" />
+					<Num Num="1.000000" />
+					<Num Num="45.000000" />
+					<Num Num="999.000000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

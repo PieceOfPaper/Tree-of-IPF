@@ -178,6 +178,10 @@
                                 <MGameObj List="DefGroup/7"/>
                                 <Str Str="SHADOW_RAID_NOT_RUN_CHECK"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="IS_LAST_PHASE"/>
+                                <Num Num="1"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="2phase_dir">

@@ -1,0 +1,435 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Druid_Seedbomb">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_cleric_explosion_seedboom" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="100" />
+					<Num Num="5" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="500" UseSleep="NO">
+					<Str Str="Seedbomb_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="5000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Druid_ThornVine">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="999999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="999799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="100" UseSleep="NO">
+					<Pos Angle="0" Dist="3.8255448e-43" />
+					<Num Num="0" />
+					<Num Num="150" />
+					<Num Num="50" />
+					<Num Num="8" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF_ABIL" Time="700" UseSleep="NO">
+					<Str Str="Druid19" />
+					<Str Str="Common_Wound" />
+					<Num Num="1" />
+					<Num Num="-1" />
+					<Num Num="10000" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num FuncTxt="local value = 0; local abil = GetAbility(self, &quot;Druid19&quot;) if abil ~= nil and abil.ActiveState == 1 then value = 10 * abil.Level end return value;" Num="100" UseFunc="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="700" UseSleep="NO">
+					<Str Str="ThornVine_Debuff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="6000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Druid_HengeStone">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="3" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="200" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="10799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_hengestone_shot" />
+					<Str Str="voice_cleric_f_hengestone_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_PAD_THROW" Time="450" UseSleep="YES">
+					<Str_Arg Arg="1" Str="None" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Num Num="0" />
+					<Num Num="0.40000001" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Angle Angle="0" />
+					<Str Str="Druid_HengeStone" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Druid_Lycanthropy">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_cleric_m_lycanthropy_shot" />
+					<Str Str="voice_cleric_f_lycanthropy_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="950" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="F_spread_out025_fether_blue" />
+					<Pos Angle="0" Dist="0" Height="30" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_cleric_ShapeShifting_shot_smoke3" />
+					<Pos Angle="0" Dist="0" Height="30" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="1050" UseSleep="NO">
+					<Str Str="TRANSFORM_TO_LYCANTHROPY" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Druid_Savior">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="600" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_cleric_StereaTrofh_shot_shield" />
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="800" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="80" />
+					<Num FuncTxt="return 5 + obj.Level;" Num="10" UseFunc="1" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="800" UseSleep="NO">
+					<Str Str="Savior_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="30000" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Druid_Chortasmata">
+		<EndScripts>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="3" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="150" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+				<Str Str="SKL_CHORTASMATA_LOOP" />
+				<Str Str="None" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_cleric_chortasmata_shot" />
+				<Num Num="0" />
+				<Str Str="voice_cleric_m_chortasmata_shot" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="voice_cleric_chortasmata_shot" />
+				<Str Str="voice_cleric_m_chortasmata_shot" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_atk_medium_war_f" />
+				<Num Num="0" />
+				<Str Str="voice_war_atk_medium" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="300" UseSleep="NO">
+					<Str Str="skl_eff_chortasmata_ground" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="600" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Angle Angle="0" />
+					<Str Str="plant_pad_born" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1000" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Angle Angle="0" />
+					<Str Str="plant_pad" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Druid_StereaTrofh">
+		<KeyInputStart>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_cleric_stereatrofh_shot" />
+				<Num Num="0" />
+				<Str Str="voice_cleric_m_stereatrofh_shot" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="voice_cleric_stereatrofh_shot" />
+				<Str Str="voice_cleric_m_stereatrofh_shot" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="400" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="E_cleric_StereaTrofh_shot_shield" />
+					<Pos Angle="0" Dist="3.8255448e-43" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+					<Str Str="voice_cleric_m_stereatrofh_shot" />
+					<Str Str="voice_cleric_stereatrofh_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="700" UseSleep="NO">
+					<Str Str="StereaTrofh_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="15000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Druid_Transform">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_transform_shot" />
+					<Str Str="voice_cleric_transform_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="BEFORE_TRANSMON_TRANSFORM" Time="500" UseSleep="NO">
+					<Str Str="transform" />
+					<Num FuncTxt="return 50000 + obj.Level * 10000;" Num="60000" UseFunc="1" />
+					<Str_Arg Arg="0.60000002" Str="F_cleric_ShapeShifting_shot_smoke2" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Druid_Carnivory">
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="3" Str="F_cleric_carnivory_cast" />
+				<Str Str="Bip01" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="skl_eff_carnivory_cast" />
+				<Num Num="0" />
+				<Str Str="skl_eff_carnivory_cast" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_cleric_carnivory_shot" />
+				<Num Num="0" />
+				<Str Str="voice_cleric_m_carnivory_shot" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="F_cleric_carnivory_cast" />
+				<Num Num="0.5" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="1" Str="F_cleric_carnivory_cast2" />
+				<Str Str="Bip01" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="skl_eff_carnivory_cast" />
+				<Str Str="skl_eff_carnivory_cast" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="voice_cleric_carnivory_shot" />
+				<Str Str="voice_cleric_m_carnivory_shot" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_carnivory_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="600" UseSleep="NO">
+					<Str Str="Carnivory_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="30000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Druid_ShapeShifting">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_shapeshifting_shot" />
+					<Str Str="voice_cleric_shapeshifting_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="300" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" UseFunc="1" />
+					<Num Num="120" />
+					<Num Num="30" />
+					<Num Num="5" />
+					<Num Num="2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="TGT_TRANSFORM" Time="800" UseSleep="NO">
+					<Str Str="transform" />
+					<Num FuncTxt="return 50000 + obj.Level * 10000;" Num="60000" UseFunc="1" />
+					<Str_Arg Arg="0.5" Str="F_cleric_ShapeShifting_shot_smoke2" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Druid_Telepath">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_telepath_shot" />
+					<Str Str="voice_cleric_telepath_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="300" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" />
+					<Num Num="120" />
+					<Num Num="30" />
+					<Num Num="1" />
+					<Num Num="2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="TGT_IS_NORMAL_MONSTER" Time="300" UseSleep="NO" />
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="300" UseSleep="NO">
+					<Str Str="telepath" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num FuncTxt="return 10000 + obj.Level * 1000;" Num="10000" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

@@ -1,0 +1,844 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_warpulis_Skill_5">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl3" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke013_green" />
+					<Str Str="Bip001 Spine" />
+					<Num Num="5" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_PAD_THROW" Time="3100" UseSleep="YES">
+					<Str_Arg Arg="2" Str="I_force018_trail_psychokinesis#Bip001 R Toe0" />
+					<Str_Arg Arg="2.5" Str="F_explosion120_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="100" Height="1" Rand="100" />
+					<Num Num="10" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Angle Angle="0" />
+					<Str Str="boss_warpulis_windpad" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_PAD_THROW" Time="3500" UseSleep="YES">
+					<Str_Arg Arg="2" Str="I_force018_trail_psychokinesis#Bip001 L Hand" />
+					<Str_Arg Arg="2.5" Str="F_explosion120_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="100" Height="1" Rand="100" />
+					<Num Num="10" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Angle Angle="0" />
+					<Str Str="boss_warpulis_windpad" />
+				</Scp>
+				<Anim Anim="atk" Speed="1" StartTime="0.2" Time="3600" />
+				<Scp Client="NO" Scp="MSL_PAD_THROW" Time="4200" UseSleep="YES">
+					<Str_Arg Arg="2" Str="I_force018_trail_psychokinesis#Bip001 R Hand" />
+					<Str_Arg Arg="2.5" Str="F_explosion120_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="100" Height="1" Rand="100" />
+					<Num Num="10" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Angle Angle="0" />
+					<Str Str="boss_warpulis_windpad" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_PAD_THROW" Time="4400" UseSleep="YES">
+					<Str_Arg Arg="2" Str="I_force018_trail_psychokinesis#Bip001 R Toe0" />
+					<Str_Arg Arg="2.5" Str="F_explosion120_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="100" Height="1" Rand="100" />
+					<Num Num="10" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Angle Angle="0" />
+					<Str Str="boss_warpulis_windpad" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_warpulis_Skill_4">
+		<MainSkl JumpFlee="YES" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl3" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke013_green" />
+					<Str Str="Bip001 Spine" />
+					<Num Num="6" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2300" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="-1.5707964" Dist="30" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2350" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="-1.0471976" Dist="60" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2400" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="-0.52359879" Dist="90" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2450" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="-0.08726646" Dist="120" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2500" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0.2617994" Dist="140" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2550" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0.52359879" Dist="150" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3300" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="1.5707964" Dist="30" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3350" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="1.0471976" Dist="60" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3400" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0.52359879" Dist="90" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3450" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0.08726646" Dist="120" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3500" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="-0.2617994" Dist="140" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3550" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="-0.52359879" Dist="150" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="4100" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="1.5707964" Dist="30" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="4100" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="-1.5707964" Dist="30" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="4150" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="1.0471976" Dist="60" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="30" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="4150" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="-1.0471976" Dist="60" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="30" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="4200" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0.52359879" Dist="90" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="40" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="4200" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="-0.52359879" Dist="90" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="40" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="4250" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0.08726646" Dist="120" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="50" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="4250" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="-0.08726646" Dist="120" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="50" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="4300" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="-0.2617994" Dist="140" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="60" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="4300" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="-0.2617994" Dist="140" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="60" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="4350" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="-0.52359879" Dist="150" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="7" Str="F_explosion123_4" />
+					<Num Num="65" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="4350" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0.52359879" Dist="150" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1##0.8" />
+					<Num Num="1000" />
+					<Str_Arg Arg="7" Str="F_explosion123_4" />
+					<Num Num="65" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_warpulis_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl2" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke013_green" />
+					<Str Str="Bip001 Spine" />
+					<Num Num="4" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1800" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="20" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_explosion123_3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1800" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="3.1415927" Dist="20" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1950" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="3.6651914" Dist="35" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1950" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0.52359879" Dist="35" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2100" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="1.0471976" Dist="50" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2100" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="4.1887903" Dist="50" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2150" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="1.5707964" Dist="65" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2150" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="4.712389" Dist="65" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2200" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="5.2359877" Dist="80" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2200" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="2.0943952" Dist="80" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2250" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="2.6179938" Dist="95" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2250" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="5.7595863" Dist="95" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2300" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="110" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2300" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="3.1415927" Dist="110" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1000" />
+					<Str_Arg Arg="4" Str="F_explosion123_3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_BUCK" Time="3300" UseSleep="YES">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Num Num="3" />
+					<Num Num="20" />
+					<Num Num="120" />
+					<Num Num="0" />
+					<Num Num="360" />
+					<Num Num="12" />
+					<Num Num="0" />
+					<Num Num="175" />
+					<Num Num="20" />
+					<Num Num="1" />
+					<Str_Arg Arg="2" Str="I_force018_trail_psychokinesis" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_warpulis_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl1" Speed="0.69999999" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="300" />
+					<Num Num="5" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="7.5" Str="F_explosion123_5" />
+					<Str Str="effect_dum" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="1600" UseSleep="NO">
+					<Str Str="UC_Cloaking_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1050" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="skl1" Speed="1" StartTime="1.9" Time="2600" />
+				<Scp Client="NO" Scp="SKL_SETPOS" Time="2600" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="8" Rand="280" />
+					<Str_Arg Arg="1" Str="F_sys_target_boss1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2800" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="5" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Str_Arg Arg="2" Str="F_explosion98_green" />
+					<Num Num="50" />
+					<Num Num="250" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="80" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_warpulis_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="1" HitCount="1" Length="160" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="20" />
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="1" HitCount="1" Length="160" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="20" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_force018_trail_psychokinesis#Bip001 L Finger1" />
+					<Str Str="None" />
+					<Str_Arg Arg="2.5" Str="F_explosion120_blue" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="200" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="12" />
+					<Num Num="2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_force018_trail_psychokinesis#Bip001 L Toe0" />
+					<Str Str="None" />
+					<Str_Arg Arg="2.5" Str="F_explosion120_blue" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="200" />
+					<Num Num="0" />
+					<Num FuncTxt="10" Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="1" />
+					<Num Num="5" />
+					<Num Num="12" />
+					<Num Num="2" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

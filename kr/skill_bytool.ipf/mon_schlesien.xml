@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_schlesien_claw_Attack1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="1000" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_schlesien_claw_Attack2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1000" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="1350" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1150" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="1500" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1300" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="1650" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1450" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="1850" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1650" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="2000" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1800" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="2150" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1950" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="F_explosion019_rize" />
+					<Str Str="Bip01 Pelvis" />
+					<Num Num="1" />
+				</Scp>
+				<Anim Anim="SKL" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_schlesien_claw_Skill">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="3.0630441" AniTime="10199" Dist="28.665588" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="SQUARE" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0.42324084" Dist="12.369205" />
+					<Str_Arg Arg="2" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0.69999999" Str="F_explosion019_rize#Dummy_skl1_badak" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_schlesien_darkmage_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="800" Dist="0.000000" ForceATK="0" HitCount="1" Length="45.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="900" Type="SQUARE" Width="10.000000" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_schlesien_darkmage_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="-3.0426161" AniTime="10199" Dist="39.258137" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.0029670598" TermMax="0" TermMin="0" Time="9999" Type="SQUARE" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="1000" UseSleep="YES">
+					<Pos Angle="2.0683849" Dist="0.97327" />
+					<Pos Angle="-0.0051521021" Dist="111.17484" />
+					<Str_Arg Arg="1" Str="F_sys_arrow_monster##0.5" />
+					<Num Num="25" />
+					<Num Num="0.050000001" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0.5" Str="F_burstup004_dark" />
+					<Num Num="10" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="25" />
+					<Num Num="0.050000001" />
+					<Num Num="1" />
+					<Num Num="1000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_schlesien_heavycavarly_Attack1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1300" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.69813174" TermMax="0" TermMin="0" Time="1100" Type="FAN" Width="50" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_schlesien_heavycavarly_Attack2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="1.0012594" Dist="4.4197288" />
+					<Str_Arg Arg="1.2" Str="F_burstup025_dark" />
+					<Num Num="1130" />
+					<Str_Arg Arg="3" Str="F_explosion074_violet" />
+					<Num Num="30" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_schlesien_heavycavarly_Skill">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.90583402" AniTime="10199" Dist="1.7788579" ForceATK="0" HitCount="1" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="CIRCLE" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0.19924173" Dist="30.58691" />
+					<Str_Arg Arg="2.5" Str="F_sys_target_pc2" />
+					<Num Num="2000" />
+					<Str_Arg Arg="1.5" Str="F_burstup004_dark" />
+					<Num Num="25" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
+					<Str_Arg Arg="4" Str="F_buff_basic022_violet_fire" />
+					<Str Str="body005" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_schlesien_guard_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="900" Dist="0.000000" ForceATK="0" HitCount="1" Length="40.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="900" Type="SQUARE" Width="15.000000" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_schlesien_guard_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="-2.995772" AniTime="1000" Dist="28.582933" ForceATK="0" HitCount="1" Length="30.000000" PosType="1" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="1000" Type="CIRCLE" Width="40.000000" />
+				<Frame Angle="-2.995772" AniTime="1200" Dist="28.582933" ForceATK="0" HitCount="1" Length="30.000000" PosType="1" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="1200" Type="CIRCLE" Width="40.000000" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_schlesien_guard_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="800" Dist="0.000000" ForceATK="0" HitCount="1" Length="40.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="1000" Type="SQUARE" Width="15.000000" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

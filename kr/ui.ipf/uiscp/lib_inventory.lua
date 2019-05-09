@@ -341,8 +341,6 @@ function INV_GET_SLOTSET_BY_ITEMID(itemGUID, isAll)
 		return;
 	end
 
-	local itemCls = GetClassByType("Item", invItem.type);
-
 	local invIndex = invItem.invIndex;
 	local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
 
@@ -725,7 +723,7 @@ function GET_INV_ITEM_COUNT_BY_PROPERTY(propCondList, exceptLock, itemList, chec
             if matched == true then
                 if itemObj.MaxStack > 1 then
 	                count = count + invItem.count;
-	            else -- 비스?�형 ?�이??
+	            else -- 비스?�형 ?�이??
 		            count = count + 1;
 		        end
 	            matchedList[#matchedList + 1] = invItem;

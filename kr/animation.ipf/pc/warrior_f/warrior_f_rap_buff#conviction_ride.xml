@@ -1,19 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
 <ActionDesc>
-    <BlendOn frame="0" R="0" G="0" B="0" A="0"/>
-    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
-    <BlendOn frame="1" R="0" G="0" B="0" A="0"/>
-    <Sound frame="2.00" soundFile="skl_fgt_tackle_shot"/>
-    <Sound frame="2" soundFile="skl_wiz_soulactivation"/>
-    <Sound frame="3.00" soundFile="voice_atk_medium_war_f"/>
-    <Particle frame="5" attachNode="Dummy_effect_conviction" particleName="F_warrior_gungho_shot_lineup" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
-    <BlendOn frame="6" R="70" G="20" B="50" A="30"/>
-    <Sound frame="9" soundFile="skl_fgt_conviction"/>
-    <PostFix frame="10" ID="_height"/>
-    <BlendOn frame="10" R="50" G="5" B="30" A="30"/>
-    <BlendOn frame="13" R="0" G="0" B="0" A="0"/>
-    <BlendOff frame="16" R="0" G="0" B="0" A="0"/>
-    <PostFix frame="20" ID="_height"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<BlendOn frame="1" R="0" G="0" B="0" A="0"/>
+	<Sound frame="2.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="2" soundFile="skl_wiz_soulactivation"/>
+	<Sound frame="3.00" soundFile="voice_atk_medium_war_f"/>
+	<Particle frame="5" attachNode="Dummy_effect_conviction" particleName="F_warrior_gungho_shot_lineup" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" targetPos="false"/>
+	<BlendOn frame="6" R="70" G="20" B="50" A="30"/>
+	<Sound frame="9" soundFile="skl_fgt_conviction"/>
+	<PostFix frame="10" ID="_height"/>
+	<BlendOn frame="10" R="50" G="5" B="30" A="30"/>
+	<BlendOn frame="13" R="0" G="0" B="0" A="0"/>
+	<BlendOff frame="16" R="0" G="0" B="0" A="0"/>
+	<PostFix frame="20" ID="_height"/>
 </ActionDesc>

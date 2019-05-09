@@ -1,0 +1,386 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Centurion_SummonCart">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="300" TimeSync="0" UseSleep="NO">
+					<Str Str="CENTURION_CART" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Centurion_Rotate">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_FORMATION_STATE" UseSleep="NO">
+				<Num Num="1" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_lada_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_m_rotate_shot" />
+					<Str Str="voice_war_rotate_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="600" UseSleep="NO">
+					<Str Str="RotateFormation" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Centurion_Testudo">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_FORMATION_NAME" UseSleep="NO">
+				<Str Str="Centurion_Testudo" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_war_m_testudo_shot" />
+					<Str Str="voice_war_testudo_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_testudo" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_FORMATION" Time="500" UseSleep="NO">
+					<Str Str="Centurion_Testudo" />
+					<Num Num="20" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_FORMATION_PAD_ADD_EFFECT" Time="1000" UseSleep="NO">
+					<Num Num="5" />
+					<Str_Arg Arg="2.7" Str="E_warrior_testudo_shot_ground2" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Centurion_SpecialForceFormation">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="MONSKL_FORMATION" UseSleep="NO">
+				<Str Str="Centurion_CoolDown" />
+				<Num Num="60" />
+				<Num Num="5" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyCancelScp>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_specialforceformation_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_FORMATION" Time="0" UseSleep="NO">
+					<Str Str="Centurion_CoolDown" />
+					<Num Num="20" />
+					<Num Num="5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_m_specialforceformation_shot" />
+					<Str Str="voice_war_specialforceformation_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_FORMATION_PAD_ADD_EFFECT" Time="1000" UseSleep="NO">
+					<Num Num="5" />
+					<Str_Arg Arg="2.7" Str="E_warrior_testudo_shot_ground2" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Centurion_SchiltronFormation">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_FORMATION_NAME" UseSleep="NO">
+				<Str Str="Centurion_schiltron_formation" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_schiltron" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_war_m_schiltron_shot" />
+					<Str Str="voice_war_schiltron_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_FORMATION" Time="500" UseSleep="NO">
+					<Str Str="Centurion_SchiltronFormation" />
+					<Num Num="20" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_FORMATION_PAD_ADD_EFFECT" Time="1000" UseSleep="NO">
+					<Num Num="5" />
+					<Str_Arg Arg="2.5" Str="F_warrior_schiltron_active_ground2" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Centurion_WedgeFormation">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_FORMATION_NAME" UseSleep="NO">
+				<Str Str="Centurion_wedge_formation" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_wedge" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_m_wedgeformation_shot" />
+					<Str Str="voice_war_wedgeformation_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_FORMATION" Time="550" UseSleep="NO">
+					<Str Str="Centurion_WedgeFormation" />
+					<Num Num="20" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Centurion_Conscript">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_conscript" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_m_conscript_shot" />
+					<Str Str="voice_war_conscript_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_FORMATION" Time="500" UseSleep="NO">
+					<Str Str="Centurion_Conscript" />
+					<Num Num="20" />
+					<Num FuncTxt=" return 3 + obj.Level ;" Num="0" UseFunc="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="BOTH" Scp="SKL_CHECK_FORMATION_NAME_EQUAL" UseSleep="NO">
+						<Str Str="Centurion_Conscript" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<EtcList>
+						<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+							<Str Str="skl_archer_stealth" />
+						</Scp>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+							<Str Str="voice_war_atk_short" />
+							<Str Str="voice_atk_short_war_f" />
+						</Scp>
+						<Scp Client="NO" Scp="MONSKL_FORMATION" Time="1000" UseSleep="NO">
+							<Str Str="None" />
+							<Num Num="20" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Centurion_WingedFormation">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_FORMATION_NAME" UseSleep="NO">
+				<Str Str="Centurion_Winged_Formation" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_war_m_wingedformation_shot" />
+					<Str Str="voice_war_wingedformation_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_warrior_wing" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_FORMATION" Time="300" UseSleep="NO">
+					<Str Str="Centurion_WingedFormation" />
+					<Num Num="20" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+						<Str Str="Centurion3" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<EtcList>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+							<Str Str="voice_war_m_wingedformation_shot" />
+							<Str Str="voice_war_wingedformation_shot" />
+						</Scp>
+						<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+							<Str Str="skl_eff_warrior_wing" />
+						</Scp>
+						<Scp Client="NO" Scp="MONSKL_FORMATION" Time="300" UseSleep="NO">
+							<Str Str="Centurion_WingedFormation_abil" />
+							<Num Num="20" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Centurion_PhalanxFormation">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_FORMATION_NAME" UseSleep="NO">
+				<Str Str="Centurion_phalanx_formation" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_war_m_phalanx_shot" />
+					<Str Str="voice_war_phalanx_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_fgt_swashbuckling" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_FORMATION" Time="450" UseSleep="NO">
+					<Str Str="Centurion_PhalanxFomation" />
+					<Num Num="20" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="BOTH" Scp="SKL_CHECK_FORMATION_NAME_EQUAL" UseSleep="NO">
+						<Str Str="Centurion_phalanx_formation" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<EtcList>
+						<Scp Client="NO" Scp="MONSKL_FORMATION" Time="1000" UseSleep="NO">
+							<Str Str="None" />
+							<Num Num="20" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Centurion_Skirmishers">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_FORMATION_NAME" UseSleep="NO">
+				<Str Str="Centurion_skirmishers_formation" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_FORMATION" Time="1000" UseSleep="NO">
+					<Str Str="Centurion_skirmishers_formation" />
+					<Num Num="20" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="BOTH" Scp="SKL_CHECK_FORMATION_NAME_EQUAL" UseSleep="NO">
+						<Str Str="Centurion_skirmishers_formation" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<EtcList>
+						<Scp Client="NO" Scp="MONSKL_FORMATION" Time="1000" UseSleep="NO">
+							<Str Str="None" />
+							<Num Num="20" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Centurion_TercioFormation">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_FORMATION_NAME" UseSleep="NO">
+				<Str Str="Centurion_tercio_formation" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_tercio" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_war_m_tercio_shot" />
+					<Str Str="voice_war_tercio_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_FORMATION" Time="500" UseSleep="NO">
+					<Str Str="Centurion_TercioFormation" />
+					<Num Num="20" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+						<Str Str="Centurion2" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<EtcList>
+						<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+							<Str Str="skl_eff_tercio" />
+						</Scp>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+							<Str Str="voice_war_m_tercio_shot" />
+							<Str Str="voice_war_tercio_shot" />
+						</Scp>
+						<Scp Client="NO" Scp="MONSKL_FORMATION" Time="500" UseSleep="NO">
+							<Str Str="Centurion_TercioFormation_abil" />
+							<Num Num="20" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	</ToolSkill>

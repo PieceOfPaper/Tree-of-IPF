@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_nook_Skill_2">
+		<CondList>
+			<Scp Client="NO" Scp="SCOND_DISTANCE_CHECK" Time="0" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="30" />
+				<Num Num="60" />
+			</Scp>
+		</CondList>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-2.2374883" Dist="1.1948688" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="400" />
+				<Frame Accel="1" Angle="-0.050224505" Dist="27.150763" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="500" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="20" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="250" Type="CIRCLE" Width="15" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="0.89999998" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_nook_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="25" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.61086529" TermMax="0" TermMin="0" Time="250" Type="FAN" Width="20" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

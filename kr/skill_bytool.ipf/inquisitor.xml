@@ -1,0 +1,647 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Inquisitor_BreastRipper">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="MONSKL_C_STOP_ANIM" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_TGT_BUFFREMOVE" UseSleep="NO">
+				<Str Str="BreastRipper_Debuff" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_TARGET_RESET" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" UseSleep="YES">
+				<Str Str="Skill_SuperArmor_Buff" />
+				<Num Num="500" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+				<Str Str="BreastRipper_Buff" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_PRESS" UseSleep="NO">
+				<Num Num="1.5" />
+				<Num Num="0.15000001" />
+				<Num Num="99999" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInput>
+		<KeyCancelScp>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" LoopTime="300" Scp="SKL_SET_TARGET_FAN" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="30" />
+					<Num Num="40" />
+					<Num Num="150" />
+					<Num FuncTxt="  local value = 5     local STR = TryGetProp(self, &quot;STR&quot;)     local strtValue = STR / 50     if strtValue &lt;= 0 then         strtValue = 0     end     value = value + strtValue     return math.floor(value)" Num="0" UseFunc="1" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
+					<Str Str="Skill_SuperArmor_Buff" />
+					<Num Num="100" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="BreastRipper_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_breastripper_cast" />
+					<Str Str="voice_cleric_f_breastripper_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_BREASTRIPPER_READY" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="500" UseSleep="NO">
+					<Str Str="BreastRipper_Debuff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_CHECK_LOOPING_COUNT_INIT" Time="550" TimeSync="0" UseSleep="NO">
+					<Num Num="15" />
+				</Scp>
+				<Scp Client="NO" LoopTime="300" Scp="SKL_CHECK_LOOPING_COUNT" Time="550" TimeSync="0" UseSleep="NO" />
+				<Scp Client="NO" LoopTime="300" Scp="SKL_BUFF" Time="1500" UseSleep="NO">
+					<Str Str="BreastRipper_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="SKL_C_RESUME_ANI" Time="1500" UseSleep="NO" />
+				<Scp Client="YES" LoopTime="300" Scp="MONSKL_C_PLAY_ANIM" Time="1500" UseSleep="NO">
+					<Str Str="SKL_BREASTRIPPER_LOOP" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" LoopTime="300" Scp="SKL_KNOCKBACK_IN_STRAIGHT_VERTICAL_LINE" Time="1800" UseSleep="NO">
+					<Pos Angle="0" Dist="30" />
+					<Num Num="120" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+			<KillList>
+				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+					<Str Str="Inquisitor17" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_COND_SCRIPT" UseSleep="NO">
+					<Str Str="SCR_INQUISITOR_TORTURE" />
+				</ToolScp>
+			</KillList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Inquisitor_Judgment">
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="1.5" Str="I_cleric_telepath_loop_connect" />
+				<Str Str="bip01" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="I_cleric_telepath_loop_connect" />
+				<Num Num="0.5" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="75" />
+					<Num Num="80" />
+					<Num Num="10" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_cleric_m_Judgment_cast" />
+					<Str Str="voice_cleric_Judgment_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_smoke135_dark" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="500" UseSleep="NO">
+					<Str Str="Judgment_Debuff" />
+					<Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num FuncTxt="return 15000 + obj.Level * 1000" Num="0" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="600" UseSleep="NO">
+					<Pos Angle="0" Dist="4.2194909e-36" />
+					<Num Num="100" />
+					<Num Num="99" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF_ABIL" Time="650" UseSleep="NO">
+					<Str Str="Inquisitor15" />
+					<Str FuncTxt="local target = GetSkillTarget(self) if IsBuffApplied(target, &quot;ProvocationImmunity_Debuff&quot;) == &quot;YES&quot; then     return end return &quot;Judgment_Provoke_Debuff&quot;" Str="Judgment_Provoke_Debuff" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="-1" />
+					<Num Num="5000" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Inquisitor_GodSmash">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="70" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="350" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="500" UseSleep="NO">
+					<Num Num="5" />
+					<Num Num="0.5" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Inquisitor_MalleusMaleficarum">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="1" HitCount="1" Length="180" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="80" />
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="1" HitCount="1" Length="180" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="80" />
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="1" HitCount="1" Length="180" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="80" />
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="1" HitCount="1" Length="180" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="80" />
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="1" HitCount="1" Length="180" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="80" />
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="1" HitCount="1" Length="180" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="80" />
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="1" HitCount="1" Length="180" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="1.0471981" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="80" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_malleusmaleficarum_shot" />
+					<Str Str="voice_cleric_f_malleusmaleficarum_shot" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="750" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_cleric_Inquisitor_MalleusMaleficarum01#Dummy_effect_magicmissile" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="I_explosion004_yellow_mage01_3" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num FuncTxt="return IMCRandom(-400, 400);" Num="-100" UseFunc="1" />
+					<Angle_Abs Angle="-0.52359879" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="12" />
+					<Num Num="2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="780" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_cleric_Inquisitor_MalleusMaleficarum02#Dummy_effect_magicmissile" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="I_explosion004_yellow_mage01_3" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num FuncTxt="return IMCRandom(-400, 400);" Num="600" UseFunc="1" />
+					<Angle_Abs Angle="-0.34906584" />
+					<Num Num="1" />
+					<Num Num="5" />
+					<Num Num="12" />
+					<Num Num="2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="810" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_cleric_Inquisitor_MalleusMaleficarum03#Dummy_effect_magicmissile" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="I_explosion004_yellow_mage01_3" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num FuncTxt="return IMCRandom(-400, 400);" Num="600" UseFunc="1" />
+					<Angle_Abs Angle="-0.17453292" />
+					<Num Num="2" />
+					<Num Num="5" />
+					<Num Num="12" />
+					<Num Num="2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="840" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_cleric_Inquisitor_MalleusMaleficarum04#Dummy_effect_magicmissile" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="I_explosion004_yellow_mage01_3" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num FuncTxt="return IMCRandom(-400, 400);" Num="600" UseFunc="1" />
+					<Angle_Abs Angle="0" />
+					<Num Num="3" />
+					<Num Num="5" />
+					<Num Num="12" />
+					<Num Num="2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="870" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_cleric_Inquisitor_MalleusMaleficarum05#Dummy_effect_magicmissile" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="I_explosion004_yellow_mage01_3" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num FuncTxt="return IMCRandom(-400, 400);" Num="600" UseFunc="1" />
+					<Angle_Abs Angle="0.17453292" />
+					<Num Num="4" />
+					<Num Num="5" />
+					<Num Num="12" />
+					<Num Num="2" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_cleric_Inquisitor_MalleusMaleficarum03#Dummy_effect_magicmissile" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="I_explosion004_yellow_mage01_3" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num FuncTxt="return IMCRandom(-400, 400);" Num="600" UseFunc="1" />
+					<Angle_Abs Angle="0.34906584" />
+					<Num Num="5" />
+					<Num Num="5" />
+					<Num Num="12" />
+					<Num Num="2" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="930" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_cleric_Inquisitor_MalleusMaleficarum01#Dummy_effect_magicmissile" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="I_explosion004_yellow_mage01_3" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num FuncTxt="return IMCRandom(-400, 400);" Num="600" UseFunc="1" />
+					<Angle_Abs Angle="0.52359879" />
+					<Num Num="6" />
+					<Num Num="5" />
+					<Num Num="12" />
+					<Num Num="2" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_COND_UNAPPLIED_RANK" UseSleep="NO">
+					<Str Str="Boss" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="MalleusMaleficarum_Debuff" />
+					<Num FuncTxt="return skill.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Inquisitor_BreakingWheel">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_breakingwheel_shot" />
+					<Str Str="voice_cleric_f_breakingwheel_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0" Dist="50" />
+					<Angle Angle="0" />
+					<Str Str="Inquisitor_BreakingWheel" />
+				</Scp>
+			</EtcList>
+			<KillList>
+				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+					<Str Str="Inquisitor17" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_COND_SCRIPT" UseSleep="NO">
+					<Str Str="SCR_INQUISITOR_TORTURE" />
+				</ToolScp>
+			</KillList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Inquisitor_LeadSprinkler">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="400" UseSleep="NO">
+					<Pos Angle="0" Dist="40" />
+					<Angle Angle="0" />
+					<Str Str="Inquisitor_LeadSprinkler" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Inquisitor_PearofAnguish">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="3" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="200" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_cleric_f_pearofanguish_shot" />
+				<Num Num="0" />
+				<Str Str="voice_cleric_m_pearofanguish_shot" />
+			</ToolScp>
+		</KeyInputStart>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="CREATE_MINE" Time="600" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" Rand="25" />
+					<Num Num="0.5" />
+					<Str_Arg Arg="0.60000002" Str="I_cleric_PearofAnguish_force_mash#Bip01 R Hand" />
+					<Str_Arg Arg="0.69999999" Str="F_smoke008_pearofanguish##1" />
+					<Str Str="pcskill_pear_of_anquish" />
+					<Str Str="Mine_Web" />
+					<Str_Arg Arg="0.5" Str="F_explosion050_fire_blue" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="20" />
+					<Str Str="None" />
+					<Str_Arg Arg="0.5" Str="F_archer_Caltrop_shot_light" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Str Str="ININ_SUMMON_PEAROFANGUISH" />
+				</Scp>
+				<Scp Client="NO" Scp="CREATE_MINE" Time="600" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" Rand="25" />
+					<Num Num="0.5" />
+					<Str_Arg Arg="0.60000002" Str="I_cleric_PearofAnguish_force_mash#Bip01 R Hand" />
+					<Str_Arg Arg="0.69999999" Str="F_smoke008_pearofanguish##1" />
+					<Str Str="pcskill_pear_of_anquish" />
+					<Str Str="Mine_Web" />
+					<Str_Arg Arg="0.5" Str="F_explosion050_fire_blue" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="20" />
+					<Str Str="None" />
+					<Str_Arg Arg="0.5" Str="F_archer_Caltrop_shot_light" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Str Str="ININ_SUMMON_PEAROFANGUISH" />
+				</Scp>
+				<Scp Client="NO" Scp="CREATE_MINE" Time="600" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" Rand="25" />
+					<Num Num="0.5" />
+					<Str_Arg Arg="0.60000002" Str="I_cleric_PearofAnguish_force_mash#Bip01 R Hand" />
+					<Str_Arg Arg="0.69999999" Str="F_smoke008_pearofanguish##1" />
+					<Str Str="pcskill_pear_of_anquish" />
+					<Str Str="Mine_Web" />
+					<Str_Arg Arg="0.5" Str="F_explosion050_fire_blue" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="20" />
+					<Str Str="None" />
+					<Str_Arg Arg="0.5" Str="F_archer_Caltrop_shot_light" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Str Str="ININ_SUMMON_PEAROFANGUISH" />
+				</Scp>
+				<Scp Client="NO" Scp="CREATE_MINE" Time="600" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" Rand="25" />
+					<Num Num="0.5" />
+					<Str_Arg Arg="0.60000002" Str="I_cleric_PearofAnguish_force_mash#Bip01 R Hand" />
+					<Str_Arg Arg="0.69999999" Str="F_smoke008_pearofanguish##1" />
+					<Str Str="pcskill_pear_of_anquish" />
+					<Str Str="Mine_Web" />
+					<Str_Arg Arg="0.5" Str="F_explosion050_fire_blue" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="20" />
+					<Str Str="None" />
+					<Str_Arg Arg="0.5" Str="F_archer_Caltrop_shot_light" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Str Str="ININ_SUMMON_PEAROFANGUISH" />
+				</Scp>
+				<Scp Client="NO" Scp="CREATE_MINE" Time="600" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" Rand="25" />
+					<Num Num="0.5" />
+					<Str_Arg Arg="0.60000002" Str="I_cleric_PearofAnguish_force_mash#Bip01 R Hand" />
+					<Str_Arg Arg="0.69999999" Str="F_smoke008_pearofanguish##1" />
+					<Str Str="pcskill_pear_of_anquish" />
+					<Str Str="Mine_Web" />
+					<Str_Arg Arg="0.5" Str="F_explosion050_fire_blue" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="20" />
+					<Str Str="None" />
+					<Str_Arg Arg="0.5" Str="F_archer_Caltrop_shot_light" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Str Str="ININ_SUMMON_PEAROFANGUISH" />
+				</Scp>
+			</EtcList>
+			<KillList>
+				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+					<Str Str="Inquisitor17" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_COND_SCRIPT" UseSleep="NO">
+					<Str Str="SCR_INQUISITOR_TORTURE" />
+				</ToolScp>
+			</KillList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Inquisitor_IronBoots">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="400" UseSleep="NO">
+					<Pos Angle="0" Dist="30" />
+					<Num Num="30" />
+					<Num Num="1" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="400" UseSleep="NO">
+					<Str Str="IronBoots_Debuff" />
+					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Inquisitor_HereticsFork">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="300" UseSleep="NO">
+					<Pos Angle="0" Dist="30" />
+					<Num Num="30" />
+					<Num Num="1" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="300" UseSleep="NO">
+					<Str Str="HereticsFork_Debuff" />
+					<Num FuncTxt="return  obj.Level" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="5000" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Inquisitor_IronMaiden">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="3" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="140" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Num Num="20" />
+					<Num Num="1" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="0" UseSleep="NO">
+					<Str Str="EXCLUDE_FROM_IRONMAIDEN_TARGET" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_inquisitor_ironmaiden_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_cleric_m_IronMaiden_cast" />
+					<Str Str="voice_cleric_IronMaiden_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="550" UseSleep="NO">
+					<Str Str="IronMaiden_Debuff" />
+					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num FuncTxt="return 4000 + obj.Level * 500" Num="0" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+			</EtcList>
+			<KillList>
+				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+					<Str Str="Inquisitor17" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_COND_SCRIPT" UseSleep="NO">
+					<Str Str="SCR_INQUISITOR_TORTURE" />
+				</ToolScp>
+			</KillList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

@@ -9,7 +9,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 9,9,0,40,30,0,15,0,0,0,0,0,0,"rockon","","","","","","","","","","","NO","YES","NO","Monster","","","","Attack"
 10,10,0,40,35,0,20,0,0,0,0,0,0,"rockon","","","","","","","","","","","NO","YES","NO","Monster","","","","Attack"
 11,11,0,40,30,0,25,0,0,0,0,0,0,"tala_sorcerer","","","","","","","LIMESTONE_52_1_SQ_3_AI","","","","NO","YES","NO","Monster","","","","Attack"
-12,12,0,40,35,0,20,0,0,0,0,0,0,"Flak_green","","","","","","","","","","","NO","YES","NO","Monster","","","","Attack"
+12,12,0,40,35,0,35,0,0,0,0,0,0,"Flak_green","","","","","","","","","","","NO","YES","NO","Monster","","","","Attack"
 13,13,1,40,-1,60000,1,0,0,0,0,0,0,"whorfzone","UnvisibleName","","","","","","","","LIMESTONE_52_1_MAGIC","","NO","YES","NO","Neutral","","","",""
 14,14,1,200,-1,60000,1,0,0,0,0,0,0,"HiddenTrigger6","LIMESTONE_52_1_MQ_3_TRIG","","","","","","","","LIMESTONE_52_1_MQ_3_PROG","","NO","YES","NO","Neutral","","","",""
 15,15,1,40,-1,30000,12,0,0,0,1,0,1,"Hiddennpc","UnvisibleName","","","","","","LIMESTONE_52_1_MQ_4_AI","LIMSTONE_52_1_CRYSTAL_PIECE","","","NO","YES","NO","Neutral","","","",""
@@ -26,3 +26,4 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 27,1000,1,0,1,1,1,0,0,0,0,0,0,"treasure_box1","보물 상자 LV1","","","","","","","TREASUREBOX_LV","","","NO","YES","NO","Neutral","LV1","ITEM:COLLECT_286:1","",""
 28,1001,0,40,9999,0,40,0,0,0,0,0,0,"rockoff","","","","","","","","","","","NO","YES","NO","Monster","","","","Attack"
 29,1002,1,40,80,1000,11,0,0,0,1,0,0,"rmg_crystal_1","수집 수정구","","","","","","","LSCAVE521_RMG_NPC_1","","","NO","YES","NO","Neutral","","","",""
+30,1003,1,1,1,1,1,0,0,0,0,0,0,"HiddenTrigger6","","","","","","","","","LIMESTONE_52_1_MQ_10_PROG_TRG","","NO","YES","NO","Neutral","","","",""

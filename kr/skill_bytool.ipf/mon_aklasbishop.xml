@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_aklasbishop_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="100" />
+					<Num Num="20" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1200" UseSleep="NO">
+					<Pos Angle="0" Dist="0" Height="1" PosType="9" Rand="110" />
+					<Angle Angle="0" />
+					<Str Str="Mon_PoleofAgony" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1200" UseSleep="NO">
+					<Pos Angle="0" Dist="0" Height="1" PosType="10" Rand="110" />
+					<Angle Angle="0" />
+					<Str Str="Mon_PoleofAgony" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1200" UseSleep="NO">
+					<Pos Angle="0" Dist="0" Height="1" PosType="10" Rand="110" />
+					<Angle Angle="0" />
+					<Str Str="Mon_PoleofAgony" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_aklasbishop_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" />
+					<Str_Arg Arg="0.60000002" Str="F_spread_in005_dark#Bip001" />
+					<Num Num="1200" />
+					<Str_Arg Arg="0.5" Str="F_explosion016_red" />
+					<Num Num="45" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_aklasbishop_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="1" HitCount="1" Length="140" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="15" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_smoke001_dark_3#Bip001 R Finger1Nub" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.69999999" Str="F_burstup025_dark" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

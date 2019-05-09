@@ -1,0 +1,329 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Paladin_Sanctuary">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Paladin_Sanctuary_Pad" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="10" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="WORSHIP" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SOUND" UseSleep="NO">
+				<Str Str="skl_eff_sanctuary_ground_start" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
+				<Str Str="voice_archer_m_atk" />
+				<Str Str="voice_archer_f_atk" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="ASTD" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInputEnd>
+		<KeyCancelScp>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="ASTD" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="999999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="999799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="1.5707964" />
+					<Str Str="Paladin_Sanctuary_Pad" />
+				</Scp>
+				<Scp Client="NO" LoopTime="1000" Scp="SKL_CONSUME_SP" Time="0" UseSleep="NO">
+					<Num FuncTxt="local value = 30 local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect &gt;= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) return math.floor(value)" Num="0" UseFunc="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Paladin_Demolition">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0.5" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_DEMOLITION_CAST" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SOUND" UseSleep="NO">
+				<Str Str="skl_eff_demolition_cast" />
+			</ToolScp>
+		</KeyInputStart>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="CIRCLE" Width="50" />
+				<Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="CIRCLE" Width="50" />
+				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="CIRCLE" Width="50" />
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="600" Type="CIRCLE" Width="50" />
+				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="700" Type="CIRCLE" Width="50" />
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="CIRCLE" Width="50" />
+				<Frame Angle="0" AniTime="1400" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1200" Type="CIRCLE" Width="65" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL_DEMOLITION" Speed="1.5" Time="0" />
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+					<Str Str="voice_war_atk_long_shot" />
+					<Str Str="voice_atk_long_war_f" />
+				</Scp>
+				<Anim Anim="SKL_DEMOLITION" Speed="1.5" Time="400" />
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="400" UseSleep="NO">
+					<Str_Arg Arg="1.1" Str="F_cleric_demolition_explosion" />
+					<Pos Angle="0" Dist="40" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Anim Anim="SKL_DEMOLITION" Speed="1" Time="800" />
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="800" UseSleep="NO">
+					<Str_Arg Arg="1.1" Str="F_cleric_demolition_explosion" />
+					<Pos Angle="0" Dist="40" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="1400" UseSleep="NO">
+					<Num Num="10" />
+					<Num Num="1" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1500" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="F_cleric_demolition_explosion" />
+					<Pos Angle="0" Dist="40" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+					<Str Str="Paladin22" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="Stun" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="3000" />
+					<Num Num="1" />
+					<Num FuncTxt="local ratio = 0; local pc = GetSkillOwner(skill); local abil = GetAbility(pc, 'Paladin22'); if abil ~= nil and abil.ActiveState == 1 then ratio = ratio + abil.Level; end return ratio;" Num="100" UseFunc="1" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Paladin_StoneSkin">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_stoneskin_shot" />
+					<Str Str="voice_cleric_stoneskin_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="700" UseSleep="NO">
+					<Str Str="StoneSkin_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1800000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Paladin_Conviction">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="30" />
+				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_cleric_m_conviction_shot" />
+					<Str Str="voice_cleric_conviction_shot" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="Conviction_Debuff" />
+					<Num FuncTxt="return skill.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="20000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+			<KillList>
+				<ToolScp Client="NO" Scp="S_R_COND_TGTBUFF" UseSleep="NO">
+					<Str Str="DeathVerdict_Buff" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_EXPLODE_TAKEDAMAGEADDBLOW" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_ground174_dark2" />
+					<Num Num="60" />
+					<Num Num="1" />
+					<Num Num="0.2" />
+					<Num Num="5" />
+				</ToolScp>
+			</KillList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Paladin_Conversion">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="100199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_conversion_shot" />
+					<Str Str="voice_cleric_conversion_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="500" UseSleep="NO">
+					<Str Str="skl_eff_buff_shot_2" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="800" UseSleep="NO">
+					<Pos Angle="0" Dist="30" />
+					<Angle Angle="0" />
+					<Str Str="Cleric_Conversion" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Paladin_Barrier">
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_WARDIZATION_LOOP" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInputStart>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="100199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_barrier_shot" />
+					<Str Str="voice_cleric_barrier_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="Cleric_Barrier_PC" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Paladin_ResistElements">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_resistelements_shot" />
+					<Str Str="voice_cleric_resistelements_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="200" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_cleric_ResistElements_ground" />
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="300" UseSleep="NO">
+					<Str Str="ResistElements_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="45000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+					<Str Str="skl_eff_buff_6" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Paladin_Restoration">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_REMOVE_PAD" Time="0" UseSleep="NO">
+					<Str Str="Cleric_Restoration" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="10" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="Cleric_Restoration" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="10" UseSleep="NO">
+					<Str Str="voice_cleric_m_restoration_shot" />
+					<Str Str="voice_cleric_restoration_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

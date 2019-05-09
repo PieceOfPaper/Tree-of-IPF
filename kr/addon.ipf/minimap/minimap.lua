@@ -1,6 +1,8 @@
-
 minimapw = 0;
 minimaph = 0;
+MAX_MINIMAP_RATE = 160;
+MIN_MINIMAP_RATE = -80;
+local ___cursize = 0;
 
 function GET_MINIMAPSIZE()
 	return config.GetXMLConfig("MinimapSize");
@@ -10,13 +12,8 @@ function SET_MINIMAPSIZE(cursize)
 	config.ChangeXMLConfig("MinimapSize", cursize);
 end
 
-MAX_MINIMAP_RATE = 160;
-MIN_MINIMAP_RATE = -80;
-local ___cursize=0;
 function SET_MINIMAP_SIZE(amplify)
-
 	local cursize = GET_MINIMAPSIZE();
-	
 	if amplify == 1 then
 		cursize = cursize + 20;
 		if cursize == MAX_MINIMAP_RATE then
@@ -28,21 +25,19 @@ function SET_MINIMAP_SIZE(amplify)
 			return;
 		end
 	end
+
 	___cursize = cursize;
 	local frame = ui.GetFrame('minimap');
 	REQUEST_UPDATE_MINIMAP(frame);
-
 end
 
 function MINIMAP_MOUSEWHEEL(frame, ctrl, argStr, argNum)
 	local cursize = GET_MINIMAPSIZE();
-	
 	if argNum > 0 then
 		SET_MINIMAP_SIZE(1);
 	else
 		SET_MINIMAP_SIZE(0);
 	end
-	
 end
 
 mini_pos = nil;
@@ -56,7 +51,6 @@ function MINIMAP_ON_RELOAD(frame)
 end
 
 function MINIMAP_ON_INIT(addon, frame)
-
 	addon:RegisterOpenOnlyMsg('MAP_CHARACTER_UPDATE', 'MINIMAP_CHAR_UDT');
 	addon:RegisterOpenOnlyMsg('ANGLE_UPDATE', 'M_UPT_ANGLE');
 
@@ -78,7 +72,7 @@ function MINIMAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('UPDATE_MGAME_POSITION', 'ON_UPDATE_MINIMAP_MGAME_POSITION');	
 	addon:RegisterMsg('ON_QUEST_UPDATED', 'UPDATE_MINIMAP');	
 
-	mini_pos = GET_CHILD(frame, "my");
+	mini_pos = GET_CHILD_RECURSIVELY(frame, "my");
 	mini_pos:SetOffset(frame:GetWidth() / 2 - mini_pos:GetImageWidth() / 2 , frame:GetHeight() / 2 - mini_pos:GetImageHeight() / 2);
 
 	local pictureui  =	GET_CHILD(frame, 'map', 'ui::CPicture');
@@ -96,36 +90,41 @@ function MINIMAP_ON_INIT(addon, frame)
 
 	local npcList = frame:GetChild('npclist')
 	npcList:SetValue2(1);
-	
-	frame:SetEventScript(ui.MOUSEWHEEL, "MINIMAP_MOUSEWHEEL");
 
+	frame:SetEventScript(ui.MOUSEWHEEL, "MINIMAP_MOUSEWHEEL");
 end
 
 function MINIMAP_FIRST_OPEN(frame)
-
-	REQUEST_UPDATE_MINIMAP(frame);
-
+	if mini_pos == nil then
+		mini_pos = GET_CHILD_RECURSIVELY(frame, "my");
+	end
+	
+	REQUEST_UPDATE_MINIMAP(frame, true);
 end
 
 function UPDATE_MINIMAP_SOBJ(frame)
 	REQUEST_UPDATE_MINIMAP(frame);
-
 end
 
 function UPDATE_MINIMAP_NPC_STATE(frame)
 	local npcList = GET_CHILD(frame, 'npclist', 'ui::CGroupBox');
 	UPDATE_NPC_STATE_COMMON(npcList);
 end
-function REQUEST_UPDATE_MINIMAP(frame)
-	
+
+function REQUEST_UPDATE_MINIMAP(frame, isFirstOpen)
 	local curmapname = session.GetMapName();
 	local mapprop = geMapTable.GetMapProp(curmapname);
 	local mapname = mapprop:GetClassName();
 
-	RequestUpdateMinimap(mapname, 0);
+	if isFirstOpen ~= nil and isFirstOpen == true then
+		___cursize = GET_MINIMAPSIZE();
+	end
+	
+	RequestUpdateMinimap(mapname, ___cursize);
+	SET_MINIMAPSIZE(___cursize);
 end
-function UPDATE_MINIMAP(frame)
 
+function UPDATE_MINIMAP(frame)
 	if session.DontUseMinimap() == true then
 		frame:ShowWindow(0);
 		return;
@@ -146,20 +145,17 @@ function UPDATE_MINIMAP(frame)
 	end
 
 	local mapprop = geMapTable.GetMapProp(curmapname);
-
-	local pictureui  = GET_CHILD(frame, "map", "ui::CPicture");	
+	local mapname = mapprop:GetClassName();
 	
+	local pictureui  = GET_CHILD(frame, "map", "ui::CPicture");	
 	minimapw = pictureui:GetImageWidth() * (100 + cursize) / 100;
 	minimaph = pictureui:GetImageHeight() * (100 + cursize) / 100;
-
 	pictureui:Resize(minimapw, minimaph);
+
 	local map_bg = GET_CHILD(frame, "map_bg", "ui::CPicture");
 	map_bg:Resize(minimapw, minimaph);
 	
-	local mapname = mapprop:GetClassName();
-
 	local npclist, statelist, questIESlist, questPropList = GetQuestNpcNames(mapname);
-
 	local npcList = frame:GetChild('npclist')
 	tolua.cast(npcList, 'ui::CGroupBox');
 	DESTROY_CHILD_BY_USERVALUE(npcList, "EXTERN", "None");
@@ -392,15 +388,12 @@ function UPDATE_MINIMAP(frame)
 	DESTROY_CHILD_BYNAME(frame, "_INDIC_");
 	MINIMAP_CHAR_UDT(frame);
 	frame:Invalidate();
-	
 end
 
 function GET_MINI_ICON_POS_BY_MAPPOS(x, y, iconW, iconH)
-
 	local XC = x - iconW / 2;
 	local YC = y - iconH / 2;
 	return XC, YC;
-	
 end
 
 function MAKE_LOC_CLICK_ICON(parent, i, stateidx, k, XC, YC, RangeX, RangeY, alpha)	
@@ -416,7 +409,6 @@ function MAKE_LOC_CLICK_ICON(parent, i, stateidx, k, XC, YC, RangeX, RangeY, alp
 end
 
 function GET_MINIMAP_POS_BY_MAPPOS(MapPos, locinfo, mapprop, minimapw, minimaph)
-
 	local cursize = GET_MINIMAPSIZE();
 	local RangeX = locinfo.Range * MINIMAP_LOC_MULTI * minimapw / WORLD_SIZE;
 	local RangeY = locinfo.Range * MINIMAP_LOC_MULTI * minimaph / WORLD_SIZE;
@@ -427,7 +419,6 @@ function GET_MINIMAP_POS_BY_MAPPOS(MapPos, locinfo, mapprop, minimapw, minimaph)
 end
 
 function GET_MINIMAP_POS_BY_SESSIONOBJ(MapPos, range, mapprop, minimapw, minimaph)
-
 	local cursize = GET_MINIMAPSIZE();
 	local RangeX = range * MINIMAP_LOC_MULTI * minimapw / WORLD_SIZE;
 	local RangeY = range* MINIMAP_LOC_MULTI * minimaph / WORLD_SIZE;
@@ -435,18 +426,15 @@ function GET_MINIMAP_POS_BY_SESSIONOBJ(MapPos, range, mapprop, minimapw, minimap
 	local YC = MapPos.y - RangeY / 2;
 
 	return XC, YC, RangeX, RangeY;
-
 end
 
 function MAKE_LOC_ICON(parent, cls, i, stateidx, k, XC, YC, iconW, iconH, worldPos, statelist, questIESlist, MapPos)
-
 	local IconName, state = GET_NPC_ICON(i, statelist, questIESlist);
 	local level = cls.Level;
 	local name = cls.Name;
 	local classID = cls.ClassID;
 	local MonsterConditionTxt = GET_QUEST_INFO_TXT(cls);
 	MAKE_LOC_ICON_BY_ICON_NAME(parent, i, stateidx, k, XC, YC, iconW, iconH, IconName, state, level, name, classID, MonsterConditionTxt, worldPos, MapPos);
-
 end
 
 function MAKE_LOC_ICON_BY_ICON_NAME(parent, i, stateidx, k, XC, YC, iconW, iconH, IconName, state, level, name, classID, text, worldPos, MapPos)
@@ -456,26 +444,12 @@ function MAKE_LOC_ICON_BY_ICON_NAME(parent, i, stateidx, k, XC, YC, iconW, iconH
     end
 
 	local mylevel = info.GetLevel(session.GetMyHandle());
-
 	local ctrlname = "_NPC_LOC_MARK" .. i..stateidx..k;
 	local PictureC = parent:CreateOrGetControl('picture', ctrlname, XC, YC, iconW, iconH);
 	tolua.cast(PictureC, "ui::CPicture");
+
 	SET_PICTURE_BUTTON(PictureC);
-
 	SET_NPC_STATE_ICON(PictureC, IconName, state, classID, worldPos);
-
-	-- ?�라 ?�운?�는 ?�상???�어???�전 방식?�로 롤백?�니??
-	-- ?�인 : UPDATE_MINIMAP_TOOLTIP()??보면 'minimap' ?�팁?�의 UserData??MonProp?�어???�나 ?�기?�는 MapPos�??�용 �?
-
-	--[[
-	PictureC:ShowWindow(1);
-	PictureC:SetTooltipType('minimap');
-	local color = GET_LEVEL_COLOR(mylevel, level);
-	PictureC:SetTooltipArg(state..'/'..classID, classID, "", MapPos);
-	PictureC:SetEventScript(ui.LBUTTONUP, "SHOW_QUEST_BY_ID");
-	PictureC:SetEventScriptArgNumber(ui.LBUTTONUP, classID);
-	]]
-
 
 	PictureC:ShowWindow(1);
 	PictureC:SetTooltipType('texthelp');
@@ -484,12 +458,9 @@ function MAKE_LOC_ICON_BY_ICON_NAME(parent, i, stateidx, k, XC, YC, iconW, iconH
 	PictureC:SetTooltipArg(tooltipText);
 	PictureC:SetEventScript(ui.LBUTTONUP, "SHOW_QUEST_BY_ID");
 	PictureC:SetEventScriptArgNumber(ui.LBUTTONUP, classID);
-
-
 end
 
 function MINIMAP_CHAR_UDT(frame, msg, argStr, argNum)
-
 	local objHandle = session.GetMyHandle();
 	local mapprop = session.GetCurrentMapProp();
 
@@ -510,13 +481,15 @@ function MINIMAP_CHAR_UDT(frame, msg, argStr, argNum)
 
 	frame:SetUserValue("MBEFORE_X", miniX);
 	frame:SetUserValue("MBEFORE_Y", miniY);
-
-	miniX = miniX - mini_pos:GetOffsetX() - mini_pos:GetImageWidth() / 2;
-	miniY = miniY - mini_pos:GetOffsetY() - mini_pos:GetImageHeight() / 2;
-	miniX = math.floor(miniX);
-	miniY = math.floor(miniY);
 	
+	if mini_pos ~= nil then
+		miniX = miniX - mini_pos:GetOffsetX() - mini_pos:GetImageWidth() / 2;
+		miniY = miniY - mini_pos:GetOffsetY() - mini_pos:GetImageHeight() / 2;
+		miniX = math.floor(miniX);
+		miniY = math.floor(miniY);
+	end
 	pictureui:SetOffset(-miniX, - miniY);
+
 	local map_bg = GET_CHILD(frame, "map_bg", "ui::CPicture");
 	map_bg:SetOffset(-miniX, - miniY);
 
@@ -524,26 +497,26 @@ function MINIMAP_CHAR_UDT(frame, msg, argStr, argNum)
 	npcList:SetOffset(-miniX, - miniY);
 
 	UPDATE_QUEST_INDICATOR(frame);
-	
 end
 
 function UPDATE_QUEST_INDICATOR(frame)
-
     local isColonyMap = session.colonywar.GetIsColonyWarMap();
     if isColonyMap == true then
         return;
     end
     
-	local myPcX = mini_pos:GetGlobalX() - mini_frame_g_x - mini_frame_hw;
-	local myPcY = mini_pos:GetGlobalY() - mini_frame_g_y - mini_frame_hh;
+	if mini_pos ~= nil then
+		local myPcX = mini_pos:GetGlobalX() - mini_frame_g_x - mini_frame_hw;
+		local myPcY = mini_pos:GetGlobalY() - mini_frame_g_y - mini_frame_hh;
+	end
 
 	local npcList = frame:GetChild('npclist')
 	local cnt = npcList:GetChildCount();
 	for i = 0, cnt - 1 do
 		local ctrl = npcList:GetChildByIndex(i);
 		local x, y = GET_POS_FROM_CENTER(ctrl);
-
 	end
+
 	for i = 0 , cnt - 1 do
 		local ctrl = npcList:GetChildByIndex(i);
 		local state = ctrl:GetSValue();
@@ -552,30 +525,24 @@ function UPDATE_QUEST_INDICATOR(frame)
 			UPDATE_CTRL_INDICATOR(frame, ctrl);
 		end
 	end
-	
 end
 
 function GET_POS_FROM_CENTER(ctrl)
-
 	local x = ctrl:GetGlobalX() - mini_frame_g_x - mini_frame_hw;
 	local y = ctrl:GetGlobalY() - mini_frame_g_y - mini_frame_hh;
 	return x, y;
-	
 end
 
 indic_size = 24;
 
 function GET_INDICATOR_POS(x, y)
-
 	local len = GET_LEN(x, y);
 	x = x / len * 0.8;
 	y = y / len * 0.8;
 	return (x + 1) * mini_frame_hw - indic_size / 2, (y + 1) * mini_frame_hh - indic_size / 2;
-
 end
 
 function CREATE_INDIC(frame, ctrl, ix, iy)
-
 	local clsID = ctrl:GetValue();
 
 	local childName = "_INDIC_" .. ctrl:GetName();
@@ -599,26 +566,20 @@ function CREATE_INDIC(frame, ctrl, ix, iy)
 	end
 
 	return indic;
-	
 end
 
 function SET_MINI_QUEST_TOOLTIP(ctrl, clsID)
-
 	ctrl:SetTooltipType('minimapquest');
 	ctrl:SetTooltipNumArg(clsID);
-
 end
 
 function GET_POS_FROM_CENTER_TEST(ctrl)			
 	local x = ctrl:GetGlobalX() - mini_frame_g_x - mini_frame_hw;
 	local y = ctrl:GetGlobalY() - mini_frame_g_y - mini_frame_hh;
 	return x, y;
-	
 end
 
 function UPDATE_CTRL_INDICATOR(frame, ctrl)
-
-	
 	local x, y = GET_POS_FROM_CENTER(ctrl);
 
 	local is_in_ellipse = math.pow( (x / mini_frame_hw) , 2)
@@ -636,14 +597,12 @@ function UPDATE_CTRL_INDICATOR(frame, ctrl)
 	local angle = DirToAngle(x, y) - 90;
 	tolua.cast(indic, "ui::CPicture");
 	indic:SetAngle(angle);
-
-	
 end
 
 function UPDATE_CTRL_INDICATOR_SORT_POS(x, y)
-
 	local devX = 0;
 	local devY = 0;
+
 	if x < -mini_frame_hw and x < 0 then
 		devX = -x - mini_frame_hw;
 	elseif x > mini_frame_hw and x > 0 then
@@ -657,30 +616,26 @@ function UPDATE_CTRL_INDICATOR_SORT_POS(x, y)
 	end
 	
 	return devX, devY;
-	
 end
 
 function M_UPT_ANGLE(frame, msg, argStr, argNum)	
-
 	local objHandle = argNum;
 	local mapprop = session.GetCurrentMapProp();
 	local angle = info.GetAngle(objHandle) - mapprop.RotateAngle;
-	mini_pos:SetAngle(angle);
-
+	if mini_pos ~= nil then
+		mini_pos:SetAngle(angle);
+	end
 end
 
 minimapNameOpen = 0;
 
 function M_MAP_UPDATE_PARTY_INST(frame, msg, a, b, c)
-
 	local npcList = frame:GetChild('npclist')
 	tolua.cast(npcList, 'ui::CGroupBox');
 	MAP_UPDATE_PARTY_INST(npcList, msg, a, b, c);
-	
 end
 
 function M_MAP_UPDATE_PARTY(frame, msg, a, b, c)
-
 	if a == 'RELATIONGRADE' then
 		return;
 	end
@@ -688,15 +643,12 @@ function M_MAP_UPDATE_PARTY(frame, msg, a, b, c)
 	local npcList = frame:GetChild('npclist')
 	tolua.cast(npcList, 'ui::CGroupBox');
 	MAP_UPDATE_PARTY(npcList, msg, a, b, c);
-	
 end
 
 function M_MAP_UPDATE_GUILD(frame, msg, a, b, c)
-
 	local npcList = frame:GetChild('npclist')
 	tolua.cast(npcList, 'ui::CGroupBox');
 	MAP_UPDATE_GUILD(npcList, msg, a, b, c);
-
 end
 
 function MINIMAP_COLONY_MONSTER(frame, msg, posStr, monID)

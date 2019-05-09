@@ -1,0 +1,407 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Barbarian_Warcry">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="Warcry_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num FuncTxt="return 10000 + (obj.Level * 2000)" Num="0" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Barbarian_Cleave">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="350" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="150" Type="SQUARE" Width="40" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_SELFBUFF" UseSleep="NO">
+					<Str Str="Aggressor_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="5000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="Cleave_Debuff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_COND_NO_ABILITY" UseSleep="NO">
+					<Str Str="Barbarian32" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
+					<Num Num="4" />
+					<Num Num="0" />
+					<Num Num="150" />
+					<Num Num="89.989998" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="2" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Barbarian_Seism">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="650" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="450" Type="SQUARE" Width="40" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+					<Str Str="voice_war_atk_long_shot" />
+					<Str Str="voice_atk_long_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="600" UseSleep="NO">
+					<Num Num="5" />
+					<Num Num="1" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="Stun" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="2500" />
+					<Num Num="1" />
+					<Num Num="75" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Barbarian_Savagery">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="150" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Barbarian_Aggressor">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Barbarian_Frenzy">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="Frenzy_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_CONSUME_SP" Time="0" UseSleep="NO">
+					<Num Num="101" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+						<Str Str="Frenzy_Buff" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<EtcList>
+						<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="0" UseSleep="NO">
+							<Str Str="Frenzy_Buff" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Barbarian_StompingKick">
+		<EnableScripts>
+			<ToolScp Client="YES" Scp="SKL_CHECK_ISJUMPING_C" UseSleep="NO" />
+		</EnableScripts>
+		<ReadyScripts>
+			<ToolScp Client="YES" Scp="SKL_SEND_HEIGHT_C" UseSleep="NO" />
+		</ReadyScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_COLL_TO_GROUND" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="5" />
+					<Num Num="200" />
+					<Str Str="None" />
+					<Num Num="0.5" />
+					<Num Num="5" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num FuncTxt="local range = 55; local buff = GetBuffByName(self, 'ScudInstinct_Buff'); if buff ~= nil then local buffOver = GetOver(buff) range = range + (buffOver * 2) end  return range;" Num="45" UseFunc="1" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_war_atk_short" />
+					<Str Str="voice_atk_short_war_f" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Barbarian_Embowel">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-0.00034511092" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="0" />
+				<Frame Accel="1" Angle="-0.00048804286" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="950" />
+				<Frame Accel="1" Angle="-3.1219077" Dist="24.914738" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="1100" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0" AniTime="350" Dist="0" ForceATK="0" HitCount="1" Length="70" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="150" Type="SQUARE" Width="20" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_war_atk_short" />
+					<Str Str="voice_atk_short_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="700" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="900" UseSleep="NO">
+					<Num Num="3" />
+					<Num Num="1" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_COND_SCRIPT" UseSleep="NO">
+					<Str Str="SCR_BARBARIAN_ScudInstinct_Buff_CHECK" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_SET_TARGET" UseSleep="NO" />
+				<ToolScp Client="NO" Scp="S_R_TGT_BUFF" UseSleep="NO">
+					<Str Str="Stun" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num FuncTxt="local buffTime = 900; local buff = GetBuffByName(self, 'ScudInstinct_Buff'); if buff ~= nil then local buffOver = GetOver(buff) buffTime = buffTime + (2000 * buffOver); if IsPVPServer(self) == 1 then buffTime = math.floor(buffTime * 0.25); end end return buffTime;" Num="0" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Barbarian_Pouncing">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Barbarian_Pouncing" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="3.5" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="0" Str="" />
+				<Str Str="" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
+				<Str Str="Pouncing_Buff" />
+				<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="100" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="MONSKL_CRE_PAD" UseSleep="NO">
+				<Pos Angle="0" Dist="35" />
+				<Angle Angle="0" />
+				<Str Str="Barbarian_Pouncing" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_atk_long_cast_f" />
+				<Num Num="0" />
+				<Str Str="voice_war_atk_long_cast" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_CONSUME_SKILL_COOLDOWN" UseSleep="NO" />
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+				<Str Str="Pouncing_Buff" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Barbarian_Pouncing" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="voice_atk_long_cast_f" />
+				<Str Str="voice_war_atk_long_cast" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+					<Str Str="Barbarian4" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_COND_RANDOM" UseSleep="NO">
+					<Num FuncTxt="return GET_ABIL_LEVEL(self, 'Barbarian4') *8" Num="70" UseFunc="1" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
+					<Num Num="4" />
+					<Num Num="0" />
+					<Num Num="150" />
+					<Num Num="30" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="2" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Barbarian_GiantSwing">
+		<EndScripts>
+			<ToolScp Client="YES" Scp="C_DESTROY_MON_ANI" UseSleep="NO">
+				<Str Str="ChainTest" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SKL_SPIN_OBJ" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0.69999999" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_STOP_ANIM" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="F_fire038_loop" />
+				<Num Num="0.5" />
+			</ToolScp>
+		</EndScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10299" Dist="0" ForceATK="0" HitCount="1" Length="75" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_CALL_MON_ANI" Time="0" UseSleep="NO">
+					<Str Str="ChainTest" />
+					<Num Num="3" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str_Arg Arg="0.5" Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_PLAY_ANIMMON_ANI" Time="0" UseSleep="NO">
+					<Str Str="ChainTest" />
+					<Str Str="spin" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="-1" />
+					<Num Num="100" />
+				</Scp>
+				<Scp Client="NO" Scp="H_SKL_CHAIN" Time="0" UseSleep="NO">
+					<PosDist Angle="0.059" Dist="15" />
+					<PosDist Angle="0.006356" Dist="99.289421" />
+					<Num Num="30" />
+					<Str Str="ChainTest" />
+					<Str Str="Bone_chain13" />
+					<Num Num="0.37" />
+					<Num Num="1" />
+					<Num Num="9" />
+					<Num Num="0.28999999" />
+					<Num Num="150" />
+					<Str_Arg Arg="0.69999999" Str="F_burstup022_smoke" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Str_Arg Arg="0.69999999" Str="F_hit_bad" />
+					<Str_Arg Arg="1.5" Str="I_smoke004" />
+				</Scp>
+				<Scp Client="YES" Scp="SKL_PLAY_ANI_TOTIME" Time="0" UseSleep="NO">
+					<Str Str="CHAINSPIN2" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="-1" />
+					<Num Num="49" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_DETACH" Time="2900" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_spin008" />
+					<Num Num="0.5" />
+				</Scp>
+				<Scp Client="YES" Scp="SKL_PLAY_ANI_TOTIME" Time="2920" UseSleep="NO">
+					<Str Str="CHAINSPIN2" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="-1" />
+					<Num Num="65" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="3100" UseSleep="NO">
+					<Str Str="voice_war_atk_long_shot" />
+					<Str Str="voice_atk_long_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_MOVE" Time="3400" TimeSync="0" UseSleep="YES">
+					<Pos Angle="0.01822" Dist="28.029182" />
+					<Num Num="1" />
+					<Num Num="0.40000001" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="3500" UseSleep="NO">
+					<Num Num="5" />
+					<Num Num="1" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

@@ -177,6 +177,10 @@
                                 <MGameObj List="DefGroup/7"/>
                                 <Str Str="SHADOW_RAID_NOT_RUN_CHECK"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="IS_LAST_PHASE"/>
+                                <Num Num="1"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Ani1">
@@ -208,7 +212,7 @@
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="ChangeBoss"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                        <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="DefGroup/26"/>
                                 <Num Num="1"/>
                                 <Num Num="0"/>

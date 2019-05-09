@@ -16,6 +16,10 @@ function APPS_LOSTFOCUS_SCP(frame, ctrl, argStr, argNum)
 end
 
 function APPS_TRY_LEAVE(type)
+    if ui.CheckHoldedUI() == true then
+        ui.SysMsg(ClMsg('CantDoThatCuzDoingSomething'));
+        return
+    end
     if type ~= "Channel" then
         local alertFrame = ui.GetFrame('expireditem_alert');
         local nearFutureSec = tonumber(alertFrame:GetUserConfig("NearFutureSec"));

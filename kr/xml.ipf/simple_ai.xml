@@ -20821,6 +20821,13 @@ if self.HP == 0 then return 1; else return 0; end;">
             <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
         </StartList>
     </AI>
+    <AI Name="UNDERFORTRESS_67_MQ060_RUN_AI_DIR" UpdateMS="3000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="UNDERFORTRESS_67_MQ060_RUN_POINT_EFF"/>
+            </ToolScp>
+        </List>
+    </AI>
     <AI Name="UNDERFORTRESS_68_1_CORE1" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">

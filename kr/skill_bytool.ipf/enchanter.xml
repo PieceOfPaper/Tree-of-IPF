@@ -1,0 +1,334 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Enchanter_EnchantGlove">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_scout_m_enchantglove_cast" />
+					<Str Str="voice_scout_f_enchantglove_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="550" UseSleep="NO">
+					<Str Str="Enchantglove_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1800000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="700" UseSleep="NO">
+					<Str Str="skl_fgt_buff_1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="800" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="160" />
+					<Num Num="15" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="800" UseSleep="NO">
+					<Str Str="TARGET_CHECK_IS_PC_AND_GLOVES" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Enchanter_OverReinforce">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="5" />
+					<Num Num="150" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_wiz_m_overreinforce_shot" />
+					<Str Str="voice_wiz_f_overreinforce_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+					<Str Str="skl_eff_enchanter_overreinforce" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_wizard_OverReinforce_shot_mesh" />
+					<Str FuncTxt="if SKL_CHECK_RIDING_COMPANION_C(self, obj) == 0 then return 'Dummy_emitter' else return 'Dummy_emitter_pet' end" Str="Dummy_emitter" UseFunc="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_LIST_BY_SCRIPT" Time="200" UseSleep="NO">
+					<Str Str="TARGET_CHECK_IS_PC" />
+					<Num Num="5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_wizard_OverReinforce_shot_ground" />
+					<Str FuncTxt="if SKL_CHECK_RIDING_COMPANION_C(self, obj) == 0 then return 'Dummy_emitter' else return 'Dummy_emitter_pet' end" Str="Dummy_emitter" UseFunc="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="800" UseSleep="NO">
+					<Str Str="OverReinforce_Buff" />
+					<Num FuncTxt="return obj.Level" Num="3" UseFunc="1" />
+					<Num Num="0" />
+					<Num FuncTxt="local pc = GetSkillOwner(obj) local time = 45000 if pc ~= nil then local abil = GetAbility(pc, 'Enchanter5') if abil ~= nil and abil.ActiveState == 1 then time = time + (abil.Level * 3000) end end return time" Num="300000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Enchanter_LightningHands">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="LightningHands_Buff" />
+					<Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1800000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_LightningHands_cast" />
+					<Str Str="voice_wiz_f_LightningHands_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_wizard_LightningHands_buff" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Enchanter_EnchantEarth">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="150" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="0" UseSleep="NO">
+					<Str Str="EnchantEarth_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1800000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_EnchantEarth_cast" />
+					<Str Str="voice_wiz_f_EnchantEarth_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+					<Str Str="skl_eff_enchanter_enchantearth" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_EFFECT" Time="550" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="F_wizard_EnchantEarth_buff" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Enchanter_Empowering">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_empowering" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="Enchanter_Empowering" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_wiz_m_empowering_shot" />
+					<Str Str="voice_wiz_f_empowering_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Enchanter_Rewards">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_archer_atk" />
+					<Str Str="voice_archer_f_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
+					<Str Str="Rewards_SHIRT_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="2" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
+					<Str Str="Rewards_RH_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="2" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Enchanter_Agility">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_wiz_m_agility_shot" />
+					<Str Str="voice_wiz_f_agility_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="800" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="160" />
+					<Num Num="5" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="800" UseSleep="NO">
+					<Str Str="TARGET_CHECK_IS_PC_AND_BOOTS" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="800" UseSleep="NO">
+					<Str Str="Agility_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1800000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Enchanter_Enchantment">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_archer_atk" />
+					<Str Str="voice_archer_f_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
+					<Str Str="Enchantment_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Enchanter_EnchantedPowder">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_archer_atk" />
+					<Str Str="voice_archer_f_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="F_wizard__EnchantedPowder_shot" />
+					<Pos Angle="0" Dist="0" Height="15" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="600" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="100" />
+					<Num FuncTxt="return 5 + obj.Level;" Num="5" UseFunc="1" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="600" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TARGET_RESET" Time="600" UseSleep="NO" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="600" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="100" />
+					<Num FuncTxt="return 5 + obj.Level;" Num="5" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="600" UseSleep="NO">
+					<Str Str="EnchantedPowder_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num FuncTxt="return 6000 + obj.Level * 500;" Num="15000" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Enchanter_EnchantLightning">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="100" UseSleep="NO">
+					<Pos Angle="0" Dist="5" />
+					<Angle Angle="0" />
+					<Str Str="Enchanter_EnchantLightning" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_wiz_m_enchantlightning_shot" />
+					<Str Str="voice_wiz_f_enchantlightning_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

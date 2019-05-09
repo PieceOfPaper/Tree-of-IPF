@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_dionia_mini_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="1500" Type="SQUARE" Width="20" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK01" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1500" UseSleep="NO">
+					<Str_Arg Arg="0.80000001" Str="F_burstup029_smoke" />
+					<Pos Angle="-0.056430001" Dist="30.176414" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_dionia_mini_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="MSL_THROW" Time="1500" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_blood001_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="0.2" Str="F_explosion062_blood" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Rand="90" />
+					<Num Num="10" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="0" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1600" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_blood001_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="0.2" Str="F_explosion062_blood" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Rand="90" />
+					<Num Num="10" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="0" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1700" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_blood001_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="0.2" Str="F_explosion062_blood" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Rand="90" />
+					<Num Num="10" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="0" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1800" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_blood001_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="0.2" Str="F_explosion062_blood" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Rand="90" />
+					<Num Num="10" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="0" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1900" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_blood001_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="0.2" Str="F_explosion062_blood" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Rand="90" />
+					<Num Num="10" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="0" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="2000" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_blood001_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="0.2" Str="F_explosion062_blood" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Rand="90" />
+					<Num Num="10" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="0" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="2100" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_blood001_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="0.2" Str="F_explosion062_blood" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Rand="90" />
+					<Num Num="10" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="0" Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="2200" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_blood001_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="0.2" Str="F_explosion062_blood" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Rand="90" />
+					<Num Num="10" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="0" Str="None" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

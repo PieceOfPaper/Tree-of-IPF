@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Rudas_elavine_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="2" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="500" Time="500" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_sakmoli_atk_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_ridimed_burrow" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_colistump_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="450" UseSleep="NO">
+					<Str Str="mon_ridimed_falldown" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Rudas_elavine_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-0.0009762051" Dist="0" Gravity="0" Height="0" JumpPower="0" MoveType="0" Time="300" />
+				<Frame Accel="1" Angle="-0.023613596" Dist="54.508533" Gravity="600" Height="0" JumpPower="0" MoveType="0" Time="800" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="-1.0799431" AniTime="1000" Dist="5.7642994" ForceATK="0" HitCount="1" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="CIRCLE" Width="20" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_ridimed_burrow" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="120" UseSleep="NO">
+					<Str Str="mon_ridimed_born" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="700" UseSleep="NO">
+					<Str Str="mon_colistump_kback" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Rudas_loxodon_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="400" Type="FAN" Width="13" />
+			</HitList>
+			<ResultList>
+				<ToolScp Client="YES" Scp="C_SR_EFT2" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_smoke064_red1" />
+					<Pos Angle="0" Dist="0" PosType="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Rudas_loxodon_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="-3.0698943" AniTime="1100" Dist="4.0250087" ForceATK="0" HitCount="1" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="900" Type="CIRCLE" Width="40" />
+			</HitList>
+			<ResultList>
+				<ToolScp Client="YES" Scp="C_SR_EFT2" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_smoke064_red1" />
+					<Pos Angle="0" Dist="0" PosType="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

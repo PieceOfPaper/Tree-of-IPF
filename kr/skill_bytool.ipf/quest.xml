@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Quest_Cannon">
+		<EndScripts>
+			<ToolScp Client="YES" Scp="C_SKL_LOCK_MOVE" UseSleep="NO">
+				<Num Num="0" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_ARC" UseSleep="NO">
+				<Num Num="1.5" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="50" />
+				<Num Num="200" />
+				<Str Str="Warrior_Pull" />
+				<Str Str="Dummy_L_HAND" />
+				<Str_Arg Arg="1" FuncTxt="return &quot;F_sys_target_monster&quot;, GET_SKL_VALUE(obj, 1, 2);" Str="F_sys_target_monster" UseFunc="1" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_ENERGYBOLT2_LOOP" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInputStart>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SKL_LOCK_MOVE" Time="0" UseSleep="NO">
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_archer_turret_force_circle#Bip01 R Finger41" />
+					<Str_Arg Arg="1" Str="F_archer_explosiontrap_hit_explosion" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0" Dist="50" />
+					<Num Num="25" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" FuncTxt="return &quot;F_sys_target_monster&quot;,  GET_SKL_VALUE(obj, 1, 2);" Str="F_sys_target_monster" UseFunc="1" />
+					<Num Num="500" />
+				</Scp>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="350" UseSleep="NO">
+					<Str Str="PUBLIC_THROW" />
+					<Num Num="1.5" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SKL_LOCK_MOVE" Time="800" UseSleep="NO">
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

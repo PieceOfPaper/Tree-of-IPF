@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
 	<Sound frame="4.00" soundFile="voice_atk_short_war_f"/>
 	<Sound frame="4.00" soundFile="atk_swordswing"/>
-	<Particle frame="7" attachNode="Dummy_finestra_atk_effect_ride" particleName="I_warrior_florysh_shot_dash" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
+	<Particle frame="7" attachNode="Dummy_emitter_pet" particleName="E_warrior_finestra_atk" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
 </ActionDesc>

@@ -267,6 +267,25 @@ end
 -- 	return 0;
 -- end
 
+-- 부활을 시키지 않을꺼면 0을 반환
+--여기를 고칠 땐 
+function SCR_ENABLE_RESURRECT_BY_BACKMASKING(pc)
+	-- 여기에서 부활을 해줄지 말지 판정해준다
+	if IsRaidField(pc) == 1 then
+        local count = GetExProp(pc, "RESURRECTION_COUNT")
+		if count ~= nil then
+			if count > 0 then
+                SetExProp(pc, "RESURRECTION_COUNT", count - 1)
+                return 1;
+			else
+                return 0;
+            end
+        end
+    end
+
+    return 1 -- 기본적으론 1을 반환하여 부활을 허용한다.
+end
+
 function SCR_GET_EQUIPMENTTOUCHUP_PRICE(shopClassName, mapClassName, buffClassName, abilList)
 	local price = SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)
 	local mapClass = GetClass("Map", mapClassName);

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Fire_Dragon_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="1100" Dist="0.000000" ForceATK="0" HitCount="1" Length="45.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="1100" Type="SQUARE" Width="13.000000" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Fire_Dragon_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="1000" Dist="0.000000" ForceATK="0" HitCount="1" Length="60.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.698132" TermMax="0" TermMin="0" Time="1000" Type="FAN" Width="30.000000" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Fire_Dragon_purple_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.69813198" TermMax="0" TermMin="0" Time="1000" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL_SHOT" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Fire_Dragon_purple_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1300" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="1100" Type="SQUARE" Width="13" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK1_SHOT" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Fire_Dragon_green_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.69813198" TermMax="0" TermMin="0" Time="1000" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL_SHOT" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Fire_Dragon_green_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1300" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="1100" Type="SQUARE" Width="13" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK1_SHOT" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

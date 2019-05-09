@@ -45,7 +45,11 @@ function SUMMONSINFO_INIT()
 			button:SetVisible(0);
 		end
 		
-		button:SetTextTooltip(ClMsg("SummonsInfo_ConvertPartyInfo_ToolTip"));
+		local hotkey = frame:GetUserConfig("SUMMONINFO_HOTKEY_TEXT");
+		SUMMONSINFO_BUTTON_TOOLTIP_CHANGE(hotkey);
+		if hotkey ~= nil and hotkey ~= "" then
+			button:SetTextTooltip(ClMsg("SummonsInfo_ConvertPartyInfo_ToolTip").."( "..hotkey.." )");
+		end
 		button:EnableHitTest(1);
 	end
 
@@ -201,4 +205,34 @@ end
 function SUMMONSINFO_CONTROLSET_AUTO_ALIGN(frame)
 	GBOX_AUTO_ALIGN(frame, 10, 0, 0, true, false);
 	frame:Invalidate();
+end
+
+function SUMMONSINFO_BUTTON_TOOLTIP_CHANGE(changeTxt)
+	local parytinfo_frame = ui.GetFrame("partyinfo");
+	local summonsinfo_frame = ui.GetFrame("summonsinfo");
+	if parytinfo_frame == nil then return; end
+	if summonsinfo_frame == nil then return; end
+
+	local partyinfo_button = GET_CHILD_RECURSIVELY(parytinfo_frame, "partyinfobutton");
+	local summonsinfo_button = GET_CHILD_RECURSIVELY(summonsinfo_frame, "summonsinfobutton");
+	if partyinfo_button == nil then return; end
+	if summonsinfo_button == nil then return; end
+
+	if GetServerNation() == "JP" and changeTxt == "GRAVE" or changeTxt == "`" then
+		partyinfo_button:SetTextTooltip("");
+		summonsinfo_button:SetTextTooltip("");
+		summonsinfo_frame:SetUserConfig("SUMMONINFO_HOTKEY_TEXT", "");
+		return;
+	end
+
+	if string.find(changeTxt, "GRAVE") ~= nil then
+		changeTxt = string.gsub(changeTxt, "GRAVE", "`");		
+	end
+
+	summonsinfo_frame:SetUserConfig("SUMMONINFO_HOTKEY_TEXT", changeTxt);
+	partyinfo_button:SetTextTooltip(ClMsg("SummonsInfo_ConvertSummonsInfo_ToolTip").."( "..changeTxt.." )");
+	summonsinfo_button:SetTextTooltip(ClMsg("SummonsInfo_ConvertPartyInfo_ToolTip").."( "..changeTxt.." )");
+
+	summonsinfo_frame:Invalidate();
+	parytinfo_frame:Invalidate();
 end

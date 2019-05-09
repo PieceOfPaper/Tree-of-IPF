@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Matador_CorridaFinale">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" UseSleep="YES">
+				<Str Str="Skill_SuperArmor_Buff" />
+				<Num Num="0" />
+			</ToolScp>
+		</EndScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_buff_basic016_orange" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
+					<Str Str="Skill_SuperArmor_Buff" />
+					<Num Num="100" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_m_corridafinale_shot" />
+					<Str Str="voice_war_f_corridafinale_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+					<Str Str="skl_eff_matador_corridafinale" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_PAD_DIR_MSL" Time="1000" UseSleep="YES">
+					<Pos Angle="0" Dist="250" />
+					<Str Str="Matador_CorridaFinale" />
+					<Num Num="-150" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1000" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="2" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Matador_BackSlide">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
+				<Str Str="BackSlide_Buff" />
+				<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+				<Num Num="0" />
+				<Num Num="5000" />
+				<Num Num="1" />
+				<Num Num="100" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+				<Str Str="BackSlide_MomentaryEvasion_Buff" />
+			</ToolScp>
+		</EndScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-0.00034511092" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="0" />
+				<Frame Accel="1" Angle="3.1157691" Dist="61.679192" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="200" />
+			</MoveList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="BackSlide_MomentaryEvasion_Buff" />
+					<Num Num="1" />
+					<Num Num="10000" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_m_BackSlide_cast" />
+					<Str Str="voice_war_BackSlide_cast" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Matador_Ole">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="Ole_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="20000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_war_m_Ole_cast" />
+					<Str Str="voice_war_Ole_cast" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Matador_PasoDoble">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" UseSleep="YES">
+				<Str Str="Skill_NoDamage_Buff" />
+				<Num Num="500" />
+			</ToolScp>
+		</EndScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="-2.9729636" AniTime="300" Dist="32.422516" ForceATK="0" HitCount="1" Length="30" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="CIRCLE" Width="65" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
+					<Str Str="Skill_NoDamage_Buff" />
+					<Num Num="100" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_war_m_PasoDoble_cast" />
+					<Str Str="voice_war_PasoDoble_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="300" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_ground083_smoke" />
+					<Num Num="0.40000001" />
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_SELFBUFF" UseSleep="NO">
+					<Str Str="PasoDoble_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="5000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_COND_NO_ABILITY" UseSleep="NO">
+					<Str Str="Matador12" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
+					<Num Num="4" />
+					<Num Num="0" />
+					<Num Num="300" />
+					<Num Num="89.989998" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="2" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Matador_Faena">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+				<Str Str="Faena_Buff" />
+			</ToolScp>
+		</EndScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10299" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="Faena_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="50" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="25" />
+					<Num FuncTxt="return obj.SkillSR" Num="0" UseFunc="1" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="50" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="NO" LoopTime="150" Scp="SKL_TGT_DMG" Time="100" TimeSync="0" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="MONSKL_C_SET_ANIM_SPD_EX" Time="100" UseSleep="NO">
+					<Num Num="0.5" />
+					<Num Num="1.5" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="160" UseSleep="NO">
+					<Str_Arg Arg="1.8" Str="I_dash031" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_CHECK_LOOPING_COUNT_INIT" Time="250" TimeSync="0" UseSleep="NO">
+					<Num FuncTxt="local minCount = math.floor((obj.Level / 2) + 2); local maxCount = math.floor(obj.Level + 2); local loopCount = IMCRandom(minCount, maxCount) - 1; return loopCount;" Num="0" UseFunc="1" />
+				</Scp>
+				<Scp Client="NO" LoopTime="150" Scp="SKL_CHECK_LOOPING_COUNT" Time="250" TimeSync="0" UseSleep="NO" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Matador_Muleta">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+				<Str Str="Muleta_Cast_Buff" />
+			</ToolScp>
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="2" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="2" />
+				<Num Num="0" />
+				<Num Num="0.5" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="NO" Scp="SKL_CONSUME_SKILL_COOLDOWN" UseSleep="NO">
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_MULETA_CAST" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+				<Str Str="SKL_MULETA_LOOP" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
+				<Str Str="Muleta_Cast_Buff" />
+				<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="100" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_DYNAMICCAST_COUNTERATTACK" UseSleep="NO">
+				<Str Str="Muleta_Attack" />
+				<Num Num="100" />
+				<Num FuncTxt="local value = 0;  local pc = GetSkillOwner(obj); local abil = GetAbility(pc, 'Matador8');  if abil ~= nil and abil.ActiveState == 1 then value = 1; end  return value;" Num="0" UseFunc="1" />
+				<Num Num="2" />
+				<Num Num="3" />
+				<Num Num="4" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
+				<Str Str="voice_war_m_Muleta_cast" />
+				<Str Str="voice_war_Muleta_cast" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="ASTD" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99990" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99790" Type="FAN" Width="30" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Matador_Capote">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_m_Capote_cast" />
+					<Str Str="voice_war_Capote_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
+					<Str Str="Capote_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num FuncTxt="return obj.Level * 1000 + 10000" Num="0" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

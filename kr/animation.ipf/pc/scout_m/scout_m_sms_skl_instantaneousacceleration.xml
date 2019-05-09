@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
-    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_scout_instantaneous001" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Sound frame="0.00" soundFile="skl_eff_assassin_instantaneousacceleration"/>
-    <AfterImage frame="3" term="50" blendTime="300" r="100" g="30" b="10" a="120"/>
-    <BlendOn frame="4" R="80" G="10" B="2" A="100"/>
-    <AfterImage frame="6" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
-    <Shockwave frame="6" type="2" intensity="2" frequency="70" duration="0.1" range="1000"/>
-    <BlendOff frame="7" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="skl_eff_assassin_instantaneousacceleration"/>
+	<Particle frame="1" attachNode="Dummy_emitter" particleName="E_scout_instantaneous001" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<BlendOn frame="0" R="80" G="10" B="2" A="100"/>
+	<BlendOn frame="1" R="40" G="8" B="1" A="100"/>
+	<AfterImage frame="0" term="50" blendTime="300" r="100" g="30" b="10" a="120"/>
+	<AfterImage frame="3" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Shockwave frame="0" type="2" intensity="2" frequency="70" duration="0.1" range="1000"/>
+	<BlendOff frame="2" R="0" G="0" B="0" A="0"/>
 </ActionDesc>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_KindronLilter_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="850" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.78539819" TermMax="0" TermMin="0" Time="650" Type="FAN" Width="20" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="700" UseSleep="NO">
+					<Str Str="skl_eff_body_atk_1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="800" UseSleep="NO">
+					<Str Str="mon_groll_atk_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_KindronLilter_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1300" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.34906587" TermMax="0" TermMin="0" Time="1100" Type="FAN" Width="45" />
+				<Frame Angle="0" AniTime="1450" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0.087266468" SklAngle="0.34906587" TermMax="0" TermMin="0" Time="1250" Type="FAN" Width="45" />
+				<Frame Angle="0" AniTime="1600" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="-0.087266468" SklAngle="0.34906587" TermMax="0" TermMin="0" Time="1400" Type="FAN" Width="45" />
+				<Frame Angle="0" AniTime="1750" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0.087266468" SklAngle="0.34906587" TermMax="0" TermMin="0" Time="1550" Type="FAN" Width="45" />
+				<Frame Angle="0" AniTime="1900" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="-0.087266468" SklAngle="0.34906587" TermMax="0" TermMin="0" Time="1700" Type="FAN" Width="45" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="850" UseSleep="NO">
+					<Str Str="skl_eff_horn_long" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

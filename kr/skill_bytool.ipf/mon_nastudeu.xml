@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_nastudeu_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="1.4" Str="F_spread_in039_2" />
+					<Str Str="Dummy_weapon" />
+					<Num Num="1.2" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="500" UseSleep="YES">
+					<Pos Angle="0" Dist="10" />
+					<Pos Angle="0" Dist="120" />
+					<Str_Arg Arg="0.5" Str="F_sys_arrow_monster##0.5" />
+					<Num Num="16" />
+					<Num Num="0.0099999998" />
+					<Num Num="0.5" />
+					<Num Num="1400" />
+					<Str_Arg Arg="0.5" Str="F_explosion002_violet" />
+					<Num Num="10" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="18" />
+					<Num Num="0.050000001" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="500" UseSleep="YES">
+					<Pos Angle="0" Dist="10" />
+					<Pos Angle="-0.52359879" Dist="120" />
+					<Str_Arg Arg="0.5" Str="F_sys_arrow_monster##0.5" />
+					<Num Num="16" />
+					<Num Num="0.0099999998" />
+					<Num Num="0.5" />
+					<Num Num="1400" />
+					<Str_Arg Arg="0.5" Str="F_explosion002_violet" />
+					<Num Num="10" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="18" />
+					<Num Num="0.050000001" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="500" UseSleep="YES">
+					<Pos Angle="0" Dist="10" />
+					<Pos Angle="0.52359879" Dist="120" />
+					<Str_Arg Arg="0.5" Str="F_sys_arrow_monster##0.5" />
+					<Num Num="16" />
+					<Num Num="0.0099999998" />
+					<Num Num="0.5" />
+					<Num Num="1400" />
+					<Str_Arg Arg="0.5" Str="F_explosion002_violet" />
+					<Num Num="10" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="18" />
+					<Num Num="0.050000001" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1700" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_light130_blue2" />
+					<Str Str="Dummy_weapon" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="1800" UseSleep="NO">
+					<Str Str="mon_voice13_cast2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="1800" UseSleep="NO">
+					<Str Str="mon_katynforest_zombie_02_skl_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_nastudeu_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="1" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453294" TermMax="0" TermMin="0" Time="600" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="590" UseSleep="NO">
+					<Str Str="mon_katynforest_zombie_02_skl_shot" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="750" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="I_arrow009#Dummy_weapon" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="FAST" />
+					<Num Num="450" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

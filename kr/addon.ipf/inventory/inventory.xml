@@ -6,9 +6,7 @@
 	<skin frameskin="none"/>
 	<input moveable="false" maxwidth="1280" hittestframe="false"/>
 	<layer layerlevel="95"/>
-	<userconfig TREE_GROUP_FONT="white_20_ol" TREE_TAB_WIDTH="30" TREE_GROUP_BOTTOM_MARGIN="20" TREE_SLOT_SIZE="56" TREE_COL_COUNT="7" TREE_SLOTSETTEXT_WIDTH="350" TREE_SLOTSETTEXT_HEIGHT="30" TREE_SLOTSETTEXT_FONT="white_18_ol" TREE_SLOT_PICKSOUND="icon_pick_up" TREE_SLOT_DROPSOUND="icon_get_down" TREE_SLOT_DROPSCRIPT="INVENTORY_ON_DROP" TREE_SLOT_POPSCRIPT="INVENTORY_OP_POP" TREE_SEARCH_BLINK_COLOR="FF003300" SHIHOUETTE_IMGNAME_MALE="inventory_M" SHIHOUETTE_IMGNAME_FEMALE="inventory_F" WEAPONSWAP_UP_IMAGE="weapon_swap_pageup" WEAPONSWAP_DOWN_IMAGE="weapon_swap_pagedown" EXP_ORB_EFFECT_SIZE="2.0" DISPEL_EFFECT_SIZE="2.0" EQUIPSLOT_PIC_MAGIC="invenslot_pic_magic" EQUIPSLOT_PIC_RARE="invenslot_pic_rare" EQUIPSLOT_PIC_UNIQUE="invenslot_pic_unique" EQUIPSLOT_PIC_LEGEND="invenslot_pic_legend" WEIGHT_PIC_WIDTH="622"
-TOGGLE_ITEM_EFFECT_SIZE="2.0" TREE_SLOT_TEXT_FONT="{s16}{ol}{b}"
-/>
+	<userconfig TREE_GROUP_FONT="white_20_ol" TREE_TAB_WIDTH="30" TREE_GROUP_BOTTOM_MARGIN="20" TREE_SLOT_SIZE="56" TREE_COL_COUNT="7" TREE_SLOTSETTEXT_WIDTH="350" TREE_SLOTSETTEXT_HEIGHT="30" TREE_SLOTSETTEXT_FONT="white_18_ol" TREE_SLOT_PICKSOUND="icon_pick_up" TREE_SLOT_DROPSOUND="icon_get_down" TREE_SLOT_DROPSCRIPT="INVENTORY_ON_DROP" TREE_SLOT_POPSCRIPT="INVENTORY_OP_POP" TREE_SEARCH_BLINK_COLOR="FF003300" SHIHOUETTE_IMGNAME_MALE="inventory_M" SHIHOUETTE_IMGNAME_FEMALE="inventory_F" WEAPONSWAP_UP_IMAGE="weapon_swap_pageup" WEAPONSWAP_DOWN_IMAGE="weapon_swap_pagedown" EXP_ORB_EFFECT_SIZE="2.0" DISPEL_EFFECT_SIZE="2.0" EQUIPSLOT_PIC_MAGIC="invenslot_pic_magic" EQUIPSLOT_PIC_RARE="invenslot_pic_rare" EQUIPSLOT_PIC_UNIQUE="invenslot_pic_unique" EQUIPSLOT_PIC_LEGEND="invenslot_pic_legend" WEIGHT_PIC_WIDTH="622" TOGGLE_ITEM_EFFECT_SIZE="2.0" TREE_SLOT_TEXT_FONT="{s16}{ol}{b}" EFFECT_DRAW_OFFSET="80"/>
 	<option closebutton="false"/>
 	<sound opensound="inven_win_open" closesound="inven_win_close"/>
 	<script OpenScp="INVENTORY_OPEN" CloseScp="INVENTORY_CLOSE"/>
@@ -130,14 +128,14 @@ TOGGLE_ITEM_EFFECT_SIZE="2.0" TREE_SLOT_TEXT_FONT="{s16}{ol}{b}"
 		<groupbox name="treeGbox_Etc" parent="inventoryGbox" rect="0 0 455 580" margin="41 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" tabname="tab_Etc" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="None"/>
 		<groupbox name="treeGbox_Gem" parent="inventoryGbox" rect="0 0 455 580" margin="41 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" tabname="tab_Gem" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="None"/>
 		<groupbox name="treeGbox_Premium" parent="inventoryGbox" rect="0 0 455 580" margin="41 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" tabname="tab_Premium" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="None"/>
-		<tree name="inventree_All" parent="treeGbox_All" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false"/>
-		<tree name="inventree_Equip" parent="treeGbox_Equip" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false"/>
-		<tree name="inventree_Consume" parent="treeGbox_Consume" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false"/>
-		<tree name="inventree_Recipe" parent="treeGbox_Recipe" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false"/>
-		<tree name="inventree_Card" parent="treeGbox_Card" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false"/>
-		<tree name="inventree_Etc" parent="treeGbox_Etc" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false"/>
-		<tree name="inventree_Gem" parent="treeGbox_Gem" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false"/>
-		<tree name="inventree_Premium" parent="treeGbox_Premium" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false"/>
+		<tree name="inventree_All" parent="treeGbox_All" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false" />
+		<tree name="inventree_Equip" parent="treeGbox_Equip" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false" />
+		<tree name="inventree_Consume" parent="treeGbox_Consume" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false" />
+		<tree name="inventree_Recipe" parent="treeGbox_Recipe" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false" />
+		<tree name="inventree_Card" parent="treeGbox_Card" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false" />
+		<tree name="inventree_Etc" parent="treeGbox_Etc" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false" />
+		<tree name="inventree_Gem" parent="treeGbox_Gem" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false" />
+		<tree name="inventree_Premium" parent="treeGbox_Premium" rect="0 0 470 0" margin="0 10 0 0" layout_gravity="left top" DropScp="INVENTORY_ON_DROP" drawline="false" />
 		<groupbox name="searchSkin" parent="searchGbox" rect="0 0 350 30" margin="5 0 0 5" layout_gravity="right bottom" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_edit_skin"/>
 		<edit name="ItemSearch" parent="searchSkin" rect="0 0 270 26" margin="2 0 0 0" layout_gravity="left center" OffsetForDraw="0 -1" clicksound="button_click_big" drawbackground="false" fontname="white_18_ol" maxlen="40" oversound="button_over" skin="None" textalign="left top" typingscp="SEARCH_ITEM_INVENTORY_KEY" typingsound="chat_typing"/>
 		<button name="inventory_serch" parent="searchSkin" rect="0 0 60 38" margin="0 0 0 0" layout_gravity="right center" LBtnUpArgNum="" LBtnUpScp="SEARCH_ITEM_INVENTORY" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="inven_s" oversound="button_over" stretch="true" texttooltip="{@st59}입력한 이름으로 검색합니다{/}"/>

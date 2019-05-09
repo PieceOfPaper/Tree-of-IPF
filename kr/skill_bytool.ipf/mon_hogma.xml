@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_hogma_sorcerer_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1600" UseSleep="NO">
+					<Pos Angle="0" Dist="20" />
+					<Angle Angle="0" />
+					<Str Str="BubeMagePrist_Heal" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1600" UseSleep="NO">
+					<Pos Angle="1.5707964" Dist="20" />
+					<Angle Angle="0" />
+					<Str Str="BubeMagePrist_Heal" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1600" UseSleep="NO">
+					<Pos Angle="-1.5707964" Dist="20" />
+					<Angle Angle="0" />
+					<Str Str="BubeMagePrist_Heal" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_hogma_archer_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1000" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_spread_in001_dark" />
+					<Str Str="Boundingbox" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_buff_basic002_violet" />
+					<Str Str="Boundingbox" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="skl2" Speed="1" Time="600" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1500" UseSleep="NO">
+					<Str_Arg Arg="0.2" Str="I_arrow003_dark#Dummy_force" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="800" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="1" />
+					<Num Num="5" />
+					<Num Num="20" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1800" UseSleep="NO">
+					<Str_Arg Arg="0.2" Str="I_arrow003_dark#Dummy_force" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="800" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Hogma_combat_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="900" Dist="0.000000" ForceATK="0" HitCount="1" Length="40.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.523599" TermMax="0" TermMin="0" Time="900" Type="FAN" Width="30.000000" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Hogma_combat_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359903" TermMax="0" TermMin="0" Time="2100" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="2100" UseSleep="NO">
+					<Num Num="3" />
+					<Num Num="1" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Hogma_guard_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="900" Dist="0.000000" ForceATK="0" HitCount="1" Length="40.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.610865" TermMax="0" TermMin="0" Time="900" Type="FAN" Width="30.000000" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Hogma_guard_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.610865" TermMax="0" TermMin="0" Time="2100" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="2100" UseSleep="NO">
+					<Num Num="3" />
+					<Num Num="1" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_hogma_archer_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="1" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="900" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="950" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_arrow009#Bip001 R Finger31" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_hogma_sorcerer_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="1" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.0033160001" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="12" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="850" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_force009_fire#weapon_Bone0" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.5" Str="F_buff_explosion_burst" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_hogma_sorcerer_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="CIRCLE" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2.5" Str="F_buff_basic017_orange_fire" />
+					<Str Str="hogma socerer" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="-0.97283256" Dist="1.6378922" PosType="8" />
+					<Num Num="120" />
+					<Num Num="5" />
+				</Scp>
+				<Anim Anim="atk" Speed="1" Time="600" />
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1500" UseSleep="NO">
+					<Pos Angle="0.031604018" Dist="29.332455" />
+					<Angle Angle="0" />
+					<Str Str="Summon_Lethargy" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1800" UseSleep="NO">
+					<Pos Angle="0.011262165" Dist="51.913921" />
+					<Angle Angle="0" />
+					<Str Str="Summon_Lethargy" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1900" UseSleep="NO">
+					<Pos Angle="0.020105751" Dist="77.854706" />
+					<Angle Angle="0" />
+					<Str Str="Summon_Lethargy" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_hogma_warrior_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="900" Dist="0.000000" ForceATK="0" HitCount="1" Length="35.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.523599" TermMax="0" TermMin="0" Time="900" Type="FAN" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_hogma_warrior_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1500" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359903" TermMax="0" TermMin="0" Time="1300" Type="SQUARE" Width="20" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_smoke008_red" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="1.5" />
+				</Scp>
+				<Anim Anim="skl" Speed="1" Time="300" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="1200" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="F_archer_dividedarrow_hit_explosion" />
+					<Str Str="Bip001 L UpperArm" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_hogma_warrior_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359903" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE_SIZEMON" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="8" />
+					<Num Num="120" />
+					<Num Num="1" />
+					<Str Str="M" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="800" UseSleep="NO">
+					<Str Str="BLK_UP" />
+					<Num Num="3" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

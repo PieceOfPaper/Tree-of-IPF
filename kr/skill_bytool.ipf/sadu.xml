@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Sadu_1">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_TGT_GETBACK_FORCE" UseSleep="NO">
+				<Num Num="0.500000" />
+				<Num Num="0.500000" />
+				<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_TARGET_RESET" UseSleep="NO" />
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="5.000000" />
+				<Num Num="1.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="1.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.500000" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInput>
+		<KeyCancelScp>
+			<ToolScp Client="NO" Scp="SKL_TGT_GETBACK_FORCE" UseSleep="NO">
+				<Num Num="0.500000" />
+				<Num Num="0.500000" />
+				<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_TARGET_RESET" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_END_AT_TIME" UseSleep="NO">
+				<Num Num="500.000000" />
+			</ToolScp>
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" Length="150.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_RESET_USER_PROP" Time="0" UseSleep="NO">
+					<Str Str="SklToolDmg" />
+				</Scp>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_WARDIZATION_LOOP" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="0.000000" />
+					<Angle Angle="0.000000" />
+					<Num Num="150.000000" />
+					<Num Num="20.000000" />
+					<Num Num="1.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_ATTACH_FORCE" Time="0" UseSleep="NO">
+					<Num Num="0.500000" />
+					<Num Num="1.500000" />
+					<Str_Arg Arg="1.000000" Str="I_force052_pink" />
+					<Str Str="MID" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+				</Scp>
+				<Scp Client="NO" LoopTime="500" Scp="SKL_TGT_DMG_ADD_USERPROP" Time="450" TimeSync="0" UseSleep="NO">
+					<Num Num="0.250000" />
+					<Num Num="0.500000" />
+					<Str Str="SklToolDmg" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

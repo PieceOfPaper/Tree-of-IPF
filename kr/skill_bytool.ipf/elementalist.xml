@@ -1,0 +1,917 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Elementalist_FireClaw">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_fireclaw_cast" />
+					<Str Str="voice_wiz_f_fireclaw_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_fire_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+					<Str Str="skl_eff_fireclaw" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_PAD_DIR_MSL" Time="670" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Str Str="FireClaw_Pad" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_PAD_DIR_MSL" Time="680" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Str Str="FireClaw_Pad" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="45" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_PAD_DIR_MSL" Time="690" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Str Str="FireClaw_Pad" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="90" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_PAD_DIR_MSL" Time="700" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Str Str="FireClaw_Pad" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="135" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_PAD_DIR_MSL" Time="710" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Str Str="FireClaw_Pad" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="-45" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_PAD_DIR_MSL" Time="720" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Str Str="FireClaw_Pad" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="-90" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_PAD_DIR_MSL" Time="730" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Str Str="FireClaw_Pad" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="-135" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_PAD_DIR_MSL" Time="740" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Str Str="FireClaw_Pad" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="180" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Elementalist_StormDust">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="300" UseSleep="NO">
+					<Str Str="skl_eff_stormdust_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="600" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Angle Angle="0" />
+					<Str Str="StormDust_Pad" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Elementalist_FreezingSphere">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num FuncTxt="return 0.3" Num="1" UseFunc="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num FuncTxt="return 0.3 / obj.Level" Num="1.2" UseFunc="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="1" Str="E_pc_full_charge##1" />
+				<Str Str="Dummy_full_charge" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="3" />
+				<Num Num="0.2" />
+				<Num Num="100" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="C_EFFECT_ATTACH" UseSleep="NO">
+				<Str_Arg Arg="1.5" Str="I_wizard_FreezingSphere_cast_loop#Dummy_L_HAND" />
+				<Num Num="1" />
+				<Pos Angle="0" Dist="0" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+				<Str Str="SKL_ENERGYBOLT2_LOOP" />
+				<Str Str="None" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_m_freezingsphere_cast" />
+				<Str Str="voice_wiz_freezingsphere_cast" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="I_wizard_FreezingSphere_cast_loop#Dummy_L_HAND" />
+				<Num Num="0.5" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="1" Str="F_wizard_icebolt_shot_spread_out#Bip01 R Hand" />
+				<Str Str="Bip01 R Hand" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_m_freezingsphere_cast" />
+				<Str Str="voice_wiz_freezingsphere_cast" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_wizard_FreezingSphere_force_loop#Dummy_Force" />
+					<Str Str="None" />
+					<Str_Arg Arg="0.5" FuncTxt=" local dynTime = self:GetKeyCastTime();  if dynTime &gt;= 1 then return  &quot;F_wizard_icebolt_hit_ice&quot;, 0.8; else return &quot;F_explosion086_ice_blue&quot;, 0.8; end   " Str="F_wizard_energybolt_hit_explosion" UseFunc="1" />
+					<Str Str="None" />
+					<Str Str="SLOW" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Elementalist_FrostCloud">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_frostcloud_cast" />
+					<Str Str="voice_wiz_frostcloud_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="800" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Angle Angle="0" />
+					<Str Str="Elementalist_FrostCloud" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Elementalist_ElementalEssence">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="ElementalEssence_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="20000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_elementalessence" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_wiz_m_elementalessence_cast" />
+					<Str Str="voice_wiz_f_elementalessence_cast" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Elementalist_StoneCurse">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+				<Str Str="SKL_FIREWALL_LOOP" />
+				<Str Str="None" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Str Str="None" />
+				<Str Str="ASTD" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="1.5" Str="I_smoke013_dark3" />
+				<Str Str="Dummy_emitter" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="0.40000001" Str="I_smoke013_dark3" />
+				<Str Str="Dummy_effect_hand_R_2" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="1" Str="F_light069_white" />
+				<Str Str="Dummy_R_HAND" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_stonecurse_shot" />
+				<Num Num="0" />
+				<Str Str="voice_wiz_m_stonecurse_shot" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="I_smoke013_dark3" />
+				<Num Num="0.5" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" />
+					<Num Num="150" />
+					<Num Num="15" />
+					<Num FuncTxt="local abil = GetAbility(self, 'Elementalist2'); if abil ~= nil then return 5 + abil.Level;  end   return 5;" Num="5" UseFunc="1" />
+					<Num Num="2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="RH" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="LH" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_STONECURSE" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_archer_m_atk" />
+					<Str Str="voice_archer_f_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="800" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="900" UseSleep="NO">
+					<Str Str="Petrification" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num FuncTxt="value = 1000 + obj.Level * 1000 if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then     value = value / 3 end return value" Num="5000" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1000" UseSleep="NO">
+					<Str Str="LH" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1000" UseSleep="NO">
+					<Str Str="RH" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Elementalist_Hail">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="200" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_hail_cast" />
+				<Num Num="0" />
+				<Str Str="voice_wiz_m_hail_cast" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+				<Str Str="SKL_FIREWALL_LOOP" />
+				<Str Str="None" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT_ATTACH" UseSleep="NO">
+				<Str_Arg Arg="0.40000001" Str="F_spread_in021_ice#Dummy_R_HAND" />
+				<Num Num="1" />
+				<Pos Angle="0" Dist="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="F_spread_in021_ice" />
+				<Num Num="0.5" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+					<Str Str="voice_wiz_m_hail_shot" />
+					<Str Str="voice_wiz_hail_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Angle Angle="0" />
+					<Str Str="Elementalist_Hail" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Elementalist_Rain">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="2" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="140" />
+				<Num Num="0.1" />
+				<Num FuncTxt="return 2/obj.Level;" Num="1" UseFunc="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_rain_shot" />
+				<Num Num="0" />
+				<Str Str="voice_wiz_m_rain_shot" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+				<Str Str="ASTD" />
+				<Str Str="None" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str Str="None" />
+				<Str Str="ASTD" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+					<Str Str="voice_war_atk_short" />
+					<Str Str="voice_atk_short_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1100" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Angle Angle="0" />
+					<Str Str="Elementalist_Rain" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Elementalist_Meteor">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="2" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="150" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Str_Arg Arg="1" Str="E_pc_full_charge" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_METEOR_CAST" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+				<Str Str="SKL_METEOR_LOOP" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_TARGET_RESET" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_SET_TGT_EMPTY_TO_ME" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_TGT_BUFF_ABIL" UseSleep="NO">
+				<Str Str="Elementalist5" />
+				<Str Str="Wizard_SklCasting_Avoid" />
+				<Num Num="1" />
+				<Num Num="-1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="100" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_meteor_cast" />
+				<Num Num="0" />
+				<Str Str="voice_wiz_m_meteor_cast" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="LH" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="RH" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+				<Str Str="Wizard_SklCasting_Avoid" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_meteor_cast" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="6" Str="I_wizard_meteorfall_force_dropfire" />
+					<Str_Arg Arg="3" Str="F_wizard_meteorfall_shot_explosion" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Num Num="70" />
+					<Num Num="0" />
+					<Num Num="0.55000001" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="4" Str="F_sys_target_pc2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_meteor_shot" />
+					<Str Str="voice_wiz_meteor_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="750" UseSleep="NO">
+					<Num Num="6" />
+					<Num Num="1" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+					<Str Str="LH" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+					<Str Str="RH" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_LEVEL" UseSleep="NO">
+						<Num Num="5" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<HitList>
+						<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+					</HitList>
+					<EtcList>
+						<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+							<Str_Arg Arg="9" Str="I_wizard_meteorfall_force_dropfire" />
+							<Str_Arg Arg="6" Str="F_wizard_meteorfall_shot_explosion" />
+							<Str_Arg Arg="1" Str="None" />
+							<Pos Angle="0" Dist="0" PosType="3" />
+							<Num Num="140" />
+							<Num Num="0" />
+							<Num Num="0.55000001" />
+							<Num Num="300" />
+							<Num Num="1" />
+							<Num Num="1000" />
+							<Num Num="1" />
+							<Num Num="0" />
+							<Num Num="0" />
+							<Str_Arg Arg="4" Str="F_sys_target_pc2" />
+						</Scp>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+							<Str Str="voice_wiz_m_meteor_shot" />
+							<Str Str="voice_wiz_meteor_shot" />
+						</Scp>
+						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="750" UseSleep="NO">
+							<Num Num="10" />
+							<Num Num="1" />
+							<Num Num="45" />
+							<Num Num="999" />
+						</Scp>
+						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+							<Str Str="LH" />
+							<Num Num="1" />
+						</Scp>
+						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+							<Str Str="RH" />
+							<Num Num="1" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_LEVEL" UseSleep="NO">
+						<Num Num="4" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<HitList>
+						<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+					</HitList>
+					<EtcList>
+						<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+							<Str_Arg Arg="8.5" Str="I_wizard_meteorfall_force_dropfire" />
+							<Str_Arg Arg="5.5" Str="F_wizard_meteorfall_shot_explosion" />
+							<Str_Arg Arg="1" Str="None" />
+							<Pos Angle="0" Dist="0" PosType="3" />
+							<Num Num="130" />
+							<Num Num="0" />
+							<Num Num="0.55000001" />
+							<Num Num="300" />
+							<Num Num="1" />
+							<Num Num="1000" />
+							<Num Num="1" />
+							<Num Num="0" />
+							<Num Num="0" />
+							<Str_Arg Arg="4" Str="F_sys_target_pc2" />
+						</Scp>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+							<Str Str="voice_wiz_m_meteor_shot" />
+							<Str Str="voice_wiz_meteor_shot" />
+						</Scp>
+						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="750" UseSleep="NO">
+							<Num Num="9" />
+							<Num Num="1" />
+							<Num Num="45" />
+							<Num Num="999" />
+						</Scp>
+						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+							<Str Str="LH" />
+							<Num Num="1" />
+						</Scp>
+						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+							<Str Str="RH" />
+							<Num Num="1" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_LEVEL" UseSleep="NO">
+						<Num Num="3" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<HitList>
+						<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+					</HitList>
+					<EtcList>
+						<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+							<Str_Arg Arg="8" Str="I_wizard_meteorfall_force_dropfire" />
+							<Str_Arg Arg="5" Str="F_wizard_meteorfall_shot_explosion" />
+							<Str_Arg Arg="1" Str="None" />
+							<Pos Angle="0" Dist="0" PosType="3" />
+							<Num Num="110" />
+							<Num Num="0" />
+							<Num Num="0.55000001" />
+							<Num Num="300" />
+							<Num Num="1" />
+							<Num Num="1000" />
+							<Num Num="1" />
+							<Num Num="0" />
+							<Num Num="0" />
+							<Str_Arg Arg="4" Str="F_sys_target_pc2" />
+						</Scp>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+							<Str Str="voice_wiz_m_meteor_shot" />
+							<Str Str="voice_wiz_meteor_shot" />
+						</Scp>
+						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="750" UseSleep="NO">
+							<Num Num="8" />
+							<Num Num="1" />
+							<Num Num="45" />
+							<Num Num="999" />
+						</Scp>
+						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+							<Str Str="LH" />
+							<Num Num="1" />
+						</Scp>
+						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+							<Str Str="RH" />
+							<Num Num="1" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_LEVEL" UseSleep="NO">
+						<Num Num="2" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<HitList>
+						<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+					</HitList>
+					<EtcList>
+						<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+							<Str_Arg Arg="7" Str="I_wizard_meteorfall_force_dropfire" />
+							<Str_Arg Arg="4" Str="F_wizard_meteorfall_shot_explosion" />
+							<Str_Arg Arg="1" Str="None" />
+							<Pos Angle="0" Dist="0" PosType="3" />
+							<Num Num="90" />
+							<Num Num="0" />
+							<Num Num="0.55000001" />
+							<Num Num="300" />
+							<Num Num="1" />
+							<Num Num="1000" />
+							<Num Num="1" />
+							<Num Num="0" />
+							<Num Num="0" />
+							<Str_Arg Arg="4" Str="F_sys_target_pc2" />
+						</Scp>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+							<Str Str="voice_wiz_m_meteor_shot" />
+							<Str Str="voice_wiz_meteor_shot" />
+						</Scp>
+						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="750" UseSleep="NO">
+							<Num Num="7" />
+							<Num Num="1" />
+							<Num Num="45" />
+							<Num Num="999" />
+						</Scp>
+						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+							<Str Str="LH" />
+							<Num Num="1" />
+						</Scp>
+						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+							<Str Str="RH" />
+							<Num Num="1" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Elementalist_Electrocute">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0.5" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Str_Arg Arg="1" Str="None" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+				<Str Str="SKL_FIREWALL_LOOP" />
+				<Str Str="None" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Str Str="None" />
+				<Str Str="ASTD" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_electrocute_cast" />
+				<Num Num="0" />
+				<Str Str="voice_wiz_m_electrocute_cast" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" />
+					<Num Num="150" />
+					<Num Num="90" />
+					<Num Num="1" />
+					<Num Num="2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TGT_CHAIN_EXTEND" Time="0" UseSleep="NO">
+					<Num Num="120" />
+					<Num FuncTxt=" local value = math.floor(2 + obj.Level * 0.5)  if IsBuffApplied(self, &quot;StormCalling_Buff&quot;) == &quot;YES&quot; then   value = value * 2  end  return value" Num="1.5" UseFunc="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="RH" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
+					<Str Str="LH" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_ELECTROCUTE" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="500" UseSleep="NO">
+					<Str Str="skl_fgt_tackle_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="550" UseSleep="NO">
+					<Str Str="voice_wiz_m_electrocute_shot" />
+					<Str Str="voice_wiz_electrocute_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="TGT_CHAIN_DAMAGE" Time="750" UseSleep="YES">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str_Arg Arg="4" Str="I_laser005_blue#Dummy_effect_electrocute" />
+					<Num Num="0.2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+					<Str Str="LH" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+					<Str Str="RH" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

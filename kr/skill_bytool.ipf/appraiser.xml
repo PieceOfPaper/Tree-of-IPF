@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Appraiser_Overestimate">
+		<EnableScripts>
+			<ToolScp Client="NO" Scp="CHECK_NOT_REINFORCE_STATE" UseSleep="NO" />
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="999999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="999799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL_OVERESTIMATE" Speed="1" Time="200" />
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
+					<Str Str="voice_war_atk_short" />
+					<Str Str="voice_atk_short_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="800" UseSleep="NO">
+					<Str Str="OverEstimate_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1800000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num FuncTxt="local value = 0; if GET_ABIL_LEVEL(self, 'Appraiser6') &gt; 0 then     value = 1; end return value;" Num="0" UseFunc="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Appraiser_Devaluation">
+		<EnableScripts>
+			<ToolScp Client="NO" Scp="CHECK_NOT_REINFORCE_STATE" UseSleep="NO" />
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="999999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="999799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="100" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" />
+					<Num Num="250" />
+					<Num Num="75" />
+					<Num FuncTxt="return obj.Level" Num="5" UseFunc="1" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="SKL_DEVALUATION" Speed="1" Time="100" />
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+					<Str Str="voice_war_atk_short" />
+					<Str Str="voice_atk_short_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF_PCBUFFTIME" Time="600" UseSleep="NO">
+					<Str Str="Devaluation_Debuff" />
+					<Num FuncTxt="return obj.Level" Num="3" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="120000" />
+					<Num Num="20000" />
+					<Num Num="1" />
+					<Num FuncTxt="local pc = GetSkillOwner(obj) local ratio = 50 if pc ~= nil then local abil = GetAbility(pc, 'Appraiser2') if abil ~= nil and abil.ActiveState == 1 then ratio = ratio + abil.Level end end return ratio" Num="50" UseFunc="1" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Appraiser_Forgery">
+		<EndScripts>
+			<ToolScp Client="YES" Scp="C_SKL_LOCK_ROTATE" UseSleep="NO">
+				<Num Num="0" />
+			</ToolScp>
+		</EndScripts>
+		<EnableScripts>
+			<ToolScp Client="NO" Scp="CHECK_EQUIPED_ACCESSORY" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="CHECK_NOT_REINFORCE_STATE" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="CHECK_COLONY_WAR_MAP" UseSleep="NO" />
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="999999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="999799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SKL_LOCK_ROTATE" Time="0" UseSleep="NO">
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_light123_green" />
+					<Pos Angle="0" Dist="15" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Anim Anim="SKL_FORGERY" Speed="1" Time="200" />
+				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="200" UseSleep="NO">
+					<Str Str="apprise_table" />
+					<Pos Angle="0" Dist="17" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="" />
+					<Num Num="0" />
+					<Num FuncTxt="return obj.Level * 60;" Num="30" />
+					<Str Str="Appraiser_Forgery" />
+					<MonProp />
+					<Str Str="SCR_SUMMON_FORGERY" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_smoke050" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="2.5" Str="F_smoke050" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Appraiser_Insurance">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_buff_7" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_archer_m_insurance_cast" />
+					<Str Str="voice_archer_f_insurance_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="500" UseSleep="NO">
+					<Str Str="skl_eff_jollyroger_buff" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
+					<Str Str="Insurance_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1800000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Appraiser_Blindside">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="1" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="120" UseSleep="NO">
+					<Str Str="voice_archer_atk" />
+					<Str Str="voice_archer_f_atk" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="250" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="1" />
+					<Num Num="80" />
+					<Num Num="10" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="260" UseSleep="NO">
+					<Str Str="Blindside_Debuff" />
+					<Num FuncTxt="return obj.Level" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num FuncTxt="return 10000 + obj.Level * 2000" Num="0" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

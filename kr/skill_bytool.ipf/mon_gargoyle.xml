@@ -1,0 +1,489 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Gargoyle_Skill_4">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-0.93078393" Dist="1.7557963" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="1600" />
+				<Frame Accel="1" Angle="-0.001004749" Dist="177.33041" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="2000" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_SET_COLDMG" Time="0" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Anim Anim="skl1" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="20" />
+					<Pos Angle="0" Dist="200" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="25" />
+					<Num Num="0.02" />
+					<Num Num="0.029999999" />
+					<Num Num="1500" />
+					<Str_Arg Arg="2.5" Str="F_explosion065_green" />
+					<Num Num="35" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="25" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="4" />
+					<Num Num="60" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="20" />
+					<Pos Angle="0" Dist="200" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="25" />
+					<Num Num="0.02" />
+					<Num Num="0.029999999" />
+					<Num Num="1500" />
+					<Str_Arg Arg="0.60000002" Str="I_stone015_mash" />
+					<Num Num="35" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="25" />
+					<Num Num="0.1" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="4" />
+					<Num Num="60" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_light004_blue" />
+					<Str Str="Dummy_effect_eye_r" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_light004_blue" />
+					<Str Str="Dummy_effect_eye_l" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="1800" UseSleep="NO">
+					<Num Num="5" />
+					<Num Num="1.5" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_SET_COLDMG" Time="2700" UseSleep="NO">
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Gargoyle_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl3" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="MSL_THROW" Time="2400" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_cleric_hexing_cast_dark#Bip001 L Hand" />
+					<Str_Arg Arg="2.5" Str="F_burstup003_brown" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="50" />
+					<Num Num="50" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="2700" UseSleep="NO">
+					<Num Num="2" />
+					<Num Num="1.5" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_PAD_MSL_BUCK" Time="2800" UseSleep="YES">
+					<Pos Angle="0" Dist="50" />
+					<Str Str="shootpad_Sparnanman" />
+					<Angle Angle="0" />
+					<Num Num="150" />
+					<Num Num="6" />
+					<Num Num="315" />
+					<Num Num="150" />
+					<Num Num="50" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="4700" UseSleep="NO">
+					<Num Num="2" />
+					<Num Num="1.5" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="4800" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="_cleric_hexing_cast_dark#Bip001 L Hand" />
+					<Str_Arg Arg="2.5" Str="F_burstup003_brown" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="50" />
+					<Num Num="50" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_PAD_MSL_BUCK" Time="5300" UseSleep="YES">
+					<Pos Angle="0" Dist="50" />
+					<Str Str="shootpad_Sparnanman" />
+					<Angle Angle="2.0943952" />
+					<Num Num="150" />
+					<Num Num="6" />
+					<Num Num="315" />
+					<Num Num="150" />
+					<Num Num="50" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="7200" UseSleep="YES">
+					<Str_Arg Arg="3" Str="I_cleric_hexing_cast_dark#Bip001 L Hand" />
+					<Str_Arg Arg="2.5" Str="F_burstup003_brown" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="50" />
+					<Num Num="50" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="7400" UseSleep="NO">
+					<Num Num="2" />
+					<Num Num="1.5" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_PAD_MSL_BUCK" Time="7600" UseSleep="YES">
+					<Pos Angle="0" Dist="50" />
+					<Str Str="shootpad_Sparnanman" />
+					<Angle Angle="4.1887903" />
+					<Num Num="150" />
+					<Num Num="6" />
+					<Num Num="315" />
+					<Num Num="150" />
+					<Num Num="50" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Gargoyle_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="150" />
+					<Num Num="20" />
+					<Num Num="2" />
+				</Scp>
+				<Anim Anim="skl2" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_light004_blue" />
+					<Str Str="Dummy_effect_eye_r" />
+					<Num Num="5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_light004_blue" />
+					<Str Str="Dummy_effect_eye_l" />
+					<Num Num="5" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1500" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_smoke011_smoke#Bip001 L Finger0Nub" />
+					<Str_Arg Arg="0.40000001" Str="F_smoke025_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="140" />
+					<Num Num="20" />
+					<Num FuncTxt="return IMCRandom(0.7, 2.5);" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1600" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_smoke011_smoke#Bip001 R Finger0Nub" />
+					<Str_Arg Arg="0.40000001" Str="F_smoke025_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="140" />
+					<Num Num="20" />
+					<Num FuncTxt="return IMCRandom(0.7, 2.5);" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1700" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_smoke011_smoke#Bip001 L Finger0Nub" />
+					<Str_Arg Arg="0.40000001" Str="F_smoke025_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="140" />
+					<Num Num="20" />
+					<Num FuncTxt="return IMCRandom(0.7, 2.5);" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1800" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_smoke011_smoke#Bip001 R Finger0Nub" />
+					<Str_Arg Arg="0.40000001" Str="F_smoke025_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="140" />
+					<Num Num="20" />
+					<Num FuncTxt="return IMCRandom(0.7, 2.5);" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1900" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_smoke011_smoke#Bip001 L Finger0Nub" />
+					<Str_Arg Arg="0.40000001" Str="F_smoke025_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="140" />
+					<Num Num="20" />
+					<Num FuncTxt="return IMCRandom(0.7, 2.5);" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="2000" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_smoke011_smoke#Bip001 R Finger0Nub" />
+					<Str_Arg Arg="0.40000001" Str="F_smoke025_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="140" />
+					<Num Num="20" />
+					<Num FuncTxt="return IMCRandom(0.7, 2.5);" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="2100" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_smoke011_smoke#Bip001 L Finger0Nub" />
+					<Str_Arg Arg="0.40000001" Str="F_smoke025_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="140" />
+					<Num Num="20" />
+					<Num FuncTxt="return IMCRandom(0.7, 2.5);" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="2200" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_smoke011_smoke#Bip001 R Finger0Nub" />
+					<Str_Arg Arg="0.40000001" Str="F_smoke025_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="140" />
+					<Num Num="20" />
+					<Num FuncTxt="return IMCRandom(0.7, 2.5);" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="2300" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_smoke011_smoke#Bip001 L Finger0Nub" />
+					<Str_Arg Arg="0.40000001" Str="F_smoke025_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="140" />
+					<Num Num="20" />
+					<Num FuncTxt="return IMCRandom(0.7, 2.5);" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="2400" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_smoke011_smoke#Bip001 R Finger0Nub" />
+					<Str_Arg Arg="0.40000001" Str="F_smoke025_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="140" />
+					<Num Num="20" />
+					<Num FuncTxt="return IMCRandom(0.7, 2.5);" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="2400" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_smoke011_smoke#Bip001 R Finger0Nub" />
+					<Str_Arg Arg="0.40000001" Str="F_smoke025_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="140" />
+					<Num Num="20" />
+					<Num FuncTxt="return IMCRandom(0.7, 2.5);" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="2600" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_smoke011_smoke#Bip001 R Finger0Nub" />
+					<Str_Arg Arg="0.40000001" Str="F_smoke025_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="140" />
+					<Num Num="20" />
+					<Num FuncTxt="return IMCRandom(0.7, 2.5);" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="2800" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_smoke011_smoke#Bip001 R Finger0Nub" />
+					<Str_Arg Arg="0.40000001" Str="F_smoke025_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="140" />
+					<Num Num="20" />
+					<Num FuncTxt="return IMCRandom(0.7, 2.5);" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="3000" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_smoke011_smoke#Bip001 R Finger0Nub" />
+					<Str_Arg Arg="0.40000001" Str="F_smoke025_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="140" />
+					<Num Num="20" />
+					<Num FuncTxt="return IMCRandom(0.7, 2.5);" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="3000" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_smoke011_smoke#Bip001 R Finger0Nub" />
+					<Str_Arg Arg="0.40000001" Str="F_smoke025_blue" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="140" />
+					<Num Num="20" />
+					<Num FuncTxt="return IMCRandom(0.7, 2.5);" Num="2" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="1000" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="3700" UseSleep="NO">
+					<Num Num="3" />
+					<Num Num="2" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Gargoyle_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="CIRCLE" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk1" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1000" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="-0.027566612" Dist="73.41925" />
+					<Str_Arg Arg="4" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0.80000001" Str="None" />
+					<Num Num="40" />
+					<Num Num="200" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="2200" UseSleep="NO">
+					<Num Num="5" />
+					<Num Num="1" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

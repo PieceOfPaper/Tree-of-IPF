@@ -139,7 +139,7 @@ date_time.add_time = function(pivot, sec)
     return ret_str
 end
 
-function is_balance_patch_care_period()
+function is_balance_patch_care_period()    
     local eventCls = GetClass("time_check_for_balance_patch", 'time_check_for_balance_patch')
     if eventCls ~= nil and eventCls.Activate == 'YES' then
         local curTime = GetDBTime()
@@ -1751,12 +1751,16 @@ end
 -- 공용 라이브러리
 --------------------------------------------------------------------------------------
 -- 특정 문자를 기준으로 문자열을 잘라 테이블로 반환
-function StringSplit(str, delimStr)
+function StringSplit(str, delimStr)    
     local _tempStr = str;
     local _result = { };
     local _index = 1;
 
     while true do
+        if _tempStr == nil then
+            break
+        end
+
         local _temp = string.find(_tempStr, delimStr);
         if _temp == nil then
             _result[_index] = _tempStr;
@@ -2712,12 +2716,12 @@ function IS_KANNUSHI_GENDER_CHANGE_FLAG(pc, targetJobClassName)
 
     if IsServerSection(pc) == 1 then
         local pcEtc = GetETCObject(pc)
-        if targetJobClassName == jobclass and pcEtc.IS_KANNUSHI_GENDER_CHANGE == 300 then
+        if targetJobClassName == jobclass then
             return 'YES'
         end
     else
         local myPCetc = GetMyEtcObject();
-        if targetJobClassName == jobclass and myPCetc.IS_KANNUSHI_GENDER_CHANGE == 300 then
+        if targetJobClassName == jobclass then
             return 'YES'
         end
     end

@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_stonefroster_Skill_4">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ANGRY2" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="3000" UseSleep="NO">
+					<Str_Arg Arg="5.6999998" Str="I_sphere008_boss_barrier_mash_loop" />
+					<Str Str="Bip01 Spine2" />
+					<Num Num="8" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="3000" UseSleep="NO">
+					<Str Str="Mon_Shield" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_stonefroster_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="Natk1" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="2000" UseSleep="NO">
+					<Num Num="3" />
+					<Num Num="1" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2000" UseSleep="YES">
+					<Pos Angle="-0.024839981" Dist="58.094181" />
+					<Str_Arg Arg="1.5" Str="None" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="40" />
+					<Num Num="200" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_stonefroster_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ANGRY2" Speed="1.2" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1600" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="50" />
+					<Str_Arg Arg="2.5" Str="none" />
+					<Num Num="1500" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="100" />
+					<Num Num="200" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="70" />
+				</Scp>
+				<Anim Anim="SKL2" Speed="1.5" Time="3000" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_stonefroster_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="CIRCLE" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK3" Speed="1.7" Time="500" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1500" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0.079603381" Dist="46.42643" />
+					<Str_Arg Arg="3" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="40" />
+					<Num Num="150" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="4" />
+					<Num Num="60" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

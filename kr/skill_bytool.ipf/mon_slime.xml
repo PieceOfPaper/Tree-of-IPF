@@ -1,0 +1,336 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_slime_gemini_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="0.69999999" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="5" Str="F_light028_violet3" />
+					<Str Str="Bip001 Spine" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="5" Str="F_light028_violet3" />
+					<Str Str="Bip002 Spine" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_voice_lapene_skl1_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="100" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="4.1625242e-36" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_ground183_circle_violet" />
+					<Num Num="40" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="20" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="250" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="4.1625242e-36" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1.5" Str="F_ground183_circle_violet" />
+					<Num Num="60" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="40" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="350" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="4.1625242e-36" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="2" Str="F_ground183_circle_violet" />
+					<Num Num="80" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="60" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+					<Str Str="mon_voice_lapene_skl3_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="660" UseSleep="NO">
+					<Str Str="mon_voice_helgasercle_4" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="670" UseSleep="NO">
+					<Str Str="mon_voice_naktis_atk_shot_1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="700" UseSleep="NO">
+					<Str Str="skl_eff_devaluation_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_slime_gemini_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="4.1625242e-36" Height="1" />
+					<Num Num="120" />
+					<Num Num="5" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_light028_violet2" />
+					<Pos Angle="0" Dist="4.6484373e-36" Height="20" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_voice_lapene_skl1_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="300" UseSleep="NO">
+					<Str Str="mon_voice_lapene_skl3_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="350" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="0.69999999" Str="I_spread_out001_light_violet#Bip002 R Hand" />
+					<Str_Arg Arg="1.5" Str="F_light028_violet2" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="4.1625242e-36" PosType="9" />
+					<Num Num="10" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0.40000001" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="350" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="0.69999999" Str="I_spread_out001_light_violet#Bip001 L Hand" />
+					<Str_Arg Arg="1.5" Str="F_light028_violet3" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="4.1625242e-36" PosType="9" />
+					<Num Num="10" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0.40000001" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="450" UseSleep="NO">
+					<Str Str="mon_voice_helgasercle_9" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="500" UseSleep="NO">
+					<Str Str="mon_voice_naktis_atk_shot_3" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_slime_wizard_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="4" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="200" Time="300" Type="CIRCLE" Width="20" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_zombie_bolt_astd" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_zombie_hoplite_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+					<Str Str="mon_katynforest_zombie_03_atk2_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+					<Str Str="mon_katynforest_zombie_02_skl_shot_eff" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_explosion062_green" />
+					<Str Str="effect1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_explosion062_green" />
+					<Str Str="effect2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_explosion062_green" />
+					<Str Str="effect1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_explosion062_green" />
+					<Str Str="effect2" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_slime_wizard_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="500" Type="CIRCLE" Width="20" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_katynforest_zombie_02_atk1_ready" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="350" UseSleep="NO">
+					<Str Str="mon_katynforest_zombie_02_skl_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+					<Str Str="skl_eff_mud_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="3.5" Str="F_explosion103_green" />
+					<Str Str="effect3" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_slime_witch_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="4.1558145e-36" />
+					<Num Num="80" />
+					<Num Num="5" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_lineup002_blue" />
+					<Str Str="slime_witch" />
+					<Num Num="0.5" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_zombie_archer_run" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="500" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="3" Str="I_force085_fire_green#Bone_RHand022" />
+					<Str_Arg Arg="1" Str="I_explosion002_green" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0" Dist="4.1558145e-36" PosType="9" />
+					<Num Num="20" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0.2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="600" UseSleep="NO">
+					<Str Str="mon_katynforest_zombie_01_atk2_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_slime_witch_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="2" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="500" Time="300" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_zombie_archer_born" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="280" UseSleep="NO">
+					<Str Str="mon_katynforest_zombie_01_atk1_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Slime_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="800" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="SKL" Speed="1" Time="0" />
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="UC_poison" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="5000" />
+					<Num Num="1" />
+					<Num Num="10" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_slime_dark_Skill">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1150" Dist="0" ForceATK="0" HitCount="1" Length="20" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="950" Type="SQUARE" Width="10" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_slime_dark_Attack1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="20" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="10" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_slime_elite_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1100" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1100" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

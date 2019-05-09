@@ -1699,12 +1699,13 @@ end
 function SCR_GET_HelmChopper_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Barbarian25") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
+    local value = 2.5
+    
+    if IsBuffApplied(pc, "Frenzy_Buff") == "YES" then
+        value = 4
     end
-
+    
+    return value
 end
 
 function SCR_GET_Seism_Ratio(skill)
@@ -4226,14 +4227,11 @@ function SCR_GET_IceBlast_Ratio(skill)
 end
 
 function SCR_GET_SnowRolling_Ratio2(skill)
-
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Cryomancer20") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
-    end
-
+	local value = 3 + skill.Level
+	if value>=10 then
+		value = 10;
+	end
+	return value
 end
 
 function SCR_GET_Telekinesis_Ratio2(skill)
@@ -5368,6 +5366,12 @@ function SCR_GET_DoublePunch_Ratio(skill)
     return value
 end
 
+function SCR_GET_DoublePunch_Ratio2(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.Level * (pc.Lv * 0.15)
+    return value
+end
+
 function SCR_Get_SkillFactor_DoublePunch(skill)
     local pc = GetSkillOwner(skill);
     local DoublePunchSkill = GetSkill(pc, "Monk_DoublePunch")
@@ -5379,7 +5383,7 @@ function SCR_Get_SkillFactor_DoublePunch(skill)
 end
 
 function SCR_GET_PalmStrike_Ratio(skill)
-    local value = 0.5 * skill.Level
+    local value = 2 * skill.Level
     return value
 end
 
@@ -7112,7 +7116,7 @@ function SCR_GET_Exorcise_Bufftime(skill)
 end
 
 function SCR_GET_MassHeal_Ratio(skill)
-    local value = 264 + (skill.Level - 1) * 126.6
+    local value = 422.4 + (skill.Level - 1) * 202.56
     value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return value
 end
@@ -7587,7 +7591,7 @@ function SCR_GET_IceWall_Time(skill)
         value = value + 10
     end
     
-    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 or IsRaidField(pc) == 1 then
         value = value / 2
     end    
     
@@ -7723,7 +7727,7 @@ function SCR_Get_IronSkin_Time(skill)
 end
 
 function SCR_Get_IronSkin_Ratio(skill)
-    local value = skill.Level * 0.5
+    local value = skill.Level * 1
     return value
 end
 
@@ -8452,6 +8456,8 @@ end
 function SCR_GET_JollyRoger_Ratio(skill)
     local value = 10 + (skill.Level * 3)
     
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill);
+    
     return value;
 end
 
@@ -8894,6 +8900,8 @@ end
 
 function SCR_GET_AcrobaticMount_Ratio(skill)
     local value = 5 + (skill.Level * 5)
+    
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill);
     
     return value;
 end
@@ -11089,6 +11097,17 @@ function SCR_GET_Rammuay_Ratio(skill)
     return value;
 end
 
+function SCR_GET_SokChiang_Time(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 5 + skill.Level * 1
+    
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
+        value = value * 0.5; 
+    end
+
+    return value;
+end
+
 function SCR_GET_GroovingMuzzle_BuffTime(skill)
     local value = 15 + skill.Level;
     
@@ -11199,6 +11218,11 @@ end
 function SCR_GET_GenbuArmor_Ratio(skill)
     local pc = GetSkillOwner(skill);
     local value = 100 - ((skill.Level - 1) * 10)
+    
+    local abilOnmyoji12 = GetAbility(pc, "Onmyoji12")
+    if abilOnmyoji12 ~= nil and TryGetProp(abilOnmyoji12, "ActiveState", 0) == 1 then
+        value = value - (value * abilOnmyoji12.Level * 0.01)
+    end
     
     return value
 end
@@ -11382,11 +11406,11 @@ function SCR_GET_Rubric_Ratio2(skill)
 end
 
 function SCR_GET_Rubric_Ratio3(skill)
-    local value = 6
+    local value = 4
     local pc = GetSkillOwner(skill);
     local abilExorcist3 = GetAbility(pc, "Exorcist3");
     if abilExorcist3 ~= nil and TryGetProp(abilExorcist3, "ActiveState") == 1 then
-        value = 4
+        value = 2
     end
     
     return value;
@@ -11750,6 +11774,12 @@ end
 
 function SCR_GET_MuayThai_Ratio(skill)
     local value = 10 + skill.Level
+    
+    return value;
+end
+
+function SCR_GET_MuayThai_Ratio2(skill)
+    local value = skill.Level * 10
     
     return value;
 end

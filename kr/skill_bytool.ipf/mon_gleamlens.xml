@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_gleamlens_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="-0.52359879" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1000" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="1800" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1600" Type="SQUARE" Width="10" />
+				<Frame Angle="0" AniTime="2000" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0.52359879" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1800" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="F_pose_magical_light2" />
+					<Str Str="Dummy_lens" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_pose_magical_light2" />
+					<Str Str="Dummy_lens" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="600" UseSleep="NO">
+					<Str Str="skl_eff_treeofsephiroth_buff" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="600" UseSleep="NO">
+					<Str Str="skl_fgt_buff_2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="650" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_ground182_rainbow" />
+					<Str Str="Dummy_effect004" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="850" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_ground182_rainbow" />
+					<Str Str="Dummy_effect002" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1150" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_ground182_rainbow" />
+					<Str Str="Dummy_effect004" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1300" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="F_pose_magical_light2" />
+					<Str Str="Dummy_lens" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1300" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_pose_magical_light2" />
+					<Str Str="Dummy_lens" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1600" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_ground182_rainbow" />
+					<Str Str="Dummy_effect003" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_gleamlens_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.69813174" TermMax="0" TermMin="0" Time="250" Type="FAN" Width="50" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="370" UseSleep="NO">
+					<Str Str="skl_eff_treeofsephiroth_buff" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_pose_magical_light2" />
+					<Str Str="Dummy_lens" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_ground181_rainbow" />
+					<Str Str="Dummy_effect001" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="F_pose_magical_light2" />
+					<Str Str="Dummy_lens" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

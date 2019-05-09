@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Glizardon_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="650" Dist="0" ForceATK="0" HitCount="1" Length="65" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="450" Type="FAN" Width="50" />
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="65" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="800" Type="FAN" Width="50" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="UC_silence" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="4000" />
+					<Num Num="1" />
+					<Num Num="15" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Glizardon_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1300" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1100" Type="CIRCLE" Width="60" />
+				<Frame Angle="0" AniTime="1500" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1300" Type="CIRCLE" Width="60" />
+				<Frame Angle="0" AniTime="1900" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1700" Type="CIRCLE" Width="60" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl1" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
+					<Str_Arg Arg="4" Str="F_lineup017_mintdark" />
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Glizardon_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="2000" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1800" Type="CIRCLE" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl2" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="2.5" Str="F_warrior_chargingattack_cast_spread_in" />
+					<Str Str="Bip01 Spine" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="800" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="1" />
+					<Str_Arg Arg="1.1" Str="F_sys_target_monster##0.3" />
+					<Num Num="800" />
+					<Str_Arg Arg="2" Str="F_smoke052_green" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="1600" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_burstup003" />
+					<Num Num="2" />
+					<Pos Angle="0.04416107" Dist="47.565296" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_bookmark_mimic_Skill_2">
+		<CondList>
+			<Scp Client="NO" Scp="SCOND_DISTANCE_CHECK" Time="0" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="40" />
+				<Num Num="120" />
+			</Scp>
+		</CondList>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="-1.1610235" AniTime="900" Dist="67.645836" ForceATK="0" HitCount="1" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="700" Type="CIRCLE" Width="15" />
+				<Frame Angle="-0.76823127" AniTime="950" Dist="75.156578" ForceATK="0" HitCount="1" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="750" Type="CIRCLE" Width="15" />
+				<Frame Angle="-0.45946035" AniTime="1000" Dist="90.577576" ForceATK="0" HitCount="1" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="CIRCLE" Width="15" />
+				<Frame Angle="-0.20294642" AniTime="1050" Dist="105.3934" ForceATK="0" HitCount="1" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="850" Type="CIRCLE" Width="15" />
+				<Frame Angle="0.052761357" AniTime="1100" Dist="113.20496" ForceATK="0" HitCount="1" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="900" Type="CIRCLE" Width="15" />
+				<Frame Angle="0" AniTime="1150" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="950" Type="SQUARE" Width="12" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_bookmark_mimic_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="12" />
+				<Frame Angle="-0.00097400928" AniTime="700" Dist="40.169441" ForceATK="0" HitCount="1" Length="60" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="12" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>
