@@ -744,6 +744,8 @@
 		<image name="Icon_common_magical" file="\icon\skill\common\Icon_common_magical.png" imgrect="0 0 128 128" CMM_Caption="마법소녀코스튬 변신 스킬"/>
 		<image name="icon_common_korpu" file="\icon\skill\common\icon_common_korpu.png" imgrect="0 0 128 128" CMM_Caption="코르프의 부패"/>
 		<image name="icon_common_rikuma" file="\icon\skill\common\icon_common_rikuma.png" imgrect="0 0 128 128" CMM_Caption="리쿠마의 가호"/>
+		<image name="icon_common_Savinose_Bendrinti" file="\icon\skill\common\icon_common_Savinose_Bendrinti.png" imgrect="0 0 128 128" CMM_Caption="벤드린티"/>
+		<image name="icon_common_Savinose_Apsauga" file="\icon\skill\common\icon_common_Savinose_Apsauga.png" imgrect="0 0 128 128" CMM_Caption="앱사우가"/>
 	</imagelist>
 	<imagelist category="restquickslot_icon">
 		<image name="icon_rest_arrow" file="\icon\rest_mode_icon.tga" imgrect="0 0 128 128" CMM_Caption="화살제작"/>
@@ -2361,6 +2363,7 @@
 		<image name="ability_cleric_Pardoner15" file="\icon\icon_ability_cleric06.tga" imgrect="256 512 128 128" CMM_Caption="축복 물리 방어력 증가: 강화"/>
 		<image name="ability_cleric_Miko8" file="\icon\icon_ability_cleric06.tga" imgrect="384 512 128 128" CMM_Caption="카구라: 꾀꼬리 춤"/>
 		<image name="ability_cleric_PlagueDoctor18" file="\icon\icon_ability_cleric06.tga" imgrect="512 512 128 128" CMM_Caption="힐링 팩터: 파티원 적용"/>
+		<image name="ability_cleric_Oracle22" file="\icon\icon_ability_cleric06.tga" imgrect="640 512 128 128" CMM_Caption="포어텔 : 강화"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>

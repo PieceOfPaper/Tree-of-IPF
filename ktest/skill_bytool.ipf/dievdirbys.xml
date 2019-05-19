@@ -16,7 +16,7 @@
 				</ToolScp>
 				<ToolScp Client="NO" Scp="S_R_ADD_DROP_WOOD" UseSleep="NO">
 					<Num Num="1" />
-					<Num Num="50" />
+					<Num FuncTxt=" local value = 0  local abil = GetAbility(self, &quot;Dievdirbys18&quot;)  if abil ~= nil and abil.ActiveState == 1 then   value = abil.Level * 10  end  return value" Num="0" UseFunc="1" />
 				</ToolScp>
 			</ResultList>
 		</MainSkl>

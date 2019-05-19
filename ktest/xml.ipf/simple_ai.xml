@@ -16068,6 +16068,36 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </StartList>
     </AI>
+    <AI Name="SHADOW_LEGEND_PHASE_1_ELITE" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                <Str Str="SHADOW_LEGEND_ELITE_DEAD"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                <Str Str="SHADOW_LEGEND_ELITE_BOSS_HEAL"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                <Num Num="600"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str Str="HPLock"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
     <AI Name="SHADOW_RAID_BOSS_END_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_PLAYANI" Client="NO" UseSleep="NO">

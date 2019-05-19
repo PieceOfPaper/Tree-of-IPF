@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
 <List>
 	<Spine>
@@ -150,5 +150,8 @@
 			<uieffect effect="I_screen_bosscard_asiomage_smoke" attachSpineBone="bone57" scale="4" overlab="No" sound="None" offset="0" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
 			<uieffect effect="I_screen_bosscard_asiomage_light" attachSpineBone="bone44" scale="5" overlab="No" sound="None" offset="0" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
 		</Element>
+	</Spine>
+	<Spine>
+		<Element Name="velclipse" root="velclipse" atlas="velclipse" json="velclipse" scale="0.94" offsetX="0" offsetY="0" animation="animation"/>
 	</Spine>
 </List>

@@ -4,9 +4,9 @@ function COLONY_ALARM_ON_INIT(addon, frame)
 end
 
 function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
+    if frame == nil then return; end
     local text = frame:GetChild('text');
     local clmsg = '';
-
     if argStr == 'START' then
         if diffSec == -1800 then
             clmsg = ClMsg('Guild_Colony_Start_Msg_Before_30min');

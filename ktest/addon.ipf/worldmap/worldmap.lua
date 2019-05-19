@@ -561,14 +561,23 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 				local occupyTextTooltip = '';
 				local occupyText = ctrlSet:CreateControl('richtext', 'occupyText', 0, 0, 30, 30);        
 				local emblemSet = nil;
-				SET_WORLDMAP_RICHTEXT(occupyText, 1);        
-						
-				if session.colonywar.GetProgressState() == true then -- 콜로니전 중일 때
+				SET_WORLDMAP_RICHTEXT(occupyText, 1);
+
+ 				local colonyLeague = GetClassByStrProp("guild_colony", "ClassName", check_word..mapCls.ClassName);
+                if session.colonywar.GetProgressState() == true then -- 콜로니전 중일 때
 					local COLONY_PROGRESS_IMG = topFrame:GetUserConfig('COLONY_PROGRESS_IMG');
 					colonyText = string.format('{img %s %d %d}', COLONY_PROGRESS_IMG, COLONY_IMG_SIZE, COLONY_IMG_SIZE);
 					occupyTextTooltip = ClMsg('ProgressColonyWar');
 				else -- 콜로니전 진행 중이 아닐 때
-					local COLONY_NOT_OCCUPIED_IMG = topFrame:GetUserConfig('COLONY_NOT_OCCUPIED_IMG');
+                    local COLONY_NOT_OCCUPIED_IMG = nil
+                    if colonyLeague ~= nil then
+                        if colonyLeague.ColonyLeague == 1 then
+                            COLONY_NOT_OCCUPIED_IMG = topFrame:GetUserConfig('COLONY_LEAGUE1_NOT_OCCUPIED_IMG');
+                        elseif colonyLeague.ColonyLeague == 2 then
+                            COLONY_NOT_OCCUPIED_IMG = topFrame:GetUserConfig('COLONY_LEAGUE2_NOT_OCCUPIED_IMG');
+                        end
+                    end
+
                     local cityMap = GetClassString('guild_colony', check_word..mapCls.ClassName, 'TaxApplyCity')
                     if cityMap ~= "None" then
                         local cityMapID = GetClassNumber('Map', cityMap, 'ClassID')
@@ -584,20 +593,42 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
                             emblemSet:SetGravity(ui.CENTER_HORZ, ui.TOP);
                         
                             -- emblem pic set
-                            local emblemPic = GET_CHILD_RECURSIVELY(emblemSet, 'emblemPic');    
+                            local emblemedgePic = GET_CHILD_RECURSIVELY(emblemSet, "emblemedgePic");
+							local emblemedgebgPic = GET_CHILD_RECURSIVELY(emblemSet, "emblemedgebgPic");
+							if emblemedgePic ~= nil and emblemedgebgPic ~= nil then
+								if colonyLeague.ColonyLeague == 1 then
+									emblemedgePic:SetImage("colony_league_part1");
+									emblemedgebgPic:Resize(64, 64);
+									emblemedgebgPic:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+									
+								elseif colonyLeague.ColonyLeague == 2 then
+									emblemedgePic:SetImage("colony_league_part2");
+									emblemedgebgPic:Resize(64, 64);
+									
+								end
+							end
+							
+							local emblemPic = GET_CHILD_RECURSIVELY(emblemSet, 'emblemPic');
                             local worldID = session.party.GetMyWorldIDStr();            
-                            local emblemImgName = guild.GetEmblemImageName(guildID,worldID);                        
+                            local emblemImgName = guild.GetEmblemImageName(guildID, worldID); 
                             if emblemImgName ~= 'None' then
                                 emblemPic:SetFileName(emblemImgName);
+								emblemSet:SetSkinName("None");
                             else            
                                 local worldID = session.party.GetMyWorldIDStr();    
                                 guild.ReqEmblemImage(guildID,worldID);
+								emblemSet:SetSkinName("test_frame_midle");
                             end
+
                         	local taxGuildName = taxRateInfo:GetGuildName()
                         	local taxCityMapID = taxRateInfo:GetCityMapID();
                             local taxCityName = TryGetProp(GetClassByType("Map", taxCityMapID), "Name")
                             local taxRate = taxRateInfo:GetTaxRate();
-                            occupyTextTooltip = ClMsg('ColonyTax_Guild_World_map')..taxGuildName.."{nl}"..ClMsg('ColonyTax_City_World_map')..taxCityName.."{nl}"..ClMsg('ColonyTax_Rate_World_map')..taxRate..ClMsg('PercentSymbol')
+                            if colonyLeague.ColonyLeague == 1 then
+                                occupyTextTooltip = "["..ClMsg('ColonyLeague_World_map_1st').."]".."{nl}"..ClMsg('ColonyTax_Guild_World_map')..taxGuildName.."{nl}"..ClMsg('ColonyTax_City_World_map')..taxCityName.."{nl}"..ClMsg('ColonyTax_Rate_World_map')..taxRate..ClMsg('PercentSymbol')
+                            elseif colonyLeague.ColonyLeague == 2 then
+                                occupyTextTooltip = "["..ClMsg('ColonyLeague_World_map_2nd').."]".."{nl}"..ClMsg('ColonyTax_Guild_World_map')..taxGuildName
+                            end
                         end
                     end
 				end

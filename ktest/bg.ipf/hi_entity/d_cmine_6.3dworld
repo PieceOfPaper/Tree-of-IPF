@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by JangYD (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Bo-yeon Kang (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
 <World>
 	<LoadingOption Use="1" UseCull="0"/>
@@ -49,9 +49,9 @@
 	<Model File="d_cmine03_6area_model.xac" Model="d_cmine03_6area_model" ShadowMap="d_cmine03_6area_model" pos="-1059.2269 300.3220 113.1284" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_obbcol.xac" Model="d_cmine03_obbcol" pos="-1059.2269 300.3220 113.1284" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_10area_model.xac" Model="d_cmine03_10area_model" ShadowMap="d_cmine03_10area_model" pos="-930.7244 242.3880 111.0851" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_cmine03_crytp07.xac" Model="d_cmine03_crytp07" pos="-1729.8435 382.0279 -1898.9553" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_cmine03_crytp09.xac" Model="d_cmine03_crytp09" pos="-666.1439 255.5348 42.4451" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_cmine03_crytp08.xac" Model="d_cmine03_crytp08" pos="-83.8538 255.5347 -1178.4216" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine03_crytp07.xac" Model="d_cmine03_crytp07" ShadowMap="d_cmine03_crytp07" pos="-1729.8435 382.0279 -1898.9553" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine03_crytp09.xac" Model="d_cmine03_crytp09" ShadowMap="d_cmine03_crytp09" pos="-666.1439 255.5348 42.4451" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine03_crytp08.xac" Model="d_cmine03_crytp08" ShadowMap="d_cmine03_crytp08" pos="-83.8538 255.5347 -1178.4216" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_ab_decal_blend2.xac" Model="d_cmine03_ab_decal_blend2" ShadowMap="d_cmine03_ab_decal_blend2" pos="3.2856 210.1682 66.6465" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_ab_decal_blend3.xac" Model="d_cmine03_ab_decal_blend3" ShadowMap="d_cmine03_ab_decal_blend3" pos="-173.6803 229.9908 108.6816" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_nl_ab_decal.xac" Model="d_cmine03_nl_ab_decal" pos="-1000.2957 297.9292 -999.3561" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
@@ -60,20 +60,20 @@
 	<Model File="d_cmine03_tp16.xac" Model="d_cmine03_tp16" ShadowMap="d_cmine03_tp16" pos="-360.2856 226.2155 -1653.5408" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_tp17.xac" Model="d_cmine03_tp17" ShadowMap="d_cmine03_tp17" pos="255.2790 218.9292 -1211.6198" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_tp18.xac" Model="d_cmine03_tp18" ShadowMap="d_cmine03_tp18" pos="280.4245 226.2103 -1143.2703" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_cmine03_crytp00.xac" Model="d_cmine03_crytp00" pos="-530.5698 210.4724 -991.9111" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_cmine03_crytp01.xac" Model="d_cmine03_crytp01" pos="-394.1644 210.4724 -973.7330" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_cmine03_crytp02.xac" Model="d_cmine03_crytp02" pos="-442.0131 217.5235 -846.6625" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_cmine03_crytp03.xac" Model="d_cmine03_crytp03" pos="-60.4654 370.2449 -984.0590" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine03_crytp00.xac" Model="d_cmine03_crytp00" ShadowMap="d_cmine03_crytp00" pos="-530.5698 210.4724 -991.9111" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine03_crytp01.xac" Model="d_cmine03_crytp01" ShadowMap="d_cmine03_crytp01" pos="-394.1644 210.4724 -973.7330" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine03_crytp02.xac" Model="d_cmine03_crytp02" ShadowMap="d_cmine03_crytp02" pos="-442.0131 217.5235 -846.6625" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine03_crytp03.xac" Model="d_cmine03_crytp03" ShadowMap="d_cmine03_crytp03" pos="-60.4654 370.2449 -984.0590" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_tp19.xac" Model="d_cmine03_tp19" ShadowMap="d_cmine03_tp19" pos="-301.9094 231.6700 -627.9109" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_tp20.xac" Model="d_cmine03_tp20" ShadowMap="d_cmine03_tp20" pos="-301.9094 231.6700 -534.4467" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_tp21.xac" Model="d_cmine03_tp21" ShadowMap="d_cmine03_tp21" pos="4.6044 196.3408 -307.4693" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_cmine03_crytp04.xac" Model="d_cmine03_crytp04" pos="113.8883 197.5700 -281.3857" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine03_crytp04.xac" Model="d_cmine03_crytp04" ShadowMap="d_cmine03_crytp04" pos="113.8883 197.5700 -281.3857" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_tp22.xac" Model="d_cmine03_tp22" ShadowMap="d_cmine03_tp22" pos="-791.8493 208.1418 -329.1960" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_tp23.xac" Model="d_cmine03_tp23" ShadowMap="d_cmine03_tp23" pos="-556.4625 208.1418 -147.8890" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_cmine03_crytp05.xac" Model="d_cmine03_crytp05" pos="-451.1147 228.2818 -24.5724" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine03_crytp05.xac" Model="d_cmine03_crytp05" ShadowMap="d_cmine03_crytp05" pos="-451.1147 228.2818 -24.5724" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_tp14.xac" Model="d_cmine03_tp14" ShadowMap="d_cmine03_tp14" pos="-842.5750 285.2383 125.5515" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_tp25.xac" Model="d_cmine03_tp25" ShadowMap="d_cmine03_tp25" pos="-1048.2456 305.0548 38.1120" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_tp24.xac" Model="d_cmine03_tp24" ShadowMap="d_cmine03_tp24" pos="-960.7059 318.9583 65.0005" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_cmine03_crytp06.xac" Model="d_cmine03_crytp06" pos="-1670.6422 338.1440 -2091.0889" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine03_crytp06.xac" Model="d_cmine03_crytp06" ShadowMap="d_cmine03_crytp06" pos="-1670.6422 338.1440 -2091.0889" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine03_ground02.xac" Model="d_cmine03_ground02" ShadowMap="d_cmine03_ground02" pos="1818.2850 10.1533 1790.2052" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

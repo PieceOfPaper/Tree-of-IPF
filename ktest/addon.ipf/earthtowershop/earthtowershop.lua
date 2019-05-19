@@ -381,7 +381,6 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
                 for j = 0, recipeItemCnt - 1 do
                     local itemSet = ctrlset:CreateOrGetControlSet('craftRecipe_detail_item', "EACHMATERIALITEM_" .. i ..'_'.. j, x, y);
                     itemSet:SetUserValue("MATERIAL_IS_SELECTED", 'nonselected');
-                    CRAFT_DETAIL_CTRL_INIT(itemSet);
                     local slot = GET_CHILD(itemSet, "slot", "ui::CSlot");
                     local needcountTxt = GET_CHILD(itemSet, "needcount", "ui::CSlot");
                     needcountTxt:SetTextByKey("count", recipeItemCnt)
@@ -407,7 +406,6 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
             else            
                 local itemSet = ctrlset:CreateOrGetControlSet('craftRecipe_detail_item', "EACHMATERIALITEM_" .. i, x, y);
                 itemSet:SetUserValue("MATERIAL_IS_SELECTED", 'nonselected');
-                CRAFT_DETAIL_CTRL_INIT(itemSet);
                 local slot = GET_CHILD(itemSet, "slot", "ui::CSlot");
                 local needcountTxt = GET_CHILD(itemSet, "needcount", "ui::CSlot");
                 needcountTxt:SetTextByKey("count", recipeItemCnt);
@@ -702,22 +700,16 @@ function EARTH_TOWER_SHOP_TRADE_LEAVE()
     for i = 1, 5 do
         if recipecls["Item_"..i.."_1"] ~= "None" then
             local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i);
-            if invItemlist == nil then
+            local eachSet = GET_CHILD_RECURSIVELY(ctrlSet, "EACHMATERIALITEM_"..i);
+            if invItemlist == nil and eachSet~=nil then
                -- needCount Reset
-               local needCount = GET_CHILD_RECURSIVELY(ctrlSet, "needcount");
+               local needCount = GET_CHILD_RECURSIVELY(eachSet, "needcount");
                needCount:SetTextByKey("count", recipeItemCnt)
                 
                -- material icon Reset
-               local cnt = ctrlSet:GetChildCount();
-               for i = 0, cnt - 1 do
-                   local eachcset = ctrlSet:GetChildByIndex(i);    
-                   if string.find(eachcset:GetName(),'EACHMATERIALITEM_') ~= nil then
-                       eachcset:SetUserValue("MATERIAL_IS_SELECTED", 'nonselected');
-                   end
-               end
-               CRAFT_DETAIL_CTRL_INIT(ctrlSet);
+               eachSet:SetUserValue("MATERIAL_IS_SELECTED", 'nonselected');
 
-               local slot = GET_CHILD_RECURSIVELY(ctrlSet, "slot");
+               local slot = GET_CHILD_RECURSIVELY(eachSet, "slot");
                if slot ~= nil then
                    SET_SLOT_ITEM_CLS(slot, dragRecipeItem);
                    slot:SetEventScript(ui.DROP, "ITEMCRAFT_ON_DROP");
@@ -729,11 +721,11 @@ function EARTH_TOWER_SHOP_TRADE_LEAVE()
 
                    local icon = slot:GetIcon();
                    icon:SetColorTone('33333333')
-                   ctrlSet:SetUserValue("ClassName", dragRecipeItem.ClassName)
+                   eachSet:SetUserValue("ClassName", dragRecipeItem.ClassName)
                end
 
                -- btn Reset
-               local btn = GET_CHILD_RECURSIVELY(ctrlSet, "btn");
+               local btn = GET_CHILD_RECURSIVELY(eachSet, "btn");
                if btn ~= nil then
                     btn:ShowWindow(1);
                end

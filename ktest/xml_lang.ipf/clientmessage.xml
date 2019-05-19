@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -321,7 +321,7 @@
 		<Class ClassID="2291" ClassName="PleaseSelectSetOption" Data="세트 옵션을 선택해주세요."/>
 		<Class ClassID="2292" ClassName="CantUseInBattleState" Data="전투중엔 사용하실 수 없습니다."/>
 		<Class ClassID="2293" ClassName="CantUseInSkillsCoolDown" Data="스킬이 재사용 대기시간 중이거나 오버히트를 소모한 상태에서 사용하실 수 없습니다."/>
-		<Class ClassID="2301" ClassName="selectrecipebox" Data="레시피 선택 상자"/>
+		<Class ClassID="2302" ClassName="selectrecipe" Data="레시피 선택"/>
 	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
@@ -631,7 +631,9 @@
 		<Class ClassID="4234" ClassName="IcorductilityError01" Data="등록된 장비와 같은 부위의 장비를 등록해주세요"/>
 		<Class ClassID="4235" ClassName="CantUseJob" Data="사용 할 수 없는 직업입니다."/>
 		<Class ClassID="4236" ClassName="MagicEnchant" Data="마법 부여"/>
+    <Class ClassID="4237" ClassName="ExceedAmountItem_misc_pvp_mine2{Extra}{Count}" Data="[용병단 증표]의 최대 소유할 수 있는 개수가 초과되어 {Extra}개는 제외하고 {Count}만큼 지급되었습니다."/>
 		<Class ClassID="4238" ClassName="SelectEventItem{ITEM}" Data="{@st66d_y}{s20}{ITEM}{/}{/} {nl}아이템을 정말 선택하시겠습니까?{nl} {nl}선택 후에는 다른 아이템으로{nl}교환할 수 없습니다."/>
+		<Class ClassID="4239" ClassName="nohaveskillnouse" Data="습득한 스킬이 없어 사용 할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -5565,6 +5567,26 @@
 		<Class ClassID="40553" ClassName="F_3CMLAKE_27_1_SQ_6_CM2" Data="폭탄이 설치되었습니다."/>
 		<Class ClassID="40554" ClassName="F_3CMLAKE_27_2_SQ_2_CM2" Data="호수 물고기를 낚았습니다."/>
 		<Class ClassID="40555" ClassName="F_3CMLAKE_27_2_SQ_2_CM3" Data="호수 물고기를 낚는 중"/>
+		<Class ClassID="40556" ClassName="D_UNDERAQUEDUCT_EVENT_1_MSG1" Data="보급증서를 바쳐서 초록색 보급 물품을 받았습니다."/>
+		<Class ClassID="40557" ClassName="D_UNDERAQUEDUCT_EVENT_1_FAIL" Data="보급증서가 없습니다. "/>
+		<Class ClassID="40558" ClassName="D_UNDERAQUEDUCT_EVENT_1_DOTIME" Data="보급증서를 넣는 중"/>
+		<Class ClassID="40559" ClassName="D_UNDERAQUEDUCT_EVENT_1_FAIL2" Data="이미 초록색 보급 물품을 받았습니다."/>
+		<Class ClassID="40560" ClassName="D_UNDERAQUEDUCT_EVENT_2_MSG1" Data="보라색 보급 물품을 받았습니다."/>
+		<Class ClassID="40561" ClassName="D_UNDERAQUEDUCT_EVENT_3_SEL1" Data="아이템을 받는다."/>
+		<Class ClassID="40562" ClassName="D_UNDERAQUEDUCT_EVENT_3_SEL2" Data="아이템을 받지 않는다."/>
+		<Class ClassID="40563" ClassName="D_UNDERAQUEDUCT_EVENT_3_BOSS_NOTICE" Data="보급 장치가 활성화 되었습니다.{nl}곧 나타날 겁쟁이 체샤를 공격하기 위해선{nl}보급 장치에서 마력이 깃든 팔찌를 얻어야 합니다."/>
+		<Class ClassID="40564" ClassName="D_UNDERAQUEDUCT_EVENT_3_BOSS_CREATE" Data="겁쟁이 체샤가 등장했습니다.{nl}겁쟁이 체샤는 마력이 깃든 팔찌를 사용하여 공격할 수 있습니다."/>
+		<Class ClassID="40565" ClassName="D_UNDERAQUEDUCT_EVENT_3_BOSS_SUCCESS" Data="겁쟁이 체샤의 실드를 파괴하는데 성공했습니다.{nl}겁쟁이 체샤는 보급품을 사방에 뿌리며 사라졌습니다."/>
+		<Class ClassID="40566" ClassName="D_UNDERAQUEDUCT_EVENT_3_BOSS_FAIL" Data="겁쟁이 체샤가 도망갔습니다."/>
+		<Class ClassID="40567" ClassName="D_UNDERAQUEDUCT_EVENT_3_MSG1" Data="이미 노란색 보급품을 받았습니다."/>
+		<Class ClassID="40568" ClassName="D_UNDERAQUEDUCT_GET_BUFF1" Data="보급품을 사용하였습니다. 머즈루스에게 가하는 대미지가 증가합니다."/>
+		<Class ClassID="40569" ClassName="D_UNDERAQUEDUCT_FAIL_BUFF1" Data="소지하고 있는 보급품이 없습니다."/>
+		<Class ClassID="40570" ClassName="D_UNDERAQUEDUCT_TOTAL_KILL_COUNT1" Data="무언가 다가오는 소리가 들립니다."/>
+		<Class ClassID="40571" ClassName="D_UNDERAQUEDUCT_TOTAL_KILL_COUNT2" Data="무언가 다가오는 소리가 크게 들립니다.{nl}겁쟁이 체샤가 지하수로에 가까워진듯 합니다."/>
+		<Class ClassID="40572" ClassName="D_UNDERAQUEDUCT_EVENT3_GIMMICK_NAME" Data="보급 장치"/>
+		<Class ClassID="40573" ClassName="D_UNDERAQUEDUCT_EVENT3_GIMMICK_MONNAME" Data="겁쟁이 체샤"/>
+		<Class ClassID="40574" ClassName="D_UNDERAQUEDUCT_GET_BUFF2" Data="보급품을 사용하였습니다. 머즈루스에게 받는 대미지가 감소합니다."/>
+		<Class ClassID="40575" ClassName="D_UNDERAQUEDUCT_GET_BUFF3" Data="보급품을 사용하였습니다. 머즈루스에게 받는 대미지를 일정치 무효화합니다."/>
 		<Class ClassID="50001" ClassName="UNDER30_2_CHECK_MSG2" Data="유독가스에 중독되어 비석을 확인하는데 힘듭니다"/>
 		<Class ClassID="50002" ClassName="UNDER301_MONSTER_PAIR_ERROR_1" Data="오늘 진행가능한 {DAYMAXCOUNT}회 중 {DAYPLAYCOUNT} 회를 모두 진행하셨습니다."/>
 		<Class ClassID="50003" ClassName="BRACKEN431_SUB_NPC_NAME" Data="사제 개러티"/>
@@ -6515,6 +6537,7 @@
 		<Class ClassID="50967" ClassName="RAID_BRACKEN_MAGICSQUARE_MSG2" Data="마법진과 거리가 멉니다"/>
 		<Class ClassID="50968" ClassName="RAID_BRACKEN_MAGICSQUARE_MSG3" Data="이미 비활성화된 마법진입니다"/>
 		<Class ClassID="50969" ClassName="RAID_BRACKEN_MAGIC_SEAL_AI_MSG1" Data="폭주하는 마법진에 마력 보주가 들어가 큰 폭발을 일으켰습니다"/>
+		<Class ClassID="50970" ClassName="ABBEY22_4_SUBQ7_NPC2_CANT" Data="먼저 수도사 아이스티스를 찾아가세요"/>
 		<Class ClassID="51000" ClassName="EVENT_1809_RANKRESET_MSG1" Data="초기화 아이템 지원받기"/>
 		<Class ClassID="60001" ClassName="GTOWER32_NPC_CHAT_1" Data="여러분 덕에 여기까지 올 수 있었습니다"/>
 		<Class ClassID="60002" ClassName="GTOWER32_NPC_CHAT_2" Data="이 봉인은 제가 풀겠습니다"/>
@@ -8541,6 +8564,7 @@
 		<Class ClassID="90186" ClassName="UPHILL_DEFFENSE_SELF_DESTRUCTION_ACTIVE" Data="몬스터가 옮긴 폭탄들이 횃불에 닿아 터졌습니다!{nl}횃불이 큰 피해를 입었습니다!"/>
 		<Class ClassID="90187" ClassName="ThereAreNoSkillsAvailable" Data="사용할 수 있는 스킬이 없습니다."/>
 		<Class ClassID="90188" ClassName="UPHILL_DEFENSE_CRYSTAL" Data="화염 결정"/>
+		<Class ClassID="90189" ClassName="CHANGEJOB_COMPANIONSKILL_GUID" Data="해당 클래스로 전직 후 스킬 사용 시 {@st41}[컴패니언]{/}이 필요하며, {@st41}[컴패니언]{/}은 {@st41}[숙소 캐릭터 슬롯]{/}이 있어야 생성 가능합니다"/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
@@ -9441,8 +9465,8 @@
 		<Class ClassID="111220" ClassName="CRTMATK" Data="마법 치명타 공격력"/>
 		<Class ClassID="111221" ClassName="CastingSpeed" Data="캐스팅 시간 비율"/>
 		<Class ClassID="111222" ClassName="HateRate" Data="추가 위협도"/>
-		<Class ClassID="111223" ClassName="NormalASPD" Data="기본 공격속도"/>
-		<Class ClassID="111224" ClassName="SkillASPD" Data="스킬 공격속도"/>
+		<Class ClassID="111223" ClassName="NormalASPD" Data="추가 기본 공격속도"/>
+		<Class ClassID="111224" ClassName="SkillASPD" Data="추가 스킬 공격속도"/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="112001" ClassName="VeryEasy" Data="매우 쉬움"/>
@@ -11335,7 +11359,7 @@
 		<Class ClassID="137357" ClassName="Auto_Bun" Data="분"/>
 		<Class ClassID="137358" ClassName="Auto_Cho" Data="초"/>
 		<Class ClassID="137359" ClassName="Auto_'_SeonTaeg" Data="' 선택"/>
-		<Class ClassID="137360" ClassName="Auto__{nl}JeongMalLo_JinHaengHaSiKessSeupNiKka?" Data="{/}'{nl}전직하시겠습니까?{nl}(선택한 클래스는 클래스 변경을 통해서만 변경하실 수 있습니다.)"/>
+		<Class ClassID="137360" ClassName="Auto__{nl}JeongMalLo_JinHaengHaSiKessSeupNiKka?" Data="{nl}전직하시겠습니까?{nl}(선택한 클래스는 클래스 변경을 통해서만 변경하실 수 있습니다.)"/>
 		<Class ClassID="137361" ClassName="Auto_{@st44}Daeum_LaengKeu_KeulLaeSeu_JeongBo" Data="{@st44}다음 전직 클래스 정보"/>
 		<Class ClassID="137362" ClassName="Auto_HyeonJae_Jigeop_JeongBo" Data="현재 직업 정보"/>
 		<Class ClassID="137363" ClassName="Auto_{@st43}JeonJig_ilJa_:_" Data="{@st42b}전직 일자 : "/>
@@ -12413,7 +12437,7 @@
 		<Class ClassID="200031" ClassName="ThisSkillIsNotAvailable" Data="해당 스킬을 사용할 수 없습니다."/>
 		<Class ClassID="200032" ClassName="skill_Entity" Data="엔터티!"/>
 		<Class ClassID="200033" ClassName="DontChangeMonsterThisArea" Data="해당 지역에서는 체인지 스킬이 적용되지 않습니다."/>
-		<Class ClassID="200034" ClassName="MuletaCoolDownReset" Data="파소 도블레 재사용 대기시간 초기화!"/>
+		<Class ClassID="200034" ClassName="PasoDobleCoolDownReset" Data="파소 도블레 재사용 대기시간 초기화!"/>
 		<Class ClassID="200035" ClassName="OverReinforce" Data="오버 리인포스"/>
 		<Class ClassID="200036" ClassName="PositionObstructed" Data="해당 위치에 물체가 있습니다."/>
 		<Class ClassID="200037" ClassName="Fanaticism_Martyrdom" Data="파나티시즘: 순교"/>
@@ -13334,6 +13358,10 @@
 		<Class ClassID="801058" ClassName="COLONY_ROOTCRYSTAL_NAME_2" Data="나무뿌리 수정(재생)"/>
 		<Class ClassID="801059" ClassName="COLONY_ROOTCRYSTAL_NAME_3" Data="나무뿌리 수정(공격)"/>
 		<Class ClassID="801060" ClassName="COLONY_ROOTCRYSTAL_NAME_4" Data="나무뿌리 수정(방어)"/>
+		<Class ClassID="801061" ClassName="STEAM_COLONY_WAR_ONEDAY_REWARD_MSG2" Data="길드 콜로니전 일일 참여 보상으로 여러 아이템이 지급됩니다."/>
+		<Class ClassID="801062" ClassName="STEAM_COLONY_WAR_FIVE_TIME_REWARD_MSG2" Data="길드 콜로니전 5회 참여 보상으로 특별한 아이템이 지급됩니다."/>
+		<Class ClassID="801063" ClassName="STEAM_COLONY_WAR_FIRST_VICTORY_REWARD_MSG3" Data="이전 콜로니전에서 승리한 길드가 아닙니다."/>
+		<Class ClassID="801064" ClassName="STEAM_COLONY_WAR_FIRST_VICTORY_REWARD_MSG4" Data="길드 콜로니전 첫 승리 보상이 지급됩니다."/>
 		<Class ClassID="801065" ClassName="shop_Colony_Sutler_MSG1" Data="군수품 구입"/>
 		<Class ClassID="801066" ClassName="ColonyPaymentBtnOnlyGuildMaster" Data="길드마스터만 점령 보상을 수령할 수 있습니다."/>
 		<Class ClassID="801067" ClassName="ColonyPaymentItemTooManyInGuildWare" Data="길드보관함에 점령 보상 아이템이 너무 많습니다. {nl}길드 보관함을 정리해주세요."/>
@@ -13423,17 +13451,29 @@
 		<Class ClassID="801153" ClassName="Guild_Colony_Attendance_Reward_MSG12" Data="[{itemName}] {Cnt}개가 지급되었습니다."/>
 		<Class ClassID="801154" ClassName="Guild_Colony_Attendance_Reward_MSG13" Data="이미 특성 포인트를 받았습니다."/>
 		<Class ClassID="801155" ClassName="Guild_Colony_Attendance_Reward_MSG14" Data="콜로니전 진행중에는 참여 보상을 받을 수 없습니다."/>
+		<Class ClassID="801156" ClassName="Guild_Colony_Building_Destroy" Data="설치 해제"/>
+		<Class ClassID="801157" ClassName="AfterAWhileReturnNearZone{SEC}" Data="잠시후 인근 지역으로 귀환됩니다. ({SEC}초)"/>
+		<Class ClassID="801158" ClassName="GUILD_COLONY_MSG_ENTER_FAIL6{time}" Data="점령된 지역은 점령 시간을 기점으로 20초간 입장이 제한됩니다.{nl}(입장 가능 시간 : {time} 이후)"/>
+		<Class ClassID="801159" ClassName="CannotUsePosition2" Data="인근 위치에 콜로니 타워, 콜로니 증폭기, 입장 지점이 있을 경우에는 사용하실 수 없습니다."/>
+		<Class ClassID="801160" ClassName="CannotUsePosition3" Data="콜로니 증폭기의 생성 위치 주변에서는 사용하실 수 없습니다."/>
+<Class ClassID="801161" ClassName="Guild_Colony_End_WorldMessage_13" Data="누오로딘 폭포 : [{partyName}]길드"/>
+		<Class ClassID="801162" ClassName="Guild_Colony_End_WorldMessage_14" Data="스벤티마스 유형지 : [{partyName}]길드"/>
+		<Class ClassID="801163" ClassName="Guild_Colony_End_WorldMessage_15" Data="살비야스 숲 : [{partyName}]길드"/>
+		<Class ClassID="801164" ClassName="Guild_Colony_End_WorldMessage_16" Data="누오로딘 폭포 : 미점령"/>
+		<Class ClassID="801165" ClassName="Guild_Colony_End_WorldMessage_17" Data="스벤티마스 유형지 : 미점령"/>
+		<Class ClassID="801166" ClassName="Guild_Colony_End_WorldMessage_18" Data="살비야스 숲 : 미점령"/>
+		<Class ClassID="801167" ClassName="Guild_Colony_Structure_Destory{Value}" Data="{Value} 구조물을 파괴하시겠습니까?"/>
 	</Category>
 	<Category Name="ColonyTax">
-		<Class ClassID="810000" ClassName="ColonyTaxRateDetail{Default}{Min}{Max}{ModifyDelay}{DisableModifyDelay1}{DisableModifyDelay2}" Data="- 스팟 지역을 점령한 길드는 각 도시의 적립요율을 조정할 수 있습니다.({Min}% ~ {Max}%) {nl}- 도시 적립요율은 기본적으로 표준 요율({Default}%)이 적용되어 있습니다.{nl}- 도시 적립요율 조정은 길드 마스터 또는 해당 권한을 가진 일원만 가능합니다.{nl}- 도시 적립요율은 조정 후, {ModifyDelay}시간 뒤에 재조정이 가능합니다.{nl}- 콜로니전 시작 {DisableModifyDelay1}시간 전부터 종료 {DisableModifyDelay2}분 후까지 도시 적립요율 조정이 제한됩니다.{nl}- 매 콜로니전 종료 후, 최종 점령 길드가 지난번 점령 길드와 다른 경우 도시 적립요율은 표준 요율({Default}%)로 조정됩니다.{nl}- 점령 길드에 가입된 인원들은 해당 적립요율 적용 도시에 한해 최소 요율({Min}%)로 고정되어 적용됩니다.{nl}- 적립금 누적 기간 동안 [적립요율 적용 항목]의 실버 소비 시, 적용된 요율에 따라 적립금이 누적됩니다.{nl}   (적립금 누적 기간 : 콜로니전 종료 5분 후 시각을 기점으로 다음 콜로니전 종료 시 까지){nl}- 적립금 누적 기간이 끝나면 [적립금 분배] 탭에서 수령된 적립금을 길드원에게 분배할 수 있습니다."/>
+		<Class ClassID="810000" ClassName="ColonyTaxRateDetail{Default}{Min}{Max}{ModifyDelay}{DisableModifyDelay1}{DisableModifyDelay2}" Data="- 챔피언스 리그 지역을 최종 점령한 길드는 각 도시의 적립요율을 조정할 수 있습니다.({Min}% ~ {Max}%) {nl}- 도시 적립요율은 기본적으로 표준 요율({Default}%)이 적용되어 있습니다.{nl}- 도시 적립요율 조정은 길드 마스터 또는 해당 권한을 가진 일원만 가능합니다.{nl}- 도시 적립요율은 조정 후, {ModifyDelay}시간 뒤에 재조정이 가능합니다.{nl}- 콜로니전 시작 {DisableModifyDelay1}시간 전부터 종료 {DisableModifyDelay2}분 후까지 도시 적립요율 조정이 제한됩니다.{nl}- 매 콜로니전 종료 후, 챔피언스 리그 지역의 최종 점령 길드가 지난번 점령 길드와 다른 경우 도시 적립요율은 표준 요율({Default}%)로 조정됩니다.{nl}- 챔피언스 리그 지역의 최종 점령 길드에 가입된 인원들은 해당 적립요율 적용 도시에 한해 최소 요율({Min}%)로 고정되어 적용됩니다.{nl}- 적립금 누적 기간 동안 [적립요율 적용 항목]의 실버 소비 시, 적용된 요율에 따라 적립금이 누적됩니다.{nl}   (적립금 누적 기간 : 콜로니전 종료 5분 후 시각을 기점으로 다음 콜로니전 종료 시 까지){nl}- 적립금 누적 기간이 끝나면 [적립금 분배] 탭에서 수령된 적립금을 길드원에게 분배할 수 있습니다."/>
 		<Class ClassID="810001" ClassName="ColonyTaxRateContents" Data="- 각종 잡화, 무기류, 방어구류, 악세서리, 제작서 구입 시{nl}- 컴패니언 분양, 훈련 및 컴패니언 먹이 구입 시{nl}- 마법 협회 상점 물품 구입 시{nl}- 낚시 용품 구입 시{nl}- 수리, 감정, 아이템 분해 , 소켓 추가 및 젬 추출 시{nl}- 포텐셜 소실 방지 옵션 체크를 해제한 상태에서 무기 외형 변환 시{nl}- 팀 창고의 창고 칸 확장 시{nl}- 게랄다스 남매로부터 젬 구입 시{nl}- 테리아베리스 대장장이 상점 물품 구입 시{nl}- 인장 강화 시"/>
 		<Class ClassID="810002" ClassName="ColonyTaxChequeDetail{TaxLoadDelay}{TaxDistributeTime}{TaxReceiveTime}" Data="- 적립금 분배 목록은 적립금 누적 기간이 끝나고 {TaxLoadDelay}시간 뒤 갱신됩니다.{nl}- 적립금 분배는 지급일로부터 {TaxDistributeTime}일 동안 가능합니다.{nl}- 남은 분배 기간까지 분배되지 않은 적립금은 모두 사라지니 유의해 주시기 바랍니다.{nl}- 길드 해산 시 분배되지 않은 적립금은 모두 사라지니 유의해 주시기 바랍니다.{nl}- 적립금 분배는 길드 마스터 또는 적립금 분배 권한을 가진 길드원만 가능합니다.{nl}- 적립금을 분배받은 길드원은 화면 좌측 하단에 노출된 알림 메시지를 통해 적립금을 수령할 수 있습니다.{nl}- 적립금을 분배받은 길드원은 {TaxReceiveTime}일 동안 수령이 가능하며, 기한 내 수령하지 않은 적립금은 모두 사라지니 유의해 주시기 바랍니다.{nl}- 모든 적립금 지급 및 분배 이력은 적립금 상세 이력 탭에 표시됩니다."/>
 		<Class ClassID="810003" ClassName="ColonyTaxRemain{Hour}{Min}" Data="{Hour}:{Min}"/>
 		<Class ClassID="810004" ClassName="ColonyTaxRemain{Date}" Data="{Date}일"/>
 		<Class ClassID="810005" ClassName="ColonyTaxPaymentReceivable" Data="{#000000}길드에서 지급된 {#ff0000}실버{#000000}가 있습니다.{nl}수령하시겠습니까?"/>
-		<Class ClassID="810006" ClassName="ColonyTaxCityDetail" Data="적립요율이 적용될 도시는 점령 지역에 따라 구분됩니다.{nl}({Cities})"/>
+		<Class ClassID="810006" ClassName="ColonyTaxCityDetail" Data="적립요율이 적용될 도시는 챔피언스 리그 점령 지역에 따라 구분됩니다.{nl}({Cities})"/>
 		<Class ClassID="810007" ClassName="ColonyTaxCityTaxDetail" Data="도시 적립금은 1시간 마다 갱신됩니다."/>
-		<Class ClassID="810008" ClassName="ColonyTaxMarketTaxDetail{Cities}" Data="마켓 적립금은 주간 발생한 수수료의 요율만큼 적립되며,{nl}해당 요율은 점령지역에 따라 구분됩니다.{nl}({Cities})"/>
+		<Class ClassID="810008" ClassName="ColonyTaxMarketTaxDetail{Cities}" Data="마켓 적립금은 주간 발생한 수수료의 요율만큼 적립되며,{nl}해당 요율은 챔피언스 리그 점령 지역에 따라 구분됩니다.{nl}({Cities})"/>
 		<Class ClassID="810009" ClassName="ColonyTaxCityMarket{Colony}{Percent}" Data="{Colony}:{Percent}%"/>
 		<Class ClassID="810010" ClassName="ColonyTaxCollectedDate{Year}{Month}{Day}" Data="{Year}.{Month}.{Day} 적립금 수령 내역"/>
 		<Class ClassID="810011" ClassName="ColonyTaxCollectedMarket{Amount}" Data="수령된 마켓 적립금 : {img silver 20 20/} {Amount}"/>
@@ -13460,10 +13500,16 @@
 		<Class ClassID="810032" ClassName="ColonyTax_ColumnMapGrade" Data="지역 등급"/>
 		<Class ClassID="810033" ClassName="ColonyTax_ColumnColonyCity" Data="적립요율 적용 도시{img tip_questionmark 20 20}"/>
 		<Class ClassID="810034" ClassName="ColonyTax_InfoMapGrade" Data="{#ff0000}ⓘ 현재 적립요율 시스템 기능이 중지되어 있습니다. 자세한 내용은 홈페이지를 참고 바랍니다."/>
-		<Class ClassID="810035" ClassName="ColonyTax_InfoColonyCity" Data="ⓘ 점령 길드는 점령 혜택 버튼을 통해 도시의 적립요율 조정 및 적립금 수령이 가능합니다. {nl}ⓘ 점령 혜택의 자세한 내용은 홈페이지를 통해 확인 바랍니다."/>
+		<Class ClassID="810035" ClassName="ColonyTax_InfoColonyCity" Data="ⓘ 각 리그의 점령 길드는 '챔피언스 리그', '챌린저스 리그' 버튼을 통해 리그별 점령 혜택에 따른 점령 보상을 받을 수 있습니다.{nl}ⓘ 점령 혜택의 자세한 내용은 홈페이지를 통해 확인 바랍니다."/>
 		<Class ClassID="810036" ClassName="ColonyTax_Guild_World_map" Data="점령 길드 : "/>
 		<Class ClassID="810037" ClassName="ColonyTax_City_World_map" Data="적립요율 적용 도시 : "/>
 		<Class ClassID="810038" ClassName="ColonyTax_Rate_World_map" Data="적용중인 적립요율 : "/>
+		<Class ClassID="810039" ClassName="ColonyLeague_World_map" Data="지역 리그"/>
+		<Class ClassID="810040" ClassName="ColonyLeague_World_map_1st" Data="챔피언스 리그"/>
+		<Class ClassID="810041" ClassName="ColonyLeague_World_map_2nd" Data="챌린저스 리그"/>
+                <Class ClassID="810042" ClassName="ColonyLeague_World_map_2nd_Reward_Success" Data="보상 아이템이 지급되었습니다. 보상 아이템은 길드 창고로 지급됩니다."/>
+		<Class ClassID="810043" ClassName="ColonyLeague_World_map_2nd_Reward_Failed{Item}" Data="{Item}아이템의 갯수가 최대치를 넘어섭니다. 비워주시고 다시 시도해 주세요."/>
+		<Class ClassID="810044" ClassName="ColonyLeague_2nd_Reward_Detail{RewardLoadDelay}{RewardReceiveTime}" Data="- 챌린저스 리그 지역을 최종 점령한 길드는 점령 보상 목록에서 보상으로 책정된 아이템을 수령할 수 있습니다.{nl}- 점령 보상 목록은 콜로니전 종료 후, {RewardLoadDelay}시간 뒤 갱신됩니다.{nl}- 점령 보상 수령은 지급일로부터 {RewardReceiveTime}일 동안 가능합니다.{nl}- 남은 지급 기간까지 수령하지 않은 보상은 모두 사라지니 유의해 주시기 바랍니다.{nl}- 길드 해산 시 수령하지 않은 보상은 모두 사라지니 유의해 주시기 바랍니다.{nl}- 점령 보상 수령은 길드 마스터만 가능합니다.{nl}- 점령 보상은 수령 시, 길드 보관함으로 이동됩니다."/>
 	</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="?????????????"/>
@@ -13680,6 +13726,8 @@
 		<Class ClassID="514008" ClassName="NicopolisItemMsg" Data="마나 램프를 사용하려면 대기중의 마나를 수집해야 합니다."/>
 		<Class ClassID="514009" ClassName="UniqStarTowerMsg" Data="마법진 너머로 이동중.."/>
 		<Class ClassID="514010" ClassName="TableLand_ReturnCity{SEC}" Data="잠시 후 베다 고원으로 귀환됩니다. ({SEC}초)"/>
+		<Class ClassID="514011" ClassName="RAID_FIRST_KILL_NOTICE" Data="{partyName} 파티가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
+		<Class ClassID="514012" ClassName="RAID_NEW_RECORD" Data="{partyName} 파티가 {clearMin}분 {clearSec}초에 {raidName}의 클리어 시간을 단축했습니다!"/>
 		</Category>
 	<Category Name="SoloDungeon">
 		<Class ClassID="513001" ClassName="SoloDungeonStageMSG" Data="스테이지의 몬스터가 몰려옵니다. 모두 처치해 주세요!"/>
@@ -13736,5 +13784,14 @@
 		<Class ClassID="517002" ClassName="SummonsInfo_SummonsInfo" Data="소환수 정보"/>
 		<Class ClassID="517003" ClassName="SummonsInfo_ConvertPartyInfo_ToolTip" Data="파티 정보로 전환"/>
 		<Class ClassID="517004" ClassName="SummonsInfo_ConvertSummonsInfo_ToolTip" Data="소환수 정보로 전환"/>
+	</Category>
+	<Category Name="SuddenQuest">
+		<Class ClassID="518001" ClassName="SuddenQuest_StartText" Data="에서 돌발 퀘스트가 발생했습니다."/>
+		<Class ClassID="518002" ClassName="SuddenQuest_KillMon_Detailed" Data="몬스터를 처치하세요"/>
+		<Class ClassID="518003" ClassName="SuddenQuest_KillMon_Simple" Data="처치"/>
+		<Class ClassID="518004" ClassName="SuddenQuest_Exit" Data="돌발 퀘스트가 종료됩니다."/>
+		<Class ClassID="518005" ClassName="SuddenQuest_Exit_Question" Data="돌발 퀘스트를 종료 하시겠습니까?"/>
+		<Class ClassID="518006" ClassName="SuddenQuest_DoNotZoneMove" Data="※돌발 퀘스트는 맵 이동시에 자동으로 종료됩니다."/>
+		<Class ClassID="518007" ClassName="SuddenQuest_Create" Data="돌발 퀘스트가 발생했습니다"/>
 	</Category>
 </idspace>

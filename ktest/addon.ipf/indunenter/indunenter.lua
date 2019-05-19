@@ -94,12 +94,16 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, en
     end
     
     local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")),0)
-
+    local addCount = math.floor(nowCount * admissionPlayAddItemCount);
+    
     if indunCls.WeeklyEnterableCount ~= 0 then
         nowCount = TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType")),0)
+        addCount = math.floor((nowCount - indunCls.WeeklyEnterableCount) * admissionPlayAddItemCount);
+        if addCount < 0 then
+            addCount = 0;
+        end
     end
     
-    local addCount = math.floor(nowCount * admissionPlayAddItemCount);
     local nowAdmissionItemCount
 
     if  SCR_RAID_EVENT_20190102(nil, false) and admissionItemName == "Dungeon_Key01" then
@@ -137,8 +141,8 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, en
     if admissionItemName ~= "None" and admissionItemName ~= nil then
 --        if admissionItemCount  ~= 0 then
         if indunCls.DungeonType == "Raid" or indunCls.DungeonType == "GTower" then
-            if nowCount > indunCls.WeeklyEnterableCount then
-                nowAdmissionItemCount = 3 + (nowCount - (indunCls.WeeklyEnterableCount));
+            if nowCount >= indunCls.WeeklyEnterableCount then
+                --nowAdmissionItemCount = 3 + (nowCount - (indunCls.WeeklyEnterableCount));
                 autoMatchText:SetTextByKey("image", '  {img '..indunAdmissionItemImage..' 24 24} - '..nowAdmissionItemCount..'')
                 enterBtn:SetTextByKey("image", '  {img '..indunAdmissionItemImage..' 24 24} - '..nowAdmissionItemCount..'')
             else
@@ -1835,32 +1839,31 @@ function INDUNENTER_CHECK_UNDERSTAFF_MODE_WITH_PARTY(frame)
 end
 
 function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
-    local user = GetMyPCObject();
     local indunType = frame:GetUserIValue('INDUN_TYPE');
     local indunCls = GetClassByType('Indun', indunType);
-    local etc = GetMyEtcObject();
     
-    if indunCls.UnitPerReset == 'ACCOUNT' then
-        etc = GetMyAccountObj()
-    end
-    
-    local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
-    if isTokenState == true then
-        isTokenState = TryGetProp(indunCls, "PlayPerReset_Token")
-    else
-        isTokenState = 0
-    end
-    
-    local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
-
-    if indunCls.WeeklyEnterableCount ~= 0 then
-        nowCount = TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
-    end
-
     if indunCls ~= nil and indunCls.AdmissionItemName ~= 'None' then
+        local user = GetMyPCObject();
+        local etc = GetMyEtcObject();
+        if indunCls.UnitPerReset == 'ACCOUNT' then
+            etc = GetMyAccountObj()
+        end
+        
+        local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
+        if isTokenState == true then
+            isTokenState = TryGetProp(indunCls, "PlayPerReset_Token")
+        else
+            isTokenState = 0
+        end
+
+        local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
+        
         local admissionItemName = TryGetProp(indunCls, "AdmissionItemName");
         local admissionItemCount = TryGetProp(indunCls, "AdmissionItemCount");
         local admissionPlayAddItemCount = TryGetProp(indunCls, "AdmissionPlayAddItemCount");
+        if indunCls.WeeklyEnterableCount ~= 0 then
+            nowCount = TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
+        end
         local addCount = math.floor(nowCount * admissionPlayAddItemCount)
         local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
         

@@ -48,8 +48,14 @@ function SKL_KEY_DYNAMIC_CASTING(actor, obj, dik, movable, rangeChargeTime, maxC
 	if quickCast == nil then
 		quickCast = 1
 	end
-	
-	geSkillControl.DynamicCastingSkill(actor, obj.type, dik, movable, rotateAble, rangeChargeTime, maxChargeTime, autoShot, loopingCharge, gotoSkillUse, execByKeyDown, upAbleSec, isVisivle, useDynamicLevel, isFullCharge, effectName, nodeName, lifeTime, scale,1,1,1, shockwave, intensity, time, frequency, angle, quickCast);
+
+	local useMouseDir = 0;
+	if obj ~= nil and obj.type == 21614 and session.config.IsMouseMode() == true then
+		useMouseDir = 1;		
+	end
+
+	geSkillControl.DynamicCastingSkill(actor, obj.type, dik, movable, rotateAble, rangeChargeTime, maxChargeTime, autoShot, loopingCharge, gotoSkillUse, execByKeyDown, upAbleSec, isVisivle, useDynamicLevel, isFullCharge, effectName, nodeName, lifeTime, scale,1,1,1, shockwave, intensity, time, frequency, angle, quickCast, useMouseDir);
+
 	if nil ~= hitCancel and hitCancel == 1 then
 		actor:SetHitCancelCast(false)
 	end
@@ -57,7 +63,6 @@ function SKL_KEY_DYNAMIC_CASTING(actor, obj, dik, movable, rangeChargeTime, maxC
 	if gotoSkillUse == 1 then
 		return 0, 0;
 	end
-
 	return 1, 0;
 end
 

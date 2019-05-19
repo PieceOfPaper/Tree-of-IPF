@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <SpcItemList>
 	<SpcItem Name="Default">
 		<TriggerList Act="Equip">
@@ -14,7 +14,7 @@
 		</TriggerList>
 	</SpcItem>
 	<SpcItem Name="DAG04_118">
-		<TriggerList Act="Attack">
+		<TriggerList Act="AfterHitScript_Attack">
 			<Trigger>
 				<CondList>
 					<ToolScp Scp="SPCI_CHECK_DAMTYPE" Client="NO" UseSleep="NO">
@@ -166,7 +166,7 @@
 		</TriggerList>
 	</SpcItem>
 	<SpcItem Name="Effect_Stamp_Thorn">
-		<TriggerList Act="Equip">
+						<TriggerList Act="Equip">
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
@@ -2613,7 +2613,7 @@ return self.MNA;"/>
 					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
 						<Str Str="ENEMY"/>
 					</ToolScp>
-				</CondList>			
+				</CondList>
 				<TgtExecList>
 					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
 						<Str Str="ITEM_SKIACLIPS_THMACE"/>
@@ -6164,6 +6164,518 @@ end"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
 						<Str Str="ITEM_SKIACLIPS_THSWORD_PRE"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="DAG04_119">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_HASISAS_CRTHRRATIO_UP"/>
+						<Num Num="-3"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_HASISAS_CRTHRRATIO_UP"/>
+						<Num Num="3"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="MAC04_125">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_PLAGUEVAPOURS_COOLDOWN"/>
+						<Num Num="-1000"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_PLAGUEVAPOURS_COOLDOWN"/>
+						<Num Num="1000"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSF04_123">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_HEXING_INFECTION"/>
+						<Num Num="-5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_HEXING_INFECTION"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TSF04_124">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_METEOR_MULTIHIT"/>
+						<Num Num="-5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_METEOR_MULTIHIT"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="RAP04_120">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_EPEEGARDE_TIME_UP"/>
+						<Num Num="-15000"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_EPEEGARDE_TIME_UP"/>
+						<Num Num="15000"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TMAC04_114">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_THMACE_Lubric"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_THMACE_Lubric"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TOP04_150">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateUpRate_BM"/>
+						<Num Num="-50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_PLATE"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateUpRate_BM"/>
+						<Num Num="50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_PLATE"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="LEG04_150">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateUpRate_BM"/>
+						<Num Num="-50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_PLATE"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateUpRate_BM"/>
+						<Num Num="50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_PLATE"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="HAND04_152">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateUpRate_BM"/>
+						<Num Num="-50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_PLATE"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateUpRate_BM"/>
+						<Num Num="50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_PLATE"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="FOOT04_150">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateUpRate_BM"/>
+						<Num Num="-50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_PLATE"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateUpRate_BM"/>
+						<Num Num="50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_PLATE"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TOP04_148">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_CLOTH"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_CLOTH"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="LEG04_148">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_CLOTH"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_CLOTH"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="HAND04_150">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_CLOTH"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_CLOTH"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="FOOT04_148">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_CLOTH"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_CLOTH"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TOP04_149">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateDownRate_BM"/>
+						<Num Num="50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_LEATHER"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateDownRate_BM"/>
+						<Num Num="-50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_LEATHER"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="LEG04_149">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateDownRate_BM"/>
+						<Num Num="50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_LEATHER"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateDownRate_BM"/>
+						<Num Num="-50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_LEATHER"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="HAND04_151">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateDownRate_BM"/>
+						<Num Num="50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_LEATHER"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateDownRate_BM"/>
+						<Num Num="-50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_LEATHER"/>
+						<Num Num="99"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="FOOT04_149">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateDownRate_BM"/>
+						<Num Num="50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_LEATHER"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="ItemHateDownRate_BM"/>
+						<Num Num="-50"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
+						<Str Str="ITEM_SKIACLIPS_LEATHER"/>
 						<Num Num="99"/>
 						<Num Num="0"/>
 						<Num Num="0"/>

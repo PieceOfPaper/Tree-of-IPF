@@ -2514,9 +2514,13 @@ function SCR_PC_PROPERTY_UPDATE_DETAIL(frame, msg, propertyName, argNum)
 	local y = 0;
 	if controlSet ~= nil then
 		y = controlSet:GetY();
-	end
-
-    STATUS_ATTRIBUTE_VALUE_NEW(pc, nil, frame, gboxctrl, propertyName, y);
+    end
+    
+    if propertyName == "CastingSpeed" then
+        STATUS_ATTRIBUTE_VALUE_WITH_PERCENT_SYMBOL(pc, nil, frame, gboxctrl, propertyName, y);
+    else
+        STATUS_ATTRIBUTE_VALUE_NEW(pc, nil, frame, gboxctrl, propertyName, y);
+    end
 end
 
 function STATUS_OPEN_CLASS_DROPLIST(parent, ctrl)

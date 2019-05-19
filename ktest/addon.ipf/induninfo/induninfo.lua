@@ -8,7 +8,7 @@ end
 g_indunCategoryList = nil;
 function PUSH_BACK_UNIQUE_INTO_INDUN_CATEGORY_LIST(cateType)
     if g_indunCategoryList == nil then        
-        g_indunCategoryList ={100, 10000, 400, 800, 200, 300, 500};
+        g_indunCategoryList ={100, 10000, 400, 800, 801, 200, 300, 500};
     end
     for i = 1, #g_indunCategoryList do
         if g_indunCategoryList[i] == cateType then
@@ -712,9 +712,13 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         etc = GetMyAccountObj()
     end
     
-     if indunCls.WeeklyEnterableCount ~= 0 then
+    if indunCls.WeeklyEnterableCount ~= 0 then
         nowCount = TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
-     end
+        addCount = math.floor((nowCount - indunCls.WeeklyEnterableCount) * admissionPlayAddItemCount);
+        if addCount < 0 then
+            addCount = 0;
+        end
+    end
     
     if admissionItemName == "None" or admissionItemName == nil then
       --  print("if " .. indunCls.Name)

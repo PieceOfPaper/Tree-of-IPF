@@ -1,4 +1,4 @@
--- util
+﻿-- util
 function GET_MON_STAT(self, lv, statStr)
     -- Sum MaxStat --
     local allStatMax = 10 + (lv * 2);
@@ -334,6 +334,10 @@ function SCR_Get_MON_DEF(self)
     end 
     
     local value = byLevel + byStat + byItem;
+    --아이템 계산 후 배율로 올려준다--
+    local statTypeRate = SCR_MON_STAT_RATE(self, "DEF")
+    statTypeRate = statTypeRate / 100;
+    value = value * statTypeRate;
     
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "DEF");
     
@@ -393,6 +397,10 @@ function SCR_Get_MON_MDEF(self)
     end 
     
     local value = byLevel + byStat + byItem;
+    --아이템 계산 후 배율로 올려준다--
+    local statTypeRate = SCR_MON_STAT_RATE(self, "MDEF")
+    statTypeRate = statTypeRate / 100;
+    value = value * statTypeRate;
     
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "MDEF");
     
@@ -590,6 +598,10 @@ function SCR_Get_MON_MINPATK(self)
     local byItem = SCR_MON_ITEM_WEAPON_CALC(self);
     
     local value = byLevel + byStat + byItem;
+    --아이템 계산 후 배율로 올려준다--
+    local statTypeRate = SCR_MON_STAT_RATE(self, "ATK")
+    statTypeRate = statTypeRate / 100;
+    value = value * statTypeRate;
     
     local monAtkRange = TryGetProp(self, "ATK_RANGE");
     if monAtkRange == nil then
@@ -653,6 +665,10 @@ function SCR_Get_MON_MAXPATK(self)
     local byItem = SCR_MON_ITEM_WEAPON_CALC(self);
     
     local value = byLevel + byStat + byItem
+    --아이템 계산 후 배율로 올려준다--
+    local statTypeRate = SCR_MON_STAT_RATE(self, "ATK")
+    statTypeRate = statTypeRate / 100;
+    value = value * statTypeRate;
     
     local monAtkRange = TryGetProp(self, "ATK_RANGE");
     if monAtkRange == nil then
@@ -716,6 +732,10 @@ function SCR_Get_MON_MINMATK(self)
     local byItem = SCR_MON_ITEM_WEAPON_CALC(self);
     
     local value = byLevel + byStat + byItem;
+    --아이템 계산 후 배율로 올려준다--
+    local statTypeRate = SCR_MON_STAT_RATE(self, "ATK")
+    statTypeRate = statTypeRate / 100;
+    value = value * statTypeRate;
     
     local monAtkRange = TryGetProp(self, "ATK_RANGE");
     if monAtkRange == nil then
@@ -779,6 +799,10 @@ function SCR_Get_MON_MAXMATK(self)
     local byItem = SCR_MON_ITEM_WEAPON_CALC(self);
     
     local value = byLevel + byStat + byItem;
+    --아이템 계산 후 배율로 올려준다--
+    local statTypeRate = SCR_MON_STAT_RATE(self, "ATK")
+    statTypeRate = statTypeRate / 100;
+    value = value * statTypeRate;
     
     local monAtkRange = TryGetProp(self, "ATK_RANGE");
     if monAtkRange == nil then
@@ -1095,6 +1119,11 @@ function SCR_Get_MON_MSPD(self)
             end
         end
     end
+
+    if (IsRaidField(self) == 1 and TryGetProp(self, "MonRank", "None") == "Boss") or TryGetProp(self, "StrArg1", nil) == "PartyFieldBoss" or TryGetProp(self, "StatType", nil) == "WorldRaidBoss" then
+        byBuff = 0;
+        byBuffOnlyTopValue = 0;
+    end
     
     local moveType = GetExProp(self, 'MOVE_TYPE_CURRENT');
     if moveType ~= 0 then
@@ -1256,13 +1285,6 @@ end
 
 function SCR_GET_MONSKL_SKIACLIPSE_METEOR_COOL(skill)
     local value = TryGetProp(skill, "BasicCoolDown", 0);
-    local mon = GetSkillOwner(skill);
-    if mon ~= nil then
-        local num = GetMGameValue(mon, "GIMMICK_FAIL_STACK");
-        if num ~= nil then
-            value = value - (10000 * num);
-        end
-    end
     
     return value;
 end
@@ -1855,4 +1877,21 @@ function SCR_MON_OWNERITEM_ARMOR_CALC(self, defType)
     value = (value * total_grade) + total_reinfroce + total_transcend;
     
     return math.floor(value);
+end
+
+function SCR_MON_STAT_RATE(self, prop)
+    local statType = TryGetProp(self, "StatType", "None");
+    local statTypeRate = 0;
+    if statType ~= nil and statType ~= 'None' then
+        local statTypeClass = GetClass("Stat_Monster_Type", statType);
+        if statTypeClass ~= nil then
+            statTypeRate = TryGetProp(statTypeClass, prop, statTypeRate);
+        end
+    end
+    
+    if statTypeRate == nil or statTypeRate == 0 then
+        statTypeRate = 100;
+    end
+    
+    return statTypeRate;
 end

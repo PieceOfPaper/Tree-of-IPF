@@ -588,7 +588,7 @@
 					<Str Str="Heal_Overload_Buff" />
 					<Num Num="1" />
 					<Num Num="0" />
-					<Num FuncTxt="local value = 3500 local jobHistory = GetJobHistoryString(self); if string.find(jobHistory, &quot;Char4_2&quot;) ~= nil then value = value - 300 end if string.find(jobHistory, &quot;Char4_14&quot;) ~= nil then value = value - 700 end print(value) return value" Num="3500" UseFunc="1" />
+					<Num FuncTxt="local value = 3500 local jobHistory = GetJobHistoryString(self); if string.find(jobHistory, &quot;Char4_2&quot;) ~= nil then value = value - 300 end if string.find(jobHistory, &quot;Char4_14&quot;) ~= nil then value = value - 700 end return value" Num="3500" UseFunc="1" />
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />

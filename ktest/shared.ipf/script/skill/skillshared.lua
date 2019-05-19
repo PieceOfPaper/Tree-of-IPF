@@ -139,6 +139,7 @@ function HAS_GUILDGROWTH_SKL_OBJ(guildObj, sklName, sklLv)
 
 	return true;
 end
+
 function SCR_ARRAY_SHUFFLE(arr_val)
     if arr_val ~= nil then
         if type(arr_val) == 'table' then
@@ -152,14 +153,8 @@ function SCR_ARRAY_SHUFFLE(arr_val)
                     arr_val[i] = arr_val[rnd];
                     arr_val[rnd] = temp_arr;
                 end
-            end
-            
---            return arr_val;
---        else
---            print('ERR!! arr_val is not Arrange Value')
+            end            
         end
---    else
---        print('ERR!! arr_val is nil')
     end
     return arr_val;
 end
@@ -344,6 +339,7 @@ end
 -- 버프 강화 특성 증가 비율 계산-------
 -- calc_property_skill.lua 의 function SCR_REINFORCEABILITY_TOOLTIP(skill) 와 내용 동일함
 -- 같이 변경해야 함
+-- done , 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그래팀에 알려주시기 바랍니다.
 function SCR_REINFORCEABILITY_FOR_BUFFSKILL(self, skill)
     local addRate = 1;
     if self ~= nil and skill ~= nil then

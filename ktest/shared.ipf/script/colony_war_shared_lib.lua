@@ -150,3 +150,18 @@ function SCR_GUILD_COLONY_RESTRICTION_CHECK_CLIENT(self, restriction_group)
     end
 
 end
+
+function GET_COLONY_LEAGUE(mapClassName)
+    local colonyClsList, cnt = GetClassList('guild_colony');    
+    for i = 0, cnt - 1 do
+        local colonyCls = GetClassByIndexFromList(colonyClsList, i);
+        local mapClsName = TryGetProp(colonyCls, 'ZoneClassName');
+        local check_word = "GuildColony_"
+        if mapClsName ~= nil and mapClsName == check_word..mapClassName then
+            local colonyLeague = TryGetProp(colonyCls, 'ColonyLeague');
+        print(colonyLeague)
+            return colonyLeague;
+        end
+    end
+    return nil;
+end

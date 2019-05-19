@@ -589,6 +589,7 @@ function SET_QUICK_SLOT(frame, slot, category, type, iesID, makeLog, sendSavePac
 				if IS_CLEAR_SLOT_ITEM(itemIES) then
 					-- slot을 초기화할 아이템이면 slot clear
 					CLEAR_QUICKSLOT_SLOT(slot);
+					return;
 				else
 					imageName = GET_ITEM_ICON_IMAGE(itemIES);
 					icon:SetColorTone("FFFF0000");

@@ -787,6 +787,10 @@
                     <Obj Type="Monster" MonType="59282" Pos="1574.67#28.51#-1894.23" genCount="1" genTime="20000" autoGen="0" objectKey="8"/>
                     <Obj Type="Monster" MonType="59282" Pos="1507.05#28.51#-1808.07" genCount="1" genTime="20000" autoGen="0" objectKey="9"/>
                     <Obj Type="Monster" MonType="59282" Pos="1427.04#28.51#-1902.81" genCount="1" genTime="20000" autoGen="0" objectKey="10"/>
+                    <Obj Type="Monster" MonType="59284" Pos="1357.00#28.00#-1897.00" genCount="1" genTime="20000" autoGen="0" objectKey="5"/>
+                    <Obj Type="Monster" MonType="59284" Pos="1502.00#28.00#-1743.00" genCount="1" genTime="20000" autoGen="0" objectKey="6"/>
+                    <Obj Type="Monster" MonType="59284" Pos="1496.00#28.00#-2038.00" genCount="1" genTime="20000" autoGen="0" objectKey="11"/>
+                    <Obj Type="Monster" MonType="59284" Pos="1638.00#28.00#-1896.00" genCount="1" genTime="20000" autoGen="0" objectKey="12"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="Setting">
@@ -826,6 +830,9 @@
                                 <MGameObj List="Gimmick_Color/0"/>
                                 <Str Str="SHADOW_UNIQUE_COLOR_SET_OWNER"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="First_Gen"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Success" isEnabled="0">
@@ -863,6 +870,12 @@
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="Gimmick_Color/0"/>
                                 <Str Str="SCR_GIMMICK_TIME_OVER_SET"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="First_Gen"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="monster_Gen"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -907,6 +920,12 @@
                                 <MGameObj List="Gimmick_Color/0"/>
                                 <Str Str="SCR_GIMMICK_TIME_OVER_SET"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="First_Gen"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="monster_Gen"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event eventName="Barrior" isEnabled="0">
@@ -922,12 +941,15 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execMS="12000" eventName="Mon_Gen" isEnabled="0">
+                    <Event eventName="First_Gen" execWithStart="0" isEnabled="0">
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="Gimmick_Color/7/Gimmick_Color/8/Gimmick_Color/9/Gimmick_Color/10"/>
+                                <MGameObjIndex List="Gimmick_Color/5/Gimmick_Color/6/Gimmick_Color/7/Gimmick_Color/8/Gimmick_Color/9/Gimmick_Color/10/Gimmick_Color/11/Gimmick_Color/12"/>
                                 <Num Num="1"/>
                                 <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="monster_Gen"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -944,6 +966,21 @@
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
                                 <MGameObj List="Gimmick_Color/0"/>
                                 <Str Str="SHADOW_RAID_GIMMICK_TIMER_AI"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="monster_Gen" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Color/5/Gimmick_Color/6/Gimmick_Color/7/Gimmick_Color/8/Gimmick_Color/9/Gimmick_Color/10/Gimmick_Color/11/Gimmick_Color/12"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Gimmick_Color/9/Gimmick_Color/10/Gimmick_Color/11/Gimmick_Color/12"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -1445,6 +1482,11 @@
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="레이드 성공!{nl}40초 뒤, 입장한 곳으로 돌아갑니다."/>
                     </ToolScp>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="레이드 성공!{nl}40초 뒤, 입장한 곳으로 돌아갑니다."/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
                 </StartScpList>
                 <ObjList/>
                 <StageEvents>
@@ -1484,7 +1526,7 @@
                         <execList>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
                                 <Str Str="10초 후 입장했던 곳으로 돌아갑니다."/>
-                                <Str Str="scroll"/>
+                                <Str Str="Clear"/>
                                 <Num Num="5"/>
                             </ToolScp>
                         </execList>

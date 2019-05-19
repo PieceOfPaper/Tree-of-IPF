@@ -7,8 +7,12 @@ function GUILDINFO_COLONY_INIT(frame, colonyBox)
     if session.colonytax.IsEnabledColonyTaxReward() == true then
         showRewardBtn = 1;
     end
-    local colonyRewardBtn = GET_CHILD_RECURSIVELY(colonyBox, "colonyRewardBtn");
-    colonyRewardBtn:ShowWindow(showRewardBtn);
+
+    local colonyRewardBtnSection_FirstLeague = GET_CHILD_RECURSIVELY(colonyBox, "colonyRewardBtnSection_FirstLeague");
+    colonyRewardBtnSection_FirstLeague:ShowWindow(showRewardBtn);
+
+    local colonyRewardBtnSection_SecondLeague = GET_CHILD_RECURSIVELY(colonyBox, "colonyRewardBtnSection_SecondLeague");
+    colonyRewardBtnSection_SecondLeague:ShowWindow(showRewardBtn);
 end
 
 function GUILDINFO_COLONY_HELP_CLICK(parent, ctrl)
@@ -183,12 +187,18 @@ function GUILDINFO_COLONY_UPDATE_OCCUPY_INFO_BY_COLONY_OCCUPATION(occupyInfoBox)
         if occupyInfo ~= nil then
             local mapID = occupyInfo:GetLocationID();
             local mapCls = GetClassByType('Map', mapID);
-            if occupyInfo:GetGuildID() == myGuildID and mapCls ~= nil then
-                local infoCtrlSet = occupyInfoBox:CreateOrGetControlSet('colony_occupy_info', 'OCCUPY_'..mapID, 0, 0);         
-                GUILDINFO_COLONY_SET_OCCUPY_INFO_CTRLSET(infoCtrlSet, mapCls, true)
-                if i % 2 == 1 then
-                    local bgBox = infoCtrlSet:GetChild('bgBox');
-                    bgBox:SetSkinName(COLONY_EVEN_SKIN);
+            if mapCls ~= nil then
+                local cityMapName = GET_COLONY_MAP_CITY(mapCls.ClassName)
+                local cityMapCls = GetClass("Map", cityMapName)
+                local colonyCls = GetClassByStrProp("guild_colony", "TaxApplyCity", cityMapCls.ClassName)
+                local colonyLeague = TryGetProp(colonyCls, "ColonyLeague")
+                if occupyInfo:GetGuildID() == myGuildID and mapCls ~= nil then
+                    local infoCtrlSet = occupyInfoBox:CreateOrGetControlSet('colony_occupy_info', 'OCCUPY_'..mapID, 0, 0);         
+                    GUILDINFO_COLONY_SET_OCCUPY_INFO_CTRLSET(infoCtrlSet, mapCls, true, colonyLeague)
+                    if i % 2 == 1 then
+                        local bgBox = infoCtrlSet:GetChild('bgBox');
+                        bgBox:SetSkinName(COLONY_EVEN_SKIN);
+                    end
                 end
             end
         end
@@ -204,25 +214,61 @@ function GUILDINFO_COLONY_UPDATE_OCCUPY_INFO_BY_COLONY_TAX(occupyInfoBox)
     end
     local myGuildID = guild.info:GetPartyID();
 
+    -- first league
+    local secondLeagueList = {};
     local count = session.colonytax.GetTaxRateCount();    
     for i = 0, count - 1 do
         local taxInfo = session.colonytax.GetTaxRateByIndex(i);
         if taxInfo ~= nil then
             local mapID = taxInfo:GetColonyMapID();
             local mapCls = GetClassByType('Map', mapID);
-            if taxInfo:GetGuildID() == myGuildID and mapCls ~= nil then
-                local infoCtrlSet = occupyInfoBox:CreateOrGetControlSet('colony_occupy_info', 'OCCUPY_'..mapID, 0, 0);         
-                GUILDINFO_COLONY_SET_OCCUPY_INFO_CTRLSET(infoCtrlSet, mapCls, false)
-                if i % 2 == 1 then
-                    local bgBox = infoCtrlSet:GetChild('bgBox');
-                    bgBox:SetSkinName(COLONY_EVEN_SKIN);
+            local cityMapName = GET_COLONY_MAP_CITY(mapCls.ClassName)
+            local cityMapCls = GetClass("Map", cityMapName)
+            local colonyCls = GetClassByStrProp("guild_colony", "TaxApplyCity", cityMapCls.ClassName)
+            local colonyLeague = TryGetProp(colonyCls, "ColonyLeague")
+            if colonyLeague == 1 then
+                if taxInfo:GetGuildID() == myGuildID and mapCls ~= nil then
+                    local infoCtrlSet = occupyInfoBox:CreateOrGetControlSet('colony_occupy_info', 'OCCUPY_'..mapID, 0, 0);         
+                    GUILDINFO_COLONY_SET_OCCUPY_INFO_CTRLSET(infoCtrlSet, mapCls, false, colonyLeague)
                 end
+            elseif colonyLeague == 2 then   
+                secondLeagueList[#secondLeagueList + 1] = taxInfo;
             end
         end
     end 
+
+    -- second league
+    for i = 1, #secondLeagueList do
+        local taxInfo = secondLeagueList[i];
+        if taxInfo ~= nil then
+            local mapID = taxInfo:GetColonyMapID();
+            local mapCls = GetClassByType('Map', mapID);
+            local cityMapName = GET_COLONY_MAP_CITY(mapCls.ClassName)
+            local cityMapCls = GetClass("Map", cityMapName)
+            local colonyCls = GetClassByStrProp("guild_colony", "TaxApplyCity", cityMapCls.ClassName)
+            local colonyLeague = TryGetProp(colonyCls, "ColonyLeague")
+            if taxInfo:GetGuildID() == myGuildID and mapCls ~= nil then
+                local infoCtrlSet = occupyInfoBox:CreateOrGetControlSet('colony_occupy_info', 'OCCUPY_'..mapID, 0, 0);         
+                GUILDINFO_COLONY_SET_OCCUPY_INFO_CTRLSET(infoCtrlSet, mapCls, false, colonyLeague)
+            end
+        end
+    end
+
+    local bgIndex = 0;
+    local childCnt = occupyInfoBox:GetChildCount();
+    for i = 1, childCnt do 
+        local child = occupyInfoBox:GetChildByIndex(i - 1);
+        if child ~= nil and string.find(child:GetName(), "OCCUPY_") ~= nil then
+            if bgIndex % 2 == 1 then
+                local bgBox = child:GetChild('bgBox');
+                bgBox:SetSkinName(COLONY_EVEN_SKIN);
+            end
+            bgIndex = bgIndex + 1;
+        end
+    end
 end
 
-function GUILDINFO_COLONY_SET_OCCUPY_INFO_CTRLSET(infoCtrlSet, mapCls, isColonyWarState)
+function GUILDINFO_COLONY_SET_OCCUPY_INFO_CTRLSET(infoCtrlSet, mapCls, isColonyWarState, colonyLeague)
     AUTO_CAST(infoCtrlSet)
     local mapNameText = infoCtrlSet:GetChild('mapNameText');
     mapNameText:SetText(mapCls.Name);
@@ -233,8 +279,15 @@ function GUILDINFO_COLONY_SET_OCCUPY_INFO_CTRLSET(infoCtrlSet, mapCls, isColonyW
     local cityMapName = GET_COLONY_MAP_CITY(mapCls.ClassName)
     local cityMapCls = GetClass("Map", cityMapName)
 
+    local leagueText = infoCtrlSet:GetChild('leagueText');
     local cityText = infoCtrlSet:GetChild('cityText');
-    cityText:SetText(cityMapCls.Name);
+    if colonyLeague == 1 then
+        leagueText:SetText(ClMsg('ColonyLeague_World_map_1st'));
+        cityText:SetText(cityMapCls.Name);
+    elseif colonyLeague == 2 then
+        leagueText:SetText(ClMsg('ColonyLeague_World_map_2nd'));
+        cityText:SetText("-");
+    end
     
     local NO_VALUE = infoCtrlSet:GetUserConfig("NO_VALUE")
     local PERCENT = infoCtrlSet:GetUserConfig("PERCENT")
@@ -251,19 +304,22 @@ function GUILDINFO_COLONY_SET_OCCUPY_INFO_CTRLSET(infoCtrlSet, mapCls, isColonyW
     local taxRateIconStr = ""
     local totalAmountStr = NO_VALUE
     local marketTaxStr = NO_VALUE
-    
-    if isColonyWarState == false then
-        local taxRateInfo = session.colonytax.GetColonyTaxRate(cityMapCls.ClassID)
-        if taxRateInfo ~= nil then
-            taxRateStr = taxRateInfo:GetTaxRate()
-            percentStr = PERCENT
-            silverIconStr = SILVER_ICON
-            taxRateIconStr = TAX_RATE_ICON
-            totalAmountStr = GET_COMMAED_STRING(taxRateInfo:GetCachedTotalTax())
-            local colonyCls = GET_COLONY_CLASS(mapCls.ClassName)
-            marketTaxStr = ScpArgMsg('ColonyTaxCityMarketWeekly{Percent}', 'Percent', taxRateInfo:GetMarketRate())
+
+    if colonyLeague == 1 then
+        if isColonyWarState == false then
+            local taxRateInfo = session.colonytax.GetColonyTaxRate(cityMapCls.ClassID)
+            if taxRateInfo ~= nil then
+                taxRateStr = taxRateInfo:GetTaxRate()
+                percentStr = PERCENT
+                silverIconStr = SILVER_ICON
+                taxRateIconStr = TAX_RATE_ICON
+                totalAmountStr = GET_COMMAED_STRING(taxRateInfo:GetCachedTotalTax())
+                local colonyCls = GET_COLONY_CLASS(mapCls.ClassName)
+                marketTaxStr = ScpArgMsg('ColonyTaxCityMarketWeekly{Percent}', 'Percent', taxRateInfo:GetMarketRate())
+            end
         end
     end
+
     taxRateText:SetTextByKey("icon", taxRateIconStr);
     taxRateText:SetTextByKey("value", taxRateStr);
     taxRateText:SetTextByKey("percent", percentStr);
@@ -291,3 +347,14 @@ function GUILDINFO_COLONY_INIT_INFO(colonyBox)
     colonyBenefitInfoText:SetTextByKey('time', timeText);
     colonyBenefitInfoText:SetTextByKey('maxReward', MAX_COLONY_REWARD_SILVER);
 end
+
+function COLONY_STRUCTURE_ITEM_DESTORY_SHOW_MSGBOX(data)
+    if data == nil then return; end
+    local datas = StringSplit(data, ';');
+
+    local yesScp = string.format('control.CustomCommand("COLONY_STRUCTURE_ITEM_DESTORY", %d)', datas[1]);
+    local noScp = string.format('control.CustomCommand("COLONY_STRUCTURE_ITEM_DESTORY", %d)', 0);
+
+    local clmsg = ScpArgMsg('Guild_Colony_Structure_Destory{Value}', 'Value', datas[2]);
+    ui.MsgBox(clmsg, yesScp, noScp);
+end  

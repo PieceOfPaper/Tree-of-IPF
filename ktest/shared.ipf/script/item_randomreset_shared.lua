@@ -122,6 +122,12 @@ function IS_ENABLE_APPLY_JEWELL(jewell, targetItem)
 	if woodCarvingCheck == 'WoodCarving' then
 	    return false, 'WoodCarving';
 	end
+	
+	local itemStarCheck = TryGetProp(targetItem , 'ItemStar')
+	
+	if itemStarCheck < 0 then
+	    return false, 'Type';
+	end
 
 	return true;
 end

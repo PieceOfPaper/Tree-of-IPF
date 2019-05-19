@@ -1751,10 +1751,14 @@ end
 -- 공용 라이브러리
 --------------------------------------------------------------------------------------
 -- 특정 문자를 기준으로 문자열을 잘라 테이블로 반환
-function StringSplit(str, delimStr)    
+function StringSplit(str, delimStr)  
     local _tempStr = str;
     local _result = { };
     local _index = 1;
+
+    if dic ~= nil and type(dic) == "table" then
+        _tempStr = dic.getTranslatedStr(str);
+    end
 
     while true do
         if _tempStr == nil then

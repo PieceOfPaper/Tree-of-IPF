@@ -500,10 +500,11 @@ function ADVENTURE_BOOK_ITEM.DROPDOWN_LIST_UPDATE_SUB()
 		sub_category_opt_list:AddItem(5, ClMsg('THBow'));
 		sub_category_opt_list:AddItem(6, ClMsg('Bow'));
 		sub_category_opt_list:AddItem(7, ClMsg('Mace'));
-		sub_category_opt_list:AddItem(8, ClMsg('Spear'));
-		sub_category_opt_list:AddItem(9, ClMsg('THSpear'));
-		sub_category_opt_list:AddItem(10, ClMsg('Rapier'));
-		sub_category_opt_list:AddItem(11, ClMsg('Musket'));
+		sub_category_opt_list:AddItem(8, ClMsg('THMace'));
+		sub_category_opt_list:AddItem(9, ClMsg('Spear'));
+		sub_category_opt_list:AddItem(10, ClMsg('THSpear'));
+		sub_category_opt_list:AddItem(11, ClMsg('Rapier'));
+		sub_category_opt_list:AddItem(12, ClMsg('Musket'));
 	elseif categoryOption == 2 then
 		sub_category_opt_list:SetEnable(1);
 		sub_category_opt_list:AddItem(1, ClMsg('Shirt'));

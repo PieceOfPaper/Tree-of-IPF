@@ -348,7 +348,7 @@
 					<Str Str="Modafinil_Buff" />
 					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
 					<Num Num="0" />
-					<Num FuncTxt="local value = 20000 + obj.Level * 4000; if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then value = math.floor(value / 3) end return value" Num="0" UseFunc="1" />
+					<Num FuncTxt="local value = 20000 + obj.Level * 4000; if IsPVPServer(self) == 1 or IsPVPField(self) == 1 or IsRaidField(self) == 1 then value = math.floor(value / 3) end return value" Num="0" UseFunc="1" />
 					<Num Num="1" />
 					<Num Num="100" />
 				</Scp>
