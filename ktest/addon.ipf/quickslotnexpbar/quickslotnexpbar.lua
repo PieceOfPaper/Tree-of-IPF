@@ -554,9 +554,9 @@ function SET_QUICK_SLOT(frame, slot, category, type, iesID, makeLog, sendSavePac
 				invenItemInfo = session.GetInvItemByGuid(iesID);
 			end
 
-			--시모니 스크롤이 아니고 기간제가 아닌 아이템 재검색			
+			--시모니 스크롤이 아니고 기간제가 아닌 아이템 재검색
 			if invenItemInfo == nil and itemIES.LifeTime == 0 then
-				if IS_SKILL_SCROLL_ITEM(itemIES) == 0 then
+				if IS_SKILL_SCROLL_ITEM(itemIES) == 0 and IS_CLEAR_SLOT_ITEM(itemIES) ~= true then
 					invenItemInfo = session.GetInvItemByType(type);
 				end
 			end
@@ -585,11 +585,17 @@ function SET_QUICK_SLOT(frame, slot, category, type, iesID, makeLog, sendSavePac
 					icon:SetUserValue("IS_SCROLL","NO")
 				end
 			else
-				imageName = GET_ITEM_ICON_IMAGE(itemIES);
-				icon:SetColorTone("FFFF0000");
-				icon:SetText(0, 'quickiconfont', ui.RIGHT, ui.BOTTOM, -2, 1);
-				SET_SLOT_LIFETIME_IMAGE(invenItemInfo, icon, slot, false);
-				icon:SetEnableUpdateScp('None');
+				-- 해당 아이템이 인벤토리에 없을 경우 
+				if IS_CLEAR_SLOT_ITEM(itemIES) then
+					-- slot을 초기화할 아이템이면 slot clear
+					CLEAR_QUICKSLOT_SLOT(slot);
+				else
+					imageName = GET_ITEM_ICON_IMAGE(itemIES);
+					icon:SetColorTone("FFFF0000");
+					icon:SetText(0, 'quickiconfont', ui.RIGHT, ui.BOTTOM, -2, 1);
+					SET_SLOT_LIFETIME_IMAGE(invenItemInfo, icon, slot, false);
+					icon:SetEnableUpdateScp('None');
+				end			
 			end
 
 			ICON_SET_ITEM_COOLDOWN_OBJ(icon, itemIES);
@@ -1519,4 +1525,14 @@ function DELETE_SKILLICON_QUICKSLOTBAR(frame, msg, argStr, argNum)
 			break;
 		end
 	end
+end
+
+function IS_CLEAR_SLOT_ITEM(ItemInfo)
+	-- 퀵 슬롯 UI가 갱신될 때 해당 아이템을 인벤토리에서 가지고 있지 않을경우 slot을 초기화 해줄 아이템의 조건을 관리하는 함수
+
+	if ItemInfo.GroupName == "ExpOrb" and ItemInfo.MaxStack == 1 then
+		return true;
+	end
+
+	return false;
 end

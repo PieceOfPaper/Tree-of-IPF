@@ -2609,6 +2609,11 @@ return self.MNA;"/>
 	<SpcItem Name="TMAC04_113">
 		<TriggerList Act="Attack">
 			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+				</CondList>			
 				<TgtExecList>
 					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
 						<Str Str="ITEM_SKIACLIPS_THMACE"/>

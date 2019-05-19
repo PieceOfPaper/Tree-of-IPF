@@ -339,7 +339,7 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
     groupbox:EnableHitTest(0);
     groupbox:ShowWindow(1);
     tree:Add(hParent, groupbox);    
-    tree:SetNodeFont(hParent,"brown_18_b")      
+    tree:SetNodeFont(hParent,"brown_18_b")
 
     local x = 180;
     local startY = 80;
@@ -352,7 +352,14 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
     local itemIcon = GET_CHILD(ctrlset, "itemIcon")
     local minHeight = itemIcon:GetHeight() + startY + 10;
 
-    itemName:SetTextByKey("value", targetItem.Name .. " [" .. recipecls.TargetItemCnt .. ScpArgMsg("Piece") .. "]" );
+    if recipecls["Item_2_1"]~= "None" then
+        local itemCountGBox = GET_CHILD_RECURSIVELY(ctrlset, "gbox");
+        if itemCountGBox ~= nil then
+            itemCountGBox:ShowWindow(0);
+        end
+    end
+    
+    itemName:SetTextByKey("value", targetItem.Name .. " [" .. recipecls.TargetItemCnt .. ScpArgMsg("Piece") .. "]");
     if targetItem.StringArg == "EnchantJewell" then
         itemName:SetTextByKey("value", "[Lv. "..cls.TargetItemAppendValue.."] "..targetItem.Name .. " [" .. recipecls.TargetItemCnt .. ScpArgMsg("Piece") .. "]");
     end
@@ -545,7 +552,11 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
     end
     local frame = local_parent:GetTopParentFrame();
     local shopType = frame:GetUserValue("SHOP_TYPE");
-    AddLuaTimerFuncWithLimitCountEndFunc("EARTH_TOWER_SHOP_TRADE_ENTER", 100, 0, "EARTH_TOWER_SHOP_TRADE_LEAVE");
+    if recipecls==nil or recipecls["Item_2_1"] ~='None' then
+        AddLuaTimerFuncWithLimitCountEndFunc("EARTH_TOWER_SHOP_TRADE_ENTER", 100, resultCount - 1, "EARTH_TOWER_SHOP_TRADE_LEAVE");
+    else
+        AddLuaTimerFuncWithLimitCountEndFunc("EARTH_TOWER_SHOP_TRADE_ENTER", 100, 0, "EARTH_TOWER_SHOP_TRADE_LEAVE");
+    end
 end
 
 function EARTH_TOWER_SHOP_TRADE_ENTER()
@@ -695,7 +706,7 @@ function EARTH_TOWER_SHOP_TRADE_LEAVE()
                -- needCount Reset
                local needCount = GET_CHILD_RECURSIVELY(ctrlSet, "needcount");
                needCount:SetTextByKey("count", recipeItemCnt)
-
+                
                -- material icon Reset
                local cnt = ctrlSet:GetChildCount();
                for i = 0, cnt - 1 do
@@ -795,7 +806,11 @@ function EARTHTOWERSHOP_CHANGECOUNT(frame, ctrl, change)
                 
                 -- item Name Setting
                 local targetItemName_text = GET_CHILD_RECURSIVELY(ctrlset, "itemName");
-                targetItemName_text:SetTextByKey("value", targetItem.Name.."["..countText..ScpArgMsg("Piece").."]");
+                if targetItem.StringArg == "EnchantJewell" then
+                    targetItemName_text:SetTextByKey("value", "[Lv. "..recipecls.TargetItemAppendValue.."] "..targetItem.Name .. " [" .. countText .. ScpArgMsg("Piece") .. "]");
+                else
+                    targetItemName_text:SetTextByKey("value", targetItem.Name.."["..countText..ScpArgMsg("Piece").."]");
+                end            
 
                 for j = 1, 5 do
                     if recipecls["Item_"..j.."_1"] ~= "None" then

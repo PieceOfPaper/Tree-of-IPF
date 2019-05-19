@@ -631,7 +631,6 @@
 		<Class ClassID="4234" ClassName="IcorductilityError01" Data="등록된 장비와 같은 부위의 장비를 등록해주세요"/>
 		<Class ClassID="4235" ClassName="CantUseJob" Data="사용 할 수 없는 직업입니다."/>
 		<Class ClassID="4236" ClassName="MagicEnchant" Data="마법 부여"/>
-    <Class ClassID="4237" ClassName="ExceedAmountItem_misc_pvp_mine2{Extra}{Count}" Data="[용병단 증표]의 최대 소유할 수 있는 개수가 초과되어 {Extra}개는 제외하고 {Count}만큼 지급되었습니다."/>
 		<Class ClassID="4238" ClassName="SelectEventItem{ITEM}" Data="{@st66d_y}{s20}{ITEM}{/}{/} {nl}아이템을 정말 선택하시겠습니까?{nl} {nl}선택 후에는 다른 아이템으로{nl}교환할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
@@ -8340,18 +8339,18 @@
 		<Class ClassID="81021" ClassName="F_MAPLE_242_MQ_11_MSG1" Data="지금까지 일어난 일을 얘기하는 중"/>
 		<Class ClassID="81022" ClassName="F_MAPLE_241_MQ_02_MSG1" Data="메데이나님!"/>
 		<Class ClassID="81023" ClassName="F_MAPLE_241_MQ_04_1_MSG5" Data="신성한 기운이 감도는 나뭇가지를 충분히 채집했습니다!"/>
-		<Class ClassID="81030" ClassName="EVENT_1905_HEAD_FISH_BASIC_PARTICIPATION_REWARD_MSG" Data="[개복치가 이렇게 튼튼할리 없어]{nl}참가 보상 : [{ITEM}] {ITEMCOUNT}개 획득{nl}이벤트용 보물 상자 {COUNT}회 오픈 권한을 받으셨습니다!"/>
-		<Class ClassID="81031" ClassName="EVENT_1905_HEAD_FISH_BOX_OPEN_AUTHORIZE_MSG" Data="[개복치가 이렇게 튼튼할리 없어]{nl}이벤트용 보물 상자 {COUNT}회 오픈 권한을 받으셨습니다!"/>
-		<Class ClassID="81032" ClassName="EVENT_1905_HEAD_FISH_BOX_OPEN_MSG1" Data="[개복치가 이렇게 튼튼할리 없어]{nl}이벤트용 보물 상자에서 [{ITEM}] {COUNT}개 획득했습니다!"/>
+		<Class ClassID="81030" ClassName="EVENT_1905_HEAD_FISH_BASIC_PARTICIPATION_REWARD_MSG" Data="[개복치가 나타났다!]{nl}참가 보상 : [{ITEM}] {ITEMCOUNT}개 획득{nl}이벤트용 보물 상자 {COUNT}회 오픈 권한을 받으셨습니다!"/>
+		<Class ClassID="81031" ClassName="EVENT_1905_HEAD_FISH_BOX_OPEN_AUTHORIZE_MSG" Data="[개복치가 나타났다!]{nl}이벤트용 보물 상자 {COUNT}회 오픈 권한을 받으셨습니다!"/>
+		<Class ClassID="81032" ClassName="EVENT_1905_HEAD_FISH_BOX_OPEN_MSG1" Data="[개복치가 나타났다!]{nl}이벤트용 보물 상자에서 [{ITEM}] {COUNT}개 획득했습니다!"/>
 		<Class ClassID="81033" ClassName="EVENT_1905_HEAD_FISH_BOX_OPEN_MSG2" Data="해당 캐릭터는 이미 이벤트용 보물 상자를 열어 보상을 받았습니다"/>
-		<Class ClassID="81034" ClassName="EVENT_1905_HEAD_FISH_BOX_OPEN_MSG3" Data="[개복치가 이렇게 튼튼할리 없어]{nl}이벤트 보상 지원병에게 권한을 받아야 이벤트용 보물 상자를 열 수 있습니다!{nl}(지원병 위치는 지도에 표시된 지점을 확인해 주세요)"/>
+		<Class ClassID="81034" ClassName="EVENT_1905_HEAD_FISH_BOX_OPEN_MSG3" Data="[개복치가 나타났다!]{nl}이벤트 보상 지원병에게 권한을 받아야 이벤트용 보물 상자를 열 수 있습니다!{nl}(지원병 위치는 지도에 표시된 지점을 확인해 주세요)"/>
 		<Class ClassID="81035" ClassName="EVENT_1905_HEAD_FISH_BOSSKILL" Data="구원자분들의 협동으로 어린 개복치를 모두 처치했습니다!{nl}이벤트 보상 지원병을 통해 참여 보상과 이벤트용 보물 상자 1회 오픈 권한을 받으세요!"/>
-		<Class ClassID="81036" ClassName="EVENT_1905_HEAD_FISH_BOX_COUNT_MSG1" Data="[개복치가 이렇게 튼튼할리 없어]{nl}남은 이벤트용 보물 상자 : {COUNT}"/>
+		<Class ClassID="81036" ClassName="EVENT_1905_HEAD_FISH_BOX_COUNT_MSG1" Data="[개복치가 나타났다!]{nl}남은 이벤트용 보물 상자 : {COUNT}"/>
 		<Class ClassID="81037" ClassName="EVENT_1905_HEAD_FISH_BOX_COUNT_MSG2" Data="해당 지역의 모든 이벤트용 보물 상자가 사라졌습니다{nl}다음 이벤트 진행 시간에도 많이 참여해 주세요"/>
-		<Class ClassID="81038" ClassName="EVENT_1905_HEAD_FISH_BOSS_ATTACK" Data="[개복치가 이렇게 튼튼할리 없어]{nl}이벤트에 참여했습니다!"/>
+		<Class ClassID="81038" ClassName="EVENT_1905_HEAD_FISH_BOSS_ATTACK" Data="[개복치가 나타났다!]{nl}이벤트에 참여했습니다!"/>
 		<Class ClassID="81039" ClassName="EVENT_1905_HEAD_FISH_SERVER_REWARD_MSG" Data="이벤트 보상으로 [개복치의 기운]버프가 1시간동안 적용됩니다!"/>
 		<Class ClassID="81040" ClassName="EVENT_1905_HEAD_FISH_BOSS_APPEARANCE_MSG" Data="어린 개복치들이 출몰했습니다!{nl}(출몰 지역 : 샤울레이 동쪽 숲, 샤울레이 서쪽 숲, 렘파라사 연못, 덧댄다리 숲)"/>
-		<Class ClassID="81041" ClassName="EVENT_1905_HEAD_FISH_BASIC_PARTICIPATION_REWARD_MSG2" Data="[개복치가 이렇게 튼튼할리 없어]{nl}참가 보상 : [{ITEM}] {ITEMCOUNT}개 획득"/>
+		<Class ClassID="81041" ClassName="EVENT_1905_HEAD_FISH_BASIC_PARTICIPATION_REWARD_MSG2" Data="[개복치가 나타났다!]{nl}참가 보상 : [{ITEM}] {ITEMCOUNT}개 획득"/>
 		<Class ClassID="81042" ClassName="EVENT_1905_HEAD_FISH_BOSS_APPEARANCE_BEFORE_MSG" Data="어린 개복치들이 잠시 후 출몰합니다.{nl}(출몰 지역 : 샤울레이 동쪽 숲, 샤울레이 서쪽 숲, 렘파라사 연못, 덧댄다리 숲)"/>
 		<Class ClassID="81043" ClassName="TOS_CHILD_SHOP_1" Data="포포리온 뱃지 상점"/>
 		<Class ClassID="81044" ClassName="EVENT_1905_VIVID_CITY_MSG1" Data="입장 난이도 선택"/>

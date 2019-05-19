@@ -52,7 +52,14 @@ CITYATTACK_BOSS_EVENT_TIME_TABLE = {{2019,5,9,20,'Head_fish_child'}, {2019,5,9,2
                                     {2019,6,16,13,'Head_fish_child'}, {2019,6,16,16,'Head_fish_child'}, {2019,6,16,19,'Head_fish_child'}, {2019,6,16,22,'Head_fish_child'},
                                     {2019,6,17,20,'Head_fish_child'}, {2019,6,17,22,'Head_fish_child'},
                                     {2019,6,18,20,'Head_fish_child'}, {2019,6,18,22,'Head_fish_child'},
-                                    {2019,6,19,20,'Head_fish_child'}, {2019,6,19,22,'Head_fish_child'}
+                                    {2019,6,19,20,'Head_fish_child'}, {2019,6,19,22,'Head_fish_child'},
+                                    {2019,6,20,20,'Head_fish_child'}, {2019,6,20,22,'Head_fish_child'},
+                                    {2019,6,21,20,'Head_fish_child'}, {2019,6,21,22,'Head_fish_child'},
+                                    {2019,6,22,13,'Head_fish_child'}, {2019,6,22,16,'Head_fish_child'}, {2019,6,22,19,'Head_fish_child'}, {2019,6,22,22,'Head_fish_child'},
+                                    {2019,6,23,13,'Head_fish_child'}, {2019,6,23,16,'Head_fish_child'}, {2019,6,23,19,'Head_fish_child'}, {2019,6,23,22,'Head_fish_child'},
+                                    {2019,6,24,20,'Head_fish_child'}, {2019,6,24,22,'Head_fish_child'},
+                                    {2019,6,25,20,'Head_fish_child'}, {2019,6,25,22,'Head_fish_child'},
+                                    {2019,6,26,20,'Head_fish_child'}, {2019,6,26,22,'Head_fish_child'}
                                     }
                                     
 ZONENAME_LIST = {}

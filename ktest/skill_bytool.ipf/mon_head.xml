@@ -1,150 +1,106 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ToolSkill><Skill Name="Mon_Head_fish_Skill_3">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+				<Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Anim Anim="ATK" Speed="1" Time="0" />
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1800" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+				<Anim Time="0" Anim="ATK" Speed="1" />
+				<Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1800" >
 					<Pos Angle="0" Dist="0" />
-					<Str_Arg Arg="1" Str="None" />
+					<Str_Arg Str="None" Arg="1" />
 					<Num Num="0" />
-					<Str_Arg Arg="2" Str="None" />
-					<Num Num="150" />
-					<Num Num="100" />
+					<Str_Arg Str="None" Arg="2" />
+					<Num Num="100"/>
+					<Num Num="150"/>
 					<Num Num="0" />
 					<Num Num="1" />
 					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
+					<Str_Arg Str="None" Arg="1" />
 					<Str Str="None" />
-					<Num Num="4" />
+					<Num Num="3"/>
 					<Num Num="60" />
 					<Num Num="0" />
 				</Scp>
 			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="ElectricShock" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="8000" />
-					<Num Num="1" />
-					<Num Num="30" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
+			</MainSkl>
 	</Skill>
 	<Skill Name="Mon_Head_fish_Skill_2">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+				<Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Anim Anim="ATK" Speed="1" Time="0" />
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1800" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+				<Anim Time="0" Anim="ATK" Speed="1" />
+				<Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1800" >
 					<Pos Angle="0" Dist="0" />
-					<Str_Arg Arg="1" Str="None" />
+					<Str_Arg Str="None" Arg="1" />
 					<Num Num="0" />
-					<Str_Arg Arg="2" Str="None" />
-					<Num Num="150" />
-					<Num Num="100" />
+					<Str_Arg Str="None" Arg="2" />
+					<Num Num="100"/>
+					<Num Num="200"/>
 					<Num Num="0" />
 					<Num Num="1" />
 					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
+					<Str_Arg Str="None" Arg="1" />
 					<Str Str="None" />
-					<Num Num="4" />
-					<Num Num="60" />
+					<Num Num="3"/>
+					<Num Num="0"/>
 					<Num Num="0" />
 				</Scp>
 			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="UC_immobilize" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="5000" />
-					<Num Num="1" />
-					<Num Num="30" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
+			</MainSkl>
 	</Skill>
 	<Skill Name="Mon_Head_fish_Skill_4">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+				<Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Anim Anim="ATK" Speed="1" Time="0" />
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1800" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+				<Anim Time="0" Anim="ATK" Speed="1" />
+				<Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1800" >
 					<Pos Angle="0" Dist="0" />
-					<Str_Arg Arg="1" Str="None" />
+					<Str_Arg Str="None" Arg="1" />
 					<Num Num="0" />
-					<Str_Arg Arg="2" Str="None" />
-					<Num Num="150" />
-					<Num Num="100" />
+					<Str_Arg Str="None" Arg="2" />
+					<Num Num="100"/>
+					<Num Num="150"/>
 					<Num Num="0" />
 					<Num Num="1" />
 					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
+					<Str_Arg Str="None" Arg="1" />
 					<Str Str="None" />
-					<Num Num="4" />
+					<Num Num="3"/>
 					<Num Num="60" />
 					<Num Num="0" />
 				</Scp>
 			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Raiseup" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="8000" />
-					<Num Num="1" />
-					<Num Num="30" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
+			</MainSkl>
 	</Skill>
 	<Skill Name="Mon_Head_fish_Skill_1">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+				<Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Anim Anim="ATK" Speed="1" Time="0" />
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1800" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+				<Anim Time="0" Anim="ATK" Speed="1" />
+				<Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1800" >
 					<Pos Angle="0" Dist="0" />
-					<Str_Arg Arg="1" Str="None" />
+					<Str_Arg Str="None" Arg="1" />
 					<Num Num="0" />
-					<Str_Arg Arg="2" Str="None" />
-					<Num Num="150" />
-					<Num Num="100" />
+					<Str_Arg Str="None" Arg="2" />
+					<Num Num="100"/>
+					<Num Num="150"/>
 					<Num Num="0" />
 					<Num Num="1" />
 					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
+					<Str_Arg Str="None" Arg="1" />
 					<Str Str="None" />
-					<Num Num="4" />
+					<Num Num="3"/>
 					<Num Num="60" />
 					<Num Num="0" />
 				</Scp>
 			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="UC_petrify" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="8000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
+			</MainSkl>
 	</Skill>
-	</ToolSkill>
+</ToolSkill>

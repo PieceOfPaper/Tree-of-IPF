@@ -436,8 +436,8 @@ function SCR_ABIL_LEATHER_ACTIVE(self, ability)
     local damageValue = 0;
     
     if count >= 4 then
-	    crtValue = 200;        -- 20%
-	    damageValue = 150;   -- 15%
+	    crtValue = 200;     -- 20%
+	    damageValue = 150;  -- 15%
 	end
     
     SetExProp(self, "LEATHER_ARMOR_ABIL_VALUE", crtValue);

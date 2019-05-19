@@ -3575,9 +3575,9 @@ function UPDATE_INVENTORY_EXP_ORB(frame, ctrl, num, str, time)
 	if slotset:GetHeight() == 0 then
 		return;
 	end
-
-	local offset = frame:GetUserConfig("EFFECT_DRAW_OFFSET");	
-	if slot:GetDrawY() <= invenTab:GetDrawY() or invenTab:GetDrawY() + invenTab:GetHeight() + offset <= slot:GetDrawY() then
+	local inventoryGbox = GET_CHILD_RECURSIVELY(frame, "inventoryGbox");
+	local offset = frame:GetUserConfig("EFFECT_DRAW_OFFSET");
+	if slot:GetDrawY() <= invenTab:GetDrawY() or invenTab:GetDrawY() + inventoryGbox:GetHeight() - offset <= slot:GetDrawY() then
 		return;
 	end
 	

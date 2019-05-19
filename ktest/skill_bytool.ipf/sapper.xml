@@ -135,6 +135,15 @@
 					<Num Num="0" />
 					<Str Str="None" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="300" UseSleep="NO">
+                    <Str Str="Cover_Caster_Buff" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                    <Num Num="500" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                    <Num Num="0" />
+                </Scp>
 				<Scp Client="YES" Scp="C_EFFECT_POS" Time="300" UseSleep="NO">
 					<Str_Arg Arg="1.3" Str="F_archer_cover_smoke_leaf" />
 					<Pos Angle="0" Dist="15" Height="5" />
