@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Normal_Attack_TH">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="330" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="130" Type="SQUARE" Width="25" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Normal_Attack">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="330" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="130" Type="SQUARE" Width="20" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

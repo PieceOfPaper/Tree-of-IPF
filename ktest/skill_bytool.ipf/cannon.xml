@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Cannon_Normal_Attack">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="650" Dist="0" ForceATK="0" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="450" Type="CIRCLE" Width="40" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="ATK" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="450" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke" />
+					<Str Str="Dummy_effect_canon" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="450" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_archer_canon_force2#Dummy_effect_can_atk" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.69999999" Str="F_archer_CannonShot_explosion2" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="700" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cannon_Attack">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="650" Dist="0" ForceATK="0" HitCount="1" PosType="2" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="450" Type="CIRCLE" Width="60" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_EFFECT" Time="450" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke" />
+					<Str Str="Dummy_effect_pistol_R" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="450" UseSleep="NO">
+					<Str_Arg Arg="1.7" Str="I_archer_canon_force4#Dummy_effect_canon" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.80000001" Str="F_archer_CannonShot_explosion_orange" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="900" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cannon_1">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_ARC" UseSleep="NO">
+				<Num Num="1.500000" />
+				<Num Num="1.000000" />
+				<Num Num="0.000000" />
+				<Num Num="1.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="50.000000" />
+				<Num Num="200.000000" />
+				<Str Str="Warrior_Pull" />
+				<Str Str="Dummy_L_HAND" />
+				<Str_Arg Arg="1.000000" FuncTxt="return &quot;F_sys_target_monster&quot;, GET_SKL_VALUE(obj, 1, 2);" Str="F_sys_target_monster" UseFunc="1" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_ENERGYBOLT2_LOOP" />
+				<Num Num="1.000000" />
+				<Num Num="1.000000" />
+			</ToolScp>
+		</KeyInputStart>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="9999" Dist="0.000000" ForceATK="0" HitCount="1" Length="30.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_ENERGYBOLT_SHOT" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+				</Scp>
+				<Scp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" Time="0" UseSleep="NO">
+					<Str Str="ASTD" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" UseSleep="YES">
+					<Str_Arg Arg="1.000000" Str="I_force003_green" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+					<Str_Arg Arg="1.000000" Str="I_force003_green" />
+					<Pos Angle="0.000000" Dist="0.000000" PosType="3.000000" />
+					<Num FuncTxt="  return GET_SKL_VALUE(obj, 30, 60);" Num="10.000000" UseFunc="1" />
+					<Num Num="0.500000" />
+					<Num Num="0.000000" />
+					<Num Num="600.000000" />
+					<Num Num="1.000000" />
+					<Num Num="50.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="1.000000" FuncTxt="return &quot;F_sys_target_monster&quot;,  GET_SKL_VALUE(obj, 1, 2);" Str="F_sys_target_monster" UseFunc="1" />
+					<Num Num="500.000000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cannon_2">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_ARC" UseSleep="NO">
+				<Num Num="1.500000" />
+				<Num Num="1.000000" />
+				<Num Num="0.000000" />
+				<Num Num="1.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="50.000000" />
+				<Num Num="200.000000" />
+				<Str Str="Warrior_Pull" />
+				<Str Str="Dummy_L_HAND" />
+				<Str_Arg Arg="1.000000" FuncTxt="return &quot;F_sys_target_monster&quot;, GET_SKL_VALUE(obj, 1, 2);" Str="F_sys_target_monster" UseFunc="1" />
+			</ToolScp>
+		</KeyInput>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="9999" Dist="0.000000" ForceATK="0" HitCount="1" Length="30.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_ENERGYBOLT_SHOT" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+				</Scp>
+				<Scp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" Time="0" UseSleep="NO">
+					<Str Str="ASTD" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" UseSleep="YES">
+					<Str_Arg Arg="1.000000" Str="I_force003_green" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+					<Str_Arg Arg="1.000000" Str="I_force003_green" />
+					<Pos Angle="0.000000" Dist="0.000000" PosType="3.000000" />
+					<Num FuncTxt="  return GET_SKL_VALUE(obj, 30, 60);" Num="10.000000" UseFunc="1" />
+					<Num Num="0.500000" />
+					<Num Num="0.000000" />
+					<Num Num="600.000000" />
+					<Num Num="1.000000" />
+					<Num Num="50.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="1.000000" FuncTxt="return &quot;F_sys_target_monster&quot;,  GET_SKL_VALUE(obj, 1, 2);" Str="F_sys_target_monster" UseFunc="1" />
+					<Num Num="500.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="300" UseSleep="YES">
+					<Str_Arg Arg="1.000000" Str="I_force003_green" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+					<Str_Arg Arg="1.000000" Str="I_force003_green" />
+					<Pos Angle="0.000000" Dist="0.000000" PosType="3.000000" />
+					<Num FuncTxt="  return GET_SKL_VALUE(obj, 30, 60);" Num="10.000000" UseFunc="1" />
+					<Num Num="0.500000" />
+					<Num Num="0.000000" />
+					<Num Num="600.000000" />
+					<Num Num="1.000000" />
+					<Num Num="50.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="1.000000" FuncTxt="return &quot;F_sys_target_monster&quot;,  GET_SKL_VALUE(obj, 1, 2);" Str="F_sys_target_monster" UseFunc="1" />
+					<Num Num="500.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="600" UseSleep="YES">
+					<Str_Arg Arg="1.000000" Str="I_force003_green" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+					<Str_Arg Arg="1.000000" Str="I_force003_green" />
+					<Pos Angle="0.000000" Dist="0.000000" PosType="3.000000" />
+					<Num FuncTxt="  return GET_SKL_VALUE(obj, 30, 60);" Num="10.000000" UseFunc="1" />
+					<Num Num="0.500000" />
+					<Num Num="0.000000" />
+					<Num Num="600.000000" />
+					<Num Num="1.000000" />
+					<Num Num="50.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="1.000000" FuncTxt="return &quot;F_sys_target_monster&quot;,  GET_SKL_VALUE(obj, 1, 2);" Str="F_sys_target_monster" UseFunc="1" />
+					<Num Num="500.000000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

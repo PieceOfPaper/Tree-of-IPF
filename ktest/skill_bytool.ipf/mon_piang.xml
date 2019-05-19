@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_piang_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="4.105414e-36" />
+					<Num Num="80" />
+					<Num Num="20" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Anim Anim="skl" Speed="0.89999998" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="4.105414e-36" PosType="9" />
+					<Str_Arg Arg="0.69999999" Str="F_sys_target_monster##0.5" />
+					<Num Num="600" />
+					<Str_Arg Arg="1.3" Str="F_rize004_blue" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1.3" Str="F_hit009_rize_blue" />
+					<Str Str="Dummy_effect_body002" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
+					<Str_Arg Arg="1.6" Str="F_hit009_rize_blue" />
+					<Str Str="Dummy_effect_body" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+					<Str Str="skl_wiz_psy_spell" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="400" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="1.2" Str="F_explosion98_rize_2_1" />
+					<Str Str="Dummy_effect_skl" />
+					<Num Num="0.15000001" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="500" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="600" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="700" UseSleep="NO">
+					<Str_Arg Arg="1.2" Str="F_hit009_rize_blue" />
+					<Str Str="Dummy_effect_skl" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="700" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="800" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="900" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1150" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="F_hit009_rize_blue" />
+					<Str Str="Dummy_effect_body" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1350" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_hit009_rize_blue" />
+					<Str Str="Dummy_effect_body002" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_piang_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="1" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="F_explosion98_rize_2_1" />
+					<Str Str="Dummy_effect001" />
+					<Num Num="0.2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_explosion98_rize_2_1" />
+					<Str Str="Dummy_effect002" />
+					<Num Num="0.2" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="300" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="I_force018_trail_rize_blue_800#Dummy_effect005" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.5" Str="F_explosion98_rize_3_1" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="150" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="4.105414e-36" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="330" UseSleep="NO">
+					<Str Str="mon_jukopus_atk2_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="F_explosion98_rize_2_1" />
+					<Str Str="Dummy_effect003" />
+					<Num Num="0.2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="400" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.69999999" />
+					<Num Num="0.69999999" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="460" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="480" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="0.69999999" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="520" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="0.69999999" />
+					<Num Num="0.60000002" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="550" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.30000001" />
+					<Num Num="0.30000001" />
+					<Num Num="0.40000001" />
+					<Num Num="0.30000001" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="600" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.1" />
+					<Num Num="0.1" />
+					<Num Num="0.15000001" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="2.5" Str="F_hit009_rize_blue" />
+					<Str Str="Dummy_effect_body" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="650" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="750" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_hit009_rize_blue" />
+					<Str Str="Dummy_effect_body002" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

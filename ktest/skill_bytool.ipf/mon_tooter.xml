@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_tooter_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-0.00048828125" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="1100" />
+				<Frame Accel="1" Angle="-0.0086474782" Dist="115.44973" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="1500" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="CIRCLE" Width="20" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+					<Str Str="mon_molich_hit" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="500" UseSleep="YES">
+					<Pos Angle="0" Dist="30" />
+					<Pos Angle="0" Dist="140" />
+					<Str_Arg Arg="1" Str="F_sys_arrow_monster" />
+					<Num Num="25" />
+					<Num Num="0.0099999998" />
+					<Num Num="0.1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="F_smoke008" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="30" />
+					<Num Num="0.02" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="skl" Speed="0.40000001" Time="500" />
+				<Scp Client="YES" Scp="C_SOUND" Time="950" UseSleep="NO">
+					<Str Str="skl_eff_atk_move_l_19" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="1000" UseSleep="NO">
+					<Str Str="mon_firent_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_leaf004_2" />
+					<Str Str="Bip001 Spine2" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="skl" Speed="1" StartTime="0.40000001" Time="1100" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_tooter_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.43633235" TermMax="0" TermMin="0" Time="600" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="0.69999999" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="80" UseSleep="NO">
+					<Str Str="m_ironbaum_skl2_voice" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="430" UseSleep="NO">
+					<Str Str="mon_firent_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_dash001_yellow3" />
+					<Str Str="Dummy_eff_skl1" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

@@ -1,0 +1,702 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_event_Spector_Halloween_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk1_cast" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_FAN" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="30" />
+					<Num Num="120" />
+					<Num Num="20" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_halloween_buff" />
+					<Str Str="B_skirt3_1" />
+					<Num Num="1" />
+				</Scp>
+				<Anim Anim="atk2_shot" Speed="1" Time="700" />
+				<Scp Client="NO" Scp="MSL_THROW" Time="800" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Dummy_effect_atk_force" />
+					<Str_Arg Arg="2" Str="F_hit_Halloween001_1" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0" Dist="0" PosType="9" />
+					<Num Num="10" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="950" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Dummy_effect_atk_force" />
+					<Str_Arg Arg="2" Str="F_hit_Halloween001_2" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0" Dist="0" PosType="9" />
+					<Num Num="10" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1100" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Dummy_effect_atk_force" />
+					<Str_Arg Arg="2" Str="F_hit_Halloween001_1" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0" Dist="0" PosType="9" />
+					<Num Num="10" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1250" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Dummy_effect_atk_force" />
+					<Str_Arg Arg="1" Str="F_hit_Halloween001_2" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0" Dist="0" PosType="9" />
+					<Num Num="10" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Dummy_effect_atk_force" />
+					<Str_Arg Arg="2" Str="F_hit_Halloween001_1" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0" Dist="0" PosType="9" />
+					<Num Num="10" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1550" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Dummy_effect_atk_force" />
+					<Str_Arg Arg="2" Str="F_hit_Halloween001_2" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0" Dist="0" PosType="9" />
+					<Num Num="10" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1700" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Dummy_effect_atk_force" />
+					<Str_Arg Arg="2" Str="F_hit_Halloween001_1" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0" Dist="0" PosType="9" />
+					<Num Num="10" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1850" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Dummy_effect_atk_force" />
+					<Str_Arg Arg="2" Str="F_hit_Halloween001_2" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0" Dist="0" PosType="9" />
+					<Num Num="10" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="2000" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Dummy_effect_atk_force" />
+					<Str_Arg Arg="2" Str="F_hit_Halloween001_1" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0" Dist="0" PosType="9" />
+					<Num Num="10" />
+					<Num Num="0.30000001" />
+					<Num Num="0" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_event_Spector_Halloween_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453294" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk2_cast" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="100" />
+					<Num Num="20" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_halloween_buff" />
+					<Str Str="B_skirt3_1" />
+					<Num Num="2" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1000" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="3" Str="I_force018_Halloween2" />
+					<Str_Arg Arg="5" Str="F_hit_Halloween002" />
+					<Str_Arg Arg="1" Str="I_weapon_npc_mark" />
+					<Pos Angle="0" Dist="0" PosType="8" />
+					<Num Num="60" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1100" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="3" Str="I_force018_Halloween2" />
+					<Str_Arg Arg="5" Str="F_hit_Halloween002" />
+					<Str_Arg Arg="1" Str="I_weapon_npc_mark" />
+					<Pos Angle="0" Dist="0" PosType="8" Rand="40" />
+					<Num Num="60" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1200" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="3" Str="I_force018_Halloween2" />
+					<Str_Arg Arg="5" Str="F_hit_Halloween002" />
+					<Str_Arg Arg="1" Str="I_weapon_npc_mark" />
+					<Pos Angle="0" Dist="0" Height="1" PosType="8" Rand="30" />
+					<Num Num="60" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1300" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="3" Str="I_force018_Halloween2" />
+					<Str_Arg Arg="5" Str="F_hit_Halloween002" />
+					<Str_Arg Arg="1" Str="I_weapon_npc_mark" />
+					<Pos Angle="0" Dist="0" PosType="8" Rand="50" />
+					<Num Num="60" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="2" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="atk2_shot" Speed="1.2" Time="2200" />
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="2500" UseSleep="NO">
+					<Num Num="5" />
+					<Num Num="0.40000001" />
+					<Num Num="55" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="2500" UseSleep="NO">
+					<Str_Arg Arg="5" Str="F_smoke174_pupple" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="3990" UseSleep="NO">
+					<Num Num="10" />
+					<Num Num="0.40000001" />
+					<Num Num="55" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_event_Spector_Halloween_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.78539819" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="MSL_THROW" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Bip01 L Hand" />
+					<Str_Arg Arg="2" Str="F_hit_Halloween001_1" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0.018982461" Dist="62.374306" Height="1" Rand="40" />
+					<Num Num="15" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Bip01 L Hand" />
+					<Str_Arg Arg="3" Str="F_hit_Halloween001_2" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0.018982461" Dist="62.374306" Height="1" Rand="40" />
+					<Num Num="15" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Bip01 L Hand" />
+					<Str_Arg Arg="2" Str="F_hit_Halloween001_1" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0.018982461" Dist="62.374306" Height="1" Rand="40" />
+					<Num Num="15" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Bip01 L Hand" />
+					<Str_Arg Arg="3" Str="F_hit_Halloween001_2" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0.018982461" Dist="62.374306" Height="1" Rand="40" />
+					<Num Num="15" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Bip01 L Hand" />
+					<Str_Arg Arg="2" Str="F_hit_Halloween001_1" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0.018982461" Dist="62.374306" Height="1" Rand="40" />
+					<Num Num="15" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Bip01 L Hand" />
+					<Str_Arg Arg="3" Str="F_hit_Halloween001_2" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0.018982461" Dist="62.374306" Height="2" Rand="60" />
+					<Num Num="15" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Bip01 L Hand" />
+					<Str_Arg Arg="2" Str="F_hit_Halloween001_1" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0.018982461" Dist="62.374306" Height="2" Rand="60" />
+					<Num Num="15" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Bip01 L Hand" />
+					<Str_Arg Arg="3" Str="F_hit_Halloween001_2" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0.018982461" Dist="62.374306" Height="2" Rand="60" />
+					<Num Num="15" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Bip01 L Hand" />
+					<Str_Arg Arg="2" Str="F_hit_Halloween001_1" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0.018982461" Dist="62.374306" Height="2" Rand="60" />
+					<Num Num="15" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Bip01 L Hand" />
+					<Str_Arg Arg="3" Str="F_hit_Halloween001_2" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0.018982461" Dist="62.374306" Height="2" Rand="60" />
+					<Num Num="15" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Bip01 L Hand" />
+					<Str_Arg Arg="3" Str="F_hit_Halloween001_2" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0.018982461" Dist="62.374306" Height="2" Rand="60" />
+					<Num Num="15" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Bip01 L Hand" />
+					<Str_Arg Arg="2" Str="F_hit_Halloween001_1" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0.018982461" Dist="62.374306" Height="2" Rand="60" />
+					<Num Num="15" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Bip01 L Hand" />
+					<Str_Arg Arg="3" Str="F_hit_Halloween001_2" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0.018982461" Dist="62.374306" Height="2" Rand="60" />
+					<Num Num="15" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Bip01 L Hand" />
+					<Str_Arg Arg="2" Str="F_hit_Halloween001_1" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0.018982461" Dist="62.374306" Height="2" Rand="60" />
+					<Num Num="15" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force018_Halloween#Bip01 L Hand" />
+					<Str_Arg Arg="3" Str="F_hit_Halloween001_2" />
+					<Str_Arg Arg="1" Str="I_force003_green" />
+					<Pos Angle="0.018982461" Dist="62.374306" Height="2" Rand="60" />
+					<Num Num="15" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_event_Tiny_Halloween_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="event_idle" Speed="1.5" StartTime="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_smoke011" />
+					<Str Str="None" />
+					<Num Num="300" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="600" UseSleep="NO">
+					<Str Str="UC_Cloaking_Buff" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="900" UseSleep="NO">
+					<Str Str="UC_Cloaking_Buff" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_RANDOM_POS" Time="1100" UseSleep="NO">
+					<Num Num="300" />
+				</Scp>
+				<Anim Anim="born" Speed="1" Time="1200" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_event_Tiny_Halloween_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="100" UseSleep="NO">
+					<Str Str="FRIGHT_BUFF" />
+					<Num Num="250" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="idle2" Speed="1" Time="100" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_event_big_onion_Halloween_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="200" Type="FAN" Width="40" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK1_CAST" Speed="1" Time="0" />
+				<Anim Anim="ATK1_SHOT" Speed="1" Time="360" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_event_onion_Halloween_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.61086529" TermMax="0" TermMin="0" Time="1000" Type="FAN" Width="40" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK1_SHOT" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_event_Popolion_Halloween_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1100" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.34906587" TermMax="0" TermMin="0" Time="900" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK2_SHOT" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_event_Popolion_Halloween_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="500" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK1_SHOT" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_cretobiang_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="1.8609847" AniTime="2000" Dist="23.804718" ForceATK="0" HitCount="1" Length="60" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="-0.2617994" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1800" Type="SQUARE" Width="20" />
+				<Frame Angle="-1.867399" AniTime="2000" Dist="24.895031" ForceATK="0" HitCount="1" Length="60" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0.2617994" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1800" Type="SQUARE" Width="20" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_cretobiang_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="550" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="350" Type="SQUARE" Width="20" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="7" Str="F_explosion123_dark" />
+					<Str Str="effect_dum2" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

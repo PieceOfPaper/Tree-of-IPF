@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Amacalf_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="15" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="m_schlesien_darkmage_born" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_voice_hound_1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+					<Str Str="m_whip_vine_atk2_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="630" UseSleep="NO">
+					<Str_Arg Arg="1.3" Str="I_line007_violet" />
+					<Str Str="Bip001 L Finger0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Amacalf_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-0.0018266451" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="200" />
+				<Frame Accel="1" Angle="-0.013080954" Dist="47.988907" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="650" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="15" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="m_schlesien_darkmage_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_smoke008" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="150" UseSleep="NO">
+					<Str Str="m_whip_vine_atk2_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="300" UseSleep="NO">
+					<Str Str="mon_voice_hound_2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="650" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_burstup007_smoke2" />
+					<Str Str="Dummy_eff_skl" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

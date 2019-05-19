@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Spectra_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="25" />
+					<Str_Arg Arg="0.80000001" Str="None" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="20" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Anim Anim="ATK1" Speed="1.2" Time="500" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_spectra_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_spin021_green" />
+					<Str Str="None" />
+				</Scp>
+				<Anim Anim="skl_cast" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="100" UseSleep="YES">
+					<Pos Angle="0" Dist="60" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="2000" />
+					<Str_Arg Arg="1" Str="F_explosion074_green" />
+					<Num Num="20" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="100" UseSleep="YES">
+					<Pos Angle="0.95993108" Dist="60" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="2000" />
+					<Str_Arg Arg="1" Str="F_explosion074_green" />
+					<Num Num="20" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="100" UseSleep="YES">
+					<Pos Angle="-0.95993108" Dist="60" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="2000" />
+					<Str_Arg Arg="1" Str="F_explosion074_green" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Anim Anim="skl_shot" Speed="1" Time="600" />
+				<Anim Anim="skl_cast" Speed="1" Time="2800" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="2800" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_spin021_green" />
+					<Str Str="None" />
+				</Scp>
+				<Anim Anim="skl_shot" Speed="1" Time="3400" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3500" UseSleep="YES">
+					<Pos Angle="0.78539819" Dist="70" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1900" />
+					<Str_Arg Arg="1" Str="F_explosion074_green" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3500" UseSleep="YES">
+					<Pos Angle="-0.78539819" Dist="70" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1900" />
+					<Str_Arg Arg="1" Str="F_explosion074_green" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="3500" UseSleep="YES">
+					<Pos Angle="0" Dist="20" />
+					<Str_Arg Arg="1" Str="F_sys_target_monster" />
+					<Num Num="1900" />
+					<Str_Arg Arg="1" Str="F_explosion074_green" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="0" Str="None" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_spectra_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="0" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="25" />
+					<Str_Arg Arg="0.80000001" Str="None" />
+					<Num Num="1700" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+				</Scp>
+				<Anim Anim="ATK1" Speed="1" Time="900" />
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="1700" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

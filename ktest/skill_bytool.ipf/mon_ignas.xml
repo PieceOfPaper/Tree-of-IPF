@@ -1,0 +1,320 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_ignas_summon_punter_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.80000001" Str="F_levitation005_dark_blue3" />
+					<Str Str="Bip001 R Finger2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="0" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.2" />
+					<Num Num="0.2" />
+					<Num Num="0.40000001" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="600" UseSleep="NO">
+					<Str Str="skl_eff_atk_move_m_3" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="600" UseSleep="NO">
+					<Str Str="mon_moglan_kdown" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="700" UseSleep="NO">
+					<Num Num="3" />
+					<Num Num="0.5" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="700" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="0.69999999" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="900" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="40" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Str_Arg Arg="0.69999999" Str="F_burstup001_blue2" />
+					<Num Num="30" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="1000" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1300" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="40" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="F_burstup001_blue2" />
+					<Num Num="50" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="30" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_ignas_summon_punter_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="300" Type="FAN" Width="50" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="350" UseSleep="NO">
+					<Str Str="mon_moglan_dead" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="370" UseSleep="NO">
+					<Str Str="skl_eff_atk_move_m_2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_swordtrail003" />
+					<Str Str="eff_atk" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_ignas_summon_vesperia_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="-0.69813168" Dist="20" />
+					<Pos Angle="0.34906584" Dist="120" />
+					<Str_Arg Arg="0.5" Str="F_sys_arrow_monster" />
+					<Num Num="18" />
+					<Num Num="0.0099999998" />
+					<Num Num="0.5" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="I_explosion002_violet3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="20" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0.69813168" Dist="20" />
+					<Pos Angle="-0.34906584" Dist="120" />
+					<Str_Arg Arg="0.5" Str="F_sys_arrow_monster" />
+					<Num Num="18" />
+					<Num Num="0.0099999998" />
+					<Num Num="0.5" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="I_explosion002_violet3" />
+					<Num Num="20" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="20" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_merge_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="m_harpeia_born" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="1100" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.5" />
+					<Num Num="0.5" />
+					<Num Num="0.69999999" />
+					<Num Num="0.69999999" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="1150" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.2" />
+					<Num Num="0.2" />
+					<Num Num="0.40000001" />
+					<Num Num="0.40000001" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="1200" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_ignas_summon_vesperia_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1000" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_merge_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="1100" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0.2" />
+					<Num Num="0.2" />
+					<Num Num="0.40000001" />
+					<Num Num="0.40000001" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1100" UseSleep="NO">
+					<Str_Arg Arg="2" Str="I_dash022_3" />
+					<Str Str="Dummy_effect_atk002" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="1150" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_ground071_smoke_dark" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="1200" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_ignas_summon_punter_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="0.5" Time="0" />
+				<Scp Client="NO" Scp="SKL_USE_PCSKILL_BALLON" Time="0" UseSleep="NO">
+					<Num Num="163390" />
+					<Num Num="2.5" />
+				</Scp>
+				<Anim Anim="skl" Speed="1" Time="1500" />
+				<Scp Client="NO" Scp="EFT_AND_HIT" Time="2300" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+					<Pos Angle="0" Dist="40" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Str_Arg Arg="2" Str="F_burstup001_blue2" />
+					<Num Num="100" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="None" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_PAD_DESTRUCTION_RELATION" Time="2300" UseSleep="NO">
+					<Pos Angle="0" Dist="40" />
+					<Num Num="99" />
+					<Num Num="100" />
+					<Str Str="ALL" />
+					<Str Str="ENEMY" />
+					<Str_Arg Arg="1" Str="F_burstup007_blue" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_ignas_summon_vesperia_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="0.5" Time="0" />
+				<Scp Client="NO" Scp="SKL_USE_PCSKILL_BALLON" Time="0" UseSleep="NO">
+					<Num Num="163393" />
+					<Num Num="2" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="2000" UseSleep="NO">
+					<Str Str="uniq_vespera" />
+					<Pos Angle="0" Dist="0" Height="2" Rand="80" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="BasicMonster_ATK" />
+					<Num Num="0" />
+					<Num Num="99999" />
+					<Str Str="None" />
+					<MonProp />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="2000" UseSleep="NO">
+					<Str Str="uniq_pipi" />
+					<Pos Angle="0" Dist="0" Height="1" Rand="70" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="BasicMonster_ATK" />
+					<Num Num="0" />
+					<Num Num="99999" />
+					<Str Str="None" />
+					<MonProp />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="2000" UseSleep="NO">
+					<Str Str="uniq_piang" />
+					<Pos Angle="0" Dist="0" Height="1" Rand="70" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="BasicMonster_ATK" />
+					<Num Num="0" />
+					<Num Num="99999" />
+					<Str Str="None" />
+					<MonProp />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

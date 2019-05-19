@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_hooter_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="2.0289371" Dist="6.9564137" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="500" />
+				<Frame Accel="1" Angle="-0.15747038" Dist="31.725679" Gravity="100" Height="0" JumpPower="300" MoveType="0" Time="800" />
+				<Frame Accel="1" Angle="-0.095981233" Dist="61.363277" Gravity="800" Height="0" JumpPower="500" MoveType="0" Time="1100" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="10" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="CIRCLE" Width="25" />
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="9" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="CIRCLE" Width="25" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_kowak_born" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_bavon_cast_2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="450" UseSleep="NO">
+					<Str Str="m_tontulia_skl_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="470" UseSleep="NO">
+					<Str Str="mon_bavon_shot_2" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_hooter_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="2" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="100" Time="400" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_bavon_cast_1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="F_ground065_smoke" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+					<Str Str="mon_kowak_dead" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="400" UseSleep="NO">
+					<Str_Arg Arg="0.40000001" Str="I_light013_spark" />
+					<Pos Angle="0" Dist="18" Height="13" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_light013_spark" />
+					<Pos Angle="0" Dist="18" Height="13" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

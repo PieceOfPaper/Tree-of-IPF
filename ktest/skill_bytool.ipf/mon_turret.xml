@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Turret_sample_Attack2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="10299" Dist="0.000000" ForceATK="0" HitCount="1" Length="30.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" UseSleep="YES">
+					<Str_Arg Arg="1.000000" Str="I_force054_fire#Dummy_effect01" />
+					<Str_Arg Arg="1.000000" Str="F_ground021_fire" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.055188" Dist="0.772753" PosType="1.000000" />
+					<Num Num="10.000000" />
+					<Num Num="0.500000" />
+					<Num Num="0.000000" />
+					<Num Num="600.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="0.500000" Str="F_sys_target_monsterlight" />
+					<Num Num="1000.000000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

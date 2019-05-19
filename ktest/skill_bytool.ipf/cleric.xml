@@ -1,0 +1,859 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Cleric_PatronSaint">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_patronsaint_shot" />
+					<Str Str="voice_cleric_patronsaint_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="100" UseSleep="NO">
+					<Str Str="PatronSaint_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1800000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
+					<Str Str="skl_eff_patronsaint_buff_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Fade">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="Cleric_Fade" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_fade_shot" />
+					<Str Str="voice_cleric_fade_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_DeprotectedZone">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_cleric_heal_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_deprotectedzone_shot" />
+					<Str Str="voice_cleric_deprotectedzone_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="660" UseSleep="NO">
+					<Pos Angle="0" Dist="30" />
+					<Angle Angle="0" />
+					<Str Str="Cleric_RighteousZone" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Revival">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_wiz_m_atk_short" />
+					<Str Str="voice_wiz_f_atk_short" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="400" UseSleep="NO">
+					<Str Str="Cleric_Revival_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="60000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Smite">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="50" Type="CIRCLE" Width="40" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
+					<Str Str="skl_eff_shiedblow" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_ShieldCharge">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_atk_short" />
+					<Str Str="voice_wiz_f_atk_short" />
+				</Scp>
+			</EtcList>
+			<KillList>
+				<ToolScp Client="YES" Scp="C_SR_EFT2" UseSleep="NO">
+					<Str_Arg Arg="5" Str="I_dash019" />
+					<Str Str="Dummy_effect_ShieldCharge" />
+					<Num Num="0" />
+				</ToolScp>
+			</KillList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Flins">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
+					<Str Str="voice_wiz_m_atk_short" />
+					<Str Str="voice_wiz_f_atk_short" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
+					<Str Str="Cleric_Flins_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="60000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Dodola">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="Cleric_Dodola" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_archer_atk_shot" />
+					<Str Str="voice_archer_f_atk" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Lada">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="100" Type="FAN" Width="40" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+					<Str Str="voice_wiz_m_atk_short" />
+					<Str Str="voice_wiz_f_cast" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="Cleric_Lada_Debuff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num FuncTxt="return 5000 + skill.Level * 10000" Num="5000" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Ziva">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+				<Str Str="Cleric_Ziva" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="20" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInput>
+		<KeyCancelScp>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="29" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="Cleric_Ziva" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_cast" />
+					<Str Str="voice_wiz_f_cast" />
+				</Scp>
+				<Scp Client="NO" LoopTime="1000" Scp="SKL_CONSUME_SP" Time="1600" UseSleep="NO">
+					<Num FuncTxt="return self.MSP * (0.06 - (obj.Level * 0.0003))" Num="3" UseFunc="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_jangpantest">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="20.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="1.570796" Dist="20.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="0.785398" Dist="28.500000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_DISABLE_PAD" Time="100" UseSleep="NO">
+					<Pos Angle="-1.568651" Dist="64.844048" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_Melstis" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="200" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="40.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="200" UseSleep="NO">
+					<Pos Angle="-0.794125" Dist="57.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="200" UseSleep="NO">
+					<Pos Angle="-0.982620" Dist="72.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="400" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="60.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="400" UseSleep="NO">
+					<Pos Angle="0.593412" Dist="72.300003" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="400" UseSleep="NO">
+					<Pos Angle="0.322886" Dist="63.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="400" UseSleep="NO">
+					<Pos Angle="-0.322886" Dist="63.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="400" UseSleep="NO">
+					<Pos Angle="-0.593412" Dist="72.300003" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="600" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="80.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="600" UseSleep="NO">
+					<Pos Angle="0.645772" Dist="100.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="600" UseSleep="NO">
+					<Pos Angle="0.471239" Dist="89.500000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="800" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="100.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="800" UseSleep="NO">
+					<Pos Angle="-0.191986" Dist="102.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1000" UseSleep="NO">
+					<Pos Angle="-0.160570" Dist="122.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_jangpantest" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Bless">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="None" />
+					<Str Str="voice_wiz_f_cast_2" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0.785398" Dist="25.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_New_Bless" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="2.356194" Dist="25.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_New_Bless" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="-2.356194" Dist="25.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_New_Bless" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="-0.785398" Dist="25.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_New_Bless" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_checkPad">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="0.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_testPad" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="2.356100" Dist="27.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_testPad" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="-0.785300" Dist="27.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_testPad" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="0.785300" Dist="27.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_testPad" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="-2.356100" Dist="27.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_testPad" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="150" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="19.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_testPad2" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="150" UseSleep="NO">
+					<Pos Angle="3.141500" Dist="19.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_testPad2" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="150" UseSleep="NO">
+					<Pos Angle="1.570700" Dist="19.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_testPad2" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="150" UseSleep="NO">
+					<Pos Angle="-1.570700" Dist="19.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_testPad2" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Cure">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_PARTY_TARGET_BY_KEY" UseSleep="NO">
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="-3.1209891" AniTime="9999" Dist="29.189022" ForceATK="0" HitCount="1" Length="30" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="CIRCLE" Width="100" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO" />
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+					<Str Str="voice_cleric_m_cure_shot" />
+					<Str Str="voice_cleric_cure_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="400" UseSleep="NO">
+					<Str Str="Cure_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="450" UseSleep="NO">
+					<Str Str="Cure_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num FuncTxt="local value = obj.Level * 10 local addAbilRate = 1 local reinforceAbil = GetAbility(self, &quot;Cleric11&quot;) if reinforceAbil ~= nil then     local abilLevel = TryGetProp(reinforceAbil, &quot;Level&quot;)     local masterAddValue = 0     if abilLevel == 100 then         masterAddValue = 0.1     end     value = value * (1 + (reinforceAbil.Level * 0.005 + masterAddValue))  end return value" Num="100" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+						<Str Str="Cleric1" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<HitList>
+						<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="100" Type="FAN" />
+					</HitList>
+					<EtcList>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+							<Str Str="voice_cleric_m_cure_shot" />
+							<Str Str="voice_cleric_cure_shot" />
+						</Scp>
+						<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+							<Pos Angle="0" Dist="25" />
+							<Angle Angle="0" />
+							<Str Str="Cleric_New_Cure_Abil" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Cleric_EqualizerMissile">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="48.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_equalizerMissile" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="150" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="78.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_equalizerMissile" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="300" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="108.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_equalizerMissile" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="450" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="138.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_equalizerMissile" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="600" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="168.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_equalizerMissile" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_FeverTime">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="400" UseSleep="NO">
+					<Str Str="FeverTime" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="15000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="100.000000" />
+					<Num Num="1.000000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Haste">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="None" />
+					<Str Str="voice_wiz_f_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="20.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_New_Haste" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="0.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_New_Haste" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="1.570796" Dist="-20.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_New_Haste" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="1.570796" Dist="20.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_New_Haste" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="-20.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_New_Haste" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Heal">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_PARTY_TARGET_BY_KEY" UseSleep="NO">
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInput>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO" />
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_BUFF" />
+					<Num Num="3" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_cleric_m_heal_shot" />
+					<Str Str="voice_cleric_heal_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_CONSUME_SP" Time="100" UseSleep="NO">
+					<Num FuncTxt="local baseSP = TryGetProp(obj, &quot;SpendSP&quot;, 0) local addValue = 0 if IsBuffApplied(self, 'Heal_Overload_Buff') == 'YES' then addValue = baseSP local over = GetBuffOver(self, &quot;Heal_Overload_Buff&quot;) addValue = math.floor(addValue * over * 0.5) end local mnaValue = TryGetProp(self, &quot;MNA&quot;, 0) * 0.2 if mnaValue &gt; baseSP / 2 then mnaValue = baseSP / 2 end mnaValue = math.floor(mnaValue) addValue = addValue - math.floor(mnaValue) return addValue;" Num="0" UseFunc="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="200" UseSleep="NO">
+					<Str Str="Heal_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="200" UseSleep="NO">
+					<Str Str="Heal_Overload_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num FuncTxt="local value = 3500 local jobHistory = GetJobHistoryString(self); if string.find(jobHistory, &quot;Char4_2&quot;) ~= nil then value = value - 300 end if string.find(jobHistory, &quot;Char4_14&quot;) ~= nil then value = value - 700 end print(value) return value" Num="3500" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+					<Str Str="skl_cleric_heal_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Holy_Baptism">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_aukuras_buff_body" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="900" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="0.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_New_HolyBaptism" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="900" UseSleep="NO">
+					<Pos Angle="-0.872665" Dist="40.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_New_HolyBaptism" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="900" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="40.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_New_HolyBaptism" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="900" UseSleep="NO">
+					<Pos Angle="0.872665" Dist="40.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_New_HolyBaptism" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1000" UseSleep="NO">
+					<Str Str="LH" />
+					<Num Num="1.000000" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1000" UseSleep="NO">
+					<Str Str="RH" />
+					<Num Num="1.000000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_HolyEnchant">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_archer_recuper_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="None" />
+					<Str Str="voice_wiz_f_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="-0.000690" Dist="0.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_New_HolyEnchant" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_limitation">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="None" />
+					<Str Str="voice_wiz_f_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="400" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="0.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_New_Limitation" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_SafetyZone">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="150" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_cleric_m_sefetyzone_shot" />
+					<Str Str="voice_cleric_sefetyzone_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="150" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="Cleric_New_SafetyZone" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+						<Str Str="Cleric8" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<HitList>
+						<Frame Angle="0" AniTime="150" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+					</HitList>
+					<EtcList>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+							<Str Str="voice_cleric_m_sefetyzone_shot" />
+							<Str Str="voice_cleric_sefetyzone_shot" />
+						</Scp>
+						<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="150" UseSleep="NO">
+							<Pos Angle="0" Dist="0" />
+							<Angle Angle="0" />
+							<Str Str="Cleric_New_SafetyZone_abil" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Cleric_Statue">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="3.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0.000000" />
+				<Num Num="0" />
+				<Num Num="1" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="STATUE_CAST" />
+				<Num Num="1.000000" />
+				<Num Num="1.000000" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+				<Str Str="STATUE_LOOP" />
+				<Num Num="1.000000" />
+				<Num Num="1.000000" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON_IM_NOT_OWNER" Time="0" UseSleep="NO">
+					<Str Str="statue_clericskill1" />
+					<Pos Angle="0.000000" Dist="50.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="" />
+					<Str Str="" />
+					<Num Num="0.000000" />
+					<Num Num="6.000000" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" LoopTime="10" Scp="SKL_BUFF_TARGET" Time="100" UseSleep="NO">
+					<Str Str="Fear" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="1.000000" />
+					<Num Num="100.000000" />
+					<Str Str="statue_clericskill1" />
+					<Num Num="100.000000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Statue2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="50.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_Statue_Skillup" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Statue3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="0.000000" Dist="50.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="Cleric_Statue_Statup" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Statue4">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON" Time="0" UseSleep="NO">
+					<Str Str="statue_clericskill_hpdown" />
+					<Pos Angle="0.000000" Dist="30.000000" />
+					<Angle Angle="0.000000" />
+					<Str Str="" />
+					<Str Str="" />
+					<Num Num="0.000000" />
+					<Num Num="60.000000" />
+					<Str Str="None" />
+					<MonProp />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_Venom">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="890" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="0" Type="CIRCLE" Width="40" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+					<Str Str="voice_wiz_m_atk_medium" />
+					<Str Str="voice_wiz_f_atk_medium" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="900" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_cleric_venom_shot_ground" />
+					<Pos Angle="0" Dist="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="Cleric_Venom_Debuff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num FuncTxt="return 15000 + skill.Level * 1000" Num="30" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cleric_MonOOBE">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="500" Dist="0.000000" ForceATK="0" HitCount="1" Length="100.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="15.000000" />
+			</HitList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_PULL_TARGET_OOBE" UseSleep="NO" />
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

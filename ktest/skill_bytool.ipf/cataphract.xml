@@ -1,0 +1,434 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Cataphract_AcrobaticMount">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="AcrobaticMount_Buff" />
+					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="30000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_eff_buff_4" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
+					<Str Str="skl_eff_buff_15" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cataphract_Trot">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="Trot_Buff" />
+					<Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="30000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cataphract_SteedCharge">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num FuncTxt=" return 0.3" Num="3" UseFunc="1" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num FuncTxt=" return 0.3 / obj.Level" Num="2" UseFunc="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="3" Str="E_pc_full_charge_violet_ride##1" />
+				<Str Str="Dummy_full_charge_chargingatk" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="3" />
+				<Num Num="0.2" />
+				<Num Num="100" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+				<Str Str="SKL_STEEDCHARGE_LOOP_RIDE" />
+				<Str Str="None" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str Str="None" />
+				<Str Str="ASTD" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_archer_pavise_shot" />
+				<Num Num="0" />
+				<Str Str="voice_archer_m_pavise_shot" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="voice_archer_pavise_shot" />
+				<Str Str="voice_archer_m_pavise_shot" />
+			</ToolScp>
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-0.00059771544" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="0" />
+				<Frame Accel="2" Angle="0.0034086369" Dist="177.43427" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="130" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="-0.12974454" AniTime="250" Dist="33.077538" ForceATK="0" HitCount="1" Length="200" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="3.1415927" SklAngle="0.69813174" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="28" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_war_atk_long_shot" />
+					<Str Str="voice_atk_long_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="skl_fgt_ultimatedash_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
+					<Str Str="Cataphract_SteedCharge" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="300" UseSleep="NO">
+					<Num Num="5" />
+					<Num Num="1" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
+					<Str Str="SteedCharge_Buff" />
+					<Num Num="99" />
+					<Num Num="0" />
+					<Num Num="1500" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cataphract_DoomSpike">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="340" Dist="0" ForceATK="0" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="140" Type="SQUARE" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_war_atk_medium" />
+					<Str Str="voice_atk_medium_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="340" UseSleep="NO">
+					<Num Num="8" />
+					<Num Num="1" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cataphract_EarthWave">
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="2" Str="F_warrior_earthwave_loop_smoke" />
+				<Str Str="Dummy_effect_wepon_spear01" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_archer_cloaking_shot" />
+				<Num Num="0" />
+				<Str Str="voice_war_atk_long_cast" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+				<Str Str="SKL_EXECUTION_LOOP_RIDE" />
+				<Str Str="None" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str Str="None" />
+				<Str Str="ASTD" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="F_warrior_earthwave_loop_smoke" />
+				<Num Num="0.5" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="voice_archer_cloaking_shot" />
+				<Str Str="voice_war_atk_long_cast" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="35" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="CIRCLE" Width="65" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_war_atk_long_shot" />
+					<Str Str="voice_atk_long_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="650" UseSleep="NO">
+					<Num Num="8" />
+					<Num Num="1" />
+					<Num Num="60" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="650" UseSleep="NO">
+					<Str_Arg Arg="0.80000001" Str="F_warrior_earthwave_shot_ground" />
+					<Pos Angle="0" Dist="30" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
+					<Num Num="4" />
+					<Num Num="0" />
+					<Num Num="200" />
+					<Num Num="89.989998" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="2" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Cataphract_Impaler">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_IMPALER_RAISE_RIDE" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE_SIZEMON" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="15" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Str Str="S/M" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="0" UseSleep="NO">
+					<Str Str="IS_NOT_ATTACHED_TO_OBJ" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_archer_m_oblique_shot" />
+					<Str Str="voice_archer_oblique_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="300" UseSleep="NO">
+					<Str Str="Impaler_Debuff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num FuncTxt="  local zone = GetZoneName(self); if IsPVPServer(self) == 1 or zone == &quot;pvp_Mine&quot; then return 6000     else return 8000 + obj.Level * 1000 end" Num="10000" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_ATTACH_TO_WEAPON_ITEM_NODE" Time="300" UseSleep="NO">
+					<Str Str="Dummy_Impaler" />
+					<Num Num="0" />
+					<Str Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+						<Str Str="Impaler_Buff" />
+					</ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<EtcList>
+						<Anim Anim="SKL_IMPALER_THROW_RIDE" Speed="1" Time="0" />
+						<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+							<Pos Angle="0" Dist="25" />
+							<Num Num="35" />
+							<Num Num="10" />
+							<Num Num="2" />
+						</Scp>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+							<Str Str="voice_war_atk_long_shot" />
+							<Str Str="voice_atk_long_war_f" />
+						</Scp>
+						<Scp Client="NO" Scp="SKL_TGT_DMG_BUFF" Time="250" UseSleep="NO">
+							<Num Num="1" />
+							<Str Str="Impaler_Buff" />
+						</Scp>
+						<Scp Client="NO" Scp="SKL_TGT_DMG" Time="250" UseSleep="NO">
+							<Num Num="1" />
+							<Num Num="0" />
+							<Num Num="0" />
+						</Scp>
+						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="250" UseSleep="NO">
+							<Num Num="5" />
+							<Num Num="1" />
+							<Num Num="45" />
+							<Num Num="999" />
+						</Scp>
+						<Scp Client="YES" Scp="C_EFFECT_POS" Time="250" UseSleep="NO">
+							<Str_Arg Arg="0.5" Str="F_archer_pavise_shot_smoke" />
+							<Pos Angle="0" Dist="40" />
+							<Num Num="0" />
+							<Str Str="None" />
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
+	</Skill>
+	<Skill Name="Cataphract_Rush">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+		</EndScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="3" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="0" Str="" />
+				<Str Str="" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
+				<Str Str="Warrior_RushMove_Buff" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="100" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_RUSH_CAST_RIDE" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_atk_long_war_f" />
+				<Num Num="0" />
+				<Str Str="voice_war_atk_long_cast" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="SKL_C_RESUME_ANI" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_RUSH_RIDE" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+				<Str Str="Warrior_RushMove_Buff" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_RUSH_SHOT_RIDE" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="voice_atk_long_war_f" />
+				<Str Str="voice_war_atk_long_cast" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_HIT_SQUARE" UseSleep="NO">
+				<PosDist Angle="0" Dist="0" />
+				<PosDist Angle="0" Dist="40" />
+				<Num Num="20" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_END_AT_TIME" UseSleep="NO">
+				<Num Num="500" />
+			</ToolScp>
+		</KeyInputEnd>
+		<KeyCancelScp>
+			<ToolScp Client="NO" Scp="SKL_END_AT_TIME" UseSleep="NO">
+				<Num Num="500" />
+			</ToolScp>
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" LoopTime="600" Scp="SKL_BUFF" Time="100" UseSleep="NO">
+					<Str Str="Warrior_EnableMovingShot_Buff" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" LoopTime="300" Scp="SKL_SET_TARGET_CIRCLE" Time="200" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="5" />
+					<Num Num="40" />
+					<Num FuncTxt="return obj.SkillSR" Num="0" UseFunc="1" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" LoopTime="330" Scp="SKL_TGT_DMG" Time="200" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" LoopTime="300" Scp="SKL_TGT_BUFF_ABIL" Time="200" UseSleep="NO">
+					<Str Str="Cataphract1" />
+					<Str Str="Stun" />
+					<Num Num="1" />
+					<Num Num="-1" />
+					<Num Num="2000" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num FuncTxt="return GET_ABIL_LEVEL(self, 'Cataphract1')" Num="100" UseFunc="1" />
+				</Scp>
+				<Scp Client="NO" LoopTime="330" Scp="SKL_CONSUME_SP" Time="200" UseSleep="NO">
+					<Num FuncTxt="local value = 12 local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect &gt;= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) if IsBuffApplied(self, &quot;AcrobaticMount_Buff&quot;) == &quot;YES&quot; then     local acrobaticBuff = GetBuffByName(self, &quot;AcrobaticMount_Buff&quot;)     local acrobaticBuffLevel = GetBuffArg(acrobaticBuff)     local acrobaticAddSPRate = acrobaticBuffLevel * 0.05     value = value * (1 + acrobaticAddSPRate) end return math.floor(value)" Num="4" UseFunc="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

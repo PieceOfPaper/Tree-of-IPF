@@ -1,0 +1,435 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_GM_arrow_trap_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="80" />
+					<Num Num="100" />
+					<Num Num="10" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_archer_turret_force_circle#Dummy_hole006" />
+					<Str_Arg Arg="0.2" Str="F_archer_turret_hit_explosion" />
+					<Str_Arg Arg="1" Str="Noen" />
+					<Pos Angle="0" Dist="80" Option="1" PosType="8" Rand="90" />
+					<Num Num="8" />
+					<Num Num="1.2" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="0.40000001" Str="F_sys_target_pc" />
+					<Num Num="860" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_archer_turret_force_circle#Dummy_hole006" />
+					<Str_Arg Arg="0.2" Str="F_archer_turret_hit_explosion" />
+					<Str_Arg Arg="1" Str="Noen" />
+					<Pos Angle="0" Dist="80" Option="1" PosType="8" Rand="90" />
+					<Num Num="8" />
+					<Num Num="1.2" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="0.40000001" Str="F_sys_target_pc" />
+					<Num Num="860" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_archer_turret_force_circle#Dummy_hole006" />
+					<Str_Arg Arg="0.2" Str="F_archer_turret_hit_explosion" />
+					<Str_Arg Arg="1" Str="Noen" />
+					<Pos Angle="0" Dist="80" Option="1" PosType="8" Rand="90" />
+					<Num Num="8" />
+					<Num Num="1.2" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="0.40000001" Str="F_sys_target_pc" />
+					<Num Num="860" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_archer_turret_force_circle#Dummy_hole006" />
+					<Str_Arg Arg="0.2" Str="F_archer_turret_hit_explosion" />
+					<Str_Arg Arg="1" Str="Noen" />
+					<Pos Angle="0" Dist="80" Option="1" PosType="8" Rand="90" />
+					<Num Num="8" />
+					<Num Num="1.2" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="0.40000001" Str="F_sys_target_pc" />
+					<Num Num="860" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="0" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="I_archer_turret_force_circle#Dummy_hole006" />
+					<Str_Arg Arg="0.2" Str="F_archer_turret_hit_explosion" />
+					<Str_Arg Arg="1" Str="Noen" />
+					<Pos Angle="0" Dist="80" Option="1" PosType="8" Rand="90" />
+					<Num Num="8" />
+					<Num Num="1.2" />
+					<Num Num="0" />
+					<Num Num="600" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="0.40000001" Str="F_sys_target_pc" />
+					<Num Num="860" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="atk2" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="780" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="F_archer_turret_shot_explosion#Dummy_hole006" />
+					<Pos Angle="0" Dist="0" Height="10" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="780" UseSleep="NO">
+					<Num Num="8" />
+					<Num Num="1" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="2100" UseSleep="NO">
+					<Str Str="skl_eff_aukuras_fire" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="2100" UseSleep="NO">
+					<Num Num="8" />
+					<Num Num="1" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_GM_arrow_trap_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" Length="90" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="0" Type="FAN" Width="20" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="0.69999999" Time="100" />
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="175" UseSleep="NO">
+					<Num Num="2" />
+					<Num Num="0.5" />
+					<Num Num="25" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_GM_Large_crossbow_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1600" Dist="0" ForceATK="1" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1400" Type="SQUARE" Width="15" />
+				<Frame Angle="0" AniTime="2000" Dist="0" ForceATK="1" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1800" Type="SQUARE" Width="15" />
+				<Frame Angle="0" AniTime="2300" Dist="0" ForceATK="1" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="2100" Type="SQUARE" Width="15" />
+				<Frame Angle="0" AniTime="2800" Dist="0" ForceATK="1" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="2600" Type="SQUARE" Width="15" />
+				<Frame Angle="0" AniTime="3300" Dist="0" ForceATK="1" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="3100" Type="SQUARE" Width="15" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1.3" Time="100" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1300" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_arrow015_mash#Dummy_force_start" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="skl" Speed="1.3" StartTime="1.3" Time="1700" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1750" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_arrow015_mash#Dummy_force_start" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="skl" Speed="1.3" StartTime="1.3" Time="2200" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="2300" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_arrow015_mash#Dummy_force_start" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="skl" Speed="1.3" StartTime="1.3" Time="2700" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="2750" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_arrow015_mash#Dummy_force_start" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="skl" Speed="1.3" StartTime="1.3" Time="3200" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="3200" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_arrow015_mash#Dummy_force_start" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_GM_Large_crossbow_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1900" Dist="0" ForceATK="1" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1700" Type="SQUARE" Width="15" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="100" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1700" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_arrow015_mash#Dummy_force_start" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_GM_Panto_Gwand_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1050" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="850" Type="FAN" Width="45" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk1R" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_GM_Panto_Gwand_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="sklR" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_FAN" Time="1800" UseSleep="NO">
+					<Pos Angle="0" Dist="3.8255448e-43" />
+					<Num Num="45" />
+					<Num Num="100" />
+					<Num Num="5" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TARGET_BUFF_SETTING_REMOVE" Time="1900" UseSleep="NO">
+					<Str Str="FRIEND" />
+					<Str Str="Debuff" />
+					<Num Num="5" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_GM_Panto_Gwand_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_USE_PCSKILL_BALLON" Time="0" UseSleep="NO">
+					<Num Num="163087" />
+					<Num Num="2" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="2100" UseSleep="NO">
+					<Str Str="Mon_Heal_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_FAN" Time="2100" UseSleep="NO">
+					<Pos Angle="0" Dist="3.8255448e-43" />
+					<Num Num="30" />
+					<Num Num="100" />
+					<Num Num="5" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_GM_Panto_Bstaff_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk2" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="3.8255448e-43" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Num Num="30" />
+					<Num Num="1" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="1600" UseSleep="NO">
+					<Pos Angle="0" Dist="25" PosType="1" />
+					<Angle Angle="0" />
+					<Str Str="Monster_Sleep" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_GM_Panto_Bstaff_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="1" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="800" Type="FAN" Width="40" />
+				<Frame Angle="0" AniTime="1100" Dist="0" ForceATK="1" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="900" Type="FAN" Width="40" />
+				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="1" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RandomSort="1" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="1000" Type="FAN" Width="40" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk1R" Speed="1" Time="0" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1050" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_force014_ice#Dummy_effect_magicmissile" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="I_explosion006_ice" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="175" />
+					<Num Num="0" />
+					<Num FuncTxt="return IMCRandom(-400, 400);" Num="-100" UseFunc="1" />
+					<Angle_Abs Angle="-0.78539819" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="12" />
+					<Num Num="2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1080" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_force014_ice#Dummy_effect_magicmissile" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="I_explosion006_ice" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="175" />
+					<Num Num="0" />
+					<Num FuncTxt="return IMCRandom(-400, 400);" Num="600" UseFunc="1" />
+					<Angle_Abs Angle="-0.34906584" />
+					<Num Num="1" />
+					<Num Num="5" />
+					<Num Num="12" />
+					<Num Num="2" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="1110" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_force014_ice#Dummy_effect_magicmissile" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="I_explosion006_ice" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="175" />
+					<Num Num="0" />
+					<Num FuncTxt="return IMCRandom(-400, 400);" Num="600" UseFunc="1" />
+					<Angle_Abs Angle="0" />
+					<Num Num="2" />
+					<Num Num="5" />
+					<Num Num="12" />
+					<Num Num="2" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

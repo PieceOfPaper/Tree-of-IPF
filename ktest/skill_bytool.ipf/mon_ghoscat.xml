@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_ghoscat_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-0.88388151" Dist="1.321269" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="1000" />
+				<Frame Accel="1" Angle="0.020396119" Dist="67.159592" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="1500" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="2" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="500" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="0" UseSleep="YES">
+					<Pos Angle="0" Dist="10" />
+					<Pos Angle="0" Dist="80" />
+					<Str_Arg Arg="0.5" Str="F_sys_arrow_monster" />
+					<Num Num="15" />
+					<Num Num="0.1" />
+					<Num Num="0.2" />
+					<Num Num="1000" />
+					<Str_Arg Arg="3" Str="F_explosion123_6" />
+					<Num Num="25" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="20" />
+					<Num Num="0.1" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_mushroom_ent_atk2_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_smoke009" />
+					<Str Str="None" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="800" UseSleep="NO">
+					<Str Str="mon_mushroom_ent_atk1_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="880" UseSleep="NO">
+					<Str Str="mon_Kepari_atk_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_ghoscat_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="1" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_Kepari_skl_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_sakmoli_atk_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="580" UseSleep="NO">
+					<Str Str="mon_lantern_mushroom_skl_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="580" UseSleep="NO">
+					<Str Str="mon_lantern_mushroom_hit" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_force018_trail_psychokinesis#Bone_hat_nub" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.25" Str="F_explosion007_blue2" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="200" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="20" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

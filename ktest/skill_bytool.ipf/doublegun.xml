@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="DoubleGun_Attack">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="100" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="None" />
+					<Str Str="None" />
+					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke" />
+					<Str Str="arrow_blow" />
+					<Str Str="DEAD" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_archer_pistol_atk_smoke" />
+					<Str Str="Dummy_effect_pistol_R" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
+					<Str_Arg Arg="1.1" Str="E_doublegun_atk" />
+					<Str FuncTxt="if SKL_CHECK_RIDING_COMPANION_C(self, obj) == 0 then           return 'Dummy_emitter'           else           return 'Dummy_emitter';           end" Str="None" UseFunc="1" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_COND_BUFF" UseSleep="NO">
+					<Str Str="Outrage_Buff" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_EXPLODE_TAKEDAMAGEADDBLOW" UseSleep="NO">
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="50" />
+					<Num Num="1" />
+					<Num Num="0.30000001" />
+					<Num Num="5" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Dash_Attack">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1.000000" Angle="0.000000" Dist="10.000000" Gravity="600.000000" Height="0.000000" JumpPower="300.000000" MoveType="0" Time="100" />
+				<Frame Accel="1.000000" Angle="0.000000" Dist="20.000000" Gravity="600.000000" Height="0.000000" JumpPower="300.000000" MoveType="0" Time="200" />
+				<Frame Accel="0.500000" Angle="0.000000" Dist="30.000000" Gravity="600.000000" Height="0.000000" JumpPower="300.000000" MoveType="0" Time="350" />
+				<Frame Accel="0.500000" Angle="-0.009813" Dist="42.166645" Gravity="600.000000" Height="0.000000" JumpPower="300.000000" MoveType="0" Time="570" />
+				<Frame Accel="0.500000" Angle="-0.003108" Dist="48.530960" Gravity="600.000000" Height="0.000000" JumpPower="300.000000" MoveType="0" Time="900" />
+			</MoveList>
+			<EtcList>
+				<Anim Anim="DASH_ATK" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

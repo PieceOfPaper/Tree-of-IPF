@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="LightningHands_Attack">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_TGT_EFFECT_CLIENT_TARGETTING" Time="600" UseSleep="NO">
+					<Str_Arg Arg="0.34999999" Str="F_wizard_LightningHands_ground" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

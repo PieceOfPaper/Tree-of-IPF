@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_amphibigola_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="-0.0010349752" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="550" />
+				<Frame Accel="1" Angle="0.0024129455" Dist="41.692764" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="750" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="CIRCLE" Width="20" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="m_bumegoblin_archer_atk_raiseup" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="480" UseSleep="NO">
+					<Str Str="m_bumegoblin_archer_born" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="500" UseSleep="NO">
+					<Str Str="mon_katynforest_zombie_02_skl_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="550" UseSleep="NO">
+					<Str_Arg Arg="0.30000001" Str="F_dash007_2" />
+					<Str Str="Dummy_effect01" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="1.7" Str="F_explosion103_violet" />
+					<Str Str="Dummy_effect_skl2_hit" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_amphibigola_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="15" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_zombie_bolt_atk1_cast" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="540" UseSleep="NO">
+					<Str Str="mon_lantern_mushroom_atk2_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="550" UseSleep="NO">
+					<Str Str="mon_katynforest_zombie_02_atk1_ready" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="560" UseSleep="NO">
+					<Str Str="m_bumegoblin_archer_kdown" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="600" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_explosion103_violet#Dummy_effect_skl1_hit" />
+					<Num Num="1" />
+					<Pos Angle="0" Dist="9.8090893e-45" Height="10" PosType="1" />
+					<Num Num="0" />
+					<Num Num="-1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

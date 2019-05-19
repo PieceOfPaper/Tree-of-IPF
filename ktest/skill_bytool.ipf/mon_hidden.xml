@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_hidden_monster_skiaclipse_Skill_1">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_RUN_SCRIPT" UseSleep="NO">
+				<Str Str="Skill_MISS_CHECK_METEOR" />
+			</ToolScp>
+		</EndScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="600" />
+					<Num Num="5" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SAVE_ACT_NUM" Time="0" UseSleep="NO">
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL_MON" Time="1100" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="6" Str="I_force071_dark5" />
+					<Str_Arg Arg="3" Str="F_explosion132_white_black" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="10" Rand="30" />
+					<Num Num="70" />
+					<Num Num="0" />
+					<Num Num="0.5" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0.2" />
+					<Num Num="0" />
+					<Str_Arg Arg="1.5" Str="F_sys_target_pc" />
+					<Num Num="1500" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="2300" UseSleep="NO">
+					<Num Num="10" />
+					<Num Num="1.5" />
+					<Num Num="65" />
+					<Num Num="999" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

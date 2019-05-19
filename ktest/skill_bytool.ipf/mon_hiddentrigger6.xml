@@ -1,0 +1,1174 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_HiddenTrigger6_Velcoffer_Riad_trap_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="3.8255448e-43" />
+					<Num Num="400" />
+					<Num Num="50" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="175" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="175" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="350" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="350" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="525" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="525" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="700" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="700" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="875" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="875" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1050" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1050" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1225" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1225" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1400" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1400" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1575" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1575" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1750" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1750" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1925" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="1925" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2100" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2100" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2275" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2275" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2450" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2450" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2625" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2625" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2800" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2800" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2975" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2975" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3150" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3150" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3325" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3325" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3500" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3500" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3675" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3675" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3850" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3850" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4025" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4025" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4200" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4200" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4375" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4375" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4550" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4550" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4725" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4725" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4900" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4900" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5075" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="5" PosType="10" Rand="420" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5075" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1.5" Str="I_SlaveStone_mash" />
+					<Str_Arg Arg="0.1" Str="I_stone014_mash" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="4" PosType="10" Rand="80" />
+					<Num Num="25" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="300" />
+					<Num Num="2" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_HiddenTrigger6_whitetrees1_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="100" UseSleep="NO">
+					<Pos Angle="0" Dist="0" Height="5" Rand="70" />
+					<Angle Angle="0" />
+					<Str Str="ID_WHITETREES1_GIMMICK2_PAD" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

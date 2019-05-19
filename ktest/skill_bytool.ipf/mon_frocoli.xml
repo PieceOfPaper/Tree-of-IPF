@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Frocoli_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<MoveList>
+				<Frame Accel="1" Angle="2.2085397" Dist="2.83849" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="100" />
+				<Frame Accel="1" Angle="-0.036980495" Dist="45.474506" Gravity="0" Height="0" JumpPower="0" MoveType="0" Time="900" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="CIRCLE" Width="15" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="mon_slime_elite_atk" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="10" UseSleep="NO">
+					<Str Str="skl_eff_body_atk_1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="680" UseSleep="NO">
+					<Str Str="mon_Kepari_knockdown" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="1100" UseSleep="NO">
+					<Str_Arg Arg="0.44999999" Str="F_smoke165_leaf" />
+					<Num Num="1" />
+					<Pos Angle="0" Dist="9.8090893e-45" PosType="5" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Frocoli_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="300" Type="FAN" Width="15" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+					<Str Str="m_tontulia_atk1_ready" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_smoke115_green2" />
+					<Str Str="Dummy001" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SOUND" Time="320" UseSleep="NO">
+					<Str Str="m_tontulia_skl_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="4" Str="F_smoke058_green2" />
+					<Str Str="Bone_Headleaf009" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_spark012_leaf" />
+					<Str Str="Bone_Headleaf009" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

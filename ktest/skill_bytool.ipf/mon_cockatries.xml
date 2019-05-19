@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Cockatries_Attack1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="-3.003475" AniTime="1000" Dist="13.196199" ForceATK="0" HitCount="1" Length="40" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="1000" Type="CIRCLE" Width="20" />
+				<Frame Angle="-2.9704449" AniTime="1100" Dist="12.697898" ForceATK="0" HitCount="1" Length="40" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="1100" Type="CIRCLE" Width="20" />
+				<Frame Angle="-2.92327" AniTime="1200" Dist="12.356882" ForceATK="0" HitCount="1" Length="40" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="1200" Type="CIRCLE" Width="20" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK1" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

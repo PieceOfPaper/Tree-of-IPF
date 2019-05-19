@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_SCT_master_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_flare_shot" />
+					<Str Str="voice_wiz_flare_shot" />
+				</Scp>
+				<Anim Anim="skl_chargeshot_shot" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="MSL_PAD_THROW" Time="50" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="E_archer_Flareshot_arrow#Dummy_Force" />
+					<Str_Arg Arg="1" Str="F_explosion092_hit" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="1" />
+					<Num Num="30" />
+					<Num Num="0.2" />
+					<Num Num="0" />
+					<Num Num="30" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Angle Angle="0" />
+					<Str Str="FlareShot_pad" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_SCT_master_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_flare_shot" />
+					<Str Str="voice_wiz_flare_shot" />
+				</Scp>
+				<Anim Anim="skl_chargeshot_shot" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="MSL_PAD_THROW" Time="50" UseSleep="YES">
+					<Str_Arg Arg="0.5" Str="E_archer_Flareshot_arrow#Dummy_Force" />
+					<Str_Arg Arg="1" Str="F_explosion092_hit" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="1" />
+					<Num Num="30" />
+					<Num Num="0.2" />
+					<Num Num="0" />
+					<Num Num="30" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Angle Angle="0" />
+					<Str Str="FlareShot_pad" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_SCT_master_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="480" Dist="0" ForceATK="1" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="280" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="300" UseSleep="NO">
+					<Str_Arg Arg="0.75" Str="I_arrow009#Dummy_Force" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="DEAD" />
+					<Num Num="800" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

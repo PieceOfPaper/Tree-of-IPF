@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Firent_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="Mon_Transpose_Buff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="10000" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="0" />
+				</Scp>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="5" Str="F_cleric_barrier_cast" />
+					<Str Str="Firent" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="400" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_cleric_ironskin_shot_levitation_loop" />
+					<Str Str="Firent" />
+					<Num Num="10" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Firent_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="650" Dist="0" ForceATK="0" HitCount="1" Length="55" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="450" Type="FAN" Width="50" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Firent_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1" Time="0" />
+				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="8" />
+					<Num Num="100" />
+					<Num Num="50" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
+					<Str_Arg Arg="8" Str="F_sys_target_boss" />
+					<Pos Angle="0" Dist="0" PosType="1" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="800" UseSleep="NO">
+					<Num Num="1" />
+					<Num Num="4" />
+					<Num Num="60" />
+					<Num Num="9999" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1800" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force045_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="1" Str="F_explosion006_green" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="2" PosType="8" Rand="150" />
+					<Num Num="20" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="900" />
+					<Num Num="0.5" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1800" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force045_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="0.5" Str="F_explosion006_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="2" PosType="8" Rand="150" />
+					<Num Num="20" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="900" />
+					<Num Num="0.5" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="1800" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force045_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="0.5" Str="F_explosion006_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="2" PosType="8" Rand="150" />
+					<Num Num="20" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="900" />
+					<Num Num="0.5" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="2000" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force045_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="0.5" Str="F_explosion006_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="2" PosType="8" Rand="150" />
+					<Num Num="20" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="900" />
+					<Num Num="0.5" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="2000" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_force045_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="0.5" Str="F_explosion006_green#Dummy_skl2_shot" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" Height="2" PosType="8" Rand="150" />
+					<Num Num="20" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="900" />
+					<Num Num="0.5" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Str_Arg Arg="1" Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

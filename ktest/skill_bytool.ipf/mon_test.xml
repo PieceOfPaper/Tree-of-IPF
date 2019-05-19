@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_TEST_Goblin_Miners_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="300" Dist="0.000000" ForceATK="0" HitCount="1" Length="40.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.523599" TermMax="0" TermMin="0" Time="1000" Type="FAN" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="ATK_SHOT" Speed="1.000000" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.300000" Str="F_sys_target_sector###1" />
+					<Pos Angle="-0.019579" Dist="24.024958" />
+					<Num Num="0.000000" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="1000" UseSleep="NO">
+					<Num Num="2.000000" />
+					<Num Num="1.000000" />
+					<Num Num="45.000000" />
+					<Num Num="999.000000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

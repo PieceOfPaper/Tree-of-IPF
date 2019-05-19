@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Tontulia_Attack1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="100" Dist="0.000000" ForceATK="0" HitCount="1" Length="30.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="10.000000" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Tontulia_Attack2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="0" Dist="0.000000" ForceATK="0" HitCount="1" Length="30.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="10.000000" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Tontulia_Skill">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="-3.1400001" AniTime="200" Dist="39.708561" ForceATK="0" HitCount="1" Length="40" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="0" Type="CIRCLE" Width="30" />
+				<Frame Angle="3.1232672" AniTime="400" Dist="39.998684" ForceATK="0" HitCount="1" Length="40" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="200" Type="CIRCLE" Width="30" />
+			</HitList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

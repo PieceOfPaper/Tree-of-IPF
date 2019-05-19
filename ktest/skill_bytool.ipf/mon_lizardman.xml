@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Lizardman_mage_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="1" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="10" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk1" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_light004_green" />
+					<Str Str="B_mouth 02" />
+					<Num Num="0.5" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="450" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_force084_green#Dummy_effect_atk_mage" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="0.40000001" Str="F_ground118_green2" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="100" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<PosDist Angle="0" Dist="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="600" UseSleep="NO">
+					<Str_Arg Arg="0.30000001" Str="F_ground118_green2" />
+					<Str Str="Dummy_effect_atk_mage" />
+					<Num Num="0.5" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="UC_poison" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="3" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Lizardman_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="800" Dist="0.000000" ForceATK="0" HitCount="1" Length="35.000000" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.523599" TermMax="0" TermMin="0" Time="900" Type="FAN" Width="30.000000" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk1" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Lizardman_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<MoveList>
+				<Frame Accel="20.000000" Angle="-0.017311" Dist="63.786160" Gravity="600.000000" Height="0.000000" JumpPower="300.000000" MoveType="0" Time="1800" />
+			</MoveList>
+			<HitList>
+				<Frame Angle="0.000000" AniTime="3500" Dist="0.000000" ForceATK="0" HitCount="1" PosType="0" RandDist="0.000000" RandomPerHit="0" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="3500" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="skl" Speed="1.000000" Time="0" />
+				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="500" UseSleep="YES">
+					<Pos Angle="-1.020546" Dist="1.327950" />
+					<Pos Angle="0.000000" Dist="80.000000" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Num Num="25.000000" />
+					<Num Num="0.010000" />
+					<Num Num="1.000000" />
+					<Num Num="1000.000000" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Num Num="12.000000" />
+					<Num Num="100.000000" />
+					<Num Num="10.000000" />
+					<Num Num="10.000000" />
+					<Num Num="0.120000" />
+					<Num Num="1.000000" />
+					<Num Num="50.000000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

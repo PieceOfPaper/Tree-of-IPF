@@ -1,0 +1,3598 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_wood_lwa_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="600" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="2" Str="F_explosion063_brown" />
+					<Str Str="Dummy_effect_atk" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_explosion90" />
+					<Str Str="Dummy_effect_atk" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="900" UseSleep="NO">
+					<Str_Arg Arg="4" Str="F_leaf002_green" />
+					<Str Str="Bone_head" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_wood_goblin_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<EtcList>
+				<Anim Anim="atk" Speed="1.000000" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Wood_spirit_hard_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<EtcList>
+				<Anim Anim="SKL2_CAST" Speed="1.000000" Time="0" />
+				<Anim Anim="SKL2_SHOT" Speed="1.000000" Time="1000" />
+				<Scp Client="NO" Scp="MSL_BUCK" Time="1500" UseSleep="YES">
+					<Pos Angle="-0.051703" Dist="34.767040" Height="40.000000" />
+					<Angle Angle="-0.770916" />
+					<Num Num="3.000000" />
+					<Num Num="15.000000" />
+					<Num Num="120.000000" />
+					<Num Num="90.000000" />
+					<Num Num="20.000000" />
+					<Num Num="90.000000" />
+					<Num Num="120.000000" />
+					<Num Num="0.000000" />
+					<Num Num="8.000000" />
+					<Str_Arg Arg="1.000000" Str="I_weapon_npc_mark" />
+					<Num Num="1.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_BUCK" Time="2000" UseSleep="YES">
+					<Pos Angle="-0.051703" Dist="34.767040" Height="40.000000" />
+					<Angle Angle="0.686808" />
+					<Num Num="3.000000" />
+					<Num Num="15.000000" />
+					<Num Num="120.000000" />
+					<Num Num="120.000000" />
+					<Num Num="30.000000" />
+					<Num Num="90.000000" />
+					<Num Num="120.000000" />
+					<Num Num="0.000000" />
+					<Num Num="8.000000" />
+					<Str_Arg Arg="1.000000" Str="I_weapon_npc_mark" />
+					<Num Num="-1.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_BUCK" Time="5000" UseSleep="YES">
+					<Pos Angle="-0.051703" Dist="34.767040" Height="40.000000" />
+					<Angle Angle="-0.770916" />
+					<Num Num="3.000000" />
+					<Num Num="15.000000" />
+					<Num Num="120.000000" />
+					<Num Num="90.000000" />
+					<Num Num="20.000000" />
+					<Num Num="90.000000" />
+					<Num Num="120.000000" />
+					<Num Num="0.000000" />
+					<Num Num="8.000000" />
+					<Str_Arg Arg="1.000000" Str="I_weapon_npc_mark" />
+					<Num Num="1.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_BUCK" Time="5500" UseSleep="YES">
+					<Pos Angle="-0.051703" Dist="34.767040" Height="40.000000" />
+					<Angle Angle="0.686808" />
+					<Num Num="3.000000" />
+					<Num Num="15.000000" />
+					<Num Num="120.000000" />
+					<Num Num="120.000000" />
+					<Num Num="30.000000" />
+					<Num Num="90.000000" />
+					<Num Num="120.000000" />
+					<Num Num="0.000000" />
+					<Num Num="8.000000" />
+					<Str_Arg Arg="1.000000" Str="I_weapon_npc_mark" />
+					<Num Num="-1.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_BUCK" Time="8500" UseSleep="YES">
+					<Pos Angle="-0.051703" Dist="34.767040" Height="40.000000" />
+					<Angle Angle="-0.770916" />
+					<Num Num="3.000000" />
+					<Num Num="15.000000" />
+					<Num Num="120.000000" />
+					<Num Num="90.000000" />
+					<Num Num="20.000000" />
+					<Num Num="90.000000" />
+					<Num Num="120.000000" />
+					<Num Num="0.000000" />
+					<Num Num="8.000000" />
+					<Str_Arg Arg="1.000000" Str="I_weapon_npc_mark" />
+					<Num Num="1.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_BUCK" Time="9000" UseSleep="YES">
+					<Pos Angle="-0.051703" Dist="34.767040" Height="40.000000" />
+					<Angle Angle="0.686808" />
+					<Num Num="3.000000" />
+					<Num Num="15.000000" />
+					<Num Num="120.000000" />
+					<Num Num="120.000000" />
+					<Num Num="30.000000" />
+					<Num Num="90.000000" />
+					<Num Num="120.000000" />
+					<Num Num="0.000000" />
+					<Num Num="8.000000" />
+					<Str_Arg Arg="1.000000" Str="I_weapon_npc_mark" />
+					<Num Num="-1.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_BUCK" Time="12000" UseSleep="YES">
+					<Pos Angle="-0.051703" Dist="34.767040" Height="40.000000" />
+					<Angle Angle="-0.770916" />
+					<Num Num="3.000000" />
+					<Num Num="15.000000" />
+					<Num Num="120.000000" />
+					<Num Num="90.000000" />
+					<Num Num="20.000000" />
+					<Num Num="90.000000" />
+					<Num Num="120.000000" />
+					<Num Num="0.000000" />
+					<Num Num="8.000000" />
+					<Str_Arg Arg="1.000000" Str="I_weapon_npc_mark" />
+					<Num Num="1.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_BUCK" Time="12500" UseSleep="YES">
+					<Pos Angle="-0.051703" Dist="34.767040" Height="40.000000" />
+					<Angle Angle="0.686808" />
+					<Num Num="3.000000" />
+					<Num Num="15.000000" />
+					<Num Num="120.000000" />
+					<Num Num="120.000000" />
+					<Num Num="30.000000" />
+					<Num Num="90.000000" />
+					<Num Num="120.000000" />
+					<Num Num="0.000000" />
+					<Num Num="8.000000" />
+					<Str_Arg Arg="1.000000" Str="I_weapon_npc_mark" />
+					<Num Num="-1.000000" />
+				</Scp>
+				<Anim Anim="OFF" Speed="1.000000" Time="16866" />
+				<Anim Anim="OFF" Speed="1.000000" Time="21400" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Wood_spirit_hard_Skill_2">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<EtcList>
+				<Anim Anim="ATK2_CAST" Speed="1.000000" Time="0" />
+				<Anim Anim="ATK2_SHOT" Speed="1.000000" Time="2200" />
+				<Scp Client="NO" Scp="MSL_FALL" Time="2200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="2800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="3800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="4800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="5800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="6800" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7000" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7200" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7400" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7600" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="7900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="8900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="9900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="10900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="11900" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="12100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="12100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="12100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="12100" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="12300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="12300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="12300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="12300" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="12500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="12500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="12500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="12500" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="12700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="-0.023082" Dist="112.891273" PosType="1.000000" Rand="120.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="12700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="12700" UseSleep="YES">
+					<Str_Arg Arg="1.500000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Pos Angle="0.002891" Dist="110.072235" PosType="1.000000" />
+					<Num Num="12.000000" />
+					<Num Num="1.000000" />
+					<Num Num="1.000000" />
+					<Num Num="300.000000" />
+					<Num Num="2.000000" />
+					<Num Num="1000.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+				</Scp>
+				<Anim Anim="OFF" Speed="1.000000" Time="15000" />
+				<Anim Anim="OFF" Speed="1.000000" Time="19700" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_Wood_spirit_hard_Skill_3">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<EtcList>
+				<Anim Anim="SKL_CAST" Speed="1.000000" Time="0" />
+				<Anim Anim="SKL_SHOT" Speed="1.000000" Time="1330" />
+				<Scp Client="NO" Scp="CRE_MON_TIMEBOMB" Time="1500" UseSleep="YES">
+					<Str Str="Goblin_Spear" />
+					<Num Num="-5.000000" />
+					<Pos Angle="0.352788" Dist="111.039658" Rand="60.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="1.000000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+					<Num Num="10.000000" />
+					<Str Str="thornball_1" />
+					<Num Num="2.000000" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+				</Scp>
+				<Scp Client="NO" Scp="CRE_MON_TIMEBOMB" Time="1500" UseSleep="YES">
+					<Str Str="Goblin_Spear" />
+					<Num Num="-5.000000" />
+					<Pos Angle="0.352788" Dist="111.039658" Rand="60.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="1.000000" Str="I_weapon_npc_mark#Bip01 L Finger42" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+					<Num Num="10.000000" />
+					<Str Str="thornball_1" />
+					<Num Num="2.000000" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON_FORCE" Time="1500" UseSleep="YES">
+					<Str Str="Goblin_Spear" />
+					<Pos Angle="0.462271" Dist="132.852402" Rand="50.000000" />
+					<Angle Angle="0.187103" />
+					<Str Str="" />
+					<Str Str="BasicMonster" />
+					<Num Num="-8.000000" />
+					<Num Num="0.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="1.000000" Str="I_force003_green#Bip01 L Finger41" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+				</Scp>
+				<Anim Anim="SKL_CAST" Speed="1.000000" Time="6000" />
+				<Anim Anim="SKL_SHOT" Speed="1.000000" Time="7330" />
+				<Scp Client="NO" Scp="CRE_MON_TIMEBOMB" Time="7500" UseSleep="YES">
+					<Str Str="Goblin_Spear" />
+					<Num Num="-5.000000" />
+					<Pos Angle="0.352788" Dist="111.039658" Rand="60.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="1.000000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+					<Num Num="10.000000" />
+					<Str Str="thornball_1" />
+					<Num Num="2.000000" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+				</Scp>
+				<Scp Client="NO" Scp="CRE_MON_TIMEBOMB" Time="7500" UseSleep="YES">
+					<Str Str="Goblin_Spear" />
+					<Num Num="-5.000000" />
+					<Pos Angle="0.352788" Dist="111.039658" Rand="60.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="1.000000" Str="I_weapon_npc_mark" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+					<Num Num="10.000000" />
+					<Str Str="thornball_1" />
+					<Num Num="2.000000" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+				</Scp>
+				<Scp Client="NO" Scp="CRE_MON_TIMEBOMB" Time="7500" UseSleep="YES">
+					<Str Str="Goblin_Spear" />
+					<Num Num="-5.000000" />
+					<Pos Angle="0.352788" Dist="111.039658" Rand="60.000000" />
+					<Num Num="1.000000" />
+					<Str_Arg Arg="1.000000" Str="I_weapon_npc_mark#Bip01 L Finger42" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+					<Num Num="10.000000" />
+					<Str Str="thornball_1" />
+					<Num Num="2.000000" />
+					<Str_Arg Arg="1.000000" Str="I_explosion002_green" />
+				</Scp>
+				<Anim Anim="OFF" Speed="1.000000" Time="14166" />
+				<Anim Anim="OFF" Speed="1.000000" Time="18000" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Mon_wood_goblin_red_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.52359879" TermMax="0" TermMin="0" Time="800" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Anim Anim="atk" Speed="1" Time="0" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

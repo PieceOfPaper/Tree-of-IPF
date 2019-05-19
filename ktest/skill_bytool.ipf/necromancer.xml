@@ -1,0 +1,788 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Necromancer_RaiseSkullwizard">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_DPARTS_COUNT" UseSleep="NO">
+				<Num Num="5" />
+			</ToolScp>
+			<ToolScp Client="BOTH" Scp="CHECK_IS_VILLAGE" UseSleep="NO" />
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="NECRO_DPARTS_HOVER" Time="0" UseSleep="NO">
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_smoke013_dark4_2" />
+					<Str Str="Dummy_effect_hand_R_2" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_wizard_RaiseSkullarcher_shot" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_raiseskullwizard_cast" />
+					<Str Str="voice_wiz_f_raiseskullwizard_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="SCR_SUMMON_SKULL_SOLDIER" Time="0" UseSleep="NO">
+					<Str Str="pcskill_skullwizard" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Necromancer_FleshStrike">
+		<EndScripts>
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+		</EndScripts>
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_DPARTS_COUNT" UseSleep="NO">
+				<Num Num="100" />
+			</ToolScp>
+		</EnableScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num Num="3" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="150" />
+				<Num Num="0.1" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Str_Arg Arg="1" Str="F_wizard_FleshStrike_fullcharge" />
+				<Str Str="None" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="5" />
+				<Num Num="1" />
+				<Num Num="45" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+				<Str Str="SKL_FLESHSTRIKE_CAST" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+				<Str Str="SKL_FLESHSTRIKE_LOOP" />
+				<Num Num="1" />
+				<Num Num="1" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_f_flashstrike_shot" />
+				<Num Num="0" />
+				<Str Str="voice_wiz_m_flashstrike_shot" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="LH" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_SHOW_PARTS_MODEL" UseSleep="NO">
+				<Str Str="RH" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="1" Str="F_wizard_FleshStrike_loop" />
+				<Str Str="Dummy_effect_FleshStrike" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="1.2" Str="I_wizard_FleshStrike_force_delay" />
+				<Str Str="Dummy_effect_FleshStrike" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_f_flashstrike_shot" />
+				<Str Str="voice_wiz_m_flashstrike_shot" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="F_wizard_FleshStrike_loop" />
+				<Num Num="0.5" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="I_wizard_FleshStrike_force_delay" />
+				<Num Num="0.5" />
+			</ToolScp>
+		</KeyInputEnd>
+		<KeyCancelScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
+		</KeyCancelScp>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="NECRO_DPARTS_HOVER" Time="0" UseSleep="NO">
+					<Num Num="100" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
+					<Str_Arg Arg="1" Str="I_wizard_FleshStrike_force" />
+					<Str_Arg Arg="1.5" Str="F_wizard_FleshStrike_hit" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Num Num="35" />
+					<Num Num="0" />
+					<Num Num="0.55000001" />
+					<Num Num="300" />
+					<Num Num="1" />
+					<Num Num="1000" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str_Arg Arg="4" Str="F_sys_target_pc2" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_war_atk_long_shot" />
+					<Str Str="voice_atk_long_war_f" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="750" UseSleep="NO">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Angle Angle="0" />
+					<Str Str="Necromancer_FleshStrike" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="700" UseSleep="NO">
+					<Num Num="6" />
+					<Num Num="1" />
+					<Num Num="45" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+					<Str Str="LH" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
+					<Str Str="RH" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="NecromancerPoison_Debuff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="15000" />
+					<Num FuncTxt="return skill.Level * 10;" Num="0" UseFunc="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="NECROMANCER_JOB_QUEST">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Anim Anim="ABSORB" Speed="1" Time="1" />
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="90" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_force042_violet#Bip01 R Hand" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="I_explosion002_green" />
+					<Str Str="arrow_blow" />
+					<Str Str="FAST" />
+					<Num Num="200" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Angle Angle="0" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="2" />
+				</Scp>
+				<Anim Anim="ASTD" Speed="1" Time="500" />
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Necromancer_RaiseSkullarcher">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_DPARTS_COUNT" UseSleep="NO">
+				<Num Num="5" />
+			</ToolScp>
+			<ToolScp Client="BOTH" Scp="CHECK_IS_VILLAGE" UseSleep="NO" />
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="NECRO_DPARTS_HOVER" Time="0" UseSleep="NO">
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_smoke013_dark4_2" />
+					<Str Str="Dummy_effect_hand_R_2" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_wizard_RaiseSkullarcher_shot" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SCR_SUMMON_SKULL_SOLDIER" Time="0" UseSleep="NO">
+					<Str Str="pcskill_skullarcher" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_skullarcher_shot" />
+					<Str Str="voice_wiz_f_skullarcher_shot" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Necromancer_RaiseDead">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_DPARTS_COUNT" UseSleep="NO">
+				<Num Num="5" />
+			</ToolScp>
+			<ToolScp Client="BOTH" Scp="CHECK_IS_VILLAGE" UseSleep="NO" />
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="NECRO_DPARTS_HOVER" Time="0" UseSleep="NO">
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="0.60000002" Str="I_smoke013_dark4_2" />
+					<Str Str="Dummy_effect_hand_R_2" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_raisedead_cast" />
+					<Str Str="voice_wiz_raisedead_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="SCR_SUMMON_SKULL_SOLDIER" Time="0" UseSleep="NO">
+					<Str Str="pcskill_skullsoldier" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Necromancer_CorpseTower">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_DPARTS_COUNT" UseSleep="NO">
+				<Num Num="7" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="NECRO_DPARTS_HOVER" Time="0" UseSleep="NO">
+					<Num Num="7" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_KILL_FOL_EXPROP" Time="0" UseSleep="NO">
+					<Str Str="NECRO_SUMMONCORPS" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_wiz_m_corpsetower_cast" />
+					<Str Str="voice_wiz_corpsetower_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1000" UseSleep="NO">
+					<Str Str="pcskill_CorpseTower" />
+					<Pos Angle="0" Dist="20" />
+					<Angle Angle="0" />
+					<Str FuncTxt="local name = GetClassString(&quot;Monster&quot;, &quot;pcskill_CorpseTower&quot;, &quot;Name&quot;); return SofS(name, self.Name);" Str="" UseFunc="1" />
+					<Str Str="PC_Summon_Holding" />
+					<Num Num="0" />
+					<Num Num="100" />
+					<Str Str="None" />
+					<MonProp List="WlkMSPD#0#RunMSPD#0" />
+					<Str Str="NECRO_CORPS_MON" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1000" UseSleep="NO">
+					<Str Str="NECRO_SUMMONCORPS" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Necromancer_DirtyPole">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_DPARTS_COUNT" UseSleep="NO">
+				<Num Num="5" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="800" Dist="0" ForceATK="0" HitCount="1" Length="20" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="600" Type="CIRCLE" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="NECRO_DPARTS_HOVER" Time="0" UseSleep="NO">
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_DPATTACK" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+					<Str Str="voice_wiz_m_dirtypole_cast" />
+					<Str Str="voice_wiz_dirtypole_cast" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="500" UseSleep="NO">
+					<Pos Angle="0" Dist="20" />
+					<Angle Angle="0" />
+					<Str Str="Necromancer_DirtyWall" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Necromancer_Disinter">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_disinter_shot" />
+					<Str Str="voice_wiz_disinter_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_wizard_shoggoth_cast_lineup" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="SCR_NECRO_DISINTER" Time="500" UseSleep="NO">
+					<Num Num="70" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
+					<Str_Arg Arg="0.5" Str="F_wizard_dpcollect_shot_spread_in" />
+					<Pos Angle="0" Dist="3" Height="35" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="800" UseSleep="NO">
+					<Str_Arg Arg="0.40000001" Str="F_cleric_AustrasKoks_shot_light" />
+					<Pos Angle="0" Dist="3" Height="35" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="800" UseSleep="NO">
+					<Str_Arg Arg="0.40000001" Str="F_cleric_AustrasKoks_shot_light" />
+					<Pos Angle="0" Dist="3" Height="35" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
+					<Str_Arg Arg="3" Str="F_wizard_shoggoth_cast_lineup" />
+					<Str Str="Dummy_emitter" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="900" UseSleep="NO">
+					<Str_Arg Arg="0.30000001" Str="F_wizard_dpcollect_shot_spread_in" />
+					<Pos Angle="0" Dist="3" Height="35" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1200" UseSleep="NO">
+					<Str_Arg Arg="0.40000001" Str="F_cleric_AustrasKoks_shot_light" />
+					<Pos Angle="0" Dist="3" Height="35" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Necromancer_DirtyWall">
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_SELECT_CELL" UseSleep="NO">
+				<Num FuncTxt="return 2 + obj.Level;" Num="10" UseFunc="1" />
+				<Num Num="20" />
+				<Num Num="5" />
+				<Num Num="0" />
+				<Str_Arg Arg="0.80000001" Str="None" />
+				<Str_Arg Arg="0.80000001" Str="F_sys_select_gorund_red" />
+				<Str_Arg Arg="0.80000001" Str="F_sys_select_active_white" />
+				<Num Num="1" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+				<Str Str="SKL_DIRTYWALL_LOOP" />
+				<Str Str="None" />
+				<Num Num="1" />
+				<Num Num="1" />
+				<Str Str="" />
+				<Str Str="" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_EFFECT" UseSleep="NO">
+				<Str_Arg Arg="1" Str="F_wizard_dirtywall_loop" />
+				<Str Str="Dummy_emitter" />
+				<Num Num="0" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_dirtywall_cast" />
+				<Num Num="0" />
+				<Str Str="voice_wiz_m_dirtywall_cast" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+			<ToolScp Client="YES" Scp="C_EFFECT_DETACH" UseSleep="NO">
+				<Str_Arg Arg="1" Str="F_wizard_dirtywall_loop" />
+				<Num Num="0.5" />
+			</ToolScp>
+			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_dirtywall_cast" />
+				<Str Str="voice_wiz_m_dirtywall_cast" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_m_dirtywall_shot" />
+				<Str Str="voice_wiz_dirtywall_shot" />
+			</ToolScp>
+		</KeyInputEnd>
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_DPARTS_COUNT" UseSleep="NO">
+				<Num Num="30" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="NECRO_DPARTS_HOVER" Time="0" UseSleep="NO">
+					<Num Num="30" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD_CELL" Time="400" UseSleep="NO">
+					<Str Str="Necromancer_DirtyWall" />
+					<Num FuncTxt="return 2 + obj.Level;" Num="10" UseFunc="1" />
+					<Num Num="17" />
+					<Str_Arg Arg="0.34999999" Str="None" />
+					<Str_Arg Arg="0.34999999" Str="None" />
+					<Num Num="0.02" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TGT_PAD_SUMMON" Time="700" UseSleep="NO">
+					<Str Str="Necromancer_DirtyWall" />
+					<Str Str="pcskill_dirtywall" />
+				</Scp>
+				<Scp Client="NO" Scp="NECRO_DPARTS_HOVER_TO_MON" Time="700" UseSleep="NO">
+					<Num Num="70" />
+					<Num Num="1" />
+					<Num Num="1" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Necromancer_GatherCorpse">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_gathercorpse_shot" />
+					<Str Str="voice_wiz_gathercorpse_shot" />
+				</Scp>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1" Str="I_wizard_necromancer_force" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1" Str="F_fire009" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="150" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Angle_Abs Angle="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="10" />
+					<Num Num="0" />
+					<Num Num="1" />
+					<Num Num="1" />
+					<Str Str="None" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="GatherCorpse_Debuff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num FuncTxt="return 5000 + skill.Level * 1000;" Num="0" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Necromancer_CreateShoggoth">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_DPARTS_COUNT" UseSleep="NO">
+				<Num Num="30" />
+			</ToolScp>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_BOSS_CARD" UseSleep="NO" />
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_createshoggoth_cast" />
+					<Str Str="voice_wiz_createshoggoth_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_KILL_FOL_EXPROP" Time="0" UseSleep="NO">
+					<Str Str="NECRO_MON" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="NECRO_DPARTS_HOVER" Time="0" UseSleep="NO">
+					<Num Num="30" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="5" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1500" UseSleep="NO">
+					<Str_Arg Arg="1" Str="F_wizard_shoggoth_shot_ground" />
+					<Pos Angle="0" Dist="80" />
+					<Num Num="0" />
+					<Str Str="None" />
+				</Scp>
+				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1500" UseSleep="NO">
+					<Str Str="pcskill_shogogoth" />
+					<Pos Angle="0" Dist="80" />
+					<Angle Angle="0" />
+					<Str Str="" />
+					<Str Str="PC_Summon" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Str Str="None" />
+					<MonProp List="WlkMSPD#60#RunMSPD#60#$NECRO_MON#1" />
+					<Str Str="NECRO_SHOGGOTH_MON" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1500" UseSleep="NO">
+					<Str Str="NECRO_MON" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="SORCER_SET_EXPROP_SEND" Time="1500" UseSleep="NO">
+					<Str Str="NECRO_MON" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Necromancer_FleshCannon">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_DPARTS_COUNT" UseSleep="NO">
+				<Num Num="15" />
+			</ToolScp>
+		</EnableScripts>
+		<KeyInput>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
+				<Num FuncTxt=" return 1.5" Num="3" UseFunc="1" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="1" />
+				<Num Num="150" />
+				<Num Num="0.1" />
+				<Num FuncTxt=" return 1.5/obj.Level" Num="1.5" UseFunc="1" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str_Arg Arg="0" Str="" />
+				<Str Str="" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+				<Num Num="0" />
+			</ToolScp>
+		</KeyInput>
+		<KeyInputStart>
+			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
+				<Str Str="voice_wiz_fleshcannon_shot" />
+				<Num Num="0" />
+				<Str Str="voice_wiz_m_fleshcannon_shot" />
+			</ToolScp>
+			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
+				<Str Str="ASTD" />
+				<Str Str="None" />
+				<Num Num="1" />
+				<Num Num="0" />
+				<Str Str="None" />
+				<Str Str="ASTD" />
+			</ToolScp>
+		</KeyInputStart>
+		<KeyInputEnd>
+			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
+		</KeyInputEnd>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_DPATTACK" />
+					<Num Num="1.8" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="NECRO_DPARTS_HOVER" Time="250" UseSleep="NO">
+					<Num Num="15" />
+					<Num Num="20" />
+					<Num Num="15" />
+					<Num Num="15" />
+					<Num Num="1" />
+					<Num Num="9" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="NO" Scp="NECRO_DPARTS_SHOOT_GROUND" Time="400" UseSleep="YES">
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Num Num="30" />
+					<Num Num="0.60000002" />
+					<Num Num="800" />
+					<Num Num="2" />
+					<Num Num="2" />
+					<Num Num="2" />
+					<Str Str="spear_thrust" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="700" UseSleep="NO">
+					<Str Str="voice_war_atk_long_shot" />
+					<Str Str="voice_atk_long_war_f" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT_POS" Time="900" UseSleep="NO">
+					<Str_Arg Arg="0.69999999" Str="F_wizard_flesh_cannon_hit" />
+					<Pos Angle="0" Dist="0" PosType="3" />
+					<Num Num="1.5" />
+					<Str Str="None" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="NecromancerPoison_Debuff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="15000" />
+					<Num Num="5" />
+					<Num FuncTxt="return 25 + skill.Level * 5;" Num="0" UseFunc="1" />
+					<Num Num="-1" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+					<Str Str="Necromancer1" />
+				</ToolScp>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str FuncTxt="local abilLevel = GET_ABIL_LEVEL(self, 'Necromancer16');  if abilLevel &gt; 0 then      return 'Common_HighRotten';  else      return 'Common_Rotten';  end" Str="DirtyWall_Debuff" UseFunc="1" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="15000" />
+					<Num Num="1" />
+					<Num FuncTxt="return GET_ABIL_LEVEL(self, &quot;Necromancer1&quot;) * 10;" Num="100" UseFunc="1" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	<Skill Name="Necromancer_FleshHoop">
+		<EnableScripts>
+			<ToolScp Client="BOTH" Scp="SKL_CHECK_DPARTS_COUNT" UseSleep="NO">
+				<Num Num="5" />
+			</ToolScp>
+		</EnableScripts>
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Angle Angle="0" />
+					<Str Str="Necromancer_FleshHoop_abil" />
+				</Scp>
+				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+					<Str Str="voice_wiz_m_fleshhoop_shot" />
+					<Str Str="voice_wiz_fleshhoop_shot" />
+				</Scp>
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+					<Str Str="SKL_FLESHHOOP" />
+					<Num Num="2" />
+					<Num Num="1" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="NO" Scp="NECRO_DPARTS_HOVER" Time="400" UseSleep="NO">
+					<Num Num="5" />
+					<Num Num="20" />
+					<Num Num="15" />
+					<Num Num="15" />
+					<Num Num="1" />
+					<Num Num="3" />
+					<Num Num="1" />
+					<Str Str="skl_eff_fleshhoop_loop" />
+					<Str Str="Necromancer_FleshHoop_abil" />
+				</Scp>
+			</EtcList>
+			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+					<Str Str="NecromancerPoison_Debuff" />
+					<Num Num="1" />
+					<Num Num="0" />
+					<Num Num="15000" />
+					<Num FuncTxt="return skill.Level;" Num="0" UseFunc="1" />
+					<Num Num="100" />
+					<Num Num="-1" />
+				</ToolScp>
+			</ResultList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

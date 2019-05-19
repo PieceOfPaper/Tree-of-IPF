@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Scarecrow_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0.000000" MoveFIle="None" ScrLock="None">
+			<HitList>
+				<Frame Angle="0.000000" AniTime="100" Dist="0.000000" ForceATK="1" HitCount="1" Length="120.000000" PosType="0" RandDist="0.000000" RandomPerHit="1" RotAngle="0.000000" SklAngle="0.174533" TermMax="0" TermMin="0" Time="0" Type="SQUARE" Width="10.000000" />
+			</HitList>
+			<EtcList>
+				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="50" UseSleep="NO">
+					<Str_Arg Arg="1.000000" Str="I_arrow008" />
+					<Str Str="arrow_cast" />
+					<Str_Arg Arg="1.000000" Str="None" />
+					<Str Str="arrow_blow" />
+					<Str Str="SLOW" />
+					<Num Num="200.000000" />
+					<Num Num="6.000000" />
+					<Num Num="0.000000" />
+					<Angle_Abs Angle="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="5.000000" />
+					<Num Num="1.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="1.000000" />
+					<Str Str="None" />
+					<Num Num="10.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.000000" />
+					<Num Num="0.500000" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ToolSkill><Skill Name="Mon_Forge_Skill_1">
+		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+			<HitList>
+				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+			</HitList>
+			<EtcList>
+				<Scp Client="NO" Scp="SKL_SET_TARGET_FAN" Time="0" UseSleep="NO">
+					<Pos Angle="0" Dist="0" />
+					<Num Num="30" />
+					<Num Num="200" />
+					<Num Num="5" />
+					<Num Num="2" />
+					<Num Num="0" />
+					<Num Num="1" />
+				</Scp>
+				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+					<Str_Arg Arg="1.5" Str="I_archer_forge_hit" />
+					<Str Str="Dummy002" />
+					<Num Num="0" />
+				</Scp>
+				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="0" UseSleep="NO">
+					<Num Num="3" />
+					<Num Num="0.30000001" />
+					<Num Num="70" />
+					<Num Num="999" />
+				</Scp>
+				<Scp Client="NO" Scp="MSL_THROW" Time="100" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+					<Str_Arg Arg="0.44999999" Str="I_archer_canon_force_forge#Dummy002" />
+					<Str_Arg Arg="1" Str="I_explosion002_orange" />
+					<Str_Arg Arg="1" Str="None" />
+					<Pos Angle="0" Dist="0" PosType="9" />
+					<Num Num="15" />
+					<Num FuncTxt="local speed = 0.1; local target = GetSkillTarget(self); if target ~= nil then local dist = GetDistance(self, target); speed = speed * (dist/100) speed = math.max(0.05, speed); speed = math.min(0.5, speed); end  return speed;" Num="0.30000001" UseFunc="1" />
+					<Num Num="0" />
+					<Num Num="10" />
+					<Num Num="0.80000001" />
+					<Num Num="500" />
+					<Num Num="1" />
+					<Str_Arg Arg="1.5" Str="F_sys_target_boss" />
+					<Num Num="0" />
+					<Num Num="0" />
+					<Num Num="120" />
+					<Num Num="3" />
+					<Num Num="45" />
+				</Scp>
+			</EtcList>
+		</MainSkl>
+	</Skill>
+	</ToolSkill>
