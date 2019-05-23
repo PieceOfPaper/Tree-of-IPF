@@ -9,6 +9,11 @@ function COLONY_TAX_BOARD_ON_INIT(addon, frame)
 end
 
 function ON_OPEN_COLONY_TAX_BOARD(frame)
+	local rewardboardUI = ui.GetFrame("colony_reward_board");
+	if rewardboardUI ~= nil and rewardboardUI:IsVisible() == 1 then
+		ui.CloseFrame("colony_reward_board");
+	end
+
 	local taxratewarning_text = GET_CHILD_RECURSIVELY(frame, "taxratewarning_text");
 	local contents_text = GET_CHILD_RECURSIVELY(frame, "contents_text");
 	local chequewarning_text = GET_CHILD_RECURSIVELY(frame, "chequewarning_text");
@@ -49,6 +54,7 @@ function ON_UPDATE_COLONY_TAX_HISTORY_LIST(frame, msg, argstr, argnum)
 end
 
 function CREATE_COLONY_TAX_HISTORY_LIST(listgb)
+	if listgb == nil then return; end
 	listgb:RemoveAllChild();
 	local height = ui.GetControlSetAttribute("colony_tax_cheque_history", "height");
 	local count = session.colonytax.GetTaxHistoryCount();
@@ -147,10 +153,24 @@ function CREATE_COLONY_TAX_RATE_LIST(listgb)
 	local height = ui.GetControlSetAttribute("colony_tax_rate_elem", "height")
 	SET_COLONY_TAX_RATE_LIST_SKIN(listgb, width, height, #list, SKIN_ODD, SKIN_EVEN)
 
-	for i=1, #list do
+	local firstLeagueList = {};
+	for i = 1, #list do
 		local index = list[i];
 		local taxRateInfo = session.colonytax.GetTaxRateByIndex(index);
 		if taxRateInfo ~= nil then 
+			local cityMapID = taxRateInfo:GetCityMapID();
+            local cityMapCls = GetClassByType("Map", cityMapID);
+            local colonyCls = GetClassByStrProp("guild_colony", "TaxApplyCity", cityMapCls.ClassName);
+			local colonyLeague = TryGetProp(colonyCls, "ColonyLeague");
+			if colonyLeague == 1 then
+				firstLeagueList[#firstLeagueList + 1] = taxRateInfo;
+			end
+		end
+	end
+
+	for i = 1, #firstLeagueList do
+		local taxRateInfo = firstLeagueList[i];
+		if taxRateInfo ~= nil then
 			local cityMapID = taxRateInfo:GetCityMapID();
 			local ctrlset = listgb:CreateOrGetControlSet("colony_tax_rate_elem", "tax_rate_" .. i, ui.LEFT, ui.TOP, 0, (i-1)*height, 0, 0);
 			AUTO_CAST(ctrlset);
@@ -222,6 +242,7 @@ function ON_COMMIT_COLONY_TAX_RATE(parent, ctrl)
 end
 -------------------
 function CREATE_COLONY_TAX_CHEQUE_LIST(listgb)
+	if listgb == nil then return; end
 	listgb:RemoveAllChild();
 
 	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
@@ -229,18 +250,33 @@ function CREATE_COLONY_TAX_CHEQUE_LIST(listgb)
 		return;
 	end
 
+	local firstLeagueList = {};
 	local height = ui.GetControlSetAttribute("colony_tax_cheque_elem", "height")
 	local cnt = session.colonytax.GetTaxChequeCount();
-	for i=0, cnt-1 do
+	for i = 0, cnt - 1 do
 		local chequeInfo = session.colonytax.GetTaxChequeByIndex(i);
 		if chequeInfo ~= nil then 
-			local ctrlset = listgb:CreateOrGetControlSet("colony_tax_cheque_elem", "tax_cheque_" .. i, ui.LEFT, ui.TOP, 0, i*height, 0, 0);
-			AUTO_CAST(ctrlset);
-			local criterionTime = imcTime.GetStringSysTime(chequeInfo:GetCriterionTime())
 			local cityMapID = chequeInfo:GetCityMapID();
+			local cityMapCls = GetClassByType("Map", cityMapID);
+            local colonyCls = GetClassByStrProp("guild_colony", "TaxApplyCity", cityMapCls.ClassName);
+			local colonyLeague = TryGetProp(colonyCls, "ColonyLeague");
+			if colonyLeague == 1 then
+				firstLeagueList[#firstLeagueList + 1] = chequeInfo;
+			end
+		end
+	end
+
+	for i = 0, #firstLeagueList - 1 do
+		local chequeInfo = firstLeagueList[i + 1];
+		if chequeInfo ~= nil then
+			local ctrlset = listgb:CreateOrGetControlSet("colony_tax_cheque_elem", "tax_cheque_" .. i, ui.LEFT, ui.TOP, 0, i * height, 0, 0);
+			AUTO_CAST(ctrlset);
+
+			local criterionTime = imcTime.GetStringSysTime(chequeInfo:GetCriterionTime())
 			ctrlset:SetUserValue("CriterionTime", criterionTime);
+			local cityMapID = chequeInfo:GetCityMapID();
 			ctrlset:SetUserValue("CityMapID", cityMapID);
-			FILL_COLONY_TAX_CHEQUE_ELEM(ctrlset, chequeInfo)
+			FILL_COLONY_TAX_CHEQUE_ELEM(ctrlset, chequeInfo);
 		end
 	end
 end

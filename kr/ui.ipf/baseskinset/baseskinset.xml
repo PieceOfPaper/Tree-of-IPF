@@ -6540,6 +6540,13 @@
 		<image name="icon_white_arrow" file="\skin\pip_test2.tga" imgrect="797 459 13 16" CMM_Caption="하얀 화살표 오른쪽"/>
 		<image name="text_bg_black" file="\skin\pip_test2.tga" imgrect="667 254 196 31" CMM_Caption="인던 스킬제한 텍스트 bg"/>
 		<image name="NOTICE_Dm_!_s" file="\skin\pip_test2.tga" imgrect="654 153 22 22" CMM_Caption="인던 스킬제한 경고아이콘"/>
+		<image name="NOTICE_Dm_Curse_5" file="\skin\indun_skin.tga" imgrect="449 784 60 132" CMM_Caption="저주 카운트 숫자5"/>
+		<image name="NOTICE_Dm_Curse_4" file="\skin\indun_skin.tga" imgrect="388 784 60 132" CMM_Caption="저주 카운트 숫자4"/>
+		<image name="NOTICE_Dm_Curse_3" file="\skin\indun_skin.tga" imgrect="327 784 60 132" CMM_Caption="저주 카운트 숫자3"/>
+		<image name="NOTICE_Dm_Curse_2" file="\skin\indun_skin.tga" imgrect="266 784 60 132" CMM_Caption="저주 카운트 숫자2"/>
+		<image name="NOTICE_Dm_Curse_1" file="\skin\indun_skin.tga" imgrect="205 784 60 132" CMM_Caption="저주 카운트 숫자1"/>
+		<image name="colonymap_unoccupation2" file="\skin\colony.tga" imgrect="1795 256 94 98" CMM_Caption="콜로니전 맵 아이콘2"/>
+		<image name="test_frame_midle_mini" file="\skin\colony.tga" imgrect="1890 256 68 68" CMM_Caption=""/>
 	</imagelist>
 	<imagelist category="testje_image">
 		<image name="test_betrum_scoreboardT_skin" file="\skin\keynbet.tga" imgrect="0 528 352 88" CMM_Caption="배틀럼블 스코어 페이지"/>
@@ -6596,9 +6603,6 @@
 		<image name="Collar_Lollipop" file="\skin\keynbet.tga" imgrect="309 507 20 20 " CMM_Caption="칭호 롤리팝"/>
 		<image name="Collar_Brush" file="\skin\keynbet.tga" imgrect="330 507 20 20" CMM_Caption="칭호 붓"/>
 		<image name="Collar_FinestMoment" file="\skin\keynbet.tga" imgrect="779 90 30 30" CMM_Caption="칭호 사진"/>
-		<image name="Collar_TBL1st" file="\skin\PVP_skin.tga" imgrect="1835 81 193 34" CMM_Caption="칭호 1위"/>
-		<image name="Collar_TBL2nd" file="\skin\PVP_skin.tga" imgrect="1835 116 193 34" CMM_Caption="칭호 2"/>
-		<image name="Collar_TBL3rd" file="\skin\PVP_skin.tga" imgrect="1835 151 193 34" CMM_Caption="칭호 3"/>
 		<image name="Collar_GivingShade" file="\skin\pip_test.tga" imgrect="1797 232 30 30" CMM_Caption="칭호 야자나무"/>
 		<image name="Collar_MonsterInker" file="\skin\pip_test.tga" imgrect="1797 289 30 30" CMM_Caption="칭호 깃털펜"/>
 		<image name="Collar_achieve_Halloween1" file="\skin\pip_test.tga" imgrect="1797 320 30 30" CMM_Caption="칭호 할로윈 호박"/>
@@ -6848,6 +6852,11 @@
 		<image name="memory_2" file="\skin\pip_test.tga" imgrect="1797 372 20 20" CMM_Caption="메모피 표시 옐로"/>
 		<image name="memory_3" file="\skin\pip_test.tga" imgrect="1797 351 20 20" CMM_Caption="메모피 표시 그린"/>
 		<image name="npc_guide_arrow" file="\skin\tooltip_skin_3.tga" imgrect="1846 1839 50 50" CMM_Caption="퀘스트 리스트 화살표"/>
+	</imagelist>
+	<imagelist category="testje2_image">
+		<image name="play_search_box" file="\skin\pip_test2.tga" imgrect="444 284 86 28" CMM_Caption="주크박스 검색 창"/>
+		<image name="colony_league_part1" file="\skin\colony.tga" imgrect="1795 157 98 98" CMM_Caption="콜로니전 리그 1부"/>
+		<image name="colony_league_part2" file="\skin\colony.tga" imgrect="1894 157 98 98" CMM_Caption="콜로니전 리그 2부"/>
 	</imagelist>
 	<imagelist category="je_button">
 		<image name="menu_guild_info" file="\skin\guild_skin.tga" imgrect="165 298 45 45" CMM_Caption="길드 정보"/>
@@ -9301,6 +9310,9 @@
 		<image name="icon_bravely_child" file="\icon\buff_icon2.tga" imgrect="0 1280 128 128" CMM_Caption="씩씩한 트린이"/>
 		<image name="icon_child_guardian" file="\icon\buff_icon2.tga" imgrect="128 1280 128 128" CMM_Caption="트린이 보호자"/>
 		<image name="icon_Headfish" file="\icon\buff_icon2.tga" imgrect="256 1280 128 128" CMM_Caption="개복치의 기운"/>
+		<image name="icon_SHADOW_RAID_PAD_4_DEBUFF" file="\icon\buff_icon2.tga" imgrect="384 1280 128 128" CMM_Caption="대미지 감소"/>
+		<image name="icon_SHADOW_RAID_BRAND_DEBUFF" file="\icon\buff_icon2.tga" imgrect="512 1280 128 128" CMM_Caption="스키아 클립스의 낙인"/>
+		<image name="icon_SHADOW_RAID_GIMMICK_SUCCESS_BUFF" file="\icon\buff_icon.tga" imgrect="0 1408 128 128" CMM_Caption="공경력 증가"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>
@@ -9776,6 +9788,13 @@
 		<image name="wizard_master" file="\skin\class_guide\wizard_master.png" imgrect="0 0 412 418"/>
 		<image name="wugushi_master" file="\skin\class_guide\wugushi_master.png" imgrect="0 0 412 418"/>
 		<image name="zealot_master" file="\skin\class_guide\zealot_master.png" imgrect="0 0 412 418"/>
+	</imagelist>
+	<imagelist category="user_title_skin ">
+		<image name="plate_achieve_whitecrow_clear" file="\skin\user_title_skin.tga" imgrect="0 0 203 39" CMM_Caption="First Conqueror"/>
+		<image name="plate_achieve_whitecrow_first_kill" file="\skin\user_title_skin.tga" imgrect="0 40 214 34" CMM_Caption="Banisher of Crows"/>
+		<image name="Collar_TBL1st" file="\skin\user_title_skin.tga" imgrect="0 75 214 34" CMM_Caption="칭호 1위"/>
+		<image name="Collar_TBL2nd" file="\skin\user_title_skin.tga" imgrect="0 110 214 34" CMM_Caption="칭호 2"/>
+		<image name="Collar_TBL3rd" file="\skin\user_title_skin.tga" imgrect="0 145 214 34" CMM_Caption="칭호 3"/>
 	</imagelist>
 	<effectimagelist category="effectlist">
 		<image name="blue_orb" file="\icon\blue_orb.tga" imgrect="0 0 256 256"/>

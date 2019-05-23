@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Oracle_TwistOfFate">
+<ToolSkill>
+    <Skill Name="Oracle_TwistOfFate">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
@@ -41,74 +42,21 @@
 		</MainSkl>
 	</Skill>
 	<Skill Name="Oracle_Foretell">
-		<EndScripts>
-			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
-				<Str Str="Oracle_Foretell" />
-			</ToolScp>
-		</EndScripts>
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num FuncTxt="return 5 + obj.Level;" Num="0" UseFunc="1" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Str_Arg Arg="1" Str="None" />
-				<Str Str="None" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-			</ToolScp>
-		</KeyInput>
-		<KeyInputStart>
-			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
-				<Str Str="WORSHIP" />
-				<Num Num="1" />
-				<Num Num="1" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInputStart>
-		<KeyInputEnd>
-			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
-			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
-				<Str Str="ASTD" />
-				<Num Num="1" />
-				<Num Num="1" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInputEnd>
-		<KeyCancelScp>
-			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
-			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
-				<Str Str="ASTD" />
-				<Num Num="1" />
-				<Num Num="1" />
-			</ToolScp>
-		</KeyCancelScp>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="0" />
-					<Angle Angle="0" />
-					<Str Str="Oracle_Foretell" />
-				</Scp>
-				<Scp Client="NO" LoopTime="1000" Scp="SKL_CONSUME_SP" Time="0" UseSleep="NO">
-					<Num FuncTxt="local value = 30 local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect &gt;= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) return math.floor(value)" Num="0" UseFunc="1" />
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+				<HitList>
+			<Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="9999" RotAngle="0" ForceATK="0"/>
+				</HitList>
+				<EtcList>
+				<Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+				<Str Str="PUBLIC_BUFF"/>
+				<Num Num="1"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+			</Scp>
+		<Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="450">
+					<Pos Angle="0" Dist="0" PosType="3"/>
+					<Angle Angle="0"/>
+					<Str Str="Oracle_Foretell"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>

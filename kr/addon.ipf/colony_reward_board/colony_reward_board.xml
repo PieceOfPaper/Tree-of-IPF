@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="colony_reward_board" x="0" y="0" width="860" height="820">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<skin frameskin="test_frame_low"/>
+	<draw drawtitlebar="false"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<layer layerlevel="101"/>
+	<script OpenScp="ON_OPEN_COLONY_REWARD_BOARD"/>
+	<userconfig SKIN_ODD="none" SKIN_EVEN="midle_line_skin"/>
+	<controls>
+		<groupbox name="title_bg" rect="0 0 860 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" parent="title_bg" rect="0 0 200 30" margin="0 20 0 0" layout_gravity="center top" caption="{@st42}{s20}챌린저스 리그" fontname="brown_16_b" spacey="0"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;colony_reward_board&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+		<groupbox name="reward_gb" rect="0 0 840 658" margin="0 130 0 0" layout_gravity="center top" skin="bg2" draw="false" scrollbar="false"/>
+		<groupbox name="reward_bg" parent="reward_gb" rect="0 0 840 400" margin="0 0 0 0" layout_gravity="center top" skin="test_frame_midle" draw="true" scrollbar="false"/>
+		<groupbox name="reward_column_bar" parent="reward_gb" rect="0 0 840 40" margin="0 0 0 0" layout_gravity="center top" skin="market_listbase" draw="true" scrollbar="false"/>
+		<richtext name="reward_paymentday_text" parent="reward_column_bar" rect="0 0 200 30" margin="90 0 0 0" layout_gravity="left center" caption="지급일" fontname="black_18_b" spacey="0"/>
+		<richtext name="reward_city_text" parent="reward_column_bar" rect="0 0 200 30" margin="300 0 0 0" layout_gravity="left center" caption="점령 지역" fontname="black_18_b" spacey="0"/>
+		<richtext name="reward_contents_text" parent="reward_column_bar" rect="0 0 200 30" margin="560 0 0 0" layout_gravity="left center" caption="점령 보상" fontname="black_18_b" spacey="0"/>
+		<groupbox name="reward_list_gb" parent="reward_gb" rect="0 0 840 360" margin="0 40 0 0" layout_gravity="center top" skin="none" draw="false" scrollbar="false"/>
+		<groupbox name="rewardwarning_bg" parent="reward_gb" rect="0 0 840 210" margin="0 0 0 0" layout_gravity="center bottom" skin="bg2" draw="false" scrollbar="false"/>
+		<labelline name="rewardwarning_labelline" parent="rewardwarning_bg" margin="0 5 0 0" rect="0 0 840 3" skin="labelline_def_2" layout_gravity="center top"/>
+		<richtext name="rewardwarning_text" parent="rewardwarning_bg" omitwidth="true" fixwidth="true" rect="0 0 830 220" margin="10 20 0 0" richtext="left top" layout_gravity="left top" format="%s" param1="value" fontname="black_16" spacey="0"/>
+		<tab name="rewardinfo_tab" parent="reward_gb" rect="0 0 500 40" margin="0 410 0 0" layout_gravity="left top" LBtnDownScp="" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
+		<tabitem name="rewardinfo_tab_warning" parent="rewardinfo_tab" caption="{@st66b}유의사항{/}" width="150" layout_gravity="left top"/>
+	</controls>
+</uiframe>

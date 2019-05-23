@@ -90,7 +90,7 @@ function SCR_QUESTPROGRESS_CHECK( pc, quest_list, quest_name, npcquestcount_list
     return quest_count , quest_check, quest_succ, quest_progress, lvImpossibleList;
 end
 
-function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
+function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)    
     
 	if pc == nil then
 		return;
@@ -156,7 +156,6 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
         local sObj = GetSessionObject(pc, 'ssn_klapeda');
         
         if sObj == nil then
---            print(ScpArgMsg("Auto__PCe_"),'ssn_klapeda',ScpArgMsg("Auto__SeSyeon_oBeuJegTeuKa_eopSeupNiDa."))
             quest_reason[1] = ScpArgMsg("Auto_Mein_MaeNiJeo_SeSyeoni_eopeum")
             return 'IMPOSSIBLE', quest_reason;
         elseif sObj[questIES.QuestPropertyName] >= CON_QUESTPROPERTY_MAX and sObj[questIES.QuestPropertyName] < CON_QUESTPROPERTY_END then
@@ -1189,7 +1188,7 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
             end
             
             req_joblvup = SCR_QUEST_CHECK_MODULE_JOBLVUP(pc, questIES)
-            
+
             req_joblvdown = SCR_QUEST_CHECK_MODULE_JOBLVDOWN(pc, questIES)
             
             if questIES.Atkup == 0 then
@@ -4711,6 +4710,7 @@ function SCR_QUEST_POSSIBLE_DIALOG_CHECK_SUB(pc, questname, argmsg)
     end
 end
 
+-- 퀘스트 조건 체크
 function SCR_QUEST_CHECK_MODULE_JOBLVUP(pc, questIES)
     local req_joblvup = 'NO'
     
@@ -4720,15 +4720,10 @@ function SCR_QUEST_CHECK_MODULE_JOBLVUP(pc, questIES)
         local jobinfo = SCR_STRING_CUT(questIES.JobLvup)
         local job_name = jobinfo[1]
         local jobCircleTarget = tonumber(jobinfo[2])
-        local jobCircle, jobRank
-        
-        if IsServerSection(pc) == 1 then
-            jobCircle, jobRank = GetJobGradeByName(pc, job_name);
-        else
-            local jobIES = GetClass('Job', job_name)
-            jobCircle = session.GetJobGrade(jobIES.ClassID);
-        end
-        
+        local jobCircle = 0
+                
+        jobCircle = GetJobGradeByName(pc, job_name);        
+                
         if jobinfo[3] == '>=' then
             if jobCircle ~= nil and jobCircle >= tonumber(jobCircleTarget) then
                 req_joblvup = 'YES'

@@ -170,6 +170,18 @@ function SCR_Get_SpendSP(skill)
     end
     value = value - decsp;
     
+    if IsBuffApplied(pc, "Gymas_Buff") == "YES" then
+        local ratio = 0.25;
+        
+        local isDragonPower = GetExProp(pc, 'ITEM_DRAGON_POWER')
+        if tonumber(isDragonPower) >= 1 then
+            ratio = ratio + 0.25
+        end
+        
+        decsp = value * ratio
+    end
+    value = value - decsp;
+    
     if value < 1 then
         value = 0
     end
@@ -1135,31 +1147,18 @@ end
 
 --[ Normal_Attack ]--
 function SCR_Get_SkillFactor(skill)
-    
     local sklFactor;
     local skillOwner = GetSkillOwner(skill);
     
-    if skillOwner.ClassName == 'PC' then
-        local atkType = skill.AttackType;
-        local attribute = skill.Attribute;
-        
-        local atkTypebyItem = GetSumOfEquipItem(skillOwner, atkType);
-        local attributebyItem = GetSumOfEquipItem(skillOwner, attribute);
-        
-        sklFactor = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel + atkTypebyItem + attributebyItem;
-        return math.floor(sklFactor);
-    else
-        sklFactor = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
-        return math.floor(sklFactor);
-    end
+    sklFactor = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+    return math.floor(sklFactor);
 end
 
 function SCR_Get_SkillFactor_Reinforce_Ability(skill)
     local pc = GetSkillOwner(skill)
-    local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
-    
+    local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)--스킬펙터 계산
     local reinfabil = skill.ReinforceAbility
-    local abil = GetAbility(pc, reinfabil)
+    local abil = GetAbility(pc, reinfabil)--abil에 reinfabil저장
     if abil ~= nil and TryGetProp(skill, "ReinforceAbility") ~= 'None' then
         local abilLevel = TryGetProp(abil, "Level")
         local masterAddValue = 0
@@ -1338,6 +1337,7 @@ end
 
 -- skillshared.lua 의 function SCR_REINFORCEABILITY_FOR_BUFFSKILL(self, skill) 와 내용 동일함
 -- 같이 변경해야 함
+-- done , 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그래팀에 알려주시기 바랍니다.
 function SCR_REINFORCEABILITY_TOOLTIP(skill)
     local pc = GetSkillOwner(skill);
     local addAbilRate = 1;
@@ -2258,10 +2258,6 @@ end
 
 function SCR_GET_AdvancedOrders_Ratio2(skill)
     local value = skill.Level
-    local pc = GetSkillOwner(skill);
-    if IsPVPServer(pc) == 1 then
-        value = skill.Level * 2
-    end
     
     return value
 end
@@ -7654,20 +7650,16 @@ function SCR_GET_Effigy_Bonus(skill)
 
 end
 
+-- done , 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그래팀에 알려주시기 바랍니다.
 function SCR_GET_Effigy_Ratio(skill)
-
     local value = 1.60 + 0.07 * (skill.Level-1);
-
     return value
-
 end
 
+-- done , 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그래팀에 알려주시기 바랍니다.
 function SCR_GET_Effigy_Ratio2(skill)
-
     local value = 2.3 + 0.09 * (skill.Level-1)
-
     return value
-
 end
 
 function SCR_GET_SR_LV_Damballa(skill)
@@ -8061,13 +8053,13 @@ function SCR_GET_Prophecy_Ratio(skill)
 end
 
 function SCR_GET_Foretell_Time(skill)
-    local value = 5 + skill.Level;
+    local value = 10
     return value;
 end
 
 function SCR_GET_Foretell_Ratio(skill)
-    local value = 5 + skill.Level
-    
+    local value = skill.Level * 6
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill);
     return value
 end
 
@@ -11092,9 +11084,8 @@ function SCR_Get_SkillFactor_RamMuay(skill)
     local value = 0
     local RamMuaySkill = GetSkill(pc, "NakMuay_RamMuay")
     if RamMuaySkill ~= nil then
-        value = RamMuaySkill.SklFactor + (RamMuaySkill.Level - 1) * skill.SklFactorByLevel;
+        value = RamMuaySkill.SkillFactor;
     end
-    
     return math.floor(value)
 end
 
@@ -11275,6 +11266,55 @@ function SCR_GET_Rykuma_Ratio(skill)
         end  
     end
     
+    return value;
+end
+
+function SCR_GET_Apsauga_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 25
+    if pc ~= nil then
+        local isDragonPower = GetExProp(pc, 'ITEM_DRAGON_POWER')
+        if tonumber(isDragonPower) >= 1 then
+            value = value + 25
+        end  
+    end
+    
+    return value;
+end
+
+function SCR_GET_Bendrinti_Time(skill)
+    local value = 30
+    return value;
+end
+
+function SCR_GET_Bendrinti_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 25
+    if pc ~= nil then
+        local isDragonPower = GetExProp(pc, 'ITEM_DRAGON_POWER')
+        if tonumber(isDragonPower) >= 1 then
+            value = value + 15
+        end  
+    end
+    
+    return value;
+end
+
+function SCR_GET_Gymas_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 25
+    if pc ~= nil then
+        local isDragonPower = GetExProp(pc, 'ITEM_DRAGON_POWER')
+        if tonumber(isDragonPower) >= 1 then
+            value = value + 25
+        end  
+    end
+    
+    return value;
+end
+
+function SCR_GET_Smugis_Ratio(skill)
+    local value = 10
     return value;
 end
 

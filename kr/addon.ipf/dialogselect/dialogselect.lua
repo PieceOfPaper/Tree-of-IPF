@@ -16,6 +16,19 @@ function DIALOGSELECT_ON_INIT(addon, frame)
 	addon:RegisterMsg('ESCAPE_PRESSED', 'DIALOGSELECT_ON_PRESS_ESCAPE');
 end
 
+function DIALOGSELECT_FIX_WIDTH(frame, width)
+	frame:SetUserConfig("MAX_WIDTH", width);
+
+	for i = 1, 11 do
+		local controlName = 'item' .. i .. 'Btn';
+		local ItemBtn = frame:GetChild(controlName);
+		local ItemBtnCtrl = tolua.cast(ItemBtn, 'ui::CButton');
+		ItemBtnCtrl:Resize(width, ItemBtn:GetHeight());
+	end
+
+	frame:Resize(width + 60, frame:GetHeight());
+end
+
 function DIALOGSELECT_ITEM_ADD(frame, msg, argStr, argNum)
 	if argNum == 1 then
 		if DIALOGSELECT_QUEST_REWARD_ADD(frame, argStr) == 1 then
@@ -76,17 +89,21 @@ function DIALOGSELECT_ITEM_ADD(frame, msg, argStr, argNum)
 			end
 		end
 
-		frame:Resize(600, frameHeight + 10);
+		frame:Resize(frame:GetWidth(), frameHeight + 10);
 		frame:ShowWindow(1);	
 		
 	else
 		ItemBtnCtrl:SetOffset(0, (argNum-1) * 40 + 40);
-		frame:Resize(600, (argNum + 1) * 40 + 10);
+		frame:Resize(frame:GetWidth(), (argNum + 1) * 40 + 10);
 	end
 
     ItemBtnCtrl:SetEventScript(ui.LBUTTONUP, 'control.DialogSelect(' .. argNum .. ')', true);
 	ItemBtnCtrl:ShowWindow(1);
 	ItemBtnCtrl:SetText('{s18}{b}{#2f1803}'..argStr);
+
+	if ItemBtnCtrl:GetWidth() > tonumber(frame:GetUserConfig("MAX_WIDTH")) then
+		DIALOGSELECT_FIX_WIDTH(frame, ItemBtnCtrl:GetWidth());
+	end
 
 	frame:Update();
 end
@@ -284,9 +301,10 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
 		mouse.SetHidable(0);
 
 	elseif  msg == 'DIALOG_CLOSE'  then
+		DIALOGSELECT_FIX_WIDTH(frame, 540);
 		frame:SetUserValue("QUESTFRAME_HEIGHT",  0);
-		frame:SetUserValue("FIRSTORDER_MAXHEIGHT", 0);			
-		frame:SetUserValue("IsScroll", "NO");	
+		frame:SetUserValue("FIRSTORDER_MAXHEIGHT", 0);
+		frame:SetUserValue("IsScroll", "NO");
 		ui.CloseFrame(frame:GetName());
 		DialogSelect_index = 0;
 		DialogSelect_count = 0;

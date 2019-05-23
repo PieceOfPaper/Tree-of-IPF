@@ -268,12 +268,11 @@ function GET_REINFORCE_ADD_VALUE(prop, item, ignoreReinf, reinfBonusValue)
     
     reinforceValue = reinforceValue + reinfBonusValue;
     
-    value = math.floor((reinforceValue + (lv * (reinforceValue * (0.12 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.0225 )))) / typeRatio)) *1.25* gradeRatio;
-    --    value = math.floor((reinforceValue + (lv * (reinforceValue * (0.08 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.015 )))) / typeRatio)) * gradeRatio;
+    value = math.floor((reinforceValue + (lv * (reinforceValue * (0.12 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.065 )))) / typeRatio)) *1.25* gradeRatio;
     
     if classType == 'Neck' or classType == 'Ring' then
      --ACC is reinforce /#16818 --
-          value = math.floor((reinforceValue + (lv * (reinforceValue * (0.08 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.015 )))) / typeRatio)) * gradeRatio;
+        value = math.floor((reinforceValue + (lv * (reinforceValue * (0.08 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.015 )))) / typeRatio)) * gradeRatio;
     end
     value = value * (item.ReinforceRatio / 100) + buffValue;
 
@@ -1834,18 +1833,16 @@ function CALC_GROWTH_ITEM_LEVEL(item)
     end
     
     local pcLv = TryGetProp(pc, 'Lv', 1);
-
-    local itemLvList = { 1, 40, 75, 120, 170, 220, 270, 315, 350, 380 };
+    local itemLvList = { 1, 15, 40, 75, 120, 170, 220, 270, 315, 350, 380, 400};
     local value = itemLvList[#itemLvList];
     for i = 2, #itemLvList do
         if pcLv < itemLvList[i] then
             value = itemLvList[i - 1];
             break;
-        elseif pcLv > itemLvList[i] then
+        elseif pcLv >= itemLvList[i] then
             value = itemLvList[i]
         end
     end
-    
     local growthItem = GetClass('item_growth', TryGetProp(item, 'ClassName', "None"));
     local maxLv = TryGetProp(growthItem , 'MaxLV', 1);
 

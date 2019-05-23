@@ -277,12 +277,14 @@ function ADVENTURE_BOOK_ITEM_CONTENT.FILTER_LIST(list, sortOption, categoryOptio
 		elseif subCategoryOption == 7 then
 			list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Item", "ClassType", "Mace")
 		elseif subCategoryOption == 8 then
-			list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Item", "ClassType", "Spear")
+			list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Item", "ClassType", "THMace")
 		elseif subCategoryOption == 9 then
-			list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Item", "ClassType", "THSpear")
+			list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Item", "ClassType", "Spear")
 		elseif subCategoryOption == 10 then
-			list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Item", "ClassType", "Rapier")
+			list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Item", "ClassType", "THSpear")
 		elseif subCategoryOption == 11 then
+			list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Item", "ClassType", "Rapier")
+		elseif subCategoryOption == 12 then
 			list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Item", "ClassType", "Musket")
 		end
 	elseif categoryOption == 2 then

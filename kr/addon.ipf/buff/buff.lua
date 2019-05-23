@@ -248,6 +248,25 @@ function GET_BUFF_SLOT_INDEX(j, colcnt)
 	return i;
 end
 
+function get_exist_debuff_in_slotlist(slotlist, buff_id)
+    for k = 0, #slotlist - 1 do
+        local slot =  slotlist[k];
+        if slot ~= nil then
+            local icon = slot:GetIcon(); 
+            if icon ~= nil then
+                local iconInfo = icon:GetInfo()
+                if iconInfo ~= nil then
+                    if tonumber(iconInfo.type) == tonumber(buff_id) then
+                        return slot
+                    end
+                end
+            end
+        end
+    end
+
+    return nil
+end
+
 function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 	if msg == "SET" then
 		local buffCount = info.GetBuffCount(handle);
@@ -318,7 +337,21 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 	end
 
 	if msg == 'ADD' then
+        local cls = GetClassByType('Buff', tonumber(buffType))
+        local skip = false
+        if cls ~= nil then
+            if TryGetProp(cls, 'OnlyOneBuff', 'None') == 'YES' and TryGetProp(cls, 'Duplicate', 1) == 0 then
+                local exist_slot =  get_exist_debuff_in_slotlist(slotlist, buffType)
+                if exist_slot ~= nil then
+                    if exist_slot:IsVisible() == 0 then
+                        SET_BUFF_SLOT(exist_slot, captionlist[i], class, buffType, handle, slotlist, buffIndex);
+                    end
+                    skip = true                  
+                end
+            end
+        end
 
+        if skip == false then
 		for j = 0, slotcount - 1 do
 			local i = GET_BUFF_SLOT_INDEX(j, colcnt);
 			local slot				= slotlist[i];
@@ -328,7 +361,7 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 				break;
 			end
 		end
-
+        end
 	elseif msg == 'REMOVE' then
 		for i = 0, slotcount - 1 do
 

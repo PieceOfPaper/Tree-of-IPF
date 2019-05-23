@@ -9,7 +9,12 @@
 					<Str Str="Guardian_Buff" />
 					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
 					<Num Num="0" />
-					<Num FuncTxt="local value = 15000; local isItem = GetExProp(self, &quot;ITEM_GUARDIAN_DURATIONTIMEUP&quot;); if isItem == 1 then value = value * 2 end return value" Num="15000" UseFunc="1" />
+					<Num Num="15000" UseFunc="1" FuncTxt="local value = 15000;
+local isItem = GetExProp(self, &quot;ITEM_GUARDIAN_DURATIONTIMEUP&quot;);
+if isItem == 1 then
+value = value * 2
+end
+return value"/>
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
@@ -286,21 +291,7 @@
 					<Str Str="voice_atk_long_war_f" />
 				</Scp>
 			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_COND_TGTNOBUFF" UseSleep="NO">
-					<Str Str="ProvocationImmunity_Debuff" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Common_Provoke" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num FuncTxt=" return 10000" Num="3000" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
+			</MainSkl>
 	</Skill>
 	<Skill Name="Peltasta_UmboBlow">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
@@ -328,20 +319,6 @@
 					<Num Num="999" />
 				</Scp>
 			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_COND_TGTNOBUFF" UseSleep="NO">
-					<Str Str="ProvocationImmunity_Debuff" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Common_Provoke" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num FuncTxt=" return 10000" Num="3000" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
+			</MainSkl>
 	</Skill>
 	</ToolSkill>

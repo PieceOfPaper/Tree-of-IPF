@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by JangYD (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Bo-yeon Kang (IMCGames Co., Ltd) -->
 <Prop>
 	<Model Path="d_cmine03_10area_model.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
 	<Model Path="d_cmine03_1area_bloom.xac" RenderType="RT_MODEL" IsBloom="1" Type="" NoCol="0"/>
@@ -31,39 +31,39 @@
 	<Model Path="d_cmine03_ab_decal_blend2.xac" RenderType="RT_MUD_BLEND2" IsBloom="0" Type="" NoCol="1"/>
 	<Model Path="d_cmine03_ab_decal_blend3.xac" RenderType="RT_MUD_BLEND3" IsBloom="0" Type="" NoCol="1"/>
 	<Model Path="d_cmine03_b_model.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
-	<Model Path="d_cmine03_crytp00.xac" RenderType="BLENDING" IsBloom="1" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_crytp01.xac" RenderType="BLENDING" IsBloom="1" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_crytp02.xac" RenderType="BLENDING" IsBloom="1" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_crytp03.xac" RenderType="BLENDING" IsBloom="1" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_crytp04.xac" RenderType="BLENDING" IsBloom="1" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_crytp05.xac" RenderType="BLENDING" IsBloom="1" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_crytp06.xac" RenderType="BLENDING" IsBloom="1" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_crytp07.xac" RenderType="BLENDING" IsBloom="1" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_crytp08.xac" RenderType="BLENDING" IsBloom="1" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_crytp09.xac" RenderType="BLENDING" IsBloom="1" Type="BLENDING" NoCol="0"/>
+	<Model Path="d_cmine03_crytp00.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_crytp01.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_crytp02.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_crytp03.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_crytp04.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_crytp05.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_crytp06.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_crytp07.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_crytp08.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_crytp09.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
 	<Model Path="d_cmine03_fog.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="1"/>
 	<Model Path="d_cmine03_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
 	<Model Path="d_cmine03_ground02.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
 	<Model Path="d_cmine03_nl_ab_decal.xac" RenderType="RT_MUD_BLEND" IsBloom="0" Type="" NoCol="0"/>
-	<Model Path="d_cmine03_tp01.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp02.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp03.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp04.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp05.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp06.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp07.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp08.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp10.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp14.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp15.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp16.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp17.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp18.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp19.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp20.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp21.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp22.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp23.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp24.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="d_cmine03_tp25.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
+	<Model Path="d_cmine03_tp01.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp02.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp03.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp04.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp05.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp06.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp07.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp08.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp10.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp14.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp15.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp16.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp17.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp18.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp19.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp20.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp21.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp22.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp23.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp24.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_cmine03_tp25.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
 </Prop>

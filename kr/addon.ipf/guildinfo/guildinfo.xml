@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="guildinfo" x="0" y="0" width="1600" height="900" create="open" version="2">
 	<draw drawtitlebar="false"/>
 	<skin frameskin="test_frame_low" titlebarskin="test_frame_top" activetitlebarskin="test_frame_top"/>
@@ -191,7 +191,7 @@
 														<richtext name="nameSortText" textalign="center center" format="길드원{img %s 13 13}" margin="15 0 0 0" param1="arrow" param1_def="guild_arrow_down" fontname="black_18" LBtnUpScp=""/>
 													</layoutsection>
 													<layoutsection name="jobSection">
-														<richtext name="jobText" textalign="center center" caption="직업" margin="0 0 0 0"  fontname="black_18"/>
+														<richtext name="jobText" textalign="center center" caption="직업" margin="0 0 0 0" fontname="black_18"/>
 													</layoutsection>
 													<layoutsection name="levelSection">
 														<richtext name="levelText" textalign="center center" format="레벨{img %s 13 13}" margin="0 0 20 0" param1="arrow" param1_def="guild_arrow_down" fontname="black_18" LBtnUpScp=""/>
@@ -200,7 +200,7 @@
 														<richtext name="dutyText" textalign="center center" format="직급{img %s 13 13}" margin="0 0 40 0" param1="arrow" param1_def="guild_arrow_down" fontname="black_18" LBtnUpScp=""/>
 													</layoutsection>
 													<layoutsection name="contribSection">
-														<richtext name="contributionText" textalign="center center" caption="기여도"  margin="0 0 70 0" fontname="black_18"/>
+														<richtext name="contributionText" textalign="center center" caption="기여도" margin="0 0 70 0" fontname="black_18"/>
 													</layoutsection>
 													<layoutsection name="mapSection">
 														<richtext name="mapText" textalign="center center" caption="위치" margin="0 0 0 0" fontname="black_18"/>
@@ -413,8 +413,11 @@
 												<layoutsection name="colonyInfoTextLayout">
 													<richtext name="colonyInfoText" caption="ⓘ 스팟 점령 길드는 참가로 고정됩니다.{nl}ⓘ 참가 여부 옵션은 길드 마스터만 변경할 수 있으며, '참가'로 변경 시 길드 마스터 위임이 불가능합니다.{nl}ⓘ 참가 여부 옵션은 길드 콜로니전 시작 5분 전 부터 종료 1분 후까지 변경할 수 없습니다.{nl}ⓘ 참가 여부 옵션은 길드 타워의 설치 유무와 상관없이 변경할 수 있습니다.{nl}ⓘ 이전 길드 탈퇴일을 기점으로 14일 미만인 길드원은 길드 콜로니전에 참가할 수 없습니다." margin="5 5 0 0 " fixwidth="true" fontname="black_16"/>
 												</layoutsection>
-												<layoutsection name="colonyRewardBtnSection" size="15%">
-													<button name="colonyRewardBtn" margin="0 50 0 50" caption="{@st41b}{s16}점령 혜택" skin="test_red_button" LBtnUpScp="ui.OpenFrame(&apos;colony_tax_board&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+												<layoutsection name="colonyRewardBtnSection_FirstLeague" size="10%">
+													<button name="FirstLeague_colonyRewardBtn" margin="0 50 0 50" caption="{@st41b}{s16}{b}챔피언스 리그" skin="test_red_button" LBtnUpScp="ui.OpenFrame(&apos;colony_tax_board&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+												</layoutsection>
+												<layoutsection name="colonyRewardBtnSection_SecondLeague" size="10%">
+													<button name="SecondLeague_colonyRewardBtn" margin="0 50 0 50" caption="{@st41b}{s16}{b}챌린저스 리그" skin="test_red_button" LBtnUpScp="ui.OpenFrame(&apos;colony_reward_board&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
 												</layoutsection>
 											</layout>
 										</layoutsection>
@@ -426,8 +429,11 @@
 														<overlap name="colonizedAreaHeaderOverlap">
 															<groupbox name="colonizedHeaderBg" skin="market_listbase"/>
 															<layout name="colonizedAreaLayoutHeader">
-																<layoutsection name="colonizedHeaderSection" size="22%">
-																	<richtext name="colonizedAreaText" margin="40 0 0 0" textalign="left center" caption="점령 지역" fontname="black_18"/>
+																<layoutsection name="colonizedLeagueSection" size="13%">
+																	<richtext name="colonizedLeagueText" margin="40 0 0 0" textalign="left center" caption="지역 리그" fontname="black_18"/>
+																</layoutsection>
+																<layoutsection name="colonizedHeaderSection" size="15%">
+																	<richtext name="colonizedAreaText" textalign="left center" caption="점령 지역" fontname="black_18"/>
 																</layoutsection>
 																<layoutsection name="colonizedCitySection" size="15%">
 																	<richtext name="colonizedCityText" textalign="left center" caption="" fontname="black_18" hittest="true"/>
@@ -446,7 +452,7 @@
 														</overlap>
 													</layoutsection>
 													<layoutsection name="colonizedAreaLayoutSection">
-														<groupbox name="occupyInfoBox" draw="false" skin="test_frame_midle"/>
+														<groupbox name="occupyInfoBox" draw="false" skin="test_frame_midle" scrollbar="true"/>
 													</layoutsection>
 												</layout>
 											</overlap>

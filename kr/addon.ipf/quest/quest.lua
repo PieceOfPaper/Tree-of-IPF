@@ -29,6 +29,7 @@ local questViewOptions = {
 	}
 };
 
+local viewOptionsSaveCID = 0;
 local questViewOptionsSave = {
 	tabInfo = nil,
 	levelOption = nil,
@@ -58,12 +59,18 @@ function QUEST_ON_INIT(addon, frame)
 
 	-- 초기화 함수에서 퀘스트 목록을 제거한다. 
 	questList = nil;
-	questViewOptionsSave =
-	{
-		tabInfo = nil,
-		levelOption = nil,
-		modeFilterOptions = nil,
-	}
+
+	-- 맵이동/채널 이동시의 옵션 저장내용 삭제를 방지한다. 단, 다른캐릭으로 들어오는 경우에는 초기화 한다.
+	local mySession = session.GetMySession();
+	if mySession:GetCID() ~= viewOptionsSaveCID then
+		questViewOptionsSave =
+		{
+			tabInfo = nil,
+			levelOption = nil,
+			modeFilterOptions = nil,
+		}
+		viewOptionsSaveCID = mySession:GetCID()
+	end
 	
 end
 

@@ -415,7 +415,13 @@ function CJ_CLICK_CHANGEJOBBUTTON(frame, slot, argStr, argNum)
 	exechangejobid = jobid
 	
 	local yesScp = string.format("EXEC_CHANGE_JOB()");
-	ui.MsgBox( ScpArgMsg("JobClassSelect").." : {@st41}'"..GET_JOB_NAME(jobinfo, GETMYPCGENDER()) ..ScpArgMsg("Auto__{nl}JeongMalLo_JinHaengHaSiKessSeupNiKka?"), yesScp, "None");
+	local Iscompanionride = IS_COMPANIONSKILL_JOB(jobinfo);
+	local str = ScpArgMsg("JobClassSelect").." : {@st41}'"..GET_JOB_NAME(jobinfo, GETMYPCGENDER()).."'{/}";
+	if Iscompanionride == true then
+		str = str.."{nl}"..ScpArgMsg("CHANGEJOB_COMPANIONSKILL_GUID");
+	end
+	str = str..ScpArgMsg("Auto__{nl}JeongMalLo_JinHaengHaSiKessSeupNiKka?");
+	ui.MsgBox(str, yesScp, "None");
 
 end
 
@@ -424,6 +430,17 @@ function EXEC_CHANGE_JOB()
 	control.CustomCommand("CLICK_CHANGEJOB_BUTTON", exechangejobid) 
 	ui.CloseFrame('changejob')
 
+end
+
+function IS_COMPANIONSKILL_JOB(jobinfo)
+
+	if jobinfo.ClassName == 'Char1_7' or jobinfo.ClassName == 'Char1_17' or jobinfo.ClassName == 'Char1_21' or 
+	jobinfo.ClassName == 'Char3_2' or jobinfo.ClassName == 'Char3_14' or 
+	jobinfo.ClassName == 'Char5_11' then
+		return true;
+	end
+
+	return false;
 end
 
 local function IS_NEW_JOB(jobCls)

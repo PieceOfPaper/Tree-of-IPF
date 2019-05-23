@@ -552,9 +552,11 @@ function SHOP_BUY(clsID, buyCnt, frame)
 	end
 
 	local myCnt = GET_SHOP_ITEM_MY_CNT(shopItem);
-	local maxStack = GET_SHOP_ITEM_MAXSTACK(shopItem);
+	local maxStack = GET_SHOP_ITEM_MAXSTACK(shopItem);    
+    local detail_item = GetClassByType('Item', shopItem.type);
 	if maxStack ~= -1 and myCnt + buyCnt > maxStack then
-		ui.SysMsg(ClMsg('YouAlreadyHaveIt'));
+        local msg = ScpArgMsg("{Name}Item{MaxStack}CountOver", "Name", detail_item.Name, "MaxStack", maxStack)
+		ui.SysMsg(msg);        
 		return;
 	end
 

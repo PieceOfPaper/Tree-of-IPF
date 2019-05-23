@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<GameList>
+	<Game Name="GUILD_COLONY_F_PILGRIMROAD_41_2" minLv="0" maxLv="0" playerCountCheckDestroy="0" mapName="GuildColony_f_pilgrimroad_41_2" startWaitSec="0">
+		<StageList>
+			<Stage Name="START">
+				<ObjList>
+					<Obj Type="Monster" MonType="20024" Pos="108.00#178.00#-312.00" angle="-70" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_OCCUPATION_BUFF"/>
+					<Obj Type="Monster" MonType="20024" Pos="108.00#178.00#-312.00" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_MONSTER"/>
+					<Obj Type="Monster" MonType="156150" Pos="108.00#178.00#-312.00" angle="-70" genCount="1" genTime="20000" objectKey="2" autoDestroy="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_TOWER"/>
+					<Obj Type="Monster" MonType="20024" Pos="-608.98#224.25#556.70" genCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="316.07#178.89#-141.71" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="-665.33#178.89#-604.61" genCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="-1476.02#224.25#322.34" genCount="1" genTime="20000" objectKey="6" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="-1037.22#178.89#-483.68" genCount="1" genTime="20000" objectKey="7" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="-76.53#178.89#-545.33" genCount="1" genTime="20000" objectKey="8" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="1532.31#178.89#-886.89" genCount="1" genTime="20000" objectKey="9" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="-25.88#253.14#1172.02" genCount="1" genTime="20000" objectKey="10" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="618.72#178.89#-1048.66" genCount="1" genTime="20000" objectKey="11" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="143.87#178.89#-1057.19" genCount="1" genTime="20000" objectKey="12" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="-501.23#178.89#-1153.75" genCount="1" genTime="20000" objectKey="13" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="1043.27#178.89#-920.89" genCount="1" genTime="20000" objectKey="14" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="40001" Pos="1987.21#178.89#-1021.20" angle="3" range="-1" genCount="1" genTime="1" objectKey="16" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;래스보이 호숫가&apos; &apos;Enter&apos; &apos;PILGRIM41_2_PILGRIM41_3&apos; &apos;Range&apos; &apos;20&apos; &apos;SimpleAI&apos; &apos;GUILD_COLONY_WARP_ARROW_AI&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="-1853.58#224.25#594.61" angle="142" range="-1" genCount="1" genTime="1" objectKey="17" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;타우마스 숲길&apos; &apos;Enter&apos; &apos;PILGRIM41_2_PILGRIM41_1&apos; &apos;Range&apos; &apos;20&apos; &apos;SimpleAI&apos; &apos;GUILD_COLONY_WARP_ARROW_AI&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="-0.03#178.89#-1502.77" angle="-83" range="-1" genCount="1" genTime="1" objectKey="19" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;섹타 숲&apos; &apos;Enter&apos; &apos;PILGRIM41_2_PILGRIM41_4&apos; &apos;Range&apos; &apos;20&apos; &apos;SimpleAI&apos; &apos;GUILD_COLONY_WARP_ARROW_AI&apos; "/>
+					<Obj Type="Monster" MonType="20024" Pos="-177.13#224.19#549.87" genCount="1" genTime="20000" objectKey="15" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="745.72#178.89#-295.12" genCount="1" genTime="20000" objectKey="20" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="242.98#224.25#696.20" genCount="1" genTime="20000" objectKey="21" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="956.45#178.89#20.59" genCount="1" genTime="20000" objectKey="22" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="-1014.79#224.25#348.55" genCount="1" genTime="20000" objectKey="23" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="636.22#253.14#1039.35" genCount="1" genTime="20000" objectKey="24" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="770.57#224.25#371.48" genCount="1" genTime="20000" objectKey="25" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_ROOTCRYSTAL"/>
+					<Obj Type="Monster" MonType="20024" Pos="108.00#178.00#-312.00" genCount="1" genTime="20000" objectKey="29" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;GUILD_COLONY_SUMMON_ENHANCER_AI&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="103.19#253.14#1627.21" angle="95" range="-1" genCount="1" genTime="1" objectKey="18" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;코노트 숲&apos; &apos;Enter&apos; &apos;PILGRIM41_2_TO_BRACKEN42_1&apos; &apos;Range&apos; &apos;20&apos; &apos;SimpleAI&apos; &apos;GUILD_COLONY_WARP_ARROW_AI&apos; "/>
+				</ObjList>
+			</Stage>
+			<Stage Name="END">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="colony_end">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="SCR_GUILD_COLONY_END_TIME_CHECK"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="SCR_COLONY_END_UI_OPEN"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="START/2"/>
+								<Str Str="SCR_COLONY_TOWER_EFFECT_OFF"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="START"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="START"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="colony_end_return_city" execWithStart="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="SCR_GUILD_COLONY_END_TIME_CHECK"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="COLONY_WAR_RETURN_CITY_ZONE"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

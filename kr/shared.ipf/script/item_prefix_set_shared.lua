@@ -21,7 +21,7 @@ function GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT(item)
             return 6;
         end
         return 24;
-    elseif item.LegendGroup == 'Savinose' then
+    elseif item.LegendGroup == 'Savinose' or item.LegendGroup == 'Varna' then
         if item.GroupName == 'Armor' then
             return 8;
         end

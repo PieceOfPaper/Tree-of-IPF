@@ -184,6 +184,12 @@ function LEGEND_CRAFT_MAKE_CTRLSET(recipeBox, recipeCls, checkGroup, checkMateri
 
 	local targetItem = GetClass('Item', recipeCls.ClassName);
 	local ctrlset = recipeBox:CreateOrGetControlSet('earthTowerRecipe', 'RECIPE_'..recipeCls.ClassName, 0, 0);
+
+	local itemCountGBox = GET_CHILD_RECURSIVELY(ctrlset, "gbox");
+    if itemCountGBox ~= nil then
+		itemCountGBox:ShowWindow(0);
+    end
+
 	-- common
 	local tradeBtn = GET_CHILD(ctrlset, 'tradeBtn');
 	tradeBtn:SetTextByKey('text', ClMsg('Manufacture'));

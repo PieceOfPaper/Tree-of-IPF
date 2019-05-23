@@ -14,7 +14,7 @@ ClassID,ConditionArg4,ClassName,UseType,ValueType,PropertyType,ConditionScp,Cond
 13,0,"card_Ravinepede","Always","StarCount","","","","100","","SCR_CARDEFFECT_ITEM_EFFECTIVE","STAPOTION","","","STA 포션 종류 효과 +{@st66d_y}{s16}[%d]{/}{/}%%","1"
 14,0,"card_Rajatoad","Always","StarCount","","SCR_CARDCHECK_ATTACKTYPE_EQUIP","Aries","100","","SCR_CARDEFFECT_PATK_PLUS","MAXPATK_BM/MINPATK_BM","PATK/PATK","7","찌르기류 무기 착용 시 물리 공격력 +{@st66d_y}{s16}[%d]{/}{/}","7"
 15,0,"card_Rocktortuga","Kill","StarCount","","SCR_CARDCHECK_MONATTRIBUTE","Earth","","","SCR_CARDEFFECT_RECOVER_SP","5","","","땅 속성 몬스터 처치 시 {@st66d_y}{s16}[%d]{/}{/}%% 확률로 SP 5%% 회복","1"
-16,0,"card_lecifer","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_PLUS","CRTMATK_BM","MHR","10","마법 치명타 공격력 +{@st66d_y}{s16}[%d]{/}{/}","10"
+16,0,"card_lecifer","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_PLUS","CRTMATK_BM","CRTMATK","10","마법 치명타 공격력 +{@st66d_y}{s16}[%d]{/}{/}","10"
 17,0,"card_Reaverpede","BeforeAttack","StarCount","","SCR_CARDCHECK_MONSIZE","M","100","","SCR_CARDEFFECT_ADD_DAMAGE_RATE_BM","","","0.5","중형 몬스터에게 주는 대미지{@st66d_y}{s16}[%d]{/}{/}%% 증가","0.5"
 18,0,"card_spector_gh","Always","StarCount","","","","100","","SCR_CARDEFFECT_ITEM_EFFECTIVE","SPPOTION","","","SP 포션 종류 효과 +{@st66d_y}{s16}[%d]{/}{/}%%","1"
 19,0,"card_mineloader","Attack","StarCount","","SCR_CARDCHECK_ATTACK_RATE","","3","","SCR_CARDEFFECT_ADD_BUFF_MONSTER","CARD_ElectricShock","","3000","공격 시 {@st66d_y}{s16}[%d]{/}{/}%% 확률로 상대방에게 3초간 감전 상태","0.34"
@@ -149,3 +149,4 @@ ClassID,ConditionArg4,ClassName,UseType,ValueType,PropertyType,ConditionScp,Cond
 148,0,"Legend_card_boruta","Always","StarCount","","","","","","SCR_CARDEFFECT_ADD_BUFF_STARVALUE_PC","card_boruta_pre_BUFF","","0","보스 몬스터에게 주는 대미지{@st66d_y}{s16}[%d]{/}{/}%% 증가","5"
 149,0,"card_payawoota","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_ALL_PLUS","CON_ITEM_BM/MNA_ITEM_BM/INT_ITEM_BM/DEX_ITEM_BM/STR_ITEM_BM","CON_ITEM_BM/MNA_ITEM_BM/INT_ITEM_BM/DEX_ITEM_BM/STR_ITEM_BM","0.4/0.4/0.4/0.4/0.4","힘, 체력, 지능, 정신, 민첩 + {@st66d_y}{s16}[%d]{/}{/}","0.4"
 150,0,"card_skiaclips","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_ALL_PLUS","CON_ITEM_BM/INT_ITEM_BM","CON_ITEM_BM/INT_ITEM_BM","1/1","체력, 지능 + {@st66d_y}{s16}[%d]{/}{/}","1"
+159,0,"Legendcard_skiaclips","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_PLUS","Klaida_Atk_BM","Klaida_Atk_BM","750","곤충형 대상 공격력+{@st66d_y}{s16}[%d]{/}{/}","750"

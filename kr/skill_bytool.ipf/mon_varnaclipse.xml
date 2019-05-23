@@ -1,169 +1,155 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Mon_Varnaclipse_Skill_3">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Anim Anim="skl" Speed="1" Time="0" />
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="mon_voice12_cast_1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="450" UseSleep="NO">
-					<Str Str="mon_katynforest_zombie_03_atk2_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="450" UseSleep="NO">
-					<Str Str="mon_katynforest_zombie_02_atk2_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
-					<Str_Arg Arg="2" Str="I_swordtrail047_orangeDark_side" />
-					<Str Str="Bip001 Spine" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="800" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
-					<Pos Angle="0" Dist="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="25" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="4" />
-					<Num Num="800" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="None" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="850" UseSleep="NO">
-					<Str Str="mon_voice12_kdown_1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="880" UseSleep="NO">
-					<Str Str="mon_katynforest_zombie_01_atk1_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
-					<Str_Arg Arg="6.5" Str="F_explosion98_fire2" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
-					<Str_Arg Arg="3" Str="I_swordtrail052_dark" />
-					<Str Str="effect001" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Mon_Varnaclipse_Skill_2">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<MoveList>
-				<Frame Accel="1" Angle="-0.00034511092" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="500" />
-				<Frame Accel="1" Angle="-0.27813393" Dist="33.98444" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="1000" />
-			</MoveList>
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Anim Anim="skl" Speed="1" Time="0" />
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="mon_voice12_cast_1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="450" UseSleep="NO">
-					<Str Str="mon_katynforest_zombie_03_atk2_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="450" UseSleep="NO">
-					<Str Str="mon_katynforest_zombie_02_atk2_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
-					<Str_Arg Arg="1.5" Str="I_swordtrail047_orange_side" />
-					<Str Str="Bip001 Spine" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="600" UseSleep="YES">
-					<Pos Angle="0" Dist="10" />
-					<Pos Angle="0" Dist="25" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="25" />
-					<Num Num="0.0099999998" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="15" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="5" />
-					<Num Num="0.2" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="850" UseSleep="NO">
-					<Str Str="mon_voice12_kdown_1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="880" UseSleep="NO">
-					<Str Str="mon_katynforest_zombie_01_atk1_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
-					<Str_Arg Arg="2" Str="I_swordtrail052" />
-					<Str Str="effect002" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1300" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
-					<Pos Angle="0" Dist="40" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="20" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="None" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Mon_Varnaclipse_Skill_1">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Anim Anim="atk" Speed="1" Time="0" />
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="mon_voice12_shot_1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="500" UseSleep="NO">
-					<Str Str="mon_katynforest_zombie_01_atk2_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="700" UseSleep="NO">
-					<Str_Arg Arg="2" Str="I_swordtrail052" />
-					<Str Str="effect001" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1000" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
-					<Pos Angle="0" Dist="20" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="25" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Str_Arg Arg="1" Str="None" />
-					<Str Str="None" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	</ToolSkill>
+<ToolSkill>
+    <Skill Name="Mon_Varnaclipse_Skill_3">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="400" HitCount="4" TermMin="200" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="50" Length="30" SklAngle="0.52359879" AniTime="600" RotAngle="0" ForceATK="0"/>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Anim Time="0" Anim="skl" Speed="1"/>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="mon_voice12_cast_1"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="450">
+                    <Str Str="mon_katynforest_zombie_03_atk2_shot"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="450">
+                    <Str Str="mon_katynforest_zombie_02_atk2_shot"/>
+                </Scp>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="500">
+                    <Str_Arg Str="I_swordtrail047_orangeDark_side" Arg="2"/>
+                    <Str Str="Bip001 Spine"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="850">
+                    <Str Str="mon_voice12_kdown_1"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="880">
+                    <Str Str="mon_katynforest_zombie_01_atk1_shot"/>
+                </Scp>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="1000">
+                    <Str_Arg Str="F_explosion98_fire2" Arg="6.5"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="1000">
+                    <Str_Arg Str="I_swordtrail052_dark" Arg="3"/>
+                    <Str Str="effect001"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_Varnaclipse_Skill_2">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <MoveList>
+                <Frame Accel="1" Angle="-0.00034511092" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="500"/>
+                <Frame Accel="1" Angle="-0.27813393" Dist="33.98444" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="1000"/>
+            </MoveList>
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Anim Anim="skl" Speed="1" Time="0"/>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="mon_voice12_cast_1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="450" UseSleep="NO">
+                    <Str Str="mon_katynforest_zombie_03_atk2_shot"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="450" UseSleep="NO">
+                    <Str Str="mon_katynforest_zombie_02_atk2_shot"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
+                    <Str_Arg Arg="1.5" Str="I_swordtrail047_orange_side"/>
+                    <Str Str="Bip001 Spine"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="600" UseSleep="YES">
+                    <Pos Angle="0" Dist="10"/>
+                    <Pos Angle="0" Dist="25"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="25"/>
+                    <Num Num="0.0099999998"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="15"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="5"/>
+                    <Num Num="0.2"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="850" UseSleep="NO">
+                    <Str Str="mon_voice12_kdown_1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="880" UseSleep="NO">
+                    <Str Str="mon_katynforest_zombie_01_atk1_shot"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
+                    <Str_Arg Arg="2" Str="I_swordtrail052"/>
+                    <Str Str="effect002"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="EFT_AND_HIT" Time="1300" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+                    <Pos Angle="0" Dist="40"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="20"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_Varnaclipse_Skill_1">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Anim Anim="atk" Speed="1" Time="0"/>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="mon_voice12_shot_1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="500" UseSleep="NO">
+                    <Str Str="mon_katynforest_zombie_01_atk2_shot"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="700" UseSleep="NO">
+                    <Str_Arg Arg="2" Str="I_swordtrail052"/>
+                    <Str Str="effect001"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="EFT_AND_HIT" Time="1000" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+                    <Pos Angle="0" Dist="20"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Num Num="25"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+</ToolSkill>

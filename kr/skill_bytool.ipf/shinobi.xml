@@ -116,9 +116,6 @@
 		</MainSkl>
 	</Skill>
 	<Skill Name="Shinobi_Kunai">
-		<EnableScripts>
-			<ToolScp Client="BOTH" Scp="CHECK_IS_VILLAGE" UseSleep="NO" />
-		</EnableScripts>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
 				<Frame Angle="0" AniTime="100" Dist="0" ForceATK="0" HitCount="1" Length="95" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.78539819" TermMax="0" TermMin="0" Time="0" Type="FAN" Width="95" />
@@ -212,9 +209,6 @@
 		</MainSkl>
 	</Skill>
 	<Skill Name="Shinobi_Bunshin_no_jutsu">
-		<EnableScripts>
-			<ToolScp Client="BOTH" Scp="CHECK_IS_VILLAGE" UseSleep="NO" />
-		</EnableScripts>
 		<KeyInputStart>
 			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
 				<Str Str="SKL_BUNSHINNOJUTSU_CAST" />
