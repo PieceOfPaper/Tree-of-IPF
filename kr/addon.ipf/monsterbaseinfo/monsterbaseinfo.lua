@@ -120,7 +120,7 @@ function IS_SHOW_MONB_FRAME(frame, handle)
     return false
 end
 
-function UPDATE_MONB(handle)   
+function UPDATE_MONB(handle)
     local frame= ui.GetFrame("monb_"..handle);  
     if frame ~= nil then
         local isShow = IS_SHOW_MONB_FRAME(frame, handle)        
@@ -283,6 +283,12 @@ function ON_MONB_SPC_TARGET_UPDATE(msgFrame, msg, argStr, handle)
 end
 
 function ON_MONB_TARGET_UPDATE(msgFrame, msg, argStr, argNum)
+    local handle = session.GetTargetHandle();
+	local debounceKey = "UPDATE_MONB_" .. tostring(handle);
+	DebounceScript("DO_MONB_TARGET_UPDATE", 0.1);
+end
+
+function DO_MONB_TARGET_UPDATE()
     local handle = session.GetTargetHandle();
     UPDATE_MONB(handle);
 end

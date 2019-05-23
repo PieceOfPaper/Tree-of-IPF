@@ -193,6 +193,10 @@ function SCR_Get_SpendSP_Magic(skill)
 --    end
 --    
     local pc = GetSkillOwner(skill);
+
+    if pc == nil then
+        return math.floor(value);
+    end
 --
 --    local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
 --    abilAddSP = abilAddSP / 100;
@@ -218,11 +222,11 @@ function SCR_Get_SpendSP_Magic(skill)
             jobHistory = GetMyJobHistoryString();
         end
         
-        if string.find(jobHistory, "Char4_2") ~= nil then
+        if jobHistory ~= nil and string.find(jobHistory, "Char4_2") ~= nil then
             value = value - 25
         end
         
-        if string.find(jobHistory, "Char4_10") ~= nil then
+        if jobHistory ~= nil and string.find(jobHistory, "Char4_10") ~= nil then
             value = value - 50
         end
     end
@@ -1278,8 +1282,7 @@ function SCR_Get_SkillFactor_pcskill_skullarcher(skill)
     return math.floor(value)
 end
 
-function SCR_Get_SklAtkAdd(skill)
-
+function SCR_Get_SklAtkAdd(skill)    
     local sklAtkAdd;
     local skillOwner = GetSkillOwner(skill);
     
@@ -9018,6 +9021,10 @@ function SCR_GET_Heal_Ratio2(skill)
     local value = 150 + (skill.Level - 1) * 103
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
     
+    if pc == nil then
+        return math.floor(value);
+    end
+
     local jobHistory = '';
     if IsServerObj(pc) == 1 then
         jobHistory = GetJobHistoryString(pc);
@@ -9025,11 +9032,11 @@ function SCR_GET_Heal_Ratio2(skill)
         jobHistory = GetMyJobHistoryString();
     end
     
-    if string.find(jobHistory, "Char4_2") ~= nil then
+    if jobHistory ~= nil and string.find(jobHistory, "Char4_2") ~= nil then
         value = value * 1.05
     end
     
-    if string.find(jobHistory, "Char4_15") ~= nil then
+    if jobHistory ~= nil and string.find(jobHistory, "Char4_15") ~= nil then
         value = value * 1.1
     end
     
