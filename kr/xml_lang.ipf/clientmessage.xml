@@ -7097,6 +7097,7 @@
 		<Class ClassID="67295" ClassName="EVENT_1901_RANKRESET_SEL_1" Data="클래스 변경 포인트로 지원 받는다"/>
 		<Class ClassID="67296" ClassName="EVENT_1901_RANKRESET_SEL_2" Data="아이템으로 지원 받는다"/>
 		<Class ClassID="67297" ClassName="EVENT_1901_RANKRESET_SEL_3" Data="클래스 변경 포인트와 아이템을 지원 받는다"/>
+		<Class ClassID="67298" ClassName="EVENT_1901_RANKRESET_NPC_2" Data="추가 대상 클래스를 확인한다. (추가 대상자 : 보코르)"/>
 		<Class ClassID="67300" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG1" Data="격리 예정지로 향하는 포탈이 생성되었습니다.{nl}2분간 지속 됩니다."/>
 		<Class ClassID="67301" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG2" Data="격리 예정지"/>
 		<Class ClassID="67302" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG3" Data="확장 예정지로 향하는 포탈이 생성되었습니다.{nl}2분간 지속 됩니다."/>
@@ -8653,6 +8654,7 @@
 		<Class ClassID="100087" ClassName="REMOVE_BUFF_{Auto_1}" Data="버프 {Auto_1}개 제거!"/>
     <Class ClassID="100088" ClassName="UnableToJoinChallengeModeCuzMaxTeamCount" Data="현재 채널에서 활성화 중인 챌린지 모드 파티의 수가 최대치에 도달하여 입장하실 수 없습니다. 다른 지역을 이용해 주세요."/>
 		<Class ClassID="100089" ClassName="IgnoreLinkBuff" Data="조인트 페널티 면역!!"/>
+		<Class ClassID="100090" ClassName="MackangdalOFF" Data="마캉달 무적 효과 해제!!"/>
 	</Category>
 	<Category Name="Party">
 		<Class ClassID="101001" ClassName="GULID_OUT" Data="길드 탈퇴"/>
