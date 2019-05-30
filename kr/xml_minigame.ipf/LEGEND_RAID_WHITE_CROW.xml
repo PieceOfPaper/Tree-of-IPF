@@ -17,7 +17,7 @@
                     <Obj Type="Monster" MonType="147500" Pos="2865.23#28.51#-1307.64" genCount="1" genTime="20000" objectKey="17" propList="&apos;NumArg1&apos; &apos;10&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
-                    <Obj Type="Monster" MonType="154066" Pos="-1027.69#28.56#395.98" maxStackCount="1" genTime="1000" autoGen="0" objectKey="26" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;포탈&apos; &apos;Dialog&apos; &apos;SHADOW_RAID_WHITE_CROW_PORTAL&apos; &apos;MaxDialog&apos; &apos;1&apos; ">
+                    <Obj Type="Monster" MonType="154066" Pos="-1024.81#28.56#393.54" maxStackCount="1" genTime="1000" autoGen="0" objectKey="26" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;포탈&apos; &apos;Dialog&apos; &apos;SHADOW_RAID_WHITE_CROW_PORTAL&apos; &apos;MaxDialog&apos; &apos;1&apos; ">
                         <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <StartList>
                                 <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
@@ -75,9 +75,6 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Gimmick_Name"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
-                                <MGameObjPtr List="DefGroup/26"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="DefGroup/1"/>
@@ -186,6 +183,12 @@
                                 <Num Num="0"/>
                                 <Str Str="None"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FAIL_CHECK"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FAIL"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Boss_PowerUp">
@@ -240,11 +243,6 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="ChangeBoss"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="DefGroup/26"/>
-                                <Num Num="1"/>
-                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -1593,8 +1591,17 @@
                     </Event>
                     <Event execCount="1" eventName="remove_master">
                         <execList>
+                            <ToolScp Scp="SCR_SET_SAVE_POINT_RESURRECT" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="DefGroup/0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_REVIVE" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/26"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>

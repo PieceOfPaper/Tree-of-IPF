@@ -109,7 +109,7 @@ function ITEM_OPTIONADD_MAIN_ITEM_DROP(frame, icon, argStr, argNum)
 	end;
 end;
 
-function ITEM_OPTIONADD_ADD_ITEM_DROP(frame, icon, argStr, argNum)
+function ITEM_OPTIONADD_ADD_ITEM_DROP(frame, icon, argStr, argNum)    
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
@@ -140,7 +140,7 @@ function ITEM_OPTIONADD_REG_MAIN_ITEM(frame, itemID)
 	
 	local item = GetIES(invItem:GetObject());
 	local itemCls = GetClassByType('Item', item.ClassID)
-	if TryGetProp(itemCls, 'NeedRandomOption', 0) == 1 then
+	if TryGetProp(itemCls, 'NeedRandomOption', 0) == 1 and TryGetProp(itemCls, 'LegendGroup', 'None') == 'None' then
 	    ui.SysMsg(ClMsg("NotAllowedItemOptionAdd"));
         return;
 	end
@@ -169,7 +169,7 @@ function ITEM_OPTIONADD_REG_MAIN_ITEM(frame, itemID)
 	else
 		-- invitem 이 slot 들어갈 템이 아니면 에러후 리턴
 		if TryGetProp(item, 'LegendGroup', 'None') == 'None' then
-		--장착 안대는 아이템
+		--장착 안대는 아이템        
 			ui.SysMsg(ClMsg("NotAllowedItemOptionAdd"));
 			return;
 		end
@@ -234,7 +234,7 @@ function ITEM_OPTIONADD_REG_MAIN_ITEM(frame, itemID)
 	SET_OPTIONADD_RESET(frame);	
 end
 
-function ITEM_OPTIONADD_REG_ADD_ITEM(frame, itemID)
+function ITEM_OPTIONADD_REG_ADD_ITEM(frame, itemID)    
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
@@ -269,17 +269,19 @@ function ITEM_OPTIONADD_REG_ADD_ITEM(frame, itemID)
 		local tempItem = GetIES(slotInvItem:GetObject());
 		slotInvItemCls = GetClass('Item', tempItem.ClassName)
 	end
-
-
-		--아이커의 atk 과 slot 의 atk 이 맞아야만 장착가능
+    
+	--아이커의 atk 과 slot 의 atk 이 맞아야만 장착가능    
 	local targetItem = GetClass('Item', invitem.InheritanceItemName);
-	if targetItem.ClassType ~= slotInvItemCls.ClassType then
-		ui.SysMsg(ClMsg('NotMatchItemClassType'))
-		-- atk 타입이 안맞아서 리턴
+
+    if targetItem == nil then
+        targetItem = GetClass('Item', invitem.InheritanceRandomItemName);
+    end
+        
+	if targetItem.ClassType ~= slotInvItemCls.ClassType or (IS_ICORABLE_RANDOM_LEGEND_ITEM(slotInvItemCls) and invitem.InheritanceRandomItemName ~= 'None') then
+		ui.SysMsg(ClMsg('NotMatchItemClassType')) -- atk 타입이 안맞아서 리턴
 		return
 	end
 	
-	local targetItem = GetClass('Item', invitem.InheritanceItemName);
 	local yPos = 0
 	local basicList = GET_EQUIP_TOOLTIP_PROP_LIST(targetItem);
     local list = {};
@@ -289,7 +291,7 @@ function ITEM_OPTIONADD_REG_ADD_ITEM(frame, itemID)
         list = GET_CHECK_OVERLAP_EQUIPPROP_LIST(basicList, basicTooltipProp, list);
     end
 
-	local list2 = GET_EUQIPITEM_PROP_LIST();
+	local list2 = GET_EUQIPITEM_PROP_LIST();    
 	
 	local cnt = 0;
 	for i = 1 , #list do
@@ -752,7 +754,7 @@ function ITEMOPTIONADD_INV_RBTN(itemObj, slot)
 	end
 	
 	local itemCls = GetClass('Item', TryGetProp(itemObj, 'ClassName', 'None'))
-	if TryGetProp(itemCls, 'NeedRandomOption', 0) == 1 then
+	if TryGetProp(itemCls, 'NeedRandomOption', 0) == 1 and TryGetProp(itemCls, 'LegendGroup', 'None') == 'None' then    
 	    ui.SysMsg(ClMsg("NotAllowedItemOptionAdd"));
         return;
 	end

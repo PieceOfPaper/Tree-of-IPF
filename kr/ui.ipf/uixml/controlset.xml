@@ -3918,7 +3918,7 @@
 			<richtext name="file_name" parent="gb_items" layout_gravity="left top" rect="0 0 265 20" margin="50 17 0 0" textalign="left center" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" fontname="black_18" format="%s" param1="value" param1_def="None"/>
 		</controls>
 	</controlset>
-	<controlset name="guild_emblem_set" hittest="true" width="98" height="98" skin="test_frame_midle" hittestset="true" draw="true" stateskin="false">
+	<controlset name="guild_emblem_set" hittest="true" width="98" height="98" skin="None" hittestset="true" draw="true" stateskin="false">
 		<controls>
 			<picture name="emblemedgebgPic" rect="0 0 70 70" margin="0 5 0 0" layout_gravity="center center" image="test_frame_midle_mini" stretch="true" hittest="false" resizebyparent="true" forceupdate="true"/>
 			<picture name="emblemPic" rect="0 0 64 64" margin="0 0 0 0" layout_gravity="center center" image="guildmark_slot" stretch="false" hittest="false" resizebyparent="true" forceupdate="true"/>

@@ -125,6 +125,7 @@ function ITEM_OPTIONRELEASE_DROP(frame, icon, argStr, argNum)
 	end;
 end;
 
+-- 고정옵션 아이커 장착해제 
 function ITEM_OPTIONRELEASE_REG_TARGETITEM(frame, itemID)
 	local gBox = GET_CHILD_RECURSIVELY(frame, "bodyGbox1_1");
 	gBox:RemoveChild('tooltip_equip_property');
@@ -164,6 +165,11 @@ function ITEM_OPTIONRELEASE_REG_TARGETITEM(frame, itemID)
 	if inheritItemName ~= 'None' then
 		inheritItemCls = GetClass('Item', inheritItemName);
 	end;
+
+    if inheritItemCls == nil then    
+        ui.SysMsg(ClMsg("IcorNotAdded"));
+        return
+    end
 
 	local yPos = 0;
 	local basicList = GET_EQUIP_TOOLTIP_PROP_LIST(inheritItemCls);
@@ -216,14 +222,8 @@ function ITEM_OPTIONRELEASE_REG_TARGETITEM(frame, itemID)
 	local property_gbox = GET_CHILD(tooltip_equip_property_CSet,'property_gbox','ui::CGroupBox');
 
 	local inner_yPos = 0;
-	
-	local maxRandomOptionCnt = 6;
+		
 	local randomOptionProp = {};
-	for i = 1, maxRandomOptionCnt do
-		if invItemObj['RandomOption_'..i] ~= 'None' then
-			randomOptionProp[invItemObj['RandomOption_'..i]] = invItemObj['RandomOptionValue_'..i];
-		end;
-	end;
 
 	for i = 1 , #list do
 		local propName = list[i];
@@ -272,34 +272,6 @@ function ITEM_OPTIONRELEASE_REG_TARGETITEM(frame, itemID)
 		if invItemObj[propValue] ~= 0 and invItemObj[propName] ~= "None" then
 			local opName = string.format("[%s] %s", ClMsg("EnchantOption"), ScpArgMsg(invItemObj[propName]));
 			local strInfo = ABILITY_DESC_PLUS(opName, invItemObj[propValue]);
-			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
-		end;
-	end;
-	
-	for i = 1 , maxRandomOptionCnt do
-	    local propGroupName = "RandomOptionGroup_"..i;
-		local propName = "RandomOption_"..i;
-		local propValue = "RandomOptionValue_"..i;
-		local clientMessage = 'None';
-		
-		if invItemObj[propGroupName] == 'ATK' then
-		    clientMessage = 'ItemRandomOptionGroupATK'
-		elseif invItemObj[propGroupName] == 'DEF' then
-		    clientMessage = 'ItemRandomOptionGroupDEF'
-		elseif invItemObj[propGroupName] == 'UTIL_WEAPON' then
-		    clientMessage = 'ItemRandomOptionGroupUTIL'
-		elseif invItemObj[propGroupName] == 'UTIL_ARMOR' then
-		    clientMessage = 'ItemRandomOptionGroupUTIL'
-		elseif invItemObj[propGroupName] == 'UTIL_SHILED' then
-		    clientMessage = 'ItemRandomOptionGroupUTIL'
-		elseif invItemObj[propGroupName] == 'STAT' then
-		    clientMessage = 'ItemRandomOptionGroupSTAT'
-		end;
-		
-		if invItemObj[propValue] ~= 0 and invItemObj[propName] ~= "None" then
-			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(invItemObj[propName]));
-			local strInfo = ABILITY_DESC_NO_PLUS(opName, invItemObj[propValue], 0);
-
 			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 		end;
 	end;

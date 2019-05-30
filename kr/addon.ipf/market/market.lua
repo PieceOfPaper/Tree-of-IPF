@@ -365,7 +365,7 @@ local function _CREATE_SEAL_OPTION(ctrlSet, itemObj)
 	end
 end
 
-function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
+function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)      
 	local itemlist = GET_CHILD_RECURSIVELY(frame, "itemListGbox");
 	itemlist:RemoveAllChild();
 	local mySession = session.GetMySession();
@@ -400,6 +400,10 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
 		ctrlSet:SetUserValue("optionIndex", 0)
 
 		local inheritanceItem = GetClass('Item', itemObj.InheritanceItemName)
+        if inheritanceItem == nil then
+            inheritanceItem = GetClass('Item', itemObj.InheritanceRandomItemName)
+        end
+
 		MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem);
 
 		local name = GET_CHILD_RECURSIVELY(ctrlSet, "name");
@@ -534,7 +538,7 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
 		if inheritanceItem ~= nil then
 			itemObj = inheritanceItem
 		end
-
+        
 		if needAppraisal == 1 or needRandomOption == 1 then
 			SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, '{@st66b}'..ScpArgMsg("AppraisalItem"))
 		end
@@ -550,11 +554,11 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
 		local list2 = GET_EUQIPITEM_PROP_LIST();
 		local cnt = 0;
 		local class = GetClassByType("Item", itemObj.ClassID);
-
+        
 		local maxRandomOptionCnt = MAX_OPTION_EXTRACT_COUNT;
-		local randomOptionProp = {};
+		local randomOptionProp = {};        
 		for i = 1, maxRandomOptionCnt do
-			if itemObj['RandomOption_'..i] ~= 'None' then
+			if itemObj['RandomOption_'..i] ~= 'None' then                
 				randomOptionProp[itemObj['RandomOption_'..i]] = itemObj['RandomOptionValue_'..i];
 			end
 		end
@@ -569,7 +573,7 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
 					needToShow = false;
 				end
 			end
-
+            
 			if needToShow == true and propValue ~= 0 and randomOptionProp[propName] == nil then -- 랜덤 옵션이랑 겹치는 프로퍼티는 여기서 출력하지 않음
 				if  itemObj.GroupName == 'Weapon' then
 					if propName ~= "MINATK" and propName ~= 'MAXATK' then
@@ -616,7 +620,7 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
 			local propValue = "RandomOptionValue_"..i;
 			local clientMessage = 'None'
 
-			local propItem = originalItemObj
+			local propItem = originalItemObj            
 
 			if propItem[propGroupName] == 'ATK' then
 			    clientMessage = 'ItemRandomOptionGroupATK'
@@ -632,11 +636,11 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
 			    clientMessage = 'ItemRandomOptionGroupSTAT'
 			end
 			
-			if propItem[propValue] ~= 0 and propItem[propName] ~= "None" then
+			if propItem[propValue] ~= 0 and propItem[propName] ~= "None" then                
 				local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(propItem[propName]));
-				local strInfo = ABILITY_DESC_NO_PLUS(opName, propItem[propValue], 0);
+				local strInfo = ABILITY_DESC_NO_PLUS(opName, propItem[propValue], 0);                
 				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
-			end
+			end            
 		end
 
 		_CREATE_SEAL_OPTION(ctrlSet, itemObj);
@@ -721,13 +725,21 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
 	MARKET_SET_PAGE_CONTROL(frame, "pagecontrol")
 end
 
-function SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, str)
+function SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, str)    
 	local index = ctrlSet:GetUserIValue("optionIndex")
 	local optionText = GET_CHILD_RECURSIVELY(ctrlSet, "randomoption_" .. index)
+    
+    if optionText == nil then
+        return
+    end
 
 	optionText:SetTextByKey("value", str)
 	if index < 7 then
 		ctrlSet:SetUserValue("optionIndex", index + 1)
+    elseif index == 7 then
+        optionText = GET_CHILD_RECURSIVELY(ctrlSet, "randomoption_" .. index)
+        optionText:SetTextByKey("value", ClMsg('RemainMoreOption'))
+        ctrlSet:SetUserValue("optionIndex", index + 1)
 	end
 end
 

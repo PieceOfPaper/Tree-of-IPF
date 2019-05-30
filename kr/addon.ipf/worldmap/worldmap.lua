@@ -598,12 +598,11 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 							if emblemedgePic ~= nil and emblemedgebgPic ~= nil then
 								if colonyLeague.ColonyLeague == 1 then
 									emblemedgePic:SetImage("colony_league_part1");
-									emblemedgebgPic:Resize(64, 64);
 									emblemedgebgPic:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
 								elseif colonyLeague.ColonyLeague == 2 then
 									emblemedgePic:SetImage("colony_league_part2");
-									emblemedgebgPic:Resize(64, 64);
 								end
+								emblemedgebgPic:Resize(64, 64);
 							end
 							
 							local emblemPic = GET_CHILD_RECURSIVELY(emblemSet, 'emblemPic');
@@ -611,11 +610,9 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
                             local emblemImgName = guild.GetEmblemImageName(guildID, worldID); 
                             if emblemImgName ~= 'None' then
                                 emblemPic:SetFileName(emblemImgName);
-								emblemSet:SetSkinName("None");
                             else            
                                 local worldID = session.party.GetMyWorldIDStr();    
                                 guild.ReqEmblemImage(guildID,worldID);
-								emblemSet:SetSkinName("test_frame_midle");
                             end
 
                         	local taxGuildName = taxRateInfo:GetGuildName()
@@ -636,6 +633,7 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 					occupyText:SetText(colonyText);
 					totalCtrlHeight = totalCtrlHeight + occupyText:GetHeight();
 					maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, occupyText:GetWidth());
+					occupyText:Invalidate();
 				elseif emblemSet ~= nil then
 					emblemSet:SetTextTooltip(occupyTextTooltip);            
 					totalCtrlHeight = totalCtrlHeight + emblemSet:GetHeight();

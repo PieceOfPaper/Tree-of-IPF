@@ -19,11 +19,17 @@
                     <Str Str="voice_war_atk_medium"/>
                     <Str Str="voice_atk_medium_war_f"/>
                 </Scp>
+                <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="0">
+                    <Str_Arg Str="F_warrior_shield002" Arg="0.5"/>
+                    <Pos Angle="0" Dist="0" Height="25"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
                 <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="200">
-                    <Str Str="Goduma_Buff"/>
+                    <Str Str="Goduma_Pre_Buff"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                    <Num Num="20000" UseFunc="1" FuncTxt="local value = 30000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = value + 10000 end return value"/>
+                    <Num Num="500"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -59,6 +65,15 @@
                     <Num Num="100"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="450">
+                    <Str Str="Gymas_Party_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="20000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="1"/>
+                </Scp>                
             </EtcList>
         </MainSkl>
     </Skill>
@@ -79,7 +94,7 @@
                     <Str Str="Smugis_Buff"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                    <Num Num="10000"/>
+                    <Num Num="20000" UseFunc="1" FuncTxt="local value = 20000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = value + 5000 end return value"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>

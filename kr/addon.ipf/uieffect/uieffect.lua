@@ -26,26 +26,6 @@ function GET_CURRENT_SNIPE_POS()
 	return pos.x, pos.y;
 end
 
---[[function GET_USERVALUE_CURPOS()
-	local frame = ui.GetFrame("uieffect");
-	if frame == nil then return end
-
-	local child = frame:GetChild("SNIPER");
-	if child == nil then return end
-
-	local x = tonumber(child:GetUserValue("CURX"));
-	local y = tonumber(child:GetUserValue("CURY"));
-
-	return x, y;
-end
-
-function GET_CURRENT_SNIPE_POS_MOUSE()
-	local x, y = GET_MOUSE_POS();
-	local frame = ui.GetFrame("uieffect");
-	local pt = frame:ScreenPosToFramePos(x, y);
-	return pt.x, pt.y;
-end]]
-
 function change_client_size(frame)
 	frame:MoveFrame(0, 0);
 	local width = option.GetClientWidth()

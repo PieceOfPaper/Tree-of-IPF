@@ -1111,6 +1111,50 @@ function SCR_STRING_CUT(a, b)
 end
 
 
+
+
+
+function SCR_STRING_CUT_TO_STR(a, b)
+    if a == nil then
+        return
+    end
+    local temp_table = { };
+    local w;
+
+    if b == nil then
+        b = '/'
+    end
+    for w in string.gmatch(a, "[^" .. b .. "]+") do
+        temp_table[#temp_table + 1] = w;
+    end
+
+    return temp_table;
+end
+
+
+
+
+
+
+function SCR_STRING_CONCAT(table, a)
+    local concatStr = "";
+    if a == nil then
+        a = ";";
+    end
+
+    for i = 1, #table do
+        if type(table[i]) == "string" and string.find(concatStr, table[i]) == nil then
+            if i < #table then
+                concatStr = concatStr .. table[i] .. a;
+            else
+                concatStr = concatStr .. table[i];
+            end
+        end
+    end
+
+    return concatStr;
+end
+
 function SCR_STRING_TO_TABLE(a)
     if a == nil then
         return a

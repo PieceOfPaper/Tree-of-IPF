@@ -215,7 +215,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 	end
 
 	ITEMTOOLTIPFRAME_ARRANGE_CHILDS(tooltipframe, showAppraisalPic);
-	ITEMTOOLTIPFRAME_RESIZE(tooltipframe);
+	ITEMTOOLTIPFRAME_RESIZE(tooltipframe);    
 
 end
 
@@ -609,7 +609,10 @@ end
 function ITEM_TOOLTIP_EXTRACT_OPTION(tooltipframe, invitem, mouseOverFrameName)
 	local targetItem = GetClass('Item', invitem.InheritanceItemName);
 	if targetItem == nil then
-		return;
+        targetItem = GetClass('Item', invitem.InheritanceRandomItemName);
+        if targetItem == nil then
+		    return;
+        end
 	end
 
 	tolua.cast(tooltipframe, "ui::CTooltipFrame");

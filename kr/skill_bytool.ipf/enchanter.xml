@@ -1,29 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Enchanter_EnchantGlove">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+<ToolSkill>
+<Skill Name="Enchanter_EnchantGlove">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
 			<HitList>
-				<Frame Angle="0" AniTime="10999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="10799" Type="FAN" />
+				<Frame Type="FAN" Time="10799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10999" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="100">
 					<Str Str="voice_scout_m_enchantglove_cast" />
 					<Str Str="voice_scout_f_enchantglove_cast" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="550" UseSleep="NO">
-					<Str Str="Enchantglove_Buff" />
-					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="1800000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="700" UseSleep="NO">
+				<Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="700">
 					<Str Str="skl_fgt_buff_1" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="800" UseSleep="NO">
-					<Pos Angle="0" Dist="0" />
+					</Scp>
+                <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="800">
+                    <Pos Angle="0" Dist="0" />
 					<Num Num="160" />
 					<Num Num="15" />
 					<Num Num="1" />
@@ -31,8 +22,18 @@
 					<Num Num="1" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="800" UseSleep="NO">
+				<Scp Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Client="NO" UseSleep="NO" Time="800">
 					<Str Str="TARGET_CHECK_IS_PC_AND_GLOVES" />
+				</Scp>
+				<Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="800">
+					<Str Str="Enchantglove_Buff"/>
+					<Num Num="0" UseFunc="1" FuncTxt="return obj.Level;"/>
+					<Num Num="0"/>
+					<Num Num="1800000"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="0"/>
+				<Num Num="1"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>

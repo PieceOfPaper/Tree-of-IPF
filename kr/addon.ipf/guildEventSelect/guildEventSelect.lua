@@ -42,6 +42,11 @@ function CREATE_GUILD_EVENT_LIST(frame)
 	for i = 0, cnt - 1 do	
 		local cls = GetClassByIndexFromList(clsList, i);
 		if cls.EventType == gGuileEventList[droplist:GetSelItemIndex()+1] then
+		    local ticket_value = 1
+		    if cls.ClassName == 'GM_BorutosKapas_1' then
+		        ticket_value = 3
+		    end
+
 			if cls.GuildLv > 0 and lv >= cls.GuildLv then
 				local ctrlSet = gbox:CreateControlSet("guild_event", cls.ClassName, ui.LEFT, ui.TOP, 0, 0, 0, 0);
 				ctrlSet:SetUserValue("GUILD_EVENT_CTRL", "YES");
@@ -58,7 +63,8 @@ function CREATE_GUILD_EVENT_LIST(frame)
 				detailInfo:SetTextByKey("value", cls.DetailInfo);
 
 				local ticketText = GET_CHILD(ctrlSet, "ticketText");	
-				ticketText:SetTextByKey("value", 1);
+
+				ticketText:SetTextByKey("value", ticket_value);
 
 				local eventType = GET_CHILD_RECURSIVELY(ctrlSet, "EventType", "ui::CPicture");
 				local imgName = frame:GetUserConfig("EVENT_TYPE_"..droplist:GetSelItemIndex())
@@ -98,7 +104,12 @@ function ACCEPT_GUILD_EVENT(parent, ctrl)
 end
 
 function EXEC_GUILD_EVENT(clsID)
-	
+    local cls = GetClassByType("GuildEvent", clsID)
+    local special_mission = 0
+    if cls.ClassName == 'GM_BorutosKapas_1' then
+        special_mission = 1
+    end
+
 	local pcGuild = session.party.GetPartyInfo(PARTY_GUILD);
 	if pcGuild == nil then
 		return;
@@ -110,6 +121,20 @@ function EXEC_GUILD_EVENT(clsID)
 	if haveTicket <= 0 then
 		ui.SysMsg(ScpArgMsg("NotEnoughTicketPossibleCount"));
 		return;
+	end
+	
+	if special_mission == 1 then
+	    local CheckTime = guildObj.GuildEvent_BorutosKapas_Count
+
+        if CheckTime > 0 then
+            ui.SysMsg(ScpArgMsg("NotEnoughTicketPossibleCount_GMBK"));
+            return
+        end
+
+	    if haveTicket < 3 then
+    		ui.SysMsg(ScpArgMsg("NotEnoughTicketPossibleCount"));
+    		return;
+    	end
 	end
 	
 	ui.CloseFrame('guildEventSelect');
