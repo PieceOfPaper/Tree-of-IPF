@@ -23,7 +23,7 @@
                     <Str Str="Goduma_Buff"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                    <Num Num="20000" UseFunc="1" FuncTxt="local value = 10000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = 15000 end return value"/>
+                    <Num Num="20000" UseFunc="1" FuncTxt="local value = 30000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER') if tonumber(isDragonPower) >= 1 then value = value + 10000 end return value"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
@@ -54,7 +54,7 @@
                     <Str Str="Gymas_Buff"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                    <Num Num="10000"/>
+                    <Num Num="40000"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>

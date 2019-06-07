@@ -1188,7 +1188,7 @@
 		<Class ClassID="10507" ClassName="FailToCreateCharacter" Data="캐릭터 생성에 실패했습니다. 잠시 후 다시 시도해 주세요"/>
 		<Class ClassID="10508" ClassName="LackOfUnrevertRandomMaterial" Data="신비한 돋보기가 부족합니다."/>
 		<Class ClassID="10509" ClassName="LackOfRevertRandomMaterial" Data="장인의 돋보기가 부족합니다."/>
-		<Class ClassID="10510" ClassName="{Name}Item{MaxStack}CountOver" Data="[{Name}] 아이템은 {MaxStack}개 이상 소유할 수 없습니다."/>
+		<Class ClassID="10510" ClassName="{Name}Item{MaxStack}CountOver" Data="[{Name}] 아이템은 {MaxStack}를 초과하여 소유할 수 없습니다."/>
 		<Class ClassID="10511" ClassName="AskExtractAbilityPoint{Silver}{Scroll}{ConsumePoint}" Data="{Silver} 실버를 소비하여 특성 포인트 스크롤 {Scroll}개를 추출합니다.{nl}{ConsumePoint} 특성 포인트를 추출하시겠습니까?"/>
 		<Class ClassID="10512" ClassName="AddBarrackCharacterSlotSuccess{count}" Data="[{count}]개의 슬롯이 성공적으로 추가 되었습니다."/>
 		<Class ClassID="10513" ClassName="CanAddMoreSlotBecauseFullSlot" Data="더 이상 캐릭터 슬롯을 추가할 수 없습니다."/>
@@ -7726,6 +7726,7 @@
 		<Class ClassID="70524" ClassName="SHADOW_RAID_WHITE_CROW_BASIC" Data="조심하십시오.{nl}저 안쪽에 있는 마족은 상당히 강력하니까요."/>
 		<Class ClassID="70525" ClassName="SHADOW_RAID_WHITE_CROW_IS_ALL_READY" Data="다들 준비가 되신 것 같으니 포탈을 열겠습니다.{nl}저 포탈을 통해 이동하십시오."/>
 		<Class ClassID="70526" ClassName="SHADOW_RAID_WHITE_CROW_NUMBER_CHECK" Data="남은 몬스터 수: {COUNT}마리{nl}남은 힌트 수: {ASSIST}번"/>
+		<Class ClassID="70527" ClassName="SHADOW_RAID_PETRIFIED_DELETE" Data="아직 석화되지 않은 몬스터에 의해 다른 몬스터의 석화가 풀립니다!"/>
 		<Class ClassID="80001" ClassName="LIMESTONE_52_1_CRYSTAL_ING" Data="불안정한 마력핵 설치 중"/>
 		<Class ClassID="80002" ClassName="LIMESTONE_52_1_SQ_1_TAKE" Data="목걸이 빼앗는 중"/>
 		<Class ClassID="80003" ClassName="LIMESTONE_52_2_MQ_7_SUCC_MSG" Data="구속장치가 요동치기 시작합니다!"/>
@@ -8651,6 +8652,7 @@
 		<Class ClassID="100086" ClassName="attendance_word" Data="{@st42}{s16}출석"/>
 		<Class ClassID="100087" ClassName="REMOVE_BUFF_{Auto_1}" Data="버프 {Auto_1}개 제거!"/>
     <Class ClassID="100088" ClassName="UnableToJoinChallengeModeCuzMaxTeamCount" Data="현재 채널에서 활성화 중인 챌린지 모드 파티의 수가 최대치에 도달하여 입장하실 수 없습니다. 다른 지역을 이용해 주세요."/>
+		<Class ClassID="100089" ClassName="IgnoreLinkBuff" Data="조인트 페널티 면역!!"/>
 	</Category>
 	<Category Name="Party">
 		<Class ClassID="101001" ClassName="GULID_OUT" Data="길드 탈퇴"/>
@@ -13726,8 +13728,8 @@
 		<Class ClassID="514008" ClassName="NicopolisItemMsg" Data="마나 램프를 사용하려면 대기중의 마나를 수집해야 합니다."/>
 		<Class ClassID="514009" ClassName="UniqStarTowerMsg" Data="마법진 너머로 이동중.."/>
 		<Class ClassID="514010" ClassName="TableLand_ReturnCity{SEC}" Data="잠시 후 베다 고원으로 귀환됩니다. ({SEC}초)"/>
-		<Class ClassID="514011" ClassName="RAID_FIRST_KILL_NOTICE" Data="{partyName} 파티가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
-		<Class ClassID="514012" ClassName="RAID_NEW_RECORD" Data="{partyName} 파티가 {clearMin}분 {clearSec}초에 {raidName}의 클리어 시간을 단축했습니다!"/>
+		<Class ClassID="514011" ClassName="RAID_FIRST_KILL_NOTICE" Data="{partyMember} 파티가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
+		<Class ClassID="514012" ClassName="RAID_NEW_RECORD" Data="{partyMember} 파티가 {clearMin}분 {clearSec}초에 {raidName}의 클리어 시간을 단축했습니다!"/>
 		</Category>
 	<Category Name="SoloDungeon">
 		<Class ClassID="513001" ClassName="SoloDungeonStageMSG" Data="스테이지의 몬스터가 몰려옵니다. 모두 처치해 주세요!"/>

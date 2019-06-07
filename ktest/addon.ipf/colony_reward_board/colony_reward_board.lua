@@ -2,22 +2,40 @@
 function COLONY_REWARD_BOARD_ON_INIT(addon, frame)
 	addon:RegisterMsg("SUCCESS_SECOND_LEAGUE_COLONY_REWARD", "ON_SUCCESS_REWARD_ITEM");
 	addon:RegisterMsg("UPDATE_COLONY_REWARD_DEATIL_LIST", "ON_UPDATE_REWARD_DETAIL_ITEM");
+	addon:RegisterMsg("START_SECOND_LEAGUE_COLONY_REWARD", "ON_SECOND_LEAGUE_START");
+end
+
+function ON_SECOND_LEAGUE_START(frame)
+	if frame == nil then return; end
+	local reward_list_gb = GET_CHILD_RECURSIVELY(frame, "reward_list_gb");
+	local enable = session.colonyReward.IsEnableSecondLeagueReward();
+	if reward_list_gb ~= nil and enable ~= nil and enable == true then
+		REWARD_LIST_CLEAR(reward_list_gb);
+		CREATE_COLONY_REWARD_LIST(reward_list_gb);
+	end
+	frame:Invalidate();
 end
 
 function ON_OPEN_COLONY_REWARD_BOARD(frame)
+	local taxboardUI = ui.GetFrame("colony_tax_board");
+	if taxboardUI ~= nil and taxboardUI:IsVisible() == 1 then
+		ui.CloseFrame("colony_tax_board");
+	end
+
 	local rewardwarning_text = GET_CHILD_RECURSIVELY(frame, "rewardwarning_text");
 	local rewardDetailMsg = ScpArgMsg("ColonyLeague_2nd_Reward_Detail{RewardLoadDelay}{RewardReceiveTime}", "RewardLoadDelay", (COLONY_TAX_DISTRIBUTE_DELAY_MIN/60), "RewardReceiveTime", (COLONY_TAX_DISTRIBUTE_PERIOD_MIN/1440));
 	rewardwarning_text:SetTextByKey("value", rewardDetailMsg);
 
 	session.colonytax.ReqTaxChequeList();
 	session.colonyReward.LoadRewardItemDate();
+	session.colonyReward.ReqChallengersList();
 	
-	local enable = session.colonytax.IsEnabledColonyTaxReward();
-	if frame ~= nil and enable ~= nil and enable == true then
-		local reward_list_gb = GET_CHILD_RECURSIVELY(frame, "reward_list_gb");
+	local reward_list_gb = GET_CHILD_RECURSIVELY(frame, "reward_list_gb");
+	local enable = session.colonyReward.IsEnableSecondLeagueReward();
+	if reward_list_gb ~= nil and enable ~= nil and enable == true then
 		CREATE_COLONY_REWARD_LIST(reward_list_gb)
-	elseif enable == false then
-		REWARD_LIST_CLEAR();
+	elseif reward_list_gb ~= nil and enable == false then
+		REWARD_LIST_CLEAR(reward_list_gb);
 	end
 end
 
@@ -54,7 +72,9 @@ function GET_SEONCDLEAGUE_TAX_RATE_LIST()
 	local secondLeagueRateList = {};
 	local count = session.colonytax.GetTaxRateCount();
 	for i = 0, count - 1 do
-		local taxRateInfo = session.colonytax.GetTaxRateByIndex(i);
+		local guildInfo = session.party.GetPartyInfo(PARTY_GUILD);
+		local guildID = guildInfo.info:GetPartyID();
+		local taxRateInfo = session.colonytax.GetMyGuildTaxRateByIndex(i, guildID);
 		if taxRateInfo ~= nil then
             local mapID = taxRateInfo:GetColonyMapID();
             local mapCls = GetClassByType('Map', mapID);
@@ -62,7 +82,7 @@ function GET_SEONCDLEAGUE_TAX_RATE_LIST()
             local cityMapCls = GetClass("Map", cityMapName)
             local colonyCls = GetClassByStrProp("guild_colony", "TaxApplyCity", cityMapCls.ClassName)
             local colonyLeague = TryGetProp(colonyCls, "ColonyLeague")
-			if colonyLeague == 2 then
+			if colonyLeague == 2  then
 				secondLeagueRateList[#secondLeagueRateList + 1] = taxRateInfo;
 			end
 		end
@@ -125,10 +145,6 @@ function FILL_COLONY_REWARD_ELEM(ctrlset, rateInfo)
     local colonyMapID = TryGetProp(colonyCls, "ClassID");
 	colonymap_text:SetUserValue("COLONY_MAPID", colonyMapID);
 
-	-- time
-	local criterionTime = rateInfo:GetCriterionTime();
-	session.colonyReward.InitColonyRewardItemTime(colonyMapID, criterionTime);
-	
 	local reward_gb = GET_CHILD_RECURSIVELY(ctrlset, "reward_gb");
 	if reward_gb ~= nil then
 		local rewardItemCnt = session.colonyReward.GetRewardInfoListCountByType(colonyMapID);		
@@ -213,7 +229,6 @@ end
 function ON_SUCCESS_REWARD_ITEM(frame, msg, mapID)
 	if frame == nil then return; end
 	if mapID == nil then return; end
-
 	ui.SysMsg(ClMsg("ColonyLeague_World_map_2nd_Reward_Success"));	
 end
 

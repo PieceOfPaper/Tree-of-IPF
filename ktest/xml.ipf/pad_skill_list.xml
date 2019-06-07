@@ -4969,7 +4969,7 @@ return FreezeRating;
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Daoshi_CreepingDeath" CheckerType="0" Range="15" UpdateTerm="200" AutoDir="1" ApplyFlyMon="1" EnableSearch="0" IsMineType="0">
+    <PadSkill Name="Daoshi_CreepingDeath" CheckerType="0" Range="15" UpdateTerm="200" AutoDir="1" ApplyFlyMon="1" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="50000" UseFunc="1" FuncTxt="return obj.Level * 5000;"/>
@@ -12465,7 +12465,7 @@ return 30000 + obj.Level * 5000"/>
             </ToolScp>
         </enterEvent>
     </PadSkill>
-    <PadSkill Name="Skiaclipse_pad_1" CheckerType="0" Dist="13.071997" Angle="-0.28712228" Range="45" UpdateTerm="100" AllowOverlap="1" EnableSearch="0" IsMineType="0">
+    <PadSkill Name="Skiaclipse_pad_1" CheckerType="0" Dist="13.071997" Angle="-0.28712228" Range="45" UpdateTerm="100" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="5000"/>
@@ -12587,7 +12587,7 @@ return 30000 + obj.Level * 5000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Skiaclipse_pad_2" CheckerType="0" Dist="225.70274" Angle="-2.8100181" Range="35" UpdateTerm="300" AllowOverlap="1" EnableSearch="0" IsMineType="0">
+    <PadSkill Name="Skiaclipse_pad_2" CheckerType="0" Dist="225.70274" Angle="-2.8100181" Range="35" UpdateTerm="300" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000"/>
@@ -12633,7 +12633,7 @@ return 30000 + obj.Level * 5000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Skiaclipse_pad_3" CheckerType="0" Range="60" AllowOverlap="1" IsMagicType="0" IsMineType="0">
+    <PadSkill Name="Skiaclipse_pad_3" CheckerType="0" Range="60" ApplyFlyMon="1" AllowOverlap="1" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="20000"/>
@@ -12660,7 +12660,7 @@ return 30000 + obj.Level * 5000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Skiaclipse_pad_4" CheckerType="0" Range="60" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+    <PadSkill Name="Skiaclipse_pad_4" CheckerType="0" Range="60" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_USEABLE_PC" Client="NO" UseSleep="NO"/>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
@@ -12707,7 +12707,7 @@ return 30000 + obj.Level * 5000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Skiaclipse_pad_5" CheckerType="0" Dist="237.46576" Angle="-3.0146148" Range="60" AllowOverlap="1" IsMineType="0">
+    <PadSkill Name="Skiaclipse_pad_5" CheckerType="0" Dist="237.46576" Angle="-3.0146148" Range="60" ApplyFlyMon="1" AllowOverlap="1" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="100000"/>
@@ -12754,7 +12754,7 @@ return 30000 + obj.Level * 5000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Skiaclipse_pad_6" CheckerType="0" Range="50" UpdateTerm="1000" AllowOverlap="1" EnableSearch="0" IsMineType="0">
+    <PadSkill Name="Skiaclipse_pad_6" CheckerType="0" Range="50" UpdateTerm="1000" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="160000"/>

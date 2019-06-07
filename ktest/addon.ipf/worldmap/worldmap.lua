@@ -600,11 +600,9 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 									emblemedgePic:SetImage("colony_league_part1");
 									emblemedgebgPic:Resize(64, 64);
 									emblemedgebgPic:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
-									
 								elseif colonyLeague.ColonyLeague == 2 then
 									emblemedgePic:SetImage("colony_league_part2");
 									emblemedgebgPic:Resize(64, 64);
-									
 								end
 							end
 							

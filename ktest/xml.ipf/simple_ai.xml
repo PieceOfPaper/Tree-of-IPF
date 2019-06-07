@@ -16070,16 +16070,12 @@ if self.HP == 0 then return 1; else return 0; end;">
     </AI>
     <AI Name="SHADOW_LEGEND_PHASE_1_ELITE" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                <Num Num="500"/>
+            </ToolScp>
             <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
                 <Str Str="SHADOW_LEGEND_ELITE_DEAD"/>
                 <Num Num="0"/>
-            </ToolScp>
-            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
-                <Str Str="SHADOW_LEGEND_ELITE_BOSS_HEAL"/>
-                <Num Num="0"/>
-            </ToolScp>
-            <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
-                <Num Num="600"/>
             </ToolScp>
         </List>
         <StartList>

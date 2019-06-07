@@ -276,7 +276,7 @@
 				</Scp>
 				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
 					<Str Str="Cloaking_Buff" />
-					<Num Num="1" />
+					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
 					<Num Num="0" />
 					<Num FuncTxt="return 10000 + obj.Level * 2000;" Num="0" UseFunc="1" />
 					<Num Num="1" />

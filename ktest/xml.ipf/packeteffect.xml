@@ -2,14 +2,14 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by asdasd (IMCGames Co., Ltd) -->
 <packeteffects>
     <Category ID="14">
-		<Effect Name="GUILD_COLONY_F_REMAINS_37_1"/>
-		<Effect Name="GUILD_COLONY_F_TABLELAND_72"/>
-		<Effect Name="GUILD_COLONY_F_PILGRIMROAD_41_2"/>
-		<Effect Name="GUILD_COLONY_F_PILGRIMROAD_49"/>
-		<Effect Name="GUILD_COLONY_F_FARM_47_2"/>
-		<Effect Name="GUILD_COLONY_F_SIAULIAI_47_4"/>
-	</Category>
-	<Category ID="39">
+        <Effect Name="GUILD_COLONY_F_REMAINS_37_1"/>
+        <Effect Name="GUILD_COLONY_F_TABLELAND_72"/>
+        <Effect Name="GUILD_COLONY_F_PILGRIMROAD_41_2"/>
+        <Effect Name="GUILD_COLONY_F_PILGRIMROAD_49"/>
+        <Effect Name="GUILD_COLONY_F_FARM_47_2"/>
+        <Effect Name="GUILD_COLONY_F_SIAULIAI_47_4"/>
+    </Category>
+    <Category ID="39">
         <Effect Name="Skiaclipse_pad_4"/>
         <Effect Name="F_cleric_demolition_explosion2"/>
         <Effect Name="Skiaclipse_pad_2"/>
@@ -19,9 +19,9 @@
         <Effect Name="F_smoke174_dark"/>
         <Effect Name="Skiaclipse_pad_3"/>
         <Effect Name="F_sys_target_boss1##0.5"/>
-	<Effect Name="Skiaclipse_pad_5"/>
-	<Effect Name="Skiaclipse_pad_6"/>
-	<Effect Name="Skiaclipse_pad_7"/>
+        <Effect Name="Skiaclipse_pad_5"/>
+        <Effect Name="Skiaclipse_pad_6"/>
+        <Effect Name="Skiaclipse_pad_7"/>
     </Category>
     <Category ID="146">
         <Effect Name="beginner"/>
@@ -43,6 +43,8 @@
         <Effect Name="I_laser003_shot_loop"/>
         <Effect Name="F_circle007_green_loop"/>
         <Effect Name="F_circle007_red_loop"/>
+        <Effect Name="Pattern_Pad"/>
+        <Effect Name="F_buff_basic048"/>
     </Category>
     <Category ID="135">
         <Effect Name="HaveToPutPetAtBarrack"/>
@@ -1106,7 +1108,7 @@
         <Effect Name="master_Matross"/>
         <Effect Name="master_Arditi"/>
         <Effect Name="master_TigerHunter"/>
-    <Effect Name="F_sys_target_boss1_orange"/>
+        <Effect Name="F_sys_target_boss1_orange"/>
         <Effect Name="F_light073_violet_long_loop"/>
         <Effect Name="F_light073_violet_loop"/>
     </Category>
@@ -1985,7 +1987,7 @@
         <Effect Name="SHOW_REMOVE_BUFF"/>
         <Effect Name="Matross_CanisterShot_End"/>
         <Effect Name="Cannoneer_SiegeBurst_FlashBomb"/>
-    <Effect Name="voice_wiz_m_tiwaz_shot"/>
+        <Effect Name="voice_wiz_m_tiwaz_shot"/>
         <Effect Name="voice_wiz_f_tiwaz_shot"/>
         <Effect Name="voice_wiz_m_stan_cast"/>
         <Effect Name="I_warrior_shieldcharger_sphere_mesh"/>

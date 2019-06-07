@@ -9,6 +9,11 @@ function COLONY_TAX_BOARD_ON_INIT(addon, frame)
 end
 
 function ON_OPEN_COLONY_TAX_BOARD(frame)
+	local rewardboardUI = ui.GetFrame("colony_reward_board");
+	if rewardboardUI ~= nil and rewardboardUI:IsVisible() == 1 then
+		ui.CloseFrame("colony_reward_board");
+	end
+
 	local taxratewarning_text = GET_CHILD_RECURSIVELY(frame, "taxratewarning_text");
 	local contents_text = GET_CHILD_RECURSIVELY(frame, "contents_text");
 	local chequewarning_text = GET_CHILD_RECURSIVELY(frame, "chequewarning_text");

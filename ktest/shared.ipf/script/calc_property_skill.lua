@@ -1147,23 +1147,11 @@ end
 
 --[ Normal_Attack ]--
 function SCR_Get_SkillFactor(skill)
-    
     local sklFactor;
     local skillOwner = GetSkillOwner(skill);
     
-    if skillOwner.ClassName == 'PC' then
-        local atkType = skill.AttackType;
-        local attribute = skill.Attribute;
-        
-        local atkTypebyItem = GetSumOfEquipItem(skillOwner, atkType);
-        local attributebyItem = GetSumOfEquipItem(skillOwner, attribute);
-        
-        sklFactor = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel + atkTypebyItem + attributebyItem;
-        return math.floor(sklFactor);
-    else
-        sklFactor = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
-        return math.floor(sklFactor);
-    end
+    sklFactor = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+    return math.floor(sklFactor);
 end
 
 function SCR_Get_SkillFactor_Reinforce_Ability(skill)
@@ -2270,10 +2258,6 @@ end
 
 function SCR_GET_AdvancedOrders_Ratio2(skill)
     local value = skill.Level
-    local pc = GetSkillOwner(skill);
-    if IsPVPServer(pc) == 1 then
-        value = skill.Level * 2
-    end
     
     return value
 end
@@ -11287,11 +11271,11 @@ end
 
 function SCR_GET_Apsauga_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = 10
+    local value = 25
     if pc ~= nil then
         local isDragonPower = GetExProp(pc, 'ITEM_DRAGON_POWER')
         if tonumber(isDragonPower) >= 1 then
-            value = value + 10
+            value = value + 25
         end  
     end
     
@@ -11299,7 +11283,7 @@ function SCR_GET_Apsauga_Ratio(skill)
 end
 
 function SCR_GET_Bendrinti_Time(skill)
-    local value = 20
+    local value = 30
     return value;
 end
 
@@ -11326,6 +11310,11 @@ function SCR_GET_Gymas_Ratio(skill)
         end  
     end
     
+    return value;
+end
+
+function SCR_GET_Smugis_Ratio(skill)
+    local value = 10
     return value;
 end
 

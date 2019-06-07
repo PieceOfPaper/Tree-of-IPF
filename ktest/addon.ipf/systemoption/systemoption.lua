@@ -1,6 +1,6 @@
 function SYSTEMOPTION_ON_INIT(addon, frame)
 	addon:RegisterMsg('IES_VALUE_CHANGE', 'UPDATE_OPERATOR_CONFIG');
-
+	INIT_GAMESYS_CONFIG(frame);
 end
 
 function SYSTEMOPTION_CREATE(frame)
@@ -12,7 +12,6 @@ function SYSTEMOPTION_CREATE(frame)
 	INIT_LANGUAGE_CONFIG(frame);
 	INIT_GRAPHIC_CONFIG(frame);
 	INIT_CONTROL_CONFIG(frame);
-	INIT_GAMESYS_CONFIG(frame);
 	SET_SKL_CTRL_CONFIG(frame);
         SET_AUTO_CELL_SELECT_CONFIG(frame);
     	SET_DMG_FONT_SCALE_CONTROLLER(frame);
@@ -187,6 +186,7 @@ function INIT_GAMESYS_CONFIG(frame)
 		local value = config.GetXMLConfig("EnableSkillGizmoTargetAim");
 		skillGizmoTargetAim:SetCheck(tonumber(value));
 		config.EnableSkillGizmoTargetAim(tonumber(value));
+		config.ChangeXMLConfig("EnableSkillGizmoTargetAim", tostring(value));
 	end
 end
 

@@ -6,7 +6,6 @@ function GET_COLONY_TAX_EXPIRE_TEXT(remainSec)
 		local min = math.floor(remainSec%3600/60)
 		hour = string.format("%02d", hour)
 		min = string.format("%02d", min)
-		print(hour, min)
 		remainTimeStr = ScpArgMsg("ColonyTaxRemain{Hour}{Min}", "Hour", hour, "Min", min)
 	else
 		local days = math.floor(remainSec/86400)
