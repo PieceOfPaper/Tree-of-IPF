@@ -2,21 +2,27 @@
 <ToolSkill><Skill Name="Rancer_GiganteMarcha">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
-				<Frame Angle="0" AniTime="550" Dist="0" ForceATK="0" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="350" Type="SQUARE" Width="45" />
+				<Frame Angle="0" AniTime="350" Dist="0" ForceATK="0" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="150" Type="SQUARE" Width="45" />
 			</HitList>
 			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_GIGANTEMARCHA" />
+                    <Num Num="1.5" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
 					<Str Str="voice_war_atk_long_cast" />
 					<Str Str="voice_atk_long_cast_f" />
 				</Scp>
 				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
 					<Str Str="skl_eff_rancer_gigantemarcha" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_CHECK_LOOPING_COUNT_INIT" Time="500" TimeSync="0" UseSleep="NO">
-					<Num Num="6" />
+				<Scp Client="NO" Scp="SKL_CHECK_LOOPING_COUNT_INIT" Time="200" TimeSync="0" UseSleep="NO">
+					<Num Num="4" />
 				</Scp>
-				<Scp Client="NO" LoopTime="300" Scp="SKL_CHECK_LOOPING_COUNT" Time="500" TimeSync="0" UseSleep="NO" />
-				<Scp Client="NO" LoopTime="300" Scp="MONSKL_PAD_DIR_MSL" Time="600" UseSleep="YES">
+				<Scp Client="NO" Scp="SKL_CHECK_LOOPING_COUNT" Time="200" TimeSync="0" UseSleep="NO" />
+				<Scp Client="NO" LoopTime="200" Scp="MONSKL_PAD_DIR_MSL" Time="400" UseSleep="YES">
 					<Pos Angle="0.78539819" Dist="28" />
 					<Str Str="GiganteMarcha_Pad" />
 					<Num Num="200" />
@@ -28,7 +34,7 @@
 					<Num Num="0" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="NO" LoopTime="300" Scp="MONSKL_PAD_DIR_MSL" Time="650" UseSleep="YES">
+				<Scp Client="NO" LoopTime="200" Scp="MONSKL_PAD_DIR_MSL" Time="400" UseSleep="YES">
 					<Pos Angle="-0.78539819" Dist="28" />
 					<Str Str="GiganteMarcha_Pad" />
 					<Num Num="200" />
@@ -40,7 +46,7 @@
 					<Num Num="0" />
 					<Num Num="1" />
 				</Scp>
-				<Scp Client="NO" LoopTime="300" Scp="MONSKL_PAD_DIR_MSL" Time="700" UseSleep="YES">
+				<Scp Client="NO" LoopTime="200" Scp="MONSKL_PAD_DIR_MSL" Time="400" UseSleep="YES">
 					<Pos Angle="0" Dist="20" />
 					<Str Str="GiganteMarcha_Pad" />
 					<Num Num="200" />

@@ -2094,7 +2094,7 @@ function SCR_Get_MSPD(self)
             byBuff = 0;
         end
         
-        if IsPVPServer(self) == 1 or zone == "pvp_Mine" then
+        if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then
             byBuff = byBuff * 0.5
         end
         
@@ -2189,7 +2189,7 @@ function SCR_Get_MSPD(self)
 	    	dashRunAddValue = dashRunAddValue + 3
 	    end
         
-        if IsPVPServer(self) == 1 or zone == "pvp_Mine" then
+        if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then
             dashRunAddValue = 5
         end
         

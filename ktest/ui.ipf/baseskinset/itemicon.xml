@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -2799,6 +2799,13 @@
 		<image name="icon_item_romance_musket" file="\icon\weapon\icon_item_romance_musket.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_romance_rapier" file="\icon\weapon\icon_item_romance_rapier.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_romance_cannon" file="\icon\weapon\icon_item_romance_cannon.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_galaxy_thspear" file="\icon\weapon\item_icon_galaxy_thspear.png" imgrect="0 0 256 256" CMM_Caption="2019 6월 테마 무기"/>
+		<image name="item_icon_galaxy_spear" file="\icon\weapon\item_icon_galaxy_spear.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_galaxy_thsword" file="\icon\weapon\item_icon_galaxy_thsword.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_galaxy_sword" file="\icon\weapon\item_icon_galaxy_sword.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_galaxy_thmace" file="\icon\weapon\item_icon_galaxy_thmace.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_galaxy_mace" file="\icon\weapon\item_icon_galaxy_thmace.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_galaxy_shield" file="\icon\weapon\item_icon_galaxy_shield.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -3316,6 +3323,8 @@
 		<image name="icon_item_accessory_romance04" file="\icon\hairacc\icon_item_accessory_romance04.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_helmet_baniclips_f" file="\icon\hairacc\icon_item_helmet_baniclips_f.png" imgrect="0 0 256 256" CMM_Caption="바니클립스 헬멧"/>
 		<image name="icon_item_helmet_baniclips_m" file="\icon\hairacc\icon_item_helmet_baniclips_m.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_accessary_galaxy01" file="\icon\hairacc\item_icon_accessary_galaxy01.png" imgrect="0 0 256 256" CMM_Caption="2018 6월 테마 헤어악세"/>
+		<image name="item_icon_accessary_galaxy02" file="\icon\hairacc\item_icon_accessary_galaxy02.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -5341,6 +5350,7 @@
 		<image name="icon_item_lens_brown" file="\icon\payment\lens_brown.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_lens_blue" file="\icon\payment\lens_blue.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_package_penguin" file="\icon\payment\icon_item_package_penguin.png" imgrect="0 0 256 256" CMM_Caption="펭귄패키지"/>
+		<image name="icon_item_tospoint30" file="\icon\payment\icon_item_tospoint30.png" imgrect="0 0 256 256" CMM_Caption="TP 30개"/>
 		<image name="icon_item_tospoint500" file="\icon\payment\icon_item_tospoint500.png" imgrect="0 0 256 256" CMM_Caption="TP 500개"/>
 		<image name="icon_item_tospoint900" file="\icon\payment\icon_item_tospoint900.png" imgrect="0 0 256 256" CMM_Caption="TP 900개"/>
 		<image name="icon_item_warrior_trump_m" file="\icon\payment\warrior_m_trump.png" imgrect="0 0 256 256" CMM_Caption="트럼프세트_전사"/>
@@ -6113,6 +6123,19 @@
 		<image name="icon_item_awakebox_a" file="\icon\payment\icon_item_awakebox_a.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_legendcard_fragment_s" file="\icon\payment\icon_item_legendcard_fragment_s.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_all_cardbook" file="\icon\payment\icon_item_all_cardbook.png" imgrect="0 0 128 128"/>
+		<image name="item_icon_galaxy_armor01_f" file="\icon\payment\item_icon_galaxy_armor01_f.png" imgrect="0 0 256 256" CMM_Caption="2018 6월 테마 코스튬"/>
+		<image name="item_icon_galaxy_armor01_m" file="\icon\payment\item_icon_galaxy_armor01_m.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_galaxy_armor02_f" file="\icon\payment\item_icon_galaxy_armor02_f.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_galaxy_armor02_m" file="\icon\payment\item_icon_galaxy_armor02_m.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_galaxy_armor03_f" file="\icon\payment\item_icon_galaxy_armor03_f.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_galaxy_armor03_m" file="\icon\payment\item_icon_galaxy_armor03_m.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_helmet_galaxy01" file="\icon\payment\item_icon_helmet_galaxy01.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_helmet_galaxy02" file="\icon\payment\item_icon_helmet_galaxy02.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_helmet_galaxy03" file="\icon\payment\item_icon_helmet_galaxy03.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_galaxy_armor_selectbox01" file="\icon\payment\icon_item_galaxy_armor_selectbox01.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_galaxy_armor_selectbox02" file="\icon\payment\icon_item_galaxy_armor_selectbox02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_galaxy_armor_selectbox03" file="\icon\payment\icon_item_galaxy_armor_selectbox03.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_egg_Dionys" file="\icon\payment\icon_item_egg_Dionys.png" imgrect="0 0 256 256" CMM_Caption="꼬마 디오니스 알"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

@@ -4,13 +4,13 @@
 	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
 	<Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
 	<Sound frame="7.00" soundFile="skl_fgt_tackle_shot"/>
-	<Particle frame="5" attachNode="Dummy_emitter_pet" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
-	<Particle frame="5" attachNode="Dummy_emitter_pet" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_emitter_pet" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_emitter_pet" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
 	<Particle frame="5" attachNode="Dummy_effect_skarphuggning001_1" particleName="I_swordtrail041_yellow_reverse" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false"/>
 	<Particle frame="5" attachNode="Dummy_effect_skarphuggning001" particleName="I_swordtrail040_orange_reverse" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false" sound="swd_attack2"/>
 	<Particle frame="5" attachNode="Dummy_effect_skarphuggning001" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false"/>
-	<Particle frame="10" attachNode="Dummy_emitter_pet_back" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
-	<Particle frame="10" attachNode="Dummy_emitter_pet_back" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+	<Particle frame="10" attachNode="Dummy_emitter_pet" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
+	<Particle frame="10" attachNode="Dummy_emitter_pet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
 	<Particle frame="11" attachNode="Dummy_effect_skarphuggning002" particleName="I_swordtrail040_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false" sound="swd_attack3"/>
 	<Particle frame="11" attachNode="Dummy_effect_skarphuggning002_1" particleName="I_swordtrail041_yellow" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
 	<Particle frame="11" attachNode="Dummy_effect_skarphuggning002_1" particleName="I_swordtrail040_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>

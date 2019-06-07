@@ -7,7 +7,8 @@ function WORLDPVP_ON_INIT(addon, frame)
 	addon:RegisterMsg("WORLDPVP_RANK_PAGE", "ON_WORLDPVP_RANK_PAGE");
 	addon:RegisterMsg("WORLDPVP_RANK_ICON", "ON_WORLDPVP_RANK_ICON");
 	addon:RegisterMsg("PLAY_COUNT_MAX", "ON_PLAY_COUNT_MAX");
-    addon:RegisterMsg('UPDATE_WORLDPVP_GAME_LIST', 'WORLDPVP_PUBLIC_GAME_LIST');
+	addon:RegisterMsg('UPDATE_WORLDPVP_GAME_LIST', 'WORLDPVP_PUBLIC_GAME_LIST');
+	addon:RegisterMsg('MINE_BATTLE_OPEN_POINT_SHOP','MINE_BATTLE_OPEN_POINT_SHOP')
 end
 
 g_enablePVPExp = 1;
@@ -781,6 +782,15 @@ function GET_PVP_POINT_C()
 	return pvpObj:GetPropIValue("ShopPoint", 0);
 end
 
+function GET_PVP_BATTLE_POINT_C()
+	local item = session.GetInvItemByName('EQUIP_RENTAL_POINT')
+	local point = 0;
+	if item ~= nil then
+		point = item.count
+	end
+	return point
+end
+
 function PVP_CARD_GET_ITEM_C()
 
 	local level = GETMYPCLEVEL();
@@ -1009,6 +1019,10 @@ function MINE_OPEN_POINT_SHOP(parent, ctrl)
 
 end
 
+function MINE_BATTLE_OPEN_POINT_SHOP(frame, msg, argStr, argNum)
+	TOGGLE_PROPERTY_SHOP('PvpMineBattleShop',1);
+end
+
 function PVP_REWARD(parent, ctrl)
 	local type = session.worldPVP.GetRankProp("Type");
 	local cls = GetClassByType("WorldPVPType", type);
@@ -1053,11 +1067,11 @@ function GUILD_PVP_MISSION_CREATED(roomGuid, gameType, isCreated, zonePCCount)
 end
 
 function GET_PVP_MINE_POINT_C()
-	local aObj = GetMyAccountObj();
-
-	if aObj == nil then
-		return 0;
-	end
-
-    return aObj.PVP_MINE_POINT
+--	local aObj = GetMyAccountObj();
+--
+--	if aObj == nil then
+--		return 0;
+--	end
+--
+    return 0
 end

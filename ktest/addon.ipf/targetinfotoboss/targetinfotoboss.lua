@@ -42,14 +42,13 @@ function TARGETINFOTOBOSS_TARGET_SET(frame, msg, argStr, argNum)
 	end
 	
 	local targetHandle = argNum ;
-
 	local targetinfo = info.GetTargetInfo(argNum);
 	if targetinfo == nil then
 		session.ResetTargetBossHandle();
 		frame:ShowWindow(0);
 		return;
 	end
-	
+
 	if 0 == targetinfo.TargetWindow or targetinfo.isBoss == 0 then
 		session.ResetTargetBossHandle();
 		frame:ShowWindow(0);
@@ -59,7 +58,6 @@ function TARGETINFOTOBOSS_TARGET_SET(frame, msg, argStr, argNum)
 	local boss_attribute_img = GET_CHILD_RECURSIVELY(frame, "boss_attribute_img");
 	local attribute = targetinfo.attribute
     local attributeImgName = "attribute_"..attribute
-
 	if attributeImgName == "None" then
 		boss_attribute_img:ShowWindow(0)
 	else
@@ -112,7 +110,6 @@ function TARGETINFOTOBOSS_TARGET_SET(frame, msg, argStr, argNum)
 end
 
 function TARGETINFOTOBOSS_ON_MSG(frame, msg, argStr, argNum)
-
 	if msg == 'TARGET_CLEAR_BOSS' then
 		session.ResetTargetBossHandle();
 		frame:SetVisible(0); -- visible값이 1이면 다른 몬스터 hp gauge offset이 옆으로 밀림.(targetinfo.lua 참조)
@@ -121,8 +118,8 @@ function TARGETINFOTOBOSS_ON_MSG(frame, msg, argStr, argNum)
 	
 	if msg == 'TARGET_UPDATE' or msg == 'TARGET_BUFF_UPDATE' then
 		local target = session.GetTargetBossHandle();
-		if target ~= 0 then
-			if session.IsBoss( target ) == true then				
+		if target ~= 0 then  
+			if session.IsBoss(target) == true then	
 				TARGETINFOTOBOSS_TARGET_SET(frame, 'TARGET_SET_BOSS', "Enemy", target)
 			end
 		end

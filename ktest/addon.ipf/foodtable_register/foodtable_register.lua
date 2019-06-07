@@ -72,6 +72,12 @@ function FOODTABLE_REG_EXEC(parent, ctrl)
 		end
 	end
 
+	local x, y, z = GetPos(pc);
+	if 0 == IsFarFromNPC(pc, x, y, z, 70) then
+		ui.SysMsg(ClMsg("TooNearFromNPC"));	
+		return 0;
+	end
+
 	local strScp = "_FOODTABLE_REG_EXEC()";
 	ui.MsgBox(ScpArgMsg("REALLY_DO"), strScp, "None");
 end

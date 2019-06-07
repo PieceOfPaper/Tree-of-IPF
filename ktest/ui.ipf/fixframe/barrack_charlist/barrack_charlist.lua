@@ -1,4 +1,4 @@
--- barrack_charlist.lua
+﻿-- barrack_charlist.lua
 local prev_select_slot = 0
 
 function BARRACK_CHARLIST_ON_INIT(addon, frame)
@@ -1103,7 +1103,7 @@ function START_GAME_SET_MAP(frame, slotID, mapID, channelID)
 	else	
 		channels:ClearItems();
 	    	
-        if mapCls ~= nil and mapCls.ClassName == 'pvp_Mine' then
+        if mapCls ~= nil and (mapCls.ClassName == 'pvp_Mine' or mapCls.ClassName == 'pvp_Mine_2') then
             local zoneInst = zoneInsts:GetZoneInstByIndex(channelID)
             if zoneInst.channel < 10000 then
                 local str, gaugeString = GET_CHANNEL_STRING(zoneInst, true)

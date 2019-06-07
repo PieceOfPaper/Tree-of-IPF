@@ -130,7 +130,7 @@ function ICON_ON_ENABLE(frame, object, argStr, argNum)
             return
         end
     end
-	if mapCls.ClassName == 'pvp_Mine' then
+	if mapCls.ClassName == 'pvp_Mine' or mapCls.ClassName == 'pvp_Mine_2' then
 		return;
 	end
 

@@ -1945,7 +1945,7 @@ return obj.Level"/>
                 <Num Num="0"/>
                 <Num Num="0" UseFunc="1" FuncTxt="local buffTime = 10000
 local zone = GetZoneName(self);
-if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or zone == &apos;pvp_Mine&apos; then
+if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or IsPVPField(self) == 1 then
 buffTime = buffTime * 0.5
 end
 
@@ -1967,7 +1967,7 @@ return buffTime"/>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="-200" UseFunc="1" FuncTxt="local lifeTime = -200
 local zone = GetZoneName(self);
-if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or zone == &apos;pvp_Mine&apos; then
+if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or IsPVPField(self) == 1 then
 lifeTime = -200 * 2
 end
 return lifeTime;"/>
@@ -10988,7 +10988,7 @@ return GET_ABIL_LEVEL(self, &quot;PlagueDoctor6&quot;);"/>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000" UseFunc="1" FuncTxt="	local life = 5000
 	local zone = GetZoneName(self);
-	if IsPVPServer(self) == 1 or zone == &apos;pvp_Mine&apos; then
+	if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then
 	    life = life * 0.5;
 	end
 	return life;"/>

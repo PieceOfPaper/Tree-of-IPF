@@ -3,7 +3,7 @@
 	<frame layout_gravity="center center" margin="0 -50 0 0"/>
 	<draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
 	<input moveable="false" moveintitlebar="false"/>	
-	<userconfig KEY_IMG_SIZE="40"/>
+	<userconfig KEY_IMG_SIZE="40" FAR_MEMBER_COLORTONE="FF000000" NEAR_MEMBER_COLORTONE="FFFFFFFF"/>
 	<controls>
 		<picture name="circlePic" rect="0 0 300 300" margin="0 0 0 0" layout_gravity="center center" image="targeting_circle_frame" stretch="true"/>
 		<picture name="fan_1" rect="0 0 300 300" margin="0 0 0 0" layout_gravity="center center" image="targeting_circle_1" stretch="true"/>

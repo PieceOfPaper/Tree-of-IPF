@@ -57,6 +57,28 @@ function UPDATE_OTHER_PC_EFFECT(value)
 	config.EnableOtherPCEffect(tonumber(value));
 end
 
+function ENABLE_OTHER_PC_EFFECT_UNCHECK()
+	config.EnableOtherPCEffect(0);
+	local frame = ui.GetFrame("systemoption");
+	if frame ~= nil then
+		local otherPCDamage = GET_CHILD_RECURSIVELY(frame, "check_ShowOtherPCEffect", "ui::CCheckBox");
+		if otherPCDamage ~= nil then
+			otherPCDamage:SetCheck(0);
+		end
+	end
+end
+
+function ENABLE_OTHER_PC_EFFECT_CHECK()
+	config.EnableOtherPCEffect(1);
+	local frame = ui.GetFrame("systemoption");
+	if frame ~= nil then
+		local otherPCDamage = GET_CHILD_RECURSIVELY(frame, "check_ShowOtherPCEffect", "ui::CCheckBox");
+		if otherPCDamage ~= nil then
+			otherPCDamage:SetCheck(1);
+		end
+	end
+end
+
 function UPDATE_NATURAL_EFFECT(value)
 	config.EnableNaturalEffect(tonumber(value));
 end

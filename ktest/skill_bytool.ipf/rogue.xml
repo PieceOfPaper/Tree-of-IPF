@@ -34,7 +34,7 @@
 					<Str Str="KnifeThrowing_Debuff" />
 					<Num FuncTxt="return  skill.Level" Num="1" UseFunc="1" />
 					<Num Num="0" />
-					<Num FuncTxt="local value = 5000 + skill.Level * 1000 local zone = GetZoneName(self); if IsPVPServer(self) == 1 or zone == 'pvp_Mine' then     value = value * 0.5; end return value" Num="0" UseFunc="1" />
+					<Num FuncTxt="local value = 5000 + skill.Level * 1000 local zone = GetZoneName(self); if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then     value = value * 0.5; end return value" Num="0" UseFunc="1" />
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="-1" />
@@ -322,9 +322,9 @@
 					<Str Str="Stun" />
 					<Num FuncTxt="return skill.Level;" Num="1" UseFunc="1" />
 					<Num Num="0" />
-					<Num FuncTxt="local value = 2000 + skill.Level * 500; if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then value = 2000 + skill.Level * 200 end return value;" Num="3000" UseFunc="1" />
+					<Num Num="3000" UseFunc="1" FuncTxt="local value = 2000 + skill.Level * 500; if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then value = 2000 + skill.Level * 200 end return value;"/>
 					<Num Num="1" />
-					<Num FuncTxt="local value = 70; if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then value = 50 end return value;" Num="50" UseFunc="1" />
+					<Num Num="50" UseFunc="1" FuncTxt="local value = 70; if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then value = 50 end return value;"/>
 					<Num Num="-1" />
 				</ToolScp>
 			</ResultList>

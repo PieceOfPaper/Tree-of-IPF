@@ -49,6 +49,12 @@ function SKL_KEY_DYNAMIC_CASTING(actor, obj, dik, movable, rangeChargeTime, maxC
 		quickCast = 1
 	end
 
+	if quickCast ~= nil and quickCast == false then
+		quickCast = 0;
+	elseif quickCast ~= nil and quickCast == true then
+		quickCast = 1;
+	end
+
 	local useMouseDir = 0;
 	if obj ~= nil and obj.type == 21614 and session.config.IsMouseMode() == true then
 		useMouseDir = 1;		
@@ -75,7 +81,7 @@ function SKL_KEY_SELECT_CELL(actor, obj, dik, cellCount, cellSize, chargeTime, a
 end
 
 function SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, 
-	shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode, quickCast, hitCancel)
+	shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode, quickCast, hitCancel, isScroll)
 	
 	if onlyMouseMode == 1 and session.config.IsMouseMode() == false then
 		geSkillControl.SendGizmoPosByCurrentTarget(actor, obj.type);
@@ -132,7 +138,11 @@ function SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting
 		quickCast = 1;
 	end
 
-	geSkillControl.GroundSelecting(actor, obj.type, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, isVisivle, useDynamicLevel, isFullCharge, effectName, nodeName, lifeTime, scale,1,1,1, shockwave, intensity, time, frequency, angle, nil, quickCast);
+	if isScroll == nil then
+		isScroll = false;
+	end
+
+	geSkillControl.GroundSelecting(actor, obj.type, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, isVisivle, useDynamicLevel, isFullCharge, effectName, nodeName, lifeTime, scale,1,1,1, shockwave, intensity, time, frequency, angle, nil, quickCast, isScroll);
 	if nil ~= hitCancel and hitCancel == 1 then
 		actor:SetHitCancelCast(true)
 	end
@@ -192,10 +202,10 @@ function SKL_SKILL_REUSE_ON_BTN_UP(actor, obj, dik, buffName)
 	return 0;
 end
 
-function SKL_PARTY_TARGET_BY_KEY(actor, obj, dik, showHPGauge)
+function SKL_PARTY_TARGET_BY_KEY(actor, obj, dik, showHPGauge, isScroll)
 	if showHPGauge == nil then
 		showHPGauge = 0;
 	end
-	geSkillControl.SelectTargetFromPartyList(actor, obj.type, showHPGauge);
+	geSkillControl.SelectTargetFromPartyList(actor, obj.type, showHPGauge, isScroll);
 	return 1, 0;
 end

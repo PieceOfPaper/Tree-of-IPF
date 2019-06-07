@@ -141,8 +141,7 @@ function COMPANIONSHOP_ADOPT(frame, ctrl)
 	end
 
 	-- 일반적으로 0 이거나, 등록된 잡아이디와 같지 않으면 살수없음!
-	-- ex) 응사는 매만 살 수 있다.
-	if compaCls.JobID == 0 or 0 ~= session.GetJobGrade(compaCls.JobID) then
+	if compaCls.JobID == 0 or 0 ~= session.GetJobGradePC(compaCls.JobID) then
 		TRY_CHECK_BARRACK_SLOT(frame, ctrl, true);
 	else
 		ui.MsgBox(ScpArgMsg("HaveNotJobForbyingCompaion"));

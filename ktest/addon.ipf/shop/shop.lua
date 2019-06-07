@@ -89,7 +89,10 @@ function SHOP_UI_CLOSE(frame, obj, argStr, argNum)
 	end
 
 	-- 상점마다 페이지 다를 수 있어서 페이지 넘버 초기화함
-	NOWPAGENUM = 1
+	NOWPAGENUM = 1;
+	
+	LEFT_PAGEBUTTON_ENABLE(frame, 0);
+	RIGHT_PAGEBUTTON_ENABLE(frame, 1);
 end
 
 function SHOP_SLOT_RBTNDOWN_2(frame, slotList, argStr, argNum)

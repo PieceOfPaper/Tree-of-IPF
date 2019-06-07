@@ -6090,6 +6090,9 @@
 		<image name="test_companion_24" file="\icon\companion.tga" imgrect="808 492 100 122" CMM_Caption="병아리_탭버튼"/>
 		<image name="test_companion_24_cursoron" file="\icon\companion.tga" imgrect="909 492 100 122"/>
 		<image name="test_companion_24_clicked" file="\icon\companion.tga" imgrect="909 492 100 122"/>
+		<image name="test_companion_25" file="\icon\companion.tga" imgrect="0 615 100 122" CMM_Caption="디오니스_탭버튼"/>
+		<image name="test_companion_25_cursoron" file="\icon\companion.tga" imgrect="101 615 100 122"/>
+		<image name="test_companion_25_clicked" file="\icon\companion.tga" imgrect="101 615 100 122"/>
 		<image name="test_com_ability" file="\skin\pip_test.tga" imgrect="1832 851 54 35" CMM_Caption="컴패니언_특성플러스"/>
 		<image name="test_com_ability_cursoron" file="\skin\pip_test.tga" imgrect="1832 887 54 35"/>
 		<image name="test_com_ability_clicked" file="\skin\pip_test.tga" imgrect="1832 923 54 35"/>
@@ -7245,6 +7248,7 @@
 		<image name="companion_horse1" file="\icon\companion_Velhider.tga" imgrect="480 0 80 80"/>
 		<image name="companion_gold_pig" file="\icon\companion_Velhider.tga" imgrect="480 80 80 80"/>
 		<image name="companion_chick_crowtit" file="\icon\companion_Velhider.tga" imgrect="480 160 80 80"/>
+		<image name="companion_Dionys" file="\icon\companion_Velhider.tga" imgrect="480 240 80 80"/>
 		<image name="bg_w" file="\skin\button.tga" imgrect="252 974 50 50"/>
 		<image name="barrack_signboard" file="\skin\barrack.tga" imgrect="356 0 257 192"/>
 		<image name="barrack_attack_icon" file="\skin\barrack.tga" imgrect="59 720 55 61"/>
@@ -9312,7 +9316,13 @@
 		<image name="icon_Headfish" file="\icon\buff_icon2.tga" imgrect="256 1280 128 128" CMM_Caption="개복치의 기운"/>
 		<image name="icon_SHADOW_RAID_PAD_4_DEBUFF" file="\icon\buff_icon2.tga" imgrect="384 1280 128 128" CMM_Caption="대미지 감소"/>
 		<image name="icon_SHADOW_RAID_BRAND_DEBUFF" file="\icon\buff_icon2.tga" imgrect="512 1280 128 128" CMM_Caption="스키아 클립스의 낙인"/>
-		<image name="icon_SHADOW_RAID_GIMMICK_SUCCESS_BUFF" file="\icon\buff_icon.tga" imgrect="0 1408 128 128" CMM_Caption="공경력 증가"/>
+		<image name="icon_SHADOW_RAID_GIMMICK_SUCCESS_BUFF" file="\icon\buff_icon.tga" imgrect="0 1408 128 128" CMM_Caption="공격력 증가"/>
+		<image name="icon_pet_dionys_buff" file="\icon\buff_icon2.tga" imgrect="640 1280 128 128" CMM_Caption="꼬마 디오니스 버프"/>
+		<image name="icon_PVP_MINE_Return" file="\icon\buff_icon2.tga" imgrect="768 1280 128 128" CMM_Caption="귀환"/>
+		<image name="icon_PVP_MINE_Hiding_Detection" file="\icon\buff_icon2.tga" imgrect="896 1280 128 128" CMM_Caption="은신 감지"/>
+		<image name="icon_PVP_MINE_Escape" file="\icon\buff_icon2.tga" imgrect="0 1408 128 128" CMM_Caption="탈출"/>
+		<image name="icon_PVP_MINE_Divine_Protection" file="\icon\buff_icon2.tga" imgrect="128 1408 128 128" CMM_Caption="여신의 가호"/>
+		<image name="icon_PVP_MINE_Authority" file="\icon\buff_icon2.tga" imgrect="256 1408 128 128" CMM_Caption="여신의 권능"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

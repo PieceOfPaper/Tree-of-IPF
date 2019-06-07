@@ -7,7 +7,8 @@ function ITEMOPTIONEXTRACT_ON_INIT(addon, frame)
 	addon:RegisterMsg("MSG_SUCCESS_ITEM_OPTION_EXTRACT", "SUCCESS_ITEM_OPTION_EXTRACT");
 	--실패시 UI 호출
 	addon:RegisterMsg("MSG_FAIL_ITEM_OPTION_EXTRACT", "FAIL_ITEM_OPTION_EXTRACT");
-
+    addon:RegisterMsg("MSG_RUN_FAIL_EFFECT", 'RUN_FAIL_EFFECT');
+    addon:RegisterMsg("MSG_RUN_SUCCESS_EFFECT", 'RUN_SUCCESS_EFFECT');
 end
 
 function ON_OPEN_DLG_ITEMOPTIONEXTRACT(frame)
@@ -635,6 +636,10 @@ function _ITEMOPTIONEXTRACT_EXEC(checkRebuildFlag)
 
 end
 
+function release_ui_lock()
+    ui.SetHoldUI(false)
+end
+
 function SUCCESS_ITEM_OPTION_EXTRACT(frame)
 	local frame = ui.GetFrame("itemoptionextract");
 	local EXTRACT_RESULT_EFFECT_NAME = frame:GetUserConfig('EXTRACT_RESULT_EFFECT');
@@ -652,7 +657,7 @@ function SUCCESS_ITEM_OPTION_EXTRACT(frame)
 	do_extract:ShowWindow(0)
 	ui.SetHoldUI(true);
 
-	ReserveScript("_SUCCESS_ITEM_OPTION_EXTRACT()", EFFECT_DURATION)
+    ReserveScript('release_ui_lock()', EFFECT_DURATION);
 end
 
 function _SUCCESS_ITEM_OPTION_EXTRACT()
@@ -709,8 +714,6 @@ function _SUCCESS_ITEM_OPTION_EXTRACT()
 	resultItemImg:SetImage(icor_img)
 				
 	EXTRACT_SUCCESS_EFFECT(frame)
-
-	return
 end
 
 function EXTRACT_SUCCESS_EFFECT(frame)
@@ -763,8 +766,15 @@ function FAIL_ITEM_OPTION_EXTRACT(frame)
 	local do_extract = GET_CHILD_RECURSIVELY(frame, "do_extract")
 	do_extract:ShowWindow(0)
 	ui.SetHoldUI(true);
+    ReserveScript('release_ui_lock()', EFFECT_DURATION);
+end
 
-	ReserveScript("_FAIL_ITEM_OPTION_EXTRACT()", EFFECT_DURATION)
+function RUN_FAIL_EFFECT()
+    ReserveScript("_FAIL_ITEM_OPTION_EXTRACT()", 0)
+end
+
+function RUN_SUCCESS_EFFECT()
+    ReserveScript("_SUCCESS_ITEM_OPTION_EXTRACT()", 0)
 end
 
 function _FAIL_ITEM_OPTION_EXTRACT()
@@ -774,8 +784,8 @@ function _FAIL_ITEM_OPTION_EXTRACT()
 		return;
 	end
 
-	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
-	
+	local slot = GET_CHILD_RECURSIVELY(frame, "slot");	
+
 
 	local EXTRACT_RESULT_EFFECT_NAME = frame:GetUserConfig('EXTRACT_RESULT_EFFECT');
 	local EFFECT_SCALE = tonumber(frame:GetUserConfig('EFFECT_SCALE'));

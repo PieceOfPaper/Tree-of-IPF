@@ -293,9 +293,13 @@ function GET_UPGRADE_ADD_ATK_RATIO(item, ignoreTranscend)
         local value = class.AtkRatio;        
         -- PVP --
         value = SCR_PVP_ITEM_TRANSCEND_SET(item, value);        
+        
         return value;
     end
-    return 0;
+    local value = 0;
+    value = SCR_PVP_ITEM_TRANSCEND_SET(item, value);
+    
+    return value;
 end
 
 function GET_UPGRADE_ADD_DEF_RATIO(item, ignoreTranscend)
@@ -308,7 +312,10 @@ function GET_UPGRADE_ADD_DEF_RATIO(item, ignoreTranscend)
         
         return value;
     end
-    return 0;
+    local value = 0;
+    value = SCR_PVP_ITEM_TRANSCEND_SET(item, value);
+    
+    return value;
 end
 
 function GET_UPGRADE_ADD_MDEF_RATIO(item, ignoreTranscend)
@@ -318,10 +325,12 @@ function GET_UPGRADE_ADD_MDEF_RATIO(item, ignoreTranscend)
         
         -- PVP --
         value = SCR_PVP_ITEM_TRANSCEND_SET(item, value);
-        
         return value;
     end
-    return 0;
+    local value = 0;
+    value = SCR_PVP_ITEM_TRANSCEND_SET(item, value);
+    
+    return value;
 end
 
 function GET_TRANSCEND_REMOVE_ITEM()

@@ -509,14 +509,9 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe, removeChatIDList)
 			txt:SetTextByKey("font", fontStyle);				
 			txt:SetTextByKey("size", fontSize);				
 			txt:SetTextByKey("text", CHAT_TEXT_LINKCHAR_FONTSET(mainchatFrame, msgString));
-			timeCtrl:SetTextByKey("time", clusterinfo:GetTimeStr());	
-
-			local slflag = string.find(clusterinfo:GetMsg(),'a SL%a')
-			if slflag == nil then
-				txt:EnableHitTest(0)
-			else
-				txt:EnableHitTest(1)
-			end
+			timeCtrl:SetTextByKey("time", clusterinfo:GetTimeStr());
+			
+			txt:EnableHitTest(1);
 		
 			RESIZE_CHAT_CTRL(groupbox, chatCtrl, label, txt, timeCtrl, offsetX);
 		end																									

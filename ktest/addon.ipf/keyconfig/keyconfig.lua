@@ -112,7 +112,6 @@ function KEYCONFIG_OPEN_CATEGORY(frame, fileName, category)
 		txt_key:SetUserValue("UseAlt", useAlt);
 		txt_key:SetUserValue("UseCtrl", useCtrl);
 		KEYCONFIG_UPDATE_KEY_TEXT(txt_key);
-
 	end
 
 	GBOX_AUTO_ALIGN(bg_keylist, 0, 0, 0, true, true);
@@ -145,9 +144,6 @@ function KEYCONFIG_EDIT_START(parent, ctrl, str, num)
 	ctrl:SetSkinName("baseyellow_btn");
 	
 	KEYCONFIG_UPDATE_KEY_TEXT(ctrl);
-
-	
-
 end
 
 function KEYCONFIG_SAVE_INPUT(frame)
@@ -308,26 +304,32 @@ function KEYCONFIG_CHECKING_INPUT(frame)
 		KEYCONFIG_END_INPUT(frame);
 		return 0;
 	end
-	 
-	 local downKey = nil;
-	 local joyStickMode;
-	 if string.find(fileName, "joystick") ~= nil then
+
+	local downKey = nil;
+	local joyStickMode;
+	if string.find(fileName, "joystick") ~= nil then
 		downKey = joystick.GetDownJoyStickBtn();
 		joyStickMode = true;
-	 else
+	else
 		downKey = keyboard.GetDownKey();
+		if downKey == nil then
+			downKey = mouse.GetButtonDown();
+
+			if downKey == "MOUSELEFT" or downKey == "MOUSERIGHT" then
+				downKey = nil;
+			end
+		end
 		joyStickMode = false;
-	 end
+	end
 
 	local id = frame:GetUserValue("ID");
 	if downKey ~= nil then
-		
 		local bg_key = GET_CHILD(frame, "bg_key");
 		local bg_keylist = GET_CHILD(bg_key, "bg_keylist");
 		local ctrlSet = GET_CHILD_BY_USERVALUE(bg_keylist, "ID", id);
 		if ctrlSet ~= nil then
 			local txt_key = GET_CHILD(ctrlSet, "txt_key");
-			
+
 			local normalKey = true;
 			if downKey == "LALT" or downKey == "RALT" then
 				txt_key:SetUserValue("UseAlt", "YES");
@@ -357,10 +359,6 @@ function KEYCONFIG_CHECKING_INPUT(frame)
 					txt_key:SetUserValue("Key", downKey);
 				end
 			end
-
-			
-			
-			
 
 			KEYCONFIG_UPDATE_KEY_TEXT(txt_key);
 		end

@@ -6,6 +6,8 @@ local eventUserType = {
 	newbie  = 2,	-- 신규
 };
 
+-- 사용한 유료 tp 값에 따라 구입 할 수 있는 아이템 카테고리 타입 
+local usedTPType = {"TP_FirstBuy"}
 
 function TPITEM_ON_INIT(addon, frame)
    
@@ -13,7 +15,11 @@ function TPITEM_ON_INIT(addon, frame)
 	addon:RegisterMsg("TPSHOP_BUY_SUCCESS", "ON_TPSHOP_BUY_SUCCESS");
 	addon:RegisterMsg("SHOP_BUY_LIMIT_INFO", "ON_SHOP_BUY_LIMIT_INFO");
 
-	addon:RegisterMsg("SHOP_USER_INFO", "ON_SHOP_USER_INFO"); 
+	addon:RegisterMsg("SHOP_USER_INFO", "ON_SHOP_USER_INFO");
+	
+	if (config.GetServiceNation() == "GLOBAL") then
+	addon:RegisterMsg("SHOP_USER_USED_MEDAL", "ON_SHOP_USER_USED_MEDAL"); 
+	end
 	
 	if (config.GetServiceNation() == "KOR") then
 	addon:RegisterMsg("UPDATE_INGAME_SHOP_ITEM_LIST", "TPITEM_DRAW_NC_TP");
@@ -67,6 +73,37 @@ function ON_SHOP_USER_INFO(frame)
 	local itembox_tab = tolua.cast(tabObj, "ui::CTabControl");
 	local curtabIndex = itembox_tab:GetSelectItemIndex();
 	TPSHOP_TAB_VIEW(frame, curtabIndex); -- 배너 변경을 위해 호출
+end
+
+-- 플레이어 사용 tp에 따른 카테고리 추가 
+function ON_SHOP_USER_USED_MEDAL(frame)
+	frame:SetUserValue("is_RequestUsedMedal", 1);
+	MAKE_CATEGORY_TREE();
+
+	local selectcategoty = frame:GetUserValue("selectcategoty");
+	if selectcategoty ~= "" then
+		local tpitemtree = GET_CHILD_RECURSIVELY(frame, "tpitemtree");
+		tpitemtree:Select(tpitemtree:FindByValue(selectcategoty));
+		local tnode = tpitemtree:GetLastSelectedNode();
+		if tnode ~= nil then
+			TPITEM_SELECT_TREENODE(tnode);
+		end
+	end
+
+end
+
+function IS_USED_MEDAL_TYPE(obj, usedTP)
+	local typeindex = table.find(usedTPType, obj.SubCategory)
+	if typeindex == 0 then
+		return false;
+	end
+
+	local typename = usedTPType[typeindex];
+	if typename == "TP_FirstBuy" and usedTP == 0 then
+		return true;
+	end
+
+	return false;
 end
 
 function TPSHOP_EVENT_USER_TIMER_UPDATE()
@@ -427,6 +464,9 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	-- 요청
 	session.shop.RequestLoadShopBuyLimit();
 	session.shop.RequestEventUserTypeInfo(); -- 신규/복귀/일반 변경정보 요청.
+	if (config.GetServiceNation() == "GLOBAL") then
+		session.shop.RequestUsedMedalTotal();		-- 사용한 유료 tp 값 관련 정보 갱신
+	end
 
 	frame:ShowWindow(1);
 	local leftgFrame = frame:GetChild("leftgFrame");	
@@ -605,6 +645,10 @@ function SET_TOPMOST_FRAME_SHOWFRAME(show)
 end
 
 function ON_TPSHOP_BUY_SUCCESS(frame)
+	if (config.GetServiceNation() == "GLOBAL") then
+		session.shop.RequestUsedMedalTotal();		-- 사용한 유료 tp 값 관련 정보 갱신
+	end
+
 	local basketslotset = GET_CHILD_RECURSIVELY(frame,"basketslotset")
 	basketslotset:ClearIconAll();
 	local rcycle_basketbuyslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketbuyslotset")
@@ -685,7 +729,7 @@ end
 function MAKE_CATEGORY_TREE()
 
 	local frame = ui.GetFrame("tpitem")
-
+	
 	local categorySubGbox = GET_CHILD_RECURSIVELY(frame, "categorySubGbox")
 	categorySubGbox:SetUserValue("CTRLNAME", "None");
 	local tpitemtree = GET_CHILD(categorySubGbox, "tpitemtree")
@@ -721,19 +765,30 @@ function MAKE_CATEGORY_TREE()
 		htreeitem = tpitemtree:Add(categoryCset, "Total");
 	end
 
+	local selectcategoty = "";
+	local usedTP = session.shop.GetUsedMedalTotal();
+
 	for i = 0, cnt - 1 do
 		local obj = GetClassByIndexFromList(clsList, i);
 
-		if obj.Category ~= 'TP_Premium_Sale' then
-            firstTreeItem = CREATE_TPITEM_TREE(obj, tpitemtree, i, firstTreeItem);
+		local usedTPTypeindex = table.find(usedTPType, obj.SubCategory)			-- 플레이어 사용 tp 값에 따라 구매할 수 있는 아이템 카테고리는 여기에서 생성하지 않음
+		if obj.Category ~= 'TP_Premium_Sale' and usedTPTypeindex == 0 then
+			firstTreeItem = CREATE_TPITEM_TREE(obj, tpitemtree, i, firstTreeItem);
+		elseif config.GetServiceNation() == "GLOBAL" and usedTPTypeindex >  0 then		
+			if frame:GetUserIValue("is_RequestUsedMedal") == 1 and IS_USED_MEDAL_TYPE(obj, usedTP) then
+				firstTreeItem = CREATE_TPITEM_TREE(obj, tpitemtree, i, firstTreeItem);
+				selectcategoty = obj.Category.."#"..obj.SubCategory;
+			end
         end
 	end
+
+	frame:SetUserValue("selectcategoty", selectcategoty);
 
     --할인카테고리 추가, 추후 카테고리가 추가될 시 이 아래에 해당 아이템이 카테고리에 속하는지 확인해 주는 코드 작성이 필요함
     for i = 1, #itemOnSale do
         firstTreeItem = CREATE_TPITEM_TREE(itemOnSale[i], tpitemtree, i, firstTreeItem);
 	end
-
+	
 	tpitemtree:Select(firstTreeItem);
 	local tnode = tpitemtree:GetLastSelectedNode();
 	if htreeitem ~= nil then
@@ -798,6 +853,8 @@ function TPITEM_CLOSE(frame)
 		banner:SetUserValue("URL_BANNER", "");
 		banner:SetUserValue("NUM_BANNER", 0);
 		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+	elseif (config.GetServiceNation() == "GLOBAL") then
+		frame:SetUserValue("is_RequestUsedMedal", 0);
 	end
 	
 	SET_TOPMOST_FRAME_SHOWFRAME(1);
@@ -1020,7 +1077,7 @@ function TPITEM_DRAW_ITEM_TOTAL(frame)
 			IMC_NORMAL_INFO("ItemClassName not found in item.xml:TPITEM_DRAW_ITEM_TOTAL. obj.ItemClassName:" ..obj.ItemClassName);
 		else
 			local itemcset = nil;
-			if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
+			if CHECK_TPITEM_ENABLE_VIEW(obj) == true and CHECK_USEDTPITEM_ENABLE_VIEW(obj) == true then
 				if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
 					index = index + 1;
 					x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width');
@@ -1111,7 +1168,7 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 		  end
           local itemcset = nil;
 		      if (allFlag == nil) then	
-			      if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
+			      if CHECK_TPITEM_ENABLE_VIEW(obj) == true and CHECK_USEDTPITEM_ENABLE_VIEW(obj, isFounded) == true then
 				      if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
 					      if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then
 					        index = index + 1
@@ -1124,7 +1181,7 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 			      end
 		      else
 			      if (obj.Category == category) then
-				      if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
+				      if CHECK_TPITEM_ENABLE_VIEW(obj) == true and CHECK_USEDTPITEM_ENABLE_VIEW(obj) == true then
 					      if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
 						      index = index + 1
 						      x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
@@ -1417,7 +1474,26 @@ function CHECK_TPITEM_ENABLE_VIEW(itemObj)
     local curYear = 0
     local endYear = 0
     local ret = IS_BETWEEN_DAY(startProp, endProp, geTime.GetServerSystemTime())    
-    return ret
+	return ret	
+end
+
+function CHECK_USEDTPITEM_ENABLE_VIEW(itemObj, isFounded)		
+	local usedTPProp = TryGetProp(itemObj, "buyOptionFunc")
+
+	if usedTPProp == nil or usedTPProp == "None" then
+		return true;
+	end
+
+	if isFounded == true then
+		-- 검색 결과
+		return false;
+	elseif isFounded == false then
+		-- 카테고리 선택
+		return true;
+	end
+
+	-- 전체 탭
+	return false;
 end
 
 function IS_TIME_SALE_ITEM(classID)
@@ -2486,21 +2562,27 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
 		        end	
 	        end
         end
-    end
-
+	end
+	
 	if #needWarningItemList > 0 or #cannotEquip > 0 then
     	OPEN_TPITEM_POPUPMSG(needWarningItemList, noNeedWarning, cannotEquip, itemAndTPItemIDTable, allPrice);
 	else
-    	if config.GetServiceNation() == "GLOBAL" then			
+		if config.GetServiceNation() == "GLOBAL" then
+
+			if #needWarningItemList == 0 and #noNeedWarning == 0 and #cannotEquip == 0 then
+				ui.SysMsg(ClMsg('NoItemInBasket'));
+				return;
+			end
+
 			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
         		ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
 			else
 				POPUP_LIMIT_PAYMENT(ScpArgMsg("ReallyBuy?"), parent:GetName(), allPrice)
-			end			
+			end
 		else
 			ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
 		end
-    end
+	end
 
 	control:SetEnable(0);
 end
@@ -2554,9 +2636,13 @@ function POPUP_POPUP_LIMIT_PAYMENT_CLICK()
 	local msg = frame:GetUserValue("LIMIT_PAYMENT_MSG");
 	local parentName = frame:GetUserValue("PARENT_NAME");
 	
-	ui.MsgBox_NonNested_Ex(msg, 0x00000004, parentName, "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
-
-
+	local usedTP = session.shop.GetUsedMedalTotal();
+	if usedTP == 0 then
+		ui.MsgBox_NonNested_Ex(ScpArgMsg("tpshop_first_buy_msg"), 0x00000004, parentName, "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+	else
+		ui.MsgBox_NonNested_Ex(msg, 0x00000004, parentName, "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+	end
+	
 	local frame = ui.GetFrame("tpitem")
 	local btn = GET_CHILD_RECURSIVELY(frame,"basketBuyBtn");
 	btn:SetEnable(1);

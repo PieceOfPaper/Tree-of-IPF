@@ -576,8 +576,21 @@ function BEAUTYSHOP_RETURN(parent, ctrl)
   BEAUTYSHOP_DO_OPEN(ui.GetFrame('beautyshop'), nil, frame:GetUserValue('CURRENT_SHOP'), BEAUTYSHOP_GET_GENDER());
 end
 
+function BEAUTYSHOP_LIST_PREVIEW_BUY_CHECK(parent)
+  if config.GetServiceNation() == "GLOBAL" then
+    local usedTP = session.shop.GetUsedMedalTotal();
+    if usedTP == 0 then
+      ui.MsgBox_NonNested_Ex(ScpArgMsg("tpshop_first_buy_msg"), 0x00000004, parent:GetName(), "BEAUTYSHOP_LIST_PREVIEW_BUY()");	
+    else
+      BEAUTYSHOP_LIST_PREVIEW_BUY(parent);
+    end
+  else
+    BEAUTYSHOP_LIST_PREVIEW_BUY(parent);
+  end
+end
+
 function BEAUTYSHOP_LIST_PREVIEW_BUY(parent, control, strarg, numarg)
-  local frame = parent:GetTopParentFrame();
+  local frame = ui.GetFrame('beautyshop_simplelist');
   local rtRemainTP = GET_CHILD_RECURSIVELY(frame, 'rtRemainTP');
   local remainTP = tonumber(rtRemainTP:GetTextByKey('value'));
   if remainTP < 0 then

@@ -662,3 +662,12 @@ function SET_QUESTINFOSET_TRANSPARENCY(frame)
 	SET_SLIDE_VAL(frame, "questinfosetTransparency", "questinfosetTransparency_text", config.GetQuestinfosetTransparency());
 	UPDATE_QUESTINFOSET_TRANSPARENCY(nil)
 end
+
+function CONFIG_OTHER_PC_EFFECT(frame, ctrl, str, num)
+	local isEnable = ctrl:IsChecked();
+	if isEnable == 0 then
+		local yesScp = "ENABLE_OTHER_PC_EFFECT_UNCHECK()";
+		local noScp = "ENABLE_OTHER_PC_EFFECT_CHECK()";
+		ui.MsgBox(ScpArgMsg("Ask_UnEnableOtherPCEffect_Text"), yesScp, noScp);
+	end
+end
