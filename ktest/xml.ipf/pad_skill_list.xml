@@ -548,6 +548,30 @@ end"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
+	<PadSkill Name="GM_MGAME_BORUTA_HATE_RESET_PAD" CheckerType="0" Range="100" UpdateTerm="3000" ObjType="2" AllowOverlap="1" EnableSearch="0">
+		<createEvent>
+			<ToolScp Scp="PAD_SET_OWNER_IN_BORNTIME" Client="NO" UseSleep="NO">
+				<Str Str="HATE_RESET"/>
+			</ToolScp>
+			<ToolScp Scp="C_PAD_EFFECT_FORCE" Client="YES" UseSleep="NO">
+				<Str_Arg Str="I_harfsphere002_blue_loop" Arg="0.60000002"/>
+				<Num Num="15"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="720000"/>
+				<Num Num="1"/>
+			</ToolScp>
+		</createEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="GM_MGAME_BORUTA_HATE_RESET_PAD_UPDATE"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-240"/>
+				<Num Num="0"/>
+			</ToolScp>
+		</updateEvent>
+	</PadSkill>
     <PadSkill Name="BK_MGAME_BORUTA_HATE_RESET_PAD" CheckerType="0" Range="100" UpdateTerm="3000" ObjType="2" AllowOverlap="1" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_SET_OWNER_IN_BORNTIME" Client="NO" UseSleep="NO">
@@ -12660,7 +12684,7 @@ return 30000 + obj.Level * 5000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Skiaclipse_pad_4" CheckerType="0" Range="60" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+    <PadSkill Name="Skiaclipse_pad_4" CheckerType="0" Range="60" ApplyFlyMon="1" AllowOverlap="1" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_USEABLE_PC" Client="NO" UseSleep="NO"/>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">

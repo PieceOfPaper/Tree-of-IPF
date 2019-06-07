@@ -800,9 +800,14 @@ function _SUCCESS_ITEM_OPTION_LEGEND_EXTRACT()
 	local invitem = session.GetInvItemByGuid(guid)
 	local invitemobj = GetIES(invitem:GetObject());
 	local targetItem = GetClass('Item', invitemobj.InheritanceItemName);
-		if targetItem == nil then
-			return;
-		end
+
+    if targetItem == nil then
+        targetItem = GetClass('Item', invitemobj.InheritanceRandomItemName);
+    end 
+
+	if targetItem == nil then
+		return;
+	end
 	
 	OPTION_LEGEND_EXTRACT_REGISTER_EXTRACTION_OPTION_CAPTION(frame, targetItem, invitemobj)
 

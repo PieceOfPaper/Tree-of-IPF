@@ -2,6 +2,7 @@ function FPS_ON_INIT(addon, frame)
 
 	addon:RegisterMsg('FPS_UPDATE', 'FPS_ON_MSG');
 	addon:RegisterMsg('SERVER_FPS', 'FPS_ON_MSG');
+    addon:RegisterMsg('RTT_UPDATE', 'RTT_ON_MSG');
 
 	local textObject = frame:GetChild('serverfpstext');
 	textObject:ShowWindow(0);
@@ -71,6 +72,18 @@ function FPS_ON_MSG(frame, msg, argStr, argNum)
 		fpsRichText:ShowWindow(1);
 
 	end
+end
+
+
+function RTT_ON_MSG(frame, msg, argStr, argNum)
+    if frame:IsVisible() == 1 then
+        local textObject = frame:GetChild('pingtext');
+	    local pingRichText = tolua.cast(textObject,"ui::CRichText");
+        local text = '{#ff9900}{s16}{ol}RTT : ' .. argStr;
+    
+	    pingRichText:SetText(text);
+        pingRichText:ShowWindow(1);
+    end
 end
 
 function UPDATE_MEMORY_INFO(frame)

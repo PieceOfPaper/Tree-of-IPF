@@ -9291,6 +9291,34 @@
 			</ToolScp>
 		</StartList>
 	</AI>
+    <AI Name="GM_MGAME_BORUTA_SCREAM_OBJ_AI_RUN" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GM_MGAME_BORUTA_SCREAM_OBJ_AI_UPDATE"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GM_MGAME_BORUTA_SCREAM_OBJ_AI_DEAD_RUN"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_spread_in032_dark2" Arg="1.5"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_spread_in032_darkrize_loop" Arg="1"/>
+                <Str Str="TOP"/>
+            </ToolScp>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GM_MGAME_BORUTA_SCREAM_OBJ_AI_BORN"/>
+            </ToolScp>
+        </StartList>
+    </AI>
 	<AI Name="GM_MON_SUMMON_AI" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -15819,6 +15847,19 @@ if self.HP == 0 then return 1; else return 0; end;">
                 <Str Str="ROOTCRYSTAL_GIMMICK_INIT"/>
             </ToolScp>
             <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="RVR_BK_GET_OCCUPY_GUILD_AI" UpdateMS="600000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="RVR_BK_GET_OCCUPY_GUILD"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="RVR_BK_GET_OCCUPY_GUILD"/>
+            </ToolScp>
         </StartList>
     </AI>
     <AI Name="RVR_BK_REST_BORUTA_1" ActiveMessageMapInBattle="1">

@@ -434,6 +434,7 @@
         <Key Name="ItemGuildCoolDown" Value="103124"/>
         <Key Name="CRTMATK" Value="103193"/>
         <Key Name="Rebuildchangeitem" Value="103244"/>
+        <Key Name="InheritanceRandomItemName" Value="103948"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="P_PARTY_Q_040" Value="53"/>
@@ -1770,6 +1771,7 @@
         <Key Name="HadVisited_9993" Value="103941"/>
         <Key Name="HadVisited_9994" Value="103942"/>
         <Key Name="HadVisited_9995" Value="103943"/>
+        <Key Name="HadVisited_4952" Value="103954"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -9741,6 +9743,9 @@
         <Key Name="HadVisited_9993" Value="103938"/>
         <Key Name="HadVisited_9994" Value="103939"/>
         <Key Name="HadVisited_9995" Value="103940"/>
+        <Key Name="HadVisited_4952" Value="103951"/>
+        <Key Name="Hide_2993" Value="103953"/>
+        <Key Name="Kill_Guild_boss_Boruta" Value="103952"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -10722,6 +10727,8 @@
         <Key Name="ColonySecondLeague_NuoridinFalls" Value="103937"/>
         <Key Name="ColonySecondLeague_SalviasForest" Value="103936"/>
         <Key Name="ColonySecondLeague_SventimasExile" Value="103935"/>
+        <Key Name="GuildEvent_BorutosKapas_Count" Value="103950"/>
+        <Key Name="GuildEvent_BorutosKapas_Reset" Value="103949"/>
     </KeyIDSpc>
     <KeyIDSpc Name="ZoneObject">
         <Key Name="JaqBoxLock" Value="122"/>
@@ -17851,6 +17858,8 @@
         <Key Name="MG_Last_GUILD_COLONY_F_PILGRIMROAD_41_2" Value="103944"/>
         <Key Name="MG_Last_GUILD_COLONY_F_REMAINS_37_1" Value="103946"/>
         <Key Name="MG_Last_GUILD_COLONY_F_TABLELAND_72" Value="103945"/>
+        <Key Name="JOB_BALLENCE_REWARD2_DATE" Value="103947"/>
+        <Key Name="MG_Last_Guild_RAID_BORUTOS_KAPAS_1" Value="103955"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>

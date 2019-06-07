@@ -108,13 +108,17 @@ function GET_OPTION_EQUIP_NEED_SILVER_COUNT(item)
 end
 
 function OVERRIDE_INHERITANCE_PROPERTY(item)
-    if item == nil or item.InheritanceItemName == 'None' then
+    if item == nil or (item.InheritanceItemName == 'None' and item.InheritanceRandomItemName == 'None') then
         return;
     end
 
     local inheritanceItem = GetClass('Item', item.InheritanceItemName);
     if inheritanceItem == nil then
-        return;
+        inheritanceItem = GetClass('Item', item.InheritanceRandomItemName);
+        
+        if inheritanceItem == nil then
+            return;
+        end
     end
 
     local basicTooltipPropList = StringSplit(item.BasicTooltipProp, ';');
@@ -170,11 +174,14 @@ function IS_100PERCENT_SUCCESS_EXTRACT_ICOR_ITEM(item)
     return item.StringArg == 'Extract_kit_Gold_NotFail' or item.StringArg == 'Extract_kit_Gold_NotFail_Rand' or item.StringArg == 'Extract_kit_Gold_NotFail_Recipe';
 end
 
-function IS_ENABLE_RELEASE_OPTION(item)
-    if TryGetProp(item, 'ItemType', 'None') == 'Equip' and TryGetProp(item, 'InheritanceItemName', 'None') ~= 'None' then
-        return true;
+-- 아이커 장착 해제 조건 체크, 고정옵션(InheritanceItemName), 랜덤옵션(InheritanceRandomItemName)
+function IS_ENABLE_RELEASE_OPTION(item)   
+    if TryGetProp(item, 'ItemType', 'None') == 'Equip' then
+        if TryGetProp(item, 'InheritanceItemName', 'None') ~= 'None' or TryGetProp(item, 'InheritanceRandomItemName', 'None') ~= 'None' then
+            return true        
+        end
     end
-
+    
     return false;
 end;
 
@@ -191,3 +198,12 @@ function GET_OPTION_RELEASE_COST(item, taxRate)
     
     return SyncFloor(price);
 end;
+
+-- 아이커가 가능한 랜덤 레전드 아이템인가?
+function IS_ICORABLE_RANDOM_LEGEND_ITEM(item)    
+    if TryGetProp(item, 'NeedRandomOption', 0) == 1 and TryGetProp(item, 'LegendGroup', 'None') ~= 'None' then
+        return true
+    else
+        return false
+    end
+end

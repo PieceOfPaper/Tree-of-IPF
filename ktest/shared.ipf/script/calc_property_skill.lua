@@ -11300,6 +11300,14 @@ function SCR_GET_Bendrinti_Ratio(skill)
     return value;
 end
 
+function SCR_GET_Goduma_Ratio(skill)
+    local pc = GetSkillOwner(skill)
+    local casterMHP = TryGetProp(pc, "MHP", 0) - TryGetProp(pc, "MHP_BM", 0)
+    local value = math.floor(casterMHP / (2000 * PC_MAX_LEVEL) * 100)
+    
+    return value
+end
+
 function SCR_GET_Gymas_Ratio(skill)
     local pc = GetSkillOwner(skill);
     local value = 25
@@ -11314,7 +11322,7 @@ function SCR_GET_Gymas_Ratio(skill)
 end
 
 function SCR_GET_Smugis_Ratio(skill)
-    local value = 10
+    local value = 20
     return value;
 end
 

@@ -109,6 +109,10 @@ function SHOW_HASTE(arg1, argString)
 	return string.format("%s (%s)", ScpArgMsg("ADD_HASTE_{Auto_1}!","Auto_1", buff.Name), argString);
 end
 
+function SHOW_MACANGDAL()
+	return ScpArgMsg("MackangdalOFF");
+end
+
 
 -- ????? ????
 function SHOW_SKILL_ATTRIBUTE(arg, argString)

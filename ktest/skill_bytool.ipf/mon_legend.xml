@@ -26,7 +26,7 @@
         </MainSkl>
     </Skill>
     <Skill Name="Mon_Legend_Boss_Skiaclipse_Skill_2">
-        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+        <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">
             <HitList>
                 <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
             </HitList>
@@ -480,7 +480,7 @@
         </MainSkl>
     </Skill>
     <Skill Name="Mon_Legend_Boss_Skiaclipse_Skill_6">
-        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+        <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">
             <HitList>
                 <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
             </HitList>
@@ -691,7 +691,7 @@
                 <Str Str="Ignore_Stop_Buff"/>
             </ToolScp>
         </EndScripts>
-        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+        <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">
             <HitList>
                 <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Length="100" AniTime="10199" RotAngle="0" ForceATK="0"/>
             </HitList>
@@ -764,7 +764,7 @@
         </MainSkl>
     </Skill>
     <Skill Name="Mon_Legend_Boss_Skiaclipse_Skill_9">
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl JumpFlee="YES" MSPDToUsePos="0" ScrLock="None">
             <HitList>
                 <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30"/>
             </HitList>
@@ -830,7 +830,7 @@
         </MainSkl>
     </Skill>
     <Skill Name="Mon_Legend_Boss_Skiaclipse_Skill_10">
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl JumpFlee="YES" MSPDToUsePos="0" ScrLock="None">
             <HitList>
                 <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30"/>
             </HitList>
@@ -961,7 +961,7 @@
         </MainSkl>
     </Skill>
     <Skill Name="Mon_Legend_Boss_Skiaclipse_Sealed_Nocage_Skill_1">
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+        <MainSkl JumpFlee="YES" MSPDToUsePos="0" ScrLock="None">
             <HitList>
                 <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
             </HitList>
@@ -1022,7 +1022,7 @@
         </MainSkl>
     </Skill>
     <Skill Name="Mon_Legend_Boss_Skiaclipse_Sealed_Nocage_Skill_2">
-        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+        <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">
             <HitList>
                 <Frame Type="FAN" Time="9919" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10119" RotAngle="0" ForceATK="0"/>
             </HitList>

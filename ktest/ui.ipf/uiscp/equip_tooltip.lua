@@ -99,7 +99,7 @@ local function _DRAW_SEAL_OPTION(tooltipframe, invitem, ypos, mainframename)
 	return ypos;
 end
 
-function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForgery)
+function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForgery)    
 	if isForgery == nil then
 		isForgery = false;
 	end
@@ -828,7 +828,7 @@ end
 function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, setItem, drawLableline)	
 	local gBox = GET_CHILD(tooltipframe,mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_equip_property');
-	
+
 	local basicList = GET_EQUIP_TOOLTIP_PROP_LIST(invitem);
     local list = {};
     local basicTooltipPropList = StringSplit(invitem.BasicTooltipProp, ';');
@@ -868,12 +868,47 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, setItem
 		end
 	end
 
+	-- Trigger On == 1, if triggered then set margin
+	local marginTrigger = 0;
+
+	for i = 1 , maxRandomOptionCnt do
+	    local propGroupName = "RandomOptionGroup_"..i;
+		local propName = "RandomOption_"..i;
+		local propValue = "RandomOptionValue_"..i;
+		local clientMessage = 'None'
+
+		local propItem = invitem
+
+		if setItem ~= nil then
+			propItem = setItem
+		end
+
+		if propItem[propGroupName] == 'ATK' then
+		    clientMessage = 'ItemRandomOptionGroupATK'
+		elseif propItem[propGroupName] == 'DEF' then
+		    clientMessage = 'ItemRandomOptionGroupDEF'
+		elseif propItem[propGroupName] == 'UTIL_WEAPON' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif propItem[propGroupName] == 'UTIL_ARMOR' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif propItem[propGroupName] == 'UTIL_SHILED' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif propItem[propGroupName] == 'STAT' then
+		    clientMessage = 'ItemRandomOptionGroupSTAT'
+		end
+		
+		if propItem[propValue] ~= 0 and propItem[propName] ~= "None" then
+			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(propItem[propName]));
+			local strInfo = ABILITY_DESC_NO_PLUS(opName, propItem[propValue], 0);
+
+			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
+			marginTrigger = 1;
+		end
+	end
+
 	for i = 1 , #list do
 		local propName = list[i];
 		local propValue = class[propName];
-	--	if socketitem ~= nil then
-	--		propValue = socketitem[propName]
-	--	end
 
 		local needToShow = true;
 		for j = 1, #basicTooltipPropList do
@@ -883,6 +918,11 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, setItem
 		end
 
 		if needToShow == true and propValue ~= 0 and randomOptionProp[propName] == nil then -- 랜덤 옵션이랑 겹치는 프로퍼티는 여기서 출력하지 않음
+			if marginTrigger == 1 then
+				inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, " ", 0, inner_yPos);
+				marginTrigger = 0;
+			end
+
 			if  invitem.GroupName == 'Weapon' then
 				if propName ~= "MINATK" and propName ~= 'MAXATK' then
 					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);					
@@ -921,43 +961,7 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, setItem
 			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 		end
 	end
-	
-	for i = 1 , maxRandomOptionCnt do
-	    local propGroupName = "RandomOptionGroup_"..i;
-		local propName = "RandomOption_"..i;
-		local propValue = "RandomOptionValue_"..i;
-		local clientMessage = 'None'
-
-		local propItem = invitem
-
-		if setItem ~= nil then
-			propItem = setItem
-		end
-
-		if propItem[propGroupName] == 'ATK' then
-		    clientMessage = 'ItemRandomOptionGroupATK'
-		elseif propItem[propGroupName] == 'DEF' then
-		    clientMessage = 'ItemRandomOptionGroupDEF'
-		elseif propItem[propGroupName] == 'UTIL_WEAPON' then
-		    clientMessage = 'ItemRandomOptionGroupUTIL'
-		elseif propItem[propGroupName] == 'UTIL_ARMOR' then
-		    clientMessage = 'ItemRandomOptionGroupUTIL'
-		elseif propItem[propGroupName] == 'UTIL_SHILED' then
-		    clientMessage = 'ItemRandomOptionGroupUTIL'
-		elseif propItem[propGroupName] == 'STAT' then
-		    clientMessage = 'ItemRandomOptionGroupSTAT'
-		end
-		
-		if propItem[propValue] ~= 0 and propItem[propName] ~= "None" then
-			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(propItem[propName]));
-			local strInfo = ABILITY_DESC_NO_PLUS(opName, propItem[propValue], 0);
-
-			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
-		end
-	end
-
    
-
 	for i = 1 , #list2 do
 		local propName = list2[i];
 		local propValue = invitem[propName];
@@ -990,11 +994,12 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, setItem
 		local strInfo = ABILITY_DESC_PLUS(opName, math.floor(10 * invitem.ReinforceRatio/100));
 		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo.."0%"..ClMsg("ReinforceOptionAtk"), 0, inner_yPos);
 	end
+
     if setItem ~= nil then
 	    inner_yPos = ADD_RANDOM_OPTION_RARE_TEXT(property_gbox, setItem, inner_yPos);
     else
         inner_yPos = ADD_RANDOM_OPTION_RARE_TEXT(property_gbox, invitem, inner_yPos);
-    end
+	end
 	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
 	BOTTOM_MARGIN = tonumber(BOTTOM_MARGIN)
 	if BOTTOM_MARGIN == nil then

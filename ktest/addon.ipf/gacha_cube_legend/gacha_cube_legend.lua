@@ -45,7 +45,6 @@ function CANCEL_GACHA_CUBE_LEGEND(frame, msg, argStr, argNum)
 
     if argNum ~= nil then
        local itemobj = GetClassByType("Item", tonumber(argNum))
-       RemoveLuaTimerFunc('discover_velcoffer_cube_use')
        DiscoverVelcofferLegendCubeUse(itemobj.ClassName)    -- 사용 가능 복구       
     end
 end
@@ -60,7 +59,7 @@ function GACHA_CUBE_LEGEND_USE_COUPON_BTN(frame, ctrl)
     item.DoPremiumItemGachaCubeLegend(true)
 end
 
-function discover_velcoffer_cube_use()
-    DiscoverVelcofferLegendCubeUse('Gacha_I_016');
-    DiscoverVelcofferLegendCubeUse('Gacha_I_017');
+function discover_velcoffer_cube_use(className)
+    sleep(10);
+    DiscoverVelcofferLegendCubeUse(className);
 end

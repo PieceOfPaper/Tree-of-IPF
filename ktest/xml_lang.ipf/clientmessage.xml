@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -634,6 +634,8 @@
     <Class ClassID="4237" ClassName="ExceedAmountItem_misc_pvp_mine2{Extra}{Count}" Data="[용병단 증표]의 최대 소유할 수 있는 개수가 초과되어 {Extra}개는 제외하고 {Count}만큼 지급되었습니다."/>
 		<Class ClassID="4238" ClassName="SelectEventItem{ITEM}" Data="{@st66d_y}{s20}{ITEM}{/}{/} {nl}아이템을 정말 선택하시겠습니까?{nl} {nl}선택 후에는 다른 아이템으로{nl}교환할 수 없습니다."/>
 		<Class ClassID="4239" ClassName="nohaveskillnouse" Data="습득한 스킬이 없어 사용 할 수 없습니다."/>
+    <Class ClassID="4240" ClassName="RemainMoreOption" Data="{@st50}{#ff0000}-- More Option --"/>
+    <Class ClassID="4241" ClassName="CantIcorToRandomOptionLegend" Data="랜덤 옵션 레전드 아이템에 랜덤 옵션 아이커를 장착할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -6793,6 +6795,9 @@
 		<Class ClassID="66026" ClassName="NEW_CHAR_SHOP_1" Data="성장의 보석 상점"/>
 		<Class ClassID="66027" ClassName="SPROUT_SHOP_1" Data="탐험의 새싹 상점"/>
 		<Class ClassID="66028" ClassName="SPROUT_PREMIUM_SHOP_1" Data="신규클래스 출시기념 새싹 상점"/>
+		<Class ClassID="66029" ClassName="GM_BK_NPC_AUSTEJA_1_CHAT_1" Data="통로를 열었습니다{nl}조심하세요"/>
+		<Class ClassID="66030" ClassName="GM_BK_BROADCAST_BORN_1" Data="길드원들이 드래곤 보루타와 대적합니다"/>
+		<Class ClassID="66031" ClassName="GM_BK_BROADCAST_DEAD_1" Data="길드원들이 드래곤 보루타를 제압했습니다"/>
 		<Class ClassID="66100" ClassName="RVR_BK_WORLD_MSG_BOSS_BORN_1" Data="슬리비나스 레어의 드래곤 보루타가{nl}다시 나타났습니다"/>
 		<Class ClassID="66105" ClassName="RVR_BK_WORLD_MSG_BOSS_DEAD_1" Data="슬리비나스 레어의 드래곤 보루타가{nl}구원자들에게 제압 당했습니다!"/>
 		<Class ClassID="66106" ClassName="BK_MGAME_BORUTA_CANCLE_WARP_IN" Data="결속 강화 효과를 얻었습니다."/>
@@ -7097,6 +7102,7 @@
 		<Class ClassID="67295" ClassName="EVENT_1901_RANKRESET_SEL_1" Data="클래스 변경 포인트로 지원 받는다"/>
 		<Class ClassID="67296" ClassName="EVENT_1901_RANKRESET_SEL_2" Data="아이템으로 지원 받는다"/>
 		<Class ClassID="67297" ClassName="EVENT_1901_RANKRESET_SEL_3" Data="클래스 변경 포인트와 아이템을 지원 받는다"/>
+		<Class ClassID="67298" ClassName="EVENT_1901_RANKRESET_NPC_2" Data="추가 대상 클래스를 확인한다. (추가 대상자 : 보코르)"/>
 		<Class ClassID="67300" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG1" Data="격리 예정지로 향하는 포탈이 생성되었습니다.{nl}2분간 지속 됩니다."/>
 		<Class ClassID="67301" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG2" Data="격리 예정지"/>
 		<Class ClassID="67302" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG3" Data="확장 예정지로 향하는 포탈이 생성되었습니다.{nl}2분간 지속 됩니다."/>
@@ -7212,6 +7218,13 @@
 		<Class ClassID="67412" ClassName="F_3CMLAKE_27_1_SQ_1_W_MSG" Data="바린웰 27수역으로 이동"/>
 		<Class ClassID="67413" ClassName="CASTLE93_MAIN01_W_MSG" Data="외성벽 제 11구역으로 이동"/>
 		<Class ClassID="67414" ClassName="F_MAPLE_24_3_MQ_01_W_MSG" Data="북부 파리아스 숲으로 이동"/>
+		<Class ClassID="67415" ClassName="BK_SEL_ENTERANCE_POS_12" Data="12 시 방향"/>
+		<Class ClassID="67416" ClassName="BK_SEL_ENTERANCE_POS_10" Data="10 시 방향"/>
+		<Class ClassID="67417" ClassName="BK_SEL_ENTERANCE_POS_7" Data="7 시 방향"/>
+		<Class ClassID="67418" ClassName="BK_SEL_ENTERANCE_POS_6" Data="6 시 방향"/>
+		<Class ClassID="67419" ClassName="BK_SEL_ENTERANCE_POS_5" Data="5 시 방향"/>
+		<Class ClassID="67420" ClassName="BK_SEL_ENTERANCE_POS_4" Data="4 시 방향"/>
+		<Class ClassID="67421" ClassName="BK_SEL_ENTERANCE_POS_3" Data="3 시 방향"/>
 		<Class ClassID="70001" ClassName="FARM49_2_MQ06_DRAW" Data="우물 물을 긷는 중"/>
 		<Class ClassID="70002" ClassName="FARM49_2_MQ06_SUCCESS" Data="우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
 		<Class ClassID="70003" ClassName="FARM49_2_MQ06_ALREADY" Data="이미 우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
@@ -8653,6 +8666,7 @@
 		<Class ClassID="100087" ClassName="REMOVE_BUFF_{Auto_1}" Data="버프 {Auto_1}개 제거!"/>
     <Class ClassID="100088" ClassName="UnableToJoinChallengeModeCuzMaxTeamCount" Data="현재 채널에서 활성화 중인 챌린지 모드 파티의 수가 최대치에 도달하여 입장하실 수 없습니다. 다른 지역을 이용해 주세요."/>
 		<Class ClassID="100089" ClassName="IgnoreLinkBuff" Data="조인트 페널티 면역!!"/>
+		<Class ClassID="100090" ClassName="MackangdalOFF" Data="마캉달 무적 효과 해제!!"/>
 	</Category>
 	<Category Name="Party">
 		<Class ClassID="101001" ClassName="GULID_OUT" Data="길드 탈퇴"/>
@@ -9035,6 +9049,7 @@
 		<Class ClassID="102417" ClassName="ReallyChangeLeader" Data="[{NAME}] 님에게 길드를 양도합니다. 길드 양도 후에는 직급이 변경되므로 신중히 선택해주시기 바랍니다. {nl} 계속 하시겠습니까?"/>
 		<Class ClassID="102418" ClassName="DecreaseCraftTime" Data="제작시간 감소"/>
 		<Class ClassID="102419" ClassName="CantJoinGuildUntilDaysBefore{Number2}Days{Time}" Data="길드 탈퇴 후 {Number2}일 이내에 타 길드에 가입이 불가능 합니다.{nl}가입 가능일 : {Time} 이후"/>
+<Class ClassID="102421" ClassName="NotEnoughTicketPossibleCount_GMBK" Data="해당 길드 이벤트는 이번 주에 더 이용할 수 없습니다"/>
 		</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>

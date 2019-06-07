@@ -941,7 +941,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="First_Gen" execWithStart="0" isEnabled="0">
+                    <Event execCount="1" eventName="First_Gen" execWithStart="0" isEnabled="0">
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="Gimmick_Color/5/Gimmick_Color/6/Gimmick_Color/7/Gimmick_Color/8/Gimmick_Color/9/Gimmick_Color/10/Gimmick_Color/11/Gimmick_Color/12"/>
@@ -951,6 +951,7 @@
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="monster_Gen"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                     <Event execMS="5000" eventName="FixAnim" execWithStart="0" isEnabled="0">
