@@ -1124,8 +1124,21 @@ function MAKE_QUEST_INFO_TITLE(ctrlset, x, y, questIES, questName)
 	local startx = x;
 	local questTitle = questName
 
-	-- 제목 텍스트
+	local topFrame = ui.GetFrame('questinfoset_2');
+	local omitByWidth = topFrame:GetUserConfig('TITLE_OMITBYTWIDTH');
+	local fixWidth = topFrame:GetUserConfig('TITLE_FIXWIDTH');
+
+	-- 제목 텍스트	
 	local content = ctrlset:CreateOrGetControl('richtext', 'groupQuest_title', startx, y+5, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 30);
+	if content ~=nil then
+		if omitByWidth ~= nil then
+			content:EnableTextOmitByWidth(tonumber(omitByWidth));
+		end
+
+		if fixWidth ~= nil then
+			content:SetTextFixWidth(tonumber(fixWidth));
+		end
+	end
     if questIES.QuestMode == 'REPEAT' then
 		local sObj = GetSessionObject(pc, 'ssn_klapeda')
 		if sObj ~= nil then

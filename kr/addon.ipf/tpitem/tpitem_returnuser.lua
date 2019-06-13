@@ -586,13 +586,18 @@ function TPSHOP_RETURNUSER_ITEM_BASKET_BUY(parent, control)
 			okScp="EXEC_BUY_RETURNUSER_MARKET_ITEM", 
 			cancelScp = "TPSHOP_RETURNUSER_ITEM_BASKET_BUY_CANCEL"
 		});
-    else
-    	if config.GetServiceNation() == "GLOBAL" then			
+	else
+		if config.GetServiceNation() == "GLOBAL" then
+			if #needWarningItemList == 0 and #noNeedWarning == 0 and #cannotEquip == 0 then
+				ui.SysMsg(ClMsg('NoItemInBasket'));
+				return;
+			end
+					
 			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
         		ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_RETURNUSER_MARKET_ITEM", "TPSHOP_RETURNUSER_ITEM_BASKET_BUY_CANCEL");	
 			else
 				POPUP_LIMIT_PAYMENT(ScpArgMsg("ReallyBuy?"), parent:GetName(), allPrice, "TPSHOP_RETURNUSER_POPUP_POPUP_LIMIT_PAYMENT_CLICK","TPSHOP_RETURNUSER_POPUP_POPUP_LIMIT_PAYMENT_CANCEL")
-			end			
+			end	
 		else
 			ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_RETURNUSER_MARKET_ITEM", "TPSHOP_RETURNUSER_ITEM_BASKET_BUY_CANCEL");	
 		end
@@ -677,8 +682,12 @@ function TPSHOP_RETURNUSER_POPUP_POPUP_LIMIT_PAYMENT_CLICK()
 	local msg = frame:GetUserValue("LIMIT_PAYMENT_MSG");
 	local parentName = frame:GetUserValue("PARENT_NAME");
 	
-	ui.MsgBox_NonNested_Ex(msg, 0x00000004, parentName, "EXEC_BUY_RETURNUSER_MARKET_ITEM", "TPSHOP_RETURNUSER_ITEM_BASKET_BUY_CANCEL");	
-
+	local usedTP = session.shop.GetUsedMedalTotal();
+	if usedTP == 0 then
+		ui.MsgBox_NonNested_Ex(ScpArgMsg("tpshop_first_buy_msg"), 0x00000004, parentName, "EXEC_BUY_RETURNUSER_MARKET_ITEM", "TPSHOP_RETURNUSER_ITEM_BASKET_BUY_CANCEL");	
+	else
+		ui.MsgBox_NonNested_Ex(msg, 0x00000004, parentName, "EXEC_BUY_RETURNUSER_MARKET_ITEM", "TPSHOP_RETURNUSER_ITEM_BASKET_BUY_CANCEL");	
+	end
 
 	local frame = ui.GetFrame("tpitem")
 	local btn = GET_CHILD_RECURSIVELY(frame,"returnuser_toitemBtn");

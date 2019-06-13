@@ -535,7 +535,13 @@ function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
 	 session.IsMissionMap() == true then      
 	  ui.SysMsg(ClMsg("CannotCraftInIndun"));
       return
-    end
+	end
+	
+	-- In Challenge Mode
+	if info.GetBuffByName(session.GetMyHandle(), "ChallengeMode_Player") ~= nil then
+		ui.SysMsg(ClMsg("CannotCraftInChallengeMode"));
+		return
+	end
 
 	local frame = ctrlset:GetTopParentFrame();
 	local parentcset = ctrlset:GetParent()

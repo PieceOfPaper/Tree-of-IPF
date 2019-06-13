@@ -19,7 +19,7 @@
 		<groupbox name="itemlist2" parent="bg" rect="0 0 530 700" margin="0 25 0 0" layout_gravity="center top" draw="true" rateheight="false" ratewidth="true" resizebyresolution="false" scrollbar="true" skin=""/>
 		<richtext name="t_totalprice" parent="bg" rect="0 0 120 24" margin="20 739 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_20" format="{#000000}%s : %s{/}" maxwidth="0" param1="text" param1_def="TOTALBUYPOINT" param2="value" param2_def="AAAAAAAAAAAAAA" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<richtext name="t_mymoney" parent="bg" rect="0 0 120 24" margin="21 772 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_20" format="{#000000}%s : %s{/}" maxwidth="0" param1="text" param1_def="TOTALPOINT" param2="value" param2_def="AAAAAAAAAAAAAA" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-		<detaillist name="itemlist" parent="bg" rect="0 0 520 698" margin="2 25 0 0" layout_gravity="center top" rowheight="70" skin=""/>
+		<detaillist name="itemlist" parent="bg" rect="0 0 520 698" margin="2 25  0 0" layout_gravity="center top" rowheight="70" skin=""/>
 		<button name="buy" parent="bg" rect="0 0 183 55" margin="0 0 22 100" layout_gravity="right bottom" LBtnUpScp="PROPERTY_SHOP_BUY" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}구매" clicksound="button_click_big" oversound="button_over" skin="test_red_button" textalign="center center" textoffset="0 -2"/>
 	</controls>
 </uiframe>

@@ -64,19 +64,11 @@ function OPEN_SELECT_TARGET_FROM_PARTY(frame, msg, argStr, showHPGauge)
                 end
 
                 memberSet:ShowWindow(1);
-                geSkillControl.SetPartyMemberTarget(index, partyMemberInfo:GetAID());
+                geSkillControl.SetPartyMemberTarget(index, partyMemberInfo:GetAID(), argStr);
                 index = index + 1;
             end
         end
     end
-
-    --[[
-    if emphasizePic ~= nil then
-        imcUIAnim:PlayEmphasize(frame, emphasizePic:GetX() + emphasizePic:GetWidth() / 2, emphasizePic:GetY() + emphasizePic:GetHeight() / 2);
-    else
-        imcUIAnim:RemoveEmphasize(frame);
-    end
-    ]]--
 
     -- cancel key
     local cancelText = GET_CHILD_RECURSIVELY(frame, 'cancelText');
@@ -110,17 +102,57 @@ function OPEN_SELECT_TARGET_FROM_PARTY(frame, msg, argStr, showHPGauge)
     end
 
     frame:ShowWindow(1);
+    geSkillControl.CheckDistancePartyMemberTarget();
 end
 
-function SELECT_TARGET_FROM_PARTY_SET_TARGET(index)
+function SELECT_TARGET_FROM_PARTY_SET_TARGET(index, outRange)
     local frame = ui.GetFrame('party_recommend');    
+    local color = frame:GetUserConfig("NEAR_MEMBER_COLORTONE");
+
     local MAX_SHOW_COUNT = 4;
     for i = 1, MAX_SHOW_COUNT do
         local fan = GET_CHILD_RECURSIVELY(frame, 'fan_'..i);
+        local memberSet = GET_CHILD_RECURSIVELY(frame, 'memberSet_'..i);
+        local jobEmblemPic = nil;
+        if memberSet ~= nil then
+            jobEmblemPic = GET_CHILD_RECURSIVELY(memberSet, 'jobEmblemPic');
+        end
+
         if i == index then
             fan:ShowWindow(1);
+
+            if outRange == true then
+                color = frame:GetUserConfig("FAR_MEMBER_COLORTONE");
+            end
+            
+            if fan ~= nil and jobEmblemPic ~= nil then
+                fan:SetColorTone(color);
+                jobEmblemPic:SetColorTone(color);
+            end
         else
             fan:ShowWindow(0);
         end
     end
+end
+
+function CHECKDIST_SELECT_TARGET_FROM_PARTY(index, outRange)
+    local frame = ui.GetFrame("party_recommend");
+    if frame == nil then return; end
+
+    local color = frame:GetUserConfig("NEAR_MEMBER_COLORTONE");
+    local fan = GET_CHILD_RECURSIVELY(frame, "fan_"..index);
+    if fan == nil then return; end
+
+    local memberSet = GET_CHILD_RECURSIVELY(frame, "memberSet_"..index);
+    if memberSet == nil then return; end
+
+    local jobEmblemPic = GET_CHILD_RECURSIVELY(memberSet, "jobEmblemPic");
+    if jobEmblemPic == nil then return; end
+
+    if outRange == true then
+        color = frame:GetUserConfig("FAR_MEMBER_COLORTONE");
+    end
+
+    fan:SetColorTone(color);
+    jobEmblemPic:SetColorTone(color);
 end

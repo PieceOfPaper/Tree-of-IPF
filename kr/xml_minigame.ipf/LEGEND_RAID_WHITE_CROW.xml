@@ -80,6 +80,11 @@
                                 <MGameObj List="DefGroup/1"/>
                                 <Str Str="SHADOW_RAID_BOSS_HPLOCK"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SHADOW_LEGEND_PHASE_CHECK_LOG"/>
+                                <Str Str="Start"/>
+                                <Num Num="1"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execMS="5000" execCount="1" eventName="Set_Warp" execWithStart="0">
@@ -138,6 +143,11 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="Phase1_PowerUp_End"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SHADOW_LEGEND_PHASE_CHECK_LOG"/>
+                                <Str Str="Start"/>
+                                <Num Num="2"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -244,6 +254,11 @@
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="ChangeBoss"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SHADOW_LEGEND_PHASE_CHECK_LOG"/>
+                                <Str Str="Clear"/>
+                                <Num Num="1"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="PORTAL_SUMMON" execWithStart="0">
@@ -306,6 +321,11 @@
                                 <MGameObj List="DefGroup/7"/>
                                 <Str Str="SHADOW_RAID_MAX_POWER"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SHADOW_LEGEND_PHASE_CHECK_LOG"/>
+                                <Str Str="Ex"/>
+                                <Num Num="2"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="soulcrystal_set">
@@ -356,6 +376,14 @@
                                 <Num Num="20"/>
                                 <Str Str="LegendRaid: LEGEND_RAID_WHITE_CROW"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SHADOW_LEGEND_RESURRECT_ON_CLEAR"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SHADOW_LEGEND_PHASE_CHECK_LOG"/>
+                                <Str Str="Clear"/>
+                                <Num Num="2"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="timesetting">
@@ -390,6 +418,11 @@
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="DefGroup/1"/>
                                 <Str Str="SHADOW_RAID_MAX_POWER"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SHADOW_LEGEND_PHASE_CHECK_LOG"/>
+                                <Str Str="Ex"/>
+                                <Num Num="1"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -664,6 +697,10 @@
                                 <MGameObj List="Gimmick_Ordering/10"/>
                                 <Str Str="SCR_GIMMICK_TIME_OVER_SET"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Color/0"/>
+                                <Str Str="SHADOW_LEGEND_GIMMICK_ORDERING_FAIL_LOG"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execMS="20000" eventName="Barrior" execWithStart="0">
@@ -908,6 +945,10 @@
                             <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="Mon_Gen"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Color/0"/>
+                                <Str Str="SHADOW_LEGEND_GIMMICK_COLOR_FAIL_LOG"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execMS="20000" eventName="Barrior" execWithStart="0">
@@ -1114,6 +1155,10 @@
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="Gimmick_Number/4"/>
                                 <Str Str="SCR_GIMMICK_TIME_OVER_SET"/>
+                            </ToolScp>
+                                                        <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gimmick_Number/4"/>
+                                <Str Str="SHADOW_LEGEND_GIMMICK_NUMBER_FAIL_LOG"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -1355,6 +1400,10 @@
                                 <Str Str="!"/>
                                 <Num Num="5"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_WHITE_CROW"/>
+                                <Str Str="AllPCDead"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="REMAIN_30MIN">
@@ -1413,6 +1462,10 @@
                                 <Str Str="제한 시간이 경과되어 레이드에 실패했습니다.{nl}30초 후 이동했던 곳으로 돌아갑니다."/>
                                 <Str Str="!"/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+                                <Str Str="LEGEND_RAID_WHITE_CROW"/>
+                                <Str Str="TimeOut"/>
                             </ToolScp>
                         </execList>
                     </Event>

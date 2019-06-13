@@ -229,7 +229,9 @@ function SCR_Get_SpendSP_Magic(skill)
     if TryGetProp(skill, "ClassName", "None") == "Cleric_Heal" then
         local jobHistory = '';
         if IsServerObj(pc) == 1 then
-            jobHistory = GetJobHistoryString(pc);
+            if IS_PC(pc) == true then
+                jobHistory = GetJobHistoryString(pc);
+            end
         else
             jobHistory = GetMyJobHistoryString();
         end
@@ -1883,7 +1885,7 @@ function SCR_GET_Impaler_Ratio2(skill)
     local pc = GetSkillOwner(skill);
     local value = 8 + skill.Level;
     local zone = GetZoneName(pc);
-    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
         value = 6;
     end
     return value;
@@ -2859,7 +2861,7 @@ function SCR_GET_Joust_Ratio2(skill)
     local pc = GetSkillOwner(skill);
     local value = 10 + skill.Level * 1;
     local zone = GetZoneName(pc);
-    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
         value = value * 0.5;
     end
     
@@ -3206,6 +3208,16 @@ function SCR_GET_StakeStockades_Time(skill)
     local value = 15
     if IsPVPServer(pc) == 1 then
         value = 900
+    end
+    
+    return value
+end
+
+function SCR_GET_StakeStockades_HitCount(skill)--CaptionRatio2
+    local pc = GetSkillOwner(skill);
+    local value = 15
+    if IsPVPServer(pc) == 1 then
+        value = 6
     end
     
     return value
@@ -6348,7 +6360,7 @@ function SCR_GET_Stop_Time(skill)
     local pc = GetSkillOwner(skill)
     local value = 5 + skill.Level * 1
     local zone = GetZoneName(pc);
-    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
         value = value * 0.5
     end
     
@@ -6594,7 +6606,7 @@ function SCR_Get_StoneShot_Bufftime(skill)
     local value = 4;
     local pc = GetSkillOwner(skill);
     local zone = GetZoneName(pc);
-    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
         value = value / 2
     end
     
@@ -6861,7 +6873,7 @@ function SCR_GET_Telekinesis_Holdtime(skill)
     local pc = GetSkillOwner(skill)
     local value = 3 + skill.Level * 1;
     local zone = GetZoneName(pc);
-    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
         value = value * 0.5;
     end
     
@@ -8100,7 +8112,7 @@ function SCR_GET_Sleep_Ratio(skill)
     local value = skill.Level
     local pc = GetSkillOwner(skill);
     local zone = GetZoneName(pc);
-    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
         value = 1;
     end
     return value;
@@ -9019,7 +9031,9 @@ function SCR_GET_Heal_Ratio2(skill)
 
     local jobHistory = '';
     if IsServerObj(pc) == 1 then
-        jobHistory = GetJobHistoryString(pc);
+        if IS_PC(pc) == true then
+            jobHistory = GetJobHistoryString(pc);
+        end
     else
         jobHistory = GetMyJobHistoryString();
     end
@@ -9984,7 +9998,7 @@ function SCR_Get_Raise_Ratio2(skill)
     local pc = GetSkillOwner(skill);
     local value = 5 + skill.Level * 1;
     local zone = GetZoneName(pc);
-    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
         value = value * 0.5;
     end
     
@@ -10609,6 +10623,10 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
         return 0;
     end
     
+    if TryGetProp(skill, "ClassName", "None") == "Peltasta_Guardian" and value > 7 then
+        value = 7;
+    end
+    
     if value < 1 then
         value = 1;
     end
@@ -10799,7 +10817,7 @@ function SCR_GET_IronHook_Ratio(skill)
     local pc = GetSkillOwner(skill);
     local value = 4 + skill.Level * 1;
     local zone = GetZoneName(pc);
-    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
         value = value * 0.5;
     end
     
@@ -10853,9 +10871,6 @@ function SCR_GET_Samdiveve_Ratio2(skill)
     local pc = GetSkillOwner(skill);
     local value = 3 + skill.Level * 1
     local zone = GetZoneName(pc)
-    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
-        value = value * 0.5
-    end
     
     return value
 end

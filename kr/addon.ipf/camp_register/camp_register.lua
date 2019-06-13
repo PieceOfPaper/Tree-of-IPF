@@ -118,6 +118,12 @@ function CAMP_REGISTER_EXEC(parent, ctrl)
 		ui.SysMsg(ClMsg('DontBuildCampThisAria'));
 		return;
 	end
+
+	local x, y, z = GetPos(pc);
+	if 0 == IsFarFromNPC(pc, x, y, z, 70) then
+		ui.SysMsg(ClMsg("TooNearFromNPC"));	
+		return 0;
+	end
 	
 	local strScp = "_CAMP_REGISTER_EXEC()";
 	ui.MsgBox(ScpArgMsg("REALLY_DO"), strScp, "None");

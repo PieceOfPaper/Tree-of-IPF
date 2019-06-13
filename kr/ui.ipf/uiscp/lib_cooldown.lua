@@ -39,7 +39,7 @@ function ICON_UPDATE_ITEM_COOLDOWN(icon)
 	if invItem ~= nil then
 		local obj = GetIES(invItem:GetObject());
 		if IS_SKILL_SCROLL_ITEM(obj) == 1 then
-			local skillInfo = session.GetSkill(obj.SkillType);
+			local skillInfo = session.GetSkill(obj.SkillType, true);
 			if skillInfo ~= nil then
 				local skl = GetIES(skillInfo:GetObject());
 				local cooldownGroupName = 'Scroll_' .. skl.ClassName;

@@ -848,9 +848,14 @@ function REINFORCE_BY_MIX_EXECUTE(parent)
 	    session.world.IsIntegrateIndunServer() == true or
 	    session.IsMissionMap() == true then      
 	      ui.SysMsg(ClMsg("CannotCraftInIndun"));
-        return
-    end
-
+		return
+	end
+	
+	-- In Challenge Mode
+	if info.GetBuffByName(session.GetMyHandle(), "ChallengeMode_Player") ~= nil then
+		ui.SysMsg(ClMsg("CannotCraftInChallengeMode"));
+		return
+	end
 
 	local frame = parent:GetTopParentFrame();
 

@@ -306,19 +306,19 @@
 		<controls>
 			<richtext name="staticText" rect="0 0 300 30" margin="10 8 0 0" layout_gravity="left top" format="거래 등급 안내" fontname="white_18_b_ds_ol"/>
 			<button name="starTextBox1" rect="0 0 48 24" margin="10 38 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value" useclickimg="false"/>
-			<button name="paramTextBox1" rect="0 0 212 24" margin="60 38 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="팀 레벨 %s" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol"  useclickimg="false"/>
+			<button name="paramTextBox1" rect="0 0 212 24" margin="60 38 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="팀 레벨 %s" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol" useclickimg="false"/>
 			<checkbox name="check1" rect="0 0 30 30" margin="0 35 3 0" layout_gravity="right top"/>
-			<button name="starTextBox2" rect="0 0 48 24" margin="10 64 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value"  useclickimg="false"/>
-			<button name="paramTextBox2" rect="0 0 212 24" margin="60 64 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="캐릭터 레벨 %s" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol"  useclickimg="false"/>
+			<button name="starTextBox2" rect="0 0 48 24" margin="10 64 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value" useclickimg="false"/>
+			<button name="paramTextBox2" rect="0 0 212 24" margin="60 64 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="캐릭터 레벨 %s" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol" useclickimg="false"/>
 			<checkbox name="check2" rect="0 0 30 30" margin="0 61 3 0" layout_gravity="right top"/>
-			<button name="starTextBox3" rect="0 0 48 24" margin="10 90 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value"  useclickimg="false"/>
-			<button name="paramTextBox3" rect="0 0 212 24" margin="60 90 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="팀 생성 %s일 이상" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol"  useclickimg="false"/>
+			<button name="starTextBox3" rect="0 0 48 24" margin="10 90 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value" useclickimg="false"/>
+			<button name="paramTextBox3" rect="0 0 212 24" margin="60 90 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="팀 생성 %s일 이상" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol" useclickimg="false"/>
 			<checkbox name="check3" rect="0 0 30 30" margin="0 87 3 0" layout_gravity="right top"/>
-			<button name="starTextBox4" rect="0 0 48 24" margin="10 116 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value"  useclickimg="false"/>
-			<button name="paramTextBox4" rect="0 0 212 24" margin="60 116 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="%s" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol"  useclickimg="false"/>
+			<button name="starTextBox4" rect="0 0 48 24" margin="10 116 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value" useclickimg="false"/>
+			<button name="paramTextBox4" rect="0 0 212 24" margin="60 116 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="%s" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol" useclickimg="false"/>
 			<checkbox name="check4" rect="0 0 30 30" margin="0 113 3 0" layout_gravity="right top"/>
-			<button name="starTextBox5" rect="0 0 48 24" margin="10 142 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value"  useclickimg="false"/>
-			<button name="paramTextBox5" rect="0 0 212 24" margin="60 142 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="계시 %s개 획득" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol"  useclickimg="false"/>
+			<button name="starTextBox5" rect="0 0 48 24" margin="10 142 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value" useclickimg="false"/>
+			<button name="paramTextBox5" rect="0 0 212 24" margin="60 142 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="계시 %s개 획득" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol" useclickimg="false"/>
 			<checkbox name="check5" rect="0 0 30 30" margin="0 139 3 0" layout_gravity="right top"/>
 		</controls>
 	</tooltip>
@@ -327,15 +327,15 @@
 						<controls>
 
 <groupbox name="indunListBoxBg" rect="0 0 394 259" scrollbar="false" skin="test_skill_skin2"/>
-			<richtext name="indunLabelText"  caption="IndunInfo" margin="0 12 0 0" rect="0 0 200 50" layout_gravity="center top" parent="indunListBoxBg"/>
-			<groupbox name="indunListBox" rect="0 0 370 206" margin="0 40 0 0" layout_gravity="center top" scrollbar="false" skin="graybox_op_45" parent="indunListBoxBg"/>			
+			<richtext name="indunLabelText" caption="IndunInfo" margin="0 12 0 0" rect="0 0 200 50" layout_gravity="center top" parent="indunListBoxBg"/>
+			<groupbox name="indunListBox" rect="0 0 370 206" margin="0 40 0 0" layout_gravity="center top" scrollbar="false" skin="graybox_op_45" parent="indunListBoxBg"/>
 			
 		</controls>
 			</tooltip>
-	<tooltip name="skillRestrictList" x="0" y="0" width="350" height="100" fixwidth="true" fixheight="false" moveable="false" frameskin="downbox" UpdateScp="UPDATE_RESTRICT_INFO_TOOLTIP">
+	<tooltip name="skillRestrictList" x="0" y="0" width="480" height="100" fixwidth="true" fixheight="false" moveable="false" frameskin="downbox" UpdateScp="UPDATE_RESTRICT_INFO_TOOLTIP">
 		<userconfig INNER_X="5" INNER_Y="5" ICON_SIZE="23"/>
 		<controls>
-			<groupbox name="titleBox" rect="0 0 340 30" margin="5 5 0 0" fixwidth="true" fixheight="false" draw="false" updateparent="true" scrollbar="false"/>
+			<groupbox name="titleBox" rect="0 0 500 30" margin="5 5 0 0" fixwidth="true" fixheight="false" draw="false" updateparent="true" scrollbar="false"/>
 			<richtext name="title" parent="titleBox" rect="0 0 340 30" margin="5 5 0 0" fixwidth="true" fixheight="false" updateparent="true" caption="{@st43}{s16}특정 종류의 스킬 사용을 일정 부분 제한합니다.{/}" resizebytext="true"/>
 		</controls>
 	</tooltip>

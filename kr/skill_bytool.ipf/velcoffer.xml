@@ -185,7 +185,7 @@
 					<Str Str="Sumazinti_Debuff" />
 					<Num Num="1" />
 					<Num Num="0" />
-					<Num Num="15000" />
+					<Num FuncTxt="local time = 10000; local isDragonPower = GetExProp(self, 'ITEM_DRAGON_POWER'); if tonumber(isDragonPower) &gt;= 1 then time = 15000; end return time" Num="5000" UseFunc="1" />
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />

@@ -75934,7 +75934,7 @@
 					<Str Str="UC_poison" />
 					<Num Num="1" />
 					<Num Num="0" />
-					<Num Num="60000" />
+					<Num Num="10000"/>
 					<Num Num="1" />
 					<Num Num="10" />
 					<Num Num="-1" />
@@ -86210,14 +86210,6 @@
 				</Scp>
 			</EtcList>
 			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_PULL_TARGET" UseSleep="NO">
-					<Num Num="20" />
-					<Num Num="300" />
-					<Num Num="300" />
-					<Num Num="1" />
-					<Num Num="0.2" />
-					<Str_Arg Arg="1" Str="" />
-				</ToolScp>
 				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
 					<Str Str="UC_fear" />
 					<Num Num="1" />

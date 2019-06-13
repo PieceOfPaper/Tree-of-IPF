@@ -1,5 +1,5 @@
 function LETICIA_CUBE_ON_INIT(addon, frame)
-
+    addon:RegisterMsg("LETICIA_CUBE_NOT_ENABLE", "LETICIA_CUBE_CLOSE_ALL");
 end
 
 function LETICIA_CUBE_OPEN(frame)
@@ -104,8 +104,6 @@ function LETICIA_CUBE_OPEN_BUTTON(frame, ctrl, argStr, argNum, _gachaClassName, 
 end
 
 function REQ_LETICIA_CUBE_OPEN(cubeItemName)
-    ui.CloseFrame('fulldark');
-
     local scpString = string.format("/leticia_gacha %s",  cubeItemName);    
 	ui.Chat(scpString);
 
