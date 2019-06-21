@@ -598,7 +598,8 @@ function GET_INDUNINFO_DROPBOX_LIST_MOUSE_OVER(index, classname)
     currentFrame = itemFrame;
     currentFrame:RefreshTooltip();
     currentFrame:ShowWindow(1);
-    
+    currentFrame:SetLayerLevel(102);
+
     if induninfoFrame ~= nil then
         itemFrame:SetOffset(induninfoFrame:GetX()+1090,induninfoFrame:GetY())
     end

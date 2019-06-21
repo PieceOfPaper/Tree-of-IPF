@@ -229,7 +229,9 @@ function SCR_Get_SpendSP_Magic(skill)
     if TryGetProp(skill, "ClassName", "None") == "Cleric_Heal" then
         local jobHistory = '';
         if IsServerObj(pc) == 1 then
-            jobHistory = GetJobHistoryString(pc);
+            if IS_PC(pc) == true then
+                jobHistory = GetJobHistoryString(pc);
+            end
         else
             jobHistory = GetMyJobHistoryString();
         end
@@ -3206,6 +3208,16 @@ function SCR_GET_StakeStockades_Time(skill)
     local value = 15
     if IsPVPServer(pc) == 1 then
         value = 900
+    end
+    
+    return value
+end
+
+function SCR_GET_StakeStockades_HitCount(skill)--CaptionRatio2
+    local pc = GetSkillOwner(skill);
+    local value = 15
+    if IsPVPServer(pc) == 1 then
+        value = 6
     end
     
     return value
@@ -9019,7 +9031,9 @@ function SCR_GET_Heal_Ratio2(skill)
 
     local jobHistory = '';
     if IsServerObj(pc) == 1 then
-        jobHistory = GetJobHistoryString(pc);
+        if IS_PC(pc) == true then
+            jobHistory = GetJobHistoryString(pc);
+        end
     else
         jobHistory = GetMyJobHistoryString();
     end
@@ -10607,6 +10621,10 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
     
     if skill.LevelByDB == 0 then
         return 0;
+    end
+    
+    if TryGetProp(skill, "ClassName", "None") == "Peltasta_Guardian" and value > 7 then
+        value = 7;
     end
     
     if value < 1 then

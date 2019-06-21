@@ -95,6 +95,7 @@ function OPEN_PROPERTY_SHOP(shopName)
 		local itemCls = GetClass("Item", itemName);
 		local ctrlSet = INSERT_CONTROLSET_DETAIL_LIST(itemlist, i, 0, "propertyshop_item");
 		ctrlSet = tolua.cast(ctrlSet, "ui::CControlSet");
+		ctrlSet:SetUserValue('REAL_INDEX',i)
 		ctrlSet:EnableHitTestSet(0);
 		local pic = GET_CHILD(ctrlSet, "pic");
 		pic:SetImage(itemCls.Icon);
@@ -282,6 +283,7 @@ function PROPERTY_SHOP_BUY(parent, ctrl)
 	end
 
 	propertyShop.ReqBuyPropertyShopItem(shopName);
+	frame:ShowWindow(0)
 end
 
 function REFRESH_PROPERTY_SHOP_BUY_BTN_SET_ENABLE()

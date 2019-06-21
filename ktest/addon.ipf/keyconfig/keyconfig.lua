@@ -312,12 +312,8 @@ function KEYCONFIG_CHECKING_INPUT(frame)
 		joyStickMode = true;
 	else
 		downKey = keyboard.GetDownKey();
-		if downKey == nil then
-			downKey = mouse.GetButtonDown();
-
-			if downKey == "MOUSELEFT" or downKey == "MOUSERIGHT" then
-				downKey = nil;
-			end
+		if downKey == "MOUSELEFT" or downKey == "MOUSERIGHT" then
+			downKey = nil;
 		end
 		joyStickMode = false;
 	end

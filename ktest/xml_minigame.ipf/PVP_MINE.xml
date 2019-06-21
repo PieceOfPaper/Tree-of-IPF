@@ -949,6 +949,7 @@
             <ToolScp Scp="MGAME_INIT_CHANGE_VIEW" Client="NO" UseSleep="NO">
                 <Num Num="600"/>
             </ToolScp>
+            <ToolScp Scp="MGAME_DISABLE_DEAD_DURABILITY" Client="NO" UseSleep="NO"/>
         </WorldInitList>
     </Game>
 </GameList>

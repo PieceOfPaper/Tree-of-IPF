@@ -13266,13 +13266,13 @@
 		<Class ClassID="510716" ClassName="pvp_mine_plunder_1" Data="A 팀의 포인트가 {POINT} 만큼 감소하였습니다."/>
 		<Class ClassID="510717" ClassName="pvp_mine_plunder_2" Data="B 팀의 포인트가 {POINT} 만큼 감소하였습니다."/>
 		<Class ClassID="510718" ClassName="pvp_mine_get_crystal" Data="{COUNT} 획득!"/>
-		<Class ClassID="510719" ClassName="pvp_mine_before_30m" Data="자원 쟁탈전 시작 30분 전입니다."/>
-		<Class ClassID="510720" ClassName="pvp_mine_before_10m" Data="자원 쟁탈전 시작 10분 전입니다."/>
-		<Class ClassID="510721" ClassName="pvp_mine_before_5m" Data="자원 쟁탈전 시작 5분 전입니다.{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
-		<Class ClassID="510722" ClassName="pvp_mine_before_start" Data="자원 쟁탈전이 시작되었습니다!{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
-		<Class ClassID="510723" ClassName="pvp_mine_2nd_before_3m" Data="2회차 자원 쟁탈전 시작 3분 전입니다.{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
-		<Class ClassID="510724" ClassName="pvp_mine_2nd_before_start" Data="2회차 자원 쟁탈전이 시작되었습니다!{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
-		<Class ClassID="510725" ClassName="pvp_mine_start_time_check" Data="특정 시간외에는 출입이 금지됩니다. 출입 가능 시간은 다음과 같습니다.{nl}{HOUR}시 {MINf}분 ~ {HOUR}시 {MINf2}분{nl}{HOUR}시 {MINs}분 ~ {HOUR}시 {MINs2}분"/>
+		<Class ClassID="510719" ClassName="pvp_mine_before_30m" Data="자원 쟁탈전 유니폼 모드 시작 30분 전입니다."/>
+		<Class ClassID="510720" ClassName="pvp_mine_before_10m" Data="자원 쟁탈전 유니폼 모드 시작 10분 전입니다."/>
+		<Class ClassID="510721" ClassName="pvp_mine_before_5m" Data="자원 쟁탈전 유니폼 모드 시작 5분 전입니다.{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
+		<Class ClassID="510722" ClassName="pvp_mine_before_start" Data="자원 쟁탈전 유니폼 모드가 시작되었습니다!{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
+		<Class ClassID="510723" ClassName="pvp_mine_2nd_before_3m" Data="2회차 자원 쟁탈전 일반 모드 시작 3분 전입니다.{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
+		<Class ClassID="510724" ClassName="pvp_mine_2nd_before_start" Data="2회차 자원 쟁탈전 일반 모드가 시작되었습니다!{nl}각 마을 및 샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
+		<Class ClassID="510725" ClassName="pvp_mine_start_time_check" Data="특정 시간외에는 출입이 금지됩니다. 출입 가능 시간은 다음과 같습니다.{nl}유니폼 모드 : {HOUR}시 {MINf}분 ~ {HOUR}시 {MINf2}분{nl}일반 모드 : {HOUR}시 {MINs}분 ~ {HOUR}시 {MINs2}분"/>
 		<Class ClassID="510726" ClassName="bladetryst" Data="칼날 서약단"/>
 		<Class ClassID="510727" ClassName="goldencroon" Data="황금 노래단"/>
 		<Class ClassID="510728" ClassName="PvpMineBattleShop" Data="자원 쟁탈전 렌탈 상점"/>

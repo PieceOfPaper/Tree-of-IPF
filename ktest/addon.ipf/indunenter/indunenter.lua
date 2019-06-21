@@ -1864,9 +1864,9 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
         if indunCls.WeeklyEnterableCount ~= 0 then
             nowCount = TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
         end
-        local addCount = math.floor(nowCount * admissionPlayAddItemCount)
+        local addCount = math.floor((nowCount - indunCls.WeeklyEnterableCount) * admissionPlayAddItemCount)
         local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
-        
+
         if SCR_RAID_EVENT_20190102(nil , false) and admissionItemName == "Dungeon_Key01" then
             nowAdmissionItemCount = admissionItemCount - 1;
         end 

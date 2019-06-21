@@ -261,9 +261,6 @@
 				<Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
 					<Str Str="Shadowmancer_ShadowPool" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_INVIN" Time="0" UseSleep="NO">
-					<Num FuncTxt="return obj.Level * 2;" Num="0" UseFunc="1" />
-				</Scp>
 				<Scp Client="NO" Scp="SKL_BUFF" Time="50" UseSleep="NO">
 					<Str Str="ShadowPool_Buff" />
 					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />

@@ -1296,10 +1296,10 @@
 			<checkbox name="chase" rect="0 0 26 26" layout_gravity="left center" margin="0 0 0 0" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
 			<richtext name="level" rect="0 0 50 18" layout_gravity="left center" margin="35 0 0 0" fixwidth="false" resizebytext="true" hittest="false" fontname="yellow_16_ol"/>
 			<picture name="questmark" rect="0 0 24 24" layout_gravity="left center" stretch="true" margin="100 0 0 0"/>
-			<richtext name="name" rect="0 0 400 20" layout_gravity="left center" margin="130 0 0 0" fixwidth="true" resizebytext="false" hittest="false" fontname="yellow_16_ol"/>
+			<richtext name="name" rect="0 0 270 20" layout_gravity="left center" margin="130 0 0 0" fixwidth="true" resizebytext="false" hittest="false" omitbywidth="true" fontname="yellow_16_ol"/>
 			<checkbox name="shareParty" margin="0 0 69 0" rect="0 0 22 22" skin="quest_share_btn" layout_gravity="right center"  oversound="button_over"  clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_SHARE_PARTY_MEMBER" texttooltip="{@st59}파티원에게 노출{/}"/>
 			<button name="questPositionCheck" margin="0 0 53 0" rect="0 0 22 22" stretch="false" image="quest_location_btn" layout_gravity="right center" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_VIEW_QUEST_LOCATION" texttooltip="{@st59}퀘스트 위치 확인{/}"/>
-			<button name="abandonquest_try" margin="0 0 7 0" rect="0 0 22 22" stretch="false" image="quest_again_btn" layout_gravity="right center" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_ABANDON_QUEST_TRY" texttooltip="{@st59}퀘스트 재시작{/}"/>
+			<button name="abandonquest_try" margin="0 0 7 0" rect="0 0 22 22" stretch="false" layout_gravity="right center" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_ABANDON_QUEST_TRY" texttooltip="{@st59}퀘스트 재시작{/}"/>
 			<button name="dialogReplay" margin="0 0 30 0" rect="0 0 22 22" stretch="false" image="quest_dialogue_btn" layout_gravity="right center" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_DIALOG_REPLAY" texttooltip="{@st59}퀘스트 대사 보기{/}"/>
 			<button name="abandon" margin="0 0 7 0" rect="0 0 22 22" stretch="false" image="quest_cancel_btn" layout_gravity="right center" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_ABANDON_SELECT" texttooltip="{@st59}퀘스트 포기{/}"/>
 		</controls>
@@ -4679,9 +4679,9 @@
 			<picture name="ranking_dot3" rect="0 0 5 21" margin="105 5 0 0" layout_gravity="center center" stretch="true" image="icon_ranking_dot" draw="true"/>
 		</controls>
 	</controlset>
-	<controlset name="skill_restrict_info_list" hittest="false" width="340" height="30" hittestset="false" draw="false">
+	<controlset name="skill_restrict_info_list" hittest="false" width="480" height="30" hittestset="false" draw="false">
 		<controls>
-			<richtext name="skill_info" rect="0 0 340 30" margin="0 0 0 0" layout_gravity="left center" fixwidth="true" fixheight="false" format="{@st43}{s16}* {ol}%s{/}{#5ae2e7}%s : %s" param1="img" param2="name" param3="caption" hittest="false" resizebytext="true" updateparent="true"/>
+			<richtext name="skill_info" rect="0 0 480 30" margin="0 0 0 0" layout_gravity="left center" fixwidth="true" fixheight="false" format="{@st43}{s16}* {ol}%s{/}{#5ae2e7}%s : %s" param1="img" param2="name" param3="caption" hittest="false" resizebytext="true" updateparent="true"/>
 		</controls>
 	</controlset>
 	<controlset name="item_result" hittest="true" width="600" height="36" skin="None" hittestset="false" draw="true">

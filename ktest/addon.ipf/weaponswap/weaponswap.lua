@@ -3,6 +3,7 @@
 function WEAPONSWAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('WEAPONSWAP_ENTERED', 'WEAPONSWAP_SWAP_UPDATE_ENTERED');
 	addon:RegisterMsg('WEAPONSWAP', 'WEAPONSWAP_SWAP_UPDATE');
+    addon:RegisterMsg('WEAPONSWAP_CLEAR', 'WEAPONSWAP_SWAP_CLEAR');
 	addon:RegisterMsg('WEAPONSWAP_FAIL', 'WEAPONSWAP_FAIL');
 	addon:RegisterMsg('WEAPONSWAP_SUCCESS', 'WEAPONSWAP_SLOT_SUCCESS');
 	addon:RegisterMsg('ABILITY_LIST_GET', 'WEAPONSWAP_SHOW_UI');
@@ -10,6 +11,8 @@ function WEAPONSWAP_ON_INIT(addon, frame)
 
 --	WEAPONSWAP_SLOT_UPDATE();
 end 
+
+local clear_guid = {}
 
 function discover_weaponswap_state()
     quickslot.SetWeaponSwapState(0)
@@ -63,7 +66,7 @@ function TH_WEAPON_CHECK(obj, bodyGbox, slotIndex)
 		end
 
 		etcSlot:ClearIcon();
-		quickslot.SetSwapWeaponInfo(etcSlot:GetSlotIndex(), "");
+		quickslot.SetSwapWeaponInfo(etcSlot:GetSlotIndex(), "");        
 	end
 
 end
@@ -184,7 +187,7 @@ function WEAPONSWAP_UI_UPDATE()
 	end
 end
 
-function WEAPONSWAP_SWAP_UPDATE_ENTERED(frame)    
+function WEAPONSWAP_SWAP_UPDATE_ENTERED(frame)        
 	local bodyGbox = frame:GetChild("bodyGbox");
 	for i = 0, 3 do
 		local etcSlot = bodyGbox:GetChild("slot"..i);
@@ -207,7 +210,7 @@ function WEAPONSWAP_SWAP_UPDATE_ENTERED(frame)
 	end
 end
 
-function WEAPONSWAP_SWAP_UPDATE(frame)
+function WEAPONSWAP_SWAP_UPDATE(frame)    
 	local bodyGbox = frame:GetChild("bodyGbox");
 	for i = 0, 3 do
 		local etcSlot = bodyGbox:GetChild("slot"..i);
@@ -231,6 +234,35 @@ function WEAPONSWAP_SWAP_UPDATE(frame)
 
 
 	WEAPONSWAP_SWAP_EQUIP(frame);
+end
+
+function WEAPONSWAP_SWAP_CLEAR(frame, msg, arg_str, arg_num)    
+    local token = StringSplit(arg_str, '/')
+    for i = 1, #token do
+        clear_guid[i] = token[i]
+    end
+
+    quickslot.ClearSwapWeapon()
+	local bodyGbox = frame:GetChild("bodyGbox");
+	for i = 0, 3 do
+		local etcSlot = bodyGbox:GetChild("slot"..i);
+		if nil== etcSlot then
+			return;
+		end
+
+		etcSlot = tolua.cast(etcSlot, 'ui::CSlot');
+		local guid = quickslot.GetSwapWeaponGuid(i);        
+		if nil ~= guid then 
+			local item = GET_ITEM_BY_GUID(guid, 1);
+			if nil ~= item then
+				SET_SLOT_ITEM_IMAGE(etcSlot, item);
+			else
+				etcSlot:ClearIcon();
+			end
+		else
+			etcSlot:ClearIcon();
+		end;
+	end	
 end
 
 function WEAPONSWAP_FAIL()
@@ -259,10 +291,28 @@ function WEAPONSWAP_FAIL()
 	end
 end
 
-function WEAPONSWAP_SLOT_SUCCESS()    
+function WEAPONSWAP_SLOT_SUCCESS()
 	imcSound.PlaySoundEvent("sys_weapon_swap");
     RemoveLuaTimerFunc('discover_weaponswap_state')
     discover_weaponswap_state()
+        
+    for i = 1, #clear_guid do
+        local guid = clear_guid[i]        
+        if nil ~= guid and '0' ~= guid then            
+            local inventory_frame = ui.GetFrame("inventory");
+	        local invSlot = INVENTORY_GET_SLOT_BY_IESID(inventory_frame, guid)
+            local invSlot_All = INVENTORY_GET_SLOT_BY_IESID(inventory_frame, guid, 1)	
+            if invSlot ~= nil then                
+                invSlot:SetHeaderImage('None');                
+            end
+
+            if invSlot_All ~= nil then
+                invSlot_All:SetHeaderImage('None')
+            end
+        end
+    end
+    
+    clear_guid = {}    
 end
 
 function WEAPONSWAP_SLOT_UPDATE()

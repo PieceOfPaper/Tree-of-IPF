@@ -548,7 +548,7 @@ end"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-	<PadSkill Name="GM_MGAME_BORUTA_HATE_RESET_PAD" CheckerType="0" Range="100" UpdateTerm="3000" ObjType="2" AllowOverlap="1" EnableSearch="0">
+    <PadSkill Name="GM_MGAME_BORUTA_HATE_RESET_PAD" CheckerType="0" Range="100" UpdateTerm="3000" ObjType="2" AllowOverlap="1" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="PAD_SET_OWNER_IN_BORNTIME" Client="NO" UseSleep="NO">
 				<Str Str="HATE_RESET"/>
@@ -8880,7 +8880,7 @@ return 5000 + obj.Level *  1000"/>
                 <Str Str="UC_poison"/>
                 <Num Num="1" UseFunc="1" FuncTxt="0"/>
                 <Num Num="0"/>
-                <Num Num="60000"/>
+                <Num Num="10000"/>
                 <Num Num="1"/>
                 <Num Num="30"/>
             </ToolScp>

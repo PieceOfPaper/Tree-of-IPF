@@ -8,7 +8,6 @@ function WORLDPVP_ON_INIT(addon, frame)
 	addon:RegisterMsg("WORLDPVP_RANK_ICON", "ON_WORLDPVP_RANK_ICON");
 	addon:RegisterMsg("PLAY_COUNT_MAX", "ON_PLAY_COUNT_MAX");
 	addon:RegisterMsg('UPDATE_WORLDPVP_GAME_LIST', 'WORLDPVP_PUBLIC_GAME_LIST');
-	addon:RegisterMsg('MINE_BATTLE_OPEN_POINT_SHOP','MINE_BATTLE_OPEN_POINT_SHOP')
 end
 
 g_enablePVPExp = 1;
