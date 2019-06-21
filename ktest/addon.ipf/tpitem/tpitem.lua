@@ -766,7 +766,6 @@ function MAKE_CATEGORY_TREE()
 	end
 
 	local selectcategoty = "";
-	local usedTP = session.shop.GetUsedMedalTotal();
 
 	for i = 0, cnt - 1 do
 		local obj = GetClassByIndexFromList(clsList, i);
@@ -774,7 +773,8 @@ function MAKE_CATEGORY_TREE()
 		local usedTPTypeindex = table.find(usedTPType, obj.SubCategory)			-- 플레이어 사용 tp 값에 따라 구매할 수 있는 아이템 카테고리는 여기에서 생성하지 않음
 		if obj.Category ~= 'TP_Premium_Sale' and usedTPTypeindex == 0 then
 			firstTreeItem = CREATE_TPITEM_TREE(obj, tpitemtree, i, firstTreeItem);
-		elseif config.GetServiceNation() == "GLOBAL" and usedTPTypeindex >  0 then		
+		elseif config.GetServiceNation() == "GLOBAL" and usedTPTypeindex >  0 then
+			local usedTP = session.shop.GetUsedMedalTotal();
 			if frame:GetUserIValue("is_RequestUsedMedal") == 1 and IS_USED_MEDAL_TYPE(obj, usedTP) then
 				firstTreeItem = CREATE_TPITEM_TREE(obj, tpitemtree, i, firstTreeItem);
 				selectcategoty = obj.Category.."#"..obj.SubCategory;

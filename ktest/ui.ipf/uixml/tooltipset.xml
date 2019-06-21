@@ -333,10 +333,10 @@
 		</controls>
 			</tooltip>
 	<tooltip name="skillRestrictList" x="0" y="0" width="480" height="100" fixwidth="true" fixheight="false" moveable="false" frameskin="downbox" UpdateScp="UPDATE_RESTRICT_INFO_TOOLTIP">
-		<userconfig INNER_X="5" INNER_Y="5" ICON_SIZE="23"/>
+		<userconfig INNER_X="5" INNER_Y="5" ICON_SIZE="23" CTRLSET_WIDTH="480"/>
 		<controls>
 			<groupbox name="titleBox" rect="0 0 500 30" margin="5 5 0 0" fixwidth="true" fixheight="false" draw="false" updateparent="true" scrollbar="false"/>
-			<richtext name="title" parent="titleBox" rect="0 0 340 30" margin="5 5 0 0" fixwidth="true" fixheight="false" updateparent="true" caption="{@st43}{s16}특정 종류의 스킬 사용을 일정 부분 제한합니다.{/}" resizebytext="true"/>
+			<richtext name="title" parent="titleBox" rect="0 0 340 30" margin="5 5 0 0" fixwidth="false" fixheight="false" updateparent="true" caption="{@st43}{s16}특정 종류의 스킬 사용을 일정 부분 제한합니다.{/}" resizebytext="true"/>
 		</controls>
 	</tooltip>
 </tooltipset>

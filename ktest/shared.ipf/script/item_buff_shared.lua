@@ -193,6 +193,20 @@ function ITEMBUFF_VALUE_Squire_EquipmentTouchUp(self, item, skillLevel)
     end
     
     local lv = math.max(useLv, itemLv);
+    
+    local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(item);
+    if pcBangItemLevel ~= nil then
+        lv = pcBangItemLevel;
+    end
+    
+    local itemstring = TryGetProp(item, 'StringArg','None')
+    if itemstring == 'Growth_Item' then
+        local grothItem = CALC_GROWTH_ITEM_LEVEL(item);
+        if grothItem ~= nil then
+            lv = grothItem;
+        end
+    end
+    
     if item.GroupName == 'Armor' then -- 방어구 손질
         local value = math.floor(skillLevel + skillLevel * ((lv * 0.01) * (1 + (grade * 0.1 ))));
         local count = 500 + skillLevel * 50 + self.INT;

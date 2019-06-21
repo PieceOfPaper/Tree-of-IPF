@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by asdasd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <packeteffects>
 	<Category ID="14">
 		<Effect Name="GUILD_COLONY_F_REMAINS_37_1"/>
@@ -10,6 +10,7 @@
 		<Effect Name="GUILD_COLONY_F_SIAULIAI_47_4"/>
 	</Category>
 	<Category ID="39">
+		<Effect Name="Skiaclipse_pad_8"/>
 		<Effect Name="Skiaclipse_pad_4"/>
 		<Effect Name="F_cleric_demolition_explosion2"/>
 		<Effect Name="Skiaclipse_pad_2"/>
@@ -22,7 +23,7 @@
 		<Effect Name="Skiaclipse_pad_5"/>
 		<Effect Name="Skiaclipse_pad_6"/>
 		<Effect Name="Skiaclipse_pad_7"/>
-	<Effect Name="F_circle030_eye_violet_loop"/>
+		<Effect Name="F_circle030_eye_violet_loop"/>
 		<Effect Name="F_wizard_accumulate_buff_icon"/>
 		<Effect Name="F_wizard_BloodBath_blood_buff3"/>
 		<Effect Name="F_buff_BasicMonster_Supporter"/>
@@ -32,7 +33,7 @@
 		<Effect Name="I_warrior_shieldcharger_sphere_mesh2"/>
 		<Effect Name="F_warrior_shield002"/>
 		<Effect Name="E_pc_shield_square"/>
-	<Effect Name="HAGALAZ_CAST"/>
+		<Effect Name="HAGALAZ_CAST"/>
 		<Effect Name="HAGALAZ_SHOT"/>
 		<Effect Name="TIWAZ_CAST"/>
 		<Effect Name="F_bg_pattern004_blue_buff_whtie"/>
@@ -40,7 +41,7 @@
 		<Effect Name="F_pattern002_wind_loop"/>
 		<Effect Name="F_wizard_BloodBath_blood_buff3_blue"/>
 		<Effect Name="F_bg_pattern004_blue_buff"/>
-	<Effect Name="F_buff_basic059_ground_green"/>
+		<Effect Name="F_buff_basic059_ground_green"/>
 		<Effect Name="F_buff_basic059_ground_red"/>
 	</Category>
 	<Category ID="146">
@@ -88,6 +89,36 @@
 		<Effect Name="SIT_SICK"/>
 		<Effect Name="EVENT_IDLE_UP"/>
 		<Effect Name="I_SYS_missdigit"/>
+		<Effect Name="LEGEND_RAID_WHITE_CROW"/>
+		<Effect Name="I_light018_blue2"/>
+		<Effect Name="I_SYS_damage_critical"/>
+		<Effect Name="GUILD_COLONY_F_REMAINS_37_1"/>
+		<Effect Name="GUILD_COLONY_F_PILGRIMROAD_41_2"/>
+		<Effect Name="GUILD_COLONY_F_TABLELAND_72"/>
+		<Effect Name="UNDERAQUEDUCT_MGAME"/>
+		<Effect Name="I_buff003_loop"/>
+		<Effect Name="int"/>
+		<Effect Name="Check"/>
+		<Effect Name="I_buff_003_blue"/>
+		<Effect Name="F_buff_basic003_red3_loop"/>
+		<Effect Name="F_GoldDog_smoke002"/>
+		<Effect Name="F_cleric_mackangdal_shot_ground"/>
+		<Effect Name="I_wizard_firewall2"/>
+		<Effect Name="I_buff_003_red"/>
+		<Effect Name="UNDERAQUEDUCT_MGAME"/>
+		<Effect Name="MiniGame5"/>
+		<Effect Name="Total_Point_Check"/>
+		<Effect Name="MiniGame1"/>
+		<Effect Name="MiniGame2"/>
+		<Effect Name="MiniGame3"/>
+		<Effect Name="MiniGame4"/>
+		<Effect Name="MGAME_HP_COUSUME"/>
+		<Effect Name="MGAME_HP_PERCENT"/>
+		<Effect Name="MGAME_TIME_ATTACK"/>
+		<Effect Name="MGAME_BOSS_BUFF"/>
+		<Effect Name="MGAME_GIMMICK_BAN"/>
+		<Effect Name="Guild_RAID_BORUTOS_KAPAS_1"/>
+		<Effect Name="UNDERAQUEDUCT_NORMAL_MGAME"/>
 	</Category>
 	<Category ID="125">
 		<Effect Name="init"/>
@@ -164,6 +195,14 @@
 		<Effect Name="event_shockwave"/>
 		<Effect Name="flash02"/>
 		<Effect Name="point"/>
+		<Effect Name="Init"/>
+		<Effect Name="Round1"/>
+		<Effect Name="Round2"/>
+		<Effect Name="Round3"/>
+		<Effect Name="Npc"/>
+		<Effect Name="artefact_balloon_beach"/>
+		<Effect Name="GM_MGAME_BORUTA_HATE_RESET_PAD"/>
+		<Effect Name="TimeAttackMode"/>
 	</Category>
 	<Category ID="144">
 		<Effect Name="F_pc_CardBook_ground_dark"/>
@@ -231,6 +270,12 @@
 		<Effect Name="F_cleric_KaguraDance_buff"/>
 		<Effect Name="F_cleric_Incineration_loop"/>
 		<Effect Name="F_levitation005_dark_green3"/>
+		<Effect Name="GLOBAL_EVENT_MISSION_TRY"/>
+		<Effect Name="Mission_INFO"/>
+		<Effect Name="Stage_1"/>
+		<Effect Name="Stage_2"/>
+		<Effect Name="Mission_Success"/>
+		<Effect Name="Mission_Fail_Check"/>
 	</Category>
 	<Category ID="188">
 		<Effect Name="170628_Rain_Mission"/>
@@ -699,6 +744,7 @@
 		<Effect Name="I_cylinder_003"/>
 		<Effect Name="F_pose_magical2_light01"/>
 		<Effect Name="F_light103_white_line"/>
+		<Effect Name="F_wizard_EnchantLightning_buff"/>
 	</Category>
 	<Category ID="83">
 		<Effect Name="SKL_ARIES"/>
@@ -2016,6 +2062,7 @@
 		<Effect Name="F_cleric_StereaTrofh_buff"/>
 		<Effect Name="MackangdalOFF"/>
 		<Effect Name="SHOW_MACANGDAL"/>
+		<Effect Name="TOY_BUBBLETEA"/>
 	</Category>
 	<Category ID="84">
 		<Effect Name="M_PAST_FLIBRARY_1"/>
@@ -5682,6 +5729,9 @@
 		<Effect Name="F_explosion132_white_black"/>
 		<Effect Name="Skiaclipse_pad_2"/>
 		<Effect Name="Skiaclipse_pad_1"/>
+		<Effect Name="GUILD_COLONY_F_REMAINS_37_1"/>
+		<Effect Name="GUILD_COLONY_F_PILGRIMROAD_41_2"/>
+		<Effect Name="GUILD_COLONY_F_TABLELAND_72"/>
 		<Effect Name="Guild_RAID_BORUTOS_KAPAS_1"/>
 	</Category>
 	<Category ID="27">

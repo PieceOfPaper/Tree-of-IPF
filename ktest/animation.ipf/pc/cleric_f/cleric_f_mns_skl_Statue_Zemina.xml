@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
 	<CreateMonster frame="0" MonName="pcskill_wood_zemina" Key="zemina" Angle="0" Dist="0" MonAngle="0"/>
 	<CreateMonsterAnim frame="0" Key="zemina" Anim="born" Freeze="0"/>
 	<DeleteMonster frame="38" Key="zemina"/>
 	<AttachModel frame="0" XAC="warrior_f_sword_choora" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="None"/>
 	<AttachModel frame="0" XAC="warrior_f_sword_choora" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="1" anim="None"/>
-	<Particle frame="7" attachNode="Dummy_L_HAND" particleName="F_cleric_Statue_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
-	<Particle frame="9" attachNode="Dummy_R_HAND" particleName="F_cleric_Statue_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
-	<Particle frame="11" attachNode="Dummy_L_HAND" particleName="F_cleric_Statue_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
-	<Particle frame="12" attachNode="Dummy_R_HAND" particleName="F_cleric_Statue_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
-	<Particle frame="14" attachNode="Dummy_R_HAND" particleName="F_cleric_Statue_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
-	<Particle frame="17" attachNode="Dummy_R_HAND" particleName="F_cleric_Statue_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
-	<Particle frame="19" attachNode="Dummy_R_HAND" particleName="F_cleric_Statue_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
-	<Particle frame="20" attachNode="Dummy_L_HAND" particleName="F_cleric_Statue_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
-	<Particle frame="22" attachNode="Dummy_L_HAND" particleName="F_cleric_Statue_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
-	<Particle frame="25" attachNode="Dummy_R_HAND" particleName="F_cleric_Statue_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
-	<Particle frame="27" attachNode="Dummy_R_HAND" particleName="F_cleric_Statue_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
-	<Particle frame="28" attachNode="Dummy_L_HAND" particleName="F_cleric_Statue_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
-	<Particle frame="30" attachNode="Dummy_L_HAND" particleName="F_cleric_Statue_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="7" attachNode="Dummy_L_HAND" particleName="F_cleric_Statue_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="9" attachNode="Dummy_R_HAND" particleName="F_cleric_Statue_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="11" attachNode="Dummy_L_HAND" particleName="F_cleric_Statue_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="12" attachNode="Dummy_R_HAND" particleName="F_cleric_Statue_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="14" attachNode="Dummy_R_HAND" particleName="F_cleric_Statue_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="17" attachNode="Dummy_R_HAND" particleName="F_cleric_Statue_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="19" attachNode="Dummy_R_HAND" particleName="F_cleric_Statue_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="20" attachNode="Dummy_L_HAND" particleName="F_cleric_Statue_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="22" attachNode="Dummy_L_HAND" particleName="F_cleric_Statue_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="25" attachNode="Dummy_R_HAND" particleName="F_cleric_Statue_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="27" attachNode="Dummy_R_HAND" particleName="F_cleric_Statue_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="28" attachNode="Dummy_L_HAND" particleName="F_cleric_Statue_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="30" attachNode="Dummy_L_HAND" particleName="F_cleric_Statue_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
 </ActionDesc>

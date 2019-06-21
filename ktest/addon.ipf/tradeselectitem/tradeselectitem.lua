@@ -33,7 +33,7 @@ function OPEN_TRADE_SELECT_ITEM(invItem)
 		local itemName = TryGetProp(cls, "SelectItemName_"..i);
 		local itemCount = TryGetProp(cls, "SelectItemCount_"..i);
 		if itemName ~= 'None' and itemName ~= nil and itemCount ~= 0 and itemCount ~= nil then
-			y = CREATE_QUEST_REWARE_CTRL(box, y, i, itemName, itemCount, nil);	
+			y = CREATE_QUEST_REWARE_CTRL(box, y, i, itemName, itemCount, nil, itemobj.ClassName);	
 			y = y + 5
 		end
 	end

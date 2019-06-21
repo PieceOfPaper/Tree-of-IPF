@@ -1113,7 +1113,7 @@ function CHECK_PROGRESS_QUEST_VIEW_FILTER(titlename, questInfo)
 		end
 	end
 
-	-- add sub mode filter
+	-- -- add sub mode filter
 	if CHECK_QUEST_MODE_ALL(questIES) == false then
 	 if  CHECK_SUB_MODE_FILER(questIES) == false then
 		return false;
@@ -1132,7 +1132,7 @@ function CHECK_PROGRESS_QUEST_VIEW_FILTER(titlename, questInfo)
 		return true;
 	end
 
-	string.lower(searchText);
+	searchText = string.lower(searchText);
 
 	-- title과 일치하는지 먼저검사.
 	if titlename ~= nil then
@@ -1142,7 +1142,7 @@ function CHECK_PROGRESS_QUEST_VIEW_FILTER(titlename, questInfo)
 			mapName = mapCls.Name
 		end
 		local titleTransName = dic.getTranslatedStr(mapName)
-		string.lower(titleTransName);
+		titleTransName = string.lower(titleTransName);
 		if string.find(mapName, searchText) ~= nil then
 			return true;
 		end 
@@ -1152,7 +1152,7 @@ function CHECK_PROGRESS_QUEST_VIEW_FILTER(titlename, questInfo)
 	local questName = questIES.Name;
 	questName = dic.getTranslatedStr(questName)
 	questName = string.lower(questName); 
-
+	
 	if string.find(questName, searchText) == nil then
 		return false;
 	end 
@@ -1191,7 +1191,7 @@ function CHECK_SUB_MODE_FILER(questIES)
 		return true;
 	end
 
-	if isCorrect == true and LINKZONECHECK(GetZoneName(pc), questIES.StartMap) == 'YES'  and QUEST_SUB_VIEWCHECK_LEVEL(pc, questIES) == 'YES' then
+	if isCorrect == true and LINKZONECHECK(GetZoneName(pc), questIES.StartMap) == 'YES' then
 
 		return true
 	end

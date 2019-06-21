@@ -15,10 +15,7 @@
                     <Obj Type="Monster" MonType="41248" Pos="101.65#-24.45#427.22" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="6" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_3_N&apos; &apos;StrArg1&apos; &apos;UpHillMonster&apos; &apos;StatType&apos; &apos;InstanceDungeon&apos; " SimpleAI="MISSION_UPHILL_DEFFENSE_L3_NORMAL"/>
                     <Obj Type="Monster" MonType="57607" Pos="87.17#-24.45#444.05" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="7" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_3_S&apos; &apos;StrArg1&apos; &apos;UpHillMonster&apos; &apos;StatType&apos; &apos;InstanceDungeon&apos; " SimpleAI="MISSION_UPHILL_DEFFENSE_L3_NORMAL"/>
                     <Obj Type="Monster" MonType="57606" Pos="113.66#-24.45#418.93" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="8" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;UPHILL_ELITE&apos; &apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_3_E&apos; &apos;StrArg1&apos; &apos;UpHillMonster&apos; &apos;StatType&apos; &apos;InstanceDungeon&apos; " SimpleAI="MISSION_UPHILL_DEFFENSE_L3_NORMAL"/>
-                    <Obj Type="Monster" MonType="41211" Pos="-462.81#-94.92#135.74" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="9" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_2_B&apos; &apos;StrArg1&apos; &apos;UpHillBoss&apos; &apos;StatType&apos; &apos;InstanceDungeon&apos; " SimpleAI="MISSION_UPHILL_DEFFENSE_BOSS"/>
-                    <Obj Type="Monster" MonType="105024" Pos="-426.56#-94.92#177.77" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="10" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; " SimpleAI="UPHILL_GIMMICK_MONSTER_L2_AI">
-                        <SelfAI ActiveMessageMapInBattle="1"/>
-                    </Obj>
+                    <Obj Type="Monster" MonType="41211" Pos="-459.75#-94.92#115.35" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="9" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_2_B&apos; &apos;StrArg1&apos; &apos;UpHillBoss&apos; &apos;StatType&apos; &apos;InstanceDungeon&apos; " SimpleAI="MISSION_UPHILL_DEFFENSE_BOSS"/>
                     <Obj Type="Monster" MonType="105024" Pos="-306.16#-40.50#-173.05" range="20" genCount="1" genTime="20000" autoGen="0" objectKey="11" UseAiOutOfPc="1" propList="&apos;MSPD_BM&apos; &apos;50&apos; &apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; " SimpleAI="UPHILL_GIMMICK_MONSTER_L1_AI">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
@@ -27,6 +24,15 @@
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
                     <Obj Type="Monster" MonType="151000" Pos="297.22#80.12#-242.25" angle="133" genCount="1" genTime="20000" objectKey="14" autoDestroy="0" propList="&apos;Name&apos; &apos;정수 변환기&apos; &apos;Scale&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_UPHILL_DEFFENSEOBJ1&apos; "/>
+                    <Obj Type="Monster" MonType="105025" Pos="-456.75#-94.92#171.98" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="15" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;SimpleAI&apos; &apos;UPHILL_GIMMICK_GUARD_MONSTER_L2_AI&apos; "/>
+                    <Obj Type="Monster" MonType="105025" Pos="-410.50#-94.92#165.46" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="16" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;SimpleAI&apos; &apos;UPHILL_GIMMICK_GUARD_MONSTER_L2_AI&apos; "/>
+                    <Obj Type="Monster" MonType="105025" Pos="-426.89#-94.92#139.43" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="17" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;SimpleAI&apos; &apos;UPHILL_GIMMICK_GUARD_MONSTER_L2_AI&apos; "/>
+                    <Obj Type="Monster" MonType="154066" Pos="176.42#32.20#165.71" genCount="1" genTime="20000" objectKey="10" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;UPHILL_LIGHTNINGBOLT_SET_AI&apos; "/>
+                    <Obj Type="Monster" MonType="154066" Pos="527.94#32.20#-13.64" genCount="1" genTime="20000" objectKey="18" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;UPHILL_LIGHTNINGBOLT_SET_AI&apos; "/>
+                    <Obj Type="Monster" MonType="154066" Pos="353.78#74.61#-31.28" genCount="1" genTime="20000" objectKey="19" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;UPHILL_LIGHTNINGBOLT_SET_AI&apos; "/>
+                    <Obj Type="Monster" MonType="154066" Pos="97.72#74.64#-294.08" genCount="1" genTime="20000" objectKey="20" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;UPHILL_LIGHTNINGBOLT_SET_AI&apos; "/>
+                    <Obj Type="Monster" MonType="154066" Pos="-82.69#34.82#-205.76" genCount="1" genTime="20000" objectKey="21" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;UPHILL_LIGHTNINGBOLT_SET_AI&apos; "/>
+                    <Obj Type="Monster" MonType="154066" Pos="86.90#-3.84#-460.66" genCount="1" genTime="20000" objectKey="22" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;UPHILL_LIGHTNINGBOLT_SET_AI&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="MiniGameValueSet">
@@ -228,6 +234,37 @@
                                 <Str Str="&apos;어려움&apos; 난이도로 진행합니다.{nl}10초 뒤, 1단계가 시작됩니다."/>
                                 <Str Str="Clear"/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Ready-VeryHard" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="difficulty"/>
+                                <Str Str="EQ"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="&apos;매우 어려움&apos; 난이도로 진행합니다.{nl}10초 뒤, 1단계가 시작됩니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="hidden_stage_set">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="difficulty"/>
+                                <Str Str="EQ"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="HiddenOpen"/>
+                                <Num Num="1"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -737,7 +774,7 @@
                                 <Num Num="30"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO" CondFunc="">
-                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/10/DefGroup/11/DefGroup/12"/>
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/11/DefGroup/12/DefGroup/15/DefGroup/16/DefGroup/17"/>
                                 <Num Num="0"/>
                             </ToolScp>
                         </condList>
@@ -788,7 +825,7 @@
                                 <Str Str="Type/BossGen1Round"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="보스 몬스터가 출현합니다!"/>
+                                <Str Str="보스와 보스에게 방어막을 건 라페자드들이 출현합니다!"/>
                                 <Str Str="Clear"/>
                                 <Num Num="10"/>
                             </ToolScp>
@@ -808,7 +845,7 @@
                                 <Num Num="180"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
-                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/10/DefGroup/11/DefGroup/12"/>
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/11/DefGroup/12/DefGroup/15/DefGroup/16/DefGroup/17"/>
                                 <Num Num="1"/>
                             </ToolScp>
                         </condList>
@@ -919,7 +956,7 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_MSG_LIVE_MON_COUNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/10/DefGroup/11/DefGroup/12"/>
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/11/DefGroup/12/DefGroup/15/DefGroup/16/DefGroup/17"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -956,6 +993,29 @@
                             <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
                                 <Str Str="GIMMICK_MONSTER_IS_SUMMONED"/>
                                 <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="veryhard_add" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="difficulty"/>
+                                <Str Str="EQ"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="7"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/9"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/15/DefGroup/16/DefGroup/17"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -1506,7 +1566,7 @@
                                 <Num Num="30"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/10/DefGroup/11/DefGroup/12"/>
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/11/DefGroup/12/DefGroup/15/DefGroup/16/DefGroup/17"/>
                                 <Num Num="0"/>
                             </ToolScp>
                         </condList>
@@ -1557,7 +1617,7 @@
                                 <Str Str="Type/BossGen2Round"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="보스 몬스터가 출현합니다!"/>
+                                <Str Str="보스와 보스에게 방어막을 건 라페자드들이 출현합니다!"/>
                                 <Str Str="Clear"/>
                                 <Num Num="10"/>
                             </ToolScp>
@@ -1577,7 +1637,7 @@
                                 <Num Num="180"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
-                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/10/DefGroup/11/DefGroup/12"/>
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/11/DefGroup/12/DefGroup/15/DefGroup/16/DefGroup/17"/>
                                 <Num Num="1"/>
                             </ToolScp>
                         </condList>
@@ -1701,7 +1761,7 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_MSG_LIVE_MON_COUNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/10/DefGroup/11/DefGroup/12"/>
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/11/DefGroup/12/DefGroup/15/DefGroup/16/DefGroup/17"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -1738,6 +1798,29 @@
                             <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
                                 <Str Str="GIMMICK_MONSTER_IS_SUMMONED"/>
                                 <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="veryhard_add" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="difficulty"/>
+                                <Str Str="EQ"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="7"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/9"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/15/DefGroup/16/DefGroup/17"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -2232,7 +2315,12 @@
                                 <Num Num="30"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/10/DefGroup/11/DefGroup/12"/>
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/11/DefGroup/12/DefGroup/15/DefGroup/16/DefGroup/17"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="HiddenOpen"/>
+                                <Str Str="=="/>
                                 <Num Num="0"/>
                             </ToolScp>
                         </condList>
@@ -2293,7 +2381,7 @@
                                 <Str Str="Type/BossGen3Round"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="보스 몬스터가 출현합니다!"/>
+                                <Str Str="보스와 보스에게 방어막을 건 라페자드들이 출현합니다!"/>
                                 <Str Str="Clear"/>
                                 <Num Num="10"/>
                             </ToolScp>
@@ -2313,7 +2401,7 @@
                                 <Num Num="180"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
-                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/10/DefGroup/11/DefGroup/12"/>
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/11/DefGroup/12/DefGroup/15/DefGroup/16/DefGroup/17"/>
                                 <Num Num="1"/>
                             </ToolScp>
                         </condList>
@@ -2419,7 +2507,7 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_MSG_LIVE_MON_COUNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/10/DefGroup/11/DefGroup/12"/>
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/11/DefGroup/12/DefGroup/15/DefGroup/16/DefGroup/17"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -2459,6 +2547,89 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="nextStep_hidden">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/11/DefGroup/12"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="HiddenOpen"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="숨겨진 스테이지 등장!{nl}2분 내에 보스를 처치하면 보너스 포인트를 받을 수 있습니다!"/>
+                                <Str Str="Clear"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="SCR_UPHILL_ADD_RANKING_POINT_TIME" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="UphillStep"/>
+                                <Num Num="16"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="UPHillDeffense"/>
+                                <Str Str="State/Step_Hidden"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="nextStep"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="summonGimmickMon2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Step15"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Step15"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="GimmickBead"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FailCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Step_Hidden"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EXEC_RUNSCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_UPHILL_DEFENSE_CLEAR_RECORD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="veryhard_add" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="difficulty"/>
+                                <Str Str="EQ"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="7"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/9"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/15/DefGroup/16/DefGroup/17"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="Success" AutoStart="0">
@@ -2480,7 +2651,7 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
-                                <MGameObjPtr List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/10/DefGroup/11/DefGroup/12/GimmickBead/0"/>
+                                <MGameObjPtr List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/11/DefGroup/12/DefGroup/15/DefGroup/16/DefGroup/17/Step_Hidden/0/Step_Hidden/1/Step_Hidden/2/Step_Hidden/3/Step_Hidden/4/Step_Hidden/5/Step_Hidden/6/Step_Hidden/7"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
                                 <Str Str="미션 성공 : 60초 후 원래 존으로 돌아갑니다"/>
@@ -2831,6 +3002,24 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="hidden_out">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="difficulty"/>
+                                <Str Str="EQ"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="720"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="HiddenOpen"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="Fail" AutoStart="0">
@@ -2858,7 +3047,7 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
-                                <MGameObjPtr List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/10/DefGroup/11/DefGroup/12/GimmickBead/0"/>
+                                <MGameObjPtr List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/11/DefGroup/12/DefGroup/15/DefGroup/16/DefGroup/17/Step_Hidden/0/Step_Hidden/1/Step_Hidden/2/Step_Hidden/3/Step_Hidden/4/Step_Hidden/5/Step_Hidden/6/Step_Hidden/7"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -2919,6 +3108,163 @@
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="GimmickBead/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Step_Hidden" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="90"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="보너스 스테이지!{nl}시간 내에 모든 보스와 몬스터를 물리치세요!"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="41211" Pos="-298.71#-40.50#-189.88" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_2_B&apos; &apos;StrArg1&apos; &apos;UpHillBoss&apos; &apos;SimpleAI&apos; &apos;MISSION_UPHILL_DEFFENSE_BOSS&apos; "/>
+                    <Obj Type="Monster" MonType="41211" Pos="102.93#-24.45#430.62" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" propList="&apos;StrArg1&apos; &apos;UpHillBoss&apos; &apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_2_B&apos; &apos;SimpleAI&apos; &apos;MISSION_UPHILL_DEFFENSE_BOSS&apos; "/>
+                    <Obj Type="Monster" MonType="105024" Pos="-290.93#-40.50#-190.98" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;SimpleAI&apos; &apos;UPHILL_GIMMICK_MONSTER_L1_AI&apos; "/>
+                    <Obj Type="Monster" MonType="105024" Pos="110.04#-24.45#441.30" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;SimpleAI&apos; &apos;UPHILL_GIMMICK_MONSTER_L3_AI&apos; "/>
+                    <Obj Type="Monster" MonType="105024" Pos="-449.33#-94.92#161.61" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;UPHILL_GIMMICK_MONSTER_L2_AI&apos; &apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; "/>
+                    <Obj Type="Monster" MonType="105025" Pos="-454.12#-94.92#156.90" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="5" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;SimpleAI&apos; &apos;UPHILL_GIMMICK_GUARD_MONSTER_L2_AI&apos; "/>
+                    <Obj Type="Monster" MonType="105025" Pos="-290.42#-40.50#-189.43" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="6" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;SimpleAI&apos; &apos;UPHILL_GIMMICK_GUARD_MONSTER_L1_AI&apos; "/>
+                    <Obj Type="Monster" MonType="105025" Pos="110.98#-24.45#434.57" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="7" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;SimpleAI&apos; &apos;UPHILL_GIMMICK_GUARD_MONSTER_L3_AI&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" isOr="1" eventName="nextStep" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="90"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/13"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="시간이 초과되어 숨겨진 스테이지가 종료됩니다.{nl}미션 성공 : 60초 후 원래 존으로 돌아갑니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="UPHillDeffense"/>
+                                <Str Str="State/Success"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="nextStep"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Step_Hidden"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Step_Hidden"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="GimmickBead"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FailCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Success"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EXEC_RUNSCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_UPHILL_DEFENSE_CLEAR_RECORD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="nextStep_Bouns" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Step_Hidden/0/Step_Hidden/1/Step_Hidden/2/Step_Hidden/3/Step_Hidden/4/Step_Hidden/5/Step_Hidden/6/Step_Hidden/7"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="보스를 모두 처치해서 보너스 포인트를 획득했습니다!{nl}미션 성공 : 60초 후 원래 존으로 돌아갑니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="UPHillDeffense"/>
+                                <Str Str="State/Success"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="UphillStep"/>
+                                <Num Num="17"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="nextStep"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Step_Hidden"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Step_Hidden"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="GimmickBead"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FailCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Success"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EXEC_RUNSCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_UPHILL_DEFENSE_CLEAR_RECORD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="summon_monster">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Step_Hidden/0/Step_Hidden/1/Step_Hidden/2/Step_Hidden/3/Step_Hidden/4/Step_Hidden/5/Step_Hidden/6/Step_Hidden/7"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="2" eventName="guard_summon" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Step_Hidden/5/Step_Hidden/6/Step_Hidden/7"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="2" eventName="bomb_summon" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Step_Hidden/2/Step_Hidden/3/Step_Hidden/4"/>
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>

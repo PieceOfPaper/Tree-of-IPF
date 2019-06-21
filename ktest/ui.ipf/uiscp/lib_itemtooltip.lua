@@ -577,6 +577,18 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 			viewObj.Level = temp_obj.TargetItemAppendValue;			
 			return viewObj, 1;
 		end
+	elseif strarg == 'Tradeselectitem' then
+		local Tradeselectitem = GetClassByType('TradeSelectItem', guid)
+		local transcend = TryGetProp(Tradeselectitem, 'SelectItemTranscend', 0)
+		local reinforce = TryGetProp(Tradeselectitem, 'SelectItemReinforce', 0)
+		if transcend > 0 or reinforce > 0 then
+			local itemObj = GetClassByType('Item', numarg1)
+			viewObj = CloneIES_UseCP(itemObj);
+	
+			viewObj.Transcend = transcend;
+			viewObj.Reinforce_2 = reinforce;
+			return viewObj, 1;
+		end
 	else
 		invitem = GET_ITEM_BY_GUID(guid, 0);
 	end

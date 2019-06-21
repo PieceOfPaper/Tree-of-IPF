@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -227,6 +227,7 @@
 		<Class ClassID="2096" ClassName="SealReinforceInfo" Data="아이템을 강화할 경우 재료 인장은 {#8e0000}소멸{/}되고, 실패할 경우{@st41b}{#ffa200}주 옵션 인장{/}{/}이{#8e0000}소멸{/}됩니다."/>
 		<Class ClassID="2097" ClassName="hairenchant_close" Data="마법 부여 스크롤 창을 닫습니다."/>
 		<Class ClassID="2098" ClassName="master_hairenchant_close" Data="장인의 마법 부여 스크롤 창을 닫습니다."/>
+		<Class ClassID="2099" ClassName="decomposeCant" Data="분해 할 수 없는 아이템입니다."/>
 	</Category>
 	<Category Name="ItemContents">
 		<Class ClassID="2200" ClassName="ClickSocketTargetItem" Data="소켓을 추가 할 아이템을 선택해주세요"/>
@@ -1527,6 +1528,7 @@
 		<Class ClassID="21320" ClassName="MoreNeedCostumeExchangeCoupon" Data="소유중인 교환권이 부족합니다."/>
 		<Class ClassID="21321" ClassName="TP_Sale_New2" Data="[프리미엄]신규 상품 [10%]할인"/>
 		<Class ClassID="21322" ClassName="NoMarketTrade" Data="마켓 거래 불가"/>
+		<Class ClassID="21323" ClassName="NoUserTrade" Data="개인 거래 불가"/>
 		<Class ClassID="21325" ClassName="UI_Day" Data="일"/>
 		<Class ClassID="21326" ClassName="UI_Hour" Data="시간"/>
 		<Class ClassID="21327" ClassName="UI_Min" Data="분"/>
@@ -4534,12 +4536,12 @@
 		<Class ClassID="26928" ClassName="MISSION_UPHILL_MSG4" Data="신성의 횃불의 체력이 회복됩니다!"/>
 		<Class ClassID="26929" ClassName="MISSION_UPHILL_MSG5" Data="신성의 횃불 HP가 80%이하 일 때 사용할 수 있습니다!"/>
 		<Class ClassID="26930" ClassName="MISSION_UPHILL_MSG6" Data="방해 마법진이 모두 작동 중입니다!"/>
-		<Class ClassID="26931" ClassName="MISSION_UPHILL_SEL3" Data="순간이동으로 아군 소환 [화염 결정 {COUNT}개 필요]"/>
+		<Class ClassID="26931" ClassName="MISSION_UPHILL_SEL3" Data="파티 공격력 강화 [화염 결정 {COUNT}개 필요]"/>
 		<Class ClassID="26932" ClassName="MISSION_UPHILL_MSG7" Data="순간이동 가능한 아군이 없습니다!"/>
 		<Class ClassID="26933" ClassName="MISSION_UPHILL_MSG8" Data="5초 뒤 {CALLPC}님께로 순간이동 됩니다!"/>
 		<Class ClassID="26934" ClassName="MISSION_UPHILL_SEL4" Data="거미줄 생성 [화염 결정 {COUNT}개 필요]"/>
 		<Class ClassID="26935" ClassName="MISSION_UPHILL_MSG9" Data="거미줄을 사용할 몬스터가 없습니다!"/>
-		<Class ClassID="26936" ClassName="MISSION_UPHILL_SEL5" Data="아군에게로 순간이동 [화염 결정 {COUNT}개 필요]"/>
+		<Class ClassID="26936" ClassName="MISSION_UPHILL_SEL5" Data="번개장 소환 [화염 결정 {COUNT}개 필요]"/>
 		<Class ClassID="26937" ClassName="MISSION_UPHILL_MSG10" Data="순간이동할 아군이 없습니다!"/>
 		<Class ClassID="26938" ClassName="CITYATTACK_BOSS_NPC" Data="이벤트 보상 지원병"/>
 		<Class ClassID="26939" ClassName="CITYATTACK_BOSS_BOX" Data="보물 상자"/>
@@ -5044,6 +5046,7 @@
 		<Class ClassID="28085" ClassName="EVENT_1807_POOL_MSG11" Data="'[Summer Festa] 휴식' 버프가 발동합니다!"/>
 		<Class ClassID="28091" ClassName="EVENT_1807_BALL_MSG1" Data="남은 이동 횟수 : {COUNT}"/>
 		<Class ClassID="28092" ClassName="EVENT_1807_BALL_MSG2" Data="미션에 도전한다"/>
+		<Class ClassID="28093" ClassName="EVENT_1906_GUILD_MSG1" Data="이벤트 보상은 길드에 가입해야 수령할 수 있습니다"/>
 		<Class ClassID="28100" ClassName="EVENT_1807_RANK_MSG1" Data="접속 시간 : {MIN}분{nl}랭크 초기화 이벤트 {NAME} {COUNT}개를 획득했습니다"/>
 		<Class ClassID="28101" ClassName="EVENT_1807_RANK_MSG2" Data="교환한다({COUNT} / 2)"/>
 		<Class ClassID="28102" ClassName="EVENT_1807_RANK_MSG3" Data="{MONTH}월 {DAY}일 출석 체크!{nl}누적 : {COUNT}일차"/>
@@ -5195,6 +5198,10 @@
 		<Class ClassID="28356" ClassName="EVENT_1901_3DAY_TARGET_MSG12" Data="을 선택하셨습니다.{nl}"/>
 		<Class ClassID="28357" ClassName="EVENT_1901_3DAY_TARGET_MSG13" Data="{#FF0000}금일 목표는 완료되었습니다.{/}{nl}내일 다시 도전해주세요!"/>
 		<Class ClassID="28358" ClassName="EVENT_1901_GOLDPIG_MSG5" Data="{nl}내가 찾은 황금 돼지 : {POINT} / "/>
+		<Class ClassID="28359" ClassName="EVENT_1906_TOTAL_SHOP_1" Data="바살로스 주화 상점을 이용한다"/>
+		<Class ClassID="28360" ClassName="EVENT_1906_GUILD_REWARD_1" Data="바살로스 주화 상점을 이용한다"/>
+		<Class ClassID="28361" ClassName="EVENT_1906_TOTAL_SHOP_COIN" Data="오늘 주화를 총 {@st66d_y}{s18}{GET}{/}{/}개 획득하였습니다.{nl}{@st66d_y}{s18}{REMAIN}{/}{/}개의 주화를 더 획득할 수 있습니다."/>
+		<Class ClassID="28362" ClassName="EVENT_1906_GUILD_JOIN_REWARD_COIN_MSG" Data="길드 가입 보상을 수령한다"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -6773,7 +6780,7 @@
 		<Class ClassID="66002" ClassName="RVR_BK_KAZE_NPC_SEL_MSG_1" Data="우르바스 증표 사용"/>
 		<Class ClassID="66003" ClassName="RVR_BK_KAZE_NPC_SEL_REST" Data="슬리비나스 레어 정찰"/>
 		<Class ClassID="66004" ClassName="RVR_BK_REWARD_GUILD" Data="길드보상을 확인한다"/>
-		<Class ClassID="66005" ClassName="RVR_BK_REWARD_PERSONAL" Data="개인보상을 확인한다"/>
+		<Class ClassID="66005" ClassName="RVR_BK_REWARD_PERSONAL" Data="(구)개인보상을 확인한다"/>
 		<Class ClassID="66006" ClassName="RVR_BK_KAZE_NPC_SEL_RANK" Data="현재 기여도를 확인한다"/>
 		<Class ClassID="66007" ClassName="RVR_BK_KAZE_NPC_SEL_SAY" Data="대화하기"/>
 		<Class ClassID="66008" ClassName="RVR_BK_KAZE_NPC_ENTRANCE" Data="슬리비나스 레어에 진입한다"/>
@@ -6819,6 +6826,24 @@
 		<Class ClassID="66120" ClassName="RVR_BK_NOTYET_QUEST_1" Data="{Q_NAME} 퀘스트는 {Q_LV}레벨부터 진행할 수 있습니다"/>
 		<Class ClassID="66121" ClassName="RVR_BK_LIMIT_RETURN_ZONE_1" Data="우르바스 증표의 효과가 만료되었습니다.{nl}{COUNT} 초 후 베다 고원으로 탈출합니다"/>
 		<Class ClassID="66122" ClassName="RVR_BK_LIMIT_RETURN_ZONE_2" Data="우르바스 증표의 효과를 받을 수 없습니다.{nl}내일 오후 10시에 다시 시도해주세요."/>
+		<Class ClassID="66123" ClassName="GUILD_MISSION_MSG_ENTER_FAIL5{day}{time}" Data="길드 탈퇴 후 {day}일 동안은 길드 이벤트에 참가할 수 없습니다.{nl}(참가 가능일 : {time} 이후)"/>
+		<Class ClassID="66124" ClassName="GUILD_MISSION_ENTER_REMAIN_TIME{day}{hour}{min}{sec}" Data="{day}일 {hour}시간 {min}분 {sec}초"/>
+		<Class ClassID="66125" ClassName="Guild_Event_boruta_Awards_WorldMessage_1" Data="금주의 슬리비나스 봉쇄전이 종료되었으며, 순위는 다음과 같습니다."/>
+		<Class ClassID="66126" ClassName="Guild_Event_boruta_Awards_WorldMessage_2" Data="잠시 후 오후 8시부터 9시까지 {nl}길드 콜로니전이 진행될 예정입니다."/>
+		<Class ClassID="66127" ClassName="Guild_Event_boruta_Awards_WorldMessage_3" Data="길드 콜로니전에서 스팟을 점령하면 {nl}슬리비나스 봉쇄전에 참여할 수 있습니다.{nl}구원자 여러분의 많은 참여 부탁드립니다."/>
+		<Class ClassID="66128" ClassName="Guild_Event_boruta_Awards_WorldMessage_Rank_1" Data="1위 : [{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
+		<Class ClassID="66129" ClassName="Guild_Event_boruta_Awards_WorldMessage_Rank_2" Data="2위 : [{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
+		<Class ClassID="66130" ClassName="Guild_Event_boruta_Awards_WorldMessage_Rank_3" Data="3위 : [{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
+		<Class ClassID="66131" ClassName="Guild_Event_boruta_Awards_WorldMessage_Rank_4" Data="4위 : [{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
+		<Class ClassID="66132" ClassName="Guild_Event_boruta_Awards_WorldMessage_Rank_5" Data="5위 : [{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
+		<Class ClassID="66133" ClassName="Guild_Event_boruta_Awards_WorldMessage_4" Data="슬리비나스 봉쇄전의 보상은 베다 고원의 {nl}큐폴 카제에게 지급 받을 수 있습니다."/>
+		<Class ClassID="66134" ClassName="GM_BK_NPC_AUSTEJA_MSG_1" Data="[미션시작]드래곤 보루타와 대적한다"/>
+		<Class ClassID="66135" ClassName="GM_BK_CHECK_OUR_GUILD_POINT" Data="슬리비나스 봉쇄전 기록을 확인한다"/>
+		<Class ClassID="66136" ClassName="RVR_BK_REWARD_GET_GUILD_NOT_THERE_2" Data="확인 가능한 기록이 없습니다"/>
+		<Class ClassID="66137" ClassName="Guild_Event_boruta_Check_My_Guild_Record_1" Data="[{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
+		<Class ClassID="66138" ClassName="GM_BK_NPC_AUSTEJA_MSG_2" Data="우르바스의 증표 반납 [ 현재 : {COUNT} / 100 ]"/>
+		<Class ClassID="66139" ClassName="GM_BK_NPC_AUSTEJA_CNT" Data=" 개 반납"/>
+		<Class ClassID="66140" ClassName="GM_BK_NPC_AUSTEJA_CNT_TAKE_1" Data="우르바스의 증표 반납 {COUNT} 개 반납했습니다"/>
 		<Class ClassID="67000" ClassName="JOB_SHINOBI_HIDDEN_ITEM_5_book2" Data="글자가 보이는 두루마리"/>
 		<Class ClassID="67001" ClassName="Nebulas_Book" Data="네뷸라스와 칼레이마스"/>
 		<Class ClassID="67002" ClassName="Mirtis_Book" Data="미르티스 이야기"/>
@@ -7742,6 +7767,13 @@
 		<Class ClassID="70525" ClassName="SHADOW_RAID_WHITE_CROW_IS_ALL_READY" Data="다들 준비가 되신 것 같으니 포탈을 열겠습니다.{nl}저 포탈을 통해 이동하십시오."/>
 		<Class ClassID="70526" ClassName="SHADOW_RAID_WHITE_CROW_NUMBER_CHECK" Data="남은 몬스터 수: {COUNT}마리{nl}남은 힌트 수: {ASSIST}번"/>
 		<Class ClassID="70527" ClassName="SHADOW_RAID_PETRIFIED_DELETE" Data="아직 석화되지 않은 몬스터에 의해 다른 몬스터의 석화가 풀립니다!"/>
+		<Class ClassID="70528" ClassName="UPHILL_PARTY_BUFF_ACTIVE" Data="파티원 전원에게 '공격력 강화' 효과가 적용됩니다!"/>
+		<Class ClassID="70529" ClassName="UPHILL_LIGHTNINGBOLT_ACTIVE" Data="번개장이 생성됐습니다!{nl}번개에 맞은 적은 지속적으로 감전 데미지와 함께 이동 속도가 줄어듭니다!"/>
+		<Class ClassID="70530" ClassName="UPHILL_LIGHTNINGBOLT_ALREADY_ACTIVE" Data="이미 번개장이 생성돼 있습니다."/>
+		<Class ClassID="70531" ClassName="UPHILL_PARTY_BUFF_LIMIT" Data="강화 효과의 수치가 최대치이므로, 더 이상 올릴 수 없습니다."/>
+		<Class ClassID="70532" ClassName="MISSION_UPHILL_SEL6" Data="방책 설치 [화염 결정 {COUNT}개 필요]"/>
+		<Class ClassID="70533" ClassName="UPHILL_STOCKADE_IS_SET" Data="특정 위치에 방책을 설치했습니다!"/>
+		<Class ClassID="70534" ClassName="UPHILL_STOCKADE_IS_ALL_SET" Data="이미 세울 수 있는 위치에 모든 방책을 설치했습니다!"/>
 		<Class ClassID="80001" ClassName="LIMESTONE_52_1_CRYSTAL_ING" Data="불안정한 마력핵 설치 중"/>
 		<Class ClassID="80002" ClassName="LIMESTONE_52_1_SQ_1_TAKE" Data="목걸이 빼앗는 중"/>
 		<Class ClassID="80003" ClassName="LIMESTONE_52_2_MQ_7_SUCC_MSG" Data="구속장치가 요동치기 시작합니다!"/>
@@ -8669,6 +8701,8 @@
 		<Class ClassID="100088" ClassName="UnableToJoinChallengeModeCuzMaxTeamCount" Data="현재 채널에서 활성화 중인 챌린지 모드 파티의 수가 최대치에 도달하여 입장하실 수 없습니다. 다른 지역을 이용해 주세요."/>
 		<Class ClassID="100089" ClassName="IgnoreLinkBuff" Data="조인트 페널티 면역!!"/>
 		<Class ClassID="100090" ClassName="MackangdalOFF" Data="마캉달 무적 효과 해제!!"/>
+		<Class ClassID="100091" ClassName="ShowBattleInfo{ONOFF}" Data="전투 관련 수치 표시 {ONOFF}"/>
+		<Class ClassID="100092" ClassName="DiminishingBuffTime{ONOFF}" Data="군중제어 지속시간 점감 {ONOFF}"/>
 	</Category>
 	<Category Name="Party">
 		<Class ClassID="101001" ClassName="GULID_OUT" Data="길드 탈퇴"/>
@@ -9051,6 +9085,9 @@
 		<Class ClassID="102417" ClassName="ReallyChangeLeader" Data="[{NAME}] 님에게 길드를 양도합니다. 길드 양도 후에는 직급이 변경되므로 신중히 선택해주시기 바랍니다. {nl} 계속 하시겠습니까?"/>
 		<Class ClassID="102418" ClassName="DecreaseCraftTime" Data="제작시간 감소"/>
 		<Class ClassID="102419" ClassName="CantJoinGuildUntilDaysBefore{Number2}Days{Time}" Data="길드 탈퇴 후 {Number2}일 이내에 타 길드에 가입이 불가능 합니다.{nl}가입 가능일 : {Time} 이후"/>
+		<Class ClassID="102421" ClassName="NotEnoughTicketPossibleCount_GMBK" Data="해당 길드 퀘스트를 이미 이용하였습니다.{nl}내일 오전 06시 이후 이용할 수 있습니다."/>
+		<Class ClassID="102422" ClassName="NotEnoughTicketPossibleCount_GMBK_1" Data="해당 길드 퀘스트를 이미 클리어 했습니다.{nl}다음 주 월요일 오전 06시 이후 이용할 수 있습니다."/>
+		<Class ClassID="102423" ClassName="NotEnoughTicketPossibleCount_GMBK_2" Data="해당 길드 퀘스트는 현재 이용할 수 없습니다."/>
 		<Class ClassID="102421" ClassName="NotEnoughTicketPossibleCount_GMBK" Data="해당 길드 이벤트는 이번 주에 더 이용할 수 없습니다"/>
 	</Category>
 	<Category Name="EqupClasses">
@@ -9511,6 +9548,7 @@
 		<Class ClassID="112020" ClassName="Restart" Data="재시작"/>
 		<Class ClassID="112021" ClassName="NormalParticipateCount" Data="보통 - 선택 파티원 수"/>
 		<Class ClassID="112022" ClassName="HardParticipateCount" Data="어려움 - 선택 파티원 수"/>
+		<Class ClassID="112023" ClassName="VeryHardParticipateCount" Data="매우 어려움(레벨 제한: 400) - 선택 파티원 수"/>
 	</Category>
 	<Category Name="JobCategoryName">
 		<Class ClassID="113001" ClassName="Char1" Data="전사 계열"/>
@@ -13178,7 +13216,10 @@
 		<Class ClassID="501207" ClassName="EVENT_1905_TOS_CHILD_MSG1" Data="하루 획득가능한 뱃지 200개를 모두 모았습니다."/>
 		<Class ClassID="501208" ClassName="EVENT_1905_TOS_CHILD_MSG2" Data="오늘 뱃지를 총 {@st66d_y}{s18}{GET}{/}{/}개 획득하였습니다. {@st66d_y}{s18}{REMAIN}{/}{/}개의 뱃지를 더 획득할 수 있습니다."/>
 		<Class ClassID="501209" ClassName="EVENT_1905_TOS_CHILD_MSG3" Data="곧 뱃지가 지급됩니다. 뱃지 지급 전 종료시 정상적으로 아이템이 지급되지 않을 수 있습니다."/>
-		</Category>
+		<Class ClassID="501223" ClassName="EVENT_1906_TOTAL_SHOP_MSG1" Data="하루 획득가능한 주화 200개를 모두 모았습니다."/>
+		<Class ClassID="501224" ClassName="EVENT_1906_TOTAL_SHOP_MSG2" Data="곧 주화가 지급됩니다. 주화 지급 전 종료시 정상적으로 아이템이 지급되지 않을 수 있습니다."/>
+
+</Category>
 	<Category Name="GEM_GACHA">
 		<Class ClassID="510001" ClassName="GEM_GACHA_SEL1" Data="젬 1회 뽑기"/>
 		<Class ClassID="510002" ClassName="GEM_GACHA_SEL2" Data="뽑기를 하지 않는다."/>

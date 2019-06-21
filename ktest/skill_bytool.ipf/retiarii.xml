@@ -5,12 +5,17 @@
 				<Str Str="Skill_SuperArmor_Buff" />
 				<Num Num="0" />
 			</ToolScp>
-		</EndScripts>
+		<ToolScp Client="YES" Scp="C_COLORBLEND_ACTOR" UseSleep="NO">
+                <Num Num="1" />
+                <Num Num="0" />
+                <Num Num="0.5" />
+                <Num Num="0.5" />
+                <Num Num="0.5" />
+                <Num Num="0" />
+                <Num Num="1" />
+            </ToolScp>
+        </EndScripts>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<MoveList>
-				<Frame Accel="1" Angle="-0.088381596" Dist="7.4611645" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="0" />
-				<Frame Accel="1" Angle="-0.037188206" Dist="22.76198" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="100" />
-			</MoveList>
 			<HitList>
 				<Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="150" Type="SQUARE" Width="30" />
 				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="30" />
@@ -187,8 +192,8 @@
 		</EndScripts>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<MoveList>
-				<Frame Accel="1" Angle="-0.095419563" Dist="1.6677111" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="0" />
-				<Frame Accel="1" Angle="-0.060000282" Dist="43.891823" Gravity="600" Height="0" JumpPower="150" MoveType="1" Time="500" />
+				<Frame Accel="1" Angle="0" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="0" />
+				<Frame Accel="1" Angle="0" Dist="70" Gravity="600" Height="0" JumpPower="150" MoveType="1" Time="500" />
 			</MoveList>
 			<HitList>
 				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="5" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="CIRCLE" Width="50" />
@@ -223,7 +228,18 @@
 					<Num Num="0" />
 				</Scp>
 			</EtcList>
-		</MainSkl>
+		<ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="Common_Slow" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                    <Num Num="2500" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                    <Num Num="-1" />
+                </ToolScp>
+            </ResultList>            
+        </MainSkl>
 	</Skill>
 	<Skill Name="Retiarii_DaggerGuard">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
@@ -242,7 +258,7 @@
 					<Str Str="DaggerGuard_Buff" />
 					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
 					<Num Num="0" />
-					<Num Num="20000" />
+					<Num Num="1800000" />
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
@@ -392,7 +408,7 @@
 					<Str Str="skl_eff_fishingnetdraw_cast" />
 				</Scp>
 				<Scp Client="YES" Scp="C_EFFECT" Time="100" UseSleep="NO">
-					<Str_Arg Arg="1" Str="I_warrior_pullrete" />
+					<Str_Arg Arg="1.5" Str="I_warrior_pullrete" />
 					<Str Str="Dummy_emitter" />
 					<Num Num="0" />
 				</Scp>

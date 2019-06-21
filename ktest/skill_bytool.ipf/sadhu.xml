@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Sadhu_SpiritualSeal">
+<ToolSkill>    <Skill Name="Sadhu_SpiritualSeal">
 		<EnableScripts>
 			<ToolScp Client="NO" Scp="SKL_CHK_OOBE" UseSleep="NO" />
 			<ToolScp Client="YES" Scp="SKL_CHK_OOBE_C" UseSleep="NO" />
@@ -158,18 +158,18 @@
 		</MainSkl>
 	</Skill>
 	<Skill Name="Sadhu_TransmitPrana">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+				<Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO"Time="0">
 					<Str Str="voice_cleric_m_transmitprana_shot" />
 					<Str Str="voice_cleric_transmitprana_shot" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="900" UseSleep="NO">
+				<Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO"Time="1350">
 					<Str Str="TransmitPrana_Debuff" />
-					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
+					<Num Num="0" UseFunc="1" FuncTxt="return obj.Level;"/>
 					<Num Num="0" />
 					<Num Num="30000" />
 					<Num Num="1" />

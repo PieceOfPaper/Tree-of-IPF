@@ -26,14 +26,26 @@
                     <Obj Type="Monster" MonType="154069" Pos="817.00#207.22#616.00" genTime="20000" autoGen="0" objectKey="4" propList="&apos;Name&apos; &apos;베다 고원&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;BK_LEAVE_PORTAL&apos; "/>
                 </ObjList>
                 <StageEvents>
-                    <Event execCount="1" eventName="Init_Setting"/>
+                    <Event execCount="1" eventName="Init_Setting">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SET_BLOCKADE_1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                     <Event execCount="1" eventName="Bossgen">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="5"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="SET_GUILD_ID"/>
+                                <Str Str="OVER"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="OPEN_PORTAL_1"/>
                                 <Str Str="OVER"/>
                                 <Num Num="1"/>
                             </ToolScp>
@@ -41,6 +53,19 @@
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Gen_Boss"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="동굴 심부로 향하는 포탈이 생성되었습니다"/>
+                                <Str Str="BossAppear"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Npc/0/Npc/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="TimeLimit"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -60,13 +85,13 @@
                     </Event>
                     <Event execCount="1" eventName="SetGuid">
                         <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="SET_GUILD_ID"/>
                                 <Str Str="EQ"/>
                                 <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="5"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -76,17 +101,44 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="TimeLimit">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="300"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SET_GUILD_ID"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SET_DAY_RECORD_1"/>
+                                <Str Str="=="/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="OPEN_PORTAL_1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SET_DAY_RECORD_1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="Npc">
                 <ObjList>
-                    <Obj Type="Monster" MonType="154069" Pos="-711.47#311.73#-1146.40" genTime="1000" autoGen="0" objectKey="0" propList="&apos;Name&apos; &apos;동굴 심부&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;GM_BK_TO_IN_NORTH&apos; "/>
-                    <Obj Type="Monster" MonType="154069" Pos="587.20#216.98#-811.40" genTime="1000" autoGen="0" objectKey="1" propList="&apos;Name&apos; &apos;동굴 심부&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;GM_BK_TO_IN_SOUTH&apos; ">
+                    <Obj Type="Monster" MonType="154069" Pos="-711.47#311.73#-1146.40" genTime="1000" autoGen="0" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;동굴 심부&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;GM_BK_TO_IN_NORTH&apos; "/>
+                    <Obj Type="Monster" MonType="154069" Pos="587.20#216.98#-811.40" genTime="1000" autoGen="0" objectKey="1" autoDestroy="0" propList="&apos;Name&apos; &apos;동굴 심부&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;GM_BK_TO_IN_SOUTH&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
-                    <Obj Type="Monster" MonType="154069" Pos="-261.09#207.22#1258.40" genCount="1" maxStackCount="1" genTime="1000" objectKey="2" propList="&apos;Name&apos; &apos;동굴 출구&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;GM_BK_TO_OUT_NORTH&apos; "/>
-                    <Obj Type="Monster" MonType="154069" Pos="1064.71#207.22#921.05" genCount="1" maxStackCount="1" genTime="1000" objectKey="3" propList="&apos;Name&apos; &apos;동굴 출구&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;GM_BK_TO_OUT_SOUTH&apos; "/>
-                    <Obj Type="Monster" MonType="151041" Pos="58.45#159.76#-1773.31" angle="-79" genCount="1" genTime="20000" objectKey="4" propList="&apos;DialogRotate&apos; &apos;1&apos; &apos;Dialog&apos; &apos;GM_BK_NPC_AUSTEJA_1&apos; ">
+                    <Obj Type="Monster" MonType="154069" Pos="-261.09#207.22#1258.40" genCount="1" maxStackCount="1" genTime="1000" objectKey="2" autoDestroy="0" propList="&apos;Name&apos; &apos;동굴 출구&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;GM_BK_TO_OUT_NORTH&apos; "/>
+                    <Obj Type="Monster" MonType="154069" Pos="1064.71#207.22#921.05" genCount="1" maxStackCount="1" genTime="1000" objectKey="3" autoDestroy="0" propList="&apos;Name&apos; &apos;동굴 출구&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;GM_BK_TO_OUT_SOUTH&apos; "/>
+                    <Obj Type="Monster" MonType="151041" Pos="58.45#159.76#-1773.31" angle="-79" genCount="1" genTime="20000" objectKey="4" autoDestroy="0" propList="&apos;DialogRotate&apos; &apos;1&apos; &apos;Dialog&apos; &apos;GM_BK_NPC_AUSTEJA_1&apos; &apos;MaxDialog&apos; &apos;1&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <StartList>
                                 <ToolScp Scp="DisableBornAni" Client="NO" UseSleep="NO"/>
@@ -102,33 +154,12 @@
                         </SelfAI>
                     </Obj>
                 </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="Open">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="OPEN_PORTAL_1"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="Npc/0/Npc/1"/>
-                                <Num Num="1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="동굴 심부로 향하는 포탈이 생성되었습니다"/>
-                                <Str Str="BossAppear"/>
-                                <Num Num="10"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
             </Stage>
             <Stage Name="Gen_Boss" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="59287" Pos="349.27#207.22#1224.86" angle="-79" maxStackCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="59287" Pos="349.27#207.22#1224.86" angle="-79" maxStackCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="Save_HP" isEnabled="0">
@@ -157,6 +188,11 @@
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="SET_GUILD_ID"/>
                                 <Str Str="OVER"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SET_DAY_RECORD_1"/>
+                                <Str Str="=="/>
                                 <Num Num="1"/>
                             </ToolScp>
                         </condList>
@@ -209,17 +245,50 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="NoticeToGuild" isEnabled="0">
+                    <Event execCount="1" eventName="IsTimeAttackMode">
                         <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="3"/>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE_NOPC" Client="NO" UseSleep="NO">
+                                <Str Str="SET_BLOCKADE_1"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="TimeAttackMode"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Record_Time">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SET_DAY_RECORD_1"/>
+                                <Str Str="=="/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="Initialize/0"/>
-                                <Str Str="SCR_GM_BK_BROADCAST_BORN_BORUTA"/>
+                                <Str Str="GM_BK_SET_USED_DAY_RECORD"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event eventName="Record_Time">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SET_DAY_RECORD_1"/>
+                                <Str Str="=="/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Initialize/0"/>
+                                <Str Str="GM_BK_SET_USED_DAY_RECORD"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -235,6 +304,9 @@
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
                                     <Num Num="1500"/>
                                 </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="GM_MGAME_BORUTA_SCREAM_DEAD_COUNT"/>
+                                </ToolScp>
                             </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
@@ -243,11 +315,14 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59276" Pos="328.30#207.22#897.53" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" tendency="1">
+                    <Obj Type="Monster" MonType="59276" Pos="398.63#207.22#915.32" range="270" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
                                     <Num Num="1500"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="GM_MGAME_BORUTA_SCREAM_DEAD_COUNT"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -263,6 +338,9 @@
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
                                     <Num Num="1500"/>
                                 </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="GM_MGAME_BORUTA_SCREAM_DEAD_COUNT"/>
+                                </ToolScp>
                             </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
@@ -277,6 +355,9 @@
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
                                     <Num Num="1500"/>
                                 </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="GM_MGAME_BORUTA_SCREAM_DEAD_COUNT"/>
+                                </ToolScp>
                             </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
@@ -287,20 +368,20 @@
                     </Obj>
                 </ObjList>
                 <StageEvents>
-                    <Event eventName="Summon120">
+                    <Event execCount="1" eventName="Summon_rabbler_1200">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="120"/>
+                                <Num Num="1200"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="Pattern_ForceWarp/3"/>
-                                <Num Num="60"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="Pattern_ForceWarp/3"/>
-                                <Num Num="30"/>
+                                <Num Num="4"/>
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
@@ -310,20 +391,20 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="Summon240">
+                    <Event execCount="1" eventName="Summon_mage_900">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="240"/>
+                                <Num Num="900"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="Pattern_ForceWarp/2"/>
-                                <Num Num="60"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="Pattern_ForceWarp/2"/>
-                                <Num Num="30"/>
+                                <Num Num="8"/>
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
@@ -333,20 +414,20 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="Summon360">
+                    <Event execCount="1" eventName="Summon_brown_300">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="360"/>
+                                <Num Num="300"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="Pattern_ForceWarp/0"/>
-                                <Num Num="60"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="Pattern_ForceWarp/0"/>
-                                <Num Num="30"/>
+                                <Num Num="4"/>
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
@@ -356,20 +437,20 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="Summon600">
+                    <Event eventName="Summon_warrior_600">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="600"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="Pattern_ForceWarp/1"/>
-                                <Num Num="60"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="Pattern_ForceWarp/1"/>
-                                <Num Num="30"/>
+                                <Num Num="4"/>
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
@@ -420,10 +501,10 @@
                     <Event eventName="Scream_On">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="600"/>
+                                <Num Num="300"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
-                                <Num Num="1"/>
+                                <Num Num="10"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
                                 <MGameObj List="Gen_Boss/0"/>
@@ -436,11 +517,8 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="Revenge_On" isEnabled="0">
+                    <Event execCount="1" eventName="Revenge_On" isEnabled="0">
                         <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="1200"/>
-                            </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
                                 <MGameObj List="Gen_Boss/0"/>
                                 <Num Num="1"/>
@@ -450,7 +528,7 @@
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Pattern_Revenge"/>
                             </ToolScp>
                         </execList>
@@ -458,7 +536,7 @@
                     <Event eventName="SafeArea_On">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="3600"/>
+                                <Num Num="600"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
@@ -499,7 +577,7 @@
                     <Event execCount="5" eventName="SCREAM_RUN">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
+                                <Num Num="1"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -517,6 +595,9 @@
             </Stage>
             <Stage Name="Pattern_Revenge" AutoStart="0">
                 <ObjList/>
+                <StageEvents>
+                    <Event eventName="Urvars_On"/>
+                </StageEvents>
             </Stage>
             <Stage Name="Pattern_safeArea" AutoStart="0">
                 <StartScpList>
@@ -626,6 +707,21 @@
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="OffTimeAttackMode">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="TimeAttackMode"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="CompleteWeek">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj/>
+                                <Str Str="GM_BK_CLEAR_WEEK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="Fail" AutoStart="0">
@@ -634,7 +730,7 @@
                         <Str Str="제한 시간"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="3600"/>
+                        <Num Num="1800"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList/>
@@ -642,22 +738,29 @@
                     <Event execCount="1" eventName="TimeOut">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="3720"/>
+                                <Num Num="1860"/>
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_GUILD_MINIGAME_EXIT" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Initialize/0"/>
+                                <Str Str="GM_BK_MGAME_MONGOLOG_MGAME_END"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="TimeAttackMode"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
                                 <Str Str="제한 시간을 초과하였습니다"/>
                                 <Str Str="베다 고원으로 돌아갑니다"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_GUILD_MINIGAME_EXIT" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="Success"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Left_5M">
@@ -697,6 +800,32 @@
                         <execList>
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="TimeAttackMode" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="슬리비나스 봉쇄전에 참가했습니다"/>
+                        <Str Str="stage_start"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="5000" eventName="Count">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Str Str="SCR_GM_BK_TIMEATTACK_MODE_COUNT"/>
                             </ToolScp>
                         </execList>
                     </Event>

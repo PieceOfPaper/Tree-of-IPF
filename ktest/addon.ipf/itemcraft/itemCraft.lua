@@ -181,6 +181,7 @@ function CREATE_CRAFT_ARTICLE(frame)
 	tree:SetFitToChild(true,100)
 	tree:SetFontName("brown_18_b");
 	tree:SetTabWidth(5);
+	tree:EnableScrollBar(0);
 
 	local idSpace = frame:GetUserValue("IDSPACE");
 	
@@ -1793,6 +1794,9 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 		local icon 		= targetslot:GetIcon();
 
 		SET_ITEM_TOOLTIP_BY_OBJ(icon, invItemadd)
+
+		targetslot:SetEventScript(ui.RBUTTONUP, "CRAFT_ITEM_CANCEL");
+		targetslot:SetEventScriptArgString(ui.RBUTTONUP,invItemadd:GetIESID())
 
 		--슬롯 컬러톤 및 폰트 밝게 변경. 
 		icon:SetColorTone('FFFFFFFF')

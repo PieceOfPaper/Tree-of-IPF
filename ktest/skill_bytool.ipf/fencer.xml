@@ -1,369 +1,373 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Fencer_Fleche">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="20" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
-					<Num Num="3" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="250" UseSleep="NO">
-					<Str Str="voice_war_atk_short" />
-					<Str Str="voice_atk_short_war_f" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Fencer_AttaqueAuFer">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="380" Dist="0" ForceATK="0" HitCount="1" Length="90" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="180" Type="SQUARE" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-					<Str Str="voice_war_atk_short" />
-					<Str Str="voice_atk_short_war_f" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Fencer_EpeeGarde">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_EPEEGARDE_SWITCH" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-					<Str Str="Normal_Attack" />
-					<Str Str="SKL_EPEEGARDE_ATK" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
-					<Str Str="Normal_Attack_TH" />
-					<Str Str="SKL_EPEEGARDE_ATK" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_archer_m_pavise_shot" />
-					<Str Str="voice_archer_pavise_shot" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="900" UseSleep="NO">
-					<Str Str="EpeeGarde_Buff" />
-					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="0" UseFunc="1" FuncTxt="local value = 15000 + obj.Level * 3000;
+<ToolSkill>
+    <Skill Name="Fencer_Fleche">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="20"/>
+                <Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="20"/>
+                <Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="20"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
+                    <Num Num="3"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="250" UseSleep="NO">
+                    <Str Str="voice_war_atk_short"/>
+                    <Str Str="voice_atk_short_war_f"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Fencer_AttaqueAuFer">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="380" Dist="0" ForceATK="0" HitCount="1" Length="90" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="180" Type="SQUARE" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                    <Str Str="voice_war_atk_short"/>
+                    <Str Str="voice_atk_short_war_f"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Fencer_EpeeGarde">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_EPEEGARDE_SWITCH"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
+                    <Str Str="Normal_Attack"/>
+                    <Str Str="SKL_EPEEGARDE_ATK"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
+                    <Str Str="Normal_Attack_TH"/>
+                    <Str Str="SKL_EPEEGARDE_ATK"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_archer_m_pavise_shot"/>
+                    <Str Str="voice_archer_pavise_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="900" UseSleep="NO">
+                    <Str Str="EpeeGarde_Buff"/>
+                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0" UseFunc="1" FuncTxt="local value = 15000 + obj.Level * 3000;
 local addTime = GetExProp(self, 'ITEM_EPEEGARDE_TIME_UP');
 value = value + addTime;
 return value;"/>
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Fencer_BalestraFente">
-		<EndScripts>
-			<ToolScp Client="NO" Scp="SKL_RUN_SCRIPT" UseSleep="NO">
-				<Str Str="SCR_BALESTRAFENTE_BACKSLIDE_COOOLDOWN" />
-			</ToolScp>
-		</EndScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<MoveList>
-				<Frame Accel="0" Angle="0" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="50" />
-				<Frame Accel="10" Angle="0" Dist="80" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="200" />
-			</MoveList>
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="SQUARE" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_long_shot" />
-					<Str Str="voice_atk_long_war_f" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="300" UseSleep="NO">
-					<Pos Angle="0" Dist="-5" />
-					<Num Num="0" />
-					<Num Num="120" />
-					<Num Num="25" />
-					<Num Num="10" />
-					<Num Num="2" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="400" UseSleep="NO">
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="BalestraFente_Debuff" />
-					<Num FuncTxt="return skill.Level" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="15000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Fencer_EsquiveToucher">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="950" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="750" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="1400" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1200" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="1800" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1600" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="1850" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1700" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="2100" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1900" Type="SQUARE" Width="20" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-					<Str Str="EsquiveToucher_Buff" />
-					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num FuncTxt="if IsPVPServer(self) == 1 then return 4000 else return 1500 end" Num="1500" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="800" UseSleep="NO">
-					<Str Str="voice_war_atk_short" />
-					<Str Str="voice_atk_short_war_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="1400" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Fencer_Flanconnade">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="35" />
-				<Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="35" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
-					<Num Num="2" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-					<Str Str="Flanconnade_Buff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="500" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_short" />
-					<Str Str="voice_atk_short_war_f" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Fencer_Preparation">
-		<EndScripts>
-			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
-				<Str Str="Preparation_Buff" />
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
-				<Str Str="Preparation_Buff_End" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num Num="45000" />
-				<Num Num="1" />
-				<Num Num="100" />
-				<Num Num="0" />
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_END_AT_TIME" UseSleep="NO">
-				<Num Num="500" />
-			</ToolScp>
-		</EndScripts>
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="3" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Str_Arg Arg="1" Str="None" />
-				<Str Str="None" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="5" />
-				<Num Num="1" />
-				<Num Num="45" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInput>
-		<KeyInputStart>
-			<ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
-				<Str Str="SKL_PREPARTION_CAST" />
-				<Num Num="1" />
-				<Num Num="1" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
-				<Str Str="SKL_PREPARTION_LOOP" />
-				<Num Num="1" />
-				<Num Num="1" />
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
-				<Str Str="Preparation_Buff" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="100" />
-				<Num Num="0" />
-			</ToolScp>
-		</KeyInputStart>
-		<KeyInputEnd>
-			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
-			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />
-			<ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
-				<Str Str="Preparation_Buff" />
-			</ToolScp>
-		</KeyInputEnd>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="SQUARE" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_m_pubilc_cast_2" />
-					<Str Str="voice_f_pubilc_cast_2" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Fencer_AttaqueCoquille">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="350" Dist="0" ForceATK="0" HitCount="1" Length="55" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="150" Type="SQUARE" Width="20" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_short" />
-					<Str Str="voice_atk_short_war_f" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="AttaqueCoquille_Debuff" />
-					<Num FuncTxt=" return skill.Level" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num FuncTxt=" return 4000 + skill.Level * 1000" Num="0" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Fencer_Lunge">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="550" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="350" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="20" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
-					<Num Num="3" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_war_atk_short" />
-					<Str Str="voice_atk_short_war_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="700" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_COND_SCRIPT" UseSleep="NO">
-					<Str Str="S_R_COND_FIRST_INDEX" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Lunge_Debuff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="4000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_SELFBUFF" UseSleep="NO">
-					<Str Str="Lunge_Buff" />
-					<Num FuncTxt=" return skill.Level" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="4000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Fencer_SeptEtoiles">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="850" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="650" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="1100" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="900" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="1200" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1000" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="1300" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1100" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="1400" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1200" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="1700" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1500" Type="SQUARE" Width="20" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
-					<Num Num="8" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_short" />
-					<Str Str="voice_atk_short_war_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="1200" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Fencer_AttaqueComposee">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="20" />
-				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="20" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
-					<Num Num="2" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_war_atk_short" />
-					<Str Str="voice_atk_short_war_f" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	</ToolSkill>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Fencer_BalestraFente">
+        <EndScripts>
+            <ToolScp Client="NO" Scp="SKL_RUN_SCRIPT" UseSleep="NO">
+                <Str Str="SCR_BALESTRAFENTE_BACKSLIDE_COOOLDOWN"/>
+            </ToolScp>
+        </EndScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <MoveList>
+                <Frame Accel="0" Angle="0" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="50"/>
+                <Frame Accel="10" Angle="0" Dist="80" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="200"/>
+            </MoveList>
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="SQUARE"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_war_atk_long_shot"/>
+                    <Str Str="voice_atk_long_war_f"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="300" UseSleep="NO">
+                    <Pos Angle="0" Dist="-5"/>
+                    <Num Num="0"/>
+                    <Num Num="120"/>
+                    <Num Num="25"/>
+                    <Num Num="10"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="400" UseSleep="NO">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="BalestraFente_Debuff"/>
+                    <Num FuncTxt="return skill.Level" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="15000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Fencer_EsquiveToucher">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="950" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="750" Type="SQUARE" Width="20"/>
+                <Frame Angle="0" AniTime="1400" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1200" Type="SQUARE" Width="20"/>
+                <Frame Angle="0" AniTime="1800" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1600" Type="SQUARE" Width="20"/>
+                <Frame Angle="0" AniTime="1850" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1700" Type="SQUARE" Width="20"/>
+                <Frame Angle="0" AniTime="2100" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1900" Type="SQUARE" Width="20"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="EsquiveToucher_Buff"/>
+                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="if IsPVPServer(self) == 1 then return 4000 else return 1500 end" Num="1500" UseFunc="1"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="800" UseSleep="NO">
+                    <Str Str="voice_war_atk_short"/>
+                    <Str Str="voice_atk_short_war_f"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="1400" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Fencer_Flanconnade">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="35"/>
+                <Frame Angle="0" AniTime="600" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="400" Type="SQUARE" Width="35"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
+                    <Num Num="2"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="Flanconnade_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="500"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_war_atk_short"/>
+                    <Str Str="voice_atk_short_war_f"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Fencer_Preparation">
+        <EndScripts>
+            <ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+                <Str Str="Preparation_Buff"/>
+            </ToolScp>
+            <ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
+                <Str Str="Preparation_Buff_End"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="45000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Client="NO" Scp="SKL_END_AT_TIME" UseSleep="NO">
+                <Num Num="500"/>
+            </ToolScp>
+        </EndScripts>
+        <KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="3"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Str_Arg Arg="1" Str="None"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="5"/>
+                <Num Num="1"/>
+                <Num Num="45"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <KeyInputStart>
+            <ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+                <Str Str="SKL_PREPARTION_CAST"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+                <Str Str="SKL_PREPARTION_LOOP"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Client="NO" Scp="SKL_BUFF" UseSleep="NO">
+                <Str Str="Preparation_Buff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInputStart>
+        <KeyInputEnd>
+            <ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO"/>
+            <ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO"/>
+            <ToolScp Client="NO" Scp="SKL_BUFF_REMOVE" UseSleep="NO">
+                <Str Str="Preparation_Buff"/>
+            </ToolScp>
+        </KeyInputEnd>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="SQUARE"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_m_pubilc_cast_2"/>
+                    <Str Str="voice_f_pubilc_cast_2"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Fencer_AttaqueCoquille">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="350" Dist="0" ForceATK="0" HitCount="1" Length="55" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="150" Type="SQUARE" Width="20"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_war_atk_short"/>
+                    <Str Str="voice_atk_short_war_f"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="AttaqueCoquille_Debuff"/>
+                    <Num FuncTxt=" return skill.Level" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt=" return 4000 + skill.Level * 1000" Num="0" UseFunc="1"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Fencer_Lunge">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="20"/>
+                <Frame Angle="0" AniTime="550" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="350" Type="SQUARE" Width="20"/>
+                <Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="20"/>
+                <Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" Length="68" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="800" Type="SQUARE" Width="20"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
+                    <Num Num="3"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="voice_war_atk_short"/>
+                    <Str Str="voice_atk_short_war_f"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="700" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_COND_SCRIPT" UseSleep="NO">
+                    <Str Str="S_R_COND_FIRST_INDEX"/>
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="Lunge_Debuff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="4000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_SELFBUFF" UseSleep="NO">
+                    <Str Str="Lunge_Buff"/>
+                    <Num FuncTxt=" return skill.Level" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="4000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Fencer_SeptEtoiles">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="SQUARE" Time="300" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="500" RotAngle="0" ForceATK="0"/>
+                <Frame Type="SQUARE" Time="650" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="850" RotAngle="0" ForceATK="0"/>
+                <Frame Type="SQUARE" Time="800" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1000" RotAngle="0" ForceATK="0"/>
+                <Frame Type="SQUARE" Time="900" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1100" RotAngle="0" ForceATK="0"/>
+                <Frame Type="SQUARE" Time="1000" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1200" RotAngle="0" ForceATK="0"/>
+                <Frame Type="SQUARE" Time="1100" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1300" RotAngle="0" ForceATK="0"/>
+                <Frame Type="SQUARE" Time="1200" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1400" RotAngle="0" ForceATK="0"/>
+                <Frame Type="SQUARE" Time="1300" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="20" Length="68" SklAngle="0.17453292" AniTime="1500" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="SKL_SEPTETOILES"/>
+                    <Num Num="2.2"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="200">
+                    <Str Str="voice_war_atk_short"/>
+                    <Str Str="voice_atk_short_war_f"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="1200">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Fencer_AttaqueComposee">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="20"/>
+                <Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="80" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="20"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
+                    <Num Num="2"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="voice_war_atk_short"/>
+                    <Str Str="voice_atk_short_war_f"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+</ToolSkill>

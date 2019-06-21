@@ -152,7 +152,7 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 	end
 
 	itemlist:RealignItems();
-	GBOX_AUTO_ALIGN(itemlist, 2, 0, 0, false, true);
+	GBOX_AUTO_ALIGN(itemlist:GetGroupBox(), 2, 0, 0, false, true);
 end
 
 function SHOW_REMAIN_MARKET_SELL_TIME(ctrl)

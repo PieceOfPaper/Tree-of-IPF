@@ -1,4 +1,4 @@
-function LEGENDDECOMPOSE_ON_INIT(addon, frame)
+﻿function LEGENDDECOMPOSE_ON_INIT(addon, frame)
 	addon:RegisterMsg('RESULT_LEGEND_DECOMPOSE', 'ON_RESULT_LEGEND_DECOMPOSE');
 end
 
@@ -37,13 +37,18 @@ function LEGENDDECOMPOSE_EXECUTE(parent, ctrl)
 	if targetItem == nil then
 		return;
 	end
-
+    
 	if targetItem.isLockState == true then
 		ui.SysMsg(ClMsg('MaterialItemIsLock'));
 		return;
 	end
-
+	
 	local targetObj = GetIES(targetItem:GetObject());
+	decomposeAble = TryGetProp(targetObj, 'DecomposeAble')
+    if decomposeAble == nil or decomposeAble == "NO" then
+        ui.SysMsg(ClMsg('decomposeCant'));
+        return;
+    end
 	local rewardCls = GetClass('LegendDecompose', targetObj.LegendGroup);	
 	local matCls = GetClass('Item', rewardCls.MaterialClassName);	
 	local yesScp = string.format('_LEGENDDECOMPOSE_EXECUTE("%s")', targetGuid);

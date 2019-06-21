@@ -1049,23 +1049,28 @@ end
 
 function UPDATE_RESTRICT_INFO_TOOLTIP(frame, mapKeyword)
     local titleBox = GET_CHILD_RECURSIVELY(frame, "titleBox");
+    local INNER_X = frame:GetUserConfig("INNER_X");
     local INNER_Y = frame:GetUserConfig("INNER_Y");
-    local ypos = titleBox:GetHeight();
+    local ctrlsetWidth = frame:GetUserConfig("CTRLSET_WIDTH");
 
+    local xpos = 0;
+    local ypos = titleBox:GetHeight();
     local restrictList, cnt = GetClassList("SkillRestrict");
     for i = 0, cnt - 1 do
         local skillRestrict = GetClassByIndexFromList(restrictList, i);
         local keyword = TryGetProp(skillRestrict, "Keyword");
         
         if string.find(keyword, mapKeyword) ~= nil then
-            ypos = MAKE_RESTRICT_INFO(frame, skillRestrict, ypos + INNER_Y);
+            local width, height = MAKE_RESTRICT_INFO(frame, skillRestrict, ypos + INNER_Y, ctrlsetWidth);
+            xpos = math.max(xpos, width);
+            ypos = height;
         end
     end
 
-    frame:Resize(frame:GetWidth(), ypos + INNER_Y);
+    frame:Resize(xpos + INNER_X, ypos + INNER_Y);
 end
 
-function MAKE_RESTRICT_INFO(frame, skillRestrict, ypos)
+function MAKE_RESTRICT_INFO(frame, skillRestrict, ypos, ctrlSetWidth)
     local className = TryGetProp(skillRestrict, "ClassName");
     local skill = GetClass("Skill", TryGetProp(skillRestrict, "ClassName"));
     local imgName = TryGetProp(skill, "Icon");
@@ -1080,8 +1085,8 @@ function MAKE_RESTRICT_INFO(frame, skillRestrict, ypos)
     text:SetTextByKey("img", img);
     text:SetTextByKey("name", name);
     text:SetTextByKey("caption", caption);
-
-    ctrlSet:Resize(ctrlSet:GetWidth(), text:GetHeight());
-
-    return ypos + ctrlSet:GetHeight();
+    
+    local textWidth = text:GetTextWidth();
+    ctrlSet:Resize(textWidth, text:GetHeight());
+    return textWidth, ypos + ctrlSet:GetHeight();
 end

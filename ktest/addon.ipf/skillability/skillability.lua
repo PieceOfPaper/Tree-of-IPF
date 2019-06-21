@@ -89,10 +89,10 @@ function SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum)
             local job_tab = GET_CHILD_RECURSIVELY(frame, "job_tab");
             if job_tab ~= nil then
                 local tabIndex = job_tab:GetIndexByName("tab_0");
-                job_tab:DeleteTab(tabIndex);
+                    job_tab:DeleteTab(tabIndex);
             end
-            return;
-        end
+                    return;
+                end
 
         if msg == "DELETE_QUICK_SKILL" and argNum == 1 then
             if gb_ChildCnt <= 0 then return; end
@@ -154,7 +154,10 @@ function SKILLABILITY_ON_FULL_UPDATE(frame, msg, skillID, argNum)
         job_tab:SelectTab(tabIndex);
     end
     
-    SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum);
+    if skillID ~= nil then
+        SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum);
+    end
+
     frame:Invalidate();
 end
 
@@ -1085,7 +1088,6 @@ function ON_SKILLABILITY_BUY_ABILITY_POINT(frame, msg, argmsg, argnum)
     local abilitypoint_text = GET_CHILD_RECURSIVELY(gb, "abilitypoint_text");
     local pointAmount = session.ability.GetAbilityPoint();
     abilitypoint_text:SetTextByKey("value", GetCommaedText(pointAmount));
-
 end
 
 function ON_SKILLABILITY_UPDATE_PROPERTY(frame, msg, argstr, argnum)
@@ -1298,10 +1300,9 @@ function ON_UPDATE_COMMON_SKILL_LIST(frame, msg, argStr, argNum)
             local tabIndex = job_tab:GetIndexByName("tab_0");
             job_tab:DeleteTab(tabIndex);
         end
-		return;
-	end
-	
-    SKILLABILITY_MAKE_JOB_TAB(frame);
+    end
+    
+    SKILLABILITY_ON_FULL_UPDATE(frame);
 end
 
 function SKILLTREE_MAKE_COMMON_TYPE_SKILL_EMBLEM(frame)

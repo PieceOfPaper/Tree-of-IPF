@@ -13167,6 +13167,9 @@ if self.HP == 0 then return 1; else return 0; end;">
     </AI>
     <AI Name="MISSION_UPHILL_DEFFENSE_BOSS" ActiveMessageMapInBattle="1">
         <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_UPHILL_BOSS_BUFF_SET"/>
+            </ToolScp>
             <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
                 <Num Num="80"/>
             </ToolScp>
@@ -21207,6 +21210,132 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </List>
     </AI>
+    <AI Name="UPHILL_GIMMICK_GUARD_MONSTER_L1_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_UPHILL_GIMMICK_GUARD_MONSTER_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-286.55722" Y="-40.501389" Z="-171.94432" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-214.60887" Y="-6.302063" Z="-107.46358" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="90.031357" Y="-3.8374557" Z="-470.82907" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-75.31089" Y="34.821693" Z="-178.51532" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="118.22285" Y="80.12394" Z="-270.31503" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
+                <Num Num="200"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_spread_in032_dark_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GET_UPHILL_MON_CHANGE_GIMMICK"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="UPHILL_GIMMICK_GUARD_MONSTER_L2_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_UPHILL_GIMMICK_GUARD_MONSTER_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="73.834778" Y="8.8316422" Z="308.14258" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="123.93778" Y="12.336159" Z="253.12532" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-150.21111" Y="12.336159" Z="-54.746956" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-99.072952" Y="12.336159" Z="-100.43547" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="121.77676" Y="68.160576" Z="108.24173" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="168.24841" Y="75.635017" Z="66.110847" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="83.81871" Y="75.635017" Z="-24.622482" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="180.12663" Y="80.12394" Z="-155.55528" Random="50" Height="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
+                <Num Num="80"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_spread_in032_dark_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GET_UPHILL_MON_CHANGE_GIMMICK"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="UPHILL_GIMMICK_GUARD_MONSTER_L3_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_UPHILL_GIMMICK_GUARD_MONSTER_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="260.90027" Y="-4.3919907" Z="257.99426" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="167.88991" Y="32.204292" Z="163.68562" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="227.53026" Y="32.204292" Z="108.32794" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="320.28372" Y="32.204292" Z="181.65814" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="515.2804" Y="32.204292" Z="-8.0707645" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="479.57761" Y="32.204292" Z="-61.315029" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="348.52338" Y="74.610329" Z="67.058205" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="294.43533" Y="74.610329" Z="38.680775" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="326.7908" Y="80.12394" Z="-56.753651" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
+                <Num Num="200"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_spread_in032_dark_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GET_UPHILL_MON_CHANGE_GIMMICK"/>
+            </ToolScp>
+        </StartList>
+    </AI>
     <AI Name="UPHILL_GIMMICK_MONSTER_L1_AI" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
@@ -21228,7 +21357,7 @@ if self.HP == 0 then return 1; else return 0; end;">
                 <AbsPos X="118.22285" Y="80.12394" Z="-270.31503" Random="20"/>
             </ToolScp>
             <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
-                <Num Num="200"/>
+                <Num Num="30"/>
             </ToolScp>
         </List>
         <StartList>
@@ -21285,7 +21414,7 @@ if self.HP == 0 then return 1; else return 0; end;">
                 <AbsPos X="326.7908" Y="80.12394" Z="-56.753651" Random="20"/>
             </ToolScp>
             <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
-                <Num Num="200"/>
+                <Num Num="30"/>
             </ToolScp>
         </List>
         <StartList>
@@ -21306,6 +21435,35 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
             <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="GET_UPHILL_MON_CHANGE_GIMMICK"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="UPHILL_LIGHTNINGBOLT_SET_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_LIGHTNINGBOLT_ACTIVE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="UPHILL_STOCKADE_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ADD_HATE_AROUND" Client="NO" UseSleep="NO">
+                <Num Num="45"/>
+                <Num Num="9999"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="UPHILL_STOCKADE_BROKEN"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_ADD_HATE_AROUND" Client="NO" UseSleep="NO">
+                <Num Num="45"/>
+                <Num Num="9999"/>
+                <Num Num="0"/>
             </ToolScp>
         </StartList>
     </AI>

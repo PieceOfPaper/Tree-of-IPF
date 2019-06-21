@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Mon_pcskill_Ballista_Skill_1">
+<ToolSkill>    <Skill Name="Mon_pcskill_Ballista_Skill_1">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
 				<Frame Angle="0" AniTime="999999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="999799" Type="SQUARE" Width="30" />
@@ -441,17 +441,17 @@
 		</MainSkl>
 	</Skill>
 	<Skill Name="Mon_pcskill_boss_werewolf_Skill_5">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+				<Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Anim Anim="angry_event" Speed="1" Time="0" />
-				<Scp Client="NO" Scp="EFT_AND_HIT" Time="1000" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+				<Anim Time="0" Anim="angry_event" Speed="1" />
+				<Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES"TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1400">
 					<Pos Angle="0" Dist="0" />
-					<Str_Arg Arg="1" Str="None" />
+					<Str_Arg Str="None" Arg="1"/>
 					<Num Num="0" />
-					<Str_Arg Arg="1.7" Str="F_archer_SiegeBurst_explosion" />
+					<Str_Arg Str="F_archer_SiegeBurst_explosion" Arg="1.7"/>
 					<Num Num="150" />
 					<Num Num="100" />
 					<Num Num="200" />
@@ -503,21 +503,21 @@
 		</MainSkl>
 	</Skill>
 	<Skill Name="Mon_pcskill_boss_werewolf_Skill_3">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+				<Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Anim Anim="skl1" Speed="1" Time="0" />
-				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="800" UseSleep="YES">
+				<Anim Time="0" Anim="skl1" Speed="1" />
+				<Scp Scp="EFT_AND_HIT_ARROW" Client="NO" UseSleep="YES"Time="1190">
 					<Pos Angle="-0.52359879" Dist="30" />
 					<Pos Angle="0" Dist="150" />
-					<Str_Arg Arg="1" Str="None" />
+					<Str_Arg Str="None" Arg="1"/>
 					<Num Num="25" />
 					<Num Num="0.0099999998" />
 					<Num Num="1" />
 					<Num Num="0" />
-					<Str_Arg Arg="0.69999999" Str="F_burstup008_smoke1" />
+					<Str_Arg Str="F_burstup008_smoke1" Arg="0.69999999"/>
 					<Num Num="45" />
 					<Num Num="100" />
 					<Num Num="0" />

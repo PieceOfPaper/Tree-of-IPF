@@ -2709,7 +2709,7 @@
 					<Str Str="" />
 					<Str Str="" />
 					<Num FuncTxt="return 1 + obj.Level;" Num="0" UseFunc="1" />
-					<Num FuncTxt="local time = 30 if IsPVPServer(self) == 1 then time = 900 end local abil = GetAbility(self, 'QuarrelShooter24') if abil ~= nil and abil.ActiveState == 1 then time = time * 0.5 end return time" Num="0" UseFunc="1" />
+					<Num FuncTxt="local time = 30 if IsPVPField(self) == 1 then time = 900 end local abil = GetAbility(self, 'QuarrelShooter24') if abil ~= nil and abil.ActiveState == 1 then time = time * 0.5 end return time" Num="0" UseFunc="1" />
 					<Str Str="None" />
 					<MonProp />
 					<Str Str="SCR_SUMMON_PAVISE" />

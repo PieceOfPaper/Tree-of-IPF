@@ -1205,15 +1205,6 @@ function SCR_ANIM_archer_f_bow_aonair(handle)
     end
 end
 
-function DaggerGuard_ENTER(actor, obj, buff)
-    actor:SetAlwaysBattleState(true);
-    actor:GetAnimation():SetGuardAnim("SKL_DAGGERGUARD");
-end
-
-function DaggerGuard_LEAVE(actor, obj, buff)
-    actor:GetAnimation():ResetGuardAnim();
-end
-
 function WING_GUILTY_FAIRY_BUFF_ENTER(actor, obj, buff)
 end
 

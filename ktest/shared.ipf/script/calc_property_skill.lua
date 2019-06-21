@@ -6024,9 +6024,9 @@ end
 function SCR_GET_KaguraDance_Ratio(skill)
     local value = 70 + skill.Level * 2
     local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Miko5")
+    local abil = GetAbility(pc, "Miko8")
     if abil ~= nil and abil.ActiveState == 1 then
-        value = value * 1.1
+        value = value * 1.3
     end
     
     return math.floor(value)
@@ -6145,7 +6145,7 @@ end
 function SCR_Get_DeployPavise_Time(skill)
     local pc = GetSkillOwner(skill);
     local value = 30;
-    if IsPVPServer(pc) == 1 then
+    if IsPVPField(pc) == 1 then
         value = 900;
     end
     
@@ -6161,7 +6161,7 @@ function SCR_Get_DeployPavise_Ratio(skill)
     local value = 15 + skill.Level * 5;
     
     local pc = GetSkillOwner(skill);
-    if IsPVPServer(pc) == 1 then
+    if IsPVPField(pc) == 1 then
         value = 15;
     else
         local abil = GetAbility(pc, 'QuarrelShooter24')
@@ -7071,7 +7071,7 @@ end
 
 function SCR_GET_Sacrament_Bufftime(skill)
 
-    return 200 + skill.Level * 20;
+    return 800 + skill.Level * 100;
 
 end
 
@@ -8052,8 +8052,8 @@ function SCR_GET_DeathVerdict_Ratio3(skill)
     local value = 25
     local pc = GetSkillOwner(skill)
     local abil = GetAbility(pc, "Oracle18")
-    if abil ~= nil and abil.ActiveState == 1 then
-        value = 15
+    if abil ~= nil and abil.ActiveState >= 1 then
+        value = 11 + abil.Level * 1
     end
     
     return value
@@ -9218,19 +9218,10 @@ function SCR_GET_Finestra_Ratio(skill)
 end
 
 function SCR_GET_Finestra_Ratio2(skill)
-
     local pc = GetSkillOwner(skill);
-    
---  local value = 8.8 + (skill.Level - 1) * 2.2
-    local value = 15 * skill.Level
-    
-    local abil = GetAbility(pc, 'Hoplite9');
-    if abil ~= nil and 1 == abil.ActiveState and skill.Level >= 3 then
-        value = value * 2;
-    end
+    local value = 5 * skill.Level
     
     return math.floor(value)
-
 end
 
 function SCR_GET_Finestra_Ratio3(skill)
@@ -9261,22 +9252,30 @@ function SCR_GET_SharpSpear_Ratio(skill)
 end
 
 function SCR_GET_HighGuard_Ratio(skill)
-    local value = skill.Level * 2
-    
+    local pc = GetSkillOwner(skill);
+    local value = skill.Level * 5
     value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill));
     
-    return math.floor(value)
+    if IsPVPField(pc) == 1 then
+        value = value / 2
+    end
+    
+    return value
 end
 
 function SCR_GET_HighGuard_Ratio2(skill)
-
-    local pc = GetSkillOwner(skill);
-    
---  local value = skill.Level * 6
-    local value = skill.Level * 10
-    
+    local value = 50 - (skill.Level * 2)
     return math.floor(value)
+end
 
+function SCR_GET_HighGuard_Time(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 20
+    if IsPVPField(pc) == 1 then
+        value = value * 0.1
+    end
+    
+    return value
 end
 
 function SCR_GET_HighGuard_AtkDown(skill)
@@ -9355,9 +9354,9 @@ function SCR_GET_Aukuras_Ratio2(skill)
         -- 지능 + 정신 계수 합산
         local casterINT = TryGetProp(pc, 'INT', 1);
         local casterMNA = TryGetProp(pc, 'MNA', 1);        
-        value = 100 + (skill.Level * 90) + (casterINT + casterMNA)        
+        value = 100 + (TryGetProp(skill, 'Level', 0) * 90) + (casterINT + casterMNA)        
     else
-        value = 100 + (skill.Level * 90)
+        value = 100 + (TryGetProp(skill, 'Level', 0) * 90)
     end
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill);
     
@@ -10359,8 +10358,11 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
     end
     
     local exceptDEF = byItem + from.DEF_BM;
-    local atkRate = 1;
-    local strikeDamage = math.floor((from.DEF - exceptDEF) * atkRate);
+    local basicDEF = TryGetProp(from, "DEF", 0) - exceptDEF
+    local shieldDEF = TryGetProp(lhEquipWeapon, "DEF", 0)
+    
+    local atkRate = 0.65;
+    local strikeDamage = (shieldDEF + basicDEF) * atkRate
     -------------------------------------------
     
     local abil = GetAbility(from, 'Hoplite7');

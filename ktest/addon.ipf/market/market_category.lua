@@ -233,10 +233,10 @@ function DRAW_DETAIL_CATEGORY(frame, selectedCtrlset, subCategoryList, forceOpen
 	ypos = ADD_LEVEL_RANGE(detailBox, ypos, parentCategory);
 	ypos = ADD_ITEM_GRADE(detailBox, ypos, parentCategory);
 	ypos = ADD_ITEM_SEARCH(detailBox, ypos, parentCategory);
+	ypos = ADD_SEARCH_COMMIT(detailBox, ypos, parentCategory);
 	ypos = ADD_APPRAISAL_OPTION(detailBox, ypos, parentCategory);
 	ypos = ADD_DETAIL_OPTION_SETTING(detailBox, ypos, parentCategory, forceOpen);
 	ypos = ADD_GEM_OPTION(detailBox, ypos, parentCategory);
-	ypos = ADD_SEARCH_COMMIT(detailBox, ypos, parentCategory);
 
 	detailBox:Resize(detailBox:GetWidth(), ypos);
 	return detailBox;
@@ -623,7 +623,7 @@ function MARKET_UPDATE_APPRAISAL_CHECK(parent, ctrl)
 end
 
 local function ALIGN_OPTION_GROUP_SET(optionGroupSet)
-	local Y_ADD_MARGIN = 2;
+	local Y_ADD_MARGIN = 6;
 	local staticText = GET_CHILD(optionGroupSet, 'staticText');
 	local ypos = staticText:GetY() + staticText:GetHeight() + Y_ADD_MARGIN;
 	local childCnt = optionGroupSet:GetChildCount();

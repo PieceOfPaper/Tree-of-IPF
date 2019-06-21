@@ -232,7 +232,7 @@ function UPDATE_WORLDPVP(frame)
 	local curDateString = imcTime.GetCurDateString();
 	local lastPointGetDateName = GetPVPPointPropName(clsName, "LastPointGetDate");
 	local todayGetShopPointName = GetPVPPointPropName(clsName, "TodayGetShopPoint");
-	local shopPointName = GetPVPPointPropName(clsName, "ShopPoint");
+	local shopPointName = session.shop.GetShopPoint("uphill_defense_shoppoint")--GetPVPPointPropName(clsName, "ShopPoint");
     
 	local joinBtn = charinfo:GetChild("join");
 	local isPlaying = session.worldPVP.IsPlayingType(pvpType);
@@ -693,7 +693,7 @@ function ON_WORLDPVP_RANK_PAGE(frame)
 	local cid = session.GetMySession():GetCID();
 	local myRank = session.worldPVP.GetPrevRankInfoByCID(cid);
 	if myRank ~= nil then
-		-- 1,2,3� �����ش�.
+		-- 1,2,3?? ???????.
 		if myRank.ranking < 3 then
 			btnReward:SetVisible(1);
 		end
@@ -771,15 +771,9 @@ function WORLDPVP_GET_EXP(parent, ctrl)
 end
 
 function GET_PVP_POINT_C()
-	local mySession = session.GetMySession();
-	local cid = mySession:GetCID();
-	local pvpObj = session.worldPVP.GetPVPObject(cid);
-	if pvpObj == nil then
-		return 0;
-	end
-
-	return pvpObj:GetPropIValue("ShopPoint", 0);
+	return session.shop.GetShopPoint("uphill_defense_shoppoint")
 end
+
 
 function GET_PVP_BATTLE_POINT_C()
 	local item = session.GetInvItemByName('EQUIP_RENTAL_POINT')

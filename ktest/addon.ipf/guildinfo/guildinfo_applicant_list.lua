@@ -175,3 +175,29 @@ function DECLINE_SELECTED_USER()
     end
     GBOX_AUTO_ALIGN(scrollPanel, 0, 0, 45, true, false, true)
 end
+
+function CHECK_APPLICATION_LIST(guild_idx)       
+    GetGuildApplicationListByGuildIDX(guild_idx, "on_check_application_list")
+end
+
+function on_check_application_list(_code, ret_json)       
+    local splitmsg = StringSplit(ret_json, " ");
+    local errorCode = splitmsg[1];
+    if _code ~= 200 then
+        if tonumber(errorCode) == 1 then
+            return;
+        end        
+        return
+    end
+    local parsed_json = json.decode(ret_json)    
+    
+    for k, v in pairs(parsed_json) do
+        for x, y in pairs(v) do
+            if y['is_accept'] == 0 then
+                local frame = ui.GetFrame("sysmenu");
+                SYSMENU_GUILD_NOTICE(frame, 1)
+                return
+            end
+        end
+    end
+end

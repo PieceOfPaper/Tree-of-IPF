@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by rottenapple (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <repeatlyHits>
 	<Skill Name="Schwarzereiter_Caracole">
 		<Timing Level="1">
@@ -9,8 +9,8 @@
 	</Skill>
 	<Skill Name="Barbarian_Embowel">
 		<Timing Level="1">
-			<KeyFrame Time="0.2" Ratio="20" HitDelayRatio="25" Effect="None" Sound="hit_good"/>
-			<KeyFrame Time="0.88" Ratio="80" HitDelayRatio="25" Effect="None" Sound="hit_good"/>
+			<KeyFrame Time="0" Ratio="20" HitDelayRatio="0" Effect="None" Sound="hit_good"/>
+			<KeyFrame Time="0.6" Ratio="80" HitDelayRatio="0" Effect="None" Sound="hit_good"/>
 		</Timing>
 	</Skill>
 	<Skill Name="Repeatly_hit_Type1">
