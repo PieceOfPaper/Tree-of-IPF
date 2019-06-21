@@ -275,22 +275,6 @@
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
-                    <Event eventName="Record_Time">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="SET_DAY_RECORD_1"/>
-                                <Str Str="=="/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="Initialize/0"/>
-                                <Str Str="GM_BK_SET_USED_DAY_RECORD"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="HP_Regen" AutoStart="0">
