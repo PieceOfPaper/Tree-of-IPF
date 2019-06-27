@@ -165,7 +165,7 @@ function ON_CABINET_ITEM_LIST(frame)
 		end
 		
 	end
-	GBOX_AUTO_ALIGN(itemlist, 3, 0, 0, true, true);
+	GBOX_AUTO_ALIGN(itemlist:GetGroupBox(), 3, 0, 0, true, true);
 	itemlist:RealignItems();
 
     -- default filter

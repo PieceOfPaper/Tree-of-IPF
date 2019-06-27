@@ -8,6 +8,7 @@ function WEAPONSWAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('WEAPONSWAP_SUCCESS', 'WEAPONSWAP_SLOT_SUCCESS');
 	addon:RegisterMsg('ABILITY_LIST_GET', 'WEAPONSWAP_SHOW_UI');
 	addon:RegisterMsg('GAME_START', 'WEAPONSWAP_SHOW_UI');
+	addon:RegisterMsg('WEAPONSWAP_TOGGLE_LINE', 'WEAPONSWAP_TOGGLE_ACTIVE_WEAPON_LINE');
 
 --	WEAPONSWAP_SLOT_UPDATE();
 end 
@@ -263,6 +264,10 @@ function WEAPONSWAP_SWAP_CLEAR(frame, msg, arg_str, arg_num)
 			etcSlot:ClearIcon();
 		end;
 	end	
+end
+
+function WEAPONSWAP_TOGGLE_ACTIVE_WEAPON_LINE()
+	quickslot.ToggleActiveWeaponLine();
 end
 
 function WEAPONSWAP_FAIL()

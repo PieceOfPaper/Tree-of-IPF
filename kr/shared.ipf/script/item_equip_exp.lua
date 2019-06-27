@@ -126,13 +126,12 @@ function GET_MIX_MATERIAL_EXP(item)
 end
 
 function GET_ITEM_LEVEL(item)
-
-	local expValue = TryGetProp(item, "ItemExp");
+	local expValue = TryGetProp(item, "ItemExp", 0);
 	if expValue == nil then
 		return 0;
 	end
-
-	local prop = geItemTable.GetProp(item.ClassID);
+    local ClassID = TryGetProp(item, 'ClassID', 0)
+	local prop = geItemTable.GetProp(ClassID);
 	local itemExp = TryGetProp(item, 'ItemExp');
 	return prop:GetLevel(itemExp);
 

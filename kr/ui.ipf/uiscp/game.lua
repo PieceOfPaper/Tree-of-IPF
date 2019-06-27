@@ -2116,12 +2116,18 @@ function SET_ITEM_TOOLTIP_BY_CLASSID(ctrl, orgName, classidspace, className)
 	local orgcls = GetClass("Item", orgName);
 	if cls ~= nil then
 		SET_ITEM_TOOLTIP_BY_CLASSIDSPACE(ctrl, classidspace, orgcls.ClassID, cls.ClassID)
-	end
+	end	
 end
 
 function SET_ITEM_TOOLTIP_BY_OBJ(icon, invItem)
 	local itemCls = GetIES(invItem:GetObject());
 	SET_ITEM_TOOLTIP_ALL_TYPE(icon, invItem, itemCls.ClassName, 'inven', itemCls.ClassID, invItem:GetIESID());
+end
+
+function SET_ITEM_TOOLTIP_BY_TRADESELECTITEM(ctrl, tradeselectitemClassName, type)
+	local tradeselectitemClass= GetClass("TradeSelectItem", tradeselectitemClassName)
+	SET_ITEM_TOOLTIP_TYPE(ctrl, type);
+	ctrl:SetTooltipArg('Tradeselectitem', type, tradeselectitemClass.ClassID);
 end
 
 function ON_RULLET_LIST()

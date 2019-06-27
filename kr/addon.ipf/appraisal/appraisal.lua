@@ -48,6 +48,7 @@ end
 function APPRAISAL_UI_OPEN(frame, ctrl)
 	ui.EnableSlotMultiSelect(1);
 
+	APPRAISAL_CHECKBOX(frame)
 	APPRAISAL_UPDATE_ITEM_LIST(frame);
 	local invenzenytext = GET_CHILD_RECURSIVELY(frame, "invenzenytext")
 	SET_COLONY_TAX_RATE_TEXT(invenzenytext, "tax_rate")
@@ -61,7 +62,12 @@ function ON_APPRAISAL_UPDATE_COLONY_TAX_RATE_SET(frame)
 	CLOSE_MSGBOX_BY_NON_NESTED_KEY("APPRAISAL_EXECUTE");
 end
 
-function APPRAISAL_UPDATE_ITEM_LIST(frame)
+function APPRAISAL_UPDATE_ITEM_LIST(frame, itemGradeList)
+	if itemGradeList == nil then
+        local itemTypeBoxFrame = GET_CHILD_RECURSIVELY(frame, "itemTypeBox", "ui::CGroupBox")
+		itemGradeList = APPRAISAL_ITEM_GRADE_SET(itemTypeBoxFrame, 0)		
+	end
+
 	--슬롯 셋 및 전체 슬롯 초기화 해야됨
 	local slotSet = GET_CHILD_RECURSIVELY(frame,"slotlist","ui::CSlotSet")
 	slotSet:ClearIconAll();	
@@ -77,10 +83,25 @@ function APPRAISAL_UPDATE_ITEM_LIST(frame)
 					return 'break';
 				end
 
-				local icon = CreateIcon(slot);
-				icon:Set(obj.Icon, 'Item', invItem.type, slotcnt, invItem:GetIESID());
-				local class = GetClassByType('Item', invItem.type);
-				ICON_SET_INVENTORY_TOOLTIP(icon, invItem, "appraisal", class);
+				local itemGrade = TryGetProp(obj, 'ItemGrade');
+				if itemGrade == nil then
+					itemGrade = 0;
+				end
+	
+				local needToShow = true;
+				for j = 1, #itemGradeList do
+					if itemGradeList[j] == 0 and itemGrade == (j + 1) then	-- j + 1인 이유 ex) itemGradeList[1]일때 j = 1, greade = 2(magic)
+						needToShow = false;
+						break;
+					end					
+				end
+
+				if needToShow == true then
+					local icon = CreateIcon(slot);
+					icon:Set(obj.Icon, 'Item', invItem.type, slotcnt, invItem:GetIESID());
+					local class = GetClassByType('Item', invItem.type);
+					ICON_SET_INVENTORY_TOOLTIP(icon, invItem, "appraisal", class);
+				end
 			end
 		end
 	end, false, slotSet);
@@ -215,4 +236,52 @@ end
 function APPRAISAL_EXECUTE_COMMIT()
 	local resultlist = session.GetItemIDList();
 	item.DialogTransaction("APPRAISAL", resultlist);
+end
+
+function APPRAISAL_ALL_UNSELECT(frame)
+	local slotSet = GET_CHILD_RECURSIVELY_AT_TOP(frame, "slotlist", "ui::CSlotSet")
+	local slotCount = slotSet:GetSlotCount();
+	for i = 0, slotCount - 1 do
+		local slot = slotSet:GetSlotByIndex(i);
+			slot:Select(0)
+	end
+	
+	slotSet:MakeSelectionList()
+end
+
+function APPRAISAL_CHECKBOX(frame)
+    local magicCheckbox = GET_CHILD_RECURSIVELY(frame, 'magic');
+    local rareCheckbox = GET_CHILD_RECURSIVELY(frame, 'rare');
+    local uniqueCheckbox = GET_CHILD_RECURSIVELY(frame, 'unique');
+    local legendeCheckbox = GET_CHILD_RECURSIVELY(frame, 'legende');
+    
+    magicCheckbox:SetCheck(1);
+    rareCheckbox:SetCheck(1);
+    uniqueCheckbox:SetCheck(0);
+    legendeCheckbox:SetCheck(0);
+end
+
+function APPRAISAL_ITEM_GRADE_SET(frame, isOpen)
+	APPRAISAL_ALL_UNSELECT(frame);
+	
+    local magicCheckbox = GET_CHILD_RECURSIVELY(frame, "magic", "ui::CCheckBox");
+    local rareCheckbox = GET_CHILD_RECURSIVELY(frame, "rare", "ui::CCheckBox");
+    local uniqueCheckbox = GET_CHILD_RECURSIVELY(frame, "unique", "ui::CCheckBox");
+    local legendeCheckbox = GET_CHILD_RECURSIVELY(frame, 'legende', "ui::CCheckBox");
+    
+    local itemGradeList = {};
+    
+    itemGradeList[#itemGradeList + 1] = magicCheckbox:IsChecked();
+    itemGradeList[#itemGradeList + 1] = rareCheckbox:IsChecked();
+    itemGradeList[#itemGradeList + 1] = uniqueCheckbox:IsChecked();
+    itemGradeList[#itemGradeList + 1] = legendeCheckbox:IsChecked();
+    
+    APPRAISAL_UPDATE_MONEY(frame);
+
+    if isOpen ~= 1 then
+		local topFrame = frame:GetTopParentFrame();
+        APPRAISAL_UPDATE_ITEM_LIST(topFrame, itemGradeList);
+	end
+	
+    return itemGradeList;
 end

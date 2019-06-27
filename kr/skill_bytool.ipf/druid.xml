@@ -1,13 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Druid_Seedbomb">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+<ToolSkill>    <Skill Name="Druid_Seedbomb">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<EtcList>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_cleric_explosion_seedboom" />
-					<Str Str="None" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+				<Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO"Time="0">
 					<Pos Angle="0" Dist="0" />
 					<Num Num="100" />
 					<Num Num="5" />
@@ -17,7 +12,12 @@
 					<Num Num="0" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="500" UseSleep="NO">
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="450">
+                    <Str_Arg Str="F_cleric_ground_seedboom" Arg="2"/>
+                    <Str Str="Dummy_emitter"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO"Time="850">
 					<Str Str="Seedbomb_Buff" />
 					<Num Num="1" />
 					<Num Num="0" />
@@ -256,41 +256,47 @@
 	</Skill>
 	<Skill Name="Druid_StereaTrofh">
 		<KeyInputStart>
-			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
-				<Str Str="voice_cleric_stereatrofh_shot" />
-				<Num Num="0" />
-				<Str Str="voice_cleric_m_stereatrofh_shot" />
+			<ToolScp Scp="SKL_PLAY_SOUND" Client="NO" UseSleep="NO">
+				<Str Str="voice_cleric_stereatrofh_shot"/>
+				<Num Num="0"/>
+				<Str Str="voice_cleric_m_stereatrofh_shot"/>
 			</ToolScp>
 		</KeyInputStart>
 		<KeyInputEnd>
-			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
-				<Str Str="voice_cleric_stereatrofh_shot" />
-				<Str Str="voice_cleric_m_stereatrofh_shot" />
+			<ToolScp Scp="SKL_STOP_SOUND" Client="NO" UseSleep="NO">
+				<Str Str="voice_cleric_stereatrofh_shot"/>
+				<Str Str="voice_cleric_m_stereatrofh_shot"/>
 			</ToolScp>
 		</KeyInputEnd>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
 			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+				<Frame Type="FAN" Time="9799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="9999" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="400" UseSleep="NO">
-					<Str_Arg Arg="1.5" Str="E_cleric_StereaTrofh_shot_shield" />
-					<Pos Angle="0" Dist="3.8255448e-43" />
-					<Num Num="0" />
-					<Str Str="None" />
+				<Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="PUBLIC_BUFF"/>
+                    <Num Num="2"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="150">
+					<Str_Arg Str="E_cleric_StereaTrofh_shot_shield" Arg="1.5"/>
+					<Pos Angle="0" Dist="3.8255448e-43"/>
+					<Num Num="0"/>
+					<Str Str="None"/>
 				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
-					<Str Str="voice_cleric_m_stereatrofh_shot" />
-					<Str Str="voice_cleric_stereatrofh_shot" />
+				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="400">
+					<Str Str="voice_cleric_m_stereatrofh_shot"/>
+					<Str Str="voice_cleric_stereatrofh_shot"/>
 				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="700" UseSleep="NO">
-					<Str Str="StereaTrofh_Buff" />
-					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="15000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
+				<Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="780">
+					<Str Str="StereaTrofh_Buff"/>
+					<Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
+					<Num Num="0"/>
+					<Num Num="15000"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="0"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>
@@ -432,4 +438,4 @@
 			</EtcList>
 		</MainSkl>
 	</Skill>
-	</ToolSkill>
+</ToolSkill>

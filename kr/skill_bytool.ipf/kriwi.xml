@@ -5,11 +5,17 @@
 				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
 			</HitList>
 			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_DAINO" />
+                    <Num Num="2" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
 					<Str Str="voice_cleric_m_daino_shot" />
 					<Str Str="voice_cleric_daino_shot" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
+				<Scp Client="NO" Scp="SKL_BUFF" Time="590" UseSleep="NO">
 					<Str Str="Daino_Buff" />
 					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
 					<Num Num="0" />

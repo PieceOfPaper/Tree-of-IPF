@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by LEE (EMBRACE) -->
 <uiframe name="notice_tutorial" x="0" y="0" width="1920" height="600" create="open">
 	<frame title="조작 튜토리얼" layout_gravity="center top" margin="0 200 0 0" scale_align="center top"/>
@@ -47,7 +47,7 @@
 		<picture name="backspace" parent="BackSpace" rect="0 0 80 80" margin="0 45 0 0" layout_gravity="center top" hittest="false" image="backSpace" stretch="true"/>
 		<picture name="expcard" parent="ExpCard" rect="0 0 80 80" margin="0 45 0 0" layout_gravity="center top" hittest="false" image="None" stretch="true"/>
 		<richtext name="Move_desc" parent="MoveKey" rect="0 0 320 60" margin="0 360 0 0" layout_gravity="center top" caption="{@st42b}캐릭터가 상하좌우 4방향으로  이동합니다{/}" fixwidth="true" hittest="false"/>
-		<richtext name="Move_desc2" parent="MoveKey" rect="0 0 320 60" margin="0 400 0 0" layout_gravity="center top" caption="{@st42b}전사 계열은 방향을 빠르게 두번 입력하여 질주할 수 있습니다{/}" fixwidth="true" hittest="false"/>
+		<richtext name="Move_desc2" parent="MoveKey" rect="0 0 320 60" margin="0 400 0 0" layout_gravity="center top" caption="{@st42b}방향키를 빠르게 두번 입력하여 질주할 수 있습니다{/}" fixwidth="true" hittest="false"/>
 		<richtext name="Atk_desc" parent="AtkKey" rect="0 0 200 60" margin="0 360 0 0" layout_gravity="center top" caption="{@st42b}캐릭터가 기본 공격을 합니다{/}" fixwidth="true" hittest="false"/>
 		<richtext name="Jump_desc" parent="JumpKey" rect="0 0 200 60" margin="0 360 0 0" layout_gravity="center top" caption="{@st42b}캐릭터가 제자리 또는 이동시 점프를 합니다{/}" fixwidth="true" hittest="false"/>
 		<richtext name="Move2_desc" parent="MoveKey2" rect="0 0 320 60" margin="0 360 0 0" layout_gravity="center top" caption="{@st42b}인접한 방향키 2개를 동시에 입력해 대각선으로 이동합니다{/}" fixwidth="true" hittest="false"/>

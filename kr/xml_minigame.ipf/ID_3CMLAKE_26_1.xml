@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <GameList>
 	<Game Name="ID_3CMLAKE_26_1" minLv="0" maxLv="0" mapName="id_3cmlake_26_1" playerCountCheckDestroy="1" startWaitSec="765157384">
 		<StageList>
@@ -18,6 +17,9 @@
 							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
 								<MGameObjPtr List="START/0/START/1"/>
 							</ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_GIVE_INDUN_POWERUP_BUFF"/>
+                            </ToolScp>
 							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
 								<Str Str="시작!!"/>
 								<Num Num="5"/>
@@ -378,6 +380,9 @@
 							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
 								<Str Str="MGAME_MON_KILL_COUNT_CALC"/>
 							</ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="UPDATE_INDUN_POWERUP_BUFF"/>
+                            </ToolScp>
 						</execList>
 					</Event>
 				</StageEvents>

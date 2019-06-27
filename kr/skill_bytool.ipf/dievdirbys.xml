@@ -1,271 +1,278 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Dievdirbys_Carve">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="0" Dist="0" ForceATK="0" HitCount="1" Length="55" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="100" TermMin="100" Time="0" Type="SQUARE" Width="20" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
-					<Str Str="Dievdirbys18" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_ADD_DROP_WOOD" UseSleep="NO">
-					<Num Num="1" />
-					<Num FuncTxt=" local value = 0  local abil = GetAbility(self, &quot;Dievdirbys18&quot;)  if abil ~= nil and abil.ActiveState == 1 then   value = abil.Level * 10  end  return value" Num="0" UseFunc="1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Dievdirbys_CarveZemina">
-		<EnableScripts>
-			<ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
-				<Num Num="0" />
-				<Str Str="pcskill_wood_zemina2" />
-				<Num Num="5" />
-			</ToolScp>
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-					<Str Str="voice_war_atk_long_cast" />
-					<Str Str="voice_f_pubilc_cast_3" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1700" UseSleep="NO">
-					<Str_Arg Arg="3" Str="F_cleric_zemina_shot_light" />
-					<Pos Angle="0" Dist="15" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1750" UseSleep="NO">
-					<Str Str="pcskill_wood_zemina2" />
-					<Pos Angle="0" Dist="17" />
-					<Angle Angle="0" />
-					<Str Str="" />
-					<Str Str="" />
-					<Num Num="0" />
-					<Num FuncTxt=" return 15 + obj.Level * 2;" Num="30" UseFunc="1" />
-					<Str Str="Dievdirbys_Zemina" />
-					<MonProp List="!SCR_SUMMON_ZEMINA#1" />
-					<Str Str="SCR_SUMMON_SET_EXPROP" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Dievdirbys_CarveVakarine">
-		<EnableScripts>
-			<ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
-				<Num Num="0" />
-				<Str Str="pcskill_wood_bakarine2" />
-				<Num Num="1" />
-			</ToolScp>
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-					<Str Str="voice_m_pubilc_cast_1" />
-					<Str Str="voice_f_pubilc_cast_2" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1700" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_cleric_bakarine_shot_light" />
-					<Pos Angle="0" Dist="15" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_MON_IM_NOT_OWNER" Time="1750" UseSleep="NO">
-					<Str Str="pcskill_wood_bakarine2" />
-					<Pos Angle="0" Dist="17" />
-					<Angle Angle="0" />
-					<Str Str="" />
-					<Str Str="" />
-					<Num Num="0" />
-					<Num Num="60" />
-					<Str Str="Dievdirbys_bakarine" />
-					<MonProp />
-					<Str Str="SCR_SUMMON_VAKARINE" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Dievdirbys_CarveLaima">
-		<EnableScripts>
-			<ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
-				<Num Num="0" />
-				<Str Str="pcskill_wood_laima2" />
-				<Num Num="5" />
-			</ToolScp>
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-					<Str Str="voice_war_atk_long_cast" />
-					<Str Str="voice_atk_long_cast_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1700" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_cleric_laima_shot_light" />
-					<Pos Angle="0" Dist="15" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1750" UseSleep="NO">
-					<Str Str="pcskill_wood_laima2" />
-					<Pos Angle="0" Dist="17" />
-					<Angle Angle="0" />
-					<Str Str="" />
-					<Str Str="" />
-					<Num Num="0" />
-					<Num Num="60" />
-					<Str Str="Dievdirbys_Laima" />
-					<MonProp List="!SCR_SUMMON_LAIMA#1" />
-					<Str Str="SCR_SUMMON_SET_EXPROP" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Dievdirbys_CarveAusirine">
-		<EnableScripts>
-			<ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
-				<Num Num="0" />
-				<Str Str="pcskill_wood_ausrine2" />
-				<Num Num="1" />
-			</ToolScp>
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-					<Str Str="voice_war_atk_long_cast" />
-					<Str Str="voice_atk_long_cast_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1700" UseSleep="NO">
-					<Str_Arg Arg="1" Str="F_cleric_ausirine_shot_light" />
-					<Pos Angle="0" Dist="15" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1750" UseSleep="NO">
-					<Str Str="pcskill_wood_ausrine2" />
-					<Pos Angle="0" Dist="17" />
-					<Angle Angle="0" />
-					<Str Str="" />
-					<Str Str="" />
-					<Num Num="0" />
-					<Num Num="20" />
-					<Str Str="Dievdirbys_Ausirine" />
-					<MonProp List="!SCR_SUMMON_AUSIRINE#1" />
-					<Str Str="SCR_SUMMON_SET_EXPROP" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Dievdirbys_CarveOwl">
-		<EnableScripts>
-			<ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
-				<Num Num="0" />
-				<Str Str="pcskill_wood_owl2" />
-				<Num FuncTxt="return math.min(5, math.floor(2 + (obj.Level * 0.5)))" Num="5" UseFunc="1" />
-			</ToolScp>
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Anim Anim="SKL_STATUE_OWL" Speed="1" Time="0" />
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-					<Str Str="voice_war_atk_long_cast" />
-					<Str Str="voice_atk_long_cast_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1700" UseSleep="NO">
-					<Str_Arg Arg="3" Str="F_cleric_laima_shot_light" />
-					<Pos Angle="0" Dist="15" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1750" UseSleep="NO">
-					<Str Str="pcskill_wood_owl2" />
-					<Pos Angle="0" Dist="17" />
-					<Angle Angle="0" />
-					<Str Str="" />
-					<Str Str="None" />
-					<Num Num="0" />
-					<Num FuncTxt="return 20 + (obj.Level * 2)" Num="50" UseFunc="1" />
-					<Str Str="Dievdirbys_Owl_1" />
-					<MonProp List="Faction#Trap#!SCR_SUMMON_OWL#1" />
-					<Str Str="SCR_SUMMON_SET_EXPROP" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
-						<Str Str="Ausirine_Buff" />
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<EtcList>
-						<Anim Anim="SKL_STATUE_OWL" Speed="1" Time="0" />
-						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-							<Str Str="voice_war_atk_long_cast" />
-							<Str Str="voice_atk_long_cast_f" />
-						</Scp>
-						<Scp Client="YES" Scp="C_EFFECT_POS" Time="1700" UseSleep="NO">
-							<Str_Arg Arg="3" Str="F_cleric_laima_shot_light" />
-							<Pos Angle="0" Dist="15" />
-							<Num Num="0" />
-							<Str Str="None" />
-						</Scp>
-						<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1750" UseSleep="NO">
-							<Str Str="pcskill_wood_owl2" />
-							<Pos Angle="0" Dist="17" />
-							<Angle Angle="0" />
-							<Str Str="" />
-							<Str Str="None" />
-							<Num Num="0" />
-							<Num FuncTxt="return 20 + (obj.Level * 2)" Num="50" UseFunc="1" />
-							<Str Str="Dievdirbys_Owl_2" />
-							<MonProp List="Faction#Trap#!SCR_SUMMON_OWL#1" />
-							<Str Str="SCR_SUMMON_SET_EXPROP" />
-						</Scp>
-					</EtcList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	<Skill Name="Dievdirbys_CarveAustrasKoks">
-		<EnableScripts>
-			<ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
-				<Num Num="0" />
-				<Str Str="pcskill_wood_AustrasKoks2" />
-				<Num Num="1" />
-			</ToolScp>
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-					<Str Str="voice_war_atk_long_cast" />
-					<Str Str="voice_atk_long_cast_f" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1700" UseSleep="NO">
-					<Str_Arg Arg="3" Str="F_wizard_backmasking_light" />
-					<Pos Angle="0" Dist="15" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1750" UseSleep="NO">
-					<Str Str="pcskill_wood_AustrasKoks2" />
-					<Pos Angle="0" Dist="17" />
-					<Angle Angle="0" />
-					<Str Str="" />
-					<Str Str="" />
-					<Num Num="0" />
-					<Num FuncTxt="return 15 + (obj.Level * 2)" Num="10" UseFunc="1" />
-					<Str Str="Dievdirbys_Romuva" />
-					<MonProp List="!SCR_SUMMON_AUSTRASKOKS#1" />
-					<Str Str="SCR_SUMMON_SET_EXPROP" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	</ToolSkill>
+<ToolSkill>
+    <Skill Name="Dievdirbys_Carve">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="0" Dist="0" ForceATK="0" HitCount="1" Length="55" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="100" TermMin="100" Time="0" Type="SQUARE" Width="20"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+                    <Str Str="Dievdirbys18"/>
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_ADD_DROP_WOOD" UseSleep="NO">
+                    <Num Num="1"/>
+                    <Num FuncTxt=" local value = 0  local abil = GetAbility(self, &quot;Dievdirbys18&quot;)  if abil ~= nil and abil.ActiveState == 1 then   value = abil.Level * 10  end  return value" Num="0" UseFunc="1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Dievdirbys_CarveZemina">
+        <EnableScripts>
+            <ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
+                <Num Num="0"/>
+                <Str Str="pcskill_wood_zemina2"/>
+                <Num Num="5"/>
+            </ToolScp>
+        </EnableScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                    <Str Str="voice_war_atk_long_cast"/>
+                    <Str Str="voice_f_pubilc_cast_3"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="1700" UseSleep="NO">
+                    <Str_Arg Arg="3" Str="F_cleric_zemina_shot_light"/>
+                    <Pos Angle="0" Dist="15"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1750" UseSleep="NO">
+                    <Str Str="pcskill_wood_zemina2"/>
+                    <Pos Angle="0" Dist="17"/>
+                    <Angle Angle="0"/>
+                    <Str Str=""/>
+                    <Str Str=""/>
+                    <Num Num="0"/>
+                    <Num FuncTxt=" return 15 + obj.Level * 2;" Num="30" UseFunc="1"/>
+                    <Str Str="Dievdirbys_Zemina"/>
+                    <MonProp List="!SCR_SUMMON_ZEMINA#1"/>
+                    <Str Str="SCR_SUMMON_SET_EXPROP"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Dievdirbys_CarveVakarine">
+        <EnableScripts>
+            <ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
+                <Num Num="0"/>
+                <Str Str="pcskill_wood_bakarine2"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </EnableScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                    <Str Str="voice_m_pubilc_cast_1"/>
+                    <Str Str="voice_f_pubilc_cast_2"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="1700" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="F_cleric_bakarine_shot_light"/>
+                    <Pos Angle="0" Dist="15"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_MON_IM_NOT_OWNER" Time="1750" UseSleep="NO">
+                    <Str Str="pcskill_wood_bakarine2"/>
+                    <Pos Angle="0" Dist="17"/>
+                    <Angle Angle="0"/>
+                    <Str Str=""/>
+                    <Str Str=""/>
+                    <Num Num="0"/>
+                    <Num Num="60"/>
+                    <Str Str="Dievdirbys_bakarine"/>
+                    <MonProp/>
+                    <Str Str="SCR_SUMMON_VAKARINE"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Dievdirbys_CarveLaima">
+        <EnableScripts>
+            <ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
+                <Num Num="0"/>
+                <Str Str="pcskill_wood_laima2"/>
+                <Num Num="5"/>
+            </ToolScp>
+        </EnableScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                    <Str Str="voice_war_atk_long_cast"/>
+                    <Str Str="voice_atk_long_cast_f"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="1700" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="F_cleric_laima_shot_light"/>
+                    <Pos Angle="0" Dist="15"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1750" UseSleep="NO">
+                    <Str Str="pcskill_wood_laima2"/>
+                    <Pos Angle="0" Dist="17"/>
+                    <Angle Angle="0"/>
+                    <Str Str=""/>
+                    <Str Str=""/>
+                    <Num Num="0"/>
+                    <Num Num="60"/>
+                    <Str Str="Dievdirbys_Laima"/>
+                    <MonProp List="!SCR_SUMMON_LAIMA#1"/>
+                    <Str Str="SCR_SUMMON_SET_EXPROP"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Dievdirbys_CarveAusirine">
+        <EnableScripts>
+            <ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
+                <Num Num="0"/>
+                <Str Str="pcskill_wood_ausrine2"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </EnableScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                    <Str Str="voice_war_atk_long_cast"/>
+                    <Str Str="voice_atk_long_cast_f"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="1700" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="F_cleric_ausirine_shot_light"/>
+                    <Pos Angle="0" Dist="15"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1750" UseSleep="NO">
+                    <Str Str="pcskill_wood_ausrine2"/>
+                    <Pos Angle="0" Dist="17"/>
+                    <Angle Angle="0"/>
+                    <Str Str=""/>
+                    <Str Str=""/>
+                    <Num Num="0"/>
+                    <Num Num="20"/>
+                    <Str Str="Dievdirbys_Ausirine"/>
+                    <MonProp List="!SCR_SUMMON_AUSIRINE#1"/>
+                    <Str Str="SCR_SUMMON_SET_EXPROP"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Dievdirbys_CarveOwl">
+        <EnableScripts>
+            <ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
+                <Num Num="0"/>
+                <Str Str="pcskill_wood_owl2"/>
+                <Num FuncTxt="return math.min(5, math.floor(2 + (obj.Level * 0.5)))" Num="5" UseFunc="1"/>
+            </ToolScp>
+        </EnableScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Anim Anim="SKL_STATUE_OWL" Speed="1" Time="0"/>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                    <Str Str="voice_war_atk_long_cast"/>
+                    <Str Str="voice_atk_long_cast_f"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="1700" UseSleep="NO">
+                    <Str_Arg Arg="3" Str="F_cleric_laima_shot_light"/>
+                    <Pos Angle="0" Dist="15"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1750" UseSleep="NO">
+                    <Str Str="pcskill_wood_owl2"/>
+                    <Pos Angle="0" Dist="17"/>
+                    <Angle Angle="0"/>
+                    <Str Str=""/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="return 20 + (obj.Level * 2)" Num="50" UseFunc="1"/>
+                    <Str Str="Dievdirbys_Owl_1"/>
+                    <MonProp List="Faction#Trap#!SCR_SUMMON_OWL#1"/>
+                    <Str Str="SCR_SUMMON_SET_EXPROP"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+                        <Str Str="Ausirine_Buff"/>
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <EtcList>
+                        <Anim Anim="SKL_STATUE_OWL" Speed="1" Time="0"/>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                            <Str Str="voice_war_atk_long_cast"/>
+                            <Str Str="voice_atk_long_cast_f"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_POS" Time="1700" UseSleep="NO">
+                            <Str_Arg Arg="3" Str="F_cleric_laima_shot_light"/>
+                            <Pos Angle="0" Dist="15"/>
+                            <Num Num="0"/>
+                            <Str Str="None"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="1750" UseSleep="NO">
+                            <Str Str="pcskill_wood_owl2"/>
+                            <Pos Angle="0" Dist="17"/>
+                            <Angle Angle="0"/>
+                            <Str Str=""/>
+                            <Str Str="None"/>
+                            <Num Num="0"/>
+                            <Num FuncTxt="return 20 + (obj.Level * 2)" Num="50" UseFunc="1"/>
+                            <Str Str="Dievdirbys_Owl_2"/>
+                            <MonProp List="Faction#Trap#!SCR_SUMMON_OWL#1"/>
+                            <Str Str="SCR_SUMMON_SET_EXPROP"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Dievdirbys_CarveAustrasKoks">
+        <EnableScripts>
+            <ToolScp Scp="SKL_CHECK_SKL_OBJ_CNT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str Str="pcskill_wood_AustrasKoks2"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </EnableScripts>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <EtcList>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="300">
+                    <Str Str="voice_war_atk_long_cast"/>
+                    <Str Str="voice_atk_long_cast_f"/>
+                </Scp>
+                <Scp Scp="MONSKL_CRE_MON_SCR" Client="NO" UseSleep="NO" Time="1750">
+                    <Str Str="pcskill_wood_AustrasKoks2"/>
+                    <Pos Angle="0" Dist="17"/>
+                    <Angle Angle="0"/>
+                    <Str Str=""/>
+                    <Str Str=""/>
+                    <Num Num="0"/>
+                    <Num Num="10" UseFunc="1" FuncTxt="return 15 + (obj.Level * 2)"/>
+                    <Str Str="Dievdirbys_Romuva"/>
+                    <MonProp List="!SCR_SUMMON_AUSTRASKOKS#1"/>
+                    <Str Str="SCR_SUMMON_SET_EXPROP"/>
+                </Scp>
+                <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="1900">
+                    <Str_Arg Str="F_smoke176_light_white" Arg="1.2"/>
+                    <Pos Angle="0" Dist="15"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="1900">
+                    <Str_Arg Str="F_spread_out033_ground_light" Arg="1.3"/>
+                    <Pos Angle="0" Dist="15"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+</ToolSkill>

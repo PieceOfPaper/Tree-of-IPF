@@ -138,7 +138,7 @@ function ATTENDANCE_INIT_REWARD(frame, attendanceID)
             		ctrlSet:SetColorTone('FF444444');
             	end
             else -- animation
-            	local diffDays = imcTime.GetDifDaysFromNow(receiptData.registerTime);
+				local diffDays = imcTime.AfterDayNowFromTargetTime(receiptData.registerTime);
                 if diffDays == 0 then                
 					UI_PLAYFORCE(getPic, "sizeUpAndDown");
                 end
@@ -203,8 +203,8 @@ end
 function ATTENDANCE_GIVE_REWARD(AttendanceID)
 	local LastRewardData = session.attendance.GetLastRewardData(AttendanceID);
 	if LastRewardData ~= nil then
-		local diffDays = imcTime.GetDifDaysFromNow(LastRewardData.registerTime);
-		if diffDays ~= 0 then
+		local diffDays = imcTime.AfterDayNowFromTargetTime(LastRewardData.registerTime);
+		if diffDays == 1 then
 			local attendanceData = session.attendance.GetAttendanceData(AttendanceID);	
 			if attendanceData == nil then
 				return;

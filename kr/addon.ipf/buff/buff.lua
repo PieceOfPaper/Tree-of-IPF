@@ -257,7 +257,7 @@ function get_exist_debuff_in_slotlist(slotlist, buff_id)
                 local iconInfo = icon:GetInfo()
                 if iconInfo ~= nil then
                     if tonumber(iconInfo.type) == tonumber(buff_id) then
-                        return slot
+                        return slot, k
                     end
                 end
             end
@@ -337,11 +337,10 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 	end
 
 	if msg == 'ADD' then
-        local cls = GetClassByType('Buff', tonumber(buffType))
         local skip = false
-        if cls ~= nil then
-            if TryGetProp(cls, 'OnlyOneBuff', 'None') == 'YES' and TryGetProp(cls, 'Duplicate', 1) == 0 then
-                local exist_slot =  get_exist_debuff_in_slotlist(slotlist, buffType)
+        if class ~= nil then
+            if TryGetProp(class, 'OnlyOneBuff', 'None') == 'YES' and TryGetProp(class, 'Duplicate', 1) == 0 then
+                local exist_slot, i = get_exist_debuff_in_slotlist(slotlist, buffType)
                 if exist_slot ~= nil then
                     if exist_slot:IsVisible() == 0 then
                         SET_BUFF_SLOT(exist_slot, captionlist[i], class, buffType, handle, slotlist, buffIndex);
@@ -485,7 +484,9 @@ function CLEAR_BUFF_SLOT(slot, text)
 	if text ~= nil then
 		text:SetText("");
 	end
-	
+	local icon = slot:GetIcon();
+	local iconInfo = icon:GetInfo();
+	iconInfo.type = 0;
 end
 
 function BUFF_ON_MSG(frame, msg, argStr, argNum)

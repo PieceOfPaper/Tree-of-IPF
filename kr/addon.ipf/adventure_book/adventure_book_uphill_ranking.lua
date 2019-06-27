@@ -119,25 +119,6 @@ function GET_SHOP_POINT_CLASS_NAME()
 end
 
 function ADVENTURE_BOOK_UPHILL_UPDATE_POINT(uphillPage)
-    local clsName = GET_SHOP_POINT_CLASS_NAME();
-    local curDateString = imcTime.GetCurDateString();
-	local lastPointGetDateName = GetPVPPointPropName(clsName, "LastPointGetDate");
-	local todayGetShopPointName = GetPVPPointPropName(clsName, "TodayGetShopPoint");
-	local shopPointName = GetPVPPointPropName(clsName, "ShopPoint");
-    local mySession = session.GetMySession();
-	local cid = mySession:GetCID();
-    local ret = worldPVP.RequestPVPInfo();        
-    if ret == true then
-        return;
-    end
-
-	local pvpObj = session.worldPVP.GetPVPObject(cid);        
-    if pvpObj == nil then
-        return;
-    end
-
-    if shopPointName ~= "None" then
-		local totalPointValueText = GET_CHILD_RECURSIVELY(uphillPage, "totalPointValueText");
-		totalPointValueText:SetTextByKey("point", pvpObj:GetPropValue(shopPointName));
-	end    
+    local totalPointValueText = GET_CHILD_RECURSIVELY(uphillPage, "totalPointValueText");
+    totalPointValueText:SetTextByKey("point", session.shop.GetShopPoint("uphill_defense_shoppoint"));   
 end

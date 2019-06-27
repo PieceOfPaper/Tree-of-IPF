@@ -117,17 +117,24 @@ function REQ_DAILY_REWARD_SHOP_1_OPEN()
     ui.OpenFrame('earthtowershop');
 end
 
+function REQ_NEW_CHAR_SHOP_1_OPEN()
+    local frame = ui.GetFrame("earthtowershop");
+    frame:SetUserValue("SHOP_TYPE", 'NewChar');
+    ui.OpenFrame('earthtowershop');
+end
+
 function REQ_VIVID_CITY2_SHOP_OPEN()
     local frame = ui.GetFrame("earthtowershop");
     frame:SetUserValue("SHOP_TYPE", 'VividCity2_Shop');
     ui.OpenFrame('earthtowershop');
 end
 
-function REQ_TOS_CHILD_SHOP_OPEN()
+function REQ_EVENT1906_TOTAL_SHOP_OPEN()
     local frame = ui.GetFrame("earthtowershop");
-    frame:SetUserValue("SHOP_TYPE", 'TosChild_Shop');
+    frame:SetUserValue("SHOP_TYPE", 'EventTotalShop1906');
     ui.OpenFrame('earthtowershop');
 end
+
 
 function EARTH_TOWER_SHOP_OPEN(frame)
     if frame == nil then
@@ -205,12 +212,15 @@ function EARTH_TOWER_INIT(frame, shopType)
     elseif shopType == 'Bernice' then
         title:SetText('{@st43}'..ScpArgMsg("SoloDungeonSelectMsg_5"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("SoloDungeonSelectMsg_5")));
+    elseif shopType == 'NewChar' then
+        title:SetText('{@st43}'..ScpArgMsg("NEW_CHAR_SHOP_1"));
+        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("NEW_CHAR_SHOP_1")));
     elseif shopType == 'VividCity2_Shop' then
         title:SetText('{@st43}'..ScpArgMsg("EventShop"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
-    elseif shopType == 'TosChild_Shop' then
-        title:SetText('{@st43}'..ScpArgMsg("TOS_CHILD_SHOP_1"));
-        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("TOS_CHILD_SHOP_1")));
+    elseif shopType == 'EventTotalShop1906' then
+        title:SetText('{@st43}'..ScpArgMsg("EventShop"));
+        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
     end
 
 
@@ -673,10 +683,12 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
         item.DialogTransaction("DAILY_REWARD_SHOP_1_TREAD1", resultlist, cntText);
     elseif shopType == 'Bernice' then
         item.DialogTransaction("SoloDungeon_Bernice_SHOP", resultlist, cntText);
+    elseif shopType == 'NewChar' then
+        item.DialogTransaction("NEW_CHAR_SHOP_1_TREAD1", resultlist, cntText);
     elseif shopType == 'VividCity2_Shop' then
         item.DialogTransaction("EVENT_VIVID_CITY2_SHOP_1_TREAD1", resultlist, cntText);
-    elseif shopType == 'TosChild_Shop' then
-        item.DialogTransaction("EVENT_TOS_CHILD_SHOP_1_TREAD1", resultlist, cntText);
+    elseif shopType == 'EventTotalShop1906' then
+        item.DialogTransaction("EVENT_1906_TOTAL_SHOP_1_TREAD1", resultlist, cntText);
     end
 end
 
@@ -696,6 +708,10 @@ function EARTH_TOWER_SHOP_TRADE_LEAVE()
     if itemName ~= nil then
         itemName:SetTextByKey("value", targetItem.Name.." ["..recipecls.TargetItemCnt..ScpArgMsg("Piece").."]");
     end
+
+    if targetItem.StringArg == "EnchantJewell" then
+        itemName:SetTextByKey("value", "[Lv. "..recipecls.TargetItemAppendValue.."] "..targetItem.Name .. " [" .. recipecls.TargetItemCnt .. ScpArgMsg("Piece") .. "]");
+    end  
 
     for i = 1, 5 do
         if recipecls["Item_"..i.."_1"] ~= "None" then
@@ -854,4 +870,25 @@ function EARTHTOWERSHOP_CHANGECOUNT_NUM_CHANGE(ctrlset,change)
     end
     edit_itemcount:SetText(countText);
     return countText;
+end
+
+function CRAFT_ITEM_CANCEL(eachSet, slot, stringArg)
+    if eachSet~=nil then
+        eachSet:SetUserValue("MATERIAL_IS_SELECTED", 'nonselected');
+
+        local slot = GET_CHILD_RECURSIVELY(eachSet, "slot");
+        if slot ~= nil then
+            slot:SetEventScript(ui.DROP, "ITEMCRAFT_ON_DROP");
+            slot:EnableDrag(0); 
+            local icon = slot:GetIcon();
+            icon:SetColorTone('33333333')
+            session.RemoveItemID(stringArg);
+        end
+
+        -- btn Reset
+        local btn = GET_CHILD_RECURSIVELY(eachSet, "btn");
+        if btn ~= nil then
+            btn:ShowWindow(1);
+        end
+    end
 end

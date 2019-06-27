@@ -4,6 +4,7 @@ function PROPERTYSHOP_ON_INIT(addon, frame)
 	addon:RegisterMsg('UPDATE_PROPERTY_SHOP', 'ON_UPDATE_PROPERTY_SHOP');
 	addon:RegisterOpenOnlyMsg('PVP_PROPERTY_UPDATE', 'ON_UPDATE_PROPERTY_SHOP');
 	addon:RegisterMsg("PVP_PC_INFO", "ON_PVP_POINT_UPDATE");
+	addon:RegisterMsg("SHOP_POINT_UPDATE", "ON_PVP_POINT_UPDATE");
 end
 
 function PROPERTY_SHOP_DO_OPEN(frame, msg, shopName, argNum)
@@ -264,7 +265,7 @@ function PROPERTY_SHOP_BUY(parent, ctrl)
 	local count = itemlist:GetRowCount();
 	local idx = 0
 	for i = 0 , count do
-		local ctrlSet = GET_CHILD(itemlist,'DETAIL_ITEM_'..i..'_'..0)
+		local ctrlSet = GET_CHILD_RECURSIVELY(itemlist,'DETAIL_ITEM_'..i..'_'..0)
 		local numUpDown = itemlist:GetObjectByRowCol(i, 2);
 		AUTO_CAST(numUpDown);
 		local num = numUpDown:GetNumber();

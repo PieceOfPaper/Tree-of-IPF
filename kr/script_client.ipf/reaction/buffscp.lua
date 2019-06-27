@@ -98,7 +98,13 @@ function SlitheringClientScp_LEAVE(actor, obj, buff)
 end
 
 function PouncingClientScp_ENTER(actor, obj, buff)
-    actor:GetAnimation():SetSTDAnim("SKL_POUNCING_STAND");
+    
+    if actor:GetVehicleActor() ~= nil then
+        actor:GetAnimation():SetSTDAnim("SKL_POUNCING");
+    else
+        actor:GetAnimation():SetSTDAnim("SKL_POUNCING_STAND");
+    end
+    
     actor:GetAnimation():SetRUNAnim("SKL_POUNCING");
     actor:GetAnimation():SetWLKAnim("SKL_POUNCING");
     actor:GetAnimation():SetTURNAnim("None");
@@ -372,26 +378,26 @@ function Proliferation_ENTER(actor, obj, buff)
     end 
 
     actor:SetTransfomedNodeScale(1);
-    actor:PushNodeScale("Proliferation1", "Bip01 L Hand", 1.0);
-    actor:PushNodeScale("Proliferation2", "Dummy_L_HAND", 0.25);
-    actor:PushNodeScale("ProliferationRH1", "Bip01 R Hand", 1.0)
-    actor:PushNodeScale("ProliferationRH2", "Dummy_R_HAND", 0.25)
-    actor:PushNodeScale("ProliferationRH3", "Dummy_R_dagger", 0.25)
-    actor:PushNodeScale("ProliferationRH4", "Dummy_R_allebell", 0.25)
-    actor:PushNodeScale("ProliferationRH5", "Dummy_R_umbrella", 0.25)
-    actor:PushNodeScale("ProliferationRH6", "Dummy_Shield", 0.25)
+    actor:PushSetNodeScale("Proliferation1", "Bip01 L Hand", 2.0);
+    actor:PushSetNodeScale("Proliferation2", "Dummy_L_HAND", 1.25);
+    actor:PushSetNodeScale("ProliferationRH1", "Bip01 R Hand", 2.0)
+    actor:PushSetNodeScale("ProliferationRH2", "Dummy_R_HAND", 1.25)
+    actor:PushSetNodeScale("ProliferationRH3", "Dummy_R_dagger", 1.25)
+    actor:PushSetNodeScale("ProliferationRH4", "Dummy_R_allebell", 1.25)
+    actor:PushSetNodeScale("ProliferationRH5", "Dummy_R_umbrella", 1.25)
+    actor:PushSetNodeScale("ProliferationRH6", "Dummy_Shield", 1.25)
 end
 
 function Proliferation_LEAVE(actor, obj, buff)
     actor:SetTransfomedNodeScale(0);
-	actor:PopNodeScale("Proliferation1");
-	actor:PopNodeScale("Proliferation2");
-	actor:PopNodeScale("ProliferationRH1");
-	actor:PopNodeScale("ProliferationRH2");
-	actor:PopNodeScale("ProliferationRH3");
-	actor:PopNodeScale("ProliferationRH4");
-	actor:PopNodeScale("ProliferationRH5");
-	actor:PopNodeScale("ProliferationRH6");
+	actor:PopSetNodeScale("Proliferation1");
+	actor:PopSetNodeScale("Proliferation2");
+	actor:PopSetNodeScale("ProliferationRH1");
+	actor:PopSetNodeScale("ProliferationRH2");
+	actor:PopSetNodeScale("ProliferationRH3");
+	actor:PopSetNodeScale("ProliferationRH4");
+	actor:PopSetNodeScale("ProliferationRH5");
+	actor:PopSetNodeScale("ProliferationRH6");
 end
 
 function ProliferationRH_ENTER(actor, obj, buff)
@@ -1203,15 +1209,6 @@ function SCR_ANIM_archer_f_bow_aonair(handle)
             actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
         end
     end
-end
-
-function DaggerGuard_ENTER(actor, obj, buff)
-    actor:SetAlwaysBattleState(true);
-    actor:GetAnimation():SetGuardAnim("SKL_DAGGERGUARD");
-end
-
-function DaggerGuard_LEAVE(actor, obj, buff)
-    actor:GetAnimation():ResetGuardAnim();
 end
 
 function WING_GUILTY_FAIRY_BUFF_ENTER(actor, obj, buff)

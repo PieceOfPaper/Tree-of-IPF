@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Particle frame="0" attachActor="None" attachNode="Dummy_effect" particleName="F_burstup007_smoke1" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
-    <Particle frame="0" attachActor="None" attachNode="Dummy_effect" particleName="F_smoke037" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
-    <Sound frame="20.00" soundFile="m_kerberos_event_born"/>
-    <Shockwave frame="32" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Particle frame="32" attachActor="None" attachNode="Dummy_effect" particleName="F_spread_out002" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
-    <Particle frame="32" attachActor="None" attachNode="Dummy_effect" particleName="F_spread_out008_smoke" useAttach="true" hiddenObj="false" scale="4.5" pause="true" targetPos="false"/>
-    <Shockwave frame="34" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Shockwave frame="36" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Shockwave frame="38" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Shockwave frame="40" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Particle frame="40" attachActor="None" attachNode="Dummy_effect_lip" particleName="F_blood003_blue" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
-    <Particle frame="40" attachActor="None" attachNode="Dummy_effect_lip" particleName="I_breath017_1" useAttach="true" hiddenObj="false" scale="0.4" pause="true" targetPos="false"/>
-    <Shockwave frame="42" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Shockwave frame="44" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Shockwave frame="46" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Shockwave frame="48" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Shockwave frame="50" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Particle frame="50" attachActor="None" attachNode="Dummy_effect_lip" particleName="F_blood003_blue" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
-    <Shockwave frame="52" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Shockwave frame="54" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Shockwave frame="56" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Shockwave frame="58" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
-    <Shockwave frame="60" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="20.00" soundFile="m_kerberos_event_born"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_effect" particleName="F_burstup007_smoke1" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_effect" particleName="F_smoke037" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="32" attachActor="None" attachNode="Dummy_effect" particleName="F_spread_out002" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+	<Particle frame="32" attachActor="None" attachNode="Dummy_effect" particleName="F_spread_out008_smoke" useAttach="true" hiddenObj="false" scale="4.5" pause="true" targetPos="false"/>
+	<Particle frame="40" attachActor="None" attachNode="Dummy_effect_lip" particleName="F_blood003_blue1" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="40" attachActor="None" attachNode="Dummy_effect_lip" particleName="I_breath017_1" useAttach="true" hiddenObj="false" scale="0.4" pause="true" targetPos="false"/>
+	<Particle frame="50" attachActor="None" attachNode="Dummy_effect_lip" particleName="F_blood003_blue" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Shockwave frame="32" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="34" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="36" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="38" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="40" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="42" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="44" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="46" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="48" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="50" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="52" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="54" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="56" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="58" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="60" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
 </ActionDesc>

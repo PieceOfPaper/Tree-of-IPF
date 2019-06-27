@@ -1,7 +1,8 @@
 ---- lib_detaillist
 
 function INSERT_TEXT_DETAIL_LIST(itemlist, row, col, text, horAlign, Item, textTooltip)
-	local ctrl = itemlist:CreateControl("richtext", "DETAIL_ITEM_" .. row .. "_" .. col, 0, 0, 200, 20);
+	local bg = itemlist:GetGroupBox();
+	local ctrl = bg:CreateControl("richtext", "DETAIL_ITEM_" .. row .. "_" .. col, 0, 0, 200, 20);
 	ctrl = tolua.cast(ctrl, "ui::CRichText");
 	ctrl:EnableResizeByText(0);
 	ctrl:SetTextFixWidth(1);
@@ -32,7 +33,8 @@ function INSERT_TEXT_DETAIL_LIST(itemlist, row, col, text, horAlign, Item, textT
 end
 
 function INSERT_NUMUPDOWN_DETAIL_LIST(itemlist, row, col, text)
-	local ctrl = itemlist:CreateControl("numupdown", "DETAIL_ITEM_" .. row .. "_" .. col, 0, 0, 200, 30);
+	local bg = itemlist:GetGroupBox();
+	local ctrl = bg:CreateControl("numupdown", "DETAIL_ITEM_" .. row .. "_" .. col, 0, 0, 200, 30);
 	ctrl = tolua.cast(ctrl, "ui::CNumUpDown");
 	ctrl:SetFontName("white_18_ol");
 	ctrl:MakeButtons("btn_numdown", "btn_numup", "editbox");
@@ -43,7 +45,8 @@ function INSERT_NUMUPDOWN_DETAIL_LIST(itemlist, row, col, text)
 end
 
 function INSERT_PICTURE_DETAIL_LIST(itemlist, row, col, imageName, picSize)
-	local ctrl = itemlist:CreateControl("picture", "DETAIL_ITEM_" .. row .. "_" .. col, 0, 0, picSize, picSize);
+	local bg = itemlist:GetGroupBox();	
+	local ctrl = bg:CreateControl("picture", "DETAIL_ITEM_" .. row .. "_" .. col, 0, 0, picSize, picSize);
 	ctrl = tolua.cast(ctrl, ctrl:GetClassString());
 	ctrl:ShowWindow(1);
 	ctrl:SetImage(imageName);
@@ -69,7 +72,8 @@ function INSERT_BUTTON_DETAIL_LIST(itemlist, row, col, text, notUseAnim)
 end
 
 function INSERT_CONTROLSET_DETAIL_LIST(itemlist, row, col, ctrlSetName)
-	local ctrl = itemlist:CreateControlSet(ctrlSetName, "DETAIL_ITEM_" .. row .. "_" .. col, 0, 0);
+	local bg = itemlist:GetGroupBox();
+	local ctrl = bg:CreateControlSet(ctrlSetName, "DETAIL_ITEM_" .. row .. "_" .. col, 0, 0);
 	ctrl:ShowWindow(1);
 	itemlist:SetObjectRowCol(ctrl, row, col, 3);
 	return ctrl;

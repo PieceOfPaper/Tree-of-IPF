@@ -27,6 +27,9 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_GIVE_INDUN_POWERUP_BUFF"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
                                 <Str Str="시작!! "/>
                                 <Num Num="5"/>
@@ -367,6 +370,9 @@
                         <execList>
                             <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
                                 <Str Str="MGAME_MON_KILL_COUNT_CALC"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="UPDATE_INDUN_POWERUP_BUFF"/>
                             </ToolScp>
                         </execList>
                     </Event>

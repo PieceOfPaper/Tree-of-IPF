@@ -743,10 +743,10 @@ function SETEXP_SLOT(gbox, addBuffClsName, isAdd)
             elseif buffCls.ClassName == 'Premium_Nexon_PartyExp' then
                 expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName, (NEXON_PC_PARTY_EXP_RATE + JAEDDURY_NEXON_PC_PARTY_EXP_RATE)*100);
             --EVENT_1905_TOS_CHILD
-            elseif buffCls.ClassName == 'EVENT_1905_TOS_CHIILD_BUFF1' then
-                if info.GetLevel(handle) < 380 then
-                    expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName);
-                end
+            --elseif buffCls.ClassName == 'EVENT_1905_TOS_CHIILD_BUFF1' then
+            --    if info.GetLevel(handle) < 380 then
+            --        expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName);
+            --    end
             else
                 expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName);
             end

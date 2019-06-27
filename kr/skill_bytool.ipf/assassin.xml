@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Assassin_Quest4">
+<ToolSkill>
+    <Skill Name="Assassin_Quest4">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
 				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
@@ -114,8 +115,8 @@
 					<Num Num="0" />
 				</Scp>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
+					<Str Str="voice_scout_m_behead_cast"/>
+					<Str Str="voice_scout_f_behead_cast"/>
 				</Scp>
 			</EtcList>
 			<ResultList>
@@ -344,8 +345,8 @@
 					<Str Str="skl_eff_assassin_annihilation" />
 				</Scp>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_scout_m_instantaneousacceleration_cast" />
-					<Str Str="voice_scout_f_instantaneousacceleration_cast" />
+					<Str Str="voice_war_atk_long_cast"/>
+					<Str Str="voice_atk_long_cast_f"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="0" UseSleep="NO">
 					<Str Str="RH" />

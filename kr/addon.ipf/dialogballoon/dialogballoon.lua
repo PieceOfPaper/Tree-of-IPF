@@ -6,6 +6,7 @@ function BALLOON_TEXT(clsName, duration)
 	local frame = ui.GetFrame("dialogballoon");
 	frame = AUTO_CAST(frame)
 	frame:Resize(frame:GetUserConfig("WIDTH_DEFAULT"), frame:GetUserConfig("HEIGHT_DEFAULT"))
+	frame:SetLayerLevel(30);
 	local cls = GetClass("DialogText", clsName);
 	local text = frame:GetChild("text");
 	if cls == nil then

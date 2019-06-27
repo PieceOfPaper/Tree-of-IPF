@@ -1640,6 +1640,7 @@ end
 -- 초월 및 강화불가
 function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 
+	local decomposeAble_flag = 0;
 	local reinforce_flag = 0
 	local transcend_flag = 0
 	local extract_flag = 0
@@ -1647,6 +1648,10 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 	local briquet_flag = 0;
 	local exchange_flag = TryGetProp(invitem, 'Rebuildchangeitem', 0);
 	local text = ""
+
+	if TryGetProp(invitem, 'DecomposeAble', 0) == "NO" then
+		decomposeAble_flag = 1;
+	end
 
 	if REINFORCE_ABLE_131014(invitem) == 0 then
 		reinforce_flag = 1
@@ -1680,7 +1685,7 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 		awaken_flag = 1;
 	end
 
-	if reinforce_flag == 0 and transcend_flag == 0 and extract_flag == 0 and socket_flag == 0 and briquet_flag == 0 and exchange_flag == 0 and awaken_flag == 0 then
+	if reinforce_flag == 0 and transcend_flag == 0 and extract_flag == 0 and socket_flag == 0 and briquet_flag == 0 and exchange_flag == 0 and awaken_flag == 0 and decomposeAble_flag == 0 then
 		return yPos
 	end
 
@@ -1705,6 +1710,7 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 	end
 	
 	text = _APPEND_LIMITATION_TEXT(1, text, CSet:GetUserConfig("TEXT_FONT"), false);
+	text = _APPEND_LIMITATION_TEXT(decomposeAble_flag, text, CSet:GetUserConfig("DECOMPOSEABLE_TEXT"));
 	text = _APPEND_LIMITATION_TEXT(reinforce_flag, text, CSet:GetUserConfig("REINFORCE_TEXT"));
 	text = _APPEND_LIMITATION_TEXT(transcend_flag, text, CSet:GetUserConfig("TRANSCEND_TEXT"));
 	text = _APPEND_LIMITATION_TEXT(extract_flag, text, CSet:GetUserConfig("EXTRACT_TEXT"));

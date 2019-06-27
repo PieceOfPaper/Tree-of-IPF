@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="dialogballoon" x="0" y="0" width="939" height="172" create="open">
 	<frame title="비교" layout_gravity="center center" margin="0 -250 0 0"/>
-	<input moveable="false"/>
+	<input moveable="false" hittestframe="false"/>
 	<skin frameskin="shadow_box"/>
 	<draw drawtitlebar="false" drawnotitlebar="false"/>
 	<layer topmostlayer="true" layerlevel="100"/>

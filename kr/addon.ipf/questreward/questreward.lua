@@ -914,7 +914,7 @@ function MAKE_SELECT_REWARD_CTRL(box, y, questCls, callFunc)
 
 end
 
-function CREATE_QUEST_REWARE_CTRL(box, y, index, ItemName, itemCnt, callFunc)
+function CREATE_QUEST_REWARE_CTRL(box, y, index, ItemName, itemCnt, callFunc, tradeselectitemClassName)
 	local isOddCol = 0;
 	if math.floor((index - 1) % 2) == 1 then
 		isOddCol = 0;
@@ -950,8 +950,13 @@ function CREATE_QUEST_REWARE_CTRL(box, y, index, ItemName, itemCnt, callFunc)
 	ctrlSet:SetClickSound("button_click_stats");
 	ctrlSet:SetEnableSelect(1);
 	ctrlSet:SetSelectGroupName("QuestRewardList");
-	SET_ITEM_TOOLTIP_BY_TYPE(ctrlSet, itemCls.ClassID);
-
+	
+	if tradeselectitemClassName == nil or tradeselectitemClassName == 'None' then
+		SET_ITEM_TOOLTIP_BY_TYPE(ctrlSet, itemCls.ClassID);
+	else
+		SET_ITEM_TOOLTIP_BY_TRADESELECTITEM(ctrlSet, tradeselectitemClassName, itemCls.ClassID)
+	end
+	
 	ctrlSet:Resize(box:GetWidth() - 30, ctrlSet:GetHeight());
 
 	y = y + ctrlSet:GetHeight();

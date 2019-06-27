@@ -86,8 +86,8 @@ function ATTENDANCE_CTRLSET(list, classCtrl, AttendanceID, AttendanceName)
 	-- 버튼 색 지정
 	local LastRewardData = session.attendance.GetLastRewardData(AttendanceID);
 	if LastRewardData ~= nil then
-		local diffDays = imcTime.GetDifDaysFromNow(LastRewardData.registerTime);
-		if diffDays ~= 0 then
+		local diffDays = imcTime.AfterDayNowFromTargetTime(LastRewardData.registerTime);
+		if diffDays == 1 then
 			local attendanceData = session.attendance.GetAttendanceData(AttendanceID);	
 			if attendanceData == nil then
 				return;
