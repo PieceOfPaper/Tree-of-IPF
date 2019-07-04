@@ -238,6 +238,10 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Success"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Initialize/0"/>
+                                <Str Str="GM_BK_SET_USED_DAY_RECORD_AFTER"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="IsTimeAttackMode">
