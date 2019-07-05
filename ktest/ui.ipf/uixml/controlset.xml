@@ -444,7 +444,7 @@
 		</controls>
 	</controlset>
 	<controlset name="tooltip_equip_cannot_reinforce" hittest="true" width="410" height="45">
-		<userconfig BOTTOM_MARGIN="10" TEXT_FONT="{#62100c}" REINFORCE_TEXT="강화 불가" TRANSCEND_TEXT="초월 불가" EXTRACT_TEXT="추출 불가" SOCKET_TEXT="소켓 추출 불가" BRIQUET_TEXT="외형 변경 불가" EXCHANGE_TEXT="{#00fec5}{ol}계열 변경 가능(1월 24일까지){/}" AWAKEN_TEXT="각성 불가"/>
+		<userconfig BOTTOM_MARGIN="10" TEXT_FONT="{#62100c}" REINFORCE_TEXT="강화 불가" TRANSCEND_TEXT="초월 불가" EXTRACT_TEXT="추출 불가" SOCKET_TEXT="소켓 추출 불가" BRIQUET_TEXT="외형 변경 불가" EXCHANGE_TEXT="{#00fec5}{ol}계열 변경 가능(1월 24일까지){/}" AWAKEN_TEXT="각성 불가" DECOMPOSEABLE_TEXT="분해 불가"/>
 		<controls>
 			<labelline name="labelline" margin="0 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center top"/>
 			<richtext name="socket_text" layout_gravity="left top" rect="0 0 390 45" margin="17 5 0 0" fixwidth="true" format="" hittest="false" textalign="left center" fontname="brown_16"/>
@@ -4385,7 +4385,7 @@
 	<controlset name="market_option_group_select" hittest="true" width="315" height="55" hittestset="true" draw="false" skin="none">
 		<controls>
 			<droplist name="groupList" rect="0 0 80 30" margin="10 1 0 0" layout_gravity="left top" skin="droplist_normal" visibleline="10" frametextalign="left" font="white_20_ol" textalign="left center" textoffset="20 0" SelectScp="MARKET_INIT_OPTION_GROUP_VALUE_DROPLIST"/>
-			<droplist name="nameList" rect="0 0 200 30" margin="93 1 0 0" layout_gravity="left top" skin="droplist_normal" visibleline="10" frametextalign="left" font="white_20_ol" textalign="left center" textoffset="20 0" SelectScp="MARKET_CATEGORY_CHECK_DUPLICATE_OPTION"/>
+			<droplist name="nameList" rect="0 0 200 30" margin="93 1 0 0" layout_gravity="left top" skin="droplist_normal" visibleline="10" frametextalign="left" font="white_20_ol" textalign="left center" textoffset="20 0" SelectScp="MARKET_CATEGORY_CHECK_DUPLICATE_OPTION" />
 			<richtext name="deleteText" rect="0 0 30 30" margin="0 0 8 0" layout_gravity="right top" caption="x" fontname="brown_18_b" texttooltip="옵션 삭제" LBtnUpScp="MARKET_DELETE_OPTION_GROUP_SELECT"/>
 			<richtext name="staticText2" rect="0 0 100 30" margin="186 27 0 0" layout_gravity="left top" caption="~" fontname="brown_16_b"/>
 			<groupbox name="minEditBox" rect="0 0 90 24" margin="92 25 0 0" layout_gravity="left top" skin="test_weight_skin"/>

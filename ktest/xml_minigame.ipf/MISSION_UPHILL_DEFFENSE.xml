@@ -23,7 +23,7 @@
                     <Obj Type="Monster" MonType="47265" Pos="209.54#80.12#-152.99" angle="-100" genCount="1" genTime="20000" autoGen="0" objectKey="13" UseAiOutOfPc="1" propList="&apos;Faction&apos; &apos;FreeForAll&apos; &apos;MHP_BM&apos; &apos;@GET_UPHILL_MHP_DEFF1&apos; &apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;Name&apos; &apos;신성의 횃불&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
-                    <Obj Type="Monster" MonType="151000" Pos="297.22#80.12#-242.25" angle="133" genCount="1" genTime="20000" objectKey="14" autoDestroy="0" propList="&apos;Name&apos; &apos;정수 변환기&apos; &apos;Scale&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_UPHILL_DEFFENSEOBJ1&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="297.22#80.12#-242.25" angle="133" genCount="1" genTime="20000" objectKey="14" autoDestroy="0" propList="&apos;Name&apos; &apos;정수 변환기&apos; &apos;Scale&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_UPHILL_DEFFENSEOBJ1&apos; &apos;MaxDialog&apos; &apos;1&apos; "/>
                     <Obj Type="Monster" MonType="105025" Pos="-456.75#-94.92#171.98" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="15" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;SimpleAI&apos; &apos;UPHILL_GIMMICK_GUARD_MONSTER_L2_AI&apos; "/>
                     <Obj Type="Monster" MonType="105025" Pos="-410.50#-94.92#165.46" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="16" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;SimpleAI&apos; &apos;UPHILL_GIMMICK_GUARD_MONSTER_L2_AI&apos; "/>
                     <Obj Type="Monster" MonType="105025" Pos="-426.89#-94.92#139.43" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="17" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;SimpleAI&apos; &apos;UPHILL_GIMMICK_GUARD_MONSTER_L2_AI&apos; "/>
@@ -247,7 +247,7 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="&apos;매우 어려움&apos; 난이도로 진행합니다.{nl}10초 뒤, 1단계가 시작됩니다."/>
+                                <Str Str="&apos;매우 어려움&apos; 난이도로 진행합니다.{nl}10초 뒤, 1단계가 시작됩니다.{nl}제한 레벨에 해당하지 않는 유저는 5초 후에 진입했던 곳으로 돌아갑니다."/>
                                 <Str Str="Clear"/>
                                 <Num Num="5"/>
                             </ToolScp>
@@ -265,6 +265,23 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="HiddenOpen"/>
                                 <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="UserBan"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" execCount="1" eventName="UserBan" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="difficulty"/>
+                                <Str Str="EQ"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_RUNSCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_USER_CONDITION_CHECK_BAN"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -2564,7 +2581,7 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="숨겨진 스테이지 등장!{nl}2분 내에 보스를 처치하면 보너스 포인트를 받을 수 있습니다!"/>
+                                <Str Str="숨겨진 스테이지 등장!{nl}90초 내에 모든 보스와 몬스터를 처치하면 보너스 포인트를 받을 수 있습니다!"/>
                                 <Str Str="Clear"/>
                                 <Num Num="5"/>
                             </ToolScp>

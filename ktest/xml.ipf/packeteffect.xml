@@ -2063,7 +2063,11 @@
 		<Effect Name="MackangdalOFF"/>
 		<Effect Name="SHOW_MACANGDAL"/>
 		<Effect Name="TOY_BUBBLETEA"/>
-	</Category>
+	<Effect Name="voice_cleric_f_omikuji_cast_success"/>
+        <Effect Name="voice_cleric_m_omikuji_cast_fail"/>
+        <Effect Name="voice_cleric_m_omikuji_cast_success"/>
+        <Effect Name="voice_cleric_f_omikuji_cast_fail"/>
+    </Category>
 	<Category ID="84">
 		<Effect Name="M_PAST_FLIBRARY_1"/>
 	</Category>

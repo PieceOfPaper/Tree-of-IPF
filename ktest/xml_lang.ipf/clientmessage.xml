@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -323,6 +323,7 @@
 		<Class ClassID="2292" ClassName="CantUseInBattleState" Data="전투중엔 사용하실 수 없습니다."/>
 		<Class ClassID="2293" ClassName="CantUseInSkillsCoolDown" Data="스킬이 재사용 대기시간 중이거나 오버히트를 소모한 상태에서 사용하실 수 없습니다."/>
 		<Class ClassID="2302" ClassName="selectrecipe" Data="레시피 선택"/>
+		<Class ClassID="2305" ClassName="UseUp{LEVEL}{GRADE}Jewell" Data="{LEVEL} 레벨의 {GRADE} 인챈트 쥬얼 아이템을 모두 사용하였습니다.{nl}인챈트 쥬얼 UI를 닫으시겠습니까?"/>
 	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
@@ -433,7 +434,7 @@
 		<Class ClassID="4032" ClassName="Bow" Data="쇠뇌"/>
 		<Class ClassID="4033" ClassName="Mace" Data="한손둔기"/>
 		<Class ClassID="4034" ClassName="Charm" Data="참"/>
-		<Class ClassID="4035" ClassName="Outer" Data="외투"/>
+		<Class ClassID="4035" ClassName="Outer" Data="코스튬"/>
 		<Class ClassID="4036" ClassName="Neck" Data="목걸이"/>
 		<Class ClassID="4037" ClassName="Ring" Data="팔찌"/>
 		<Class ClassID="4038" ClassName="Boots" Data="신발"/>
@@ -3742,7 +3743,7 @@
 		<Class ClassID="26134" ClassName="HIDENSEEK_GET_RWARD_FAIL" Data="이 상자는 당신의 상자가 아닙니다{nl}펜듈럼을 사용해 숨겨진 보상을 찾아보세요"/>
 		<Class ClassID="26135" ClassName="MONSTER_PAIR_REWARD_HIDE" Data="짝 맞추기 보상 NPC가 사라집니다"/>
 		<Class ClassID="26136" ClassName="GIMMICK_TRANSFORM_MSG" Data="몬스터 모습으로 변신했습니다"/>
-		<Class ClassID="26137" ClassName="GIMMICK_TRANSFORM_FAIL" Data="도시에서만 사용할 수 있습니다"/>
+		<Class ClassID="26137" ClassName="GIMMICK_TRANSFORM_FAIL" Data="클라페다, 오르샤, 페디미안 지역에서만 사용할 수 있습니다"/>
 		<Class ClassID="26138" ClassName="ROKAS_36_1_PILLA05_REPAIR" Data="기둥을 수리하는 중"/>
 		<Class ClassID="26139" ClassName="ROKAS_36_1_PILLA05_GET_ITEM" Data="기둥을 수리 할 만한 점성 있는 액체를 구해 오세요!"/>
 		<Class ClassID="26140" ClassName="ROKAS_30_PIPOTI_MAP_ZONE_CHECK" Data="왕의 고원에서만 사용할 수 있습니다"/>
@@ -5135,7 +5136,7 @@
 		<Class ClassID="28251" ClassName="EVENT_1811_NEWCHARACTER_MSG12" Data="캐릭터 슬롯이 모두 개방되어 슬롯 아이템 대신 증정용 33TP 가 지급됩니다"/>
 		<Class ClassID="28252" ClassName="EVENT_1811_NEWCHARACTER_MSG13" Data="{COUNT1}강화 {COUNT2}초월"/>
 		<Class ClassID="28253" ClassName="EVENT_1811_NEWCHARACTER_MSG14" Data="적용할 장비 아이템이 없습니다"/>
-		<Class ClassID="28254" ClassName="EVENT_1903_NEWCHARACTER_MSG1" Data="레벨 200이하만 참여 할 수 있습니다."/>
+		<Class ClassID="28254" ClassName="EVENT_1903_NEWCHARACTER_MSG1" Data="레벨 380미만만 참여 할 수 있습니다."/>
 		<Class ClassID="28255" ClassName="EVENT_1811_KUPOLE_MSG1" Data="교환 상점을 사용한다"/>
 		<Class ClassID="28260" ClassName="IMCTEST_1811_NPC_MSG1" Data="보루타 레이드 지역으로 이동"/>
 		<Class ClassID="28261" ClassName="IMCTEST_1811_NPC_MSG2" Data="콜로니전 지역으로 이동"/>
@@ -6780,7 +6781,7 @@
 		<Class ClassID="66002" ClassName="RVR_BK_KAZE_NPC_SEL_MSG_1" Data="우르바스 증표 사용"/>
 		<Class ClassID="66003" ClassName="RVR_BK_KAZE_NPC_SEL_REST" Data="슬리비나스 레어 정찰"/>
 		<Class ClassID="66004" ClassName="RVR_BK_REWARD_GUILD" Data="길드보상을 확인한다"/>
-		<Class ClassID="66005" ClassName="RVR_BK_REWARD_PERSONAL" Data="(구)개인보상을 확인한다"/>
+		<Class ClassID="66005" ClassName="RVR_BK_REWARD_PERSONAL" Data="개인보상을 확인한다"/>
 		<Class ClassID="66006" ClassName="RVR_BK_KAZE_NPC_SEL_RANK" Data="현재 기여도를 확인한다"/>
 		<Class ClassID="66007" ClassName="RVR_BK_KAZE_NPC_SEL_SAY" Data="대화하기"/>
 		<Class ClassID="66008" ClassName="RVR_BK_KAZE_NPC_ENTRANCE" Data="슬리비나스 레어에 진입한다"/>
@@ -6826,24 +6827,6 @@
 		<Class ClassID="66120" ClassName="RVR_BK_NOTYET_QUEST_1" Data="{Q_NAME} 퀘스트는 {Q_LV}레벨부터 진행할 수 있습니다"/>
 		<Class ClassID="66121" ClassName="RVR_BK_LIMIT_RETURN_ZONE_1" Data="우르바스 증표의 효과가 만료되었습니다.{nl}{COUNT} 초 후 베다 고원으로 탈출합니다"/>
 		<Class ClassID="66122" ClassName="RVR_BK_LIMIT_RETURN_ZONE_2" Data="우르바스 증표의 효과를 받을 수 없습니다.{nl}내일 오후 10시에 다시 시도해주세요."/>
-		<Class ClassID="66123" ClassName="GUILD_MISSION_MSG_ENTER_FAIL5{day}{time}" Data="길드 탈퇴 후 {day}일 동안은 길드 이벤트에 참가할 수 없습니다.{nl}(참가 가능일 : {time} 이후)"/>
-		<Class ClassID="66124" ClassName="GUILD_MISSION_ENTER_REMAIN_TIME{day}{hour}{min}{sec}" Data="{day}일 {hour}시간 {min}분 {sec}초"/>
-		<Class ClassID="66125" ClassName="Guild_Event_boruta_Awards_WorldMessage_1" Data="금주의 슬리비나스 봉쇄전이 종료되었으며, 순위는 다음과 같습니다."/>
-		<Class ClassID="66126" ClassName="Guild_Event_boruta_Awards_WorldMessage_2" Data="잠시 후 오후 8시부터 9시까지 {nl}길드 콜로니전이 진행될 예정입니다."/>
-		<Class ClassID="66127" ClassName="Guild_Event_boruta_Awards_WorldMessage_3" Data="길드 콜로니전에서 스팟을 점령하면 {nl}슬리비나스 봉쇄전에 참여할 수 있습니다.{nl}구원자 여러분의 많은 참여 부탁드립니다."/>
-		<Class ClassID="66128" ClassName="Guild_Event_boruta_Awards_WorldMessage_Rank_1" Data="1위 : [{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
-		<Class ClassID="66129" ClassName="Guild_Event_boruta_Awards_WorldMessage_Rank_2" Data="2위 : [{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
-		<Class ClassID="66130" ClassName="Guild_Event_boruta_Awards_WorldMessage_Rank_3" Data="3위 : [{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
-		<Class ClassID="66131" ClassName="Guild_Event_boruta_Awards_WorldMessage_Rank_4" Data="4위 : [{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
-		<Class ClassID="66132" ClassName="Guild_Event_boruta_Awards_WorldMessage_Rank_5" Data="5위 : [{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
-		<Class ClassID="66133" ClassName="Guild_Event_boruta_Awards_WorldMessage_4" Data="슬리비나스 봉쇄전의 보상은 베다 고원의 {nl}큐폴 카제에게 지급 받을 수 있습니다."/>
-		<Class ClassID="66134" ClassName="GM_BK_NPC_AUSTEJA_MSG_1" Data="[미션시작]드래곤 보루타와 대적한다"/>
-		<Class ClassID="66135" ClassName="GM_BK_CHECK_OUR_GUILD_POINT" Data="슬리비나스 봉쇄전 기록을 확인한다"/>
-		<Class ClassID="66136" ClassName="RVR_BK_REWARD_GET_GUILD_NOT_THERE_2" Data="확인 가능한 기록이 없습니다"/>
-		<Class ClassID="66137" ClassName="Guild_Event_boruta_Check_My_Guild_Record_1" Data="[{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
-		<Class ClassID="66138" ClassName="GM_BK_NPC_AUSTEJA_MSG_2" Data="우르바스의 증표 반납 [ 현재 : {COUNT} / 100 ]"/>
-		<Class ClassID="66139" ClassName="GM_BK_NPC_AUSTEJA_CNT" Data=" 개 반납"/>
-		<Class ClassID="66140" ClassName="GM_BK_NPC_AUSTEJA_CNT_TAKE_1" Data="우르바스의 증표 반납 {COUNT} 개 반납했습니다"/>
 		<Class ClassID="67000" ClassName="JOB_SHINOBI_HIDDEN_ITEM_5_book2" Data="글자가 보이는 두루마리"/>
 		<Class ClassID="67001" ClassName="Nebulas_Book" Data="네뷸라스와 칼레이마스"/>
 		<Class ClassID="67002" ClassName="Mirtis_Book" Data="미르티스 이야기"/>
@@ -9085,9 +9068,6 @@
 		<Class ClassID="102417" ClassName="ReallyChangeLeader" Data="[{NAME}] 님에게 길드를 양도합니다. 길드 양도 후에는 직급이 변경되므로 신중히 선택해주시기 바랍니다. {nl} 계속 하시겠습니까?"/>
 		<Class ClassID="102418" ClassName="DecreaseCraftTime" Data="제작시간 감소"/>
 		<Class ClassID="102419" ClassName="CantJoinGuildUntilDaysBefore{Number2}Days{Time}" Data="길드 탈퇴 후 {Number2}일 이내에 타 길드에 가입이 불가능 합니다.{nl}가입 가능일 : {Time} 이후"/>
-		<Class ClassID="102421" ClassName="NotEnoughTicketPossibleCount_GMBK" Data="해당 길드 퀘스트를 이미 이용하였습니다.{nl}내일 오전 06시 이후 이용할 수 있습니다."/>
-		<Class ClassID="102422" ClassName="NotEnoughTicketPossibleCount_GMBK_1" Data="해당 길드 퀘스트를 이미 클리어 했습니다.{nl}다음 주 월요일 오전 06시 이후 이용할 수 있습니다."/>
-		<Class ClassID="102423" ClassName="NotEnoughTicketPossibleCount_GMBK_2" Data="해당 길드 퀘스트는 현재 이용할 수 없습니다."/>
 		<Class ClassID="102421" ClassName="NotEnoughTicketPossibleCount_GMBK" Data="해당 길드 이벤트는 이번 주에 더 이용할 수 없습니다"/>
 	</Category>
 	<Category Name="EqupClasses">
@@ -12462,6 +12442,7 @@
 		<Class ClassID="138408" ClassName="HighItemGradeReallyDestroy{ITEM}{COUNT}" Data="{#fe7e00}[{ITEM}]{/}을/를 {#fe7e00}[{COUNT}]{/}개 파괴하실려면 숫자 [0000] 을 입력해주세요."/>
 		<Class ClassID="138409" ClassName="HighItemGradeReallyDestroy{ITEM}" Data="정말 {#fe7e00}[{ITEM}]{/}을/를 파괴하실려면 숫자 [0000] 을 입력해주세요."/>
 		<Class ClassID="138411" ClassName="ReallyWantToPartyForChallengeMode" Data="챌린지 모드 진행중 파티를 탈퇴하는 경우, 챌린지 모드가 정상적으로 진행되지 않습니다. 정말 파티를 탈퇴하시겠습니까?"/>
+		<Class ClassID="138412" ClassName="BanUphillNotLevelCondition" Data="현재의 파티가 매우 어려움 난이도로 진행하고 있습니다. 400 레벨 미만은 진행할 수 없으므로, 400 레벨 이상의 캐릭터로 재진입해 주십시오."/>
 	</Category>
 	<Category Name="SkillMsg">
 		<Class ClassID="200001" ClassName="DontBuildCampThisAria" Data="해당 지역에서는 거점을 설치할 수 없습니다."/>
