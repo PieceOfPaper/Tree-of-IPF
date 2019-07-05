@@ -6781,7 +6781,7 @@
 		<Class ClassID="66002" ClassName="RVR_BK_KAZE_NPC_SEL_MSG_1" Data="우르바스 증표 사용"/>
 		<Class ClassID="66003" ClassName="RVR_BK_KAZE_NPC_SEL_REST" Data="슬리비나스 레어 정찰"/>
 		<Class ClassID="66004" ClassName="RVR_BK_REWARD_GUILD" Data="길드보상을 확인한다"/>
-		<Class ClassID="66005" ClassName="RVR_BK_REWARD_PERSONAL" Data="개인보상을 확인한다"/>
+		<Class ClassID="66005" ClassName="RVR_BK_REWARD_PERSONAL" Data="(구)개인보상을 확인한다"/>
 		<Class ClassID="66006" ClassName="RVR_BK_KAZE_NPC_SEL_RANK" Data="현재 기여도를 확인한다"/>
 		<Class ClassID="66007" ClassName="RVR_BK_KAZE_NPC_SEL_SAY" Data="대화하기"/>
 		<Class ClassID="66008" ClassName="RVR_BK_KAZE_NPC_ENTRANCE" Data="슬리비나스 레어에 진입한다"/>
@@ -6827,6 +6827,25 @@
 		<Class ClassID="66120" ClassName="RVR_BK_NOTYET_QUEST_1" Data="{Q_NAME} 퀘스트는 {Q_LV}레벨부터 진행할 수 있습니다"/>
 		<Class ClassID="66121" ClassName="RVR_BK_LIMIT_RETURN_ZONE_1" Data="우르바스 증표의 효과가 만료되었습니다.{nl}{COUNT} 초 후 베다 고원으로 탈출합니다"/>
 		<Class ClassID="66122" ClassName="RVR_BK_LIMIT_RETURN_ZONE_2" Data="우르바스 증표의 효과를 받을 수 없습니다.{nl}내일 오후 10시에 다시 시도해주세요."/>
+		<Class ClassID="66123" ClassName="GUILD_MISSION_MSG_ENTER_FAIL5{day}{time}" Data="길드 탈퇴 후 {day}일 동안은 길드 이벤트에 참가할 수 없습니다.{nl}(참가 가능일 : {time} 이후)"/>
+		<Class ClassID="66124" ClassName="GUILD_MISSION_ENTER_REMAIN_TIME{day}{hour}{min}{sec}" Data="{day}일 {hour}시간 {min}분 {sec}초"/>
+		<Class ClassID="66125" ClassName="Guild_Event_boruta_Awards_WorldMessage_1" Data="이번 주의 슬리비나스 봉쇄전이 종료되었으며, 순위는 다음과 같습니다."/>
+		<Class ClassID="66126" ClassName="Guild_Event_boruta_Awards_WorldMessage_2" Data="잠시 후 오후 8시부터 9시까지 {nl}길드 콜로니전이 진행될 예정입니다."/>
+		<Class ClassID="66127" ClassName="Guild_Event_boruta_Awards_WorldMessage_3" Data="길드 콜로니전에서 스팟을 점령하면 {nl}슬리비나스 봉쇄전에 참여할 수 있습니다.{nl}구원자 여러분의 많은 참여 부탁드립니다."/>
+		<Class ClassID="66128" ClassName="Guild_Event_boruta_Awards_WorldMessage_Rank_1" Data="1위 : [{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
+		<Class ClassID="66129" ClassName="Guild_Event_boruta_Awards_WorldMessage_Rank_2" Data="2위 : [{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
+		<Class ClassID="66130" ClassName="Guild_Event_boruta_Awards_WorldMessage_Rank_3" Data="3위 : [{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
+		<Class ClassID="66131" ClassName="Guild_Event_boruta_Awards_WorldMessage_Rank_4" Data="4위 : [{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
+		<Class ClassID="66132" ClassName="Guild_Event_boruta_Awards_WorldMessage_Rank_5" Data="5위 : [{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
+		<Class ClassID="66133" ClassName="Guild_Event_boruta_Awards_WorldMessage_4" Data="슬리비나스 봉쇄전의 보상은 베다 고원의 {nl}큐폴 카제에게 지급 받을 수 있습니다."/>
+		<Class ClassID="66134" ClassName="GM_BK_NPC_AUSTEJA_MSG_1" Data="[미션시작]드래곤 보루타와 대적한다"/>
+		<Class ClassID="66135" ClassName="GM_BK_CHECK_OUR_GUILD_POINT" Data="슬리비나스 봉쇄전 기록을 확인한다"/>
+		<Class ClassID="66136" ClassName="RVR_BK_REWARD_GET_GUILD_NOT_THERE_2" Data="확인 가능한 기록이 없습니다"/>
+		<Class ClassID="66137" ClassName="Guild_Event_boruta_Check_My_Guild_Record_1" Data="[{partyName}] 길드 [ {TimeRankMin}분 {TimeRankSec}초 ]"/>
+		<Class ClassID="66138" ClassName="GM_BK_NPC_AUSTEJA_MSG_2" Data="우르바스의 증표 반납 [ 현재 : {COUNT} / 100 ]"/>
+		<Class ClassID="66139" ClassName="GM_BK_NPC_AUSTEJA_CNT" Data=" 개 반납"/>
+		<Class ClassID="66140" ClassName="GM_BK_NPC_AUSTEJA_CNT_TAKE_1" Data="우르바스의 증표 반납 {COUNT} 개 반납했습니다"/>
+		<Class ClassID="66141" ClassName="Guild_Event_boruta_Awards_WorldMessage_5" Data="이번 주의 슬리비나스 봉쇄전이 종료되었으며,{nl}드래곤 보루타를 제압한 길드는 없습니다."/>
 		<Class ClassID="67000" ClassName="JOB_SHINOBI_HIDDEN_ITEM_5_book2" Data="글자가 보이는 두루마리"/>
 		<Class ClassID="67001" ClassName="Nebulas_Book" Data="네뷸라스와 칼레이마스"/>
 		<Class ClassID="67002" ClassName="Mirtis_Book" Data="미르티스 이야기"/>
@@ -7112,7 +7131,7 @@
 		<Class ClassID="67295" ClassName="EVENT_1901_RANKRESET_SEL_1" Data="클래스 변경 포인트로 지원 받는다"/>
 		<Class ClassID="67296" ClassName="EVENT_1901_RANKRESET_SEL_2" Data="아이템으로 지원 받는다"/>
 		<Class ClassID="67297" ClassName="EVENT_1901_RANKRESET_SEL_3" Data="클래스 변경 포인트와 아이템을 지원 받는다"/>
-		<Class ClassID="67298" ClassName="EVENT_1901_RANKRESET_NPC_2" Data="추가 대상 클래스를 확인한다. (추가 대상자 : 보코르)"/>
+		<Class ClassID="67298" ClassName="EVENT_1901_RANKRESET_NPC_2" Data="추가 대상 클래스를 확인한다. (대상자 : 메르겐)"/>
 		<Class ClassID="67300" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG1" Data="격리 예정지로 향하는 포탈이 생성되었습니다.{nl}2분간 지속 됩니다."/>
 		<Class ClassID="67301" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG2" Data="격리 예정지"/>
 		<Class ClassID="67302" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG3" Data="확장 예정지로 향하는 포탈이 생성되었습니다.{nl}2분간 지속 됩니다."/>
@@ -9068,7 +9087,10 @@
 		<Class ClassID="102417" ClassName="ReallyChangeLeader" Data="[{NAME}] 님에게 길드를 양도합니다. 길드 양도 후에는 직급이 변경되므로 신중히 선택해주시기 바랍니다. {nl} 계속 하시겠습니까?"/>
 		<Class ClassID="102418" ClassName="DecreaseCraftTime" Data="제작시간 감소"/>
 		<Class ClassID="102419" ClassName="CantJoinGuildUntilDaysBefore{Number2}Days{Time}" Data="길드 탈퇴 후 {Number2}일 이내에 타 길드에 가입이 불가능 합니다.{nl}가입 가능일 : {Time} 이후"/>
-		<Class ClassID="102421" ClassName="NotEnoughTicketPossibleCount_GMBK" Data="해당 길드 이벤트는 이번 주에 더 이용할 수 없습니다"/>
+		<Class ClassID="102421" ClassName="NotEnoughTicketPossibleCount_GMBK" Data="해당 길드 퀘스트를 이미 이용하였습니다.{nl}내일 오전 06시 이후 이용할 수 있습니다."/>
+		<Class ClassID="102422" ClassName="NotEnoughTicketPossibleCount_GMBK_1" Data="해당 길드 퀘스트를 이미 클리어 했습니다.{nl}다음 주 월요일 오전 06시 이후 이용할 수 있습니다."/>
+		<Class ClassID="102423" ClassName="NotEnoughTicketPossibleCount_GMBK_2" Data="해당 길드 퀘스트는 현재 이용할 수 없습니다.{nl}이용제한 : 오전 5시부터 오전 6시 전까지"/>
+		<Class ClassID="102424" ClassName="NotEnoughTicketPossibleCount_GMBK_100" Data="해당 길드 퀘스트는 현재 이용할 수 없습니다.{nl}이용제한 : 일요일 오후 6시부터 월요일 오전 6시 전까지"/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>

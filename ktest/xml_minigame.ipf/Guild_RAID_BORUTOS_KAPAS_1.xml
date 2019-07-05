@@ -157,9 +157,7 @@
             </Stage>
             <Stage Name="Gen_Boss" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="59287" Pos="349.27#207.22#1224.86" angle="-79" maxStackCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1"/>
-                    </Obj>
+                    <Obj Type="Monster" MonType="59287" Pos="349.27#207.22#1224.86" angle="-79" maxStackCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="Save_HP" isEnabled="0">
@@ -210,8 +208,9 @@
                                 <Str Str="BossAppear"/>
                                 <Num Num="10"/>
                             </ToolScp>
-                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="NoticeToGuild"/>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Initialize/0"/>
+                                <Str Str="SCR_GM_BK_BROADCAST_BORN_BORUTA"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -241,7 +240,7 @@
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="Initialize/0"/>
-                                <Str Str="SCR_GM_BK_BROADCAST_DEAD_BORUTA"/>
+                                <Str Str="GM_BK_SET_USED_DAY_RECORD_AFTER"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -421,7 +420,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="Summon_warrior_600">
+                    <Event execCount="1" eventName="Summon_warrior_600">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="600"/>
@@ -487,12 +486,12 @@
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="300"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
-                            </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
                                 <MGameObj List="Gen_Boss/0"/>
                                 <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -517,7 +516,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="SafeArea_On">
+                    <Event eventName="SafeArea_On" isEnabled="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="600"/>
@@ -530,11 +529,6 @@
                                 <Num Num="1"/>
                             </ToolScp>
                         </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
-                                <Str Str="Pattern_safeArea"/>
-                            </ToolScp>
-                        </execList>
                     </Event>
                 </StageEvents>
             </Stage>
@@ -593,7 +587,7 @@
                 </StartScpList>
                 <ObjList/>
                 <StageEvents>
-                    <Event execCount="1" eventName="SafeArea_On">
+                    <Event execCount="1" eventName="SafeArea_On" isEnabled="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="10"/>
@@ -701,7 +695,7 @@
                     <Event execCount="1" eventName="CompleteWeek">
                         <execList>
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj/>
+                                <MGameObj List="Initialize/0"/>
                                 <Str Str="GM_BK_CLEAR_WEEK"/>
                             </ToolScp>
                         </execList>
@@ -782,6 +776,22 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_GUILD_MINIGAME_EXIT" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Initialize/0"/>
+                                <Str Str="GM_BK_MGAME_MONGOLOG_MGAME_END"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="TimeAttackMode"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+                                <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Success"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
                             </ToolScp>

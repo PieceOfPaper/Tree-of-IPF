@@ -127,7 +127,7 @@ function EXEC_GUILD_EVENT(clsID)
 	    local CheckTime = guildObj.GuildEvent_BorutosKapas_Count
 
         if CheckTime > 0 then
-            ui.SysMsg(ScpArgMsg("NotEnoughTicketPossibleCount_GMBK"));
+            ui.SysMsg(ScpArgMsg("NotEnoughTicketPossibleCount_GMBK_1"));
             return
         end
 
