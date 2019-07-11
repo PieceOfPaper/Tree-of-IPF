@@ -236,7 +236,7 @@
 		<richtext name="class_score_text" parent="page_grow" rect="0 0 200 20" margin="0 100 40 0" layout_gravity="right top" resizebytext="false" textalign="right center" fontname="black_18_b" format="클래스 점수  %s점" param1="value" param1_def="0"/>
 		<groupbox name="team_score_bg" rect="0 0 570 40" margin="5 70 0 0" parent="page_grow" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" image="none"/>
 		<richtext name="team_level_text" rect="0 0 200 30" margin="50 100 0 0" parent="page_grow" layout_gravity="left top" textalign="left top" format="팀 레벨 %s" param1="value" param1_def="0" fontname="black_18_b"/>
-		<richtext name="team_score_text" rect="0 0 200 30" margin="530 100 0 0" parent="page_grow" layout_gravity="left top" textalign="left top" format="%s점" param1="value" param1_def="0" fontname="black_18_b"/>
+		<richtext name="team_score_text" rect="-620 0 200 30" margin="480 100 0 0" parent="page_grow" layout_gravity="right top" textalign="right top" format="%s점" param1="value" param1_def="0" fontname="black_18_b"/>
 		<groupbox name="grow_char_list" rect="0 0 550 680" margin="40 130 0 0" parent="page_grow" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" skin="test_frame_midle"/>
 		<!--컨트롤셋없음.-->
 		<controlset name="grow_dummy" rect="0 0 300 50" margin="0 0 0 0" parent="grow_char_list" type="adventure_book_grow_elem" layout_gravity="left top" hittestbox="false" scrollbar="false"/>

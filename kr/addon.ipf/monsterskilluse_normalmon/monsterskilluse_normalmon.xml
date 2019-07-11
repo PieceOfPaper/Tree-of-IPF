@@ -10,6 +10,6 @@
 	<animation frameOpenAnim="monskl_in" frameCloseAnim="monskl_out"/>
 	<option hideable="false" closebutton="false"/>
 	<controls>
-		<richtext name="text" rect="0 0 300 30" margin="0 0 0 0 " layout_gravity="center center" drawbackground="false" fixwidth="true" fontname="monskl" format="{@st41monskl}%s{/}" hittest="false" maxwidth="0" param1="value" param1_def="Pyromancer_FirePillar" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+		<richtext name="text" rect="0 0 300 30" margin="0 0 0 0 " layout_gravity="center center" drawbackground="false" fixwidth="false" fontname="monskl" format="{@st41monskl}%s{/}" hittest="false" maxwidth="0" param1="value" param1_def="Pyromancer_FirePillar" resizebytext="true" slideshow="false" spacey="0" textalign="left center" updateparent="true"/>
 	</controls>
 </uiframe>

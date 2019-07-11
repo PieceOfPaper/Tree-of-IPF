@@ -174,7 +174,7 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="Clear"/>
-                            </ToolScp>
+                            </ToolScp> 
                             <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="timecheck"/>
                             </ToolScp>
@@ -259,6 +259,9 @@
                                 <Str Str="Clear"/>
                                 <Num Num="1"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_SET_BGM" Client="NO" UseSleep="NO">
+                                <Str Str="raid_shadow_trans"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="PORTAL_SUMMON" execWithStart="0">
@@ -309,7 +312,7 @@
                                 <Num Num="1"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="900"/>
+                                <Num Num="1800"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
                                 <MGameObj List="DefGroup/7"/>
@@ -317,6 +320,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="스키아클립스가 광폭화 상태가 되었습니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="DefGroup/7"/>
                                 <Str Str="SHADOW_RAID_MAX_POWER"/>
@@ -415,14 +422,18 @@
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="DefGroup/1"/>
-                                <Str Str="SHADOW_RAID_MAX_POWER"/>
-                            </ToolScp>
                             <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
                                 <Str Str="SHADOW_LEGEND_PHASE_CHECK_LOG"/>
                                 <Str Str="Ex"/>
                                 <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="스키아클립스가 광폭화 상태가 되었습니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Str Str="SHADOW_RAID_MAX_POWER"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -1156,7 +1167,7 @@
                                 <MGameObj List="Gimmick_Number/4"/>
                                 <Str Str="SCR_GIMMICK_TIME_OVER_SET"/>
                             </ToolScp>
-                                                        <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="Gimmick_Number/4"/>
                                 <Str Str="SHADOW_LEGEND_GIMMICK_NUMBER_FAIL_LOG"/>
                             </ToolScp>

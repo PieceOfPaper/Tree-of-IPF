@@ -488,7 +488,6 @@ function DROP_PET_EQUIP(parent, slot, str, num)
 		return;
 	end
 	
-	local itemProp = geItemTable.GetPropByName(itemObj.ClassName);
 	local blongProp = TryGetProp(itemObj, "BelongingCount");
 	local blongCnt = 0;
 
@@ -496,12 +495,12 @@ function DROP_PET_EQUIP(parent, slot, str, num)
 		blongCnt = tonumber(blongProp);
 	end
 
-	if itemProp:IsEnableUserTrade() == false or GetTradeLockByProperty(itemObj) ~= "None" or 0 <  blongCnt then
+	if 0 < blongCnt then
 		ui.SysMsg(ClMsg("CantEquipItem"));
 		return;
 	end
 
-	geClientPet.RequestEquipPet( guid, liftIcon:GetIESID(), typeEnum, slotSpot );
+	geClientPet.RequestEquipPet(guid, liftIcon:GetIESID(), typeEnum, slotSpot);
 
 end
 

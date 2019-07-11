@@ -422,6 +422,11 @@ function OUT_GUILD_BY_WEB()
 end
 
 function GUILD_BAN(name)
+    local yesScp = string.format("_GUILD_BAN(\"%s\")", name);
+	ui.MsgBox(ScpArgMsg('ReallyBanGuildMember', 'NAME', name), yesScp, "None");
+end
+
+function _GUILD_BAN(name)
     ui.Chat("/guildbanByAID " .. name);	
 end
 

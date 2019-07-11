@@ -227,7 +227,8 @@ function INDUNENTER_INIT_MY_INFO(frame, understaff)
     local pc = GetMyPCObject();
     local aid = session.loginInfo.GetAID();
     local mySession = session.GetMySession();
-    local jobID = TryGetProp(pc, "Job");
+    local etcObject = GetMyEtcObject();
+    local jobID = TryGetProp(etcObject, "RepresentationClassID");
     local lv = TryGetProp(pc, "Lv");
     if pc == nil or jobID == nil or lv ==  nil or mySession == nil then
         return;

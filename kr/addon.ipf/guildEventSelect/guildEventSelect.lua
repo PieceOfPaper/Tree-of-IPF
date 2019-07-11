@@ -126,10 +126,10 @@ function EXEC_GUILD_EVENT(clsID)
 	if special_mission == 1 then
 	    local CheckTime = guildObj.GuildEvent_BorutosKapas_Count
 
-        if CheckTime > 0 then
-            ui.SysMsg(ScpArgMsg("NotEnoughTicketPossibleCount_GMBK_1"));
-            return
-        end
+--        if CheckTime > 0 then
+--            ui.SysMsg(ScpArgMsg("NotEnoughTicketPossibleCount_GMBK_1"));
+--            return
+--        end
 
 	    if haveTicket < 3 then
     		ui.SysMsg(ScpArgMsg("NotEnoughTicketPossibleCount"));

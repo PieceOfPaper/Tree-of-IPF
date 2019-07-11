@@ -182,7 +182,7 @@ function WAREHOUSE_INV_RBTN(itemObj, slot)
 		else
 			if invItem.hasLifeTime == true then
 				local yesscp = string.format('item.PutItemToWarehouse(%d, "%s", %d, %d)', IT_WAREHOUSE, invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
-				ui.MsgBox(ClMsg('PutLifeTimeItemInWareHouse'), yesscp, 'None');
+				ui.MsgBox(ScpArgMsg('PutLifeTimeItemInWareHouse{NAME}', 'NAME', itemCls.Name), yesscp, 'None');
 				return;
 			end
 

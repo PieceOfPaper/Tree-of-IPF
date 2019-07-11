@@ -234,8 +234,13 @@ function STATUS_EMPTY_EQUIP_SET(frame, argNum)
     end
 end
 
-function STATUS_ONLOAD(frame, obj, argStr, argNum)
-
+function STATUS_ONLOAD(frame, obj, argStr, argNum)    
+    if option.GetCurrentCountry() == 'German' then        
+        local tabObj = frame:GetChild('statusTab');
+        local itembox_tab = tolua.cast(tabObj, "ui::CTabControl");    
+        itembox_tab:SetItemsFixWidth(150)
+    end
+    
     STAT_RESET(frame);
     ACHIEVE_RESET(frame);
 
@@ -245,17 +250,10 @@ function STATUS_ONLOAD(frame, obj, argStr, argNum)
 end
 
 function STATUS_CLOSE(frame, obj, argStr, argNum)
-    local shopFrame = ui.GetFrame('shop');
-    -- if shopFrame:IsVisible() ~= 1 then
-    -- local invenFrame = ui.GetFrame('inventory');
-    -- invenFrame:ShowWindow(0);
-    -- end
-
-    -- ui.CloseMsgBoxByBalloon(ClMsg("REALLY_EXECUTE_STAT_BY_POINT"));
+    local shopFrame = ui.GetFrame('shop');    
 end
 
 function COMMIT_STAT(frame)
-    -- ui.MsgBoxByBalloon(ClMsg("REALLY_EXECUTE_STAT_BY_POINT"), "EXEC_COMMIT_STAT", "None");
     EXEC_COMMIT_STAT(frame);
 end
 

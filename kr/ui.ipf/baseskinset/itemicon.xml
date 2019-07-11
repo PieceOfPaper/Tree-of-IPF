@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -577,6 +577,7 @@
 		<image name="icon_item_vincentaas05_m" file="\icon\equip\icon_item_vincentaas05_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_baniclipscos01_m" file="\icon\equip\icon_item_warrior_baniclipscos01_m.png" imgrect="0 0 256 256" CMM_Caption="바니클립스 코스튬"/>
 		<image name="icon_item_warrior_baniclipscos01_f" file="\icon\equip\icon_item_warrior_baniclipscos01_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_wing_sea_wave" file="\icon\equip\icon_item_wing_sea_wave.png" imgrect="0 0 256 256" CMM_Caption="2019 7월테마 날개"/>
 	</imagelist>
 	<imagelist category="256_costume_icons">
 		<image name="icon_item_Alchemist_f" file="\icon\equip\Alchemist_f_icon.png" imgrect="0 0 256 256" CMM_Caption="알케미스트"/>
@@ -2808,6 +2809,22 @@
 		<image name="item_icon_galaxy_thmace" file="\icon\weapon\item_icon_galaxy_thmace.png" imgrect="0 0 256 256"/>
 		<image name="item_icon_galaxy_mace" file="\icon\weapon\item_icon_galaxy_mace.png" imgrect="0 0 256 256"/>
 		<image name="item_icon_galaxy_shield" file="\icon\weapon\item_icon_galaxy_shield.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear_crossbow" file="\icon\weapon\icon_item_beachwear_crossbow.png" imgrect="0 0 256 256" CMM_Caption="2019 7월 테마 무기"/>
+		<image name="icon_item_beachwear_pistol" file="\icon\weapon\icon_item_beachwear_pistol.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear_bow" file="\icon\weapon\icon_item_beachwear_bow.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear_dagger" file="\icon\weapon\icon_item_beachwear_dagger.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear_thstaff" file="\icon\weapon\icon_item_beachwear_thstaff.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear_mace" file="\icon\weapon\icon_item_beachwear_mace.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear_thmace" file="\icon\weapon\icon_item_beachwear_thmace.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear_rapier" file="\icon\weapon\icon_item_beachwear_rapier.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear_spear" file="\icon\weapon\icon_item_beachwear_spear.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear_sword" file="\icon\weapon\icon_item_beachwear_sword.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear_thspear" file="\icon\weapon\icon_item_beachwear_thspear.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear_cannon" file="\icon\weapon\icon_item_beachwear_cannon.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear_thsword" file="\icon\weapon\icon_item_beachwear_thsword.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear_musket" file="\icon\weapon\icon_item_beachwear_musket.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear_rod" file="\icon\weapon\icon_item_beachwear_rod.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear_shield" file="\icon\weapon\icon_item_beachwear_shield.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -3340,6 +3357,11 @@
 		<image name="item_icon_accessary_galaxy01" file="\icon\hairacc\item_icon_accessary_galaxy01.png" imgrect="0 0 256 256" CMM_Caption="2018 6월 테마 헤어악세"/>
 		<image name="item_icon_accessary_galaxy02" file="\icon\hairacc\item_icon_accessary_galaxy02.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Hat025_yellow" file="\icon\hairacc\icon_item_Hat025_yellow.png" imgrect="0 0 256 256" CMM_Caption="노란 베레모"/>
+		<image name="accessary_beachwear01" file="\icon\hairacc\accessary_beachwear01.png" imgrect="0 0 256 256" CMM_Caption="2019 7월 테마 헤어악세"/>
+		<image name="accessary_beachwear02" file="\icon\hairacc\accessary_beachwear02.png" imgrect="0 0 256 256"/>
+		<image name="accessary_beachwear03" file="\icon\hairacc\accessary_beachwear03.png" imgrect="0 0 256 256"/>
+		<image name="accessary_beachwear04" file="\icon\hairacc\accessary_beachwear04.png" imgrect="0 0 256 256"/>
+		<image name="accessary_beachwear05" file="\icon\hairacc\accessary_beachwear05.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -3571,6 +3593,8 @@
 		<image name="icon_item_nothing" file="\icon\item\icon_item_nothing.png" imgrect="0 0 80 80" CMM_Caption="아이템 없음"/>
 		<image name="icon_item_Quest_00020" file="\icon\item\icon_item_Quest_00020.png" imgrect="0 0 80 80" CMM_Caption="영혼수"/>
 		<image name="MercenaryBadge" file="\icon\item\MercenaryBadge.png" imgrect="0 0 80 80" CMM_Caption="루긴 운송단원 배지"/>
+		<image name="MercenaryBadge_Orange" file="\icon\item\MercenaryBadge_Orange.png" imgrect="0 0 80 80" CMM_Caption="오르샤 귀환석"/>
+		<image name="MercenaryBadge_leaf" file="\icon\item\MercenaryBadge_leaf.png" imgrect="0 0 80 80" CMM_Caption="클라페다 귀환석"/>
 		<image name="Drug_MaxSTAUP1" file="\icon\item\Drug_MaxSTAUP1.png" imgrect="0 0 80 80" CMM_Caption="+5 영구 기력 증가 물약"/>
 		<image name="Drug_MaxSTAUP2" file="\icon\item\Drug_MaxSTAUP2.png" imgrect="0 0 80 80" CMM_Caption="+20 영구 기력 증가 물약"/>
 		<image name="BokchoyLeaf" file="\icon\item\BokchoyLeaf.png" imgrect="0 0 80 80" CMM_Caption="하밍 잎사귀"/>
@@ -6163,6 +6187,15 @@
 		<image name="icon_item_gift_box_03" file="\icon\payment\icon_item_gift_box_03.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_gift_box_04" file="\icon\payment\icon_item_gift_box_04.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_gift_box_05" file="\icon\payment\icon_item_gift_box_05.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear01_f" file="\icon\payment\icon_item_beachwear01_f.png" imgrect="0 0 256 256" CMM_Caption="2019 7월 테마"/>
+		<image name="icon_item_beachwear01_m" file="\icon\payment\icon_item_beachwear01_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear02_f" file="\icon\payment\icon_item_beachwear02_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear02_m" file="\icon\payment\icon_item_beachwear02_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear03_f" file="\icon\payment\icon_item_beachwear03_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_beachwear03_m" file="\icon\payment\icon_item_beachwear03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_selectbox_beachwear01" file="\icon\payment\icon_item_selectbox_beachwear01.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_selectbox_beachwear02" file="\icon\payment\icon_item_selectbox_beachwear02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_selectbox_beachwear03" file="\icon\payment\icon_item_selectbox_beachwear03.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

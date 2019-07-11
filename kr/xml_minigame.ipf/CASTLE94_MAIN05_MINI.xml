@@ -4,7 +4,7 @@
         <StageList>
             <Stage Name="DefGroup">
                 <ObjList>
-                    <Obj Type="Monster" MonType="151050" Pos="-1416.00#289.00#1000.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="0" autoDestroy="0" UseAiOutOfPc="1">
+                    <Obj Type="Monster" MonType="151050" Pos="-1416.00#289.00#1000.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="0" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;개폐 장치&apos; ">
                         <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
@@ -13,12 +13,12 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="153156" Pos="-1366.00#289.00#950.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="1" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;NumArg1&apos; &apos;1&apos; &apos;Dialog&apos; &apos;CASTLE94_PROTECT_DEVICE_01&apos; "/>
-                    <Obj Type="Monster" MonType="153156" Pos="-1466.00#289.00#950.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="2" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;NumArg1&apos; &apos;2&apos; &apos;Dialog&apos; &apos;CASTLE94_PROTECT_DEVICE_02&apos; "/>
-                    <Obj Type="Monster" MonType="153156" Pos="-1366.00#289.00#1050.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="3" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;NumArg1&apos; &apos;3&apos; &apos;Dialog&apos; &apos;CASTLE94_PROTECT_DEVICE_03&apos; ">
+                    <Obj Type="Monster" MonType="153156" Pos="-1366.00#289.00#950.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="1" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;NumArg1&apos; &apos;1&apos; &apos;Dialog&apos; &apos;CASTLE94_PROTECT_DEVICE_01&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="153156" Pos="-1466.00#289.00#950.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="2" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;NumArg1&apos; &apos;2&apos; &apos;Dialog&apos; &apos;CASTLE94_PROTECT_DEVICE_02&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="153156" Pos="-1366.00#289.00#1050.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="3" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;NumArg1&apos; &apos;3&apos; &apos;Dialog&apos; &apos;CASTLE94_PROTECT_DEVICE_03&apos; &apos;Name&apos; &apos;UnvisibleName&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
-                    <Obj Type="Monster" MonType="153156" Pos="-1466.00#289.00#1050.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="4" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;NumArg1&apos; &apos;4&apos; &apos;Dialog&apos; &apos;CASTLE94_PROTECT_DEVICE_04&apos; "/>
+                    <Obj Type="Monster" MonType="153156" Pos="-1466.00#289.00#1050.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="4" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;NumArg1&apos; &apos;4&apos; &apos;Dialog&apos; &apos;CASTLE94_PROTECT_DEVICE_04&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
                     <Obj Type="Monster" MonType="154067" Pos="-1416.00#289.00#1000.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="5" autoDestroy="0" UseAiOutOfPc="1">
                         <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <StartList>

@@ -258,7 +258,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="Record_Time">
+                    <Event eventName="Record_Time" execWithStart="0" isEnabled="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="SET_DAY_RECORD_1"/>
@@ -721,23 +721,21 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_GUILD_MINIGAME_EXIT" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="Initialize/0"/>
-                                <Str Str="GM_BK_MGAME_MONGOLOG_MGAME_END"/>
-                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="TimeAttackMode"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
                                 <Str Str="제한 시간을 초과하였습니다"/>
-                                <Str Str="베다 고원으로 돌아갑니다"/>
+                                <Str Str=""/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="Success"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-                                <Num Num="1"/>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Gen_Boss"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="FailEnd"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -777,23 +775,21 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_GUILD_MINIGAME_EXIT" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="Initialize/0"/>
-                                <Str Str="GM_BK_MGAME_MONGOLOG_MGAME_END"/>
-                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="TimeAttackMode"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
                                 <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
-                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+                                <Str Str=""/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="Success"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-                                <Num Num="1"/>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Gen_Boss"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="FailEnd"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -820,6 +816,40 @@
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="Gen_Boss/0"/>
                                 <Str Str="SCR_GM_BK_TIMEATTACK_MODE_COUNT"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="FailEnd" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="베다 고원으로 이동"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="30"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Out">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="EndLog">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Initialize/0"/>
+                                <Str Str="GM_BK_MGAME_MONGOLOG_MGAME_END"/>
                             </ToolScp>
                         </execList>
                     </Event>

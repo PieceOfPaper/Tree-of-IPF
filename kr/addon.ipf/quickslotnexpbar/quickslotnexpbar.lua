@@ -1428,6 +1428,12 @@ function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
 		tolua.cast(slot, "ui::CSlot");	
 		slot:EnableDrag(1);
 		slot:EnableDrop(1);
+		
+		local icon = slot:GetIcon();
+		if icon ~= nil and icon:GetInfo():GetCategory()=='Skill' then
+			icon:SetEnable(1);
+			icon:SetEnableUpdateScp('ICON_UPDATE_SKILL_ENABLE');
+		end
 	end
 
 	local sklCnt = frame:GetUserIValue('SKL_MAX_CNT');
