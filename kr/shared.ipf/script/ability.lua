@@ -1141,3 +1141,143 @@ function SCR_ABIL_Psychokino24_INACTIVE(self, ability)
         SetSkillOverHeat(self, skl.ClassName, 0, 1)
     end
 end
+
+function SCR_ABIL_STATCHANGE_Cleric_ACTIVE(self, ability)
+
+    SetExProp(self, "CHANGE_STAT_Char4_1", 1)
+    
+    Invalidate(self, "STR");
+    Invalidate(self, "INT");
+    Invalidate(self, "DEX");
+    Invalidate(self, "MNA");
+end
+
+function SCR_ABIL_STATCHANGE_Cleric_INACTIVE(self, ability)
+    
+    DelExProp(self, "CHANGE_STAT_Char4_1")
+
+    Invalidate(self, "STR");
+    Invalidate(self, "INT");
+    Invalidate(self, "DEX");
+    Invalidate(self, "MNA");
+end
+
+function SCR_ABIL_STATCHANGE_Kriwi_ACTIVE(self, ability)
+
+    SetExProp(self, "CHANGE_STAT_Char4_3", 1)
+    
+    Invalidate(self, "STR");
+    Invalidate(self, "INT");
+    Invalidate(self, "DEX");
+    Invalidate(self, "MNA");
+end
+
+function SCR_ABIL_STATCHANGE_Kriwi_INACTIVE(self, ability)
+    
+    DelExProp(self, "CHANGE_STAT_Char4_3")
+
+    Invalidate(self, "STR");
+    Invalidate(self, "INT");
+    Invalidate(self, "DEX");
+    Invalidate(self, "MNA");
+end
+
+function SCR_ABIL_STATCHANGE_Dievdirbys_ACTIVE(self, ability)
+
+    SetExProp(self, "CHANGE_STAT_Char4_7", 1)
+    
+    Invalidate(self, "STR");
+    Invalidate(self, "INT");
+    Invalidate(self, "DEX");
+    Invalidate(self, "MNA");
+end
+
+function SCR_ABIL_STATCHANGE_Dievdirbys_INACTIVE(self, ability)
+    
+    DelExProp(self, "CHANGE_STAT_Char4_7")
+
+    Invalidate(self, "STR");
+    Invalidate(self, "INT");
+    Invalidate(self, "DEX");
+    Invalidate(self, "MNA");
+end
+
+function SCR_ABIL_STATCHANGE_Paladin_ACTIVE(self, ability)
+
+    SetExProp(self, "CHANGE_STAT_Char4_11", 1)
+    
+    Invalidate(self, "STR");
+    Invalidate(self, "INT");
+    Invalidate(self, "DEX");
+    Invalidate(self, "MNA");
+end
+
+function SCR_ABIL_STATCHANGE_Paladin_INACTIVE(self, ability)
+    
+    DelExProp(self, "CHANGE_STAT_Char4_11")
+
+    Invalidate(self, "STR");
+    Invalidate(self, "INT");
+    Invalidate(self, "DEX");
+    Invalidate(self, "MNA");
+end
+
+function SCR_ABIL_STATCHANGE_Pardoner_ACTIVE(self, ability)
+
+    SetExProp(self, "CHANGE_STAT_Char4_10", 1)
+    
+    Invalidate(self, "STR");
+    Invalidate(self, "INT");
+    Invalidate(self, "DEX");
+    Invalidate(self, "MNA");
+end
+
+function SCR_ABIL_STATCHANGE_Pardoner_INACTIVE(self, ability)
+    
+    DelExProp(self, "CHANGE_STAT_Char4_10")
+
+    Invalidate(self, "STR");
+    Invalidate(self, "INT");
+    Invalidate(self, "DEX");
+    Invalidate(self, "MNA");
+end
+
+function SCR_ABIL_STATCHANGE_Druid_ACTIVE(self, ability)
+
+    SetExProp(self, "CHANGE_STAT_Char4_5", 1)
+    
+    Invalidate(self, "STR");
+    Invalidate(self, "INT");
+    Invalidate(self, "DEX");
+    Invalidate(self, "MNA");
+end
+
+function SCR_ABIL_STATCHANGE_Druid_INACTIVE(self, ability)
+    
+    DelExProp(self, "CHANGE_STAT_Char4_5")
+
+    Invalidate(self, "STR");
+    Invalidate(self, "INT");
+    Invalidate(self, "DEX");
+    Invalidate(self, "MNA");
+end
+
+function SCR_ABIL_STATCHANGE_Chaplain_ACTIVE(self, ability)
+
+    SetExProp(self, "CHANGE_STAT_Char4_12", 1)
+    
+    Invalidate(self, "STR");
+    Invalidate(self, "INT");
+    Invalidate(self, "DEX");
+    Invalidate(self, "MNA");
+end
+
+function SCR_ABIL_STATCHANGE_Chaplain_INACTIVE(self, ability)
+    
+    DelExProp(self, "CHANGE_STAT_Char4_12")
+
+    Invalidate(self, "STR");
+    Invalidate(self, "INT");
+    Invalidate(self, "DEX");
+    Invalidate(self, "MNA");
+end

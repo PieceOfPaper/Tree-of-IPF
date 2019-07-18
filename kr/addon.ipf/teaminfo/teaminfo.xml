@@ -13,7 +13,7 @@
 	<controls>
 		<groupbox name="bg" rect="0 0 470 970" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
 		<groupbox name="pip4" rect="0 0 470 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
-		<richtext name="title" rect="0 0 100 30" margin="0 16 3 0 0" layout_gravity="center top" format="{@st43}%s" param1="value" param1_def="팀 정보"/>
+		<richtext name="title" rect="0 0 100 30" margin="0 16 3 0" layout_gravity="center top" format="{@st43}%s" param1="value" param1_def="팀 정보"/>
 		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
 		<picture name="picture_1" margin="27 92 0 0" rect="0 0 98 89" hittest="false" image="jour_rank_image" changecursor="false" layout_gravity="left top"/>
 		<richtext name="txt_lv" margin="12 111 0 0" rect="0 0 116 38" format="{@sti1c}{s22}Lv.%s{/}" param1="value" param1_def="50" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
@@ -24,6 +24,6 @@
 		<groupbox name="test_arrow" rect="0 0 450 49" margin="0 180 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_arow"/>
 		<groupbox name="gbox_abil" margin="5 0 0 0" draw="false" rect="0 0 420 35" hittestbox="false" layout_gravity="left top" parent="gbox_buff" scrollbar="false" image="test_com_namebg"/>
 		<groupbox name="gbox_abil_list" margin="7 49 0 0" rect="0 0 416 313" hittestbox="false" skin="none" layout_gravity="left top" parent="gbox_buff" scrollbar="false"/>
-		<richtext name="abil_title" rect="0 0 100 30" margin="40 204 3 0 0" layout_gravity="left top" format="{@st66b18}%s" param1="value" param1_def="능력치"/>
+		<richtext name="abil_title" rect="0 0 100 30" margin="40 204 3 0" layout_gravity="left top" format="{@st66b18}%s" param1="value" param1_def="능력치"/>
 	</controls>
 </uiframe>

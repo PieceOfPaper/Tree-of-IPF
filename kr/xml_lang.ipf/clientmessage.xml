@@ -324,6 +324,7 @@
 		<Class ClassID="2293" ClassName="CantUseInSkillsCoolDown" Data="스킬이 재사용 대기시간 중이거나 오버히트를 소모한 상태에서 사용하실 수 없습니다."/>
 		<Class ClassID="2302" ClassName="selectrecipe" Data="레시피 선택"/>
 		<Class ClassID="2305" ClassName="UseUp{LEVEL}{GRADE}Jewell" Data="{LEVEL} 레벨의 {GRADE} 인챈트 쥬얼 아이템을 모두 사용하였습니다.{nl}인챈트 쥬얼 UI를 닫으시겠습니까?"/>
+		<Class ClassID="2304" ClassName="ExistingIcordeleted" Data="기존의 장착된 아이커는 소멸됩니다.{nl}계속 진행하시겠습니까?"/>
 	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
@@ -7211,7 +7212,7 @@
 		<Class ClassID="67375" ClassName="CASTLE98_MQ_DIR_MSG_35" Data="반항하면 없애버려라"/>
 		<Class ClassID="67376" ClassName="CASTLE98_MQ_DIR_MSG_36" Data="노인과 어린아이부터 잡아와라"/>
 		<Class ClassID="67377" ClassName="CASTLE98_MQ_DIR_MSG_37" Data="인간이란 가족 앞에{nl}한없이 약해지지"/>
-		<Class ClassID="67378" ClassName="CASTLE98_MQ_DIR_MSG_38" Data="이 상황에도 여신을 찾다니{nl}어리석구나'"/>
+		<Class ClassID="67378" ClassName="CASTLE98_MQ_DIR_MSG_38" Data="이 상황에도 여신을 찾다니{nl}어리석구나"/>
 		<Class ClassID="67379" ClassName="CASTLE98_MQ_DIR_MSG_39" Data="우매한 인간이여"/>
 		<Class ClassID="67380" ClassName="CASTLE98_MQ_DIR_MSG_40" Data="내게 활을 쏜 녀석을 데려와라"/>
 		<Class ClassID="67381" ClassName="CASTLE98_MQ_DIR_MSG_41" Data="인간 주제에 겁도 없구나"/>
@@ -7255,6 +7256,8 @@
 		<Class ClassID="67419" ClassName="BK_SEL_ENTERANCE_POS_5" Data="5 시 방향"/>
 		<Class ClassID="67420" ClassName="BK_SEL_ENTERANCE_POS_4" Data="4 시 방향"/>
 		<Class ClassID="67421" ClassName="BK_SEL_ENTERANCE_POS_3" Data="3 시 방향"/>
+		<Class ClassID="67422" ClassName="EVENT_1907_ICESHOP_GBOX_ALL_MSG_1" Data="{s24}축하드립니다!{nl}{PC} 님이 {BOX}에서{nl}{ITEMNAME} 를 획득하셨습니다!"/>
+		<Class ClassID="67423" ClassName="EVENT_1907_ICESHOP_TITLE_NAME_1" Data="[Summer Festa] 얼음 상점"/>
 		<Class ClassID="70001" ClassName="FARM49_2_MQ06_DRAW" Data="우물 물을 긷는 중"/>
 		<Class ClassID="70002" ClassName="FARM49_2_MQ06_SUCCESS" Data="우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
 		<Class ClassID="70003" ClassName="FARM49_2_MQ06_ALREADY" Data="이미 우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>

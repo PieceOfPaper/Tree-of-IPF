@@ -9,7 +9,7 @@
     <controls>
         <slotset name="buffcountslot" rect="0 0 36 36" col="8" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="32 32" spc="2 2"/>
         <slotset name="buffslot" rect="0 43 36 36" col="8" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="32 32" spc="2 2"/>
-        <slotset name="debuffslot" rect="0 86 36 36" col="8" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="32 32" spc="2 2"/>
+        <slotset name="debuffslot" rect="4 86 36 36" col="8" drawslot="true" enableDrop="false" enablePop="false" hittest="true" row="1" size="32 32" spc="8 2"/>
         <timer name="addontimer" rect="0 0 10 10"/>
     </controls>
 </uiframe>

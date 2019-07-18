@@ -17,6 +17,15 @@
                     <Obj Type="Monster" MonType="20026" Pos="-1123.33#162.56#437.15" genCount="1" genTime="20000" genReadyTime="2000" objectKey="10" propList="&apos;Enter&apos; &apos;F_3CMLAKE_85_MQ_07_ROUTE_11&apos; &apos;Range&apos; &apos;40&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;UseTitle&apos; &apos;NO&apos; " SimpleAI="F_3CMLAKE_85_MQ_07_AI"/>
                     <Obj Type="Monster" MonType="20026" Pos="-1200.04#162.56#434.67" genCount="1" genTime="20000" genReadyTime="1000" objectKey="11" propList="&apos;Enter&apos; &apos;F_3CMLAKE_85_MQ_07_ROUTE_12&apos; &apos;Range&apos; &apos;40&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;UseTitle&apos; &apos;NO&apos; " SimpleAI="F_3CMLAKE_85_MQ_07_AI"/>
                 </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="SetSObj">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP_MAIN" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_F_3CMLAKE_85_MQ_07_SET_SOBJ"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
             </Stage>
             <Stage Name="2">
                 <ObjList>

@@ -1,4 +1,4 @@
-local local_parent = nil
+﻿local local_parent = nil
 local local_control = nil
 local local_dragrecipeitem = nil
 
@@ -144,6 +144,12 @@ function REQ_EVENT1906_TOTAL_SHOP_OPEN()
 end
 
 
+function REQ_EVENT1907_ICE_SHOP_OPEN()
+    local frame = ui.GetFrame("earthtowershop");
+    frame:SetUserValue("SHOP_TYPE", 'EventIceShop1907');
+    ui.OpenFrame('earthtowershop');
+end
+
 function EARTH_TOWER_SHOP_OPEN(frame)
     if frame == nil then
         frame = ui.GetFrame("earthtowershop")
@@ -229,6 +235,9 @@ function EARTH_TOWER_INIT(frame, shopType)
     elseif shopType == 'EventTotalShop1906' then
         title:SetText('{@st43}'..ScpArgMsg("EventShop"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
+    elseif shopType == 'EventIceShop1907' then
+        title:SetText('{@st43}'..ScpArgMsg("EventShop"));
+        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EVENT_1907_ICESHOP_TITLE_NAME_1")));
     end
 
 
@@ -705,6 +714,8 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
         item.DialogTransaction("EVENT_VIVID_CITY2_SHOP_1_TREAD1", resultlist, cntText);
     elseif shopType == 'EventTotalShop1906' then
         item.DialogTransaction("EVENT_1906_TOTAL_SHOP_1_TREAD1", resultlist, cntText);
+    elseif shopType == 'EventIceShop1907' then
+        item.DialogTransaction("EVENT_1907_ICE_SHOP_1_TREAD1", resultlist, cntText);
     end
 end
 

@@ -167,6 +167,24 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 		return;
 	end
 
+	local frame = ui.GetFrame("buff")
+	local bufflockoffset = tonumber(frame:GetUserConfig("DEFAULT_BUFF_LOCK_OFFSET"));
+	local buffGroup1 = TryGetProp(class, "Group1", "Buff");
+	if buffGroup1 == "Debuff" then
+		local bufflv = TryGetProp(class, "Lv", "99");
+		if bufflv == 4 then
+			slot:SetBgImage("buff_lock_icon_3");
+		elseif bufflv > 4 then
+			slot:SetBgImage("buff_lock_icon_4");
+		end
+		
+		if bufflv <= 3 then
+			slot:SetBgImageSize(0, 0);
+		else 
+			slot:SetBgImageSize(slot:GetWidth() + bufflockoffset, slot:GetHeight() + bufflockoffset);
+		end		
+	end
+
 	if buff.over > 1 then
 		slot:SetText('{s13}{ol}{b}'..buff.over, 'count', ui.RIGHT, ui.BOTTOM, -5, -3);
 	else

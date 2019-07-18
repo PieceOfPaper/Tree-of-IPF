@@ -26,27 +26,18 @@
 				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
 					<Str Str="skl_eff_liedderweltbaum" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="100" UseSleep="NO">
-					<Pos Angle="0" Dist="0" PosType="5" />
-					<Num Num="120" />
-					<Num Num="5" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-				</Scp>
 				<Scp Client="NO" Scp="SKL_TGT_EFFECT" Time="150" UseSleep="NO">
 					<Str_Arg Arg="0.69999999" Str="F_buff_LiedDerWeltbaum" />
 					<Num Num="0" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="300" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_BUFF" Time="300" UseSleep="NO">
 					<Str Str="LiedDerWeltbaum_Buff" />
 					<Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
 					<Num Num="0" />
 					<Num FuncTxt="local value = 10000 local abil = GetAbility(self, &quot;PiedPiper15&quot;) if abil ~= nil and abil.ActiveState == 1 then     value = value + (abil.Level * 1000) end local skillLiedDerWeltbaum  = AddCopiedSkill(self, &quot;PiedPiper_LiedDerWeltbaum&quot;) if GetExProp(self, &quot;PIEDPIPER_IMPROVISATION_FAIL&quot;) == 1 then     value = value / 2     DelExProp(self, &quot;PIEDPIPER_IMPROVISATION_FAIL&quot;) end  return value;" Num="0" UseFunc="1" />
 					<Num Num="1" />
 					<Num Num="100" />
-					<Num Num="0" />
+                    <Num Num="1" />
 				</Scp>
 			</EtcList>
 		</MainSkl>

@@ -6,7 +6,7 @@
 					<Str Str="AcrobaticMount_Buff" />
 					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
 					<Num Num="0" />
-					<Num Num="30000" />
+					<Num Num="0" />
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
@@ -23,7 +23,26 @@
 				</Scp>
 			</EtcList>
 		</MainSkl>
-	</Skill>
+	<ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+                        <Str Str="AcrobaticMount_Buff" />
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="80" UseSleep="NO">
+                            <Str Str="AcrobaticMount_Buff" />
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
 	<Skill Name="Cataphract_Trot">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
@@ -34,7 +53,7 @@
 					<Str Str="Trot_Buff" />
 					<Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
 					<Num Num="0" />
-					<Num Num="30000" />
+					<Num Num="0" />
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
@@ -45,56 +64,28 @@
 				</Scp>
 			</EtcList>
 		</MainSkl>
-	</Skill>
-	<Skill Name="Cataphract_SteedCharge">
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num FuncTxt=" return 0.3" Num="3" UseFunc="1" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num FuncTxt=" return 0.3 / obj.Level" Num="2" UseFunc="1" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Str_Arg Arg="3" Str="E_pc_full_charge_violet_ride##1" />
-				<Str Str="Dummy_full_charge_chargingatk" />
-				<Num Num="1" />
-				<Num Num="1" />
-				<Num Num="3" />
-				<Num Num="0.2" />
-				<Num Num="100" />
-				<Num Num="0" />
-				<Num Num="0" />
+	<ByCondSkills>
+	<SubSkl>
+		<Cond>
+			<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+				<Str Str="Trot_Buff" />
 			</ToolScp>
-		</KeyInput>
-		<KeyInputStart>
-			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
-				<Str Str="SKL_STEEDCHARGE_LOOP_RIDE" />
-				<Str Str="None" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Str Str="None" />
-				<Str Str="ASTD" />
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
-				<Str Str="voice_archer_pavise_shot" />
-				<Num Num="0" />
-				<Str Str="voice_archer_m_pavise_shot" />
-			</ToolScp>
-		</KeyInputStart>
-		<KeyInputEnd>
-			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
-			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
-				<Str Str="voice_archer_pavise_shot" />
-				<Str Str="voice_archer_m_pavise_shot" />
-			</ToolScp>
-		</KeyInputEnd>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		</Cond>
+		<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+				<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
+				</HitList>
+				<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="80" UseSleep="NO">
+				<Str Str="Trot_Buff" />
+				</Scp>
+				</EtcList>
+			</Skill>
+		</SubSkl>
+		</ByCondSkills>        
+			</Skill>
+			<Skill Name="Cataphract_SteedCharge">
+				<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<MoveList>
 				<Frame Accel="1" Angle="-0.00059771544" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="0" />
 				<Frame Accel="2" Angle="0.0034086369" Dist="177.43427" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="130" />
@@ -110,25 +101,13 @@
 				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
 					<Str Str="skl_fgt_ultimatedash_shot" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
-					<Str Str="Cataphract_SteedCharge" />
-				</Scp>
 				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="300" UseSleep="NO">
 					<Num Num="5" />
 					<Num Num="1" />
 					<Num Num="60" />
 					<Num Num="999" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
-					<Str Str="SteedCharge_Buff" />
-					<Num Num="99" />
-					<Num Num="0" />
-					<Num Num="1500" />
-					<Num Num="0" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
+				</EtcList>
 		</MainSkl>
 	</Skill>
 	<Skill Name="Cataphract_DoomSpike">

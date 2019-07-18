@@ -153,6 +153,10 @@
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                                <Str Str="UniqueRaid: UNIQUE_RAID_WHITE_CROW"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Boss_PowerUp">
@@ -600,7 +604,7 @@
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="SCORE_ORDERING"/>
                                 <Str Str="OVER"/>
-                                <Num Num="3"/>
+                                <Num Num="1"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -635,13 +639,13 @@
                     </Event>
                     <Event execCount="1" eventName="Fail" isEnabled="0">
                         <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="90"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="SCORE_ORDERING"/>
                                 <Str Str="UNDER"/>
                                 <Num Num="2"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="90"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -843,7 +847,7 @@
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="SCORE_COLOR"/>
                                 <Str Str="OVER"/>
-                                <Num Num="4"/>
+                                <Num Num="1"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -884,13 +888,13 @@
                     </Event>
                     <Event execCount="1" eventName="Fail" isEnabled="0">
                         <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="SCORE_COLOR"/>
                                 <Str Str="UNDER"/>
-                                <Num Num="3"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="0"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -1074,7 +1078,7 @@
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="SCORE_NUMBER"/>
                                 <Str Str="OVER"/>
-                                <Num Num="4"/>
+                                <Num Num="2"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -1109,13 +1113,13 @@
                     </Event>
                     <Event execCount="1" eventName="Fail" isEnabled="0">
                         <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="SCORE_NUMBER"/>
                                 <Str Str="UNDER"/>
-                                <Num Num="3"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="1"/>
                             </ToolScp>
                         </condList>
                         <execList>

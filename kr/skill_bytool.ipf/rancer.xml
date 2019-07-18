@@ -70,7 +70,7 @@
 				<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
 					<Pos Angle="0.017891053" Dist="8.027173" />
 					<Num Num="0" />
-					<Num Num="150" />
+                    <Num Num="200" />
 					<Num Num="35" />
 					<Num FuncTxt="local value = 1; local abil = GetAbility(self, '') local ActiveState = TryGetProp(abil, &quot;ActiveState&quot;) if abil ~= nil and ActiveState == 1 then     value = 3 end SetExProp(self, &quot;CHARGE_COUNT&quot;, value); return value;" Num="3" UseFunc="1" />
 					<Num Num="2" />
@@ -97,12 +97,12 @@
 				</Scp>
 				<Scp Client="NO" Scp="SKL_TGT_MOVE" Time="100" UseSleep="YES">
 					<Num Num="0" />
-					<Num Num="150" />
+                    <Num Num="200" />
 					<Num Num="0" />
 					<Num Num="0.15000001" />
-					<Num Num="0.15000001" />
+                    <Num Num="0.07000001" />
 					<Num Num="1" />
-					<Num Num="0.2" />
+                    <Num Num="0.1" />
 					<Num Num="1" />
 					<Num Num="1" />
 				</Scp>
@@ -123,7 +123,18 @@
 					<Num Num="0.40000001" />
 				</Scp>
 			</EtcList>
-		</MainSkl>
+		<ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="Stun" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                    <Num Num="2000" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                    <Num Num="-1" />
+                </ToolScp>
+            </ResultList>            
+        </MainSkl>
 	</Skill>
 	<Skill Name="Rancer_Prevent">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
@@ -162,7 +173,7 @@
 					<Str Str="Commence_Buff" />
 					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
 					<Num Num="0" />
-					<Num Num="30000" />
+                    <Num Num="60000" />
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
@@ -336,6 +347,15 @@
 					<Str Str="voice_war_atk_medium" />
 					<Str Str="voice_atk_medium_war_f" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="Quintain_Buff" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                    <Num Num="4000" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                    <Num Num="0" />
+                </Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>

@@ -4193,6 +4193,17 @@ return 40000 + obj.Level * 10000"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 			</ToolScp>
+			<ToolScp Scp="PAD_BUFF_ENEMY" Client="NO" UseSleep="NO">
+				<Str Str="ENEMY"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="ZaibasStun_Debuff"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="200"/>
+				<Num Num="1"/>
+				<Num Num="25"/>
+			</ToolScp>
 		</updateEvent>
 	</PadSkill>
 	<PadSkill Name="Cleric_Zalciai" CheckerType="0" Range="42.5" UpdateTerm="100" ApplyFlyMon="1">
@@ -5881,10 +5892,10 @@ return obj.Level"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Exorcist_AquaBenedicta" CheckerType="0" Dist="83.887184" Angle="-1.8468292" Range="50" UpdateTerm="1000" AllowOverlap="1">
+	<PadSkill Name="Exorcist_AquaBenedicta" CheckerType="0" Dist="83.887184" Angle="-1.8468292" Range="50" AllowOverlap="1">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="10000" UseFunc="1" FuncTxt="return 3000"/>
+				<Num Num="10000" UseFunc="1" FuncTxt="return 7001"/>
 				<Num Num="9999"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -5897,6 +5908,20 @@ return obj.Level"/>
 				<Num Num="10"/>
 			</ToolScp>
 		</createEvent>
+		<enterEvent>
+			 <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="AquaBenedictaHIT_Debuff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+		</enterEvent>
 		<leaveEvent>
 			<ToolScp Scp="LEAVE_PAD_ABIL_BUFF" Client="NO" UseSleep="NO">
 				<Str Str="Exorcist7"/>
@@ -5911,10 +5936,18 @@ return obj.Level"/>
 				<Num Num="100"/>
 				<Num Num="0"/>
 			</ToolScp>
+			<ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+				<Str Str="ENEMY"/>
+				<Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="AquaBenedictaHIT_Debuff"/>
+				<Num Num="0"/>
+			</ToolScp>
 		</leaveEvent>
+		
 		<updateEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-400"/>
+				<Num Num="-500"/>
 				<Num Num="0"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
@@ -5971,6 +6004,38 @@ return obj.Level"/>
 				<Num Num="0"/>
 				<Num Num="1"/>
 				<Num Num="100"/>
+			</ToolScp>
+		</updateEvent>
+	</PadSkill>
+	<PadSkill Name="Exorcist_Katadikazo" CheckerType="0" PadHeight="10" Range="70" AllowOverlap="1">
+		<createEvent>
+			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+				<Str_Arg Str="F_wizard_FlameGround_loop" Arg="1.4"/>
+				<Pos Angle="0" Dist="0"/>
+				<Num Num="0"/>
+				<Str_Arg Str="None" Arg="0.60000002"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="5000"/>
+				<Num Num="1"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+				<Num Num="7"/>
+			</ToolScp>
+		</createEvent>
+		<updateEvent>
+			<ToolScp Scp="PAD_DAMAGE_ENEMY_BY_RATE" Client="NO" UseSleep="NO">
+				<Num Num="0.1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str_Arg Str="None" Arg="1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Str Str="Enemy"/>
+			</ToolScp>
+			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+				<Num Num="-500"/>
+				<Num Num="0"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
@@ -15090,7 +15155,7 @@ return obj.Level"/>
 				<Num Num="0"/>
 			</ToolScp>
 		</leaveEvent>
-	</PadSkill>
+		</PadSkill>
 	<PadSkill Name="Zaura_pad" CheckerType="0" Dist="8.075242" Angle="-0.55317026" Range="200" AllowOverlap="1" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">

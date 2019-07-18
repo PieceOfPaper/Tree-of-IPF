@@ -1259,6 +1259,8 @@
 		<image name="ability_Warrior_Swordman31" file="\icon\icon_ability_warrior07.tga" imgrect="768 384 128 128" CMM_Caption="리버레이트 : 각성"/>
 		<image name="ability_Warrior_Swordman32" file="\icon\icon_ability_warrior07.tga" imgrect="896 384 128 128" CMM_Caption="리버레이트 : 인내"/>
 		<image name="ability_Warrior_Retiarii18" file="\icon\icon_ability_warrior07.tga" imgrect="0 512 128 128" CMM_Caption="레티아리이 : 급소보호"/>
+		<image name="ability_Warrior_Lancer19" file="\icon\icon_ability_warrior07.tga" imgrect="128 512 128 128" CMM_Caption="낙마 공격 : 넘어뜨리기"/>
+		<image name="ability_Warrior_Lancer20" file="\icon\icon_ability_warrior07.tga" imgrect="256 512 128 128" CMM_Caption="개시 : 중장기병"/>
 	</imagelist>
 	<imagelist category="abilityicon_wizard">
 		<image name="ability_Wizard_Wizard1" file="\icon\icon_ability_wizard01.tga" imgrect="0 0 128 128" CMM_Caption="슬리프-단잠"/>
@@ -2371,6 +2373,7 @@
 		<image name="ability_cleric_Miko8" file="\icon\icon_ability_cleric06.tga" imgrect="384 512 128 128" CMM_Caption="카구라: 꾀꼬리 춤"/>
 		<image name="ability_cleric_PlagueDoctor18" file="\icon\icon_ability_cleric06.tga" imgrect="512 512 128 128" CMM_Caption="힐링 팩터: 파티원 적용"/>
 		<image name="ability_cleric_Oracle22" file="\icon\icon_ability_cleric06.tga" imgrect="640 512 128 128" CMM_Caption="포어텔 : 강화"/>
+		<image name="ability_cleric_ChangeStat" file="\icon\icon_ability_cleric06.tga" imgrect="768 512 128 128" CMM_Caption="스탯 변환"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>

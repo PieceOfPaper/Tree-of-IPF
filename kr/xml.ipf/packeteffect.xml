@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <packeteffects>
 	<Category ID="14">
 		<Effect Name="GUILD_COLONY_F_REMAINS_37_1"/>
@@ -203,8 +203,7 @@
 		<Effect Name="artefact_balloon_beach"/>
 		<Effect Name="GM_MGAME_BORUTA_HATE_RESET_PAD"/>
 		<Effect Name="TimeAttackMode"/>
-<Effect Name="FailEnd"/>
-
+		<Effect Name="FailEnd"/>
 	</Category>
 	<Category ID="144">
 		<Effect Name="F_pc_CardBook_ground_dark"/>
@@ -2065,11 +2064,12 @@
 		<Effect Name="MackangdalOFF"/>
 		<Effect Name="SHOW_MACANGDAL"/>
 		<Effect Name="TOY_BUBBLETEA"/>
-	<Effect Name="voice_cleric_f_omikuji_cast_success"/>
-        <Effect Name="voice_cleric_m_omikuji_cast_fail"/>
-        <Effect Name="voice_cleric_m_omikuji_cast_success"/>
-        <Effect Name="voice_cleric_f_omikuji_cast_fail"/>
-    </Category>
+		<Effect Name="voice_cleric_f_omikuji_cast_success"/>
+		<Effect Name="voice_cleric_m_omikuji_cast_fail"/>
+		<Effect Name="voice_cleric_m_omikuji_cast_success"/>
+		<Effect Name="voice_cleric_f_omikuji_cast_fail"/>
+		<Effect Name="F_wizard_combustion_ground"/>
+	</Category>
 	<Category ID="84">
 		<Effect Name="M_PAST_FLIBRARY_1"/>
 	</Category>

@@ -1865,7 +1865,7 @@
 	</controlset>
 	<controlset name="helplist" toggle="false" hittest="true" width="380" height="70" skin="test_skin_01_btn">
 		<controls>
-			<richtext name="help_title" rect="0 0 120 25" hittest="false" textalign="left top" format="%s" fontname="brown_18" resizebytext="true" spacey="0" maxwidth="0" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" margin="25 25 0 0" layout_gravity="left top" param1="help_name_param1" param1_def="DefVal"/>
+			<richtext name="help_title" rect="0 0 350 25" hittest="false" textalign="left top" format="%s" fontname="brown_18" resizebytext="true" spacey="0" maxwidth="0" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" margin="25 25 0 0" layout_gravity="left top" autofontsizebywidth="350" param1="help_name_param1" param1_def="DefVal"/>
 		</controls>
 	</controlset>
 	<controlset name="journal_contents" hittest="true" skin="none" hittestset="false" draw="true" width="530" height="170">
@@ -2121,7 +2121,7 @@
 	</controlset>
 	<controlset name="craftRecipe_detail_item" hittest="true" width="500" height="68">
 		<controls>
-			<richtext name="item" rect="0 0 260 60" margin="110 0 0 0" caption="제작서" layout_gravity="left top" textalign="left center" resizebytext="false" fixwidth="true" hittest="false" fontname="brown_18"/>
+			<richtext name="item" rect="0 0 200 60" margin="110 0 0 0" caption="제작서" layout_gravity="left top" textalign="left top" resizebytext="false" fixwidth="true" hittest="false" fontname="brown_18"/>
 			<slot name="slot" skin="invenslot2" layout_gravity="left top" margin="0 0 0 0" rect="40 0 64 64"/>
 			<button name="btn" caption="{@st41b}{/}" margin="40 0 0 0" rect="0 0 70 70" layout_gravity="left top" LBtnUpScp="CRAFT_ITEM_ALL" texttooltip="{@st59}재료 아이템을 슬롯에 추가합니다.{/}" image="itemcraft_btn" clicksound="button_click_big_2" oversound="button_cursor_over_3"/>
 			<richtext name="needcount" rect="0 0 64 20" margin="38 0 0 5" format="{@st41b}x%s{/}" layout_gravity="left bottom" textalign="right center" resizebytext="false" fixwidth="true" hittest="false" param1="count" param1_def="99" fontname="white_18_b"/>
@@ -2978,7 +2978,7 @@
 	</controlset>
 	<controlset name="keyconfig_right" hittest="true" width="450" height="52" hittestset="false" draw="false" skin="none">
 		<controls>
-			<richtext name="txt_actionname" margin="15 6 0 0" rect="0 0 240 50" format="{@st42b}%s{/}" param1="value" param1_def="Move to right direction ZZZZZZZZZZZZZZZZZZZZ" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="txt_actionname" margin="15 6 0 0" rect="0 0 240 50" format="{@st42b}%s{/}" param1="value" param1_def="Move to right direction ZZZZZZZZZZZZZZZZZZZZ" textalign="left center" autofontsizebywidth="240" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<labelline name="labelline_1" margin="0 50 0 0" rect="0 0 450 1" skin="labelline_def" layout_gravity="left top"/>
 			<button name="txt_key" margin="215 0 0 0" rect="0 0 230 55" layout_gravity="left top" skin="base_btn" format="{@st68}%s" param1="value" param1_def="MoveToRight" textalign="center center" LBtnUpScp="KEYCONFIG_EDIT_START"/>
 		</controls>

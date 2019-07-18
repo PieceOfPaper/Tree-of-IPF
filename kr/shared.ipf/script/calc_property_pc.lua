@@ -1,4 +1,4 @@
-﻿function SCR_GET_JOB_STAT_RATIO(pc, statName)
+function SCR_GET_JOB_STAT_RATIO(pc, statName)
 	local stat = 0;
 	if statName == nil then
 		return 1;
@@ -11,7 +11,9 @@
 		for i = 1, jobCount do
 			local jobClass = GetClassByType('Job', jobList[i]);
 			if jobClass ~= nil then
-				totalStatRatio = totalStatRatio + jobClass[statName];
+			    local tempStatName = statName
+			    tempStatName = SCR_GET_JOB_STAT_CHANGE(pc, TryGetProp(jobClass, "ClassName", "None"), statName)
+				totalStatRatio = totalStatRatio + jobClass[tempStatName];
 			end
 		end
 		
@@ -21,6 +23,28 @@
 	end
 	
 	return math.floor(stat);
+end
+
+function SCR_GET_JOB_STAT_CHANGE(pc, jobClassName, statName)
+    
+    local tempStatName = statName
+    local propName = "CHANGE_STAT_"..jobClassName
+
+    if GetExProp(pc ,propName) == 0 then
+        return tempStatName
+    else
+        if tempStatName == "STR" then
+            tempStatName = "INT"
+        elseif tempStatName == "INT" then
+            tempStatName = "STR"
+        elseif tempStatName == "DEX" then
+            tempStatName = "MNA"
+        elseif tempStatName == "MNA" then
+            tempStatName = "DEX"
+        end
+    end
+    
+    return tempStatName
 end
 
 function SCR_GET_JOB_STR(pc)
@@ -2169,7 +2193,6 @@ function SCR_Get_MSPD(self)
         isDashRun = 0
         return value;
     end
-    
     if isDashRun > 0 then    -- 대시 런 --
         local dashRunAddValue = 10
         
@@ -2188,10 +2211,6 @@ function SCR_Get_MSPD(self)
 	    if jobCtrlType == "Scout" then
 	    	dashRunAddValue = dashRunAddValue + 3
 	    end
-        
-        if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then
-            dashRunAddValue = 5
-        end
         
         value = value + dashRunAddValue;
         if isDashRun == 2 then  -- 인보 특성이 있으면 속도 +1 --

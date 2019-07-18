@@ -121,14 +121,10 @@ function ON_HELPLIST_UPDATE(frame)
 		cset:SetEventScriptArgNumber(ui.LBUTTONDOWN, i);
 
 		for j = 1, #newlist[categoryNameList[i]] do
-
 			local helpCls = newlist[categoryNameList[i]][j]
-
 			local setName = "HELP_CTRLSET_" .. i .. j;
-			local set = gbox:CreateOrGetControlSet('helplist', setName, x+10, y);
-
+			local set = gbox:CreateOrGetControlSet('helplist', setName, x + 10, y);
 			set = tolua.cast(set, "ui::CControlSet");
-			
 			set:SetOverSound('button_over');
 			set:SetClickSound('button_click_stats');
 
@@ -136,9 +132,9 @@ function ON_HELPLIST_UPDATE(frame)
 				set:ShowWindow(1)
 				y = y + ui.GetControlSetAttribute("helplist", "height");
 
-				local nameRichText = GET_CHILD(set, "help_title", "ui::CRichText");                
-
-                local translated_helpCls_title = helpCls.Title
+				local nameRichText = GET_CHILD(set, "help_title", "ui::CRichText");
+                
+				local translated_helpCls_title = helpCls.Title
                 local start_index, end_index = string.find(helpCls.Title, '@dicID')
                 if start_index == 1 then
                     translated_helpCls_title = dic.getTranslatedStr(helpCls.Title)
@@ -204,8 +200,7 @@ function ON_HELPLIST_UPDATE_OLD(frame)
 			y = y + ui.GetControlSetAttribute("helplist", "height");
 
 			local nameRichText = GET_CHILD(set, "help_title", "ui::CRichText");
-
-			nameRichText:SetTextByKey("help_name_param1",helpCls.Title);
+			nameRichText:SetTextByKey("help_name_param1", helpCls.Title);
 
 			set:SetEventScript(ui.LBUTTONDOWN, 'HELPLIST_LCLICK')
 			set:SetEventScriptArgNumber(ui.LBUTTONDOWN, helpType);

@@ -208,7 +208,7 @@ function LEGEND_CRAFT_MAKE_CTRLSET(recipeBox, recipeCls, checkGroup, checkMateri
 	labelline_1:ShowWindow(0);
 
 	-- material
-	local matBox = ctrlset:CreateControl('groupbox', 'matBox', itemIcon:GetX() + itemIcon:GetWidth(), itemIcon:GetY(), 270, 150);
+	local matBox = ctrlset:CreateControl('groupbox', 'matBox', itemIcon:GetX() + itemIcon:GetWidth(), itemIcon:GetY(), 500, 150);
 	matBox = AUTO_CAST(matBox);
 	matBox:SetSkinName('None');
 	matBox:EnableScrollBar(0);
@@ -224,6 +224,7 @@ function LEGEND_CRAFT_MAKE_CTRLSET(recipeBox, recipeCls, checkGroup, checkMateri
 			local matItemCls = GetClass('Item', materialItemName);
 			local item = GET_CHILD(matCtrlset, 'item');
 			item:SetText(matItemCls.Name);
+			item:AdjustFontSizeByWidth(item:GetWidth());
 
 			local needcount = GET_CHILD(matCtrlset, 'needcount');
 			local matItemCnt = recipeCls['MaterialItemCnt_'..i];

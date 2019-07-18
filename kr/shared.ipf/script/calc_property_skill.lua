@@ -2892,14 +2892,14 @@ end
 
 function SCR_GET_Commence_Ratio(skill)
     local value = skill.Level * 10
-    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     
     return value
 end
 
 function SCR_GET_Commence_Ratio2(skill)
 
-    local value = 300
+    local value = 5 * skill.Level
+    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return value
 
 end
@@ -7469,7 +7469,7 @@ function SCR_GET_RaiseSkullWizard_Ratio3(skill)
 end
 
 function SCR_GET_Trot_Ratio(skill)
-    local value = 5 + (skill.Level * 1)
+    local value = skill.Level + 5
     
     return value
 end
@@ -7500,6 +7500,15 @@ function SCR_GET_ReflectShield_Ratio2(skill)
         value = 5
     end 
     return value;
+end
+
+function SCR_GET_ReflectShield_Ratio3(skill)
+	local pc = GetSkillOwner(skill)
+	local value = 1
+	if IsPVPField(pc)== 1 then
+		value = 8
+	end
+	return value;
 end
 
 function SCR_GET_Exchange_Bufftime(skill)
@@ -8244,8 +8253,12 @@ function SCR_GET_Guardian_Bufftime(skill)
 end
 
 function SCR_GET_Guardian_Ratio(skill)
+	local pc = GetSkillOwner(skill)
     local value = 8 * skill.Level
-    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
+	if IsPVPField(pc) == 1 then	
+		value = 5 * skill.Level
+	end
+    	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return value;
 end
 
@@ -9400,10 +9413,16 @@ function SCR_GET_Limitation_Ratio(skill)
 end
 
 function SCR_Get_Melstis_Ratio(skill)
-
-    local pc = GetSkillOwner(skill);
-    local value = 5;
-
+	local pc = GetSkillOwner(skill);
+	local PATKAVER = (pc.MINPATK + pc.MAXPATK)/2
+	local MATKAVER = (pc.MINMATK + pc.MAXMATK)/2
+	local CHOATK = 0
+	if PATKAVER > MATKAVER then
+		CHOATK = PATKAVER
+	else
+		CHOATK = MATKAVER
+	end
+	local value = math.floor(skill.Level * CHOATK * 0.02)
     return value
 
 end
@@ -9411,7 +9430,7 @@ end
 function SCR_Get_Melstis_Ratio2(skill)
     local pc = GetSkillOwner(skill);
 --  local value = 10 + skill.Level * 5
-    local value = skill.Level * 20
+    local value = skill.Level
 
     return value
 end
@@ -10439,7 +10458,7 @@ function SCR_GET_SR_LV(skill)
     if value < 1 then
         value = 1
     end
-    
+
     return value
     
 end
@@ -11232,7 +11251,11 @@ end
 
 function SCR_GET_GenbuArmor_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = 100 - ((skill.Level - 1) * 10)
+	local SPValue = 10
+	if IsPVPField(pc) == 1 then
+		SPValue = 5
+	end
+    local value = 100 - ((skill.Level - 1) * SPValue)
     
     local abilOnmyoji12 = GetAbility(pc, "Onmyoji12")
     if abilOnmyoji12 ~= nil and TryGetProp(abilOnmyoji12, "ActiveState", 0) == 1 then
@@ -11529,6 +11552,13 @@ function SCR_GET_Gregorate_Ratio(skill)
         value = value + abilExorcist11.Level;
     end
     
+    return value;
+end
+
+function SCR_GET_Gregorate_Ratio2(skill)
+    local value = 2;
+    local pc = GetSkillOwner(skill);
+    value = skill.Level * value;
     return value;
 end
 

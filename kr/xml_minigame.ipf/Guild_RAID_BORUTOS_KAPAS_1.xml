@@ -54,6 +54,9 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Gen_Boss"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Control_Pattern"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
                                 <Str Str="동굴 심부로 향하는 포탈이 생성되었습니다"/>
                                 <Str Str="BossAppear"/>
@@ -101,7 +104,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="TimeLimit">
+                    <Event execCount="1" eventName="TimeLimit" execWithStart="0" isEnabled="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="300"/>
@@ -445,7 +448,7 @@
                     </Event>
                 </StageEvents>
             </Stage>
-            <Stage Name="Control_Pattern">
+            <Stage Name="Control_Pattern" AutoStart="0">
                 <ObjList/>
                 <StageEvents>
                     <Event execCount="1" eventName="ForceWarp_On">

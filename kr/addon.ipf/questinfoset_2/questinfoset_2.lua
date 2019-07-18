@@ -931,7 +931,7 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg, progVal) -- progVal이 nil이
     	y = y + content:GetHeight();
 
         if SCR_QUESTINFOSETVIEW_CHECK(questIES.QuestInfosetView, 'SUCCESS') == 'YES' then
-            y = MAKE_QUESTINFO_SUCCESS_STORY(ctrlset, questIES, titleX+_GET_QUEST_INFO_CTRLSET_BODY_OFFSET_X(), y, s_obj, result);
+           y = MAKE_QUESTINFO_SUCCESS_STORY(ctrlset, questIES, titleX+_GET_QUEST_INFO_CTRLSET_BODY_OFFSET_X(), y, s_obj, result);
         end
 
 		-- 파티원이 공유 설정한 퀘스트 완료한 경우에는 지우지 않게 수정
@@ -2211,8 +2211,9 @@ function MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y)
                                 addIndex = addIndex + 1
                     			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. addIndex, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
                 				content:EnableHitTest(0);
-                    			content:SetTextFixWidth(0);
-                    			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
+								content:SetTextFixWidth(0);
+								content:EnableTextOmitByWidth(1); -- 너무 긴경우 ...으로 표시한다.
+								content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
                     			y = y + content:GetHeight();
                     		end
                     	end
