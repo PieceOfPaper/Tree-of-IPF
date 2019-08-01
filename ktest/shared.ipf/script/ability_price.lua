@@ -745,6 +745,20 @@ function ABIL_CLERIC9_PRICE(pc, abilName, abilLevel, maxLevel)
     return price, time;
 end
 
+function HIDDENABIL_PRICE_COND_REINFORCE(pc, abilName, abilLevel, maxLevel)
+    local price = 121538 / maxLevel;        -- REINFORCE_TOTAL_PRICE : 103462, EXPECT_TOTAL_PRICE : 225000
+    local time = 0;
+    
+    return math.floor(price), time;
+end
+
+function HIDDENABIL_PRICE_COND_JOBLEVEL(pc, abilName, abilLevel, maxLevel)
+    local price = 150000 / maxLevel;       -- EXPECT_TOTAL_PRICE : 150000
+    local time = 0;
+    
+    return math.floor(price), time;
+end
+
 function GET_TOTAL_ABILITY_PRICE(pc, scrCalcPrice, abilName, abilLevel, maxLevel)
     local price = 0;
     if pc == nil or abilName == nil or abilLevel == nil or maxLevel == nil or scrCalcPrice == nil or scrCalcPrice == 'None' then

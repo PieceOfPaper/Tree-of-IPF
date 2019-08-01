@@ -203,7 +203,7 @@
 			<ToolScp Client="NO" Scp="MONSKL_CRE_PAD" UseSleep="NO">
 				<Pos Angle="0" Dist="150" />
 				<Angle Angle="0" />
-				<Str Str="YinYangConsonance_Pad" />
+                <Str FuncTxt="local str = &quot;YinYangConsonance_Pad&quot; local abilOnmyoji21 = GetAbility(self, &quot;Onmyoji21&quot;) if abilOnmyoji21 ~= nil and abilOnmyoji21.ActiveState == 1 then str = &quot;YinYangConsonance_Hidden_Pad&quot; end return str" UseFunc="1" Str="YinYangConsonance_Pad" />
 			</ToolScp>
 			<ToolScp Client="NO" Scp="SKL_SET_IMMUNE_STATE" UseSleep="NO">
 				<Str Str="Skill_SuperArmor_Buff" />
@@ -222,7 +222,7 @@
 		</KeyInputStart>
 		<KeyInputEnd>
 			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
-				<Str Str="YinYangConsonance_Pad" />
+                <Str FuncTxt="local str = &quot;YinYangConsonance_Pad&quot; local abilOnmyoji21 = GetAbility(self, &quot;Onmyoji21&quot;) if abilOnmyoji21 ~= nil and abilOnmyoji21.ActiveState == 1 then str = &quot;YinYangConsonance_Hidden_Pad&quot; end return str" UseFunc="1" Str="YinYangConsonance_Pad" />
 			</ToolScp>
 			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
 			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -324,6 +324,8 @@
 		<Class ClassID="2293" ClassName="CantUseInSkillsCoolDown" Data="스킬이 재사용 대기시간 중이거나 오버히트를 소모한 상태에서 사용하실 수 없습니다."/>
 		<Class ClassID="2302" ClassName="selectrecipe" Data="레시피 선택"/>
 		<Class ClassID="2305" ClassName="UseUp{LEVEL}{GRADE}Jewell" Data="{LEVEL} 레벨의 {GRADE} 인챈트 쥬얼 아이템을 모두 사용하였습니다.{nl}인챈트 쥬얼 UI를 닫으시겠습니까?"/>
+		<Class ClassID="2304" ClassName="ExistingIcordeleted" Data="기존의 장착된 아이커는 소멸됩니다.{nl}계속 진행하시겠습니까?"/>
+		<Class ClassID="2306" ClassName="PleasePrefixItem" Data="세트 옵션을 부여할 아이템을 등록해주세요"/>
 	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
@@ -513,7 +515,7 @@
 		<Class ClassID="4112" ClassName="ChangeNameConsumeItem" Data="이름을 변경하면 아이템이 소모 됩니다."/>
 		<Class ClassID="4113" ClassName="HairColorExist" Data="이미 가지고 있는 색 입니다."/>
 		<Class ClassID="4114" ClassName="NeedSameEquipClassType" Data="같은 종류의 장비 아이템으로만 외형 선택이 가능합니다."/>
-		<Class ClassID="4115" ClassName="ThisLocalUseNot" Data="해당 지역에서는 사용이 불가능 합니다."/>
+		<Class ClassID="4115" ClassName="ThisLocalUseNot" Data="현재 지역에서는 사용이 불가능 합니다."/>
 		<Class ClassID="4116" ClassName="ThisWorldExistIndunClear" Data="이미 해당 지역에서는 인스턴스 소탕권이 사용중입니다."/>
 		<Class ClassID="4117" ClassName="Cube" Data="큐브"/>
 		<Class ClassID="4118" ClassName="ETC" Data="기타"/>
@@ -631,13 +633,16 @@
 		<Class ClassID="4232" ClassName="MYSTIC_SAVIOR_CHAGE_DIAMOND" Data="눈부신 반짝임을 담아! 미스틱 세이비어 다이아!"/>
 		<Class ClassID="4233" ClassName="MYSTIC_SAVIOR_CHAGE_HEART" Data="정열의 마음을 담아! 미스틱 세이비어 하트!"/>
 		<Class ClassID="4234" ClassName="IcorductilityError01" Data="등록된 장비와 같은 부위의 장비를 등록해주세요"/>
-		<Class ClassID="4235" ClassName="CantUseJob" Data="사용 할 수 없는 직업입니다."/>
+		<Class ClassID="4235" ClassName="CantUseJob" Data="사용할 수 없는 직업입니다."/>
 		<Class ClassID="4236" ClassName="MagicEnchant" Data="마법 부여"/>
 		<Class ClassID="4237" ClassName="ExceedAmountItem_misc_pvp_mine2{Extra}{Count}" Data="[용병단 증표]의 최대 소유할 수 있는 개수가 초과되어 {Extra}개는 제외하고 {Count}만큼 지급되었습니다."/>
 		<Class ClassID="4238" ClassName="SelectEventItem{ITEM}" Data="{@st66d_y}{s20}{ITEM}{/}{/} {nl}아이템을 정말 선택하시겠습니까?{nl} {nl}선택 후에는 다른 아이템으로{nl}교환할 수 없습니다."/>
 		<Class ClassID="4239" ClassName="nohaveskillnouse" Data="습득한 스킬이 없어 사용 할 수 없습니다."/>
 		<Class ClassID="4240" ClassName="RemainMoreOption" Data="{@st50}{#ff0000}-- More Option --"/>
 		<Class ClassID="4241" ClassName="CantIcorToRandomOptionLegend" Data="랜덤 옵션 레전드 아이템에 랜덤 옵션 아이커를 장착할 수 없습니다."/>
+		<Class ClassID="4242" ClassName="AllowedInTown1" Data="마을에서만 가능합니다."/>
+		<Class ClassID="4243" ClassName="HiddenAbility" Data="아츠"/>
+		<Class ClassID="4244" ClassName="SelectBox_Default" Data="선택 상자"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -1203,6 +1208,8 @@
 		<Class ClassID="10518" ClassName="ItemOptionLegendExtractMessage_2" Data="아이커 연성에 실패 할 수 있습니다.{nl}실패시 등록된 재료는 모두 {#aa0000}파괴{/}됩니다."/>
 		<Class ClassID="10519" ClassName="CharacterNameTooShort" Data="캐릭터 이름이 너무 짧거나, 사용할 수 없는 문자가 포함되어 있습니다."/>
 		<Class ClassID="10520" ClassName="CantDoThatCuzDoingSomething" Data="현재 진행중인 작업이 있어 불가능합니다."/>
+		<Class ClassID="10522" ClassName="RegisterPrefixItem" Data="옵션을 부여할 아이템을 등록해주세요."/>
+		<Class ClassID="10523" ClassName="AlreadyPrefixOption" Data="이미 적용된 옵션입니다."/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -1544,6 +1551,9 @@
 		<Class ClassID="21336" ClassName="news_ranking_guide_msg" Data="랭킹 정보가 초기화된 후 표시됩니다."/>
 		<Class ClassID="21337" ClassName="Ask_UnEnableOtherPCEffect_Text" Data="퀘스트의 이펙트가 보이지 않을 수 있습니다. 설정을 해제하시겠습니까?"/>
 		<Class ClassID="21338" ClassName="TP_FirstBuy" Data="첫 구매 전용"/>
+		<Class ClassID="21339" ClassName="Squire14AbilityAble" Data="천 마스터리: 재봉 장인 적용중"/>
+		<Class ClassID="21340" ClassName="Squire15AbilityAble" Data="가죽 마스터리: 세공 장인 적용중"/>
+		<Class ClassID="21341" ClassName="Squire16AbilityAble" Data="판금 마스터리: 제련 장인 적용중"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -2628,7 +2638,7 @@
 		<Class ClassID="25019" ClassName="VPRISON511_MQ_02_HAUBERK_01" Data="블룻.. 날 이렇게 만든 배신자의 이름을 어찌 잊겠는가."/>
 		<Class ClassID="25020" ClassName="VPRISON511_MQ_04_HAUBERK_01" Data="복수를 위해서라면 수치스러운 일이라도 감내하겠다."/>
 		<Class ClassID="25021" ClassName="VPRISON511_MQ_05_HAUBERK_01" Data="잠시 배신자의 최후를 만끽하겠다."/>
-		<Class ClassID="25022" ClassName="VPRISON512_MQ_01_HAUBERK_01" Data="누아일레? 그 애송이가 그만큼이나 컸군."/>
+		<Class ClassID="25022" ClassName="VPRISON512_MQ_01_HAUBERK_01" Data="누아엘레? 그 애송이가 그만큼이나 컸군."/>
 		<Class ClassID="25023" ClassName="VPRISON512_MQ_02_HAUBERK_01" Data="건방지군. 감히 내 영혼에게 손을 대다니."/>
 		<Class ClassID="25024" ClassName="VPRISON512_MQ_03_HAUBERK_01" Data="누아엘레가 가진 봉인조각은 본디 나의 것이다. 협조하도록 하지."/>
 		<Class ClassID="25025" ClassName="VPRISON512_MQ_04_HAUBERK_01" Data="하루갈들이 배신을?{nl}기가 차는군."/>
@@ -3743,7 +3753,7 @@
 		<Class ClassID="26134" ClassName="HIDENSEEK_GET_RWARD_FAIL" Data="이 상자는 당신의 상자가 아닙니다{nl}펜듈럼을 사용해 숨겨진 보상을 찾아보세요"/>
 		<Class ClassID="26135" ClassName="MONSTER_PAIR_REWARD_HIDE" Data="짝 맞추기 보상 NPC가 사라집니다"/>
 		<Class ClassID="26136" ClassName="GIMMICK_TRANSFORM_MSG" Data="몬스터 모습으로 변신했습니다"/>
-		<Class ClassID="26137" ClassName="GIMMICK_TRANSFORM_FAIL" Data="클라페다, 오르샤, 페디미안 지역에서만 사용할 수 있습니다"/>
+		<Class ClassID="26137" ClassName="GIMMICK_TRANSFORM_FAIL" Data="도시에서만 사용할 수 있습니다.{nl}사용지역은 아이템 툴팁에서 확인하세요."/>
 		<Class ClassID="26138" ClassName="ROKAS_36_1_PILLA05_REPAIR" Data="기둥을 수리하는 중"/>
 		<Class ClassID="26139" ClassName="ROKAS_36_1_PILLA05_GET_ITEM" Data="기둥을 수리 할 만한 점성 있는 액체를 구해 오세요!"/>
 		<Class ClassID="26140" ClassName="ROKAS_30_PIPOTI_MAP_ZONE_CHECK" Data="왕의 고원에서만 사용할 수 있습니다"/>
@@ -4734,7 +4744,7 @@
 		<Class ClassID="27430" ClassName="EVENT_1706_FISHING_ARTEFACT_MSG1" Data="축제용 장난감을 선택한다"/>
 		<Class ClassID="27431" ClassName="EVENT_1706_FISHING_ARTEFACT_MSG2" Data="축제용 코스튬을 선택한다"/>
 		<Class ClassID="27440" ClassName="MGAME_MSG_LIVE_MON_COUNT" Data="목표 대상 수 : {COUNT}"/>
-		<Class ClassID="27450" ClassName="FREE_COMPANION_MSG1" Data="{JOB} 클래스 해택 : {COMPANION} 분양 받기"/>
+		<Class ClassID="27450" ClassName="FREE_COMPANION_MSG1" Data="{JOB} 클래스 혜택 : {COMPANION} 분양 받기"/>
 		<Class ClassID="27460" ClassName="EVENT_1706_DOPPELSOELDNER_MSG1" Data="오늘은 용병의 증표를 모두 받으셨습니다"/>
 		<Class ClassID="27461" ClassName="EVENT_1706_DOPPELSOELDNER_MSG2" Data="용병의 증표를 획득하셨습니다"/>
 		<Class ClassID="27462" ClassName="EVENT_1706_DOPPELSOELDNER_MSG3" Data="용병의 증표를 보상과 교환 한다"/>
@@ -5045,6 +5055,8 @@
 		<Class ClassID="28083" ClassName="EVENT_1807_POOL_MSG9" Data="누적 교환 보상 '{ITEM}' 아이템이 지급됩니다"/>
 		<Class ClassID="28084" ClassName="EVENT_1807_POOL_MSG10" Data="접속 시간 : {MIN}분{nl}[Summer Festa] 이벤트 특별한 얼음 5개를 획득했습니다"/>
 		<Class ClassID="28085" ClassName="EVENT_1807_POOL_MSG11" Data="'[Summer Festa] 휴식' 버프가 발동합니다!"/>
+		<Class ClassID="28086" ClassName="EVENT_190808_THE_ARTS_MSG1" Data="접속 보상 : [The ARTS] 클래스 변경권 Lv.3 (1일)을 획득했습니다"/>
+		<Class ClassID="28087" ClassName="EVENT_190808_THE_ARTS_MSG2" Data="접속 시간 : {MIN}분{nl}[The ARTS] 클래스 변경권 Lv.3 (1일)을 획득했습니다"/>
 		<Class ClassID="28091" ClassName="EVENT_1807_BALL_MSG1" Data="남은 이동 횟수 : {COUNT}"/>
 		<Class ClassID="28092" ClassName="EVENT_1807_BALL_MSG2" Data="미션에 도전한다"/>
 		<Class ClassID="28093" ClassName="EVENT_1906_GUILD_MSG1" Data="이벤트 보상은 길드에 가입해야 수령할 수 있습니다"/>
@@ -5587,19 +5599,38 @@
 		<Class ClassID="40560" ClassName="D_UNDERAQUEDUCT_EVENT_2_MSG1" Data="보라색 보급 물품을 받았습니다."/>
 		<Class ClassID="40561" ClassName="D_UNDERAQUEDUCT_EVENT_3_SEL1" Data="아이템을 받는다."/>
 		<Class ClassID="40562" ClassName="D_UNDERAQUEDUCT_EVENT_3_SEL2" Data="아이템을 받지 않는다."/>
-		<Class ClassID="40563" ClassName="D_UNDERAQUEDUCT_EVENT_3_BOSS_NOTICE" Data="보급 장치가 활성화 되었습니다.{nl}곧 나타날 겁쟁이 체샤를 공격하기 위해선{nl}보급 장치에서 마력이 깃든 팔찌를 얻어야 합니다."/>
+		<Class ClassID="40563" ClassName="D_UNDERAQUEDUCT_EVENT_3_BOSS_NOTICE" Data="지하수로 선착장에 있는 특별한 보급 장치가 활성화 되었습니다.{nl}3분 뒤 나타날 겁쟁이 체샤를 공격하기 위해선 지하수로 선착장에 있는{nl}특별한 보급 장치에서 마력이 깃든 팔찌를 얻어야 합니다."/>
 		<Class ClassID="40564" ClassName="D_UNDERAQUEDUCT_EVENT_3_BOSS_CREATE" Data="겁쟁이 체샤가 등장했습니다.{nl}겁쟁이 체샤는 마력이 깃든 팔찌를 사용하여 공격할 수 있습니다."/>
 		<Class ClassID="40565" ClassName="D_UNDERAQUEDUCT_EVENT_3_BOSS_SUCCESS" Data="겁쟁이 체샤의 실드를 파괴하는데 성공했습니다.{nl}겁쟁이 체샤는 보급품을 사방에 뿌리며 사라졌습니다."/>
 		<Class ClassID="40566" ClassName="D_UNDERAQUEDUCT_EVENT_3_BOSS_FAIL" Data="겁쟁이 체샤가 도망갔습니다."/>
 		<Class ClassID="40567" ClassName="D_UNDERAQUEDUCT_EVENT_3_MSG1" Data="이미 노란색 보급품을 받았습니다."/>
-		<Class ClassID="40568" ClassName="D_UNDERAQUEDUCT_GET_BUFF1" Data="보급품을 사용하였습니다. 머즈루스에게 가하는 대미지가 증가합니다."/>
+		<Class ClassID="40568" ClassName="D_UNDERAQUEDUCT_GET_BUFF1" Data="보급품을 사용하였습니다.{nl}머즈루스에게 가하는 대미지가 증가합니다."/>
 		<Class ClassID="40569" ClassName="D_UNDERAQUEDUCT_FAIL_BUFF1" Data="소지하고 있는 보급품이 없습니다."/>
 		<Class ClassID="40570" ClassName="D_UNDERAQUEDUCT_TOTAL_KILL_COUNT1" Data="무언가 다가오는 소리가 들립니다."/>
-		<Class ClassID="40571" ClassName="D_UNDERAQUEDUCT_TOTAL_KILL_COUNT2" Data="무언가 다가오는 소리가 크게 들립니다.{nl}겁쟁이 체샤가 지하수로에 가까워진듯 합니다."/>
-		<Class ClassID="40572" ClassName="D_UNDERAQUEDUCT_EVENT3_GIMMICK_NAME" Data="보급 장치"/>
+		<Class ClassID="40571" ClassName="D_UNDERAQUEDUCT_TOTAL_KILL_COUNT2" Data="다가오는 소리가 점점 크게 들립니다.{nl}겁쟁이 체샤가 지하수로에 가까워진듯 합니다."/>
+		<Class ClassID="40572" ClassName="D_UNDERAQUEDUCT_EVENT3_GIMMICK_NAME" Data="특별한 보급 장치"/>
 		<Class ClassID="40573" ClassName="D_UNDERAQUEDUCT_EVENT3_GIMMICK_MONNAME" Data="겁쟁이 체샤"/>
-		<Class ClassID="40574" ClassName="D_UNDERAQUEDUCT_GET_BUFF2" Data="보급품을 사용하였습니다. 머즈루스에게 받는 대미지가 감소합니다."/>
-		<Class ClassID="40575" ClassName="D_UNDERAQUEDUCT_GET_BUFF3" Data="보급품을 사용하였습니다. 머즈루스에게 받는 대미지를 일정치 무효화합니다."/>
+		<Class ClassID="40574" ClassName="D_UNDERAQUEDUCT_GET_BUFF2" Data="보급품을 사용하였습니다.{nl}머즈루스에게 받는 대미지가 감소합니다."/>
+		<Class ClassID="40575" ClassName="D_UNDERAQUEDUCT_GET_BUFF3" Data="보급품을 사용하였습니다.{nl}머즈루스에게 받는 대미지를 일정치 무효화합니다."/>
+		<Class ClassID="40576" ClassName="D_UNDERAQUEDUCT_EVENT_3_SEL3" Data="겁쟁이 체샤가 나타나는 장소로 이동한다."/>
+		<Class ClassID="40577" ClassName="D_UNDERAQUEDUCT_DESTROY_GIMMICK_MSG_1" Data="머즈루스 제압 장치의 마력이 충전되었습니다.{nl}제압장치에 말을 걸면, 머즈루스의 행동을 저지할 수 있습니다.{nl}장치의 마력은 6초 후 사라집니다."/>
+		<Class ClassID="40578" ClassName="D_UNDERAQUEDUCT_DESTROY_GIMMICK_MSG_2" Data="장치가 작동하여 머즈루스가 괴로워 합니다."/>
+		<Class ClassID="40579" ClassName="D_UNDERAQUEDUCT_DESTROY_GIMMICK_NAME" Data="머즈루스 제압 장치"/>
+		<Class ClassID="40580" ClassName="D_UNDERAQUEDUCT_DESTROY_GIMMICK_MSG_3" Data="머즈루스 제압 장치 사용 중"/>
+		<Class ClassID="40581" ClassName="D_UNDERAQUEDUCT_BOSS_ROOM_CLIENT_MSG1" Data="보통"/>
+		<Class ClassID="40582" ClassName="D_UNDERAQUEDUCT_BOSS_ROOM_CLIENT_MSG2" Data="어려움"/>
+		<Class ClassID="40583" ClassName="D_UNDERAQUEDUCT_BOSS_ROOM_CLIENT_MSG3" Data="포기한다"/>
+		<Class ClassID="40584" ClassName="D_UNDERAQUEDUCT_BOSS_ROOM_CLIENT_MSG4" Data="입장한다"/>
+		<Class ClassID="40585" ClassName="D_UNDERAQUEDUCT_EVENT_3_BOSS_COMING" Data="겁쟁이 체샤가 지하수로에 도착하기까지 60초 남았습니다."/>
+		<Class ClassID="40586" ClassName="D_UNDERAQUEDUCT_BOSS_ROOM_ENTER_MSG_BASIC" Data="폐쇄구역에 들어가기 위한 장치입니다.{nl}이번주의 남은 이용 횟수는 {#ff0000}{COUNT} 회{/} 입니다.{nl}보스처치 후 클리어 보상 획득 시 이용 횟수가 차감됩니다.{nl}입장하시겠습니까?{nl}{#ff0000}※'외성벽 지하수로' 보스처치는 '이레디안의 피난처' 보스처치와 횟수를 공유합니다.{nl}{np}난이도를 선택해주세요.{nl}※보급품 이용 장치 효과{nl}1. 중첩당 공격력 1200 증가 최대 4 중첩 가능{nl}2. 중첩당 방어력 1500 증가, 최대 4 중첩 가능{nl}3. 중첩당 대미지를 대신 받는 실드 25000 획득, 최대 4중첩 가능{nl}{#ff0000}어려움 난이도에서는 버프의 증가되는 효과가 반으로 줄어듭니다.{/}"/>
+		<Class ClassID="40587" ClassName="D_UNDERAQUEDUCT_EVENT_3_BOSS_COMING_1" Data="겁쟁이 체샤가 지하수로에 도착하기까지 120초 남았습니다."/>
+		<Class ClassID="40588" ClassName="D_UNDERAQUEDUCT_EVENT_3_BOSS_COMING_2" Data="겁쟁이 체샤가 지하수로에 도착하기까지 30초 남았습니다."/>
+		<Class ClassID="40589" ClassName="D_UNDERAQUEDUCT_SETPOS_YES" Data="장치를 사용한다."/>
+		<Class ClassID="40590" ClassName="D_UNDERAQUEDUCT_SETPOS_NO" Data="장치를 사용하지 않는다."/>
+		<Class ClassID="40591" ClassName="D_UNDERAQUEDUCT_GIMMICK_MSG" Data="머즈루스가 염력 결정을 생성했습니다.{nl}염력 결정이 활성화되기 전에 파괴해야 합니다."/>
+		<Class ClassID="40592" ClassName="D_UNDERAQUEDUCT_GIMMICK_MSG_1" Data="계시자 추적 염력 활성화까지"/>
+		<Class ClassID="40593" ClassName="D_UNDERAQUEDUCT_GIMMICK_MSG_2" Data="머즈루스 회복 염력 활성화까지"/>
+		<Class ClassID="40594" ClassName="D_UNDERAQUEDUCT_EVENT_4_MSG1" Data="이미 붉은색 보급품을 소지하고 있습니다."/>
 		<Class ClassID="50001" ClassName="UNDER30_2_CHECK_MSG2" Data="유독가스에 중독되어 비석을 확인하는데 힘듭니다"/>
 		<Class ClassID="50002" ClassName="UNDER301_MONSTER_PAIR_ERROR_1" Data="오늘 진행가능한 {DAYMAXCOUNT}회 중 {DAYPLAYCOUNT} 회를 모두 진행하셨습니다."/>
 		<Class ClassID="50003" ClassName="BRACKEN431_SUB_NPC_NAME" Data="사제 개러티"/>
@@ -7211,7 +7242,7 @@
 		<Class ClassID="67375" ClassName="CASTLE98_MQ_DIR_MSG_35" Data="반항하면 없애버려라"/>
 		<Class ClassID="67376" ClassName="CASTLE98_MQ_DIR_MSG_36" Data="노인과 어린아이부터 잡아와라"/>
 		<Class ClassID="67377" ClassName="CASTLE98_MQ_DIR_MSG_37" Data="인간이란 가족 앞에{nl}한없이 약해지지"/>
-		<Class ClassID="67378" ClassName="CASTLE98_MQ_DIR_MSG_38" Data="이 상황에도 여신을 찾다니{nl}어리석구나'"/>
+		<Class ClassID="67378" ClassName="CASTLE98_MQ_DIR_MSG_38" Data="이 상황에도 여신을 찾다니{nl}어리석구나"/>
 		<Class ClassID="67379" ClassName="CASTLE98_MQ_DIR_MSG_39" Data="우매한 인간이여"/>
 		<Class ClassID="67380" ClassName="CASTLE98_MQ_DIR_MSG_40" Data="내게 활을 쏜 녀석을 데려와라"/>
 		<Class ClassID="67381" ClassName="CASTLE98_MQ_DIR_MSG_41" Data="인간 주제에 겁도 없구나"/>
@@ -7255,6 +7286,8 @@
 		<Class ClassID="67419" ClassName="BK_SEL_ENTERANCE_POS_5" Data="5 시 방향"/>
 		<Class ClassID="67420" ClassName="BK_SEL_ENTERANCE_POS_4" Data="4 시 방향"/>
 		<Class ClassID="67421" ClassName="BK_SEL_ENTERANCE_POS_3" Data="3 시 방향"/>
+		<Class ClassID="67422" ClassName="EVENT_1907_ICESHOP_GBOX_ALL_MSG_1" Data="{s24}축하드립니다!{nl}{PC} 님이 {BOX}에서{nl}{ITEMNAME} 를 획득하셨습니다!"/>
+		<Class ClassID="67423" ClassName="EVENT_1907_ICESHOP_TITLE_NAME_1" Data="[Summer Festa] 얼음 상점"/>
 		<Class ClassID="70001" ClassName="FARM49_2_MQ06_DRAW" Data="우물 물을 긷는 중"/>
 		<Class ClassID="70002" ClassName="FARM49_2_MQ06_SUCCESS" Data="우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
 		<Class ClassID="70003" ClassName="FARM49_2_MQ06_ALREADY" Data="이미 우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
@@ -8708,6 +8741,7 @@
 		<Class ClassID="100090" ClassName="MackangdalOFF" Data="마캉달 무적 효과 해제!!"/>
 		<Class ClassID="100091" ClassName="ShowBattleInfo{ONOFF}" Data="전투 관련 수치 표시 {ONOFF}"/>
 		<Class ClassID="100092" ClassName="DiminishingBuffTime{ONOFF}" Data="군중제어 지속시간 점감 {ONOFF}"/>
+    <Class ClassID="100093" ClassName="show_temporary_resist" Data="일시 면역!"/>
 	</Category>
 	<Category Name="Party">
 		<Class ClassID="101001" ClassName="GULID_OUT" Data="길드 탈퇴"/>
@@ -8848,6 +8882,9 @@
 		<Class ClassID="101140" ClassName="CantGuildOutWithPartyThisMap" Data="해당 지역에서는 파티 상태에서 길드 탈퇴를 할 수 없습니다."/>
 		<Class ClassID="101141" ClassName="CantInviteHeNotInThisMap" Data="초대하려는 대상이 해당 지역에 없습니다."/>
 		<Class ClassID="101142" ClassName="CantJoinWithoutSameGuildThisMap" Data="해당 지역에서는 같은 길드 구성원이 아니면 파티에 가입할 수 없습니다."/>
+		<Class ClassID="101143" ClassName="GodProtectionItemToCabinet" Data="아이템이 마켓 보관함으로 지급되었습니다."/>
+		<Class ClassID="101144" ClassName="WorldEventReceivableItemNotice" Data="수령 가능한 {#ff0000}월드 이벤트 보상 아이템{#000000}이 있습니다.{nl}{#0000ff}[마켓 수령함]{#000000}에서 수령 가능합니다."/>
+		<Class ClassID="101145" ClassName="WorldEventReceivableSilverNotice" Data="수령 가능한 {#ff0000}월드 이벤트 보상 실버{#000000}가 있습니다.{nl}{#0000ff}[마켓 수령함]{#000000}에서 수령 가능합니다."/>
 	</Category>
 	<Category Name="Guild">
 		<Class ClassID="102001" ClassName="GuildMember{Cur}/{Max}People,OnLine{On}People" Data="길드원 ( {Cur} / {Max} 명, 온라인 {On} 명 )"/>
@@ -9094,9 +9131,15 @@
 		<Class ClassID="102422" ClassName="NotEnoughTicketPossibleCount_GMBK_1" Data="해당 길드 퀘스트를 이미 클리어 했습니다.{nl}다음 주 월요일 오전 06시 이후 이용할 수 있습니다."/>
 		<Class ClassID="102423" ClassName="NotEnoughTicketPossibleCount_GMBK_2" Data="해당 길드 퀘스트는 현재 이용할 수 없습니다.{nl}이용제한 : 오전 5시부터 오전 6시 전까지"/>
 		<Class ClassID="102424" ClassName="NotEnoughTicketPossibleCount_GMBK_100" Data="해당 길드 퀘스트는 현재 이용할 수 없습니다.{nl}이용제한 : 일요일 오후 6시부터 월요일 오전 6시 전까지"/>
+		<Class ClassID="102425" ClassName="FIELDBOSS_WORLD_EVENT_WIN_MSG{PC}{ITEM}" Data="축하드립니다!{nl}{PC} 님이 여신의 가호를 받아 {ITEM} 를 획득하셨습니다!"/>
+		<Class ClassID="102426" ClassName="NOTICE_START_FIELDBOSS_WORLD_EVENT" Data="여신의 가호 이벤트가 시작되었습니다! {nl} 마을에서 참여 가능합니다!"/>
+		<Class ClassID="102427" ClassName="NOTICE_END_FIELDBOSS_WORLD_EVENT" Data="여신의 가호 이벤트가 종료되었습니다!"/>
+		<Class ClassID="102428" ClassName="NOTICE_START_FAIL_FIELDBOSS_WORLD_EVENT" Data="문제가 발생하여 여신의 가호 이벤트 시작에 실패했습니다. 죄송합니다."/>
+		<Class ClassID="102429" ClassName="NOTICE_READY_FIELDBOSS_WORLD_EVENT{TIME}" Data="월드 보스가 구원자들에 의해 쓰러졌습니다. {TIME}초 후 여신의 가호 이벤트가 시작됩니다.{nl}참여를 원하시는 구원자분들은 마을로 이동해 주시기 바랍니다."/>
 		<Class ClassID="102430" ClassName="ReallyBanGuildMember" Data="[{NAME}] 길드원을 추방하시겠습니까?"/>
-    <Class ClassID="102431" ClassName="WaitingCreateGuildEventRoom" Data="길드 미션룸을 생성하는 중입니다."/>
-    <Class ClassID="102432" ClassName="CantCancelGuildEvent" Data="해당 길드 이벤트는 시작한 이후 취소할 수 없습니다."/>
+		<Class ClassID="102431" ClassName="WaitingCreateGuildEventRoom" Data="길드 미션룸을 생성하는 중입니다."/>
+		<Class ClassID="102432" ClassName="CantCancelGuildEvent" Data="해당 길드 이벤트는 시작한 이후 취소할 수 없습니다."/>
+		<Class ClassID="102433" ClassName="ReallyOutGuild" Data="길드를 탈퇴하시겠습니까?{nl}    {nl}소지중인 하우징 물품들은 길드 보관함으로 반환 됩니다."/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>
@@ -9258,6 +9301,26 @@
 		<Class ClassID="106106" ClassName="Orgel" Data="오르골"/>
 		<Class ClassID="106107" ClassName="MARKET_ATK" Data="공격"/>
 		<Class ClassID="106108" ClassName="ConsumeSp" Data="장비 강화 소재"/>
+		<Class ClassID="106109" ClassName="IcorWeaponSword" Data="아이커 - 한손검"/>
+		<Class ClassID="106110" ClassName="IcorWeaponTHSword" Data="아이커 - 양손검"/>
+		<Class ClassID="106111" ClassName="IcorWeaponMace" Data="아이커 - 둔기"/>
+		<Class ClassID="106112" ClassName="IcorWeaponTHMace" Data="아이커 - 양손둔기"/>
+		<Class ClassID="106113" ClassName="IcorWeaponBow" Data="아이커 - 쇠뇌"/>
+		<Class ClassID="106114" ClassName="IcorWeaponTHBow" Data="아이커 - 활"/>
+		<Class ClassID="106115" ClassName="IcorWeaponPistol" Data="아이커 - 권총"/>
+		<Class ClassID="106116" ClassName="IcorWeaponMusket" Data="아이커 - 머스킷"/>
+		<Class ClassID="106117" ClassName="IcorWeaponSpear" Data="아이커 - 한손창"/>
+		<Class ClassID="106118" ClassName="IcorWeaponTHSpear" Data="아이커 - 양손창"/>
+		<Class ClassID="106119" ClassName="IcorWeaponDagger" Data="아이커 - 단검"/>
+		<Class ClassID="106120" ClassName="IcorWeaponCannon" Data="아이커 - 캐논"/>
+		<Class ClassID="106121" ClassName="IcorWeaponStaff" Data="아이커 - 로드"/>
+		<Class ClassID="106122" ClassName="IcorWeaponTHStaff" Data="아이커 - 스태프"/>
+		<Class ClassID="106123" ClassName="IcorWeaponRapier" Data="아이커 - 레이피어"/>
+		<Class ClassID="106124" ClassName="IcorArmorShield" Data="아이커 - 방패"/>
+		<Class ClassID="106125" ClassName="IcorArmorShirt" Data="아이커 - 상의"/>
+		<Class ClassID="106126" ClassName="IcorArmorPants" Data="아이커 - 하의"/>
+		<Class ClassID="106127" ClassName="IcorArmorGloves" Data="아이커 - 장갑"/>
+		<Class ClassID="106128" ClassName="IcorArmorBoots" Data="아이커 - 신발"/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="107001" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
@@ -9888,7 +9951,7 @@
 		<Class ClassID="131023" ClassName="TotalBuyPoint" Data="총 구매 예정 포인트"/>
 		<Class ClassID="131024" ClassName="DifferentByPCLevel" Data="레벨에 따라 차등"/>
 		<Class ClassID="131025" ClassName="OverDailyBuyCount" Data="하루에 구매 가능한 수량을 초과했습니다."/>
-		<Class ClassID="131026" ClassName="BuyableCountPerDay_{Count}" Data="하루 구매 가능 수량 : {Count}개"/>
+		<Class ClassID="131026" ClassName="BuyableCountPerDay_{Count}" Data="일일 {Count}개 구매 가능 "/>
 		<Class ClassID="131027" ClassName="TeamBattleLeagueChampion" Data="팀배틀리그 챔피언"/>
 		<Class ClassID="131028" ClassName="TeamBattleLeagueRank{Rank}" Data="팀배틀리그 {Rank}위"/>
 		<Class ClassID="131029" ClassName="OnlyAbleOver{LEVEL}" Data="{LEVEL}레벨 이상만 참여 가능합니다."/>
@@ -9934,7 +9997,7 @@
 		<Class ClassID="131071" ClassName="RewardSeason" Data="이전 시즌의 팀배틀리그 보상을  이미 받으셨습니다."/>
 		<Class ClassID="131072" ClassName="PVPReward" Data="보상 받기"/>
 		<Class ClassID="131074" ClassName="CantExcutePartyInvite" Data="현재 맵에서는 파티 초대기능을 사용하실 수 없습니다."/>
-    <Class ClassID="131076" ClassName="CantUseNow" Data="현재 사용할 수 없는 기능입니다."/>
+		<Class ClassID="131076" ClassName="CantUseNow" Data="현재 사용할 수 없는 기능입니다."/>
 	</Category>
 	<Category Name="MonInfo">
 		<Class ClassID="132001" ClassName="MonInfo_Size" Data="크기"/>
@@ -13074,6 +13137,7 @@
 		<Class ClassID="300184" ClassName="Doll" Data="인형"/>
 		<Class ClassID="300185" ClassName="PremiumToken_New_Return" Data="토큰"/>
 		<Class ClassID="300186" ClassName="tpshop_first_buy_msg" Data="최초 상품 구매 시,{nl}더 이상 {@st66d_y}{s18}첫 구매 상점{/}{/}을 이용할 수 없습니다.{nl}첫 구매 상점은 {@st47}{s18}TP상점{/}{/}에서 확인할 수 있습니다.{nl}그래도 구매하시겠습니까?"/>
+		<Class ClassID="300187" ClassName="Select_Arts" Data="신비한 서를 선택하세요"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
@@ -13227,8 +13291,8 @@
 		<Class ClassID="501209" ClassName="EVENT_1905_TOS_CHILD_MSG3" Data="곧 뱃지가 지급됩니다. 뱃지 지급 전 종료시 정상적으로 아이템이 지급되지 않을 수 있습니다."/>
 		<Class ClassID="501223" ClassName="EVENT_1906_TOTAL_SHOP_MSG1" Data="하루 획득가능한 주화 200개를 모두 모았습니다."/>
 		<Class ClassID="501224" ClassName="EVENT_1906_TOTAL_SHOP_MSG2" Data="곧 주화가 지급됩니다. 주화 지급 전 종료시 정상적으로 아이템이 지급되지 않을 수 있습니다."/>
-
-</Category>
+		<Class ClassID="501233" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL" Data="변경된 밸런스에 맞춰 특정 클래스로 선택하신 구원자님을 지원해드리고 있습니다.{nl}{np}지원 가능한 클래스를 확인해보세요.{np}{#003399}소드맨 계열{/}{nl} - {Char1}{np}{#003399}위저드 계열{/}{nl} - {Char2}{np}{#003399}아처 계열{/}{nl} - {Char3}{np}{#003399}클레릭 계열{/}{nl} - {Char4}{np}{#003399}스카우트 계열{/}{nl} - {Char5}"/>
+	</Category>
 	<Category Name="GEM_GACHA">
 		<Class ClassID="510001" ClassName="GEM_GACHA_SEL1" Data="젬 1회 뽑기"/>
 		<Class ClassID="510002" ClassName="GEM_GACHA_SEL2" Data="뽑기를 하지 않는다."/>
@@ -13595,6 +13659,58 @@
 		<Class ClassID="810043" ClassName="ColonyLeague_World_map_2nd_Reward_Failed{Item}" Data="{Item}아이템의 갯수가 최대치를 넘어섭니다. 비워주시고 다시 시도해 주세요."/>
 		<Class ClassID="810044" ClassName="ColonyLeague_2nd_Reward_Detail{RewardLoadDelay}{RewardReceiveTime}" Data="- 챌린저스 리그 지역을 최종 점령한 길드는 점령 보상 목록에서 보상으로 책정된 아이템을 수령할 수 있습니다.{nl}- 점령 보상 목록은 콜로니전 종료 후, {RewardLoadDelay}시간 뒤 갱신됩니다.{nl}- 점령 보상 수령은 지급일로부터 {RewardReceiveTime}일 동안 가능합니다.{nl}- 남은 지급 기간까지 수령하지 않은 보상은 모두 사라지니 유의해 주시기 바랍니다.{nl}- 길드 해산 시 수령하지 않은 보상은 모두 사라지니 유의해 주시기 바랍니다.{nl}- 점령 보상 수령은 길드 마스터만 가능합니다.{nl}- 점령 보상은 수령 시, 길드 보관함으로 이동됩니다."/>
 	</Category>
+	<Category Name="GuildHousing">
+		<Class ClassID="814900" ClassName="UseGuildMileage_paper_Cant" Data="길드에 가입하지 않으면 사용할 수 없습니다."/>
+		<Class ClassID="814901" ClassName="UseGuildMileage_paper_1" Data="길드 마일리지 {Count}을 적립 했습니다."/>
+		<Class ClassID="815000" ClassName="CannotUseBecauseNotInGuild" Data="길드에 소속되지 않아 사용이 불가능합니다"/>
+		<Class ClassID="815001" ClassName="GUILD_HOUSING_ANIM_BENCH_MSG" Data="벤치에 앉기"/>
+		<Class ClassID="815002" ClassName="GUILD_HOUSING_ANIM_BIG_TREE_MSG" Data="그네 타기"/>
+		<Class ClassID="815003" ClassName="GUILD_HOUSING_ANIM_LAMP_MSG1" Data="점등 하기"/>
+		<Class ClassID="815004" ClassName="GUILD_HOUSING_ANIM_LAMP_MSG2" Data="소등 하기"/>
+		<Class ClassID="815005" ClassName="GUILD_HOUSING_ANIM_GRAMOPHONE_MSG1" Data="작동 시키기"/>
+		<Class ClassID="815006" ClassName="GUILD_HOUSING_ANIM_GRAMOPHONE_MSG2" Data="작동 중지하기"/>
+		<Class ClassID="815007" ClassName="GUILD_HOUSING_ANIM_PARASOL_MSG1" Data="1번 의자에 앉기"/>
+		<Class ClassID="815008" ClassName="GUILD_HOUSING_ANIM_PARASOL_MSG2" Data="2번 의자에 앉기"/>
+		<Class ClassID="815009" ClassName="GUILD_HOUSING_ANIM_SHOP_SET_MSG1" Data="돗자리에 앉기"/>
+		<Class ClassID="815010" ClassName="GUILD_HOUSING_FACILITY_MSG1" Data="증축 하기"/>
+		<Class ClassID="815011" ClassName="GUILD_HOUSING_FACILITY_MSG2" Data="이용 하기"/>
+		<Class ClassID="815012" ClassName="GUILD_HOUSING_FACILITY_DOTIME_MSG1" Data="건설하는 중"/>
+		<Class ClassID="815013" ClassName="GUILD_HOUSING_FACILITY_DOTIME_MSG2" Data="스킵"/>
+		<Class ClassID="815014" ClassName="GUILD_HOUSING_MANAGER_MSG1" Data="길드 상점"/>
+		<Class ClassID="815015" ClassName="GUILD_HOUSING_MANAGER_MSG2" Data="하우징 상점"/>
+		<Class ClassID="815016" ClassName="GUILD_HOUSING_MANAGER_MSG3" Data="길드 아지트 확장에 대해"/>
+		<Class ClassID="815017" ClassName="CannotPlaceAnymore" Data="더이상 배치할 수 없습니다"/>
+		<Class ClassID="815018" ClassName="Guild_Housing_Research_Person_Buff_Apply{Name}{Level}{Contribution}" Data="{s18}{#f8bb00}{ol}{Name} Lv.{Level}{/}{/}{/} 연구를 개인 활성화하여 버프를 받을 시 다음의 재화가 소비됩니다.{nl} {nl} 기여도 : {s18}{@st66d_y}{Contribution}{/}{/}{nl} {nl}활성화 하시겠습니까?"/>
+		<Class ClassID="815019" ClassName="CannotPlaceBecauseAgitLevel" Data="현재 아지트 확장 단계에서는 해당 물건을 배치할 수 없습니다"/>
+		<Class ClassID="815020" ClassName="HousingResearchUsePersonal" Data="개인 활성화"/>
+		<Class ClassID="815021" ClassName="HousingResearchUseGuild" Data="단체 활성화"/>
+		<Class ClassID="815022" ClassName="Guild_Housing_Research_Person_Buff_Apply_Over{ApplyName}{Name}{Level}{Contribution}" Data="현재 {s18}{#f8bb00}{ol}{ApplyName}{/}{/}{/} 버프가 적용중 입니다.{nl} {nl}{s18}{#f8bb00}{ol}{Name} Lv.{Level}{/}{/}{/}  연구를 개인 활성화하여 버프를 받을 시 현재 적용중인 버프가 사라지며, 다음의 재화가 소비됩니다.{nl} {nl} 기여도 : {s18}{@st66d_y}{Contribution}{/}{/}{nl} {nl}활성화 하시겠습니까?"/>
+		<Class ClassID="815023" ClassName="Guild_Housing_Research_Group_Buff_Apply{Name}{Level}{Silver}" Data="{s18}{#f8bb00}{ol}{Name} Lv.{Level}{/}{/}{/} 연구를 단체 활성화하여 버프를 받을 시 다음의 재화가 소비됩니다.{nl} {nl} 길드 자금 : {s18}{@st66d_y}{Silver}{/}{/}{nl} {nl}활성화 하시겠습니까?"/>
+		<Class ClassID="815024" ClassName="Guild_Housing_Research_Group_Buff_Apply_Over{ApplyName}{Name}{Level}{Silver}" Data="현재 {s18}{#f8bb00}{ol}{ApplyName}{/}{/}{/} 버프가 적용중 입니다.{nl} {nl}{s18}{#f8bb00}{ol}{Name} Lv.{Level}{/}{/}{/}  연구를 단체 활성화하여 버프를 받을 시 현재 적용중인 버프가 사라지며, 다음의 재화가 소비됩니다.{nl} {nl} 길드 자금 : {s18}{@st66d_y}{Silver}{/}{/}{nl} {nl}활성화 하시겠습니까?"/>
+		<Class ClassID="815025" ClassName="Guild_Housing_Research_Person_Buff_Applied_Msg{Name}{Level}" Data="개인 활성화로 {#33FF33}{Name} {Level}단계{/} 버프를 받았습니다"/>
+		<Class ClassID="815026" ClassName="Guild_Housing_Research_Group_Buff_Applied_Msg{Name}{Level}" Data="단체 활성화로 {#33FF33}{Name} {Level}단계{/} 버프를 받았습니다{nl}(PvP 지역에서는 해당 버프가 적용되지 않습니다)"/>
+		<Class ClassID="815027" ClassName="Weekly_Guild_Mileage_Reward_Success_Msg{Count}{NowCount}{MaxCount}" Data="{#33FF33}주간 콘텐츠 이용으로 {Count}의 길드 마일리지를 획득했습니다.{nl}(주간 획득 가능한 길드 마일리지 : {NowCount}/{MaxCount}){/}"/>
+		<Class ClassID="815028" ClassName="Weekly_Guild_Mileage_Reward_Fail_Msg{MaxCount}" Data="주간 획득 가능한 {MaxCount}의 길드 마일리지를 모두 획득했습니다"/>
+		<Class ClassID="815029" ClassName="GUILD_HOUSING_ANIM_BAKARINE_STATUS_MSG" Data="경배 하기"/>
+		<Class ClassID="815030" ClassName="Guild_Housing_Extension_Msg1{Level}" Data="길드 아지트가 {Level}단계로 확장되었습니다!{nl}(길드 보관함에 지급된 아이템이 있으니 확인해 주세요)"/>
+		<Class ClassID="815031" ClassName="Guild_Housing_Extension_Msg2{Level}" Data="길드 아지트가 {Level}단계로 확장되었습니다!"/>
+		<Class ClassID="815032" ClassName="GuildAssetLog_GuildLabLevelUp" Data="연구소 증축"/>
+		<Class ClassID="815033" ClassName="GuildAssetLog_GuildLabResearchLevelUp" Data="연구 강화"/>
+		<Class ClassID="815034" ClassName="GuildAssetLog_GuildHousingExtension" Data="아지트 확장"/>
+		<Class ClassID="815035" ClassName="GuildAssetLog_HousingRemoveFurniture" Data="가구 제거"/>
+		<Class ClassID="815036" ClassName="GUILD_CONTRIBUTION_SHOP" Data="길드 상점"/>
+		<Class ClassID="815037" ClassName="YOU_PARTICIPATE_IN_GUILD_AGIT_RAID_ON_BOARD2" Data="현재 길드 아지트 레이드에 참가중이므로 길드 외부로 나갈 수 없습니다"/>
+		<Class ClassID="815038" ClassName="Guild_Housing_Has_Contribution" Data="보유 기여도"/>
+		<Class ClassID="815039" ClassName="Guild_Housing_Use_Contribution" Data="차감 예정 기여도"/>
+		<Class ClassID="815040" ClassName="Guild_Housing_Remain_Contribution" Data="예상 잔여 기여도"/>
+		<Class ClassID="815041" ClassName="YouCanNotGuildHousingInteraction_ByBuff{Name}" Data="[{Name}] 버프가 적용중인 상태에서는 상호작용이 불가능합니다"/>
+		<Class ClassID="815042" ClassName="Guild_Housing_Lab_Level_Up_Msg{Name}{Level}" Data="길드 아지트에서 {#33FF33}[{Name}]{/}가 {#33FF33}[{Level}단계]{/}로 증축되었습니다"/>
+		<Class ClassID="815043" ClassName="Guild_Housing_Production_Level_Up_Msg{Name}{Level}" Data="길드 아지트에서 {#33FF33}[{Name}]{/}가 {#33FF33}[{Level}단계]{/}로 증축되었습니다"/>
+		<Class ClassID="815044" ClassName="Guild_Housing_Lab_Research_Level_Up_Msg{ResearchName}{Level}" Data="길드 아지트에서 {#33FF33}[{ResearchName}]{/} 연구가 {#33FF33}[{Level}레벨]{/}로 강화되었습니다"/>
+		<Class ClassID="815045" ClassName="GuildAssetLog_HousingResearchUseGuild_Msg" Data="연구 단체 활성화"/>
+		<Class ClassID="815046" ClassName="GuildHousingPointBuySuccess_Msg" Data="길드 하우징 포인트 구매에 성공했습니다"/>
+		<Class ClassID="815047" ClassName="Guild_Housing_CantMakeOutOfHousingArea" Data="하우징 영역에서만 사용 가능합니다."/>
+	</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="?????????????"/>
 		<Class ClassID="900001" ClassName="NXABillingPurchaseFailed" Data="Purchase Failed"/>
@@ -13775,7 +13891,7 @@
 		<Class ClassID="2000221" ClassName="WebService_601" Data="조회시간이 현재시간보다 과거여야합니다."/>
 		<Class ClassID="2000222" ClassName="WebService_602" Data="조회시간이 존재해야 합니다."/>
 		<Class ClassID="2000223" ClassName="WebService_603" Data="조회할 길드 인덱스가 필요합니다."/>
-    <Class ClassID="2000227" ClassName="WebService_46" Data="지원하지 않는 문자(언어)가 포함되어 있습니다."/>
+		<Class ClassID="2000227" ClassName="WebService_46" Data="지원하지 않는 문자(언어)가 포함되어 있습니다."/>
 		<Class ClassID="2099994" ClassName="ImageUploadSuccess" Data="이미지가 성공적으로 업로드되었습니다"/>
 		<Class ClassID="2099995" ClassName="RegGuildPromoteBeforeImage" Data="이미지를 등록하기 전에 길드 홍보글을 등록해주세요"/>
 		<Class ClassID="2099996" ClassName="BannerUploadSuccess" Data="배너가 성공적으로 업로드되었습니다"/>
@@ -13879,4 +13995,78 @@
 		<Class ClassID="518006" ClassName="SuddenQuest_DoNotZoneMove" Data="※돌발 퀘스트는 맵 이동시에 자동으로 종료됩니다."/>
 		<Class ClassID="518007" ClassName="SuddenQuest_Create" Data="돌발 퀘스트가 발생했습니다"/>
 	</Category>
+	<Category Name="Housing">
+		<Class ClassID="519001" ClassName="Housing_PleaseArrangementOtherPlace" Data="다른 곳에 배치해주세요."/>
+		<Class ClassID="519002" ClassName="Housing_CantBePlacedThisItem" Data="배치 할 수 없는 물건입니다."/>
+		<Class ClassID="519003" ClassName="Housing_CancelArrangementFurniture" Data="가구 배치를 취소하셨습니다."/>
+		<Class ClassID="519004" ClassName="Housing_InvalidArragementInformation" Data="배치 정보가 올바르지 않습니다."/>
+		<Class ClassID="519005" ClassName="Housing_Context_Furniture_Move" Data="이동"/>
+		<Class ClassID="519006" ClassName="Housing_Context_Furniture_Remove" Data="제거"/>
+		<Class ClassID="519007" ClassName="Housing_DoingRemove_PleaseWait" Data="제거 중입니다. 잠시만 기다려주세요."/>
+		<Class ClassID="519008" ClassName="Housing_Really_Agit_Extension{LEVEL}{GUILD_MONEY}{GUILD_MILEAGE}" Data="길드 아지트를 {s18}{#f8bb00}{ol}{LEVEL}단계{/}{/}{/}로 확장하기 위해{nl}다음의 재화가 소비됩니다.{nl}{nl}길드 자금 : {s18}{@st66d_y}{GUILD_MONEY}{/}{/}{nl}길드 마일리지 : {s18}{@st66d_y}{GUILD_MILEAGE}{/}{/}{nl}{nl}길드 아지트를 확장하시겠습니까?"/>
+		<Class ClassID="519009" ClassName="Housing_ProductionLab" Data="제작 공방소"/>
+		<Class ClassID="519010" ClassName="Housing_WeaponLab" Data="무기 연구소"/>
+		<Class ClassID="519011" ClassName="Housing_ArmorLab" Data="방어구 연구소"/>
+		<Class ClassID="519012" ClassName="Housing_AttributeLab" Data="속성 연구소"/>
+		<Class ClassID="519013" ClassName="Housing_Contribution" Data="기여도"/>
+		<Class ClassID="519014" ClassName="Housing_Guild_Mileage" Data="길드 마일리지"/>
+		<Class ClassID="519015" ClassName="Housing_Weapon_Lab_Title" Data="무기 연구소"/>
+		<Class ClassID="519016" ClassName="Housing_Weapon_Lab_Tooltip" Data="{@st59b}무기 연구소{nl}{@st59s}연구소 증축 레벨당 연구 최대 Lv+5{nl}유의사항{nl}1. 연구 레벨업 시 일정량의 길드 자금이 소비됩니다.{nl}2. 우측의 개인, 단체 활성화 버튼을 통해 진행된 연구의 효과를 버프 형태로 받을 수 있습니다.{nl}3. 개인 활성화로 버프를 받을 시 일정량의 기여도가 소비되며, 연구 효과가 50%만 적용됩니다.{nl}4. 단체 활성화로 버프를 받을 시 일정량의 길드 자금이 소비됩니다. "/>
+		<Class ClassID="519017" ClassName="Housing_Armor_Lab_Title" Data="방어구 연구소"/>
+		<Class ClassID="519018" ClassName="Housing_Armor_Lab_Tooltip" Data="{@st59b}방어구 연구소{nl}{@st59s}연구소 증축 레벨당 연구 최대 Lv+5{nl}유의사항{nl}1. 연구 레벨업 시 일정량의 길드 자금이 소비됩니다.{nl}2. 우측의 개인, 단체 활성화 버튼을 통해 진행된 연구의 효과를 버프 형태로 받을 수 있습니다.{nl}3. 개인 활성화로 버프를 받을 시 일정량의 기여도가 소비되며, 연구 효과가 50%만 적용됩니다.{nl}4. 단체 활성화로 버프를 받을 시 일정량의 길드 자금이 소비됩니다. "/>
+		<Class ClassID="519020" ClassName="Housing_Attribute_Lab_Title" Data="속성 연구소"/>
+		<Class ClassID="519021" ClassName="Housing_Attribute_Lab_Tooltip" Data="{@st59b}속성 연구소{nl}{@st59s}연구소 증축 레벨당 연구 최대 Lv+5{nl}유의사항{nl}1. 연구 레벨업 시 일정량의 길드 자금이 소비됩니다.{nl}2. 우측의 개인, 단체 활성화 버튼을 통해 진행된 연구의 효과를 버프 형태로 받을 수 있습니다.{nl}3. 개인 활성화로 버프를 받을 시 일정량의 기여도가 소비되며, 연구 효과가 50%만 적용됩니다.{nl}4. 단체 활성화로 버프를 받을 시 일정량의 길드 자금이 소비됩니다. "/>
+		<Class ClassID="519022" ClassName="Housing_Weapon_Human_Research" Data="특수 무기학 - 인간형"/>
+		<Class ClassID="519023" ClassName="Housing_Weapon_Velnias_Research" Data="특수 무기학 - 악마형"/>
+		<Class ClassID="519024" ClassName="Housing_Weapon_Forester_Research" Data="특수 무기학 - 식물형"/>
+		<Class ClassID="519025" ClassName="Housing_Weapon_Widling_Research" Data="특수 무기학 - 야수형"/>
+		<Class ClassID="519026" ClassName="Housing_Weapon_Paramune_Research" Data="특수 무기학 - 변이형"/>
+		<Class ClassID="519027" ClassName="Housing_Weapon_Klaida_Research" Data="특수 무기학 - 곤충형"/>
+		<Class ClassID="519028" ClassName="Housing_Armor_Cloth_Material_Research" Data="천 방어구 - 재질"/>
+		<Class ClassID="519029" ClassName="Housing_Armor_Leather_Material_Research" Data="가죽 방어구 - 재질"/>
+		<Class ClassID="519030" ClassName="Housing_Armor_Iron_Material_Research" Data="판금 방어구 - 재질"/>
+		<Class ClassID="519031" ClassName="Housing_Armor_Cloth_Utility_Research" Data="천 방어구 - 기능"/>
+		<Class ClassID="519032" ClassName="Housing_Armor_Leather_Utility_Research" Data="가죽 방어구 - 기능"/>
+		<Class ClassID="519033" ClassName="Housing_Armor_Iron_Utility_Research" Data="판금 방어구 - 기능"/>
+		<Class ClassID="519034" ClassName="Housing_Attr_Fire_Research" Data="원리 이해 - 불"/>
+		<Class ClassID="519035" ClassName="Housing_Attr_Ice_Research" Data="원리 이해 - 얼음"/>
+		<Class ClassID="519036" ClassName="Housing_Attr_Lightning_Research" Data="원리 이해 - 전기"/>
+		<Class ClassID="519037" ClassName="Housing_Attr_Poison_Research" Data="원리 이해 - 독"/>
+		<Class ClassID="519038" ClassName="Housing_Attr_Dark_Research" Data="원리 이해 - 어둠"/>
+		<Class ClassID="519039" ClassName="Housing_Attr_Holy_Research" Data="원리 이해 - 신성"/>
+		<Class ClassID="519040" ClassName="Housing_Attr_Earth_Research" Data="원리 이해 - 땅"/>
+		<Class ClassID="519041" ClassName="Housing_Attr_Soul_Research" Data="원리 이해 - 염"/>
+		<Class ClassID="519042" ClassName="Housing_Not_Enough_Mileage" Data="마일리지가 부족합니다."/>
+		<Class ClassID="519043" ClassName="Housing_Really_Lab_Research_Level_Up{RESEARCH}{LEVEL}{GUILD_MONEY}" Data="{s18}{#f8bb00}{ol}{RESEARCH}{/}{/}{/}연구를{nl}{s18}{#f8bb00}{ol}{LEVEL}단계{/}{/}{/}로 강화하기 위해{nl}다음의 재화가 소비됩니다.{nl}{nl}길드 자금 : {s18}{@st66d_y}{GUILD_MONEY}{/}{/}{nl}{nl}강화 하시겠습니까?"/>
+		<Class ClassID="519044" ClassName="Housing_No_Permissions" Data="'아지트 꾸미기' 권한이 없습니다."/>
+		<Class ClassID="519045" ClassName="Housing_Only_One_Lab_Can_be_Arrangement" Data="이미 배치되어 있는 연구소입니다."/>
+		<Class ClassID="519046" ClassName="Housing_Research_Tooltip{" Data="이미 배치되어 있는 연구소입니다."/>
+		<Class ClassID="519047" ClassName="Housing_Not_Enough_Contribution" Data="기여도가 부족합니다."/>
+		<Class ClassID="519048" ClassName="Housing_Maximum_Housing_Point" Data="더 이상 하우징 포인트를 올릴 수 없습니다."/>
+		<Class ClassID="519049" ClassName="Housing_Really_Furniture_Remove{FURNITURE}{GUILD_MONEY}{NEED_GUILD_MONEY}" Data="철거 하시겠습니까?{nl}{ol}{ds}{b}{s20}{FURNITURE}{/}{/}{/}{/}{nl}소지 길드 자금 : {@st66d_y}{GUILD_MONEY}{/}{nl}소비 길드 자금 : {ol}{s18}{#ec0000}{NEED_GUILD_MONEY}{/}{/}{/}{nl}해당 하우징 물품을 철거하면 관련 기능을 이용할 수 없으며, 철거된 물품은 아이템 창으로 이동합니다."/>
+		<Class ClassID="519050" ClassName="Housing_Not_Enough_Point" Data="하우징 포인트가 부족합니다."/>
+		<Class ClassID="519051" ClassName="Housing_Cant_Sell_Housing_Point_Is_Max" Data="하우징 포인트 최대치를 초과해 판매 할 수 없습니다."/>
+		<Class ClassID="519052" ClassName="Housing_Cant_Sell_This_Item" Data="이 NPC에게 판매 할 수 없는 아이템입니다."/>
+		<Class ClassID="519053" ClassName="Housing_Really_Remove_Field_Exists_Object_On_Field{WORD}" Data="논밭의 모든 작물이 제거됩니다.{nl}정말 {ol}{@st66d_y} {WORD}{/}{/}하시겠습니까?"/>
+		<Class ClassID="519054" ClassName="Housing_No_Permissions_FacilityManagement" Data="'전문 시설 관리' 권한이 없습니다."/>
+		<Class ClassID="519055" ClassName="Housing_Really_Agit_Extension_First{LEVEL}{GUILD_MONEY}{GUILD_MILEAGE}" Data="길드 아지트를 {s18}{#f8bb00}{ol}{LEVEL}단계{/}{/}{/}로 확장하기 위해{nl}다음의 재화가 소비됩니다.{nl}{nl}길드 자금 : {s18}{@st66d_y}{GUILD_MONEY}{/}{/}{nl}길드 마일리지 : {s18}{@st66d_y}{GUILD_MILEAGE}{/}{/}{nl}{nl}길드 아지트를 확장하시겠습니까?{nl}        {nl}{s18}{#ec0000}주의 : 아지트에 있는 새싹이 모두 제거됩니다.{/}{/}"/>
+			<Class ClassID="519056" ClassName="Housing_Cant_Do_It_While_Arrangement" Data="배치 중에는 사용할 수 없습니다."/>
+		<Class ClassID="519057" ClassName="Housing_Restricted_To_Use_When_Using_Joypad" Data="조이패드 사용 시, 하우징 편집 모드 이용이 제한됩니다."/>
+		<Class ClassID="519058" ClassName="Housing_Cant_Extension_While_Agit_Raid" Data="길드 레이드 중에는 아지트를 확장 할 수 없습니다."/>
+
+</Category>
+	<Category Name="ArtsSystem">
+		<Class ClassID="540001" ClassName="Arts_Please_Select_HiddenabilityItem" Data="제작할 신비한 서를 선택해주세요"/>
+		<Class ClassID="540002" ClassName="Arts_Please_Register_MaterialItem" Data="사용할 재료를 등록해주세요"/>
+		<Class ClassID="540003" ClassName="Arts_NeedOnemoreStone" Data="여신의 축복석을 등록해 주세요."/>
+		<Class ClassID="540004" ClassName="Arts_Please_Decompose_material" Data="분해할 아이템을 등록해 주세요"/>
+		<Class ClassID="540005" ClassName="Arts_Already_MaxLevel" Data="더 이상 해당 아츠의 레벨을 올릴 수 없습니다"/>
+		<Class ClassID="540006" ClassName="Arts_Learn_Ability_Msg" Data="{bookName} 및 {abilPrice} 특성 포인트를 사용하여 {abilName} {abilLevel}레벨을 획득하시겠습니까?"/>
+		<Class ClassID="540007" ClassName="Arts_Unlock_Fail" Data="해당 아츠의 해금조건을 만족하지 않습니다"/>		
+    <Class ClassID="540008" ClassName="Swordbook" Data="신비한 서: 소드맨"/>
+    <Class ClassID="540009" ClassName="Wizardbook" Data="신비한 서: 위저드"/>
+    <Class ClassID="540010" ClassName="Clericbook" Data="신비한 서: 클레릭"/>
+    <Class ClassID="540011" ClassName="Scoutbook" Data="신비한 서: 스카우트"/>
+    <Class ClassID="540012" ClassName="Archerbook" Data="신비한 서: 아처"/>
+  </Category>
 </idspace>

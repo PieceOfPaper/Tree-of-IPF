@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_smoke185_spread_out_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.8" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 Spine" particleName="I_smoke013_dark5_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 Spine" particleName="I_smoke_red5" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 Head_L" particleName="I_smoke_red5" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 Head_R" particleName="I_smoke_red5" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 tail02" particleName="I_smoke_red5" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_voice_boruta_skl2_cast"/>
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="F_levitation007_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="7" attachNode="Bip001 Spine" particleName="F_levitation007_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="10" type="2" intensity="4" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="10" attachNode="Bip001 Spine" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="10.00" soundFile="m_kerberos_atk"/>
+    <Particle frame="15" attachNode="Dummy_emitter" particleName="F_smoke185_spread_out_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="20" attachNode="Dummy_emitter" particleName="F_spread_out002" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="35" type="2" intensity="6" frequency="70" duration="1" range="1000"/>
+    <Particle frame="35" attachNode="Dummy_emitter" particleName="F_buff_basic056_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="40" attachNode="Dummy_emitter" particleName="I_smoke_red5" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="40" attachNode="Dummy_emitter" particleName="F_buff_basic056_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="6.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

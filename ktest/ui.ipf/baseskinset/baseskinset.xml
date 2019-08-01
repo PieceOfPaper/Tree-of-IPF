@@ -3997,6 +3997,17 @@
 			<img name="bottomcore" imgrect="415 234 100 20"/>
 			<img name="bottomright" imgrect="516 234 41 20"/>
 		</skin>
+		<skin name="lightbrownbox_op_100" texture="\skin\pip_test_item.tga">
+			<img name="topleft" imgrect="1040 501 10 10"/>
+			<img name="topcore" imgrect="1051 501 10 10"/>
+			<img name="topright" imgrect="1062 501 10 10"/>
+			<img name="bodyleft" imgrect="1040 512 10 10"/>
+			<img name="bodycore" imgrect="1051 512 10 10"/>
+			<img name="bodyright" imgrect="1062 512 10 10"/>
+			<img name="bottomleft" imgrect="1040 523 10 10"/>
+			<img name="bottomcore" imgrect="1051 523 10 10"/>
+			<img name="bottomright" imgrect="1062 523 10 10"/>
+		</skin>
 		<skin name="listbox_op_20" texture="\skin\tooltip_skin_3.tga">
 			<img name="topleft" imgrect="439 170 15 11"/>
 			<img name="topcore" imgrect="455 170 16 11"/>
@@ -4073,6 +4084,96 @@
 			<img name="bottomleft" imgrect="1 283 1 67"/>
 			<img name="bottomcore" imgrect="4 283 939 67"/>
 			<img name="bottomright" imgrect="944 283 1 67"/>
+		</skin>
+	</skinlist>
+	<skinlist category="testje2_frames">
+		<skin name="list_choice_box" texture="\skin\pip_test2.tga">
+			<img name="topleft" imgrect="734 210 30 10"/>
+			<img name="topcore" imgrect="765 210 42 10"/>
+			<img name="topright" imgrect="808 210 30 10"/>
+			<img name="bodyleft" imgrect="734 221 30 5"/>
+			<img name="bodycore" imgrect="765 221 42 5"/>
+			<img name="bodyright" imgrect="808 221 30 5"/>
+			<img name="bottomleft" imgrect="734 227 30 10"/>
+			<img name="bottomcore" imgrect="765 227 42 10"/>
+			<img name="bottomright" imgrect="808 227 30 10"/>
+		</skin>
+		<skin name="custom_box_bg" texture="\skin\mainframe_03.tga">
+			<img name="topleft" imgrect="368 0 44 46"/>
+			<img name="topcore" imgrect="413 0 289 46"/>
+			<img name="topright" imgrect="703 0 44 46 "/>
+			<img name="bodyleft" imgrect="368 47 44 396"/>
+			<img name="bodycore" imgrect="413 47 289 396"/>
+			<img name="bodyright" imgrect="703 47 44 396"/>
+			<img name="bottomleft" imgrect="368 444 44 46"/>
+			<img name="bottomcore" imgrect="413 444 289 46"/>
+			<img name="bottomright" imgrect="703 444 44 46"/>
+		</skin>
+		<skin name="play_search_box2" texture="\skin\pip_test2.tga">
+			<img name="topleft" imgrect="444 284 28 10"/>
+			<img name="topcore" imgrect="472 284 30 10"/>
+			<img name="topright" imgrect="502 284 28 10"/>
+			<img name="bodyleft" imgrect="444 294 28 8"/>
+			<img name="bodycore" imgrect="472 294 30 8"/>
+			<img name="bodyright" imgrect="502 294 28 8"/>
+			<img name="bottomleft" imgrect="444 302 28 10"/>
+			<img name="bottomcore" imgrect="472 302 30 10"/>
+			<img name="bottomright" imgrect="502 302 28 10"/>
+		</skin>
+		<skin name="protection_stopwatch" texture="\skin\god_protect_skin.tga">
+			<img name="topleft" imgrect="1 927 110 1"/>
+			<img name="topcore" imgrect="112 927 70 1"/>
+			<img name="topright" imgrect="183 927 110 1"/>
+			<img name="bodyleft" imgrect="1 929 110 42"/>
+			<img name="bodycore" imgrect="112 929 70 42"/>
+			<img name="bodyright" imgrect="183 929 110 42"/>
+			<img name="bottomleft" imgrect="1 972 110 1"/>
+			<img name="bottomcore" imgrect="112 972 70 1"/>
+			<img name="bottomright" imgrect="183 972 110 1"/>
+		</skin>
+		<skin name="protection_frame" texture="\skin\god_protect_skin.tga">
+			<img name="topleft" imgrect="1 873 76 1"/>
+			<img name="topcore" imgrect="78 873 139 1"/>
+			<img name="topright" imgrect="218 873 76 1"/>
+			<img name="bodyleft" imgrect="1 875 76 49"/>
+			<img name="bodycore" imgrect="78 875 139 49"/>
+			<img name="bodyright" imgrect="218 875 76 49"/>
+			<img name="bottomleft" imgrect="1 925 76 1 "/>
+			<img name="bottomcore" imgrect="78 925 139 1"/>
+			<img name="bottomright" imgrect="218 925 76 1"/>
+		</skin>
+		<skin name="protection_lottery_notice" texture="\skin\god_protect_skin.tga">
+			<img name="topleft" imgrect="1 974 30 19"/>
+			<img name="topcore" imgrect="32 974 15 19"/>
+			<img name="topright" imgrect="48 974 30 19"/>
+			<img name="bodyleft" imgrect="1 994 30 5"/>
+			<img name="bodycore" imgrect="32 994 15 5"/>
+			<img name="bodyright" imgrect="48 994 30 5"/>
+			<img name="bottomleft" imgrect="1 1000 30 19"/>
+			<img name="bottomcore" imgrect="32 1000 15 19"/>
+			<img name="bottomright" imgrect="48 1000 30 19"/>
+		</skin>
+		<skin name="protection_in_background" texture="\skin\god_protect_skin.tga">
+			<img name="topleft" imgrect="574 1 80 80"/>
+			<img name="topcore" imgrect="655 1 80 80"/>
+			<img name="topright" imgrect="736 1 80 80"/>
+			<img name="bodyleft" imgrect="574 82 80 80"/>
+			<img name="bodycore" imgrect="655 82 80 80"/>
+			<img name="bodyright" imgrect="736 82 80 80"/>
+			<img name="bottomleft" imgrect="574 163 80 80"/>
+			<img name="bottomcore" imgrect="655 163 80 80"/>
+			<img name="bottomright" imgrect="736 163 80 80"/>
+		</skin>
+		<skin name="magic_give_scroll_title" texture="\skin\pip_test2.tga">
+			<img name="topleft" imgrect="464 392 45 13"/>
+			<img name="topcore" imgrect="510 392 100 13"/>
+			<img name="topright" imgrect="611 392 45 13"/>
+			<img name="bodyleft" imgrect="464 406 45 9"/>
+			<img name="bodycore" imgrect="510 406 100 9"/>
+			<img name="bodyright" imgrect="611 406 45 9"/>
+			<img name="bottomleft" imgrect="464 416 45 13"/>
+			<img name="bottomcore" imgrect="510 416 100 13"/>
+			<img name="bottomright" imgrect="611 416 45 13"/>
 		</skin>
 	</skinlist>
 	<skinlist category="buttons">
@@ -4759,6 +4860,12 @@
 			<img name="mouseon" imgrect="403 272 67 67"/>
 			<img name="cooltime" imgrect="403 272 67 67"/>
 			<img name="selected" imgrect="403 272 67 67"/>
+		</skin>
+		<skin name="slot_add_item" texture="\skin\guild_skin.tga">
+			<img name="slot" imgrect="872 621 70 70"/>
+			<img name="mouseon" imgrect="943 621 70 70"/>
+			<img name="cooltime" imgrect="943 621 70 70"/>
+			<img name="selected" imgrect="943 621 70 70"/>
 		</skin>
 	</skinlist>
 	<skinlist category="None">
@@ -5572,6 +5679,30 @@
 			<img name="barleft" imgrect="0 204 1 22"/>
 			<img name="barmiddle" imgrect="134 241 132 8"/>
 			<img name="barright" imgrect="133 204 1 22"/>
+		</skin>
+		<skin name="gauge_sudden_quest" texture="\skin\pip_test2.tga">
+			<img name="bgleft" imgrect="559 201 1 8"/>
+			<img name="bgmiddle" imgrect="560 201 312 8"/>
+			<img name="bgright" imgrect="872 201 1 8"/>
+			<img name="barleft" imgrect="559 201 1 8"/>
+			<img name="barmiddle" imgrect="558 192 312 8"/>
+			<img name="barright" imgrect="872 201 1 8"/>
+		</skin>
+		<skin name="bgm_play_gauge" texture="\skin\pip_test2.tga">
+			<img name="bgleft" imgrect="1 393 1 17"/>
+			<img name="bgmiddle" imgrect="2 393 459 17"/>
+			<img name="bgright" imgrect="461 393 1 17"/>
+			<img name="barleft" imgrect="1 393 1 17"/>
+			<img name="barmiddle" imgrect="0 412 459 17"/>
+			<img name="barright" imgrect="461 393 1 17"/>
+		</skin>
+		<skin name="gauge_guild_housing_point" texture="\skin\guild_skin.tga">
+			<img name="bgleft" imgrect="0 1003 1 20"/>
+			<img name="bgmiddle" imgrect="1 1003 555 20"/>
+			<img name="bgright" imgrect="556 1003 1 20"/>
+			<img name="barleft" imgrect="0 1003 1 20"/>
+			<img name="barmiddle" imgrect="1 982 555 20"/>
+			<img name="barright" imgrect="556 1003 1 20"/>
 		</skin>
 	</skinlist>
 	<skinlist category="labellines">
@@ -6417,6 +6548,7 @@
 		<image name="Appariser_my" file="\skin\Appraiser_skin.tga" imgrect="0 0 155 172" CMM_Caption="내아이템"/>
 		<image name="Appariser_arrow" file="\skin\Appraiser_skin.tga" imgrect="157 0 70 60" CMM_Caption="감정사_화살표"/>
 		<image name="Appariser_item" file="\skin\Appraiser_skin.tga" imgrect="228 0 155 172" CMM_Caption="감정사"/>
+		<image name="grey_arrow_right" file="\skin\pip_test.tga" imgrect="403 87 50 70" CMM_Caption="회색 화살표_우"/>
 	</imagelist>
 	<imagelist category="Collar_image">
 		<image name="market_event_test" file="\skin\market_event_test.png" imgrect="0 0 520 250" CMM_Caption="마켓배너준비(테스트)"/>
@@ -6527,7 +6659,7 @@
 		<image name="stat_gauge_frame" file="\skin\barrack.tga" imgrect="346 193 55 17" CMM_Caption=""/>
 		<image name="icon_lock_tooltip_1" file="\skin\tooltip_skin_3.tga" imgrect="55 221 20 24" CMM_Caption="자물쇠아이콘1"/>
 		<image name="icon_lock_tooltip_2" file="\skin\tooltip_skin_3.tga" imgrect="639 57 45 47" CMM_Caption="자물쇠아이콘2"/>
-		<image name="icon_arrow_down" file="\skin\tooltip_skin_3.tga" imgrect="920 1575 102 39" CMM_Caption="화살표 아래"/>
+		<image name="icon_arrow_down" file="\skin\tooltip_skin_3.tga" imgrect="919 1575 103 39" CMM_Caption="화살표 아래"/>
 		<image name="icon_arrow_left" file="\skin\tooltip_skin_3.tga" imgrect="1303 1936 39 106" CMM_Caption="화살표 왼쪽"/>
 		<image name="medal_lock_skin" file="\skin\tooltip_skin_3.tga" imgrect="1643 370 404 61" CMM_Caption="인장 툴팁 잠금스킨"/>
 		<image name="barrack_pet_skin" file="\skin\barrack.tga" imgrect="723 268 262 34" CMM_Caption="배럭 컴패니언 스킨"/>
@@ -6544,13 +6676,35 @@
 		<image name="icon_white_arrow" file="\skin\pip_test2.tga" imgrect="797 459 13 16" CMM_Caption="하얀 화살표 오른쪽"/>
 		<image name="text_bg_black" file="\skin\pip_test2.tga" imgrect="667 254 196 31" CMM_Caption="인던 스킬제한 텍스트 bg"/>
 		<image name="NOTICE_Dm_!_s" file="\skin\pip_test2.tga" imgrect="654 153 22 22" CMM_Caption="인던 스킬제한 경고아이콘"/>
+		<image name="buff_lock_icon_1" file="\skin\pip_test.tga" imgrect="1333 918 16 21" CMM_Caption="버프잠금 해제가능"/>
+		<image name="buff_lock_icon_2" file="\skin\pip_test.tga" imgrect="1316 918 16 21" CMM_Caption="버프잠금 고급해제"/>
+		<image name="buff_lock_icon_3" file="\skin\pip_test.tga" imgrect="1676 711 35 35" CMM_Caption="버프잠금 해제가능2"/>
+		<image name="buff_lock_icon_4" file="\skin\pip_test.tga" imgrect="1712 711 35 35" CMM_Caption="버프잠금 고급해제2"/>
+		<image name="colonymap_unoccupation2" file="\skin\colony.tga" imgrect="1795 256 94 98" CMM_Caption="콜로니전 맵 아이콘2"/>
 		<image name="NOTICE_Dm_Curse_5" file="\skin\indun_skin.tga" imgrect="449 784 60 132" CMM_Caption="저주 카운트 숫자5"/>
 		<image name="NOTICE_Dm_Curse_4" file="\skin\indun_skin.tga" imgrect="388 784 60 132" CMM_Caption="저주 카운트 숫자4"/>
 		<image name="NOTICE_Dm_Curse_3" file="\skin\indun_skin.tga" imgrect="327 784 60 132" CMM_Caption="저주 카운트 숫자3"/>
 		<image name="NOTICE_Dm_Curse_2" file="\skin\indun_skin.tga" imgrect="266 784 60 132" CMM_Caption="저주 카운트 숫자2"/>
 		<image name="NOTICE_Dm_Curse_1" file="\skin\indun_skin.tga" imgrect="205 784 60 132" CMM_Caption="저주 카운트 숫자1"/>
-		<image name="colonymap_unoccupation2" file="\skin\colony.tga" imgrect="1795 256 94 98" CMM_Caption="콜로니전 맵 아이콘2"/>
+		<image name="mark_img_o" file="\skin\tooltip_skin_3.tga" imgrect="1758 1529 31 31" CMM_Caption="미션 성공 마크"/>
+		<image name="mark_img_x" file="\skin\tooltip_skin_3.tga" imgrect="1758 1561 31 31" CMM_Caption="미션 실패 마크"/>
 		<image name="test_frame_midle_mini" file="\skin\colony.tga" imgrect="1890 256 68 68" CMM_Caption=""/>
+		<image name="gauge_guild_housing_point_l" file="\skin\guild_skin.tga" imgrect="1 205 5 20" CMM_Caption="길드하우징 게이지 좌"/>
+		<image name="gauge_guild_housing_point_r" file="\skin\guild_skin.tga" imgrect="153 205 5 20" CMM_Caption="길드하우징 게이지 우"/>
+		<image name="housing_level_icon_01" file="\skin\guild_skin.tga" imgrect="194 714 100 100" CMM_Caption="길드하우징 레벨 아이콘1"/>
+		<image name="housing_level_icon_02" file="\skin\guild_skin.tga" imgrect="295 714 100 100" CMM_Caption="길드하우징 레벨 아이콘2"/>
+		<image name="housing_level_icon_03" file="\skin\guild_skin.tga" imgrect="396 714 100 100" CMM_Caption="길드하우징 레벨 아이콘3"/>
+		<image name="housing_level_icon_04" file="\skin\guild_skin.tga" imgrect="497 714 100 100" CMM_Caption="길드하우징 레벨 아이콘4"/>
+		<image name="housing_level_icon_05" file="\skin\guild_skin.tga" imgrect="598 714 100 100" CMM_Caption="길드하우징 레벨 아이콘5"/>
+		<image name="housing_brown_box" file="\skin\guild_skin.tga" imgrect="1 872 607 109" CMM_Caption="길드하우징 bg"/>
+		<image name="open_leftup" file="\skin\tooltip_skin_3.tga" imgrect="418 802 23 23" CMM_Caption="프랍 회전 아이콘"/>
+		<image name="open_leftdown" file="\skin\tooltip_skin_3.tga" imgrect="442 802 23 23"/>
+		<image name="open_rightup" file="\skin\tooltip_skin_3.tga" imgrect="466 802 23 23"/>
+		<image name="open_rightdown" file="\skin\tooltip_skin_3.tga" imgrect="490 802 23 23"/>
+		<image name="close_leftup" file="\skin\tooltip_skin_3.tga" imgrect="418 778 23 23"/>
+		<image name="close_leftdown" file="\skin\tooltip_skin_3.tga" imgrect="442 778 23 23"/>
+		<image name="close_rightup" file="\skin\tooltip_skin_3.tga" imgrect="466 778 23 23"/>
+		<image name="close_rightdown" file="\skin\tooltip_skin_3.tga" imgrect="490 778 23 23"/>
 	</imagelist>
 	<imagelist category="testje_image">
 		<image name="test_betrum_scoreboardT_skin" file="\skin\keynbet.tga" imgrect="0 528 352 88" CMM_Caption="배틀럼블 스코어 페이지"/>
@@ -6861,6 +7015,23 @@
 		<image name="play_search_box" file="\skin\pip_test2.tga" imgrect="444 284 86 28" CMM_Caption="주크박스 검색 창"/>
 		<image name="colony_league_part1" file="\skin\colony.tga" imgrect="1795 157 98 98" CMM_Caption="콜로니전 리그 1부"/>
 		<image name="colony_league_part2" file="\skin\colony.tga" imgrect="1894 157 98 98" CMM_Caption="콜로니전 리그 2부"/>
+		<image name="icon_guild_housing_coin_01" file="\skin\guild_skin.tga" imgrect="1 123 40 40" CMM_Caption="독창성"/>
+		<image name="icon_guild_housing_coin_02" file="\skin\guild_skin.tga" imgrect="42 123 40 40" CMM_Caption="기능성"/>
+		<image name="icon_guild_housing_coin_03" file="\skin\guild_skin.tga" imgrect="83 123 40 40" CMM_Caption="예술성"/>
+		<image name="icon_guild_housing_coin_04" file="\skin\guild_skin.tga" imgrect="124 123 40 40" CMM_Caption="경제성"/>
+		<image name="icon_guild_housing_lab_weapon" file="\skin\guild_skin.tga" imgrect="1 164 40 40" CMM_Caption="연구 시설_무기"/>
+		<image name="icon_guild_housing_lab_armor" file="\skin\guild_skin.tga" imgrect="42 164 40 40" CMM_Caption="연구 시설_방어구"/>
+		<image name="icon_guild_housing_lab_attribute" file="\skin\guild_skin.tga" imgrect="83 164 40 40" CMM_Caption="연구 시설_속성"/>
+		<image name="icon_guild_housing_manufacture" file="\skin\guild_skin.tga" imgrect="124 164 40 40" CMM_Caption="제작 공방소"/>
+		<image name="protection_legend" file="\skin\god_protect_skin.tga" imgrect="817 1 190 146" CMM_Caption="가호 레전드 슬롯"/>
+		<image name="protection_unique" file="\skin\god_protect_skin.tga" imgrect="574 244 130 146" CMM_Caption="가호 유니크 슬롯"/>
+		<image name="protection_magic" file="\skin\god_protect_skin.tga" imgrect="705 244 130 142" CMM_Caption="가호 매직 슬롯"/>
+		<image name="protection_normal" file="\skin\god_protect_skin.tga" imgrect="836 244 130 142" CMM_Caption="가호 노말 슬롯"/>
+		<image name="protection_prize" file="\skin\god_protect_skin.tga" imgrect="574 391 139 137" CMM_Caption="가호 당첨 슬롯"/>
+		<image name="protection_pattern" file="\skin\god_protect_skin.tga" imgrect="1 1 572 720" CMM_Caption="여신의 가호 패턴무늬"/>
+		<image name="protection_title" file="\skin\god_protect_skin.tga" imgrect="1 722 548 150" CMM_Caption="여신의 가호 타이틀"/>
+		<image name="mystic_note_production" file="\skin\mystic_note_production.tga" imgrect="0 0 453 832" CMM_Caption="신비의 서 제작"/>
+		<image name="mystic_note_decomposition" file="\skin\mystic_note_decomposition.tga" imgrect="0 0 436 895" CMM_Caption="신비의 서 분해"/>
 	</imagelist>
 	<imagelist category="je_button">
 		<image name="menu_guild_info" file="\skin\guild_skin.tga" imgrect="165 298 45 45" CMM_Caption="길드 정보"/>
@@ -7022,6 +7193,66 @@
 		<image name="button_view_info" file="\skin\pip_test2.tga" imgrect="683 109 26 25"/>
 		<image name="button_view_info_cursoron" file="\skin\pip_test2.tga" imgrect="710 109 26 25"/>
 		<image name="button_view_info_clicked" file="\skin\pip_test2.tga" imgrect="710 109 26 25"/>
+		<image name="btn_use_buff_personal_on" file="\skin\guild_skin.tga" imgrect="706 666 82 43" CMM_Caption="길드 버프_개인"/>
+		<image name="btn_use_buff_personal_on_cursoron" file="\skin\guild_skin.tga" imgrect="706 666 82 43"/>
+		<image name="btn_use_buff_personal_on_clicked" file="\skin\guild_skin.tga" imgrect="706 666 82 43"/>
+		<image name="btn_use_buff_personal_off" file="\skin\guild_skin.tga" imgrect="706 621 82 43"/>
+		<image name="btn_use_buff_personal_off_cursoron" file="\skin\guild_skin.tga" imgrect="706 621 82 43"/>
+		<image name="btn_use_buff_personal_off_clicked" file="\skin\guild_skin.tga" imgrect="706 621 82 43"/>
+		<image name="btn_use_buff_guild_on" file="\skin\guild_skin.tga" imgrect="789 666 82 43" CMM_Caption="길드 버프_공용"/>
+		<image name="btn_use_buff_guild_on_cursoron" file="\skin\guild_skin.tga" imgrect="789 666 82 43"/>
+		<image name="btn_use_buff_guild_on_clicked" file="\skin\guild_skin.tga" imgrect="789 666 82 43"/>
+		<image name="btn_use_buff_guild_off" file="\skin\guild_skin.tga" imgrect="789 621 82 43"/>
+		<image name="btn_use_buff_guild_off_cursoron" file="\skin\guild_skin.tga" imgrect="789 621 82 43"/>
+		<image name="btn_use_buff_guild_off_clicked" file="\skin\guild_skin.tga" imgrect="789 621 82 43"/>
+		<image name="btn_gdpoint_change" file="\skin\guild_skin.tga" imgrect="165 75 83 59" CMM_Caption="전환 버튼"/>
+		<image name="btn_gdpoint_change_cursoron" file="\skin\guild_skin.tga" imgrect="165 135 83 59"/>
+		<image name="btn_gdpoint_change_clicked" file="\skin\guild_skin.tga" imgrect="165 195 83 59"/>
+		<image name="btn_housing_editmode" file="\skin\HUD.tga" imgrect="1640 548 67 59" CMM_Caption="하우징 편집 모드"/>
+		<image name="btn_housing_editmode_cursoron" file="\skin\HUD.tga" imgrect="1640 614 67 59"/>
+		<image name="btn_housing_editmode_clicked" file="\skin\HUD.tga" imgrect="1640 614 67 59"/>
+		<image name="inventory_housing" file="\skin\pip_test2.tga" imgrect="926 109 38 61" CMM_Caption="인벤토리 하우징 탭 버튼"/>
+		<image name="inventory_housing_cursoron" file="\skin\pip_test2.tga" imgrect="965 109 38 61"/>
+		<image name="inventory_housing_clicked" file="\skin\pip_test2.tga" imgrect="887 109 38 61"/>
+	</imagelist>
+	<imagelist category="je2_button">
+		<image name="button_play_start" file="\skin\pip_test2.tga" imgrect="0 311 81 81" CMM_Caption="주크박스 재생버튼"/>
+		<image name="button_play_start_cursoron" file="\skin\pip_test2.tga" imgrect="82 311 81 81 "/>
+		<image name="button_play_start_clicked" file="\skin\pip_test2.tga" imgrect="82 311 81 81 "/>
+		<image name="button_play_halt" file="\skin\pip_test2.tga" imgrect="164 311 81 81" CMM_Caption="주크박스 일시정지"/>
+		<image name="button_play_halt_cursoron" file="\skin\pip_test2.tga" imgrect="246 311 81 81"/>
+		<image name="button_play_halt_clicked" file="\skin\pip_test2.tga" imgrect="246 311 81 81"/>
+		<image name="button_play_before" file="\skin\pip_test2.tga" imgrect="558 210 43 43" CMM_Caption="주크박스 이전 노래"/>
+		<image name="button_play_before_cursoron" file="\skin\pip_test2.tga" imgrect="602 210 43 43"/>
+		<image name="button_play_before_clicked" file="\skin\pip_test2.tga" imgrect="602 210 43 43"/>
+		<image name="button_play_after" file="\skin\pip_test2.tga" imgrect="646 210 43 43" CMM_Caption="주크박스 다음 노래"/>
+		<image name="button_play_after_cursoron" file="\skin\pip_test2.tga" imgrect="690 210 43 43"/>
+		<image name="button_play_after_clicked" file="\skin\pip_test2.tga" imgrect="690 210 43 43"/>
+		<image name="button_play_repeat" file="\skin\pip_test2.tga" imgrect="566 255 32 26" CMM_Caption="주크박스 반복 재생"/>
+		<image name="button_play_repeat_cursoron" file="\skin\pip_test2.tga" imgrect="533 255 32 26"/>
+		<image name="button_play_repeat_clicked" file="\skin\pip_test2.tga" imgrect="533 255 32 26"/>
+		<image name="button_play_random" file="\skin\pip_test2.tga" imgrect="633 255 33 30" CMM_Caption="주크박스 랜덤 재생"/>
+		<image name="button_play_random_cursoron" file="\skin\pip_test2.tga" imgrect="599 255 33 30"/>
+		<image name="button_play_random_clicked" file="\skin\pip_test2.tga" imgrect="599 255 33 30"/>
+		<image name="button_play_search" file="\skin\pip_test2.tga" imgrect="531 284 32 28" CMM_Caption="주크박스 음악 검색"/>
+		<image name="button_play_search_cursoron" file="\skin\pip_test2.tga" imgrect="564 284 32 28"/>
+		<image name="button_play_search_clicked" file="\skin\pip_test2.tga" imgrect="564 284 32 28"/>
+		<image name="button_play_icon" file="\skin\button.tga" imgrect="0 472 28 28" CMM_Caption="주크박스 아이콘"/>
+		<image name="button_play_icon_cursoron" file="\skin\button.tga" imgrect="29 472 28 28"/>
+		<image name="button_play_icon_clicked" file="\skin\button.tga" imgrect="58 472 28 28"/>
+		<image name="nickname_custom_box" file="\skin\pip_test2.tga" imgrect="535 324 291 57" CMM_Caption="캐릭터 이름 입력창"/>
+		<image name="human_custom_icon" file="\skin\pip_test2.tga" imgrect="827 323 42 59" CMM_Caption="캐릭터 회전 사람 아이콘"/>
+		<image name="bgm_play_gauge_L" file="\skin\pip_test2.tga" imgrect="0 393 1 17" CMM_Caption="주크박스 게이지 좌"/>
+		<image name="bgm_play_gauge_R" file="\skin\pip_test2.tga" imgrect="462 393 1 17" CMM_Caption="주크박스 게이지 우"/>
+		<image name="bgm_play_gauge_bar" file="\skin\pip_test2.tga" imgrect="597 286 24 27" CMM_Caption="주크박스 게이지 재생바"/>
+		<image name="bgm_play_gauge_bar_cursoron" file="\skin\pip_test2.tga" imgrect="622 286 24 27"/>
+		<image name="bgm_play_gauge_bar_clicked" file="\skin\pip_test2.tga" imgrect="647 286 24 27"/>
+		<image name="god_protection_button" file="\skin\god_protect_skin.tga" imgrect="295 873 74 74" CMM_Caption="여신의 가호 버튼"/>
+		<image name="god_protection_button_cursoron" file="\skin\god_protect_skin.tga" imgrect="370 873 74 74"/>
+		<image name="god_protection_button_clicked" file="\skin\god_protect_skin.tga" imgrect="445 873 74 74"/>
+		<image name="god_pro_world_button" file="\skin\god_protect_skin.tga" imgrect="520 873 75 72" CMM_Caption="여신의 가호 버튼_수정ver"/>
+		<image name="god_pro_world_button_cursoron" file="\skin\god_protect_skin.tga" imgrect="596 873 75 72"/>
+		<image name="god_pro_world_button_clicked" file="\skin\god_protect_skin.tga" imgrect="672 873 75 72"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -9090,6 +9321,7 @@
 	</imagelist>
 	<imagelist category="Dlg_boss">
 		<image name="balloon_Skiaclipse" file="\skin\monster_Dlg.tga" imgrect="0 0 220 260" CMM_Caption="스키아클립스"/>
+		<image name="balloon_Misrus" file="\skin\monster_Dlg.tga" imgrect="221 0 220 260" CMM_Caption="머즈루스"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>
@@ -9324,6 +9556,44 @@
 		<image name="icon_PVP_MINE_Escape" file="\icon\buff_icon2.tga" imgrect="0 1408 128 128" CMM_Caption="탈출"/>
 		<image name="icon_PVP_MINE_Divine_Protection" file="\icon\buff_icon2.tga" imgrect="128 1408 128 128" CMM_Caption="여신의 가호"/>
 		<image name="icon_PVP_MINE_Authority" file="\icon\buff_icon2.tga" imgrect="256 1408 128 128" CMM_Caption="여신의 권능"/>
+		<image name="icon_MISRUS_POWEROVER" file="\icon\buff_icon2.tga" imgrect="384 1408 128 128" CMM_Caption="머즈루스 광폭화"/>
+		<image name="icon_MISRUS_FURY" file="\icon\buff_icon2.tga" imgrect="512 1408 128 128" CMM_Caption="머즈루스 분노"/>
+		<image name="icon_apkrova" file="\icon\buff_icon2.tga" imgrect="896 1408 128 128" CMM_Caption="앱크로바"/>
+		<image name="icon_expup_basic1" file="\icon\buff_icon2.tga" imgrect="0 1536 128 128" CMM_Caption="경험치 50%"/>
+		<image name="icon_expup_basic2" file="\icon\buff_icon2.tga" imgrect="128 1536 128 128" CMM_Caption="경험치 100%"/>
+		<image name="icon_lootingchance" file="\icon\buff_icon2.tga" imgrect="256 1536 128 128" CMM_Caption="루팅 찬스 +1,000"/>
+		<image name="icon_worship_affect" file="\icon\buff_icon2.tga" imgrect="384 1536 128 128" CMM_Caption="탁본 경배 효과 10배"/>
+		<image name="icon_reagent_bottle_expup" file="\icon\buff_icon2.tga" imgrect="512 1536 128 128" CMM_Caption="시약병 경험치 100%"/>
+		<image name="reappraisal_discount" file="\icon\buff_icon2.tga" imgrect="640 1536 128 128" CMM_Caption="재감정 비용 50% 할인"/>
+		<image name="class_change_pointup" file="\icon\buff_icon2.tga" imgrect="768 1536 128 128" CMM_Caption="클래스 변경 포인트 지급량 500% 증가"/>
+		<image name="even_transcend_discount" file="\icon\buff_icon2.tga" imgrect="896 1536 128 128" CMM_Caption="짝수 단계 초월 비용 50% 할인"/>
+		<image name="penalty_clear_gem" file="\icon\buff_icon2.tga" imgrect="0 1664 128 128" CMM_Caption="젬 사용 패널티 면제"/>
+		<image name="unique_raid_bonus" file="\icon\buff_icon2.tga" imgrect="128 1664 128 128" CMM_Caption="유니크 레이드 보상 2배,스톤개수 고정"/>
+		<image name="reinforce_discount" file="\icon\buff_icon2.tga" imgrect="256 1664 128 128" CMM_Caption="강화 50% 할인"/>
+		<image name="healhsp_speedup" file="\icon\buff_icon2.tga" imgrect="384 1664 128 128" CMM_Caption="이동 속도증가,HP,SP회복"/>
+		<image name="icon_ability_archer_TigerHunter9" file="\icon\buff_icon2.tga" imgrect="512 1664 128 128" CMM_Caption="산포 버프 아이콘"/>
+	</imagelist>
+	<imagelist category="housing_bufficon">
+		<image name="icon_Weapon_Klaida" file="\icon\icon_hosing_buff.tga" imgrect="0 0 128 128"/>
+		<image name="icon_Weapon_Paramune" file="\icon\icon_hosing_buff.tga" imgrect="129 0 128 128"/>
+		<image name="icon_Weapon_Forester" file="\icon\icon_hosing_buff.tga" imgrect="256 0 128 128"/>
+		<image name="icon_Weapon_Velnias" file="\icon\icon_hosing_buff.tga" imgrect="384 0 128 128"/>
+		<image name="icon_Weapon_Widling" file="\icon\icon_hosing_buff.tga" imgrect="512 0 128 128"/>
+		<image name="icon_Armor_Cloth_Material" file="\icon\icon_hosing_buff.tga" imgrect="640 0 128 128"/>
+		<image name="icon_Armor_Leather_Material" file="\icon\icon_hosing_buff.tga" imgrect="768 0 128 128"/>
+		<image name="icon_Armor_Iron_Material" file="\icon\icon_hosing_buff.tga" imgrect="896 0 128 128"/>
+		<image name="icon_Armor_Cloth_Utility" file="\icon\icon_hosing_buff.tga" imgrect="0 128 128 128"/>
+		<image name="icon_Armor_Leather_Utility" file="\icon\icon_hosing_buff.tga" imgrect="128 128 128 128"/>
+		<image name="icon_Armor_Iron_Utility" file="\icon\icon_hosing_buff.tga" imgrect="256 128 128 128"/>
+		<image name="icon_Attr_Lightning" file="\icon\icon_hosing_buff.tga" imgrect="384 128 128 128"/>
+		<image name="icon_Attr_melee" file="\icon\icon_hosing_buff.tga" imgrect="512 128 128 128"/>
+		<image name="icon_Attr_Fire" file="\icon\icon_hosing_buff.tga" imgrect="640 128 128 128"/>
+		<image name="icon_Attr_Soul" file="\icon\icon_hosing_buff.tga" imgrect="768 128 128 128"/>
+		<image name="icon_Attr_Ice" file="\icon\icon_hosing_buff.tga" imgrect="896 128 128 128"/>
+		<image name="icon_Attr_Earth" file="\icon\icon_hosing_buff.tga" imgrect="0 256 128 128"/>
+		<image name="icon_Attr_Dark" file="\icon\icon_hosing_buff.tga" imgrect="128 256 128 128"/>
+		<image name="icon_Attr_Holy" file="\icon\icon_hosing_buff.tga" imgrect="256 256 128 128"/>
+		<image name="icon_Attr_Poison" file="\icon\icon_hosing_buff.tga" imgrect="384 256 128 128"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>
@@ -9419,6 +9689,7 @@
 		<image name="NOTICE_Dm_GuildColony2" file="\skin\dungeon_message.tga" imgrect="404 808 100 100" CMM_Caption="Guild_Colony2"/>
 		<image name="NOTICE_Dm_GuildColony3" file="\skin\dungeon_message.tga" imgrect="505 808 100 100" CMM_Caption="Guild_Colony3"/>
 		<image name="NOTICE_Dm_Curse" file="\skin\dungeon_message.tga" imgrect="606 808 100 100" CMM_Caption="Curse"/>
+		<image name="NOTICE_Dm_Curse2" file="\skin\dungeon_message.tga" imgrect="707 808 100 100" CMM_Caption="Curse2"/>
 	</imagelist>
 	<imagelist category="SkillAnimPicture">
 		<image name="skillAnim" file="\icon\warrior_m.tga" imgrect="0 0 1024 512"/>
@@ -9671,6 +9942,8 @@
 		<image name="154_boss_ignas" file="\skin\bosscard\154_boss_ignas.tga" imgrect="0 0 330 440"/>
 		<image name="155_boss_boruta" file="\skin\bosscard\155_boss_boruta.tga" imgrect="0 0 330 440"/>
 		<image name="156_boss_Skiaclipse" file="\skin\bosscard\156_boss_Skiaclipse.tga" imgrect="0 0 330 440"/>
+		<image name="157_boss_Moringponia" file="\skin\bosscard\157_boss_Moringponia.tga" imgrect="0 0 330 440"/>
+		<image name="158_boss_Misrus" file="\skin\bosscard\158_boss_Misrus.tga" imgrect="0 0 330 440"/>
 	</imagelist>
 	<imagelist category="sub_card3">
 		<image name="legend_card_fragment_lv1" file="\skin\bosscard\legend_card_fragment_lv1.tga" imgrect="0 0 330 440"/>

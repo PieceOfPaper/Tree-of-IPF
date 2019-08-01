@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ÀÌÁ¤¿ë (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ComponentList>
+	<Particle name="square008" texture="square008" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="16" texel_height="16"/>
+	<Particle name="rize009" texture="rize009" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Particle name="rize008" texture="rize008" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Particle name="circle038_2" texture="circle038_2" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Particle name="circle044" texture="circle044" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="pattern029" texture="pattern029" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="leaf006_6" texture="leaf006_6" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="leaf006_5" texture="leaf006_5" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
@@ -661,6 +666,10 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="moringponia_atk2" model="moringponia_atk2.xac" motion="moringponia_atk2_ani.xsm" texturepath="effect\high\modeltexture\" overlap="flase" AlphaType="TEST"/>
+	<Model name="I_slash003_add" model="I_slash003_add.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="I_slash003_multi" model="I_slash003_multi.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="cylinder009" model="cylinder009.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="cylinder008" model="cylinder008.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="cylinder007" model="cylinder007.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="I_Skiaclipse_rock" model="I_Skiaclipse_rock.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
@@ -691,7 +700,7 @@
 	<Model name="wind_twirl" model="wind_twirl.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="breast_ripper_loop" model="breast_ripper01.xac" motion="breast_ripper_loop.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="breast_ripper_ready" model="breast_ripper01.xac" motion="breast_ripper_ready.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
-	<Model name="katadikazo" model="katadikazo.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="katadikazo" model="katadikazo.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="BLEND"/>
 	<Model name="GiganteMarcha" model="GiganteMarcha.xac" motion="GiganteMarcha_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="BLEND"/>
 	<Model name="ice_shield001" model="ice_shield001.xac" motion="ice_shield001_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="blend"/>
 	<Model name="vine_skill_debuff" model="vine_skill_debuff.xac" motion="vine_skill_debuff_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="blend"/>
@@ -892,6 +901,7 @@
 	<Model name="chortasmata_born" model="chortasmata_born.xac" motion="chortasmata_born_ani.xsm" texturepath="char_texture_low\monster\chortasmata\" overlap="false" AlphaType="TEST"/>
 	<Model name="chortasmata_fast" model="chortasmata_fast.xac" motion="chortasmata_fast_ani.xsm" texturepath="char_texture_low\monster\chortasmata\" overlap="false" AlphaType="TEST"/>
 	<Model name="chortasmata" model="chortasmata.xac" motion="chortasmata_ani.xsm" texturepath="char_texture_low\monster\chortasmata\" overlap="false" AlphaType="TEST"/>
+	<Model name="chain3" model="chain3.xac" motion="chain3.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="chain2" model="chain2.xac" motion="chain2_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="chain" model="chain.xac" motion="chain_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="nuaelle_atk" model="nuaelle_atk.xac" motion="nuaelle_atk_ani.xsm" texturepath="char_texture_low\monster\nuaelle\" overlap="false" AlphaType="TEST"/>
@@ -1620,6 +1630,7 @@
 	<Model name="I_Skiaclipse_stones_shot" model="I_Skiaclipse_stones_set.xac" motion="I_Skiaclipse_stones_shot.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="I_Skiaclipse_rock2" model="I_Skiaclipse_rock2_set.xac" motion="I_Skiaclipse_rock2_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="I_Skiaclipse_stones2" model="I_Skiaclipse_stones2_set.xac" motion="I_Skiaclipse_stones2_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
+	<Model name="RollingStone_dead" model="RollingStone_dead.xac" motion="RollingStone_dead_ani.xsm" texturepath="char_texture\npc\skill\" overlap="false" AlphaType="TEST"/>
 	<Text name="Text_damage_self" caption="" fontfilename="ORIGINAL" fontsize="24" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
 	<Text name="Text_damage_decision" caption="" fontfilename="ORIGINAL" fontsize="20" bold="1" italic="0" outline="1" dropshadow="0" mindistance="50.00" maxdistance="150.00"/>
 	<Text name="Text_destination" caption="" fontfilename="ORIGINAL" fontsize="28" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
@@ -1633,6 +1644,7 @@
 	<Digit name="Digitdamage_heal" texture="digit_damage" overkilltexture="" width="2.00" height="3.00" pivot_x="0.00" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="100.00" texel_height="128.00" randomangle="false"/>
 	<Digit name="Digitdamage" texture="digit_damage" overkilltexture="" width="3.00" height="4.00" pivot_x="0.00" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="100.00" texel_height="128.00" randomangle="false"/>
 	<Digit name="DigitExpup" texture="digit_expup" overkilltexture="" width="3.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="48.00" texel_height="60.00" randomangle="false"/>
+	<Screen name="UI_square008" texture="square008" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="16" texel_height="16"/>
 	<Screen name="UI_light047_red4" texture="light047_red4" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Screen name="UI_light047_red3" texture="light047_red3" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Screen name="UI_light047_red2" texture="light047_red2" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
@@ -1759,6 +1771,8 @@
 	<Screen name="UI_magic_decal_UI" texture="magic_decal_UI" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.5" texel_x="0" texel_y="0" texel_width="256" texel_height="256" loop="false" count="0" pitch="4" ticktime="0.00"/>
 	<Screen name="UI_circle041_bule" texture="circle041_bule" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="0" pitch="4" ticktime="0.00"/>
 	<Screen name="UI_circle041_orange" texture="circle041_orange" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="0" pitch="4" ticktime="0.00"/>
+	<Screen name="UI_sprite034_3" texture="sprite034" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="16" pitch="4" ticktime="0.04"/>
+	<Screen name="UI_sprite034_2" texture="sprite034" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="16" pitch="4" ticktime="0.1"/>
 	<Screen name="UI_sprite034_1" texture="sprite034" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="16" pitch="4" ticktime="0.02"/>
 	<Screen name="UI_sprite034" texture="sprite034" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="16" pitch="4" ticktime="0.04"/>
 	<Screen name="UI_circle041_red" texture="circle041_red" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="0" pitch="4" ticktime="0.00"/>

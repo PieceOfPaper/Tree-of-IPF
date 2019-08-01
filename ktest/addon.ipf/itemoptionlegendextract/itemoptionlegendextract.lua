@@ -46,7 +46,6 @@ function CLEAR_ITEMOPTION_LEGEND_EXTRACT_UI()
 	frame:SetUserValue("ITEM_EQUIP_CLASSTYPE", "None");
 	frame:SetUserValue("TARGET_ITEM_COUNT", 0);
 	frame:SetUserValue("isAbleExchange", 0)
-	frame:SetUserValue("isRandOption", 0)
 	frame:SetUserValue("MATERIAL_ITEM_COUNT", 0)
 	frame:SetUserValue("MATERIAL_ITEM_HIGH_GRAD_ITEM_GUID", 0)
 	frame:SetUserValue("RATIO", 0)
@@ -252,21 +251,6 @@ function ITEM_OPTION_LEGEND_EXTRACT_REG_TARGETITEM(frame, argNum, itemobj, invsl
 	slot_bg_image:ShowWindow(0)
 	
 	ITEMOPTION_LEGEND_EXTRACT_SET_SLOT_ITEM(invslot, 1);
-
-	-- 랜덤 옵션 유무 확인
-	local maxRandomOptionCnt = 6;
-	local CurrentRandomOptionCnt = 0;
-	for i = 1, maxRandomOptionCnt do
-		if itemobj['RandomOption_'..i] ~= 'None' then
-			CurrentRandomOptionCnt = CurrentRandomOptionCnt +1;
-		end
-	end
-
-	if CurrentRandomOptionCnt > 0 then	
-		frame:SetUserValue("isRandOption", 0)
-	else
-		frame:SetUserValue("isRandOption", 1)
-	end
 
 	targetitemcount = targetitemcount + 1;
 	frame:SetUserValue("TARGET_ITEM_COUNT", targetitemcount);
@@ -540,15 +524,12 @@ end
 
 -- 아이커 옵션 출력 여부 체크
 function LEGEND_EXTRACT_REGISTER_OPTION(frame)
-	local isRandOption = frame:GetUserValue("isRandOption");
-	if isRandOption == 0 then
-		local questionmark = GET_CHILD_RECURSIVELY(frame, "questionmark")
-		questionmark:ShowWindow(1);
-		return;
-	end
+	local questionmark = GET_CHILD_RECURSIVELY(frame, "questionmark")
+	questionmark:ShowWindow(1);
 
 	-- 3개의 아이템이 동일한지 확인
 	local ClassNameList = {}
+	local isRandOption = false;
 	for i = 1, 3 do
 		local slot = GET_CHILD_RECURSIVELY(frame, "targetitemslot_"..i);
 		local targetguid = slot:GetUserValue("SELECTED_INV_GUID");
@@ -556,6 +537,19 @@ function LEGEND_EXTRACT_REGISTER_OPTION(frame)
 		local itemobj = GetIES(invitem:GetObject());
 		if itemobj == nil then
 			return;
+		end
+
+		-- 랜덤 옵션 유무 확인
+		local maxRandomOptionCnt = 6;
+		local CurrentRandomOptionCnt = 0;
+		for i = 1, maxRandomOptionCnt do
+			if itemobj['RandomOption_'..i] ~= 'None' then
+				CurrentRandomOptionCnt = CurrentRandomOptionCnt +1;
+			end
+		end
+
+		if CurrentRandomOptionCnt > 0 then
+			isRandOption = true;
 		end
 
 		ClassNameList[i] = itemobj.ClassName;
@@ -567,13 +561,13 @@ function LEGEND_EXTRACT_REGISTER_OPTION(frame)
 		local invitem = session.GetInvItemByGuid(targetguid)
 		local invitemobj = GetIES(invitem:GetObject());
 
-		OPTION_LEGEND_EXTRACT_REGISTER_EXTRACTION_OPTION_CAPTION(frame, invitemobj, 0);
-	else
-		-- 3개의 아이템이 동일하지 않음, ?표시 출력
-		local questionmark = GET_CHILD_RECURSIVELY(frame, "questionmark")
-		questionmark:ShowWindow(1);
+		if isRandOption == false then
+			-- 3개의 아이템이 동일하고 랜덤 옵션이 없을 경우에는 연성할 아이커의 옵션 내용 출력
+			OPTION_LEGEND_EXTRACT_REGISTER_EXTRACTION_OPTION_CAPTION(frame, invitemobj, 0);
+			questionmark:ShowWindow(0);
+		end
 	end
-	
+
 
 end
 
@@ -777,6 +771,9 @@ function _SUCCESS_ITEM_OPTION_LEGEND_EXTRACT()
 	if pic_bg == nil then
 		return;
 	end
+
+	local questionmark = GET_CHILD_RECURSIVELY(frame, "questionmark")
+	questionmark:ShowWindow(0);
 
 	local sendOK = GET_CHILD_RECURSIVELY(frame, "send_ok")
 	sendOK:ShowWindow(1)

@@ -1,7 +1,11 @@
 ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time4,Price5,Time5,Price6,Time6,Price7,Time7,Price8,Time8,Price9,Time9,Price10,Time10,ClassName,UnlockScr,UnlockArgStr,UnlockDesc,ScrCalcPrice
 1,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Dievdirbys6","UNLOCK_BASE_LEVEL","","캐릭터 1레벨 이상","ABIL_COMMON_PRICE_1LV"
 2,1,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"MaxWeightAbil","UNLOCK_BASE_LEVEL","","캐릭터 1레벨 이상","ABIL_COMMON_PRICE_1LV"
+3,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Dievdirbys20","UNLOCK_BASE_LEVEL","","캐릭터 1레벨 이상","ABIL_BASE_PRICE"
 401,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Dievdirbys11","UNLOCK_ABIL_SKILL","Dievdirbys_Carve","목각 공격 1레벨 이상","ABIL_REINFORCE_PRICE"
 402,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Dievdirbys18","UNLOCK_BASE_LEVEL","","캐릭터 1레벨 이상","ABIL_COMMON_PRICE_1LV"
 501,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Dievdirbys12","UNLOCK_ABIL_SKILL","Dievdirbys_CarveOwl","부엉이 조각상 1레벨 이상","ABIL_REINFORCE_PRICE"
 601,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Dievdirbys19","UNLOCK_ABIL_SKILL","Dievdirbys_CarveAustrasKoks","세계수 조각 1레벨 이상","ABIL_REINFORCE_PRICE"
+701,45,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Dievdirbys21","UNLOCK_ABIL_JOB_LEVEL","Char4_7","딥디르비 클래스 45레벨 달성","HIDDENABIL_PRICE_COND_JOBLEVEL"
+702,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Dievdirbys22","UNLOCK_ABIL_OTHERABILITY","Dievdirbys11","[목각 공격: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"
+703,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Dievdirbys23","UNLOCK_ABIL_OTHERABILITY","Dievdirbys12","[부엉이 조각상: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"

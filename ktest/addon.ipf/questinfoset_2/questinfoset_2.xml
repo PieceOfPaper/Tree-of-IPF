@@ -15,7 +15,9 @@
 		<timer name="warptimer" rect="0 0 10 10"/>
 		<groupbox name="gbQuestInfoTitle" rect="0 0 25 25" margin="0 0 0 0" layout_gravity="right top" skin="quest_titlebar_skin" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false"/>
 		<picture name="openMark" parent="gbQuestInfoTitle" rect="0 0 20 20" margin="0 5 0 0" layout_gravity="left top" stretch="false" image="quest_arrow_r_btn" LBtnUpScp="TOGGLE_QUEST_INFOSET_FOLDER"/>
-		<groupbox name="member" rect="0 0 400 500" margin="0 26 0 0" layout_gravity="right top" draw="false" hittestbox="true" resizebyparent="true" resizebyresolution="true" scroll="true"/>
+		<groupbox name="member" rect="0 0 400 500" margin="0 58 0 0" layout_gravity="right top" draw="false" hittestbox="true" resizebyparent="true" resizebyresolution="true" scroll="true"/>
 		<richtext name="name" margin="0 4 30 0" rect="0 0 220 30" layout_gravity="right top" caption="{@st43b}{s16}퀘스트 목록" fixwidth="true" textalign="right top"/>
+		<richtext name="quest_custom_name" margin="0 31 40 0" rect="0 0 220 30" layout_gravity="right top" caption="{@st43b}{s16}미션 목표만 보기" fixwidth="true" textalign="right top"/>
+		<checkbox name="quest_custom" rect="0 0 8 8" margin="0 29 2 0" layout_gravity="right top" checked="false" LBtnDownScp="QUEST_CUSTOM_OPTION_CHECK"/>
 	</controls>
 </uiframe>

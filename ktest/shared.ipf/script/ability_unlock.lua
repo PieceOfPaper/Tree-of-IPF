@@ -286,3 +286,25 @@ function UNLOCK_ABIL_CIRCLE_AND_RANK(pc, jobName, limitLevel, abilIES)
 	
 	return "LOCK_GRADE";
 end
+
+function UNLOCK_ABIL_OTHERABILITY(pc, abilName, limitLevel, abilIES)
+    local abil = GetAbility(pc, abilName)
+	if TryGetProp(abil, "Level", 0) >= tonumber(limitLevel) then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end
+
+function UNLOCK_ABIL_JOB_LEVEL(pc, jobClassName, limitLevel, abilIES)
+	local curJobClsName = pc.JobName;
+	local curJobLv = GetJobLevelByName(pc, curJobClsName);
+	
+	if jobClassName == curJobClsName then		
+		if curJobLv < limitLevel then
+			return "LOCK_GRADE";
+		end
+	end
+
+	return "UNLOCK";
+end

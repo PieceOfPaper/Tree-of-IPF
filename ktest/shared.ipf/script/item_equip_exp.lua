@@ -86,6 +86,8 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Carnival_Fire_2'); --스팀 카니발 불꽃축제 이벤트 --
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_ep11_Expup'); --자라나라 나무나무 주말 앤 버닝 이벤트 -- --EVENT_1903_WEEKEND
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_ep11_Expup_base'); --자라나라 나무나무 주말 앤 버닝 이벤트 --
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Expup_50'); --burning_event
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Expup_100'); --burning_event
 	if  TryGetProp(pc, 'Lv', 0) < 380 then
 	    sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1905_TOS_CHIILD_BUFF1'); --자라나라 나무나무 성장 버프 --
 	end
@@ -118,6 +120,11 @@ function GET_MIX_MATERIAL_EXP(item)
 	        return item.UseLv;
 	    elseif item.EquipXpGroup == 'hethran_material' then
 			return itemExp;
+		elseif item.EquipXpGroup =='Gem' and itemExp > 0 then
+		    local pc = GetMyPCObject()
+		    if IsBuffApplied(pc, "Event_Penalty_Clear_Gem_Reinforce") == "YES" then
+    		    return itemExp;
+    		end
 	    end
 		return prop:GetMaterialExp(itemExp);
 	end

@@ -1,5 +1,6 @@
 ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time4,Price5,Time5,Price6,Time6,Price7,Time7,Price8,Time8,Price9,Time9,Price10,Time10,ClassName,UnlockScr,UnlockArgStr,UnlockDesc,ScrCalcPrice
 101,200,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"PlagueDoctor18","UNLOCK_BASE_LEVEL","","캐릭터 200레벨 이상","ABIL_COMMON_PRICE_200LV"
+102,45,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"PlagueDoctor19","UNLOCK_ABIL_JOB_LEVEL","Char4_14","플레이그닥터 클래스 45레벨 달성","HIDDENABIL_PRICE_COND_JOBLEVEL"
 201,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"PlagueDoctor2","UNLOCK_ABIL_SKILL","PlagueDoctor_Incineration","소각 1레벨 이상","ABIL_REINFORCE_PRICE"
 202,300,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"PlagueDoctor13","UNLOCK_BASE_LEVEL","","캐릭터 300레벨 이상","ABIL_COMMON_PRICE_300LV"
 203,350,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"PlagueDoctor15","UNLOCK_BASE_LEVEL","","캐릭터 350레벨 이상","ABIL_COMMON_PRICE_350LV"
@@ -7,3 +8,5 @@ ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time
 401,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"PlagueDoctor17","UNLOCK_ABIL_SKILL","PlagueDoctor_Modafinil","모다피닐 1레벨 이상","ABIL_REINFORCE_PRICE"
 601,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"PlagueDoctor9","UNLOCK_ABIL_SKILL","PlagueDoctor_PlagueVapours","흑사병 증기 1레벨 이상","ABIL_REINFORCE_PRICE"
 701,300,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"PlagueDoctor14","UNLOCK_BASE_LEVEL","","캐릭터 300레벨 이상","ABIL_ABOVE_NORMAL_PRICE"
+801,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"PlagueDoctor20","UNLOCK_ABIL_OTHERABILITY","PlagueDoctor2","[소각: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"
+802,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"PlagueDoctor21","UNLOCK_ABIL_OTHERABILITY","PlagueDoctor9","[흑사병 증기: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"

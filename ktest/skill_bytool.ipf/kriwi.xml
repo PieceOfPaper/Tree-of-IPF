@@ -61,7 +61,7 @@
 				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="300" UseSleep="NO">
 					<Pos Angle="0" Dist="20" />
 					<Angle Angle="0" />
-					<Str Str="Cleric_New_Aukuras" />
+                    <Str FuncTxt="local str = &quot;Cleric_New_Aukuras&quot; local abilKriwi24 = GetAbility(self, &quot;Kriwi24&quot;) if abilKriwi24 ~= nil and abilKriwi24.ActiveState == 1 then str = &quot;Cleric_New_Aukuras_Hidden&quot; end return str" UseFunc="1" Str="Cleric_New_Aukuras" />
 				</Scp>
 			</EtcList>
 		</MainSkl>
@@ -94,7 +94,7 @@
 				</Scp>
 				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="700" UseSleep="NO">
 					<Str Str="DivineStigma_Debuff" />
-					<Num Num="1" />
+					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1"/>
 					<Num Num="0" />
 					<Num Num="15000" />
 					<Num Num="1" />
@@ -133,7 +133,7 @@
 					<Str Str="Melstis_Buff" />
 					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
 					<Num Num="0" />
-					<Num Num="1000" />
+					<Num Num="60000"/>
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
@@ -182,7 +182,16 @@
 				</Scp>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
 					<Str Str="voice_cleric_m_zaibas_shot" />
-					<Str Str="voice_cleric_zaibas_shot" />
+					<Str Str="voice_cleric_zaibas_shot"/>
+				</Scp>
+				<Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
+					<Str Str="ZaibasSPD_Buff"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
+					<Num Num="3000"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="0"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
 					<Str Str="skl_cleric_haste_shot" />

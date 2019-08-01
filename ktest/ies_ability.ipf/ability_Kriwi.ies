@@ -1,6 +1,8 @@
 ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time4,Price5,Time5,Price6,Time6,Price7,Time7,Price8,Time8,Price9,Time9,Price10,Time10,ClassName,UnlockScr,UnlockArgStr,UnlockDesc,ScrCalcPrice
 2,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Kriwi1","UNLOCK_BASE_LEVEL","","캐릭터 1레벨 이상","ABIL_COMMON_PRICE"
+3,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Kriwi25","UNLOCK_BASE_LEVEL","","캐릭터 1레벨 이상","ABIL_BASE_PRICE"
 101,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Kriwi14","UNLOCK_ABIL_SKILL","Kriwi_Aukuras","아우쿠라스 1레벨 이상","ABIL_REINFORCE_PRICE"
+102,45,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Kriwi24","UNLOCK_ABIL_JOB_LEVEL","Char4_3","크리비 클래스 45레벨 달성","HIDDENABIL_PRICE_COND_JOBLEVEL"
 201,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Kriwi17","UNLOCK_ABIL_SKILL","Kriwi_Zalciai","잘챠이 1레벨 이상","ABIL_REINFORCE_PRICE"
 202,300,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Kriwi22","UNLOCK_BASE_LEVEL","","캐릭터 300레벨 이상","ABIL_COMMON_PRICE_300LV"
 203,300,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Kriwi23","UNLOCK_BASE_LEVEL","","캐릭터 300레벨 이상","ABIL_COMMON_PRICE_300LV"
@@ -8,3 +10,5 @@ ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time
 501,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Kriwi9","UNLOCK_BASE_LEVEL","","캐릭터 1레벨 이상","ABIL_COMMON_PRICE_1LV"
 502,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Kriwi19","UNLOCK_BASE_LEVEL","","캐릭터 1레벨 이상","ABIL_COMMON_PRICE_1LV"
 503,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Kriwi20","UNLOCK_ABIL_SKILL","Kriwi_DivineStigma","디바인 스티그마 1레벨 이상","ABIL_REINFORCE_PRICE"
+601,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Kriwi26","UNLOCK_ABIL_OTHERABILITY","Kriwi11","[자이바스: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"
+602,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Kriwi27","UNLOCK_ABIL_OTHERABILITY","Kriwi20","[디바인 스티그마: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"

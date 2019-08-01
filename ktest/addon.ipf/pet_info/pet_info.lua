@@ -352,8 +352,10 @@ function TOGGLE_PET_ACTIVITY(parent, ctrl)
 	local obj = petInfo:GetObject();
 	obj = GetIES(obj);
 
+	local myHandle = session.GetMyHandle();
+	local haingBuff = info.GetBuffByName(myHandle, "HangingShot");
 	local isActivated = TryGet(obj, "IsActivated");
-	if isActivated == 1 then
+	if isActivated == 1 and haingBuff == nil then
 		world.Leave(petInfo:GetHandle(), 0);
 	end
 

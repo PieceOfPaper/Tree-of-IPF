@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <CreateMonsterAlphaBlend frame="0" Key="boss_Misrus" Alpha="0" BlendTime="0.3"/>
+    <Sound frame="0.00" soundFile="mon_voice_skiaclipse_dead"/>
+    <Sound frame="0.00" soundFile="mon_hydra_dead"/>
+    <Particle frame="50" attachNode="Dummy_emitter" particleName="F_smoke103" useAttach="false" hiddenObj="false" changeEffect="None" scale="12" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Dummy_emitter2" particleName="F_smoke103" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Dummy_effect_body" particleName="I_smoke013_dark5_green_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Bip001 tail01" particleName="I_smoke013_dark5_green_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Bip001 Pelvis" particleName="I_smoke013_dark5_green_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Bip001 Head_R" particleName="I_smoke013_dark5_green_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Bip001 Head_L" particleName="I_smoke013_dark5_green_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Bip001 R Forearm" particleName="I_smoke013_dark5_green_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Bip001 R HorseLink" particleName="I_smoke013_dark5_green_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Bip001 L HorseLink" particleName="I_smoke013_dark5_green_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Bip001 L Forearm" particleName="I_smoke013_dark5_green_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Bip001 tail03" particleName="I_smoke013_dark5_green_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

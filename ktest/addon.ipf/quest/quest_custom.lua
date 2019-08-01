@@ -1,6 +1,7 @@
 -- quest_custom.lua
 
 local customQuestList = nil;
+local styleinfoType = {"bar", "text"};
 
 local function _GET_CUSTOM_QUEST_LIST()
 
@@ -59,6 +60,27 @@ local function _SET_CUSTOM_QUEST_INFO(keyName)
 	local questIndex = #list;
 	list[questIndex + 1] = { Key = keyName}
 	
+end
+
+-- style info ui update
+function ON_STYLE_INFO_UPDATE(frame, msg, argStr, argNum)
+	local frame2 = ui.GetFrame("questinfoset_2");
+	local GroupCtrl = GET_CHILD(frame2, "member", "ui::CGroupBox");
+	local cnt = geQuest.GetCustomQuestCount();
+	for i = 0, cnt - 1 do
+		local customQuest = geQuest.GetCustomQuestByIndex(i);
+		local key = customQuest:GetKey();
+		local ctrlName = "_Q_CUSTOM_" .. key;
+		local ctrlset = GroupCtrl:CreateOrGetControlSet('emptyset2', ctrlName.."_"..i, 0, 0);
+		CUSTOM_CONTROLSET_UPDATE(ctrlset, customQuest, argStr, argNum)
+
+		if IS_STYLE_INFO_DRAW() == false then
+			ctrlset:ShowWindow(0);
+		end
+	end
+	
+	QUEST_GBOX_AUTO_ALIGN(frame, GroupCtrl, 0, 3, 100);
+
 end
 
 -- 커스텀 퀘스트 그리기.
@@ -121,7 +143,7 @@ function ON_CUSTOM_QUEST_UPDATE(frame, msg, keyName, argNum)
 	local customQuest = geQuest.GetCustomQuest(keyName);
 	if customQuest == nil then
 		_REMOVE_CUSTOM_QUEST_INFO(keyName)
-		return 
+		return
 	end
 
 	if customQuest.useMainUI == 1 then
@@ -136,15 +158,24 @@ function ON_CUSTOM_QUEST_UPDATE(frame, msg, keyName, argNum)
 	frame2:ShowWindow(1);
 end
 
-function CUSTOM_CONTROLSET_UPDATE(quest_ctrl, quest)
+function CUSTOM_CONTROLSET_UPDATE(quest_ctrl, quest, argStr, cnt)
 	local funcName = quest:GetFuncName();
 	local _func = _G[funcName];
-	return _func(quest_ctrl, quest:GetStrArg(), quest.numArg);
+	return _func(quest_ctrl, quest:GetStrArg(), quest.numArg, argStr, cnt);
 end
 
 function QUESTINFOSET_2_MAKE_CUSTOM(frame, updateSize)
-
 	local GroupCtrl = GET_CHILD(frame, "member", "ui::CGroupBox");
+	local customOption = GET_CHILD(frame, "quest_custom", "ui::CCheckBox");
+
+	if customOption:IsChecked() == 1 then
+		GroupCtrl:DeleteAllControl();
+	end
+
+	if IS_STYLE_INFO_DRAW() == false then
+		return;
+	end
+
 	local cnt = geQuest.GetCustomQuestCount();
 	for i = 0, cnt - 1 do
 		local customQuest = geQuest.GetCustomQuestByIndex(i);
@@ -158,6 +189,73 @@ function QUESTINFOSET_2_MAKE_CUSTOM(frame, updateSize)
 	if updateSize == true then
 		QUEST_GBOX_AUTO_ALIGN(frame, GroupCtrl, 0, 3, 100);
 	end
+end
+
+function ATTACH_STYLE_INFO_CTRLSET(ctrlset, key, style, text, curCount, count, startx, y)
+	if style == "bar" then
+		local content = ctrlset:CreateOrGetControlSet('style_info_ctrlset_bar', key, startx, y);
+		AUTO_CAST(content);
+
+		local txt = string.format("{@st42}목표 : %s", text);
+		local text = GET_CHILD(content, 'text');
+		text:SetText(txt);
+
+		local bar = GET_CHILD(content, 'bar');
+		bar:SetPoint(curCount, count);
+
+		if count <= curCount then
+			bar:SetBarColor(0xFFFFE400)
+			text:SetColorTone('FF444444');
+		elseif curCount == -1 then
+			text:SetColorTone('FF444444');
+		end
+	
+		y = y + content:GetHeight();
+		return y;
+	else
+		local txt = "";
+
+		local content = ctrlset:CreateOrGetControlSet('style_info_ctrlset_text', key, startx, y);
+		AUTO_CAST(content);
+
+		local pic = GET_CHILD(content, 'pic');
+		local labelline = GET_CHILD_RECURSIVELY(content, 'labelline');
+		labelline:SetVisible(0);
+		pic:ShowWindow(0);
+		
+		if curCount < count then
+			txt = string.format("{@st42}(%d/%d) %s", curCount, count, text);
+
+			-- 해당 퀘스트 실패
+			if -1 == curCount then
+				txt = string.format("{@st42}%s", text);
+				pic:SetImage("mark_img_x")
+				pic:ShowWindow(1);
+				labelline:SetVisible(1);
+			end
+
+		else			
+			txt = string.format("{@st42}%s", text);
+			pic:SetImage("mark_img_o")
+			pic:ShowWindow(1);
+			labelline:SetVisible(1);
+		end
+
+		local text = GET_CHILD(content, 'text');
+		text:SetText(txt);
+
+		if pic:IsVisible() == 1 then
+			local rect = text:GetMargin();
+			text:SetMargin(rect.left + (pic:GetWidth() * 1.5), rect.top, rect.right, rect.bottom);
+			text:SetColorTone('FF444444');
+		end
+
+		y = y + content:GetHeight();
+	
+		return y;
+		
+	end
+
 end
 
 function ATTACH_QUEST_CTRLSET_TEXT(ctrlset, key, text, startx, y)
@@ -185,8 +283,7 @@ function MIN_LV_NOTIFY_UPDATE(ctrlset, strArg, minLv)
 end
 
 
-function MGAME_QUEST_UPDATE(ctrlset)
-
+function MGAME_QUEST_UPDATE(ctrlset, strArg, numArg, str, cnt)
 	local stageList = session.mgame.GetStageQuestList();
 	local stageCnt = stageList:size();
 	if stageCnt == 0 then
@@ -211,6 +308,11 @@ function MGAME_QUEST_UPDATE(ctrlset)
 		return -1;
 	end
 
+	local styleinfolist = {}		-- key : styleinfoType, value : stagelist index
+	for j = 1, #styleinfoType do
+		styleinfolist[styleinfoType[j]] = {};	
+	end
+
 	for j = 0 , stageCnt - 1 do
 		local stageInfo = stageList:at(j);
 		local stageName = stageInfo:GetStageName();
@@ -218,7 +320,7 @@ function MGAME_QUEST_UPDATE(ctrlset)
 		if stageInstInfo ~= nil and 0 == stageInstInfo.isCompleted then
 			local monList = stageInfo:GetMonsterList();
 			local timeOut = stageInfo.timeOut;
-
+			
 			local ignoreThisControl = false;
 			if timeOut > 0 and stageInstInfo ~= nil then
 				local serverTime = GetServerAppTime();
@@ -241,7 +343,22 @@ function MGAME_QUEST_UPDATE(ctrlset)
 					y = ATTACH_TIME_CTRL_EX(ctrlset, "ITEM_TIME_" .. j , remainSec, 50, y);
 				end
 
-				for i = 0 ,  monList:size() - 1 do
+				local styleinfo = stageInfo:GetStyleInfoQuest();
+				if IS_STYLE_INFO_CHECK(styleinfo) then
+					if cnt ~= nil and str == styleinfo.valueName then
+						if cnt == -1 and styleinfo.curCount < styleinfo.count then
+							-- cnt가 -1 이고(미션 실패) 목표 수치를 못채웠을 경우 
+							styleinfo.curCount = cnt;
+						elseif cnt ~= -1 then 
+							-- 평소대로 카운팅 되는 경우 
+							styleinfo.curCount = cnt;
+						end
+					end
+
+					y = ATTACH_STYLE_INFO_CTRLSET(ctrlset, "ITEM_STYLE_INFO_"..styleinfo.valueName, styleinfo.style, styleinfo.text, styleinfo.curCount, styleinfo.count, startx, y);
+				end 
+
+				for i = 0 , monList:size() - 1 do
 					local monInfo = monList:at(i);
 					local monTypes = monInfo:GetMonTypes();
 					if monTypes:size() > 0 then
@@ -265,8 +382,56 @@ function MGAME_QUEST_UPDATE(ctrlset)
 						end
 					end
 				end
+
+			elseif str == nil and cnt == nil and ignoreThisControl == true then
+				-- timeOut이 지났지만 미션을 실패 했을 경우
+				local styleinfo = stageInfo:GetStyleInfoQuest();
+				if IS_STYLE_INFO_CHECK(styleinfo) and styleinfo.remainOption == true then 
+					local titleName = stageInfo:GetTitleName();
+					if titleName ~= "" then
+						y = ATTACH_QUEST_CTRLSET_TEXT(ctrlset, "ITEM_TITLE_" .. j, "{@st41_yellow} ".. titleName, startx, y);
+					end
+
+					if styleinfo.curCount < styleinfo.count then
+						styleinfo.curCount = -1;
+					end
+					y = ATTACH_STYLE_INFO_CTRLSET(ctrlset, "ITEM_STYLE_INFO_"..styleinfo.valueName, styleinfo.style, styleinfo.text, styleinfo.curCount, styleinfo.count, startx, y);
+				end
+			end
+		elseif stageInstInfo ~= nil and 1 == stageInstInfo.isCompleted then
+			-- 클리어한 미션의 styleinfotype에 맞게 styleinfolist에 추가
+			local styleinfo = stageInfo:GetStyleInfoQuest();
+			if IS_STYLE_INFO_CHECK(styleinfo) and styleinfo.remainOption == true then 
+				styleinfolist[styleinfo.style][#styleinfolist[styleinfo.style]+1] = j;
 			end
 		end
+
+	end
+
+	if str == nil and cnt == nil then
+		for k = 1, #styleinfoType do
+			local infotype = styleinfoType[k];
+			for w = 1, #styleinfolist[infotype]	do
+				-- 클리어한 미션 출력 UI 출력
+				local index = styleinfolist[infotype][w];
+				local stageInfo = stageList:at(index);			
+				local styleinfo = stageInfo:GetStyleInfoQuest();
+				if IS_STYLE_INFO_CHECK(styleinfo) and styleinfo.remainOption == true then
+					local titleName = stageInfo:GetTitleName();
+					if titleName ~= "" then
+						y = ATTACH_QUEST_CTRLSET_TEXT(ctrlset, "ITEM_TITLE_"..index, "{@st41_yellow} ".. titleName, startx, y);
+					end
+
+					if  styleinfo.curCount ~= -1 and styleinfo.curCount < styleinfo.count then
+						-- 미션이 클리어 됬으니 목표 수치를 못채웠어도 클리어 표시(O 아이콘)로 바꿔주기위해 curCount변경
+						styleinfo.curCount = styleinfo.count;
+					end
+
+					y = ATTACH_STYLE_INFO_CTRLSET(ctrlset, "ITEM_STYLE_INFO_"..styleinfo.valueName, styleinfo.style, styleinfo.text, styleinfo.curCount, styleinfo.count, startx, y);
+				end
+			end
+		end
+		
 	end
 	
 	local avandonquest_try = ctrlset:GetChild("avandonquest_try")
@@ -363,8 +528,37 @@ function UPDATE_Q_TIME_CTRLSET_EX(ctrlset)
 
 end
 
+function QUEST_CUSTOM_OPTION_CHECK(frame, ctrl, argStr, argNum)
+	local frame2 = ui.GetFrame("questinfoset_2");
+	local customOption = GET_CHILD(frame2, "quest_custom", "ui::CCheckBox");
+	if argStr ~= "" and argNum >= 0 then
+		customOption:SetCheck(argNum);
+	end
 
-	
-	
-	
+	if argStr ~= "" then
+		customOption:SetUserValue("is_quest_custom_draw", argNum);
+	end
 
+	UPDATE_QUESTINFOSET_2(frame2);
+
+end
+	
+function IS_STYLE_INFO_CHECK(styleinfo)
+
+	if styleinfo ~= nil and styleinfo.text ~= "" and (styleinfo.style == "bar" or styleinfo.style == "text" ) then 
+		return true;
+	end
+
+	return false;
+end
+	
+function IS_STYLE_INFO_DRAW()
+	local frame2 = ui.GetFrame("questinfoset_2");	
+	local customOption = GET_CHILD(frame2, "quest_custom", "ui::CCheckBox");
+	local value = customOption:GetUserValue("is_quest_custom_draw");
+	if value == '-1' or value == 'None' then
+		return false;
+	end
+
+	return true;
+end

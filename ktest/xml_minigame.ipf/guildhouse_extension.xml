@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<GameList>
+	<Game Name="guild_agit_extension" minLv="0" maxLv="0" mapName="guild_agit_extension" playerCountCheckDestroy="1" startWaitSec="0">
+		<StageList>
+			<Stage Name="DefGroup">
+				<ObjList>
+					<Obj Type="Monster" MonType="40001" Pos="-225.41#63.02#-936.24" angle="-177" genCount="1" genTime="20000" objectKey="0" propList="&apos;Enter&apos; &apos;EXTENSION_AGIT_TO_HOUSE&apos; &apos;Name&apos; &apos;아지트 내부&apos; &apos;Range&apos; &apos;10&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="392.95#-3.04#1842.17" angle="-43" genCount="1" genTime="20000" objectKey="1" propList="&apos;Enter&apos; &apos;EXTENSION_AGIT_TO_YARD&apos; &apos;Name&apos; &apos;아지트 외부&apos; &apos;Range&apos; &apos;10&apos; "/>
+					<Obj Type="Monster" MonType="58046" Pos="441.79#17.56#-903.77" angle="-43" genCount="1" genTime="20000" objectKey="2" propList="&apos;Dialog&apos; &apos;TOWER_IN_AGIT&apos; &apos;Faction&apos; &apos;Peaceful&apos; " AfterGenScript="INIT_AGIT_HOUSE"/>
+					<Obj Type="Monster" MonType="156152" Pos="340.81#3.01#-838.07" genCount="1" genTime="20000" objectKey="3" propList="&apos;Dialog&apos; &apos;COLONY_SUTLER&apos; &apos;Faction&apos; &apos;Peaceful&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="150183" Pos="500#1#-795" angle="-90" genCount="1" genTime="20000" objectKey="4" propList="&apos;Faction&apos; &apos;Peaceful&apos; &apos;Name&apos; &apos;세이지 파견원&apos; &apos;Dialog&apos; &apos;GUILD_AGIT_SAGE_NPC&apos; &apos;MaxDialog&apos; &apos;1&apos; "/>
+					<Obj Type="Monster" MonType="154114" Pos="385.39#-0.20#-784.51" angle="-2" genCount="1" genTime="20000" objectKey="5" propList="&apos;Name&apos; &apos;왕국 보급 장교{nl}만프래다스&apos; &apos;Dialog&apos; &apos;MC_AGIT_OFFICER_MANFREDAS&apos; "/>
+					<Obj Type="Monster" MonType="160002" Pos="387.06#-0.23#-716.13" angle="-17" genCount="1" genTime="20000" objectKey="6" propList="&apos;Name&apos; &apos;길드 아지트 관리인&apos; &apos;Dialog&apos; &apos;GUILD_HOUSING_MANAGER&apos; "/>
+				<Obj Type="Monster" MonType="40001" Pos="-1475.47#80.86#2476.06" angle="138" genCount="1" genTime="20000" objectKey="7" propList="&apos;Enter&apos; &apos;EXTENSION_OUTSIDE_TO_YARD&apos; &apos;Name&apos; &apos;아지트 외부&apos; &apos;Range&apos; &apos;10&apos; "/>
+                </ObjList>
+				<StageEvents>
+					<Event eventName="ValidPcCheck">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_NO_CONNECTED_PC" Client="NO" UseSleep="NO"/>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="DefGroup"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+		<WorldInitList>
+			<ToolScp Scp="MGAME_INIT_RUN_SCRIPT" Client="NO" UseSleep="NO">
+				<Str Str="LOAD_GUILD_HOUSE"/>
+			</ToolScp>
+		</WorldInitList>
+	</Game>
+</GameList>

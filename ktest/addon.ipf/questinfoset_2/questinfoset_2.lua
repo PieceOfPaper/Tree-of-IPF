@@ -259,19 +259,23 @@ function UPDATE_QUESTINFOSET_2(frame, msg, check, updateQuestID)
 	if msg == 'GAME_START' then
 		PC_ENTER_QUESTINFO(frame);
 	end
-	
+
 	-- 모든 자식 리스트를 지우고,
 	local GroupCtrl = GET_CHILD(frame, "member", "ui::CGroupBox");
 	GroupCtrl:DeleteAllControl();
-
-	-- 새로 만든다.
-	for i = 0 , cnt - 1 do
-		local questID = quest.GetCheckQuest(i);
-		local questcls = GetClassByType("QuestProgressCheck", questID);
-		MAKE_QUEST_INFO_C(GroupCtrl, questcls, msg);
-	end
 	
-	if customCnt > 0 then
+	local customOption = GET_CHILD(frame, "quest_custom", "ui::CCheckBox");
+	if customOption:IsChecked() == 0 then
+		-- 새로 만든다.
+		for i = 0 , cnt - 1 do
+			local questID = quest.GetCheckQuest(i);
+			local questcls = GetClassByType("QuestProgressCheck", questID);
+			MAKE_QUEST_INFO_C(GroupCtrl, questcls, msg);
+		end
+	end	
+
+	local value = customOption:GetUserIValue("is_quest_custom_draw");
+	if customCnt > 0 and (value ~= - 1 or customOption:IsChecked() == 1) then
 		QUESTINFOSET_2_MAKE_CUSTOM(frame, true);
 	end
 
@@ -931,7 +935,7 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg, progVal) -- progVal이 nil이
     	y = y + content:GetHeight();
 
         if SCR_QUESTINFOSETVIEW_CHECK(questIES.QuestInfosetView, 'SUCCESS') == 'YES' then
-            y = MAKE_QUESTINFO_SUCCESS_STORY(ctrlset, questIES, titleX+_GET_QUEST_INFO_CTRLSET_BODY_OFFSET_X(), y, s_obj, result);
+           y = MAKE_QUESTINFO_SUCCESS_STORY(ctrlset, questIES, titleX+_GET_QUEST_INFO_CTRLSET_BODY_OFFSET_X(), y, s_obj, result);
         end
 
 		-- 파티원이 공유 설정한 퀘스트 완료한 경우에는 지우지 않게 수정
@@ -2211,8 +2215,9 @@ function MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y)
                                 addIndex = addIndex + 1
                     			local content = ctrlset:CreateOrGetControl('richtext', "QUESTCK" .. addIndex, startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 10);
                 				content:EnableHitTest(0);
-                    			content:SetTextFixWidth(0);
-                    			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
+								content:SetTextFixWidth(0);
+								content:EnableTextOmitByWidth(1); -- 너무 긴경우 ...으로 표시한다.
+								content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);
                     			y = y + content:GetHeight();
                     		end
                     	end
@@ -3016,6 +3021,16 @@ function TOGGLE_QUEST_INFOSET_FOLDER(parent, ctrl, strArg, numArg)
 	if openMark == nil then
 		return
 	end
+	
+	local quest_custom_name = GET_CHILD_RECURSIVELY(frame, 'quest_custom_name');
+	if quest_custom_name == nil then
+		return
+	end
+
+	local quest_custom = GET_CHILD_RECURSIVELY(frame, 'quest_custom');
+	if quest_custom == nil then
+		return
+	end
 
 	local uiFold = parent:GetUserIValue('UI_FOLD');
 	if uiFold == nil or uiFold == 0 then
@@ -3027,6 +3042,10 @@ function TOGGLE_QUEST_INFOSET_FOLDER(parent, ctrl, strArg, numArg)
 			expend = "btn_minus";
 		end
 		openMark:SetImage(expend);
+
+		quest_custom_name:ShowWindow(0);		
+		quest_custom:ShowWindow(0);
+		quest_custom:EnableHitTest(0);
 	else
 		member:ShowWindow(1);
 		member:EnableHitTest(1);
@@ -3036,6 +3055,11 @@ function TOGGLE_QUEST_INFOSET_FOLDER(parent, ctrl, strArg, numArg)
 			fold = "btn_plus";
 		end
 		openMark:SetImage(fold);
+		
+		quest_custom_name:ShowWindow(1);		
+		quest_custom:ShowWindow(1);
+		quest_custom:EnableHitTest(1);
+
 		UPDATE_QUESTINFOSET_2(frame); 
 	end
 end

@@ -52,6 +52,7 @@
 					<Str Str="voice_war_atk_long_cast" />
 					<Str Str="voice_atk_long_cast_f" />
 				</Scp>
+				<Scp Client="NO" Scp="SKL_ARCHER_DEBUFF_ABIL_JUMP" Time="900" UseSleep="NO"/>
 			</EtcList>
 			<ResultList>
 				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">

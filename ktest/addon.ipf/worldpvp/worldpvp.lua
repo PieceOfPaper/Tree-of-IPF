@@ -1081,3 +1081,11 @@ function GET_PVP_MINE_POINT_C()
 --
     return 0
 end
+
+function GUILD_CONTRIBUTION_SHOP_OPEN(frame, msg, argStr, argNum)
+	TOGGLE_PROPERTY_SHOP('GUILD_CONTRIBUTION_SHOP',1);
+end
+
+function GET_GUILD_CONTRIBUTION_POINT_C()
+    return 0;
+end

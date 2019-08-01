@@ -63,10 +63,35 @@ function ITEM_BUFF_CREATE_STORE(frame)
 	dummyInfo.classID = GetClass("Skill", sklName).ClassID;
 	dummyInfo.price = price;
 	dummyInfo.level = sklLevel;
-
+	
 	local storeGroupName = frame:GetUserValue("STORE_GROUP_NAME");
+	local pc = GetMyPCObject();
 	if storeGroupName == 'None' then
 		storeGroupName = 'Squire';
+		local abilSquire14 = GetAbility(pc, 'Squire14');
+		local abilSquire15 = GetAbility(pc, 'Squire15');
+		local abilSquire16 = GetAbility(pc, 'Squire16');
+		local abilState = 0;		
+		if abilSquire14 ~= nil then
+			local squire14_buff = info.GetBuffByName(session.GetMyHandle(), "Squire14_Buff");
+			if squire14_buff ~= nil then
+				abilState = 1;
+			end
+		end
+		if abilSquire15 ~= nil then
+			local squire15_buff = info.GetBuffByName(session.GetMyHandle(), "Squire15_Buff");
+			if squire15_buff ~= nil then
+				abilState = 2;
+			end
+		end
+		if abilSquire16 ~= nil then
+			local squire16_buff = info.GetBuffByName(session.GetMyHandle(), "Squire16_Buff");
+			if squire16_buff ~= nil then
+				abilState = 3;
+			end
+		end
+		
+		dummyInfo.squireAbilState = abilState;
 	end
 
 	if "" == edit:GetText() then
@@ -92,7 +117,6 @@ function ITEM_BUFF_CREATE_STORE(frame)
 		return;
 	end
 
-	local pc = GetMyPCObject();
 	local x, y, z = GetPos(pc);
 	if 0 == IsFarFromNPC(pc, x, y, z, 50) then
 		ui.SysMsg(ClMsg("TooNearFromNPC"));	
@@ -207,6 +231,19 @@ function OPEN_ITEMBUFF_UI_COMMON(groupName, sellType, handle)
 		local money = repairBox:GetChild("reqitemMoney");
 		money:SetTextByKey("txt", groupInfo.price);
 		local effectGbox = repairBox:GetChild("effectGbox");
+	end
+
+	-- 아츠 특성 표시
+	local abilState = groupInfo.squireAbilState;
+	local abil_text = GET_CHILD_RECURSIVELY(open, 'abil_text');
+	if abilState == 1 then
+		abil_text:SetTextByKey('txt', ScpArgMsg('Squire14AbilityAble'));
+	elseif abilState == 2 then
+		abil_text:SetTextByKey('txt', ScpArgMsg('Squire15AbilityAble'));
+	elseif abilState == 3 then
+		abil_text:SetTextByKey('txt', ScpArgMsg('Squire16AbilityAble'));
+	else
+		abil_text:SetTextByKey('txt', '');
 	end
 	
 	open:SetUserValue("PRICE", groupInfo.price)

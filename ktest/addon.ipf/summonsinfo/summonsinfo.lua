@@ -44,12 +44,19 @@ function SUMMONSINFO_INIT()
 		elseif count < 1 then
 			button:SetVisible(0);
 		end
-		
+
 		local hotkey = frame:GetUserConfig("SUMMONINFO_HOTKEY_TEXT");
+		local parymemberinfoKeyIdx = config.GetHotKeyElementIndex("ID", "PartyMemberInfo");
+		local parymemberinfoKey = config.GetHotKeyElementAttributeForConfig(parymemberinfoKeyIdx, "Key");
+		if parymemberinfoKey ~= nil then
+			hotkey = parymemberinfoKey;
+		end
+
 		SUMMONSINFO_BUTTON_TOOLTIP_CHANGE(hotkey);
 		if hotkey ~= nil and hotkey ~= "" then
 			button:SetTextTooltip(ClMsg("SummonsInfo_ConvertPartyInfo_ToolTip").."( "..hotkey.." )");
 		end
+		
 		button:EnableHitTest(1);
 	end
 
@@ -226,12 +233,12 @@ function SUMMONSINFO_BUTTON_TOOLTIP_CHANGE(changeTxt)
 	end
 
 	if string.find(changeTxt, "GRAVE") ~= nil then
-		changeTxt = string.gsub(changeTxt, "GRAVE", "`");		
+		changeTxt = string.gsub(changeTxt, "GRAVE", "`");	
 	end
 
 	summonsinfo_frame:SetUserConfig("SUMMONINFO_HOTKEY_TEXT", changeTxt);
-	partyinfo_button:SetTextTooltip(ClMsg("SummonsInfo_ConvertSummonsInfo_ToolTip").."( "..changeTxt.." )");
 	summonsinfo_button:SetTextTooltip(ClMsg("SummonsInfo_ConvertPartyInfo_ToolTip").."( "..changeTxt.." )");
+	partyinfo_button:SetTextTooltip(ClMsg("SummonsInfo_ConvertSummonsInfo_ToolTip").."( "..changeTxt.." )");
 
 	summonsinfo_frame:Invalidate();
 	parytinfo_frame:Invalidate();

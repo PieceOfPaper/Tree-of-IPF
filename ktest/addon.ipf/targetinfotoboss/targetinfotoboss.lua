@@ -5,12 +5,12 @@ function TARGETINFOTOBOSS_ON_INIT(addon, frame)
 	addon:RegisterMsg('TARGET_CLEAR_BOSS', 'TARGETINFOTOBOSS_ON_MSG');
 	addon:RegisterMsg('TARGET_UPDATE', 'TARGETINFOTOBOSS_ON_MSG');
 	addon:RegisterMsg('UPDATE_SDR', 'TARGETINFOTOBOSS_UPDATE_SDR');
+	addon:RegisterMsg("MISS_CHECK_SHOW_ICON", "TARGETINFOTOBOSS_MISSCHECK");
 
 	local timer = frame:GetChild("addontimer");
 	tolua.cast(timer, "ui::CAddOnTimer");
 	timer:SetUpdateScript("UPDATE_BOSS_DISTANCE");
 	timer:Start(0.1);
-
  end
  
  function UPDATE_BOSS_DISTANCE(frame)
@@ -156,3 +156,22 @@ function TARGETINFOTOBOSS_ON_MSG(frame, msg, argStr, argNum)
     end
     return raceStr;
  end
+
+function TARGETINFOTOBOSS_MISSCHECK(frame, msg, iconName, count)
+	if frame == nil then return; end
+
+	local boss_misscheck = GET_CHILD_RECURSIVELY(frame, "boss_misscheck");
+	if boss_misscheck == nil then return; end
+
+	local icon = CreateIcon(boss_misscheck);
+	if icon ~= nil then
+		if count == 0 then
+			boss_misscheck:SetVisible(0);
+			boss_misscheck:SetText("");
+		else
+			icon:SetImage(iconName);
+			boss_misscheck:SetVisible(1);
+			boss_misscheck:SetText("{s13}{ol}{b}"..count, "count", ui.RIGHT, ui.BOTTOM, -5, -3);
+		end
+	end
+end

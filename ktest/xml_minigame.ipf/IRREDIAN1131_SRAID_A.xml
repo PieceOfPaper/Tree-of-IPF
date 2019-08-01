@@ -138,6 +138,11 @@
                 </StageEvents>
             </Stage>
             <Stage Name="End" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_CONTENT_LOG_STR" Client="NO" UseSleep="NO">
+                        <Str Str="SoloRaid_Irredian"/>
+                    </ToolScp>
+                </StartScpList>
                 <ObjList/>
                 <StageEvents>
                     <Event execCount="1" eventName="SetLayer">

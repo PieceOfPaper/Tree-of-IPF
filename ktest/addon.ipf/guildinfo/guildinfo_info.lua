@@ -96,7 +96,7 @@ function UPDATE_TOWER_REMAIN_TIME(towerTimeText)
 end
 
 function GUILDINFO_INFO_INIT_BENEFIT(infoBox, guildObj)
-    local benefitBox = GET_CHILD_RECURSIVELY(infoBox, 'benefitbox');    
+    local benefitBox = GET_CHILD_RECURSIVELY(infoBox, 'benefitbox');
     DESTROY_CHILD_BYNAME(benefitBox, 'BENEFIT_');
    
     local yPos = 40;

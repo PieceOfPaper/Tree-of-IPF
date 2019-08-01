@@ -70,6 +70,8 @@ local i = 0
             layoutName = "claimCheckbox5"
         elseif authIndex == 40 then -- contents manager
             layoutName = "claimCheckbox6"
+		elseif authIndex == 50 then	-- housing manager
+			layoutName = "claimCheckbox7"
         end
         authlist[i] = { authName, authIdx }
 

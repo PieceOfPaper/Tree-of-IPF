@@ -1,5 +1,6 @@
 ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time4,Price5,Time5,Price6,Time6,Price7,Time7,Price8,Time8,Price9,Time9,Price10,Time10,ClassName,UnlockScr,UnlockArgStr,UnlockDesc,ScrCalcPrice
 1,100,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"THMace_BLKBREAK","UNLOCK_BASE_LEVEL","","캐릭터 100레벨 이상","ABIL_COMMON_PRICE_100LV"
+2,45,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Monk27","UNLOCK_ABIL_JOB_LEVEL","Char4_9","몽크 클래스 45레벨 달성","HIDDENABIL_PRICE_COND_JOBLEVEL"
 201,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Monk12","UNLOCK_ABIL_SKILL","Monk_DoublePunch","쌍쇄공 1레벨 이상","ABIL_REINFORCE_PRICE"
 301,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Monk15","UNLOCK_ABIL_SKILL","Monk_PalmStrike","철사장 1레벨 이상","ABIL_REINFORCE_PRICE"
 401,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Monk18","UNLOCK_ABIL_SKILL","Monk_HandKnife","관음장 1레벨 이상","ABIL_REINFORCE_PRICE"
@@ -9,3 +10,9 @@ ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time
 601,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Monk21","UNLOCK_ABIL_SKILL","Monk_1InchPunch","촌경 1레벨 이상","ABIL_REINFORCE_PRICE"
 602,100,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Monk6","UNLOCK_BASE_LEVEL","","캐릭터 100레벨 이상","ABIL_COMMON_PRICE_100LV"
 701,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Monk24","UNLOCK_ABIL_SKILL","Monk_God_Finger_Flicking","탄지신통 1레벨 이상","ABIL_REINFORCE_PRICE"
+801,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Monk28","UNLOCK_ABIL_OTHERABILITY","Monk12","[쌍쇄공: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"
+802,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Monk29","UNLOCK_ABIL_OTHERABILITY","Monk15","[철사장: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"
+803,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Monk30","UNLOCK_ABIL_OTHERABILITY","Monk18","[관음장: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"
+804,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Monk31","UNLOCK_ABIL_OTHERABILITY","Monk21","[촌경: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"
+805,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Monk32","UNLOCK_ABIL_OTHERABILITY","Monk23","[양광수: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"
+806,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Monk33","UNLOCK_ABIL_OTHERABILITY","Monk24","[탄지신통: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"

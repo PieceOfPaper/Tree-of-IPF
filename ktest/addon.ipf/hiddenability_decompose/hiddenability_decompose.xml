@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="hiddenability_decompose" x="0" y="0" width="500" height="1100" create="open">
+	<frame fullheight="false" fasthide="false" layout_gravity="left top" margin="0 0 0 0" draw="true" open="pip" piptype="left"/>
+	<draw drawframe="true"/>
+	<skin frameskin="test_frame_low"/>
+	<input moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="HIDDENABILITY_DECOMPOSE_OPEN" CloseScp="HIDDENABILITY_DECOMPOSE_CLOSE"/>
+	<userconfig DECOMPOSE_RESULT_SOUND="sys_transcend_success"/>
+	<controls>
+		<!-- title -->
+		<groupbox name="title_bg" 	rect="0 0 500 60" margin="0 0 0 0"  layout_gravity="center top" draw="true" hittestbox="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title_text" parent="title_bg" rect="0 0 120 24" margin="0 0 0 0" layout_gravity="center center" caption="{@st43}{s22}신비한 서 분해" fixwidth="false" textalign="center center"/>
+		<button name="close" rect="0 0 35 35" margin="0 15 28 0" layout_gravity="right top" LBtnUpScp="HIDDENABILITY_DECOMPOSE_CLOSE" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button"/>
+		<picture name="bg_pic" rect="0 0 436 895" margin="0 90 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="mystic_note_decomposition" stretch="true" draw="false"/>
+		<!-- material -->
+		<groupbox name="mat_gb" rect="0 0 500 220" margin="0 220 0 0" layout_gravity="center top" draw="false" scrollbar="false"/>
+		<slot name="matslot" parent="mat_gb" rect="0 0 141 141" margin="0 0 0 0" layout_gravity="center top" draw="false" DropScp="HIDDENABILITY_DECOMPOSE_ITEM_DROP" PopScp="HIDDENABILITY_DECOMPOSE_ITEM_POP" dropsound="icon_get_down"/> 
+		<richtext name="mat_text" parent="mat_gb" rect="0 0 120 20" margin="0 175 0 0" layout_gravity="center top" draw="false" format="{@st66b}{s18} %s" param1="value" param1_def="아이템 이름" textalign="center center" maxwidth="0" resizebytext="true"/>
+		<!-- center ui -->
+		<groupbox name="text_bg" rect="0 0 490 100" margin="0 420 0 0" layout_gravity="center top" draw="false"/>
+		<picture name="pic" parent="text_bg" rect="0 0 490 92" margin="-6 0 0 0" layout_gravity="center center" hittest="false" image="BnYellow_skin" draw="true"/>
+		<richtext name="text" parent="text_bg" rect="0 0 200 50" margin="0 3 0 0" layout_gravity="center center" format="{@st43}{#ffcc33}{s18}%s" param1="value" param1_def="분해 완료" textalign="center center" />
+		<!-- result -->
+		<groupbox name="result_gb" rect="0 0 350 220" margin="0 550 0 0" layout_gravity="center top" draw="false" scrollbar="false" skin="test_frame_top"/>
+		<slot name="slot_1" parent="result_gb" rect="0 0 91 91" margin="-50 0 0 0" layout_gravity="center top" draw="true" skin="invenslot2" movepop="false" enabledrag="false" enabledrop="false" enablepop="false"/> 
+		<slot name="slot_2" parent="result_gb" rect="0 0 91 91" margin="50 0 0 0" layout_gravity="center top" draw="true" skin="invenslot2" movepop="false" enabledrag="false" enabledrop="false" enablepop="false"/> 
+		<slot name="slot_3" parent="result_gb" rect="0 0 91 91" margin="-100 100 0 0" layout_gravity="center top" draw="true" skin="invenslot2" movepop="false" enabledrag="false" enabledrop="false" enablepop="false"/> 
+		<slot name="slot_4" parent="result_gb" rect="0 0 91 91" margin="0 100 0 0" layout_gravity="center top" draw="true" skin="invenslot2" movepop="false" enabledrag="false" enabledrop="false" enablepop="false"/> 
+		<slot name="slot_5" parent="result_gb" rect="0 0 91 91" margin="100 100 0 0" layout_gravity="center top" draw="true" skin="invenslot2" movepop="false" enabledrag="false" enabledrop="false" enablepop="false"/> 
+		<!-- button -->
+		<button name="decompose_btn" rect="0 0 180 50" margin="0 0 0 60" layout_gravity="center bottom" skin="test_red_button" caption="{@st41b}{s18}분해 하기" LBtnUpScp="HIDDENABILITY_DECOMPOST_BUTTON_CLLICK" oversound="button_cursor_over_3"/>
+		<button name="ok_btn" rect="0 0 180 50" margin="0 0 0 60" layout_gravity="center bottom" skin="test_red_button" caption="{@st41b}{s18}확인" LBtnUpScp="HIDDENABILITY_DECOMPOST_OK_CLLICK" oversound="button_cursor_over_3"/>
+	</controls>
+</uiframe>

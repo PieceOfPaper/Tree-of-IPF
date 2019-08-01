@@ -1,172 +1,176 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <GameList>
-	<Game Name="IRREDIAN1131_SRAID_B" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="-1">
-		<StageList>
-			<Stage Name="init">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-						<Str Str="곧 보스몬스터가 등장합니다"/>
-						<Str Str="stage_ready"/>
-						<Num Num="10"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="Start">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="Boss"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="Boss" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-						<Str Str="어미스독 처치"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList>
-					<Obj Type="Monster" MonType="58785" Pos="-3.06#-79.91#485.23" angle="-81" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" tendency="1"/>
-				</ObjList>
-				<StageEvents>
-					<Event execCount="1" eventName="Succ">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="5"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-								<MGameObj List="Boss/0"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+    <Game Name="IRREDIAN1131_SRAID_B" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="-1">
+        <StageList>
+            <Stage Name="init">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="곧 보스몬스터가 등장합니다"/>
+                        <Str Str="stage_ready"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Start">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Boss"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Boss" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="어미스독 처치"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="58785" Pos="-3.06#-79.91#485.23" angle="-81" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Succ">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_SOLO_RAID_BOSS_COUNT_IRREDIAN1131"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="Succ"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="Boss"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="Fail">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="5"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
-								<Num Num="0"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="Fail"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="Boss"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="bossmsg">
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="어미스독이 등장했습니다"/>
-								<Str Str="BossAppear"/>
-								<Num Num="5"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="Succ" AutoStart="0">
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="Reward">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="어미스독을 처치했습니다!"/>
-								<Str Str="Clear"/>
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="End"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="Succ"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="Fail" AutoStart="0">
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="failMsg">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="5"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="어미스독 처치에 실패했습니다.{nl}원래의 장소로 돌아갑니다."/>
-								<Str Str="!"/>
-								<Num Num="5"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="End"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="Fail"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="End" AutoStart="0">
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="SetLayer">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="4"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_PCLIST_LAYER_CHANGE" Client="NO" UseSleep="NO">
-								<Num Num="0"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="EndMgame">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="8"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-		</StageList>
-	</Game>
+                                <Str Str="Succ"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Boss"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Fail">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Boss"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="bossmsg">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="어미스독이 등장했습니다"/>
+                                <Str Str="BossAppear"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Succ" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Reward">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="어미스독을 처치했습니다!"/>
+                                <Str Str="Clear"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="End"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Succ"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Fail" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="failMsg">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="어미스독 처치에 실패했습니다.{nl}원래의 장소로 돌아갑니다."/>
+                                <Str Str="!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="End"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="End" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_CONTENT_LOG_STR" Client="NO" UseSleep="NO">
+                        <Str Str="SoloRaid_Irredian"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="SetLayer">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="4"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_PCLIST_LAYER_CHANGE" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="EndMgame">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
 </GameList>

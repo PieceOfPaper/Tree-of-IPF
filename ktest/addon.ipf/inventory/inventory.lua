@@ -29,9 +29,10 @@ end
 local invenTitleName = nil
 local clickedLockItemSlot = nil
 
-g_invenTypeStrList = {"All", "Equip", "Consume", "Recipe", "Card", "Etc", "Gem", "Premium"};
-local _invenCatOpenOption = {}; -- key: CategoryName, value: IsToggle
-local _invenTreeOpenOption = {}; -- key: TreegroupName, value: IsToggle
+g_invenTypeStrList = {"All", "Equip", "Consume", "Recipe", "Card", "Etc", "Gem", "Premium", "Housing"};
+local _invenCatOpenOption = {}; -- key: cid, value: {key: CategoryName, value: IsToggle}
+local _invenTreeOpenOption = {}; -- key: cid, value: {key: TreegroupName, value: IsToggle}
+local _invenSortTypeOption = {}; -- key: cid, value: SortType
 
 function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterMsg('ITEM_LOCK_FAIL', 'INV_ITEM_LOCK_SAVE_FAIL');
@@ -122,12 +123,12 @@ end
 function UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
 	INIT_INVEN_SLOT(slot);
 	--거래목록 또는 상점 판매목록에서 올려놓은 아이템(슬롯) 표시 기능
-	if ui.GetFrame('shop'):IsVisible() == 1 or ui.GetFrame('exchange'):IsVisible() == 1 or ui.GetFrame("oblation_sell"):IsVisible() == 1 then
+	if ui.GetFrame('housing_shop'):IsVisible() == 1 or ui.GetFrame('shop'):IsVisible() == 1 or ui.GetFrame('exchange'):IsVisible() == 1 or ui.GetFrame("oblation_sell"):IsVisible() == 1 then
 		local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
 		if remainInvItemCount ~= invItem.count then
 			slot:Select(1);
 		else
-			slot:Select(0);			
+			slot:Select(0);
 		end
 	end
 end
@@ -1302,10 +1303,11 @@ function INIT_INVEN_SLOT(slot)
 
 	local shopframe = ui.GetFrame("shop");
 	local exchangeframe  = ui.GetFrame("exchange");
-	local companionshop = ui.GetFrame('companionshop');	
+	local companionshop = ui.GetFrame('companionshop');
 	local oblationSell = ui.GetFrame("oblation_sell");
+	local housingShop = ui.GetFrame("housing_shop");
 
-	if shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1 or companionshop:IsVisible() == 1 or oblationSell:IsVisible() == 1 then
+	if shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1 or companionshop:IsVisible() == 1 or oblationSell:IsVisible() == 1 or housingShop:IsVisible() == 1 then
 		slot:SetSelectedImage('socket_slot_check')  -- 거래시에만 체크 셀렉 아이콘 사용	
 	end
 
@@ -1338,7 +1340,7 @@ function INVENTORY_SLOT_UNCHECK(frame, itemID)
 				local slotItem = GET_SLOT_ITEM(slot);
 				if slotItem ~= nil and (oblationSell:IsVisible() == 1 or shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1) then
 					if slotItem:GetIESID() == itemID then
-						slot:Select(0);				
+						slot:Select(0);
 					end
 				end
 				
@@ -1616,7 +1618,9 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)
 		return
 	end
 
-	local sortType = frame:GetUserIValue("SORT_TYPE")
+	local mySession = session.GetMySession();
+	local cid = mySession:GetCID();
+	local sortType = _invenSortTypeOption[cid];
 	session.BuildInvItemSortedList();
 	local sortedList = session.GetInvItemSortedList();
 	local invItemCount = sortedList:size();
@@ -1751,7 +1755,7 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)
 					end
 
 					if category == titleName then
-						local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)						
+						local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
 						if itemCls ~= nil then
 							local makeSlot = true;
 							if cap ~= "" then
@@ -2032,16 +2036,19 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
     if INVENTORY_RBTN_MARKET_SELL(invitem) == true then
     	return;
     end
-
+	
 	local invFrame = ui.GetFrame("inventory");	
 	invFrame:SetUserValue("INVITEM_GUID", invitem:GetIESID());
 
     -- shop
 	local frame = ui.GetFrame("shop");
 	local companionshop = ui.GetFrame('companionshop');
+	local housingShopFrame = ui.GetFrame("housing_shop");
 	if companionshop:IsVisible() == 1 then
 		frame = companionshop:GetChild('foodBox');
-	end	
+	elseif housingShopFrame:IsVisible() == 1 then
+		frame = GET_CHILD_RECURSIVELY(housingShopFrame, "gbox_bottom");
+	end
 
 	if frame:IsVisible() == 1 then
 		local groupName = itemobj.GroupName;
@@ -2072,13 +2079,21 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 				if keyboard.IsKeyPressed("LSHIFT") == 1 then
 					local sellableCount = invitem.count;
 					local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", sellableCount);
-					INPUT_NUMBER_BOX(invFrame, titleText, "EXEC_SHOP_SELL", 1, 1, sellableCount);
+					if housingShopFrame:IsVisible() == 1 then
+						INPUT_NUMBER_BOX(invFrame, titleText, "EXEC_HOUSING_SHOP_SELL", 1, 1, sellableCount);
+					else
+						INPUT_NUMBER_BOX(invFrame, titleText, "EXEC_SHOP_SELL", 1, 1, sellableCount);
+					end
 					invFrame:SetUserValue("SELL_ITEM_GUID", invitem:GetIESID());
 					return;
 				end
 					
 				-- 상점 Sell Slot으로 넘긴다.
-				SHOP_SELL(invitem, 1, frame);
+				if housingShopFrame:IsVisible() == 1 then
+					HOUSING_SHOP_SELL(invitem, 1, frame);
+				else
+					SHOP_SELL(invitem, 1, frame);
+				end
 				return;
 			else
 	        	ui.SysMsg(ClMsg("CannotSellMore"));
@@ -2331,14 +2346,19 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 		return;
 	end
 	
-	local frame     = ui.GetFrame("shop");
+	local frame = ui.GetFrame("shop");
 	local companionshop = ui.GetFrame('companionshop');
+	local housingShopFrame = ui.GetFrame("housing_shop");
 	if companionshop:IsVisible() == 1 then
 		frame = companionshop:GetChild('foodBox');
+	elseif housingShopFrame:IsVisible() == 1 then
+		frame = GET_CHILD_RECURSIVELY(housingShopFrame, "gbox_bottom");
 	end	
+
 	if frame:IsVisible() == 0 then
 		return;
 	end
+
 	local groupName = itemobj.GroupName;
 	if groupName == 'Money' then
 		return;
@@ -2368,7 +2388,13 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	if itemProp:IsEnableShopTrade() == true then
 		if IS_SHOP_SELL(invitem, Itemclass.MaxStack, frame) == 1 then
 			-- 상점 Sell Slot으로 다 넘긴다.
-			SHOP_SELL(invitem, invitem.count, frame);
+			
+			if housingShopFrame:IsVisible() == 1 then
+				HOUSING_SHOP_SELL(invitem, invitem.count, frame);
+			else
+				SHOP_SELL(invitem, invitem.count, frame);
+			end
+
 			return;
 		else
 	        ui.SysMsg(ClMsg("CannotSellMore"));
@@ -3769,7 +3795,10 @@ end
 
 function REQ_INV_SORT(invType, sortType)
 	local invFrame = ui.GetFrame("inventory")
-	invFrame:SetUserValue("SORT_TYPE", sortType +1)
+
+	local mySession = session.GetMySession();
+	local cid = mySession:GetCID();
+	_invenSortTypeOption[cid] = sortType +1;
 
 	item.SortInvIndex(invType, sortType);
 end
@@ -4312,7 +4341,7 @@ function INVENTORY_RBTN_LEGENDPREFIX(invItem)
 	if legendprefix ~= nil and legendprefix:IsVisible() == 0 then
 		return false;
 	end
-	_LEGENDPREFIX_SET_TARGET(legendprefix, invItem:GetIESID());
+	LEGENDPREFIX_SET_ITEM(legendprefix, invItem:GetIESID());
 	return true;
 end
 
@@ -4405,47 +4434,51 @@ end
 
 
 function INVENTORY_CATEGORY_OPENCHECK(frame, tree)
-	for key, value in pairs(_invenCatOpenOption) do
-		local strFind = ":"
-		local strFindStart, strFindEnd = string.find(key, strFind)
-		local treename = string.sub(key, 0, strFindStart - 1) 
+	local mySession = session.GetMySession();
+	local cid = mySession:GetCID();
 
-		if treename == tree:GetName() then			
-			local strSub = string.sub(key, strFindStart + 1, string.len(key)) 
-			local groupName = 'sset_'..strSub;
-			local treegroup = tree:FindByName(groupName);
-			if treegroup == 0 then
-				return;
-			end
-	
-			if value == 0 then
-				local tab = GET_CHILD_RECURSIVELY(frame, treename)
-	
-				local sloatName = 'ssettitle_'..strSub;
-				local ctrl = GET_CHILD_RECURSIVELY(tab, sloatName);	
-				if ctrl == nil then
-					 return;
-				end
-	
-				local slotset = GET_CHILD_RECURSIVELY(tab, groupName)
-				if slotset == nil then
-					return
+	if _invenCatOpenOption[cid] then
+		for key, value in pairs(_invenCatOpenOption[cid]) do
+			local strFind = ":"
+			local strFindStart, strFindEnd = string.find(key, strFind)
+			local treename = string.sub(key, 0, strFindStart - 1) 
+
+			if treename == tree:GetName() then			
+				local strSub = string.sub(key, strFindStart + 1, string.len(key)) 
+				local groupName = 'sset_'..strSub;
+				local treegroup = tree:FindByName(groupName);
+				if treegroup == 0 then
+					return;
 				end
 		
-				local width = slotset:GetWidth();
-				local height = slotset:GetHeight();
-	
-				if width ~= 0 and height ~= 0 then		
-					slotset:SetUserValue("width", width)
-					slotset:SetUserValue("height", height)
-					slotset:Resize(0, 0)
-					local title = ctrl:GetText()
-					local changeTitle = string.gsub(title, "btn_minus", "btn_plus")
-					ctrl:SetText(changeTitle)
+				if value == 0 then
+					local tab = GET_CHILD_RECURSIVELY(frame, treename)
+		
+					local sloatName = 'ssettitle_'..strSub;
+					local ctrl = GET_CHILD_RECURSIVELY(tab, sloatName);	
+					if ctrl == nil then
+						return;
+					end
+		
+					local slotset = GET_CHILD_RECURSIVELY(tab, groupName)
+					if slotset == nil then
+						return
+					end
+			
+					local width = slotset:GetWidth();
+					local height = slotset:GetHeight();
+		
+					if width ~= 0 and height ~= 0 then		
+						slotset:SetUserValue("width", width)
+						slotset:SetUserValue("height", height)
+						slotset:Resize(0, 0)
+						local title = ctrl:GetText()
+						local changeTitle = string.gsub(title, "btn_minus", "btn_plus")
+						ctrl:SetText(changeTitle)
+					end
 				end
 			end
 		end
-
 	end
 
 	for i = 1, #GROUP_NAMELIST do
@@ -4456,8 +4489,10 @@ function INVENTORY_CATEGORY_OPENCHECK(frame, tree)
 			if treenode ~= nil then
 				local OptionName = tree:GetName()..":"..treenode:GetValue();
 
-				if _invenTreeOpenOption[OptionName] == false then
-					tree:OpenNode(treenode, false, true);
+				if _invenTreeOpenOption[cid] then
+					if _invenTreeOpenOption[cid][OptionName] == false then
+						tree:OpenNode(treenode, false, true);
+					end
 				end
 			end
 		end
@@ -4466,22 +4501,38 @@ function INVENTORY_CATEGORY_OPENCHECK(frame, tree)
 end
 
 function INVENTORY_CATEGORY_OPENOPTION_CHECK(treename, strarg)
+	local mySession = session.GetMySession();
+	local cid = mySession:GetCID();
 	local OptionName = treename..":"..strarg;
 
-	return _invenCatOpenOption[OptionName];
+	if _invenCatOpenOption[cid] == nil then
+		_invenCatOpenOption[cid] = {};
+	end
+
+	return _invenCatOpenOption[cid][OptionName];
 end
 
 function INVENTORY_CATEGORY_OPENOPTION_CHANGE(parent, ctrl, strarg, numarg)
+	local mySession = session.GetMySession();
+	local cid = mySession:GetCID();
 	local OptionName = parent:GetName()..":"..strarg;
-	if _invenCatOpenOption[OptionName] == 1 or _invenCatOpenOption[OptionName] == nil then
-		_invenCatOpenOption[OptionName] = 0;
+
+	if _invenCatOpenOption[cid] == nil then
+		_invenCatOpenOption[cid] = {};
+	end
+
+	if _invenCatOpenOption[cid][OptionName] == 1 or _invenCatOpenOption[cid][OptionName] == nil then
+		_invenCatOpenOption[cid][OptionName] = 0;
 	else
-		_invenCatOpenOption[OptionName] = 1;
+		_invenCatOpenOption[cid][OptionName] = 1;
 	end
 	
 end
 
 function INVENTORY_TREE_OPENOPTION_CHANGE(parent, ctrl, strarg, numarg)
+	local mySession = session.GetMySession();
+	local cid = mySession:GetCID();
+
 	for i = 1, #GROUP_NAMELIST do
 		local treegroup = ctrl:FindByValue(GROUP_NAMELIST[i]);
 		if treegroup == nil then
@@ -4493,7 +4544,11 @@ function INVENTORY_TREE_OPENOPTION_CHANGE(parent, ctrl, strarg, numarg)
 			local openoption = treenode:GetIsOpen();
 
 			local OptionName = ctrl:GetName()..":"..treenode:GetValue();
-			_invenTreeOpenOption[OptionName] = openoption;
+
+			if _invenTreeOpenOption[cid] == nil then
+				_invenTreeOpenOption[cid] = {};
+			end
+			_invenTreeOpenOption[cid][OptionName] = openoption;
 		end
 		
 	end

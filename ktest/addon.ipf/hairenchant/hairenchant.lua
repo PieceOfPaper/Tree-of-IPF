@@ -139,7 +139,6 @@ function HAIRENCHANT_UI_RESET()
 	slot  = tolua.cast(slot, 'ui::CSlot');
 	slot:ClearIcon();
 
-	local frame = ui.GetFrame("hairenchant");
 	local nonOption = false;
 	for i = 1, 3 do
 		local propName = "HatPropName_"..i;
@@ -153,5 +152,4 @@ function HAIRENCHANT_UI_RESET()
 	cnt:SetTextByKey("value", tostring(0));
 
 	frame:ShowWindow(0);
-
 end

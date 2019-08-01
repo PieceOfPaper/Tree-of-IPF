@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="UNDERAQUEDUCT_NORMAL_MGAME" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="-1">
+        <StageList>
+            <Stage Name="int">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_CUSTOM_OPTION_CHECK" Client="NO" UseSleep="NO">
+                        <Num Num="1"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="157055" Pos="-247.36#168.00#1316.16" genCount="1" maxStackCount="1" genTime="1" objectKey="0" propList="&apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_ATK_BUFF&apos; &apos;Name&apos; &apos;공격력 증가 장치&apos; "/>
+                    <Obj Type="Monster" MonType="157055" Pos="-244.76#168.02#1376.01" genCount="1" maxStackCount="1" genTime="1" objectKey="1" propList="&apos;Name&apos; &apos;방어력 증가 장치&apos; &apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_DEF_BUFF&apos; "/>
+                    <Obj Type="Monster" MonType="157055" Pos="-250.59#167.98#1438.77" genCount="1" maxStackCount="1" genTime="1" objectKey="2" propList="&apos;Name&apos; &apos;실드 생성 장치&apos; &apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_SHIELD_BUFF&apos; "/>
+                    <Obj Type="Monster" MonType="20040" Pos="124.62#176.10#1350.99" genCount="1" maxStackCount="1" genTime="1" objectKey="3" propList="&apos;Name&apos; &apos;머즈루스 제압 장치&apos; &apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_BOSS_GIMMICK_SKILL3&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Start">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Boss"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_SOUL_CRISTAL_LIMIT" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="MGAME_START_1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_HP_COUSUME"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="MGAME_START_2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="11"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_HP_PERCENT"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="MGAME_START_3">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="12"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_TIME_ATTACK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Mgame_Total_POINT">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Total_Point_Check"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="MSG">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="곧 전투가 시작됩니다.{nl}전투 시작 전 보급품을 사용하여 원하는 효과를 받으세요."/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
+                                <Str Str="PC_DEAD_1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Init">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_END"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Boss" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="59293" Pos="7.76#176.26#1364.44" angle="164" genTime="1" autoGen="0" objectKey="1" propList="&apos;Enter&apos; &apos;SOLO_RAID_UNDERAQUEDUCT_BOSS&apos; &apos;Range&apos; &apos;300&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="BossMsg">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="머즈루스가 등장합니다.{nl}머즈루스가 폭주하기 전에 처지해야 합니다."/>
+                                <Str Str="BossAppear"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="bossgen">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Boss/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="UNDERAQUEDUCT_MONGO_BOSSMONSTATE_BORN"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Check"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Success" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="5000" execCount="1" eventName="Reward">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="UNDERAQUEDUCT_MONGO_MINIGAMESTATE_SUCCESS"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_SOLO_RAID_BOSS_COUNT_UNDERAQUEDUCT"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="End"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Success"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Fail" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="FailMsg">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="None"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="머즈루스 처치에 실패하였습니다."/>
+                                <Str Str="!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail_END"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="End" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_CUSTOM_OPTION_CHECK" Client="NO" UseSleep="NO">
+                        <Num Num="-1"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_CONTENT_LOG_STR" Client="NO" UseSleep="NO">
+                        <Str Str="SoloRaid_Underaqueduct"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="SetLayer">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="UNDERAQUEDUCT_MONGO_MISSIONSTATE_END"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_PCLIST_LAYER_CHANGE" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="END_MSG">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="머즈루스 처치에 성공하였습니다.{nl}10초 후 선착장 방향 포탈이 생성됩니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Check" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="1200"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="    머즈루스 폭주까지 남은 시간"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="154094" Pos="-231.84#176.10#1297.52" genCount="1" genTime="1000" autoGen="0" objectKey="0" propList="&apos;SimpleAI&apos; &apos;raid_test_ai&apos; "/>
+                    <Obj Type="Monster" MonType="154097" Pos="-59.36#176.70#1371.52" genCount="1" genTime="1000" autoGen="0" objectKey="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execMS="5000" eventName="Success">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="UNDERAQUEDUCT_MONGO_BOSSMONSTATE_DEAD"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_END"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Check"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Success"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Fail">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="PC_DEAD_1/0/PC_DEAD_1/1/PC_DEAD_1/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_IMMEDIATELY" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Check"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Skill">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="34"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss/1"/>
+                                <Num Num="79"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss/1"/>
+                                <Str Str="BOSS_GIMMICK_SKILL_RANDOM"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Skill2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss/1"/>
+                                <Num Num="54"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss/1"/>
+                                <Str Str="BOSS_GIMMICK_SKILL2_RANDOM"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Fury">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="915"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="머즈루스가 폭주합니다.  머즈루스의 스킬이 강화됩니다."/>
+                                <Str Str="!"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss/1"/>
+                                <Str Str="D_UNDERAQUEDUCT_BOSS_FURY_BUFF"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="TimeOver">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1215"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss/1"/>
+                                <Str Str="D_UNDERAQUEDUCT_BOSS_TIME_OVER"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="머즈루스가 폭주합니다. "/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="GIMMICK_END">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Check/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="log">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP_MAIN" Client="NO" UseSleep="NO">
+                                <Str Str="UNDERAQUEDUCT_MONGO_MISSIONSTATE_START"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Total_Point_Check">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_STYLE_INFO" Client="NO" UseSleep="NO">
+                        <Str Str="TOTAL_POINT"/>
+                        <Str Str="bar"/>
+                        <Str Str="머즈루스 도전 과제 포인트"/>
+                        <Num Num="3"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+            </Stage>
+            <Stage Name="MGAME_HP_COUSUME" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_STYLE_INFO" Client="NO" UseSleep="NO">
+                        <Str Str="Mini_Game_1"/>
+                        <Str Str="text"/>
+                        <Str Str="한번도 죽지 않고 보스 몬스터 처치"/>
+                        <Num Num="1"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="2000" eventName="Success" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_HP_COUSUME"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="int/3"/>
+                                <Str Str="D_UNDERAQUEDUCT_MGAME_NORMAL_SUCCESS"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Check/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Fail">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="PC_DEAD_1/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                <Str Str="Mini_Game_1"/>
+                                <Num Num="-1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="UNDERAQUEDUCT_MONGO_MINIQUEST_RESULT_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_HP_COUSUME"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="MGAME_HP_PERCENT" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_STYLE_INFO" Client="NO" UseSleep="NO">
+                        <Str Str="Mini_Game_2"/>
+                        <Str Str="text"/>
+                        <Str Str="HP 30% 이상인 상태로 보스 몬스터 처치"/>
+                        <Num Num="1"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="2000" eventName="PERCENT_SUCCESS" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCHP" Client="NO" UseSleep="NO">
+                                <Num Num="31"/>
+                                <Str Str="OVER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_HP_PERCENT"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="int/3"/>
+                                <Str Str="D_UNDERAQUEDUCT_MGAME_NORMAL_SUCCESS"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Check/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="2000" eventName="Pc_Dead">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                <Str Str="Mini_Game_2"/>
+                                <Num Num="-1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_HP_PERCENT"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="PERCENT_FAIL">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCHP" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                <Str Str="Mini_Game_2"/>
+                                <Num Num="-1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="UNDERAQUEDUCT_MONGO_MINIQUEST_RESULT_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_HP_PERCENT"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="MGAME_TIME_ATTACK" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_STYLE_INFO" Client="NO" UseSleep="NO">
+                        <Str Str="Mini_Game_3"/>
+                        <Str Str="text"/>
+                        <Str Str="5분 안에 보스 몬스터 처치"/>
+                        <Num Num="1"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="2000" execCount="1" eventName="Tiem_Success">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_TIME_ATTACK"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="int/3"/>
+                                <Str Str="D_UNDERAQUEDUCT_MGAME_NORMAL_SUCCESS_2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Time_Fail">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="300"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Boss/1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                <Str Str="Mini_Game_3"/>
+                                <Num Num="-1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="UNDERAQUEDUCT_MONGO_MINIQUEST_RESULT_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_TIME_ATTACK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Fail_END" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_CUSTOM_OPTION_CHECK" Client="NO" UseSleep="NO">
+                        <Num Num="-1"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_CONTENT_LOG_STR" Client="NO" UseSleep="NO">
+                        <Str Str="SoloRaid_Underaqueduct"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="SetLayer">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="UNDERAQUEDUCT_MONGO_MISSIONSTATE_END"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_PCLIST_LAYER_CHANGE" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="MSG">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="머즈루스에게 패배하였습니다. 전투가 종료됩니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="PC_DEAD_1" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="103022" Pos="-68.61#176.59#1519.56" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="103022" Pos="19.72#176.10#1541.29" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="103022" Pos="83.49#176.10#1522.24" genCount="1" genTime="20000" objectKey="2"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="DEAD_1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_IMMEDIATELY" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="PC_DEAD_1/0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="PC_DEAD_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="PC_DEAD_1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="PC_DEAD_2" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="DEAD_2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_IMMEDIATELY" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="PC_DEAD_1/1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="PC_DEAD_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="PC_DEAD_2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="PC_DEAD_3" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="DEAD_3">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_IMMEDIATELY" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="PC_DEAD_1/2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="PC_LAST"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="PC_DEAD_3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="PC_LAST" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="GAME_OVER">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_IMMEDIATELY" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="PC_LAST"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="PC_LAST"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

@@ -384,3 +384,15 @@ function PET_SKILL_PRE_CHECK_C(self, skill)
 --    SendSysMsg(self, 'SummonedPetDoesNotExist');
 --    return 0;
 end
+
+function SKL_CHECK_ACTIVE_ABILITY_C(self, skill, abilName)
+    local abil = session.GetAbilityByName(abilName);
+    if abil ~= nil then
+        local abilObj = GetIES(abil:GetObject());
+        if TryGetProp(abilObj, "ActiveState") == 1 then
+            return 0;
+        end
+    end
+
+    return 1;
+end

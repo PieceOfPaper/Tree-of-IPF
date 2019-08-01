@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="minimized_godprotection_button" x="0" y="0" width="80" height="100">
+	<frame fullheight="false" fasthide="false" scale_align="center center" layout_gravity="right top" margin="0 408 345 0"/>
+	<layer layerlevel="31"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<option visible="true" closebutton="false" useimageitem="true" piptype="right" autoopen="true" hideable="false"/>
+	<userconfig TIME_FONT_NOMAL="{@st41d}{s14}" TIME_FONT_ONEMINUTE="{s14}{#ff5c5c}"/>
+	<controls>
+		<button 	name="openTPshopBtn" rect="0 0 100 60" margin="0  0 0 0"  layout_gravity="center top" 	image="god_pro_world_button" overimage="god_pro_world_button_cursoron" selectimage="god_pro_world_button_clicked" LBtnDownScp="MINIMIZED_GODPROTECTION_BUTTON_CLICK" />
+		<richtext 	name="title"		 rect="0 0 120 30" margin="0 15 0 0" layout_gravity="center center" format="{@st66d_y}{s16}%s" param1="value" param1_def="여신의 가호" fontname="white_18_b" spacey="0" hittest="false"/>
+		<richtext 	name="time"		 	 rect="0 0 100 30" margin="5 35 0 0" layout_gravity="center center" format="{@st41d}{s14}%s:%s" param1="min" param1_def="00" param2="sec" param2_def="00" fontname="white_18_b" spacey="0" hittest="false"/>
+	</controls>
+</uiframe>

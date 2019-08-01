@@ -6,7 +6,7 @@
 					<Str Str="AcrobaticMount_Buff" />
 					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
 					<Num Num="0" />
-					<Num Num="30000" />
+					<Num Num="0" />
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
@@ -23,7 +23,26 @@
 				</Scp>
 			</EtcList>
 		</MainSkl>
-	</Skill>
+	<ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+                        <Str Str="AcrobaticMount_Buff" />
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="80" UseSleep="NO">
+                            <Str Str="AcrobaticMount_Buff" />
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
 	<Skill Name="Cataphract_Trot">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
@@ -34,7 +53,7 @@
 					<Str Str="Trot_Buff" />
 					<Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
 					<Num Num="0" />
-					<Num Num="30000" />
+					<Num Num="0" />
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
@@ -45,56 +64,28 @@
 				</Scp>
 			</EtcList>
 		</MainSkl>
-	</Skill>
-	<Skill Name="Cataphract_SteedCharge">
-		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num FuncTxt=" return 0.3" Num="3" UseFunc="1" />
-				<Num Num="0" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num Num="0" />
-				<Num FuncTxt=" return 0.3 / obj.Level" Num="2" UseFunc="1" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Str_Arg Arg="3" Str="E_pc_full_charge_violet_ride##1" />
-				<Str Str="Dummy_full_charge_chargingatk" />
-				<Num Num="1" />
-				<Num Num="1" />
-				<Num Num="3" />
-				<Num Num="0.2" />
-				<Num Num="100" />
-				<Num Num="0" />
-				<Num Num="0" />
+	<ByCondSkills>
+	<SubSkl>
+		<Cond>
+			<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+				<Str Str="Trot_Buff" />
 			</ToolScp>
-		</KeyInput>
-		<KeyInputStart>
-			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
-				<Str Str="SKL_STEEDCHARGE_LOOP_RIDE" />
-				<Str Str="None" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Str Str="None" />
-				<Str Str="ASTD" />
-			</ToolScp>
-			<ToolScp Client="NO" Scp="SKL_PLAY_SOUND" UseSleep="NO">
-				<Str Str="voice_archer_pavise_shot" />
-				<Num Num="0" />
-				<Str Str="voice_archer_m_pavise_shot" />
-			</ToolScp>
-		</KeyInputStart>
-		<KeyInputEnd>
-			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
-			<ToolScp Client="NO" Scp="SKL_STOP_SOUND" UseSleep="NO">
-				<Str Str="voice_archer_pavise_shot" />
-				<Str Str="voice_archer_m_pavise_shot" />
-			</ToolScp>
-		</KeyInputEnd>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		</Cond>
+		<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+				<HitList>
+				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
+				</HitList>
+				<EtcList>
+				<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="80" UseSleep="NO">
+				<Str Str="Trot_Buff" />
+				</Scp>
+				</EtcList>
+			</Skill>
+		</SubSkl>
+		</ByCondSkills>        
+			</Skill>
+			<Skill Name="Cataphract_SteedCharge">
+				<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<MoveList>
 				<Frame Accel="1" Angle="-0.00059771544" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="0" />
 				<Frame Accel="2" Angle="0.0034086369" Dist="177.43427" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="130" />
@@ -110,25 +101,13 @@
 				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
 					<Str Str="skl_fgt_ultimatedash_shot" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
-					<Str Str="Cataphract_SteedCharge" />
-				</Scp>
 				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="300" UseSleep="NO">
 					<Num Num="5" />
 					<Num Num="1" />
 					<Num Num="60" />
 					<Num Num="999" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
-					<Str Str="SteedCharge_Buff" />
-					<Num Num="99" />
-					<Num Num="0" />
-					<Num Num="1500" />
-					<Num Num="0" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
+				</EtcList>
 		</MainSkl>
 	</Skill>
 	<Skill Name="Cataphract_DoomSpike">
@@ -436,5 +415,61 @@
 				</Scp>
 			</EtcList>
 		</MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                        <Str Str="Cataphract34" />
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" LoopTime="600" Scp="SKL_BUFF" Time="100" UseSleep="NO">
+                            <Str Str="Warrior_EnableMovingShot_Buff" />
+                            <Num Num="2" />
+                            <Num Num="0" />
+                            <Num Num="1000" />
+                            <Num Num="1" />
+                            <Num Num="100" />
+                            <Num Num="0" />
+                        </Scp>
+                        <Scp Client="NO" LoopTime="300" Scp="SKL_SET_TARGET_CIRCLE" Time="200" UseSleep="NO">
+                            <Pos Angle="0" Dist="0" PosType="5" />
+                            <Num Num="40" />
+                            <Num FuncTxt="return obj.SkillSR" Num="0" UseFunc="1" />
+                            <Num Num="2" />
+                            <Num Num="0" />
+                            <Num Num="1" />
+                        </Scp>
+                        <Scp Client="NO" LoopTime="315" Scp="SKL_TGT_ATTRACT" Time="200" UseSleep="NO">
+                            <Num Num="100" />
+                            <Num Num="315" />
+                            <Num Num="1" />
+                        </Scp>
+                        <Scp Client="NO" LoopTime="330" Scp="SKL_TGT_DMG_BY_DIST" Time="200" UseSleep="NO">
+                            <Num Num="1" />
+                            <Num Num="40" />
+                            <Num Num="0.5" />
+                        </Scp>
+                        <Scp Client="NO" LoopTime="300" Scp="SKL_TGT_BUFF_ABIL" Time="200" UseSleep="NO">
+                            <Str Str="Cataphract1" />
+                            <Str Str="Stun" />
+                            <Num Num="1" />
+                            <Num Num="-1" />
+                            <Num Num="2000" />
+                            <Num Num="0" />
+                            <Num Num="1" />
+                            <Num FuncTxt="return GET_ABIL_LEVEL(self, 'Cataphract1')" Num="100" UseFunc="1" />
+                        </Scp>
+                        <Scp Client="NO" LoopTime="330" Scp="SKL_CONSUME_SP" Time="200" UseSleep="NO">
+                            <Num FuncTxt="local value = 12 local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect &gt;= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) if IsBuffApplied(self, &quot;AcrobaticMount_Buff&quot;) == &quot;YES&quot; then     local acrobaticBuff = GetBuffByName(self, &quot;AcrobaticMount_Buff&quot;)     local acrobaticBuffLevel = GetBuffArg(acrobaticBuff)     local acrobaticAddSPRate = acrobaticBuffLevel * 0.05     value = value * (1 + acrobaticAddSPRate) end return math.floor(value)" Num="4" UseFunc="1" />
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
 	</Skill>
 	</ToolSkill>

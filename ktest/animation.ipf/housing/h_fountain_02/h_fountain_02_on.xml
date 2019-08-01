@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_effect_water1" particleName="F_bg_light016_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_water2" particleName="F_bg_water023_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.25" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_water1" particleName="F_bg_water022" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="1" attachNode="effect002" particleName="F_bg_light016_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="effect002" particleName="F_bg_water023" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.25" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="effect003" particleName="F_bg_water023" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.15" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="effect004" particleName="F_bg_water023" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_emitter" particleName="F_bg_water024_ground" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_emitter" particleName="F_bg_light017_blue_ground" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_emitter" particleName="F_bg_light018_white_ground" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.25" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_emitter" particleName="F_bg_water025_spread_out" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="0"/>
+</ActionDesc>

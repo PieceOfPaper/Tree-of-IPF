@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by My (IMCGames Co., Ltd) -->
+<uiframe name="housing_editmode_remove" x="0" y="0" width="500" height="375" create="open">
+	<frame fullheight="false" fasthide="true" drawtitlebar="false" layout_gravity="center center " margin="0 -80 0 0"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<skin frameskin="test_win_system"/>
+	<draw drawtitlebar="false"/>
+	<layer layerlevel="80"/>
+	<controls>
+		<groupbox name="gbox" rect="0 0 478 320" margin="0 42 0 0" layout_gravity="center top" draw="false"/>
+		<richtext name="txt_title" parent="gbox" rect="0 0 450 40" margin="0 25 0 0" layout_gravity="center top" caption="{@st66b}{s18}철거 하시겠습니까?" textalign="center center" fixwidth="true"/>
+		<groupbox name="gbox_furniture_name" parent="gbox" rect="0 0 450 50" hittest="false" margin="0 55 0 0" layout_gravity="center top" draw="true" scrollbar="false" skin="black_box_op20"/>
+		<richtext name="txt_furniture_name" parent="gbox_furniture_name" rect="0 0 450 50" margin="0 0 0 0" layout_gravity="center center" format="{ol}{ds}{b}{s20}%s" param1="name" param1_def="가구" textalign="center center" fixwidth="true"/>
+		<richtext name="txt_has_guild_money" parent="gbox" rect="0 0 469 49" margin="0 125 0 0" layout_gravity="center top" format="{@st66b}{s18}소지 길드 자금 :{@st66d_y}%s" param1="money" param1_def="0" textalign="center center" fixwidth="true"/>
+		<richtext name="txt_need_guild_money" parent="gbox" rect="0 0 469 49" margin="0 155 0 0" layout_gravity="center top" format="{@st66b}{s18}소비 길드 자금 :{ol}{s18}{#ec0000}%s" param1="money" param1_def="0" textalign="center center" fixwidth="true"/>
+		<richtext name="txt_memo" parent="gbox" rect="0 0 450 80" margin="0 200 0 0" layout_gravity="center top" caption="{@st66b}{s18}해당 하우징 물품을 철거하면 관련 기능을 이용할 수 없으며, 철거된 물품은 아이템 창으로 이동합니다." textalign="center center" fixwidth="true"/>
+		<button name="btn_yes" parent="gbox" rect="0 0 145 46" margin="-73 0 0 5" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}예" LBtnUpScp="BTN_HOUSING_EDITMODE_REMOVE_YES"/>
+		<button name="btn_no" parent="gbox" rect="0 0 145 46" margin="73 0 0 5" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}아니오" LBtnUpScp="BTN_HOUSING_EDITMODE_REMOVE_NO"/>
+	</controls>
+</uiframe>

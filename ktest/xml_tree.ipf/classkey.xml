@@ -18,6 +18,7 @@
         <Key Name="IsEquipItemAbil" Value="33968"/>
         <Key Name="Desc2" Value="141"/>
         <Key Name="Keyword" Value="103301"/>
+        <Key Name="Hidden" Value="104050"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Item">
         <Key Name="AttachNode" Value="7460"/>
@@ -436,6 +437,7 @@
         <Key Name="Rebuildchangeitem" Value="103244"/>
         <Key Name="InheritanceRandomItemName" Value="103948"/>
         <Key Name="EnableEquipMap" Value="103958"/>
+        <Key Name="AbilityIdspace" Value="104080"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="P_PARTY_Q_040" Value="53"/>
@@ -1829,6 +1831,22 @@
         <Key Name="STEAM190702_GACHA_TP_BOUNS" Value="104038"/>
         <Key Name="STEAM190702_GACHA_TP_COUNT" Value="104037"/>
         <Key Name="EventTotalShop1906_AC_19" Value="104042"/>
+        <Key Name="EVENT_TWN_3YEARS_MONSTER_TOGETHER" Value="104045"/>
+        <Key Name="STEAM190716_GACHA_HAIRACC_BOUNS" Value="104046"/>
+        <Key Name="STEAM190716_GACHA_HAIRACC_COUNT" Value="104047"/>
+        <Key Name="GUILD_MILEAGE_REWARD_COUNT" Value="104091"/>
+        <Key Name="GUILD_MILEAGE_REWARD_WEEKLY" Value="104090"/>
+        <Key Name="GuildHousingFacilityLastPersonBuffRemainTime_Armor" Value="104088"/>
+        <Key Name="GuildHousingFacilityLastPersonBuffRemainTime_Attribute" Value="104082"/>
+        <Key Name="GuildHousingFacilityLastPersonBuffRemainTime_Weapon" Value="104085"/>
+        <Key Name="GuildHousingFacilityLastPersonBuff_Armor" Value="104086"/>
+        <Key Name="GuildHousingFacilityLastPersonBuff_Attribute" Value="104081"/>
+        <Key Name="GuildHousingFacilityLastPersonBuff_Weapon" Value="104084"/>
+        <Key Name="HadVisited_6000" Value="104083"/>
+        <Key Name="SOLORAID_TOTAL_COUNT_DAY" Value="104087"/>
+        <Key Name="EVENT_190808_THE_ARTS_DATE" Value="104094"/>
+        <Key Name="EVENT_190808_THE_ARTS_GIVE_COUNT" Value="104096"/>
+        <Key Name="EVENT_190808_THE_ARTS_PLAY_MIN" Value="104095"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -9808,6 +9826,12 @@
         <Key Name="InDunCountType_1300" Value="104014"/>
         <Key Name="IsHaveWarpStone_Klaipeda" Value="104043"/>
         <Key Name="IsHaveWarpStone_Orsha" Value="104044"/>
+        <Key Name="Hide_2990" Value="104065"/>
+        <Key Name="Hide_2991" Value="104066"/>
+        <Key Name="Kill_F_boss_Moringponia" Value="104064"/>
+        <Key Name="HadVisited_6000" Value="104078"/>
+        <Key Name="Kill_Raid_boss_Misrus" Value="104079"/>
+        <Key Name="Reward_d_underaqueduct" Value="104092"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -10359,6 +10383,7 @@
         <Key Name="CRTHR_RATE_BM" Value="103262"/>
         <Key Name="DR_RATE_BM" Value="103263"/>
         <Key Name="HR_RATE_BM" Value="103260"/>
+        <Key Name="Res_Freeze_Debuff_BM" Value="104067"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Skill">
         <Key Name="OnNeutral" Value="6715"/>
@@ -10792,6 +10817,12 @@
         <Key Name="GuildEvent_BorutosKapas_Count" Value="103950"/>
         <Key Name="GuildEvent_BorutosKapas_Reset" Value="103949"/>
         <Key Name="GuildEvent_BorutosKapas_Reset_Hour" Value="104011"/>
+        <Key Name="GuildHousingFacilityLastGroupBuffRemainTime_Armor" Value="104077"/>
+        <Key Name="GuildHousingFacilityLastGroupBuffRemainTime_Attribute" Value="104075"/>
+        <Key Name="GuildHousingFacilityLastGroupBuffRemainTime_Weapon" Value="104074"/>
+        <Key Name="GuildHousingFacilityLastGroupBuff_Armor" Value="104076"/>
+        <Key Name="GuildHousingFacilityLastGroupBuff_Attribute" Value="104073"/>
+        <Key Name="GuildHousingFacilityLastGroupBuff_Weapon" Value="104072"/>
     </KeyIDSpc>
     <KeyIDSpc Name="ZoneObject">
         <Key Name="JaqBoxLock" Value="122"/>
@@ -10889,6 +10920,19 @@
         <Key Name="FD_IRREDIAN1131_EASTSIDE_POINT_FLAG" Value="103356"/>
         <Key Name="FD_IRREDIAN1131_WESTSIDE_POINT_1" Value="103359"/>
         <Key Name="FD_IRREDIAN1131_WESTSIDE_POINT_FLAG" Value="103354"/>
+        <Key Name="D_UNDERAQUEDUCT_EVENT_GET_ITEM" Value="104062"/>
+        <Key Name="D_UNDERAQUEDUCT_EVENT_GIMMICK_KILL" Value="104060"/>
+        <Key Name="D_UNDERAQUEDUCT_EVENT_GIMMICK_MON" Value="104061"/>
+        <Key Name="D_UNDERAQUEDUCT_EVENT_POINT_1" Value="104058"/>
+        <Key Name="D_UNDERAQUEDUCT_EVENT_POINT_FLAG" Value="104059"/>
+        <Key Name="UNDERAQUEDUCT_BOSS_SKILL_POS_1" Value="104056"/>
+        <Key Name="UNDERAQUEDUCT_BOSS_SKILL_POS_2" Value="104057"/>
+        <Key Name="UNDERAQUEDUCT_BOSS_SKILL_PROP_1" Value="104051"/>
+        <Key Name="UNDERAQUEDUCT_BOSS_SKILL_PROP_2" Value="104052"/>
+        <Key Name="UNDERAQUEDUCT_BOSS_SKILL_TIME_1" Value="104053"/>
+        <Key Name="UNDERAQUEDUCT_BOSS_SKILL_TIME_2" Value="104054"/>
+        <Key Name="UNDERAQUEDUCT_BOSS_SKILL_TIME_3" Value="104055"/>
+        <Key Name="UNDERAQUEDUCT_EVENT1_BOSS_DAY_CHECK" Value="104063"/>
     </KeyIDSpc>
     <KeyIDSpc Name="SessionObject">
         <Key Name="BOOKSHELF" Value="1079"/>
@@ -17949,6 +17993,14 @@
         <Key Name="GLOBAL_EVENT_MISSION_TRY_INFO" Value="104034"/>
         <Key Name="MG_Last_GLOBAL_EVENT_MISSION_TRY" Value="104033"/>
         <Key Name="EventTotalShop1906_7" Value="104041"/>
+        <Key Name="GLOBAL_STEAM_EVENT_1812_UNIQUE_PC_STATE" Value="104048"/>
+        <Key Name="GLOBAL_STEAM_EVENT_1812_UNIQUE_PC_YDAY" Value="104049"/>
+        <Key Name="MG_Last_UNDERAQUEDUCT_MGAME" Value="104071"/>
+        <Key Name="MG_Last_UNDERAQUEDUCT_NORMAL_MGAME" Value="104070"/>
+        <Key Name="UNDERAQUEDUCT_EVENT1_CHECK" Value="104068"/>
+        <Key Name="UNDERAQUEDUCT_EVENT1_DAY_CHECK" Value="104069"/>
+        <Key Name="MG_Last_guild_agit_extension" Value="104089"/>
+        <Key Name="TEST_BURNING_EVENT" Value="104093"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>

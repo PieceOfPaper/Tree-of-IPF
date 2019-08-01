@@ -8,7 +8,7 @@
 	<layer topmostlayer="true" layerlevel="100"/>
 	<sound opensound="quest_ui_alarm_1" closesound="win_close"/>
 	<option hideable="false" closebutton="false"/>
-	<userconfig WIDTH_DEFAULT="939" HEIGHT_DEFAULT="172" RESIZE_WIDTH_M="350" RESIZE_WIDTH_S="100" RESIZE_HEIGHT_S="60"/>
+	<userconfig WIDTH_DEFAULT="939" HEIGHT_DEFAULT="172" RESIZE_WIDTH_M="350" RESIZE_WIDTH_S="100" RESIZE_HEIGHT_S="120"/>
 	<controls>
 		<groupbox name="gb" rect="0 0 120 120" margin="0 0 0 0" layout_gravity="center center" draw="true" skin="None"/>
 		<richtext name="text" rect="0 0 120 24" margin="0 0 0 0" layout_gravity="center center" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st55_a}{s20}%s{/}" maxwidth="0" param1="value" param1_def="AAAA AAAAA AAAA" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>

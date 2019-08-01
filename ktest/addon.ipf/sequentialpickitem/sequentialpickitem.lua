@@ -55,7 +55,7 @@ function SEQUENTIAL_PICKITEMON_MSG(frame, msg, arg1, type, class)
 			if msg == "GUILDWAREHOUSE_ITEM_IN" then
 				addMsg = ScpArgMsg("GetItemToGuildWareHouse");
 			end
-			ADD_SEQUENTIAL_PICKITEM(frame, msg, "", type, class, tablekey, false, addMsg)
+			ADD_SEQUENTIAL_PICKITEM(frame, msg, nil, type, class, tablekey, false, addMsg)
 		end
 	end
 

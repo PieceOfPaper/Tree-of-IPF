@@ -1,3 +1,7 @@
+function NOTICE_ON_PC_ON_INIT(addon, frame)
+    addon:RegisterMsg("NOTICE_MORINGPONIA_TARGET", "NOTICE_ON_MORINGPONIA_TARGET");
+end
+
 function NOTICE_ON_UI(uiName, iconName, handle, duration)
     local frame = ui.GetFrame(uiName);
     if frame == nil then
@@ -14,7 +18,21 @@ function NOTICE_ON_UI(uiName, iconName, handle, duration)
     picture:SetImage(iconName)
 end
 
-function UPDATE_NOTICE_ICON_POS(frame)
+function NOTICE_ON_MORINGPONIA_TARGET(frame, msg, iconName, handle)
+    ui.OpenFrame("notice_on_pc");
+
+    if frame == nil then return; end
+    frame:SetUserValue("HANDLE", handle);
+    frame:SetDuration(2);
+    frame:RunUpdateScript("UPDATE_NOTICE_ICON_POS");
+
+    local picture = GET_CHILD_RECURSIVELY(frame, "icon");
+    if picture ~= nil then
+        picture:SetImage(iconName);
+    end
+end
+
+function UPDATE_NOTICE_ICON_POS(frame, num)
 	frame = tolua.cast(frame, "ui::CFrame");
 	local handle = frame:GetUserIValue("HANDLE");
 	local point = info.GetPositionInUI(handle, 2);

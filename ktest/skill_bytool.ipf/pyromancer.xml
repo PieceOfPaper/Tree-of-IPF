@@ -96,6 +96,8 @@
 				<Num Num="0" />
 				<Num Num="0" />
 				<Num Num="0" />
+                <Num Num="0" />
+                <Str Str="Pyromancer30" />
 			</ToolScp>
 		</KeyInput>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
@@ -107,11 +109,36 @@
 					<Str Str="voice_wiz_m_prominence_shot" />
 					<Str Str="voice_wiz_prominence_shot" />
 				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="900" TimeSync="0" UseSleep="NO">
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY_INACTIVE" Time="900" TimeSync="0" UseSleep="NO">
 					<Pos Angle="0" Dist="0" PosType="3" />
 					<Angle Angle="0" />
 					<Str Str="prominence" />
+                    <Str Str="Pyromancer30" />
 				</Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="900" UseSleep="NO">
+                    <Pos Angle="0" Dist="0" PosType="1" />
+                    <Angle Angle="0" />
+                    <Str Str="Pyromancer_MovingFireBall_1" />
+                    <Str Str="Pyromancer30" />
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="900" UseSleep="NO">
+                    <Pos Angle="0" Dist="0" PosType="1" />
+                    <Angle Angle="0" />
+                    <Str Str="Pyromancer_MovingFireBall_2" />
+                    <Str Str="Pyromancer30" />
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="900" UseSleep="NO">
+                    <Pos Angle="0" Dist="0" PosType="1" />
+                    <Angle Angle="0" />
+                    <Str Str="Pyromancer_MovingFireBall_3" />
+                    <Str Str="Pyromancer30" />
+                </Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="900" UseSleep="NO">
+                    <Pos Angle="0" Dist="0" PosType="1" />
+                    <Angle Angle="0" />
+                    <Str Str="Pyromancer_MovingFireBall_4" />
+                    <Str Str="Pyromancer30" />
+                </Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>
@@ -252,6 +279,16 @@
 					<Str_Arg Arg="1" Str="F_firewall_short_z" />
 					<Num Num="0.050000001" />
 				</Scp>
+                <Scp Client="NO" Scp="MONSKL_CRE_PAD_VERTICAL" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="3.8255448e-43" PosType="3" />
+                    <Num Num="0" />
+                    <Str Str="Pyromancer_FireWall" />
+                    <Num Num="8" />
+                    <Num Num="20" />
+                    <Str_Arg Arg="1" Str="F_firewall_long_z" />
+                    <Str_Arg Arg="1" Str="F_firewall_short_z" />
+                    <Num Num="0.050000001" />
+                </Scp>
 			</EtcList>
 			<ResultList>
 				<ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">

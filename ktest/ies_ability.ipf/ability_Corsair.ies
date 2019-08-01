@@ -1,6 +1,7 @@
 ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time4,Price5,Time5,Price6,Time6,Price7,Time7,Price8,Time8,Price9,Time9,Price10,Time10,ClassName,UnlockScr,UnlockArgStr,UnlockDesc,ScrCalcPrice
 1,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"DaggerMastery","UNLOCK_BASE_LEVEL","","캐릭터 1레벨 이상","ABIL_COMMON_PRICE_1LV"
 101,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Corsair20","UNLOCK_ABIL_SKILL","Corsair_JollyRoger","졸리 로저 1레벨 이상","ABIL_REINFORCE_PRICE"
+102,45,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Corsair21","UNLOCK_ABIL_JOB_LEVEL","Char5_5","커세어 클래스 45레벨 달성","HIDDENABIL_PRICE_COND_JOBLEVEL"
 301,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Corsair11","UNLOCK_ABIL_SKILL","Corsair_Keelhauling","킬홀링 1레벨 이상","ABIL_REINFORCE_PRICE"
 501,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Corsair12","UNLOCK_ABIL_SKILL","Corsair_DustDevil","더스트 데블 1레벨 이상","ABIL_REINFORCE_PRICE"
 701,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Corsair13","UNLOCK_ABIL_SKILL","Corsair_HexenDropper","헥슨 드롭퍼 1레벨 이상","ABIL_REINFORCE_PRICE"
@@ -8,3 +9,8 @@ ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time
 802,100,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Corsair17","UNLOCK_BASE_LEVEL","","캐릭터 100레벨 이상","ABIL_COMMON_PRICE_100LV"
 901,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Corsair18","UNLOCK_BASE_LEVEL","","캐릭터 1레벨 이상","ABIL_COMMON_PRICE_1LV"
 1001,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Corsair19","UNLOCK_ABIL_SKILL","Corsair_ImpaleDagger","임페일 대거 1레벨 이상","ABIL_REINFORCE_PRICE"
+1002,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Corsair22","UNLOCK_ABIL_OTHERABILITY","Corsair11","[킬홀링: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"
+1003,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Corsair23","UNLOCK_ABIL_OTHERABILITY","Corsair12","[더스트 데블: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"
+1004,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Corsair24","UNLOCK_ABIL_OTHERABILITY","Corsair13","[헥슨 드롭퍼: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"
+1005,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Corsair25","UNLOCK_ABIL_OTHERABILITY","Corsair16","[퀵 앤드 데드: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"
+1006,100,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Corsair26","UNLOCK_ABIL_OTHERABILITY","Corsair19","[임페일 대거: 강화] 특성 100 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"

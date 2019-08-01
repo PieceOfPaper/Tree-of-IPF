@@ -4,12 +4,16 @@ function INGAMEALERT_ON_INIT(addon, frame)
 	addon:RegisterMsg("SOLD_ITEM_NOTICE", "ON_SOLD_ITEM_NOTICE")
 	addon:RegisterMsg("RECEIVABLE_SILVER_NOTICE", "ON_RECEIVABLE_SILVER_NOTICE")
 	addon:RegisterMsg("RECEIVABLE_TAX_PAYMENT_NOTICE", "ON_RECEIVABLE_TAX_PAYMENT_NOTICE")
+	addon:RegisterMsg("FIELD_BOSS_WORLD_EVENT_RECEIVABLE_ITEM_NOTICE", "ON_FIELD_BOSS_WORLD_EVENT_RECEIVABLE_ITEM_NOTICE")	
+	addon:RegisterMsg("FIELD_BOSS_WORLD_EVENT_RECEIVABLE_SILVER_NOTICE", "ON_FIELD_BOSS_WORLD_EVENT_RECEIVABLE_SILVER_NOTICE")	
 	
 	INGAMEALERT_CREATE_ELEM_BY_TYPE(frame, "Private")
 	INGAMEALERT_CREATE_ELEM_BY_TYPE(frame, "Party")
 	INGAMEALERT_CREATE_ELEM_BY_TYPE(frame, "SoldItem")
 	INGAMEALERT_CREATE_ELEM_BY_TYPE(frame, "ReceivableSilver")
 	INGAMEALERT_CREATE_ELEM_BY_TYPE(frame, "TaxPayment")
+	INGAMEALERT_CREATE_ELEM_BY_TYPE(frame, "WorldEventReceivableItem")
+	INGAMEALERT_CREATE_ELEM_BY_TYPE(frame, "WorldEventReceivableSilver")
 	INGAMEALERT_SET_SCRIPT_YESNO(frame, "TaxPayment", "INGAMEALERT_TAX_PAYMENT_SCP_YES", "None")
 
 end
@@ -224,4 +228,26 @@ end
 
 function INGAMEALERT_TAX_PAYMENT_SCP_YES(ctrlset)
 	ui.OpenFrame("colony_tax_payment")
+end
+
+function ON_FIELD_BOSS_WORLD_EVENT_RECEIVABLE_ITEM_NOTICE(frame, msg, argStr, argNum)
+	local ctrlset = INGAMEALERT_GET_ELEM_BY_TYPE(frame, "WorldEventReceivableItem")
+	
+	local text = GET_CHILD(ctrlset, "text")
+	local askMsg = ScpArgMsg("WorldEventReceivableItemNotice")
+	text:SetText(askMsg)
+
+	INGAMEALERT_RESIZE_ELEM(ctrlset)
+	INGAMEALERT_SET_MARGIN_BY_CHAT_FRAME(frame)
+end
+
+function ON_FIELD_BOSS_WORLD_EVENT_RECEIVABLE_SILVER_NOTICE(frame, msg, argStr, argNum)
+	local ctrlset = INGAMEALERT_GET_ELEM_BY_TYPE(frame, "WorldEventReceivableSilver")
+	
+	local text = GET_CHILD(ctrlset, "text")
+	local askMsg = ScpArgMsg("WorldEventReceivableSilverNotice")
+	text:SetText(askMsg)
+
+	INGAMEALERT_RESIZE_ELEM(ctrlset)
+	INGAMEALERT_SET_MARGIN_BY_CHAT_FRAME(frame)
 end

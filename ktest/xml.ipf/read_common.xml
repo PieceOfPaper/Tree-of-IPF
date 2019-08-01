@@ -191,7 +191,7 @@
 	<ReadXml Name="max_pc_count_in_zone"/>
 	<ReadXml Name="time_event"/>
 	<ReadXml Name="item_random_reset_material"/>
-	<ReadXml Name="monster_event"/>	
+	<ReadXml Name="monster_event"/>
 	<ReadXml Name="tp_event_attendance"/>
 	<ReadXml Name="reward_attendance"/>
 	<ReadXml Name="specialcostume"/>
@@ -217,7 +217,7 @@
 	<ReadXml Name="fluting_scale"/>
 	<ReadXml Name="UserShopPrice"/>
 	<ReadXml Name="mainquest_startnpcwarp"/>
-	<ReadXml Name="Beauty_Shop_Preview"/>	
+	<ReadXml Name="Beauty_Shop_Preview"/>
 	<ReadXml Name="cooldown_guild"/>
 	<ReadXml Name="item_seal_option"/>
 	<ReadXml Name="costume_exchange_shop"/>
@@ -229,4 +229,9 @@
 	<ReadXml Name="shop_tax"/>
 	<ReadXml Name="job_ballenceReward"/>
 	<ReadXml Name="skill_restrict"/>
-	</Category>
+	<ReadXml Name="monster_housing"/>
+	<ReadXml Name="housing_furniture"/>
+	<ReadXml Name="housing_place"/>
+	<ReadXml Name="guild_housing"/>
+	<ReadXml Name="HiddenAbility_Reinforce"/>
+</Category>

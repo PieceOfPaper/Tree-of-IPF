@@ -41,6 +41,19 @@ function ITEMBUFF_REPAIR_UI_COMMON(groupName, sellType, handle)
 	local selectAllBtn = bodyBox:GetChild('selectAllBtn')
 	frame:SetUserValue('SELECTED', 'NotSelected')
 
+	-- 아츠 특성 표시
+	local abilState = groupInfo.squireAbilState;
+	local abil_text = GET_CHILD_RECURSIVELY(frame, 'abil_text');
+	if abilState == 1 then
+		abil_text:SetTextByKey('txt', ScpArgMsg('Squire14AbilityAble'));
+	elseif abilState == 2 then
+		abil_text:SetTextByKey('txt', ScpArgMsg('Squire15AbilityAble'));
+	elseif abilState == 3 then
+		abil_text:SetTextByKey('txt', ScpArgMsg('Squire16AbilityAble'));
+	else
+		abil_text:SetTextByKey('txt', '');
+	end
+
 	local frame = ui.GetFrame("itembuff");
 	if nil == frame then
 		return 0;

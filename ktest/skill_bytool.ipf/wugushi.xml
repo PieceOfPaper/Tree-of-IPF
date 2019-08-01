@@ -162,6 +162,15 @@
 					<Num Num="100" />
 					<Num Num="-1" />
 				</ToolScp>
+                <ToolScp Client="NO" Scp="S_R_SELFBUFF" UseSleep="NO">
+					<Str Str="LatentVenom_Abil_Buff"/>
+					<Num Num="2"/>
+					<Num Num="0"/>
+					<Num Num="100000" />
+					<Num Num="1"/>
+					<Num FuncTxt="local value = 0 if IS_ACTIVE_ABILITY(self, 'Wugushi29') == 1 then value = 100 end return value" Num="0" UseFunc="1" />
+					<Num Num="-1"/>
+				</ToolScp>
 			</ResultList>
 		</MainSkl>
 	</Skill>

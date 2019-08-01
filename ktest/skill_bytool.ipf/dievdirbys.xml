@@ -154,7 +154,7 @@
                     <Str Str=""/>
                     <Str Str=""/>
                     <Num Num="0"/>
-                    <Num Num="20"/>
+                    <Num FuncTxt="local value = 20 local abilDievdirbys21 = GetAbility(self, 'Dievdirbys21') if abilDievdirbys21 ~= nil and TryGetProp(abilDievdirbys21, 'ActiveState') == 1 then value = 10 end return value" UseFunc="1" Num="20"/>
                     <Str Str="Dievdirbys_Ausirine"/>
                     <MonProp List="!SCR_SUMMON_AUSIRINE#1"/>
                     <Str Str="SCR_SUMMON_SET_EXPROP"/>

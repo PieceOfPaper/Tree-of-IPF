@@ -106,8 +106,10 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, en
     
     local nowAdmissionItemCount
 
-    if  SCR_RAID_EVENT_20190102(nil, false) and admissionItemName == "Dungeon_Key01" then
-        nowAdmissionItemCount = admissionItemCount - 1
+    local pc = GetMyPCObject()
+--    if  SCR_RAID_EVENT_20190102(nil, false) and admissionItemName == "Dungeon_Key01" then
+    if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
+        nowAdmissionItemCount = admissionItemCount
     else
         nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
     end
@@ -734,7 +736,8 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
                 countData:ShowWindow(0)
     
                 if indunCls.DungeonType == 'UniqueRaid' then
-                    if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
+--                    if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
+                    if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES"and admissionItemName == "Dungeon_Key01" then
                         cycleCtrlPic:ShowWindow(1);
                     end
                 end
@@ -773,9 +776,11 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
             countText:SetText(ScpArgMsg("IndunAdmissionItemPossession"))
             countItemData:ShowWindow(1)
             countData:ShowWindow(0)
-    
+
+            local pc = GetMyPCObject()
             if indunCls.DungeonType == 'UniqueRaid' then
-                if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
+--                if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
+                if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01"then
                     cycleCtrlPic:ShowWindow(1);
                 end
             end
@@ -1868,8 +1873,9 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
         local addCount = math.floor((nowCount - indunCls.WeeklyEnterableCount) * admissionPlayAddItemCount)
         local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
 
-        if SCR_RAID_EVENT_20190102(nil , false) and admissionItemName == "Dungeon_Key01" then
-            nowAdmissionItemCount = admissionItemCount - 1;
+--        if SCR_RAID_EVENT_20190102(nil , false) and admissionItemName == "Dungeon_Key01" then
+        if IsBuffApplied(user, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
+            nowAdmissionItemCount = admissionItemCount
         end 
         
         local cnt = GetInvItemCount(user, admissionItemName)

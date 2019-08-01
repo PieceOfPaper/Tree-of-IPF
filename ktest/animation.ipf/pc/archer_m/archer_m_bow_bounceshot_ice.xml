@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="3" type="2" intensity="9" frequency="70" duration="0.2" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="3" R="130" G="130" B="160" A="150"/>
+	<BlendOn frame="4" R="150" G="150" B="200" A="150"/>
+	<BlendOn frame="5" R="20" G="20" B="40" A="100"/>
+	<BlendOff frame="6" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_pistol_R" particleName="F_light108_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.35" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="3" attachNode="Dummy_effect_pistol_R" particleName="F_warrior_moulinet_hit_blue3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_light149_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_buff_basic058_blue2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_spread_out040_ice" useAttach="false" hiddenObj="false" changeEffect="None" scale="0" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="3" attachNode="Dummy_emitter" particleName="F_burstup001_blue_light2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="3" attachNode="Dummy_emitter" particleName="F_smoke166_ice2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="4" attachNode="Dummy_emitter" particleName="F_smoke166_ice2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="2" attachNode="Dummy_effect_pistol_R" particleName="F_smoke166_ice2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+</ActionDesc>

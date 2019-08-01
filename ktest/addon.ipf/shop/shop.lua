@@ -310,7 +310,7 @@ function SHOP_GET_SELL_SLOT_BY_ITEM_ID(frame, itemID)
 	if frame == nil then
 		frame = ui.GetFrame('shop');
 	end
-	local groupbox  = frame:GetChild('sellitemslot');
+	local groupbox  = GET_CHILD_RECURSIVELY(frame, 'sellitemslot');
 	local slotSet  	= tolua.cast(groupbox, 'ui::CSlotSet');
 	local slotCount = slotSet:GetSlotCount();
 	for i = 0, slotCount - 1 do
@@ -331,7 +331,7 @@ function GET_USABLE_SLOTSET(frame, invitem)
 	if frame == nil then
 		frame = ui.GetFrame('shop');
 	end
-	local groupbox  = frame:GetChild('sellitemslot');
+	local groupbox  = GET_CHILD_RECURSIVELY(frame, 'sellitemslot');
 	local slotSet  	= tolua.cast(groupbox, 'ui::CSlotSet');
 	local slot = SHOP_GET_SELL_SLOT_BY_ITEM_ID(frame, invitem:GetIESID());
 	if slot ~= nil then
@@ -384,10 +384,16 @@ function SHOP_SELL(invitem, sellCount, frame, setTotalCount)
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
+
 	local itemobj = GetIES(invitem:GetObject());
 	local itemProp = geItemTable.GetPropByName(itemobj.ClassName);
 	if itemProp:IsEnableShopTrade() == false then
 		ui.SysMsg(ClMsg("CannoTradeToNPC"));
+		return;
+	end
+
+	if itemobj.MarketCategory == "Housing_Furniture" then
+		ui.SysMsg(ClMsg("Housing_Cant_Sell_This_Item"));
 		return;
 	end
 	
@@ -1019,8 +1025,6 @@ function SHOP_ITEM_LIST_UPDATE(frame, ShopItemData, ShopItemCount)
 		frame = ui.GetFrame('shop');
 	end	
 	-- 상점에 파는 아이템 개수 파악
-	local shopItemList = session.GetShopItemList();
-
 	local shopItemList = session.GetShopItemList();
 	if ShopItemData  >= shopItemList:Count() then
 		return;

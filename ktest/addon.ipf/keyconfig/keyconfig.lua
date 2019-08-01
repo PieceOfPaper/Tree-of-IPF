@@ -97,7 +97,6 @@ function KEYCONFIG_OPEN_CATEGORY(frame, fileName, category)
 		ctrlSet:SetUserValue("ID", id);
 
 		local txt_actionname = GET_CHILD(ctrlSet, "txt_actionname");
-
 		txt_actionname:SetTextByKey("value", GET_HOTKEY_TITLE_STR(id));
 
 		local txt_key = GET_CHILD(ctrlSet, "txt_key");

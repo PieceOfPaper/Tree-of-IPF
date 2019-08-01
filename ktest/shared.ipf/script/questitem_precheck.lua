@@ -5326,7 +5326,7 @@ function SCR_PRE_GIMMICK_TRANSFORM_POPOLION(self, argstring, argnum1, argnum2)
     local zone = GetZoneName(self)
     local city = GetClass("Map", zone)
     if GetLayer(self) == 0 then 
-        if city.MapType == 'City' or zone == 'guild_agit_1' then
+        if city.MapType == 'City' or zone == 'guild_agit_1' or zone == 'guild_agit_extension' then
             if IsBuffApplied(self, 'GIMMICK_TRANSFORM_BUFF') == "NO" then
                 return 1
             end
@@ -5342,7 +5342,7 @@ function SCR_PRE_GIMMICK_TRANSFORM_FERRET(self, argstring, argnum1, argnum2)
     local zone = GetZoneName(self)
     local city = GetClass("Map", zone)
     if GetLayer(self) == 0 then 
-        if city.MapType == 'City' or zone == 'guild_agit_1' then
+        if city.MapType == 'City' or zone == 'guild_agit_1' or zone == 'guild_agit_extension' then
             if IsBuffApplied(self, 'GIMMICK_TRANSFORM_BUFF') == "NO" then
                 return 1
             end
@@ -5358,7 +5358,7 @@ function SCR_PRE_GIMMICK_TRANSFORM_TINY(self, argstring, argnum1, argnum2)
     local zone = GetZoneName(self)
     local city = GetClass("Map", zone)
     if GetLayer(self) == 0 then 
-        if city.MapType == 'City' or zone == 'guild_agit_1' then
+        if city.MapType == 'City' or zone == 'guild_agit_1' or zone == 'guild_agit_extension' then
             if IsBuffApplied(self, 'GIMMICK_TRANSFORM_BUFF') == "NO" then
                 return 1
             end
@@ -5374,7 +5374,7 @@ function SCR_PRE_GIMMICK_TRANSFORM_PHANTO(self, argstring, argnum1, argnum2)
     local zone = GetZoneName(self)
     local city = GetClass("Map", zone)
     if GetLayer(self) == 0 then 
-        if city.MapType == 'City' or zone == 'guild_agit_1' then
+        if city.MapType == 'City' or zone == 'guild_agit_1' or zone == 'guild_agit_extension' then
             if IsBuffApplied(self, 'GIMMICK_TRANSFORM_BUFF') == "NO" then
                 return 1
             end
@@ -5390,7 +5390,7 @@ function SCR_PRE_GIMMICK_TRANSFORM_HONEY(self, argstring, argnum1, argnum2)
     local zone = GetZoneName(self)
     local city = GetClass("Map", zone)
     if GetLayer(self) == 0 then 
-        if city.MapType == 'City' or zone == 'guild_agit_1' then
+        if city.MapType == 'City' or zone == 'guild_agit_1' or zone == 'guild_agit_extension' then
             if IsBuffApplied(self, 'GIMMICK_TRANSFORM_BUFF') == "NO" then
                 return 1
             end
@@ -5406,7 +5406,7 @@ function SCR_PRE_GIMMICK_TRANSFORM_ONION(self, argstring, argnum1, argnum2)
     local zone = GetZoneName(self)
     local city = GetClass("Map", zone)
     if GetLayer(self) == 0 then 
-        if city.MapType == 'City' or zone == 'guild_agit_1' then
+        if city.MapType == 'City' or zone == 'guild_agit_1' or zone == 'guild_agit_extension' then
             if IsBuffApplied(self, 'GIMMICK_TRANSFORM_BUFF') == "NO" then
                 return 1
             end
@@ -5432,7 +5432,7 @@ function SCR_PRE_GIMMICK_TRANSFORM_JUKOPUS(self, argstring, argnum1, argnum2)
     local zone = GetZoneName(self)
     local city = GetClass("Map", zone)
     if GetLayer(self) == 0 then 
-        if city.MapType == 'City' or zone == 'guild_agit_1' then
+        if city.MapType == 'City' or zone == 'guild_agit_1' or zone == 'guild_agit_extension' then
             if IsBuffApplied(self, 'GIMMICK_TRANSFORM_BUFF') == "NO" then
                 return 1
             end
@@ -8998,4 +8998,21 @@ function SCR_PRE_CASTLE98_MQ_CORE_ITEM(self, argstring, argnum1, argnum2)
         end
     end
     return 0
+end
+
+
+function SCR_PRE_D_UNDERAQUEDUCT_GIMMICK3_ITEM(self, argObj, argstring, arg1, arg2)
+    local zObj = GetLayerObject(self)
+    if GetZoneName(self) == 'd_underaqueduct' then 
+        local list, cnt = SelectObjectByFaction(self, 100, 'Neutral')
+        local i
+        for i = 1, cnt do
+            if list[i].ClassName == 'chesha_riel' then
+            return 1
+            end
+        end
+    end
+    
+--return 1
+
 end

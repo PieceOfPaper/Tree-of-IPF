@@ -490,8 +490,23 @@ function ITEMOPTIONADD_EXEC(frame)
 		ui.SysMsg(ClMsg("MaxDurUnderflow")); 
 		return
 	end
-
+	
 	local clmsg = ScpArgMsg("DoItemOptionAdd")
+
+	local slot_add = GET_CHILD_RECURSIVELY(frame, "slot_add");
+	local invItem_add = GET_SLOT_ITEM(slot_add);
+	if invItem_add == nil then
+		return
+	end
+
+	local obj = GetIES(invItem:GetObject());
+	local obj_add = GetIES(invItem_add:GetObject());
+
+	if (TryGetProp(obj, 'InheritanceItemName', 'None') ~= 'None' and TryGetProp(obj_add, 'InheritanceItemName', 'None') ~= 'None')
+		or TryGetProp(obj, 'InheritanceRandomItemName', 'None') ~= 'None' and TryGetProp(obj_add, 'InheritanceRandomItemName', 'None') ~= 'None' then 
+		clmsg = ScpArgMsg("ExistingIcordeleted");
+	end
+
 	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEMOPTIONADD_EXEC", "_ITEMOPTIONADD_CANCEL");
 end
 

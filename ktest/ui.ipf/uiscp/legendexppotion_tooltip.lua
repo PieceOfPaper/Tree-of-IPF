@@ -114,7 +114,7 @@ function GET_LEGENDEXPPOTION_EXP(itemObj)
 end
 
 function GET_LEGENDEXPPOTION_ICON_IMAGE_FULL(itemObj)
-    return TryGetProp(itemObj, "StringArg");
+    return TryGetProp(itemObj, "TooltipImage");
 end
 
 function GET_LEGENDEXPPOTION_ICON_IMAGE(itemObj)

@@ -2,10 +2,13 @@
 
 
 function MONSTER_CONTEXT(handle, type)
-	if keyboard.IsKeyPressed("LCTRL") == 1 then
-		if 1 == IsMyPcGM() then
-			POPUP_MONSTER_CONTEXT(handle, type);
-		end
+	if 1 == IsMyPcGM() and keyboard.IsKeyPressed("LCTRL") == 1 then
+		POPUP_MONSTER_CONTEXT(handle, type);
+		return;
+	end
+
+	if session.IsFurniture(handle) == true then
+		POPUP_FURNITURE_CONTEXT(handle, type)
 	end
 end
 
@@ -55,6 +58,37 @@ function POPUP_MONSTER_CONTEXT(handle, type)
 	end
 end
 
+function POPUP_FURNITURE_CONTEXT(handle, type)
+	if ui.IsCursorOnUI() == true then
+		return;
+	end
+
+	if housing.IsEditMode() == false or housing.IsVisibleContextMenu() == false then
+		return;
+	end
+
+	local monsterClass = GetClassByType("Monster", type);
+	if monsterClass == nil then
+		return;
+	end
+
+	local furnitureClass = GetClass("Housing_Furniture", monsterClass.ClassName);
+	if furnitureClass == nil then
+		return;
+	end
+	
+	local viewName = string.format("%s", furnitureClass.Name);
+	local context = ui.CreateContextMenu("Housing_Furniture_Context", viewName, 0, 0, 50, 50);
+
+	local strscp = string.format("ON_HOUSING_EDITMODE_FURNITURE_MOVE(%d)", handle);
+	ui.AddContextMenuItem(context, ScpArgMsg("Housing_Context_Furniture_Move"), strscp);
+	
+	local strscp = string.format("ON_HOUSING_EDITMODE_FURNITURE_REMOVE(%d)", handle);
+	ui.AddContextMenuItem(context, ScpArgMsg("Housing_Context_Furniture_Remove"), strscp);
+	
+	ui.OpenContextMenu(context);
+end
+
 function ETC_TEST(handle)
 	local info = info.GetDialogInfo(handle);
 	print(info:GetDialog());
@@ -63,7 +97,6 @@ function ETC_TEST(handle)
 end
 
 function SCR_NPC_DIALOG_EDIT(handle, type)
-    local npcFuncName = type,world.GetActor(handle):GetNPCStateType()
     local pc = GetMyPCObject();
     local gentype = world.GetActor(handle):GetNPCStateType()
     local genList = SCR_GET_XML_IES('GenType_'..GetZoneName(pc), 'GenType', gentype)
@@ -99,4 +132,3 @@ function SCR_NPC_DIALOG_EDIT(handle, type)
 
 	debug.ShellExecute(path);
 end
-

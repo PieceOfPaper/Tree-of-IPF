@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by My (IMCGames Co., Ltd) -->
+<uiframe name="guild_mileage_change" x="0" y="0" width="500" height="360">
+	<frame fullheight="false" fasthide="true" layout_gravity="right top" margin="0 120 0 0"/>
+	<skin frameskin="pipwin_test"/>
+	<draw drawtitlebar="false"/>
+	<layer layerlevel="93"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<effect open="character_item_window_open" close="character_item_window_close"/>
+	<animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
+	<script OpenScp="MILEAGE_CONTRIBUTION_POINT_BUY_OPEN"/>
+	<userconfig EXCEED_POINT_STYLE="{#FF0000}" EXCEED_MONEY_STYLE="{#FF0000}"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 500 320" margin="0 0 0 0" layout_gravity="left top" draw="true" skin="collection_complete" hittestbox="false" hittest="true"/>
+		<groupbox name="headerBox" rect="0 0 500 30" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="false"/>
+		<richtext name="headerText" parent="headerBox" rect="0 0 500 30" margin="0 5 0 0" layout_gravity="center center" format="{@st66d}%s 전환" param1="value" param1_def="길드 마일리지" hittest="false"/>
+		<!-- buy ratio -->
+		<groupbox name="ratioBox" rect="0 0 500 30" margin="0 40 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="ratioTextBox" parent="ratioBox" rect="0 0 250 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search"/>
+		<richtext name="ratioInfoText" parent="ratioTextBox" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" caption="전환 비율" fontname="brown_16"/>
+		<richtext name="ratioValueText" parent="ratioBox" rect="0 0 100 30" margin="0 0 20 0" layout_gravity="right center" format="1:%s" fontname="brown_18" param1="ratio" param1_def="0"/>
+		<!-- my money -->
+		<groupbox name="myMoneyBox" rect="0 0 500 30" margin="0 65 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="moneyTextBox" parent="myMoneyBox" rect="0 0 250 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search"/>
+		<richtext name="moneyInfoText" parent="moneyTextBox" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" format="%s" fontname="brown_16" param1="value" param1_def="기여도"/>
+		<richtext name="moneyValueText" parent="myMoneyBox" rect="0 0 100 30" margin="0 0 20 0" layout_gravity="right center" format="%s" fontname="brown_18" param1="money" param1_def="1,000,000,000"/>
+		<!-- enable buy point -->
+		<groupbox name="enableBuyBox" rect="0 0 500 30" margin="0 90 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="enableBuyTextBox" parent="enableBuyBox" rect="0 0 250 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search"/>
+		<richtext name="enableInfoText" parent="enableBuyTextBox" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" format="전환 가능한 %s" fontname="brown_16" param1="value" param1_def="길드 마일리지"/>
+		<richtext name="enableValueText" parent="enableBuyBox" rect="0 0 100 30" margin="0 0 20 0" layout_gravity="right center" format="%s" fontname="brown_18" param1="count" param1_def="1,000,000,000"/>
+		<!-- buy point -->
+		<groupbox name="buyPointBox" rect="0 0 500 90" margin="0 120 0 0" layout_gravity="center top" draw="false"/>
+		<labelline name="labelline1" parent="buyPointBox" rect="0 0 480 1" margin="0 0 0 0" layout_gravity="center top" skin="labelline_def_2"/>
+		<richtext name="buyPointInfoText" parent="buyPointBox" rect="0 0 500 30" margin="0 10 0 0" layout_gravity="center top" format="전환할 %s를 입력하세요." param1="value" param1_def="길드 마일리지" fontname="brown_18"/>
+		<edit name="buyPointEdit" parent="buyPointBox" rect="0 0 120 35" margin="0 40 0 0" layout_gravity="center top" numbermode="true" minnumber="0" skin="test_weight_skin" caption="0" textalign="center center" fontname="white_18_ol" typingscp="MILEAGE_CONTRIBUTION_POINT_BUY_TYPE"/>
+		<button name="buyPointDown" parent="buyPointBox" rect="0 0 35 35" margin="-75 45 0 0" layout_gravity="center top" LBtnUpScp="MILEAGE_CONTRIBUTION_POINT_BUY_DOWN" image="buff_sale_left" stretch="true"/>
+		<button name="buyPointUp" parent="buyPointBox" rect="0 0 35 35" margin="75 45 0 0" layout_gravity="center top" LBtnUpScp="MILEAGE_CONTRIBUTION_POINT_BUY_UP" image="buff_sale_right" stretch="true"/>
+		<labelline name="labelline2" parent="buyPointBox" rect="0 0 480 1" margin="0 0 0 0" layout_gravity="center bottom" skin="labelline_def_2"/>
+		<!-- consume money -->
+		<groupbox name="consumeMoneyBox" rect="0 0 500 30" margin="0 215 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="consumeMoneyTextBox" parent="consumeMoneyBox" rect="0 0 250 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search"/>
+		<richtext name="consumeMoneyInfoText" parent="consumeMoneyTextBox" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" format="소비 %s" fontname="brown_16" param1="value" param1_def="기여도"/>
+		<richtext name="consumeMoneyText" parent="consumeMoneyBox" rect="0 0 100 30" margin="0 0 20 0" layout_gravity="right center" format="%s" fontname="brown_18" param1="money" param1_def="0"/>
+		<!-- remain money -->
+		<groupbox name="remainMoneyBox" rect="0 0 500 30" margin="0 240 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="remainMoneyTextBox" parent="remainMoneyBox" rect="0 0 250 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search"/>
+		<richtext name="remainMoneyInfoText" parent="remainMoneyTextBox" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" format="잔여 %s" fontname="brown_16" param1="value" param1_def="기여도"/>
+		<richtext name="remainMoneyText" parent="remainMoneyBox" rect="0 0 100 30" margin="0 0 20 0" layout_gravity="right center" format="%s" fontname="brown_18" param1="money" param1_def="1,000,000,000"/>
+		<!-- buttons -->
+		<button name="buyBtn" parent="bg" rect="0 0 160 40" margin="-80 0 0 10" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}전환" LBtnUpScp="CONTRIBUTION_MILEAGE_POINT_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover_3" clicksound="button_click" oversound="button_over"/>
+		<button name="cancelBtn" parent="bg" rect="0 0 160 40" margin="80 0 0 10" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}취소" LBtnUpScp="CONTRIBUTION_TO_MILEAGE_POINT_CANCEL" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover_3" clicksound="button_click" oversound="button_over"/>
+	</controls>
+</uiframe>

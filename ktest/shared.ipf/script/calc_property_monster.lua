@@ -1614,6 +1614,37 @@ function SCR_RACE_TYPE_RATE(self, prop)
     local raceTypeClass = GetClass("Stat_Monster_Race", raceType);
     if raceTypeClass ~= nil then
         raceTypeRate = TryGetProp(raceTypeClass, prop, raceTypeRate);
+        --방어력, 마법방어력 평균치 적용--
+        if prop == "DEF" or prop == "MDEF" then
+            local statType = TryGetProp(self, "StatType", "None");
+            if statType ~= nil and statType ~= 'None' then
+                local statTypeClass = GetClass("Stat_Monster_Type", statType);
+                if statTypeClass ~= nil then
+                    local averge_def = TryGetProp(statTypeClass, "AVERAGE_DEF", nil);
+                    if averge_def ~= nil and averge_def ~= 0 then
+                        local defTypeList = {"DEF", "MDEF"}
+                        local raceTypeRateTable = {};
+                        for i = 1, #defTypeList do
+                            raceTypeRateTable[#raceTypeRateTable + 1] = TryGetProp(raceTypeClass, defTypeList[i], raceTypeRate);
+                        end
+                
+                        if averge_def == 1 then
+                            if raceTypeRateTable[1] >= raceTypeRateTable[2] then
+                                raceTypeRate = raceTypeRateTable[2];
+                            else
+                                raceTypeRate = raceTypeRateTable[1];
+                            end
+                        elseif averge_def == 2 then
+                            if raceTypeRateTable[1] >= raceTypeRateTable[2] then
+                                raceTypeRate = raceTypeRateTable[1];
+                            else
+                                raceTypeRate = raceTypeRateTable[2];
+                            end
+                        end
+                    end
+                end
+            end
+        end
     end
     
     raceTypeRate = raceTypeRate / 100;
@@ -1736,10 +1767,43 @@ function SCR_MON_ITEM_ARMOR_CALC(self, defType)
     lv = math.max(1, lv - 30);
 
     local value = (40 + (lv * 8));
+    local statType = TryGetProp(self, "StatType", "None");
+    local statTypeClass = nil;
+    if statType ~= nil then
+        statTypeClass = GetClass("Stat_Monster_Type", statType);
+    end
+    
     if defType ~= nil then
         local defClass = GetClass("item_grade", "armorMaterial_" .. defType);
         local armorMaterial = TryGetProp(self, "ArmorMaterial", "None");
         local defRatio = TryGetProp(defClass, armorMaterial, 1);
+        -- 물리 방어력, 마법 방어력 평균치 적용 --
+        if statTypeClass ~= nil then
+            local averge_def = TryGetProp(statTypeClass, "AVERAGE_DEF", nil);
+            if averge_def ~= nil and averge_def ~= 0 then
+                local defTypeList = {"DEF", "MDEF"}
+                local defRatioTable = {};
+                for i = 1, #defTypeList do
+                    local defClassType = GetClass("item_grade", "armorMaterial_" .. defTypeList[i]);
+                    defRatioTable[#defRatioTable + 1] = TryGetProp(defClassType, armorMaterial, 1);
+                end
+                
+                if averge_def == 1 then
+                    if defRatioTable[1] >= defRatioTable[2] then
+                        defRatio = defRatioTable[2];
+                    else
+                        defRatio = defRatioTable[1];
+                    end
+                elseif averge_def == 2 then
+                    if defRatioTable[1] >= defRatioTable[2] then
+                        defRatio = defRatioTable[1];
+                    else
+                        defRatio = defRatioTable[2];
+                    end
+                end
+            end
+        end
+        
         if defRatio ~= nil then
             value = value * defRatio;
         end
@@ -1748,9 +1812,7 @@ function SCR_MON_ITEM_ARMOR_CALC(self, defType)
     local byReinforce = 0;
     local byTranscend = 0;
 
-    local statType = TryGetProp(self, "StatType", "None");
     if statType ~= nil then
-        local statTypeClass = GetClass("Stat_Monster_Type", statType);
         if statTypeClass ~= nil then
             local itemGrade = TryGetProp(statTypeClass, "ArmorGrade", "C")
             local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, itemGrade);

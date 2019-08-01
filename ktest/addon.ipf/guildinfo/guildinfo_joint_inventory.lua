@@ -281,5 +281,9 @@ end
 function ON_UPDATE_GUILD_MILEAGE(frame, msg, strArg, numArg)
     local mileageCount = GET_CHILD_RECURSIVELY(frame, "mileageCount");
     mileageCount:SetTextByKey('point', numArg)
+	
+	local guild = session.party.GetPartyInfo(PARTY_GUILD);
+	if guild ~= nil then
+		guild.info:SetMileage(numArg);
+	end
 end
-

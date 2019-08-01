@@ -49,6 +49,7 @@
   <Property Name="Daemon_Tx"                         Type="Number" Desc="해당 서버가 사용하는 TX량"/>
   <Property Name="Daemon_FatalCount"                 Type="Number" Desc="해당 서버의 Fatal 오류 횟수"/>
   <Property Name="Daemon_DBConnectionCount"          Type="Number" Desc="해당 서버의 디비 연결 실패 횟수"/>
+  <Property Name="Daemon_MongoDriverErrCount"        Type="Number" Desc="해당 서버의 몽고디비 드라이버 오류 횟수"/>
   <Property Name="Daemon_TotalSendPacketCount"       Type="Number" Desc="해당 서버가 보낸 총 패킷 갯수	"/>
   <Property Name="Daemon_TotalSendPacketSize"        Type="Number" Desc="해당 서버가 보낸 총 패킷 크기	"/>
   <Property Name="Daemon_TotalRecvPacketCount"       Type="Number" Desc="해당 서버가 받은 총 패킷 갯수	"/>

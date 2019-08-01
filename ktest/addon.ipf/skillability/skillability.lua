@@ -850,15 +850,19 @@ function SKILLABILITY_FILL_ABILITY_CTRLSET(ability_gb, classCtrl, abilClass, gro
     end
 
     -- price
+    -- 아츠는 다음 단계에 필요한 어빌리티 포인트를 표기해준다. KS.001
     local abilPrice = GET_CHILD_RECURSIVELY(classCtrl, "abilPrice");
     local cost = 0;
     if learnCount > 0 then
         cost = GET_ABILITY_LEARN_COST(GetMyPCObject(), groupClass, abilClass, abilLv + learnCount);
+    elseif TryGetProp(abilIES, "Hidden") == 1 then
+        cost = GET_ABILITY_LEARN_COST(GetMyPCObject(), groupClass, abilClass, abilLv + 1);
     end
     abilPrice:SetTextByKey("value", cost);
 
+    -- 아츠는 레벨 버튼을 활성화하지 않는다. KS.001
     local btnEnabled = 1;
-    if isLock then
+    if isLock or TryGetProp(abilIES, "Hidden") == 1 then
         btnEnabled = 0;
     end
 
