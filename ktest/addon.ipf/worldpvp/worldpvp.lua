@@ -278,6 +278,19 @@ function JOIN_WORLDPVP(parent, ctrl)
 		ui.SysMsg(ScpArgMsg("DonotOpenPVP"))
 		return;
 	end
+
+	local curMapName = session.GetMapName();
+	local notAvailableJoinMapList = {
+					"guildhouse",
+					"guild_agit_1",
+					"guild_agit_extension",
+				};
+	for i, mapName in pairs(notAvailableJoinMapList) do
+		if curMapName == mapName then
+			ui.SysMsg(ScpArgMsg("CanNotJoinPVPFromMission"));
+			return;
+		end
+	end
 	
 	if cls.MatchType == "Guild" then
 		local pcparty = session.party.GetPartyInfo(PARTY_GUILD);

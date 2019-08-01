@@ -1591,7 +1591,7 @@
                             <ToolScp Scp="SCR_UPHILL_ADD_RANKING_POINT_TIME" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
                                 <Str Str="UPHillDeffense"/>
-                                <Str Str="State/Step1"/>
+                                <Str Str="State/Step11"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
                                 <Str Str="빠른 몬스터 처치로 남은 시간을 랭킹 포인트로 환산하고 다음 단계로 넘어갑니다!{nl}11단계가 시작됩니다!{nl}30초간 신성의 횃불을 지켜내세요."/>
@@ -1863,7 +1863,7 @@
                         <execList>
                             <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
                                 <Str Str="UPHillDeffense"/>
-                                <Str Str="State/Step1"/>
+                                <Str Str="State/Step12"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
                                 <Str Str="12단계가 시작됩니다!{nl}30초간 신성의 횃불을 지켜내세요."/>

@@ -215,6 +215,9 @@
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_SET_BGM" Client="NO" UseSleep="NO">
+                                <Str Str="raid_shadow_trans"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="PORTAL_SUMMON" execWithStart="0">

@@ -120,7 +120,7 @@
 					<Num Num="0" UseFunc="1" FuncTxt=" local value = 25000  local abil = GetAbility(self, &quot;Oracle18&quot;)  if abil ~= nil and abil.ActiveState >= 1 then   value = 11000 + abil.Level * 1000 end    local target = GetSkillTarget(self)  if TryGetProp(target, &quot;MonRank&quot;) == &quot;Boss&quot; then   value = value * 0.5  end  return value"/>
 					<Num Num="1"/>
 					<Num Num="100"/>
-					<Num Num="1"/>
+					<Num Num="0"/>
 				</Scp>
 			</EtcList>
 		</MainSkl>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -302,7 +302,7 @@
 		<Class ClassID="2270" ClassName="TooManyMarketSaveOption" Data="더 이상 마켓 검색 옵션을 저장할 수 없습니다."/>
 		<Class ClassID="2271" ClassName="DuplicateMarketSearchOption" Data="이미 설정된 검색 옵션입니다."/>
 		<Class ClassID="2272" ClassName="CannotCancelBecauseNotYourItem" Data="해당 캐릭터가 등록한 아이템이 아니기 때문에 취소할 수 없습니다."/>
-		<Class ClassID="2273" ClassName="PutLifeTimeItemInWareHouse" Data="기간제 아이템을 창고에 넣어도 기간은 동작하며, 창고 안에서 기간이 만료될 수 있습니다.{nl}계속하시겠습니까?{nl}{@st66d_y}[주의] '배수 토큰' 아이템은 창고 안에서 기간이 만료되었을 경우 수령시 사라지게 됩니다.{/}"/>
+		<Class ClassID="2273" ClassName="PutLifeTimeItemInWareHouse{NAME}" Data="기간제 아이템을 창고에 넣어도 기간은 동작하며, 창고 안에서 기간이 만료될 수 있습니다.{nl}계속하시겠습니까?{nl}{@st66d_y}[주의] '{NAME}' 아이템은 창고 안에서 기간이 만료되었을 경우 수령시 사라지게 됩니다.{/}"/>
 		<Class ClassID="2274" ClassName="SafeAuthInfo" Data="U-OTP 또는 넥슨 OTP 사용"/>
 		<Class ClassID="2275" ClassName="BlockDungeonCountByShutdown" Data="지금은 배수 토큰을 사용할 수 없습니다."/>
 		<Class ClassID="2277" ClassName="RollbackIcorFirst" Data="아이커를 통해 옵션이 장착된 아이템입니다.{nl}아이커를 먼저 분리해주세요."/>
@@ -5110,6 +5110,7 @@
 		<Class ClassID="28211" ClassName="JOB_OUTLAW_Q1_MSG2" Data="{COUNT}개 이상 소지할 수 없습니다!"/>
 		<Class ClassID="28212" ClassName="JOB_OUTLAW_Q1_MSG4" Data="갖고있는 돌이 부족합니다{nl}돌더미에서 돌을 수집하세요!"/>
 		<Class ClassID="28213" ClassName="JOB_OUTLAW_Q1_MSG5" Data="갖고있는 모래가 부족합니다{nl}모래더미에서 모래를 수집하세요!"/>
+		<Class ClassID="28214" ClassName="JOURNEY_SHOP_GET_STONE" Data="도시 귀환석을 수령했습니다.{nl}인벤토리를 확인해보세요!"/>
 		<Class ClassID="28220" ClassName="EVENT_1811_CTRLTYPE_RESET_MSG1" Data="계열 변경 기회를 모두 사용하셨습니다"/>
 		<Class ClassID="28221" ClassName="EVENT_1811_CTRLTYPE_RESET_MSG2" Data="{#33FF33}[{NAME}]{/}캐릭터의 계열변경 기간이 {#33FF33}[{DAYCOUNT}일]{/} 남았습니다.{nl}{#33FF33}클라페다 '계열 변경 도우미'{/}를 통해 클래스 계열을 변경하실 수 있습니다"/>
 		<Class ClassID="28222" ClassName="EVENT_1811_CTRLTYPE_RESET_MSG3" Data="클래스 계열을 변경한다 [남은 기간 : {DAYCOUNT} 일]"/>
@@ -7776,6 +7777,8 @@
 		<Class ClassID="70532" ClassName="MISSION_UPHILL_SEL6" Data="방책 설치 [화염 결정 {COUNT}개 필요]"/>
 		<Class ClassID="70533" ClassName="UPHILL_STOCKADE_IS_SET" Data="특정 위치에 방책을 설치했습니다!"/>
 		<Class ClassID="70534" ClassName="UPHILL_STOCKADE_IS_ALL_SET" Data="이미 세울 수 있는 위치에 모든 방책을 설치했습니다!"/>
+		<Class ClassID="70535" ClassName="TABLE72_SUBQ1_CHAT_DLG01" Data="부탁입니다.. 당신이라면 이 저주를 끝낼 수 있을지도 모릅니다!"/>
+		<Class ClassID="70536" ClassName="TABLE72_SUBQ1_CHAT_DLG02" Data="이제는 끝인가 생각했는데.. 당신이 와주신 덕분에 희망이 보이기 시작했습니다!"/>
 		<Class ClassID="80001" ClassName="LIMESTONE_52_1_CRYSTAL_ING" Data="불안정한 마력핵 설치 중"/>
 		<Class ClassID="80002" ClassName="LIMESTONE_52_1_SQ_1_TAKE" Data="목걸이 빼앗는 중"/>
 		<Class ClassID="80003" ClassName="LIMESTONE_52_2_MQ_7_SUCC_MSG" Data="구속장치가 요동치기 시작합니다!"/>
@@ -8959,7 +8962,7 @@
 		<Class ClassID="102110" ClassName="ReceivedItemFromGuildWareHouse_GetItFromBarrack" Data="길드 보관함에 아이템을 수령했습니다. 숙소에서 아이템을 확인하세요."/>
 		<Class ClassID="102111" ClassName="YouCanBuildInTheOtherGuildAgit" Data="다른 길드 아지트에서는 사용하실 수 없습니다."/>
 		<Class ClassID="102112" ClassName="CannotChangeNeutralityState" Data="아직 중립상태를 변경할 수 없습니다."/>
-		<Class ClassID="102113" ClassName="WantTobeChangedNeutralityState{COST}" Data="길드가 중립 상태로 변경됩니다.{nl}길드간 전쟁 선포가 불가능해집니다.{nl}중립 상태는 7일간 유지됩니다.{nl}계속하시겠습니까?"/>
+		<Class ClassID="102113" ClassName="WantTobeChangedNeutralityState{COST}" Data="길드가 중립 상태로 변경됩니다.{nl}길드간 전쟁 선포가 불가능해집니다.{nl}중립 상태는 7일 뒤부터 해제가 가능합니다.{nl}계속하시겠습니까?"/>
 		<Class ClassID="102114" ClassName="WantTobeChangedNoneNeutralityState" Data="길드의 중립 상태가 해제됩니다.{nl}길드간 전쟁 선포가 가능해집니다.{nl}계속하시겠습니까?"/>
 		<Class ClassID="102115" ClassName="ChangeGuildNeutralityState" Data="길드가 중립 상태로 변경되었습니다."/>
 		<Class ClassID="102116" ClassName="ChangeGuildNoneNeutralityState" Data="길드의 중립 상태가 해지되었습니다."/>
@@ -9091,6 +9094,9 @@
 		<Class ClassID="102422" ClassName="NotEnoughTicketPossibleCount_GMBK_1" Data="해당 길드 퀘스트를 이미 클리어 했습니다.{nl}다음 주 월요일 오전 06시 이후 이용할 수 있습니다."/>
 		<Class ClassID="102423" ClassName="NotEnoughTicketPossibleCount_GMBK_2" Data="해당 길드 퀘스트는 현재 이용할 수 없습니다.{nl}이용제한 : 오전 5시부터 오전 6시 전까지"/>
 		<Class ClassID="102424" ClassName="NotEnoughTicketPossibleCount_GMBK_100" Data="해당 길드 퀘스트는 현재 이용할 수 없습니다.{nl}이용제한 : 일요일 오후 6시부터 월요일 오전 6시 전까지"/>
+		<Class ClassID="102430" ClassName="ReallyBanGuildMember" Data="[{NAME}] 길드원을 추방하시겠습니까?"/>
+    <Class ClassID="102431" ClassName="WaitingCreateGuildEventRoom" Data="길드 미션룸을 생성하는 중입니다."/>
+    <Class ClassID="102432" ClassName="CantCancelGuildEvent" Data="해당 길드 이벤트는 시작한 이후 취소할 수 없습니다."/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>
@@ -13769,6 +13775,7 @@
 		<Class ClassID="2000221" ClassName="WebService_601" Data="조회시간이 현재시간보다 과거여야합니다."/>
 		<Class ClassID="2000222" ClassName="WebService_602" Data="조회시간이 존재해야 합니다."/>
 		<Class ClassID="2000223" ClassName="WebService_603" Data="조회할 길드 인덱스가 필요합니다."/>
+    <Class ClassID="2000227" ClassName="WebService_46" Data="지원하지 않는 문자(언어)가 포함되어 있습니다."/>
 		<Class ClassID="2099994" ClassName="ImageUploadSuccess" Data="이미지가 성공적으로 업로드되었습니다"/>
 		<Class ClassID="2099995" ClassName="RegGuildPromoteBeforeImage" Data="이미지를 등록하기 전에 길드 홍보글을 등록해주세요"/>
 		<Class ClassID="2099996" ClassName="BannerUploadSuccess" Data="배너가 성공적으로 업로드되었습니다"/>

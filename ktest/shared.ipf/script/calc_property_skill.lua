@@ -11887,18 +11887,44 @@ end
 
 function SCR_GET_SKL_COOLDOWN_Preparation(skill)
     local pc = GetSkillOwner(skill);
-    local value = skill.BasicCoolDown;
-    value = value - (skill.Level * 1000);
+    local basicCoolDown = TryGetProp(skill, "BasicCoolDown", 0) - TryGetProp(skill, "Level", 0) * 1000;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     
-    return value
+    basicCoolDown = basicCoolDown + abilAddCoolDown;
+        
+    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
+    if laimaCoolTime ~= 0 then
+        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
+    
+    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.9;
+    end
+    
+    return math.floor(basicCoolDown);
 end
 
 function SCR_GET_SKL_COOLDOWN_KnifeThrowing(skill)
     local pc = GetSkillOwner(skill);
-    local value = skill.BasicCoolDown;
-    value = value - (skill.Level  * 1000);
+    local basicCoolDown = TryGetProp(skill, "BasicCoolDown", 0) - TryGetProp(skill, "Level", 0) * 1000;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     
-    return value
+    basicCoolDown = basicCoolDown + abilAddCoolDown;
+        
+    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
+    if laimaCoolTime ~= 0 then
+        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
+    
+    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.9;
+    end
+    
+    return math.floor(basicCoolDown);
 end
 
 function SCR_GET_Bully_Time(skill)

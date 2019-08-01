@@ -6389,7 +6389,7 @@ return &quot;self&quot;"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Featherfoot_BloodBath" CheckerType="0" PadHeight="10" Range="30" UpdateTerm="400">
+	<PadSkill Name="Featherfoot_BloodBath" CheckerType="0" PadHeight="110" Range="30" UpdateTerm="400" ApplyFlyMon="1">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="F_wizard_BloodBath_blood_ground_buff2" Arg="0.80000001"/>
@@ -13161,7 +13161,7 @@ return 30000 + obj.Level * 5000"/>
 				<Str Str="UC_silence_normalAttack"/>
 				<Num Num="1"/>
 				<Num Num="0"/>
-				<Num Num="0"/>
+				<Num Num="3000"/>
 				<Num Num="1"/>
 				<Num Num="100"/>
 			</ToolScp>

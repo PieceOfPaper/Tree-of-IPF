@@ -421,8 +421,16 @@ function OUT_GUILD_BY_WEB()
     ui.CloseFrame('guildinfo');
 end
 
-function GUILD_BAN(name)
-    ui.Chat("/guildbanByAID " .. name);	
+function GUILD_BAN(aid)
+    local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_GUILD, aid);
+    local name = memberInfo:GetName();
+
+    local yesScp = string.format("_GUILD_BAN(\"%s\")", aid);
+	ui.MsgBox(ScpArgMsg('ReallyBanGuildMember', 'NAME', name), yesScp, "None");
+end
+
+function _GUILD_BAN(aid)
+    ui.Chat("/guildbanByAID " .. aid);
 end
 
 function GUILD_BAN_BY_WEB(aid)

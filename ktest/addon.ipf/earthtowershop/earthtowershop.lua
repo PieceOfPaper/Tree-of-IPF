@@ -25,7 +25,15 @@ function EARTHTOWERSHOP_BUY_ITEM(itemName,itemCount)
 	
 	if recipecls.AccountNeedProperty ~= 'None' then
 	    local aObj = GetMyAccountObj()
-		local sCount = TryGetProp(aObj, recipecls.AccountNeedProperty); 
+        local sCount = TryGetProp(aObj, recipecls.AccountNeedProperty);
+        --EVENT_1906_SUMMER_FESTA
+        local time = geTime.GetServerSystemTime()
+        time = time.wYear..time.wMonth..time.wDay
+        if time < '2019725' then
+            if recipecls.ClassName == 'EventTotalShop1906_25' or recipecls.ClassName == 'EventTotalShop1906_26' then
+                sCount = sCount - 2
+            end
+        end
 		local cntText = ScpArgMsg("Excnaged_AccountCount_Remind","COUNT",string.format("%d", sCount))
 		local tradeBtn = GET_CHILD(ctrlset, "tradeBtn");
 		if sCount <= 0 then
@@ -486,6 +494,14 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
     if recipecls.AccountNeedProperty ~= 'None' then
         local aObj = GetMyAccountObj()
         local sCount = TryGetProp(aObj, recipecls.AccountNeedProperty); 
+        --EVENT_1906_SUMMER_FESTA
+        local time = geTime.GetServerSystemTime()
+        time = time.wYear..time.wMonth..time.wDay
+        if time < '2019725' then
+            if recipecls.ClassName == 'EventTotalShop1906_25' or recipecls.ClassName == 'EventTotalShop1906_26' then
+                sCount = sCount - 2
+            end
+        end
         local cntText = ScpArgMsg("Excnaged_AccountCount_Remind","COUNT",string.format("%d", sCount))
         local tradeBtn = GET_CHILD(ctrlset, "tradeBtn");
         if sCount <= 0 then
@@ -864,6 +880,14 @@ function EARTHTOWERSHOP_CHANGECOUNT_NUM_CHANGE(ctrlset,change)
     if recipecls.AccountNeedProperty ~= 'None' then
         local aObj = GetMyAccountObj()
         local sCount = TryGetProp(aObj, recipecls.AccountNeedProperty); 
+        --EVENT_1906_SUMMER_FESTA
+        local time = geTime.GetServerSystemTime()
+        time = time.wYear..time.wMonth..time.wDay
+        if time < '2019725' then
+            if recipecls.ClassName == 'EventTotalShop1906_25' or recipecls.ClassName == 'EventTotalShop1906_26' then
+                sCount = sCount - 2
+            end
+        end
         if sCount < countText then
             countText = sCount
         end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="minigameover" x="0" y="0" width="620" height="580">
 	<frame layout_gravity="center center" margin="0 -100 0 0"/>
 	<skin frameskin="none"/>
@@ -15,7 +15,7 @@
 		<groupbox name="bgPic_name" rect="0 0 640 100" margin="0 60 0 0" layout_gravity="center center" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="mission_fail_name"/>
 		<richtext name="titleText" rect="0 0 600 100" margin="0 -2 0 0" layout_gravity="center center" format="{@st43_red}{s55}%s{/}" fixwidth="true" parent="bgPic_name" param1="string" param1_def="미션 실패" textalign="center center"/>
 		<richtext name="tip1" rect="0 0 460 30" margin="0 -8 0 0" layout_gravity="center center" format="{@st43b}{s22}[%s]{/}" fixwidth="true" parent="bgPic_box" param1="string" param1_def="모든 플레이어가 전투 불능 상태가 되었습니다." textalign="center center"/>
-		<richtext name="tip2" rect="0 0 460 30" margin="0 26 0 0" layout_gravity="center center" format="{@st43b}{s22}%s{/}" fixwidth="true" parent="bgPic_box" param1="string" param1_def="확인을 누르시면 탑 밖으로 이동합니다." textalign="center center"/>
+		<richtext name="tip2" rect="0 0 460 30" margin="0 26 0 0" layout_gravity="center center" format="{@st43b}{s22}%s{/}" fixwidth="true" parent="bgPic_box" param1="string" param1_def="확인을 누르시면 원래 지역으로 이동합니다." textalign="center center"/>
 		<button name="getOut_btn" skin="test_red_button" rect="0 0 160 50" parent="bgPic_box" margin="0 0 0 38" layout_gravity="center bottom" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" caption="{@st43b}{s20}확인{/}" oversound="button_over" textalign="center center"/>
 	</controls>
 </uiframe>
