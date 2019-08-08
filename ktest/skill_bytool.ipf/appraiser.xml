@@ -147,6 +147,9 @@
 				<Frame Angle="0" AniTime="200" Dist="0" ForceATK="1" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="0" Type="FAN" />
 			</HitList>
 			<EtcList>
+                <Scp Client="NO" Scp="SKL_END_AT_TIME" Time="0" UseSleep="NO">
+                    <Num Num="500" />
+                </Scp>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="120" UseSleep="NO">
 					<Str Str="voice_archer_atk" />
 					<Str Str="voice_archer_f_atk" />
@@ -171,5 +174,63 @@
 				</Scp>
 			</EtcList>
 		</MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ACTIVE_ABIL" UseSleep="NO">
+                        <Str Str="Appraiser7" />
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" Scp="SKL_END_AT_TIME" Time="0" UseSleep="NO">
+                            <Num Num="2000" />
+                        </Scp>
+                        <Scp Client="YES" Scp="C_SKL_LOCK_MOVE" Time="0" UseSleep="NO">
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_LIMITATION" Time="0" UseSleep="NO"/>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="120" UseSleep="NO">
+                            <Str Str="voice_archer_atk" />
+                            <Str Str="voice_archer_f_atk" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="250" UseSleep="NO">
+                            <Pos Angle="0" Dist="0" PosType="1" />
+                            <Num Num="80" />
+                            <Num Num="10" />
+                            <Num Num="2" />
+                            <Num Num="0" />
+                            <Num Num="0" />
+                            <Num Num="0" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_CHECK_LOOPING_COUNT_INIT" Time="250" UseSleep="NO">
+                            <Num Num="4"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_POS" Time="350" UseSleep="NO">
+                            <Str_Arg Arg="1" Str="F_fire044_3" />
+                            <Pos Angle="0" Dist="0" PosType="1" />
+                            <Num Num="0" />
+                            <Str Str="None" />
+                        </Scp>
+                        <Scp Client="NO" LoopTime="500" Scp="SKL_TGT_DMG" Time="500" UseSleep="NO">
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Client="NO" LoopTime="500" Scp="SKL_CHECK_LOOPING_COUNT" Time="750" UseSleep="NO"/>
+                        <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="2200" UseSleep="NO">
+                            <Str Str="Blindside_Debuff" />
+                            <Num FuncTxt="return obj.Level" Num="2" UseFunc="1" />
+                            <Num Num="0" />
+                            <Num FuncTxt="return 10000 + obj.Level * 2000" Num="0" UseFunc="1" />
+                            <Num Num="1" />
+                            <Num Num="100" />
+                            <Num Num="0" />
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
 	</Skill>
 	</ToolSkill>

@@ -356,17 +356,18 @@ function SCR_REINFORCEABILITY_FOR_BUFFSKILL(self, skill)
                 addRate = addRate + (abilLevel * 0.005 + masterAddValue);
 				
 				local hidden_abil_cls = GetClass("HiddenAbility_Reinforce", skill.ClassName);
-				if abilLevel == 100 and hidden_abil_cls ~= nil then
+				if abilLevel >= 65 and hidden_abil_cls ~= nil then
 					local hidden_abil_name = TryGetProp(hidden_abil_cls, "HiddenReinforceAbil");
 					local hidden_abil = GetAbility(self, hidden_abil_name);
 					if hidden_abil ~= nil then
 						local abil_level = TryGetProp(hidden_abil, "Level");
+						local add_factor = TryGetProp(hidden_abil_cls, "FactorByLevel", 0) * 0.01;
 						local add_value = 0;
 						if abil_level == 10 then
-							add_value = 0.05;
+							add_value = TryGetProp(hidden_abil_cls, "AddFactor", 0) * 0.01
 						end
 						
-						addRate = addRate * (1 + (abil_level * 0.04) + add_value);
+						addRate = addRate * (1 + (abil_level * add_factor) + add_value);
 					end
 				end
             end

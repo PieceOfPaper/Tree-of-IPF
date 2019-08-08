@@ -20,5 +20,6 @@
 		<timer name="addontimer" rect="0 0 10 10"/>
 		<picture name="boss_attribute_img" rect="0 0 35 35" margin="82 -30 0 0" layout_gravity="left center" image="attribute_fire"/>
 		<slot name="boss_misscheck" rect="0 0 30 30" margin="150 50 0 0" layout_gravity="left center"/>
+		<timer name="misschecktimer" rect="0 0 10 10"/>
 	</controls>
 </uiframe>

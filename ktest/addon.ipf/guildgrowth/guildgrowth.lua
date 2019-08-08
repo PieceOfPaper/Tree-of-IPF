@@ -216,15 +216,17 @@ function GUILDGROWTH_UPDATE_CONTRIBUTION(frame, guildObj)
 			local t_name = GET_CHILD(ctrlSet, "t_name");
 			t_name:SetTextByKey("value", partyMemberInfo:GetName());
 			if currentExp > 0 then
-				local percent = curContribution * 100 / currentExp;
-				local percentStr = string.format('%.2f', percent);
-				local t_percent = GET_CHILD(ctrlSet, "t_percent");
-				t_percent:SetTextByKey("value", percentStr);
-				local gauge = GET_CHILD(ctrlSet, "gauge");
-				gauge:SetPoint(curContribution, currentExp);
+--				local percent = curContribution * 100 / currentExp;
+--				local percentStr = string.format('%.2f', percent);
+--				local t_percent = GET_CHILD(ctrlSet, "t_percent");
+--                              t_percent:SetTextByKey("value", percentStr);
+--                              local gauge = GET_CHILD(ctrlSet, "gauge");
+--                              gauge:SetPoint(curContribution, currentExp);
+				local value = GET_CHILD(ctrlSet, "t_value");
+				value:SetTextByKey("value", curContribution);
 			end
 
-			
+
 		end
 
 

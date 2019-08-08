@@ -52,7 +52,15 @@
 					<Str Str="voice_war_atk_long_cast" />
 					<Str Str="voice_atk_long_cast_f" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_ARCHER_DEBUFF_ABIL_JUMP" Time="900" UseSleep="NO"/>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="900" UseSleep="NO">
+					<Str FuncTxt="local str = &quot;None&quot; local abilArcher35 = GetAbility(self, &quot;Archer35&quot;) if abilArcher35 ~= nil and TryGetProp(abilArcher35, &quot;ActiveState&quot;) == 1 then str = &quot;Jump_Abil_Buff&quot; end return str" UseFunc="1" Str="None"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
+					<Num Num="3000"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="0"/>
+				</Scp>
 			</EtcList>
 			<ResultList>
 				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">

@@ -1,4 +1,4 @@
-﻿function HOUSING_EDITMODE_ON_INIT(addon, frame)
+﻿function HOUSING_LAB_ON_INIT(addon, frame)
     addon:RegisterMsg('RECEIVE_GUILD_AGIT_WEAPON', 'OPEN_HOUSING_LAB_WEAPON');
     addon:RegisterMsg('RECEIVE_GUILD_AGIT_ARMOR', 'OPEN_HOUSING_LAB_ARMOR');
     addon:RegisterMsg('RECEIVE_GUILD_AGIT_ATTRIBUTE', 'OPEN_HOUSING_LAB_ATTRIBUTE');

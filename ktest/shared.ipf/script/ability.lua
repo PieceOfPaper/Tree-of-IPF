@@ -412,17 +412,13 @@ function SCR_ABIL_CLOTH_ACTIVE(self, ability)
     
     if count >= 4 then
 	    value = 150     -- 15%
-
-        if IS_ACTIVE_ABILITY(self, "RuneCaster13") == 1 then
-            AddBuff(self, self, "Algiz_Abil_Buff");
-        end
 	end
     
     SetExProp(self, "CLOTH_ARMOR_ABIL_VALUE", value);
 end
 
 function SCR_ABIL_CLOTH_INACTIVE(self, ability)
-    RemoveBuff(self, "Algiz_Abil_Buff");
+    
 end
 
 function SCR_ABIL_MERGEN(self)
@@ -1371,12 +1367,12 @@ function SCR_ABIL_RuneCaster13_ACTIVE(self, ability)
     local count, lowestGrade = CHECK_ARMORMATERIAL(self, "Cloth");
 
     if count >= 4 then
-        AddBuff(self, self, "Algiz_Abil_Buff");
+        AddBuff(self, self, "Hagalaz_Abil_Buff");
     end
 end
 
 function SCR_ABIL_RuneCaster13_INACTIVE(self, ability)
-    RemoveBuff(self, "Algiz_Abil_Buff");
+    RemoveBuff(self, "Hagalaz_Abil_Buff");
 end
 
 function SCR_ABIL_Squire14_ACTIVE(self, ability)
@@ -1438,6 +1434,7 @@ function SCR_ABIL_Appraiser7_ACTIVE(self, ability)
         local attribute = TryGetProp(skill, "Attribute");
         skill.Attribute = "Fire";
         SetExProp_Str(self, "Appraiser7_Attribute", attribute);
+        SetSkillOverHeat(self, skill.ClassName, 0, 1);
     end
 end
 
@@ -1446,6 +1443,7 @@ function SCR_ABIL_Appraiser7_INACTIVE(self, ability)
     if skill ~= nil then
         local attribute = GetExProp_Str(self, "Appraiser7_Attribute");
         skill.Attribute = attribute;
+        SetSkillOverHeat(self, skill.ClassName, 3, 1);
     end
 end
 
@@ -1658,5 +1656,33 @@ function SCR_ABIL_Wizard30_INACTIVE(self, ability)
         if skl ~= nil then
             SetSkillOverHeat(self, skl.ClassName, 2, 1)
         end
+    end
+end
+
+function SCR_ABIL_Archer35_ACTIVE(self, ability)
+    local skl = GetSkill(self, "Archer_Jump");
+    if skl ~= nil then
+        skl.BasicCoolDown = 10000;
+    end
+end
+
+function SCR_ABIL_Archer35_INACTIVE(self, ability)
+    local skl = GetSkill(self, "Archer_Jump");
+    if skl ~= nil then
+        skl.BasicCoolDown = 15000;
+    end
+end
+
+function SCR_ABIL_Swordman33_ACTIVE(self, ability)
+    local skill = GetSkill(self, "Swordman_Thrust");
+    if skill ~= nil then
+        SetSkillOverHeat(self, skill.ClassName, 2, 1);
+    end
+end
+
+function SCR_ABIL_Swordman33_INACTIVE(self, ability)
+    local skill = GetSkill(self, "Swordman_Thrust");
+    if skill ~= nil then
+        SetSkillOverHeat(self, skill.ClassName, 5, 1);
     end
 end

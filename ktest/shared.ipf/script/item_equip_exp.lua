@@ -121,7 +121,7 @@ function GET_MIX_MATERIAL_EXP(item)
 	    elseif item.EquipXpGroup == 'hethran_material' then
 			return itemExp;
 		elseif item.EquipXpGroup =='Gem' and itemExp > 0 then
-		    local pc = GetMyPCObject()
+		    local pc = GetItemOwner(item)
 		    if IsBuffApplied(pc, "Event_Penalty_Clear_Gem_Reinforce") == "YES" then
     		    return itemExp;
     		end

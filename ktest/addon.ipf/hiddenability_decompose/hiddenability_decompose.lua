@@ -6,6 +6,11 @@ function HIDDENABILITY_DECOMPOSE_UI_OPEN()
     ui.OpenFrame("hiddenability_decompose")
 end
 
+local function get_material_class_name(item)
+    local itemobj = GetIES(item:GetObject());
+    return TryGetProp(itemobj, 'ClassName', 'None')
+end
+
 function HIDDENABILITY_DECOMPOSE_OPEN(frame)
     HIDDENABILITY_DECOMPOSE_RESET_MATERIAL(frame);
     HIDDENABILITY_DECOMPOSE_RESET_RESULT(frame);
@@ -20,6 +25,7 @@ function HIDDENABILITY_DECOMPOSE_CLOSE(frame)
     ui.CloseFrame("inventory");	
 
     frame:SetUserValue("MATERIAL_GUID", "None");
+    frame:SetUserValue("material_class_name", "None")
 
     INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 end
@@ -34,9 +40,14 @@ function HIDDENABILITY_DECOMPOSE_ITEM_RBTNDOWN(itemobj,slot)
     end
     
     local frame = ui.GetFrame("hiddenability_decompose")
+    local ok_btn = GET_CHILD_RECURSIVELY(frame, "ok_btn");
+    if ok_btn:IsVisible() ==  1 then
+        return;
+    end
 
     if HIDDENABILITY_DECOMPOSE_MATERIAL_ENABLE(frame, invitem) == true then
 	    frame:SetUserValue("MATERIAL_GUID", guid);
+        frame:SetUserValue("material_class_name", get_material_class_name(invitem))
 		HIDDENABILITY_DECOMPOSE_SET_MATERIAL(frame, invitem);
     end
 end
@@ -63,6 +74,7 @@ function HIDDENABILITY_DECOMPOSE_ITEM_DROP(frame, ctrl)
         end
 
 	    frame:SetUserValue("MATERIAL_GUID", guid);
+        frame:SetUserValue("material_class_name", get_material_class_name(invitem))
 		HIDDENABILITY_DECOMPOSE_SET_MATERIAL(frame, invitem);
     end
 end
@@ -80,9 +92,9 @@ function HIDDENABILITY_DECOMPOSE_MATERIAL_ENABLE(frame, invitem)
         ui.SysMsg(ClMsg("MaterialItemIsLock"));
         return false;
     end
-
+    
     local itemobj = GetIES(invitem:GetObject());
-    if IS_HIDDENABILITY_DECOMPOSE_MATERIAL(itemobj) == false then
+    if IS_HIDDENABILITY_DECOMPOSE_MATERIAL(itemobj) == false and IS_HIDDENABILITY_DECOMPOSE_BOOK_MATERIAL(itemobj) == false then        
         ui.SysMsg(ClMsg("NotEnoughTarget"));
         return false;
     end
@@ -107,16 +119,23 @@ function HIDDENABILITY_DECOMPOSE_SET_RESULT(frame, msg, resultstr)
     local frame = ui.GetFrame("hiddenability_decompose");
     imcSound.PlaySoundEvent(frame:GetUserConfig("DECOMPOSE_RESULT_SOUND"));
     
-    local itemclassnamelist = StringSplit(resultstr, "/");    
+    local itemclassnamelist = StringSplit(resultstr, "/");
     local resultcnt = #itemclassnamelist;
     
-    for i = 1, 5 do
+    for i = 1, 1 do
         local slot = GET_CHILD_RECURSIVELY(frame, "slot_"..i);
         slot:ShowWindow(1);
+        local slottext = GET_CHILD(slot, "slot_"..i.."_text");
 
-        if i <= resultcnt then 
-            local itemobj = GetClass("Item", itemclassnamelist[i]);
+        if i <= resultcnt then            
+            local token = StringSplit(itemclassnamelist[i], ';')
+            local class_name = token[1]             -- 획득한 아이템 class_name
+            local give_count = tonumber(token[2])  -- 획득한 아이템 개수            
+            local itemobj = GetClass("Item", class_name);
             HIDDENABILITY_DECOMPOSE_SET_SLOT(slot, itemobj);
+        
+            slottext:SetTextByKey("value", give_count);
+            slottext:ShowWindow(1);
         end
     end
 
@@ -152,7 +171,10 @@ function HIDDENABILITY_DECOMPOST_OK_CLLICK(frame, ctrl)
         return;
     end
     
-    HIDDENABILITY_DECOMPOSE_RESET_MATERIAL(frame);
+    local class_name = frame:GetUserValue("material_class_name")
+    if class_name ~= 'HiddenAbility_Piece' then
+        HIDDENABILITY_DECOMPOSE_RESET_MATERIAL(frame);
+    end
     HIDDENABILITY_DECOMPOSE_RESET_RESULT(frame);
 end
 
@@ -181,7 +203,7 @@ function HIDDENABILITY_DECOMPOST_BUTTON_CLLICK(frame, ctrl)
     item.DialogTransaction("HIDDENABILITY_DECOMPOSE", resultlist)
 
 	ui.SetHoldUI(true);
-    ReserveScript("HIDDENABILITY_DECOMPOSE_BUTTON_UNFREEZE()", 2);
+    ReserveScript("HIDDENABILITY_DECOMPOSE_BUTTON_UNFREEZE()", 2);    
 end
 
 function HIDDENABILITY_DECOMPOSE_BUTTON_UNFREEZE()
@@ -191,7 +213,7 @@ function HIDDENABILITY_DECOMPOSE_BUTTON_UNFREEZE()
 function HIDDENABILITY_DECOMPOSE_RESET_MATERIAL(frame)
     frame = frame:GetTopParentFrame();
     frame:SetUserValue("MATERIAL_GUID", "None");
-
+    frame:SetUserValue("material_class_name", 'None')
     local matslot = GET_CHILD_RECURSIVELY(frame, "matslot");
     matslot:ClearIcon();
 
@@ -200,7 +222,7 @@ function HIDDENABILITY_DECOMPOSE_RESET_MATERIAL(frame)
 end
 
 function HIDDENABILITY_DECOMPOSE_RESET_RESULT(frame)
-    for i = 1, 5 do
+    for i = 1, 1 do
         local slot = GET_CHILD_RECURSIVELY(frame, "slot_"..i);
         slot:ClearIcon();
         slot:ShowWindow(0);

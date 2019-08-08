@@ -269,7 +269,7 @@
 					<Str Str="Westraid_Buff" />
 					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
 					<Num Num="0" />
-                    <Num FuncTxt="local value = 30000; local abilSheriff8 = GetAbility(self, 'Sheriff8'); if abilSheriff8 ~= nil and abilSheriff8.ActiveState == 1 then value = 200000 end return value" UseFunc="1" Num="30000"/>
+                    <Num Num="30000"/>
                     <Num FuncTxt="local abilSheriff8 = GetAbility(self, 'Sheriff8'); if abilSheriff8 ~= nil and abilSheriff8.ActiveState == 1 then return 1 end local value = math.floor(3 + obj.Level * 0.4); if IsBuffApplied(self, 'Westraid_Buff') == 'YES' then local curOver = GetBuffOver(self, 'Westraid_Buff'); if value >= curOver then value = value - curOver end end return value" Num="6" UseFunc="1"/>
 					<Num Num="100" />
 					<Num Num="0" />

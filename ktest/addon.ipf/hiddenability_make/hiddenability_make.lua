@@ -15,6 +15,7 @@ function HIDDENABILITY_MAKE_OPEN(frame)
     HIDDENABILITY_MAKE_RESET_CENTER_UI(frame);
     HIDDENABILITY_MAKE_RESET_RESULT(frame);
     HIDDENABILITY_MAKE_DROPLIST_INIT(frame);
+    HIDDENABILITY_CONTROL_ENABLE(frame, 1);
 
     INVENTORY_SET_CUSTOM_RBTNDOWN("HIDDENABILITY_MAKE_ITEM_RBTNDOWN");
     
@@ -232,7 +233,7 @@ function HIDDENABILITY_MAKE_RESULT_ITEM_CREATE(frame, ctrl)
     
     local resultitemslot = GET_CHILD_RECURSIVELY(frame, "result_slot");
     local resultitemClassName = frame:GetUserValue("RESULT_ITEM_CLASSNAME");
-    if resultitemClassName == "None" or resultitemClassName == nil then
+    if resultitemClassName == "None" or resultitemClassName == "" then
         ui.SysMsg(ClMsg("Arts_Please_Select_HiddenabilityItem"));
         return;
     end
@@ -267,8 +268,7 @@ function HIDDENABILITY_MAKE_RESULT_ITEM_CREATE(frame, ctrl)
 
     -- 신비한 서 제작 함수 호출    
     local nameList = NewStringList();
-    nameList:Add(resultitemClassName)
-
+    nameList:Add(resultitemClassName)    
     session.ResetItemList();
     session.AddItemID(pieceguid, pieceneedcnt);
     session.AddItemID(stoneguid, stoneneedcnt);
@@ -307,38 +307,65 @@ function HIDDENABILITY_MAKE_DROPLIST_INIT(frame)
 
     frame:SetUserValue("RESULT_ITEM_CLASSNAME", "None");
     local list = GET_CHILD_RECURSIVELY(frame, "result_droplist");
-    list:ClearItems();   
-    
-    local str = "HiddenAbility_"
-    local cls = GetClass("Item", str.."TotalCube");
+    list:ClearItems();
     list:AddItem("", "");
-    list:AddItem(cls.ClassName, cls.Name);
-
-    if npcClassName == "swordmaster" then
-        local jobitemcls = GetClass("Item", str.."SwordmanCube");
-        list:AddItem(jobitemcls.ClassName, jobitemcls.Name);
+    if npcClassName == "swordmaster" then        
+        local str = "HiddenAbility_SwordmanPackage"    
+        for i = 1, 100 do
+            local jobitemcls = GetClass("Item", str..tostring(i));
+            if jobitemcls == nil then
+                break
+            end
+            list:AddItem(jobitemcls.ClassName, jobitemcls.Name);    
+        end        
     elseif npcClassName == "wizardmaster" then
-        local jobitemcls = GetClass("Item", str.."WizardCube");
-        list:AddItem(jobitemcls.ClassName, jobitemcls.Name);
+        local str = "HiddenAbility_WizardPackage"    
+        for i = 1, 100 do
+            local jobitemcls = GetClass("Item", str..tostring(i));
+            if jobitemcls == nil then
+                break
+            end
+            list:AddItem(jobitemcls.ClassName, jobitemcls.Name);    
+        end
     elseif npcClassName == "npc_ARC_master" then
-        local jobitemcls = GetClass("Item", str.."ArcherCube");
-        list:AddItem(jobitemcls.ClassName, jobitemcls.Name);
+        local str = "HiddenAbility_ArcherPackage"    
+        for i = 1, 100 do
+            local jobitemcls = GetClass("Item", str..tostring(i));
+            if jobitemcls == nil then
+                break
+            end
+            list:AddItem(jobitemcls.ClassName, jobitemcls.Name);    
+        end
     elseif npcClassName == "npc_healer" then
-        local jobitemcls = GetClass("Item", str.."ClericCube");
-        list:AddItem(jobitemcls.ClassName, jobitemcls.Name);
+        local str = "HiddenAbility_ClericPackage"    
+        for i = 1, 100 do
+            local jobitemcls = GetClass("Item", str..tostring(i));
+            if jobitemcls == nil then
+                break
+            end
+            list:AddItem(jobitemcls.ClassName, jobitemcls.Name);    
+        end
     elseif npcClassName == "npc_SCT_master" then
-        local jobitemcls = GetClass("Item", str.."ScoutCube");
-        list:AddItem(jobitemcls.ClassName, jobitemcls.Name);
+        local str = "HiddenAbility_ScoutPackage"    
+        for i = 1, 100 do
+            local jobitemcls = GetClass("Item", str..tostring(i));
+            if jobitemcls == nil then
+                break
+            end
+            list:AddItem(jobitemcls.ClassName, jobitemcls.Name);    
+        end
     end
 
     
 end
 
 function HIDDENABILITY_MAKE_DROPLIST_SELECT(frame, ctrl)
-    HIDDENABILITY_MAKE_RESET_MATERIAL(frame);
+    --HIDDENABILITY_MAKE_RESET_MATERIAL(frame);
     HIDDENABILITY_MAKE_RESET_CENTER_UI(frame);
     
     local resultitemClassName = ctrl:GetSelItemKey();
+    frame:SetUserValue("RESULT_ITEM_CLASSNAME", resultitemClassName);
+
     local cls = GetClass("Item", resultitemClassName);
     if cls == nil then
         HIDDENABILITY_MAKE_RESET_RESULT(frame);
@@ -353,7 +380,6 @@ function HIDDENABILITY_MAKE_DROPLIST_SELECT(frame, ctrl)
     result_text:SetTextByKey("value", cls.Name);
     result_text:ShowWindow(1);
 
-    frame:SetUserValue("RESULT_ITEM_CLASSNAME", resultitemClassName);
 end
 
 function HIDDENABILITY_MAKE_RESET_MATERIAL(frame)

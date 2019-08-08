@@ -25,12 +25,9 @@
 		<picture name="pic" parent="text_bg" rect="0 0 490 92" margin="-6 0 0 0" layout_gravity="center center" hittest="false" image="BnYellow_skin" draw="true"/>
 		<richtext name="text" parent="text_bg" rect="0 0 200 50" margin="0 3 0 0" layout_gravity="center center" format="{@st43}{#ffcc33}{s18}%s" param1="value" param1_def="분해 완료" textalign="center center" />
 		<!-- result -->
-		<groupbox name="result_gb" rect="0 0 350 220" margin="0 550 0 0" layout_gravity="center top" draw="false" scrollbar="false" skin="test_frame_top"/>
-		<slot name="slot_1" parent="result_gb" rect="0 0 91 91" margin="-50 0 0 0" layout_gravity="center top" draw="true" skin="invenslot2" movepop="false" enabledrag="false" enabledrop="false" enablepop="false"/> 
-		<slot name="slot_2" parent="result_gb" rect="0 0 91 91" margin="50 0 0 0" layout_gravity="center top" draw="true" skin="invenslot2" movepop="false" enabledrag="false" enabledrop="false" enablepop="false"/> 
-		<slot name="slot_3" parent="result_gb" rect="0 0 91 91" margin="-100 100 0 0" layout_gravity="center top" draw="true" skin="invenslot2" movepop="false" enabledrag="false" enabledrop="false" enablepop="false"/> 
-		<slot name="slot_4" parent="result_gb" rect="0 0 91 91" margin="0 100 0 0" layout_gravity="center top" draw="true" skin="invenslot2" movepop="false" enabledrag="false" enabledrop="false" enablepop="false"/> 
-		<slot name="slot_5" parent="result_gb" rect="0 0 91 91" margin="100 100 0 0" layout_gravity="center top" draw="true" skin="invenslot2" movepop="false" enabledrag="false" enabledrop="false" enablepop="false"/> 
+		<groupbox name="result_gb" rect="0 0 350 320" margin="0 550 0 0" layout_gravity="center top" draw="false" scrollbar="false" skin="test_frame_top"/>
+		<slot name="slot_1" parent="result_gb" rect="0 0 140 140" margin="0 130 0 0" layout_gravity="center top" draw="true" skin="invenslot2" movepop="false" enabledrag="false" enabledrop="false" enablepop="false"/> 
+		<richtext name="slot_1_text" parent="slot_1" rect="0 0 120 20" margin="0 0 10 10" layout_gravity="right bottom" draw="false" format="{@st43}{s30} %s" param1="value" param1_def="0" textalign="center center" maxwidth="0" resizebytext="true"/>
 		<!-- button -->
 		<button name="decompose_btn" rect="0 0 180 50" margin="0 0 0 60" layout_gravity="center bottom" skin="test_red_button" caption="{@st41b}{s18}분해 하기" LBtnUpScp="HIDDENABILITY_DECOMPOST_BUTTON_CLLICK" oversound="button_cursor_over_3"/>
 		<button name="ok_btn" rect="0 0 180 50" margin="0 0 0 60" layout_gravity="center bottom" skin="test_red_button" caption="{@st41b}{s18}확인" LBtnUpScp="HIDDENABILITY_DECOMPOST_OK_CLLICK" oversound="button_cursor_over_3"/>

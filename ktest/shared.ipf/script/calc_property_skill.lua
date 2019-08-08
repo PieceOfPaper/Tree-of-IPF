@@ -1170,20 +1170,21 @@ function SCR_Get_SkillFactor_Reinforce_Ability(skill)
         end
         
         value = value * (1 + ((abilLevel * 0.005) + masterAddValue))
-
+        
         local hidden_abil_cls = GetClass("HiddenAbility_Reinforce", skill.ClassName);
-        if abilLevel == 100 and hidden_abil_cls ~= nil then
-            local hidden_abil_name = TryGetProp(hidden_abil_cls, "HiddenReinforceAbil");
-            local hidden_abil = GetAbility(pc, hidden_abil_name);
-            if hidden_abil ~= nil then
-                local abil_level = TryGetProp(hidden_abil, "Level");
-                local add_value = 0;
-                if abil_level == 10 then
-                    add_value = 0.05;
-                end
-                
-                value = value * (1 + (abil_level * 0.04) + add_value);
-            end
+        if abilLevel >= 65 and hidden_abil_cls ~= nil then
+        	local hidden_abil_name = TryGetProp(hidden_abil_cls, "HiddenReinforceAbil");
+        	local hidden_abil = GetAbility(pc, hidden_abil_name);
+        	if hidden_abil ~= nil then
+        		local abil_level = TryGetProp(hidden_abil, "Level");
+        		local add_factor = TryGetProp(hidden_abil_cls, "FactorByLevel", 0) * 0.01;
+        		local add_value = 0;
+        		if abil_level == 10 then
+        			add_value = TryGetProp(hidden_abil_cls, "AddFactor", 0) * 0.01
+        		end
+        		value = value * (1 + (abil_level * add_factor) + add_value);
+        		
+        	end
         end
     end
     
@@ -1356,17 +1357,17 @@ function SCR_ABIL_ADD_SKILLFACTOR(skill, abil, value)
     local pc = GetSkillOwner(skill);
     local sklClassName = TryGetProp(skill, "ClassName");
     local hidden_abil_cls = GetClass("HiddenAbility_Reinforce", sklClassName);
-    if abilLevel == 100 and hidden_abil_cls ~= nil then
+    if abilLevel >= 65 and hidden_abil_cls ~= nil then
         local hidden_abil_name = TryGetProp(hidden_abil_cls, "HiddenReinforceAbil");
         local hidden_abil = GetAbility(pc, hidden_abil_name);
         if hidden_abil ~= nil then
             local abil_level = TryGetProp(hidden_abil, "Level");
+            local add_factor = TryGetProp(hidden_abil_cls, "FactorByLevel", 0) * 0.01;
             local add_value = 0;
             if abil_level == 10 then
-                add_value = 0.05;
+                add_value = TryGetProp(hidden_abil_cls, "AddFactor", 0) * 0.01
             end
-            
-            value = value * (1 + (abil_level * 0.04) + add_value);
+            value = value * (1 + (abil_level * add_factor) + add_value);
         end
 	end
     
@@ -1391,17 +1392,17 @@ function SCR_REINFORCEABILITY_TOOLTIP(skill)
             addAbilRate = 1 + (reinforceAbil.Level * 0.005 + masterAddValue);
 
             local hidden_abil_cls = GetClass("HiddenAbility_Reinforce", skill.ClassName);
-            if abilLevel == 100 and hidden_abil_cls ~= nil then
+            if abilLevel >= 65 and hidden_abil_cls ~= nil then
                 local hidden_abil_name = TryGetProp(hidden_abil_cls, "HiddenReinforceAbil");
                 local hidden_abil = GetAbility(pc, hidden_abil_name);
                 if hidden_abil ~= nil then
                     local abil_level = TryGetProp(hidden_abil, "Level");
+                    local add_factor = TryGetProp(hidden_abil_cls, "FactorByLevel", 0) * 0.01;
                     local add_value = 0;
                     if abil_level == 10 then
-                        add_value = 0.05;
+                        add_value = TryGetProp(hidden_abil_cls, "AddFactor", 0) * 0.01
                     end
-                    
-                    addAbilRate = addAbilRate * (1 + (abil_level * 0.04) + add_value);
+                    addAbilRate = addAbilRate * (1 + (abil_level * add_factor) + add_value);
                 end
             end
         end
@@ -3132,13 +3133,6 @@ end
 
 function SCR_GET_BounceShot_Ratio2(skill)
     local value = 50;
-
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Ranger38");
-    if abil ~= nil and abil.ActiveState == 1 then
-        value = 100;
-    end
-    
     return value
 end
 

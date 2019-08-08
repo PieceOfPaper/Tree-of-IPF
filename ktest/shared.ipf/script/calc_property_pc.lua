@@ -2097,6 +2097,10 @@ function SCR_Get_MSPD(self)
         return fixMSPDBuff;
     end
     
+    if IsBuffApplied(self, 'PunjiStake_Debuff') == 'YES' then
+        return 10;
+    end
+    
     if IsBuffApplied(self, 'SnipersSerenity_Buff') == 'YES' then
     	return 10;
     end

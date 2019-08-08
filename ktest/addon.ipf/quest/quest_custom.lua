@@ -556,7 +556,7 @@ function IS_STYLE_INFO_DRAW()
 	local frame2 = ui.GetFrame("questinfoset_2");	
 	local customOption = GET_CHILD(frame2, "quest_custom", "ui::CCheckBox");
 	local value = customOption:GetUserValue("is_quest_custom_draw");
-	if value == '-1' or value == 'None' then
+	if value == '-1' then
 		return false;
 	end
 

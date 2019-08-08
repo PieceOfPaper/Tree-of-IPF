@@ -512,8 +512,8 @@
 			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO"/>
 		</EndScripts>
 		<KeyInput>
-			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num Num="0" UseFunc="1" FuncTxt="local value = 2 local pc = GetMyPCObject() local abil = GetAbility(pc, &quot;Elementalist33&quot;) if abil ~= nil and abil.ActiveState == 1 then value = 4 end return value"/>
+			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT_METEOR" UseSleep="NO">
+				<Num Num="2"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Num Num="1"/>
@@ -588,11 +588,11 @@
 			</HitList>
 			<EtcList>
 				<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
-					<Str_Arg Arg="6" Str="I_wizard_meteorfall_force_dropfire"/>
-					<Str_Arg Arg="3" Str="F_wizard_meteorfall_shot_explosion"/>
+					<Str_Arg FuncTxt="local scale = 6 if obj.Level == 5 then scale = 9 elseif obj.Level == 4 then scale = 8.5 elseif obj.Level == 3 then scale = 8 elseif obj.Level == 2 then scale = 7 end return &quot;I_wizard_meteorfall_force_dropfire&quot;, scale" UseFunc="1" Arg="6" Str="I_wizard_meteorfall_force_dropfire"/>
+					<Str_Arg FuncTxt="local scale = 3 if obj.Level == 5 then scale = 6 elseif obj.Level == 4 then scale = 5.5 elseif obj.Level == 3 then scale = 5 elseif obj.Level == 2 then scale = 4 end return &quot;F_wizard_meteorfall_shot_explosion&quot;, scale" UseFunc="1" Arg="3" Str="F_wizard_meteorfall_shot_explosion"/>
 					<Str_Arg Arg="1" Str="None"/>
 					<Pos Angle="0" Dist="0" PosType="3"/>
-					<Num Num="70"/>
+					<Num FuncTxt="local range = 70 if obj.Level == 5 then range = 140 elseif obj.Level == 4 then range = 130 elseif obj.Level == 3 then range = 110 elseif obj.Level == 2 then range = 90 end return range" UseFunc="1" Num="70"/>
 					<Num Num="0"/>
 					<Num Num="0.55000001"/>
 					<Num Num="300"/>
@@ -608,7 +608,7 @@
 					<Str Str="voice_wiz_meteor_shot"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="750" UseSleep="NO">
-					<Num Num="6"/>
+					<Num FuncTxt="local intensity = 6 if obj.Level == 5 then intensity = 10 elseif obj.Level == 4 then intensity = 9 elseif obj.Level == 3 then intensity = 8 elseif obj.Level == 2 then intensity = 7 end return intensity" UseFunc="1" Num="6"/>
 					<Num Num="1"/>
 					<Num Num="45"/>
 					<Num Num="999"/>
@@ -626,8 +626,8 @@
 		<ByCondSkills>
 			<SubSkl>
 				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_LEVEL" UseSleep="NO">
-						<Num Num="5"/>
+					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+						<Str Str="Meteor_FireBall_Buff"/>
 					</ToolScp>
 				</Cond>
 				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
@@ -635,31 +635,39 @@
 						<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
 					</HitList>
 					<EtcList>
-						<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
-							<Str_Arg Arg="9" Str="I_wizard_meteorfall_force_dropfire"/>
-							<Str_Arg Arg="6" Str="F_wizard_meteorfall_shot_explosion"/>
+						<Scp Client="NO" Scp="MSL_THROW" Time="0" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+							<Str_Arg FuncTxt="local scale = 3 if obj.Level == 5 then scale = 4.5 elseif obj.Level == 4 then scale = 4.25 elseif obj.Level == 3 then scale = 4 elseif obj.Level == 2 then scale = 3.5 end return &quot;I_wizard_meteorfall_force_dropfire&quot;, scale" UseFunc="1" Arg="3" Str="I_wizard_meteorfall_force_dropfire"/>
+							<Str_Arg FuncTxt="local scale = 1.5 if obj.Level == 5 then scale = 3 elseif obj.Level == 4 then scale = 2.75 elseif obj.Level == 3 then scale = 2.5 elseif obj.Level == 2 then scale = 2 end return &quot;F_wizard_meteorfall_shot_explosion&quot;, scale" UseFunc="1" Arg="1.5" Str="F_wizard_meteorfall_shot_explosion"/>
 							<Str_Arg Arg="1" Str="None"/>
-							<Pos Angle="0" Dist="0" PosType="3"/>
-							<Num Num="140"/>
-							<Num Num="0"/>
+							<Pos Angle="0" Dist="0" PosType="1"/>
+							<Num FuncTxt="local range = 35 if obj.Level == 5 then range = 70 elseif obj.Level == 4 then range = 65 elseif obj.Level == 3 then range = 55 elseif obj.Level == 2 then range = 45 end return range" UseFunc="1" Num="35"/>
 							<Num Num="0.55000001"/>
+							<Num Num="0"/>
 							<Num Num="300"/>
 							<Num Num="1"/>
 							<Num Num="1000"/>
 							<Num Num="1"/>
-							<Num Num="0"/>
-							<Num Num="0"/>
 							<Str_Arg Arg="4" Str="F_sys_target_pc2"/>
+							<Num Num="0"/>
+							<Num Num="0"/>
+							<Num Num="0"/>
+							<Num Num="0"/>
+							<Num Num="0"/>
 						</Scp>
 						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
 							<Str Str="voice_wiz_m_meteor_shot"/>
 							<Str Str="voice_wiz_meteor_shot"/>
 						</Scp>
 						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="750" UseSleep="NO">
-							<Num Num="10"/>
+							<Num FuncTxt="local intensity = 3 if obj.Level == 5 then intensity = 5 elseif obj.Level == 4 then intensity = 4.5 elseif obj.Level == 3 then intensity = 4 elseif obj.Level == 2 then intensity = 3.5 end return intensity" UseFunc="1" Num="3"/>
 							<Num Num="1"/>
 							<Num Num="45"/>
 							<Num Num="999"/>
+						</Scp>
+						<Scp Client="NO" Scp="SKL_CTRL_BUFFOVER" Time="1200" UseSleep="NO">
+							<Str Str="Meteor_FireBall_Buff"/>
+							<Num Num="-1"/>
+							<Num Num="1"/>
 						</Scp>
 						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
 							<Str Str="LH"/>
@@ -674,8 +682,8 @@
 			</SubSkl>
 			<SubSkl>
 				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_LEVEL" UseSleep="NO">
-						<Num Num="4"/>
+					<ToolScp Client="NO" Scp="SKL_SELECT_ACTIVE_ABIL" UseSleep="NO">
+						<Str Str="Elementalist33"/>
 					</ToolScp>
 				</Cond>
 				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
@@ -683,127 +691,36 @@
 						<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
 					</HitList>
 					<EtcList>
-						<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
-							<Str_Arg Arg="8.5" Str="I_wizard_meteorfall_force_dropfire"/>
-							<Str_Arg Arg="5.5" Str="F_wizard_meteorfall_shot_explosion"/>
-							<Str_Arg Arg="1" Str="None"/>
-							<Pos Angle="0" Dist="0" PosType="3"/>
-							<Num Num="130"/>
-							<Num Num="0"/>
-							<Num Num="0.55000001"/>
-							<Num Num="300"/>
-							<Num Num="1"/>
-							<Num Num="1000"/>
-							<Num Num="1"/>
-							<Num Num="0"/>
-							<Num Num="0"/>
-							<Str_Arg Arg="4" Str="F_sys_target_pc2"/>
-						</Scp>
 						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
 							<Str Str="voice_wiz_m_meteor_shot"/>
 							<Str Str="voice_wiz_meteor_shot"/>
 						</Scp>
-						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="750" UseSleep="NO">
-							<Num Num="9"/>
-							<Num Num="1"/>
-							<Num Num="45"/>
-							<Num Num="999"/>
-						</Scp>
-						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
-							<Str Str="LH"/>
-							<Num Num="1"/>
-						</Scp>
-						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
-							<Str Str="RH"/>
-							<Num Num="1"/>
-						</Scp>
-					</EtcList>
-				</Skill>
-			</SubSkl>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_LEVEL" UseSleep="NO">
-						<Num Num="3"/>
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
-					</HitList>
-					<EtcList>
-						<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
-							<Str_Arg Arg="8" Str="I_wizard_meteorfall_force_dropfire"/>
-							<Str_Arg Arg="5" Str="F_wizard_meteorfall_shot_explosion"/>
-							<Str_Arg Arg="1" Str="None"/>
-							<Pos Angle="0" Dist="0" PosType="3"/>
-							<Num Num="110"/>
-							<Num Num="0"/>
-							<Num Num="0.55000001"/>
-							<Num Num="300"/>
-							<Num Num="1"/>
-							<Num Num="1000"/>
-							<Num Num="1"/>
+						<Scp Client="NO" Scp="SKL_BUFF" Time="" UseSleep="NO">
+							<Str Str="Meteor_FireBall_Buff"/>
+							<Num FuncTxt="return obj.Level" UseFunc="1" Num="1"/>
 							<Num Num="0"/>
 							<Num Num="0"/>
-							<Str_Arg Arg="4" Str="F_sys_target_pc2"/>
-						</Scp>
-						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-							<Str Str="voice_wiz_m_meteor_shot"/>
-							<Str Str="voice_wiz_meteor_shot"/>
-						</Scp>
-						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="750" UseSleep="NO">
-							<Num Num="8"/>
-							<Num Num="1"/>
-							<Num Num="45"/>
-							<Num Num="999"/>
-						</Scp>
-						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
-							<Str Str="LH"/>
-							<Num Num="1"/>
-						</Scp>
-						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
-							<Str Str="RH"/>
-							<Num Num="1"/>
-						</Scp>
-					</EtcList>
-				</Skill>
-			</SubSkl>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_LEVEL" UseSleep="NO">
-						<Num Num="2"/>
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
-					</HitList>
-					<EtcList>
-						<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
-							<Str_Arg Arg="7" Str="I_wizard_meteorfall_force_dropfire"/>
-							<Str_Arg Arg="4" Str="F_wizard_meteorfall_shot_explosion"/>
-							<Str_Arg Arg="1" Str="None"/>
-							<Pos Angle="0" Dist="0" PosType="3"/>
-							<Num Num="90"/>
+							<Num Num="3"/>
+							<Num Num="100"/>
 							<Num Num="0"/>
-							<Num Num="0.55000001"/>
-							<Num Num="300"/>
-							<Num Num="1"/>
-							<Num Num="1000"/>
-							<Num Num="1"/>
-							<Num Num="0"/>
-							<Num Num="0"/>
-							<Str_Arg Arg="4" Str="F_sys_target_pc2"/>
 						</Scp>
-						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-							<Str Str="voice_wiz_m_meteor_shot"/>
-							<Str Str="voice_wiz_meteor_shot"/>
+						<Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="1200" UseSleep="NO">
+							<Pos Angle="0" Dist="60" PosType="0" />
+							<Angle Angle="0" />
+							<Str Str="Elementalist_MovingFireBall_1" />
+							<Str Str="Elementalist33" />
 						</Scp>
-						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="750" UseSleep="NO">
-							<Num Num="7"/>
-							<Num Num="1"/>
-							<Num Num="45"/>
-							<Num Num="999"/>
+						<Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="1200" UseSleep="NO">
+							<Pos Angle="120" Dist="60" PosType="0" />
+							<Angle Angle="0" />
+							<Str Str="Elementalist_MovingFireBall_2" />
+							<Str Str="Elementalist33" />
+						</Scp>
+						<Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="1200" UseSleep="NO">
+							<Pos Angle="-120" Dist="60" PosType="0" />
+							<Angle Angle="0" />
+							<Str Str="Elementalist_MovingFireBall_3" />
+							<Str Str="Elementalist33" />
 						</Scp>
 						<Scp Client="YES" Scp="C_SHOW_PARTS_MODEL" Time="1200" UseSleep="NO">
 							<Str Str="LH"/>

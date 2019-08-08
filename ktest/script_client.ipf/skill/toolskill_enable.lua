@@ -396,3 +396,21 @@ function SKL_CHECK_ACTIVE_ABILITY_C(self, skill, abilName)
 
     return 1;
 end
+
+function SKL_CHECK_USE_TEMPLER_SKILL_C(actor, skl, abilName)
+    if actor:GetBuff():GetBuff("RidingCompanion") == nil then
+        local obj = nil
+        local abil = session.GetAbilityByName(abilName);
+        if abil ~= nil then
+            obj = GetIES(abil:GetObject());
+        end
+        
+        if abil == nil or TryGetProp(obj, "ActiveState", 0) == 0 then
+            return 0;
+        else
+            return 1;
+        end
+    end
+    
+    return 1;
+end

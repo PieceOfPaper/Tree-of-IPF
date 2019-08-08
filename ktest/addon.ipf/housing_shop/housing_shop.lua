@@ -443,6 +443,8 @@ end
 function ON_START_HOUSING_SHOP_BUTTON_BUYSELL()
 	local guildAgit = housing.GetGuildAgitInfo();
 
+    local isSound = false
+
 	local frame = ui.GetFrame("housing_shop")
 
 	housing.ClearHousingShopItems();
@@ -482,6 +484,7 @@ function ON_START_HOUSING_SHOP_BUTTON_BUYSELL()
 						end
 
 						housing.AddHousingShopBuyItem(slotItemClassID, itemCount);
+						isSound = "BuySound"
 					end
 				end
 			end
@@ -514,6 +517,7 @@ function ON_START_HOUSING_SHOP_BUTTON_BUYSELL()
 						end
 
 						housing.AddHousingShopSellItem(itemID, itemCount);
+						isSound = "SellSound"
 					end
 				end
 			end
@@ -529,6 +533,12 @@ function ON_START_HOUSING_SHOP_BUTTON_BUYSELL()
 	end
 
 	housing.CommitHousingShopItems("START_GUILD_HOUSING_SHOP");
+
+	if isSound ~= false and isSound == "BuySound" then
+		imcSound.PlaySoundEvent("market buy");
+	elseif isSound ~= false and isSound == "SellSound" then
+		imcSound.PlaySoundEvent("market_sell");
+	end
 end
 
 function HOUSING_SHOP_INIT_TAB(frame, gboxName, marketCategory)

@@ -464,7 +464,7 @@
                     <Pos Angle="0.037369616" Dist="71.220909"/>
                     <Str_Arg Str="I_skillrange_donut75##0.5" Arg="5.5"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_ground138_poison_bubble4" Arg="5"/>
+                    <Str_Arg Str="F_ground138_poison_bubble4Up" Arg="4"/>
                     <Num Num="130"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
@@ -482,34 +482,51 @@
                     <Num Num="65"/>
                     <Num Num="999"/>
                 </Scp>
-                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1900">
-                    <Pos Angle="0.037369616" Dist="71.220909" Height="1"/>
-                    <Str_Arg Str="I_skillrange_donut0##0.5" Arg="3.5"/>
+                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" CondFunc="" Time="1800">
+                    <Pos Angle="0" Dist="72" Height="1"/>
+                    <Str_Arg Str="None" Arg="3"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_ground138_poison_bubble4" Arg="5"/>
-                    <Num Num="90"/>
-                    <Num Num="0"/>
+                    <Str_Arg Str="None" Arg="6"/>
+                    <Num Num="100"/>
+                    <Num Num="100"/>
                     <Num Num="0"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Str Str="None"/>
+                    <Num Num="3"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_EFFECT_ATTACH" Client="YES" UseSleep="NO" Time="1800">
+                    <Str_Arg Str="I_skillrange_donut0" Arg="4"/>
                     <Num Num="1"/>
+                    <Pos Angle="0" Dist="75"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
                 <Anim Time="2000" Anim="skl5" Speed="1" StartTime="0.89999998"/>
+                <Scp Scp="C_EFFECT_DETACH" Client="YES" UseSleep="NO" Time="2500">
+                    <Str_Arg Str="I_skillrange_donut0" Arg="1"/>
+                    <Num Num="0.5"/>
+                </Scp>
                 <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="2700">
                     <Num Num="5"/>
                     <Num Num="0.30000001"/>
                     <Num Num="45"/>
                     <Num Num="999"/>
                 </Scp>
+                <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="2800">
+                    <Str_Arg Str="F_ground138_poison_bubble4" Arg="5"/>
+                    <Pos Angle="0" Dist="72"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="2900">
                     <Pos Angle="0.037369616" Dist="71.220909"/>
                     <Str_Arg Str="I_skillrange_donut50##0.5" Arg="8"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="F_ground138_poison_bubble4" Arg="5"/>
+                    <Str_Arg Str="F_ground138_poison_bubble4Up" Arg="5"/>
                     <Num Num="200"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
@@ -519,7 +536,7 @@
                     <Str Str="None"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                    <Num Num="95"/>
+                    <Num Num="110"/>
                 </Scp>
                 <Anim Time="3000" Anim="skl5" Speed="1" StartTime="0.89999998"/>
                 <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="3600">
@@ -671,16 +688,18 @@
             <EtcList>
                 <Anim Time="0" Anim="skl3" Speed="0.80000001"/>
                 <Scp Scp="C_EFFECT_ATTACH" Client="YES" UseSleep="NO" Time="0">
-                    <Str_Arg Str="I_skillrange_donut0##0.5" Arg="5"/>
+                    <Str_Arg Str="I_skillrange_donut0##0.5" Arg="3"/>
                     <Num Num="2.5"/>
-                    <Pos Angle="0" Dist="0"/>
+                    <Pos Angle="0" Dist="0" Height="1"/>
                     <Num Num="1"/>
                     <Num Num="-1"/>
                 </Scp>
-                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
-                    <Str_Arg Str="I_fire_003_blue" Arg="2.5"/>
-                    <Str Str="Bip001 tail05"/>
-                    <Num Num="0"/>
+                <Scp Scp="C_EFFECT_ATTACH" Client="YES" UseSleep="NO" Time="0">
+                    <Str_Arg Str="I_skillrange_donut50##0.5" Arg="6"/>
+                    <Num Num="2.5"/>
+                    <Pos Angle="0" Dist="0" Height="1"/>
+                    <Num Num="1"/>
+                    <Num Num="-1"/>
                 </Scp>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="1000">
                     <Str_Arg Str="F_light019_red" Arg="0.2"/>
@@ -705,6 +724,10 @@
                     <Str_Arg Str="F_light019_red" Arg="0.2"/>
                     <Str Str="Dummy_effect_eye_R"/>
                     <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_EFFECT_DETACH" Client="YES" UseSleep="NO" Time="1000">
+                    <Str_Arg Str="I_skillrange_donut50##0.5" Arg="1"/>
+                    <Num Num="0.5"/>
                 </Scp>
                 <Anim Time="1500" Anim="skl3" Speed="1.4" StartTime="1.5"/>
                 <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="1700">
@@ -743,14 +766,14 @@
                     <Str Str="None"/>
                     <Num Num="1"/>
                     <Num Num="0"/>
-                    <Num Num="100"/>
+                    <Num Num="110"/>
                 </Scp>
                 <Scp Scp="EFT_AND_HIT_RANGE_RATIO" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="2000">
                     <Pos Angle="0" Dist="0"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Num Num="0"/>
                     <Str_Arg Str="None" Arg="2"/>
-                    <Num Num="50"/>
+                    <Num Num="55"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <controlsetlist>
 	<controlset name="barrack_pet_mini" toggle="false" hittest="true" width="400" height="60" skin="">
 		<controls>
@@ -3160,8 +3160,7 @@
 		<controls>
 			<richtext name="t_rank" margin="11 10 0 0" rect="0 0 48 54" format="{@sti1c}%s{/}" param1="value" param1_def="112" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="t_name" margin="70 5 0 0" rect="0 0 207 41" format="{#000000}%s" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<richtext name="t_percent" margin="260 5 0 0" rect="0 0 80 41" format="{#000000}%s%" param1="value" param1_def="361" textalign="right center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<gauge name="gauge" margin="344 10 0 0" rect="0 0 199 32" skin="gauge_barrack_guild" inverse="false" point="80" text1="%v / %m" textoffset1="0 -1" textfont1="white_16_ol" textalign1="center center" layout_gravity="left top"/>
+			<richtext name="t_value" margin="430 5 0 0" rect="0 0 80 41" format="{#000000}%s" param1="value" param1_def="361" textalign="right center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		</controls>
 	</controlset>
 	<controlset name="guildwar_ctrlset" toggle="false" hittest="true" width="1388" height="30" stateskin="false" draw="true">
@@ -4518,7 +4517,7 @@
 		</controls>
 	</controlset>
 	<controlset name="skillability_ability" toggle="false" hittest="true" width="660" height="140" skin="test_skin_01_btn" stateskin="false">
-		<userconfig AFTER_ARROW="{img skill_arrow_red_pic 13 17}{/}{#8e0000}{b}" SKIN_LOCK="test_skin_gary_01" SKIN_UNLOCK="test_skin_01_btn" SKIN_LEVEL_ZERO="test_skin_gary_01" SKIN_LEVEL_MAX="test_skin_01_btn_cursoron"/>
+		<userconfig AFTER_ARROW="{img skill_arrow_red_pic 13 17}{/}{#8e0000}{b}" SKIN_LOCK="test_skin_01_btn" SKIN_UNLOCK="test_skin_01_btn" SKIN_LEVEL_ZERO="test_skin_gary_01" SKIN_LEVEL_MAX="test_skin_01_btn_cursoron"/>
 		<controls>
 			<slot name="slot" margin="13 15 0 0" rect="0 0 55 55" layout_gravity="left top" skin="slot_empty" PopScp="LIFT_ABILITY_ICON" enabledrop="false" enablepop="true" hittestset="true" hittest="true" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
 			<picture name="abilLevelPic" margin="80 42 0 0" rect="0 0 75 20" layout_gravity="left top" image="ability_now" stretch="true"/>

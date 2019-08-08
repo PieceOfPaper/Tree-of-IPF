@@ -1210,6 +1210,7 @@
 		<Class ClassID="10520" ClassName="CantDoThatCuzDoingSomething" Data="현재 진행중인 작업이 있어 불가능합니다."/>
 		<Class ClassID="10522" ClassName="RegisterPrefixItem" Data="옵션을 부여할 아이템을 등록해주세요."/>
 		<Class ClassID="10523" ClassName="AlreadyPrefixOption" Data="이미 적용된 옵션입니다."/>
+		<Class ClassID="10524" ClassName="{Name}ItemCountOver" Data="인벤토리에 [{Name}]이(가) 가득 차서 분해할 수 없습니다."/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -13689,7 +13690,7 @@
 		<Class ClassID="815024" ClassName="Guild_Housing_Research_Group_Buff_Apply_Over{ApplyName}{Name}{Level}{Silver}" Data="현재 {s18}{#f8bb00}{ol}{ApplyName}{/}{/}{/} 버프가 적용중 입니다.{nl} {nl}{s18}{#f8bb00}{ol}{Name} Lv.{Level}{/}{/}{/}  연구를 단체 활성화하여 버프를 받을 시 현재 적용중인 버프가 사라지며, 다음의 재화가 소비됩니다.{nl} {nl} 길드 자금 : {s18}{@st66d_y}{Silver}{/}{/}{nl} {nl}활성화 하시겠습니까?"/>
 		<Class ClassID="815025" ClassName="Guild_Housing_Research_Person_Buff_Applied_Msg{Name}{Level}" Data="개인 활성화로 {#33FF33}{Name} {Level}단계{/} 버프를 받았습니다"/>
 		<Class ClassID="815026" ClassName="Guild_Housing_Research_Group_Buff_Applied_Msg{Name}{Level}" Data="단체 활성화로 {#33FF33}{Name} {Level}단계{/} 버프를 받았습니다{nl}(PvP 지역에서는 해당 버프가 적용되지 않습니다)"/>
-		<Class ClassID="815027" ClassName="Weekly_Guild_Mileage_Reward_Success_Msg{Count}{NowCount}{MaxCount}" Data="{#33FF33}주간 콘텐츠 이용으로 {Count}의 길드 마일리지를 획득했습니다.{nl}(주간 획득 가능한 길드 마일리지 : {NowCount}/{MaxCount}){/}"/>
+		<Class ClassID="815027" ClassName="Weekly_Guild_Mileage_Reward_Success_Msg{Count}{NowCount}{MaxCount}" Data="{#33FF33}특정 콘텐츠 이용으로 {Count}의 길드 마일리지를 획득했습니다.{nl}(주간 획득 가능한 길드 마일리지 : {NowCount}/{MaxCount}){/}"/>
 		<Class ClassID="815028" ClassName="Weekly_Guild_Mileage_Reward_Fail_Msg{MaxCount}" Data="주간 획득 가능한 {MaxCount}의 길드 마일리지를 모두 획득했습니다"/>
 		<Class ClassID="815029" ClassName="GUILD_HOUSING_ANIM_BAKARINE_STATUS_MSG" Data="경배 하기"/>
 		<Class ClassID="815030" ClassName="Guild_Housing_Extension_Msg1{Level}" Data="길드 아지트가 {Level}단계로 확장되었습니다!{nl}(길드 보관함에 지급된 아이템이 있으니 확인해 주세요)"/>

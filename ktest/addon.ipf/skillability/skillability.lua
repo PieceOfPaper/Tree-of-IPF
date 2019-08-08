@@ -839,14 +839,14 @@ function SKILLABILITY_FILL_ABILITY_CTRLSET(ability_gb, classCtrl, abilClass, gro
     -- skin
     local unlockScpRet = GET_ABILITY_CONDITION_UNLOCK(abilIES, groupClass);
     local isLock = (unlockScpRet ~= nil and unlockScpRet ~= 'UNLOCK');
-    if isLock then
-		classCtrl:SetSkinName(SKIN_LOCK);
-    elseif abilLv + learnCount <= 0 then
-		classCtrl:SetSkinName(SKIN_LEVEL_ZERO);
-	elseif isMax == 1 then
-        classCtrl:SetSkinName(SKIN_LEVEL_MAX);
-    else
+    if abilLv + learnCount <= 0 then
+        classCtrl:SetSkinName(SKIN_LEVEL_ZERO);
+    elseif isLock then
+        classCtrl:SetSkinName(SKIN_LOCK);
+	elseif isMax ~= 1 then
         classCtrl:SetSkinName(SKIN_UNLOCK);
+    else
+        classCtrl:SetSkinName(SKIN_LEVEL_MAX);
     end
 
     -- price

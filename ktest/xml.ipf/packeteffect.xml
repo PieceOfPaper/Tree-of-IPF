@@ -1268,6 +1268,7 @@
         <Effect Name="F_spread_out032_3"/>
         <Effect Name="F_spread_out037_orange"/>
         <Effect Name="F_light057_yellow2"/>
+    <Effect Name="F_bg_light015_white2"/>
     </Category>
     <Category ID="201">
         <Effect Name="F_cleric_devinestigma_hit_smoke_LOW##0.5"/>
@@ -2189,6 +2190,9 @@
 		<Effect Name="F_archere_magicarrow_gruond_loop2"/>
 	<Effect Name="YinYangConsonance_Hidden_Pad"/>
         <Effect Name="HeavyGravity_HIDDEN_ABIL_PAD"/>
+        <Effect Name="Elementalist_MovingFireBall_1"/>
+        <Effect Name="Elementalist_MovingFireBall_2"/>
+        <Effect Name="Elementalist_MovingFireBall_3"/>
     </Category>
     <Category ID="84">
         <Effect Name="M_PAST_FLIBRARY_1"/>
@@ -2400,7 +2404,9 @@
         <Effect Name="F_dash012_yellow_loop"/>
         <Effect Name="F_dash012_yellow_loop"/>
         <Effect Name="I_sphere009_green"/>
-    </Category>
+    <Effect Name="F_warrior_Highlander35_abil_dead"/>
+		<Effect Name="F_warrior_Highlander35_abil"/>
+	</Category>
     <Category ID="72">
         <Effect>F_archer_chargeshot_shot_smoke</Effect>
     </Category>

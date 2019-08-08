@@ -2,11 +2,14 @@ function HOUSING_EDIT_MODE_REMOVE_OPEN(handle)
     control.CustomCommand("REQ_GUILD_MILEAGE_AMOUNT", 0);
 	session.party.ReqGuildAsset();
 	
-	RunScript("_HOUSING_EDIT_MODE_REMOVE_OPEN", handle);
+	local frame = ui.GetFrame("housing_editmode");
+	frame:SetUserValue("FURNITURE_HANDLE", tostring(handle));
+	AddLuaTimerFunc("_HOUSING_EDIT_MODE_REMOVE_OPEN", 500, 0);
 end
 
 function _HOUSING_EDIT_MODE_REMOVE_OPEN(handle)
-	sleep(500);
+	local frame = ui.GetFrame("housing_editmode");
+	local handle = tonumber(frame:GetUserValue("FURNITURE_HANDLE"));
 
 	local actor = world.GetActor(handle);
 	if actor == nil then
@@ -26,7 +29,7 @@ function _HOUSING_EDIT_MODE_REMOVE_OPEN(handle)
     local guild = session.party.GetPartyInfo(PARTY_GUILD);
 
 	ui.OpenFrame("housing_editmode_remove");
-	local frame = ui.GetFrame("housing_editmode_remove");
+	frame = ui.GetFrame("housing_editmode_remove");
 
 	local txt_furniture_name = GET_CHILD_RECURSIVELY(frame, "txt_furniture_name");
 	txt_furniture_name:SetTextByKey("name", actor:GetName());

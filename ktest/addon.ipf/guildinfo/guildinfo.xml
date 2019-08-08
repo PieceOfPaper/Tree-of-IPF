@@ -642,7 +642,7 @@
 							</layout>
 								</layoutsection>
 								<layoutsection name="jointInventoryInfoSection" size="10%">
-									<richtext name="inventoryInfoText" format="ⓘ 입고/출고 시 마일리지 20 차감 됩니다. {nl}ⓘ마일리지는 길드원 로그인, 주간 콘텐츠 이용(챌린지 5단계 이상, 유니크 레이드, 레전드 레이드 클리어)을 통해서 적립됩니다.{nl}ⓘ주간 콘텐츠 이용을 통한 마일리지 적립은 길드원별 주간 100 까지 누적 적립 가능하며, 누적 적립은 매주 월요일 오전 6시에 초기화 됩니다." textalign="left top" resizebytext="true" fontname="black_16"/>
+									<richtext name="inventoryInfoText" format="ⓘ 입고/출고 시 마일리지 20 차감 됩니다. {nl}ⓘ마일리지는 길드원 로그인, 특정 콘텐츠 이용(챌린지 5단계 이상, 유니크 레이드, 레전드 레이드 클리어)을 통해서 적립됩니다.{nl}ⓘ특정 콘텐츠 이용을 통한 마일리지 적립은 길드원별 주간 100 까지 누적 적립 가능하며, 누적 적립은 매주 월요일 오전 6시에 초기화 됩니다." textalign="left top" resizebytext="true" fontname="black_16"/>
 								</layoutsection>
 							</layout>
 							<layout name="setting" orientation="vertical" tabname="optionTabItemText">
