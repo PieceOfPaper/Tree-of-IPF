@@ -295,8 +295,12 @@ function ITEM_RANDOMRESET_REG_TARGETITEM(frame, itemID)
 				material_count:SetTextByKey("curCount", itemCount);
 				
 				--EVENT_1903_WEEKEND
-				if SCR_EVENT_1903_WEEKEND_CHECK('ITEMRANDOMRESET', false) == 'YES' then
-    			    material_count:SetTextByKey("needCount", materialItemCount..' '..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1'))
+--				if SCR_EVENT_1903_WEEKEND_CHECK('ITEMRANDOMRESET', false) == 'YES' then
+--    			    material_count:SetTextByKey("needCount", materialItemCount..' '..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1'))
+    			    
+                --burning_event
+                if IsBuffApplied(pc, "Event_Reappraisal_Discount_50") == "YES" then
+                    material_count:SetTextByKey("needCount", materialItemCount..' '..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1'))
     			else
     				material_count:SetTextByKey("needCount", materialItemCount)
     			end

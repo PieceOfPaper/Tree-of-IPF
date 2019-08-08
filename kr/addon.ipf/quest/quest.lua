@@ -53,6 +53,8 @@ function QUEST_ON_INIT(addon, frame)
 	-- custom quest
 	addon:RegisterMsg('CUSTOM_QUEST_UPDATE', 'ON_CUSTOM_QUEST_UPDATE');
 	addon:RegisterMsg('CUSTOM_QUEST_DELETE', 'ON_CUSTOM_QUEST_DELETE');
+	addon:RegisterMsg('STYLE_INFO_UPDATE', 'ON_STYLE_INFO_UPDATE');
+	addon:RegisterMsg('CUSTOM_OPTION_CHECK', 'QUEST_CUSTOM_OPTION_CHECK');
 
 	-- party quest
 	addon:RegisterMsg('PARTY_UPDATE', "ON_PARTY_UPDATE_SHARED_QUEST")

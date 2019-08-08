@@ -130,6 +130,67 @@
                 </Scp>
             </EtcList>
         </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                        <Str Str="Exorcist19"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <EtcList>
+                        <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="0">
+                            <Pos Angle="0" Dist="3.884188e-36" PosType="3"/>
+                            <Num Num="70"/>
+                            <Num Num="15"/>
+                            <Num Num="2"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="voice_cleric_m_katadikazo_shot"/>
+                            <Str Str="voice_cleric_f_katadikazo_shot"/>
+                        </Scp>
+                        <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="200">
+                            <Str_Arg Str="E_cleric_katadikazo_Abil" Arg="1"/>
+                            <Pos Angle="0" Dist="4.1710592e-36" PosType="3"/>
+                            <Num Num="0"/>
+                            <Str Str="None"/>
+                        </Scp>
+                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="300">
+                            <Str Str="skl_eff_exorcist_katadikazo"/>
+                        </Scp>
+                        <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="400">
+                            <Num Num="7"/>
+                            <Num Num="0.30000001"/>
+                            <Num Num="65"/>
+                            <Num Num="999"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="700">
+                            <Pos Angle="0" Dist="3.884188e-36" PosType="3"/>
+                            <Angle Angle="0"/>
+                            <Str Str="Exorcist_Katadikazo"/>
+                        </Scp>
+                        <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="700">
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="1000">
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="1300">
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
     </Skill>
     <Skill Name="Exorcist_Koinonia">
         <EnableScripts>
@@ -218,7 +279,7 @@ return time"/>
 				<Num Num="0"/>
 			</ToolScp>
 			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
-				<Str Str="SKL_RUBRIC_SHOT"/>
+				<Str Str="SKL_RUBRIC_SHOT" UseFunc="1" FuncTxt="local abilBuff = info.GetBuffByName(self:GetHandleVal(), &quot;Rubric_Hidden_Buff&quot;) if abilBuff ~= nil then return &quot;SKL_RUBRIC_SHOT_ABIL&quot; else return &quot;SKL_RUBRIC_SHOT&quot; end"/>
 				<Num Num="1"/>
 				<Num Num="1"/>
 			</ToolScp>

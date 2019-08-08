@@ -16,7 +16,7 @@
         <groupbox name="gague_retry" rect="0 0 540 130" margin="0 0 0 0 " layout_gravity="center top" image="gague_retry" skin="None"/>
         <groupbox name="gague_2" rect="0 0 380 35" margin="80 50 0 0" layout_gravity="left top" image="gague_retry" skin="None"/>
         <gauge name="timegauge" parent="gague_2" rect="0 0 360 35" margin="0 0 0 0" layout_gravity="left top" point="50" skin="gauge_retry2" text1="@TIMEACTION_TXT" textalign1="center center" textfont1="white_18_ol" textoffset1="0 -3"/>
-        <button name="cancel" rect="0 -10 100 35" margin="0 0 0 -5" layout_gravity="center bottom" LBtnUpScp="CANCEL_TIME_ACTION" caption="{@st41b}취소{/}" clicksound="button_click_big" oversound="button_over" skin="textbutton"/>
+        <button name="cancel" rect="0 -10 100 35" margin="0 0 0 -5" layout_gravity="center bottom" LBtnUpScp="CANCEL_TIME_ACTION" format="{@st41b}%s{/}" param1="value" param1_def="취소" clicksound="button_click_big" oversound="button_over" skin="textbutton"/>
         <timer name="addontimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
         <animpicture name="animpic" parent="gague_2" rect="0 0 130 30" margin="10 3 0 0" layout_gravity="left top" animcount="9" blend="50" hittest="false" image="gauge_light2" loop="true" playanim="true" spacex="1" spacey="0" stretch="true" texelheight="30" texelwidth="130" texelx="0" texely="0" ticktime="0.1"/>
         <groupbox name="bg_queue" rect="0 0 540 130" margin="0 -70 0 0" layout_gravity="center top" draw="false" hittestbox="false"/>

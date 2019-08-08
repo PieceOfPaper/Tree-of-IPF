@@ -22,6 +22,11 @@ function POPUP_CHANNEL_LIST(parent)
     if session.colonywar.GetIsColonyWarMap() == true then
         return;
     end
+	
+	local mapName = session.GetMapName();
+	if mapName == 'guild_agit_1' or mapName == 'guild_agit_extension' then
+		return;
+	end
     
     if parent:GetUserValue("ISOPENDROPCHANNELLIST") == "YES" then
         parent:SetUserValue("ISOPENDROPCHANNELLIST", "NO");

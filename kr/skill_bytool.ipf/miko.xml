@@ -311,5 +311,66 @@
 				</Scp>
 			</EtcList>
 		</MainSkl>
+		<ByCondSkills>
+			<SubSkl>
+				<Cond>
+					<ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                        <Str Str="Miko9" />
+                    </ToolScp>
+				</Cond>
+				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+					<HitList>
+						<Frame Angle="0" AniTime="250" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="50" Type="SQUARE" Width="20"/>
+						<Frame Angle="0" AniTime="400" Dist="0" ForceATK="0" HitCount="1" Length="40" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="200" Type="SQUARE" Width="20"/>
+					</HitList>
+					<EtcList>
+						<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+							<Str Str="Gohei_Buff"/>
+							<Num Num="1"/>
+							<Num Num="0"/>
+							<Num Num="750"/>
+							<Num Num="1"/>
+							<Num Num="100"/>
+							<Num Num="1"/>
+						</Scp>
+						<Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
+							<Num Num="2"/>
+						</Scp>
+						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+							<Str Str="voice_archer_atk"/>
+							<Str Str="voice_archer_f_atk"/>
+						</Scp>
+						<Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="330" UseSleep="NO">
+							<Pos Angle="0" Dist="0"/>
+							<Num Num="0"/>
+							<Num Num="50"/>
+							<Num Num="30"/>
+							<Num Num="5"/>
+							<Num Num="7"/>
+							<Num Num="0"/>
+						</Scp>
+						<Scp Client="NO" Scp="SKL_TARGET_BUFF_REMOVE_GOHIE" Time="330" UseSleep="NO">
+							<Str Str="PARTY"/>
+							<Str Str="Debuff"/>
+							<Num FuncTxt="return IMCRandom(1,5)" Num="5" UseFunc="1"/>
+							<Num Num="3"/>
+						</Scp>
+						<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="340" UseSleep="NO">
+							<Pos Angle="0" Dist="0"/>
+							<Num Num="100"/>
+							<Num Num="5"/>
+							<Num Num="7"/>
+							<Num Num="0"/>
+						</Scp>
+						<Scp Client="NO" Scp="SKL_TARGET_BUFF_REMOVE_GOHIE" Time="340" UseSleep="NO">
+							<Str Str="ENEMY"/>
+							<Str Str="Buff"/>
+							<Num FuncTxt="return IMCRandom(1,3)" Num="3" UseFunc="1"/>
+							<Num Num="3"/>
+						</Scp>
+					</EtcList>
+				</Skill>
+			</SubSkl>
+		</ByCondSkills>
 	</Skill>
 </ToolSkill>

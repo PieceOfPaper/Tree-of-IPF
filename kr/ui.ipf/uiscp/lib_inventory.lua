@@ -833,3 +833,35 @@ function FOR_EACH_INVENTORY(invItemList, func, desc, ...)
 	end
 	return true;
 end
+
+local furniture_cache = {};
+
+function CLEAR_FURNITURE_CLASS_BY_ITEM()
+	furniture_cache = {};
+end
+
+function GET_FURNITURE_CLASS_BY_ITEM(className)
+	if furniture_cache[className] == nil then
+		local classList, count = GetClassList("Housing_Furniture");
+		
+		for i = 0, count - 1 do
+			local furnitureClass = GetClassByIndexFromList(classList, i);
+			local itemClassName = TryGetProp(furnitureClass, "ItemClassName", "None");
+			if itemClassName == className then
+				furniture_cache[className] = furnitureClass.ClassName;
+				break;
+			end
+		end
+	end
+	
+	return GetClass("Housing_Furniture", furniture_cache[className]);
+end
+
+function GET_FURNITURE_CLASS_BY_ITEM_CLASSID(classID)
+	local itemClass = GetClassByType("Item", classID);
+	if itemClass == nil then
+		return nil;
+	end
+
+	return GET_FURNITURE_CLASS_BY_ITEM(itemClass.ClassName);
+end

@@ -4559,7 +4559,363 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="D_ZACHA3F_FALL" UpdateMS="1000" ActiveMessageMapInBattle="1">
+	<AI Name="D_UNDERAQUEDUCT_BOSS_GIMMICK_EGG2_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_UNDERAQUEDUCT_BOSS_GIMMICK_EGG2_LIFE"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_UNDERAQUEDUCT_BOSS_GIMMICK_EGG2_DIE"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_light013_spark_blue_2" Arg="2"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="42"/>
+                <Num Num="232"/>
+                <Num Num="0"/>
+                <Num Num="255"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_light022_green" Arg="3"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_BOSS_GIMMICK_EGG_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_UNDERAQUEDUCT_BOSS_GIMMICK_EGG_LIFE"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_UNDERAQUEDUCT_BOSS_GIMMICK_EGG_DIE"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_light013_spark_blue_2" Arg="2"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="237"/>
+                <Num Num="3"/>
+                <Num Num="0"/>
+                <Num Num="255"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_light021_darkred" Arg="3"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_BOSS_GIMMICK_SKILL2_1_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_UNDERAQUEDUCT_BOSS_GIMMICK_MOVE_SKILL"/>
+            </ToolScp>
+            </List>
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="255"/>
+                <Num Num="255"/>
+                <Num Num="255"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_BOSS_GIMMICK_SKILL3_1_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_UNDERAQUEDUCT_BOSS_GIMMICK_MOVE_SKILL2"/>
+            </ToolScp>
+            </List>
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="255"/>
+                <Num Num="255"/>
+                <Num Num="255"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_BOSS_GIMMICK_SKILL_1_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_UNDERAQUEDUCT_BOSS_SKILL_DAMAGE"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_wizard_FlameGround_loop" Arg="1"/>
+                <Num Num="0.5"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_UNDERAQUEDUCT_BOSS_SKILL_END"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_UNDERAQUEDUCT_BOSS_SKILL_TIME"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="255"/>
+                <Num Num="255"/>
+                <Num Num="255"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_BOSS_GIMMICK_SKILL_FURY_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_UNDERAQUEDUCT_BOSS_SKILL_FURY_DAMAGE"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_UNDERAQUEDUCT_BOSS_SKILL_FURY_TIME"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_BOSS_SKILL_DESTROY_Gimmick_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_D_UNDERAQUEDUCT_BOSS_SKILL_DESTROY_SAFE"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_BOSS_TIME_OVER_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_UNDERAQUEDUCT_BOSS_TIME_OVER_ACTION"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_EVENT3_GIMMICK_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_GoldDog_smoke002" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_EVENT3_GIMMICK_BOSS_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_UNDERAQUEDUCT_EVENT3_SKILL"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="1191.6954" Y="215.44659" Z="119.16801"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="DisableBornAni" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_light115_explosion_blue" Arg="1"/>
+                <Str Str="circle_node"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="255"/>
+                <Num Num="215"/>
+                <Num Num="0"/>
+                <Num Num="255"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_EVENT3_GIMMICK_PORTAL_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_circle25_red" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_EVENT_3_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_UNDERAQUEDUCT_EVENT_3_AI"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_GIMMICK_MON_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="100"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GIMMICK_4_ITEM_CHECK_AI"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="255"/>
+                <Num Num="100"/>
+                <Num Num="100"/>
+                <Num Num="255"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                <Num Num="100"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_MGAME_POINT_1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                <Str Str="UNDERAQUEDUCT_MGAME"/>
+                <Str Str="Mini_Game_1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                <Str Str="UNDERAQUEDUCT_MGAME"/>
+                <Str Str="Mini_Game_2"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                <Str Str="UNDERAQUEDUCT_MGAME"/>
+                <Str Str="Mini_Game_3"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                <Str Str="UNDERAQUEDUCT_MGAME"/>
+                <Str Str="Mini_Game_4"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                <Str Str="UNDERAQUEDUCT_MGAME"/>
+                <Str Str="Mini_Game_5"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_MGAME_POINT_2" ActiveMessageMapInBattle="1">
+        <DeadList>
+            <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                <Str Str="UNDERAQUEDUCT_MGAME"/>
+                <Str Str="TOTAL_POINT"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </DeadList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_MGAME_POINT_3" ActiveMessageMapInBattle="1">
+        <DeadList>
+            <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                <Str Str="UNDERAQUEDUCT_MGAME"/>
+                <Str Str="TOTAL_POINT"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </DeadList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_MGAME_POINT_4" ActiveMessageMapInBattle="1">
+        <DeadList>
+            <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                <Str Str="UNDERAQUEDUCT_MGAME"/>
+                <Str Str="Mini_Game_4"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </DeadList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_MGAME_POINT_5" ActiveMessageMapInBattle="1">
+        <DeadList>
+            <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                <Str Str="UNDERAQUEDUCT_MGAME"/>
+                <Str Str="Mini_Game_5"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </DeadList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_MGAME_REWARD_NPC" ActiveMessageMapInBattle="1">
+        <DeadList>
+            <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_explosion007_light" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_light146_leaf" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_PC_LIFE_COUNT_1" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PC_LIFE_COUNT_1_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_PC_LIFE_COUNT_1_NEXT" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PC_LIFE_COUNT_1_NEXT_AI"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PC_LIFE_CONTINUE_COUNT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_PC_LIFE_COUNT_2" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PC_LIFE_COUNT_2_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="D_UNDERAQUEDUCT_PC_LIFE_COUNT_2_NEXT" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PC_LIFE_COUNT_2_NEXT_AI"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PC_LIFE_CONTINUE_COUNT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="D_ZACHA3F_FALL" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<StartList>
 			<ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
 				<Str Str="KNOCKDOWN"/>
@@ -19882,6 +20238,21 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </StartList>
     </AI>
+    <AI Name="UNDERAQUEDUCT_EVENT3_CHANGEGIMMICK_AI" ActiveMessageMapInBattle="1"/>
+    <AI Name="UNDERAQUEDUCT_WARP_GATE_EFFECT" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_levitation032_red_loop" Arg="2"/>
+                <Str Str="MID"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_light079_blue_loop_att" Arg="3"/>
+                <Str Str="MID"/>
+            </ToolScp>
+        </StartList>
+    </AI>
     <AI Name="UNDERF591_TYPEB_RUMBLE" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -24876,4 +25247,30 @@ return GET_RATE_MHP(self, damage) * 100"/>
             </ToolScp>
         </HitList>
     </AI>
+	<AI Name="F_Moringponia_Summon_AI" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+				<Str Str="SCR_MORINGPONIA_RECOVERED_SPHERE_S_AI_1"/>
+				<Num Num="10"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str Str="MoveSpeedFix"/>
+				<Num Num="30"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+		</StartList>
+		<HitList>
+			<ToolScp Scp="SCR_MORINGPONIA_RECOVERED_SPHERE_S_AI_HIT" Client="NO" UseSleep="NO">
+				<Num Num="2"/>
+				<Str Str="None"/>
+			</ToolScp>
+		</HitList>
+	</AI>
 </AIList>

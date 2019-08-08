@@ -61,7 +61,7 @@
 				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="300" UseSleep="NO">
 					<Pos Angle="0" Dist="20" />
 					<Angle Angle="0" />
-					<Str Str="Cleric_New_Aukuras" />
+                    <Str FuncTxt="local str = &quot;Cleric_New_Aukuras&quot; local abilKriwi24 = GetAbility(self, &quot;Kriwi24&quot;) if abilKriwi24 ~= nil and abilKriwi24.ActiveState == 1 then str = &quot;Cleric_New_Aukuras_Hidden&quot; end return str" UseFunc="1" Str="Cleric_New_Aukuras" />
 				</Scp>
 			</EtcList>
 		</MainSkl>

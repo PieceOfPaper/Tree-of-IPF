@@ -799,9 +799,20 @@ function SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped, basicProp)
 	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce', 0);
 	local bonusReinf = TryGetProp(pc, 'BonusReinforce', 0);
 	local overReinf = TryGetProp(pc, 'OverReinforce', 0);
+	-- 오버 리인포스 비급이 적용되면 값이 음수로 들어오므로 양수로 바꿔줌
+	local abil_flag = false;
+	if overReinf < 0 then
+		overReinf = -overReinf;
+		abil_flag = true;
+	end
 
-	if TryGetProp(invitem, 'EquipGroup') ~= 'SubWeapon' or isEquiped == 0 then
-		overReinf = 0;
+	local equipGroup = TryGetProp(invitem, 'EquipGroup')
+	if equipGroup ~= 'SubWeapon' or isEquiped == 0 then
+		if abil_flag == true and (equipGroup == 'SHIRT' or equipGroup == 'PANTS' or equipGroup == 'GLOVES' or equipGroup == 'BOOTS') then
+			-- 추후 오버 리인포스 비급 관련 작업 가능 부분
+		else
+			overReinf = 0;
+		end
 	end
 	if TryGetProp(invitem, 'GroupName') ~= 'Weapon' or isEquiped == 0 then
 		bonusReinf = 0;

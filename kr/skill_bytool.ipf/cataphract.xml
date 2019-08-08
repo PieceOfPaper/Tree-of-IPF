@@ -415,5 +415,61 @@
 				</Scp>
 			</EtcList>
 		</MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                        <Str Str="Cataphract34" />
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="200" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="0" Type="FAN" />
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" LoopTime="600" Scp="SKL_BUFF" Time="100" UseSleep="NO">
+                            <Str Str="Warrior_EnableMovingShot_Buff" />
+                            <Num Num="2" />
+                            <Num Num="0" />
+                            <Num Num="1000" />
+                            <Num Num="1" />
+                            <Num Num="100" />
+                            <Num Num="0" />
+                        </Scp>
+                        <Scp Client="NO" LoopTime="300" Scp="SKL_SET_TARGET_CIRCLE" Time="200" UseSleep="NO">
+                            <Pos Angle="0" Dist="0" PosType="5" />
+                            <Num Num="40" />
+                            <Num FuncTxt="return obj.SkillSR" Num="0" UseFunc="1" />
+                            <Num Num="2" />
+                            <Num Num="0" />
+                            <Num Num="1" />
+                        </Scp>
+                        <Scp Client="NO" LoopTime="315" Scp="SKL_TGT_ATTRACT" Time="200" UseSleep="NO">
+                            <Num Num="100" />
+                            <Num Num="315" />
+                            <Num Num="1" />
+                        </Scp>
+                        <Scp Client="NO" LoopTime="330" Scp="SKL_TGT_DMG_BY_DIST" Time="200" UseSleep="NO">
+                            <Num Num="1" />
+                            <Num Num="40" />
+                            <Num Num="0.5" />
+                        </Scp>
+                        <Scp Client="NO" LoopTime="300" Scp="SKL_TGT_BUFF_ABIL" Time="200" UseSleep="NO">
+                            <Str Str="Cataphract1" />
+                            <Str Str="Stun" />
+                            <Num Num="1" />
+                            <Num Num="-1" />
+                            <Num Num="2000" />
+                            <Num Num="0" />
+                            <Num Num="1" />
+                            <Num FuncTxt="return GET_ABIL_LEVEL(self, 'Cataphract1')" Num="100" UseFunc="1" />
+                        </Scp>
+                        <Scp Client="NO" LoopTime="330" Scp="SKL_CONSUME_SP" Time="200" UseSleep="NO">
+                            <Num FuncTxt="local value = 12 local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect &gt;= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) if IsBuffApplied(self, &quot;AcrobaticMount_Buff&quot;) == &quot;YES&quot; then     local acrobaticBuff = GetBuffByName(self, &quot;AcrobaticMount_Buff&quot;)     local acrobaticBuffLevel = GetBuffArg(acrobaticBuff)     local acrobaticAddSPRate = acrobaticBuffLevel * 0.05     value = value * (1 + acrobaticAddSPRate) end return math.floor(value)" Num="4" UseFunc="1" />
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
 	</Skill>
 	</ToolSkill>

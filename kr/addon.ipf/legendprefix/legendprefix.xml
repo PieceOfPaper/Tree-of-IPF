@@ -31,10 +31,10 @@
 		<richtext name="targetText" parent="pic" rect="0 0 300 30" margin="0 195 0 0" layout_gravity="center top" format="{@st42}{s18}%s{/}" param1="name" param1_def=""/>		
 		<animpicture name="animpic_bg" parent="pic" blend="50" texelx="0" texely="0" texelwidth="507" texelheight="707" spacex="0" spacey="0" loop="false" ticktime="0.1" animcount="14" layout_gravity="center top" rect="0 0 507 707" margin="0 0 0 0" image="itemlink_ani" hittest="false" playanim="true" stretch="false" hideAnimEnd="true" visible="false" tickscript="LEGENDPREFIX_BG_ANIM_TICK"/>
 		<animpicture name="animpic_slot" blend="50" texelx="0" texely="0" texelwidth="400" texelheight="400" spacex="1" spacey="0" loop="false" ticktime="0.06" animcount="9" layout_gravity="left top" rect="0 0 400 400" margin="50 255 0 0" image="cube_ani" hittest="false" playanim="true" stretch="true" hideAnimEnd="true" visible="false"/>
-		<groupbox name="matPic_dummy" rect="0 0 80 80" parent="pic" margin="0 0 0 90" layout_gravity="center bottom" draw="false">
+		<groupbox name="matPic_dummy" rect="0 0 80 80" parent="pic" margin="0 0 0 90" layout_gravity="center bottom" draw="false" >
 			<uieffect effect="None" scale="10" overlab="No" sound="None" offset="0 0" playtime="1" duration="1" conditon="active" event="None"/>
 		</groupbox>
-		<picture name="matPic" rect="0 0 80 80" parent="pic" margin="0 0 0 90" layout_gravity="center bottom" image="ok_button" stretch="true"/>
+		<slot name="matSlot" rect="0 0 80 80" parent="pic" margin="0 0 0 90" layout_gravity="center bottom" DropScp="LEGENDPREFIX_SET_MAT"/>
 		<richtext name="matText" rect="0 0 100 30" parent="pic" margin="30 0 0 90" layout_gravity="center bottom" format="%s%s/%s" param1="style" param1_def="{@st42}" param2="cur" param2_def="0" param3="need" param3_def="0"/>
 		<droplist name="legend_OptionSelect_DropList" parent="gbox2" rect="0 0 250 100" margin="0 40 0 0" layout_gravity="center top" SelectScp="LEGEND_PREFIX_SELECT_DROPLIST" skin="droplist_normal" frametextalign="center" defaultoffset="false" listclicksound="button_click" listoversound="button_cursor_over_2" textalign="center center" defaultfont="white_18_ol" cursoronfont="white_18_ol" selectedfont="white_18_ol" framedefaultfont="white_18_ol" framecursoronfont="white_18_ol" visibleline="5"/>
 	</controls>

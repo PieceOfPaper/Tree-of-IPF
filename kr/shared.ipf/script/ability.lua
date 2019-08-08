@@ -101,8 +101,7 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
     return "UNLOCK";
     
     
-            --[[
-
+    --[[
 
     if ability.Job ~= "None" and string.find(ability.Job, ";") == nil then
         
@@ -119,7 +118,9 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
     end
 
     return "UNLOCK";
+    
     ]]--
+
 end
 
 function GET_ABILITY_SKILL_CATEGORY_LIST(abilClsName)
@@ -132,6 +133,19 @@ function GET_ABILITY_SKILL_CATEGORY_LIST(abilClsName)
     end
     local category_list = StringSplit(abilCls.SkillCategory, ';')
     return category_list
+end
+
+function IS_ACTIVE_ABILITY(self, abilName)
+    if IS_PC(self) == false then
+        return 0;
+    end
+
+    local abil = GetAbility(self, abilName);
+    if abil ~= nil and TryGetProp(abil, 'ActiveState') == 1 then
+        return 1;
+    end
+    
+    return 0;
 end
 
 function SCR_ABIL_NONE_ACTIVE(self, ability)
@@ -438,6 +452,10 @@ function SCR_ABIL_LEATHER_ACTIVE(self, ability)
     if count >= 4 then
 	    crtValue = 200;     -- 20%
 	    damageValue = 150;  -- 15%
+        
+        if IS_ACTIVE_ABILITY(self, "Hunter16") == 1 then
+            AddBuff(self, self, "Hunter_Companion_Bonus_Buff");
+        end
 	end
     
     SetExProp(self, "LEATHER_ARMOR_ABIL_VALUE", crtValue);
@@ -445,7 +463,7 @@ function SCR_ABIL_LEATHER_ACTIVE(self, ability)
 end
 
 function SCR_ABIL_LEATHER_INACTIVE(self, ability)
-	
+	RemoveBuff(self, "Hunter_Companion_Bonus_Buff");
 end
 
 
@@ -1129,9 +1147,11 @@ function IS_ABILITY_KEYWORD(abilCls, keyword)
 end
 
 function SCR_ABIL_Psychokino24_ACTIVE(self, ability)
-    local skl = GetSkill(self, "Wizard_Teleportation")
-    if skl ~= nil then
-        SetSkillOverHeat(self, skl.ClassName, 2, 1)
+    if IS_ACTIVE_ABILITY(self, "Wizard30") == 0 then
+        local skl = GetSkill(self, "Wizard_Teleportation")
+        if skl ~= nil then
+            SetSkillOverHeat(self, skl.ClassName, 2, 1)
+        end
     end
 end
 
@@ -1280,4 +1300,469 @@ function SCR_ABIL_STATCHANGE_Chaplain_INACTIVE(self, ability)
     Invalidate(self, "INT");
     Invalidate(self, "DEX");
     Invalidate(self, "MNA");
+end
+
+function SCR_ABIL_Barbarian35_ACTIVE(self, ability)
+    local armorCount, lowestArmorGrade = CHECK_ARMORMATERIAL(self, "Leather");
+
+    if armorCount >= 4 then
+        AddBuff(self, self, "Barbarian_Beast_Buff");
+    end
+end
+
+function SCR_ABIL_Barbarian35_INACTIVE(self, ability)
+    RemoveBuff(self, "Barbarian_Beast_Buff");
+end
+
+function SCR_ABIL_Matador21_ACTIVE(self, ability)
+    local skill = GetSkill(self, "Matador_CorridaFinale");
+    if skill ~= nil then
+        local dummySkill = AddInstSkill(self, "Matador_CorridaFinale_Hidden", skill.Level);
+
+        local sklAttribute = skill.Attribute;
+        skill.Attribute = "Fire";
+        dummySkill.Attribute = "Fire";
+
+        SetExProp_Str(self, "Matador21_ATTRIBUTE", sklAttribute);
+        AddBuff(self, self, "CorridaFinale_Hidden_Buff");
+    end
+end
+
+function SCR_ABIL_Matador21_INACTIVE(self, ability)
+    RemoveInstSkill(self, "Matador_CorridaFinale_Hidden");
+    
+    local skill = GetSkill(self, "Matador_CorridaFinale");
+    if skill ~= nil then
+        local sklAttribute = GetExProp_Str(self, "Matador21_ATTRIBUTE");
+        skill.Attribute = sklAttribute;
+        RemoveBuff(self, "CorridaFinale_Hidden_Buff");
+    end
+end
+
+function SCR_ABIL_Doppelsoeldner27_ACTIVE(self, ability)
+    local skill = GetSkill(self, "Doppelsoeldner_Zornhau");
+    if skill ~= nil then
+        SetSkillOverHeat(self, skill.ClassName, 3, 1);
+    end
+end
+
+function SCR_ABIL_Doppelsoeldner27_INACTIVE(self, ability)
+    local skill = GetSkill(self, "Doppelsoeldner_Zornhau");
+    if skill ~= nil then
+        SetSkillOverHeat(self, skill.ClassName, 0, 1);
+    end
+end
+
+function SCR_ABIL_Arditi10_ACTIVE(self, ability)
+    local armorCount, lowestArmorGrade = CHECK_ARMORMATERIAL(self, "Leather");
+
+    if armorCount >= 4 then
+        AddBuff(self, self, "Arditi_Leather_Buff", 1, 0, 0, 1);
+    end
+end
+
+function SCR_ABIL_Arditi10_INACTIVE(self, ability)
+    RemoveBuff(self, "Arditi_Leather_Buff");
+end
+
+function SCR_ABIL_RuneCaster13_ACTIVE(self, ability)
+    local count, lowestGrade = CHECK_ARMORMATERIAL(self, "Cloth");
+
+    if count >= 4 then
+        AddBuff(self, self, "Hagalaz_Abil_Buff");
+    end
+end
+
+function SCR_ABIL_RuneCaster13_INACTIVE(self, ability)
+    RemoveBuff(self, "Hagalaz_Abil_Buff");
+end
+
+function SCR_ABIL_Squire14_ACTIVE(self, ability)
+    local count, lowestGrade = CHECK_ARMORMATERIAL(self, "Cloth")
+    
+    if count >= 4 then
+        AddBuff(self, self, "Squire14_Buff");
+	end
+end
+
+function SCR_ABIL_Squire14_INACTIVE(self, ability)
+    RemoveBuff(self, "Squire14_Buff");
+end
+
+function SCR_ABIL_Squire15_ACTIVE(self, ability)
+    local count, lowestGrade = CHECK_ARMORMATERIAL(self, "Leather")
+    
+    if count >= 4 then
+        AddBuff(self, self, "Squire15_Buff");
+	end
+end
+
+function SCR_ABIL_Squire15_INACTIVE(self, ability)
+	RemoveBuff(self, "Squire15_Buff");
+end
+
+function SCR_ABIL_Squire16_ACTIVE(self, ability)
+    local count, lowestGrade = CHECK_ARMORMATERIAL(self, "Iron")
+    
+    if count >= 4 then
+        AddBuff(self, self, "Squire16_Buff");
+	end
+end
+
+function SCR_ABIL_Squire16_INACTIVE(self, ability)
+	RemoveBuff(self, "Squire16_Buff");
+end
+
+function SCR_ABIL_Exorcist19_ACTIVE(self, ability)
+    local skill = GetSkill(self, "Exorcist_Katadikazo");
+    if skill ~= nil then
+        local attribute = TryGetProp(skill, "Attribute");
+        skill.Attribute = "Fire";
+        SetExProp_Str(self, "Exorcist19_Attribute", attribute);
+    end
+end
+
+function SCR_ABIL_Exorcist19_INACTIVE(self, ability)
+	local skill = GetSkill(self, "Exorcist_Katadikazo");
+    if skill ~= nil then
+        local attribute = GetExProp_Str(self, "Exorcist19_Attribute");
+        skill.Attribute = attribute;
+    end
+end
+
+function SCR_ABIL_Appraiser7_ACTIVE(self, ability)
+    local skill = GetSkill(self, "Appraiser_Blindside");
+    if skill ~= nil then
+        local attribute = TryGetProp(skill, "Attribute");
+        skill.Attribute = "Fire";
+        SetExProp_Str(self, "Appraiser7_Attribute", attribute);
+        SetSkillOverHeat(self, skill.ClassName, 0, 1);
+    end
+end
+
+function SCR_ABIL_Appraiser7_INACTIVE(self, ability)
+	local skill = GetSkill(self, "Appraiser_Blindside");
+    if skill ~= nil then
+        local attribute = GetExProp_Str(self, "Appraiser7_Attribute");
+        skill.Attribute = attribute;
+        SetSkillOverHeat(self, skill.ClassName, 3, 1);
+    end
+end
+
+function SCR_ABIL_Hoplite33_ACTIVE(self, ability)
+    local skill = GetSkill(self, "Hoplite_ThrouwingSpear");
+    if skill ~= nil then
+        local attribute = TryGetProp(skill, "Attribute");
+        skill.Attribute = "Earth";
+        SetExProp_Str(self, "Hoplite33_Attribute", attribute);
+    end
+end
+
+function SCR_ABIL_Hoplite33_INACTIVE(self, ability)
+	local skill = GetSkill(self, "Hoplite_ThrouwingSpear");
+    if skill ~= nil then
+        local attribute = GetExProp_Str(self, "Hoplite33_Attribute");
+        skill.Attribute = attribute;
+    end
+end
+
+function SCR_ABIL_Exorcist20_ACTIVE(self, ability)
+    local skill = GetSkill(self, "Exorcist_Rubric");
+    if skill ~= nil then
+        local attribute = TryGetProp(skill, "Attribute");
+        skill.Attribute = "Dark";
+        SetExProp_Str(self, "Exorcist20_Attribute", attribute);
+        AddBuff(self, self, "Rubric_Hidden_Buff");
+    end
+end
+
+function SCR_ABIL_Exorcist20_INACTIVE(self, ability)
+	local skill = GetSkill(self, "Exorcist_Rubric");
+    if skill ~= nil then
+        local attribute = GetExProp_Str(self, "Exorcist20_Attribute");
+        skill.Attribute = attribute;
+        RemoveBuff(self, "Rubric_Hidden_Buff");
+    end
+end
+
+function SCR_ABIL_Hunter16_ACTIVE(self, ability)
+    local count, lowestGrade = CHECK_ARMORMATERIAL(self, "Leather");
+
+    if count >= 4 then
+        AddBuff(self, self, "Hunter_Companion_Bonus_Buff");
+    end
+end
+
+function SCR_ABIL_Hunter16_INACTIVE(self, ability)
+    RemoveBuff(self, "Hunter_Companion_Bonus_Buff");
+end
+
+function SCR_ABIL_TigerHunter9_ACTIVE(self, ability)
+    AddBuff(self, self, "TigerHunter_Damage_Bonus_Buff");
+end
+
+function SCR_ABIL_TigerHunter9_INACTIVE(self, ability)
+    RemoveBuff(self, "TigerHunter_Damage_Bonus_Buff");
+end
+
+function SCR_ABIL_Templar8_ACTIVE(self, ability)
+    local count, lowestGrade = CHECK_ARMORMATERIAL(self, "Iron");
+
+    if count >= 4 then
+        AddBuff(self, self, "Templar_Plate_Buff");
+    end
+end
+
+function SCR_ABIL_Templar8_INACTIVE(self, ability)
+    RemoveBuff(self, "Templar_Plate_Buff");
+end
+
+function SCR_ABIL_Cleric25_ACTIVE(self, ability)
+    local count, lowestGrade = CHECK_ARMORMATERIAL(self, "Cloth");
+
+    if count >= 4 then
+        AddBuff(self, self, "Cleric_Cloth_Buff");
+    end
+end
+
+function SCR_ABIL_Cleric25_INACTIVE(self, ability)
+    RemoveBuff(self, "Cleric_Cloth_Buff");
+end
+
+function SCR_ABIL_Sadhu26_ACTIVE(self, ability)
+    local count, lowestGrade = CHECK_ARMORMATERIAL(self, "Cloth");
+
+    if count >= 4 then
+        AddBuff(self, self, "Sadhu_Cloth_Buff");
+    end
+end
+
+function SCR_ABIL_Sadhu26_INACTIVE(self, ability)
+    RemoveBuff(self, "Sadhu_Cloth_Buff");
+end
+
+function SCR_ABIL_Sheriff8_ACTIVE(self, ability)
+    RemoveBuff(self, "Westraid_Buff");
+end
+
+function SCR_ABIL_Sheriff8_INACTIVE(self, ability)
+    RemoveBuff(self, "Westraid_Buff");
+end
+
+function SCR_ABIL_Assassin18_ACTIVE(self, ability)
+    AddBuff(self, self, "Assassin_Request_Buff");
+end
+
+function SCR_ABIL_Assassin18_INACTIVE(self, ability)
+    RemoveBuff(self, "Assassin_Request_Buff");
+end
+
+function SCR_ABIL_Outlaw20_ACTIVE(self, ability)
+    local skill = GetSkill(self, "OutLaw_Rampage");
+    if skill ~= nil then
+        local attribute = TryGetProp(skill, "Attribute");
+        local enableCompanion = TryGetProp(skill, "EnableCompanion");
+
+        skill.Attribute = "Ice";
+        skill.EnableCompanion = "None";
+
+        SetExProp_Str(self, "Outlaw20_Attribute", attribute);
+        SetExProp_Str(self, "Outlaw20_companion", enableCompanion);
+    end
+end
+
+function SCR_ABIL_Outlaw20_INACTIVE(self, ability)
+    local skill = GetSkill(self, "OutLaw_Rampage");
+    if skill ~= nil then
+        local attribute = GetExProp_Str(self, "Outlaw20_Attribute");
+        local enableCompanion = GetExProp_Str(self, "Outlaw20_companion");
+
+        skill.Attribute = attribute;
+        skill.EnableCompanion = enableCompanion;
+    end
+end
+
+function SCR_ABIL_Matross14_ACTIVE(self, ability)
+    local skill = GetSkill(self, "Matross_CrouchingStrike");
+    if skill ~= nil then
+        local attribute = TryGetProp(skill, "Attribute");
+
+        skill.Attribute = "Lightning";
+
+        SetExProp_Str(self, "Matross14_Attribute", attribute)
+    end
+end
+
+function SCR_ABIL_Matross14_INACTIVE(self, ability)
+    local skill = GetSkill(self, "Matross_CrouchingStrike");
+    if skill ~= nil then
+        local attribute = GetExProp_Str(self, "Matross14_Attribute");
+
+        skill.Attribute = attribute;
+    end
+end
+
+function SCR_ABIL_Ranger38_ACTIVE(self, ability)
+    local skill = GetSkill(self, "Ranger_BounceShot");
+    if skill ~= nil then
+        local attribute = TryGetProp(skill, "Attribute");
+
+        skill.Attribute = "ICE";
+
+        SetExProp_Str(self, "Ranger38_Attribute", attribute)
+    end
+end
+
+function SCR_ABIL_Ranger38_INACTIVE(self, ability)
+    local skill = GetSkill(self, "Ranger_BounceShot");
+    if skill ~= nil then
+        local attribute = GetExProp_Str(self, "Ranger38_Attribute");
+
+        skill.Attribute = attribute;
+    end
+end
+function SCR_ABIL_Corsair21_ACTIVE(self, ability)
+    AddInstSkill(self, "Corsair_Bombardments", 1);
+end
+
+function SCR_ABIL_Corsair21_INACTIVE(self, ability)
+    RemoveInstSkill(self, "Corsair_Bombardments");
+end
+
+function SCR_ABIL_Chronomancer17_ACTIVE(self, ability)
+    SetExProp(self, "BACKMASKING_HIDDEN_ABIL_STATE", 0);
+
+    local skill = GetSkill(self, "Chronomancer_BackMasking");
+    if skill ~= nil then
+        UpdateSkillSpendItemBySkillID(self, skill.ClassID);
+    end
+end
+
+function SCR_ABIL_Chronomancer17_INACTIVE(self, ability)
+    SetExProp(self, "BACKMASKING_HIDDEN_ABIL_STATE", 0);
+    
+    local skill = GetSkill(self, "Chronomancer_BackMasking");
+    if skill ~= nil then
+        UpdateSkillSpendItemBySkillID(self, skill.ClassID);
+    end
+end
+
+function SCR_ABIL_Wizard30_ACTIVE(self, ability)
+    local skl = GetSkill(self, "Wizard_Teleportation")
+    if skl ~= nil then
+        SetSkillOverHeat(self, skl.ClassName, 0, 1)
+    end
+end
+
+function SCR_ABIL_Wizard30_INACTIVE(self, ability)
+    if IS_ACTIVE_ABILITY(self, "Psychokino24") == 1 then
+        local skl = GetSkill(self, "Wizard_Teleportation")
+        if skl ~= nil then
+            SetSkillOverHeat(self, skl.ClassName, 2, 1)
+        end
+    end
+end
+
+function SCR_ABIL_Archer35_ACTIVE(self, ability)
+    local skl = GetSkill(self, "Archer_Jump");
+    if skl ~= nil then
+        skl.BasicCoolDown = 10000;
+    end
+end
+
+function SCR_ABIL_Archer35_INACTIVE(self, ability)
+    local skl = GetSkill(self, "Archer_Jump");
+    if skl ~= nil then
+        skl.BasicCoolDown = 15000;
+    end
+end
+
+function SCR_ABIL_Swordman33_ACTIVE(self, ability)
+    local skill = GetSkill(self, "Swordman_Thrust");
+    if skill ~= nil then
+        SetSkillOverHeat(self, skill.ClassName, 2, 1);
+    end
+end
+
+function SCR_ABIL_Swordman33_INACTIVE(self, ability)
+    local skill = GetSkill(self, "Swordman_Thrust");
+    if skill ~= nil then
+        SetSkillOverHeat(self, skill.ClassName, 5, 1);
+    end
+end
+
+function SCR_ABIL_Sorcerer19_ACTIVE(self, ability)
+    local tgt = nil;
+    local tgtList = GetAliveFolloweList(self);
+    if #tgtList == 0 then
+        return;
+    end
+
+    local etc = GetETCObject(self);
+    for i = 1, #tgtList do
+        local obj = tgtList[i];
+        if etc.Sorcerer_bosscardName1 == obj.ClassName or etc.Sorcerer_bosscardName2 == obj.ClassName then
+            tgt = obj;
+            break;
+        end
+    end
+
+    if nil == tgt then
+        return;
+    end
+
+    PlayEffect(tgt, "F_pc_SummonRemove_mon", 1.0, nil, "BOT");
+
+    Dead(tgt);
+end
+
+function SCR_ABIL_Sorcerer19_INACTIVE(self, ability)
+    local tgt = nil;
+    local tgtList = GetAliveFolloweList(self);
+    if #tgtList == 0 then
+        return;
+    end
+
+    local etc = GetETCObject(self);
+    for i = 1, #tgtList do
+        local obj = tgtList[i];
+        if etc.Sorcerer_bosscardName1 == obj.ClassName or etc.Sorcerer_bosscardName2 == obj.ClassName then
+            tgt = obj;
+            break;
+        end
+    end
+
+    if nil == tgt then
+        return;
+    end
+
+    PlayEffect(tgt, "F_pc_SummonRemove_mon", 1.0, nil, "BOT");
+    
+    Dead(tgt);
+end
+
+function SCR_ABIL_Elementalist33_ACTIVE(self, ability)
+
+end
+
+function SCR_ABIL_Elementalist33_INACTIVE(self, ability)
+    local meteorSkill = GetSkill(self, "Elementalist_Meteor");
+    if meteorSkill ~= nil then
+        if IsBuffApplied(self, "Meteor_FireBall_Buff") == "YES" then
+            local over = GetBuffOver(self, "Meteor_FireBall_Buff");
+            if over > 1 then
+                local cooldown = GetExProp(self, "Elementalist33_COOLDOWN");
+                meteorSkill.BasicCoolDown = 40000;
+                SetCoolDown(self, meteorSkill.CoolDownGroup, cooldown);
+            end
+            RemoveBuff(self, "Meteor_FireBall_Buff");
+        end
+
+        for i = 1, 3 do
+            local padList = GetMyPadList(self, "Elementalist_MovingFireBall_" .. i);
+            if padList[1] ~= nil then
+                RemovePad(self, "Elementalist_MovingFireBall_" .. i);
+            end
+        end
+    end
 end

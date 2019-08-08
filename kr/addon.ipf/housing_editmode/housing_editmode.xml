@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by My (IMCGames Co., Ltd) -->
+<uiframe name="housing_editmode" x="0" y="0" width="250" height="100" create="open">
+	<frame fullheight="false" fasthide="true" layout_gravity="center top" margin="0 25 0 0"/>
+	<option visible="false" hideable="false" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<layer layerlevel="100"/>
+	<script CloseScp="CLOSE_HOUSING_EDITMODE"/>
+	<controls>
+		<groupbox name="gbox_editmode" rect="0 0 250 90" margin="0 0 0 0" layout_gravity="left top" draw="true" skin="blackbox_op_50" hittestbox="false" hittest="true"/>
+		<picture name="pic_editmode_close" parent="gbox_editmode" rect="0 0 65 65" margin="10 0 0 0" layout_gravity="left center" image="Esc"/>
+		<richtext name="txt_editmode_close" parent="gbox_editmode" rect="0 0 180 30" margin="80 0 0 0" layout_gravity="left center" format="{@st43}편집모드 취소{/}" param1="value" param1_def="" fontname="white_20_ol_ds" resizebytext="true"/>
+	</controls>
+</uiframe>

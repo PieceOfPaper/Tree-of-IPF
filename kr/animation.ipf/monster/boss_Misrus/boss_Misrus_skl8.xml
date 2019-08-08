@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Neck_R" particleName="I_smoke013_dark7_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 Spine1" particleName="I_smoke013_dark7_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 R Thigh" particleName="I_smoke013_dark7_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 L Thigh" particleName="I_smoke013_dark7_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 tail01" particleName="I_smoke013_dark7_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 tail03" particleName="I_smoke013_dark7_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip001 tail05" particleName="I_smoke013_dark7_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_smoke043_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="0.00" soundFile="m_kerberos_atk"/>
+    <Shockwave frame="17" type="2" intensity="5" frequency="60" duration="0.2" range="1000"/>
+    <Sound frame="20.00" soundFile="m_kerberos_skl_1"/>
+    <Particle frame="35" attachNode="Head_L" particleName="I_smoke013_dark7_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="35" attachNode="Neck_R" particleName="I_smoke013_dark7_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="35" attachNode="Bip001 Spine1" particleName="I_smoke013_dark7_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="35" attachNode="Bip001 R Thigh" particleName="I_smoke013_dark7_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="35" attachNode="Bip001 L Thigh" particleName="I_smoke013_dark7_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="35" attachNode="Bip001 tail01" particleName="I_smoke013_dark7_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="35" attachNode="Bip001 tail03" particleName="I_smoke013_dark7_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="35" attachNode="Bip001 tail05" particleName="I_smoke013_dark7_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="50.00" soundFile="mon_voice_boruta_atk"/>
+    <Particle frame="60" attachNode="Dummy_effect_breath_R" particleName="F_spread_out055_3_breath" useAttach="true" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="60" attachNode="Dummy_effect_breath_L" particleName="F_spread_out055_3_breath" useAttach="true" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="68" type="2" intensity="7" frequency="70" duration="1.5" range="1000"/>
+    <BlendOn frame="68" R="80" G="160" B="170" A="100"/>
+    <Particle frame="68" attachNode="Dummy_emitter" particleName="F_spread_out008_smoke2_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="68" attachNode="Dummy_emitter" particleName="F_spread_out023_circle_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="69" R="70" G="90" B="70" A="100"/>
+    <BlendOn frame="70" R="0" G="0" B="0" A="100"/>
+    <Particle frame="70" attachNode="Head_L" particleName="I_smoke013_dark7_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="70" attachNode="Neck_R" particleName="I_smoke013_dark7_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="70" attachNode="Bip001 Spine1" particleName="I_smoke013_dark7_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="70" attachNode="Bip001 R Thigh" particleName="I_smoke013_dark7_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="70" attachNode="Bip001 L Thigh" particleName="I_smoke013_dark7_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="70" attachNode="Bip001 tail01" particleName="I_smoke013_dark7_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="70" attachNode="Bip001 tail03" particleName="I_smoke013_dark7_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="70" attachNode="Bip001 tail05" particleName="I_smoke013_dark7_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="72" R="80" G="160" B="170" A="100"/>
+    <BlendOn frame="73" R="30" G="50" B="70" A="100"/>
+    <BlendOn frame="74" R="0" G="0" B="0" A="100"/>
+    <Particle frame="75" attachNode="Dummy_effect_breath_R" particleName="F_spread_out055_3_breath" useAttach="false" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="75" attachNode="Dummy_effect_breath_L" particleName="F_spread_out055_3_breath" useAttach="false" hiddenObj="false" changeEffect="None" scale="15" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="76" R="80" G="200" B="150" A="100"/>
+    <BlendOn frame="77" R="70" G="90" B="70" A="100"/>
+    <BlendOn frame="78" R="0" G="0" B="0" A="100"/>
+    <BlendOn frame="80" R="80" G="160" B="170" A="100"/>
+    <BlendOn frame="81" R="30" G="50" B="70" A="100"/>
+    <BlendOn frame="82" R="0" G="0" B="0" A="100"/>
+    <BlendOn frame="84" R="80" G="160" B="170" A="100"/>
+    <BlendOn frame="85" R="70" G="90" B="70" A="100"/>
+    <BlendOn frame="86" R="0" G="0" B="0" A="100"/>
+    <BlendOn frame="88" R="80" G="200" B="150" A="100"/>
+    <BlendOn frame="89" R="30" G="50" B="70" A="100"/>
+    <BlendOn frame="90" R="0" G="0" B="0" A="100"/>
+    <Particle frame="90" attachNode="Dummy_effect_breath_R" particleName="F_spread_out055_3_breath" useAttach="false" hiddenObj="false" changeEffect="None" scale="13" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="90" attachNode="Dummy_effect_breath_L" particleName="F_spread_out055_3_breath" useAttach="false" hiddenObj="false" changeEffect="None" scale="13" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="90" attachNode="Dummy_emitter" particleName="F_spread_out008_smoke2_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="92" R="80" G="160" B="170" A="100"/>
+    <BlendOn frame="93" R="120" G="150" B="100" A="100"/>
+    <BlendOn frame="94" R="0" G="0" B="0" A="100"/>
+    <BlendOn frame="96" R="80" G="160" B="170" A="100"/>
+    <BlendOn frame="97" R="30" G="50" B="70" A="100"/>
+    <BlendOn frame="98" R="0" G="0" B="0" A="100"/>
+    <BlendOn frame="100" R="80" G="200" B="150" A="100"/>
+    <Particle frame="100" attachNode="Dummy_emitter" particleName="F_smoke043_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="101" R="70" G="90" B="70" A="100"/>
+    <BlendOn frame="102" R="0" G="0" B="0" A="100"/>
+    <BlendOn frame="104" R="80" G="160" B="170" A="100"/>
+    <BlendOn frame="105" R="100" G="150" B="70" A="100"/>
+    <BlendOn frame="106" R="0" G="0" B="0" A="100"/>
+    <BlendOn frame="108" R="80" G="160" B="170" A="100"/>
+    <BlendOn frame="109" R="70" G="90" B="70" A="100"/>
+    <BlendOn frame="110" R="0" G="0" B="0" A="100"/>
+    <BlendOn frame="112" R="150" G="200" B="100" A="100"/>
+    <BlendOn frame="113" R="80" G="100" B="60" A="100"/>
+    <BlendOn frame="114" R="0" G="0" B="0" A="100"/>
+    <Particle frame="115" attachNode="Dummy_effect_breath_R" particleName="F_spread_out055_3_breath" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="115" attachNode="Dummy_effect_breath_L" particleName="F_spread_out055_3_breath" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="116" R="80" G="160" B="170" A="100"/>
+    <BlendOn frame="117" R="70" G="90" B="70" A="100"/>
+    <BlendOn frame="118" R="0" G="0" B="0" A="100"/>
+    <BlendOff frame="119" R="0" G="0" B="0" A="0"/>
+    <Particle frame="125" attachNode="Dummy_effect_breath_R" particleName="F_spark002_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="125" attachNode="Dummy_effect_breath_L" particleName="F_spark002_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

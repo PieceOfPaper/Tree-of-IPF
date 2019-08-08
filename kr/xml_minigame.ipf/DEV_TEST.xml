@@ -1,8 +1,259 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="DEV_TEST" minLv="0" maxLv="0">
+    <Game Name="DEV_TEST" uiname="1" minLv="0" maxLv="0" playerCountCheckDestroy="1">
         <StageList>
             <Stage Name="DefGroup">
+                <ObjList/>
+            </Stage>
+            <Stage Name="Init">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_CUSTOM_OPTION_CHECK" Client="NO" UseSleep="NO">
+                        <Num Num="1"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Next">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Round1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Round1" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_STYLE_INFO" Client="NO" UseSleep="NO">
+                        <Str Str="Round1"/>
+                        <Str Str="bar"/>
+                        <Str Str="부베 처치"/>
+                        <Num Num="10"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="11120" Pos="-73.16#0.00#-806.52" genCount="1" genTime="20000" objectKey="0">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                    <Str Str="DEV_TEST"/>
+                                    <Str Str="Round1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="10"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11120" Pos="-91.53#0.00#-741.25" genCount="1" genTime="20000" objectKey="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                    <Str Str="DEV_TEST"/>
+                                    <Str Str="Round1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="10"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11120" Pos="3.61#0.00#-708.06" genCount="1" genTime="20000" objectKey="2">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                    <Str Str="DEV_TEST"/>
+                                    <Str Str="Round1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="10"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11120" Pos="89.51#0.00#-818.23" genCount="1" genTime="20000" objectKey="3">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                    <Str Str="DEV_TEST"/>
+                                    <Str Str="Round1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="10"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11120" Pos="42.43#0.00#-906.37" genCount="1" genTime="20000" objectKey="4">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                    <Str Str="DEV_TEST"/>
+                                    <Str Str="Round1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="10"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11120" Pos="-34.61#0.00#-898.95" genCount="1" genTime="20000" objectKey="5">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                    <Str Str="DEV_TEST"/>
+                                    <Str Str="Round1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="10"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11120" Pos="-0.12#0.00#-815.14" genCount="1" genTime="20000" objectKey="6">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                    <Str Str="DEV_TEST"/>
+                                    <Str Str="Round1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="10"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11120" Pos="24.78#0.00#-774.39" genCount="1" genTime="20000" objectKey="7">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                    <Str Str="DEV_TEST"/>
+                                    <Str Str="Round1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="10"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11120" Pos="-141.66#0.00#-677.87" genCount="1" genTime="20000" objectKey="8">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                    <Str Str="DEV_TEST"/>
+                                    <Str Str="Round1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="10"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11120" Pos="-103.44#0.00#-816.72" genCount="1" genTime="20000" objectKey="9">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                    <Str Str="DEV_TEST"/>
+                                    <Str Str="Round1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="10"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11120" Pos="-17.88#0.00#-872.45" genCount="1" genTime="20000" objectKey="10">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                    <Str Str="DEV_TEST"/>
+                                    <Str Str="Round1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="10"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11120" Pos="96.76#0.00#-865.38" genCount="1" genTime="20000" objectKey="11">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                    <Str Str="DEV_TEST"/>
+                                    <Str Str="Round1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="10"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="11120" Pos="91.91#0.00#-908.31" genCount="1" genTime="20000" objectKey="12">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                    <Str Str="DEV_TEST"/>
+                                    <Str Str="Round1"/>
+                                    <Num Num="1"/>
+                                    <Num Num="10"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Round1"/>
+                                <Str Str="OVER"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Round1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Round2" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_STYLE_INFO" Client="NO" UseSleep="NO">
+                        <Str Str="Round2"/>
+                        <Str Str="text"/>
+                        <Str Str="보스 처치"/>
+                        <Num Num="1"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="57058" Pos="-35.21#0.00#-823.87" genCount="1" genTime="20000" objectKey="0">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_STYLE_INFO_UPDATE" Client="NO" UseSleep="NO">
+                                    <Str Str="DEV_TEST"/>
+                                    <Str Str="Round2"/>
+                                    <Num Num="1"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Round2"/>
+                                <Str Str="OVER"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Round3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Round3" AutoStart="0">
                 <ObjList/>
             </Stage>
         </StageList>

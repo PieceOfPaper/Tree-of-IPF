@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by My (IMCGames Co., Ltd) -->
+<uiframe name="housing_lab" x="0" y="0" width="550" height="1080" create="open">
+	<draw drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-520 0 0 0"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+	<userconfig LEVEL_FILTER_TEXT="{@st41b}레벨별 분류"/>
+	<opencheck scp="UI_CHECK_PROP" strarg="housing_lab" numarg="1"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<controls>
+		<groupbox name="bg_box" rect="0 0 550 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="pipwin_top" rect="0 0 550 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+		<picture name="question" rect="0 0 44 44" margin="27 20 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}연구소{nl}{@st59s}"/>
+		<richtext name="txt_title" rect="0 0 120 24" margin="0 18 0 0" layout_gravity="center top" format="{@st43}%s{/}" param1="value" param1_def="연구소" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<groupbox name="gbox" rect="0 0 550 930" margin="0 70 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>
+	</controls>
+</uiframe>

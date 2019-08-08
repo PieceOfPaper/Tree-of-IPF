@@ -274,6 +274,9 @@
 				<Num Num="1" />
 				<Num Num="100" />
 			</ToolScp>
+            <ToolScp Client="BOTH" Scp="SKL_CHECK_ACTIVE_ABILITY" UseSleep="NO">
+                <Str Str="Sorcerer19" />
+            </ToolScp>
 		</EnableScripts>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>

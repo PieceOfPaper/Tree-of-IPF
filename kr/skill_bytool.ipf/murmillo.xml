@@ -497,6 +497,9 @@
 				<Str Str="DragoonHelmet_Buff" />
 			</ToolScp>
 			<ToolScp Client="BOTH" Scp="SKL_CHECK_CHECK_NOBUFF" UseSleep="NO">
+                <Str Str="DragoonHelmet_Abil_Buff" />
+            </ToolScp>
+            <ToolScp Client="BOTH" Scp="SKL_CHECK_CHECK_NOBUFF" UseSleep="NO">
 				<Str Str="EquipDesrption_Debeff" />
 			</ToolScp>
 		</EnableScripts>

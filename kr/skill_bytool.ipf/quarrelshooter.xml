@@ -142,6 +142,16 @@
 					<Num Num="100" />
 					<Num Num="0" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_KNEELINGSHOT_SET_PAVISE_BY_ABIL" Time="0" UseSleep="NO">
+                    <Str Str="pavise" />
+                    <Str Str="" />
+                    <Str Str="" />
+                    <Num FuncTxt="return 15;" Num="0" UseFunc="1" />
+                    <Num FuncTxt="local time = 30 if IsPVPField(self) == 1 then time = 900 end local abil = GetAbility(self, 'QuarrelShooter24') if abil ~= nil and abil.ActiveState == 1 then time = time * 0.5 end return time" Num="0" UseFunc="1" />
+                    <Str Str="None" />
+                    <MonProp />
+                    <Str Str="SCR_SUMMON_PAVISE" />
+                </Scp>
 				<Scp Client="NO" Scp="SKL_CHANGE_SKLSUBANIM" Time="0" UseSleep="NO">
 					<Str Str="Bow_Attack" />
 					<Str Str="SKL_KNEELINGSHOT_ATK" />
@@ -2672,7 +2682,12 @@
 				<Str Str="pavise" />
 				<Num Num="2" />
 			</ToolScp>
-		</EnableScripts>
+		<ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
+                <Num Num="1" />
+                <Str Str="pcskill_Ballista" />
+                <Num Num="2" />
+            </ToolScp>            
+        </EnableScripts>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
@@ -2709,7 +2724,7 @@
 					<Str Str="" />
 					<Str Str="" />
 					<Num FuncTxt="return 1 + obj.Level;" Num="0" UseFunc="1" />
-					<Num FuncTxt="local time = 30 if IsPVPField(self) == 1 then time = 900 end local abil = GetAbility(self, 'QuarrelShooter24') if abil ~= nil and abil.ActiveState == 1 then time = time * 0.5 end return time" Num="0" UseFunc="1" />
+					<Num FuncTxt="local time = 30 local abil = GetAbility(self, 'QuarrelShooter24') if abil ~= nil and abil.ActiveState == 1 then time = time * 0.5 end return time" Num="0" UseFunc="1" />
 					<Str Str="None" />
 					<MonProp />
 					<Str Str="SCR_SUMMON_PAVISE" />
@@ -2747,18 +2762,6 @@
 					</ToolScp>
 				</Cond>
 				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<EnableScripts>
-						<ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
-							<Num Num="1" />
-							<Str Str="pavise" />
-							<Num Num="2" />
-						</ToolScp>
-						<ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
-							<Num Num="1" />
-							<Str Str="pcskill_Ballista" />
-							<Num Num="2" />
-						</ToolScp>
-					</EnableScripts>
 					<EtcList>
 						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
 							<Str Str="voice_archer_m_pavise_shot" />
@@ -2794,7 +2797,7 @@
 							<Str Str="" />
 							<Str Str="" />
 							<Num FuncTxt="return 1 + obj.Level;" Num="0" UseFunc="1" />
-							<Num FuncTxt="local time = 30 if IsPVPField(self) == 1 then time = 900 end local abil = GetAbility(self, 'QuarrelShooter24') if abil ~= nil and abil.ActiveState == 1 then time = time * 0.5 end return time" Num="0" UseFunc="1" />
+							<Num FuncTxt="local time = 30 local abil = GetAbility(self, 'QuarrelShooter24') if abil ~= nil and abil.ActiveState == 1 then time = time * 0.5 end return time" Num="0" UseFunc="1" />
 							<Str Str="None" />
 							<MonProp />
 							<Str Str="SCR_SUMMON_PAVISE" />
@@ -2806,7 +2809,7 @@
 							<Str Str="" />
 							<Str Str="" />
 							<Num FuncTxt="return 1 + obj.Level;" Num="0" UseFunc="1" />
-							<Num FuncTxt="local time = 30 if IsPVPField(self) == 1 then time = 900 end local abil = GetAbility(self, 'QuarrelShooter24') if abil ~= nil and abil.ActiveState == 1 then time = time * 0.5 end return time" Num="0" UseFunc="1" />
+							<Num FuncTxt="local time = 30 local abil = GetAbility(self, 'QuarrelShooter24') if abil ~= nil and abil.ActiveState == 1 then time = time * 0.5 end return time" Num="0" UseFunc="1" />
 							<Str Str="None" />
 							<MonProp />
 							<Str Str="SCR_SUMMON_BALLISTA" />

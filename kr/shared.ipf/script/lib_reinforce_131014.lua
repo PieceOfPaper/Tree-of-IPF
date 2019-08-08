@@ -174,6 +174,11 @@ function GET_REINFORCE_PRICE(fromItem, moruItem, pc)
     --    value = value/2
     --end
     
+    --burning_event
+    if IsBuffApplied(pc, "Event_Reinforce_Discount_50") == "YES" then
+        value = value/2
+    end
+    
     return SyncFloor(value);
 
 end

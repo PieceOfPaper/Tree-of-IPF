@@ -63,7 +63,14 @@ function BALLOON_TEXT(clsName, duration)
 		else
 			frame:Resize(frame:GetWidth() + frame:GetUserConfig("RESIZE_WIDTH_M"),  frame:GetHeight() + imgObject:GetHeight());
 		end
+
+		-- 이미지 위치 조정 : 텍스트 그룹 박스와 끝나는 Y값이 같도록
+		local gb_Y = gb:GetY() + gb:GetHeight();
+		local pic_Y = imgObject:GetY() + imgObject:GetHeight();
+		local Offset_Y = pic_Y - gb_Y;
 		
+		local rect = imgObject:GetMargin();
+		imgObject:SetMargin(rect.left, rect.top - Offset_Y, rect.right, rect.bottom);		
 	end
 
 	frame:ShowWindow(1);	

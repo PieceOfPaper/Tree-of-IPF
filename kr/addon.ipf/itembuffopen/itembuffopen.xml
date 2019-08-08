@@ -25,6 +25,7 @@
 		<slot name="slot" parent="repair" rect="0 0 200 200" margin="0 100 0 0" layout_gravity="center top" DropScp="SQIORE_SLOT_DROP" PopScp="SQIORE_SLOT_POP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="skill_squaier_slot" texttooltip="{@st59}아이템을 올려주세요{/}"/>
 		<richtext name="slotName" parent="repair" rect="0 0 343 48" margin="0 -180 0 0" layout_gravity="center center" drawbackground="false" fixwidth="false" fontname="" format="{@st41}%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
 		<groupbox name="effectGbox" parent="repair" rect="0 0 439 300" margin="0 400 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
+		<richtext name="abil_text" parent="effectGbox" rect="0 0 200 30" margin="10 5 0 0" layout_gravity="left top" format="%s" param1="txt" param1_def="" fontname="brown_16_b" textalign="right center"/>
 		<labelline name="effectline" parent="effectGbox" rect="0 0 400 4" margin="0 0 0 225" layout_gravity="center bottom" skin="None"/>
 		<richtext name="effect" parent="effectGbox" rect="0 0 200 80" margin="30 50 0 0" layout_gravity="left top" caption="{@st41b}효과" textalign="left top"/>
 		<richtext name="time" parent="effectGbox" rect="0 0 200 80" margin="25 80 0 0" layout_gravity="left top" caption="지속 시간" fontname="white_16_ol" textalign="left top"/>		

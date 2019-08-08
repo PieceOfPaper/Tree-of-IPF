@@ -289,10 +289,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="end"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
-                                <Str Str="Indun: Indun_Chaple"/>
-                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>

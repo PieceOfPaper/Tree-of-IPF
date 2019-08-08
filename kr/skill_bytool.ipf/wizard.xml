@@ -7148,6 +7148,10 @@
 					<Num Num="1" />
 					<Num Num="0" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_RESET_COOLTIME_BY_ABIL" Time="0" UseSleep="NO">
+                    <Str Str="Wizard30" />
+                    <Str Str="RESET_COOLTIME_TELEPORTATION" />
+                </Scp>
 				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
 					<Str Str="Teleportation_Buff" />
 					<Num Num="1" />

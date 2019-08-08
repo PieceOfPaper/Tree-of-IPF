@@ -48,3 +48,39 @@ function GET_LEGEND_PREFIX_ITEM_NAME(item, prefix)
 	end
 	return nameText;
 end
+
+function GET_LEGEND_PREFIX_NEED_MATERIAL_CLASSNAME(prefixName)    
+	local clsList, cnt = GetClassList("LegendSetItem");
+	if clsList ~= nil then
+        for i = 0, cnt - 1 do
+            local cls = GetClassByIndexFromList(clsList, i);
+            if prefixName == cls.ClassName then
+                return cls.NeedMaterial;
+            end           
+		end
+    end
+end
+
+function GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT_BY_NEEDITEM(targetObj, needItemClsName)
+    if targetObj == nil or needItemClsName == nil then
+        return 0;
+    end
+    
+    local legendGroup = targetObj.LegendGroup;
+	local clsList, cnt = GetClassList("LegendSetItem");
+	if clsList ~= nil then
+		for i = 0, cnt - 1 do
+            local cls = GetClassByIndexFromList(clsList, i);
+            if string.find(cls.LegendGroup, legendGroup) ~= nil and targetObj.LegendPrefix ~= cls.ClassName and cls.NeedMaterial == needItemClsName then
+                if targetObj.GroupName == 'Armor' then
+                    return cls.NeedMaterial_ArmorCnt;
+                else
+                    return cls.NeedMaterial_WeaponCnt;
+                end
+
+			end
+		end
+    end
+    
+    return 0;
+end

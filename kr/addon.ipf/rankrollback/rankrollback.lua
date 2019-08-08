@@ -1,6 +1,4 @@
--- rankrollbac
-
-
+-- rankrollback
 function RANKROLLBACK_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('EQUIP_ITEM_LIST_GET', 'RANKROLLBACK_PC_EQUIP_STATE');	
 	addon:RegisterOpenOnlyMsg('AUTOSELLER_UPDATE', 'RANKROLLBACK_PC_AUTOSELLER_STATE'); 
@@ -72,7 +70,6 @@ end
 function RANKROLLBACK_PC_AUTOSELLER_STATE(frame)
 	local nonstate = true;
 	for i = 0, AUTO_SELL_COUNT-1 do
-	-- ??????? true??
 		if session.autoSeller.GetMyAutoSellerShopState(i) == true then
 			nonstate = false;
 			break;

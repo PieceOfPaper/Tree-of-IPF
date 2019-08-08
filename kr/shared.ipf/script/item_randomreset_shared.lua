@@ -13,9 +13,16 @@ function SCR_SIERA_MATERIAL(item)
     if IsServerSection(item) == 1 then
         isServer = true
     end
-	if SCR_EVENT_1903_WEEKEND_CHECK('ITEMRANDOMRESET', isServer) == 'YES' then
-	    sieraCount = math.floor(sieraCount/2)
-	end
+
+    --burning_event
+    local pc = GetItemOwner(item)
+    if IsBuffApplied(pc, "Event_Reappraisal_Discount_50") == "YES" then
+        sieraCount = math.floor(sieraCount/2)
+    end
+
+--	if SCR_EVENT_1903_WEEKEND_CHECK('ITEMRANDOMRESET', isServer) == 'YES' then
+--	    sieraCount = math.floor(sieraCount/2)
+--	end
     	
 	return sieraCount
 end
@@ -42,9 +49,16 @@ function SCR_NEWCLE_MATERIAL(item)
 	if IsServerSection(item) == 1 then
 		isServer = true
 	end
-	if SCR_EVENT_1903_WEEKEND_CHECK('ITEMRANDOMRESET', isServer) == 'YES' then
-	    newcleCount = math.floor(newcleCount/2)
-	end
+
+    --burning_event
+    local pc = GetItemOwner(item)
+    if IsBuffApplied(pc, "Event_Reappraisal_Discount_50") == "YES" then
+        newcleCount = math.floor(newcleCount/2)
+    end
+
+--	if SCR_EVENT_1903_WEEKEND_CHECK('ITEMRANDOMRESET', isServer) == 'YES' then
+--	    newcleCount = math.floor(newcleCount/2)
+--	end
 	
 	return newcleCount
 end

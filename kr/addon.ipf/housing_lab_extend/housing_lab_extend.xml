@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="housing_lab_extend" x="0" y="0" width="700" height="350" create="open">
+	<frame fullheight="false" fasthide="true" drawtitlebar="false" layout_gravity="center center " margin="0 0 0 0"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<skin frameskin="test_win_system"/>
+	<draw drawtitlebar="false"/>
+	<layer layerlevel="80"/>
+	<controls>
+		<groupbox name="gbox" rect="0 0 670 300" margin="0 42 0 0" layout_gravity="center top" draw="false"/>
+		<richtext name="txt_title" parent="gbox" rect="0 0 450 40" margin="0 15 0 0" layout_gravity="center top" caption="{@st66b}{s18}증축 하시겠습니까?" textalign="center center" fixwidth="true"/>
+		<groupbox name="gbox_lab_before" parent="gbox" rect="0 0 280 100" hittest="false" margin="-180 55 0 0" layout_gravity="center top" draw="true" scrollbar="false" skin="black_box_op20"/>
+		<richtext name="txt_lab_before_name" parent="gbox_lab_before" rect="0 0 200 50" margin="0 -25 0 0" layout_gravity="center center" format="{ol}{ds}{b}{s16}%s Lv.%s" param1="name" param1_def="야수형 대상 강화" param2="level" param2_def="0" textalign="center center" fixwidth="true"/>
+		<richtext name="txt_lab_before_memo" parent="gbox_lab_before" rect="0 0 200 50" margin="0 20 0 0" layout_gravity="center center" format="{ol}{ds}{b}{s16}스킬 연구 최대 레벨 %s" param1="level" param1_def="0" textalign="center center" fixwidth="true"/>
+		<groupbox name="gbox_lab_after" parent="gbox" rect="0 0 280 100" hittest="false" margin="180 55 0 0" layout_gravity="center top" draw="true" scrollbar="false" skin="black_box_op20"/>
+		<richtext name="txt_lab_after_name" parent="gbox_lab_after" rect="0 0 200 50" margin="0 -25 0 0" layout_gravity="center center" format="{ol}{ds}{b}{s16}%s Lv.%s" param1="name" param1_def="야수형 대상 강화" param2="level" param2_def="0" textalign="center center" fixwidth="true"/>
+		<richtext name="txt_lab_after_memo" parent="gbox_lab_after" rect="0 0 200 50" margin="0 20 0 0" layout_gravity="center center" format="{ol}{ds}{b}{s16}스킬 연구 최대 레벨 %s" param1="level" param1_def="0" textalign="center center" fixwidth="true"/>
+		<picture name="pic_center" parent="gbox" rect="0 0 50 75" margin="0 70 0 0" layout_gravity="center top" image="grey_arrow_right" stretch="true"/>
+		<richtext name="txt_has_guild_money" parent="gbox" rect="0 0 250 50" margin="-170 175 0 0" layout_gravity="center top" format="{@st66b}{s18}소지 길드 자금 : {@st66d_y}%s" param1="money" param1_def="0" textalign="center center" fixwidth="true"/>
+		<richtext name="txt_need_guild_money" parent="gbox" rect="0 0 250 50" margin="-170 210 0 0" layout_gravity="center top" format="{@st66b}{s18}소비 길드 자금 : {ol}{s18}{#ec0000}%s" param1="money" param1_def="0" textalign="center center" fixwidth="true"/>
+		<richtext name="txt_has_guild_mileage" parent="gbox" rect="0 0 250 50" margin="170 175 0 0" layout_gravity="center top" format="{@st66b}{s18}소지 길드 마일리지 : {@st66d_y}%s" param1="mileage" param1_def="0" textalign="center center" fixwidth="true"/>
+		<richtext name="txt_need_guild_mileage" parent="gbox" rect="0 0 250 50" margin="170 210 0 0" layout_gravity="center top" format="{@st66b}{s18}소비 길드 마일리지 : {ol}{s18}{#ec0000}%s" param1="mileage" param1_def="0" textalign="center center" fixwidth="true"/>
+		<button name="btn_yes" parent="gbox" rect="0 0 145 46" margin="-73 0 0 5" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}예" LBtnUpScp="BTN_HOUSING_LAB_EXTEND_YES"/>
+		<button name="btn_no" parent="gbox" rect="0 0 145 46" margin="73 0 0 5" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}아니오" LBtnUpScp="BTN_HOUSING_LAB_EXTEND_NO"/>
+	</controls>
+</uiframe>

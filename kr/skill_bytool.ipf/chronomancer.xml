@@ -228,6 +228,21 @@
 					</EtcList>
 				</Skill>
 			</SubSkl>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ACTIVE_ABIL" UseSleep="NO">
+                        <Str Str="Chronomancer17" />
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="10599" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="10399" Type="FAN" Width="30" />
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" Scp="BACKMASKING_HIDDEN_ABIL_START" Time="800" UseSleep="NO"/>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
 		</ByCondSkills>
 	</Skill>
 	<Skill Name="Chronomancer_Samsara">

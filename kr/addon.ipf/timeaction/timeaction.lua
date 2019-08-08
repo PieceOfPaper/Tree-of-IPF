@@ -12,10 +12,10 @@ function ON_TIME_ACTION(frame, msg, msgType, isFail, info)
 	end
 	
 	info = tolua.cast(info, "TIME_ACTION_INFO");
-	START_TIME_ACTION(frame, info.msg, info.time);
+	START_TIME_ACTION(frame, info.msg, info.time, info.cancelMsg);
 end
 
-function START_TIME_ACTION(frame, msg, second)
+function START_TIME_ACTION(frame, msg, second, cancelMsg)
 	local uiList = {};
 	uiList[#uiList + 1] = "reinforce_renew";
 	uiList[#uiList + 1] = "manufac_renew";
@@ -47,6 +47,11 @@ function START_TIME_ACTION(frame, msg, second)
 	local fontName = frame:GetUserConfig("TitleFont");
 	local title = GET_CHILD_RECURSIVELY(frame,'title')
 	title:SetText(fontName .. msg .. "{/}");
+
+	if cancelMsg ~= "None" then
+		local cancel = GET_CHILD_RECURSIVELY(frame, "cancel");
+		cancel:SetTextByKey("value", cancelMsg);
+	end
 	
 	local timegauge = GET_CHILD_RECURSIVELY(frame, "timegauge", "ui::CGauge");
 	timegauge:SetPoint(0, second);

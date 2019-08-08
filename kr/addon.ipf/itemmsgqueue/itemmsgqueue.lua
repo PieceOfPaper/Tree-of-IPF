@@ -6,7 +6,7 @@ end
 
 function ITEMMSG_POP_QUEUE(frame)
 	local msgInfo = session.bindFunc.PopItemMsgQueue();
-	--msgInfo.cnt ·Î ½Ç¹ö ÀüÃ¼°ª µé¾î¿À´Â°æ¿ìµµ ÀÖ´Âµí
+	--msgInfo.cnt ï¿½ï¿½ ï¿½Ç¹ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½ìµµ ï¿½Ö´Âµï¿½
 	ITEMMSG_SHOW_GET_ITEM(frame, msgInfo.itemType, msgInfo.cnt);
 
 end
@@ -47,9 +47,10 @@ function ITEMMSG_SHOW_GET_ITEM(frame, itemType, count)
 	textVis:DestroyUICommand(ui.UI_CMD_TEXTCHANGE, false);
 
 	local fromCnt = 0;	
-		
+	local toCnt = tonumber(GET_TOTAL_MONEY_STR());
+	
 	local curValue = textVis:GetCurrentTextChangeEventValue();
-	fromCnt = item.count - count;
+	fromCnt = SumForBigNumberInt64(toCnt, '-'..count);
 --	if curValue > 0 then
 --		if curValue > fromCnt then
 --			return;
@@ -57,8 +58,7 @@ function ITEMMSG_SHOW_GET_ITEM(frame, itemType, count)
 
 --		fromCnt = curValue;
 --	end
-		
-	local toCnt = item.count;
+
 	local prevToCnt = frame:GetUserIValue("ITEMCOUNT");
 	local prevType = frame:GetUserIValue("ITEMTYPE");
 	frame = tolua.cast(frame, "ui::CFrame");
@@ -76,7 +76,7 @@ function ITEMMSG_SHOW_GET_ITEM(frame, itemType, count)
 		end		
 
 		local tempFromCnt = math.max(fromCnt, toCnt - 200)
-		textVis:PlayTextChangeEvent(updateTime, "totalVis", tempFromCnt, toCnt, "", 1);
+		textVis:PlayTextChangeEvent(updateTime, "totalVis", tostring(tempFromCnt), tostring(toCnt), "", 1);
 		textVis:SetTextByKey("totalVis", toCnt);
 	else
 		textVis:SetTextByKey("totalVis", toCnt);

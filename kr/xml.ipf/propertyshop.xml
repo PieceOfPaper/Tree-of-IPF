@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <PropertyShop>
 	<Shop Name="PVPShop" PointScript="GET_PVP_POINT">
 		<Item Script="None" Name="egg_007" Count="1" Price="18000" DailyBuyLimit="1"/>
@@ -15,6 +15,9 @@
 		<Item Script="None" Name="Hat_628092" Count="1" Price="3500" DailyBuyLimit="1"/>
 		<Item Script="None" Name="Hat_628111" Count="1" Price="3500" DailyBuyLimit="1"/>
 		<Item Script="None" Name="Hat_628119" Count="1" Price="3500" DailyBuyLimit="1"/>
+		<Item Script="None" Name="Hat_628086" Count="1" Price="3500" DailyBuyLimit="1"/>
+		<Item Script="None" Name="Hat_628019" Count="1" Price="3500" DailyBuyLimit="1"/>
+		<Item Script="None" Name="Hat_628071" Count="1" Price="3500" DailyBuyLimit="1"/>
 		<Item Script="None" Name="GIMMICK_Drug_PMATK2" Count="5" Price="80" DailyBuyLimit="3"/>
 		<Item Script="None" Name="GIMMICK_Drug_Restore01" Count="5" Price="80" DailyBuyLimit="3"/>
 		<Item Script="None" Name="GIMMICK_Drug_PMDEF2" Count="5" Price="80" DailyBuyLimit="3"/>
@@ -75,5 +78,10 @@
 		<Item Script="None" Name="PVP_BRC04_117" Count="2" Price="1" DailyBuyLimit="1"/>
 		<Item Script="None" Name="PVP_BRC04_118" Count="2" Price="1" DailyBuyLimit="1"/>
 		<Item Script="None" Name="PVP_BRC04_119" Count="2" Price="1" DailyBuyLimit="1"/>
+	</Shop>
+	<Shop Name="GUILD_CONTRIBUTION_SHOP" PointScript="GET_GUILD_CONTRIBUTION_POINT">
+		<Item Script="None" Name="BRC99_114_guildshop_7d" Count="1" Price="1000" DailyBuyLimit="0"/>
+		<Item Script="None" Name="NECK99_102_guildshop_7d" Count="1" Price="4000" DailyBuyLimit="0"/>
+		<Item Script="None" Name="Ghaca_Guild_Contribution_Shop_MISC" Count="1" Price="20" DailyBuyLimit="0"/>
 	</Shop>
 </PropertyShop>

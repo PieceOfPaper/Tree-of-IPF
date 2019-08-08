@@ -10,9 +10,9 @@
 	<effect open="character_item_window_open" close="character_item_window_close"/>
 	<script CloseScp="CANCEL_ENCHANTCHIP"/>
 	<controls>
-		<groupbox name="bg" rect="0 0 350 540" margin="3 5 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_Item_tooltip_equip"/>
+	<groupbox name="bg" rect="0 0 350 540" margin="3 5 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_Item_tooltip_equip"/>
 		<button name="button_1" margin="0 0 0 35" rect="0 0 160 50" skin="test_red_button" layout_gravity="center bottom" caption="{@st41b}마법 부여" LBtnUpScp="HAIRENCHANT_OK_BTN"/>
-		<richtext name="richtext_1" margin="0 14 0 0" rect="0 0 200 30" caption="{@st41b}마법 부여 스크롤{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="200" fontname="white_18_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<richtext name="richtext_1" margin="0 14 0 0" rect="0 0 280 30" caption="{@st41b}마법 부여 스크롤{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="280" fontname="white_18_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 		<button name="close" rect="0 0 70 70" margin="10 8 0 0" layout_gravity="left top" LBtnUpScp="CANCEL_ENCHANTCHIP" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="sys_popup_open_2" image="testclose_button" oversound="button_over" texttooltip="{@st59}마법 부여 스크롤 창을 닫습니다.{/}"/>
 		<slot name="slot" margin="0 70 0 0" rect="0 0 160 160" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="invenslot2" DropScp="None" texttooltip="{@st59}악세서리를 올려주세요{/}" layout_gravity="center top"/>
 		<richtext name="itemName" margin="0 250 0 0" rect="0 0 380 50" format="%s" param1="value" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>

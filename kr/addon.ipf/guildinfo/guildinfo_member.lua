@@ -193,7 +193,7 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 
 	if isLeader == 1 and aid ~= myAid then
 		local mapName = session.GetMapName();
-		if mapName == 'guild_agit_1' then
+		if mapName == 'guild_agit_1' or mapName == 'guild_agit_extension' then
 			ui.AddContextMenuItem(context, ScpArgMsg("GiveGuildLeaderPermission"), string.format("SEND_REQ_GUILD_MASTER('%s')", name));
 		end
 	end
@@ -396,6 +396,11 @@ function _SEND_REQ_GUILD_MASTER(name)
 end
 
 function OUT_GUILD_CHECK()
+    local yesScp = string.format("_OUT_GUILD_CHECK()");
+	ui.MsgBox(ScpArgMsg('ReallyOutGuild'), yesScp, "None");
+end
+
+function _OUT_GUILD_CHECK()
 	ui.Chat("/outguildcheck");
     ui.CloseFrame('guildinfo');
 end

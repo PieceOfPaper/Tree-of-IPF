@@ -93,7 +93,10 @@ function INDUNINFO_CREATE_CATEGORY(frame)
 
                 --유니크 레이드의 경우 cyclePic을 숨긴다
                 if indunCls.DungeonType == 'UniqueRaid' then
-                    if SCR_RAID_EVENT_20190102(nil, false) then
+
+                    local pc = GetMyPCObject()
+                    if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" then
+--                    if SCR_RAID_EVENT_20190102(nil, false) then
                         cyclePicImg:SetImage('indun_icon_event_l_eng')
                         local margin = cyclePicImg:GetOriginalMargin();
                         cyclePicImg:SetMargin(margin.left, margin.top, margin.right + 20, margin.bottom);
@@ -767,8 +770,10 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         
         local nowAdmissionItemCount = admissionItemCount
 
-        if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
-            nowAdmissionItemCount  = admissionItemCount - 1
+--        if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
+        local pc = GetMyPCObject()
+        if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
+            nowAdmissionItemCount  = admissionItemCount
         else
             nowAdmissionItemCount  = admissionItemCount + addCount
         end
@@ -817,7 +822,8 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         end
         
         if indunCls.DungeonType == 'UniqueRaid' then
-            if SCR_RAID_EVENT_20190102(nil, false) and admissionItemName == 'Dungeon_Key01' then -- 별의 탑 폐쇄 구역 제외 조건 걸어주기
+--            if SCR_RAID_EVENT_20190102(nil, false) and admissionItemName == 'Dungeon_Key01' then -- 별의 탑 폐쇄 구역 제외 조건 걸어주기
+            if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
                 cycleCtrlPic:ShowWindow(1);
             end
         

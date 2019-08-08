@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <EmitterList>
+	<battle name="E_wizard_DimensionCompression" filename="E_wizard_DimensionCompression" loop="false" nodecount="7" xml="E_wizard_DimensionCompression.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_cleric_Rubric_shot_abil" filename="E_cleric_Rubric_shot_abil" loop="false" nodecount="4" xml="E_cleric_Rubric_shot_abil.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_cleric_katadikazo_Abil" filename="E_cleric_katadikazo_Abil" loop="false" nodecount="4" xml="E_cleric_katadikazo_Abil.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_Moringponia" filename="E_Moringponia" loop="false" nodecount="4" xml="E_Moringponia.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_warrior_swashbuckling" filename="E_warrior_swashbuckling" loop="false" nodecount="2" xml="E_warrior_swashbuckling.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_warrior_Aries_ride" filename="E_warrior_Aries_ride" loop="false" nodecount="2" xml="E_warrior_Aries_ride.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_warrior_impaler_raise" filename="E_warrior_impaler_raise" loop="false" nodecount="2" xml="E_warrior_impaler_raise.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>

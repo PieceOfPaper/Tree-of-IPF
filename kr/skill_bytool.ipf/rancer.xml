@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Rancer_GiganteMarcha">
+<ToolSkill>
+<Skill Name="Rancer_GiganteMarcha">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
 				<Frame Angle="0" AniTime="350" Dist="0" ForceATK="0" HitCount="1" Length="120" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="150" Type="SQUARE" Width="45" />
@@ -128,7 +129,8 @@
                     <Str Str="Stun" />
                     <Num Num="1" />
                     <Num Num="0" />
-                    <Num Num="2000" />
+					<Num Num="2000" UseFunc="1" FuncTxt="local AddTime = GetExProp(self, 'ITEM_RANCER_CHARGE_STUN')
+return 2000 + AddTime"/>
                     <Num Num="1" />
                     <Num Num="100" />
                     <Num Num="-1" />
@@ -409,4 +411,4 @@
 			</ResultList>
 		</MainSkl>
 	</Skill>
-	</ToolSkill>
+    </ToolSkill>

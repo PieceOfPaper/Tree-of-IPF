@@ -1,7 +1,11 @@
 --- mgame_action.lua --
 
-function MGAME_MSG(actor, msgStr)
-    addon.BroadMsg("NOTICE_Dm_!", msgStr, 3);
+function MGAME_MSG(actor, msgStr, msgDuration)
+    if msgDuration == nil or msgDuration <= 0 then
+        msgDuration = 3;
+    end
+    
+    addon.BroadMsg("NOTICE_Dm_!", msgStr, msgDuration);
 end
 
 function SHOW_SIMPLE_MSG(msgStr)

@@ -251,12 +251,17 @@ function CRAFT_UPDATE_PAGE(page, cls, haveMaterial, item)
 		if cls.IDSpc == 'Skill_Ability' and nil ~= abil then
 			local abilObj =  GetIES(abil:GetObject());
 			Level = abilObj.Level;
+
+			-- 비급 특성 대상 아이템은 레벨을 표기하지 않도록 한다.
+			if abilObj.Hidden == 1 then
+				Level = 0;
+			end
 		end
 	end
     local len = string.len(item.Name)
     local itmeName = string.sub(item.Name, 1, len - 1)
 
-    if skill ~= nil then
+    if skill ~= nil and Level > 0 then
 	    titleText:SetText(font ..itmeName..Level.. ableText .."{/}");
     else
         titleText:SetText(font ..item.Name.. ableText .."{/}");

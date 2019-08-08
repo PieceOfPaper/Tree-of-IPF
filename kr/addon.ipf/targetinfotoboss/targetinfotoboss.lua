@@ -5,12 +5,13 @@ function TARGETINFOTOBOSS_ON_INIT(addon, frame)
 	addon:RegisterMsg('TARGET_CLEAR_BOSS', 'TARGETINFOTOBOSS_ON_MSG');
 	addon:RegisterMsg('TARGET_UPDATE', 'TARGETINFOTOBOSS_ON_MSG');
 	addon:RegisterMsg('UPDATE_SDR', 'TARGETINFOTOBOSS_UPDATE_SDR');
+	addon:RegisterMsg("MISS_CHECK_SHOW_ICON", "TARGETINFOTOBOSS_MISSCHECK");
+	addon:RegisterMsg("MISS_CHECK_REMOVE_ICON", "TARGETINFOTOBOSS_MISSCHECK_ICON_REMOVE");
 
 	local timer = frame:GetChild("addontimer");
 	tolua.cast(timer, "ui::CAddOnTimer");
 	timer:SetUpdateScript("UPDATE_BOSS_DISTANCE");
 	timer:Start(0.1);
-
  end
  
  function UPDATE_BOSS_DISTANCE(frame)
@@ -156,3 +157,50 @@ function TARGETINFOTOBOSS_ON_MSG(frame, msg, argStr, argNum)
     end
     return raceStr;
  end
+
+function TARGETINFOTOBOSS_MISSCHECK(frame, msg, iconName, count)
+	if frame == nil then return; end
+
+	local boss_misscheck = GET_CHILD_RECURSIVELY(frame, "boss_misscheck");
+	if boss_misscheck == nil then return; end
+
+	local icon = CreateIcon(boss_misscheck);
+	if icon ~= nil then
+		icon:SetImage(iconName);
+		boss_misscheck:SetVisible(1);
+		boss_misscheck:SetText("{s13}{ol}{b}"..count, "count", ui.RIGHT, ui.BOTTOM, -5, -3);
+	end
+end
+
+function TARGETINFOTOBOSS_MISSCHECK_ICON_REMOVE(frame, msg)
+	if frame == nil then return; end
+
+	local boss_misscheck = GET_CHILD_RECURSIVELY(frame, "boss_misscheck");
+	if boss_misscheck == nil then return; end
+
+	local timer = GET_CHILD_RECURSIVELY(frame, "misschecktimer");
+	tolua.cast(timer, "ui::CAddOnTimer");
+	timer:SetArgNum(2);
+	timer:SetUpdateScript("UPDATE_MISSCHECK_ICON_REMOVE");
+	timer:Start(1);
+end
+
+function UPDATE_MISSCHECK_ICON_REMOVE(frame, timer, argStr, argNum, time)
+	if frame == nil then return; end
+	local boss_misscheck = GET_CHILD_RECURSIVELY(frame, "boss_misscheck");
+	if boss_misscheck ~= nil then
+		if time >= argNum then
+			if boss_misscheck:IsBlinking() == 1 then
+				boss_misscheck:ReleaseBlink();
+			end
+
+			boss_misscheck:SetVisible(0);
+			boss_misscheck:SetText("");
+			timer:Stop();
+		else
+			if boss_misscheck:IsBlinking() == 0 then
+				boss_misscheck:SetBlink(600000, 1.0, "55FFFFFF", 1);
+			end
+		end
+	end
+end

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by My (IMCGames Co., Ltd) -->
+<uiframe name="housing_editmode_control" x="0" y="0" width="250" height="100" create="open">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
+	<option visible="false" hideable="false" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<layer layerlevel="80"/>
+	<controls>
+		<groupbox name="gbox_editmode_control" rect="0 0 250 100" margin="0 0 0 0" layout_gravity="left top" draw="false" hittestbox="false" hittest="false"/>
+		<richtext name="txt_editmode_control_left_click" parent="gbox_editmode_control" rect="0 0 40 40" margin="45 7 0 0" layout_gravity="left center" caption="{@st43}{#97f72f}{s20}설치" textalign="center center" fixwidth="true"/>
+		<picture name="pic_editmode_control_left_click" parent="gbox_editmode_control" rect="0 0 65 65" margin="80 0 0 0" layout_gravity="left center" image="mouseclick_left"/>
+		<picture name="pic_editmode_control_right_click" parent="gbox_editmode_control" rect="0 0 65 65" margin="140 0 0 0" layout_gravity="left center" image="mouseclick_right"/>
+    ㄷ<richtext name="txt_editmode_control_right_click" parent="gbox_editmode_control" rect="0 0 40 40" margin="195 7 0 0" layout_gravity="left center" caption="{@st43}{#97f72f}{s20}회전" textalign="center center" fixwidth="true"/>
+	</controls>
+</uiframe>

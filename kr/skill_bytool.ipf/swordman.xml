@@ -139,6 +139,58 @@
                 </Scp>
             </EtcList>
         </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ACTIVE_ABIL" UseSleep="NO">
+                        <Str Str="Swordman33" />
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="SQUARE" />
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING_NOCANCEL" Client="NO" UseSleep="NO" Time="0">
+                            <Num Num="1"/>
+                            <Num Num="120"/>
+                        </Scp>
+                        <Scp Scp="SKL_SET_DIR_TO_TGT" Client="NO" UseSleep="NO" Time="100"/>
+                        <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="100" UseSleep="NO">
+                            <Str Str="SKL_ARIES" />
+                            <Num Num="2" />
+                            <Num Num="1" />
+                            <Num Num="0" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_JUMP_TO_TARGET" Time="300" UseSleep="YES">
+                            <Num Num="0" />
+                            <Num Num="120" />
+                            <Num Num="0" />
+                            <Num Num="1" />
+                            <Num Num="0.1" />
+                            <Num Num="1" />
+                            <Num Num="0.1" />
+                            <Num Num="1" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE_SR" Time="500" UseSleep="NO">
+                            <Pos Angle="0" Dist="0" PosType="5"/>
+                            <Num Num="0"/>
+                            <Num Num="75"/>
+                            <Num Num="20"/>
+                            <Num Num="2"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_TGT_DMG" Time="500" UseSleep="NO">
+                            <Num Num="1" />
+                            <Num Num="0" />
+                            <Num Num="0" />
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
 	</Skill>
 	<Skill Name="Swordman_Bash">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">

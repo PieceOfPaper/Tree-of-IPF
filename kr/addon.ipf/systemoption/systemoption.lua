@@ -244,7 +244,6 @@ function APPLY_CONTROLMODE(frame)
 	local controlmodeRadioBtn = GET_CHILD_RECURSIVELY(frame, "controltype_0");    
 	local controlmodeType = GET_RADIOBTN_NUMBER(controlmodeRadioBtn);
 	config.ChangeXMLConfig("ControlMode", controlmodeType);
-	UPDATE_CONTROL_MODE();
 end
 
 function APPLY_PERFMODE(frame)

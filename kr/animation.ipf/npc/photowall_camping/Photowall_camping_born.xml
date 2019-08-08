@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="3.08" soundFile="skl_eff_photowall_landing"/>
+	<Sound frame="14.00" soundFile="skl_eff_photowall_open"/>
+	<Particle frame="7" attachNode="Dummy_dead_effect" particleName="F_ground068_smoke4" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="27" attachNode="Dummy_root" particleName="F_ground071_smoke3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Dummy_root" particleName="F_wizard_BRIQUETTING_HARDENING_fire_dust" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Dummy_root" particleName="F_wizard_BRIQUETTING_STEP1_fire1" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="45" attachNode="Dummy_root" particleName="F_wizard_BRIQUETTING_STEP1_fire1" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="55" attachNode="Dummy_root" particleName="F_wizard_BRIQUETTING_STEP1_fire1" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="65" attachNode="Dummy_root" particleName="F_wizard_BRIQUETTING_STEP1_fire1" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Dummy_root" particleName="F_fire006_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="45" attachNode="Dummy_root" particleName="F_fire006_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="55" attachNode="Dummy_root" particleName="F_fire006_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="65" attachNode="Dummy_root" particleName="F_fire006_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="72" attachNode="Dummy_root" particleName="F_fire006_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="30" attachNode="Dummy_effect_010" particleName="F_smoke188_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="30" attachNode="Dummy_effect_013" particleName="F_smoke188_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="30" attachNode="Dummy_effect_012" particleName="F_smoke188_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="30" attachNode="Dummy_effect_011" particleName="F_smoke188_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="50" attachNode="Dummy_effect_010" particleName="F_smoke188_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="50" attachNode="Dummy_effect_013" particleName="F_smoke188_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="50" attachNode="Dummy_effect_012" particleName="F_smoke188_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="50" attachNode="Dummy_effect_011" particleName="F_smoke188_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Dummy_effect_001" particleName="F_bg_light007_green2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Dummy_effect_003" particleName="F_bg_light007_green2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Dummy_effect_007" particleName="F_bg_light007_green2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Dummy_effect_009" particleName="F_bg_light007_green2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="35" attachNode="Dummy_effect_008" particleName="F_bg_light007_green2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+</ActionDesc>

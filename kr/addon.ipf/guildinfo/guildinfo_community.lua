@@ -344,3 +344,6 @@ function GET_ONELINE_BOARD(board_idx)
     end
     return nil;
 end
+
+function GUIDLINFO_AGIT_INIT(agitBox)
+end

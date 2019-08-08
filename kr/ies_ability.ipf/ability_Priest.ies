@@ -9,3 +9,6 @@ ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time
 601,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Priest21","UNLOCK_BASE_LEVEL","","캐릭터 1레벨 이상","ABIL_COMMON_PRICE_1LV"
 801,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Priest26","UNLOCK_ABIL_SKILL","Priest_MassHeal","매스 힐 1레벨 이상","ABIL_REINFORCE_PRICE"
 901,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Priest28","UNLOCK_ABIL_SKILL","Priest_TurnUndead","턴 언데드 1레벨 이상","ABIL_REINFORCE_PRICE"
+1001,45,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Priest30","UNLOCK_ABIL_JOB_LEVEL","Char4_2","프리스트 클래스 45레벨 달성","HIDDENABIL_PRICE_COND_JOBLEVEL"
+1002,65,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Priest31","UNLOCK_ABIL_OTHERABILITY","Priest26","[매스 힐: 강화] 특성 65 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"
+1003,65,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Priest32","UNLOCK_ABIL_OTHERABILITY","Priest28","[턴 언데드: 강화] 특성 65 레벨 달성","HIDDENABIL_PRICE_COND_REINFORCE"

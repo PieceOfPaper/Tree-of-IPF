@@ -149,7 +149,13 @@ function SCR_GET_ADDSTAT(self, stat)
 end
 
 function SCR_GET_JOB_DEFAULT_STAT(pc, prop)
-    local jobObj = GetJobObject(pc);
+    local jobObj = nil
+    if IsServerObj(pc) == 1 then
+        jobObj = GetJobObject(pc);
+    else
+        jobObj = GetJobObject();
+    end
+
     local jobCtrlType = TryGetProp(jobObj, 'CtrlType')
     if jobCtrlType ~= nil then
 		local stat = 1;
@@ -169,7 +175,13 @@ function SCR_GET_JOB_DEFAULT_STAT(pc, prop)
 end
 
 function SCR_GET_JOB_RATIO_STAT(pc, prop)
-    local jobObj = GetJobObject(pc);
+    local jobObj = nil
+    if IsServerObj(pc) == 1 then
+        jobObj = GetJobObject(pc);
+    else
+        jobObj = GetJobObject();
+    end
+
     local jobCtrlType = TryGetProp(jobObj, 'CtrlType')
     if jobCtrlType ~= nil then
 		local ctrlTypeRate = 100;
@@ -2085,6 +2097,10 @@ function SCR_Get_MSPD(self)
         return fixMSPDBuff;
     end
     
+    if IsBuffApplied(self, 'PunjiStake_Debuff') == 'YES' then
+        return 10;
+    end
+    
     if IsBuffApplied(self, 'SnipersSerenity_Buff') == 'YES' then
     	return 10;
     end
@@ -2451,7 +2467,13 @@ function SCR_PC_MOVINGSHOTABLE(pc)
     	return 0;
     end
     
-    local jobObj = GetJobObject(pc);
+    local jobObj = nil
+    if IsServerObj(pc) == 1 then
+        jobObj = GetJobObject(pc);
+    else
+        jobObj = GetJobObject();
+    end
+
     if jobObj == nil then
         return 0;
     end
@@ -2474,7 +2496,13 @@ function SCR_MOVING_SHOT_SPEED(pc) -- archer moving shot
     local value = 0;
     local isEnableMovingShot = TryGetProp(pc, "MovingShotable");
     if isEnableMovingShot ~= nil and isEnableMovingShot ~= 0 then
-        local jobObj = GetJobObject(pc);
+        local jobObj = nil
+        if IsServerObj(pc) == 1 then
+            jobObj = GetJobObject(pc);
+        else
+            jobObj = GetJobObject();
+        end
+
         if jobObj ~= nil then
             if jobObj.CtrlType == 'Archer' then 
                 value = 0.8;

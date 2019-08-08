@@ -919,6 +919,10 @@
                     <Num Num="100"/>
                     <Num Num="0"/>
                 </Scp>
+                <Scp Scp="SKL_SET_TARGET_EX_PROP" Client="NO" UseSleep="NO" Time="10">
+                    <Str Str="Skiaclipse_Skill_11_TGT"/>
+                    <Num Num="1"/>
+                </Scp>
                 <Scp Scp="SKL_SETPOS_SELECT_LOCATION" Client="NO" UseSleep="NO" Time="1500">
                     <Num Num="1"/>
                     <Str_Arg Str="None" Arg="1"/>
@@ -941,6 +945,9 @@
                     <Num Num="100"/>
                     <Num Num="0"/>
                     <Num Num="1"/>
+                </Scp>
+                <Scp Scp="SKL_DEL_TARGET_EX_PROP" Client="NO" UseSleep="NO" Time="1700">
+                    <Str Str="Skiaclipse_Skill_11_TGT"/>
                 </Scp>
                 <Anim Time="3800" Anim="skl3" Speed="1"/>
                 <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="5700">

@@ -88,6 +88,13 @@ function PUT_ITEM_TO_WAREHOUSE(parent, slot)
 		ui.MsgBox(ScpArgMsg("WrongDropItem"));
 		return;
 	end
+
+	if itemCls.MarketCategory == 'Housing_Furniture' or 
+	    itemCls.MarketCategory == 'Housing_Laboratory' or 
+	    itemCls.MarketCategory == 'Housing_Contract' then
+		ui.MsgBox(ScpArgMsg("IT_ISNT_REINFORCEABLE_ITEM"));
+		return;
+	end
     	
 	AUTO_CAST(slot);
 	local fromFrame = liftIcon:GetTopParentFrame();
@@ -167,9 +174,16 @@ function WAREHOUSE_INV_RBTN(itemObj, slot)
 		ui.MsgBox(ScpArgMsg("IT_ISNT_REINFORCEABLE_ITEM"));
 		return;
 	end
-	
+
 	if tonumber(itemCls.LifeTime) > 0 and obj.ItemLifeTimeOver > 0 then
 		ui.MsgBox(ScpArgMsg("WrongDropItem"));
+		return;
+	end
+
+	if itemCls.MarketCategory == 'Housing_Furniture' or 
+	    itemCls.MarketCategory == 'Housing_Laboratory' or 
+	    itemCls.MarketCategory == 'Housing_Contract' then
+		ui.MsgBox(ScpArgMsg("IT_ISNT_REINFORCEABLE_ITEM"));
 		return;
 	end
     	

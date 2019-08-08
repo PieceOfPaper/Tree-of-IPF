@@ -205,6 +205,118 @@
 				</ToolScp>
 			</ResultList>
 		</MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                        <Str Str="Outlaw20" />
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="CIRCLE" Width="150" />
+                        <Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="250" Type="CIRCLE" Width="150" />
+                        <Frame Angle="0" AniTime="700" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="500" Type="CIRCLE" Width="150" />
+                        <Frame Angle="0" AniTime="1700" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1500" Type="CIRCLE" Width="150" />
+                        <Frame Angle="0" AniTime="1750" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="1550" Type="CIRCLE" Width="150" />
+                        <Frame Angle="0" AniTime="2500" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="2300" Type="CIRCLE" Width="150" />
+                        <Frame Angle="0" AniTime="2510" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="2310" Type="CIRCLE" Width="150" />
+                        <Frame Angle="0" AniTime="2900" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="2700" Type="CIRCLE" Width="150" />
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
+                            <Str Str="Skill_MomentaryEvasion_Buff" />
+                            <Num Num="100" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="0" UseSleep="NO">
+                            <Str Str="Outlaw17" />
+                            <Str Str="Rampage_Buff" />
+                            <Num Num="1" />
+                            <Num Num="0" />
+                            <Num Num="0" />
+                            <Num Num="1" />
+                            <Num Num="100" />
+                            <Num Num="0" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="0" UseSleep="NO">
+                            <Str Str="Outlaw18" />
+                            <Str Str="Rampage_Outlaw18_Buff" />
+                            <Num Num="1" />
+                            <Num Num="0" />
+                            <Num Num="0" />
+                            <Num Num="1" />
+                            <Num Num="100" />
+                            <Num Num="0" />
+                        </Scp>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                            <Str Str="voice_scout_m_rampage_cast_1" />
+                            <Str Str="voice_scout_f_rampage_cast_1" />
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                            <Str_Arg Arg="28" Str="F_scout_rampage_decal" />
+                            <Str Str="Dummy_gacha_root" />
+                            <Num Num="0" />
+                        </Scp>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="1600" UseSleep="NO">
+                            <Str Str="voice_scout_m_rampage_cast_2" />
+                            <Str Str="voice_scout_f_rampage_cast_2" />
+                        </Scp>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="2300" UseSleep="NO">
+                            <Str Str="voice_scout_m_rampage_cast_3" />
+                            <Str Str="voice_scout_f_rampage_cast_3" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_HIT_CIRCLE_RAMPAGE" Time="2720" UseSleep="NO">
+                            <Pos Angle="0" Dist="0" />
+                            <Num Num="150" />
+                            <Num Num="4" />
+                            <Num Num="0" />
+                            <Num Num="350" />
+                            <Num Num="88" />
+                            <Num Num="0" />
+                            <Num Num="1" />
+                            <Num Num="3" />
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT" Time="2900" UseSleep="NO">
+                            <Str_Arg Arg="4" Str="F_buff_basic035_light" />
+                            <Str Str="None" />
+                            <Num Num="0" />
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT" Time="2900" UseSleep="NO">
+                            <Str_Arg Arg="1" Str="F_buff_scout_Rampage" />
+                            <Str Str="None" />
+                            <Num Num="0" />
+                        </Scp>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="2900" UseSleep="NO">
+                            <Str Str="voice_scout_m_rampage_cast_4" />
+                            <Str Str="voice_scout_f_rampage_cast_4" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_BUFF" Time="3200" UseSleep="NO">
+                            <Str Str="Rampage_After_Buff" />
+                            <Num Num="1" />
+                            <Num Num="0" />
+                            <Num Num="5000" />
+                            <Num Num="1" />
+                            <Num Num="100" />
+                            <Num Num="0" />
+                        </Scp>
+                    </EtcList>
+                    <ResultList>
+                        <ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+                            <Str Str="Outlaw16" />
+                        </ToolScp>
+                        <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                            <Str Str="UC_stun" />
+                            <Num Num="1" />
+                            <Num Num="0" />
+                            <Num Num="2000" />
+                            <Num Num="1" />
+                            <Num FuncTxt=" local value = 0  local abil = GetAbility(self, &quot;Outlaw16&quot;)  if abil ~= nil and abil.ActiveState == 1 then   value = abil.Level  end  return value" Num="0" UseFunc="1" />
+                            <Num Num="-1" />
+                        </ToolScp>
+                    </ResultList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
 	</Skill>
 	<Skill Name="OutLaw_Aggress">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">

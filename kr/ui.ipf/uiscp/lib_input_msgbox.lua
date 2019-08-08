@@ -16,7 +16,7 @@ function INPUT_STRING_BOX_CB(fromFrame, titleName, strscp, defText, numarg, stra
 	local newframe;
 
 	--판매시, 가지고 있는 아이템 수량의 MAX 값 파싱
-	if strscp == 'EXEC_SHOP_SELL' then
+	if strscp == 'EXEC_SHOP_SELL' or strscp == "EXEC_HOUSING_SHOP_SELL" then
 		local str_len = string.len(titleName)
 		local tilde = string.find(titleName, "~")
         local sub_str = 1
@@ -84,7 +84,7 @@ function INPUT_STRING_BOX(titleName, strscp, defaultText, numArg, maxLen, titleN
 	end
 	edit:SetText("");
 	if defaultText ~= nil then
-		if strscp == "EXEC_SHOP_SELL" then			
+		if strscp == "EXEC_SHOP_SELL" or strscp == "EXEC_HOUSING_SHOP_SELL" then			
 			edit:SetText(sellMaxNum);
 		else
 			edit:SetText(defaultText);

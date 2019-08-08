@@ -14,6 +14,9 @@
 					<Str Str="voice_archer_m_SweepingCannon_shot" />
 					<Str Str="voice_archer_SweepingCannon_shot" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="1300" UseSleep="NO">
+                    <Str Str="SCR_SWEEPINGCANNON_ARTS"/>
+                </Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>

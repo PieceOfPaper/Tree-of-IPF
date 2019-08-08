@@ -598,4 +598,9 @@
 	<Code Code="info_error_code8" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="NO" CallStack="NO" Desc="Error code 8 추적 로그."/>
 	<Code Code="WARNING_EVENT_UESR_TYPE" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="이벤트 유저 정보 경고."/>
   <Code Code="info_ctrl_change_fail" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="NO" CallStack="NO" Desc="계열 변경이 안되는 현상 추적 로그."/>
+  <Code Code="ERROR_NOT_EXISTS_HOUSING_DATA" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="하우징 데이터가 없습니다."/>
+	<Code Code="ERROR_FURNITURE_DATA_WRONG" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="하우징 가구 정보가 올바르지 않습니다."/>
+	<Code Code="ERROR_PLACE_DATA_WRONG" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="하우징 그리드 정보가 올바르지 않습니다."/>
+	<Code Code="error_fieldboss_worldevent" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="필드보스 월드이벤트 관련 에러"/>
+	<Code Code="ERROR_INVALID_HOUSING_ITEM" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="하우징 아이템 정보가 올바르지 않습니다."/>
 </imcErrorCode> 

@@ -360,5 +360,80 @@
 				</ToolScp>
 			</KillList>
 		</MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_ABIL" UseSleep="NO">
+                        <Str Str="Rodelero32" />
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="25" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="CIRCLE" Width="50" />
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="400" UseSleep="NO">
+                            <Pos Angle="0" Dist="25" PosType="3" />
+                            <Num Num="50" />
+                            <Num FuncTxt="return obj.SkillSR" Num="5" UseFunc="1" />
+                            <Str Str="ALL" />
+                            <Num Num="0" />
+                            <Num Num="0" />
+                            <Num Num="0" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_BUFF_REMOVE_BY_KEYWORD_RODELERO" Time="500" UseSleep="NO">
+                            <Str Str="PARTY"/>
+                            <Str Str="Freeze"/>
+                            <Str Str="Debuff"/>
+                            <Num Num="1"/>
+                            <Num Num="3"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_BUFF_REMOVE_BY_KEYWORD_RODELERO" Time="500" UseSleep="NO">
+                            <Str Str="PARTY"/>
+                            <Str Str="Petrify"/>
+                            <Str Str="Debuff"/>
+                            <Num Num="1"/>
+                            <Num Num="3"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_BUFF_REMOVE_BY_KEYWORD_RODELERO" Time="500" UseSleep="NO">
+                            <Str Str="ENEMY"/>
+                            <Str Str="Freeze"/>
+                            <Str Str="Debuff"/>
+                            <Num Num="1"/>
+                            <Num Num="3"/>
+                            <Num Num="0.5"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_BUFF_REMOVE_BY_KEYWORD_RODELERO" Time="500" UseSleep="NO">
+                            <Str Str="ENEMY"/>
+                            <Str Str="Petrify"/>
+                            <Str Str="Debuff"/>
+                            <Num Num="1"/>
+                            <Num Num="3"/>
+                            <Num Num="0.5"/>
+                        </Scp>
+                    </EtcList>
+                    <KillList>
+                        <ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+                            <Str Str="Rodelero6" />
+                        </ToolScp>
+                        <ToolScp Client="NO" Scp="S_R_COND_TGTBUFF" UseSleep="NO">
+                            <Str Str="Fire" />
+                        </ToolScp>
+                        <ToolScp Client="NO" Scp="S_R_SET_TARGET_RANGE" UseSleep="NO">
+                            <Num Num="60" />
+                            <Num FuncTxt="return GET_ABIL_LEVEL(self, &quot;Rodelero6&quot;)" Num="5" UseFunc="1" />
+                        </ToolScp>
+                        <ToolScp Client="NO" Scp="S_R_TGT_BUFF" UseSleep="NO">
+                            <Str Str="Fire" />
+                            <Num Num="1" />
+                            <Num Num="0" />
+                            <Num Num="5000" />
+                            <Num Num="1" />
+                            <Num Num="100" />
+                        </ToolScp>
+                    </KillList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
 	</Skill>
 	</ToolSkill>

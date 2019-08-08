@@ -11,6 +11,9 @@ function UPDATE_CONTROL_MODE()
 		--조이패드
 		SetJoystickMode(1)
 		UI_MODE_CHANGE(1)
+		if housing.IsEditMode() == true then
+			ui.SysMsg(ClMsg("Housing_Restricted_To_Use_When_Using_Joypad"));
+		end
 	elseif controlmodeType == 2 then
 		--키보드
 		SetJoystickMode(0)

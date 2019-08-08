@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by My (IMCGames Co., Ltd) -->
+<uiframe name="minimized_guild_housing" x="0" y="0" width="80" height="80">
+	<frame fullheight="false" fasthide="false" scale_align="center center" layout_gravity="right top" margin="0 330 345 0"/>
+	<layer layerlevel="31"/>
+	<draw blend="100" drawtitlebar="false" drawframe="false"/>
+	<option visible="true" closebutton="false" useimageitem="true" piptype="right" autoopen="true" hideable="false"/>
+	<controls>
+		<button name="openGuildHousingEditMode" rect="0 0 100 60" margin="0 0 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_3" oversound="button_cursor_over_2" image="btn_housing_editmode" LBtnDownScp="BTN_MINIMIZED_GUILD_HOUSING_OPEN_EDIT_MODE"/>
+	</controls>
+</uiframe>

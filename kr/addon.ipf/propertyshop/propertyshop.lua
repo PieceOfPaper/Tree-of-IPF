@@ -1,5 +1,4 @@
 function PROPERTYSHOP_ON_INIT(addon, frame)
-
 	addon:RegisterMsg('PROPERTY_SHOP_UI_OPEN', 'PROPERTY_SHOP_DO_OPEN');
 	addon:RegisterMsg('UPDATE_PROPERTY_SHOP', 'ON_UPDATE_PROPERTY_SHOP');
 	addon:RegisterOpenOnlyMsg('PVP_PROPERTY_UPDATE', 'ON_UPDATE_PROPERTY_SHOP');
@@ -59,10 +58,22 @@ function OPEN_PROPERTY_SHOP(shopName)
 	frame:ShowWindow(1);
 
 	local bg = frame:GetChild("bg");
-	local t_totalprice = GET_CHILD(bg, "t_totalprice");
-	local t_mymoney = GET_CHILD(bg, "t_mymoney");
-	t_totalprice:SetTextByKey("text", ScpArgMsg("TotalBuyPoint"));
-	t_mymoney:SetTextByKey("text", ScpArgMsg("TotalHavePoint"));
+	local t_totalprice = GET_CHILD_RECURSIVELY(bg, "t_totalprice");
+	local t_mymoney = GET_CHILD_RECURSIVELY(bg, "t_mymoney");
+	local t_remainprice = GET_CHILD_RECURSIVELY(bg, "t_remainprice");
+
+	if shopName == "GUILD_CONTRIBUTION_SHOP" then
+		t_mymoney:SetTextByKey("text", ScpArgMsg("Guild_Housing_Has_Contribution"));
+		t_totalprice:SetTextByKey("text", ScpArgMsg("Guild_Housing_Use_Contribution"));
+		t_remainprice:SetTextByKey("text", ScpArgMsg("Guild_Housing_Remain_Contribution"));
+
+		t_remainprice:ShowWindow(1);
+	else
+		t_mymoney:SetTextByKey("text", ScpArgMsg("TotalHavePoint"));
+		t_totalprice:SetTextByKey("text", ScpArgMsg("TotalBuyPoint"));
+
+		t_remainprice:ShowWindow(0);
+	end
 
 	local title = frame:GetChild("title");
 	title:SetTextByKey("value", ClMsg(shopName));
@@ -71,11 +82,12 @@ function OPEN_PROPERTY_SHOP(shopName)
 	frame:SetUserValue("SHOPNAME", shopName);
 	local shopInfo = gePropertyShop.Get(shopName);
 
-	local itemlist = GET_CHILD(bg, "itemlist");
+	local itemlist = GET_CHILD_RECURSIVELY(bg, "itemlist");
 
 	itemlist:ClearBarInfo();
-	itemlist:AddBarInfo("Name", "{@st42b}" .. ClMsg("Item"), 250);
-	itemlist:AddBarInfo("Price", "{@st42b}" .. ClMsg("Price"), 120);
+	itemlist:SetBarSkin("lightbrownbox_op_100");
+	itemlist:AddBarInfo("Name", "{@st42b}" .. ClMsg("Item"), 250, 3);
+	itemlist:AddBarInfo("Price", "{@st42b}" .. ClMsg("Price"), 120, 3);
 	itemlist:AddBarInfo("BuyCount", "{@st42b}" .. ClMsg("BuyCount"), 120);
 	itemlist:RemoveAllChild();
 
@@ -98,7 +110,7 @@ function OPEN_PROPERTY_SHOP(shopName)
 		ctrlSet = tolua.cast(ctrlSet, "ui::CControlSet");
 		ctrlSet:SetUserValue('REAL_INDEX',i)
 		ctrlSet:EnableHitTestSet(0);
-		local pic = GET_CHILD(ctrlSet, "pic");
+		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
 		pic:SetImage(itemCls.Icon);
 		SET_ITEM_TOOLTIP_BY_TYPE(pic, itemCls.ClassID);
 		local count = ctrlSet:GetChild("count");
@@ -120,7 +132,7 @@ function OPEN_PROPERTY_SHOP(shopName)
 		end
 
 		if addText ~= "" then
-			nameText = nameText .. " (" .. addText ..")";
+			nameText = nameText .. "{nl}( " .. addText ..")";
 		end
 
 		name:SetTextByKey("value", nameText);
@@ -139,10 +151,14 @@ function OPEN_PROPERTY_SHOP(shopName)
 	end
 
 	itemlist:RealignItems();
+	
 	PROPERTYSHOP_CHANGE_COUNT(frame);
-	local t_mymoney = bg:GetChild("t_mymoney");
-	t_mymoney:SetTextByKey("value", GET_PROPERTY_SHOP_MY_POINT(frame));
 
+	if shopName == "GUILD_CONTRIBUTION_SHOP" then
+		t_mymoney:SetTextByKey("value", GET_COMMAED_STRING(GET_MY_CONTRIBUTION(frame)));
+	else
+		t_mymoney:SetTextByKey("value", GET_COMMAED_STRING(GET_PROPERTY_SHOP_MY_POINT(frame)));
+	end
 end
 
 function PVP_PROPERTY_SHOP_INIT(frame)
@@ -171,8 +187,8 @@ function OPEN_PVP_PROPERTY_SHOP(shopName)
 	PVP_PROPERTY_SHOP_INIT(frame)
 
 	local bg = frame:GetChild("bg");
-	local t_totalprice = GET_CHILD(bg, "t_totalprice");
-	local t_mymoney = GET_CHILD(bg, "t_mymoney");
+	local t_totalprice = GET_CHILD_RECURSIVELY(bg, "t_totalprice");
+	local t_mymoney = GET_CHILD_RECURSIVELY(bg, "t_mymoney");
 	t_totalprice:SetTextByKey("text", ScpArgMsg("TotalBuyPoint"));
 	t_mymoney:SetTextByKey("text", ScpArgMsg("TotalHavePoint"));
 
@@ -182,7 +198,7 @@ function OPEN_PVP_PROPERTY_SHOP(shopName)
 
 	frame:SetUserValue("SHOPNAME", shopName);
 	local shopInfo = gePropertyShop.Get(shopName);
-	local itemlist = GET_CHILD(bg, "itemlist");
+	local itemlist = GET_CHILD_RECURSIVELY(bg, "itemlist");
 	itemlist:ClearBarInfo();
 	itemlist:AddBarInfo("Name", "{@st42b}" .. ClMsg("Item"), 250);
 	itemlist:AddBarInfo("Price", "{@st42b}" .. ClMsg("Price"), 120);
@@ -218,7 +234,7 @@ function OPEN_PVP_PROPERTY_SHOP(shopName)
 			ctrlSet = tolua.cast(ctrlSet, "ui::CControlSet");
 			ctrlSet:EnableHitTestSet(0);
 			ctrlSet:SetUserValue('REAL_INDEX',i)
-			local pic = GET_CHILD(ctrlSet, "pic");
+			local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
 			pic:SetImage(itemCls.Icon);
 			SET_ITEM_TOOLTIP_BY_TYPE(pic, itemCls.ClassID);
 			local count = ctrlSet:GetChild("count");
@@ -246,8 +262,8 @@ function OPEN_PVP_PROPERTY_SHOP(shopName)
 
 	itemlist:RealignItems();
 	PROPERTYSHOP_CHANGE_COUNT(frame);
-	local t_mymoney = bg:GetChild("t_mymoney");
-	t_mymoney:SetTextByKey("value", GET_PROPERTY_SHOP_MY_POINT(frame));
+	local t_mymoney = GET_CHILD_RECURSIVELY(bg, "t_mymoney");
+	t_mymoney:SetTextByKey("value", GET_COMMAED_STRING(GET_PROPERTY_SHOP_MY_POINT(frame)));
 	
 end
 
@@ -255,12 +271,19 @@ function PROPERTY_SHOP_BUY(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	local shopName = frame:GetUserValue("SHOPNAME");
 	local shopInfo = gePropertyShop.Get(shopName);
-	local myMoney = GET_PROPERTY_SHOP_MY_POINT(frame);
+	
+	local myMoney;
+
+	if shopName == "GUILD_CONTRIBUTION_SHOP" then
+		myMoney = GET_MY_CONTRIBUTION(frame);
+	else
+		myMoney = GET_PROPERTY_SHOP_MY_POINT(frame);
+	end
 
 	propertyShop.ClearPropertyShopInfo();
 
 	local bg = frame:GetChild("bg");
-	local itemlist = GET_CHILD(bg, "itemlist");
+	local itemlist = GET_CHILD_RECURSIVELY(bg, "itemlist");
 	local totalPrice = 0;
 	local count = itemlist:GetRowCount();
 	local idx = 0
@@ -279,7 +302,11 @@ function PROPERTY_SHOP_BUY(parent, ctrl)
 	end
 
 	if totalPrice > myMoney then
-		ui.SysMsg(ClMsg("NotEnoughMoney"));
+		if shopName == "GUILD_CONTRIBUTION_SHOP" then
+			ui.SysMsg(ClMsg("Housing_Not_Enough_Contribution"));
+		else
+			ui.SysMsg(ClMsg("NotEnoughMoney"));
+		end
 		return;
 	end
 
@@ -299,7 +326,7 @@ function PROPERTYSHOP_CHANGE_COUNT(parent)
 
 	local frame = parent:GetTopParentFrame();
 	local bg = frame:GetChild("bg");
-	local itemlist = GET_CHILD(bg, "itemlist");
+	local itemlist = GET_CHILD_RECURSIVELY(bg, "itemlist");
 
 	local shopName = frame:GetUserValue("SHOPNAME");
 	local shopInfo = gePropertyShop.Get(shopName);
@@ -314,14 +341,15 @@ function PROPERTYSHOP_CHANGE_COUNT(parent)
 			local itemInfo = shopInfo:GetItemByIndex(i);
 			totalPrice = totalPrice + itemInfo.price * num;
 		end
-
 	end
+	
+	local contribution = GET_MY_CONTRIBUTION();
 
-	local t_totalprice = bg:GetChild("t_totalprice");
-	t_totalprice:SetTextByKey("value", totalPrice);
-
-
-
+	local t_totalprice = GET_CHILD_RECURSIVELY(bg, "t_totalprice");
+	t_totalprice:SetTextByKey("value", GET_COMMAED_STRING(totalPrice));
+	
+	local t_remainprice = GET_CHILD_RECURSIVELY(bg, "t_remainprice");
+	t_remainprice:SetTextByKey("value", GET_COMMAED_STRING(contribution - totalPrice));
 end
 
 function GET_PROPERTY_SHOP_MY_POINT(frame)
@@ -339,6 +367,11 @@ end
 function ON_PVP_POINT_UPDATE(frame, msg, argStr, argNum)	
 	if frame == nil then
 		frame = ui.GetFrame(argStr)
+	end
+
+	local shopName = frame:GetUserValue("SHOPNAME");
+	if shopName == "GUILD_CONTRIBUTION_SHOP" then
+		return;
 	end
 
 	local t_mymoney = GET_CHILD_RECURSIVELY(frame, "t_mymoney");

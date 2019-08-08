@@ -839,26 +839,30 @@ function SKILLABILITY_FILL_ABILITY_CTRLSET(ability_gb, classCtrl, abilClass, gro
     -- skin
     local unlockScpRet = GET_ABILITY_CONDITION_UNLOCK(abilIES, groupClass);
     local isLock = (unlockScpRet ~= nil and unlockScpRet ~= 'UNLOCK');
-    if isLock then
-		classCtrl:SetSkinName(SKIN_LOCK);
-    elseif abilLv + learnCount <= 0 then
-		classCtrl:SetSkinName(SKIN_LEVEL_ZERO);
-	elseif isMax == 1 then
-        classCtrl:SetSkinName(SKIN_LEVEL_MAX);
-    else
+    if abilLv + learnCount <= 0 then
+        classCtrl:SetSkinName(SKIN_LEVEL_ZERO);
+    elseif isLock then
+        classCtrl:SetSkinName(SKIN_LOCK);
+	elseif isMax ~= 1 then
         classCtrl:SetSkinName(SKIN_UNLOCK);
+    else
+        classCtrl:SetSkinName(SKIN_LEVEL_MAX);
     end
 
     -- price
+    -- 아츠는 다음 단계에 필요한 어빌리티 포인트를 표기해준다. KS.001
     local abilPrice = GET_CHILD_RECURSIVELY(classCtrl, "abilPrice");
     local cost = 0;
     if learnCount > 0 then
         cost = GET_ABILITY_LEARN_COST(GetMyPCObject(), groupClass, abilClass, abilLv + learnCount);
+    elseif TryGetProp(abilIES, "Hidden") == 1 then
+        cost = GET_ABILITY_LEARN_COST(GetMyPCObject(), groupClass, abilClass, abilLv + 1);
     end
     abilPrice:SetTextByKey("value", cost);
 
+    -- 아츠는 레벨 버튼을 활성화하지 않는다. KS.001
     local btnEnabled = 1;
-    if isLock then
+    if isLock or TryGetProp(abilIES, "Hidden") == 1 then
         btnEnabled = 0;
     end
 

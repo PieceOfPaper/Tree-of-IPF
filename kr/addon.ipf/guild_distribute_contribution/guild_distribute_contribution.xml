@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by My (IMCGames Co., Ltd) -->
+<uiframe name="guild_distribute_contribution" x="0" y="0" width="500" height="450">
+	<frame fullheight="false" fasthide="true" layout_gravity="right top" margin="0 120 0 0"/>
+	<skin frameskin="pipwin_test"/>
+	<draw drawtitlebar="false"/>
+	<layer layerlevel="93"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<effect open="character_item_window_open" close="character_item_window_close"/>
+	<animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
+	<script OpenScp="DISTRIBUTE_CONTRIBUTION_OPEN"/>
+	<userconfig ASC="▲" DESC="▼"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 500 450" margin="0 0 0 0" layout_gravity="left top" draw="true" skin="collection_complete" hittestbox="false" hittest="true"/>
+		<groupbox name="headerBox" rect="0 0 500 30" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="false"/>
+		<richtext name="headerText" parent="headerBox" rect="0 0 500 30" margin="0 5 0 0" layout_gravity="center center" caption="{@st66d}기여도 분배" hittest="false"/>
+		<groupbox name="gbox_distribution_point" rect="0 0 500 30" margin="0 65 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="gbox_distribution_point_text" parent="gbox_distribution_point" rect="0 0 250 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search"/>
+		<richtext name="txt_distribution_title" parent="gbox_distribution_point_text" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" caption="분배할 기여도" fontname="brown_16"/>
+		<richtext name="txt_distribution_value" parent="gbox_distribution_point" rect="0 0 100 30" margin="0 0 20 0" layout_gravity="right center" format="%s" fontname="brown_18" param1="value" param1_def="0"/>
+		<groupbox name="gbox_remain_point" rect="0 0 500 30" margin="0 90 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="gbox_remain_text" parent="gbox_remain_point" rect="0 0 250 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search"/>
+		<richtext name="txt_remain_title" parent="gbox_remain_text" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" caption="잔여 기여도" fontname="brown_16"/>
+		<richtext name="txt_remain_value" parent="gbox_remain_point" rect="0 0 100 30" margin="0 0 20 0" layout_gravity="right center" format="%s" fontname="brown_18" param1="value" param1_def="0"/>
+		<groupbox name="gbox_contribution_point" rect="0 0 500 30" margin="0 40 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="gbox_contribution_text" parent="gbox_contribution_point" rect="0 0 250 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search"/>
+		<richtext name="txt_contribution_title" parent="gbox_contribution_text" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" caption="내 기여도" fontname="brown_16"/>
+		<richtext name="txt_contribution_value" parent="gbox_contribution_point" rect="0 0 100 30" margin="0 0 20 0" layout_gravity="right center" format="%s" fontname="brown_18" param1="value" param1_def="10000"/>
+		<groupbox name="gbox_guild_member" rect="0 0 470 277" margin="15 120 0 0" layout_gravity="left top" skin="test_frame_midle" scrollbar="false"/>
+		<groupbox name="gbox_guild_member_header" parent="gbox_guild_member" rect="0 0 470 40" margin="0 0 0 0" layout_gravity="left top" skin="market_listbase" scrollbar="false"/>
+		<groupbox name="gbox_guild_member_list" parent="gbox_guild_member" rect="0 0 470 236" margin="0 45 0 0" layout_gravity="left top" skin="none" draw="false" scrollbar="true"/>
+		<richtext name="txt_member_name_title" parent="gbox_guild_member_header" rect="0 0 150 25" margin="100 0 0 0" layout_gravity="left center" format="{@st42b}{s16}팀명 %s" param1="arrow" LBtnUpScp="DISTRIBUTE_CONTRIBUTION_MEMBER_SORT"/>
+		<richtext name="txt_member_contribution_title" parent="gbox_guild_member_header" rect="0 0 150 25" margin="335 0 0 0" layout_gravity="left center" hittest="false" caption="{@st42b}{s16}기여도"/>
+		<button name="buyBtn" parent="bg" rect="0 0 160 40" margin="-80 0 0 10" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}분배" LBtnUpScp="DISTRIBUTE_CONTRIBUTION_COMMIT" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover_3" clicksound="button_click" oversound="button_over"/>
+		<button name="cancelBtn" parent="bg" rect="0 0 160 40" margin="80 0 0 10" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}취소" LBtnUpScp="DISTRIBUTE_CONTRIBUTION_CANCEL" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover_3" clicksound="button_click" oversound="button_over"/>
+	</controls>
+</uiframe>

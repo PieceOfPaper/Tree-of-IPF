@@ -203,7 +203,18 @@ function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
 --            needMatCount = 1
 --        end
 --    end
-    
+
+    --burning_event
+    local pc = GetItemOwner(targetItem)
+    if IsBuffApplied(pc, "Event_Even_Transcend_Discount_50") == "YES" then
+        if transcendCount % 2 == 1 then
+            needMatCount = math.floor(needMatCount/2)
+            if needMatCount < 1 then
+                needMatCount = 1
+            end
+        end
+    end
+
     return SyncFloor(needMatCount);
 end
 

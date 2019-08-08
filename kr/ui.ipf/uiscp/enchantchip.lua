@@ -59,7 +59,52 @@ function CLIENT_ENCHANTCHIP(invItem)
 	else
 		local text1 = GET_CHILD_RECURSIVELY(enchantFrame, "richtext_1")
 		tolua.cast(text1, "ui::CRichText");
-		text1:SetText(obj.Name)
+		text1:SetText(obj.Name);
+
+		-- 마법 부여 스크롤(거래불가) 부분 처리
+		local bg = GET_CHILD_RECURSIVELY(enchantFrame, "bg");
+		if obj ~= nil and obj.ClassName == "Premium_Enchantchip_CT" and text1:GetLineCount() > 1 then	
+			if bg ~= nil then
+				bg:SetSkinName("test_Item_tooltip_equip_sub");
+				
+				local bg_title = bg:CreateControl("groupbox", "bg_title", 0, 5, bg:GetWidth() - 10, 60);
+				if bg_title ~= nil then
+					bg_title:SetVisible(1);
+					bg_title:SetSkinName("magic_give_scroll_title");
+					bg_title:SetGravity(ui.CENTER_HORZ, ui.TOP);
+				end
+				
+				local closeBtn = GET_CHILD_RECURSIVELY(enchantFrame, "close");
+				if closeBtn ~= nil then
+					closeBtn:SetOffset(8, 10);
+				end
+
+				local slot = GET_CHILD_RECURSIVELY(enchantFrame, "slot");
+				if slot ~= nil then
+					slot:SetOffset(0, 98);
+				end
+
+				enchantFrame:Invalidate();
+			end
+		elseif obj ~= nil and obj.ClassName == "Premium_Enchantchip_CT" and  text1:GetLineCount() <= 1 then
+			local bg_title = GET_CHILD_RECURSIVELY(bg, "bg_title");
+			if bg_title ~= nil then
+				bg_title:RemoveChild("bg_title");
+				bg:SetSkinName("test_Item_tooltip_equip");
+
+				local closeBtn = GET_CHILD_RECURSIVELY(enchantFrame, "close");
+				if closeBtn ~= nil then
+					closeBtn:SetOffset(10, 8);
+				end
+
+				local slot = GET_CHILD_RECURSIVELY(enchantFrame, "slot");
+				if slot ~= nil then
+					slot:SetOffset(0, 70);
+				end
+
+				enchantFrame:Invalidate();
+			end
+		end
 
 		local text2 = GET_CHILD_RECURSIVELY(enchantFrame, "richtext_2")
 		tolua.cast(text2, "ui::CRichText");

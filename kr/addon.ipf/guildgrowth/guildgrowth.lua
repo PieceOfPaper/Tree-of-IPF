@@ -1,10 +1,9 @@
-﻿
-function GUILDGROWTH_ON_INIT(addon, frame)
-	
+﻿function GUILDGROWTH_ON_INIT(addon, frame)
 	addon:RegisterMsg("OPEN_DLG_GUILDGROWTH", "ON_OPEN_DLG_GUILDGROWTH");		
 	addon:RegisterOpenOnlyMsg("GUILD_PROPERTY_UPDATE", "GUILDGROWTH_GUILD_PROPERTY_UPDATE");
 	addon:RegisterOpenOnlyMsg("GUILD_SKILL_UPDATE", "GUILDGROWTH_UPDATE_SKIL");
 	addon:RegisterOpenOnlyMsg("GUILD_MEMBER_PROP_UPDATE", "GUILDGROWTH_GUILD_PROPERTY_UPDATE");
+	addon:RegisterMsg("GUILD_AGIT_INFO_RECEIVE", "ON_GUILD_AGIT_INFO_RECEIVE");
 end
 
 function ON_OPEN_DLG_GUILDGROWTH(frame)
@@ -96,11 +95,15 @@ function GUILDGROWTH_OPEN(frame)
 	if frame == nil then
 		frame = ui.GetFrame('guildgrowth');
 	end
+	
 	local pcGuild = session.party.GetPartyInfo(PARTY_GUILD);
 	if pcGuild == nil then
 		--frame:ShowWindow(0);
 		--return;
 	end
+	
+	housing.RequestGuildAgitInfo("GUILD_AGIT_INFO_RECEIVE");
+	ON_GUILD_AGIT_INFO_RECEIVE(frame);
 
 	local guildObj = GetIES(pcGuild:GetObject());
 	local lv = guildObj.Level;
@@ -213,15 +216,17 @@ function GUILDGROWTH_UPDATE_CONTRIBUTION(frame, guildObj)
 			local t_name = GET_CHILD(ctrlSet, "t_name");
 			t_name:SetTextByKey("value", partyMemberInfo:GetName());
 			if currentExp > 0 then
-				local percent = curContribution * 100 / currentExp;
-				local percentStr = string.format('%.2f', percent);
-				local t_percent = GET_CHILD(ctrlSet, "t_percent");
-				t_percent:SetTextByKey("value", percentStr);
-				local gauge = GET_CHILD(ctrlSet, "gauge");
-				gauge:SetPoint(curContribution, currentExp);
+--				local percent = curContribution * 100 / currentExp;
+--				local percentStr = string.format('%.2f', percent);
+--				local t_percent = GET_CHILD(ctrlSet, "t_percent");
+--                              t_percent:SetTextByKey("value", percentStr);
+--                              local gauge = GET_CHILD(ctrlSet, "gauge");
+--                              gauge:SetPoint(curContribution, currentExp);
+				local value = GET_CHILD(ctrlSet, "t_value");
+				value:SetTextByKey("value", curContribution);
 			end
 
-			
+
 		end
 
 
@@ -309,7 +314,107 @@ function _EXEC_GUILD_GROWTH_TALT()
 end
 
 function GUILDGROWTH_GUILD_PROPERTY_UPDATE(frame)
+	GUILDGROWTH_OPEN(frame);
 
-	GUILDGROWTH_OPEN(frame);	
+end
 
+function EXEC_GUILD_AGIT_EXTENSION(parent, ctrl)
+	local extensionLevel = 1;
+
+	local guildAgit = housing.GetGuildAgitInfo();
+	if guildAgit ~= nil then
+		if guildAgit.extensionLevel >= 5 then
+			ui.MsgBox(ClMsg("MaxSkillLevel"));
+			return;
+		else
+			extensionLevel = guildAgit.extensionLevel;
+		end
+	end
+    
+    
+    local frame = ui.GetFrame('guildgrowth');
+    local index = frame:GetUserIValue('ACCEPT_MSGBOX_INDEX');    
+    ui.CloseMsgBoxByIndex(index);
+    
+	local class = GetClass("guild_housing", "guild_agit_extension" .. extensionLevel + 1);
+	if class == nil then
+		ui.MsgBox(ClMsg("MaxSkillLevel"));
+		return;
+	end
+
+	local needSilver = TryGetProp(class, "ExtensionNeedSilver");
+	local needMileage = TryGetProp(class, "ExtensionNeedMileage");
+
+    local clmsg = ScpArgMsg('Housing_Really_Agit_Extension{LEVEL}{GUILD_MONEY}{GUILD_MILEAGE}', 'LEVEL', extensionLevel + 1, 'GUILD_MONEY', GET_COMMAED_STRING(needSilver), 'GUILD_MILEAGE', GET_COMMAED_STRING(needMileage));
+	if extensionLevel <= 1 then
+	    clmsg = ScpArgMsg('Housing_Really_Agit_Extension_First{LEVEL}{GUILD_MONEY}{GUILD_MILEAGE}', 'LEVEL', extensionLevel + 1, 'GUILD_MONEY', GET_COMMAED_STRING(needSilver), 'GUILD_MILEAGE', GET_COMMAED_STRING(needMileage));
+	end
+	local yesScp = "_EXEC_GUILD_AGIT_EXTENSION()";
+
+	local acceptMsgBox = ui.MsgBox(clmsg, yesScp, "None");
+    acceptMsgBox = tolua.cast(acceptMsgBox, 'ui::CMessageBoxFrame');
+    frame:SetUserValue('ACCEPT_MSGBOX_INDEX', acceptMsgBox:GetIndex());
+    
+end
+
+function _EXEC_GUILD_AGIT_EXTENSION()
+	housing.RequestGuildAgitExtension("GUILD_AGIT_INFO_RECEIVE");
+end
+
+function ON_GUILD_AGIT_INFO_RECEIVE(frame)
+	local extensionLevel = 1;
+
+	local guildAgit = housing.GetGuildAgitInfo();
+	if guildAgit ~= nil then
+		extensionLevel = guildAgit.extensionLevel;
+	end
+
+	local pic_agit_level = GET_CHILD_RECURSIVELY(frame, "pic_agit_level");
+	pic_agit_level:SetImage("housing_level_icon_0" .. extensionLevel);
+
+	local txt_extension_level = GET_CHILD_RECURSIVELY(frame, "txt_extension_level");
+	txt_extension_level:SetTextByKey("level", extensionLevel);
+
+	local class = GetClass("guild_housing", "guild_agit_extension" .. extensionLevel + 1);
+	
+	local needLevel = TryGetProp(class, "ExtensionNeedGuildLevel");
+	local txt_extension_need_level = GET_CHILD_RECURSIVELY(frame, "txt_extension_need_level");
+	txt_extension_need_level:SetTextByKey("value", GET_COMMAED_STRING(needLevel));
+	
+	local needSilver = TryGetProp(class, "ExtensionNeedSilver");
+	local txt_extension_need_silver = GET_CHILD_RECURSIVELY(frame, "txt_extension_need_silver");
+	txt_extension_need_silver:SetTextByKey("value", GET_COMMAED_STRING(needSilver));
+	
+	local needMileage = TryGetProp(class, "ExtensionNeedMileage");
+	local txt_extension_need_mileage = GET_CHILD_RECURSIVELY(frame, "txt_extension_need_mileage");
+	txt_extension_need_mileage:SetTextByKey("value", GET_COMMAED_STRING(needMileage));
+
+	local function SET_EXTENSION_LEVEL_INFO(frame, level)
+		local txt_extension_level_info = GET_CHILD_RECURSIVELY(frame, "txt_extension_level_info_lv" .. level);
+
+		local class = GetClass("guild_housing", "guild_agit_extension" .. level);
+		local caption = TryGetProp(class, "Caption1");
+		txt_extension_level_info:SetTextByKey("value", caption);
+	end
+	
+	for i = 1, 5 do
+		SET_EXTENSION_LEVEL_INFO(frame, i);
+	end
+	
+	local pcGuild = session.party.GetPartyInfo(PARTY_GUILD);
+	local guildObj = GetIES(pcGuild:GetObject());
+	
+	local btn_extension_exec = GET_CHILD_RECURSIVELY(frame, "btn_extension_exec");
+	btn_extension_exec:SetClickSound('button_click_big')
+	btn_extension_exec:SetOverSound('button_over');
+	if needLevel ~= nil then
+        if guildObj.Level >= needLevel then
+    
+    		btn_extension_exec:SetEnable(1);
+    	else
+    		btn_extension_exec:SetEnable(0);
+    	end
+    else
+		btn_extension_exec:SetEnable(0);
+    end
 end
