@@ -318,14 +318,14 @@
             <ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
                 <Num Num="1"/>
                 <Num Num="0"/>
-                <Num Num="1"/>
+                <Num FuncTxt="local value = 1 local nirvana_buff = info.GetBuffByName(session.GetMyHandle(), &quot;Nirvana_Buff&quot;) if nirvana_buff ~= nil then value = 0.1 end return value" UseFunc="1" Num="1"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Num FuncTxt="return 1 / obj.Level" Num="0.5" UseFunc="1"/>
+                <Num FuncTxt="local value = 1 local nirvana_buff = info.GetBuffByName(session.GetMyHandle(), &quot;Nirvana_Buff&quot;) if nirvana_buff ~= nil then value = 0.1 end return value / obj.Level" UseFunc="1" Num="1"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
                 <Str_Arg Arg="0" Str="E_pc_full_charge"/>
@@ -434,5 +434,91 @@
                 </Scp>
             </EtcList>
         </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_BUFF" Client="NO" UseSleep="NO">
+                        <Str Str="Nirvana_Buff"/>
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" Scp="SKL_END_AT_TIME" Time="0" UseSleep="NO">
+                            <Num Num="3000" />
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="0" UseSleep="NO">
+                            <Str_Arg Arg="1" Str="F_cleric_energy_blast_shot#Dummy_effect_energyblast"/>
+                            <Num Num="2"/>
+                            <Pos Angle="0" Dist="0" Height="100"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                            <Str Str="voice_war_atk_long_shot"/>
+                            <Str Str="voice_atk_long_war_f"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_SKL_LOCK_MOVE" Time="0" UseSleep="NO">
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_LIMITATION" Time="0" UseSleep="NO"/>
+                        <Scp Client="YES" Scp="C_EFFECT_POS" Time="50" UseSleep="NO">
+                            <Str_Arg Arg="2" Str="F_archer_strafe_hit_light"/>
+                            <Pos Angle="0" Dist="20" Height="15"/>
+                            <Num Num="0"/>
+                            <Str Str="None"/>
+                        </Scp>
+                        <Scp Client="NO" LoopTime="300" Scp="SKL_SET_TARGET_SQUARE" Time="200" UseSleep="NO">
+                            <Pos Angle="0" Dist="0"/>
+                            <Num Num="0"/>
+                            <Num Num="250"/>
+                            <Num FuncTxt="local value = 20 local flowTime = GetDynamicCastingFlowTime(self) if flowTime &gt;= 2 then value = value * 2.4 elseif flowTime &gt;= 1 then value = value * 1.7 end return value" UseFunc="1" Num="20"/>
+                            <Num Num="25"/>
+                            <Num Num="2"/>
+                        </Scp>
+                        <Scp Client="NO" LoopTime="500" Scp="SKL_TGT_KNOCKDOWN" Time="201" UseSleep="NO">
+                            <Num Num="4"/>
+                            <Num Num="2"/>
+                            <Num Num="80"/>
+                            <Num Num="30"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                            <Num Num="5"/>
+                        </Scp>
+                        <Scp Client="NO" LoopTime="300" Scp="SKL_TGT_DMG" Time="201" UseSleep="NO">
+                            <Num FuncTxt="local value = 1 local flowTime = GetDynamicCastingFlowTime(self) if flowTime &gt;= 2 then value = 2 elseif flowTime &gt;= 1 then value = 1.5 end return value" UseFunc="1" Num="1"/>
+                        </Scp>
+                        <Scp Client="NO" LoopTime="1000" Scp="SKL_CONSUME_SP" Time="800" UseSleep="NO">
+                            <Num FuncTxt="local value = 42 local lv = self.Lv local bylvCorrect = lv - 300 if bylvCorrect &lt; 0 then     bylvCorrect = bylvCorrect * 2.75 / 1000 elseif bylvCorrect >= 0 then     bylvCorrect = bylvCorrect * 1.25 / 1000 end value = value * (1 + bylvCorrect) return math.floor(value)" Num="4" UseFunc="1"/>
+                        </Scp>
+                        <Scp Client="NO" LoopTime="500" Scp="SKL_CHECK_CHARGETIME" Time="800" UseSleep="NO">
+                            <Num Num="2.9"/>
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_DETACH" Time="1000" UseSleep="NO">
+                            <Str_Arg Arg="1" Str="F_cleric_energy_blast_shot#Dummy_effect_energyblast"/>
+                            <Num Num="2"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="1000" UseSleep="NO">
+                            <Str_Arg Arg="2" Str="F_cleric_energy_blast_shot#Dummy_effect_energyblast"/>
+                            <Num Num="2"/>
+                            <Pos Angle="0" Dist="0" Height="100"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_DETACH" Time="2000" UseSleep="NO">
+                            <Str_Arg Arg="1" Str="F_cleric_energy_blast_shot#Dummy_effect_energyblast"/>
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="2000" UseSleep="NO">
+                            <Str_Arg Arg="3" Str="F_cleric_energy_blast_shot#Dummy_effect_energyblast"/>
+                            <Num Num="2"/>
+                            <Pos Angle="0" Dist="0" Height="100"/>
+                            <Num Num="0"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
     </Skill>
 </ToolSkill>

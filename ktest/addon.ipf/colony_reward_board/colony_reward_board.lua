@@ -8,8 +8,9 @@ end
 function ON_SECOND_LEAGUE_START(frame)
 	if frame == nil then return; end
 	local reward_list_gb = GET_CHILD_RECURSIVELY(frame, "reward_list_gb");
-	local enable = session.colonyReward.IsEnableSecondLeagueReward();
-	if reward_list_gb ~= nil and enable ~= nil and enable == true then
+	local rewardInfoCount = session.colonyReward.GetSizeChallengersRewardList();
+	print("RECV_ADDON_MSG[START_SECOND_LEAGUE_COLONY_REWARD] / RewardInfoCount : "..RewardInfoCount);
+	if reward_list_gb ~= nil and rewardInfoCount ~= nil and rewardInfoCount > 0 then
 		REWARD_LIST_CLEAR(reward_list_gb);
 		CREATE_COLONY_REWARD_LIST(reward_list_gb);
 	end
@@ -29,12 +30,13 @@ function ON_OPEN_COLONY_REWARD_BOARD(frame)
 	session.colonytax.ReqTaxChequeList();
 	session.colonyReward.LoadRewardItemDate();
 	session.colonyReward.ReqChallengersList();
+	session.colonyReward.ReqTaxInquireList();
 	
 	local reward_list_gb = GET_CHILD_RECURSIVELY(frame, "reward_list_gb");
-	local enable = session.colonyReward.IsEnableSecondLeagueReward();
-	if reward_list_gb ~= nil and enable ~= nil and enable == true then
+	local rewardInfoCount = session.colonyReward.GetSizeChallengersRewardList();
+	if reward_list_gb ~= nil and rewardInfoCount ~= nil and rewardInfoCount > 0 then
 		CREATE_COLONY_REWARD_LIST(reward_list_gb)
-	elseif reward_list_gb ~= nil and enable == false then
+	elseif reward_list_gb ~= nil and rewardInfoCount <= 0 then
 		REWARD_LIST_CLEAR(reward_list_gb);
 	end
 end
@@ -47,43 +49,22 @@ function REWARD_LIST_CLEAR(listgb)
 	end
 end
 
-function GET_SECONDLEAGUE_CHEQUE_LIST()
-	local secondLeagueList = {};
-	local count = session.colonytax.GetTaxChequeCount();
-	for i = 0, count - 1 do
-		local chequeInfo = session.colonytax.GetTaxChequeByIndex(i);
-		if chequeInfo ~= nil then
-			local mapID = chequeInfo:GetColonyMapID();
-            local mapCls = GetClassByType('Map', mapID);
-            local cityMapName = GET_COLONY_MAP_CITY(mapCls.ClassName);
-            local cityMapCls = GetClass("Map", cityMapName);
-            local colonyCls = GetClassByStrProp("guild_colony", "TaxApplyCity", cityMapCls.ClassName);
-			local colonyLeague = TryGetProp(colonyCls, "ColonyLeague");
-			if colonyLeague == 2 then
-				secondLeagueList[#secondLeagueList + 1] = chequeInfo;
-			end
-		end
-	end
-
-	return secondLeagueList;
-end
-
-function GET_SEONCDLEAGUE_TAX_RATE_LIST()
+function GET_SEONCDLEAGUE_REWARD_LIST()
 	local secondLeagueRateList = {};
-	local count = session.colonytax.GetTaxRateCount();
+	local count = session.colonyReward.GetSizeChallengersRewardList();
 	for i = 0, count - 1 do
 		local guildInfo = session.party.GetPartyInfo(PARTY_GUILD);
 		local guildID = guildInfo.info:GetPartyID();
-		local taxRateInfo = session.colonytax.GetMyGuildTaxRateByIndex(i, guildID);
-		if taxRateInfo ~= nil then
-            local mapID = taxRateInfo:GetColonyMapID();
+		local rewardInfo = session.colonyReward.GetMyGuildRewardInfo(i, guildID);
+		if rewardInfo ~= nil then
+            local mapID = rewardInfo:GetColonyMapID();
             local mapCls = GetClassByType('Map', mapID);
             local cityMapName = GET_COLONY_MAP_CITY(mapCls.ClassName)
             local cityMapCls = GetClass("Map", cityMapName)
             local colonyCls = GetClassByStrProp("guild_colony", "TaxApplyCity", cityMapCls.ClassName)
             local colonyLeague = TryGetProp(colonyCls, "ColonyLeague")
 			if colonyLeague == 2  then
-				secondLeagueRateList[#secondLeagueRateList + 1] = taxRateInfo;
+				secondLeagueRateList[#secondLeagueRateList + 1] = rewardInfo;
 			end
 		end
 	end
@@ -101,10 +82,10 @@ function CREATE_COLONY_REWARD_LIST(listgb)
 		return;
 	end
 
-	local secondLg_TaxRateList = GET_SEONCDLEAGUE_TAX_RATE_LIST();
-	if secondLg_TaxRateList == nil then return; end
+	local secondLg_rewardInfoList = GET_SEONCDLEAGUE_REWARD_LIST();
+	if secondLg_rewardInfoList == nil then return; end
 
-	local listCnt = #secondLg_TaxRateList;
+	local listCnt = #secondLg_rewardInfoList;
 	for i = 1, listCnt do
 		local SKIN_ODD = frame:GetUserConfig("SKIN_ODD");
 		local SKIN_EVEN = frame:GetUserConfig("SKIN_EVEN");
@@ -112,30 +93,30 @@ function CREATE_COLONY_REWARD_LIST(listgb)
 		local height = ui.GetControlSetAttribute("colony_reward_elem", "height");
 		SET_COLONY_TAX_RATE_LIST_SKIN(listgb, width, height, listCnt, SKIN_ODD, SKIN_EVEN);
 
-		local rateInfo = secondLg_TaxRateList[i];
-		local mapID = rateInfo:GetColonyMapID();
+		local rewardInfo = secondLg_rewardInfoList[i];
+		local mapID = rewardInfo:GetColonyMapID();
 		local mapCls = GetClassByType("Map", mapID);
 		local cityMapName = GET_COLONY_MAP_CITY(mapCls.ClassName);
 		local cityMapCls = GetClass("Map", cityMapName);
 		local colonyCls = GetClassByStrProp("guild_colony", "TaxApplyCity", cityMapCls.ClassName);
 		local colonyMapID = TryGetProp(colonyCls, "ClassID");
 
-		if rateInfo ~= nil then
+		if rewardInfo ~= nil then
 			local ctrlSet = listgb:CreateOrGetControlSet("colony_reward_elem", "REWARD_"..colonyMapID, ui.LEFT, ui.TOP, 0, (i - 1) * height, 0, 0);
 			if ctrlSet ~= nil then
 				AUTO_CAST(ctrlSet);
-				FILL_COLONY_REWARD_ELEM(ctrlSet, rateInfo);
+				FILL_COLONY_REWARD_ELEM(ctrlSet, rewardInfo);
 			end
 		end
 	end
 end
 
-function FILL_COLONY_REWARD_ELEM(ctrlset, rateInfo)
+function FILL_COLONY_REWARD_ELEM(ctrlset, rewardInfo)
 	local paymentdate_text = GET_CHILD_RECURSIVELY(ctrlset, "paymentdate_text");
 	local colonymap_text = GET_CHILD_RECURSIVELY(ctrlset, "colonymap_text");
 
 	-- map name
-	local mapID = rateInfo:GetColonyMapID();
+	local mapID = rewardInfo:GetColonyMapID();
 	local mapCls = GetClassByType("Map", mapID);
 	colonymap_text:SetTextByKey("value", mapCls.Name);
 	
@@ -236,7 +217,7 @@ function ON_UPDATE_REWARD_DETAIL_ITEM(frame, msg, mapID)
 	if frame == nil then return; end
 	if mapID == nil then return; end
 
-	mapID = math.floor(mapID);
+	mapID = math.floor(mapID);	
 	local count = session.colonyReward.GetRewardInfoListCountByType(mapID);
 	if count == nil then return; end
 

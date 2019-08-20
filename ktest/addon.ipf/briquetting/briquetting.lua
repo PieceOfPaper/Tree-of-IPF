@@ -163,8 +163,7 @@ function BRIQUETTING_REFRESH_MATERIAL(frame)
 		end
 		priceText:SetTextByKey('price', GetCommaedString(price));
 
-		local moneyItem = GetClass('Item', MONEY_NAME);
-		local myMoney = session.GetInvItemCountByType(moneyItem.ClassID);		
+		local myMoney = tonumber(GET_TOTAL_MONEY_STR());
 		if myMoney < price then
 			local NOT_ENOUGH_PRICE_STYLE = frame:GetUserConfig('NOT_ENOUGH_PRICE_STYLE');
 			priceText:SetTextByKey('style', NOT_ENOUGH_PRICE_STYLE);
@@ -600,8 +599,7 @@ function BRIQUETTING_SKILL_EXCUTE(parent, ctrl)
 		end
 	end
 
-	local moneyItem = GetClass('Item', MONEY_NAME);
-	local myMoney = session.GetInvItemCountByType(moneyItem.ClassID);
+	local myMoney = tonumber(GET_TOTAL_MONEY_STR());
 	local price = GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMatItemList, GET_COLONY_TAX_RATE_CURRENT_MAP());
 	if prCheck:IsChecked() == 0 then
 		price = 0;

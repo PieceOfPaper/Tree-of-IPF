@@ -482,24 +482,24 @@
                     <Num Num="65"/>
                     <Num Num="999"/>
                 </Scp>
-                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" CondFunc="" Time="1800">
-                    <Pos Angle="0" Dist="72" Height="1"/>
-                    <Str_Arg Str="None" Arg="3"/>
+                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1800">
+                    <Pos Angle="0" Dist="70"/>
+                    <Str_Arg Str="None" Arg="1"/>
                     <Num Num="1000"/>
-                    <Str_Arg Str="None" Arg="6"/>
+                    <Str_Arg Str="None" Arg="1"/>
                     <Num Num="100"/>
-                    <Num Num="100"/>
+                    <Num Num="0"/>
                     <Num Num="0"/>
                     <Num Num="2"/>
                     <Num Num="1000"/>
                     <Str_Arg Str="None" Arg="1"/>
                     <Str Str="None"/>
-                    <Num Num="3"/>
+                    <Num Num="1"/>
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
                 <Scp Scp="C_EFFECT_ATTACH" Client="YES" UseSleep="NO" Time="1800">
-                    <Str_Arg Str="I_skillrange_donut0" Arg="4"/>
+                    <Str_Arg Str="I_skillrange_donut0" Arg="3.7"/>
                     <Num Num="1"/>
                     <Pos Angle="0" Dist="75"/>
                     <Num Num="0"/>

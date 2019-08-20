@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="EUC-KR"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<Particle frame="36" attachNode="Dummy_workshop01" particleName="F_smoke173" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="64" attachNode="Dummy_workshop02" particleName="F_smoke173" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="76" attachNode="Dummy_workshop03" particleName="F_smoke173" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="256" attachNode="effect001" particleName="F_smoke109_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+    <Sound frame="28.52" soundFile="skl_eff_h_manufacture_workshop_born3"/>
+    <Particle frame="36" attachNode="Dummy_workshop01" particleName="F_smoke173" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="64" attachNode="Dummy_workshop02" particleName="F_smoke173" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="76" attachNode="Dummy_workshop03" particleName="F_smoke173" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="256" attachNode="effect001" particleName="F_smoke109_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
 </ActionDesc>

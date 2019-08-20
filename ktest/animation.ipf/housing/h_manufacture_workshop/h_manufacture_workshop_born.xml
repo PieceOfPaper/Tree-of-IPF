@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="EUC-KR"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<Particle frame="41" attachNode="Dummy_box" particleName="F_smoke173" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="122" attachNode="Dummy_table_control" particleName="F_smoke173" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+    <Sound frame="27.46" soundFile="skl_eff_h_manufacture_workshop_born"/>
+    <Particle frame="41" attachNode="Dummy_box" particleName="F_smoke173" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="122" attachNode="Dummy_table_control" particleName="F_smoke173" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
 </ActionDesc>

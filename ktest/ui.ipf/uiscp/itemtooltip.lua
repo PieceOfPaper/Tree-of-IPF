@@ -644,11 +644,38 @@ function GET_ENCHANT_JEWELL_ITEM_NAME_STRING(jewellItem)
 	return '['..string.format('LV. %d', jewellItem.Level)..'] '..jewellItem.Name;
 end
 
+function GET_ICOR_ITEM_NAME_STRING(item)
+	local name = item.Name;
+	local targetItem = nil;
+	
+	if 	TryGetProp(item, 'InheritanceItemName', 'None') ~= 'None' then
+		targetItem = GetClass('Item', item.InheritanceItemName);
+	elseif TryGetProp(item, 'InheritanceRandomItemName', 'None') ~= 'None' then
+		targetItem = GetClass('Item', item.InheritanceRandomItemName);
+	end
+
+	if targetItem == nil then
+		return name;
+	end
+	
+	local string = TryGetProp(targetItem, 'ReqToolTip', 'None');
+	if string ~= 'None' then
+		name = "["..targetItem.Name.."] "..item.Name;
+	end
+
+	return name;
+end
+
 function GET_EXTRACT_ITEM_NAME(invitem)
 	local name = invitem.Name;
 	if IS_ENCHANT_JEWELL_ITEM(invitem) == true then
 		return GET_ENCHANT_JEWELL_ITEM_NAME_STRING(invitem);
 	end
+
+	if IS_ICOR_ITEM(invitem) == true then
+		return GET_ICOR_ITEM_NAME_STRING(invitem);
+	end
+	
 	return name;
 end
 

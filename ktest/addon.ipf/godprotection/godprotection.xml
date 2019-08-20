@@ -8,7 +8,7 @@
 	<option closebutton="false"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<layer layerlevel="92"/>
-	<userconfig TIME_FONT_NOMAL="{@st41b}{s16}" TIME_FONT_ONEMINUTE="{@st41b}{s16}{#ff5c5c}" SILVER_TEXT_FONT="{@st41b}{s16}" ALL_ITEM_COUTN="13" LEGEND_ITEM_COUTN="2" SPINE="medeina" RESULT_EFFECT="I_screen_bosscard_frame06" RESULT_EFFECT_SCALE="5" RESULT_EFFECT_DURATION="1.5" DEDICATION_BUTTON_EFFECT="UI_screen_CircleButton" DEDICATION_BUTTON_EFFECT_SCALE="7" DEDICATION_BUTTON_EFFECT_DURATION="2"/>
+	<userconfig TIME_FONT_NOMAL="{@st41b}{s16}" TIME_FONT_ONEMINUTE="{@st41b}{s16}{#ff5c5c}" SILVER_TEXT_FONT="{@st41b}{s16}" ALL_ITEM_COUTN="13" LEGEND_ITEM_COUTN="2" SPINE="medeina" RESULT_EFFECT="I_screen_bosscard_frame06" RESULT_EFFECT_SCALE="5" RESULT_EFFECT_DURATION="0.5" DEDICATION_BUTTON_EFFECT="UI_screen_CircleButton" DEDICATION_BUTTON_EFFECT_SCALE="7" DEDICATION_BUTTON_EFFECT_DURATION="2" GET_ITEM_SOUND="sys_quest_item_get"/>
 	<!-- RESULT_EFFECT : 획득 가능한 아이템 SLOT들 중 획득한 아이템 이펙트,  DEDICATION_BUTTON_EFFECT : 봉헌 버튼 이펙트-->
 	<script OpenScp="GODPROTECTION_OPEN" CloseScp="GODPROTECTION_CLOSE"/>
 	<controls>

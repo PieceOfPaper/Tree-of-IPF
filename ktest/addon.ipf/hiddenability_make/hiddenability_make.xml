@@ -9,7 +9,7 @@
 	<option closebutton="false"/>
 	<sound opensound="window_open" closesound="window_close"/>
 	<script OpenScp="HIDDENABILITY_MAKE_OPEN" CloseScp="HIDDENABILITY_MAKE_CLOSE"/>
-	<userconfig MAT_MAX_COUNT="10" TOTAL_CUBE_MAX_COUNT="2" MAKE_RESULT_SOUND="sys_transcend_success" NOT_ENOUPH_STYLE="{@st42}{s18}{#FF0000}" ENOUPH_STYLE="{@st42}{s18}"/>
+	<userconfig MAT_MAX_COUNT="10" TOTAL_CUBE_MAX_COUNT="2" MAKE_START_SOUND="button_click_repair" MAKE_RESULT_SOUND="sys_quest_item_get" NOT_ENOUPH_STYLE="{@st42}{s18}{#FF0000}" ENOUPH_STYLE="{@st42}{s18}"/>
 	<controls>
 		<!-- title -->
 		<groupbox name="title_bg" rect="0 0 500 60" margin="0 0 0 0"  layout_gravity="center top" draw="true" scrollbar="false" skin="test_frame_top"/>

@@ -320,14 +320,18 @@
 				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="0" Type="FAN" />
 			</HitList>
 			<EtcList>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="100" UseSleep="NO">
-					<Pos Angle="0" Dist="5" />
-					<Angle Angle="0" />
-					<Str Str="Enchanter_EnchantLightning" />
-				</Scp>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
 					<Str Str="voice_wiz_m_enchantlightning_shot" />
 					<Str Str="voice_wiz_f_enchantlightning_shot" />
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="500" UseSleep="NO">
+					<Str Str="EnchantLightning_Buff" />
+                    <Num Num="1" UseFunc="1" FuncTxt="return obj.Level" />
+                    <Num Num="0" />
+                    <Num Num="1800000" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+					<Num Num="1" />
 				</Scp>
 			</EtcList>
 		</MainSkl>

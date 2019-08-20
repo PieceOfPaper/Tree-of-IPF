@@ -135,8 +135,10 @@ function SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting
 		angle = 0;
 	end
 
-	if quickCast == nil then
+	if quickCast == nil or quickCast == true then
 		quickCast = 1;
+	elseif quickCast == false then
+	    quickCast = 0;
 	end
 
 	if isScroll == nil or isScroll == 0 then

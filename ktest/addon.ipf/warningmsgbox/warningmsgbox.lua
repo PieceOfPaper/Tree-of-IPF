@@ -5,10 +5,12 @@ function WARNINGMSGBOX_ON_INIT(addon, frame)
 	addon:RegisterMsg("DO_OPEN_WARNINGMSGBOX_UI", "WARNINGMSGBOX_FRAME_OPEN");
 end
 
-function WARNINGMSGBOX_FRAME_OPEN(clmsg, yesScp, noScp, itemGuid)        
+function WARNINGMSGBOX_FRAME_OPEN(clmsg, yesScp, noScp, itemGuid)
 	ui.OpenFrame("warningmsgbox")
 	
 	local frame = ui.GetFrame('warningmsgbox')
+	frame:EnableHide(1);
+	
 	local warningText = GET_CHILD_RECURSIVELY(frame, "warningtext")
 	warningText:SetText(clmsg)
 
@@ -26,7 +28,7 @@ function WARNINGMSGBOX_FRAME_OPEN(clmsg, yesScp, noScp, itemGuid)
 	end
     
     if itemGuid ~= nil then
-        local item = session.GetInvItemByGuid(itemGuid)
+		local item = session.GetInvItemByGuid(itemGuid)
         if item ~= nil then
             local_item_grade = GetIES(item:GetObject()).ItemGrade
         else
@@ -59,6 +61,13 @@ function WARNINGMSGBOX_FRAME_OPEN(clmsg, yesScp, noScp, itemGuid)
         totalHeight = warningbox:GetY() + warningText:GetY() + warningText:GetHeight() + showTooltipCheck:GetHeight() + noBtn:GetHeight() + 2 * buttonMargin.bottom
     end
 
+	local okBtn = GET_CHILD_RECURSIVELY(frame, "ok")
+	tolua.cast(okBtn, "ui::CButton");
+
+	yesBtn:ShowWindow(1);
+	noBtn:ShowWindow(1);
+	okBtn:ShowWindow(0);
+
 	local bg = GET_CHILD_RECURSIVELY(frame, 'bg')
 	warningbox:Resize(warningbox:GetWidth(), totalHeight)
 	bg:Resize(bg:GetWidth(), totalHeight)
@@ -69,7 +78,7 @@ function _WARNINGMSGBOX_FRAME_OPEN_YES(parent, ctrl, argStr, argNum)
     local input_frame = GET_CHILD_RECURSIVELY(parent, "input")    
     if local_item_grade >= 3 and input_frame:GetText() ~= '0000' then
         -- 확인메시지 불일치
-        ui.SysMsg(ClMsg('miss_match_confirm_text'))
+		ui.SysMsg(ClMsg('miss_match_confirm_text'))
         return
     end
 
@@ -173,4 +182,133 @@ function WARNINGMSGBOX_SHOW_TOOLTIP(frame)
 end
 
 function UPDATE_TYPING_SCRIPT_WARNINGMSGBOX(frame, ctrl)	
+end
+
+function NOT_ROASTING_GEM_EQUIP_WARNINGMSGBOX_FRAME_OPEN(itemGuid, argNum)
+	if itemGuid == 0 or itemGuid == nil or itemGuid == "None" then
+		return;
+	end
+
+	if argNum == 0 or argNum == nil or argNum == "None" then
+		return;
+	end
+	
+	ui.OpenFrame("warningmsgbox");
+	
+	local frame = ui.GetFrame('warningmsgbox');
+	frame:EnableHide(1);
+
+	local warningText = GET_CHILD_RECURSIVELY(frame, "warningtext");
+	warningText:SetText(ClMsg("NotRoastingGemEquip"));
+
+    local input_frame = GET_CHILD_RECURSIVELY(frame, "input");
+    input_frame:ShowWindow(1);
+	input_frame:SetText('');
+
+	local showTooltipCheck = GET_CHILD_RECURSIVELY(frame, "cbox_showTooltip");
+	if itemGuid ~= nil then
+		frame:SetUserValue("ITEM_GUID" , itemGuid);
+		WARNINGMSGBOX_CREATE_TOOLTIP(frame);
+		showTooltipCheck:ShowWindow(1);
+	else
+		showTooltipCheck:ShowWindow(0);
+	end
+
+	local yesBtn = GET_CHILD_RECURSIVELY(frame, "yes");
+	tolua.cast(yesBtn, "ui::CButton");
+
+	yesBtn:SetEventScript(ui.LBUTTONUP, '_NOT_ROASTING_GEM_EQUIP_WARNINGMSGBOX_FRAME_OPEN_YES');
+	yesBtn:SetEventScriptArgNumber(ui.LBUTTONUP, argNum);
+
+	local noBtn = GET_CHILD_RECURSIVELY(frame, "no")
+	tolua.cast(noBtn, "ui::CButton");
+
+	noBtn:SetEventScript(ui.LBUTTONUP, '_WARNINGMSGBOX_FRAME_OPEN_NO');
+	noBtn:SetEventScriptArgString(ui.LBUTTONUP, "None");
+
+	local buttonMargin = noBtn:GetMargin();
+	local warningbox = GET_CHILD_RECURSIVELY(frame, 'warningbox');
+	local totalHeight = warningbox:GetY() + warningText:GetY() + warningText:GetHeight() + showTooltipCheck:GetHeight() + noBtn:GetHeight() + 2 * buttonMargin.bottom + input_frame:GetHeight();
+	
+	local okBtn = GET_CHILD_RECURSIVELY(frame, "ok")
+	tolua.cast(okBtn, "ui::CButton");
+
+	yesBtn:ShowWindow(1);
+	noBtn:ShowWindow(1);
+	okBtn:ShowWindow(0);
+
+	local bg = GET_CHILD_RECURSIVELY(frame, 'bg');
+	warningbox:Resize(warningbox:GetWidth(), totalHeight);
+	bg:Resize(bg:GetWidth(), totalHeight);
+	frame:Resize(frame:GetWidth(), totalHeight);
+end
+
+function _NOT_ROASTING_GEM_EQUIP_WARNINGMSGBOX_FRAME_OPEN_YES(parent, ctrl, argStr, argNum)
+    local input_frame = GET_CHILD_RECURSIVELY(parent, "input");
+	if input_frame:GetText() ~= '0000' then
+		-- 확인메시지 불일치
+		ui.SysMsg(ClMsg('miss_match_confirm_text'));
+		return;
+	end
+
+	IMC_LOG("INFO_NORMAL", "_NOT_ROASTING_GEM_EQUIP_WARNINGMSGBOX_FRAME_OPEN_YES" .. argStr);
+	USE_ITEMTARGET_ICON_GEM(argNum);
+
+	ui.CloseFrame("warningmsgbox");
+	ui.CloseFrame("item_tooltip");
+end
+
+function WARNINGMSGBOX_FRAME_OPEN_REBUILDPOPUP()
+	ui.OpenFrame("warningmsgbox");
+	
+	local frame = ui.GetFrame('warningmsgbox');
+	frame:EnableHide(0);
+
+	local showTooltipCheck = GET_CHILD_RECURSIVELY(frame, "cbox_showTooltip");
+	showTooltipCheck:ShowWindow(0);
+
+	local warningText = GET_CHILD_RECURSIVELY(frame, "warningtext");
+	warningText:SetText(ClMsg("EVENT_1812_CHARACTER_RESET_CLIENT_FLAG_MSG0")..ClMsg("EVENT_1812_CHARACTER_RESET_CLIENT_FLAG_MSG1").."{nl} {nl}"..ClMsg("EVENT_1812_CHARACTER_RESET_CLIENT_FLAG_MSG2").."{nl} {nl}"..ClMsg("Inputby0000"));	
+
+    local input_frame = GET_CHILD_RECURSIVELY(frame, "input");
+    input_frame:ShowWindow(1);
+	input_frame:SetText('');
+
+	local yesBtn = GET_CHILD_RECURSIVELY(frame, "yes");
+	tolua.cast(yesBtn, "ui::CButton");
+	
+	local noBtn = GET_CHILD_RECURSIVELY(frame, "no")
+	tolua.cast(noBtn, "ui::CButton");
+	
+	local okBtn = GET_CHILD_RECURSIVELY(frame, "ok")
+	tolua.cast(okBtn, "ui::CButton");
+	okBtn:SetEventScript(ui.LBUTTONUP, '_WARNINGMSGBOX_FRAME_OPEN_REBUILDPOPUP_YES');
+
+	yesBtn:ShowWindow(0);
+	noBtn:ShowWindow(0);
+	okBtn:ShowWindow(1);
+
+	local buttonMargin = okBtn:GetMargin();
+	local warningbox = GET_CHILD_RECURSIVELY(frame, 'warningbox');
+	local totalHeight = warningbox:GetY() + warningText:GetY() + warningText:GetHeight() + okBtn:GetHeight() + 2 * buttonMargin.bottom + input_frame:GetHeight();
+	local bg = GET_CHILD_RECURSIVELY(frame, 'bg');
+
+	warningbox:Resize(warningbox:GetWidth(), totalHeight);
+	bg:Resize(bg:GetWidth(), totalHeight);
+	frame:Resize(frame:GetWidth(), totalHeight);
+	
+end
+
+function _WARNINGMSGBOX_FRAME_OPEN_REBUILDPOPUP_YES(parent, ctrl, argStr, argNum)
+    local input_frame = GET_CHILD_RECURSIVELY(parent, "input");
+	if input_frame:GetText() ~= '0000' then
+		-- 확인메시지 불일치
+		ui.SysMsg(ClMsg('miss_match_confirm_text'));
+		return;
+	end
+
+	IMC_LOG("INFO_NORMAL", "_WARNINGMSGBOX_FRAME_OPEN_REBUILDPOPUP_YES");
+
+	ui.CloseFrame("warningmsgbox");
+	ui.CloseFrame("item_tooltip");
 end

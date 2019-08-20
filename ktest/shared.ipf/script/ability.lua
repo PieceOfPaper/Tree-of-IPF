@@ -141,8 +141,14 @@ function IS_ACTIVE_ABILITY(self, abilName)
     end
 
     local abil = GetAbility(self, abilName);
-    if abil ~= nil and TryGetProp(abil, 'ActiveState') == 1 then
-        return 1;
+    if abil ~= nil then
+        if TryGetProp(abil, 'ActiveState') == 1 then
+            return 1;
+        end
+
+        if TryGetProp(abil, 'AlwaysActive') == 'YES' then
+            return 1;
+        end
     end
     
     return 0;
@@ -1324,6 +1330,7 @@ function SCR_ABIL_Matador21_ACTIVE(self, ability)
         dummySkill.Attribute = "Fire";
 
         SetExProp_Str(self, "Matador21_ATTRIBUTE", sklAttribute);
+        AddBuff(self, self, "CorridaFinale_Hidden_Buff");
     end
 end
 
@@ -1334,6 +1341,7 @@ function SCR_ABIL_Matador21_INACTIVE(self, ability)
     if skill ~= nil then
         local sklAttribute = GetExProp_Str(self, "Matador21_ATTRIBUTE");
         skill.Attribute = sklAttribute;
+        RemoveBuff(self, "CorridaFinale_Hidden_Buff");
     end
 end
 
@@ -1470,6 +1478,7 @@ function SCR_ABIL_Exorcist20_ACTIVE(self, ability)
         local attribute = TryGetProp(skill, "Attribute");
         skill.Attribute = "Dark";
         SetExProp_Str(self, "Exorcist20_Attribute", attribute);
+        AddBuff(self, self, "Rubric_Hidden_Buff");
     end
 end
 
@@ -1478,6 +1487,7 @@ function SCR_ABIL_Exorcist20_INACTIVE(self, ability)
     if skill ~= nil then
         local attribute = GetExProp_Str(self, "Exorcist20_Attribute");
         skill.Attribute = attribute;
+        RemoveBuff(self, "Rubric_Hidden_Buff");
     end
 end
 
@@ -1684,5 +1694,81 @@ function SCR_ABIL_Swordman33_INACTIVE(self, ability)
     local skill = GetSkill(self, "Swordman_Thrust");
     if skill ~= nil then
         SetSkillOverHeat(self, skill.ClassName, 5, 1);
+    end
+end
+
+function SCR_ABIL_Sorcerer19_ACTIVE(self, ability)
+    local tgt = nil;
+    local tgtList = GetAliveFolloweList(self);
+    if #tgtList == 0 then
+        return;
+    end
+
+    local etc = GetETCObject(self);
+    for i = 1, #tgtList do
+        local obj = tgtList[i];
+        if etc.Sorcerer_bosscardName1 == obj.ClassName or etc.Sorcerer_bosscardName2 == obj.ClassName then
+            tgt = obj;
+            break;
+        end
+    end
+
+    if nil == tgt then
+        return;
+    end
+
+    PlayEffect(tgt, "F_pc_SummonRemove_mon", 1.0, nil, "BOT");
+
+    Dead(tgt);
+end
+
+function SCR_ABIL_Sorcerer19_INACTIVE(self, ability)
+    local tgt = nil;
+    local tgtList = GetAliveFolloweList(self);
+    if #tgtList == 0 then
+        return;
+    end
+
+    local etc = GetETCObject(self);
+    for i = 1, #tgtList do
+        local obj = tgtList[i];
+        if etc.Sorcerer_bosscardName1 == obj.ClassName or etc.Sorcerer_bosscardName2 == obj.ClassName then
+            tgt = obj;
+            break;
+        end
+    end
+
+    if nil == tgt then
+        return;
+    end
+
+    PlayEffect(tgt, "F_pc_SummonRemove_mon", 1.0, nil, "BOT");
+    
+    Dead(tgt);
+end
+
+function SCR_ABIL_Elementalist33_ACTIVE(self, ability)
+
+end
+
+function SCR_ABIL_Elementalist33_INACTIVE(self, ability)
+    local meteorSkill = GetSkill(self, "Elementalist_Meteor");
+    if meteorSkill ~= nil then
+        if IsBuffApplied(self, "Meteor_FireBall_Buff") == "YES" then
+            local over = GetBuffOver(self, "Meteor_FireBall_Buff");
+            if over > 1 then
+                local cooldown = GetExProp(self, "Elementalist33_COOLDOWN");
+                meteorSkill.BasicCoolDown = 40000;
+                SetCoolDown(self, meteorSkill.CoolDownGroup, cooldown);
+            end
+            RemoveBuff(self, "Meteor_FireBall_Buff");
+        end
+
+        for i = 1, 3 do
+            local padList = GetMyPadList(self, "Elementalist_MovingFireBall_" .. i);
+            if padList[1] ~= nil then
+                RemovePad(self, "Elementalist_MovingFireBall_" .. i);
+            end
+        end
     end
 end

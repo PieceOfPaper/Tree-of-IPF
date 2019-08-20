@@ -55,7 +55,7 @@ function SET_FEVORCOMBO_CNT(cnt, time, maxCnt)
 	if cnt > maxCnt then
 		if feverPic:IsVisible() then
 			feverPic:PlayEvent("COMBO");
-end
+		end
 		return;
 	end
 	
@@ -132,10 +132,10 @@ end
 	end
 end
 
-function MAXFEVERTIME()
+function MAXFEVERTIME(time)
 	local frame = ui.GetFrame("fevorcombo");
-	frame:SetDuration(10);
-	FEVORTIME_GUAGE_START(frame, 10);
+	frame:SetDuration(time);
+	FEVORTIME_GUAGE_START(frame, time);
 end
 
 function FEVORCOMBO_DIGIT_SET(digitCtrl, cnt, playEft)

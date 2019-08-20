@@ -222,7 +222,10 @@
 		</KeyInputStart>
 		<KeyInputEnd>
 			<ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
-                <Str FuncTxt="local str = &quot;YinYangConsonance_Pad&quot; local abilOnmyoji21 = GetAbility(self, &quot;Onmyoji21&quot;) if abilOnmyoji21 ~= nil and abilOnmyoji21.ActiveState == 1 then str = &quot;YinYangConsonance_Hidden_Pad&quot; end return str" UseFunc="1" Str="YinYangConsonance_Pad" />
+                <Str Str="YinYangConsonance_Pad" />
+            </ToolScp>
+            <ToolScp Client="NO" Scp="MONSKL_REMOVE_PAD" UseSleep="NO">
+                <Str Str="YinYangConsonance_Hidden_Pad" />
 			</ToolScp>
 			<ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
 			<ToolScp Client="NO" Scp="SKL_CANCEL_CANCEL" UseSleep="NO" />

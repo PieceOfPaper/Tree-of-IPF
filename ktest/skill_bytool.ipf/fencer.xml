@@ -55,16 +55,46 @@
                     <Str Str="EpeeGarde_Buff"/>
                     <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
                     <Num Num="0"/>
-                    <Num Num="0" UseFunc="1" FuncTxt="local value = 15000 + obj.Level * 3000;
-local addTime = GetExProp(self, 'ITEM_EPEEGARDE_TIME_UP');
-value = value + addTime;
-return value;"/>
+                    <Num Num="0"/>
                     <Num Num="1"/>
                     <Num Num="100"/>
                     <Num Num="0"/>
                 </Scp>
             </EtcList>
         </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_BUFF" Client="NO" UseSleep="NO">
+                        <Str Str="EpeeGarde_Buff"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <EtcList>
+                        <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="SKL_EPEEGARDE_SWITCH"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_CHANGE_SKLSUBANIM" Client="NO" UseSleep="NO" Time="0">
+                            <Str Str="Normal_Attack"/>
+                            <Str Str="SKL_EPEEGARDE_ATK"/>
+                        </Scp>
+                        <Scp Scp="SKL_CHANGE_SKLSUBANIM" Client="NO" UseSleep="NO" Time="0">
+                            <Str Str="Normal_Attack_TH"/>
+                            <Str Str="SKL_EPEEGARDE_ATK"/>
+                        </Scp>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="voice_archer_m_pavise_shot"/>
+                            <Str Str="voice_archer_pavise_shot"/>
+                        </Scp>
+                        <Scp Scp="SKL_BUFF_REMOVE" Client="NO" UseSleep="NO" Time="0">
+                            <Str Str="EpeeGarde_Buff"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
     </Skill>
     <Skill Name="Fencer_BalestraFente">
         <EndScripts>

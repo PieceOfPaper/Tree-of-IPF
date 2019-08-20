@@ -1099,6 +1099,8 @@ function RamMuay_UPDATE(actor, obj, buff)
     if lhObj.ClassType == "Artefact" then
         actor:ShowModelByPart("LH", 0, 0);
     end
+    
+    actor:GetAnimation():SetSTDAnim("SKL_NAKMUAY_ASTD");
 end
 
 function RamMuay_LEAVE(actor, obj, buff)

@@ -443,7 +443,9 @@ function SHOP_SELL(invitem, sellCount, frame, setTotalCount)
 	SHOP_ITEM_LIST_GET(frame);
 	SHOP_UPDATE_BUY_PRICE(frame);
 
-	INVENTORY_UPDATE_ICON_BY_INVITEM(ui.GetFrame('inventory'), invitem);
+	local invFrame = ui.GetFrame('inventory');
+	INVENTORY_UPDATE_ITEM_BY_GUID(invFrame, invitem:GetIESID());
+	INVENTORY_UPDATE_ICON_BY_INVITEM(invFrame, invitem);
 end
 
 function GET_SHOP_TOTAL_USED_POINT(frame, shopItem)

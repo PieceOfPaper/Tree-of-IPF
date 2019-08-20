@@ -292,7 +292,7 @@ function SCR_Get_SpendSP_EnableCompanion_Warrior(skill)
             end
         end
     end
-    
+
     return math.floor(value)
 end
 
@@ -1159,9 +1159,9 @@ end
 
 function SCR_Get_SkillFactor_Reinforce_Ability(skill)
     local pc = GetSkillOwner(skill)
-    local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)--스킬펙터 계산
+    local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)--?�킬?�터 계산
     local reinfabil = skill.ReinforceAbility
-    local abil = GetAbility(pc, reinfabil)--abil에 reinfabil저장
+    local abil = GetAbility(pc, reinfabil)--abil??reinfabil?�?
     if abil ~= nil and TryGetProp(skill, "ReinforceAbility") ~= 'None' then
         local abilLevel = TryGetProp(abil, "Level")
         local masterAddValue = 0
@@ -1374,9 +1374,9 @@ function SCR_ABIL_ADD_SKILLFACTOR(skill, abil, value)
     return value
 end
 
--- skillshared.lua 의 function SCR_REINFORCEABILITY_FOR_BUFFSKILL(self, skill) 와 내용 동일함
--- 같이 변경해야 함
--- done , 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그래팀에 알려주시기 바랍니다.
+-- skillshared.lua ??function SCR_REINFORCEABILITY_FOR_BUFFSKILL(self, skill) ?� ?�용 ?�일?
+-- 같이 변경해???
+-- done , ?�당 ?�수 ?�용?� cpp�??�전?�었?�니?? 변�??�항???�다�?반드???�로그래?�???�려주시�?바랍?�다.
 function SCR_REINFORCEABILITY_TOOLTIP(skill)
     local pc = GetSkillOwner(skill);
     local addAbilRate = 1;
@@ -2577,7 +2577,7 @@ function SCR_GET_AttaqueAuFer_Bufftime(skill)
 end
 
 function SCR_GET_EpeeGarde_Ratio(skill)
-    local value = 50;
+    local value = 35 + skill.Level * 3;
 
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
     
@@ -7742,13 +7742,13 @@ function SCR_GET_Effigy_Bonus(skill)
 
 end
 
--- done , 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그래팀에 알려주시기 바랍니다.
+-- done , ?�당 ?�수 ?�용?� cpp�??�전?�었?�니?? 변�??�항???�다�?반드???�로그래?�???�려주시�?바랍?�다.
 function SCR_GET_Effigy_Ratio(skill)
     local value = 1.60 + 0.07 * (skill.Level-1);
     return value
 end
 
--- done , 해당 함수 내용은 cpp로 이전되었습니다. 변경 사항이 있다면 반드시 프로그래팀에 알려주시기 바랍니다.
+-- done , ?�당 ?�수 ?�용?� cpp�??�전?�었?�니?? 변�??�항???�다�?반드???�로그래?�???�려주시�?바랍?�다.
 function SCR_GET_Effigy_Ratio2(skill)
     local value = 2.3 + 0.09 * (skill.Level-1)
     return value
@@ -7898,7 +7898,7 @@ function SCR_GET_SpellShop_Sacrament_Ratio(skill)
     local value = SCR_COMMON_MNA_FACTOR(180, 10, levelRate, mnaRate)
     value = value * 0.3
     
-    -- 주문 판매상점 개설 강화 특성은 여러개라서 SCR_REINFORCEABILITY_TOOLTIP 함수는 사용 불가. 직접 적용 ----
+    -- 주문 ?�매?�점 개설 강화 ?�성?� ?�러개라??SCR_REINFORCEABILITY_TOOLTIP ?�수???�용 불�?. 직접 ?�용 ----
     local abilAddRate = 1;
     local reinforceAbil = GetOtherAbility(pc, "Pardoner12")
     if reinforceAbil ~= nil then
@@ -7926,7 +7926,7 @@ function SCR_GET_SpellShop_Blessing_Ratio(skill)
     local value = SCR_COMMON_MNA_FACTOR(180, 10, levelRate, mnaRate)
     value = value * 0.3
     
-    -- 주문 판매상점 개설 강화 특성은 여러개라서 SCR_REINFORCEABILITY_TOOLTIP 함수는 사용 불가. 직접 적용 ----
+    -- 주문 ?�매?�점 개설 강화 ?�성?� ?�러개라??SCR_REINFORCEABILITY_TOOLTIP ?�수???�용 불�?. 직접 ?�용 ----
     local abilAddRate = 1;
     local reinforceAbil = GetOtherAbility(pc, "Pardoner13")
     if reinforceAbil ~= nil then
@@ -7954,7 +7954,7 @@ function SCR_GET_SpellShop_IncreaseMagicDEF_Ratio(skill)
     local value = SCR_COMMON_MNA_FACTOR(1.5, 10, levelRate, mnaRate)
     value = value * 0.3
     
-    -- 주문 판매상점 개설 강화 특성은 여러개라서 SCR_REINFORCEABILITY_TOOLTIP 함수는 사용 불가. 직접 적용 ----
+    -- 주문 ?�매?�점 개설 강화 ?�성?� ?�러개라??SCR_REINFORCEABILITY_TOOLTIP ?�수???�용 불�?. 직접 ?�용 ----
     local abilAddRate = 1;
     local reinforceAbil = GetOtherAbility(pc, "Pardoner14")
     if reinforceAbil ~= nil then
@@ -7982,7 +7982,7 @@ function SCR_GET_SpellShop_Aspersion_Ratio(skill)
     local value = SCR_COMMON_MNA_FACTOR(1, 15, levelRate, mnaRate)
     value = value * 0.3
     
-    -- 주문 판매상점 개설 강화 특성은 여러개라서 SCR_REINFORCEABILITY_TOOLTIP 함수는 사용 불가. 직접 적용 ----
+    -- 주문 ?�매?�점 개설 강화 ?�성?� ?�러개라??SCR_REINFORCEABILITY_TOOLTIP ?�수???�용 불�?. 직접 ?�용 ----
     local abilAddRate = 1;
     local reinforceAbil = GetOtherAbility(pc, "Pardoner15")
     if reinforceAbil ~= nil then
@@ -8545,7 +8545,7 @@ function SCR_GET_JollyRoger_Bufftime(skill)
 end
 
 function SCR_GET_JollyRoger_Ratio(skill)
-    local value = 10 + (skill.Level * 3)
+    local value = (skill.Level * 2)
     
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill);
     
@@ -9419,7 +9419,7 @@ function SCR_GET_Aukuras_Ratio2(skill)
     local value = 0
     
     if pc ~= nil then
-        -- 지능 + 정신 계수 합산
+        -- 지??+ ?�신 계수 ?�산
         local casterINT = TryGetProp(pc, 'INT', 1);
         local casterMNA = TryGetProp(pc, 'MNA', 1);        
         value = 100 + (TryGetProp(skill, 'Level', 0) * 90) + (casterINT + casterMNA)        
@@ -10685,7 +10685,7 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
         return fixedLevel;
     end
     
-    -- 디바인 마이트 적용 불가능 스킬 ----
+    -- ?�바??마이???�용 불�????�킬 ----
     if CHECK_SKILL_KEYWORD(skill, "ExpertSkill") == 1 and CHECK_SKILL_KEYWORD(skill, "LimitInstanceLevelUp") == 1 then
         return skill.LevelByDB;
     end
@@ -11223,7 +11223,7 @@ function SCR_GET_Sabbath_Ratio(skill)
 end
 
 function SCR_GET_SubweaponCancel_Ratio(skill)
-    local value = 30 + (skill.Level * 5);
+    local value = 105;
     return value;
 end
 
@@ -11522,6 +11522,12 @@ end
 
 function SCR_Get_Crescendo_Bane(skill)
     local value = 10 * skill.Level
+    
+    return value;
+end
+
+function SCR_Get_Crescendo_Bane2(skill)
+    local value = skill.Level * 14
     
     return value;
 end
@@ -11919,7 +11925,7 @@ function SCR_GET_FreezeBullet_Ratio(skill)
 end
 
 function SCR_GET_brutality_Ratio(skill)
-    local value = 8 + (skill.Level * 0.8)
+    local value = (skill.Level * 4)
     
     return value
 end
@@ -12146,13 +12152,13 @@ function SCR_GET_Tracking_Time(skill)
 end
 
 function SCR_GET_Tracking_Ratio(skill)
-    local value = 50 - (skill.Level * 3)
+    local value = 10 + (skill.Level * 6)
     return value
 end
 
 -- TigerHunter_RapidShot
 function SCR_GET_RapidShot_Ratio(skill)
-    local value = 30
+    local value = 20
     return value
 end
 
@@ -12163,12 +12169,12 @@ function SCR_GET_EyeofBeast_Time(skill)
 end
 
 function SCR_GET_EyeofBeast_Ratio(skill)
-    local value = 5
+    local value = skill.Level * 3
     return value
 end
 
 function SCR_GET_EyeofBeast_Ratio2(skill)
-    local value = 50 + (skill.Level * 5)
+    local value = skill.Level * 5
     return value
 end
 
@@ -12273,10 +12279,10 @@ end
 -- Sheriff_Redemption
 function SCR_GET_Redemption_Time(skill)
     local pc = GetSkillOwner(skill)
-    local value = 5
+    local value = 20
     local abil = GetAbility(pc, 'Sheriff6')
     if abil ~= nil and abil.ActiveState == 1 then
-        value = 2.5;
+        value = 10;
     end
     
     return value

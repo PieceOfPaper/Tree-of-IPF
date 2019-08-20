@@ -227,7 +227,7 @@ function UPDATE_SKILLITEMMAKE_PRICE(frame, sklObj, levelSkill)
 
 	local makecount = GET_CHILD(frame, "makecount", "ui::CNumUpDown");
 	local curCount = makecount:GetNumber();
-	local makeSec = GET_SKILL_ITEM_MAKE_TIME(sklObj, curCount);
+	local makeSec = 3;	-- GET_SKILL_ITEM_MAKE_TIME(sklObj, curCount);
 	local progtime = frame:GetChild("progtime");
 	progtime:SetTextByKey("value", makeSec);
 	local gauge = GET_CHILD(frame, "gauge", "ui::CGauge");

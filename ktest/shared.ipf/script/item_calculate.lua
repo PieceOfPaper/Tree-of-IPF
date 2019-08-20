@@ -1801,7 +1801,7 @@ end
 
 function GET_SOCKET_ADD_PRICE_BY_TICKET(item)
     local nextSlotIdx = GET_NEXT_SOCKET_SLOT_INDEX(item);
-    return GET_MAKE_SOCKET_PRICE(item.UseLv, item.ItemGrade, nextSlotIdx) * 3;
+    return GET_MAKE_SOCKET_PRICE(item.UseLv, item.ItemGrade, nextSlotIdx);
 end
 
 function GET_COPY_TARGET_OPTION_LIST()

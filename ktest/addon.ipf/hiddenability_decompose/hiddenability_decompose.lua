@@ -117,6 +117,7 @@ end
 -- 분해 완료 후 결과 
 function HIDDENABILITY_DECOMPOSE_SET_RESULT(frame, msg, resultstr)
     local frame = ui.GetFrame("hiddenability_decompose");
+    imcSound.PlaySoundEvent(frame:GetUserConfig("DECOMPOSE_START_SOUND"));
     imcSound.PlaySoundEvent(frame:GetUserConfig("DECOMPOSE_RESULT_SOUND"));
     
     local itemclassnamelist = StringSplit(resultstr, "/");

@@ -33,28 +33,39 @@ function OPEN_SELECT_TARGET_FROM_PARTY(frame, msg, argStr, showHPGauge)
     local partyList = session.party.GetPartyMemberList(PARTY_NORMAL);    
     local emphasizePic = nil;
     local emphasizeValue = nil;
+
     if partyList ~= nil then
         local count = partyList:Count();
         local index = 1;
         for i = 0, count - 1 do
             local partyMemberInfo = partyList:Element(i);
-            if partyMemberInfo:GetAID() ~= session.loginInfo.GetAID() and myMapCls.ClassID == partyMemberInfo:GetMapID() then
+            if partyMemberInfo:GetAID() == session.loginInfo.GetAID() then
+            -- 자기 자신일때에는 표시하지 않는다.
+            else
                 local memberSet = GET_CHILD_RECURSIVELY(frame, 'memberSet_'..index);
                 local jobEmblemPic = GET_CHILD(memberSet, 'jobEmblemPic');
                 local iconinfo = partyMemberInfo:GetIconInfo();
-                local jobCls  = GetClassByType("Job", iconinfo.repre_job);
-                if nil ~= jobCls then
+                local jobCls = GetClassByType("Job", iconinfo.repre_job);
+                if nil ~= jobCls and jobEmblemPic ~= nil then
                     jobEmblemPic:SetImage(jobCls.Icon);
                 end
+
                 local lvText = GET_CHILD(memberSet, 'lvText');
-                lvText:SetTextByKey('lv', partyMemberInfo:GetLevel());
+                if lvText ~= nil then
+                    lvText:SetTextByKey('lv', partyMemberInfo:GetLevel());
+                end 
+
                 local nameText = GET_CHILD(memberSet, 'nameText');
-                nameText:SetTextByKey('name', partyMemberInfo:GetName());
+                if nameText ~= nil then
+                    nameText:SetTextByKey('name', partyMemberInfo:GetName());
+                end 
 
                 local stat = partyMemberInfo:GetInst();
                 local hpGauge = GET_CHILD(memberSet, 'hpGauge');
-                hpGauge:SetPoint(stat.hp, stat.maxhp);
-                hpGauge:ShowWindow(showHPGauge);
+                if hpGauge ~= nil then
+                    hpGauge:SetPoint(stat.hp, stat.maxhp);
+                    hpGauge:ShowWindow(showHPGauge);
+                end
 
                 if showHPGauge == 1 then
                     if emphasizeValue == nil or (stat.hp < stat.maxhp and emphasizeValue < stat.hp) then
@@ -63,7 +74,10 @@ function OPEN_SELECT_TARGET_FROM_PARTY(frame, msg, argStr, showHPGauge)
                     end
                 end
 
-                memberSet:ShowWindow(1);
+                if memberSet ~= nil then
+                    memberSet:ShowWindow(1);
+                end
+                
                 geSkillControl.SetPartyMemberTarget(index, partyMemberInfo:GetAID(), argStr);
                 index = index + 1;
             end

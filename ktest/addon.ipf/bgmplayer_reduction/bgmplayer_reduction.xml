@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="bgmplayer_reduction" x="0" y="0" width="180" height="89">
+	<frame fullheight="false" fasthide="true" layout_gravity="right top" margin="0 33 350 0" draw="true"/>
+	<skin frameskin="None"/>
+	<draw drawframe="true"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<option closebutton="false"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<layer layerlevel="99"/>
+	<userconfig SIMPLE_WIDTH="176" SIMPLE_HEIGHT="85" CLASSIC_WIDTH="180" CLASSIC_HEIGHT="89" SIMPLE_TITLEBAR_BTN_MARGIN="2" TITLETXT_CLASSIC_FORAMT="{@st66b}{s16}{b}" TITLETXT_SIMPLE_FORAMT="{@st43}{s16}"/>
+	<controls>
+		<groupbox name="gb" rect="0 0 180 89" margin="0 0 0 0" layout_gravity="left top" skin="test_tooltip_set" skinchange="test_tooltip_set/m_bgm_simple_bg" hittest="false" scrollbar="false"/>
+		<picture name="title_bar" margin="0 3 0 0" rect="0 0 172 28" hittest="false" image="m_title_classic" skinchange="m_title_classic/m_title_simple" stretch="true" changecursor="false" layout_gravity="center top"/>
+		<richtext name="bgm_mugic_title" rect="0 0 170 20" margin="0 33 0 0" layout_gravity="center top" updateparent="true" resizebytext="false" format="{@st66b}{s16}{b}" param1="value" param1_def=""/>
+		<button name="maximize_btn" rect="0 0 21 21" margin="0 7 35 0" layout_gravity="right top" image="chat_expand_btn" skinchange="chat_expand_btn/expansion_simple" oversound="button_over" clicksound="button_click_big" texttooltip="{@st59}BGM 플레이어를 최대화합니다{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" LBtnUpScp="BGMPLAYER_REDUCTION_MAXIMIZE_UI"/>
+		<button name="close_btn" rect="0 0 21 21" margin="0 7 8 0" layout_gravity="right top" image="bgm_cancel_c" skinchange="bgm_cancel_c/mbgm_cancel_simple" oversound="button_over" clicksound="button_click_big" texttooltip="{@st59}BGM 플레이어를 닫습니다{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" LBtnUpScp="BGMPLAYER_REDUCTION_CLOSE_UI"/>
+		<button name="playStart_btn" rect="0 0 19 20" margin="2 25 0 0" layout_gravity="center center" image="m_play_classic" skinchange="m_play_classic/m_play_simple" oversound="button_over" clicksound="button_click_big" texttooltip="{@st59}음악을 재생합니다{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" LBtnUpScp="BGMPLAYER_REDUCTION_PLAY"/>
+		<button name="playerBefore_btn" rect="0 0 20 25" margin="43 25 0 0" layout_gravity="left center" image="m_before_classic" skinchange="m_before_classic/m_before_simple" oversound="button_over" clicksound="button_click_big" texttooltip="{@st59}이전 음악 재생{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" LBtnUpScp="BGMPLAYER_REDUCTION_PREVIOUS_PLAY"/>
+		<button name="playerAfter_btn" rect="0 0 20 14" margin="0 25 40 0" layout_gravity="right center" image="m_after_classic" skinchange="m_after_classic/m_after_simple" oversound="button_over" clicksound="button_click_big" texttooltip="{@st59}다음 음악 재생{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" LBtnUpScp="BGMPLAYER_REDUCTION_NEXT_PLAY"/>
+	</controls>
+</uiframe>

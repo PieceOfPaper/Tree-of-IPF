@@ -564,11 +564,11 @@
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="0">
                     <Pos Angle="0" Dist="0"/>
                     <Str_Arg Str="F_sys_target_monster##0.5" Arg="2.5"/>
-                    <Num Num="1000"/>
+                    <Num Num="800"/>
                     <Str_Arg Str="F_burstup001_grey" Arg="1"/>
                     <Num Num="75"/>
                     <Num Num="0"/>
-                    <Num Num="0"/>
+                    <Num Num="500"/>
                     <Num Num="1"/>
                     <Num Num="1000"/>
                     <Str_Arg Str="None" Arg="1"/>
@@ -584,7 +584,7 @@
                     <Str_Arg Str="F_burstup001_grey" Arg="1"/>
                     <Num Num="75"/>
                     <Num Num="0"/>
-                    <Num Num="0"/>
+                    <Num Num="500"/>
                     <Num Num="1"/>
                     <Num Num="1000"/>
                     <Str_Arg Str="None" Arg="1"/>
@@ -600,7 +600,7 @@
                     <Str_Arg Str="F_burstup001_grey" Arg="1"/>
                     <Num Num="75"/>
                     <Num Num="0"/>
-                    <Num Num="0"/>
+                    <Num Num="500"/>
                     <Num Num="1"/>
                     <Num Num="1000"/>
                     <Str_Arg Str="None" Arg="1"/>
@@ -612,11 +612,11 @@
                 <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1500">
                     <Pos Angle="0" Dist="200"/>
                     <Str_Arg Str="F_sys_target_monster##0.5" Arg="2.5"/>
-                    <Num Num="800"/>
+                    <Num Num="1000"/>
                     <Str_Arg Str="F_burstup001_grey" Arg="1"/>
                     <Num Num="75"/>
                     <Num Num="0"/>
-                    <Num Num="0"/>
+                    <Num Num="500"/>
                     <Num Num="1"/>
                     <Num Num="1000"/>
                     <Str_Arg Str="None" Arg="1"/>
@@ -22774,20 +22774,10 @@
                     <Num Num="163589"/>
                     <Num Num="2"/>
                 </Scp>
-                <Scp Client="YES" Scp="C_SOUND" Time="700" UseSleep="NO">
-                    <Str Str="mon_voice_lapene_skl1_cast"/>
-                </Scp>
-                <Anim Anim="skl2" Speed="1.5" Time="700"/>
-                <Scp Client="YES" Scp="C_SOUND" Time="900" UseSleep="NO">
-                    <Str Str="mon_mirtis_atk02_cast"/>
-                </Scp>
-                <Scp Client="YES" Scp="C_SOUND" Time="900" UseSleep="NO">
-                    <Str Str="mon_voice_lapene_skl3_shot"/>
-                </Scp>
-                <Scp Client="NO" Scp="EFT_AND_HIT" Time="1500" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="0">
                     <Pos Angle="0" Dist="0"/>
-                    <Str_Arg Arg="3" Str="F_sys_target_boss1##0.5"/>
-                    <Num Num="1000"/>
+                    <Str_Arg Str="F_sys_target_boss##1" Arg="3"/>
+                    <Num Num="2500"/>
                     <Str_Arg Arg="1" Str="None"/>
                     <Num Num="60"/>
                     <Num Num="100"/>
@@ -22800,8 +22790,18 @@
                     <Num Num="0"/>
                     <Num Num="0"/>
                 </Scp>
-                <Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="1700" UseSleep="NO">
-                    <Str_Arg Arg="1" Str="I_skillrange_donut50"/>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="700">
+                    <Str Str="mon_voice_lapene_skl1_cast"/>
+                </Scp>
+                <Anim Time="700" Anim="skl2" Speed="1.5"/>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="900">
+                    <Str Str="mon_mirtis_atk02_cast"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="900">
+                    <Str Str="mon_voice_lapene_skl3_shot"/>
+                </Scp>
+                <Scp Scp="C_EFFECT_ATTACH" Client="YES" UseSleep="NO" Time="1700">
+                    <Str_Arg Str="I_skillrange_donut50" Arg="1"/>
                     <Num Num="10"/>
                     <Pos Angle="0" Dist="0"/>
                     <Num Num="0"/>
@@ -22824,30 +22824,23 @@
                     <Str Str="None"/>
                     <Num Num="3"/>
                     <Num Num="0"/>
-                    <Num Num="60"/>
+                    <Num Num="80"/>
                 </Scp>
-                <Scp Client="YES" Scp="C_SOUND" Time="2250" UseSleep="NO">
+                <Scp Scp="C_EFFECT_DETACH" Client="YES" UseSleep="NO" Time="2200">
+                    <Str_Arg Str="I_skillrange_donut50" Arg="1"/>
+                    <Num Num="0.5"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="2250">
                     <Str Str="skl_archer_crossarrow_badak"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_SOUND" Time="2250" UseSleep="NO">
                     <Str Str="skl_eff_breakingwheel_hit_ground"/>
                 </Scp>
-                <Scp Client="YES" Scp="C_EFFECT_ATTACH" Time="2700" UseSleep="NO">
-                    <Str_Arg Arg="1" Str="I_skillrange_donut50"/>
-                    <Num Num="20"/>
-                    <Pos Angle="0" Dist="0"/>
-                    <Num Num="0"/>
-                    <Num Num="-1"/>
-                </Scp>
-                <Scp Client="YES" Scp="C_EFFECT_DETACH" Time="2700" UseSleep="NO">
-                    <Str_Arg Arg="1" Str="I_skillrange_donut50"/>
-                    <Num Num="0.5"/>
-                </Scp>
                 <Anim Anim="skl2" Speed="1.6" StartTime="1" Time="2700"/>
                 <Scp Client="NO" Scp="EFT_AND_HIT" Time="2700" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
                     <Pos Angle="0" Dist="0"/>
                     <Str_Arg Arg="1" Str="None"/>
-                    <Num Num="2000"/>
+                    <Num Num="2200"/>
                     <Str_Arg Arg="1" Str="F_burstup001_blue"/>
                     <Num Num="200"/>
                     <Num Num="100"/>
@@ -22860,7 +22853,21 @@
                     <Num Num="0"/>
                     <Num Num="120"/>
                 </Scp>
-                <Scp Client="YES" Scp="C_SOUND" Time="2900" UseSleep="NO">
+                <Scp Scp="C_EFFECT_ATTACH" Client="YES" UseSleep="NO" Time="3000">
+                    <Str_Arg Str="I_skillrange_donut50" Arg="5"/>
+                    <Num Num="4"/>
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="-1"/>
+                </Scp>
+                <Scp Scp="C_EFFECT_ATTACH" Client="YES" UseSleep="NO" Time="3000">
+                    <Str_Arg Str="I_skillrange_donut0" Arg="3"/>
+                    <Num Num="2"/>
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="0"/>
+                    <Num Num="-1"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="3000">
                     <Str Str="mon_voice_succubus_atk_2"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_SOUND" Time="3450" UseSleep="NO">
@@ -22869,12 +22876,37 @@
                 <Scp Client="YES" Scp="C_SOUND" Time="3450" UseSleep="NO">
                     <Str Str="skl_archer_crossarrow_badak"/>
                 </Scp>
-                <Scp Client="YES" Scp="C_EFFECT_DETACH" Time="3700" UseSleep="NO">
-                    <Str_Arg Arg="1" Str="I_skillrange_donut50"/>
+                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="3500">
+                    <Pos Angle="0" Dist="0"/>
+                    <Str_Arg Str="None" Arg="3"/>
+                    <Num Num="1500"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Num Num="80"/>
+                    <Num Num="200"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="3"/>
+                    <Num Num="10"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="3500">
+                    <Str_Arg Str="F_circle28" Arg="8"/>
+                    <Str Str="None"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_EFFECT_DETACH" Client="YES" UseSleep="NO" Time="3700">
+                    <Str_Arg Str="I_skillrange_donut50" Arg="1"/>
                     <Num Num="0.5"/>
                 </Scp>
-                <Anim Anim="skl2" Speed="1.6" StartTime="1" Time="3700"/>
-                <Scp Client="YES" Scp="C_SOUND" Time="4000" UseSleep="NO">
+                <Anim Time="3700" Anim="skl2" Speed="1.6" StartTime="1"/>
+                <Scp Scp="C_EFFECT_DETACH" Client="YES" UseSleep="NO" Time="3700">
+                    <Str_Arg Str="I_skillrange_donut0" Arg="1"/>
+                    <Num Num="0.5"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="4000">
                     <Str Str="mon_mothtem_born"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_SOUND" Time="4100" UseSleep="NO">

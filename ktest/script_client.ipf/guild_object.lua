@@ -49,7 +49,7 @@ function GUILD_ITEM_OBJECT(actor, isSelect)
 			packet.SendClickTrigger(actor:GetHandleVal());
 		end
 	elseif isSelect == 0 then
-		--ui.CloseFrame("plantwater");
+		ui.CloseFrame("plantwater");
 	end
 end
 

@@ -29,7 +29,9 @@ end
 local invenTitleName = nil
 local clickedLockItemSlot = nil
 
+g_shopList = {"companionshop", "housing_shop", "shop", "exchange", "oblation_sell"};
 g_invenTypeStrList = {"All", "Equip", "Consume", "Recipe", "Card", "Etc", "Gem", "Premium", "Housing"};
+
 local _invenCatOpenOption = {}; -- key: cid, value: {key: CategoryName, value: IsToggle}
 local _invenTreeOpenOption = {}; -- key: cid, value: {key: TreegroupName, value: IsToggle}
 local _invenSortTypeOption = {}; -- key: cid, value: SortType
@@ -88,6 +90,16 @@ function INVENTORY_ON_INIT(addon, frame)
 	RESET_INVENTORY_ICON();
 end
 
+function IS_SHOP_FRAME_OPEN()
+	for i = 1, #g_shopList do
+		if ui.GetFrame(g_shopList[i]):IsVisible() == 1 then
+			return true;
+		end
+	end
+
+	return false;
+end
+
 function UI_TOGGLE_INVENTORY()
 	if app.IsBarrackMode() == true then
 		return;
@@ -122,8 +134,9 @@ end
 
 function UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
 	INIT_INVEN_SLOT(slot);
+
 	--거래목록 또는 상점 판매목록에서 올려놓은 아이템(슬롯) 표시 기능
-	if ui.GetFrame('housing_shop'):IsVisible() == 1 or ui.GetFrame('shop'):IsVisible() == 1 or ui.GetFrame('exchange'):IsVisible() == 1 or ui.GetFrame("oblation_sell"):IsVisible() == 1 then
+	if IS_SHOP_FRAME_OPEN() then
 		local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
 		if remainInvItemCount ~= invItem.count then
 			slot:Select(1);
@@ -1301,14 +1314,8 @@ function INIT_INVEN_SLOT(slot)
 	local dropscp = frame:GetUserConfig("TREE_SLOT_DROPSCRIPT");
 	local popscp = frame:GetUserConfig("TREE_SLOT_POPSCRIPT");
 
-	local shopframe = ui.GetFrame("shop");
-	local exchangeframe  = ui.GetFrame("exchange");
-	local companionshop = ui.GetFrame('companionshop');
-	local oblationSell = ui.GetFrame("oblation_sell");
-	local housingShop = ui.GetFrame("housing_shop");
-
-	if shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1 or companionshop:IsVisible() == 1 or oblationSell:IsVisible() == 1 or housingShop:IsVisible() == 1 then
-		slot:SetSelectedImage('socket_slot_check')  -- 거래시에만 체크 셀렉 아이콘 사용	
+	if IS_SHOP_FRAME_OPEN() then
+		slot:SetSelectedImage('socket_slot_check') -- 거래시에만 체크 셀렉 아이콘 사용	
 	end
 
 	slot:EnableHideInDrag(true)
@@ -1321,9 +1328,6 @@ end
 function INVENTORY_SLOT_UNCHECK(frame, itemID)
 	--Inventory Slot Uncheck Setting
 	local group = GET_CHILD_RECURSIVELY(frame, 'inventoryGbox', 'ui::CGroupBox');
-	local oblationSell = ui.GetFrame("oblation_sell");
-	local shopframe = ui.GetFrame("shop");
-	local exchangeframe  = ui.GetFrame("exchange");
 
 	for typeNo = 1, #g_invenTypeStrList do
 		local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox');
@@ -1338,9 +1342,11 @@ function INVENTORY_SLOT_UNCHECK(frame, itemID)
 			for j = 0, slotSet:GetChildCount() - 1 do
 				local slot = slotSet:GetChildByIndex(j);
 				local slotItem = GET_SLOT_ITEM(slot);
-				if slotItem ~= nil and (oblationSell:IsVisible() == 1 or shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1) then
-					if slotItem:GetIESID() == itemID then
-						slot:Select(0);
+				if slotItem ~= nil then
+					if IS_SHOP_FRAME_OPEN() and ui.GetFrame('housing_shop'):IsVisible() ~= 1 then
+						if slotItem:GetIESID() == itemID then
+							slot:Select(0);
+						end
 					end
 				end
 				
@@ -1626,7 +1632,7 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)
 	local invItemCount = sortedList:size();
 
 	if sortType == nil then
-		sortType = 1
+		sortType = 0;
 	end
 
 	local blinkcolor = frame:GetUserConfig("TREE_SEARCH_BLINK_COLOR");
@@ -3476,9 +3482,12 @@ function TOGGLE_ITEM_SLOT_INVEN_ON_MSG(frame, msg, argstr, argnum)
 	end
 
 	if cnt > 0 then
-		frame:RunUpdateScript("UPDATE_INVENTORY_TOGGLE_ITEM", 1.0);
+		local timer = GET_CHILD_RECURSIVELY(frame, "invenontimer", "ui::CAddOnTimer");
+		timer:SetUpdateScript("UPDATE_INVENTORY_TOGGLE_ITEM");
+		timer:Start(1);
 	else
-		frame:StopUpdateScript("UPDATE_INVENTORY_TOGGLE_ITEM");
+		local timer = GET_CHILD_RECURSIVELY(frame, "invenontimer", "ui::CAddOnTimer");
+		timer:Stop();
 	end
 end
 
@@ -3499,10 +3508,19 @@ function UPDATE_INVENTORY_TOGGLE_ITEM(frame)
 			slot = INV_GET_SLOT_BY_TYPE(type, nil, 1)
 		end	
 		if slot ~= nil and slot:IsVisible() == 1 then
+			local slotset = slot:GetParent();
+			if slotset:GetHeight() == 0 then
+				return 1;
+			end
+
+			local inventoryGbox = GET_CHILD_RECURSIVELY(frame, "inventoryGbox");
+			local offset = frame:GetUserConfig("EFFECT_DRAW_OFFSET");
+			if slot:GetDrawY() <= invenTab:GetDrawY() or invenTab:GetDrawY() + inventoryGbox:GetHeight() - offset <= slot:GetDrawY() then
+				return 1;
+			end
+
 			if slot:IsVisibleRecursively() == true then
-				local size = frame:GetUserConfig("TOGGLE_ITEM_EFFECT_SIZE");	
-				slot:PlayOnceUIEffect('I_sys_item_slot', size);
-				slot:Invalidate();
+				slot:PlayUIEffect("I_sys_item_slot", 2.2, "Inventory_TOGGLE_ITEM", true);
 			end
 		end
 	end
@@ -3576,11 +3594,20 @@ function UPDATE_INVENTORY_DISPEL_DEBUFF(frame, ctrl, num, str, time)
 	if(slot == nil ) then
 		return;
 	end
-	local posX, posY = GET_SCREEN_XY(slot);
+
+	local slotset = slot:GetParent();
+	if slotset:GetHeight() == 0 then
+		return;
+	end
+
+	local inventoryGbox = GET_CHILD_RECURSIVELY(frame, "inventoryGbox");
+	local offset = frame:GetUserConfig("EFFECT_DRAW_OFFSET");
+	if slot:GetDrawY() <= invenTab:GetDrawY() or invenTab:GetDrawY() + inventoryGbox:GetHeight() - offset <= slot:GetDrawY() then
+		return;
+	end	
 	
 	if slot:IsVisibleRecursively() == true then
-		local size = frame:GetUserConfig("DISPEL_EFFECT_SIZE");	
-		slot:PlayOnceUIEffect('I_sys_item_slot', size);
+		slot:PlayUIEffect("I_sys_item_slot", 2.2, "Inventory_DISPEL_DEBUFF", true);	
 	end
 end
 
@@ -3658,7 +3685,7 @@ function UPDATE_INVENTORY_JUNGTAN(frame, ctrl, num, str, time)
 	if frame:IsVisible() == 0 then
 		return;
 	end
-	local jungtanID = frame:GetUserIValue("JUNGTAN_EFFECT");
+	local jungtanID = frame:GetUserValue("JUNGTAN_EFFECT");
 	if jungtanID == 0 then
 		return;
 	end
@@ -3673,13 +3700,25 @@ function UPDATE_INVENTORY_JUNGTAN(frame, ctrl, num, str, time)
 		slotSet = INV_GET_SLOTSET_BY_ITEMID(jungtanID, 1)
 	end	
 
-	local slot = GET_SLOT_BY_ITEMTYPE(slotSet, jungtanID);
+	local slot = GET_SLOT_BY_IESID(slotSet, jungtanID);
 	if slot == nil then
 		return;
 	end
-	local posX, posY = GET_SCREEN_XY(slot);
+	
+	local slotset = slot:GetParent();
+	if slotset:GetHeight() == 0 then
+		return;
+	end
 
-	movie.PlayUIEffect('I_sys_item_slot', posX, posY, 1.2);
+	local inventoryGbox = GET_CHILD_RECURSIVELY(frame, "inventoryGbox");
+	local offset = frame:GetUserConfig("EFFECT_DRAW_OFFSET");
+	if slot:GetDrawY() <= invenTab:GetDrawY() or invenTab:GetDrawY() + inventoryGbox:GetHeight() - offset <= slot:GetDrawY() then
+		return;
+	end
+
+	if slot:IsVisibleRecursively() == true then
+		slot:PlayUIEffect("I_sys_item_slot", 2.2, "Inventory_JUNGTAN", true);	
+	end
 end
 
 function UPDATE_INVENTORY_JUNGTANDEF(frame, ctrl, num, str, time)
@@ -3697,18 +3736,29 @@ function UPDATE_INVENTORY_JUNGTANDEF(frame, ctrl, num, str, time)
 	end
 
 	local tabIndex = invenTab:GetSelectItemIndex()
-	local slotSet = INV_GET_SLOTSET_BY_ITEMID(jungtanID)
+	local slot = INV_GET_SLOT_BY_TYPE(jungtanID)
 	if tabIndex == 0 then
-		slotSet = INV_GET_SLOTSET_BY_ITEMID(jungtanID, 1)
+		slot = INV_GET_SLOT_BY_TYPE(jungtanID, nil, 1)
 	end	
 
-	local slot = GET_SLOT_BY_ITEMTYPE(slotSet, jungtanID);
-	if(slot == nil ) then
+	if slot == nil then
 		return;
 	end
-	local posX, posY = GET_SCREEN_XY(slot);
 
-	movie.PlayUIEffect('I_sys_item_slot', posX, posY, 1.2);
+	local slotset = slot:GetParent();
+	if slotset:GetHeight() == 0 then
+		return;
+	end
+
+	local inventoryGbox = GET_CHILD_RECURSIVELY(frame, "inventoryGbox");
+	local offset = frame:GetUserConfig("EFFECT_DRAW_OFFSET");
+	if slot:GetDrawY() <= invenTab:GetDrawY() or invenTab:GetDrawY() + inventoryGbox:GetHeight() - offset <= slot:GetDrawY() then
+		return;
+	end
+	
+	if slot:IsVisibleRecursively() == true then
+		slot:PlayUIEffect("I_sys_item_slot", 2.2, "Inventory_JUNGTANDEF", true);	
+	end
 end
 
 -- slotanim

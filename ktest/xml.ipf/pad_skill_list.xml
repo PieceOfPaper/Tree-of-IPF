@@ -229,7 +229,7 @@ return time;"/>
             </ToolScp>
         </leaveEvent>
     </PadSkill>
-    <PadSkill Name="Archer_JincanGu" CheckerType="0" Range="30" AllowOverlap="1" IsMagicType="0">
+    <PadSkill Name="Archer_JincanGu" CheckerType="0" Range="30" ApplyFlyMon="1" AllowOverlap="1" IsMagicType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000"/>
@@ -315,7 +315,7 @@ return obj.Level;"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Archer_VerminPot" CheckerType="0" PadHeight="10" Range="50" AllowOverlap="1" IsMagicType="0">
+	<PadSkill Name="Archer_VerminPot" CheckerType="0" ApplyFlyMon="1" PadHeight="10" Range="50" AllowOverlap="1" IsMagicType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="15000"/>
@@ -2748,11 +2748,11 @@ return value;"/>
 				<Str_Arg Str="None" Arg="1"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-				<Str_Arg Str="F_cleric_aukuras_shot_fireloop2" Arg="2"/>
+				<Str_Arg Str="F_cleric_aukuras_shot_fireloop2" Arg="1.5"/>
 				<Pos Angle="0" Dist="-20" Height="35"/>
 				<Num Num="0"/>
 				<Str_Arg Str="None" Arg="1"/>
-			<Num Num="0"/>
+			<Num Num="1"/>
             </ToolScp>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="30000"/>
@@ -5908,7 +5908,7 @@ return value;"/>
     <PadSkill Name="Elementalist_MovingFireBall_1" CheckerType="1" deadProcess="1" Range="15" InnerRange="15" UpdateTerm="50" ApplyFlyMon="1">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_FORCE" Client="YES" UseSleep="NO">
-                <Str_Arg Str="I_wizard_meteorfall_force_dropfire" Arg="2"/>
+                <Str_Arg Str="I_wizard_meteorfall_force_dropfire" Arg="1"/>
                 <Num Num="15"/>
             </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
@@ -5918,11 +5918,11 @@ return value;"/>
         </createEvent>
         <updateEvent>
             <ToolScp Scp="PAD_MOVE_CIRCLE_OWNER" Client="NO" UseSleep="NO">
-                <Num Num="1000"/>
+                <Num Num="100"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Num Num="4"/>
-                <Num Num="60"/>
+                <Num Num="1.5"/>
+                <Num Num="40"/>
                 <Num Num="0"/>
             </ToolScp>
         </updateEvent>
@@ -5930,7 +5930,7 @@ return value;"/>
     <PadSkill Name="Elementalist_MovingFireBall_2" CheckerType="1" deadProcess="1" Range="15" InnerRange="15" UpdateTerm="50" ApplyFlyMon="1">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_FORCE" Client="YES" UseSleep="NO">
-                <Str_Arg Str="I_wizard_meteorfall_force_dropfire" Arg="2"/>
+                <Str_Arg Str="I_wizard_meteorfall_force_dropfire" Arg="1"/>
                 <Num Num="15"/>
             </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
@@ -5940,11 +5940,11 @@ return value;"/>
         </createEvent>
         <updateEvent>
             <ToolScp Scp="PAD_MOVE_CIRCLE_OWNER" Client="NO" UseSleep="NO">
-                <Num Num="1000"/>
+                <Num Num="100"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Num Num="4"/>
-                <Num Num="60"/>
+                <Num Num="1.5"/>
+                <Num Num="40"/>
                 <Num Num="120"/>
             </ToolScp>
         </updateEvent>
@@ -5952,7 +5952,7 @@ return value;"/>
     <PadSkill Name="Elementalist_MovingFireBall_3" CheckerType="1" deadProcess="1" Range="15" InnerRange="15" UpdateTerm="50" ApplyFlyMon="1">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_FORCE" Client="YES" UseSleep="NO">
-                <Str_Arg Str="I_wizard_meteorfall_force_dropfire" Arg="2"/>
+                <Str_Arg Str="I_wizard_meteorfall_force_dropfire" Arg="1"/>
                 <Num Num="15"/>
             </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
@@ -5962,11 +5962,11 @@ return value;"/>
         </createEvent>
         <updateEvent>
             <ToolScp Scp="PAD_MOVE_CIRCLE_OWNER" Client="NO" UseSleep="NO">
-                <Num Num="1000"/>
+                <Num Num="100"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Num Num="4"/>
-                <Num Num="60"/>
+                <Num Num="1.5"/>
+                <Num Num="40"/>
                 <Num Num="-120"/>
             </ToolScp>
         </updateEvent>
@@ -7686,8 +7686,8 @@ return Time;"/>
 				<Num Num="9999"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-				<Str_Arg Str="F_wizard_HeavyGravity_loop" Arg="2"/>
-				<Pos Angle="0" Dist="3.8255448e-43" PosType="3"/>
+				<Str_Arg Str="F_wizard_HeavyGravity_loop" Arg="2.55"/>
+				<Pos Angle="0" Dist="0" PosType="0"/>
 				<Num Num="0"/>
 				<Str_Arg Str="None" Arg="1"/>
 			</ToolScp>
@@ -8491,9 +8491,8 @@ return value"/>
 				<Num Num="1"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-				<Str_Arg Str="I_warrior_CorridaFinale" UseFunc="1" FuncTxt="local pc = GetMyPCObject()
-local abil = GetAbility(pc,&quot;Matador21&quot;)
-if abil ~= nil and abil.ActiveState == 1 then
+				<Str_Arg Str="I_warrior_CorridaFinale" UseFunc="1" FuncTxt="local abilBuff = info.GetBuffByName(self:GetHandleVal(), &quot;CorridaFinale_Hidden_Buff&quot;)
+if abilBuff ~= nil then
     return &quot;I_warrior_CorridaFinale_fire&quot;, 0.7;
 else
     return &quot;I_warrior_CorridaFinale&quot;, 0.7;
@@ -8503,9 +8502,8 @@ end" Arg="0.69999999"/>
 				<Str_Arg Str="None" Arg="1"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-				<Str_Arg Str="I_smoke039" UseFunc="1" FuncTxt="local pc = GetMyPCObject()
-local abil = GetAbility(pc,&quot;Matador21&quot;)
-if abil ~= nil and abil.ActiveState == 1 then
+				<Str_Arg Str="I_smoke039" UseFunc="1" FuncTxt="local abilBuff = info.GetBuffByName(self:GetHandleVal(), &quot;CorridaFinale_Hidden_Buff&quot;)
+if abilBuff ~= nil then
     return &quot;I_smoke039_fire&quot;, 1;
 else
     return &quot;I_smoke039&quot;, 1;
@@ -8563,9 +8561,8 @@ end" Arg="1"/>
 				<Num Num="999"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-				<Str_Arg Str="I_warrior_CorridaFinale" UseFunc="1" FuncTxt="local pc = GetMyPCObject()
-local abil = GetAbility(pc,&quot;Matador21&quot;)
-if abil ~= nil and abil.ActiveState == 1 then
+				<Str_Arg Str="I_warrior_CorridaFinale" UseFunc="1" FuncTxt="local abilBuff = info.GetBuffByName(self:GetHandleVal(), &quot;CorridaFinale_Hidden_Buff&quot;)
+if abilBuff ~= nil then
     return &quot;I_warrior_CorridaFinale_fire&quot;, 0.7;
 else
     return &quot;I_warrior_CorridaFinale&quot;, 0.7;
@@ -8576,9 +8573,8 @@ end" Arg="0.69999999"/>
 				<Num Num="0"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-				<Str_Arg Str="I_smoke039" UseFunc="1" FuncTxt="local pc = GetMyPCObject()
-local abil = GetAbility(pc,&quot;Matador21&quot;)
-if abil ~= nil and abil.ActiveState == 1 then
+				<Str_Arg Str="I_smoke039" UseFunc="1" FuncTxt="local abilBuff = info.GetBuffByName(self:GetHandleVal(), &quot;CorridaFinale_Hidden_Buff&quot;) 
+if abilBuff ~= nil then
     return &quot;I_smoke039_fire&quot;, 1;
 else
     return &quot;I_smoke039&quot;, 1;
@@ -11642,7 +11638,12 @@ return GET_ABIL_LEVEL(self, &quot;PlagueDoctor6&quot;);"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="15000"/>
-				<Num Num="10" UseFunc="1" FuncTxt="return 5"/>
+				<Num Num="10" UseFunc="1" FuncTxt="local value = 5
+local abil = GetAbility(self, &quot;Pyromancer31&quot;)
+if abil ~= nil and TryGetProp(abil, &quot;ActiveState&quot;, 0) == 1 then
+value = value * 2
+end
+return value"/>
 			</ToolScp>
 		</createEvent>
 		<enterEvent>
@@ -13116,7 +13117,7 @@ return 30000 + obj.Level * 5000"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-    <PadSkill Name="Sheriff_Fanning" CheckerType="0" deadProcess="1" Range="50" UpdateTerm="65" ApplyFlyMon="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+    <PadSkill Name="Sheriff_Fanning" CheckerType="0" deadProcess="1" Range="50" UpdateTerm="113" ApplyFlyMon="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="5000"/>
@@ -13135,7 +13136,7 @@ return 30000 + obj.Level * 5000"/>
 		</leaveEvent>
 		<updateEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-65"/>
+                <Num Num="-113"/>
 				<Num Num="0"/>
 			</ToolScp>
             <ToolScp Scp="PAD_DAMAGE_ENEMY_FANNING" Client="NO" UseSleep="NO">
@@ -19732,8 +19733,8 @@ return time"/>
 				<Num Num="9999"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-				<Str_Arg Str="F_wizard_HeavyGravity_loop2" Arg="2"/>
-				<Pos Angle="0" Dist="3.8255448e-43" PosType="3"/>
+				<Str_Arg Str="F_wizard_HeavyGravity_loop2" Arg="2.55"/>
+				<Pos Angle="0" Dist="0" PosType="0"/>
 				<Num Num="0"/>
 				<Str_Arg Str="None" Arg="1"/>
 				<Num Num="0"/>

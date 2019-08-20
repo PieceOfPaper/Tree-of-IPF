@@ -287,8 +287,9 @@ end
 -- 제작 결과 
 function HIDDENABILITY_MAKE_SET_RESULT(frame, msg)
     local frame = ui.GetFrame("hiddenability_make")
+    imcSound.PlaySoundEvent(frame:GetUserConfig("MAKE_START_SOUND"));
     imcSound.PlaySoundEvent(frame:GetUserConfig("MAKE_RESULT_SOUND"));
-
+    
     local Btn = GET_CHILD_RECURSIVELY(frame, "Btn");
     Btn:ShowWindow(0);
     

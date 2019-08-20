@@ -9,7 +9,7 @@
 	<option closebutton="false"/>
 	<sound opensound="window_open" closesound="window_close"/>
 	<script OpenScp="HIDDENABILITY_DECOMPOSE_OPEN" CloseScp="HIDDENABILITY_DECOMPOSE_CLOSE"/>
-	<userconfig DECOMPOSE_RESULT_SOUND="sys_transcend_success"/>
+	<userconfig DECOMPOSE_START_SOUND="button_click_repair" DECOMPOSE_RESULT_SOUND="sys_quest_item_get"/>
 	<controls>
 		<!-- title -->
 		<groupbox name="title_bg" 	rect="0 0 500 60" margin="0 0 0 0"  layout_gravity="center top" draw="true" hittestbox="false" scrollbar="false" skin="test_frame_top"/>

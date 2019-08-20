@@ -177,8 +177,8 @@ function GODPROTECTION_DEDICATION_CLICK(ctrl)
 	-- 봉헌!
 	ui.SetHoldUI(true);
 	RequestBidFieldBossWorldEvent();
-	GODPROTECTION_PLAY_DEDICATION_EFFECT(frame)
-	ReserveScript("BUTTON_UNFREEZE()", 1.5);
+	GODPROTECTION_PLAY_DEDICATION_EFFECT(frame)    
+	ReserveScript("BUTTON_UNFREEZE()", WORLD_EVENT_CLICK_DELAY);
 end
 
 function BUTTON_UNFREEZE()
@@ -231,7 +231,6 @@ function GODPROTECTION_RESULT_EFFECT(itemid)
 		return;
 	end
 
-	ui.SetHoldUI(true);
 	resultslot:PlayUIEffect(RESULT_EFFECT_NAME, RESULT_EFFECT_SCALE, 'RESULT_EFFECT');
 	ReserveScript("_DEDICATION_RESULT_EFFECT()", RESULT_EFFECT_DURATION);
 end
@@ -290,6 +289,10 @@ function GODPROTECTION_DEDICATION_ITEM_GET(frame, itemid)
 		slot:GetIcon():SetTooltipOverlap(1);
 		slot:SetUserValue("ITEM_ID", itemid);
 	end
+
+	-- 아이템 획득 사운드
+	local GET_ITEM_SOUND = frame:GetUserConfig('GET_ITEM_SOUND');
+    imcSound.PlaySoundEvent(GET_ITEM_SOUND);
 end
 
 -- 봉헌 · 확인 버튼, 획득 아이템 slot 초기화

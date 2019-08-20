@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="EUC-KR"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<Particle frame="0" attachNode="effect003" particleName="F_fire049_NoLoop" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="90" attachNode="effect003" particleName="F_fire049_NoLoop" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="180" attachNode="effect003" particleName="F_fire049_NoLoop" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="270" attachNode="effect003" particleName="F_fire049_NoLoop" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="42" attachNode="Dummy_sword" particleName="F_fire044_7_Spark" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+    <Particle frame="0" attachNode="effect003" particleName="F_fire049_NoLoop" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="42" attachNode="Dummy_sword" particleName="F_fire044_7_Spark" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="42.25" soundFile="anvil_hit"/>
+    <Particle frame="90" attachNode="effect003" particleName="F_fire049_NoLoop" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="137.32" soundFile="skl_eff_h_armor_laboratory_set_air"/>
+    <Particle frame="180" attachNode="effect003" particleName="F_fire049_NoLoop" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="270" attachNode="effect003" particleName="F_fire049_NoLoop" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
 </ActionDesc>

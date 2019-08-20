@@ -715,7 +715,7 @@
 																					<picture name="authName6Bg" layout_gravity="left center" margin="10 0 0 0" stretch="true" image="test_partyquest_slot"/>
 																					<richtext name="authName6" margin="30 0 0 0" caption="{@st42}컨텐츠{/}" textalign="left center" resizebytext="false" fontname="white_16_ol" fixwidth="true"/>
 																				</overlap>
-																				<grid name="claimCheckbox6" margin="20 0 0 0" rect="0 0 0 100" slotsize="500 50" slotspc="0 0"/>
+																				<grid name="claimCheckbox6" margin="20 0 0 0" rect="0 0 0 150" slotsize="500 50" slotspc="0 0"/>
                                         <overlap name="authName7ovlp" rect="0 0 0 40" margin="0 0 600 0">
                                           <picture name="authName7Bg" layout_gravity="left center" margin="10 0 0 0" stretch="true" image="test_partyquest_slot"/>
                                           <richtext name="authName7" margin="30 0 0 0" caption="{@st42}하우징{/}" textalign="left center" resizebytext="false" fontname="white_16_ol" fixwidth="true"/>

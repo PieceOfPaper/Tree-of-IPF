@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="EUC-KR"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<Particle frame="5" attachNode="Dummy_root" particleName="F_smoke173" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="15" attachNode="Dummy_root" particleName="F_smoke173" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="35" attachNode="Dummy_root" particleName="F_smoke173" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.25" pause="true" use2DEffect="false" soft2DValue="20"/>
+    <Sound frame="0.00" soundFile="skl_eff_h_armor_laboratory_set_dead3"/>
+    <Particle frame="5" attachNode="Dummy_root" particleName="F_smoke173" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="15" attachNode="Dummy_root" particleName="F_smoke173" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="35" attachNode="Dummy_root" particleName="F_smoke173" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.25" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
 </ActionDesc>
