@@ -6,6 +6,9 @@ function BGMPLAYER_ON_INIT(addon, frame)
     LoadFavoritesBgmList();
     if IsBgmPlayerBasicFrameVisible() == 1 then
         BGMPLAYER_OPEN_UI();
+        if IsBeingPlayedFromBgmPlayer() == 1 then
+            BGMPLAYER_UPDATE_PLAY_TIEM(frame);
+        end
     end
 end
 
@@ -125,6 +128,13 @@ function BGMPLAYER_NOT_PLAYED_AREA_CHECK(frame)
         end
     end
     return 1;
+end
+
+function BGMPLAYER_UPDATE_PLAY_TIEM(frame)
+    local timeText = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_playtime");
+    if timeText == nil then return; end
+    timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
+    timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
 end
 
 function BGMPLAYER_OPEN_UI(frame, btn)
@@ -725,7 +735,6 @@ function BGMPLAYER_REPLAY(argStr, argNum, argValue)
         frame:SetUserValue("MUSIC_TITLE", gb:GetName().."/"..titleName);
     end
 
-    PlayBgm(titleName, ctrlSetName);    
     BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
     
     local totalTime = GetPlayBgmTotalTime();
@@ -735,12 +744,23 @@ function BGMPLAYER_REPLAY(argStr, argNum, argValue)
         startTime = GetBgmPauseTime() / 1000;
         SetPauseTime(0);
     end
+
     BGMPLAYER_PLAYTIME_GAUGE(startTime, totalTime);
 
-    local timeText = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_playtime");
-    if timeText == nil then return end
-    timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-    timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
+    if IsBgmPlayerBasicFrameVisible() == 1 then
+        local timeText = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_playtime");
+        if timeText == nil then return; end
+        timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
+        timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
+    elseif IsBgmPlayerReductionFrameVisible() == 1 then
+        local reduction_frame = ui.GetFrame("bgmplayer_reduction");
+        if reduction_frame == nil then return; end
+        
+        local timeText = GET_CHILD_RECURSIVELY(reduction_frame, "bgm_mugic_playtime");
+        if timeText == nil then return; end
+        timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
+        timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
+    end
 end
 
 function BGMPLAYER_PLAYTIME_GAUGE(curtime, maxtime)

@@ -12,7 +12,7 @@
 	<controls>
 		<groupbox name="gb" rect="0 0 406 480" margin="0 0 0 0" layout_gravity="center bottom" skin="test_frame_low" hittest="true" hittestbox="false" skinchange="test_frame_low/bgm_simple_bg" scrollbar="false"/>
 		<groupbox name="playercontroler_gb" rect="0 0 406 150" margin="0 110 0 0" layout_gravity="left top" skin="None" hittest="true" hittestbox="false" scrollbar="false"/>
-		<groupbox name="playermusicinfo_gb" rect="0 0 406 245" margin="0 250 0 0" layout_gravity="left top" skin="None" hittest="true" hittestbox="true" scrollbar="false"/>
+		<groupbox name="playermusicinfo_gb" rect="0 0 406 245" margin="0 250 0 0" layout_gravity="left top" skin="None" hittestbox="false" scrollbar="false"/>
 		<picture name="title_pic" margin="0 0 0 0" rect="0 0 372 75" hittest="false" image="bgm_title_decoration" stretch="true" changecursor="false" layout_gravity="center top"/>
 		<groupbox name="title_gb" rect="0 0 406 54" margin="0 60 0 0" layout_gravity="center top" skin="test_socket_topskin" hittest="false" scrollbar="false"/>
 		<button name="minimization_btn" rect="0 0 34 34" margin="28 72 0 0" layout_gravity="left top" image="testsmall_button" skinchange="testsmall_button/reduction_simple" clicksound="button_click_big" texttooltip="{@st59}BGM 플레이어를 최소화합니다{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" LBtnUpScp="BGMPLAYER_REDUCTION_OPEN_UI"/>
@@ -26,7 +26,7 @@
 		<gauge name="bgmplayer_timegauge" rect="0 0 347 15" margin="0 53 0 0" parent="playercontroler_gb" layout_gravity="center top" drawlastpoint="false" ratewidth="false" skin="bgm_gauge_com" hittest="true" enablecontrol="true" ctrlOriginHeight="5" ctrlBtnOffSetY="1"/>
 		<groupbox name="musicAllList_gb" parent="playermusicinfo_gb" rect="0 0 349 246" margin="0 32 0 0" layout_gravity="center top" hittest="true" hittestbox="false" scrollbar="false" skin="classic_list_bg" skinchange="classic_list_bg/simple_list_bg" draw="true"/>
 		<groupbox name="musicbutton_gb" parent="musicAllList_gb" rect="0 0 349 36" margin="0 0 0 0" layout_gravity="center top" hittest="true" hittestbox="false" scrollbar="false" draw="false"/>
-		<groupbox name="musicinfo_gb" parent="musicAllList_gb" rect="0 0 349 183" margin="0 36 0 0" layout_gravity="center top" hittest="true" hittestbox="true" scrollbar="true" draw="false"/>
+		<groupbox name="musicinfo_gb" parent="musicAllList_gb" rect="0 0 349 183" margin="0 36 0 0" layout_gravity="center top" hittestbox="false" scrollbar="true" draw="false"/>
 		<edit name="musicAllListSearch_edit" parent="playermusicinfo_gb" rect="0 0 150 24" margin="0 6 29 0" layout_gravity="right top" fontname="white_18_ol" skin="search_classic_bg" skinchange="search_classic_bg/search_simple_bg" textalign="left top" typingscp="BGMPLAYER_SEARCH_TITLE_KEY" typingsound="chat_typing"/>
 		<picture name="skin_toggle_btn" rect="0 0 69 23" margin="0 0 27 12" layout_gravity="right bottom" image="change_c_button" skinchange="change_c_button/change_s_button" clicksound="button_click_big" texttooltip="{@st59}스킨 변경{/}" LBtnUpScp="BGMPLAYER_CHANGE_SKIN"/>
 		<picture name="playerAllList_btn" parent="musicbutton_gb" rect="0 0 175 36" margin="1 0 0 0" layout_gravity="left top" image="all_classic" skinchange="all_classic/all_simple" clicksound="button_click_big" LBtnUpScp="BGMPLAYER_MODE_ALL_LIST"/>
