@@ -137,7 +137,7 @@ function SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting
 
 	if quickCast == nil or quickCast == true then
 		quickCast = 1;
-	else
+	elseif quickCast == false then
 	    quickCast = 0;
 	end
 
