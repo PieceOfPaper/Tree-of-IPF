@@ -13112,7 +13112,7 @@ return 30000 + obj.Level * 5000"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-    <PadSkill Name="Sheriff_Fanning" CheckerType="0" deadProcess="1" Range="50" UpdateTerm="65" ApplyFlyMon="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+    <PadSkill Name="Sheriff_Fanning" CheckerType="0" deadProcess="1" Range="50" UpdateTerm="113" ApplyFlyMon="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="5000"/>
@@ -13131,7 +13131,7 @@ return 30000 + obj.Level * 5000"/>
 		</leaveEvent>
 		<updateEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-65"/>
+                <Num Num="-113"/>
 				<Num Num="0"/>
 			</ToolScp>
             <ToolScp Scp="PAD_DAMAGE_ENEMY_FANNING" Client="NO" UseSleep="NO">
