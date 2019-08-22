@@ -151,6 +151,12 @@
     <Skill Name="Matador_Ole">
         <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
             <EtcList>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="SKL_OLE"/>
+                    <Num Num="1.5"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
                 <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
                     <Str Str="Ole_Buff"/>
                     <Num Num="0" UseFunc="1" FuncTxt="return obj.Level;"/>
@@ -184,6 +190,12 @@ return BuffTime;"/>
                 <Frame Angle="-2.9729636" AniTime="300" Dist="32.422516" ForceATK="0" HitCount="1" Length="30" PosType="1" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="100" Type="CIRCLE" Width="65"/>
             </HitList>
             <EtcList>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="SKL_PASODOBLE"/>
+                    <Num Num="1.5"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>            
                 <Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
                     <Str Str="Skill_NoDamage_Buff"/>
                     <Num Num="100"/>

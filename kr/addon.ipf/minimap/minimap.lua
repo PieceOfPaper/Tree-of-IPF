@@ -134,7 +134,8 @@ function UPDATE_MINIMAP(frame)
 	SET_MINIMAPSIZE(___cursize);
 
 	local cursize = GET_MINIMAPSIZE();
-	local zoominfo = frame:GetChild("ZOOM_INFO");
+	local outside_frame = ui.GetFrame("minimap_outsidebutton");
+	local zoominfo = outside_frame:GetChild("ZOOM_INFO");
 	local percent = (100 + cursize) / 100;
 	zoominfo:SetText(string.format("x{b}%1.1f", percent));
 

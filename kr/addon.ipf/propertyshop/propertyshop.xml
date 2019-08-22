@@ -13,11 +13,14 @@
 	<controls>
 		<groupbox name="bg_bg" rect="0 0 545 980" margin="0 40 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_low"/>
 		<groupbox name="pip4" rect="0 0 545 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_top"/>
-		<groupbox name="bg" rect="0 0 545 1000" margin="0 90 0 0" layout_gravity="center top" draw="false" rateheight="true" ratewidth="true" resizebyresolution="false" scrollbar="false" skin="pipwin_low"/>
+		<groupbox name="bg" rect="0 0 545 1000" margin="0 111 0 0" layout_gravity="center top" draw="false" rateheight="true" ratewidth="true" resizebyresolution="false" scrollbar="false" skin="pipwin_low"/>
+		<tab name="itembox" parent="bg_bg" rect="0 0 500 40" margin="15 35 0 0" layout_gravity="left top" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2" fixwidth="true"/>
+		<tabitem name="tab1" parent="itembox" layout_gravity="left top" caption="{@st66b}텝1" width="160" SelectScp="SCP_PROPERTY_SHOP_TAB1"/>
+		<tabitem name="tab2" parent="itembox" layout_gravity="left top" caption="{@st66b}텝2" width="160" SelectScp="SCP_PROPERTY_SHOP_TAB2"/>
 		<button name="colse" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}창을 닫습니다{/}"/>
 		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" format="{@st43}%s{/}" param1="value" param1_def="상점" spacey="0"/>
 		<groupbox name="itemlist2" parent="bg" rect="0 0 545 620" margin="0 25 0 0" layout_gravity="center top" draw="true" rateheight="false" ratewidth="true" resizebyresolution="false" scrollbar="false" skin=""/>
-		<detaillist name="itemlist" parent="bg" rect="0 0 535 618" margin="-2 25  0 0" layout_gravity="center top" rowheight="70" skin=""/>
+		<detaillist name="itemlist" parent="bg" rect="0 0 535 618" margin="-2 0 0 0" layout_gravity="center top" rowheight="70" skin=""/>
 		<groupbox name="gbox_bottom" parent="bg" rect="0 0 525 170" margin="0 650 0 0" layout_gravity="center top" draw="true" rateheight="true" ratewidth="true" resizebyresolution="false" scrollbar="false" skin="test_frame_midle"/>
 		<richtext name="t_mymoney" parent="gbox_bottom" rect="0 0 120 24" margin="20 20 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_20" format="{@st41b}%s : %s{/}" maxwidth="0" param1="text" param1_def="TOTALPOINT" param2="value" param2_def="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<richtext name="t_totalprice" parent="gbox_bottom" rect="0 0 120 24" margin="20 100 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_20" format="{@st41b}%s : {/}{ol}{s18}{#ec0000}%s{/}" maxwidth="0" param1="text" param1_def="TOTALBUYPOINT" param2="value" param2_def="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>

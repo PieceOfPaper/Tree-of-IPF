@@ -141,8 +141,14 @@ function IS_ACTIVE_ABILITY(self, abilName)
     end
 
     local abil = GetAbility(self, abilName);
-    if abil ~= nil and TryGetProp(abil, 'ActiveState') == 1 then
-        return 1;
+    if abil ~= nil then
+        if TryGetProp(abil, 'ActiveState') == 1 then
+            return 1;
+        end
+
+        if TryGetProp(abil, 'AlwaysActive') == 'YES' then
+            return 1;
+        end
     end
     
     return 0;

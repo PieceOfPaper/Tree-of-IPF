@@ -1370,7 +1370,7 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 		ownName = string.format("+%d %s", reinforce_2, ownName);
 	end
 
-	if IS_ENCHANT_JEWELL_ITEM(item) == true then
+	if IS_ENCHANT_JEWELL_ITEM(item) == true or IS_ICOR_ITEM(item) == true then
 		return GET_EXTRACT_ITEM_NAME(item);
 	end
 
@@ -2899,9 +2899,14 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 	end
 
 	if itemobj.GroupName == "Gem" then
-		local yesscp = string.format("USE_ITEMTARGET_ICON_GEM(%d)", argNum);
-		ui.MsgBox(ClMsg("GemHasPenaltyLater"), yesscp, "RELEASE_ITEMTARGET_ICON_GEM()");
-		return;
+		if itemobj.GemRoastingLv == 0 then
+			-- 로스팅 되지 않은 젬일 경우 경고창
+			NOT_ROASTING_GEM_EQUIP_WARNINGMSGBOX_FRAME_OPEN(GetIESID(itemobj), argNum);
+		else
+			local yesscp = string.format("USE_ITEMTARGET_ICON_GEM(%d)", argNum);
+			ui.MsgBox(ClMsg("GemHasPenaltyLater"), yesscp, "RELEASE_ITEMTARGET_ICON_GEM()");
+		end
+		return;		
 	end
 	item.SelectTargetItem(argNum);
 end

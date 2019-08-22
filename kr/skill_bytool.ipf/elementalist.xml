@@ -588,11 +588,11 @@
 			</HitList>
 			<EtcList>
 				<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
-					<Str_Arg FuncTxt="local scale = 6 if obj.Level == 5 then scale = 9 elseif obj.Level == 4 then scale = 8.5 elseif obj.Level == 3 then scale = 8 elseif obj.Level == 2 then scale = 7 end return &quot;I_wizard_meteorfall_force_dropfire&quot;, scale" UseFunc="1" Arg="6" Str="I_wizard_meteorfall_force_dropfire"/>
-					<Str_Arg FuncTxt="local scale = 3 if obj.Level == 5 then scale = 6 elseif obj.Level == 4 then scale = 5.5 elseif obj.Level == 3 then scale = 5 elseif obj.Level == 2 then scale = 4 end return &quot;F_wizard_meteorfall_shot_explosion&quot;, scale" UseFunc="1" Arg="3" Str="F_wizard_meteorfall_shot_explosion"/>
+					<Str_Arg FuncTxt="local scale = 6 if obj.Level >= 5 then scale = 9 elseif obj.Level == 4 then scale = 8.5 elseif obj.Level == 3 then scale = 8 elseif obj.Level == 2 then scale = 7 end return &quot;I_wizard_meteorfall_force_dropfire&quot;, scale" UseFunc="1" Arg="6" Str="I_wizard_meteorfall_force_dropfire"/>
+					<Str_Arg FuncTxt="local scale = 3 if obj.Level >= 5 then scale = 6 elseif obj.Level == 4 then scale = 5.5 elseif obj.Level == 3 then scale = 5 elseif obj.Level == 2 then scale = 4 end return &quot;F_wizard_meteorfall_shot_explosion&quot;, scale" UseFunc="1" Arg="3" Str="F_wizard_meteorfall_shot_explosion"/>
 					<Str_Arg Arg="1" Str="None"/>
 					<Pos Angle="0" Dist="0" PosType="3"/>
-					<Num FuncTxt="local range = 70 if obj.Level == 5 then range = 140 elseif obj.Level == 4 then range = 130 elseif obj.Level == 3 then range = 110 elseif obj.Level == 2 then range = 90 end return range" UseFunc="1" Num="70"/>
+					<Num FuncTxt="local range = 70 if obj.Level >= 5 then range = 140 elseif obj.Level == 4 then range = 130 elseif obj.Level == 3 then range = 110 elseif obj.Level == 2 then range = 90 end return range" UseFunc="1" Num="70"/>
 					<Num Num="0"/>
 					<Num Num="0.55000001"/>
 					<Num Num="300"/>
@@ -735,19 +735,19 @@
 							<Num Num="0"/>
 						</Scp>
 						<Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="1200" UseSleep="NO">
-							<Pos Angle="0" Dist="60" PosType="0" />
+							<Pos Angle="0" Dist="0" PosType="0" />
 							<Angle Angle="0" />
 							<Str Str="Elementalist_MovingFireBall_1" />
 							<Str Str="Elementalist33" />
 						</Scp>
 						<Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="1200" UseSleep="NO">
-							<Pos Angle="120" Dist="60" PosType="0" />
+							<Pos Angle="120" Dist="0" PosType="0" />
 							<Angle Angle="0" />
 							<Str Str="Elementalist_MovingFireBall_2" />
 							<Str Str="Elementalist33" />
 						</Scp>
 						<Scp Client="NO" Scp="MONSKL_CRE_PAD_BY_ABILITY" Time="1200" UseSleep="NO">
-							<Pos Angle="-120" Dist="60" PosType="0" />
+							<Pos Angle="-120" Dist="0" PosType="0" />
 							<Angle Angle="0" />
 							<Str Str="Elementalist_MovingFireBall_3" />
 							<Str Str="Elementalist33" />

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="minimap_outsidebutton" x="0" y="0" width="300" height="60">
+	<frame layout_gravity="right top" margin="0 280 40 0"/>
+	<input maxwidth="200" moveable="false" hittestframe="false"/>
+	<layer layerlevel="30"/>
+	<option visible="true" hideable="false" closebutton="false" alwaysVisible="true"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<controls>
+		<button name="BGM_PLAYER" rect="0 0 30 30" margin="65 0 0 5" layout_gravity="left bottom" LBtnUpScp="BGMPLAYER_OPEN_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" oversound="button_over" image="button_play_icon" skin="textbutton" textalign="center center" texttooltip="{@st59}BGM 플레이어{/}"/>
+		<button name="ZOOM_IN" rect="0 0 30 30" margin="95 0 0 5" layout_gravity="left bottom" LBtnUpScp="SET_MINIMAP_SIZE(1)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41}+{/}" clicksound="button_zoom_in" oversound="button_over" skin="textbutton" textalign="center center" texttooltip="{@st59}확대{/}"/>
+		<button name="ZOOM_OUT" rect="0 0 30 30" margin="185 0 0 5" layout_gravity="left bottom" LBtnUpScp="SET_MINIMAP_SIZE(0)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41}{b}-{/}" clicksound="button_zoom_out" oversound="button_over" skin="textbutton" textalign="center center" texttooltip="{@st59}축소{/}"/>
+		<button name="open_map" rect="0 0 30 30" margin="215 0 0 5" layout_gravity="left bottom" LBtnUpScp="UI_TOGGLE_MAP()" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41}M{/}" clicksound="button_click_big" oversound="button_over" skin="textbutton" textalign="center center" texttooltip="{@st59}지도 (M){/}"/>
+		<richtext name="ZOOM_INFO" rect="0 0 60 20" margin="0 0 0 10" layout_gravity="center bottom" caption="zoom" fontname="white_16_ol"/>
+	</controls>
+</uiframe>

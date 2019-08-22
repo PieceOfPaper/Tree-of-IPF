@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <SpcItemList>
 	<SpcItem Name="Default">
 		<TriggerList Act="Equip">
@@ -6064,8 +6064,8 @@ end"/>
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_EYEOFBEAST_HITCOUNT"/>
-						<Num Num="-2"/>
+						<Str Str="ITEM_EYEOFBEAST_TIMEUP"/>
+						<Num Num="-3000"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -6074,8 +6074,8 @@ end"/>
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_EYEOFBEAST_HITCOUNT"/>
-						<Num Num="2"/>
+						<Str Str="ITEM_EYEOFBEAST_TIMEUP"/>
+						<Num Num="3000"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -6292,8 +6292,8 @@ end"/>
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_EPEEGARDE_TIME_UP"/>
-						<Num Num="-15000"/>
+						<Str Str="ITEM_EPEEGARDE_DMG_UP"/>
+						<Num Num="-10"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -6302,8 +6302,8 @@ end"/>
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
-						<Str Str="ITEM_EPEEGARDE_TIME_UP"/>
-						<Num Num="15000"/>
+						<Str Str="ITEM_EPEEGARDE_DMG_UP"/>
+						<Num Num="10"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -6484,7 +6484,7 @@ end"/>
 		<TriggerList Act="Equip">
 			<Trigger>
 				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
 						<Str Str="ITEM_SKIACLIPS_CLOTH"/>
 						<Num Num="99"/>
 						<Num Num="0"/>
@@ -6510,7 +6510,7 @@ end"/>
 		<TriggerList Act="Equip">
 			<Trigger>
 				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
 						<Str Str="ITEM_SKIACLIPS_CLOTH"/>
 						<Num Num="99"/>
 						<Num Num="0"/>
@@ -6536,7 +6536,7 @@ end"/>
 		<TriggerList Act="Equip">
 			<Trigger>
 				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
 						<Str Str="ITEM_SKIACLIPS_CLOTH"/>
 						<Num Num="99"/>
 						<Num Num="0"/>
@@ -6562,7 +6562,7 @@ end"/>
 		<TriggerList Act="Equip">
 			<Trigger>
 				<ExecList>
-					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM_ADDOVER" Client="NO" UseSleep="NO">
 						<Str Str="ITEM_SKIACLIPS_CLOTH"/>
 						<Num Num="99"/>
 						<Num Num="0"/>
@@ -7672,7 +7672,7 @@ end"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
 						<Str Str="ITEM_MERGEN_TRICKSHOT"/>
-						<Num Num="1"/>
+						<Num Num="25"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -7682,7 +7682,7 @@ end"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO">
 						<Str Str="ITEM_MERGEN_TRICKSHOT"/>
-						<Num Num="-1"/>
+						<Num Num="-25"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>

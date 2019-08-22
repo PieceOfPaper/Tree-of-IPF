@@ -164,3 +164,11 @@ function UPDATE_CHALLENGE_MODE_MINIMAP_MARK(x, y, z, isAlive)
 		session.minimap.RemoveIconInfo("ChallengeModePortalMark");
 	end
 end
+
+function CHALLENGE_MODE_SHOW_MINIMAP_MARK(x, y, z, isCreate)
+	if isCreate == 1 then
+		session.minimap.AddIconInfo("ChallengeModePortalMark", "trasuremapmark", x, y, z, ClMsg("ChallengeModePortalMark"), true, nil, 1.5);
+	else
+		session.minimap.RemoveIconInfo("ChallengeModePortalMark");
+	end
+end

@@ -1,6 +1,6 @@
 ﻿-- market.lua
 
-g_titleGboxList = {"defaultTitle", "equipTitle", "recipeTitle", "accessoryTitle", "gemTitle", "cardTitle", "exporbTitle"};
+g_titleGboxList = {"defaultTitle", "equipTitle", "recipeTitle", "accessoryTitle", "gemTitle", "cardTitle", "exporbTitle", "OPTMiscTitle"};
 
 function MARKET_ON_INIT(addon, frame)
 	addon:RegisterMsg("MARKET_ITEM_LIST", "ON_MARKET_ITEM_LIST");
@@ -187,7 +187,7 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 			MARKET_DRAW_CTRLSET_EQUIP(frame)
 		elseif groupName == "Recipe" then
 			MARKET_DRAW_CTRLSET_RECIPE(frame)
-		elseif groupName == "Look" or groupName == "ChangeEquip" or groupName == 'OPTMisc' then			
+		elseif groupName == "Look" or groupName == "ChangeEquip" then			
 			MARKET_DRAW_CTRLSET_ACCESSORY(frame)
 		elseif groupName == "Gem" then
 			MARKET_DRAW_CTRLSET_GEM(frame)
@@ -202,6 +202,8 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 			end			
 		elseif groupName == "ExpOrb" then
 			MARKET_DRAW_CTRLSET_EXPORB(frame)
+		elseif groupName == 'OPTMisc' then
+			MARKET_DRAW_CTRLSET_OPTMISC(frame)
 		else
 			MARKET_DRAW_CTRLSET_DEFAULT(frame, false)
 		end
@@ -1318,6 +1320,238 @@ function MARKET_DRAW_CTRLSET_EXPORB(frame)
 
 	local ITEM_CTRLSET_INTERVAL_Y_MARGIN = tonumber(frame:GetUserConfig('ITEM_CTRLSET_INTERVAL_Y_MARGIN'));
 	GBOX_AUTO_ALIGN(itemlist, 4, ITEM_CTRLSET_INTERVAL_Y_MARGIN, 0, false, true);
+
+	MARKET_SET_PAGE_CONTROL(frame, "pagecontrol")
+end
+
+function MARKET_DRAW_CTRLSET_OPTMISC(frame)
+	local itemlist = GET_CHILD_RECURSIVELY(frame, "itemListGbox");
+	itemlist:RemoveAllChild();
+	local mySession = session.GetMySession();
+	local cid = mySession:GetCID();
+	local count = session.market.GetItemCount();
+
+	MARKET_SELECT_SHOW_TITLE(frame, "OPTMiscTitle")
+
+	local yPos = 0
+	for i = 0 , count - 1 do
+		local marketItem = session.market.GetItemByIndex(i);
+		local itemObj = GetIES(marketItem:GetObject());
+		local refreshScp = itemObj.RefreshScp;
+		if refreshScp ~= "None" then
+			refreshScp = _G[refreshScp];
+			refreshScp(itemObj);
+		end
+
+		local ctrlSet = itemlist:CreateControlSet("market_item_detail_OPTMisc", "ITEM_EQUIP_" .. i, ui.LEFT, ui.TOP, 0, 0, 0, yPos);
+		AUTO_CAST(ctrlSet)
+		ctrlSet:SetUserValue("DETAIL_ROW", i);
+		ctrlSet:SetUserValue("optionIndex", 0)
+
+		local type = GET_CHILD_RECURSIVELY(ctrlSet, "type");
+		type:ShowWindow(0);
+
+		local inheritanceItem = GetClass('Item', itemObj.InheritanceItemName)
+        if inheritanceItem == nil then
+            inheritanceItem = GetClass('Item', itemObj.InheritanceRandomItemName)
+        end
+
+		MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem);
+
+		local name = GET_CHILD_RECURSIVELY(ctrlSet, "name");
+		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
+
+		-- OPTION (아이커)
+		local originalItemObj = itemObj
+		if inheritanceItem ~= nil then
+			itemObj = inheritanceItem
+		
+			type:SetTextByKey("value", ClMsg(inheritanceItem.ClassType));
+			type:ShowWindow(1);
+
+			if needAppraisal == 1 or needRandomOption == 1 then
+				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, '{@st66b}'..ScpArgMsg("AppraisalItem"))
+			end
+	
+			local basicList = GET_EQUIP_TOOLTIP_PROP_LIST(itemObj);
+			local list = {};
+			local basicTooltipPropList = StringSplit(itemObj.BasicTooltipProp, ';');
+			for i = 1, #basicTooltipPropList do
+				local basicTooltipProp = basicTooltipPropList[i];
+				list = GET_CHECK_OVERLAP_EQUIPPROP_LIST(basicList, basicTooltipProp, list);
+			end
+	
+			local list2 = GET_EUQIPITEM_PROP_LIST();
+			local cnt = 0;
+			local class = GetClassByType("Item", itemObj.ClassID);
+			
+			local maxRandomOptionCnt = MAX_OPTION_EXTRACT_COUNT;
+			local randomOptionProp = {};        
+			for i = 1, maxRandomOptionCnt do
+				if itemObj['RandomOption_'..i] ~= 'None' then                
+					randomOptionProp[itemObj['RandomOption_'..i]] = itemObj['RandomOptionValue_'..i];
+				end
+			end
+	
+			for i = 1 , #list do
+				local propName = list[i];
+				local propValue = class[propName];
+	
+				local needToShow = true;
+				for j = 1, #basicTooltipPropList do
+					if basicTooltipPropList[j] == propName then
+						needToShow = false;
+					end
+				end
+				
+				if needToShow == true and propValue ~= 0 and randomOptionProp[propName] == nil then -- 랜덤 옵션이랑 겹치는 프로퍼티는 여기서 출력하지 않음
+					if  itemObj.GroupName == 'Weapon' then
+						if propName ~= "MINATK" and propName ~= 'MAXATK' then
+							local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);			
+							SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
+						end
+					elseif  itemObj.GroupName == 'Armor' then
+						if itemObj.ClassType == 'Gloves' then
+							if propName ~= "HR" then
+								local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
+								SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
+							end
+						elseif itemObj.ClassType == 'Boots' then
+							if propName ~= "DR" then
+								local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
+								SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
+							end
+						else
+							if propName ~= "DEF" then
+								local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
+								SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
+							end
+						end
+					else
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
+						SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
+					end
+				end
+			end
+	
+			for i = 1 , 3 do
+				local propName = "HatPropName_"..i;
+				local propValue = "HatPropValue_"..i;
+				if itemObj[propValue] ~= 0 and itemObj[propName] ~= "None" then
+					local opName = string.format("[%s] %s", ClMsg("EnchantOption"), ScpArgMsg(itemObj[propName]));
+					local strInfo = ABILITY_DESC_PLUS(opName, itemObj[propValue]);
+					SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
+				end
+			end
+		
+			for i = 1 , maxRandomOptionCnt do
+				local propGroupName = "RandomOptionGroup_"..i;
+				local propName = "RandomOption_"..i;
+				local propValue = "RandomOptionValue_"..i;
+				local clientMessage = 'None'
+	
+				local propItem = originalItemObj            
+	
+				if propItem[propGroupName] == 'ATK' then
+					clientMessage = 'ItemRandomOptionGroupATK'
+				elseif propItem[propGroupName] == 'DEF' then
+					clientMessage = 'ItemRandomOptionGroupDEF'
+				elseif propItem[propGroupName] == 'UTIL_WEAPON' then
+					clientMessage = 'ItemRandomOptionGroupUTIL'
+				elseif propItem[propGroupName] == 'UTIL_ARMOR' then
+					clientMessage = 'ItemRandomOptionGroupUTIL'
+				elseif propItem[propGroupName] == 'UTIL_SHILED' then
+					clientMessage = 'ItemRandomOptionGroupUTIL'
+				elseif propItem[propGroupName] == 'STAT' then
+					clientMessage = 'ItemRandomOptionGroupSTAT'
+				end
+				
+				if propItem[propValue] ~= 0 and propItem[propName] ~= "None" then                
+					local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(propItem[propName]));
+					local strInfo = ABILITY_DESC_NO_PLUS(opName, propItem[propValue], 0);                
+					SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
+				end            
+			end
+	
+			_CREATE_SEAL_OPTION(ctrlSet, itemObj);
+	
+			for i = 1 , #list2 do
+				local propName = list2[i];
+				local propValue = itemObj[propName];
+				if propValue ~= 0 then
+					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemObj[propName]);
+					SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
+				end
+			end
+	
+			if itemObj.OptDesc ~= nil and itemObj.OptDesc ~= 'None' then
+				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, itemObj.OptDesc);
+			end
+			
+			if originalItemObj['RandomOptionRareValue'] ~= 0 and originalItemObj['RandomOptionRare'] ~= "None" then
+				local strInfo = _GET_RANDOM_OPTION_RARE_CLIENT_TEXT(originalItemObj['RandomOptionRare'], originalItemObj['RandomOptionRareValue'], '');
+				if strInfo ~= nil then
+					SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
+				end
+			end
+			
+			if inheritanceItem == nil then
+			if itemObj.IsAwaken == 1 then
+				local opName = string.format("[%s] %s", ClMsg("AwakenOption"), ScpArgMsg(itemObj.HiddenProp));
+				local strInfo = ABILITY_DESC_PLUS(opName, itemObj.HiddenPropValue);
+					SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
+				end
+			else
+				if inheritanceItem.IsAwaken == 1 then
+					local opName = string.format("[%s] %s", ClMsg("AwakenOption"), ScpArgMsg(inheritanceItem.HiddenProp));
+					local strInfo = ABILITY_DESC_PLUS(opName, inheritanceItem.HiddenPropValue);
+					SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
+				end
+			end
+	
+			if itemObj.ReinforceRatio > 100 then
+				local opName = ClMsg("ReinforceOption");
+				local strInfo = ABILITY_DESC_PLUS(opName, math.floor(10 * itemObj.ReinforceRatio/100));
+				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
+			end
+	
+		end
+        		
+		-- 내 판매리스트 처리
+		if cid == marketItem:GetSellerCID() then
+			local buyBtn = GET_CHILD_RECURSIVELY(ctrlSet, "buyBtn");
+			buyBtn:ShowWindow(0)
+			buyBtn:SetEnable(0);
+			local cancelBtn = GET_CHILD_RECURSIVELY(ctrlSet, "cancelBtn");
+			cancelBtn:ShowWindow(1)
+			cancelBtn:SetEnable(1)
+
+			if USE_MARKET_REPORT == 1 then
+				local reportBtn = GET_CHILD_RECURSIVELY(ctrlSet, "reportBtn");
+				reportBtn:SetEnable(0);
+			end
+
+			local totalPrice_num = GET_CHILD_RECURSIVELY(ctrlSet, "totalPrice_num");
+			totalPrice_num:SetTextByKey("value", 0);
+			local totalPrice_text = GET_CHILD_RECURSIVELY(ctrlSet, "totalPrice_text");
+			totalPrice_text:SetTextByKey("value", 0);
+		else
+
+			local buyBtn = GET_CHILD_RECURSIVELY(ctrlSet, "buyBtn");
+			buyBtn:ShowWindow(1)
+			buyBtn:SetEnable(1);
+			local cancelBtn = GET_CHILD_RECURSIVELY(ctrlSet, "cancelBtn");
+			cancelBtn:ShowWindow(0)
+			cancelBtn:SetEnable(0)
+
+			MARKET_CTRLSET_SET_TOTAL_PRICE(ctrlSet, marketItem);			
+		end		
+
+		ctrlSet:SetUserValue("sellPrice", marketItem:GetSellPrice());
+	end
+
+	local ITEM_CTRLSET_INTERVAL_Y_MARGIN = tonumber(frame:GetUserConfig('ITEM_CTRLSET_INTERVAL_Y_MARGIN'));
+	GBOX_AUTO_ALIGN(itemlist, 4, ITEM_CTRLSET_INTERVAL_Y_MARGIN, 0, true, false);
 
 	MARKET_SET_PAGE_CONTROL(frame, "pagecontrol")
 end

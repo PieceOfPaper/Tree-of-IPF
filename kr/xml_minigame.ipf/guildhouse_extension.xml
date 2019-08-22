@@ -15,6 +15,7 @@
 					<Obj Type="Monster" MonType="154114" Pos="385.39#-0.20#-784.51" angle="-2" genCount="1" genTime="20000" objectKey="5" propList="&apos;Name&apos; &apos;왕국 보급 장교{nl}만프래다스&apos; &apos;Dialog&apos; &apos;MC_AGIT_OFFICER_MANFREDAS&apos; "/>
 					<Obj Type="Monster" MonType="160002" Pos="387.06#-0.23#-716.13" angle="-17" genCount="1" genTime="20000" objectKey="6" propList="&apos;Name&apos; &apos;길드 아지트 관리인&apos; &apos;Dialog&apos; &apos;GUILD_HOUSING_MANAGER&apos; "/>
 				<Obj Type="Monster" MonType="40001" Pos="-1475.47#80.86#2476.06" angle="138" genCount="1" genTime="20000" objectKey="7" propList="&apos;Enter&apos; &apos;EXTENSION_OUTSIDE_TO_YARD&apos; &apos;Name&apos; &apos;아지트 외부&apos; &apos;Range&apos; &apos;10&apos; "/>
+                <Obj Type="Monster" MonType="40070" Pos="-1251.74#0.23#2401.27" angle="-46" genCount="1" genTime="20000" objectKey="8" propList="&apos;Name&apos; &apos;공헌도 알림판&apos; &apos;Dialog&apos; &apos;GUILD_AGIT_RAID_BOARD&apos; "/>
                 </ObjList>
 				<StageEvents>
 					<Event eventName="ValidPcCheck">

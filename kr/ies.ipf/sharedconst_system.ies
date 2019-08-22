@@ -265,7 +265,7 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 270002,0,0,"TEST_CHAT_ADD_SEC","채팅 테스트용. 현재 시간에 add하여 메시지 출력 가능","NO"
 280000,1,0,"USE_INTEG_INDUN","1일 경우 통합인던. 0이라면 서버별 인던","NO"
 280001,30000,0,"AUTOMATCH_RELAX_TIME1","자동매칭 레벨 제한 완화 시간1(MS)","NO"
-280003,120000,0,"UNDERSTAFF_ENTER_ALLOW_TIME","4인 이하 매칭 가능 시간(MS)","NO"
+280003,60000,0,"UNDERSTAFF_ENTER_ALLOW_TIME","4인 이하 매칭 가능 시간(MS)","NO"
 290000,0,0,"USE_REPORT_BOT_TO_STEAM","1일 경우 스팀 VAC에 봇 신고 기능 사용","NO"
 290001,0,0,"USE_REPORT_BOT_TO_CLASSIFIER","1일 경우 분류기를 통한 봇 검출 기능 사용","NO"
 300000,1,0,"COLONY_WAR_OPEN","콜로니전 열꺼면 1 아니면 0","NO"

@@ -13,6 +13,7 @@
 	<controls>
 		<groupbox name="bg3" rect="0 0 510 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
 		<groupbox name="pipwin_top" rect="0 0 510 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_top"/>
+		<timer name="invenontimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
 		<timer name="jungtantimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
 		<timer name="jungtandeftimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
 		<timer name="dispeldebufftimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>

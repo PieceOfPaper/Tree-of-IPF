@@ -19,5 +19,6 @@
 		<checkbox name="cbox_showTooltip" rect="0 0 200 50" margin="15 0 0 116" layout_gravity="center bottom" ConfigName="ShowTooltipInWarningBox" fontname="white_16_b_ol" LBtnUpScp="WARNINGMSGBOX_SHOW_TOOLTIP" caption="{s16}아이템 툴팁 보기" clicksound="button_click_big" oversound="button_over"/>
     <button name="yes" rect="0 0 150 50" margin="-80 0 0 30" layout_gravity="center bottom" LBtnUpArgNum="" LBtnUpScp="" fontname="white_16_b_ol" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}{img icon_button_warning 36 36}예" clicksound="button_click_big" skin="test_red_button" oversound="button_over"/>
 		<button name="no" rect="0 0 150 50" margin="80 0 0 30" layout_gravity="center bottom" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;warningmsgbox&apos;)" fontname="white_16_b_ol" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}아니오" clicksound="button_click_big" skin="test_gray_button" oversound="button_over"/>
+		<button name="ok" rect="0 0 150 50" margin="0 0 0 30" layout_gravity="center bottom" LBtnUpArgNum="" LBtnUpScp="" fontname="white_16_b_ol" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}{img icon_button_warning 36 36}확인" clicksound="button_click_big" skin="test_red_button" oversound="button_over"/>
 	</controls>
 </uiframe>

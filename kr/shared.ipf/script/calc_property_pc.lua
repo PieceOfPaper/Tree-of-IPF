@@ -2194,11 +2194,11 @@ function SCR_Get_MSPD(self)
     
     local jobObj = GetJobObject(self);
     local jobCtrlType = TryGetProp(jobObj, 'CtrlType')
-    if jobCtrlType == "Archer" then
-    	if IsBattleState(self) == 1 and IsBuffApplied(self, "Tracking_Buff") == "NO" then
-    		isDashRun = 0
-    	end
-    end
+--    if jobCtrlType == "Archer" then
+--    	if IsBattleState(self) == 1 and IsBuffApplied(self, "Tracking_Buff") == "NO" then
+--    		isDashRun = 0
+--    	end
+--    end
     
     if IsBuffApplied(self, 'Slithering_Buff') == 'YES' then
     	isDashRun = 0
@@ -2216,13 +2216,13 @@ function SCR_Get_MSPD(self)
 	    	dashRunAddValue = dashRunAddValue - 4
 	    end
 	    
-	    if jobCtrlType == "Archer" then
-	    	if IsBattleState(self) == 0 or IsBuffApplied(self, "Tracking_Buff") == "YES" then
-	    		dashRunAddValue = dashRunAddValue + 3
-	    	else
-	    		isDashRun = 0
-	    	end
-	    end
+--	    if jobCtrlType == "Archer" then
+--	    	if IsBattleState(self) == 0 or IsBuffApplied(self, "Tracking_Buff") == "YES" then
+--	    		dashRunAddValue = dashRunAddValue + 3
+--	    	else
+--	    		isDashRun = 0
+--	    	end
+--	    end
         
 	    if jobCtrlType == "Scout" then
 	    	dashRunAddValue = dashRunAddValue + 3
@@ -2587,27 +2587,27 @@ function SCR_Get_Sta_Run(self)
     
     local jobObj = GetJobObject(self);
     local jobCtrlType = TryGetProp(jobObj, 'CtrlType')
-    if jobCtrlType == "Archer" then
-    	if IsBattleState(self) == 1 and IsBuffApplied(self, "Tracking_Buff") == "NO" then
-    		isDashRun = 0
-    	end
-    end
+--    if jobCtrlType == "Archer" then
+--    	if IsBattleState(self) == 1 and IsBuffApplied(self, "Tracking_Buff") == "NO" then
+--    		isDashRun = 0
+--    	end
+--    end
     
     if isDashRun > 0 then
         local dashAmount = 500;
 
-	    if jobCtrlType == "Archer" then
-	    	if IsBuffApplied(self, "Tracking_Buff") == "YES" then
-	    	    local level = 0;
-	    	    local buff = GetBuffByName(self, "Tracking_Buff")
-	    	    if buff ~= nil then
-	    	        level = GetBuffArg(buff)
-	    	    end
-	    	    
-	    	    local addRate = 1 + (0.5 - 0.03 * level)
-	    		dashAmount = dashAmount * addRate
-	    	end
-	    end        
+--	    if jobCtrlType == "Archer" then
+--	    	if IsBuffApplied(self, "Tracking_Buff") == "YES" then
+--	    	    local level = 0;
+--	    	    local buff = GetBuffByName(self, "Tracking_Buff")
+--	    	    if buff ~= nil then
+--	    	        level = GetBuffArg(buff)
+--	    	    end
+--	    	    
+--	    	    local addRate = 1 + (0.5 - 0.03 * level)
+--	    		dashAmount = dashAmount * addRate
+--	    	end
+--	    end        
         
 	    if jobCtrlType == "Cleric" then
 			if IsBuffApplied(self, "Lycanthropy_Half_Buff") == "YES" then
@@ -2857,7 +2857,16 @@ function SCR_GET_PC_GUARDABLE(pc)
      -- beautyshop check
      local beautyshopZone = GetZoneName(pc)
      if beautyshopZone == "c_barber_dress" and jobListString ~= nil and string.find(jobListString, "Char1_1") ~= nil then
-         return 1;
+        -- 입어보기 상태를 점검한다.
+        if IsEquipedDummyItem(pc, "LH") == 1 then  -- 왼손에 장비를 끼고 있을 떄만 확인.
+            if IsEquipedDummySheild(pc) == 1 then
+                return 1;
+            else
+                -- 현재 뷰티샵 미리보기 상태이기 때문에 스킬, 실제 장착장비를 확인하지 못하게 해야함.
+                -- 방패를 실제로 장착하고 단검을 입어보기하면 가드가 우선이기 때문.        
+                return 0;
+            end
+        end
      end
     
     local isGuardSkill = GetStanceSkill(pc, "Warrior_Guard");

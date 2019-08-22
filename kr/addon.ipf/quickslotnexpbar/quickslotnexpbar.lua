@@ -59,7 +59,7 @@ local function quickslot_item_amount_refresh(ies_id, class_id)
 			if slot ~= nil then
                 SET_QUICK_SLOT(frame, slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, false, false)
             end
-        elseif class_id ~= nil and quickSlotInfo:GetClassID() == tonumber(class_id) then
+		elseif class_id ~= nil and quickSlotInfo:GetClassID() == tonumber(class_id) then
             quickSlotInfo:SetIESID(ies_id)
             local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot")
 			if slot ~= nil then
@@ -328,17 +328,17 @@ function _UPDATE_SLOT_OVERHEAT(slot, obj)
 
 	local sklType = obj.ClassID;
 	local skl = session.GetSkill(sklType);
+	if skl == nil then
+		return;
+	end
+
 	skl = GetIES(skl:GetObject());
 	
-	local overHeatCount = 0;
+	local overHeatCount = skl.SklUseOverHeat;
 	local sklProp = geSkillTable.Get(obj.ClassName);
     if sklProp ~= nil then
         overHeatCount = sklProp:GetOverHeatCnt();
     end
-	
-	if overHeatCount == 0 then
-		overHeatCount = skl.SklUseOverHeat;
-	end
 	
 	local curHeat = session.GetSklOverHeat(sklType);
 	local resetTime = session.GetSklOverHeatResetTime(sklType);
@@ -541,12 +541,24 @@ function SET_QUICK_SLOT(frame, slot, category, type, iesID, makeLog, sendSavePac
 		icon:ClearText();
 		SET_ABILITY_TOGGLE_COLOR(icon, type)
 	elseif category == 'Item' then
-		QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);	--퀵슬롯에 놓는 것이 아이템이면 게이지를 무조건 안보이게 함
+		QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);	-- 퀵슬롯에 놓는 것이 아이템이면 게이지를 무조건 안보이게 함
 		local itemIES = GetClassByType('Item', type);
 		if itemIES ~= nil then		
 			imageName = itemIES.Icon;
 			
 			local invenItemInfo = nil
+			local equipItemHave = true
+
+			-- 장착 아이템 특별관리 // Type이 아닌 iesID로만 찾으며, 장착 중이면 미보유 중으로 취급한다.
+			if itemIES.ItemType == 'Equip' then
+				if iesID == "" then
+					equipItemHave = false
+				end
+
+				if session.GetInvItemByGuid(iesID) == nil or session.GetEquipItemByGuid(iesID) ~= nil then
+					equipItemHave = false
+				end
+			end
 
 			if iesID == "" then
 				invenItemInfo = session.GetInvItemByType(type);
@@ -554,14 +566,14 @@ function SET_QUICK_SLOT(frame, slot, category, type, iesID, makeLog, sendSavePac
 				invenItemInfo = session.GetInvItemByGuid(iesID);
 			end
 
-			--시모니 스크롤이 아니고 기간제가 아닌 아이템 재검색
+			-- 시모니 스크롤이 아니고 기간제가 아닌 아이템 재검색
 			if invenItemInfo == nil and itemIES.LifeTime == 0 then
 				if IS_SKILL_SCROLL_ITEM(itemIES) == 0 and IS_CLEAR_SLOT_ITEM(itemIES) ~= true then
 					invenItemInfo = session.GetInvItemByType(type);
 				end
 			end
 
-			if invenItemInfo ~= nil and invenItemInfo.type == math.floor(type) then
+			if equipItemHave == true and invenItemInfo ~= nil and invenItemInfo.type == math.floor(type) then
 				itemIES = GetIES(invenItemInfo:GetObject());
 				imageName = GET_ITEM_ICON_IMAGE(itemIES);
 				icon:SetEnableUpdateScp('None');

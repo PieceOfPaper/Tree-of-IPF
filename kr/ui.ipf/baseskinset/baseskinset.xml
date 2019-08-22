@@ -4164,6 +4164,28 @@
 			<img name="bottomcore" imgrect="655 163 80 80"/>
 			<img name="bottomright" imgrect="736 163 80 80"/>
 		</skin>
+		<skin name="simple_list_bg" texture="\skin\bgm_player.tga">
+			<img name="topleft" imgrect="392 1 30 30"/>
+			<img name="topcore" imgrect="423 1 30 30"/>
+			<img name="topright" imgrect="454 1 30 30"/>
+			<img name="bodyleft" imgrect="392 32 30 30"/>
+			<img name="bodycore" imgrect="423 32 30 30"/>
+			<img name="bodyright" imgrect="454 32 30 30"/>
+			<img name="bottomleft" imgrect="392 63 30 30"/>
+			<img name="bottomcore" imgrect="423 63 30 30"/>
+			<img name="bottomright" imgrect="454 63 30 30"/>
+		</skin>
+		<skin name="classic_list_bg" texture="\skin\bgm_player.tga">
+			<img name="topleft" imgrect="766 383 30 30"/>
+			<img name="topcore" imgrect="797 383 30 30"/>
+			<img name="topright" imgrect="828 383 30 30"/>
+			<img name="bodyleft" imgrect="766 414 30 30"/>
+			<img name="bodycore" imgrect="797 414 30 30"/>
+			<img name="bodyright" imgrect="828 414 30 30"/>
+			<img name="bottomleft" imgrect="766 445 30 30"/>
+			<img name="bottomcore" imgrect="797 445 30 30"/>
+			<img name="bottomright" imgrect="828 445 30 30"/>
+		</skin>
 		<skin name="magic_give_scroll_title" texture="\skin\pip_test2.tga">
 			<img name="topleft" imgrect="464 392 45 13"/>
 			<img name="topcore" imgrect="510 392 100 13"/>
@@ -4174,6 +4196,39 @@
 			<img name="bottomleft" imgrect="464 416 45 13"/>
 			<img name="bottomcore" imgrect="510 416 100 13"/>
 			<img name="bottomright" imgrect="611 416 45 13"/>
+		</skin>
+		<skin name="search_simple_bg" texture="\skin\bgm_player.tga">
+			<img name="topleft" imgrect="569 1 15 1"/>
+			<img name="topcore" imgrect="585 1 15 1"/>
+			<img name="topright" imgrect="601 1 15 1"/>
+			<img name="bodyleft" imgrect="569 3 15 24"/>
+			<img name="bodycore" imgrect="585 3 15 24"/>
+			<img name="bodyright" imgrect="601 3 15 24"/>
+			<img name="bottomleft" imgrect="569 28 15 1"/>
+			<img name="bottomcore" imgrect="585 28 15 1"/>
+			<img name="bottomright" imgrect="601 28 15 1"/>
+		</skin>
+		<skin name="search_classic_bg" texture="\skin\bgm_player.tga">
+			<img name="topleft" imgrect="617 1 15 1"/>
+			<img name="topcore" imgrect="633 1 15 1"/>
+			<img name="topright" imgrect="649 1 15 1"/>
+			<img name="bodyleft" imgrect="617 3 15 24"/>
+			<img name="bodycore" imgrect="633 3 15 24"/>
+			<img name="bodyright" imgrect="649 3 15 24"/>
+			<img name="bottomleft" imgrect="617 28 15 1"/>
+			<img name="bottomcore" imgrect="633 28 15 1"/>
+			<img name="bottomright" imgrect="649 28 15 1"/>
+		</skin>
+		<skin name="simple_title_divide" texture="\skin\bgm_player.tga">
+			<img name="topleft" imgrect="485 51 10 10"/>
+			<img name="topcore" imgrect="496 51 10 10"/>
+			<img name="topright" imgrect="507 51 10 10"/>
+			<img name="bodyleft" imgrect="485 62 10 5"/>
+			<img name="bodycore" imgrect="496 62 10 5"/>
+			<img name="bodyright" imgrect="507 62 10 5"/>
+			<img name="bottomleft" imgrect="485 68 10 10"/>
+			<img name="bottomcore" imgrect="496 68 10 10"/>
+			<img name="bottomright" imgrect="507 68 10 10"/>
 		</skin>
 	</skinlist>
 	<skinlist category="buttons">
@@ -5704,6 +5759,14 @@
 			<img name="barmiddle" imgrect="1 982 555 20"/>
 			<img name="barright" imgrect="556 1003 1 20"/>
 		</skin>
+		<skin name="bgm_gauge_com" texture="\skin\bgm_player.tga">
+			<img name="bgleft" imgrect="394 392 1 7"/>
+			<img name="bgmiddle" imgrect="395 392 347 7"/>
+			<img name="bgright" imgrect="742 392 1 7"/>
+			<img name="barleft" imgrect="394 392 1 7"/>
+			<img name="barmiddle" imgrect="393 384 349 7"/>
+			<img name="barright" imgrect="742 392 1 7"/>
+		</skin>
 	</skinlist>
 	<skinlist category="labellines">
 		<skin name="labelline_def_5" texture="\skin\tooltip_skin_3.tga">
@@ -6607,6 +6670,7 @@
 		<image name="pcbang_clock_icon_l" file="\skin\pip_test2.tga" imgrect="857 37 37 38" CMM_Caption="피시방 시계 아이콘 : 대"/>
 		<image name="pcbang_rental_shop_badge_5" file="\skin\pip_test2.tga" imgrect="529 76 76 76" CMM_Caption="피시방 대여 휘장아이콘5"/>
 		<image name="pcbang_rental_shop_badge_10" file="\skin\pip_test2.tga" imgrect="606 76 76 76" CMM_Caption="피시방 대여 휘장아이콘10"/>
+		<image name="pcbang_rental_shop_badge_8" file="\skin\pip_test2.tga" imgrect="887 171 76 76" CMM_Caption="피시방 대여 휘장아이콘8"/>
 		<image name="pcbang_point_icon" file="\skin\pip_test2.tga" imgrect="763 0 38 30" CMM_Caption="피시방 포인트 아이콘"/>
 		<image name="pcbang_point_gauge_s_left" file="\skin\pip_test2.tga" imgrect="234 257 6 26" CMM_Caption="피시방 포인트게이지 : 소 좌"/>
 		<image name="pcbang_point_gauge_s_right" file="\skin\pip_test2.tga" imgrect="346 257 6 26" CMM_Caption="피시방 포인트게이지 : 소 우"/>
@@ -7032,6 +7096,14 @@
 		<image name="protection_title" file="\skin\god_protect_skin.tga" imgrect="1 722 548 150" CMM_Caption="여신의 가호 타이틀"/>
 		<image name="mystic_note_production" file="\skin\mystic_note_production.tga" imgrect="0 0 453 832" CMM_Caption="신비의 서 제작"/>
 		<image name="mystic_note_decomposition" file="\skin\mystic_note_decomposition.tga" imgrect="0 0 436 895" CMM_Caption="신비의 서 분해"/>
+		<image name="bgm_simple_bg" file="\skin\bgm_player.tga" imgrect="1 1 390 474" CMM_Caption="bgm 심플 bg"/>
+		<image name="bgm_title_decoration" file="\skin\bgm_player.tga" imgrect="393 400 372 75" CMM_Caption="bgm데코레이션"/>
+		<image name="bgm_following" file="\skin\bgm_player.tga" imgrect="751 385 14 14" CMM_Caption="bgm재생 바"/>
+		<image name="m_bgm_simple_bg" file="\skin\bgm_player.tga" imgrect="1 476 176 85" CMM_Caption="미니 배경_심플"/>
+		<image name="m_title_simple" file="\skin\bgm_player.tga" imgrect="178 476 174 25" CMM_Caption="미니 타이틀_심플"/>
+		<image name="m_title_classic" file="\skin\bgm_player.tga" imgrect="178 528 172 23" CMM_Caption="미니 타이틀_클래식"/>
+		<image name="change_c_button" file="\skin\bgm_player.tga" imgrect="825 1 69 23" CMM_Caption="스킨 바꾸기_클래식"/>
+		<image name="change_s_button" file="\skin\bgm_player.tga" imgrect="895 1 69 23" CMM_Caption="스킨 바꾸기_심플"/>
 	</imagelist>
 	<imagelist category="je_button">
 		<image name="menu_guild_info" file="\skin\guild_skin.tga" imgrect="165 298 45 45" CMM_Caption="길드 정보"/>
@@ -7250,9 +7322,107 @@
 		<image name="god_protection_button" file="\skin\god_protect_skin.tga" imgrect="295 873 74 74" CMM_Caption="여신의 가호 버튼"/>
 		<image name="god_protection_button_cursoron" file="\skin\god_protect_skin.tga" imgrect="370 873 74 74"/>
 		<image name="god_protection_button_clicked" file="\skin\god_protect_skin.tga" imgrect="445 873 74 74"/>
+		<image name="heart_simple" file="\skin\bgm_player.tga" imgrect="485 1 27 24" CMM_Caption="즐겨찾기 하트_심플"/>
+		<image name="heart_simple_cursoron" file="\skin\bgm_player.tga" imgrect="513 1 27 24"/>
+		<image name="heart_simple_clicked" file="\skin\bgm_player.tga" imgrect="541 1 27 24"/>
+		<image name="all_simple" file="\skin\bgm_player.tga" imgrect="392 94 174 36" CMM_Caption="전체목록_심플"/>
+		<image name="all_simple_cursoron" file="\skin\bgm_player.tga" imgrect="392 313 174 36"/>
+		<image name="all_simple_clicked" file="\skin\bgm_player.tga" imgrect="392 168 174 36"/>
+		<image name="favo_simple" file="\skin\bgm_player.tga" imgrect="567 94 174 36" CMM_Caption="즐겨찾기_심플"/>
+		<image name="favo_simple_cursoron" file="\skin\bgm_player.tga" imgrect="567 131 174 36"/>
+		<image name="favo_simple_clicked" file="\skin\bgm_player.tga" imgrect="567 168 174 36"/>
+		<image name="search_simple" file="\skin\bgm_player.tga" imgrect="720 1 34 26" CMM_Caption="서치 아이콘_심플"/>
+		<image name="search_simple_cursoron" file="\skin\bgm_player.tga" imgrect="755 1 34 26"/>
+		<image name="search_simple_clicked" file="\skin\bgm_player.tga" imgrect="790 1 34 26"/>
+		<image name="play_simple" file="\skin\bgm_player.tga" imgrect="742 94 59 59" CMM_Caption="재생_심플"/>
+		<image name="play_simple_cursoron" file="\skin\bgm_player.tga" imgrect="802 94 59 59"/>
+		<image name="play_simple_clicked" file="\skin\bgm_player.tga" imgrect="802 94 59 59"/>
+		<image name="stop_simple" file="\skin\bgm_player.tga" imgrect="742 154 59 59" CMM_Caption="정지_심플"/>
+		<image name="stop_simple_cursoron" file="\skin\bgm_player.tga" imgrect="802 154 59 59"/>
+		<image name="stop_simple_clicked" file="\skin\bgm_player.tga" imgrect="802 154 59 59"/>
+		<image name="after_simple" file="\skin\bgm_player.tga" imgrect="862 94 43 43" CMM_Caption="다음 곡_심플"/>
+		<image name="after_simple_cursoron" file="\skin\bgm_player.tga" imgrect="906 94 43 43"/>
+		<image name="after_simple_clicked" file="\skin\bgm_player.tga" imgrect="906 94 43 43"/>
+		<image name="before_simple" file="\skin\bgm_player.tga" imgrect="862 138 43 43" CMM_Caption="이전 곡_심플"/>
+		<image name="before_simple_cursoron" file="\skin\bgm_player.tga" imgrect="906 138 43 43"/>
+		<image name="before_simple_clicked" file="\skin\bgm_player.tga" imgrect="906 138 43 43"/>
+		<image name="random_simple" file="\skin\bgm_player.tga" imgrect="950 94 33 30" CMM_Caption="랜덤_심플"/>
+		<image name="random_simple_cursoron" file="\skin\bgm_player.tga" imgrect="984 94 33 30"/>
+		<image name="random_simple_clicked" file="\skin\bgm_player.tga" imgrect="984 94 33 30"/>
+		<image name="repeat_simple" file="\skin\bgm_player.tga" imgrect="950 125 32 26" CMM_Caption="연속재생_심플"/>
+		<image name="repeat_simple_cursoron" file="\skin\bgm_player.tga" imgrect="983 125 32 26"/>
+		<image name="repeat_simple_clicked" file="\skin\bgm_player.tga" imgrect="983 125 32 26"/>
+		<image name="reduction_simple" file="\skin\bgm_player.tga" imgrect="950 152 18 20" CMM_Caption="최소화_심플"/>
+		<image name="reduction_simple_cursoron" file="\skin\bgm_player.tga" imgrect="969 152 18 20"/>
+		<image name="reduction_simple_clicked" file="\skin\bgm_player.tga" imgrect="988 152 18 20"/>
+		<image name="bgm_cancel_simple" file="\skin\bgm_player.tga" imgrect="862 182 20 20" CMM_Caption="bgm닫기_심플"/>
+		<image name="bgm_cancel_simple_cursoron" file="\skin\bgm_player.tga" imgrect="883 182 20 20"/>
+		<image name="bgm_cancel_simple_clicked" file="\skin\bgm_player.tga" imgrect="904 182 20 20"/>
+		<image name="heart_classic" file="\skin\bgm_player.tga" imgrect="485 27 25 23" CMM_Caption="즐겨찾기 하트_클래식"/>
+		<image name="heart_classic_cursoron" file="\skin\bgm_player.tga" imgrect="511 27 25 23"/>
+		<image name="heart_classic_clicked" file="\skin\bgm_player.tga" imgrect="537 27 25 23"/>
+		<image name="search_classic" file="\skin\bgm_player.tga" imgrect="714 28 34 26" CMM_Caption="서치 아이콘_클래식"/>
+		<image name="search_classic_cursoron" file="\skin\bgm_player.tga" imgrect="749 28 34 26"/>
+		<image name="search_classic_clicked" file="\skin\bgm_player.tga" imgrect="784 28 34 26"/>
+		<image name="all_classic" file="\skin\bgm_player.tga" imgrect="392 205 174 36" CMM_Caption="전체목록_클래식"/>
+		<image name="all_classic_cursoron" file="\skin\bgm_player.tga" imgrect="392 242 174 36"/>
+		<image name="all_classic_clicked" file="\skin\bgm_player.tga" imgrect="392 279 174 36"/>
+		<image name="favo_classic" file="\skin\bgm_player.tga" imgrect="567 205 174 36" CMM_Caption="즐겨찾기_클래식"/>
+		<image name="favo_classic_cursoron" file="\skin\bgm_player.tga" imgrect="567 242 174 36"/>
+		<image name="favo_classic_clicked" file="\skin\bgm_player.tga" imgrect="567 279 174 36"/>
+		<image name="play_classic" file="\skin\bgm_player.tga" imgrect="742 214 59 59" CMM_Caption="재생_클래식"/>
+		<image name="play_classic_cursoron" file="\skin\bgm_player.tga" imgrect="802 214 59 59"/>
+		<image name="play_classic_clicked" file="\skin\bgm_player.tga" imgrect="802 214 59 59"/>
+		<image name="stop_classic" file="\skin\bgm_player.tga" imgrect="742 274 59 59" CMM_Caption="정지_클래식"/>
+		<image name="stop_classic_cursoron" file="\skin\bgm_player.tga" imgrect="802 274 59 59"/>
+		<image name="stop_classic_clicked" file="\skin\bgm_player.tga" imgrect="802 274 59 59"/>
+		<image name="before_classic" file="\skin\bgm_player.tga" imgrect="862 203 43 43" CMM_Caption="이전 곡_클래식"/>
+		<image name="before_classic_cursoron" file="\skin\bgm_player.tga" imgrect="906 203 43 43"/>
+		<image name="before_classic_clicked" file="\skin\bgm_player.tga" imgrect="906 203 43 43"/>
+		<image name="after_classic" file="\skin\bgm_player.tga" imgrect="862 247 43 43" CMM_Caption="다음 곡_클래식"/>
+		<image name="after_classic_cursoron" file="\skin\bgm_player.tga" imgrect="906 247 43 43"/>
+		<image name="after_classic_clicked" file="\skin\bgm_player.tga" imgrect="906 247 43 43"/>
+		<image name="random_classic" file="\skin\bgm_player.tga" imgrect="950 203 33 30" CMM_Caption="랜덤_클래식"/>
+		<image name="random_classic_cursoron" file="\skin\bgm_player.tga" imgrect="984 203 33 30"/>
+		<image name="random_classic_clicked" file="\skin\bgm_player.tga" imgrect="984 203 33 30"/>
+		<image name="repeat_classic" file="\skin\bgm_player.tga" imgrect="950 234 32 26" CMM_Caption="연속재생_클래식"/>
+		<image name="repeat_classic_cursoron" file="\skin\bgm_player.tga" imgrect="983 234 32 26"/>
+		<image name="repeat_classic_clicked" file="\skin\bgm_player.tga" imgrect="983 234 32 26"/>
+		<image name="m_play_simple" file="\skin\bgm_player.tga" imgrect="178 502 20 25" CMM_Caption="재생_미니심플"/>
+		<image name="m_play_simple_cursoron" file="\skin\bgm_player.tga" imgrect="199 502 20 25"/>
+		<image name="m_play_simple_clicked" file="\skin\bgm_player.tga" imgrect="199 502 20 25"/>
+		<image name="m_stop_simple" file="\skin\bgm_player.tga" imgrect="220 502 19 22" CMM_Caption="정지_미니심플"/>
+		<image name="m_stop_simple_cursoron" file="\skin\bgm_player.tga" imgrect="240 502 19 22"/>
+		<image name="m_stop_simple_clicked" file="\skin\bgm_player.tga" imgrect="240 502 19 22"/>
+		<image name="m_after_simple" file="\skin\bgm_player.tga" imgrect="353 476 20 14" CMM_Caption="다음 곡_미니심플"/>
+		<image name="m_after_simple_cursoron" file="\skin\bgm_player.tga" imgrect="374 476 20 14"/>
+		<image name="m_after_simple_clicked" file="\skin\bgm_player.tga" imgrect="374 476 20 14"/>
+		<image name="m_before_simple" file="\skin\bgm_player.tga" imgrect="395 476 20 14" CMM_Caption="이전 곡_미니심플"/>
+		<image name="m_before_simple_cursoron" file="\skin\bgm_player.tga" imgrect="416 476 20 14"/>
+		<image name="m_before_simple_clicked" file="\skin\bgm_player.tga" imgrect="416 476 20 14"/>
+		<image name="mbgm_cancel_simple" file="\skin\bgm_player.tga" imgrect="437 476 14 14" CMM_Caption="닫기_미니심플"/>
+		<image name="mbgm_cancel_simple_cursoron" file="\skin\bgm_player.tga" imgrect="452 476 14 14"/>
+		<image name="mbgm_cancel_simple_clicked" file="\skin\bgm_player.tga" imgrect="467 476 14 14"/>
+		<image name="expansion_simple" file="\skin\bgm_player.tga" imgrect="482 476 15 16" CMM_Caption="확대_미니심플"/>
+		<image name="expansion_simple_cursoron" file="\skin\bgm_player.tga" imgrect="498 476 15 16"/>
+		<image name="expansion_simple_clicked" file="\skin\bgm_player.tga" imgrect="514 476 15 16"/>
+		<image name="m_play_classic" file="\skin\bgm_player.tga" imgrect="351 522 24 29" CMM_Caption="재생_미니클래식"/>
+		<image name="m_play_classic_cursoron" file="\skin\bgm_player.tga" imgrect="376 522 24 29"/>
+		<image name="m_play_classic_clicked" file="\skin\bgm_player.tga" imgrect="376 522 24 29"/>
+		<image name="m_stop_classic" file="\skin\bgm_player.tga" imgrect="401 525 23 26" CMM_Caption="정지_미니클래식"/>
+		<image name="m_stop_classic_cursoron" file="\skin\bgm_player.tga" imgrect="425 525 23 26"/>
+		<image name="m_stop_classic_clicked" file="\skin\bgm_player.tga" imgrect="425 525 23 26"/>
+		<image name="m_after_classic" file="\skin\bgm_player.tga" imgrect="449 533 25 18" CMM_Caption="다음 곡_미니클래식"/>
+		<image name="m_after_classic_cursoron" file="\skin\bgm_player.tga" imgrect="475 533 25 18"/>
+		<image name="m_after_classic_clicked" file="\skin\bgm_player.tga" imgrect="475 533 25 18"/>
+		<image name="m_before_classic" file="\skin\bgm_player.tga" imgrect="501 533 25 18" CMM_Caption="이전 곡_미니클래식"/>
+		<image name="m_before_classic_cursoron" file="\skin\bgm_player.tga" imgrect="527 533 25 18"/>
+		<image name="m_before_classic_clicked" file="\skin\bgm_player.tga" imgrect="527 533 25 18"/>
 		<image name="god_pro_world_button" file="\skin\god_protect_skin.tga" imgrect="520 873 75 72" CMM_Caption="여신의 가호 버튼_수정ver"/>
 		<image name="god_pro_world_button_cursoron" file="\skin\god_protect_skin.tga" imgrect="596 873 75 72"/>
 		<image name="god_pro_world_button_clicked" file="\skin\god_protect_skin.tga" imgrect="672 873 75 72"/>
+		<image name="bgm_gauge_com_L" file="\skin\bgm_player.tga" imgrect="393 392 1 7" CMM_Caption="리뉴얼 게이즈 좌"/>
+		<image name="bgm_gauge_com_R" file="\skin\bgm_player.tga" imgrect="743 392 1 7" CMM_Caption="리뉴얼 게이즈 우"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -7857,8 +8027,11 @@
 		<image name="chat_Increase_btn_cursoron" file="\skin\chat_skin.tga" imgrect="232 25 24 24"/>
 		<image name="chat_Increase_btn_clicked" file="\skin\chat_skin.tga" imgrect="232 50 24 24"/>
 		<image name="chat_expand_btn" file="\skin\chat_skin.tga" imgrect="282 0 24 24" CMM_Caption="채팅펼치기"/>
-		<image name="cchat_expand_btn_cursoron" file="\skin\chat_skin.tga" imgrect="282 25 24 24"/>
+		<image name="chat_expand_btn_cursoron" file="\skin\chat_skin.tga" imgrect="282 25 24 24"/>
 		<image name="chat_expand_btn_clicked" file="\skin\chat_skin.tga" imgrect="282 50 24 24"/>
+		<image name="bgm_cancel_c" file="\skin\chat_skin.tga" imgrect="257 0 24 24" CMM_Caption="bgm클래식 취소"/>
+		<image name="bgm_cancel_c_cursoron" file="\skin\chat_skin.tga" imgrect="257 25 24 24"/>
+		<image name="bgm_cancel_c_clicked" file="\skin\chat_skin.tga" imgrect="257 50 24 24"/>
 	</imagelist>
 	<imagelist category="min_button">
 		<image name="adventure_main" file="\skin\adventure_diary.tga" imgrect="579 115 100 74" CMM_Caption="메인"/>
@@ -8047,6 +8220,8 @@
 		<image name="kupole_emotion04" file="\icon\emoticon\kupole_emotion04.png" imgrect="0 0 128 128"/>
 		<image name="kupole_emotion05" file="\icon\emoticon\kupole_emotion05.png" imgrect="0 0 128 128"/>
 		<image name="kupole_emotion06" file="\icon\emoticon\kupole_emotion06.png" imgrect="0 0 128 128"/>
+		<image name="medeina_emotion02" file="\icon\emoticon\medeina_emotion01.png" imgrect="0 0 128 128"/>
+		<image name="medeina_emotion01" file="\icon\emoticon\medeina_emotion02.png" imgrect="0 0 128 128"/>
 	</imagelist>
 	<imagelist category="itemtooltip_image">
 		<image name="circle_gem" file="\skin\tooltip_skin_3.tga" imgrect="805 228 30 30"/>

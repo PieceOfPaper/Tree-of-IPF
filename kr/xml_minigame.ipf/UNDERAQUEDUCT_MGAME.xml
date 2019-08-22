@@ -15,10 +15,10 @@
                     <Obj Type="Monster" MonType="157055" Pos="-247.36#168.00#1316.16" genCount="1" maxStackCount="1" genTime="1" objectKey="0" propList="&apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_HARD_ATK_BUFF&apos; &apos;Name&apos; &apos;공격력 증가 장치&apos; "/>
                     <Obj Type="Monster" MonType="157055" Pos="-244.76#168.02#1376.01" genCount="1" maxStackCount="1" genTime="1" objectKey="1" propList="&apos;Name&apos; &apos;방어력 증가 장치&apos; &apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_HARD_DEF_BUFF&apos; "/>
                     <Obj Type="Monster" MonType="157055" Pos="-250.59#167.98#1438.77" genCount="1" maxStackCount="1" genTime="1" objectKey="2" propList="&apos;Name&apos; &apos;실드 생성 장치&apos; &apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_HARD_SHIELD_BUFF&apos; "/>
-                    <Obj Type="Monster" MonType="20040" Pos="124.62#176.10#1350.99" genCount="1" maxStackCount="1" genTime="1" objectKey="3" propList="&apos;Name&apos; &apos;머즈루스 제압 장치&apos; &apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_BOSS_GIMMICK_SKILL3&apos; "/>
-                    <Obj Type="Monster" MonType="103022" Pos="-106.30#176.18#1540.03" genCount="1" maxStackCount="1" genTime="1" objectKey="4" propList="&apos;SimpleAI&apos; &apos;D_UNDERAQUEDUCT_PC_LIFE_COUNT_1&apos; &apos;Name&apos; &apos;피씨 목숨 1&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
-                    <Obj Type="Monster" MonType="103022" Pos="-41.58#176.21#1538.25" genCount="1" maxStackCount="1" genTime="1" autoGen="0" objectKey="5" propList="&apos;Name&apos; &apos;이어하시겠습니까?&apos; &apos;SimpleAI&apos; &apos;D_UNDERAQUEDUCT_PC_LIFE_COUNT_1_NEXT&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
-                    <Obj Type="Monster" MonType="103022" Pos="-75.81#176.20#1539.00" genCount="1" maxStackCount="1" genTime="1" objectKey="6" propList="&apos;Name&apos; &apos;실패 확인 용&apos; &apos;SimpleAI&apos; &apos;D_UNDERAQUEDUCT_PC_LIFE_COUNT_1&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="20040" Pos="-247.30#176.24#1545.38" genCount="1" maxStackCount="1" genTime="1" objectKey="3" propList="&apos;Name&apos; &apos;머즈루스 제압 장치&apos; &apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_BOSS_GIMMICK_SKILL3&apos; "/>
+                    <Obj Type="Monster" MonType="103022" Pos="-246.70#176.23#1545.56" genCount="1" maxStackCount="1" genTime="1" objectKey="4" propList="&apos;SimpleAI&apos; &apos;D_UNDERAQUEDUCT_PC_LIFE_COUNT_1&apos; &apos;Name&apos; &apos;피씨 목숨 1&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="103022" Pos="-249.21#176.24#1545.29" genCount="1" maxStackCount="1" genTime="1" autoGen="0" objectKey="5" propList="&apos;Name&apos; &apos;이어하시겠습니까?&apos; &apos;SimpleAI&apos; &apos;D_UNDERAQUEDUCT_PC_LIFE_COUNT_1_NEXT&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="103022" Pos="-249.00#176.23#1546.11" genCount="1" maxStackCount="1" genTime="1" objectKey="6" propList="&apos;Name&apos; &apos;실패 확인 용&apos; &apos;SimpleAI&apos; &apos;D_UNDERAQUEDUCT_PC_LIFE_COUNT_1&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="Start">
@@ -269,8 +269,8 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="154094" Pos="-231.84#176.10#1297.52" genCount="1" genTime="1000" autoGen="0" objectKey="0" propList="&apos;SimpleAI&apos; &apos;raid_test_ai&apos; "/>
-                    <Obj Type="Monster" MonType="154097" Pos="-59.36#176.70#1371.52" genCount="1" genTime="1000" autoGen="0" objectKey="1"/>
+                    <Obj Type="Monster" MonType="154094" Pos="-249.02#176.25#1545.08" genCount="1" genTime="1000" autoGen="0" objectKey="0" propList="&apos;SimpleAI&apos; &apos;raid_test_ai&apos; "/>
+                    <Obj Type="Monster" MonType="154097" Pos="-249.40#176.24#1545.53" genCount="1" genTime="1000" autoGen="0" objectKey="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="Success">
@@ -748,9 +748,9 @@
             </Stage>
             <Stage Name="PC_DEAD_1" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="103022" Pos="-68.61#176.59#1519.56" genCount="1" genTime="20000" objectKey="0"/>
-                    <Obj Type="Monster" MonType="103022" Pos="19.72#176.10#1541.29" genCount="1" genTime="20000" objectKey="1"/>
-                    <Obj Type="Monster" MonType="103022" Pos="83.49#176.10#1522.24" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="103022" Pos="-249.15#176.27#1544.00" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="103022" Pos="-249.45#176.28#1543.68" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="103022" Pos="-249.74#176.26#1544.54" genCount="1" genTime="20000" objectKey="2"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="DEAD_1">

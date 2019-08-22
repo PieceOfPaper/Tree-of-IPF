@@ -97,11 +97,6 @@
                     </Event>
                     <Event execCount="1" eventName="ChangeBoss" execWithStart="0" isEnabled="0">
                         <condList>
-                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
-                                <Str Str="ANIM_END"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="10"/>
                             </ToolScp>
@@ -151,7 +146,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="3phase_dir">
+                    <Event execCount="1" eventName="3phase_dir_pre">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
                                 <MGameObj List="DefGroup/7"/>
@@ -162,9 +157,6 @@
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_DIRECTION" Client="NO" UseSleep="NO">
-                                <Str Str="SHADOWMANCER_RAID_TRACK03"/>
-                            </ToolScp>
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
                                 <MGameObj List="DefGroup/7"/>
                                 <Str Str="SHADOW_RAID_BOSS_KILL"/>
@@ -172,9 +164,6 @@
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="DefGroup/28"/>
                             </ToolScp>
-                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="Clear"/>
-                            </ToolScp> 
                             <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="timecheck"/>
                             </ToolScp>
@@ -182,22 +171,14 @@
                                 <Str Str="흰 까마귀의 영면지"/>
                                 <Str Str="whitecrow_first_kill"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE2_TX" Client="NO" UseSleep="NO">
-                                <Str Str="None"/>
-                                <Str Str="None"/>
-                                <Str Str="None"/>
-                                <Str Str="None"/>
-                                <Str Str="whitecrow_clear/1"/>
-                                <Str Str="None"/>
-                                <Str Str="None"/>
-                                <Num Num="0"/>
-                                <Str Str="None"/>
-                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="FAIL_CHECK"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="FAIL"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="3phase_dir"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -248,7 +229,7 @@
                                 <Str Str="ANIM_END"/>
                                 <Num Num="1"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_DIRECTION" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_EXEC_DIRECTION_EACH" Client="NO" UseSleep="NO">
                                 <Str Str="SHADOWMANCER_UNIQUE_TRACK02"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
@@ -359,7 +340,7 @@
                                 <Str Str="ANIM_END"/>
                                 <Num Num="1"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_DIRECTION" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_EXEC_DIRECTION_EACH" Client="NO" UseSleep="NO">
                                 <Str Str="SHADOWMANCER_UNIQUE_TRACK01"/>
                             </ToolScp>
                         </execList>
@@ -446,6 +427,22 @@
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="DefGroup/0/DefGroup/26"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="3phase_dir" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/7"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DIRECTION_EACH" Client="NO" UseSleep="NO">
+                                <Str Str="SHADOWMANCER_RAID_TRACK03"/>
                             </ToolScp>
                         </execList>
                     </Event>

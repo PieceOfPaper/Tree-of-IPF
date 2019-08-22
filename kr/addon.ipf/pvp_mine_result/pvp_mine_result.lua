@@ -140,17 +140,17 @@ function PVP_TEAM_TITLE_CREATE(frame, isWin, Team)
     
 
     if Team == 1 then
-        M_team_icon:SetImage('mine_pvp_teamicon_bladetryst_s')
-        E_team_icon:SetImage('mine_pvp_teamicon_goldencroon_s')
-
-        M_team_name:SetTextByKey("value", ClMsg('bladetryst'));
-        E_team_name:SetTextByKey("value", ClMsg('goldencroon'));
-    else
         M_team_icon:SetImage('mine_pvp_teamicon_goldencroon_s')
         E_team_icon:SetImage('mine_pvp_teamicon_bladetryst_s')
-        
+
         M_team_name:SetTextByKey("value", ClMsg('goldencroon'));
         E_team_name:SetTextByKey("value", ClMsg('bladetryst'));
+    else
+        M_team_icon:SetImage('mine_pvp_teamicon_bladetryst_s')
+        E_team_icon:SetImage('mine_pvp_teamicon_goldencroon_s')
+        
+        M_team_name:SetTextByKey("value", ClMsg('bladetryst'));
+        E_team_name:SetTextByKey("value", ClMsg('goldencroon'));
     end
 
 end

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="mapareatext" x="0" y="0" width="300" height="60">
-	<frame layout_gravity="right top" margin="0 300 40 0"/>
+	<frame layout_gravity="right top" margin="0 70 40 0"/>
 	<input maxwidth="200" moveable="false" hittestframe="false"/>
 	<layer layerlevel="30"/>
 	<option visible="true" hideable="false" closebutton="false" alwaysVisible="true"/>
 	<draw drawtitlebar="false" drawframe="false"/>
 	<controls>
-		<richtext name="mapName" rect="0 0 300 24" margin="0 10 0 0" layout_gravity="center top" fontname="white_16_ol" hittest="false" format="%s" param1="name" param1_def=""/>
-		<richtext name="areaName" rect="0 0 300 24" margin="0 30 0 0" layout_gravity="center top" fontname="white_16_ol" hittest="false" format="%s" param1="name" param1_def=""/>
+		<richtext name="mapName" rect="0 0 300 24" margin="0 10 0 0" layout_gravity="left top" fontname="white_16_ol" hittest="false" format="%s" param1="name" param1_def=""/>
+		<richtext name="areaName" rect="0 0 300 24" margin="0 30 0 0" layout_gravity="left top" fontname="white_16_ol" hittest="false" format="%s" param1="name" param1_def=""/>
 	</controls>
 </uiframe>

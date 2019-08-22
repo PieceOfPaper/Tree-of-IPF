@@ -33,7 +33,7 @@ function COMPANION_UI_OPEN_DO(frame)
 	frame:SetUserValue("IS_OPEN_BY_NPC","YES")
 
 	PET_INFO_SHOW(summonedPet:GetStrGuid());
-
+	PET_INFO_CANCEL_TRAIN(frame)	
 end
 
 function ON_COMPANION_UI_UPDATE_COLONY_TAX_RATE_SET(frame)
@@ -49,18 +49,20 @@ function ON_PET_NAME_CHANGED(frame, msg, strArg, numArg)
 	PET_INFO_SHOW(frame:GetUserValue('PET_GUID'));
 end
 
-function ON_PET_PROP_UPDATE(frame, msg, propName)
-	if propName == "IsActivated" then
-	PET_INFO_UPDATE_ACTIVATED(frame);
+function ON_PET_PROP_UPDATE(frame, msg, strArg)
+	if strArg == "IsActivated" then
+		PET_INFO_UPDATE_ACTIVATED(frame);
 		return;
 	end
 
-	if propName ~= "Stamina" and frame:GetUserValue('IS_OPEN_BY_NPC') == 'YES' then
-		PET_INFO_CANCEL_TRAIN(frame);
-		return;
+	if frame:GetUserValue("IS_OPEN_BY_NPC") == "NO" then
+		PET_INFO_SHOW(frame:GetUserValue('PET_GUID'));
+	elseif frame:GetUserValue('IS_OPEN_BY_NPC') == 'YES' and strArg ~= "Stamina" then
+		PET_INFO_UPDATE_TRAIN(frame);
+		if strArg == "UNEQUIP" or strArg == "EQUIP" then
+			PET_INFO_SHOW(frame:GetUserValue('PET_GUID'));
+		end
 	end
-
-	PET_INFO_SHOW(frame:GetUserValue('PET_GUID'));
 end
 
 function PET_INFO_OPEN(frame)
@@ -627,6 +629,7 @@ function PET_INFO_SAVE_TRAIN(frame, ctrl)
 		if trainCnt > 0 then
 			local chatStr = string.format("/petstat %s %s %d", guid, clsName, trainCnt);
 			ui.Chat(chatStr);
+			ctrlset:SetUserValue('TRAIN_CNT', 0);
 		end
 	end
 end
@@ -657,6 +660,36 @@ function PET_INFO_CANCEL_TRAIN(frame, ctrl)
 		ctrlset:SetUserValue('TRAIN_CNT', 0);
 		statValueText:SetTextByKey('value', statValue);
 		afterValueText:SetTextByKey('value', statValue);
+	end
+	PET_INFO_CALC_TRAIN_COST(topFrame);
+end
+
+function PET_INFO_UPDATE_TRAIN(frame)
+    local topFrame = frame:GetTopParentFrame()
+	if topFrame:GetUserValue('IS_OPEN_BY_NPC') == 'NO' then
+		return;
+	end
+	local guid = topFrame:GetUserValue("PET_GUID");
+	local petInfo = session.pet.GetPetByGUID(guid);
+	local obj = petInfo:GetObject();
+	if obj == nil then
+		return;
+	end
+	obj = GetIES(obj);
+
+	local statList, statCnt = GetClassList("Pet_ShowStats");
+	if statList == nil or statCnt < 1 then
+		return;
+	end
+	for i = 0 , statCnt - 1 do
+		local ctrlset = GET_CHILD_RECURSIVELY(topFrame, 'STAT_TEXT_'..i);
+		local statValueText = ctrlset:GetChild('statValueText');
+		local afterValueText = ctrlset:GetChild('afterValueText');
+		local statValue = TryGetProp(obj, ctrlset:GetUserValue('CLSNAME'));
+
+		local trainCnt = ctrlset:GetUserIValue('TRAIN_CNT');
+		statValueText:SetTextByKey('value', statValue);
+		afterValueText:SetTextByKey('value', (statValue + trainCnt));
 	end
 	PET_INFO_CALC_TRAIN_COST(topFrame);
 end

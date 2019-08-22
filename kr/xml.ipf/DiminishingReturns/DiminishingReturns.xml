@@ -7,31 +7,6 @@
 	<Category Name="Group_1">
 		<Category Name="Constant">
 			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
-			<Class Name="ApplyingCount" Value="3" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
-			<Class Name="Ratio" Value="0.25" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
-		</Category>
-		<Category Name="Buff">
-			<Class Name="Cryomancer_Freeze" BuffID="238" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
-			<Class Name="Cryomancer_FrostPillar" BuffID="301" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
-			<Class Name="Freeze" BuffID="8" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
-		</Category>
-		<Category Name="Skill">      
-    </Category>
-	</Category>
-	<Category Name="Group_2">
-		<Category Name="Constant">
-			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
-			<Class Name="ApplyingCount" Value="4" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
-			<Class Name="Ratio" Value="0.2" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
-		</Category>
-		<Category Name="Buff">
-			<Class Name="Restrain_Debuff" BuffID="236" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
-			<Class Name="Stun" BuffID="61" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
-		</Category>
-	</Category>
-	<Category Name="Group_3">
-		<Category Name="Constant">
-			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
 			<Class Name="ApplyingCount" Value="4" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
 			<Class Name="Ratio" Value="0.2" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
 		</Category>
@@ -39,7 +14,6 @@
 			<Class Name="MagneticForce_Debuff_Hold" BuffID="282" Desc="마그네틱포스 스킬에서 유저를 이동불가를 시키는 디버프"/>
 			<Class Name="스노우롤링어태치" BuffID="90001" Desc="스노우로링에 붙어 있는 동안 걸리는 더미 버프"/>
 			<Class Name="SadhuBind_Debuff" BuffID="216" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
-			<Class Name="Dethrone_Debuff" BuffID="2026" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="Raise_Debuff" BuffID="2996" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="Arrest" BuffID="199" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="IronHooked" BuffID="6010" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
@@ -59,13 +33,23 @@
 			<Class Name="EmperorsBane_Debuff" BuffID="2190" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="BreastRipper_Debuff" BuffID="2200" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="Petrification" BuffID="22" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
-			<Class Name="Blind" BuffID="17" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="Common_Hold" BuffID="160007" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Dethrone_Debuff" BuffID="2026" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Cryomancer_Freeze" BuffID="238" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Cryomancer_FrostPillar" BuffID="301" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Freeze" BuffID="8" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Restrain_Debuff" BuffID="236" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Stun" BuffID="61" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Sleep_Debuff" BuffID="152" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Lullaby_Debuff" BuffID="2165" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 		</Category>
-		<Category Name="Skill">			
+		<Category Name="Skill">
+			<Class Name="KnockDown" SkillID="900000" Desc="넉다운은 스킬이 아니기 때문에, 900000번으로 할당하기로 정한다."/>
+			<Class Name="KnockBack" SkillID="900001" Desc="넉백은 스킬이 아니기 때문에, 900001번으로 할당하기로 정한다."/>
+			<Class Name="HeadShot" SkillID="31202" Desc="머스킷티어 헤드샷 스핀"/>
 		</Category>
 	</Category>
-	<Category Name="Group_4">
+	<Category Name="Group_2">
 		<Category Name="Constant">
 			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
 			<Class Name="ApplyingCount" Value="4" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
@@ -76,44 +60,17 @@
 			<Class Name="FishingNetsDrawSilence_Debuff" BuffID="2204" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="Peacemaker_Debuff" BuffID="2234" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="Common_Silence" BuffID="160009" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
-		</Category>
-		<Category Name="Skill">
-			<Class Name="HeadShot" SkillID="31202" Desc="머스킷티어 헤드샷 스핀"/>
-		</Category>
-	</Category>
-	<Category Name="Group_5">
-		<Category Name="Constant">
-			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
-			<Class Name="ApplyingCount" Value="4" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
-			<Class Name="Ratio" Value="0" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
-		</Category>
-		<Category Name="Buff">      
-    </Category>
-		<Category Name="Skill">
-			<Class Name="KnockDown" SkillID="900000" Desc="넉다운은 스킬이 아니기 때문에, 900000번으로 할당하기로 정한다."/>
-			<Class Name="KnockBack" SkillID="900001" Desc="넉백은 스킬이 아니기 때문에, 900001번으로 할당하기로 정한다."/>
-		</Category>
-	</Category>
-	<Category Name="Group_6">
-		<Category Name="Constant">
-			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
-			<Class Name="ApplyingCount" Value="4" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
-			<Class Name="Ratio" Value="0.2" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
-		</Category>
-		<Category Name="Buff">
-			<Class Name="Sleep_Debuff" BuffID="152" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
-			<Class Name="Lullaby_Debuff" BuffID="2165" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
-		</Category>
-	</Category>
-	<Category Name="Group_6">
-		<Category Name="Constant">
-			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
-			<Class Name="ApplyingCount" Value="4" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
-			<Class Name="Ratio" Value="0.2" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
-		</Category>
-		<Category Name="Buff">
+			<Class Name="Blind" BuffID="17" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="EquipDesrption_Debeff" BuffID="2143" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="Chage_Debuff" BuffID="2184" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Archer_SmokeBomb_Debuff" BuffID="87" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="CarveAustrasKoks_Debuff" BuffID="166" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Lachrymator_Debuff" BuffID="228" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="JoustSilence_Debuff" BuffID="1046" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Silence_Debuff" BuffID="2038" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="SprinkleSands_Debuff" BuffID="319" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="Blistering_Debuff" BuffID="1042" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+			<Class Name="SmokeGrenade_Debuff" BuffID="2028" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 		</Category>
 	</Category>
 	<!-- ############################################################################################################################################################### -->

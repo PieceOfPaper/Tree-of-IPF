@@ -157,3 +157,10 @@ function IS_ENABLE_EXCHANGE_ANTIQUE(srcItem, dstItem)
     end
     return true;
 end
+
+function IS_ICOR_ITEM(item)
+	if TryGetProp(item, 'GroupName', 'None') == 'Icor' then
+		return true;
+	end
+	return false;
+end

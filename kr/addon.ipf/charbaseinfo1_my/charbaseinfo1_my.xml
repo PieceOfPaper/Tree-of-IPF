@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="charbaseinfo1_my" x="0" y="0" width="700" height="150">
+<uiframe name="charbaseinfo1_my" x="0" y="0" width="700" height="200">
 	<frame title="character" layout_gravity="center center" outside="true" useothercountryframe="false" fasthide="true"/>
 	<option visible="false" closebutton="false" hideable="false" useimageitem="true"/>
 	<layer layerlevel="30"/>
@@ -9,8 +9,8 @@
 	<controls>
 		<gauge name="pcHpGauge" rect="0 0 104 15" margin="0 28 0 0" layout_gravity="center top" hittest="false" skin="pcinfo_gauge_hp2" point="100"/>
 		<gauge name="pcSpGauge" rect="0 0 104 15" margin="0 35 0 0" layout_gravity="center top" hittest="false" skin="pcinfo_gauge_sp2" point="100"/>
-		<picture name="pcinfo_bg_L" rect="0 0 25 30" margin="-48 -30 0 0" layout_gravity="center center" image="pcinfo_bg"/>
-		<picture name="pcinfo_bg_R" rect="0 0 25 30" margin="64 -30 0 0" layout_gravity="center center" image="pcinfo_bg2"/>
+		<picture name="pcinfo_bg_L" rect="0 0 25 30" margin="-48 30 0 0" layout_gravity="center top" image="pcinfo_bg"/>
+		<picture name="pcinfo_bg_R" rect="0 0 25 30" margin="64 30 0 0" layout_gravity="center top" image="pcinfo_bg2"/>
 		<picture name="achieveImg" rect="0 0 214 34" stretch="false" margin="0 0 0 0" layout_gravity="center top" image="Collar_TBL1st"/>
 		<richtext name="guildName" rect="0 0 400 24" margin="0 43 0 0" layout_gravity="center top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="false"/>
 		<richtext name="name" rect="0 0 400 24" margin="0 43 0 0" layout_gravity="center top" caption="None" fixwidth="false" fontname="white_16_ol_bk" hittest="false" sildeshow="false" textalign="left center" updateparent="true"/>

@@ -15,7 +15,7 @@
                     <Obj Type="Monster" MonType="157055" Pos="-247.36#168.00#1316.16" genCount="1" maxStackCount="1" genTime="1" objectKey="0" propList="&apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_ATK_BUFF&apos; &apos;Name&apos; &apos;공격력 증가 장치&apos; "/>
                     <Obj Type="Monster" MonType="157055" Pos="-244.76#168.02#1376.01" genCount="1" maxStackCount="1" genTime="1" objectKey="1" propList="&apos;Name&apos; &apos;방어력 증가 장치&apos; &apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_DEF_BUFF&apos; "/>
                     <Obj Type="Monster" MonType="157055" Pos="-250.59#167.98#1438.77" genCount="1" maxStackCount="1" genTime="1" objectKey="2" propList="&apos;Name&apos; &apos;실드 생성 장치&apos; &apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_SHIELD_BUFF&apos; "/>
-                    <Obj Type="Monster" MonType="20040" Pos="124.62#176.10#1350.99" genCount="1" maxStackCount="1" genTime="1" objectKey="3" propList="&apos;Name&apos; &apos;머즈루스 제압 장치&apos; &apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_BOSS_GIMMICK_SKILL3&apos; "/>
+                    <Obj Type="Monster" MonType="20040" Pos="-242.22#176.13#1550.24" genCount="1" maxStackCount="1" genTime="1" objectKey="3" propList="&apos;Name&apos; &apos;머즈루스 제압 장치&apos; &apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_BOSS_GIMMICK_SKILL3&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="Start">
@@ -249,7 +249,7 @@
                 </StartScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="154094" Pos="-231.84#176.10#1297.52" genCount="1" genTime="1000" autoGen="0" objectKey="0" propList="&apos;SimpleAI&apos; &apos;raid_test_ai&apos; "/>
-                    <Obj Type="Monster" MonType="154097" Pos="-59.36#176.70#1371.52" genCount="1" genTime="1000" autoGen="0" objectKey="1"/>
+                    <Obj Type="Monster" MonType="154097" Pos="-242.82#176.13#1550.21" genCount="1" genTime="1000" autoGen="0" objectKey="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event execMS="5000" eventName="Success">
@@ -663,9 +663,9 @@
             </Stage>
             <Stage Name="PC_DEAD_1" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="103022" Pos="-68.61#176.59#1519.56" genCount="1" genTime="20000" objectKey="0"/>
-                    <Obj Type="Monster" MonType="103022" Pos="19.72#176.10#1541.29" genCount="1" genTime="20000" objectKey="1"/>
-                    <Obj Type="Monster" MonType="103022" Pos="83.49#176.10#1522.24" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="103022" Pos="-242.66#176.14#1549.88" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="103022" Pos="-242.02#176.16#1548.88" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="103022" Pos="-242.58#176.11#1551.06" genCount="1" genTime="20000" objectKey="2"/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="DEAD_1">
