@@ -2,9 +2,13 @@
 function BGMPLAYER_ON_INIT(addon, frame)
     local frame = ui.GetFrame("bgmplayer");
     if frame == nil then return end
+    SaveFavoritesBgmList();
     LoadFavoritesBgmList();
     if IsBgmPlayerBasicFrameVisible() == 1 then
         BGMPLAYER_OPEN_UI();
+        if IsBeingPlayedFromBgmPlayer() == 1 then
+            BGMPLAYER_UPDATE_PLAY_TIEM(frame);
+        end
     end
 end
 
@@ -43,6 +47,10 @@ function BGMPLAYER_PRE_CHECK_CTRL(frame)
     end
     frame:SetUserValue("MODE_ALL_LIST", bgmType);
     frame:SetUserValue("MODE_FAVO_LIST", bgmOption);
+
+    local playRandom, playRepeat = GetRandomRepeatState();
+    frame:SetUserConfig("PLAY_RANDOM", playRandom);
+    frame:SetUserConfig("PLAY_REPEAT", playRepeat);
 
     local mode = tonumber(frame:GetUserValue("MODE_ALL_LIST"));
     local option = tonumber(frame:GetUserValue("MODE_FAVO_LIST"));
@@ -122,6 +130,13 @@ function BGMPLAYER_NOT_PLAYED_AREA_CHECK(frame)
     return 1;
 end
 
+function BGMPLAYER_UPDATE_PLAY_TIEM(frame)
+    local timeText = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_playtime");
+    if timeText == nil then return; end
+    timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
+    timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
+end
+
 function BGMPLAYER_OPEN_UI(frame, btn)
     ui.CloseFrame("bgmplayer");
     if IsNotPlayArea() == false then
@@ -167,9 +182,9 @@ function BGMPLAYER_SKIN_INIT(frame)
         
     BGMPLAYER_CHANGE_SKIN_GROUP(frame, isChange);
     BGMPLAYER_CHANGE_SKIN_TITLE_GROUP(frame, isChange);
+    BGMPLAYER_CHANGE_SKIN_SET_USERVALUE(frame, isChange);
     BGMPLAYER_CHANGE_SKIN_RESET_CONTROL(frame, isChange);
     BGMPLAYER_CHANGE_SKIN_SELECTCTRLSET(frame);
-    BGMPLAYER_CHANGE_SKIN_SET_USERVALUE(frame, isChange);
 end
 
 function BGMPLAYER_SINGULAR_SELECTION_LISTINDEX(ctrlset)
@@ -720,7 +735,6 @@ function BGMPLAYER_REPLAY(argStr, argNum, argValue)
         frame:SetUserValue("MUSIC_TITLE", gb:GetName().."/"..titleName);
     end
 
-    PlayBgm(titleName, ctrlSetName);    
     BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
     
     local totalTime = GetPlayBgmTotalTime();
@@ -730,12 +744,23 @@ function BGMPLAYER_REPLAY(argStr, argNum, argValue)
         startTime = GetBgmPauseTime() / 1000;
         SetPauseTime(0);
     end
+
     BGMPLAYER_PLAYTIME_GAUGE(startTime, totalTime);
 
-    local timeText = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_playtime");
-    if timeText == nil then return end
-    timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-    timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
+    if IsBgmPlayerBasicFrameVisible() == 1 then
+        local timeText = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_playtime");
+        if timeText == nil then return; end
+        timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
+        timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
+    elseif IsBgmPlayerReductionFrameVisible() == 1 then
+        local reduction_frame = ui.GetFrame("bgmplayer_reduction");
+        if reduction_frame == nil then return; end
+        
+        local timeText = GET_CHILD_RECURSIVELY(reduction_frame, "bgm_mugic_playtime");
+        if timeText == nil then return; end
+        timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
+        timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
+    end
 end
 
 function BGMPLAYER_PLAYTIME_GAUGE(curtime, maxtime)
@@ -777,7 +802,6 @@ function UPDATE_BGMPLAYER_PLAYTIME(textTimer)
         local bgmType = GET_BGMPLAYER_MODE(frame, mode, option);
         local playRandom = tonumber(frame:GetUserConfig("PLAY_RANDOM"));
         local playRepeat = tonumber(frame:GetUserConfig("PLAY_REPEAT"));
-
         if playRandom == 1 then
             SetRandomPlay(playRandom, bgmType, option);
         elseif playRandom == 0 then
@@ -1141,6 +1165,9 @@ function BGMPLAYER_PLAY_RANDOM_BGM(frame, btn)
     playRandom = tonumber(topFrame:GetUserConfig("PLAY_RANDOM"));
     SetRandomPlay(playRandom, mode, option);
 
+    local playRepeat = tonumber(topFrame:GetUserConfig("PLAY_REPEAT"));
+    SetRepeatPlay(playRepeat);
+
     if playRandom == 0 then
         local selectCtrlSetName = topFrame:GetUserValue("CTRLSET_NAME_SELECTED");
         local selectCtrlSet = GET_CHILD_RECURSIVELY(topFrame, selectCtrlSetName);
@@ -1183,6 +1210,14 @@ function BGMPLAYER_PLAY_REPEAT_BGM(frame, btn)
         topFrame:SetUserConfig("PLAY_REPEAT", 0);
         btn:SetImage(repeatBtn_Image);
     end
+
+    local mode = tonumber(topFrame:GetUserValue("MODE_ALL_LIST"));
+    local option = tonumber(topFrame:GetUserValue("MODE_FAVO_LIST"));
+    local playRandom = tonumber(topFrame:GetUserConfig("PLAY_RANDOM"));
+    SetRandomPlay(playRandom, mode, option);
+
+    playRepeat = tonumber(topFrame:GetUserConfig("PLAY_REPEAT"));
+    SetRepeatPlay(playRepeat);
 end
 
 function BGMPLAYER_HOTKEY_PLAYBTN()
@@ -1268,9 +1303,9 @@ function BGMPLAYER_CHANGE_SKIN(frame, btn)
     
     BGMPLAYER_CHANGE_SKIN_GROUP(topFrame, isChange);
     BGMPLAYER_CHANGE_SKIN_TITLE_GROUP(topFrame, isChange);
+    BGMPLAYER_CHANGE_SKIN_SET_USERVALUE(topFrame, isChange);
     BGMPLAYER_CHANGE_SKIN_RESET_CONTROL(topFrame, isChange);
     BGMPLAYER_CHANGE_SKIN_SELECTCTRLSET(frame);
-    BGMPLAYER_CHANGE_SKIN_SET_USERVALUE(topFrame, isChange);
     BGMPLAYER_REDUCTION_CHANGE_SKIN(isChange);
 end
 

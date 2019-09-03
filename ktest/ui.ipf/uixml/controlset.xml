@@ -4756,10 +4756,10 @@
 		</controls>
 	</controlset>
 <!--BgmPlayer-->
-	<controlset name="bgmplayer_musicinfo" width="325" height="25" draw="true" skin="None" hittest="true" hittestset="true">
+	<controlset name="bgmplayer_musicinfo" width="325" height="25" draw="true" skin="None" updateparent="true">
 		<controls>
-			<groupbox name="musicselect_gbox" rect="0 0 325 25" margin="3 0 0 0" layout_gravity="left top" hittest="true" hittestbox="true" draw="true" skin="list_choice_box" LBtnDownScp="BGMPLAYER_SINGULAR_SELECTION_LISTINDEX"/>
-			<groupbox name="musicinfo_gbox" rect="0 0 325 25" margin="0 0 0 0" layout_gravity="left top" hittest="true" hittestbox="true" draw="true" skin="None" LBtnDownScp="BGMPLAYER_SINGULAR_SELECTION_LISTINDEX"/>
+			<groupbox name="musicselect_gbox" rect="0 0 325 25" margin="3 0 0 0" layout_gravity="left top" hittestbox="true" draw="true" skin="list_choice_box" scrollbar="false" LBtnDownScp=""/>
+			<groupbox name="musicinfo_gbox" rect="0 0 325 25" margin="0 0 0 0" layout_gravity="left top" hittestbox="true" draw="true" skin="None" scrollbar="false" LBtnDownScp="BGMPLAYER_SINGULAR_SELECTION_LISTINDEX"/>
 			<richtext name="musictitle_text" parent="musicinfo_gbox" rect="0 0 245 25" margin="10 0 0 0" layout_gravity="left center" hittest="false" format="{@st41b}{s14}" updateparent="true" resizebytext="false" omitbywidth="true" param1="value" param1_def=""/>
 			<richtext name="musictotaltime_text" parent="musicinfo_gbox" rect="0 0 50 25" margin="270 0 0 0" layout_gravity="left center" hittest="false" format="{@st41b}{s10}" param1="value" param1_def="00:00"/>
 			<picture name="heart_btn" parent="musicinfo_gbox" rect="0 0 25 23" margin="0 0 0 10" layout_gravity="right center" image="heart_classic" hittest="true" LBtnUpScp="BGMPLAYER_FAVORITESLIST_SELECT"/>
