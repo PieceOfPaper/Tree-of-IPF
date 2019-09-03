@@ -2,8 +2,10 @@
 function BGMPLAYER_ON_INIT(addon, frame)
     local frame = ui.GetFrame("bgmplayer");
     if frame == nil then return end
-    
     LoadFavoritesBgmList();
+    if IsBgmPlayerBasicFrameVisible() == 1 then
+        BGMPLAYER_OPEN_UI();
+    end
 end
 
 function BGMPLAYER_PRE_CHECK_CTRL(frame)
@@ -35,8 +37,13 @@ function BGMPLAYER_PRE_CHECK_CTRL(frame)
         gauge:SetBarImageName(barImgName);
     end
 
-    frame:SetUserValue("MODE_ALL_LIST", 1);
-    frame:SetUserValue("MODE_FAVO_LIST", 0);
+    local bgmType, bgmOption = GetBgmPlayerListModeOption();
+    if bgmType == 2 and bgmOption == 2 then
+        bgmType = 1; bgmOption = 0;
+    end
+    frame:SetUserValue("MODE_ALL_LIST", bgmType);
+    frame:SetUserValue("MODE_FAVO_LIST", bgmOption);
+
     local mode = tonumber(frame:GetUserValue("MODE_ALL_LIST"));
     local option = tonumber(frame:GetUserValue("MODE_FAVO_LIST"));
     BGMPLAYER_SET_ACTIVATION_LIST_TAB(frame, mode, option);
@@ -51,7 +58,6 @@ function BGMPLAYER_INIT_SELECTCTRLSET(frame)
         if selectCtrlSet ~= nil then
             local parent = selectCtrlSet:GetParent();
             BGMPLAYER_SELECT_CLEAER(parent);
-
             local select_gb = GET_CHILD_RECURSIVELY(selectCtrlSet, "musicselect_gbox");
             if select_gb == nil then return; end
             select_gb:SetVisible(1);
@@ -59,12 +65,50 @@ function BGMPLAYER_INIT_SELECTCTRLSET(frame)
 
             local btn = GET_CHILD_RECURSIVELY(frame, "playStart_btn");
             if btn == nil then return; end
-            local haltImageName = frame:GetUserConfig("PLAY_HALT_BTN_IMAGE_NAME");
-            btn:SetImage(haltImageName);
-            btn:SetTooltipArg(ScpArgMsg('BgmPlayer_StartBtnToolTip'));
+            local imageName = btn:GetImageName();
+            if imageName ~= nil and string.find(imageName, "play_") ~= nil then
+                local haltImageName = frame:GetUserConfig("PLAY_HALT_BTN_IMAGE_NAME");
+                btn:SetImage(haltImageName);
+                btn:SetTooltipArg(ScpArgMsg('BgmPlayer_StartBtnToolTip'));
+            end
         end
     end
 end 
+
+function BGMPLAYER_FIND_CTRLSET_BY_NAME(frame, name)
+    if frame == nil then return; end
+    if name == nil then return; end
+
+    local musicinfo_gb = GET_CHILD_RECURSIVELY(frame, "musicinfo_gb");
+    local child_cnt = musicinfo_gb:GetChildCount();
+    for i = 1, child_cnt do
+        local child = musicinfo_gb:GetChildByIndex(i - 1);
+        if child:GetName() == name then
+            return child;
+        end
+    end
+
+    return nil;
+end
+
+function BGMPLAYER_FIND_CTRLSET_BY_TITLENAME(frame, name)
+    if frame == nil then return; end
+    if name == nil then return; end
+
+    local musicinfo_gb = GET_CHILD_RECURSIVELY(frame, "musicinfo_gb");
+    local child_cnt = musicinfo_gb:GetChildCount();
+    for i = 1, child_cnt do
+        local child = musicinfo_gb:GetChildByIndex(i - 1);
+        if child ~= nil then
+            local title = GET_CHILD_RECURSIVELY(child, "musictitle_text");
+            if title ~= nil then
+                local txt 
+            end
+        end
+    end
+
+    return nil;
+end
 
 function BGMPLAYER_NOT_PLAYED_AREA_CHECK(frame)
     if IsNotPlayArea() == true then
@@ -75,17 +119,23 @@ function BGMPLAYER_NOT_PLAYED_AREA_CHECK(frame)
             return 0;
         end
     end
-
     return 1;
 end
 
-function BGMPLAYER_OPEN_UI()
+function BGMPLAYER_OPEN_UI(frame, btn)
+    ui.CloseFrame("bgmplayer");
     if IsNotPlayArea() == false then
         ui.OpenFrame("bgmplayer"); 
-        local frame = ui.GetFrame("bgmplayer");
-        if frame == nil then return; end
-        BGMPLAYER_PRE_CHECK_CTRL(frame);
-        BGMPLAYER_INIT_SELECTCTRLSET(frame);
+        SetBgmPlayerBasicFrameVisible(1);
+        
+        local bgmPlayer_frame = ui.GetFrame("bgmplayer");
+        if bgmPlayer_frame == nil then return; end
+        BGMPLAYER_PRE_CHECK_CTRL(bgmPlayer_frame);
+        BGMPLAYER_INIT_SELECTCTRLSET(bgmPlayer_frame);
+
+        if frame == nil and btn == nil then
+            BGMPLAYER_SKIN_INIT(bgmPlayer_frame);
+        end
     elseif IsNotPlayArea() == true then
         ui.SysMsg(ClMsg("IsNotPlayBgmPlayerArea"));
     end
@@ -102,6 +152,24 @@ function BGMPLAYER_CLOSE_UI()
 
     timeText:StopUpdateScript("TEST_BGM_PLAYER_TIME");
     SaveFavoritesBgmList();
+    SetBgmPlayerBasicFrameVisible(0);
+end
+
+function BGMPLAYER_SKIN_INIT(frame)
+    local skin_mode = GetBgmPlayerSkinMode();
+    frame:SetUserConfig("SKIN_MODE", skin_mode);
+    local isChange = false;
+    if skin_mode == 0 then
+        isChange = true;
+    elseif skin_mode == 1 then
+        isChange = false;
+    end
+        
+    BGMPLAYER_CHANGE_SKIN_GROUP(frame, isChange);
+    BGMPLAYER_CHANGE_SKIN_TITLE_GROUP(frame, isChange);
+    BGMPLAYER_CHANGE_SKIN_RESET_CONTROL(frame, isChange);
+    BGMPLAYER_CHANGE_SKIN_SELECTCTRLSET(frame);
+    BGMPLAYER_CHANGE_SKIN_SET_USERVALUE(frame, isChange);
 end
 
 function BGMPLAYER_SINGULAR_SELECTION_LISTINDEX(ctrlset)
@@ -109,16 +177,16 @@ function BGMPLAYER_SINGULAR_SELECTION_LISTINDEX(ctrlset)
 
     local parent = ctrlset:GetParent();
     BGMPLAYER_SELECT_CLEAER(parent);
-
+    
     local select_gb = GET_CHILD_RECURSIVELY(ctrlset, "musicselect_gbox");
     if select_gb == nil then return; end
     select_gb:SetVisible(1);
-    SetCurControlSetName()
+    SetCurControlSetName(ctrlset:GetName());
 
     local topFrame = parent:GetTopParentFrame();
     if topFrame == nil then return; end
     topFrame:SetUserValue("CTRLSET_NAME_SELECTED", ctrlset:GetName());
-    BGMPLAYER_PLAYBTN_RESET(topFrame);    
+    BGMPLAYER_PLAYBTN_RESET(topFrame); 
 
     local musictitle_txt = GET_CHILD_RECURSIVELY(ctrlset, "musictitle_text");
     if musictitle_txt ~= nil then
@@ -161,8 +229,6 @@ function BGMPLAYER_SET_MUSIC_TITLE(frame, parent, ctrlset)
         if bgmMusicTitle_text ~= nil then
             bgmMusicTitle_text:SetTextByKey("value", musicTitle[2]);
         end
-
-        BGMPLAYER_REDUCTION_SET_TITLE(musicTitle[2]);
     end
 end
 
@@ -215,7 +281,6 @@ function BGMPLAYER_MUSIC_SET_ALL_LIST(frame, mode, option, isChange)
     if frame == nil then return; end
     local musicinfo_gb = GET_CHILD_RECURSIVELY(frame, "musicinfo_gb");
     if musicinfo_gb == nil then return; end
-
     local bgmTitleList = GetBgmTitleList(mode, option);
     local favoTitleList = GetFavoritesTitleList(mode, option);
     
@@ -399,8 +464,6 @@ function BGMPLAYER_FAVORITESLIST_SELECT(frame, btn)
                 btn:SetImage(imageName);
                 AddFavoritesInfo(musicName[2]);
             end
-
-            BGMPLAYER_REDUCTION_SET_TITLE(musicName[2]);
         end
     end
 
@@ -522,14 +585,16 @@ function BGMPLAYER_PLAYBTN_RESET(frame)
      local topFrame = frame:GetTopParentFrame();
      if topFrame == nil then return; end
 
+     local minIndex = tonumber(topFrame:GetUserConfig("TITLE_MIN_INDEX"));
+     local maxIndex = tonumber(topFrame:GetUserConfig("TITLE_MAX_INDEX"));
+
      local btn = GET_CHILD_RECURSIVELY(topFrame, "playStart_btn");
      if btn == nil then return; end
 
      local title = frame:GetUserValue("MUSIC_TITLE");
-     title = StringSplit(title, '/');
-
-     local minIndex = tonumber(topFrame:GetUserConfig("TITLE_MIN_INDEX"));
-     local maxIndex = tonumber(topFrame:GetUserConfig("TITLE_MAX_INDEX"));
+     if title ~= "None" then
+        title = StringSplit(title, '/');
+     end
 
      local selectBgmClsName = "";
      local selectCtrlSetName = topFrame:GetUserValue("CTRLSET_NAME_SELECTED");
@@ -545,7 +610,6 @@ function BGMPLAYER_PLAYBTN_RESET(frame)
         end
 
         selectBgmClsName = select_titleMusicName[2];
-        BGMPLAYER_REDUCTION_SET_TITLE(selectBgmClsName);
      end
 
      local haltImageName = topFrame:GetUserConfig("PLAY_HALT_BTN_IMAGE_NAME");
@@ -554,7 +618,7 @@ function BGMPLAYER_PLAYBTN_RESET(frame)
         btn:SetImage(haltImageName);
         btn:SetTooltipArg(ScpArgMsg('BgmPlayer_StartBtnToolTip'));
         BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
-     else
+     elseif title[2] ~= nil and title[2] ~= selectBgmClsName then
         btn:SetImage(startImageName);
         btn:SetTooltipArg(ScpArgMsg('BgmPlayer_StartBtnToolTip'));
         SetPause(0);
@@ -658,7 +722,6 @@ function BGMPLAYER_REPLAY(argStr, argNum, argValue)
 
     PlayBgm(titleName, ctrlSetName);    
     BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
-    BGMPLAYER_REDUCTION_SET_TITLE(titleName);
     
     local totalTime = GetPlayBgmTotalTime();
     totalTime = totalTime / 1000;
@@ -877,6 +940,7 @@ function BGMPLAYER_PLAY_RANDOM(frame, curIndex)
                 totalTime = totalTime / 1000;
                 BGMPLAYER_PLAYTIME_GAUGE(startTime, totalTime);
                 BGMPLAYER_SET_MUSIC_TITLE(frame, parent, child);
+                BGMPLAYER_REDUCTION_SET_TITLE(musicTitle[2]);
                 BGMPLAYER_SINGULAR_SELECTION_LISTINDEX(child);
                 BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
 
@@ -955,6 +1019,7 @@ function BGMPLAYER_PLAY_PREVIOUS_BGM(frame, btn)
                 totalTime = totalTime / 1000;
                 BGMPLAYER_PLAYTIME_GAUGE(startTime, totalTime);
                 BGMPLAYER_SET_MUSIC_TITLE(topFrame, parent, child);
+                BGMPLAYER_REDUCTION_SET_TITLE(musicTitle[2]);
                 BGMPLAYER_SINGULAR_SELECTION_LISTINDEX(child);
                 BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
 
@@ -1033,6 +1098,7 @@ function BGMPLAYER_PLAY_NEXT_BGM(frame, btn)
                 totalTime = totalTime / 1000;
                 BGMPLAYER_PLAYTIME_GAUGE(startTime, totalTime);
                 BGMPLAYER_SET_MUSIC_TITLE(topFrame, parent, child);
+                BGMPLAYER_REDUCTION_SET_TITLE(musicTitle[2]);
                 BGMPLAYER_SINGULAR_SELECTION_LISTINDEX(child);
                 BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
 
@@ -1199,74 +1265,81 @@ function BGMPLAYER_CHANGE_SKIN(frame, btn)
     elseif skin_mode == 1 then
         isChange = true;
     end
+    
+    BGMPLAYER_CHANGE_SKIN_GROUP(topFrame, isChange);
+    BGMPLAYER_CHANGE_SKIN_TITLE_GROUP(topFrame, isChange);
+    BGMPLAYER_CHANGE_SKIN_RESET_CONTROL(topFrame, isChange);
+    BGMPLAYER_CHANGE_SKIN_SELECTCTRLSET(frame);
+    BGMPLAYER_CHANGE_SKIN_SET_USERVALUE(topFrame, isChange);
+    BGMPLAYER_REDUCTION_CHANGE_SKIN(isChange);
+end
 
-    local cnt = topFrame:GetChildCount();
-    BGMPLAYER_CHANGE_SKIN_DETAIL(topFrame, frameName, cnt, isChange);
+function BGMPLAYER_CHANGE_SKIN_GROUP(frame, isChange)
+    if frame == nil then return; end
+    local frameName = frame:GetName();
 
-    local playerctrler_gb = GET_CHILD_RECURSIVELY(topFrame, "playercontroler_gb");
+    local cnt = frame:GetChildCount();
+    BGMPLAYER_CHANGE_SKIN_DETAIL(frame, frameName, cnt, isChange);
+
+    local playerctrler_gb = GET_CHILD_RECURSIVELY(frame, "playercontroler_gb");
     if playerctrler_gb == nil then return; end
     local ctrler_gb_ctn = playerctrler_gb:GetChildCount();
     BGMPLAYER_CHANGE_SKIN_DETAIL(playerctrler_gb, frameName, ctrler_gb_ctn, isChange);
 
-    local playermusicinfo_gb = GET_CHILD_RECURSIVELY(topFrame, "playermusicinfo_gb");
+    local playermusicinfo_gb = GET_CHILD_RECURSIVELY(frame, "playermusicinfo_gb");
     if playermusicinfo_gb == nil then return; end
     local playermusicinfo_gb_cnt = playermusicinfo_gb:GetChildCount();
     BGMPLAYER_CHANGE_SKIN_DETAIL(playermusicinfo_gb, frameName, playermusicinfo_gb_cnt, isChange);
 
-    local musicAllList_gb = GET_CHILD_RECURSIVELY(topFrame, "musicAllList_gb");
+    local musicAllList_gb = GET_CHILD_RECURSIVELY(frame, "musicAllList_gb");
     if musicAllList_gb == nil then return; end
     local musicAllList_gb_cnt = musicAllList_gb:GetChildCount();
     BGMPLAYER_CHANGE_SKIN_DETAIL(musicAllList_gb, frameName, musicAllList_gb_cnt, isChange);
 
-    local musicbutton_gb = GET_CHILD_RECURSIVELY(topFrame, "musicbutton_gb");
+    local musicbutton_gb = GET_CHILD_RECURSIVELY(frame, "musicbutton_gb");
     if musicbutton_gb == nil then return; end
     local musicbutton_gb_cnt = musicbutton_gb:GetChildCount();
     BGMPLAYER_CHANGE_SKIN_DETAIL(musicbutton_gb, frameName, musicbutton_gb_cnt, isChange);
 
-    local musicinfo_gb = GET_CHILD_RECURSIVELY(topFrame, "musicinfo_gb");
+    local musicinfo_gb = GET_CHILD_RECURSIVELY(frame, "musicinfo_gb");
     if musicinfo_gb == nil then return; end
     local musicinfo_gb_cnt = musicinfo_gb:GetChildCount();
     BGMPLAYER_CHANGE_SKIN_DETAIL(musicinfo_gb, frameName, musicinfo_gb_cnt, isChange);
+end
 
-    local title_pic = GET_CHILD_RECURSIVELY(topFrame, "title_pic");
+function BGMPLAYER_CHANGE_SKIN_TITLE_GROUP(frame, isChange)
+    if frame == nil then return; end
+
+    local title_pic = GET_CHILD_RECURSIVELY(frame, "title_pic");
     if title_pic ~= nil then 
         if isChange == false then
             title_pic:SetVisible(0);
         elseif isChange == true then
-            local title_pic_imageName = topFrame:GetUserConfig("TITLEPIC_CALSSIC_IMAGENAME");
+            local title_pic_imageName = frame:GetUserConfig("TITLEPIC_CALSSIC_IMAGENAME");
             title_pic:SetImage(title_pic_imageName);
             title_pic:SetVisible(1);
         end
     end
 
-    local title_gb = GET_CHILD_RECURSIVELY(topFrame, "title_gb");
+    local title_gb = GET_CHILD_RECURSIVELY(frame, "title_gb");
     if title_gb ~= nil then
         if isChange == false then
             title_gb:SetVisible(0);
         elseif isChange == true then
-            local title_gb_skinName = topFrame:GetUserConfig("TITLEGB_CLASSIC_SKINNAME");
+            local title_gb_skinName = frame:GetUserConfig("TITLEGB_CLASSIC_SKINNAME");
             title_gb:SetSkinName(title_gb_skinName);
             title_gb:SetVisible(1);
         end
     end
 
-    BGMPLAYER_REDUCTION_CHANGE_SKIN(isChange);
-
-    local mode = tonumber(topFrame:GetUserValue("MODE_ALL_LIST"));
-    local option = tonumber(topFrame:GetUserValue("MODE_FAVO_LIST"));
-    topFrame:SetUserValue("MODE_ALL_LIST", mode);
-    topFrame:SetUserValue("MODE_FAVO_LIST", option);
-    BGMPLAYER_LIST_RESET(topFrame, mode, option, isChange);
-    BGMPLAYER_MODE_OPTION_BTN_RESET(topFrame, mode, option);
-
-    local title_txt = GET_CHILD_RECURSIVELY(topFrame, "bgm_mugic_title");
+    local title_txt = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_title");
     if title_txt ~= nil then
         local changeFormat = "";
         if isChange == false then
-            changeFormat = topFrame:GetUserConfig("TITLETXT_SIMPLE_FORMAT");
+            changeFormat = frame:GetUserConfig("TITLETXT_SIMPLE_FORMAT");
             title_txt:SetFormat(changeFormat);
         else
-            changeFormat = topFrame:GetUserConfig("TITLETXT_CLASSIC_FORMAT");
+            changeFormat = frame:GetUserConfig("TITLETXT_CLASSIC_FORMAT");
             title_txt:SetFormat(changeFormat);
         end
         title_txt:Invalidate();
@@ -1277,27 +1350,53 @@ function BGMPLAYER_CHANGE_SKIN(frame, btn)
             title_txt:SetTextByKey("value", title_str);
         end
     end
+end
 
+function BGMPLAYER_CHANGE_SKIN_SELECTCTRLSET(frame)
+    if frame == nil then return; end
     local selectCtrlSetName = frame:GetUserValue("CTRLSET_NAME_SELECTED");
     local selectCtrlSet = GET_CHILD_RECURSIVELY(frame, selectCtrlSetName);
     if selectCtrlSet ~= nil then
+        local gb = selectCtrlSet:GetParent();
+        if gb ~= nil then
+            local title_txt = GET_CHILD_RECURSIVELY(selectCtrlSet, "musictitle_text");
+            local txt = title_txt:GetTextByKey("value");
+            local titleName = StringSplit(txt, '. ');
+            titleName = titleName[2];
+            frame:SetUserValue("MUSIC_TITLE", gb:GetName().."/"..titleName);
+        end
         BGMPLAYER_SINGULAR_SELECTION_LISTINDEX(selectCtrlSet);
     end
+end
 
+function BGMPLAYER_CHANGE_SKIN_RESET_CONTROL(frame, isChange)
+    if frame == nil then return; end
+    local mode = tonumber(frame:GetUserValue("MODE_ALL_LIST"));
+    local option = tonumber(frame:GetUserValue("MODE_FAVO_LIST"));
+    frame:SetUserValue("MODE_ALL_LIST", mode);
+    frame:SetUserValue("MODE_FAVO_LIST", option);
+    BGMPLAYER_LIST_RESET(frame, mode, option, isChange);
+    BGMPLAYER_MODE_OPTION_BTN_RESET(frame, mode, option);
+    BGMPLAYER_PALYTYPE_BTN_RESET(frame);
+end
+
+function BGMPLAYER_CHANGE_SKIN_SET_USERVALUE(frame, isChange)
+    if frame == nil then return; end
     if isChange == false then
-        topFrame:SetUserConfig("SKIN_MODE", 1);
-        topFrame:SetUserConfig("RANDOM_BTN_IMAGE_NAME", "random_simple");
-        topFrame:SetUserConfig("ACTIVE_RANDOM_BTN_IMAGE_NAME", "random_simple_cursoron");
-        topFrame:SetUserConfig("REPEAT_BTN_IMAGE_NAME", "repeat_simple");
-        topFrame:SetUserConfig("ACTIVE_REPEAT_BTN_IMAGE_NAME", "repeat_simple_cursoron");
+        frame:SetUserConfig("SKIN_MODE", 1);
+        frame:SetUserConfig("RANDOM_BTN_IMAGE_NAME", "random_simple");
+        frame:SetUserConfig("ACTIVE_RANDOM_BTN_IMAGE_NAME", "random_simple_cursoron");
+        frame:SetUserConfig("REPEAT_BTN_IMAGE_NAME", "repeat_simple");
+        frame:SetUserConfig("ACTIVE_REPEAT_BTN_IMAGE_NAME", "repeat_simple_cursoron");
     else
-        topFrame:SetUserConfig("SKIN_MODE", 0);
-        topFrame:SetUserConfig("RANDOM_BTN_IMAGE_NAME", "random_classic_cursoron");
-        topFrame:SetUserConfig("ACTIVE_RANDOM_BTN_IMAGE_NAME", "random_classic");
-        topFrame:SetUserConfig("REPEAT_BTN_IMAGE_NAME", "repeat_classic_cursoron");
-        topFrame:SetUserConfig("ACTIVE_REPEAT_BTN_IMAGE_NAME", "repeat_classic");
+        frame:SetUserConfig("SKIN_MODE", 0);
+        frame:SetUserConfig("RANDOM_BTN_IMAGE_NAME", "random_classic_cursoron");
+        frame:SetUserConfig("ACTIVE_RANDOM_BTN_IMAGE_NAME", "random_classic");
+        frame:SetUserConfig("REPEAT_BTN_IMAGE_NAME", "repeat_classic_cursoron");
+        frame:SetUserConfig("ACTIVE_REPEAT_BTN_IMAGE_NAME", "repeat_classic");
     end    
-    BGMPLAYER_PALYTYPE_BTN_RESET(topFrame);
+    local skin_mode = tonumber(frame:GetUserConfig("SKIN_MODE"));
+    SetBgmPlayerSkinMode(skin_mode);
 end
 
 function BGMPLAYER_CHANGE_SKIN_DETAIL(parent, frameName, childCnt, isChange)
@@ -1381,6 +1480,8 @@ function BGMPLAYER_MODE_ALL_LIST(frame, btn)
     local option = tonumber(topFrame:GetUserValue("MODE_FAVO_LIST"));
     BGMPLAYER_SET_ACTIVATION_LIST_TAB(topFrame, mode, option);
     BGMPLAYER_LIST_RESET(topFrame, mode, option, isChange);
+    BGMPLAYER_INIT_SELECTCTRLSET(topFrame);
+    SetBgmPlayerListModeOption(mode, option);
 end
 
 function BGMPLAYER_MODE_FAVO_LIST(frame, btn)
@@ -1417,6 +1518,8 @@ function BGMPLAYER_MODE_FAVO_LIST(frame, btn)
     option = tonumber(topFrame:GetUserValue("MODE_FAVO_LIST"));
     BGMPLAYER_SET_ACTIVATION_LIST_TAB(topFrame, mode, option);
     BGMPLAYER_LIST_RESET(topFrame, mode, option, isChange);
+    BGMPLAYER_INIT_SELECTCTRLSET(topFrame);
+    SetBgmPlayerListModeOption(mode, option);
 end
 
 function BGMPLAYER_MODE_OPTION_BTN_RESET(frame, mode, option)

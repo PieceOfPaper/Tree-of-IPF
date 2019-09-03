@@ -12343,3 +12343,24 @@ function SCR_GET_Prevent_Ratio(skill)
     
     return value
 end
+
+function SCR_GET_JOLLYROGERFEVERTIME(pc)
+	local bufftime = 10000
+	if IsExistSkill(pc, 'Thaumaturge_SwellHands') ~= 0 then
+		bufftime = bufftime + 25000
+	end
+	if IsExistSkill(pc, 'Linker_JointPenalty') ~= 0 then
+		bufftime = bufftime + 25000
+	end
+	if IsExistSkill(pc, 'Enchanter_OverReinforce') ~= 0 then
+		bufftime = bufftime + 25000
+	end	
+
+	return bufftime
+end
+
+function SCR_GET_SPRIMKLESANDSTIME(skill)
+    local value = skill.Level * 0.2
+
+    return value
+end

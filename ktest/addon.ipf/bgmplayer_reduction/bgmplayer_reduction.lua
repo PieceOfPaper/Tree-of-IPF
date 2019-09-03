@@ -1,17 +1,87 @@
 --bgm music player reduciton ui
 function BGMPLAYER_REDUCTION_ON_INIT(addon, frame)
 	BGMPLAYER_REDUCTION_SET_TITLE("");
+
+    if IsBgmPlayerReductionFrameVisible() == 1 then
+        ui.OpenFrame("bgmplayer_reduction"); 
+        BGMPLAYER_REDUCTION_INIT_SKIN(frame);
+        
+        local bgmplayer_frame = ui.GetFrame("bgmplayer");
+        if bgmplayer_frame ~= nil then
+            BGMPLAYER_PRE_CHECK_CTRL(bgmplayer_frame);
+            BGMPLAYER_INIT_SELECTCTRLSET(bgmplayer_frame);
+            BGMPLAYER_REDUCTION_INIT_SET_TITLE(bgmplayer_frame);
+        end
+    end
+end
+
+function BGMPLAYER_REDUCTION_INIT_SET_TITLE(frame)
+    if frame == nil then return; end
+    local title = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_title");
+    if title ~= nil then
+        local title_txt = title:GetTextByKey("value");
+        if title_txt == "" or title_txt == nil then
+            local ctrlSetName = frame:GetUserValue("CTRLSET_NAME_SELECTED");
+            if ctrlSetName ~= nil then
+                local ctrlSet = GET_CHILD_RECURSIVELY(frame, ctrlSetName);
+                if ctrlSet ~= nil then
+                    local ctrlset_title = GET_CHILD_RECURSIVELY(ctrlSet, "musictitle_text");
+                    if ctrlset_title ~= nil then
+                        local ctrlset_txt = ctrlset_title:GetTextByKey("value");
+                        ctrlset_txt = StringSplit(ctrlset_txt, '. ');
+                        title_txt = ctrlset_txt[2];
+                    end
+                end
+            end
+        end
+        BGMPLAYER_REDUCTION_SET_TITLE(title_txt);
+    end 
+end
+
+function BGMPLAYER_REDUCTION_INIT_SKIN(frame)
+    local skin_mode = GetBgmPlayerSkinMode();
+    local bgmplayer_frame = ui.GetFrame("bgmplayer");
+    if bgmplayer_frame ~= nil then
+        bgmplayer_frame:SetUserConfig("SKIN_MODE", skin_mode);
+    end
+
+    local isChange = false;
+    if skin_mode == 0 then
+        isChange = true;
+    else
+        isChange = false;
+    end
+    BGMPLAYER_REDUCTION_CHANGE_SKIN(isChange);
 end
 
 function BGMPLAYER_REDUCTION_OPEN_UI(preFrame, btn)
 	if IsNotPlayArea() == false then
         ui.OpenFrame("bgmplayer_reduction"); 
+        SetBgmPlayerReductionFrameVisible(1);
+
+        local frame = ui.GetFrame("bgmplayer_reduction");
+        if frame ~= nil then
+            BGMPLAYER_REDUCTION_INIT_SKIN(frame);
+        end
     elseif IsNotPlayArea() == true then
         ui.SysMsg(ClMsg("IsNotPlayBgmPlayerArea"));
+        SetBgmPlayerBasicFrameVisible(0);
+        SetBgmPlayerReductionFrameVisible(0);
+    end
+
+    if preFrame == nil then
+        preFrame = ui.GetFrame("bgmplayer");
     end
 
 	if preFrame ~= nil then
         preFrame:SetVisible(0);
+        SetBgmPlayerBasicFrameVisible(0);
+
+        local title = GET_CHILD_RECURSIVELY(preFrame, "bgm_mugic_title");
+        if title ~= nil then
+            local title_txt = title:GetTextByKey("value");
+            BGMPLAYER_REDUCTION_SET_TITLE(title_txt);
+        end
 	end
 end
 
@@ -20,19 +90,25 @@ function BGMPLAYER_REDUCTION_MAXIMIZE_UI()
         local bgmplayer_frame = ui.GetFrame("bgmplayer");
         if bgmplayer_frame ~= nil then 
             bgmplayer_frame:SetVisible(1);
+            SetBgmPlayerBasicFrameVisible(1);
+            BGMPLAYER_OPEN_UI();
         end 
     elseif IsNotPlayArea() == true then
         ui.SysMsg(ClMsg("IsNotPlayBgmPlayerArea"));
+        SetBgmPlayerBasicFrameVisible(0);
+        SetBgmPlayerReductionFrameVisible(0);
     end
 
     local frame = ui.GetFrame("bgmplayer_reduction");
     if frame ~= nil then
         frame:SetVisible(0);
+        SetBgmPlayerReductionFrameVisible(0);
     end
 end
 
 function BGMPLAYER_REDUCTION_CLOSE_UI()
 	ui.CloseFrame("bgmplayer_reduction");
+    SetBgmPlayerReductionFrameVisible(0);
 end
 
 function BGMPLAYER_REDUCTION_CHANGE_SKIN(isChange)
@@ -83,32 +159,6 @@ function BGMPLAYER_REDUCTION_SET_CONTROL_INFO(frame, isChange)
 
     local gb = GET_CHILD_RECURSIVELY(frame, "gb");
     if gb == nil then return; end
-
-    local maximize_btn = GET_CHILD_RECURSIVELY(frame, "maximize_btn");
-    if maximize_btn == nil then return; end
-
-    local close_btn = GET_CHILD_RECURSIVELY(frame, "close_btn");
-    if close_btn == nil then return; end
-
-    if isChange == false then
-        gb:Resize(simple_width, simple_height);
-        gb:SetGravity(ui.LEFT, ui.TOP);    
-
-        local maximizebtn_margin = maximize_btn:GetMargin();
-        maximize_btn:SetMargin(maximizebtn_margin.left, maximizebtn_margin.top + top_margin, maximizebtn_margin.right, maximizebtn_margin.bottom);
-
-        local closebtn_margin = close_btn:GetMargin();
-        close_btn:SetMargin(closebtn_margin.left, closebtn_margin.top + top_margin, closebtn_margin.right, closebtn_margin.bottom);
-    else
-        gb:Resize(classic_width, classic_height);
-        gb:SetGravity(ui.LEFT, ui.TOP);
-
-        local maximizebtn_margin = maximize_btn:GetMargin();
-        maximize_btn:SetMargin(maximizebtn_margin.left, maximizebtn_margin.top - top_margin, maximizebtn_margin.right, maximizebtn_margin.bottom);
-
-        local closebtn_margin = close_btn:GetMargin();
-        close_btn:SetMargin(closebtn_margin.left, closebtn_margin.top - top_margin, closebtn_margin.right, closebtn_margin.bottom);
-    end
 
     if isChange == false then
         frame:SetUserValue("SKIN_MODE", 0);

@@ -5618,7 +5618,7 @@
 		<Class ClassID="40574" ClassName="D_UNDERAQUEDUCT_GET_BUFF2" Data="보급품을 사용하였습니다.{nl}머즈루스에게 받는 대미지가 감소합니다."/>
 		<Class ClassID="40575" ClassName="D_UNDERAQUEDUCT_GET_BUFF3" Data="보급품을 사용하였습니다.{nl}머즈루스에게 받는 대미지를 일정치 무효화합니다."/>
 		<Class ClassID="40576" ClassName="D_UNDERAQUEDUCT_EVENT_3_SEL3" Data="겁쟁이 체샤가 나타나는 장소로 이동한다."/>
-		<Class ClassID="40577" ClassName="D_UNDERAQUEDUCT_DESTROY_GIMMICK_MSG_1" Data="머즈루스 제압 장치의 마력이 충전되었습니다.{nl}제압장치에 말을 걸면, 머즈루스의 행동을 저지할 수 있습니다.{nl}장치의 마력은 6초 후 사라집니다."/>
+		<Class ClassID="40577" ClassName="D_UNDERAQUEDUCT_DESTROY_GIMMICK_MSG_1" Data="머즈루스 제압 장치의 마력이 충전되었습니다.{nl}제압장치에 다가가면 머즈루스의 행동을 저지할 수 있습니다.{nl}장치의 마력은 6초 후 사라집니다."/>
 		<Class ClassID="40578" ClassName="D_UNDERAQUEDUCT_DESTROY_GIMMICK_MSG_2" Data="장치가 작동하여 머즈루스가 괴로워 합니다."/>
 		<Class ClassID="40579" ClassName="D_UNDERAQUEDUCT_DESTROY_GIMMICK_NAME" Data="머즈루스 제압 장치"/>
 		<Class ClassID="40580" ClassName="D_UNDERAQUEDUCT_DESTROY_GIMMICK_MSG_3" Data="머즈루스 제압 장치 사용 중"/>
@@ -8468,6 +8468,7 @@
 		<Class ClassID="81042" ClassName="EVENT_1905_HEAD_FISH_BOSS_APPEARANCE_BEFORE_MSG" Data="어린 개복치들이 잠시 후 출몰합니다.{nl}(출몰 지역 : 샤울레이 동쪽 숲, 샤울레이 서쪽 숲, 렘파라사 연못, 덧댄다리 숲)"/>
 		<Class ClassID="81043" ClassName="TOS_CHILD_SHOP_1" Data="포포리온 뱃지 상점"/>
 		<Class ClassID="81044" ClassName="EVENT_1905_VIVID_CITY_MSG1" Data="입장 난이도 선택"/>
+		<Class ClassID="81052" ClassName="NUMBER_MIXING_START" Data="숫자조합 기믹이 시작됩니다{nl}(해당 지역을 벗어날 경우, 숫자조합 기믹이 자동으로 포기됩니다)"/>
 		<Class ClassID="90001" ClassName="CORAL_32_2_SQ_6_FAIL2" Data="퀘스트를 포기했습니다"/>
 		<Class ClassID="90002" ClassName="DCAPITAL_20_5_SQ_30" Data="작은 돌 파편을 얻었습니다"/>
 		<Class ClassID="90003" ClassName="DCAPITAL_20_5_SQ_60_ITEM_DTA" Data="신성력 감지 구슬 사용중"/>
