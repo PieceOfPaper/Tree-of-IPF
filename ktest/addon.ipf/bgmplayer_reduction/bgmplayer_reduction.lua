@@ -5,6 +5,7 @@ function BGMPLAYER_REDUCTION_ON_INIT(addon, frame)
     if IsBgmPlayerReductionFrameVisible() == 1 then
         ui.OpenFrame("bgmplayer_reduction"); 
         BGMPLAYER_REDUCTION_INIT_SKIN(frame);
+        BGMPLAYER_FRAME_SET_POS(frame);
         if IsBeingPlayedFromBgmPlayer() == 1 then
             BGMPLAYER_REDUCTION_UPDATE_PLAY_TIME(frame);
         end
@@ -75,6 +76,7 @@ function BGMPLAYER_REDUCTION_OPEN_UI(preFrame, btn)
         local frame = ui.GetFrame("bgmplayer_reduction");
         if frame ~= nil then
             BGMPLAYER_REDUCTION_INIT_SKIN(frame);
+            BGMPLAYER_FRAME_SET_POS(frame);
             if IsBeingPlayedFromBgmPlayer() == 1 then
                 BGMPLAYER_REDUCTION_UPDATE_PLAY_TIME(frame);
             end

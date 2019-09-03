@@ -67,7 +67,7 @@
                             <Str Str="skl_eff_action_shot_1"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="50">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -83,7 +83,7 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="55">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -99,7 +99,7 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="60">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -115,7 +115,7 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="65">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -131,7 +131,7 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="70">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -147,7 +147,7 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="75">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -163,7 +163,7 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="80">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -179,7 +179,7 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="85">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -195,7 +195,7 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="90">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -211,7 +211,7 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="95">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -226,8 +226,13 @@
                             <Num Num="0"/>
                             <Num Num="0"/>
                         </Scp>
+                        <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="100">
+                            <Str_Arg Str="F_scout_knifethrowing_arts" Arg="20"/>
+                            <Str Str="None"/>
+                            <Num Num="0"/>
+                        </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="100">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -243,7 +248,7 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="105">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -259,7 +264,7 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="110">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -275,7 +280,7 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="115">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -291,7 +296,7 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="120">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -307,7 +312,7 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Scp="C_FORCE_EFT" Client="YES_Time" UseSleep="NO" Time="450">
-                            <Str_Arg Str="I_knife001#Dummy_Force_knife" Arg="0.30000001"/>
+                            <Str_Arg Str="I_knife001_arts#Dummy_Force_knife" Arg="0.30000001"/>
                             <Str Str="arrow_skl_whoosh"/>
                             <Str_Arg Str="None" Arg="0.5"/>
                             <Str Str="arrow_blow"/>
@@ -618,7 +623,18 @@
 					<Str Str="Stun" />
 					<Num FuncTxt="return skill.Level;" Num="1" UseFunc="1" />
 					<Num Num="0" />
-					<Num Num="3000" UseFunc="1" FuncTxt="local value = 2000 + skill.Level * 500; if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then value = 2000 + skill.Level * 200 end return value;"/>
+                    <Num Num="3000" UseFunc="1" FuncTxt="local value = 500 + (100 * skill.Level)
+                    local angle = 120
+                    local attackerx, attackerz = GetDir(self)
+                    local targetx, targetz = GetDir(target)
+                    local attackerDir = GetAngleTo(self, target)
+                    local targetDir = DirToAngle(targetx, targetz)
+                    local relativeAngle = attackerDir - targetDir
+                    local revAngle = angle * -1
+                    if GetExProp(from, &quot;IS_BACKATTACK&quot;) == 1 or (angle/2 >= relativeAngle and 0 <= relativeAngle) or (revAngle/2 <= relativeAngle and 0 >= relativeAngle) then
+                    value = value * 1.5
+                    end
+                    return value"/>
 					<Num Num="1" />
 					<Num Num="50" UseFunc="1" FuncTxt="local value = 70; if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then value = 50 end return value;"/>
 					<Num Num="-1" />

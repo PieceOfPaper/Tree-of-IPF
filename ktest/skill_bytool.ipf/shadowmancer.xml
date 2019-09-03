@@ -265,7 +265,7 @@
 					<Str Str="ShadowPool_Buff" />
 					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
 					<Num Num="0" />
-					<Num FuncTxt="return obj.Level * 2000;" Num="0" UseFunc="1" />
+                    <Num FuncTxt="return obj.Level * 500;" Num="0" UseFunc="1" />
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="0" />
@@ -338,7 +338,10 @@
 					<Str Str="voice_wiz_m_ShadowThorn_cast" />
 					<Str Str="voice_wiz_f_ShadowThorn_cast" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="10" UseSleep="NO" />
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="10" UseSleep="NO">
+                    <Num Num="1" />
+                    <Num FuncTxt="return obj.MaxR" UseFunc="1" Num="0" />
+                </Scp>
 				<Scp Client="NO" Scp="SKL_TGT_EFFECT" Time="100" UseSleep="NO">
 					<Str_Arg Arg="0.60000002" Str="F_wizard_ShadowThorn_ground_dark2" />
 					<Num Num="0" />

@@ -191,7 +191,7 @@ function GET_OPTION_RELEASE_COST(item, taxRate)
     end;
 
     local price = TryGetProp(item, 'UseLv');
-    price = price * 10000;
+    price = price * 100;
     if taxRate ~= nil then
         price = tonumber(CALC_PRICE_WITH_TAX_RATE(price, taxRate));
     end;

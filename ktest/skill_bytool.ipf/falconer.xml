@@ -377,21 +377,27 @@
 		</MainSkl>
 	</Skill>
 	<Skill Name="Falconer_Circling">
-		<EnableScripts>
-			<ToolScp Client="NO" Scp="SKL_CHECK_BY_SCRIPT" UseSleep="NO">
-				<Str Str="HAWK_SKILL_PRE_CHECK" />
-			</ToolScp>
-			<ToolScp Client="YES" Scp="SKL_CHECK_BY_SCRIPT_C" UseSleep="NO">
-				<Str Str="HAWK_SKILL_PRE_CHECK_C" />
-			</ToolScp>
-		</EnableScripts>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
 				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
 			</HitList>
 			<EtcList>
-				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="0" UseSleep="NO">
-					<Str Str="HAWK_CIRCLING" />
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_GROWLING"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="CirclingIncreaseSR_Buff"/>
+					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1"/>
+					<Num Num="0"/>
+					<Num Num="0"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="0"/>
+				</Scp>
+                <Scp Client="NO" Scp="SKL_TOGGLE_ON" Time="0" UseSleep="NO">
+                    <Num Num="1" />
 				</Scp>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
 					<Str Str="voice_war_atk_short" />
@@ -399,6 +405,28 @@
 				</Scp>
 			</EtcList>
 		</MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+                        <Str Str="CirclingIncreaseSR_Buff" />
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="NO" Scp="SKL_TOGGLE_ON" Time="0" UseSleep="NO">
+                            <Num Num="0" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="0" UseSleep="NO">
+                            <Str Str="CirclingIncreaseSR_Buff" />
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
 	</Skill>
 	<Skill Name="Falconer_BuildRoost">
 		<EnableScripts>

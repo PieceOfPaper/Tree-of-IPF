@@ -2867,6 +2867,23 @@
 		<image name="icon_item_camping_thmace" file="\icon\weapon\icon_item_camping_thmace.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_camping_thspear" file="\icon\weapon\icon_item_camping_thspear.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_camping_thsword" file="\icon\weapon\icon_item_camping_thsword.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_artefact_salt" file="\icon\weapon\icon_item_artefact_salt.png" imgrect="0 0 256 256" CMM_Caption="2019 9월 아티펙트"/>
+		<image name="icon_item_artefact_Whisker" file="\icon\weapon\icon_item_artefact_Whisker.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_artefact_Meringue" file="\icon\weapon\icon_item_artefact_Meringue.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_artefact_fryingpan" file="\icon\weapon\icon_item_artefact_fryingpan.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef_thspear" file="\icon\weapon\icon_item_chef_thspear.png" imgrect="0 0 256 256" CMM_Caption="2019 9월 무기"/>
+		<image name="icon_item_chef_spear" file="\icon\weapon\icon_item_chef_spear.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef_shield" file="\icon\weapon\icon_item_chef_shield.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef_cannon" file="\icon\weapon\icon_item_chef_cannon.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef_thsword" file="\icon\weapon\icon_item_chef_thsword.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef_thmace" file="\icon\weapon\icon_item_chef_thmace.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef_sword" file="\icon\weapon\icon_item_chef_sword.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef_staff" file="\icon\weapon\icon_item_chef_staff.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef_rod" file="\icon\weapon\icon_item_chef_rod.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef_rapier" file="\icon\weapon\icon_item_chef_rapier.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef_pistol" file="\icon\weapon\icon_item_chef_pistol.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef_mace" file="\icon\weapon\icon_item_chef_mace.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef_dagger" file="\icon\weapon\icon_item_chef_dagger.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -3418,6 +3435,10 @@
 		<image name="icon_item_accessory_gaviya" file="\icon\hairacc\icon_item_accessory_gaviya.png" imgrect="0 0 256 256" CMM_Caption="가비야 인형"/>
 		<image name="icon_item_accessory_travelHat" file="\icon\hairacc\icon_item_accessory_travelHat.png" imgrect="0 0 256 256" CMM_Caption="2019 08 헤어악세"/>
 		<image name="icon_item_accessory_plumeria" file="\icon\hairacc\icon_item_accessory_plumeria.png" imgrect="0 0 256 256" CMM_Caption="태국 2주년 헤어악세"/>
+		<image name="icon_item_accessory_chef01" file="\icon\hairacc\icon_item_accessory_chef01.png" imgrect="0 0 256 256" CMM_Caption="2019 9월 헤이악세"/>
+		<image name="icon_item_accessory_chef02" file="\icon\hairacc\icon_item_accessory_chef02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_chef03" file="\icon\hairacc\icon_item_accessory_chef03.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_chef04" file="\icon\hairacc\icon_item_accessory_chef04.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -5340,6 +5361,8 @@
 		<image name="icon_item_guildmileage_coin" file="\icon\item\icon_item_guildmileage_coin.png" imgrect="0 0 128 128" CMM_Caption="길드마일리지 코인"/>
 		<image name="icon_item_2nd_coin" file="\icon\item\icon_item_2nd_coin.png" imgrect="0 0 128 128" CMM_Caption="태국 2주년 기념 주화"/>
 		<image name="icon_item_paper_box01" file="\icon\item\icon_item_paper_box01.png" imgrect="0 0 128 128" CMM_Caption="신비한서 낱장 상자"/>
+		<image name="icon_item_moth_weapon_selectbox" file="\icon\item\icon_item_moth_weapon_selectbox.png" imgrect="0 0 128 128" CMM_Caption="모링포니아 유니크 무기 선택 상자"/>
+		<image name="icon_item_moth_armor_selectbox" file="\icon\item\icon_item_moth_armor_selectbox.png" imgrect="0 0 128 128" CMM_Caption="모링포니아 유니크 방어구 선택 상자"/>
 	</imagelist>
 	<imagelist category="housing">
 		<image name="icon_item_h_bigplant_set_01_green" file="\icon\housing\icon_item_h_bigplant_set_01_green.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 화단_01(초록색)"/>
@@ -6427,6 +6450,22 @@
 		<image name="icon_item_selectbox_travel01" file="\icon\payment\icon_item_selectbox_travel01.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_selectbox_camping01" file="\icon\payment\icon_item_selectbox_camping01.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_selectbox_blackbear" file="\icon\payment\icon_item_selectbox_blackbear.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_wing_chicken" file="\icon\payment\icon_item_wing_chicken.png" imgrect="0 0 256 256" CMM_Caption="2019 9월 풍선"/>
+		<image name="icon_item_Photowall_chef01_set" file="\icon\payment\icon_item_Photowall_chef01_set.png" imgrect="0 0 256 256" CMM_Caption="2019 9월 팝업북"/>
+		<image name="icon_item_selectbox_chef01" file="\icon\payment\icon_item_selectbox_chef01.png" imgrect="0 0 256 256" CMM_Caption="2019 9월 코스튬 선택상자"/>
+		<image name="icon_item_selectbox_chef02" file="\icon\payment\icon_item_selectbox_chef02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_selectbox_chef03" file="\icon\payment\icon_item_selectbox_chef03.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef01_f" file="\icon\payment\icon_item_chef01_f.png" imgrect="0 0 256 256" CMM_Caption="2019 9월 코스튬"/>
+		<image name="icon_item_chef01_m" file="\icon\payment\icon_item_chef01_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef02_f" file="\icon\payment\icon_item_chef02_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef02_m" file="\icon\payment\icon_item_chef02_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef03_m" file="\icon\payment\icon_item_chef03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chef03_f" file="\icon\payment\icon_item_chef03_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_artefactbox_chef" file="\icon\payment\icon_item_artefactbox_chef.png" imgrect="0 0 256 256" CMM_Caption="장난감 세트"/>
+		<image name="icon_item_1908_ChuSeok_Package_01" file="\icon\payment\icon_item_1908_ChuSeok_Package_01.png" imgrect="0 0 256 256" CMM_Caption="2019 한가위 성장 패키지"/>
+		<image name="icon_item_1908_ChuSeok_Package_02" file="\icon\payment\icon_item_1908_ChuSeok_Package_02.png" imgrect="0 0 256 256" CMM_Caption="2019 한가위 강화 패키지"/>
+		<image name="icon_item_1908_ChuSeok_Package_03" file="\icon\payment\icon_item_1908_ChuSeok_Package_03.png" imgrect="0 0 256 256" CMM_Caption="2019 한가위 콘텐츠 패키지"/>
+		<image name="icon_item_1908_ChuSeok_Package_04" file="\icon\payment\icon_item_1908_ChuSeok_Package_04.png" imgrect="0 0 256 256" CMM_Caption="2019 한가위 아츠 패키지"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

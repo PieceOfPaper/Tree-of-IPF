@@ -491,7 +491,9 @@ function DROP_PET_EQUIP(parent, slot, str, num)
 		ui.SysMsg(ClMsg("NotEquipableSlot"));
 		return;
 	end
-	
+
+	local itemProp = geItemTable.GetPropByName(itemObj.ClassName);
+
 	local blongProp = TryGetProp(itemObj, "BelongingCount");
 	local blongCnt = 0;
 
@@ -499,8 +501,8 @@ function DROP_PET_EQUIP(parent, slot, str, num)
 		blongCnt = tonumber(blongProp);
 	end
 
-	if 0 < blongCnt then
-		ui.SysMsg(ClMsg("CantEquipItem"));
+	if itemProp:IsEnableTeamTrade() == false or 0 <  blongCnt then
+		ui.SysMsg(ClMsg("NonTradableItemIsNotForCompanion"));
 		return;
 	end
 

@@ -1461,6 +1461,7 @@ function SCR_ABIL_Hoplite33_ACTIVE(self, ability)
         local attribute = TryGetProp(skill, "Attribute");
         skill.Attribute = "Earth";
         SetExProp_Str(self, "Hoplite33_Attribute", attribute);
+        skill.KnockDownHitType = 1
     end
 end
 
@@ -1469,6 +1470,7 @@ function SCR_ABIL_Hoplite33_INACTIVE(self, ability)
     if skill ~= nil then
         local attribute = GetExProp_Str(self, "Hoplite33_Attribute");
         skill.Attribute = attribute;
+        skill.KnockDownHitType = 4
     end
 end
 

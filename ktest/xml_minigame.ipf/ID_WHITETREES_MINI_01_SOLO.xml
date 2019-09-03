@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="ID_WHITETREES_MINI_01_SOLO" minLv="0" maxLv="0" mapName="id_whitetrees1" playerCountCheckDestroy="1" startWaitSec="-2147423934">
+        <StageList>
+            <Stage Name="start">
+                <ObjList>
+                    <Obj Type="Monster" MonType="20053" Pos="-72.56#215.99#1085.17" genCount="1" genTime="20000" objectKey="0"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execMS="10000" execCount="1" eventName="10초">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="10초 후 시작합니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="20초">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="시작"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="start/0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="시작 로그">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="start/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="MGameState"/>
+                                <Str Str="Stage/stage_start"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="end" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="Indun_whitetrees"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="끝났을때">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="종료로그">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="MGameState"/>
+                                <Str Str="State/stage_end"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage1" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="3번방 기믹">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ID_WHITETREES1_GIMMICK3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage2">
+                <ObjList>
+                    <Obj Type="Monster" MonType="157047" Pos="-40.92#331.96#311.07" angle="-96" genCount="1" genTime="20000" objectKey="0" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;ID_WHITETREES1_GIMMICK1&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="-339.37#331.96#509.49" angle="75" genCount="1" genTime="20000" objectKey="1" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="-82.35#331.96#544.41" angle="-47" genCount="1" genTime="20000" objectKey="2" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="-50.56#331.96#543.70" angle="-58" genCount="1" genTime="20000" objectKey="3" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="167.84#331.96#280.26" angle="138" genCount="1" genTime="20000" objectKey="4" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="-294.66#331.96#504.40" angle="69" genCount="1" genTime="20000" objectKey="5" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="-378.43#331.96#518.86" angle="73" genCount="1" genTime="20000" objectKey="6" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="201.04#331.96#175.52" angle="122" genCount="1" genTime="20000" objectKey="7" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="76.76#331.96#1.81" angle="81" genCount="1" genTime="20000" objectKey="8" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="258.54#331.96#230.07" angle="132" genCount="1" genTime="20000" objectKey="9" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58817" Pos="-73.93#331.96#575.27" angle="-44" genCount="1" genTime="20000" objectKey="10" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58817" Pos="-275.33#331.96#466.46" angle="77" genCount="1" genTime="20000" objectKey="11" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="-339.90#331.96#471.33" angle="75" genCount="1" genTime="20000" objectKey="12" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="-370.03#331.96#473.50" angle="76" genCount="1" genTime="20000" objectKey="13" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="-2.26#331.96#-43.67" angle="56" genCount="1" genTime="20000" objectKey="14" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="118.90#331.96#-19.62" angle="67" genCount="1" genTime="20000" objectKey="15" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="-40.15#331.96#574.71" angle="-61" genCount="1" genTime="20000" objectKey="16" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="-166.03#331.96#109.45" angle="59" genCount="1" genTime="20000" objectKey="17" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="-217.80#331.96#94.75" angle="82" genCount="1" genTime="20000" objectKey="18" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="86.65#331.96#-48.01" angle="69" genCount="1" genTime="20000" objectKey="19" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="312.23#331.96#530.38" angle="-114" genCount="1" genTime="20000" objectKey="20" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="263.78#331.96#579.90" angle="-98" genCount="1" genTime="20000" objectKey="21" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="26.85#331.96#14.12" angle="63" genCount="1" genTime="20000" objectKey="22" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="353.18#331.96#525.05" angle="-134" genCount="1" genTime="20000" objectKey="23" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="281.72#331.96#547.93" angle="-124" genCount="1" genTime="20000" objectKey="24" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="-308.35#331.96#467.89" angle="73" genCount="1" genTime="20000" objectKey="25" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="-205.34#331.96#139.70" angle="71" genCount="1" genTime="20000" objectKey="26" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="-235.40#331.96#126.42" angle="74" genCount="1" genTime="20000" objectKey="27" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="-17.93#331.96#546.91" angle="-72" genCount="1" genTime="20000" objectKey="28" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="321.46#331.96#573.06" angle="-116" genCount="1" genTime="20000" objectKey="29" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="-162.57#331.96#135.11" angle="76" genCount="1" genTime="20000" objectKey="30" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58817" Pos="46.35#331.96#-55.03" angle="101" genCount="1" genTime="20000" objectKey="31" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58817" Pos="13.24#331.96#-12.17" angle="66" genCount="1" genTime="20000" objectKey="32" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58817" Pos="62.34#331.96#-20.97" angle="77" genCount="1" genTime="20000" objectKey="33" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58817" Pos="114.69#330.62#14.15" angle="76" genCount="1" genTime="20000" objectKey="34" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58817" Pos="146.46#331.96#261.20" angle="145" genCount="1" genTime="20000" objectKey="35" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="213.33#331.96#250.20" angle="106" genCount="1" genTime="20000" objectKey="36" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="228.88#331.96#203.36" angle="135" genCount="1" genTime="20000" objectKey="37" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="180.93#331.96#213.56" angle="106" genCount="1" genTime="20000" objectKey="38" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="-79.26#331.96#615.75" angle="-55" genCount="1" genTime="20000" objectKey="39" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58817" Pos="-196.52#331.96#54.97" angle="122" genCount="1" genTime="20000" objectKey="40" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58817" Pos="-141.28#331.96#74.49" angle="152" genCount="1" genTime="20000" objectKey="41" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58817" Pos="248.61#331.96#524.35" angle="-109" genCount="1" genTime="20000" objectKey="42" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="-328.81#331.96#350.03" angle="121" genCount="1" genTime="20000" objectKey="43" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="-263.78#331.96#354.52" angle="110" genCount="1" genTime="20000" objectKey="44" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="-287.28#331.96#302.03" angle="138" genCount="1" genTime="20000" objectKey="45" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58817" Pos="-297.41#331.96#339.37" angle="96" genCount="1" genTime="20000" objectKey="46" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58817" Pos="294.76#331.96#495.67" angle="-106" genCount="1" genTime="20000" objectKey="47" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="355.68#331.96#480.81" angle="-83" genCount="1" genTime="20000" objectKey="48" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="257.70#331.96#479.40" angle="-97" genCount="1" genTime="20000" objectKey="49" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="318.90#331.96#453.42" angle="-74" genCount="1" genTime="20000" objectKey="50" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="94.77#331.96#431.79" angle="-115" genCount="1" genTime="20000" objectKey="51" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="100.77#331.96#395.12" angle="-110" genCount="1" genTime="20000" objectKey="52" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="149.24#331.96#385.87" angle="-103" genCount="1" genTime="20000" objectKey="53" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58816" Pos="135.40#331.96#422.55" angle="-99" genCount="1" genTime="20000" objectKey="54" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58817" Pos="-110.76#323.91#340.90" genCount="1" genTime="20000" objectKey="55" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58817" Pos="-121.25#323.91#378.25" genCount="1" genTime="20000" objectKey="56" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="-89.60#323.89#408.14" genCount="1" genTime="20000" objectKey="57" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="-20.99#331.96#290.52" genCount="1" genTime="20000" objectKey="58" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58815" Pos="20.58#331.96#319.03" genCount="1" genTime="20000" objectKey="59" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="152076" Pos="-127.67#329.40#-133.43" angle="92" genCount="1" genTime="20000" objectKey="60" propList="&apos;Range&apos; &apos;40&apos; &apos;Enter&apos; &apos;ID_WHITETREES1_NOTICE&apos; &apos;SimpleAI&apos; &apos;Hidden_door_Effect&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="1번 기믹" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage2/1/stage2/2/stage2/3/stage2/4/stage2/5/stage2/6/stage2/7/stage2/8/stage2/9/stage2/10/stage2/11/stage2/12/stage2/13/stage2/14/stage2/15/stage2/16/stage2/17/stage2/18/stage2/19/stage2/20/stage2/21/stage2/22/stage2/23/stage2/24/stage2/25/stage2/26/stage2/27/stage2/28/stage2/29/stage2/30/stage2/31/stage2/32/stage2/33/stage2/34/stage2/35/stage2/36/stage2/37/stage2/38/stage2/39/stage2/40/stage2/41/stage2/42/stage2/43/stage2/44/stage2/45/stage2/46/stage2/47/stage2/48/stage2/49/stage2/50/stage2/51/stage2/52/stage2/53/stage2/54/stage2/55/stage2/56/stage2/57/stage2/58/stage2/59"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ID_WHITETREES1_GIMMICK1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="사악한 기운으로 막혀있던 길이 열렸습니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="stage2/60"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Mval">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ID_WHITETREES1_GIMMICK1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="첫째 방 로그">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage2/60"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="MGameState"/>
+                                <Str Str="Stage/stage_2nd"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage3">
+                <ObjList>
+                    <Obj Type="Monster" MonType="20026" Pos="131.14#174.65#-1129.21" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" propList="&apos;ClassID&apos; &apos;58872&apos; &apos;ClassName&apos; &apos;HiddenTrigger6_whitetrees1&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="20026" Pos="114.75#174.65#-1271.38" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" propList="&apos;ClassName&apos; &apos;HiddenTrigger6_whitetrees1&apos; &apos;ClassID&apos; &apos;58872&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="20026" Pos="277.48#174.65#-1159.82" genCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" propList="&apos;ClassID&apos; &apos;58872&apos; &apos;ClassName&apos; &apos;HiddenTrigger6_whitetrees1&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="20026" Pos="263.92#174.65#-1056.45" genCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" propList="&apos;ClassName&apos; &apos;HiddenTrigger6_whitetrees1&apos; &apos;ClassID&apos; &apos;58872&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="20026" Pos="-678.87#51.20#-1029.44" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" propList="&apos;ClassID&apos; &apos;58872&apos; &apos;ClassName&apos; &apos;HiddenTrigger6_whitetrees1&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="20026" Pos="-789.23#44.18#-1100.20" genCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" propList="&apos;ClassID&apos; &apos;58872&apos; &apos;ClassName&apos; &apos;HiddenTrigger6_whitetrees1&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="20026" Pos="-826.34#63.86#-1223.30" genCount="1" genTime="20000" objectKey="6" UseAiOutOfPc="1" propList="&apos;ClassID&apos; &apos;58872&apos; &apos;ClassName&apos; &apos;HiddenTrigger6_whitetrees1&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="20026" Pos="-520.15#63.86#-1115.54" genCount="1" genTime="20000" objectKey="7" UseAiOutOfPc="1" propList="&apos;ClassID&apos; &apos;58872&apos; &apos;ClassName&apos; &apos;HiddenTrigger6_whitetrees1&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="20026" Pos="-532.46#63.86#-1012.25" genCount="1" genTime="20000" objectKey="8" UseAiOutOfPc="1" propList="&apos;ClassName&apos; &apos;HiddenTrigger6_whitetrees1&apos; &apos;ClassID&apos; &apos;58872&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58809" Pos="-329.56#98.19#-686.44" angle="75" genCount="1" genTime="20000" objectKey="9" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-449.18#98.17#-702.16" angle="55" genCount="1" genTime="20000" objectKey="10" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-106.11#98.24#-646.46" angle="162" genCount="1" genTime="20000" objectKey="11" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-75.89#98.21#-553.19" angle="144" genCount="1" genTime="20000" objectKey="12" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-82.77#98.19#-621.82" angle="147" genCount="1" genTime="20000" objectKey="13" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-351.29#98.04#-604.47" angle="50" genCount="1" genTime="20000" objectKey="14" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-309.16#98.15#-610.53" angle="62" genCount="1" genTime="20000" objectKey="15" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-338.95#97.97#-550.77" angle="60" genCount="1" genTime="20000" objectKey="16" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-374.71#97.90#-573.19" angle="65" genCount="1" genTime="20000" objectKey="17" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-75.14#98.19#-587.03" angle="158" genCount="1" genTime="20000" objectKey="18" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-411.54#97.85#-594.60" angle="54" genCount="1" genTime="20000" objectKey="19" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-386.11#97.99#-625.54" angle="78" genCount="1" genTime="20000" objectKey="20" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-110.28#98.29#-572.45" angle="154" genCount="1" genTime="20000" objectKey="21" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-122.11#98.31#-605.07" angle="154" genCount="1" genTime="20000" objectKey="22" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-317.03#98.34#-759.10" angle="53" genCount="1" genTime="20000" objectKey="23" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-287.82#98.30#-739.02" angle="64" genCount="1" genTime="20000" objectKey="24" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-302.76#98.24#-702.55" angle="77" genCount="1" genTime="20000" objectKey="25" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-146.33#99.42#-736.96" angle="115" genCount="1" genTime="20000" objectKey="26" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-86.65#99.38#-739.61" angle="120" genCount="1" genTime="20000" objectKey="27" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="265.24#174.65#-1019.96" angle="101" genCount="1" genTime="20000" objectKey="28" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="187.19#174.65#-1135.80" angle="103" genCount="1" genTime="20000" objectKey="29" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="174.33#174.65#-1076.03" angle="58" genCount="1" genTime="20000" objectKey="30" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="207.13#174.65#-1057.24" angle="70" genCount="1" genTime="20000" objectKey="31" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="242.75#174.65#-1083.47" angle="82" genCount="1" genTime="20000" objectKey="32" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="359.62#189.38#-1122.49" angle="156" genCount="1" genTime="20000" objectKey="33" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="344.19#187.65#-1157.05" angle="142" genCount="1" genTime="20000" objectKey="34" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="376.78#198.91#-1190.26" angle="-77" genCount="1" genTime="20000" objectKey="35" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="322.70#174.65#-1181.62" angle="-171" genCount="1" genTime="20000" objectKey="36" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="390.58#198.74#-1148.01" angle="167" genCount="1" genTime="20000" objectKey="37" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="214.58#174.65#-1104.92" angle="66" genCount="1" genTime="20000" objectKey="38" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="248.65#174.65#-1122.60" angle="75" genCount="1" genTime="20000" objectKey="39" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="150.01#174.65#-1228.70" angle="69" genCount="1" genTime="20000" objectKey="40" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="118.35#174.65#-1249.21" angle="68" genCount="1" genTime="20000" objectKey="41" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="159.20#174.65#-1268.62" angle="61" genCount="1" genTime="20000" objectKey="42" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="74.93#174.65#-1226.91" angle="65" genCount="1" genTime="20000" objectKey="43" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="111.78#174.65#-1206.02" angle="83" genCount="1" genTime="20000" objectKey="44" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="88.07#174.65#-1276.28" angle="72" genCount="1" genTime="20000" objectKey="45" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="136.27#174.65#-1302.88" angle="68" genCount="1" genTime="20000" objectKey="46" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="286.32#174.65#-1268.13" angle="117" genCount="1" genTime="20000" objectKey="47" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="252.14#174.65#-1265.05" angle="122" genCount="1" genTime="20000" objectKey="48" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="277.14#174.65#-1231.46" angle="126" genCount="1" genTime="20000" objectKey="49" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="-473.69#98.26#-695.43" angle="52" genCount="1" genTime="20000" objectKey="50" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-446.24#97.62#-727.91" angle="51" genCount="1" genTime="20000" objectKey="51" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-508.16#73.92#-893.58" angle="-21" genCount="1" genTime="20000" objectKey="52" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-455.58#72.31#-930.66" angle="-22" genCount="1" genTime="20000" objectKey="53" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-798.20#53.52#-1178.39" angle="-6" genCount="1" genTime="20000" objectKey="54" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-767.99#44.19#-1213.09" angle="-4" genCount="1" genTime="20000" objectKey="55" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-760.79#55.48#-1251.90" angle="-10" genCount="1" genTime="20000" objectKey="56" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="-814.48#61.88#-1165.86" angle="2" genCount="1" genTime="20000" objectKey="57" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="-805.52#63.86#-1246.68" genCount="1" genTime="20000" objectKey="58" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="-740.77#49.70#-1179.90" genCount="1" genTime="20000" objectKey="59" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="-705.49#47.55#-1258.58" genCount="1" genTime="20000" objectKey="60" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="-786.32#44.18#-1116.43" genCount="1" genTime="20000" objectKey="61" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-556.19#70.21#-907.67" genCount="1" genTime="20000" objectKey="62" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-535.98#68.13#-929.21" angle="-9" genCount="1" genTime="20000" objectKey="63" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58813" Pos="-514.15#66.32#-954.39" angle="-16" genCount="1" genTime="20000" objectKey="64" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58813" Pos="-497.88#65.11#-971.67" angle="-14" genCount="1" genTime="20000" objectKey="65" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58813" Pos="-561.43#65.54#-945.43" angle="-31" genCount="1" genTime="20000" objectKey="66" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58813" Pos="-530.16#63.86#-976.51" angle="-33" genCount="1" genTime="20000" objectKey="67" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58813" Pos="-501.76#61.16#-1177.80" angle="-33" genCount="1" genTime="20000" objectKey="68" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58813" Pos="-485.31#63.86#-1163.24" angle="-19" genCount="1" genTime="20000" objectKey="69" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58813" Pos="-465.69#63.86#-1147.87" angle="-30" genCount="1" genTime="20000" objectKey="70" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58813" Pos="-477.73#63.72#-1188.76" angle="-21" genCount="1" genTime="20000" objectKey="71" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-458.39#63.86#-1170.58" angle="-23" genCount="1" genTime="20000" objectKey="72" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-664.92#53.18#-1079.58" genCount="1" genTime="20000" objectKey="73" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58813" Pos="-648.21#59.94#-1027.93" genCount="1" genTime="20000" objectKey="74" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58813" Pos="-597.38#61.22#-1097.40" genCount="1" genTime="20000" objectKey="75" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="157047" Pos="27.63#174.65#-1143.32" angle="-82" genCount="1" genTime="20000" objectKey="76" propList="&apos;Dialog&apos; &apos;ID_WHITETREES1_GIMMICK2&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;NumArg1&apos; &apos;2&apos; "/>
+                    <Obj Type="Monster" MonType="157047" Pos="-803.26#44.18#-1023.18" angle="-63" genCount="1" genTime="20000" objectKey="77" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;ID_WHITETREES1_GIMMICK2&apos; &apos;NumArg1&apos; &apos;3&apos; "/>
+                    <Obj Type="Monster" MonType="20026" Pos="-281.53#98.10#-522.55" genCount="1" genTime="20000" objectKey="78" UseAiOutOfPc="1" propList="&apos;ClassID&apos; &apos;58872&apos; &apos;ClassName&apos; &apos;HiddenTrigger6_whitetrees1&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="20026" Pos="-183.37#98.33#-657.54" genCount="1" genTime="20000" objectKey="79" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;AAAA&apos; &apos;Range&apos; &apos;40&apos; &apos;ClassID&apos; &apos;58872&apos; &apos;ClassName&apos; &apos;HiddenTrigger6_whitetrees1&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;SpecialDefType&apos; &apos;Structure&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="20026" Pos="-420.68#97.95#-646.32" genCount="1" genTime="20000" objectKey="80" UseAiOutOfPc="1" propList="&apos;ClassID&apos; &apos;58872&apos; &apos;ClassName&apos; &apos;HiddenTrigger6_whitetrees1&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="20026" Pos="-336.41#98.23#-704.96" genCount="1" genTime="20000" objectKey="81" UseAiOutOfPc="1" propList="&apos;ClassID&apos; &apos;58872&apos; &apos;ClassName&apos; &apos;HiddenTrigger6_whitetrees1&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="157047" Pos="-506.18#98.09#-654.80" angle="-58" genCount="1" genTime="20000" objectKey="82" propList="&apos;Dialog&apos; &apos;ID_WHITETREES1_GIMMICK2&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;NumArg1&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-160.60#98.31#-542.59" genCount="1" genTime="20000" objectKey="83" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-273.39#98.22#-646.52" genCount="1" genTime="20000" objectKey="84" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="220.62#162.72#-949.33" genCount="1" genTime="20000" objectKey="85" propList="&apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="417.66#199.02#-1177.71" genCount="1" genTime="20000" objectKey="86" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="199.12#174.65#-1214.44" genCount="1" genTime="20000" objectKey="87" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-592.62#47.97#-1151.68" genCount="1" genTime="20000" objectKey="88" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="-716.07#45.71#-1229.44" genCount="1" genTime="20000" objectKey="89" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-327.22#95.67#-1222.25" genCount="1" genTime="20000" objectKey="90" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK2_TRAP&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="152076" Pos="-1194.61#173.43#-1285.82" angle="77" genCount="1" genTime="20000" objectKey="91" propList="&apos;Enter&apos; &apos;ID_WHITETREES1_NOTICE&apos; &apos;Range&apos; &apos;40&apos; &apos;SimpleAI&apos; &apos;Hidden_door_Effect&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="3/4번째방기믹" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage3/9/stage3/10/stage3/11/stage3/12/stage3/13/stage3/14/stage3/15/stage3/16/stage3/17/stage3/18/stage3/19/stage3/20/stage3/21/stage3/22/stage3/23/stage3/24/stage3/25/stage3/26/stage3/27/stage3/28/stage3/29/stage3/30/stage3/31/stage3/32/stage3/33/stage3/34/stage3/35/stage3/36/stage3/37/stage3/38/stage3/39/stage3/40/stage3/41/stage3/42/stage3/43/stage3/44/stage3/45/stage3/46/stage3/47/stage3/48/stage3/49/stage3/50/stage3/51/stage3/52/stage3/53/stage3/54/stage3/55/stage3/56/stage3/57/stage3/58/stage3/59/stage3/60/stage3/61/stage3/62/stage3/63/stage3/64/stage3/65/stage3/66/stage3/67/stage3/68/stage3/69/stage3/70/stage3/71/stage3/72/stage3/73/stage3/74/stage3/75"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="사악한 기운으로 막혀있던 길이 열렸습니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ID_WHITETREES1_GIMMICK2_2"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP_MAIN" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_ID_WHITETREES1_GIMMICK2_REWARD"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ID_WHITETREES1_GIMMICK5"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="stage3/91"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="MVal값">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ID_WHITETREES1_GIMMICK2"/>
+                                <Num Num="6"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ID_WHITETREES1_GIMMICK2_2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="2,3,4 방 로그">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage3/91"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="MGameState"/>
+                                <Str Str="Stage/stage_3rd"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage4">
+                <ObjList>
+                    <Obj Type="Monster" MonType="58812" Pos="-1542.69#218.77#-1396.92" genCount="1" genTime="20000" objectKey="0" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58812" Pos="-1511.26#218.77#-1442.46" genCount="1" genTime="20000" objectKey="1" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-1328.24#218.77#-1379.00" genCount="1" genTime="20000" objectKey="2" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-1387.77#218.77#-1341.75" genCount="1" genTime="20000" objectKey="3" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-1372.67#216.89#-1378.06" genCount="1" genTime="20000" objectKey="4" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-1364.24#217.25#-1413.64" genCount="1" genTime="20000" objectKey="5" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58812" Pos="-1386.57#218.77#-1131.99" angle="-50" genCount="1" genTime="20000" objectKey="6" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58812" Pos="-1343.86#218.81#-1132.61" angle="-57" genCount="1" genTime="20000" objectKey="7" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58812" Pos="-1307.91#219.00#-1131.69" angle="-52" genCount="1" genTime="20000" objectKey="8" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58812" Pos="-1361.55#218.77#-1072.00" angle="-62" genCount="1" genTime="20000" objectKey="9" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58812" Pos="-1318.99#218.90#-1071.28" angle="-71" genCount="1" genTime="20000" objectKey="10" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58812" Pos="-1284.81#219.10#-1112.40" angle="-71" genCount="1" genTime="20000" objectKey="11" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-1495.36#218.77#-1409.17" genCount="1" genTime="20000" objectKey="12" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-1520.72#212.77#-1314.95" genCount="1" genTime="20000" objectKey="13" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-1554.42#212.77#-1254.96" genCount="1" genTime="20000" objectKey="14" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58812" Pos="-1592.37#212.77#-1306.92" genCount="1" genTime="20000" objectKey="15" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58812" Pos="-1622.76#212.77#-1243.47" genCount="1" genTime="20000" objectKey="16" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58812" Pos="-1403.10#218.77#-1072.60" angle="-56" genCount="1" genTime="20000" objectKey="17" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-1345.39#218.77#-1337.63" genCount="1" genTime="20000" objectKey="18" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1536.73#218.77#-1086.22" angle="-71" genCount="1" genTime="20000" objectKey="19" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1511.22#218.77#-1057.22" angle="-63" genCount="1" genTime="20000" objectKey="20" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1492.25#218.77#-1099.96" angle="-75" genCount="1" genTime="20000" objectKey="21" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                </ObjList>
+            </Stage>
+            <Stage Name="stage5">
+                <ObjList>
+                    <Obj Type="Monster" MonType="157049" Pos="-1417.00#218.56#-303.86" angle="-84" genCount="1" genTime="20000" genReadyTime="10000" objectKey="0" propList="&apos;Dialog&apos; &apos;ID_WHITETREES1_GIMMICK3&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;SimpleAI&apos; &apos;SCR_ID_WHITETREES1_GIMMICK3_SETUP&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1628.93#220.42#-646.95" genCount="1" genTime="20000" objectKey="1" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1590.43#220.42#-677.38" genCount="1" genTime="20000" objectKey="2" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1653.08#220.42#-708.02" genCount="1" genTime="20000" objectKey="3" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58812" Pos="-1491.63#218.62#-698.08" angle="-54" genCount="1" genTime="20000" objectKey="4" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58812" Pos="-1447.84#218.62#-694.26" angle="-56" genCount="1" genTime="20000" objectKey="5" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-1614.41#218.62#-578.25" angle="-10" genCount="1" genTime="20000" objectKey="6" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-1606.78#218.62#-540.13" angle="-11" genCount="1" genTime="20000" objectKey="7" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58809" Pos="-1600.83#218.62#-505.04" angle="-8" genCount="1" genTime="20000" objectKey="8" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-1428.53#218.62#-351.51" angle="-53" genCount="1" genTime="20000" objectKey="9" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-1371.61#218.62#-343.03" angle="-58" genCount="1" genTime="20000" objectKey="10" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="-1633.84#218.62#-559.52" angle="-5" genCount="1" genTime="20000" objectKey="11" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="-1623.86#218.62#-516.99" angle="5" genCount="1" genTime="20000" objectKey="12" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58812" Pos="-1490.03#218.62#-663.75" angle="-62" genCount="1" genTime="20000" objectKey="13" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58812" Pos="-1440.05#218.62#-661.29" angle="-72" genCount="1" genTime="20000" objectKey="14" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="-1397.42#218.62#-381.25" angle="-73" genCount="1" genTime="20000" objectKey="15" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58813" Pos="-1579.56#218.62#-572.90" genCount="1" genTime="20000" objectKey="16" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58813" Pos="-1571.74#218.62#-529.62" genCount="1" genTime="20000" objectKey="17" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1490.42#218.62#-559.40" angle="-74" genCount="1" genTime="20000" objectKey="18" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1444.33#218.62#-546.45" angle="-79" genCount="1" genTime="20000" objectKey="19" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1397.28#218.62#-541.28" angle="-77" genCount="1" genTime="20000" objectKey="20" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1470.04#218.62#-511.82" angle="-67" genCount="1" genTime="20000" objectKey="21" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1408.44#218.62#-503.94" angle="-76" genCount="1" genTime="20000" objectKey="22" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1254.82#220.96#-462.65" angle="-156" genCount="1" genTime="20000" objectKey="23" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1279.10#218.62#-551.14" angle="-151" genCount="1" genTime="20000" objectKey="24" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-1209.28#220.96#-476.84" angle="-152" genCount="1" genTime="20000" objectKey="25" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58813" Pos="-1549.18#218.62#-428.81" angle="-70" genCount="1" genTime="20000" objectKey="26" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58813" Pos="-1515.40#218.62#-400.62" angle="-52" genCount="1" genTime="20000" objectKey="27" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="151115" Pos="-1273.10#240.07#-199.81" genCount="1" genTime="20000" objectKey="28" propList="&apos;Range&apos; &apos;40&apos; &apos;Enter&apos; &apos;ID_WHITETREES1_NOTICE&apos; &apos;SimpleAI&apos; &apos;Hidden_door_Effect&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="제단3 미니게임값">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ID_WHITETREES1_GIMMICK3_1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ID_WHITETREES1_GIMMICK3_3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ID_WHITETREES1_GIMMICK3_2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ID_WHITETREES1_GIMMICK3_4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="벽제거">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage5/1/stage5/2/stage5/3/stage5/4/stage5/5/stage5/6/stage5/7/stage5/8/stage5/9/stage5/10/stage5/11/stage5/12/stage5/13/stage5/14/stage5/15/stage5/16/stage5/17/stage5/18/stage5/19/stage5/20/stage5/21/stage5/22/stage5/23/stage5/24/stage5/25/stage5/26/stage5/27"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="stage5/28"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="사악한 기운으로 막혀있던 길이 열렸습니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="6번방 로그">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage5/28"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="MGameState"/>
+                                <Str Str="Stage/stage_5th"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage6" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="157046" Pos="-1585.70#284.82#359.11" angle="-131" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;ID_WHITETREES1_GIMMICK_END&apos; "/>
+                    <Obj Type="Monster" MonType="157049" Pos="-1044.75#284.82#84.93" angle="-72" genCount="1" genTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_ALTER&apos; &apos;Dialog&apos; &apos;ID_WHITETREES1_GIMMICK4&apos; &apos;MaxDialog&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="157049" Pos="-1392.75#284.82#122.48" genCount="1" genTime="20000" objectKey="2" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_ALTER&apos; &apos;Dialog&apos; &apos;ID_WHITETREES1_GIMMICK4&apos; &apos;MaxDialog&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="157049" Pos="-1114.02#284.82#423.44" angle="-83" genCount="1" genTime="20000" objectKey="3" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_ALTER&apos; &apos;Dialog&apos; &apos;ID_WHITETREES1_GIMMICK4&apos; &apos;MaxDialog&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="58818" Pos="-1167.63#279.77#247.88" angle="-86" genCount="1" genTime="20000" objectKey="4" propList="&apos;StatType&apos; &apos;UniqueRaid_Boss_Solo&apos; &apos;ClassID&apos; &apos;59310&apos; &apos;ClassName&apos; &apos;Unique_Solo_ID_boss_kucarry_balzermancer&apos; &apos;DropItemList&apos; &apos;Unique_Solo_ID_boss_kucarry_balzermancer&apos; &apos;Name&apos; &apos;영험한 쿠게리 발저맨서&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="-1351.90#284.82#83.63" genCount="1" genTime="20000" objectKey="5" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="-1343.65#284.82#140.19" genCount="1" genTime="20000" objectKey="6" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="-1420.02#284.82#89.92" genCount="1" genTime="20000" objectKey="7" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58811" Pos="-1420.40#284.82#156.35" genCount="1" genTime="20000" objectKey="8" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1084.64#284.82#78.61" angle="-71" genCount="1" genTime="20000" objectKey="9" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1040.57#284.82#47.23" angle="-66" genCount="1" genTime="20000" objectKey="10" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1001.39#284.82#84.37" angle="-69" genCount="1" genTime="20000" objectKey="11" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58810" Pos="-1038.76#284.82#128.25" angle="-71" genCount="1" genTime="20000" objectKey="12" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-1144.50#283.35#390.63" angle="-82" genCount="1" genTime="20000" objectKey="13" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-1077.90#282.34#395.49" angle="-61" genCount="1" genTime="20000" objectKey="14" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-1076.68#284.82#447.37" angle="-56" genCount="1" genTime="20000" objectKey="15" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58814" Pos="-1153.99#284.82#450.97" angle="-58" genCount="1" genTime="20000" objectKey="16" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-1282.02#284.82#65.04" genCount="1" genTime="20000" objectKey="17" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-1190.97#284.82#120.10" genCount="1" genTime="20000" objectKey="18" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-1331.97#284.82#197.25" genCount="1" genTime="20000" objectKey="19" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-1087.01#284.82#127.90" genCount="1" genTime="20000" objectKey="20" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-965.64#284.82#108.70" genCount="1" genTime="20000" objectKey="21" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-1026.40#284.84#28.93" genCount="1" genTime="20000" objectKey="22" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-943.60#284.82#206.71" genCount="1" genTime="20000" objectKey="23" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-1382.88#284.82#57.91" genCount="1" genTime="20000" objectKey="24" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-1455.99#284.82#197.34" genCount="1" genTime="20000" objectKey="25" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-1537.99#284.82#278.13" genCount="1" genTime="20000" objectKey="26" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-1264.95#279.77#326.61" genCount="1" genTime="20000" objectKey="27" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-1082.60#279.77#266.34" genCount="1" genTime="20000" objectKey="28" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-1108.69#286.17#367.00" genCount="1" genTime="20000" objectKey="29" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-992.47#279.77#354.22" genCount="1" genTime="20000" objectKey="30" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-1204.46#284.82#447.49" genCount="1" genTime="20000" objectKey="31" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-1036.75#284.82#469.43" genCount="1" genTime="20000" objectKey="32" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-1359.66#279.77#460.58" genCount="1" genTime="20000" objectKey="33" propList="&apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="58872" Pos="-1168.52#279.77#245.54" genCount="1" genTime="20000" objectKey="34" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;SimpleAI&apos; &apos;ID_WHITETREES1_GIMMICK4_TRAP&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="보스처치 이벤트">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage6/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="end"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ID_WHITETREES1_GIMMICK5_2"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="60초 후 입구로 돌아갑니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="stage6/17/stage6/18/stage6/19/stage6/20/stage6/21/stage6/22/stage6/23/stage6/24/stage6/25/stage6/26/stage6/27/stage6/28/stage6/29/stage6/30/stage6/31/stage6/32/stage6/33/stage6/34"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                                <Str Str="UniqueRaid: Indun_whitetrees"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="보스기믹벨류값">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="ID_WHITETREES1_GIMMICK4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="보스방 로그">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage5/28"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="MGameState"/>
+                                <Str Str="Stage/stage_boss_start"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Boss_Open">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage5/28/stage2/60/stage3/91"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage6"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="Indun_whitetrees"/>
+            </ToolScp>
+        </EnterList>
+    </Game>
+</GameList>

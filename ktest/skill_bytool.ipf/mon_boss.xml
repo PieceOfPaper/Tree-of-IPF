@@ -1,4 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by asdasd (IMCGames Co., Ltd) -->
 <ToolSkill><Skill Name="Mon_boss_Moringponia_Skill_1">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>
@@ -24228,85 +24229,89 @@
 		</MainSkl>
 	</Skill>
 	<Skill Name="Mon_boss_froster_lord_Skill_5">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<HitList>
-				<Frame Angle="0" AniTime="1000" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="800" Type="CIRCLE" Width="100" />
+				<Frame Type="CIRCLE" Time="800" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="100" AniTime="1000" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Anim Anim="sk1" Speed="1" Time="0" />
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1000" UseSleep="NO">
-					<Str_Arg Arg="2" Str="F_ground142_spread_in_blue" />
+				<Anim Time="0" Anim="sk1" Speed="1" />
+				<Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO"Time="1000">
+					<Str_Arg Str="F_ground142_spread_in_blue" Arg="2"/>
 					<Pos Angle="0" Dist="0" />
 					<Num Num="0" />
 					<Str Str="None" />
 				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="2000" UseSleep="NO">
+				<Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO"Time="2000">
 					<Pos Angle="0" Dist="0" />
 					<Angle Angle="0" />
 					<Str Str="boss_froster_lord" />
 				</Scp>
 			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_PULL_TARGET" UseSleep="NO">
-					<Num Num="1" />
-					<Num Num="300" />
-					<Num Num="500" />
-					<Num Num="1" />
-					<Num Num="0.2" />
-					<Str_Arg Arg="1" Str="None" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
+			</MainSkl>
 	</Skill>
 	<Skill Name="Mon_boss_froster_lord_Skill_4">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+				<Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Anim Anim="sk3" Speed="1" Time="0" />
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="3" Str="I_light004_blue2" />
+				<Anim Time="0" Anim="sk3" Speed="1" />
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO"Time="0">
+					<Str_Arg Str="I_light004_blue2" Arg="3"/>
 					<Str Str="Dummy_wepon" />
 					<Num Num="4" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
-					<Str_Arg Arg="4" Str="I_light004_blue2" />
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO"Time="300">
+					<Str_Arg Str="I_light004_blue2" Arg="4"/>
 					<Str Str="Dummy_effect_hand_r" />
 					<Num Num="3" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
-					<Str_Arg Arg="3" Str="I_light004_blue2" />
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO"Time="300">
+					<Str_Arg Str="I_light004_blue2" Arg="3"/>
 					<Str Str="Dummy_effect_hand_r" />
 					<Num Num="2.5" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="2000" UseSleep="NO">
-					<Str_Arg Arg="3" Str="I_light004_blue2" />
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO"Time="2000">
+					<Str_Arg Str="I_light004_blue2" Arg="3"/>
 					<Str Str="Dummy_wepon" />
 					<Num Num="4" />
 				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="3000" UseSleep="NO">
+				<Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO"Time="3000">
 					<Pos Angle="0.58450222" Dist="149.90352" Rand="100" />
 					<Angle Angle="0" />
 					<Str Str="boss_nuodai_hail" />
 				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="3300" UseSleep="NO">
+				<Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO"Time="3300">
 					<Pos Angle="-1.1848099" Dist="136.72461" Rand="120" />
 					<Angle Angle="0" />
 					<Str Str="boss_nuodai_hail" />
 				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="3600" UseSleep="NO">
-					<Pos Angle="2.3267205" Dist="95.725113" Height="2" Rand="90" />
+				<Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO"Time="3600">
+					<Pos Angle="2.3267205" Dist="95.725113" Rand="90" Height="2"/>
 					<Angle Angle="0" />
 					<Str Str="boss_nuodai_hail" />
 				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="3900" UseSleep="NO">
-					<Pos Angle="-2.361376" Dist="163.2444" Height="2" Rand="90" />
+				<Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO"Time="3900">
+					<Pos Angle="-2.361376" Dist="163.2444" Rand="90" Height="2"/>
 					<Angle Angle="0" />
 					<Str Str="boss_nuodai_hail" />
 				</Scp>
 			</EtcList>
-		</MainSkl>
+		<ResultList>
+                <ToolScp Scp="S_R_COND_TGTNOBUFF" Client="NO" UseSleep="NO">
+                    <Str Str="UC_Ignore_Frostbite"/>
+                </ToolScp>
+                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
+                    <Str Str="UC_frostbite"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="30000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
 	</Skill>
 	<Skill Name="Mon_boss_froster_lord_Skill_3">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
@@ -110889,4 +110894,865 @@
 			</EtcList>
 		</MainSkl>
 	</Skill>
+    <Skill Name="Mon_boss_Skiaclipse_Solo_Skill_11">
+        <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Anim Time="0" Anim="skl2" Speed="1"/>
+                <Scp Scp="SKL_SET_TARGET_CIRCLE_DISTANCE" Client="NO" UseSleep="NO" Time="0">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="400"/>
+                    <Num Num="1"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Str_Arg Str="F_sys_target_boss1" Arg="3"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="Ignore_Stop_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="15000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_SET_TARGET_EX_PROP" Client="NO" UseSleep="NO" Time="10">
+                    <Str Str="Skiaclipse_Skill_11_TGT"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="SKL_SETPOS_SELECT_LOCATION" Client="NO" UseSleep="NO" Time="1500">
+                    <Num Num="1"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Num Num="2511"/>
+                    <Num Num="34"/>
+                    <Num Num="-955"/>
+                </Scp>
+                <Scp Scp="SKL_SETPOS_TARGET" Client="NO" UseSleep="NO" Time="1600">
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Num Num="60" UseFunc="1" FuncTxt="local angle = {60,180,-60,-180} local ran = IMCRandom(1,4) return angle[ran]"/>
+                    <Num Num="60"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="1700">
+                    <Str Str="SHADOW_RAID_BORN_TARGET_DEBUFF"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="100000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="SKL_DEL_TARGET_EX_PROP" Client="NO" UseSleep="NO" Time="1700">
+                    <Str Str="Skiaclipse_Skill_11_TGT"/>
+                </Scp>
+                <Anim Time="3800" Anim="skl3" Speed="1"/>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="5700">
+                    <Str Str="SHADOW_RAID_BONE_CAGE"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_boss_Skiaclipse_Solo_Skill_10">
+        <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Anim Time="0" Anim="skl9" Speed="1"/>
+                <Scp Scp="MONSKL_CRE_MON_PC_SELECT_POS" Client="NO" UseSleep="NO" Time="2300">
+                    <Str Str="LegendRaid_HiddenCreateSphere"/>
+                    <Num Num="2276"/>
+                    <Num Num="28.6"/>
+                    <Num Num="-730"/>
+                    <Angle Angle="0"/>
+                    <Str Str=""/>
+                    <Str Str=""/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Str Str="Hidden_Skiaclipse_1_AI"/>
+                    <MonProp/>
+                </Scp>
+                <Scp Scp="MONSKL_CRE_MON_PC_SELECT_POS" Client="NO" UseSleep="NO" Time="2300">
+                    <Str Str="HiddenCreateSphere"/>
+                    <Num Num="2714.1001"/>
+                    <Num Num="28.6"/>
+                    <Num Num="-667.78003"/>
+                    <Angle Angle="0"/>
+                    <Str Str=""/>
+                    <Str Str=""/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Str Str="Hidden_Skiaclipse_1_AI"/>
+                    <MonProp/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_boss_Skiaclipse_Solo_Skill_9">
+        <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Anim Time="0" Anim="skl9" Speed="1"/>
+                <Scp Scp="MONSKL_CRE_MON_PC_SELECT_POS" Client="NO" UseSleep="NO" Time="2300">
+                    <Str Str="HiddenCreateSphere"/>
+                    <Num Num="2276"/>
+                    <Num Num="28.6"/>
+                    <Num Num="-730"/>
+                    <Angle Angle="0"/>
+                    <Str Str=""/>
+                    <Str Str=""/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Str Str="Hidden_Skiaclipse_1_AI"/>
+                    <MonProp/>
+                </Scp>
+                <Scp Scp="MONSKL_CRE_MON_PC_SELECT_POS" Client="NO" UseSleep="NO" Time="2300">
+                    <Str Str="HiddenCreateSphere"/>
+                    <Num Num="2714.1001"/>
+                    <Num Num="28.6"/>
+                    <Num Num="-667.78003"/>
+                    <Angle Angle="0"/>
+                    <Str Str=""/>
+                    <Str Str=""/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Str Str="Hidden_Skiaclipse_1_AI"/>
+                    <MonProp/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_boss_Skiaclipse_Solo_Skill_8">
+        <EndScripts>
+            <ToolScp Scp="SKL_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="Ignore_Stop_Buff"/>
+            </ToolScp>
+        </EndScripts>
+        <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Anim Time="0" Anim="skl7" Speed="1"/>
+                <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="0">
+                    <Pos Angle="0" Dist="0"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Num Num="3000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Num Num="1000"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_USE_PCSKILL_BALLON" Client="NO" UseSleep="NO" Time="0">
+                    <Num Num="163545"/>
+                    <Num Num="3"/>
+                </Scp>
+                <Anim Time="1300" Anim="skl7_loop" Speed="1"/>
+                <Anim Time="3000" Anim="skl8" Speed="1"/>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_boss_Skiaclipse_Solo_Skill_7">
+        <EndScripts>
+            <ToolScp Scp="SKL_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="Ignore_Stop_Buff"/>
+            </ToolScp>
+        </EndScripts>
+        <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Length="100" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Anim Time="0" Anim="skl2_chain" Speed="1"/>
+                <Scp Scp="SKL_BUFF" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="Ignore_Stop_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="3000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="1300">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="400"/>
+                    <Num Num="5"/>
+                    <Num Num="2"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="2300">
+                    <Str Str="SHDOW_CHAIN_BOSS"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_boss_Skiaclipse_Solo_Skill_6">
+        <MainSkl JumpFlee="YES" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Anim Anim="skl6" Speed="1" Time="0"/>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="250"/>
+                    <Num Num="20"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="400" UseSleep="NO">
+                    <Str Str="mon_voice_skiaclipse_skl6"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="1000" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="1.5" Str="I_force018_trail_psychokinesis3_4#Bone_BWR_02"/>
+                    <Str_Arg Arg="2.5" Str="F_explosion131_light"/>
+                    <Str_Arg Arg="1" Str="I_force003_green"/>
+                    <Pos Angle="0" Dist="0" PosType="10" Rand="170"/>
+                    <Num Num="30"/>
+                    <Num Num="0.5"/>
+                    <Num Num="1"/>
+                    <Num Num="300"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0.2"/>
+                    <Str_Arg Arg="1.5" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="10"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="1100" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="1.5" Str="I_force018_trail_psychokinesis3_4#Bone_BWR_02"/>
+                    <Str_Arg Arg="2.5" Str="F_explosion131_light"/>
+                    <Str_Arg Arg="1" Str="I_force003_green"/>
+                    <Pos Angle="0" Dist="0" PosType="10" Rand="170"/>
+                    <Num Num="30"/>
+                    <Num Num="0.5"/>
+                    <Num Num="1"/>
+                    <Num Num="300"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0.2"/>
+                    <Str_Arg Arg="1.5" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="10"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="1200" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="1.5" Str="I_force018_trail_psychokinesis3_4#Bone_BWR_02"/>
+                    <Str_Arg Arg="2.5" Str="F_explosion131_light"/>
+                    <Str_Arg Arg="1" Str="I_force003_green"/>
+                    <Pos Angle="0" Dist="0" PosType="10" Rand="170"/>
+                    <Num Num="30"/>
+                    <Num Num="0.5"/>
+                    <Num Num="1"/>
+                    <Num Num="300"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0.2"/>
+                    <Str_Arg Arg="1.5" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="10"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="1300" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="1.5" Str="I_force018_trail_psychokinesis3_4#Bone_BWR_02"/>
+                    <Str_Arg Arg="2.5" Str="F_explosion131_light"/>
+                    <Str_Arg Arg="1" Str="I_force003_green"/>
+                    <Pos Angle="0" Dist="0" PosType="10" Rand="170"/>
+                    <Num Num="30"/>
+                    <Num Num="0.5"/>
+                    <Num Num="1"/>
+                    <Num Num="300"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0.2"/>
+                    <Str_Arg Arg="1.5" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="10"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="1400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="1.5" Str="I_force018_trail_psychokinesis3_4#Bone_BWL_032"/>
+                    <Str_Arg Arg="2.5" Str="F_explosion131_light"/>
+                    <Str_Arg Arg="1" Str="I_force003_green"/>
+                    <Pos Angle="0" Dist="0" PosType="10" Rand="170"/>
+                    <Num Num="30"/>
+                    <Num Num="0.5"/>
+                    <Num Num="1"/>
+                    <Num Num="300"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0.2"/>
+                    <Str_Arg Arg="1.5" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="10"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="1500" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="1.5" Str="I_force018_trail_psychokinesis3_4#Bone_BWL_032"/>
+                    <Str_Arg Arg="2.5" Str="F_explosion131_light"/>
+                    <Str_Arg Arg="1" Str="I_force003_green"/>
+                    <Pos Angle="0" Dist="0" PosType="10" Rand="170"/>
+                    <Num Num="30"/>
+                    <Num Num="0.5"/>
+                    <Num Num="1"/>
+                    <Num Num="300"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0.2"/>
+                    <Str_Arg Arg="1.5" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="10"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="1600" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="1.5" Str="I_force018_trail_psychokinesis3_4#Bone_BWL_032"/>
+                    <Str_Arg Arg="2.5" Str="F_explosion131_light"/>
+                    <Str_Arg Arg="1" Str="I_force003_green"/>
+                    <Pos Angle="0" Dist="0" PosType="10" Rand="170"/>
+                    <Num Num="30"/>
+                    <Num Num="0.5"/>
+                    <Num Num="1"/>
+                    <Num Num="300"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0.2"/>
+                    <Str_Arg Arg="1.5" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="10"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="1700" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="1.5" Str="I_force018_trail_psychokinesis3_4#Bone_BWL_032"/>
+                    <Str_Arg Arg="2.5" Str="F_explosion131_light"/>
+                    <Str_Arg Arg="1" Str="I_force003_green"/>
+                    <Pos Angle="0" Dist="0" PosType="10" Rand="170"/>
+                    <Num Num="30"/>
+                    <Num Num="0.5"/>
+                    <Num Num="1"/>
+                    <Num Num="300"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0.2"/>
+                    <Str_Arg Arg="1.5" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="10"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="3200" UseSleep="NO">
+                    <Str Str="skl_eff_dark_hit"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_boss_Skiaclipse_Solo_Skill_5">
+        <MainSkl JumpFlee="YES" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="2700" Dist="0" ForceATK="0" HitCount="1" Length="500" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="1.0471976" TermMax="0" TermMin="0" Time="2500" Type="FAN"/>
+                <Frame Angle="0" AniTime="2800" Dist="0" ForceATK="0" HitCount="1" Length="500" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="1.0471976" TermMax="0" TermMin="0" Time="2600" Type="FAN"/>
+                <Frame Angle="0" AniTime="2900" Dist="0" ForceATK="0" HitCount="1" Length="500" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="1.0471976" TermMax="0" TermMin="0" Time="2700" Type="FAN"/>
+                <Frame Angle="0" AniTime="3000" Dist="0" ForceATK="0" HitCount="1" Length="500" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="1.0471976" TermMax="0" TermMin="0" Time="2800" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Anim Anim="skl5" Speed="1.3" Time="0"/>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="mon_voice_skiaclipse_skl5_cast"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="2151" UseSleep="NO">
+                    <Str Str="mon_voice_skiaclipse_skl5_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="SCR_SPECIFIC_PAD_DESTORY" Time="2600" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Str Str="ENEMY"/>
+                    <Num Num="300"/>
+                    <Str Str="Oracle_Foretell"/>
+                    <Num Num="4"/>
+                    <Str Str="I_pattern008_explosion_mash_square"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Arg="1" Str="F_burstup001_smoke"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
+                    <Num Num="4"/>
+                    <Num Num="0"/>
+                    <Num Num="200"/>
+                    <Num Num="35"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="3"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_boss_Skiaclipse_Solo_Skill_4">
+        <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Anim Time="0" Anim="skl4" Speed="1"/>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="mon_voice_skiaclipse_skl4_cast"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="mon_voice_skiaclipse_skl4_hold"/>
+                </Scp>
+                <Scp Scp="SKL_SET_TARGET_TOP_HATER" Client="NO" UseSleep="NO" Time="0">
+                    <Num Num="500"/>
+                    <Num Num="0"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="1450">
+                    <Str Str="mon_voice_skiaclipse_skl4_throw"/>
+                </Scp>
+                <Scp Scp="EFT_AND_HIT_RANGE_RATIO" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1500">
+                    <Pos Angle="0" Dist="0" PosType="9"/>
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="4"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="F_rize015_1_drop_white" Arg="2"/>
+                    <Num Num="60"/>
+                    <Num Num="100" UseFunc="1" FuncTxt="local overBuff = &quot;SHADOW_RAID_BOSS_FRENZY_BUFF&quot; local ratio = 0; if IsBuffApplied(self, overBuff) == &quot;YES&quot; then     local over = GetBuffOver(self, overBuff);     if over ~= nil and over > 3 then         if over >= 10 then             over = 10         end                  ratio = ratio + (over * 0.08);     end end return ratio; "/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="EFT_AND_HIT_RANGE_RATIO" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1650">
+                    <Pos Angle="0" Dist="0" PosType="9"/>
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="4"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="F_rize015_1_drop_white" Arg="2"/>
+                    <Num Num="60"/>
+                    <Num Num="100" UseFunc="1" FuncTxt="local overBuff = &quot;SHADOW_RAID_BOSS_FRENZY_BUFF&quot; local ratio = 0; if IsBuffApplied(self, overBuff) == &quot;YES&quot; then     local over = GetBuffOver(self, overBuff);     if over ~= nil and over > 3 then         if over >= 10 then             over = 10         end                  ratio = ratio + (over * 0.08);     end end return ratio; "/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="EFT_AND_HIT_RANGE_RATIO" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1800">
+                    <Pos Angle="0" Dist="0" PosType="9"/>
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="4"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="F_rize015_1_drop_white" Arg="2"/>
+                    <Num Num="60"/>
+                    <Num Num="100" UseFunc="1" FuncTxt="local overBuff = &quot;SHADOW_RAID_BOSS_FRENZY_BUFF&quot; local ratio = 0; if IsBuffApplied(self, overBuff) == &quot;YES&quot; then     local over = GetBuffOver(self, overBuff);     if over ~= nil and over > 3 then         if over >= 10 then             over = 10         end                  ratio = ratio + (over * 0.08);     end end return ratio; "/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="EFT_AND_HIT_RANGE_RATIO" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="1950">
+                    <Pos Angle="0" Dist="0" PosType="9"/>
+                    <Str_Arg Str="F_sys_target_boss##0.5" Arg="4"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="F_rize015_1_drop_white" Arg="2"/>
+                    <Num Num="60"/>
+                    <Num Num="100" UseFunc="1" FuncTxt="local overBuff = &quot;SHADOW_RAID_BOSS_FRENZY_BUFF&quot; local ratio = 0; if IsBuffApplied(self, overBuff) == &quot;YES&quot; then     local over = GetBuffOver(self, overBuff);     if over ~= nil and over > 3 then         if over >= 10 then             over = 10         end                  ratio = ratio + (over * 0.08);     end end return ratio; "/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
+                    <Str Str="SHADOW_RAID_ELECTRIC_SHOCK_DEBUFF"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="2500"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_boss_Skiaclipse_Solo_Skill_3">
+        <MainSkl JumpFlee="YES" MSPDToUsePos="0" ScrLock="None">
+            <MoveList>
+                <Frame Accel="1" Angle="-1.5603814" Dist="1.3571495" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="2100"/>
+                <Frame Accel="1" Angle="-0.0043576774" Dist="141.09193" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="2300"/>
+            </MoveList>
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Anim Anim="skl3" Speed="1" Time="0"/>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="mon_voice_skiaclipse_skl2_cast"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="skl_eff_drapelium_skl3_fire_spread"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="2000" UseSleep="NO">
+                    <Str Str="mon_voice_skiaclipse_skl2_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="EFT_AND_HIT" Time="1700" TooltipScp="TOOLTIP_EFT_AND_HIT" UseSleep="YES">
+                    <Pos Angle="0" Dist="150"/>
+                    <Str_Arg Arg="5" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="800"/>
+                    <Str_Arg Arg="2" Str="None"/>
+                    <Num Num="110"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Str Str="None"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="2150" UseSleep="NO">
+                    <Str Str="mon_move_boruta_skl1_shot"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_KNOCK_TARGET" TooltipScp="TOOLTIP_MONSKL_R_KNOCKDOWN" UseSleep="NO">
+                    <Num Num="4"/>
+                    <Num Num="0"/>
+                    <Num Num="200"/>
+                    <Num Num="35"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="3"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_boss_Skiaclipse_Solo_Skill_2">
+        <MainSkl JumpFlee="YES" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Anim Anim="skl2" Speed="1" Time="0"/>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="180"/>
+                    <Num Num="20"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="mon_voice_skiaclipse_skl2_cast"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="1000" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="1.2" Str="I_force106_eye#EYE_BL"/>
+                    <Str_Arg Arg="1.7" Str="F_explosion114_feather_white"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Pos Angle="0" Dist="0" PosType="9" Rand="170"/>
+                    <Num Num="30"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="500"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="1200" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="1.2" Str="I_force106_eye#EYE_BR"/>
+                    <Str_Arg Arg="1.7" Str="F_explosion114_feather_white"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Pos Angle="0" Dist="0" PosType="9" Rand="20"/>
+                    <Num Num="30"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="500"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="1400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="1.2" Str="I_force106_eye#EYE_BL"/>
+                    <Str_Arg Arg="1.7" Str="F_explosion114_feather_white"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Pos Angle="0" Dist="0" PosType="9" Rand="20"/>
+                    <Num Num="30"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="500"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="1600" UseSleep="NO">
+                    <Str Str="mon_voice_skiaclipse_skl2_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="1600" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="2" Str="I_force106_eye#EYE_BR"/>
+                    <Str_Arg Arg="1.7" Str="F_explosion114_feather_white"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Pos Angle="0" Dist="0" PosType="9" Rand="20"/>
+                    <Num Num="30"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="500"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="1700" UseSleep="NO">
+                    <Str Str="mon_move_skiaclipse_skl2_shot"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="1800" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="2" Str="I_force106_eye#EYE_BL"/>
+                    <Str_Arg Arg="1.7" Str="F_explosion114_feather_white"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Pos Angle="0" Dist="0" PosType="9" Rand="20"/>
+                    <Num Num="30"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="500"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="2000" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="1.4" Str="I_force106_eye#EYE_BR"/>
+                    <Str_Arg Arg="1.7" Str="F_explosion114_feather_white"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Pos Angle="0" Dist="0" PosType="9" Rand="20"/>
+                    <Num Num="30"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="500"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="2200" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="1.4" Str="I_force106_eye#EYE_BL"/>
+                    <Str_Arg Arg="1.7" Str="F_explosion114_feather_white"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Pos Angle="0" Dist="0" PosType="9" Rand="20"/>
+                    <Num Num="30"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="500"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="2400" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="0.60000002" Str="I_force106_eye#EYE_BR"/>
+                    <Str_Arg Arg="1.7" Str="F_explosion114_feather_white"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Pos Angle="0" Dist="0" PosType="9" Rand="20"/>
+                    <Num Num="30"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="500"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="2600" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="0.60000002" Str="I_force106_eye#EYE_BL"/>
+                    <Str_Arg Arg="1.7" Str="F_explosion114_feather_white"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Pos Angle="0" Dist="0" PosType="9" Rand="20"/>
+                    <Num Num="30"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="500"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="2800" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="0.89999998" Str="I_force106_eye#EYE_BR"/>
+                    <Str_Arg Arg="1.7" Str="F_explosion114_feather_white"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Pos Angle="0" Dist="0" PosType="9" Rand="20"/>
+                    <Num Num="30"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="500"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="MSL_THROW_SYNC" Time="3000" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
+                    <Str_Arg Arg="0.89999998" Str="I_force106_eye#EYE_BL"/>
+                    <Str_Arg Arg="1.7" Str="F_explosion114_feather_white"/>
+                    <Str_Arg Arg="1" Str="None"/>
+                    <Pos Angle="0" Dist="0" PosType="9" Rand="20"/>
+                    <Num Num="30"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="2"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Str_Arg Arg="1" Str="F_sys_target_boss##0.5"/>
+                    <Num Num="500"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_boss_Skiaclipse_Solo_Skill_1">
+        <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="1400" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Length="150" SklAngle="0.61086529" AniTime="1600" RotAngle="0" ForceATK="0"/>
+                <Frame Type="FAN" Time="1700" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Length="150" SklAngle="0.61086529" AniTime="1900" RotAngle="0" ForceATK="0"/>
+                <Frame Type="FAN" Time="1900" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Length="150" SklAngle="0.61086529" AniTime="2100" RotAngle="0" ForceATK="0"/>
+                <Frame Type="FAN" Time="2200" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Length="160" SklAngle="0.61086529" AniTime="2400" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Anim Time="0" Anim="skl1" Speed="1.3"/>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="mon_voice_skiaclipse_skl1"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
 </ToolSkill>

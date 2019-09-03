@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="5" attachNode="Dummy_R_HAND" particleName="E_pc_item_fryingpan2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="17" attachNode="Dummy_R_HAND" particleName="E_pc_item_fryingpan" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="24" attachNode="Dummy_R_HAND" particleName="E_pc_item_fryingpan2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="30" attachNode="Dummy_R_HAND" particleName="E_pc_item_fryingpan2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<AttachModel frame="0" XAC="artefact_fryingpan" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="artefact_fryingpan_ani.xsm"/>
+	<Sound frame="0.00" soundFile="skl_eff_toy_fryingpan"/>
+</ActionDesc>

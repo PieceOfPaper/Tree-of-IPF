@@ -4627,3 +4627,53 @@ function BEFORE_APPLIED_NON_EQUIP_ITEM_OPEN(invItem)
 		return;
 	end
 end
+
+function BEFORE_APPLIED_YESSCP_OPEN(invItem)
+	if invItem == nil then
+		return;
+	end
+	
+	local invFrame = ui.GetFrame("inventory");	
+	local itemobj = GetIES(invItem:GetObject());
+	if itemobj == nil then
+		return;
+	end
+	invFrame:SetUserValue("INVITEM_GUID", invItem:GetIESID());
+	
+	local strLang = TryGetProp(itemobj , 'StringArg')
+	if strLang ~='None' then
+    	local textmsg = string.format("[ %s ]{nl}%s", itemobj.Name, ScpArgMsg(strLang));
+    	ui.MsgBox_NonNested(textmsg, itemobj.Name, 'REQUEST_SUMMON_BOSS_TX', "None");
+    end
+	return;
+	
+end
+
+function REQUEST_USE_ITEM_TX()
+	local invFrame = ui.GetFrame("inventory");
+	local itemGuid = invFrame:GetUserValue("INVITEM_GUID");
+	local invItem = session.GetInvItemByGuid(itemGuid)
+	
+	if nil == invItem then
+		return;
+	end
+	
+	if true == invItem.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return;
+	end
+	
+	local stat = info.GetStat(session.GetMyHandle());		
+	if stat.HP <= 0 then
+		return;
+	end
+	
+	local itemtype = invItem.type;
+	local curTime = item.GetCoolDown(itemtype);
+	if curTime ~= 0 then
+		imcSound.PlaySoundEvent("skill_cooltime");
+		return;
+	end
+	
+	item.UseByGUID(invItem:GetIESID());
+end

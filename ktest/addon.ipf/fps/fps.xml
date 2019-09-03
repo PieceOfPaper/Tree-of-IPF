@@ -5,7 +5,7 @@
     <frame title="FPS" layout_gravity="center bottom" margin="-305 0 0 190"/>
     <draw drawtitlebar="false" drawframe="false"/>
     <input moveintitlebar="false" hittestframe="false"/>
-    <layer layerlevel="10"/>
+    <layer layerlevel="11"/>
     <option closebutton="false" hideable="false" visible="true" alwaysVisible="true"/>
     <controls>
         <timer name="memoryTimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>

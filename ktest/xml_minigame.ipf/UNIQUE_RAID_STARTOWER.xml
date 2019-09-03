@@ -96,7 +96,9 @@
             </Stage>
             <Stage Name="gate">
                 <ObjList>
-                    <Obj Type="Monster" MonType="150044" Pos="-895.01#1046.27#736.89" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="150044" Pos="-895.01#1046.27#736.89" genCount="1" genTime="20000" objectKey="0">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
                     <Obj Type="Monster" MonType="150044" Pos="-898.93#1017.15#535.71" angle="-90" genCount="1" genTime="20000" objectKey="1"/>
                     <Obj Type="Monster" MonType="150042" Pos="423.88#932.66#764.79" genCount="1" genTime="20000" objectKey="2"/>
                     <Obj Type="Monster" MonType="150042" Pos="732.38#1047.88#228.18" genCount="1" genTime="20000" objectKey="3"/>
@@ -317,13 +319,13 @@
             </Stage>
             <Stage Name="init" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="150023" Pos="-1323.73#957.32#649.80" angle="46" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; ">
-                        <SelfAI UpdateMS="5000" ActiveMessageMapInBattle="1">
+                    <Obj Type="Monster" MonType="150023" Pos="-1323.73#957.32#649.80" angle="46" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Dialog&apos; &apos;UNIQ_STARTTOWER_RAMUNASU_INIT_NPC1&apos; &apos;MaxDialog&apos; &apos;1&apos; ">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
                                     <AbsPos X="-1139.0184" Y="957.32031" Z="752.32861"/>
                                 </ToolScp>
-                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="UNIQ_STARTTOWER_RAMUNASU_INIT_NPC_AI_1"/>
                                 </ToolScp>
                             </List>
@@ -337,7 +339,7 @@
                                     <Num Num="1"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
-                                    <Num Num="5000"/>
+                                    <Num Num="3000"/>
                                 </ToolScp>
                                 <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
                                     <Str Str="UNIQ_STARTTOWER_RAMUNASU_INIT_NPC_BORN"/>
@@ -357,7 +359,7 @@
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="INIT_CHAT_1"/>
                                 <Str Str="OVER"/>
-                                <Num Num="6"/>
+                                <Num Num="7"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -393,42 +395,90 @@
                             </List>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150034" Pos="-199.09#999.52#1145.18" range="300" maxStackCount="1" genTime="60000" genReadyTime="10000" objectKey="1">
+                    <Obj Type="Monster" MonType="150034" Pos="-112.41#1000.22#1229.25" maxStackCount="1" genTime="30000" autoGen="0" objectKey="1">
                         <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle011_whtie_mash" Arg="1"/>
+                                    <Num Num="0.5"/>
+                                </ToolScp>
+                            </DeadList>
                             <StartList>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                                 <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
                                     <Num Num="30"/>
                                 </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle011_whtie_mash" Arg="10"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150034" Pos="-117.31#915.09#838.20" range="300" maxStackCount="1" genTime="60000" genReadyTime="10000" objectKey="2">
+                    <Obj Type="Monster" MonType="150034" Pos="-134.88#905.05#760.88" maxStackCount="1" genTime="30000" autoGen="0" objectKey="2">
                         <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle011_whtie_mash" Arg="1"/>
+                                    <Num Num="0.5"/>
+                                </ToolScp>
+                            </DeadList>
                             <StartList>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                                 <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
                                     <Num Num="30"/>
                                 </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle011_whtie_mash" Arg="10"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150034" Pos="-419.83#940.75#1633.86" range="300" maxStackCount="1" genTime="60000" genReadyTime="10000" objectKey="3">
+                    <Obj Type="Monster" MonType="150034" Pos="21.80#1000.26#1078.18" maxStackCount="1" genTime="30000" autoGen="0" objectKey="3">
                         <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle011_whtie_mash" Arg="1"/>
+                                    <Num Num="0.5"/>
+                                </ToolScp>
+                            </DeadList>
                             <StartList>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                                 <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
                                     <Num Num="30"/>
                                 </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle011_whtie_mash" Arg="10"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150034" Pos="-636.83#1048.49#933.91" range="300" maxStackCount="1" genTime="60000" genReadyTime="10000" objectKey="4">
+                    <Obj Type="Monster" MonType="150034" Pos="-254.48#999.43#1076.52" maxStackCount="1" genTime="30000" autoGen="0" objectKey="4">
                         <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle011_whtie_mash" Arg="1"/>
+                                    <Num Num="0.5"/>
+                                </ToolScp>
+                            </DeadList>
                             <StartList>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                                 <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
                                     <Num Num="30"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle011_whtie_mash" Arg="10"/>
+                                    <Str Str="BOT"/>
                                 </ToolScp>
                             </StartList>
                         </SelfAI>
@@ -755,9 +805,6 @@
                     </Event>
                     <Event eventName="Gether_Soul">
                         <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
-                            </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="stage1_1/1/stage1_1/2/stage1_1/3/stage1_1/4"/>
                                 <Num Num="0"/>
@@ -767,7 +814,7 @@
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="stage1_1/1/stage1_1/2/stage1_1/3/stage1_1/4"/>
                                 <Num Num="1"/>
-                                <Num Num="0"/>
+                                <Num Num="1"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -857,7 +904,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="150025" Pos="718.24#987.41#1411.21" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;100&apos; ">
+                    <Obj Type="Monster" MonType="150025" Pos="718.24#987.41#1411.21" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;150&apos; ">
                         <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -994,7 +1041,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="150026" Pos="946.24#987.41#736.35" maxStackCount="1" genTime="10000" autoGen="0" objectKey="0" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150026" Pos="535.83#987.41#861.46" maxStackCount="1" genTime="10000" autoGen="0" objectKey="0" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1013,7 +1060,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150027" Pos="767.07#987.41#1311.88" maxStackCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150027" Pos="970.21#987.41#748.23" maxStackCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1032,7 +1079,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150028" Pos="889.12#987.41#1549.22" maxStackCount="1" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150028" Pos="1008.38#987.41#859.68" maxStackCount="1" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1051,7 +1098,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150029" Pos="829.93#987.41#1482.58" maxStackCount="1" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150029" Pos="801.16#987.41#641.04" maxStackCount="1" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1070,7 +1117,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150030" Pos="1028.49#987.41#902.08" maxStackCount="1" genTime="20000" autoGen="0" objectKey="4" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150030" Pos="597.22#987.41#878.79" maxStackCount="1" genTime="20000" autoGen="0" objectKey="4" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1089,7 +1136,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59198" Pos="812.61#987.41#872.14" range="70" maxStackCount="5" genTime="5000" objectKey="5" tendency="1">
+                    <Obj Type="Monster" MonType="59198" Pos="831.55#987.41#894.56" range="70" maxStackCount="5" genTime="5000" objectKey="5" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
@@ -1103,7 +1150,7 @@
                             </DeadList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59198" Pos="694.58#987.41#1028.36" range="70" maxStackCount="5" genTime="10000" objectKey="6" tendency="1">
+                    <Obj Type="Monster" MonType="59198" Pos="682.98#987.41#1002.26" range="70" maxStackCount="5" genTime="10000" objectKey="6" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
@@ -1117,7 +1164,7 @@
                             </DeadList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59198" Pos="1053.13#987.41#886.33" range="70" maxStackCount="5" genTime="10000" objectKey="7" tendency="1">
+                    <Obj Type="Monster" MonType="59198" Pos="1031.94#987.41#865.88" range="70" maxStackCount="5" genTime="10000" objectKey="7" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
@@ -1159,7 +1206,7 @@
                             </DeadList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150026" Pos="705.85#987.41#1183.32" maxStackCount="1" genTime="10000" autoGen="0" objectKey="10" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150026" Pos="780.88#987.41#704.21" maxStackCount="1" genTime="10000" autoGen="0" objectKey="10" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1178,7 +1225,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150026" Pos="506.44#987.41#938.12" maxStackCount="1" genTime="10000" autoGen="0" objectKey="11" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150026" Pos="943.03#987.41#912.67" maxStackCount="1" genTime="10000" autoGen="0" objectKey="11" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1197,7 +1244,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150026" Pos="557.95#987.64#1363.40" maxStackCount="1" genTime="10000" autoGen="0" objectKey="12" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150026" Pos="897.37#987.41#777.16" maxStackCount="1" genTime="10000" autoGen="0" objectKey="12" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1216,7 +1263,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150030" Pos="850.50#987.41#1056.11" maxStackCount="1" genTime="20000" autoGen="0" objectKey="13" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150030" Pos="709.40#987.41#693.07" maxStackCount="1" genTime="20000" autoGen="0" objectKey="13" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1235,7 +1282,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150030" Pos="708.16#987.41#1524.14" maxStackCount="1" genTime="20000" autoGen="0" objectKey="14" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150030" Pos="753.73#987.41#1045.22" maxStackCount="1" genTime="20000" autoGen="0" objectKey="14" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1254,7 +1301,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150030" Pos="774.79#987.41#618.87" maxStackCount="1" genTime="20000" autoGen="0" objectKey="15" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150030" Pos="912.81#987.41#712.37" maxStackCount="1" genTime="20000" autoGen="0" objectKey="15" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1273,7 +1320,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150027" Pos="645.53#987.41#1021.37" maxStackCount="1" genTime="20000" autoGen="0" objectKey="16" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150027" Pos="1007.75#987.41#912.21" maxStackCount="1" genTime="20000" autoGen="0" objectKey="16" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1292,7 +1339,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150027" Pos="584.93#987.41#918.81" maxStackCount="1" genTime="20000" autoGen="0" objectKey="17" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150027" Pos="858.25#987.41#983.56" maxStackCount="1" genTime="20000" autoGen="0" objectKey="17" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1311,7 +1358,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150027" Pos="931.24#987.41#897.44" maxStackCount="1" genTime="20000" autoGen="0" objectKey="18" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150027" Pos="645.67#987.41#959.26" maxStackCount="1" genTime="20000" autoGen="0" objectKey="18" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1330,7 +1377,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150028" Pos="503.53#987.41#884.62" maxStackCount="1" genTime="20000" autoGen="0" objectKey="19" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150028" Pos="654.27#987.41#812.79" maxStackCount="1" genTime="20000" autoGen="0" objectKey="19" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1349,7 +1396,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150028" Pos="1053.04#987.41#844.84" maxStackCount="1" genTime="20000" autoGen="0" objectKey="20" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150028" Pos="794.33#987.41#977.58" maxStackCount="1" genTime="20000" autoGen="0" objectKey="20" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1368,7 +1415,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150028" Pos="770.56#987.41#1065.13" maxStackCount="1" genTime="20000" autoGen="0" objectKey="21" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150028" Pos="629.15#987.41#1010.55" maxStackCount="1" genTime="20000" autoGen="0" objectKey="21" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1387,7 +1434,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150029" Pos="778.54#987.41#707.03" maxStackCount="1" genTime="20000" autoGen="0" objectKey="22" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150029" Pos="580.56#987.41#944.21" maxStackCount="1" genTime="20000" autoGen="0" objectKey="22" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1406,7 +1453,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150029" Pos="789.97#987.41#892.39" maxStackCount="1" genTime="20000" autoGen="0" objectKey="23" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150029" Pos="818.58#987.41#1053.54" maxStackCount="1" genTime="20000" autoGen="0" objectKey="23" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1425,7 +1472,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150029" Pos="991.33#987.41#1387.12" maxStackCount="1" genTime="20000" autoGen="0" objectKey="24" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                    <Obj Type="Monster" MonType="150029" Pos="658.90#987.41#871.10" maxStackCount="1" genTime="20000" autoGen="0" objectKey="24" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_2_BALL_NPC&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1444,6 +1491,8 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
+                    <Obj Type="Monster" MonType="59198" Pos="650.42#987.41#758.03" range="70" maxStackCount="5" genTime="5000" objectKey="25" tendency="1"/>
+                    <Obj Type="Monster" MonType="59198" Pos="863.43#987.41#690.18" range="70" maxStackCount="5" genTime="5000" objectKey="26" tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="Next">
@@ -1526,7 +1575,7 @@
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
+                                <Num Num="5"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -1550,7 +1599,7 @@
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
+                                <Num Num="5"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -1574,7 +1623,7 @@
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
+                                <Num Num="5"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -1598,7 +1647,7 @@
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
+                                <Num Num="5"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -1622,7 +1671,7 @@
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
+                                <Num Num="5"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -1637,11 +1686,11 @@
                     <Event eventName="monGen">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="15"/>
+                                <Num Num="5"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="stage2_2/8/stage2_2/9"/>
-                                <Num Num="8"/>
+                                <Num Num="6"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="STAGE_2_ON"/>
@@ -1831,7 +1880,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150040" Pos="152.75#979.73#-845.62" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;100&apos; ">
+                    <Obj Type="Monster" MonType="150040" Pos="152.75#979.73#-845.62" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;150&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1846,7 +1895,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150041" Pos="1291.10#981.17#-845.48" genCount="1" genTime="20000" objectKey="2" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;100&apos; ">
+                    <Obj Type="Monster" MonType="150041" Pos="1291.10#981.17#-845.48" genCount="1" genTime="20000" objectKey="2" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;150&apos; ">
                         <SelfAI UpdateMS="2000" ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1861,7 +1910,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150023" Pos="688.57#972.72#-915.29" angle="-2" genCount="1" genTime="20000" objectKey="3" autoDestroy="0" propList="&apos;HPCount&apos; &apos;50&apos; &apos;Faction&apos; &apos;Our_Forces&apos; ">
+                    <Obj Type="Monster" MonType="150023" Pos="688.57#972.72#-915.29" angle="-2" genCount="1" genTime="20000" objectKey="3" autoDestroy="0" propList="&apos;HPCount&apos; &apos;100&apos; &apos;Faction&apos; &apos;Our_Forces&apos; ">
                         <SelfAI UpdateMS="3000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
@@ -1974,146 +2023,182 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="59204" Pos="130.73#973.21#-959.73" range="200" genCount="1" maxStackCount="5" genTime="1000" autoGen="0" objectKey="0" tendency="1">
+                    <Obj Type="Monster" MonType="59204" Pos="130.73#973.21#-959.73" range="200" genCount="1" maxStackCount="5" genTime="1000" autoGen="0" objectKey="0" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="1200"/>
                                 </ToolScp>
                             </List>
                             <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59197" Pos="1452.81#975.34#-843.61" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="1" tendency="1">
+                    <Obj Type="Monster" MonType="59197" Pos="1452.81#975.34#-843.61" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="1" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="1200"/>
                                 </ToolScp>
                             </List>
                             <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59199" Pos="748.30#972.50#-850.75" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="2" tendency="1">
+                    <Obj Type="Monster" MonType="59199" Pos="748.30#972.50#-850.75" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="2" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="1200"/>
                                 </ToolScp>
                             </List>
                             <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59202" Pos="136.12#973.21#-716.29" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="3" tendency="1">
+                    <Obj Type="Monster" MonType="59202" Pos="136.12#973.21#-716.29" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="3" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="1200"/>
                                 </ToolScp>
                             </List>
                             <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59205" Pos="1292.26#973.22#-716.36" range="200" genCount="1" maxStackCount="5" genTime="1000" autoGen="0" objectKey="4" tendency="1">
+                    <Obj Type="Monster" MonType="59205" Pos="1292.26#973.22#-716.36" range="200" genCount="1" maxStackCount="5" genTime="1000" autoGen="0" objectKey="4" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="1200"/>
                                 </ToolScp>
                             </List>
                             <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59203" Pos="589.02#973.05#-863.33" angle="-105" range="200" maxStackCount="5" genTime="10000" genReadyTime="60000" objectKey="5" tendency="1">
+                    <Obj Type="Monster" MonType="59203" Pos="589.02#973.05#-863.33" angle="-105" range="200" maxStackCount="5" genTime="10000" genReadyTime="60000" objectKey="5" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="1200"/>
                                 </ToolScp>
                             </List>
                             <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59199" Pos="4.75#973.21#-996.94" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="6" tendency="1">
+                    <Obj Type="Monster" MonType="59199" Pos="4.75#973.21#-996.94" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="6" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="1200"/>
                                 </ToolScp>
                             </List>
                             <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59202" Pos="852.41#972.20#-835.52" range="200" genCount="1" maxStackCount="5" genTime="1000" objectKey="7" tendency="1">
+                    <Obj Type="Monster" MonType="59202" Pos="852.41#972.20#-835.52" range="200" genCount="1" maxStackCount="5" genTime="1000" objectKey="7" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="1200"/>
                                 </ToolScp>
                             </List>
                             <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59199" Pos="1284.52#973.21#-1035.81" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="8" tendency="1">
+                    <Obj Type="Monster" MonType="59199" Pos="1284.52#973.21#-1035.81" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="8" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="1200"/>
                                 </ToolScp>
                             </List>
                             <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59205" Pos="716.57#972.98#-680.47" range="200" genCount="1" maxStackCount="5" genTime="1000" autoGen="0" objectKey="9" tendency="1">
+                    <Obj Type="Monster" MonType="59205" Pos="716.57#972.98#-680.47" range="200" genCount="1" maxStackCount="5" genTime="1000" autoGen="0" objectKey="9" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="1200"/>
                                 </ToolScp>
                             </List>
                             <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59197" Pos="-12.73#979.01#-814.55" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="10" tendency="1">
+                    <Obj Type="Monster" MonType="59197" Pos="-12.73#979.01#-814.55" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="10" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="1200"/>
                                 </ToolScp>
                             </List>
                             <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59203" Pos="1394.45#971.93#-968.84" angle="-105" range="200" maxStackCount="5" genTime="10000" autoGen="0" genReadyTime="60000" objectKey="11" tendency="1">
+                    <Obj Type="Monster" MonType="59203" Pos="1394.45#971.93#-968.84" angle="-105" range="200" maxStackCount="5" genTime="10000" autoGen="0" genReadyTime="60000" objectKey="11" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                                     <Num Num="1200"/>
                                 </ToolScp>
                             </List>
                             <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
                                 <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                             </StartList>
                         </SelfAI>
@@ -2125,7 +2210,7 @@
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="STAGE_4_CNT"/>
                                 <Str Str="OVER"/>
-                                <Num Num="600"/>
+                                <Num Num="300"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -2169,7 +2254,7 @@
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="stage4_2/0/stage4_2/3/stage4_2/6/stage4_2/10"/>
-                                <Num Num="5"/>
+                                <Num Num="2"/>
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
@@ -2210,7 +2295,7 @@
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="stage4_2/1/stage4_2/4/stage4_2/8/stage4_2/11"/>
-                                <Num Num="5"/>
+                                <Num Num="2"/>
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
@@ -2247,7 +2332,7 @@
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="stage4_2/2/stage4_2/5/stage4_2/7/stage4_2/9"/>
-                                <Num Num="5"/>
+                                <Num Num="2"/>
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
@@ -2284,7 +2369,7 @@
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="stage4_2/3/stage4_2/11/stage4_2/10/stage4_2/8"/>
-                                <Num Num="4"/>
+                                <Num Num="2"/>
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">

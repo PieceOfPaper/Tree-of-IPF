@@ -236,7 +236,6 @@ function ON_COMMIT_COLONY_TAX_RATE(parent, ctrl)
 	if rate == nil then
 		return;
 	end
-	
 	session.colonytax.ReqTaxRateSet(cityMapID, rate);
 end
 -------------------

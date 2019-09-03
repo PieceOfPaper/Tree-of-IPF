@@ -80,7 +80,8 @@ local MARKET_ITEM_COUNT_PER_PAGE = {
 	Accessory = 7,	
 	HairAcc = 7,
 	RecipeMaterial = 7,
-	Recipe_Detail = 3,
+	Recipe_Detail = 3,    
+    OPTMisc = 7,    
 	Default = 11
 };
 

@@ -1,15 +1,19 @@
-
+-- colont reward board
 function COLONY_REWARD_BOARD_ON_INIT(addon, frame)
 	addon:RegisterMsg("SUCCESS_SECOND_LEAGUE_COLONY_REWARD", "ON_SUCCESS_REWARD_ITEM");
 	addon:RegisterMsg("UPDATE_COLONY_REWARD_DEATIL_LIST", "ON_UPDATE_REWARD_DETAIL_ITEM");
 	addon:RegisterMsg("START_SECOND_LEAGUE_COLONY_REWARD", "ON_SECOND_LEAGUE_START");
 end
 
+function COLONY_REWARD_BOARD_REQINFO()
+	session.colonyReward.LoadRewardItemDate();
+    session.colonyReward.ReqTaxInquireList();
+end
+
 function ON_SECOND_LEAGUE_START(frame)
 	if frame == nil then return; end
 	local reward_list_gb = GET_CHILD_RECURSIVELY(frame, "reward_list_gb");
 	local rewardInfoCount = session.colonyReward.GetSizeChallengersRewardList();
-	print("RECV_ADDON_MSG[START_SECOND_LEAGUE_COLONY_REWARD] / RewardInfoCount : "..RewardInfoCount);
 	if reward_list_gb ~= nil and rewardInfoCount ~= nil and rewardInfoCount > 0 then
 		REWARD_LIST_CLEAR(reward_list_gb);
 		CREATE_COLONY_REWARD_LIST(reward_list_gb);
@@ -27,11 +31,6 @@ function ON_OPEN_COLONY_REWARD_BOARD(frame)
 	local rewardDetailMsg = ScpArgMsg("ColonyLeague_2nd_Reward_Detail{RewardLoadDelay}{RewardReceiveTime}", "RewardLoadDelay", (COLONY_TAX_DISTRIBUTE_DELAY_MIN/60), "RewardReceiveTime", (COLONY_TAX_DISTRIBUTE_PERIOD_MIN/1440));
 	rewardwarning_text:SetTextByKey("value", rewardDetailMsg);
 
-	session.colonytax.ReqTaxChequeList();
-	session.colonyReward.LoadRewardItemDate();
-	session.colonyReward.ReqChallengersList();
-	session.colonyReward.ReqTaxInquireList();
-	
 	local reward_list_gb = GET_CHILD_RECURSIVELY(frame, "reward_list_gb");
 	local rewardInfoCount = session.colonyReward.GetSizeChallengersRewardList();
 	if reward_list_gb ~= nil and rewardInfoCount ~= nil and rewardInfoCount > 0 then
@@ -47,6 +46,7 @@ function REWARD_LIST_CLEAR(listgb)
 	if count ~= nil and count > 0 then
 		listgb:RemoveAllChild();
 	end
+	listgb:Invalidate();
 end
 
 function GET_SEONCDLEAGUE_REWARD_LIST()
@@ -109,6 +109,7 @@ function CREATE_COLONY_REWARD_LIST(listgb)
 			end
 		end
 	end
+	listgb:Invalidate();
 end
 
 function FILL_COLONY_REWARD_ELEM(ctrlset, rewardInfo)
@@ -136,10 +137,10 @@ function FILL_COLONY_REWARD_ELEM(ctrlset, rewardInfo)
 			
 			local rewardItemInfo = session.colonyReward.GetRwardInfo(colonyMapID, i);
 			if deatilCtrlSet ~= nil and rewardItemInfo ~= nil then
-				local paymentTime = rewardItemInfo:GetStartTime();
-				paymentdate_text:SetTextByKey("year", paymentTime.wYear);
-				paymentdate_text:SetTextByKey("month", paymentTime.wMonth);
-				paymentdate_text:SetTextByKey("day", paymentTime.wDay);
+				local time = rewardItemInfo:GetStartTime();
+				paymentdate_text:SetTextByKey("year", time.wYear);
+				paymentdate_text:SetTextByKey("month", time.wMonth);
+				paymentdate_text:SetTextByKey("day", time.wDay);
 
 				if rewardItemInfo:IsExpire() == false and session.colonyReward.IsRewardState(colonyMapID) == false then
 					AUTO_CAST(deatilCtrlSet);

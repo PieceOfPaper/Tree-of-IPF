@@ -6,8 +6,24 @@ function BGMPLAYER_ON_INIT(addon, frame)
     LoadFavoritesBgmList();
     if IsBgmPlayerBasicFrameVisible() == 1 then
         BGMPLAYER_OPEN_UI();
+        BGMPLAYER_FRAME_SET_POS(frame);
         if IsBeingPlayedFromBgmPlayer() == 1 then
             BGMPLAYER_UPDATE_PLAY_TIEM(frame);
+        end
+    end
+end
+
+function BGMPLAYER_FRAME_SET_POS(frame)
+    if frame ~= nil then
+        local x, y = 0, 0;
+        if frame:GetName() == "bgmplayer" then
+            x, y = GetBgmPlayerMoveFrmaePos(0);
+        elseif frame:GetName() == "bgmplayer_reduction" then
+            x, y = GetBgmPlayerMoveFrmaePos(1);
+        end
+        
+        if x ~= 0 and y ~= 0 then
+            frame:MoveFrame(x, y);
         end
     end
 end
@@ -1133,6 +1149,19 @@ function BGMPLAYER_PLAY_NEXT_BGM(frame, btn)
             end
         end
     end
+end
+
+function BGMPLAYER_DOUBLECLICK_PLAY_BGM(ctrlset)
+    if ctrlset == nil then return; end
+
+    local frame = ctrlset:GetTopParentFrame();
+    if frame == nil then return; end
+
+    local btn = GET_CHILD_RECURSIVELY(frame, "playStart_btn");
+    if btn == nil then return; end
+
+    BGMPLAYER_SINGULAR_SELECTION_LISTINDEX(ctrlset);
+    BGMPLAYER_PLAY(frame, btn)
 end
 
 function BGMPLAYER_PLAY_RANDOM_BGM(frame, btn)
