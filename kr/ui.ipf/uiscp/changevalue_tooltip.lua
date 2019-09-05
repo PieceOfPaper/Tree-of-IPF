@@ -207,6 +207,11 @@ function ITEM_TOOLTIP_SOCKETCHANGEVALUE(frame, invItem, socketItem, strarg)
 				CREATE_SOCKETCHANGEVALUE_TEXT(GroupCtrl, newtxt);
 			end
 
+            if socketItem.SkillWidthRange ~= 0 then
+				local newtxt = string.format("{#050505}{s18}{b}%s", ScpArgMsg("SkillWidthRange").." +"..socketItem.SkillWidthRange);
+				CREATE_SOCKETCHANGEVALUE_TEXT(GroupCtrl, newtxt);
+			end
+
 			if socketItem.SkillAngle ~= 0 then
 				local newtxt = string.format("{#050505}{s18}{b}%s", ScpArgMsg("SkillAngle").." +"..socketItem.SkillAngle);
 				CREATE_SOCKETCHANGEVALUE_TEXT(GroupCtrl, newtxt);

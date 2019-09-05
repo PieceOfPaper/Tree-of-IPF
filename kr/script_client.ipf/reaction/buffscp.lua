@@ -1120,22 +1120,23 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
     local AssaultFire = actor:GetBuff():GetBuff('AssaultFire_Buff');
     local Outrage = actor:GetBuff():GetBuff('Outrage_Buff');
     
-    -- RunningShot_Buff (and) DoubleGunStance_Buff
-    if buffSwiftStep ~= nil and buffDoubleGunStance ~= nil and Outrage == nil then
-        actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_Sword");
-        actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
-        actor:SetAlwaysBattleState(true);
-        actor:SetMovingShotAnimation("DOUBLEGUN_ATKRUN");
+    -- RunningShot_Buff (and) DoubleGunStance_Buff(스위프트 스텝과 더블건스탠스 무빙샷이속 동시적용 안되게 수정함)
+--     if buffSwiftStep ~= nil and buffDoubleGunStance ~= nil and Outrage == nil then
+--         actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_Sword");
+--         actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
+--         actor:SetAlwaysBattleState(true);
+--         actor:SetMovingShotAnimation("DOUBLEGUN_ATKRUN");
         
-        actor:GetAnimation():SetTURNAnim("SKL_DOUBLEGUN_ATURN");
-        actor:GetAnimation():SetSTDAnim("SKL_DOUBLEGUN_ASTD");
-        actor:GetAnimation():SetRUNAnim("SKL_DOUBLEGUN_ARUN");
-        actor:GetAnimation():SetLANDAnim("SKL_DOUBLEGUN_LAND")
-        actor:GetAnimation():SetRAISEAnim("SKL_DOUBLEGUN_RAISE")
---        actor:GetAnimation():SetOnAIRAnim("SKL_DOUBLEGUN_AONAIR")
-        actor:GetAnimation():SetFALLAnim("SKL_DOUBLEGUN_FALL")
+--         actor:GetAnimation():SetTURNAnim("SKL_DOUBLEGUN_ATURN");
+--         actor:GetAnimation():SetSTDAnim("SKL_DOUBLEGUN_ASTD");
+--         actor:GetAnimation():SetRUNAnim("SKL_DOUBLEGUN_ARUN");
+--         actor:GetAnimation():SetLANDAnim("SKL_DOUBLEGUN_LAND")
+--         actor:GetAnimation():SetRAISEAnim("SKL_DOUBLEGUN_RAISE")
+-- --        actor:GetAnimation():SetOnAIRAnim("SKL_DOUBLEGUN_AONAIR")
+--         actor:GetAnimation():SetFALLAnim("SKL_DOUBLEGUN_FALL")
     -- Outrage_Buff
-    elseif Outrage ~= nil and buffDoubleGunStance ~= nil then
+    -- elseif Outrage ~= nil and buffDoubleGunStance ~= nil then
+    if Outrage ~= nil and buffDoubleGunStance ~= nil then
         actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_Sword");
         actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
         actor:SetAlwaysBattleState(true);

@@ -26,6 +26,7 @@
 		<slot name="matslot_2" parent="mat_2_gb" rect="0 0 141 141" margin="0 0 0 0" layout_gravity="center top" draw="false" DropScp="HIDDENABILITY_MAKE_ITEM_DROP" DropArgNum="2" PopScp="HIDDENABILITY_MAKE_ITEM_POP" PopArgNum="2"  dropsound="icon_get_down"/>
 		<richtext name="matslot_2_count" parent="matslot_2" rect="0 0 200 50" margin="0 0 0 5" layout_gravity="right bottom" format="%s%s/%s" param1="style" param1_def="{@st42}{s18}" param2="cur" param2_def="0" param3="need" param3_def="0"/>
 		<richtext name="matslot_2_text" parent="mat_2_gb" rect="0 0 120 24" margin="0 158 0 0" layout_gravity="center top" caption="{@st41b}{s18}여신의 축복석" fixwidth="false" textalign="center center"/>
+		<picture name="matslot_2_pic" parent="mat_2_gb" rect="0 0 131 132" margin="0 0 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="trasuremapmark" stretch="true" draw="false"/>
 		<!-- center ui -->
 		<groupbox name="issuccess_gb" rect="0 0 400 150" margin="0 470 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
 		<picture name="issuccess_bg" parent="issuccess_gb" rect="0 0 400 120" margin="0 0 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="BnYellow_skin" stretch="true" draw="false"/>

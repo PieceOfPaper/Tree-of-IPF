@@ -857,6 +857,50 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
 
     -- map
     local posBox = GET_CHILD_RECURSIVELY(frame, 'posBox');
+    local monBox = GET_CHILD_RECURSIVELY(frame, 'monBox');
+    local rewardBox = GET_CHILD_RECURSIVELY(frame, 'rewardBox');
+    local resizeHeight = tonumber(frame:GetUserConfig('HEIGHT_RESIZE_FOR_BUTTON'));
+    local originHeight = tonumber(frame:GetUserConfig('POSBOX_ORIGIN_HEIGHT'));
+    local mon_origin_top = tonumber(frame:GetUserConfig('MON_ORIGIN_TOP'));
+    local reward_origin_top = tonumber(frame:GetUserConfig('REWARD_ORIGIN_TOP'));
+    local moveBox = GET_CHILD_RECURSIVELY(frame, 'moveBox');
+
+    if TryGetProp(indunCls, 'DungeonType') == 'UniqueRaid' then
+        if posBox:GetHeight() == originHeight then
+            posBox:Resize(posBox:GetWidth(), posBox:GetHeight() - resizeHeight);
+        end
+        local mon_margin = monBox:GetMargin();
+        
+        if mon_margin.top == mon_origin_top then
+            monBox:SetMargin(mon_margin.left, mon_margin.top - resizeHeight, mon_margin.right, mon_margin.bottom);
+        end
+        local reward_margin = rewardBox:GetMargin();
+        
+        if reward_margin.top == reward_origin_top then
+            rewardBox:SetMargin(reward_margin.left, reward_margin.top - resizeHeight, reward_margin.right, reward_margin.bottom);
+        end
+
+        moveBox:ShowWindow(1);
+        local moveBtn = GET_CHILD_RECURSIVELY(moveBox, 'moveBtn');
+        moveBtn:SetUserValue('MOVE_INDUN_CLASSID', indunCls.ClassID);
+    else
+        if posBox:GetHeight() ~= originHeight then
+            posBox:Resize(posBox:GetWidth(), originHeight);
+        end
+
+        local mon_margin = monBox:GetMargin();
+        if mon_margin.top ~= mon_origin_top then
+            monBox:SetMargin(mon_margin.left, mon_origin_top, mon_margin.right, mon_margin.bottom);
+        end
+
+        local reward_margin = rewardBox:GetMargin();
+        if reward_margin.top ~= reward_origin_top then
+            rewardBox:SetMargin(reward_margin.left, reward_origin_top, reward_margin.right, reward_margin.bottom);
+        end
+
+        moveBox:ShowWindow(0);
+    end
+
     DESTROY_CHILD_BYNAME(posBox, 'MAP_CTRL_');
     local mapList = StringSplit(indunCls.StartMap, '/');
     for i = 1, #mapList do
@@ -952,4 +996,31 @@ end
 function INDUN_CANNOT_YET(msg)
     ui.SysMsg(ScpArgMsg(msg));
     ui.OpenFrame("induninfo");
+end
+
+function INDUNINFO_MOVE_TO_ENTER_NPC(frame, ctrl)
+    local pc = GetMyPCObject();
+    
+    -- 매칭 던전중이거나 pvp존이면 이용 불가
+    if session.world.IsIntegrateServer() == true or IsPVPField(pc) == 1 or IsPVPServer(pc) == 1 then
+        ui.SysMsg(ScpArgMsg('ThisLocalUseNot'));
+        return;
+    end
+
+    -- 퀘스트나 챌린지 모드로 인해 레이어 변경되면 이용 불가
+    if world.GetLayer() ~= 0 then
+        ui.SysMsg(ScpArgMsg('ThisLocalUseNot'));
+        return;
+    end
+
+    -- 프리던전 맵에서 이용 불가
+    local curMap = GetClass('Map', session.GetMapName());
+    local mapType = TryGetProp(curMap, 'MapType');
+    if mapType == 'Dungeon' then
+        ui.SysMsg(ScpArgMsg('ThisLocalUseNot'));
+        return;
+    end
+
+    local indunClsID = ctrl:GetUserValue('MOVE_INDUN_CLASSID');
+    control.CustomCommand('MOVE_TO_ENTER_NPC', indunClsID, 0, 0);
 end

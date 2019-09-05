@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="ID_NNICOPOLIS_RAID_MINI_SOLO" minLv="0" maxLv="0" mapName="id_Nicopolis_01" playerCountCheckDestroy="1" startWaitSec="-1">
+        <StageList>
+            <Stage Name="START">
+                <ObjList>
+                    <Obj Type="Monster" MonType="147455" Pos="1065.14#36.22#-1605.34" genCount="1" genTime="20000" objectKey="0"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="stageTimer">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="5초 후 시작합니다"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="start">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="START/0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="시작!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="stage open">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="START/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Log">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP_MAIN" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_Unique_Raid_Nicopolis_ENTER_AFTER_LOG"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="STAGE_1" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="161012" Pos="743.65#102.01#-1656.19" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="161012" Pos="612.74#102.01#-1803.27" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="161012" Pos="446.46#102.01#-1534.66" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="161012" Pos="640.39#102.01#-1480.28" genCount="1" genTime="20000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="161012" Pos="430.92#102.01#-1727.67" genCount="1" genTime="20000" objectKey="4"/>
+                    <Obj Type="Monster" MonType="161013" Pos="284.90#102.01#-1660.88" genCount="1" genTime="20000" objectKey="5" propList="&apos;Dialog&apos; &apos;UNIQUE_RAID_NICOPOLIS_STAGE_01_DOOR_DOTIMEACTION&apos; "/>
+                    <Obj Type="Monster" MonType="59164" Pos="386.82#102.01#-1705.20" genCount="1" genTime="20000" objectKey="6" propList="&apos;StatType&apos; &apos;UniqueRaid_Middle_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="12082" Pos="812.55#102.01#-1608.05" genCount="1" genTime="20000" objectKey="7" propList="&apos;Range&apos; &apos;120&apos; &apos;Enter&apos; &apos;UNIQUE_RAID_NICOPOLIS_STAGE01&apos; "/>
+                    <Obj Type="Monster" MonType="12082" Pos="284.58#102.01#-1660.31" genCount="1" genTime="20000" objectKey="8" propList="&apos;Range&apos; &apos;300&apos; &apos;Enter&apos; &apos;UNIQUE_RAID_NICOPOLIS_STAGE01_02&apos; "/>
+                    <Obj Type="Monster" MonType="59164" Pos="399.62#102.01#-1634.89" genCount="1" genTime="20000" objectKey="9" propList="&apos;StatType&apos; &apos;UniqueRaid_Middle_Solo&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Mvalue">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_nicopolis_MVAL"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="stage open">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="STAGE_1/5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="SET_MON">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="STAGE_1/6/STAGE_1/9"/>
+                                <Str Str="SCR_VINE_WALKER_MAKE_LINK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="STAGE_2" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="161014" Pos="-214.46#21.81#-1625.56" angle="-30" genCount="1" genTime="20000" objectKey="0" propList="&apos;Range&apos; &apos;80&apos; &apos;Enter&apos; &apos;UNIQUE_RAID_NICOPOLIS_STAGE02&apos; "/>
+                    <Obj Type="Monster" MonType="161015" Pos="-592.54#165.27#-1587.56" angle="-85" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="161016" Pos="-597.32#207.69#-1510.13" genCount="1" genTime="20000" objectKey="2"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="stage open">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="STAGE_2/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Mval">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_nicopolis_MVAL"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="STAGE_3" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="59167" Pos="-1133.21#207.69#-980.43" genCount="1" genTime="20000" objectKey="0" propList="&apos;Enter&apos; &apos;UNIQUE_RAID_NICOPOLIS_STAGE03&apos; &apos;Range&apos; &apos;300&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="161013" Pos="-1231.11#209.79#-815.15" angle="-95" genCount="1" genTime="20000" objectKey="1" propList="&apos;Dialog&apos; &apos;UNIQUE_RAID_NICOPOLIS_STAGE_01_DOOR_DOTIMEACTION&apos; "/>
+                    <Obj Type="Monster" MonType="59167" Pos="-1084.42#211.18#-1182.98" genCount="1" genTime="20000" objectKey="2" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="59167" Pos="-920.46#207.69#-1335.14" genCount="1" genTime="20000" objectKey="4" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="59167" Pos="-760.50#210.48#-1288.53" genCount="1" genTime="20000" objectKey="6" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="59167" Pos="-910.50#207.69#-1068.09" genCount="1" genTime="20000" objectKey="7" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="stage open">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="STAGE_3/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_4"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Mval">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO" CondFunc="">
+                                <Str Str="Unique_Raid_nicopolis_MVAL"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="stage clear" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="STAGE_3/0/STAGE_3/2/STAGE_3/4/STAGE_3/6/STAGE_3/7"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_Unique_Raid_Nicopolis_STAGE_03_KEY"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="STAGE_4" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="161017" Pos="-1227.37#35.85#187.54" angle="-2" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="161018" Pos="-1251.72#0.65#-173.93" genCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59171" Pos="-1237.23#1.02#58.30" angle="-90" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" propList="&apos;StatType&apos; &apos; UniqueRaid_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="161020" Pos="-1229.35#35.85#151.67" angle="-2" genCount="1" genTime="20000" objectKey="3" propList="&apos;Range&apos; &apos;60&apos; &apos;Enter&apos; &apos;UNIQUE_RAID_NICOPOLIS_STAGE04&apos; "/>
+                    <Obj Type="Monster" MonType="161018" Pos="-1153.29#0.96#-172.21" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="161018" Pos="-1356.97#0.67#-175.46" genCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="stage open">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="STAGE_4/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="STAGE_4/0/STAGE_4/3/STAGE_4/4/STAGE_4/2/STAGE_4/5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Mval">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_nicopolis_MVAL"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="STAGE_5" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="59174" Pos="-1222.08#112.22#624.82" genCount="1" genTime="20000" objectKey="0" propList="&apos;StatType&apos; &apos;UniqueRaid_Middle_Solo&apos; "/>
+                    <Obj Type="Monster" MonType="12082" Pos="-1223.31#106.12#352.71" genCount="1" genTime="20000" objectKey="1" propList="&apos;Range&apos; &apos;80&apos; &apos;Enter&apos; &apos;UNIQUE_RAID_NICOPOLIS_STAGE05&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="stage open">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="STAGE_5/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="BOSS"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Mval">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_nicopolis_MVAL"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="BOSS" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="59312" Pos="327.24#288.10#-36.50" angle="-90" genCount="1" genTime="20000" objectKey="0"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="TAKE_ITEM">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="BOSS/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_UNIQUE_RAID_NICOPOLIS_STAGE_TAKE_ITEM"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                                <Str Str="UniqueRaid: ID_NNICOPOLIS_RAID_MINI"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="OPEN_END">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="BOSS/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="END"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Mval">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_nicopolis_MVAL"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="END" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="Casual_Indun_Nicopolis_uniqe_raid"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="END_10Sec_msg">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="10초 후 던전이 종료됩니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="END">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

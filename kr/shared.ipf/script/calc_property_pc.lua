@@ -3001,10 +3001,10 @@ function SCR_Get_SkillRange(self)
         byAbil = byAbil + abilProp;
     end
     
-    local value = byItem + byBuff + byAbil;
+    local value = byItem + byBuff + byAbil;    
     return value;
 end
-    
+
 function SCR_Get_SkillWidthRange(self)    
     local byItem = GetSumOfEquipItem(self, 'SkillWidthRange');
     

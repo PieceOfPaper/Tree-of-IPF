@@ -93,6 +93,15 @@
 							<Num Num="100" />
 							<Num Num="0" />
 						</Scp>
+                        <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                            <Str Str="Pass_Debuff" />
+                            <Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
+                            <Num Num="0" />
+                            <Num Num="40000" />
+                            <Num Num="1" />
+                            <Num Num="100" />
+                            <Num Num="0" />
+                        </Scp>
 						<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="2" Str="F_wizard_Pass_ground" />
 							<Str Str="None" />

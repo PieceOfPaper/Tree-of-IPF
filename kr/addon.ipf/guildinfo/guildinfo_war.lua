@@ -2,6 +2,9 @@ function GUILDINFO_WAR_INIT(parent, warBox)
     GUILDINFO_WAR_INIT_CHECKBOX(parent);
     GUILDINFO_WAR_INIT_LIST(parent);
     ui.CloseFrame('guild_authority_popup');
+
+    -- colony reward board req
+    COLONY_REWARD_BOARD_REQINFO();
 end
 
 function ON_GUILD_SET_NEUTRALITY(parent, checkBox)

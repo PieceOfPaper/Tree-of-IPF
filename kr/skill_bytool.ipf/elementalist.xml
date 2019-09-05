@@ -608,7 +608,7 @@
 					<Str Str="voice_wiz_meteor_shot"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="750" UseSleep="NO">
-					<Num FuncTxt="local intensity = 6 if obj.Level == 5 then intensity = 10 elseif obj.Level == 4 then intensity = 9 elseif obj.Level == 3 then intensity = 8 elseif obj.Level == 2 then intensity = 7 end return intensity" UseFunc="1" Num="6"/>
+					<Num FuncTxt="local intensity = 6 if obj.Level >= 5 then intensity = 10 elseif obj.Level == 4 then intensity = 9 elseif obj.Level == 3 then intensity = 8 elseif obj.Level == 2 then intensity = 7 end return intensity" UseFunc="1" Num="6"/>
 					<Num Num="1"/>
 					<Num Num="45"/>
 					<Num Num="999"/>
@@ -645,10 +645,10 @@
 							<Str Str="Meteor_FireBall_Buff"/>
 						</Scp>
 						<Scp Client="NO" Scp="MSL_THROW_METEOR" Time="0" TooltipScp="TOOLTIP_MSL_THROW" UseSleep="YES">
-							<Str_Arg FuncTxt="local scale = 3 if obj.Level == 5 then scale = 4.5 elseif obj.Level == 4 then scale = 4.25 elseif obj.Level == 3 then scale = 4 elseif obj.Level == 2 then scale = 3.5 end return &quot;I_wizard_meteorfall_force_dropfire&quot;, scale" UseFunc="1" Arg="3" Str="I_wizard_meteorfall_force_dropfire"/>
-							<Str_Arg FuncTxt="local scale = 1.5 if obj.Level == 5 then scale = 3 elseif obj.Level == 4 then scale = 2.75 elseif obj.Level == 3 then scale = 2.5 elseif obj.Level == 2 then scale = 2 end return &quot;F_wizard_meteorfall_shot_explosion&quot;, scale" UseFunc="1" Arg="1.5" Str="F_wizard_meteorfall_shot_explosion"/>
+							<Str_Arg FuncTxt="local scale = 3 if obj.Level >= 5 then scale = 4.5 elseif obj.Level == 4 then scale = 4.25 elseif obj.Level == 3 then scale = 4 elseif obj.Level == 2 then scale = 3.5 end return &quot;I_wizard_meteorfall_force_dropfire&quot;, scale" UseFunc="1" Arg="3" Str="I_wizard_meteorfall_force_dropfire"/>
+							<Str_Arg FuncTxt="local scale = 1.5 if obj.Level >= 5 then scale = 3 elseif obj.Level == 4 then scale = 2.75 elseif obj.Level == 3 then scale = 2.5 elseif obj.Level == 2 then scale = 2 end return &quot;F_wizard_meteorfall_shot_explosion&quot;, scale" UseFunc="1" Arg="1.5" Str="F_wizard_meteorfall_shot_explosion"/>
 							<Str_Arg Arg="1" Str="None"/>
-							<Num FuncTxt="local range = 35 if obj.Level == 5 then range = 70 elseif obj.Level == 4 then range = 65 elseif obj.Level == 3 then range = 55 elseif obj.Level == 2 then range = 45 end return range" UseFunc="1" Num="35"/>
+							<Num FuncTxt="local range = 35 if obj.Level >= 5 then range = 70 elseif obj.Level == 4 then range = 65 elseif obj.Level == 3 then range = 55 elseif obj.Level == 2 then range = 45 end return range" UseFunc="1" Num="35"/>
 							<Num Num="0.55000001"/>
 							<Num Num="0"/>
 							<Num Num="300"/>
@@ -667,7 +667,7 @@
 							<Str Str="voice_wiz_meteor_shot"/>
 						</Scp>
 						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="750" UseSleep="NO">
-							<Num FuncTxt="local intensity = 3 if obj.Level == 5 then intensity = 5 elseif obj.Level == 4 then intensity = 4.5 elseif obj.Level == 3 then intensity = 4 elseif obj.Level == 2 then intensity = 3.5 end return intensity" UseFunc="1" Num="3"/>
+							<Num FuncTxt="local intensity = 3 if obj.Level >= 5 then intensity = 5 elseif obj.Level == 4 then intensity = 4.5 elseif obj.Level == 3 then intensity = 4 elseif obj.Level == 2 then intensity = 3.5 end return intensity" UseFunc="1" Num="3"/>
 							<Num Num="1"/>
 							<Num Num="45"/>
 							<Num Num="999"/>
@@ -700,11 +700,11 @@
 					</HitList>
 					<EtcList>
 						<Scp Client="NO" Scp="MSL_FALL" Time="0" TooltipScp="TOOLTIP_MSL_FALL" UseSleep="YES">
-							<Str_Arg FuncTxt="local scale = 6 if obj.Level == 5 then scale = 9 elseif obj.Level == 4 then scale = 8.5 elseif obj.Level == 3 then scale = 8 elseif obj.Level == 2 then scale = 7 end return &quot;I_wizard_meteorfall_force_dropfire&quot;, scale" UseFunc="1" Arg="6" Str="I_wizard_meteorfall_force_dropfire"/>
-							<Str_Arg FuncTxt="local scale = 3 if obj.Level == 5 then scale = 6 elseif obj.Level == 4 then scale = 5.5 elseif obj.Level == 3 then scale = 5 elseif obj.Level == 2 then scale = 4 end return &quot;F_wizard_meteorfall_shot_explosion&quot;, scale" UseFunc="1" Arg="3" Str="F_wizard_meteorfall_shot_explosion"/>
+							<Str_Arg FuncTxt="local scale = 6 if obj.Level >= 5 then scale = 9 elseif obj.Level == 4 then scale = 8.5 elseif obj.Level == 3 then scale = 8 elseif obj.Level == 2 then scale = 7 end return &quot;I_wizard_meteorfall_force_dropfire&quot;, scale" UseFunc="1" Arg="6" Str="I_wizard_meteorfall_force_dropfire"/>
+							<Str_Arg FuncTxt="local scale = 3 if obj.Level >= 5 then scale = 6 elseif obj.Level == 4 then scale = 5.5 elseif obj.Level == 3 then scale = 5 elseif obj.Level == 2 then scale = 4 end return &quot;F_wizard_meteorfall_shot_explosion&quot;, scale" UseFunc="1" Arg="3" Str="F_wizard_meteorfall_shot_explosion"/>
 							<Str_Arg Arg="1" Str="None"/>
 							<Pos Angle="0" Dist="0" PosType="3"/>
-							<Num FuncTxt="local range = 70 if obj.Level == 5 then range = 140 elseif obj.Level == 4 then range = 130 elseif obj.Level == 3 then range = 110 elseif obj.Level == 2 then range = 90 end return range" UseFunc="1" Num="70"/>
+							<Num FuncTxt="local range = 70 if obj.Level >= 5 then range = 140 elseif obj.Level == 4 then range = 130 elseif obj.Level == 3 then range = 110 elseif obj.Level == 2 then range = 90 end return range" UseFunc="1" Num="70"/>
 							<Num Num="0"/>
 							<Num Num="0.55000001"/>
 							<Num Num="300"/>
@@ -720,7 +720,7 @@
 							<Str Str="voice_wiz_meteor_shot"/>
 						</Scp>
 						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="750" UseSleep="NO">
-							<Num FuncTxt="local intensity = 6 if obj.Level == 5 then intensity = 10 elseif obj.Level == 4 then intensity = 9 elseif obj.Level == 3 then intensity = 8 elseif obj.Level == 2 then intensity = 7 end return intensity" UseFunc="1" Num="6"/>
+							<Num FuncTxt="local intensity = 6 if obj.Level >= 5 then intensity = 10 elseif obj.Level == 4 then intensity = 9 elseif obj.Level == 3 then intensity = 8 elseif obj.Level == 2 then intensity = 7 end return intensity" UseFunc="1" Num="6"/>
 							<Num Num="1"/>
 							<Num Num="45"/>
 							<Num Num="999"/>

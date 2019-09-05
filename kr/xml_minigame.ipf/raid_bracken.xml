@@ -77,11 +77,11 @@
                 </StartScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="20053" Pos="406.34#191.75#-1331.61" genCount="1" genTime="20000" objectKey="0" propList="&apos;SimpleAI&apos; &apos;Hidden_door_Effect&apos; "/>
-                    <Obj Type="Monster" MonType="59179" Pos="326.40#209.37#-1697.63" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="300" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE1_MON_AI&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="59180" Pos="192.65#209.37#-1807.94" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="300" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE1_MON_AI&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="59181" Pos="496.06#209.37#-1798.71" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="300" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE1_MON_AI&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="59182" Pos="177.83#209.37#-1554.91" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="300" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE1_MON_AI&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="59187" Pos="464.42#209.37#-1534.51" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE1_MON_AI&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59179" Pos="319.29#209.37#-1687.36" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="300" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE1_MON_AI&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59180" Pos="213.09#209.37#-1784.36" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="300" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE1_MON_AI&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59181" Pos="433.35#209.37#-1770.45" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="300" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE1_MON_AI&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59182" Pos="233.41#209.37#-1610.42" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="300" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE1_MON_AI&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59187" Pos="430.86#209.37#-1608.80" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE1_MON_AI&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="Stage1_Prop_check">
@@ -89,7 +89,7 @@
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="STAGE_KILL_COUNT1"/>
                                 <Str Str="OVER"/>
-                                <Num Num="500"/>
+                                <Num Num="200"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -127,7 +127,7 @@
                                 <Str Str="Mon_gen2"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="몬스터가 등장합니다{nl}(1/10)"/>
+                                <Str Str="몬스터가 등장합니다{nl}(1/5)"/>
                                 <Str Str="scroll"/>
                                 <Num Num="5"/>
                             </ToolScp>
@@ -156,7 +156,7 @@
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="몬스터가 등장합니다{nl}(2/10)"/>
+                                <Str Str="몬스터가 등장합니다{nl}(2/5)"/>
                                 <Str Str="scroll"/>
                                 <Num Num="5"/>
                             </ToolScp>
@@ -189,7 +189,7 @@
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="몬스터가 등장합니다{nl}(3/10)"/>
+                                <Str Str="몬스터가 등장합니다{nl}(3/5)"/>
                                 <Str Str="scroll"/>
                                 <Num Num="5"/>
                             </ToolScp>
@@ -222,7 +222,7 @@
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="몬스터가 등장합니다{nl}(4/10)"/>
+                                <Str Str="몬스터가 등장합니다{nl}(4/5)"/>
                                 <Str Str="scroll"/>
                                 <Num Num="5"/>
                             </ToolScp>
@@ -255,172 +255,7 @@
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="몬스터가 등장합니다{nl}(5/10)"/>
-                                <Str Str="scroll"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_RESET_TIME" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="Mon_gen6"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="Mon_gen6" execWithStart="0">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="5"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE_KILL_COUNT1"/>
-                                <Str Str="OVER"/>
-                                <Num Num="250"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/1"/>
-                                <Num Num="10"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="몬스터가 등장합니다{nl}(6/10)"/>
-                                <Str Str="scroll"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_RESET_TIME" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="Mon_gen7"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="Mon_gen7" execWithStart="0">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="5"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE_KILL_COUNT1"/>
-                                <Str Str="OVER"/>
-                                <Num Num="300"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/1"/>
-                                <Num Num="10"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="몬스터가 등장합니다{nl}(7/10)"/>
-                                <Str Str="scroll"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_RESET_TIME" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="Mon_gen8"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="Mon_gen8" execWithStart="0">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="5"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE_KILL_COUNT1"/>
-                                <Str Str="OVER"/>
-                                <Num Num="350"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/1"/>
-                                <Num Num="10"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="몬스터가 등장합니다{nl}(8/10)"/>
-                                <Str Str="scroll"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_RESET_TIME" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="Mon_gen9"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="Mon_gen9" execWithStart="0">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="5"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE_KILL_COUNT1"/>
-                                <Str Str="OVER"/>
-                                <Num Num="400"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/1"/>
-                                <Num Num="10"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="몬스터가 등장합니다{nl}(9/10)"/>
-                                <Str Str="scroll"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_RESET_TIME" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="Mon_gen10"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="Mon_gen10" execWithStart="0">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="5"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE_KILL_COUNT1"/>
-                                <Str Str="OVER"/>
-                                <Num Num="450"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/1"/>
-                                <Num Num="10"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="몬스터가 등장합니다{nl}(10/10)"/>
+                                <Str Str="몬스터가 등장합니다{nl}(5/5)"/>
                                 <Str Str="scroll"/>
                                 <Num Num="5"/>
                             </ToolScp>
@@ -495,7 +330,7 @@
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="STAGE_KILL_COUNT1"/>
                                 <Str Str="OVER"/>
-                                <Num Num="500"/>
+                                <Num Num="200"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -518,11 +353,11 @@
                     <Obj Type="Monster" MonType="153236" Pos="411.13#86.23#-850.67" angle="-25" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_SEAL_AI&apos; &apos;StrArg1&apos; &apos;Lapezard&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;Range&apos; &apos;120&apos; &apos;Enter&apos; &apos;RAID_BRACKEN_STAGE2_SEAL_IN&apos; &apos;Leave&apos; &apos;RAID_BRACKEN_STAGE2_SEAL_OUT&apos; &apos;OnlyPCCheck&apos; &apos;NO&apos; "/>
                     <Obj Type="Monster" MonType="153237" Pos="998.44#35.62#-883.82" angle="-59" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_SEAL_AI&apos; &apos;StrArg1&apos; &apos;Lapemiter&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;Enter&apos; &apos;RAID_BRACKEN_STAGE2_SEAL_IN&apos; &apos;Leave&apos; &apos;RAID_BRACKEN_STAGE2_SEAL_OUT&apos; &apos;OnlyPCCheck&apos; &apos;NO&apos; &apos;Range&apos; &apos;120&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; "/>
                     <Obj Type="Monster" MonType="153235" Pos="1006.00#35.23#-303.74" angle="-59" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_SEAL_AI&apos; &apos;StrArg1&apos; &apos;Lapflammer&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; &apos;Range&apos; &apos;120&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;Enter&apos; &apos;RAID_BRACKEN_STAGE2_SEAL_IN&apos; &apos;Leave&apos; &apos;RAID_BRACKEN_STAGE2_SEAL_OUT&apos; &apos;OnlyPCCheck&apos; &apos;NO&apos; "/>
-                    <Obj Type="Monster" MonType="153238" Pos="1013.85#35.23#163.95" angle="-58" genCount="1" maxStackCount="1" genTime="20000" objectKey="4" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_SEAL_AI&apos; &apos;StrArg1&apos; &apos;Lapeman&apos; &apos;OnlyPCCheck&apos; &apos;NO&apos; &apos;Range&apos; &apos;120&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; &apos;Enter&apos; &apos;RAID_BRACKEN_STAGE2_SEAL_IN&apos; &apos;Leave&apos; &apos;RAID_BRACKEN_STAGE2_SEAL_OUT&apos; "/>
-                    <Obj Type="Monster" MonType="59183" Pos="417.10#86.23#-848.22" angle="-43" range="200" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="120" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_MON_AI&apos; &apos;StrArg1&apos; &apos;Lapezard&apos; &apos;Scale&apos; &apos;0.5&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="59186" Pos="1006.17#35.62#-895.70" range="200" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="120" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_MON_AI&apos; &apos;StrArg1&apos; &apos;Lapemiter&apos; &apos;Scale&apos; &apos;0.5&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="59185" Pos="1002.89#35.23#-307.56" range="200" genCount="1" genTime="20000" autoGen="0" objectKey="7" searchRange="120" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_MON_AI&apos; &apos;StrArg1&apos; &apos;Lapflammer&apos; &apos;Scale&apos; &apos;0.54&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="59188" Pos="1019.72#35.23#162.68" range="200" genCount="1" genTime="20000" autoGen="0" objectKey="8" searchRange="120" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_MON_AI&apos; &apos;StrArg1&apos; &apos;Lapeman&apos; &apos;Scale&apos; &apos;0.4&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="153238" Pos="1018.55#35.23#164.39" angle="-58" genCount="1" maxStackCount="1" genTime="20000" objectKey="4" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_SEAL_AI&apos; &apos;StrArg1&apos; &apos;Lapeman&apos; &apos;OnlyPCCheck&apos; &apos;NO&apos; &apos;Range&apos; &apos;120&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; &apos;Enter&apos; &apos;RAID_BRACKEN_STAGE2_SEAL_IN&apos; &apos;Leave&apos; &apos;RAID_BRACKEN_STAGE2_SEAL_OUT&apos; "/>
+                    <Obj Type="Monster" MonType="59183" Pos="417.10#86.23#-848.22" angle="-43" range="120" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="120" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_MON_AI&apos; &apos;StrArg1&apos; &apos;Lapezard&apos; &apos;Scale&apos; &apos;0.5&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59186" Pos="1006.17#35.62#-895.70" range="120" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="120" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_MON_AI&apos; &apos;StrArg1&apos; &apos;Lapemiter&apos; &apos;Scale&apos; &apos;0.5&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59185" Pos="1002.89#35.23#-307.56" range="120" genCount="1" genTime="20000" autoGen="0" objectKey="7" searchRange="120" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_MON_AI&apos; &apos;StrArg1&apos; &apos;Lapflammer&apos; &apos;Scale&apos; &apos;0.54&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59188" Pos="1013.48#35.23#162.09" range="120" genCount="1" genTime="20000" autoGen="0" objectKey="8" searchRange="120" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_MON_AI&apos; &apos;StrArg1&apos; &apos;Lapeman&apos; &apos;Scale&apos; &apos;0.4&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="59184" Pos="353.33#86.23#-773.65" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="9" searchRange="120" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_MON_AI&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="59186" Pos="486.63#86.23#-812.07" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="10" searchRange="120" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_MON_AI&apos; " tendency="1"/>
                     <Obj Type="Monster" MonType="59188" Pos="345.46#86.23#-907.52" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="11" searchRange="120" propList="&apos;SimpleAI&apos; &apos;RAID_BRACKEN_STAGE2_MON_AI&apos; " tendency="1"/>
@@ -893,7 +728,7 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="아시오 메이지 처치!"/>
+                                <Str Str="아시오 메이지 처치!{nl}30초 후 돌아갑니다."/>
                                 <Str Str="Clear"/>
                                 <Num Num="5"/>
                             </ToolScp>
@@ -953,7 +788,7 @@
                     <Event execCount="1" eventName="Succ">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
+                                <Num Num="30"/>
                             </ToolScp>
                         </condList>
                         <execList>

@@ -88,7 +88,17 @@
 					<Num Num="100" />
 					<Num Num="0" />
 				</Scp>
-			</EtcList>
+			<Scp Client="NO" Scp="SKL_BUFF_ABIL" Time="400" UseSleep="NO">
+                    <Str Str="Featherfoot23"/>
+                    <Str Str="Levitation_Immune_Buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="4000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
 		</MainSkl>
 		<ByCondSkills>
 			<SubSkl>

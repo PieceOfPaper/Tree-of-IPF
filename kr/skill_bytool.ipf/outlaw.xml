@@ -125,6 +125,12 @@
 				<Frame Angle="0" AniTime="2920" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="2720" Type="CIRCLE" Width="150" />
 			</HitList>
 			<EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_RAMPAGE"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>			
 				<Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
 					<Str Str="Skill_MomentaryEvasion_Buff" />
 					<Num Num="100" />
@@ -224,6 +230,12 @@
                         <Frame Angle="0" AniTime="2900" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="2700" Type="CIRCLE" Width="150" />
                     </HitList>
                     <EtcList>
+                        <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                            <Str Str="SKL_RAMPAGE_ABIL"/>
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                        </Scp>                    
                         <Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE" Time="0" UseSleep="NO">
                             <Str Str="Skill_MomentaryEvasion_Buff" />
                             <Num Num="100" />
@@ -253,10 +265,15 @@
                             <Str Str="voice_scout_f_rampage_cast_1" />
                         </Scp>
                         <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-                            <Str_Arg Arg="28" Str="F_scout_rampage_decal" />
+                            <Str_Arg Arg="28" Str="F_scout_rampage_decal_ice" />
                             <Str Str="Dummy_gacha_root" />
                             <Num Num="0" />
                         </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                            <Str_Arg Arg="2" Str="F_ground113_ice2" />
+                            <Str Str="Dummy_gacha_root" />
+                            <Num Num="0" />
+                        </Scp>                        
                         <Scp Client="YES" Scp="C_VOICE_SOUND" Time="1600" UseSleep="NO">
                             <Str Str="voice_scout_m_rampage_cast_2" />
                             <Str Str="voice_scout_f_rampage_cast_2" />
@@ -264,6 +281,11 @@
                         <Scp Client="YES" Scp="C_VOICE_SOUND" Time="2300" UseSleep="NO">
                             <Str Str="voice_scout_m_rampage_cast_3" />
                             <Str Str="voice_scout_f_rampage_cast_3" />
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT" Time="2800" UseSleep="NO">
+                            <Str_Arg Arg="3" Str="F_ground114_ice2" />
+                            <Str Str="None" />
+                            <Num Num="0" />
                         </Scp>
                         <Scp Client="NO" Scp="SKL_HIT_CIRCLE_RAMPAGE" Time="2720" UseSleep="NO">
                             <Pos Angle="0" Dist="0" />
@@ -276,13 +298,13 @@
                             <Num Num="1" />
                             <Num Num="3" />
                         </Scp>
-                        <Scp Client="YES" Scp="C_EFFECT" Time="2900" UseSleep="NO">
-                            <Str_Arg Arg="4" Str="F_buff_basic035_light" />
+                        <Scp Client="YES" Scp="C_EFFECT" Time="2800" UseSleep="NO">
+                            <Str_Arg Arg="2" Str="F_levitation005_ice2" />
                             <Str Str="None" />
                             <Num Num="0" />
                         </Scp>
                         <Scp Client="YES" Scp="C_EFFECT" Time="2900" UseSleep="NO">
-                            <Str_Arg Arg="1" Str="F_buff_scout_Rampage" />
+                            <Str_Arg Arg="1" Str="F_buff_ice_spread" />
                             <Str Str="None" />
                             <Num Num="0" />
                         </Scp>

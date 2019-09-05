@@ -70,13 +70,13 @@
 		</EndScripts>
 		<KeyInput>
 			<ToolScp Client="YES" Scp="SKL_KEY_GROUND_EVENT" UseSleep="NO">
-				<Num Num="0.5" />
+                <Num Num="1" />
 				<Num Num="0" />
 				<Num Num="0" />
 				<Num Num="1" />
 				<Num Num="200" />
 				<Num Num="0.1" />
-				<Num Num="0" />
+                <Num FuncTxt="return 1 / obj.Level" UseFunc="1" Num="1" />
 				<Num Num="1" />
 				<Num Num="0" />
 				<Str_Arg Arg="1" Str="None" />
@@ -147,6 +147,16 @@
 					<Num Num="45" />
 					<Num Num="999" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="1300" UseSleep="NO">
+                    <Num Num="1" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="1400" UseSleep="NO">
+                    <Num Num="1" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                </Scp>
 			</EtcList>
 		</MainSkl>
         <ByCondSkills>
@@ -211,6 +221,16 @@
                             <Num Num="1" />
                             <Num Num="45" />
                             <Num Num="999" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_TGT_DMG" Time="1300" UseSleep="NO">
+                            <Num Num="1" />
+                            <Num Num="1" />
+                            <Num Num="0" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_TGT_DMG" Time="1400" UseSleep="NO">
+                            <Num Num="1" />
+                            <Num Num="1" />
+                            <Num Num="0" />
                         </Scp>
                     </EtcList>
                 </Skill>
@@ -640,7 +660,7 @@
 					<Num Num="0" />
 				</Scp>
 				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="0" UseSleep="NO">
-					<Str Str="DragonFear_Debuff" />
+                    <Str Str="DragonFear_Slow_Debuff" />
 					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
 					<Num Num="0" />
 					<Num Num="10000" />

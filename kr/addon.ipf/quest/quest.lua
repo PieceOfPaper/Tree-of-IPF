@@ -1089,6 +1089,11 @@ function CHECK_PROGRESS_QUEST_VIEW_FILTER(titlename, questInfo)
 		return false;
 	end
 
+	-- 증표퀘스트는 POSSIBLE 상태에서 보이면 안된다.
+	if questIES.QuestMode == 'KEYITEM' and state == 'POSSIBLE'then
+		return false;
+	end
+
 	-- Mode Filter
 	local modeStr = _TRANS_MODE_STRING(questIES.QuestMode)
 	local isModeCorrect = false;

@@ -2,7 +2,7 @@ function PARTY_RECOMMEND_ON_INIT(addon, frame)
     addon:RegisterMsg('OPEN_SELECT_TARGET', 'OPEN_SELECT_TARGET_FROM_PARTY');
 end
 
-function OPEN_SELECT_TARGET_FROM_PARTY(frame, msg, argStr, showHPGauge)
+function OPEN_SELECT_TARGET_FROM_PARTY(frame, msg, argStr, showHPGauge)    
     -- skill
     local skillID = geSkillControl.GetSelectTargetFromPartyListSkillID();
     local skillCls = GetClassByType('Skill', skillID);
@@ -149,7 +149,7 @@ function SELECT_TARGET_FROM_PARTY_SET_TARGET(index, outRange)
     end
 end
 
-function CHECKDIST_SELECT_TARGET_FROM_PARTY(index, outRange)
+function CHECKDIST_SELECT_TARGET_FROM_PARTY(index, outRange, is_unrecoverState)    
     local frame = ui.GetFrame("party_recommend");
     if frame == nil then return; end
 
@@ -164,7 +164,11 @@ function CHECKDIST_SELECT_TARGET_FROM_PARTY(index, outRange)
     if jobEmblemPic == nil then return; end
 
     if outRange == true then
-        color = frame:GetUserConfig("FAR_MEMBER_COLORTONE");
+        color = frame:GetUserConfig("FAR_MEMBER_COLORTONE");        
+    else
+        if is_unrecoverState == true then
+            color = 'FFFF0000'         
+        end
     end
 
     fan:SetColorTone(color);

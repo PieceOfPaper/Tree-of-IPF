@@ -34,7 +34,6 @@ function ON_OPEN_COLONY_TAX_BOARD(frame)
 	CREATE_COLONY_TAX_CHEQUE_LIST(cheque_list_gb)
 	local history_list_gb = GET_CHILD_RECURSIVELY(frame, "history_list_gb");
 	CREATE_COLONY_TAX_HISTORY_LIST(history_list_gb)
-	--historylist;
 end
 
 function ON_UPDATE_COLONY_TAX_BOARD_CHEQUE_LIST(frame, msg, strarg, numarg)
@@ -237,7 +236,6 @@ function ON_COMMIT_COLONY_TAX_RATE(parent, ctrl)
 	if rate == nil then
 		return;
 	end
-	
 	session.colonytax.ReqTaxRateSet(cityMapID, rate);
 end
 -------------------

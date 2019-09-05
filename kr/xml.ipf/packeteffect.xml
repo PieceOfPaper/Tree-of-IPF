@@ -54,7 +54,10 @@
         <Effect Name="F_bg_pattern004_blue_buff"/>
         <Effect Name="F_buff_basic059_ground_green"/>
         <Effect Name="F_buff_basic059_ground_red"/>
-    </Category>
+        <Effect Name="ID_NNICOPOLIS_RAID_MINI_SOLO"/>
+        <Effect Name="F_sys_target_boss1_orange##0.5"/>
+        <Effect Name="F_burstup022_smoke##5"/>
+         </Category>
     <Category ID="146">
         <Effect Name="beginner"/>
         <Effect Name="Phase0"/>
@@ -256,6 +259,14 @@
         <Effect Name="GM_MGAME_BORUTA_HATE_RESET_PAD"/>
         <Effect Name="TimeAttackMode"/>
         <Effect Name="FailEnd"/>
+    <Effect Name="failCheck"/>
+        <Effect Name="obstacle"/>
+        <Effect Name="ID_NNICOPOLIS_CASUAL_RAID_MINI"/>
+        <Effect Name="UNIQUE_RAID_PAST_FANTASY_LIBRARY_SOLO"/>
+        <Effect Name="UNIQUE_RAID_WHITE_CROW_SOLO"/>
+        <Effect Name="I_smoke052_white3"/>
+        <Effect Name="I_smoke052_white2"/>
+        <Effect Name="F_light029_yellow2"/>
     </Category>
     <Category ID="144">
         <Effect Name="F_pc_CardBook_ground_dark"/>
@@ -1277,6 +1288,11 @@
         <Effect Name="sys_h_arrangement"/>
         <Effect Name="sys_h_grid"/>
         <Effect Name="PNSATK"/>
+    <Effect Name="raid_bracken_SOLO"/>
+        <Effect Name="ID_WHITETREES_MINI_01_SOLO"/>
+        <Effect Name="I_circle011_whtie_mash"/>
+        <Effect Name="F_hit001_light_yellow"/>
+        <Effect Name="UNIQUE_RAID_STARTOWER_SOLO"/>
     </Category>
     <Category ID="201">
         <Effect Name="F_cleric_devinestigma_hit_smoke_LOW##0.5"/>
@@ -2201,6 +2217,13 @@
         <Effect Name="Elementalist_MovingFireBall_1"/>
         <Effect Name="Elementalist_MovingFireBall_2"/>
         <Effect Name="Elementalist_MovingFireBall_3"/>
+        <Effect Name="E_Cleric_phantom_abil"/>
+        <Effect Name="F_ground192_circle_rize_blue"/>
+        <Effect Name="F_hit009_rize_mint"/>
+        <Effect Name="F_wizard_MissileHole_explosion_violet_abil"/>
+        <Effect Name="ID_WHITETREES_MINI_01_SOLO"/>
+        <Effect Name="raid_bracken_SOLO"/>
+        <Effect Name="UNIQUE_RAID_WHITE_CROW_SOLO"/>
     </Category>
     <Category ID="84">
         <Effect Name="M_PAST_FLIBRARY_1"/>
@@ -5901,6 +5924,16 @@
         <Effect Name="F_archer_snipe_hit"/>
         <Effect Name="boss_Moringponia_follow"/>
         <Effect Name="I_boruta_skl2_force#Dummy_effect_wepon"/>
+    <Effect Name="LEGEND_RAID_MORINGPONIA"/>
+        <Effect Name="SOLO_DUNGEON_MINI_ANCIENT"/>
+        <Effect Name="raid_bracken_SOLO"/>
+        <Effect Name="ID_WHITETREES_MINI_01_SOLO"/>
+        <Effect Name="I_force105_trail_orange_poison2#Bone_RHand022"/>
+        <Effect Name="I_force095_mint2#Bone_RHand022"/>
+        <Effect Name="I_force084_green#Bone_RHand022"/>
+        <Effect Name="I_force095_mint3#Bone_RHand022"/>
+        <Effect Name="F_blood011_green"/>
+        <Effect Name="UNIQUE_RAID_STARTOWER_SOLO"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>

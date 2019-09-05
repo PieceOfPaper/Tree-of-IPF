@@ -123,17 +123,51 @@ function HIDDENABILITY_MAKE_SET_MATERIAL(frame, argNum, invitem)
 
     local resultitemClassName = frame:GetUserValue("RESULT_ITEM_CLASSNAME");
     local needcnt = 0;
-    local classnamevalue = "";
-    if argNum == 1 then
-        classnamevalue = "HiddenAbility_Piece";
-        needcnt = HIDDENABILITY_MAKE_NEED_PIECE_COUNT(resultitemClassName);
-    else
-        classnamevalue = "Premium_item_transcendence_Stone";
+
+    if IS_HIDDENABILITY_MATERIAL_PIECE(itemobj) == true then
+        if IS_HIDDENABILITY_MATERIAL_MASTERPIECE(itemobj) == true then
+            local matslot_2 = GET_CHILD_RECURSIVELY(frame, "matslot_2");
+            matslot_2:ClearIcon();
+        
+            local matslot_2_count = GET_CHILD_RECURSIVELY(frame, "matslot_2_count");
+            matslot_2_count:SetTextByKey("cur", 0);
+            matslot_2_count:SetTextByKey("need", 0);
+            matslot_2_count:ShowWindow(0);
+
+            local matslot_2_text = GET_CHILD_RECURSIVELY(frame, "matslot_2_text");
+            matslot_2_text:ShowWindow(0);
+        
+            local matslot_2_pic = GET_CHILD_RECURSIVELY(frame, "matslot_2_pic");
+            matslot_2_pic:ShowWindow(1);
+        
+            frame:SetUserValue("MATERIAL_GUID_2", "None");
+        else
+            local matslot_2_text = GET_CHILD_RECURSIVELY(frame, "matslot_2_text");
+            matslot_2_text:ShowWindow(1);
+        
+            local matslot_2_pic = GET_CHILD_RECURSIVELY(frame, "matslot_2_pic");
+            matslot_2_pic:ShowWindow(0);
+        end
+
+        needcnt = HIDDENABILITY_MAKE_NEED_PIECE_COUNT(resultitemClassName, itemobj);
+    elseif IS_HIDDENABILITY_MATERIAL_STONE(itemobj) == true then
+        local mat1guid = frame:GetUserValue("MATERIAL_GUID_1");
+        if mat1guid == 'None' then
+            ui.SysMsg(ClMsg("Arts_Please_Piece"));
+            return;
+        end
+
+        local mat1invItem = GET_PC_ITEM_BY_GUID(mat1guid);        
+        local mat1obj = GetIES(mat1invItem:GetObject());
+        if IS_HIDDENABILITY_MATERIAL_MASTERPIECE(mat1obj) == true then
+            return;
+        end
+
         needcnt = HIDDENABILITY_MAKE_NEED_STONE_COUNT(resultitemClassName);
     end
 
     local curcnt = GET_INV_ITEM_COUNT_BY_PROPERTY({
-        {Name = 'ClassName', Value = classnamevalue}
+        {Name = 'ClassName', Value = itemobj.ClassName}
     }, false);
         
     local matslot_count = GET_CHILD_RECURSIVELY(frame, "matslot_"..argNum.."_count");
@@ -185,9 +219,11 @@ function HIDDENABILITY_MAKE_OK_CLLICK(frame, ctrl)
 
     -- 재료 아이템 소지 수량 변경 - 신비한서 낱장
     local pieceguid = frame:GetUserValue("MATERIAL_GUID_1");
-    local pieceneedcnt = HIDDENABILITY_MAKE_NEED_PIECE_COUNT(resultitemClassName);
+    local pieceitem = GET_PC_ITEM_BY_GUID(pieceguid);        
+    local pieceitemobj = GetIES(pieceitem:GetObject());
+    local pieceneedcnt = HIDDENABILITY_MAKE_NEED_PIECE_COUNT(resultitemClassName, pieceitemobj);
     local piececurcnt = GET_INV_ITEM_COUNT_BY_PROPERTY({
-        {Name = 'ClassName', Value ='HiddenAbility_Piece'}
+        {Name = 'ClassName', Value = pieceitemobj.ClassName}
     }, false);
 
     local pieceslot_count = GET_CHILD_RECURSIVELY(frame, "matslot_1_count");
@@ -204,21 +240,25 @@ function HIDDENABILITY_MAKE_OK_CLLICK(frame, ctrl)
 
     -- 재료 아이템 소지 수량 변경 - 여신의 축복석
     local stoneguid = frame:GetUserValue("MATERIAL_GUID_2");
-    local stoneneedcnt = HIDDENABILITY_MAKE_NEED_STONE_COUNT(resultitemClassName);
-    local stonecurcnt = GET_INV_ITEM_COUNT_BY_PROPERTY({
-        {Name = 'ClassName', Value ='Premium_item_transcendence_Stone'}
-    }, false);
-    local stoneslot_count = GET_CHILD_RECURSIVELY(frame, "matslot_2_count");
-    stoneslot_count:SetTextByKey("cur", stonecurcnt);
-    stoneslot_count:SetTextByKey("need", stoneneedcnt);
-	if stonecurcnt < stoneneedcnt then
-		local NOT_ENOUPH_STYLE = frame:GetUserConfig('NOT_ENOUPH_STYLE');
-		stoneslot_count:SetTextByKey('style', NOT_ENOUPH_STYLE);
-	else
-		local ENOUPH_STYLE = frame:GetUserConfig('ENOUPH_STYLE');
-		stoneslot_count:SetTextByKey('style', ENOUPH_STYLE);
-	end
-    stoneslot_count:ShowWindow(1);
+    local stoneneedcnt = 0;
+    local stonecurcnt = 0;
+    if IS_HIDDENABILITY_MATERIAL_MASTERPIECE(pieceitemobj) == false then
+        stoneneedcnt = HIDDENABILITY_MAKE_NEED_STONE_COUNT(resultitemClassName);
+        stonecurcnt = GET_INV_ITEM_COUNT_BY_PROPERTY({
+            {Name = 'ClassName', Value ='Premium_item_transcendence_Stone'}
+        }, false);
+        local stoneslot_count = GET_CHILD_RECURSIVELY(frame, "matslot_2_count");
+        stoneslot_count:SetTextByKey("cur", stonecurcnt);
+        stoneslot_count:SetTextByKey("need", stoneneedcnt);
+	    if stonecurcnt < stoneneedcnt then
+	    	local NOT_ENOUPH_STYLE = frame:GetUserConfig('NOT_ENOUPH_STYLE');
+    		stoneslot_count:SetTextByKey('style', NOT_ENOUPH_STYLE);
+	    else
+		    local ENOUPH_STYLE = frame:GetUserConfig('ENOUPH_STYLE');
+		    stoneslot_count:SetTextByKey('style', ENOUPH_STYLE);
+	    end
+        stoneslot_count:ShowWindow(1);
+    end    
 
     HIDDENABILITY_CONTROL_ENABLE(frame, 1);
 end
@@ -239,9 +279,11 @@ function HIDDENABILITY_MAKE_RESULT_ITEM_CREATE(frame, ctrl)
     end
 
     local pieceguid = frame:GetUserValue("MATERIAL_GUID_1");
-    local pieceneedcnt = HIDDENABILITY_MAKE_NEED_PIECE_COUNT(resultitemClassName);
+    local pieceitem = GET_PC_ITEM_BY_GUID(pieceguid);        
+    local pieceitemobj = GetIES(pieceitem:GetObject());
+    local pieceneedcnt = HIDDENABILITY_MAKE_NEED_PIECE_COUNT(resultitemClassName, pieceitemobj);
     local piececurcnt = GET_INV_ITEM_COUNT_BY_PROPERTY({
-        {Name = 'ClassName', Value ='HiddenAbility_Piece'}
+        {Name = 'ClassName', Value = pieceitemobj.ClassName}
     }, false);
     if piececurcnt == 0 or pieceguid == "None" then
         ui.SysMsg(ClMsg("Arts_Please_Register_MaterialItem"));
@@ -253,17 +295,21 @@ function HIDDENABILITY_MAKE_RESULT_ITEM_CREATE(frame, ctrl)
     end  
 
     local stoneguid = frame:GetUserValue("MATERIAL_GUID_2");
-    local stoneneedcnt = HIDDENABILITY_MAKE_NEED_STONE_COUNT(resultitemClassName);
-    local stonecurcnt = GET_INV_ITEM_COUNT_BY_PROPERTY({
-        {Name = 'ClassName', Value ='Premium_item_transcendence_Stone'}
-    }, false);
-    if stonecurcnt == 0 or stoneguid == "None" then
-        ui.SysMsg(ClMsg("Arts_NeedOnemoreStone"));
-        return;
-    end
-    if stonecurcnt < stoneneedcnt then
-        ui.SysMsg(ClMsg('NotEnoughRecipe'));
-        return;
+    local stoneneedcnt = 0;
+    local stonecurcnt = 0;
+    if IS_HIDDENABILITY_MATERIAL_MASTERPIECE(pieceitemobj) == false then
+        stoneneedcnt = HIDDENABILITY_MAKE_NEED_STONE_COUNT(resultitemClassName);
+        stonecurcnt = GET_INV_ITEM_COUNT_BY_PROPERTY({
+            {Name = 'ClassName', Value ='Premium_item_transcendence_Stone'}
+        }, false);
+        if stonecurcnt == 0 or stoneguid == "None" then
+            ui.SysMsg(ClMsg("Arts_NeedOnemoreStone"));
+            return;
+        end
+        if stonecurcnt < stoneneedcnt then
+            ui.SysMsg(ClMsg('NotEnoughRecipe'));
+            return;
+        end
     end
 
     -- 신비한 서 제작 함수 호출    
@@ -401,6 +447,12 @@ function HIDDENABILITY_MAKE_RESET_MATERIAL(frame)
     matslot_2_count:SetTextByKey("cur", 0);
     matslot_2_count:SetTextByKey("need", 0);
     matslot_2_count:ShowWindow(0);
+
+    local matslot_2_text = GET_CHILD_RECURSIVELY(frame, "matslot_2_text");
+    matslot_2_text:ShowWindow(1);
+
+    local matslot_2_pic = GET_CHILD_RECURSIVELY(frame, "matslot_2_pic");
+    matslot_2_pic:ShowWindow(0);
 
     frame:SetUserValue("MATERIAL_GUID_2", "None");
 end

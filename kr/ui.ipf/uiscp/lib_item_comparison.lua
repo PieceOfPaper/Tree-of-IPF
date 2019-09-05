@@ -40,6 +40,7 @@ function GET_DEF_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "CRTMATK";
     list[#list+1] = "MDEF";
     list[#list+1] = "SkillRange";
+    list[#list+1] = "SkillWidthRange";
     list[#list+1] = "SkillAngle";
     list[#list+1] = "MSPD";
     list[#list+1] = "RHP";
@@ -84,7 +85,7 @@ function GET_DEF_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "StrikeDEF";
     list[#list+1] = "HR";
     list[#list+1] = "DR";
-    list[#list+1] = "LootingChance";
+    list[#list+1] = "LootingChance";    
 	return list;
 
 end
@@ -116,6 +117,7 @@ function GET_ATK_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "CRTMATK";
     list[#list+1] = "MDEF";
     list[#list+1] = "SkillRange";
+    list[#list+1] = "SkillWidthRange";
     list[#list+1] = "SkillAngle";
     list[#list+1] = "MSPD";
     list[#list+1] = "RHP";
@@ -192,6 +194,7 @@ function GET_DEF_PROP_LIST()
     list[#list+1] = "MDEF";
     list[#list+1] = "ADD_MDEF";
     list[#list+1] = "SkillRange";
+    list[#list+1] = "SkillWidthRange";
     list[#list+1] = "SkillAngle";
     list[#list+1] = "MSPD";
     list[#list+1] = "RHP";
@@ -273,6 +276,7 @@ function GET_ATK_PROP_LIST()
     list[#list+1] = "MDEF";
     list[#list+1] = "ADD_MDEF";
     list[#list+1] = "SkillRange";
+    list[#list+1] = "SkillWidthRange";
     list[#list+1] = "SkillAngle";
     list[#list+1] = "MSPD";
     list[#list+1] = "RHP";

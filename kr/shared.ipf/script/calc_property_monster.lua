@@ -311,6 +311,8 @@ function SCR_Get_MON_DEF(self)
         return fixedDEF;
     end
     
+    local originDef = GetExProp(self, "MON_ORIGIN_DEF");
+
     local lv = TryGetProp(self, "Lv");
     if lv == nil then
         lv = 1;
@@ -362,6 +364,16 @@ function SCR_Get_MON_DEF(self)
     if value < 0 then
         value = 0;
     end
+
+    local debuffRank = TryGetProp(self, "DebuffRank");
+    if debuffRank == "LegendRaidBoss" or debuffRank == "WorldRaid" or debuffRank == "FieldBoss" then
+        local reduceDefLimit = math.floor(originDef * 0.75);
+        if originDef == 0 then
+            SetExProp(self, "MON_ORIGIN_DEF", math.floor(value));
+        elseif value < reduceDefLimit then
+            value = reduceDefLimit;
+        end
+    end
     
     return math.floor(value)
 end
@@ -373,6 +385,8 @@ function SCR_Get_MON_MDEF(self)
     if fixedDEF ~= nil and fixedDEF > 0 then
         return fixedDEF;
     end
+
+    local originDef = GetExProp(self, "MON_ORIGIN_MDEF");
     
     local lv = TryGetProp(self, "Lv");
     if lv == nil then
@@ -424,6 +438,16 @@ function SCR_Get_MON_MDEF(self)
     
     if value < 0 then
         value = 0;
+    end
+
+    local debuffRank = TryGetProp(self, "DebuffRank");
+    if debuffRank == "LegendRaidBoss" or debuffRank == "WorldRaid" or debuffRank == "FieldBoss" then
+        local reduceDefLimit = math.floor(originDef * 0.75);
+        if originDef == 0 then
+            SetExProp(self, "MON_ORIGIN_MDEF", math.floor(value));
+        elseif value < reduceDefLimit then
+            value = reduceDefLimit;
+        end
     end
     
     return math.floor(value)

@@ -1,61 +1,65 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Mon_d_uniq_raid_boss_froster_lord_Skill_7">
+<ToolSkill>
+    <Skill Name="Mon_d_uniq_raid_boss_froster_lord_Skill_7">
 		<CondList>
-			<Scp Client="NO" Scp="SCOND_HP" Time="0" UseSleep="NO">
+			<Scp Scp="SCOND_HP" Client="NO" UseSleep="NO"Time="0">
 				<Num Num="30" />
 			</Scp>
 		</CondList>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+				<Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10199" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Anim Anim="sk3" Speed="1" Time="0" />
-				<Scp Client="NO" Scp="SKL_USE_PCSKILL_BALLON" Time="500" UseSleep="NO">
+				<Anim Time="0" Anim="sk3" Speed="1" />
+				<Scp Scp="SKL_USE_PCSKILL_BALLON" Client="NO" UseSleep="NO"Time="500">
 					<Num Num="163253" />
 					<Num Num="2.2" />
 				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="2700" UseSleep="NO">
+				<Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO"Time="2700">
 					<Num Num="5" />
 					<Num Num="1" />
 					<Num Num="45" />
 					<Num Num="999" />
 				</Scp>
-				<MoveHit Effect="F_circle007_darkblue" Height="0" Radius="5" Scale="10" Time="2700" TotalTime="3">
+				<MoveHit Time="2700" Effect="F_circle007_darkblue" Scale="10" Radius="5" Height="0" TotalTime="3">
 					<HitList>
-						<Frame Accel="1" Angle="0" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="9999" />
+						<Frame Time="9999" Dist="0" Angle="0" Accel="1" Height="0" MoveType="0" Gravity="600" JumpPower="300"/>
 					</HitList>
 					<ScaleList>
-						<Scale Accel="1" Scale="1" Time="0" />
-						<Scale Accel="1" Scale="50" Time="2000" />
+						<Scale Time="0" Scale="1" Accel="1"/>
+						<Scale Time="2000" Scale="50" Accel="1"/>
 					</ScaleList>
 				</MoveHit>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="3100" UseSleep="NO">
+				<Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO"Time="3100">
 					<Pos Angle="0" Dist="0" />
 					<Angle Angle="0" />
 					<Str Str="ShadowGaoler_circlewave" />
 				</Scp>
-				<MoveHit Effect="F_circle007_darkblue" Height="0" Radius="5" Scale="10" Time="3300" TotalTime="3">
+				<MoveHit Time="3300" Effect="F_circle007_darkblue" Scale="10" Radius="5" Height="0" TotalTime="3">
 					<HitList>
-						<Frame Accel="1" Angle="0" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="9999" />
+						<Frame Time="9999" Dist="0" Angle="0" Accel="1" Height="0" MoveType="0" Gravity="600" JumpPower="300"/>
 					</HitList>
 					<ScaleList>
-						<Scale Accel="1" Scale="1" Time="0" />
-						<Scale Accel="1" Scale="50" Time="2000" />
+						<Scale Time="0" Scale="1" Accel="1"/>
+						<Scale Time="2000" Scale="50" Accel="1"/>
 					</ScaleList>
 				</MoveHit>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="3700" UseSleep="NO">
+				<Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO"Time="3700">
 					<Pos Angle="0" Dist="0" />
 					<Angle Angle="0" />
 					<Str Str="ShadowGaoler_circlewave" />
 				</Scp>
 			</EtcList>
 			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="RAID_FREEZING" />
+				<ToolScp Scp="S_R_COND_TGTNOBUFF" Client="NO" UseSleep="NO">
+                    <Str Str="UC_Ignore_Frostbite"/>
+                </ToolScp>
+                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
+					<Str Str="UC_frostbite"/>
 					<Num Num="1" />
 					<Num Num="0" />
-					<Num Num="2000" />
+					<Num Num="30000"/>
 					<Num Num="1" />
 					<Num Num="100" />
 					<Num Num="-1" />
@@ -64,13 +68,13 @@
 		</MainSkl>
 	</Skill>
 	<Skill Name="Mon_d_uniq_raid_boss_froster_lord_Skill_6">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+				<Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Anim Anim="sk1" Speed="1" Time="0" />
-				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="2000" UseSleep="NO">
+				<Anim Time="0" Anim="sk1" Speed="1" />
+				<Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO"Time="2000">
 					<Str Str="SCR_FROSTER_ROAD_SUMMONPILLRA" />
 				</Scp>
 			</EtcList>
@@ -712,73 +716,87 @@
 		</MainSkl>
 	</Skill>
 	<Skill Name="Mon_d_uniq_raid_boss_froster_lord_Skill_3">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+		<MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0" >
 			<HitList>
-				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
+				<Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
 			</HitList>
 			<EtcList>
-				<Anim Anim="sk3" Speed="1" Time="0" />
-				<Scp Client="NO" Scp="SKL_USE_PCSKILL_BALLON" Time="0" UseSleep="NO">
+				<Anim Time="0" Anim="sk3" Speed="1" />
+				<Scp Scp="SKL_USE_PCSKILL_BALLON" Client="NO" UseSleep="NO"Time="0">
 					<Num Num="163249" />
 					<Num Num="2.2" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
-					<Str_Arg Arg="3" Str="I_force018_trail_iceSlow" />
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO"Time="800">
+					<Str_Arg Str="I_force018_trail_iceSlow" Arg="3"/>
 					<Str Str="Bip001 L Finger32" />
 					<Num Num="2" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
-					<Str_Arg Arg="0.60000002" Str="I_force038_ice" />
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO"Time="800">
+					<Str_Arg Str="I_force038_ice" Arg="0.60000002"/>
 					<Str Str="Bip001 L Finger32" />
 					<Num Num="2" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
-					<Str_Arg Arg="0.60000002" Str="I_force038_ice2" />
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO"Time="800">
+					<Str_Arg Str="I_force038_ice2" Arg="0.60000002"/>
 					<Str Str="Bip001 L Finger32" />
 					<Num Num="3" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
-					<Str_Arg Arg="3" Str="I_force018_trail_iceSlow" />
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO"Time="800">
+					<Str_Arg Str="I_force018_trail_iceSlow" Arg="3"/>
 					<Str Str="Bip001 L Finger32" />
 					<Num Num="2" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
-					<Str_Arg Arg="0.60000002" Str="I_force038_ice" />
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO"Time="800">
+					<Str_Arg Str="I_force038_ice" Arg="0.60000002"/>
 					<Str Str="Bip001 L Finger32" />
 					<Num Num="2" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
-					<Str_Arg Arg="0.60000002" Str="I_force038_ice2" />
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO"Time="800">
+					<Str_Arg Str="I_force038_ice2" Arg="0.60000002"/>
 					<Str Str="Bip001 L Finger32" />
 					<Num Num="2" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
-					<Str_Arg Arg="3" Str="I_light004_blue" />
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO"Time="1000">
+					<Str_Arg Str="I_light004_blue" Arg="3"/>
 					<Str Str="Dummy_wepon" />
 					<Num Num="1.5" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="1000" UseSleep="NO">
-					<Str_Arg Arg="2" Str="I_light004_blue" />
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO"Time="1000">
+					<Str_Arg Str="I_light004_blue" Arg="2"/>
 					<Str Str="Dummy_wepon" />
 					<Num Num="2" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="1800" UseSleep="NO">
-					<Str_Arg Arg="3" Str="I_light004_blue" />
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO"Time="1800">
+					<Str_Arg Str="I_light004_blue" Arg="3"/>
 					<Str Str="Dummy_wepon" />
 					<Num Num="1.5" />
 				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="1800" UseSleep="NO">
-					<Str_Arg Arg="2" Str="I_light004_blue" />
+				<Scp Scp="C_EFFECT" Client="YES" UseSleep="NO"Time="1800">
+					<Str_Arg Str="I_light004_blue" Arg="2"/>
 					<Str Str="Dummy_wepon" />
 					<Num Num="2" />
 				</Scp>
-				<Scp Client="NO" Scp="MONSKL_CRE_PAD" Time="2500" UseSleep="NO">
+				<Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO"Time="2500">
 					<Pos Angle="0" Dist="3.4662048e-38" />
 					<Angle Angle="0" />
 					<Str Str="d_uniq_boss_frosterRoad_ice_age" />
 				</Scp>
 			</EtcList>
-		</MainSkl>
+		<ResultList>
+                <ToolScp Scp="S_R_COND_TGTNOBUFF" Client="NO" UseSleep="NO">
+                    <Str Str="UC_Ignore_Frostbite"/>
+                </ToolScp>
+                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
+                    <Str Str="UC_frostbite"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="30000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
 	</Skill>
 	<Skill Name="Mon_d_uniq_raid_boss_froster_lord_Skill_2">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">

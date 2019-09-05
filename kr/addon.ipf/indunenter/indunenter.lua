@@ -1048,6 +1048,15 @@ function INDUNENTER_ENTER(frame, ctrl)
     if INDUNENTER_CHECK_ADMISSION_ITEM(topFrame) == false then
         return;
     end
+
+    local playerCnt = TryGetProp(indunCls, 'PlayerCnt');
+    local party = session.party.GetPartyMemberList(PARTY_NORMAL);
+    local cnt = party:Count();
+    if cnt > playerCnt then
+        ui.SysMsg(ClMsg("OverIndunMaxPC"));
+        return;
+    end
+
     local textCount = topFrame:GetUserIValue("multipleCount");
     local yesScript = string.format("ReqMoveToIndun(%d,%d)", 1, textCount);
     ui.MsgBox(ScpArgMsg("EnterRightNow"), yesScript, "None");

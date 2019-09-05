@@ -9,7 +9,7 @@
 	<script OpenScp="INDUNINFO_UI_OPEN" CloseScp="INDUNINFO_UI_CLOSE"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
-	<userconfig STAR_IMAGE="star_mark" RANDOM_ICON="indun_bossrandom" TOKEN_STATE_IMAGE="token_on" NOT_TOKEN_STATE_IMAGE="indun_icon_day_l" FIRST_OPEN="TRUE" TOOLTIP_POSX="5" TOOLTIP_POSY="42"/>
+	<userconfig STAR_IMAGE="star_mark" RANDOM_ICON="indun_bossrandom" TOKEN_STATE_IMAGE="token_on" NOT_TOKEN_STATE_IMAGE="indun_icon_day_l" FIRST_OPEN="TRUE" TOOLTIP_POSX="5" TOOLTIP_POSY="42" POSBOX_ORIGIN_HEIGHT="110" HEIGHT_RESIZE_FOR_BUTTON="72" MON_ORIGIN_TOP="244" REWARD_ORIGIN_TOP="358"/>
 	<controls>
 		<groupbox name="bgBox" rect="0 0 1095 570" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_low" hittest="true"/>
 		<groupbox name="headerBox" rect="0 0 1095 60" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_top" hittest="false"/>
@@ -20,6 +20,7 @@
 		<groupbox name="categoryBox" rect="0 0 350 450" parent="contentBox" margin="10 0 0 0" layout_gravity="left top" skin="test_frame_midle" fixheight="true" scrollbar="true"/>
 		<!-- Info -->
 		<groupbox name="infoBox" rect="0 0 720 500" parent="contentBox" margin="0 0 12 0" layout_gravity="right top" draw="false"/>
+		<groupbox name="indunbox" rect="0 0 720 500" parent="infoBox" margin="0 0 0 0" layout_gravity="right top" draw="false"/>
 		<groupbox name="nameBox" rect="0 0 420 45" parent="infoBox" margin="0 0 0 0" layout_gravity="right top" draw="false" image="test_com_namebg"/>
 		<richtext name="nameText" rect="0 0 500 30" parent="nameBox" margin="10 0 0 0" layout_gravity="left center" format="{@st66d}%s{/}" param1="name" param1_def="던전 이름"/>
 		<picture name="indunPic" rect="0 0 295 450" parent="infoBox" margin="0 0 0 0" layout_gravity="left top" image="027_boss_Gaigalas" stretch="true"/>
@@ -60,6 +61,9 @@
 		<picture name="armourBtn" parent="rewardBox" rect="0 0 68 68" margin="171 25 0 0" layout_gravity="left top" image="indun_armour" oversound="button_over" stretch="true" LBtnUpScp="INDUNINFO_MAKE_DROPBOX"/>
 		<picture name="accBtn" parent="rewardBox" rect="0 0 68 68" margin="239 25 0 0" layout_gravity="left top" image="indun_acc" oversound="button_over" stretch="true" LBtnUpScp="INDUNINFO_MAKE_DROPBOX"/>
 		<picture name="materialBtn" parent="rewardBox" rect="0 0 68 68" margin="307 25 0 0" layout_gravity="left top" image="indun_material" oversound="button_over" stretch="true" LBtnUpScp="INDUNINFO_MAKE_DROPBOX"/>
+		<!-- move zone -->
+		<groupbox name="moveBox" parent="indunbox" rect="0 0 412 50" margin="0 396 0 0" layout_gravity="right top" draw="false" hittestbox="false"/>
+		<button name="moveBtn" rect="0 0 160 45" parent="moveBox" margin="0 0 0 0" layout_gravity="right top" LBtnUpScp="INDUNINFO_MOVE_TO_ENTER_NPC" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" skin="test_red_button" oversound="button_over" format="{s18}{ol}{#FFFFFF}%s" param1="btnText" param1_def="이동"/>
 		<!-- Bottom controls -->
 		<richtext name="resetInfoText" rect="0 0 600 30" parent="bgBox" margin="0 0 20 22" layout_gravity="right bottom" format="{@st66b}입장 횟수는 매일 %s시에 초기화 됩니다.{/}" param1="resetTime" param1_def="6"/>
 		<richtext name="resetInfoText_Week" rect="0 0 600 30" parent="bgBox" margin="0 0 20 22" layout_gravity="right bottom" format="{@st66b}입장 횟수는 매주 월요일 %s시에 초기화 됩니다.{/}" param1="resetTime" param1_def="6"/>

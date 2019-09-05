@@ -356,6 +356,11 @@ function TPSHOP_ITEM_TO_RECYCLE_SELL_BASKET_PREPROCESSOR(parent, control, itemgu
 		return;
 	end
 
+	if  invItem.isLockState == true then
+        ui.SysMsg(ClMsg("MaterialItemIsLock"));
+        return;
+    end
+
 	local itemobj = GetClassByType("Item", invItem.type)
 	
 	if itemobj == nil then

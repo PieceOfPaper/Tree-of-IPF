@@ -79,6 +79,15 @@
 				</Scp>
 			</EtcList>
 			<ResultList>
+				<ToolScp Client="NO" Scp="S_R_SELFBUFF" UseSleep="NO">
+					<Str Str="Embowel_PowerUp_Buff"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
+					<Num Num="5000"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="-1"/>
+				</ToolScp>
 				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
 					<Str Str="Stun"/>
 					<Num Num="1"/>
@@ -200,6 +209,24 @@
 				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
 					<Str Str="voice_war_atk_short"/>
 					<Str Str="voice_atk_short_war_f"/>
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="Skill_MomentaryImmune_Buff"/>
+					<Num Num="1"/>
+					<Num Num="0"/>
+					<Num Num="1000"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="0"/>
+				</Scp>
+				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+					<Str Str="Embowel_Buff"/>
+					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1"/>
+					<Num Num="0"/>
+					<Num FuncTxt="return obj.ShootTime" UseFunc="1" Num="0"/>
+					<Num Num="1"/>
+					<Num Num="100"/>
+					<Num Num="0"/>
 				</Scp>
 				<Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="350">
 					<Str Str="voice_war_atk_medium"/>

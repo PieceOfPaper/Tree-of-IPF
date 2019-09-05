@@ -4,7 +4,7 @@
 	<frame fullheight="false" fasthide="true" layout_gravity="right top" margin="0 33 350 0" draw="true"/>
 	<skin frameskin="None"/>
 	<draw drawframe="true"/>
-	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false" catchmovepos="true"/>
 	<option closebutton="false"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<layer layerlevel="99"/>
