@@ -4,7 +4,7 @@ function RAREOPTION_ON_INIT(addon, frame)
 end
 
 -- 인챈트 쥬얼의 ItemGrade는 3부터 시작
-local gradestr_list = {"", "", "레어", "유니크", "레전드"}
+local gradestr_list = {"", "", ClMsg("Rare"), ClMsg("Unique"),  ClMsg("Legend")}
 
 local function _RAREOPTION_SET_JEWELL_ITEM(frame, jewellItem)	
 	if jewellItem == nil then

@@ -570,6 +570,9 @@ end"/>
 	</Skill>
 	<Skill Name="Ranger_HighAnchoring">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="50" Length="200" SklAngle="0.17453292" AniTime="200" RotAngle="0" ForceATK="0"/>
+            </HitList>
 			<EtcList>
 				<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 					<Str_Arg Arg="0.80000001" FuncTxt="local dynTime = self:GetKeyCastTime(); if dynTime &gt;= 1.8 then return &quot;I_archer_highanchoring_force_full_mash_new#Dummy_arrowstart&quot;, 1.0; else return &quot;I_archer_highanchoring_force_full_mash_new#Dummy_arrowstart&quot;, 1.0; end" Str="archer_highanchoring_fos#Dummy_Force" UseFunc="1" />
@@ -618,6 +621,9 @@ end"/>
 					<ToolScp Client="NO" Scp="SKL_SELECT_EQUIP_SH_WEAPON" UseSleep="NO" />
 				</Cond>
 				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="50" Length="200" SklAngle="0.17453292" AniTime="200" RotAngle="0" ForceATK="0"/>
+                    </HitList>
 					<EtcList>
 						<Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="0" UseSleep="NO">
 							<Str_Arg Arg="0.75" FuncTxt="local dynTime = self:GetKeyCastTime(); if dynTime &gt;= 1.8 then return &quot;I_archer_highanchoring_force_full_mash_new#Dummy_arrowstart&quot;, 1.0; else return &quot;I_archer_highanchoring_force_full_mash_new#Dummy_arrowstart&quot;, 1.0; end" Str="archer_highanchoring_fos#Dummy_Force" UseFunc="1" />

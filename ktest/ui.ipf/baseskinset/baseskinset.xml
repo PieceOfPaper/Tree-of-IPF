@@ -4230,6 +4230,50 @@
 			<img name="bottomcore" imgrect="496 68 10 10"/>
 			<img name="bottomright" imgrect="507 68 10 10"/>
 		</skin>
+		<skin name="mon_card_hollow" texture="\skin\tocket_monsters.tga">
+			<img name="topleft" imgrect="657 130 30 30"/>
+			<img name="topcore" imgrect="688 130 30 30"/>
+			<img name="topright" imgrect="719 130 30 30"/>
+			<img name="bodyleft" imgrect="657 161 30 30"/>
+			<img name="bodycore" imgrect="688 161 30 30"/>
+			<img name="bodyright" imgrect="719 161 30 30"/>
+			<img name="bottomleft" imgrect="657 192 30 30"/>
+			<img name="bottomcore" imgrect="688 192 30 30"/>
+			<img name="bottomright" imgrect="719 192 30 30"/>
+		</skin>
+		<skin name="monster_card_list" texture="\skin\tocket_monsters.tga">
+			<img name="topleft" imgrect="1 220 30 22"/>
+			<img name="topcore" imgrect="32 220 27 22"/>
+			<img name="topright" imgrect="60 220 30 22"/>
+			<img name="bodyleft" imgrect="1 243 30 15"/>
+			<img name="bodycore" imgrect="32 243 27 15"/>
+			<img name="bodyright" imgrect="60 243 30 15"/>
+			<img name="bottomleft" imgrect="1 259 30 22"/>
+			<img name="bottomcore" imgrect="32 259 27 22"/>
+			<img name="bottomright" imgrect="60 259 30 22"/>
+		</skin>
+		<skin name="stamp_tour_title" texture="\skin\stamp_tour.tga">
+			<img name="topleft" imgrect="954 194 179 1"/>
+			<img name="topcore" imgrect="1134 194 98 1"/>
+			<img name="topright" imgrect="1233 194 187 1"/>
+			<img name="bodyleft" imgrect="954 196 179 96"/>
+			<img name="bodycore" imgrect="1134 196 98 96"/>
+			<img name="bodyright" imgrect="1233 196 187 96"/>
+			<img name="bottomleft" imgrect="954 293 179 1"/>
+			<img name="bottomcore" imgrect="1134 293 98 1"/>
+			<img name="bottomright" imgrect="1233 293 187 1"/>
+		</skin>
+		<skin name="stamp_tour_list_title" texture="\skin\stamp_tour.tga">
+			<img name="topleft" imgrect="954 295 145 1"/>
+			<img name="topcore" imgrect="1100 295 90 1"/>
+			<img name="topright" imgrect="1191 295 145 1"/>
+			<img name="bodyleft" imgrect="954 297 145 40"/>
+			<img name="bodycore" imgrect="1100 297 90 40"/>
+			<img name="bodyright" imgrect="1191 297 145 40"/>
+			<img name="bottomleft" imgrect="954 338 145 1"/>
+			<img name="bottomcore" imgrect="1100 338 90 1"/>
+			<img name="bottomright" imgrect="1191 338 145 1"/>
+		</skin>
 	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
@@ -5767,6 +5811,14 @@
 			<img name="barmiddle" imgrect="393 384 349 7"/>
 			<img name="barright" imgrect="742 392 1 7"/>
 		</skin>
+		<skin name="mon_card_gauge" texture="\skin\tocket_monsters.tga">
+			<img name="bgleft" imgrect="93 220 1 8"/>
+			<img name="bgmiddle" imgrect="94 220 100 8"/>
+			<img name="bgright" imgrect="194 220 1 8"/>
+			<img name="barleft" imgrect="93 220 1 8"/>
+			<img name="barmiddle" imgrect="92 229 102 8"/>
+			<img name="barright" imgrect="194 220 1 8"/>
+		</skin>
 	</skinlist>
 	<skinlist category="labellines">
 		<skin name="labelline_def_5" texture="\skin\tooltip_skin_3.tga">
@@ -7104,6 +7156,18 @@
 		<image name="m_title_classic" file="\skin\bgm_player.tga" imgrect="178 528 172 23" CMM_Caption="미니 타이틀_클래식"/>
 		<image name="change_c_button" file="\skin\bgm_player.tga" imgrect="825 1 69 23" CMM_Caption="스킨 바꾸기_클래식"/>
 		<image name="change_s_button" file="\skin\bgm_player.tga" imgrect="895 1 69 23" CMM_Caption="스킨 바꾸기_심플"/>
+		<image name="m_question_mark" file="\skin\tocket_monsters.tga" imgrect="657 1 97 128" CMM_Caption="트켓몬 물음표 마크"/>
+		<image name="monster_card_starmark" file="\skin\tocket_monsters.tga" imgrect="755 1 47 44" CMM_Caption="별 마크"/>
+		<image name="normal_card" file="\skin\tocket_monsters.tga" imgrect="1 1 163 218" CMM_Caption="노말 카드"/>
+		<image name="rare_card" file="\skin\tocket_monsters.tga" imgrect="165 1 163 218" CMM_Caption="레어 카드"/>
+		<image name="unique_card" file="\skin\tocket_monsters.tga" imgrect="329 1 163 218" CMM_Caption="유니크 카드"/>
+		<image name="legend_card" file="\skin\tocket_monsters.tga" imgrect="493 1 163 218" CMM_Caption="레전드 카드"/>
+		<image name="very_nice_stamp" file="\skin\stamp_tour.tga" imgrect="954 340 124 124" CMM_Caption="참잘했어요 도장"/>
+		<image name="stamp_tour_note" file="\skin\stamp_tour.tga" imgrect="1 1 643 802" CMM_Caption="스탬프 투어 백그라운드"/>
+		<image name="monster_card_g_frame" file="\skin\tocket_monsters.tga" imgrect="1 282 163 216" CMM_Caption="트켓몬 금색 테두리 프레임"/>
+		<image name="stamp_tour_list" file="\skin\stamp_tour.tga" imgrect="954 1 468 192" CMM_Caption="스탬프 투어 목록"/>
+		<image name="stamp_tour_list_accomplish" file="\skin\stamp_tour.tga" imgrect="954 465 460 184" CMM_Caption="스탬프 투어 달성 활성화"/>
+		<image name="starmark_multipl05" file="\skin\pip_test2.tga" imgrect="734 238 20 15" CMM_Caption="거래등급optx5"/>
 	</imagelist>
 	<imagelist category="je_button">
 		<image name="menu_guild_info" file="\skin\guild_skin.tga" imgrect="165 298 45 45" CMM_Caption="길드 정보"/>
@@ -7423,6 +7487,44 @@
 		<image name="god_pro_world_button_clicked" file="\skin\god_protect_skin.tga" imgrect="672 873 75 72"/>
 		<image name="bgm_gauge_com_L" file="\skin\bgm_player.tga" imgrect="393 392 1 7" CMM_Caption="리뉴얼 게이즈 좌"/>
 		<image name="bgm_gauge_com_R" file="\skin\bgm_player.tga" imgrect="743 392 1 7" CMM_Caption="리뉴얼 게이즈 우"/>
+		<image name="mon_card_gauge_L" file="\skin\tocket_monsters.tga" imgrect="92 220 1 8" CMM_Caption="트켓몬 경험치 좌"/>
+		<image name="mon_card_gauge_R" file="\skin\tocket_monsters.tga" imgrect="195 220 1 8" CMM_Caption="트켓몬 경험치 우"/>
+		<image name="stamp_grow" file="\skin\stamp_tour.tga" imgrect="645 1 102 52" CMM_Caption="스탬프 투어_성장"/>
+		<image name="stamp_grow_cursoron" file="\skin\stamp_tour.tga" imgrect="748 1 102 52"/>
+		<image name="stamp_grow_clicked" file="\skin\stamp_tour.tga" imgrect="851 1 102 52"/>
+		<image name="stamp_reinforce_01" file="\skin\stamp_tour.tga" imgrect="645 54 102 52" CMM_Caption="스탬프 투어_강화01"/>
+		<image name="stamp_reinforce_01_cursoron" file="\skin\stamp_tour.tga" imgrect="748 54 102 52"/>
+		<image name="stamp_reinforce_01_clicked" file="\skin\stamp_tour.tga" imgrect="851 54 102 52"/>
+		<image name="stamp_reinforce_02" file="\skin\stamp_tour.tga" imgrect="645 107 102 52" CMM_Caption="스탬프 투어_강화02"/>
+		<image name="stamp_reinforce_02_cursoron" file="\skin\stamp_tour.tga" imgrect="748 107 102 52"/>
+		<image name="stamp_reinforce_02_clicked" file="\skin\stamp_tour.tga" imgrect="851 107 102 52"/>
+		<image name="stamp_combat_01" file="\skin\stamp_tour.tga" imgrect="645 160 102 52" CMM_Caption="스탬프 투어_전투01"/>
+		<image name="stamp_combat_01_cursoron" file="\skin\stamp_tour.tga" imgrect="748 160 102 52"/>
+		<image name="stamp_combat_01_clicked" file="\skin\stamp_tour.tga" imgrect="851 160 102 52"/>
+		<image name="stamp_combat_02" file="\skin\stamp_tour.tga" imgrect="645 213 102 52" CMM_Caption="스탬프 투어_전투02"/>
+		<image name="stamp_combat_02_cursoron" file="\skin\stamp_tour.tga" imgrect="748 213 102 52"/>
+		<image name="stamp_combat_02_clicked" file="\skin\stamp_tour.tga" imgrect="851 213 102 52"/>
+		<image name="stamp_cooperation_01" file="\skin\stamp_tour.tga" imgrect="645 266 102 52" CMM_Caption="스탬프 투어_협동01"/>
+		<image name="stamp_cooperation_01_cursoron" file="\skin\stamp_tour.tga" imgrect="748 266 102 52"/>
+		<image name="stamp_cooperation_01_clicked" file="\skin\stamp_tour.tga" imgrect="851 266 102 52"/>
+		<image name="stamp_cooperation_02" file="\skin\stamp_tour.tga" imgrect="645 319 102 52" CMM_Caption="스탬프 투어_협동02"/>
+		<image name="stamp_cooperation_02_cursoron" file="\skin\stamp_tour.tga" imgrect="748 319 102 52"/>
+		<image name="stamp_cooperation_02_clicked" file="\skin\stamp_tour.tga" imgrect="851 319 102 52"/>
+		<image name="stamp_challenge" file="\skin\stamp_tour.tga" imgrect="645 372 102 52" CMM_Caption="스탬프 투어_도전"/>
+		<image name="stamp_challenge_cursoron" file="\skin\stamp_tour.tga" imgrect="748 372 102 52"/>
+		<image name="stamp_challenge_clicked" file="\skin\stamp_tour.tga" imgrect="851 372 102 52"/>
+		<image name="stamp_adventure_01" file="\skin\stamp_tour.tga" imgrect="645 425 102 52" CMM_Caption="스탬프 투어_모험01"/>
+		<image name="stamp_adventure_01_cursoron" file="\skin\stamp_tour.tga" imgrect="748 425 102 52"/>
+		<image name="stamp_adventure_01_clicked" file="\skin\stamp_tour.tga" imgrect="851 425 102 52"/>
+		<image name="stamp_adventure_02" file="\skin\stamp_tour.tga" imgrect="645 478 102 52" CMM_Caption="스탬프 투어_모험02"/>
+		<image name="stamp_adventure_02_cursoron" file="\skin\stamp_tour.tga" imgrect="748 478 102 52"/>
+		<image name="stamp_adventure_02_clicked" file="\skin\stamp_tour.tga" imgrect="851 478 102 52"/>
+		<image name="stamp_life_01" file="\skin\stamp_tour.tga" imgrect="645 531 102 52" CMM_Caption="스탬프 투어_생활01"/>
+		<image name="stamp_life_01_cursoron" file="\skin\stamp_tour.tga" imgrect="748 531 102 52"/>
+		<image name="stamp_life_01_clicked" file="\skin\stamp_tour.tga" imgrect="851 531 102 52"/>
+		<image name="stamp_life_02" file="\skin\stamp_tour.tga" imgrect="645 584 102 52" CMM_Caption="스탬프 투어_생활02"/>
+		<image name="stamp_life_02_cursoron" file="\skin\stamp_tour.tga" imgrect="748 584 102 52"/>
+		<image name="stamp_life_02_clicked" file="\skin\stamp_tour.tga" imgrect="851 584 102 52"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -9747,6 +9849,21 @@
 		<image name="icon_reinforce_discount" file="\icon\buff_icon2.tga" imgrect="256 1664 128 128" CMM_Caption="강화 50% 할인"/>
 		<image name="icon_healhsp_speedup" file="\icon\buff_icon2.tga" imgrect="384 1664 128 128" CMM_Caption="이동 속도증가,HP,SP회복"/>
 		<image name="icon_ability_archer_TigerHunter9" file="\icon\buff_icon2.tga" imgrect="512 1664 128 128" CMM_Caption="산포 버프 아이콘"/>
+		<image name="icon_Ancient_Fire_Buff" file="\icon\buff_icon2.tga" imgrect="768 1664 128 128" CMM_Caption="불속성"/>
+		<image name="icon_Ancient_Ice_Buff" file="\icon\buff_icon2.tga" imgrect="896 1664 128 128" CMM_Caption="얼음속성"/>
+		<image name="icon_Ancient_Lightning_Buff" file="\icon\buff_icon2.tga" imgrect="0 1792 128 128" CMM_Caption="전기속성"/>
+		<image name="icon_Ancient_Earth_Buff" file="\icon\buff_icon2.tga" imgrect="128 1792 128 128" CMM_Caption="땅속성"/>
+		<image name="icon_Ancient_Poison_Buff" file="\icon\buff_icon2.tga" imgrect="256 1792 128 128" CMM_Caption="독속성"/>
+		<image name="icon_Ancient_Dark_Buff" file="\icon\buff_icon2.tga" imgrect="384 1792 128 128" CMM_Caption="어둠속성"/>
+		<image name="icon_Ancient_melee_Buff" file="\icon\buff_icon2.tga" imgrect="512 1792 128 128" CMM_Caption="무속성"/>
+		<image name="icon_Ancient_soul_Buff" file="\icon\buff_icon2.tga" imgrect="640 1792 128 128" CMM_Caption="영혼속성"/>
+		<image name="icon_Ancient_Holy_Buff" file="\icon\buff_icon2.tga" imgrect="768 1792 128 128" CMM_Caption="빛속성"/>
+		<image name="icon_Ancient_Widling_Buff" file="\icon\buff_icon2.tga" imgrect="896 1792 128 128" CMM_Caption="야수종족"/>
+		<image name="icon_Ancient_Forester_Buff" file="\icon\buff_icon2.tga" imgrect="0 1920 128 128" CMM_Caption="식물종족"/>
+		<image name="icon_Ancient_Paramune_Buff" file="\icon\buff_icon2.tga" imgrect="128 1920 128 128" CMM_Caption="변이종족"/>
+		<image name="icon_Ancient_Velnias_Buff" file="\icon\buff_icon2.tga" imgrect="256 1920 128 128" CMM_Caption="악마종족"/>
+		<image name="icon_Ancient_Klaida_Buff" file="\icon\buff_icon2.tga" imgrect="384 1920 128 128" CMM_Caption="곤충종족"/>
+		<image name="icon_Ancient_melee01_Buff" file="\icon\buff_icon2.tga" imgrect="512 1920 128 128" CMM_Caption="무종족"/>
 	</imagelist>
 	<imagelist category="housing_bufficon">
 		<image name="icon_Weapon_Klaida" file="\icon\icon_hosing_buff.tga" imgrect="0 0 128 128"/>

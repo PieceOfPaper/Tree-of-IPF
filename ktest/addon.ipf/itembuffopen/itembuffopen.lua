@@ -50,6 +50,9 @@ end
 
 local function _GET_ITEM_SOCKET_ADD_VALUE(targetPropName, item)
 	local invItem, where = GET_INV_ITEM_BY_ITEM_OBJ(item);
+	if invItem == nil then
+		return 0;
+	end
 
     local value = 0;
     local sockets = {};
@@ -62,7 +65,7 @@ local function _GET_ITEM_SOCKET_ADD_VALUE(targetPropName, item)
         local props = sockets[i];
         for j = 1, #props do
             local prop = props[j]
-            if prop[1] == targetPropName then                
+            if prop[1] == targetPropName or ( (prop[1] == "PATK") and (targetPropName == "ATK")) then                
                 value = value + prop[2];
             end
         end
@@ -153,8 +156,9 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 
 	    if obj.GroupName == "Weapon" or obj.GroupName == "SubWeapon" then
 		    if basicTooltipProp == "ATK" then -- 최대, 최소 공격력
-			    maxtext:SetTextByKey("txt", obj.MAXATK .." > ".. nextObj.MAXATK);
-			    mintext:SetTextByKey("txt", obj.MINATK .." > ".. nextObj.MINATK);
+				local socketaddvalue =  _GET_ITEM_SOCKET_ADD_VALUE(basicTooltipProp, obj)
+			    maxtext:SetTextByKey("txt", obj.MAXATK + socketaddvalue .." > ".. nextObj.MAXATK + socketaddvalue);
+			    mintext:SetTextByKey("txt", obj.MINATK + socketaddvalue .." > ".. nextObj.MINATK + socketaddvalue);
 			elseif basicTooltipProp == "MATK" then -- 마법공격력
 				local socketaddvalue =  _GET_ITEM_SOCKET_ADD_VALUE(basicTooltipProp, obj)
 			    mintext:SetTextByKey("txt", obj.MATK - socketaddvalue .." > ".. nextObj.MATK + socketaddvalue);

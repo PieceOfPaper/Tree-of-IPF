@@ -312,3 +312,102 @@ function _WARNINGMSGBOX_FRAME_OPEN_REBUILDPOPUP_YES(parent, ctrl, argStr, argNum
 	ui.CloseFrame("warningmsgbox");
 	ui.CloseFrame("item_tooltip");
 end
+
+-- 출력할 msg, esc 키로 UI 닫을 수 있는지
+-- msgtype이 0일 경우는 '0000'입력후 확인 해야 UI 창 닫게
+-- msgtype이 1일 경우는 '1111'입력시 yesScp, '0000'입력시 noScp 호출
+function WARNINGMSGBOX_FRAME_OPEN_NONNESTED(clmsg, enablehide, type, yesScp, noScp)
+	ui.OpenFrame("warningmsgbox");
+
+	if enablehide == nil then 
+		enablehide = 0;
+	end
+
+	local msgtype = 0; 
+
+	if type == nil or type == 0 then
+		msgtype = 0;
+	end
+
+	if type == 1 and yesScp ~= nil and noScp ~= nil then
+		msgtype = 1;
+	end
+	
+	local frame = ui.GetFrame('warningmsgbox');
+	frame:EnableHide(enablehide);
+
+	local warningText = GET_CHILD_RECURSIVELY(frame, "warningtext");
+	warningText:SetText(clmsg);
+
+	local showTooltipCheck = GET_CHILD_RECURSIVELY(frame, "cbox_showTooltip");
+	showTooltipCheck:ShowWindow(0);
+
+	local input_frame = GET_CHILD_RECURSIVELY(frame, "input");
+    input_frame:ShowWindow(1);
+	input_frame:SetText('');
+
+	local yesBtn = GET_CHILD_RECURSIVELY(frame, "yes");
+	tolua.cast(yesBtn, "ui::CButton");
+	
+	local noBtn = GET_CHILD_RECURSIVELY(frame, "no")
+	tolua.cast(noBtn, "ui::CButton");
+	
+	local okBtn = GET_CHILD_RECURSIVELY(frame, "ok")
+	tolua.cast(okBtn, "ui::CButton");
+	okBtn:SetEventScript(ui.LBUTTONUP, '_WARNINGMSGBOX_FRAME_OPEN_NONNESTED_OK');
+	okBtn:SetEventScriptArgNumber(ui.LBUTTONUP, msgtype);	
+	if msgtype == 1 then
+		okBtn:SetEventScriptArgString(ui.LBUTTONUP, yesScp.."/"..noScp);
+	end
+	
+	yesBtn:ShowWindow(0);
+	noBtn:ShowWindow(0);
+	okBtn:ShowWindow(1);
+	
+	local buttonMargin = okBtn:GetMargin();
+	local warningbox = GET_CHILD_RECURSIVELY(frame, 'warningbox');
+	local totalHeight = warningbox:GetY() + warningText:GetY() + warningText:GetHeight() + okBtn:GetHeight() + 2 * buttonMargin.bottom + input_frame:GetHeight();
+
+	local bg = GET_CHILD_RECURSIVELY(frame, 'bg');
+	warningbox:Resize(warningbox:GetWidth(), totalHeight);
+	bg:Resize(bg:GetWidth(), totalHeight);
+	frame:Resize(frame:GetWidth(), totalHeight);
+end
+
+function _WARNINGMSGBOX_FRAME_OPEN_NONNESTED_OK(parent, ctrl, argStr, argNum)
+	local input_frame = GET_CHILD_RECURSIVELY(parent, "input");
+	local scpstr = "";
+
+	if argNum == 0 then
+		if input_frame:GetText() ~= '0000' then
+			ui.SysMsg(ClMsg('miss_match_confirm_text'));
+			return;
+		end
+
+		local scp = _G[scpstr];
+		if scp ~= nil then			
+			scp();
+		end
+
+	elseif argNum == 1 then
+		local scpstrlist = StringSplit(argStr, '/');
+		if input_frame:GetText() == '0000' then
+			scpstr = scpstrlist[1];
+		elseif input_frame:GetText() == '1111' then
+			scpstr = scpstrlist[2];
+		else
+			ui.SysMsg(ClMsg('miss_match_confirm_text'));
+		end
+
+		local scp = _G[scpstr];
+		if scp ~= nil then			
+			scp();
+		end
+
+	end
+
+	IMC_LOG("INFO_NORMAL", "_WARNINGMSGBOX_FRAME_OPEN_NONNESTED_OK");
+
+	ui.CloseFrame("warningmsgbox");
+	ui.CloseFrame("item_tooltip");
+end

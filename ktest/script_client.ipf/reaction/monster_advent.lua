@@ -14,5 +14,10 @@ function IS_ALWAYS_VISIBLE_MON_TITLE(mon)
 			return 1;
 		end
 	end
+	
+	if TryGetProp(mon, "Keyword") == "Ancient" then
+	    return 1;
+	end
+	
 	return 0;
 end	

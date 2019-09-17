@@ -1629,6 +1629,13 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 		limited_line:SetVisible(1);
 		time_limited_bg:SetVisible(1);
 		time_limited_text:SetVisible(1);
+		if config.GetServiceNation() ~= "KOR" then
+			limited_bg : SetVisible(0);
+			limited_case: SetVisible(0);
+			limited_line:SetVisible(0);
+			time_limited_bg:SetVisible(0);
+			time_limited_text:SetVisible(0);
+		end
 	else		
 		itemcset:SetSkinName('test_skin_01_btn')
 		limited_bg : SetVisible(0);
@@ -2003,6 +2010,10 @@ function TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, isLimit_ma
 		bisNew = 1;
 	end
   
+  	if (config.GetServiceNation() ~= "KOR") and (IS_TIME_SALE_ITEM(classID) == true) then
+		bisNew = 1;
+	end
+	
 	if founded_info ~= nil then	
 		if founded_info.nIsHot > 0 then
 			bisHot = 1;

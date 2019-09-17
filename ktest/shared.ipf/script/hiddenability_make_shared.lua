@@ -7,6 +7,10 @@ function IS_HIDDENABILITY_MATERIAL_PIECE(itemobj)
     if itemobj.StringArg == "HiddenAbility_MasterPiece" then
 		return true;
     end
+
+    if itemobj.StringArg == "Event_HiddenAbility_MasterPiece" then
+		return true;
+    end
     
     return false;
 end
@@ -34,6 +38,10 @@ function IS_HIDDENABILITY_MATERIAL_MASTERPIECE(itemobj)
 		return true;
 	end
     
+    if itemobj.StringArg == "Event_HiddenAbility_MasterPiece" then
+		return true;
+	end
+    
     return false;
 end
 
@@ -42,7 +50,11 @@ function HIDDENABILITY_MAKE_NEED_PIECE_COUNT(ClassName, itemobj)
     if itemobj.StringArg == "HiddenAbility_MasterPiece" then
 		return 1;
     end
-    
+
+    if itemobj.StringArg == "Event_HiddenAbility_MasterPiece" then
+		return 1;
+    end
+
     return 2;
 end
 
@@ -66,6 +78,13 @@ function IS_HIDDENABILITY_DECOMPOSE_BOOK_MATERIAL(itemobj)
     local StringArg = TryGetProp(itemobj, 'StringArg', 'None')
     
     if string.find(ClassName, 'HiddenAbility_') ~= nil and StringArg ~= 'HiddenAbility_MasterPiece' then
+        local cls = GetClass('Item', ClassName)
+        if cls ~= nil then
+            return true
+        end
+    end
+
+    if string.find(ClassName, 'HiddenAbility_') ~= nil and StringArg ~= 'Event_HiddenAbility_MasterPiece' then
         local cls = GetClass('Item', ClassName)
         if cls ~= nil then
             return true

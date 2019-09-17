@@ -650,7 +650,7 @@ end
 
 local function _GET_ITEM_SOCKET_ADD_VALUE(targetPropName, item)
 	local invItem, where = GET_INV_ITEM_BY_ITEM_OBJ(item);
-	if invItem == nil or (where ~= 'market' and where ~= 'cabinet') then
+	if invItem == nil then
 		return 0;
 	end
 
@@ -664,7 +664,7 @@ local function _GET_ITEM_SOCKET_ADD_VALUE(targetPropName, item)
         local props = sockets[i];
         for j = 1, #props do
             local prop = props[j]
-            if prop[1] == targetPropName then                
+            if prop[1] == targetPropName or ( (prop[1] == "PATK") and (targetPropName == "ATK")) then
                 value = value + prop[2];
             end
         end
@@ -733,15 +733,15 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 		end
 		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf + overReinf, basicProp) )
 		socketaddvalue =  _GET_ITEM_SOCKET_ADD_VALUE(basicProp, invitem);		
-		arg1 = invitem.MINATK - reinforceaddvalue - socketaddvalue;
-		arg2 = invitem.MAXATK - reinforceaddvalue - socketaddvalue;
+		arg1 = invitem.MINATK - reinforceaddvalue + socketaddvalue;
+		arg2 = invitem.MAXATK - reinforceaddvalue + socketaddvalue;
 	elseif basicProp == 'MATK' then
 	    typeiconname = 'test_sword_icon'
 		typestring = ScpArgMsg("Magic_Atk")
 		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf + overReinf, basicProp) )
 		socketaddvalue =  _GET_ITEM_SOCKET_ADD_VALUE(basicProp, invitem)
-		arg1 = invitem.MATK - reinforceaddvalue - socketaddvalue;
-		arg2 = invitem.MATK - reinforceaddvalue - socketaddvalue;
+		arg1 = invitem.MATK - reinforceaddvalue;
+		arg2 = invitem.MATK - reinforceaddvalue;
 	else
 		typeiconname = 'test_shield_icon'
 		typestring = ScpArgMsg(basicProp);

@@ -1,557 +1,557 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ToolSkill><Skill Name="Murmillo_EmperorsBane">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_MURMILLO_EMPEROR'SBANE_LOOP" />
-					<Num Num="1.7" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE_SIZEMON" Time="0" UseSleep="NO">
-					<Pos Angle="0" Dist="15" />
-					<Num Num="50" />
-					<Num Num="1" />
-					<Str Str="S/M" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="0" UseSleep="NO">
-					<Str Str="IS_NOT_ATTACHED_TO_OBJ" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_eff_move_equip_4" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_war_m_emperorsbane_shot" />
-					<Str Str="voice_war_f_emperorsbane_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="250" UseSleep="NO">
-					<Str Str="swd_hit_cri_middle" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="300" UseSleep="NO">
-					<Str Str="EmperorsBane_Debuff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="4000" />
-					<Num Num="1" />
-					<Num Num="100" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_ATTACH_TO_NODE_ATTACHBUFF" Time="300" UseSleep="NO">
-					<Str Str="Dummy_R_HAND" />
-					<Str Str="Dummy_head" />
-					<Num Num="0" />
-					<Str Str="STUN" />
-					<Num Num="0.1" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TARGET_RESET" Time="300" UseSleep="NO" />
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="300" UseSleep="NO">
-					<Pos Angle="0" Dist="0" />
-					<Num Num="80" />
-					<Num Num="8" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="300" UseSleep="NO">
-					<Str Str="EmperorsBane_Stun_Debuff" />
-					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="4000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="300" UseSleep="NO">
-					<Str_Arg Arg="4.6999998" Str="F_hit017_3" />
-					<Pos Angle="0" Dist="0" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="550" UseSleep="NO">
-					<Num Num="0.5" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
-						<Str Str="EmperorsBane_Buff" />
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-					</HitList>
-					<EtcList>
-						<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-							<Str Str="SKL_MURMILLO_EMPEROR'SBANE_LOOP" />
-							<Num Num="1.4" />
-							<Num Num="1" />
-							<Num Num="0" />
-						</Scp>
-						<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="500" UseSleep="NO">
-							<Num Num="1" />
-							<Num Num="1" />
-							<Num Num="0.5" />
-							<Num Num="0.30000001" />
-							<Num Num="0.30000001" />
-							<Num Num="1" />
-							<Num Num="1" />
-						</Scp>
-						<Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
-							<Str_Arg Arg="4.6999998" Str="F_hit017_3" />
-							<Pos Angle="0" Dist="0" />
-							<Num Num="0" />
-							<Str Str="None" />
-						</Scp>
-						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="550" UseSleep="NO">
-							<Num Num="3" />
-							<Num Num="0.5" />
-							<Num Num="45" />
-							<Num Num="999" />
-						</Scp>
-						<Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="600" UseSleep="NO">
-							<Num Num="1" />
-							<Num Num="0" />
-							<Num Num="0.5" />
-							<Num Num="0.30000001" />
-							<Num Num="0.30000001" />
-							<Num Num="1" />
-							<Num Num="1" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="650" UseSleep="NO">
-							<Pos Angle="0" Dist="0" />
-							<Num Num="80" />
-							<Num Num="8" />
-							<Num Num="2" />
-							<Num Num="0" />
-							<Num Num="1" />
-							<Num Num="1" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_TGT_DMG_BUFF" Time="700" UseSleep="NO">
-							<Num Num="1" />
-							<Str Str="EmperorsBane_Buff" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_TGT_DMG" Time="700" UseSleep="NO">
-							<Num Num="1" />
-							<Num Num="0" />
-							<Num Num="0" />
-						</Scp>
-					</EtcList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	<Skill Name="Murmillo_ShieldTrain">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<MoveList>
-				<Frame Accel="1" Angle="-0.00088965916" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="0" />
-				<Frame Accel="1" Angle="-0.0057586166" Dist="67.826317" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="100" />
-			</MoveList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_MURMILLO_EMPEROR'SBANE_LOOP" />
+                    <Num Num="1.7" />
+                    <Num Num="1" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE_SIZEMON" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="15" />
+                    <Num Num="50" />
+                    <Num Num="1" />
+                    <Str Str="S/M/PC" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="0" UseSleep="NO">
+                    <Str Str="IS_NOT_ATTACHED_TO_OBJ" />
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="skl_eff_move_equip_4" />
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_war_m_emperorsbane_shot" />
+                    <Str Str="voice_war_f_emperorsbane_shot" />
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="250" UseSleep="NO">
+                    <Str Str="swd_hit_cri_middle" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="300" UseSleep="NO">
+                    <Str Str="EmperorsBane_Debuff" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                    <Num Num="4000" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_ATTACH_TO_NODE_ATTACHBUFF" Time="300" UseSleep="NO">
+                    <Str Str="Dummy_R_HAND" />
+                    <Str Str="Dummy_head" />
+                    <Num Num="0" />
+                    <Str Str="STUN" />
+                    <Num Num="0.1" />
+                    <Num Num="1" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TARGET_RESET" Time="300" UseSleep="NO" />
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="300" UseSleep="NO">
+                    <Pos Angle="0" Dist="0" />
+                    <Num Num="80" />
+                    <Num Num="8" />
+                    <Num Num="2" />
+                    <Num Num="0" />
+                    <Num Num="1" />
+                    <Num Num="1" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="300" UseSleep="NO">
+                    <Str Str="EmperorsBane_Stun_Debuff" />
+                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+                    <Num Num="0" />
+                    <Num Num="4000" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                    <Num Num="0" />
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="300" UseSleep="NO">
+                    <Str_Arg Arg="4.6999998" Str="F_hit017_3" />
+                    <Pos Angle="0" Dist="0" />
+                    <Num Num="0" />
+                    <Str Str="None" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="550" UseSleep="NO">
+                    <Num Num="0.5" />
+                    <Num Num="0" />
+                    <Num Num="0" />
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+                        <Str Str="EmperorsBane_Buff" />
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                            <Str Str="SKL_MURMILLO_EMPEROR'SBANE_LOOP" />
+                            <Num Num="1.4" />
+                            <Num Num="1" />
+                            <Num Num="0" />
+                        </Scp>
+                        <Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="500" UseSleep="NO">
+                            <Num Num="1" />
+                            <Num Num="1" />
+                            <Num Num="0.5" />
+                            <Num Num="0.30000001" />
+                            <Num Num="0.30000001" />
+                            <Num Num="1" />
+                            <Num Num="1" />
+                        </Scp>
+                        <Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
+                            <Str_Arg Arg="4.6999998" Str="F_hit017_3" />
+                            <Pos Angle="0" Dist="0" />
+                            <Num Num="0" />
+                            <Str Str="None" />
+                        </Scp>
+                        <Scp Client="YES" Scp="C_SHOCKWAVE" Time="550" UseSleep="NO">
+                            <Num Num="3" />
+                            <Num Num="0.5" />
+                            <Num Num="45" />
+                            <Num Num="999" />
+                        </Scp>
+                        <Scp Client="YES" Scp="C_COLORBLEND_ACTOR" Time="600" UseSleep="NO">
+                            <Num Num="1" />
+                            <Num Num="0" />
+                            <Num Num="0.5" />
+                            <Num Num="0.30000001" />
+                            <Num Num="0.30000001" />
+                            <Num Num="1" />
+                            <Num Num="1" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="650" UseSleep="NO">
+                            <Pos Angle="0" Dist="0" />
+                            <Num Num="80" />
+                            <Num Num="8" />
+                            <Num Num="2" />
+                            <Num Num="0" />
+                            <Num Num="1" />
+                            <Num Num="1" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_TGT_DMG_BUFF" Time="700" UseSleep="NO">
+                            <Num Num="1" />
+                            <Str Str="EmperorsBane_Buff" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_TGT_DMG" Time="700" UseSleep="NO">
+                            <Num Num="1" />
+                            <Num Num="0" />
+                            <Num Num="0" />
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="Murmillo_ShieldTrain">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <MoveList>
+                <Frame Accel="1" Angle="-0.00088965916" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="0" />
+                <Frame Accel="1" Angle="-0.0057586166" Dist="67.826317" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="100" />
+            </MoveList>
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
                     <Str Str="SKL_SHIELDTRAIN" />
                     <Num Num="1.7" />
                     <Num Num="1" />
                     <Num Num="0" />
                 </Scp>
                 <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE" Time="0" UseSleep="NO">
-					<Pos Angle="-1.3484715" Dist="4.4258108" />
-					<Num Num="0" />
-					<Num Num="100" />
-					<Num Num="35" />
-					<Num Num="10" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
-					<Str_Arg Arg="1" Str="I_warrior_shield_train_dash" />
-					<Str Str="Dummy_effect_shoulder" />
-					<Num Num="0.18000001" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="0" UseSleep="NO">
-					<Num Num="1.7" />
-					<Num Num="0.80000001" />
-					<Num Num="100" />
-					<Num Num="999" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_war_atk_long_cast" />
-					<Str Str="voice_atk_long_cast_f" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_KONCKBACK_IN_STRAIGHT_LINE" Time="160" UseSleep="NO">
-					<Num Num="90" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_KONCKBACK_TO_ONE_POINT" Time="700" UseSleep="NO">
-					<Num Num="40" />
-					<Num Num="1" />
-					<Num Num="1" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF" Time="700" UseSleep="NO">
-					<Str Str="Common_Hold" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="3000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-					<Num Num="1" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Murmillo_Sprint">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_war_m_Sprint_cast" />
-					<Str Str="voice_war_Sprint_cast" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-					<Str Str="Sprint_Buff" />
-					<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
-					<Num Num="0" />
-					<Num FuncTxt="local enemyCnt = 0; local list, cnt = SelectObject(self, 200, 'ENEMY'); if cnt ~= nil then enemyCnt = cnt end if enemyCnt &gt;= 5 then enemyCnt = 5 end return 5000 + obj.Level * 500 + enemyCnt * 1000;" Num="0" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="100" UseSleep="NO">
-					<Pos Angle="0" Dist="0" />
-					<Num Num="100" />
-					<Num Num="10" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_BUFF_ABIL" Time="100" UseSleep="NO">
-					<Str Str="Murmillo19" />
-					<Str Str="Common_Fear" />
-					<Num Num="1" />
-					<Num Num="-1" />
-					<Num Num="10000" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="100" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Murmillo_FrenziedShoot">
-		<EnableScripts>
-			<ToolScp Client="BOTH" Scp="SKL_CHECK_BUFF_STATE" UseSleep="NO">
-				<Str Str="murmillo_helmet" />
-			</ToolScp>
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<MoveList>
-				<Frame Accel="1" Angle="0" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="700" />
-				<Frame Accel="1" Angle="0" Dist="15" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="750" />
-				<Frame Accel="1" Angle="0" Dist="28" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="1150" />
-				<Frame Accel="1" Angle="0" Dist="40" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="1200" />
-			</MoveList>
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="600" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-				<Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="700" UseSleep="YES">
-					<Pos Angle="0" Dist="15" />
-					<Pos Angle="0" Dist="50" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="25" />
-					<Num Num="0.0099999998" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Str_Arg Arg="1" Str="None" />
-					<Num Num="30" />
-					<Num Num="0" />
-					<Num Num="200" />
-					<Num Num="8" />
-					<Num Num="0.1" />
-					<Num Num="1" />
-					<Num Num="1000" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="1200" UseSleep="NO">
-					<Str_Arg Arg="1" Str="None" />
-					<Pos Angle="0" Dist="40" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Murmillo_Takedown">
-		<EnableScripts>
-			<ToolScp Client="BOTH" Scp="SKL_CHECK_BUFF_STATE" UseSleep="NO">
-				<Str Str="murmillo_helmet" />
-			</ToolScp>
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<MoveList>
-				<Frame Accel="1" Angle="0" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="800" />
-				<Frame Accel="1" Angle="0" Dist="20" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="900" />
-			</MoveList>
-			<HitList>
-				<Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="20" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="700" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Murmillo_Headbutt">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="25" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Stun" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="3000" />
-					<Num Num="1" />
-					<Num Num="50" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Murmillo_ScutumHit">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="360" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="160" Type="CIRCLE" Width="50" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
-					<Str Str="Murmillo11" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Stun" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="2000" />
-					<Num Num="1" />
-					<Num FuncTxt="return 3 * GET_ABIL_LEVEL(self, 'Murmillo11')" Num="50" UseFunc="1" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Murmillo_EvadeThrust">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="75" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="20" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="300" UseSleep="NO">
-					<Str Str="EvadeThrust_Buff" />
-					<Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="1000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
-					<Str Str="Murmillo4" />
-				</ToolScp>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="UC_bleed" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="25000" />
-					<Num Num="1" />
-					<Num FuncTxt="return GET_ABIL_LEVEL(self, 'Murmillo4') * 2" Num="100" UseFunc="1" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Murmillo_skill_2">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
-			</HitList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Murmillo_FrenziedSlash">
-		<EnableScripts>
-			<ToolScp Client="BOTH" Scp="SKL_CHECK_BUFF_STATE" UseSleep="NO">
-				<Str Str="murmillo_helmet" />
-			</ToolScp>
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Pos Angle="-1.3484715" Dist="4.4258108" />
+                    <Num Num="0" />
+                    <Num Num="100" />
+                    <Num Num="35" />
+                    <Num Num="10" />
+                    <Num Num="2" />
+                    <Num Num="0" />
+                    <Num Num="0" />
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="0" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="I_warrior_shield_train_dash" />
+                    <Str Str="Dummy_effect_shoulder" />
+                    <Num Num="0.18000001" />
+                </Scp>
+                <Scp Client="YES" Scp="C_SHOCKWAVE" Time="0" UseSleep="NO">
+                    <Num Num="1.7" />
+                    <Num Num="0.80000001" />
+                    <Num Num="100" />
+                    <Num Num="999" />
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="voice_war_atk_long_cast" />
+                    <Str Str="voice_atk_long_cast_f" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_KONCKBACK_IN_STRAIGHT_LINE" Time="160" UseSleep="NO">
+                    <Num Num="90" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                    <Num Num="0" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_KONCKBACK_TO_ONE_POINT" Time="700" UseSleep="NO">
+                    <Num Num="40" />
+                    <Num Num="1" />
+                    <Num Num="1" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="700" UseSleep="NO">
+                    <Str Str="Common_Hold" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                    <Num Num="3000" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                    <Num Num="0" />
+                    <Num Num="1" />
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Murmillo_Sprint">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="voice_war_m_Sprint_cast" />
+                    <Str Str="voice_war_Sprint_cast" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="Sprint_Buff" />
+                    <Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
+                    <Num Num="0" />
+                    <Num FuncTxt="local enemyCnt = 0; local list, cnt = SelectObject(self, 200, 'ENEMY'); if cnt ~= nil then enemyCnt = cnt end if enemyCnt &gt;= 5 then enemyCnt = 5 end return 5000 + obj.Level * 500 + enemyCnt * 1000;" Num="0" UseFunc="1" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                    <Num Num="0" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="100" UseSleep="NO">
+                    <Pos Angle="0" Dist="0" />
+                    <Num Num="100" />
+                    <Num Num="10" />
+                    <Num Num="2" />
+                    <Num Num="0" />
+                    <Num Num="0" />
+                    <Num Num="0" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_BUFF_ABIL" Time="100" UseSleep="NO">
+                    <Str Str="Murmillo19" />
+                    <Str Str="Common_Fear" />
+                    <Num Num="1" />
+                    <Num Num="-1" />
+                    <Num Num="10000" />
+                    <Num Num="0" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Murmillo_FrenziedShoot">
+        <EnableScripts>
+            <ToolScp Client="BOTH" Scp="SKL_CHECK_BUFF_STATE" UseSleep="NO">
+                <Str Str="murmillo_helmet" />
+            </ToolScp>
+        </EnableScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <MoveList>
+                <Frame Accel="1" Angle="0" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="700" />
+                <Frame Accel="1" Angle="0" Dist="15" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="750" />
+                <Frame Accel="1" Angle="0" Dist="28" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="1150" />
+                <Frame Accel="1" Angle="0" Dist="40" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="1200" />
+            </MoveList>
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="600" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium" />
+                    <Str Str="voice_atk_medium_war_f" />
+                </Scp>
+                <Scp Client="NO" Scp="EFT_AND_HIT_ARROW" Time="700" UseSleep="YES">
+                    <Pos Angle="0" Dist="15" />
+                    <Pos Angle="0" Dist="50" />
+                    <Str_Arg Arg="1" Str="None" />
+                    <Num Num="25" />
+                    <Num Num="0.0099999998" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                    <Str_Arg Arg="1" Str="None" />
+                    <Num Num="30" />
+                    <Num Num="0" />
+                    <Num Num="200" />
+                    <Num Num="8" />
+                    <Num Num="0.1" />
+                    <Num Num="1" />
+                    <Num Num="1000" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="1200" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="None" />
+                    <Pos Angle="0" Dist="40" />
+                    <Num Num="0" />
+                    <Str Str="None" />
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Murmillo_Takedown">
+        <EnableScripts>
+            <ToolScp Client="BOTH" Scp="SKL_CHECK_BUFF_STATE" UseSleep="NO">
+                <Str Str="murmillo_helmet" />
+            </ToolScp>
+        </EnableScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <MoveList>
+                <Frame Accel="1" Angle="0" Dist="0" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="800" />
+                <Frame Accel="1" Angle="0" Dist="20" Gravity="600" Height="0" JumpPower="300" MoveType="0" Time="900" />
+            </MoveList>
+            <HitList>
+                <Frame Angle="0" AniTime="900" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="700" Type="SQUARE" Width="20" />
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="700" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium" />
+                    <Str Str="voice_atk_medium_war_f" />
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Murmillo_Headbutt">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="60" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="25" />
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium" />
+                    <Str Str="voice_atk_medium_war_f" />
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="Stun" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                    <Num Num="3000" />
+                    <Num Num="1" />
+                    <Num Num="50" />
+                    <Num Num="-1" />
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Murmillo_ScutumHit">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="360" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="160" Type="CIRCLE" Width="50" />
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium" />
+                    <Str Str="voice_atk_medium_war_f" />
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+                    <Str Str="Murmillo11" />
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="Stun" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                    <Num Num="2000" />
+                    <Num Num="1" />
+                    <Num FuncTxt="return 3 * GET_ABIL_LEVEL(self, 'Murmillo11')" Num="50" UseFunc="1" />
+                    <Num Num="-1" />
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Murmillo_EvadeThrust">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="500" Dist="0" ForceATK="0" HitCount="1" Length="75" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="300" Type="SQUARE" Width="20" />
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="300" UseSleep="NO">
+                    <Str Str="EvadeThrust_Buff" />
+                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
+                    <Num Num="0" />
+                    <Num Num="1000" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                    <Num Num="0" />
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="400" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium" />
+                    <Str Str="voice_atk_medium_war_f" />
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
+                    <Str Str="Murmillo4" />
+                </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="UC_bleed" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                    <Num Num="25000" />
+                    <Num Num="1" />
+                    <Num FuncTxt="return GET_ABIL_LEVEL(self, 'Murmillo4') * 2" Num="100" UseFunc="1" />
+                    <Num Num="-1" />
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Murmillo_skill_2">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
+            </HitList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Murmillo_FrenziedSlash">
+        <EnableScripts>
+            <ToolScp Client="BOTH" Scp="SKL_CHECK_BUFF_STATE" UseSleep="NO">
+                <Str Str="murmillo_helmet" />
+            </ToolScp>
+        </EnableScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="150" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
                     <Str Str="SKL_MURMILLO" />
                     <Num Num="1.8" />
                     <Num Num="1" />
                     <Num Num="1" />
                 </Scp>
                 <Scp Client="YES" Scp="C_CAM_NOWAT_TIMERATIO" Time="0" UseSleep="NO">
-					<Num Num="3" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_war_atk_long_cast" />
-					<Str Str="voice_atk_long_cast_f" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_ARC_JUMP" Time="650" UseSleep="NO">
-					<Pos Angle="0" Dist="115" />
-					<Num Num="26.5" />
-					<Num Num="0.8" />
-					<Num Num="0.25000001" />
-					<Num Num="1" />
-					<Num Num="0.3" />
-					<Num Num="0.1" />
-				</Scp>
-				<Scp Client="NO" LoopTime="500" Scp="SKL_SET_TARGET_CIRCLE" Time="750" UseSleep="NO">
-					<Pos Angle="0" Dist="100" />
-					<Num Num="55" />
-					<Num FuncTxt="return 4 + obj.Level * 1;" Num="5" UseFunc="1" />
-					<Num Num="2" />
-					<Num Num="0" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_EFFECT_POS" Time="750" UseSleep="NO">
-					<Str_Arg Arg="2" Str="F_smoke033_1" />
-					<Pos Angle="0" Dist="120" />
-					<Num Num="0" />
-					<Str Str="None" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_DMG" Time="750" UseSleep="NO">
-					<Num Num="1.2" />
-					<Num Num="1" />
-					<Num Num="0.15000001" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_TGT_KNOCKDOWN" Time="800" UseSleep="NO">
-					<Num Num="3" />
-					<Num Num="0" />
-					<Num Num="120" />
-					<Num Num="10" />
-					<Num Num="0" />
-					<Num Num="1" />
-					<Num Num="2" />
-				</Scp>
-				<Scp Client="YES" Scp="C_CAM_NOWAT_TIMERATIO" Time="850" UseSleep="NO">
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="Stun" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="1200" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Murmillo_CassisCrista">
-		<EnableScripts>
-			<ToolScp Client="BOTH" Scp="SKL_CHECK_CHECK_NOBUFF" UseSleep="NO">
-				<Str Str="DragoonHelmet_Buff" />
-			</ToolScp>
-			<ToolScp Client="BOTH" Scp="SKL_CHECK_CHECK_NOBUFF" UseSleep="NO">
+                    <Num Num="3" />
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_war_atk_long_cast" />
+                    <Str Str="voice_atk_long_cast_f" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_ARC_JUMP" Time="650" UseSleep="NO">
+                    <Pos Angle="0" Dist="115" />
+                    <Num Num="26.5" />
+                    <Num Num="0.8" />
+                    <Num Num="0.25000001" />
+                    <Num Num="1" />
+                    <Num Num="0.3" />
+                    <Num Num="0.1" />
+                </Scp>
+                <Scp Client="NO" LoopTime="500" Scp="SKL_SET_TARGET_CIRCLE" Time="750" UseSleep="NO">
+                    <Pos Angle="0" Dist="100" />
+                    <Num Num="55" />
+                    <Num FuncTxt="return 4 + obj.Level * 1;" Num="5" UseFunc="1" />
+                    <Num Num="2" />
+                    <Num Num="0" />
+                    <Num Num="0" />
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="750" UseSleep="NO">
+                    <Str_Arg Arg="2" Str="F_smoke033_1" />
+                    <Pos Angle="0" Dist="120" />
+                    <Num Num="0" />
+                    <Str Str="None" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_DMG" Time="750" UseSleep="NO">
+                    <Num Num="1.2" />
+                    <Num Num="1" />
+                    <Num Num="0.15000001" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_KNOCKDOWN" Time="800" UseSleep="NO">
+                    <Num Num="3" />
+                    <Num Num="0" />
+                    <Num Num="120" />
+                    <Num Num="10" />
+                    <Num Num="0" />
+                    <Num Num="1" />
+                    <Num Num="2" />
+                </Scp>
+                <Scp Client="YES" Scp="C_CAM_NOWAT_TIMERATIO" Time="850" UseSleep="NO">
+                    <Num Num="0" />
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+                    <Str Str="Stun" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                    <Num Num="1200" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                    <Num Num="-1" />
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Murmillo_CassisCrista">
+        <EnableScripts>
+            <ToolScp Client="BOTH" Scp="SKL_CHECK_CHECK_NOBUFF" UseSleep="NO">
+                <Str Str="DragoonHelmet_Buff" />
+            </ToolScp>
+            <ToolScp Client="BOTH" Scp="SKL_CHECK_CHECK_NOBUFF" UseSleep="NO">
                 <Str Str="DragoonHelmet_Abil_Buff" />
             </ToolScp>
             <ToolScp Client="BOTH" Scp="SKL_CHECK_CHECK_NOBUFF" UseSleep="NO">
-				<Str Str="EquipDesrption_Debeff" />
-			</ToolScp>
-		</EnableScripts>
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-					<Str Str="SKL_MURMILLO_ON" />
-					<Num Num="1" />
-					<Num Num="1" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="450" UseSleep="NO">
-					<Str Str="murmillo_helmet" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="60000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-		<ByCondSkills>
-			<SubSkl>
-				<Cond>
-					<ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
-						<Str Str="murmillo_helmet" />
-					</ToolScp>
-				</Cond>
-				<Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-					<HitList>
-						<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
-					</HitList>
-					<EtcList>
-						<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-							<Str Str="SKL_MURMILLO_OFF" />
-							<Num Num="1" />
-							<Num Num="1" />
-							<Num Num="0" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
-							<Str Str="Murmillo_CassisCrista" />
-						</Scp>
-						<Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="80" UseSleep="NO">
-							<Str Str="murmillo_helmet" />
-						</Scp>
-					</EtcList>
-				</Skill>
-			</SubSkl>
-		</ByCondSkills>
-	</Skill>
-	</ToolSkill>
+                <Str Str="EquipDesrption_Debeff" />
+            </ToolScp>
+        </EnableScripts>
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_MURMILLO_ON" />
+                    <Num Num="1" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="450" UseSleep="NO">
+                    <Str Str="murmillo_helmet" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                    <Num Num="60000" />
+                    <Num Num="1" />
+                    <Num Num="100" />
+                    <Num Num="0" />
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Client="NO" Scp="SKL_SELECT_BUFF" UseSleep="NO">
+                        <Str Str="murmillo_helmet" />
+                    </ToolScp>
+                </Cond>
+                <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+                    <HitList>
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
+                    </HitList>
+                    <EtcList>
+                        <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                            <Str Str="SKL_MURMILLO_OFF" />
+                            <Num Num="1" />
+                            <Num Num="1" />
+                            <Num Num="0" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_RESET_COOLTIME" Time="0" UseSleep="NO">
+                            <Str Str="Murmillo_CassisCrista" />
+                        </Scp>
+                        <Scp Client="NO" Scp="SKL_BUFF_REMOVE" Time="80" UseSleep="NO">
+                            <Str Str="murmillo_helmet" />
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    </ToolSkill>

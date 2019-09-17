@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by asdasd (IMCGames Co., Ltd) -->
 <PadSkills>
-	<PadSkill Name="Appraiser_Devaluation" CheckerType="0" Range="100" UpdateTerm="100" EnableSearch="0">
+	<PadSkill Name="Ancient_Gimmick_Pad_1" CheckerType="0" Range="60" UpdateTerm="1000" ApplyFlyMon="1" AllowOverlap="1" IsMagicType="0" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="20000"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_spread_in032_fire_loop" Arg="1.2"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </createEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-1000"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_FUNC_UPDATE_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_ANCIENT_PAD_SET"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Appraiser_Devaluation" CheckerType="0" Range="100" UpdateTerm="100" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="None" Arg="0.40000001"/>
@@ -6242,7 +6266,7 @@ return obj.Level"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Exorcist_AquaBenedicta" CheckerType="0" Dist="83.887184" Angle="-1.8468292" Range="50" AllowOverlap="1">
+    <PadSkill Name="Exorcist_AquaBenedicta" CheckerType="0" Dist="83.887184" Angle="-1.8468292" Range="50" ApplyFlyMon="1" AllowOverlap="1">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="10000" UseFunc="1" FuncTxt="return 7001"/>
@@ -6678,13 +6702,7 @@ return time;"/>
 	<PadSkill Name="Falconer_Circling" CheckerType="0" Range="100" UpdateTerm="1000" AutoPos="1" ApplyFlyMon="1">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="0" UseFunc="1" FuncTxt="local time = 0;
-local owner = GetOwner(self);
-local skillCircling = GetSkill(owner, &apos;Falconer_Circling&apos;);
-if skillCircling ~= nil then
-	time = (skillCircling.Level * 1000) + 10000;
-end
-return time;"/>
+                <Num Num="5000"/>
 				<Num Num="99990"/>
 			</ToolScp>
 		</createEvent>
@@ -6693,15 +6711,16 @@ return time;"/>
 				<Str Str="ENEMY"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
-				<Str Str="Circling_Buff"/>
+                <Str Str="UC_Detected_Debuff"/>
 			</ToolScp>
 		</destroyEvent>
 		<enterEvent>
+            <ToolScp Scp="PAD_FALCONER_CIRCLING_DETECT" Client="NO" UseSleep="NO"/>
 			<ToolScp Scp="PAD_TGT_BUFF_MON" Client="NO" UseSleep="NO">
 				<Str Str="ENEMY"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
-				<Str Str="Circling_Buff"/>
+                <Str Str="UC_Detected_Debuff"/>
 				<Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
@@ -6714,7 +6733,7 @@ return time;"/>
 				<Str Str="ALL"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
-				<Str Str="Circling_Buff"/>
+                <Str Str="UC_Detected_Debuff"/>
 			</ToolScp>
 		</leaveEvent>
 		<updateEvent>
@@ -9385,7 +9404,44 @@ return 5000 + obj.Level *  1000"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Mirtis_line_small" CheckerType="1" Range="80" InnerRange="10" UpdateTerm="200" AutoPos="1" SpinRate="1.3" Relation="6" EnableSearch="0">
+	<PadSkill Name="Mirtis_line_2" CheckerType="1" PadHeight="12" Range="200" InnerRange="10" UpdateTerm="200" AutoPos="1" SpinRate="0.89999998" EnableSearch="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="20000"/>
+                <Num Num="999990"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="I_laser003_loop" Arg="1"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_DAMAGE" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-200"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Mirtis_line_small" CheckerType="1" Range="80" InnerRange="10" UpdateTerm="200" AutoPos="1" SpinRate="1.3" Relation="6" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="16000"/>
@@ -13000,7 +13056,7 @@ return 30000 + obj.Level * 5000"/>
 			<ToolScp Scp="PAD_DESTROY_EFFECT_BLENDTIME" Client="NO" UseSleep="NO">
 				<Num Num="0.2"/>
 			</ToolScp>
-			<ToolScp Scp="C_PAD_DESTROY_EFFECT_POS" Client="YES" UseSleep="NO">
+            <ToolScp Scp="C_PAD_DESTROY_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Pos Angle="0" Dist="0" Height="20"/>
 				<Str_Arg Str="F_wizard_MicroDimension_shot" Arg="0.30000001"/>
 				<Num Num="0"/>
@@ -17155,7 +17211,7 @@ return obj.Level"/>
                 <Str Str="ENEMY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Str Str="UC_freeze"/>
+                <Str Str="UC_frostbite"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="6000"/>
@@ -18946,7 +19002,7 @@ end"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_BUFF_CHECK_BUFF_ENEMY" Client="NO" UseSleep="NO">
 				<Str Str="ENEMY"/>
-				<Num Num="-500"/>
+				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str FuncTxt="local str = 'Chortasmata_Debuff'; local abilDruid23 = GetAbility(self, 'Druid23'); if abilDruid23 ~= nil and TryGetProp(abilDruid23, 'ActiveState') == 1 then str = 'None'; end return str" UseFunc="1" Str="Chortasmata_Debuff"/>
 				<Str FuncTxt="local str = 'Chortasmata_Debuff'; local abilDruid23 = GetAbility(self, 'Druid23'); if abilDruid23 ~= nil and TryGetProp(abilDruid23, 'ActiveState') == 1 then str = 'None'; end return str" UseFunc="1" Str="Chortasmata_Debuff"/>

@@ -964,6 +964,60 @@ function CREATE_QUEST_REWARE_CTRL(box, y, index, ItemName, itemCnt, callFunc, tr
 
 end
 
+function CREATE_ANCIENT_MON_CTRL(box, y, index, ItemName, itemCnt, targetItemName, targetName, targetCost)
+
+	local monCls = GetClass("Monster",targetName)
+	local x = 5;
+
+	local ctrlSet = box:CreateControlSet('ancient_mon_reward_s', "REWARD_" .. index, x, y);
+	tolua.cast(ctrlSet, "ui::CControlSet");
+	ctrlSet:SetValue(index);
+
+	local slot = ctrlSet:GetChild("slot");
+	tolua.cast(slot, "ui::CSlot");
+	
+	local icon = CreateIcon(slot)
+	icon:SetImage(monCls.Icon)
+	
+	local MonName = ctrlSet:GetChild("MonName");
+	local ancientCls = GetClass('Ancient', monCls.ClassName);
+	local font = "{s18}{ol}{ds}"
+	if ancientCls.Rarity == 1 then
+		font = font.."{#ffffff}"
+	elseif ancientCls.Rarity == 2 then
+		font = font.."{#0e7fe8}"
+	elseif ancientCls.Rarity == 3 then
+		font = font.."{#d92400}"
+	elseif ancientCls.Rarity == 4 then
+		font = font.."{#ffa800}"
+	end
+	local monText = string.format("%s%s{/} {s18}{ol}{ds}x%d",font, monCls.Name, itemCnt);
+	
+	MonName:SetText(monText);
+
+	ctrlSet:SetUserValue("Cost",targetCost)
+	ctrlSet:SetOverSound("button_cursor_over_3");
+	ctrlSet:SetClickSound("button_click_stats");
+	ctrlSet:SetEnableSelect(1);
+	ctrlSet:SetEventScript(ui.LBUTTONDOWN,"SCR_GET_ANCIENT_MON_TOTAL_COST");
+	
+	ctrlSet:Resize(box:GetWidth() - 30, ctrlSet:GetHeight());
+
+	y = y + ctrlSet:GetHeight();
+
+	local NeedItemSlot = ctrlSet:GetChild("NeedItemSlot");
+	tolua.cast(NeedItemSlot, "ui::CSlot");
+	local NeedItemCls = GetClass("Item", targetItemName);
+	local NeedIcon = GET_ITEM_ICON_IMAGE(NeedItemCls, GETMYPCGENDER())
+	SET_SLOT_IMG(NeedItemSlot, NeedIcon);
+	local NeedItemName = ctrlSet:GetChild("NeedItemName");
+	local NeedItemText = string.format("{s18}{ol}{ds}x%d", targetCost);
+	NeedItemName:SetText(NeedItemText);
+
+	return y;
+end
+
+
 function BOX_CREATE_RICHTEXT(box, name, y, height, text, marginX)
     if marginX == nil then
         marginX = 0

@@ -151,9 +151,9 @@ function REQ_EVENT1907_ICE_SHOP_OPEN()
 end
 
 function REQ_EVENT_1909_MINI_FULLMOON_SHOP_OPEN()
-    local frame = ui.GetFrame("earthtowershop");
-    frame:SetUserValue("SHOP_TYPE", 'EventMiniMoonShop1909');
-    ui.OpenFrame('earthtowershop');
+--    local frame = ui.GetFrame("earthtowershop");
+--    frame:SetUserValue("SHOP_TYPE", 'EventMiniMoonShop1909');
+--    ui.OpenFrame('earthtowershop');
 end
 
 
@@ -246,8 +246,8 @@ function EARTH_TOWER_INIT(frame, shopType)
 --        title:SetText('{@st43}'..ScpArgMsg("EventShop"));
 --        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EVENT_1907_ICESHOP_TITLE_NAME_1")));
     elseif shopType == 'EventMiniMoonShop1909' then
-        title:SetText('{@st43}'..ScpArgMsg("EventMiniMoonShop1909_TITLE_NAME_1"));
-        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventMiniMoonShop1909_TITLE_NAME_1")));
+--        title:SetText('{@st43}'..ScpArgMsg("EventMiniMoonShop1909_TITLE_NAME_1"));
+--        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventMiniMoonShop1909_TITLE_NAME_1")));
     end
 
 
@@ -475,7 +475,7 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls, 
     -- edittext Reset
     local edit_itemcount = GET_CHILD_RECURSIVELY(ctrlset, "itemcount");
     if edit_itemcount ~= nil then
-        edit_itemcount:SetText(recipecls.TargetItemCnt);
+        edit_itemcount:SetText(1);
     end
 
     local height = 0;   
@@ -725,7 +725,7 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
     elseif shopType == 'EventIceShop1907' then
         item.DialogTransaction("EVENT_1907_ICE_SHOP_1_TREAD1", resultlist, cntText);
     elseif shopType == 'EventMiniMoonShop1909' then
-        item.DialogTransaction("EVENT_1909_MINI_FULLMOON_SHOP_1_TREAD1", resultlist, cntText);
+--        item.DialogTransaction("EVENT_1909_MINI_FULLMOON_SHOP_1_TREAD1", resultlist, cntText);
 	end
 end
 
@@ -789,7 +789,7 @@ function EARTH_TOWER_SHOP_TRADE_LEAVE()
     -- edittext Reset
     local edit_itemcount = GET_CHILD_RECURSIVELY(ctrlSet, "itemcount");
     if edit_itemcount ~= nil then
-        edit_itemcount:SetText(recipecls.TargetItemCnt);
+        edit_itemcount:SetText(1);
     end
 
     INVENTORY_SET_CUSTOM_RBTNDOWN("None");
@@ -852,9 +852,9 @@ function EARTHTOWERSHOP_CHANGECOUNT(frame, ctrl, change)
                 -- item Name Setting
                 local targetItemName_text = GET_CHILD_RECURSIVELY(ctrlset, "itemName");
                 if targetItem.StringArg == "EnchantJewell" then
-                    targetItemName_text:SetTextByKey("value", "[Lv. "..recipecls.TargetItemAppendValue.."] "..targetItem.Name .. " [" .. countText .. ScpArgMsg("Piece") .. "]");
+                    targetItemName_text:SetTextByKey("value", "[Lv. "..recipecls.TargetItemAppendValue.."] "..targetItem.Name .. " [" .. recipecls.TargetItemCnt * countText .. ScpArgMsg("Piece") .. "]");
                 else
-                    targetItemName_text:SetTextByKey("value", targetItem.Name.."["..countText..ScpArgMsg("Piece").."]");
+                    targetItemName_text:SetTextByKey("value", targetItem.Name.." ["..recipecls.TargetItemCnt * countText..ScpArgMsg("Piece").."]");
                 end            
 
                 for j = 1, 5 do

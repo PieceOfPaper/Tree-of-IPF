@@ -237,7 +237,7 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 	if obj.ClassName == "PremiumToken" then
 		edit_count:SetText("1");
 		edit_count:SetMaxNumber(1);
-		edit_price:SetMaxNumber(TOKEN_MARKET_REG_MAX_PRICE * invItem.count);
+		edit_price:SetMaxNumberString(TOKEN_MARKET_REG_MAX_PRICE * invItem.count);
 		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 	else
 		edit_price:ClearMaxNumber();
@@ -274,7 +274,7 @@ function IMPL_MARKET_SELL_UPDATE_REG_SLOT_ITEM(guid, tradeCount)
 	if obj.ClassName == "PremiumToken" then
 		edit_count:SetText("1");
 		edit_count:SetMaxNumber(1);
-		edit_price:SetMaxNumber(TOKEN_MARKET_REG_MAX_PRICE * invItem.count);
+		edit_price:SetMaxNumberString(TOKEN_MARKET_REG_MAX_PRICE * invItem.count);
 		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 	else
 		edit_price:ClearMaxNumber();
@@ -413,14 +413,14 @@ function ON_MARKET_MINMAX_INFO(frame, msg, argStr, argNum)
 		edit_price:SetText(GET_COMMAED_STRING(avg));
 		if IGNORE_ITEM_AVG_TABLE_FOR_TOKEN == 1 then
 			if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
-				edit_price:SetMaxNumber(maxAllow);
+				edit_price:SetMaxNumberString(maxAllow);
 				edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 			else
 				edit_price:ClearMaxNumber();
 				edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 			end
 		else
-			edit_price:SetMaxNumber(maxAllow);
+			edit_price:SetMaxNumberString(maxAllow);
 			edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 		end
 

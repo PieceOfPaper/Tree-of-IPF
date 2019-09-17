@@ -182,6 +182,21 @@ function CHECK_IS_VILLAGE_C(actor, skl)
 
 end
 
+function CHECK_IS_GUIILDCOLONY_MAP_C(actor, skl)
+    local mymapname = session.GetMapName();
+    local map = GetClass("Map", mymapname);
+    if nil == map then
+        return 0;
+    end
+    
+    if map.Group == "GuildColony" then
+        return 0;
+    end
+    
+    return 1;
+
+end
+
 
 function SKL_CHECK_CHECK_BUFF_C(actor, skl, buffName)
 

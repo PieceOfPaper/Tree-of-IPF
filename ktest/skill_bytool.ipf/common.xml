@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Common_treewateringcan">
+<ToolSkill>
+    <Skill Name="Common_treewateringcan">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
 				<Scp Client="NO" Scp="MONSKL_CRE_MON_SCR" Time="100" UseSleep="NO">
@@ -17,6 +18,74 @@
 			</EtcList>
 		</MainSkl>
 	</Skill>
+	<Skill Name="Common_SummonMonster">
+        <KeyInput>
+            <ToolScp Scp="SKL_KEY_GROUND_EVENT" Client="YES" UseSleep="NO">
+                <Num Num="2"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="300"/>
+                <Num Num="0.1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Str Str="Dummy_emitter"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+                <Num Num="3"/>
+                <Num Num="0.2"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <KeyInputStart>
+            <ToolScp Scp="MONSKL_C_CASTING_ANIM" Client="YES" UseSleep="NO">
+                <Str Str="ABSORB"/>
+                <Str Str="None"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
+                <Str Str="ASTD"/>
+            </ToolScp>
+        </KeyInputStart>
+        <KeyInputEnd>
+            <ToolScp Scp="MONSKL_C_RESET_CASTING_ANIM" Client="YES" UseSleep="NO"/>
+        </KeyInputEnd>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <EtcList>
+                <Scp Scp="MONSKL_KILL_FOL_EXPROP" Client="NO" UseSleep="NO" Time="100">
+                    <Str Str="ANCIENT_SUMMON"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="300">
+                    <Str Str="voice_wiz_m_summoning_shot"/>
+                    <Str Str="voice_wiz_summoning_shot"/>
+                </Scp>
+                <Scp Scp="C_EFFECT_POS" Client="YES" UseSleep="NO" Time="500">
+                    <Str_Arg Str="F_wizard_SummonDemon2_cast_ground" Arg="1.5"/>
+                    <Pos Angle="0" Dist="0" PosType="3"/>
+                    <Num Num="0"/>
+                    <Str Str="None"/>
+                </Scp>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="500">
+                    <Str Str="ANCIENT_CRE_MON_SCR"/>
+                </Scp>
+                <Scp Scp="SKL_SET_TGT_EXPROP_RECENT" Client="NO" UseSleep="NO" Time="500">
+                    <Str Str="SORCERER_SUMMONING"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="SORCER_SET_EXPROP_SEND" Client="NO" UseSleep="NO" Time="500">
+                    <Str Str="ANCIENT_SUMMON"/>
+                    <Num Num="1"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
 	<Skill Name="Common_SummonRemove">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<HitList>

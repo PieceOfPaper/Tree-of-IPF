@@ -951,11 +951,13 @@ function Burrow_Rogue_CLIENT_LEAVE(actor, obj, buff)
 end
 
 function ShadowPool_Buff_CLIENT_ENTER(actor, obj, buff)
-    movie.ShowModel(actor:GetHandleVal(), 0);   
+    --movie.ShowModel(actor:GetHandleVal(), 0);
+    actor:GetEffect():SetColorBlend("ShadowPool", 0, 0, 0, 0, true, 0, false, 0);
 end
 
 function ShadowPool_Buff_CLIENT_LEAVE(actor, obj, buff)
-    movie.ShowModel(actor:GetHandleVal(), 1);
+    actor:GetEffect():SetColorBlend("ShadowPool", 255, 255, 255, 255, true, 0, false, 0);
+    --movie.ShowModel(actor:GetHandleVal(), 1);
 end
 
 function IMPALER_STUN_ANI_ENTER(actor, obj, buff, rps, dir)

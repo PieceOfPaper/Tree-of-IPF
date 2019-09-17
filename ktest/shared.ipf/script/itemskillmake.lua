@@ -1,13 +1,23 @@
 
 function GET_SKILL_MAT_PRICE(sklObj, level)
-	return level * 500;
+	local skillTreeCls = GET_SKILLTREE_CLS(sklObj.ClassName);
+	local skllevel = level;
+	if skillTreeCls.MaxLevel < skllevel then
+		skllevel = skillTreeCls.MaxLevel;
+	end
+	return skllevel * 500;
 end
 
 function GET_SKILL_MAT_ITEM(sklName, makeSklObj, level)
-	if sklName == "RuneCaster_CraftMagicScrolls" then
-		return "misc_runeStone", level;
+	local skillTreeCls = GET_SKILLTREE_CLS(makeSklObj.ClassName);
+	local skllevel = level;
+	if skillTreeCls.MaxLevel < skllevel then
+		skllevel = skillTreeCls.MaxLevel;
 	end
-	return "misc_parchment", level;
+	if sklName == "RuneCaster_CraftMagicScrolls" then
+		return "misc_runeStone", skllevel;
+	end
+	return "misc_parchment", skllevel;
 end
 
 function GET_SKILL_ITEM_MAKE_TIME(sklObj, count)

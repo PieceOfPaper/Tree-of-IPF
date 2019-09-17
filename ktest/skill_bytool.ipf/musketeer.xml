@@ -1,5 +1,54 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ToolSkill><Skill Name="Musketeer_PrimeAndLoad">
+        <KeyInput>
+            <ToolScp Client="YES" Scp="SKL_KEY_DYNAMIC_CASTING" UseSleep="NO">
+                <Num Num="0" />
+                <Num Num="0" />
+                <Num FuncTxt="local value = 0 local self = GetMyPCObject() if IsPVPField(self) == 1 then value = 1 end return value" Num="0" UseFunc="1" />
+                <Num Num="1" />
+                <Num Num="0" />
+                <Num Num="0" />
+                <Num Num="0" />
+                <Num Num="0" />
+                <Num Num="0" />
+                <Num Num="0" />
+                <Num Num="1" />
+                <Num Num="0" />
+                <Str_Arg Arg="1" Str="None" />
+                <Str Str="None" />
+                <Num Num="0" />
+                <Num Num="0" />
+                <Num Num="5" />
+                <Num Num="1" />
+                <Num Num="45" />
+                <Num Num="0" />
+                <Num Num="0" />
+                <Num Num="0" />
+            </ToolScp>
+        </KeyInput>
+        <KeyInputStart>
+            <ToolScp Client="YES" Scp="MONSKL_C_PLAY_ANIM" UseSleep="NO">
+                <Str FuncTxt="local self = GetMyPCObject() if IsBuffApplied(self, &quot;Archer_Kneelingshot&quot;) == 'YES' then     return &quot;SKL_SNIPERSSERENITY_CAST_KNEELING&quot; else     return &quot;SKL_SNIPERSSERENITY_CAST&quot; end" Str="SKL_SNIPERSSERENITY_CAST" UseFunc="1" />
+                <Num Num="1" />
+                <Num Num="1" />
+            </ToolScp>
+            <ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
+                <Str FuncTxt="local self = GetMyPCObject() if IsBuffApplied(self, &quot;Archer_Kneelingshot&quot;) == 'YES' then     return &quot;SKL_SNIPERSSERENITY_LOOP_KNEELING&quot; else     return &quot;SKL_SNIPERSSERENITY_LOOP&quot; end" Str="SKL_SNIPERSSERENITY_LOOP" UseFunc="1" />
+                <Num Num="1" />
+                <Num Num="1" />
+            </ToolScp>
+            <ToolScp Client="YES" Scp="C_SOUND" UseSleep="NO">
+                <Str Str="skl_eff_snipersserenity_bargauge" />
+            </ToolScp>
+            <ToolScp Client="YES" Scp="C_VOICE_SOUND" UseSleep="NO">
+                <Str Str="voice_archer_m_SnipersSerenity_cast" />
+                <Str Str="voice_archer_SnipersSerenity_cast" />
+            </ToolScp>
+        </KeyInputStart>
+        <KeyInputEnd>
+            <ToolScp Client="YES" Scp="MONSKL_C_CLEAR_RESERVE_ANIM" UseSleep="NO" />
+            <ToolScp Client="YES" Scp="MONSKL_C_STOP_ANIM" UseSleep="NO" />
+        </KeyInputEnd>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
 				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="0" UseSleep="NO">

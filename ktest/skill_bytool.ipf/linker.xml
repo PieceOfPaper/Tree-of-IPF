@@ -334,10 +334,10 @@
 				<ToolScp Client="NO" Scp="S_R_MAKE_LINK" UseSleep="NO">
 					<Str Str="ENEMY" />
 					<Str Str="Link_Enemy" />
-					<Num Num="20" />
+                    <Num Num="7"/>
 					<Num Num="120" />
 					<Num Num="0" />
-					<Num FuncTxt="return 3 + skill.Level * 0.5" Num="5" UseFunc="1" />
+					<Num FuncTxt="return 2.5 + skill.Level * 0.5" Num="5" UseFunc="1" />
 					<Str Str="Linker" />
 					<Num Num="0" />
 					<Num Num="0.2" />
@@ -383,7 +383,7 @@
                             <Num Num="150"/>
                             <Str Str="ENEMY"/>
                             <Str Str="Link_Enemy"/>
-                            <Num Num="20"/>
+                            <Num Num="30"/>
                             <Num Num="120"/>
                             <Num Num="1"/>
                             <Num Num="1"/>
@@ -512,7 +512,7 @@
 				<Scp Client="NO" Scp="SKL_MAKE_PARTY_LINK" Time="0" UseSleep="NO">
 					<Num Num="200" />
 					<Str Str="Linker_Sacrifice" />
-					<Num FuncTxt="return 10 + obj.Level * 5" Num="25" UseFunc="1" />
+					<Num FuncTxt="return 5 + obj.Level" Num="10" UseFunc="1" />
 					<Str Str="Linker2" />
 					<Num Num="0" />
 					<Num Num="0.30000001" />

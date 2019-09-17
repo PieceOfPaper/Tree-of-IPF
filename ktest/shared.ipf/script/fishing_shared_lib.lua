@@ -55,11 +55,12 @@ end
 
 -- 낚싯대 --
 function SCR_PRE_FISHING_ROD(self, argstring, argnum1, argnum2)
-    -- 낚시 중이라면 사용 불가 --
+    -- 낚시 중이라면 살림통을 부른다 --
     if IsFishingState(self) == 1 then
-        return 0;
+        ExecClientScp(self,"FISHING_ITEM_BAG_TOGGLE_UI()")
+		return 0;
     end
-    
+	
 --    local list, cnt = SelectObjectByClassName(self, 300, "FishingPlace");
     local list, cnt = GetWorldObjectList(self, "MON", 300);
     if cnt >= 1 then
@@ -121,7 +122,8 @@ end
 
 function SCR_USE_FISHING_ROD(self, argObj, argstring, arg1, arg2, itemID)
     if IsFishingState(self) == 1 then
-        return;
+        ExecClientScp(self,"FISHING_ITEM_BAG_TOGGLE_UI()")
+		return 0;
     end
     
     local fishingPlace = GetHandle(argObj);

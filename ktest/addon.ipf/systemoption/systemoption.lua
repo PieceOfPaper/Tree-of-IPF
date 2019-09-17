@@ -188,6 +188,14 @@ function INIT_GAMESYS_CONFIG(frame)
 		config.EnableSkillGizmoTargetAim(tonumber(value));
 		config.ChangeXMLConfig("EnableSkillGizmoTargetAim", tostring(value));
 	end
+
+	local maintainTargetedSkillUi = GET_CHILD_RECURSIVELY(frame, "MaintainTargetedSkillUI", "ui::CCheckBox");
+	if maintainTargetedSkillUi ~= nil then
+		local value = config.GetXMLConfig("MaintainTargetedSkillUI");
+		maintainTargetedSkillUi:SetCheck(tonumber(value));
+		config.MaintainTargetedSkillUI(tonumber(value));
+		config.ChangeXMLConfig("MaintainTargetedSkillUI", tostring(value));
+	end
 end
 
 function CONFIG_FIRST_OPEN(frame)
@@ -543,6 +551,11 @@ end
 function ENABLE_SKILLGIZMO_TARGETAIM(parent, ctrl)
 	if ctrl == nil then return end
 	config.ChangeXMLConfig("EnableSkillGizmoTargetAim", tostring(ctrl:IsChecked()));
+end
+
+function MAINTAIN_TARGETED_SKILL_UI(parent, ctrl)
+	if ctrl == nil then return; end
+	config.ChangeXMLConfig("MaintainTargetedSkillUI", tostring(ctrl:IsChecked()));
 end
 
 function UPDATE_TITLE_OPTION(frame)

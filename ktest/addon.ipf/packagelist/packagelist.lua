@@ -234,7 +234,12 @@ function PACKAGELIST_INIT_ITEMLIST(frame, itemCls, packageName)
 		SET_ITEM_TOOLTIP_BY_NAME(icon, packageItemCls.ClassName);
 
 		local nameText = GET_CHILD(ctrlset, 'nameText');
-		nameText:SetText(packageItemCls.Name);
+		local name = packageItemCls.Name
+		if string.len(name) >= 63 then
+			name = string.sub(name,1,60)
+			name = name.."..."
+		end
+		nameText:SetText(name);
 
 		local typeText = GET_CHILD(ctrlset, 'typeText');
 		if packageList[i].EquipType == "None" then

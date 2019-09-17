@@ -8952,6 +8952,10 @@ end
 
 function SCR_Get_Circling_Ratio(skill)
     local value = skill.Level
+    local abil = GetAbility(pc, "Falconer11");
+    if abil ~= nil and 1 == abil.ActiveState then
+        value = value + 3
+    end
     
     return value
 end
@@ -9818,13 +9822,20 @@ function SCR_GET_ShieldBash_Ratio2(skill)
 end
 
 function SCR_Get_JointPenalty_Bufftime(skill)
+    
+    local pc = GetSkillOwner(skill)
+    local value = 7
+    local abil_linker19 = GetAbility(pc, 'Linker19')
+    if abil_linker19 ~= nil and abil_linker19.ActiveState == 1 then
+        value = 30
+    end
 
-    return 10 + skill.Level * 5
+    return value
 
 end
 
 function SCR_Get_JointPenalty_Ratio(skill)
-    local value = 3 + skill.Level * 0.5
+    local value = 2.5 + skill.Level * 0.5
     return math.floor(value)
 end
 
@@ -10253,7 +10264,7 @@ end
 
 function SCR_Get_UmbilicalCord_Bufftime(skill)
 
-    local value = 15 + skill.Level * 5
+    local value = 5 + skill.Level
     
     return value
     
