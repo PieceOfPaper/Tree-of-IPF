@@ -474,10 +474,10 @@
 					<Pos Angle="-0.059652999" Dist="33.082214" />
 					<Angle Angle="0" />
 					<Str FuncTxt="local etc = GetETCObject(self);   local name = GetClassString(&quot;Monster&quot;, etc.Sorcerer_bosscardName2, &quot;Name&quot;); return SofS(name, self.Name);" Str="" UseFunc="1" />
-					<Str Str="None" />
+                    <Str Str="PC_Summon" />
 					<Num Num="0" />
 					<Num Num="0" />
-					<Str Str="Sorcerer_Summoning" />
+                    <Str Str="None" />
 					<MonProp List="WlkMSPD#80#RunMSPD#80#$SORCERER_MON#1" />
 					<Str Str="SORCERER_SUMMONING_SUB_MON" />
 				</Scp>

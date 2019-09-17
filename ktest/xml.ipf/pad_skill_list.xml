@@ -11817,7 +11817,7 @@ return GET_ABIL_LEVEL(self, &quot;PlagueDoctor6&quot;);"/>
 				<Num Num="10" UseFunc="1" FuncTxt="local value = 5
 local abil = GetAbility(self, &quot;Pyromancer31&quot;)
 if abil ~= nil and TryGetProp(abil, &quot;ActiveState&quot;, 0) == 1 then
-value = value * 5
+value = value * 2
 end
 return value"/>
 			</ToolScp>

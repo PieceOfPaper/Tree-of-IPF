@@ -7073,7 +7073,7 @@ function SCR_GET_FireWall_Ratio(skill)
     
     local abil = GetAbility(pc, "Pyromancer31")
     if abil ~= nil and TryGetProp(abil, "ActiveState", 0) == 1 then
-        value = value * 5
+        value = value * 2
     end
     
     return value
