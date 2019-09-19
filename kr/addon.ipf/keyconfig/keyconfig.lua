@@ -408,7 +408,7 @@ function OPEN_KEYCONFIG(frame)
 
 	INIT_KEYCONFIG_CATEGORY(tree, "keyboard", "keyboard_img");
 	INIT_KEYCONFIG_CATEGORY(tree, "mouse", "mouse_img");
-	INIT_KEYCONFIG_CATEGORY(tree, "joypad", "joypad_img");
+	-- INIT_KEYCONFIG_CATEGORY(tree, "joypad", "joypad_img");
 	
 	KEYCONFIG_INSERT_CATEGORY_ITEM(tree, "keyboard", "DefaultMove", "hotkey.xml", "Basic");
 	KEYCONFIG_INSERT_CATEGORY_ITEM(tree, "keyboard", "Battle", "hotkey.xml", "Battle");

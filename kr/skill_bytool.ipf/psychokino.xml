@@ -236,15 +236,7 @@
 				<Str Str="voice_wiz_m_swap_shot" />
 				<Str Str="voice_wiz_swap_shot" />
 			</ToolScp>
-			<ToolScp Client="YES" Scp="MONSKL_C_CASTING_ANIM" UseSleep="NO">
-				<Str Str="ASTD" />
-				<Str Str="None" />
-				<Num Num="1" />
-				<Num Num="0" />
-				<Str Str="None" />
-				<Str Str="ASTD" />
-			</ToolScp>
-		</KeyInputStart>
+			</KeyInputStart>
 		<KeyInputEnd>
 			<ToolScp Client="YES" Scp="MONSKL_C_RESET_CASTING_ANIM" UseSleep="NO" />
 		</KeyInputEnd>

@@ -15,8 +15,8 @@ function BGMPLAYER_REDUCTION_ON_INIT(addon, frame)
             BGMPLAYER_PRE_CHECK_CTRL(bgmplayer_frame);
             BGMPLAYER_INIT_SELECTCTRLSET(bgmplayer_frame);
             BGMPLAYER_REDUCTION_INIT_SET_TITLE(bgmplayer_frame);
-            SaveFavoritesBgmList();
             LoadFavoritesBgmList();
+            SaveFavoritesBgmList();
         end
     end
 end

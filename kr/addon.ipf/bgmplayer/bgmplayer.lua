@@ -2,8 +2,8 @@
 function BGMPLAYER_ON_INIT(addon, frame)
     local frame = ui.GetFrame("bgmplayer");
     if frame == nil then return end
-    SaveFavoritesBgmList();
     LoadFavoritesBgmList();
+    SaveFavoritesBgmList();
     if IsBgmPlayerBasicFrameVisible() == 1 then
         BGMPLAYER_OPEN_UI();
         BGMPLAYER_FRAME_SET_POS(frame);
@@ -154,6 +154,10 @@ function BGMPLAYER_UPDATE_PLAY_TIEM(frame)
 end
 
 function BGMPLAYER_OPEN_UI(frame, btn)
+    if IsBgmPlayerReductionFrameVisible() == 1 then
+        return;
+    end
+
     ui.CloseFrame("bgmplayer");
     if IsNotPlayArea() == false then
         ui.OpenFrame("bgmplayer"); 
@@ -261,6 +265,18 @@ function BGMPLAYER_SET_MUSIC_TITLE(frame, parent, ctrlset)
             bgmMusicTitle_text:SetTextByKey("value", musicTitle[2]);
         end
     end
+end
+
+function BGMPLAYER_SET_ZONE_BGM_TITLE(titleName)
+    local frame = ui.GetFrame("bgmplayer");
+    if frame == nil then return; end
+
+    local title = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_title");
+    if title ~= nil then
+        title:SetTextByKey("value", titleName);
+    end
+
+    BGMPLAYER_REDUCTION_SET_TITLE(titleName);
 end
 
 function BGMPLAYER_SELECT_CLEAER(parent)
@@ -669,7 +685,7 @@ function BGMPLAYER_PLAY(frame, btn)
     local delayTime = tonumber(topFrame:GetUserConfig("DELAY_TIME"));
     local playRandom = tonumber(topFrame:GetUserConfig("PLAY_RANDOM"));
 
-    local bgmMusicTitle_text = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_title");
+    local bgmMusicTitle_text = GET_CHILD_RECURSIVELY(topFrame, "bgm_mugic_title");
     if bgmMusicTitle_text ~= nil then
         local title = bgmMusicTitle_text:GetTextByKey("value");
         if title ~= nil then 
@@ -690,8 +706,8 @@ function BGMPLAYER_PLAY(frame, btn)
                     end
                     titleText = GET_CHILD_RECURSIVELY(selectCtrlSet, "musictitle_text");
                 end
-
                 if titleText == nil then return; end
+
                 local musicTitle = titleText:GetTextByKey("value");
                 if musicTitle ~= nil then
                     musicTitle = StringSplit(musicTitle, '. ');
@@ -862,6 +878,7 @@ function UPDATE_BGMPLAYER_PLAYTIME(textTimer)
 
     BGMPLAYER_PLAYTIME_GAUGE(elapsedTime / 1000, divideLimitTime);
     BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
+    BGMPLAYER_CONTROL_LIMIT(frame, IsControlLimits());
     return 1;
 end
 
@@ -1708,4 +1725,19 @@ function GET_BGMPLAYER_MUSIC_TITLE(minIndex, maxIndex, musicTitle)
     end
 
     return musicTitle[2];
+end
+
+function BGMPLAYER_CONTROL_LIMIT(frame, isLimit)
+    if IsBgmPlayerBasicFrameVisible() == 1 then
+        --local minimization_btn = GET_CHILD_RECURSIVELY(frame, "minimization_btn");
+        --local close_btn = GET_CHILD_RECURSIVELY(frame, "close_btn");
+    elseif IsBgmPlayerReductionFrameVisible() == 1 then
+        frame = ui.GetFrame("bgmplayer_reduction");
+    end
+
+    if isLimit == 1 then
+        --frame:EnableHitTest(0);
+    else
+        --frame:EnableHitTest(1);
+    end
 end

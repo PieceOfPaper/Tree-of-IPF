@@ -75,6 +75,9 @@ function SKILLITEMMAKER_REGISTER(frame, skillType)
 	SET_SLOT_SKILL(skill_slot, sklObj);
 	
 	local count = sklObj.Level;
+	if skillTreeCls.MaxLevel < count then
+		count = skillTreeCls.MaxLevel;
+	end
 	if sklObj.Caption == "None" then
 		frame:GetChild("skilltext"):SetTextByKey("value", "");
 	else

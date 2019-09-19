@@ -416,7 +416,7 @@ function REQ_TOKEN_ITEM(parent, ctrl)
 		return;
 	end
 	
-	if argList == 'Premium_indunReset' or argList == 'Premium_indunReset_14d' or argList == 'Premium_indunReset_14d_test' or argList == 'Premium_indunReset_1add' or argList == 'Premium_indunReset_1h' or argList == 'Premium_indunReset_1add_14d' or argList == 'Premium_indunReset_TA' or argList == 'indunReset_1add_14d_NoStack' or argList == 'Event_1704_Premium_indunReset_1add' or argList == 'Event_1704_Premium_indunReset' or argList == 'indunReset_1add_14d_NoStack_Team' then
+	if argList == 'Premium_indunReset' or argList == 'Premium_indunReset_14d' or argList == 'Premium_indunReset_14d_test' or argList == 'Premium_indunReset_1add' or argList == 'Premium_indunReset_1h' or argList == 'Premium_indunReset_1add_14d' or argList == 'Premium_indunReset_TA' or argList == 'indunReset_1add_14d_NoStack' or argList == 'Event_1704_Premium_indunReset_1add' or argList == 'Event_1704_Premium_indunReset' or argList == 'indunReset_1add_14d_NoStack_Team' or argList == 'Event_indunReset_Team_14d' then
 
 		local etcObj = GetMyEtcObject();
 		-- 2개뿐이여서 고정으로 넣어둠

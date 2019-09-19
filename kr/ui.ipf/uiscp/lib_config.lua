@@ -106,3 +106,7 @@ function UPDATE_ENABLE_RENDERSHADOW(value)
 	config.SetRenderShadow(tonumber(value));
 	imcperfOnOff.EnableRenderShadow(tonumber(value));
 end
+
+function UPDATE_MAINTAIN_TARGETEDSKILL_UI(value)
+	config.MaintainTargetedSkillUI(tonumber(value));
+end

@@ -3389,9 +3389,8 @@ function SCR_GET_MiddleSize_ATK(pc)
     if byBuff == nil then
         byBuff = 0;
     end
-    
+
     local value = byItem + byBuff;
-    
     return math.floor(value);
 end
 

@@ -39,3 +39,51 @@ function SCR_REMOVE_FAIRY(ownerHandle, monName)
 	local ownerActor = world.GetActor(ownerHandle);
 	ownerActor:GetClientMonster():DeleteClientMonster(monName, 0.75);
 end
+
+--EVENT_1909_ANCIENT_MON
+function EVENT_1909_CHECK_REGISTER(invItem)
+	local itemobj = GetIES(invItem:GetObject());
+	local monClassName = TryGetProp(itemobj,'KeyWord')
+	local monCls = GetClass("Monster",monClassName)
+	local monName = monCls.Name
+	
+	local str = ScpArgMsg("AncientMonRegItemUse","monName",monName)
+	local guid = invItem:GetIESID()
+	local yesScp = string.format("EVENT_1909_REGISTER_ANCIENT_MON_C(\"%s\")", guid);
+	ui.MsgBox(str, yesScp, "None");
+end
+
+--EVENT_1909_ANCIENT_MON
+function EVENT_1909_REGISTER_ANCIENT_MON_C(itemGuid)
+	local invItem = session.GetInvItemByGuid(itemGuid)
+	
+	if nil == invItem then
+		return;
+	end
+	
+	if true == invItem.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return;
+	end
+	
+	item.UseByGUID(invItem:GetIESID());
+end
+--EVENT_1909_ANCIENT
+function ANCIENT_SCROLL_CHECK_MSG(invItem)
+	local itemobj = GetIES(invItem:GetObject());
+	local needItem = session.GetInvItemByName("EVENT_190919_ANCIENT_COIN");
+	if needItem == nil then
+		addon.BroadMsg("NOTICE_Dm_scroll", ClMsg("AncientNoCoinInInventory"), 3);
+        return;
+    end
+	local str = ScpArgMsg("AncientScrollItemUse","itemName",itemobj.Name)
+	local guid = invItem:GetIESID()
+	local yesScp = string.format("EVENT_1909_REGISTER_ANCIENT_MON_C(\"%s\")", guid);
+	ui.MsgBox(str, yesScp, "None");
+end
+--EVENT_1909_ANCIENT
+function ANCIENT_SCROLL_EMPTY_USE(iesID)
+	pc.ReqExecuteTx_Item("SCR_TRADE_SELECT_AMCIEMT_MON", iesID,'');
+	local frame = ui.GetFrame('tradeselectitem')
+	frame:ShowWindow(0)
+end

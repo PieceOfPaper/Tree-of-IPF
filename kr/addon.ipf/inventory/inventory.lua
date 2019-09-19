@@ -36,6 +36,140 @@ local _invenCatOpenOption = {}; -- key: cid, value: {key: CategoryName, value: I
 local _invenTreeOpenOption = {}; -- key: cid, value: {key: TreegroupName, value: IsToggle}
 local _invenSortTypeOption = {}; -- key: cid, value: SortType
 
+local function CHECK_INVENTORY_OPTION_EQUIP(itemCls)
+	if itemCls == nil then
+		return 0
+	end
+
+	local itemGrade = itemCls.ItemGrade
+	local optionConfig = 1
+	if itemGrade == 1 then
+		optionConfig = config.GetXMLConfig("InvOption_Equip_Normal")
+	elseif itemGrade == 2 then
+		optionConfig = config.GetXMLConfig("InvOption_Equip_Magic")
+	elseif itemGrade == 3 then
+		optionConfig = config.GetXMLConfig("InvOption_Equip_Rare")
+	elseif itemGrade == 4 then
+		optionConfig = config.GetXMLConfig("InvOption_Equip_Unique")
+	elseif itemGrade == 5 then
+		optionConfig = config.GetXMLConfig("InvOption_Equip_Legend")
+	end
+
+	if config.GetXMLConfig("InvOption_Equip_All") == 1 then
+		optionConfig = 1
+	end
+
+	if optionConfig == 0 then
+		return
+	end
+
+	local itemTranscend = TryGetProp(itemCls, "Transcend")
+	local itemReinforce = TryGetProp(itemCls, "Reinforce_2")
+	local itemAppraisal = TryGetProp(itemCls, "NeedAppraisal")
+	local itemRandomOption = TryGetProp(itemCls, "NeedRandomOption")
+
+	if config.GetXMLConfig("InvOption_Equip_Upgrade") == 1 then
+		if itemTranscend ~= nil and itemTranscend == 0 and itemReinforce ~= nil and itemReinforce == 0 then
+			optionConfig = 0
+		end
+	end
+
+	if config.GetXMLConfig("InvOption_Equip_Random") == 1 then
+		if itemAppraisal ~= nil and itemAppraisal == 0 and itemRandomOption ~= nil and itemRandomOption == 0 then
+			optionConfig = 0
+		end
+	end
+
+	return optionConfig
+end
+
+local function CHECK_INVENTORY_OPTION_CARD(itemCls)
+	if config.GetXMLConfig("InvOption_Card_All") == 1 then
+		return 1
+	end
+
+	if itemCls == nil then
+		return 0
+	end
+
+	local cardGroup = itemCls.MarketCategory
+	local optionConfig = 1
+	if cardGroup == "Card_CardRed" then
+		optionConfig = config.GetXMLConfig("InvOption_Card_Red")
+	elseif cardGroup == "Card_CardBlue" then
+		optionConfig = config.GetXMLConfig("InvOption_Card_Blue")
+	elseif cardGroup == "Card_CardGreen" then
+		optionConfig = config.GetXMLConfig("InvOption_Card_Green")
+	elseif cardGroup == "Card_CardPurple" then
+		optionConfig = config.GetXMLConfig("InvOption_Card_Purple")
+	elseif cardGroup == "Card_CardLeg" then
+		optionConfig = config.GetXMLConfig("InvOption_Card_Legend")
+	elseif cardGroup == "Card_CardAddExp" then
+		optionConfig = config.GetXMLConfig("InvOption_Card_Etc")
+	end
+	
+
+	return optionConfig
+end
+
+local function CHECK_INVENTORY_OPTION_ETC(itemCls)
+	if config.GetXMLConfig("InvOption_Etc_All") == 1 then
+		return 1
+	end
+
+	if itemCls == nil then
+		return 0
+	end
+
+	local itemCategory = itemCls.MarketCategory
+	local optionConfig = 0
+	if itemCategory == "Misc_Usual" or itemCategory == "Misc_MiscSkill" then
+		optionConfig = config.GetXMLConfig("InvOption_Etc_Usual")
+	elseif itemCategory == "Misc_Quest" then
+		optionConfig = config.GetXMLConfig("InvOption_Etc_Quest")
+	elseif itemCategory == "Misc_Special" or itemCategory == "OPTMisc_IcorWeapon" or itemCategory == "OPTMisc_IcorArmor" then
+		optionConfig = config.GetXMLConfig("InvOption_Etc_Special")
+	elseif itemCategory == "Misc_Collect" then
+		optionConfig = config.GetXMLConfig("InvOption_Etc_Collect")
+	elseif itemCategory == "Misc_Etc" then
+		optionConfig = config.GetXMLConfig("InvOption_Etc_Etc")
+	elseif itemCategory == "Misc_Mineral" then
+		optionConfig = config.GetXMLConfig("InvOption_Etc_Mineral")
+	end
+
+	return optionConfig
+end
+
+local function CHECK_INVENTORY_OPTION_GEM(itemCls)
+	if config.GetXMLConfig("InvOption_Gem_All") == 1 then
+		return 1
+	end
+
+	if itemCls == nil then
+		return 0
+	end
+
+	local cardGroup = itemCls.MarketCategory
+	local optionConfig = 1
+	if cardGroup == "Gem_GemRed" then
+		optionConfig = config.GetXMLConfig("InvOption_Gem_Red")
+	elseif cardGroup == "Gem_GemBlue" then
+		optionConfig = config.GetXMLConfig("InvOption_Gem_Blue")
+	elseif cardGroup == "Gem_GemGreen" then
+		optionConfig = config.GetXMLConfig("InvOption_Gem_Green")
+	elseif cardGroup == "Gem_GemYellow" then
+		optionConfig = config.GetXMLConfig("InvOption_Gem_Yellow")
+	elseif cardGroup == "Gem_GemLegend" then
+		optionConfig = config.GetXMLConfig("InvOption_Gem_Legend")
+	elseif cardGroup == "Gem_GemSkill" then
+		optionConfig = config.GetXMLConfig("InvOption_Gem_Skill")
+	elseif cardGroup == "Gem_GemWhite" then
+		optionConfig = config.GetXMLConfig("InvOption_Gem_White")
+	end
+	
+	return optionConfig
+end
+
 function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterMsg('ITEM_LOCK_FAIL', 'INV_ITEM_LOCK_SAVE_FAIL');
 	addon:RegisterMsg('MYPC_CHANGE_SHAPE','INVENTORY_MYPC_CHANGE_SHAPE');
@@ -476,91 +610,106 @@ function TEMP_INV_ADD(frame,invIndex)
 
 	local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
 	local tree = GET_CHILD_RECURSIVELY(frame, 'inventree_' .. typeStr);	
-	INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls);
-	
-	--아이템 없는 빈 슬롯은 숨겨라
-	for i = 1 , #SLOTSET_NAMELIST do
-		local slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
-		HIDE_EMPTY_SLOT(slotset)
+
+	local viewOptionCheck = 1;
+	if typeStr == "Equip" then
+		viewOptionCheck = CHECK_INVENTORY_OPTION_EQUIP(itemCls)
+	elseif typeStr == "Card" then
+		viewOptionCheck = CHECK_INVENTORY_OPTION_CARD(itemCls)
+	elseif typeStr == "Etc" then
+		viewOptionCheck = CHECK_INVENTORY_OPTION_ETC(itemCls)					
+	elseif typeStr == "Gem" then
+		viewOptionCheck = CHECK_INVENTORY_OPTION_GEM(itemCls)
 	end
 	
-	ADD_GROUP_BOTTOM_MARGIN(frame,tree)
-
-	local treegroupname = baseidcls.TreeGroup;
-	local treegroup = tree:FindByValue(treegroupname);
-
-	if beforeSlotSetCount ~= #SLOTSET_NAMELIST then
-		tree:SortTreeChildByFunc(treegroup, "GET_SLOTSET_SORT_SCORE");
-	end
-
-	if beforeGroupCount ~= #GROUP_NAMELIST then
-		tree:SortTreeChildByFunc(tree:GetRootItem(), "GET_GROUP_SORT_SCORE");
-	end
-
-	local treeNode = tree:GetNodeByTreeItem(treegroup);
-	tree:OpenNode(treeNode, true, true);
-	
-	--검색결과 스크롤 세팅은 여기서 하자. 트리 업데이트 후에 위치가 고정된 다음에.
-	for i = 1 , #SLOTSET_NAMELIST do
-		slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
-		local slotsetnode = tree:FindByValue(SLOTSET_NAMELIST[i]);
-		if setpos == 'setpos' then
-
-			local savedPos = frame:GetUserValue("INVENTORY_CUR_SCROLL_POS");
+	if viewOptionCheck == 1 then
+		INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls);	
 		
-			if savedPos == 'None' then
-				savedPos = 0
-			end
-				
-			local tree_box = GET_CHILD_RECURSIVELY(frame, 'treeGbox_'.. typeStr)
-			tree_box:SetScrollPos( tonumber(savedPos) )
+		--아이템 없는 빈 슬롯은 숨겨라
+		for i = 1 , #SLOTSET_NAMELIST do
+			local slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+			HIDE_EMPTY_SLOT(slotset)
 		end
 		
-	end
+		ADD_GROUP_BOTTOM_MARGIN(frame,tree)
 
+		local treegroupname = baseidcls.TreeGroup;
+		local treegroup = tree:FindByValue(treegroupname);
+	
+		if beforeSlotSetCount ~= #SLOTSET_NAMELIST then
+			tree:SortTreeChildByFunc(treegroup, "GET_SLOTSET_SORT_SCORE");
+		end
+	
+		if beforeGroupCount ~= #GROUP_NAMELIST then
+			tree:SortTreeChildByFunc(tree:GetRootItem(), "GET_GROUP_SORT_SCORE");
+		end
+	
+		local treeNode = tree:GetNodeByTreeItem(treegroup);
+		tree:OpenNode(treeNode, true, true);
+		
+		--검색결과 스크롤 세팅은 여기서 하자. 트리 업데이트 후에 위치가 고정된 다음에.
+		for i = 1 , #SLOTSET_NAMELIST do
+			slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
+			local slotsetnode = tree:FindByValue(SLOTSET_NAMELIST[i]);
+			if setpos == 'setpos' then
+	
+				local savedPos = frame:GetUserValue("INVENTORY_CUR_SCROLL_POS");
+			
+				if savedPos == 'None' then
+					savedPos = 0
+				end
+					
+				local tree_box = GET_CHILD_RECURSIVELY(frame, 'treeGbox_'.. typeStr)
+				tree_box:SetScrollPos( tonumber(savedPos) )
+			end
+			
+		end
+	end
 	
 ------------------------------
 	typeStr = "All"	
 
 	tree = GET_CHILD_RECURSIVELY(frame, 'inventree_' .. typeStr);	
-	INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls);
-	
-	--아이템 없는 빈 슬롯은 숨겨라
-	for i = 1 , #SLOTSET_NAMELIST do
-		local slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
-		HIDE_EMPTY_SLOT(slotset)
-	end
-	
-	ADD_GROUP_BOTTOM_MARGIN(frame,tree)
-
-	treegroupname = baseidcls.TreeGroup;
-	treegroup = tree:FindByValue(treegroupname);
-
-	if beforeSlotSetCount ~= #SLOTSET_NAMELIST then
-		tree:SortTreeChildByFunc(treegroup, "GET_SLOTSET_SORT_SCORE");
-	end
-
-	if beforeGroupCount ~= #GROUP_NAMELIST then
-		tree:SortTreeChildByFunc(tree:GetRootItem(), "GET_GROUP_SORT_SCORE");
-	end
-
-	treeNode = tree:GetNodeByTreeItem(treegroup);
-	tree:OpenNode(treeNode, true, true);
-	
-	--검색결과 스크롤 세팅은 여기서 하자. 트리 업데이트 후에 위치가 고정된 다음에.
-	for i = 1 , #SLOTSET_NAMELIST do
-		slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
-		local slotsetnode = tree:FindByValue(SLOTSET_NAMELIST[i]);
-		if setpos == 'setpos' then
-
-			local savedPos = frame:GetUserValue("INVENTORY_CUR_SCROLL_POS");
+	if viewOptionCheck == 1 then
+		INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls); 
 		
-			if savedPos == 'None' then
-				savedPos = 0
-			end
-				
-			local tree_box = GET_CHILD_RECURSIVELY(frame, 'treeGbox_'.. typeStr)
-			tree_box:SetScrollPos( tonumber(savedPos) )
+		--아이템 없는 빈 슬롯은 숨겨라
+		for i = 1 , #SLOTSET_NAMELIST do
+			local slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+			HIDE_EMPTY_SLOT(slotset)
+		end
+		
+		ADD_GROUP_BOTTOM_MARGIN(frame,tree)
+	
+		treegroupname = baseidcls.TreeGroup;
+		treegroup = tree:FindByValue(treegroupname);
+	
+		if beforeSlotSetCount ~= #SLOTSET_NAMELIST then
+			tree:SortTreeChildByFunc(treegroup, "GET_SLOTSET_SORT_SCORE");
+		end
+	
+		if beforeGroupCount ~= #GROUP_NAMELIST then
+			tree:SortTreeChildByFunc(tree:GetRootItem(), "GET_GROUP_SORT_SCORE");
+		end
+	
+		treeNode = tree:GetNodeByTreeItem(treegroup);
+		tree:OpenNode(treeNode, true, true);
+		
+		--검색결과 스크롤 세팅은 여기서 하자. 트리 업데이트 후에 위치가 고정된 다음에.
+		for i = 1 , #SLOTSET_NAMELIST do
+			slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
+			local slotsetnode = tree:FindByValue(SLOTSET_NAMELIST[i]);
+			if setpos == 'setpos' then
+	
+				local savedPos = frame:GetUserValue("INVENTORY_CUR_SCROLL_POS");
+			
+				if savedPos == 'None' then
+					savedPos = 0
+				end
+					
+				local tree_box = GET_CHILD_RECURSIVELY(frame, 'treeGbox_'.. typeStr)
+				tree_box:SetScrollPos( tonumber(savedPos) )
+			end			
 		end
 		
 	end
@@ -1395,141 +1544,6 @@ function GET_REMAIN_INVITEM_COUNT(invItem)
 		end
 	end
 	return remainInvItemCount;
-end
-
-
-local function CHECK_INVENTORY_OPTION_EQUIP(itemCls)
-	if itemCls == nil then
-		return 0
-	end
-
-	local itemGrade = itemCls.ItemGrade
-	local optionConfig = 1
-	if itemGrade == 1 then
-		optionConfig = config.GetXMLConfig("InvOption_Equip_Normal")
-	elseif itemGrade == 2 then
-		optionConfig = config.GetXMLConfig("InvOption_Equip_Magic")
-	elseif itemGrade == 3 then
-		optionConfig = config.GetXMLConfig("InvOption_Equip_Rare")
-	elseif itemGrade == 4 then
-		optionConfig = config.GetXMLConfig("InvOption_Equip_Unique")
-	elseif itemGrade == 5 then
-		optionConfig = config.GetXMLConfig("InvOption_Equip_Legend")
-	end
-
-	if config.GetXMLConfig("InvOption_Equip_All") == 1 then
-		optionConfig = 1
-	end
-
-	if optionConfig == 0 then
-		return
-	end
-
-	local itemTranscend = TryGetProp(itemCls, "Transcend")
-	local itemReinforce = TryGetProp(itemCls, "Reinforce_2")
-	local itemAppraisal = TryGetProp(itemCls, "NeedAppraisal")
-	local itemRandomOption = TryGetProp(itemCls, "NeedRandomOption")
-
-	if config.GetXMLConfig("InvOption_Equip_Upgrade") == 1 then
-		if itemTranscend ~= nil and itemTranscend == 0 and itemReinforce ~= nil and itemReinforce == 0 then
-			optionConfig = 0
-		end
-	end
-
-	if config.GetXMLConfig("InvOption_Equip_Random") == 1 then
-		if itemAppraisal ~= nil and itemAppraisal == 0 and itemRandomOption ~= nil and itemRandomOption == 0 then
-			optionConfig = 0
-		end
-	end
-
-	return optionConfig
-end
-
-local function CHECK_INVENTORY_OPTION_CARD(itemCls)
-	if config.GetXMLConfig("InvOption_Card_All") == 1 then
-		return 1
-	end
-
-	if itemCls == nil then
-		return 0
-	end
-
-	local cardGroup = itemCls.MarketCategory
-	local optionConfig = 1
-	if cardGroup == "Card_CardRed" then
-		optionConfig = config.GetXMLConfig("InvOption_Card_Red")
-	elseif cardGroup == "Card_CardBlue" then
-		optionConfig = config.GetXMLConfig("InvOption_Card_Blue")
-	elseif cardGroup == "Card_CardGreen" then
-		optionConfig = config.GetXMLConfig("InvOption_Card_Green")
-	elseif cardGroup == "Card_CardPurple" then
-		optionConfig = config.GetXMLConfig("InvOption_Card_Purple")
-	elseif cardGroup == "Card_CardLeg" then
-		optionConfig = config.GetXMLConfig("InvOption_Card_Legend")
-	elseif cardGroup == "Card_CardAddExp" then
-		optionConfig = config.GetXMLConfig("InvOption_Card_Etc")
-	end
-	
-
-	return optionConfig
-end
-
-local function CHECK_INVENTORY_OPTION_ETC(itemCls)
-	if config.GetXMLConfig("InvOption_Etc_All") == 1 then
-		return 1
-	end
-
-	if itemCls == nil then
-		return 0
-	end
-
-	local itemCategory = itemCls.MarketCategory
-	local optionConfig = 0
-	if itemCategory == "Misc_Usual" or itemCategory == "Misc_MiscSkill" then
-		optionConfig = config.GetXMLConfig("InvOption_Etc_Usual")
-	elseif itemCategory == "Misc_Quest" then
-		optionConfig = config.GetXMLConfig("InvOption_Etc_Quest")
-	elseif itemCategory == "Misc_Special" or itemCategory == "OPTMisc_IcorWeapon" or itemCategory == "OPTMisc_IcorArmor" then
-		optionConfig = config.GetXMLConfig("InvOption_Etc_Special")
-	elseif itemCategory == "Misc_Collect" then
-		optionConfig = config.GetXMLConfig("InvOption_Etc_Collect")
-	elseif itemCategory == "Misc_Etc" then
-		optionConfig = config.GetXMLConfig("InvOption_Etc_Etc")
-	elseif itemCategory == "Misc_Mineral" then
-		optionConfig = config.GetXMLConfig("InvOption_Etc_Mineral")
-	end
-
-	return optionConfig
-end
-
-local function CHECK_INVENTORY_OPTION_GEM(itemCls)
-	if config.GetXMLConfig("InvOption_Gem_All") == 1 then
-		return 1
-	end
-
-	if itemCls == nil then
-		return 0
-	end
-
-	local cardGroup = itemCls.MarketCategory
-	local optionConfig = 1
-	if cardGroup == "Gem_GemRed" then
-		optionConfig = config.GetXMLConfig("InvOption_Gem_Red")
-	elseif cardGroup == "Gem_GemBlue" then
-		optionConfig = config.GetXMLConfig("InvOption_Gem_Blue")
-	elseif cardGroup == "Gem_GemGreen" then
-		optionConfig = config.GetXMLConfig("InvOption_Gem_Green")
-	elseif cardGroup == "Gem_GemYellow" then
-		optionConfig = config.GetXMLConfig("InvOption_Gem_Yellow")
-	elseif cardGroup == "Gem_GemLegend" then
-		optionConfig = config.GetXMLConfig("InvOption_Gem_Legend")
-	elseif cardGroup == "Gem_GemSkill" then
-		optionConfig = config.GetXMLConfig("InvOption_Gem_Skill")
-	elseif cardGroup == "Gem_GemWhite" then
-		optionConfig = config.GetXMLConfig("InvOption_Gem_White")
-	end
-	
-	return optionConfig
 end
 
 function INVENTORY_SORT_BY_GRADE(a, b)

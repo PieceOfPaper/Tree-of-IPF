@@ -143,6 +143,10 @@ function ATTENDANCE_INIT_REWARD(frame, attendanceID)
 					UI_PLAYFORCE(getPic, "sizeUpAndDown");
                 end
 			end
+			
+			SET_ITEM_TOOLTIP_BY_NAME(getPic, itemName);
+			getPic:SetTooltipOverlap(1);
+			
 		end
 	end
 

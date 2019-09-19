@@ -65,6 +65,23 @@ function DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, from)
 	-- 아이템 이름 세팅
 	local fullname = GET_FULL_NAME(invitem, true);
 	local nameChild = GET_CHILD(CSet, "name", "ui::CRichText");
+	
+	--EVENT_1909_ANCIENT
+	if invitem.ClassName == 'EVENT_190919_ANCIENT_MONSTER_PIECE' then
+		local mon = GetClass('Ancient', invitem.KeyWord);
+		fullname = mon.Name .. '{/}[★]'
+		if mon.Rarity == 1 then
+			fullname =  "{#ffffff}"..fullname
+		elseif mon.Rarity == 2 then
+			fullname =  "{#0e7fe8}"..fullname
+		elseif mon.Rarity == 3 then
+			fullname =  "{#d92400}"..fullname
+		elseif mon.Rarity == 4 then
+			fullname =  "{#ffa800}"..fullname
+		end
+		fullname = invitem.Name .. ' - ' .. fullname
+	end
+
 	nameChild:SetText(fullname);
 	nameChild:AdjustFontSizeByWidth(nameChild:GetWidth());
 	nameChild:SetTextAlign("center","center");
@@ -238,9 +255,14 @@ local function _SET_TRUST_POINT_PARAM_INFO(tooltipframe, index, paramType)
 	local STAR_IMG = 'star_in_arrow';
 	local STAR_SIZE = 19;
 	local starText = '';
-	for i = 1, point do
+	if point == 5 then
 		starText = starText..string.format('{img %s %s %s}', STAR_IMG, STAR_SIZE, STAR_SIZE);
-	end
+		starText = starText..string.format('{img %s %s %s}', "starmark_multipl05", 19, 15);
+	else
+		for i = 1, point do
+			starText = starText..string.format('{img %s %s %s}', STAR_IMG, STAR_SIZE, STAR_SIZE);
+		end
+	end	
 	starTextBox:SetTextByKey('value', starText);
 
 	-- info
@@ -372,4 +394,30 @@ function UPDATE_INDUN_INFO_TOOLTIP(tooltipframe, cidStr, param1, param2, actor)
 	indunListBox:Resize(indunListBox:GetOriginalWidth(), indunListBox:GetOriginalHeight() + spaceOffset );	
 
 
+end
+
+
+function ITEM_TOOLTIP_MONSTER_PIECE(tooltipframe, invitem, argStr, usesubframe)    
+	tolua.cast(tooltipframe, "ui::CTooltipFrame");
+
+	local mainframename = 'etc'
+	
+	if usesubframe == "usesubframe" then
+		mainframename = "etc_sub"
+	elseif usesubframe == "usesubframe_recipe" then
+		mainframename = "etc_sub"
+	end
+
+	local ypos = DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, argStr); -- 기타 템이라면 공통적으로 그리는 툴팁들	
+	ypos = DRAW_ETC_DESC_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 아이템 설명.
+	ypos = DRAW_ETC_RECIPE_NEEDITEM_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 재료템이라면 필요한 재료랑 보여줌
+	ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename);
+	
+	local isHaveLifeTime = TryGetProp(invitem, "LifeTime", 0);	
+	if 0 == tonumber(isHaveLifeTime) then
+		ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename); -- 가격
+	else
+		ypos = DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, ypos, mainframename); -- 남은 시간
+	end
+	
 end

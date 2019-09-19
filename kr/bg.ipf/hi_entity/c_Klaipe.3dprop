@@ -1,13 +1,7 @@
 <?xml version="1.xac0" standalone="yes"?>
 <!-- edited with XMLSpy v2006 U (http://www.xacaltova.xaccom) by MyHome (EMBRACE) -->
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Bo-yeon Kang (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <Prop>
-	<Model Path="c_klaipeda_water_baka_KLA.xac" RenderType="RT_WATER" IsBloom="0" IsWater="1" WaterDiffDir="-0.2 -0.0" WaterSwaySpeed="0.2" WaterSwayRange="0.03 0" waterSwayPower="0.05" RefractionNormalSize="0.01" RefractionDir="-0.15" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.01" WaterSprayRange="1" WaterSpraycolor="0.1 0.3 0.4" NoCol="0"/>
-	<Model Path="c_klaipeda_galaxy_01_KLA.xac" RenderType="RT_FOG" IsBloom="0" NoCol="0"/>
-	<Model Path="c_klaipeda_galaxy_02_KLA.xac" RenderType="RT_FOG" IsBloom="0" NoCol="0"/>
-	<Model Path="c_klaipeda_galaxy_bl_KLA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
-	<Model Path="c_klaipeda_light_moon_KLA.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="1"/>
-	<Model Path="c_klaipeda_moon_KLA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_streetlamp_KLA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_wood_pot.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_ani_wheel_01_KLA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
@@ -75,5 +69,5 @@
 	<Model Path="c_klaipeda_fish_007.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_fish_008.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_water_02_SIA.xac" RenderType="RT_PLANELIGHT" IsBloom="" Type="" NoCol="0"/>
-	<Model Path="c_klaipeda_water_01_SIA.xac" RenderType="RT_WATER" IsBloom="0" IsWater="1" WaterDiffDir="0" WaterSwaySpeed="0.6" WaterSwayRange="0.03 0" waterSwayPower="0.01" RefractionNormalSize="0.01" RefractionDir="-0.15" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.01" WaterSprayRange="0" WaterSpraycolor="0.1 0.3 0.4" NoCol="0"/>
+	<Model Path="c_klaipeda_water_01_SIA.xac" RenderType="RT_WATER" IsBloom="0" Type="0" IsWater="1" WaterDiffDir="-0.15" WaterSwaySpeed="0.6" WaterSwayRange="0.03 0" waterSwayPower="0.05" RefractionNormalSize="0.01" RefractionDir="-0.15" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.01" WaterSprayRange="1" WaterSpraycolor="0.1 0.3 0.4" NoCol="0"/>
 </Prop>

@@ -1090,3 +1090,101 @@ function MAKE_RESTRICT_INFO(frame, skillRestrict, ypos, ctrlSetWidth)
     ctrlSet:Resize(textWidth, text:GetHeight());
     return textWidth, ypos + ctrlSet:GetHeight();
 end
+
+function UPDATE_ANCIENT_MON_TOOLTIP(frame,guid)
+    local info = session.pet.GetAncientMonInfoByGuid(guid);
+    if info == nil then
+        return;
+    end
+    local monCls = GetClass("Monster",info:GetClassName())
+    if monCls == nil then
+        return;
+    end
+    local exp = info:GetStrExp();
+    local xpInfo = gePetXP.GetXPInfo(0, tonumber(exp))
+    local level = xpInfo.level
+    --set rarity
+    local ancientCls = GetClass("Ancient", monCls.ClassName)
+    local nameBox = frame:GetChild("name_box")
+    local rarityText = nameBox:GetChild("rarity")
+    local rarity = ancientCls.Rarity
+    
+    if rarity == 1 then
+		rarityText:SetText(frame:GetUserConfig("NORMAL_GRADE_TEXT"))
+	elseif rarity == 2 then
+		rarityText:SetText(frame:GetUserConfig("MAGIC_GRADE_TEXT"))
+	elseif rarity == 3 then
+		rarityText:SetText(frame:GetUserConfig("UNIQUE_GRADE_TEXT"))
+	elseif rarity == 4 then
+		rarityText:SetText(frame:GetUserConfig("LEGEND_GRADE_TEXT"))
+	end
+    --set name
+    local name = nameBox:GetChild("name")
+    name:SetText('{@st42b}{s16}[Lv.'..level..'] '.. monCls.Name..'{/}')
+    
+    --set image
+    local monsterInfo = frame:GetChild("monster_info")
+    local monsterImg = monsterInfo:GetChild("img")
+    local iconName = TryGetProp(monCls, "Icon");
+    AUTO_CAST(monsterImg)
+    monsterImg:SetImage(iconName)
+    --set star
+    local starrankText = monsterImg:GetChild("starrank")
+    local starrank = info.starrank
+    local starStr = ""
+    for i = 1, starrank do
+        starStr = starStr ..string.format("{img monster_card_starmark %d %d}", 21, 20)
+    end
+    starrankText:SetText(starStr)
+    --exp gauge
+    local expGauge = monsterInfo:GetChild("exp")
+    AUTO_CAST(expGauge)
+    local totalExp = xpInfo.totalExp - xpInfo.startExp;
+    local curExp = exp - xpInfo.startExp;
+    expGauge:SetPoint(curExp, totalExp);
+
+    --stat load
+    local mon1obj = CreateGCIES('Monster', monCls.ClassName);
+    mon1obj.Lv = level;
+    SetExProp(mon1obj,'STARRANK',info.starrank)
+    local statList = {'MHP','PATK','MATK','DEF','MDEF','HR','DR'}
+    local monsterStat = frame:GetChild("monster_stat")
+    monsterStat:RemoveAllChild()
+    
+    local statBaseText = monsterStat:CreateControl("richtext","monster_stat_1",100,31,ui.LEFT,ui.TOP,10,0,0,0);
+    local font = "{@st66b}{s16}"
+    statBaseText:SetText(font..ScpArgMsg("DetailInfo").."{/}")
+    statBaseText:SetFontName("brown_16")
+    
+    local height = 31
+    for i = 1,#statList do
+        local statName = statList[i]
+        local statNameCtrl = monsterStat:CreateControl("richtext",statName.."_name",100,30,ui.LEFT,ui.TOP,10,height,0,0);
+        statNameCtrl:SetFontName("brown_18")
+        statNameCtrl:SetText(ScpArgMsg(statName))
+        local statValueCtrl = monsterStat:CreateControl("richtext",statName.."_val",100,30,ui.RIGHT,ui.TOP,0,height,10,0)
+        statValueCtrl:SetFontName("brown_18")
+        if statName == "MATK" or statName == "PATK" then
+            local statMinFunc = _G["SCR_Get_MON_MIN"..statName]
+            local statMaxFunc = _G["SCR_Get_MON_MAX"..statName]
+            local statMin = statMinFunc(mon1obj)
+            local statMax = statMaxFunc(mon1obj)
+            statValueCtrl:SetText(font..statMin..'~'.. statMax.."{/}")
+        else
+            local statFunc = _G["SCR_Get_MON_"..statName]
+            local statVal = statFunc(mon1obj);
+            statValueCtrl:SetText(font..statVal.."{/}")
+        end
+        height = height + 25
+    end
+
+    local exStatList = {"RaceType", "Attribute"}
+    for i = 1,#exStatList do
+        local exStat = exStatList[i]
+        local exstatNameCtrl = monsterStat:CreateControl("richtext",exStat.."_name",100,30,ui.LEFT,ui.TOP,10,height,0,0);
+        exstatNameCtrl:SetText(font..ClMsg(exStat).."{/}")
+        local exstatValueCtrl = monsterStat:CreateControl("richtext",exStat.."_val",100,30,ui.RIGHT,ui.TOP,0,height,10,0)
+        exstatValueCtrl:SetText(font..ScpArgMsg("MonInfo_"..exStat.."_"..TryGetProp(monCls,exStat)).."{/}")
+        height = height + 25
+    end
+end

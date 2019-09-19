@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by asdasd (IMCGames Co., Ltd) -->
+<GameList>
+	<Game Name="SOLO_DUNGEON_MINI_ANCIENT" minLv="0" maxLv="0" mapName="d_solo_dungeon_2" playerCountCheckDestroy="1" startWaitSec="-1">
+		<StageList>
+			<Stage Name="START" AutoStart="0">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="시작 메시지">
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="10초 후 몬스터가 몰려옵니다!"/>
+								<Num Num="3"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="스테이지 실행">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_CLIENT" Client="YES" UseSleep="NO">
+								<Str Str="INIT_ANCIENT_SOLO_UI"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="STAGE"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="START_LOG">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="START_SOLO_DUNGEON_PLAY_LOG"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="STAGE" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="59065" Pos="-32.79#5.67#22.34" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+					<Obj Type="Monster" MonType="20040" Pos="-6.44#5.67#271.19" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1"/>
+					<Obj Type="Monster" MonType="20040" Pos="-21.34#5.67#-254.46" genCount="1" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="스테이지 체크">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_COUNT"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="EVENT_1909_STAGE_WAITING"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="스테이지매니저 실행">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_MANAGEEMENT"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="STAGE"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="스테이지 시간 체크" execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_TIME"/>
+								<Str Str="OVER"/>
+								<Num Num="180"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="STAGE"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="End"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_MANAGEEMENT"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="TIME_OUT_SOLO_DUNGEON_PLAY_LOG"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="모두 사망">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="EVENT_1909_ALL_DEAD"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="STAGE"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="End"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_MANAGEEMENT"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="TIME_OUT_SOLO_DUNGEON_PLAY_LOG"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="스테이지 시작 처리">
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="EVENT_1909_STAGE_HEAL_ANCIENT"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="EVENT_1909_EXTRA_DEBUFF"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="EVENT_1909_STAGE_UI_SET"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="스테이지 시간 업데이트">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT_CLIENT" Client="YES" UseSleep="NO">
+								<Str Str="ANCIENT_SOLO_UPDATE_REMAIN_TIME"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_TIME"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="존 버프 세팅">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_BY_SCRIPT" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="STAGE/1/STAGE/2/STAGE/3/STAGE/4/STAGE/5"/>
+								<Str Str="EVENT_1909_ANCIENT_MON_COUNT"/>
+								<Str Str="EVENT_1909_ANCIENT_MON_SETTING"/>
+								<Str Str="EVENT_1909_ANCIENT_MON_NAME"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE/1"/>
+								<Str Str="EVENT_1909_ANCIENT_MON_SET_POS"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="End" AutoStart="0">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="몬스터 삭제">
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="종료됩니다."/>
+								<Num Num="5"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="SCR_STAGE_END_STOPDEBUFF_MON"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="EVENT_1909_ANCIENT_SOLO_GET_REWARD"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="스코어보드">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="5"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="ReTurnCity"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="STAGE_MANAGEEMENT" AutoStart="0">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="스테이지 체크">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="STAGE/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="EVENT_1909_REMOVE_EXTRA_DEBUFF"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="EVENT_1909_STAGE_SAVE"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="다음 스테이지 실행">
+						<condList>
+							<ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+								<Str Str="GO_NEXT"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+								<Str Str="GAME_END"/>
+								<Str Str="EQ"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="GO_NEXT"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_TIME"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
+								<Str Str="STAGE"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_MANAGEEMENT"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="미니게임 종료">
+						<condList>
+							<ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+								<Str Str="GO_NEXT"/>
+								<Str Str="EQ"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="STAGE"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="End"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="STAGE_MANAGEEMENT"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="ReTurnCity" AutoStart="0">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="존으로 돌아가기">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="READY">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="mvalSET">
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="SCR_SOLO_DUNGEON_ANCIENT_PC_SETTING"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="start">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="START_STAGE"/>
+								<Str Str="OVER"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="START"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="READY"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Setting">
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="SCR_SOLO_DUNGEON_ANCIENT_PC_HIDE"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

@@ -59,6 +59,8 @@
     </Skill>
     <Skill Name="Dievdirbys_CarveVakarine">
         <EnableScripts>
+            <ToolScp Client="BOTH" Scp="CHECK_IS_GUIILDCOLONY_MAP" UseSleep="NO">
+            </ToolScp>
             <ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
                 <Num Num="0"/>
                 <Str Str="pcskill_wood_bakarine2"/>

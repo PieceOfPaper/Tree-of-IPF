@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Data>
-	<LimitInfo SafeAuthPoint="2" TeamLevel="10" CharLevel="300" CreateTimeInDays="30">
-		<Info TrustPoint="0" MarketLimit="15000000" InvenLimit="15000000" AccountWareHouseLimit="30000000"/>
-		<Info TrustPoint="1" MarketLimit="50000000" InvenLimit="50000000" AccountWareHouseLimit="100000000"/>
-		<Info TrustPoint="2" MarketLimit="500000000" InvenLimit="500000000" AccountWareHouseLimit="1000000000"/>
+	<LimitInfo SafeAuthPoint="5" TeamLevel="10" CharLevel="300" CreateTimeInDays="30">
+		<Info TrustPoint="0" MarketLimit="1000000" InvenLimit="15000000" AccountWareHouseLimit="30000000"/>
+		<Info TrustPoint="1" MarketLimit="5000000" InvenLimit="50000000" AccountWareHouseLimit="100000000"/>
+		<Info TrustPoint="2" MarketLimit="10000000" InvenLimit="500000000" AccountWareHouseLimit="1000000000"/>
 		<Info TrustPoint="3" MarketLimit="1000000000" InvenLimit="1000000000" AccountWareHouseLimit="2000000000"/>
 		<Info TrustPoint="4" MarketLimit="3000000000" InvenLimit="3000000000" AccountWareHouseLimit="6000000000"/>
 		<Info TrustPoint="5" MarketLimit="5000000000" InvenLimit="5000000000" AccountWareHouseLimit="10000000000"/>

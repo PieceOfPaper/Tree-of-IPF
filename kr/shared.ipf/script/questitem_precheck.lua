@@ -5445,6 +5445,11 @@ end
 
 --Escape_Orb
 function SCR_PRE_ITEM_Escape(self, argObj, BuffName, arg1, arg2)
+    local CompanionPeeding = GetExProp(self, 'feed')
+    if CompanionPeeding == 1 then
+        SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("CanNotUseWarpDuringFeeding"), 2)
+        return
+    end
     if IsJoinColonyWarMap(self) == 1 then
         return 0;
     end

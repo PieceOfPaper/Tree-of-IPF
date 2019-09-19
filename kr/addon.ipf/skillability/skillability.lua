@@ -1373,6 +1373,9 @@ function SKILLABILITY_DEPLOY_JOB_SKILL(skilltree_gb, jobClsName, unlockLvHash, S
     local rowCount = 0;
     --deploy skill controlset
     local y = 0;
+    if jobClsName == "Common" then
+        skilltree_gb:RemoveAllChild()
+    end
     --total loop count == skill count in job
     for lv, lvList in pairs(unlockLvHash) do 
         local levelRow = CALC_LIST_LINE_BREAK(lvList, SKILL_COL_COUNT, SKILL_LINE_BREAK_COUNT);

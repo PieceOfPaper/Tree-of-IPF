@@ -204,24 +204,13 @@ function SCR_ABIL_HIGHLANDER9_ACTIVE(self, ability)
     end
     
     local rItem  = GetEquipItem(self, 'RH');
-    local addValue = 0;
-    
     if rItem.ClassType == "THSword" then
-        addValue = math.floor(self.CRTATK * ability.Level * 0.1)
+        AddBuff(self, self, "Highlander9_Buff");
     end
-    
-    self.CRTATK_BM = self.CRTATK_BM + addValue;
-    SetExProp(ability, "ADD_CRTATK", addValue);
-    
-    Invalidate(self, "CRTATK");
 end
 
 function SCR_ABIL_HIGHLANDER9_INACTIVE(self, ability)
-    
-    local addValue = GetExProp(ability, "ADD_CRTATK");  
-    self.CRTATK_BM = self.CRTATK_BM - addValue;
-
-    Invalidate(self, "CRTATK");
+    RemoveBuff(self, "Highlander9_Buff");
 end
 
 

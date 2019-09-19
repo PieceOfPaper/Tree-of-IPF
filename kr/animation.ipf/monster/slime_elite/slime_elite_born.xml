@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_slime_elite_born"/>
-    <Sound frame="0.00" soundFile="skl_eff_born_1"/>
-    <Particle frame="4" particleName="F_smoke090" attachNode="Dummy_emiitter" scale="3" useAttach="true" pause="true" targetPos="false"/>
-    <Particle frame="4" particleName="F_smoke089" attachNode="Dummy_emiitter" scale="15" useAttach="true" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_slime_elite_born"/>
+	<Sound frame="0.00" soundFile="skl_eff_born_1"/>
+	<Particle frame="4" particleName="F_smoke090" attachNode="Dummy_emiitter" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="4" particleName="F_smoke089" attachNode="Dummy_emiitter" scale="5" useAttach="true" pause="true" targetPos="false"/>
 </ActionDesc>

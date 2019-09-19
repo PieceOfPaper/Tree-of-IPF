@@ -16,8 +16,8 @@
 		<richtext name="title" rect="0 0 200 80" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}게임 설정{/}" textalign="left top"/>
 		<button name="close" rect="0 0 44 44" margin="28 20 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;systemoption&apos;)" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}게임 설정창을 닫습니다{/}"/>
 		<!-- Game & UI Mode -->
-		<groupbox name="gameUIModeBox" rect="0 0 560 600" parent="bg2" margin="0 40 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
-		<groupbox name="gameBox" rect="0 0 280 600" parent="gameUIModeBox" margin="0 0 0 0" layout_gravity="left top" scrollbar="false" draw="false"/>
+		<groupbox name="gameUIModeBox" rect="0 0 560 650" parent="bg2" margin="0 40 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
+		<groupbox name="gameBox" rect="0 0 280 650" parent="gameUIModeBox" margin="0 0 0 0" layout_gravity="left top" scrollbar="false" draw="false"/>
 		<groupbox name="gamePVPSetting" rect="0 0 280 520" parent="gameUIModeBox" margin="0 0 0 0" layout_gravity="right top" scrollbar="false" draw="false"/>
 		<richtext name="game_title" rect="0 0 250 24" parent="gameBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}게임{/}"/>
 		<checkbox name="viewCharInfoBase" rect="0 0 250 30" parent="gameBox" margin="20 50 0 0" layout_gravity="left top" ConfigName="ViewCharInfoBase" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}캐릭터 기본 정보 보기{/}" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
@@ -31,8 +31,9 @@
 		<checkbox name="ShowCurrentGetVis" rect="0 0 250 30" parent="gameBox" margin="20 400 0 0" layout_gravity="left top" ConfigName="ShowCurrentGetVis" caption="{@st66b}획득한 실버량 보기{/}" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
 		<checkbox name="ShowCurrentGetExp" rect="0 0 250 30" parent="gameBox" margin="20 430 0 0" layout_gravity="left top" ConfigName="ShowCurrentGetExp" caption="{@st66b}획득한 경험치 보기{/}" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
 		<checkbox name="ShowSummonedMonName" rect="0 0 250 30" parent="gameBox" margin="20 460 0 0" layout_gravity="left top" ConfigName="ShowSummonedMonName" LBtnUpScp="ON_MONB_TARGET_UPDATE" caption="{@st66b}파티원 소환물 체력 보기{/}" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
-        <checkbox name="ShowEquipItemComparison" rect="0 0 250 30" parent="gameBox" margin="20 490 0 0" layout_gravity="left top" ConfigName="ShowEquipItemComparison" caption="{@st66b}장비 비교하기{/}" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
-	    <checkbox name="check_SkillGizmoTargetAim" rect="0 0 250 30" parent="gameBox" margin="20 560 0 0" layout_gravity="left top" ConfigName="EnableSkillGizmoTargetAim" LBtnUpScp="ENABLE_SKILLGIZMO_TARGETAIM" caption="{@st66b}스킬 위치 지정 타겟팅{/}" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
+		<checkbox name="ShowEquipItemComparison" rect="0 0 250 30" parent="gameBox" margin="20 490 0 0" layout_gravity="left top" ConfigName="ShowEquipItemComparison" caption="{@st66b}장비 비교하기{/}" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
+		<checkbox name="check_SkillGizmoTargetAim" rect="0 0 250 30" parent="gameBox" margin="20 560 0 0" layout_gravity="left top" ConfigName="EnableSkillGizmoTargetAim" LBtnUpScp="ENABLE_SKILLGIZMO_TARGETAIM" caption="{@st66b}스킬 위치 지정 타겟팅{/}" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
+		<checkbox name="MaintainTargetedSkillUI" rect="0 0 250 30" parent="gameBox" margin="20 585 0 0" layout_gravity="left top" ConfigName="MaintainTargetedSkillUI" LBtnUpScp="" caption="{@st66b}대상 지정 스킬 UI 유지{/}" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
 		<richtext name="sklCtrlSpd_text" rect="0 0 250 24" parent="gameBox" margin="20 290 0 0" layout_gravity="left top" format="{@st66b}스킬조작 속도 (%s){/}" param1="opValue" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
 		<slidebar name="sklCtrlSpd" rect="0 0 200 20" parent="gameBox" margin="20 310 0 0" layout_gravity="left top" SlideScp="CONFIG_SKL_CTRL_SPD" clicksound="button_click_big_2" maxlevel="1000" minlevel="10" oversound="button_over" skin="slidebar"/>
 		<checkbox name="autoCellSelect" rect="0 0 250 30" parent="gameBox" margin="20 330 0 0" layout_gravity="left top" ConfigName="EnableAutoCellSelect" LBtnUpScp="" caption="{@st66b}자동 셀 선택{/}" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
@@ -57,8 +58,8 @@
 		<checkbox name="chkShowGuildInColonyEffectCostume" rect="0 0 260 30" parent="gamePVPSetting" margin="20 435 0 0" layout_gravity="left top" ConfigName="ShowGuildInColonyEffectCostume" LBtnUpScp="SHOW_COLONY_EFFECTCOSTUME" caption="{@st66b}콜로니전 이펙트 코스튬 효과 켜기{/}" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
 		<richtext name="questinfosetTransparency_text" rect="0 0 250 24" parent="gameBox" margin="20 520 0 0" layout_gravity="left top" format="{@st66b}지령창 배경 투명도 (%s){/}" param1="opValue" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
 		<slidebar name="questinfosetTransparency" rect="0 0 200 20" parent="gameBox" margin="20 540 0 0" layout_gravity="left top" SlideScp="CONFIG_QUESTINFOSET_TRANSPARENCY" clicksound="button_click_big_2" maxlevel="250" minlevel="0" oversound="button_over" skin="slidebar"/>
-						<!-- Display -->
-		<groupbox name="displayBox" parent="bg2" rect="0 0 560 160" margin="0 640 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
+		<!-- Display -->
+		<groupbox name="displayBox" parent="bg2" rect="0 0 560 160" margin="0 685 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
 		<labelline name="boardLine 1" parent="displayBox" rect="0 0 560 4" margin="0 0 0 0" layout_gravity="left top" skin="None" visible="true"/>
 		<richtext name="screen_title" rect="0 0 250 24" parent="displayBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}화면{/}"/>
 		<radiobutton name="scrtype_1" parent="displayBox" rect="0 0 200 24" margin="20 50 0 0" layout_gravity="left top" LBtnDownScp="APPLY_SCREEN" caption="{@st66b}전체 화면{/}" clicksound="button_click_big" group="screenType" oversound="button_over"/>
@@ -67,7 +68,7 @@
 		<radiobutton name="vsync_1" parent="displayBox" rect="0 0 300 24" margin="300 50 0 0" layout_gravity="left top" LBtnDownScp="ENABEL_VSYNC" caption="{@st66b}수직 동기화 켜기{/}" clicksound="button_click_big" group="syncType" oversound="button_over"/>
 		<radiobutton name="vsync_0" parent="displayBox" rect="0 0 300 24" margin="300 80 0 0" layout_gravity="left top" LBtnDownScp="ENABEL_VSYNC" caption="{@st66b}수직 동기화 끄기{/}" clicksound="button_click_big" group="syncType" oversound="button_over"/>
 		<!-- Sound & Performance -->
-		<groupbox name="soundPerfBox" rect="0 0 560 350" parent="bg2" margin="0 790 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
+		<groupbox name="soundPerfBox" rect="0 0 560 350" parent="bg2" margin="0 825 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
 		<labelline name="boardLine2" parent="soundPerfBox" rect="0 0 460 4" margin="0 0 0 0" layout_gravity="left top" skin="None" visible="true"/>
 		<groupbox name="soundBox" rect="0 0 280 350" parent="soundPerfBox" margin="0 0 0 0" layout_gravity="left top" scrollbar="false" draw="false"/>
 		<richtext name="sound_title" rect="0 0 250 24" parent="soundBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}사운드{/}"/>
@@ -88,11 +89,11 @@
 		<radiobutton name="perftype_2" parent="perfBox" rect="0 0 200 24" margin="20 110 0 0" layout_gravity="left top" LBtnDownScp="APPLY_PERFMODE" caption="{@st66b}사용안함{/}" clicksound="button_click_big" group="perfType" oversound="button_over"/>
 		<checkbox name="ShowPerformanceValue" parent="perfBox" rect="0 0 200 24" margin="20 170 0 0" layout_gravity="left top" LBtnDownScp="SHOW_PERFORMANCE_VALUE" caption="{@st66b}성능 수치(FPS) 보기{/}" ConfigName="ShowPerformanceValue" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}성능 수치를 표시합니다{/}"/>
 		<!-- Graphic -->
-		<groupbox name="graphicBox" rect="0 0 560 300" parent="bg2" margin="0 1070 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
+		<groupbox name="graphicBox" rect="0 0 560 390" parent="bg2" margin="0 1095 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
 		<labelline name="boardLine 3" parent="graphicBox" rect="0 0 560 4" margin="0 0 0 0" layout_gravity="left top" skin="None" visible="true"/>
 		<richtext name="graphic_txt" rect="0 0 250 24" parent="graphicBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}그래픽 설정{/}"/>
 		<checkbox name="check_Bloom" rect="0 0 250 30" parent="graphicBox" margin="20 50 0 0" layout_gravity="left top" ConfigName="EnableBloom" LBtnUpScp="ENABLE_BLOOM" caption="{@st66b}블룸 적용{/}" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
-		<checkbox name="check_SoftParticle" rect="0 0 250 30" parent="graphicBox" margin="20 80 0 0" layout_gravity="left top" ConfigName="EnableSoftParticle" LBtnUpScp="ENABLE_SOFTPARTICLE" caption="{@st66b}SoftParticle 적용{/}" clicksound="button_click_big" oversound="button_over" resizebytext="false" ellipsistexttooltip="true"  omitbywidth="true"/>
+		<checkbox name="check_SoftParticle" rect="0 0 250 30" parent="graphicBox" margin="20 80 0 0" layout_gravity="left top" ConfigName="EnableSoftParticle" LBtnUpScp="ENABLE_SOFTPARTICLE" caption="{@st66b}SoftParticle 적용{/}" clicksound="button_click_big" oversound="button_over" resizebytext="false" ellipsistexttooltip="true" omitbywidth="true"/>
 		<checkbox name="check_ShowOtherPCEffect" rect="0 0 250 30" parent="graphicBox" margin="20 110 0 0" layout_gravity="left top" ConfigName="EnableOtherPCEffect" caption="{@st66b}다른 캐릭터 이펙트 보기" clicksound="button_click_big" oversound="button_over" LBtnDownScp="CONFIG_OTHER_PC_EFFECT" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
 		<checkbox name="check_EnableDeadParts" rect="0 0 250 30" parent="graphicBox" margin="20 140 0 0" layout_gravity="left top" ConfigName="EnableDeadParts" caption="{@st66b}데드 파츠 적용" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
 		<checkbox name="UseCamShockWave" rect="0 0 250 30" parent="graphicBox" margin="20 170 0 0" layout_gravity="left top" ConfigName="UseCamShockWave" LBtnUpScp="" caption="{@st66b}카메라 진동 사용{/}" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
@@ -106,7 +107,7 @@
 		<checkbox name="check_HitGlow" rect="0 0 250 30" parent="graphicBox" margin="300 200 0 0" layout_gravity="left top" ConfigName="EnableHitGlow" LBtnUpScp="ENABLE_HITGLOW" caption="{@st66b}타격 효과 사용" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
 		<checkbox name="check_EnableAnimateItemIllustration" rect="0 0 250 30" parent="graphicBox" margin="300 230 0 0" layout_gravity="left top" ConfigName="EnableAnimateItemIllustration" caption="{@st66b}아이템 움직이는 일러스트 켜기" clicksound="button_click_big" oversound="button_over" resizebytext="false" omitbywidth="true" ellipsistexttooltip="true"/>
 		<!-- Language -->
-		<groupbox name="languageBox" rect="0 0 560 80" parent="bg2" margin="0 1340 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
+		<groupbox name="languageBox" rect="0 0 560 80" parent="bg2" margin="0 1465 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
 		<labelline name="boardLine 4" parent="languageBox" rect="0 0 560 4" margin="0 0 0 0" layout_gravity="left top" skin="None" visible="true"/>
 		<richtext name="language_title" parent="languageBox" rect="0 0 250 24" margin="10 10 0 0" layout_gravity="left top" format="{@st43}언어 선택{/}"/>
 		<droplist name="languageList" parent="languageBox" rect="0 0 200 40" margin="20 50 0 0" layout_gravity="left top" SelectScp="APPLY_LANGUAGE" font="white_20_ol" frametextalign="left" skin="droplist_normal" textalign="left center" textoffset="10 0" visibleline="11"/>
