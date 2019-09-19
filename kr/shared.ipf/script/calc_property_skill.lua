@@ -8951,7 +8951,7 @@ function SCR_Get_Hovering_Ratio(skill)
 end
 
 function SCR_Get_Circling_Ratio(skill)
-    local value = skill.Level
+    local value = 10 + skill.Level
     
     return value
 end
