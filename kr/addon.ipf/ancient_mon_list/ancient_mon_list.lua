@@ -769,14 +769,15 @@ function ANCIENT_MON_COMPOSE_COMPLETE(frame,guid)
     end
     resultBox:SetUserValue("ANCIENT_GUID","SOMETHING_EXIST")
     frame:SetUserValue("RARITY",0)
-    RunScript('ANCIENT_MON_COMPOSE_END',guid,index)
+    local scp = string.format('ANCIENT_MON_COMPOSE_END(\"%s\",\"%d\")',guid,index)
+    ReserveScript(scp,1.5)
 end
 
 function ANCIENT_MON_COMPOSE_END(guid,index)
-    sleep(1500)
     local frame = ui.GetFrame('ancient_mon_list')
     local tab = frame:GetChild("tab")
     AUTO_CAST(tab)
+    index = tonumber(index)
     if index ~= tab:GetSelectItemIndex() then
         return;
     end
