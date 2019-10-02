@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <EmitterList>
+	<battle name="E_pose_squadron_pink" filename="E_pose_squadron_pink" loop="false" nodecount="9" xml="E_pose_squadron_pink.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_pose_squadron_blue" filename="E_pose_squadron_blue" loop="false" nodecount="9" xml="E_pose_squadron_blue.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_pose_squadron_yellow" filename="E_pose_squadron_yellow" loop="false" nodecount="9" xml="E_pose_squadron_yellow.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_pose_squadron_green" filename="E_pose_squadron_green" loop="false" nodecount="9" xml="E_pose_squadron_green.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_pose_squadron" filename="E_pose_squadron" loop="false" nodecount="9" xml="E_pose_squadron.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_pc_item_fryingpan2" filename="E_pc_item_fryingpan2" loop="false" nodecount="7" xml="E_pc_item_fryingpan2.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_pc_item_fryingpan" filename="E_pc_item_fryingpan" loop="false" nodecount="7" xml="E_pc_item_fryingpan.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_pc_item_artefact_salt" filename="E_pc_item_artefact_salt" loop="false" nodecount="7" xml="E_pc_item_artefact_salt.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>

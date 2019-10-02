@@ -279,7 +279,7 @@ return time"/>
 				<Num Num="0"/>
 			</ToolScp>
 			<ToolScp Client="YES" Scp="MONSKL_C_RESERVE_ANIM" UseSleep="NO">
-				<Str Str="SKL_RUBRIC_SHOT" UseFunc="1" FuncTxt="local abilBuff = info.GetBuffByName(self:GetHandleVal(), &quot;Rubric_Hidden_Buff&quot;) if abilBuff ~= nil then return &quot;SKL_RUBRIC_SHOT_ABIL&quot; else return &quot;SKL_RUBRIC_SHOT&quot; end"/>
+                <Str Str="SKL_RUBRIC_SHOT" UseFunc="1" FuncTxt="if self == nil then return &quot;SKL_RUBRIC_SHOT&quot; end local abilBuff = info.GetBuffByName(self:GetHandleVal(), &quot;Rubric_Hidden_Buff&quot;) if abilBuff ~= nil then return &quot;SKL_RUBRIC_SHOT_ABIL&quot; else return &quot;SKL_RUBRIC_SHOT&quot; end"/>
 				<Num Num="1"/>
 				<Num Num="1"/>
 			</ToolScp>

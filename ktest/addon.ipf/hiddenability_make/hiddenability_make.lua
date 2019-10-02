@@ -149,6 +149,16 @@ function HIDDENABILITY_MAKE_SET_MATERIAL(frame, argNum, invitem)
             matslot_2_pic:ShowWindow(0);
         end
 
+        local namelist = StringSplit(itemobj.Name, '] ');
+        local itemname = namelist[1];
+        if 1 < #namelist then
+            itemname = namelist[2];
+        end
+
+        local matslot_1_text = GET_CHILD_RECURSIVELY(frame, "matslot_1_text");
+        matslot_1_text:SetTextByKey("value", "");
+        matslot_1_text:SetTextByKey("value", itemname);
+
         needcnt = HIDDENABILITY_MAKE_NEED_PIECE_COUNT(resultitemClassName, itemobj);
     elseif IS_HIDDENABILITY_MATERIAL_STONE(itemobj) == true then
         local mat1guid = frame:GetUserValue("MATERIAL_GUID_1");
@@ -432,6 +442,11 @@ end
 function HIDDENABILITY_MAKE_RESET_MATERIAL(frame)
     local matslot_1 = GET_CHILD_RECURSIVELY(frame, "matslot_1");
     matslot_1:ClearIcon();
+
+    local MAT1_DEF_NAME = frame:GetUserConfig('MAT1_DEF_NAME');
+    local matslot_1_text = GET_CHILD_RECURSIVELY(frame, "matslot_1_text");
+    matslot_1_text:SetTextByKey("value", "");
+    matslot_1_text:SetTextByKey("value", MAT1_DEF_NAME);
     
     local matslot_1_count = GET_CHILD_RECURSIVELY(frame, "matslot_1_count");
     matslot_1_count:SetTextByKey("cur", 0);

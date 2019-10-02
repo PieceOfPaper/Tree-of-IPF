@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by asdasd (IMCGames Co., Ltd) -->
 <ToolSkill>
     <Skill Name="Mon_hidden_monster_Ancient_01_Skill_1">
         <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">
@@ -106,11 +106,6 @@
                 <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
                     <Str Str="SCR_GIMMICK_MON_TARGET_SET"/>
                 </Scp>
-                <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="300">
-                    <Pos Angle="0" Dist="0" Rand="190" PosType="1"/>
-                    <Angle Angle="0"/>
-                    <Str Str="Ancient_Gimmick_Pad_1"/>
-                </Scp>
                 <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="800">
                     <Pos Angle="0" Dist="0" Rand="160" PosType="1"/>
                     <Angle Angle="0"/>
@@ -122,7 +117,55 @@
     <Skill Name="Mon_hidden_monster_skiaclipse_Skill_1">
         <EndScripts>
             <ToolScp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO">
-                <Str Str="Skill_MISS_CHECK_METEOR"/>
+                <Str Str="Skill_MISS_CHECK_METEOR_SOLO"/>
+            </ToolScp>
+        </EndScripts>
+        <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10199" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="0">
+                    <Pos Angle="0" Dist="0"/>
+                    <Num Num="750"/>
+                    <Num Num="5"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="MSL_FALL_MON" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_MSL_FALL" Time="1100">
+                    <Str_Arg Str="I_force071_dark5" Arg="6"/>
+                    <Str_Arg Str="F_explosion132_white_black" Arg="3"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Pos Angle="0" Dist="0" Rand="30" PosType="10"/>
+                    <Num Num="70"/>
+                    <Num Num="0"/>
+                    <Num Num="0.5"/>
+                    <Num Num="300"/>
+                    <Num Num="1"/>
+                    <Num Num="1000"/>
+                    <Num Num="1"/>
+                    <Num Num="0.2"/>
+                    <Num Num="0"/>
+                    <Str_Arg Str="F_sys_target_pc" Arg="2"/>
+                    <Num Num="3000"/>
+                </Scp>
+                <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="4500">
+                    <Num Num="10"/>
+                    <Num Num="1.5"/>
+                    <Num Num="65"/>
+                    <Num Num="999"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Mon_hidden_monster_skiaclipse_solo_Skill_1">
+        <EndScripts>
+            <ToolScp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="Skill_MISS_CHECK_METEOR_SOLO"/>
             </ToolScp>
         </EndScripts>
         <MainSkl ScrLock="None" JumpFlee="YES" MSPDToUsePos="0">

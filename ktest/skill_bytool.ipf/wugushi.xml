@@ -112,21 +112,21 @@
                 <Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="99799" Type="FAN" Width="30" />
             </HitList>
             <EtcList>
-                <Scp Client="NO" Scp="SKL_BUFF" Time="50" UseSleep="NO">
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="50" UseSleep="NO">
+                    <Pos Angle="0" Dist="15" />
+                    <Num Num="200" />
+                    <Num Num="10" />
+                    <Num Num="2" />
+                    <Num Num="0" />
+                    <Num Num="0" />
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="100" UseSleep="NO">
                     <Str Str="Crescendo_Bane_Buff" />
                     <Num FuncTxt="return obj.Level" Num="1" UseFunc="1" />
                     <Num Num="0" />
                     <Num Num="35000" />
                     <Num Num="1" />
                     <Num Num="100" />
-                    <Num Num="0" />
-                </Scp>
-                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="100" UseSleep="NO">
-                    <Pos Angle="0" Dist="15" />
-                    <Num Num="200" />
-                    <Num Num="10" />
-                    <Num Num="2" />
-                    <Num Num="0" />
                     <Num Num="0" />
                 </Scp>
                 <Scp Client="YES" Scp="C_EFFECT" Time="150" UseSleep="NO">

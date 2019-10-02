@@ -179,17 +179,6 @@
 					<Str Str="mon_skel_atk" />
 				</Scp>
 			</EtcList>
-			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="NecromancerPoison_Debuff" />
-					<Num Num="1" />
-					<Num Num="0" />
-					<Num Num="15000" />
-					<Num Num="10" />
-					<Num Num="100" />
-					<Num Num="-1" />
-				</ToolScp>
-			</ResultList>
 		</MainSkl>
 	</Skill>
 	<Skill Name="Mon_pcskill_skullwizard_Skill_3">

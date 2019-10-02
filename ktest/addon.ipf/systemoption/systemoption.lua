@@ -107,6 +107,8 @@ function INIT_SOUND_CONFIG(frame)
 	SET_SLIDE_VAL(frame, "musicVol", "musicVol_text", config.GetMusicVolume());
 	SET_SLIDE_VAL(frame, "flutingVol", "flutingVol_text", config.GetFlutingVolume());
 	SET_SLIDE_VAL(frame, "totalVol", "totalVol_text", config.GetTotalVolume());	
+	SET_SLIDE_VAL(frame, "effect_transparency_my_value", "effect_transparency_my", config.GetMyEffectTransparency());
+	SET_SLIDE_VAL(frame, "effect_transparency_other_value", "effect_transparency_other", config.GetOtherEffectTransparency());
 	local isOtherFlutingEnable = config.IsEnableOtherFluting();
 	local chkOtherFlutingEnable = GET_CHILD_RECURSIVELY(frame, "check_fluting");
 	if nil ~= chkOtherFlutingEnable then
@@ -669,10 +671,23 @@ function CONFIG_QUESTINFOSET_TRANSPARENCY(frame, ctrl, str, num)
 	SET_QUESTINFOSET_TRANSPARENCY(frame);
 end
 
-
 function SET_QUESTINFOSET_TRANSPARENCY(frame)
 	SET_SLIDE_VAL(frame, "questinfosetTransparency", "questinfosetTransparency_text", config.GetQuestinfosetTransparency());
 	UPDATE_QUESTINFOSET_TRANSPARENCY(nil)
+end
+
+function CONFIG_MY_EFFECT_TRANSPARENCY(frame, ctrl, str, num)
+	tolua.cast(ctrl, "ui::CSlideBar");
+	config.SetMyEffectTransparency(ctrl:GetLevel());
+
+	SET_SLIDE_VAL(frame, "effect_transparency_my_value", "effect_transparency_my", config.GetMyEffectTransparency());
+end
+
+function CONFIG_OTHER_EFFECT_TRANSPARENCY(frame, ctrl, str, num)
+	tolua.cast(ctrl, "ui::CSlideBar");
+	config.SetOtherEffectTransparency(ctrl:GetLevel());
+	
+	SET_SLIDE_VAL(frame, "effect_transparency_other_value", "effect_transparency_other", config.GetOtherEffectTransparency());
 end
 
 function CONFIG_OTHER_PC_EFFECT(frame, ctrl, str, num)

@@ -590,6 +590,8 @@
 		<image name="icon_item_moth_leather_gloves" file="\icon\equip\icon_item_moth_leather_gloves.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_moth_leather_pants" file="\icon\equip\icon_item_moth_leather_pants.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_moth_leather_shirts" file="\icon\equip\icon_item_moth_leather_shirts.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_quizshirts1_m" file="\icon\equip\icon_item_quizshirts1_m.png" imgrect="0 0 256 256" CMM_Caption="퀴즈왕티셔츠_남"/>
+		<image name="icon_item_quizshirts1_f" file="\icon\equip\icon_item_quizshirts1_f.png" imgrect="0 0 256 256" CMM_Caption="퀴즈왕티셔츠_여"/>
 	</imagelist>
 	<imagelist category="256_costume_icons">
 		<image name="icon_item_Alchemist_f" file="\icon\equip\Alchemist_f_icon.png" imgrect="0 0 256 256" CMM_Caption="알케미스트"/>
@@ -2884,6 +2886,22 @@
 		<image name="icon_item_chef_pistol" file="\icon\weapon\icon_item_chef_pistol.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_chef_mace" file="\icon\weapon\icon_item_chef_mace.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_chef_dagger" file="\icon\weapon\icon_item_chef_dagger.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_squaron_thmace" file="\icon\weapon\icon_item_squaron_thmace.png" imgrect="0 0 256 256" CMM_Caption="2019 10월 전대물 무기"/>
+		<image name="icon_item_squaron_spear" file="\icon\weapon\icon_item_squaron_spear.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_squaron_mace" file="\icon\weapon\icon_item_squaron_mace.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_squaron_thsword" file="\icon\weapon\icon_item_squaron_thsword.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_squaron_thspear" file="\icon\weapon\icon_item_squaron_thspear.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_squaron_sword" file="\icon\weapon\icon_item_squaron_sword.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_squaron_staff" file="\icon\weapon\icon_item_squaron_staff.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_squaron_shield" file="\icon\weapon\icon_item_squaron_shield.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_squaron_rapier" file="\icon\weapon\icon_item_squaron_rapier.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_squaron_pistol" file="\icon\weapon\icon_item_squaron_pistol.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_squaron_musket" file="\icon\weapon\icon_item_squaron_musket.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_squaron_dagger" file="\icon\weapon\icon_item_squaron_dagger.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_squaron_cannon" file="\icon\weapon\icon_item_squaron_cannon.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_squaron_bow" file="\icon\weapon\icon_item_squaron_bow.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_squaron_rod" file="\icon\weapon\icon_item_squaron_rod.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_squaron_crossbow" file="\icon\weapon\icon_item_squaron_crossbow.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -3439,6 +3457,14 @@
 		<image name="icon_item_accessory_chef02" file="\icon\hairacc\icon_item_accessory_chef02.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_accessory_chef03" file="\icon\hairacc\icon_item_accessory_chef03.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_accessory_chef04" file="\icon\hairacc\icon_item_accessory_chef04.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_tinylatteart" file="\icon\hairacc\icon_item_accessory_tinylatteart.png" imgrect="0 0 256 256" CMM_Caption="티니 라떼 아트"/>
+		<image name="icon_item_accessory_foxmon_mask" file="\icon\hairacc\icon_item_accessory_foxmon_mask.png" imgrect="0 0 256 256" CMM_Caption="여우 가면"/>
+		<image name="icon_item_accessory_squadron04" file="\icon\hairacc\icon_item_accessory_squadron04.png" imgrect="0 0 256 256" CMM_Caption="전대물 안경"/>
+		<image name="icon_item_accessory_squadron03" file="\icon\hairacc\icon_item_accessory_squadron03.png" imgrect="0 0 256 256" CMM_Caption="전대물 머리삔"/>
+		<image name="icon_item_accessory_squadron02" file="\icon\hairacc\icon_item_accessory_squadron02.png" imgrect="0 0 256 256" CMM_Caption="전대물 체크모자"/>
+		<image name="icon_item_accessory_squadron01" file="\icon\hairacc\icon_item_accessory_squadron01.png" imgrect="0 0 256 256" CMM_Caption="전대물 노란비니"/>
+		<image name="icon_item_helmet_squadron" file="\icon\hairacc\icon_item_helmet_squadron.png" imgrect="0 0 256 256" CMM_Caption="용가리 탈 헬멧"/>
+		<image name="icon_item_accessory_qosneon1" file="\icon\hairacc\icon_item_accessory_qosneon1.png" imgrect="0 0 256 256" CMM_Caption="네온 포포리온"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -5501,6 +5527,7 @@
 		<image name="icon_item_h_barrack_puddle_blue" file="\icon\housing\icon_item_h_barrack_puddle_blue.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 연못(파란색)"/>
 		<image name="icon_item_h_barrack_puddle_red" file="\icon\housing\icon_item_h_barrack_puddle_red.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 연못(빨간색)"/>
 		<image name="icon_item_h_barrack_puddle_yellow" file="\icon\housing\icon_item_h_barrack_puddle_yellow.png" imgrect="0 0 256 256" CMM_Caption="[길드 하우징] 연못(노란색)"/>
+		<image name="icon_item_pizza" file="\icon\item\icon_item_pizza.png" imgrect="0 0 128 128" CMM_Caption="피자"/>	
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -6455,6 +6482,12 @@
 		<image name="icon_item_selectbox_travel01" file="\icon\payment\icon_item_selectbox_travel01.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_selectbox_camping01" file="\icon\payment\icon_item_selectbox_camping01.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_selectbox_blackbear" file="\icon\payment\icon_item_selectbox_blackbear.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_skintone01" file="\icon\payment\icon_item_skintone01.png" imgrect="0 0 256 256" CMM_Caption="피부색 "/>
+		<image name="icon_item_skintone02" file="\icon\payment\icon_item_skintone02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_skintone03" file="\icon\payment\icon_item_skintone03.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_skintone04" file="\icon\payment\icon_item_skintone04.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_skintone05" file="\icon\payment\icon_item_skintone05.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_skintone06" file="\icon\payment\icon_item_skintone06.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_wing_chicken" file="\icon\payment\icon_item_wing_chicken.png" imgrect="0 0 256 256" CMM_Caption="2019 9월 풍선"/>
 		<image name="icon_item_Photowall_chef01_set" file="\icon\payment\icon_item_Photowall_chef01_set.png" imgrect="0 0 256 256" CMM_Caption="2019 9월 팝업북"/>
 		<image name="icon_item_selectbox_chef01" file="\icon\payment\icon_item_selectbox_chef01.png" imgrect="0 0 256 256" CMM_Caption="2019 9월 코스튬 선택상자"/>
@@ -6466,11 +6499,30 @@
 		<image name="icon_item_chef02_m" file="\icon\payment\icon_item_chef02_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_chef03_m" file="\icon\payment\icon_item_chef03_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_chef03_f" file="\icon\payment\icon_item_chef03_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_SkinCoupon_30" file="\icon\payment\icon_item_SkinCoupon_30.png" imgrect="0 0 256 256" CMM_Caption="스킨 할인 쿠폰 30"/>
+		<image name="icon_item_SkinCoupon_50" file="\icon\payment\icon_item_SkinCoupon_50.png" imgrect="0 0 256 256" CMM_Caption="스킨 할인 쿠폰 50"/>
+		<image name="icon_item_SkinCoupon_100" file="\icon\payment\icon_item_SkinCoupon_100.png" imgrect="0 0 256 256" CMM_Caption="스킨 할인 쿠폰 100"/>
 		<image name="icon_item_artefactbox_chef" file="\icon\payment\icon_item_artefactbox_chef.png" imgrect="0 0 256 256" CMM_Caption="장난감 세트"/>
 		<image name="icon_item_1908_ChuSeok_Package_01" file="\icon\payment\icon_item_1908_ChuSeok_Package_01.png" imgrect="0 0 256 256" CMM_Caption="2019 한가위 성장 패키지"/>
 		<image name="icon_item_1908_ChuSeok_Package_02" file="\icon\payment\icon_item_1908_ChuSeok_Package_02.png" imgrect="0 0 256 256" CMM_Caption="2019 한가위 강화 패키지"/>
 		<image name="icon_item_1908_ChuSeok_Package_03" file="\icon\payment\icon_item_1908_ChuSeok_Package_03.png" imgrect="0 0 256 256" CMM_Caption="2019 한가위 콘텐츠 패키지"/>
 		<image name="icon_item_1908_ChuSeok_Package_04" file="\icon\payment\icon_item_1908_ChuSeok_Package_04.png" imgrect="0 0 256 256" CMM_Caption="2019 한가위 아츠 패키지"/>
+		<image name="icon_item_egg_sparrow" file="\icon\payment\icon_item_egg_sparrow.png" imgrect="0 0 256 256" CMM_Caption="참새 알"/>
+		<image name="icon_item_squadron03_m" file="\icon\payment\icon_item_squadron03_m.png" imgrect="0 0 256 256" CMM_Caption="남자 변신전 그린"/>
+		<image name="icon_item_squadron02_m" file="\icon\payment\icon_item_squadron02_m.png" imgrect="0 0 256 256" CMM_Caption="남자 변신전 핑크"/>
+		<image name="icon_item_squadron04_f" file="\icon\payment\icon_item_squadron04_f.png" imgrect="0 0 256 256" CMM_Caption="여자 변신전 옐로우"/>
+		<image name="icon_item_squadron01_f" file="\icon\payment\icon_item_squadron01_f.png" imgrect="0 0 256 256" CMM_Caption="여자 변신전 레드"/>
+		<image name="icon_item_squadron01_m" file="\icon\payment\icon_item_squadron01_m.png" imgrect="0 0 256 256" CMM_Caption="남자 변신전 레드"/>
+		<image name="icon_item_Photowall_squadron" file="\icon\payment\icon_item_Photowall_squadron.png" imgrect="0 0 256 256" CMM_Caption="전대물 팝업북"/>
+		<image name="icon_item_squadron02_f" file="\icon\payment\icon_item_squadron02_f.png" imgrect="0 0 256 256" CMM_Caption="여자 변신전 블루"/>
+		<image name="icon_item_selectbox_squadron01" file="\icon\payment\icon_item_selectbox_squadron01.png" imgrect="0 0 256 256" CMM_Caption="전대물 선택상자01"/>
+		<image name="icon_item_selectbox_squadron02" file="\icon\payment\icon_item_selectbox_squadron02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_selectbox_squadron03" file="\icon\payment\icon_item_selectbox_squadron03.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_skintone07" file="\icon\payment\icon_item_skintone07.png" imgrect="0 0 256 256" CMM_Caption="피부색_프리미엄01"/>
+		<image name="icon_item_skintone08" file="\icon\payment\icon_item_skintone08.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_skintone09" file="\icon\payment\icon_item_skintone09.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_skintone10" file="\icon\payment\icon_item_skintone10.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_skintone11" file="\icon\payment\icon_item_skintone11.png" imgrect="0 0 256 256" CMM_Caption="피부색_프리미엄05"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

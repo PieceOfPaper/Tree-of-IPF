@@ -110,6 +110,7 @@ function INIT_MAPUI_PTR(frame)
 		m_mapHeight = map_picture:GetHeight();
 
 		MAP_CHAR_UPDATE(frame, msg, argStr, session.GetMyHandle());
+        session.minimap.UpdateChallengeModePortalMark()
 	end
 
 end
@@ -1148,20 +1149,30 @@ function _MINIMAP_ICON_ADD(parent, key, info)
 
 	local worldPos = info:GetPos();
 	local mapprop = session.GetCurrentMapProp();
-
-	if resize == nil and info.scale ~= 1.0 then
+    
+	if resize == nil and info.scale ~= 1.0 then        
 		ctrlSet:Resize(ctrlSet:GetWidth() * info.scale, ctrlSet:GetHeight() * info.scale);
 		icon:Resize(icon:GetWidth() * info.scale, icon:GetHeight() * info.scale);
 		text:Resize(text:GetWidth() * info.scale, text:GetHeight() * info.scale);
 		local textScale = math.pow(info.scale, 0.5);
 		text:SetScale(textScale, textScale);
 	end
-
+    
 	SET_MINIMAP_CTRLSET_POS(parent, ctrlSet, worldPos, mapprop);
 
 end
 
-function MINIMAP_ICON_ADD(key, info)
+function CHALLENGE_ICON_ADD(key, info)
+    info = tolua.cast(info, "session::minimap::MINIMAP_ICON_INFO");
+	local frame = ui.GetFrame("map");
+	_MINIMAP_ICON_ADD(frame, key, info);
+
+    frame = ui.GetFrame("minimap");
+	local npcList = frame:GetChild('npclist');
+	_MINIMAP_ICON_ADD(npcList, key, info);	
+end
+
+function MINIMAP_ICON_ADD(key, info)    
 	info = tolua.cast(info, "session::minimap::MINIMAP_ICON_INFO");
 
 	local frame = ui.GetFrame("map");
@@ -1172,15 +1183,19 @@ function MINIMAP_ICON_ADD(key, info)
 	_MINIMAP_ICON_ADD(npcList, key, info);	
 end
 
+function CHALLENGE_ICON_UPDATE(key, info)
+    CHALLENGE_ICON_ADD(key, info)
+end
+
 function MINIMAP_ICON_UPDATE(key, info)
 	MINIMAP_ICON_ADD(key, info);
 end
 
 function SET_MINIMAP_CTRLSET_POS(parent, ctrlSet, worldPos, mapprop)    
 	if parent:GetValue2() == 1 then        
-		local cursize = GET_MINIMAPSIZE();
+		local cursize = GET_MINIMAPSIZE();        
 		local minimapw = m_mapWidth * (100 + cursize) / 100;
-		local minimaph = m_mapHeight * (100 + cursize) / 100;
+		local minimaph = m_mapHeight * (100 + cursize) / 100;        
 		local pos = mapprop:WorldPosToMinimapPos(worldPos, minimapw, minimaph);        
 		pos.x = pos.x - ctrlSet:GetWidth() / 2;
 		pos.y = pos.y - ctrlSet:GetHeight() / 2 + 10;
@@ -1192,11 +1207,9 @@ function SET_MINIMAP_CTRLSET_POS(parent, ctrlSet, worldPos, mapprop)
 	local minimapw = m_mapWidth;
 	local minimaph = m_mapHeight;
 	local pos = mapprop:WorldPosToMinimapPos(worldPos, minimapw, minimaph);
-
 	local x = m_offsetX + pos.x - ctrlSet:GetWidth() / 2;
 	local y = m_offsetY + pos.y - ctrlSet:GetHeight() / 2 + 10;
 	ctrlSet:SetOffset(x, y);
-
 end
 
 function SCR_SHOW_LOCAL_MAP(zoneClassName, useMapFog, showX, showZ)

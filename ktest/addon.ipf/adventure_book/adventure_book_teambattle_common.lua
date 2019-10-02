@@ -279,13 +279,17 @@ function WORLDPVP_PUBLIC_GAME_LIST(frame, msg, argStr, argNum)
 	local gameIndexList = WORLDPVP_PUBLIC_GAME_LIST_BY_TYPE(isGuildPVP);	
 	local maxCnt = 3;
 	local cnt = math.min(#gameIndexList, maxCnt);
+	
+	local CTRLSET_OFFSET = bg_observer:GetUserConfig('CTRLSET_OFFSET');
+	local controlsetY = 0;
+
 	for i = 1 , cnt do
 		local index = gameIndexList[i];
 		if index ~= nil then
 			local info = session.worldPVP.GetPublicGameByIndex(index);
-			local ctrlSet = gbox:CreateControlSet("pvp_observe_ctrlset", "CTRLSET_" .. i, ui.LEFT, ui.TOP, 0, 0, 0, 0);		
+			local ctrlSet = gbox:CreateControlSet("pvp_observe_ctrlset", "CTRLSET_" .. i, 0, controlsetY);
 			ctrlSet:SetUserValue("GAME_ID", info.guid);
-
+			
 			local gbox_pc = ctrlSet:GetChild("gbox_pc");
 			local teamVec1 = info:CreateTeamInfo(1);
 			local teamVec2 = info:CreateTeamInfo(2);
@@ -293,7 +297,7 @@ function WORLDPVP_PUBLIC_GAME_LIST(frame, msg, argStr, argNum)
 			local gbox_whole = ctrlSet:GetChild("gbox_whole");
 			local gbox_1 = ctrlSet:GetChild("gbox_1");
 			local gbox_2 = ctrlSet:GetChild("gbox_2");
-
+			
 			local guildName1 = WORLDPVP_PUBLIC_GAME_SET_PCTEAM(frame, gbox_1, teamVec1, 1);
 
 			SET_VS_NAMES(worldPVPFrame, ctrlSet, 1, WORLDPVP_PUBLIC_GAME_SET_PCTEAM(frame, gbox_1, teamVec1, 1));
@@ -306,8 +310,8 @@ function WORLDPVP_PUBLIC_GAME_LIST(frame, msg, argStr, argNum)
 			local btn = ctrlSet:GetChild("btn");
 			ctrlSet:Resize(ctrlSet:GetWidth(), height + btn:GetHeight() + heightAddValue +45);
 			gbox_whole:Resize(ctrlSet:GetWidth(), height + btn:GetHeight() + heightAddValue +50 );
+
+			controlsetY = controlsetY + ctrlSet:GetHeight() + CTRLSET_OFFSET;
 		end
 	end
-
-	GBOX_AUTO_ALIGN(gbox, 10, 3, 10, true, true);
 end

@@ -451,9 +451,11 @@ function  QUESTDETAIL_MAKE_EXP_REWARD_CTRL(gbBody, x, y, questIES)
 	    succExp = succExp + repeat_reward_exp
 	end
 	
+	local sumvalue = MultForBigNumberInt64(tostring(succExp), tostring(77));
+	sumvalue = DivForBigNumberInt64(tostring(sumvalue), tostring(100));
     if succExp > 0 then
-        succJobExp = succJobExp + math.floor(succExp * 77 /100)
-    end
+		succJobExp = tonumber(SumForBigNumberInt64(succJobExp, sumvalue));
+	end
 	
 	if cls.Success_Lv_Exp > 0 then
         local xpIES = GetClass('Xp', pc.Lv)

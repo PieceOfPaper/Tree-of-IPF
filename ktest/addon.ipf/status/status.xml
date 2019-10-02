@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="status" x="0" y="0" width="500" height="1080">
 	<draw drawtitlebar="false"/>
 	<skin frameskin=" "/>
@@ -10,7 +10,7 @@
 	<option closebutton="false"/>
 	<sound opensound="character_item_window_open" closesound="character_item_window_close"/>
 	<script OpenScp="STATUS_ONLOAD" CloseScp="STATUS_CLOSE"/>
-	<userconfig ADD_STAT_COLOR="{#00FF00}" BEFORE_STAT_COLOR="{#FF6600}" BTNUP_STAT_COLOR="{@st41b}" CHANGE_STAT_FONTNAME="orange_16_b_ol" DEFAULT_STAT_VALUE_FONTNAME="white_16_ol" DEFAULT_STAT_NAME_FONTNAME="yellow_16_ol" StatIconStartX="10" DEFAULT_TITLE_TEXT="없음"/>
+	<userconfig ADD_STAT_COLOR="{#00FF00}" BEFORE_STAT_COLOR="{#FF6600}" BTNUP_STAT_COLOR="{@st41b}" CHANGE_STAT_FONTNAME="orange_16_b_ol" DEFAULT_STAT_VALUE_FONTNAME="white_16_ol" DEFAULT_STAT_NAME_FONTNAME="yellow_16_ol" StatIconStartX="10" DEFAULT_TITLE_TEXT="{@st42b}없음"/>
 	<controls>
 		<groupbox name="equip" rect="0 0 500 990" margin="0 40 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
 		<groupbox name="pipwin_top_my" rect="0 0 500 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_topf1"/>
@@ -39,8 +39,8 @@
 		<richtext name="expUP_Static" parent="expupTextBox" rect="0 0 200 20" margin="0 2 0 0" layout_gravity="center top" caption="{@st66d_y}{s20}총{/}" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
 		<richtext name="totalExpUpValueText" parent="expupTextBox" rect="0 0 300 20" margin="0 27 0 0" layout_gravity="center top" caption="" fontname="brown_18_b" format="{@st66d_y} {s20}%s%{/}" hittest="false" param1="value" param1_def="100" spacey="0" textalign="left center"/>
 		<!--</경험치율 총합 계산 UI>-->
-		<richtext name="titleListStatic" parent="customizingGBox" rect="0 0 200 20" margin="15 35 0 0" layout_gravity="left top" format="{@st42}장착 가능한 칭호 [%s]{/}" param1="value1" param1_def="value1" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
-		<droplist name="useableTitleList" parent="customizingGBox" rect="0 0 450 20" margin="15 60 0 0" layout_gravity="left top" SelectScp="SELECT_ACHIEVE_TITLE" frametextalign="center" font="white_20_ol" listclicksound="button_click" listoversound="button_cursor_over_2" skin="droplist_normal" textalign="center center" textoffset="10 0" visibleline="10"/>
+		<richtext name="titleListStatic" parent="customizingGBox" rect="0 0 200 10" margin="15 25 0 0" layout_gravity="left top" format="{@st42}장착 가능한 칭호 [%s]{/}" param1="value1" param1_def="value1" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
+		<droplist name="useableTitleList" parent="customizingGBox" rect="0 0 450 20" margin="15 50 0 0" layout_gravity="left top" SelectScp="SELECT_ACHIEVE_TITLE" frametextalign="center" font="white_20_ol" listclicksound="button_click" listoversound="button_cursor_over_2" skin="droplist_normal4" textalign="center center" textoffset="10 0" visibleline="10"/>
 		<groupbox name="currentbuffGbox" parent="customizingGbox" rect="0 0 225 70" margin="10 100 0 0" layout_gravity="left top" draw="false" hittest="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
 		<groupbox name="nextbuffGbox" parent="customizingGbox" rect="0 0 225 70" margin="10 180 0 0" layout_gravity="left top" draw="false" hittest="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
 		<groupbox name="statsGbox" parent="customizingGbox" rect="0 0 225 245" margin="0 100 0 0" layout_gravity="right top" draw="false" hittest="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>

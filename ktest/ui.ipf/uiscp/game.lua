@@ -197,11 +197,12 @@ end
 
 function MAKE_ALL_DEFAULT_HAIR()
 
-	local Rootclasslist = imcIES.GetClassList('HairType');
+	local PartClass = imcIES.GetClass("CreatePcInfo", "Hair");
+	local GenderList = PartClass:GetSubClassList();
 
 	for gender = 1 , 2 do
 
-		local Selectclass   = Rootclasslist:GetClass(gender);
+		local Selectclass   = GenderList:GetClass(gender);
 		local Selectclasslist = Selectclass:GetSubClassList();
 
 		for i = 1, Selectclasslist:Count() do

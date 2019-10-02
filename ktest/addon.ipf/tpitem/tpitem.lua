@@ -2368,22 +2368,23 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 	-- 헤어 색상 셋팅
 	local pc = GetMyPCObject()
 	local nowheadindex = item.GetHeadIndex();
-
-	local Rootclasslist = imcIES.GetClassList('HairType');
-	local Selectclass   = Rootclasslist:GetClass(pc.Gender);
+	
+	local PartClass = imcIES.GetClass("CreatePcInfo", "Hair");
+	local GenderList = PartClass:GetSubClassList();
+	local Selectclass   = GenderList:GetClass(pc.Gender);
 	local Selectclasslist = Selectclass:GetSubClassList();
 
 	local nowhaircls = Selectclasslist:GetByIndex(nowheadindex-1);
 	
 	local nowengname = imcIES.GetString(nowhaircls, 'EngName') 
-	local nowcolor = imcIES.GetString(nowhaircls, 'ColorE')
+	local nowcolor = imcIES.GetString(nowhaircls, 'EngColor')
 	
 	local listCount = Selectclasslist:Count();
 	
 	for i=0, listCount do
 		local cls = Selectclasslist:GetByIndex(i);
 		if cls ~= nil then
-			if nowengname == imcIES.GetString(cls, 'EngName') and nowcolor == imcIES.GetString(cls, 'ColorE') then
+			if nowengname == imcIES.GetString(cls, 'EngName') and nowcolor == imcIES.GetString(cls, 'EngColor') then
 				apc:SetHeadType(i + 1);
 				break;
 			end

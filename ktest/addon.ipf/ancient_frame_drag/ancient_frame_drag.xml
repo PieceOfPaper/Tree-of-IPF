@@ -2,6 +2,7 @@
 	<draw drawtitlebar="false" drawframe="false"/>
 	<frame fasthide="true" layout_gravity="left top" margin="0 0 0 0" hittest="false"/>
     <input resize="true" hittestframe="false"/>
+	<sound opensound="sys_card_battle_icon_drag" closesound="UI_card_move"/>
     <skin frameskin="None"/>
 	<layer layerlevel="100"/>
     <controls>

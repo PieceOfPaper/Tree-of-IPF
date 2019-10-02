@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_pose_squadron" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="2.00" soundFile="skl_eff_squadron_man"/>
+    <BlendOn frame="6" R="80" G="80" B="80" A="100"/>
+    <BlendOn frame="7" R="100" G="100" B="100" A="100"/>
+    <BlendOn frame="8" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="25" R="150" G="150" B="100" A="100"/>
+    <BlendOn frame="26" R="200" G="200" B="150" A="200"/>
+    <Particle frame="26" attachNode="Bip01 Spine2" particleName="F_pose_magical_shot_heart_end2_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="27" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="46" R="150" G="150" B="100" A="100"/>
+    <Shockwave frame="46" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="46" attachNode="Dummy_emitter" particleName="F_pose_squadron_smoke_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="47" R="200" G="200" B="150" A="200"/>
+    <BlendOn frame="48" R="180" G="180" B="150" A="200"/>
+    <BlendOn frame="49" R="150" G="150" B="130" A="200"/>
+    <BlendOn frame="50" R="130" G="130" B="100" A="200"/>
+    <BlendOn frame="51" R="100" G="100" B="80" A="200"/>
+    <BlendOn frame="52" R="80" G="80" B="50" A="200"/>
+    <BlendOn frame="53" R="50" G="50" B="30" A="200"/>
+    <BlendOn frame="54" R="25" G="25" B="10" A="200"/>
+    <BlendOff frame="55" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

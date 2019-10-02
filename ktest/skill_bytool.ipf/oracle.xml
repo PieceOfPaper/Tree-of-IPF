@@ -4,6 +4,7 @@
 	<Skill Name="Oracle_TwistOfFate">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
+				<Scp Client="NO" Scp="CHECK_PVP_AND_BUFF_APPLIED" Time="0" UseSleep="NO"/>
 				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
 					<Str Str="voice_cleric_m_twistoffate_shot"/>
 					<Str Str="voice_cleric_f_twistoffate_shot"/>
@@ -31,7 +32,7 @@
 			</EtcList>
 			<ResultList>
 				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
-					<Str Str="TwistOfFate_Debuff"/>
+					<Str FuncTxt="local buffName = &quot;TwistOfFate_Debuff&quot; if IS_PC(target) == true and IsBuffApplied(target, &quot;TwistOfFate_Debuff&quot;) == &quot;YES&quot; then buffName = &quot;None&quot; end return buffName" UseFunc="1" Str="TwistOfFate_Debuff"/>
 					<Num FuncTxt="return skill.Level;" Num="1" UseFunc="1"/>
 					<Num Num="0"/>
 					<Num Num="30000"/>

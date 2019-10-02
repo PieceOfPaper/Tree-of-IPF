@@ -5,6 +5,9 @@
 				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
 			</HitList>
 			<EtcList>
+                <Scp Client="NO" Scp="COMPANION_REMOVE_SKILL_BUFF" Time="0" UseSleep="NO">
+                    <Num Num="0" />
+                </Scp>
 				<Scp Client="NO" Scp="SKL_SET_TGT_COMPANION" Time="0" UseSleep="NO">
 					<Num Num="0" />
 				</Scp>
@@ -34,6 +37,9 @@
 				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
 			</HitList>
 			<EtcList>
+                <Scp Client="NO" Scp="COMPANION_REMOVE_SKILL_BUFF" Time="0" UseSleep="NO">
+                    <Num Num="0" />
+                </Scp>
 				<Scp Client="NO" Scp="SKL_SET_TGT_COMPANION" Time="0" UseSleep="NO">
 					<Num Num="0" />
 				</Scp>
@@ -45,7 +51,7 @@
 					<Str Str="Growling_Buff" />
 					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
 					<Num Num="0" />
-					<Num Num="600000" />
+                    <Num Num="30000" />
 					<Num Num="1" />
 					<Num Num="100" />
 				</Scp>
@@ -87,9 +93,12 @@
 				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
 			</HitList>
 			<EtcList>
+                <Scp Client="NO" Scp="COMPANION_REMOVE_SKILL_BUFF" Time="0" UseSleep="NO">
+                    <Num Num="0" />
+                </Scp>
 				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
 					<Pos Angle="0" Dist="0" PosType="3" />
-					<Num Num="50" />
+                    <Num Num="15" />
 					<Num Num="10" />
 					<Num Num="2" />
 					<Num Num="0" />
@@ -125,6 +134,9 @@
 				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" Length="100" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9999" Type="FAN" Width="30" />
 			</HitList>
 			<EtcList>
+                <Scp Client="NO" Scp="COMPANION_REMOVE_SKILL_BUFF" Time="0" UseSleep="NO">
+                    <Num Num="0" />
+                </Scp>
 				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO" />
 				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="400" UseSleep="NO">
 					<Str Str="TARGET_CHECK_HIDEFROM_MON" />
@@ -150,6 +162,9 @@
 				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
 			</HitList>
 			<EtcList>
+                <Scp Client="NO" Scp="COMPANION_REMOVE_SKILL_BUFF" Time="0" UseSleep="NO">
+                    <Num Num="0" />
+                </Scp>
 				<Scp Client="NO" Scp="SKL_SET_TGT_COMPANION" Time="0" UseSleep="NO">
 					<Num Num="0" />
 				</Scp>
@@ -183,6 +198,9 @@
 				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
 			</HitList>
 			<EtcList>
+                <Scp Client="NO" Scp="COMPANION_REMOVE_SKILL_BUFF" Time="0" UseSleep="NO">
+                    <Num Num="0" />
+                </Scp>
 				<Scp Client="NO" Scp="SKL_SET_TGT_COMPANION" Time="0" UseSleep="NO">
 					<Num Num="0" />
 				</Scp>
@@ -214,6 +232,9 @@
 				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
 			</HitList>
 			<EtcList>
+                <Scp Client="NO" Scp="COMPANION_REMOVE_SKILL_BUFF" Time="0" UseSleep="NO">
+                    <Num Num="0" />
+                </Scp>
 				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO" />
 				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="400" UseSleep="NO">
 					<Str Str="TARGET_CHECK_HIDEFROM_MON" />
@@ -248,6 +269,9 @@
 				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
 			</HitList>
 			<EtcList>
+                <Scp Client="NO" Scp="COMPANION_REMOVE_SKILL_BUFF" Time="0" UseSleep="NO">
+                    <Num Num="0" />
+                </Scp>
 				<Scp Client="NO" Scp="SKL_SET_TGT_COMPANION" Time="0" UseSleep="NO">
 					<Num Num="0" />
 				</Scp>
@@ -277,6 +301,9 @@
 				<Frame Angle="0" AniTime="10199" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9999" Type="FAN" />
 			</HitList>
 			<EtcList>
+                <Scp Client="NO" Scp="COMPANION_REMOVE_SKILL_BUFF" Time="0" UseSleep="NO">
+                    <Num Num="0" />
+                </Scp>
 				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO" />
 				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="400" UseSleep="NO">
 					<Str Str="TARGET_CHECK_HIDEFROM_MON" />

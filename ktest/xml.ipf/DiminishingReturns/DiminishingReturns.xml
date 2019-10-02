@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- CC(Crowd Control) 점감관련 상수들, 점감 관련 상수를 세팅할 시에, Name에 RefleshTime, ApplyingCount, Ratio 을 사용하여야 한다. -->
 <!-- 상수 관련 Name은 RefleshTime, ApplyingCount, Ratio 을 반드시 사용하여야 한다. -->
 <!-- 그룹 구분은 반드시 [Group_숫자] 형식을 따라야 한다.-->
@@ -19,8 +19,6 @@
 			<Class Name="IronHooked" BuffID="6010" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="Stop_Debuff" BuffID="123" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="TeleHold" BuffID="66" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
-			<Class Name="Retrieve_Debuff" BuffID="227" Desc="리트리브 스킬 버프"/>
-			<Class Name="Coursing_Debuff" BuffID="197" Desc="코싱 스킬 버프"/>
 			<Class Name="Impaler_Debuff" BuffID="134" Desc="창꽂았을떄"/>
 			<Class Name="telepath" BuffID="6013" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="ShadowFatter_Debuff" BuffID="2119" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>

@@ -62,7 +62,7 @@
 	</tooltip>
 	<tooltip name="minimap" x="0" y="0" fixwidth="true" width="138" height="160" moveable="true" frameskin="skill_tooltip" blendtime="" UpdateScp="UPDATE_MINIMAP_TOOLTIP">
 		<controls>
-			<richtext name="name" rect="0 5 256 20" layout_gravity="center top" fixwidth="false" updateparent="true"/>
+			<richtext name="name" rect="0 5 200 20" layout_gravity="center top" textalign="center top" fixwidth="true" updateparent="true"/>
 			<picture name="img" stretch="true" layout_gravity="center top" rect="0 30 188 160"/>
 		</controls>
 	</tooltip>
@@ -352,6 +352,21 @@
 			<gauge name="exp" parent="monster_info" rect="0 0 200 30" margin="0 110 0 0" layout_gravity="center top" inverse="false" skin="test_gauge_barrack_defence"  text1="%.1p%" textoffset1="0 0" textalign1="center center"/>
 			<groupbox name="line" rect="0 0 260 3" margin="10 185 0 0" layout_gravity="left top" draw="true" skin="test_tooltip_line"/>
 			<groupbox name="monster_stat" rect="0 0 280 300" margin="0 200 0 0" layout_gravity="left top" draw="false"/>
+		</controls>
+	</tooltip>
+<tooltip name="skill_pubcreatechar" x="0" y="0" frameskin="None" marginy="10" fixwidth="true" width="500" height="1000" moveable="false" blendtime="" UpdateScp="UPDATE_SKILL_PUB_CREATECHAR_TOOLTIP">
+		<controls>
+			<groupbox name="skill_desc" margin="0 0 500 50" rect="0 0 500 50" skin="custom_box_bg" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
+			<picture name="icon_frame" image="skilltooltip_skill_image_slot" layout_gravity="left top" rect="0 0 100 100" stretch="true" margin="20 70 0 0" parent="skill_desc"/>
+			<picture name="icon" layout_gravity="left top" rect="0 0 85 85" stretch="true" margin="28 78 0 0" parent="skill_desc"/>
+			<groupbox name="weapon_box" margin="0 170 0 0" rect="0 0 500 40" hittest="false" draw="false" updateparent="true" scrollbar="false" layout_gravity="center top" parent="skill_desc"/>
+			<groupbox name="stance_pic" margin="120 0 0 0" rect="0 0 380 50" hittest="false" draw="false" updateparent="true" scrollbar="false" layout_gravity="left top" parent="weapon_box"/>
+			<richtext name="name" layout_gravity="center top" fontname="yellow_18_ol" rect="0 0 494 60" fixwidth="true" textalign="center center" margin="1 2 0 0" resizebytext="false" hittest="false" updateparent="true" parent="skill_desc"/>
+			<richtext name="type" layout_gravity="center top" rect="0 0 160 20" fixwidth="false" margin="0 70 0 0" hittest="false" updateparent="true" parent="skill_desc"/>
+			<richtext name="desc" layout_gravity="left top" fontname="white_16_b" rect="0 0 350 20" fixwidth="true" margin="130 80 0 0" resizebytext="true" hittest="false" updateparent="true" parent="skill_desc"/>
+			<richtext name="trade_text" format="총 거래 불가: %s개" param1="count" layout_gravity="right top" fontname="brown_16_b" rect="0 0 150 20" fixwidth="true" textalign="right center" margin="0 70 20 0" hittest="false" updateparent="true" parent="skill_desc"/>
+			<richtext name="weapon_text" format="{@st66d}착용 무기" layout_gravity="left center" fontname="white_18_ol" rect="0 0 100 50" fixwidth="true" textalign="left center" margin="30 -5 0 0" hittest="false" updateparent="true" parent="weapon_box"/>
+			<groupbox name="ability_desc" margin="500 0 0 50" rect="0 0 500 50" hittest="false" skin="custom_box_bg" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 		</controls>
 	</tooltip>
 </tooltipset>

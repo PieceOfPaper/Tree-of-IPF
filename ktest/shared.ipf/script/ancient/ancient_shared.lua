@@ -26,9 +26,6 @@ function ANCIENT_GET_COMBO(typeList)
 end
 
 function IS_ANCIENT_ENABLE_MAP(self)
-    if IsBuffApplied(self, "ChallengeMode_Player") == "YES" then
-        return "NO"
-    end
     
     if IsServerSection() == 1 then
         zoneName = GetZoneName(self);

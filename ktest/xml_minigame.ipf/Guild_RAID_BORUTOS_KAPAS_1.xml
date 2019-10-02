@@ -796,6 +796,14 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="Stop">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Str Str="GM_BK_FAIL_STOP_RUN"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="TimeAttackMode" AutoStart="0">
@@ -808,7 +816,7 @@
                 </StartScpList>
                 <ObjList/>
                 <StageEvents>
-                    <Event execMS="5000" eventName="Count">
+                    <Event eventName="Count">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
                                 <MGameObj List="Gen_Boss/0"/>

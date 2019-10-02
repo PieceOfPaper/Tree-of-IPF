@@ -2946,10 +2946,12 @@ function CHANGE_HAIR_COLOR(frame)
 
 	local haveHairColorList = {}
 	local haveHairColorEList = {}
+	
+	local PartClass = imcIES.GetClass("CreatePcInfo", "Hair");
+	local GenderList = PartClass:GetSubClassList();
+	local Selectclass   = GenderList:GetClass(pc.Gender);
+	local Selectclasslist = Selectclass:GetSubClassList();
 
-    local Rootclasslist = imcIES.GetClassList('HairType');
-    local Selectclass = Rootclasslist:GetClass(pc.Gender);
-    local Selectclasslist = Selectclass:GetSubClassList();
     local nowHeadIndex = item.GetHeadIndex()
 	local nowHairCls = Selectclasslist:GetByIndex(nowHeadIndex - 1);
 	local nowPCHairEngName = imcIES.GetString(nowHairCls, 'EngName');	--현재 내가 '헤어'슬롯에 착용한 아이템
@@ -2961,7 +2963,7 @@ function CHANGE_HAIR_COLOR(frame)
 			if eachHairEngName == nowPCHairEngName then
 				-- eachColor, eachColorE : 게임 내 전체 헤어 컬러(한글이름, 영어이름)
 				local eachColor = imcIES.GetString(eachcls, 'Color');	
-				local eachColorE = imcIES.GetString(eachcls, 'ColorE');	
+				local eachColorE = imcIES.GetString(eachcls, 'EngColor');	
 				eachColorE = string.lower(eachColorE);
 				-- 전체 헤어 컬러 목록에서 유저가 가진 헤어 컬러 목록을 드롭 리스트에 넣음
 				if TryGetProp(etc, "HairColor_" .. eachColorE) == 1 then

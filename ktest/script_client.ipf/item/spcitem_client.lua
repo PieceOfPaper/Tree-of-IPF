@@ -71,7 +71,11 @@ end
 --EVENT_1909_ANCIENT
 function ANCIENT_SCROLL_CHECK_MSG(invItem)
 	local itemobj = GetIES(invItem:GetObject());
-	
+	local needItem = session.GetInvItemByName("EVENT_190919_ANCIENT_COIN");
+	if needItem == nil then
+		addon.BroadMsg("NOTICE_Dm_scroll", ClMsg("AncientNoCoinInInventory"), 3);
+        return;
+    end
 	local str = ScpArgMsg("AncientScrollItemUse","itemName",itemobj.Name)
 	local guid = invItem:GetIESID()
 	local yesScp = string.format("EVENT_1909_REGISTER_ANCIENT_MON_C(\"%s\")", guid);

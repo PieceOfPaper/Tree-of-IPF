@@ -25,7 +25,7 @@
 		<slot name="targetSlot" parent="mainBox" rect="0 0 200 200" margin="0 130 0 0" layout_gravity="center top" DropScp="ITEMDUNGEON_DROP_ITEM" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="skill_squaier_slot" texttooltip="{@st59}아이템을 올려주세요{/}" RBtnUpScp="ITEMDUNGEON_CLEARUI"/>
 		<!-- buyer -->
 		<groupbox name="goodsInfoBox" parent="mainBox" rect="0 0 450 1000" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="false"/>
-		<richtext name="nowPotentialStr" parent="" rect="0 0 343 48" margin="30 410 0 0" layout_gravity="left top" caption="{@st66b}현재 포텐셜" drawbackground="false" fixwidth="false" fontname="white_16_ol" resizebytext="true" slideshow="false" textalign="left top"/>
+		<richtext name="nowPotentialStr" parent="goodsInfoBox" rect="0 0 343 48" margin="30 410 0 0" layout_gravity="left top" caption="{@st66b}현재 포텐셜" drawbackground="false" fixwidth="false" fontname="white_16_ol" resizebytext="true" slideshow="false" textalign="left top"/>
 		<richtext name="priceText" parent="bg3" rect="0 0 200 30" margin="25 0 0 20" layout_gravity="left bottom" caption="가격" fontname="white_16_ol"/>
 		<richtext name="priceValueText" parent="bg3" rect="0 0 200 30" margin="370 0 0 20" layout_gravity="left bottom" caption="0" fontname="white_16_ol"/>
 		<groupbox name="buyerBox" parent="bg3" rect="0 0 430 200" margin="0 0 0 190" layout_gravity="left bottom" draw="false"/>

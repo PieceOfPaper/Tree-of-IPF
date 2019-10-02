@@ -1763,3 +1763,21 @@ function SCR_ABIL_Elementalist33_INACTIVE(self, ability)
         end
     end
 end
+
+function SCR_ABIL_Oracle23_ACTIVE(self, ability)
+    local divineMightSkill = GetSkill(self, "Oracle_DivineMight");
+    if divineMightSkill ~= nil then
+        local basicCoolDown = TryGetProp(divineMightSkill, "BasicCoolDown");
+        divineMightSkill.BasicCoolDown = 60000;
+        SetExProp(self, "Oracle23_COOLDOWN", basicCoolDown);
+    end
+end
+
+function SCR_ABIL_Oracle23_INACTIVE(self, ability)
+    local divineMightSkill = GetSkill(self, "Oracle_DivineMight");
+    if divineMightSkill ~= nil then
+        local basicCoolDown = GetExProp(self, "Oracle23_COOLDOWN");
+        divineMightSkill.BasicCoolDown = basicCoolDown;
+        DelExProp(self, "Oracle23_COOLDOWN");
+    end
+end

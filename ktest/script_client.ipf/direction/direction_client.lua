@@ -23,6 +23,14 @@ function DRT_C_PLAY_ANIM(actor, cmd, animName, fixAnim, duplicationPlay, delayTi
 		actor:GetAnimation():ResetAnim();
 	end
 
+	local isPubUsePoseActor = customizing_ui.IsPubUsePoseByActor(actor:GetHandleVal());
+	if isPubUsePoseActor == true then
+		local pubUsePoseName = customizing_ui.GetUsePoseName();
+		if pubUsePoseName ~= "None" then
+			animName = pubUsePoseName;
+		end
+	end
+
 	actor:GetAnimation():PlayFixAnim(animName, 1.0, fixAnim, 1, delayTime, skipIfExist, false, startTime);
 end
 

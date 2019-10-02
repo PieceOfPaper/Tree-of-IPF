@@ -223,23 +223,12 @@ function HAIRSHOP_GET_TRANSLATE_DYE_NAME(Gender, ItemClassName, DyeColorEngName)
 	-- 헤어 Index 구함
 	local hairIndex = BEAUTYSHOP_GET_HEADINDEX(Gender, ItemClassName, DyeColorEngName)
 	
-	
-	local rootClassList = imcIES.GetClassList("HairType");	
-	if rootClassList == nil then
-		return DyeColorEngName
-	end
-	
-	local selectClass   = rootClassList:GetClass(Gender);		-- hairtype에서 성별에 해당하는 리스트 들고옴
-	if selectClass == nil then
-		return DyeColorEngName
-	end
+	local PartClass = imcIES.GetClass("CreatePcInfo", "Hair");
+	local GenderList = PartClass:GetSubClassList();
+	local Selectclass   = GenderList:GetClass(Gender);
+	local Selectclasslist = Selectclass:GetSubClassList();
 
-	local selectClassList = selectClass:GetSubClassList();
-	if selectClassList == nil then
-		return DyeColorEngName
-	end
-
-	local nowHairCls = selectClassList:GetByIndex(hairIndex-1); -- 현재 head 클래스 들고옴
+	local nowHairCls = Selectclasslist:GetByIndex(hairIndex-1); -- 현재 head 클래스 들고옴
 	if nowHairCls == nil then
 		return DyeColorEngName
 	end

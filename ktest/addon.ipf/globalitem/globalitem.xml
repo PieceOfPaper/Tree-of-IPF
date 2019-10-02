@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="globalitem" x="0" y="0" width="500" height="730">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" open=""/>
+	<skin frameskin="none"/>
+	<draw drawtitlebar="false"/>
+	<layer layerlevel="99"/>
+	<sound opensound="button_click_stats_OK" closesound="button_click_big_2"/>
+	<effect open="character_item_window_open" close="character_item_window_close"/>
+	<script CloseScp="TOKEN_SELEC_CANCLE"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 500 670" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="token_skin2"/>
+		<groupbox name="gBox" margin="0 167 0 0" rect="0 0 450 400" hittestbox="false" skin="None" layout_gravity="center top" parnet="bg" fixheight="true" scrollbar="true"/>
+		<picture name="middle" rect="0 0 316 165" margin="90 1 0 0" layout_gravity="left top" hittest="true" image="token_middle"/>
+		<richtext name="richtext_1" margin="30 140 0 0" rect="0 0 120 24" format="{@st48}%s 혜택{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="propTxt1" margin="110 181 0 0" rect="0 0 110 24" format="{@st41b}%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_20_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" texttooltip="월드 내 접속중인 전체 캐릭터 대상으로{nl}{@st66d_y}몬스터 처치 시 경험치 200% 증가{/} 버프가 1시간동안 적용됩니다."/>
+		<richtext name="propTxt2" margin="110 231 0 0" rect="0 0 110 24" format="{@st41b}%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_20_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" texttooltip="피자 아이템을 사용한 캐릭터 대상으로{nl}{@st66d_y}주변 루팅 찬스 +1000 증가{/} 버프와{nl}{@st66d_y}컴패니언 크기 증가{/} 버프가 24시간 동안 적용됩니다. "/>
+		<richtext name="tips" margin="0 0 0 195" rect="0 0 190 50" format="텍스트 선택시 버프 내용이 상세하게 표시됩니다.{/}" textalign="center bottom" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="bg"/>
+		<richtext name="str" margin="0 0 -30 138" rect="0 0 120 24" format="{@st66d_y}'%s'{/}{nl}아이템을 사용하시겠습니까?{/}" param1="value" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_20_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="bg"/>
+		<richtext name="indunStr" margin="0 0 -30 80 " rect="0 0 120 24" format="사용한 %s {nl}인벤토리에서 사라지며 현재 {@st66d_y}%s{/}에만 적용됩니다.{/}" param1="value" param2="value2" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="bg"/>
+		<button name="button_1" margin="49 0 0 31" rect="10 10 170 50" skin="test_red_button" layout_gravity="left bottom" caption="{@st41b}사용" LBtnUpScp="REQ_GLOBAL_ITEM" parent="bg"/>
+		<button name="button_1_1" margin="236 0 0 31" rect="10 10 170 50" skin="test_gray_button" layout_gravity="left bottom" caption="{@st41b}취소" LBtnUpScp="TOKEN_SELEC_CANCLE" parent="bg"/>
+	</controls>
+</uiframe>

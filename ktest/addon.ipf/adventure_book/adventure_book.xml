@@ -315,7 +315,7 @@
 		<richtext name="page_adventureBookRanking_text" rect="0 0 200 30" parent="page_adventureBookRanking" margin="5 7 0 0" layout_gravity="center top" caption="모험일지 랭킹" fontname="white_16_ol"/>
 		<controlset name="adventureBookRankingSet" type="adventure_book_rank_page" rect="0 0 1100 800" parent="page_adventureBookRanking" margin="10 0 0 0" layout_gravity="center bottom"/>
 		<!-- 팀 배틀 리그 랭킹 -->
-		<groupbox name="page_teamBattleRanking" rect="0 0 1200 870" margin="0 54 0 0" tabname="teamBattleRankingTab" layout_gravity="center top" draw="false" tabchangescp="ADVENTURE_BOOK_TEAM_BATTLE_COMMON_INIT"/>
+		<groupbox name="page_teamBattleRanking" rect="0 0 1200 870" margin="0 54 0 0" tabname="teamBattleRankingTab" layout_gravity="center top" draw="false" tabchangescp="ADVENTURE_BOOK_TEAM_BATTLE_COMMON_INIT" scrollbar="false"/>
 		<richtext name="page_teamBattleRanking_text" rect="0 0 200 30" parent="page_teamBattleRanking" margin="5 7 0 0" layout_gravity="center top" caption="팀 배틀 리그" fontname="white_16_ol"/>
 		<groupbox name="teamBattleLeftBox" rect="0 0 550 750" parent="page_teamBattleRanking" margin="10 0 0 0" layout_gravity="left bottom" draw="false"/>
 		<picture name="teamBattlePic" rect="0 0 450 450" parent="teamBattleLeftBox" margin="40 30 0 0" layout_gravity="center top" image="teambattle_emblem" stretch="true"/>
@@ -328,8 +328,8 @@
 		<button name="teamBattleMatchingBtn" rect="0 0 250 60" parent="teamBattleLeftBox" margin="40 0 0 95" layout_gravity="center bottom" skin="test_red_button" caption="{@st59}참여{/}" LBtnUpScp="ADVENTURE_BOOK_JOIN_WORLDPVP" format="{s18}{ol}{#FFFFFF}%s" param1="text" param1_def="JOIN"/>
 		<groupbox name="teamBattleRankingBox" rect="0 0 550 800" parent="page_teamBattleRanking" margin="13 20 35 0" layout_gravity="right top" draw="false" tabname="teamBattleRankingTab" tabchangescp="ADVENTURE_BOOK_TEAM_BATTLE_RANK"/>
 		<controlset name="teamBattleRankSet" rect="0 0 550 750" parent="teamBattleRankingBox" margin="0 10 0 0" layout_gravity="center bottom" type="team_battle_rank_page"/>
-		<groupbox name="teamBattleObserveBox" rect="0 0 550 750" parent="page_teamBattleRanking" margin="10 0 0 0" layout_gravity="right top" draw="false" tabname="teamBattleObserveTab" tabchangescp="REFRESH_PVP_OBSERVE_LIST"/>
-		<controlset name="bg_observer" rect="0 0 550 700" parent="teamBattleObserveBox" margin="10 0 0 0" layout_gravity="left bottom" type="pvp_observe_page"/>
+		<groupbox name="teamBattleObserveBox" rect="0 0 550 800" parent="page_teamBattleRanking" margin="10 0 0 0" layout_gravity="right top" draw="false" tabname="teamBattleObserveTab" tabchangescp="REFRESH_PVP_OBSERVE_LIST" scrollbar="false"/>
+		<controlset name="bg_observer" rect="0 0 550 700" parent="teamBattleObserveBox" margin="10 65 0 0" layout_gravity="left top" type="pvp_observe_page"/>
 		<!-- 업힐 디펜스 랭킹 -->
 		<groupbox name="page_upHillRanking" rect="0 0 1200 870" margin="0 54 0 0" tabname="upHillRankingTab" layout_gravity="center top" draw="false" tabchangescp="ADVENTURE_BOOK_RANK"/>
 		<richtext name="page_upHillRanking_text" rect="0 0 200 30" parent="page_upHillRanking" margin="5 7 0 0" layout_gravity="center top" caption="업힐디펜스 랭킹" fontname="white_16_ol"/>

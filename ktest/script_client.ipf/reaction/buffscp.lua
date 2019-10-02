@@ -1089,9 +1089,9 @@ function RamMuay_ENTER(actor, obj, buff)
     actor:GetAnimation():SetSTDAnim("SKL_NAKMUAY_ASTD");
     actor:GetAnimation():SetRUNAnim("SKL_NAKMUAY_ARUN");
     actor:GetAnimation():SetTURNAnim("SKL_NAKMUAY_ASTD");
-    actor:GetAnimation():SetRAISEAnim("SKL_NAKMUAY_ARAISE");
-    actor:GetAnimation():SetOnAIRAnim("SKL_NAKMUAY_AONAIR")
-    actor:GetAnimation():SetFALLAnim("SKL_NAKMUAY_AFALL");
+    actor:GetAnimation():SetRAISEAnim("SKL_NAKMUAY_RAISE");
+    actor:GetAnimation():SetOnAIRAnim("SKL_NAKMUAY_ONAIR")
+    actor:GetAnimation():SetFALLAnim("SKL_NAKMUAY_FALL");
     actor:SetAlwaysBattleState(true);
 end
 

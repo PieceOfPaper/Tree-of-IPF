@@ -159,6 +159,7 @@ function INIT_ANCIENT_MON_COMPSE(frame, index)
     elseif index==2 then
         MAKE_ANCIENT_MON_COMPOSE_BUTTON(frame,x,ClMsg("Evolve"),"ANCIENT_MON_RANKUP")
     end
+    ENABLE_COMPOSE_SLOT(frame)
 end
 
 function INIT_ANCIENT_MON_COMPOSE_SLOT_UI(frame)
@@ -192,12 +193,6 @@ function MAKE_ANCIENT_MON_COMPOSE_BUTTON(frame,x,text,script)
     button:SetText("{@st42}{s18}"..text)
     button:SetEventScript(ui.LBUTTONDOWN, script);
     button:SetVisible(1)
-    local excuteTime = tonumber(frame:GetUserValue("EXECUTE_TIME"))
-    if excuteTime ~= nil and imcTime.GetAppTime() - excuteTime < 0.5 then
-        button:SetEnable(0);
-    else
-        button:SetEnable(1);
-    end
 end
 
 
@@ -377,15 +372,47 @@ end
 function ON_ANCIENT_MON_COMPOSE_RBUTTONDOWN(parent, FromctrlSet, argStr, argNum)
     local FromGuid = FromctrlSet:GetUserValue("ANCIENT_GUID")
     local frame = parent:GetTopParentFrame();
+    local slotBox = GET_CHILD_RECURSIVELY(frame,"ancient_mon_slot_Gbox")
+    local cnt = slotBox:GetChildCount()
+    local ctrlSet = GET_EMPTY_COMPOSE_SLOT(frame,FromGuid)
+    if ctrlSet == nil then
+        ENABLE_COMPOSE_SLOT(frame)
+        imcSound.PlaySoundEvent("UI_card_move");
+        return;
+    end
+    imcSound.PlaySoundEvent("sys_card_battle_rival_slot_show");
     ON_ANCIENT_MON_COMPOSE(frame, FromGuid, argStr, argNum)
 end
 
 function ON_ANCIENT_MON_COMPOSE(frame, FromGuid, argStr, argNum)
     local info = session.pet.GetAncientMonInfoByGuid(FromGuid)
+    local ToctrlSet = GET_EMPTY_COMPOSE_SLOT(frame,FromGuid)
+    SET_ANCIENT_MON_BASEINFO_SLOT(ToctrlSet,info)
+    ENABLE_COMPOSE_SLOT(frame)
+    ON_ANCIENT_MON_COMPOSE_LIST_LOAD(frame)
+end
+
+function ENABLE_COMPOSE_SLOT(frame)
+    local button = GET_CHILD_RECURSIVELY(frame,'ancient_mon_compose_btn')
+    local slotBox = GET_CHILD_RECURSIVELY(frame,"ancient_mon_slot_Gbox")
+    local cnt = slotBox:GetChildCount()
+    for i = 0,cnt-1 do
+        local ToctrlSet = slotBox:GetChildByIndex(i)
+        local ToGuid = ToctrlSet:GetUserValue("ANCIENT_GUID")
+        if ToctrlSet:GetUserValue("INDEX") ~= "None" and ToctrlSet:GetUserValue("INDEX") ~= "3" then
+            if ToGuid == nil or ToGuid == "None" then
+                button:SetEnable(0)
+                return;
+            end
+        end
+    end
+    button:SetEnable(1)
+end
+
+function GET_EMPTY_COMPOSE_SLOT(frame,FromGuid)
     local tab = frame:GetChild("tab")
     AUTO_CAST(tab)
     local index = tab:GetSelectItemIndex();
-
     local resultBox = GET_CHILD_RECURSIVELY(frame,"SACRIFICE_3")
     if resultBox:GetUserValue("ANCIENT_GUID") ~= "None" then
         addon.BroadMsg("NOTICE_Dm_scroll", ClMsg("AncientCompseResultRemove"), 3);
@@ -403,13 +430,10 @@ function ON_ANCIENT_MON_COMPOSE(frame, FromGuid, argStr, argNum)
         local ToGuid = ToctrlSet:GetUserValue("ANCIENT_GUID")
         if ToctrlSet:GetUserValue("INDEX") ~= "None" and ToctrlSet:GetUserValue("INDEX") ~= "3" then
             if ToGuid == nil or ToGuid == "None" then
-                SET_ANCIENT_MON_BASEINFO_SLOT(ToctrlSet,info)
-                break;
+                return ToctrlSet;
             end
         end
     end
-    ON_ANCIENT_MON_COMPOSE_LIST_LOAD(frame)
-    slotBox:Invalidate();
 end
 
 function ANCIENT_MON_SLOT_POP_COMPOSE_BY_DROP(parent,ctrlSet)
@@ -418,15 +442,17 @@ function ANCIENT_MON_SLOT_POP_COMPOSE_BY_DROP(parent,ctrlSet)
     for i = 0,2 do
         local slotCtrl = GET_CHILD_RECURSIVELY(frame,"SACRIFICE_"..i)
         if slotCtrl:GetUserValue("ANCIENT_GUID") == guid then
-            ANCIENT_MON_SLOT_POP_COMPOSE(frame,slotCtrl)
+            ANCIENT_MON_SLOT_POP_COMPOSE(frame,slotCtrl, true)
             break;
         end
     end
     frame:SetUserValue("LIFTED_GUID","None")
 end
 
-function ANCIENT_MON_SLOT_POP_COMPOSE(parent, ctrlSet)
+function ANCIENT_MON_SLOT_POP_COMPOSE(parent, ctrlSet, byDrop)
+    imcSound.PlaySoundEvent("UI_card_move");
     ANCIENT_MON_SLOT_POP(parent, ctrlSet)
+    ENABLE_COMPOSE_SLOT(parent:GetTopParentFrame())
     ON_ANCIENT_MON_COMPOSE_LIST_LOAD(parent:GetTopParentFrame())
 end
 
@@ -509,7 +535,6 @@ function ANCIENT_MON_SACRIFICE(parent, control, argStr, argNum)
     end
     ReqSacrificeAncientmon(guids[1],guids[2],guids[3])
     control:SetEnable(0)
-    frame:SetUserValue("EXECUTE_TIME",imcTime.GetAppTime())
 
     local info = session.pet.GetAncientMonInfoByGuid(guids[3])
     frame:SetUserValue("RARITY",info.rarity)
@@ -531,7 +556,6 @@ function ANCIENT_MON_RANKUP(parent, control, argStr, argNum)
     end
     ReqRankUpAncientmon(guids[1],guids[2],guids[3])
     control:SetEnable(0)
-    frame:SetUserValue("EXECUTE_TIME",imcTime.GetAppTime())
 end
 
 function ANCIENT_MON_LIST_CLOSE(frame)
@@ -549,7 +573,6 @@ function ON_ANCIENT_MON_REGISTER(frame,msg, guid)
         ancient_mon_num:SetTextByKey("count",session.pet.GetAncientMonInfoCount())
         
         local button = GET_CHILD_RECURSIVELY(frame,'ancient_mon_compose_btn')
-        button:SetEnable(1)
 
         ANCEINT_COMBO_SET(frame)
     end
@@ -565,14 +588,13 @@ function ON_ANCIENT_MON_REMOVE(frame,msg, guid)
     local ancient_mon_num = frame:GetChild('ancient_mon_num')
     ancient_mon_num:SetTextByKey("count",session.pet.GetAncientMonInfoCount())
     local button = GET_CHILD_RECURSIVELY(frame,'ancient_mon_compose_btn')
-    button:SetEnable(1)
 end
 
 function ANCIENT_MON_SWAP_ON_DROP(parent,toCtrlSet, argStr, argNum)
-    local toIndex = toCtrlSet:GetUserValue("INDEX")
+    local toIndex = tonumber(toCtrlSet:GetUserValue("INDEX"))
     local frame = parent:GetTopParentFrame()
     local guid = frame:GetUserValue("LIFTED_GUID")
-    if guid == "None" or guid == nil then
+    if guid == "None" or guid == nil or tonumber == nil then
         return;
     end
     REQUEST_SWAP_ANCIENT_MONSTER(toCtrlSet:GetTopParentFrame(),guid,toIndex)
@@ -581,6 +603,26 @@ end
 
 function ANCIENT_MON_SWAP_RBTNDOWN(parent,ctrlSet,argStr,argNum)
     local guid = ctrlSet:GetUserValue("ANCIENT_GUID")
+
+    if argNum == -1 then
+        imcSound.PlaySoundEvent("UI_card_move");
+    elseif argNum == -2 then
+        local isEnable = false;
+        for i = 0,3 do
+            local toInfo = session.pet.GetAncientMonInfoBySlot(i)
+            if toInfo == nil then
+                isEnable = true
+                break;
+            end
+        end
+
+        if isEnable == false then
+            imcSound.PlaySoundEvent("UI_card_move");
+            return;
+        end
+
+        imcSound.PlaySoundEvent("sys_card_battle_rival_slot_show");
+    end
     REQUEST_SWAP_ANCIENT_MONSTER(parent:GetTopParentFrame(),guid,argNum)
 end
 
@@ -592,7 +634,6 @@ function REQUEST_SWAP_ANCIENT_MONSTER(frame,guid,slot)
     if guid == "None" or guid == nil then
         return;
     end
-    frame:SetUserValue("EXECUTE_TIME",imcTime.GetAppTime())
     local toInfo = session.pet.GetAncientMonInfoBySlot(slot)
     if toInfo ~= nil then
         if toInfo:GetGuid() == guid then
@@ -645,14 +686,15 @@ function SCR_ANCIENT_MON_SELL(parent,ctrl)
     local rarityCls = GetClassByNumProp("Ancient_Rarity","Rarity",info.rarity)
     local str = ScpArgMsg("AncientSellMsg","monName",monName,"price",rarityCls.Cost-1)
 	local yesScp = string.format("ON_ANCIENT_MON_SELL(\"%s\")", guid);
-	ui.MsgBox(str, yesScp, "None");
+    local msgBox = ui.MsgBox(str, yesScp, "None");
+    local yesBtn = GET_CHILD_RECURSIVELY(msgBox,"YES")
+    yesBtn:SetClickSound('market_sell')
 end
 
 function ON_ANCIENT_MON_SELL(guid)
     SellAncientMon(guid)
     local frame = ui.GetFrame('ancient_mon_list')
     local button = GET_CHILD_RECURSIVELY(frame,'ancient_mon_compose_btn')
-    button:SetEnable(0)
 end
 
 function ON_ANCIENT_MON_LIST_LOAD(frame,msg, count)
@@ -702,21 +744,16 @@ function ON_ANCIENT_MON_UPDATE(frame,msg, guid,slot)
     local ancient_mon_num = frame:GetChild('ancient_mon_num')
     ancient_mon_num:SetTextByKey("count",session.pet.GetAncientMonInfoCount())
     local button = GET_CHILD_RECURSIVELY(frame,'ancient_mon_compose_btn')
-    button:SetEnable(1)
-    frame:SetUserValue("EXECUTE_TIME","None")
     ANCEINT_COMBO_SET(frame)
 end
 
 function ANCIENT_MON_COMPOSE_COMPLETE(frame,guid)
-    frame:SetUserValue("EXECUTE_TIME","None")
     local tab = frame:GetChild("tab")
     AUTO_CAST(tab)
     local index = tab:GetSelectItemIndex();
     if index == 0 then
         return;
     end
-    local btn = GET_CHILD_RECURSIVELY(frame,"ancient_mon_compose_btn")
-    btn:SetEnable(1)
 
     local resultBox = GET_CHILD_RECURSIVELY(frame,'SACRIFICE_3')
     local posX, posY = GET_SCREEN_XY(resultBox);
@@ -732,14 +769,15 @@ function ANCIENT_MON_COMPOSE_COMPLETE(frame,guid)
     end
     resultBox:SetUserValue("ANCIENT_GUID","SOMETHING_EXIST")
     frame:SetUserValue("RARITY",0)
-    RunScript('ANCIENT_MON_COMPOSE_END',guid,index)
+    local scp = string.format('ANCIENT_MON_COMPOSE_END(\"%s\",\"%d\")',guid,index)
+    ReserveScript(scp,1.5)
 end
 
 function ANCIENT_MON_COMPOSE_END(guid,index)
-    sleep(1500)
     local frame = ui.GetFrame('ancient_mon_list')
     local tab = frame:GetChild("tab")
     AUTO_CAST(tab)
+    index = tonumber(index)
     if index ~= tab:GetSelectItemIndex() then
         return;
     end

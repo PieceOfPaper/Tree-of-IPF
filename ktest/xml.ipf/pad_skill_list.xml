@@ -4,7 +4,7 @@
 	<PadSkill Name="Ancient_Gimmick_Pad_1" CheckerType="0" Range="60" UpdateTerm="1000" ApplyFlyMon="1" AllowOverlap="1" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="20000"/>
+                <Num Num="15000"/>
                 <Num Num="1"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -4345,12 +4345,14 @@ return 40000 + obj.Level * 10000"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 			</ToolScp>
+            <ToolScp Scp="PAD_ATTRACT_ZOMBIE" Client="NO" UseSleep="NO"/>
 		</createEvent>
 		<destroyEvent>
 			<ToolScp Scp="C_EFFECT_REMOVE_KEY" Client="YES" UseSleep="NO">
 				<Str Str="newbless"/>
 				<Num Num="0.5"/>
 			</ToolScp>
+            <ToolScp Scp="PAD_ATTRACT_ZOMBIE_CANCEL" Client="NO" UseSleep="NO"/>
 		</destroyEvent>
 		<enterEvent>
 			<ToolScp Scp="PAD_TGT_ZOMBIE_BUFF" Client="NO" UseSleep="NO">
@@ -4359,12 +4361,13 @@ return 40000 + obj.Level * 10000"/>
 				<Str Str="Damballa_Debuff"/>
 				<Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
 				<Num Num="0"/>
-				<Num Num="500"/>
+                <Num Num="100"/>
 				<Num Num="1"/>
 				<Num Num="100"/>
 			</ToolScp>
 		</enterEvent>
 		<updateEvent>
+            <ToolScp Scp="PAD_ATTRACT_ZOMBIE" Client="NO" UseSleep="NO"/>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="-100"/>
 				<Num Num="0"/>
@@ -8697,7 +8700,9 @@ end" Arg="0.69999999"/>
 				<Str_Arg Str="None" Arg="1"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-				<Str_Arg Str="I_smoke039" UseFunc="1" FuncTxt="local abilBuff = info.GetBuffByName(self:GetHandleVal(), &quot;CorridaFinale_Hidden_Buff&quot;)
+                <Str_Arg Str="I_smoke039" UseFunc="1" FuncTxt="if self == nil then
+	return &quot;I_smoke039&quot; end
+    local abilBuff = info.GetBuffByName(self:GetHandleVal(), &quot;CorridaFinale_Hidden_Buff&quot;)
 if abilBuff ~= nil then
     return &quot;I_smoke039_fire&quot;, 1;
 else
@@ -10923,47 +10928,46 @@ else
     return &apos;Common_Rotten&apos;; 
 
 end"/>
-				<Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
-				<Num Num="0"/>
-				<Num Num="0" UseFunc="1" FuncTxt="return 14000 + obj.Level*1000"/>
-				<Num Num="0"/>
-				<Num Num="100"/>
-				<Num Num="0"/>
-			</ToolScp>
-		</enterEvent>
-		<updateEvent>
-			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-500"/>
-				<Num Num="0"/>
-			</ToolScp>
-		</updateEvent>
-	</PadSkill>
-	<PadSkill Name="Necromancer_FleshHoop_abil" CheckerType="0" Range="25" AutoPos="1" ApplyFlyMon="1" EnableSearch="0">
-		<createEvent>
-			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="15000"/>
-				<Num Num="99999"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_USEABLE_RELATION_ENEMY" Client="NO" UseSleep="NO"/>
-			<ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
-				<Num Num="5"/>
-			</ToolScp>
-		</createEvent>
-		<updateEvent>
-			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-500"/>
-				<Num Num="0"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_ABIL_BUFF_ENEMY" Client="NO" UseSleep="NO">
-				<Str Str="ENEMY"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str Str="Necromancer2"/>
-				<Str Str="UC_debrave"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0" UseFunc="1" FuncTxt="local self = GetSkillOwner(obj);
-return GET_ABIL_LEVEL(self, &apos;Necromancer2&apos;) * 4000;"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                <Num Num="0"/>
+                <Num Num="0" UseFunc="1" FuncTxt="return 14000 + obj.Level*1000"/>
+                <Num Num="0"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Necromancer_FleshHoop_abil" CheckerType="0" Range="24" AutoPos="1" ApplyFlyMon="1" EnableSearch="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="15000"/>
+                <Num Num="99999"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_USEABLE_RELATION_ENEMY" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="5"/>
+            </ToolScp>
+        </createEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ABIL_BUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Necromancer2"/>
+                <Str Str="Debrave_Debuff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="4000"/>
 				<Num Num="1"/>
 				<Num Num="100"/>
 			</ToolScp>
@@ -11082,7 +11086,7 @@ return GET_ABIL_LEVEL(self, &apos;Necromancer2&apos;) * 4000;"/>
 				<Num Num="0"/>
 				<Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
 				<Num Num="0"/>
-				<Num Num="60000"/>
+                <Num Num="10000"/>
 				<Num Num="1"/>
 				<Num Num="100"/>
 				<Num Num="0"/>
@@ -13403,7 +13407,7 @@ return 30000 + obj.Level * 5000"/>
             </ToolScp>
         </enterEvent>
     </PadSkill>
-    <PadSkill Name="Shootpad_RapidFire" CheckerType="0" Range="15" ApplyFlyMon="1" EnableSearch="0">
+    <PadSkill Name="Shootpad_RapidFire" CheckerType="0" Range="15" ApplyFlyMon="1" EnableSearch="0" AllowOverlap="1">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="1000"/>

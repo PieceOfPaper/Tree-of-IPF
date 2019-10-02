@@ -78,6 +78,11 @@
         <Effect Name="ATK02"/>
         <Effect Name="IDLE4"/>
     <Effect Name="Ancient_Gimmick_Pad_1"/>
+    <Effect Name="LEGEND_RAID_WHITE_CROW_SOLO"/>
+        <Effect Name="F_ground158_light_green2"/>
+        <Effect Name="F_magic_prison_line_green"/>
+        <Effect Name="F_item_drop_line_loop_green"/>
+        <Effect Name="EVENT_1910_HALLOWEEN_TRICK"/>
     </Category>
     <Category ID="146">
         <Effect Name="beginner"/>
@@ -102,6 +107,7 @@
         <Effect Name="Pattern_Pad"/>
         <Effect Name="F_buff_basic048"/>
         <Effect Name="Item_Moringponia_Staff"/>
+        <Effect Name="STM_PIZZA_BUFF"/>
     </Category>
     <Category ID="135">
         <Effect Name="HaveToPutPetAtBarrack"/>
@@ -193,8 +199,8 @@
         <Effect Name="PC_LAST"/>
         <Effect Name="LEGEND_RAID_MORINGPONIA"/>
         <Effect Name="d_underaqueduct_boss"/>
-    <Effect Name="d_underaqueduct_field"/>
-	<Effect Name="SOLO_DUNGEON_MINI_ANCIENT"/>
+        <Effect Name="d_underaqueduct_field"/>
+        <Effect Name="SOLO_DUNGEON_MINI_ANCIENT"/>
     </Category>
     <Category ID="125">
         <Effect Name="init"/>
@@ -280,7 +286,7 @@
         <Effect Name="GM_MGAME_BORUTA_HATE_RESET_PAD"/>
         <Effect Name="TimeAttackMode"/>
         <Effect Name="FailEnd"/>
-    <Effect Name="failCheck"/>
+        <Effect Name="failCheck"/>
         <Effect Name="obstacle"/>
         <Effect Name="ID_NNICOPOLIS_CASUAL_RAID_MINI"/>
         <Effect Name="UNIQUE_RAID_PAST_FANTASY_LIBRARY_SOLO"/>
@@ -841,6 +847,7 @@
         <Effect Name="SKL_DOUBLESLASH"/>
         <Effect Name="SKL_HIGHGUARD_SWITCH"/>
         <Effect Name="KEPA_EVENT"/>
+        <Effect Name="ID_NNICOPOLIS_RAID_MINI_SOLO"/>
     </Category>
     <Category ID="179">
         <Effect Name="I_force023_fire#Bip01 L Hand"/>
@@ -1300,7 +1307,7 @@
         <Effect Name="F_spread_out032_3"/>
         <Effect Name="F_spread_out037_orange"/>
         <Effect Name="F_light057_yellow2"/>
-    <Effect Name="F_bg_light015_white2"/>
+        <Effect Name="F_bg_light015_white2"/>
         <Effect Name="sys_levelup"/>
         <Effect Name="CASUAL_RAID_WHITE_CROW"/>
         <Effect Name="sys_h_arrangment"/>
@@ -1309,7 +1316,7 @@
         <Effect Name="sys_h_arrangement"/>
         <Effect Name="sys_h_grid"/>
         <Effect Name="PNSATK"/>
-    <Effect Name="raid_bracken_SOLO"/>
+        <Effect Name="raid_bracken_SOLO"/>
         <Effect Name="ID_WHITETREES_MINI_01_SOLO"/>
         <Effect Name="I_circle011_whtie_mash"/>
         <Effect Name="F_hit001_light_yellow"/>
@@ -2078,7 +2085,7 @@
         <Effect Name="skl_eff_algiz_cast_loop"/>
         <Effect Name="F_buff_warrior_bear"/>
         <Effect Name="LEGEND_RAID_SHADOWMANCER_MASTER"/>
-    <Effect Name="LEGEND_RAID_MORINGPONIA"/>
+        <Effect Name="LEGEND_RAID_MORINGPONIA"/>
         <Effect Name="I_archer_canon_force_forge"/>
     </Category>
     <Category ID="171">
@@ -2226,14 +2233,14 @@
         <Effect Name="F_wizard_Algiz_buff"/>
         <Effect Name="Bulletmarker_FreezeBullet"/>
         <Effect Name="F_buff_Archer_TigerHunter2"/>
-    <Effect Name="SKL_RUBRIC_SHOT_ABIL"/>
-		<Effect Name="E_cleric_Rubric_shot_abil"/>
-		<Effect Name="Corsair_Bombardments"/>
-		<Effect Name="F_warrior_dragonfall002"/>
-		<Effect Name="I_warrior_DragonFall_spear_mesh"/>
-		<Effect Name="F_ground106_smokeUP2"/>
-		<Effect Name="F_archere_magicarrow_gruond_loop2"/>
-	<Effect Name="YinYangConsonance_Hidden_Pad"/>
+        <Effect Name="SKL_RUBRIC_SHOT_ABIL"/>
+        <Effect Name="E_cleric_Rubric_shot_abil"/>
+        <Effect Name="Corsair_Bombardments"/>
+        <Effect Name="F_warrior_dragonfall002"/>
+        <Effect Name="I_warrior_DragonFall_spear_mesh"/>
+        <Effect Name="F_ground106_smokeUP2"/>
+        <Effect Name="F_archere_magicarrow_gruond_loop2"/>
+        <Effect Name="YinYangConsonance_Hidden_Pad"/>
         <Effect Name="HeavyGravity_HIDDEN_ABIL_PAD"/>
         <Effect Name="Elementalist_MovingFireBall_1"/>
         <Effect Name="Elementalist_MovingFireBall_2"/>
@@ -2456,9 +2463,9 @@
         <Effect Name="F_dash012_yellow_loop"/>
         <Effect Name="F_dash012_yellow_loop"/>
         <Effect Name="I_sphere009_green"/>
-    <Effect Name="F_warrior_Highlander35_abil_dead"/>
-		<Effect Name="F_warrior_Highlander35_abil"/>
-	</Category>
+        <Effect Name="F_warrior_Highlander35_abil_dead"/>
+        <Effect Name="F_warrior_Highlander35_abil"/>
+    </Category>
     <Category ID="72">
         <Effect>F_archer_chargeshot_shot_smoke</Effect>
     </Category>
@@ -5945,7 +5952,7 @@
         <Effect Name="F_archer_snipe_hit"/>
         <Effect Name="boss_Moringponia_follow"/>
         <Effect Name="I_boruta_skl2_force#Dummy_effect_wepon"/>
-    <Effect Name="LEGEND_RAID_MORINGPONIA"/>
+        <Effect Name="LEGEND_RAID_MORINGPONIA"/>
         <Effect Name="SOLO_DUNGEON_MINI_ANCIENT"/>
         <Effect Name="raid_bracken_SOLO"/>
         <Effect Name="ID_WHITETREES_MINI_01_SOLO"/>

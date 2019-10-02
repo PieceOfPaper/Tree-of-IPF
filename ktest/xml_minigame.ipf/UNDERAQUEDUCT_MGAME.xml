@@ -19,6 +19,8 @@
                     <Obj Type="Monster" MonType="103022" Pos="-246.70#176.23#1545.56" genCount="1" maxStackCount="1" genTime="1" objectKey="4" propList="&apos;SimpleAI&apos; &apos;D_UNDERAQUEDUCT_PC_LIFE_COUNT_1&apos; &apos;Name&apos; &apos;피씨 목숨 1&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
                     <Obj Type="Monster" MonType="103022" Pos="-249.21#176.24#1545.29" genCount="1" maxStackCount="1" genTime="1" autoGen="0" objectKey="5" propList="&apos;Name&apos; &apos;이어하시겠습니까?&apos; &apos;SimpleAI&apos; &apos;D_UNDERAQUEDUCT_PC_LIFE_COUNT_1_NEXT&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
                     <Obj Type="Monster" MonType="103022" Pos="-249.00#176.23#1546.11" genCount="1" maxStackCount="1" genTime="1" objectKey="6" propList="&apos;Name&apos; &apos;실패 확인 용&apos; &apos;SimpleAI&apos; &apos;D_UNDERAQUEDUCT_PC_LIFE_COUNT_1&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+                    <Obj Type="Monster" MonType="59319" Pos="41.03#176.10#1533.41" angle="-92" genCount="1" genTime="20000" objectKey="7"/>
+                    <Obj Type="Monster" MonType="59319" Pos="37.11#176.25#1209.39" angle="-92" genCount="1" genTime="20000" objectKey="8"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="Start">
