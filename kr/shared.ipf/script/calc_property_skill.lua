@@ -4476,7 +4476,7 @@ end
 function SCR_GET_GatherCorpse_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = 2.5 * skill.Level
+    local value = 5 * skill.Level
 
     return value
 
@@ -4484,7 +4484,7 @@ end
 
 function SCR_GET_GatherCorpse_Time(skill)
     local pc = GetSkillOwner(skill);
-    local value = 5
+    local value = 10
 
     return value
 end
