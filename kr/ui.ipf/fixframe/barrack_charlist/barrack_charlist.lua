@@ -311,7 +311,7 @@ function CHANGE_BARRACK_LAYER(ctrl, btn, cid, argNum)
 	ui.MsgBox("{nl} {nl}{s22}"..jobName.." {@st43}"..charName..ScpArgMsg("Auto_{/}{nl}{s22}MoveBarrackLayer?"), yesScp, 'SELECTCHARINFO_DELETECHARACTER_CANCEL');
 end
 
--- 특정 layer 이동
+-- ?�정 layer ?�동
 function CHANGE_BARRACK_TARGET_LAYER(ctrl, btn, cid, argNum)    
 	cid = CUR_SELECT_GUID    
     local frame = ui.GetFrame("barrack_charlist")
@@ -435,16 +435,16 @@ function BARRACK_GET_CHAR_INDUN_ENTRANCE_COUNT(cid, resetGroupID)
     end
 	if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
 		if indunCls.UnitPerReset == 'PC' then
-			return accountInfo:GetBarrackCharEtcProp(cid,'IndunWeeklyEnteredCount_'..resetGroupID)  --매주 남은 횟수
+			return accountInfo:GetBarrackCharEtcProp(cid,'IndunWeeklyEnteredCount_'..resetGroupID)  --매주 ?��? ?�수
 		else
-			return(acc_obj['IndunWeeklyEnteredCount_'..resetGroupID])   							--매주 남은 횟수
+			return(acc_obj['IndunWeeklyEnteredCount_'..resetGroupID])   							--매주 ?��? ?�수
 		end
         
 	else
 		if indunCls.UnitPerReset == 'PC' then
-			return accountInfo:GetBarrackCharEtcProp(cid, 'InDunCountType_'..resetGroupID);         --매일 남은 횟수
+			return accountInfo:GetBarrackCharEtcProp(cid, 'InDunCountType_'..resetGroupID);         --매일 ?��? ?�수
 		else
-			return (acc_obj['InDunCountType_'..resetGroupID]);            							--매일 남은 횟수
+			return (acc_obj['InDunCountType_'..resetGroupID]);            							--매일 ?��? ?�수
 		end        
     end
 end
@@ -531,7 +531,7 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 	local nameCtrl = GET_CHILD(mainBox, "name", "ui::CRichText");
 	nameCtrl:SetText("{@st42b}{b}".. name);
         
-    -- 대표 클래스 지정
+    -- ?�???�래??지?
 	local barrack_pc = session.barrack.GetMyAccount():GetByStrCID(key);
 	if barrack_pc ~= nil and barrack_pc:GetRepID() ~= 0 then 
 		jobid = barrack_pc:GetRepID();
@@ -685,7 +685,7 @@ function SELECT_CHARBTN_LBTNUP(parent, ctrl, cid, argNum)
 end
 
 function DELETE_CHAR_SCROLL(ctrl, btn, cid, argNum)	
-	-- 스크롤 캐릭터 삭제 버튼
+	-- ?�크�?캐릭????�� 버튼
     cid = CUR_SELECT_GUID
 	local acc = session.barrack.GetMyAccount();
 	local petVec = acc:GetPetVec();
@@ -718,7 +718,7 @@ function DELETE_CHAR_SCROLL(ctrl, btn, cid, argNum)
 			if eqpObj ~= nil then
 				local obj = GetIES(eqpObj);			
 				if 0 == item.IsNoneItem(obj.ClassID) then
-					--착용중인 아이템이 있음	
+					--착용중인 ?�이?�이 ?�음	
 					isHaveEquipItem = 1;
 					break;
 				end
@@ -849,7 +849,7 @@ function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
 		SELECTTEAM_UPDATE_BTN_TITLE(frame);	
 		UPDATE_BARRACK_PET_BTN_LIST()
 	elseif msg == "BARRACK_NAME_CHANGE_RESULT" then		
-		-- tp표시갱신
+		-- tp?�시갱신
 		SELECTTEAM_NEW_CTRL(frame, ud);
 		BARRACK_THEMA_UPDATE(ui.GetFrame("barrackthema"))
 	elseif msg == "BARRACK_ACCOUNT_PROP_UPDATE" then
@@ -996,7 +996,7 @@ function UPDATE_BARRACK_MODE(frame)
 		SHOW_BTNS(frame, 1)
 
 	elseif argStr == "Visit" then
-		-- 다른 숙소 방문할땐 캐릭생성관련 버튼은 숨긴다.
+		-- ?�른 ?�소 방문?�땐 캐릭?�성관??버튼?� ?�긴??
 		SHOW_BTNS(frame, 0)
 
 		local barrack_nameUI = ui.GetFrame("barrack_name");
@@ -1107,14 +1107,14 @@ function START_GAME_SET_MAP(frame, slotID, mapID, channelID)
             local zoneInst = zoneInsts:GetZoneInstByIndex(channelID)
             if zoneInst.channel < 10000 then
                 local str, gaugeString = GET_CHANNEL_STRING(zoneInst, true)
-			    channels:AddItem(zoneInst.channel, str, 0, nil, gaugeString)
+			    channels:AddItem(zoneInst.channel, str, 0, nil, gaugeString.." ")
                 channels:SelectItemByKey(0)
             else
                 local cnt = zoneInsts:GetZoneInstCount();
 		        for i = 0  , cnt - 1 do
 			        local zoneInst = zoneInsts:GetZoneInstByIndex(i);
 			        local str, gaugeString = GET_CHANNEL_STRING(zoneInst, true);
-			        channels:AddItem(zoneInst.channel, str, 0, nil, gaugeString);
+			        channels:AddItem(zoneInst.channel, str, 0, nil, gaugeString.." ");
 		        end
                 channels:SelectItemByKey(channelID);
             end            
@@ -1123,7 +1123,7 @@ function START_GAME_SET_MAP(frame, slotID, mapID, channelID)
 		    for i = 0  , cnt - 1 do
 			    local zoneInst = zoneInsts:GetZoneInstByIndex(i);
 			    local str, gaugeString = GET_CHANNEL_STRING(zoneInst, true);
-			    channels:AddItem(zoneInst.channel, str, 0, nil, gaugeString);
+			    channels:AddItem(zoneInst.channel, str, 0, nil, gaugeString.." ");
 		    end
             channels:SelectItemByKey(channelID);
         end        
@@ -1207,7 +1207,7 @@ function UPDATE_BARRACK_PET_BTN_LIST()
 			end
 		end
 	end
-	--다른 유저의 숙소를 방문할 때 그 유저의 컴페니언을 찾기 위해 방문중임을 알려준다
+	--?�른 ?��????�소�?방문????�??��???컴페?�언??찾기 ?�해 방문중임???�려준?
 	local charlist = ui.GetFrame("barrack_charlist");
 	UPDATE_PET_LIST(charlist:GetUserValue('BarrackMode'))	
 	UPDATE_SELECT_CHAR_SCROLL(frame)
@@ -1260,7 +1260,6 @@ function UPDATE_PET_BTN(petCtrl, petInfo, useDetachBtn)
 		
 		char_icon:SetImage(obj.Icon);
 		local btn = mainBox:GetChild("btn");
-		btn:SetEventScript(ui.LBUTTONUP, "SELECT_COMPANION_BTNUP");
 		btn:SetSkinName('companion_on');
 		if account == myaccount then
 			btn:SetEventScript(ui.LBUTTONUP, "SELECT_COMPANION_BTNUP");

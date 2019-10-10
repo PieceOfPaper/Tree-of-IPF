@@ -93,6 +93,7 @@ function GET_MORE_EVENT_EXP(pc)
 --	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT1909_FULLMOON_BUFF_EXP_5'); --[보름달 키우기 대작전] 경험치 획득량 증가 5단계
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Expup_50'); --burning_event
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Expup_100'); --burning_event
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'STM_PIZZA_BUFF'); --피자
 	if  TryGetProp(pc, 'Lv', 0) < 380 then
 	    sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1905_TOS_CHIILD_BUFF1'); --자라나라 나무나무 성장 버프 --
 	end

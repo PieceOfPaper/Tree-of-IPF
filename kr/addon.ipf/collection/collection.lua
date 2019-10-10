@@ -535,7 +535,9 @@ function CHECK_COLLECTION_INFO_FILTER(collectionInfo,  searchText,  collectionCl
 	local checkOption = 0;
 	if collectionInfo.view == collectionView.isUnknown then	
 		-- 미확인
-		collectionViewCount.showUnknownCollections = collectionViewCount.showUnknownCollections +1;
+		if collectionClass.Journal == 'TRUE' then
+			collectionViewCount.showUnknownCollections = collectionViewCount.showUnknownCollections +1;
+		end
 		checkOption = 1;
 	elseif collectionInfo.view == collectionView.isComplete then 
 		-- 완성
@@ -543,7 +545,9 @@ function CHECK_COLLECTION_INFO_FILTER(collectionInfo,  searchText,  collectionCl
 		checkOption = 2;
 	else
 		-- 미완성
-		collectionViewCount.showIncompleteCollections = collectionViewCount.showIncompleteCollections +1;
+		if collectionClass.Journal == 'TRUE' then
+			collectionViewCount.showIncompleteCollections = collectionViewCount.showIncompleteCollections +1;
+		end
 		checkOption = 3;
 	end
 	

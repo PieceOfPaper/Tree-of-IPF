@@ -1,13 +1,26 @@
 function INDUN_REWARD_ON_INIT(addon, frame)
     addon:RegisterMsg('OPEN_INDUN_REWARD', 'INDUN_REWARD_OPEN')
     addon:RegisterMsg('INDUN_REWARD_RESULT', 'INDUN_REWARD_SET')
+    addon:RegisterMsg('ENABLE_RETURN_BUTTON', 'ENABLE_RETURN_BUTTON')
 end
 
-function INDUN_REWARD_OPEN(frame, msg, argStr, argNum)
+-- 잠긴 돌아가기 버튼을 활성화
+function ENABLE_RETURN_BUTTON(f, msg, argStr, argNum)
+    local frame = ui.GetFrame('indun_reward')
+    if frame ~= nil then
+        local rtn_button = GET_CHILD_RECURSIVELY(frame, 'btnReturn')
+        if rtn_button ~= nil then
+            rtn_button:EnableHitTest(1)
+            rtn_button:SetAlpha(100)
+        end
+    end
+end
+
+function INDUN_REWARD_OPEN(frame, msg, argStr, argNum)    
     frame:ShowWindow(1);
 end
 
-function INDUN_REWARD_SET(frame, msg, str, arg)
+function INDUN_REWARD_SET(frame, msg, str, arg)    
 	local msgList = StringSplit(str, '#');
 	if #msgList < 1 then
 		return;
@@ -69,10 +82,15 @@ function INDUN_REWARD_SET(frame, msg, str, arg)
 	picRank:SetImage(picRankName);
 	
 	local textReturn = GET_CHILD(frame, "textReturn");
+    local rtn_button = GET_CHILD(frame, 'btnReturn'); -- 돌아가기 버튼을 잠근다.
+    rtn_button:EnableHitTest(0)
+    rtn_button:SetAlpha(50)
+
 	textReturn:SetUserValue("CHALLENGE_MODE_START_TIME", tostring(imcTime.GetAppTimeMS()));
 
 	textReturn:StopUpdateScript("SCR_INDUN_REWARD_WAIT_RETURN");
 	textReturn:RunUpdateScript("SCR_INDUN_REWARD_WAIT_RETURN");
+    AddLuaTimerFunc('ENABLE_RETURN_BUTTON', 10000, 0) -- 10초후에 자동활성화
 end
 
 function SCR_INDUN_REWARD_WAIT_RETURN(textReturn)

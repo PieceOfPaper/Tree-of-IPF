@@ -33,11 +33,12 @@ float2 g_InstanceID[MAX_INSTANCE_COUNT];
 // 2 : g_BlendColorAdd
 // 3 : g_auraColor
 // 4 : g_auraValues (x : factor, y : auraTime)
+// 5 : g_SkinBlendColor
 #ifdef ENABLE_FACE
-// 5 : g_faceXYMulAdd
-float4 g_InstanceVecArray[MAX_INSTANCE_COUNT * 6];
+// 6 : g_faceXYMulAdd
+float4 g_InstanceVecArray[MAX_INSTANCE_COUNT * 7];
 #else
-float4 g_InstanceVecArray[MAX_INSTANCE_COUNT * 5];
+float4 g_InstanceVecArray[MAX_INSTANCE_COUNT * 6];
 #endif
 
 texture VTF_MatrixInstance;
@@ -57,8 +58,10 @@ float4x4 GetMatrixInstance(int idx, int type)
 	int index = idx + type;
 	const float TEX_WIDTH = 512.f;
 	const float TEX_HEIGTH = 512.f;
+	const int OffsetWidth = TEX_WIDTH / 4;
+	const int OffsetHeight = TEX_WIDTH / 4;
 
-	float4 uvCol = float4(((float)((index % 128) * 4) + 0.5f) / TEX_WIDTH, ((float)((index / 128)) + 0.5f) / TEX_HEIGTH, 0.f, 0.f);
+	float4 uvCol = float4(((float)((index % OffsetWidth) * 4) + 0.5f) / TEX_WIDTH, ((float)((index / OffsetHeight)) + 0.5f) / TEX_HEIGTH, 0.f, 0.f);
 	float4x4 mat;
 	mat._11_21_31_41 = tex2Dlod(vtf_MatrixInstance, uvCol);
 	mat._12_22_32_42 = tex2Dlod(vtf_MatrixInstance, uvCol + float4(1.f / TEX_WIDTH, 0.f, 0.f, 0));
@@ -75,6 +78,7 @@ float4 g_BlendColorAdd = float4(0.f, 0.f, 0.f, 0.f);
 float4 g_auraColor = float4(0.f, 0.f, 0.f, 0.f);
 // x : factor, y : auraTime
 float4 g_auraValues = float4(0.f, 0.f, 0.f, 0.f);
+float4 g_SkinBlendColor = float4(1.f, 1.f, 1.f, 1.f);
 
 // 3d캐릭터 2d로 그리는거
 float4x4 g_billboardTM;
@@ -121,7 +125,10 @@ float4x4 GetSkinMatrix(int idx)
 {
 	const float TEX_WIDTH = 512.f;
 	const float TEX_HEIGTH = 512.f;
-	float4 uvCol = float4(((float)((idx % 128) * 4) + 0.5f) / TEX_WIDTH, ((float)((idx / 128)) + 0.5f) / TEX_HEIGTH, 0.f, 0);
+	const int OffsetWidth = TEX_WIDTH / 4;
+	const int OffsetHeight = TEX_WIDTH / 4;
+
+	float4 uvCol = float4(((float)((idx % OffsetWidth) * 4) + 0.5f) / TEX_WIDTH, ((float)((idx / OffsetHeight)) + 0.5f) / TEX_HEIGTH, 0.f, 0);
 	float4x4 mat;
 	mat._11_21_31_41 = tex2Dlod(vtf_skin, uvCol),
 		mat._12_22_32_42 = tex2Dlod(vtf_skin, uvCol + float4(1.f / TEX_WIDTH, 0.f, 0.f, 0)),
@@ -152,6 +159,21 @@ texture DiffuseTex;
 sampler diffuseTex = sampler_state
 {
 	Texture = (DiffuseTex);
+
+	AddressU = WRAP;
+	AddressV = WRAP;
+
+	MIPFILTER = NONE;
+	MINFILTER = LINEAR;
+	MAGFILTER = LINEAR;
+};
+#endif
+
+#ifdef ENABLE_SKIN_MASK_TEX
+texture DiffuseTex_SkinMask;
+sampler diffuseTex_skinMask = sampler_state
+{
+	Texture = (DiffuseTex_SkinMask);
 
 	AddressU = WRAP;
 	AddressV = WRAP;
@@ -277,7 +299,6 @@ float Fog_CalcFogValue(in float viewRange)
 	return (g_FogDist.y - viewRange) / (g_FogDist.z);
 }
 
-#ifdef ENABLE_DEPTH_MRT
 struct OUT_COLOR
 {
 	float4 albedo : COLOR0;
@@ -293,7 +314,6 @@ float4 CalcDepth(in float depth, in float worldPosY, in float4 posWV)
 	Out.a = 1.f;
 	return Out;
 }
-#endif
 
 #ifdef ENABLE_INSTANCING
 float4 CalcWVP(in float4 PosW, int instanceID, int matrixID, out float4 PosWV)
@@ -617,7 +637,7 @@ VS_OUT VS_ModelOption(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 	// 얼굴 그리는 부분
 #ifdef ENABLE_FACE
 #ifdef ENABLE_INSTANCING
-	float4 faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 5 + instanceID];
+	float4 faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 6 + instanceID];
 #else
 	float4 faceXYMulAdd = g_faceXYMulAdd;
 #endif
@@ -943,7 +963,7 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 	// 얼굴 그리는 부분
 #ifdef ENABLE_FACE
 #ifdef ENABLE_INSTANCING
-	float4 faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 5 + instanceID];
+	float4 faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 6 + instanceID];
 #else
 	float4 faceXYMulAdd = g_faceXYMulAdd;
 #endif
@@ -953,9 +973,7 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 #endif
 #endif
 
-#if defined(ENABLE_DEPTH_RENDER) || defined(ENABLE_DEPTH_MRT)
 	o.outDepth.w = o.Pos.z;
-#endif
 
 #ifdef ENABLE_WATER
 	o.outDepth = o.Pos;
@@ -1043,7 +1061,11 @@ float4 PS_WaterRender(VS_OUT In) : COLOR
 	edge1 = step(0.f, edge1) * edge1;
 	edge1 = 1 - edge1 - step(1.f, 1.f - edge1);
 	Out.rgb += edge1 * edge1 * waterSprayColor;
-	Out.rgb = lerp(g_FogColor.rgb, Out.rgb, 1.f - ((1.f - In.worldz_tmIndex_fog.z) * 0.3f));
+
+	if (g_FogColor.w > 0)
+	{
+		Out.rgb = lerp(g_FogColor.rgb, Out.rgb, 1.f - ((1.f - In.worldz_tmIndex_fog.z) * 0.3f));
+	}
 
 	saturate(Out.rgb);
 #endif
@@ -1142,11 +1164,7 @@ float GetLuminance(float3 sourceColor)
 	return luminance;
 }
 
-#ifdef ENABLE_DEPTH_MRT
 OUT_COLOR PS_TEST(VS_OUT In)
-#else
-float4 PS_TEST(VS_OUT In) : COLOR
-#endif
 {
 	float4 Out = 0.f;
 	float4 diffTexColor = 0.f;
@@ -1164,7 +1182,10 @@ float4 PS_TEST(VS_OUT In) : COLOR
 	float4 envColor = tex2D(envTex, In.envTexCoord.xy);
 #endif
 
-	Out.rgb = lerp(g_FogColor.rgb, Out.rgb, In.worldz_tmIndex_fog.z);
+	if (g_FogColor.w > 0)
+	{
+		Out.rgb = lerp(g_FogColor.rgb, Out.rgb, In.worldz_tmIndex_fog.z);
+	}
 
 	float chk = step(1.0f, In.worldPos.w);
 	Out.r += (sin(g_timeStamp * 10) / 5 + 0.1f) * chk;
@@ -1173,21 +1194,13 @@ float4 PS_TEST(VS_OUT In) : COLOR
 
 	Out.a *= g_AlphaBlending;
 
-#ifdef ENABLE_DEPTH_MRT
 	OUT_COLOR color = (OUT_COLOR)0;
 	color.albedo = Out;
 	color.depth = CalcDepth(In.outDepth.w, In.worldPos.y, In.posWV);
 	return color;
-#else
-	return Out;
-#endif	
 }
 
-#ifdef ENABLE_DEPTH_MRT
 OUT_COLOR PS_CharacterShader(VS_OUT In, uniform const bool isLowQuality)
-#else
-float4 PS_CharacterShader(VS_OUT In, uniform const bool isLowQuality) : COLOR
-#endif
 {
 #ifdef ENABLE_INSTANCING
 	int instanceID = (int)(In.worldz_tmIndex_fog.y + 1e-5f);
@@ -1205,6 +1218,24 @@ float4 PS_CharacterShader(VS_OUT In, uniform const bool isLowQuality) : COLOR
 	else
 	{
 		alpha = diffTexColor.a;
+	}
+
+#endif
+
+#ifdef ENABLE_SKIN_MASK_TEX
+	float skinMask = tex2D(diffuseTex_skinMask, In.diffuseTexCoord.xy).r;
+	if (skinMask > 0.f)
+	{
+#ifdef ENABLE_INSTANCING
+		float4 skinBlendColor = g_InstanceVecArray[g_InstanceCount * 5 + instanceID];
+#else
+		float4 skinBlendColor = g_SkinBlendColor;
+#endif
+
+		const float4 pivotColor = float4(0.5f, 0.5f, 0.5f, 0.f);
+		skinBlendColor = ((skinBlendColor - pivotColor) * skinMask) + 0.5f;
+
+		diffTexColor = diffTexColor * skinBlendColor * 2.f;
 	}
 #endif
 
@@ -1255,7 +1286,10 @@ float4 PS_CharacterShader(VS_OUT In, uniform const bool isLowQuality) : COLOR
 #ifdef ENABLE_FREEZE
 	Out = freeze(Out, In.diffuseTexCoord.xy, falloff);
 #endif
-	Out.rgb = lerp(g_FogColor.rgb, Out.rgb, 1 - ((1 - In.worldz_tmIndex_fog.z) * 0.3f));
+	if (g_FogColor.w > 0)
+	{
+		Out.rgb = lerp(g_FogColor.rgb, Out.rgb, 1 - ((1 - In.worldz_tmIndex_fog.z) * 0.3f));
+	}
 
 #ifdef ENABLE_DIFFUSETEX_ANIMATION
 	if (g_DiffuseAnimationTM._24 > 0.f)
@@ -1265,15 +1299,11 @@ float4 PS_CharacterShader(VS_OUT In, uniform const bool isLowQuality) : COLOR
 	}
 #endif
 
-#ifdef ENABLE_DEPTH_MRT
 	OUT_COLOR color = (OUT_COLOR)0;
 	color.albedo = Out;
 	color.depth = CalcDepth(In.outDepth.w, In.worldPos.y, In.posWV);
 	color.depth.a = alpha;
 	return color;
-#else
-	return Out;
-#endif	
 }
 
 float4 PS_CharacterShaderOption(VS_OUT In, uniform const int optionType) : COLOR
@@ -1283,8 +1313,28 @@ float4 PS_CharacterShaderOption(VS_OUT In, uniform const int optionType) : COLOR
 	float3 envtex = float3(1.f, 0.f, 0.f);
 #ifdef ENABLE_DIFFUSETEX
 	diffTexColor = tex2D(diffuseTex, In.diffuseTexCoord.xy);
-
 	alpha = diffTexColor.a;
+#endif
+
+#ifdef ENABLE_INSTANCING
+	int instanceID = (int)(In.worldz_tmIndex_fog.y + 1e-5f);
+#endif
+
+#ifdef ENABLE_SKIN_MASK_TEX
+	float skinMask = tex2D(diffuseTex_skinMask, In.diffuseTexCoord.xy).r;
+	if (skinMask > 0.f)
+	{
+#ifdef ENABLE_INSTANCING
+		float4 skinBlendColor = g_InstanceVecArray[g_InstanceCount * 5 + instanceID];
+#else
+		float4 skinBlendColor = g_SkinBlendColor;
+#endif
+
+		const float4 pivotColor = float4(0.5f, 0.5f, 0.5f, 0.f);
+		skinBlendColor = ((skinBlendColor - pivotColor) * skinMask) + 0.5f;
+
+		diffTexColor = diffTexColor * skinBlendColor * 2.f;
+	}
 #endif
 
 #ifdef ENABLE_ENVTEX 
@@ -1313,8 +1363,7 @@ float4 PS_CharacterShaderOption(VS_OUT In, uniform const int optionType) : COLOR
 #endif
 
 #ifdef ENABLE_INSTANCING
-	int tmIndex = (int)(In.worldz_tmIndex_fog.y + 1e-5f);
-	float4 blendColor = g_InstanceVecArray[g_InstanceCount + tmIndex];
+	float4 blendColor = g_InstanceVecArray[g_InstanceCount + instanceID];
 #else
 	float4 blendColor = g_BlendColor;
 #endif
@@ -1351,16 +1400,34 @@ float4 PS_CharacterShaderOption(VS_OUT In, uniform const int optionType) : COLOR
 	return OutColor;
 }
 
-#ifdef ENABLE_DEPTH_MRT
 OUT_COLOR PS_BillBoardHead(VS_OUT In, uniform const bool isLowQuality)
-#else
-float4 PS_BillBoardHead(VS_OUT In, uniform const bool isLowQuality) : COLOR
-#endif
 {
+#ifdef ENABLE_INSTANCING
+	int instanceID = (int)(In.worldz_tmIndex_fog.y + 1e-5f);
+#endif
+
 	float4 diffTexColor = 0.f;
 	float alpha = 0.f;
 #ifdef ENABLE_DIFFUSETEX
 	diffTexColor = tex2D(diffuseTex, In.diffuseTexCoord.xy);
+
+#ifdef ENABLE_SKIN_MASK_TEX
+	float skinMask = tex2D(diffuseTex_skinMask, In.diffuseTexCoord.xy).r;
+	if (skinMask > 0.f)
+	{
+#ifdef ENABLE_INSTANCING
+		float4 skinBlendColor = g_InstanceVecArray[g_InstanceCount * 5 + instanceID];
+#else
+		float4 skinBlendColor = g_SkinBlendColor;
+#endif
+
+		const float4 pivotColor = float4(0.5f, 0.5f, 0.5f, 0.f);
+		skinBlendColor = ((skinBlendColor - pivotColor) * skinMask) + 0.5f;
+
+		diffTexColor = diffTexColor * skinBlendColor * 2.f;
+	}
+
+#endif
 
 	if (isLowQuality == true)
 	{
@@ -1415,17 +1482,16 @@ float4 PS_BillBoardHead(VS_OUT In, uniform const bool isLowQuality) : COLOR
 	Out = freezeHead(Out, 1.f);
 #endif
 
-	Out.rgb = lerp(g_FogColor.rgb, Out.rgb, 1 - ((1 - In.worldz_tmIndex_fog.z) *0.3f));
+	if (g_FogColor.w > 0)
+	{
+		Out.rgb = lerp(g_FogColor.rgb, Out.rgb, 1 - ((1 - In.worldz_tmIndex_fog.z) * 0.3f));
+	}
 
-#ifdef ENABLE_DEPTH_MRT
 	OUT_COLOR color = (OUT_COLOR)0;
 	color.albedo = Out;
 	color.depth = CalcDepth(In.outDepth.w, In.worldPos.y, In.posWV);
 	color.depth.a = alpha;
 	return color;
-#else
-	return Out;
-#endif
 }
 
 float4 PS_Silhouette(VS_OUT In) : COLOR
@@ -1904,7 +1970,11 @@ technique BillboardHeadTq
 		SRGBWRITEENABLE = FALSE;
 		CullMode = none;
 		AlphaTestEnable = true;
+#ifdef ENABLE_FACE
+		AlphaRef = 0x90;
+#else
 		AlphaRef = 0x30;
+#endif
 		AlphaFunc = Greater;
 		ZEnable = true;
 		ZFunc = LessEqual;

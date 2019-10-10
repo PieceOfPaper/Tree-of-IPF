@@ -53,6 +53,7 @@ float		g_wavePowerX = 0.0f;
 float		g_waveSpeedY = 0.0f;
 float		g_waveStretchY = 0.0f;
 float		g_wavePowerY = 0.0f;
+float g_overrideAlpha = 1.f;
 //
 
 float4x4	g_WorldViewProjTM;
@@ -364,6 +365,9 @@ float4 PS_MultiplyProcessInstancing(in float4 diffuse : COLOR,
 	finalColor.a *= CalcAlphaWithDepthInstancing(ScrPos, SoftParticle.x);
 #endif
 
+	finalColor.rgb *= g_overrideAlpha; 
+finalColor.a *= g_overrideAlpha;
+
 	return finalColor;
 }
 
@@ -391,6 +395,8 @@ float4 PS_AdditiveProcessInstancing(in float4 diffuse : COLOR,
 	finalColor = ShiftColor(finalColor);
 #endif 
 
+	finalColor.rgb *= g_overrideAlpha; 
+
 	return finalColor;
 }
 
@@ -415,6 +421,9 @@ float4 PS_ExchangeProcessInstancing(in float4 diffuse : COLOR,
 #ifdef IS_REVERSE
 	finalColor = ShiftColor(finalColor);
 #endif 
+
+	finalColor.rgb *= g_overrideAlpha; 
+
 	return finalColor;
 }
 
@@ -425,6 +434,7 @@ float4 PS_ScreenProcess( in float4 diffuse : COLOR,
 {	
     float4 texColor = tex2D(g_sampler, tex.xy).rgba;
 	float4 finalColor = texColor;
+	finalColor.rgb *= g_overrideAlpha;
 	return finalColor;
 }
 
@@ -544,6 +554,8 @@ float4 PS_ShakeProcess( in float4 diffuse : COLOR,
 
 		finalColor.rgb = tex2D(g_bgSampler, scrTexOut.xy).rgb;
 		finalColor.a = 0.9f;
+
+		finalColor.rgb *= g_overrideAlpha;
 	}	
 	return finalColor;
 }
@@ -593,6 +605,8 @@ float4 PS_BlurProcess(	in float4 diffuse: COLOR0,
 		
 		finalColor.rgb = totalColor.rgb;
 		finalColor.a = 0.9f;
+		finalColor.rgb *= g_overrideAlpha; 
+
 	}		
 	return finalColor;
 }
@@ -629,7 +643,10 @@ float4 PS_NoiseProcess(	in float4 diffuse: COLOR0,
 				
 		finalColor.rgb = tex2D(g_bgSampler, scrTexOut).rgb;	
 		finalColor.a = 0.9f;
-	}		
+	}
+
+	finalColor.rgb *= g_overrideAlpha; 
+
 	return finalColor;
 }
 
@@ -659,7 +676,9 @@ float4 PS_DistortionProcess(in float4 diffuse: COLOR0,
 		finalColor.rgb = tex2D(g_bgSampler, scrTexOut).rgb;		
 		finalColor.a = 0.9f;
 	}
-	
+
+	finalColor.rgb *= g_overrideAlpha; 
+
 	return finalColor;
 }
 

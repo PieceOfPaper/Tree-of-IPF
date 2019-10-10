@@ -107,6 +107,8 @@ function INIT_SOUND_CONFIG(frame)
 	SET_SLIDE_VAL(frame, "musicVol", "musicVol_text", config.GetMusicVolume());
 	SET_SLIDE_VAL(frame, "flutingVol", "flutingVol_text", config.GetFlutingVolume());
 	SET_SLIDE_VAL(frame, "totalVol", "totalVol_text", config.GetTotalVolume());	
+	SET_SLIDE_VAL(frame, "effect_transparency_my_value", "effect_transparency_my", config.GetMyEffectTransparency());
+	SET_SLIDE_VAL(frame, "effect_transparency_other_value", "effect_transparency_other", config.GetOtherEffectTransparency());
 	local isOtherFlutingEnable = config.IsEnableOtherFluting();
 	local chkOtherFlutingEnable = GET_CHILD_RECURSIVELY(frame, "check_fluting");
 	if nil ~= chkOtherFlutingEnable then
@@ -195,6 +197,11 @@ function INIT_GAMESYS_CONFIG(frame)
 		maintainTargetedSkillUi:SetCheck(tonumber(value));
 		config.MaintainTargetedSkillUI(tonumber(value));
 		config.ChangeXMLConfig("MaintainTargetedSkillUI", tostring(value));
+	end
+
+	local isEnableEffectTransparency = config.GetXMLConfig("EnableEffectTransparency");
+	if isEnableEffectTransparency == 0 then
+		EFFECT_TRANSPARENCY_OFF();
 	end
 end
 
@@ -669,10 +676,23 @@ function CONFIG_QUESTINFOSET_TRANSPARENCY(frame, ctrl, str, num)
 	SET_QUESTINFOSET_TRANSPARENCY(frame);
 end
 
-
 function SET_QUESTINFOSET_TRANSPARENCY(frame)
 	SET_SLIDE_VAL(frame, "questinfosetTransparency", "questinfosetTransparency_text", config.GetQuestinfosetTransparency());
 	UPDATE_QUESTINFOSET_TRANSPARENCY(nil)
+end
+
+function CONFIG_MY_EFFECT_TRANSPARENCY(frame, ctrl, str, num)
+	tolua.cast(ctrl, "ui::CSlideBar");
+	config.SetMyEffectTransparency(ctrl:GetLevel());
+
+	SET_SLIDE_VAL(frame, "effect_transparency_my_value", "effect_transparency_my", config.GetMyEffectTransparency());
+end
+
+function CONFIG_OTHER_EFFECT_TRANSPARENCY(frame, ctrl, str, num)
+	tolua.cast(ctrl, "ui::CSlideBar");
+	config.SetOtherEffectTransparency(ctrl:GetLevel());
+	
+	SET_SLIDE_VAL(frame, "effect_transparency_other_value", "effect_transparency_other", config.GetOtherEffectTransparency());
 end
 
 function CONFIG_OTHER_PC_EFFECT(frame, ctrl, str, num)
@@ -682,4 +702,37 @@ function CONFIG_OTHER_PC_EFFECT(frame, ctrl, str, num)
 		local noScp = "ENABLE_OTHER_PC_EFFECT_CHECK()";
 		ui.MsgBox(ScpArgMsg("Ask_UnEnableOtherPCEffect_Text"), yesScp, noScp);
 	end
+end
+
+function CONFIG_EFFECT_TRANSPARENCY(frame, ctrl, str, num)
+	local isEnable = ctrl:IsChecked();
+	if isEnable == 0 then
+		EFFECT_TRANSPARENCY_OFF();
+	else
+		ui.MsgBox(ScpArgMsg("Ask_UnEnableEffectTransparency_Text"), "EFFECT_TRANSPARENCY_ON", "EFFECT_TRANSPARENCY_OFF");
+	end
+end
+
+function EFFECT_TRANSPARENCY_ON()
+	local frame = ui.GetFrame("systemoption");
+	local effect_transparency_my_value = GET_CHILD_RECURSIVELY(frame, "effect_transparency_my_value", "ui::CSlideBar");
+	effect_transparency_my_value:SetEnable(1);
+	local effect_transparency_other_value = GET_CHILD_RECURSIVELY(frame, "effect_transparency_other_value", "ui::CSlideBar");
+	effect_transparency_other_value:SetEnable(1);
+end
+
+function EFFECT_TRANSPARENCY_OFF()
+	local frame = ui.GetFrame("systemoption");
+	local check_EnableEffectTransparency = GET_CHILD_RECURSIVELY(frame, "check_EnableEffectTransparency", "ui::CSlideBar");
+	check_EnableEffectTransparency:SetCheck(0);
+
+	local effect_transparency_my_value = GET_CHILD_RECURSIVELY(frame, "effect_transparency_my_value", "ui::CSlideBar");
+	effect_transparency_my_value:SetLevel(255);
+	CONFIG_MY_EFFECT_TRANSPARENCY(frame, effect_transparency_my_value, "", 0);
+	effect_transparency_my_value:SetEnable(0);
+	
+	local effect_transparency_other_value = GET_CHILD_RECURSIVELY(frame, "effect_transparency_other_value", "ui::CSlideBar");
+	effect_transparency_other_value:SetLevel(255);
+	CONFIG_OTHER_EFFECT_TRANSPARENCY(frame, effect_transparency_other_value, "", 0);
+	effect_transparency_other_value:SetEnable(0);
 end

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Eff_plane_BR" particleName="F_smoke155_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Eff_plane_BL" particleName="F_smoke155_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="false" targetPos="false"/>
+	<Particle frame="30" attachNode="Eff_plane_BR04" particleName="F_smoke064_blue2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="false" targetPos="false"/>
+	<Particle frame="15" attachNode="Eff_plane_BL04" particleName="F_smoke064_blue2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_root" particleName="F_levitation008_dark_firespark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Bone_plane_BL02" particleName="F_levitation008_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="false" targetPos="false"/>
+	<Particle frame="20" attachNode="Eff_plane_MR01" particleName="F_fire012_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Eff_plane_MR01" particleName="F_fire012_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Bone_plane_BL02" particleName="F_fire012" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Bone_plane_BR02" particleName="F_levitation008_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="false" targetPos="false"/>
+	<Particle frame="10" attachNode="Eff_plane_MR012" particleName="F_levitation008_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="false" targetPos="false"/>
+	<Particle frame="29" attachNode="Eff_plane_MR012" particleName="F_drop_stone001_1_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="false" targetPos="false"/>
+	<Particle frame="28" attachNode="Eff_plane_ML012" particleName="F_drop_stone001_1_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="false" targetPos="false"/>
+	<Particle frame="5" attachNode="Eff_plane_ML012" particleName="F_levitation008_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="false" targetPos="false"/>
+</ActionDesc>

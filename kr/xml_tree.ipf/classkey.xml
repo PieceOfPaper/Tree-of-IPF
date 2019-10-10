@@ -1967,6 +1967,9 @@
         <Key Name="REGULAR_EVENT_STAMP_TOUR_HIDDEN_COND3" Value="104227"/>
         <Key Name="REGULAR_EVENT_STAMP_TOUR_HIDDEN_COND4" Value="104241"/>
         <Key Name="EVENT_1909_ANCIENT_KILL_BOSS" Value="104257"/>
+        <Key Name="InDunCountType_802" Value="104266"/>
+        <Key Name="IndunWeeklyEnteredCount_802" Value="104267"/>
+        <Key Name="EVENT_QuizQuiz_Day_Count" Value="104268"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -9971,6 +9974,11 @@
         <Key Name="Kill_Unique_Solo_id_boss_Wastrel" Value="104129"/>
         <Key Name="Kill_Unique_Solo_id_boss_ignas" Value="104130"/>
         <Key Name="HadVisited_8026" Value="104167"/>
+        <Key Name="Kill_Raid_boss_Skiaclipse_Sealed_Solo" Value="104260"/>
+        <Key Name="Kill_Raid_boss_Skiaclipse_Solo" Value="104259"/>
+        <Key Name="SkintoneName" Value="104261"/>
+        <Key Name="InDunCountType_802" Value="104264"/>
+        <Key Name="IndunWeeklyEnteredCount_802" Value="104265"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -18163,6 +18171,8 @@
         <Key Name="MG_Last_SOLO_DUNGEON_MINI_ANCIENT" Value="104256"/>
         <Key Name="REGULAR_EVENT_STAMP_TOUR" Value="104252"/>
         <Key Name="EVENT_1909_ANCIENT_CASUAL_REWARD" Value="104258"/>
+        <Key Name="MG_Last_CASUAL_RAID_WHITE_CROW" Value="104263"/>
+        <Key Name="MG_Last_LEGEND_RAID_WHITE_CROW_SOLO" Value="104262"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>

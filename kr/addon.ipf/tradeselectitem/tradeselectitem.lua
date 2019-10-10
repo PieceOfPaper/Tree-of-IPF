@@ -42,8 +42,12 @@ function OPEN_TRADE_SELECT_ITEM(invItem)
 	frame:SetUserValue("TradeSelectItem", itemobj.ClassName);
 
 	local cancelBtn = frame:GetChild('CancelBtn');
+	cancelBtn:SetVisible(1);
 	local useBtn = frame:GetChild('UseBtn');
 	useBtn:SetEventScript(ui.LBUTTONUP,'REQUEST_TRADE_ITEM')
+	local useBtnMargin = useBtn:GetMargin();
+	local xmargin = frame:GetUserConfig("USE_BTN_X_MARGIN");
+	useBtn:SetMargin(tonumber(xmargin), 0, 0, useBtnMargin.bottom);
 
 	box:Resize(box:GetOriginalWidth(), y);	    
 	local screen_height = option.GetClientHeight();

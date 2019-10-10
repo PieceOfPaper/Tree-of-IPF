@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="barrack_gamestart" x="0" y="0" width="600" height="180">
 	<frame title="캐릭터선택" layout_gravity="center bottom" margin="0 0 0 30" scale_align="center bottom"/>
 	<draw drawtitlebar="false" drawframe="false"/>
@@ -14,6 +14,6 @@
 			<uieffect effect="I_sys_item_slot4" scale="11" overlab="No" sound="None" offset="3 -4" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"/>
 		</button>
 		<richtext name="zone" margin="0 -1000 0 0" rect="0 0 300 24" format="{@st45ty}%s{/}" param1="value" param1_def="SIAUL_WEST_SIAUL_WEST_" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
-		<droplist name="channels" margin="0 35 0 0" rect="0 0 220 30" layout_gravity="center top" skin="droplist_normal" visibleline="5" frametextalign="left" font="white_20_ol" textalign="left center" textoffset="20 0" SelectScp="SELECT_GAMESTART_CHANNEL"/>
+		<droplist name="channels" margin="0 32 0 0" rect="0 0 240 20" layout_gravity="center top" skin="droplist_normal5" visibleline="5" frametextalign="left" font="white_20_ol" textalign="left center" textoffset="20 0" SelectScp="SELECT_GAMESTART_CHANNEL" defaultoffset="true"/>
 	</controls>
 </uiframe>

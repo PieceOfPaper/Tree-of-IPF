@@ -9,7 +9,7 @@
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
 	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
 	<script OpenScp="BEAUTYSHOP_OPEN" CloseScp="BEAUTYSHOP_CLOSE"/>
-	<userconfig HAIR_DYE_PALETTE_IMAGE_NAME="haircolor_mark" hairShopName_male="{@st43}바버샵(남)" hairShopName_female="{@st43}바버샵(여)" costumeShopName_male="{@st43}부티크(남)" costumeShopName_female="{@st43}부티크(여)" wigShopName_male="{@st43}바버샵 - 가발(남)" wigShopName_female="{@st43}바버샵 - 가발(여)" packageShopName_male="{@st43}부티크 - 패키지" packageShopName_female="{@st43}부티크 - 패키지" etcShopName="{@st43}바버샵 - 렌즈" previewShopName="{@st43}테마 상품 입어보기" TOGGLE_ON="ability_on" TOGGLE_OFF="ability_off" DISCOUNT_COLOR="{@st41b}{s16}{#ff1100}"/>
+	<userconfig HAIR_DYE_PALETTE_IMAGE_NAME="haircolor_mark" hairShopName_male="{@st43}바버샵(남)" hairShopName_female="{@st43}바버샵(여)" costumeShopName_male="{@st43}부티크(남)" costumeShopName_female="{@st43}부티크(여)" wigShopName_male="{@st43}바버샵 - 가발(남)" wigShopName_female="{@st43}바버샵 - 가발(여)" packageShopName_male="{@st43}부티크 - 패키지" packageShopName_female="{@st43}부티크 - 패키지" etcShopName="{@st43}바버샵 - 렌즈" previewShopName="{@st43}테마 상품 입어보기" TOGGLE_ON="ability_on" TOGGLE_OFF="ability_off" DISCOUNT_COLOR="{@st41b}{s16}{#ff1100}" skinShopName="{@st43}바버샵 - 스킨"/>
 	<controls>
 		<!-- default frame -->
 		<groupbox name="gbBackGround" rect="0 0 1230 1000" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_low" stretch="true"/>
@@ -54,7 +54,7 @@
 		<slot name="slotPreview_hair_costume_3" parent="gbPreview" rect="0 0 56 56" margin="5 354 0 0" layout_gravity="left top" hittest="true" skin="market_hairacc_3" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어 코스튬3{/}"/>
 		<!-- hide/unhide prefix visible_ -->
 		<picture name="visible_slotPreview_wig" parent="slotPreview_wig" rect="0 0 20 20" margin="0 0  0 0" layout_gravity="left top" hittest="true" image="inven_hat_layer_on" oversound="button_cursor_over_3" stretch="true" texttooltip="{@st59}보이기/안보이기{/}" LBtnUpScp="BEAUTYSHOP_SET_VISIBLE_STATE"/>
-		<!-- preview right slot -->
+		<!-- preview right slot col 1 -->
 		<slot name="slotPreview_doll" parent="gbPreview" rect="0 0 56 56" margin="5 6 5 0" layout_gravity="right top" hittest="true" skin="doll_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}인형{/}"/>
 		<slot name="slotPreview_costume" parent="gbPreview" rect="0 0 56 56" margin="5 64 5 0" layout_gravity="right top" hittest="true" skin="market_costume" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}코스튬{/}"/>
 		<slot name="slotPreview_wing" parent="gbPreview" rect="0 0 56 56" margin="5 122 5 0" layout_gravity="right top" hittest="true" skin="wing_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}등 코스튬{/}"/>
@@ -62,6 +62,8 @@
 		<slot name="slotPreview_armband" parent="gbPreview" rect="0 0 56 56" margin="5 238 5 0" layout_gravity="right top" hittest="true" skin="armband" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}암밴드{/}"/>
 		<slot name="slotPreview_lh" parent="gbPreview" rect="0 0 56 56" margin="5 296 5 0" layout_gravity="right top" hittest="true" skin="market_artefact" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}왼손{/}"/>
 		<slot name="slotPreview_rh" parent="gbPreview" rect="0 0 56 56" margin="5 354 5 0" layout_gravity="right top" hittest="true" skin="market_artefact" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}오른손{/}"/>
+		<!-- preview right slot col 2 -->
+		<slot name="slotPreview_skin" parent="gbPreview" rect="0 0 56 56" margin="5 6 62 0" layout_gravity="right top" hittest="true" skin="market_skin" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}스킨{/}"/>
 		<!-- preview btn -->
 		<button name="btnPrevRotCharacter" parent="gbPreview" rect="0 0 40 58" margin="150 250 0 0" layout_gravity="left top" image="button_left_select2" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="BEAUTYSHOP_PREV_ROT_CHARACTER"/>
 		<button name="btnNextRotCharacter" parent="gbPreview" rect="0 0 40 58" margin="0 250 150 0" layout_gravity="right top" image="button_right_select2" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="BEAUTYSHOP_NEXT_ROT_CHARACTER"/>

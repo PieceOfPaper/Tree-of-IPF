@@ -1,4 +1,4 @@
---- calc_property_skill.lua
+﻿--- calc_property_skill.lua
 function GET_SKL_VALUE(skill, startValue, maxValue)
     local maxLv = 100;
     local curLv = skill.Level;
@@ -144,6 +144,10 @@ function SCR_Get_SpendSP(skill)
     end
 
     local pc = GetSkillOwner(skill);
+    if pc == nil and ui.GetFrame("pub_createchar"):IsVisible() == 1 then
+        return basicSP;
+    end
+
     local lv = pc.Lv
     bylvCorrect = lv - 300
 
@@ -157,13 +161,13 @@ function SCR_Get_SpendSP(skill)
     
     local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
     abilAddSP = abilAddSP / 100;
-    
+
 --    local lvUpSpendSpRound = math.floor((lvUpSpendSp * 10000) + 0.5)/10000;
 
 --  value = basicsp + (lv - 1) * lvUpSpendSpRound + abilAddSP;
 --  value = basicsp + (lv - 1) * lvUpSpendSpRound;
     value = math.floor(value) + math.floor(value * abilAddSP);
-    
+   
     local zeminaSP = GetExProp(pc, "ZEMINA_BUFF_SP");
     if zeminaSP ~= 0 then
         decsp = value * zeminaSP
@@ -1374,9 +1378,9 @@ function SCR_ABIL_ADD_SKILLFACTOR(skill, abil, value)
     return value
 end
 
--- skillshared.lua ??function SCR_REINFORCEABILITY_FOR_BUFFSKILL(self, skill) ?� ?�용 ?�일?
+-- skillshared.lua ??function SCR_REINFORCEABILITY_FOR_BUFFSKILL(self, skill) ?�??�용 ?�일?
 -- 같이 변경해???
--- done , ?�당 ?�수 ?�용?� cpp�??�전?�었?�니?? 변�??�항???�다�?반드???�로그래?�???�려주시�?바랍?�다.
+-- done , ?�당 ?�수 ?�용?�?cpp�??�전?�었?�니?? 변�??�항???�다�?반드???�로그래?�???�려주시�?바랍?�다.
 function SCR_REINFORCEABILITY_TOOLTIP(skill)
     local pc = GetSkillOwner(skill);
     local addAbilRate = 1;
@@ -4472,12 +4476,17 @@ end
 function SCR_GET_GatherCorpse_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Necromancer11") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
-    end
+    local value = 2.5 * skill.Level
 
+    return value
+
+end
+
+function SCR_GET_GatherCorpse_Time(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 5
+
+    return value
 end
 
 function SCR_GET_GatherCorpse_Ratio2(skill)
@@ -5205,6 +5214,17 @@ function SCR_GET_DivineMight_Ratio(skill)
     return value
 end
 
+function SCR_GET_DivineMight_BuffTime(skill)
+    local value = 60
+    local pc = GetSkillOwner(skill)
+    local abil = GetAbility(pc, "Oracle23")
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = 10
+    end
+    
+    return value
+end
+
 function SCR_GET_Zaibas_Ratio2(skill)
 
     local pc = GetSkillOwner(skill);
@@ -5258,14 +5278,39 @@ function SCR_GET_Effigy_Ratio3(skill)
 end
 
 function SCR_GET_Damballa_Ratio(skill)
-
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Bokor12") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
+	local cls = GetClassList("Skill");   
+    local sklCls = GetClassByNameFromList(cls, "Bokor_NormalDamballa");			
+	local pc = GetSkillOwner(skill)
+    local value = sklCls.SklFactor + sklCls.SklFactorByLevel * (skill.Level - 1)--???????계산
+    local reinfabil = skill.ReinforceAbility
+    local abil = GetAbility(pc, reinfabil)--abil??reinfabil???
+    if abil ~= nil and TryGetProp(skill, "ReinforceAbility") ~= 'None' then
+        local abilLevel = TryGetProp(abil, "Level")
+        local masterAddValue = 0
+        if abilLevel == 100 then
+            masterAddValue = 0.1
+        end
+        
+        value = value * (1 + ((abilLevel * 0.005) + masterAddValue))
+        
+        local hidden_abil_cls = GetClass("HiddenAbility_Reinforce", skill.ClassName);
+        if abilLevel >= 65 and hidden_abil_cls ~= nil then
+        	local hidden_abil_name = TryGetProp(hidden_abil_cls, "HiddenReinforceAbil");
+        	local hidden_abil = GetAbility(pc, hidden_abil_name);
+        	if hidden_abil ~= nil then
+        		local abil_level = TryGetProp(hidden_abil, "Level");
+        		local add_factor = TryGetProp(hidden_abil_cls, "FactorByLevel", 0) * 0.01;
+        		local add_value = 0;
+        		if abil_level == 10 then
+        			add_value = TryGetProp(hidden_abil_cls, "AddFactor", 0) * 0.01
+        		end
+        		value = value * (1 + (abil_level * add_factor) + add_value);
+        		
+        	end
+        end
     end
-
+    
+    return math.floor(value)
 end
 
 function SCR_GET_Damballa_Ratio2(skill)
@@ -6336,17 +6381,22 @@ function SCR_Get_SummonSalamion_BuffTime(skill)
 end
 
 
-function SCR_Get_SummonSalamion_Ratio2(skill)
-    local pc = GetSkillOwner(skill)
-    return pc.Lv
+function SCR_Get_SummonSalamion_Ratio(skill)
+    local value = 12.8 + (skill.Level * 4.48);
+    return value;
 end
 
-function SCR_Get_SummonSalamion_Ratio(skill)
-    local value = 5 + (skill.Level * 3);
+function SCR_Get_SummonSalamion_Ratio2(skill)
+    local value = 16 + (skill.Level * 5.6);
     
     return value;
 end
 
+function SCR_Get_SummonSalamion_Ratio3(skill)
+    local value = 24 + (skill.Level * 8.4);
+    
+    return value;
+end
 
 function SCR_Get_SummonServant_Ratio(skill)
     local value = skill.Level
@@ -6417,7 +6467,13 @@ function SCR_GET_Quicken_Bufftime(skill)
 end
 
 function SCR_GET_Samsara_Bufftime(skill)
-    return 5 + skill.Level * 1
+    local pc = GetSkillOwner(skill)
+    local value = 5 + skill.Level * 1
+    -- 팀 배틀리그 토너먼트만 해당함 -------
+    if IsPVPServer(pc) == 1 then
+        value = value * 0.5
+    end
+    return value
 end
 
 function SCR_GET_Stop_Time(skill)
@@ -6450,29 +6506,18 @@ function SCR_Get_Haste_Bufftime(skill)
 end
 
 function SCR_Get_CreateShoggoth_Ratio(skill)
-    local value = 10 + (skill.Level * 5);
+    local value = skill.Level * 20;
     return math.floor(value);
 end
 
 function SCR_Get_CreateShoggoth_Ratio2(skill)
-    local value = 10 + (skill.Level * 5);
+    local value = skill.Level * 20;
     return math.floor(value);
 end
 
 function SCR_Get_CreateShoggoth_Ratio3(skill)
-    local value = 100
-    local masterValue = 0
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Necromancer5")
-    if abil ~= nil then
-        if abil.Level == 100 then
-            masterValue = 10
-        end
-        
-        value = value + abil.Level * 0.5 + masterValue;
-    end
-    
-    return value;
+    local value = skill.Level * 20;
+    return math.floor(value);
 end
 
 function SCR_Get_CreateShoggoth_Parts(skill)
@@ -6755,6 +6800,12 @@ function SCR_Get_Detoxify_Ratio(skill)
 end
 
 function SCR_GET_Daino_Ratio(skill)
+    local value = TryGetProp(skill, 'Level', 1) * 5
+    
+    return value;
+end
+
+function SCR_GET_Daino_Ratio2(skill)
     local value = TryGetProp(skill, 'Level', 1) * 1.5
     
     return value;
@@ -7453,88 +7504,57 @@ function SCR_GET_CorpseTower_Ratio2(skill)
 end
 
 function SCR_GET_CorpseTower_Ratio3(skill)
---    local value = 100
---    local masterValue = 0
---    local pc = GetSkillOwner(skill);
---    local abil = GetAbility(pc, "Necromancer6")
---    if abil ~= nil then
---        if abil.Level == 100 then
---            masterValue = 10
---        end
---        
---      value = value + abil.Level * 0.5 + masterValue;
---    end
-    local value = 100 + (skill.Level * 4)
-    
+    local value = 19.2 + (skill.Level * 10.08)
     return value;
 end
 
 function SCR_GET_RaiseDead_Ratio(skill)
-    local value = skill.Level
+    local value = 12.8 + (skill.Level * 13.44);
     return math.floor(value);
 
 end
 
 function SCR_GET_RaiseDead_Ratio2(skill)
-   local value = 5
+   local value = 32 + (skill.Level * 33.6);
    return math.floor(value);
 end
 
 function SCR_GET_RaiseDead_Ratio3(skill)
---    local value = 100
---    local masterValue = 0
---    local pc = GetSkillOwner(skill);
---    local abil = GetAbility(pc, "Necromancer7")
---    if abil ~= nil then
---        if abil.Level == 100 then
---            masterValue = 10
---        end
---        
---      value = value + abil.Level * 0.5 + masterValue;
---    end
-        
-    local value = 100 + (skill.Level * 10)
+    local value = 16 + (skill.Level * 16.8);
     
     return value;
 end
 
 function SCR_GET_RaiseSkullarcher_Ratio(skill)
-    local value = skill.Level
+    local value = 16 + (skill.Level * 16.8);
     return math.floor(value);
 
 end
 
 function SCR_GET_RaiseSkullarcher_Ratio2(skill)
-   local value = 5
+    local value = 16 + (skill.Level * 16.8);
     return math.floor(value);
 
 end
 
 function SCR_GET_RaiseSkullarcher_Ratio3(skill)
---    local value = 100
---    local masterValue = 0
---    local pc = GetSkillOwner(skill);
---    local abil = GetAbility(pc, "Necromancer10")
---    if abil ~= nil then
---        if abil.Level == 100 then
---            masterValue = 10
---        end
---        
---      value = value + abil.Level * 0.5 + masterValue;
---    end
-        
-    local value = 100 + (skill.Level * 10)
+    local value = 12.8 + (skill.Level * 13.44);
     
     return value;
 end
 
+function SCR_GET_RaiseSkullWizard_Ratio(skill)
+   local value = 16 + (skill.Level * 16.8);
+   return math.floor(value);
+end
+
 function SCR_GET_RaiseSkullWizard_Ratio2(skill)
-   local value = 5
+   local value = 16 + (skill.Level * 16.8);
    return math.floor(value);
 end
 
 function SCR_GET_RaiseSkullWizard_Ratio3(skill)
-    local value = 100 + (skill.Level * 10)
+    local value = 8 + (skill.Level * 8.4)
     
     return value;
 end
@@ -7742,13 +7762,13 @@ function SCR_GET_Effigy_Bonus(skill)
 
 end
 
--- done , ?�당 ?�수 ?�용?� cpp�??�전?�었?�니?? 변�??�항???�다�?반드???�로그래?�???�려주시�?바랍?�다.
+-- done , ?�당 ?�수 ?�용?�?cpp�??�전?�었?�니?? 변�??�항???�다�?반드???�로그래?�???�려주시�?바랍?�다.
 function SCR_GET_Effigy_Ratio(skill)
     local value = 1.60 + 0.07 * (skill.Level-1);
     return value
 end
 
--- done , ?�당 ?�수 ?�용?� cpp�??�전?�었?�니?? 변�??�항???�다�?반드???�로그래?�???�려주시�?바랍?�다.
+-- done , ?�당 ?�수 ?�용?�?cpp�??�전?�었?�니?? 변�??�항???�다�?반드???�로그래?�???�려주시�?바랍?�다.
 function SCR_GET_Effigy_Ratio2(skill)
     local value = 2.3 + 0.09 * (skill.Level-1)
     return value
@@ -7898,7 +7918,7 @@ function SCR_GET_SpellShop_Sacrament_Ratio(skill)
     local value = SCR_COMMON_MNA_FACTOR(180, 10, levelRate, mnaRate)
     value = value * 0.3
     
-    -- 주문 ?�매?�점 개설 강화 ?�성?� ?�러개라??SCR_REINFORCEABILITY_TOOLTIP ?�수???�용 불�?. 직접 ?�용 ----
+    -- 주문 ?�매?�점 개설 강화 ?�성?�??�러개라??SCR_REINFORCEABILITY_TOOLTIP ?�수???�용 불�?. 직접 ?�용 ----
     local abilAddRate = 1;
     local reinforceAbil = GetOtherAbility(pc, "Pardoner12")
     if reinforceAbil ~= nil then
@@ -7926,7 +7946,7 @@ function SCR_GET_SpellShop_Blessing_Ratio(skill)
     local value = SCR_COMMON_MNA_FACTOR(180, 10, levelRate, mnaRate)
     value = value * 0.3
     
-    -- 주문 ?�매?�점 개설 강화 ?�성?� ?�러개라??SCR_REINFORCEABILITY_TOOLTIP ?�수???�용 불�?. 직접 ?�용 ----
+    -- 주문 ?�매?�점 개설 강화 ?�성?�??�러개라??SCR_REINFORCEABILITY_TOOLTIP ?�수???�용 불�?. 직접 ?�용 ----
     local abilAddRate = 1;
     local reinforceAbil = GetOtherAbility(pc, "Pardoner13")
     if reinforceAbil ~= nil then
@@ -7954,7 +7974,7 @@ function SCR_GET_SpellShop_IncreaseMagicDEF_Ratio(skill)
     local value = SCR_COMMON_MNA_FACTOR(1.5, 10, levelRate, mnaRate)
     value = value * 0.3
     
-    -- 주문 ?�매?�점 개설 강화 ?�성?� ?�러개라??SCR_REINFORCEABILITY_TOOLTIP ?�수???�용 불�?. 직접 ?�용 ----
+    -- 주문 ?�매?�점 개설 강화 ?�성?�??�러개라??SCR_REINFORCEABILITY_TOOLTIP ?�수???�용 불�?. 직접 ?�용 ----
     local abilAddRate = 1;
     local reinforceAbil = GetOtherAbility(pc, "Pardoner14")
     if reinforceAbil ~= nil then
@@ -7982,7 +8002,7 @@ function SCR_GET_SpellShop_Aspersion_Ratio(skill)
     local value = SCR_COMMON_MNA_FACTOR(1, 15, levelRate, mnaRate)
     value = value * 0.3
     
-    -- 주문 ?�매?�점 개설 강화 ?�성?� ?�러개라??SCR_REINFORCEABILITY_TOOLTIP ?�수???�용 불�?. 직접 ?�용 ----
+    -- 주문 ?�매?�점 개설 강화 ?�성?�??�러개라??SCR_REINFORCEABILITY_TOOLTIP ?�수???�용 불�?. 직접 ?�용 ----
     local abilAddRate = 1;
     local reinforceAbil = GetOtherAbility(pc, "Pardoner15")
     if reinforceAbil ~= nil then
@@ -8144,6 +8164,15 @@ function SCR_GET_Prophecy_Ratio(skill)
     return skill.Level;
 end
 
+function SCR_GET_Prophecy_Time(skill)
+    local value = 30
+    -- 팀 배틀리그 토너먼트만 적용됨 ----
+    if IsPVPServer(pc) == 1 then
+        value = 10;
+    end
+    return value;
+end
+
 function SCR_GET_Foretell_Time(skill)
     local value = 10
     return value;
@@ -8210,13 +8239,16 @@ end
 function SCR_GET_SR_LV_Bash(skill)
 
     local pc = GetSkillOwner(skill);
+    if pc == nil and ui.GetFrame("pub_createchar"):IsVisible() == 1 then
+        return skill.SklSR;
+    end
+
     local abil = GetAbility(pc, 'Penetration');
-    
     if abil ~= nil and skill.ClassName == "Swordman_Bash" and 1 == abil.ActiveState then
       return pc.SR + skill.SklSR + abil.Level;
     end
-    return pc.SR + skill.SklSR
 
+    return pc.SR + skill.SklSR
 end
 
 function SCR_GET_Crown_Bufftime(skill)
@@ -9827,7 +9859,7 @@ function SCR_Get_JointPenalty_Bufftime(skill)
     local value = 7
     local abil_linker19 = GetAbility(pc, 'Linker19')
     if abil_linker19 ~= nil and abil_linker19.ActiveState == 1 then
-        value = 30
+        value = 20
     end
 
     return value
@@ -10311,7 +10343,13 @@ end
 --end
 
 function SCR_Get_Summoning_Ratio(skill)
-    local value = 5 + (skill.Level * 2);
+    local value = 10 + (skill.Level * 6);
+    
+    return value;
+end
+
+function SCR_Get_Summoning_Ratio2(skill)
+    local value = 24 + (skill.Level * 8.4);
     
     return value;
 end
@@ -10537,6 +10575,10 @@ end
 function SCR_GET_SR_LV(skill)
 
     local pc = GetSkillOwner(skill);
+    if pc == nil and ui.GetFrame("pub_createchar"):IsVisible() == 1 then
+        return skill.SklSR;
+    end
+
     local value = pc.SR + skill.SklSR;
     
     if value < 1 then
@@ -10544,7 +10586,6 @@ function SCR_GET_SR_LV(skill)
     end
 
     return value
-    
 end
 
 
@@ -12055,7 +12096,7 @@ function SCR_GET_SKL_COOLDOWN_KnifeThrowing(skill)
     if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
         basicCoolDown = basicCoolDown * 0.9;
     end
-    
+
     return math.floor(basicCoolDown);
 end
 

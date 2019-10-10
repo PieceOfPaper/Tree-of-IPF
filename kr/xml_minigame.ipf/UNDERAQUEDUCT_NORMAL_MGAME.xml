@@ -16,6 +16,8 @@
                     <Obj Type="Monster" MonType="157055" Pos="-244.76#168.02#1376.01" genCount="1" maxStackCount="1" genTime="1" objectKey="1" propList="&apos;Name&apos; &apos;방어력 증가 장치&apos; &apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_DEF_BUFF&apos; "/>
                     <Obj Type="Monster" MonType="157055" Pos="-250.59#167.98#1438.77" genCount="1" maxStackCount="1" genTime="1" objectKey="2" propList="&apos;Name&apos; &apos;실드 생성 장치&apos; &apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_SHIELD_BUFF&apos; "/>
                     <Obj Type="Monster" MonType="20040" Pos="-242.22#176.13#1550.24" genCount="1" maxStackCount="1" genTime="1" objectKey="3" propList="&apos;Name&apos; &apos;머즈루스 제압 장치&apos; &apos;Dialog&apos; &apos;D_UNDERAQUEDUCT_BOSS_GIMMICK_SKILL3&apos; "/>
+                    <Obj Type="Monster" MonType="59319" Pos="20.04#176.10#1527.05" angle="84" genCount="1" genTime="20000" objectKey="4"/>
+                    <Obj Type="Monster" MonType="59319" Pos="5.91#176.25#1204.40" angle="107" genCount="1" genTime="20000" objectKey="5"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="Start">

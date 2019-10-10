@@ -1607,6 +1607,7 @@ function SCR_ABIL_Ranger38_ACTIVE(self, ability)
         skill.Attribute = "ICE";
 
         SetExProp_Str(self, "Ranger38_Attribute", attribute)
+        AddBuff(self, self, "BounceShot_Hidden_Buff");
     end
 end
 
@@ -1616,6 +1617,8 @@ function SCR_ABIL_Ranger38_INACTIVE(self, ability)
         local attribute = GetExProp_Str(self, "Ranger38_Attribute");
 
         skill.Attribute = attribute;
+        
+        RemoveBuff(self, "BounceShot_Hidden_Buff");
     end
 end
 function SCR_ABIL_Corsair21_ACTIVE(self, ability)
@@ -1761,5 +1764,23 @@ function SCR_ABIL_Elementalist33_INACTIVE(self, ability)
                 RemovePad(self, "Elementalist_MovingFireBall_" .. i);
             end
         end
+    end
+end
+
+function SCR_ABIL_Oracle23_ACTIVE(self, ability)
+    local divineMightSkill = GetSkill(self, "Oracle_DivineMight");
+    if divineMightSkill ~= nil then
+        local basicCoolDown = TryGetProp(divineMightSkill, "BasicCoolDown");
+        divineMightSkill.BasicCoolDown = 60000;
+        SetExProp(self, "Oracle23_COOLDOWN", basicCoolDown);
+    end
+end
+
+function SCR_ABIL_Oracle23_INACTIVE(self, ability)
+    local divineMightSkill = GetSkill(self, "Oracle_DivineMight");
+    if divineMightSkill ~= nil then
+        local basicCoolDown = GetExProp(self, "Oracle23_COOLDOWN");
+        divineMightSkill.BasicCoolDown = basicCoolDown;
+        DelExProp(self, "Oracle23_COOLDOWN");
     end
 end

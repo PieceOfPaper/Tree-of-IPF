@@ -374,7 +374,7 @@
 	<Code Code="INFO_DB_INIT" Team="PROGRAM" Category="INFO" Logger="root" Enabled="YES" CallStack="NO" Desc="DB 초기화 관련 정보"/>
 	<Code Code="ERROR_ATTENDANCE" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="출석 시스템 관련 에러"/>
 	<Code Code="ERROR_RANK_RESET" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="랭크 초기화 관련 에러"/>
-  <Code Code="ERROR_CTRLTYPE_RESET" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="계열 변경 관련 에러"/>
+	<Code Code="ERROR_CTRLTYPE_RESET" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="계열 변경 관련 에러"/>
 	<Code Code="INFO_CONTENT_SCRIPT" Team="CONTENTDESIGN" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="스크립트에서 사용 할 수 있는 로그의 에러코드. 추가되는 Property의 Tag 참고."/>
 	<Code Code="ALERT_Machine_CPU" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 머신의 CPU 사용율"/>
 	<Code Code="ALERT_Machine_FreeDisk" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="드라이브의 남은 용량(MB)"/>
@@ -514,7 +514,7 @@
 	<Code Code="ALERT_REPORT_ThresholdState" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="상태 경고"/>
 	<Code Code="ALERT_REPORT_AutoChannelAdd" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 추가 비정상"/>
 	<Code Code="ALERT_REPORT_AutoChannelDelete" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="자동 채널 제거 비정상"/>
-	<Code Code="ERROR_ADVENTURE_BOOK_LOG" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="모험일지 관련 에러"/>	
+	<Code Code="ERROR_ADVENTURE_BOOK_LOG" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="모험일지 관련 에러"/>
 	<Code Code="ERROR_REPLAY" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="리플레이 관련 에러"/>
 	<Code Code="FATAL_REDIS_INSERT_FAIL" Team="PROGRAM" Category="REDIS" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Redis Insert 작업이 실패하였습니다."/>
 	<Code Code="FATAL_REDIS_PENDING_QUEUE_FULL" Team="PROGRAM" Category="REDIS" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Redis Pending Queue가 가득 찼습니다."/>
@@ -524,7 +524,7 @@
 	<Code Code="INFO_CHALLENGE_MODE" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="챌린지모드 관련 정보"/>
 	<Code Code="LOGGING_ABILITY_CHECK" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="어빌리티 적용 여부 확인을 위한 로그"/>
 	<Code Code="ERROR_DAMAGE_MESSAGE" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="대미지 메세지화 관련 에러로그"/>
-	<Code Code="INFO_DAMAGE_MESSAGE" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="대미지 메세지화 관련 정보"/>	
+	<Code Code="INFO_DAMAGE_MESSAGE" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="대미지 메세지화 관련 정보"/>
 	<Code Code="FATAL_ZOMBIE_REF_COUNT" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="좀비 레프런스 카운트 안 줄어들어서 메모리 샐 여지가 있음"/>
 	<Code Code="INFO_RANK_RESET" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="랭크 초기화 관련 정보"/>
 	<Code Code="ERROR_GUILD_EVENT" Team="PROGRAM" Category="GUILD" SubCategory="GUILD_EVENT" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 이벤트 에러"/>
@@ -555,7 +555,7 @@
 	<Code Code="FATAL_SQL_NULL_DATA" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="null 데이타가 Bind되었습니다. 해당 select 루프에서 초기화가 필수입니다. 또는 DB의 null 데이타를 없애주세요."/>
 	<Code Code="INFO_COLONY" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="콜로니전 정보 로그"/>
 	<Code Code="INFO_PVP_MINE" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="pvp_mine 정보 로그"/>
-  <Code Code="INFO_RVR" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="RVR 정보 로그"/>
+	<Code Code="INFO_RVR" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="RVR 정보 로그"/>
 	<Code Code="INFO_SOLO_RAID" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="SOLO RAID 정보 로그"/>
 	<Code Code="ERROR_PCBANG_BENEFIT" Team="tos_team" Category="SYSTEM" SubCategory="PCBANG" Logger="root" Enabled="YES" CallStack="NO" Desc="PC방 혜택 에러"/>
 	<Code Code="INFO_PCBANG_BENEFIT" Team="tos_team" Category="SYSTEM" SubCategory="PCBANG" Logger="root" Enabled="YES" CallStack="NO" Desc="PC방 혜택 정보"/>
@@ -570,7 +570,7 @@
 	<Code Code="INFO_SHUTDOWN" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="셧다운 관련 정보"/>
 	<Code Code="FATAL_IES_ASSIGN_PROPERTY" Team="tos_team" Category="SYSTEM" SubCategory="IES" Logger="root" Enabled="YES" CallStack="NO" Desc="IES 프로퍼티 세팅에 실패했습니다."/>
 	<Code Code="INFO_BUG_TRACING" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="버그 추적을 위한..."/>
-  	<Code Code="INFO_BUG_TRACING_37127" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="37127 버그 추적을 위한..."/>
+	<Code Code="INFO_BUG_TRACING_37127" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="37127 버그 추적을 위한..."/>
 	<Code Code="INFO_ALERT" Team="tos_team" Category="LOGIC" Logger="root" Enabled="YES" CallStack="NO" Desc="그레이로그에서 ALERT 받기 위한 에러코드"/>
 	<Code Code="INFO_SKILL_LOGIC" Team="tos_team" Category="LOGIC" SubCategory="SKILL" Logger="root" Enabled="YES" CallStack="NO" Desc="스킬 로직 확인"/>
 <Code Code="ERROR_NUMERIC_OVERFLOW" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="정수형 연산에서 오버플로우 감지"/>
@@ -580,7 +580,7 @@
 	<Code Code="ERROR_MARKET_WEB" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="마켓 웹서버 에러 로그"/>
 	<Code Code="ERROR_GUILD_BUILDING" Team="tos_team" Category="LOGIC" SubCategory="COLONY" Logger="root" Enabled="YES" CallStack="NO" Desc="콜로니전 설치물 에러"/>
 	<Code Code="INFO_GUILD_BUILDING" Team="tos_team" Category="LOGIC" SubCategory="COLONY" Logger="root" Enabled="YES" CallStack="NO" Desc="콜로니전 설치물 정보"/>
-    <Code Code="FATAL_DUPLICATE_USERPROP_NAME" Team="PROGRAM" Category="ERROR" SubCategory="USER_PROP" Logger="root" Enabled="YES" CallStack="NO" Desc="동일한 UserProp 이름으로 다른 타입을 설정하려 했습니다."/>
+	<Code Code="FATAL_DUPLICATE_USERPROP_NAME" Team="PROGRAM" Category="ERROR" SubCategory="USER_PROP" Logger="root" Enabled="YES" CallStack="NO" Desc="동일한 UserProp 이름으로 다른 타입을 설정하려 했습니다."/>
 	<Code Code="ERROR_INDUN_MULTIPLE" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc=""/>
 	<Code Code="ERROR_GUILD_JOINT_INV" Team="PROGRAM" Category="LOGIC" SubCategory="GuildJointInv" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 공용 창고 에러"/>
 	<Code Code="ERROR_GUILD_MILEAGE" Team="PROGRAM" Category="LOGIC" SubCategory="GuildMileage" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 마일리지 에러"/>
@@ -597,11 +597,13 @@
 	<Code Code="FATAL_FAIL_INIT_RVR" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="RvRWorldManager init fail."/>
 	<Code Code="info_error_code8" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="NO" CallStack="NO" Desc="Error code 8 추적 로그."/>
 	<Code Code="WARNING_EVENT_UESR_TYPE" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="이벤트 유저 정보 경고."/>
-  <Code Code="info_ctrl_change_fail" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="NO" CallStack="NO" Desc="계열 변경이 안되는 현상 추적 로그."/>
-  <Code Code="ERROR_NOT_EXISTS_HOUSING_DATA" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="하우징 데이터가 없습니다."/>
+	<Code Code="info_ctrl_change_fail" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="NO" CallStack="NO" Desc="계열 변경이 안되는 현상 추적 로그."/>
+	<Code Code="ERROR_NOT_EXISTS_HOUSING_DATA" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="하우징 데이터가 없습니다."/>
 	<Code Code="ERROR_FURNITURE_DATA_WRONG" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="하우징 가구 정보가 올바르지 않습니다."/>
 	<Code Code="ERROR_PLACE_DATA_WRONG" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="하우징 그리드 정보가 올바르지 않습니다."/>
 	<Code Code="error_fieldboss_worldevent" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="필드보스 월드이벤트 관련 에러"/>
 	<Code Code="ERROR_INVALID_HOUSING_ITEM" Team="tos_team" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="하우징 아이템 정보가 올바르지 않습니다."/>
 <Code Code="ERROR_GUILD_EVENT" Team="PROGRAM" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 미션 실행 실패 관련."/>
-</imcErrorCode> 
+  <Code Code="ERROR_QUIZ_QUIZ" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="SP실행에 실패하였습니다. sp 내용과 에러코드를 확인하세요."/>
+	<Code Code="INFO_ADDTIONAL_LOG" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="몽고로그 유실 대비 로그"/>
+</imcErrorCode>

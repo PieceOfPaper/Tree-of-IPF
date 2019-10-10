@@ -249,3 +249,19 @@ function SKL_KEY_GROUND_EVENT_METEOR(actor, obj, dik, chargeTime, autoShot, shot
 
 	return ret1, ret2;
 end
+
+function SKL_KEY_GROUND_EVENT_OOBE(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode, quickCast, hitCancel, isScroll, abilName)
+	local buff = info.GetBuffByName(session.GetMyHandle(), "OOBE_Debuff");
+	if buff ~= nil then
+		return 0, 1;
+	end
+
+	local ret1, ret2 = SKL_KEY_GROUND_EVENT(actor, obj, dik, chargeTime, autoShot, shotCasting, lookTargetPos, selRange, upAbleSec, useDynamicLevel, isVisivle, isFullCharge, effectName, scale, nodeName, lifeTime, shockWave, shockPower, shockTime, shockFreq, shockAngle, onlyMouseMode, quickCast, hitCancel, isScroll, abilName)
+
+	return ret1, ret2;
+end
+
+function SKL_SUMMON_TARGET_BY_KEY(actor, obj, dik)
+	geSkillControl.SelectTargetSummon(actor, obj.type);
+	return 1, 0;
+end

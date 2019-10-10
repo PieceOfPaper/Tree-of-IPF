@@ -75,13 +75,87 @@ function GET_TOTAL_TP(accountObj)
 	return accountObj.Medal + accountObj.GiftMedal + accountObj.PremiumMedal;
 end
 
--- 아이템의 금액 반환(할인된 가격까지 계산함.)
-function GET_BEAUTYSHOP_ITEM_PRICE(pc, info, hairCouponItem, dyeCouponItem)    
-	if info.IDSpace == "Beauty_Shop_Hair" then
-		return GET_BEAUTYSHOP_HAIR_PRICE(pc, info, hairCouponItem, dyeCouponItem);
-	else
-		return GET_BEAUTYSHOP_NORMAL_ITEM_PRICE(info);
+function IS_PURCHASE_DUPLICATE_DISCOUNT(pc, productList, hairCouponItem, dyeCouponItem, skinCouponItem)
+	
+	for i = 1, #productList do
+		local info = productList[i];
+		-- 해당 IDSpace에 정보가 존재해야한다.
+		local isExist = IS_EXIST_ITEM_IN_BEAUTYSHOP_IDSpace(info);
+		if isExist == false then
+			return true
+		end	
+
+		-- 헤어일 경우 처리
+		if info.IDSpace == "Beauty_Shop_Hair" then
+			-- hair 
+			local cacheHairList = BEAUTYSHOP_MAKE_ITEM_CACHELIST(info.IDSpace);
+			if cacheHairList[info.ClassName] ~= nil then
+				local cls = GetClass(info.IDSpace, cacheHairList[info.ClassName])
+				local priceRatio = TryGetProp(cls, "PriceRatio")
+				local couponDiscountPer = GET_COUPON_DISCOUNT_PERCENT(info, hairCouponItem);
+				-- 쿠폰 적용율이 1%~99% 일 때는 할인율하고 비교한다.
+				if priceRatio ~= nil and priceRatio > 0 and couponDiscountPer ~= nil and couponDiscountPer > 0 and  couponDiscountPer < 1  then
+					return true;
+				end
+			end
+
+			-- dye 
+			local cacheColorList = BEAUTYSHOP_MAKE_HAIR_COLOR_CACHELIST(info.ClassName);
+			if cacheColorList ~= nil then		
+				local cls = GetClass("Hair_Dye_List", cacheColorList[info.ColorEngName])
+				local priceRatio = TryGetProp(cls, "PriceRatio")
+				local couponDiscountPer = GET_COUPON_DISCOUNT_PERCENT(info, dyeCouponItem);
+				-- 쿠폰 적용율이 1%~99% 일 때는 할인율하고 비교한다.
+				if priceRatio ~= nil and priceRatio > 0 and couponDiscountPer ~= nil and couponDiscountPer > 0 and  couponDiscountPer < 1  then
+					return true;
+				end
+			end
+		elseif info.IDSpace == "Beauty_Shop_Skin" then
+			local cacheList = BEAUTYSHOP_MAKE_ITEM_CACHELIST(info.IDSpace);
+			if cacheList[info.ClassName] ~= nil then
+				local cls = GetClass(info.IDSpace, cacheList[info.ClassName])
+				local priceRatio = TryGetProp(cls, "PriceRatio")
+				local couponDiscountPer = GET_COUPON_DISCOUNT_PERCENT(info, skinCouponItem);
+				-- 쿠폰 적용율이 1%~99% 일 때는 할인율하고 비교한다.
+				if priceRatio ~= nil and priceRatio > 0 and couponDiscountPer ~= nil and couponDiscountPer > 0 and  couponDiscountPer < 1  then
+					return true;
+				end
+			end
+		end
 	end
+
+	return false -- false 가 정상
+end
+
+-- 아이템의 금액 반환(할인된 가격까지 계산함.)
+function GET_BEAUTYSHOP_ITEM_PRICE(pc, info, hairCouponItem, dyeCouponItem, skinCouponItem)   
+
+	local result ={
+		totalPrice = nil,
+		hairPrice = nil,
+		colorDyePrice = nil,
+		hairDiscountValue = nil,
+		dyeDiscountValue = nil,
+		skinDiscountValue = nil,
+	}
+
+	if info.IDSpace == "Beauty_Shop_Hair" then
+		local totalPrice, hairPrice, colorDyePrice, hairDiscountValue, dyeDiscountValue = GET_BEAUTYSHOP_HAIR_PRICE(pc, info, hairCouponItem, dyeCouponItem);
+		result.totalPrice = totalPrice;
+		result.hairPrice = hairPrice;
+		result.colorDyePrice = colorDyePrice;
+		result.hairDiscountValue = hairDiscountValue;
+		result.dyeDiscountValue = dyeDiscountValue;
+	elseif info.IDSpace == "Beauty_Shop_Skin" then
+		local totalPrice, skinDiscountValue =  GET_BEAUTYSHOP_SKIN_PRICE(pc, info, skinCouponItem);
+		result.totalPrice = totalPrice;
+		result.skinDiscountValue = skinDiscountValue;
+	else
+		local price = GET_BEAUTYSHOP_NORMAL_ITEM_PRICE(info);
+		result.totalPrice = price;
+	end
+	
+	return result;
 end
 
 -- 헤어 아이템의 금액
@@ -110,8 +184,8 @@ function GET_BEAUTYSHOP_HAIR_PRICE(pc, info, hairCouponItem, dyeCouponItem)
 			end
 
 			-- 기본 금액 설정
-			hairPrice = price			
-
+			hairPrice = price	
+			
 			-- 할인 적용 : nil 이면 적용안함.
 			local priceRatioPer = 0
 			if priceRatio ~= nil then
@@ -123,14 +197,19 @@ function GET_BEAUTYSHOP_HAIR_PRICE(pc, info, hairCouponItem, dyeCouponItem)
 			-- 1차 기본 할인율 적용
             local priceRatioAppliedValue = (price * priceRatioPer);
 			hairPrice = hairPrice - priceRatioAppliedValue;
-
+			
 			-- 2차 쿠폰 할인율 적용
             local beforeSecondDiscountValue = hairPrice;
             hairDiscountValue = (hairPrice * couponDiscountPer);
 			hairPrice = hairPrice - hairDiscountValue;
 			-- 모두 계산하고나서 floor
 			hairPrice = math.floor(hairPrice)
-
+			
+			-- 0보다 작은경우 0처리.
+			if hairPrice < 0 then
+				hairPrice = 0
+			end
+			
             hairDiscountValue = math.floor(beforeSecondDiscountValue - hairPrice);
 		end
 	end
@@ -168,7 +247,7 @@ function GET_BEAUTYSHOP_HAIR_PRICE(pc, info, hairCouponItem, dyeCouponItem)
 
 				-- 쿠폰 적용 : 쿠폰은 헤어와 염색에만 적용된다는것을 명심해야 한다.
 				local couponDiscountPer = GET_COUPON_DISCOUNT_PERCENT(info, dyeCouponItem) 
-
+						
 				-- 1차 기본 할인율 적용
                 local priceRatioAppliedValue = (price * priceRatioPer);
 				colorDyePrice = colorDyePrice - priceRatioAppliedValue;
@@ -179,6 +258,11 @@ function GET_BEAUTYSHOP_HAIR_PRICE(pc, info, hairCouponItem, dyeCouponItem)
 				colorDyePrice = colorDyePrice - dyeDiscountValue;
 				-- 모두 계산하고나서 floor
 				colorDyePrice = math.floor(colorDyePrice);
+
+				-- 0보다 작은경우 0처리.
+				if colorDyePrice < 0 then
+					colorDyePrice = 0
+				end
 
                 -- for log: 할인을 두 단계로 적용해두고 마지막에만 floor 처리를 하니까.. 정밀도 문제가 발생해요.. 끔찍해요..
                 dyeDiscountValue = math.floor(beforeSecondDiscountValue - colorDyePrice);
@@ -238,6 +322,53 @@ function BEAUTYSHOP_MAKE_ITEM_CACHELIST(IDSpace)
 	return cacheList
 end
 
+
+-- SKIN 아이템의 금액
+function GET_BEAUTYSHOP_SKIN_PRICE(pc, info, skinCouponItem)	
+	local totalPrice = 0;
+    local skinDiscountValue = 0;
+	local cacheList = BEAUTYSHOP_MAKE_ITEM_CACHELIST(info.IDSpace);
+	if cacheList[info.ClassName] ~= nil then
+		local cls = GetClass(info.IDSpace, cacheList[info.ClassName])
+		local price = TryGetProp(cls, "Price")
+		local priceRatio = TryGetProp(cls, "PriceRatio")
+		if price == nil then
+			-- 정상이 아님.
+			return -1
+		end
+
+		-- 기본 금액 설정
+		totalPrice = price			
+
+		-- 할인 적용 : nil 이면 적용안함.
+		local priceRatioPer = 0
+		if priceRatio ~= nil then
+			priceRatioPer = priceRatio / 100
+		end
+
+		-- 쿠폰 적용 : 헤어와 염색뿐만아니라 스킨이 추가되었다.
+		local couponDiscountPer = GET_COUPON_DISCOUNT_PERCENT(info, skinCouponItem);
+		-- 1차 기본 할인율 적용
+		local priceRatioAppliedValue = (price * priceRatioPer);
+		totalPrice = totalPrice - priceRatioAppliedValue;
+
+		-- 2차 쿠폰 할인율 적용
+		local beforeSecondDiscountValue = totalPrice;
+		hairDiscountValue = (totalPrice * couponDiscountPer);
+		totalPrice = totalPrice - hairDiscountValue;
+		-- 모두 계산하고나서 floor
+		totalPrice = math.floor(totalPrice)
+
+		-- 0보다 작은경우 0처리.
+		if totalPrice < 0 then
+			totalPrice = 0
+		end
+
+		skinDiscountValue = math.floor(beforeSecondDiscountValue - totalPrice);
+	end
+	return totalPrice, skinDiscountValue;
+end
+
 function GET_BEAUTYSHOP_NORMAL_ITEM_PRICE(info)
 	local cacheList =  BEAUTYSHOP_MAKE_ITEM_CACHELIST(info.IDSpace);
 	local totalPrice = 0;
@@ -272,7 +403,13 @@ function GET_COUPON_DISCOUNT_PERCENT(info, couponItem)
 	if couponItem == nil then
 		return 0;
 	end
-	return couponItem.NumberArg1 / 100;
+
+	local NumberArg1 =  TryGetProp(couponItem, "NumberArg1")
+	if NumberArg1 == nil then
+		return 0;
+	end
+
+	return tonumber(NumberArg1) / 100;
 end
 
 function BEAUTYSHOP_MAKE_HAIR_COLOR_CACHELIST(ItemClassName)
@@ -307,13 +444,15 @@ end
 
 
 function BEAUTYSHOP_TRANS_HEAD_INDEX_TO_NAME(gender, headIndex)
-	local Rootclasslist = imcIES.GetClassList('HairType');
-    local Selectclass   = Rootclasslist:GetClass(gender);
-    local Selectclasslist = Selectclass:GetSubClassList();
+	local PartClass = imcIES.GetClass("CreatePcInfo", "Hair");
+	local GenderList = PartClass:GetSubClassList();
+	local Selectclass   = GenderList:GetClass(gender);
+	local Selectclasslist = Selectclass:GetSubClassList();
+
 	local cls = Selectclasslist:GetByIndex(headIndex-1);
     if cls ~= nil then
         local engName = imcIES.GetString(cls, 'EngName');
-        local colorName = imcIES.GetString(cls, 'ColorE');
+        local colorName = imcIES.GetString(cls, 'EngColor');
 		
 		return engName, colorName;
 	end

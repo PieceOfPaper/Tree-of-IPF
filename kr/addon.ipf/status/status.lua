@@ -1861,9 +1861,10 @@ function STATUS_ACHIEVE_INIT_HAIR_COLOR(gbox)
 	local haveHairColorEList = {}
 
     local nowHeadIndex = item.GetHeadIndex()
-    local Rootclasslist = imcIES.GetClassList('HairType');
-    local Selectclass = Rootclasslist:GetClass(pc.Gender);
-    local Selectclasslist = Selectclass:GetSubClassList();
+	local PartClass = imcIES.GetClass("CreatePcInfo", "Hair");
+	local GenderList = PartClass:GetSubClassList();
+	local Selectclass   = GenderList:GetClass(pc.Gender);
+	local Selectclasslist = Selectclass:GetSubClassList();
 
     local nowHairCls = Selectclasslist:GetByIndex(nowHeadIndex - 1);
     if nil == nowHairCls then
@@ -1871,7 +1872,7 @@ function STATUS_ACHIEVE_INIT_HAIR_COLOR(gbox)
     end
 
     local nowPCHairEngName = imcIES.GetString(nowHairCls, 'EngName')
-    local nowPCHairColor = imcIES.GetString(nowHairCls, 'ColorE')
+    local nowPCHairColor = imcIES.GetString(nowHairCls, 'EngColor')
     nowPCHairColor = string.lower(nowPCHairColor)
 
     -- 헤어 컬러가 많아질 경우 UI 벽을 뚫게 된다. row, col로 나눔.
@@ -1920,7 +1921,7 @@ function STATUS_ACHIEVE_INIT_HAIR_COLOR(gbox)
                 local eachengname = imcIES.GetString(eachcls, 'EngName')
                 if eachengname == nowPCHairEngName then
 
-                    local eachColorE = imcIES.GetString(eachcls, 'ColorE')
+                    local eachColorE = imcIES.GetString(eachcls, 'EngColor')
                     local eachColor = imcIES.GetString(eachcls, 'Color')
                     eachColorE = string.lower(eachColorE)
 
@@ -2481,19 +2482,20 @@ function ON_HAIR_COLOR_CHANGE(frame, msg, argStr, argNum)
     local hairCls = GET_HAIR_CLASS_C(colorItemCls.StringArg);
     local colorName = imcIES.GetString(hairCls, 'Color')    
 
-    local yesscp = string.format('item.ReqChangeHead("%s")', imcIES.GetString(hairCls, 'ColorE'));
+    local yesscp = string.format('item.ReqChangeHead("%s")', imcIES.GetString(hairCls, 'EngColor'));
     ui.MsgBox(ScpArgMsg('Hair_Color_Change{COLOR}', 'COLOR', colorName), yesscp, 'None');
 end
 
 function GET_HAIR_CLASS_C(engName)
     local pc = GetMyPCObject()
-    local Rootclasslist = imcIES.GetClassList('HairType');
-    local Selectclass = Rootclasslist:GetClass(pc.Gender);
-    local Selectclasslist = Selectclass:GetSubClassList(); -- hair classlist
+	local PartClass = imcIES.GetClass("CreatePcInfo", "Hair");
+	local GenderList = PartClass:GetSubClassList();
+	local Selectclass   = GenderList:GetClass(pc.Gender);
+	local Selectclasslist = Selectclass:GetSubClassList();
     for i = 0, Selectclasslist:Count() do
         local eachcls = Selectclasslist:GetByIndex(i);
         if eachcls ~= nil then
-            local colorE = imcIES.GetString(eachcls, 'ColorE');
+            local colorE = imcIES.GetString(eachcls, 'EngColor');
             if colorE == engName then
                 return eachcls;
             end

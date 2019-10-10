@@ -286,11 +286,8 @@ function PET_MDEF_C(self, addAbil)
     return math.floor(ret);
 end
 
-function PET_SDR(self)
-
-    local value = SCR_Get_MON_SDR(self) + GetSumOfPetEquip(self, "SDR");
-    
-    return value;
+function PET_SDR(self)    
+    return 1;
 end
 
 function PET_DR_BY_ABIL(statValue)

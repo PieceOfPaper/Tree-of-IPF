@@ -488,7 +488,19 @@ function SET_SKILL_TOOLTIP_CAPTION(skillFrame, caption, parsedCaption)
     skillDesc:EnableSplitBySpace(0);
 end
 
-function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)         
+function SET_SKILL_PUB_CREATECHAR_TOOLTIP_CAPTION(skillFrame, caption, parsedCaption)
+    local skillDesc = GET_CHILD(skillFrame, "desc", "ui::CRichText");   
+    skillDesc:Resize(skillDesc:GetWidth(), 20);
+    skillDesc:SetTextAlign("left", "top");
+    local translatedData = dictionary.ReplaceDicIDInCompStr(caption);
+    if caption ~= translatedData then
+        skillDesc:SetDicIDText(caption)
+    end
+    skillDesc:SetText('{@st41b}{s16}'..parsedCaption);
+    skillDesc:EnableSplitBySpace(0);
+end
+
+function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)        
     -- destroy skill, ability tooltip
     DESTROY_CHILD_BYNAME(frame:GetChild('skill_desc'), 'SKILL_CAPTION_');
     DESTROY_CHILD_BYNAME(frame:GetChild('ability_desc'), 'ABILITY_CAPTION_');
@@ -519,7 +531,6 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 
     --------------------------- skill description frame ------------------------------------
     local skillFrame = GET_CHILD(frame, "skill_desc", "ui::CGroupBox")
-
     -- set skill icon and name
     SET_SKILL_TOOLTIP_ICON_AND_NAME(skillFrame, obj, true);    
     
@@ -677,7 +688,8 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     end
 
     local showAbilCnt = 0;
-    local abilList, abilCnt = GET_ABILITYLIST_BY_SKILL_NAME(obj.ClassName, jobEngNameList)
+    local abilList, abilCnt = GET_ABILITYLIST_BY_SKILL_NAME(obj.ClassName, jobEngNameList);
+
     local pcAbilCnt = 0 -- ability count for showing
     local pcAbilList = {}
     for i = 0, abilCnt-1 do     
@@ -713,6 +725,129 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     else
         abilFrame:ShowWindow(0)
     end
+    frame:Invalidate();
+
+    if objIsClone == true then
+        DestroyIES(obj);
+    end
+end
+
+function UPDATE_SKILL_PUB_CREATECHAR_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
+    DESTROY_CHILD_BYNAME(frame:GetChild('skill_desc'), 'SKILL_CAPTION_');
+    DESTROY_CHILD_BYNAME(frame:GetChild('ability_desc'), 'ABILITY_CAPTION_');
+
+    local abil = session.GetSkillByGuid(numarg2);
+    local obj = nil; local objIsClone = false;
+   
+    local tooltipStartLevel = 1;
+    if abil == nil then
+        local cloneObjLevel = 0;
+        if strarg == "Level" then
+            cloneObjLevel = numarg2;
+        end
+        obj = GetClassByType("Skill", numarg1);
+        obj = CloneIES_UseCP(obj);
+        obj.LevelByDB = cloneObjLevel;
+        tooltipStartLevel = cloneObjLevel;
+        objIsClone = true;
+    else	
+        obj = GetIES(abil:GetObject());
+        tooltipStartLevel = obj.Level;
+    end
+
+    if obj == nil then return; end
+    
+    -----description frame
+    local skill_desc = GET_CHILD_RECURSIVELY(frame, "skill_desc");
+    SET_SKILL_TOOLTIP_ICON_AND_NAME(skill_desc, obj, true);
+
+    local desc_text = GET_CHILD_RECURSIVELY(skill_desc, "desc");
+    SET_SKILL_PUB_CREATECHAR_TOOLTIP_CAPTION(skill_desc, obj.Caption, PARSE_TOOLTIP_CAPTION(obj, obj.Caption, true));
+
+    local stateLv = 0;
+    if strarg ~= "quickslot" then
+        stateLv = session.GetUserConfig("SKLUP_"..obj.ClassName, 0);
+    end
+    tooltipStartLevel = tooltipStartLevel + stateLv;
+
+    local icon_pic = GET_CHILD_RECURSIVELY(skill_desc, "icon");
+    if icon_pic == nil then return; end
+
+    local icon_end_pos = icon_pic:GetY() + icon_pic:GetHeight();
+    local ypos = desc_text:GetY() + desc_text:GetHeight();    
+    if ypos < icon_end_pos then
+        ypos = icon_end_pos + 10;
+    end
+
+    -- weapon info
+    local weapon_box = GET_CHILD_RECURSIVELY(frame, "weapon_box");
+    local stance_pic = GET_CHILD_RECURSIVELY(weapon_box, "stance_pic");
+    stance_pic:RemoveAllChild();
+
+    if TryGetProp(obj, "ReqStance") ~= nil and TryGetProp(obj, "EnableCompanion") ~= nil then
+        MAKE_STANCE_ICON(stance_pic, obj.ReqStance, obj.EnableCompanion, 100, 37);
+
+        local childCnt = stance_pic:GetChildCount();
+        for i = 0, childCnt - 1 do
+            local child = stance_pic:GetChildByIndex(i);
+            if child ~= nil then
+                child:SetOffset(child:GetWidth() * i + 5, 10);
+            end
+        end
+    end
+
+    weapon_box:SetOffset(0, ypos);
+    ypos = weapon_box:GetY() + weapon_box:GetHeight() + 5;
+
+    -- level desc controlset
+    local skl_caption2 = MAKE_SKILL_CAPTION2(obj.ClassName, obj.Caption2, tooltipStartLevel);
+
+    local origin_text = "";
+    local translated_data2 = dictionary.ReplaceDicIDInCompStr(skl_caption2);
+    if skl_caption2 ~= translated_data2 then
+        origin_text = skl_caption2;
+    end
+
+    local skllv_desc = PARSE_TOOLTIP_CAPTION(obj, skl_caption2, strarg ~= "quickslot");
+    local lvdesc_start, lvdesc_end = string.find(skllv_desc, "Lv.");
+    local lv = 1;
+
+    local curLevelCtrlSet = nil;
+    skllv_desc = string.sub(skllv_desc, lvdesc_end + 2, string.len(skllv_desc));
+    lvdesc_start, lvdesc_end = string.find(skllv_desc, "Lv.");
+    if lvdesc_start ~= nil then
+        local lv_desc = string.sub(skllv_desc, 2, lvdesc_start - 1);
+        skllv_desc = string.sub(skllv_desc, lvdesc_end + 2, string.len(skllv_desc));
+
+        ypos = SKILL_LV_DESC_TOOLTIP(skill_desc, obj, lv, lv, lv_desc, ypos, origin_text);
+    end
+
+    local no_trade_cnt = nil;
+    local no_trade = GET_CHILD_RECURSIVELY(skill_desc, "trade_text");
+    local item_id = frame:GetUserValue("SCROLL_ITEM_ID");
+    if item_id ~= "None" then
+        local scroll_invtype = skill_desc:GetUserValue("SCROLL_ITEM_INVTYPE");
+        local item_obj, is_read_obj = GET_TOOLTIP_ITEM_OBJECT(scroll_invtype, item_id);
+        if item_obj ~= nil then
+            no_trade_cnt = TryGetProp(item_obj, "BelongingCount");
+            if is_read_obj == 1 then
+                DestroyIES(item_obj);
+            end
+        end
+    end
+
+    if no_trade_cnt ~= nil and no_trade_cnt >= 0 then
+        no_trade:SetTextByKey("count", no_trade_cnt);
+        no_trade:ShowWindow(1);
+        no_trade:SetOffSet(no_trade:GetOriginalX() + 10, ypos - no_trade:GetOriginalHeight());
+    else
+        no_trade:SetOffset(no_trade:GetOriginalX(), no_trade:GetOriginalY());
+        no_trade:ShowWindow(0);
+    end
+    no_trade:Invalidate();
+
+    skill_desc:Resize(frame:GetWidth(), ypos + 10);
+    frame:Resize(frame:GetWidth(), skill_desc:GetHeight() + 10);
     frame:Invalidate();
 
     if objIsClone == true then
@@ -813,15 +948,22 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     end
     
     -- font and data setting
-    if totalLevel == lv then
+    local pub_frame = ui.GetFrame("pub_createchar");
+    if pub_frame == nil or pub_frame:IsVisible() == 0 then
+        if totalLevel == lv then
+            lvDescCtrlSet:SetDraw(1);
+            lvFont = LEVEL_FONTNAME
+            descFont = DESC_FONTNAME
+        else        
+            lvDescCtrlSet:SetDraw(1);
+            lvDescCtrlSet:SetSkinName(SKIN_NEXTLV_NAME);
+            lvFont = LEVEL_NEXTLV_FONTNAME
+            descFont = DESC_NEXTLV_FONTNAME
+        end
+    else
         lvDescCtrlSet:SetDraw(1);
-        lvFont = LEVEL_FONTNAME
-        descFont = DESC_FONTNAME
-    else        
-        lvDescCtrlSet:SetDraw(1);
-        lvDescCtrlSet:SetSkinName(SKIN_NEXTLV_NAME);
-        lvFont = LEVEL_NEXTLV_FONTNAME
-        descFont = DESC_NEXTLV_FONTNAME
+        lvFont = LEVEL_FONTNAME;
+        descFont = "{@st41b}{s16}";
     end
     
     if TryGetProp(obj, 'CoolDown') ~= nil then
@@ -844,7 +986,17 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     end
 
     if overHeat == 0 then
-        overHeat = GET_SKILL_OVERHEAT_COUNT(obj);
+        if pub_frame == nil or pub_frame:IsVisible() == 0 then
+            overHeat = GET_SKILL_OVERHEAT_COUNT(obj);
+        else
+            if obj ~= nil then
+                overHeat = TryGetProp(obj, "SklUseOverHeat", 0);
+            end
+
+            if overHeat == 0 then
+                overHeat = 1;
+            end
+        end
     end
   
     local sp = GET_SPENDSP_BY_LEVEL(obj, lv);

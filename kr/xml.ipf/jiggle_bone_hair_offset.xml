@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Data>
+	<Gender ID="MALE">
+		<Motion ID="STUN">
+			<Offset Direction="DOWN" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="LEFT_DOWN" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="LEFT" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="LEFT_UP" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="UP" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="RIGHT_UP" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="RIGHT" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="RIGHT_DOWN" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+		</Motion>
+		<Motion ID="KNOCKDOWN">
+			<Offset Direction="DOWN" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="LEFT_DOWN" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="LEFT" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="LEFT_UP" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="UP" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="RIGHT_UP" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="RIGHT" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="RIGHT_DOWN" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+		</Motion>
+		<Motion ID="HIT">
+			<Offset Direction="DOWN" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="LEFT_DOWN" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="LEFT" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="LEFT_UP" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="UP" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="RIGHT_UP" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="RIGHT" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="RIGHT_DOWN" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+		</Motion>
+	</Gender>
+	<Gender ID="FEMALE">
+		<Motion ID="STUN">
+			<Offset Direction="DOWN" HairPosition="0 0 0" HairRotation="0 0 20" HeadPosition="0 0 0" HeadRotation="0 0 20"/>
+			<Offset Direction="LEFT_DOWN" HairPosition="0 0 0" HairRotation="0 0 30" HeadPosition="0 0 0" HeadRotation="0 0 30"/>
+			<Offset Direction="LEFT" HairPosition="0 0 0" HairRotation="0 0 30" HeadPosition="0 0 0" HeadRotation="0 0 30"/>
+			<Offset Direction="LEFT_UP" HairPosition="0 0 0" HairRotation="0 0 30" HeadPosition="0 0 0" HeadRotation="0 0 30"/>
+			<Offset Direction="UP" HairPosition="0 0 0" HairRotation="0 0 20" HeadPosition="0 0 0" HeadRotation="0 0 20"/>
+			<Offset Direction="RIGHT_UP" HairPosition="0 0 0" HairRotation="0 0 30" HeadPosition="0 0 0" HeadRotation="0 0 30"/>
+			<Offset Direction="RIGHT" HairPosition="0 0 0" HairRotation="0 0 30" HeadPosition="0 0 0" HeadRotation="0 0 30"/>
+			<Offset Direction="RIGHT_DOWN" HairPosition="0 0 0" HairRotation="0 0 30" HeadPosition="0 0 0" HeadRotation="0 0 30"/>
+		</Motion>
+		<Motion ID="KNOCKDOWN">
+			<Offset Direction="DOWN" HairPosition="0 0 0" HairRotation="22.5 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="LEFT_DOWN" HairPosition="0 0 0" HairRotation="22.5 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="LEFT" HairPosition="0 0 0" HairRotation="22.5 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="LEFT_UP" HairPosition="0 0 0" HairRotation="22.5 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="UP" HairPosition="0 0 0" HairRotation="22.5 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="RIGHT_UP" HairPosition="0 0 0" HairRotation="22.5 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="RIGHT" HairPosition="0 0 0" HairRotation="22.5 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="RIGHT_DOWN" HairPosition="0 0 0" HairRotation="22.5 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+		</Motion>
+		<Motion ID="HIT">
+			<Offset Direction="DOWN" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="LEFT_DOWN" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+			<Offset Direction="LEFT" HairPosition="0 0 0" HairRotation="0 0 45" HeadPosition="0 0 0" HeadRotation="0 0 45"/>
+			<Offset Direction="LEFT_UP" HairPosition="0 0 0" HairRotation="0 0 -20" HeadPosition="0 0 0" HeadRotation="0 0 -20"/>
+			<Offset Direction="UP" HairPosition="0 0 0" HairRotation="0 0 20" HeadPosition="0 0 0" HeadRotation="0 0 20"/>
+			<Offset Direction="RIGHT_UP" HairPosition="0 0 0" HairRotation="0 0 20" HeadPosition="0 0 0" HeadRotation="0 0 20"/>
+			<Offset Direction="RIGHT" HairPosition="0 0 0" HairRotation="0 0 -45" HeadPosition="0 0 0" HeadRotation="0 0 -45"/>
+			<Offset Direction="RIGHT_DOWN" HairPosition="0 0 0" HairRotation="0 0 0" HeadPosition="0 0 0" HeadRotation="0 0 0"/>
+		</Motion>
+	</Gender>
+</Data>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by My (IMCGames Co., Ltd) -->

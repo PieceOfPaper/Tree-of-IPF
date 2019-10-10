@@ -28,7 +28,8 @@ function C_SR_EFT_DEFAULT(self, target, sklLevel, hitInfo, hitIndex, selfEeffect
 	end
 	
 	if targetEeffectName ~= nil and targetEeffectName ~= 'None' and targetEeffectName ~= '' then
-		target:GetEffect():PlayEffect(targetEeffectName, targetScale, GetOffsetEnum(targetOffset));
+		local isMyEffect = self:GetHandleVal() == GetMyActor():GetHandleVal();
+		target:GetEffect():PlayEffect(isMyEffect, targetEeffectName, targetScale, GetOffsetEnum(targetOffset));
 	end
 end
 

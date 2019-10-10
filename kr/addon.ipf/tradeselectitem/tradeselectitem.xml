@@ -8,6 +8,7 @@
 	<sound opensound="character_item_window_open" closesound="character_item_window_close"/>
 	<animation frameOpenAnim="popup_start2" frameCloseAnim="popup_end2"/>
 	<script CloseScp="QUESTREWARD_CLOSE"/>
+	<userconfig USE_BTN_X_MARGIN="-85"/>
 	<controls>
 		<groupbox name="box" rect="0 0 560 294" margin="0 58 0 0" layout_gravity="center top" draw="false" hittestbox="false" rateheight="true" ratewidth="true" scrollbar="true" skin="groupbox"/>
 		<richtext name="richtext_1" margin="48 6 0 0" rect="0 0 120 24" caption="{@st41}선택 후 확인을 눌러주세요{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>

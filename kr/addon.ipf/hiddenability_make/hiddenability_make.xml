@@ -9,7 +9,7 @@
 	<option closebutton="false"/>
 	<sound opensound="window_open" closesound="window_close"/>
 	<script OpenScp="HIDDENABILITY_MAKE_OPEN" CloseScp="HIDDENABILITY_MAKE_CLOSE"/>
-	<userconfig MAT_MAX_COUNT="10" TOTAL_CUBE_MAX_COUNT="2" MAKE_START_SOUND="button_click_repair" MAKE_RESULT_SOUND="sys_quest_item_get" NOT_ENOUPH_STYLE="{@st42}{s18}{#FF0000}" ENOUPH_STYLE="{@st42}{s18}"/>
+	<userconfig MAT_MAX_COUNT="10" TOTAL_CUBE_MAX_COUNT="2" MAKE_START_SOUND="button_click_repair" MAKE_RESULT_SOUND="sys_quest_item_get" NOT_ENOUPH_STYLE="{@st42}{s18}{#FF0000}" ENOUPH_STYLE="{@st42}{s18}" MAT1_DEF_NAME="신비한 서 낱장"/>
 	<controls>
 		<!-- title -->
 		<groupbox name="title_bg" rect="0 0 500 60" margin="0 0 0 0"  layout_gravity="center top" draw="true" scrollbar="false" skin="test_frame_top"/>
@@ -17,15 +17,15 @@
 		<button name="close" rect="0 0 35 35" margin="0 15 28 0" layout_gravity="right top" LBtnUpScp="HIDDENABILITY_MAKE_CLOSE" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button"/>
 		<picture name="bg_pic" rect="0 0 453 832" margin="0 100 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="mystic_note_production" stretch="true" draw="false"/>
 		<!-- material 1 : piece -->
-		<groupbox name="mat_1_gb" rect="0 0 200 250" margin="-85 250 0 0"  layout_gravity="center top" draw="false" scrollbar="false"/>
+		<groupbox name="mat_1_gb" rect="0 0 145 200" margin="-85 250 0 0"  layout_gravity="center top" draw="false" scrollbar="false"/>
 		<slot name="matslot_1" parent="mat_1_gb" rect="0 0 141 141" margin="0 0 0 0" layout_gravity="center top" draw="false" DropScp="HIDDENABILITY_MAKE_ITEM_DROP" DropArgNum="1" PopScp="HIDDENABILITY_MAKE_ITEM_POP" PopArgNum="1"  dropsound="icon_get_down"/>
 		<richtext name="matslot_1_count" parent="matslot_1" rect="0 0 200 50" margin="0 0 0 5" layout_gravity="right bottom" format="%s%s/%s" param1="style" param1_def="{@st42}{s18}" param2="cur" param2_def="0" param3="need" param3_def="0"/>
-		<richtext name="matslot_1_text" parent="mat_1_gb" rect="0 0 120 24" margin="0 159 0 0" layout_gravity="center top" caption="{@st41b}{s18}신비한 서 낱장" fixwidth="false" textalign="center center"/>
+		<richtext name="matslot_1_text" parent="mat_1_gb" rect="0 0 120 24" margin="0 159 0 0" layout_gravity="center top" format="{@st41b}{s18}%s" param1="value" param1_def="신비한 서 낱장" fixwidth="false" textalign="center center" />
 		<!-- material 2 : stone -->
-		<groupbox name="mat_2_gb" rect="0 0 200 250" margin="85 250 0 0"  layout_gravity="center top" draw="false" scrollbar="false"/>
+		<groupbox name="mat_2_gb" rect="0 0 145 200" margin="85 250 0 0"  layout_gravity="center top" draw="false" scrollbar="false"/>
 		<slot name="matslot_2" parent="mat_2_gb" rect="0 0 141 141" margin="0 0 0 0" layout_gravity="center top" draw="false" DropScp="HIDDENABILITY_MAKE_ITEM_DROP" DropArgNum="2" PopScp="HIDDENABILITY_MAKE_ITEM_POP" PopArgNum="2"  dropsound="icon_get_down"/>
 		<richtext name="matslot_2_count" parent="matslot_2" rect="0 0 200 50" margin="0 0 0 5" layout_gravity="right bottom" format="%s%s/%s" param1="style" param1_def="{@st42}{s18}" param2="cur" param2_def="0" param3="need" param3_def="0"/>
-		<richtext name="matslot_2_text" parent="mat_2_gb" rect="0 0 120 24" margin="0 158 0 0" layout_gravity="center top" caption="{@st41b}{s18}여신의 축복석" fixwidth="false" textalign="center center"/>
+		<richtext name="matslot_2_text" parent="mat_2_gb" rect="0 0 120 24" margin="0 158 0 0" layout_gravity="center top" caption="{@st41b}{s18}여신의 축복석" fixwidth="false" textalign="center center" />
 		<picture name="matslot_2_pic" parent="mat_2_gb" rect="0 0 131 132" margin="0 0 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="trasuremapmark" stretch="true" draw="false"/>
 		<!-- center ui -->
 		<groupbox name="issuccess_gb" rect="0 0 400 150" margin="0 470 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
