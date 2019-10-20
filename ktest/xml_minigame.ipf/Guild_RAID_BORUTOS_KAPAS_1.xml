@@ -719,7 +719,7 @@
                     <Event execCount="1" eventName="TimeOut">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="1860"/>
+                                <Num Num="1830"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -796,14 +796,6 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="Stop">
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="Gen_Boss/0"/>
-                                <Str Str="GM_BK_FAIL_STOP_RUN"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="TimeAttackMode" AutoStart="0">
@@ -861,6 +853,14 @@
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="Initialize/0"/>
                                 <Str Str="GM_BK_MGAME_MONGOLOG_MGAME_END"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="FailStop">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Str Str="GM_BK_FAIL_STOP_RUN"/>
                             </ToolScp>
                         </execList>
                     </Event>

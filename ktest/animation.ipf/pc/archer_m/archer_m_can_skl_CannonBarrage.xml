@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
 	<Shockwave frame="8" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
 	<Shockwave frame="11" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
@@ -19,8 +19,8 @@
 	<BlendOff frame="24" R="0" G="0" B="0" A="0"/>
 	<Particle frame="11" attachNode="Dummy_effect_canon" particleName="I_archer_pistol_hit" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false" sound="cannon_shot_1"/>
 	<Particle frame="18" attachNode="Dummy_effect_canon" particleName="I_archer_pistol_hit" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false" sound="cannon_shot_1"/>
-	<Particle frame="11" attachNode="Dummy_effect_canon" particleName="I_archer_pistol_ConcentratedFire2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
-	<Particle frame="18" attachNode="Dummy_effect_canon" particleName="I_archer_pistol_ConcentratedFire2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="11" attachNode="Dummy_effect_canon" particleName="I_archer_pistol_ConcentratedFire2_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="18" attachNode="Dummy_effect_canon" particleName="I_archer_pistol_ConcentratedFire2_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
 	<Particle frame="1" attachNode="Dummy_effect_canon_tail" particleName="I_spread_out009_fire2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" targetPos="false"/>
 	<Particle frame="5" attachNode="Dummy_effect_canon_tail2" particleName="I_archer_CannonShot_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="true" targetPos="false"/>
 	<Particle frame="8" attachNode="Dummy_effect_canon" particleName="I_archer_pistol_hit" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false" sound="cannon_shot_1"/>

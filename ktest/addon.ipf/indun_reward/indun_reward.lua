@@ -90,7 +90,7 @@ function INDUN_REWARD_SET(frame, msg, str, arg)
 
 	textReturn:StopUpdateScript("SCR_INDUN_REWARD_WAIT_RETURN");
 	textReturn:RunUpdateScript("SCR_INDUN_REWARD_WAIT_RETURN");
-    AddLuaTimerFunc('ENABLE_RETURN_BUTTON', 5000, 0) -- 5초후에 자동활성화
+    AddLuaTimerFunc('ENABLE_RETURN_BUTTON', 10000, 0) -- 10초후에 자동활성화
 end
 
 function SCR_INDUN_REWARD_WAIT_RETURN(textReturn)

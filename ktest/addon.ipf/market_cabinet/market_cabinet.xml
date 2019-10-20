@@ -19,7 +19,7 @@
     <groupbox name="itemGbox" rect="0 0 1408 740" margin="0 189 0 0" layout_gravity="center top" skin=""/>
     <detaillist name="itemlist" rect="0 0 1405 740" margin="2 0 0 0" layout_gravity="left top" skin="" parent="itemGbox"/>
 		<button name="button_2" rect="0 0 180 50" margin="0 0 10 17" layout_gravity="right bottom" LBtnUpScp="CABINET_GET_ALL_ITEM" caption="{@st41b}모두 받기" clicksound="button_click" oversound="button_over" skin="test_red_button"/>
-		<button name="button_1_1_1" rect="0 0 200 45" margin="410 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_CABINET_OPEN" caption="{@st66b18}완료" clicksound="button_click" oversound="button_over" skin="tab2_btn_2"/>
+		<button name="button_1_1_1" rect="0 0 200 45" margin="410 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_CABINET_OPEN" caption="{@st66b18}수령함" clicksound="button_click" oversound="button_over" skin="tab2_btn_2"/>
 		<labelline name="labelline_1" parent="market_low" rect="0 0 1250 2" margin="0 150 0 0" layout_gravity="center top" skin="None"/>
 		<groupbox name="title_1" rect="0 0 1405 40" margin="0 0 0 0" hittestbox="false" parent="market_midle3" skin="market_listbase" layout_gravity="left top"/>
 		<richtext name="richtext_1" margin="90 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}이름{/}" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="title_1"/>

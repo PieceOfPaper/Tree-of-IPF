@@ -101,6 +101,16 @@ function INDUNINFO_CREATE_CATEGORY(frame)
                         local margin = cyclePicImg:GetOriginalMargin();
                         cyclePicImg:SetMargin(margin.left, margin.top, margin.right + 20, margin.bottom);
                         cyclePicImg:Resize(cyclePicImg:GetOriginalWidth() + 11, cyclePicImg:GetOriginalHeight());
+                    elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" then
+                        local accountObject = GetMyAccountObj(pc)
+                        if TryGetProp(accountObject,"EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
+                            cyclePicImg:SetImage('indun_icon_event_l_eng')
+                            local margin = cyclePicImg:GetOriginalMargin();
+                            cyclePicImg:SetMargin(margin.left, margin.top, margin.right + 20, margin.bottom);
+                            cyclePicImg:Resize(cyclePicImg:GetOriginalWidth() + 11, cyclePicImg:GetOriginalHeight());
+                        else
+                            cyclePicImg:ShowWindow(0);
+                        end
                     else
                         cyclePicImg:ShowWindow(0);
                     end
@@ -419,10 +429,7 @@ function INDUNINFO_DROPBOX_ITEM_LIST(parent, control)
     indunRewardItemList['materialBtn'] = { };
 
     -- 보상 아이템 목록이 서로 다른 idSpace에 존재하여 처리해주었음 
-    local allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_freedungeon'); 
-    if dungeonType == "Indun" or dungeonType == "UniqueRaid" or dungeonType == "Raid" then
-        allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_indun');
-    end
+    allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_indun');
 
     if groupList ~= nil then
         for i = 1, #groupList do
@@ -774,6 +781,13 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         local pc = GetMyPCObject()
         if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
             nowAdmissionItemCount  = admissionItemCount
+        elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" and admissionItemName == "Dungeon_Key01" then
+            local accountObject = GetMyAccountObj(pc)
+            if TryGetProp(accountObject,"EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
+                nowAdmissionItemCount  = admissionItemCount
+            else
+                nowAdmissionItemCount  = admissionItemCount + addCount
+            end
         else
             nowAdmissionItemCount  = admissionItemCount + addCount
         end
@@ -825,6 +839,11 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
 --            if SCR_RAID_EVENT_20190102(nil, false) and admissionItemName == 'Dungeon_Key01' then -- 별의 탑 폐쇄 구역 제외 조건 걸어주기
             if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
                 cycleCtrlPic:ShowWindow(1);
+            elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" and admissionItemName == "Dungeon_Key01" then
+                local accountObject = GetMyAccountObj(pc)
+                if TryGetProp(accountObject,"EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
+                    cycleCtrlPic:ShowWindow(1);
+                end
             end
         
             cycleImage:ShowWindow(0);

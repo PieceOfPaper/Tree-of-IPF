@@ -198,6 +198,11 @@ function INIT_GAMESYS_CONFIG(frame)
 		config.MaintainTargetedSkillUI(tonumber(value));
 		config.ChangeXMLConfig("MaintainTargetedSkillUI", tostring(value));
 	end
+
+	local isEnableEffectTransparency = config.GetXMLConfig("EnableEffectTransparency");
+	if isEnableEffectTransparency == 0 then
+		EFFECT_TRANSPARENCY_OFF();
+	end
 end
 
 function CONFIG_FIRST_OPEN(frame)
@@ -697,4 +702,37 @@ function CONFIG_OTHER_PC_EFFECT(frame, ctrl, str, num)
 		local noScp = "ENABLE_OTHER_PC_EFFECT_CHECK()";
 		ui.MsgBox(ScpArgMsg("Ask_UnEnableOtherPCEffect_Text"), yesScp, noScp);
 	end
+end
+
+function CONFIG_EFFECT_TRANSPARENCY(frame, ctrl, str, num)
+	local isEnable = ctrl:IsChecked();
+	if isEnable == 0 then
+		EFFECT_TRANSPARENCY_OFF();
+	else
+		ui.MsgBox(ScpArgMsg("Ask_UnEnableEffectTransparency_Text"), "EFFECT_TRANSPARENCY_ON", "EFFECT_TRANSPARENCY_OFF");
+	end
+end
+
+function EFFECT_TRANSPARENCY_ON()
+	local frame = ui.GetFrame("systemoption");
+	local effect_transparency_my_value = GET_CHILD_RECURSIVELY(frame, "effect_transparency_my_value", "ui::CSlideBar");
+	effect_transparency_my_value:SetEnable(1);
+	local effect_transparency_other_value = GET_CHILD_RECURSIVELY(frame, "effect_transparency_other_value", "ui::CSlideBar");
+	effect_transparency_other_value:SetEnable(1);
+end
+
+function EFFECT_TRANSPARENCY_OFF()
+	local frame = ui.GetFrame("systemoption");
+	local check_EnableEffectTransparency = GET_CHILD_RECURSIVELY(frame, "check_EnableEffectTransparency", "ui::CSlideBar");
+	check_EnableEffectTransparency:SetCheck(0);
+
+	local effect_transparency_my_value = GET_CHILD_RECURSIVELY(frame, "effect_transparency_my_value", "ui::CSlideBar");
+	effect_transparency_my_value:SetLevel(255);
+	CONFIG_MY_EFFECT_TRANSPARENCY(frame, effect_transparency_my_value, "", 0);
+	effect_transparency_my_value:SetEnable(0);
+	
+	local effect_transparency_other_value = GET_CHILD_RECURSIVELY(frame, "effect_transparency_other_value", "ui::CSlideBar");
+	effect_transparency_other_value:SetLevel(255);
+	CONFIG_OTHER_EFFECT_TRANSPARENCY(frame, effect_transparency_other_value, "", 0);
+	effect_transparency_other_value:SetEnable(0);
 end

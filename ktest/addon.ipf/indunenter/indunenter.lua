@@ -34,10 +34,22 @@ function INDUNENTER_ON_ESCAPE_PRESSED(frame, msg, argStr, argNum)
     end
 end
 
+function INDUNENTER_CLOSEBUTTON_PRESSED(frame, msg, argStr, argNum)
+    local topFrame = ui.GetFrame('indunenter');
+    if topFrame:GetUserValue('FRAME_MODE') == 'SMALL' then
+        INDUNENTER_SMALLMODE_CLOSE();
+    else
+        INDUNENTER_CLOSE(frame, msg, argStr, argNum);
+    end
+end
+
+function INDUNENTER_SMALLMODE_CLOSE()
+    INDUNENTER_AUTOMATCH_CANCEL();
+end
+
 function INDUNENTER_CLOSE(frame, msg, argStr, argNum)
     INDUNENTER_AUTOMATCH_CANCEL();
     INDUNENTER_PARTYMATCH_CANCEL();
-        
     INDUNENTER_MULTI_CANCEL(frame);
     
     ui.CloseFrame('indunenter');
@@ -110,6 +122,13 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, en
 --    if  SCR_RAID_EVENT_20190102(nil, false) and admissionItemName == "Dungeon_Key01" then
     if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
         nowAdmissionItemCount = admissionItemCount
+    elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" and admissionItemName == "Dungeon_Key01" then
+        local accountObject = GetMyAccountObj(pc)
+        if TryGetProp(accountObject, "EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
+            nowAdmissionItemCount = admissionItemCount
+        else
+            nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
+        end
     else
         nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
     end
@@ -352,16 +371,12 @@ function INDUNENTER_DROPBOX_ITEM_LIST(parent, control)
     indunRewardItemList['accBtn'] = { };
     indunRewardItemList['materialBtn'] = { };
 
-    local allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_freedungeon');
-    if dungeonType == "Indun" or dungeonType == "UniqueRaid" or dungeonType == "Raid" then
-        allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_indun');
-    end
+    allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_indun');
     
     if groupList ~= nil then
         for i = 1, #groupList do
             local itemCls = GetClass('Item', groupList[i])
             local itemStringArg = TryGetProp(itemCls, 'StringArg')
-
             for j = 0, allIndunRewardItemCount - 1  do
                 local indunRewardItemClass = GetClassByIndexFromList(allIndunRewardItemList, j);
                 if indunRewardItemClass ~= nil and TryGetProp(indunRewardItemClass, 'Group') == itemStringArg then
@@ -703,8 +718,13 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
                 maxCount = maxCount + playPerResetNexonPC;
             end
         end
-        countData:SetTextByKey("max", maxCount);
-
+        local maxText = maxCount
+        local infinity = TryGetProp(indunCls, 'EnableInfiniteEnter', 'NO')
+        if indunCls.AdmissionItemName ~= "None" or infinity == 'YES' then
+            maxText = "{img infinity_text 20 10}"
+        end
+        
+        countData:SetTextByKey("max", maxText);
         -- set min/max multi count
         local minCount = frame:GetUserConfig('MULTI_MIN');
         frame:SetUserValue("MIN_MULTI_CNT", minCount);
@@ -739,6 +759,11 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
 --                    if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
                     if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES"and admissionItemName == "Dungeon_Key01" then
                         cycleCtrlPic:ShowWindow(1);
+                    elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" and admissionItemName == "Dungeon_Key01" then
+                        local accountObject = GetMyAccountObj(pc)
+                        if TryGetProp(accountObject, "EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
+                            cycleCtrlPic:ShowWindow(1);
+                        end
                     end
                 end
             else
@@ -782,6 +807,11 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
 --                if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
                 if IsBuffApplied(pc, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01"then
                     cycleCtrlPic:ShowWindow(1);
+                elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" and admissionItemName == "Dungeon_Key01" then
+                    local accountObject = GetMyAccountObj(pc)
+                    if TryGetProp(accountObject, "EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
+                        cycleCtrlPic:ShowWindow(1);
+                    end
                 end
             end
         end
@@ -1272,7 +1302,7 @@ function _INDUNENTER_AUTOMATCH_UPDATE_TIME(frame)
 end
 
 function INDUNENTER_SMALLMODE_CANCEL(frame, ctrl)
-    INDUNENTER_AUTOMATCH_CANCEL();
+    INDUNENTER_SMALLMODE_CLOSE();
 end
 
 function INDUNENTER_AUTOMATCH_PARTY(numWaiting, level, limit, indunLv, indunName, elapsedTime)
@@ -1885,8 +1915,13 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
 --        if SCR_RAID_EVENT_20190102(nil , false) and admissionItemName == "Dungeon_Key01" then
         if IsBuffApplied(user, "Event_Unique_Raid_Bonus") == "YES" and admissionItemName == "Dungeon_Key01" then
             nowAdmissionItemCount = admissionItemCount
-        end 
-        
+        elseif IsBuffApplied(pc, "Event_Unique_Raid_Bonus_Limit") == "YES" and admissionItemName == "Dungeon_Key01" then
+            local accountObject = GetMyAccountObj(pc)
+            if TryGetProp(accountObject, "EVENT_UNIQUE_RAID_BONUS_LIMIT") > 0 then
+                nowAdmissionItemCount = admissionItemCount
+            end
+        end
+
         local cnt = GetInvItemCount(user, admissionItemName)
         local invItem = session.GetInvItemByName(indunCls.AdmissionItemName);
         

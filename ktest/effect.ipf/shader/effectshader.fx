@@ -366,6 +366,7 @@ float4 PS_MultiplyProcessInstancing(in float4 diffuse : COLOR,
 #endif
 
 	finalColor.rgb *= g_overrideAlpha; 
+finalColor.a *= g_overrideAlpha;
 
 	return finalColor;
 }

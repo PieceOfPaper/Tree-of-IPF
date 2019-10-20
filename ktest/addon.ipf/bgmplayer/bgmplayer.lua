@@ -7,9 +7,6 @@ function BGMPLAYER_ON_INIT(addon, frame)
     if IsBgmPlayerBasicFrameVisible() == 1 then
         BGMPLAYER_OPEN_UI();
         BGMPLAYER_FRAME_SET_POS(frame);
-        if IsBeingPlayedFromBgmPlayer() == 1 then
-            BGMPLAYER_UPDATE_PLAY_TIEM(frame);
-        end
     end
 end
 
@@ -146,13 +143,6 @@ function BGMPLAYER_NOT_PLAYED_AREA_CHECK(frame)
     return 1;
 end
 
-function BGMPLAYER_UPDATE_PLAY_TIEM(frame)
-    local timeText = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_playtime");
-    if timeText == nil then return; end
-    timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-    timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-end
-
 function BGMPLAYER_OPEN_UI(frame, btn)
     if IsBgmPlayerReductionFrameVisible() == 1 then
         return;
@@ -162,7 +152,6 @@ function BGMPLAYER_OPEN_UI(frame, btn)
     if IsNotPlayArea() == false then
         ui.OpenFrame("bgmplayer"); 
         SetBgmPlayerBasicFrameVisible(1);
-        
         local bgmPlayer_frame = ui.GetFrame("bgmplayer");
         if bgmPlayer_frame == nil then return; end
         BGMPLAYER_PRE_CHECK_CTRL(bgmPlayer_frame);
@@ -732,11 +721,6 @@ function BGMPLAYER_PLAY(frame, btn)
                     SetPauseTime(0);
                 end
                 BGMPLAYER_PLAYTIME_GAUGE(startTime, totalTime);
-
-                local timeText = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_playtime");
-                if timeText == nil then return end
-                timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-                timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
             end
 
             if btn:GetImageName() == startImageName then
@@ -778,21 +762,6 @@ function BGMPLAYER_REPLAY(argStr, argNum, argValue)
     end
 
     BGMPLAYER_PLAYTIME_GAUGE(startTime, totalTime);
-
-    if IsBgmPlayerBasicFrameVisible() == 1 then
-        local timeText = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_playtime");
-        if timeText == nil then return; end
-        timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-        timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-    elseif IsBgmPlayerReductionFrameVisible() == 1 then
-        local reduction_frame = ui.GetFrame("bgmplayer_reduction");
-        if reduction_frame == nil then return; end
-        
-        local timeText = GET_CHILD_RECURSIVELY(reduction_frame, "bgm_mugic_playtime");
-        if timeText == nil then return; end
-        timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-        timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-    end
 end
 
 function BGMPLAYER_PLAYTIME_GAUGE(curtime, maxtime)
@@ -804,82 +773,6 @@ function BGMPLAYER_PLAYTIME_GAUGE(curtime, maxtime)
 
     gauge:SetMaxPointWithTime(curtime, maxtime, 0.1, 0.5);
     gauge:ShowWindow(1);
-end
-
-function UPDATE_BGMPLAYER_PLAYTIME(textTimer)
-    if IsBgmPause() == 1 then 
-        local totalTime = GetPlayBgmTotalTime() / 1000;
-        local pauseTime = GetBgmPauseTime() / 1000;
-        local pause_remainTime = totalTime - pauseTime;
-        local pause_remainMin = math.floor(pause_remainTime / 60);
-        local pause_remainSec = pause_remainTime % 60;
-        local pause_remainTimeStr = string.format('%d:%02d', pause_remainMin, pause_remainSec);
-
-        if pause_remainSec <= 0 then
-            pause_remainTimeStr = string.format('%d:%02d', 0, 0)
-        end
-
-        textTimer:SetTextByKey("value", pause_remainTimeStr);
-        BGMPLAYER_REDUCTION_SET_PLAYBTN(false);
-        return 0; 
-    end 
-
-    local frame = ui.GetFrame("bgmplayer");
-    if frame == nil then return 0; end
-
-    local remainTime = GetPlayBgmLeftTime() / 1000;
-    if remainTime <= 1 then
-        local mode = tonumber(frame:GetUserValue("MODE_ALL_LIST"));
-        local option = tonumber(frame:GetUserValue("MODE_FAVO_LIST"));
-        local bgmType = GET_BGMPLAYER_MODE(frame, mode, option);
-        local playRandom = tonumber(frame:GetUserConfig("PLAY_RANDOM"));
-        local playRepeat = tonumber(frame:GetUserConfig("PLAY_REPEAT"));
-        if playRandom == 1 then
-            SetRandomPlay(playRandom, bgmType, option);
-        elseif playRandom == 0 then
-            SetRandomPlay(playRandom, bgmType, option);
-        end
-       
-        local curIndex = 0;
-        if bgmType == 1 then
-            local index = GetBgmCurIndex();
-            if playRandom == 0 and playRepeat == 0 then
-                index = index + 1;
-            end
-            curIndex = index;
-        elseif bgmType == 0 then
-            local index = GetBgmCurFVIndex();
-            if playRandom == 0 and playRepeat == 0 then
-                index = index + 1;
-            end
-            curIndex = index;
-        end
-
-        BGMPLAYER_SEQUENCE_PLAY(bgmType, curIndex);
-        textTimer:SetTextByKey('time', "00:00");
-        return 0;
-    end
-
-    local gauge = GET_CHILD_RECURSIVELY(frame, "bgmplayer_timegauge");
-    if gauge == nil then return 0; end
-
-    local remainMin = math.floor(remainTime / 60);
-	local remainSec = remainTime % 60;
-	local remainTimeStr = string.format('%d:%02d', remainMin, remainSec);
-    textTimer:SetTextByKey("value", remainTimeStr);
-
-    local elapsedTime = GetPlayBgmElapsedTime();
-    SetCurElapsedTime(elapsedTime);
-    gauge:SetCurPoint(elapsedTime / 1000);
-
-    local limitTime = GetPlayBgmTotalTime();
-    if limitTime == nil then return 0; end
-    divideLimitTime = limitTime / 1000;
-
-    BGMPLAYER_PLAYTIME_GAUGE(elapsedTime / 1000, divideLimitTime);
-    BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
-    BGMPLAYER_CONTROL_LIMIT(frame, IsControlLimits());
-    return 1;
 end
 
 function BGMPLAYER_SEQUENCE_PLAY(type, curIndex)
@@ -945,11 +838,6 @@ function BGMPLAYER_SEQUENCE_PLAY(type, curIndex)
                     BGMPLAYER_SET_MUSIC_TITLE(frame, parent, child);
                     BGMPLAYER_SINGULAR_SELECTION_LISTINDEX(child);
                     BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
-                    
-                    local timeText = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_playtime");
-                    if timeText == nil then return end
-                    timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-                    timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
                     break;
                 end
             end
@@ -1000,11 +888,6 @@ function BGMPLAYER_PLAY_RANDOM(frame, curIndex)
                 BGMPLAYER_REDUCTION_SET_TITLE(musicTitle[2]);
                 BGMPLAYER_SINGULAR_SELECTION_LISTINDEX(child);
                 BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
-
-                local timeText = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_playtime");
-                if timeText == nil then return end
-                timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-                timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
             end
         end
     end
@@ -1079,11 +962,6 @@ function BGMPLAYER_PLAY_PREVIOUS_BGM(frame, btn)
                 BGMPLAYER_REDUCTION_SET_TITLE(musicTitle[2]);
                 BGMPLAYER_SINGULAR_SELECTION_LISTINDEX(child);
                 BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
-
-                local timeText = GET_CHILD_RECURSIVELY(topFrame, "bgm_mugic_playtime");
-                if timeText == nil then return end
-                timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-                timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
             end
         end
     end
@@ -1158,11 +1036,6 @@ function BGMPLAYER_PLAY_NEXT_BGM(frame, btn)
                 BGMPLAYER_REDUCTION_SET_TITLE(musicTitle[2]);
                 BGMPLAYER_SINGULAR_SELECTION_LISTINDEX(child);
                 BGMPLAYER_REDUCTION_SET_PLAYBTN(true);
-
-                local timeText = GET_CHILD_RECURSIVELY(topFrame, "bgm_mugic_playtime");
-                if timeText == nil then return end
-                timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-                timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
             end
         end
     end
@@ -1725,19 +1598,4 @@ function GET_BGMPLAYER_MUSIC_TITLE(minIndex, maxIndex, musicTitle)
     end
 
     return musicTitle[2];
-end
-
-function BGMPLAYER_CONTROL_LIMIT(frame, isLimit)
-    if IsBgmPlayerBasicFrameVisible() == 1 then
-        --local minimization_btn = GET_CHILD_RECURSIVELY(frame, "minimization_btn");
-        --local close_btn = GET_CHILD_RECURSIVELY(frame, "close_btn");
-    elseif IsBgmPlayerReductionFrameVisible() == 1 then
-        frame = ui.GetFrame("bgmplayer_reduction");
-    end
-
-    if isLimit == 1 then
-        --frame:EnableHitTest(0);
-    else
-        --frame:EnableHitTest(1);
-    end
 end

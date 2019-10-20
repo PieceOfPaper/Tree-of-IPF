@@ -1540,15 +1540,17 @@ function DELETE_SKILLICON_QUICKSLOTBAR(frame, msg, argStr, argNum)
 				if icon ~= nil then
 					tolua.cast(icon, "ui::CIcon");
 					local skill_id = icon:GetTooltipNumArg();
-					if skill_id ~= 0 and GetClassString('Skill', skill_id, 'Icon') ~= 'None' and skill_id == id then
-						icon:SetTooltipNumArg(0);
-						slot:ClearIcon();
-						QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);
-               			SET_QUICKSLOT_OVERHEAT(slot);
-						CLEAR_QUICKSLOT_SLOT(slot, 0, true);
-						isCheckQuickSlot = true;
+					if skill_id == id then
+						if skill_id ~= 0 and GetClassString('Skill', skill_id, 'Icon') ~= 'None' then
+							icon:SetTooltipNumArg(0);
+							slot:ClearIcon();
+							QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);
+							SET_QUICKSLOT_OVERHEAT(slot);
+							CLEAR_QUICKSLOT_SLOT(slot, 0, true);
+							isCheckQuickSlot = true;
 
-						slot:Invalidate();
+							slot:Invalidate();
+						end
 					end
 				end
 			end
@@ -1561,15 +1563,17 @@ function DELETE_SKILLICON_QUICKSLOTBAR(frame, msg, argStr, argNum)
 				if icon ~= nil then
 					tolua.cast(icon, "ui::CIcon")
 					local skill_id = icon:GetTooltipNumArg()
-					if skill_id ~= 0 and GetClassString('Skill', skill_id, 'Icon') ~= 'None' and skill_id == id then
-						icon:SetTooltipNumArg(0)
-						jslot:ClearIcon();
-						QUICKSLOT_SET_GAUGE_VISIBLE(jslot, 0);
-						SET_QUICKSLOT_OVERHEAT(jslot);
-						CLEAR_QUICKSLOT_SLOT(jslot, 0, true);
-						isCheckJoyStickQuickSlot = true; 
+					if skill_id == id then
+						if skill_id ~= 0 and GetClassString('Skill', skill_id, 'Icon') ~= 'None' then
+							icon:SetTooltipNumArg(0)
+							jslot:ClearIcon();
+							QUICKSLOT_SET_GAUGE_VISIBLE(jslot, 0);
+							SET_QUICKSLOT_OVERHEAT(jslot);
+							CLEAR_QUICKSLOT_SLOT(jslot, 0, true);
+							isCheckJoyStickQuickSlot = true; 
 
-						jslot:Invalidate();       
+							jslot:Invalidate();       
+						end
 					end
 				end
 			end

@@ -64,6 +64,7 @@ function DRAW_DEBUFF_UI_EFECT(handle, buffType)
 end
 
 function MONBASE_GAUGE_SET(frame, targetinfo)
+    if targetinfo == nil then return; end
     local nameRichText = GET_CHILD(frame, "name", "ui::CRichText");
     local stat = targetinfo.stat;
     local hpGauge = GET_CHILD(frame, "hp", "ui::CGauge");

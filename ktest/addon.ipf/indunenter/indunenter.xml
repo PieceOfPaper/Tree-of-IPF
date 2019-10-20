@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by asdasd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="indunenter" x="0" y="0" width="1020" height="650" create="open">
 	<frame titlepos="0 0" layout_gravity="center center" margin="-100 -100 0 0"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
@@ -91,7 +91,7 @@
 		<button name="smallUnderstaffEnterAllowBtn" parent="smallmode" rect="0 0 200 55" layout_gravity="center bottom" margin="0 0 0 75" oversound="button_over" format="{@st41b}4인 이하 입장" LBtnUpScp="INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW" skin="test_gray_button"/>
 		<!-- Header -->
 		<groupbox name="header" rect="0 0 720 40" margin="0 0 0 0" layout_gravity="left top" hittestbox="false" scrollbar="false" skin="none"/>
-		<button name="closeBtn" parent="header" rect="0 0 40 40" margin="0 8 0 0" layout_gravity="right top" image="indun_close_btn" LBtnUpScp="INDUNENTER_CLOSE"/>
+		<button name="closeBtn" parent="header" rect="0 0 40 40" margin="0 8 0 0" layout_gravity="right top" image="indun_close_btn" LBtnUpScp="INDUNENTER_CLOSEBUTTON_PRESSED"/>
 		<button name="smallBtn" parent="header" rect="0 0 40 40" margin="0 8 35 0" layout_gravity="right top" image="indun_small_btn" LBtnUpScp="INDUNENTER_SMALL"/>
 		<richtext name="indunName" parent="header" rect="0 0 400 40" margin="0 5 0 0" layout_gravity="center center" fontname="white_20_ol" caption="카타콤 지하 던전 입구" hittest="false"/>
 	</controls>

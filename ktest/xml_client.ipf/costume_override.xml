@@ -2,9 +2,14 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!--CustomeName은 item_equip에 있는 fileName 기준임-->
 <costume_override>
+	<List CustomName="swordman01_3">
+		<Data>
+			<Effect Name="F_buff_warrior_bear" ChangeName="F_buff_warrior_bear01_3" ChangeNode="None" ChangeScale="1" BuffState="None" Moving="None"/>
+		</Data>
+	</List>
 	<List CustomName="CLERIC01_3">
 		<Data>
-			<Effect Name="F_cleric_heal_active_ground" ChangeName="F_cleric_heal_active_ground_cleric01_3" ChangeNode="None" ChangeScale="1" BuffState="None" Moving="None"/>
+			<Effect Name="F_cleric_heal_active_ground_new" ChangeName="F_cleric_heal_active_ground_cleric01_3_new" ChangeNode="None" ChangeScale="1" BuffState="None" Moving="None"/>
 			<Effect Name="F_cleric_heal_loop_ground" ChangeName="F_cleric_heal_loop_ground_cleric01_3" ChangeNode="None" ChangeScale="1" BuffState="None" Moving="None"/>
 			<Sound Name="skl_cleric_heal_shot" ChangeName="skl_cleric_heal_shot_3"/>
 		</Data>

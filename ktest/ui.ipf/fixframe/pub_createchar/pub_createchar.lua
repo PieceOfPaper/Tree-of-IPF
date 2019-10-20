@@ -240,6 +240,11 @@ function OPEN_PUB_CREATECHAR(frame)
 	PUB_CUSTOM_PREVIEW_INIT(frame);
 	PUB_CUSTOM_ROTATE_INIT(frame);
 
+	local input_name = GET_CHILD_RECURSIVELY(frame, "input_name");
+	if input_name ~= nil then
+		input_name:SetText("");
+	end
+
 	local input_name_text = GET_CHILD_RECURSIVELY(frame, "input_name_text");
 	if input_name_text ~= nil then
 		input_name_text:SetTextByKey("value", ClMsg("pubcreate_input_name_title"));
@@ -456,6 +461,10 @@ function PUB_CUSTOM_HAIR_SELECT(frame, slot)
 	slotIndex = tonumber(slotIndex[3]);
 	frame:SetUserValue("HAIR_SELECT_INDEX", slotIndex);
 
+	if prvIndex == nil then
+		prvIndex = slotIndex;
+	end
+
 	if prvIndex ~= slotIndex then
 		local slotName = "HAIR_SLOT_"..prvIndex;
 		PUB_CUSTOM_SLOT_SELECT_CLEAR(frame, slotName);
@@ -613,6 +622,10 @@ function PUB_CUSTOM_COSTUME_SELECT(frame, slot)
 	if index == nil then return; end
 	frame:SetUserValue("COSTUME_SELECT_INDEX", index);
 
+	if prvIndex == nil then
+		prvIndex = index;
+	end
+
 	if prvIndex ~= index then
 		local slotName = "COSTUME_SLOT_"..prvIndex;
 		PUB_CUSTOM_SLOT_SELECT_CLEAR(frame, slotName);
@@ -681,6 +694,7 @@ function PUB_CUSTOM_POSE_SELECT(frame, slot)
 	local poseName = poseSplit[3];
 	if poseName == nil then return; end
 	frame:SetUserValue("POSE_SELECT_NAME", poseName);
+	
 	if prvName ~= poseName then
 		local slotName = "POSE_SLOT_"..prvName;
 		PUB_CUSTOM_SLOT_SELECT_CLEAR(frame, slotName);

@@ -1,4 +1,4 @@
---- calc_property_skill.lua
+﻿--- calc_property_skill.lua
 function GET_SKL_VALUE(skill, startValue, maxValue)
     local maxLv = 100;
     local curLv = skill.Level;
@@ -58,7 +58,7 @@ function SCR_GET_SKL_CoolDown(skill)
     elseif coolDownClassify == "Add" then
         value = zoneAddCoolDown + value
     end
-    
+
     return value;
 
 end
@@ -174,18 +174,23 @@ function SCR_Get_SpendSP(skill)
     end
     value = value - decsp;
     
-    if IsBuffApplied(pc, "Gymas_Buff") == "YES" then
-        local ratio = 0.25;
-        
-        local isDragonPower = GetExProp(pc, 'ITEM_DRAGON_POWER')
-        if tonumber(isDragonPower) >= 1 then
-            ratio = ratio + 0.25
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        decsp = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "SpendSP", value)
+    else
+        if IsBuffApplied(pc, "Gymas_Buff") == "YES" then
+            local ratio = 0.25;
+            
+            local isDragonPower = GetExProp(pc, 'ITEM_DRAGON_POWER')
+            if tonumber(isDragonPower) >= 1 then
+                ratio = ratio + 0.25
+            end
+            
+            decsp = value * ratio
         end
-        
-        decsp = value * ratio
     end
+    ----------
     value = value - decsp;
-    
     if value < 1 then
         value = 0
     end
@@ -193,12 +198,11 @@ function SCR_Get_SpendSP(skill)
     if skill.ClassName == "Scout_Cloaking" and IsBattleState(pc) == 1 and (IsPVPServer(pc) == 1 or IsPVPField(pc) == 1) then
         return 0
     end
-    
     return math.floor(value);
 end
 
 function SCR_Get_SpendSP_Magic(skill)
-    local value = SCR_Get_SpendSP(skill)    
+    local value = SCR_Get_SpendSP(skill)
 --    local basicsp = skill.BasicSP;
 --    local lv = skill.Level;
 --    local lvUpSpendSp = skill.LvUpSpendSp;
@@ -534,6 +538,9 @@ function SCR_GET_SKL_COOLDOWN(skill)
         end
     end
     
+    
+    
+    
     local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
     if laimaCoolTime ~= 0 then
         basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
@@ -541,19 +548,23 @@ function SCR_GET_SKL_COOLDOWN(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
-    end
-    
-    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-            basicCoolDown = basicCoolDown * 0.5;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
         end
     end
-    
+    -----------
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
-    
     if coolDownClassify == "Fix" then
         ret = zoneAddCoolDown;
     elseif coolDownClassify == "Add" then
@@ -576,9 +587,16 @@ function SCR_GET_SKL_COOLDOWN_KaguraDance(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
     end
+    -----------
+    
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -606,16 +624,21 @@ function SCR_GET_SKL_COOLDOWN_BUNSIN(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
-    end
-    
-    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-            basicCoolDown = basicCoolDown * 0.5;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
         end
     end
-    
+    -------------
+
     if IsBuffApplied(pc, "Bunshin_Debuff") == "YES" then
 --      local bunshinBuff = nil
 --      local bunsinCount = nil
@@ -657,16 +680,23 @@ function SCR_GET_SKL_COOLDOWN_PrimeAndLoad(skill)
     elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
         basicCoolDown = basicCoolDown * 1.2;
     end
-    
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
-    end
-    
-    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-            basicCoolDown = basicCoolDown * 0.5;
+
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
         end
     end
+    ----------------
+
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;   
     return math.floor(ret);
@@ -693,15 +723,22 @@ function SCR_GET_SKL_COOLDOWN_CounterSpell(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
-    end
-    
-    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-            basicCoolDown = basicCoolDown * 0.5;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
         end
     end
+    -----------------
     
     local ret = math.floor(basicCoolDown) / 1000
     
@@ -737,15 +774,21 @@ function SCR_GET_SKL_CoolDown_BackSlide(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
-    end
-    
-    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-            basicCoolDown = basicCoolDown * 0.5;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
         end
     end
+    ----------------
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -773,15 +816,21 @@ function SCR_GET_SKL_CoolDown_Prevent(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
-    end
-    
-    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-            basicCoolDown = basicCoolDown * 0.5;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
         end
     end
+    ------------
     
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;
@@ -827,9 +876,15 @@ function SCR_GET_SKL_COOLDOWN_Golden_Bell_Shield(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
     end
+    -----------------
     
     if IsPVPServer(pc) == 1 then
         basicCoolDown = basicCoolDown + 10000;
@@ -852,15 +907,21 @@ function SCR_GET_SKL_COOLDOWN_VisibleTalent(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
-    end
-    
-    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-            basicCoolDown = basicCoolDown * 0.5;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
         end
     end
+    ---------------
     
     local ret = math.floor(basicCoolDown) / 1000
     
@@ -883,15 +944,21 @@ function SCR_GET_SKL_COOLDOWN_Chronomancer_Stop(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
-    end
-    
-    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-            basicCoolDown = basicCoolDown * 0.5;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
         end
     end
+    ----------------
     
     local ret = math.floor(basicCoolDown) / 1000
     
@@ -937,10 +1004,15 @@ function SCR_GET_SKL_COOLDOWN_WIZARD(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
     end
-    
+    ------------
     if basicCoolDown < skill.MinCoolDown then
         return skill.MinCoolDown;
     end
@@ -969,9 +1041,15 @@ function SCR_GET_SKL_COOLDOWN_SummonFamiliar(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
     end
+    -----------
     
     if basicCoolDown < skill.MinCoolDown then
         return skill.MinCoolDown;
@@ -997,15 +1075,21 @@ function SCR_GET_SKL_COOLDOWN_Bloodletting(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
-    end
-    
-    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-            basicCoolDown = basicCoolDown * 0.5;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
         end
     end
+    -------------
     
     if IsPVPServer(pc) == 1 then
         basicCoolDown = basicCoolDown + 20000;
@@ -1029,16 +1113,22 @@ function SCR_GET_SKL_COOLDOWN_HealingFactor(skill)
     elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
         basicCoolDown = basicCoolDown * 1.2;
     end
-    
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
-    end
-    
-    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-            basicCoolDown = basicCoolDown * 0.5;
+
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
         end
     end
+    ------------
     
     if IsPVPServer(pc) == 1 then
         basicCoolDown = basicCoolDown + 20000;
@@ -1063,9 +1153,15 @@ function SCR_GET_SKL_COOLDOWN_GravityPole(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
     end
+    ----------
     
     if IsPVPServer(pc) == 1 then
         basicCoolDown = basicCoolDown + 15000;
@@ -2740,15 +2836,21 @@ function SCR_GET_SKL_COOLDOWN_MortalSlash(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
-    end
-    
-    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-            basicCoolDown = basicCoolDown * 0.5;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
         end
     end
+    ----------
     
     if IsBuffApplied(pc, "Bunshin_Debuff") == "YES" then
         local bunshinBuff = nil
@@ -3941,15 +4043,22 @@ function SCR_GET_SKL_COOLDOWN_CannonBarrage(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
-    end
-    
-    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
-        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
-            basicCoolDown = basicCoolDown * 0.5;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
         end
     end
+    ----------
+
     local ret = math.floor(basicCoolDown) / 1000
     ret = math.floor(ret) * 1000;   
     return math.floor(ret);
@@ -4476,7 +4585,7 @@ end
 function SCR_GET_GatherCorpse_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = 2.5 * skill.Level
+    local value = 5 * skill.Level
 
     return value
 
@@ -4484,7 +4593,7 @@ end
 
 function SCR_GET_GatherCorpse_Time(skill)
     local pc = GetSkillOwner(skill);
-    local value = 5
+    local value = 10
 
     return value
 end
@@ -6381,17 +6490,22 @@ function SCR_Get_SummonSalamion_BuffTime(skill)
 end
 
 
-function SCR_Get_SummonSalamion_Ratio2(skill)
-    local pc = GetSkillOwner(skill)
-    return pc.Lv
+function SCR_Get_SummonSalamion_Ratio(skill)
+    local value = 12.8 + (skill.Level * 4.48);
+    return value;
 end
 
-function SCR_Get_SummonSalamion_Ratio(skill)
-    local value = 5 + (skill.Level * 3);
+function SCR_Get_SummonSalamion_Ratio2(skill)
+    local value = 16 + (skill.Level * 5.6);
     
     return value;
 end
 
+function SCR_Get_SummonSalamion_Ratio3(skill)
+    local value = 24 + (skill.Level * 8.4);
+    
+    return value;
+end
 
 function SCR_Get_SummonServant_Ratio(skill)
     local value = skill.Level
@@ -6462,7 +6576,13 @@ function SCR_GET_Quicken_Bufftime(skill)
 end
 
 function SCR_GET_Samsara_Bufftime(skill)
-    return 5 + skill.Level * 1
+    local pc = GetSkillOwner(skill)
+    local value = 5 + skill.Level * 1
+    -- 팀 배틀리그 토너먼트만 해당함 -------
+    if IsPVPServer(pc) == 1 then
+        value = value * 0.5
+    end
+    return value
 end
 
 function SCR_GET_Stop_Time(skill)
@@ -6495,29 +6615,18 @@ function SCR_Get_Haste_Bufftime(skill)
 end
 
 function SCR_Get_CreateShoggoth_Ratio(skill)
-    local value = 10 + (skill.Level * 5);
+    local value = skill.Level * 20;
     return math.floor(value);
 end
 
 function SCR_Get_CreateShoggoth_Ratio2(skill)
-    local value = 10;
+    local value = skill.Level * 20;
     return math.floor(value);
 end
 
 function SCR_Get_CreateShoggoth_Ratio3(skill)
-    local value = 100
-    local masterValue = 0
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Necromancer5")
-    if abil ~= nil then
-        if abil.Level == 100 then
-            masterValue = 10
-        end
-        
-        value = value + abil.Level * 0.5 + masterValue;
-    end
-    
-    return value;
+    local value = skill.Level * 20;
+    return math.floor(value);
 end
 
 function SCR_Get_CreateShoggoth_Parts(skill)
@@ -7504,88 +7613,57 @@ function SCR_GET_CorpseTower_Ratio2(skill)
 end
 
 function SCR_GET_CorpseTower_Ratio3(skill)
---    local value = 100
---    local masterValue = 0
---    local pc = GetSkillOwner(skill);
---    local abil = GetAbility(pc, "Necromancer6")
---    if abil ~= nil then
---        if abil.Level == 100 then
---            masterValue = 10
---        end
---        
---      value = value + abil.Level * 0.5 + masterValue;
---    end
-    local value = 100 + (skill.Level * 4)
-    
+    local value = 19.2 + (skill.Level * 10.08)
     return value;
 end
 
 function SCR_GET_RaiseDead_Ratio(skill)
-    local value = skill.Level
+    local value = 12.8 + (skill.Level * 13.44);
     return math.floor(value);
 
 end
 
 function SCR_GET_RaiseDead_Ratio2(skill)
-   local value = 5
+   local value = 32 + (skill.Level * 33.6);
    return math.floor(value);
 end
 
 function SCR_GET_RaiseDead_Ratio3(skill)
---    local value = 100
---    local masterValue = 0
---    local pc = GetSkillOwner(skill);
---    local abil = GetAbility(pc, "Necromancer7")
---    if abil ~= nil then
---        if abil.Level == 100 then
---            masterValue = 10
---        end
---        
---      value = value + abil.Level * 0.5 + masterValue;
---    end
-        
-    local value = 100 + (skill.Level * 10)
+    local value = 16 + (skill.Level * 16.8);
     
     return value;
 end
 
 function SCR_GET_RaiseSkullarcher_Ratio(skill)
-    local value = skill.Level
+    local value = 16 + (skill.Level * 16.8);
     return math.floor(value);
 
 end
 
 function SCR_GET_RaiseSkullarcher_Ratio2(skill)
-   local value = 5
+    local value = 16 + (skill.Level * 16.8);
     return math.floor(value);
 
 end
 
 function SCR_GET_RaiseSkullarcher_Ratio3(skill)
---    local value = 100
---    local masterValue = 0
---    local pc = GetSkillOwner(skill);
---    local abil = GetAbility(pc, "Necromancer10")
---    if abil ~= nil then
---        if abil.Level == 100 then
---            masterValue = 10
---        end
---        
---      value = value + abil.Level * 0.5 + masterValue;
---    end
-        
-    local value = 100 + (skill.Level * 10)
+    local value = 12.8 + (skill.Level * 13.44);
     
     return value;
 end
 
+function SCR_GET_RaiseSkullWizard_Ratio(skill)
+   local value = 16 + (skill.Level * 16.8);
+   return math.floor(value);
+end
+
 function SCR_GET_RaiseSkullWizard_Ratio2(skill)
-   local value = 5
+   local value = 16 + (skill.Level * 16.8);
    return math.floor(value);
 end
 
 function SCR_GET_RaiseSkullWizard_Ratio3(skill)
-    local value = 100 + (skill.Level * 10)
+    local value = 8 + (skill.Level * 8.4)
     
     return value;
 end
@@ -8193,6 +8271,16 @@ end
 
 function SCR_GET_Prophecy_Ratio(skill)
     return skill.Level;
+end
+
+function SCR_GET_Prophecy_Time(skill)
+    local value = 30
+    -- 팀 배틀리그 토너먼트만 적용됨 ----
+    local pc = GetSkillOwner(skill);
+    if IsPVPServer(pc) == 1 then
+        value = 10;
+    end
+    return value;
 end
 
 function SCR_GET_Foretell_Time(skill)
@@ -10370,6 +10458,12 @@ function SCR_Get_Summoning_Ratio(skill)
     return value;
 end
 
+function SCR_Get_Summoning_Ratio2(skill)
+    local value = 24 + (skill.Level * 8.4);
+    
+    return value;
+end
+
 function SCR_Get_Electrocute_Ratio(skill)
     local value = 1 + (2 + skill.Level * 0.5)
     return math.floor(value);
@@ -12088,9 +12182,15 @@ function SCR_GET_SKL_COOLDOWN_Preparation(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
     end
+    --------------
     
     return math.floor(basicCoolDown);
 end
@@ -12109,9 +12209,15 @@ function SCR_GET_SKL_COOLDOWN_KnifeThrowing(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
-    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
-        basicCoolDown = basicCoolDown * 0.9;
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
     end
+    ---------------
 
     return math.floor(basicCoolDown);
 end
@@ -12448,4 +12554,14 @@ function SCR_GET_SPRIMKLESANDSTIME(skill)
     local value = skill.Level * 0.2
 
     return value
+end
+
+function SCR_Get_SkillFactor_EctoplasmExplosion(skill)
+    local pc = GetSkillOwner(skill);
+    local OutofBodySkill = GetSkill(pc, "Sadhu_OutofBody")
+    local value = 0
+    if OutofBodySkill ~= nil then
+        value = OutofBodySkill.SkillFactor;
+    end
+    return math.floor(value)
 end

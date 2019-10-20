@@ -298,7 +298,7 @@
 							<Str Str="Samsara_Abil_Buff" />
 							<Num FuncTxt="return obj.Level;" Num="0" UseFunc="1" />
 							<Num Num="0" />
-							<Num FuncTxt="return 5000 + obj.Level * 1000" Num="0" UseFunc="1" />
+							<Num FuncTxt="local value = 5000 + obj.Level * 1000; if IsPVPServer(self) == 1 then value = value * 0.5 end return value" Num="0" UseFunc="1" />
 							<Num Num="1" />
 							<Num Num="100" />
 							<Num Num="1" />

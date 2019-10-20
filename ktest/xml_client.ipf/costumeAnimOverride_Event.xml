@@ -42,7 +42,7 @@
 				</Job>
 			</Motion>
 			<Motion Name="STD_RIDE">
-				<Job Name="All">
+				<Job Name="All" LoopTime="500">
 					<Event>
 						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="F_light141" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
 					</Event>
@@ -87,7 +87,7 @@
 				</Job>
 			</Motion>
 			<Motion Name="STD">
-				<Job Name="All">
+				<Job Name="All" LoopTime="500">
 					<Event>
 						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="F_light141" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
 					</Event>
@@ -138,7 +138,7 @@
 				</Job>
 			</Motion>
 			<Motion Name="STD_RIDE">
-				<Job Name="All">
+				<Job Name="All" LoopTime="500">
 					<Event>
 						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="F_light141" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
 					</Event>
@@ -159,7 +159,7 @@
 				</Job>
 			</Motion>
 			<Motion Name="STD">
-				<Job Name="All">
+				<Job Name="All" LoopTime="500">
 					<Event>
 						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="F_light141" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
 					</Event>
@@ -206,7 +206,7 @@
 				</Job>
 			</Motion>
 			<Motion Name="STD_RIDE">
-				<Job Name="All">
+				<Job Name="All" LoopTime="500">
 					<Event>
 						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="F_light141" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
 					</Event>
@@ -251,7 +251,7 @@
 				</Job>
 			</Motion>
 			<Motion Name="STD">
-				<Job Name="All">
+				<Job Name="All" LoopTime="500">
 					<Event>
 						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="F_light141" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
 					</Event>
@@ -298,7 +298,7 @@
 				</Job>
 			</Motion>
 			<Motion Name="STD_RIDE">
-				<Job Name="All">
+				<Job Name="All" LoopTime="500">
 					<Event>
 						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="F_light141" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
 					</Event>
@@ -343,7 +343,7 @@
 				</Job>
 			</Motion>
 			<Motion Name="STD">
-				<Job Name="All">
+				<Job Name="All" LoopTime="500">
 					<Event>
 						<Particle frame="0" attachNode="Bone_cloak_B05" particleName="F_light141" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
 					</Event>
@@ -832,17 +832,10 @@
 				</Job>
 			</Motion>
 			<Motion Name="STD">
-				<Job Name="All">
+				<Job Name="All" LoopTime="200">
 					<Event>
 						<Particle frame="0" attachNode="Bip01 Head" particleName="I_pc_costume_vampire01_bat" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false"/>
 						<Particle frame="0" attachNode="Bip01 Spine2" particleName="F_pc_costume_vampire01_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
-					</Event>
-				</Job>
-				<Job Name="Cleric">
-					<Event>
-						<Particle frame="0" attachNode="Bip01 Head" particleName="I_pc_costume_vampire01_bat3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false"/>
-						<Particle frame="0" attachNode="Bip01 Spine2" particleName="F_pc_costume_vampire01_smoke3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="false"/>
-						<Particle frame="2" attachNode="Bip01 Head" particleName="I_pc_costume_vampire01_bat3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -1899,6 +1892,42 @@
 						<Particle frame="5" attachNode="Dummy003" particleName="F_light155" useAttach="true" hiddenObj="false" scale="0.8" pause="true" use2DEffect="true" soft2DValue="20"/>
 						<Particle frame="5" attachNode="Dummy002" particleName="F_light155" useAttach="true" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
 						<Particle frame="5" attachNode="Dummy004" particleName="F_light155" useAttach="true" hiddenObj="false" scale="0.8" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="accessory_qosneon1">
+			<Motion Name="KNOCKDOWN">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_effect_head4" particleName="I_rize011_violet2" useAttach="true" hiddenObj="false" scale="0.85" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_effect_head4" particleName="I_rize011_violet3" useAttach="true" hiddenObj="false" scale="0.85" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="2019halloween_shield">
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effect01" particleName="F_smoke191_blue" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="5" attachNode="Dummy_effect02" particleName="F_smoke191_blue" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effect01" particleName="F_smoke191_blue" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="5" attachNode="Dummy_effect02" particleName="F_smoke191_blue" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="20" attachNode="Dummy_effect01" particleName="F_smoke191_blue" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="20" attachNode="Dummy_effect02" particleName="F_smoke191_blue" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -2983,7 +3012,7 @@
 				</Job>
 			</Motion>
 			<Motion Name="STD">
-				<Job Name="All">
+				<Job Name="All" LoopTime="200">
 					<Event>
 						<Particle frame="0" attachNode="Bip01 Head" particleName="I_pc_costume_vampire01_bat" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false"/>
 						<Particle frame="0" attachNode="Bip01 Spine2" particleName="F_pc_costume_vampire01_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
@@ -4078,6 +4107,42 @@
 						<Particle frame="5" attachNode="Dummy003" particleName="F_light155" useAttach="true" hiddenObj="false" scale="0.8" pause="true" use2DEffect="true" soft2DValue="20"/>
 						<Particle frame="5" attachNode="Dummy002" particleName="F_light155" useAttach="true" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
 						<Particle frame="5" attachNode="Dummy004" particleName="F_light155" useAttach="true" hiddenObj="false" scale="0.8" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="accessory_qosneon1">
+			<Motion Name="KNOCKDOWN">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_effect_head4" particleName="I_rize011_violet2" useAttach="true" hiddenObj="false" scale="0.85" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_effect_head4" particleName="I_rize011_violet3" useAttach="true" hiddenObj="false" scale="0.85" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="2019halloween_shield">
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effect01" particleName="F_smoke191_blue" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="5" attachNode="Dummy_effect02" particleName="F_smoke191_blue" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effect01" particleName="F_smoke191_blue" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="5" attachNode="Dummy_effect02" particleName="F_smoke191_blue" useAttach="true" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="20" attachNode="Dummy_effect01" particleName="F_smoke191_blue" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+						<Particle frame="20" attachNode="Dummy_effect02" particleName="F_smoke191_blue" useAttach="false" hiddenObj="false" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>

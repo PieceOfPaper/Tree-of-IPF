@@ -83,7 +83,29 @@
         <Effect Name="F_magic_prison_line_green"/>
         <Effect Name="F_item_drop_line_loop_green"/>
         <Effect Name="EVENT_1910_HALLOWEEN_TRICK"/>
-    </Category>
+        <Effect Name="EVENT_1911_HALLOWEENSPECTOR_BUFF"/>
+		<Effect Name="UNIQUE_RAID_MORINGPONIA"/>
+		<Effect Name="Tantaliser_Pad1"/>
+		<Effect Name="Tantaliser_Pad2"/>
+		<Effect Name="Tantaliser_Pad3"/>
+		<Effect Name="Tantaliser_Pad4"/>
+        <Effect Name="F_sys_target_boss##2"/>
+        <Effect Name="F_pc_skilltarget_violet"/>
+        <Effect Name="Rental_Shop"/>
+        <Effect Name="BuffObject"/>
+        <Effect Name="UNIQUE_RAID_MORINGPONIA_SOLO"/>
+		<Effect Name="Moringponia_Summon"/>
+		<Effect Name="None##1"/>
+		<Effect Name="Moringponia_Petrify"/>
+        <Effect Name="F_circle035_loop"/>
+        <Effect Name="F_buff_ground_rize_debuff_loop"/>
+        <Effect Name="E_HUEVILLAGE_58_4_MQ11_potal"/>
+        <Effect Name="NPC_SET"/>
+        <Effect Name="WAVE_MANAGER"/>
+    <Effect Name="F_rize022_ground_dark_loop"/>
+		<Effect Name="Tantaliser_Pad5"/>
+	<Effect Name="F_circle25_yellow"/>
+	</Category>
     <Category ID="146">
         <Effect Name="beginner"/>
         <Effect Name="Phase0"/>
@@ -108,6 +130,17 @@
         <Effect Name="F_buff_basic048"/>
         <Effect Name="Item_Moringponia_Staff"/>
         <Effect Name="STM_PIZZA_BUFF"/>
+        <Effect Name="MonGroup"/>
+        <Effect Name="F_burstup001_blue_light2"/>
+        <Effect Name="F_hit_candy_halloween2"/>
+        <Effect Name="F_hit_candy_halloween"/>
+        <Effect Name="Fever"/>
+        <Effect Name="MonGroup"/>
+        <Effect Name="F_burstup001_blue_light2"/>
+        <Effect Name="F_hit_candy_halloween"/>
+        <Effect Name="Fever"/>
+        <Effect Name="I_halloween_buff"/>
+        <Effect Name="Quset_3"/>
     </Category>
     <Category ID="135">
         <Effect Name="HaveToPutPetAtBarrack"/>
@@ -4782,6 +4815,10 @@
         <Effect Name="boss_Moringponia_heal"/>
         <Effect Name="boss_Moringponia_Petrify"/>
         <Effect Name="F_sys_target_boss##00.5"/>
+        <Effect Name="F_burstup003_mint"/>
+        <Effect Name="F_burstup048_fire_3"/>
+        <Effect Name="I_force003_green#Dummy_weapon02"/>
+        <Effect Name="I_archer_canon_force3#Dummy_weapon02"/>
     </Category>
     <Category ID="45">
         <Effect Name="Cleric_Barrier"/>

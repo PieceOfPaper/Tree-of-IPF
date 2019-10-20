@@ -1567,6 +1567,7 @@
 		<Class ClassID="21339" ClassName="Squire14AbilityAble" Data="천 마스터리: 재봉 장인 적용중"/>
 		<Class ClassID="21340" ClassName="Squire15AbilityAble" Data="가죽 마스터리: 세공 장인 적용중"/>
 		<Class ClassID="21341" ClassName="Squire16AbilityAble" Data="판금 마스터리: 제련 장인 적용중"/>
+    <Class ClassID="21347" ClassName="Ask_UnEnableEffectTransparency_Text" Data="퀘스트의 이펙트가 보이지 않을 수 있습니다. 설정을 적용 하시겠습니까?"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -5704,6 +5705,13 @@
 		<Class ClassID="41128" ClassName="EVENT_1909_MINI_FULLMOON_BUFF_RESULT_2" Data="적용중인 효과 보다 낮은 단계의 버프는 이용할 수 없습니다"/>
 		<Class ClassID="41129" ClassName="EVENT_1909_MINI_FULLMOON_BUFF_RESULT_3" Data="[이벤트] 보름달 조각이 부족합니다."/>
 		<Class ClassID="41130" ClassName="EVENT_1909_MINI_FULLMOON_MGS_4" Data="{#FF0000}이벤트 설명을 다시 물어 본다{/}"/>
+		<Class ClassID="41131" ClassName="EVENT_1910_HALLOWEEN_MSG1" Data="맛이 이상한 할로윈 사탕을 소지하고 있지 않습니다."/>
+		<Class ClassID="41132" ClassName="EVENT_1910_HALLOWEEN_MSG2" Data="보너스 목표 {MON_NAME} 20마리 처치 완료"/>
+		<Class ClassID="41133" ClassName="EVENT_1910_HALLOWEEN_MSG3" Data="보너스 목표 {MON_NAME} 처치 완료"/>
+		<Class ClassID="41134" ClassName="EVENT_1910_HALLOWEEN_MSG4" Data="오늘 획득 할 수 있는 주화를 모두 획득했습니다."/>
+		<Class ClassID="41135" ClassName="EVENT_1910_HALLOWEEN_MSG5" Data="할로윈 밤의 소동에서 오늘 획득 할 수 있는 주화를 모두 획득했습니다."/>
+		<Class ClassID="41136" ClassName="EVENT_1910_HALLOWEEN_SHOP" Data="할로윈 이벤트 상점"/>
+		<Class ClassID="41137" ClassName="EVENT_1910_HALLOWEEN_MSG6" Data="오늘 사탕을 {@st66d_y}{s18}{GET_BONUS}{/}{/}개 획득하였으며, 보너스 획득량은 총 {@st66d_y}{s18}{GET_EVENT}{/}{/}개 입니다. 총 획득량은 {@st66d_y}{s18}{GET_TOTAL}{/}{/}개 입니다."/>
 		<Class ClassID="41147" ClassName="EVENT_QOS_END_1" Data="퀴즈 이벤트가 종료되었습니다.{nl}더 재밌는 퀴즈로 찾아오겠습니다!"/>
 		<Class ClassID="41148" ClassName="EVENT_QOS_END_2" Data="퀴즈 오브 세이비어 이벤트 시즌1이 종료되었습니다.{nl}더 재밌는 퀴즈로 찾아오겠습니다.{nl}감사합니다."/>
 		<Class ClassID="41149" ClassName="EVENT_QOS_START_1" Data="퀴즈 오브 세이비어!{nl}5분 후 퀴즈 이벤트가 시작됩니다."/>
@@ -6923,6 +6931,7 @@
 		<Class ClassID="66029" ClassName="GM_BK_NPC_AUSTEJA_1_CHAT_1" Data="통로를 열었습니다{nl}조심하세요"/>
 		<Class ClassID="66030" ClassName="GM_BK_BROADCAST_BORN_1" Data="길드원들이 드래곤 보루타와 대적합니다"/>
 		<Class ClassID="66031" ClassName="GM_BK_BROADCAST_DEAD_1" Data="길드원들이 드래곤 보루타를 제압했습니다"/>
+		<Class ClassID="66032" ClassName="GM_BK_BROADCAST_BATTLE_START_1" Data="[ {PC_NAME} ] 님이 미션을 시작했습니다"/>
 		<Class ClassID="66100" ClassName="RVR_BK_WORLD_MSG_BOSS_BORN_1" Data="슬리비나스 레어의 드래곤 보루타가{nl}다시 나타났습니다"/>
 		<Class ClassID="66105" ClassName="RVR_BK_WORLD_MSG_BOSS_DEAD_1" Data="슬리비나스 레어의 드래곤 보루타가{nl}구원자들에게 제압 당했습니다!"/>
 		<Class ClassID="66106" ClassName="BK_MGAME_BORUTA_CANCLE_WARP_IN" Data="결속 강화 효과를 얻었습니다."/>
@@ -8758,6 +8767,13 @@
 		<Class ClassID="90195" ClassName="400lvupCard_MSG" Data="{nl} {nl}사용 시 1레벨에서 400레벨 도달까지 필요한 만큼의 경험치를 얻습니다.{nl} {nl}{@st66d_y}경험치 카드를 사용하시겠습니까?"/>
 	<Class ClassID="90196" ClassName="Legend_Boss_Skiaclipse_TYPE1" Data="흰 까마귀의 영면지: 레전드 진입(1인)"/>
 		<Class ClassID="90197" ClassName="Legend_Boss_Skiaclipse_TYPE2" Data="흰 까마귀의 영면지: 레전드 진입(5인)"/>
+		<Class ClassID="90198" ClassName="1910_HALLOWEEN_SEL_MSG1" Data="{#003399}할로윈 밤의 소동{/} 이벤트 안내"/>
+		<Class ClassID="90199" ClassName="1910_HALLOWEEN_SEL_MSG2" Data="{#003399}할로윈 밤의 소동{/} 이벤트 던전 입장"/>
+		<Class ClassID="90200" ClassName="1910_HALLOWEEN_SEL_MSG3" Data="{#003399}할로윈 밤의 소동{/} 이벤트 상점 열기"/>
+		<Class ClassID="90201" ClassName="1910_HALLOWEEN_DOOR_DOTIME_MSG1" Data="문을 두드리는 중"/>
+		<Class ClassID="90202" ClassName="1910_HALLOWEEN_BOSS_SCAR_MSG2" Data="허수아비에 힘을 충전 하는 중"/>
+	        <Class ClassID="90203" ClassName="Unique_Boss_Moringponia_TYPE1" Data="나비목 접선지: 유니크 진입(1인)"/>
+		<Class ClassID="90204" ClassName="Unique_Boss_Moringponia_TYPE2" Data="나비목 접선지: 유니크 진입(5인)"/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
@@ -9249,6 +9265,7 @@
 		<Class ClassID="102432" ClassName="CantCancelGuildEvent" Data="해당 길드 이벤트는 시작한 이후 취소할 수 없습니다."/>
 		<Class ClassID="102433" ClassName="ReallyOutGuild" Data="길드를 탈퇴하시겠습니까?{nl}    {nl}소지중인 하우징 물품들은 길드 보관함으로 반환 됩니다."/>
 		<Class ClassID="102434" ClassName="GetGuildContribution" Data="{value}의 길드 기여도를 획득했습니다."/>
+		<Class ClassID="102435" ClassName="OnlyAbleInStartMap" Data="현재 맵에서는 시도중인 길드 퀘스트에 입장할 수 없습니다."/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>
@@ -13344,6 +13361,10 @@
 		<Class ClassID="302075" ClassName="DISTRACTOR_d_raidboss_velcoffer" Data="벨코퍼의 둥지"/>
 		<Class ClassID="302076" ClassName="DISTRACTOR_shadow_raid_main" Data="흰 까마귀의 영면지"/>
 		<Class ClassID="302077" ClassName="STAMP_TOUR_HIDDEN_MISSION_COMPLETE" Data="히든 미션의 목표를 달성했습니다!{nl}클라페다나 오르샤에 있는 마법협회 NPC와 대화해 보상을 받아 가세요!"/>
+		<Class ClassID="302078" ClassName="HALLOWEEN_CANDY_UNSERVICEABILITY" Data="이미 호박맛 할로윈 사탕의 효과가 적용되고 있습니다.{nl}잔여 시간이 지난 뒤 다시 사용해주세요."/>
+		<Class ClassID="302079" ClassName="REGULAR_BURNING_EVENT_COUNT_RESET_SUCCESS" Data="성공적으로 레전드 레이드 및 업힐 디펜스 입장횟수를 초기화했습니다!"/>
+		<Class ClassID="302080" ClassName="REGULAR_BURNING_EVENT_COUNT_RESET_FAIL" Data="문제가 발생하여 횟수 초기화가 진행되지 않았습니다.{nl}잠시 후, 다시 시도해주십시오."/>
+		<Class ClassID="302081" ClassName="REGULAR_BURNING_EVENT_SUPPORTER" Data="주말 앤 버닝 도우미"/>
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>
@@ -13458,7 +13479,7 @@
 		<Class ClassID="501236" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL3" Data="{#003399}아처 계열{/}{nl} - {Char3}"/>
 		<Class ClassID="501237" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL4" Data="{#003399}클레릭 계열{/}{nl} - {Char4}"/>
 		<Class ClassID="501238" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL5" Data="{#003399}스카우트 계열{/}{nl} - {Char5}"/>
-		<Class ClassID="501241" ClassName="JOB_BALLENCE_REWARD_NPC_CHECK_CLASS" Data="[지원 대상 클래스를 확인한다] 또는 [아츠 초기화 지원 대상 클래스를 확인한다]를 선택하시면 현재 구원자님의 클래스에 따라 지원 절차가 진행됩니다."/>
+		<Class ClassID="501241" ClassName="JOB_BALLENCE_REWARD_NPC_CHECK_CLASS" Data="[지원 대상 클래스를 확인한다]를 선택하시면 현재 구원자님의 클래스에 따라 지원 절차가 진행됩니다."/>
 	</Category>
 	<Category Name="GEM_GACHA">
 		<Class ClassID="510001" ClassName="GEM_GACHA_SEL1" Data="젬 1회 뽑기"/>
@@ -14135,6 +14156,21 @@
 		<Class ClassID="514012" ClassName="RAID_NEW_RECORD" Data="{partyMember} 파티가 {clearMin}분 {clearSec}초에 {raidName}의 클리어 시간을 단축했습니다!"/>
 	    <Class ClassID="514013" ClassName="SOLO_RAID_FIRST_KILL_NOTICE" Data="{teamName}가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
 	    <Class ClassID="514014" ClassName="SOLO_RAID_NEW_RECORD" Data="{teamName}가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
+		<Class ClassID="514015" ClassName="MORINGPONIA_NPC_MSG1" Data="지원? 고작이게 전부인가?"/>
+		<Class ClassID="514016" ClassName="MORINGPONIA_NPC_MSG2" Data="지원 병력인가? 전방에서는 이미 전투가 시작됐어. 서둘러야 해."/>
+		<Class ClassID="514017" ClassName="MORINGPONIA_NPC_MSG3_1" Data="왔군. 지원군이 모두 도착하면 출발하도록 하지."/>
+		<Class ClassID="514018" ClassName="MORINGPONIA_NPC_MSG3_2" Data="내가 앞장서겠다. 자, 움직인다. 서둘러!"/>
+	    <Class ClassID="514019" ClassName="MORINGPONIA_NPC_MSG4_1" Data="자네 상관이 누구지? 실력이 상당하군.. 덕분에 한시름 놓을 수 있었다."/>
+	    <Class ClassID="514020" ClassName="MORINGPONIA_NPC_MSG4_2" Data="이제부터 여기는 우리가 막을 테니 전방으로 가서 마족들을 처치하도록."/>
+	    <Class ClassID="514021" ClassName="CHRONO_MASTER_MSG1" Data="아쉽게도 두 마군주를 모두 놓쳤습니다. 이 이공간에서는 역시 한계가 있었군요.."/>
+	    <Class ClassID="514022" ClassName="CHRONO_MASTER_MSG2" Data="쉽지 않은 일이었을 텐데 고생해 주셨습니다. 깊은 감사를 표합니다."/>
+	    <Class ClassID="514023" ClassName="CHRONO_MASTER_MSG3" Data="여기서 있던 일은 되도록 알려지지 않는 게 좋겠습니다."/>
+		<Class ClassID="514024" ClassName="MORINGPONIA_NPC_MSG5_1" Data="대체 어디서 이렇게 많은 마족이 들이닥친 거지.."/>
+		<Class ClassID="514025" ClassName="MORINGPONIA_NPC_MSG5_2" Data="모두 지쳐있지만.. 희망을 잃어서는 안 돼. 너도 그렇게 생각하지?"/>
+		<Class ClassID="514026" ClassName="MORINGPONIA_NPC_MSG5_3" Data="당신 같은 실력자가 샤펜스타에 있었을 줄이야.. 희망이 생기는 기분이야."/>
+		<Class ClassID="514027" ClassName="MORINGPONIA_NPC_MSG5_4" Data="보급품이 점점 떨어지고 있어.."/>
+		<Class ClassID="514028" ClassName="MORINGPONIA_NPC_MSG5_5" Data="내 고향은 안전할까? 소식을 들은 지 한참이 지났어.."/>
+		<Class ClassID="514029" ClassName="MORINGPONIA_NPC_MSG5_6" Data="이상 없다! 아직 싸울 수 있어!"/>
 	</Category>
 	<Category Name="SoloDungeon">
 		<Class ClassID="513001" ClassName="SoloDungeonStageMSG" Data="스테이지의 몬스터가 몰려옵니다. 모두 처치해 주세요!"/>
@@ -14148,7 +14184,7 @@
 		<Class ClassID="513009" ClassName="SoloDungeonRewardAlready" Data="이미 보상을 받았습니다"/>
 		<Class ClassID="513010" ClassName="SoloDungeonRewardNotYet" Data="아직 보상을 받을 수 없습니다"/>
 		<Class ClassID="513011" ClassName="SoloDungeonSelectMsg_5" Data="베르니케 파편 던전 포인트샵"/>
-	</Category>
+		</Category>
 	<Category Name="JobSelectGuide">
 		<Class ClassID="515001" ClassName="JobSelectGuide_Result" Data="결과"/>
 		<Class ClassID="515002" ClassName="JobSelectGuide_Difficulty" Data="난이도"/>

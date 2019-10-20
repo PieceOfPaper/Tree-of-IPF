@@ -6208,6 +6208,7 @@
 		<image name="Map_Klapeda" file="\skin\indunmap\Map_Klapeda.png" imgrect="0 0 295 450" CMM_Caption="클라페다"/>
 		<image name="Map_Orsha" file="\skin\indunmap\Map_Orsha.png" imgrect="0 0 295 450" CMM_Caption="오르샤"/>
 		<image name="Map_Request_shadow_raid_main" file="\skin\indunmap\Map_Request_shadow_raid_main.png" imgrect="0 0 295 450" CMM_Caption="스키아클립스 던전"/>
+		<image name="Map_Moringponia_Raid" file="\skin\indunmap\Map_Moringponia_Raid.png" imgrect="0 0 295 450" CMM_Caption="유니크 모링포니아 레이드"/>
 	</imagelist>
 	<imagelist category="jootest_image">
 		<image name="market_hairacc" file="\skin\market_skin.tga" imgrect="1927 447 60 60" CMM_Caption="마켓_헤어악세사리"/>
@@ -9659,6 +9660,8 @@
 	<imagelist category="Dlg_boss">
 		<image name="balloon_Skiaclipse" file="\skin\monster_Dlg.tga" imgrect="0 0 220 260" CMM_Caption="스키아클립스"/>
 		<image name="balloon_Misrus" file="\skin\monster_Dlg.tga" imgrect="221 0 220 260" CMM_Caption="머즈루스"/>
+		<image name="balloon_Unique_Boss_Moringponia" file="\skin\monster_Dlg.tga" imgrect="442 0 220 260" CMM_Caption="모링포니아"/>
+		<image name="balloon_Unique_Boss_Tantaliser" file="\skin\monster_Dlg.tga" imgrect="0 261 220 260" CMM_Caption="탄타이저"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>
@@ -9931,8 +9934,13 @@
 		<image name="icon_pizza" file="\icon\buff_icon2.tga" imgrect="768 1408 128 128" CMM_Caption="맛있는 피자"/>
 		<image name="icon_rangerBlue" file="\icon\buff_icon2.tga" imgrect="896 1920 128 128" CMM_Caption="전대물 블루"/>
 		<image name="icon_rangerYellow" file="\icon\buff_icon3.tga" imgrect="0 0 128 128" CMM_Caption="전대물 옐로우"/>
-		<image name="icon_rangerGreen" file="\icon\buff_icon3.tga" imgrect="0 128 128 128" CMM_Caption="전대물 그린"/>
-		<image name="icon_rangerPink" file="\icon\buff_icon3.tga" imgrect="0 256 128 128" CMM_Caption="전대물 핑크"/>
+		<image name="icon_rangerGreen" file="\icon\buff_icon3.tga" imgrect="128 0 128 128" CMM_Caption="전대물 그린"/>
+		<image name="icon_rangerPink" file="\icon\buff_icon3.tga" imgrect="256 0 128 128" CMM_Caption="전대물 핑크"/>
+		<image name="icon_legend_raid_bonus" file="\icon\buff_icon3.tga" imgrect="384 0 128 128" CMM_Caption="레전드 레이드"/>
+		<image name="icon_TANTALISER_PAD_CREATE_DEBUFF" file="\icon\buff_icon3.tga" imgrect="512 0 128 128" CMM_Caption="저주"/>
+		<image name="icon_TANTALISER_FRENZY_BUFF" file="\icon\buff_icon3.tga" imgrect="640 0 128 128" CMM_Caption="탄타이저 폭주"/>
+		<image name="icon_TANTALISER_STACK_DEBUFF" file="\icon\buff_icon3.tga" imgrect="768 0 128 128" CMM_Caption="낙인"/>
+		<image name="icon_TANTALISER_AMBIENT_DAMAGE_DEBUFF" file="\icon\buff_icon3.tga" imgrect="896 0 128 128" CMM_Caption="자기장"/>
 	</imagelist>
 	<imagelist category="housing_bufficon">
 		<image name="icon_Weapon_Klaida" file="\icon\icon_hosing_buff.tga" imgrect="0 0 128 128"/>

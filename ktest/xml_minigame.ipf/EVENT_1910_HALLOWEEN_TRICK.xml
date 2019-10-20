@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="EVENT_1910_HALLOWEEN_TRICK" minLv="0" maxLv="0" mapName="c_Klaipe_event_1812" playerCnt="6" playerCountCheckDestroy="1" startWaitSec="-1">
+        <StageList>
+            <Stage Name="DefGroup">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_CUSTOM_OPTION_CHECK" Client="NO" UseSleep="NO">
+                        <Num Num="1"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="2000132" Pos="-144.69#149.09#0.59" genCount="1" genTime="20000" objectKey="0">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_HALLOWEEN_MID_BOSS_HELP"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execMS="3000" eventName="CheckAbuse">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT_1910_HALLOWEEN_ABUSE_CHECK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="MonGroup">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_STYLE_INFO" Client="NO" UseSleep="NO">
+                        <Str Str="FEVER_CHECK"/>
+                        <Str Str="bar"/>
+                        <Str Str="할로윈 밤의 소동 피크 타임 포인트"/>
+                        <Num Num="3"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="2000122" Pos="-986.03#-1.16#-588.47" genCount="1" genTime="20000" autoGen="0" objectKey="0">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="-690.91#-1.16#-453.65" genCount="1" genTime="20000" autoGen="0" objectKey="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="-358.22#-1.16#-762.15" genCount="1" genTime="20000" autoGen="0" objectKey="2">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="-105.43#-1.18#-830.72" genCount="1" genTime="20000" autoGen="0" objectKey="3">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="354.11#-1.16#-629.89" genCount="1" genTime="20000" autoGen="0" objectKey="4">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="551.46#-1.16#-413.93" genCount="1" genTime="20000" autoGen="0" objectKey="5">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="861.97#-1.16#-406.64" genCount="1" genTime="20000" autoGen="0" objectKey="6">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="702.53#-1.16#-88.86" genCount="1" genTime="20000" autoGen="0" objectKey="7">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="696.26#-1.16#251.33" genCount="1" genTime="20000" autoGen="0" objectKey="8">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="353.85#79.86#200.54" genCount="1" genTime="20000" autoGen="0" objectKey="9">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="-5.21#79.86#-478.70" genCount="1" genTime="20000" autoGen="0" objectKey="10">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="-162.59#96.88#-406.77" genCount="1" genTime="20000" autoGen="0" objectKey="11">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="395.69#79.86#-4.82" genCount="1" genTime="20000" autoGen="0" objectKey="12">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="-83.30#149.07#-15.24" genCount="1" genTime="20000" autoGen="0" objectKey="13">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="-45.29#149.11#223.96" genCount="1" genTime="20000" autoGen="0" objectKey="14">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="-331.73#149.11#-12.41" genCount="1" genTime="20000" autoGen="0" objectKey="15">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000122" Pos="-285.33#149.11#209.61" genCount="1" genTime="20000" autoGen="0" objectKey="16">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_DOG_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000123" Pos="-674.00#241.00#591.00" genCount="1" genTime="20000" autoGen="0" objectKey="17" UseAiOutOfPc="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-481.69986" Y="241.05203" Z="714.55255"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-789.28186" Y="241.05203" Z="385.57166"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000124" Pos="-208.00#149.00#99.00" angle="-45" genCount="1" genTime="20000" autoGen="0" objectKey="62" UseAiOutOfPc="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_NECRO_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="EVENT_1910_NECRO_DEAD_AI"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000125" Pos="-208.00#149.00#99.00" genCount="1" genTime="20000" autoGen="0" objectKey="18" UseAiOutOfPc="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_HALLOWEEN_SPECTOR_MOVE"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000126" Pos="-208.00#149.00#99.00" genCount="1" genTime="20000" autoGen="0" objectKey="19">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_HALLOWEEN_SPECTOR_MOVE_AI"/>
+                                    <Num Num="70"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000127" Pos="-366.23#149.11#-73.14" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="21"/>
+                    <Obj Type="Monster" MonType="2000127" Pos="-32.90#149.11#280.13" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="22" searchRange="100"/>
+                    <Obj Type="Monster" MonType="2000127" Pos="-209.18#149.11#100.91" range="70" genCount="1" genTime="20000" autoGen="0" objectKey="23"/>
+                    <Obj Type="Monster" MonType="2000128" Pos="-235.08#149.11#-82.39" genCount="1" genTime="20000" autoGen="0" objectKey="24">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_CIRCLE_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000128" Pos="-59.24#149.07#-36.71" genCount="1" genTime="20000" autoGen="0" objectKey="25">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_CIRCLE_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000128" Pos="-174.00#149.00#290.00" genCount="1" genTime="20000" autoGen="0" objectKey="26">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_CIRCLE_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000128" Pos="-21.00#149.00#144.00" genCount="1" genTime="20000" autoGen="0" objectKey="27">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_CIRCLE_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000128" Pos="-387.00#149.00#55.00" genCount="1" genTime="20000" autoGen="0" objectKey="28">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_CIRCLE_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000128" Pos="-343.00#149.00#225.00" genCount="1" genTime="20000" autoGen="0" objectKey="29">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                                    <Str Str="EVENT_1910_CIRCLE_AI"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="2000129" Pos="-784.00#241.00#373.00" genCount="1" genTime="20000" objectKey="30"/>
+                    <Obj Type="Monster" MonType="2000129" Pos="-467.00#241.00#705.00" angle="-90" genCount="1" genTime="20000" objectKey="31"/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-745.00#-1.00#-332.00" genCount="1" genTime="20000" objectKey="32" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-613.00#-1.00#-584.00" genCount="1" genTime="20000" objectKey="33" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-528.00#-1.00#-660.00" genCount="1" genTime="20000" objectKey="34" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-408.00#-1.00#-648.00" genCount="1" genTime="20000" objectKey="35" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-276.00#-1.00#-711.00" genCount="1" genTime="20000" objectKey="36" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-141.00#-1.00#-720.00" genCount="1" genTime="20000" objectKey="37" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-19.00#-1.00#-695.00" genCount="1" genTime="20000" objectKey="38" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="251.00#-1.00#-589.00" genCount="1" genTime="20000" objectKey="39" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="490.00#-1.00#-327.00" genCount="1" genTime="20000" objectKey="40" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="591.00#-1.00#-76.00" genCount="1" genTime="20000" objectKey="41" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="600.00#-1.00#43.00" genCount="1" genTime="20000" objectKey="42" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="593.00#-1.00#142.00" genCount="1" genTime="20000" objectKey="43" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-268.00#96.00#-401.00" genCount="1" genTime="20000" objectKey="44" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-169.00#96.00#-311.00" genCount="1" genTime="20000" objectKey="45" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="258.00#79.00#125.00" genCount="1" genTime="20000" objectKey="46" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="227.00#79.00#225.00" genCount="1" genTime="20000" objectKey="47" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="279.00#79.00#331.00" genCount="1" genTime="20000" objectKey="48" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-522.00#149.00#10.00" genCount="1" genTime="20000" objectKey="49" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-431.00#149.00#180.00" genCount="1" genTime="20000" objectKey="50" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-198.00#149.00#392.00" genCount="1" genTime="20000" objectKey="51" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="111.00#149.00#790.00" genCount="1" genTime="20000" objectKey="52" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-937.00#248.00#-62.00" genCount="1" genTime="20000" objectKey="53" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-1032.00#248.00#57.00" genCount="1" genTime="20000" objectKey="54" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-1122.00#240.00#287.00" genCount="1" genTime="20000" objectKey="55" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-1136.00#240.00#520.00" genCount="1" genTime="20000" objectKey="56" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-776.00#240.00#981.00" genCount="1" genTime="20000" objectKey="57" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-384.00#240.00#1066.00" genCount="1" genTime="20000" objectKey="58" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-244.00#240.00#1088.00" genCount="1" genTime="20000" objectKey="59" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="-155.00#240.00#1041.00" genCount="1" genTime="20000" objectKey="60" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                    <Obj Type="Monster" MonType="2000130" Pos="17.00#240.00#995.00" genCount="1" genTime="20000" objectKey="61" propList="&apos;Dialog&apos; &apos;EVENT_1910_HALLOWEEN_DOOR&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="MonGen">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="REMAIN_SYS_KILL"/>
+                                <Num Num="4"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="REMAIN_SYS_CEHCK"/>
+                                <Num Num="34"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="MonGroup/0/MonGroup/1/MonGroup/2/MonGroup/3/MonGroup/4/MonGroup/5/MonGroup/6/MonGroup/7/MonGroup/8/MonGroup/9/MonGroup/10/MonGroup/11/MonGroup/12/MonGroup/13/MonGroup/14/MonGroup/15/MonGroup/16"/>
+                                <Num Num="2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="MonGroup/0/MonGroup/1/MonGroup/2/MonGroup/3/MonGroup/4/MonGroup/5/MonGroup/6/MonGroup/7/MonGroup/8/MonGroup/9/MonGroup/10/MonGroup/11/MonGroup/12/MonGroup/13/MonGroup/14/MonGroup/15/MonGroup/16/"/>
+                                <Str Str="EVENT_1910_HALLOWEEN_DOG_SUMMON"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="BossGen">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="MonGroup/19/MonGroup/18/MonGroup/62"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="MonGroup/19/MonGroup/18/MonGroup/62"/>
+                                <Str Str="EVENT_1910_HALLOWEEN_MID_BOSS_SUMMON"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="MonGroup/17"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0"/>
+                                <Str Str="EVENT_1910_HALLOWEEN_HELP_TYPE_SET"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="BossDead">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="MonGroup/17"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="FEVER_COUNT"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT_1910_HALLOWEEN_BOSS_DEAD"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="FeverCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="MonGroup"/>
+                            </ToolScp>
+                            </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Spector_m">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="MonGroup/19"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="MonGroup/24/MonGroup/25/MonGroup/26/MonGroup/27/MonGroup/28/MonGroup/29"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="MonGroup/19"/>
+                                <Str Str="EVENT_1910_HALLOWEEN_SPECTOR_HATE_INIT"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="3000" eventName="Spector_f">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="MonGroup/18"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="MonGroup/21/MonGroup/22/MonGroup/23"/>
+                                <Num Num="9"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="MonGroup/21/MonGroup/22/MonGroup/23"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Spector_Dead">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="MonGroup/19"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="MonGroup/18"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="MonGroup/23/MonGroup/24/MonGroup/25/MonGroup/26/MonGroup/27/MonGroup/28/MonGroup/29"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="MonGroup/21/MonGroup/22/MonGroup/23"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="witch">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="MonGroup/17"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="MonGroup/17"/>
+                                <Str Str="EVENT_1910_HALLOWEEN_WITCH_KNOCKBACK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Necro">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="MonGroup/62"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="MonGroup/62"/>
+                                <Str Str="EVENT_1910_HALLOWEEN_NECRO_BORN"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="witch_born">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="MonGroup/17"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="MonGroup/17"/>
+                                <Str Str="EVENT_1910_HALLOWEEN_WITCH_INIT"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Fever" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="피버타임!"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="30"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="2000121" Pos="-670.18#241.05#575.30" range="250" genCount="1" genTime="20000" autoGen="0" objectKey="7" tendency="1"/>
+                    <Obj Type="Monster" MonType="20041" Pos="-15.17#169.88#523.47" genCount="1" genTime="20000" objectKey="0">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20041" Pos="-391.58#194.22#307.37" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="20041" Pos="-611.23#168.75#-69.05" genCount="1" genTime="20000" objectKey="2"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="Fever" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+                                <Str Str="FEVER_COUNT"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="FEVER_COUNT"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT_1910_HALLOWEEN_FEVER_GOBLIN_BORN"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="FeverTrigger">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Fever/0/Fever/1/Fever/2"/>
+                                <Str Str="EVENT_1910_HALLOWEEN_TRIGGER_BARRIER"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" isOr="1" eventName="FeverEnd">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="FEVER_COUNT"/>
+                                <Str Str="OVER"/>
+                                <Num Num="31"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="End"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="Fever"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Fever"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT_1910_HALLOWEEN_FEVER_GOBLIN_REMOVE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="FeverStart">
+                        <execList>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT_1910_HALLOWEEN_GUID_DLG6"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Fever"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="End" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Reward">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT_1910_HALLOWEEN_FINAL_REWARD"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="할로윈 밤의 소동 이벤트 던전을 클리어했습니다. 잠시 후 입장 전 원래 장소로 이동합니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="30000" execCount="1" eventName="Return" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Quest_1">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_STYLE_INFO" Client="NO" UseSleep="NO">
+                        <Str Str="DOG_KILL"/>
+                        <Str Str="bar"/>
+                        <Str Str="호박개 처치"/>
+                        <Num Num="20"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+            </Stage>
+            <Stage Name="Quest_2">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_STYLE_INFO" Client="NO" UseSleep="NO">
+                        <Str Str="GOBLIN_KILL"/>
+                        <Str Str="bar"/>
+                        <Str Str="잠긴 문을 열어 할로윈 부베 처치"/>
+                        <Num Num="20"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+            </Stage>
+            <Stage Name="Quset_3">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_STYLE_INFO" Client="NO" UseSleep="NO">
+                        <Str Str="MID_BOSS_KILL"/>
+                        <Str Str="bar"/>
+                        <Str Str="중앙광장에 있는 보스 몬스터 처치"/>
+                        <Num Num="1"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+            </Stage>
+            <Stage Name="FeverCheck" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="IsFever">
+                        <condList>
+                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+                                <Str Str="MID_BOSS_KILL"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+                                <Str Str="DOG_KILL"/>
+                                <Str Str="OVER"/>
+                                <Num Num="20"/>
+                            </ToolScp>
+                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+                                <Str Str="GOBLIN_KILL"/>
+                                <Str Str="OVER"/>
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="IS_FEVER"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fever"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="IsNotFever">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="IS_FEVER"/>
+                                <Str Str="DIF"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="End"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_C_CUSTOM_OPTION_CHECK" Client="YES" UseSleep="NO">
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
+                <Str Str="EVENT_1910_HALLOWEEN_ENTER_LOG"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="EVENT_1910_HALLOWEEN_TRICK"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
+                <Str Str="EVENT_1910_HALLOWEEN_ENTER_BALLOON"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
+                <Str Str="EVENT_1910_HALLOWEEN_SEND_QUEST_INFO"/>
+            </ToolScp>
+        </EnterList>
+    </Game>
+</GameList>

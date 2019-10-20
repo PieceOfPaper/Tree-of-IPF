@@ -363,7 +363,7 @@ function BEAUTYSHOP_SELECT_ITEM(parent, control, argStr, argNum)
 	if equipType == nil then		
 		return false;
 	end
-	
+
 	-- package 일 때는 장착 미리보기 슬롯 처리 안함.
 	if equipType ~= "package"  then
 		-- BuyMessage 확인.
@@ -422,7 +422,7 @@ function BEAUTYSHOP_SELECT_ITEM(parent, control, argStr, argNum)
 	picCheck_new:SetVisible(1)
 	frame:Invalidate()
 	
-	-- 처리
+	-- 처리   
 	if beautyShopInfo.functionMap["POST_SELECT_ITEM"]  ~= nil then
 		beautyShopInfo.functionMap.POST_SELECT_ITEM(frame, control)
 	end
@@ -1316,10 +1316,10 @@ function BEAUTYSHOP_SET_PREVIEW_HAIR_EQUIP_SLOT(apc, slot, existItem, classname)
 		colorName = 'default'
 	end
 	apc:SetEquipItem(item.GetEquipSpotNum(defaultEqpSlot), 0);
+
 	-- headindex 구해서 적용.
 	local headIndex = BEAUTYSHOP_GET_HEADINDEX(apc:GetGender(), classname, colorName )
 	apc:SetHeadType(headIndex);
-
 end
 
 function BEAUTYSHOP_SET_PREVIEW_WIG_EQUIP_SLOT(apc, existItem, classname)
@@ -1339,6 +1339,7 @@ function BEAUTYSHOP_SET_PREVIEW_WIG_EQUIP_SLOT(apc, existItem, classname)
 	apc:SetHeadType(headIndex);
 	-- 장착
 	apc:SetEquipItem(item.GetEquipSpotNum(defaultEqpSlot), existItem.ClassID);	
+	gereinforceeffect.SetBeautyShopPreviewEquipItem(apc:GetName(), item.GetEquipSpotNum(defaultEqpSlot), existItem.ClassID);
 end
 
 function BEAUTYSHOP_SET_PREVIEW_WIG_DYE_EQUIP_SLOT(apc, topFrame, wigVisible, existItem)
@@ -1408,10 +1409,12 @@ function BEAUTYSHOP_SET_PREVIEW_WEAPON_EQUIP_SLOT(apc, slot, existItem, classnam
 			if slotName == "slotPreview_lh" then
 				-- 왼손/오른손 상관없이 장비한다.
 				apc:SetEquipItem(ES_RH, existItem.ClassID);
+				gereinforceeffect.SetBeautyShopPreviewEquipItem(apc:GetName(), ES_RH, existItem.ClassID);
 			elseif slotName == "slotPreview_rh" then
 				-- 양손이라면 왼손과 똑같은 무기가 들어 있어야 한다.
 				if eqpType == "SH" then -- 한손무기일 경우
 					apc:SetEquipItem(ES_LH, existItem.ClassID);
+					gereinforceeffect.SetBeautyShopPreviewEquipItem(apc:GetName(), ES_LH, existItem.ClassID);
 				end
 				-- 양손무기라면 그냥 리턴된다.
 			end
@@ -1482,6 +1485,7 @@ function BEAUTYSHOP_SET_PREVIEW_SLOT_LIST(apc)
 					local defaultEqpSlot = TryGetProp(existItem,"DefaultEqpSlot")
 					if defaultEqpSlot ~= nil  then -- DefaultEqpSlot이 있는것만.
 						apc:SetEquipItem(item.GetEquipSpotNum(defaultEqpSlot), existItem.ClassID);
+						gereinforceeffect.SetBeautyShopPreviewEquipItem(apc:GetName(), item.GetEquipSpotNum(defaultEqpSlot), existItem.ClassID);
 					end
 				end
 			end			

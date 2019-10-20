@@ -1473,18 +1473,73 @@ function CLIENT_SORCERER_SUMMONING_MON(self, caster, skl, item)
     end
 
     self.Lv = caster.Lv;
-    self.StatType = 30
+    --self.StatType = 30
         
-    local monDef = self.DEF;
-    local monMDef = self.MDEF;
+    -- local monDef = self.DEF;
+    -- local monMDef = self.MDEF;
 
-    local sklbonus = 1 + skl.Level * 0.1
-    local itembonus = 1 + item.Level * 0.1
-    self.MATK_BM = (500 + (caster.INT * sklbonus)) * itembonus
-    self.PATK_BM = (500 + (caster.INT * sklbonus)) * itembonus
+    -- local sklbonus = 1 + skl.Level * 0.1
+    -- local itembonus = 1 + item.Level * 0.1
+    -- self.MATK_BM = (500 + (caster.INT * sklbonus)) * itembonus
+    -- self.PATK_BM = (500 + (caster.INT * sklbonus)) * itembonus
     
-    self.DEF_BM = (monDef / 2  + (caster.MNA * sklbonus)) * itembonus
-    self.MDEF_BM = (monMDef / 2 + (caster.MNA * sklbonus)) * itembonus
+    -- self.DEF_BM = (monDef / 2  + (caster.MNA * sklbonus)) * itembonus
+    -- self.MDEF_BM = (monMDef / 2 + (caster.MNA * sklbonus)) * itembonus
+
+    -- calculating is changed(it depends on owner's status)
+    local ownerMATK = math.floor((caster.MINMATK + caster.MAXMATK) / 2);
+    local sklRate = 0;
+    local mhpRate = 0;
+    local atkRate = 0;
+    local defRate = 0;
+    if skl.ClassName == 'Sorcerer_Summoning' then
+        sklRate = 0.16 + skl.Level * 0.056;
+        mhpRate = 1.5;
+        atkRate = 1;
+        defRate = 1;
+    elseif skl.ClassName == 'Necromancer_CreateShoggoth' then
+        sklRate = skl.Level * 0.2;
+        
+        local MAX_CARD_COUNT = 4;
+        local cardCnt = 0;
+        local etc = nil;
+        if IsServerSection(caster) == 1 then
+            etc = GetETCObject(caster);
+        else
+            etc = GetMyEtcObject();
+        end
+        
+        for i = 1, MAX_CARD_COUNT do
+            local cardGuid = etc['Necro_bosscardGUID' .. i];
+            local invCard = nil;
+            if cardGuid ~= nil and cardGuid ~= 'None' then
+                if IsServerSection(caster) == 1 then
+                    invCard = GetInvItemByGuid(caster, cardGuid);
+                else
+                    invCard = session.GetInvItemByGuid(cardGuid);
+                end
+            end
+
+            if invCard ~= nil then
+                cardCnt = cardCnt + 1;
+            end
+        end
+
+        mhpRate = 1 + cardCnt * 0.1;
+        atkRate = 1;
+        defRate = 1;
+    end
+    
+    self.MHP_BM = self.MHP_BM + math.floor(caster.MHP * mhpRate * sklRate - self.MHP);
+    self.MINPATK_BM = self.MINPATK_BM + math.floor(ownerMATK * 0.9 * atkRate * sklRate - self.MINPATK);
+    self.MAXPATK_BM = self.MAXPATK_BM + math.floor(ownerMATK * 1.1 * atkRate * sklRate - self.MAXPATK);
+    self.MATK_BM = self.MATK_BM + math.floor(ownerMATK * atkRate * sklRate - (self.MINMATK + self.MAXMATK) / 2);
+    self.DEF_BM = self.DEF_BM + math.floor(caster.DEF * defRate * sklRate - self.DEF);
+    self.MDEF_BM = self.MDEF_BM + math.floor(caster.MDEF * defRate * sklRate - self.MDEF);
+
+    if skl.ClassName == 'Necromancer_CreateShoggoth' then
+        self.CON = self.CON + math.floor(caster.MNA * 0.1);
+    end
 end
 
 function SCR_GET_MON_SKILLFACTORRATE(self)

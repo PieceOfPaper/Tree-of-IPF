@@ -156,6 +156,12 @@ function REQ_EVENT_1909_MINI_FULLMOON_SHOP_OPEN()
 --    ui.OpenFrame('earthtowershop');
 end
 
+function REQ_EVENT_1910_HALLOWEEN_SHOP_OPEN()
+        local frame = ui.GetFrame("earthtowershop");
+        frame:SetUserValue("SHOP_TYPE", 'HalloweenShop');
+        ui.OpenFrame('earthtowershop');
+end
+
 
 function EARTH_TOWER_SHOP_OPEN(frame)
     if frame == nil then
@@ -248,6 +254,9 @@ function EARTH_TOWER_INIT(frame, shopType)
     elseif shopType == 'EventMiniMoonShop1909' then
 --        title:SetText('{@st43}'..ScpArgMsg("EventMiniMoonShop1909_TITLE_NAME_1"));
 --        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventMiniMoonShop1909_TITLE_NAME_1")));
+    elseif shopType == 'HalloweenShop' then
+        title:SetText('{@st43}'..ScpArgMsg("EVENT_1910_HALLOWEEN_SHOP"));
+        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
     end
 
 
@@ -726,6 +735,8 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
         item.DialogTransaction("EVENT_1907_ICE_SHOP_1_TREAD1", resultlist, cntText);
     elseif shopType == 'EventMiniMoonShop1909' then
 --        item.DialogTransaction("EVENT_1909_MINI_FULLMOON_SHOP_1_TREAD1", resultlist, cntText);
+    elseif shopType == 'HalloweenShop' then
+        item.DialogTransaction("EVENT_1910_HALLOWEEN_SHOP_1_TREAD1", resultlist, cntText);
 	end
 end
 

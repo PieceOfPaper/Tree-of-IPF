@@ -23,7 +23,15 @@
 				</Scp>
 				<Scp Client="YES" Scp="C_EFFECT" Time="200" UseSleep="NO">
 					<Str_Arg Arg="2" Str="I_archer_pistol_atk"/>
-					<Str FuncTxt="if SKL_CHECK_RIDING_COMPANION_C(self, obj) == 0 then           return 'Dummy_effect_pistol_R'           else           return 'Dummy_effect_pns_force_ride';           end" Str="None" UseFunc="1"/>
+					<Str Str="Dummy_effect_pistol_pet" UseFunc="1" FuncTxt="if self == nil then
+return 'Dummy_effect_pistol_pet'
+end
+local abilBuff = info.GetBuffByName(self:GetHandleVal(), &quot;Limacon_Buff&quot;)
+if abilBuff ~= nil or SKL_CHECK_RIDING_COMPANION_C(self, obj) == 1 then
+return 'Dummy_effect_pistol_pet';
+else
+return 'Dummy_effect_pns_bow_atk';
+end"/>
 					<Num Num="0"/>
 				</Scp>
 				<Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">

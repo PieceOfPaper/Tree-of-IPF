@@ -104,12 +104,14 @@ function SET_NECRO_CARD_STATE(frame, bosscardcls, i)
 	end
 
 	-- 가상몹을 생성합시다.
-	local tempObj = CreateGCIES("Monster", monCls.ClassName);
+	local tempObj = CreateGCIES("Monster", "pcskill_shogogoth");
 	if nil == tempObj then
 		return;
 	end
 
-	CLIENT_SORCERER_SUMMONING_MON(tempObj, GetMyPCObject(), GetIES(skl:GetObject()), bosscardcls);
+	local pcObj = GetMyPCObject();
+
+	CLIENT_SORCERER_SUMMONING_MON(tempObj, pcObj, GetIES(skl:GetObject()), bosscardcls);
 	
 	-- 체력
 	local myHp = GET_CHILD(descriptGbox,'desc_hp',"ui::CRichText")
@@ -118,7 +120,7 @@ function SET_NECRO_CARD_STATE(frame, bosscardcls, i)
 
 	-- 물리 공격력
 	local richText = GET_CHILD(descriptGbox,'desc_fower',"ui::CRichText")
-	richText:SetTextByKey("value", math.floor(SCR_Get_MON_MAXPATK(tempObj)));
+	richText:SetTextByKey("value", math.floor((SCR_Get_MON_MINPATK(tempObj) + SCR_Get_MON_MAXPATK(tempObj)) / 2));
 
 	-- 방어력
 	richText = GET_CHILD(descriptGbox,'desc_defense',"ui::CRichText")
@@ -132,7 +134,7 @@ function SET_NECRO_CARD_STATE(frame, bosscardcls, i)
 	richText = GET_CHILD(descriptGbox,'desc_Con',"ui::CRichText")
 	 -- 기본적으로 GET_MON_STAT을 쓰지만 체력은 따로해달라는 평직씨의 요청
 	local con = math.floor(GET_MON_STAT(tempObj, tempObj.Lv, "CON"));
-	richText:SetTextByKey("value", con);
+	richText:SetTextByKey("value", con + math.floor(pcObj.MNA * 0.1));
 
 	-- 지능
 	richText = GET_CHILD(descriptGbox,'desc_Int',"ui::CRichText")

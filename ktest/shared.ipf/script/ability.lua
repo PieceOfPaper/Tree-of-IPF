@@ -1607,6 +1607,7 @@ function SCR_ABIL_Ranger38_ACTIVE(self, ability)
         skill.Attribute = "ICE";
 
         SetExProp_Str(self, "Ranger38_Attribute", attribute)
+        AddBuff(self, self, "BounceShot_Hidden_Buff");
     end
 end
 
@@ -1616,6 +1617,8 @@ function SCR_ABIL_Ranger38_INACTIVE(self, ability)
         local attribute = GetExProp_Str(self, "Ranger38_Attribute");
 
         skill.Attribute = attribute;
+        
+        RemoveBuff(self, "BounceShot_Hidden_Buff");
     end
 end
 function SCR_ABIL_Corsair21_ACTIVE(self, ability)

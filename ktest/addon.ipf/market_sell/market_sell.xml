@@ -53,7 +53,7 @@
 		<labelline name="labelline2" parent="feeGbox" rect="0 0 235 2" margin="0 77 0 0" layout_gravity="right top" skin="labelline2"/>
 		<button name="button_1_1" parent="groupbox" rect="0 0 180 50" margin="0 0 0 50" layout_gravity="center bottom" LBtnUpScp="MARKET_SELL_REGISTER" caption="{@st41b}등록" clicksound="button_click" oversound="button_over" skin="test_red_button"/>
 		<button name="button_1_2" rect="0 0 200 45" margin="210 105 0 0" layout_gravity="left top" caption="{@st66b18}판매" clicksound="button_click" oversound="button_over" skin="tab2_btn_2"/>
-		<button name="button_1_2_1" rect="0 0 200 45" margin="410 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_CABINET_MODE" caption="{@st66b18}완료" clicksound="button_click" oversound="button_over" skin="tab2_btn"/>
+		<button name="button_1_2_1" rect="0 0 200 45" margin="410 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_CABINET_MODE" caption="{@st66b18}수령함" clicksound="button_click" oversound="button_over" skin="tab2_btn"/>
 		<groupbox name="groupbox_1" parent="market_midle3" margin="0 0 0 0" rect="0 0 1015 40" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
 		<richtext name="t_1" rect="0 0 100 30" margin="0 33 0 0" layout_gravity="center top" caption="{@st43}{s24}마켓{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
 		<radiobutton name="feePerTime_1" parent="feeGbox" rect="0 0 250 24" margin="30 175 0 0" format="{@st66}%s일: 판매 가격의 %s% 실버" param1="time" param1_def="1" param2="free" param2_def="1" group="time" LBtnDownScp="UPDATE_FEE_INFO_BY_RADIO" LBtnDownArgNum="1" ConfigName="MarketSellFeeValue1"/>

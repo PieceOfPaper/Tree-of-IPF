@@ -5451,6 +5451,22 @@
             <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
         </StartList>
     </AI>
+    <AI Name="EVENT_1910_HALLOWEEN_necrovanter" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                <Str Str="EVENT_1910_NECRO_AI"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="EVENT_1910_NECRO_LIGHT" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                <Str Str="EVENT_1910_NECRO_LIGHT_AI"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </List>
+    </AI>
     <AI Name="EVENT_CURSED_COAST_POTAL" ActiveMessageMapInBattle="1">
 		<StartList>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
@@ -15566,6 +15582,13 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </StartList>
     </AI>
+    <AI Name="REGULAR_BURNING_EVENT_SUPPORTER_AI" UpdateMS="10000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="REGULAR_BURNING_EVENT_SUPPORTER_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
     <AI Name="REMAIN37_MQ02_ITEM" UpdateMS="2500" ActiveMessageMapInBattle="1">
         <DeadList>
             <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
@@ -16444,6 +16467,27 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </StartList>
     </AI>
+    <AI Name="SCHAFFENSTAR_MEMBER_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="1000"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ADD_HATE_AROUND" Client="NO" UseSleep="NO">
+                <Num Num="200"/>
+                <Num Num="10"/>
+                <Num Num="10"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_SCHAFFENSTAR_MEMBER_HP_RESET_AI"/>
+            </ToolScp>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
     <AI Name="SCHAFFENSTAR_MEMBER_HP_RESET_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
 			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -16560,6 +16604,17 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </StartList>
     </AI>
+    <AI Name="SCR_TANTALISER_GIMMICK_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_TANTALISER_GIMMICK_S_AI_1"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="SCR_TANTALISER_GIMMICK_S_AI_1" ActiveMessageMapInBattle="1"/>
     <AI Name="SCR_Unique_Raid_Nicopolis_STAGE_04_NONE_MONSTER_SUMMON" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -19249,6 +19304,20 @@ if self.HP == 0 then return 1; else return 0; end;">
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="MOD_BOX_ENTER"/>
             </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="Tantaliser_summon" UpdateMS="1500" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
+                <Str Str="TANTALISER_SUMMON_AI"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_FACTION" Client="NO" UseSleep="NO">
+                <Str Str="OnlyLawHit"/>
+            </ToolScp>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
         </StartList>
     </AI>
     <AI Name="Thorn_Stage_A_Boss" ActiveMessageMapInBattle="1">
@@ -22867,6 +22936,16 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </List>
     </AI>
+    <AI Name="WEEKEND_REGULAR_BURNING_EVENT_NPC_AI" UpdateMS="10000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="REGULAR_BURNING_EVENT_TRIGGER_CHECK"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
     <AI Name="WHITETREES23_1_07_F" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_PARENT_POS_WARP" Client="NO" UseSleep="NO">
@@ -23368,7 +23447,7 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </List>
     </AI>
-    <AI Name="companion_growling" UpdateMS="3500" ActiveMessageMapInBattle="1">
+    <AI Name="companion_growling" UpdateMS="4000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
                 <Str Str="PET_GROWLING"/>

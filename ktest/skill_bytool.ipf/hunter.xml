@@ -71,7 +71,7 @@
 				<Num Num="0" />
 				<Num Num="1" />
 				<Num Num="200" />
-				<Num Num="0.1" />
+                <Num Num="0" />
 				<Num Num="0" />
 				<Num Num="0" />
 				<Num Num="0" />
@@ -96,6 +96,7 @@
                 <Scp Client="NO" Scp="COMPANION_REMOVE_SKILL_BUFF" Time="0" UseSleep="NO">
                     <Num Num="0" />
                 </Scp>
+                <Scp Client="NO" Scp="SKL_RECOVER_COOLDOWN_SP" Time="0" TimeSync="0" UseSleep="NO"/>
 				<Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
 					<Pos Angle="0" Dist="0" PosType="3" />
                     <Num Num="15" />
@@ -235,13 +236,14 @@
                 <Scp Client="NO" Scp="COMPANION_REMOVE_SKILL_BUFF" Time="0" UseSleep="NO">
                     <Num Num="0" />
                 </Scp>
+                <Scp Client="NO" Scp="SKL_RECOVER_COOLDOWN_SP" Time="0" TimeSync="0" UseSleep="NO"/>
 				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO" />
 				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="400" UseSleep="NO">
 					<Str Str="TARGET_CHECK_HIDEFROM_MON" />
 				</Scp>
 				<Scp Client="NO" Scp="TGT_COMPANION_BITE" Time="400" TimeSync="0" UseSleep="NO">
 					<Num Num="0" />
-					<Num Num="10" />
+                    <Num Num="30" />
 					<Num Num="150" />
 					<Num FuncTxt="return 5" Num="7" UseFunc="1" />
 					<Str Str="feed_loop" />
@@ -304,6 +306,7 @@
                 <Scp Client="NO" Scp="COMPANION_REMOVE_SKILL_BUFF" Time="0" UseSleep="NO">
                     <Num Num="0" />
                 </Scp>
+                <Scp Client="NO" Scp="SKL_RECOVER_COOLDOWN_SP" Time="0" TimeSync="0" UseSleep="NO"/>
 				<Scp Client="NO" Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Time="0" UseSleep="NO" />
 				<Scp Client="NO" Scp="SKL_EXCEPT_TARGET_BY_SCRIPT" Time="400" UseSleep="NO">
 					<Str Str="TARGET_CHECK_HIDEFROM_MON" />

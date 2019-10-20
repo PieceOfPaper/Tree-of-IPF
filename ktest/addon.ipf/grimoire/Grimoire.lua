@@ -208,11 +208,11 @@ function SET_CARD_STATE(frame, bosscardcls, i)
 
     -- 물리 공격력
     local richText = GET_CHILD(descriptGbox,'my_attack',"ui::CRichText")
-    richText:SetTextByKey("value", math.floor(SCR_Get_MON_MAXPATK(tempObj) + addValue));
+    richText:SetTextByKey("value", math.floor((SCR_Get_MON_MINPATK(tempObj) + SCR_Get_MON_MAXPATK(tempObj)) / 2 + addValue));
 
     -- 마법 공격력
     richText = GET_CHILD(descriptGbox,'my_Mattack',"ui::CRichText")
-    richText:SetTextByKey("value", math.floor(SCR_Get_MON_MAXMATK(tempObj) + addValue));
+    richText:SetTextByKey("value", math.floor((SCR_Get_MON_MINMATK(tempObj) + SCR_Get_MON_MAXMATK(tempObj)) / 2 + addValue));
 
     -- 방어력
     richText = GET_CHILD(descriptGbox,'my_defen',"ui::CRichText")

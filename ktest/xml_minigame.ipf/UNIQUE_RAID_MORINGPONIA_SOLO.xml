@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="UNIQUE_RAID_MORINGPONIA_SOLO" minLv="0" maxLv="0" mapName="uniq_castle_raid" playerCountCheckDestroy="1" startWaitSec="-1">
+        <StageList>
+            <Stage Name="FAIL_CHECK">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="REMAIN_30MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1800"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="레이드 종료까지 30분 남았습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="REMAIN_15MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="2700"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="레이드 종료까지 15분 남았습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="REMAIN_5MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3300"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="레이드 종료까지 5분 남았습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="TIMEOUT">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="FAIL"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="제한 시간이 경과되어 레이드에 실패했습니다.{nl}30초 후 이동했던 곳으로 돌아갑니다."/>
+                                <Str Str="!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+                                <Str Str="UNIQUE_RAID_MORINGPONIA_SOLO"/>
+                                <Str Str="TimeOut"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="FAIL" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="레이드 실패!{nl}30초 뒤, 입장한 곳으로 돌아갑니다."/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="RAID_STOP">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="SUCCESS"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage_03(Moringponia)"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage_03(Moringponia)"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage_03(Moringponia)"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FAIL_CHECK"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="SUCCESS"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="20&apos;s">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="20초 후 입장했던 곳으로 돌아갑니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="10&apos;s">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10초 후 입장했던 곳으로 돌아갑니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="RETURN_ZONE">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="SUCCESS" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="Casual_Unique_Raid_boss_Moringponia"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="레이드 성공!{nl}60초 뒤, 입장한 곳으로 돌아갑니다."/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="레이드 성공!{nl}60초 뒤, 입장한 곳으로 돌아갑니다."/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="RETURN_ZONE">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="20&apos;s" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="40"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="20초 후 입장했던 곳으로 돌아갑니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="10&apos;s">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="50"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10초 후 입장했던 곳으로 돌아갑니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="30&apos;s" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="30초 후 입장했던 곳으로 돌아갑니다."/>
+                                <Str Str="Clear"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage_01" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="150179" Pos="47.95#291.67#-358.38" genCount="1" genTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;SCHAFFENSTAR_MEMBER_AI&apos; &apos;Faction&apos; &apos;Law&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Lv&apos; &apos;420&apos; &apos;Name&apos; &apos;샤펜스타 단원&apos; "/>
+                    <Obj Type="Monster" MonType="150180" Pos="482.14#291.67#-302.91" genCount="1" genTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;SCHAFFENSTAR_MEMBER_AI&apos; &apos;Faction&apos; &apos;Law&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Lv&apos; &apos;420&apos; &apos;Name&apos; &apos;샤펜스타 단원&apos; "/>
+                    <Obj Type="Monster" MonType="156132" Pos="102.01#291.67#-272.25" genCount="1" genTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;SCHAFFENSTAR_MEMBER_AI&apos; &apos;Faction&apos; &apos;Law&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Lv&apos; &apos;420&apos; &apos;Name&apos; &apos;샤펜스타 간부&apos; "/>
+                    <Obj Type="Monster" MonType="156123" Pos="217.87#291.67#-436.93" genCount="1" genTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;SCHAFFENSTAR_MEMBER_AI&apos; &apos;Faction&apos; &apos;Law&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Lv&apos; &apos;420&apos; &apos;Name&apos; &apos;샤펜스타 단원&apos; "/>
+                    <Obj Type="Monster" MonType="156125" Pos="169.34#291.67#-237.69" genCount="1" genTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;SCHAFFENSTAR_MEMBER_AI&apos; &apos;Faction&apos; &apos;Law&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Lv&apos; &apos;420&apos; &apos;Name&apos; &apos;샤펜스타 단원&apos; "/>
+                    <Obj Type="Monster" MonType="156122" Pos="291.69#291.67#-372.94" genCount="1" genTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;SCHAFFENSTAR_MEMBER_AI&apos; &apos;Faction&apos; &apos;Law&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Lv&apos; &apos;420&apos; &apos;Name&apos; &apos;샤펜스타 단원&apos; "/>
+                    <Obj Type="Monster" MonType="155164" Pos="275.63#291.67#-253.51" genCount="1" genTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;SCHAFFENSTAR_MEMBER_AI&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Lv&apos; &apos;420&apos; &apos;Name&apos; &apos;샤펜스타 단원&apos; "/>
+                    <Obj Type="Monster" MonType="155163" Pos="388.96#291.67#-408.97" genCount="1" genTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;SCHAFFENSTAR_MEMBER_AI&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Lv&apos; &apos;420&apos; &apos;Name&apos; &apos;샤펜스타 단원&apos; "/>
+                    <Obj Type="Monster" MonType="59335" Pos="500.65#291.67#-348.39" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59336" Pos="21.30#291.67#-378.85" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59337" Pos="431.43#291.67#-303.32" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59335" Pos="507.00#291.67#-272.90" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59336" Pos="-16.74#291.67#-338.85" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59337" Pos="182.02#291.67#-195.18" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59336" Pos="35.86#291.67#-312.86" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59323" Pos="202.69#291.67#-464.12" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59323" Pos="184.76#291.67#-392.42" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59336" Pos="346.91#291.67#-429.47" genCount="1" genTime="20000" objectKey="0" propList="&apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="59335" Pos="68.80#291.67#-281.29" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59337" Pos="336.90#291.67#-273.09" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59336" Pos="407.10#291.67#-371.49" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59335" Pos="63.17#291.67#-222.48" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59336" Pos="408.33#291.67#-456.42" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59337" Pos="278.02#291.67#-224.48" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59337" Pos="208.54#291.67#-247.76" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59337" Pos="169.41#291.67#-276.37" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Range&apos; &apos;300&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59337" Pos="274.95#291.67#-284.51" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59323" Pos="251.99#291.67#-426.36" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59323" Pos="269.30#291.67#-332.91" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59323" Pos="282.72#291.67#-412.55" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                    <Obj Type="Monster" MonType="59323" Pos="322.56#291.67#-364.81" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;StatType&apos; &apos;UniqueRaid_Solo_EP11_2&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Clear_Check">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_01/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="NPC_SET/4/NPC_SET/4/NPC_SET/4"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="Stage_01"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_01_END_FADEOUT"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="NPC_SET/5"/>
+                                <Num Num="7"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Stage_Start">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="NPC_SET/8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage_02(Tantaliser)" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="59343" Pos="-1403.82#291.41#-314.19" genCount="1" genTime="20000" autoGen="0" objectKey="0"/>
+                    <Obj Type="Monster" MonType="20026" Pos="-672.67#231.96#-290.92" genCount="1" genTime="20000" objectKey="1" propList="&apos;Enter&apos; &apos;MORINGPONIA_STAGE_02_START&apos; &apos;Range&apos; &apos;50&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="debuff_pattern">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_02(Tantaliser)/0"/>
+                                <Num Num="90"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="EQ"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="디버프 장판이 생성되었습니다. 빠르게 처리하십시오"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_02(Tantaliser)/0"/>
+                                <Str Str="TANTALISER_PATTERN_DEBUFF"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="summon_pad_pattern">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_02(Tantaliser)/0"/>
+                                <Num Num="80"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="EQ"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="장판이 생성되었습니다. 빠르게 처리하십시오"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_02(Tantaliser)/0"/>
+                                <Str Str="TANTALISER_PATTERN_SUMMON_PAD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="STAGE_START">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage_02_Start"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage"/>
+                                <Str Str="=="/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_02(Tantaliser)/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="NPC_SET/9"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_MORINGPONIA_STAGE_02_START_MSG"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="Stage_02(Tantaliser)/1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="end_check">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_02(Tantaliser)/0"/>
+                                <Num Num="1"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage"/>
+                                <Str Str="=="/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_02(Tantaliser)/0"/>
+                                <Str Str="SCR_TANTLISER_DEAD"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="NPC_SET/9"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="summon_pad_pattern_2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_02(Tantaliser)/0"/>
+                                <Num Num="60"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="EQ"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="장판이 생성되었습니다. 빠르게 처리하십시오"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_02(Tantaliser)/0"/>
+                                <Str Str="TANTALISER_PATTERN_SUMMON_PAD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="summon_pad_pattern_3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_02(Tantaliser)/0"/>
+                                <Num Num="40"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="EQ"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="장판이 생성되었습니다. 빠르게 처리하십시오"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_02(Tantaliser)/0"/>
+                                <Str Str="TANTALISER_PATTERN_SUMMON_PAD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="summon_pad_pattern_4">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_02(Tantaliser)/0"/>
+                                <Num Num="20"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="EQ"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="장판이 생성되었습니다. 빠르게 처리하십시오"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_02(Tantaliser)/0"/>
+                                <Str Str="TANTALISER_PATTERN_SUMMON_PAD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="remove_wall">
+                        <condList>
+                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+                                <Str Str="Stage"/>
+                                <Str Str="=="/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="NPC_SET/6"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage_03(Moringponia)" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="160008" Pos="-2496.90#292.69#-74.45" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;SimpleAI&apos; &apos;None&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="59342" Pos="-2318.66#292.69#-251.43" genCount="1" genTime="20000" autoGen="0" objectKey="4"/>
+                    <Obj Type="Monster" MonType="20026" Pos="-1749.98#291.79#-299.71" genCount="1" genTime="20000" objectKey="5" propList="&apos;Range&apos; &apos;50&apos; &apos;Enter&apos; &apos;MORINGPONIA_STAGE_03_START&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="147448" Pos="-2549.86#292.69#-180.98" angle="-80" genCount="1" genTime="20000" autoGen="0" objectKey="6" propList="&apos;Dialog&apos; &apos;CHRONO_MASTER&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="STAGE_START">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage"/>
+                                <Str Str="=="/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage_03_Start"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_03(Moringponia)/4"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="NPC_SET/10"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="summon_potal_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="end_check"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event eventName="summon_potal_1" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_03(Moringponia)/4"/>
+                                <Num Num="70"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
+                                <Num Num="55"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_03(Moringponia)/0"/>
+                                <Str Str="SCR_MORINGPONIA_SUMMON_POTAL_1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="end_check" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_03(Moringponia)/4"/>
+                                <Num Num="1"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage"/>
+                                <Str Str="=="/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FAIL_CHECK"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FAIL"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="Stage_03(Moringponia)/0/Stage_03(Moringponia)/1/Stage_03(Moringponia)/2/Stage_03(Moringponia)/3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="NPC_SET/10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_03(Moringponia)/4"/>
+                                <Str Str="SCR_MORINGPONIA_DEAD"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="end_run"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Clear" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="END"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
+                                <Num Num="16"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="SUCCESS"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                                <Str Str="UniqeRaid: Casual_Unique_Raid_boss_Moringponia"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="remove_wall">
+                        <condList>
+                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+                                <Str Str="Stage"/>
+                                <Str Str="=="/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="NPC_SET/7"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="end_run" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="CLEAR"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_REVIVE" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+                                <AbsPosRange X="-2458.481" Y="292.68567" Z="-274.42719"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage_03(Moringponia)/6"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_03(Moringponia)/6"/>
+                                <Str Str="SCR_MORINGPONIA_STAGE_03_END_MSG"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="NPC_SET">
+                <ObjList>
+                    <Obj Type="Monster" MonType="156106" Pos="1012.00#291.00#-161.00" angle="30" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="156106" Pos="1004.00#291.00#-126.00" angle="30" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="156106" Pos="1040.00#291.00#-191.00" angle="30" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="156106" Pos="999.00#291.00#-93.00" angle="30" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="156106" Pos="867.00#291.00#109.00" angle="30" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="156106" Pos="883.00#291.00#71.00" angle="30" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="156106" Pos="927.00#291.00#4.00" angle="30" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="156106" Pos="955.00#291.00#-16.00" angle="30" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="156106" Pos="914.00#291.00#41.00" angle="30" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="156131" Pos="854.26#291.67#-62.38" angle="-40" genCount="1" genTime="20000" objectKey="4" propList="&apos;Dialog&apos; &apos;MORINGPONIA_NPC_01&apos; &apos;SimpleAI&apos; &apos;SCHAFFENSTAR_MEMBER_AI&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;40&apos; &apos;Faction&apos; &apos;Law&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Lv&apos; &apos;420&apos; &apos;Name&apos; &apos;샤펜스타 간부&apos; "/>
+                    <Obj Type="Monster" MonType="156129" Pos="848.40#291.67#-35.32" angle="-40" genCount="1" genTime="20000" objectKey="4" propList="&apos;Dialog&apos; &apos;MORINGPONIA_NPC_02&apos; &apos;SimpleAI&apos; &apos;SCHAFFENSTAR_MEMBER_AI&apos; &apos;Faction&apos; &apos;Law&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;WlkMSPD&apos; &apos;40&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;Lv&apos; &apos;420&apos; &apos;Name&apos; &apos;샤펜스타 단원&apos; "/>
+                    <Obj Type="Monster" MonType="156130" Pos="825.33#291.67#-67.88" angle="-40" genCount="1" genTime="20000" objectKey="4" propList="&apos;Dialog&apos; &apos;MORINGPONIA_NPC_03&apos; &apos;SimpleAI&apos; &apos;SCHAFFENSTAR_MEMBER_AI&apos; &apos;Faction&apos; &apos;Law&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;RunMSPD&apos; &apos;80&apos; &apos;WlkMSPD&apos; &apos;40&apos; &apos;Lv&apos; &apos;420&apos; &apos;Name&apos; &apos;샤펜스타 단원&apos; "/>
+                    <Obj Type="Monster" MonType="156132" Pos="-144.89#291.67#-293.72" angle="-40" genCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Dialog&apos; &apos;MORINGPONIA_NPC_04&apos; &apos;Name&apos; &apos;샤펜스타 간부&apos; "/>
+                    <Obj Type="Monster" MonType="155163" Pos="-111.83#291.67#-198.87" angle="-70" genCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Dialog&apos; &apos;MORINGPONIA_NPC_05&apos; &apos;Name&apos; &apos;샤펜스타 단원&apos; "/>
+                    <Obj Type="Monster" MonType="156123" Pos="-167.04#291.67#-389.63" genCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Dialog&apos; &apos;MORINGPONIA_NPC_06&apos; &apos;Name&apos; &apos;샤펜스타 단원&apos; "/>
+                    <Obj Type="Monster" MonType="156124" Pos="-187.06#291.67#-330.26" genCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Dialog&apos; &apos;MORINGPONIA_NPC_07&apos; &apos;Name&apos; &apos;샤펜스타 단원&apos; "/>
+                    <Obj Type="Monster" MonType="156125" Pos="-171.31#291.67#-251.10" angle="-70" genCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Dialog&apos; &apos;MORINGPONIA_NPC_08&apos; &apos;Name&apos; &apos;샤펜스타 단원&apos; "/>
+                    <Obj Type="Monster" MonType="150179" Pos="-147.87#291.67#-225.65" angle="-70" genCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Dialog&apos; &apos;MORINGPONIA_NPC_09&apos; &apos;Name&apos; &apos;샤펜스타 단원&apos; "/>
+                    <Obj Type="Monster" MonType="150180" Pos="-178.27#291.67#-363.42" genCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Dialog&apos; &apos;MORINGPONIA_NPC_10&apos; &apos;Name&apos; &apos;샤펜스타 단원&apos; "/>
+                    <Obj Type="Monster" MonType="150204" Pos="-458.04#240.72#-288.87" genCount="1" genTime="20000" objectKey="6"/>
+                    <Obj Type="Monster" MonType="150204" Pos="-1785.42#291.99#-306.94" genCount="1" genTime="20000" objectKey="7"/>
+                    <Obj Type="Monster" MonType="150204" Pos="587.19#291.67#-264.92" angle="120" genCount="1" genTime="20000" objectKey="8"/>
+                    <Obj Type="Monster" MonType="150204" Pos="-798.81#238.75#-292.47" genCount="1" genTime="20000" autoGen="0" objectKey="9"/>
+                    <Obj Type="Monster" MonType="150204" Pos="-1701.84#291.47#-285.82" genCount="1" genTime="20000" autoGen="0" objectKey="10"/>
+                    <Obj Type="Monster" MonType="20026" Pos="-1300.49#291.41#-299.47" genCount="1" genTime="20000" objectKey="11" propList="&apos;Enter&apos; &apos;RETURN_STAGE_01&apos; &apos;Range&apos; &apos;500&apos; "/>
+                    <Obj Type="Monster" MonType="20026" Pos="-2213.96#292.69#-278.01" genCount="1" genTime="20000" objectKey="12" propList="&apos;Range&apos; &apos;500&apos; &apos;Enter&apos; &apos;RETURN_STAGE_02&apos; "/>
+                </ObjList>
+            </Stage>
+            <Stage Name="STAGE_MANAGER">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Stage_01_Open">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage_01"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Stage_02_Open">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage"/>
+                                <Str Str="=="/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage_01"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage_02(Tantaliser)"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Stage_03_Open">
+                        <condList>
+                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+                                <Str Str="Stage"/>
+                                <Str Str="=="/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage_02(Tantaliser)"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage_03(Moringponia)"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <WorldInitList>
+            <ToolScp Scp="MGAME_INIT_CHANGE_VIEW" Client="NO" UseSleep="NO">
+                <Num Num="1500"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="STAGE_1_END_POS"/>
+                <AbsPos X="-16.383331" Y="291.66684" Z="-300.47394"/>
+            </ToolScp>
+        </WorldInitList>
+    </Game>
+</GameList>
