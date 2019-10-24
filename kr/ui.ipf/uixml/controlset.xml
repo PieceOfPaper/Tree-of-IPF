@@ -2147,7 +2147,7 @@
 			<richtext name="item" rect="0 0 200 60" margin="110 0 0 0" caption="제작서" layout_gravity="left top" textalign="left top" resizebytext="false" fixwidth="true" hittest="false" fontname="brown_18"/>
 			<slot name="slot" skin="invenslot2" layout_gravity="left top" margin="0 0 0 0" rect="40 0 64 64"/>
 			<button name="btn" caption="{@st41b}{/}" margin="40 0 0 0" rect="0 0 70 70" layout_gravity="left top" LBtnUpScp="CRAFT_ITEM_ALL" texttooltip="{@st59}재료 아이템을 슬롯에 추가합니다.{/}" image="itemcraft_btn" clicksound="button_click_big_2" oversound="button_cursor_over_3"/>
-			<richtext name="needcount" rect="0 0 64 20" margin="38 0 0 5" format="{@st41b}x%s{/}" layout_gravity="left bottom" textalign="right center" resizebytext="false" fixwidth="true" hittest="false" param1="count" param1_def="99" fontname="white_18_b"/>
+			<richtext name="needcount" rect="0 0 66 20" margin="38 0 0 5" format="{@st41b}x%s{/}" layout_gravity="left bottom" textalign="right center" resizebytext="false" fixwidth="true" hittest="false" param1="count" param1_def="99" fontname="white_18_b"/>
 		</controls>
 	</controlset>
 	<controlset name="craftRecipe_detail_item_alchemist" hittest="true" width="470" height="68" hittestset="true">

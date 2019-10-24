@@ -240,6 +240,11 @@ function OPEN_PUB_CREATECHAR(frame)
 	PUB_CUSTOM_PREVIEW_INIT(frame);
 	PUB_CUSTOM_ROTATE_INIT(frame);
 
+	local input_name = GET_CHILD_RECURSIVELY(frame, "input_name");
+	if input_name ~= nil then
+		input_name:SetText("");
+	end
+
 	local input_name_text = GET_CHILD_RECURSIVELY(frame, "input_name_text");
 	if input_name_text ~= nil then
 		input_name_text:SetTextByKey("value", ClMsg("pubcreate_input_name_title"));

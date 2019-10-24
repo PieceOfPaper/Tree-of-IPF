@@ -449,7 +449,7 @@ function BEAUTYSHOP_TRANS_HEAD_INDEX_TO_NAME(gender, headIndex)
 	local Selectclass   = GenderList:GetClass(gender);
 	local Selectclasslist = Selectclass:GetSubClassList();
 
-	local cls = Selectclasslist:GetByIndex(headIndex-1);
+	local cls = Selectclasslist:GetClass(headIndex);
     if cls ~= nil then
         local engName = imcIES.GetString(cls, 'EngName');
         local colorName = imcIES.GetString(cls, 'EngColor');

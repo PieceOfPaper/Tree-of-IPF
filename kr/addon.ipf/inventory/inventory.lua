@@ -2953,7 +2953,7 @@ function CHANGE_HAIR_COLOR(frame)
 	local Selectclasslist = Selectclass:GetSubClassList();
 
     local nowHeadIndex = item.GetHeadIndex()
-	local nowHairCls = Selectclasslist:GetByIndex(nowHeadIndex - 1);
+	local nowHairCls = Selectclasslist:GetClass(nowHeadIndex);
 	local nowPCHairEngName = imcIES.GetString(nowHairCls, 'EngName');	--현재 내가 '헤어'슬롯에 착용한 아이템
 
 	for i = 0, Selectclasslist:Count() do

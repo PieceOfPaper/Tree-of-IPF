@@ -8,6 +8,10 @@ function MGAME_C_OPEN_UI(actor, uiName, isOpen)
 	end
 end
 
+function MGAME_C_CUSTOM_OPTION_CHECK(actor, type)
+	addon.BroadMsg("CUSTOM_OPTION_CHECK", "MGAME", type);
+end
+
 function MGAME_C_SET_CONFIG(actor, configName, value)
 	config.SetConfig(configName, value);
 end

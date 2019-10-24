@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="market" x="0" y="0" width="1425" height="1000" create="open">
 	<frame title="{@st43}{s22}마켓{/}" titlepos="0 0" layout_gravity="left center" margin="0 -20 0 0" scale_align="center top" tooltipoverlap="true"/>
 	<option closebutton="false" hideable="false" escscript="ON_MARKET_ESCAPE_PRESSED"/>
@@ -32,7 +32,7 @@
 			<prevunit size="60 40" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}{img white_left_arrow 18 18}" skin="test_normal_button"/>
 			<nextunit size="60 40" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}{img white_right_arrow 18 18}" skin="test_normal_button"/>
 		</pagecontroller>
-		<button name="marketCabinet" rect="0 0 200 45" margin="410 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_CABINET_MODE" caption="{@st66b18}완료" clicksound="button_click" oversound="button_over" param1="newitemtext" skin="tab2_btn"/>
+		<button name="marketCabinet" rect="0 0 200 45" margin="410 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_CABINET_MODE" caption="{@st66b18}수령함" clicksound="button_click" oversound="button_over" param1="newitemtext" skin="tab2_btn"/>
 		<button name="marketSell" rect="0 0 200 45" margin="210 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_SELLMODE" caption="{@st66b18}판매" clicksound="button_click" oversound="button_over" skin="tab2_btn"/>
 		<button name="close" rect="0 0 44 44" margin="0 0 0 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;market&apos;)" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}마켓 창을 닫습니다{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
 		<button name="marketBuy" rect="0 0 200 45" margin="10 105 0 0" layout_gravity="left top" caption="{@st66b18}구매" clicksound="button_click" oversound="button_over" skin="tab2_btn_2"/>
@@ -68,7 +68,7 @@
 		<richtext name="recipeTitle_price" margin="422 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}단가{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="recipeTitle"/>
 		<richtext name="recipeTitle_count" margin="580 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}구매 개수{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="recipeTitle"/>
 		<richtext name="recipeTitle_totalPrice" margin="755 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}총 금액{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="recipeTitle"/>
-		<richtext name="accessoryTitle_name" margin="90 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}이름{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="accessoryTitle"/>		
+		<richtext name="accessoryTitle_name" margin="90 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}이름{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="accessoryTitle"/>
 		<richtext name="accessoryTitle_price" margin="768 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}금액{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="accessoryTitle"/>
 		<richtext name="gemTitle_name" margin="90 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}이름{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="gemTitle"/>
 		<richtext name="gemTitle_level" margin="389 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}레벨{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="gemTitle"/>

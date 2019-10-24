@@ -1,6 +1,6 @@
 ClassID,ConditionArg4,ClassName,UseType,ValueType,PropertyType,ConditionScp,ConditionArg1,ConditionArg2,ConditionArg3,ExecScp,ExecArg1,ExecArg2,ExecArg3,OptionText,OptionTextValue
 1,0,"card_Gaigalas","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_PLUS","Earth_Atk_BM","Earth_Atk","10","땅 속성 추가 대미지 +{@st66d_y}{s16}[%d]{/}","10"
-2,0,"card_GazingGolem","Attacked","StarCount","","SCR_CARDCHECK_NORMAL","","","PainBarrier_Buff","SCR_CARDEFFECT_ADD_BUFF_PC","PainBarrier_Buff","","15000","피격 시 {@st66d_y}{s16}[%d]{/}{/}%% 확률로 페인배리어 1레벨 사용","1"
+2,0,"card_GazingGolem","Attacked","StarCount","","SCR_CARDCHECK_NORMAL","","","PainBarrier_Buff","SCR_CARDEFFECT_ADD_BUFF_PC","PainBarrier_Buff","","15000","피격 시 {@st66d_y}{s16}[%d]{/}{/}%% 확률로 페인배리어 사용 (지속시간 15초)","1"
 3,0,"card_Gorgon","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_PLUS","DefStrike_BM","DefStrike","10","때리기류 방어력 +{@st66d_y}{s16}[%d]{/}{/}","10"
 4,0,"card_Golem","UseItem","StarCount","","SCR_CARDCHECK_POTION_USE","HPPOTION","100","","SCR_CARDEFFECT_ADD_BUFF_PC_RATE","card_DEF","DEF_RATE_BM","10000","HP 포션 종류 사용 시 10초간 물리 방어력 +{@st66d_y}{s16}[%d]{/}{/}%%","1"
 5,0,"card_Grinender","BeforeAttack","StarCount","","SCR_CARDCHECK_MONRACE","Flying","100","","SCR_CARDEFFECT_ADD_DAMAGE_RATE_BM","","","1","공중형 몬스터에게 주는 대미지{@st66d_y}{s16}[%d]{/}{/}%% 증가","1"

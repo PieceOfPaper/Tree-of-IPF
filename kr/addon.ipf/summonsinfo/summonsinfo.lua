@@ -225,7 +225,7 @@ function SUMMONSINFO_BUTTON_TOOLTIP_CHANGE(changeTxt)
 	if partyinfo_button == nil then return; end
 	if summonsinfo_button == nil then return; end
 
-	if GetServerNation() == "JP" and changeTxt == "GRAVE" or changeTxt == "`" then
+	if GetServerNation() == "GLOBAL_JP" and changeTxt == "GRAVE" or changeTxt == "`" then
 		partyinfo_button:SetTextTooltip("");
 		summonsinfo_button:SetTextTooltip("");
 		summonsinfo_frame:SetUserConfig("SUMMONINFO_HOTKEY_TEXT", "");

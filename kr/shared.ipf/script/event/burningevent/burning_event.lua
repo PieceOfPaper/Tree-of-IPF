@@ -70,19 +70,23 @@ function SCR_BURNING_EVENT_BUFF_CHECK(self, isServer)
             if eventCheck ~= "None" then
                 local buffTable = StringSplit(eventCheck, "/")
                 if #buffTable ~= 0 and #buffTable ~= nil then
+                    -- remove previous day buff
                     for j = 1, #buffTable do
                         for k = 1, #eventList do
-                            -- remove previous day buff
                             if tostring(buffTable[j]) ~= tostring(eventList[k].ClassName) then
-                                if IsBuffApplied(self, tostring(eventList[k].ClassName)) == "YES" then
+                                if IsBuffApplied(self, tostring(eventList[k].BuffName)) == "YES" then
                                     RemoveBuff(self, tostring(eventList[k].BuffName))
                                 end
                             end
-
-                            -- add today buff
-                            if tostring(buffTable[j]) == tostring(eventList[k].ClassName) then
-                                if IsBuffApplied(self, tostring(eventList[k].ClassName)) == "NO" then
-                                    AddBuff(self, self, tostring(eventList[k].BuffName))
+                        end
+                    end
+                    
+                    -- add today buff
+                    for l =1, #buffTable do
+                        for m = 1, #eventList do
+                            if tostring(buffTable[l]) == tostring(eventList[m].ClassName) then
+                                if IsBuffApplied(self, tostring(eventList[m].BuffName)) == "NO" then
+                                    AddBuff(self, self, tostring(eventList[m].BuffName))
                                 end
                             end
                         end
@@ -117,4 +121,41 @@ function SCR_RAID_BURNING_EVENT_CHECK(pc, isServer)
     else
         return "NO"
     end
+end
+
+
+
+function SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, skillProp, value)
+    local mapCheck = "false"
+    local mapList = {"id_chaple", "id_remains", "id_remains3", "id_castle2", "id_3cmlake_26_1", "raid_siauliai1", "onehour_cmine1", "mission_huevillage_01", "mission_d_castle_67_2_nunnery", "mission_zachariel_01", "mission_rokas_01"}
+    local curMapName = "";
+    if IsServerSection() == 1 then
+        curMapName = GetZoneName(pc)
+    else
+        curMapName = session.GetMapName()
+    end
+    
+    for i = 1, #mapList do
+        if curMapName == mapList[i] then
+            mapCheck = "true"
+            break
+        end
+    end
+    
+    if mapCheck == "true" then
+        if skillProp == "SpendSP" then
+            value = value * 0.9
+            return math.floor(value)
+        elseif skillProp == "CoolDown" then
+            value = value * 0.1;
+            return math.floor(value)
+        end
+    else
+        if skillProp == "SpendSP" then
+            return 0
+        elseif skillProp == "CoolDown" then
+            return value
+        end
+    end
+
 end

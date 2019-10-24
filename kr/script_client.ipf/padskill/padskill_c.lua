@@ -6,7 +6,6 @@ end
 
 function C_PAD_MONSTER(actor, obj, padGuid, monName, scale, animName, aniXmlKey, lifeTime)
 	-- actor 는 nil 일 수도 있다.
-	
 	if lifeTime == nil then
 		lifeTime = 3.0;
 	end
@@ -27,27 +26,36 @@ end
 
 function PAD_SET_HOLD(actor, obj, padGuid)
 	-- actor 는 nil 일 수도 있다.
-
 	geClientPadSkill.SetPadHoldMove(padGuid);
 end
 
 function C_PAD_EFFECT_POS(actor, obj, padGuid, eftName, scl, x, y, z, lifeTime, activeEffect, activeEffect_arg, isEnablePositionCompensation)
 	-- actor 는 nil 일 수도 있다.
-
 	if isEnablePositionCompensation == nil then
 		isEnablePositionCompensation = 1;
 	end
+	
 	effect.PlayPadEffect(actor, eftName, scl, x, y, z, lifeTime, activeEffect, padGuid, isEnablePositionCompensation);
+end
+
+function C_PAD_EFFECT_POS_ANGLE(actor, obj, padGuid, eftName, scl, x, y, z, lifeTime, angle, isEnablePositionCompensation, fixHeight)
+	-- actor 는 nil 일 수도 있다.
+	if isEnablePositionCompensation == nil then
+		isEnablePositionCompensation = 1;
+	end
+
+	local padOwner = geClientPadSkill.GetPadOwner(padGuid);
+	if padOwner ~= nil then
+		effect.PlayPadEffectAngle(padOwner, eftName, scl, x, y, z, lifeTime, "None", padGuid, isEnablePositionCompensation, angle, fixHeight);
+	end
 end
 
 function C_FORM_PAD_CHANGE_ACTIVE_EFFECT(actor, obj, padGuid, index, activeEffect)
 	-- actor 는 nil 일 수도 있다.
-
 	effect.ChangeFormationPadActiveEffect(index, activeEffect, padGuid);
 end
 
 function C_PAD_DESTROY_EFFECT_POS(pad, obj, padGuid, x, y, z, eftName, scl, lifeTime, delay)
-
 	local padOwner = geClientPadSkill.GetPadOwner(padGuid);
 	if padOwner ~= nil then
 		effect.PlayGroundEffect(padOwner, eftName, scl, x, y, z, lifeTime, "None", 0, delay);
@@ -59,13 +67,11 @@ end
 
 function C_PAD_EFFECT_FORCE(actor, obj, padGuid, eftName, scl, fixHeight)
 	-- actor 는 nil 일 수도 있다.
-
 	effect.PlayPadForceEffect(actor, eftName, scl, fixHeight, padGuid);
 end
 
 function C_PAD_CHANGE_EFFECT(actor, obj, padGuid, padName, range, padStyle, eftName, scl)
 	-- actor 는 nil 일 수도 있다.
-
 	if actor ~= nil then
 		local pos = actor:GetPos();
 		local padList = SelectPad_C(actor, padName, pos.x, pos.y, pos.z, range, padStyle);
@@ -111,4 +117,3 @@ function SELECT_FORMATION_NUM_BTN(uiName, isSelect)
 		ctrlSet:StopUIEffect("Formation", true, 0.5);
 	end
 end
-

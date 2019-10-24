@@ -159,12 +159,12 @@
 					<Str Str="Saloon" />
 					<Pos Angle="0" Dist="20" />
 					<Angle Angle="0" />
-					<Str FuncTxt="local name = GetClassString(&quot;Monster&quot;, &quot;Salamion&quot;, &quot;Name&quot;); return SofS(name, self.Name);" Str="" UseFunc="1" />
+					<Str FuncTxt="local name = GetClassString(&quot;Monster&quot;, &quot;Saloon&quot;, &quot;Name&quot;); return SofS(name, self.Name);" Str="" UseFunc="1" />
 					<Str Str="PC_Summon" />
 					<Num Num="0" />
 					<Num FuncTxt=" return 300;" Num="5" UseFunc="1" />
 					<Str Str="None" />
-					<MonProp List="WlkMSPD#80#RunMSPD#80#$SORCERER_MON#1" />
+					<MonProp List="WlkMSPD#160#RunMSPD#160#$SORCERER_MON#1" />
 					<Str Str="SORCERER_SALOON" />
 				</Scp>
 				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1300" UseSleep="NO">
@@ -541,7 +541,7 @@
 					<Num Num="0" />
 					<Num Num="0" />
 					<Str Str="None" />
-					<MonProp List="WlkMSPD#80#RunMSPD#80#$SORCERER_MON#1" />
+					<MonProp List="WlkMSPD#160#RunMSPD#160#$SORCERER_MON#1" />
 					<Str Str="SORCERER_SUMMONING_MON" />
 				</Scp>
 				<Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1300" UseSleep="NO">

@@ -5466,7 +5466,7 @@ function SCR_PRE_ITEM_Escape(self, argObj, BuffName, arg1, arg2)
             return 0;
         end
         
-        if zone == "shadow_raid_main" then
+        if zone == "shadow_raid_main" or zone == "uniq_castle_raid" then
             SendSysMsg(self, "ThisLocalUseNot");
             return 0;
         end
@@ -9020,4 +9020,14 @@ function SCR_PRE_D_UNDERAQUEDUCT_GIMMICK3_ITEM(self, argObj, argstring, arg1, ar
     
 --return 1
 
+end
+
+
+--EVENT_1911_HALLOWEEN
+function SCR_PRE_EVENT_1911_HALLOWEEN_CANDY(self)
+    if IsBuffApplied(self, "EVENT_1911_HALLOWEEN_CANDY_BUFF") == 'NO' then
+        return 1;
+    end
+    SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("HALLOWEEN_CANDY_UNSERVICEABILITY"), 5)
+    return 0;
 end

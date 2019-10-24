@@ -44,7 +44,6 @@ function CLEAR_ITEMOPTION_LEGEND_EXTRACT_UI()
 
 	local frame = ui.GetFrame("itemoptionlegendextract");
 	frame:SetUserValue("ITEM_EQUIP_CLASSTYPE", "None");
-	frame:SetUserValue("TARGET_ITEM_COUNT", 0);
 	frame:SetUserValue("isAbleExchange", 0)
 	frame:SetUserValue("MATERIAL_ITEM_COUNT", 0)
 	frame:SetUserValue("MATERIAL_ITEM_HIGH_GRAD_ITEM_GUID", 0)
@@ -230,7 +229,6 @@ function ITEM_OPTION_LEGEND_EXTRACT_REG_TARGETITEM(frame, argNum, itemobj, invsl
 		return;
 	end
 
-	local targetitemcount = frame:GetUserIValue("TARGET_ITEM_COUNT");
 	local frameItemEquipClassType = frame:GetUserValue("ITEM_EQUIP_CLASSTYPE");
 	if frameItemEquipClassType == "None" then
 		frame:SetUserValue("ITEM_EQUIP_CLASSTYPE", itemobj.ClassType);		
@@ -243,19 +241,21 @@ function ITEM_OPTION_LEGEND_EXTRACT_REG_TARGETITEM(frame, argNum, itemobj, invsl
 	
 	-- 등록 시작
 	local targetslot = GET_CHILD_RECURSIVELY(frame, "targetitemslot_"..argNum);
-	SET_SLOT_ITEM(targetslot, invitem);
+	if targetslot:GetIcon() ~= nil then
+		return;
+	end
+
 	targetslot:SetUserValue("TARGET_ITEM_PR", itemobj.PR);		
 	targetslot:SetUserValue("SELECTED_INV_GUID", guid);
+	
+	ITEMOPTION_LEGEND_EXTRACT_SET_SLOT_ITEM(invslot, 1);
+	SET_SLOT_ITEM(targetslot, invitem);
 
 	local slot_bg_image = GET_CHILD_RECURSIVELY(frame, "targetitemslot_"..argNum.."_bg")
 	slot_bg_image:ShowWindow(0)
-	
-	ITEMOPTION_LEGEND_EXTRACT_SET_SLOT_ITEM(invslot, 1);
-
-	targetitemcount = targetitemcount + 1;
-	frame:SetUserValue("TARGET_ITEM_COUNT", targetitemcount);
 
 	-- 아이템 3개가 모두 등록됬을 경우
+	local targetitemcount = GET_TARGET_ITME_COUNT(frame);
 	if targetitemcount == 3 then
 		_ITEM_OPTION_LEGEND_EXTRACT_REGISTER_ITEM(frame, itemobj)
 	end
@@ -264,6 +264,7 @@ end
 
 -- 인벤토리에 아이템 표시
 function ITEMOPTION_LEGEND_EXTRACT_SET_SLOT_ITEM(slot, isSelect)
+	slot = AUTO_CAST(slot);
 	if isSelect == 1 then
 		slot:SetSelectedImage('socket_slot_check');
 		slot:Select(1);
@@ -347,10 +348,7 @@ function REMOVE_OPTION_LEGEND_EXTRACT_TARGET_ITEM(frame, icon, argStr, argNum)
 	-- frame UserValue
 	frame:SetUserValue("RATIO", 0)
 
-	local targetitemcount = frame:GetUserIValue("TARGET_ITEM_COUNT");
-	targetitemcount = targetitemcount - 1;
-	frame:SetUserValue("TARGET_ITEM_COUNT", targetitemcount);
-
+	local targetitemcount = GET_TARGET_ITME_COUNT(frame);
 	if targetitemcount == 0 then
 		frame:SetUserValue("ITEM_EQUIP_CLASSTYPE", "None");
 	end
@@ -1120,4 +1118,16 @@ function OPTION_LEGEND_EXTRACT_REGISTER_EXTRACTION_OPTION_CAPTION(frame, invitem
 
 	gBox:Resize(gBox:GetWidth(), tooltip_equip_property_CSet:GetHeight())
 
+end
+
+function GET_TARGET_ITME_COUNT(frame)
+	local count = 0;
+	for i = 1, 3 do
+		local slot = GET_CHILD_RECURSIVELY(frame, "targetitemslot_"..i, "ui::CSlot");
+		if slot:GetIcon() ~= nil then
+			count = count + 1;
+		end
+	end
+
+	return count;
 end

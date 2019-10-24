@@ -6,9 +6,6 @@ function BGMPLAYER_REDUCTION_ON_INIT(addon, frame)
         ui.OpenFrame("bgmplayer_reduction"); 
         BGMPLAYER_REDUCTION_INIT_SKIN(frame);
         BGMPLAYER_FRAME_SET_POS(frame);
-        if IsBeingPlayedFromBgmPlayer() == 1 then
-            BGMPLAYER_REDUCTION_UPDATE_PLAY_TIME(frame);
-        end
         
         local bgmplayer_frame = ui.GetFrame("bgmplayer");
         if bgmplayer_frame ~= nil then
@@ -60,13 +57,6 @@ function BGMPLAYER_REDUCTION_INIT_SKIN(frame)
     BGMPLAYER_REDUCTION_CHANGE_SKIN(isChange);
 end
 
-function BGMPLAYER_REDUCTION_UPDATE_PLAY_TIME(frame)
-    local timeText = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_playtime");
-    if timeText == nil then return; end
-    timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-    timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-end
-
 function BGMPLAYER_REDUCTION_OPEN_UI(preFrame, btn)
 	if IsNotPlayArea() == false then
         ui.OpenFrame("bgmplayer_reduction"); 
@@ -77,9 +67,6 @@ function BGMPLAYER_REDUCTION_OPEN_UI(preFrame, btn)
         if frame ~= nil then
             BGMPLAYER_REDUCTION_INIT_SKIN(frame);
             BGMPLAYER_FRAME_SET_POS(frame);
-            if IsBeingPlayedFromBgmPlayer() == 1 then
-                BGMPLAYER_REDUCTION_UPDATE_PLAY_TIME(frame);
-            end
         end
     elseif IsNotPlayArea() == true then
         ui.SysMsg(ClMsg("IsNotPlayBgmPlayerArea"));
@@ -100,10 +87,6 @@ function BGMPLAYER_REDUCTION_OPEN_UI(preFrame, btn)
             local title_txt = title:GetTextByKey("value");
             BGMPLAYER_REDUCTION_SET_TITLE(title_txt);
         end
-
-        local timeText = GET_CHILD_RECURSIVELY(preFrame, "bgm_mugic_playtime");
-        if timeText == nil then return; end
-        timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
 	end
 end
 
@@ -111,29 +94,13 @@ function BGMPLAYER_REDUCTION_MAXIMIZE_UI()
 	if IsNotPlayArea() == false then
         local bgmplayer_frame = ui.GetFrame("bgmplayer");
         if bgmplayer_frame ~= nil then 
-            bgmplayer_frame:SetVisible(1);
-            SetBgmPlayerBasicFrameVisible(1);
+            BGMPLAYER_REDUCTION_CLOSE_UI();
             BGMPLAYER_OPEN_UI();
-
-            local timeText = GET_CHILD_RECURSIVELY(bgmplayer_frame, "bgm_mugic_playtime");
-            if timeText == nil then return; end
-            timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
-            timeText:RunUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
         end 
     elseif IsNotPlayArea() == true then
         ui.SysMsg(ClMsg("IsNotPlayBgmPlayerArea"));
         SetBgmPlayerBasicFrameVisible(0);
         SetBgmPlayerReductionFrameVisible(0);
-    end
-
-    local frame = ui.GetFrame("bgmplayer_reduction");
-    if frame ~= nil then
-        frame:SetVisible(0);
-        SetBgmPlayerReductionFrameVisible(0);
-
-        local timeText = GET_CHILD_RECURSIVELY(frame, "bgm_mugic_playtime");
-        if timeText == nil then return; end
-        timeText:StopUpdateScript("UPDATE_BGMPLAYER_PLAYTIME");
     end
 end
 

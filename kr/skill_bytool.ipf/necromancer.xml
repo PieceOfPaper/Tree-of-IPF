@@ -395,30 +395,30 @@
                     <Num Num="0" />
                     <Str Str="None" />
                 </Scp>
-                <Scp Client="YES" Scp="C_EFFECT_POS" Time="800" UseSleep="NO">
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
                     <Str_Arg Arg="0.40000001" Str="F_cleric_AustrasKoks_shot_light" />
                     <Pos Angle="0" Dist="3" Height="35" />
                     <Num Num="0" />
                     <Str Str="None" />
                 </Scp>
-                <Scp Client="YES" Scp="C_EFFECT_POS" Time="800" UseSleep="NO">
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
                     <Str_Arg Arg="0.40000001" Str="F_cleric_AustrasKoks_shot_light" />
                     <Pos Angle="0" Dist="3" Height="35" />
                     <Num Num="0" />
                     <Str Str="None" />
                 </Scp>
-                <Scp Client="YES" Scp="C_EFFECT" Time="800" UseSleep="NO">
+                <Scp Client="YES" Scp="C_EFFECT" Time="500" UseSleep="NO">
                     <Str_Arg Arg="3" Str="F_wizard_shoggoth_cast_lineup" />
                     <Str Str="Dummy_emitter" />
                     <Num Num="0" />
                 </Scp>
-                <Scp Client="YES" Scp="C_EFFECT_POS" Time="900" UseSleep="NO">
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
                     <Str_Arg Arg="0.30000001" Str="F_wizard_dpcollect_shot_spread_in" />
                     <Pos Angle="0" Dist="3" Height="35" />
                     <Num Num="0" />
                     <Str Str="None" />
                 </Scp>
-                <Scp Client="YES" Scp="C_EFFECT_POS" Time="1200" UseSleep="NO">
+                <Scp Client="YES" Scp="C_EFFECT_POS" Time="500" UseSleep="NO">
                     <Str_Arg Arg="0.40000001" Str="F_cleric_AustrasKoks_shot_light" />
                     <Pos Angle="0" Dist="3" Height="35" />
                     <Num Num="0" />
@@ -611,7 +611,7 @@
                     <Num Num="0" />
                     <Num Num="0" />
                     <Str Str="None" />
-                    <MonProp List="WlkMSPD#60#RunMSPD#60#$NECRO_MON#1" />
+                    <MonProp List="WlkMSPD#120#RunMSPD#120#$NECRO_MON#1" />
                     <Str Str="NECRO_SHOGGOTH_MON" />
                 </Scp>
                 <Scp Client="NO" Scp="SKL_SET_TGT_EXPROP_RECENT" Time="1500" UseSleep="NO">

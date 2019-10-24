@@ -1866,7 +1866,7 @@ function STATUS_ACHIEVE_INIT_HAIR_COLOR(gbox)
 	local Selectclass   = GenderList:GetClass(pc.Gender);
 	local Selectclasslist = Selectclass:GetSubClassList();
 
-    local nowHairCls = Selectclasslist:GetByIndex(nowHeadIndex - 1);
+    local nowHairCls = Selectclasslist:GetClass(nowHeadIndex);
     if nil == nowHairCls then
         return;
     end

@@ -1235,3 +1235,14 @@ function GET_BUFF_BY_NAME_C(buffName)
     local handle = session.GetMyHandle();
     return info.GetBuff(handle, buffCls.ClassID);
 end
+
+-- 2019Halloween_effect / moon effect
+function HalloweenMoon_effect_ENTER(actor, obj, buff)
+    if actor:GetBuff():IsUse2DEffect() == false then
+        actor:GetBuff():SetUse2DEffect(true);
+    end
+end
+
+function HalloweenMoon_effect_LEAVE(actor, obj, buff)
+    actor:GetBuff():SetUse2DEffect(false);
+end

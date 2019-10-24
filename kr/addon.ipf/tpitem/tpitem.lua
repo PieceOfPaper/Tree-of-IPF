@@ -2374,7 +2374,7 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 	local Selectclass   = GenderList:GetClass(pc.Gender);
 	local Selectclasslist = Selectclass:GetSubClassList();
 
-	local nowhaircls = Selectclasslist:GetByIndex(nowheadindex-1);
+	local nowhaircls = Selectclasslist:GetClass(nowheadindex);
 	
 	local nowengname = imcIES.GetString(nowhaircls, 'EngName') 
 	local nowcolor = imcIES.GetString(nowhaircls, 'EngColor')
