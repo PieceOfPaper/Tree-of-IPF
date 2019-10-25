@@ -154,3 +154,4 @@ ClassID,ConditionArg4,ClassName,UseType,ValueType,PropertyType,ConditionScp,Cond
 161,0,"Legendcard_Moringponia","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_PLUS","MiddleSize_Atk_BM","MiddleSize_Atk_BM","300","중형 대상 공격력+{@st66d_y}{s16}[%d]{/}{/}","300"
 162,0,"card_Misrus","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_IMMUNE_AND_STATUS","Res_Blind_Debuff_BM/MSP_BM","","100/60","암흑 상태이상 저항 +{@st66d_y}{s16}[%d]{/}{/}, 최대 SP +{@st66d_y}{s16}[%d]{/}{/}","1/60"
 163,0,"Legendcard_Misrus","Always","StarCount","","","","","","SCR_CARDEFFECT_ADD_BUFF_STARVALUE_PC","card_Misrus_legendcard","","0","실드 적용 중인 대상에게 {@st66d_y}{s16}[%d]{/}{/} 추가 대미지","1000"
+164,0,"card_tantaliser","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_ALL_PLUS","CON_ITEM_BM/STR_ITEM_BM","CON_ITEM_BM/INT_ITEM_BM","1/1","힘, 체력 + {@st66d_y}{s16}[%d]{/}{/}","1"
