@@ -328,12 +328,11 @@
 		<Class ClassID="2291" ClassName="PleaseSelectSetOption" Data="세트 옵션을 선택해주세요."/>
 		<Class ClassID="2292" ClassName="CantUseInBattleState" Data="전투중엔 사용하실 수 없습니다."/>
 		<Class ClassID="2293" ClassName="CantUseInSkillsCoolDown" Data="스킬이 재사용 대기시간 중이거나 오버히트를 소모한 상태에서 사용하실 수 없습니다."/>
-
-<Class ClassID="2294" ClassName="InvalidIndex_AccountWareHouse" Data="잘못된 아이템 인덱스 요청입니다."/>
-    <Class ClassID="2295" ClassName="NotExist_AccountWahreHouseTicket" Data="아이템이 존재하지 않습니다."/>    
-    <Class ClassID="2297" ClassName="BasicAccountWarehouse" Data="기본 창고"/>
-    <Class ClassID="2298" ClassName="AdditionalAccountWarehouse" Data="추가 창고"/>
-    <Class ClassID="2299" ClassName="CantUseAdditional_AccountWarehouse" Data="추가 창고를 사용하실 수 없습니다."/>
+		<Class ClassID="2294" ClassName="InvalidIndex_AccountWareHouse" Data="잘못된 아이템 인덱스 요청입니다."/>
+		<Class ClassID="2295" ClassName="NotExist_AccountWahreHouseTicket" Data="아이템이 존재하지 않습니다."/>
+		<Class ClassID="2297" ClassName="BasicAccountWarehouse" Data="기본 창고"/>
+		<Class ClassID="2298" ClassName="AdditionalAccountWarehouse" Data="추가 창고"/>
+		<Class ClassID="2299" ClassName="CantUseAdditional_AccountWarehouse" Data="추가 창고를 사용하실 수 없습니다."/>
 		<Class ClassID="2302" ClassName="selectrecipe" Data="레시피 선택"/>
 		<Class ClassID="2305" ClassName="UseUp{LEVEL}{GRADE}Jewell" Data="{LEVEL} 레벨의 {GRADE} 인챈트 쥬얼 아이템을 모두 사용하였습니다.{nl}인챈트 쥬얼 UI를 닫으시겠습니까?"/>
 		<Class ClassID="2304" ClassName="ExistingIcordeleted" Data="기존의 장착된 아이커는 소멸됩니다.{nl}계속 진행하시겠습니까?"/>
@@ -343,7 +342,7 @@
 <Class ClassID="2309" ClassName="CantUseCuzStackItemInAdditionalTab" Data="추가 창고에 같은 종류의 스택형 아이템이 존재하기 때문에 이용하실 수 없습니다. 추가 창고에서 스택형 아이템을 모두 찾으신 후 이용 가능합니다."/>
 		<Class ClassID="2310" ClassName="ReallyUseAbilityPointResetItem_OneAbility" Data="사용시 해당 특성을 초기화 하며 특성 포인트 및 [보상용] 미식별 신비한 서 가 환급됩니다.{nl}계속 진행하시겠습니까?"/>
 		<Class ClassID="2311" ClassName="ExceedAdditionalAccountwarehouse" Data="확장 가능한 기본 창고 슬롯이 최대치에 도달하였습니다."/>
-    <Class ClassID="2312" ClassName="ExceedAdditionalAccountwarehouse2" Data="해당 아이템 사용 시, 확장 가능한 기본 창고 슬롯의 최대치를 초과하게 되어 사용이 불가능합니다."/>
+		<Class ClassID="2312" ClassName="ExceedAdditionalAccountwarehouse2" Data="해당 아이템 사용 시, 확장 가능한 기본 창고 슬롯의 최대치를 초과하게 되어 사용이 불가능합니다."/>
 	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
@@ -1579,7 +1578,7 @@
 		<Class ClassID="21339" ClassName="Squire14AbilityAble" Data="천 마스터리: 재봉 장인 적용중"/>
 		<Class ClassID="21340" ClassName="Squire15AbilityAble" Data="가죽 마스터리: 세공 장인 적용중"/>
 		<Class ClassID="21341" ClassName="Squire16AbilityAble" Data="판금 마스터리: 제련 장인 적용중"/>
-    <Class ClassID="21347" ClassName="Ask_UnEnableEffectTransparency_Text" Data="퀘스트의 이펙트가 보이지 않을 수 있습니다. 설정을 적용 하시겠습니까?"/>
+		<Class ClassID="21347" ClassName="Ask_UnEnableEffectTransparency_Text" Data="퀘스트의 이펙트가 보이지 않을 수 있습니다. 설정을 적용 하시겠습니까?"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -4670,6 +4669,7 @@
 		<Class ClassID="27132" ClassName="CATACOMB_HALLOWEEN_MSG3" Data="3회 참여 보상을 받는다"/>
 		<Class ClassID="27133" ClassName="CATACOMB_HALLOWEEN_MSG4" Data="30회 참여 보상을 받는다"/>
 		<Class ClassID="27182" ClassName="GACHA_SITEM_GET_ALLMSG" Data="{s24}축하드립니다!{nl}{PC} 님이 레티샤의 시크릿 큐브에서{nl}{ITEMNAME} 를(을) 획득하셨습니다!"/>
+		<Class ClassID="27183" ClassName="GACHA_SITEM_GET_ALLMSG_2" Data="{s24}축하드립니다!{nl}{PC} 님이 복각: 축복받은 여신의 큐브에서{nl}{ITEMNAME} 를(을) 획득하셨습니다!"/>
 		<Class ClassID="27200" ClassName="MOLE_BINGO_MSG1" Data="{SEC}초 안에 빙고를 맞춰 {POINT}점을 달성하세요!"/>
 		<Class ClassID="27201" ClassName="MOLE_BINGO_MSG2" Data="{POINT}점 달성!{nl}보상{ITEM}"/>
 		<Class ClassID="27202" ClassName="MOLE_BINGO_MSG3" Data="두더지 잡기 빙고가 종료됩니다{nl}점수 : {POINT} 달성{nl}팀 최고점수 : {MAXPOINT}"/>
@@ -8780,14 +8780,14 @@
 		<Class ClassID="90193" ClassName="Unique_Boss_Skiaclipse_TYPE1" Data="흰 까마귀의 영면지: 유니크 진입(1인)"/>
 		<Class ClassID="90194" ClassName="Unique_Boss_Skiaclipse_TYPE2" Data="흰 까마귀의 영면지: 유니크 진입(5인)"/>
 		<Class ClassID="90195" ClassName="400lvupCard_MSG" Data="{nl} {nl}사용 시 1레벨에서 400레벨 도달까지 필요한 만큼의 경험치를 얻습니다.{nl} {nl}{@st66d_y}경험치 카드를 사용하시겠습니까?"/>
-	<Class ClassID="90196" ClassName="Legend_Boss_Skiaclipse_TYPE1" Data="흰 까마귀의 영면지: 레전드 진입(1인)"/>
+		<Class ClassID="90196" ClassName="Legend_Boss_Skiaclipse_TYPE1" Data="흰 까마귀의 영면지: 레전드 진입(1인)"/>
 		<Class ClassID="90197" ClassName="Legend_Boss_Skiaclipse_TYPE2" Data="흰 까마귀의 영면지: 레전드 진입(5인)"/>
 		<Class ClassID="90198" ClassName="1910_HALLOWEEN_SEL_MSG1" Data="{#003399}할로윈 밤의 소동{/} 이벤트 안내"/>
 		<Class ClassID="90199" ClassName="1910_HALLOWEEN_SEL_MSG2" Data="{#003399}할로윈 밤의 소동{/} 이벤트 던전 입장"/>
 		<Class ClassID="90200" ClassName="1910_HALLOWEEN_SEL_MSG3" Data="{#003399}할로윈 밤의 소동{/} 이벤트 상점 열기"/>
 		<Class ClassID="90201" ClassName="1910_HALLOWEEN_DOOR_DOTIME_MSG1" Data="문을 두드리는 중"/>
 		<Class ClassID="90202" ClassName="1910_HALLOWEEN_BOSS_SCAR_MSG2" Data="허수아비에 힘을 충전 하는 중"/>
-	        <Class ClassID="90203" ClassName="Unique_Boss_Moringponia_TYPE1" Data="나비목 접선지: 유니크 진입(1인)"/>
+		<Class ClassID="90203" ClassName="Unique_Boss_Moringponia_TYPE1" Data="나비목 접선지: 유니크 진입(1인)"/>
 		<Class ClassID="90204" ClassName="Unique_Boss_Moringponia_TYPE2" Data="나비목 접선지: 유니크 진입(5인)"/>
 	</Category>
 	<Category Name="BattleText">
@@ -13483,14 +13483,13 @@
 		<Class ClassID="501207" ClassName="EVENT_1905_TOS_CHILD_MSG1" Data="하루 획득가능한 뱃지 200개를 모두 모았습니다."/>
 		<Class ClassID="501208" ClassName="EVENT_1905_TOS_CHILD_MSG2" Data="오늘 뱃지를 총 {@st66d_y}{s18}{GET}{/}{/}개 획득하였습니다. {@st66d_y}{s18}{REMAIN}{/}{/}개의 뱃지를 더 획득할 수 있습니다."/>
 		<Class ClassID="501209" ClassName="EVENT_1905_TOS_CHILD_MSG3" Data="곧 뱃지가 지급됩니다. 뱃지 지급 전 종료시 정상적으로 아이템이 지급되지 않을 수 있습니다."/>
-				<Class ClassID="501218" ClassName="STM_SAVIOR_BUFF" Data="{#FA3366}배달원{/}{s18}{@st66d_y}{PC}{/}{/}{#FA3366}님의 피자 냄새가 느껴집니다.{/}"/> 
+		<Class ClassID="501218" ClassName="STM_SAVIOR_BUFF" Data="{#FA3366}배달원{/}{s18}{@st66d_y}{PC}{/}{/}{#FA3366}님의 피자 냄새가 느껴집니다.{/}"/>
 		<Class ClassID="501219" ClassName="STM_SAVIOR_BUFF_PROP" Data="피자 버프 적용 (1시간)"/>
-			<Class ClassID="501223" ClassName="EVENT_1906_TOTAL_SHOP_MSG1" Data="하루 획득가능한 주화 200개를 모두 모았습니다."/>
+		<Class ClassID="501223" ClassName="EVENT_1906_TOTAL_SHOP_MSG1" Data="하루 획득가능한 주화 200개를 모두 모았습니다."/>
 		<Class ClassID="501224" ClassName="EVENT_1906_TOTAL_SHOP_MSG2" Data="곧 주화가 지급됩니다. 주화 지급 전 종료시 정상적으로 아이템이 지급되지 않을 수 있습니다."/>
-			<Class ClassID="501227" ClassName="STM_SAVIOR_BUFF_PROP2" Data="배달원 버프 적용 (24시간)"/>
+		<Class ClassID="501227" ClassName="STM_SAVIOR_BUFF_PROP2" Data="배달원 버프 적용 (24시간)"/>
 		<Class ClassID="501228" ClassName="IsApplied_STM_SAVIOR_BUFF" Data="{@st47}{s21}이미 배달원의 혜택을 적용받고 있습니다.{/}{/}{nl} {nl}아이템을 재사용할 경우{nl}배달원 버프의 {@st66d_y}추가 시간이 제공되지 않으며{/},{nl}피자 버프만 1시간으로 변경됩니다.{nl} {nl}그래도 적용하시겠습니까?"/>
-		
-		<Class ClassID="501233" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL" Data="변경된 밸런스에 맞춰 특정 클래스로 선택하신 구원자님을 지원해드리고 있습니다.{nl}지원 가능한 클래스를 확인해보세요."/>
+						<Class ClassID="501233" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL" Data="변경된 밸런스에 맞춰 특정 클래스로 선택하신 구원자님을 지원해드리고 있습니다.{nl}지원 가능한 클래스를 확인해보세요."/>
 		<Class ClassID="501234" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL1" Data="{#003399}소드맨 계열{/}{nl} - {Char1}"/>
 		<Class ClassID="501235" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL2" Data="{#003399}위저드 계열{/}{nl} - {Char2}"/>
 		<Class ClassID="501236" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL3" Data="{#003399}아처 계열{/}{nl} - {Char3}"/>
@@ -13968,9 +13967,9 @@
 		<Class ClassID="820019" ClassName="AncientScrollSelect" Data="선택한 목록이 없습니다. 닫으시겠습니까?"/>
 		<Class ClassID="820020" ClassName="AncientStageGiveUp" Data="포기하시겠습니까?"/>
 		<Class ClassID="820021" ClassName="AncientCoinMsg" Data="곧 {@st66d_y}{s20}[이벤트] 고대 주화{/}{/}가 지급됩니다. 주화 지급 전 종료시 정상적으로 아이템이 지급되지 않을 수 있습니다."/>
-	<Class ClassID="820022" ClassName="AncientUnableMonster" Data="진화가 불가능한 몬스터입니다."/>
+		<Class ClassID="820022" ClassName="AncientUnableMonster" Data="진화가 불가능한 몬스터입니다."/>
 		<Class ClassID="820023" ClassName="AncientSlot1Tooltip" Data="해당 슬롯의 몬스터는 두 배의 경험치를 획득합니다."/>
-        <Class ClassID="820024" ClassName="AncientNoCoinInInventory" Data="[이벤트]고대 주화를 보유하고 있지 않아 아이템 사용이 취소됩니다."/>
+		<Class ClassID="820024" ClassName="AncientNoCoinInInventory" Data="[이벤트]고대 주화를 보유하고 있지 않아 아이템 사용이 취소됩니다."/>
 	</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="?????????????"/>
@@ -14196,34 +14195,32 @@
 		<Class ClassID="514010" ClassName="TableLand_ReturnCity{SEC}" Data="잠시 후 베다 고원으로 귀환됩니다. ({SEC}초)"/>
 		<Class ClassID="514011" ClassName="RAID_FIRST_KILL_NOTICE" Data="{partyMember} 파티가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
 		<Class ClassID="514012" ClassName="RAID_NEW_RECORD" Data="{partyMember} 파티가 {clearMin}분 {clearSec}초에 {raidName}의 클리어 시간을 단축했습니다!"/>
-
-	    <Class ClassID="514013" ClassName="SOLO_RAID_FIRST_KILL_NOTICE" Data="{teamName}가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
-	    <Class ClassID="514014" ClassName="SOLO_RAID_NEW_RECORD" Data="{teamName}가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
+			    	    <Class ClassID="514013" ClassName="SOLO_RAID_FIRST_KILL_NOTICE" Data="{teamName}가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
+		<Class ClassID="514014" ClassName="SOLO_RAID_NEW_RECORD" Data="{teamName}가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
 		<Class ClassID="514015" ClassName="MORINGPONIA_NPC_MSG1" Data="지원? 고작이게 전부인가?"/>
 		<Class ClassID="514016" ClassName="MORINGPONIA_NPC_MSG2" Data="지원 병력인가? 전방에서는 이미 전투가 시작됐어. 서둘러야 해."/>
 		<Class ClassID="514017" ClassName="MORINGPONIA_NPC_MSG3_1" Data="왔군. 지원군이 모두 도착하면 출발하도록 하지."/>
 		<Class ClassID="514018" ClassName="MORINGPONIA_NPC_MSG3_2" Data="내가 앞장서겠다. 자, 움직인다. 서둘러!"/>
-	    <Class ClassID="514019" ClassName="MORINGPONIA_NPC_MSG4_1" Data="자네 상관이 누구지? 실력이 상당하군.. 덕분에 한시름 놓을 수 있었다."/>
-	    <Class ClassID="514020" ClassName="MORINGPONIA_NPC_MSG4_2" Data="이제부터 여기는 우리가 막을 테니 전방으로 가서 마족들을 처치하도록."/>
-	    <Class ClassID="514021" ClassName="CHRONO_MASTER_MSG1" Data="아쉽게도 두 마군주를 모두 놓쳤습니다. 이 이공간에서는 역시 한계가 있었군요.."/>
-	    <Class ClassID="514022" ClassName="CHRONO_MASTER_MSG2" Data="쉽지 않은 일이었을 텐데 고생해 주셨습니다. 깊은 감사를 표합니다."/>
-	    <Class ClassID="514023" ClassName="CHRONO_MASTER_MSG3" Data="여기서 있던 일은 되도록 알려지지 않는 게 좋겠습니다."/>
+		<Class ClassID="514019" ClassName="MORINGPONIA_NPC_MSG4_1" Data="자네 상관이 누구지? 실력이 상당하군.. 덕분에 한시름 놓을 수 있었다."/>
+		<Class ClassID="514020" ClassName="MORINGPONIA_NPC_MSG4_2" Data="이제부터 여기는 우리가 막을 테니 전방으로 가서 마족들을 처치하도록."/>
+		<Class ClassID="514021" ClassName="CHRONO_MASTER_MSG1" Data="아쉽게도 두 마군주를 모두 놓쳤습니다. 이 이공간에서는 역시 한계가 있었군요.."/>
+		<Class ClassID="514022" ClassName="CHRONO_MASTER_MSG2" Data="쉽지 않은 일이었을 텐데 고생해 주셨습니다. 깊은 감사를 표합니다."/>
+		<Class ClassID="514023" ClassName="CHRONO_MASTER_MSG3" Data="여기서 있던 일은 되도록 알려지지 않는 게 좋겠습니다."/>
 		<Class ClassID="514024" ClassName="MORINGPONIA_NPC_MSG5_1" Data="대체 어디서 이렇게 많은 마족이 들이닥친 거지.."/>
 		<Class ClassID="514025" ClassName="MORINGPONIA_NPC_MSG5_2" Data="모두 지쳐있지만.. 희망을 잃어서는 안 돼. 너도 그렇게 생각하지?"/>
 		<Class ClassID="514026" ClassName="MORINGPONIA_NPC_MSG5_3" Data="당신 같은 실력자가 샤펜스타에 있었을 줄이야.. 희망이 생기는 기분이야."/>
 		<Class ClassID="514027" ClassName="MORINGPONIA_NPC_MSG5_4" Data="보급품이 점점 떨어지고 있어.."/>
 		<Class ClassID="514028" ClassName="MORINGPONIA_NPC_MSG5_5" Data="내 고향은 안전할까? 소식을 들은 지 한참이 지났어.."/>
 		<Class ClassID="514029" ClassName="MORINGPONIA_NPC_MSG5_6" Data="이상 없다! 아직 싸울 수 있어!"/>
-	    <Class ClassID="514030" ClassName="MORINGPONIA_MONSTER_MSG1" Data="{s20}모링포니아가 {#ff6d00}{NAME}{/}을(를) 주시합니다.{/}"/>
+		<Class ClassID="514030" ClassName="MORINGPONIA_MONSTER_MSG1" Data="{s20}모링포니아가 {#ff6d00}{NAME}{/}을(를) 주시합니다.{/}"/>
 		<Class ClassID="514031" ClassName="TANTALISER_PATTERN_DEBUFF_MSG" Data="{s20}탄타이저가 당신에게 {#ff6d00}마력 응축{/} 디버프를 부여합니다.{/}"/>
 		<Class ClassID="514032" ClassName="MORINGPONIA_SUMMON_MSG_01" Data="{s20}검은 빅 그리바가 생성되었습니다.{/}"/>
 		<Class ClassID="514033" ClassName="MORINGPONIA_SUMMON_MSG_02" Data="{s20}모링포니아가 {#ff6d00}리타스워트{/}를 소환 중입니다.{nl}소환 포탈을 찾아 암흑 디버프를 해제하고 {#ff6d00}리타스워트{/}를 처치하십시오.{/}"/>
 		<Class ClassID="514034" ClassName="MORINGPONIA_CURSE_PATTERN_MSG" Data="{s20}모링포니아가 {#ff6d00}{NAME}{/}에게 저주를 걸었습니다!{nl}저주 대상과 이격하여 저주에 대비하세요.{/}"/>
 		<Class ClassID="514035" ClassName="TANTALISER_POLARITY_PATTERN_START_MSG" Data="{s20}잠시 후 탄타이저가 극성 디버프를 부여합니다.{nl}진영을 갖추어 극성 디버프에 대비하십시오.{/}"/>
 		<Class ClassID="514036" ClassName="TANTALISER_POLARITY_PATTERN_CHANGE_MSG" Data="{s20}잠시 후 극성이 변환됩니다.{/}"/>
-        </Category>
-
-	<Category Name="SoloDungeon">
+	</Category>
+			<Category Name="SoloDungeon">
 		<Class ClassID="513001" ClassName="SoloDungeonStageMSG" Data="스테이지의 몬스터가 몰려옵니다. 모두 처치해 주세요!"/>
 		<Class ClassID="513002" ClassName="SoloDungeonSelectMsg_1" Data="이공간에 들어간다(권장레벨:300)"/>
 		<Class ClassID="513003" ClassName="SoloDungeonSelectMsg_2" Data="이공간에 들어간 자들을 살펴본다"/>
@@ -14235,7 +14232,7 @@
 		<Class ClassID="513009" ClassName="SoloDungeonRewardAlready" Data="이미 보상을 받았습니다"/>
 		<Class ClassID="513010" ClassName="SoloDungeonRewardNotYet" Data="아직 보상을 받을 수 없습니다"/>
 		<Class ClassID="513011" ClassName="SoloDungeonSelectMsg_5" Data="베르니케 파편 던전 포인트샵"/>
-		</Category>
+	</Category>
 	<Category Name="JobSelectGuide">
 		<Class ClassID="515001" ClassName="JobSelectGuide_Result" Data="결과"/>
 		<Class ClassID="515002" ClassName="JobSelectGuide_Difficulty" Data="난이도"/>
