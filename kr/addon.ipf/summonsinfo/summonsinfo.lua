@@ -180,30 +180,51 @@ function UPDATE_PC_FOLLOWER_LIST(dataStr)
 	ON_UPDATE_MY_SUMMON_MONSTER(monIDList, countList);
 end
 
+local function sort_func(a, b)
+    return a < b;
+end
+
 -- create summonui controlset
-function ON_UPDATE_MY_SUMMON_MONSTER(monIdList, monCountList)
+function ON_UPDATE_MY_SUMMON_MONSTER(monIdList, monCountList)    
 	local frame = ui.GetFrame("summonsinfo");
 	if frame == nil then
 		return;
 	end
-
+    
+    local count_map = {}
+    local mon_name_list = {}
+    local mon_name_id_map = {}
+    for i = 1, #monIdList do
+        local mon_name = geMonsterTable.GetMonsterNameByType(monIdList[i]);
+        count_map[mon_name] = tonumber(monCountList[i])
+        mon_name_list[#mon_name_list + 1] = mon_name
+        mon_name_id_map[mon_name] = monIdList[i]
+    end
+    
+    table.sort(mon_name_list, sort_func)    
 	local ctrlsetHeight = tonumber(frame:GetUserConfig("SUMMONINFO_CTRLSET_HEIGHTOFFSET"));
-	for i = 1, #monIdList do
-		local ctrlName = "SUMMONINFO_" .. monIdList[i];
-		local summonsInfoCtrlSet = frame:CreateOrGetControlSet('summonsinfo', ctrlName, 10, i * ctrlsetHeight); 
 
+    for i = 1, #mon_name_list do
+        local ctrlName = "SUMMONINFO_" .. mon_name_id_map[mon_name_list[i]];        
+		local summonsInfoCtrlSet = frame:CreateOrGetControlSet('summonsinfo', ctrlName, 10, i * ctrlsetHeight); 
+		frame:RemoveChild(summonsInfoCtrlSet:GetName());
+    end
+
+    for i = 1, #mon_name_list do
+        local ctrlName = "SUMMONINFO_" .. mon_name_id_map[mon_name_list[i]];        
+		local summonsInfoCtrlSet = frame:CreateOrGetControlSet('summonsinfo', ctrlName, 10, i * ctrlsetHeight); 
 		local summonsName = GET_CHILD_RECURSIVELY(summonsInfoCtrlSet, "summons_name");
 		local summonsCount = GET_CHILD_RECURSIVELY(summonsInfoCtrlSet, "summons_count");
-		local monName = geMonsterTable.GetMonsterNameByType(monIdList[i]);
+		local monName = mon_name_list[i]        
 		if monName ~= nil then
 			summonsName:SetTextByKey("name", monName);
-			summonsCount:SetTextByKey("count", monCountList[i]);
-		end		
+			summonsCount:SetTextByKey("count", count_map[monName]);
+        end		
 
-		if monCountList[i] <= 0 then
+		if count_map[monName] <= 0 then
 			frame:RemoveChild(summonsInfoCtrlSet:GetName());
         end
-	end
+    end
 
     frame:Invalidate();
 	SUMMONSINFO_CONTROLSET_AUTO_ALIGN(frame);
