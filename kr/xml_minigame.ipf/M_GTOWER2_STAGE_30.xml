@@ -197,10 +197,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="OUT"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
-                                <Num Num="5"/>
-                                <Str Str="LegendRaid: M_GTOWER_2_30F"/>
-                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="PROG">
@@ -566,7 +562,9 @@
                         <Str Str="End"/>
                     </ToolScp>
                 </StartScpList>
-                <ObjList/>
+                <ObjList>
+                    <Obj Type="Monster" MonType="156162" Pos="2227.51#239.70#4488.12" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;NPC_DUNGEON_GACHA_CUBE&apos; "/>
+                </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="LEAVE">
                         <condList>

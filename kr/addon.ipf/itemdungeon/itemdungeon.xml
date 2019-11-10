@@ -37,7 +37,7 @@
 		<richtext name="stoneCountText" parent="buyerBox" rect="0 0 300 30" margin="0 65 20 0" layout_gravity="right top" format="{@st41b}%s/1" param1="cur" param1_def="0"/>
 		<slot name="abrasiveSlot" parent="buyerBox" rect="0 0 70 70" margin="20 120 0 0" layout_gravity="left top" DropScp="ITEMDUNGEON_DROP_WEALTH_ITEM" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}연마재를 올려주세요{/}" PopScp="ITEMDUNGEON_RESET_ABRASIVE" RBtnUpScp="ITEMDUNGEON_RESET_ABRASIVE"/>
 		<richtext name="abrasiveInfoText" parent="buyerBox" rect="0 0 300 30" margin="110 145 0 0" layout_gravity="left top" caption="{@st66d_y}각성 연마재를 추가해주세요.{/}"/>
-		<richtext name="abrasiveNameText" parent="buyerBox" rect="0 0 300 30" margin="110 145 0 0" layout_gravity="left top" format="{@st41b}%s" param1="name" param1_def="각성 연마재 아이템 이름"/>
+		<richtext name="abrasiveNameText" parent="buyerBox" rect="0 0 300 30" margin="110 145 0 0" layout_gravity="left top" format="{@st41b}%s" param1="name" param1_def="각성 연마재 아이템 이름" fixwidth="true"/>
 		<richtext name="abrasiveCountText" parent="buyerBox" rect="0 0 300 30" margin="0 145 20 0" layout_gravity="right top" format="{@st41b}%s/1" param1="cur" param1_def="0"/>
 		<groupbox name="buyerBtnBox" rect="0 0 450 90" margin="0 0 0 50" layout_gravity="center bottom" draw="false"/>
 		<button name="closeShopBtn" parent="buyerBtnBox" rect="0 0 140 50" margin="0 0 75 0" layout_gravity="right center" LBtnUpScp="ITEMDUNGEON_CLOSE_SHOP" caption="{@st42}폐 점" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_gray_button"/>

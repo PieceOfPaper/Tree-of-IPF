@@ -9,7 +9,7 @@ function REPAIR140731_ON_INIT(addon, frame)
 end
 
 function REPAIR140731_ON_MSG(frame, msg, argStr, argNum)
-	if  msg == 'DIALOG_CLOSE'  then
+	if msg == 'DIALOG_CLOSE'  then
 		frame:OpenFrame(0);
     elseif msg == 'OPEN_DLG_REPAIR' then
     	UPDATE_REPAIR140731_LIST(frame);
@@ -17,7 +17,6 @@ function REPAIR140731_ON_MSG(frame, msg, argStr, argNum)
 	elseif msg == 'UPDATE_DLG_REPAIR' then
 		UPDATE_REPAIR140731_LIST(frame);
 	elseif msg == 'UPDATE_ITEM_REPAIR' then
-
 		if argNum == 90000 then
 			DRAW_TOTAL_VIS_OTHER_FRAME(frame, 'sys_silver');
 		else

@@ -1745,13 +1745,23 @@ function SCR_SKILLSCROLL(invItem)
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
+
+	local mGameName = session.mgame.GetCurrentMGameName()
+	if mGameName ~= nil and mGameName ~= 'None' then
+		local indunCls = GetClassByStrProp('Indun', 'MGame', mGameName)
+		local dungeonType = TryGetProp(indunCls, 'DungeonType', 'None')
+		if dungeonType == 'Raid' or dungeonType == 'GTower' then
+			ui.SysMsg(ClMsg("NotAvailableInThisContents"))
+			return
+		end
+	end
 	
 	local sklType = obj.SkillType;
 	spcitem.CreateScrollSkill(sklType, invItem:GetIESID(), obj.SkillLevel, true);
 	control.Skill(sklType, obj.SkillLevel, true);
 end
 
- function SCR_MONGWANGGA_CLIENT(invItem)
+function SCR_MONGWANGGA_CLIENT(invItem)
 
 	local obj = GetIES(invItem:GetObject());
 	local skilCls = GetClass("Skill", obj.StringArg);
@@ -1765,14 +1775,14 @@ function SCR_EXEC_MONWANGGA(guid, x, y, z)
 
 end
 
- function GET_TOTAL_MONEY_STR() -- int로 잘리지 않고 싶으면 이걸 쓰도록하되, 밖에서 계산할 때는 tonumber하거나 BigNumber 전용 함수들 사용 권장
+function GET_TOTAL_MONEY_STR() -- int로 잘리지 않고 싶으면 이걸 쓰도록하되, 밖에서 계산할 때는 tonumber하거나 BigNumber 전용 함수들 사용 권장
 	local silver = '0';
 	local invItem = session.GetInvItemByName('Vis');
 	if invItem ~= nil then
 		silver = invItem:GetAmountStr();
 	end
 	return silver;
- end
+end
 
 function TRADE_DIALOG_CLOSE()
 	control.DialogOk();
@@ -3642,7 +3652,7 @@ end
 
 function ON_RIDING_VEHICLE(onoff)
     local commanderPC = GetCommanderPC()
-    if IsBuffApplied(commanderPC, 'pet_PetHanaming_buff') == 'YES' then -- no ride
+    if IsBuffApplied(commanderPC, 'pet_PetHanaming_buff') == 'YES' or IsBuffApplied(commanderPC, 'Levitation_Buff') == 'YES' then -- no ride
         return;
     end
 	
@@ -4096,4 +4106,24 @@ end
 
 function TEST_UI_OBJECT_INFO()
 	print(ui.UIObjCount(), ui.UIObjectAllocatedSize() / 1024 / 1024);
+end
+
+function FADE_OUT_IN(fadeDuration)
+	FADE_OUT();
+
+	AddLuaTimerFuncWithLimitCount("FADE_IN", 1000, 1);
+end
+
+function FADE_IN(fadeTime)
+	if fadeTime == nil then
+		fadeTime = 0.3;
+	end
+	normalview.FadeIn(fadeTime);
+end
+
+function FADE_OUT(fadeTime)
+	if fadeTime == nil then
+		fadeTime = 0.3;
+	end
+	normalview.FadeOut(fadeTime);
 end

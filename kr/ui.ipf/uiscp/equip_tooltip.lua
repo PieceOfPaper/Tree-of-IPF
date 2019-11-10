@@ -663,10 +663,10 @@ local function _GET_ITEM_SOCKET_ADD_VALUE(targetPropName, item)
     for i = 1, #sockets do
         local props = sockets[i];
         for j = 1, #props do
-            local prop = props[j]
+			local prop = props[j]
             if prop[1] == targetPropName or ( (prop[1] == "PATK") and (targetPropName == "ATK")) then
                 value = value + prop[2];
-            end
+			end
         end
     end
     return value;
@@ -754,10 +754,10 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 		
 		reinforceaddvalue = GET_REINFORCE_ADD_VALUE(basicProp, invitem, ignoreReinf, bonusReinf + overReinf);
 		socketaddvalue =  _GET_ITEM_SOCKET_ADD_VALUE(basicProp, invitem)
-		arg1 = TryGetProp(invitem, basicProp) - reinforceaddvalue - socketaddvalue;
-		arg2 = TryGetProp(invitem, basicProp) - reinforceaddvalue - socketaddvalue;
+		arg1 = TryGetProp(invitem, basicProp) - reinforceaddvalue;
+		arg2 = TryGetProp(invitem, basicProp) - reinforceaddvalue;
 	end
-        	
+	  
 	SET_DAMAGE_TEXT(tooltip_equip_atk_n_def_Cset, typestring, typeiconname, arg1, arg2, 1, reinforceaddvalue);
 	yPos = yPos + tooltip_equip_atk_n_def_Cset:GetHeight();
 	

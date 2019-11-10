@@ -310,3 +310,22 @@ function CLEAR_ICON_REMAIN_LIFETIME(slot, icon)
     icon:SetDrawLifeTimeText(0);
     slot:SetFrontImage('None');
 end
+
+function GET_REMAIN_CHATBALLOON_SKIN_SEC(skinID)
+    
+    local skinData = session.chatballoonskin.GetChatBalloonSkinDataByClassID(skinID);
+    if skinData == nil then
+        return;
+    end
+
+    local sysTime = geTime.GetServerSystemTime();
+    local endTime = skinData.endTime;
+    local difSec = imcTime.GetDifSec(endTime, sysTime);
+    
+    if endTime.wYear == 2999 then
+        -- 2999.12.31.23.59.59 = 무제한
+        difSec = 0;
+    end
+
+    return difSec;
+end

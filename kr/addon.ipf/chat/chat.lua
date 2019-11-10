@@ -1,12 +1,14 @@
 
 
 CHAT_LINE_HEIGHT = 100;
+g_emoticonTypelist = {"Normal", "Motion"}
 
 function CHAT_ON_INIT(addon, frame)	
 	
 	-- 마우스 호버링을 위한 마우스 업할때 닫기 이벤트 설정 부분.
 	local btn_emo = GET_CHILD(frame, "button_emo");
 	btn_emo:SetEventScript(ui.MOUSEMOVE, "CHAT_OPEN_EMOTICON");
+	btn_emo:SetEventScript(ui.LBUTTONUP, "CHAT_OPEN_EMOTICON_GROUP");
 
 	local btn_type = GET_CHILD(frame, "button_type");
 	btn_type:SetEventScript(ui.MOUSEMOVE, "CHAT_OPEN_TYPE");	
@@ -15,7 +17,7 @@ end
 
 function CHAT_OPEN_INIT()
 	--'채팅 타입'에 따른 채팅바의 '채팅타입 버튼 목록'이 결정된다.
-	if config.GetServiceNation() == "JP" or config.GetServiceNation() == "GLOBAL" or config.GetServiceNation() == "IDN" then
+	if config.GetServiceNation() == "GLOBAL_JP" or config.GetServiceNation() == "GLOBAL" or config.GetServiceNation() == "IDN" then
 		local frame = ui.GetFrame('chat');	
 		local chatEditCtrl = frame:GetChild('mainchat');
 		local btn_emo = GET_CHILD(frame, "button_emo");
@@ -110,6 +112,40 @@ function CHAT_OPEN_EMOTICON(frame)
 	CHAT_SET_OPEN(frame, 0);
 end
 --}
+
+-- 이모티콘 타입 선택 : 일반, 모션
+function CHAT_OPEN_EMOTICON_GROUP(frame)
+	local context = ui.CreateContextMenu("EMOTICON_GROUP", "", 0, 0, 80, 60);
+	local scpScp = "";
+	
+	local chat_emoticon = ui.GetFrame("chat_emoticon")
+	if chat_emoticon == nil then
+		return
+	end
+
+	for i = 0, #g_emoticonTypelist - 1 do
+		scpScp = string.format("CHAT_OPEN_EMOTICON_GROUP_CHANGE(\"%s\")", g_emoticonTypelist[ i + 1 ]);
+		ui.AddContextMenuItem(context, ClMsg("emoticon_"..g_emoticonTypelist[ i + 1 ]), scpScp);
+	end
+
+	ui.OpenContextMenu(context);
+end
+
+function CHAT_OPEN_EMOTICON_GROUP_CHANGE(argStr)
+	local frame = ui.GetFrame("chat");
+	if frame == nil then
+		return;
+	end
+
+	local emo_frame = ui.GetFrame('chat_emoticon');
+	if emo_frame == nil then
+		return;
+	end
+	
+	emo_frame:ShowWindow(0);
+	emo_frame:SetUserValue("EMOTICON_GROUP", argStr);
+	CHAT_SET_OPEN(frame, 0);
+end
 
 -- 채팅창의 이모티콘선택창과 옵션창이 열려있을 경우에 다른 곳 클릭시 해당 창들을 Close
 function CHAT_CLICK_CHECK(frame)

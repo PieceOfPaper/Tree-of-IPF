@@ -1,5 +1,6 @@
 random_item = { }
 date_time = { }
+account_warehouse = {} 
 
 random_item.is_sealed_random_item = function(itemobj)
     if IS_EQUIP(itemobj) == false then
@@ -137,6 +138,15 @@ date_time.add_time = function(pivot, sec)
 
     local ret_str = string.format('%04d-%02d-%02d %02d:%02d:%02d', year, month, day, hour, min, sec)
     return ret_str
+end
+
+-- 추가 팀창고 개수
+account_warehouse.get_max_tab = function()
+    return 4
+end
+
+account_warehouse.get_max_slot_per_tab = function()
+    return 70
 end
 
 function is_balance_patch_care_period()    

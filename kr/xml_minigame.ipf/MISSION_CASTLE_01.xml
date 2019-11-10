@@ -1,538 +1,559 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-	<Game Name="MISSION_CASTLE_01" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_d_castle_67_2_nunnery" playerCountCheckDestroy="1" startWaitSec="-1526726657">
-		<StageList>
-			<Stage Name="DefGroup">
-				<ObjList>
-					<Obj Type="Monster" MonType="58104" Pos="-257.11#95.06#115.77" angle="270" range="180" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="58101" Pos="-322.86#95.06#44.59" range="150" genCount="1" genTime="20000" autoGen="0" objectKey="1" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="58104" Pos="415.98#93.69#332.77" angle="270" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="2" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="58101" Pos="598.96#91.02#281.40" angle="270" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="3" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="58104" Pos="1328.32#92.79#-324.82" angle="180" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="4" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="58101" Pos="1317.45#89.68#-473.12" angle="180" range="150" genCount="1" genTime="20000" autoGen="0" objectKey="5" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="58104" Pos="842.12#92.44#-982.38" angle="135" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="6" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="58101" Pos="720.99#92.44#-1093.22" angle="135" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="7" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="58104" Pos="-125.36#105.32#-1194.11" angle="90" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="8" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="58101" Pos="47.08#105.32#-1183.59" angle="90" range="150" genCount="1" genTime="20000" autoGen="0" objectKey="9" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="58104" Pos="-722.90#90.49#-658.22" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="10" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="58101" Pos="-679.96#87.84#-769.17" range="160" genCount="1" genTime="20000" autoGen="0" objectKey="11" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="58015" Pos="279.27#187.38#-479.05" range="270" genCount="1" genTime="20000" autoGen="0" objectKey="12" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="57981" Pos="396.07#187.38#-356.64" range="280" genCount="1" genTime="20000" autoGen="0" objectKey="13" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-				</ObjList>
-				<StageEvents>
-					<Event execCount="1" eventName="propertySet">
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE_RANDOM" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-								<Str Str="DiceType"/>
-								<Num Num="1"/>
-								<Num Num="50"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="DiceSuccess"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="sec20">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="20초 후에 시작됩니다"/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="sec10">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="20"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="10초 후에 시작됩니다"/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="start">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="30"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="미션이 시작됩니다!"/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="DefGroup"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="Stage1"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="Stage1" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-						<Str Str="세 개의 주사위를 짝이맞는 {nl}큐브에 사용하세요!"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList>
-					<Obj Type="Monster" MonType="20172" Pos="-382.41#95.06#124.28" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_CASTLE_DICE&apos; &apos;$DICETYPE&apos; &apos;1&apos; &apos;Interactive&apos; &apos;NO&apos; "/>
-					<Obj Type="Monster" MonType="20173" Pos="550.18#91.02#382.53" angle="255" genCount="1" genTime="20000" autoGen="0" objectKey="1" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_CASTLE_DICE&apos; &apos;$DICETYPE&apos; &apos;2&apos; &apos;Interactive&apos; &apos;NO&apos; "/>
-					<Obj Type="Monster" MonType="20174" Pos="1406.34#85.52#-405.41" genCount="1" genTime="20000" autoGen="0" objectKey="2" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_CASTLE_DICE&apos; &apos;$DICETYPE&apos; &apos;3&apos; &apos;Interactive&apos; &apos;NO&apos; "/>
-					<Obj Type="Monster" MonType="20175" Pos="799.24#92.44#-1081.25" angle="225" genCount="1" genTime="20000" autoGen="0" objectKey="3" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_CASTLE_DICE&apos; &apos;$DICETYPE&apos; &apos;4&apos; &apos;Interactive&apos; &apos;NO&apos; "/>
-					<Obj Type="Monster" MonType="20176" Pos="-32.04#105.32#-1222.21" genCount="1" genTime="20000" autoGen="0" objectKey="4" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_CASTLE_DICE&apos; &apos;$DICETYPE&apos; &apos;5&apos; &apos;Interactive&apos; &apos;NO&apos; "/>
-					<Obj Type="Monster" MonType="20177" Pos="-753.27#85.46#-729.68" angle="200" genCount="1" genTime="20000" autoGen="0" objectKey="5" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_CASTLE_DICE&apos; &apos;$DICETYPE&apos; &apos;6&apos; &apos;Interactive&apos; &apos;NO&apos; "/>
-					<Obj Type="Monster" MonType="151000" Pos="-410.34#95.06#152.17" genCount="1" genTime="20000" autoGen="0" objectKey="6" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;1&apos; &apos;Name&apos; &apos;큐브&apos; "/>
-					<Obj Type="Monster" MonType="151000" Pos="562.38#91.02#431.37" angle="255" genCount="1" genTime="20000" autoGen="0" objectKey="7" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;2&apos; &apos;Name&apos; &apos;큐브&apos; "/>
-					<Obj Type="Monster" MonType="151000" Pos="1475.61#85.52#-403.69" genCount="1" genTime="20000" autoGen="0" objectKey="8" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;3&apos; &apos;Name&apos; &apos;큐브&apos; "/>
-					<Obj Type="Monster" MonType="151000" Pos="851.46#92.44#-1135.35" angle="225" genCount="1" genTime="20000" autoGen="0" objectKey="9" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;4&apos; &apos;Name&apos; &apos;큐브&apos; "/>
-					<Obj Type="Monster" MonType="151000" Pos="-32.37#105.32#-1292.45" genCount="1" genTime="20000" autoGen="0" objectKey="10" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;5&apos; &apos;Name&apos; &apos;큐브&apos; "/>
-					<Obj Type="Monster" MonType="151000" Pos="-819.32#85.46#-746.93" angle="200" genCount="1" genTime="20000" autoGen="0" objectKey="11" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;6&apos; &apos;Name&apos; &apos;큐브&apos; "/>
-					<Obj Type="Monster" MonType="58520" Pos="130.18#187.38#-266.15" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="12" autoDestroy="0" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="58519" Pos="233.61#187.38#-355.38" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="13" autoDestroy="0" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-					<Obj Type="Monster" MonType="58878" Pos="401.86#187.38#-509.13" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="14" autoDestroy="0" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-				</ObjList>
-				<StageEvents>
-					<Event execCount="1" eventName="BossGenMid1">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="DiceSuccess"/>
-								<Str Str="OVER"/>
-								<Num Num="1"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="Stage1/12"/>
-								<Num Num="1"/>
-								<Num Num="0"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="모야브루카가 나타났습니다!"/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="BossGenMid2">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="DiceSuccess"/>
-								<Str Str="OVER"/>
-								<Num Num="2"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="모스템이 나타났습니다!"/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="Stage1/13"/>
-								<Num Num="1"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="BossGenMid3">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="DiceSuccess"/>
-								<Str Str="OVER"/>
-								<Num Num="3"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="플록스케가 나타났습니다!{nl}모든 중간 보스가 출현했습니다."/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="Stage1/14"/>
-								<Num Num="1"/>
-								<Num Num="0"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
-								<Str Str="BossKillCheck"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="DiceGen">
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="Stage1/0/Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11"/>
-								<Num Num="1"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="5" eventName="MonGen1">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-								<MGameObj List="DefGroup/0/DefGroup/1"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="DefGroup/0/DefGroup/1"/>
-								<Num Num="3"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="5" eventName="MonGen2">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-								<MGameObj List="DefGroup/2/DefGroup/3"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="DefGroup/2/DefGroup/3"/>
-								<Num Num="3"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="5" eventName="MonGen3">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-								<MGameObj List="DefGroup/4/DefGroup/5"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="DefGroup/4/DefGroup/5"/>
-								<Num Num="3"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="5" eventName="MonGen4">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-								<MGameObj List="DefGroup/6/DefGroup/7"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="DefGroup/6/DefGroup/7"/>
-								<Num Num="3"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="5" eventName="MonGen5">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-								<MGameObj List="DefGroup/8/DefGroup/9"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="DefGroup/8/DefGroup/9"/>
-								<Num Num="3"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="5" eventName="MonGen6">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-								<MGameObj List="DefGroup/10/DefGroup/11"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="DefGroup/10/DefGroup/11"/>
-								<Num Num="3"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="5" eventName="MonGen7">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-								<MGameObj List="DefGroup/12/DefGroup/13"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="DefGroup/12/DefGroup/13"/>
-								<Num Num="3"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="BossKillCheck" isEnabled="0">
-						<condList>
-							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-								<MGameObj List="Stage1/12/Stage1/13/Stage1/14"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="Stage1"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="Stage2"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="Stage2" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-						<Str Str="최종 보스 웨어울프를 처치하세요!"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList>
-					<Obj Type="Monster" MonType="58517" Pos="324.08#187.38#-428.35" range="110" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_LASTBOSS1&apos; " tendency="1"/>
-				</ObjList>
-				<StageEvents>
-					<Event execCount="1" eventName="BossGenLast">
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="웨어울프가 나타났습니다!"/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="Stage2/0"/>
-								<Num Num="1"/>
-								<Num Num="0"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
-								<Str Str="SuccessCheck"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="SuccessCheck" execWithStart="0" isEnabled="0">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-								<MGameObj List="Stage2/0"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="Stage2"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="Success"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="FailCheck">
-				<ObjList/>
-				<StageEvents>
-					<Event eventName="pcDieCheck">
-						<condList>
-							<ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
-								<Num Num="0"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
-								<Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
-								<Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="FailCheck"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="Fail"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="min10Check">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3000"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="10분 뒤 미션이 종료됩니다"/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="min5Check">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3300"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="5분 뒤 미션이 종료됩니다"/>
-								<Str Str="scroll"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="min60Check">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="3600"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="FailCheck"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="Fail"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="Fail" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-						<Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
-					</ToolScp>
-					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
-						<Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
-						<Str Str="scroll"/>
-						<Num Num="10"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="failsec30">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="30"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="Success" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
-						<Str Str="Request_Mission11"/>
-					</ToolScp>
-					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-						<Str Str="미션 성공!{nl}60초 후에 돌아갑니다"/>
-					</ToolScp>
-					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
-						<Str Str="미션 성공!!{np}60초 후 입구로 돌아갑니다{nl}중앙에 큐브가 생성됩니다. 큐브와 대화 시,[한번 더 열기]가 가능합니다"/>
-						<Str Str="Clear"/>
-						<Num Num="10"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList>
-					<Obj Type="Monster" MonType="156161" Pos="297.00#181.94#-433.00" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;NPC_DUNGEON_GACHA_CUBE&apos; "/>
-				</ObjList>
-				<StageEvents>
-					<Event execCount="1" eventName="successsec60">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="60"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="Success"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-								<Num Num="1"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="successItemGive">
-						<execList>
-							<ToolScp Scp="MGAME_EXEC_PRECHECK_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
-								<Str Str="SCR_NUNNERY_CUBE_REWARD_CHECK"/>
-								<Str Str="Gacha_M_Castle_1/3"/>
-								<Str Str="None"/>
-								<Str Str="None"/>
-								<Str Str="None"/>
-								<Str Str="MISSION_CASTLE_01"/>
-								<Str Str="None"/>
-								<Num Num="0"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
-								<Num Num="15"/>
-								<Str Str="SaalusMission: Request_Mission11"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-		</StageList>
-		<EnterList>
-			<ToolScp Scp="MGAME_CRE_SOBJ" Client="NO" UseSleep="NO">
-				<Num Num="2"/>
-				<Str Str="SSN_MISSION_CASTLE_01_PC"/>
-			</ToolScp>
-			<ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
-				<Str Str="Request_Mission11"/>
-			</ToolScp>
-		</EnterList>
-	</Game>
+    <Game Name="MISSION_CASTLE_01" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_d_castle_67_2_nunnery" playerCountCheckDestroy="1" startWaitSec="-1526726657">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="58104" Pos="-257.11#95.06#115.77" angle="270" range="180" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58101" Pos="-322.86#95.06#44.59" range="150" genCount="1" genTime="20000" autoGen="0" objectKey="1" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58104" Pos="415.98#93.69#332.77" angle="270" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="2" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58101" Pos="598.96#91.02#281.40" angle="270" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="3" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58104" Pos="1328.32#92.79#-324.82" angle="180" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="4" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58101" Pos="1317.45#89.68#-473.12" angle="180" range="150" genCount="1" genTime="20000" autoGen="0" objectKey="5" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58104" Pos="842.12#92.44#-982.38" angle="135" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="6" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58101" Pos="720.99#92.44#-1093.22" angle="135" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="7" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58104" Pos="-125.36#105.32#-1194.11" angle="90" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="8" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58101" Pos="47.08#105.32#-1183.59" angle="90" range="150" genCount="1" genTime="20000" autoGen="0" objectKey="9" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58104" Pos="-722.90#90.49#-658.22" range="140" genCount="1" genTime="20000" autoGen="0" objectKey="10" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58101" Pos="-679.96#87.84#-769.17" range="160" genCount="1" genTime="20000" autoGen="0" objectKey="11" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58015" Pos="279.27#187.38#-479.05" range="270" genCount="1" genTime="20000" autoGen="0" objectKey="12" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57981" Pos="396.07#187.38#-356.64" range="280" genCount="1" genTime="20000" autoGen="0" objectKey="13" autoDestroy="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="propertySet">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE_RANDOM" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                                <Str Str="DiceType"/>
+                                <Num Num="1"/>
+                                <Num Num="50"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="DiceSuccess"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="sec20">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="20초 후에 시작됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="sec10">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10초 후에 시작됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="start">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="미션이 시작됩니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="AbuseCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage1" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="세 개의 주사위를 짝이맞는 {nl}큐브에 사용하세요!"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="20172" Pos="-382.41#95.06#124.28" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_CASTLE_DICE&apos; &apos;$DICETYPE&apos; &apos;1&apos; &apos;Interactive&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="20173" Pos="550.18#91.02#382.53" angle="255" genCount="1" genTime="20000" autoGen="0" objectKey="1" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_CASTLE_DICE&apos; &apos;$DICETYPE&apos; &apos;2&apos; &apos;Interactive&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="20174" Pos="1406.34#85.52#-405.41" genCount="1" genTime="20000" autoGen="0" objectKey="2" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_CASTLE_DICE&apos; &apos;$DICETYPE&apos; &apos;3&apos; &apos;Interactive&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="20175" Pos="799.24#92.44#-1081.25" angle="225" genCount="1" genTime="20000" autoGen="0" objectKey="3" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_CASTLE_DICE&apos; &apos;$DICETYPE&apos; &apos;4&apos; &apos;Interactive&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="20176" Pos="-32.04#105.32#-1222.21" genCount="1" genTime="20000" autoGen="0" objectKey="4" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_CASTLE_DICE&apos; &apos;$DICETYPE&apos; &apos;5&apos; &apos;Interactive&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="20177" Pos="-753.27#85.46#-729.68" angle="200" genCount="1" genTime="20000" autoGen="0" objectKey="5" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;MaxDialog&apos; &apos;1&apos; &apos;Dialog&apos; &apos;MISSION_CASTLE_DICE&apos; &apos;$DICETYPE&apos; &apos;6&apos; &apos;Interactive&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="-410.34#95.06#152.17" genCount="1" genTime="20000" autoGen="0" objectKey="6" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;1&apos; &apos;Name&apos; &apos;큐브&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="562.38#91.02#431.37" angle="255" genCount="1" genTime="20000" autoGen="0" objectKey="7" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;2&apos; &apos;Name&apos; &apos;큐브&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="1475.61#85.52#-403.69" genCount="1" genTime="20000" autoGen="0" objectKey="8" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;3&apos; &apos;Name&apos; &apos;큐브&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="851.46#92.44#-1135.35" angle="225" genCount="1" genTime="20000" autoGen="0" objectKey="9" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;4&apos; &apos;Name&apos; &apos;큐브&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="-32.37#105.32#-1292.45" genCount="1" genTime="20000" autoGen="0" objectKey="10" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;5&apos; &apos;Name&apos; &apos;큐브&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="-819.32#85.46#-746.93" angle="200" genCount="1" genTime="20000" autoGen="0" objectKey="11" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Dialog&apos; &apos;MISSION_CASTLE_CUBE&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;$CUBETYPE&apos; &apos;6&apos; &apos;Name&apos; &apos;큐브&apos; "/>
+                    <Obj Type="Monster" MonType="58520" Pos="130.18#187.38#-266.15" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="12" autoDestroy="0" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58519" Pos="233.61#187.38#-355.38" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="13" autoDestroy="0" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58878" Pos="401.86#187.38#-509.13" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="14" autoDestroy="0" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="BossGenMid1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="DiceSuccess"/>
+                                <Str Str="OVER"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage1/12"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="모야브루카가 나타났습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="BossGenMid2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="DiceSuccess"/>
+                                <Str Str="OVER"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="모스템이 나타났습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage1/13"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="BossGenMid3">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="DiceSuccess"/>
+                                <Str Str="OVER"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="플록스케가 나타났습니다!{nl}모든 중간 보스가 출현했습니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage1/14"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="BossKillCheck"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="DiceGen">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage1/0/Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="5" eventName="MonGen1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0/DefGroup/1"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0/DefGroup/1"/>
+                                <Num Num="3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="5" eventName="MonGen2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/2/DefGroup/3"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/2/DefGroup/3"/>
+                                <Num Num="3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="5" eventName="MonGen3">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/4/DefGroup/5"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/4/DefGroup/5"/>
+                                <Num Num="3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="5" eventName="MonGen4">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/6/DefGroup/7"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/6/DefGroup/7"/>
+                                <Num Num="3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="5" eventName="MonGen5">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/8/DefGroup/9"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/8/DefGroup/9"/>
+                                <Num Num="3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="5" eventName="MonGen6">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/10/DefGroup/11"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/10/DefGroup/11"/>
+                                <Num Num="3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="5" eventName="MonGen7">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/12/DefGroup/13"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/12/DefGroup/13"/>
+                                <Num Num="3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="BossKillCheck" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage1/12/Stage1/13/Stage1/14"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage2" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="최종 보스 웨어울프를 처치하세요!"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="58517" Pos="324.08#187.38#-428.35" range="110" genCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_MON_RANK_LV_LASTBOSS1&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="BossGenLast">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="웨어울프가 나타났습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage2/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="SuccessCheck"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="SuccessCheck" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage2/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Success"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="FailCheck">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="pcDieCheck">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+                                <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FailCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="min10Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3000"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10분 뒤 미션이 종료됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="min5Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3300"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="5분 뒤 미션이 종료됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="min60Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FailCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Fail" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
+                        <Str Str="scroll"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="failsec30">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Success" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="Request_Mission11"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="미션 성공!{nl}60초 후에 돌아갑니다"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="미션 성공!!{np}60초 후 입구로 돌아갑니다{nl}중앙에 큐브가 생성됩니다. 큐브와 대화 시,[한번 더 열기]가 가능합니다"/>
+                        <Str Str="Clear"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="156161" Pos="297.00#181.94#-433.00" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;NPC_DUNGEON_GACHA_CUBE&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="successsec60">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="Success"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="successItemGive">
+                        <execList>
+                            <ToolScp Scp="EXEC_DUNGEON_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
+                                <Str Str="Request_Mission11"/>
+                                <Str Str="Gacha_E_025/1/Vis/400"/>
+                                <Str Str="58517"/>
+                                <Str Str="MISSION_CASTLE_01"/>
+                                <Str Str="NO"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="AbuseCheck">
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="3000" eventName="CheckScp">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_ABUSE_CHECK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="RankResetPoint">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="PointSetting">
+                        <execList>
+                            <ToolScp Scp="MGAME_SET_RANK_RESET_POINT_AND_LOG" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                                <Str Str="SaalusMission: Request_Mission11"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_CRE_SOBJ" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
+                <Str Str="SSN_MISSION_CASTLE_01_PC"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="Request_Mission11"/>
+            </ToolScp>
+        </EnterList>
+    </Game>
 </GameList>

@@ -1,18 +1,21 @@
 function MINIMIZED_GUILD_HOUSING_ON_INIT(addon, frame)
 	addon:RegisterMsg('GAME_START', 'MINIMIZED_GUILD_HOUSING_OPEN_EDIT_MODE');
 	addon:RegisterMsg('ENTER_GUILD_AGIT', 'MINIMIZED_GUILD_HOUSING_OPEN_EDIT_MODE');
+	addon:RegisterMsg('ENTER_PERSONAL_HOUSE', 'MINIMIZED_GUILD_HOUSING_OPEN_EDIT_MODE');
 end
 
 function MINIMIZED_GUILD_HOUSING_OPEN_EDIT_MODE(frame, msg, argStr, argNum)
 	local mapprop = session.GetCurrentMapProp();
 	local mapCls = GetClassByType("Map", mapprop.type);	
 	
-	if mapCls.ClassName == "guild_agit_extension" then
-	    if argStr == "YES" then
-             frame:ShowWindow(1);
-		else
-		    frame:ShowWindow(0);
-		end
+	local housingPlaceClass = GetClass("Housing_Place", mapCls.ClassName);
+	if housingPlaceClass == nil then
+		frame:ShowWindow(0);
+		return
+	end
+	
+	if argStr == "YES" then
+		frame:ShowWindow(1);
 	else
 		frame:ShowWindow(0);
 	end
@@ -20,7 +23,20 @@ end
 
 function BTN_MINIMIZED_GUILD_HOUSING_OPEN_EDIT_MODE(parent, btn)
 	if housing.IsEditMode() == false then
-		ON_HOUSING_EDITMODE_OPEN();
+		local mapprop = session.GetCurrentMapProp();
+		local mapCls = GetClassByType("Map", mapprop.type);
+
+		local housingPlaceClass = GetClass("Housing_Place", mapCls.ClassName);
+		if housingPlaceClass == nil then
+			return;
+		end
+
+		local housingPlaceType = TryGetProp(housingPlaceClass, "Type");
+		local isGuild = false;
+		if housingPlaceType == "Guild" then
+			isGuild = true;
+		end
+		ON_HOUSING_EDITMODE_OPEN(isGuild);
 
 		btn:SetUserValue("Time", imcTime.GetAppTime() + 5);
 	else

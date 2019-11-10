@@ -1,6 +1,6 @@
 -- etc_tooltip.lua
 
-function ITEM_TOOLTIP_ETC(tooltipframe, invitem, argStr, usesubframe)
+function ITEM_TOOLTIP_ETC(tooltipframe, invitem, argStr, usesubframe)    
 	tolua.cast(tooltipframe, "ui::CTooltipFrame");
 
 	local mainframename = 'etc'
@@ -14,7 +14,8 @@ function ITEM_TOOLTIP_ETC(tooltipframe, invitem, argStr, usesubframe)
 	local ypos = DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, argStr); -- 기타 템이라면 공통적으로 그리는 툴팁들	
 	ypos = DRAW_ETC_DESC_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 아이템 설명.
 	ypos = DRAW_ETC_RECIPE_NEEDITEM_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 재료템이라면 필요한 재료랑 보여줌
-    ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename);
+	ypos = DRAW_ETC_PREVIEW_TOOLTIP(tooltipframe, invitem, ypos, mainframename);			-- 아이콘 확대해서 보여줌
+	ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename);
 	
 	local isHaveLifeTime = TryGetProp(invitem, "LifeTime");	
 	if 0 == isHaveLifeTime then
@@ -26,7 +27,7 @@ function ITEM_TOOLTIP_ETC(tooltipframe, invitem, argStr, usesubframe)
 end
 
 function DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, from)
-	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
+    local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveAllChild()
 	--스킨 세팅
 	local SkinName  = GET_ITEM_TOOLTIP_SKIN(invitem);
@@ -111,7 +112,7 @@ function DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, from)
 			noTrade_cnt:ShowWindow(0);
 		end
 	end
-
+    
     if from ~= nil and from == 'accountwarehouse' then
         noTrade_cnt:ShowWindow(0)
     end
@@ -243,6 +244,32 @@ function DRAW_ETC_RECIPE_NEEDITEM_TOOLTIP(tooltipframe, invitem, ypos, mainframe
 	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
 	
 	CSet:Resize(CSet:GetWidth(), gbox_items:GetHeight() + gbox_items:GetY() + BOTTOM_MARGIN);
+	gBox:Resize(gBox:GetWidth(), gBox:GetHeight() + CSet:GetHeight()+ BOTTOM_MARGIN)
+
+	return CSet:GetHeight() + CSet:GetY();
+end
+
+function DRAW_ETC_PREVIEW_TOOLTIP(tooltipframe, invitem, ypos, mainframename)
+	if string.find(invitem.StringArg, "Balloon_") == nil then
+		return ypos;
+	end
+
+	local iconName = invitem.Icon;
+	if string.find(invitem.StringArg, "Balloon_") ~= nil then
+		-- 말풍선 아이템일 경우 item의 icon이 아닌 chat_balloon의 SkinPreview 이미지 출력
+		local balloonCls = GetClass('Chat_Balloon', invitem.StringArg);
+		iconName = balloonCls.SkinPreview;
+	end
+
+	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
+	gBox:RemoveChild('tooltip_preview');
+
+	local CSet = gBox:CreateControlSet('tooltip_preview', 'tooltip_preview', 0, ypos);
+	tolua.cast(CSet, "ui::CControlSet");
+	local previewPic = GET_CHILD(CSet,'previewPic','ui::CPicture')
+	previewPic:SetImage(iconName);
+
+	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN");
 	gBox:Resize(gBox:GetWidth(), gBox:GetHeight() + CSet:GetHeight()+ BOTTOM_MARGIN)
 
 	return CSet:GetHeight() + CSet:GetY();

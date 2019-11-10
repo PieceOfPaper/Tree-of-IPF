@@ -35,11 +35,10 @@ function APPLY_TO_ALL_ITEM_SLOT_ITEM(slotSet, func, ...)
 end
 
 function GET_FROM_SLOT(slotSet, func, ...)
-
 	for i = 0 , slotSet:GetSlotCount() - 1 do
 		local slot = slotSet:GetSlotByIndex(i);
 		if func(slot, ...) == true then
-			return slot;
+			return slot, i;
 		end
 	end
 
@@ -56,8 +55,20 @@ function _CHECK_EMPY_TYPE(slot)
 	return false;
 end
 
-function GET_EMPTY_SLOT(slotSet)
-	return GET_FROM_SLOT(slotSet, _CHECK_EMPY_TYPE);
+function GET_EMPTY_SLOT(slotSet, current_tab_index, max_slot_per_tab)
+	local slot, index = GET_FROM_SLOT(slotSet, _CHECK_EMPY_TYPE);
+
+	if slot == nil then
+		return nil;
+	end
+
+	if current_tab_index == nil or current_tab_index == 0 then
+		return slot, index;
+	else
+		return slot, index + (current_tab_index * max_slot_per_tab);
+	end
+
+	return nil;
 end
 
 function _CHECK_SLOT_TYPE(slot, type)

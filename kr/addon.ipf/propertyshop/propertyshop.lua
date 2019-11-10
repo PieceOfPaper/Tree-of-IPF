@@ -79,9 +79,11 @@ function OPEN_PROPERTY_SHOP(shopName)
 	local t_mymoney = GET_CHILD_RECURSIVELY(bg, "t_mymoney");
 	local t_remainprice = GET_CHILD_RECURSIVELY(bg, "t_remainprice");
 	local tab = GET_CHILD_RECURSIVELY(frame, "itembox");
+	local question = GET_CHILD_RECURSIVELY(frame, "question");
+	question:ShowWindow(0);
 	
 	local title = frame:GetChild("title");
-
+	
 	if shopName == "GUILD_CONTRIBUTION_SHOP" then
 		t_mymoney:SetTextByKey("text", ScpArgMsg("Guild_Housing_Has_Contribution"));
 		t_totalprice:SetTextByKey("text", ScpArgMsg("Guild_Housing_Use_Contribution"));
@@ -106,8 +108,19 @@ function OPEN_PROPERTY_SHOP(shopName)
 		tab:ShowWindow(1);
 		tab:ChangeCaption(0, "{@st66b}" .. "            " .. ClMsg("Housing_Contribution") .. "            ");
 		tab:ChangeCaption(1, "{@st66b}" .. "            " .. ClMsg("Mileage_Name") .. "            ");
-		
+	
 		title:SetTextByKey("value", ClMsg("GUILD_CONTRIBUTION_SHOP"));
+	elseif shopName == "CONTENTS_TOTAL_SHOP" then
+		t_mymoney:SetTextByKey("text", ScpArgMsg("TotalHavePoint"));
+		t_totalprice:SetTextByKey("text", ScpArgMsg("TotalBuyPoint"));
+
+		t_remainprice:ShowWindow(0);
+		tab:ShowWindow(0);
+		
+		question:SetTextTooltip(ClMsg("CONTENTS_TOTAL_SHOP_Tooltip"));
+		question:ShowWindow(1);
+
+		title:SetTextByKey("value", ClMsg("CONTENTS_TOTAL_SHOP"));
 	else
 		t_mymoney:SetTextByKey("text", ScpArgMsg("TotalHavePoint"));
 		t_totalprice:SetTextByKey("text", ScpArgMsg("TotalBuyPoint"));
@@ -163,6 +176,19 @@ function OPEN_PROPERTY_SHOP(shopName)
 				addText = "";
 			end
 
+			local sCount = ""
+			local accountNeedProperty = itemInfo:GetAccountNeedProperty();
+			if accountNeedProperty ~= "" then
+				if addText ~= "" then
+					addText = addText .. ", ";
+				end
+
+				local accObj = GetMyAccountObj();
+				sCount = TryGetProp(accObj, accountNeedProperty, "None");
+
+				addText = addText .. ScpArgMsg("BuyableCountPerAccount_{Count}", "Count", sCount);
+			end
+
 			if itemInfo.dailyBuyLimit > 0 then
 				if addText ~= "" then
 					addText = addText .. ", ";
@@ -172,12 +198,16 @@ function OPEN_PROPERTY_SHOP(shopName)
 			end
 
 			if addText ~= "" then
-				nameText = nameText .. "{nl}( " .. addText ..")";
+				nameText = nameText .. "{nl}(" .. addText ..")";
 			end
 
-			name:SetTextByKey("value", nameText);
+			if addText ~= "" and sCount == 0 then
+				name:SetTextByKey("value", "{#ec0000}"..nameText);
+			else
+				name:SetTextByKey("value", nameText);
+			end
 			name:SetTextTooltip("{s18}" .. nameText);
-
+			
 			local priceTxt = GetCommaedText(itemInfo.price);
 			INSERT_TEXT_DETAIL_LIST(itemlist, i, 1, itemBoxFont .. priceTxt, nil, nil, priceTxt);
 

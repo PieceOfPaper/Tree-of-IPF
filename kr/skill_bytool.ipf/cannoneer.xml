@@ -538,16 +538,10 @@
 					<Num Num="45" />
 					<Num Num="999" />
 				</Scp>
-				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="1200" UseSleep="NO">
+				<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="800" UseSleep="NO">
 					<Str Str="SCR_SIEGEBURST_FLASHBOMB" />
 				</Scp>
-				<Scp Client="YES" Scp="C_SHOCKWAVE" Time="1900" UseSleep="NO">
-					<Num Num="10" />
-					<Num Num="1" />
-					<Num Num="45" />
-					<Num Num="999" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" Time="2000" UseSleep="YES">
+				<Scp Client="NO" Scp="SKL_SET_IMMUNE_STATE_REMOVE" Time="800" UseSleep="YES">
 					<Str Str="Skill_SuperArmor_Buff" />
 					<Num Num="500" />
 				</Scp>
@@ -615,16 +609,10 @@
 							<Num Num="45" />
 							<Num Num="999" />
 						</Scp>
-						<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="1200" UseSleep="NO">
+						<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="800" UseSleep="NO">
 							<Str Str="SCR_SIEGEBURST_FLASHBOMB" />
 						</Scp>
-						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="1900" UseSleep="NO">
-							<Num Num="10" />
-							<Num Num="1" />
-							<Num Num="45" />
-							<Num Num="999" />
-						</Scp>
-					</EtcList>
+						</EtcList>
 					<ResultList>
 						<ToolScp Client="NO" Scp="S_R_SPC_DEF_MULTI_DAMAGE" UseSleep="YES">
 							<Str Str="Structure" />
@@ -688,16 +676,10 @@
 							<Num Num="45" />
 							<Num Num="999" />
 						</Scp>
-						<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="1200" UseSleep="NO">
+						<Scp Client="NO" Scp="SKL_RUN_SCRIPT" Time="800" UseSleep="NO">
 							<Str Str="SCR_SIEGEBURST_FLASHBOMB" />
 						</Scp>
-						<Scp Client="YES" Scp="C_SHOCKWAVE" Time="1900" UseSleep="NO">
-							<Num Num="10" />
-							<Num Num="1" />
-							<Num Num="45" />
-							<Num Num="999" />
-						</Scp>
-						<Scp Client="NO" Scp="SCR_PAD_DESTORY" Time="1900" UseSleep="NO">
+						<Scp Client="NO" Scp="SCR_PAD_DESTORY" Time="800" UseSleep="NO">
 							<Pos Angle="0" Dist="0" PosType="3" />
 							<Str Str="ENEMY" />
 							<Num Num="80" />

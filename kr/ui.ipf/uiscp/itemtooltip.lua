@@ -64,7 +64,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 
 			recipeitemobj = recipeIES
 			local refreshScp = recipeitemobj.RefreshScp;
-
+	
 			if refreshScp ~= "None" then
 				refreshScp = _G[refreshScp];
 				refreshScp(recipeitemobj);
@@ -192,7 +192,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 		end
 
 	end
-
+	
 	-- 메인 프레임. 즉 주된 툴팁 표시.
 	if isReadObj == 1 then -- IES가 없는 아이템. 가령 제작서의 완성 아이템 표시 등
 		local class = itemObj;
@@ -205,9 +205,10 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 		if nil == noTradeCnt then
 			noTradeCnt = 0
 		end
+		SetExProp_Str(itemObj, 'where', strarg); -- scp 호출전에 ex prop 설정.
 		ToolTipScp(tooltipframe, itemObj, strarg, "mainframe", noTradeCnt);
 	end
-	
+
 	if isReadObj == 1 then
 		DestroyIES(itemObj);
 	end

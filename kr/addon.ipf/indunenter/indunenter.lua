@@ -277,6 +277,12 @@ function INDUNENTER_MAKE_ALERT(frame, indunCls)
     restrictBox:ShowWindow(0);
 
     local mapName = TryGetProp(indunCls, "MapName");
+    local dungeonType = TryGetProp(indunCls, "DungeonType");
+    local isLegendRaid = 0;
+    if dungeonType == "Raid" or dungeonType == "GTower" then
+        isLegendRaid = 1;
+    end
+
     if mapName ~= nil and mapName ~= "None" then
         local indunMap = GetClass("Map", mapName);
         local mapKeyword = TryGetProp(indunMap, "Keyword");
@@ -287,7 +293,7 @@ function INDUNENTER_MAKE_ALERT(frame, indunCls)
             local TOOLTIP_POSY = frame:GetUserConfig("TOOLTIP_POSY");
             restrictBox:SetPosTooltip(TOOLTIP_POSX, TOOLTIP_POSY);
             restrictBox:SetTooltipType("skillRestrictList");
-            restrictBox:SetTooltipArg("IsRaidField");
+            restrictBox:SetTooltipArg("IsRaidField", isLegendRaid);
         end
     end
 end
@@ -1928,8 +1934,6 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
         if indunCls.DungeonType == "Raid" or indunCls.DungeonType == "GTower" then
             if nowCount < indunCls.WeeklyEnterableCount then
                 return true;
-            elseif nowCount > indunCls.WeeklyEnterableCount then
-                nowAdmissionItemCount = nowAdmissionItemCount + (nowCount - (indunCls.WeeklyEnterableCount));
             end
         end 
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Hey (IMCGames Co., Ltd) -->
+<uiframe name="housing_editmode_background_chagne" x="0" y="0" width="450" height="555" create="open">
+	<frame fullheight="false" fasthide="true" layout_gravity="right center" margin="0 130 0 0"/>
+	<option visible="false" hideable="false" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<input moveable="true" hittestframe="true"/>
+	<option closebutton="false"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<layer layerlevel="100"/>
+	<script OpenScp="OPEN_HOUSING_EDITMODE_BACKGROUND_CHANGE" CloseScp="CLOSE_HOUSING_EDITMODE_BACKGROUND_CHANGE"/>
+	<controls>
+		<groupbox name="listselect_gb" rect="0 0 450 555" margin="0 0 0 0" layout_gravity="center center" skin="test_frame_low" hittest="false"/>
+		<groupbox name="title_gb" rect="0 0 450 60" margin="0 0 0 0" layout_gravity="center top" skin="test_frame_top_r" hittest="false"/>
+		<groupbox name="gbox_page" rect="0 0 430 475" margin="0 0 0 10" layout_gravity="center bottom" skin="test_frame_midle_light" hittest="true" fixheight="true"/>
+		<richtext name="title" parent="title_gb" rect="0 0 450 130" margin="0 20 0 0" layout_gravity="center top" caption="{@43b}{s22}배경 변경{/}{/}" fontname="white_18_ol" spacey="0"/>
+		<button name="closeBtn" rect="0 0 44 44" margin="0 18 27 0" layout_gravity="right top" LBtnUpScp="BTN_CLOSE_HOUSING_EDITMODE_BACKGROUND_CHANGE" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}창을 닫습니다{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
+	</controls>
+</uiframe>

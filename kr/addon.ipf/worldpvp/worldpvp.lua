@@ -1089,3 +1089,18 @@ end
 function GET_GUILD_CONTRIBUTION_POINT_C()
     return 0;
 end
+
+function CONTENTS_TOTAL_SHOP_OPEN(frame, msg, argStr, argNum)
+	TOGGLE_PROPERTY_SHOP('CONTENTS_TOTAL_SHOP',1);
+end
+
+function GET_CONTENTS_TOTAL_POINT_C()
+	local aObj = GetMyAccountObj();
+	if aObj == nil then
+        return 0;
+    end
+    local point = 0
+    point = TryGetProp(aObj, "CONTENTS_TOTAL_POINT", 0);
+
+    return point
+end

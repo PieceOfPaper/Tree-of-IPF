@@ -3,6 +3,13 @@
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
 <List>
 	<Effect_Item>
+		<ItemList ItemClassName="ABAND01_147">
+			<effect TargetNode="Dummy_effect_L" effect="None" scale="0.1" offset="0;0" ReinforceValue="0" UseAttach="YES" PlayType="All" IsKeeping="YES" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="None" UseTrailEffectChange="true" GiveAttackFromEffectScale="1" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="5" GiveAttackFromSound="None" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="1" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
+			<effect TargetNode="Dummy_effect_M" effect="F_light162_red" scale="0.1" offset="0;0" ReinforceValue="0" UseAttach="YES" PlayType="All" IsKeeping="YES" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="None" UseTrailEffectChange="true" GiveAttackFromEffectScale="1" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="5" GiveAttackFromSound="None" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="1" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
+			<effect TargetNode="Dummy_effect_S" effect="None" scale="0.1" offset="0;0" ReinforceValue="0" UseAttach="YES" PlayType="All" IsKeeping="YES" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="None" UseTrailEffectChange="true" GiveAttackFromEffectScale="1" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="5" GiveAttackFromSound="None" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="1" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
+		</ItemList>
+	</Effect_Item>
+	<Effect_Item>
 		<ItemList ItemClassName="Artefact_634159">
 			<effect TargetNode="Dummy_effect01" effect="F_pc_item_2019halloween_musket_fire" scale="0.07" offset="0;0" ReinforceValue="0" UseAttach="YES" PlayType="All" IsKeeping="YES" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="None" UseTrailEffectChange="true" GiveAttackFromEffectScale="1" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="5" GiveAttackFromSound="None" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="1" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
 			<effect TargetNode="Dummy_effect02" effect="F_pc_item_2019halloween_musket_fire" scale="0.07" offset="0;0" ReinforceValue="0" UseAttach="YES" PlayType="All" IsKeeping="YES" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="None" UseTrailEffectChange="true" GiveAttackFromEffectScale="1" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="5" GiveAttackFromSound="None" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="1" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
@@ -42,8 +49,8 @@
 		</ItemList>
 	</Effect_Item>
 	<Effect_Item>
-		<ItemList ItemClassName="Artefact_634093">
-			<effect TargetNode="Dummy001" effect="F_pc_costume_inspector_uniform01_light_loop" scale="1" offset="0;0" ReinforceValue="0" UseAttach="YES" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="F_pc_costume_inspector_uniform01_light" UseTrailEffectChange="false" GiveAttackFromEffectScale="5" GiveAttackSelfEffect="F_pc_costume_inspector_uniform01_light" GiveAttackSelfEffectScale="10" GiveAttackFromSound="None" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="1" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="None"/>
+		<ItemList ItemClassName="wing_inspector_scroll1">
+			<effect TargetNode="Dummy001" effect="F_pc_costume_inspector_uniform01_light_loop" scale="1" offset="0;0" ReinforceValue="0" UseAttach="YES" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="None" UseTrailEffectChange="false" GiveAttackFromEffectScale="1" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="1" GiveAttackFromSound="None" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="1" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="None"/>
 		</ItemList>
 	</Effect_Item>
 	<Effect_Item>

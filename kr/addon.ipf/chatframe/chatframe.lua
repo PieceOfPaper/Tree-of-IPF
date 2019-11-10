@@ -738,6 +738,9 @@ function CHAT_TEXT_LINKCHAR_FONTSET(frame, msg)
 	
 	local fontStyle = frame:GetUserConfig("TEXTCHAT_FONTSTYLE_LINK");
 	local resultStr = string.gsub(msg, "({#%x+}){img", fontStyle .. "{img");
+	if string.find(resultStr, "{spine motion_") ~= nil then
+		resultStr = string.gsub(msg, "{spine motion_", "{img ");
+	end
 
 	return resultStr;
 end

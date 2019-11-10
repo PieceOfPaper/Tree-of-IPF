@@ -1207,7 +1207,6 @@ function INVENTORY_LIST_GET(frame, setpos, slotSetName, invenTypeStr)
 	
 	--이미 인벤토리의 리스트는 만들어져 있는데, slotSetName 이부분 갱신해주고 싶어서
 	--모든 리스트를 다 불러올 필요는 없다.
-
 	if slotSetName == nil then
 		INVENTORY_TOTAL_LIST_GET(frame, setpos, nil, invenTypeStr);
 	end
@@ -1261,7 +1260,6 @@ function INVENTORY_LIST_GET(frame, setpos, slotSetName, invenTypeStr)
 			end
 		end
 	end
-
 end
 
 function INVENTORY_SLOTSET_INIT(frame, slotSet, slotCount)	
@@ -1619,23 +1617,20 @@ end
 
 
 function INVENTORY_SORT_BY_COUNT(a, b)
-
---	local itemCls_a = GetIES(a:GetObject());
---	local itemCls_b = GetIES(b:GetObject());
 	return a.count > b.count
 end
 
-
-function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)	
+function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)
 	local frame = ui.GetFrame("inventory")
+	if frame == nil then return; end
 
-	local liftIcon 				= ui.GetLiftIcon();
+	local liftIcon = ui.GetLiftIcon();
 	if nil == isIgnorelifticon then
 		isIgnorelifticon = "NO";
 	end
 	
-	if isIgnorelifticon ~= "NO" and liftIcon ~= nil then
-		return
+	if isIgnorelifticon ~= "NO" and liftIcon ~= nil then 
+		return; 
 	end
 
 	local mySession = session.GetMySession();
@@ -1650,8 +1645,8 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)
 	end
 
 	local blinkcolor = frame:GetUserConfig("TREE_SEARCH_BLINK_COLOR");
-
 	local group = GET_CHILD_RECURSIVELY(frame, 'inventoryGbox', 'ui::CGroupBox')
+
 	for typeNo = 1, #g_invenTypeStrList do
 		if invenTypeStr == nil or invenTypeStr == g_invenTypeStrList[typeNo] or typeNo == 1 then
 			local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
@@ -1686,12 +1681,8 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)
 			end
 		end
 	end
-
 	
 	local baseidclslist, baseidcnt  = GetClassList("inven_baseid");
-	
-
-
 	local searchGbox = group:GetChild('searchGbox');
 	local searchSkin = GET_CHILD_RECURSIVELY(searchGbox, "searchSkin",'ui::CGroupBox');
 	local edit = GET_CHILD_RECURSIVELY(searchSkin, "ItemSearch", "ui::CEditControl");
@@ -1704,7 +1695,6 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)
 		end
 	end
 
-
 	local invItemList = {}
 	local index_count = 1
 	for i = 0, invItemCount - 1 do
@@ -1715,14 +1705,7 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)
 		end
 	end
 
-
---1 등급순
---2 무게순
---3 이름순
---4 소지량순
-
-	
-
+	--1 등급순 / 2 무게순 / 3 이름순 / 4 소지량순
 	if sortType == 1 then
 		table.sort(invItemList, INVENTORY_SORT_BY_GRADE)
 	elseif sortType == 2 then
@@ -1749,8 +1732,6 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)
 			end
 		end
 	end
-
-
 
 	local cls_inv_index = {}		
 	local i_cnt = 0	
@@ -1869,8 +1850,6 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)
 			end
 		end		
 	end
-
-
 end
 
 
@@ -4692,4 +4671,70 @@ function REQUEST_USE_ITEM_TX()
 	end
 	
 	item.UseByGUID(invItem:GetIESID());
+end
+
+function BEFORE_APPLIED_GESTURE_YESSCP_OPEN(invItem)
+	if invItem == nil then
+		return;
+	end
+	
+	local invFrame = ui.GetFrame("inventory");	
+	local itemobj = GetIES(invItem:GetObject());
+	if itemobj == nil then
+		return;
+	end
+	invFrame:SetUserValue("INVITEM_GUID", invItem:GetIESID());
+	
+	local strLang = TryGetProp(itemobj , 'StringArg')
+	if strLang ~='None' then
+    	local textmsg = string.format("[ %s ]{nl}%s", itemobj.Name, ScpArgMsg("Gesture_"..strLang));
+    	ui.MsgBox_NonNested(textmsg, itemobj.Name, 'REQUEST_SUMMON_BOSS_TX', "None");
+    end
+	return;
+	
+end
+
+function BEFORE_APPLIED_CAHT_BALLOON_YESSCP_OPEN(invItem)
+	if invItem == nil then
+		return;
+	end
+	
+	local invFrame = ui.GetFrame("inventory");	
+	local itemobj = GetIES(invItem:GetObject());
+	if itemobj == nil then
+		return;
+	end
+	invFrame:SetUserValue("INVITEM_GUID", invItem:GetIESID());
+	
+	local strLang = TryGetProp(itemobj , 'StringArg')
+	local numLang = TryGetProp(itemobj , 'NumberArg1')
+	if strLang ~='None' then
+		local textmsg = string.format("[ %s ]{nl}", itemobj.Name);
+		
+		local skinData = session.chatballoonskin.GetChatBalloonSkinDataByClassName(strLang);
+		if skinData ~= nil then
+			if skinData.endTime.wYear ~= 2999 then
+				-- 기간제인 해당 말풍선 스킨 보유
+				if numLang ~= 0 then
+					-- 기간제 아이템 사용
+					textmsg = textmsg .. ScpArgMsg("ChatBalloon_YESSCP_message2");
+				else
+					-- 무제한 아이템 사용
+					textmsg = textmsg .. ScpArgMsg("ChatBalloon_YESSCP_message4");
+				end
+			else
+				-- 무제한인 해당 말풍선 스킨 보유
+				ui.SysMsg(ScpArgMsg("ChatBalloon_YESSCP_message3"));
+				return;
+			end
+		else
+			-- 보유하지 않은 말풍선 스킨 아이템 사용
+			textmsg = textmsg .. ScpArgMsg("ChatBalloon_YESSCP_message1");
+		end
+		
+		textmsg = textmsg .. ScpArgMsg("ChatBalloon_YESSCP_message5");
+    	ui.MsgBox_NonNested(textmsg, itemobj.Name, 'REQUEST_SUMMON_BOSS_TX', "None");
+    end
+	return;
+	
 end

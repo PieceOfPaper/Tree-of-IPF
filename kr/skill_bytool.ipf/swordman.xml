@@ -1,141 +1,151 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Swordman_PainBarrier">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-					<Str Str="PainBarrier_Buff" />
-					<Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
-					<Num Num="0" />
-					<Num FuncTxt="local value = 5000 + obj.Level * 5000 if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then     value = value / 2 end return value" Num="10000" UseFunc="1" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-					<Str Str="PainBarrierImmune_Buff" />
-					<Num FuncTxt="return obj.Level" Num="0" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="3000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
-					<Str Str="skl_fgt_buff_1" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_m_painbarrier_shot" />
-					<Str Str="voice_war_painbarrier_shot" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Swordman_Bear">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN" />
-			</HitList>
-			<EtcList>
-				<Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
-					<Str Str="Bear_Buff" />
-					<Num FuncTxt="return obj.Level;" Num="1" UseFunc="1" />
-					<Num Num="0" />
-					<Num Num="1800000" />
-					<Num Num="1" />
-					<Num Num="100" />
-					<Num Num="0" />
-				</Scp>
-				<Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
-					<Str Str="skl_fgt_buff_4" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Swordman_Restrain">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
-					<Str Str="skl_fgt_endure" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Swordman_Concentrate">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<EtcList>
-				<Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
-					<Str Str="skl_archer_concentrate_shot" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Swordman_PommelBeat">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="250" Type="SQUARE" Width="25" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
-					<Str Str="voice_war_atk_medium" />
-					<Str Str="voice_atk_medium_war_f" />
-				</Scp>
-			</EtcList>
-			<ResultList>
-				<ToolScp Client="YES" Scp="C_SR_EFT2" UseSleep="NO">
-					<Str_Arg Arg="1" Str="E_warrior_pommelbeat_hit" />
-					<Str Str="Dummy_emitter" />
-					<Num Num="0" />
-				</ToolScp>
-			</ResultList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Swordman_DoubleSlash">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="40" />
-				<Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="250" Type="SQUARE" Width="40" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
-					<Str Str="voice_archer_m_atk" />
-					<Str Str="voice_archer_f_atk" />
-				</Scp>
-				<Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
-					<Num Num="2" />
-				</Scp>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
-					<Str Str="voice_war_atk_short" />
-					<Str Str="voice_atk_short_war_f" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	<Skill Name="Swordman_Thrust">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="270" Dist="0" ForceATK="0" HitCount="1" Length="75" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="70" Type="SQUARE" Width="20" />
-			</HitList>
-		<EtcList>
+<ToolSkill>
+<Skill Name="Swordman_PainBarrier">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="PainBarrier_Buff"/>
+                    <Num FuncTxt="return obj.Level" Num="0" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num FuncTxt="local value = 5000 + obj.Level * 5000 if IsPVPServer(self) == 1 or IsPVPField(self) == 1 then     value = value / 2 end return value" Num="10000" UseFunc="1"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="PainBarrierImmune_Buff"/>
+                    <Num FuncTxt="return obj.Level" Num="0" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="3000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="skl_fgt_buff_1"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_war_m_painbarrier_shot"/>
+                    <Str Str="voice_war_painbarrier_shot"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Swordman_Liberate">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <EtcList>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="500">
+                    <Str Str="SCR_Liberate_Buff_kantrybe"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Swordman_Bear">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="9799" Type="FAN"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_BUFF" Time="0" UseSleep="NO">
+                    <Str Str="Bear_Buff"/>
+                    <Num FuncTxt="return obj.Level;" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="1800000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="skl_fgt_buff_4"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Swordman_Restrain">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="YES" Scp="C_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="skl_fgt_endure"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Swordman_Concentrate">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <EtcList>
+                <Scp Client="YES" Scp="C_SOUND" Time="100" UseSleep="NO">
+                    <Str Str="skl_archer_concentrate_shot"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Swordman_PommelBeat">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="50" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="250" Type="SQUARE" Width="25"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="300" UseSleep="NO">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Client="YES" Scp="C_SR_EFT2" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="E_warrior_pommelbeat_hit"/>
+                    <Str Str="Dummy_emitter"/>
+                    <Num Num="0"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Swordman_DoubleSlash">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="300" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="100" Type="SQUARE" Width="40"/>
+                <Frame Angle="0" AniTime="450" Dist="0" ForceATK="0" HitCount="1" Length="45" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="250" Type="SQUARE" Width="40"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+                    <Str Str="voice_archer_m_atk"/>
+                    <Str Str="voice_archer_f_atk"/>
+                </Scp>
+                <Scp Client="YES" Scp="SET_ENABLESKILLCANCEL_HITINDEX_C" Time="0" UseSleep="NO">
+                    <Num Num="2"/>
+                </Scp>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="500" UseSleep="NO">
+                    <Str Str="voice_war_atk_short"/>
+                    <Str Str="voice_atk_short_war_f"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="Swordman_Thrust">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="270" Dist="0" ForceATK="0" HitCount="1" Length="75" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453299" TermMax="0" TermMin="0" Time="70" Type="SQUARE" Width="20"/>
+            </HitList>
+            <EtcList>
                 <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-                    <Str Str="SKL_ARIES" />
-                    <Num Num="2" />
-                    <Num Num="1" />
-                    <Num Num="0" />
+                    <Str Str="SKL_ARIES"/>
+                    <Num Num="2"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
                 </Scp>
             </EtcList>
         </MainSkl>
@@ -143,12 +153,12 @@
             <SubSkl>
                 <Cond>
                     <ToolScp Client="NO" Scp="SKL_SELECT_ACTIVE_ABIL" UseSleep="NO">
-                        <Str Str="Swordman33" />
+                        <Str Str="Swordman33"/>
                     </ToolScp>
                 </Cond>
                 <Skill JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
                     <HitList>
-                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="SQUARE" />
+                        <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="SQUARE"/>
                     </HitList>
                     <EtcList>
                         <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING_NOCANCEL" Client="NO" UseSleep="NO" Time="0">
@@ -157,20 +167,20 @@
                         </Scp>
                         <Scp Scp="SKL_SET_DIR_TO_TGT" Client="NO" UseSleep="NO" Time="100"/>
                         <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="100" UseSleep="NO">
-                            <Str Str="SKL_ARIES" />
-                            <Num Num="2" />
-                            <Num Num="1" />
-                            <Num Num="0" />
+                            <Str Str="SKL_ARIES"/>
+                            <Num Num="2"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
                         </Scp>
                         <Scp Client="NO" Scp="SKL_JUMP_TO_TARGET" Time="300" UseSleep="YES">
-                            <Num Num="0" />
-                            <Num Num="120" />
-                            <Num Num="0" />
-                            <Num Num="1" />
-                            <Num Num="0.1" />
-                            <Num Num="1" />
-                            <Num Num="0.1" />
-                            <Num Num="1" />
+                            <Num Num="0"/>
+                            <Num Num="120"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                            <Num Num="0.1"/>
+                            <Num Num="1"/>
+                            <Num Num="0.1"/>
+                            <Num Num="1"/>
                         </Scp>
                         <Scp Client="NO" Scp="SKL_SET_TARGET_SQUARE_SR" Time="500" UseSleep="NO">
                             <Pos Angle="0" Dist="0" PosType="5"/>
@@ -183,32 +193,32 @@
                             <Num Num="0"/>
                         </Scp>
                         <Scp Client="NO" Scp="SKL_TGT_DMG" Time="500" UseSleep="NO">
-                            <Num Num="1" />
-                            <Num Num="0" />
-                            <Num Num="0" />
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
                         </Scp>
                     </EtcList>
                 </Skill>
             </SubSkl>
         </ByCondSkills>
-	</Skill>
-	<Skill Name="Swordman_Bash">
-		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
-			<HitList>
-				<Frame Angle="0" AniTime="280" Dist="0" ForceATK="0" HitCount="1" Length="75" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="1.0471976" TermMax="0" TermMin="0" Time="80" Type="FAN" Width="20" />
-			</HitList>
-			<EtcList>
-				<Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
-                    <Str Str="SKL_BASH" />
-                    <Num Num="2" />
-                    <Num Num="1" />
-                    <Num Num="0" />
+    </Skill>
+    <Skill Name="Swordman_Bash">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="280" Dist="0" ForceATK="0" HitCount="1" Length="75" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="1.0471976" TermMax="0" TermMin="0" Time="80" Type="FAN" Width="20"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="YES" Scp="MONSKL_C_PLAY_ANIM" Time="0" UseSleep="NO">
+                    <Str Str="SKL_BASH"/>
+                    <Num Num="2"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
                 </Scp>
                 <Scp Client="YES" Scp="C_VOICE_SOUND" Time="200" UseSleep="NO">
-					<Str Str="voice_war_atk_long_shot" />
-					<Str Str="voice_atk_long_war_f" />
-				</Scp>
-			</EtcList>
-		</MainSkl>
-	</Skill>
-	</ToolSkill>
+                    <Str Str="voice_war_atk_long_shot"/>
+                    <Str Str="voice_atk_long_war_f"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    </ToolSkill>

@@ -25,6 +25,9 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="TimeOver"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="AbuseCheck"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="DefGroup"/>
                             </ToolScp>
@@ -1073,19 +1076,12 @@
                     </Event>
                     <Event execCount="1" eventName="successItemGive">
                         <execList>
-                            <ToolScp Scp="MGAME_EXEC_PRECHECK_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_NUNNERY_CUBE_REWARD_CHECK"/>
-                                <Str Str="Gacha_M_Zachariel_1/3"/>
-                                <Str Str="None"/>
-                                <Str Str="None"/>
-                                <Str Str="None"/>
+                            <ToolScp Scp="EXEC_DUNGEON_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
+                                <Str Str="Request_Mission8"/>
+                                <Str Str="Gacha_E_025/1/Vis/500"/>
+                                <Str Str="47408"/>
                                 <Str Str="MISSION_ZACHA_01"/>
-                                <Str Str="None"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
-                                <Num Num="15"/>
-                                <Str Str="SaalusMission: Request_Mission8"/>
+                                <Str Str="NO"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -1178,6 +1174,31 @@
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="AbuseCheck">
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="3000" eventName="CheckScp">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_ABUSE_CHECK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="RankResetPoint">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="PointSetting">
+                        <execList>
+                            <ToolScp Scp="MGAME_SET_RANK_RESET_POINT_AND_LOG" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                                <Str Str="SaalusMission: Request_Mission8"/>
                             </ToolScp>
                         </execList>
                     </Event>

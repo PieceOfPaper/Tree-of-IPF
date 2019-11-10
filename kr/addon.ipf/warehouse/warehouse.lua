@@ -285,11 +285,11 @@ function CHECK_EMPTYSLOT(frame, obj)
 		end
 	end
 
-	local warehouseSlot = GET_EMPTY_SLOT(slotset);
+	local warehouseSlot, index = GET_EMPTY_SLOT(slotset);
 	if warehouseSlot == nil then
 		ui.SysMsg(ScpArgMsg("NoEmptySlot"))
 		return 1;
 	end
 
-	return 0;
+	return 0, index;
 end

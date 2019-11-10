@@ -679,10 +679,6 @@
                                 <Str Str="STAGE3_SUCC_CHECK"/>
                                 <Num Num="1"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
-                                <Str Str="UniqueRaid: Indun_Bracken_uniqe_raid"/>
-                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Boss_Stage_Succ_Log">
@@ -796,6 +792,19 @@
                             <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
                                 <Str Str="MGameState"/>
                                 <Str Str="Stage/Raid_Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="RankResetPoint">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="PointSetting">
+                        <execList>
+                            <ToolScp Scp="MGAME_SET_RANK_RESET_POINT_AND_LOG" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                                <Str Str="UniqueRaid: Casual_Indun_Bracken_uniqe_raid"/>
                             </ToolScp>
                         </execList>
                     </Event>

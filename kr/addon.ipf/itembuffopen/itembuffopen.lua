@@ -166,10 +166,12 @@ function SQIORE_SLOT_DROP(parent, ctrl)
                 propertyCtrl:Resize(propertyCtrl:GetWidth(), mintext:GetHeight());
 		    end
 	    else
-		    if basicTooltipProp == "DEF" then -- 방어
-			    mintext:SetTextByKey("txt", obj.DEF .." > ".. nextObj.DEF);
-		    elseif basicTooltipProp == "MDEF" then -- 악세사리
-			    mintext:SetTextByKey("txt", obj.MDEF .." > ".. nextObj.MDEF);
+			if basicTooltipProp == "DEF" then -- 방어
+				local socketaddvalue =  _GET_ITEM_SOCKET_ADD_VALUE(basicTooltipProp, obj)
+			    mintext:SetTextByKey("txt", obj.DEF - socketaddvalue  .." > ".. nextObj.DEF + socketaddvalue);
+			elseif basicTooltipProp == "MDEF" then -- 악세사리
+				local socketaddvalue =  _GET_ITEM_SOCKET_ADD_VALUE(basicTooltipProp, obj)
+			    mintext:SetTextByKey("txt", obj.MDEF - socketaddvalue .." > ".. nextObj.MDEF + socketaddvalue);
 		    elseif  basicTooltipProp == "HR" then -- 명중
 			    mintext:SetTextByKey("txt", obj.HR .." > ".. nextObj.HR);
 		    elseif  basicTooltipProp == "DR" then -- 회피

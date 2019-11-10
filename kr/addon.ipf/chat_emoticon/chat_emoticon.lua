@@ -39,6 +39,14 @@ function CHAT_EMOTICON_MAKELIST(frame)
 	local etc = GetMyEtcObject();
 	local index = 0;
 	local list, listCnt = GetClassList("chat_emoticons");
+
+	-- 아이콘 타입 확인 : 일반, 모션
+	local iconGroup = frame:GetUserValue("EMOTICON_GROUP");
+	local curCnt = frame:GetUserIValue("CURCNT");
+	if iconGroup == "None" then
+		iconGroup = "Normal";
+	end
+
 	for i = 0 , listCnt - 1 do
 		local slot = emoticons:GetSlotByIndex(index);
 		slot:SetEventScript(ui.MOUSEMOVE, "CHAT_EMOTICON_ADDDURATION");	
@@ -46,44 +54,90 @@ function CHAT_EMOTICON_MAKELIST(frame)
 		slot:SetClickSound("button_click_chat")
 		if index < cnt then
 			local cls = GetClassByIndexFromList(list, i);
-			if cls.CheckServer == 'YES' then
-				-- check session emoticons
-				local haveEmoticon = TryGetProp(etc, 'HaveEmoticon_' .. cls.ClassID);
-				if haveEmoticon > 0 then
+
+			if cls.IconGroup == iconGroup then
+				if cls.CheckServer == 'YES' then
+					-- check session emoticons
+					local haveEmoticon = TryGetProp(etc, 'HaveEmoticon_' .. cls.ClassID);
+					if haveEmoticon > 0 then
+						local icon = CreateIcon(slot);
+						local namelist = StringSplit(cls.ClassName, "motion_");
+						local imageName = namelist[1];
+						if 1 < #namelist then
+							imageName = namelist[2];
+						end
+						
+						icon:SetImage(imageName);
+						local tooltipText = string.format( "%s%s" , "/" ,cls.IconTokken);
+						icon:SetTextTooltip(tooltipText);
+
+						index = index + 1;				
+						slot:ShowWindow(1);
+					end
+				else
 					local icon = CreateIcon(slot);
-					icon:SetImage(cls.ClassName);
+					local namelist = StringSplit(cls.ClassName, "motion_");
+					local imageName = namelist[1];
+					if 1 < #namelist then
+						imageName = namelist[2];
+					end
+						
+					icon:SetImage(imageName);
 					local tooltipText = string.format( "%s%s" , "/" ,cls.IconTokken);
 					icon:SetTextTooltip(tooltipText);
-					index = index + 1;
-				end
-			else
-				local icon = CreateIcon(slot);
-				icon:SetImage(cls.ClassName);
-				local tooltipText = string.format( "%s%s" , "/" ,cls.IconTokken);
-				icon:SetTextTooltip(tooltipText);
-				index = index + 1;
+					index = index + 1;				
+					slot:ShowWindow(1);
+				end				
 			end
 		end
 	end
+
+	if curCnt ~= 0 then
+		for i = index , curCnt - 1 do
+			local slot = emoticons:GetSlotByIndex(i);
+			slot:ClearIcon();
+		end
+	end
+
+	frame:SetUserValue("CURCNT", index);
 end
 
 function CHAT_EMOTICON_SELECT(frame, ctrl)
-	if ctrl:GetClassName() == "slot" then
-		local slot = tolua.cast(ctrl, "ui::CSlot");
-		local icon = slot:GetIcon();
-		if icon ~= nil then
-		local imageName = icon:GetInfo():GetImageName();
-			if imageName ~= "" then
-		CHAT_ADD_EMOTICON(imageName)
+	local emo_frame = ui.GetFrame('chat_emoticon');
+	local iconGroup = emo_frame:GetUserValue("EMOTICON_GROUP");
+	if iconGroup == "None" then
+		iconGroup = "Normal";
 	end
-end
-		--Shift키를 누르면 연속적으로 선택하게.
-		local emo_frame = ui.GetFrame('chat_emoticon');
-		if 0 == keyboard.IsKeyPressed("LSHIFT") then
-			CHAT_EMOTICON_CLOSE(emo_frame);
-		else		
-			emo_frame:SetDuration(3);
-		end;
+
+	if ctrl:GetClassName() == "slot" then
+		if iconGroup == "Motion" then
+			-- 모션 이모티콘			
+			local slot = tolua.cast(ctrl, "ui::CSlot");
+			local icon = slot:GetIcon();
+			if icon ~= nil then
+				local imageName = icon:GetInfo():GetImageName();
+				if imageName ~= "" then					
+					CHAT_ADD_EMOTICON_MOTION(imageName)
+				end
+			end
+		else
+			-- 일반 이모티콘
+			local slot = tolua.cast(ctrl, "ui::CSlot");
+			local icon = slot:GetIcon();
+			if icon ~= nil then
+				local imageName = icon:GetInfo():GetImageName();
+				if imageName ~= "" then
+					CHAT_ADD_EMOTICON(imageName)
+				end
+			end
+	
+			--Shift키를 누르면 연속적으로 선택하게.
+			if 0 == keyboard.IsKeyPressed("LSHIFT") then
+				CHAT_EMOTICON_CLOSE(emo_frame);
+			else		
+				emo_frame:SetDuration(3);
+			end			
+		end		
 	end
 end
 
@@ -112,7 +166,7 @@ function CHAT_CHECK_EMOTICON(szIconTokken, imageName)
 	local chatFrame = GET_CHATFRAME();
 	local editCtrl = GET_CHILD(chatFrame, "mainchat", "ui::CEditControl");
 	local tempMsg = string.gsub(string.lower(editCtrl:GetText()), string.lower(szIconTokken), "");
-	
+
 	editCtrl:ClearText();
 	editCtrl:SetText(tempMsg);
 
@@ -124,7 +178,20 @@ function CHAT_CHECK_EMOTICON(szIconTokken, imageName)
 			return;
 		end
 	end
-	CHAT_ADD_EMOTICON(imageName)
+	
+	if cls.IconGroup == "Motion" then
+		local chattype = ui.GetChatType();
+		if chattype == 1 then
+			-- 외치기에서는 모션 이모티콘 사용 불가
+			return;
+		end
+	
+		-- 모션이모티콘
+		CHAT_ADD_EMOTICON_MOTION(imageName);
+	else
+		-- 일반 이모티콘
+		CHAT_ADD_EMOTICON(imageName)
+	end		
 end
 
 g_chatEmoticonCacheTable = {}; -- key: iconToken, valud: Class in idspace of "chat_emoticons"
@@ -147,7 +214,9 @@ end
 
 function CHAT_CHECK_EMOTICON_WITH_ENTER(originText)
 	local text = REPLACE_EMOTICON(originText)
-	SET_CHAT_TEXT(text);
+	if text ~= nil then
+		SET_CHAT_TEXT(text);
+	end
 end
 
 function REPLACE_EMOTICON(originText)
@@ -184,10 +253,25 @@ function REPLACE_EMOTICON(originText)
 		local iconToken = string.gsub(replaceTargetText, '/', '');
 		local imageClass = GET_EMOTICON_CLASS_BY_ICON_TOKEN(iconToken);
 		if imageClass ~= nil then
-			local toText = string.format('{img %s 30 30}{/}', imageClass.ClassName);			
-			originText = string.gsub(originText, replaceTargetText, toText);
-			totalLen = string.len(originText);
-			index = index + string.len(toText);
+			if string.find(imageClass.ClassName, "motion_") ~= nil then
+				local chattype = ui.GetChatType();
+				if chattype == 1 then
+					-- 외치기에서는 모션 이모티콘 사용 불가
+					return;
+				end
+
+				--모션 이모티콘
+				local namelist = StringSplit(imageClass.ClassName, "motion_");
+				local toText = string.format('{spine %s 120 120}{/}', imageClass.ClassName);
+				
+				return toText;
+			else
+				--일반 이모티콘
+				local toText = string.format('{img %s 30 30}{/}', imageClass.ClassName);			
+				originText = string.gsub(originText, replaceTargetText, toText);
+				totalLen = string.len(originText);
+				index = index + string.len(toText);
+			end
 		else
 			index = index + string.len(replaceTargetText);
 		end
@@ -199,4 +283,31 @@ function REPLACE_EMOTICON(originText)
 	end
 
 	return originText;
+end
+
+-- 모션 이모티콘 사용
+function CHAT_ADD_EMOTICON_MOTION(imageName)
+	local chatFrame = GET_CHATFRAME();
+	local editCtrl = GET_CHILD(chatFrame, "mainchat", "ui::CEditControl");
+	local curLinkCount = editCtrl:GetLinkCount();
+	if curLinkCount >= 3 then
+		ui.MsgBox(ScpArgMsg("Auto_LingKeuui_KaeSuNeun_3KaeLeul_Neomeul_Su_eopSeupNiDa."));
+		return;
+	end
+	
+	-- 아이콘 클릭시에는 imageName이 아이콘 이미지 이름
+	-- /IconTokken 으로 입력시에는 imageName이 ClassName
+	if string.find(imageName, "motion_") == nil then
+		imageName = "motion_"..imageName;
+	end
+
+	local spinetag =  string.format("{spine %s %d %d}{/}", imageName, 120, 120);
+	local chattype = ui.GetChatType();
+	if chattype == 1 then
+		-- 외치기에서는 모션 이모티콘 사용 불가
+		return;
+	end
+
+	SET_CHAT_TEXT(spinetag);
+	ui.ProcessReturnKey();
 end

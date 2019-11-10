@@ -217,6 +217,7 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 220000,100,0,"MON_KILL_RANKING_COUNT","모험일지 킬 랭킹 기록범위. 최소 10이상","YES"
 220001,100,0,"MON_DAMAGE_RANKING_COUNT","모험일지 대미지 랭킹 기록범위. 최소 10이상","YES"
 220002,100,0,"ITEM_REINFORCE_RANKING_COUNT","아이템 강화 랭킹 기록범위. 최소 10이상","YES"
+220003,1,0,"USE_RAID_WORLD_RECORD","레이드 킬 기록 사용(오퍼 계정 사용 : 1 / 사용 안함 : 0)","NO"
 230000,0,0,"MSG_DIRECT_START","","NO"
 230001,0,0,"MSG_DIRECT_END","","NO"
 230002,0,0,"MAIN_SOBJ_ADD","","NO"

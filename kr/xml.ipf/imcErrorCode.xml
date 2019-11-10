@@ -607,4 +607,5 @@
   <Code Code="ERROR_QUIZ_QUIZ" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="SP실행에 실패하였습니다. sp 내용과 에러코드를 확인하세요."/>
 <Code Code="CRITICAL_MOVE_SYNC" Team="tos_team" Category="CRITICAL" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="이동 동기화 로그"/>
 	<Code Code="INFO_ADDTIONAL_LOG" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="몽고로그 유실 대비 로그"/>
+	<Code Code="ERROR_DUPLICATE_PACKET_ENUM" Team="PROGRAM" Category="CRITICAL" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="패킷 ENUM 벨류 중복"/>
 </imcErrorCode>
