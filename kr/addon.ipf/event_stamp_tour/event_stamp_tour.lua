@@ -221,6 +221,10 @@ function ON_EVENT_STAMP_TOUR_REWARD_GET(frame, msg, argstr, argnum)
 	local clear_Pic = GET_CHILD_RECURSIVELY(ctrlSet, 'clear_Pic');
 	clear_bg:ShowWindow(0);
 	clear_Pic:ShowWindow(0);
+	
+	if config.GetServiceNation() ~= 'KOR' then
+		clear_Pic:SetImage("very_nice_stamp_eng");
+	end
 
 	UI_PLAYFORCE(clear_Pic, "sizeUpAndDown");
 	clear_bg:ShowWindow(1);

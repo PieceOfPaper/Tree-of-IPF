@@ -4,6 +4,13 @@
 function QUESTDETAIL_BOX_CREATE_RICHTEXT(baseCtrl, x, y, width, height, name, text, prop) 
 	local title = baseCtrl:CreateControl("richtext", name, x, y, width, height);
 	tolua.cast(title, "ui::CRichText");
+	
+	if prop ~= nil then
+		if prop.text_align ~= nil then
+			title:SetTextAlign(prop.text_align.horz,prop.text_align.vert );
+		end
+	end
+
 	title:SetTextFixWidth(1);
 	title:SetText(text.."{/}");
 	return title:GetHeight()

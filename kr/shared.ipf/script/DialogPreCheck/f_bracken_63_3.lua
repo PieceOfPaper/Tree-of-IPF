@@ -30,13 +30,13 @@ function SCR_BRACKEN633_LOSTPAPER04_PRE_DIALOG(pc, dialog)
     return 'NO'
 end
 
-function SCR_BRACKEN633_LOSTPAPER_FAKE_PRE_DIALOG(pc, dialog)
-    local result = SCR_QUEST_CHECK(pc,'BRACKEN_63_3_MQ020')
-    if result == 'PROGRESS' then
-        return 'YES'
-    end
-    return 'NO'
-end
+--function SCR_BRACKEN633_LOSTPAPER_FAKE_PRE_DIALOG(pc, dialog)
+--    local result = SCR_QUEST_CHECK(pc,'BRACKEN_63_3_MQ020')
+--    if result == 'PROGRESS' then
+--        return 'YES'
+--    end
+--    return 'NO'
+--end
 
 
 function SCR_JOB_2_PRIEST3_HERB3_PRE_DIALOG(pc, dialog)
@@ -124,6 +124,15 @@ end
 
 function SCR_BRACKEN633_SQ04_BOX_PRE_DIALOG(pc, dialog)
     local result = SCR_QUEST_CHECK(pc,'BRACKEN_63_3_SQ040')
+    if result == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end
+
+
+function SCR_BRACKEN633_RP_1_OBJ_PRE_DIALOG(pc, dialog)
+    local result = SCR_QUEST_CHECK(pc,'BRACKEN633_RP_1')
     if result == 'PROGRESS' then
         return 'YES'
     end

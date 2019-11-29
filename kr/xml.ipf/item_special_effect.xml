@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
 <List>
 	<Effect_Item>
@@ -177,12 +177,17 @@
 	</Effect_Item>
 	<Effect_Item>
 		<ItemList ItemClassName="Artefact_634157">
-			<effect TargetNode="Dummy_body" effect="None" scale="1" offset="0;0" ReinforceValue="0" UseAttach="NO" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="F_spread_out060_ghost" UseTrailEffectChange="true" GiveAttackFromEffectScale="0.5" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="1" GiveAttackFromSound="skl_eff_holloween_bow" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="1" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
+			<effect TargetNode="Dummy_body" effect="None" scale="1" offset="0;0" ReinforceValue="0" UseAttach="NO" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="None" UseTrailEffectChange="true" GiveAttackFromEffectScale="0.5" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="1" GiveAttackFromSound="skl_eff_holloween_bow" GiveAttackSelfSound="None" TakeAttackEffect="F_spread_out060_ghost" TakeAttackEffectScale="0.5" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
 		</ItemList>
 	</Effect_Item>
 	<Effect_Item>
 		<ItemList ItemClassName="Artefact_634158">
 			<effect TargetNode="Dummy_body" effect="None" scale="1" offset="0;0" ReinforceValue="0" UseAttach="NO" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="None" UseTrailEffectChange="true" GiveAttackFromEffectScale="0.5" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="1" GiveAttackFromSound="skl_eff_holloween_crossbow" GiveAttackSelfSound="None" TakeAttackEffect="None" TakeAttackEffectScale="1" TakeAttackSound="None" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
+		</ItemList>
+	</Effect_Item>
+	<Effect_Item>
+		<ItemList ItemClassName="Effect_xmas_event">
+			<effect TargetNode="Dummy_body" effect="None" scale="1" offset="0;0" ReinforceValue="0" UseAttach="NO" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0" GiveAttackFromEffect="None" UseTrailEffectChange="true" GiveAttackFromEffectScale="0.5" GiveAttackSelfEffect="None" GiveAttackSelfEffectScale="1" GiveAttackFromSound="None" GiveAttackSelfSound="None" TakeAttackEffect="F_hit_star" TakeAttackEffectScale="0.7" TakeAttackSound="hit_nice" GiveAttackFromEffectOffSet="0;0" GiveAttackSelfEffectOffSet="0;0" TakeAttackEffectOffSet="0;0" SoundVolume="1"/>
 		</ItemList>
 	</Effect_Item>
 </List>

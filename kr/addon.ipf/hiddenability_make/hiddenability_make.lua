@@ -43,11 +43,13 @@ function HIDDENABILITY_MAKE_ITEM_RBTNDOWN(itemobj,slot)
     local frame = ui.GetFrame("hiddenability_make")
 
     local argNum = -1
+
     if IS_HIDDENABILITY_MATERIAL_PIECE(itemobj) == true then
         argNum = 1
     elseif IS_HIDDENABILITY_MATERIAL_STONE(itemobj) == true then
         argNum = 2
     end
+
     if HIDDENABILITY_MAKE_MATERIAL_ENABLE(frame, argNum, invitem) == true then
         frame:SetUserValue("MATERIAL_GUID_"..argNum, guid);
         HIDDENABILITY_MAKE_SET_MATERIAL(frame, argNum, invitem);
@@ -100,12 +102,20 @@ function HIDDENABILITY_MAKE_MATERIAL_ENABLE(frame, argNum, invitem)
         return false;
     end
 
-    if  invitem.isLockState == true then
+    if invitem.isLockState == true then
         ui.SysMsg(ClMsg("MaterialItemIsLock"));
         return false;
     end
     
     local itemobj = GetIES(invitem:GetObject());
+
+    if IS_HIDDENABILITY_MASTERPIECE_NOVICE(itemobj) == true then
+        if IS_HIDDENABILITY_MASTERPIECE_NOVICE_SELECTABLE(resultitemClassName) ~= true then
+            ui.SysMsg(ClMsg("NotEnoughTarget"));
+            return false;
+        end
+    end
+
     if argNum == 1 and IS_HIDDENABILITY_MATERIAL_PIECE(itemobj) == true then
         return true;
     elseif argNum == 2 and IS_HIDDENABILITY_MATERIAL_STONE(itemobj) == true then
@@ -417,7 +427,7 @@ function HIDDENABILITY_MAKE_DROPLIST_INIT(frame)
 end
 
 function HIDDENABILITY_MAKE_DROPLIST_SELECT(frame, ctrl)
-    --HIDDENABILITY_MAKE_RESET_MATERIAL(frame);
+    HIDDENABILITY_MAKE_RESET_MATERIAL(frame);
     HIDDENABILITY_MAKE_RESET_CENTER_UI(frame);
     
     local resultitemClassName = ctrl:GetSelItemKey();

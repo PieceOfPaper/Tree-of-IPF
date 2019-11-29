@@ -151,6 +151,11 @@ function DRAW_CHASE_QUEST_CTRL(bgCtrl, titleInfo, y)
 	if mapCls ~= nil then
 		mapName = mapCls.Name
 	end
+	local questMapTitleGbox = GET_CHILD_RECURSIVELY(titleCtrlSet, "questMapTitleGbox")
+	if questMapTitleGbox ~= nil then
+		questMapTitleGbox:SetSkinName(titleCtrlSet:GetUserConfig("COMMAND_TITLEBAR_SKIN"))
+	end
+
 	local questMapNameText = GET_CHILD_RECURSIVELY(titleCtrlSet, "questMapNameText")
 	questMapNameText:SetTextByKey("mapName",  mapName)
 	questMapNameText:SetTextByKey("count", questInfoCount) 

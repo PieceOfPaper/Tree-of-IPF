@@ -1,93 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <GameList>
-    <Game Name="THORN21_MQ03_TRACK_MINIGAME" minLv="0" maxLv="0" startWaitSec="0">
-        <StageList>
-            <Stage Name="DefGroup">
-                <ObjList>
-                    <Obj Type="Monster" MonType="153011" Pos="2800.98#122.08#-1326.44" angle="-11" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;25&apos; &apos;Level&apos; &apos;64&apos; &apos;Size&apos; &apos;XL&apos; &apos;BTree&apos; &apos;BasicMonster&apos; &apos;Faction&apos; &apos;Monster&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <StartList>
-                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-                                    <Num Num="0"/>
-                                    <Str_Arg Str="F_levitation020_dark2" Arg="5"/>
-                                    <Str Str="BOT"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                </ObjList>
-                <StageEvents>
-                    <Event eventName="stage_02_start">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
-                                <MGameObj List="DefGroup/0"/>
-                                <Num Num="70"/>
-                                <Str Str="UNDER"/>
-                                <Num Num="1"/>
-                                <Str Str="OVER"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="stage_02"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event eventName="stage_02_end">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="DefGroup/0"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="stage_02"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="stage_02" AutoStart="0">
-                <ObjList>
-                    <Obj Type="Monster" MonType="400381" Pos="2646.93#122.08#-1399.93" range="50" genCount="3" maxStackCount="1" genTime="20000" objectKey="0" tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="300"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="400381" Pos="2724.78#122.08#-1082.66" range="50" genCount="3" maxStackCount="1" genTime="20000" objectKey="1" tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="300"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="400381" Pos="2745.87#122.08#-1369.14" range="50" genCount="3" maxStackCount="1" genTime="20000" objectKey="2" tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="300"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="400381" Pos="2657.39#122.08#-1053.19" range="50" genCount="3" maxStackCount="1" genTime="20000" objectKey="3" tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="300"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                </ObjList>
-            </Stage>
-        </StageList>
-    </Game>
+	<Game Name="THORN21_MQ03_TRACK_MINIGAME" minLv="0" maxLv="0" startWaitSec="0">
+		<StageList>
+			<Stage Name="DefGroup">
+				<ObjList>
+					<Obj Type="Monster" MonType="153011" Pos="2800.98#122.08#-1326.44" angle="-11" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;8&apos; &apos;Level&apos; &apos;64&apos; &apos;Size&apos; &apos;XL&apos; &apos;BTree&apos; &apos;BasicMonster&apos; &apos;Faction&apos; &apos;Monster&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_levitation020_dark2" Arg="5"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="stage_02_start">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="DefGroup/0"/>
+								<Num Num="70"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="stage_02"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="stage_02_end">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="DefGroup/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="stage_02"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="stage_02" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="400381" Pos="2646.93#122.08#-1399.93" range="50" genCount="3" maxStackCount="1" genTime="20000" objectKey="0" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="300"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="400381" Pos="2724.78#122.08#-1082.66" range="50" genCount="3" maxStackCount="1" genTime="20000" objectKey="1" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="300"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="400381" Pos="2745.87#122.08#-1369.14" range="50" genCount="3" maxStackCount="1" genTime="20000" objectKey="2" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="300"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="400381" Pos="2657.39#122.08#-1053.19" range="50" genCount="3" maxStackCount="1" genTime="20000" objectKey="3" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="300"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+			</Stage>
+		</StageList>
+	</Game>
 </GameList>

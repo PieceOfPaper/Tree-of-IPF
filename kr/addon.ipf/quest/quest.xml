@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="quest" x="0" y="0" width="550" height="1080" create="open">
 	<draw drawtitlebar="false"/>
 	<skin frameskin=" "/>
 	<frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-520 0 0 0"/>
 	<input maxwidth="1280" moveable="false"/>
 	<layer layerlevel="80"/>
-	<userconfig LEVEL_FILTER_TEXT="{@st41b}레벨별 분류"/>
+	<userconfig EPISODE_TIP="{@st66}TIP 1. 에피소드 보상은 팀당 1회만 받을 수 있습니다.{nl}TIP 2. 에피소드 10을 클리어하면 모든 캐릭터의 서브 퀘스트가 개방됩니다." QUEST_TIP="{@st66}TIP. 퀘스트 알림은 5개까지 등록할 수 있습니다."/>
 	<opencheck scp="UI_CHECK_PROP" strarg="quest" numarg="1"/>
 	<lockopenscript scp="UI_CHECK_NOT_PVP_MAP"/>
 	<option closebutton="false"/>
@@ -23,9 +23,16 @@
 		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;quest&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}퀘스트 정보를 닫습니다{/}"/>
 		<richtext name="richtext_1" rect="0 0 120 24" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}퀘스트{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<!-- split : Tab Controls  -->
-		<tab name="questBox" rect="0 0 300 40" margin="0 60 0 0 " layout_gravity="center top" LBtnDownScp="QUEST_TAB_CHANGE" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
-		<tabitem name="tab_quest" parent="questBox" caption="{@st66b}  퀘스트 목록  {/}" width="140"/>
-		<tabitem name="tab_complete" parent="questBox" caption="{@st66b}  완료  {/}" width="140"/>
+		<tab name="questBox" rect="0 0 425 40" margin="0 60 0 0 " layout_gravity="center top" LBtnDownScp="QUEST_TAB_CHANGE" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
+		<tabitem name="tab_episode" parent="questBox" caption="{@st66b}에피소드{/}" width="140"/>
+		<tabitem name="tab_quest" parent="questBox" caption="{@st66b}퀘스트 목록{/}" width="140"/>
+		<tabitem name="tab_complete" parent="questBox" caption="{@st66b}완료{/}" width="140"/>
+		<!-- Tab : Episode -->
+		<groupbox name="gb_episode" rect="0 0 550 920" margin="0 40 0 0" layout_gravity="center top" tabname="tab_episode" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="gb_body_episode" parent="gb_episode" rect="0 0 530 780" margin="10 85 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle"/>
+		<!-- Episode - Items -->
+		<groupbox name="gb_episodeItem" parent="gb_body_episode" rect="0 0 530 780" margin="0 5 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle"/>
+		<groupbox name="episodeGbox" parent="gb_episodeItem" rect="0 0 530 780" margin="1 0 0 0" layout_gravity="center top" draw="false" hittest="true" hittestbox="true" scrollbar="true"/>
 		<!-- Tab : ProgressQuest -->
 		<groupbox name="gb_progressQuest" rect="0 0 550 920" margin="0 100 0 0" layout_gravity="center top" tabname="tab_quest" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_low"/>
 		<groupbox name="gb_body" parent="gb_progressQuest" rect="0 0 530 780" margin="10 85 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle"/>
@@ -64,6 +71,6 @@
 		<groupbox name="gb_completeQuestItem" parent="gb_body2" rect="0 0 530 740" margin="0 50 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle"/>
 		<groupbox name="completeGbox" parent="gb_completeQuestItem" rect="0 0 530 730" margin="1 0 0 0" layout_gravity="center top" draw="false" hittest="true" hittestbox="true" scrollbar="true"/>
 		<!-- Base End-->
-		<richtext name="invenweight" parent="bg" rect="0 0 240 30" margin="0 0 0 25" layout_gravity="center bottom" caption="{@st66}TIP. 퀘스트 알림은 5개까지 등록할 수 있습니다." fontname="white_16_b_ds_ol" hittest="false"/>
+		<richtext name="tipMessage" parent="bg" rect="0 0 240 30" margin="0 0 0 25" layout_gravity="center bottom" caption="{@st66}TIP. 퀘스트 알림은 5개까지 등록할 수 있습니다." fontname="white_16_b_ds_ol" hittest="false"/>
 	</controls>
 </uiframe>

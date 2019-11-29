@@ -1,8 +1,9 @@
 ﻿-- quest.lua
 
 local tabInfo = {
-    progressTab = 0,			-- 진행중
-	completeTab  = 1,			-- 완료됨
+	episodeTab = 0,
+    progressTab = 1,			-- 진행중
+	completeTab  = 2,			-- 완료됨
 };
 
 local levelFilter = {
@@ -58,7 +59,11 @@ function QUEST_ON_INIT(addon, frame)
 
 	-- party quest
 	addon:RegisterMsg('PARTY_UPDATE', "ON_PARTY_UPDATE_SHARED_QUEST")
-
+	
+	-- episode 
+	addon:RegisterMsg('EPISODE_REWARD_CLEAR', 'QUEST_EPISODE_REWARD_CLEAR');
+	addon:RegisterMsg('REQUEST_QUEST_UPDATE', "QUEST_EPISODE_REWARD_CLEAR")
+	
 	-- 초기화 함수에서 퀘스트 목록을 제거한다. 
 	questList = nil;
 
@@ -264,7 +269,7 @@ local function _RESET_QUEST_TAB_INFO(frame)
 	end
 	
 	_CHECK_SAVE_OPTION()
-	local tabIndex = tabInfo.progressTab
+	local tabIndex = tabInfo.episodeTab
 	if questViewOptionsSave.tabInfo ~= nil then
 		tabIndex = questViewOptionsSave.tabInfo
 		return
@@ -379,6 +384,27 @@ function QUEST_FRAME_OPEN(frame)
 	QUEST_TAB_CHANGE(frame)
 end
 
+
+function QUEST_EPISODE_REWARD_CLEAR(frame, msg, argStr, argNum) 
+	local questFrame = ui.GetFrame("quest")
+	if questFrame == nil then
+		return 
+	end
+	
+	-- 느리기때문에 함부로 호출하면 안됨.
+	UpdateProgressQuestList(); 
+
+	QUEST_UPDATE_ALL(questFrame)
+
+	-- episode update
+	local questbox_tab = GET_CHILD_RECURSIVELY(questFrame, 'questBox', "ui::CTabControl");
+	local index = questbox_tab:GetSelectItemIndex();
+	if index == tabInfo.episodeTab then
+		UPDATE_EPISODE_QUEST_LIST();
+	end
+end
+
+
 function QUEST_FRAME_CLOSE(frame)
 	local questDetailFrame = ui.GetFrame('questdetail');
 	if questDetailFrame:IsVisible() == 1 then
@@ -398,20 +424,103 @@ function UI_TOGGLE_QUEST()
 	ui.ToggleFrame('quest')
 end
 
+function NEW_QUEST_ADD_MAIN_CHECK(questIES)
+    local sobjIES = GET_MAIN_SOBJ();
+    if questIES.QuestName1 ~= "None" then
+        local condition = questIES.Quest_Condition
+        if condition == "AND" then
+            local failCount = 0
+    	    for i = 1, 4 do
+    	        if questIES["QuestName"..i] ~= "None" then
+        	        local checkQuest = SCR_QUEST_CHECK_C(sobjIES, questIES["QuestName"..i]);
+                    local inequality = questIES["QuestTerms"..i]
+                    local count = questIES["QuestCount"..i]
+                    if inequality == ">=" then
+                        if count == 1 and (checkQuest == "PROGRESS" or checkQuest == "SUCCESS" or checkQuest == "COMPLETE") then
+                        elseif count == 200 and (checkQuest == "SUCCESS" or checkQuest == "COMPLETE") then
+                        elseif count == 300 and (checkQuest == "COMPLETE") then
+                        else
+                            failCount = failCount + 1
+                        end
+                    elseif inequality == "==" then
+                        if count == 1 and (checkQuest == "PROGRESS") then
+                        elseif count == 200 and (checkQuest == "SUCCESS") then
+                        elseif count == 300 and (checkQuest == "COMPLETE") then
+                        else
+                            failCount = failCount + 1
+                        end
+                    end
+                    if failCount > 0 then
+                        break
+                    end
+                end
+            end
+            if failCount <= 0 then
+                return 1
+            end
+        elseif condition == "OR" then
+            local succCount = 0
+    	    for i = 1, 4 do
+    	        if questIES["QuestName"..i] ~= "None" then
+        	        local checkQuest = SCR_QUEST_CHECK_C(sobjIES, questIES["QuestName"..i]);
+                    local inequality = questIES["QuestTerms"..i]
+                    local count = questIES["QuestCount"..i]
+                    if inequality == ">=" then
+                        if count == 1 and (checkQuest == "PROGRESS" or checkQuest == "SUCCESS" or checkQuest == "COMPLETE") then
+                            succCount = succCount + 1
+                        elseif count == 200 and (checkQuest == "SUCCESS" or checkQuest == "COMPLETE") then
+                            succCount = succCount + 1
+                        elseif count == 300 and (checkQuest == "COMPLETE") then
+                            succCount = succCount + 1
+                        end
+                    elseif inequality == "==" then
+                        if count == 1 and (checkQuest == "PROGRESS") then
+                            succCount = succCount + 1
+                        elseif count == 200 and (checkQuest == "SUCCESS") then
+                            succCount = succCount + 1
+                        elseif count == 300 and (checkQuest == "COMPLETE") then
+                            succCount = succCount + 1
+                        end
+                    end
+                    if succCount > 0 then
+                        break
+                    end
+                end
+            end
+            if succCount > 0 then
+                return 1
+            end
+        end
+    else
+    end
+    return 0
+end
+
 function NEW_QUEST_ADD(frame, msg, argStr, argNum) 
 	
 	local questIES = GetClassByType("QuestProgressCheck", argNum);
 	local sobjIES = GET_MAIN_SOBJ();
 
 	local ret = QUEST_ABANDON_RESTARTLIST_CHECK(questIES, sobjIES);
-	local questState = SCR_QUEST_CHECK(sobjIES, questIES.ClassName);
+	local questState = SCR_QUEST_CHECK_C(sobjIES, questIES.ClassName);
 	--퀘스트 중 대화만 끝나면 바로 success인 퀘스트가 있다. 이런 퀘스트도 수락시 지령창에 표시함
 
 	-- new quest check
 	if ret == 'NOTABANDON' or questState == 'SUCCESS' then
         local isNew = 0
-		if questState == 'SUCCESS' or (questIES.QuestMode ~= nil and (questIES.QuestMode == 'MAIN' or questIES.QuestMode == "SUB" or questIES.QuestMode == "REPEAT" or  questIES.QuestMode == "PARTY")) then
+        local Quest_Type = questIES.QuestMode
+		if questState == 'SUCCESS' or (questIES.QuestMode ~= nil and (Quest_Type == 'MAIN' or Quest_Type == "SUB" or Quest_Type == "REPEAT" or  Quest_Type == "PARTY")) then
+		    if Quest_Type == "SUB" or Quest_Type == "REPEAT" or  Quest_Type == "PARTY" then
+            	local translated_QuestGroup = dictionary.ReplaceDicIDInCompStr(questIES.QuestGroup);
+            	local quest_table = SCR_STRING_CUT(translated_QuestGroup)
+            	if #quest_table > 1 then
+            	    if quest_table[3] > 1 then
             isNew = 1
+		end
+                end
+            else
+                isNew = NEW_QUEST_ADD_MAIN_CHECK(questIES)
+            end
 		end
 		
 		if isNew == 1 and quest.IsCheckQuest(argNum) == false then
@@ -433,6 +542,7 @@ function NEW_QUEST_ADD(frame, msg, argStr, argNum)
 end
 
 function QUEST_UPDATE_ALL(frame)
+	
 	frame = ui.GetFrame("quest")
 	
 	local clsList, cnt = GetClassList("QuestProgressCheck");
@@ -452,6 +562,11 @@ function SORT_QUEST_LIST(frame)
 	end
 	local tabIndex = frame:GetUserIValue('CurTabIndex')
 	local questList = _GET_QUEST_LIST(tabIndex)
+
+	if questList == nil then
+		return
+	end
+
 	-- title info sort
 	table.sort(questList, SORT_TITLE_INFO_FILTER);
 
@@ -543,10 +658,23 @@ function _UPDATE_QUEST_INFO(questIES)
 end
 
 function UPDATE_QUEST_INFO(frame, msg, argStr, argNum) 
+
 	local questIES = GetClassByType("QuestProgressCheck", argNum);
 	-- 퀘스트 정보 업데이트
 	if questIES ~= nil then
 		_UPDATE_QUEST_INFO(questIES)
+	end
+
+	local questFrame = ui.GetFrame("quest")
+	if questFrame == nil then
+		return 
+	end
+
+	-- episode update
+	local questbox_tab = GET_CHILD_RECURSIVELY(questFrame, 'questBox', "ui::CTabControl");
+	local index = questbox_tab:GetSelectItemIndex();
+	if index == tabInfo.episodeTab then
+		UPDATE_EPISODE_QUEST_LIST();
 	end
 end
 
@@ -665,24 +793,24 @@ function DRAW_QUEST_CTRL(bgCtrl, titleInfo, y)
 			local questInfo = titleInfo.questInfoList[index]
 			-- filter 적용
 			if CHECK_QUEST_VIEW_FILTER(titleInfo.name, questInfo) == true then
+			
+			if titleInfo.isOpened == true then -- 트리가 열려있을 때만 컨트롤 생성
+				local ctrlName = "_Q_" .. questInfo.QuestClassID;
+				local Quest_Ctrl = questListGbox:CreateOrGetControlSet(controlSetType, ctrlName, 5, controlsetHeight * (drawTargetCount));			
 				
-				if titleInfo.isOpened == true then -- 트리가 열려있을 때만 컨트롤 생성
-					local ctrlName = "_Q_" .. questInfo.QuestClassID;
-					local Quest_Ctrl = questListGbox:CreateOrGetControlSet(controlSetType, ctrlName, 5, controlsetHeight * (drawTargetCount));			
-					
-					-- 배경 설정.
-					if cnt % 2 == 1 then
-						Quest_Ctrl:SetSkinName("chat_window_2");
-					else
-						Quest_Ctrl:SetSkinName('None');
-					end
-					cnt = cnt +1
-					
-					-- detail 설정
-					UPDATE_QUEST_CTRL(Quest_Ctrl, questInfo );
-
-					questCtrlTotalHeight = questCtrlTotalHeight + Quest_Ctrl:GetHeight();
+				-- 배경 설정.
+				if cnt % 2 == 1 then
+					Quest_Ctrl:SetSkinName("chat_window_2");
+				else
+					Quest_Ctrl:SetSkinName('None');
 				end
+				cnt = cnt +1
+				
+				-- detail 설정
+				UPDATE_QUEST_CTRL(Quest_Ctrl, questInfo );
+
+				questCtrlTotalHeight = questCtrlTotalHeight + Quest_Ctrl:GetHeight();
+			end
 
 				drawTargetCount = drawTargetCount +1
 			end
@@ -849,8 +977,6 @@ function SET_QUEST_CTRL_BTN(ctrl, questIES, state , abandonCheck)
 		end
 		chase:SetEventScript(ui.LBUTTONDOWN, "ADD_QUEST_INFOSET_CTRL");
 		chase:SetEventScriptArgNumber(ui.LBUTTONDOWN, questIES.ClassID);
-		chase:SetEventScript(ui.LBUTTONUP, "UPDATE_QUEST_LIST");
-		
 	end
 end
 
@@ -887,6 +1013,7 @@ function UPDATE_QUEST_CTRL(ctrl, questInfo)
     Quest_Ctrl:SetTextTooltip(ScpArgMsg("ClickToViewDetailInfomation"))
 end
 
+-- 지령창
 function ADD_QUEST_INFOSET_CTRL(frame, ctrl, argStr, questClassID, notUpdateRightUI)
 	tolua.cast(ctrl, "ui::CCheckBox");   
 	if ctrl:IsChecked() == 1 then
@@ -905,7 +1032,7 @@ function ADD_QUEST_INFOSET_CTRL(frame, ctrl, argStr, questClassID, notUpdateRigh
 		UPDATE_QUESTINFOSET_2(questframe2);
 	end
 
-	
+	UPDATE_QUEST_LIST()
 end
 
 function SORT_TITLE_INFO_FILTER(a,b)
@@ -1140,7 +1267,7 @@ function CHECK_PROGRESS_QUEST_VIEW_FILTER(titlename, questInfo)
 	end
 
 	searchText = string.lower(searchText);
-
+	
 	-- title과 일치하는지 먼저검사.
 	if titlename ~= nil then
 		local mapCls = GetClass("Map", titlename)
@@ -1159,7 +1286,6 @@ function CHECK_PROGRESS_QUEST_VIEW_FILTER(titlename, questInfo)
 	local questName = questIES.Name;
 	questName = dic.getTranslatedStr(questName)
 	questName = string.lower(questName); 
-	
 	if string.find(questName, searchText) == nil then
 		return false;
 	end 
@@ -1288,6 +1414,8 @@ function CLICK_QUEST_MAP_TITLE(ctrl)
 	local titleInfo = nil
 	if ctrl:GetName() == "quest_command_window" then
 		titleInfo = GET_CHASE_TITLE_INFO()
+	elseif tabIndex == tabInfo.episodeTab then
+		titleInfo = GET_EPISODE_TITLE_INFO(ctrl:GetName())
 	else
 		titleInfo = _GET_TITLE_INFO(tabIndex, ctrl:GetName())
 	end
@@ -1298,7 +1426,11 @@ function CLICK_QUEST_MAP_TITLE(ctrl)
 		titleInfo.isOpened = true;
 	end
 
-	DRAW_QUEST_LIST(frame)
+	if tabIndex == tabInfo.episodeTab then
+		DRAW_EPISODE_QUEST_LIST(frame);
+	else
+		DRAW_QUEST_LIST(frame);
+	end
 end
 
 function GET_QUEST_LEVEL_OPTION(tabIndex)
@@ -1408,6 +1540,7 @@ end
 
 function QUEST_TAB_CHANGE(frame, argStr, argNum)
 	local topFrame = frame:GetTopParentFrame();
+	local episodeGbox = GET_CHILD_RECURSIVELY(topFrame, 'episodeGbox');
 	local questGbox = GET_CHILD_RECURSIVELY(topFrame, 'questGbox');
 	local completeGbox = GET_CHILD_RECURSIVELY(topFrame, 'completeGbox');
 	local questbox_tab = GET_CHILD_RECURSIVELY(topFrame, 'questBox', "ui::CTabControl");
@@ -1420,18 +1553,50 @@ function QUEST_TAB_CHANGE(frame, argStr, argNum)
 		SET_QUEST_LEVEL_OPTION(levelOption);
 	end
 
-	if index == tabInfo.progressTab then
+	-- 탭이 변경되면 가려지는 탭의 내용을 모두 지운다.
+	completeGbox:RemoveAllChild();
+	questGbox:RemoveAllChild();
+	episodeGbox:RemoveAllChild();
+
+	-- 모두 숨긴다.
+	completeGbox:ShowWindow(0);
+	questGbox:ShowWindow(0);
+	episodeGbox:ShowWindow(0);
+
+
+	if index == tabInfo.episodeTab then
+		UPDATE_EPISODE_QUEST_LIST();
+		episodeGbox:ShowWindow(1);
+	elseif index == tabInfo.progressTab then
 		QUEST_UPDATE_ALL(topFrame);
-		completeGbox:ShowWindow(0);
 		questGbox:ShowWindow(1);
 	elseif index == tabInfo.completeTab then
-	    QUEST_UPDATE_ALL(topFrame)
+		QUEST_UPDATE_ALL(topFrame);
 		completeGbox:ShowWindow(1);
-		questGbox:ShowWindow(0);
 	end
-	
+	CHANGE_TIP_MESSAGE()
 	_SAVE_QUEST_TAB_INFO()
 	_SAVE_QUEST_LEVEL_OPTION()
+end
+
+function CHANGE_TIP_MESSAGE()
+	local frame = ui.GetFrame('quest')
+	local questbox_tab = GET_CHILD_RECURSIVELY(frame, 'questBox', "ui::CTabControl");
+	local tipMessage = GET_CHILD_RECURSIVELY(frame, 'tipMessage', "ui::CRichText");
+	tipMessage = tolua.cast(tipMessage, 'ui::CRichText');
+
+	local index = questbox_tab:GetSelectItemIndex();
+	
+	if index == tabInfo.episodeTab then
+		local episodeTipMsg  = frame:GetUserConfig("EPISODE_TIP");  
+		tipMessage:SetText(episodeTipMsg);
+	elseif index == tabInfo.progressTab then
+		local questTipMsg  = frame:GetUserConfig("QUEST_TIP");  
+		tipMessage:SetText(questTipMsg);
+	else  
+		tipMessage:SetText("");
+	end
+
 end
 
 function QUEST_MODE_FILTER_CHANGE(frame, ctrl, doNotDraw)
@@ -1887,8 +2052,6 @@ function EXEC_ABANDON_QUEST(questID)
 end
 
 function SCR_QUEST_SHARE_PARTY_MEMBER(ctrlSet, ctrl, strArg, numArg)
-	local frame = ui.GetFrame('quest');
-
 	local questClassID = numArg; 
 	local shared = IS_SHARED_QUEST(questClassID);
 	if shared == true then
@@ -1899,7 +2062,10 @@ function SCR_QUEST_SHARE_PARTY_MEMBER(ctrlSet, ctrl, strArg, numArg)
 		REQUEST_QUEST_SHARE_PARTY_PROGRESS(questClassID)
 	end
 
+	local frame = ui.GetFrame('quest');
 	DRAW_QUEST_LIST(frame);
+	local infosetFrame = ui.GetFrame('questinfoset_2');
+	UPDATE_QUESTINFOSET_2(infosetFrame);
 end
 
 function REQUEST_QUEST_SHARE_PARTY_PROGRESS(questClsID)
@@ -1942,4 +2108,64 @@ function ON_PARTY_UPDATE_SHARED_QUEST()
 			REQUEST_QUEST_SHARE_PARTY_PROGRESS(sharedQuestID)
 		end
 	end
+end
+
+function ON_SERACH_QUEST_NAME(questClassID)
+	local frame = ui.GetFrame('quest')
+	local searchEdit = GET_CHILD_RECURSIVELY(frame, "questSearch", "ui::CEditBox");
+	if searchEdit == nil then
+		return true;
+	end
+
+	local questIES = GetClassByType('QuestProgressCheck',questClassID)
+
+	local questName = questIES.Name;
+	questName = dic.getTranslatedStr(questName)
+	local strList = StringSplit(questName, "%("); -- "(" 검색하기위해선 "%("를 넣어야함.
+	if #strList > 1 then
+		questName = strList[1];
+		
+	end
+
+	searchEdit:SetText(questName);
+
+end
+
+function ON_MAIN_QUEST_FILTER()
+	questViewOptions.modeFilterOptions.Main = true;
+	_SAVE_QUEST_MODE_FILTER()
+	
+end
+
+function ON_QUEST_GROUP_OPEN(questClassID)
+
+	local questIES = GetClassByType('QuestProgressCheck',questClassID)
+	local questClassName = questIES.ClassName
+	
+	if questClassName ~= "None" then
+		local pc = GetMyPCObject();
+		local questState = SCR_QUEST_CHECK_C(pc, questClassName); 
+		local state = CONVERT_STATE(questState);
+		local titleName = questIES[state .. "Map"]
+		if titleName == "None" then
+			titleName = "ETC"
+		end
+		local titleInfo = _GET_TITLE_INFO(tabInfo.progressTab, titleName)
+		if titleInfo ~= nil then
+			titleInfo.isOpened = true;
+		end
+	end
+end
+
+function ON_CHANGE_QUEST_TAB()
+	local frame = ui.GetFrame('quest')
+	if frame == nil then
+		return
+	end
+
+	local questbox_tab = GET_CHILD_RECURSIVELY(frame, 'questBox', "ui::CTabControl");
+	questbox_tab:SelectTab(tabInfo.progressTab);
+	
+	QUEST_TAB_CHANGE(frame, "", 0)
+	QUEST_UPDATE_ALL(frame);
 end

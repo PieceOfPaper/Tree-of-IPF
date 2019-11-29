@@ -700,12 +700,26 @@ end;
 
 -- 카드 슬롯의 카드 제거 요청
 function EQUIP_CARDSLOT_BTN_REMOVE(frame, ctrl)
-	local inven = ui.GetFrame("monstercardslot");
-	local argStr = string.format("%d", frame:GetUserIValue("REMOVE_CARD_SLOTINDEX"));
+	-- local inven = ui.GetFrame("monstercardslot");
+	-- local argStr = string.format("%d", frame:GetUserIValue("REMOVE_CARD_SLOTINDEX"));
 
-	argStr = argStr .. " 0" -- 0: 카드 레벨 떨어지면서 제거
-	pc.ReqExecuteTx_NumArgs("SCR_TX_UNEQUIP_CARD_SLOT", argStr);
+	-- argStr = argStr .. " 0" -- 0: 카드 레벨 떨어지면서 제거
+	-- pc.ReqExecuteTx_NumArgs("SCR_TX_UNEQUIP_CARD_SLOT", argStr);
+
+	local yesScp = string.format("_EQUIP_CARDSLOT_BTN_REMOVE");
+	local clmsg = ScpArgMsg("ReallyRemoveCardWithoutCost");
+
+	WARNINGMSGBOX_FRAME_OPEN_WITH_CHECK(clmsg, yesScp, "None");
 end;
+
+function _EQUIP_CARDSLOT_BTN_REMOVE()
+	local frame = ui.GetFrame("equip_cardslot_info")
+	local argStr = string.format("%d", frame:GetUserIValue("REMOVE_CARD_SLOTINDEX"))
+
+	argStr = argStr .. " 0"
+
+	pc.ReqExecuteTx_NumArgs("SCR_TX_UNEQUIP_CARD_SLOT", argStr)
+end
 
 -- 인벤토리의 카드 슬롯 제거 동작
 function _CARD_SLOT_REMOVE(slotIndex, cardGroupName)

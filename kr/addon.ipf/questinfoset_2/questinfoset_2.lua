@@ -7,6 +7,8 @@ ABANDON_BTN_SKIN_NAME = "button_abandon";
 SUCCESS_QUEST_INFO = {};
 IES_CTRL_OFFSET = 25;
 SCROLL_WIDTH = 20;
+SCROLL_WIDTH_TITLE = 90;
+
 
 function QUESTINFOSET_2_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('ANGLE_UPDATE', 'QUESTINFOSET_2_QUEST_ANGLE');
@@ -232,10 +234,6 @@ function QUESTINFOSET_2_REMOVE_QUEST(frame, questID)
 end
 
 function UPDATE_QUESTINFOSET_2(frame, msg, check, updateQuestID)
---	local warpFrame = ui.GetFrame('questwarp');
---	for i=0, QUESTWARP_MAX_BTN-1 do
---		warpFrame:SetUserValue("QUEST_WARP_CLASSNAME_"..i, "None");
---	end
     if UI_CHECK_NOT_PVP_MAP() == 0 then
         frame:ShowWindow(0);
         return;
@@ -243,6 +241,7 @@ function UPDATE_QUESTINFOSET_2(frame, msg, check, updateQuestID)
 
 	local cnt = quest.GetCheckQuestCount();
 	local customCnt = geQuest.GetCustomQuestCount();
+
 	if cnt + customCnt > 0 then
 		frame:ShowWindow(1);
 	else
@@ -845,6 +844,11 @@ function MAKE_QUEST_INFO_C(gBox, questIES, msg, progVal)
 end
 
 function MAKE_QUEST_INFO(GroupCtrl, questIES, msg, progVal) -- progVal이 nil이면 내 pc의 퀘스트임
+	local isMyQuest = true;
+	if progVal ~= nil then
+		isMyQuest = false;
+	end
+
 	local ctrlname = "_Q_" .. questIES.ClassID;
 	local pc = SCR_QUESTINFO_GET_PC();
 	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
@@ -898,7 +902,7 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg, progVal) -- progVal이 nil이
 	local y = _GET_QUEST_INFO_CTRLSET_MARGIN_TOP();
 	local startx = titleX + _GET_QUEST_INFO_CTRLSET_TITLE_OFFSET_X(); -- title offset.
 	local questName = '';
-	y = y + MAKE_QUEST_INFO_TITLE(ctrlset, startx, y, questIES, questName); -- 제목 컨트롤 생성.
+	y = y + MAKE_QUEST_INFO_TITLE(ctrlset, startx, y, questIES, questName, isMyQuest); -- 제목 컨트롤 생성.
 	y = y + _GET_QUEST_INFO_CTRLSET_TITLE_SPACE_Y();
 
 	-- 내용
@@ -908,6 +912,7 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg, progVal) -- progVal이 nil이
 			ctrlset:SetValue(s_obj.ClassID);
 		end
 		
+		y = MAKE_QUESTINFO_LEVEL(ctrlset, questIES, titleX + _GET_QUEST_INFO_CTRLSET_BODY_OFFSET_X(), y); 
 		y = MAKE_QUESTINFO_MAP(ctrlset, questIES, titleX + _GET_QUEST_INFO_CTRLSET_BODY_OFFSET_X(), y, s_obj, result);  -- 위치 표시
 		y = MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, titleX + _GET_QUEST_INFO_CTRLSET_BODY_OFFSET_X(), y)
 
@@ -975,6 +980,11 @@ function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg, progVal)
 		return;
 	end
 
+	local isMyQuest = true;
+	if progVal ~= nil then
+		isMyQuest = false;
+	end
+
 	local pc = SCR_QUESTINFO_GET_PC();
 	local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
 
@@ -1014,7 +1024,7 @@ function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg, progVal)
 
 	local y = _GET_QUEST_INFO_CTRLSET_MARGIN_TOP(); 
 	local startx = titleX + _GET_QUEST_INFO_CTRLSET_TITLE_OFFSET_X();
-	y = y + MAKE_QUEST_INFO_TITLE(ctrlset, startx, y, questIES, questTitle) -- 제목 컨트롤 생성.
+	y = y + MAKE_QUEST_INFO_TITLE(ctrlset, startx, y, questIES, questTitle, isMyQuest) -- 제목 컨트롤 생성.
 	y = y + _GET_QUEST_INFO_CTRLSET_TITLE_SPACE_Y();
 	
 	-- 내용.
@@ -1123,7 +1133,7 @@ function MAKE_QUEST_INFO_BASE_CTRL(gBox, ctrlname, x, y, questIES, result)
 	return ctrlset, titleX, y;
 end
 
-function MAKE_QUEST_INFO_TITLE(ctrlset, x, y, questIES, questName)
+function MAKE_QUEST_INFO_TITLE(ctrlset, x, y, questIES, questName, isMyQuest)
 	local pc = SCR_QUESTINFO_GET_PC();
 	local startx = x;
 	local questTitle = questName
@@ -1133,7 +1143,8 @@ function MAKE_QUEST_INFO_TITLE(ctrlset, x, y, questIES, questName)
 	local fixWidth = topFrame:GetUserConfig('TITLE_FIXWIDTH');
 
 	-- 제목 텍스트	
-	local content = ctrlset:CreateOrGetControl('richtext', 'groupQuest_title', startx, y+5, ctrlset:GetWidth() - startx - SCROLL_WIDTH, 30);
+	
+	local content = ctrlset:CreateOrGetControl('richtext', 'groupQuest_title', startx, y+5, ctrlset:GetWidth() - startx - SCROLL_WIDTH_TITLE, 30);
 	if content ~=nil then
 		if omitByWidth ~= nil then
 			content:EnableTextOmitByWidth(tonumber(omitByWidth));
@@ -1177,24 +1188,83 @@ function MAKE_QUEST_INFO_TITLE(ctrlset, x, y, questIES, questName)
 		content:SetText(QUEST_TITLE_FONT..questTitle);
 	end
 	content:EnableHitTest(0);
+
+	-- 제목 옆에 버튼 생성.
+	MAKE_QUEST_INFO_CTRL_BTN(ctrlset, x+content:GetWidth(), y, questIES, content:GetHeight(), isMyQuest); 
 	
 	return content:GetHeight();
 end
 
+function MAKE_QUEST_INFO_CTRL_BTN(ctrlset, x, y, questIES, maxHeight, isMyQuest)
+	
+	local iconSize = 22;
+	local startX = x;
+
+	if isMyQuest == true then
+		-- shareParty
+		local sharePartyCheck = ctrlset:CreateOrGetControl('checkbox', "sharePartyCheck", startX, y+5, iconSize,iconSize);
+		tolua.cast(sharePartyCheck, "ui::CCheckBox");
+		sharePartyCheck:SetSkinName("quest_share_btn");
+		sharePartyCheck:SetEventScript(ui.LBUTTONUP, "SCR_QUEST_SHARE_PARTY_MEMBER");
+		sharePartyCheck:SetEventScriptArgNumber(ui.LBUTTONUP, questIES.ClassID);
+		sharePartyCheck:SetCheck(0)
+		if IS_SHARED_QUEST(questIES.ClassID) == true then
+			sharePartyCheck:SetCheck(1)
+		end
+		startX = startX + iconSize;
+
+		-- loc
+		local questPositionCheckBtn = ctrlset:CreateOrGetControl('button', "questPositionCheckBtn", startX, y+6, iconSize,iconSize);
+		tolua.cast(questPositionCheckBtn, "ui::CButton");
+		questPositionCheckBtn:SetImage("quest_location_btn");
+		questPositionCheckBtn:SetEventScript(ui.LBUTTONUP, "SCR_VIEW_QUEST_LOCATION");
+		questPositionCheckBtn:SetEventScriptArgNumber(ui.LBUTTONUP, questIES.ClassID);
+		questPositionCheckBtn:ShowWindow(0);
+		-- 위치정보를 사용할 수 있는지 확인
+		if CHECK_QUEST_LOCATION(questIES) == true then
+			questPositionCheckBtn:ShowWindow(1)
+		end
+
+		startX = startX + iconSize;
+
+		-- chase
+		local chaseCheck = ctrlset:CreateOrGetControl('checkbox', "chaseCheck", startX, y+5, iconSize,iconSize);
+		tolua.cast(chaseCheck, "ui::CCheckBox");
+		chaseCheck:SetCheck(1);
+		chaseCheck:SetEventScript(ui.LBUTTONDOWN, "ADD_QUEST_INFOSET_CTRL");
+		chaseCheck:SetEventScriptArgNumber(ui.LBUTTONDOWN, questIES.ClassID);
+	else
+		-- loc
+		startX = startX + (iconSize * 4) - 13; -- 수동으로 맞춤..
+
+		local questPositionCheckBtn = ctrlset:CreateOrGetControl('button', "questPositionCheckBtn", startX, y+6, iconSize,iconSize);
+		tolua.cast(questPositionCheckBtn, "ui::CButton");
+		questPositionCheckBtn:SetImage("quest_location_btn");
+		questPositionCheckBtn:SetEventScript(ui.LBUTTONUP, "SCR_VIEW_QUEST_LOCATION");
+		questPositionCheckBtn:SetEventScriptArgNumber(ui.LBUTTONUP, questIES.ClassID);
+		questPositionCheckBtn:ShowWindow(0);
+		-- 위치정보를 사용할 수 있는지 확인
+		if CHECK_QUEST_LOCATION(questIES) == true then
+			questPositionCheckBtn:ShowWindow(1)
+		end
+	end
+end
+
+-- 방향 표시
 function MAKE_QUEST_INFO_TYPE_ICON(ctrlset, x, y, questIES, result)
 
 	-- 퀘스트 이미지(메인/서브/반복 등 깃발이미지)
-	local picture = ctrlset:CreateOrGetControl('picture', "statepicture", x+10, y+9, 30, 30);
+	local picture = ctrlset:CreateOrGetControl('picture', "statepicture", x+10, y+9+6, 30, 30);
 	tolua.cast(picture, "ui::CPicture");
 	picture:EnableHitTest(0);
 	picture:SetImage(GET_QUESTINFOSET_ICON_BY_STATE_MODE(result, questIES));
 	picture:SetEnableStretch(1);
 
 	-- 퀘스트 방향표시 컨트롤 생성
-	local rotatePic = ctrlset:CreateOrGetControl('picture', "rotatepicture", x, y-2, 50, 50);
+	local rotatePic = ctrlset:CreateOrGetControl('picture', "rotatepicture", x-5, y-2-5+6, 60, 60);
 	tolua.cast(rotatePic, "ui::CPicture");
 	rotatePic:EnableHitTest(0);
-	rotatePic:SetImage("npc_guide_arrow");
+	rotatePic:SetImage("npc_guide_arrow_x2");
 	rotatePic:SetEnableStretch(1);
 	rotatePic:SetVisible(0);
 
@@ -1240,6 +1310,16 @@ function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
 	end
 end
 
+function _QUESTION_QUEST_WARP(parentName, ctrlName, questID)
+	local frame = ui.GetFrame('questinfoset_2');
+	local parent = GET_CHILD_RECURSIVELY(frame, parentName);
+	local ctrl = nil;
+	if parent ~= nil then
+		ctrl = GET_CHILD_RECURSIVELY(parent, ctrlName);	
+	end
+	QUESTION_QUEST_WARP(parent, ctrl, 'NoChecWarp', questID);
+end
+
 function QUESTION_QUEST_WARP(frame, ctrl, argStr, questID)
 --    local pc = GetMyPCObject()
 --    local ZoneClassName = GetZoneName(pc) -- event V I V I D CICY --
@@ -1270,10 +1350,31 @@ function QUESTION_QUEST_WARP(frame, ctrl, argStr, questID)
 	if obj.Type == "MISSION" then
 		ui.SysMsg(ScpArgMsg("WarpQuestDisabled"));
         return;
-    end
-
+	end
 
 	local questIES = GetClassByType("QuestProgressCheck", questID);
+	
+	local targetMapName = GET_QUEST_LOCATION(questIES)
+	local targetMapCls = GetClassByNameFromList(cls, targetMapName);
+	local questLevel = TryGetProp(targetMapCls, "QuestLevel");
+	if questLevel ~= nil then
+		 local level = info.GetLevel(session.GetMyHandle());
+		-- 아직 확인하지 않았고, 맵레벨-레벨이 30이상 이라면 물어봄
+		if argStr ~= 'NoChecWarp' and questLevel - level >= 30 then 
+			local frameName = ""
+			local ctrlName = ""
+			if frame ~= nil then
+				frameName = frame:GetName()
+			end
+			if ctrl ~= nil then
+				ctrlName = ctrl:GetName();
+			end
+			local yesscp = string.format('_QUESTION_QUEST_WARP("%s", "%s", "%d")', frameName, ctrlName, questID);
+		 	ui.MsgBox(ClMsg("ReallyWarpHighLevelZone"), yesscp, 'None');
+		 	return;
+		end
+	end
+
 	local pc = GetMyPCObject();
 	if ctrl ~= nil then
 		local fid = ctrl:GetUserValue("PC_FID");
@@ -1376,7 +1477,8 @@ function MAKE_QUESTINFO_BY_IES(ctrlset, questIES, startx, y, s_obj, result, prog
             end
         end
     end
-    
+	
+	y = MAKE_QUESTINFO_LEVEL(ctrlset, questIES, startx, y);
     y = MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj, result);
     y = MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y)
     
@@ -2150,6 +2252,7 @@ function MAKE_QUESTINFO_HONORPOINT_BY_IES(ctrlset, questIES, startx, y)
 	return y;
 end
 
+-- 하위 퀘스트 표시
 function MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y)
 
 	if questIES.Succ_Check_QuestCount == 0 then
@@ -2162,7 +2265,7 @@ function MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y)
         return y;
     end
     
-    if questIES.Succ_Quest_Condition == 'AND' then
+	if questIES.Succ_Quest_Condition == 'AND' then
         local Succ_req_quest_check = 0;
         local i
         local flag = false
@@ -2173,10 +2276,10 @@ function MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y)
                 local ret = SCR_QUEST_SUCC_CHECK_MODULE_QUEST_SUB(pc, questIES, sObj_main, i)
                 if ret == 'NO' then
                     local t1, t2, t3 = SCR_QUEST_LINK_FIRST(pc,questIES['Succ_QuestName'..i])
-                    for i2 = 1, #t2 do
+					for i2 = 1, #t2 do
                         if table.find(tempList, t2[i2]) == 0 then
                             local questCount, questTerms
-                            for i3 = 1, #t3 do
+							for i3 = 1, #t3 do
                                 if t2[i2] == t3[i3][1] then
                                     questCount = t3[i3][2]
                                     questTerms = t3[i3][3]
@@ -2187,29 +2290,29 @@ function MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y)
                                 questCount = questIES['Succ_QuestCount'..i]
                             end
                             
-                            local msg
+                            local msg =""
                             if questCount <= 0 then
-                                msg = '{#ffff00}'..ScpArgMsg('Quest_POSSIBLE')..'{/}'
+                                msg = '{#ffff00}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_POSSIBLE')..'{/}'
                             elseif questCount == 1 then
-                                msg = '{#44ccff}'..ScpArgMsg('Quest_PROGRESS')..'{/}'
+                                msg = '{#44ccff}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_PROGRESS')..'{/}'
                             elseif questCount == 200 then
-                                msg = '{#00ffff}'..ScpArgMsg('Quest_SUCCESS')..'{/}'
+                                msg = '{#00ffff}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_SUCCESS')..'{/}'
                             elseif questCount == 300 then
-                                msg = '{#00ff00}'..ScpArgMsg('Quest_COMPLETE')..'{/}'
+                                msg = '{#00ff00}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_COMPLETE')..'{/}'
                             end
                             
                             local itemtxt = ''
                             if flag == false then
                                 flag = true
-                                itemtxt = ScpArgMsg('QUESTINFO_QUEST')
+                                itemtxt = ScpArgMsg('QUESTINFO_QUEST')..' {nl}'
                             end
                             local succQuestIES = GetClass('QuestProgressCheck',t2[i2])
                             if succQuestIES ~= nil then
-                    			itemtxt = itemtxt..msg..' '..succQuestIES.Name
+                    			itemtxt = itemtxt..succQuestIES.Name..'{nl}'..' '..msg
                     		else
                     		    itemtxt = itemtxt..t2[i2]
                             end
-                            
+
                             if itemtxt ~= nil then
                                 tempList[#tempList + 1] = t2[i2]
                                 addIndex = addIndex + 1
@@ -2225,7 +2328,7 @@ function MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y)
                 end
             end
         end
-    elseif questIES.Succ_Quest_Condition == 'OR' then
+	elseif questIES.Succ_Quest_Condition == 'OR' then
         local i
         local flag = false
         local addIndex = 0
@@ -2249,25 +2352,25 @@ function MAKE_QUESTINFO_QUEST_BY_IES(ctrlset, questIES, startx, y)
                                 questCount = questIES['Succ_QuestCount'..i]
                             end
                             
-                            local msg
+                            local msg=""
                             if questCount <= 0 then
-                                msg = '{#ffff00}'..ScpArgMsg('Quest_POSSIBLE')..'{/}'
+                                msg = '{#ffff00}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_POSSIBLE')..'{/}'
                             elseif questCount == 1 then
-                                msg = '{#44ccff}'..ScpArgMsg('Quest_PROGRESS')..'{/}'
+                                msg = '{#44ccff}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_PROGRESS')..'{/}'
                             elseif questCount == 200 then
-                                msg = '{#00ffff}'..ScpArgMsg('Quest_SUCCESS')..'{/}'
+                                msg = '{#00ffff}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_SUCCESS')..'{/}'
                             elseif questCount == 300 then
-                                msg = '{#00ff00}'..ScpArgMsg('Quest_COMPLETE')..'{/}'
+                                msg = '{#00ff00}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_COMPLETE')..'{/}'
                             end
                             
                             local itemtxt = ''
                             if flag == false then
                                 flag = true
-                                itemtxt = ScpArgMsg('QUESTINFO_QUEST')
+                                itemtxt = ScpArgMsg('QUESTINFO_QUEST')..' {nl}'
                             end
                             local succQuestIES = GetClass('QuestProgressCheck',t2[i2])
                             if succQuestIES ~= nil then
-                    			itemtxt = itemtxt..msg..' '..succQuestIES.Name
+                    			itemtxt = itemtxt..succQuestIES.Name..'{nl}'..' '..msg
                     		else
                     		    itemtxt = itemtxt..t2[i2]
                             end
@@ -2348,6 +2451,18 @@ function MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y, font)
     end
     
 	return y;
+end
+
+function MAKE_QUESTINFO_LEVEL(ctrlset, questIES, startx, y)
+
+	local txt = ClMsg('QuestLevelBasicText')..questIES.Level;
+	local content = ctrlset:CreateOrGetControl('richtext', 'QUESTINFOLEVEL', startx, y, ctrlset:GetWidth() - startx - SCROLL_WIDTH , 10);
+	content:EnableHitTest(0);
+	content:SetTextFixWidth(1);
+	content:SetText('{@st42b}'..txt);
+	y = y + content:GetHeight()+5;
+	return y;
+
 end
 
 function MAKE_QUESTINFO_MAP(ctrlset, questIES, startx, y, s_obj, sharedProgress)

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="guildeventpopup" x="0" y="104" width="500" height="600">
 	<frame layout_gravity="right bottom" margin="0 -7 45 91"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
 	<draw drawtitlebar="false" drawframe="true" margin="0 -3 0 0"/>
-	<option visible="false" alwaysVisible="false" closebutton="false" hideable="false" margin="0 -3 0 0"  moveable="true" />
+	<option visible="false" alwaysVisible="false" closebutton="false" hideable="false" margin="0 -3 0 0" moveable="true"/>
 	<userconfig AGREE_MEMBER_FACE_COLORTONE="FFFFFFFF" AGREE_MEMBER_NAME_FONT_COLORTAG="{@st66d}"/>
 	<skin frameskin="test_win_system"/>
 	<controls>
@@ -13,7 +13,7 @@
 		<button name="btn_close" skin="test_gray_button" rect="0 0 160 50" layout_gravity="left bottom" LBtnUpScp="REQ_ClOSE_GUILD_EVENT" clicksound="button_click" oversound="button_over" margin="255 0 0 0" format="{@st41b}%s{/}" param1="value" param1_def="거절"/>
 		<gauge name="gauge" margin="50 0 0 0" rect="0 0 400 43" skin="gauge_barrack_attack" inverse="false" point="50" layout_gravity="left top"/>
 		<groupbox name="bg" rect="0 0 470 100" margin="15 0 0 0" layout_gravity="left top" draw="true" resizebyparent="true" resizebyresolution="true" scrollbar="true" skin="test_frame_midle" hittest="true"/>
-		<groupbox name="bgAccept" rect="0 0 350 100" margin="25 0 0 0" layout_gravity="left top" draw="true" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="none" parent="bg" hittest="true"/>
+		<groupbox name="bgAccept" rect="0 0 470 100" margin="25 0 0 0" layout_gravity="left top" draw="true" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="none" parent="bg" hittest="true"/>
 		<richtext name="txt_joined_member" rect="0 0 10 10" margin="10 10 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" format="{@sti8}{s18}{ds}참여한 길드원 (%s){/}" param1="value" fontname="white_16" param1_def="?/?" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false" parent="bg"/>
 		<richtext name="txt_currentcount" rect="0 0 439 41" margin="32 44 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{@st66b18}%s{/}" maxwidth="0" param1="value" param1_def="길드 퀘스트 참가자를 모집하고 있습니다." resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
 		<richtext name="txt_startwaittime" rect="0 0 296 27" margin="0 0 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{s18}%s{/}" maxwidth="0" param1="value" param1_def="6:23" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>

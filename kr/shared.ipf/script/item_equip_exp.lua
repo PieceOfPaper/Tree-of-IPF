@@ -21,6 +21,16 @@ function GET_MORE_LEGEND_EXP_UP_CARD(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV8');	-- 레전드 카드 ---
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV9');	-- 레전드 카드 ---
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_LV10');	-- 레전드 카드 ---
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_bayl_LV1');
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_bayl_LV2');
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_bayl_LV3');
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_bayl_LV4');
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_bayl_LV5');
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_bayl_LV6');
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_bayl_LV7');
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_bayl_LV8');
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_bayl_LV9');
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'CARD_ExpUP_bayl_LV10');
 	return sumExp;
 end
 

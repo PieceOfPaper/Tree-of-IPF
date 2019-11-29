@@ -350,26 +350,26 @@ function QUESTDETAIL_MAKE_PREQUEST_LIST_CTRL(ctrlset, x, y, questIES)
                             if questIES['Succ_QuestName'..i] == t2[i2] then
                                 questCount = questIES['Succ_QuestCount'..i]
                             end
-                            
-                            local msg
+
+                            local msg =""
                             if questCount <= 0 then
-                                msg = '{#ffff00}'..ScpArgMsg('Quest_POSSIBLE')..'{/}'
+                                msg = '{#ffff00}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_POSSIBLE')..'{/}'
                             elseif questCount == 1 then
-                                msg = '{#44ccff}'..ScpArgMsg('Quest_PROGRESS')..'{/}'
+                                msg = '{#44ccff}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_PROGRESS')..'{/}'
                             elseif questCount == 200 then
-                                msg = '{#00ffff}'..ScpArgMsg('Quest_SUCCESS')..'{/}'
+                                msg = '{#00ffff}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_SUCCESS')..'{/}'
                             elseif questCount == 300 then
-                                msg = '{#00ff00}'..ScpArgMsg('Quest_COMPLETE')..'{/}'
+                                msg = '{#00ff00}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_COMPLETE')..'{/}'
                             end
                             
                             local itemtxt = ''
                             if flag == false then
                                 flag = true
-                                itemtxt = ScpArgMsg('QUESTINFO_QUEST')
+                                itemtxt = ScpArgMsg('QUESTINFO_QUEST')..' {nl}'
                             end
                             local succQuestIES = GetClass('QuestProgressCheck',t2[i2])
                             if succQuestIES ~= nil then
-                    			itemtxt = itemtxt..msg..' '..succQuestIES.Name
+                    			itemtxt = itemtxt..succQuestIES.Name..'{nl}'..' '..msg
                     		else
                     		    itemtxt = itemtxt..t2[i2]
                             end
@@ -412,25 +412,25 @@ function QUESTDETAIL_MAKE_PREQUEST_LIST_CTRL(ctrlset, x, y, questIES)
                                 questCount = questIES['Succ_QuestCount'..i]
                             end
                             
-                            local msg
+                            local msg =""
                             if questCount <= 0 then
-                                msg = '{#ffff00}'..ScpArgMsg('Quest_POSSIBLE')..'{/}'
+                                msg = '{#ffff00}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_POSSIBLE')..'{/}'
                             elseif questCount == 1 then
-                                msg = '{#44ccff}'..ScpArgMsg('Quest_PROGRESS')..'{/}'
+                                msg = '{#44ccff}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_PROGRESS')..'{/}'
                             elseif questCount == 200 then
-                                msg = '{#00ffff}'..ScpArgMsg('Quest_SUCCESS')..'{/}'
+                                msg = '{#00ffff}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_SUCCESS')..'{/}'
                             elseif questCount == 300 then
-                                msg = '{#00ff00}'..ScpArgMsg('Quest_COMPLETE')..'{/}'
+                                msg = '{#00ff00}'..ScpArgMsg('Quest_STATE')..' '..ScpArgMsg('Quest_COMPLETE')..'{/}'
                             end
                             
                             local itemtxt = ''
                             if flag == false then
                                 flag = true
-                                itemtxt = ScpArgMsg('QUESTINFO_QUEST')
+                                itemtxt = ScpArgMsg('QUESTINFO_QUEST')..' {nl}'
                             end
                             local succQuestIES = GetClass('QuestProgressCheck',t2[i2])
                             if succQuestIES ~= nil then
-                    			itemtxt = itemtxt..msg..' '..succQuestIES.Name
+                    			itemtxt = itemtxt..succQuestIES.Name..'{nl}'..' '..msg
                     		else
                     		    itemtxt = itemtxt..t2[i2]
                             end

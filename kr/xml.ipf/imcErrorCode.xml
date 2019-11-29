@@ -608,4 +608,5 @@
 <Code Code="CRITICAL_MOVE_SYNC" Team="tos_team" Category="CRITICAL" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="이동 동기화 로그"/>
 	<Code Code="INFO_ADDTIONAL_LOG" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="몽고로그 유실 대비 로그"/>
 	<Code Code="ERROR_DUPLICATE_PACKET_ENUM" Team="PROGRAM" Category="CRITICAL" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="패킷 ENUM 벨류 중복"/>
+	<Code Code="WARNING_ABUSING_USER" Team="PROGRAM" Category="CRITICAL" SubCategory="" Logger="root" Enabled="YES" CallStack="YES" Desc="어뷰징 의심 유저"/>
 </imcErrorCode>

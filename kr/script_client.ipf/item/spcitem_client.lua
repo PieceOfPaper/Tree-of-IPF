@@ -53,3 +53,11 @@ end
 
 function ANCIENT_SCROLL_EMPTY_USE(iesID)
 end
+
+-- wing item effect offset
+function SCR_USE_COMPANION_OFFSET(handle)
+	local obj = world.GetActor(handle);
+	if obj ~= nil then
+		obj:GetAnimEvent():SetUseCompanionOffSet(true);
+    end
+end

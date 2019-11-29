@@ -134,13 +134,15 @@ function ICON_ON_ENABLE(frame, object, argStr, argNum)
 		return;
 	end
 
-	local mGameName = session.mgame.GetCurrentMGameName()
-	if mGameName ~= nil and mGameName ~= 'None' then
-		local indunCls = GetClassByStrProp('Indun', 'MGame', mGameName)
-		local dungeonType = TryGetProp(indunCls, 'DungeonType', 'None')
-		if dungeonType == 'Raid' or dungeonType == 'GTower' then
-			ui.SysMsg(ClMsg("NotAvailableInThisContents"))
-			return
+	if IsRaidField() == 1 or IsRaidMap() == 1 then
+		local mGameName = session.mgame.GetCurrentMGameName()
+		if mGameName ~= nil and mGameName ~= 'None' then
+			local indunCls = GetClassByStrProp('Indun', 'MGame', mGameName)
+			local dungeonType = TryGetProp(indunCls, 'DungeonType', 'None')
+			if dungeonType == 'Raid' or dungeonType == 'GTower' then
+				ui.SysMsg(ClMsg("NotAvailableInThisContents"))
+				return
+			end
 		end
 	end
 

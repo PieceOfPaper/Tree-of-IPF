@@ -1,4 +1,6 @@
 ﻿function OPEN_HOUSING_EDITMODE_PAGE(frame)
+	session.party.ReqGuildAsset();
+
 	local gbox_page = GET_CHILD_RECURSIVELY(frame, "gbox_page");
 	gbox_page:RemoveAllChild();
 
@@ -145,7 +147,7 @@ function BTN_HOUSING_EDITMODE_PAGE_LOAD(gbox, btn)
 				requiredFurnitureNameCount[key] = count;
 				requiredCount = requiredCount + 1;
 			end
-		elseif value > 1 then
+		elseif value > 0 then
 			removeFurnitureNameCount[key] = value;
 			removeCount = removeCount + 1;
 		end
@@ -195,6 +197,17 @@ function SCR_HOUSING_PAGE_LOAD_REQUIRED_FURNITURE(pageIndex, requiredFurnitureNa
 end
 
 function SCR_HOUSING_PAGE_LOAD_REMOVE_FURNITURE(pageIndex, removeFurnitureNameCount)
+    local guild = session.party.GetPartyInfo(PARTY_GUILD);
+
+	local currentMapName = session.GetMapName();
+	local housingPlaceClass = GetClass("Housing_Place", currentMapName);
+	if housingPlaceClass == nil then
+		return;
+	end
+	
+	local type = TryGetProp(housingPlaceClass, "Type");
+	local isGuildHousing = type == "Guild";
+
 	ui.OpenFrame("housing_editmode_page_change");
 	local frame = ui.GetFrame("housing_editmode_page_change");
 	frame:SetUserValue("PageIndex", pageIndex);
@@ -206,6 +219,8 @@ function SCR_HOUSING_PAGE_LOAD_REMOVE_FURNITURE(pageIndex, removeFurnitureNameCo
 	
 	local gbox_furniture_list = GET_CHILD_RECURSIVELY(gbox_remove_furniture, "gbox_furniture_list");
 	gbox_furniture_list:RemoveAllChild();
+	
+	local allDemolitionPrice = 0;
 	
 	for key, value in pairs(removeFurnitureNameCount) do
 		local housingClass = GetClass("Housing_Furniture", key);
@@ -221,8 +236,44 @@ function SCR_HOUSING_PAGE_LOAD_REMOVE_FURNITURE(pageIndex, removeFurnitureNameCo
 		local text_item = GET_CHILD_RECURSIVELY(ctrlSet, "text_item");
 		text_item:SetTextByKey("name", TryGetProp(itemClass, "Name", "None"));
 		text_item:SetTextByKey("count", value);
+		
+		if isGuildHousing == true then
+			local demolitionPrice = TryGetProp(housingClass, "DemolitionPrice");
+			allDemolitionPrice = allDemolitionPrice + (demolitionPrice * value);
+		end
 	end
 	
+	local txt_has_guild_money = GET_CHILD_RECURSIVELY(frame, "txt_has_guild_money");
+	local txt_need_guild_money = GET_CHILD_RECURSIVELY(frame, "txt_need_guild_money");
+	local listselect_gb = GET_CHILD_RECURSIVELY(frame, "listselect_gb");
+	local gbox = GET_CHILD_RECURSIVELY(frame, "gbox");
+	local txt_memo3 = GET_CHILD_RECURSIVELY(gbox_remove_furniture, "txt_memo3");
+
+	if isGuildHousing == true then
+		frame:Resize(450, 550);
+
+		listselect_gb:Resize(0, 0, 450, 550);
+		gbox:Resize(0, 0, 430, 480);
+		gbox_remove_furniture:Resize(0, 0, 430, 460);
+		txt_memo3:SetMargin(0, 375, 0, 0);
+
+		txt_has_guild_money:ShowWindow(1);
+		txt_has_guild_money:SetTextByKey("money", GET_COMMAED_STRING(guild.info:GetAssetAmount()));
+
+		txt_need_guild_money:ShowWindow(1);
+		txt_need_guild_money:SetTextByKey("money", GET_COMMAED_STRING(allDemolitionPrice));
+	else
+		frame:Resize(450, 500);
+
+		listselect_gb:Resize(0, 0, 450, 500);
+		gbox:Resize(0, 0, 430, 430);
+		gbox_remove_furniture:Resize(0, 0, 430, 400);
+		txt_memo3:SetMargin(0, 315, 0, 0);
+
+		txt_has_guild_money:ShowWindow(0);
+		txt_need_guild_money:ShowWindow(0);
+	end
+
     GBOX_AUTO_ALIGN(gbox_furniture_list, 5, 0, 0, true, false);
 end
 

@@ -813,6 +813,7 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 #ifdef ENABLE_INSTANCING
 	, in float tmID : TEXCOORD2
 #endif
+	, uniform const bool isSnapShot
 )
 {
 	VS_OUT o = (VS_OUT)0.f;
@@ -870,6 +871,13 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 #else
 	o.worldz_tmIndex_fog.x = mul(localPos + float4(0.f, -25.5f, 0.f, 0.f), g_TestMatrix).z * 0.1f;
 #endif
+
+#ifdef ENABLE_FACE
+	if (isSnapShot == true)
+	{
+		o.Pos.z += 0.0001f;
+	}
+#endif
 #endif
 
 #ifdef ENABLE_FREEZE
@@ -906,8 +914,6 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 	{
 		delta = 0.0001f;
 	}
-
-	o.worldPos.w = 0.f;
 
 	float attack = 0.f;
 	float tFactor = 0.0;
@@ -1574,7 +1580,7 @@ technique DepthRenderTq
 		AlphaTestEnable = true;
 		AlphaRef = 0x10;
 		AlphaBlendEnable = false;
-		VertexShader = compile vs_3_0 VS_ModelShader();
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
 		PixelShader = compile ps_3_0 PS_DepthRender();
 	}
 }
@@ -1585,7 +1591,7 @@ technique DefaultVertexTq
 	{
 		CullMode = ccw;
 
-		VertexShader = compile vs_3_0 VS_ModelShader();
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
 		PixelShader = compile ps_3_0 PS_TEST();
 	}
 }
@@ -1835,7 +1841,7 @@ technique CharacterShadingTq
 		AlphaBlendEnable = false;
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
-		VertexShader = compile vs_3_0 VS_ModelShader();
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
 		PixelShader = compile ps_3_0 PS_CharacterShader(false);
 	}
 
@@ -1847,7 +1853,7 @@ technique CharacterShadingTq
 		CullMode = ccw;
 		AlphaBlendEnable = true;
 		ZFunc = LessEqual;
-		VertexShader = compile vs_3_0 VS_ModelShader();
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
 		PixelShader = compile ps_3_0 PS_CharacterShader(false);
 	}
 
@@ -1888,7 +1894,7 @@ technique CharacterOutlineShadingTq
 		AlphaBlendEnable = false;
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
-		VertexShader = compile vs_3_0 VS_ModelShader();
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
 		PixelShader = compile ps_3_0 PS_CharacterShader(false);
 	}
 
@@ -1900,7 +1906,7 @@ technique CharacterOutlineShadingTq
 		CullMode = ccw;
 		AlphaBlendEnable = true;
 		ZFunc = LessEqual;
-		VertexShader = compile vs_3_0 VS_ModelShader();
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
 		PixelShader = compile ps_3_0 PS_CharacterShader(false);
 	}
 
@@ -1929,7 +1935,7 @@ technique CharacterShadingTq_LowQuality
 		AlphaBlendEnable = false;
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
-		VertexShader = compile vs_3_0 VS_ModelShader();
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
 		PixelShader = compile ps_3_0 PS_CharacterShader(true);
 	}
 }
@@ -1945,7 +1951,7 @@ technique CharacterOutlineShadingTq_LowQuality
 		AlphaBlendEnable = false;
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
-		VertexShader = compile vs_3_0 VS_ModelShader();
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
 		PixelShader = compile ps_3_0 PS_CharacterShader(true);
 	}
 
@@ -1979,7 +1985,7 @@ technique BillboardHeadTq
 		ZEnable = true;
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
-		VertexShader = compile vs_3_0 VS_ModelShader();
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
 		PixelShader = compile ps_3_0 PS_BillBoardHead(false);
 	}
 }
@@ -1997,7 +2003,7 @@ technique BillboardHeadTq_Low
 		ZEnable = true;
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
-		VertexShader = compile vs_3_0 VS_ModelShader();
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
 		PixelShader = compile ps_3_0 PS_BillBoardHead(true);
 	}
 }
@@ -2009,12 +2015,12 @@ technique BillboardHeadSnapShotTq
 		SRGBWRITEENABLE = FALSE;
 		CullMode = none;
 		AlphaTestEnable = true;
-		AlphaRef = 0xb4;
+		AlphaRef = 0x30;
 		AlphaFunc = Greater;
 		ZEnable = true;
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
-		VertexShader = compile vs_3_0 VS_ModelShader();
+		VertexShader = compile vs_3_0 VS_ModelShader(true);
 		PixelShader = compile ps_3_0 PS_BillBoardHead(false);
 	}
 }
@@ -2090,7 +2096,7 @@ technique BillboardHeadAddTq
 		ZEnable = true;
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
-		VertexShader = compile vs_3_0 VS_ModelShader();
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
 		PixelShader = compile ps_3_0 PS_BillBoardHead(false);
 	}
 }
@@ -2108,7 +2114,7 @@ technique BillboardHeadAddTq_Low
 		ZEnable = true;
 		ZFunc = LessEqual;
 		ZWriteEnable = true;
-		VertexShader = compile vs_3_0 VS_ModelShader();
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
 		PixelShader = compile ps_3_0 PS_BillBoardHead(false);
 	}
 }
@@ -2119,7 +2125,7 @@ technique WaterRenderTq
 	pass P0
 	{
 		Zenable = TRUE;
-		VertexShader = compile vs_3_0 VS_ModelShader();
+		VertexShader = compile vs_3_0 VS_ModelShader(false);
 		PixelShader = compile ps_3_0 PS_WaterRender();
 	}
 }

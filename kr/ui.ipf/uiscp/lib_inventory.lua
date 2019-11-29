@@ -107,26 +107,21 @@ function GET_TOTAL_ITEM_CNT_LIST(type, list)
 end
 
 function INV_APPLY_TO_ALL_SLOT(func, ...)
-
-	for i = 1 , #SLOTSET_NAMELIST do
-
+	local slotSetNameListCnt = ui.inventory.GetInvenSlotSetNameCount();
+	for i = 1, slotSetNameListCnt do
 		local frame = ui.GetFrame("inventory");
 		local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-		
-
 		for typeNo = 1, #g_invenTypeStrList do
-			local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
-			local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
-		local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
-
-		APPLY_TO_ALL_ITEM_SLOT(slotSet, func, ...);
-		end;
+			local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox');
+			local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl');
+			
+			local slotSetName = ui.inventory.GetInvenSlotSetNameByIndex(i - 1);
+			local slotSet = GET_CHILD(tree, slotSetName, 'ui::CSlotSet');	
+			APPLY_TO_ALL_ITEM_SLOT(slotSet, func, ...);
+		end
 
 		frame:Invalidate();
 	end
-
-
-
 end
 
 function EQP_APPLY_TO_ALL_SLOT(func, ...)

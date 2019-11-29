@@ -1526,13 +1526,6 @@
 		</List>
 	</AI>
 	<AI Name="BRACKEN632_ROZE02_AI_UPDATE" ActiveMessageMapInBattle="1"/>
-	<AI Name="BRACKEN633_DEVICE01_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-				<Str Str="BRACKEN633_DEVICE01_AI_UPDATE"/>
-			</ToolScp>
-		</List>
-	</AI>
 	<AI Name="BRACKEN633_MQ03_TRACK_END_AI" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -1680,6 +1673,13 @@
 			</ToolScp>
 		</StartList>
 	</AI>
+    <AI Name="BRACKEN_63_2_MQ010_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_BRACKEN_63_2_MQ010_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
 	<AI Name="BUBE_SIAUL01" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -5182,7 +5182,31 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="EVENT1_1_TRIGGER_MONSTER_AI" ActiveMessageMapInBattle="1">
+<AI Name="EVENT1912_4TH_BUFF2_RUN_MON_AI_RUN" UpdateMS="10000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="EVENT1912_4TH_BUFF2_RUN_MON_RUN"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_sys_team_ground_red" Arg="3"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_levitation039_red" Arg="5"/>
+                <Str Str="TOP"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_light081_ground_orange_loop" Arg="8"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>	<AI Name="EVENT1_1_TRIGGER_MONSTER_AI" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
 				<Str Str="Attack"/>
@@ -5513,14 +5537,14 @@
 			</ToolScp>
 		</List>
 		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+			<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
-				<Str_Arg Str="F_circle006" Arg="3"/>
-				<Str Str="BOT"/>
+				<Str_Arg Str="F_smoke013_green" Arg="0.5"/>
+				<Str Str="MID"/>
 			</ToolScp>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
-				<Str_Arg Str="I_smoke045_spread_in_loop" Arg="3"/>
+				<Str_Arg Str="F_spread_in026_darkgreen_loop" Arg="1"/>
 				<Str Str="TOP"/>
 			</ToolScp>
 			<ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
@@ -5603,7 +5627,7 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="FANTASYLIB483_MQ_7_NPC_RUN_AI" UpdateMS="5000" ActiveMessageMapInBattle="1">
+	<AI Name="FANTASYLIB483_MQ_7_NPC_RUN_AI" UpdateMS="3000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="FANTASYLIB483_MQ_7_NPC_RUN_AI"/>
@@ -15378,6 +15402,28 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </StartList>
     </AI>
+    <AI Name="PRISON_82_MQ_10_BOSS" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="400"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str Str="HPLock"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
     <AI Name="PRISON_82_MQ_6_GHOST_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_ADD_HATE_AROUND" Client="NO" UseSleep="NO">
@@ -17867,6 +17913,13 @@ if self.HP == 0 then return 1; else return 0; end;">
         <List>
             <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="SCR_STARTOWER_91_ARROWRAIN_TRAP"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="STARTOWER_91_MQ_30_OBJ" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_STARTOWER_91_MQ_30_OBJ_AI"/>
             </ToolScp>
         </List>
     </AI>
@@ -22802,6 +22855,24 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </StartList>
     </AI>
+    <AI Name="VPRISON512_MQ_05_BOSS" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+            </ToolScp>
+        </List>
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="VPRISON512_MQ_05_BOSS_AI_HIT"/>
+            </ToolScp>
+        </HitList>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
     <AI Name="VPRISON513_MQ_05_AI" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -22840,6 +22911,24 @@ if self.HP == 0 then return 1; else return 0; end;">
                 <Num Num="0"/>
                 <Str_Arg Str="F_light066_yellow_loop" Arg="1"/>
                 <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="VPRISON514_MQ_05_BOSS" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+            </ToolScp>
+        </List>
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="VPRISON514_MQ_05_BOSS_AI_HIT"/>
+            </ToolScp>
+        </HitList>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
             </ToolScp>
         </StartList>
     </AI>

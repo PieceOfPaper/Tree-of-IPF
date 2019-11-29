@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="SIAU_OUT_Q16_TRACK" minLv="0" maxLv="0">
+    <Game Name="SIAU_OUT_Q16_TRACK" minLv="0" maxLv="0" playerCountCheckDestroy="1">
         <StageList>
             <Stage Name="DefGroup">
                 <ObjList>
-                    <Obj Type="Monster" MonType="106000" Pos="-79.39#151.40#-440.50" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="10000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-79.39#151.40#-440.50" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="5000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -24,7 +24,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="106000" Pos="-97.71#150.56#-414.69" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="10000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-97.71#150.56#-414.69" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="5000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -44,7 +44,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="106000" Pos="-98.75#150.72#-317.44" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-98.75#150.72#-317.44" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="10000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -64,7 +64,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="106000" Pos="-73.30#151.71#-369.01" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="20000" objectKey="3" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-73.30#151.71#-369.01" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="10000" objectKey="3" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -84,7 +84,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="106000" Pos="-93.60#150.38#-348.04" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="20000" objectKey="4" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-93.60#150.38#-348.04" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="10000" objectKey="4" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -104,7 +104,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57266" Pos="-94.79#150.52#-284.55" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="30000" objectKey="5" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="57266" Pos="-94.79#150.52#-284.55" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="15000" objectKey="5" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -124,7 +124,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="106000" Pos="-76.99#151.12#-276.06" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="30000" objectKey="6" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-76.99#151.12#-276.06" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="15000" objectKey="6" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -144,7 +144,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="106000" Pos="-83.61#150.99#-318.74" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="30000" objectKey="7" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-83.61#150.99#-318.74" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="15000" objectKey="7" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -164,7 +164,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="106000" Pos="-106.28#151.16#-330.83" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="30000" objectKey="8" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-106.28#151.16#-330.83" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="15000" objectKey="8" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -184,7 +184,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="106000" Pos="-98.70#150.65#-381.61" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="40000" objectKey="9" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-98.70#150.65#-381.61" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="20000" objectKey="9" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -204,7 +204,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="106000" Pos="-69.51#152.06#-396.93" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="40000" objectKey="10" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-69.51#152.06#-396.93" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="20000" objectKey="10" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -224,7 +224,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="106000" Pos="-61.99#151.86#-355.92" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="40000" objectKey="11" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-61.99#151.86#-355.92" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="20000" objectKey="11" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -244,7 +244,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="106000" Pos="-72.39#151.41#-336.77" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="40000" objectKey="12" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-72.39#151.41#-336.77" genCount="1" maxStackCount="1" genTime="10000" genReadyTime="20000" objectKey="12" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -264,7 +264,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="106000" Pos="-82.17#151.12#-342.99" genCount="2" maxStackCount="1" genTime="25000" genReadyTime="65000" objectKey="16" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-82.17#151.12#-342.99" genCount="2" maxStackCount="1" genTime="25000" genReadyTime="25000" objectKey="16" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -284,7 +284,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57266" Pos="-90.06#150.42#-359.72" genCount="2" maxStackCount="1" genTime="25000" genReadyTime="65000" objectKey="17" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="57266" Pos="-90.06#150.42#-359.72" genCount="2" maxStackCount="1" genTime="25000" genReadyTime="25000" objectKey="17" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -304,7 +304,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="106000" Pos="-85.28#150.86#-394.69" genCount="2" maxStackCount="1" genTime="25000" genReadyTime="65000" objectKey="18" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-85.28#150.86#-394.69" genCount="2" maxStackCount="1" genTime="25000" genReadyTime="25000" objectKey="18" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -324,7 +324,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="106000" Pos="-47.15#152.68#-329.35" genCount="2" maxStackCount="1" genTime="25000" genReadyTime="65000" objectKey="19" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-47.15#152.68#-329.35" genCount="2" maxStackCount="1" genTime="25000" genReadyTime="25000" objectKey="19" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -344,7 +344,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="106000" Pos="-68.93#151.57#-304.09" genCount="2" maxStackCount="1" genTime="25000" genReadyTime="65000" objectKey="23" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
+                    <Obj Type="Monster" MonType="106000" Pos="-68.93#151.57#-304.09" genCount="2" maxStackCount="1" genTime="25000" genReadyTime="25000" objectKey="23" propList="&apos;BTree&apos; &apos;TrackMonster&apos; " SimpleAI="BUBE_SIAUL01" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">

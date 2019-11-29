@@ -120,20 +120,13 @@ function SCR_OPEN_HOUSING_EDITMODE(frame)
 
 	local type = TryGetProp(housingPlaceClass, "Type");
 	if type == "Personal" then
-		btn_change_background:ShowWindow(1);
-		btn_page_load:ShowWindow(1);
-		
-		gbox_editmode:Resize(280, 260);
-		btn_change_background:SetMargin(-67, 195, 7, 0);
-		btn_page_load:SetMargin(67, 195, 7, 0);
+		btn_change_background:SetEnable(1);
 	else
-		btn_change_background:ShowWindow(0);
-		btn_page_load:ShowWindow(0);
-		
-		gbox_editmode:Resize(280, 200);
-		btn_change_background:SetMargin(0, 0, 0, 0);
-		btn_page_load:SetMargin(0, 0, 0, 0);
+		btn_change_background:SetEnable(0);
 	end
+	
+	local txt_editmode_floor = GET_CHILD_RECURSIVELY(frame, "txt_editmode_floor");
+	txt_editmode_floor:SetTextByKey("value", "1");
 end
 
 function CLOSE_HOUSING_EDITMODE()
@@ -141,12 +134,23 @@ function CLOSE_HOUSING_EDITMODE()
 	ui.CloseFrame("housing_editmode_page");
 	ui.CloseFrame("housing_editmode_control");
 	ui.CloseFrame("housing_editmode_page_change");
-	ui.CloseFrame("housing_editmode_background_chagne");
+	ui.CloseFrame("housing_editmode_background_change");
 	ui.SetEscapeScp("");
 	
-	local minimized_personal_housing = ui.GetFrame("minimized_personal_housing");
-	if minimized_personal_housing ~= nil then
-		minimized_personal_housing:ShowWindow(1);
+	local mapprop = session.GetCurrentMapProp();
+	local mapCls = GetClassByType("Map", mapprop.type);
+
+	local housingPlaceClass = GetClass("Housing_Place", mapCls.ClassName);
+	if housingPlaceClass == nil then
+		return
+	end
+
+	local housingPlaceType = TryGetProp(housingPlaceClass, "Type");
+	if housingPlaceType == "Personal" then
+		local minimized_personal_housing = ui.GetFrame("minimized_personal_housing");
+		if minimized_personal_housing ~= nil then
+			minimized_personal_housing:ShowWindow(1);
+		end
 	end
 end
 
@@ -205,7 +209,7 @@ function HOUSING_EDITMODE_REMOVE_ALL_FURNITURE()
 		allDemolitionPrice = allDemolitionPrice + demolitionPrice;
 	end
 	
-	DO_HOUSING_EDIT_MODE_REMOVE_OPEN(ClMsg("Housing_All_Furniture"), allDemolitionPrice, nil);
+	DO_HOUSING_EDIT_MODE_REMOVE_OPEN(ClMsg("Housing_All_Furniture"), allDemolitionPrice, "AllRemove", nil);
 end
 
 function SCR_OPEN_HOUSING_EDITMODE_PAGE(gbox, btn)
@@ -222,14 +226,14 @@ function SCR_OPEN_HOUSING_EDITMODE_PAGE(gbox, btn)
 end
 
 function SCR_OPEN_HOUSING_EDITMODE_CHANGE_BACKGROUND(gbox, btn)
-	local pageFrame = ui.GetFrame("housing_editmode_background_chagne");
+	local pageFrame = ui.GetFrame("housing_editmode_background_change");
 	if pageFrame == nil then
 		return;
 	end
 	
 	if pageFrame:IsVisible() == 0 then
-		ui.OpenFrame("housing_editmode_background_chagne");
+		ui.OpenFrame("housing_editmode_background_change");
 	else
-		ui.CloseFrame("housing_editmode_background_chagne");
+		ui.CloseFrame("housing_editmode_background_change");
 	end
 end

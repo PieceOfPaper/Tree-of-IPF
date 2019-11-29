@@ -1023,7 +1023,7 @@ end
 
 function INDUN_CANNOT_YET(msg)
     ui.SysMsg(ScpArgMsg(msg));
-    ui.OpenFrame("induninfo");
+    ui.OpenFrame("party");
 end
 
 function INDUNINFO_MOVE_TO_ENTER_NPC(frame, ctrl)

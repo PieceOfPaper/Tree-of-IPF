@@ -202,6 +202,17 @@
 			<img name="bottomcore" imgrect="755 420 128 140"/>
 			<img name="bottomright" imgrect="884 420 140 140"/>
 		</skin>
+		<skin name="mainwindow2_ver2" texture="\skin\tooltip_skin_3.tga">
+			<img name="topleft" imgrect="1458 1718 157 120"/>
+			<img name="topcore" imgrect="1616 1718 63 120"/>
+			<img name="topright" imgrect="1680 1718 165 120"/>
+			<img name="bodyleft" imgrect="1458 1839 157 98"/>
+			<img name="bodycore" imgrect="1616 1839 63 98"/>
+			<img name="bodyright" imgrect="1680 1839 165 98"/>
+			<img name="bottomleft" imgrect="1458 1938 157 110"/>
+			<img name="bottomcore" imgrect="1616 1938 63 110"/>
+			<img name="bottomright" imgrect="1680 1938 165 110"/>
+		</skin>
 		<skin name="mainwindow2" texture="\skin\tooltip_skin_3.tga">
 			<img name="topleft" imgrect="1458 1718 157 120"/>
 			<img name="topcore" imgrect="1616 1718 63 120"/>
@@ -4274,6 +4285,39 @@
 			<img name="bottomcore" imgrect="1100 338 90 1"/>
 			<img name="bottomright" imgrect="1191 338 145 1"/>
 		</skin>
+		<skin name="relabeling_episode_title" texture="\skin\tooltip_skin_3.tga">
+			<img name="topleft" imgrect="1075 151 215 1"/>
+			<img name="topcore" imgrect="1291 151 81 1"/>
+			<img name="topright" imgrect="1373 151 215 1"/>
+			<img name="bodyleft" imgrect="1075 153 215 67"/>
+			<img name="bodycore" imgrect="1291 153 81 67"/>
+			<img name="bodyright" imgrect="1373 153 215 67"/>
+			<img name="bottomleft" imgrect="1075 221 215 1"/>
+			<img name="bottomcore" imgrect="1291 221 81 1"/>
+			<img name="bottomright" imgrect="1373 221 215 1"/>
+		</skin>
+		<skin name="relabeling_episode_gray_title" texture="\skin\tooltip_skin_3.tga">
+			<img name="topleft" imgrect="1075 223 215 1"/>
+			<img name="topcore" imgrect="1291 223 81 1"/>
+			<img name="topright" imgrect="1373 223 215 1"/>
+			<img name="bodyleft" imgrect="1075 225 215 67"/>
+			<img name="bodycore" imgrect="1291 225 81 67"/>
+			<img name="bodyright" imgrect="1373 225 215 67"/>
+			<img name="bottomleft" imgrect="1075 293 215 1"/>
+			<img name="bottomcore" imgrect="1291 293 81 1"/>
+			<img name="bottomright" imgrect="1373 293 215 1"/>
+		</skin>
+		<skin name="quest_titlebar_green_skin" texture="\skin\tooltip_skin_3.tga">
+			<img name="topleft" imgrect="1075 295 30 1"/>
+			<img name="topcore" imgrect="1106 295 30 1"/>
+			<img name="topright" imgrect="1137 295 30 1"/>
+			<img name="bodyleft" imgrect="1075 297 30 32"/>
+			<img name="bodycore" imgrect="1106 297 30 32"/>
+			<img name="bodyright" imgrect="1137 297 30 32"/>
+			<img name="bottomleft" imgrect="1075 330 30 1"/>
+			<img name="bottomcore" imgrect="1106 330 30 1"/>
+			<img name="bottomright" imgrect="1137 330 30 1"/>
+		</skin>
 		<skin name="dark_balloon_2" texture="\skin\say_balloon.tga">
 			<img name="topleft" imgrect="86 1 170 150"/>
 			<img name="topcore" imgrect="257 1 80 150"/>
@@ -7245,6 +7289,14 @@
 		<image name="stamp_tour_list" file="\skin\stamp_tour.tga" imgrect="954 1 468 192" CMM_Caption="스탬프 투어 목록"/>
 		<image name="stamp_tour_list_accomplish" file="\skin\stamp_tour.tga" imgrect="954 465 460 184" CMM_Caption="스탬프 투어 달성 활성화"/>
 		<image name="starmark_multipl05" file="\skin\pip_test2.tga" imgrect="734 238 20 15" CMM_Caption="거래등급optx5"/>
+		<image name="compen_unacted" file="\skin\tooltip_skin_3.tga" imgrect="1571 97 43 35" CMM_Caption="보물상자 닫힘"/>
+		<image name="compen_open" file="\skin\tooltip_skin_3.tga" imgrect="1571 63 36 33" CMM_Caption="보물상자 열림"/>
+		<image name="npc_guide_arrow_x2" file="\skin\tooltip_skin_3.tga" imgrect="1846 1890 60 60" CMM_Caption="길잡이 화살표_두배크기"/>
+		<image name="exclamation_digitnotice" file="\skin\tooltip_skin_3.tga" imgrect="1571 133 4 15" CMM_Caption="보물상자 느낌표 표시"/>
+		<image name="relabeling_clear" file="\skin\tooltip_skin_3.tga" imgrect="1571 13 102 49" CMM_Caption="에피소드 클리어 글씨"/>
+		<image name="relabeling_end_check" file="\skin\tooltip_skin_3.tga" imgrect="1608 63 24 22" CMM_Caption="리라벨링 퀘스트 완료 체크"/>
+		<image name="relabeling_carry" file="\skin\tooltip_skin_3.tga" imgrect="1633 63 22 20" CMM_Caption="퀘스트 정보로 옮겨짐"/>
+		<image name="relabeling_lock" file="\skin\tooltip_skin_3.tga" imgrect="1700 14 38 48" CMM_Caption="잠금 좌물쇠"/>
 		<image name="rolling_pink_balloon_direction" file="\skin\say_balloon.tga" imgrect="1 76 82 75" CMM_Caption="핑크하트 말풍선 말꼬리"/>
 		<image name="rolling_blue_balloon_direction" file="\skin\say_balloon.tga" imgrect="1 152 82 75" CMM_Caption="블루다이아 말풍선 말꼬리"/>
 		<image name="personal_housing_guide_plusmark" file="\skin\pip_test2.tga" imgrect="846 286 25 25" CMM_Caption="개인하우징 가이드 플러스마크"/>
@@ -9245,6 +9297,7 @@
 		<image name="minimap_event_2" file="\icon\minimap_icon3_2.tga" imgrect="81 0 80 80"/>
 		<image name="minimap_event_3" file="\icon\minimap_icon3_2.tga" imgrect="0 81 80 80"/>
 		<image name="minimap_event_4" file="\icon\minimap_icon3_2.tga" imgrect="81 81 80 80"/>
+		<image name="minimap_clear" file="\icon\minimap_icon3.tga" imgrect="0 0 84 84"/>
 		<image name="minimap_personal_house" file="\icon\minimap_icon3.tga" imgrect="257 672 80 80 "/>
 	</imagelist>
 	<imagelist category="quest_tags">
@@ -10205,6 +10258,11 @@
 	</imagelist>
 	<imagelist category="npccard">
 		<image name="001_npc_payawoota" file="\skin\npccard\001_npc_payawoota.tga" imgrect="0 0 330 440"/>
+		<image name="002_npc_vaidotas" file="\skin\npccard\002_npc_vaidotas.tga" imgrect="0 0 330 440"/>
+		<image name="003_npc_vlaentinas" file="\skin\npccard\003_npc_vlaentinas.tga" imgrect="0 0 330 440"/>
+		<image name="004_npc_uska" file="\skin\npccard\004_npc_uska.tga" imgrect="0 0 330 440"/>
+		<image name="005_npc_bayl" file="\skin\npccard\005_npc_bayl.tga" imgrect="0 0 330 440"/>
+		<image name="006_npc_Cyrenia" file="\skin\npccard\006_npc_Cyrenia.tga" imgrect="0 0 330 440"/>
 	</imagelist>
 	<imagelist category="bosscard2">
 		<image name="001_boss_poata" file="\skin\bosscard\001_boss_poata.tga" imgrect="0 0 330 440"/>
@@ -10507,7 +10565,8 @@
 		<image name="plate_achieve_whitecrow_first_kill_twn" file="\skin\user_title_skin.tga" imgrect="0 180 214 34" CMM_Caption="Banisher of Crows_대만"/>
 		<image name="plate_achieve_whitecrow_clear_twn" file="\skin\user_title_skin.tga" imgrect="0 215 214 39" CMM_Caption="First Conqueror_대만"/>
 		<image name="plate_achieve_moringponia_first_kill" file="\skin\user_title_skin.tga" imgrect="215 0 216 35" CMM_Caption="moringponia_first_kill"/>
-		<image name="plate_achieve_moringponia_clear" file="\skin\user_title_skin.tga" imgrect="215 36 212 37" CMM_Caption="moringponia_clear"/>
+		<image name="plate_achieve_moringponia_clear" file="\skin\user_title_skin.tga" imgrect="215 36 214 37" CMM_Caption="moringponia_clear"/>
+		<image name="plate_original_revelator" file="\skin\user_title_skin.tga" imgrect="215 74 214 37" CMM_Caption="원초의 계시자_일본"/>
 	</imagelist>
 	<imagelist category="skin_hair">
 		<image name="icon_skintone_01_m01" file="\skin\skinhair\icon_skintone_01_m01.png" imgrect="0 0 80 80" CMM_Caption="남성 01"/>

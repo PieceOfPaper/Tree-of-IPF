@@ -1,4 +1,3 @@
-
 function SKILLABILITY_ON_INIT(addon, frame)
     addon:RegisterOpenOnlyMsg('SUCCESS_BUY_ABILITY_POINT', 'ON_SKILLABILITY_BUY_ABILITY_POINT');
     addon:RegisterOpenOnlyMsg('SUCCESS_LEARN_ABILITY', 'ON_SKILLABILITY_LEARN_ABILITY');
@@ -10,7 +9,6 @@ function SKILLABILITY_ON_INIT(addon, frame)
     addon:RegisterOpenOnlyMsg('RESET_SKL_UP', 'SKILLABILITY_ON_FULL_UPDATE');
 	addon:RegisterOpenOnlyMsg('JOB_CHANGE', 'SKILLABILITY_ON_FULL_UPDATE');
 	addon:RegisterOpenOnlyMsg('UPDATE_SKILLMAP', 'SKILLABILITY_ON_FULL_UPDATE');
-	--addon:RegisterOpenOnlyMsg('SKILL_LIST_GET', 'SKILLABILITY_ON_FULL_UPDATE');
     addon:RegisterOpenOnlyMsg('SKILL_LIST_GET_RESET_SKILL', 'SKILLABILITY_ON_FULL_UPDATE');
 	addon:RegisterOpenOnlyMsg('ABILITY_LIST_GET', 'SKILLABILITY_ON_FULL_UPDATE');
 	addon:RegisterOpenOnlyMsg('RESET_ABILITY_UP', 'SKILLABILITY_ON_FULL_UPDATE');
@@ -19,6 +17,8 @@ function SKILLABILITY_ON_INIT(addon, frame)
     
     addon:RegisterMsg('SKILL_LIST_GET', 'SKILLABILITY_ON_FULL_UPDATE');
     addon:RegisterMsg('DELETE_QUICK_SKILL', 'SKILLABILITY_ON_FULL_UPDATE');
+    addon:RegisterMsg("SPECIFIC_SKILL_GET", "SKILLABILITY_ADD_SPECIFIC_SKILL");
+    addon:RegisterMsg('DELETE_SPECIFIC_SKILL', 'SKILLABILITY_REMOVE_SPECIFIC_SKILL');
 end
 
 function UPDATE_SKILL_BY_SKILLMAKECOSTUME(resStr)
@@ -83,7 +83,7 @@ function SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum)
         end
     end
 
-    if exist_trans_skill == true  then
+    if exist_trans_skill == true or argNum == 1 then
         local commSkillCnt = session.skill.GetCommonSkillCount();
         if commSkillCnt <= 0 then
             local job_tab = GET_CHILD_RECURSIVELY(frame, "job_tab");
@@ -94,7 +94,7 @@ function SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum)
             return;
         end
 
-        if msg == "DELETE_QUICK_SKILL" and argNum == 1 then
+        if msg == "DELETE_SPECIFIC_SKILL" and argNum == 1 then
             if gb_ChildCnt <= 0 then return; end
             for i = 0, gb_ChildCnt - 1 do
                 local gb_Child = skilltree_gb:GetChildByIndex(i);
@@ -108,8 +108,8 @@ function SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum)
                     end
                 end
             end
-        elseif msg == "SKILL_LIST_GET" then
-            if skillInfo == nil then return end
+        elseif msg == "SPECIFIC_SKILL_GET" and argnum == 1 then
+            if skillInfo == nil then return; end
             local sklObj = GetIES(skillInfo:GetObject());
             if sklObj == nil then return end
 
@@ -135,6 +135,20 @@ function SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum)
     skillability_job:Invalidate();
 end
 
+function SKILLABILITY_ADD_SPECIFIC_SKILL(frame, msg, skillID, argNum)
+    if skillID ~= nil then
+        SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum);
+        frame:Invalidate();
+    end
+end
+
+function SKILLABILITY_REMOVE_SPECIFIC_SKILL(frame, msg, skillID, argNum)
+    if skillID ~= nil then
+        SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum);
+        frame:Invalidate();
+    end
+end
+
 function SKILLABILITY_ON_FULL_UPDATE(frame, msg, skillID, argNum)
     local oldgb = SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(frame);
     local jobClsName = nil;
@@ -152,7 +166,7 @@ function SKILLABILITY_ON_FULL_UPDATE(frame, msg, skillID, argNum)
         local tabIndex = job_tab:GetIndexByName("tab_"..0);
         job_tab:SelectTab(tabIndex);
     end
-    
+
     if skillID ~= nil then
         SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum);
     end
@@ -171,8 +185,8 @@ function SKILLABILITY_MAKE_JOB_TAB(frame)
 
     local addTabInfoList = SKILLABILITY_GET_JOB_TAB_INFO_LIST();
     local gblist = UI_LIB_TAB_ADD_TAB_LIST(frame, job_tab, addTabInfoList, job_tab_width, job_tab_height, ui.CENTER_HORZ, ui.TOP, job_tab_x, job_tab_y, "job_tab_box", "true", tab_width, "JobClsName");
-
-    for i=1, #gblist do
+    
+    for i = 1, #gblist do
     local gb = gblist[i];
         gb:SetTabChangeScp("SKILLABILITY_ON_CHANGE_TAB");
     end

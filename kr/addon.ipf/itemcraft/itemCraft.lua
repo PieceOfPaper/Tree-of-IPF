@@ -834,7 +834,7 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount, upDown)
 	if TryGetProp(recipecls, "UseQueue") == "YES" then
 		session.CopyTempItemID();
 		local queueFrame = ui.GetFrame("craftqueue");
-		CLEAR_CRAFT_QUEUE(queueFrame);
+		CLEAR_CRAFT_QUEUE(queueFrame);		
 		queueFrame:SetUserValue("RECIPE_NAME", recipeName);    
 
         if is_stack_item == true then
@@ -1282,17 +1282,29 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot)
 				
                 local recipeCls = GetClass('Recipe', eachcset:GetUserValue('RECIPE_CLASS_NAME'));
                 local validRecipeMaterial = GET_MATERIAL_VALIDATION_SCRIPT(recipeCls);
-                local IsValidRecipeMaterial = _G[validRecipeMaterial];
+				local IsValidRecipeMaterial = _G[validRecipeMaterial];
 				local tempinvitem = session.GetInvItemByGuid(iconInfo:GetIESID());
                 local invItemObj = nil;
                 if tempinvitem ~= nil then
                     invItemObj = GetIES(tempinvitem:GetObject());
-                end
+				end
+				
 				if invItemObj~= nil and IsValidRecipeMaterial(eachcset:GetUserValue('ClassName'), invItemObj) and iconInfo.count >= needcount  then                    
 					if true == tempinvitem.isLockState then
 						ui.SysMsg(ClMsg("MaterialItemIsLock"));                        
 						return;
 					end
+					
+					if IS_EQUIP(invItemObj) == true then
+						local frame = ui.GetFrame(g_itemCraftFrameName);
+						frame:SetUserValue("TARGETSET", eachcset:GetName())
+						frame:SetUserValue("TARGET_GUID", iconInfo:GetIESID())
+						local equip = REGISTER_EQUIP(invItemObj, tempinvitem);
+						if equip == 1 then
+							return;
+						end
+					end
+
 					session.AddItemID(iconInfo:GetIESID(), needcount);
 					local icon 		= targetslot:GetIcon();
 					icon:SetColorTone('FFFFFFFF')
@@ -1300,6 +1312,8 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot)
 
 					eachcset:SetUserValue("MATERIAL_IS_SELECTED", 'selected');
 					
+					targetslot:SetEventScript(ui.RBUTTONUP, "CRAFT_ITEM_CANCEL");
+					targetslot:SetEventScriptArgString(ui.RBUTTONUP, tempinvitem:GetIESID())
 
 					local invframe = ui.GetFrame('inventory')
 					INVENTORY_UPDATE_ICONS(invframe);
@@ -1516,19 +1530,20 @@ function ITEMCRAFT_ON_DROP(cset, control, materialItemCnt, materialItemClassID)
 		end
 	end
 
+	if true == invItem.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return;
+	end
+
 	local itemObj = GetIES(invItem:GetObject())
 	if IS_EQUIP(itemObj) == true then
 		local frame = ui.GetFrame(g_itemCraftFrameName);
 		frame:SetUserValue("TARGETSET", cset:GetName())
-		local equip =	REGISTER_EQUIP(itemObj,  invItem);
+		frame:SetUserValue("TARGET_GUID", GetIESID(invItem))
+		local equip = REGISTER_EQUIP(itemObj,  invItem);
 		if equip == 1 then
 			return;
 		end
-	end
-
-	if true == invItem.isLockState then
-		ui.SysMsg(ClMsg("MaterialItemIsLock"));
-		return;
 	end
 
 	if iconInfo.type == materialItemClassID and iconInfo.count >= needcount  then
@@ -1778,6 +1793,11 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 		return
 	end
 	
+	if true == invItemadd.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return;
+	end
+	
 	local itemObj = GetIES(invItemadd:GetObject())
 	if IS_EQUIP(itemObj) == true then		
 		local frame = ui.GetFrame(g_itemCraftFrameName);
@@ -1787,11 +1807,6 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 		if equip == 1 then
 			return;
 		end
-	end
-	
-	if true == invItemadd.isLockState then
-		ui.SysMsg(ClMsg("MaterialItemIsLock"));
-		return;
 	end
 
 	if (ignoreType or invItemadd.type == materialItemClassID) and invItemadd.count >= needcount then		
@@ -1825,14 +1840,9 @@ function ITEM_EQUIP_CRAFT()
 	local itemGuid = frame:GetUserValue("TARGET_GUID")
 
 	local invItem = session.GetInvItemByGuid(itemGuid);
-
+	
 	if invItem == nil then
 		return
-	end
-
-	if true == invItem.isLockState then
-		ui.SysMsg(ClMsg("MaterialItemIsLock"));
-		return;
 	end
 	
 	local targetslot = GET_CHILD(itemSet, "slot", "ui::CSlot");
@@ -1851,9 +1861,13 @@ function ITEM_EQUIP_CRAFT()
 		local icon 		= targetslot:GetIcon();
 		icon:SetColorTone('FFFFFFFF')
 		SET_ITEM_TOOLTIP_BY_OBJ(icon, invItem)
+
+		targetslot:SetEventScript(ui.RBUTTONUP, "CRAFT_ITEM_CANCEL");
+		targetslot:SetEventScriptArgString(ui.RBUTTONUP, invItem:GetIESID())
+
 		itemSet:SetUserValue("MATERIAL_IS_SELECTED", 'selected');
 		local invframe = ui.GetFrame('inventory')
-		INVENTORY_UPDATE_ICONS(invframe)
+		INVENTORY_UPDATE_ICONS(invframe)		
 	end
 
 end
@@ -1861,15 +1875,18 @@ end
 -- Legend Item craft Able Y/N
 function REGISTER_EQUIP(itemObj, invItem)
 	if itemObj.Reinforce_2 ~= 0 then
-			local yesScp = string.format("ITEM_EQUIP_CRAFT()");
-			ui.MsgBox(ScpArgMsg("craft_really_make"), yesScp, "None");
+		local yesScp = string.format("ITEM_EQUIP_CRAFT()");
+		ui.MsgBox(ScpArgMsg("craft_really_make"), yesScp, "None");  
+		return 1;
 	else 		
-		for i = 0, itemObj.MaxSocket - 1 do
+		if itemObj.MaxSocket > 100 then itemObj.MaxSocket = 0 end
+		for i = 0, itemObj.MaxSocket - 1 do        
 			if invItem:IsAvailableSocket(i) then
 				local yesScp = string.format("ITEM_EQUIP_CRAFT()");
 				ui.MsgBox(ScpArgMsg("craft_really_make"), yesScp, "None");
-			end
-		end
+				return 1;
+			end            
+		end		
 	end
 
 	return 0

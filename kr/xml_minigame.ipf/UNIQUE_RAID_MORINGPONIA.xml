@@ -297,12 +297,22 @@
                                 <Num Num="7"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_UNIQUE_RAID_MORINGPONIA_CUSTOM_LOG"/>
+                                <Str Str="Clear"/>
+                                <Num Num="1"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Stage_Start">
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="NPC_SET/8"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_UNIQUE_RAID_MORINGPONIA_CUSTOM_LOG"/>
+                                <Str Str="Start"/>
+                                <Num Num="1"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -394,6 +404,11 @@
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_UNIQUE_RAID_MORINGPONIA_CUSTOM_LOG"/>
+                                <Str Str="Start"/>
+                                <Num Num="2"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="end_check">
@@ -418,6 +433,11 @@
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="NPC_SET/9"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_UNIQUE_RAID_MORINGPONIA_CUSTOM_LOG"/>
+                                <Str Str="Clear"/>
+                                <Num Num="2"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -542,12 +562,17 @@
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="Clear"/>
                             </ToolScp>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="Stage_03(Moringponia)/1"/>
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_UNIQUE_RAID_MORINGPONIA_CUSTOM_LOG"/>
+                                <Str Str="Start"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                     <Event eventName="summon_potal_1" execWithStart="0" isEnabled="0">
@@ -607,6 +632,11 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="end_run"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_UNIQUE_RAID_MORINGPONIA_CUSTOM_LOG"/>
+                                <Str Str="Clear"/>
+                                <Num Num="3"/>
                             </ToolScp>
                         </execList>
                     </Event>

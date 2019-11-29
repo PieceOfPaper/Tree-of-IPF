@@ -2309,8 +2309,34 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
                 SendAddOnMsg(pc, "NOTICE_Dm_!", txt, 5);
             end
             
+            --에피소드 서브퀘스트 언락조건
+            --SubQuest_UnLock_Check--
+            local req_episode = 'YES'
+            if questIES.QuestMode == 'SUB' then
+                local accountObj = nil
+                if IsServerObj(pc) == 1 then
+            		accountObj =  GetAccountObj(pc);
+            	else
+		            accountObj = GetMyAccountObj();
+                end
+                if accountObj ~= nil then
+                    local episodeCheck = TryGetProp(accountObj, "Episode_10_Clear", 0)
+                    if episodeCheck ~= 1 then
+                        local myLevel = 1
+                        if IsServerObj(pc) == 1 then
+                    		myLevel =  TryGetProp(pc, 'Lv', 1);
+                    	else
+        		            myLevel = GETMYPCLEVEL();
+                        end
+                        if myLevel < 390 then
+                            req_episode = 'NO'
+                        end
+                    end
+                end
+            end
+            
             if questIES.Check_Condition == 'AND' then
-                if req_lvup == 'YES' and req_lvdown == 'YES' and req_joblvup == 'YES' and req_joblvdown == 'YES' and req_atkup == 'YES' and req_atkdown == 'YES' and req_defup == 'YES' and req_defdown == 'YES' and req_mhpup == 'YES' and req_mhpdown == 'YES' and req_quest == 'YES' and req_PartyProp == 'YES' and req_JournalMonKill == 'YES' and req_tribe == 'YES' and req_job == 'YES' and req_Gender == 'YES' and req_InvItem == 'YES' and req_EqItem == 'YES' and req_Buff == 'YES' and req_end == 'YES' and req_Location == 'YES' and req_Period == 'YES' and req_ReenterTime =='YES'and req_Skill =='YES' and req_SkillLv =='YES' and req_AOSLine == 'YES' and req_NPCQuestCount == 'YES' and req_HonorPointUp == 'YES' and req_HonorPointDown == 'YES' and req_Script == 'YES' and req_jobstep == 'YES' and req_Repeat == 'YES' then
+                if req_episode == 'YES' and req_lvup == 'YES' and req_lvdown == 'YES' and req_joblvup == 'YES' and req_joblvdown == 'YES' and req_atkup == 'YES' and req_atkdown == 'YES' and req_defup == 'YES' and req_defdown == 'YES' and req_mhpup == 'YES' and req_mhpdown == 'YES' and req_quest == 'YES' and req_PartyProp == 'YES' and req_JournalMonKill == 'YES' and req_tribe == 'YES' and req_job == 'YES' and req_Gender == 'YES' and req_InvItem == 'YES' and req_EqItem == 'YES' and req_Buff == 'YES' and req_end == 'YES' and req_Location == 'YES' and req_Period == 'YES' and req_ReenterTime =='YES'and req_Skill =='YES' and req_SkillLv =='YES' and req_AOSLine == 'YES' and req_NPCQuestCount == 'YES' and req_HonorPointUp == 'YES' and req_HonorPointDown == 'YES' and req_Script == 'YES' and req_jobstep == 'YES' and req_Repeat == 'YES' then
                     local x = 1
                     
                     if questIES.QuestMode == 'REPEAT' then
@@ -2579,6 +2605,8 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
                 if req_end == 'NO' then
                     quest_reason[1] = questIES.QuestPropertyName..ScpArgMsg("Auto__PeuLoPeoTi_Kapi_")..CON_QUESTPROPERTY_END..ScpArgMsg("Auto__Kwa_KatDa.")
                     return 'COMPLETE', quest_reason;
+                elseif req_episode == "NO" then
+                    return 'IMPOSSIBLE', quest_reason
                 elseif req_ReenterTime =='NO' then
                     quest_reason[1] = ScpArgMsg("Auto_ReenterTime_KulTaimeul_ManJogHaJi_MosHam")
                     return 'IMPOSSIBLE', quest_reason;
@@ -4820,4 +4848,105 @@ function SCR_QUEST_CHECK_SUB_SUCCESS_PROPERTY_CHANGE(pc, sObj, questIES)
             end
         end
     end
+end
+
+-- episode
+local s_episdoe_list  = nil
+local function GET_EPISODE_QUEST_LIST(episodeNumberStr)
+    if s_episdoe_list == nil then
+        s_episdoe_list = {}
+
+        local clsList, cnt = GetClassList("Episode_Quest");
+        for i = 0, cnt -1 do
+            local episodeCls = GetClassByIndexFromList(clsList, i);
+            if episodeCls ~= nil then
+                local episodeNameProp = TryGetProp(episodeCls, "EpisodeName");
+                local questIDProp= TryGetProp(episodeCls, "QuestID");
+                if episodeNameProp ~= nil and questIDProp ~= nil then
+                    if s_episdoe_list[episodeNameProp] == nil then
+                        s_episdoe_list[episodeNameProp] ={}
+                    end
+                    table.insert(s_episdoe_list[episodeNameProp],questIDProp);
+                end
+            end 
+        end
+    end
+
+    if s_episdoe_list[episodeNumberStr] == nil then
+        return nil
+    end
+
+    return s_episdoe_list[episodeNumberStr]
+end
+
+function SCR_EPISODE_CHECK(pc, episodeRewardClassName)
+  
+    if pc == nil then
+        return "Error"
+    end
+    
+    local episodeRewardIES = GetClass('Episode_Reward', episodeRewardClassName)
+    if episodeRewardIES == nil then
+        return "Error"
+    end
+    
+    local episodeNumberStrProp = TryGetProp(episodeRewardIES, "ClassName")
+    if episodeNumberStrProp == nil then
+        return "Error"
+    end
+
+    local unLockGroup = TryGetProp(episodeRewardIES, "EpisodeUnLockGroup")
+    if unLockGroup == nil then
+        return "Error"
+    end
+   
+    local accountObj = nil;
+	if IsServerObj(pc) == 1 then
+		accountObj =  GetAccountObj(pc);
+	else
+		accountObj = GetMyAccountObj();
+    end
+
+    if accountObj == nil then
+        return "Error"
+    end
+
+    -- 1. Lock 검사
+    if unLockGroup ~= nil and unLockGroup ~= "None" then
+        local unLockGroupPropName = "Episode_Unlock_" .. unLockGroup ;
+        local unLockGroupProp = TryGetProp(accountObj, unLockGroupPropName)
+        if unLockGroupProp ~= 1 then
+            return "Locked"; 
+        end
+    end
+
+    -- 2. Account 프로퍼티에 1이 있는 경우 Clear
+    local clearPropName = episodeRewardClassName .. "_Clear";
+    local clearProp = TryGetProp(accountObj, clearPropName)
+    if clearProp == 1 then
+        return "Clear"; -- 이미 받아감.
+    end
+    
+    -- 3. 에피소드의 모든 퀘스트 검사.
+    local list = GET_EPISODE_QUEST_LIST(episodeNumberStrProp)
+    if list == nil then
+        return "Error"
+    end
+    
+    for _notUse , questID in pairs(list) do
+        local questIES = GetClassByType('QuestProgressCheck', questID);
+        if questIES == nil then
+            return "Error"
+        end
+        local questName = TryGetProp(questIES, "ClassName")
+        if questName == nil then
+            return "Error"
+        end
+        local state = SCR_QUEST_CHECK(pc, questName )
+        if state ~= "COMPLETE" then
+            return "Progress";
+        end
+    end
+    
+    return "Reward";
 end
