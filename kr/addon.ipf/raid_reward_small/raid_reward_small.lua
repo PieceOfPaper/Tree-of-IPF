@@ -61,6 +61,18 @@ function ITEM_BALLOON_COMMON(handle, itemObj, tooltipEnum, duration, delaySec, s
 		end
 	end
 
+	local strlist = {}
+	if string.find(skinName, 'event_tp_itembox') ~= nil then
+		isFirstItem = true;
+		
+		strlist = StringSplit(skinName, ';');
+		if #strlist == 2 then
+			skinName = strlist[1];
+		else
+			skinName = "junksilvergacha_itembox";
+		end
+	end
+
 	if delaySec == 0 then
 		frame:ShowWindow(1);
 	else
@@ -109,7 +121,7 @@ function ITEM_BALLOON_COMMON(handle, itemObj, tooltipEnum, duration, delaySec, s
 	local itemtext = GET_CHILD(ctrlSet, "itemtext", "ui::CRichText");	
 	if itemObj ~= nil then
         if forgeryObj ~= nil then
-            local img = GET_ITEM_ICON_IMAGE(forgeryObj);
+			local img = GET_ITEM_ICON_IMAGE(forgeryObj);
 	        SET_SLOT_IMG(itemSlot, img);
 
             local icon = itemSlot:GetIcon();
@@ -124,6 +136,15 @@ function ITEM_BALLOON_COMMON(handle, itemObj, tooltipEnum, duration, delaySec, s
 		CLEAR_SLOT_ITEM_INFO(itemSlot);
 		itemtext:SetTextByKey("txt", "");
 	end
+
+	if string.find(skinName, 'event_tp_itembox') ~= nil then
+		local pic = GET_CHILD(ctrlSet, "pic", "ui::CPicture");
+		if #strlist == 2 then
+			pic:SetImage(strlist[2]);
+
+			ReserveScript(string.format("REWARD_SMALL_EFFECT_START(\"%d\")", handle), 0.1);
+		end
+	end
 	
 	local width = maxWidthCnt * ctrlSetWidth + ctrlSetWidth;
 	local height = heightCnt * ctrlSetHeight + ctrlSetHeight;
@@ -132,6 +153,7 @@ function ITEM_BALLOON_COMMON(handle, itemObj, tooltipEnum, duration, delaySec, s
 	frame:Resize(itemcontainer:GetWidth(), itemcontainer:GetHeight() + 50);
 	itemSlot:EnableHitTest(1)
 	RAID_REWARD_BAL_POS(frame);
+	
 end
 
 function REWARD_SET_ITEM_TEXT(skinName, itemCls)
@@ -186,4 +208,11 @@ function RAID_REWARD_BAL_POS(frame)
 	local y = point.y - frame:GetHeight() - 40;
 	frame:MoveFrame(x, y);
 	return 1;
+end
+
+function REWARD_SMALL_EFFECT_START(handle)
+	local customName = string.format("ITEM_COMMON_%d", handle);
+	local frame = ui.GetFrame(customName);
+	local itemSlot = GET_CHILD_RECURSIVELY(frame, "itemslot", "ui::CSlot");
+	itemSlot:PlayUIEffect("I_gacha_end03", 2.5, "EFFECT", true);
 end

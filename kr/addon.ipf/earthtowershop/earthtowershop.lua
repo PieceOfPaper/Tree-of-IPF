@@ -1,4 +1,4 @@
-﻿g_earth_shop_local_parent = nil
+g_earth_shop_local_parent = nil
 g_earth_shop_local_control = nil
 g_earth_shop_local_dragrecipeitem = nil
 
@@ -157,14 +157,26 @@ function REQ_EVENT_1909_MINI_FULLMOON_SHOP_OPEN()
 end
 
 function REQ_EVENT_1910_HALLOWEEN_SHOP_OPEN()
-        local frame = ui.GetFrame("earthtowershop");
-        frame:SetUserValue("SHOP_TYPE", 'HalloweenShop');
-        ui.OpenFrame('earthtowershop');
+        -- local frame = ui.GetFrame("earthtowershop");
+        -- frame:SetUserValue("SHOP_TYPE", 'HalloweenShop');
+        -- ui.OpenFrame('earthtowershop');
 end
 
 function REQ_EVENT1912_4TH_SHOP_OPEN()
     local frame = ui.GetFrame("earthtowershop");
     frame:SetUserValue("SHOP_TYPE", 'Event4thShop1912');
+    ui.OpenFrame('earthtowershop');
+end
+
+function REQ_SELL_TPSHOP1912_SHOP_OPEN()
+    local frame = ui.GetFrame("earthtowershop");
+    frame:SetUserValue("SHOP_TYPE", 'Sell_TPShop1912');
+    ui.OpenFrame('earthtowershop');
+end
+
+function REQ_BUY_TPSHOP1912_SHOP_OPEN()
+    local frame = ui.GetFrame("earthtowershop");
+    frame:SetUserValue("SHOP_TYPE", 'Buy_TPShop1912');
     ui.OpenFrame('earthtowershop');
 end
 
@@ -260,11 +272,17 @@ function EARTH_TOWER_INIT(frame, shopType)
 --        title:SetText('{@st43}'..ScpArgMsg("EventMiniMoonShop1909_TITLE_NAME_1"));
 --        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventMiniMoonShop1909_TITLE_NAME_1")));
     elseif shopType == 'HalloweenShop' then
-        title:SetText('{@st43}'..ScpArgMsg("EVENT_1910_HALLOWEEN_SHOP"));
-        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
+        -- title:SetText('{@st43}'..ScpArgMsg("EVENT_1910_HALLOWEEN_SHOP"));
+        -- close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
     elseif shopType == 'Event4thShop1912' then
         title:SetText('{@st43}'..ScpArgMsg("Event4thShop1912_TITLE_NAME_1"));
         close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("Event4thShop1912_TITLE_NAME_1")));
+    elseif shopType == 'Sell_TPShop1912' then
+        title:SetText('{@st43}'..ScpArgMsg("TP_201912_Wing_change"));
+        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("TP_201912_Wing_change")));
+    elseif shopType == 'Buy_TPShop1912' then
+        title:SetText('{@st43}'..ScpArgMsg("TP_201912_fur_change"));
+        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("TP_201912_fur_change")));
     end
 
 
@@ -744,9 +762,13 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
     elseif shopType == 'EventMiniMoonShop1909' then
 --        item.DialogTransaction("EVENT_1909_MINI_FULLMOON_SHOP_1_TREAD1", resultlist, cntText);
     elseif shopType == 'HalloweenShop' then
-        item.DialogTransaction("EVENT_1910_HALLOWEEN_SHOP_1_TREAD1", resultlist, cntText);
+        -- item.DialogTransaction("EVENT_1910_HALLOWEEN_SHOP_1_TREAD1", resultlist, cntText);
     elseif shopType == 'Event4thShop1912' then
         item.DialogTransaction("EVENT1912_4TH_SHOP_1_TREAD1", resultlist, cntText);
+    elseif shopType == 'Sell_TPShop1912' then
+        item.DialogTransaction("SELL_TPSHOP1912_SHOP_1_TREAD1", resultlist, cntText);
+    elseif shopType == 'Buy_TPShop1912' then
+        item.DialogTransaction("BUY_TPSHOP1912_SHOP_1_TREAD1", resultlist, cntText);
 	end
 end
 

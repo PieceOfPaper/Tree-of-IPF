@@ -107,6 +107,7 @@ ClassID,Value,ClassName,Desc,UseInScript
 10019,50,"TOKEN_BENEFIT_EXPUP","토큰 경험치 추가혜택(%)_한국. 그외 국가는 아직 데이타 안빠져있음. 이 값을 참조해서 고치세요","NO"
 10020,0.500000,"NEXON_PC_PARTY_EXP_RATE","넥슨 PC방 파티원 혜택 경험치","YES"
 10021,15,"ACCOUNT_WAREHOUSE_LIMIT_LEVEL","팀창고 이용 가능 레벨","NO"
+10022,0,"USE_STEAM_PURCHASE_BLOCK","TP 구매제한 여부[1:제한사용, 0:사용안함]","YES"
 10100,20,"MAX_FISHING_ITEM_BAG_SLOT_COUNT","살림통 슬롯 최대 개수","YES"
 10101,5,"FISHING_SLOT_EXPAND_UNIT","살림통 업그레이드시 추가되는 슬롯의 개수","YES"
 10102,5000,"FISHING_UPDATE_INTERVAL","낚시 업데이트 주기. 단위는 ms","YES"

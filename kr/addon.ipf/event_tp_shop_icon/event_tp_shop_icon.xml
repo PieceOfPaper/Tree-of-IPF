@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="event_tp_shop_icon" x="0" y="0" width="42" height="42">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
+	<draw drawtitlebar="false"/>
+	<skin frameskin="none"/>
+	<input moveable="false" hittestframe="false"/>
+	<layer layerlevel="40"/>
+	<option hideable="false" closebutton="false"/>
+	<controls>
+		<picture name="icon" rect="0 0 42 42" margin="0 0 0 0" layout_gravity="center center" stretch="true"/>
+	</controls>
+</uiframe>

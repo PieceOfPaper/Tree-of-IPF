@@ -297,6 +297,12 @@ function JOYSTICK_QUICKSLOT_EXECUTE(slotIndex)
 	end
 
 	local quickslotFrame = ui.GetFrame('joystickquickslot');
+	if quickslotFrame ~= nil and quickslotFrame:IsVisible() == 0 then
+		local monsterquickslot = ui.GetFrame('monsterquickslot');
+        if monsterquickslot ~= nil and monsterquickslot:IsVisible() == 1 then
+            quickslotFrame = monsterquickslot;
+        end
+    end
 	local slot = quickslotFrame:GetChildRecursively("slot"..slotIndex + 1);
 	QUICKSLOTNEXPBAR_SLOT_USE(quickSlotFrame, slot, 'None', 0);	
 end

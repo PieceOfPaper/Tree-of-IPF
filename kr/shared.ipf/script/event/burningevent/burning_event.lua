@@ -20,7 +20,6 @@ function SCR_BURNING_EVENT_LIST_LOAD(inputType, isServer)
     end
 
     local today = tostring(year..month..day)
-
     local dateList = {}
 
     local xmlList, xmlCount = GetClassList("weekendevent_schedule")
@@ -97,9 +96,8 @@ function SCR_BURNING_EVENT_BUFF_CHECK(self, isServer)
 
             -- if today isn;t active burning event day then
             elseif eventCheck == "None" then
-
                 for l = 1, #eventList do
-                    if IsBuffApplied(self, tostring(eventList[l].ClassName)) == "YES" then
+                    if IsBuffApplied(self, tostring(eventList[l].BuffName)) == "YES" then
                         RemoveBuff(self, tostring(eventList[l].BuffName))
                     end
                 end

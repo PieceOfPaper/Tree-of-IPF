@@ -25,6 +25,7 @@ function ITEMTRASCEND_OPEN(frame)
 	slotTemp:StopActiveUIEffect();
 	slotTemp:ShowWindow(0);	
 	frame:SetUserValue("ONANIPICTURE_PLAY", 0);
+	frame:SetUserValue("REQ_LEGEND_ITEM_DIALOG_TYPE", 0);
 
 	local text_bg = GET_CHILD_RECURSIVELY(frame, "text_bg")
 	text_bg:ShowWindow(0);
@@ -45,14 +46,24 @@ function ITEMTRANSCEND_CLOSE(frame)
 		return;
 	end
 
-	local slot_material = GET_CHILD(frame, "slot_material");
-	slot_material:StopActiveUIEffect();
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 	ITEMTRANSCEND_LOCK_ITEM("None");
-	frame:ShowWindow(0);
+
 	control.DialogOk();
-	ui.CloseFrame("inventory");
+
+	local slot_material = GET_CHILD(frame, "slot_material");
+	slot_material:StopActiveUIEffect();
+	
+	-- DialogOk()를 실행하면 다이얼로그가 전부 닫힙니다.
+	-- 추가적인 다이얼로그를 띄우고 싶으시다면 반드시 DialogOK() 하단에 실행해주세요.
+	local dialog_type = frame:GetUserValue("REQ_LEGEND_ITEM_DIALOG_TYPE");
+	control.CustomCommand("REQ_LEGEND_ITEM_DIALOG", dialog_type);
+
+	frame:ShowWindow(0);
 	frame:SetUserValue("ONANIPICTURE_PLAY", 0);
+	frame:SetUserValue("REQ_LEGEND_ITEM_DIALOG_TYPE", 0);
+
+	ui.CloseFrame("inventory");
  end
 
 function TRANSCEND_UPDATE(isSuccess)
@@ -95,7 +106,7 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 	end
 
 	if frame:GetUserIValue('IS_LEGEND_SHOP') ~= 1 and TryGetProp(obj, 'LegendGroup', 'None') ~= 'None' then
-		control.CustomCommand("REQ_LEGEND_ITEM_DIALOG", 0);
+		frame:SetUserValue("REQ_LEGEND_ITEM_DIALOG_TYPE", 1);
 		ui.CloseFrame('itemtranscend');
 		ui.CloseFrame('inventory');
 		return;

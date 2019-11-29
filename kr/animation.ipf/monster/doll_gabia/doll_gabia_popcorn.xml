@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AttachModel frame="0" XAC="artefact_popcorn_set" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="0" anim="artefact_popcorn_ani.xsm"/>
+	<Particle frame="0" attachNode="Dummy_root" particleName="F_doll_gabia_std_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="4" attachNode="Dummy_root" particleName="F_doll_gabia_std_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_effect_popcon" particleName="F_pose_popcorn_drop" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="false" soft2DValue="20"/>
+</ActionDesc>

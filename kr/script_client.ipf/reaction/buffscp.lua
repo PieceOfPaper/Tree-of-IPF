@@ -1246,3 +1246,15 @@ end
 function HalloweenMoon_effect_LEAVE(actor, obj, buff)
     actor:GetBuff():SetUse2DEffect(false);
 end
+
+-- doll_gabia
+function DOLL_GABIA_BUFF_ENTER(actor, obj, buff)
+end
+
+function DOLL_GABIA_BUFF_UPDATE(actor, obj, buff)
+	SCR_CREATE_FAIRY(actor:GetHandleVal(), "doll_gabia");
+end
+
+function DOLL_GABIA_BUFF_LEAVE(actor, obj, buff)
+	SCR_REMOVE_FAIRY(actor:GetHandleVal(), "doll_gabia");
+end

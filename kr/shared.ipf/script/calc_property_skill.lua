@@ -4570,6 +4570,13 @@ function SCR_GET_Evocation_Ratio2(skill)
     
 end
 
+-- 데스모두스 흡혈 디버프와 네크로맨서 시독 디버프 대미지 증가 통합 적용
+function SCR_GET_SummonDamage_Ratio(skill)
+    local value = skill.Level * 84
+
+    return value
+end
+
 -- 데스모두스 흡혈의 일반 소환수 대미지 증가
 function SCR_GET_Desmodus_Ratio(skill)
     local value = skill.Level * 24
@@ -4596,7 +4603,7 @@ end
 
 function SCR_GET_GatherCorpse_Time(skill)
     local pc = GetSkillOwner(skill);
-    local value = 10
+    local value = 20
 
     return value
 end
@@ -10685,6 +10692,25 @@ function SCR_GET_SR_LV_TurnUndead(skill)
     return value
 end
 
+
+function SCR_GET_SR_LV_GatherCorpse(skill)
+
+    local pc = GetSkillOwner(skill);
+    local value = pc.SR + skill.SklSR;
+
+    local abil = GetAbility(pc, "Necromancer34")
+    if abil ~= nil and TryGetProp(abil, "ActiveState", 0) == 1 then
+        value = value * 2
+    end
+
+    if value < 1 then
+        value = 1
+    end
+    
+    return value
+
+end
+
 function SCR_GET_SR_LV(skill)
 
     local pc = GetSkillOwner(skill);
@@ -11643,6 +11669,7 @@ function SCR_GET_Dissonanz_Ratio(skill)
 end
 
 function SCR_GET_Wiegenlied_Time(skill)
+    local pc = GetSkillOwner(skill)
     local value = 10
     if IsPVPField(pc) == 1 then
         value = 3

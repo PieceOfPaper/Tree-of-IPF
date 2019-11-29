@@ -2579,7 +2579,7 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
 	if #needWarningItemList > 0 or #cannotEquip > 0 then
     	OPEN_TPITEM_POPUPMSG(needWarningItemList, noNeedWarning, cannotEquip, itemAndTPItemIDTable, allPrice);
 	else
-		if config.GetServiceNation() == "GLOBAL" or config.GetServiceNation() == "GLOBAL_JP" then
+		if config.GetServiceNation() == "GLOBAL" or (config.GetServiceNation() == "GLOBAL_JP" and USE_STEAM_PURCHASE_BLOCK == 1) then
 
 			if #needWarningItemList == 0 and #noNeedWarning == 0 and #cannotEquip == 0 then
 				ui.SysMsg(ClMsg('NoItemInBasket'));

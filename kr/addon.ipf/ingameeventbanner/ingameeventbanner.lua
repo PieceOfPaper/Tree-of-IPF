@@ -14,15 +14,12 @@ function EVENTBANNER_FRAME_OPEN(frame)
 	UPDATE_EVENTBANNER_UI(frame)
 	UPDATE_EVENTBANNER_RANKINGS(frame)
 	
-	--solodungeon
-	control.CustomCommand("REQ_EVENTBANNER_RANK", 0);
+	--solodungeon & usertype
+	control.CustomCommand("REQ_EVENTBANNER_INFO", 0);
 	
 	--teambattle
 	local pvpCls = GET_TEAM_BATTLE_CLASS();
 	worldPVP.RequestPVPRanking(pvpCls.ClassID, 0, 0, 1, 0, "");
-
-	--event User Type
-	control.CustomCommand("REQ_EVENTBANNER_USERTYPE", 0);
 end
 
 function EVENTBANNER_FRAME_CLOSE(frame)

@@ -1042,7 +1042,6 @@ function CLEAR_QUICKSLOT_SLOT(slot, makeLog, sendSavePacket)
 end
 
 function INIT_QUICKSLOT_SLOT(slot, icon)
-	icon:SetOnCoolTimeEndScp('ICON_ON_COOLTIMEEND');
 	icon:SetDumpScp('QUICKSLOTNEXPBAR_DUMPICON');
 	slot:SetEventScript(ui.RBUTTONUP, 'QUICKSLOTNEXPBAR_SLOT_USE');
 end

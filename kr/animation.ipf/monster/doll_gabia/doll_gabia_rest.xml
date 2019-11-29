@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_root" particleName="F_doll_gabia_std_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<CreateMonster frame="0" MonName="monster_box" Key="None" Angle="0" Dist="0" MonAngle="-45" AutoDestroy="1" FixMonAngle="1"/>
+	<CreateMonsterAnim frame="0" Key="None" Anim="in_guilty" Freeze="1"/>
+</ActionDesc>
