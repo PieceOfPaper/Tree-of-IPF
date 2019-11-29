@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -5731,7 +5731,7 @@
 		<Class ClassID="41131" ClassName="EVENT_1910_HALLOWEEN_MSG1" Data="맛이 이상한 할로윈 사탕을 소지하고 있지 않습니다."/>
 		<Class ClassID="41132" ClassName="EVENT_1910_HALLOWEEN_MSG2" Data="보너스 목표 {MON_NAME} 20마리 처치 완료. 이벤트 던전 종료 시 보너스 보상이 지급됩니다."/>
 		<Class ClassID="41133" ClassName="EVENT_1910_HALLOWEEN_MSG3" Data="보너스 목표 {MON_NAME} 처치 완료. 이벤트 던전 종료 시 보너스 보상이 지급됩니다."/>
-		<Class ClassID="41134" ClassName="EVENT_1910_HALLOWEEN_MSG4" Data="오늘 획득 할 수 있는 주화를 모두 획득했습니다."/>
+		<Class ClassID="41134" ClassName="EVENT_1910_HALLOWEEN_MSG4" Data="오늘 획득 할 수 있는 사탕을 모두 획득했습니다."/>
 		<Class ClassID="41135" ClassName="EVENT_1910_HALLOWEEN_MSG5" Data="할로윈 밤의 소동에서 오늘 획득 할 수 있는 사탕을 모두 획득했습니다."/>
 		<Class ClassID="41136" ClassName="EVENT_1910_HALLOWEEN_SHOP" Data="할로윈 이벤트 상점"/>
 		<Class ClassID="41137" ClassName="EVENT_1910_HALLOWEEN_MSG6" Data="오늘 사탕을 {@st66d_y}{s18}{GET_BONUS}{/}{/}개 획득하였으며, 보너스 획득량은 총 {@st66d_y}{s18}{GET_EVENT}{/}{/}개 입니다.{nl}총 획득량은 {@st66d_y}{s18}{GET_TOTAL}{/}{/}개 입니다."/>

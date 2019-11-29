@@ -4570,22 +4570,25 @@ function SCR_GET_Evocation_Ratio2(skill)
     
 end
 
+-- 데스모두스 흡혈의 일반 소환수 대미지 증가
 function SCR_GET_Desmodus_Ratio(skill)
+    local value = skill.Level * 24
+    
+    return value
+end
+
+-- 데스모두스 흡혈의 서모닝 소환수 대미지 증가
+function SCR_GET_Desmodus_Ratio2(skill)
     local value = skill.Level * 36
     
     return value
 end
 
-function SCR_GET_Desmodus_Ratio2(skill)
-    local value = skill.Level * 54
-    
-    return value
-end
-
+-- 네크로맨서 시독의 소환수 대미지 증가
 function SCR_GET_GatherCorpse_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = 45 * skill.Level
+    local value = 30 * skill.Level
 
     return value
 
