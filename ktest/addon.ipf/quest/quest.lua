@@ -63,7 +63,7 @@ function QUEST_ON_INIT(addon, frame)
 	-- episode 
 	addon:RegisterMsg('EPISODE_REWARD_CLEAR', 'QUEST_EPISODE_REWARD_CLEAR');
 	addon:RegisterMsg('REQUEST_QUEST_UPDATE', "QUEST_EPISODE_REWARD_CLEAR")
-	
+
 	-- 초기화 함수에서 퀘스트 목록을 제거한다. 
 	questList = nil;
 
@@ -515,8 +515,8 @@ function NEW_QUEST_ADD(frame, msg, argStr, argNum)
             	local quest_table = SCR_STRING_CUT(translated_QuestGroup)
             	if #quest_table > 1 then
             	    if quest_table[3] > 1 then
-            isNew = 1
-		end
+                        isNew = 1
+                    end
                 end
             else
                 isNew = NEW_QUEST_ADD_MAIN_CHECK(questIES)

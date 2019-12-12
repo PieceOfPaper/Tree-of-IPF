@@ -63,7 +63,7 @@
                                 <Num Num="5"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
-                                <Str Str="LEGEND_RAID_MORINGPONIA"/>
+                                <Str Str="LEGEND_RAID_MORINGPONIA_EASY"/>
                                 <Str Str="TimeOut"/>
                             </ToolScp>
                         </execList>
@@ -84,7 +84,7 @@
                                 <Num Num="5"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
-                                <Str Str="LEGEND_RAID_MORINGPONIA"/>
+                                <Str Str="LEGEND_RAID_MORINGPONIA_EASY"/>
                                 <Str Str="AllPCDead"/>
                             </ToolScp>
                         </execList>
@@ -170,7 +170,7 @@
             <Stage Name="SUCCESS" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
-                        <Str Str="Unique_Raid_boss_Moringponia"/>
+                        <Str Str="Legend_Raid_boss_Moringponia_Easy"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="레이드 성공!{nl}60초 뒤, 입장한 곳으로 돌아갑니다."/>

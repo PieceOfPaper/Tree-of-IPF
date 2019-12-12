@@ -13,8 +13,8 @@ function SYSTEMOPTION_CREATE(frame)
 	INIT_GRAPHIC_CONFIG(frame);
 	INIT_CONTROL_CONFIG(frame);
 	SET_SKL_CTRL_CONFIG(frame);
-        SET_AUTO_CELL_SELECT_CONFIG(frame);
-    	SET_DMG_FONT_SCALE_CONTROLLER(frame);
+    SET_AUTO_CELL_SELECT_CONFIG(frame);
+    SET_DMG_FONT_SCALE_CONTROLLER(frame);
 	SET_SHOW_PAD_SKILL_RANGE(frame);
 	SET_SIMPLIFY_BUFF_EFFECTS(frame);
 	SET_SIMPLIFY_MODEL(frame);
@@ -109,6 +109,7 @@ function INIT_SOUND_CONFIG(frame)
 	SET_SLIDE_VAL(frame, "totalVol", "totalVol_text", config.GetTotalVolume());	
 	SET_SLIDE_VAL(frame, "effect_transparency_my_value", "effect_transparency_my", config.GetMyEffectTransparency());
 	SET_SLIDE_VAL(frame, "effect_transparency_other_value", "effect_transparency_other", config.GetOtherEffectTransparency());
+
 	local isOtherFlutingEnable = config.IsEnableOtherFluting();
 	local chkOtherFlutingEnable = GET_CHILD_RECURSIVELY(frame, "check_fluting");
 	if nil ~= chkOtherFlutingEnable then
@@ -180,6 +181,11 @@ function INIT_GRAPHIC_CONFIG(frame)
 	if nil ~= otherPCDamage then
 		otherPCDamage:SetCheck(config.GetOtherPCDamageEffect());
 	end;
+
+	local textEffectUnVisible = GET_CHILD_RECURSIVELY(frame, "check_ShowTextEffect", "ui::CCheckBox");
+	if textEffectUnVisible ~= nil then
+		textEffectUnVisible:SetCheck(config.GetUnVisibleTextEffect());
+	end
 end
 
 function INIT_GAMESYS_CONFIG(frame)
@@ -735,4 +741,10 @@ function EFFECT_TRANSPARENCY_OFF()
 	effect_transparency_other_value:SetLevel(255);
 	CONFIG_OTHER_EFFECT_TRANSPARENCY(frame, effect_transparency_other_value, "", 0);
 	effect_transparency_other_value:SetEnable(0);
+end
+
+function CONFIG_TEXTEFFECT_NOT_SHOW(frame, ctrl, str, num)
+	local isEnable = ctrl:IsChecked();
+    config.SetUnVisibleTextEffect(isEnable);
+	config.SaveConfig();
 end

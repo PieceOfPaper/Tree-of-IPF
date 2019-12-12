@@ -2090,6 +2090,13 @@
 			<richtext name="itemtext" rect="0 0 200 30" format="{@st43d}{/}" margin="0 0 0 31" layout_gravity="center bottom" textalign="center top" param1="txt" param1_def="ItemName" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18_b_ds_ol" fixwidth="true" omitbywidth="true" updateparent="false" drawbackground="false" slideshow="false"/>
 		</controls>
 	</controlset>
+		<controlset name="event_tp_itembox" toggle="false" hittest="true" width="190" height="200" skin="no" scroll="false">
+		<controls>
+			<picture name="pic" rect="0 0 190 164" margin="0 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" image="gacha_01" DropScp="None" texttooltip="" layout_gravity="center top" hittest="false"/>
+			<slot name="itemslot" rect="0 0 85 85" margin="-10 42 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="slot_empty" DropScp="None" texttooltip="" layout_gravity="center top" hittest="false"/>
+			<richtext name="itemtext" rect="0 0 200 30" format="{@st43d}{/}" margin="0 0 0 31" layout_gravity="center bottom" textalign="center top" param1="txt" param1_def="ItemName" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18_b_ds_ol" fixwidth="true" omitbywidth="true" updateparent="false" drawbackground="false" slideshow="false"/>
+		</controls>
+	</controlset>
 	<controlset name="status_stat" toggle="false" hittest="true" width="455" height="15" skin="no">
 		<controls>
 			<richtext name="title" rect="0 0 50 15" layout_gravity="left top" hittest="true" textalign="left top" margin="10 0 0 0" fontname="yellow_18_ol" resizebytext="true"/>
@@ -4046,7 +4053,7 @@
 			<richtext name="dayOffsetText" rect="0 0 15 15" margin="10 8 0 0" layout_gravity="left top" caption="1" fontname="brown_18"/>
 			<picture name="itemPic" rect="0 0 60 60" margin="0 15 0 0" layout_gravity="center top" image="testclose_button" stretch="true" hittest="true"/>
 			<richtext name="cntText" rect="0 0 70 30" margin="0 0 0 10" layout_gravity="center bottom" format="x %s" param1="cnt" param1_def="0" fontname="white_16_b_ol"/>
-			<picture name="getPic" rect="0 0 80 80" margin="0 0 0 0" layout_gravity="center center" image="attendance_onion_stamp" stretch="true"/>
+			<picture name="getPic" rect="0 0 80 80" margin="0 0 0 0" layout_gravity="center center" image="attendance_onion_stamp" stretch="true" hittest="false"/>
 		</controls>
 	</controlset>
 	<controlset name="guild_info_banner" hittest="true" width="510" height="240" hittestset="true" draw="true">

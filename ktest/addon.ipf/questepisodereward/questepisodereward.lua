@@ -63,7 +63,6 @@ function QUESTEPISODEREWARD_MAKE_REWARD_CTRL(gbBody, x, y, episodeRewardIES)
 
     height = height +  QUESTDETAIL_BOX_CREATE_RICHTEXT(gbBody, x, y + height, gbBody:GetWidth() - 30, 20, "t_addreward", titleText); -- 타이틀
 	height = height +  QUESTEPISODEREWARD_MAKE_REWARD_ITEM_CTRL(gbBody, x, y + height, episodeRewardIES);    	-- 아이템 (최대 5개)
-    height = height +  QUESTEPISODEREWARD_MAKE_EXP_REWARD_CTRL(gbBody, x, y + height, episodeRewardIES); 		-- 경험치(베이스, 직업)
     height = height +  QUESTEPISODEREWARD_MAKE_REWARD_HONOR_CTRL(gbBody, x , y + height, episodeRewardIES);		-- 칭호
 
     return height
@@ -73,54 +72,12 @@ end
 function QUESTEPISODEREWARD_MAKE_REWARD_ITEM_CTRL(gbBody, x, y, episodeRewardIES)
 
     local height = 0;
-    for i = 1, 5 do
+    for i = 1, 6 do
         local propName = "RewardItemName" .. i;
         if episodeRewardIES[propName] ~= "None" and episodeRewardIES[propName] ~= "Vis" then
             height = height + QUESTEPISODEREWARD_MAKE_ITEM_TAG_TEXT_CTRL(gbBody, x, y + height,  "reward_item", episodeRewardIES[propName], episodeRewardIES["RewardItemCount" .. i], i);
         end
     end
-	return height;
-end
-
--- 보상 - 경험치
-function QUESTEPISODEREWARD_MAKE_EXP_REWARD_CTRL(gbBody, x, y, episodeRewardIES)
-    local pc = GetMyPCObject();
-	local sObj = GetSessionObject(pc, 'ssn_klapeda')
-	
-	local height = 0;
-	
-	-- 경험치 보상 계산
-    local succExp = TryGetProp(episodeRewardIES, "RewardExp"); 
-    if succExp == nil then
-        return height
-    end
-
-	local succJobExp = 0;
-	local sumvalue = MultForBigNumberInt64(tostring(succExp), tostring(77));
-	sumvalue = DivForBigNumberInt64(tostring(sumvalue), tostring(100));
-    if succExp > 0 then
-		succJobExp = tonumber(SumForBigNumberInt64(succJobExp, sumvalue));
-    end
-
-    local titleWidth = gbBody:GetWidth() * 0.3;
-    local valueWidth = gbBody:GetWidth() - titleWidth - 30 ;
-	-- 경험치 보상
-	if succExp > 0 then
-		succExp = GET_COMMAED_STRING(succExp)
-        local _height = height;
-        height = height + QUESTDETAIL_BOX_CREATE_RICHTEXT(gbBody, x , y + height, titleWidth ,20, "t_successExp_text", ClMsg("Episode_Reward_Title_EXP"));
-        QUESTDETAIL_BOX_CREATE_RICHTEXT(gbBody, x + titleWidth + 10, y + _height, valueWidth , 20, "t_successExp_value", "{s20}{ol}{#FFFF00}"..succExp.."{/}",  {text_align = { horz = "right", vert = "center" }});
-	end
-
-	-- 잡 경험치 보상
-    if succJobExp > 0 then
-        succJobExp = GET_COMMAED_STRING(succJobExp)
-        local _height = height;
-        height = height + QUESTDETAIL_BOX_CREATE_RICHTEXT(gbBody, x, y + height, titleWidth ,20, "t_successJobExp_text",  ClMsg("Episode_Reward_Title_JEXP"));
-        QUESTDETAIL_BOX_CREATE_RICHTEXT(gbBody, x + titleWidth + 10, y + _height, valueWidth , 20, "t_successJobExp_value", "{s20}{ol}{#FFFF00}"..succJobExp.."{/}",  {text_align = { horz = "right", vert = "center" }});
-
-	end
-
 	return height;
 end
 

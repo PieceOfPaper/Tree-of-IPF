@@ -5,7 +5,7 @@ end
 function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 	local frame = ui.GetFrame("monsterquickslot");
 	if isOn == 1 then
-		-- 라이칸스트로피 거나 쉐잎쉬ㅍ프팅, 트랜스폼 ,서모닝이면
+		-- 라이칸스트로피 거나 쉐이프쉬프팅, 트랜스폼 ,서모닝이면
 		-- monsterquickslot을 사용하지 않겠다.
 		local monsterQuickslotNotUse = false;
 		if buffType == 6012 or buffType == 6026 or buffType == 3038 then
@@ -79,7 +79,6 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 					icon:SetColorTone("FFFFFFFF");
 					icon:ClearText();
 					quickslot.OnSetSkillIcon(slot, type);
-
 					
 					-- 이 땜빵을 어찌해아 하나? 제일 좋은건 hotkey_joystic.xml의 Key, PressedKey를 예쁘게 정리하는 것이다.
 					hotKey = JOYSTICK_QUICKSLOT_REPLACE_HOTKEY_STRING(true, hotKey);
@@ -113,31 +112,29 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 
 		lastSlot:SetText('{s14}{ol}{b}'..hotKey, 'count', ui.LEFT, ui.TOP, 2, 1);
 		lastSlot:EnableDrag(0);
-
 	else
 		local beforeframename = frame:GetUserValue("BEFORE_FRAME");
-
 		local preBuff = frame:GetUserIValue('BUFFTYPE');
 		if preBuff == 6012 or preBuff == 6026 or preBuff == 3038 then
-			if	beforeframename == "joystickquickslot" then
+			if beforeframename == "joystickquickslot" then
 				JOYSTICK_QUICKSLOT_MY_MONSTER_SKILL(isOn, monName, buffType);
+				DebounceScript("JOYSTICK_QUICKSLOT_UPDATE_ALL_SLOT", 0.1);
 			else
 				QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType);
+				DebounceScript("QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT", 0.1, 0);
 			end
 			frame:SetUserValue('BUFFTYPE', 0);
 			return;
 		end
-		
+
 		if beforeframename ~= "None" then
 			ui.OpenFrame(beforeframename);
 		else
 			ui.OpenFrame("quickslotnexpbar");
 		end
-
+			
 		frame:ShowWindow(0);
 	end
-	
-
 end
 
 function EXEC_INSTANT_QUICKSLOT(isOn)
@@ -188,7 +185,7 @@ function EXEC_INSTANT_QUICKSLOT(isOn)
 				if isjoystick == false then
 					hotKey = hotKeyTable.GetHotKeyString(slotString, 0);	
 				else				
-					hotKey = hotKeyTable.GetHotKeyString(slotString, 1);	
+					hotKey = hotKeyTable.GetHotKeyString(slotString, 1);
 				end
 
 				-- monster quick slot에 cooltime 추가

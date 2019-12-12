@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by My (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -339,7 +339,7 @@
 		<Class ClassID="2306" ClassName="PleasePrefixItem" Data="세트 옵션을 부여할 아이템을 등록해주세요"/>
 		<Class ClassID="2307" ClassName="ReallyUseAbilityPointResetItem_arts" Data="사용시 해당 직업의 모든 아츠 특성을 초기화 하며 특성 포인트 및 [보상용] 미식별 신비한 서 가 환급됩니다.{nl}계속 진행하시겠습니까?"/>
 		<Class ClassID="2308" ClassName="DontHaveThatJob" Data="해당 직업을 보유하고 있지 않습니다."/>
-<Class ClassID="2309" ClassName="CantUseCuzStackItemInAdditionalTab" Data="추가 창고에 같은 종류의 스택형 아이템이 존재하기 때문에 이용하실 수 없습니다. 추가 창고에서 스택형 아이템을 모두 찾으신 후 이용 가능합니다."/>
+		<Class ClassID="2309" ClassName="CantUseCuzStackItemInAdditionalTab" Data="추가 창고에 같은 종류의 스택형 아이템이 존재하기 때문에 이용하실 수 없습니다. 추가 창고에서 스택형 아이템을 모두 찾으신 후 이용 가능합니다."/>
 		<Class ClassID="2310" ClassName="ReallyUseAbilityPointResetItem_OneAbility" Data="사용시 해당 특성을 초기화 하며 특성 포인트 및 [보상용] 미식별 신비한 서 가 환급됩니다.{nl}계속 진행하시겠습니까?"/>
 		<Class ClassID="2311" ClassName="ExceedAdditionalAccountwarehouse" Data="확장 가능한 기본 창고 슬롯이 최대치에 도달하였습니다."/>
 		<Class ClassID="2312" ClassName="ExceedAdditionalAccountwarehouse2" Data="해당 아이템 사용 시, 확장 가능한 기본 창고 슬롯의 최대치를 초과하게 되어 사용이 불가능합니다."/>
@@ -664,6 +664,10 @@
 		<Class ClassID="4246" ClassName="NotAvailableInThisContents" Data="현재 진행중인 컨텐츠 내에서는 사용하실 수 없습니다."/>
 		<Class ClassID="4247" ClassName="CannotUseTradeInThisArea" Data="개인 거래가 불가능한 지역입니다."/>
 		<Class ClassID="4248" ClassName="mothpowder" Data="교환 가능한 모스 더스트가 부족합니다."/>
+		
+		<Class ClassID="4250" ClassName="TP_201912" Data="가비야의 은총이 담긴 깃털 봉헌"/>
+		<Class ClassID="4251" ClassName="TP_201912_Wing_change" Data="가비야 테마 교환 상점"/>
+		<Class ClassID="4252" ClassName="TP_201912_fur_change" Data="가비야의 은총이 담긴 재료 교환 상점"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -1234,7 +1238,7 @@
 		<Class ClassID="10522" ClassName="RegisterPrefixItem" Data="옵션을 부여할 아이템을 등록해주세요."/>
 		<Class ClassID="10523" ClassName="AlreadyPrefixOption" Data="이미 적용된 옵션입니다."/>
 		<Class ClassID="10524" ClassName="{Name}ItemCountOver" Data="인벤토리에 [{Name}]이(가) 가득 차서 분해할 수 없습니다."/>
-<Class ClassID="10525" ClassName="ReallyWarpHighLevelZone" Data="워프하려는 지역의 레벨이 현재 캐릭터 레벨보다 {#aa0000}30 {/}이상 높습니다. {nl}그래도 워프 하시겠습니까?"/>
+		<Class ClassID="10525" ClassName="ReallyWarpHighLevelZone" Data="워프하려는 지역의 레벨이 현재 캐릭터 레벨보다 {#aa0000}30 {/}이상 높습니다. {nl}그래도 워프 하시겠습니까?"/>
 		<Class ClassID="10526" ClassName="CannotTakeRewardWarning1Min" Data="1분 동안 움직임이 없는 상태입니다.{nl}앞으로 2분 동안 움직임이 없을 경우 보상을 획득하실 수 없습니다."/>
 		<Class ClassID="10527" ClassName="PossibleToOnlyArmor" Data="방어구만 변경 가능합니다."/>
 	</Category>
@@ -1581,14 +1585,13 @@
 		<Class ClassID="21339" ClassName="Squire14AbilityAble" Data="천 마스터리: 재봉 장인 적용중"/>
 		<Class ClassID="21340" ClassName="Squire15AbilityAble" Data="가죽 마스터리: 세공 장인 적용중"/>
 		<Class ClassID="21341" ClassName="Squire16AbilityAble" Data="판금 마스터리: 제련 장인 적용중"/>
-	<Class ClassID="21342" ClassName="EpisodeLockMsg" Data="{@st59}이 에피소드는 잠겨있으며, 팀 내 캐릭터 중 다음 조건을 만족할 경우 잠금이 해제됩니다.{nl}- {@st59}{#FFFF00}[여신 가비야]{/}{/} 퀘스트를 클리어해 마법사의 탑의 계시 획득{/}"/>
+		<Class ClassID="21342" ClassName="EpisodeLockMsg" Data="{@st59}이 에피소드는 잠겨있으며, 팀 내 캐릭터 중 다음 조건을 만족할 경우 잠금이 해제됩니다.{nl}- {@st59}{#FFFF00}[여신 가비야]{/}{/} 퀘스트를 클리어해 마법사의 탑의 계시 획득{/}"/>
 		<Class ClassID="21343" ClassName="EpisodeClearMsg" Data="{@st59}현재 캐릭터 혹은 다른 캐릭터로 해당 에피소드의 퀘스트를 모두 클리어해 보상을 이미 받았습니다.{/}"/>
-<Class ClassID="21344" ClassName="Episode_Reward_Title_EXP" Data="{@st41b}경험치{/}"/>
+		<Class ClassID="21344" ClassName="Episode_Reward_Title_EXP" Data="{@st41b}경험치{/}"/>
 		<Class ClassID="21345" ClassName="Episode_Reward_Title_JEXP" Data="{@st41b}클래스 경험치{/}"/>
 		<Class ClassID="21346" ClassName="Episode_Reward_Title_Honor" Data="{@st41b}칭호{/}"/>
 		<Class ClassID="21347" ClassName="Ask_UnEnableEffectTransparency_Text" Data="퀘스트의 이펙트가 보이지 않을 수 있습니다. 설정을 적용 하시겠습니까?"/>
-
-</Category>
+	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
 		<Class ClassID="22002" ClassName="FrontShot!" Data="전방 사격!"/>
@@ -4680,6 +4683,7 @@
 		<Class ClassID="27133" ClassName="CATACOMB_HALLOWEEN_MSG4" Data="30회 참여 보상을 받는다"/>
 		<Class ClassID="27182" ClassName="GACHA_SITEM_GET_ALLMSG" Data="{s24}축하드립니다!{nl}{PC} 님이 레티샤의 시크릿 큐브에서{nl}{ITEMNAME} 를(을) 획득하셨습니다!"/>
 		<Class ClassID="27183" ClassName="GACHA_SITEM_GET_ALLMSG_2" Data="{s24}축하드립니다!{nl}{PC} 님이 복각: 축복받은 여신의 큐브에서{nl}{ITEMNAME} 를(을) 획득하셨습니다!"/>
+		<Class ClassID="27184" ClassName="GACHA_SITEM_GET_ALLMSG_3" Data="{s24}축하드립니다!{nl}{PC} 님이 가비야의 은총이 담긴 깃털 장식으로{nl}{ITEMNAME} 를(을) 획득하셨습니다!"/>
 		<Class ClassID="27200" ClassName="MOLE_BINGO_MSG1" Data="{SEC}초 안에 빙고를 맞춰 {POINT}점을 달성하세요!"/>
 		<Class ClassID="27201" ClassName="MOLE_BINGO_MSG2" Data="{POINT}점 달성!{nl}보상{ITEM}"/>
 		<Class ClassID="27202" ClassName="MOLE_BINGO_MSG3" Data="두더지 잡기 빙고가 종료됩니다{nl}점수 : {POINT} 달성{nl}팀 최고점수 : {MAXPOINT}"/>
@@ -5732,7 +5736,7 @@
 		<Class ClassID="41131" ClassName="EVENT_1910_HALLOWEEN_MSG1" Data="맛이 이상한 할로윈 사탕을 소지하고 있지 않습니다."/>
 		<Class ClassID="41132" ClassName="EVENT_1910_HALLOWEEN_MSG2" Data="보너스 목표 {MON_NAME} 20마리 처치 완료. 이벤트 던전 종료 시 보너스 보상이 지급됩니다."/>
 		<Class ClassID="41133" ClassName="EVENT_1910_HALLOWEEN_MSG3" Data="보너스 목표 {MON_NAME} 처치 완료. 이벤트 던전 종료 시 보너스 보상이 지급됩니다."/>
-		<Class ClassID="41134" ClassName="EVENT_1910_HALLOWEEN_MSG4" Data="오늘 획득 할 수 있는 주화를 모두 획득했습니다."/>
+		<Class ClassID="41134" ClassName="EVENT_1910_HALLOWEEN_MSG4" Data="오늘 획득 할 수 있는 사탕을 모두 획득했습니다."/>
 		<Class ClassID="41135" ClassName="EVENT_1910_HALLOWEEN_MSG5" Data="할로윈 밤의 소동에서 오늘 획득 할 수 있는 사탕을 모두 획득했습니다."/>
 		<Class ClassID="41136" ClassName="EVENT_1910_HALLOWEEN_SHOP" Data="할로윈 이벤트 상점"/>
 		<Class ClassID="41137" ClassName="EVENT_1910_HALLOWEEN_MSG6" Data="오늘 사탕을 {@st66d_y}{s18}{GET_BONUS}{/}{/}개 획득하였으며, 보너스 획득량은 총 {@st66d_y}{s18}{GET_EVENT}{/}{/}개 입니다.{nl}총 획득량은 {@st66d_y}{s18}{GET_TOTAL}{/}{/}개 입니다."/>
@@ -5759,6 +5763,7 @@
 		<Class ClassID="41209" ClassName="EVENT1912_4TH_GetBuff_Msg_2" Data="{#ff6d00}[이벤트] 4주년 x3{/} 효과가 적용되었습니다"/>
 		<Class ClassID="41210" ClassName="EVENT1912_4TH_COIN_MSG1" Data="하루 획득가능한 {#ff6d00}[이벤트] 4주년 기념 주화{/} 5,000개를 모두 모았습니다."/>
 		<Class ClassID="41211" ClassName="EVENT1912_4TH_COIN_REMAIN_MSG1" Data="오늘 4주년 기념 주화를 총 {@st66d_y}{s18}{GET}{/}{/}개 획득했습니다.{nl}{@st66d_y}{s18}{REMAIN}{/}{/}개의 4주년 기념 주화를 더 획득할 수 있습니다.{nl}4주년 기념 주화는 팀 단위로 획득할 수 있으며{nl}다음날 오전 06시에 초기화 됩니다"/>
+		<Class ClassID="41212" ClassName="EVENT1912_4TH_COIN_MSG2" Data="곧 {@st66d_y}{s20}[이벤트] 4주년 기념 주화{/}{/}가 지급됩니다. {@st66d_y}{s20}[이벤트] 4주년 기념 주화{/}{/} 지급 전 종료시 정상적으로 아이템이 지급되지 않을 수 있습니다."/>
 		<Class ClassID="50001" ClassName="UNDER30_2_CHECK_MSG2" Data="유독가스에 중독되어 비석을 확인하는데 힘듭니다"/>
 		<Class ClassID="50002" ClassName="UNDER301_MONSTER_PAIR_ERROR_1" Data="오늘 진행가능한 {DAYMAXCOUNT}회 중 {DAYPLAYCOUNT} 회를 모두 진행하셨습니다."/>
 		<Class ClassID="50003" ClassName="BRACKEN431_SUB_NPC_NAME" Data="사제 개러티"/>
@@ -7944,6 +7949,19 @@
 		<Class ClassID="70536" ClassName="TABLE72_SUBQ1_CHAT_DLG02" Data="이제는 끝인가 생각했는데.. 당신이 와주신 덕분에 희망이 보이기 시작했습니다!"/>
 		<Class ClassID="70537" ClassName="2PHASE_CURSE_START_SOLO" Data="스키아클립스가 당신에게 저주를 걸었습니다!{nl}빠른 시간 내에 정화의 제단에서 저주를 해제하세요!"/>
 		<Class ClassID="70538" ClassName="NICOPOLIS_VAIN_WAKER_LINK_MSG" Data="바인 워커가 되살아납니다"/>
+		<Class ClassID="70539" ClassName="EP12_PRELUDE_01_NERINGA_AFTER" Data="그럼 먼저 가서 기다리겠습니다."/>
+		<Class ClassID="70540" ClassName="EP12_PRELUDE_03_MSG01" Data="주변에 마족이 있습니다.{nl}마족을 처치하고 다시 시도해주세요."/>
+		<Class ClassID="70541" ClassName="EP12_PRELUDE_03_MSG02" Data="나모트를 바닥에 설치하는 중"/>
+		<Class ClassID="70542" ClassName="EP12_PRELUDE_03_MSG03" Data="나모트가 설치됐습니다!"/>
+		<Class ClassID="70543" ClassName="EP12_PRELUDE_04_FAIL" Data="나모트가 파괴되었습니다."/>
+		<Class ClassID="70544" ClassName="EP12_PRELUDE_06_MSG01" Data="이미 보주에 신성한 힘이 가득해 더 이상 씻을 필요가 없습니다."/>
+		<Class ClassID="70545" ClassName="EP12_PRELUDE_06_MSG02" Data="보주를 씻는 중"/>
+		<Class ClassID="70546" ClassName="EP12_PRELUDE_06_MSG03" Data="살짝만 건드려도 깨질 것 같이 신성한 힘이 보주 속에 가득찼습니다!{nl}네링가에게 돌아가 보주를 보여주세요."/>
+		<Class ClassID="70547" ClassName="EP12_PRELUDE_06_MSG04" Data="응축된 신성한 힘이 보주 속에 스며들었습니다.{nl}계속해서 힘이 응축된 곳을 찾아 보주를 씻어주세요."/>
+		<Class ClassID="70548" ClassName="EP12_PRELUDE_07_MSG01" Data="보주를 안전하게 옮기는 데 실패했습니다."/>
+		<Class ClassID="70549" ClassName="EP12_PRELUDE_08_MSG01" Data="네링가가 마족의 공격에 쓰러졌습니다."/>
+		<Class ClassID="70550" ClassName="EP12_PRELUDE_10_NERINGB_AFTER" Data="때가 되면 다시 저 네링가의 부름을 받아야 할 것 입니다."/>
+		<Class ClassID="70551" ClassName="EP12_PRELUDE_QUEST_CLEAR_EVENT" Data="[사전 퀘스트 클리어!]{nl}이벤트 기간 중에 클리어한 보상으로 [[이벤트] 특성 포인트 10,000]가 인벤토리에 3개 지급됐습니다!"/>
 		<Class ClassID="70552" ClassName="GO_TO_KLAPEDA" Data="꿈에 여신이 나왔다고 한다"/>
 		<Class ClassID="70553" ClassName="GO_TO_ORSHA" Data="오르샤로 가는 길을 찾는다고 한다"/>
 		<Class ClassID="70554" ClassName="BRACKEN633_MQ04_MSG02_END" Data="이미 작동을 멈춘 장치입니다"/>
@@ -8917,7 +8935,7 @@
 		<Class ClassID="100092" ClassName="DisableDiminishingBuffTime{ONOFF}" Data="군중제어 지속시간 점감 무시 {ONOFF}"/>
 		<Class ClassID="100093" ClassName="show_temporary_resist" Data="일시 면역!"/>
 		<Class ClassID="100094" ClassName="skill_visibletalent2" Data="비지블 탤런트 공격 (최대 대미지 도달!)"/>
-	<Class ClassID="100095" ClassName="skill_visibletalent_pc" Data="비지블 탤런트 (캐릭터)"/>
+		<Class ClassID="100095" ClassName="skill_visibletalent_pc" Data="비지블 탤런트 (캐릭터)"/>
 	</Category>
 	<Category Name="Party">
 		<Class ClassID="101001" ClassName="GULID_OUT" Data="길드 탈퇴"/>
@@ -9804,7 +9822,7 @@
 		<Class ClassID="112024" ClassName="QuestLevelBasicText" Data="레벨 : "/>
 		<Class ClassID="112025" ClassName="{Auto_1}ItemName" Data="{@st45w3}{s18}{Auto_1}{/}"/>
 		<Class ClassID="112026" ClassName="{Auto_1}NeedCount" Data="{@st45w3}{s18}{Auto_1} 개{/}"/>
-	<Class ClassID="112027" ClassName="SubQuest_Lock_Msg" Data="서브 퀘스트는 잠겨 있습니다.{nl}(개방 조건 : 에피소드 10 클리어 보상 획득 또는 캐릭터 레벨 390이상 달성)"/>
+		<Class ClassID="112027" ClassName="SubQuest_Lock_Msg" Data="서브 퀘스트는 잠겨 있습니다.{nl}(개방 조건 : 에피소드 10 클리어 보상 획득 또는 캐릭터 레벨 390이상 달성)"/>
 		<Class ClassID="112028" ClassName="SubQuest_UnLock1_Msg" Data="모든 캐릭터의 서브 퀘스트가개방되었습니다!"/>
 		<Class ClassID="112029" ClassName="SubQuest_UnLock2_Msg" Data="해당 캐릭터의 서브 퀘스트가 개방되었습니다!"/>
 		<Class ClassID="112030" ClassName="Episode_Clear_Msg" Data="[{EPNumber} {EPName}] 에피소드를 클리어 했습니다!"/>
@@ -13340,6 +13358,8 @@
 		<Class ClassID="300185" ClassName="PremiumToken_New_Return" Data="토큰"/>
 		<Class ClassID="300186" ClassName="tpshop_first_buy_msg" Data="최초 상품 구매 시,{nl}더 이상 {@st66d_y}{s18}첫 구매 상점{/}{/}을 이용할 수 없습니다.{nl}첫 구매 상점은 {@st47}{s18}TP상점{/}{/}에서 확인할 수 있습니다.{nl}그래도 구매하시겠습니까?"/>
 		<Class ClassID="300187" ClassName="Select_Arts" Data="신비한 서를 선택하세요"/>
+		<Class ClassID="300188" ClassName="needMoreItem" Data="가비야의 은총이 담긴 깃털 부족합니다."/>
+		<Class ClassID="300189" ClassName="Event_Theme" Data="[이벤트] 가비야 테마"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
@@ -13431,6 +13451,7 @@
 		<Class ClassID="302079" ClassName="REGULAR_BURNING_EVENT_COUNT_RESET_SUCCESS" Data="성공적으로 레전드 레이드 및 업힐 디펜스 입장횟수를 초기화했습니다!"/>
 		<Class ClassID="302080" ClassName="REGULAR_BURNING_EVENT_COUNT_RESET_FAIL" Data="문제가 발생하여 횟수 초기화가 진행되지 않았습니다.{nl}잠시 후, 다시 시도해주십시오."/>
 		<Class ClassID="302081" ClassName="REGULAR_BURNING_EVENT_SUPPORTER" Data="주말 앤 버닝 도우미"/>
+		<Class ClassID="302082" ClassName="npc_Xmas_Evt_NPC" Data="[유료 상품 교환 NPC]{nl}가비야의 전령"/>
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>
@@ -13538,7 +13559,7 @@
 		<Class ClassID="501224" ClassName="EVENT_1906_TOTAL_SHOP_MSG2" Data="곧 주화가 지급됩니다. 주화 지급 전 종료시 정상적으로 아이템이 지급되지 않을 수 있습니다."/>
 		<Class ClassID="501227" ClassName="STM_SAVIOR_BUFF_PROP2" Data="배달원 버프 적용 (24시간)"/>
 		<Class ClassID="501228" ClassName="IsApplied_STM_SAVIOR_BUFF" Data="{@st47}{s21}이미 배달원의 혜택을 적용받고 있습니다.{/}{/}{nl} {nl}아이템을 재사용할 경우{nl}배달원 버프의 {@st66d_y}추가 시간이 제공되지 않으며{/},{nl}피자 버프만 1시간으로 변경됩니다.{nl} {nl}그래도 적용하시겠습니까?"/>
-						<Class ClassID="501233" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL" Data="변경된 밸런스에 맞춰 특정 클래스로 선택하신 구원자님을 지원해드리고 있습니다.{nl}지원 가능한 클래스를 확인해보세요."/>
+		<Class ClassID="501233" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL" Data="변경된 밸런스에 맞춰 특정 클래스로 선택하신 구원자님을 지원해드리고 있습니다.{nl}지원 가능한 클래스를 확인해보세요."/>
 		<Class ClassID="501234" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL1" Data="{#003399}소드맨 계열{/}{nl} - {Char1}"/>
 		<Class ClassID="501235" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL2" Data="{#003399}위저드 계열{/}{nl} - {Char2}"/>
 		<Class ClassID="501236" ClassName="JOB_BALLENCE_REWARD_NPC_CM_11_GLOBAL3" Data="{#003399}아처 계열{/}{nl} - {Char3}"/>
@@ -14207,7 +14228,7 @@
 		<Class ClassID="2000222" ClassName="WebService_602" Data="조회시간이 존재해야 합니다."/>
 		<Class ClassID="2000223" ClassName="WebService_603" Data="조회할 길드 인덱스가 필요합니다."/>
 		<Class ClassID="2000227" ClassName="WebService_46" Data="지원하지 않는 문자(언어)가 포함되어 있습니다."/>
-    <Class ClassID="2000230" ClassName="WebService_604" Data="이름은 1바이트 이상 12바이트 이하여야 합니다."/>
+		<Class ClassID="2000230" ClassName="WebService_604" Data="이름은 1바이트 이상 12바이트 이하여야 합니다."/>
 		<Class ClassID="2099994" ClassName="ImageUploadSuccess" Data="이미지가 성공적으로 업로드되었습니다"/>
 		<Class ClassID="2099995" ClassName="RegGuildPromoteBeforeImage" Data="이미지를 등록하기 전에 길드 홍보글을 등록해주세요"/>
 		<Class ClassID="2099996" ClassName="BannerUploadSuccess" Data="배너가 성공적으로 업로드되었습니다"/>
@@ -14245,7 +14266,7 @@
 		<Class ClassID="514010" ClassName="TableLand_ReturnCity{SEC}" Data="잠시 후 베다 고원으로 귀환됩니다. ({SEC}초)"/>
 		<Class ClassID="514011" ClassName="RAID_FIRST_KILL_NOTICE" Data="{partyMember} 파티가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
 		<Class ClassID="514012" ClassName="RAID_NEW_RECORD" Data="{partyMember} 파티가 {clearMin}분 {clearSec}초에 {raidName}의 클리어 시간을 단축했습니다!"/>
-			    	    <Class ClassID="514013" ClassName="SOLO_RAID_FIRST_KILL_NOTICE" Data="{teamName}가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
+		<Class ClassID="514013" ClassName="SOLO_RAID_FIRST_KILL_NOTICE" Data="{teamName}가 {clearMin}분 {clearSec}초에 {raidName}을/를 처음으로 클리어했습니다!"/>
 		<Class ClassID="514014" ClassName="SOLO_RAID_NEW_RECORD" Data="{teamName}이/가 {clearMin}분 {clearSec}초에 {raidName}의 클리어 시간을 단축했습니다!"/>
 		<Class ClassID="514015" ClassName="MORINGPONIA_NPC_MSG1" Data="지원? 고작이게 전부인가?"/>
 		<Class ClassID="514016" ClassName="MORINGPONIA_NPC_MSG2" Data="지원 병력인가? 전방에서는 이미 전투가 시작됐어. 서둘러야 해."/>
@@ -14270,7 +14291,7 @@
 		<Class ClassID="514035" ClassName="TANTALISER_POLARITY_PATTERN_START_MSG" Data="{s20}잠시 후 탄타이저가 극성 디버프를 부여합니다.{nl}진영을 갖추어 극성 디버프에 대비하십시오.{/}"/>
 		<Class ClassID="514036" ClassName="TANTALISER_POLARITY_PATTERN_CHANGE_MSG" Data="{s20}잠시 후 극성이 변환됩니다.{/}"/>
 	</Category>
-			<Category Name="SoloDungeon">
+	<Category Name="SoloDungeon">
 		<Class ClassID="513001" ClassName="SoloDungeonStageMSG" Data="스테이지의 몬스터가 몰려옵니다. 모두 처치해 주세요!"/>
 		<Class ClassID="513002" ClassName="SoloDungeonSelectMsg_1" Data="이공간에 들어간다(권장레벨:300)"/>
 		<Class ClassID="513003" ClassName="SoloDungeonSelectMsg_2" Data="이공간에 들어간 자들을 살펴본다"/>
@@ -14448,7 +14469,7 @@
 		<Class ClassID="540011" ClassName="Scoutbook" Data="신비한 서: 스카우트"/>
 		<Class ClassID="540012" ClassName="Archerbook" Data="신비한 서: 아처"/>
 		<Class ClassID="540013" ClassName="Arts_Please_Piece" Data="신비한 서 낱장 아이템을 먼저 등록해주세요"/>
-		<Class ClassID="540014" ClassName="Arts_FreeCoupon" Data="'아츠 습득 특성포인트 면제권'으로 특성 포인트가 소모되지 않습니다.{nl}{bookName} 을 사용하여 {abilName} {abilLevel}레벨을 획득하시겠습니까?"/>
+		<Class ClassID="540014" ClassName="Arts_FreeCoupon" Data="'아츠 습득 특성 포인트 면제권'으로 특성 포인트가 소모되지 않습니다.{nl}{bookName} 을 사용하여 {abilName} {abilLevel}레벨을 획득하시겠습니까?"/>
 	</Category>
 	<Category Name="ChatEmoticon">
 		<Class ClassID="560000" ClassName="Already_emoticon" Data="이미 보유한 이모티콘입니다."/>

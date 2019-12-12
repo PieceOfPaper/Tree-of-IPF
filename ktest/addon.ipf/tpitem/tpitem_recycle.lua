@@ -119,6 +119,13 @@ function CHECK_RECYCLE_SHOW_ITEM(frame, item)
 		return false;
 	end
 
+	-- Event Theme
+	if curSelectCate == 'Event_Theme' then
+		if item.ClassName ~= 'Effect_GabiaFire_re' and item.ClassName ~= 'wing_gabia_re' and item.ClassName ~= 'Doll_gabia_re' then
+			return false
+		end
+	end
+
 	-- text check
 	local recycle_input = GET_CHILD_RECURSIVELY(frame, 'recycle_input');
 	local searchText = recycle_input:GetText();
@@ -910,7 +917,8 @@ function RECYCLE_MAKE_TREE(frame)
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'War_costume_F');
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Wiz_costume_F');
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Arc_costume_F');
-	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Cle_costume_F');	
+	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Cle_costume_F');
+	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Event_Theme');
 	recycleCateTree:OpenNodeAll();
 end
 

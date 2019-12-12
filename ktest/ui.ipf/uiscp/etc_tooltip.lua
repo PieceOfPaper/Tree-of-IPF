@@ -335,7 +335,7 @@ function UPDATE_TRUST_POINT_TOOLTIP(tooltipframe, tree)
 	_SET_TRUST_POINT_PARAM_INFO(tooltipframe, 4, 'SafeAuth');
 	_SET_TRUST_POINT_PARAM_INFO(tooltipframe, 5, 'Quest');
 
-	if config.GetServiceNation() ~= 'KOR' and config.GetServiceNation() ~= 'GLOBAL' then
+	if config.GetServiceNation() ~= 'KOR' and config.GetServiceNation() ~= 'GLOBAL' and config.GetServiceNation() ~= 'GLOBAL_JP' then
 		_HIDE_SAFEAUTH_INFO(tooltipframe, 4, 5);
 	end
 end

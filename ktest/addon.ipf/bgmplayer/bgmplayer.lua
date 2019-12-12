@@ -2,8 +2,6 @@
 function BGMPLAYER_ON_INIT(addon, frame)
     local frame = ui.GetFrame("bgmplayer");
     if frame == nil then return end
-    LoadFavoritesBgmList();
-    SaveFavoritesBgmList();
     if IsBgmPlayerBasicFrameVisible() == 1 then
         BGMPLAYER_OPEN_UI();
         BGMPLAYER_FRAME_SET_POS(frame);
@@ -144,6 +142,9 @@ function BGMPLAYER_NOT_PLAYED_AREA_CHECK(frame)
 end
 
 function BGMPLAYER_OPEN_UI(frame, btn)
+    ReloadBgmPlayer();
+    LoadFavoritesBgmList();
+    SaveFavoritesBgmList();
     if IsBgmPlayerReductionFrameVisible() == 1 then
         return;
     end

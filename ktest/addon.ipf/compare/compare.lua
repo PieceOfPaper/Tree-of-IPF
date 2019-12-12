@@ -150,7 +150,7 @@ function SHOW_PC_COMPARE(cid)
 	charImage:SetImage(imagename)
 
 	local eqpList = otherpcinfo:GetEquipList();
-	SET_EQUIP_LIST(eqpSet, eqpList, PC_COMPARE_SET_ICON);
+	SET_EQUIP_LIST(eqpSet, eqpList, "PC_COMPARE_SET_ICON");
 
 	local OTHERPCJOBS = {}
 	for i = 0, otherpcinfo:GetJobCount() - 1 do

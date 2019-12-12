@@ -327,6 +327,24 @@ function BTN_PREVIEW_HOUSING(gbox, btn)
 	local mapClassName = session.GetMapName();
 	if mapClassName == "c_Klaipe" or mapClassName == "c_orsha" or mapClassName == "c_fedimian" then
 		housing.PreviewGuild(g_guildIdx)
+		
+		local guildinfo_detail = ui.GetFrame("guildinfo_detail");
+		if guildinfo_detail ~= nil then
+			guildinfo_detail:SetUserValue("IsOpened", "YES");
+			local promoBox = GET_CHILD_RECURSIVELY(guildinfo_detail, "promoBox");
+			if promoBox:IsScrollBarVisible() == true then
+				promoBox:SetUserValue("IsScrollBarVisible", 1);
+			else
+				promoBox:SetUserValue("IsScrollBarVisible", 0);
+			end
+			guildinfo_detail:ShowWindow(0);
+		end
+		
+		local guild_rank_info = ui.GetFrame("guild_rank_info");
+		if guild_rank_info ~= nil then
+			guild_rank_info:SetUserValue("IsOpened", "YES");
+			guild_rank_info:ShowWindow(0);
+		end
 	else
 		ui.SysMsg(ClMsg('AllowedInTown1'));
 	end

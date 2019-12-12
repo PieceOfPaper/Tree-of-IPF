@@ -2708,6 +2708,10 @@ function SET_EQUIP_SLOT_ITEMGRADE_BG(frame, slot, obj)
 end
 
 function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...) 
+	if frame ~= nil then
+		frame = frame:GetTopParentFrame();
+	end
+	
 	ui.inventory.InventorySetEquipSlotBySpot(frame:GetName(), equipItem, eqpItemList, iconFunc);
 end
 

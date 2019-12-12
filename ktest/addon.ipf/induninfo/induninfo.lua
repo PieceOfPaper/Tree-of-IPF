@@ -6,6 +6,14 @@ function INDUNINFO_ON_INIT(addon, frame)
 end
 
 g_indunCategoryList = nil;
+
+--[[
+    프던 보스 카운트 및 챌린지 모드 정보 표시하려고 추가함
+    contents_info.xml 데이터 중에서 ResetGroupID임
+    indun.xml의 PlayPerResetType과 중복을 피하기 위해 음수로 추가해보았음
+]] 
+g_contentsCategoryList = { -100, -200 }
+
 function PUSH_BACK_UNIQUE_INTO_INDUN_CATEGORY_LIST(cateType)
     if g_indunCategoryList == nil then        
         g_indunCategoryList ={100, 10000, 400, 800, 801, 200, 300, 500};
@@ -125,6 +133,46 @@ function INDUNINFO_CREATE_CATEGORY(frame)
             end
         end
     end
+
+    -- 인던 외 컨텐츠 표시를 일단 인던과 같이 하는데, 나중에 탭 형식으로 변경 필요함
+    local contentsClsList, count = GetClassList('contents_info')
+    for i = 0, count - 1 do
+        local contentsCls = GetClassByIndexFromList(contentsClsList, i)
+        if contentsCls ~= nil then
+            local resetGroupID = contentsCls.ResetGroupID
+            local category = contentsCls.Category
+            local categoryCtrl = categoryBox:GetChild('CATEGORY_CTRL_'..resetGroupID)
+            if categoryCtrl == nil and category ~= 'None' then
+                resetGroupTable[resetGroupID] = 1;
+                categoryCtrl = categoryBox:CreateOrGetControlSet('indun_cate_ctrl', 'CATEGORY_CTRL_'..resetGroupID, 0, i * 50);
+
+                local name = categoryCtrl:GetChild("name");
+                local btn = categoryCtrl:GetChild("button");
+                local countText = categoryCtrl:GetChild('countText');
+                local cyclePicImg = GET_CHILD_RECURSIVELY(categoryCtrl, 'cycleCtrlPic')   --주/일 표시 이미지
+
+                btn:Resize(categoryBtnWidth, categoryCtrl:GetHeight());
+                name:SetTextByKey("value", category);
+                countText:SetTextByKey('current', GET_CURRENT_ENTERANCE_COUNT(resetGroupID));
+                countText:SetTextByKey('max', GET_MAX_ENTERANCE_COUNT(resetGroupID));
+                if contentsCls.ResetPer == 'WEEK' then
+                    cyclePicImg:SetImage('indun_icon_week_s')
+                elseif contentsCls.ResetPer == 'DAY' then
+                    cyclePicImg:SetImage('indun_icon_day_s')
+                else
+                    cyclePicImg:ShowWindow(0);
+                end
+
+                categoryCtrl:SetUserValue('RESET_GROUP_ID', resetGroupID);
+                if firstBtn == nil then -- 디폴트는 첫번째가 클릭되게 함
+                    firstBtn = btn;
+                end
+            elseif categoryCtrl ~= nil and category ~= 'None' then
+                resetGroupTable[resetGroupID] = resetGroupTable[resetGroupID] + 1;
+            end
+        end
+    end
+
     INDUNINFO_CATEGORY_ALIGN_DEFAULT(categoryBox);
 
     -- set the number of indun
@@ -155,6 +203,23 @@ function INDUNINFO_CATEGORY_ALIGN_DEFAULT(categoryBox)
             local indunListBox = GET_CHILD(categoryBox, 'INDUN_LIST_BOX');
             if indunListBox ~= nil then
                 indunListBox:SetOffset(indunListBox:GetX(), y);                
+                y = y + indunListBox:GetHeight() + spacey;
+            end
+        end
+    end
+
+    for i = 1, #g_contentsCategoryList do
+        local resetGroupID = g_contentsCategoryList[i]
+        local categoryCtrl = GET_CHILD_RECURSIVELY(categoryBox, 'CATEGORY_CTRL_'..resetGroupID);
+        if categoryCtrl ~= nil then
+            categoryCtrl:SetOffset(categoryCtrl:GetX(), y);
+            y = y + categoryCtrl:GetHeight() + spacey;
+        end
+
+        if resetGroupID == selectedGroupID then
+            local indunListBox = GET_CHILD(categoryBox, 'INDUN_LIST_BOX');
+            if indunListBox ~= nil then
+                indunListBox:SetOffset(indunListBox:GetX(), y);
                 y = y + indunListBox:GetHeight() + spacey;
             end
         end
@@ -196,6 +261,56 @@ function INDUNINFO_CATEGORY_LBTN_CLICK(categoryCtrl, ctrl)
     indunListBox:EnableDrawFrame(0);
     indunListBox:EnableScrollBar(0);
 
+    if selectedResetGroupID < 0 then
+        local contentsClsList, count = GetClassList('contents_info')
+        local showCnt = 0
+        for i = 0, count - 1 do
+            local contentsCls = GetClassByIndexFromList(contentsClsList, i)
+            if contentsCls ~= nil and contentsCls.ResetGroupID == selectedResetGroupID and contentsCls.Category ~= 'None' then
+                local indunDetailCtrl = indunListBox:CreateOrGetControlSet('indun_detail_ctrl', 'DETAIL_CTRL_' .. contentsCls.ClassID, 0, 0);
+                indunDetailCtrl = tolua.cast(indunDetailCtrl, 'ui::CControlSet');
+                indunDetailCtrl:SetUserValue('INDUN_CLASS_ID', contentsCls.ClassID);
+                indunDetailCtrl:SetEventScript(ui.LBUTTONUP, 'INDUNINFO_DETAIL_LBTN_CLICK');
+        
+                local infoText = indunDetailCtrl:GetChild('infoText');
+                local nameText = indunDetailCtrl:GetChild('nameText');
+                indunDetailCtrl:RemoveChild('onlinePic')
+                
+                infoText:SetTextByKey('level', contentsCls.Level);
+                nameText:SetTextByKey('name', contentsCls.Name);
+                if showCnt == 0 then -- 디폴트는 리스트의 첫번째
+                    indunListBox:SetUserValue('FIRST_INDUN_ID', contentsCls.ClassID)
+                    INDUNINFO_DETAIL_LBTN_CLICK(indunListBox, indunDetailCtrl);
+                end
+                showCnt = showCnt + 1;
+                g_selectedIndunTable[showCnt] = contentsCls;
+                -- 주간 입장 텍스트 설정
+                local resetInfoText = GET_CHILD_RECURSIVELY(topFrame, 'resetInfoText');             --"입장 횟수는 매일 %s시에 초기화 됩니다."
+                local resetInfoText_Week = GET_CHILD_RECURSIVELY(topFrame, 'resetInfoText_Week');   --"입장 횟수는 매주 월요일 %s시에 초기화 됩니다."
+        
+                local resetTime = INDUN_RESET_TIME % 12;
+                local ampm = ClMsg('AM');
+                if INDUN_RESET_TIME > 12 then
+                    ampm = ClMsg('PM');
+                end
+        
+                --주간 입장인지, 일간 입장인지
+                if contentsCls.ResetPer == 'WEEK' then
+                    --주간
+                    local resetText_wkeely = string.format('%s %s', ampm, resetTime);
+                    resetInfoText_Week:SetTextByKey('resetTime', resetText_wkeely);
+                    resetInfoText:ShowWindow(0);
+                    resetInfoText_Week:ShowWindow(1);
+                elseif contentsCls.ResetPer == 'DAY' then
+                    --일간
+                    local resetText = string.format('%s %s', ampm, resetTime);
+                    resetInfoText:SetTextByKey('resetTime', resetText);
+                    resetInfoText_Week:ShowWindow(0);
+                    resetInfoText:ShowWindow(1);
+                end
+            end
+        end
+    else
     local indunClsList, cnt = GetClassList('Indun');    
     local showCnt = 0;    
     for i = 0, cnt - 1 do
@@ -250,6 +365,7 @@ function INDUNINFO_CATEGORY_LBTN_CLICK(categoryCtrl, ctrl)
             end
         end
     end
+    end
     GBOX_AUTO_ALIGN(indunListBox, 0, 2, 0, true, true);
 
     -- category box align
@@ -262,6 +378,23 @@ function GET_CURRENT_ENTERANCE_COUNT(resetGroupID)
     local acc_obj = GetMyAccountObj()
     if etc == nil or acc_obj == nil then
         return 0;
+    end
+    
+    if resetGroupID < 0 then
+        local contentsClsList, count = GetClassList('contents_info')
+        local contentsCls = nil
+        for i = 0, count - 1 do
+            contentsCls = GetClassByIndexFromList(contentsClsList, i)
+            if contentsCls ~= nil and contentsCls.ResetGroupID == resetGroupID and contentsCls.Category ~= 'None' then
+                break
+            end
+        end
+
+        if contentsCls.UnitPerReset == 'PC' then
+            return etc[contentsCls.ResetType]
+        else
+            return acc_obj[contentsCls.ResetType]
+        end
     end
     
     local indunClsList, cnt = GetClassList('Indun');
@@ -293,6 +426,18 @@ function GET_MAX_ENTERANCE_COUNT(resetGroupID)
         return 0;
     end
 
+    if resetGroupID < 0 then
+        local contentsClsList, count = GetClassList('contents_info')
+        local contentsCls = nil
+        for i = 0, count - 1 do
+            contentsCls = GetClassByIndexFromList(contentsClsList, i)
+            if contentsCls ~= nil and contentsCls.ResetGroupID == resetGroupID and contentsCls.Category ~= 'None' then
+                break
+            end
+        end
+
+        return contentsCls.EnterableCount
+    else
     local indunClsList, cnt = GetClassList('Indun');
     local indunCls = nil;
     for i = 0, cnt - 1 do
@@ -326,6 +471,7 @@ function GET_MAX_ENTERANCE_COUNT(resetGroupID)
         return indunCls.PlayPerReset + bonusCount;          --매일 max
     end
 end
+end
 
 function GET_RESET_CYCLE(resetGroupID)
     local etc = GetMyEtcObject();
@@ -333,6 +479,24 @@ function GET_RESET_CYCLE(resetGroupID)
         return 0;
     end
     
+    local isWeekCycle = false;  --주단위로 리셋되면 true, 일단위로 리셋되면 false
+
+    if resetGroupID < 0 then
+        local contentsClsList, count = GetClassList('contents_info')
+        local contentsCls = nil
+        for i = 0, cnt - 1 do
+            contentsCls = GetClassByIndexFromList(contentsClsList, i)
+            if contentsCls ~= nil and contentsCls.ResetGroupID == resetGroupID and contentsCls.Category ~= 'None' then
+                break
+            end
+        end
+
+        if contentsCls.ResetPer == 'WEEK' then
+            isWeekCycle = true
+        else
+            isWeekCycle = false
+        end
+    else
     local indunClsList, cnt = GetClassList('Indun');
     local indunCls = nil;
     for i = 0, cnt - 1 do
@@ -346,8 +510,6 @@ function GET_RESET_CYCLE(resetGroupID)
         etc = GetMyAccountObj()
     end
 
-    local isWeekCycle = false;  --주단위로 리셋되면 true, 일단위로 리셋되면 false
-    
     local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
     
     if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
@@ -365,6 +527,7 @@ function GET_RESET_CYCLE(resetGroupID)
     else
         --return 'token_off'  --횟수가 매일 리셋되는 던전
         isWeekCycle = false;
+    end
     end
     return isWeekCycle;
 end
@@ -401,12 +564,18 @@ function INDUNINFO_DETAIL_LBTN_CLICK(parent, detailCtrl)
     indunListBox:SetUserValue('SELECTED_DETAIL', indunClassID);
     -- 인스턴스 던전 정보 처리를 위한 임시 처리 끝 --
     
+    local resetGroupID = topFrame:GetUserIValue('SELECT')
+    if resetGroupID < 0 then
+        INDUNINFO_MAKE_DETAIL_INFO_BOX_OTHER(topFrame, indunClassID)
+    else
     INDUNINFO_MAKE_DETAIL_INFO_BOX(topFrame, indunClassID);
+end
 end
 
 -- 큐브 재개봉 시스템 개편에 따른 변경사항으로 보상 아이템 목록 보여주는 부분 큐브 대신 구성품으로 풀어서 보여주도록 변경함(2019.2.27 변경)
 function INDUNINFO_DROPBOX_ITEM_LIST(parent, control)
     local topFrame = parent:GetTopParentFrame();
+    local selectType = topFrame:GetUserIValue('SELECT');
     local categoryBox = GET_CHILD_RECURSIVELY(topFrame,'categoryBox')
     local indunListBox = GET_CHILD_RECURSIVELY(categoryBox, 'INDUN_LIST_BOX');
     local indunClassID = indunListBox:GetUserIValue('SELECTED_DETAIL');
@@ -414,12 +583,24 @@ function INDUNINFO_DROPBOX_ITEM_LIST(parent, control)
     
     local controlName = control:GetName();
     -- 여기서 부터
-    local indunCls = GetClassByType('Indun', indunClassID);
-    local dungeonType = TryGetProp(indunCls, 'DungeonType')
+    local indunCls = nil
+    local dungeonType = nil
+    local indunRewardItem = nil
+    local groupList = nil
+    if selectType < 0 then
+        indunCls = GetClassByType('contents_info', indunClassID)
+        indunRewardItem = TryGetProp(indunCls, 'RewardItem')
+    else
+        indunCls = GetClassByType('Indun', indunClassID);
+        dungeonType = TryGetProp(indunCls, 'DungeonType')
     local indunClsName = TryGetProp(indunCls, 'ClassName')
     local rewardItem = GetClass('Indun_reward_item', indunClsName)
-    local indunRewardItem = TryGetProp(rewardItem, 'Reward_Item')
-    local groupList = SCR_STRING_CUT(indunRewardItem, '/')
+        indunRewardItem = TryGetProp(rewardItem, 'Reward_Item')
+    end
+
+    if indunRewardItem ~= nil and indunRewardItem ~= 'None' then
+        groupList = SCR_STRING_CUT(indunRewardItem, '/')
+    end
 
     local indunRewardItemList = { };
     indunRewardItemList['weaponBtn'] = { };
@@ -429,7 +610,10 @@ function INDUNINFO_DROPBOX_ITEM_LIST(parent, control)
     indunRewardItemList['materialBtn'] = { };
 
     -- 보상 아이템 목록이 서로 다른 idSpace에 존재하여 처리해주었음 
-    allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_indun');
+    local allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_indun');
+    if selectType < 0 then
+        allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_freedungeon')
+    end
 
     if groupList ~= nil then
         for i = 1, #groupList do
@@ -947,8 +1131,116 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
     INDUNENTER_MAKE_MONLIST(frame, indunCls);
 end
 
+function INDUNINFO_MAKE_DETAIL_INFO_BOX_OTHER(frame, indunClassID)
+    local contentsCls = GetClassByType('contents_info', indunClassID)
+    if contentsCls == nil then
+        return;
+    end
+
+    local etc = GetMyEtcObject();
+    if contentsCls.UnitPerReset == 'ACCOUNT' then
+        etc = GetMyAccountObj()
+    end
+
+    if etc == nil then
+        return
+    end
+
+    -- name
+    local nameBox = GET_CHILD_RECURSIVELY(frame, 'nameBox');
+    local nameText = nameBox:GetChild('nameText');    
+    nameText:SetTextByKey('name', contentsCls.Name);
+    
+    -- picture
+    local indunPic = GET_CHILD_RECURSIVELY(frame, 'indunPic');
+    indunPic:SetImage(contentsCls.MapImage)
+
+    -- count
+    local countData = GET_CHILD_RECURSIVELY(frame, 'countData');
+    local cycleImage = GET_CHILD_RECURSIVELY(frame, 'cyclePic');
+
+    -- skill restriction
+    local restrictBox = GET_CHILD_RECURSIVELY(frame, 'restrictBox');
+    restrictBox:ShowWindow(0);
+    
+    local countItemData = GET_CHILD_RECURSIVELY(frame, 'countItemData');
+    local resetGroupID = contentsCls.ResetGroupID
+    
+    countData:SetTextByKey('now', GET_CURRENT_ENTERANCE_COUNT(resetGroupID));
+    countData:SetTextByKey('max', GET_MAX_ENTERANCE_COUNT(resetGroupID));
+
+    if contentsCls.ResetPer == 'WEEK' then
+        cycleImage:SetImage('indun_icon_week_l')
+        cycleImage:ShowWindow(1);
+    elseif contentsCls.ResetPer == 'DAY' then
+        cycleImage:SetImage('indun_icon_day_l');
+        cycleImage:ShowWindow(1);
+    else
+        cycleImage:ShowWindow(0);
+    end
+
+    local countBox = GET_CHILD_RECURSIVELY(frame, 'countBox');
+    local countText = GET_CHILD_RECURSIVELY(countBox, 'countText');
+    local cycleCtrlPic = GET_CHILD_RECURSIVELY(countBox, 'cycleCtrlPic');
+
+    countText:SetText(ScpArgMsg("IndunAdmissionItemReset"))
+    countData:ShowWindow(1);
+    countItemData:ShowWindow(0);
+    cycleCtrlPic:ShowWindow(0);
+
+    -- level
+    local lvData = GET_CHILD_RECURSIVELY(frame, 'lvData');
+    lvData:SetText(contentsCls.Level);
+
+    -- map
+    local posBox = GET_CHILD_RECURSIVELY(frame, 'posBox');
+    local monBox = GET_CHILD_RECURSIVELY(frame, 'monBox');
+    local rewardBox = GET_CHILD_RECURSIVELY(frame, 'rewardBox');
+    posBox:ShowWindow(1)
+    monBox:ShowWindow(1)
+    rewardBox:ShowWindow(1)
+    local resizeHeight = tonumber(frame:GetUserConfig('HEIGHT_RESIZE_FOR_BUTTON'));
+    local originHeight = tonumber(frame:GetUserConfig('POSBOX_ORIGIN_HEIGHT'));
+    local mon_origin_top = tonumber(frame:GetUserConfig('MON_ORIGIN_TOP'));
+    local reward_origin_top = tonumber(frame:GetUserConfig('REWARD_ORIGIN_TOP'));
+    local moveBox = GET_CHILD_RECURSIVELY(frame, 'moveBox');
+    moveBox:ShowWindow(0);
+
+    if posBox:GetHeight() ~= originHeight then
+        posBox:Resize(posBox:GetWidth(), originHeight);
+    end
+
+    local mon_margin = monBox:GetMargin();
+    if mon_margin.top ~= mon_origin_top then
+        monBox:SetMargin(mon_margin.left, mon_origin_top, mon_margin.right, mon_margin.bottom);
+    end
+
+    local reward_margin = rewardBox:GetMargin();
+    if reward_margin.top ~= reward_origin_top then
+        rewardBox:SetMargin(reward_margin.left, reward_origin_top, reward_margin.right, reward_margin.bottom);
+    end
+
+    DESTROY_CHILD_BYNAME(posBox, 'MAP_CTRL_');
+    local mapList = StringSplit(contentsCls.StartMap, '/');
+    for i = 1, #mapList do
+        local mapCls = GetClass('Map', mapList[i]);        
+        if mapCls ~= nil then
+            local mapCtrlSet = posBox:CreateOrGetControlSet('indun_pos_ctrl', 'MAP_CTRL_'..mapCls.ClassID, 0, 0);            
+            local mapNameText = mapCtrlSet:GetChild('mapNameText');
+            mapCtrlSet:SetGravity(ui.RIGHT, ui.TOP);
+            mapCtrlSet:SetOffset(0, 10 + (10 + mapCtrlSet:GetHeight()) * (i - 1));
+            mapCtrlSet:SetUserValue('INDUN_CLASS_ID', indunClassID);
+            mapCtrlSet:SetUserValue('INDUN_START_MAP_ID', mapCls.ClassID);
+            mapNameText:SetText(mapCls.Name);
+        end
+    end
+
+    INDUNENTER_MAKE_MONLIST(frame, contentsCls);
+end
+
 function INDUNINFO_SORT_BY_LEVEL(parent, ctrl)    
     local topFrame = parent:GetTopParentFrame();
+    local resetGroupID = topFrame:GetUserIValue('SELECT')
     local radioBtn = GET_CHILD_RECURSIVELY(topFrame, 'lvAscendRadio');
     local selectedBtn = radioBtn:GetSelectedButton();    
     if selectedBtn:GetName() == 'lvAscendRadio' then
@@ -983,7 +1275,11 @@ function INDUNINFO_SORT_BY_LEVEL(parent, ctrl)
     end
     
     local firstSelectedID = indunListBox:GetUserIValue('FIRST_INDUN_ID');
-    INDUNINFO_MAKE_DETAIL_INFO_BOX(topFrame, firstSelectedID);
+    if resetGroupID < 0 then
+        INDUNINFO_MAKE_DETAIL_INFO_BOX_OTHER(topFrame, firstSelectedID)
+    else
+        INDUNINFO_MAKE_DETAIL_INFO_BOX(topFrame, firstSelectedID);
+    end
     indunListBox:SetUserValue('SELECTED_DETAIL', firstSelectedID);
 end
 
@@ -1018,7 +1314,13 @@ end
 function INDUNINFO_OPEN_INDUN_MAP(parent, ctrl)
     local mapID = parent:GetUserValue('INDUN_START_MAP_ID');
     local indunClassID = parent:GetUserValue('INDUN_CLASS_ID');
+    local topFrame = parent:GetTopParentFrame()
+    local resetGroupID = topFrame:GetUserIValue('SELECT')
+    if resetGroupID < 0 then
+        OPEN_INDUN_MAP_INFO(indunClassID, mapID, resetGroupID);
+    else
     OPEN_INDUN_MAP_INFO(indunClassID, mapID);
+end
 end
 
 function INDUN_CANNOT_YET(msg)

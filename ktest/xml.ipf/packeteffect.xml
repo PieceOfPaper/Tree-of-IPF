@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <packeteffects>
+    <Category ID="139">
+        <Effect Name="E_pc_effectitem_gabia"/>
+    </Category>
     <Category ID="143">
         <Effect Name="Appraiser_Blindside"/>
         <Effect Name="Exorcist_Katadikazo"/>
@@ -107,8 +110,6 @@
 	<Effect Name="F_circle25_yellow"/>
 	<Effect Name="boss_Moringponia_Poison"/>
 		<Effect Name="I_pc_question_arrow_mash"/>
-		<Effect Name="raid_lepidoptera"/>
-		<Effect Name="boss_lepidoptera"/>
 		<Effect Name="F_ground194_lightning_blue"/>
 		<Effect Name="F_ground194_lightning_red"/>
 		<Effect Name="I_chain004_mash_loop_multi_blue"/>
@@ -909,6 +910,19 @@
         <Effect Name="F_pose_magical2_light01"/>
         <Effect Name="F_light103_white_line"/>
         <Effect Name="F_wizard_EnchantLightning_buff"/>
+        <Effect Name="I_smoke013_whiteDark"/>
+        <Effect Name="EP12_PRELUDE_04_MINI"/>
+        <Effect Name="F_wizard_PoleofAgony_shot_burstup"/>
+        <Effect Name="I_force018_trail_holy_800"/>
+        <Effect Name="I_force018_trail_holy"/>
+        <Effect Name="F_circle026"/>
+        <Effect Name="EP12_PRELUDE_07_MINI"/>
+        <Effect Name="F_spread_in030_holy_loop"/>
+        <Effect Name="F_wizard_psyckicpressure_hit_spread_out"/>
+        <Effect Name="I_spread_in011_3"/>
+        <Effect Name="I_spread_in011_2"/>
+        <Effect Name="EP12_PRELUDE_08_MINI"/>
+        <Effect Name="F_archer_Matross_CanisterShot_explosion"/>
     </Category>
     <Category ID="83">
         <Effect Name="SKL_ARIES"/>

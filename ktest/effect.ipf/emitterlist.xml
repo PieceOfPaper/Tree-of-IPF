@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <EmitterList>
-	<battle name="E_pc_effectitem_gabia" filename="E_pc_effectitem_gabia" loop="true" nodecount="30" xml="E_pc_effectitem_gabia.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_warrior_controlblade002_1" filename="E_warrior_controlblade004" loop="false" nodecount="30" xml="E_warrior_controlblade002_1.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_warrior_controlblade004" filename="E_warrior_controlblade004" loop="false" nodecount="30" xml="E_warrior_controlblade004.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_pc_effectitem_gabia" filename="E_pc_effectitem_gabia" loop="true" nodecount="30" xml="E_pc_effectitem_gabia.xml" paused="NO" is2D="FALSE" softParticleFactor="1" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_warrior_controlblade003" filename="E_warrior_controlblade002" loop="false" nodecount="30" xml="E_warrior_controlblade003.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_warrior_controlblade002" filename="E_warrior_controlblade002" loop="false" nodecount="30" xml="E_warrior_controlblade002.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_warrior_blossomslash" filename="E_warrior_blossomslash" loop="false" nodecount="30" xml="E_warrior_blossomslash.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
