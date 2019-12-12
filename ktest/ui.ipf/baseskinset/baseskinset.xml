@@ -6223,6 +6223,12 @@
 			<img name="cooltime" imgrect="1565 804 54 54"/>
 			<img name="selected" imgrect="1565 804 54 54"/>
 		</skin>
+		<skin name="ark_slot" texture="\skin\pip_test.tga">
+			<img name="slot" imgrect="2049 0 60 60"/>
+			<img name="mouseon" imgrect="1163 801 100 100"/>
+			<img name="cooltime" imgrect="1163 801 100 100"/>
+			<img name="selected" imgrect="1163 801 100 100"/>
+		</skin>
 	</skinlist>
 	<imagelist category="wearing_weapon">
 		<image name="weapon_OHS" file="\icon\wearing_weapon.tga" imgrect="0 0 20 20" CMM_Caption="한손검"/>
@@ -6922,6 +6928,20 @@
 		<image name="housing_level_icon_04" file="\skin\guild_skin.tga" imgrect="497 714 100 100" CMM_Caption="길드하우징 레벨 아이콘4"/>
 		<image name="housing_level_icon_05" file="\skin\guild_skin.tga" imgrect="598 714 100 100" CMM_Caption="길드하우징 레벨 아이콘5"/>
 		<image name="housing_brown_box" file="\skin\guild_skin.tga" imgrect="1 872 607 109" CMM_Caption="길드하우징 bg"/>
+		<image name="indun_icon_mon" file="\skin\indun_skin.tga" imgrect="776 615 27 20" CMM_Caption="던전 요일 표시 : 월"/>
+		<image name="indun_icon_tue" file="\skin\indun_skin.tga" imgrect="804 615 27 20"/>
+		<image name="indun_icon_wed" file="\skin\indun_skin.tga" imgrect="832 615 27 20"/>
+		<image name="indun_icon_thu" file="\skin\indun_skin.tga" imgrect="860 615 27 20"/>
+		<image name="indun_icon_fri" file="\skin\indun_skin.tga" imgrect="888 615 27 20"/>
+		<image name="indun_icon_sat" file="\skin\indun_skin.tga" imgrect="916 615 27 20"/>
+		<image name="indun_icon_sun" file="\skin\indun_skin.tga" imgrect="944 615 27 20"/>
+		<image name="indun_icon_mon_eng" file="\skin\indun_skin.tga" imgrect="776 594 27 20" CMM_Caption="던전 요일 표시 : 월_영문"/>
+		<image name="indun_icon_tue_eng" file="\skin\indun_skin.tga" imgrect="804 594 27 20"/>
+		<image name="indun_icon_wed_eng" file="\skin\indun_skin.tga" imgrect="832 594 27 20"/>
+		<image name="indun_icon_thu_eng" file="\skin\indun_skin.tga" imgrect="860 594 27 20"/>
+		<image name="indun_icon_fri_eng" file="\skin\indun_skin.tga" imgrect="888 594 27 20"/>
+		<image name="indun_icon_sat_eng" file="\skin\indun_skin.tga" imgrect="916 594 27 20"/>
+		<image name="indun_icon_sun_eng" file="\skin\indun_skin.tga" imgrect="944 594 27 20"/>
 		<image name="open_leftup" file="\skin\tooltip_skin_3.tga" imgrect="418 802 23 23" CMM_Caption="프랍 회전 아이콘"/>
 		<image name="open_leftdown" file="\skin\tooltip_skin_3.tga" imgrect="442 802 23 23"/>
 		<image name="open_rightup" file="\skin\tooltip_skin_3.tga" imgrect="466 802 23 23"/>
@@ -7301,6 +7321,8 @@
 		<image name="rolling_blue_balloon_direction" file="\skin\say_balloon.tga" imgrect="1 152 82 75" CMM_Caption="블루다이아 말풍선 말꼬리"/>
 		<image name="personal_housing_guide_plusmark" file="\skin\pip_test2.tga" imgrect="846 286 25 25" CMM_Caption="개인하우징 가이드 플러스마크"/>
 		<image name="very_nice_stamp_eng" file="\skin\stamp_tour.tga" imgrect="1079 340 124 124" CMM_Caption="a++ 도장"/>
+		<image name="casual_gambling_slot" file="\skin\god_protect_skin.tga" imgrect="714 391 110 110" CMM_Caption="캐주얼 던전 겜블 슬롯"/>
+		<image name="gold_arrow_below" file="\skin\monstercard.tga" imgrect="1 915 65 81" CMM_Caption="황금화살표 아래 방향"/>
 	</imagelist>
 	<imagelist category="je_button">
 		<image name="menu_guild_info" file="\skin\guild_skin.tga" imgrect="165 298 45 45" CMM_Caption="길드 정보"/>
@@ -7462,6 +7484,12 @@
 		<image name="button_view_info" file="\skin\pip_test2.tga" imgrect="683 109 26 25"/>
 		<image name="button_view_info_cursoron" file="\skin\pip_test2.tga" imgrect="710 109 26 25"/>
 		<image name="button_view_info_clicked" file="\skin\pip_test2.tga" imgrect="710 109 26 25"/>
+		<image name="button_reduction_mini" file="\skin\pip_test2.tga" imgrect="683 135 26 25" CMM_Caption="돌발퀘스트 접기 버튼"/>
+		<image name="button_reduction_mini_cursoron" file="\skin\pip_test2.tga" imgrect="710 135 26 25"/>
+		<image name="button_reduction_mini_clicked" file="\skin\pip_test2.tga" imgrect="710 135 26 25"/>
+		<image name="button_close_mini" file="\skin\pip_test2.tga" imgrect="683 161 26 25" CMM_Caption="돌발퀘스트 닫기 버튼"/>
+		<image name="button_close_mini_cursoron" file="\skin\pip_test2.tga" imgrect="710 161 26 25"/>
+		<image name="button_close_mini_clicked" file="\skin\pip_test2.tga" imgrect="710 161 26 25"/>
 		<image name="btn_use_buff_personal_on" file="\skin\guild_skin.tga" imgrect="706 666 82 43" CMM_Caption="길드 버프_개인"/>
 		<image name="btn_use_buff_personal_on_cursoron" file="\skin\guild_skin.tga" imgrect="706 666 82 43"/>
 		<image name="btn_use_buff_personal_on_clicked" file="\skin\guild_skin.tga" imgrect="706 666 82 43"/>
@@ -7679,6 +7707,9 @@
 		<image name="housing_name_change" file="\skin\pip_test2.tga" imgrect="759 286 28 28" CMM_Caption="개인하우징_커스텀_이름바꾸기"/>
 		<image name="housing_name_change_cursoron" file="\skin\pip_test2.tga" imgrect="788 286 28 28"/>
 		<image name="housing_name_change_clicked" file="\skin\pip_test2.tga" imgrect="817 286 28 28"/>
+		<image name="casual_gambling_token" file="\skin\god_protect_skin.tga" imgrect="295 948 72 72" CMM_Caption="캐주얼 던전 겜블링 오픈 버튼"/>
+		<image name="casual_gambling_token_cursoron" file="\skin\god_protect_skin.tga" imgrect="368 948 72 72"/>
+		<image name="casual_gambling_token_clicked" file="\skin\god_protect_skin.tga" imgrect="441 948 72 72"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -9759,6 +9790,12 @@
 		<image name="Dlg_port_Baiga" file="\npcimg\Baiga.png" imgrect="0 0 800 1000" CMM_Caption="바이가"/>
 		<image name="Dlg_port_Baiga_override" file="\npcimg\Baiga_override.png" imgrect="0 0 800 1000" CMM_Caption="바이가 실루엣"/>
 		<image name="Dlg_port_Ragana" file="\npcimg\Ragana.png" imgrect="0 0 800 1000" CMM_Caption="라가나"/>
+		<image name="Dlg_port_Ausirine" file="\npcimg\Ausirine.png" imgrect="0 0 800 1000" CMM_Caption="아우슈리네"/>
+		<image name="Dlg_port_RANGDA_MASTER" file="\npcimg\RANGDA_MASTER.png" imgrect="0 0 1000 1000" CMM_Caption="랑다 마스터"/>
+		<image name="Dlg_port_TERRAMANCER_MASTER" file="\npcimg\TERRAMANCER_MASTER.png" imgrect="0 0 700 900" CMM_Caption="테라맨서 마스터"/>
+		<image name="Dlg_port_BLOSSOMBLADER_MASTER" file="\npcimg\BLOSSOMBLADER_MASTER.png" imgrect="0 0 650 800" CMM_Caption="매화검수 마스터"/>
+		<image name="Dlg_port_ARBALESTER_MASTER" file="\npcimg\ARBALESTER_MASTER.png" imgrect="0 0 750 950" CMM_Caption="아발리스터 마스터"/>
+		<image name="Dlg_port_CRUSADER_MASTER" file="\npcimg\CRUSADER_MASTER.png" imgrect="0 0 800 1000" CMM_Caption="크루세이더 마스터"/>
 	</imagelist>
 	<imagelist category="Dlg_boss">
 		<image name="balloon_Skiaclipse" file="\skin\monster_Dlg.tga" imgrect="0 0 220 260" CMM_Caption="스키아클립스"/>
@@ -10050,6 +10087,12 @@
 		<image name="icon_MORINGPONIA_POISON_RESISTANCE" file="\icon\buff_icon3.tga" imgrect="384 128 128 128" CMM_Caption="독 내성"/>
 		<image name="icon_MORINGPONIA_CHANGE_FACTION_DEBUFF" file="\icon\buff_icon3.tga" imgrect="512 128 128 128" CMM_Caption="변이"/>
 		<image name="icon_MORINGPONIA_CHANGE_FACTION2_DEBUFF" file="\icon\buff_icon3.tga" imgrect="640 128 128 128" CMM_Caption="피아식별 불가"/>
+		<image name="icon_cler_ChantsH" file="\icon\buff_icon3.tga" imgrect="768 128 128 128" CMM_Caption="찬트: 여신의 가호 (버프 아이콘)"/>
+		<image name="icon_cler_ChantsD" file="\icon\buff_icon3.tga" imgrect="896 128 128 128" CMM_Caption="찬트: 여신의 징벌 (버프 아이콘)"/>
+		<image name="icon_cler_ChantsHD" file="\icon\buff_icon3.tga" imgrect="0 256 128 128" CMM_Caption="찬트: 여신의 축복 (버프 아이콘)"/>
+		<image name="icon_ability_archer_arbalester16" file="\icon\buff_icon3.tga" imgrect="128 256 128 128" CMM_Caption="아발리스터 버프01"/>
+		<image name="icon_ability_archer_arbalester17" file="\icon\buff_icon3.tga" imgrect="256 256 128 128" CMM_Caption="아발리스터 버프02"/>
+		<image name="icon_ability_Wizard_terramancer17" file="\icon\buff_icon3.tga" imgrect="384 256 128 128" CMM_Caption="테라맨서 버프"/>
 	</imagelist>
 	<imagelist category="housing_bufficon">
 		<image name="icon_Weapon_Klaida" file="\icon\icon_hosing_buff.tga" imgrect="0 0 128 128"/>

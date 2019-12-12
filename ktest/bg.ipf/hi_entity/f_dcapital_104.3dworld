@@ -1,8 +1,38 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\field\f_dcapital_104\"/>
-	<TexDir IpfName="bg_texture" Path="\common\"/>
-	<Model File="f_dcapital_104_ground.xac" Model="f_dcapital_104_ground" pos="0.0 0.0 0.0" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<ModelDir IpfName="bg_hi3" Path="\field\f_dcapital_104\"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\field\f_dcapital_104\"/>
+	<LightMap File="f_dcapital_104_lightmap.jpg" Length="4500 4500" Offset="-38.024 -118.511" Size="1024 1024"/>
+	<SubTexDir IpfName="bg_texture" Path="\desolated_capital\"/>
+	<TexDir IpfName="bg_texture" Path="\orsha\"/>
+	<Model File="f_dcapital_104_model_05.xac" Model="f_dcapital_104_model_05" ShadowMap="f_dcapital_104_model_05" pos="737.1851 50.3185 -527.4968" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_14.xac" Model="f_dcapital_104_model_14" ShadowMap="f_dcapital_104_model_14" pos="-87.9470 -50.7958 -461.4463" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_07.xac" Model="f_dcapital_104_model_07" ShadowMap="f_dcapital_104_model_07" pos="-187.2883 160.5226 951.6226" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_02.xac" Model="f_dcapital_104_model_02" ShadowMap="f_dcapital_104_model_02" pos="151.4994 -10.4794 -467.4360" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_01.xac" Model="f_dcapital_104_model_01" ShadowMap="f_dcapital_104_model_01" pos="-223.2843 32.5518 -203.8328" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_19.xac" Model="f_dcapital_104_model_19" ShadowMap="f_dcapital_104_model_19" pos="617.3533 -16.2483 -1608.4033" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_15.xac" Model="f_dcapital_104_model_15" ShadowMap="f_dcapital_104_model_15" pos="858.0620 133.8941 1431.5513" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_06.xac" Model="f_dcapital_104_model_06" ShadowMap="f_dcapital_104_model_06" pos="644.4833 -3.7390 -1647.0815" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_12.xac" Model="f_dcapital_104_model_12" ShadowMap="f_dcapital_104_model_12" pos="-76.3446 -12.6472 -954.1378" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_13.xac" Model="f_dcapital_104_model_13" ShadowMap="f_dcapital_104_model_13" pos="357.3361 37.4358 766.4480" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_08.xac" Model="f_dcapital_104_model_08" ShadowMap="f_dcapital_104_model_08" pos="809.3845 8.5847 818.1608" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_09.xac" Model="f_dcapital_104_model_09" ShadowMap="f_dcapital_104_model_09" pos="-726.1335 87.9867 389.3749" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_ground.xac" Model="f_dcapital_104_ground" ShadowMap="f_dcapital_104_ground" pos="-431.4575 -901.8279 579.6748" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_gr_a.xac" Model="f_dcapital_104_gr_a" ShadowMap="f_dcapital_104_gr_a" pos="-164.1115 33.0675 -333.5477" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_gr_bl.xac" Model="f_dcapital_104_gr_bl" ShadowMap="f_dcapital_104_gr_bl" pos="-3.9698 -628.2339 1235.7791" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_16.xac" Model="f_dcapital_104_model_16" ShadowMap="f_dcapital_104_model_16" pos="555.2722 53.0215 977.9053" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_17.xac" Model="f_dcapital_104_model_17" ShadowMap="f_dcapital_104_model_17" pos="-378.5173 62.2803 -103.9072" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_water.xac" Model="f_dcapital_104_water" ShadowMap="f_dcapital_104_water" pos="-447.6135 -91.6109 -1194.9766" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_18.xac" Model="f_dcapital_104_model_18" ShadowMap="f_dcapital_104_model_18" pos="-781.6978 27.1555 -513.3223" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_a_01.xac" Model="f_dcapital_104_model_a_01" ShadowMap="f_dcapital_104_model_a_01" pos="126.8322 167.7231 -362.3749" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_11.xac" Model="f_dcapital_104_model_11" ShadowMap="f_dcapital_104_model_11" pos="576.0378 -39.5351 -791.5961" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_10.xac" Model="f_dcapital_104_model_10" ShadowMap="f_dcapital_104_model_10" pos="-441.8382 23.9036 -987.6599" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_03.xac" Model="f_dcapital_104_model_03" ShadowMap="f_dcapital_104_model_03" pos="-253.6433 87.0055 920.3521" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_04.xac" Model="f_dcapital_104_model_04" ShadowMap="f_dcapital_104_model_04" pos="592.6770 -1.3693 -679.6625" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_21.xac" Model="f_dcapital_104_model_21" ShadowMap="f_dcapital_104_model_21" pos="-24.6448 131.2335 1073.4843" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_20.xac" Model="f_dcapital_104_model_20" ShadowMap="f_dcapital_104_model_20" pos="713.9893 39.5468 -1065.8479" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_a_02.xac" Model="f_dcapital_104_model_a_02" ShadowMap="f_dcapital_104_model_a_02" pos="-226.9153 -542.7797 2334.3838" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_104_model_22.xac" Model="f_dcapital_104_model_22" ShadowMap="f_dcapital_104_model_22" pos="-515.2600 -1191.6744 3838.6091" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

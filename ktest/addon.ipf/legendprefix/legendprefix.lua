@@ -46,19 +46,24 @@ end
 
 function LEGENDPREFIX_RESET_MATERIAL_SLOT(frame)	
 	frame:SetUserValue('MAT_ITEM_GUID', "None");
-
 	local matSlot = GET_CHILD_RECURSIVELY(frame, 'matSlot');
+	if matSlot ~= nil then
+		matSlot:ClearIcon();
+	end
+
 	local matText = GET_CHILD_RECURSIVELY(frame, 'matText');
-	matSlot:ClearIcon();
-	matText:ShowWindow(0);
+	if matText ~= nil then
+		matText:ShowWindow(0);
+	end
 end
 
 function LEGENDPREFIX_RESET_DROPLIST(frame)
 	local dropList = GET_CHILD_RECURSIVELY(frame, "legend_OptionSelect_DropList");
-	dropList:ClearItems();
-	dropList:Invalidate();
-
-	LEGEND_PREFIX_SELECT_DROPLIST(frame, dropList)
+	if dropList ~= nil then
+		dropList:ClearItems();
+		dropList:Invalidate();
+		LEGEND_PREFIX_SELECT_DROPLIST(frame, dropList)
+	end
 end
 
 function LEGENDPREFIX_SET_TARGET(parent, ctrl)    

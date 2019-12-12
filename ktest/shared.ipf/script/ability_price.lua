@@ -756,13 +756,6 @@ function HIDDENABIL_PRICE_COND_JOBLEVEL(pc, abilName, abilLevel, maxLevel)
     local price = 36000 / maxLevel;       -- EXPECT_TOTAL_PRICE : 36000
     local time = 0;
     
-    local invItemList = GetInvItemList(pc);
-    for i = 1, #invItemList do
-        if invItemList[i].StringArg == "ArtsCoupon" then
-            price = 0
-        end
-    end
-    
     return math.floor(price), time;
 end
 

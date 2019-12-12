@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="ark_composition" x="0" y="0" width="450" height="1100" create="open">
+	<frame fullheight="false" fasthide="true" layout_gravity="left top" margin="-450 0 0 0" draw="true" open="pip"/>
+	<skin frameskin="test_frame_low"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<input hittestframe="true" moveintitlebar="false"/>
+	<option closebutton="false"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<layer layerlevel="92"/>
+	<userconfig ITEM_NAME_TEXT="합성할 아이템을 올려주세요" COMPOSITION_TYPE_EXP="경험치 증가" COMPOSITION_TYPE_LV="레벨 증가" EXP_MATERIAL_COUNT="1" LV_MATERIAL_COUNT="3" COMPOSITION_EFFECT_NAME="UI_item_parts" COMPOSITION_EFFECT_SCALE="4.6" COMPOSITION_EFFECT_DURATION="2" RESULT_EFFECT_NAME="UI_item_parts2_success" RESULT_EFFECT_SCALE="5" RESULT_EFFECT_DURATION="2"/>
+	<script OpenScp="ARK_COMPOSITION_OPEN" CloseScp="ARK_COMPOSITION_CLOSE"/>
+	<controls>
+		<groupbox name="title_gb" rect="0 0 450 60" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title_text" parent="title_gb" rect="0 0 400 30" margin="0 19 0 0" layout_gravity="center top" caption="{@st43}{s22}아크 합성" hittest="false"/>
+		<picture name="question" rect="0 0 44 44" margin="27 20 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}아크 합성{@st59s}{nl}- 경험치 증가 또는 레벨 증가 할 아크를 등록"/>
+		<button name="closeBtn" parent="title_gb" rect="0 0 35 35" margin="0 18 27 0" layout_gravity="right top" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}창을 닫습니다{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" LBtnUpScp="ARK_COMPOSITION_CLOSE"/>
+		<button name="do_btn" rect="0 0 148 50" margin="0 0 0 30" layout_gravity="center bottom" caption="{@st43}{s20}합성" skin="test_red_button" oversound="button_cursor_over_3" clicksound="button_click_big" LBtnUpScp="ARK_COMPOSITION_BUTTON_CLICK"/>
+		<button name="send_ok" rect="0 0 148 50" margin="0 0 0 30" layout_gravity="center bottom" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="확인" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" LBtnUpScp="CLEAR_ARK_COMPOSITION_UI"/>
+		<!-- ark item -->
+		<groupbox name="ark_gb" rect="0 0 450 300" margin="0 120 0 0" layout_gravity="center top" draw="false" hittestbox="true"/>
+		<slot name="ark_slot" parent="ark_gb" rect="0 0 128 128" margin="0 0 0 0" layout_gravity="center top" changecursor="false" hittest="true" clicksound="icon_pick_up" oversound="button_cursor_over_3" skin="invenslot2" stretch="true" draw="false" DropScp="ARK_COMPOSITION_ARK_ITEM_DROP" RBtnUpScp="ARK_COMPOSITION_ARK_ITEM_REMOVE"/>
+		<richtext name="ark_name" parent="ark_gb" rect="0 0 400 24" margin="0 145 0 0" layout_gravity="center top" fontname="brown_20_b" format="%s" param1="value" param1_def="합성할 아이템을 올려주세요" resizebytext="true" textalign="center center"/>
+		<richtext name="ark_lv_text" parent="ark_gb" rect="0 0 400 24" margin="25 180 0 0" layout_gravity="left top" fontname="brown_20_b" format="%s" param1="value" param1_def="레벨" resizebytext="true" textalign="center center"/>
+		<richtext name="ark_lv" parent="ark_gb" rect="0 0 400 24" margin="92 180 0 0" layout_gravity="left top" fontname="brown_20_b" format="%s" param1="value" param1_def="0" resizebytext="true" textalign="left center"/>
+		<richtext name="exp_gauge_text" parent="ark_gb" rect="0 0 400 24" margin="25 215 0 0" layout_gravity="left top" fontname="brown_20_b" format="%s" param1="value" param1_def="경험치" resizebytext="true" textalign="center center"/>
+		<gauge name="exp_gauge" parent="ark_gb" rect="0 0 320 34" margin="92 212 0 0" layout_gravity="left top" inverse="false" point="50" skin="gauge_itemtooltip_poten" text1="%v / %m" textalign1="center center" textfont1="white_18_ol" textoffset1="0 -1"/>
+		<richtext name="exp_up_text" parent="ark_gb" rect="0 0 400 24" margin="0 245 37 0" layout_gravity="right top" fontname="yellow_20_ol" format="+ %s" param1="value" param1_def="0" resizebytext="true" textalign="right center"/>
+		<richtext name="type_text" rect="0 0 400 24" margin="0 395 0 0" layout_gravity="center top" fontname="brown_20_b" format="%s" param1="value" param1_def="경험치 증가" resizebytext="true" textalign="center center"/>
+		<labelline name="labelline" rect="0 0 420 1" margin="0 435 0 0" layout_gravity="center top" skin="labelline_def_2"/>		
+		<!-- mat item -->
+		<groupbox name="mat_gb" rect="0 0 430 520" margin="0 160 0 0" layout_gravity="center center" skin="test_frame_midle"/>
+		<groupbox name="exp_mat_gb" parent="mat_gb" rect="0 0 430 550" margin="0 15 0 0" layout_gravity="center center" draw="false"/>
+		<controlset name="exp_mat_1" parent="exp_mat_gb" rect="0 0 420 60" margin="0 10 0 0" type="ark_composition_material" layout_gravity="left top"/>
+		<groupbox name="lv_mat_gb" parent="mat_gb" rect="0 0 430 550" margin="0 15 0 0" layout_gravity="center center" draw="false"/>
+		<controlset name="lv_mat_1" parent="lv_mat_gb" rect="0 0 420 60" margin="0 10 0 0" type="ark_composition_material" layout_gravity="left top"/>
+		<controlset name="lv_mat_2" parent="lv_mat_gb" rect="0 0 420 60" margin="0 130 0 0" type="ark_composition_material" layout_gravity="left top"/>
+		<controlset name="lv_mat_3" parent="lv_mat_gb" rect="0 0 420 60" margin="0 250 0 0" type="ark_composition_material" layout_gravity="left top"/>
+		<!-- silver UI -->
+		<groupbox name="medal_gb" rect="0 0 420 80" margin="0 0 0 150" layout_gravity="center bottom" draw="false"/>
+		<groupbox name="decomposegb" parent="medal_gb" rect="0 0 420 38" margin="0 0 0 0" layout_gravity="center top" skin="test_weight_skin"/>
+		<richtext name="decomposecost_text" parent="decomposegb" rect="0 0 120 24"  margin="10 0 0 0" layout_gravity="left center" format="{img icon_item_silver 24 24} {@st41b}%s 비용{/}" param1="value"/>
+		<richtext name="decomposecost" parent="decomposegb" rect="0 0 120 24" margin="0 1 10 0" layout_gravity="right center" caption="0" fontname="white_16_ol" textalign="right center"/>
+		<groupbox name="remainsilvergb" parent="medal_gb" rect="0 0 420 38" margin="0 40 0 0" layout_gravity="center top" skin="test_weight_skin"/>
+		<richtext name="remainsilver_text" parent="remainsilvergb" rect="0 0 120 24" margin="10 0 0 0" layout_gravity="left center" caption="{img icon_item_silver 24 24} {@st41b}예상 잔액{/}"/>
+		<richtext name="remainsilver" parent="remainsilvergb" rect="0 0 120 24" margin="0 1 10 0" layout_gravity="right center" caption="0" fontname="white_16_ol" textalign="right center"/>
+		<!-- effect UI -->
+		<groupbox name="effect_gb" parent="ark_gb" rect="0 0 128 128" margin="4 13 0 0" layout_gravity="center top" draw="false" hittestbox="false"/>
+		<groupbox name="resultGbox" rect="0 0 440 362" margin="0 70 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="false" skin="test_socket_topskin"/>
+		<picture name="result_effect_bg" parent="resultGbox" rect="0 0 410 265" margin="0 0 0 0" layout_gravity="center top" hittest="false" image="SUCCESS_gold_bg" oversound="button_cursor_over_3" stretch="true"/>
+		<picture name="result_item_pic" parent="resultGbox" rect="0 0 130 130" margin="0 -25 0 0" layout_gravity="center center" hittest="false" stretch="true"/>
+	</controls>
+</uiframe>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="3.00" soundFile="mon_voice5_l_dead_10"/>
+    <Sound frame="5.00" soundFile="skl_eff_landing_m"/>
+    <Particle frame="10" attachNode="Dummy_effect_skl2_R" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="10.00" soundFile="skl_eff_landing_m"/>
+    <Sound frame="13.00" soundFile="skl_eff_landing_m"/>
+    <Particle frame="14" attachNode="Dummy_effect_skl2_L" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="18" attachNode="Dummy_effect_skl2_R" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="18.00" soundFile="skl_eff_landing_m"/>
+    <Particle frame="24" attachNode="Dummy_effect_skl2_L" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="53.00" soundFile="skl_eff_big_spin"/>
+    <Sound frame="53.00" soundFile="skl_eff_spinner"/>
+    <Sound frame="53.24" soundFile="skl_eff_gust_spread_1"/>
+    <Shockwave frame="59" type="2" intensity="1" frequency="70" duration="2" range="1000"/>
+    <Particle frame="61" attachNode="Dummy_effect_skl2" particleName="F_spin039_sword_orange_reverse" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="61" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="62.00" soundFile="skl_eff_spread_9"/>
+    <Particle frame="70" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="80" attachNode="Dummy_effect_skl2" particleName="F_spin039_sword_orange_reverse" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="80" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="88.00" soundFile="skl_eff_spinner"/>
+    <Particle frame="90" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="95.00" soundFile="skl_eff_big_spin"/>
+    <Particle frame="100" attachNode="Dummy_effect_skl2" particleName="F_spin039_sword_orange_reverse" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="100" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="110" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="126.00" soundFile="mon_voice_saltistter_4"/>
+    <Sound frame="128.00" soundFile="skl_archer_crossarrow_badak"/>
+    <Particle frame="132" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="144" attachNode="Bip001 R Finger0" particleName="F_smoke160_white_levitation" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="144" attachNode="Bip001 L Finger0" particleName="F_smoke160_white_levitation" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="144" attachNode="Bip001 R Toe0" particleName="F_smoke160_white_levitation" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="144" attachNode="Bip001 L Toe0" particleName="F_smoke160_white_levitation" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+</ActionDesc>

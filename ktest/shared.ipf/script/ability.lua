@@ -1784,3 +1784,60 @@ function SCR_ABIL_Oracle23_INACTIVE(self, ability)
         DelExProp(self, "Oracle23_COOLDOWN");
     end
 end
+
+function SCR_ABIL_Arbalester16_ACTIVE(self, ability)
+    AddBuff(self, self, "Arbalester_Pre_Buff");
+end
+
+function SCR_ABIL_Arbalester16_INACTIVE(self, ability)
+    RemoveBuff(self, "Arbalester_Pre_Buff");
+    RemoveBuff(self, "Arbalester16_Buff")
+    RemoveBuff(self, "Arbalester17_Buff")
+end
+
+function SCR_ABIL_Arbalester17_ACTIVE(self, ability)
+    AddBuff(self, self, "Arbalester_Pre_Buff");
+end
+
+function SCR_ABIL_Arbalester17_INACTIVE(self, ability)
+    RemoveBuff(self, "Arbalester_Pre_Buff");
+    RemoveBuff(self, "Arbalester16_Buff")
+    RemoveBuff(self, "Arbalester17_Buff")
+end
+
+function SCR_ABIL_Arbalester10_ACTIVE(self, ability)
+    local skill = GetSkill(self, "Arbalester_DarkJudgement");
+    if skill ~= nil then
+        local attribute = TryGetProp(skill, "Attribute");
+        skill.Attribute = "Dark";
+        SetExProp_Str(self, "Arbalester10_Attribute", attribute);
+    end
+end
+
+function SCR_ABIL_Arbalester10_INACTIVE(self, ability)
+	local skill = GetSkill(self, "Arbalester_DarkJudgement");
+    if skill ~= nil then
+        local attribute = GetExProp_Str(self, "Arbalester10_Attribute");
+        skill.Attribute = attribute;
+    end
+end
+
+function SCR_ABIL_SPEARMASTERY_Dagger_ACTIVE(self, ability)
+    local addATK = 0;
+
+    local rItem  = GetEquipItem(self, 'RH');
+    local lItem  = GetEquipItem(self, 'LH');
+    if TryGetProp(rItem, "ClassType", "None") == "Spear" and TryGetProp(lItem, "ClassType", "None") == "Dagger" then
+        local akt = (lItem.MINATK + lItem.MAXATK) / 2
+        addATK = math.floor(akt * 0.3);
+    end
+    
+    self.PATK_MAIN_BM = self.PATK_MAIN_BM + addATK;
+    
+    SetExProp(ability, "ABIL_ADD_ATK", addATK);
+end
+
+function SCR_ABIL_SPEARMASTERY_Dagger_INACTIVE(self, ability)
+    local addATK = GetExProp(ability, "ABIL_ADD_ATK");
+    self.PATK_MAIN_BM = self.PATK_MAIN_BM - addATK;
+end

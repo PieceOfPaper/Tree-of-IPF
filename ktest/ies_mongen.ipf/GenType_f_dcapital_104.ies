@@ -1,0 +1,13 @@
+ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
+1,1,1,40,30,60000,50,0,0,0,0,0,0,"Orc_cannon","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+2,2,1,40,35,60000,70,0,0,0,0,0,0,"Orc_flag","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+3,3,1,40,100,60000,10,0,0,0,1,0,0,"Orc_glaive","","","","","","","","","","","NO","YES","NO","Monster","","","",""
+4,4,1,50,1,60000,1,2,0,0,1,0,0,"Warp_arrow","링크스마스 폐허","","","","MON_DUMMY","","","","WARP_DCAPITAL104_TO_DCAPITAL53_1","","NO","YES","NO","Neutral","","","",""
+5,5,1,1,100,20000,30,0,0,0,1,0,0,"rootcrystal_01","","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
+6,6,1,40,-1,60000,1,1,0,0,1,0,0,"npc_goddess_Laima","여신 라이마","","","","","","","EP12_FINALE_RAIMA02","","","NO","YES","NO","Neutral","","","",""
+7,7,1,350,1,1000,1,0,0,0,1,0,0,"HiddenTrigger3","UnvisibleName","","","","","","","","EP12_FINALE_DIRECTION_TRIGGER","","NO","YES","NO","Neutral","","","",""
+8,8,1,320,1,60000,1,0,0,0,1,0,0,"Hiddennpc_Q4","UnvisibleName","","","","","","","","EP12_FINALE_MQ_03_OBJECT01","EP12_FINALE_MQ_03_OBJECT01","NO","YES","NO","Neutral","","","",""
+9,9,1,220,1,60000,1,0,0,0,1,0,0,"Hiddennpc_Q4","UnvisibleName","","","","","","","","EP12_FINALE_MQ_03_OBJECT02","EP12_FINALE_MQ_03_OBJECT02","NO","YES","NO","Neutral","","","",""
+10,10,1,240,1,60000,1,0,0,0,1,0,0,"Hiddennpc_Q4","UnvisibleName","","","","","","","","EP12_FINALE_MQ_03_OBJECT03","EP12_FINALE_MQ_03_OBJECT03","NO","YES","NO","Neutral","","","",""
+11,11,1,350,1,60000,1,0,0,0,1,0,0,"Hiddennpc_Q4","UnvisibleName","","","","","","","","EP12_FINALE_MQ_03_OBJECT04","EP12_FINALE_MQ_03_OBJECT04","NO","YES","NO","Neutral","","","",""
+12,12,1,40,-1,60000,1,1,0,0,1,0,0,"npc_goddess_Laima_prison","","","","","","","EP12_FINALE_RAIMA_AI","EP12_FINALE_RAIMA01","","","NO","YES","NO","Neutral","","","",""

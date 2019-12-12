@@ -608,7 +608,7 @@ function SCR_Get_MHP(self)
     
     local byLevel = math.floor(jobMHP + ((lv - 1) * 80 * jobRate));
     local byStat = math.floor(((stat * 0.003) + (math.floor(stat / 10) * 0.01)) * byLevel);
-    
+
     local byBonus = TryGetProp(self, "MHP_Bonus");
     if byBonus == nil then
         byBonus = 0;
@@ -660,13 +660,15 @@ function SCR_Get_MSP(self)
         lv = 1;
     end
     
-    local stat = TryGetProp(self, "MNA");
+    local stat = TryGetProp(self, "MNA", 1);    
     if stat == nil then
         stat = 1;
     end
     
     local byLevel = math.floor(jobMSP + ((lv - 1) * 18 * jobRate));
---    local byStat = math.floor(((stat * 0.005) + (math.floor(stat / 10) * 0.015)) * byLevel);
+    local byStat = math.floor(((stat * 0.005) + (math.floor(stat / 10) * 0.015)) * byLevel);                    
+    --local byStat = math.floor(((stat * 0.003) + (math.floor(stat / 10) * 0.01)) * byLevel)
+    byStat = math.floor(byStat / 15)
     
     local byBonus = TryGetProp(self, "MSP_Bonus");
     if byBonus == nil then
@@ -681,7 +683,7 @@ function SCR_Get_MSP(self)
     local rewardProperty = GET_REWARD_PROPERTY(self, "MSP");
     
 --    local value = byLevel + byStat + byBonus + byItem + rewardProperty;
-    local value = byLevel + byBonus + byItem + rewardProperty;
+    local value = byLevel + byBonus + byItem + rewardProperty + byStat;    
 --    local value = defaultMSP + byBonus + byItem + rewardProperty;
     
     local byBuff = TryGetProp(self, "MSP_BM");
@@ -1488,7 +1490,7 @@ function SCR_Get_DR(self)
     
     local jobRate = SCR_GET_JOB_RATIO_STAT(self, "DR");
     local byLevel = lv * 1.0 * jobRate;
-    
+        
     local byItem = 0;
     local byItemList = { "DR", "ADD_DR" };
     for i = 1, #byItemList do
@@ -2201,8 +2203,8 @@ function SCR_Get_MSPD(self)
 --    end
     
     if IsBuffApplied(self, 'Slithering_Buff') == 'YES' then
-    	isDashRun = 0
-    	return 19;
+        isDashRun = 0
+     	return value;
     end
     
     if IsBuffApplied(self, 'Taglio_Buff') == 'YES' then
@@ -2227,6 +2229,10 @@ function SCR_Get_MSPD(self)
 	    if jobCtrlType == "Scout" then
 	    	dashRunAddValue = dashRunAddValue + 3
 	    end
+	    
+        if IsBuffApplied(self, 'ITEM_TRINKET_MASINIOS') == 'YES' then
+            dashRunAddValue = dashRunAddValue + 2
+        end
         
         value = value + dashRunAddValue;
         if isDashRun == 2 then  -- 인보 특성이 있으면 속도 +1 --
@@ -3203,8 +3209,32 @@ function SCR_GET_DARK_ATK(pc)
     return math.floor(value);
 end
 
-function SCR_GET_Widling_ATK(pc)
-    local byItem = GetSumOfEquipItem(pc, "ADD_WIDLING");
+function SCR_GET_ADD_Damage_ATK(pc)
+    local byItem = GetSumOfEquipItem(pc, "Add_Damage_Atk");
+    if byItem == nil then
+        byItem = 0;
+    end
+    
+    local byBuff = TryGetProp(pc, "Add_Damage_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local add_value = SCR_GET_FIRE_ATK(pc)
+    add_value = add_value + SCR_GET_ICE_ATK(pc)
+    add_value = add_value + SCR_GET_POISON_ATK(pc)
+    add_value = add_value + SCR_GET_LIGHTNING_ATK(pc)
+    add_value = add_value + SCR_GET_SOUL_ATK(pc)
+    add_value = add_value + SCR_GET_EARTH_ATK(pc)
+    add_value = add_value + SCR_GET_HOLY_ATK(pc)
+    add_value = add_value + SCR_GET_DARK_ATK(pc)
+
+    local value = byItem + byBuff + add_value;    
+    return math.floor(value);
+end
+
+function SCR_GET_Widling_ATK(pc)	
+    local byItem = GetSumOfEquipItem(pc, "ADD_WIDLING");	
     if byItem == nil then
         byItem = 0;
     end
@@ -3386,6 +3416,21 @@ function SCR_GET_MiddleSize_ATK(pc)
     end
     
     local byBuff = TryGetProp(pc, "MiddleSize_Atk_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+
+    local value = byItem + byBuff;
+    return math.floor(value);
+end
+
+function SCR_GET_MiddleSize_Def(pc)
+    local byItem = GetSumOfEquipItem(pc, "MiddleSize_Def");
+    if byItem == nil then
+        byItem = 0;
+    end
+    
+    local byBuff = TryGetProp(pc, "MiddleSize_Def_BM");
     if byBuff == nil then
         byBuff = 0;
     end
@@ -3622,6 +3667,31 @@ function SCR_GET_RES_DARK(pc)
     end
     
     local value = byItem + byBuff;
+    
+    return math.floor(value);
+end
+
+function SCR_GET_RES_ADD_DAMAGE(pc)
+    local byItem = GetSumOfEquipItem(pc, "ResAdd_Damage");
+    if byItem == nil then
+        byItem = 0;
+    end
+    
+    local byBuff = TryGetProp(pc, "ResAdd_Damage_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local add_value = SCR_GET_RES_FIRE(pc)
+    add_value = add_value + SCR_GET_RES_ICE(pc)
+    add_value = add_value + SCR_GET_RES_POISON(pc)
+    add_value = add_value + SCR_GET_RES_LIGHTNING(pc)
+    add_value = add_value + SCR_GET_RES_SOUL(pc)
+    add_value = add_value + SCR_GET_RES_EARTH(pc)
+    add_value = add_value + SCR_GET_RES_HOLY(pc)
+    add_value = add_value + SCR_GET_RES_DARK(pc)
+
+    local value = byItem + byBuff + add_value;
     
     return math.floor(value);
 end
@@ -4094,7 +4164,53 @@ function SCR_Get_HEAL_PWR(self)
     return math.floor(value);
 end
 
+function SCR_GET_Leather_Def(pc)
+    local byItem = GetSumOfEquipItem(pc, "Leather_Def");
+    if byItem == nil then
+        byItem = 0;
+    end
+    
+    local byBuff = TryGetProp(pc, "Leather_Def_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+    
+    return math.floor(value);
+end
 
+function SCR_GET_Cloth_Def(pc)
+    local byItem = GetSumOfEquipItem(pc, "Cloth_Def");
+    if byItem == nil then
+        byItem = 0;
+    end
+    
+    local byBuff = TryGetProp(pc, "Cloth_Def_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+    
+    return math.floor(value);
+end
+
+function SCR_GET_Iron_Def(pc)
+    local byItem = GetSumOfEquipItem(pc, "Iron_Def");
+    if byItem == nil then
+        byItem = 0;
+    end
+    
+    local byBuff = TryGetProp(pc, "Iron_Def_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byItem + byBuff;
+    
+    return math.floor(value);
+end
 
 -- PC ITEM PROP LIST --
 

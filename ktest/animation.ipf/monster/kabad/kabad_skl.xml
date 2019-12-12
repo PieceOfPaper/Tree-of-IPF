@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="6.00" soundFile="mon_golem_natk1_cast"/>
+    <Sound frame="25.00" soundFile="mon_golem_atk01_cast"/>
+    <Sound frame="48.00" soundFile="m_malletwyvern_skl_1"/>
+    <BlendOn frame="84" R="100" G="100" B="100" A="100"/>
+    <BlendOn frame="86" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="88" R="100" G="100" B="100" A="100"/>
+    <Shockwave frame="88" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+    <BlendOff frame="90" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

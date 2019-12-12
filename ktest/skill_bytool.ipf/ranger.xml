@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ToolSkill><Skill Name="Ranger_SpiralArrow">
+<ToolSkill>
+<Skill Name="Ranger_SpiralArrow">
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
 			<EtcList>
 				<Scp Client="YES" Scp="C_EFFECT" Time="270" UseSleep="NO">
@@ -36,7 +37,13 @@
 				</Scp>
 			</EtcList>
 			<ResultList>
-				<ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
+              <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(skill.Level)" Str="0" UseFunc="1"/>
+              </ToolScp>
+                <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
 					<Str Str="SpiralArrow_Debuff" />
 					<Num Num="1" />
 					<Num Num="0" />
@@ -457,7 +464,7 @@ end" Arg="1"/>
 				</Scp>
 			</EtcList>
 			<ResultList>
-				<ToolScp Scp="S_R_SET_FORCE_DAMAGE" Client="NO" UseSleep="YES">
+                <ToolScp Scp="S_R_SET_FORCE_DAMAGE" Client="NO" UseSleep="NO">
 					<Num Num="1"/>
 					<Num Num="1"/>
 					<Num Num="2"/>
@@ -488,6 +495,20 @@ end" Arg="1"/>
                     <Num Num="50"/>
 					<Num Num="-1"/>
 				</ToolScp>
+                <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
+                    <Str FuncTxt="local buffName = &quot;None&quot;
+                    local hiddenAbil = GetAbility(self, &quot;Ranger38&quot;)
+                    if hiddenAbil ~= nil and TryGetProp(hiddenAbil, &quot;ActiveState&quot;, 0) == 1 then
+                        buffName = &quot;Freeze&quot;
+                    end
+                    return buffName" UseFunc="1" Str="Freeze"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="2500"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="-1"/>
+                </ToolScp>
 			</ResultList>
 		</MainSkl>
 		<ByCondSkills>
@@ -568,7 +589,7 @@ end" Arg="1"/>
 						</Scp>
 					</EtcList>
 					<ResultList>
-				        <ToolScp Scp="S_R_SET_FORCE_DAMAGE" Client="NO" UseSleep="YES">
+                        <ToolScp Scp="S_R_SET_FORCE_DAMAGE" Client="NO" UseSleep="NO">
 							<Num Num="1"/>
 							<Num Num="1"/>
 							<Num Num="2"/>
@@ -599,6 +620,20 @@ end" Arg="1"/>
                             <Num Num="50"/>
 							<Num Num="-1"/>
 						</ToolScp>
+                        <ToolScp Scp="S_R_TGTBUFF" Client="NO" UseSleep="NO">
+                            <Str FuncTxt="local buffName = &quot;None&quot;
+                            local hiddenAbil = GetAbility(self, &quot;Ranger38&quot;)
+                            if hiddenAbil ~= nil and TryGetProp(hiddenAbil, &quot;ActiveState&quot;, 0) == 1 then
+                                buffName = &quot;Freeze&quot;
+                            end
+                            return buffName" UseFunc="1" Str="Freeze"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="2500"/>
+                            <Num Num="1"/>
+                            <Num Num="100"/>
+                            <Num Num="-1"/>
+                        </ToolScp>
 					</ResultList>
 				</Skill>
 			</SubSkl>

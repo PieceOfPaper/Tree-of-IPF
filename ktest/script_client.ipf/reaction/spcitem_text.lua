@@ -183,3 +183,7 @@ end
 function SHOW_ATTRIBUTE_RESIST(arg, argString)
 	return string.format("%s +%s", ScpArgMsg(argString), arg);
 end
+
+function SHOW_REDUCE_HP(arg, argString)
+    return string.format("%s %d", ScpArgMsg("StartUp_Charging_Buff"), arg);
+end

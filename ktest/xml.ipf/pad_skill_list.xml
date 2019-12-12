@@ -225,7 +225,7 @@ return time;"/>
                 <Num Num="1"/>
             </ToolScp>
             <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
-                <Num Num="3"/>
+                <Num Num="10" UseFunc="1" FuncTxt="return 7 + TryGetProp(self, 'SR', 0) / 3"/>
             </ToolScp>
         </createEvent>
         <enterEvent>
@@ -848,6 +848,53 @@ end"/>
                 <Num Num="1000"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="BlossomBlader_ControlBlade" CheckerType="0" Range="100" UpdateTerm="250" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0" ApplyFlyMon="1">
+        <createEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="E_warrior_controlblade002_1" Arg="1"/>
+                <Pos Angle="0" Dist="0" Height="25"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="E_warrior_controlblade004" Arg="1"/>
+                <Pos Angle="0" Dist="0" Height="25"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="3000"/>
+                <Num Num="99990"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_DESTROY_EFFECT_BLENDTIME" Client="NO" UseSleep="NO">
+                <Num Num="1.5"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_warrior_controlblade_ground" Arg="1.5"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-250"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
@@ -2412,7 +2459,7 @@ return 10000 + obj.Level * 1000"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Cleric_Laima" CheckerType="0" Range="100" AutoPos="1" AutoDir="1" ApplyFlyMon="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+    <PadSkill Name="Cleric_Laima" CheckerType="0" Range="100" AutoPos="1" AutoDir="1" ApplyFlyMon="1" EnableSearch="0" IsMagicType="0" IsMineType="0" AllowOverlap="1">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="F_cleric_laima_shot_ground" Arg="2.5"/>
@@ -2465,7 +2512,7 @@ return 10000 + obj.Level * 1000"/>
 		</enterEvent>
 		<leaveEvent>
 			<ToolScp Scp="PAD_TGT_NOTREMAINTIME_BUFF_REMOVE" Client="NO" UseSleep="NO">
-				<Str Str="ALL"/>
+                <Str Str="PARTY"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str Str="CarveLaima_Buff"/>
@@ -4504,7 +4551,7 @@ return 40000 + obj.Level * 10000"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Cleric_Zemina" CheckerType="0" Range="100" EnableSearch="0" IsMagicType="0" IsMineType="0">
+    <PadSkill Name="Cleric_Zemina" CheckerType="0" Range="100" EnableSearch="0" IsMagicType="0" IsMineType="0" AllowOverlap="1">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
 				<Str_Arg Str="F_cleric_zemina_shot_ground" Arg="2.5"/>
@@ -4533,7 +4580,7 @@ return 40000 + obj.Level * 10000"/>
 		</enterEvent>
 		<leaveEvent>
 			<ToolScp Scp="PAD_TGT_NOTREMAINTIME_BUFF_REMOVE" Client="NO" UseSleep="NO">
-				<Str Str="ALL"/>
+                <Str Str="PARTY"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
 				<Str Str="CarveZemina_Buff"/>
@@ -4997,6 +5044,758 @@ return 40000 + obj.Level * 10000"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
+    <PadSkill Name="Crusader_Condemn_Pad" CheckerType="0" Dist="298.41339" Angle="-2.1971819" Range="48" UpdateTerm="400" ApplyFlyMon="1" AllowOverlap="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="2010"/>
+                <Num Num="6"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="15" UseFunc="1" FuncTxt="
+
+
+
+local SR = self.SR
+
+
+return 
+
+
+
+
+math.floor(3+SR/3)"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_Condemn_ground_loop#Dummy_emitter" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+
+
+local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
+
+
+local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
+
+
+
+if abilBuff1 ~= nil then
+return &quot;F_cleric_Condemn_ground_loop#Dummy_emitter&quot;, 4;
+
+elseif abilBuff2 ~= nil then
+return &quot;F_cleric_Condemn_ground_loop_violet#Dummy_emitter&quot;, 4;
+
+elseif abilBuff3 ~= nil then
+return &quot;F_cleric_Condemn_ground_loop_red#Dummy_emitter&quot;, 4;
+
+else 
+return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
+
+end
+
+" Arg="4"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_Condemn_ground_end#Dummy_emitter" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+
+
+local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
+
+
+local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
+
+
+
+if abilBuff1 ~= nil then
+return &quot;F_cleric_Condemn_ground_end&quot;, 4.2;
+
+elseif abilBuff2 ~= nil then
+return &quot;F_cleric_Condemn_ground_end_violet&quot;, 4.2;
+
+elseif abilBuff3 ~= nil then
+return &quot;F_cleric_Condemn_ground_end_red&quot;, 4.2;
+
+else 
+return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
+
+end
+
+" Arg="4.1999998"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_DESTROY_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Pos Angle="0" Dist="0"/>
+                <Str_Arg Str="F_warrior_upeerslash_shot_ground#Dummy_emitter" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="0.5"/>
+            </ToolScp>
+        </destroyEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="PARTY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="CondemnHeal_Buff"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE_MON" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="CondemnDamage_Debuff"/>
+            </ToolScp>
+        </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_BUFF_ENEMY_MON" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="CondemnDamage_Debuff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_BUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="PARTY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="CondemnHeal_Buff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-400"/>
+                <Num Num="-1"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Crusader_ProtectionOfGoddess_DamagePad1" CheckerType="0" Range="80" ApplyFlyMon="1" AllowOverlap="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="3000"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="15" UseFunc="1" FuncTxt="
+
+
+
+local SR = self.SR
+
+
+return 
+
+
+
+
+math.floor(4+SR/3)"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_Sacred_ground_loop#Dummy_emitter##1" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+
+
+local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
+
+
+local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
+
+
+if abilBuff1 ~= nil then
+return &quot;None&quot;, 1.1;
+
+elseif abilBuff2 ~= nil then
+return &quot;E_cleric_ProtectionOfGoddess_ground_violet&quot;, 1.1;
+
+elseif abilBuff3 ~= nil then
+return &quot;None&quot;, 1.1;
+
+else 
+return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
+
+end
+
+" Arg="1.5"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_REMOVEBUFF" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="ProtectionOfGoddessDamage_Debuff"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_DESTROY_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Pos Angle="0" Dist="0"/>
+                <Str_Arg Str="E_cleric_ProtectionOfGoddess_ground_end" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+
+
+local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
+
+
+local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
+
+
+if abilBuff1 ~= nil then
+return &quot;None&quot;, 1.1;
+
+elseif abilBuff2 ~= nil then
+return &quot;E_cleric_ProtectionOfGoddess_ground_end_violet&quot;, 1.1;
+
+elseif abilBuff3 ~= nil then
+return &quot;None&quot;, 1.1;
+
+else 
+return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
+
+end
+
+" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </destroyEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_AFTER_CHECK_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="ProtectionOfGoddessDamage_Debuff"/>
+                <Str Str="ProtectionOfGoddessDamage_Debuff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="4000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Crusader_ProtectionOfGoddess_HealPad1" CheckerType="0" Dist="7.9753065" Angle="1.6987034" Range="80" ApplyFlyMon="1" AllowOverlap="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="3000"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="15" UseFunc="1" FuncTxt="
+
+
+
+local SR = self.SR
+
+
+return 
+
+
+
+
+math.floor(4+SR/3)"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_Sacred_ground_loop#Dummy_emitter##1" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+
+
+local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
+
+
+local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
+
+
+if abilBuff1 ~= nil then
+return &quot;E_cleric_ProtectionOfGoddess_ground&quot;, 1.1;
+
+elseif abilBuff2 ~= nil then
+return &quot;None&quot;, 1.5;
+
+elseif abilBuff3 ~= nil then
+return &quot;E_cleric_ProtectionOfGoddess_ground_red&quot;, 1.1;
+
+else 
+return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
+
+end
+
+" Arg="1.5"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_REMOVEBUFF" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="ProtectionOfGoddessHeal_Buff"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_DESTROY_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Pos Angle="0" Dist="0"/>
+                <Str_Arg Str="E_cleric_ProtectionOfGoddess_ground_end" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+
+
+local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
+
+
+local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
+
+
+if abilBuff1 ~= nil then
+return &quot;E_cleric_ProtectionOfGoddess_ground_end&quot;, 1.1;
+
+elseif abilBuff2 ~= nil then
+return &quot;None&quot;, 1.5;
+
+elseif abilBuff3 ~= nil then
+return &quot;E_cleric_ProtectionOfGoddess_ground_end_red&quot;, 1.1;
+
+else 
+return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
+
+end
+
+" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </destroyEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_AFTER_CHECK_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="FRIEND"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="ProtectionOfGoddessHeal_Buff"/>
+                <Str Str="ProtectionOfGoddessHeal_Buff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="4000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Crusader_Retaliation_HealAndDamagePad1" CheckerType="0" Range="85" ApplyFlyMon="1" AllowOverlap="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="500"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="15" UseFunc="1" FuncTxt="
+
+
+
+local SR = self.SR
+
+
+
+
+
+
+
+return 
+
+
+
+
+math.floor(3+SR/3)"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_REMOVEBUFF" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="RetaliationDamage_Debuff"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_REMOVEBUFF" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="RetaliationHeal_Buff"/>
+            </ToolScp>
+        </destroyEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="PARTY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="RetaliationHeal_Buff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="2100"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="RetaliationDamage_Debuff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="2100"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_TGT_DAMAGE" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Crusader_Sacred_DamagePad1" CheckerType="0" Dist="1.0717686" Angle="0.31435123" Range="60" UpdateTerm="230" ApplyFlyMon="1" AllowOverlap="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="1001"/>
+                <Num Num="5"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="15" UseFunc="1" FuncTxt="
+
+
+
+local SR = self.SR
+
+
+return 
+
+
+
+
+math.floor(3+SR/3)"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_Sacred_ground_loop#Dummy_emitter##1" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+
+
+local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
+
+
+local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
+
+
+if abilBuff1 ~= nil then
+return &quot;None&quot;, 1.5;
+
+elseif abilBuff2 ~= nil then
+return &quot;F_cleric_Sacred_ground_loop_violet&quot;, 1.5;
+
+elseif abilBuff3 ~= nil then
+return &quot;None&quot;, 1.5;
+
+else 
+return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
+
+end
+
+" Arg="1.5"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-250"/>
+                <Num Num="-1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1.2"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Crusader_Sacred_DamagePad2" CheckerType="0" Dist="7.8831" Angle="1.6532888" Range="60" UpdateTerm="1000" ApplyFlyMon="1" AllowOverlap="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="1000"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="15" UseFunc="1" FuncTxt="
+
+
+
+local SR = self.SR 
+
+
+return 
+
+
+
+
+math.floor(3+SR/3)"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_Sacred_ground_shot" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+
+
+local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
+
+
+local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
+
+
+if abilBuff1 ~= nil then
+return &quot;None&quot;, 1.5;
+
+elseif abilBuff2 ~= nil then
+return &quot;F_cleric_Sacred_ground_shot_violet&quot;, 1.5;
+
+elseif abilBuff3 ~= nil then
+return &quot;None&quot;, 1.5;
+
+else 
+return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
+
+end
+
+" Arg="1.5"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_Zornhau_shot_ground" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+
+
+local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
+
+
+local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
+
+
+if abilBuff1 ~= nil then
+return &quot;None&quot;, 1.2;
+
+elseif abilBuff2 ~= nil then
+return &quot;F_cleric_Zornhau_shot_ground_violet&quot;, 1.2;
+
+elseif abilBuff3 ~= nil then
+return &quot;None&quot;, 1.2;
+
+else 
+return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
+
+end
+
+" Arg="1"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </destroyEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_DAMAGE_DADAK_ENEMY" Client="NO" UseSleep="NO">
+                <Num Num="4"/>
+                <Num Num="0.050000001"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-1000"/>
+                <Num Num="-1"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Crusader_Sacred_HealPad1" CheckerType="0" Range="60" UpdateTerm="230" ApplyFlyMon="1" AllowOverlap="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="1001"/>
+                <Num Num="5"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="15" UseFunc="1" FuncTxt="
+
+
+
+local SR = self.SR 
+
+
+return 
+
+
+
+
+math.floor(3+SR/3)"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_Sacred_ground_loop#Dummy_emitter##1" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+
+
+local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
+
+
+local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
+
+
+if abilBuff1 ~= nil then
+return &quot;F_cleric_Sacred_ground_loop&quot;, 1.5;
+
+elseif abilBuff2 ~= nil then
+return &quot;None&quot;, 1.5;
+
+elseif abilBuff3 ~= nil then
+return &quot;F_cleric_Sacred_ground_loop_red&quot;, 1.5;
+
+else 
+return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
+
+end
+
+" Arg="1.5"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-250"/>
+                <Num Num="-1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_BUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="PARTY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="SacredHeal_Buff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="1100"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Crusader_Sacred_HealPad2" CheckerType="0" Range="60" UpdateTerm="1000" ApplyFlyMon="1" AllowOverlap="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="1000"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_Sacred_ground_shot" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+
+
+local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
+
+
+local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
+
+
+if abilBuff1 ~= nil then
+return &quot;F_cleric_Sacred_ground_shot&quot;, 1.5;
+
+elseif abilBuff2 ~= nil then
+return &quot;None&quot;, 1.5;
+
+elseif abilBuff3 ~= nil then
+return &quot;F_cleric_Sacred_ground_shot_red&quot;, 1.5;
+
+else 
+return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
+
+end
+
+" Arg="1.5"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_cleric_Zornhau_shot_ground" UseFunc="1" FuncTxt="local abilBuff1 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessProtection_Buff&quot;)
+
+
+local abilBuff2 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessPunishment_Buff&quot;)
+
+
+local abilBuff3 = info.GetBuffByName(self:GetHandleVal(), &quot;GoddessBlessing_Buff&quot;)
+
+
+if abilBuff1 ~= nil then
+return &quot;F_cleric_Zornhau_shot_ground&quot;, 1.2;
+
+elseif abilBuff2 ~= nil then
+return &quot;None&quot;, 1.2;
+
+elseif abilBuff3 ~= nil then
+return &quot;F_cleric_Zornhau_shot_ground_red&quot;, 1.2;
+
+else 
+return &quot;F_spread_in032_fire2#Dummy_Force&quot;, 1;
+
+end
+
+" Arg="1"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </destroyEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-1000"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
 	<PadSkill Name="Cryomancer_FrostPillar" CheckerType="0" Range="60" ApplyFlyMon="1" AllowOverlap="1">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -7772,7 +8571,7 @@ return GET_ABIL_LEVEL(self, &quot;Fletcher6&quot;) * 10"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="HeavyGravity_HIDDEN_ABIL_PAD" Range="120" ApplyFlyMon="1" AllowOverlap="1" IsMineType="0">
+	<PadSkill Name="HeavyGravity_HIDDEN_ABIL_PAD" CheckerType="0" Range="120" ApplyFlyMon="1" AllowOverlap="1" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="5000"/>
@@ -7783,7 +8582,6 @@ return GET_ABIL_LEVEL(self, &quot;Fletcher6&quot;) * 10"/>
                 <Pos Angle="0" Dist="0" PosType="0"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
-                <Num Num="0"/>
             </ToolScp>
         </createEvent>
         <destroyEvent>
@@ -12650,6 +13448,94 @@ return 1"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
+    <PadSkill Name="Rangda_Rawa" CheckerType="0" Range="65" UpdateTerm="600" AllowOverlap="1">
+        <createEvent>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_scout_rawa" Arg="2"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="3.5"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="8500"/>
+                <Num Num="99990"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_DESTROY_EFFECT_BLENDTIME" Client="NO" UseSleep="NO">
+                <Num Num="1.5"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_MON" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Rawa_Debuff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="3000" UseFunc="1" FuncTxt="return obj.Level * 1000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-600"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_BUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Rawa_Debuff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="3000" UseFunc="1" FuncTxt="return obj.Level * 1000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Rangda_Rawa_Abil" CheckerType="0" Range="65" UpdateTerm="3000" AllowOverlap="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="8500"/>
+                <Num Num="99990"/>
+            </ToolScp>
+        </createEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-3000"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_BUFF_CHECK_BUFF_ENABLE" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Keletihan_Debuff"/>
+                <Str Str="Keletihan_Debuff"/>
+                <Num Num="1" UseFunc="1" FuncTxt="local skillLevel = 1;
+local skill = GetSkill(self, &apos;Rangda_Keletihan&apos;);
+if skill ~= nil then
+skillLevel = TryGetProp(skill, &apos;Level&apos;, 0);
+end
+return skillLevel"/>
+                <Num Num="0"/>
+                <Num Num="10000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
 	<PadSkill Name="RingCrawler_ElectricFields" CheckerType="0" Dist="9.8056326" Angle="-2.5647116" Range="100" UpdateTerm="200" AutoPos="1">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -15311,6 +16197,190 @@ end"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
+    <PadSkill Name="TerraMancer_RollingStone_DamagePad" CheckerType="0" deadProcess="1" Dist="5.1272907" Angle="1.6337266" Range="30" AutoDir="1" AllowOverlap="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="20000"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_MONSTER" Client="YES" UseSleep="NO">
+                <Str Str="pcskill_RollingStone"/>
+                <Num Num="1"/>
+                <Str Str="loop"/>
+                <Str Str="None"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_REMOVEBUFF" Client="NO" UseSleep="NO">
+                <Str Str="FRIEND"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="Rollingston_Debuff"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="RollingStone_dead" Arg="0.5"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="2.5"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_ground079_smoke2#Dummy_emitter" Arg="1.5"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_ground071_smoke2#Dummy_emitter" Arg="0.69999999"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_SHOCKWAVE_PAD" Client="YES" UseSleep="NO">
+                <Num Num="3"/>
+                <Num Num="0.30000001"/>
+                <Num Num="45"/>
+                <Num Num="999"/>
+            </ToolScp>
+        </destroyEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_SPLASH_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="30"/>
+                <Num Num="6" UseFunc="1" FuncTxt="if IsPVPField(self) == 1 then
+return 1;
+else
+return 5;
+end
+
+"/>
+                <Num Num="0"/>
+                <Num Num="-1"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Str Str="None"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="TerraMancer_SandWall" CheckerType="0" Range="25" IsMagicType="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="5000"/>
+                <Num Num="99990"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_SandWall_loop" Arg="1.5"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_DESTROY_EFFECT_BLENDTIME" Client="NO" UseSleep="NO">
+                <Num Num="0.5"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="C_EFFECT_REMOVE_KEY" Client="YES" UseSleep="NO">
+                <Str Str="newbless"/>
+                <Num Num="0.5"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_DESTROY_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Pos Angle="0" Dist="0"/>
+                <Str_Arg Str="F_SandWall_end" Arg="1.3"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </destroyEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="SandWall_Debuff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="1000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_BUFF_CHECK_BUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="SandWall_Debuff"/>
+                <Str Str="SandWall_Debuff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="3000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Terramancer_HornOfGolem_SandWall" CheckerType="0" Range="20" ApplyFlyMon="1" AllowOverlap="1" IsMagicType="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="5000"/>
+                <Num Num="99990"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_SandWall_loop" Arg="1"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="1"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_DESTROY_EFFECT_BLENDTIME" Client="NO" UseSleep="NO">
+                <Num Num="0.5"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="C_EFFECT_REMOVE_KEY" Client="YES" UseSleep="NO">
+                <Str Str="newbless"/>
+                <Num Num="0.5"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_DESTROY_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Pos Angle="0" Dist="0"/>
+                <Str_Arg Str="F_SandWall_end" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </destroyEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-500"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_BUFF_CHECK_BUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="HornOfGolem_Debuff"/>
+                <Str Str="HornOfGolem_Debuff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="3000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
 	<PadSkill Name="Tetmamakla_pad" CheckerType="0" Range="15" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -20109,7 +21179,58 @@ return time"/>
 				<Num Num="0"/>
 			</ToolScp>
 		</enterEvent>
-	</PadSkill>
+	<updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="shootpad_Sparnanman_hidden" CheckerType="0" Range="50" UpdateTerm="100" ApplyFlyMon="1" AllowOverlap="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="500"/>
+                <Num Num="99990"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_ground045_smoke" Arg="0.80000001"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="10"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_FUNC_UPDATE_RUNSCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="HORNOFGOLEM_CREATEPAD"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="I_wizard_hornofgolem001_arts" Arg="0.60000002"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_SHOCKWAVE_PAD" Client="YES" UseSleep="NO">
+                <Num Num="5"/>
+                <Num Num="0.5"/>
+                <Num Num="50"/>
+                <Num Num="999"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_DAMAGE" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-100"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
 	<PadSkill Name="shootpad_Unknocker" CheckerType="0" Range="10" UpdateTerm="100" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
@@ -20453,94 +21574,6 @@ return time"/>
 				<Num Num="0"/>
 				<Num Num="300"/>
 				<Num Num="300"/>
-				<Num Num="1"/>
-			</ToolScp>
-		</updateEvent>
-	</PadSkill>
-	<PadSkill Name="HeavyGravity_HIDDEN_ABIL_PAD" CheckerType="0" Range="120" ApplyFlyMon="1" AllowOverlap="1">
-		<createEvent>
-			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="5000"/>
-				<Num Num="9999"/>
-			</ToolScp>
-			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-				<Str_Arg Str="F_wizard_HeavyGravity_loop2" Arg="2.55"/>
-				<Pos Angle="0" Dist="0" PosType="0"/>
-				<Num Num="0"/>
-				<Str_Arg Str="None" Arg="1"/>
-				<Num Num="0"/>
-			</ToolScp>
-		</createEvent>
-		<destroyEvent>
-			<ToolScp Scp="PAD_KNOCKDOWN" Client="NO" UseSleep="NO">
-				<Str Str="ENEMY"/>
-				<Str Str="KD"/>
-				<Num Num="400"/>
-				<Num Num="80"/>
-				<Num Num="3"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
-				<Str Str="ENEMY"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str Str="Hold"/>
-			</ToolScp>
-            <ToolScp Scp="PAD_DESTROY_EFFECT_BLENDTIME" Client="NO" UseSleep="NO">
-                <Num Num="1"/>
-            </ToolScp>			
-		</destroyEvent>
-		<enterEvent>
-			<ToolScp Scp="PAD_TGT_BUFF_MON" Client="NO" UseSleep="NO">
-				<Str Str="ENEMY"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str Str="HeavyGravity_Debuff"/>
-				<Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Num Num="1"/>
-				<Num Num="100"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_TGT_BUFF_MON" Client="NO" UseSleep="NO">
-				<Str Str="ENEMY"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str Str="Hold"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="5000"/>
-				<Num Num="1"/>
-				<Num Num="100"/>
-			</ToolScp>
-		</enterEvent>
-		<leaveEvent>
-			<ToolScp Scp="PAD_TGT_BUFF_REMOVE_MON" Client="NO" UseSleep="NO">
-				<Str Str="ENEMY"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str Str="HeavyGravity_Debuff"/>
-			</ToolScp>
-            <ToolScp Scp="PAD_TGT_BUFF_REMOVE_MON" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="Hold"/>
-            </ToolScp>
-		</leaveEvent>
-		<updateEvent>
-			<ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str_Arg Str="None" Arg="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-				<Str Str="None"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-500"/>
 				<Num Num="1"/>
 			</ToolScp>
 		</updateEvent>

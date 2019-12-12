@@ -1,4 +1,4 @@
-﻿function LEGENDDECOMPOSE_ON_INIT(addon, frame)
+function LEGENDDECOMPOSE_ON_INIT(addon, frame)
 	addon:RegisterMsg('RESULT_LEGEND_DECOMPOSE', 'ON_RESULT_LEGEND_DECOMPOSE');
 end
 
@@ -52,7 +52,11 @@ function LEGENDDECOMPOSE_EXECUTE(parent, ctrl)
 	local rewardCls = GetClass('LegendDecompose', targetObj.LegendGroup);	
 	local matCls = GetClass('Item', rewardCls.MaterialClassName);	
 	local yesScp = string.format('_LEGENDDECOMPOSE_EXECUTE("%s")', targetGuid);
-	ui.MsgBox(ScpArgMsg('ReallyDecomposeLEgendItemFor{ITEM}?', 'ITEM', matCls.Name), yesScp, 'None');
+	if TryGetProp(targetObj, 'UseLv', 1) >= 430 then
+	    ui.MsgBox(ScpArgMsg('ReallyDecomposeLEgendItemFor{ITEM}?_LV430_UPPER'), yesScp, 'None');
+	else
+	    ui.MsgBox(ScpArgMsg('ReallyDecomposeLEgendItemFor{ITEM}?', 'ITEM', matCls.Name), yesScp, 'None');
+    end
 end
 
 function _LEGENDDECOMPOSE_EXECUTE(targetGuid)

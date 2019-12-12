@@ -156,7 +156,7 @@ ClassID,ConditionArg4,ClassName,UseType,ValueType,PropertyType,ConditionScp,Cond
 163,0,"Legendcard_Misrus","Always","StarCount","","","","","","SCR_CARDEFFECT_ADD_BUFF_STARVALUE_PC","card_Misrus_legendcard","","0","실드 적용 중인 대상에게 {@st66d_y}{s16}[%d]{/}{/} 추가 대미지","1000"
 164,0,"card_tantaliser","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_ALL_PLUS","CON_ITEM_BM/STR_ITEM_BM","CON_ITEM_BM/INT_ITEM_BM","1/1","힘, 체력 + {@st66d_y}{s16}[%d]{/}{/}","1"
 165,0,"card_vaidotas","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_ALL_PLUS","PATK_BM/MATK_BM","","10/10","물리 공격력, 마법 공격력 + {@st66d_y}{s16}[%d]{/}{/}","10/10"
-166,0,"card_vlaentinas","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_ALL_PLUS","DEF_BM/MDEF_BM","","10/10","물리 공격력, 마법 공격력 + {@st66d_y}{s16}[%d]{/}{/}","10/10"
+166,0,"card_vlaentinas","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_ALL_PLUS","DEF_BM/MDEF_BM","","10/10","물리 방어력, 마법 방어력 + {@st66d_y}{s16}[%d]{/}{/}","10/10"
 167,0,"card_uska","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_ALL_PLUS","CON_ITEM_BM/MNA_ITEM_BM/INT_ITEM_BM/DEX_ITEM_BM/STR_ITEM_BM","","0.4/0.4/0.4/0.4/0.4","힘, 체력, 지능, 정신, 민첩 + {@st66d_y}{s16}[%d]{/}{/}","0.4"
 168,0,"card_cyrenia","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_ALL_PLUS","MaxSta_BM/MHP_BM","","1/100","스태미너 +{@st66d_y}{s16}[%d]{/}{/}, 최대 HP +{@st66d_y}{s16}[%d]{/}{/}","1/100"
 169,0,"Legendcard_bayl","Always","StarCount","","","","","","SCR_CARDEFFECT_ADD_NO_TIME_BUFF_PC_BAYL","CARD_ExpUP_bayl_","ExpUP","10","팀 레벨 50이하 일 때 경험치 흭득량 + {@st66d_y}{s16}[%d]{/}{/}%%","10"

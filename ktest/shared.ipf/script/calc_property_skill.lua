@@ -548,6 +548,28 @@ function SCR_GET_SKL_COOLDOWN(skill)
         basicCoolDown = basicCoolDown * 1.2;
     end
     
+    if skill.ClassName == "Cleric_Cure" then
+        local jobHistory = '';
+        if IsServerObj(pc) == 1 then
+            if IS_PC(pc) == true then
+                jobHistory = GetJobHistoryString(pc);
+            end
+        else
+            jobHistory = GetMyJobHistoryString();
+        end
+        
+        local jobList = {"Char4_7", "Char4_18", "Char4_8", "Char4_15", "Char4_10", "Char4_2", "Char4_14"} 
+        for i = 1, #jobList do
+            if jobHistory ~= nil and string.find(jobHistory, jobList[i]) ~= nil then
+                basicCoolDown = basicCoolDown - 3000
+            end
+        end
+
+        if basicCoolDown < 1000 then
+            basicCoolDown = 1000
+        end
+    end
+    
     --burning_event
     if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
         basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
@@ -9817,6 +9839,14 @@ function SCR_GET_TransmitPrana_Ratio3(skill)
     return value
 end
 
+function SCR_Get_VashitaSiddhi_Time(skill)
+    local value = 4
+    if IsPVPField(pc) == 1 then
+        value = value * 0.75
+    end
+    return value
+end
+
 function SCR_Get_VashitaSiddhi_Ratio(skill)
 
     return skill.Level * 5;
@@ -11971,6 +12001,15 @@ function SCR_GET_Bully_Ratio2(skill)
     local patkValue = math.floor((minSubPATK + maxSubPATK) / 2)
     local hateValue = patkValue * (skill.Level * 0.02)
     
+	local abilReinforceRate = 1
+    local abilOutlaw11 = GetAbility(pc, "Outlaw11");
+    if abilOutlaw11 ~= nil then
+        local abilLv = TryGetProp(abilOutlaw11, "Level");
+        abilReinforceRate = abilReinforceRate + (abilLv * 0.005)
+    end
+	
+	hateValue = hateValue * abilReinforceRate
+
     return math.floor(hateValue);
 end
 
@@ -12604,7 +12643,540 @@ function SCR_Get_SkillFactor_EctoplasmExplosion(skill)
     return math.floor(value)
 end
 
+function SCR_GET_Sacred_Heal_Ratio(skill)
+    --value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+	value = 7 + (skill.Level - 1) * 2
+	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
+    return math.floor(value)
+end
+
+function SCR_GET_Barong_Time(skill)
+    local value = 10 + skill.Level * 1
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
+    return math.floor(value);
+end
+
+function SCR_GET_HolySmash_Heal_Ratio(skill)
+    value = 20 + (skill.Level - 1) * 3.4
+	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
+    return math.floor(value)
+end
+
+function SCR_GET_RingOfLight_Heal_Ratio(skill)
+    value = 31 + (skill.Level - 1) * 5.2
+	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
+    return math.floor(value)
+end
+
+function SCR_GET_Condemn_Heal_Ratio(skill)
+    value = 10 + (skill.Level - 1) * 2.8
+	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
+    return math.floor(value)
+end
+
+function SCR_GET_ProtectionOfGoddess_Heal_Ratio(skill)
+    value = 43 + (skill.Level - 1) * 43
+	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
+    return math.floor(value)
+end
+
+function SCR_GET_Retaliation_Heal_Ratio(skill)
+    value = 57 + (skill.Level - 1) * 14.8
+	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
+    return math.floor(value)
+end
+
+function SCR_GET_ProtectionOfGoddess_SPD_Ratio(skill)
+	local pc = GetSkillOwner(skill);
+	local sspd = skill.Level * 0.05
+	local value = pc.MSPD * sspd
+    return math.floor(value)
+end
+
+function SCR_GET_Chants_Ratio(skill)
+    value = 100 + (skill.Level * 8)
+	
+    return math.floor(value)
+end
+
+function SCR_GET_Chants_Ratio2(skill)
+    value = (30 + skill.Level * 2)
+	
+    return math.floor(value)
+end
+
+function SCR_GET_HolySmash_SR_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    return math.floor(2 + pc.SR/3)
+end
+
+function SCR_GET_ProtectionOfGoddess_SR_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    return math.floor(4 + pc.SR/3)
+end
+
+function SCR_GET_Sacred_SR_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    return math.floor(3 + pc.SR/3)
+end
+
+function SCR_GET_Retaliation_SR_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    return math.floor(3 + pc.SR/3)
+end
+
+function SCR_GET_Condemn_SR_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    return math.floor(3 + pc.SR/3)
+end
+
+function SCR_GET_RingOfLight_SR_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    return math.floor(2 + pc.SR/3)
+end
+
+function SCR_GET_SandWall_SPD_Ratio(skill)
+    local value = 10 + skill.Level
+    return value
+end
+
 function SCR_GET_Obey_Ratio(skill)
     local value = 50
     return value
+end
+
+function SCR_GET_SKL_COOLDOWN_ControlBlade(skill)
+    
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+
+    local abil = GetAbility(pc, 'Blossomblader9')
+    if abil ~= nil and TryGetProp(abil, "ActiveState", 0) == 1 then
+        if IsBuffApplied(pc, "StartUp_Buff") == "YES" then
+            local reduceCoolTime = TryGetProp(abil, "Level", 0) * 1000 
+            basicCoolDown = basicCoolDown + abilAddCoolDown - reduceCoolTime;
+        end
+    end
+    
+    local laimaCoolTime = GetExProp(pc, "LAIMA_BUFF_COOLDOWN")
+    if laimaCoolTime ~= 0 then
+        basicCoolDown = basicCoolDown * (1 - laimaCoolTime)
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
+    
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
+        end
+    end
+    ---------------
+    
+    local ret = math.floor(basicCoolDown) / 1000
+    
+    ret = math.floor(ret) * 1000;
+    
+    return math.floor(ret);
+end
+
+function SCR_GET_Flowering_BuffTime(skill)
+    local value = 30
+    return value
+end
+
+function SCR_GET_Flowering_Ratio(skill)
+    local value = 2
+    return value
+end
+
+function SCR_GET_Flowering_Ratio2(skill)
+    local value = skill.Level
+    return value
+end
+
+function SCR_GET_StartUp_BuffTime(skill)
+    local value = 20
+    return value
+end
+
+function SCR_GET_StartUp_Ratio(skill)
+    local value = 10 + 6 * skill.Level
+    return value
+end
+
+function SCR_GET_Luka_Time(skill)
+    local value = 10
+    return value
+end
+
+function SCR_GET_Kutukan_Time(skill)
+    local value = 4
+    return value
+end
+
+function SCR_GET_Penyerapan_Ratio(skill)
+    local value = 50 * skill.Level;
+    vlaue = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
+    return value
+end
+
+function SCR_GET_Keletihan_Time(skill)
+    local value = 10 + skill.Level;
+    return value
+end
+
+function SCR_GET_Keletihan_Ratio(skill)
+    local value = 10 * skill.Level;
+    return value
+end
+
+function SCR_GET_Keletihan_Ratio2(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 7 + (pc.SR/5);
+    return math.floor(value)
+end
+
+function SCR_GET_Rawa_Time(skill)
+    local value = 8.5;
+    return value
+end
+
+function SCR_GET_Rawa_Ratio(skill)
+    local value = 2;
+    return value
+end
+
+function SCR_GET_Rawa_Ratio2(skill)
+    local value = skill.Level;
+    return value
+end
+
+function SCR_GET_SR_LV_Kutukan(skill)
+
+    local pc = GetSkillOwner(skill);
+    if pc == nil and ui.GetFrame("pub_createchar"):IsVisible() == 1 then
+        return skill.SklSR;
+    end
+
+    local value = pc.SR
+    
+    if value < 1 then
+        value = 1
+    end
+    
+    return value
+end
+
+function SCR_GET_Escape_Ratio(skill)
+    local value = skill.Level * 5
+    return value
+end
+
+function SCR_GET_DeadZone_Time(skill)
+    local value = 10
+    return value
+end
+
+function SCR_GET_ShiningBurst_Time(skill)
+    local value = 5
+    return value
+end
+
+function SCR_GET_SKL_COOLDOWN_SeptEtoiles(skill)
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    basicCoolDown = basicCoolDown + abilAddCoolDown;
+    
+    if IsBuffApplied(pc, "ITEM_BUFF_VIBORA_RAPIER") == "YES" then
+        basicCoolDown = basicCoolDown - 5000 
+    end
+
+    local cls = GetClassList("SkillRestrict");
+    local sklCls = GetClassByNameFromList(cls, skill.ClassName);
+    local coolDownClassify = nil;
+    local zoneAddCoolDown = 0;
+    
+    if sklCls ~= nil then
+        local isKeyword = TryGetProp(sklCls, "Keyword", nil)
+        if IsRaidField(pc) == 1 then
+            if string.find(isKeyword, "IsRaidField") == 1 then
+                local addCoolDown = TryGetProp(sklCls, "Raid_CoolDown", nil)
+                addCoolDown = StringSplit(addCoolDown, "/");
+                coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
+            end
+        elseif IsPVPField(pc) == 1 then
+            if string.find(isKeyword, "IsPVPField") == 1 then
+                local addCoolDown = TryGetProp(sklCls, "PVP_CoolDown", nil)
+                addCoolDown = StringSplit(addCoolDown, "/");
+                coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
+            end
+        end
+    end
+    
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
+        end
+    end
+    -----------
+    local ret = math.floor(basicCoolDown) / 1000
+    ret = math.floor(ret) * 1000;
+    if coolDownClassify == "Fix" then
+        ret = zoneAddCoolDown;
+    elseif coolDownClassify == "Add" then
+        ret = zoneAddCoolDown + ret
+    end
+    
+    return math.floor(ret);
+end
+
+function SCR_GET_SKL_COOLDOWN_Fleche(skill)
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    basicCoolDown = basicCoolDown + abilAddCoolDown;
+    
+    if IsBuffApplied(pc, "ITEM_BUFF_VIBORA_RAPIER") == "YES" then
+        basicCoolDown = basicCoolDown - 10000
+    end
+
+    local cls = GetClassList("SkillRestrict");
+    local sklCls = GetClassByNameFromList(cls, skill.ClassName);
+    local coolDownClassify = nil;
+    local zoneAddCoolDown = 0;
+    
+    if sklCls ~= nil then
+        local isKeyword = TryGetProp(sklCls, "Keyword", nil)
+        if IsRaidField(pc) == 1 then
+            if string.find(isKeyword, "IsRaidField") == 1 then
+                local addCoolDown = TryGetProp(sklCls, "Raid_CoolDown", nil)
+                addCoolDown = StringSplit(addCoolDown, "/");
+                coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
+            end
+        elseif IsPVPField(pc) == 1 then
+            if string.find(isKeyword, "IsPVPField") == 1 then
+                local addCoolDown = TryGetProp(sklCls, "PVP_CoolDown", nil)
+                addCoolDown = StringSplit(addCoolDown, "/");
+                coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
+            end
+        end
+    end
+    
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
+        end
+    end
+    -----------
+    local ret = math.floor(basicCoolDown) / 1000
+    ret = math.floor(ret) * 1000;
+    if coolDownClassify == "Fix" then
+        ret = zoneAddCoolDown;
+    elseif coolDownClassify == "Add" then
+        ret = zoneAddCoolDown + ret
+    end
+    
+    return math.floor(ret);
+end
+
+function SCR_GET_SKL_COOLDOWN_HolySmash(skill)
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    basicCoolDown = basicCoolDown + abilAddCoolDown;
+    
+    if IsBuffApplied(pc, "ITEM_BUFF_VIBORA_THMACE") == "YES" then
+        basicCoolDown = basicCoolDown - 5000
+    end
+
+    local cls = GetClassList("SkillRestrict");
+    local sklCls = GetClassByNameFromList(cls, skill.ClassName);
+    local coolDownClassify = nil;
+    local zoneAddCoolDown = 0;
+    
+    if sklCls ~= nil then
+        local isKeyword = TryGetProp(sklCls, "Keyword", nil)
+        if IsRaidField(pc) == 1 then
+            if string.find(isKeyword, "IsRaidField") == 1 then
+                local addCoolDown = TryGetProp(sklCls, "Raid_CoolDown", nil)
+                addCoolDown = StringSplit(addCoolDown, "/");
+                coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
+            end
+        elseif IsPVPField(pc) == 1 then
+            if string.find(isKeyword, "IsPVPField") == 1 then
+                local addCoolDown = TryGetProp(sklCls, "PVP_CoolDown", nil)
+                addCoolDown = StringSplit(addCoolDown, "/");
+                coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
+            end
+        end
+    end
+    
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
+        end
+    end
+    -----------
+    local ret = math.floor(basicCoolDown) / 1000
+    ret = math.floor(ret) * 1000;
+    if coolDownClassify == "Fix" then
+        ret = zoneAddCoolDown;
+    elseif coolDownClassify == "Add" then
+        ret = zoneAddCoolDown + ret
+    end
+    
+    return math.floor(ret);
+end
+
+function SCR_GET_SKL_COOLDOWN_Condemn(skill)
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    basicCoolDown = basicCoolDown + abilAddCoolDown;
+    
+    if IsBuffApplied(pc, "ITEM_BUFF_VIBORA_THMACE") == "YES" then
+        basicCoolDown = basicCoolDown - 10000
+    end
+
+    local cls = GetClassList("SkillRestrict");
+    local sklCls = GetClassByNameFromList(cls, skill.ClassName);
+    local coolDownClassify = nil;
+    local zoneAddCoolDown = 0;
+    
+    if sklCls ~= nil then
+        local isKeyword = TryGetProp(sklCls, "Keyword", nil)
+        if IsRaidField(pc) == 1 then
+            if string.find(isKeyword, "IsRaidField") == 1 then
+                local addCoolDown = TryGetProp(sklCls, "Raid_CoolDown", nil)
+                addCoolDown = StringSplit(addCoolDown, "/");
+                coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
+            end
+        elseif IsPVPField(pc) == 1 then
+            if string.find(isKeyword, "IsPVPField") == 1 then
+                local addCoolDown = TryGetProp(sklCls, "PVP_CoolDown", nil)
+                addCoolDown = StringSplit(addCoolDown, "/");
+                coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
+            end
+        end
+    end
+    
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
+        end
+    end
+    -----------
+    local ret = math.floor(basicCoolDown) / 1000
+    ret = math.floor(ret) * 1000;
+    if coolDownClassify == "Fix" then
+        ret = zoneAddCoolDown;
+    elseif coolDownClassify == "Add" then
+        ret = zoneAddCoolDown + ret
+    end
+    
+    return math.floor(ret);
+end
+function SCR_GET_SKL_COOLDOWN_BlossomSlash(skill)
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    basicCoolDown = basicCoolDown + abilAddCoolDown;
+    
+    if IsBuffApplied(pc, "ITEM_BUFF_VIBORA_THSWORD") == "YES" then
+        basicCoolDown = basicCoolDown - 10000
+    end
+
+    local cls = GetClassList("SkillRestrict");
+    local sklCls = GetClassByNameFromList(cls, skill.ClassName);
+    local coolDownClassify = nil;
+    local zoneAddCoolDown = 0;
+    
+    if sklCls ~= nil then
+        local isKeyword = TryGetProp(sklCls, "Keyword", nil)
+        if IsRaidField(pc) == 1 then
+            if string.find(isKeyword, "IsRaidField") == 1 then
+                local addCoolDown = TryGetProp(sklCls, "Raid_CoolDown", nil)
+                addCoolDown = StringSplit(addCoolDown, "/");
+                coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
+            end
+        elseif IsPVPField(pc) == 1 then
+            if string.find(isKeyword, "IsPVPField") == 1 then
+                local addCoolDown = TryGetProp(sklCls, "PVP_CoolDown", nil)
+                addCoolDown = StringSplit(addCoolDown, "/");
+                coolDownClassify, zoneAddCoolDown = addCoolDown[1], addCoolDown[2]
+            end
+        end
+    end
+    
+    --burning_event
+    if IsBuffApplied(pc, "Event_Cooldown_SPamount_Decrease") == "YES" then
+        basicCoolDown = SCR_COOLDOWN_SPAMOUNT_DECREASE(pc, "CoolDown", basicCoolDown)
+    else
+        if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+            basicCoolDown = basicCoolDown * 0.9;
+        end
+        
+        if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+            if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+                basicCoolDown = basicCoolDown * 0.5;
+            end
+        end
+    end
+    -----------
+    local ret = math.floor(basicCoolDown) / 1000
+    ret = math.floor(ret) * 1000;
+    if coolDownClassify == "Fix" then
+        ret = zoneAddCoolDown;
+    elseif coolDownClassify == "Add" then
+        ret = zoneAddCoolDown + ret
+    end
+    
+    return math.floor(ret);
 end

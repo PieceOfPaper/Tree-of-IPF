@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <packeteffects>
     <Category ID="139">
         <Effect Name="E_pc_effectitem_gabia"/>
@@ -110,6 +110,8 @@
 	<Effect Name="F_circle25_yellow"/>
 	<Effect Name="boss_Moringponia_Poison"/>
 		<Effect Name="I_pc_question_arrow_mash"/>
+		<Effect Name="raid_lepidoptera"/>
+		<Effect Name="boss_lepidoptera"/>
 		<Effect Name="F_ground194_lightning_blue"/>
 		<Effect Name="F_ground194_lightning_red"/>
 		<Effect Name="I_chain004_mash_loop_multi_blue"/>
@@ -136,6 +138,18 @@
 		<Effect Name="I_light013_spark_white"/>
 		<Effect Name="Legend_Tantaliser_Pad1"/>
 		<Effect Name="Legend_Tantaliser_Pad5"/>
+        <Effect Name="WEEKLY_BOSS_RAID_01"/>
+        <Effect Name="WEEKLY_BOSS_RAID_02"/>
+        <Effect Name="WEEKLY_BOSS_RAID_03"/>
+        <Effect Name="ID_ZACHA_MINI"/>
+        <Effect Name="ID_SIAULIAI_MINI"/>
+        <Effect Name="ID_CATACOMB_MINI"/>
+        <Effect Name="ID_HUEVILLAGE_MINI"/>
+        <Effect Name="ID_ROKAS_MINI"/>
+        <Effect Name="ID_CMINE_MINI"/>
+        <Effect Name="ID_CASTLE_03_MINI"/>
+        <Effect Name="percentUI"/>
+        <Effect Name="RankResetPoint"/>
 	</Category>
     <Category ID="146">
         <Effect Name="beginner"/>
@@ -923,6 +937,43 @@
         <Effect Name="I_spread_in011_2"/>
         <Effect Name="EP12_PRELUDE_08_MINI"/>
         <Effect Name="F_archer_Matross_CanisterShot_explosion"/>
+        <Effect Name="F_smoke181_white"/>
+        <Effect Name="F_ground195_levitation_violet_loop"/>
+        <Effect Name="F_light078_holy_yellow_loop3"/>
+        <Effect Name="F_smoke027_dark_loop2"/>
+        <Effect Name="F_spread_in032_dark_loop2"/>
+        <Effect Name="F_ground185_spred_out_light_white"/>
+        <Effect Name="F_fade_out_dark"/>
+        <Effect Name="F_warrior_PainBarrier_buff2_swordman01_3"/>
+        <Effect Name="F_bubble005_white"/>
+        <Effect Name="F_cleric_MassHeal_shot_line_prist01_3"/>
+        <Effect Name="CASTLE102_MQ_04_MINI"/>
+        <Effect Name="I_breath017"/>
+        <Effect Name="I_breath017_1"/>
+        <Effect Name="F_smoke182_spread_out_dark"/>
+        <Effect Name="F_lineup022_red2"/>
+        <Effect Name="CASTLE102_MQ_02_MINI"/>
+        <Effect Name="F_smoke024_blue"/>
+        <Effect Name="I_bat003"/>
+        <Effect Name="I_bat013"/>
+        <Effect Name="I_force007_vilolet2"/>
+        <Effect Name="F_light115_explosion_blue2"/>
+        <Effect Name="F_pc_CardBook_ground_dark "/>
+        <Effect Name="I_force018_trail_psychokinesis3_3"/>
+        <Effect Name="DCAPITAL53_1_MQ_02_MINI"/>
+        <Effect Name="DCAPITAL53_1_MQ_04_MINI"/>
+        <Effect Name="Phase1"/>
+        <Effect Name="Phase2"/>
+        <Effect Name="Phase3"/>
+        <Effect Name="Last Battle"/>
+        <Effect Name="F_item_drop_line_loop_red"/>
+        <Effect Name="EVENT_2001_NEWYEAR_MISSION"/>
+        <Effect Name="F_hit020"/>
+        <Effect Name="F_hit_concentrate"/>
+        <Effect Name="F_explosion111_smoke"/>
+		<Effect Name="F_pattern020_ground_darkRed"/>
+		<Effect Name="F_pattern008_violet"/>
+		<Effect Name="F_pattern008_violet_loop"/>
     </Category>
     <Category ID="83">
         <Effect Name="SKL_ARIES"/>
@@ -1420,6 +1471,41 @@
         <Effect Name="MON_GEN04"/>
         <Effect Name="MON_GEN05"/>
     <Effect Name="idle1"/>
+        <Effect Name="F_smoke181_white"/>
+        <Effect Name="F_light078_holy_yellow_loop3"/>
+        <Effect Name="F_ground195_levitation_violet_loop"/>
+        <Effect Name="I_smoke001_black_loop"/>
+        <Effect Name="mute"/>
+        <Effect Name="F_light143_mint"/>
+        <Effect Name="D_CASTLE_19_1_MQ_05_MINI"/>
+        <Effect Name="F_light139_2"/>
+        <Effect Name="F_light139_3"/>
+        <Effect Name="F_CASTLE_97_MQ_02_MINI"/>
+        <Effect Name="F_smoke119"/>
+        <Effect Name="F_explosion042_smoke2"/>
+        <Effect Name="F_explosion042_smoke2"/>
+        <Effect Name="F_levitation005_dark_violet1"/>
+        <Effect Name="F_ground042"/>
+        <Effect Name="F_levitation005_dark_violet1"/>
+        <Effect Name="F_ground042"/>
+        <Effect Name="F_CASTLE_99_MQ_02_MINI"/>
+        <Effect Name="F_CASTLE_99_MQ_03_MINI"/>
+        <Effect Name="F_light146_white"/>
+        <Effect Name="F_light152_2"/>
+        <Effect Name="F_light114_pink_loop"/>
+        <Effect Name="F_light114_pink_loop"/>
+        <Effect Name="F_explosion028_red"/>
+        <Effect Name="F_spread_in50_darkred"/>
+        <Effect Name="F_explosion028_red"/>
+        <Effect Name="F_spread_in50_darkred"/>
+        <Effect Name="F_ground196_levitation_violet_loop"/>
+        <Effect Name="F_rize022"/>
+        <Effect Name="F_buff_ground_rize_debuff_loop1"/>
+        <Effect Name="F_ground173"/>
+        <Effect Name="F_rize022"/>
+        <Effect Name="F_buff_ground_rize_debuff_loop1"/>
+        <Effect Name="F_ground173"/>
+        <Effect Name="I_emo_exclamation#Bip001"/>
     </Category>
     <Category ID="201">
         <Effect Name="F_cleric_devinestigma_hit_smoke_LOW##0.5"/>
@@ -2090,6 +2176,14 @@
         <Effect Name="F_explosion028_mint2"/>
         <Effect Name="F_explosion123_5"/>
         <Effect Name="F_explosion123_6"/>
+    <Effect Name="F_burstup048_fire_3"/>
+        <Effect Name="I_archer_canon_force3#Dummy_weapon02"/>
+        <Effect Name="F_spread_out061"/>
+        <Effect Name="I_arrow005_mash2#Dummy_buff_L_hand"/>
+        <Effect Name="E_warrior_controlblade002"/>
+        <Effect Name="E_warrior_blossomslash"/>
+        <Effect Name="I_warrior_deadzone_hit_mesh"/>
+        <Effect Name="I_warrior_deadzone2_hit_mesh"/>
     </Category>
     <Category ID="197">
         <Effect Name="F_burstup030_fire1"/>
@@ -2186,6 +2280,34 @@
         <Effect Name="LEGEND_RAID_SHADOWMANCER_MASTER"/>
         <Effect Name="LEGEND_RAID_MORINGPONIA"/>
         <Effect Name="I_archer_canon_force_forge"/>
+    <Effect Name="SOLO_DUNGEON_MINI_ANCIENT"/>
+        <Effect Name="CASUAL_RAID_WHITE_CROW"/>
+        <Effect Name="UNIQUE_RAID_WHITE_CROW_SOLO"/>
+        <Effect Name="ID_NNICOPOLIS_RAID_MINI_SOLO"/>
+        <Effect Name="Crusader_Sacred_HealPad1"/>
+        <Effect Name="Crusader_Condemn_Pad"/>
+        <Effect Name="Crusader_ProtectionOfGoddess_HealPad1"/>
+        <Effect Name="Crusader_Sacred_DamagePad1"/>
+        <Effect Name="Crusader_Sacred_DamagePad2"/>
+        <Effect Name="Crusader_ProtectionOfGoddess_DamagePad1"/>
+        <Effect Name="voice_archer_m_guidedshot_shot"/>
+        <Effect Name="voice_archer_m_guidedshot_shot"/>
+        <Effect Name="Crusader_Sacred_HealPad2"/>
+        <Effect Name="Terramancer_HornOfGolem_SandWall"/>
+        <Effect Name="voice_wiz_f_implosion_shot"/>
+        <Effect Name="voice_wiz_f_rollingstone_cast"/>
+        <Effect Name="voice_wiz_f_hornofgolem_shot"/>
+        <Effect Name="skl_eff_fallenblossom_shot"/>
+        <Effect Name="voice_war_f_startup_cast"/>
+        <Effect Name="skl_eff_controlblade_shot"/>
+        <Effect Name="I_warrior_deadzone_hit_mesh"/>
+        <Effect Name="I_warrior_deadzone2_hit_mesh"/>
+        <Effect Name="I_arrow005_mash2#Dummy_back_arrow04"/>
+        <Effect Name="skl_eff_rollingstone_cast"/>
+        <Effect Name="skl_eff_hornofgolem_cast"/>
+        <Effect Name="skl_eff_reteliation_cast"/>
+        <Effect Name="voice_cleric_m_retaliation_shot"/>
+        <Effect Name="voice_cleric_m_sacred_p_shot"/>
     </Category>
     <Category ID="171">
         <Effect Name="MISSION_UPHILL_DEFFENSE_EVENT2"/>
@@ -2351,6 +2473,58 @@
         <Effect Name="ID_WHITETREES_MINI_01_SOLO"/>
         <Effect Name="raid_bracken_SOLO"/>
         <Effect Name="UNIQUE_RAID_WHITE_CROW_SOLO"/>
+
+<Effect Name="Arbalester_ShiningBurst"/>
+        <Effect Name="I_circle011_whtie_mash_redBlack"/>
+        <Effect Name="F_explosion107_dust"/>
+        <Effect Name="Rangda_Rawa"/>
+        <Effect Name="I_arrow005_mash2"/>
+        <Effect Name="I_arrow005_mash2_red"/>
+        <Effect Name="I_arrow005_mash2_red#Dummy_q_Force"/>
+        <Effect Name="I_arrow005_mash2_red#Dummy_buff_R_hand"/>
+        <Effect Name="I_arrow005_mash2_red#Dummy_buff_L_hand"/>
+        <Effect Name="BlossomBlader_ControlBlade"/>
+        <Effect Name="I_arrow005_mash2#Dummy_buff_L_hand"/>
+        <Effect Name="shootpad_Sparnanman_hidden"/>
+        <Effect Name="TerraMancer_SandWall"/>
+        <Effect Name="SKL_STONESHOWER"/>
+        <Effect Name="TerraMancer_RollingStone_DamagePad"/>
+        <Effect Name="SHOW_REDUCE_HP"/>
+        <Effect Name="E_warrior_controlblade002"/>
+        <Effect Name="E_warrior_controlblade003"/>
+        <Effect Name="F_warrior_controlblade001"/>
+        <Effect Name="I_warrior_controlblade001_mesh"/>
+        <Effect Name="F_warrior_fallenblossom001"/>
+        <Effect Name="E_warrior_fallenblossom"/>
+        <Effect Name="F_warrior_fallenblossom_debuff001"/>
+        <Effect Name="F_scout_penyerapan001"/>
+        <Effect Name="F_scout_redemption_ground"/>
+        <Effect Name="F_spread_out045_white"/>
+        <Effect Name="Rangda_Rawa_Abil"/>
+    <Effect Name="I_arrow005_mash2#Dummy_buff_R_hand"/>
+        <Effect Name="I_arrow005_mash2#Dummy_buff_hand"/>
+        <Effect Name="I_arrow005_mash2#Dummy_effect"/>
+        <Effect Name="I_arrow005_mash2#Dummy_Effect"/>
+        <Effect Name="I_arrow005_mash2#Dummy_Force"/>
+        <Effect Name="I_arrow005_mash2#Dummy_bleeding_effect"/>
+        <Effect Name="I_arrow005_mash2#Dummy_balloon"/>
+        <Effect Name="I_warrior_deadzone_hit_mesh"/>
+        <Effect Name="I_warrior_deadzone2_hit_mesh"/>
+        <Effect Name="I_arrow005_mash2#Dummy_back_arrow04"/>
+        <Effect Name="I_arrow005_mash2Dummy_buff_R_hand"/>
+        <Effect Name="I_arrow005_mash2_redDummy_buff_R_hand"/>
+        <Effect Name="I_arrow005_mash2Dummy_back_arrow04"/>
+        <Effect Name="I_arrow005_mash2_redDummy_back_arrow04"/>
+        <Effect Name="I_arrow005_mash2_redDummy_buff_L_hand"/>
+        <Effect Name="I_arrow005_mash2_red#Dummy_back_arrow04"/>
+        <Effect Name="F_pc_statue_buff"/>
+        <Effect Name="I_spread_out004_dark"/>
+        <Effect Name="voice_wiz_m_rollingstone_cast"/>
+        <Effect Name="F_smoke182_spread_out_dark2"/>
+        <Effect Name="shieldup"/>
+        <Effect Name="shieldup_2"/>
+        <Effect Name="voice_wiz_m_hornofgolem_shot"/>
+        <Effect Name="voice_wiz_m_implosion_shot"/>
     </Category>
     <Category ID="84">
         <Effect Name="M_PAST_FLIBRARY_1"/>
@@ -3122,6 +3296,18 @@
         <Effect Name="voice_cleric_m_pearofanguish_shot"/>
         <Effect Name="실패조건"/>
         <Effect Name="Aqkrova_Pad"/>
+		<Effect Name="Crusader_Condemn_Pad"/>
+		<Effect Name="E_cleric_ProtectionOfGoddess_ground_end##1.1"/>
+		<Effect Name="E_cleric_ProtectionOfGoddess_ground_end_red##1.1"/>
+		<Effect Name="E_cleric_ProtectionOfGoddess_ground_end_violet##1.1"/>
+		<Effect Name="E_cleric_ProtectionOfGoddess_ground##1.1"/>
+		<Effect Name="E_cleric_ProtectionOfGoddess_ground_red##1.1"/>
+		<Effect Name="E_cleric_ProtectionOfGoddess_ground_violet##1.1"/>
+		<Effect Name="Crusader_ProtectionOfGoddess_HealPad1"/>
+		<Effect Name="F_levitation005_yellow2"/>
+		<Effect Name="I_wizard_sandblast_cast"/>
+		<Effect Name="F_cleric_RingOfLight_circle_explosion_end_violet"/>
+		<Effect Name="F_cleric_RingOfLight_circle_explosion_end_red"/>
     </Category>
     <Category ID="60">
         <Effect Name="SETPOS"/>
@@ -4886,6 +5072,15 @@
         <Effect Name="I_force003_green#Dummy_weapon02"/>
         <Effect Name="I_archer_canon_force3#Dummy_weapon02"/>
         <Effect Name="LEGEND_RAID_MORINGPONIA_EASY"/>
+        <Effect Name="F_lineup005_green#None"/>
+        <Effect Name="F_lineup005_green#None#0.5"/>
+        <Effect Name="I_smoke045_spread_in#None#0.5"/>
+        <Effect Name="F_burstup047_mint##0.5"/>
+        <Effect Name="F_warrior_chargingattack_hit_burstup##0.5"/>
+        <Effect Name="F_burstup048_ice##0.5"/>
+        <Effect Name="F_burstup048_ice##1"/>
+        <Effect Name="F_burstup051_dark##1"/>
+        <Effect Name="F_burstup015_blue##1"/>
     </Category>
     <Category ID="45">
         <Effect Name="Cleric_Barrier"/>
@@ -6066,6 +6261,9 @@
         <Effect Name="I_force095_mint3#Bone_RHand022"/>
         <Effect Name="F_blood011_green"/>
         <Effect Name="UNIQUE_RAID_STARTOWER_SOLO"/>
+    <Effect Name="test_damage"/>
+        <Effect Name="Crusader_Retaliation_HealAndDamagePad1"/>
+        <Effect Name="Crusader_Condemn_Pad"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
@@ -22439,11 +22637,17 @@
         <Effect Name="F_wizard_gust_shot_burstup"/>
         <Effect Name="I_spread_out001_light_violet_loop"/>
         <Effect Name="F_pc_welldone_ground"/>
+    <Effect Name="F_cleric_Sacred_ground_loop"/>
+        <Effect Name="F_cleric_Sacred_ground_shot"/>
+        <Effect Name="F_cleric_Condemn_ground_loop"/>
+        <Effect Name="F_cleric_Condemn_ground_end"/>
     </Category>
     <Category ID="300">
         <Effect Name="DefClass123"/>
     </Category>
     <Category ID="130">
+        <Effect Name="E_Cleric_StoneShower"/>
+        <Effect Name="F_explosion093_dark3"/>
         <Effect Name="F_buff_blackgargoyle002"/>
     </Category>
 </packeteffects>

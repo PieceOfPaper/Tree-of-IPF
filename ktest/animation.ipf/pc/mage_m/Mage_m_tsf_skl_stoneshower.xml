@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_wizard_InfernalShadow_dark_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_stoneshower_shot"/>
+    <BlendOn frame="1" R="5" G="3" B="2" A="50"/>
+    <Particle frame="1" attachNode="Dummy_L_HAND" particleName="I_force018_trail_earth_long_stone3_trailonly" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="2" R="10" G="8" B="6" A="50"/>
+    <BlendOn frame="3" R="15" G="13" B="9" A="50"/>
+    <BlendOn frame="4" R="30" G="25" B="15" A="50"/>
+    <BlendOn frame="6" R="160" G="150" B="130" A="50"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="F_Cleric_StoneShower_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="F_warrior_ChangeStance_shot_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="7" R="130" G="120" B="95" A="50"/>
+    <Shockwave frame="7" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <BlendOff frame="8" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -8,7 +8,7 @@ local tabInfo = {
 
 local levelFilter = {
 	Min = 0,
-	Max = 420,
+	Max = 450,
 	Range = 30, -- PC의 +- 레벨 범위.
 }
 
@@ -497,7 +497,7 @@ function NEW_QUEST_ADD_MAIN_CHECK(questIES)
 end
 
 function NEW_QUEST_ADD(frame, msg, argStr, argNum) 
-	
+
 	local questIES = GetClassByType("QuestProgressCheck", argNum);
 	local sobjIES = GET_MAIN_SOBJ();
 
@@ -518,20 +518,29 @@ function NEW_QUEST_ADD(frame, msg, argStr, argNum)
                         isNew = 1
                     end
                 end
+                if isNew == 0 then
+                    if questState == "PROGRESS" or questState == "SUCCESS" then
+                        isNew = 1
+                    end
+                end
             else
                 isNew = NEW_QUEST_ADD_MAIN_CHECK(questIES)
             end
 		end
 		
+        if DENIED_EXCEPTION_QUEST_LIST(questIES.ClassName) == 1 then
+            isNew = 1
+        end
+        
 		if isNew == 1 and quest.IsCheckQuest(argNum) == false then
-			if quest.GetCheckQuestCount() < 5 then		
+			if quest.GetCheckQuestCount() < 5 then	
 				quest.AddCheckQuest(argNum);
 				local questframe2 = ui.GetFrame("questinfoset_2");
 				UPDATE_QUESTINFOSET_2(questframe2); -- infoset에 보여줌.
 			end
 		end
 	end
-
+    
 	-- 퀘스트 정보 업데이트
 	if questIES ~= nil then
 		_UPDATE_QUEST_INFO(questIES)
@@ -540,6 +549,52 @@ function NEW_QUEST_ADD(frame, msg, argStr, argNum)
 	-- 퀘스트창이 열려있다면 다시 그려줄 수 있도록 예약.
 	QUEST_RESERVE_DRAW_LIST(frame)
 end
+
+
+
+function DENIED_EXCEPTION_QUEST_LIST(QuestClssName)
+    
+    local qTb = {
+                'CASTLE191_RP_1',
+                'CASTLE191_RP_2',
+                'CASTLE191_RP_3',
+                'CASTLE191_RP_4',
+                'CASTLE191_RP_5',
+                'CASTLE97_RP_1',
+                'CASTLE97_RP_2',
+                'CASTLE97_RP_3',
+                'CASTLE99_RP_1',
+                'CASTLE99_RP_2',
+                'CASTLE99_RP_3',
+                'CASTLE99_RP_4',
+                'CASTLE102_RP_1',
+                'CASTLE102_RP_2',
+                'CASTLE102_RP_3',
+                'CASTLE102_RP_4',
+                'DCAPITAL531_RP_1',
+                'DCAPITAL531_RP_2',
+                'DCAPITAL531_RP_3',
+                'DCAPITAL531_RP_4',
+                'DCAPITAL531_RP_5',
+                'DCAPITAL104_RP_1',
+                'DCAPITAL104_RP_2',
+                'DCAPITAL104_RP_3',
+                'DCAPITAL104_RP_4'
+                }
+
+    local isNew = 0
+    
+    for i = 1, #qTb do
+        if qTb[i] == QuestClssName then
+            isNew = 1
+            break
+        end
+    end
+
+    return isNew
+end
+
+
 
 function QUEST_UPDATE_ALL(frame)
 	

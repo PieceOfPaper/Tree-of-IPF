@@ -207,7 +207,13 @@
                     <Num Num="100" />
                     <Num Num="0" />
                     <Num Num="1" />
-                </Scp>
+                </Scp>           
+                <Scp Client="NO" Scp="SKL_TGT_REMOVE_BUFF" Time="100" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)" Str="0" UseFunc="1"/>
+              </Scp>     
             </EtcList>
         </MainSkl>
     </Skill>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_reaverpede_skl_1"/>
+    <Sound frame="58.00" soundFile="skl_eff_hit_ground_poison_bubble"/>
+    <BlendOn frame="60" R="100" G="100" B="100" A="100"/>
+    <BlendOn frame="62" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="64" R="100" G="100" B="100" A="100"/>
+    <BlendOff frame="66" R="0" G="0" B="0" A="0"/>
+    <Shockwave frame="67" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="69" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="71" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="73" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

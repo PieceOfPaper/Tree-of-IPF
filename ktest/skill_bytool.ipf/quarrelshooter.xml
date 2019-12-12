@@ -24,6 +24,12 @@
 					<Str Str="voice_archer_m_blockandshoot_cast" />
 					<Str Str="voice_archer_f_blockandshoot_cast" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)" Str="0" UseFunc="1"/>
+               </Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>
@@ -2680,12 +2686,12 @@
 			<ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
 				<Num Num="1" />
 				<Str Str="pavise" />
-				<Num Num="2" />
+				<Num Num="4" />
 			</ToolScp>
 		<ToolScp Client="NO" Scp="SKL_CHECK_SKL_OBJ_CNT" UseSleep="NO">
                 <Num Num="1" />
                 <Str Str="pcskill_Ballista" />
-                <Num Num="2" />
+                <Num Num="4" />
             </ToolScp>            
         </EnableScripts>
 		<MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">

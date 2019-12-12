@@ -311,6 +311,29 @@
 	<hierarchy Name="Fire_Atk">
 		<Child Name="Fire_Atk_BM"/>
 	</hierarchy>
+	<hierarchy Name="Add_Damage_Atk">
+		<Child Name="Fire_Atk_BM"/>
+		<Child Name="Ice_Atk_BM"/>
+		<Child Name="Poison_Atk_BM"/>
+		<Child Name="Lightning_Atk_BM"/>
+		<Child Name="Soul_Atk_BM"/>
+		<Child Name="Earth_Atk_BM"/>
+		<Child Name="Holy_Atk_BM"/>
+		<Child Name="Dark_Atk_BM"/>
+		<Child Name="Add_Damage_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="MiddleSize_Def">
+		<Child Name="MiddleSize_Def_BM"/>
+	</hierarchy>
+	<hierarchy Name="Leather_Def">
+		<Child Name="Leather_Def_BM"/>
+	</hierarchy>
+	<hierarchy Name="Cloth_Def">
+		<Child Name="Cloth_Def_BM"/>
+	</hierarchy>
+	<hierarchy Name="Iron_Def">
+		<Child Name="Iron_Def_BM"/>
+	</hierarchy>
 	<hierarchy Name="Ice_Atk">
 		<Child Name="Ice_Atk_BM"/>
 	</hierarchy>
@@ -391,6 +414,9 @@
 	</hierarchy>
 	<hierarchy Name="ResFire">
 		<Child Name="ResFire_BM"/>
+	</hierarchy>
+	<hierarchy Name="ResAdd_Damage">
+		<Child Name="ResAdd_Damage_BM"/>
 	</hierarchy>
 	<hierarchy Name="ResIce">
 		<Child Name="ResIce_BM"/>

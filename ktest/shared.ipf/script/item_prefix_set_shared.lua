@@ -72,7 +72,7 @@ function GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT_BY_NEEDITEM(targetObj, needItemCl
 		for i = 0, cnt - 1 do
             local cls = GetClassByIndexFromList(clsList, i);
             if string.find(cls.LegendGroup, legendGroup) ~= nil and targetObj.LegendPrefix ~= cls.ClassName and cls.NeedMaterial == needItemClsName then
-                if targetObj.GroupName == 'Armor' then
+                if targetObj.GroupName == 'Armor' and targetObj.ClassType ~= 'Shield' then
                     return cls.NeedMaterial_ArmorCnt;
                 else
                     return cls.NeedMaterial_WeaponCnt;

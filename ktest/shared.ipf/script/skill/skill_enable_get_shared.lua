@@ -139,3 +139,89 @@ function SCR_ENABLE_GET_SKILL_Monk_HandKnife(pc, skillClsName)
 	end
 	return true;
 end
+
+
+function SCR_ENABLE_GET_SKILL_Crusader_HolySmash(pc, skillClsName)
+	local palmstrikeSkl = nil;
+	if IsServerObj(pc) == 1 then
+		palmstrikeSkl = GetSkill(pc, 'Crusader_Chants');
+	else
+		palmstrikeSkl = session.GetSkillByName('Crusader_Chants');
+	end
+
+	if palmstrikeSkl == nil then
+		return false;
+	end
+	return true;
+end
+
+function SCR_ENABLE_GET_SKILL_Crusader_ProtectionOfGoddess(pc, skillClsName)
+	local palmstrikeSkl = nil;
+	if IsServerObj(pc) == 1 then
+		palmstrikeSkl = GetSkill(pc, 'Crusader_Chants');
+	else
+		palmstrikeSkl = session.GetSkillByName('Crusader_Chants');
+	end
+
+	if palmstrikeSkl == nil then
+		return false;
+	end
+	return true;
+end
+
+function SCR_ENABLE_GET_SKILL_Crusader_Sacred(pc, skillClsName)
+	local palmstrikeSkl = nil;
+	if IsServerObj(pc) == 1 then
+		palmstrikeSkl = GetSkill(pc, 'Crusader_Chants');
+	else
+		palmstrikeSkl = session.GetSkillByName('Crusader_Chants');
+	end
+
+	if palmstrikeSkl == nil then
+		return false;
+	end
+	return true;
+end
+
+function SCR_ENABLE_GET_SKILL_Crusader_Retaliation(pc, skillClsName)
+	local palmstrikeSkl = nil;
+	if IsServerObj(pc) == 1 then
+		palmstrikeSkl = GetSkill(pc, 'Crusader_Chants');
+	else
+		palmstrikeSkl = session.GetSkillByName('Crusader_Chants');
+	end
+
+	if palmstrikeSkl == nil then
+		return false;
+	end
+	return true;
+end
+
+function SCR_ENABLE_GET_SKILL_Crusader_Condemn(pc, skillClsName)
+	local palmstrikeSkl = nil;
+	if IsServerObj(pc) == 1 then
+		palmstrikeSkl = GetSkill(pc, 'Crusader_Chants');
+	else
+		palmstrikeSkl = session.GetSkillByName('Crusader_Chants');
+	end
+
+	if palmstrikeSkl == nil then
+		return false;
+	end
+	return true;
+end
+
+function SCR_ENABLE_GET_SKILL_Crusader_RingOfLight(pc, skillClsName)
+	local palmstrikeSkl = nil;
+	if IsServerObj(pc) == 1 then
+		palmstrikeSkl = GetSkill(pc, 'Crusader_Chants');
+	else
+		palmstrikeSkl = session.GetSkillByName('Crusader_Chants');
+	end
+
+	if palmstrikeSkl == nil then
+		return false;
+	end
+	return true;
+end
+

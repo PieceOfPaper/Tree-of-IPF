@@ -320,11 +320,14 @@ function GUILDINFO_COLONY_SET_OCCUPY_INFO_CTRLSET(infoCtrlSet, mapCls, isColonyW
         end
     end
 
-    taxRateText:SetTextByKey("icon", taxRateIconStr);
-    taxRateText:SetTextByKey("value", taxRateStr);
-    taxRateText:SetTextByKey("percent", percentStr);
-    cityTaxText:SetTextByKey("icon", silverIconStr);
-    cityTaxText:SetTextByKey("value", totalAmountStr);
+    if session.colonytax.IsEnabledColonyTaxShop() == 1 then
+        taxRateText:SetTextByKey("icon", taxRateIconStr);
+        taxRateText:SetTextByKey("value", taxRateStr);
+        taxRateText:SetTextByKey("percent", percentStr);
+        cityTaxText:SetTextByKey("icon", silverIconStr);
+        cityTaxText:SetTextByKey("value", totalAmountStr);
+    end
+
     marketTaxText:SetTextByKey("value", marketTaxStr);
     
     local showTaxText = 0;

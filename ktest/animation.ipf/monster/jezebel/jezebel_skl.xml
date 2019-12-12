@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="m_manticen_born"/>
+    <Sound frame="5.00" soundFile="mon_drapeliun_dead"/>
+    <Sound frame="57.00" soundFile="skl_eff_gaebulg_ground"/>
+    <BlendOn frame="64" R="100" G="100" B="100" A="100"/>
+    <Shockwave frame="65" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+    <BlendOn frame="66" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="68" R="100" G="100" B="100" A="100"/>
+    <BlendOff frame="70" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

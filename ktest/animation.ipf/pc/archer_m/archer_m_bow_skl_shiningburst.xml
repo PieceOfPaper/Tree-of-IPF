@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="3" R="80" G="50" B="40" A="250"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="8" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="0" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="5" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="10" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="15" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="20" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="25" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="30" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="35" type="2" intensity="2" frequency="40" duration="0.3" range="1000"/>
+	<Shockwave frame="42" type="2" intensity="4" frequency="40" duration="0.3" range="1000"/>
+	<Particle frame="0" attachNode="dummy_emitter" particleName="E_shiningburst001" useAttach="true" hiddenObj="false" changeEffect="None" pause="true" scale="1" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<AfterImage frame="1" term="30" blendTime="300" r="200" g="180" b="50" a="160"/>
+	<AfterImage frame="5" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<HeadRotBip frame="0" BipName="Dummy_head"/>
+</ActionDesc>

@@ -86,7 +86,7 @@ function CHECK_JEWELL_COMMON_CONSTRAINT(item)
 	end
 	
     local classType = TryGetProp(item, 'ClassType');
-	local enableClassType = {'Sword', 'THSword', 'Staff', 'THBow', 'Bow', 'Mace', 'THMace', 'Spear', 'THSpear', 'Dagger', 'THStaff', 'Pistol', 'Rapier', 'Cannon', 'Musket', 'Shirt', 'Pants', 'Boots', 'Gloves', 'Shield'};
+	local enableClassType = {'Sword', 'THSword', 'Staff', 'THBow', 'Bow', 'Mace', 'THMace', 'Spear', 'THSpear', 'Dagger', 'THStaff', 'Pistol', 'Rapier', 'Cannon', 'Musket', 'Shirt', 'Pants', 'Boots', 'Gloves', 'Shield', 'Trinket'};
 	for i = 1, #enableClassType do
 		if enableClassType[i] == classType then
 			return true;
@@ -101,7 +101,7 @@ function IS_ENABLE_EXTRACT_JEWELL(item)
 	end
 	
 	local classType = TryGetProp(item, 'ClassType');
-	local enableClassType = {'Sword', 'THSword', 'Staff', 'THBow', 'Bow', 'Mace', 'THMace', 'Spear', 'THSpear', 'Dagger', 'THStaff', 'Pistol', 'Rapier', 'Cannon', 'Musket', 'Shirt', 'Pants', 'Boots', 'Gloves', 'Shield', 'Neck','Ring'};
+	local enableClassType = {'Sword', 'THSword', 'Staff', 'THBow', 'Bow', 'Mace', 'THMace', 'Spear', 'THSpear', 'Dagger', 'THStaff', 'Pistol', 'Rapier', 'Cannon', 'Musket', 'Shirt', 'Pants', 'Boots', 'Gloves', 'Shield', 'Neck','Ring', 'Trinket'};
 	for i = 1, #enableClassType do
 		if enableClassType[i] == classType then
 			return true;

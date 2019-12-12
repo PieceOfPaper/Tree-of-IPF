@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -93,6 +93,10 @@
 		<Class ClassID="511" ClassName="camp_buff_active" Data="베이스 캠프 버프 활성화"/>
 		<Class ClassID="512" ClassName="camp_decomposition" Data="장비 아이템 분해"/>
 		<Class ClassID="513" ClassName="CannotUseSkillInArea" Data="해당 지역에서 사용이 제한된 스킬입니다."/>
+		<Class ClassID="514" ClassName="AdditionalRemoveEnemyBuff{level}{prob}{count}" Data="{#8e0000}적중시 {prob}% 확률로 일반 해제가 가능한 적의 버프 제거 ({count}개)"/>
+		<Class ClassID="515" ClassName="AdditionalDecreaseHealEnemy{duration}{ratio}" Data="{#8e0000}적중시 치유량 감소 디버프[{ratio}%] {duration}초 부여"/>
+		<Class ClassID="516" ClassName="AdditionalRemoveSelfDebuff{level}{prob}{count}" Data="{#004e00}시전시 {prob}% 확률로 일반 해제가 가능한 자신의 디버프 제거 ({count}개)"/>
+		<Class ClassID="517" ClassName="AdditionalRemoveFriendDebuff{level}{prob}{count}" Data="{#004e00}시전시 {prob}% 확률로 일반 해제가 가능한 아군의 디버프 제거 ({count}개)"/>
 	</Category>
 	<Category Name="SimpleWords">
 		<Class ClassID="1100" ClassName="ValidTime" Data="지속 시간"/>
@@ -132,6 +136,9 @@
 		<Class ClassID="1136" ClassName="Rare" Data="레어"/>
 		<Class ClassID="1137" ClassName="Unique" Data="유니크"/>
 		<Class ClassID="1138" ClassName="Legend" Data="레전드"/>
+		<Class ClassID="1139" ClassName="ItemLock" Data="잠긴"/>
+		<Class ClassID="1140" ClassName="Same" Data="같은"/>
+		<Class ClassID="1141" ClassName="Grade" Data="등급"/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="2001" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -343,7 +350,17 @@
 		<Class ClassID="2310" ClassName="ReallyUseAbilityPointResetItem_OneAbility" Data="사용시 해당 특성을 초기화 하며 특성 포인트 및 [보상용] 미식별 신비한 서 가 환급됩니다.{nl}계속 진행하시겠습니까?"/>
 		<Class ClassID="2311" ClassName="ExceedAdditionalAccountwarehouse" Data="확장 가능한 기본 창고 슬롯이 최대치에 도달하였습니다."/>
 		<Class ClassID="2312" ClassName="ExceedAdditionalAccountwarehouse2" Data="해당 아이템 사용 시, 확장 가능한 기본 창고 슬롯의 최대치를 초과하게 되어 사용이 불가능합니다."/>
-	</Category>
+		<Class ClassID="2313" ClassName="ItemRandomOptionCheckFail{OPTIONNAME}" Data="{OPTIONNAME} 옵션은 비정상 옵션입니다."/>
+		<Class ClassID="2314" ClassName="CannotItemOptionRelocateBecause{TYPE}{REASON}" Data="아이템 {TYPE} 이전을 할 수 없는 [{REASON}] 아이템입니다."/>
+		<Class ClassID="2315" ClassName="CannotItemOptionRelocateBecause{REASON}_2" Data="이전할 아이템과 [{REASON}]이 다른 아이템입니다."/>
+		<Class ClassID="2316" ClassName="ItemOptionRelocate_Check_Message_Awake" Data="옵션을 이전할 아이템의 {#fe7e00}각성 옵션{/}이 {nl} 이전받을 아이템에게 옮겨갑니다."/>
+		<Class ClassID="2317" ClassName="AlreadRegSameItem" Data="이미 등록된 아이템입니다."/>
+		<Class ClassID="2318" ClassName="DestItemLvHigh" Data="이전 받는 아이템의 레벨 또는 경험치가 더 높습니다."/>
+		<Class ClassID="2319" ClassName="ReallyArkRelocation" Data="이전 하시겠습니까?"/>
+		<Class ClassID="2320" ClassName="ItemOptionRelocate_Check_Message_Enchant" Data="옵션을 이전할 아이템의 {#fe7e00}인챈트 옵션{/}이 {nl} 이전받을 아이템에게 옮겨갑니다."/>
+    <Class ClassID="2321" ClassName="ItemArkReturnExtraExp{count}" Data="아크 아이템 레벨 확장으로 인해 여분의 경험치에 따른 재화가 {count} 만큼 [마켓 완료함]으로 지급되었습니다."/>
+		<Class ClassID="2322" ClassName="ReallyDecomposeLEgendItemFor{ITEM}?_LV430_UPPER" Data="해당 아이템을 분해할 경우{nl}레전드 아이템은 사라지며 100% 확률로 '레전드 쥬얼' 아이템이 지급됩니다.{nl}분해하시겠습니까?"/>
+		</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
 		<Class ClassID="2501" ClassName="FullClassResetExp" Data="더 이상 클래스 변경 포인트를 획득할 수 없습니다."/>
@@ -358,6 +375,12 @@
 		<Class ClassID="2600" ClassName="CannotGetSkillMessage_Doppelsoeldner_Zucken" Data="[스킬] 존하우 1레벨 이상 필요"/>
 		<Class ClassID="2601" ClassName="CannotGetSkillMessage_Doppelsoeldner_Redel" Data="[스킬] 츠켄 1레벨 이상 필요"/>
 		<Class ClassID="2602" ClassName="CannotGetSkillMessage_Monk_HandKnife" Data="[스킬] 철사장 1레벨 이상 필요"/>
+		<Class ClassID="2603" ClassName="CannotGetSkillMessage_Crusader_HolySmash" Data="[스킬] 찬트 1레벨 이상 필요"/>
+		<Class ClassID="2604" ClassName="CannotGetSkillMessage_Crusader_ProtectionOfGoddess" Data="[스킬] 찬트 1레벨 이상 필요"/>
+		<Class ClassID="2605" ClassName="CannotGetSkillMessage_Crusader_Sacred" Data="[스킬] 찬트 1레벨 이상 필요"/>
+		<Class ClassID="2606" ClassName="CannotGetSkillMessage_Crusader_Retaliation" Data="[스킬] 찬트 1레벨 이상 필요"/>
+		<Class ClassID="2607" ClassName="CannotGetSkillMessage_Crusader_Condemn" Data="[스킬] 찬트 1레벨 이상 필요"/>
+		<Class ClassID="2608" ClassName="CannotGetSkillMessage_Crusader_RingOfLight" Data="[스킬] 찬트 1레벨 이상 필요"/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -664,10 +687,13 @@
 		<Class ClassID="4246" ClassName="NotAvailableInThisContents" Data="현재 진행중인 컨텐츠 내에서는 사용하실 수 없습니다."/>
 		<Class ClassID="4247" ClassName="CannotUseTradeInThisArea" Data="개인 거래가 불가능한 지역입니다."/>
 		<Class ClassID="4248" ClassName="mothpowder" Data="교환 가능한 모스 더스트가 부족합니다."/>
-		
+		<Class ClassID="4249" ClassName="Trinket" Data="무기장식"/>		
 		<Class ClassID="4250" ClassName="TP_201912" Data="가비야의 은총이 담긴 깃털 봉헌"/>
 		<Class ClassID="4251" ClassName="TP_201912_Wing_change" Data="가비야 테마 교환 상점"/>
 		<Class ClassID="4252" ClassName="TP_201912_fur_change" Data="가비야의 은총이 담긴 재료 교환 상점"/>
+		<Class ClassID="4254" ClassName="abilitypoint_piece" Data="찢어진 특성 포인트 교환권이 부족합니다."/>
+		<Class ClassID="4255" ClassName="NoUseYourLevel" Data="200레벨 이상은 해당 아이템을 사용 할 수 없습니다."/>
+		<Class ClassID="4256" ClassName="CanUseGreaterThan430" Data="430레벨 이상 랜덤 옵션 아이템에만 사용할 수 있습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -720,6 +746,13 @@
 		<Class ClassID="5048" ClassName="ITEM_Archer_Concentration_CRTHRRate" Data="콘센트레이션 치명타 발생 추가 증가 {img green_up_arrow 16 16}{value}%"/>
 		<Class ClassID="5049" ClassName="ITEM_Scout_Cloaking_CloakingDMGRate" Data="클로킹 대미지 추가 증가 {img green_up_arrow 16 16}{value}%"/>
 		<Class ClassID="5050" ClassName="SortByStarrank" Data="진화등급순"/>
+		<Class ClassID="5051" ClassName="ArkOptionText{Option}{interval}{addvalue}" Data="{@st41b}{s16}{#ffc500}{interval}{/} 레벨당 {#ffc500}{Option} {addvalue}{/} 증가"/>
+    	<Class ClassID="5052" ClassName="Add_Damage_Atk_BM" Data="추가 대미지"/>
+		<Class ClassID="5053" ClassName="ResAdd_Damage_BM" Data="추가 대미지 저항"/>
+		<Class ClassID="5054" ClassName="Cloth_Def_BM" Data="천 대상 공격력 상쇄"/>
+		<Class ClassID="5055" ClassName="Leather_Def_BM" Data="가죽 대상 공격력 상쇄"/>
+		<Class ClassID="5056" ClassName="Iron_Def_BM" Data="판금 대상 공격력 상쇄"/>
+		<Class ClassID="5057" ClassName="MiddleSize_Def_BM" Data="중형 대상 공격력 상쇄"/>		
 	</Category>
 	<Category Name="PeriodicTitle">
 		<Class ClassID="6001" ClassName="TournamentChampion" Data="토너먼트 챔피언"/>
@@ -1235,12 +1268,19 @@
 		<Class ClassID="10518" ClassName="ItemOptionLegendExtractMessage_2" Data="아이커 연성에 실패 할 수 있습니다.{nl}실패시 등록된 재료는 모두 {#aa0000}파괴{/}됩니다."/>
 		<Class ClassID="10519" ClassName="CharacterNameTooShort" Data="캐릭터 이름이 너무 짧거나, 사용할 수 없는 문자가 포함되어 있습니다."/>
 		<Class ClassID="10520" ClassName="CantDoThatCuzDoingSomething" Data="현재 진행중인 작업이 있어 불가능합니다."/>
+		<Class ClassID="10521" ClassName="DoSandrarevertRandomResetOptionCountNoReset" Data="산드라의 감정 돋보기는 소모됩니다.{nl} {nl}선택한 옵션의 {nl}옵션 그룹, 옵션, 수치가 변경됩니다.{nl} {nl}변경 된 이후 되돌릴 수 없습니다. 진행하시겠습니까?"/>
 		<Class ClassID="10522" ClassName="RegisterPrefixItem" Data="옵션을 부여할 아이템을 등록해주세요."/>
 		<Class ClassID="10523" ClassName="AlreadyPrefixOption" Data="이미 적용된 옵션입니다."/>
 		<Class ClassID="10524" ClassName="{Name}ItemCountOver" Data="인벤토리에 [{Name}]이(가) 가득 차서 분해할 수 없습니다."/>
 		<Class ClassID="10525" ClassName="ReallyWarpHighLevelZone" Data="워프하려는 지역의 레벨이 현재 캐릭터 레벨보다 {#aa0000}30 {/}이상 높습니다. {nl}그래도 워프 하시겠습니까?"/>
 		<Class ClassID="10526" ClassName="CannotTakeRewardWarning1Min" Data="1분 동안 움직임이 없는 상태입니다.{nl}앞으로 2분 동안 움직임이 없을 경우 보상을 획득하실 수 없습니다."/>
 		<Class ClassID="10527" ClassName="PossibleToOnlyArmor" Data="방어구만 변경 가능합니다."/>
+		<Class ClassID="10528" ClassName="PleaseSlectChangeProperty" Data="변경할 옵션을 선택해 주세요"/>
+		<Class ClassID="10529" ClassName="LackOfSandraRevertRandomMaterial" Data="산드라의 돋보기가 부족합니다."/>
+		<Class ClassID="10530" ClassName="NoMoreAbrasive" Data="각성석과 각성 연마재를 올려주세요."/>
+		<Class ClassID="10531" ClassName="LackOfSandraOnelineRevertRandomMaterial" Data="산드라의 미세 감정 돋보기가 부족합니다."/>
+		<Class ClassID="10532" ClassName="PleaseSlectChangePropertyOnlyOne" Data="하나의 옵션만 선택 가능합니다."/>
+		<Class ClassID="10533" ClassName="DoSandraOnelineRandomResetOptionCountNoReset" Data="산드라의 미세 감정 돋보기는 소모됩니다.{nl} {nl}선택한 옵션의 수치가 변경됩니다.{nl} {nl}변경 된 이후 되돌릴 수 없습니다. 진행하시겠습니까?"/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -1591,6 +1631,15 @@
 		<Class ClassID="21345" ClassName="Episode_Reward_Title_JEXP" Data="{@st41b}클래스 경험치{/}"/>
 		<Class ClassID="21346" ClassName="Episode_Reward_Title_Honor" Data="{@st41b}칭호{/}"/>
 		<Class ClassID="21347" ClassName="Ask_UnEnableEffectTransparency_Text" Data="퀘스트의 이펙트가 보이지 않을 수 있습니다. 설정을 적용 하시겠습니까?"/>
+		<Class ClassID="21351" ClassName="StatusTooltipMsgHR" Data="% 표기값 : 회피 수치가 0인 동일 레벨의 적을 상대할 때의 기대 확률"/>
+		<Class ClassID="21352" ClassName="StatusTooltipMsgDR" Data="% 표기값 : 명중 수치가 0인 동일 레벨의 적을 상대할 때의 기대 확률"/>
+		<Class ClassID="21353" ClassName="StatusTooltipMsgBLK" Data="% 표기값 : 블럭 관통 수치가 0인 동일 레벨의 적을 상대할 때의 기대 확률"/>
+		<Class ClassID="21354" ClassName="StatusTooltipMsgBLK_BREAK" Data="% 표기값 : 블럭 수치가 0인 동일 레벨의 적을 상대할 때의 기대 확률"/>
+		<Class ClassID="21356" ClassName="StatusTooltipMsgCRTHR" Data="% 표기값 : 치명타 저항 수치가 0인 동일 레벨의 적을 상대할 때의 기대 확률"/>
+		<Class ClassID="21357" ClassName="StatusTooltipMsgCRTDR" Data="% 표기값 : 치명타 발생 수치가 0인 동일 레벨의 적을 상대할 때의 기대 확률"/>
+		<Class ClassID="21350" ClassName="JobExp" Data="클래스 경험치"/>
+		<Class ClassID="21358" ClassName="SkillPointPotion" Data="스킬 포인트 추가"/>
+		<Class ClassID="21359" ClassName="StatusTooltipMsgRHPRSP" Data="괄호 안의 값이 실제 적용되는 수치"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -2479,8 +2528,8 @@
 		<Class ClassID="24823" ClassName="ZACHA2F_SQ_01_COMPLETE" Data="수호자의 기운을 흡수했습니다!"/>
 		<Class ClassID="24824" ClassName="WS_ZACHA2F_01_TO_02_ANSWER_GO" Data="이동한다"/>
 		<Class ClassID="24825" ClassName="WS_ZACHA2F_01_TO_02_ANSWER_NO" Data="이동하지 않는다"/>
-		<Class ClassID="24826" ClassName="MNA_UI_MSG1" Data="{@st59}치유력, 마법 치명타 공격력, 소환수의 대미지 증가{/}"/>
-		<Class ClassID="24827" ClassName="MNA_UI_MSG2" Data="{@st59}치유력, 마법 치명타 공격력, 소환수의 대미지 증가{/}"/>
+		<Class ClassID="24826" ClassName="MNA_UI_MSG1" Data="{@st59}치유력, 마법 치명타 공격력, 소환수의 대미지, 최대 SP 증가{/}"/>
+		<Class ClassID="24827" ClassName="MNA_UI_MSG2" Data="{@st59}치유력, 마법 치명타 공격력, 소환수의 대미지, 최대 SP 증가{/}"/>
 		<Class ClassID="24828" ClassName="QuestTrackSuccessNotice" Data=" 퀘스트 {nl}목표 달성"/>
 		<Class ClassID="24829" ClassName="Auto_KATYN71_SOLDIER01_1" Data="내가 봤어. 분명 데드본은 아냐. "/>
 		<Class ClassID="24830" ClassName="Auto_KATYN71_SOLDIER01_2" Data="데드본 아니라니까."/>
@@ -4947,6 +4996,7 @@
 		<Class ClassID="27828" ClassName="EVENT_1802_MASTER_MSG9" Data="상위 시험권을 하위 시험권으로 교환한다"/>
 		<Class ClassID="27835" ClassName="EVENT_1803_NEWCHARACTER_MSG1" Data="{MONTH}월 {DAY}일까지만 사용 가능합니다{nl}사용 기간이 지났습니다"/>
 		<Class ClassID="27836" ClassName="EVENT_1803_NEWCHARACTER_MSG2" Data="오늘은 이미 특성 포인트를 받으셨습니다"/>
+		<Class ClassID="27837" ClassName="EVENT_1803_NEWCHARACTER_MSG3" Data="특성 포인트 {#ff6d00}{POINT}{/}포인트를 획득 했습니다"/>
 		<Class ClassID="27840" ClassName="QUEST_KILL_MON_UI_MSG2" Data=" {ZONE}지역 몬스터 소탕"/>
 		<Class ClassID="27850" ClassName="EVENT_1803_NEWCLASS_MSG1" Data="{CLASS}클래스로 전직 후에 사용 가능합니다"/>
 		<Class ClassID="27851" ClassName="USE_ITEM_RANKRESET_MSG1" Data="[{NUM1}] 포인트를 이미 갖고 계셔서 {#0054FF}[{NUM2}]{/} 포인트가 추가됩니다.{nl}사용하시겠습니까?"/>
@@ -5162,7 +5212,15 @@
 		<Class ClassID="28190" ClassName="GUILD_SYSTEM_MSG11" Data="길드 타워가 [{#33FF33}{ZONE}{/}] 지역 1채널에 설치되었습니다."/>
 		<Class ClassID="28191" ClassName="GUILD_SYSTEM_MSG12" Data="{@st64}하단 메뉴 '{img sysmenu_guild_rank}'버튼이나 'Alt + R'키를 눌러 '길드 홍보' UI에서 원하시는 길드를 찾아 가입하실 수 있습니다!"/>
 		<Class ClassID="28200" ClassName="JOURNEY_SHOP_QUEST_WARP_MSG1" Data="[{COUNT}] 곳의 '여신 바카리네의 상'이 활성화되었습니다!"/>
+		<Class ClassID="28201" ClassName="JOURNEY_SHOP_LvRewards_Msg1" Data="모두 수령"/>
+		<Class ClassID="28202" ClassName="JOURNEY_SHOP_LvRewards_Msg2" Data="{#003399}{LV} 레벨{/} 보상 수령"/>
+		<Class ClassID="28203" ClassName="JOURNEY_SHOP_LvRewards_Msg3" Data="이미 수령 가능한 보상을 모두 수령했습니다"/>
+		<Class ClassID="28204" ClassName="JOURNEY_SHOP_LvRewards_Success_Msg1" Data="{#003399}{LV} 레벨{/} 보상을 수령했습니다{nl}{NEXT}"/>
 		<Class ClassID="28205" ClassName="GUILD_INVENTORY_MSG1" Data="길드에서 공용 창고를 사용하기 위한 길드 조건{nl}길드 레벨 8 달성 {#33FF33}[현재 {NUM1} 레벨]{/}{nl} 길드 퀘스트 12회 성공 필요 {#33FF33}[현재 {NUM2} 회 성공]{/}"/>
+		<Class ClassID="28206" ClassName="JOURNEY_SHOP_LvRewards_Success_Msg1_1" Data="스탯 포인트"/>
+		<Class ClassID="28207" ClassName="JOURNEY_SHOP_LvRewards_Success_Msg1_2" Data="스킬 포인트 포션"/>
+		<Class ClassID="28208" ClassName="JOURNEY_SHOP_LvRewards_Success_Msg1_3" Data="수령 가능한 보상을 모두 수령했습니다{nl}{NEXT}"/>
+		<Class ClassID="28209" ClassName="JOURNEY_SHOP_LvRewards_CANT_MSG1" Data="레벨 달성 보상은 레벨 {LV} 부터 이용할 수 있습니다{nl}현재 레벨은 {MYLV} 입니다"/>
 		<Class ClassID="28210" ClassName="JOB_OUTLAW_Q1_MSG1" Data="돌 : {COUNT1} 모래 : {COUNT2}"/>
 		<Class ClassID="28211" ClassName="JOB_OUTLAW_Q1_MSG2" Data="{COUNT}개 이상 소지할 수 없습니다!"/>
 		<Class ClassID="28212" ClassName="JOB_OUTLAW_Q1_MSG4" Data="갖고있는 돌이 부족합니다{nl}돌더미에서 돌을 수집하세요!"/>
@@ -5180,7 +5238,7 @@
 		<Class ClassID="28235" ClassName="EVENT_1811_RANKRESET_MSG1" Data="{@st64}클래스 변경 포인트가 지급되었습니다{nl}하단 메뉴 '전직 정보 {img sysmenu_jobinfo}'버튼을 눌러 클래스 변경을 사용하실 수 있습니다"/>
 		<Class ClassID="28236" ClassName="EVENT_1811_RANKRESET_MSG2" Data="{@st64}스킬 초기화 포션, 특성 초기화 포션과{nl}클래스 변경 포인트가 지급되었습니다{nl}하단 메뉴 '전직 정보 {img sysmenu_jobinfo}'버튼을 눌러 클래스 변경을 사용하실 수 있습니다"/>
 		<Class ClassID="28237" ClassName="EVENT_1811_RANKRESET_MSG3" Data="{@st64}스킬 초기화 포션, 특성 초기화 포션이 지급되었습니다."/>
-		<Class ClassID="28240" ClassName="EVENT_1811_NEWCHARACTER_MSG1" Data="지원품을 받는다 [팀 기준 남은 횟수 : {COUNT}] 회"/>
+		<Class ClassID="28240" ClassName="EVENT_1811_NEWCHARACTER_MSG1" Data="지원품을 받는다 [ 팀 기준 남은 횟수 : {#FF0000}{COUNT}{/} ] 회"/>
 		<Class ClassID="28241" ClassName="EVENT_1811_NEWCHARACTER_MSG2" Data="우스카의 성장 지원 : 몬스터 처치 [{COUNT}] 달성!"/>
 		<Class ClassID="28242" ClassName="EVENT_1811_NEWCHARACTER_MSG3" Data="우스카의 성장 지원 : 레이드 클리어 [{COUNT}] 달성!"/>
 		<Class ClassID="28243" ClassName="EVENT_1811_NEWCHARACTER_MSG4" Data="우스카의 성장 지원 : 몬스터 처치 진행 대상 캐릭터가 아닙니다"/>
@@ -5194,7 +5252,7 @@
 		<Class ClassID="28251" ClassName="EVENT_1811_NEWCHARACTER_MSG12" Data="캐릭터 슬롯이 모두 개방되어 슬롯 아이템 대신 증정용 33TP 가 지급됩니다"/>
 		<Class ClassID="28252" ClassName="EVENT_1811_NEWCHARACTER_MSG13" Data="{COUNT1}강화 {COUNT2}초월"/>
 		<Class ClassID="28253" ClassName="EVENT_1811_NEWCHARACTER_MSG14" Data="적용할 장비 아이템이 없습니다"/>
-		<Class ClassID="28254" ClassName="EVENT_1903_NEWCHARACTER_MSG1" Data="레벨 380미만만 참여 할 수 있습니다."/>
+		<Class ClassID="28254" ClassName="EVENT_1903_NEWCHARACTER_MSG1" Data="레벨 400 미만만 참여 할 수 있습니다."/>
 		<Class ClassID="28255" ClassName="EVENT_1811_KUPOLE_MSG1" Data="교환 상점을 사용한다"/>
 		<Class ClassID="28260" ClassName="IMCTEST_1811_NPC_MSG1" Data="보루타 레이드 지역으로 이동"/>
 		<Class ClassID="28261" ClassName="IMCTEST_1811_NPC_MSG2" Data="콜로니전 지역으로 이동"/>
@@ -6939,6 +6997,13 @@
 		<Class ClassID="60385" ClassName="GT_ENTRACE_SELECT_R2_2" Data="솔미키 2 구간"/>
 		<Class ClassID="60386" ClassName="GT_ENTRACE_SELECT_R2_3" Data="솔미키 3 구간"/>
 		<Class ClassID="60387" ClassName="GT_ENTRACE_SELECT_R2_4" Data="솔미키 4 구간"/>
+		<Class ClassID="60388" ClassName="MISSIONSHOP_NPC_01_SELECT1_MSG1" Data="{#003399}서융거스 가도{/} 의뢰 확인"/>
+		<Class ClassID="60389" ClassName="MISSIONSHOP_NPC_01_SELECT1_MSG2" Data="{#003399}비에니베 쉼터{/} 의뢰 확인"/>
+		<Class ClassID="60390" ClassName="MISSIONSHOP_NPC_01_SELECT1_MSG3" Data="{#003399}트비르투마스 요새{/} 의뢰 확인"/>
+		<Class ClassID="60391" ClassName="MISSIONSHOP_NPC_01_SELECT1_MSG4" Data="{#003399}스칼다 외곽{/} 의뢰 확인"/>
+		<Class ClassID="60392" ClassName="MISSIONSHOP_NPC_01_SELECT1_MSG5" Data="{#003399}링크스마스 폐허{/} 의뢰 확인"/>
+		<Class ClassID="60393" ClassName="MISSIONSHOP_NPC_01_SELECT1_MSG6" Data="{#003399}종언의 길{/} 의뢰 확인"/>
+		<Class ClassID="60394" ClassName="MISSIONSHOP_NPC_01_COMB_RESULT_MSG_1" Data="의뢰의 목적지는 {MAP}입니다.{nl}건투를 빕니다."/>
 		<Class ClassID="66000" ClassName="MASSIVE_CONTENTS_SHOP_NAME" Data="왕국 보급품"/>
 		<Class ClassID="67243" ClassName="GT_INCOUNT_COMPARE_1" Data="파티 구성원 중, 남은 입장 횟수가 0인 파티원이 있습니다{nl}롤로팬서 구간까지 도전할 수 있습니다"/>
 		<Class ClassID="67244" ClassName="GT_INCOUNT_COMPARE_2" Data="파티 구성원 중, 남은 입장 횟수가 0인 파티원이 있습니다{nl}롤로팬서 구간까지 도전할 수 있습니다"/>
@@ -7965,6 +8030,55 @@
 		<Class ClassID="70552" ClassName="GO_TO_KLAPEDA" Data="꿈에 여신이 나왔다고 한다"/>
 		<Class ClassID="70553" ClassName="GO_TO_ORSHA" Data="오르샤로 가는 길을 찾는다고 한다"/>
 		<Class ClassID="70554" ClassName="BRACKEN633_MQ04_MSG02_END" Data="이미 작동을 멈춘 장치입니다"/>
+		<Class ClassID="70555" ClassName="EP12_MAINSTREAM_NERINGA" Data="네링가"/>
+		<Class ClassID="70556" ClassName="CASTLE102_QUESTION01_01" Data="강철을 찢는 발톱"/>
+		<Class ClassID="70557" ClassName="CASTLE102_QUESTION01_02" Data="희망 뒤의 절망"/>
+		<Class ClassID="70558" ClassName="CASTLE102_QUESTION01_03" Data="어둠 속의 맹수"/>
+		<Class ClassID="70559" ClassName="CASTLE102_QUESTION01_04" Data="사악한 장난"/>
+		<Class ClassID="70560" ClassName="CASTLE102_QUESTION01_05" Data="잔인한 난도질"/>
+		<Class ClassID="70561" ClassName="CASTLE102_QUESTION02_01" Data="생명을 건 놀이"/>
+		<Class ClassID="70562" ClassName="CASTLE102_QUESTION02_02" Data="싸울 의지가 없는 대상을 죽이는 것"/>
+		<Class ClassID="70563" ClassName="CASTLE102_QUESTION02_03" Data="약자를 괴롭히는 것"/>
+		<Class ClassID="70564" ClassName="CASTLE102_QUESTION02_04" Data="집단의 횡포"/>
+		<Class ClassID="70565" ClassName="CASTLE102_QUESTION02_05" Data="권력을 이용한 억압"/>
+		<Class ClassID="70566" ClassName="CASTLE102_QUESTION03_01" Data="피부를 파고드는 화살"/>
+		<Class ClassID="70567" ClassName="CASTLE102_QUESTION03_02" Data="뼈를 부러뜨리는 이빨"/>
+		<Class ClassID="70568" ClassName="CASTLE102_QUESTION03_03" Data="등뒤를 노리는 칼날"/>
+		<Class ClassID="70569" ClassName="CASTLE102_QUESTION03_04" Data="사나운 맹수의 뱃속"/>
+		<Class ClassID="70570" ClassName="CASTLE102_QUESTION03_05" Data="끝없는 고문"/>
+		<Class ClassID="70571" ClassName="DCAPITAL53_1_MQ_03_MSG01" Data="우상이 파괴됐습니다!"/>
+		<Class ClassID="70572" ClassName="DCAPITAL53_1_MQ_04_MSG01" Data="우상이 반응하지 않습니다.{nl}잠시 후 다시 시도해주세요."/>
+		<Class ClassID="70573" ClassName="DCAPITAL53_1_MQ_04_MSG02" Data="생명이 이어진 마족이 없어 우상의 힘이 소멸되어 파괴됐습니다!"/>
+		<Class ClassID="70574" ClassName="DCAPITAL53_1_MQ_04_MSG03" Data="생명이 이어진 마족이 처치되어 피해를 계속 입은 우상이 파괴됐습니다!"/>
+		<Class ClassID="70575" ClassName="DCAPITAL53_1_MQ_04_MSG04" Data="우상과 생명이 이어진 마족을 처치했습니다!"/>
+		<Class ClassID="70576" ClassName="DCAPITAL53_1_MQ_04_MSG05" Data="우상이 반응하여 생명이 이어진 마족을 가리킵니다!"/>
+		<Class ClassID="70577" ClassName="DCAPITAL53_1_MQ_05_MSG01" Data="지휘관 우드센츄리온이 쓰러지자 생명이 이어진 우상이 파괴됐습니다! "/>
+		<Class ClassID="70578" ClassName="DCAPITAL53_1_SUB_NPC01_BEFORE" Data="우리 힘만으로 여길 지키기엔 역부족인데.."/>
+		<Class ClassID="70579" ClassName="DCAPITAL53_1_SUB_NPC01_AFTER" Data="당신 같은 사람이 있어서 든든합니다!"/>
+		<Class ClassID="70580" ClassName="DCAPITAL53_1_SUB_NPC02_BEFORE" Data="크으, 정말 끈질긴 녀석들..!"/>
+		<Class ClassID="70581" ClassName="DCAPITAL53_1_SUB_NPC02_AFTER" Data="흐럅! 질 수 없지!"/>
+		<Class ClassID="70582" ClassName="DCAPITAL53_1_SUB_NPC03_BEFORE" Data="쳐내고 쳐내도 끝이 없군.."/>
+		<Class ClassID="70583" ClassName="DCAPITAL53_1_SUB_NPC03_AFTER" Data="아직 절망을 느끼기엔 이른가 보군."/>
+		<Class ClassID="70584" ClassName="DCAPITAL53_1_SUB_NPC04_BEFORE" Data="헉.. 헉.."/>
+		<Class ClassID="70585" ClassName="DCAPITAL53_1_SUB_NPC04_AFTER" Data="아까 전보다는 마족의 공세가 덜하네요.. 착각인가요?"/>
+		<Class ClassID="70586" ClassName="DCAPITAL53_1_SUB_NPC05_BEFORE" Data="뭐 이리 수가 많아..!"/>
+		<Class ClassID="70587" ClassName="DCAPITAL53_1_SUB_NPC05_AFTER" Data="이제 좀 한숨 돌리겠네.."/>
+		<Class ClassID="70588" ClassName="DCAPITAL53_1_SUB_NPC06_BEFORE" Data="이대로 싸우다 죽는 건.."/>
+		<Class ClassID="70589" ClassName="DCAPITAL53_1_SUB_NPC06_AFTER" Data="아직 희망을 버리긴 이르군요."/>
+		<Class ClassID="70590" ClassName="DCAPITAL53_1_SUB_NPC07_BEFORE" Data="죽는다면.. 최대한 조금이라도 더..!"/>
+		<Class ClassID="70591" ClassName="DCAPITAL53_1_SUB_NPC07_AFTER" Data="여기가 네 녀석들의 무덤이 될 것이다!"/>
+		<Class ClassID="70592" ClassName="DCAPITAL53_1_SUB_NPC08_BEFORE" Data="제가 죽으면 여신께서 거두어주시겠죠..?"/>
+		<Class ClassID="70593" ClassName="DCAPITAL53_1_SUB_NPC08_AFTER" Data="여신께선 아직 살아남으라고 하셨습니다!"/>
+		<Class ClassID="70594" ClassName="DCAPITAL53_1_SUB_NPC09_BEFORE" Data="거참, 저 녀석들은 쉬는 거라는 걸 모르나.."/>
+		<Class ClassID="70595" ClassName="DCAPITAL53_1_SUB_NPC09_AFTER" Data="아이참, 이제야 말귀를 알아듣네."/>
+		<Class ClassID="70596" ClassName="DCAPITAL53_1_SUB_NPC10_BEFORE" Data="많은 동료의 목숨을 대신해서라도 내가..!"/>
+		<Class ClassID="70597" ClassName="DCAPITAL53_1_SUB_NPC10_AFTER" Data="동료의 목숨을 잃게 한 대가는 톡톡히 치러낼 것입니다."/>
+		<Class ClassID="70598" ClassName="EP12_FINALE_03_MSG01" Data="흩어져 있던 계시가 당신이 가진 힘에 반응하여 나타났습니다!"/>
+		<Class ClassID="70599" ClassName="EP12_FINALE_03_MSG02" Data="흩어진 계시를 획득했습니다!"/>
+		<Class ClassID="70600" ClassName="EP12_MAINSTREAM_RAIMA_WHEEL_ABANDON_USE" Data="더 이상 숨겨진 이공간으로 이동할 수 없습니다."/>
+		<Class ClassID="70601" ClassName="EP12_MAINSTREAM_NERINGA_ABANDON" Data="현재 장소에서는 촛불로 네링가를 소환할 수 없습니다."/>
+		<Class ClassID="70602" ClassName="EP12_MAINSTREAM_NERINGA_APPEAR" Data="촛블의 일렁임을 통해 네링가의 환영이 나타났습니다!"/>
+		<Class ClassID="70603" ClassName="EP12_MAINSTREAM_NERINGA_MOVE_TO_HIDDEN_SPACE" Data="현재 이곳에서 네링가를 부를 수 없습니다.{nl}라이마의 물레를 사용해 숨겨진 이공간으로 들어가 촛불을 다시 사용해주세요."/>
 		<Class ClassID="80001" ClassName="LIMESTONE_52_1_CRYSTAL_ING" Data="불안정한 마력핵 설치 중"/>
 		<Class ClassID="80002" ClassName="LIMESTONE_52_1_SQ_1_TAKE" Data="목걸이 빼앗는 중"/>
 		<Class ClassID="80003" ClassName="LIMESTONE_52_2_MQ_7_SUCC_MSG" Data="구속장치가 요동치기 시작합니다!"/>
@@ -8637,6 +8751,28 @@
 		<Class ClassID="81064" ClassName="EP03_HIDDEN_STORY_MSG3" Data="자세히 설명한다"/>
 		<Class ClassID="81065" ClassName="EP03_HIDDEN_STORY_MSG4" Data="아무것도 아니라고 한다"/>
 		<Class ClassID="81066" ClassName="EP03_HIDDEN_STORY_MSG5" Data="겪은 일을 설명하는 중"/>
+		<Class ClassID="81070" ClassName="D_CASTLE_19_1_MQ_03_MSG1" Data="근처에서 아우스테야 여신의 기운이 느껴집니다."/>
+		<Class ClassID="81071" ClassName="D_CASTLE_19_1_MQ_03_MSG2" Data="확인하는 중"/>
+		<Class ClassID="81072" ClassName="D_CASTLE_19_1_MQ_03_MSG3" Data="아우스테야 여신의 기운을 확인했습니다"/>
+		<Class ClassID="81073" ClassName="D_CASTLE_19_1_MQ_03_MSG4" Data="아우스테야가 나타났습니다{nl}아우스테야와 대화해 보세요"/>
+		<Class ClassID="81074" ClassName="D_CASTLE_19_1_MQ_05_MSG1" Data="보주를 사용하는 중"/>
+		<Class ClassID="81075" ClassName="F_CASTLE_97_MQ_03_MSG1" Data="항아리에 흙을 가득 담기"/>
+		<Class ClassID="81076" ClassName="F_CASTLE_97_MQ_03_MSG2" Data="반대편 항아리에 흙을 옮기기"/>
+		<Class ClassID="81077" ClassName="F_CASTLE_97_MQ_03_MSG3" Data="항아리에 흙을 모두 버리기"/>
+		<Class ClassID="81078" ClassName="F_CASTLE_97_MQ_03_MSG4" Data="흙을 가득 담는 중"/>
+		<Class ClassID="81079" ClassName="F_CASTLE_97_MQ_03_MSG5" Data="항아리에 이미 흙이 꽉 차 있습니다"/>
+		<Class ClassID="81080" ClassName="F_CASTLE_97_MQ_03_MSG6" Data="반대편 항아리에 흙을 옮기는 중"/>
+		<Class ClassID="81081" ClassName="F_CASTLE_97_MQ_03_MSG7" Data="반대편 항아리에 이미 흙이 꽉 차 있습니다"/>
+		<Class ClassID="81082" ClassName="F_CASTLE_97_MQ_03_MSG8" Data="흙을 모두 버리는 중"/>
+		<Class ClassID="81083" ClassName="F_CASTLE_97_MQ_03_MSG9" Data="이 항아리는 비어있습니다."/>
+		<Class ClassID="81084" ClassName="F_CASTLE_99_MQ_03_MSG1" Data="이미 장치가 작동중입니다"/>
+		<Class ClassID="81085" ClassName="F_CASTLE_99_MQ_03_MSG2" Data="장치가 작동하며 빛을 발산하고 있습니다"/>
+		<Class ClassID="81086" ClassName="F_CASTLE_99_MQ_03_MSG3" Data="모든 장치가 작동을 멈췄습니다"/>
+		<Class ClassID="81087" ClassName="F_CASTLE_99_MQ_03_MSG4" Data="아무런 반응이 없습니다"/>
+		<Class ClassID="81088" ClassName="F_CASTLE_99_MQ_05_MSG1" Data="아우스테야 여신"/>
+		<Class ClassID="81089" ClassName="F_CASTLE_99_MQ_05_MSG2" Data="저 앞에 카르타스의 기운이 느껴져요!"/>
+		<Class ClassID="81090" ClassName="F_CASTLE_99_MQ_05_MSG3" Data="카르타스의 기운을 확인했습니다"/>
+		<Class ClassID="81100" ClassName="ROKAS24_ALCHEMIST_OTHER_MSG1" Data="룬 스톤에 대해 묻는다"/>
 		<Class ClassID="90001" ClassName="CORAL_32_2_SQ_6_FAIL2" Data="퀘스트를 포기했습니다"/>
 		<Class ClassID="90002" ClassName="DCAPITAL_20_5_SQ_30" Data="작은 돌 파편을 얻었습니다"/>
 		<Class ClassID="90003" ClassName="DCAPITAL_20_5_SQ_60_ITEM_DTA" Data="신성력 감지 구슬 사용중"/>
@@ -8843,6 +8979,9 @@
 		<Class ClassID="90205" ClassName="EVENT_1909_ANCIENT_DLG1" Data="그리모어를 찢어라"/>
 		<Class ClassID="90206" ClassName="Legend_Boss_Moringponia_TYPE1" Data="나비목 접선지: 레전드 진입(노말)"/>
 		<Class ClassID="90207" ClassName="Legend_Boss_Moringponia_TYPE2" Data="나비목 접선지: 레전드 진입(어려움)"/>
+		<Class ClassID="90208" ClassName="CasualGamble_GET_ALLMSG" Data="{s24}축하드립니다!{nl}{PC} 님이 [여신의 축복]을 통해{nl}{ITEMNAME} 를(을) {count}개 획득하셨습니다!"/>
+		<Class ClassID="90209" ClassName="F_TABLELAND_28_2_NPC_CRU_01" Data="이곳은 위험하니 조심히 벗어나시길 바랍니다."/>
+		<Class ClassID="90210" ClassName="F_TABLELAND_28_2_NPC_CRU_02" Data="추위가 더욱 심해지고 있으니 몸을 충분히 데우세요."/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
@@ -8862,7 +9001,7 @@
 		<Class ClassID="100015" ClassName="SHOW_GUNGHO" Data="면역!"/>
 		<Class ClassID="100016" ClassName="SHOW_PROVOKE" Data="도발!"/>
 		<Class ClassID="100017" ClassName="SHOW_REFLECTION" Data="데미지 반사!"/>
-		<Class ClassID="100018" ClassName="SHOW_BROADHEAD_LEATHER_{Auto_1}" Data="데미지 {Auto_1}%% 추가!"/>
+		<Class ClassID="100018" ClassName="SHOW_BROADHEAD_LEATHER_{Auto_1}" Data="데미지 {Auto_1}% 추가!"/>
 		<Class ClassID="100019" ClassName="SHOW_BROADHEAD_IRON_{Auto_1}" Data="데미지 {Auto_1}%% 감소!"/>
 		<Class ClassID="100020" ClassName="SHOW_BODKIN_BREAK_SHIELD" Data="쉴드 제거!"/>
 		<Class ClassID="100021" ClassName="SKILL_ATTRIBUTE_{Auto_1}!" Data="{Auto_1}%"/>
@@ -8936,6 +9075,7 @@
 		<Class ClassID="100093" ClassName="show_temporary_resist" Data="일시 면역!"/>
 		<Class ClassID="100094" ClassName="skill_visibletalent2" Data="비지블 탤런트 공격 (최대 대미지 도달!)"/>
 		<Class ClassID="100095" ClassName="skill_visibletalent_pc" Data="비지블 탤런트 (캐릭터)"/>
+	<Class ClassID="100100" ClassName="StartUp_Charging_Buff" Data="페널티: HP 감소"/>
 	</Category>
 	<Category Name="Party">
 		<Class ClassID="101001" ClassName="GULID_OUT" Data="길드 탈퇴"/>
@@ -9338,6 +9478,7 @@
 		<Class ClassID="102435" ClassName="OnlyAbleInStartMap" Data="현재 맵에서는 시도중인 길드 퀘스트에 입장할 수 없습니다."/>
 		<Class ClassID="102436" ClassName="ChangeAccountWareHouseTabName" Data="창고 이름 변경"/>
 		<Class ClassID="102437" ClassName="PleaseChangeAccountWareHouseTabName" Data="변경할 이름을 작성해 주세요."/>
+		<Class ClassID="102438" ClassName="NOTICE_START_CASUAL_GAMBLE" Data="여신의 축복 이벤트가 시작되었습니다!"/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>
@@ -9520,6 +9661,7 @@
 		<Class ClassID="106127" ClassName="IcorArmorGloves" Data="아이커 - 장갑"/>
 		<Class ClassID="106128" ClassName="IcorArmorBoots" Data="아이커 - 신발"/>
 		<Class ClassID="106129" ClassName="Skin" Data="스킨"/>
+		<Class ClassID="106130" ClassName="IcorWeaponTrinket" Data="아이커 - 무기장식"/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="107001" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
@@ -9551,7 +9693,7 @@
 		<Class ClassID="107027" ClassName="IsSureNotUseStone" Data="{@st66d}각성석 미사용 시{nl}아이템의{/} {@st66d_y}포텐셜이 감소{/} {@st66d}합니다.{nl}"/>
 		<Class ClassID="107028" ClassName="CantFindMaterialItem" Data="재료 아이템을 찾을 수 없습니다. 다시 시도해 주세요."/>
 		<Class ClassID="107029" ClassName="IsSureNotUseAbrasive" Data="{@st66d}각성 연마제가 없습니다.{nl} {@st66d_y}알케미스트 기본능력{@st66d}으로만 각성됩니다.{nl}"/>
-		<Class ClassID="107030" ClassName="IsSureUseAbrasive" Data="{@st66d}각성 연마제가 소모되어{nl}{@st66d_y}더욱 높은 수치의 옵션{@st66d}을 얻을 수 있습니다.{nl}"/>
+		<Class ClassID="107030" ClassName="IsSureUseAbrasive" Data="{@st66d}소모되는 각성 연마재 레벨에 따라{nl}{@st66d_y}각성 옵션의 최대치가 상승{@st66d}합니다.{nl}"/>
 		<Class ClassID="107031" ClassName="IsSureItemdungeon" Data="진행하시겠습니까?{/}"/>
 	</Category>
 	<Category Name="ChatMsg">
@@ -9576,7 +9718,7 @@
 		<Class ClassID="111003" ClassName="STAMINA" Data="스태미나"/>
 		<Class ClassID="111004" ClassName="ATK" Data="공격력"/>
 		<Class ClassID="111005" ClassName="ASPD" Data="공격속도"/>
-		<Class ClassID="111006" ClassName="CRTHR" Data="치명타 발생"/>
+		<Class ClassID="111006" ClassName="CRTHR" Data="치명타 발생"/>		
 		<Class ClassID="111007" ClassName="MELEEDEF" Data="물리 방어력"/>
 		<Class ClassID="111008" ClassName="DURABILITY" Data="내구도"/>
 		<Class ClassID="111009" ClassName="SR" Data="광역 공격 비율"/>
@@ -9794,6 +9936,37 @@
 		<Class ClassID="111222" ClassName="HateRate" Data="추가 위협도"/>
 		<Class ClassID="111223" ClassName="NormalASPD" Data="추가 기본 공격속도"/>
 		<Class ClassID="111224" ClassName="SkillASPD" Data="추가 스킬 공격속도"/>
+    	<Class ClassID="111225" ClassName="Add_Damage_Atk" Data="추가 대미지"/>
+		<Class ClassID="111226" ClassName="ResAdd_Damage" Data="추가 대미지 저항"/>
+		<Class ClassID="111227" ClassName="Cloth_Def" Data="천 대상 공격력 상쇄"/>
+		<Class ClassID="111228" ClassName="Leather_Def" Data="가죽 대상 공격력 상쇄"/>
+		<Class ClassID="111229" ClassName="Iron_Def" Data="판금 대상 공격력 상쇄"/>
+		<Class ClassID="111230" ClassName="MiddleSize_Def" Data="중형 대상 공격력 상쇄"/>
+		<Class ClassID="111231" ClassName="CRTHR_status" Data="{#e24e91}치명타 발생"/>
+		<Class ClassID="111232" ClassName="CRTDR_status" Data="{#66b3ff}치명타 저항"/>
+		<Class ClassID="111233" ClassName="HR_status" Data="{#e24e91}명중"/>
+		<Class ClassID="111234" ClassName="DR_status" Data="{#e24e91}회피"/>
+		<Class ClassID="111235" ClassName="BLK_status" Data="{#e24e91}블럭"/>
+		<Class ClassID="111236" ClassName="BLK_BREAK_status" Data="{#e24e91}블럭 관통"/>
+		<Class ClassID="111237" ClassName="Cloth_Def_status" Data="{#66b3ff}천 대상 공격력 상쇄"/>
+		<Class ClassID="111238" ClassName="Leather_Def_status" Data="{#66b3ff}가죽 대상 공격력 상쇄"/>
+		<Class ClassID="111239" ClassName="Iron_Def_status" Data="{#66b3ff}판금 대상 공격력 상쇄"/>
+		<Class ClassID="111240" ClassName="MiddleSize_Def_status" Data="{#66b3ff}중형 대상 공격력 상쇄"/>
+		<Class ClassID="111241" ClassName="SmallSize_Atk_status" Data="{#ff4040}소형 대상 공격력"/>
+		<Class ClassID="111242" ClassName="MiddleSize_Atk_status" Data="{#ff4040}중형 대상 공격력"/>
+		<Class ClassID="111243" ClassName="LargeSize_Atk_status" Data="{#ff4040}대형 대상 공격력"/>
+		<Class ClassID="111244" ClassName="Cloth_Atk_status" Data="{#ff4040}천 방어 대상 공격력"/>
+		<Class ClassID="111245" ClassName="Leather_Atk_status" Data="{#ff4040}가죽 방어 대상 공격력"/>
+		<Class ClassID="111246" ClassName="Iron_Atk_status" Data="{#ff4040}판금 방어 대상 공격력"/>
+		<Class ClassID="111247" ClassName="Forester_Atk_status" Data="{#ff4040}식물형 대상 공격력"/>
+		<Class ClassID="111248" ClassName="Widling_Atk_status" Data="{#ff4040}야수형 대상 공격력"/>
+		<Class ClassID="111249" ClassName="Klaida_Atk_status" Data="{#ff4040}곤충형 대상 공격력"/>
+		<Class ClassID="111250" ClassName="Paramune_Atk_status" Data="{#ff4040}변이형 대상 공격력"/>
+		<Class ClassID="111251" ClassName="Velnias_Atk_status" Data="{#ff4040}악마형 대상 공격력"/>
+		<Class ClassID="111252" ClassName="Ghost_Atk_status" Data="{#ff4040}유체 방어 대상 공격력"/>
+		<Class ClassID="111253" ClassName="ResAdd_Damage_status" Data="{#66b3ff}추가 대미지 저항"/>
+		<Class ClassID="111254" ClassName="Add_Damage_Atk_status" Data="{#ff4040}추가 대미지"/>
+		<Class ClassID="111255" ClassName="HEAL_PWR_BM" Data="치유력"/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="112001" ClassName="VeryEasy" Data="매우 쉬움"/>
@@ -10120,6 +10293,7 @@
 		<Class ClassID="124051" ClassName="UniqueTranscendAllow" Data="제작 되는 유니크 장비는 {@st66d_y}5초월{/}이 됩니다."/>
 		<Class ClassID="124052" ClassName="AllowManufacture" Data="진행하시겠습니까?"/>
 		<Class ClassID="124053" ClassName="Inputby0000" Data="[0000]입력 후 확인 가능합니다."/>
+		<Class ClassID="124054" ClassName="CasulgambleEnd" Data="[여신의 축복]이 종료되었습니다."/>
 	</Category>
 	<Category Name="Quest">
 		<Class ClassID="125001" ClassName="QuestAlignFilter_All" Data="모든 퀘스트"/>
@@ -14085,6 +14259,11 @@
 	<Category Name="RankReset">
 		<Class ClassID="1001000" ClassName="CannotChangeJobBecauseJobLevel" Data="클래스 레벨이 최대 레벨일 때에만 가능합니다."/>
 		<Class ClassID="1001001" ClassName="CannotBecauseMoru" Data="모루가 설치되어 있는 상태에서는 사용할 수 없습니다."/>
+		<Class ClassID="1001002" ClassName="CannotBecauseBaseLevel" Data="캐릭터 레벨이 440레벨 이상인 경우만 사용 가능합니다."/>
+		<Class ClassID="1001003" ClassName="CannotBecauseLessJobSequence" Data="3번의 전직을 하셔야 가능합니다."/>
+		<Class ClassID="1001004" ClassName="CannotBecauseNotExistJob" Data="존재하지 않는 직업입니다."/>
+		<Class ClassID="1001006" ClassName="CannotBecauseNotExistItem" Data="존재하지 않는 아이템입니다."/>
+		<Class ClassID="1001007" ClassName="CannotBecauseLockedItem" Data="아이템이 잠겨 있습니다."/>
 	</Category>
 	<Category Name="BeautyShop">
 		<Class ClassID="1002000" ClassName="BEAUTY_SHOP_HAIR_M2" Data="남자 헤어 스타일 변경"/>
@@ -14349,12 +14528,14 @@
 	</Category>
 	<Category Name="SuddenQuest">
 		<Class ClassID="518001" ClassName="SuddenQuest_StartText" Data="에서 돌발 퀘스트가 발생했습니다."/>
-		<Class ClassID="518002" ClassName="SuddenQuest_KillMon_Detailed" Data="몬스터를 처치하세요"/>
+		<Class ClassID="518002" ClassName="SuddenQuest_KillMon_Detailed" Data="필드 내 몬스터를 처치하세요"/>
 		<Class ClassID="518003" ClassName="SuddenQuest_KillMon_Simple" Data="처치"/>
 		<Class ClassID="518004" ClassName="SuddenQuest_Exit" Data="돌발 퀘스트가 종료됩니다."/>
 		<Class ClassID="518005" ClassName="SuddenQuest_Exit_Question" Data="돌발 퀘스트를 종료 하시겠습니까?"/>
-		<Class ClassID="518006" ClassName="SuddenQuest_DoNotZoneMove" Data="※돌발 퀘스트는 맵 이동시에 자동으로 종료됩니다."/>
+		<Class ClassID="518006" ClassName="SuddenQuest_DoNotZoneMove" Data="※맵/채널 이동시에 자동으로 종료됩니다."/>
 		<Class ClassID="518007" ClassName="SuddenQuest_Create" Data="돌발 퀘스트가 발생했습니다"/>
+		<Class ClassID="518008" ClassName="SuddenQuest_KillText" Data="몬스터 처치 수"/>
+		<Class ClassID="518009" ClassName="SuddenQuest_NotIncludeChallengeMon" Data="※챌린지 몬스터는 대상에 포함되지 않습니다."/>
 	</Category>
 	<Category Name="Housing">
 		<Class ClassID="519001" ClassName="Housing_PleaseArrangementOtherPlace" Data="다른 곳에 배치해주세요."/>
@@ -14503,7 +14684,7 @@
 		<Class ClassID="590000" ClassName="Weekly_Total_Point_Get_Fail_Msg" Data="이번주 통합 포인트를 더이상 획득할 수 없습니다."/>
 		<Class ClassID="590001" ClassName="Weekly_Total_Point_Get_Success_Msg{Point}{NowPoint}{MaxPoint}{TotalPoint}" Data="{#33FF33}{Point}의 통합 포인트를 획득했습니다.{nl}(주간 획득 가능한 통합 포인트 : {NowPoint}/{MaxPoint}){nl}(현재 누적된 통합 포인트 : {TotalPoint}){/}"/>
 		<Class ClassID="590002" ClassName="CONTENTS_TOTAL_SHOP" Data="콘텐츠 통합 상점"/>
-		<Class ClassID="590003" ClassName="CONTENTS_TOTAL_SHOP_Tooltip" Data="다양한 콘텐츠를 클리어해 통합 포인트를 획득할 수 있습니다.{nl}- 레벨 던전 : 10{nl}- 유니크 레이드 : 20{nl}- 유니크 레이드(캐주얼) : 20{nl}- 레전드 레이드 : 50{nl}- 레전드 레이드(캐주얼) : 30{nl}- 업힐 디펜스 미션(보통 10단계 이상) : 5{nl}- 업힐 디펜스 미션(어려움 5단계 이상) : 20{nl}- 업힐 디펜스 미션(매우 어려움 5단계 이상) : 50{nl}- 살러스 수녀원 미션 : 10{nl}- 의뢰소 미션 : 5{nl}- 챌린지 모드(5단계 이상) : 5{nl}- 챌린지 모드(6단계 이상) : 20{nl}- 챌린지 모드(7단계 이상) : 30{nl}* 통합 포인트는 주간 최대 2000 포인트까지 팀 단위로 누적됩니다.{nl}* 주간 누적량은 매주 월요일 오전 6시에 초기화됩니다.{nl}* 누적된 통합 포인트는 3개월 단위로 초기화됩니다."/>
+		<Class ClassID="590003" ClassName="CONTENTS_TOTAL_SHOP_Tooltip" Data="다양한 콘텐츠를 클리어해 통합 포인트를 획득할 수 있습니다.{nl}- 레벨 던전 : 10{nl}- 유니크 레이드 : 20{nl}- 유니크 레이드(캐주얼) : 20{nl}- 레전드 레이드 : 50{nl}- 레전드 레이드(캐주얼) : 30{nl}- 업힐 디펜스 미션(보통 10단계 이상) : 5{nl}- 업힐 디펜스 미션(어려움 5단계 이상) : 20{nl}- 업힐 디펜스 미션(매우 어려움 5단계 이상) : 50{nl}- 챌린지 모드(5단계 이상) : 5{nl}- 챌린지 모드(6단계 이상) : 20{nl}- 챌린지 모드(7단계 이상) : 30{nl}* 통합 포인트는 주간 최대 2000 포인트까지 팀 단위로 누적됩니다.{nl}* 주간 누적량은 매주 월요일 오전 6시에 초기화됩니다.{nl}* 누적된 통합 포인트는 3개월 단위로 초기화됩니다."/>
 		<Class ClassID="590004" ClassName="Weekly_Total_Point_Get_Success_Msg_command" Data="{#33FF33}현재 누적된 통합 포인트 : {TotalPoint}{nl}(주간 획득 가능한 통합 포인트 : {NowPoint}/{MaxPoint}){/}"/>
 	</Category>
 </idspace>

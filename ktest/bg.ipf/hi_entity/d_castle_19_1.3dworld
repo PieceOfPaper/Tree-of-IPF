@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by .. (IMCGames Co., Ltd) -->
+<World>
+	<ModelDir IpfName="bg_hi2" Path="\dungeon\d_castle_19_1\"/>
+	<LightMap File="d_castle_19_1_lightmap.jpg" Length="2600 2600" Offset="-77.871 82.979" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\castle\"/>
+	<SubTexDir IpfName="bg_texture" Path="\startower\"/>
+	<SubTexDir IpfName="bg_texture" Path="\siauliai\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<ShaTexDir IpfName="bg_hi2" Path="\dungeon\d_castle_19_1\"/>
+	<Model File="d_castle_19_1_b_model.xac" Model="d_castle_19_1_b_model" ShadowMap="d_castle_19_1_b_model" pos="-18.7605 -101.0144 712.8521" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_castle_19_1_fog.xac" Model="d_castle_19_1_fog" pos="-50.1929 -79.1700 17.1691" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_castle_19_1_ground.xac" Model="d_castle_19_1_ground" ShadowMap="d_castle_19_1_ground" pos="-68.1077 -33.2707 376.5084" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_castle_19_1_blend.xac" Model="d_castle_19_1_blend" ShadowMap="d_castle_19_1_blend" pos="-113.2928 -56.4282 383.7058" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_castle_19_1_bloom.xac" Model="d_castle_19_1_bloom" pos="1.7969 135.9379 57.8154" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_castle_19_1_1area_model.xac" Model="d_castle_19_1_1area_model" ShadowMap="d_castle_19_1_1area_model" pos="329.3411 -183.8550 -671.3542" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_castle_19_1_2area_model.xac" Model="d_castle_19_1_2area_model" ShadowMap="d_castle_19_1_2area_model" pos="-727.1549 -23.1325 -538.9045" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_castle_19_1_3area_model.xac" Model="d_castle_19_1_3area_model" ShadowMap="d_castle_19_1_3area_model" pos="631.7037 -183.1337 179.7021" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_castle_19_1_4area_model.xac" Model="d_castle_19_1_4area_model" ShadowMap="d_castle_19_1_4area_model" pos="1025.7490 -101.5744 283.7749" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_castle_19_1_5area_model.xac" Model="d_castle_19_1_5area_model" ShadowMap="d_castle_19_1_5area_model" pos="-844.5262 -82.1487 -108.6945" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_castle_19_1_6area_model.xac" Model="d_castle_19_1_6area_model" ShadowMap="d_castle_19_1_6area_model" pos="-26.1837 -168.4011 -136.2731" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_castle_19_1_7area_model.xac" Model="d_castle_19_1_7area_model" ShadowMap="d_castle_19_1_7area_model" pos="474.5671 -103.8819 1257.0278" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_castle_19_1_8area_model.xac" Model="d_castle_19_1_8area_model" ShadowMap="d_castle_19_1_8area_model" pos="-261.9949 21.4875 944.6448" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_castle_19_1_9area_model.xac" Model="d_castle_19_1_9area_model" ShadowMap="d_castle_19_1_9area_model" pos="-645.4352 0.4566 406.6876" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_castle_19_1_10area_model.xac" Model="d_castle_19_1_10area_model" ShadowMap="d_castle_19_1_10area_model" pos="-645.4352 0.4566 406.6876" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_castle_19_1_blend2.xac" Model="d_castle_19_1_blend2" pos="-261.9949 21.4875 944.6448" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

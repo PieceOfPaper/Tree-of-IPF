@@ -534,16 +534,18 @@ function SKILLABILITY_FILL_SKILL_INFO(infoctrl, info)
         overHeat = sklProp:GetOverHeatCnt();
     end
 
-    if overHeat == 0 then
-        if obj ~= nil then
-            sp = GET_SPENDSP_BY_LEVEL(obj, lv);
+    if obj ~= nil then
+        sp = GET_SPENDSP_BY_LEVEL(obj, lv);
+        coolDown = obj.CoolDown / 1000;
+        if overHeat == 0 then
             overHeat = GET_SKILL_OVERHEAT_COUNT(obj);
-            coolDown = obj.CoolDown / 1000;
-        else
-            local tempObj = CreateGCIESByID("Skill", sklCls.ClassID);
-            tempObj.Level = lv;
-            sp = GET_SPENDSP_BY_LEVEL(tempObj, lv);
-            coolDown = tempObj.CoolDown / 1000;
+        end
+    else
+        local tempObj = CreateGCIESByID("Skill", sklCls.ClassID);
+        tempObj.Level = lv;
+        sp = GET_SPENDSP_BY_LEVEL(tempObj, lv);
+        coolDown = tempObj.CoolDown / 1000;
+        if overHeat == 0 then
             overHeat = GET_SKILL_OVERHEAT_COUNT(tempObj);
         end
     end

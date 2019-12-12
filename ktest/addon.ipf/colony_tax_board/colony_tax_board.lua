@@ -34,6 +34,14 @@ function ON_OPEN_COLONY_TAX_BOARD(frame)
 	CREATE_COLONY_TAX_CHEQUE_LIST(cheque_list_gb)
 	local history_list_gb = GET_CHILD_RECURSIVELY(frame, "history_list_gb");
 	CREATE_COLONY_TAX_HISTORY_LIST(history_list_gb)
+
+	if session.colonytax.IsEnabledColonyTaxShop() ~= 1 then
+		local maintab = GET_CHILD_RECURSIVELY(frame, "maintab");
+		local maintab_cheque = maintab:GetIndexByName("maintab_cheque");
+		local maintab_taxrate = maintab:GetIndexByName("maintab_taxrate");
+		maintab:SelectTab(maintab_cheque);
+		maintab:DeleteTab(maintab_taxrate);
+	end
 end
 
 function ON_UPDATE_COLONY_TAX_BOARD_CHEQUE_LIST(frame, msg, strarg, numarg)

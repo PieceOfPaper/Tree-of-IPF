@@ -633,7 +633,7 @@ function PUB_CUSTOM_COSTUME_SELECT(frame, slot)
 
 	local actor = GetBarrackPub():GetSelectedActor();
 	if actor == nil then return; end
-	customizing_ui.ApplyCostumeByIndex(actor:GetHandleVal(), index - 1);
+	customizing_ui.ApplyCostumeByIndex(actor:GetHandleVal(), index - 1, false);
 end
 
 function PUB_CUSTOM_POSE_SET_SLOT(frame, gb, actor)
@@ -853,7 +853,7 @@ function PUB_ACTOR_INIT_CUSTOM_SETTING(actor)
 			GetBarrackPub():ChangeHairByActor(actor:GetHandleVal(), hairType);
 		end
 
-		customizing_ui.ApplyCostumeByIndex(actor:GetHandleVal(), 0);
+		customizing_ui.ApplyCostumeByIndex(actor:GetHandleVal(), 0, true);
 	end
 end
 

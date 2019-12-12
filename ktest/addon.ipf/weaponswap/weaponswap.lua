@@ -8,7 +8,7 @@ function WEAPONSWAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('WEAPONSWAP_SUCCESS', 'WEAPONSWAP_SLOT_SUCCESS');
 	addon:RegisterMsg('ABILITY_LIST_GET', 'WEAPONSWAP_SHOW_UI');
 	addon:RegisterMsg('GAME_START', 'WEAPONSWAP_SHOW_UI');
-	addon:RegisterMsg('WEAPONSWAP_TOGGLE_LINE', 'WEAPONSWAP_TOGGLE_ACTIVE_WEAPON_LINE');
+	addon:RegisterMsg('WEAPONSWAP_TOGGLE_LINE', 'WEAPONSWAP_TOGGLE_ACTIVE_WEAPON_LINE'); -- 무기 스왑 성공시 호출
 
 --	WEAPONSWAP_SLOT_UPDATE();
 end 
@@ -19,7 +19,7 @@ function discover_weaponswap_state()
     quickslot.SetWeaponSwapState(0)
 end
 
-function TH_WEAPON_CHECK(obj, bodyGbox, slotIndex)
+function TH_WEAPON_CHECK(obj, bodyGbox, slotIndex)	
 	if obj == nil then
 		return;
 	end
@@ -177,7 +177,7 @@ function WEAPONSWAP_UI_UPDATE()
 		local guid = quickslot.GetSwapWeaponGuid(i);
 		if nil ~= guid then 
 			local item = GET_ITEM_BY_GUID(guid, 1);
-			if nil ~= item then
+			if nil ~= item then				
 				SET_SLOT_ITEM_IMAGE(etcSlot, item);
 			else
 				etcSlot:ClearIcon();
@@ -188,7 +188,7 @@ function WEAPONSWAP_UI_UPDATE()
 	end
 end
 
-function WEAPONSWAP_SWAP_UPDATE_ENTERED(frame)        
+function WEAPONSWAP_SWAP_UPDATE_ENTERED(frame) 	
 	local bodyGbox = frame:GetChild("bodyGbox");
 	for i = 0, 3 do
 		local etcSlot = bodyGbox:GetChild("slot"..i);
@@ -211,7 +211,7 @@ function WEAPONSWAP_SWAP_UPDATE_ENTERED(frame)
 	end
 end
 
-function WEAPONSWAP_SWAP_UPDATE(frame)    
+function WEAPONSWAP_SWAP_UPDATE(frame)   	
 	local bodyGbox = frame:GetChild("bodyGbox");
 	for i = 0, 3 do
 		local etcSlot = bodyGbox:GetChild("slot"..i);
@@ -266,7 +266,7 @@ function WEAPONSWAP_SWAP_CLEAR(frame, msg, arg_str, arg_num)
 	end	
 end
 
-function WEAPONSWAP_TOGGLE_ACTIVE_WEAPON_LINE()
+function WEAPONSWAP_TOGGLE_ACTIVE_WEAPON_LINE()	
 	quickslot.ToggleActiveWeaponLine();
 end
 
@@ -296,14 +296,14 @@ function WEAPONSWAP_FAIL()
 	end
 end
 
-function WEAPONSWAP_SLOT_SUCCESS()
+function WEAPONSWAP_SLOT_SUCCESS()	
 	imcSound.PlaySoundEvent("sys_weapon_swap");
     RemoveLuaTimerFunc('discover_weaponswap_state')
     discover_weaponswap_state()
-        
+    
     for i = 1, #clear_guid do
-        local guid = clear_guid[i]        
-        if nil ~= guid and '0' ~= guid then            
+        local guid = clear_guid[i]        	
+        if nil ~= guid and '0' ~= guid then
             local inventory_frame = ui.GetFrame("inventory");
 	        local invSlot = INVENTORY_GET_SLOT_BY_IESID(inventory_frame, guid)
             local invSlot_All = INVENTORY_GET_SLOT_BY_IESID(inventory_frame, guid, 1)	

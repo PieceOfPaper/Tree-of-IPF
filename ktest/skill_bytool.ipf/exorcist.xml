@@ -376,6 +376,14 @@ return time"/>
 					<Num Num="100"/>
 					<Num Num="0"/>
 				</Scp>
+              <Scp Scp="SKL_TGT_REMOVE_BUFF" Client="NO" UseSleep="NO" Time="500">
+                <Str Str="Debuff"/>
+                <Num Num="3"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Str Str="FRIEND"/>
+                <Num Num="0"/>                
+              </Scp>
 			</EtcList>
 		</MainSkl>
 	</Skill>
@@ -541,6 +549,14 @@ return time"/>
 					<Str Str="None"/>
 				</Scp>
 			</EtcList>
+            <ResultList>
+            <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(skill.Level)" Str="0" UseFunc="1"/>
+              </ToolScp>
+            </ResultList>
 		</MainSkl>
 	</Skill>
 </ToolSkill>

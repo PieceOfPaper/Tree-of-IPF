@@ -56,7 +56,7 @@ function SET_SLOT_ITEM_CLS(slot, itemCls)
 	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), itemCls.ClassID);
 end
 
-function SET_SLOT_ITEM_INFO(slot, itemCls, count, style)
+function SET_SLOT_ITEM_INFO(slot, itemCls, count, style, x, y)
 	local icon = CreateIcon(slot);
 	icon:EnableHitTest(0);
 	if itemCls == nil then
@@ -68,7 +68,11 @@ function SET_SLOT_ITEM_INFO(slot, itemCls, count, style)
     end
 	icon:Set(iconImageName, "item", itemCls.ClassID, count);
 	if itemCls.ItemType ~= "Equip" then
-		slot:SetText(style..count, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
+		-- 아이템 수량 표시, 기존에 -2, 1 고정이였던 부분 x, y로 받아와서 설정 할 수 있도록 수정
+		if x == nil then x = -2; end
+		if y == nil then y = 1; end
+		
+		slot:SetText(style..count, 'count', ui.RIGHT, ui.BOTTOM, x, y);
 	end
 
 	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), itemCls.ClassID);

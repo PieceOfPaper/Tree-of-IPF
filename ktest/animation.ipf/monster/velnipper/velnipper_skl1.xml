@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_denoptic_skl_4"/>
+    <Particle frame="10" attachActor="None" attachNode="Bip001 L Finger0" particleName="I_force022_long" hiddenObj="false" useAttach="true" scale="2" pause="true" targetPos="false"/>
+    <Particle frame="10" attachActor="None" attachNode="Bip001 R Finger0" particleName="I_force022_long" hiddenObj="false" useAttach="true" scale="2" pause="true" targetPos="false"/>
+    <Sound frame="15.00" soundFile="m_Kimeleech_skl3"/>
+    <Sound frame="62.00" soundFile="skl_archer_crossarrow_badak"/>
+    <Particle frame="67" attachActor="None" attachNode="Dummy_ground" particleName="F_burstup003_3" hiddenObj="false" useAttach="true" scale="2" pause="true" targetPos="false"/>
+    <Particle frame="67" attachActor="None" attachNode="Bip001 Head" particleName="F_spread_out042_leaf2" hiddenObj="false" useAttach="false" scale="1.5" pause="true" targetPos="false"/>
+    <Shockwave frame="68" type="2" intensity="20" frequency="110" duration="0.3" range="1000"/>
+    <BlendOn frame="69" R="30" G="80" B="60" A="100"/>
+    <BlendOff frame="80" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

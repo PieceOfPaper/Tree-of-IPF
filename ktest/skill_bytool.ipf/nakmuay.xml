@@ -161,6 +161,14 @@
 					<Str Str="SCR_NAKMUAY_COOLDOWN" />
 				</Scp>
 			</EtcList>
+            <ResultList>
+            <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(skill.Level)" Str="0" UseFunc="1"/>
+              </ToolScp>
+            </ResultList>
 		</MainSkl>
 	</Skill>
 	<Skill Name="NakMuay_TeKha">

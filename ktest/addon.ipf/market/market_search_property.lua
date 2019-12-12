@@ -34,6 +34,11 @@ local MARKET_OPTION_GROUP_PROP_LIST = {
 		"RES_HOLY",
 		"RES_DARK",
 		"CRTDR",
+		"Cloth_Def",
+		"Leather_Def",
+		"Iron_Def",
+		"MiddleSize_Def",
+		"ResAdd_Damage"
 	},
     MARKET_ATK = {
 		"PATK",
@@ -60,6 +65,7 @@ local MARKET_OPTION_GROUP_PROP_LIST = {
 		"ADD_SOUL",
 		"ADD_HOLY",
 		"ADD_DARK",
+		"Add_Damage_Atk"
 	},
     ETC = {
 		"SR",

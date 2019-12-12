@@ -254,10 +254,11 @@ function REPLACE_EMOTICON(originText)
 		local imageClass = GET_EMOTICON_CLASS_BY_ICON_TOKEN(iconToken);
 		if imageClass ~= nil then
 			if string.find(imageClass.ClassName, "motion_") ~= nil then
+				local chatframe = ui.GetFrame("chat");
 				local chattype = ui.GetChatType();
-				if chattype == 1 then
+				if chattype == 1 and chatframe:IsVisible() == 1 then
 					-- 외치기에서는 모션 이모티콘 사용 불가
-					return;
+					break;
 				end
 
 				--모션 이모티콘

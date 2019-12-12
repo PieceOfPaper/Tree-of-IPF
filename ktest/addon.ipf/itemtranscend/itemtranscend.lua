@@ -73,6 +73,10 @@ function TRANSCEND_UPDATE(isSuccess)
 end
 
 function ITEM_TRANSEND_DROP(frame, icon, argStr, argNum)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+	
 	if frame:GetUserIValue("ONANIPICTURE_PLAY") == 1 then
 		return;
 	end
@@ -667,7 +671,10 @@ end
 
 -- 인벤에서 오른쪽 클릭시 
 function ITEMTRANSCEND_INV_RBTN(itemObj, slot)
-	
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+
 	local frame = ui.GetFrame("itemtranscend");
 
 	if frame:GetUserIValue("ONANIPICTURE_PLAY") == 1 then

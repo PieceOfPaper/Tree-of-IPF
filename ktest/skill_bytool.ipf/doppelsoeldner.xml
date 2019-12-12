@@ -207,7 +207,13 @@
                     <Num Num="100"/>
                     <Num Num="-1"/>
                 </ToolScp>
-            </ResultList>
+              <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(skill.Level)" Str="0" UseFunc="1"/>
+              </ToolScp>
+              </ResultList>
         </MainSkl>
     </Skill>
     <Skill Name="Doppelsoeldner_DeedsOfValor">
@@ -221,7 +227,7 @@
         </MainSkl>
     </Skill>
     <Skill Name="Doppelsoeldner_Punish">
-        <MainSkl JumpFlee="NO" MSPDToUsePos="0"ScrLock="None">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
             <HitList>
                 <Frame Type="FAN" Time="99799" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="99999" RotAngle="0" ForceATK="0"/>
             </HitList>
@@ -247,6 +253,12 @@
                 </Scp>
             </EtcList>
             <ResultList>
+              <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(skill.Level)" Str="0" UseFunc="1"/>
+              </ToolScp>
                 <ToolScp Client="NO" Scp="S_R_COND_ABILITY" UseSleep="NO">
                     <Str Str="Doppelsoeldner23"/>
                 </ToolScp>

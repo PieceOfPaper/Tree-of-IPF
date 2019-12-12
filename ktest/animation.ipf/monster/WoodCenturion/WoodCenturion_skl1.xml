@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="7.00" soundFile="mon_voice_saltistter_9"/>
+    <Sound frame="8.00" soundFile="skl_eff_chortasmata_ground"/>
+    <Sound frame="10.00" soundFile="skl_eff_crash_ground_l_4"/>
+    <Shockwave frame="15" type="2" intensity="1" frequency="60" duration="1" range="1000"/>
+    <Particle frame="15" attachNode="Dummy_emitter" particleName="F_circle029_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="17" attachNode="Dummy_emitter" particleName="F_circle029_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="19" attachNode="Dummy_emitter" particleName="F_circle029_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="21" attachNode="Dummy_emitter" particleName="F_circle029_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="23" attachNode="Dummy_emitter" particleName="F_circle029_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="48" type="2" intensity="5" frequency="60" duration="0.3" range="1000"/>
+    <Particle frame="48" attachNode="Dummy_emitter" particleName="F_smoke062" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="70" type="2" intensity="10" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="70" attachNode="Dummy_emitter" particleName="F_burstup007_smoke1" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="72" type="2" intensity="8" frequency="60" duration="1" range="1000"/>
+    <Particle frame="72" attachNode="Dummy_effect_skl" particleName="F_ground042_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="72" attachNode="Dummy_effect_skl_R" particleName="F_ground087" useAttach="false" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="72" attachNode="Dummy_effect_skl_R" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="72" attachNode="Dummy_effect_skl_L" particleName="F_ground087" useAttach="false" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="72" attachNode="Dummy_effect_skl_L" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

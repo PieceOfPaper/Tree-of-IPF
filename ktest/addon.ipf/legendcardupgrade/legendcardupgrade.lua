@@ -41,8 +41,13 @@ function OPEN_LEGENDCARD_REINFORCE(frame)
 end
 
 function CLOSE_LEGENDCARD_REINFORCE(frame)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+
 	LEGENDCARD_UPGRADE_SLOT_CLEAR(frame, 3);
 	ui.CloseFrame("inventory");
+	ui.CloseFrame("legendcardupgrade");	
 end
 
 function LEGENDCARDUPGRADE_FRAME_CLOSE(frame)
@@ -605,7 +610,8 @@ function LEGENDCARD_REINFORCE_CANCEL()
 end;
 
 function LEGENDCARD_REINFORCE_EXEC()
-	--ui.SetHoldUI(true);
+	ui.SetHoldUI(true);
+	SetCraftState(1);
 	local resultlist = session.GetItemIDList();
 	item.DialogTransaction("LEGENDCARD_UPGRADE_TX", resultlist);
 end
@@ -613,7 +619,7 @@ end
 function LEGENDCARD_REINFORCE_TIMER(ctrl, str, tick)
 	if tick == 14 then
 		local frame = ctrl:GetTopParentFrame();
-		ReserveScript("LEGENDCARD_UPGRADE_EFFECT()", 0.3);
+		ReserveScript("LEGENDCARD_UPGRADE_EFFECT()", 1.5);
 	elseif tick == 30 then	
 		local frame = ctrl:GetTopParentFrame();
 		local resultGbox = GET_CHILD_RECURSIVELY(frame, 'resultGbox')
@@ -624,10 +630,10 @@ function LEGENDCARD_REINFORCE_TIMER(ctrl, str, tick)
 end
 
 function LEGENDCARD_UPGRADE_EFFECT()
---	ui.SetHoldUI(false);
+	ui.SetHoldUI(false);
+	SetCraftState(0);
 	local frame = ui.GetFrame("legendcardupgrade");
 	LEGENDCARD_UPGRADE_DRAW_RESULT(frame)
-		
 end
 
 function LEGENDCARD_UPGRADE_DRAW_RESULT(frame)

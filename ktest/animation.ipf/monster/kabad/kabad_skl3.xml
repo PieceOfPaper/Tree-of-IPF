@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="3.00" soundFile="mon_golem_natk1_cast"/>
+    <Sound frame="13.00" soundFile="m_ironbaum_skl3_voice"/>
+    <Sound frame="18.00" soundFile="m_malletwyvern_skl_2"/>
+    <BlendOn frame="42" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="44" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="46" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="48" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="50" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="52" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="54" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="56" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="58" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="60" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="62" R="100" G="100" B="100" A="50"/>
+    <BlendOff frame="64" R="0" G="0" B="0" A="0"/>
+    <Sound frame="78.00" soundFile="mon_golem_natk1_shot"/>
+    <Shockwave frame="85" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

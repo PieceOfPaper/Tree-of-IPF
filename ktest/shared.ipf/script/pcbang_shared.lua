@@ -48,7 +48,8 @@ function CALC_PCBANG_GROWTH_ITEM_LEVEL(item)
                         315,
                         350,
                         380,
-                        400
+                        400,
+                        430
                     };
     
     if pcLv >= lvList[#lvList] then

@@ -145,7 +145,7 @@ function SHOW_TOKEN_REMAIN_TIME_IN_BUFF_TOOLTIP(ctrl)
     return 1;
 end
 
-function UPDATE_BUFF_TOOLTIP(frame, handle, numarg1, numarg2)
+function UPDATE_BUFF_TOOLTIP(frame, handle, numarg1, numarg2)	
 	local buff = nil;    
     if tonumber(numarg2) > 0 then
         buff = info.GetBuff(handle, numarg1, numarg2);
@@ -172,32 +172,32 @@ function UPDATE_BUFF_TOOLTIP(frame, handle, numarg1, numarg2)
 
 	local comment = frame:GetChild("comment");
 
-	local tooltipfunc = _G["BUFF_TOOLTIP_" .. cls.ClassName];
+	local tooltipfunc = _G["BUFF_TOOLTIP_" .. cls.ClassName];	
 	local tooltip = "";
 	if tooltipfunc == nil then
 		tooltip = cls.ToolTip;
 	else
 		local newName;
-		tooltip, newName = tooltipfunc(buff, cls);
+		tooltip, newName = tooltipfunc(buff, cls);		
 		if newName ~= nil then
 			nametxt = newName;
 		end
 	end
-
+	
 	if buffTime == 0.0 then
-		comment:SetText("{@st59}"..tooltip);
+		comment:SetText("{@st59}"..tooltip);		
 	else
 		local txt = tooltip
 		..
 		"{nl}"
 		.. ScpArgMsg("Auto_NameunSiKan_:_") .. GET_BUFF_TIME_TXT(buffTime, 1);
 
-		comment:SetText("{@st59}"..txt);
+		comment:SetText("{@st59}"..txt);		
 	end
 	
 	frame:Resize(frame:GetOriginalWidth(), frame:GetOriginalHeight());
 
-	name:SetText("{@st41}"..nametxt);
+	name:SetText("{@st41}"..nametxt);	
 
 end
 
@@ -219,12 +219,19 @@ function BUFF_TOOLTIP_TeamLevel(buff, cls)
 
 	local advantageText = "";
 	local expBonus = GET_TEAM_LEVEL_EXP_BONUS(buff.arg1);
-	advantageText = advantageText .. ScpArgMsg("ExpGetAmount") .. " + " .. expBonus .. "%";
+	advantageText = advantageText .. ScpArgMsg("ExpGetAmount") .. " + " .. expBonus .. "%";	
 
 	return advantageText, ScpArgMsg("TeamLevel") .. " " .. buff.arg1;
 
 end
 
+function BUFF_TOOLTIP_DecreaseHeal_Debuff(buff, cls)
+	local name = cls.Name
+	local percentage = buff.arg2 / 1000
+	local tooltip = cls.ToolTip
+	tooltip = tooltip .. '(' .. string.format("%.1f", percentage) .. '%' .. ')'
+	return tooltip, name
+end
 
 function BUFF_TOOLTIP_DRUG_LOOTINGCHANCE(buff, cls)
 
@@ -233,6 +240,15 @@ function BUFF_TOOLTIP_DRUG_LOOTINGCHANCE(buff, cls)
 	advantageText = advantageText .. ScpArgMsg("DrugLootingChance") .. " + " .. buffArg1;
 
 	return advantageText, ScpArgMsg("DrugLootingChance") .. " " .. buff.arg1;
+
+end
+
+function BUFF_TOOLTIP_StartUp_Buff(buff, cls)
+
+	local tooltip = cls.ToolTip
+	local addDamageRate = buff.arg2
+	tooltip = tooltip .. '(' .. string.format("%d", addDamageRate) .. '%' .. ')'
+	return tooltip
 
 end
 

@@ -16,11 +16,29 @@ function ENABLE_RETURN_BUTTON(f, msg, argStr, argNum)
     end
 end
 
+function INDUN_REWARD_RESET(frame)
+	local textContribution_percent = GET_CHILD(frame, "textContribution_percent");
+	textContribution_percent:SetText(string.format("{@st43}{s24}%d %%", 0));
+
+	local gboxRewardList = GET_CHILD(frame, "gboxRewardList");
+	local gboxRewardList2 = GET_CHILD(gboxRewardList, "gboxRewardList2");
+	gboxRewardList2:RemoveAllChild();
+
+	local textMultipleRate_value = GET_CHILD(frame, "textMultipleRate_value");
+	textMultipleRate_value:SetText(string.format("{@st66d_y}%d", 0));
+
+	local picRank = GET_CHILD(frame, "picRanking");
+	picRank:SetImage("test_indun_E");
+end
+
 function INDUN_REWARD_OPEN(frame, msg, argStr, argNum)    
+	INDUN_REWARD_RESET(frame);
     frame:ShowWindow(1);
 end
 
 function INDUN_REWARD_SET(frame, msg, str, arg)    
+	INDUN_REWARD_RESET(frame);
+
 	local msgList = StringSplit(str, '#');
 	if #msgList < 1 then
 		return;
@@ -30,11 +48,12 @@ function INDUN_REWARD_SET(frame, msg, str, arg)
 
 	local contribution = tonumber(msgList[1]);
 	local silver = tonumber(msgList[2]);
-	local cube = tonumber(msgList[3]);
-	local exp = tonumber(msgList[4]);
-	local jexp = tonumber(msgList[5]);
-	local multipleRate = tonumber(msgList[6]);
-	local rank = tonumber(msgList[7]);
+	local itemList = SCR_STRING_CUT(msgList[3]);
+	local cube = tonumber(msgList[4]);
+	local exp = tonumber(msgList[5]);
+	local jexp = tonumber(msgList[6]);
+	local multipleRate = tonumber(msgList[7]);
+	local rank = tonumber(msgList[8]);
 
 	local textContribution_percent = GET_CHILD(frame, "textContribution_percent");
 	textContribution_percent:SetText(string.format("{@st43}{s24}%d %%", contribution));
@@ -42,24 +61,78 @@ function INDUN_REWARD_SET(frame, msg, str, arg)
 	local gboxRewardList = GET_CHILD(frame, "gboxRewardList");
 	local gboxRewardList2 = GET_CHILD(gboxRewardList, "gboxRewardList2");
 
-	local addMsg = ''
+--	local addMsg = ''
 --	--EVENT_1806_WEEKEND
 --	if IS_DAY_EVENT_1806_WEEKEND_INDUN_SILVER() == 'YES' then
 --	    addMsg = ' '..ScpArgMsg('EVENT_1806_WEEKEND_MSG1')
 --	end
 
 
-	local textRewardSilver_value = GET_CHILD(gboxRewardList2, "textRewardSilver_value");
-	textRewardSilver_value:SetText(GET_COMMAED_STRING(silver)..addMsg);
+	-- local textRewardSilver_value = GET_CHILD(gboxRewardList2, "textRewardSilver_value");
+	-- textRewardSilver_value:SetText(GET_COMMAED_STRING(silver)..addMsg);
 
-	local textRewardCube_value = GET_CHILD(gboxRewardList2, "textRewardCube_value");
-	textRewardCube_value:SetText(GET_COMMAED_STRING(cube));
+	-- local textRewardCube_value = GET_CHILD(gboxRewardList2, "textRewardCube_value");
+	-- textRewardCube_value:SetText(GET_COMMAED_STRING(cube));
 
-	local textRewardExp_value = GET_CHILD(gboxRewardList2, "textRewardExp_value");
-	textRewardExp_value:SetText(GET_COMMAED_STRING(exp));
+	-- local textRewardExp_value = GET_CHILD(gboxRewardList2, "textRewardExp_value");
+	-- textRewardExp_value:SetText(GET_COMMAED_STRING(exp));
 	
-	local textRewardJobExp_value = GET_CHILD(gboxRewardList2, "textRewardJobExp_value");
-	textRewardJobExp_value:SetText(GET_COMMAED_STRING(jexp));
+	-- local textRewardJobExp_value = GET_CHILD(gboxRewardList2, "textRewardJobExp_value");
+	-- textRewardJobExp_value:SetText(GET_COMMAED_STRING(jexp));
+	
+	-- 아이템 컨트롤셋으로 가변 처리
+	local rewardList = {};
+	if silver > 0 then
+		rewardList[1] = "Vis"
+	end
+
+	if #itemList > 0 then
+		for i = 1, #itemList do
+			rewardList[#rewardList + 1] = itemList[i];
+		end
+	end
+
+	-- 경험치도 컨트롤셋으로 추가
+	rewardList[#rewardList + 1] = "EXP";
+	rewardList[#rewardList + 1] = "JEXP";
+
+	if #rewardList > 0 then
+		for i = 1, #rewardList do
+			local itemStr = SCR_STRING_CUT(rewardList[i], ";");
+			local itemName = itemStr[1];
+			local itemCls = GetClass("Item", itemName);
+			local nameTxt = "";
+			local itemCount = cube;
+			if itemCls ~= nil then
+				local itemIcon = TryGetProp(itemCls, "Icon", "None");
+				local itemTxtName = TryGetProp(itemCls, "Name", "None");
+				nameTxt = string.format("{img %s 25 25} %s", itemIcon, itemTxtName);
+
+				if itemName == "Vis" then
+					itemCount = silver;
+					nameTxt = string.format("{img %s 24 24} %s", itemIcon, itemTxtName);
+				end
+
+				if itemStr[2] ~= nil then
+					itemCount = tonumber(itemStr[2]) * (multipleRate + 1);
+				end
+			elseif itemName == "EXP" then
+				itemCount = exp;
+				nameTxt = string.format("{img test_indun_exp 30 15} %s", ScpArgMsg("Exp"));
+			elseif itemName == "JEXP" then
+				itemCount = jexp;
+				nameTxt = string.format("{img test_indun_exp 30 15} %s", ScpArgMsg("JobExp"));
+			end
+
+			local yPos = (i - 1) * 35 + 5;
+			local ctrlSet = gboxRewardList2:CreateOrGetControlSet("indun_reward_each", "REWARD_EACH_" .. i, 0, yPos);
+			local rewardName = GET_CHILD_RECURSIVELY(ctrlSet, "textReward");
+			local rewardValue = GET_CHILD_RECURSIVELY(ctrlSet, "textReward_value");
+
+			rewardName:SetText(nameTxt);
+			rewardValue:SetText(GET_COMMAED_STRING(itemCount));
+		end
+	end
 	
 	local textMultipleRate_value = GET_CHILD(frame, "textMultipleRate_value");
 	textMultipleRate_value:SetText(string.format("{@st66d_y}%s", GET_COMMAED_STRING(multipleRate)));

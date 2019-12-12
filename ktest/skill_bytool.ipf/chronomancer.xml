@@ -52,6 +52,12 @@
 					<Num Num="0" />
 					<Num Num="1" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_TGT_REMOVE_BUFF" Time="100" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)" Str="0" UseFunc="1"/>
+              </Scp>  
 			</EtcList>
 		</MainSkl>
 	</Skill>
@@ -178,6 +184,16 @@
 				<Scp Client="NO" Scp="BACKMASKING_START" Time="800" UseSleep="NO">
 					<Num FuncTxt=" return 50 +  obj.Level * 10;" Num="100" UseFunc="1" />
 				</Scp>
+                <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)" Str="0" UseFunc="1"/>
+               <Num FuncTxt="return TryGetProp(obj, 'MaxR', 100)"  UseFunc="1"/>
+                <Num FuncTxt="local x, y, z = GetPos(self) return x"  UseFunc="1"/>
+                <Num FuncTxt="local x, y, z = GetPos(self) return y"  UseFunc="1"/>
+                <Num FuncTxt="local x, y, z = GetPos(self) return z"  UseFunc="1"/>   
+               </Scp>
 			</EtcList>
 		</MainSkl>
 		<ByCondSkills>

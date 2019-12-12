@@ -265,3 +265,39 @@ function SKL_SUMMON_TARGET_BY_KEY(actor, obj, dik)
 	geSkillControl.SelectTargetSummon(actor, obj.type);
 	return 1, 0;
 end
+
+function SKL_SELECT_BUFF_BY_KEY(actor, obj, dik, upName, leftName, downName, rightName, abilName)
+	if abilName ~= nil then
+		local abil = session.GetAbilityByName(abilName);
+		if abil ~= nil then
+			local obj = GetIES(abil:GetObject());
+			if obj.ActiveState == 1 then
+				return 0, 1;
+			end
+		end
+	end
+	local upID, leftID, downID, rightID = 0, 0, 0, 0;
+	if upName ~= nil and upName ~= 'None' then
+		local cls = GetClass('Buff', upName);
+		upID = TryGetProp(cls, 'ClassID', 0);
+	end
+
+	if leftName ~= nil and leftName ~= 'None' then
+		local cls = GetClass('Buff', leftName);
+		leftID = TryGetProp(cls, 'ClassID', 0);
+	end
+
+	if downName ~= nil and downName ~= 'None' then
+		local cls = GetClass('Buff', downName);
+		downID = TryGetProp(cls, 'ClassID', 0);
+	end
+
+	if rightName ~= nil and rightName ~= 'None' then
+		local cls = GetClass('Buff', rightName);
+		rightID = TryGetProp(cls, 'ClassID', 0);
+	end
+
+	geSkillControl.SelectBuffFromList(actor, obj.type, upID, leftID, downID, rightID);
+
+	return 1, 0;
+end

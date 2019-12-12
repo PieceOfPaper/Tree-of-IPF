@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<uiframe name="suddenquest" x="0" y="0" width="360" height="265">
+	<frame layout_gravity="center top" margin="380 36 0 0"/>
+	<skin frameskin="chat_window"/>
+	<option visible="false" alwaysVisible="false" hideable="false" closebutton="false"/>
+	<layer layerlevel="60"/>
+	<input moveable="true" moveintitlebar="false" hittestframe="true"/>
+	<draw drawtitlebar="false" drawnotitlebar="false"/>
+	<userconfig FRAME_WIDTH="350" FRAME_HEIGHT="265" FRAME_RESIZE_HEIGHT="128" DETAILGBOX_WIDTH="344" DETAILGBOX_HEIGHT="135" CTRLSET_WIDTH="344" CTRLSET_HEIGHT="135" INFO_GBOX_WIDTH="340" INFO_GBOX_HEIGHT="135" TIMER_GBOX_WIDTH="344" TIMER_GBOX_HEIGHT="80" FRAME_MODE="0" SOBJ_NAME=""/>
+	<controls>
+		<groupbox name="gbox" rect="0 0 350 265" hittest="false" margin="0 0 0 0" layout_gravity="left top" draw="true" fixheight="false" scrollbar="false" resizebyparent="false" resizebyresolution="false" skin="chat_window"/>
+		<groupbox name="gbox_quest_title" rect="0 0 344 37" hittest="false" margin="4 4 0 0" layout_gravity="left top" parent="gbox" draw="true" fixheight="false" scrollbar="false" resizebyparent="false" resizebyresolution="false" skin="white_box_op10"/>
+		<groupbox name="gbox_quest_info" rect="0 0 340 135" hittest="false" margin="0 40 0 0" layout_gravity="center top" parent="gbox" draw="true" fixheight="false" scrollbar="false" resizebyparent="true" resizebyresolution="true" skin="black_box_op20"/>
+		<groupbox name="gbox_quest_timer" rect="0 0 344 80" hittest="false" margin="0 0 0 2" layout_gravity="center bottom" parent="gbox" draw="true" fixheight="false" scrollbar="false" resizebyparent="false" resizebyresolution="false" skin="white_box_op10"/>
+		<richtext name="suddenquest_title" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" parent="gbox_quest_title" textalign="center center" format="{@st43}{s16}%s" param1="title" param1_def="돌발 퀘스트"/>
+		<button name="minmax_size_btn" rect="0 0 26 25" margin="0 11 34 0" parent="" texttooltip="최소화 모드로 전환합니다." layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_over" image="button_reduction_mini" LBtnUpScp="SUDDENQUEST_MODE_CHANGE"/>
+		<button name="close_btn" rect="0 0 26 25" margin="0 11 8 0" parent="" texttooltip="돌발 퀘스트를 취소합니다." layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_over" image="button_close_mini" LBtnUpScp="SUDDENQUEST_CLOSE_BTN"/>
+		<richtext name="quest_object_text" rect="0 0 340 25" parent="gbox_quest_timer" margin="0 10 0 0" layout_gravity="center top" format="{@st43}{s16}[%s](%s)" param1="killText" param2="killCount" param2_def="0" hittest="false"/>
+		<richtext name="suddenquest_timer" rect="0 0 340 30" margin="0 40 0 0" parent="gbox_quest_timer" layout_gravity="center top" format="{img test_cooltime 20 20}{@st43}{s16}제한시간 - %s" param1="time" param1_def="00:00"/>
+		<gauge name="suddenquest_timegauge" rect="0 0 314 8" margin="0 0 0 6" parent="gbox_quest_timer" layout_gravity="center bottom" drawlastpoint="false" ratewidth="true" skin="gauge_sudden_quest" textalign1="center center" textalign2="left center" textfont1="mygauge" textfont2="mygauge" textoffset1="0 4" textoffset2="4 4" hittest="false"/>
+	</controls>
+</uiframe>

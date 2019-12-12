@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ToolSkill>
+    <Skill Name="BlossomBlader_Flowering">
+        <MainSkl JumpFlee="NO" MSPDToUsePos="0" ScrLock="None">
+            <HitList>
+                <Frame Angle="0" AniTime="9999" Dist="0" ForceATK="0" HitCount="1" Length="30" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" SklAngle="0.17453292" TermMax="0" TermMin="0" Time="9799" Type="FAN" Width="30"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="SKL_FLOWERING"/>
+                    <Num Num="1.5"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SET_TARGET_CIRCLE" Time="0" UseSleep="NO">
+                    <Pos Angle="0" Dist="50"/>
+                    <Num Num="75"/>
+                    <Num Num="5" UseFunc="1" FuncTxt="return obj.Level"/>
+                    <Num Num="2"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_BUFF" Time="260" UseSleep="NO">
+                    <Str Str="Flowering_Debuff"/>
+                    <Num FuncTxt="return obj.Level" Num="1" UseFunc="1"/>
+                    <Num Num="0"/>
+                    <Num Num="30000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="BlossomBlader_FallenBlossom">
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="CIRCLE" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="30" SklAngle="0.17453292" AniTime="10999" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="SKL_FALLENBLOSSOM"/>
+                    <Num Num="1.8"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_RUN_SCRIPT" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="SCR_BLOSSOMBLADER_FALLENBLOSSOM_SKILL"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_war_m_fallenblossom_shot"/>
+                    <Str Str="voice_war_f_fallenblossom_shot"/>
+                </Scp>
+                <Scp Scp="SKL_PLAY_SOUND" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="skl_eff_fallenblossom_shot"/>
+                    <Num Num="0"/>
+                    <Str Str="skl_eff_fallenblossom_shot"/>
+                </Scp>
+            </EtcList>
+            <ResultList>
+                <ToolScp Scp="C_SR_EFT_DEFAULT" Client="YES" UseSleep="NO">
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Str Str="BOT"/>
+                    <Str_Arg Str="E_warrior_fallenblossom" Arg="0.5"/>
+                    <Str Str="BOT"/>
+                </ToolScp>
+            </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="BlossomBlader_ControlBlade">
+        <EndScripts>
+            <ToolScp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </EndScripts>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="SQUARE" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="100" AniTime="10999" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Client="NO" Scp="SKL_RECOVER_COOLDOWN_SP" Time="0" TimeSync="0" UseSleep="NO"/>
+                <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="0">
+                    <Num Num="1"/>
+                    <Num Num="180"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_SPEND_COOLDOWN_SP" Time="0" TimeSync="0" UseSleep="NO"/>
+                <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
+                    <Str_Arg Str="E_warrior_controlblade001" Arg="2"/>
+                    <Str Str="Dummy_emitter"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO" Time="0">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0.30000001"/>
+                    <Num Num="0.050000001"/>
+                    <Num Num="0.15000001"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="skl_eff_controlblade_shot"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_war_m_controlblade_shot"/>
+                    <Str Str="voice_war_f_controlblade_shot"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_BUFF" Client="NO" UseSleep="NO" Time="800">
+                    <Str Str="ControlBlade_Debuff"/>
+                    <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                    <Num Num="0"/>
+                    <Num Num="3000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO" Time="800">
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0.5"/>
+                    <Num Num="0.2"/>
+                    <Num Num="0.40000001"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_SELECT_ACTIVE_ABIL" Client="NO" UseSleep="NO">
+                        <Str Str="Blossomblader18"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="SQUARE" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="100" AniTime="10999" RotAngle="0" ForceATK="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="C_EFFECT" Client="YES" UseSleep="NO" Time="0">
+                            <Str_Arg Str="E_warrior_controlblade001" Arg="2"/>
+                            <Str Str="Dummy_emitter"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="voice_war_m_controlblade_arts_shot"/>
+                            <Str Str="voice_war_f_controlblade_arts_shot"/>
+                        </Scp>
+                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="skl_eff_controlblade_shot"/>
+                        </Scp>
+                        <Scp Scp="MONSKL_CRE_PAD" Client="NO" UseSleep="NO" Time="600">
+                            <Pos Angle="0" Dist="50"/>
+                            <Angle Angle="0"/>
+                            <Str Str="BlossomBlader_ControlBlade"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="BlossomBlader_Flash">
+        <EndScripts>
+            <ToolScp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </EndScripts>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="SQUARE" Time="0" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="150" AniTime="150" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_war_atk_medium"/>
+                    <Str Str="voice_atk_medium_war_f"/>
+                </Scp>
+                <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="50">
+                    <Num Num="5"/>
+                    <Num Num="0.30000001"/>
+                    <Num Num="45"/>
+                    <Num Num="999"/>
+                </Scp>
+                <Scp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO" Time="100">
+                    <Str Str="SKL_FLASH"/>
+                    <Num Num="1.9"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="100">
+                    <Str Str="skl_eff_flash_shot"/>
+                </Scp>
+                <Scp Scp="SKL_SETPOS" Client="NO" UseSleep="NO" Time="100">
+                    <Pos Angle="0" Dist="100"/>
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="SKL_BUFF_ABIL" Client="NO" UseSleep="NO" Time="150">
+                    <Str Str="Blossomblader16"/>
+                    <Str Str="None" UseFunc="1" FuncTxt="local buff = 'None'
+if IsBuffApplied(self, 'StartUp_Buff') == 'YES' then
+buff = 'StartUp_Blossomblader16_Buff'
+end
+return buff"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="5000"/>
+                    <Num Num="1"/>
+                    <Num Num="100"/>
+                    <Num Num="0"/>
+                </Scp>
+            </EtcList>
+          <ResultList>
+            <ToolScp Client="NO" Scp="S_R_TGT_Decrease_heal_debuff" UseSleep="NO">
+              <Str FuncTxt="local func_name = 'get_decrease_heal_debuff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(skill.Level)" Str="0" UseFunc="1"/>
+            </ToolScp>
+          </ResultList>
+        </MainSkl>
+    </Skill>
+    <Skill Name="BlossomBlader_BlossomSlash">
+        <EndScripts>
+            <ToolScp Scp="SKL_SET_IMMUNE_STATE_REMOVE" Client="NO" UseSleep="YES">
+                <Str Str="Skill_NoDamage_Buff"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO">
+                <Str Str="LH"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO">
+                <Str Str="RH"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </EndScripts>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="CIRCLE" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="100" SklAngle="0.52359879" AniTime="10999" RotAngle="0" ForceATK="0"/>
+            </HitList>
+            <EtcList>
+                <Scp Scp="SKL_RECOVER_COOLDOWN_SP" Client="NO" UseSleep="NO" Time="0" TimeSync="0"/>
+                <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="0">
+                    <Num Num="1"/>
+                    <Num Num="180"/>
+                </Scp>
+                <Scp Scp="SKL_SPEND_COOLDOWN_SP" Client="NO" UseSleep="NO" Time="0" TimeSync="0"/>
+                <Scp Scp="SKL_SET_IMMUNE_STATE" Client="NO" UseSleep="NO" Time="0">
+                    <Str Str="Skill_NoDamage_Buff"/>
+                    <Num Num="100"/>
+                </Scp>
+                <Scp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO" Time="0">
+                    <Num Num="1"/>
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="skl_eff_blossomslash_shot"/>
+                </Scp>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_war_m_blossomslash_shot"/>
+                    <Str Str="voice_war_f_blossomslash_shot"/>
+                </Scp>
+                <Scp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="RH"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="LH"/>
+                    <Num Num="0"/>
+                    <Num Num="1"/>
+                </Scp>
+                <Scp Scp="SKL_SET_DIR_TO_TGT" Client="NO" UseSleep="NO" Time="200"/>
+                <Scp Scp="SKL_TGT_EFFECT" Client="NO" UseSleep="NO" Time="200">
+                    <Str_Arg Str="E_warrior_blossomslash" Arg="0.80000007"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_SETPOS_TARGET" Client="NO" UseSleep="NO" Time="200">
+                    <Str_Arg Str="None" Arg="1"/>
+                    <Num Num="0"/>
+                    <Num Num="20"/>
+                    <Num Num="250"/>
+                </Scp>
+                <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="200">
+                    <Num Num="3"/>
+                    <Num Num="1.5"/>
+                    <Num Num="50"/>
+                    <Num Num="999"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="350">
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="500">
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="650">
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="800">
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="950">
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Scp="SKL_TGT_DMG" Client="NO" UseSleep="NO" Time="1100">
+                    <Num Num="1"/>
+                    <Num Num="0"/>
+                    <Num Num="0"/>
+                </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_REMOVE_BUFF" Time="500" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)" Str="0" UseFunc="1"/>
+              </Scp>   
+            </EtcList>            
+        </MainSkl>
+        <ByCondSkills>
+            <SubSkl>
+                <Cond>
+                    <ToolScp Scp="SKL_CHECK_EXPROP" Client="NO" UseSleep="NO">
+                        <Str Str="ITEM_VIBORA_THSWORD"/>
+                        <Num Num="1"/>
+                    </ToolScp>
+                </Cond>
+                <Skill ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+                    <HitList>
+                        <Frame Type="SQUARE" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" Width="30" Length="100" AniTime="10999" RotAngle="0" ForceATK="0"/>
+                    </HitList>
+                    <EtcList>
+                        <Scp Scp="SKL_RECOVER_COOLDOWN_SP" Client="NO" UseSleep="NO" Time="0" TimeSync="0"/>
+                        <Scp Scp="SKL_SET_TARGET_CLIENT_TARGETTING" Client="NO" UseSleep="NO" Time="0">
+                            <Num Num="1"/>
+                            <Num Num="180"/>
+                        </Scp>
+                        <Scp Scp="SKL_SPEND_COOLDOWN_SP" Client="NO" UseSleep="NO" Time="0" TimeSync="0"/>
+                        <Scp Scp="SKL_SET_IMMUNE_STATE" Client="NO" UseSleep="NO" Time="0">
+                            <Str Str="Skill_NoDamage_Buff"/>
+                            <Num Num="100"/>
+                        </Scp>
+                        <Scp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO" Time="0">
+                            <Num Num="1"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="skl_eff_blossomslash_shot"/>
+                        </Scp>
+                        <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="voice_war_m_blossomslash_shot"/>
+                            <Str Str="voice_war_f_blossomslash_shot"/>
+                        </Scp>
+                        <Scp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="RH"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Scp="C_SHOW_PARTS_MODEL" Client="YES" UseSleep="NO" Time="0">
+                            <Str Str="LH"/>
+                            <Num Num="0"/>
+                            <Num Num="1"/>
+                        </Scp>
+                        <Scp Scp="SKL_SETPOS_TARGET" Client="NO" UseSleep="NO" Time="200">
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Num Num="0"/>
+                            <Num Num="30"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="C_SHOCKWAVE" Client="YES" UseSleep="NO" Time="200">
+                            <Num Num="3"/>
+                            <Num Num="1.5"/>
+                            <Num Num="50"/>
+                            <Num Num="999"/>
+                        </Scp>
+                        <Scp Scp="SKL_TARGET_RESET" Client="NO" UseSleep="NO" Time="200"/>
+                        <Scp Scp="SKL_SET_TARGET_CIRCLE" Client="NO" UseSleep="NO" Time="250">
+                            <Pos Angle="0" Dist="0" PosType="5" Height="1"/>
+                            <Num Num="100"/>
+                            <Num Num="4"/>
+                            <Num Num="2"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="300">
+                            <Pos Angle="0" Dist="0" Rand="30" PosType="8"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Num Num="0"/>
+                            <Str_Arg Str="E_warrior_fallenblossom" Arg="0.60000002"/>
+                            <Num Num="5"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="6"/>
+                            <Num Num="200"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Str Str="None"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="450">
+                            <Pos Angle="0" Dist="0" Rand="30" PosType="8"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Num Num="0"/>
+                            <Str_Arg Str="E_warrior_fallenblossom" Arg="0.60000002"/>
+                            <Num Num="5"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="6"/>
+                            <Num Num="200"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Str Str="None"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="600">
+                            <Pos Angle="0" Dist="0" Rand="30" PosType="8"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Num Num="0"/>
+                            <Str_Arg Str="E_warrior_fallenblossom" Arg="0.60000002"/>
+                            <Num Num="5"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="6"/>
+                            <Num Num="200"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Str Str="None"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="EFT_AND_HIT" Client="NO" UseSleep="YES" TooltipScp="TOOLTIP_EFT_AND_HIT" Time="750">
+                            <Pos Angle="0" Dist="0" Rand="30" PosType="8"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Num Num="0"/>
+                            <Str_Arg Str="E_warrior_fallenblossom" Arg="0.60000002"/>
+                            <Num Num="5"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                            <Num Num="6"/>
+                            <Num Num="200"/>
+                            <Str_Arg Str="None" Arg="1"/>
+                            <Str Str="None"/>
+                            <Num Num="1"/>
+                            <Num Num="0"/>
+                            <Num Num="0"/>
+                        </Scp>
+                        <Scp Scp="SKL_SETPOS" Client="NO" UseSleep="NO" Time="1200">
+                            <Pos Angle="0" Dist="0" Rand="30" PosType="5" Height="1"/>
+                            <Str_Arg Str="F_warrior_fallenblossom001" Arg="1"/>
+                            <Num Num="1"/>
+                        </Scp>
+                    </EtcList>
+                </Skill>
+            </SubSkl>
+        </ByCondSkills>
+    </Skill>
+    <Skill Name="BlossomBlader_StartUp">
+        <EndScripts>
+            <ToolScp Scp="C_COLORBLEND_ACTOR" Client="YES" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_CANCEL_CANCEL" Client="NO" UseSleep="NO"/>
+        </EndScripts>
+        <KeyInput>
+            <ToolScp Scp="SKL_KEY_DYNAMIC_CASTING" Client="YES" UseSleep="NO">
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="2"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Str_Arg Str="" Arg="0"/>
+                <Str Str=""/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </KeyInput>
+        <KeyInputStart>
+            <ToolScp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO">
+                <Str Str="SKL_STARTUP_CAST"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_PLAY_SOUND" Client="NO" UseSleep="NO">
+                <Str Str="voice_war_f_startup_cast"/>
+                <Num Num="0"/>
+                <Str Str="voice_war_m_startup_cast"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_C_RESUME_ANI" Client="YES" UseSleep="NO"/>
+            <ToolScp Scp="MONSKL_C_PLAY_ANIM" Client="YES" UseSleep="NO">
+                <Str Str="SKL_STARTUP_LOOP"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="C_EFFECT" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_warrior_startup001" Arg="6"/>
+                <Str Str="Dummy_emitter"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="StartUp_Charging_Buff"/>
+                <Num Num="5" UseFunc="1" FuncTxt="return  obj.Level;"/>
+                <Num Num="0"/>
+                <Num Num="5000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="100" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)" Str="0" UseFunc="1"/>
+               </ToolScp>
+        </KeyInputStart>        
+        <KeyInputEnd>
+            <ToolScp Scp="MONSKL_C_CLEAR_RESERVE_ANIM" Client="YES" UseSleep="NO"/>
+            <ToolScp Scp="C_EFFECT_DETACH" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_warrior_startup001" Arg="1"/>
+                <Num Num="0.5"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="StartUp_Charging_Buff"/>
+            </ToolScp>
+            <ToolScp Scp="SKL_STOP_SOUND" Client="NO" UseSleep="NO">
+                <Str Str="voice_war_f_startup_cast"/>
+                <Str Str="voice_war_m_startup_cast"/>
+            </ToolScp>
+        </KeyInputEnd>
+        <MainSkl ScrLock="None" JumpFlee="NO" MSPDToUsePos="0">
+            <HitList>
+                <Frame Type="FAN" Time="9999" HitCount="1" TermMin="0" TermMax="0" PosType="0" Dist="0" RandDist="0" RandomPerHit="0" Angle="0" AniTime="10999" RotAngle="0" ForceATK="0"/>
+            </HitList>            
+            <EtcList>
+                <Scp Scp="C_VOICE_SOUND" Client="YES" UseSleep="NO" Time="0">
+                    <Str Str="voice_war_m_startup_shot"/>
+                    <Str Str="voice_war_f_startup_shot"/>
+                </Scp>
+            </EtcList>
+        </MainSkl>
+    </Skill>
+</ToolSkill>

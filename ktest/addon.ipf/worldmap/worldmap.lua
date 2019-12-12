@@ -619,8 +619,11 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
                         	local taxCityMapID = taxRateInfo:GetCityMapID();
                             local taxCityName = TryGetProp(GetClassByType("Map", taxCityMapID), "Name")
                             local taxRate = taxRateInfo:GetTaxRate();
-                            if colonyLeague.ColonyLeague == 1 then
-                                occupyTextTooltip = "["..ClMsg('ColonyLeague_World_map_1st').."]".."{nl}"..ClMsg('ColonyTax_Guild_World_map')..taxGuildName.."{nl}"..ClMsg('ColonyTax_City_World_map')..taxCityName.."{nl}"..ClMsg('ColonyTax_Rate_World_map')..taxRate..ClMsg('PercentSymbol')
+							if colonyLeague.ColonyLeague == 1 then
+								occupyTextTooltip = "["..ClMsg('ColonyLeague_World_map_1st').."]".."{nl}"..ClMsg('ColonyTax_Guild_World_map')..taxGuildName.."{nl}"..ClMsg('ColonyTax_City_World_map')..taxCityName
+								if session.colonytax.IsEnabledColonyTaxShop() == 1 then
+									occupyTextTooltip = occupyTextTooltip.."{nl}"..ClMsg('ColonyTax_Rate_World_map')..taxRate..ClMsg('PercentSymbol')
+								end
                             elseif colonyLeague.ColonyLeague == 2 then
                                 occupyTextTooltip = "["..ClMsg('ColonyLeague_World_map_2nd').."]".."{nl}"..ClMsg('ColonyTax_Guild_World_map')..taxGuildName
                             end

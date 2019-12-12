@@ -324,12 +324,12 @@
 			<checkbox name="check5" rect="0 0 30 30" margin="0 139 3 0" layout_gravity="right top"/>
 		</controls>
 	</tooltip>
-	<tooltip name="indunListTooltip" width="394" height="309" moveable="false" frameskin="None" draw="false" UpdateScp="UPDATE_INDUN_INFO_TOOLTIP">
-		<userconfig INDUN_CTRL_LEFT_MARGIN="9" INDUN_CTRL_WIDTH="355" INDUN_CTRL_SPACING="5" INDUN_CTRL_START_TOP_MARGIN="10" INDUN_CTRL_OFFSET="3"/>
+	<tooltip name="indunListTooltip" width="394" height="200" moveable="false" frameskin="None" draw="false" UpdateScp="UPDATE_INDUN_INFO_TOOLTIP">
+		<userconfig INDUN_CTRL_LEFT_MARGIN="9" INDUN_CTRL_WIDTH="355" INDUN_CTRL_HEIGHT="20" INDUN_CTRL_SPACING="5" INDUN_CTRL_START_TOP_MARGIN="10" INDUN_CTRL_OFFSET="10" INDUN_FRAME_OFFSET="53"/>
 		<controls>
-			<groupbox name="indunListBoxBg" rect="0 0 394 259" scrollbar="false" skin="test_skill_skin2"/>
+			<groupbox name="indunListBoxBg" rect="0 0 394 200" scrollbar="false" skin="test_skill_skin2"/>
 			<richtext name="indunLabelText" caption="IndunInfo" margin="0 12 0 0" rect="0 0 200 50" layout_gravity="center top" parent="indunListBoxBg"/>
-			<groupbox name="indunListBox" rect="0 0 370 206" margin="0 40 0 0" layout_gravity="center top" scrollbar="false" skin="graybox_op_45" parent="indunListBoxBg"/>
+			<groupbox name="indunListBox" rect="0 0 370 150" margin="0 43 0 0" layout_gravity="center top" scrollbar="false" skin="graybox_op_45" parent="indunListBoxBg"/>
 		</controls>
 	</tooltip>
 	<tooltip name="skillRestrictList" x="0" y="0" width="480" height="100" fixwidth="true" fixheight="false" moveable="false" frameskin="downbox" UpdateScp="UPDATE_RESTRICT_INFO_TOOLTIP">

@@ -14,8 +14,6 @@ function UPDATE_ITEMDUNGEON_CURRENT_ITEM(frame)
 		itemGUID = invItem:GetIESID();
 		local slotName = GET_CHILD_RECURSIVELY(frame, "slotName");
 		slotName:SetTextByKey("value", GET_FULL_NAME(obj));
-		local pr_txt = GET_CHILD_RECURSIVELY(frame, "nowPotentialStr");
-		pr_txt:ShowWindow(1);
 
 		local tempObj = CreateIESByID("Item", obj.ClassID);
 		if nil == tempObj then
@@ -27,17 +25,6 @@ function UPDATE_ITEMDUNGEON_CURRENT_ITEM(frame)
 			refreshScp = _G[refreshScp];
 			refreshScp(tempObj);
 		end	
-
-		local goodsInfoBox = GET_CHILD_RECURSIVELY(frame, 'goodsInfoBox');
-		goodsInfoBox:RemoveChild('tooltip_only_pr');
-		local nowPotential = goodsInfoBox:CreateControlSet('tooltip_only_pr', 'tooltip_only_pr', 30, pr_txt:GetY() - pr_txt:GetHeight());
-		tolua.cast(nowPotential, "ui::CControlSet");
-		local labelline = GET_CHILD(nowPotential, 'labelline');
-		labelline:ShowWindow(0);
-		local pr_gauge = GET_CHILD(nowPotential,'pr_gauge','ui::CGauge')
-		pr_gauge:SetPoint(obj.PR, tempObj.PR);
-		pr_txt = GET_CHILD(nowPotential,'pr_text','ui::CGauge')
-		pr_txt:SetVisible(0);
 		
 		DestroyIES(tempObj);
 		
@@ -55,6 +42,7 @@ end
 
 function ITEMDUNGEON_CLEARUI(frame)
 	ITEMDUNGEON_CLEAR_TARGET(frame);
+	ITEMDUNGEON_BUY_ITEM_ENABLEHITTEST();
 	ITEMDUNGEON_RESET_STONE(frame);
 	ITEMDUNGEON_RESET_ABRASIVE(frame);
 
@@ -275,7 +263,6 @@ function ITEMDUNGEON_SHOW_BOX(frame, seller, buyer, isSeller)
 	local titlepicture = GET_CHILD_RECURSIVELY(frame, 'titlepicture');
 	local sellerBtnBox = GET_CHILD_RECURSIVELY(frame, 'sellerBtnBox');
 	local buyerBtnBox = GET_CHILD_RECURSIVELY(frame, 'buyerBtnBox');
-	local goodsInfoBox = GET_CHILD_RECURSIVELY(frame, 'goodsInfoBox');
 
 	sellerBox:ShowWindow(seller);
 	needBox:ShowWindow(isSeller);
@@ -285,7 +272,6 @@ function ITEMDUNGEON_SHOW_BOX(frame, seller, buyer, isSeller)
 	targetSlot:ShowWindow(buyer);
 	buyerBox:ShowWindow(buyer);
 	buyerBtnBox:ShowWindow(buyer);
-	goodsInfoBox:ShowWindow(buyer);
 end
 
 function ITEMDUNGEON_INIT_NEEDITEM(frame)
@@ -437,18 +423,29 @@ function ITEMDUNGEON_BUY_ITEM(parent, ctrl)
 	local warningmsg;
 
 	if awakematerialItemGuid == '0' then
-		warningmsg = ClMsg("IsSureNotUseAbrasive")..' {nl}';
+	    ui.SysMsg(ClMsg("NoMoreAbrasive"))
+	    return
 	else
 		warningmsg = ClMsg("IsSureUseAbrasive")..' {nl}';
 	end
 
 	if materialItemGuid == '0' then
-		warningmsg = warningmsg .. ClMsg("IsSureNotUseStone")..' {nl}';
+	    ui.SysMsg(ClMsg("NoMoreAbrasive"))
+	    return
 	end
 
-	warningmsg = warningmsg .. ClMsg("IsSureItemdungeon");
-	
-	WARNINGMSGBOX_FRAME_OPEN(warningmsg, '_ITEMDUNGEON_BUY_ITEM', 'None');
+	-- 등록한 재료 아이템 해제 못하게
+	local buyerBox = GET_CHILD_RECURSIVELY(frame, 'buyerBox');
+	buyerBox:EnableHitTest(0);
+
+	warningmsg = warningmsg .. ClMsg("IsSureItemdungeon");	
+	WARNINGMSGBOX_FRAME_OPEN(warningmsg, '_ITEMDUNGEON_BUY_ITEM', 'ITEMDUNGEON_BUY_ITEM_ENABLEHITTEST');
+end
+
+function ITEMDUNGEON_BUY_ITEM_ENABLEHITTEST()
+	local frame = ui.GetFrame('itemdungeon');
+	local buyerBox = GET_CHILD_RECURSIVELY(frame, 'buyerBox');
+	buyerBox:EnableHitTest(1);
 end
 
 function ITEMDUNGEON_CLOSE_SHOP(parent, ctrl)
@@ -532,10 +529,6 @@ function ITEMDUNGEON_CLEAR_TARGET(parent, ctrl)
 
 	local slotName = GET_CHILD_RECURSIVELY(frame, "slotName");
 	slotName:SetTextByKey("value", "");
-	GET_CHILD_RECURSIVELY(frame, "nowPotentialStr"):ShowWindow(0);
-
-	local goodsInfoBox = GET_CHILD_RECURSIVELY(frame, 'goodsInfoBox');
-	goodsInfoBox:RemoveChild('tooltip_only_pr');
 end
 
 function ITEMDUNGEON_INIT_USER_PRICE(frame)	

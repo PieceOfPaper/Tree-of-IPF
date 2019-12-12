@@ -11,6 +11,14 @@
                     <Str Str="voice_atk_short_war_f"/>
                 </Scp>
             </EtcList>
+            <ResultList>
+            <ToolScp Client="NO" Scp="S_R_TGT_REMOVE_BUFF" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_buff_tooltip_' .. TryGetProp(skill, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(skill.Level)" Str="0" UseFunc="1"/>
+              </ToolScp>
+            </ResultList>
         </MainSkl>
     </Skill>
     <Skill Name="Pardoner_IncreaseMagicDEF">
@@ -149,6 +157,12 @@
                     <Num Num="1"/>
                     <Num Num="100"/>
                 </Scp>
+                <Scp Client="NO" Scp="SKL_TGT_REMOVE_DEBUFF" Time="110" UseSleep="NO">
+                <Str FuncTxt="local func_name = 'get_remove_debuff_tooltip_' .. TryGetProp(obj, 'ClassName', 'None')
+               local func = _G[func_name]
+               if func == nil then return end
+               return func(obj.Level)" Str="0" UseFunc="1"/>
+               </Scp>
             </EtcList>
         </MainSkl>
     </Skill>

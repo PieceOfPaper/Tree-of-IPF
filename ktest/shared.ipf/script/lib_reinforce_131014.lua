@@ -1,4 +1,4 @@
-﻿---- lib_reinforce_131014.lua
+---- lib_reinforce_131014.lua
 function IS_MORU_FREE_PRICE(moruItem)
     if moruItem == nil then
         return false;
@@ -157,7 +157,7 @@ function GET_REINFORCE_PRICE(fromItem, moruItem, pc)
         end
     elseif slot == 'LH' then
         if fromItem.ClassType == 'Shield' then
-            priceRatio = 0.66;
+            priceRatio = 0.8;
         else
             priceRatio = 0.8;
         end
@@ -165,6 +165,8 @@ function GET_REINFORCE_PRICE(fromItem, moruItem, pc)
         priceRatio = 0.75;
     elseif slot == 'NECK' or slot == 'RING' then
         priceRatio = 0.5;
+    elseif slot == 'TRINKET' then
+        priceRatio = 0.6
     else
         return 0;
     end

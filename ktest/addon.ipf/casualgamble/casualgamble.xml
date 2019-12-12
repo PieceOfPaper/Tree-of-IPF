@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<uiframe name="casualgamble" x="0" y="0" width="577" height="758">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
+	<skin frameskin="test_frame_low"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<option closebutton="false"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<layer layerlevel="92"/>
+	<userconfig TIME_FONT_NOMAL="{@st41b}{s16}" TIME_FONT_ONEMINUTE="{@st41b}{s16}{#ff5c5c}" SILVER_TEXT_FONT="{@st41b}{s16}" MAX_SLOT_COUNT="8" OK_BUTTON_EFFECT_NAME="UI_screen_CircleButton" OK_BUTTON_EFFECT_SCALE="2" RESULT_EFFECT="I_screen_bosscard_frame06" RESULT_EFFECT_SCALE_S="4" RESULT_EFFECT_SCALE_M="5" RESULT_EFFECT_DURATION="0.2"/>
+	<script OpenScp="CASUAL_GAMBLE_OPEN" CloseScp="CASUAL_GAMBLE_CLOSE"/>
+	<controls>
+		<!-- title -->
+		<groupbox name="title_gb" rect="0 0 575 58" margin="0 0 0 0" layout_gravity="center top" skin="test_frame_top_r" hittest="true"/>
+		<richtext name="title_text" parent="title_gb" rect="0 0 400 30" margin="0 19 0 0" layout_gravity="center top" caption="{@st43}{s22}여신의 축복" hittest="false"/>
+		<button name="closeBtn" parent="title_gb" rect="0 0 35 35" margin="0 18 27 0" layout_gravity="right top" LBtnUpScp="CASUAL_GAMBLE_CLOSE" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}창을 닫습니다{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true"/>
+		<!-- time -->
+		<groupbox name="time_gb" rect="0 0 290 42" margin="0 70 0 0" layout_gravity="center top" skin="protection_stopwatch" hittest="false"/>
+		<richtext name="time" parent="time_gb" rect="0 0 290 42" margin="0 0 0 0" layout_gravity="center center" format="{@st41b}{s16}남은 시간 %s분 %s초" param1="min" param1_def="0" param2="sec" param2_def="0"/>
+		<!-- slot -->
+		<groupbox name="slot_gb" rect="0 0 540 280" margin="0 130 0 0" layout_gravity="center top" skin="test_frame_midle" hittest="true"/>
+		<slot name="slot0" parent="slot_gb" rect="0 0 110 110" margin="-195 -65 0 0" layout_gravity="center center" enabledrop="false" enablepop="false" enabledrag="false" enableselect="false" image="casual_gambling_slot"/>
+		<slot name="slot1" parent="slot_gb" rect="0 0 110 110" margin="-65  -65 0 0" layout_gravity="center center" enabledrop="false" enablepop="false" enabledrag="false" enableselect="false" image="casual_gambling_slot"/>
+		<slot name="slot2" parent="slot_gb" rect="0 0 110 110" margin=" 65  -65 0 0" layout_gravity="center center" enabledrop="false" enablepop="false" enabledrag="false" enableselect="false" image="casual_gambling_slot"/>
+		<slot name="slot3" parent="slot_gb" rect="0 0 110 110" margin=" 195 -65 0 0" layout_gravity="center center" enabledrop="false" enablepop="false" enabledrag="false" enableselect="false" image="casual_gambling_slot"/>
+		<slot name="slot4" parent="slot_gb" rect="0 0 110 110" margin="-195  65 0 0" layout_gravity="center center" enabledrop="false" enablepop="false" enabledrag="false" enableselect="false" image="casual_gambling_slot"/>
+		<slot name="slot5" parent="slot_gb" rect="0 0 110 110" margin="-65   65 0 0" layout_gravity="center center" enabledrop="false" enablepop="false" enabledrag="false" enableselect="false" image="casual_gambling_slot"/>
+		<slot name="slot6" parent="slot_gb" rect="0 0 110 110" margin=" 65   65 0 0" layout_gravity="center center" enabledrop="false" enablepop="false" enabledrag="false" enableselect="false" image="casual_gambling_slot"/>
+		<slot name="slot7" parent="slot_gb" rect="0 0 110 110" margin="195   65 0 0" layout_gravity="center center" enabledrop="false" enablepop="false" enabledrag="false" enableselect="false" image="casual_gambling_slot"/>
+		<picture name="slot_pic" rect="0 0 190 146" margin="0 0 0 165" layout_gravity="center bottom" image="protection_legend" hittest="true" stretch="true"/>
+		<slot name="resultslot" parent="slot_pic" rect="0 0 111 111" margin="-1 9 0 0" layout_gravity="center top" enabledrop="false" enablepop="false" enabledrag="false" enableselect="false"/>
+		<groupbox name="gb" rect="0 0 224 43" margin="0 0 0 110" layout_gravity="center bottom" skin="protection_lottery_notice" hittest="false"/>
+		<picture name="silver_pic" parent="gb" rect="0 0 23 22" margin="0 0 0 0" layout_gravity="center center" image="silver_pic" hittest="false" stretch="true"/>
+		<richtext name="silver_text" parent="gb" rect="0 0 40 41" margin="15 0 0 0" layout_gravity="left center" caption="{@st41b}{s16}1회"/>
+		<richtext name="silver_cost" parent="gb" rect="0 0 40 41" margin="0 0 15 0" layout_gravity="right center" format="{@st41b}{s16}%s" param1="value" param1_def="0" />
+		<groupbox name="btn_gb" rect="0 0 150 70" margin="0 0 0 30" layout_gravity="center bottom" skin="" hittest="true" draw="false"/>
+		<button name="okbtn" parent="btn_gb" rect="0 0 148 60" margin="0 0 0 0" layout_gravity="center center" caption="{@st43}{s20}확인" skin="test_red_button" LBtnUpScp="CASUAL_GAMBLE_OK_BTN_CLICK" oversound="button_cursor_over_3" clicksound="button_click_big"/>
+	</controls>
+</uiframe>

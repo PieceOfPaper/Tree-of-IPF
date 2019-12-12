@@ -17,6 +17,11 @@ function ON_OPEN_DLG_ITEMRANDOMRESET(frame)
 		return;
 	end
 
+	local itemunrevertrandom = ui.GetFrame('itemsandrarevertrandom');
+	if itemunrevertrandom ~= nil and itemunrevertrandom:IsVisible() == 1 then
+		return;
+	end	
+
 	frame:ShowWindow(1);
 end
 
@@ -34,6 +39,13 @@ function ITEMRANDOMRESET_OPEN(frame)
 		ui.OpenFrame("inventory");
 		return;
 	end
+	
+	local itemunrevertrandom = ui.GetFrame('itemsandrarevertrandom');
+	if itemunrevertrandom ~= nil and itemunrevertrandom:IsVisible() == 1 then
+		frame:ShowWindow(0);
+		ui.OpenFrame("inventory");
+		return;
+	end	
 
 	SET_RANDOMRESET_RESET(frame);
 	CLEAR_ITEMRANDOMRESET_UI()

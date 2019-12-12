@@ -7575,83 +7575,6 @@ function SCR_PRE_F_3CMLAKE87_MQ8_ITEM(self, argObj, argstring, arg1, arg2)
     return 0;
 end
 
---3CMLAKE261_SQ11_ITEM 
-
-function SCR_PRE_3CMLAKE261_SQ11_ITEM(self, argObj, argstring, arg1, arg2)
-    local result = SCR_QUEST_CHECK(self, 'F_3CMLAKE261_SQ11')
-    if result == "PROGRESS" then
-        if GetZoneName(self) == 'f_3cmlake_26_1' then
-            if GetLayer(self) == 0 then
-                local list, cnt = SelectObjectByFaction(self,30,"Neutral")
-                for i = 1, cnt do
-                    if list[i].ClassName == "cart_spp_3cm" then
-                        if IsBuffApplied(list[i], '3CMLAKE261_SQ11_BUFF') == 'NO' then
-                            return GetHandle(list[i])
-                        end
-                    end
-                end
-            end
-        end
-    end
-    return 0
-end
-
-
---3CMLAKE261_SQ10_ITEM
-
-function SCR_PRE_3CMLAKE261_SQ10_ITEM01(self, argObj, argstring, arg1, arg2)
-    local result = SCR_QUEST_CHECK(self, 'F_3CMLAKE261_SQ10')
-    if result == "PROGRESS" then
-        if GetZoneName(self) == 'f_3cmlake_26_1' then
-            if GetLayer(self) == 0 then
-                local list, cnt = SelectObject(self, 30,"ALL", 1)
-                for i = 1, cnt do
-                    if IsServerSection(self) == 1 then
-                        if list[i].ClassName == "HiddenTrigger6" then
-                            if list[i].Dialog == "3CMLAKE_SKETCH_TRIG" then
-                                return GetHandle(list[i])
-                            end
-                        end
-                    else
-                        if GetDialogByObject(list[i]) == "3CMLAKE_SKETCH_TRIG" then
-                            return 1
-                        end
-                    end
-                end
-            end
-        end
-    return 0
-    end
-end
-
-
---3CMLAKE262_SQ10_ITEM02 (USE_SQ11)
-function SCR_PRE_3CMLAKE262_SQ10_ITEM02(self, argObj, argstring, arg1, arg2)
-    local result = SCR_QUEST_CHECK(self,'F_3CMLAKE262_SQ11')
-    if result == "PROGRESS" then
-        if GetZoneName(self) == 'f_3cmlake_26_2' then
-            if GetLayer(self) == 0 then
-                local list, cnt = SelectObject(self,100,"ALL")
-                for i = 1, cnt do
-                    if list[i].ClassName == "lakegolem" or list[i].ClassName == "pondus" or list[i].ClassName == "anchor_golem" then
-                        if IsBuffApplied(list[i], '3CMLAKE262_SQ11_BUFF') == 'NO' then
-                            if IsServerSection(self) == 1 then
-                                if IsDead(list[i]) == 0 then
-                                    return GetHandle(list[i])
-                                end
-                            else
-                                return 1
-                            end
-                        end
-                    else
-                        return 0
-                    end
-                end
-            end
-        end
-    return 0
-    end
-end
 
 --WTREES22_1_SUBQ2_ITEM1
 function SCR_PRE_WTREES22_1_SUBQ2_ITEM1(self, argstring, argnum1, argnum2)
@@ -7764,6 +7687,80 @@ function SCR_PRE_WTREES22_3_SUBQ6_ITEM1(self, argstring, argnum1, argnum2)
     return 0;
 end
 
+--3CMLAKE261_SQ11_ITEM 
+
+function SCR_PRE_3CMLAKE261_SQ11_ITEM(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'F_3CMLAKE261_SQ11')
+    if result == "PROGRESS" then
+        if GetZoneName(self) == 'f_3cmlake_26_1' then
+            if GetLayer(self) == 0 then
+                local list, cnt = SelectObjectByFaction(self,30,"Neutral")
+                for i = 1, cnt do
+                    if list[i].ClassName == "cart_spp_3cm" then
+                        return GetHandle(list[i])
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--3CMLAKE261_SQ10_ITEM
+
+function SCR_PRE_3CMLAKE261_SQ10_ITEM01(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'F_3CMLAKE261_SQ10')
+    if result == "PROGRESS" then
+        if GetZoneName(self) == 'f_3cmlake_26_1' then
+            if GetLayer(self) == 0 then
+                local list, cnt = SelectObject(self, 30,"ALL", 1)
+                for i = 1, cnt do
+                    if IsServerSection(self) == 1 then
+                        if list[i].ClassName == "HiddenTrigger6" then
+                            if list[i].Dialog == "3CMLAKE_SKETCH_TRIG" then
+                                return GetHandle(list[i])
+                            end
+                        end
+                    else
+                        if GetDialogByObject(list[i]) == "3CMLAKE_SKETCH_TRIG" then
+                            return 1
+                        end
+                    end
+                end
+            end
+        end
+    return 0
+    end
+end
+
+--3CMLAKE262_SQ10_ITEM02 (USE_SQ11)
+function SCR_PRE_3CMLAKE262_SQ10_ITEM02(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self,'F_3CMLAKE262_SQ11')
+    if result == "PROGRESS" then
+        if GetZoneName(self) == 'f_3cmlake_26_2' then
+            if GetLayer(self) == 0 then
+                local list, cnt = SelectObject(self,100,"ALL")
+                for i = 1, cnt do
+                    if list[i].ClassName == "lakegolem" or list[i].ClassName == "pondus" or list[i].ClassName == "anchor_golem" then
+                        if IsBuffApplied(list[i], '3CMLAKE262_SQ11_BUFF') == 'NO' then
+                            if IsServerSection(self) == 1 then
+                                if IsDead(list[i]) == 0 then
+                                    return GetHandle(list[i])
+                                end
+                            else
+                                return 1
+                            end
+                        end
+                    else
+                        return 0
+                    end
+                end
+            end
+        end
+    return 0
+    end
+end
+
 --ABBEY22_4_SUBQ3_ITEM1
 function SCR_PRE_ABBEY22_4_SUBQ3_ITEM1(self, argstring, argnum1, argnum2)
     local result = SCR_QUEST_CHECK(self, 'ABBEY22_4_SQ4')
@@ -7873,7 +7870,6 @@ function SCR_PRE_CHAR318_MSTEP3_3ITEM2(self, argstring, argnum1, argnum2)
         end
     end
 end
-
 
 --CORAL_44_3_SQ_90_ITEM
 function SCR_PRE_CORAL_44_3_SQ_90_ITEM(self, argstring, argnum1, argnum2)
@@ -8017,15 +8013,6 @@ function SCR_PRE_CHAR118_MSTEP2_2_ITEM1(self, argstring, argnum1, argnum2)
     return 0
 end
 
---SCR_PRE_CHAR118_MSTEP2_2_ITEM2
-function SCR_PRE_CHAR118_MSTEP2_2_ITEM2(self, argObj, argstring, arg1, arg2)
-    if GetZoneName(self) == "f_farm_47_1" then
-        return 1
-    end
-    return 0
-end
-
-
 --CHAR220_MSTEP2_6_ITEM1
 function SCR_PRE_JOB_ONMYOJI_MSTEP2_6_ITEM1(self, argstring, argnum1, argnum2)
     if GetZoneName(self) == "f_tableland_71" then
@@ -8119,6 +8106,13 @@ function SCR_PRE_JOB_ONMYOJI_Q1_ITEM(self, argObj, argstring, arg1, arg2)
     return 0;   
 end
 
+--SCR_PRE_CHAR118_MSTEP2_2_ITEM2
+function SCR_PRE_CHAR118_MSTEP2_2_ITEM2(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "f_farm_47_1" then
+        return 1
+    end
+    return 0
+end
 
 --SCR_PRE_EXORCIST_MSTEP323_ITEM1
 function SCR_PRE_EXORCIST_MSTEP323_ITEM1(self, argObj, argstring, arg1, arg2)
@@ -8261,6 +8255,7 @@ function SCR_PRE_JOB_PIED_PIPER_Q1_ITEM(self, argObj, argstring, arg1, arg2)
     end
     return 0;   
 end
+
 
 -- STARTOWER_88_MQ_30_ITEM
 
@@ -8419,7 +8414,6 @@ function SCR_PRE_STARTOWER_91_MQ_90_ITEM01(self, argObj, argstring, arg1, arg2)
     end
     return 0
 end
-
 
 --GM_WHITETREES_OBJ_ITEM2
 function SCR_PRE_GM_WHITETREES_OBJ_ITEM2(self, argObj, argstring, arg1, arg2)
@@ -8723,46 +8717,6 @@ function SCR_PRE_JOB_ASSASSIN_Q1_ITEM(self, argObj, argstring, arg1, arg2)
 end
 
 
---CASTLE_93-CASTLE_95
-
-
--- CASTLE93_MAIN05 (Take Item CASTLE93_MAIN04)
-function SCR_PRE_CASTLE93_MAIN04_ITEM(self, argstring, argnum1, argnum2)
-    if GetZoneName(self) == 'f_castle_93' then
-        if GetLayer(self) == 0 then 
-            local result1 = SCR_QUEST_CHECK(self, 'CASTLE93_MAIN05')
-            if result1 == 'PROGRESS' then
-                if IsBuffApplied(self, 'CASTLE93_MAIN05_BUFF') == "NO" then
-                    return 1
-                end
-            end
-        end
-    end
-    return 0
-end
-
-
--- CASTLE94_MAIN04
-function SCR_PRE_CASTLE94_MAIN04_ITEM(self, argstring, argnum1, argnum2)
-    if GetZoneName(self) == 'f_castle_94' then
-        if GetLayer(self) == 0 then 
-            local result1 = SCR_QUEST_CHECK(self, 'CASTLE94_MAIN04')
-            if result1 == 'PROGRESS' then
-                local enemyList, enemyCount = SelectObject(self, 100, 'ENEMY')
-                for i = 1, enemyCount do
-                    if GetHpPercent(enemyList[i]) <= 0.5 then
-                        if enemyList[i].ClassName == 'gland' or enemyList[i].ClassName == 'grievous_wheel' or enemyList[i].ClassName == 'ghosnatus' then
-                            return GetHandle(enemyList[i])
-                        end
-                    end
-                end
-            end
-        end
-    end
-    return 0
-end
-
-
 --F_MAPLE_243_MQ_07_ITEM_01
 function SCR_PRE_F_MAPLE_243_MQ_07_ITEM_01(self, argObj, argstring, arg1, arg2)
     if GetZoneName(self) == 'f_maple_24_3' then
@@ -8911,6 +8865,46 @@ function SCR_PRE_F_MAPLE_242_MQ_08_ITEM(self, argstring, argnum1, argnum2)
 end
 
 
+--CASTLE_93-CASTLE_95
+
+
+-- CASTLE93_MAIN05 (Take Item CASTLE93_MAIN04)
+function SCR_PRE_CASTLE93_MAIN04_ITEM(self, argstring, argnum1, argnum2)
+    if GetZoneName(self) == 'f_castle_93' then
+        if GetLayer(self) == 0 then 
+            local result1 = SCR_QUEST_CHECK(self, 'CASTLE93_MAIN05')
+            if result1 == 'PROGRESS' then
+                if IsBuffApplied(self, 'CASTLE93_MAIN05_BUFF') == "NO" then
+                    return 1
+                end
+            end
+        end
+    end
+    return 0
+end
+
+
+-- CASTLE94_MAIN04
+function SCR_PRE_CASTLE94_MAIN04_ITEM(self, argstring, argnum1, argnum2)
+    if GetZoneName(self) == 'f_castle_94' then
+        if GetLayer(self) == 0 then 
+            local result1 = SCR_QUEST_CHECK(self, 'CASTLE94_MAIN04')
+            if result1 == 'PROGRESS' then
+                local enemyList, enemyCount = SelectObject(self, 100, 'ENEMY')
+                for i = 1, enemyCount do
+                    if GetHpPercent(enemyList[i]) <= 0.5 then
+                        if enemyList[i].ClassName == 'gland' or enemyList[i].ClassName == 'grievous_wheel' or enemyList[i].ClassName == 'ghosnatus' then
+                            return GetHandle(enemyList[i])
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+
 -- CASTLE98_MQ_CORE_ITEM
 function SCR_PRE_CASTLE98_MQ_CORE_ITEM(self, argstring, argnum1, argnum2)
 
@@ -9047,6 +9041,60 @@ function SCR_PRE_PRISON_82_MQ_11_NECKLACE(self, argObj, argstring, arg1, arg2)
     local result = SCR_QUEST_CHECK(self, 'PRISON_82_MQ_11')
     if result == 'COMPLETE' then
         return 1
+    end
+    return 0
+end
+
+--EP12_MAINSTREAM_NERINGA
+function SCR_PRE_EP12_MAINSTREAM_NERINGA_CANDLE_ITEM(self, argstring, argnum1, argnum2)
+    local hideCheck = isHideNPC(self, "EP12_MAINSTREAM_NERINGA")
+    if GetZoneName(self) == 'f_castle_102' or GetZoneName(self) == 'shadow_raid_mini_dungeon' or GetZoneName(self) == 'f_desolated_capital_53_1' or GetZoneName(self) == 'f_dcapital_104' then    
+        if GetLayer(self) == 0 then
+            return 1
+        end
+    elseif GetZoneName(self) == 'd_castle_19_1' then
+        if GetLayer(self) == 0 then
+            return 1
+        end
+    end
+    SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EP12_MAINSTREAM_NERINGA_ABANDON"), 3);
+    return 0
+end
+
+--D_CASTLE_19_1_MQ_05_ITEM
+function SCR_PRE_D_CASTLE_19_1_MQ_05_ITEM(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'D_CASTLE_19_1_MQ_05')
+    if result == "PROGRESS" then
+        local obj_list, obj_cnt = SelectObject(self, 100, "ALL", 1)
+        if obj_cnt >= 1 then
+            for i = 1, obj_cnt do
+                if obj_list[i].ClassName == "HiddenTrigger6" then
+                    if IsServerSection(self) == 1 then
+                        if obj_list[i].Enter == 'D_CASTLE_19_1_MQ_05_TRIGGER' then
+                            return GetHandle(obj_list[i]);
+                        end
+                    else
+                        return GetHandle(obj_list[i]);
+                    end
+                end
+            end
+        end
+    end
+    return 0;
+end
+
+--EP12_MAINSTREAM_RAIMA
+
+function SCR_PRE_EP12_MAINSTREAM_RAIMA_WHEEL_ITEM(self, argObj, argstring, arg1, arg2)
+    local mainSession = GetSessionObject(self, "ssn_klapeda")
+    if mainSession.CASTLE102_MQ_05 >= 200 then
+        if mainSession.CASTLE102_MQ_06 < 300 then
+            if GetLayer(self) == 0 then
+                if GetZoneName(self) ~= "shadow_raid_mini_dungeon" then
+                    return 1
+                end
+            end
+        end
     end
     return 0
 end

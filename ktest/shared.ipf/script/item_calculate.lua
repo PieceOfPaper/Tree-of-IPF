@@ -72,6 +72,7 @@ function GET_COMMON_PROP_LIST()
         'ADD_EARTH',
         'ADD_HOLY',
         'ADD_DARK',
+        'Add_Damage_Atk',
         'RES_FIRE',
         'RES_ICE',
         'RES_POISON',
@@ -80,6 +81,7 @@ function GET_COMMON_PROP_LIST()
         'RES_EARTH',
         'RES_HOLY',
         'RES_DARK',
+        'ResAdd_Damage',
         'LootingChance',
         'RareOption_MainWeaponDamageRate',
         'RareOption_MainWeaponDamageRate',
@@ -95,8 +97,12 @@ function GET_COMMON_PROP_LIST()
         'RareOption_HitRate',
         'RareOption_DodgeRate',
         'RareOption_BlockBreakRate',
-        'RareOption_BlockRate'
-
+        'RareOption_BlockRate',
+        'MiddleSize_Def',
+        'Leather_Def',
+        'Cloth_Def',
+        'Iron_Def'
+        
     };
 end
 
@@ -187,6 +193,12 @@ function GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinf, reinfBonusValue, basicTo
     value = math.floor((reinforceValue + (lv * (reinforceValue * (0.08 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.015 ))))));
 
     value = value * (reinforceRatio / 100) * gradeRatio + buffValue;
+    
+    local classType = TryGetProp(item,"ClassType")
+    if classType == 'Trinket' then
+        value = value * 0.5
+    end
+          
     value = SyncFloor(value);
     return math.floor(value);
 end
@@ -263,7 +275,7 @@ function GET_REINFORCE_ADD_VALUE(prop, item, ignoreReinf, reinfBonusValue)
     else
         return 0;
     end
-    
+
     local value;
     
     reinforceValue = reinforceValue + reinfBonusValue;
@@ -1228,6 +1240,9 @@ function GET_REPAIR_PRICE(item, fillValue, taxRate)
     elseif item.DefaultEqpSlot == 'RING' then
         local stat_weapon = GetClassByType("Stat_Weapon", lv)
         value = stat_weapon.RepairPrice_RING;
+    elseif item.DefaultEqpSlot == 'TRINKET' then
+    local stat_weapon = GetClassByType("Stat_Weapon", lv)
+        value = stat_weapon.RepairPrice_TRINKET;
     end
     
     local reinforceRatio = (0.01 * reinforceCount);
@@ -1538,9 +1553,20 @@ function SCR_GET_MAXPROP_ENCHANT_DEF(item)
     return math.floor(result);
 end 
 
-function SCR_GET_MAXPROP_ENCHANT_DEFATTRIBUTE(item)
+function SCR_GET_MAXPROP_ENCHANT_DEFATTRIBUTE(item)    
+    --local result = IMCRandom(40, 84)
+    local result = IMCRandom(46, 99) * 2
     
-    local result = IMCRandom(40, 84)
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+
+-- 추가 대미지, 추가 대미지 저항 하나로 통합
+function SCR_GET_MAXPROP_ENCHANT_ATTRIBUTE(item)    
+    local result = IMCRandom(92, 198)
     
     if result < 1 then
         result = 1;
@@ -1573,7 +1599,7 @@ end
 
 function SCR_GET_MAXPROP_ENCHANT_ATTRIBUTEATK(item)
 
-    local result = IMCRandom(46, 99)
+    local result = IMCRandom(46, 99) * 2
     
     if result < 1 then
         result = 1;
@@ -1833,7 +1859,7 @@ function CALC_GROWTH_ITEM_LEVEL(item)
     end
     
     local pcLv = TryGetProp(pc, 'Lv', 1);
-    local itemLvList = { 1, 15, 40, 75, 120, 170, 220, 270, 315, 350, 380, 400};
+    local itemLvList = { 1, 15, 40, 75, 120, 170, 220, 270, 315, 350, 380, 400, 430};
     local value = itemLvList[#itemLvList];
     for i = 2, #itemLvList do
         if pcLv < itemLvList[i] then

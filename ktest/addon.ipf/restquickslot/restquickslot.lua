@@ -193,7 +193,7 @@ end
 function REST_SLOT_USE(frame, slotIndex)
 
 	if GetCraftState() == 1 then
-		ui.SysMsg(ClMsg("prosessItemCraft"));
+		ui.SysMsg(ClMsg("CHATHEDRAL53_MQ03_ITEM02"));
 		return;
 	end
 
@@ -228,10 +228,15 @@ function REQUEST_OPEN_JORUNAL_CRAFT()
 
 	local frame = ui.GetFrame("itemcraft");
 	if frame ~= nil then
-		SET_CRAFT_IDSPACE(frame, "Recipe");
-		SET_ITEM_CRAFT_UINAME("itemcraft");
-		ui.OpenFrame("itemcraft");
-		CRAFT_OPEN(frame);
+		if frame:IsVisible() == 1 then
+			ui.CloseFrame("itemcraft");
+		else			
+			SET_CRAFT_IDSPACE(frame, "Recipe");
+			SET_ITEM_CRAFT_UINAME("itemcraft");
+			ui.OpenFrame("itemcraft");
+			CRAFT_OPEN(frame);
+		end
+		
 	end
 end
 

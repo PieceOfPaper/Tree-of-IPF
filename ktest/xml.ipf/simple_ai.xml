@@ -1087,6 +1087,13 @@
             </ToolScp>
         </StartList>
     </AI>
+    <AI Name="BASIC_MONSTER_ATTACK_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                <Num Num="1000"/>
+            </ToolScp>
+        </List>
+    </AI>
     <AI Name="BASIC_TRACK_NPC_FOLLOW" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -1693,10 +1700,6 @@
             <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                 <Num Num="150"/>
             </ToolScp>
-            <ToolScp Scp="S_AI_ATTACK_SKILL" Client="NO" UseSleep="NO">
-                <Num Num="50"/>
-                <Str Str="Mon_TombLord_obj_Skill_1"/>
-            </ToolScp>
             <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                 <Str Str="Attack"/>
             </ToolScp>
@@ -1713,15 +1716,6 @@
                 <Num Num="0"/>
                 <Str_Arg Str="F_spin003" Arg="1"/>
                 <Str Str="BOT"/>
-            </ToolScp>
-            <ToolScp Scp="S_AI_SPIN" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Num Num="-1"/>
-                <Num Num="0.25"/>
-                <Num Num="0"/>
-            </ToolScp>
-            <ToolScp Scp="S_AI_ATTACK_SKILL_FRONT" Client="NO" UseSleep="NO">
-                <Str Str="Mon_TombLord_obj_Skill_1"/>
             </ToolScp>
         </StartList>
     </AI>
@@ -1780,6 +1774,32 @@
                 <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="CASTLE102_WHEEL_AI" UpdateMS="3000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_harfsphere002_blue" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_PLAYANI" Client="NO" UseSleep="NO">
+                <Str Str="loop"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="CASTLE102_WHEEL_DIR_AI" UpdateMS="3000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_CASTLE102_WHEEL_DIR_AI"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_PLAYANI" Client="NO" UseSleep="NO">
+                <Str Str="loop"/>
             </ToolScp>
         </StartList>
     </AI>
@@ -1904,6 +1924,25 @@
             </ToolScp>
         </List>
     </AI>
+    <AI Name="CASTLE94_MAIN05_SHIELD_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_sphere007_mash" Arg="3"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_sphere007_mash" Arg="3"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_sphere007_mash" Arg="3"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
     <AI Name="CASTLE94_MAIN_01_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <StartList>
             <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
@@ -1991,25 +2030,6 @@
             </ToolScp>
         </List>
     </AI>
-    <AI Name="CASTLE94_MAIN05_SHIELD_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-		<StartList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_sphere007_mash" Arg="3"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_sphere007_mash" Arg="3"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="I_sphere007_mash" Arg="3"/>
-				<Str Str="BOT"/>
-			</ToolScp>
-		</StartList>
-	</AI>
     <AI Name="CASTLE95_SETTING_POINT_AI" UpdateMS="3000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
@@ -3228,6 +3248,11 @@
                 <Num Num="200"/>
             </ToolScp>
         </List>
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="CHATHEDRAL_BATTLE_NPC_HIT"/>
+            </ToolScp>
+        </HitList>
         <StartList>
             <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                 <Str Str="PROOF_PRIST_HPLOCK"/>
@@ -4271,6 +4296,262 @@
             </ToolScp>
         </List>
     </AI>
+    <AI Name="DCAPITAL53_1_MQ_03_SUMMON_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_DCAPITAL53_1_MQ_03_SUMMON"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="DCAPITAL53_1_MQ_STATUE_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_lineup022_dark" Arg="1.4"/>
+                <Str Str="TOP"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_DCAPITAL53_1_MQ_04_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="DCAPITAL53_1_NPC_01_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="1586.3844" Y="110.5241" Z="1959.1698"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_SCHAFFENSTAR_MEMBER_HP_RESET_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="DCAPITAL53_1_NPC_02_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="1646.7385" Y="111.87444" Z="1972.4841"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_SCHAFFENSTAR_MEMBER_HP_RESET_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="DCAPITAL53_1_NPC_03_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="2055.3059" Y="111.87444" Z="2296.9609"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_SCHAFFENSTAR_MEMBER_HP_RESET_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="DCAPITAL53_1_NPC_04_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="2069.2585" Y="111.87444" Z="2384.1819"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_SCHAFFENSTAR_MEMBER_HP_RESET_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="DCAPITAL53_1_NPC_05_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="1899.1506" Y="111.87444" Z="2823.6509"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_SCHAFFENSTAR_MEMBER_HP_RESET_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="DCAPITAL53_1_NPC_06_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="1886.8694" Y="111.87444" Z="2883.6462"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_SCHAFFENSTAR_MEMBER_HP_RESET_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="DCAPITAL53_1_NPC_07_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="1181.0167" Y="240.5959" Z="2514.656"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_SCHAFFENSTAR_MEMBER_HP_RESET_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="DCAPITAL53_1_NPC_08_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="1142.1476" Y="242.85739" Z="2489.4761"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_SCHAFFENSTAR_MEMBER_HP_RESET_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="DCAPITAL53_1_NPC_09_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="1294.6011" Y="111.87444" Z="2106.1807"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_SCHAFFENSTAR_MEMBER_HP_RESET_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="DCAPITAL53_1_NPC_10_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="1326.986" Y="111.87444" Z="2060.5686"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_SCHAFFENSTAR_MEMBER_HP_RESET_AI"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="50"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="DCAPITAL53_1_OWL_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_DCAPITAL53_1_SUB_NPC_ACT"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_SCHAFFENSTAR_MEMBER_HP_RESET_AI"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_buff_ground_incenseburner" Arg="5"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
     <AI Name="DCAPITAL_103_SHADOW_DEVICE" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
@@ -4535,6 +4816,29 @@
         </List>
         <StartList>
             <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="D_CASTLE_19_1_MQ_03_HOVER_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_CASTLE_19_1_MQ_03_HOVER_AI_HOVER"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="D_CASTLE_19_1_MQ_NERINGA_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="D_CASTLE_19_1_MQ_NERINGA_AI_RUN"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="255"/>
+                <Num Num="255"/>
+                <Num Num="255"/>
+                <Num Num="150"/>
+                <Num Num="1"/>
+            </ToolScp>
         </StartList>
     </AI>
     <AI Name="D_CMINE_8_HIDDEN" ActiveMessageMapInBattle="1">
@@ -5213,28 +5517,26 @@
             </ToolScp>
         </StartList>
     </AI>
-    <AI Name="EVENT1912_4TH_BUFF2_RUN_MON_AI_RUN" UpdateMS="10000" ActiveMessageMapInBattle="1">
+    <AI Name="EP12_FINALE_RAIMA_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="EVENT1912_4TH_BUFF2_RUN_MON_RUN"/>
-            </ToolScp>
-        <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Str_Arg Str="F_sys_team_ground_red" Arg="3"/>
-                <Str Str="BOT"/>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_EP12_FINALE_RAIMA_BARRIER"/>
             </ToolScp>
         </List>
-    <StartList>
-            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
-            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Str_Arg Str="F_levitation039_red" Arg="5"/>
-                <Str Str="TOP"/>
+    </AI>
+    <AI Name="EP12_MAINSTREAM_NERINGA_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_EP12_MAINSTREAM_NERINGA_AI"/>
             </ToolScp>
-        <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Str_Arg Str="F_light081_ground_orange_loop" Arg="8"/>
-                <Str Str="BOT"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                <Num Num="255"/>
+                <Num Num="255"/>
+                <Num Num="255"/>
+                <Num Num="150"/>
+                <Num Num="1"/>
             </ToolScp>
         </StartList>
     </AI>
@@ -5267,6 +5569,31 @@
                 <Str Str="SCR_EP12_PRELUDE_Namot_SetUp_Place_AI"/>
             </ToolScp>
         </List>
+    </AI>
+    <AI Name="EVENT1912_4TH_BUFF2_RUN_MON_AI_RUN" UpdateMS="10000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="EVENT1912_4TH_BUFF2_RUN_MON_RUN"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_sys_team_ground_red" Arg="3"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_levitation039_red" Arg="5"/>
+                <Str Str="TOP"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_light081_ground_orange_loop" Arg="8"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
     </AI>
     <AI Name="EVENT1_1_TRIGGER_MONSTER_AI" ActiveMessageMapInBattle="1">
         <List>
@@ -9124,6 +9451,16 @@
                 <Num Num="0"/>
             </ToolScp>
         </List>
+    </AI>
+    <AI Name="F_CASTLE_99_MQ_05_AUSTEJA_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="F_CASTLE_99_MQ_05_AUSTEJA_AI_RUN"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
     </AI>
     <AI Name="F_CO_OP_NPC_TIME_RECORD_AI" ActiveMessageMapInBattle="1">
         <List>
@@ -14806,6 +15143,24 @@ if self.HP == 0 then return 1; else return 0; end;">
                 <Num Num="1"/>
             </ToolScp>
             <ToolScp Scp="DisableBornAni" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM312_SQ_06_BOSS_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="9999"/>
+            </ToolScp>
+        </List>
+        <HitList>
+            <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                <Str Str="PILGRIM312_SQ_06_BOSS_AI_HIT"/>
+            </ToolScp>
+        </HitList>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
         </StartList>
     </AI>
     <AI Name="PILGRIM313_GALIUS_AI" ActiveMessageMapInBattle="1">
@@ -23443,12 +23798,6 @@ if self.HP == 0 then return 1; else return 0; end;">
                 <Num Num="1"/>
                 <Num Num="100"/>
             </ToolScp>
-            <ToolScp Scp="S_AI_SPIN" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Num Num="-1"/>
-                <Num Num="1"/>
-                <Num Num="0"/>
-            </ToolScp>
             <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
                 <Num Num="0"/>
                 <Str_Arg Str="tombload_obj_body_green" Arg="2"/>
@@ -23682,6 +24031,13 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </List>
     </AI>
+    <AI Name="companion_pet_chick_crowtit" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
+                <Str Str="PET_LOOP_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
     <AI Name="companion_pet_dionys" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
@@ -23751,13 +24107,6 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </List>
     </AI>
-    <AI Name="companion_pet_chick_crowtit" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
-				<Str Str="PET_LOOP_AI"/>
-			</ToolScp>
-		</List>
-	</AI>
     <AI Name="dog" UpdateMS="200" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_DOG_ITEM" Client="NO" UseSleep="YES"/>
