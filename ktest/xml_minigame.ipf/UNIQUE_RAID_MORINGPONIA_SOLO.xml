@@ -604,10 +604,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="SUCCESS"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
-                                <Str Str="UniqeRaid: Casual_Unique_Raid_boss_Moringponia"/>
-                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="remove_wall">
@@ -740,6 +736,19 @@
                                 <Str Str="Stage_03(Moringponia)"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="RankResetPoint">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="PointSetting">
+                        <execList>
+                            <ToolScp Scp="MGAME_SET_RANK_RESET_POINT_AND_LOG" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                                <Str Str="UniqeRaid: Casual_Unique_Raid_boss_Moringponia"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>

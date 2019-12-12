@@ -7772,7 +7772,7 @@ return GET_ABIL_LEVEL(self, &quot;Fletcher6&quot;) * 10"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="HeavyGravity_HIDDEN_ABIL_PAD" CheckerType="0" Range="120" ApplyFlyMon="1" AllowOverlap="1">
+	<PadSkill Name="HeavyGravity_HIDDEN_ABIL_PAD" Range="120" ApplyFlyMon="1" AllowOverlap="1" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="5000"/>
@@ -7860,7 +7860,7 @@ return GET_ABIL_LEVEL(self, &quot;Fletcher6&quot;) * 10"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="HeavyGravity_PAD" CheckerType="0" Range="120" ApplyFlyMon="1" AllowOverlap="1">
+    <PadSkill Name="HeavyGravity_PAD" CheckerType="0" Range="120" ApplyFlyMon="1" AllowOverlap="1" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="5000" UseFunc="1" FuncTxt="local Time = 5000;

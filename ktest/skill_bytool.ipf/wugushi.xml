@@ -151,7 +151,37 @@
                     <Str Str="Char3_12" />
                     <Str Str="SKL_NEURO_TOXIN_PIEDPIPER_SHOT" />
                 </Scp>
-                </EtcList>
+                <Scp Client="YES" Scp="C_EFFECT" Time="300" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="E_neuro_toxin" />
+                    <Str FuncTxt="if SKL_CHECK_RIDING_COMPANION_C(self, obj) == 0 then           return 'Dummy_emitter'           else           return 'Dummy_emitter';           end" Str="None" UseFunc="1" />
+                    <Num Num="0" />
+                </Scp>
+                <Scp Client="YES" Scp="C_EFFECT" Time="330" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="F_wugushi_explosion001_green6" />
+                    <Str Str="Dummy_bleeding_effect" />
+                    <Num Num="1" />
+                </Scp>
+                <Scp Client="YES_Time" Scp="C_FORCE_EFT" Time="330" UseSleep="NO">
+                    <Str_Arg Arg="1" Str="I_archer_wugu2_force_mash#Dummy_bleeding_effect" />
+                    <Str Str="arrow_cast" />
+                    <Str_Arg Arg="0.5" Str="I_explosion002_green" />
+                    <Str Str="arrow_blow" />
+                    <Str Str="SLOW" />
+                    <Num Num="900" />
+                    <Num Num="1" />
+                    <Num Num="0" />
+                    <Angle_Abs Angle="0" />
+                    <Num Num="0" />
+                    <Num Num="5" />
+                    <Num Num="0" />
+                    <Num Num="0" />
+                    <Num Num="1" />
+                    <Num Num="1" />
+                    <Str Str="None" />
+                    <PosDist Angle="0" Dist="0" />
+                    <Num Num="0" />
+                </Scp>
+            </EtcList>
             <ResultList>
                 <ToolScp Client="NO" Scp="S_R_TGTBUFF" UseSleep="NO">
                     <Str Str="LatentVenom_Debuff" />

@@ -436,9 +436,7 @@
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="NPC_SET/9"/>
                             </ToolScp>
-                            <ToolScp Scp="SCR_SET_SAVE_POINT_RESURRECT" Client="NO" UseSleep="NO">
-                                <Num Num="1"/>
-                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_REVIVE" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="summon_pad_pattern_2">
@@ -557,8 +555,8 @@
                     <Obj Type="Monster" MonType="147448" Pos="-2546.19#292.69#-171.45" angle="-80" genCount="1" genTime="20000" autoGen="0" objectKey="6" propList="&apos;Dialog&apos; &apos;CHRONO_MASTER&apos; "/>
                     <Obj Type="Monster" MonType="59344" Pos="-2310.64#292.69#-274.92" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;StatType&apos; &apos;LegendRaid_Boss_EP11_2&apos; "/>
                     <Obj Type="Monster" MonType="20026" Pos="-2622.39#292.69#-103.88" genCount="1" genTime="20000" objectKey="2"/>
-                    <Obj Type="Monster" MonType="160009" Pos="-2141.90#292.69#-470.85" genCount="1" genTime="20000" autoGen="0" objectKey="7"/>
-                    <Obj Type="Monster" MonType="160009" Pos="-2437.14#292.69#-95.06" genCount="1" genTime="20000" autoGen="0" objectKey="7"/>
+                    <Obj Type="Monster" MonType="160009" Pos="-2208.88#292.69#-367.80" genCount="1" genTime="20000" autoGen="0" objectKey="7"/>
+                    <Obj Type="Monster" MonType="160009" Pos="-2391.51#292.69#-144.42" genCount="1" genTime="20000" autoGen="0" objectKey="7"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="STAGE_START">
@@ -596,9 +594,6 @@
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>
-                            <ToolScp Scp="SCR_SET_SAVE_POINT_RESURRECT" Client="NO" UseSleep="NO">
-                                <Num Num="0"/>
-                            </ToolScp>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="Stage_03(Moringponia)/7"/>
                                 <Num Num="2"/>
@@ -608,6 +603,11 @@
                                 <Str Str="SCR_MORINGPONIA_START_BUFF"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="NPC_SET/9"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="end_check" execWithStart="0" isEnabled="0">
@@ -640,6 +640,9 @@
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="Stage_03(Moringponia)/1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="NPC_SET/9"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
@@ -683,10 +686,6 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="SUCCESS"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
-                                <Str Str="LegendRaid: Legend_Raid_boss_Moringponia"/>
-                            </ToolScp>
                             <ToolScp Scp="SCR_SET_SAVE_POINT_RESURRECT" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
                             </ToolScp>
@@ -727,9 +726,6 @@
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/6"/>
                                 <Str Str="SCR_MORINGPONIA_STAGE_03_END_MSG"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="end_run_Baiga"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="Clear"/>
@@ -845,7 +841,7 @@
                                 <Str Str="OVER"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
+                                <Num Num="45"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -872,7 +868,7 @@
                                 <Str Str="OVER"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK_START" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
+                                <Num Num="45"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -1042,6 +1038,19 @@
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="Stage_03(Moringponia)/4"/>
                                 <Str Str="SCR_MORINGPONIA_SUMMON_POTAL_2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="RankResetPoint">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="PointSetting">
+                        <execList>
+                            <ToolScp Scp="MGAME_SET_RANK_RESET_POINT_AND_LOG" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                                <Str Str="LegendRaid: Legend_Raid_boss_Moringponia"/>
                             </ToolScp>
                         </execList>
                     </Event>

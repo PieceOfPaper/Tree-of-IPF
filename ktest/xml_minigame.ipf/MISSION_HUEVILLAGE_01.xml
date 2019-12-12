@@ -629,10 +629,6 @@
 								<Str Str="Request_Mission5_SUCCESS"/>
 								<Str Str="YES"/>
 							</ToolScp>
-							<ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-								<Str Str="Mission: Request_Mission5"/>
-							</ToolScp>
 						</execList>
 					</Event>
 					<Event execCount="1" eventName="successMsg">
@@ -807,6 +803,19 @@
 					</Event>
 				</StageEvents>
 			</Stage>
+            <Stage Name="RankResetPoint">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="PointSetting">
+                        <execList>
+                            <ToolScp Scp="MGAME_SET_RANK_RESET_POINT_AND_LOG" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                                <Str Str="Mission: Request_Mission5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
 		</StageList>
 		<EnterList>
 			<ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">

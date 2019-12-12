@@ -1057,10 +1057,6 @@
                                 <Str Str="MISSION_ROKAS_01"/>
                                 <Str Str="NO"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
-                                <Num Num="15"/>
-                                <Str Str="SaalusMission: Request_Mission7"/>
-                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -1187,6 +1183,19 @@
                         <execList>
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="MGAME_ABUSE_CHECK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="RankResetPoint">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="PointSetting">
+                        <execList>
+                            <ToolScp Scp="MGAME_SET_RANK_RESET_POINT_AND_LOG" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                                <Str Str="SaalusMission: Request_Mission7"/>
                             </ToolScp>
                         </execList>
                     </Event>

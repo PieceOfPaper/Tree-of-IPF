@@ -209,23 +209,27 @@ function HOUSING_EDITMODE_REMOVE_ALL_FURNITURE()
 end
 
 function SCR_OPEN_HOUSING_EDITMODE_PAGE(gbox, btn)
-	local isOpen = btn:GetUserValue("IsOpen");
-	if isOpen == "None" or isOpen == "false" then
+	local pageFrame = ui.GetFrame("housing_editmode_page");
+	if pageFrame == nil then
+		return;
+	end
+
+	if pageFrame:IsVisible() == 0 then
 		ui.OpenFrame("housing_editmode_page");
-		btn:SetUserValue("IsOpen", "true");
 	else
 		ui.CloseFrame("housing_editmode_page");
-		btn:SetUserValue("IsOpen", "false");
 	end
 end
 
 function SCR_OPEN_HOUSING_EDITMODE_CHANGE_BACKGROUND(gbox, btn)
-	local isOpen = btn:GetUserValue("IsOpen");
-	if isOpen == "None" or isOpen == "false" then
+	local pageFrame = ui.GetFrame("housing_editmode_background_chagne");
+	if pageFrame == nil then
+		return;
+	end
+	
+	if pageFrame:IsVisible() == 0 then
 		ui.OpenFrame("housing_editmode_background_chagne");
-		btn:SetUserValue("IsOpen", "true");
 	else
 		ui.CloseFrame("housing_editmode_background_chagne");
-		btn:SetUserValue("IsOpen", "false");
 	end
 end

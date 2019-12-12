@@ -2540,10 +2540,6 @@
                                 <Str Str="Clear"/>
                                 <Num Num="5"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
-                                <Str Str="UniqueRaid: Indun_StarTower_uniqe_raid"/>
-                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -2800,6 +2796,19 @@
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="gate/0/gate/1/gate/2/gate/3/gate/4"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="RankResetPoint">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="PointSetting">
+                        <execList>
+                            <ToolScp Scp="MGAME_SET_RANK_RESET_POINT_AND_LOG" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                                <Str Str="UniqueRaid: Indun_StarTower_uniqe_raid"/>
                             </ToolScp>
                         </execList>
                     </Event>

@@ -64,7 +64,8 @@
 				<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN" />
 			</HitList>
 			<EtcList>
-				<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+				<Scp Scp="SKL_SET_DIR_TO_TGT_Fletcher" Client="NO" UseSleep="NO" Time="0"/>
+                <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
 					<Str Str="voice_wiz_m_flare_shot" />
 					<Str Str="voice_wiz_flare_shot" />
 				</Scp>
@@ -98,7 +99,8 @@
 						<Frame Angle="0" AniTime="99999" Dist="0" ForceATK="0" HitCount="1" PosType="0" RandDist="0" RandomPerHit="0" RotAngle="0" TermMax="0" TermMin="0" Time="99799" Type="FAN" />
 					</HitList>
 					<EtcList>
-						<Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
+						<Scp Scp="SKL_SET_DIR_TO_TGT_Fletcher" Client="NO" UseSleep="NO" Time="0"/>
+                        <Scp Client="YES" Scp="C_VOICE_SOUND" Time="0" UseSleep="NO">
 							<Str Str="voice_wiz_m_flare_shot" />
 							<Str Str="voice_wiz_flare_shot" />
 						</Scp>
